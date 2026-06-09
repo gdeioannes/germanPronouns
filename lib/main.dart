@@ -36,7 +36,8 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   final TextEditingController _answerController = TextEditingController();
   final FocusNode _answerFocusNode = FocusNode();
   final ScrollController _tableScrollController = ScrollController();
@@ -51,6 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentCaseIndex = 0;
   String _feedback = '';
   String _currentReferenceSentence = '';
+  bool _showFireworks = false;
+  late final AnimationController _fireworksController;
+  List<_FireworkParticle> _fireworkParticles = const [];
   List<Map<String, dynamic>> _answerHistory = [];
   Map<String, int> _mistakesByCase = {};
 
@@ -179,6 +183,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    _fireworksController =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 1800),
+        )..addStatusListener((status) {
+          if (status == AnimationStatus.completed && mounted) {
+            setState(() {
+              _showFireworks = false;
+            });
+          }
+        });
     _nextQuestion();
     _loadStoredStats();
     _requestAnswerFocus();
@@ -189,7 +204,42 @@ class _MyHomePageState extends State<MyHomePage> {
     _answerController.dispose();
     _answerFocusNode.dispose();
     _tableScrollController.dispose();
+    _fireworksController.dispose();
     super.dispose();
+  }
+
+  void _triggerFireworks() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final palette = [
+      colorScheme.primary,
+      colorScheme.tertiary,
+      Colors.orange,
+      Colors.amber,
+      Colors.lightBlue,
+      Colors.green,
+    ];
+
+    final particleCount = 40;
+    final particles = List.generate(particleCount, (_) {
+      final angle = _random.nextDouble() * 2 * pi;
+      final direction = Offset(cos(angle), sin(angle));
+      return _FireworkParticle(
+        origin: Offset(
+          0.2 + _random.nextDouble() * 0.6,
+          0.3 + _random.nextDouble() * 0.25,
+        ),
+        direction: direction,
+        speed: 52 + _random.nextDouble() * 46,
+        size: 1.9 + _random.nextDouble() * 2.3,
+        color: palette[_random.nextInt(palette.length)],
+      );
+    });
+
+    setState(() {
+      _fireworkParticles = particles;
+      _showFireworks = true;
+    });
+    _fireworksController.forward(from: 0);
   }
 
   void _requestAnswerFocus() {
@@ -364,10 +414,12 @@ class _MyHomePageState extends State<MyHomePage> {
     final correctAnswer =
         _quizCases[_currentCaseIndex].values[_currentPronounIndex];
     final isCorrect = userAnswer == correctAnswer.toLowerCase();
+    var shouldCelebrate = false;
 
     setState(() {
       if (isCorrect) {
         _score += 1;
+        shouldCelebrate = true;
         _feedback =
             'Correct: $nominative -> $caseLabel = $correctAnswer (+1 point)';
       } else {
@@ -392,6 +444,10 @@ class _MyHomePageState extends State<MyHomePage> {
       _answerController.clear();
       _nextQuestion();
     });
+
+    if (shouldCelebrate) {
+      _triggerFireworks();
+    }
 
     _saveStoredStats();
     _requestAnswerFocus();
@@ -490,224 +546,273 @@ class _MyHomePageState extends State<MyHomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+              clipBehavior: Clip.antiAlias,
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Text(
-                            'Quiz',
-                            style: Theme.of(context).textTheme.headlineSmall
-                                ?.copyWith(fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                        Chip(
-                          label: Text('Score $_score'),
-                          avatar: const Icon(Icons.star_rounded, size: 18),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    LayoutBuilder(
-                      builder: (context, constraints) {
-                        final isWide = constraints.maxWidth >= 760;
-                        final panelMinHeight = isWide ? 250.0 : 220.0;
-
-                        final questionBox = Card(
-                          color: colorScheme.primaryContainer.withValues(
-                            alpha: 0.45,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                            side: BorderSide(color: colorScheme.outlineVariant),
-                          ),
-                          child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                              minHeight: panelMinHeight,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 12),
-                                  Text(
-                                    'Pronoun',
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.labelLarge,
-                                  ),
-                                  const SizedBox(height: 6),
-                                  Text(
-                                    currentPronoun,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium
-                                        ?.copyWith(fontWeight: FontWeight.w700),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Text(
-                                    'Case',
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.labelLarge,
-                                  ),
-                                  const SizedBox(height: 6),
-                                  Text(
-                                    currentCase,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall
-                                        ?.copyWith(fontWeight: FontWeight.w600),
-                                  ),
-                                  const Spacer(),
-                                  Text(
-                                    'Reference',
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.labelLarge,
-                                  ),
-                                  const SizedBox(height: 6),
-                                  Text(
-                                    _currentReferenceSentence,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                  ),
-                                ],
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'Quiz',
+                                style: Theme.of(context).textTheme.headlineSmall
+                                    ?.copyWith(fontWeight: FontWeight.w700),
                               ),
                             ),
-                          ),
-                        );
-
-                        final answerBox = Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                            side: BorderSide(color: colorScheme.outlineVariant),
-                          ),
-                          child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                              minHeight: panelMinHeight,
+                            Chip(
+                              label: Text('Score $_score'),
+                              avatar: const Icon(Icons.star_rounded, size: 18),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Answer',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleLarge
-                                        ?.copyWith(fontWeight: FontWeight.w700),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  TextField(
-                                    controller: _answerController,
-                                    focusNode: _answerFocusNode,
-                                    autofocus: true,
-                                    textInputAction: TextInputAction.done,
-                                    minLines: 2,
-                                    maxLines: 3,
-                                    decoration: InputDecoration(
-                                      labelText: 'Type here',
-                                      hintText: 'e.g. meinen',
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(18),
-                                      ),
-                                      filled: true,
-                                      fillColor: colorScheme
-                                          .surfaceContainerHighest
-                                          .withValues(alpha: 0.35),
-                                    ),
-                                    onSubmitted: (_) => _submitAnswer(),
-                                  ),
-                                  const SizedBox(height: 14),
-                                  Row(
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            final isWide = constraints.maxWidth >= 760;
+                            final panelMinHeight = isWide ? 250.0 : 150.0;
+
+                            final questionBox = Card(
+                              color: colorScheme.primaryContainer.withValues(
+                                alpha: 0.45,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(
+                                  color: colorScheme.outlineVariant,
+                                ),
+                              ),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: panelMinHeight,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Expanded(
-                                        child: FilledButton.icon(
-                                          onPressed: _submitAnswer,
-                                          icon: const Icon(Icons.check_rounded),
-                                          label: const Text('Check'),
-                                        ),
+                                      const SizedBox(height: 12),
+                                      Text(
+                                        'Pronoun',
+                                        style: Theme.of(
+                                          context,
+                                        ).textTheme.labelLarge,
                                       ),
-                                      const SizedBox(width: 12),
-                                      OutlinedButton.icon(
-                                        onPressed: _newQuestion,
-                                        icon: const Icon(
-                                          Icons.skip_next_rounded,
-                                        ),
-                                        label: const Text('Next'),
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        currentPronoun,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Text(
+                                        'Case',
+                                        style: Theme.of(
+                                          context,
+                                        ).textTheme.labelLarge,
+                                      ),
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        currentCase,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      if (isWide)
+                                        const Spacer()
+                                      else
+                                        const SizedBox(height: 12),
+                                      Text(
+                                        'Reference',
+                                        style: Theme.of(
+                                          context,
+                                        ).textTheme.labelLarge,
+                                      ),
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        _currentReferenceSentence,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle: FontStyle.italic,
+                                            ),
                                       ),
                                     ],
                                   ),
-                                  if (_feedback.isNotEmpty) ...[
-                                    const SizedBox(height: 16),
-                                    Container(
-                                      width: double.infinity,
-                                      padding: const EdgeInsets.all(14),
-                                      decoration: BoxDecoration(
-                                        color: _feedback.startsWith('Correct')
-                                            ? colorScheme.tertiaryContainer
-                                            : colorScheme.errorContainer,
-                                        borderRadius: BorderRadius.circular(18),
-                                      ),
-                                      child: Text(
-                                        _feedback,
-                                        style: TextStyle(
-                                          color: _feedback.startsWith('Correct')
-                                              ? colorScheme.onTertiaryContainer
-                                              : colorScheme.onErrorContainer,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                        );
+                            );
 
-                        if (isWide) {
-                          return IntrinsicHeight(
-                            child: Row(
+                            final answerBox = Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(
+                                  color: colorScheme.outlineVariant,
+                                ),
+                              ),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: panelMinHeight,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Answer',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleLarge
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 12),
+                                      TextField(
+                                        controller: _answerController,
+                                        focusNode: _answerFocusNode,
+                                        autofocus: true,
+                                        textInputAction: TextInputAction.done,
+                                        minLines: isWide ? 2 : 1,
+                                        maxLines: isWide ? 3 : 2,
+                                        decoration: InputDecoration(
+                                          labelText: 'Type here',
+                                          hintText: 'e.g. meinen',
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              18,
+                                            ),
+                                          ),
+                                          filled: true,
+                                          fillColor: colorScheme
+                                              .surfaceContainerHighest
+                                              .withValues(alpha: 0.35),
+                                        ),
+                                        onSubmitted: (_) => _submitAnswer(),
+                                      ),
+                                      const SizedBox(height: 14),
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                            child: FilledButton.icon(
+                                              onPressed: _submitAnswer,
+                                              icon: const Icon(
+                                                Icons.check_rounded,
+                                              ),
+                                              label: const Text('Check'),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 12),
+                                          OutlinedButton.icon(
+                                            onPressed: _newQuestion,
+                                            icon: const Icon(
+                                              Icons.skip_next_rounded,
+                                            ),
+                                            label: const Text('Next'),
+                                          ),
+                                        ],
+                                      ),
+                                      if (_feedback.isNotEmpty) ...[
+                                        const SizedBox(height: 16),
+                                        Container(
+                                          width: double.infinity,
+                                          padding: const EdgeInsets.all(14),
+                                          decoration: BoxDecoration(
+                                            color:
+                                                _feedback.startsWith('Correct')
+                                                ? colorScheme.tertiaryContainer
+                                                : colorScheme.errorContainer,
+                                            borderRadius: BorderRadius.circular(
+                                              18,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            _feedback,
+                                            style: TextStyle(
+                                              color:
+                                                  _feedback.startsWith(
+                                                    'Correct',
+                                                  )
+                                                  ? colorScheme
+                                                        .onTertiaryContainer
+                                                  : colorScheme
+                                                        .onErrorContainer,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+
+                            if (isWide) {
+                              return IntrinsicHeight(
+                                child: Row(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Expanded(child: questionBox),
+                                    const SizedBox(width: 16),
+                                    Expanded(child: answerBox),
+                                  ],
+                                ),
+                              );
+                            }
+
+                            return Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                Expanded(child: questionBox),
-                                const SizedBox(width: 16),
-                                Expanded(child: answerBox),
+                                questionBox,
+                                const SizedBox(height: 16),
+                                answerBox,
                               ],
-                            ),
-                          );
-                        }
-
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            questionBox,
-                            const SizedBox(height: 16),
-                            answerBox,
-                          ],
-                        );
-                      },
+                            );
+                          },
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  if (_showFireworks)
+                    Positioned.fill(
+                      child: IgnorePointer(
+                        child: AnimatedBuilder(
+                          animation: _fireworksController,
+                          builder: (context, _) {
+                            return CustomPaint(
+                              painter: _FireworksPainter(
+                                progress: _fireworksController.value,
+                                particles: _fireworkParticles,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -1238,5 +1343,65 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+}
+
+class _FireworkParticle {
+  const _FireworkParticle({
+    required this.origin,
+    required this.direction,
+    required this.speed,
+    required this.size,
+    required this.color,
+  });
+
+  final Offset origin;
+  final Offset direction;
+  final double speed;
+  final double size;
+  final Color color;
+}
+
+class _FireworksPainter extends CustomPainter {
+  const _FireworksPainter({required this.progress, required this.particles});
+
+  final double progress;
+  final List<_FireworkParticle> particles;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (particles.isEmpty) return;
+
+    final eased = Curves.easeOutCubic.transform(progress.clamp(0.0, 1.0));
+    final fade = (1 - progress).clamp(0.0, 1.0);
+    final paint = Paint()..style = PaintingStyle.fill;
+
+    for (final particle in particles) {
+      final start = Offset(
+        particle.origin.dx * size.width,
+        particle.origin.dy * size.height,
+      );
+      final position = start + (particle.direction * particle.speed * eased);
+
+      // solid rotated square particle (confetti-like)
+      paint.color = particle.color.withValues(alpha: 0.95 * fade);
+      final side = particle.size * 1.9;
+      final rotation =
+          atan2(particle.direction.dy, particle.direction.dx) + progress * 8.0;
+      canvas.save();
+      canvas.translate(position.dx, position.dy);
+      canvas.rotate(rotation);
+      canvas.drawRect(
+        Rect.fromCenter(center: Offset.zero, width: side, height: side),
+        paint,
+      );
+      canvas.restore();
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _FireworksPainter oldDelegate) {
+    return oldDelegate.progress != progress ||
+        oldDelegate.particles != particles;
   }
 }
