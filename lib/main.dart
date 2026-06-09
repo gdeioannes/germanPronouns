@@ -3,234 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-var listPronounsGermanNominative = [
-  'ich',
-  'du',
-  'er',
-  'sie',
-  'es',
-  'wir',
-  'ihr',
-  'sie',
-  'Sie',
-];
-
-var listPronounsGermanAkusative = [
-  'mich',
-  'dich',
-  'ihn',
-  'sie',
-  'es',
-  'uns',
-  'euch',
-  'sie',
-  'Sie',
-];
-
-var listPronounsGermanDative = [
-  'mir',
-  'dir',
-  'ihm',
-  'ihr',
-  'ihm',
-  'uns',
-  'euch',
-  'ihnen',
-  'Ihnen',
-];
-
-var listPronounsGermanGenitive = [
-  'meiner',
-  'deiner',
-  'seiner',
-  'ihrer',
-  'seiner',
-  'unser',
-  'euer',
-  'ihrer',
-  'Ihrer',
-];
-
-var listPronounsGermanReflexive = [
-  'mir',
-  'dir',
-  'sich',
-  'sich',
-  'sich',
-  'uns',
-  'euch',
-  'sich',
-  'sich',
-];
-
-var listPronounsGermanPossessiveMasculine = [
-  'mein',
-  'dein',
-  'sein',
-  'ihr',
-  'sein',
-  'unser',
-  'euer',
-  'ihr',
-  'Ihr',
-];
-
-var listPronounsGermanPossessiveMasculineAccusative = [
-  'meinen',
-  'deinen',
-  'seinen',
-  'ihren',
-  'seinen',
-  'unseren',
-  'euren',
-  'ihren',
-  'Ihren',
-];
-
-var listPronounsGermanPossessiveMasculineDative = [
-  'meinem',
-  'deinem',
-  'seinem',
-  'ihrem',
-  'seinem',
-  'unserem',
-  'eurem',
-  'ihrem',
-  'Ihrem',
-];
-
-var listPronounsGermanPossessiveMasculineGenitive = [
-  'meines',
-  'deines',
-  'seines',
-  'ihres',
-  'seines',
-  'unseres',
-  'eures',
-  'ihres',
-  'Ihres',
-];
-
-var listPronounsGermanPossessiveFeminine = [
-  'meine',
-  'deine',
-  'seine',
-  'ihre',
-  'seine',
-  'unsere',
-  'eure',
-  'ihre',
-  'Ihre',
-];
-
-var listPronounsGermanPossessiveFeminineAccusative = [
-  'meine',
-  'deine',
-  'seine',
-  'ihre',
-  'seine',
-  'unsere',
-  'eure',
-  'ihre',
-  'Ihre',
-];
-
-var listPronounsGermanPossessiveFeminineDative = [
-  'meiner',
-  'deiner',
-  'seiner',
-  'ihrer',
-  'seiner',
-  'unserer',
-  'eurer',
-  'ihrer',
-  'Ihrer',
-];
-
-var listPronounsGermanPossessiveFeminineGenitive = [
-  'meiner',
-  'deiner',
-  'seiner',
-  'ihrer',
-  'seiner',
-  'unserer',
-  'eurer',
-  'ihrer',
-  'Ihrer',
-];
-
-var listPronounsGermanPossessiveNeuter = [
-  'mein',
-  'dein',
-  'sein',
-  'ihr',
-  'sein',
-  'unser',
-  'euer',
-  'ihr',
-  'Ihr',
-];
-
-var listPronounsGermanPossessiveNeuterAccusative = [
-  'mein',
-  'dein',
-  'sein',
-  'ihr',
-  'sein',
-  'unser',
-  'euer',
-  'ihr',
-  'Ihr',
-];
-
-var listPronounsGermanPossessiveNeuterDative = [
-  'meinem',
-  'deinem',
-  'seinem',
-  'ihrem',
-  'seinem',
-  'unserem',
-  'eurem',
-  'ihrem',
-  'Ihrem',
-];
-
-var listPronounsGermanPossessiveNeuterGenitive = [
-  'meines',
-  'deines',
-  'seines',
-  'ihres',
-  'seines',
-  'unseres',
-  'eures',
-  'ihres',
-  'Ihres',
-];
-
-var listPronounsGermanPossessivePlural = [
-  'meine',
-  'deine',
-  'seine',
-  'ihre',
-  'seine',
-  'unsere',
-  'eure',
-  'ihre',
-  'Ihre',
-];
-
-class QuizCaseDefinition {
-  const QuizCaseDefinition({
-    required this.label,
-    required this.values,
-    required this.group,
-  });
-
-  final String label;
-  final List<String> values;
-  final String group;
-}
+import 'data/pronoun_data.dart';
+import 'data/reference_sentence_bank.dart';
 
 void main() {
   runApp(const MyApp());
@@ -276,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentPronounIndex = 0;
   int _currentCaseIndex = 0;
   String _feedback = '';
-  bool _isIntroExpanded = true;
+  String _currentReferenceSentence = '';
   List<Map<String, dynamic>> _answerHistory = [];
   Map<String, int> _mistakesByCase = {};
 
@@ -469,6 +243,37 @@ class _MyHomePageState extends State<MyHomePage> {
     await prefs.setString(_mistakesStorageKey, jsonEncode(_mistakesByCase));
   }
 
+  String _pickCaseGroup() {
+    final total = _groupChanceWeights.values.fold<double>(0, (a, b) => a + b);
+    var threshold = _random.nextDouble() * total;
+
+    for (final entry in _groupChanceWeights.entries) {
+      threshold -= entry.value;
+      if (threshold <= 0) {
+        return entry.key;
+      }
+    }
+    return _groupChanceWeights.keys.first;
+  }
+
+  void _nextQuestion() {
+    _currentPronounIndex = _random.nextInt(listPronounsGermanNominative.length);
+    final selectedGroup = _pickCaseGroup();
+    final casesInGroup = _quizCases
+        .where((quizCase) => quizCase.group == selectedGroup)
+        .toList();
+    final selectedCase = casesInGroup[_random.nextInt(casesInGroup.length)];
+    _currentCaseIndex = _quizCases.indexOf(selectedCase);
+    final nominative = listPronounsGermanNominative[_currentPronounIndex];
+    final correctAnswer = selectedCase.values[_currentPronounIndex];
+    _currentReferenceSentence = pickReferenceSentence(
+      caseLabel: selectedCase.label,
+      nominative: nominative,
+      answer: correctAnswer,
+      random: _random,
+    );
+  }
+
   Future<void> _resetProgress() async {
     setState(() {
       _score = 0;
@@ -551,29 +356,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  String _pickCaseGroup() {
-    final total = _groupChanceWeights.values.fold<double>(0, (a, b) => a + b);
-    var threshold = _random.nextDouble() * total;
-
-    for (final entry in _groupChanceWeights.entries) {
-      threshold -= entry.value;
-      if (threshold <= 0) {
-        return entry.key;
-      }
-    }
-    return _groupChanceWeights.keys.first;
-  }
-
-  void _nextQuestion() {
-    _currentPronounIndex = _random.nextInt(listPronounsGermanNominative.length);
-    final selectedGroup = _pickCaseGroup();
-    final casesInGroup = _quizCases
-        .where((quizCase) => quizCase.group == selectedGroup)
-        .toList();
-    final selectedCase = casesInGroup[_random.nextInt(casesInGroup.length)];
-    _currentCaseIndex = _quizCases.indexOf(selectedCase);
-  }
-
   void _submitAnswer() {
     final userAnswerRaw = _answerController.text.trim();
     final userAnswer = userAnswerRaw.toLowerCase();
@@ -609,7 +391,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
       _answerController.clear();
       _nextQuestion();
-      _isIntroExpanded = false;
     });
 
     _saveStoredStats();
@@ -703,64 +484,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            Card(
-              elevation: 0,
-              color: colorScheme.primaryContainer,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(24),
-                onTap: () {
-                  if (!_isIntroExpanded) {
-                    setState(() {
-                      _isIntroExpanded = true;
-                    });
-                  }
-                },
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 220),
-                  curve: Curves.easeOut,
-                  padding: EdgeInsets.all(_isIntroExpanded ? 20 : 12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              'German pronouns and articles',
-                              style:
-                                  (_isIntroExpanded
-                                          ? Theme.of(
-                                              context,
-                                            ).textTheme.headlineSmall
-                                          : Theme.of(
-                                              context,
-                                            ).textTheme.titleMedium)
-                                      ?.copyWith(fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          if (!_isIntroExpanded)
-                            Icon(
-                              Icons.open_in_full_rounded,
-                              color: colorScheme.onPrimaryContainer,
-                              size: 18,
-                            ),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        _isIntroExpanded
-                            ? 'Quiz first, reference table second.'
-                            : 'Tap to expand. It will shrink again after the next answer.',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
             const SizedBox(height: 16),
             Card(
               elevation: 1,
@@ -791,6 +514,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     LayoutBuilder(
                       builder: (context, constraints) {
                         final isWide = constraints.maxWidth >= 760;
+                        final panelMinHeight = isWide ? 250.0 : 220.0;
 
                         final questionBox = Card(
                           color: colorScheme.primaryContainer.withValues(
@@ -800,43 +524,71 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius: BorderRadius.circular(18),
                             side: BorderSide(color: colorScheme.outlineVariant),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Question',
-                                  style: Theme.of(context).textTheme.titleLarge
-                                      ?.copyWith(fontWeight: FontWeight.w700),
-                                ),
-                                const SizedBox(height: 12),
-                                Text(
-                                  'Pronoun',
-                                  style: Theme.of(context).textTheme.labelLarge,
-                                ),
-                                const SizedBox(height: 6),
-                                Text(
-                                  currentPronoun,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium
-                                      ?.copyWith(fontWeight: FontWeight.w700),
-                                ),
-                                const SizedBox(height: 16),
-                                Text(
-                                  'Case',
-                                  style: Theme.of(context).textTheme.labelLarge,
-                                ),
-                                const SizedBox(height: 6),
-                                Text(
-                                  currentCase,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall
-                                      ?.copyWith(fontWeight: FontWeight.w600),
-                                ),
-                              ],
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minHeight: panelMinHeight,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(height: 12),
+                                  Text(
+                                    'Pronoun',
+                                    style: Theme.of(
+                                      context,
+                                    ).textTheme.labelLarge,
+                                  ),
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    currentPronoun,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium
+                                        ?.copyWith(fontWeight: FontWeight.w700),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    'Case',
+                                    style: Theme.of(
+                                      context,
+                                    ).textTheme.labelLarge,
+                                  ),
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    currentCase,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall
+                                        ?.copyWith(fontWeight: FontWeight.w600),
+                                  ),
+                                  const Spacer(),
+                                  Text(
+                                    'Reference',
+                                    style: Theme.of(
+                                      context,
+                                    ).textTheme.labelLarge,
+                                  ),
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    _currentReferenceSentence,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
@@ -846,90 +598,101 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius: BorderRadius.circular(18),
                             side: BorderSide(color: colorScheme.outlineVariant),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Answer',
-                                  style: Theme.of(context).textTheme.titleLarge
-                                      ?.copyWith(fontWeight: FontWeight.w700),
-                                ),
-                                const SizedBox(height: 12),
-                                TextField(
-                                  controller: _answerController,
-                                  focusNode: _answerFocusNode,
-                                  autofocus: true,
-                                  textInputAction: TextInputAction.done,
-                                  minLines: 3,
-                                  maxLines: 5,
-                                  decoration: InputDecoration(
-                                    labelText: 'Type here',
-                                    hintText: 'e.g. meinen',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(18),
-                                    ),
-                                    filled: true,
-                                    fillColor: colorScheme
-                                        .surfaceContainerHighest
-                                        .withValues(alpha: 0.35),
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minHeight: panelMinHeight,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Answer',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge
+                                        ?.copyWith(fontWeight: FontWeight.w700),
                                   ),
-                                  onSubmitted: (_) => _submitAnswer(),
-                                ),
-                                const SizedBox(height: 16),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: FilledButton.icon(
-                                        onPressed: _submitAnswer,
-                                        icon: const Icon(Icons.check_rounded),
-                                        label: const Text('Check'),
+                                  const SizedBox(height: 12),
+                                  TextField(
+                                    controller: _answerController,
+                                    focusNode: _answerFocusNode,
+                                    autofocus: true,
+                                    textInputAction: TextInputAction.done,
+                                    minLines: 2,
+                                    maxLines: 3,
+                                    decoration: InputDecoration(
+                                      labelText: 'Type here',
+                                      hintText: 'e.g. meinen',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(18),
                                       ),
+                                      filled: true,
+                                      fillColor: colorScheme
+                                          .surfaceContainerHighest
+                                          .withValues(alpha: 0.35),
                                     ),
-                                    const SizedBox(width: 12),
-                                    OutlinedButton.icon(
-                                      onPressed: _newQuestion,
-                                      icon: const Icon(Icons.skip_next_rounded),
-                                      label: const Text('Next'),
+                                    onSubmitted: (_) => _submitAnswer(),
+                                  ),
+                                  const SizedBox(height: 14),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: FilledButton.icon(
+                                          onPressed: _submitAnswer,
+                                          icon: const Icon(Icons.check_rounded),
+                                          label: const Text('Check'),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 12),
+                                      OutlinedButton.icon(
+                                        onPressed: _newQuestion,
+                                        icon: const Icon(
+                                          Icons.skip_next_rounded,
+                                        ),
+                                        label: const Text('Next'),
+                                      ),
+                                    ],
+                                  ),
+                                  if (_feedback.isNotEmpty) ...[
+                                    const SizedBox(height: 16),
+                                    Container(
+                                      width: double.infinity,
+                                      padding: const EdgeInsets.all(14),
+                                      decoration: BoxDecoration(
+                                        color: _feedback.startsWith('Correct')
+                                            ? colorScheme.tertiaryContainer
+                                            : colorScheme.errorContainer,
+                                        borderRadius: BorderRadius.circular(18),
+                                      ),
+                                      child: Text(
+                                        _feedback,
+                                        style: TextStyle(
+                                          color: _feedback.startsWith('Correct')
+                                              ? colorScheme.onTertiaryContainer
+                                              : colorScheme.onErrorContainer,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
                                     ),
                                   ],
-                                ),
-                                if (_feedback.isNotEmpty) ...[
-                                  const SizedBox(height: 16),
-                                  Container(
-                                    width: double.infinity,
-                                    padding: const EdgeInsets.all(14),
-                                    decoration: BoxDecoration(
-                                      color: _feedback.startsWith('Correct')
-                                          ? colorScheme.tertiaryContainer
-                                          : colorScheme.errorContainer,
-                                      borderRadius: BorderRadius.circular(18),
-                                    ),
-                                    child: Text(
-                                      _feedback,
-                                      style: TextStyle(
-                                        color: _feedback.startsWith('Correct')
-                                            ? colorScheme.onTertiaryContainer
-                                            : colorScheme.onErrorContainer,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                  ),
                                 ],
-                              ],
+                              ),
                             ),
                           ),
                         );
 
                         if (isWide) {
-                          return Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(child: questionBox),
-                              const SizedBox(width: 16),
-                              Expanded(child: answerBox),
-                            ],
+                          return IntrinsicHeight(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Expanded(child: questionBox),
+                                const SizedBox(width: 16),
+                                Expanded(child: answerBox),
+                              ],
+                            ),
                           );
                         }
 
