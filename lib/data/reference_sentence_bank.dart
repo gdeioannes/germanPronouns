@@ -83,7 +83,7 @@ String pickReferenceSentence({
       // dir — 2 sg dat
       'dir': [
         'Ich schreibe ____ heute noch eine Nachricht.',
-        'Das Paket wurde für ____ abgegeben.',
+        'Das Buch gehört ____, nicht mir.',
         'Ich danke ____ wirklich von Herzen.',
       ],
       // ihm — 3 sg masc dat
@@ -120,7 +120,7 @@ String pickReferenceSentence({
       'Ihnen': [
         'Kann ich ____ irgendwie behilflich sein?',
         'Ich schicke ____ die Unterlagen noch heute zu.',
-        'Es tut ____ wirklich leid.',
+        'Ich danke ____ für Ihre Geduld.',
       ],
     },
 
@@ -282,31 +282,31 @@ String pickReferenceSentence({
     'Poss. Masc. Gen.': {
       'meines': [
         'Wegen ____ Bruders musste ich lange warten.',
-        'Trotz ____ Freundes Rat tat er es trotzdem.',
+        'Trotz ____ Freundes habe ich es allein geschafft.',
       ],
       'deines': [
         'Wegen ____ Freundes sind wir zu spät gekommen.',
-        'Trotz ____ Bruders Einwänden blieben wir.',
+        'Trotz ____ Bruders blieben wir bei unserer Entscheidung.',
       ],
       'seines': [
         'Wegen ____ Hundes darf er nicht ins Hotel.',
-        'Trotz ____ Lehrers Warnung hat er nicht gelernt.',
+        'Trotz ____ Lehrers lernte er einfach nicht.',
       ],
       'ihres': [
         'Wegen ____ Mannes zog sie in die Stadt.',
-        'Trotz ____ Bruders Hilfe schaffte sie es kaum.',
+        'Trotz ____ Bruders schaffte sie es kaum allein.',
       ],
       'unseres': [
         'Wegen ____ Lehrers fiel der Unterricht aus.',
-        'Trotz ____ Nachbars Lärm haben wir gut geschlafen.',
+        'Trotz ____ Chefs machten wir früh Feierabend.',
       ],
       'eures': [
         'Wegen ____ Freundes haben wir ewig gewartet.',
-        'Trotz ____ Vaters Einwände fuhren wir los.',
+        'Trotz ____ Vaters fuhren wir trotzdem los.',
       ],
       'Ihres': [
         'Wegen ____ Kollegen hat sich das Projekt verzögert.',
-        'Trotz ____ Arztes Rat rauchte er weiter.',
+        'Trotz ____ Arztes rauchte er weiter.',
       ],
     },
 
@@ -345,7 +345,7 @@ String pickReferenceSentence({
         'Wir besuchen ____ Lehrerin nächste Woche.',
       ],
       'eure': [
-        'Helft doch ____ Schwester!',
+        'Besucht doch mal ____ Schwester!',
         'Ich kenne ____ Mutter schon lange.',
       ],
       'Ihre': [
@@ -396,11 +396,11 @@ String pickReferenceSentence({
       ],
       'seiner': [
         'Wegen ____ Frau blieb er an dem Abend zu Hause.',
-        'Trotz ____ Tochter Bitte sagte er nein.',
+        'Trotz ____ Tochter änderte er seine Meinung nicht.',
       ],
       'ihrer': [
         'Wegen ____ Mutter zog sie näher an die Stadt.',
-        'Trotz ____ Schwester Rat handelte sie anders.',
+        'Trotz ____ Schwester entschied sie sich anders.',
       ],
       'unserer': [
         'Wegen ____ Lehrerin fiel die Stunde aus.',
@@ -412,7 +412,7 @@ String pickReferenceSentence({
       ],
       'Ihrer': [
         'Wegen ____ Kollegin wurde der Termin verschoben.',
-        'Trotz ____ Ärztin Warnung aß er weiter Süßes.',
+        'Trotz ____ Ärztin aß er weiter Süßigkeiten.',
       ],
     },
 
@@ -485,13 +485,10 @@ String pickReferenceSentence({
         'Sie spielen täglich mit ____ Tier.',
       ],
       'eurem': [
-        'Kümmert euch gut um ____ Haustier!',
+        'Schenkt ____ Kind doch ein Buch!',
         'Helft ____ Kind beim Lernen!',
       ],
-      'Ihrem': [
-        'Ich schicke das direkt ____ Kind.',
-        'Bitte sprechen Sie auch mit ____ Kinderarzt.',
-      ],
+      'Ihrem': ['Ich schicke das direkt ____ Kind.', 'Wie geht es ____ Baby?'],
     },
 
     'Poss. Neut. Gen.': {
@@ -500,7 +497,7 @@ String pickReferenceSentence({
         'Trotz ____ Tieres zog sie in eine größere Wohnung.',
       ],
       'deines': [
-        'Wegen ____ Hundes darf er nicht ins Hotel.',
+        'Wegen ____ Babys schlief niemand durch.',
         'Trotz ____ Kindes schlief es irgendwann ein.',
       ],
       'seines': [
@@ -592,4 +589,147 @@ String pickReferenceSentence({
   final options =
       caseTemplates?[answer] ?? caseTemplates?[nominative] ?? ['______'];
   return options[random.nextInt(options.length)];
+}
+
+String buildReferenceExplanation({
+  required String caseLabel,
+  required String nominative,
+  required String answer,
+  required String sentence,
+}) {
+  final pronounMeaning = _pronounMeaning(
+    caseLabel: caseLabel,
+    nominative: nominative,
+    answer: answer,
+  );
+
+  final grammarNote = _grammarNote(caseLabel: caseLabel);
+
+  final possessiveNote = caseLabel.startsWith('Poss.')
+      ? 'This is a possessive determiner (like my/your/his), not a standalone personal pronoun, '
+            'so it must agree in gender, number, and case with the noun that follows.'
+      : '';
+
+  final targetNote = _targetAgreementNote(caseLabel);
+
+  return [
+    'Example: $sentence',
+    'Answer: "$answer" — $pronounMeaning.',
+    'Grammar: $grammarNote',
+    if (targetNote.isNotEmpty) 'Agreement: $targetNote',
+    if (possessiveNote.isNotEmpty) possessiveNote,
+    'Base form (nominative): "$nominative".',
+  ].join('\n\n');
+}
+
+String _grammarNote({required String caseLabel}) {
+  switch (caseLabel) {
+    case 'Accusative':
+      return 'The accusative marks the direct object: the person or thing directly affected by the verb.';
+    case 'Dative':
+      return 'The dative marks the indirect object: the recipient or beneficiary (to or for whom something happens).';
+    case 'Genitive':
+      return 'The genitive marks possession or close relation, and is required after prepositions like wegen, trotz, and statt.';
+    case 'Reflexive':
+      return 'A reflexive form shows the subject acting on itself (for example: I wash myself, she remembers herself).';
+    default:
+      if (caseLabel.contains('Gen.')) {
+        return 'Possessive in the genitive: it shows ownership and follows a genitive trigger such as wegen or trotz.';
+      }
+      if (caseLabel.contains('Dat.')) {
+        return 'Possessive in the dative: it shows ownership and marks the indirect object or follows a dative trigger such as mit or helfen.';
+      }
+      if (caseLabel.contains('Acc.')) {
+        return 'Possessive in the accusative: it shows ownership and marks the direct object of the verb.';
+      }
+      if (caseLabel.startsWith('Poss.')) {
+        return 'Possessive in the nominative: it shows ownership in the subject position.';
+      }
+      return 'This sentence uses a case-specific pronoun form determined by its grammatical context.';
+  }
+}
+
+String _targetAgreementNote(String caseLabel) {
+  switch (caseLabel) {
+    case 'Poss. Masc.':
+      return 'Agrees with a masculine noun in the nominative.';
+    case 'Poss. Masc. Acc.':
+      return 'Agrees with a masculine noun in the accusative.';
+    case 'Poss. Masc. Dat.':
+      return 'Agrees with a masculine noun in the dative.';
+    case 'Poss. Masc. Gen.':
+      return 'Agrees with a masculine noun in the genitive.';
+    case 'Poss. Fem.':
+      return 'Agrees with a feminine noun in the nominative.';
+    case 'Poss. Fem. Acc.':
+      return 'Agrees with a feminine noun in the accusative.';
+    case 'Poss. Fem. Dat.':
+      return 'Agrees with a feminine noun in the dative.';
+    case 'Poss. Fem. Gen.':
+      return 'Agrees with a feminine noun in the genitive.';
+    case 'Poss. Neut.':
+      return 'Agrees with a neuter noun in the nominative.';
+    case 'Poss. Neut. Acc.':
+      return 'Agrees with a neuter noun in the accusative.';
+    case 'Poss. Neut. Dat.':
+      return 'Agrees with a neuter noun in the dative.';
+    case 'Poss. Neut. Gen.':
+      return 'Agrees with a neuter noun in the genitive.';
+    case 'Poss. Pl.':
+      return 'Agrees with a plural noun in the nominative or accusative.';
+    case 'Poss. Pl. Gen.':
+      return 'Agrees with a plural noun in the genitive.';
+    default:
+      return '';
+  }
+}
+
+String _pronounMeaning({
+  required String caseLabel,
+  required String nominative,
+  required String answer,
+}) {
+  if (caseLabel.startsWith('Poss.')) {
+    return _possessiveOwnerMeaning(answer);
+  }
+
+  final personal = <String, String>{
+    'mich': 'me (accusative)',
+    'dich': 'you (informal singular, accusative)',
+    'ihn': 'him (accusative)',
+    'sie': 'her, or them (the context decides)',
+    'es': 'it (accusative)',
+    'uns': 'us',
+    'euch': 'you (informal plural)',
+    'Sie': 'you (formal)',
+    'mir': 'to me',
+    'dir': 'to you (informal singular)',
+    'ihm': 'to him, or to it (masculine/neuter)',
+    'ihr': 'to her',
+    'ihnen': 'to them',
+    'Ihnen': 'to you (formal)',
+    'meiner': 'of me',
+    'deiner': 'of you (informal singular)',
+    'seiner': 'of him, or of it (masculine/neuter)',
+    'ihrer': 'of her, or of them',
+    'unser': 'of us',
+    'euer': 'of you (informal plural)',
+    'Ihrer': 'of you (formal)',
+    'sich': 'himself / herself / itself / themselves (reflexive)',
+  };
+
+  return personal[answer] ?? 'a case-marked form of "$nominative"';
+}
+
+String _possessiveOwnerMeaning(String answer) {
+  final lower = answer.toLowerCase();
+  if (lower.startsWith('mein')) return 'my';
+  if (lower.startsWith('dein')) return 'your (informal singular)';
+  if (lower.startsWith('sein'))
+    return 'his, or its (masculine or neuter owner)';
+  if (lower.startsWith('ihr')) return 'her, or their (the context decides)';
+  if (lower.startsWith('unser')) return 'our';
+  if (lower.startsWith('euer')) return 'your (informal plural)';
+  if (answer.startsWith('Ihr')) return 'your (formal)';
+  return 'a possessive form';
 }

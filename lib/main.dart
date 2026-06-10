@@ -57,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage>
   int _currentCaseIndex = 0;
   String _feedback = '';
   String _currentReferenceSentence = '';
+  String _currentReferenceExplanation = '';
   bool _showFireworks = false;
   late final AnimationController _fireworksController;
   List<_FireworkParticle> _fireworkParticles = const [];
@@ -396,6 +397,12 @@ class _MyHomePageState extends State<MyHomePage>
       answer: correctAnswer,
       random: _random,
     );
+    _currentReferenceExplanation = buildReferenceExplanation(
+      caseLabel: selectedCase.label,
+      nominative: nominative,
+      answer: correctAnswer,
+      sentence: _currentReferenceSentence,
+    );
   }
 
   void _togglePronoun(int index) {
@@ -616,6 +623,59 @@ class _MyHomePageState extends State<MyHomePage>
       avatar: CircleAvatar(backgroundColor: color, radius: 7),
       label: Text(label),
     );
+  }
+
+  List<InlineSpan> _buildExplanationSpans(
+    BuildContext context,
+    String explanation,
+  ) {
+    final rawBaseStyle = Theme.of(context).textTheme.bodyMedium;
+    final baseStyle = rawBaseStyle?.copyWith(
+      fontSize: (rawBaseStyle.fontSize ?? 14) * 1.4,
+    );
+    final spans = <InlineSpan>[];
+    final sections = explanation
+        .split('\n\n')
+        .map((part) => part.trim())
+        .where((part) => part.isNotEmpty)
+        .toList();
+
+    for (var i = 0; i < sections.length; i++) {
+      final section = sections[i];
+      final separator = section.indexOf(':');
+
+      if (separator > 0) {
+        final label = section.substring(0, separator + 1);
+        final body = section.substring(separator + 1).trimLeft();
+        final emphasizeBody =
+            label.startsWith('Sentence meaning') ||
+            label.startsWith('Missing form');
+
+        spans.add(
+          TextSpan(
+            text: label,
+            style: baseStyle?.copyWith(fontWeight: FontWeight.w700),
+          ),
+        );
+        spans.add(
+          TextSpan(
+            text: ' $body',
+            style: baseStyle?.copyWith(
+              fontStyle: emphasizeBody ? FontStyle.italic : FontStyle.normal,
+              height: 1.35,
+            ),
+          ),
+        );
+      } else {
+        spans.add(TextSpan(text: section, style: baseStyle));
+      }
+
+      if (i < sections.length - 1) {
+        spans.add(const TextSpan(text: '\n\n'));
+      }
+    }
+
+    return spans;
   }
 
   @override
@@ -863,11 +923,57 @@ class _MyHomePageState extends State<MyHomePage>
                                                   _submitAnswer(),
                                             ),
                                           ),
-                                          if (referenceAfter.isNotEmpty)
-                                            Text(
-                                              referenceAfter,
-                                              style: sentenceStyle,
-                                            ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              if (referenceAfter.isNotEmpty)
+                                                Text(
+                                                  referenceAfter,
+                                                  style: sentenceStyle,
+                                                ),
+                                              IconButton(
+                                                visualDensity:
+                                                    VisualDensity.compact,
+                                                tooltip: 'Grammar info',
+                                                onPressed: () {
+                                                  showDialog<void>(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return AlertDialog(
+                                                        title: const Text(
+                                                          'Sentence Info',
+                                                        ),
+                                                        content: SingleChildScrollView(
+                                                          child: SelectableText.rich(
+                                                            TextSpan(
+                                                              children: _buildExplanationSpans(
+                                                                dialogContext,
+                                                                _currentReferenceExplanation,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.of(
+                                                                  dialogContext,
+                                                                ).pop(),
+                                                            child: const Text(
+                                                              'Close',
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                                icon: const Icon(
+                                                  Icons.info_outline_rounded,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ],
                                       ),
                                     ],
