@@ -22,6 +22,20 @@ const listPronounsGermanNominative = [
   'Sie',
 ];
 
+/// Same order as [listPronounsGermanNominative] but with 'sie (pl.)' at
+/// index 7 so the plural third-person form is distinguishable in the UI.
+const listPronounsGermanNominativeDisplay = [
+  'ich',
+  'du',
+  'er',
+  'sie',
+  'es',
+  'wir',
+  'ihr',
+  'sie (pl.)',
+  'Sie',
+];
+
 const listPronounsGermanAkusative = [
   'mich',
   'dich',
@@ -212,6 +226,18 @@ const listPronounsGermanPossessiveNeuterGenitive = [
   'eures',
   'ihres',
   'Ihres',
+];
+
+const listPronounsGermanPossessivePluralGenitive = [
+  'meiner',
+  'deiner',
+  'seiner',
+  'ihrer',
+  'seiner',
+  'unserer',
+  'eurer',
+  'ihrer',
+  'Ihrer',
 ];
 
 const listPronounsGermanPossessivePlural = [

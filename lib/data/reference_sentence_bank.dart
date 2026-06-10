@@ -1,5 +1,18 @@
 import 'dart:math';
 
+/// Returns a sentence that demonstrates the pronoun in a meaningful context.
+/// The blank [______] replaces the pronoun so the user fills it in.
+///
+/// Design goals:
+///  - Every sentence makes the grammatical role *obvious* without hints.
+///  - No parenthetical disambiguation like "(die Schwester)" — the sentence
+///    context alone signals who the referent is and what the case role is.
+///  - Accusative  → vivid direct-object verbs: sehen, anrufen, einladen…
+///  - Dative      → verbs that demand a recipient: helfen, gehören, schreiben…
+///  - Genitive    → wegen / trotz / statt constructions
+///  - Reflexive   → clearly reflexive verbs and structures
+///  - Possessive  → noun always matches the expected gender/number/case
+///  - Sentences are short enough to read at a glance, concrete enough to picture.
 String pickReferenceSentence({
   required String caseLabel,
   required String nominative,
@@ -7,163 +20,576 @@ String pickReferenceSentence({
   required Random random,
 }) {
   final templates = <String, Map<String, List<String>>>{
+    // ── Personal pronouns — Accusative ──────────────────────────────────────
     'Accusative': {
-      'mich': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
-      'dich': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
-      'ihn': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
-      'sie': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
-      'es': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
-      'uns': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
-      'euch': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
-      'Sie': ['Ich sehe ____ heute.', 'Kannst du ____ hören?'],
+      // mich — 1 sg acc
+      'mich': [
+        'Kannst du ____ bitte vom Bahnhof abholen?',
+        'Er hat ____ auf der Straße gar nicht erkannt.',
+        'Sie hat ____ gestern zum Abendessen eingeladen.',
+      ],
+      // dich — 2 sg acc
+      'dich': [
+        'Ich vermisse ____ wirklich sehr.',
+        'Er liebt ____ von ganzem Herzen.',
+        'Wir haben ____ den ganzen Nachmittag gesucht!',
+      ],
+      // ihn — 3 sg masc acc
+      'ihn': [
+        'Kennst du ____? Er wohnt direkt nebenan.',
+        'Ich habe ____ gestern im Park gesehen.',
+        'Sie hat ____ zum Geburtstag eingeladen.',
+      ],
+      // sie — 3 sg fem acc (or 3 pl acc)
+      'sie': [
+        'Rufst du ____ heute Abend noch an?',
+        'Er trifft ____ jeden Mittwoch im Café.',
+        'Ich habe ____ seit dem Sommer nicht mehr gesehen.',
+      ],
+      // es — 3 sg neut acc
+      'es': [
+        'Das Buch? Ich habe ____ noch nicht gelesen.',
+        'Das Baby weint — leg ____ bitte wieder hin.',
+        'Ich kenne das Lied — ich liebe ____.',
+      ],
+      // uns — 1 pl acc
+      'uns': [
+        'Kannst du ____ morgen vom Bahnhof abholen?',
+        'Hat er ____ wirklich nicht gesehen?',
+        'Sie haben ____ zum Sommerfest eingeladen.',
+      ],
+      // euch — 2 pl acc
+      'euch': [
+        'Ich habe ____ doch gewarnt!',
+        'Wir haben ____ überall gesucht.',
+        'Er besucht ____ nächsten Samstag.',
+      ],
+      // Sie — formal acc
+      'Sie': [
+        'Ich werde ____ morgen früh anrufen.',
+        'Darf ich ____ kurz um Rat fragen?',
+        'Wir erwarten ____ pünktlich um zehn Uhr.',
+      ],
     },
+
+    // ── Personal pronouns — Dative ───────────────────────────────────────────
     'Dative': {
-      'mir': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
-      'dir': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
-      'ihm': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
-      'ihr': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
-      'uns': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
-      'euch': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
-      'ihnen': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
-      'Ihnen': ['Ich helfe ____ gern.', 'Ich gebe ____ das Buch.'],
+      // mir — 1 sg dat
+      'mir': [
+        'Kannst du ____ bitte helfen?',
+        'Er hat ____ das Buch zurückgegeben.',
+        'Das gehört doch ____!',
+      ],
+      // dir — 2 sg dat
+      'dir': [
+        'Ich schreibe ____ heute noch eine Nachricht.',
+        'Das Paket wurde für ____ abgegeben.',
+        'Ich danke ____ wirklich von Herzen.',
+      ],
+      // ihm — 3 sg masc dat
+      'ihm': [
+        'Ich habe ____ immer vertraut.',
+        'Das Geld gehört ____.',
+        'Sie bringt ____ jeden Abend Essen.',
+      ],
+      // ihr — 3 sg fem dat
+      'ihr': [
+        'Ich habe ____ geholfen, den Koffer zu tragen.',
+        'Das rote Fahrrad gehört ____.',
+        'Wir schicken ____ eine Einladungskarte.',
+      ],
+      // uns — 1 pl dat
+      'uns': [
+        'Kannst du ____ erklären, wo der Ausgang ist?',
+        'Er hat ____ leider nichts davon gesagt.',
+        'Das Haus am See gehört ____.',
+      ],
+      // euch — 2 pl dat
+      'euch': [
+        'Ich werde ____ die ganze Wahrheit sagen.',
+        'Hat er ____ wirklich geholfen?',
+        'Das wird ____ bestimmt schmecken.',
+      ],
+      // ihnen — 3 pl dat
+      'ihnen': [
+        'Ich habe ____ alles genau erklärt.',
+        'Das Geld gehört ____ beiden.',
+        'Sie dankt ____ herzlich für die Hilfe.',
+      ],
+      // Ihnen — formal dat
+      'Ihnen': [
+        'Kann ich ____ irgendwie behilflich sein?',
+        'Ich schicke ____ die Unterlagen noch heute zu.',
+        'Es tut ____ wirklich leid.',
+      ],
     },
+
+    // ── Personal pronouns — Genitive ─────────────────────────────────────────
     'Genitive': {
-      'meiner': ['Wegen ____ gehe ich früh.', 'Trotz ____ war es gut.'],
-      'deiner': ['Wegen ____ gehe ich früh.', 'Trotz ____ war es gut.'],
-      'seiner': ['Wegen ____ gehe ich früh.', 'Trotz ____ war es gut.'],
-      'ihrer': ['Wegen ____ gehe ich früh.', 'Trotz ____ war es gut.'],
-      'unser': ['Wegen ____ gehe ich früh.', 'Trotz ____ war es gut.'],
-      'euer': ['Wegen ____ gehe ich früh.', 'Trotz ____ war es gut.'],
-      'Ihrer': ['Wegen ____ gehe ich früh.', 'Trotz ____ war es gut.'],
+      // meiner — 1 sg gen
+      'meiner': [
+        'Wegen ____ hat sich der ganze Plan geändert.',
+        'Trotz ____ blieb die Stimmung gut.',
+        'Man hat statt ____ einen anderen geschickt.',
+      ],
+      // deiner — 2 sg gen
+      'deiner': [
+        'Wegen ____ haben wir den Zug verpasst.',
+        'Trotz ____ halten wir an dem Plan fest.',
+        'Statt ____ kam jemand anderes.',
+      ],
+      // seiner — 3 sg masc gen
+      'seiner': [
+        'Wegen ____ wurde das Projekt auf Eis gelegt.',
+        'Trotz ____ fährt das Team fort.',
+        'Statt ____ übernahm ein Kollege die Aufgabe.',
+      ],
+      // ihrer — 3 sg fem / 3 pl gen
+      'ihrer': [
+        'Wegen ____ blieb er den ganzen Tag zu Hause.',
+        'Trotz ____ kamen alle pünktlich an.',
+        'Statt ____ sprach eine Vertreterin.',
+      ],
+      // unser — 1 pl gen
+      'unser': [
+        'Wegen ____ wurde das Spiel verschoben.',
+        'Trotz ____ haben alle unterschrieben.',
+        'Man hat statt ____ eine externe Firma beauftragt.',
+      ],
+      // euer — 2 pl gen
+      'euer': [
+        'Wegen ____ mussten alle länger warten.',
+        'Trotz ____ hat das Projekt geklappt.',
+      ],
+      // Ihrer — formal gen
+      'Ihrer': [
+        'Wegen ____ haben wir die Entscheidung überprüft.',
+        'Trotz ____ bleibt die Frage offen.',
+      ],
     },
+
+    // ── Reflexive pronouns ───────────────────────────────────────────────────
     'Reflexive': {
-      'mir': ['Ich erinnere ____ daran.', 'Ich freue ____ auf morgen.'],
-      'dir': ['Du erinnerst ____ daran.', 'Du freust ____ auf morgen.'],
-      'sich': ['Er erinnert ____ daran.', 'Sie freut ____ auf morgen.'],
-      'uns': ['Wir erinnern ____ daran.', 'Wir freuen ____ auf morgen.'],
-      'euch': ['Ihr erinnert ____ daran.', 'Ihr freut ____ auf morgen.'],
+      // mir — dative reflexive for ich
+      'mir': [
+        'Ich kaufe ____ ein neues Fahrrad.',
+        'Ich wünsche ____ mehr Zeit für mich.',
+        'Das muss ich ____ gut merken.',
+      ],
+      // dir — dative reflexive for du
+      'dir': [
+        'Hast du ____ das Bein verletzt?',
+        'Kauf ____ doch etwas Schönes!',
+        'Das solltest du ____ gut überlegen.',
+      ],
+      // sich — 3rd person & formal reflexive
+      'sich': [
+        'Er hat ____ beim Sport verletzt.',
+        'Sie freut ____ schon sehr auf das Konzert.',
+        'Das Kind wäscht ____ jetzt alleine.',
+      ],
+      // uns — 1 pl reflexive
+      'uns': [
+        'Wir haben ____ zufällig im Park getroffen.',
+        'Wir müssen ____ jetzt beeilen.',
+        'Wir erinnern ____ noch gut daran.',
+      ],
+      // euch — 2 pl reflexive
+      'euch': [
+        'Habt ihr ____ gut amüsiert?',
+        'Beeilt ____!',
+        'Das solltet ihr ____ gut merken.',
+      ],
     },
+
+    // ── Possessive pronouns ──────────────────────────────────────────────────
+    // Noun in each sentence matches gender / number / case to reinforce the form.
     'Poss. Masc.': {
-      'mein': ['Das ist ____ Bruder.', 'Hier ist ____ Bruder.'],
-      'dein': ['Das ist ____ Bruder.', 'Hier ist ____ Bruder.'],
-      'sein': ['Das ist ____ Bruder.', 'Hier ist ____ Bruder.'],
-      'ihr': ['Das ist ____ Bruder.', 'Hier ist ____ Bruder.'],
-      'unser': ['Das ist ____ Bruder.', 'Hier ist ____ Bruder.'],
-      'euer': ['Das ist ____ Bruder.', 'Hier ist ____ Bruder.'],
-      'Ihr': ['Das ist ____ Bruder.', 'Hier ist ____ Bruder.'],
+      'mein': ['Das ist ____ Vater.', '____ Bruder kommt heute Abend.'],
+      'dein': ['Ist das ____ Schlüssel?', '____ Freund wartet schon unten.'],
+      'sein': ['____ Hund ist riesengroß.', 'Das ist ____ Rucksack.'],
+      'ihr': ['____ Mann arbeitet in Berlin.', 'Das ist ____ Vater.'],
+      'unser': ['____ Lehrer ist sehr streng.', 'Das ist ____ Nachbar.'],
+      'euer': ['Wo ist ____ Vater?', '____ Bruder hat gerade angerufen.'],
+      'Ihr': [
+        'Ist ____ Wagen der blaue?',
+        '____ Kollege hat eine Nachricht hinterlassen.',
+      ],
     },
+
     'Poss. Masc. Acc.': {
-      'meinen': ['Ich sehe ____ Bruder.'],
-      'deinen': ['Ich sehe ____ Bruder.'],
-      'seinen': ['Ich sehe ____ Bruder.'],
-      'ihren': ['Ich sehe ____ Bruder.'],
-      'unseren': ['Ich sehe ____ Bruder.'],
-      'euren': ['Ich sehe ____ Bruder.'],
-      'Ihren': ['Ich sehe ____ Bruder.'],
+      'meinen': [
+        'Ich suche ____ Schlüssel — hast du ihn gesehen?',
+        'Hast du ____ Bruder heute irgendwo getroffen?',
+      ],
+      'deinen': [
+        'Ich schätze ____ Humor wirklich sehr.',
+        'Ruf doch ____ Vater an!',
+      ],
+      'seinen': [
+        'Sie liebt ____ Hund über alles.',
+        'Er vergisst ____ Regenschirm ständig.',
+      ],
+      'ihren': [
+        'Sie besucht ____ Mann jeden Tag im Krankenhaus.',
+        'Sie vermisst ____ Bruder sehr.',
+      ],
+      'unseren': [
+        'Wir unterstützen ____ Verein seit Jahren.',
+        'Wir besuchen ____ Lehrer noch heute.',
+      ],
+      'euren': [
+        'Ihr solltet ____ Vater öfter anrufen.',
+        'Ich kenne ____ Freund gut.',
+      ],
+      'Ihren': [
+        'Ich werde ____ Kollegen sofort benachrichtigen.',
+        'Haben Sie ____ Pass zur Hand?',
+      ],
     },
+
     'Poss. Masc. Dat.': {
-      'meinem': ['Ich helfe ____ Bruder.'],
-      'deinem': ['Ich helfe ____ Bruder.'],
-      'seinem': ['Ich helfe ____ Bruder.'],
-      'ihrem': ['Ich helfe ____ Bruder.'],
-      'unserem': ['Ich helfe ____ Bruder.'],
-      'eurem': ['Ich helfe ____ Bruder.'],
-      'Ihrem': ['Ich helfe ____ Bruder.'],
+      'meinem': [
+        'Ich vertraue ____ Arzt vollkommen.',
+        'Er hilft ____ Vater gern im Garten.',
+      ],
+      'deinem': [
+        'Ich habe ____ Freund beim Umzug geholfen.',
+        'Mit ____ Bruder war es wirklich lustig.',
+      ],
+      'seinem': [
+        'Sie gibt ____ Mann die Schlüssel.',
+        'Er dankt ____ Lehrer für alles.',
+      ],
+      'ihrem': [
+        'Sie schreibt ____ Bruder regelmäßig eine Karte.',
+        'Mit ____ Mann reist sie sehr gern.',
+      ],
+      'unserem': [
+        'Wir vertrauen ____ Arzt blind.',
+        'Sie hilft ____ Nachbarn, wo sie kann.',
+      ],
+      'eurem': [
+        'Zeigt das doch ____ Vater!',
+        'Mit ____ Lehrer habt ihr wirklich Glück.',
+      ],
+      'Ihrem': [
+        'Ich schicke das direkt ____ Kollegen.',
+        'Bitte sprechen Sie zunächst mit ____ Arzt.',
+      ],
     },
+
     'Poss. Masc. Gen.': {
-      'meines': ['Wegen ____ Bruder warten wir.'],
-      'deines': ['Wegen ____ Bruder warten wir.'],
-      'seines': ['Wegen ____ Bruder warten wir.'],
-      'ihres': ['Wegen ____ Bruder warten wir.'],
-      'unseres': ['Wegen ____ Bruder warten wir.'],
-      'eures': ['Wegen ____ Bruder warten wir.'],
-      'Ihres': ['Wegen ____ Bruder warten wir.'],
+      'meines': [
+        'Wegen ____ Bruders musste ich lange warten.',
+        'Trotz ____ Freundes Rat tat er es trotzdem.',
+      ],
+      'deines': [
+        'Wegen ____ Freundes sind wir zu spät gekommen.',
+        'Trotz ____ Bruders Einwänden blieben wir.',
+      ],
+      'seines': [
+        'Wegen ____ Hundes darf er nicht ins Hotel.',
+        'Trotz ____ Lehrers Warnung hat er nicht gelernt.',
+      ],
+      'ihres': [
+        'Wegen ____ Mannes zog sie in die Stadt.',
+        'Trotz ____ Bruders Hilfe schaffte sie es kaum.',
+      ],
+      'unseres': [
+        'Wegen ____ Lehrers fiel der Unterricht aus.',
+        'Trotz ____ Nachbars Lärm haben wir gut geschlafen.',
+      ],
+      'eures': [
+        'Wegen ____ Freundes haben wir ewig gewartet.',
+        'Trotz ____ Vaters Einwände fuhren wir los.',
+      ],
+      'Ihres': [
+        'Wegen ____ Kollegen hat sich das Projekt verzögert.',
+        'Trotz ____ Arztes Rat rauchte er weiter.',
+      ],
     },
+
     'Poss. Fem.': {
-      'meine': ['Das ist ____ Schwester.', 'Hier ist ____ Schwester.'],
-      'deine': ['Das ist ____ Schwester.', 'Hier ist ____ Schwester.'],
-      'seine': ['Das ist ____ Schwester.', 'Hier ist ____ Schwester.'],
-      'ihre': ['Das ist ____ Schwester.', 'Hier ist ____ Schwester.'],
-      'unsere': ['Das ist ____ Schwester.', 'Hier ist ____ Schwester.'],
-      'eure': ['Das ist ____ Schwester.', 'Hier ist ____ Schwester.'],
-      'Ihre': ['Das ist ____ Schwester.', 'Hier ist ____ Schwester.'],
+      'meine': ['____ Schwester wohnt in München.', 'Das ist ____ Tasche.'],
+      'deine': ['Ist das ____ Mutter?', '____ Freundin hat gerade angerufen.'],
+      'seine': ['____ Tochter ist Ärztin geworden.', 'Das ist ____ Frau.'],
+      'ihre': ['____ Mutter kocht fantastisch.', 'Das ist ____ Tochter.'],
+      'unsere': ['____ Lehrerin ist sehr geduldig.', 'Das ist ____ Nachbarin.'],
+      'eure': [
+        'Wo ist ____ Mutter?',
+        '____ Schwester hat den Wettbewerb gewonnen.',
+      ],
+      'Ihre': [
+        'Ist ____ Kollegin bereits informiert?',
+        '____ Frau hat eine Nachricht hinterlassen.',
+      ],
     },
+
     'Poss. Fem. Acc.': {
-      'meine': ['Ich sehe ____ Schwester.'],
-      'deine': ['Ich sehe ____ Schwester.'],
-      'seine': ['Ich sehe ____ Schwester.'],
-      'ihre': ['Ich sehe ____ Schwester.'],
-      'unsere': ['Ich sehe ____ Schwester.'],
-      'eure': ['Ich sehe ____ Schwester.'],
-      'Ihre': ['Ich sehe ____ Schwester.'],
+      'meine': [
+        'Ich suche ____ Jacke — hast du sie gesehen?',
+        'Hast du ____ Schwester heute getroffen?',
+      ],
+      'deine': ['Ich schätze ____ Mutter sehr.', 'Ruf ____ Schwester doch an!'],
+      'seine': [
+        'Er vermisst ____ Tochter sehr.',
+        'Er besucht ____ Frau jeden Tag.',
+      ],
+      'ihre': [
+        'Sie besucht ____ Mutter jedes Wochenende.',
+        'Sie liebt ____ Schwester über alles.',
+      ],
+      'unsere': [
+        'Wir unterstützen ____ Mannschaft bei jedem Spiel.',
+        'Wir besuchen ____ Lehrerin nächste Woche.',
+      ],
+      'eure': [
+        'Helft doch ____ Schwester!',
+        'Ich kenne ____ Mutter schon lange.',
+      ],
+      'Ihre': [
+        'Ich werde ____ Kollegin sofort informieren.',
+        'Haben Sie ____ Karte dabei?',
+      ],
     },
+
     'Poss. Fem. Dat.': {
-      'meiner': ['Ich helfe ____ Schwester.'],
-      'deiner': ['Ich helfe ____ Schwester.'],
-      'seiner': ['Ich helfe ____ Schwester.'],
-      'ihrer': ['Ich helfe ____ Schwester.'],
-      'unserer': ['Ich helfe ____ Schwester.'],
-      'eurer': ['Ich helfe ____ Schwester.'],
-      'Ihrer': ['Ich helfe ____ Schwester.'],
+      'meiner': [
+        'Ich helfe ____ Mutter jeden Samstag im Haushalt.',
+        'Mit ____ Schwester verreise ich sehr gern.',
+      ],
+      'deiner': [
+        'Er dankt ____ Mutter für ihre Geduld.',
+        'Mit ____ Freundin war der Abend wunderschön.',
+      ],
+      'seiner': [
+        'Er schreibt ____ Tochter jeden Monat einen Brief.',
+        'Er vertraut ____ Frau in allem.',
+      ],
+      'ihrer': [
+        'Sie hilft ____ Mutter täglich beim Einkaufen.',
+        'Mit ____ Schwester teilt sie das Zimmer.',
+      ],
+      'unserer': [
+        'Wir vertrauen ____ Ärztin vollkommen.',
+        'Er hilft ____ Nachbarin, wo er kann.',
+      ],
+      'eurer': [
+        'Zeigt das ____ Mutter!',
+        'Mit ____ Lehrerin habt ihr wirklich Glück.',
+      ],
+      'Ihrer': [
+        'Ich schicke das direkt ____ Kollegin.',
+        'Bitte sprechen Sie zunächst mit ____ Ärztin.',
+      ],
     },
+
     'Poss. Fem. Gen.': {
-      'meiner': ['Wegen ____ Schwester warten wir.'],
-      'deiner': ['Wegen ____ Schwester warten wir.'],
-      'seiner': ['Wegen ____ Schwester warten wir.'],
-      'ihrer': ['Wegen ____ Schwester warten wir.'],
-      'unserer': ['Wegen ____ Schwester warten wir.'],
-      'eurer': ['Wegen ____ Schwester warten wir.'],
-      'Ihrer': ['Wegen ____ Schwester warten wir.'],
+      'meiner': [
+        'Wegen ____ Schwester musste ich früher gehen.',
+        'Trotz ____ Mutter handelte sie selbstständig.',
+      ],
+      'deiner': [
+        'Wegen ____ Freundin haben wir uns verspätet.',
+        'Trotz ____ Schwester entschied sie allein.',
+      ],
+      'seiner': [
+        'Wegen ____ Frau blieb er an dem Abend zu Hause.',
+        'Trotz ____ Tochter Bitte sagte er nein.',
+      ],
+      'ihrer': [
+        'Wegen ____ Mutter zog sie näher an die Stadt.',
+        'Trotz ____ Schwester Rat handelte sie anders.',
+      ],
+      'unserer': [
+        'Wegen ____ Lehrerin fiel die Stunde aus.',
+        'Trotz ____ Trainerin kämpften wir weiter.',
+      ],
+      'eurer': [
+        'Wegen ____ Mutter sind wir alle aufgeregt.',
+        'Trotz ____ Freundin zögerte er lange.',
+      ],
+      'Ihrer': [
+        'Wegen ____ Kollegin wurde der Termin verschoben.',
+        'Trotz ____ Ärztin Warnung aß er weiter Süßes.',
+      ],
     },
+
     'Poss. Neut.': {
-      'mein': ['Das ist ____ Kind.', 'Hier ist ____ Kind.'],
-      'dein': ['Das ist ____ Kind.', 'Hier ist ____ Kind.'],
-      'sein': ['Das ist ____ Kind.', 'Hier ist ____ Kind.'],
-      'ihr': ['Das ist ____ Kind.', 'Hier ist ____ Kind.'],
-      'unser': ['Das ist ____ Kind.', 'Hier ist ____ Kind.'],
-      'euer': ['Das ist ____ Kind.', 'Hier ist ____ Kind.'],
-      'Ihr': ['Das ist ____ Kind.', 'Hier ist ____ Kind.'],
+      'mein': ['Das ist ____ Kind.', '____ Baby schläft gerade fest.'],
+      'dein': ['Ist das ____ Fahrrad?', '____ Kind ist wirklich süß.'],
+      'sein': ['____ Auto steht vor der Tür.', 'Das ist ____ Kind.'],
+      'ihr': ['____ Kind spielt draußen im Garten.', 'Das ist ____ Baby.'],
+      'unser': ['____ Haus steht auf dem Hügel.', 'Das ist ____ neues Auto.'],
+      'euer': [
+        'Ist das ____ Haustier?',
+        '____ Kind hat den ersten Platz gewonnen.',
+      ],
+      'Ihr': [
+        'Ist ____ Büro im zweiten Stock?',
+        '____ Auto steht leider im Weg.',
+      ],
     },
+
     'Poss. Neut. Acc.': {
-      'mein': ['Ich sehe ____ Kind.'],
-      'dein': ['Ich sehe ____ Kind.'],
-      'sein': ['Ich sehe ____ Kind.'],
-      'ihr': ['Ich sehe ____ Kind.'],
-      'unser': ['Ich sehe ____ Kind.'],
-      'euer': ['Ich sehe ____ Kind.'],
-      'Ihr': ['Ich sehe ____ Kind.'],
+      'mein': [
+        'Ich suche ____ Handy — hast du es gesehen?',
+        'Hast du ____ Kind heute gesehen?',
+      ],
+      'dein': [
+        'Ich mag ____ Lächeln sehr.',
+        'Nimm ____ Fahrrad mit, falls es regnet!',
+      ],
+      'sein': [
+        'Er liebt ____ Kind über alles.',
+        'Er vermisst ____ Haustier sehr.',
+      ],
+      'ihr': [
+        'Sie besucht ____ Kind täglich im Krankenhaus.',
+        'Sie streichelt gern ____ Tier.',
+      ],
+      'unser': [
+        'Wir verkaufen ____ Haus im Frühjahr.',
+        'Wir holen ____ Kind gleich ab.',
+      ],
+      'euer': [
+        'Holt schnell ____ Gepäck aus dem Zug!',
+        'Vergesst ____ Kind nicht!',
+      ],
+      'Ihr': [
+        'Habe ich ____ Gepäck richtig verstaut?',
+        'Ich kann ____ Büro leider nicht finden.',
+      ],
     },
+
     'Poss. Neut. Dat.': {
-      'meinem': ['Ich helfe ____ Kind.'],
-      'deinem': ['Ich helfe ____ Kind.'],
-      'seinem': ['Ich helfe ____ Kind.'],
-      'ihrem': ['Ich helfe ____ Kind.'],
-      'unserem': ['Ich helfe ____ Kind.'],
-      'eurem': ['Ich helfe ____ Kind.'],
-      'Ihrem': ['Ich helfe ____ Kind.'],
+      'meinem': [
+        'Ich vertraue ____ Kind diese Aufgabe an.',
+        'Er hilft ____ Kind täglich bei den Hausaufgaben.',
+      ],
+      'deinem': [
+        'Mit ____ Auto kommt ihr viel schneller hin.',
+        'Er dankt ____ Kind für die liebe Geste.',
+      ],
+      'seinem': [
+        'Sie liest ____ Kind jeden Abend vor.',
+        'Er schreibt ____ Kind jeden Monat.',
+      ],
+      'ihrem': [
+        'Sie liest ____ Kind vor dem Einschlafen eine Geschichte vor.',
+        'Mit ____ Baby reiste sie sehr vorsichtig.',
+      ],
+      'unserem': [
+        'Wir vertrauen ____ Kind diese Verantwortung an.',
+        'Sie spielen täglich mit ____ Tier.',
+      ],
+      'eurem': [
+        'Kümmert euch gut um ____ Haustier!',
+        'Helft ____ Kind beim Lernen!',
+      ],
+      'Ihrem': [
+        'Ich schicke das direkt ____ Kind.',
+        'Bitte sprechen Sie auch mit ____ Kinderarzt.',
+      ],
     },
+
     'Poss. Neut. Gen.': {
-      'meines': ['Wegen ____ Kind warten wir.'],
-      'deines': ['Wegen ____ Kind warten wir.'],
-      'seines': ['Wegen ____ Kind warten wir.'],
-      'ihres': ['Wegen ____ Kind warten wir.'],
-      'unseres': ['Wegen ____ Kind warten wir.'],
-      'eures': ['Wegen ____ Kind warten wir.'],
-      'Ihres': ['Wegen ____ Kind warten wir.'],
+      'meines': [
+        'Wegen ____ Kindes blieb ich den ganzen Tag zu Hause.',
+        'Trotz ____ Tieres zog sie in eine größere Wohnung.',
+      ],
+      'deines': [
+        'Wegen ____ Hundes darf er nicht ins Hotel.',
+        'Trotz ____ Kindes schlief es irgendwann ein.',
+      ],
+      'seines': [
+        'Wegen ____ Kindes musste er früher nach Hause.',
+        'Trotz ____ Autos blieb er lieber zu Fuß.',
+      ],
+      'ihres': [
+        'Wegen ____ Tieres suchte sie eine Wohnung mit Garten.',
+        'Trotz ____ Kindes nahm sie die Stelle an.',
+      ],
+      'unseres': [
+        'Wegen ____ Hauses mussten wir viel sparen.',
+        'Trotz ____ Autos fuhren wir lieber mit dem Zug.',
+      ],
+      'eures': [
+        'Wegen ____ Kindes haben wir lange gewartet.',
+        'Trotz ____ Haustiers war alles geregelt.',
+      ],
+      'Ihres': [
+        'Wegen ____ Autos wurde die Einfahrt blockiert.',
+        'Trotz ____ Kindes lief die Besprechung weiter.',
+      ],
     },
+
+    'Poss. Pl. Gen.': {
+      'meiner': [
+        'Wegen ____ Kinder blieb die Tür den ganzen Abend offen.',
+        'Trotz ____ Freunde blieb sie allein zu Hause.',
+      ],
+      'deiner': [
+        'Wegen ____ Bücher mussten wir ein neues Regal kaufen.',
+        'Trotz ____ Geschwister entschied er ganz allein.',
+      ],
+      'seiner': [
+        'Wegen ____ Eltern wurde das Fest um eine Woche verschoben.',
+        'Trotz ____ Kinder fand er Zeit für sich.',
+      ],
+      'ihrer': [
+        'Wegen ____ Töchter fuhren wir früher los.',
+        'Trotz ____ Eltern blieben sie freundlich.',
+      ],
+      'unserer': [
+        'Wegen ____ Nachbarn mussten wir den Plan ändern.',
+        'Trotz ____ Kinder schafften wir es rechtzeitig.',
+      ],
+      'eurer': [
+        'Wegen ____ Freunde mussten alle länger warten.',
+        'Trotz ____ Eltern sind wir trotzdem gefahren.',
+      ],
+      'Ihrer': [
+        'Wegen ____ Kollegen blieb das Büro an dem Tag leer.',
+        'Trotz ____ Kinder verlief die Besprechung reibungslos.',
+      ],
+    },
+
     'Poss. Pl.': {
-      'meine': ['Das sind ____ Kinder.', 'Hier sind ____ Freunde.'],
-      'deine': ['Das sind ____ Kinder.', 'Hier sind ____ Freunde.'],
-      'seine': ['Das sind ____ Kinder.', 'Hier sind ____ Freunde.'],
-      'ihre': ['Das sind ____ Kinder.', 'Hier sind ____ Freunde.'],
-      'unsere': ['Das sind ____ Kinder.', 'Hier sind ____ Freunde.'],
-      'eure': ['Das sind ____ Kinder.', 'Hier sind ____ Freunde.'],
-      'Ihre': ['Das sind ____ Kinder.', 'Hier sind ____ Freunde.'],
+      'meine': [
+        '____ Kinder spielen den ganzen Tag draußen.',
+        '____ Freunde kommen heute Abend vorbei.',
+      ],
+      'deine': [
+        'Sind das ____ Bücher?',
+        '____ Geschwister sind wirklich sehr lustig.',
+      ],
+      'seine': [
+        '____ Eltern wohnen schon lange in Hamburg.',
+        '____ Kinder sind schon alle groß.',
+      ],
+      'ihre': [
+        '____ Töchter studieren beide Medizin.',
+        '____ Eltern kommen nächste Woche zu Besuch.',
+      ],
+      'unsere': [
+        '____ Nachbarn sind wirklich sehr nett.',
+        '____ Kinder gehen alle in dieselbe Schule.',
+      ],
+      'eure': [
+        'Sind ____ Eltern auch dabei?',
+        '____ Freunde sind natürlich herzlich willkommen.',
+      ],
+      'Ihre': [
+        'Sind ____ Kollegen bereits informiert?',
+        '____ Kinder sind herzlich eingeladen.',
+      ],
     },
   };
 
   final caseTemplates = templates[caseLabel];
   final options =
-      caseTemplates?[answer] ?? caseTemplates?[nominative] ?? ['____'];
-  return options[random.nextInt(options.length)].replaceAll('____', '______');
+      caseTemplates?[answer] ?? caseTemplates?[nominative] ?? ['______'];
+  return options[random.nextInt(options.length)];
 }

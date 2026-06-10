@@ -45,6 +45,8 @@ class _MyHomePageState extends State<MyHomePage>
   static const String _historyStorageKey = 'quiz_answer_history';
   static const String _mistakesStorageKey = 'quiz_mistakes_by_case';
   static const String _scoreStorageKey = 'quiz_score';
+  static const String _enabledPronounsKey = 'quiz_enabled_pronouns';
+  static const String _enabledCasesKey = 'quiz_enabled_cases';
   static const int _maxStoredHistory = 100;
 
   int _score = 0;
@@ -57,6 +59,28 @@ class _MyHomePageState extends State<MyHomePage>
   List<_FireworkParticle> _fireworkParticles = const [];
   List<Map<String, dynamic>> _answerHistory = [];
   Map<String, int> _mistakesByCase = {};
+
+  Set<int> _enabledPronounIndices = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+  Set<String> _enabledCaseLabels = {
+    'Accusative',
+    'Dative',
+    'Genitive',
+    'Reflexive',
+    'Poss. Masc.',
+    'Poss. Masc. Acc.',
+    'Poss. Masc. Dat.',
+    'Poss. Masc. Gen.',
+    'Poss. Fem.',
+    'Poss. Fem. Acc.',
+    'Poss. Fem. Dat.',
+    'Poss. Fem. Gen.',
+    'Poss. Neut.',
+    'Poss. Neut. Acc.',
+    'Poss. Neut. Dat.',
+    'Poss. Neut. Gen.',
+    'Poss. Pl. Gen.',
+    'Poss. Pl.',
+  };
 
   List<MapEntry<String, List<String>>> get _tableColumns => [
     MapEntry('Nominative', listPronounsGermanNominative),
@@ -79,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage>
     MapEntry('Poss. Neut. Acc.', listPronounsGermanPossessiveNeuterAccusative),
     MapEntry('Poss. Neut. Dat.', listPronounsGermanPossessiveNeuterDative),
     MapEntry('Poss. Neut. Gen.', listPronounsGermanPossessiveNeuterGenitive),
+    MapEntry('Poss. Pl. Gen.', listPronounsGermanPossessivePluralGenitive),
     MapEntry('Poss. Pl.', listPronounsGermanPossessivePlural),
   ];
 
@@ -161,6 +186,11 @@ class _MyHomePageState extends State<MyHomePage>
     QuizCaseDefinition(
       label: 'Poss. Neut. Gen.',
       values: listPronounsGermanPossessiveNeuterGenitive,
+      group: 'Possessive',
+    ),
+    QuizCaseDefinition(
+      label: 'Poss. Pl. Gen.',
+      values: listPronounsGermanPossessivePluralGenitive,
       group: 'Possessive',
     ),
     QuizCaseDefinition(
@@ -278,11 +308,32 @@ class _MyHomePageState extends State<MyHomePage>
       }
     }
 
+    final pronounsJson = prefs.getString(_enabledPronounsKey);
+    final casesJson = prefs.getString(_enabledCasesKey);
+
+    Set<int> loadedPronouns = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+    Set<String> loadedCases = _enabledCaseLabels;
+
+    if (pronounsJson != null && pronounsJson.isNotEmpty) {
+      final decoded = jsonDecode(pronounsJson);
+      if (decoded is List) {
+        loadedPronouns = decoded.map((v) => (v as num).toInt()).toSet();
+      }
+    }
+    if (casesJson != null && casesJson.isNotEmpty) {
+      final decoded = jsonDecode(casesJson);
+      if (decoded is List) {
+        loadedCases = decoded.map((v) => v.toString()).toSet();
+      }
+    }
+
     if (!mounted) return;
     setState(() {
       _score = storedScore;
       _answerHistory = loadedHistory;
       _mistakesByCase = loadedMistakes;
+      if (loadedPronouns.isNotEmpty) _enabledPronounIndices = loadedPronouns;
+      if (loadedCases.isNotEmpty) _enabledCaseLabels = loadedCases;
     });
   }
 
@@ -291,26 +342,46 @@ class _MyHomePageState extends State<MyHomePage>
     await prefs.setInt(_scoreStorageKey, _score);
     await prefs.setString(_historyStorageKey, jsonEncode(_answerHistory));
     await prefs.setString(_mistakesStorageKey, jsonEncode(_mistakesByCase));
-  }
-
-  String _pickCaseGroup() {
-    final total = _groupChanceWeights.values.fold<double>(0, (a, b) => a + b);
-    var threshold = _random.nextDouble() * total;
-
-    for (final entry in _groupChanceWeights.entries) {
-      threshold -= entry.value;
-      if (threshold <= 0) {
-        return entry.key;
-      }
-    }
-    return _groupChanceWeights.keys.first;
+    await prefs.setString(
+      _enabledPronounsKey,
+      jsonEncode(_enabledPronounIndices.toList()),
+    );
+    await prefs.setString(
+      _enabledCasesKey,
+      jsonEncode(_enabledCaseLabels.toList()),
+    );
   }
 
   void _nextQuestion() {
-    _currentPronounIndex = _random.nextInt(listPronounsGermanNominative.length);
-    final selectedGroup = _pickCaseGroup();
-    final casesInGroup = _quizCases
-        .where((quizCase) => quizCase.group == selectedGroup)
+    final enabledPronouns = _enabledPronounIndices.toList();
+    if (enabledPronouns.isNotEmpty) {
+      _currentPronounIndex =
+          enabledPronouns[_random.nextInt(enabledPronouns.length)];
+    }
+
+    final enabledCases = _quizCases
+        .where((c) => _enabledCaseLabels.contains(c.label))
+        .toList();
+    if (enabledCases.isEmpty) return;
+
+    // Group weighting restricted to groups that have at least one enabled case.
+    final availableGroups = enabledCases.map((c) => c.group).toSet();
+    final weights = Map<String, double>.fromEntries(
+      _groupChanceWeights.entries.where((e) => availableGroups.contains(e.key)),
+    );
+    final total = weights.values.fold<double>(0, (a, b) => a + b);
+    var threshold = _random.nextDouble() * total;
+    var selectedGroup = weights.keys.first;
+    for (final entry in weights.entries) {
+      threshold -= entry.value;
+      if (threshold <= 0) {
+        selectedGroup = entry.key;
+        break;
+      }
+    }
+
+    final casesInGroup = enabledCases
+        .where((c) => c.group == selectedGroup)
         .toList();
     final selectedCase = casesInGroup[_random.nextInt(casesInGroup.length)];
     _currentCaseIndex = _quizCases.indexOf(selectedCase);
@@ -322,6 +393,36 @@ class _MyHomePageState extends State<MyHomePage>
       answer: correctAnswer,
       random: _random,
     );
+  }
+
+  void _togglePronoun(int index) {
+    setState(() {
+      if (_enabledPronounIndices.contains(index)) {
+        if (_enabledPronounIndices.length <= 1) return;
+        _enabledPronounIndices = Set.of(_enabledPronounIndices)..remove(index);
+      } else {
+        _enabledPronounIndices = Set.of(_enabledPronounIndices)..add(index);
+      }
+      _feedback = '';
+      _answerController.clear();
+      _nextQuestion();
+    });
+    _saveStoredStats();
+  }
+
+  void _toggleCase(String label) {
+    setState(() {
+      if (_enabledCaseLabels.contains(label)) {
+        if (_enabledCaseLabels.length <= 1) return;
+        _enabledCaseLabels = Set.of(_enabledCaseLabels)..remove(label);
+      } else {
+        _enabledCaseLabels = Set.of(_enabledCaseLabels)..add(label);
+      }
+      _feedback = '';
+      _answerController.clear();
+      _nextQuestion();
+    });
+    _saveStoredStats();
   }
 
   Future<void> _resetProgress() async {
@@ -518,7 +619,8 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final currentCase = _quizCases[_currentCaseIndex].label;
-    final currentPronoun = listPronounsGermanNominative[_currentPronounIndex];
+    final currentPronoun =
+        listPronounsGermanNominativeDisplay[_currentPronounIndex];
     final recentHistory = _answerHistory.take(5).toList();
     final topMistakes = _mistakesByCase.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
@@ -945,11 +1047,12 @@ class _MyHomePageState extends State<MyHomePage>
                               buildFixedCell('Nominative', header: true),
                               for (
                                 int index = 0;
-                                index < listPronounsGermanNominative.length;
+                                index <
+                                    listPronounsGermanNominativeDisplay.length;
                                 index++
                               )
                                 buildFixedCell(
-                                  listPronounsGermanNominative[index],
+                                  listPronounsGermanNominativeDisplay[index],
                                   background: index.isEven
                                       ? colorScheme.surface
                                       : colorScheme.surfaceContainerHighest
@@ -1246,6 +1349,8 @@ class _MyHomePageState extends State<MyHomePage>
                                 () {
                                   final nominative =
                                       listPronounsGermanNominative[index];
+                                  final displayName =
+                                      listPronounsGermanNominativeDisplay[index];
                                   final stats = _statsForNominative(nominative);
                                   final bg = _analyticsHeatColor(
                                     stats['correct']!,
@@ -1253,10 +1358,10 @@ class _MyHomePageState extends State<MyHomePage>
                                     colorScheme,
                                   );
                                   return buildFixedCell(
-                                    nominative,
+                                    displayName,
                                     background: bg,
                                     tooltip:
-                                        '$nominative: ${stats['correct']}/${stats['total']} correct',
+                                        '$displayName: ${stats['correct']}/${stats['total']} correct',
                                   );
                                 }(),
                             ],
@@ -1334,6 +1439,74 @@ class _MyHomePageState extends State<MyHomePage>
                         ],
                       );
                     },
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            Card(
+              elevation: 1,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: ExpansionTile(
+                title: const Text(
+                  'Settings',
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+                subtitle: const Text(
+                  'Choose which pronouns and cases appear in the quiz.',
+                ),
+                leading: CircleAvatar(
+                  backgroundColor: colorScheme.primaryContainer,
+                  child: Icon(
+                    Icons.tune_rounded,
+                    color: colorScheme.onPrimaryContainer,
+                  ),
+                ),
+                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Active Pronouns',
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      const SizedBox(height: 6),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 4,
+                        children: List.generate(
+                          listPronounsGermanNominativeDisplay.length,
+                          (i) => FilterChip(
+                            label: Text(listPronounsGermanNominativeDisplay[i]),
+                            selected: _enabledPronounIndices.contains(i),
+                            onSelected: (_) => _togglePronoun(i),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        'Active Cases',
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      const SizedBox(height: 6),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 4,
+                        children: _quizCases
+                            .map(
+                              (c) => FilterChip(
+                                label: Text(c.label),
+                                selected: _enabledCaseLabels.contains(c.label),
+                                onSelected: (_) => _toggleCase(c.label),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ],
                   ),
                 ],
               ),
