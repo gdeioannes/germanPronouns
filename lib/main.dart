@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'data/pronoun_data.dart';
 import 'data/reference_sentence_bank.dart';
@@ -15,14 +16,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final baseTheme = ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      useMaterial3: true,
+    );
+
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'German Pronouns Help'),
+      theme: baseTheme,
+      home: const MyHomePage(title: 'German Pronoun Quiz'),
     );
   }
 }
@@ -618,18 +621,40 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final quizTextTheme = GoogleFonts.latoTextTheme(
+      Theme.of(context).textTheme,
+    );
     final currentCase = _quizCases[_currentCaseIndex].label;
     final currentPronoun =
         listPronounsGermanNominativeDisplay[_currentPronounIndex];
+    final blankMatch = RegExp(r'_{4,}').firstMatch(_currentReferenceSentence);
+    final referenceBefore = blankMatch != null
+        ? _currentReferenceSentence.substring(0, blankMatch.start)
+        : _currentReferenceSentence;
+    final referenceAfter = blankMatch != null
+        ? _currentReferenceSentence.substring(blankMatch.end)
+        : '';
     final recentHistory = _answerHistory.take(5).toList();
     final topMistakes = _mistakesByCase.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
+    final baseSentenceStyle = quizTextTheme.titleMedium;
+    final sentenceStyle = baseSentenceStyle?.copyWith(
+      fontWeight: FontWeight.w600,
+      color: colorScheme.onSurface,
+      fontSize: (baseSentenceStyle.fontSize ?? 16) * 1.3,
+    );
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorScheme.inversePrimary,
         centerTitle: true,
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
         actions: [
           IconButton(
             tooltip: 'Reset score and history',
@@ -642,7 +667,7 @@ class _MyHomePageState extends State<MyHomePage>
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             Card(
               elevation: 1,
               shape: RoundedRectangleBorder(
@@ -652,248 +677,245 @@ class _MyHomePageState extends State<MyHomePage>
               child: Stack(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(14),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'Quiz',
-                                style: Theme.of(context).textTheme.headlineSmall
-                                    ?.copyWith(fontWeight: FontWeight.w700),
-                              ),
-                            ),
-                            Chip(
-                              label: Text('Score $_score'),
-                              avatar: const Icon(Icons.star_rounded, size: 18),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        LayoutBuilder(
-                          builder: (context, constraints) {
-                            final isWide = constraints.maxWidth >= 760;
-                            final panelMinHeight = isWide ? 250.0 : 150.0;
-
-                            final questionBox = Card(
-                              color: colorScheme.primaryContainer.withValues(
-                                alpha: 0.45,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18),
-                                side: BorderSide(
-                                  color: colorScheme.outlineVariant,
-                                ),
-                              ),
-                              child: ConstrainedBox(
-                                constraints: BoxConstraints(
-                                  minHeight: panelMinHeight,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16),
+                        Card(
+                          color: Color.lerp(
+                            colorScheme.primaryContainer,
+                            Colors.white,
+                            0.35,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18),
+                            side: BorderSide(color: colorScheme.outlineVariant),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 12),
+                                Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 8,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: colorScheme.outlineVariant,
+                                    ),
+                                  ),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const SizedBox(height: 12),
-                                      Text(
-                                        'Pronoun',
-                                        style: Theme.of(
-                                          context,
-                                        ).textTheme.labelLarge,
+                                      Row(
+                                        children: [
+                                          Text(
+                                            'Pronoun',
+                                            style: quizTextTheme.labelLarge
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.w300,
+                                                  fontSize:
+                                                      (quizTextTheme
+                                                              .labelLarge
+                                                              ?.fontSize ??
+                                                          14) *
+                                                      0.8,
+                                                ),
+                                          ),
+                                          const Spacer(),
+                                          Chip(
+                                            visualDensity:
+                                                VisualDensity.compact,
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
+                                            label: Text('Score $_score'),
+                                            avatar: const Icon(
+                                              Icons.star_rounded,
+                                              size: 16,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      const SizedBox(height: 6),
+                                      const SizedBox(height: 3),
                                       Text(
                                         currentPronoun,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineMedium
+                                        style: quizTextTheme.headlineSmall
                                             ?.copyWith(
                                               fontWeight: FontWeight.w700,
+                                              fontSize:
+                                                  (quizTextTheme
+                                                          .headlineSmall
+                                                          ?.fontSize ??
+                                                      24) *
+                                                  0.8,
                                             ),
                                       ),
-                                      const SizedBox(height: 10),
+                                      const SizedBox(height: 6),
                                       Text(
                                         'Case',
-                                        style: Theme.of(
-                                          context,
-                                        ).textTheme.labelLarge,
+                                        style: quizTextTheme.labelLarge
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w300,
+                                              fontSize:
+                                                  (quizTextTheme
+                                                          .labelLarge
+                                                          ?.fontSize ??
+                                                      14) *
+                                                  0.8,
+                                            ),
                                       ),
-                                      const SizedBox(height: 6),
+                                      const SizedBox(height: 3),
                                       Text(
                                         currentCase,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineSmall
+                                        style: quizTextTheme.headlineSmall
                                             ?.copyWith(
                                               fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      if (isWide)
-                                        const Spacer()
-                                      else
-                                        const SizedBox(height: 12),
-                                      Text(
-                                        'Reference',
-                                        style: Theme.of(
-                                          context,
-                                        ).textTheme.labelLarge,
-                                      ),
-                                      const SizedBox(height: 6),
-                                      Text(
-                                        _currentReferenceSentence,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle: FontStyle.italic,
+                                              fontSize:
+                                                  (quizTextTheme
+                                                          .headlineSmall
+                                                          ?.fontSize ??
+                                                      24) *
+                                                  0.8,
                                             ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              ),
-                            );
-
-                            final answerBox = Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18),
-                                side: BorderSide(
-                                  color: colorScheme.outlineVariant,
-                                ),
-                              ),
-                              child: ConstrainedBox(
-                                constraints: BoxConstraints(
-                                  minHeight: panelMinHeight,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16),
+                                const SizedBox(height: 12),
+                                Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 8,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: colorScheme.outlineVariant,
+                                    ),
+                                  ),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Answer',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleLarge
+                                        'Quiz',
+                                        style: quizTextTheme.labelLarge
                                             ?.copyWith(
-                                              fontWeight: FontWeight.w700,
+                                              fontWeight: FontWeight.w300,
+                                              fontSize:
+                                                  (quizTextTheme
+                                                          .labelLarge
+                                                          ?.fontSize ??
+                                                      14) *
+                                                  0.8,
                                             ),
                                       ),
-                                      const SizedBox(height: 12),
-                                      TextField(
-                                        controller: _answerController,
-                                        focusNode: _answerFocusNode,
-                                        autofocus: true,
-                                        textInputAction: TextInputAction.done,
-                                        minLines: isWide ? 2 : 1,
-                                        maxLines: isWide ? 3 : 2,
-                                        decoration: InputDecoration(
-                                          labelText: 'Type here',
-                                          hintText: 'e.g. meinen',
-                                          border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              18,
-                                            ),
-                                          ),
-                                          filled: true,
-                                          fillColor: colorScheme
-                                              .surfaceContainerHighest
-                                              .withValues(alpha: 0.35),
-                                        ),
-                                        onSubmitted: (_) => _submitAnswer(),
-                                      ),
-                                      const SizedBox(height: 14),
-                                      Row(
+                                      const SizedBox(height: 6),
+                                      Wrap(
+                                        crossAxisAlignment:
+                                            WrapCrossAlignment.center,
+                                        spacing: 6,
+                                        runSpacing: 6,
                                         children: [
-                                          Expanded(
-                                            child: FilledButton.icon(
-                                              onPressed: _submitAnswer,
-                                              icon: const Icon(
-                                                Icons.check_rounded,
+                                          Text(
+                                            referenceBefore,
+                                            style: sentenceStyle,
+                                          ),
+                                          SizedBox(
+                                            width: 130,
+                                            child: TextField(
+                                              controller: _answerController,
+                                              focusNode: _answerFocusNode,
+                                              autofocus: true,
+                                              textInputAction:
+                                                  TextInputAction.done,
+                                              minLines: 1,
+                                              maxLines: 1,
+                                              decoration: InputDecoration(
+                                                isDense: true,
+                                                contentPadding:
+                                                    const EdgeInsets.symmetric(
+                                                      horizontal: 10,
+                                                      vertical: 10,
+                                                    ),
+                                                border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
+                                                ),
+                                                filled: true,
+                                                fillColor: colorScheme
+                                                    .surfaceContainerHighest
+                                                    .withValues(alpha: 0.35),
                                               ),
-                                              label: const Text('Check'),
+                                              onSubmitted: (_) =>
+                                                  _submitAnswer(),
                                             ),
                                           ),
-                                          const SizedBox(width: 12),
-                                          OutlinedButton.icon(
-                                            onPressed: _newQuestion,
-                                            icon: const Icon(
-                                              Icons.skip_next_rounded,
+                                          if (referenceAfter.isNotEmpty)
+                                            Text(
+                                              referenceAfter,
+                                              style: sentenceStyle,
                                             ),
-                                            label: const Text('Next'),
-                                          ),
                                         ],
                                       ),
-                                      if (_feedback.isNotEmpty) ...[
-                                        const SizedBox(height: 16),
-                                        Container(
-                                          width: double.infinity,
-                                          padding: const EdgeInsets.all(14),
-                                          decoration: BoxDecoration(
-                                            color:
-                                                _feedback.startsWith('Correct')
-                                                ? colorScheme.tertiaryContainer
-                                                : colorScheme.errorContainer,
-                                            borderRadius: BorderRadius.circular(
-                                              18,
-                                            ),
-                                          ),
-                                          child: Text(
-                                            _feedback,
-                                            style: TextStyle(
-                                              color:
-                                                  _feedback.startsWith(
-                                                    'Correct',
-                                                  )
-                                                  ? colorScheme
-                                                        .onTertiaryContainer
-                                                  : colorScheme
-                                                        .onErrorContainer,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
                                     ],
                                   ),
                                 ),
-                              ),
-                            );
-
-                            if (isWide) {
-                              return IntrinsicHeight(
-                                child: Row(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                const SizedBox(height: 14),
+                                Row(
                                   children: [
-                                    Expanded(child: questionBox),
-                                    const SizedBox(width: 16),
-                                    Expanded(child: answerBox),
+                                    Expanded(
+                                      child: FilledButton.icon(
+                                        onPressed: _submitAnswer,
+                                        icon: const Icon(Icons.check_rounded),
+                                        label: const Text('Check'),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    OutlinedButton.icon(
+                                      onPressed: _newQuestion,
+                                      icon: const Icon(Icons.skip_next_rounded),
+                                      label: const Text('Next'),
+                                    ),
                                   ],
                                 ),
-                              );
-                            }
-
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                questionBox,
-                                const SizedBox(height: 16),
-                                answerBox,
+                                if (_feedback.isNotEmpty) ...[
+                                  const SizedBox(height: 16),
+                                  Container(
+                                    width: double.infinity,
+                                    padding: const EdgeInsets.all(14),
+                                    decoration: BoxDecoration(
+                                      color: _feedback.startsWith('Correct')
+                                          ? colorScheme.tertiaryContainer
+                                          : colorScheme.errorContainer,
+                                      borderRadius: BorderRadius.circular(18),
+                                    ),
+                                    child: Text(
+                                      _feedback,
+                                      style: TextStyle(
+                                        color: _feedback.startsWith('Correct')
+                                            ? colorScheme.onTertiaryContainer
+                                            : colorScheme.onErrorContainer,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ],
-                            );
-                          },
+                            ),
+                          ),
                         ),
                       ],
                     ),
