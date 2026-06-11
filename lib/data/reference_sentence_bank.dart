@@ -604,6 +604,15 @@ String buildReferenceExplanation({
   );
 
   final grammarNote = _grammarNote(caseLabel: caseLabel);
+  final englishMeaning = _englishSentenceMeaning(
+    caseLabel: caseLabel,
+    answer: answer,
+    sentence: sentence,
+  );
+  final triggerNote = _caseTriggerNote(
+    caseLabel: caseLabel,
+    sentence: sentence,
+  );
 
   final possessiveNote = caseLabel.startsWith('Poss.')
       ? 'This is a possessive determiner (like my/your/his), not a standalone personal pronoun, '
@@ -614,12 +623,130 @@ String buildReferenceExplanation({
 
   return [
     'Example: $sentence',
+    'English: $englishMeaning',
     'Answer: "$answer" — $pronounMeaning.',
     'Grammar: $grammarNote',
-    if (targetNote.isNotEmpty) 'Agreement: $targetNote',
-    if (possessiveNote.isNotEmpty) possessiveNote,
+    if (triggerNote != '') 'Trigger: $triggerNote',
+    if (targetNote != '') 'Agreement: $targetNote',
+    if (possessiveNote != '') possessiveNote,
     'Base form (nominative): "$nominative".',
   ].join('\n\n');
+}
+
+String _englishSentenceMeaning({
+  required String caseLabel,
+  required String answer,
+  required String sentence,
+}) {
+  final pronounEnglish = caseLabel.startsWith('Poss.')
+      ? _possessiveOwnerMeaning(answer)
+      : _pronounMeaning(caseLabel: caseLabel, nominative: '', answer: answer);
+
+  if (caseLabel.startsWith('Poss.')) {
+    return 'The missing word means "$pronounEnglish" and shows who owns the following noun in this sentence.';
+  }
+
+  switch (caseLabel) {
+    case 'Accusative':
+      return 'This sentence uses "$pronounEnglish" as the direct object: the person or thing receiving the action.';
+    case 'Dative':
+      return 'This sentence uses "$pronounEnglish" as the indirect object: the recipient or beneficiary.';
+    case 'Genitive':
+      return 'This sentence uses "$pronounEnglish" in a genitive structure, often translated with "of" or required by prepositions like "because of" / "despite".';
+    case 'Reflexive':
+      return 'This sentence uses a reflexive meaning: the subject acts back on itself.';
+    default:
+      return 'In English terms, the missing form means "$pronounEnglish" in this sentence.';
+  }
+}
+
+String _caseTriggerNote({required String caseLabel, required String sentence}) {
+  final lowerSentence = sentence.toLowerCase();
+  final trigger = _findFirstTrigger(lowerSentence, const [
+    'wegen',
+    'trotz',
+    'statt',
+    'mit',
+    'für',
+    'ohne',
+    'gegen',
+    'durch',
+    'helfen',
+    'gehört',
+    'gehören',
+    'danken',
+    'schreiben',
+    'geben',
+    'sehen',
+    'kennen',
+    'einladen',
+    'vermissen',
+    'anrufen',
+    'freut',
+    'erinnern',
+    'wasche',
+  ]);
+
+  if (caseLabel == 'Genitive' || caseLabel.contains('Gen.')) {
+    if (trigger == 'wegen' || trigger == 'trotz' || trigger == 'statt') {
+      return 'The preposition "$trigger" is a genitive marker here, so German requires a genitive form after it.';
+    }
+    return 'Look for genitive signals such as wegen, trotz, or statt: these often force the genitive.';
+  }
+
+  if (caseLabel == 'Dative' || caseLabel.contains('Dat.')) {
+    if (trigger == 'mit') {
+      return 'The preposition "$trigger" takes the dative in German.';
+    }
+    if (trigger == 'helfen' ||
+        trigger == 'gehört' ||
+        trigger == 'gehören' ||
+        trigger == 'danken' ||
+        trigger == 'schreiben' ||
+        trigger == 'geben') {
+      return 'The verb "$trigger" points to a dative role here: the person receiving help, thanks, a message, or an object.';
+    }
+    return 'Typical dative markers are recipient verbs like helfen, geben, schreiben, danken, or dative prepositions like mit.';
+  }
+
+  if (caseLabel == 'Accusative' || caseLabel.contains('Acc.')) {
+    if (trigger == 'für' ||
+        trigger == 'ohne' ||
+        trigger == 'gegen' ||
+        trigger == 'durch') {
+      return 'The preposition "$trigger" is an accusative marker in German.';
+    }
+    if (trigger == 'sehen' ||
+        trigger == 'kennen' ||
+        trigger == 'einladen' ||
+        trigger == 'vermissen' ||
+        trigger == 'anrufen') {
+      return 'The verb "$trigger" takes a direct object here, which is why the accusative is used.';
+    }
+    return 'Look for a direct-object verb or an accusative preposition such as für, ohne, gegen, or durch.';
+  }
+
+  if (caseLabel == 'Reflexive') {
+    if (trigger == 'freut' || trigger == 'erinnern' || trigger == 'wasche') {
+      return 'The verb form "$trigger" is used reflexively here, so the subject refers back to itself.';
+    }
+    return 'The verb is reflexive here, which is why the pronoun points back to the subject.';
+  }
+
+  if (caseLabel.startsWith('Poss.')) {
+    return 'The noun after the blank determines the possessive ending, so check its gender, number, and case.';
+  }
+
+  return '';
+}
+
+String? _findFirstTrigger(String sentence, List<String> triggers) {
+  for (final trigger in triggers) {
+    if (sentence.contains(trigger)) {
+      return trigger;
+    }
+  }
+  return null;
 }
 
 String _grammarNote({required String caseLabel}) {
@@ -725,8 +852,9 @@ String _possessiveOwnerMeaning(String answer) {
   final lower = answer.toLowerCase();
   if (lower.startsWith('mein')) return 'my';
   if (lower.startsWith('dein')) return 'your (informal singular)';
-  if (lower.startsWith('sein'))
+  if (lower.startsWith('sein')) {
     return 'his, or its (masculine or neuter owner)';
+  }
   if (lower.startsWith('ihr')) return 'her, or their (the context decides)';
   if (lower.startsWith('unser')) return 'our';
   if (lower.startsWith('euer')) return 'your (informal plural)';

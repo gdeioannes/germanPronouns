@@ -48,14 +48,19 @@ class _MyHomePageState extends State<MyHomePage>
   static const String _historyStorageKey = 'quiz_answer_history';
   static const String _mistakesStorageKey = 'quiz_mistakes_by_case';
   static const String _scoreStorageKey = 'quiz_score';
+  static const String _streakStorageKey = 'quiz_streak';
   static const String _enabledPronounsKey = 'quiz_enabled_pronouns';
   static const String _enabledCasesKey = 'quiz_enabled_cases';
   static const int _maxStoredHistory = 100;
+  static const int _maxStreak = 5;
 
   int _score = 0;
+  int _streakCount = 0;
   int _currentPronounIndex = 0;
   int _currentCaseIndex = 0;
   String _feedback = '';
+  String _feedbackHint = '';
+  bool? _lastAnswerCorrect;
   String _currentReferenceSentence = '';
   String _currentReferenceExplanation = '';
   bool _showFireworks = false;
@@ -242,7 +247,7 @@ class _MyHomePageState extends State<MyHomePage>
     super.dispose();
   }
 
-  void _triggerFireworks() {
+  void _triggerFireworks({required int streak, required bool jackpot}) {
     final colorScheme = Theme.of(context).colorScheme;
     final palette = [
       colorScheme.primary,
@@ -253,7 +258,9 @@ class _MyHomePageState extends State<MyHomePage>
       Colors.green,
     ];
 
-    final particleCount = 40;
+    final baseIntensity = 1 + (streak * 0.22);
+    final intensity = jackpot ? baseIntensity + 0.85 : baseIntensity;
+    final particleCount = (34 * intensity).round().clamp(36, 120);
     final particles = List.generate(particleCount, (_) {
       final angle = _random.nextDouble() * 2 * pi;
       final direction = Offset(cos(angle), sin(angle));
@@ -263,8 +270,8 @@ class _MyHomePageState extends State<MyHomePage>
           0.3 + _random.nextDouble() * 0.25,
         ),
         direction: direction,
-        speed: 52 + _random.nextDouble() * 46,
-        size: 1.9 + _random.nextDouble() * 2.3,
+        speed: (52 + _random.nextDouble() * 46) * intensity,
+        size: (1.9 + _random.nextDouble() * 2.3) * (0.9 + intensity * 0.22),
         color: palette[_random.nextInt(palette.length)],
       );
     });
@@ -289,11 +296,12 @@ class _MyHomePageState extends State<MyHomePage>
     final historyJson = prefs.getString(_historyStorageKey);
     final mistakesJson = prefs.getString(_mistakesStorageKey);
     final storedScore = prefs.getInt(_scoreStorageKey) ?? 0;
+    final storedStreak = prefs.getInt(_streakStorageKey) ?? 0;
 
     List<Map<String, dynamic>> loadedHistory = [];
     Map<String, int> loadedMistakes = {};
 
-    if (historyJson != null && historyJson.isNotEmpty) {
+    if (historyJson != null && historyJson != '') {
       final decoded = jsonDecode(historyJson);
       if (decoded is List) {
         loadedHistory = decoded
@@ -303,7 +311,7 @@ class _MyHomePageState extends State<MyHomePage>
       }
     }
 
-    if (mistakesJson != null && mistakesJson.isNotEmpty) {
+    if (mistakesJson != null && mistakesJson != '') {
       final decoded = jsonDecode(mistakesJson);
       if (decoded is Map) {
         loadedMistakes = decoded.map(
@@ -318,13 +326,13 @@ class _MyHomePageState extends State<MyHomePage>
     Set<int> loadedPronouns = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     Set<String> loadedCases = _enabledCaseLabels;
 
-    if (pronounsJson != null && pronounsJson.isNotEmpty) {
+    if (pronounsJson != null && pronounsJson != '') {
       final decoded = jsonDecode(pronounsJson);
       if (decoded is List) {
         loadedPronouns = decoded.map((v) => (v as num).toInt()).toSet();
       }
     }
-    if (casesJson != null && casesJson.isNotEmpty) {
+    if (casesJson != null && casesJson != '') {
       final decoded = jsonDecode(casesJson);
       if (decoded is List) {
         loadedCases = decoded.map((v) => v.toString()).toSet();
@@ -334,16 +342,20 @@ class _MyHomePageState extends State<MyHomePage>
     if (!mounted) return;
     setState(() {
       _score = storedScore;
+      _streakCount = storedStreak.clamp(0, _maxStreak);
       _answerHistory = loadedHistory;
       _mistakesByCase = loadedMistakes;
-      if (loadedPronouns.isNotEmpty) _enabledPronounIndices = loadedPronouns;
-      if (loadedCases.isNotEmpty) _enabledCaseLabels = loadedCases;
+      if (loadedPronouns.isEmpty == false) {
+        _enabledPronounIndices = loadedPronouns;
+      }
+      if (loadedCases.isEmpty == false) _enabledCaseLabels = loadedCases;
     });
   }
 
   Future<void> _saveStoredStats() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt(_scoreStorageKey, _score);
+    await prefs.setInt(_streakStorageKey, _streakCount);
     await prefs.setString(_historyStorageKey, jsonEncode(_answerHistory));
     await prefs.setString(_mistakesStorageKey, jsonEncode(_mistakesByCase));
     await prefs.setString(
@@ -358,7 +370,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   void _nextQuestion() {
     final enabledPronouns = _enabledPronounIndices.toList();
-    if (enabledPronouns.isNotEmpty) {
+    if (enabledPronouns.isEmpty == false) {
       _currentPronounIndex =
           enabledPronouns[_random.nextInt(enabledPronouns.length)];
     }
@@ -414,6 +426,8 @@ class _MyHomePageState extends State<MyHomePage>
         _enabledPronounIndices = Set.of(_enabledPronounIndices)..add(index);
       }
       _feedback = '';
+      _feedbackHint = '';
+      _lastAnswerCorrect = null;
       _answerController.clear();
       _nextQuestion();
     });
@@ -429,6 +443,8 @@ class _MyHomePageState extends State<MyHomePage>
         _enabledCaseLabels = Set.of(_enabledCaseLabels)..add(label);
       }
       _feedback = '';
+      _feedbackHint = '';
+      _lastAnswerCorrect = null;
       _answerController.clear();
       _nextQuestion();
     });
@@ -438,11 +454,80 @@ class _MyHomePageState extends State<MyHomePage>
   Future<void> _resetProgress() async {
     setState(() {
       _score = 0;
+      _streakCount = 0;
       _answerHistory = [];
       _mistakesByCase = {};
       _feedback = '';
+      _feedbackHint = '';
+      _lastAnswerCorrect = null;
     });
     await _saveStoredStats();
+  }
+
+  String _buildMistakeReminder({
+    required String caseLabel,
+    required String correctAnswer,
+    required String explanation,
+  }) {
+    final sections = explanation
+        .split('\n\n')
+        .map((part) => part.trim())
+        .where((part) => part != '')
+        .toList();
+
+    String? pickBody(String prefix) {
+      for (final section in sections) {
+        if (section.startsWith(prefix)) {
+          return section.substring(prefix.length).trim();
+        }
+      }
+      return null;
+    }
+
+    final triggerHint = pickBody('Trigger:');
+    if (triggerHint != null && triggerHint != '') {
+      return 'Tip: $triggerHint';
+    }
+
+    final grammarHint = pickBody('Grammar:');
+    if (grammarHint != null && grammarHint != '') {
+      return 'Tip: $grammarHint';
+    }
+
+    return 'RemiTipnder: In $caseLabel, use "$correctAnswer" for this pronoun.';
+  }
+
+  String _buildSuccessReminder({
+    required String caseLabel,
+    required String correctAnswer,
+    required String explanation,
+  }) {
+    final sections = explanation
+        .split('\n\n')
+        .map((part) => part.trim())
+        .where((part) => part != '')
+        .toList();
+
+    String? pickBody(String prefix) {
+      for (final section in sections) {
+        if (section.startsWith(prefix)) {
+          return section.substring(prefix.length).trim();
+        }
+      }
+      return null;
+    }
+
+    final triggerHint = pickBody('Trigger:');
+    if (triggerHint != null && triggerHint != '') {
+      return 'Nice work: keep an eye on this trigger next time too - $triggerHint';
+    }
+
+    final grammarHint = pickBody('Grammar:');
+    if (grammarHint != null && grammarHint != '') {
+      return 'Nice work: $grammarHint';
+    }
+
+    return 'Nice work: "$correctAnswer" is the right $caseLabel form here.';
   }
 
   Future<void> _showResetConfirmationPanel() async {
@@ -525,18 +610,48 @@ class _MyHomePageState extends State<MyHomePage>
     final correctAnswer =
         _quizCases[_currentCaseIndex].values[_currentPronounIndex];
     final isCorrect = userAnswer == correctAnswer.toLowerCase();
+    final reminderHint = _buildMistakeReminder(
+      caseLabel: caseLabel,
+      correctAnswer: correctAnswer,
+      explanation: _currentReferenceExplanation,
+    );
+    final successHint = _buildSuccessReminder(
+      caseLabel: caseLabel,
+      correctAnswer: correctAnswer,
+      explanation: _currentReferenceExplanation,
+    );
     var shouldCelebrate = false;
+    var reachedStreakFive = false;
+    var fireworksStreak = 0;
 
     setState(() {
       if (isCorrect) {
-        _score += 1;
+        final previousStreak = _streakCount;
+        _streakCount = min(_streakCount + 1, _maxStreak);
+        var pointsEarned = 1;
+        reachedStreakFive =
+            previousStreak < _maxStreak && _streakCount == _maxStreak;
+        if (reachedStreakFive) {
+          pointsEarned += 2;
+        }
+        _score += pointsEarned;
+        fireworksStreak = _streakCount;
         shouldCelebrate = true;
-        _feedback =
-            'Correct: $nominative -> $caseLabel = $correctAnswer (+1 point)';
+        _feedbackHint = successHint;
+        _lastAnswerCorrect = true;
+        if (reachedStreakFive) {
+          _feedback =
+              '$nominative -> $caseLabel = $correctAnswer (+3 points, bonus +2)';
+        } else {
+          _feedback = '$nominative -> $caseLabel = $correctAnswer (+1 point)';
+        }
       } else {
+        _streakCount = 0;
         _score -= 1;
+        _feedbackHint = reminderHint;
+        _lastAnswerCorrect = false;
         _feedback =
-            'Incorrect: $nominative -> $caseLabel. You wrote "$userAnswerRaw", correct is "$correctAnswer" (-1 point)';
+            '$nominative -> $caseLabel. You wrote "$userAnswerRaw", correct is "$correctAnswer" (-1 point)';
         _mistakesByCase[caseLabel] = (_mistakesByCase[caseLabel] ?? 0) + 1;
       }
 
@@ -557,7 +672,7 @@ class _MyHomePageState extends State<MyHomePage>
     });
 
     if (shouldCelebrate) {
-      _triggerFireworks();
+      _triggerFireworks(streak: fireworksStreak, jackpot: reachedStreakFive);
     }
 
     _saveStoredStats();
@@ -567,6 +682,8 @@ class _MyHomePageState extends State<MyHomePage>
   void _newQuestion() {
     setState(() {
       _feedback = '';
+      _feedbackHint = '';
+      _lastAnswerCorrect = null;
       _answerController.clear();
       _nextQuestion();
     });
@@ -637,7 +754,7 @@ class _MyHomePageState extends State<MyHomePage>
     final sections = explanation
         .split('\n\n')
         .map((part) => part.trim())
-        .where((part) => part.isNotEmpty)
+        .where((part) => part != '')
         .toList();
 
     for (var i = 0; i < sections.length; i++) {
@@ -678,11 +795,123 @@ class _MyHomePageState extends State<MyHomePage>
     return spans;
   }
 
+  Widget _buildStreakTracker(ColorScheme colorScheme) {
+    return TweenAnimationBuilder<double>(
+      tween: Tween<double>(end: _streakCount.toDouble()),
+      duration: const Duration(milliseconds: 420),
+      curve: Curves.easeOutCubic,
+      builder: (context, animatedStreak, child) {
+        final normalizedProgress = ((animatedStreak - 1) / (_maxStreak - 1))
+            .clamp(0.0, 1.0);
+        return SizedBox(
+          height: 40,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final sideInset = constraints.maxWidth / (_maxStreak * 2);
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    left: sideInset,
+                    right: sideInset,
+                    child: Stack(
+                      alignment: Alignment.centerLeft,
+                      children: [
+                        Container(
+                          height: 8,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: colorScheme.surfaceContainerHighest,
+                          ),
+                        ),
+                        FractionallySizedBox(
+                          widthFactor: normalizedProgress,
+                          child: Container(
+                            height: 8,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: colorScheme.primary,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    children: List.generate(_maxStreak, (ballIndex) {
+                      final fillProgress = (animatedStreak - ballIndex).clamp(
+                        0.0,
+                        1.0,
+                      );
+                      final isJackpotBall = ballIndex == _maxStreak - 1;
+                      final activeColor = isJackpotBall
+                          ? colorScheme.tertiary
+                          : colorScheme.primary;
+                      final ballColor = Color.lerp(
+                        colorScheme.surfaceContainerHighest,
+                        activeColor,
+                        fillProgress,
+                      );
+
+                      return Expanded(
+                        child: Center(
+                          child: AnimatedScale(
+                            duration: const Duration(milliseconds: 260),
+                            scale: fillProgress > 0.95
+                                ? (isJackpotBall ? 1.15 : 1.0)
+                                : 1.0,
+                            child: Container(
+                              width: 29,
+                              height: 29,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: ballColor,
+                                boxShadow: fillProgress > 0.98
+                                    ? [
+                                        BoxShadow(
+                                          color: activeColor.withValues(
+                                            alpha: 0.35,
+                                          ),
+                                          blurRadius: isJackpotBall ? 14 : 8,
+                                          spreadRadius: isJackpotBall ? 2 : 0,
+                                        ),
+                                      ]
+                                    : null,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                ],
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _sectionWithMaxWidth(Widget child) {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 620),
+        child: child,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final quizTextTheme = GoogleFonts.latoTextTheme(
       Theme.of(context).textTheme,
+    );
+    const quizFontScale = 1.2;
+    final scaledQuizTextTheme = quizTextTheme.apply(
+      fontSizeFactor: quizFontScale,
     );
     final currentCase = _quizCases[_currentCaseIndex].label;
     final currentPronoun =
@@ -697,7 +926,7 @@ class _MyHomePageState extends State<MyHomePage>
     final recentHistory = _answerHistory.take(5).toList();
     final topMistakes = _mistakesByCase.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
-    final baseSentenceStyle = quizTextTheme.titleMedium;
+    final baseSentenceStyle = scaledQuizTextTheme.titleMedium;
     final sentenceStyle = baseSentenceStyle?.copyWith(
       fontWeight: FontWeight.w600,
       color: colorScheme.onSurface,
@@ -728,303 +957,423 @@ class _MyHomePageState extends State<MyHomePage>
           padding: const EdgeInsets.all(16),
           children: [
             const SizedBox(height: 8),
-            Card(
-              elevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Stack(
+            _sectionWithMaxWidth(
+              Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(14),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Card(
-                          color: Color.lerp(
-                            colorScheme.primaryContainer,
-                            Colors.white,
-                            0.35,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                            side: BorderSide(color: colorScheme.outlineVariant),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const SizedBox(height: 12),
-                                Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                    vertical: 8,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                      color: colorScheme.outlineVariant,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Card(
+                        color: Color.lerp(
+                          colorScheme.primaryContainer,
+                          Colors.white,
+                          0.35,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: _buildStreakTracker(colorScheme),
                                     ),
                                   ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'Pronoun',
-                                            style: quizTextTheme.labelLarge
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.w300,
-                                                  fontSize:
-                                                      (quizTextTheme
-                                                              .labelLarge
-                                                              ?.fontSize ??
-                                                          14) *
-                                                      0.8,
-                                                ),
+                                  const SizedBox(width: 12),
+                                  ConstrainedBox(
+                                    constraints: const BoxConstraints(
+                                      minWidth: 132,
+                                    ),
+                                    child: Container(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        10,
+                                        8,
+                                        12,
+                                        8,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(14),
+                                        color: colorScheme.primaryContainer,
+                                        border: Border.all(
+                                          color: colorScheme.primary.withValues(
+                                            alpha: 0.45,
                                           ),
-                                          const Spacer(),
-                                          Chip(
-                                            visualDensity:
-                                                VisualDensity.compact,
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            label: Text('Score $_score'),
-                                            avatar: const Icon(
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: colorScheme.primary
+                                                .withValues(alpha: 0.16),
+                                            blurRadius: 12,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Container(
+                                            width: 26,
+                                            height: 26,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: colorScheme.primary,
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: Icon(
                                               Icons.star_rounded,
-                                              size: 16,
+                                              size: 15,
+                                              color: colorScheme.onPrimary,
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 3),
-                                      Text(
-                                        currentPronoun,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: quizTextTheme.headlineSmall
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize:
-                                                  (quizTextTheme
-                                                          .headlineSmall
-                                                          ?.fontSize ??
-                                                      24) *
-                                                  0.8,
-                                            ),
-                                      ),
-                                      const SizedBox(height: 6),
-                                      Text(
-                                        'Case',
-                                        style: quizTextTheme.labelLarge
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w300,
-                                              fontSize:
-                                                  (quizTextTheme
-                                                          .labelLarge
-                                                          ?.fontSize ??
-                                                      14) *
-                                                  0.8,
-                                            ),
-                                      ),
-                                      const SizedBox(height: 3),
-                                      Text(
-                                        currentCase,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: quizTextTheme.headlineSmall
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w600,
-                                              fontSize:
-                                                  (quizTextTheme
-                                                          .headlineSmall
-                                                          ?.fontSize ??
-                                                      24) *
-                                                  0.8,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(height: 12),
-                                Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                    vertical: 8,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                      color: colorScheme.outlineVariant,
-                                    ),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Quiz',
-                                        style: quizTextTheme.labelLarge
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w300,
-                                              fontSize:
-                                                  (quizTextTheme
-                                                          .labelLarge
-                                                          ?.fontSize ??
-                                                      14) *
-                                                  0.8,
-                                            ),
-                                      ),
-                                      const SizedBox(height: 6),
-                                      Wrap(
-                                        crossAxisAlignment:
-                                            WrapCrossAlignment.center,
-                                        spacing: 6,
-                                        runSpacing: 6,
-                                        children: [
+                                          const SizedBox(width: 8),
                                           Text(
-                                            referenceBefore,
-                                            style: sentenceStyle,
-                                          ),
-                                          SizedBox(
-                                            width: 130,
-                                            child: TextField(
-                                              controller: _answerController,
-                                              focusNode: _answerFocusNode,
-                                              autofocus: true,
-                                              textInputAction:
-                                                  TextInputAction.done,
-                                              minLines: 1,
-                                              maxLines: 1,
-                                              decoration: InputDecoration(
-                                                isDense: true,
-                                                contentPadding:
-                                                    const EdgeInsets.symmetric(
-                                                      horizontal: 10,
-                                                      vertical: 10,
-                                                    ),
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
+                                            '$_score',
+                                            style: scaledQuizTextTheme
+                                                .titleMedium
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.w900,
+                                                  color: colorScheme
+                                                      .onPrimaryContainer,
                                                 ),
-                                                filled: true,
-                                                fillColor: colorScheme
-                                                    .surfaceContainerHighest
-                                                    .withValues(alpha: 0.35),
-                                              ),
-                                              onSubmitted: (_) =>
-                                                  _submitAnswer(),
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              if (referenceAfter.isNotEmpty)
-                                                Text(
-                                                  referenceAfter,
-                                                  style: sentenceStyle,
-                                                ),
-                                              IconButton(
-                                                visualDensity:
-                                                    VisualDensity.compact,
-                                                tooltip: 'Grammar info',
-                                                onPressed: () {
-                                                  showDialog<void>(
-                                                    context: context,
-                                                    builder: (dialogContext) {
-                                                      return AlertDialog(
-                                                        title: const Text(
-                                                          'Sentence Info',
-                                                        ),
-                                                        content: SingleChildScrollView(
-                                                          child: SelectableText.rich(
-                                                            TextSpan(
-                                                              children: _buildExplanationSpans(
-                                                                dialogContext,
-                                                                _currentReferenceExplanation,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.of(
-                                                                  dialogContext,
-                                                                ).pop(),
-                                                            child: const Text(
-                                                              'Close',
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  );
-                                                },
-                                                icon: const Icon(
-                                                  Icons.info_outline_rounded,
-                                                ),
-                                              ),
-                                            ],
                                           ),
                                         ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(height: 14),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: FilledButton.icon(
-                                        onPressed: _submitAnswer,
-                                        icon: const Icon(Icons.check_rounded),
-                                        label: const Text('Check'),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 12),
-                                    OutlinedButton.icon(
-                                      onPressed: _newQuestion,
-                                      icon: const Icon(Icons.skip_next_rounded),
-                                      label: const Text('Next'),
-                                    ),
-                                  ],
-                                ),
-                                if (_feedback.isNotEmpty) ...[
-                                  const SizedBox(height: 16),
-                                  Container(
-                                    width: double.infinity,
-                                    padding: const EdgeInsets.all(14),
-                                    decoration: BoxDecoration(
-                                      color: _feedback.startsWith('Correct')
-                                          ? colorScheme.tertiaryContainer
-                                          : colorScheme.errorContainer,
-                                      borderRadius: BorderRadius.circular(18),
-                                    ),
-                                    child: Text(
-                                      _feedback,
-                                      style: TextStyle(
-                                        color: _feedback.startsWith('Correct')
-                                            ? colorScheme.onTertiaryContainer
-                                            : colorScheme.onErrorContainer,
-                                        fontWeight: FontWeight.w700,
                                       ),
                                     ),
                                   ),
                                 ],
+                              ),
+                              const SizedBox(height: 12),
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: colorScheme.outlineVariant,
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Pronoun',
+                                          style: scaledQuizTextTheme.labelLarge
+                                              ?.copyWith(
+                                                fontWeight: FontWeight.w300,
+                                                fontSize:
+                                                    (scaledQuizTextTheme
+                                                            .labelLarge
+                                                            ?.fontSize ??
+                                                        14) *
+                                                    0.8,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                      currentPronoun,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: scaledQuizTextTheme.headlineSmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize:
+                                                (scaledQuizTextTheme
+                                                        .headlineSmall
+                                                        ?.fontSize ??
+                                                    24) *
+                                                0.8,
+                                          ),
+                                    ),
+                                    const SizedBox(height: 6),
+                                    Text(
+                                      'Case',
+                                      style: scaledQuizTextTheme.labelLarge
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize:
+                                                (scaledQuizTextTheme
+                                                        .labelLarge
+                                                        ?.fontSize ??
+                                                    14) *
+                                                0.8,
+                                          ),
+                                    ),
+                                    const SizedBox(height: 3),
+                                    Text(
+                                      currentCase,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: scaledQuizTextTheme.headlineSmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize:
+                                                (scaledQuizTextTheme
+                                                        .headlineSmall
+                                                        ?.fontSize ??
+                                                    24) *
+                                                0.8,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: colorScheme.outlineVariant,
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Quiz',
+                                      style: scaledQuizTextTheme.labelLarge
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize:
+                                                (scaledQuizTextTheme
+                                                        .labelLarge
+                                                        ?.fontSize ??
+                                                    14) *
+                                                0.8,
+                                          ),
+                                    ),
+                                    const SizedBox(height: 6),
+                                    LayoutBuilder(
+                                      builder: (context, constraints) {
+                                        final inputWidth = min(
+                                          130.0,
+                                          constraints.maxWidth * 0.4,
+                                        );
+                                        return RichText(
+                                          text: TextSpan(
+                                            style: sentenceStyle,
+                                            children: [
+                                              TextSpan(text: referenceBefore),
+                                              WidgetSpan(
+                                                alignment:
+                                                    PlaceholderAlignment.middle,
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.symmetric(
+                                                        horizontal: 6,
+                                                      ),
+                                                  child: SizedBox(
+                                                    width: inputWidth,
+                                                    child: TextField(
+                                                      controller:
+                                                          _answerController,
+                                                      focusNode:
+                                                          _answerFocusNode,
+                                                      autofocus: true,
+                                                      textInputAction:
+                                                          TextInputAction.done,
+                                                      style: sentenceStyle,
+                                                      minLines: 1,
+                                                      maxLines: 1,
+                                                      decoration: InputDecoration(
+                                                        isDense: true,
+                                                        contentPadding:
+                                                            const EdgeInsets.symmetric(
+                                                              horizontal: 10,
+                                                              vertical: 10,
+                                                            ),
+                                                        border: OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                12,
+                                                              ),
+                                                        ),
+                                                        filled: true,
+                                                        fillColor: colorScheme
+                                                            .surfaceContainerHighest
+                                                            .withValues(
+                                                              alpha: 0.35,
+                                                            ),
+                                                      ),
+                                                      onSubmitted: (_) =>
+                                                          _submitAnswer(),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              if (referenceAfter != '')
+                                                TextSpan(text: referenceAfter),
+                                              WidgetSpan(
+                                                alignment:
+                                                    PlaceholderAlignment.middle,
+                                                child: IconButton(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                        left: 4,
+                                                      ),
+                                                  constraints:
+                                                      const BoxConstraints(
+                                                        minWidth: 28,
+                                                        minHeight: 28,
+                                                      ),
+                                                  visualDensity:
+                                                      VisualDensity.compact,
+                                                  tooltip: 'Grammar info',
+                                                  onPressed: () {
+                                                    showDialog<void>(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                            'Sentence Info',
+                                                          ),
+                                                          content: SingleChildScrollView(
+                                                            child: SelectableText.rich(
+                                                              TextSpan(
+                                                                children: _buildExplanationSpans(
+                                                                  dialogContext,
+                                                                  _currentReferenceExplanation,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.of(
+                                                                    dialogContext,
+                                                                  ).pop(),
+                                                              child: const Text(
+                                                                'Close',
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.info_outline_rounded,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 14),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: FilledButton.icon(
+                                      onPressed: _submitAnswer,
+                                      icon: const Icon(Icons.check_rounded),
+                                      label: Text(
+                                        'Check',
+                                        style: scaledQuizTextTheme.labelLarge
+                                            ?.copyWith(
+                                              color: colorScheme.onPrimary,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  OutlinedButton.icon(
+                                    onPressed: _newQuestion,
+                                    icon: const Icon(Icons.skip_next_rounded),
+                                    label: Text(
+                                      'Next',
+                                      style: scaledQuizTextTheme.labelLarge,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              if (_feedback != '') ...[
+                                const SizedBox(height: 16),
+                                Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.all(14),
+                                  decoration: BoxDecoration(
+                                    color: _lastAnswerCorrect == true
+                                        ? Colors.green.shade50
+                                        : const Color(0xFFFFD6D6),
+                                    border: Border.all(
+                                      color: _lastAnswerCorrect == true
+                                          ? Colors.green.shade400
+                                          : Colors.red.shade500,
+                                      width: 1.8,
+                                    ),
+                                    borderRadius: BorderRadius.circular(18),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        _lastAnswerCorrect == true
+                                            ? 'Correct'
+                                            : 'Incorrect',
+                                        style: scaledQuizTextTheme.bodyLarge
+                                            ?.copyWith(
+                                              color: _lastAnswerCorrect == true
+                                                  ? Colors.green.shade700
+                                                  : Colors.red.shade700,
+                                              fontWeight: FontWeight.w800,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        _feedback,
+                                        style: scaledQuizTextTheme.bodyLarge
+                                            ?.copyWith(
+                                              color: colorScheme.onSurface,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                      ),
+                                      if (_feedbackHint != '') ...[
+                                        const SizedBox(height: 8),
+                                        Text(
+                                          _feedbackHint,
+                                          style: scaledQuizTextTheme.bodyMedium
+                                              ?.copyWith(
+                                                color: colorScheme
+                                                    .onSurfaceVariant,
+                                                fontStyle: FontStyle.italic,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ],
+                                    ],
+                                  ),
+                                ),
                               ],
-                            ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   if (_showFireworks)
                     Positioned.fill(
@@ -1046,339 +1395,54 @@ class _MyHomePageState extends State<MyHomePage>
               ),
             ),
             const SizedBox(height: 16),
-            Card(
-              elevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: ExpansionTile(
-                title: const Text(
-                  'Help Memory',
-                  style: TextStyle(fontWeight: FontWeight.w700),
+            _sectionWithMaxWidth(
+              Card(
+                elevation: 1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
                 ),
-                subtitle: const Text(
-                  'Expanded reference table with all cases.',
-                ),
-                leading: CircleAvatar(
-                  backgroundColor: colorScheme.primaryContainer,
-                  child: Icon(
-                    Icons.menu_book_rounded,
-                    color: colorScheme.onPrimaryContainer,
+                clipBehavior: Clip.antiAlias,
+                child: ExpansionTile(
+                  title: const Text(
+                    'Help Memory',
+                    style: TextStyle(fontWeight: FontWeight.w700),
                   ),
-                ),
-                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                children: [
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      const fixedColumnWidth = 120.0;
-                      const valueColumnWidth = 110.0;
-                      const rowHeight = 48.0;
-                      final scrollableWidth =
-                          valueColumnWidth * (_tableColumns.length - 1);
-
-                      Widget buildFixedCell(
-                        String text, {
-                        bool header = false,
-                        Color? background,
-                      }) {
-                        return Container(
-                          width: fixedColumnWidth,
-                          height: rowHeight,
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          decoration: BoxDecoration(
-                            color:
-                                background ??
-                                (header
-                                    ? colorScheme.primary
-                                    : colorScheme.surface),
-                            border: Border(
-                              right: BorderSide(
-                                color: header
-                                    ? colorScheme.primary
-                                    : colorScheme.outlineVariant,
-                              ),
-                              bottom: BorderSide(
-                                color: colorScheme.outlineVariant,
-                              ),
-                            ),
-                          ),
-                          child: Text(
-                            text,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: header ? Colors.white : null,
-                              fontWeight: header
-                                  ? FontWeight.w700
-                                  : FontWeight.w600,
-                            ),
-                          ),
-                        );
-                      }
-
-                      Widget buildScrollableRow(
-                        List<String> values, {
-                        bool header = false,
-                        Color? background,
-                      }) {
-                        return SizedBox(
-                          width: scrollableWidth,
-                          height: rowHeight,
-                          child: Row(
-                            children: values.map((value) {
-                              return Container(
-                                width: valueColumnWidth,
-                                height: rowHeight,
-                                alignment: Alignment.center,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                ),
-                                decoration: BoxDecoration(
-                                  color:
-                                      background ??
-                                      (header
-                                          ? colorScheme.primary
-                                          : colorScheme.surface),
-                                  border: Border(
-                                    right: BorderSide(
-                                      color: header
-                                          ? colorScheme.primary
-                                          : colorScheme.outlineVariant,
-                                    ),
-                                    bottom: BorderSide(
-                                      color: colorScheme.outlineVariant,
-                                    ),
-                                  ),
-                                ),
-                                child: Text(
-                                  value,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: header ? Colors.white : null,
-                                    fontWeight: header
-                                        ? FontWeight.w700
-                                        : FontWeight.w500,
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        );
-                      }
-
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            children: [
-                              buildFixedCell('Nominative', header: true),
-                              for (
-                                int index = 0;
-                                index <
-                                    listPronounsGermanNominativeDisplay.length;
-                                index++
-                              )
-                                buildFixedCell(
-                                  listPronounsGermanNominativeDisplay[index],
-                                  background: index.isEven
-                                      ? colorScheme.surface
-                                      : colorScheme.surfaceContainerHighest
-                                            .withValues(alpha: 0.35),
-                                ),
-                            ],
-                          ),
-                          Expanded(
-                            child: Scrollbar(
-                              controller: _tableScrollController,
-                              thumbVisibility: true,
-                              child: SingleChildScrollView(
-                                controller: _tableScrollController,
-                                scrollDirection: Axis.horizontal,
-                                child: SizedBox(
-                                  width: scrollableWidth,
-                                  child: Column(
-                                    children: [
-                                      buildScrollableRow(
-                                        _tableColumns
-                                            .skip(1)
-                                            .map((column) => column.key)
-                                            .toList(),
-                                        header: true,
-                                      ),
-                                      for (
-                                        int index = 0;
-                                        index <
-                                            listPronounsGermanNominative.length;
-                                        index++
-                                      )
-                                        buildScrollableRow(
-                                          _tableColumns
-                                              .skip(1)
-                                              .map(
-                                                (column) => column.value[index],
-                                              )
-                                              .toList(),
-                                          background: index.isEven
-                                              ? colorScheme.surface
-                                              : colorScheme
-                                                    .surfaceContainerHighest
-                                                    .withValues(alpha: 0.35),
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
+                  subtitle: const Text(
+                    'Expanded reference table with all cases.',
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            Card(
-              elevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: ExpansionTile(
-                title: const Text(
-                  'History',
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                subtitle: const Text('Recent answers and common mistakes.'),
-                leading: CircleAvatar(
-                  backgroundColor: colorScheme.primaryContainer,
-                  child: Icon(
-                    Icons.history_rounded,
-                    color: colorScheme.onPrimaryContainer,
-                  ),
-                ),
-                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                children: [
-                  if (recentHistory.isEmpty)
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'No history yet.',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    )
-                  else
-                    ...recentHistory.map((entry) {
-                      final ok = entry['correct'] == true;
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: Text(
-                          '${ok ? 'OK' : 'X'} ${entry['nominative']} -> ${entry['case']}: ${entry['answer']} (correct: ${entry['correctAnswer']})',
-                          style: TextStyle(
-                            color: ok ? colorScheme.primary : colorScheme.error,
-                          ),
-                        ),
-                      );
-                    }),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Mistake Analytics',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
+                  leading: CircleAvatar(
+                    backgroundColor: colorScheme.primaryContainer,
+                    child: Icon(
+                      Icons.menu_book_rounded,
+                      color: colorScheme.onPrimaryContainer,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  if (topMistakes.isEmpty)
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'No mistakes tracked yet.',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    )
-                  else
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: topMistakes.take(6).map((entry) {
-                        return Chip(
-                          label: Text('${entry.key}: ${entry.value}'),
-                        );
-                      }).toList(),
-                    ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            Card(
-              elevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: ExpansionTile(
-                title: const Text(
-                  'Analytics',
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                subtitle: const Text(
-                  'Performance heatmap: red bad, yellow mixed, green good.',
-                ),
-                leading: CircleAvatar(
-                  backgroundColor: colorScheme.primaryContainer,
-                  child: Icon(
-                    Icons.analytics_rounded,
-                    color: colorScheme.onPrimaryContainer,
-                  ),
-                ),
-                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                children: [
-                  Row(
-                    children: [
-                      _buildLegendChip(Colors.red.shade300, 'Bad avg'),
-                      const SizedBox(width: 8),
-                      _buildLegendChip(Colors.yellow.shade300, 'Mixed'),
-                      const SizedBox(width: 8),
-                      _buildLegendChip(Colors.green.shade300, 'Good avg'),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      const fixedColumnWidth = 120.0;
-                      const valueColumnWidth = 110.0;
-                      const rowHeight = 48.0;
-                      final scrollableWidth =
-                          valueColumnWidth * (_tableColumns.length - 1);
+                  childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  children: [
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        const fixedColumnWidth = 120.0;
+                        const valueColumnWidth = 110.0;
+                        const rowHeight = 48.0;
+                        final scrollableWidth =
+                            valueColumnWidth * (_tableColumns.length - 1);
 
-                      Widget buildFixedCell(
-                        String text, {
-                        bool header = false,
-                        Color? background,
-                        String? tooltip,
-                      }) {
-                        final bg =
-                            background ??
-                            (header
-                                ? colorScheme.primary
-                                : colorScheme.surface);
-                        final brightness = ThemeData.estimateBrightnessForColor(
-                          bg,
-                        );
-                        final fg = brightness == Brightness.dark
-                            ? Colors.white
-                            : colorScheme.onSurface;
-
-                        return Tooltip(
-                          message: tooltip ?? text,
-                          child: Container(
+                        Widget buildFixedCell(
+                          String text, {
+                          bool header = false,
+                          Color? background,
+                        }) {
+                          return Container(
                             width: fixedColumnWidth,
                             height: rowHeight,
                             alignment: Alignment.center,
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             decoration: BoxDecoration(
-                              color: bg,
+                              color:
+                                  background ??
+                                  (header
+                                      ? colorScheme.primary
+                                      : colorScheme.surface),
                               border: Border(
                                 right: BorderSide(
                                   color: header
@@ -1394,39 +1458,26 @@ class _MyHomePageState extends State<MyHomePage>
                               text,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: header ? Colors.white : fg,
+                                color: header ? Colors.white : null,
                                 fontWeight: header
                                     ? FontWeight.w700
                                     : FontWeight.w600,
                               ),
                             ),
-                          ),
-                        );
-                      }
+                          );
+                        }
 
-                      Widget buildScrollableRow(
-                        List<String> values, {
-                        bool header = false,
-                        List<Color>? backgrounds,
-                        List<String>? tooltips,
-                      }) {
-                        return SizedBox(
-                          width: scrollableWidth,
-                          height: rowHeight,
-                          child: Row(
-                            children: List.generate(values.length, (idx) {
-                              final bg = header
-                                  ? colorScheme.primary
-                                  : (backgrounds?[idx] ?? colorScheme.surface);
-                              final brightness =
-                                  ThemeData.estimateBrightnessForColor(bg);
-                              final fg = brightness == Brightness.dark
-                                  ? Colors.white
-                                  : colorScheme.onSurface;
-
-                              return Tooltip(
-                                message: tooltips?[idx] ?? values[idx],
-                                child: Container(
+                        Widget buildScrollableRow(
+                          List<String> values, {
+                          bool header = false,
+                          Color? background,
+                        }) {
+                          return SizedBox(
+                            width: scrollableWidth,
+                            height: rowHeight,
+                            child: Row(
+                              children: values.map((value) {
+                                return Container(
                                   width: valueColumnWidth,
                                   height: rowHeight,
                                   alignment: Alignment.center,
@@ -1434,7 +1485,11 @@ class _MyHomePageState extends State<MyHomePage>
                                     horizontal: 12,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: bg,
+                                    color:
+                                        background ??
+                                        (header
+                                            ? colorScheme.primary
+                                            : colorScheme.surface),
                                     border: Border(
                                       right: BorderSide(
                                         color: header
@@ -1447,196 +1502,515 @@ class _MyHomePageState extends State<MyHomePage>
                                     ),
                                   ),
                                   child: Text(
-                                    values[idx],
+                                    value,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: header ? Colors.white : fg,
+                                      color: header ? Colors.white : null,
                                       fontWeight: header
                                           ? FontWeight.w700
                                           : FontWeight.w500,
                                     ),
                                   ),
-                                ),
-                              );
-                            }),
-                          ),
-                        );
-                      }
+                                );
+                              }).toList(),
+                            ),
+                          );
+                        }
 
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            children: [
-                              buildFixedCell('Nominative', header: true),
-                              for (
-                                int index = 0;
-                                index < listPronounsGermanNominative.length;
-                                index++
-                              )
-                                () {
-                                  final nominative =
-                                      listPronounsGermanNominative[index];
-                                  final displayName =
-                                      listPronounsGermanNominativeDisplay[index];
-                                  final stats = _statsForNominative(nominative);
-                                  final bg = _analyticsHeatColor(
-                                    stats['correct']!,
-                                    stats['total']!,
-                                    colorScheme,
-                                  );
-                                  return buildFixedCell(
-                                    displayName,
-                                    background: bg,
-                                    tooltip:
-                                        '$displayName: ${stats['correct']}/${stats['total']} correct',
-                                  );
-                                }(),
-                            ],
-                          ),
-                          Expanded(
-                            child: Scrollbar(
-                              controller: _tableScrollController,
-                              thumbVisibility: true,
-                              child: SingleChildScrollView(
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                buildFixedCell('Nominative', header: true),
+                                for (
+                                  int index = 0;
+                                  index <
+                                      listPronounsGermanNominativeDisplay
+                                          .length;
+                                  index++
+                                )
+                                  buildFixedCell(
+                                    listPronounsGermanNominativeDisplay[index],
+                                    background: index.isEven
+                                        ? colorScheme.surface
+                                        : colorScheme.surfaceContainerHighest
+                                              .withValues(alpha: 0.35),
+                                  ),
+                              ],
+                            ),
+                            Expanded(
+                              child: Scrollbar(
                                 controller: _tableScrollController,
-                                scrollDirection: Axis.horizontal,
-                                child: SizedBox(
-                                  width: scrollableWidth,
-                                  child: Column(
-                                    children: [
-                                      buildScrollableRow(
-                                        _tableColumns
-                                            .skip(1)
-                                            .map((column) => column.key)
-                                            .toList(),
-                                        header: true,
-                                      ),
-                                      for (
-                                        int index = 0;
-                                        index <
-                                            listPronounsGermanNominative.length;
-                                        index++
-                                      )
-                                        () {
-                                          final nominative =
-                                              listPronounsGermanNominative[index];
-                                          final values = _tableColumns
+                                thumbVisibility: true,
+                                child: SingleChildScrollView(
+                                  controller: _tableScrollController,
+                                  scrollDirection: Axis.horizontal,
+                                  child: SizedBox(
+                                    width: scrollableWidth,
+                                    child: Column(
+                                      children: [
+                                        buildScrollableRow(
+                                          _tableColumns
                                               .skip(1)
-                                              .map(
-                                                (column) => column.value[index],
-                                              )
-                                              .toList();
-                                          final backgrounds = _tableColumns
-                                              .skip(1)
-                                              .map((column) {
-                                                final stats = _statsForCaseCell(
-                                                  nominative,
-                                                  column.key,
-                                                );
-                                                return _analyticsHeatColor(
-                                                  stats['correct']!,
-                                                  stats['total']!,
-                                                  colorScheme,
-                                                );
-                                              })
-                                              .toList();
-                                          final tooltips = _tableColumns
-                                              .skip(1)
-                                              .map((column) {
-                                                final stats = _statsForCaseCell(
-                                                  nominative,
-                                                  column.key,
-                                                );
-                                                return '$nominative -> ${column.key}: ${stats['correct']}/${stats['total']} correct';
-                                              })
-                                              .toList();
-
-                                          return buildScrollableRow(
-                                            values,
-                                            backgrounds: backgrounds,
-                                            tooltips: tooltips,
-                                          );
-                                        }(),
-                                    ],
+                                              .map((column) => column.key)
+                                              .toList(),
+                                          header: true,
+                                        ),
+                                        for (
+                                          int index = 0;
+                                          index <
+                                              listPronounsGermanNominative
+                                                  .length;
+                                          index++
+                                        )
+                                          buildScrollableRow(
+                                            _tableColumns
+                                                .skip(1)
+                                                .map(
+                                                  (column) =>
+                                                      column.value[index],
+                                                )
+                                                .toList(),
+                                            background: index.isEven
+                                                ? colorScheme.surface
+                                                : colorScheme
+                                                      .surfaceContainerHighest
+                                                      .withValues(alpha: 0.35),
+                                          ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                ],
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 16),
-            Card(
-              elevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: ExpansionTile(
-                title: const Text(
-                  'Settings',
-                  style: TextStyle(fontWeight: FontWeight.w700),
+            _sectionWithMaxWidth(
+              Card(
+                elevation: 1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
                 ),
-                subtitle: const Text(
-                  'Choose which pronouns and cases appear in the quiz.',
-                ),
-                leading: CircleAvatar(
-                  backgroundColor: colorScheme.primaryContainer,
-                  child: Icon(
-                    Icons.tune_rounded,
-                    color: colorScheme.onPrimaryContainer,
+                clipBehavior: Clip.antiAlias,
+                child: ExpansionTile(
+                  title: const Text(
+                    'History',
+                    style: TextStyle(fontWeight: FontWeight.w700),
                   ),
-                ),
-                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Active Pronouns',
-                        style: Theme.of(context).textTheme.labelLarge,
+                  subtitle: const Text('Recent answers and common mistakes.'),
+                  leading: CircleAvatar(
+                    backgroundColor: colorScheme.primaryContainer,
+                    child: Icon(
+                      Icons.history_rounded,
+                      color: colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                  childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  children: [
+                    if (recentHistory.isEmpty)
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'No history yet.',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      )
+                    else
+                      ...recentHistory.map((entry) {
+                        final ok = entry['correct'] == true;
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: Text(
+                            '${ok ? 'OK' : 'X'} ${entry['nominative']} -> ${entry['case']}: ${entry['answer']} (correct: ${entry['correctAnswer']})',
+                            style: TextStyle(
+                              color: ok
+                                  ? colorScheme.primary
+                                  : colorScheme.error,
+                            ),
+                          ),
+                        );
+                      }),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Mistake Analytics',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
                       ),
-                      const SizedBox(height: 6),
+                    ),
+                    const SizedBox(height: 8),
+                    if (topMistakes.isEmpty)
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'No mistakes tracked yet.',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      )
+                    else
                       Wrap(
-                        spacing: 6,
-                        runSpacing: 4,
-                        children: List.generate(
-                          listPronounsGermanNominativeDisplay.length,
-                          (i) => FilterChip(
-                            label: Text(listPronounsGermanNominativeDisplay[i]),
-                            selected: _enabledPronounIndices.contains(i),
-                            onSelected: (_) => _togglePronoun(i),
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: topMistakes.take(6).map((entry) {
+                          return Chip(
+                            label: Text('${entry.key}: ${entry.value}'),
+                          );
+                        }).toList(),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            _sectionWithMaxWidth(
+              Card(
+                elevation: 1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: ExpansionTile(
+                  title: const Text(
+                    'Analytics',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  subtitle: const Text(
+                    'Performance heatmap: red bad, yellow mixed, green good.',
+                  ),
+                  leading: CircleAvatar(
+                    backgroundColor: colorScheme.primaryContainer,
+                    child: Icon(
+                      Icons.analytics_rounded,
+                      color: colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                  childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  children: [
+                    Row(
+                      children: [
+                        _buildLegendChip(Colors.red.shade300, 'Bad avg'),
+                        const SizedBox(width: 8),
+                        _buildLegendChip(Colors.yellow.shade300, 'Mixed'),
+                        const SizedBox(width: 8),
+                        _buildLegendChip(Colors.green.shade300, 'Good avg'),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        const fixedColumnWidth = 120.0;
+                        const valueColumnWidth = 110.0;
+                        const rowHeight = 48.0;
+                        final scrollableWidth =
+                            valueColumnWidth * (_tableColumns.length - 1);
+
+                        Widget buildFixedCell(
+                          String text, {
+                          bool header = false,
+                          Color? background,
+                          String? tooltip,
+                        }) {
+                          final bg =
+                              background ??
+                              (header
+                                  ? colorScheme.primary
+                                  : colorScheme.surface);
+                          final brightness =
+                              ThemeData.estimateBrightnessForColor(bg);
+                          final fg = brightness == Brightness.dark
+                              ? Colors.white
+                              : colorScheme.onSurface;
+
+                          return Tooltip(
+                            message: tooltip ?? text,
+                            child: Container(
+                              width: fixedColumnWidth,
+                              height: rowHeight,
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
+                              decoration: BoxDecoration(
+                                color: bg,
+                                border: Border(
+                                  right: BorderSide(
+                                    color: header
+                                        ? colorScheme.primary
+                                        : colorScheme.outlineVariant,
+                                  ),
+                                  bottom: BorderSide(
+                                    color: colorScheme.outlineVariant,
+                                  ),
+                                ),
+                              ),
+                              child: Text(
+                                text,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: header ? Colors.white : fg,
+                                  fontWeight: header
+                                      ? FontWeight.w700
+                                      : FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+
+                        Widget buildScrollableRow(
+                          List<String> values, {
+                          bool header = false,
+                          List<Color>? backgrounds,
+                          List<String>? tooltips,
+                        }) {
+                          return SizedBox(
+                            width: scrollableWidth,
+                            height: rowHeight,
+                            child: Row(
+                              children: List.generate(values.length, (idx) {
+                                final bg = header
+                                    ? colorScheme.primary
+                                    : (backgrounds?[idx] ??
+                                          colorScheme.surface);
+                                final brightness =
+                                    ThemeData.estimateBrightnessForColor(bg);
+                                final fg = brightness == Brightness.dark
+                                    ? Colors.white
+                                    : colorScheme.onSurface;
+
+                                return Tooltip(
+                                  message: tooltips?[idx] ?? values[idx],
+                                  child: Container(
+                                    width: valueColumnWidth,
+                                    height: rowHeight,
+                                    alignment: Alignment.center,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: bg,
+                                      border: Border(
+                                        right: BorderSide(
+                                          color: header
+                                              ? colorScheme.primary
+                                              : colorScheme.outlineVariant,
+                                        ),
+                                        bottom: BorderSide(
+                                          color: colorScheme.outlineVariant,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      values[idx],
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: header ? Colors.white : fg,
+                                        fontWeight: header
+                                            ? FontWeight.w700
+                                            : FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ),
+                          );
+                        }
+
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                buildFixedCell('Nominative', header: true),
+                                for (
+                                  int index = 0;
+                                  index < listPronounsGermanNominative.length;
+                                  index++
+                                )
+                                  () {
+                                    final nominative =
+                                        listPronounsGermanNominative[index];
+                                    final displayName =
+                                        listPronounsGermanNominativeDisplay[index];
+                                    final stats = _statsForNominative(
+                                      nominative,
+                                    );
+                                    final bg = _analyticsHeatColor(
+                                      stats['correct']!,
+                                      stats['total']!,
+                                      colorScheme,
+                                    );
+                                    return buildFixedCell(
+                                      displayName,
+                                      background: bg,
+                                      tooltip:
+                                          '$displayName: ${stats['correct']}/${stats['total']} correct',
+                                    );
+                                  }(),
+                              ],
+                            ),
+                            Expanded(
+                              child: Scrollbar(
+                                controller: _tableScrollController,
+                                thumbVisibility: true,
+                                child: SingleChildScrollView(
+                                  controller: _tableScrollController,
+                                  scrollDirection: Axis.horizontal,
+                                  child: SizedBox(
+                                    width: scrollableWidth,
+                                    child: Column(
+                                      children: [
+                                        buildScrollableRow(
+                                          _tableColumns
+                                              .skip(1)
+                                              .map((column) => column.key)
+                                              .toList(),
+                                          header: true,
+                                        ),
+                                        for (
+                                          int index = 0;
+                                          index <
+                                              listPronounsGermanNominative
+                                                  .length;
+                                          index++
+                                        )
+                                          () {
+                                            final nominative =
+                                                listPronounsGermanNominative[index];
+                                            final values = _tableColumns
+                                                .skip(1)
+                                                .map(
+                                                  (column) =>
+                                                      column.value[index],
+                                                )
+                                                .toList();
+                                            final backgrounds = _tableColumns
+                                                .skip(1)
+                                                .map((column) {
+                                                  final stats =
+                                                      _statsForCaseCell(
+                                                        nominative,
+                                                        column.key,
+                                                      );
+                                                  return _analyticsHeatColor(
+                                                    stats['correct']!,
+                                                    stats['total']!,
+                                                    colorScheme,
+                                                  );
+                                                })
+                                                .toList();
+                                            final tooltips = _tableColumns
+                                                .skip(1)
+                                                .map((column) {
+                                                  final stats =
+                                                      _statsForCaseCell(
+                                                        nominative,
+                                                        column.key,
+                                                      );
+                                                  return '$nominative -> ${column.key}: ${stats['correct']}/${stats['total']} correct';
+                                                })
+                                                .toList();
+
+                                            return buildScrollableRow(
+                                              values,
+                                              backgrounds: backgrounds,
+                                              tooltips: tooltips,
+                                            );
+                                          }(),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            _sectionWithMaxWidth(
+              Card(
+                elevation: 1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: ExpansionTile(
+                  title: const Text(
+                    'Settings',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  subtitle: const Text(
+                    'Choose which pronouns and cases appear in the quiz.',
+                  ),
+                  leading: CircleAvatar(
+                    backgroundColor: colorScheme.primaryContainer,
+                    child: Icon(
+                      Icons.tune_rounded,
+                      color: colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                  childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Active Pronouns',
+                          style: Theme.of(context).textTheme.labelLarge,
+                        ),
+                        const SizedBox(height: 6),
+                        Wrap(
+                          spacing: 6,
+                          runSpacing: 4,
+                          children: List.generate(
+                            listPronounsGermanNominativeDisplay.length,
+                            (i) => FilterChip(
+                              label: Text(
+                                listPronounsGermanNominativeDisplay[i],
+                              ),
+                              selected: _enabledPronounIndices.contains(i),
+                              onSelected: (_) => _togglePronoun(i),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Active Cases',
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                      const SizedBox(height: 6),
-                      Wrap(
-                        spacing: 6,
-                        runSpacing: 4,
-                        children: _quizCases
-                            .map(
-                              (c) => FilterChip(
-                                label: Text(c.label),
-                                selected: _enabledCaseLabels.contains(c.label),
-                                onSelected: (_) => _toggleCase(c.label),
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ],
-                  ),
-                ],
+                        const SizedBox(height: 10),
+                        Text(
+                          'Active Cases',
+                          style: Theme.of(context).textTheme.labelLarge,
+                        ),
+                        const SizedBox(height: 6),
+                        Wrap(
+                          spacing: 6,
+                          runSpacing: 4,
+                          children: _quizCases
+                              .map(
+                                (c) => FilterChip(
+                                  label: Text(c.label),
+                                  selected: _enabledCaseLabels.contains(
+                                    c.label,
+                                  ),
+                                  onSelected: (_) => _toggleCase(c.label),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 16),
