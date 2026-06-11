@@ -49,13 +49,25 @@ class _MyHomePageState extends State<MyHomePage>
   static const String _mistakesStorageKey = 'quiz_mistakes_by_case';
   static const String _scoreStorageKey = 'quiz_score';
   static const String _streakStorageKey = 'quiz_streak';
+  static const String _bestStreakLapKey = 'quiz_best_streak_lap';
   static const String _enabledPronounsKey = 'quiz_enabled_pronouns';
+  static const List<Color> _rainbowColors = [
+    Color(0xFFE53935),
+    Color(0xFFFF7043),
+    Color(0xFFFFB300),
+    Color(0xFF43A047),
+    Color(0xFF1E88E5),
+    Color(0xFF5E35B1),
+    Color(0xFFD81B60),
+  ];
   static const String _enabledCasesKey = 'quiz_enabled_cases';
   static const int _maxStoredHistory = 100;
   static const int _maxStreak = 5;
 
   int _score = 0;
-  int _streakCount = 0;
+  int _streakAbsolute = 0;
+  int _bestStreakLap = 0;
+  int get _streakLap => _streakAbsolute ~/ _maxStreak;
   int _currentPronounIndex = 0;
   int _currentCaseIndex = 0;
   String _feedback = '';
@@ -247,19 +259,25 @@ class _MyHomePageState extends State<MyHomePage>
     super.dispose();
   }
 
-  void _triggerFireworks({required int streak, required bool jackpot}) {
+  void _triggerFireworks({
+    required int streakAbsolute,
+    required bool lapCompleted,
+    required int streakLap,
+  }) {
     final colorScheme = Theme.of(context).colorScheme;
+    final lapColor = _rainbowColors[streakLap % _rainbowColors.length];
     final palette = [
+      lapColor,
       colorScheme.primary,
       colorScheme.tertiary,
       Colors.orange,
       Colors.amber,
       Colors.lightBlue,
-      Colors.green,
     ];
 
-    final baseIntensity = 1 + (streak * 0.22);
-    final intensity = jackpot ? baseIntensity + 0.85 : baseIntensity;
+    final baseIntensity =
+        1.0 + (streakLap * 0.3) + (streakAbsolute % _maxStreak) * 0.05;
+    final intensity = lapCompleted ? baseIntensity + 0.9 : baseIntensity;
     final particleCount = (34 * intensity).round().clamp(36, 120);
     final particles = List.generate(particleCount, (_) {
       final angle = _random.nextDouble() * 2 * pi;
@@ -339,10 +357,12 @@ class _MyHomePageState extends State<MyHomePage>
       }
     }
 
+    final storedBestLap = prefs.getInt(_bestStreakLapKey) ?? 0;
     if (!mounted) return;
     setState(() {
       _score = storedScore;
-      _streakCount = storedStreak.clamp(0, _maxStreak);
+      _streakAbsolute = storedStreak;
+      _bestStreakLap = storedBestLap;
       _answerHistory = loadedHistory;
       _mistakesByCase = loadedMistakes;
       if (loadedPronouns.isEmpty == false) {
@@ -355,7 +375,8 @@ class _MyHomePageState extends State<MyHomePage>
   Future<void> _saveStoredStats() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt(_scoreStorageKey, _score);
-    await prefs.setInt(_streakStorageKey, _streakCount);
+    await prefs.setInt(_streakStorageKey, _streakAbsolute);
+    await prefs.setInt(_bestStreakLapKey, _bestStreakLap);
     await prefs.setString(_historyStorageKey, jsonEncode(_answerHistory));
     await prefs.setString(_mistakesStorageKey, jsonEncode(_mistakesByCase));
     await prefs.setString(
@@ -454,7 +475,8 @@ class _MyHomePageState extends State<MyHomePage>
   Future<void> _resetProgress() async {
     setState(() {
       _score = 0;
-      _streakCount = 0;
+      _streakAbsolute = 0;
+      _bestStreakLap = 0;
       _answerHistory = [];
       _mistakesByCase = {};
       _feedback = '';
@@ -621,37 +643,39 @@ class _MyHomePageState extends State<MyHomePage>
       explanation: _currentReferenceExplanation,
     );
     var shouldCelebrate = false;
-    var reachedStreakFive = false;
-    var fireworksStreak = 0;
+    var lapCompleted = false;
+    var streakLapAtSubmit = 0;
 
     setState(() {
       if (isCorrect) {
-        final previousStreak = _streakCount;
-        _streakCount = min(_streakCount + 1, _maxStreak);
-        var pointsEarned = 1;
-        reachedStreakFive =
-            previousStreak < _maxStreak && _streakCount == _maxStreak;
-        if (reachedStreakFive) {
-          pointsEarned += 2;
-        }
+        _streakAbsolute++;
+        final multiplier = _streakLap + 1;
+        lapCompleted = _streakAbsolute % _maxStreak == 0;
+        if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
+        final pointsEarned = multiplier;
         _score += pointsEarned;
-        fireworksStreak = _streakCount;
+        streakLapAtSubmit = _streakLap;
         shouldCelebrate = true;
         _feedbackHint = successHint;
         _lastAnswerCorrect = true;
-        if (reachedStreakFive) {
+        if (lapCompleted && multiplier > 1) {
           _feedback =
-              '$nominative -> $caseLabel = $correctAnswer (+3 points, bonus +2)';
+              '$nominative → $caseLabel = $correctAnswer (+$pointsEarned pts, ×$multiplier — lap $streakLapAtSubmit done!)';
+        } else if (multiplier > 1) {
+          _feedback =
+              '$nominative → $caseLabel = $correctAnswer (+$pointsEarned pts, ×$multiplier)';
         } else {
-          _feedback = '$nominative -> $caseLabel = $correctAnswer (+1 point)';
+          _feedback =
+              '$nominative → $caseLabel = $correctAnswer (+$pointsEarned pt)';
         }
       } else {
-        _streakCount = 0;
+        if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
+        _streakAbsolute = 0;
         _score -= 1;
         _feedbackHint = reminderHint;
         _lastAnswerCorrect = false;
         _feedback =
-            '$nominative -> $caseLabel. You wrote "$userAnswerRaw", correct is "$correctAnswer" (-1 point)';
+            '$nominative → $caseLabel. You wrote "$userAnswerRaw", correct is "$correctAnswer" (-1 pt)';
         _mistakesByCase[caseLabel] = (_mistakesByCase[caseLabel] ?? 0) + 1;
       }
 
@@ -672,7 +696,11 @@ class _MyHomePageState extends State<MyHomePage>
     });
 
     if (shouldCelebrate) {
-      _triggerFireworks(streak: fireworksStreak, jackpot: reachedStreakFive);
+      _triggerFireworks(
+        streakAbsolute: _streakAbsolute,
+        lapCompleted: lapCompleted,
+        streakLap: streakLapAtSubmit,
+      );
     }
 
     _saveStoredStats();
@@ -797,12 +825,21 @@ class _MyHomePageState extends State<MyHomePage>
 
   Widget _buildStreakTracker(ColorScheme colorScheme) {
     return TweenAnimationBuilder<double>(
-      tween: Tween<double>(end: _streakCount.toDouble()),
+      tween: Tween<double>(end: _streakAbsolute + 0.0),
       duration: const Duration(milliseconds: 420),
       curve: Curves.easeOutCubic,
-      builder: (context, animatedStreak, child) {
-        final normalizedProgress = ((animatedStreak - 1) / (_maxStreak - 1))
-            .clamp(0.0, 1.0);
+      builder: (context, animatedValue, child) {
+        final currentLap = (animatedValue / _maxStreak).floor();
+        final posInLap = animatedValue - currentLap * _maxStreak;
+        final lapColor = _rainbowColors[currentLap % _rainbowColors.length];
+        final prevLapColor = currentLap > 0
+            ? _rainbowColors[(currentLap - 1) % _rainbowColors.length]
+            : colorScheme.surfaceContainerHighest;
+        final hasHistory = currentLap > 0;
+        final normalizedProgress = ((posInLap - 1) / (_maxStreak - 1)).clamp(
+          0.0,
+          1.0,
+        );
         return SizedBox(
           height: 40,
           child: LayoutBuilder(
@@ -817,6 +854,7 @@ class _MyHomePageState extends State<MyHomePage>
                     child: Stack(
                       alignment: Alignment.centerLeft,
                       children: [
+                        // Base track (grey)
                         Container(
                           height: 8,
                           decoration: BoxDecoration(
@@ -824,13 +862,23 @@ class _MyHomePageState extends State<MyHomePage>
                             color: colorScheme.surfaceContainerHighest,
                           ),
                         ),
+                        // Previous lap: full bar in old color
+                        if (hasHistory)
+                          Container(
+                            height: 8,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: prevLapColor,
+                            ),
+                          ),
+                        // New lap color filling from left
                         FractionallySizedBox(
                           widthFactor: normalizedProgress,
                           child: Container(
                             height: 8,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              color: colorScheme.primary,
+                              color: lapColor,
                             ),
                           ),
                         ),
@@ -839,17 +887,18 @@ class _MyHomePageState extends State<MyHomePage>
                   ),
                   Row(
                     children: List.generate(_maxStreak, (ballIndex) {
-                      final fillProgress = (animatedStreak - ballIndex).clamp(
+                      final fillProgress = (posInLap - ballIndex).clamp(
                         0.0,
                         1.0,
                       );
-                      final isJackpotBall = ballIndex == _maxStreak - 1;
-                      final activeColor = isJackpotBall
-                          ? colorScheme.tertiary
-                          : colorScheme.primary;
+                      final isLastBall = ballIndex == _maxStreak - 1;
+                      // Balls retain previous lap color as base
+                      final baseBallColor = hasHistory
+                          ? prevLapColor
+                          : colorScheme.surfaceContainerHighest;
                       final ballColor = Color.lerp(
-                        colorScheme.surfaceContainerHighest,
-                        activeColor,
+                        baseBallColor,
+                        lapColor,
                         fillProgress,
                       );
 
@@ -857,8 +906,8 @@ class _MyHomePageState extends State<MyHomePage>
                         child: Center(
                           child: AnimatedScale(
                             duration: const Duration(milliseconds: 260),
-                            scale: fillProgress > 0.95
-                                ? (isJackpotBall ? 1.15 : 1.0)
+                            scale: fillProgress > 0.95 && isLastBall
+                                ? 1.15
                                 : 1.0,
                             child: Container(
                               width: 29,
@@ -869,11 +918,11 @@ class _MyHomePageState extends State<MyHomePage>
                                 boxShadow: fillProgress > 0.98
                                     ? [
                                         BoxShadow(
-                                          color: activeColor.withValues(
-                                            alpha: 0.35,
+                                          color: lapColor.withValues(
+                                            alpha: 0.4,
                                           ),
-                                          blurRadius: isJackpotBall ? 14 : 8,
-                                          spreadRadius: isJackpotBall ? 2 : 0,
+                                          blurRadius: isLastBall ? 16 : 8,
+                                          spreadRadius: isLastBall ? 2 : 0,
                                         ),
                                       ]
                                     : null,
@@ -986,66 +1035,147 @@ class _MyHomePageState extends State<MyHomePage>
                                       child: _buildStreakTracker(colorScheme),
                                     ),
                                   ),
-                                  const SizedBox(width: 12),
-                                  ConstrainedBox(
-                                    constraints: const BoxConstraints(
-                                      minWidth: 132,
-                                    ),
-                                    child: Container(
-                                      padding: const EdgeInsets.fromLTRB(
-                                        10,
-                                        8,
-                                        12,
-                                        8,
+                                  const SizedBox(width: 10),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.fromLTRB(
+                                          10,
+                                          8,
+                                          12,
+                                          8,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            14,
+                                          ),
+                                          color: _streakLap > 0
+                                              ? _rainbowColors[_streakLap %
+                                                        _rainbowColors.length]
+                                                    .withValues(alpha: 0.18)
+                                              : colorScheme.primaryContainer,
+                                          border: Border.all(
+                                            color: _streakLap > 0
+                                                ? _rainbowColors[_streakLap %
+                                                      _rainbowColors.length]
+                                                : colorScheme.primary
+                                                      .withValues(alpha: 0.45),
+                                          ),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color:
+                                                  (_streakLap > 0
+                                                          ? _rainbowColors[_streakLap %
+                                                                _rainbowColors
+                                                                    .length]
+                                                          : colorScheme.primary)
+                                                      .withValues(alpha: 0.18),
+                                              blurRadius: 12,
+                                              offset: const Offset(0, 4),
+                                            ),
+                                          ],
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Container(
+                                              width: 26,
+                                              height: 26,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: _streakLap > 0
+                                                    ? _rainbowColors[_streakLap %
+                                                          _rainbowColors.length]
+                                                    : colorScheme.primary,
+                                              ),
+                                              alignment: Alignment.center,
+                                              child: Icon(
+                                                _streakLap > 0
+                                                    ? Icons.bolt
+                                                    : Icons.star_rounded,
+                                                size: 15,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 8),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  '$_score',
+                                                  style: scaledQuizTextTheme
+                                                      .titleMedium
+                                                      ?.copyWith(
+                                                        fontWeight:
+                                                            FontWeight.w900,
+                                                        color: colorScheme
+                                                            .onSurface,
+                                                      ),
+                                                ),
+                                                if (_streakLap > 0)
+                                                  Text(
+                                                    '×${_streakLap + 1}',
+                                                    style: scaledQuizTextTheme
+                                                        .labelSmall
+                                                        ?.copyWith(
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          color:
+                                                              _rainbowColors[_streakLap %
+                                                                  _rainbowColors
+                                                                      .length],
+                                                        ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(14),
-                                        color: colorScheme.primaryContainer,
-                                        border: Border.all(
-                                          color: colorScheme.primary.withValues(
-                                            alpha: 0.45,
+                                      if (_bestStreakLap > 0) ...[
+                                        const SizedBox(height: 4),
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 8,
+                                            vertical: 3,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              10,
+                                            ),
+                                            color: colorScheme
+                                                .surfaceContainerHighest
+                                                .withValues(alpha: 0.7),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                Icons.emoji_events_rounded,
+                                                size: 12,
+                                                color: Colors.amber.shade700,
+                                              ),
+                                              const SizedBox(width: 4),
+                                              Text(
+                                                'Best ×${_bestStreakLap + 1}',
+                                                style: scaledQuizTextTheme
+                                                    .labelSmall
+                                                    ?.copyWith(
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color: colorScheme
+                                                          .onSurfaceVariant,
+                                                    ),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: colorScheme.primary
-                                                .withValues(alpha: 0.16),
-                                            blurRadius: 12,
-                                            offset: const Offset(0, 4),
-                                          ),
-                                        ],
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Container(
-                                            width: 26,
-                                            height: 26,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: colorScheme.primary,
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Icon(
-                                              Icons.star_rounded,
-                                              size: 15,
-                                              color: colorScheme.onPrimary,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 8),
-                                          Text(
-                                            '$_score',
-                                            style: scaledQuizTextTheme
-                                                .titleMedium
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.w900,
-                                                  color: colorScheme
-                                                      .onPrimaryContainer,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                      ],
+                                    ],
                                   ),
                                 ],
                               ),
