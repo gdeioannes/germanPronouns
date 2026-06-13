@@ -1646,8 +1646,35 @@ class _QuizPageState extends State<QuizPage>
                                                       context: context,
                                                       builder: (dialogContext) {
                                                         return AlertDialog(
-                                                          title: const Text(
-                                                            'Sentence Info',
+                                                          title: Align(
+                                                            alignment: Alignment
+                                                                .centerLeft,
+                                                            child: Container(
+                                                              padding: const EdgeInsets.symmetric(
+                                                                horizontal: 14,
+                                                                vertical: 6,
+                                                              ),
+                                                              decoration: BoxDecoration(
+                                                                color: colorScheme
+                                                                    .primary,
+                                                                borderRadius:
+                                                                    BorderRadius.circular(
+                                                                      kRadiusSmall,
+                                                                    ),
+                                                              ),
+                                                              child: Text(
+                                                                'Sentence Info',
+                                                                style: Theme.of(dialogContext)
+                                                                    .textTheme
+                                                                    .titleMedium
+                                                                    ?.copyWith(
+                                                                      color:
+                                                                          Colors.white,
+                                                                      fontWeight:
+                                                                          FontWeight.w700,
+                                                                    ),
+                                                              ),
+                                                            ),
                                                           ),
                                                           content: SingleChildScrollView(
                                                             child: SelectableText.rich(
@@ -1720,14 +1747,9 @@ class _QuizPageState extends State<QuizPage>
                                   width: double.infinity,
                                   padding: const EdgeInsets.all(14),
                                   decoration: BoxDecoration(
-                                    color: _lastAnswerCorrect == true
-                                        ? Colors.green.shade50
-                                        : const Color(0xFFFFD6D6),
+                                    color: Colors.white,
                                     border: Border.all(
-                                      color: _lastAnswerCorrect == true
-                                          ? Colors.green.shade400
-                                          : Colors.red.shade500,
-                                      width: 1.8,
+                                      color: Colors.grey.shade400,
                                     ),
                                     borderRadius: BorderRadius.circular(
                                       kRadiusLarge,
@@ -1737,25 +1759,47 @@ class _QuizPageState extends State<QuizPage>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        _lastAnswerCorrect == true
-                                            ? 'Correct'
-                                            : 'Incorrect',
-                                        style: scaledQuizTextTheme.bodyLarge
-                                            ?.copyWith(
-                                              color: _lastAnswerCorrect == true
-                                                  ? Colors.green.shade700
-                                                  : Colors.red.shade700,
-                                              fontWeight: FontWeight.w800,
-                                            ),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 14,
+                                          vertical: 6,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: _lastAnswerCorrect == true
+                                              ? kSectionAccentColors[2]
+                                              : colorScheme.error,
+                                          borderRadius: BorderRadius.circular(
+                                            kRadiusSmall,
+                                          ),
+                                        ),
+                                        child: Text(
+                                          _lastAnswerCorrect == true
+                                              ? 'Correct'
+                                              : 'Incorrect',
+                                          style: scaledQuizTextTheme
+                                              .titleMedium
+                                              ?.copyWith(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                        ),
                                       ),
-                                      const SizedBox(height: 6),
+                                      const SizedBox(height: 10),
                                       Text.rich(
                                         TextSpan(
                                           children: _highlightNounSpans(
                                             _feedback,
-                                            scaledQuizTextTheme.bodyLarge
+                                            Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium
                                                 ?.copyWith(
+                                                  fontSize:
+                                                      (Theme.of(context)
+                                                                  .textTheme
+                                                                  .bodyMedium
+                                                                  ?.fontSize ??
+                                                              14) *
+                                                          1.4,
                                                   color:
                                                       colorScheme.onSurface,
                                                   fontWeight: FontWeight.w700,
@@ -1767,17 +1811,9 @@ class _QuizPageState extends State<QuizPage>
                                         const SizedBox(height: 8),
                                         Text.rich(
                                           TextSpan(
-                                            children: _highlightNounSpans(
+                                            children: _buildExplanationSpans(
+                                              context,
                                               _feedbackHint,
-                                              scaledQuizTextTheme.bodyMedium
-                                                  ?.copyWith(
-                                                    color: colorScheme
-                                                        .onSurfaceVariant,
-                                                    fontStyle:
-                                                        FontStyle.italic,
-                                                    fontWeight:
-                                                        FontWeight.w600,
-                                                  ),
                                             ),
                                           ),
                                         ),
