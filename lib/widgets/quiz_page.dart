@@ -1,11 +1,12 @@
 import 'dart:math';
 import 'dart:convert';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../data/noun_lookup.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../pages/word_library_page.dart';
@@ -419,72 +420,70 @@ class _QuizPageState extends State<QuizPage>
     NounDifficulty.advanced => 'Advanced',
   };
 
-  /// Renders a tappable swatch showing the current highlight color for
-  /// [gender] ('m'/'f'/'n') with [label], opening a color picker on tap.
-  Widget _buildGenderColorSwatch(String gender, String label) {
-    final color = NounSettings.instance.colorForGender(gender);
-    return InkWell(
-      borderRadius: BorderRadius.circular(8),
-      onTap: () => _pickGenderColor(gender, label),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 24,
-              height: 24,
-              decoration: BoxDecoration(
-                color: color,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: Theme.of(context).colorScheme.outline,
-                ),
-              ),
-            ),
-            const SizedBox(width: 6),
-            Text(label),
-          ],
-        ),
-      ),
-    );
-  }
+  /// When true, the Help Memory and Analytics tables show one row per
+  /// article gender (der/die/das) instead of one row per subject.
+  bool get _useGenderReferenceRows =>
+      widget.config.collapseReferenceTablesByGender &&
+      widget.config.subjectGenders != null;
 
-  /// Opens a color picker dialog for [gender] ('m'/'f'/'n', labeled
-  /// [label]) and persists the chosen color via [NounSettings].
-  Future<void> _pickGenderColor(String gender, String label) async {
-    var picked = NounSettings.instance.colorForGender(gender);
-    final result = await showDialog<Color>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Color for $label'),
-          content: SingleChildScrollView(
-            child: ColorPicker(
-              pickerColor: picked,
-              onColorChanged: (c) => picked = c,
-              enableAlpha: false,
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel'),
-            ),
-            FilledButton(
-              onPressed: () => Navigator.pop(context, picked),
-              child: const Text('Select'),
-            ),
-          ],
-        );
-      },
-    );
-    if (result != null) {
-      setState(() {
-        NounSettings.instance.setGenderColor(gender, result);
-      });
-    }
-  }
+  static const List<String> _genderRowOrder = ['m', 'f', 'n'];
+
+  static const Map<String, String> _genderArticles = {
+    'm': 'der',
+    'f': 'die',
+    'n': 'das',
+  };
+
+  static const Map<String, String> _genderRowNames = {
+    'm': 'masculine',
+    'f': 'feminine',
+    'n': 'neuter',
+  };
+
+  /// Common (non-absolute) rules of thumb for guessing a noun's gender from
+  /// its ending or meaning, shown below the reference table for the Artikel
+  /// quiz. Each entry is "pattern — example(s)".
+  static const Map<String, List<String>> _genderRules = {
+    'm': [
+      '-er for people/professions and many tools — der Lehrer, der Bäcker, der Computer',
+      '-or — der Motor, der Doktor, der Professor',
+      '-ig, -ling, -ich — der König, der Frühling, der Teppich',
+      '-ant, -ist, -ismus — der Praktikant, der Tourist, der Optimismus',
+      'Seasons, months, days of the week — der Winter, der Mai, der Montag',
+      'Weather phenomena — der Regen, der Schnee, der Wind, der Sturm',
+      'Cardinal directions — der Norden, der Süden, der Osten, der Westen',
+      'Most nouns formed from a verb stem + -en — der Wagen, der Garten',
+    ],
+    'f': [
+      '-e — die Lampe, die Blume, die Tasche (many, but not all: der Junge, das Auge)',
+      '-ung — die Zeitung, die Wohnung, die Übung',
+      '-heit, -keit, -igkeit — die Freiheit, die Möglichkeit, die Süßigkeit',
+      '-schaft — die Freundschaft, die Mannschaft, die Landschaft',
+      '-ion, -tion — die Nation, die Information, die Diskussion',
+      '-tät — die Universität, die Realität, die Qualität',
+      '-ik — die Musik, die Politik, die Mathematik',
+      '-ur — die Natur, die Kultur, die Temperatur',
+      '-enz, -anz — die Differenz, die Distanz, die Toleranz',
+      'Most numbers used as nouns — die Million, die Eins, die Hundert',
+      'Many tree and flower names — die Eiche, die Tulpe, die Rose',
+    ],
+    'n': [
+      '-chen, -lein (diminutives) — das Mädchen, das Fräulein, das Häuschen',
+      '-um — das Museum, das Zentrum, das Datum',
+      '-ment — das Dokument, das Experiment, das Element',
+      'Infinitives used as nouns — das Essen, das Leben, das Lesen, das Schwimmen',
+      'Most Ge- collective nouns — das Gebäude, das Geschenk, das Gepäck',
+      'Young people and animals — das Kind, das Baby, das Fohlen',
+      'Metals and chemical elements — das Gold, das Silber, das Eisen',
+      'Letters, colors, and languages used as nouns — das A, das Blau, das Deutsch',
+    ],
+  };
+
+  /// Index of the first subject with [gender], used to read a
+  /// gender-independent value out of [QuizConfig.categories] (every subject
+  /// of the same gender has the same value in each category).
+  int _firstSubjectIndexForGender(String gender) =>
+      widget.config.subjectGenders!.indexOf(gender);
 
   /// Opens the global Word Library and, once the user returns, picks a new
   /// question if the currently displayed noun was disabled there.
@@ -776,6 +775,39 @@ class _QuizPageState extends State<QuizPage>
     return {'correct': correct, 'total': total};
   }
 
+  /// Aggregates [_statsForNominative] across every subject with [gender]
+  /// ('m'/'f'/'n'). Used when [QuizConfig.collapseReferenceTablesByGender]
+  /// is set, so the Analytics table shows one row per article gender.
+  Map<String, int> _statsForGender(String gender) {
+    int total = 0;
+    int correct = 0;
+    final genders = widget.config.subjectGenders!;
+    for (var i = 0; i < genders.length; i++) {
+      if (genders[i] != gender) continue;
+      final stats = _statsForNominative(widget.config.subjects[i]);
+      correct += stats['correct']!;
+      total += stats['total']!;
+    }
+    return {'correct': correct, 'total': total};
+  }
+
+  /// Aggregates [_statsForCaseCell] across every subject with [gender]
+  /// ('m'/'f'/'n') for [caseLabel]. Used when
+  /// [QuizConfig.collapseReferenceTablesByGender] is set, so the Analytics
+  /// table shows one row per article gender.
+  Map<String, int> _statsForGenderCase(String gender, String caseLabel) {
+    int total = 0;
+    int correct = 0;
+    final genders = widget.config.subjectGenders!;
+    for (var i = 0; i < genders.length; i++) {
+      if (genders[i] != gender) continue;
+      final stats = _statsForCaseCell(widget.config.subjects[i], caseLabel);
+      correct += stats['correct']!;
+      total += stats['total']!;
+    }
+    return {'correct': correct, 'total': total};
+  }
+
   Color _analyticsHeatColor(int correct, int total, ColorScheme colorScheme) {
     if (total == 0) {
       return colorScheme.surface;
@@ -797,6 +829,75 @@ class _QuizPageState extends State<QuizPage>
     return Chip(
       avatar: CircleAvatar(backgroundColor: color, radius: 7),
       label: Text(label),
+    );
+  }
+
+  static final RegExp _wordPattern = RegExp(r'[A-Za-zÄÖÜäöüßẞ]+');
+
+  /// Splits [text] into spans, one per recognized noun (from
+  /// [germanNouns]/[nounSurfaceForms]) plus the text between them. Tapping a
+  /// recognized noun shows its article and English translation. When "Color
+  /// nouns by article" is on, recognized nouns are also colored by gender.
+  List<InlineSpan> _highlightNounSpans(String text, TextStyle? baseStyle) {
+    final matches = _wordPattern.allMatches(text).toList();
+    if (matches.isEmpty) {
+      return [TextSpan(text: text, style: baseStyle)];
+    }
+
+    final spans = <InlineSpan>[];
+    var start = 0;
+    for (final match in matches) {
+      if (match.start > start) {
+        spans.add(
+          TextSpan(text: text.substring(start, match.start), style: baseStyle),
+        );
+      }
+
+      final word = match.group(0)!;
+      final info = lookupNoun(word);
+      if (info == null) {
+        spans.add(TextSpan(text: word, style: baseStyle));
+      } else {
+        final style = NounSettings.instance.colorNouns
+            ? (baseStyle ?? const TextStyle()).copyWith(
+                color: NounSettings.instance.colorForGender(info.noun.gender),
+                fontWeight: FontWeight.w800,
+              )
+            : baseStyle;
+        spans.add(
+          TextSpan(
+            text: word,
+            style: style,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => _showNounInfoDialog(info),
+          ),
+        );
+      }
+
+      start = match.end;
+    }
+    if (start < text.length) {
+      spans.add(TextSpan(text: text.substring(start), style: baseStyle));
+    }
+    return spans;
+  }
+
+  void _showNounInfoDialog(NounInfo info) {
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(
+          '${info.article} ${info.noun.noun}',
+          style: TextStyle(color: NounSettings.instance.colorForGender(info.noun.gender)),
+        ),
+        content: Text(info.noun.english),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('Close'),
+          ),
+        ],
+      ),
     );
   }
 
@@ -832,17 +933,14 @@ class _QuizPageState extends State<QuizPage>
             style: baseStyle?.copyWith(fontWeight: FontWeight.w700),
           ),
         );
-        spans.add(
-          TextSpan(
-            text: ' $body',
-            style: baseStyle?.copyWith(
-              fontStyle: emphasizeBody ? FontStyle.italic : FontStyle.normal,
-              height: 1.35,
-            ),
-          ),
+        final bodyStyle = baseStyle?.copyWith(
+          fontStyle: emphasizeBody ? FontStyle.italic : FontStyle.normal,
+          height: 1.35,
         );
+        spans.add(const TextSpan(text: ' '));
+        spans.addAll(_highlightNounSpans(body, bodyStyle));
       } else {
-        spans.add(TextSpan(text: section, style: baseStyle));
+        spans.addAll(_highlightNounSpans(section, baseStyle));
       }
 
       if (i < sections.length - 1) {
@@ -1000,7 +1098,9 @@ class _QuizPageState extends State<QuizPage>
             NounSettings.instance.showEnglish
         ? widget.config.subjectEnglish![_currentSubjectIndex]
         : null;
-    final currentGenderColor = widget.config.subjectGenders != null
+    final currentGenderColor =
+        widget.config.subjectGenders != null &&
+            NounSettings.instance.colorNouns
         ? NounSettings.instance.colorForGender(
             widget.config.subjectGenders![_currentSubjectIndex],
           )
@@ -1363,7 +1463,10 @@ class _QuizPageState extends State<QuizPage>
                                           text: TextSpan(
                                             style: sentenceStyle,
                                             children: [
-                                              TextSpan(text: referenceBefore),
+                                              ..._highlightNounSpans(
+                                                referenceBefore,
+                                                sentenceStyle,
+                                              ),
                                               WidgetSpan(
                                                 alignment:
                                                     PlaceholderAlignment.middle,
@@ -1412,7 +1515,10 @@ class _QuizPageState extends State<QuizPage>
                                                 ),
                                               ),
                                               if (referenceAfter != '')
-                                                TextSpan(text: referenceAfter),
+                                                ..._highlightNounSpans(
+                                                  referenceAfter,
+                                                  sentenceStyle,
+                                                ),
                                               WidgetSpan(
                                                 alignment:
                                                     PlaceholderAlignment.middle,
@@ -1536,25 +1642,36 @@ class _QuizPageState extends State<QuizPage>
                                             ),
                                       ),
                                       const SizedBox(height: 6),
-                                      Text(
-                                        _feedback,
-                                        style: scaledQuizTextTheme.bodyLarge
-                                            ?.copyWith(
-                                              color: colorScheme.onSurface,
-                                              fontWeight: FontWeight.w700,
-                                            ),
+                                      Text.rich(
+                                        TextSpan(
+                                          children: _highlightNounSpans(
+                                            _feedback,
+                                            scaledQuizTextTheme.bodyLarge
+                                                ?.copyWith(
+                                                  color:
+                                                      colorScheme.onSurface,
+                                                  fontWeight: FontWeight.w700,
+                                                ),
+                                          ),
+                                        ),
                                       ),
                                       if (_feedbackHint != '') ...[
                                         const SizedBox(height: 8),
-                                        Text(
-                                          _feedbackHint,
-                                          style: scaledQuizTextTheme.bodyMedium
-                                              ?.copyWith(
-                                                color: colorScheme
-                                                    .onSurfaceVariant,
-                                                fontStyle: FontStyle.italic,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                        Text.rich(
+                                          TextSpan(
+                                            children: _highlightNounSpans(
+                                              _feedbackHint,
+                                              scaledQuizTextTheme.bodyMedium
+                                                  ?.copyWith(
+                                                    color: colorScheme
+                                                        .onSurfaceVariant,
+                                                    fontStyle:
+                                                        FontStyle.italic,
+                                                    fontWeight:
+                                                        FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ],
@@ -1616,9 +1733,13 @@ class _QuizPageState extends State<QuizPage>
                         final showEnglish =
                             widget.config.subjectEnglish != null &&
                             NounSettings.instance.showEnglish;
-                        final fixedColumnWidth = showEnglish ? 170.0 : 120.0;
+                        final showSubtitleRow =
+                            showEnglish || _useGenderReferenceRows;
+                        final fixedColumnWidth = showSubtitleRow
+                            ? 170.0
+                            : 120.0;
                         const valueColumnWidth = 110.0;
-                        final rowHeight = showEnglish ? 58.0 : 48.0;
+                        final rowHeight = showSubtitleRow ? 58.0 : 48.0;
                         final scrollableWidth =
                             valueColumnWidth * widget.config.categories.length;
 
@@ -1747,6 +1868,13 @@ class _QuizPageState extends State<QuizPage>
                           );
                         }
 
+                        final genderRows = _useGenderReferenceRows
+                            ? _genderRowOrder
+                            : null;
+                        final rowCount =
+                            genderRows?.length ??
+                            widget.config.subjectDisplays.length;
+
                         return Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -1756,27 +1884,48 @@ class _QuizPageState extends State<QuizPage>
                                   widget.config.subjectColumnLabel,
                                   header: true,
                                 ),
-                                for (
-                                  int index = 0;
-                                  index <
-                                      widget.config.subjectDisplays.length;
-                                  index++
-                                )
-                                  buildFixedCell(
-                                    widget.config.subjectDisplays[index],
-                                    background: index.isEven
-                                        ? colorScheme.surface
-                                        : colorScheme.surfaceContainerHighest
-                                              .withValues(alpha: 0.35),
-                                    textColor: widget.config.subjectGenders != null
-                                        ? NounSettings.instance.colorForGender(
-                                            widget.config.subjectGenders![index],
-                                          )
-                                        : null,
-                                    subtitle: showEnglish
-                                        ? widget.config.subjectEnglish![index]
-                                        : null,
-                                  ),
+                                for (int index = 0; index < rowCount; index++)
+                                  if (genderRows != null)
+                                    buildFixedCell(
+                                      _genderArticles[genderRows[index]]!,
+                                      background: index.isEven
+                                          ? colorScheme.surface
+                                          : colorScheme
+                                                .surfaceContainerHighest
+                                                .withValues(alpha: 0.35),
+                                      textColor: NounSettings.instance.colorNouns
+                                          ? NounSettings.instance
+                                                .colorForGender(
+                                                  genderRows[index],
+                                                )
+                                          : null,
+                                      subtitle: _genderRowNames[genderRows[index]],
+                                    )
+                                  else
+                                    buildFixedCell(
+                                      widget.config.subjectDisplays[index],
+                                      background: index.isEven
+                                          ? colorScheme.surface
+                                          : colorScheme
+                                                .surfaceContainerHighest
+                                                .withValues(alpha: 0.35),
+                                      textColor:
+                                          widget.config.subjectGenders !=
+                                                  null &&
+                                              NounSettings.instance.colorNouns
+                                          ? NounSettings.instance
+                                                .colorForGender(
+                                                  widget
+                                                      .config
+                                                      .subjectGenders![index],
+                                                )
+                                          : null,
+                                      subtitle: showEnglish
+                                          ? widget
+                                                .config
+                                                .subjectEnglish![index]
+                                          : null,
+                                    ),
                               ],
                             ),
                             Expanded(
@@ -1798,13 +1947,19 @@ class _QuizPageState extends State<QuizPage>
                                         ),
                                         for (
                                           int index = 0;
-                                          index <
-                                              widget.config.subjects.length;
+                                          index < rowCount;
                                           index++
                                         )
                                           buildScrollableRow(
                                             widget.config.categories
-                                                .map((c) => c.values[index])
+                                                .map(
+                                                  (c) => c.values[genderRows !=
+                                                          null
+                                                      ? _firstSubjectIndexForGender(
+                                                          genderRows[index],
+                                                        )
+                                                      : index],
+                                                )
                                                 .toList(),
                                             background: index.isEven
                                                 ? colorScheme.surface
@@ -1822,6 +1977,44 @@ class _QuizPageState extends State<QuizPage>
                         );
                       },
                     ),
+                    if (_useGenderReferenceRows) ...[
+                      const SizedBox(height: 16),
+                      Text(
+                        'Gender rules of thumb (tendencies, not absolute — exceptions exist)',
+                        style: Theme.of(context).textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                      const SizedBox(height: 8),
+                      for (final gender in _genderRowOrder)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${_genderArticles[gender]} (${_genderRowNames[gender]})',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: NounSettings.instance.colorNouns
+                                      ? NounSettings.instance.colorForGender(
+                                          gender,
+                                        )
+                                      : null,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              for (final rule in _genderRules[gender]!)
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 8,
+                                    bottom: 2,
+                                  ),
+                                  child: Text('• $rule'),
+                                ),
+                            ],
+                          ),
+                        ),
+                    ],
                   ],
                 ),
               ),
@@ -1942,9 +2135,13 @@ class _QuizPageState extends State<QuizPage>
                         final showEnglish =
                             widget.config.subjectEnglish != null &&
                             NounSettings.instance.showEnglish;
-                        final fixedColumnWidth = showEnglish ? 170.0 : 120.0;
+                        final showSubtitleRow =
+                            showEnglish || _useGenderReferenceRows;
+                        final fixedColumnWidth = showSubtitleRow
+                            ? 170.0
+                            : 120.0;
                         const valueColumnWidth = 110.0;
-                        final rowHeight = showEnglish ? 58.0 : 48.0;
+                        final rowHeight = showSubtitleRow ? 58.0 : 48.0;
                         final scrollableWidth =
                             valueColumnWidth * widget.config.categories.length;
 
@@ -2094,6 +2291,13 @@ class _QuizPageState extends State<QuizPage>
                           );
                         }
 
+                        final genderRows = _useGenderReferenceRows
+                            ? _genderRowOrder
+                            : null;
+                        final rowCount =
+                            genderRows?.length ??
+                            widget.config.subjects.length;
+
                         return Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -2103,12 +2307,32 @@ class _QuizPageState extends State<QuizPage>
                                   widget.config.subjectColumnLabel,
                                   header: true,
                                 ),
-                                for (
-                                  int index = 0;
-                                  index < widget.config.subjects.length;
-                                  index++
-                                )
+                                for (int index = 0; index < rowCount; index++)
                                   () {
+                                    if (genderRows != null) {
+                                      final gender = genderRows[index];
+                                      final displayName =
+                                          _genderArticles[gender]!;
+                                      final stats = _statsForGender(gender);
+                                      final bg = _analyticsHeatColor(
+                                        stats['correct']!,
+                                        stats['total']!,
+                                        colorScheme,
+                                      );
+                                      return buildFixedCell(
+                                        displayName,
+                                        background: bg,
+                                        textColor:
+                                            NounSettings.instance.colorNouns
+                                            ? NounSettings.instance
+                                                  .colorForGender(gender)
+                                            : null,
+                                        tooltip:
+                                            '$displayName (${_genderRowNames[gender]}): ${stats['correct']}/${stats['total']} correct',
+                                        subtitle: _genderRowNames[gender],
+                                      );
+                                    }
+
                                     final nominative =
                                         widget.config.subjects[index];
                                     final displayName =
@@ -2124,7 +2348,10 @@ class _QuizPageState extends State<QuizPage>
                                     return buildFixedCell(
                                       displayName,
                                       background: bg,
-                                      textColor: widget.config.subjectGenders != null
+                                      textColor:
+                                          widget.config.subjectGenders !=
+                                                  null &&
+                                              NounSettings.instance.colorNouns
                                           ? NounSettings.instance
                                                 .colorForGender(
                                                   widget
@@ -2162,11 +2389,60 @@ class _QuizPageState extends State<QuizPage>
                                         ),
                                         for (
                                           int index = 0;
-                                          index <
-                                              widget.config.subjects.length;
+                                          index < rowCount;
                                           index++
                                         )
                                           () {
+                                            if (genderRows != null) {
+                                              final gender = genderRows[index];
+                                              final subjectIndex =
+                                                  _firstSubjectIndexForGender(
+                                                    gender,
+                                                  );
+                                              final values = widget
+                                                  .config
+                                                  .categories
+                                                  .map(
+                                                    (c) =>
+                                                        c.values[subjectIndex],
+                                                  )
+                                                  .toList();
+                                              final backgrounds = widget
+                                                  .config
+                                                  .categories
+                                                  .map((c) {
+                                                    final stats =
+                                                        _statsForGenderCase(
+                                                          gender,
+                                                          c.label,
+                                                        );
+                                                    return _analyticsHeatColor(
+                                                      stats['correct']!,
+                                                      stats['total']!,
+                                                      colorScheme,
+                                                    );
+                                                  })
+                                                  .toList();
+                                              final tooltips = widget
+                                                  .config
+                                                  .categories
+                                                  .map((c) {
+                                                    final stats =
+                                                        _statsForGenderCase(
+                                                          gender,
+                                                          c.label,
+                                                        );
+                                                    return '${_genderArticles[gender]} -> ${c.label}: ${stats['correct']}/${stats['total']} correct';
+                                                  })
+                                                  .toList();
+
+                                              return buildScrollableRow(
+                                                values,
+                                                backgrounds: backgrounds,
+                                                tooltips: tooltips,
+                                              );
+                                            }
+
                                             final nominative =
                                                 widget.config.subjects[index];
                                             final values = widget
@@ -2348,37 +2624,21 @@ class _QuizPageState extends State<QuizPage>
                             },
                           ),
                         ],
-                        if (widget.config.subjectGenders != null) ...[
-                          const SizedBox(height: 10),
-                          Text(
-                            'Article Colors',
-                            style: Theme.of(context).textTheme.labelLarge,
+                        const SizedBox(height: 10),
+                        SwitchListTile(
+                          contentPadding: EdgeInsets.zero,
+                          title: const Text('Color nouns by article'),
+                          subtitle: const Text(
+                            'Highlights known nouns in sentences by their '
+                            'article color (may reveal quiz answers).',
                           ),
-                          const SizedBox(height: 6),
-                          Wrap(
-                            spacing: 16,
-                            runSpacing: 8,
-                            children: [
-                              _buildGenderColorSwatch(
-                                'm',
-                                'der (masculine)',
-                              ),
-                              _buildGenderColorSwatch('f', 'die (feminine)'),
-                              _buildGenderColorSwatch('n', 'das (neuter)'),
-                            ],
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  NounSettings.instance.resetGenderColors();
-                                });
-                              },
-                              child: const Text('Reset to default colors'),
-                            ),
-                          ),
-                        ],
+                          value: NounSettings.instance.colorNouns,
+                          onChanged: (value) {
+                            setState(() {
+                              NounSettings.instance.setColorNouns(value);
+                            });
+                          },
+                        ),
                         const SizedBox(height: 10),
                         Text(
                           'Active Cases',

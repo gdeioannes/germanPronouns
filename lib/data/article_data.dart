@@ -211,6 +211,8 @@ final QuizConfig articleQuizConfig = QuizConfig(
   subjectCategories: articleNouns.map((n) => n.categories).toList(),
   subjectDifficulties: articleNouns.map((n) => n.difficulty).toList(),
   categoryDisplayNames: nounCategoryDisplayNames,
+  subjectGenders: articleNouns.map((n) => n.gender).toList(),
+  collapseReferenceTablesByGender: true,
   categories: articleQuizCategories,
   groupWeights: articleGroupChanceWeights,
   pickSentence: pickArticleSentence,

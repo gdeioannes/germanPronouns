@@ -11,6 +11,7 @@ class NounSettings {
 
   static const String _storageKey = 'global_disabled_nouns';
   static const String _showEnglishKey = 'global_show_english';
+  static const String _colorNounsKey = 'global_color_nouns';
 
   /// Default highlight colors per grammatical gender: der (masculine) ->
   /// blue, die (feminine) -> red, das (neuter) -> green.
@@ -22,6 +23,7 @@ class NounSettings {
 
   Set<String> _disabledNouns = {};
   bool _showEnglish = true;
+  bool _colorNouns = false;
   Map<String, Color> _genderColors = Map.of(defaultGenderColors);
   bool _loaded = false;
 
@@ -30,6 +32,11 @@ class NounSettings {
   /// Whether English translations should be shown alongside nouns in
   /// reference/analytics tables and the Word Library.
   bool get showEnglish => _showEnglish;
+
+  /// Whether nouns should be highlighted by their article's color in the
+  /// word display, tables, and sentences. Defaults to off in the Artikel
+  /// and Nouns & Articles quizzes, since the color reveals the answer.
+  bool get colorNouns => _colorNouns;
 
   /// Highlight color for gender key 'm'/'f'/'n', used to color nouns by
   /// their article in noun-focused pages.
@@ -41,6 +48,7 @@ class NounSettings {
     final prefs = await SharedPreferences.getInstance();
     _disabledNouns = (prefs.getStringList(_storageKey) ?? const []).toSet();
     _showEnglish = prefs.getBool(_showEnglishKey) ?? true;
+    _colorNouns = prefs.getBool(_colorNounsKey) ?? false;
     _genderColors = {
       for (final entry in defaultGenderColors.entries)
         entry.key: Color(
@@ -59,6 +67,12 @@ class NounSettings {
     _showEnglish = value;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_showEnglishKey, value);
+  }
+
+  Future<void> setColorNouns(bool value) async {
+    _colorNouns = value;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_colorNounsKey, value);
   }
 
   String _colorKey(String gender) => 'gender_color_$gender';

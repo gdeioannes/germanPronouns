@@ -64,6 +64,7 @@ class QuizConfig {
     this.categoryDisplayNames,
     this.subjectEnglish,
     this.subjectGenders,
+    this.collapseReferenceTablesByGender = false,
   });
 
   /// AppBar title for this quiz's page.
@@ -131,4 +132,11 @@ class QuizConfig {
   /// When non-null, the subject is highlighted with its article's color
   /// (see [NounSettings.colorForGender]) in the word display and tables.
   final List<String>? subjectGenders;
+
+  /// When true (and [subjectGenders] is set), the Help Memory and Analytics
+  /// tables show one row per article gender (der/die/das) instead of one
+  /// row per subject — used when the per-subject values in [categories]
+  /// only depend on gender, not on the specific noun, making a per-subject
+  /// table redundant.
+  final bool collapseReferenceTablesByGender;
 }

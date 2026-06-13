@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import '../pages/article_quiz_page.dart';
 import '../pages/noun_article_quiz_page.dart';
 import '../pages/pronoun_quiz_page.dart';
+import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
 
 /// Identifies which top-level quiz page is currently shown, so the drawer
 /// can highlight it.
-enum AppPage { pronouns, articles, nounsArticles, wordLibrary }
+enum AppPage { pronouns, articles, nounsArticles, wordLibrary, settings }
 
 /// Side navigation drawer shared by all quiz pages.
 class AppDrawer extends StatelessWidget {
@@ -31,6 +32,9 @@ class AppDrawer extends StatelessWidget {
       ),
       AppPage.wordLibrary => MaterialPageRoute<void>(
         builder: (_) => const WordLibraryPage(),
+      ),
+      AppPage.settings => MaterialPageRoute<void>(
+        builder: (_) => const SettingsPage(),
       ),
     };
     Navigator.pushReplacement(context, route);
@@ -82,6 +86,12 @@ class AppDrawer extends StatelessWidget {
               title: const Text('Word Library'),
               selected: currentPage == AppPage.wordLibrary,
               onTap: () => _navigateTo(context, AppPage.wordLibrary),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings_rounded),
+              title: const Text('Settings'),
+              selected: currentPage == AppPage.settings,
+              onTap: () => _navigateTo(context, AppPage.settings),
             ),
           ],
         ),
