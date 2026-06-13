@@ -4,6 +4,9 @@ import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/noun_lookup.dart';
@@ -484,6 +487,114 @@ class _QuizPageState extends State<QuizPage>
   /// of the same gender has the same value in each category).
   int _firstSubjectIndexForGender(String gender) =>
       widget.config.subjectGenders!.indexOf(gender);
+
+  /// Builds a PDF of the Help Memory reference table (and, for the Artikel
+  /// quiz, the gender rules below it) and saves/downloads it directly as a
+  /// PDF file (no print dialog).
+  Future<void> _exportHelpMemoryPdf() async {
+    final showEnglish =
+        widget.config.subjectEnglish != null &&
+        NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
+
+    final genderRows = _useGenderReferenceRows ? _genderRowOrder : null;
+    final rowCount =
+        genderRows?.length ?? widget.config.subjectDisplays.length;
+
+    final headers = [
+      widget.config.subjectColumnLabel,
+      ...widget.config.categories.map((c) => c.label),
+    ];
+
+    final rows = <List<String>>[];
+    for (var index = 0; index < rowCount; index++) {
+      if (genderRows != null) {
+        final gender = genderRows[index];
+        final subjectIndex = _firstSubjectIndexForGender(gender);
+        rows.add([
+          '${_genderArticles[gender]} (${_genderRowNames[gender]})',
+          ...widget.config.categories.map((c) => c.values[subjectIndex]),
+        ]);
+      } else {
+        var label = widget.config.subjectDisplays[index];
+        if (showEnglish) {
+          label = '$label (${widget.config.subjectEnglish![index]})';
+        }
+        rows.add([
+          label,
+          ...widget.config.categories.map((c) => c.values[index]),
+        ]);
+      }
+    }
+
+    final columnCount = headers.length;
+    final cellFontSize = columnCount > 15
+        ? 7.0
+        : columnCount > 7
+            ? 8.0
+            : 10.0;
+    final pageFormat = columnCount > 15
+        ? PdfPageFormat.a3.landscape
+        : columnCount > 5
+            ? PdfPageFormat.a4.landscape
+            : PdfPageFormat.a4;
+
+    final baseFont = await PdfGoogleFonts.notoSansRegular();
+    final boldFont = await PdfGoogleFonts.notoSansBold();
+
+    final doc = pw.Document(
+      theme: pw.ThemeData.withFont(base: baseFont, bold: boldFont),
+    );
+    doc.addPage(
+      pw.MultiPage(
+        pageFormat: pageFormat,
+        margin: const pw.EdgeInsets.all(24),
+        build: (context) => [
+          pw.Header(
+            level: 0,
+            text: '${widget.config.title} — Help Memory',
+          ),
+          pw.TableHelper.fromTextArray(
+            headers: headers,
+            data: rows,
+            headerStyle: pw.TextStyle(
+              fontWeight: pw.FontWeight.bold,
+              fontSize: cellFontSize,
+            ),
+            cellStyle: pw.TextStyle(fontSize: cellFontSize),
+            cellAlignment: pw.Alignment.centerLeft,
+            cellPadding: const pw.EdgeInsets.symmetric(
+              horizontal: 4,
+              vertical: 3,
+            ),
+            columnWidths: {
+              for (var i = 0; i < columnCount; i++) i: const pw.FlexColumnWidth(1),
+            },
+          ),
+          if (_useGenderReferenceRows) ...[
+            pw.SizedBox(height: 16),
+            pw.Header(level: 1, text: 'Gender rules of thumb'),
+            for (final gender in _genderRowOrder) ...[
+              pw.SizedBox(height: 6),
+              pw.Text(
+                '${_genderArticles[gender]} (${_genderRowNames[gender]})',
+                style: pw.TextStyle(
+                  fontWeight: pw.FontWeight.bold,
+                  fontSize: 12,
+                ),
+              ),
+              for (final rule in _genderRules[gender]!)
+                pw.Bullet(text: rule, style: const pw.TextStyle(fontSize: 10)),
+            ],
+          ],
+        ],
+      ),
+    );
+
+    await Printing.sharePdf(
+      bytes: await doc.save(),
+      filename: '${widget.config.storageKeyPrefix}help_memory.pdf',
+    );
+  }
 
   /// Opens the global Word Library and, once the user returns, picks a new
   /// question if the currently displayed noun was disabled there.
@@ -1712,9 +1823,20 @@ class _QuizPageState extends State<QuizPage>
                 ),
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
-                  title: const Text(
-                    'Help Memory',
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                  title: Row(
+                    children: [
+                      const Expanded(
+                        child: Text(
+                          'Help Memory',
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: 'Save as PDF',
+                        icon: const Icon(Icons.picture_as_pdf_rounded),
+                        onPressed: _exportHelpMemoryPdf,
+                      ),
+                    ],
                   ),
                   subtitle: const Text(
                     'Expanded reference table with all cases.',
