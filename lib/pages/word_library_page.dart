@@ -82,6 +82,12 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
                           NounSettings.instance.showEnglish
                               ? '${n.noun} (${n.english})'
                               : n.noun,
+                          style: TextStyle(
+                            color: NounSettings.instance.colorForGender(
+                              n.gender,
+                            ),
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         selected: NounSettings.instance.isEnabled(n.noun),
                         onSelected: (_) => _toggleNoun(n.noun),

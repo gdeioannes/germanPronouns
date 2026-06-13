@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -417,6 +418,73 @@ class _QuizPageState extends State<QuizPage>
     NounDifficulty.intermediate => 'Intermediate',
     NounDifficulty.advanced => 'Advanced',
   };
+
+  /// Renders a tappable swatch showing the current highlight color for
+  /// [gender] ('m'/'f'/'n') with [label], opening a color picker on tap.
+  Widget _buildGenderColorSwatch(String gender, String label) {
+    final color = NounSettings.instance.colorForGender(gender);
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: () => _pickGenderColor(gender, label),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                color: color,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
+              ),
+            ),
+            const SizedBox(width: 6),
+            Text(label),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Opens a color picker dialog for [gender] ('m'/'f'/'n', labeled
+  /// [label]) and persists the chosen color via [NounSettings].
+  Future<void> _pickGenderColor(String gender, String label) async {
+    var picked = NounSettings.instance.colorForGender(gender);
+    final result = await showDialog<Color>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Color for $label'),
+          content: SingleChildScrollView(
+            child: ColorPicker(
+              pickerColor: picked,
+              onColorChanged: (c) => picked = c,
+              enableAlpha: false,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(context, picked),
+              child: const Text('Select'),
+            ),
+          ],
+        );
+      },
+    );
+    if (result != null) {
+      setState(() {
+        NounSettings.instance.setGenderColor(gender, result);
+      });
+    }
+  }
 
   /// Opens the global Word Library and, once the user returns, picks a new
   /// question if the currently displayed noun was disabled there.
@@ -932,6 +1000,11 @@ class _QuizPageState extends State<QuizPage>
             NounSettings.instance.showEnglish
         ? widget.config.subjectEnglish![_currentSubjectIndex]
         : null;
+    final currentGenderColor = widget.config.subjectGenders != null
+        ? NounSettings.instance.colorForGender(
+            widget.config.subjectGenders![_currentSubjectIndex],
+          )
+        : null;
     final blankMatch = RegExp(r'_{4,}').firstMatch(_currentReferenceSentence);
     final referenceBefore = blankMatch != null
         ? _currentReferenceSentence.substring(0, blankMatch.start)
@@ -1194,6 +1267,7 @@ class _QuizPageState extends State<QuizPage>
                                                           ?.fontSize ??
                                                       24) *
                                                   0.8,
+                                              color: currentGenderColor,
                                             ),
                                         children: currentEnglish == null
                                             ? null
@@ -1552,6 +1626,7 @@ class _QuizPageState extends State<QuizPage>
                           String text, {
                           bool header = false,
                           Color? background,
+                          Color? textColor,
                           String? subtitle,
                         }) {
                           return Container(
@@ -1581,7 +1656,9 @@ class _QuizPageState extends State<QuizPage>
                                     text,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: header ? Colors.white : null,
+                                      color: header
+                                          ? Colors.white
+                                          : textColor,
                                       fontWeight: header
                                           ? FontWeight.w700
                                           : FontWeight.w600,
@@ -1596,7 +1673,9 @@ class _QuizPageState extends State<QuizPage>
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          color: header ? Colors.white : null,
+                                          color: header
+                                              ? Colors.white
+                                              : textColor,
                                           fontWeight: header
                                               ? FontWeight.w700
                                               : FontWeight.w600,
@@ -1689,6 +1768,11 @@ class _QuizPageState extends State<QuizPage>
                                         ? colorScheme.surface
                                         : colorScheme.surfaceContainerHighest
                                               .withValues(alpha: 0.35),
+                                    textColor: widget.config.subjectGenders != null
+                                        ? NounSettings.instance.colorForGender(
+                                            widget.config.subjectGenders![index],
+                                          )
+                                        : null,
                                     subtitle: showEnglish
                                         ? widget.config.subjectEnglish![index]
                                         : null,
@@ -1868,6 +1952,7 @@ class _QuizPageState extends State<QuizPage>
                           String text, {
                           bool header = false,
                           Color? background,
+                          Color? textColor,
                           String? tooltip,
                           String? subtitle,
                         }) {
@@ -1878,9 +1963,11 @@ class _QuizPageState extends State<QuizPage>
                                   : colorScheme.surface);
                           final brightness =
                               ThemeData.estimateBrightnessForColor(bg);
-                          final fg = brightness == Brightness.dark
-                              ? Colors.white
-                              : colorScheme.onSurface;
+                          final fg =
+                              textColor ??
+                              (brightness == Brightness.dark
+                                  ? Colors.white
+                                  : colorScheme.onSurface);
 
                           return Tooltip(
                             message: tooltip ?? text,
@@ -2037,6 +2124,14 @@ class _QuizPageState extends State<QuizPage>
                                     return buildFixedCell(
                                       displayName,
                                       background: bg,
+                                      textColor: widget.config.subjectGenders != null
+                                          ? NounSettings.instance
+                                                .colorForGender(
+                                                  widget
+                                                      .config
+                                                      .subjectGenders![index],
+                                                )
+                                          : null,
                                       tooltip:
                                           '$displayName: ${stats['correct']}/${stats['total']} correct',
                                       subtitle: showEnglish
@@ -2251,6 +2346,37 @@ class _QuizPageState extends State<QuizPage>
                                 NounSettings.instance.setShowEnglish(value);
                               });
                             },
+                          ),
+                        ],
+                        if (widget.config.subjectGenders != null) ...[
+                          const SizedBox(height: 10),
+                          Text(
+                            'Article Colors',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          const SizedBox(height: 6),
+                          Wrap(
+                            spacing: 16,
+                            runSpacing: 8,
+                            children: [
+                              _buildGenderColorSwatch(
+                                'm',
+                                'der (masculine)',
+                              ),
+                              _buildGenderColorSwatch('f', 'die (feminine)'),
+                              _buildGenderColorSwatch('n', 'das (neuter)'),
+                            ],
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  NounSettings.instance.resetGenderColors();
+                                });
+                              },
+                              child: const Text('Reset to default colors'),
+                            ),
                           ),
                         ],
                         const SizedBox(height: 10),

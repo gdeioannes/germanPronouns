@@ -80,6 +80,7 @@ final QuizConfig nounArticleQuizConfig = QuizConfig(
   subjectDifficulties: germanNouns.map((n) => n.difficulty).toList(),
   categoryDisplayNames: nounCategoryDisplayNames,
   subjectEnglish: germanNouns.map((n) => n.english).toList(),
+  subjectGenders: germanNouns.map((n) => n.gender).toList(),
   categories: nounArticleQuizCategories,
   groupWeights: nounArticleGroupChanceWeights,
   pickSentence: pickNounArticleSentence,

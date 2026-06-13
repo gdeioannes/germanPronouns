@@ -63,6 +63,7 @@ class QuizConfig {
     this.subjectDifficulties,
     this.categoryDisplayNames,
     this.subjectEnglish,
+    this.subjectGenders,
   });
 
   /// AppBar title for this quiz's page.
@@ -125,4 +126,9 @@ class QuizConfig {
   /// and the user enables "Show English meanings", tables append
   /// "(translation)" after each subject's display name.
   final List<String>? subjectEnglish;
+
+  /// Grammatical gender per subject ('m'/'f'/'n'), parallel to [subjects].
+  /// When non-null, the subject is highlighted with its article's color
+  /// (see [NounSettings.colorForGender]) in the word display and tables.
+  final List<String>? subjectGenders;
 }

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     );
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Germanquiz',
       debugShowCheckedModeBanner: false,
       theme: baseTheme,
       home: const PronounQuizPage(),
