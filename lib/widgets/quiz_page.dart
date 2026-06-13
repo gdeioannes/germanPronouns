@@ -927,6 +927,11 @@ class _QuizPageState extends State<QuizPage>
     final currentCase = widget.config.categories[_currentCategoryIndex].label;
     final currentPronoun =
         widget.config.subjectDisplays[_currentSubjectIndex];
+    final currentEnglish =
+        widget.config.subjectEnglish != null &&
+            NounSettings.instance.showEnglish
+        ? widget.config.subjectEnglish![_currentSubjectIndex]
+        : null;
     final blankMatch = RegExp(r'_{4,}').firstMatch(_currentReferenceSentence);
     final referenceBefore = blankMatch != null
         ? _currentReferenceSentence.substring(0, blankMatch.start)
@@ -1176,20 +1181,40 @@ class _QuizPageState extends State<QuizPage>
                                       ],
                                     ),
                                     const SizedBox(height: 3),
-                                    Text(
-                                      currentPronoun,
+                                    Text.rich(
+                                      TextSpan(
+                                        text: currentPronoun,
+                                        style: scaledQuizTextTheme
+                                            .headlineSmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize:
+                                                  (scaledQuizTextTheme
+                                                          .headlineSmall
+                                                          ?.fontSize ??
+                                                      24) *
+                                                  0.8,
+                                            ),
+                                        children: currentEnglish == null
+                                            ? null
+                                            : [
+                                                TextSpan(
+                                                  text: ' ($currentEnglish)',
+                                                  style: scaledQuizTextTheme
+                                                      .titleMedium
+                                                      ?.copyWith(
+                                                        fontStyle:
+                                                            FontStyle.italic,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: colorScheme
+                                                            .onSurfaceVariant,
+                                                      ),
+                                                ),
+                                              ],
+                                      ),
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      style: scaledQuizTextTheme.headlineSmall
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.w700,
-                                            fontSize:
-                                                (scaledQuizTextTheme
-                                                        .headlineSmall
-                                                        ?.fontSize ??
-                                                    24) *
-                                                0.8,
-                                          ),
                                     ),
                                     const SizedBox(height: 6),
                                     Text(
@@ -1514,9 +1539,12 @@ class _QuizPageState extends State<QuizPage>
                   children: [
                     LayoutBuilder(
                       builder: (context, constraints) {
-                        const fixedColumnWidth = 120.0;
+                        final showEnglish =
+                            widget.config.subjectEnglish != null &&
+                            NounSettings.instance.showEnglish;
+                        final fixedColumnWidth = showEnglish ? 170.0 : 120.0;
                         const valueColumnWidth = 110.0;
-                        const rowHeight = 48.0;
+                        final rowHeight = showEnglish ? 58.0 : 48.0;
                         final scrollableWidth =
                             valueColumnWidth * widget.config.categories.length;
 
@@ -1524,6 +1552,7 @@ class _QuizPageState extends State<QuizPage>
                           String text, {
                           bool header = false,
                           Color? background,
+                          String? subtitle,
                         }) {
                           return Container(
                             width: fixedColumnWidth,
@@ -1547,16 +1576,45 @@ class _QuizPageState extends State<QuizPage>
                                 ),
                               ),
                             ),
-                            child: Text(
-                              text,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: header ? Colors.white : null,
-                                fontWeight: header
-                                    ? FontWeight.w700
-                                    : FontWeight.w600,
-                              ),
-                            ),
+                            child: subtitle == null
+                                ? Text(
+                                    text,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: header ? Colors.white : null,
+                                      fontWeight: header
+                                          ? FontWeight.w700
+                                          : FontWeight.w600,
+                                    ),
+                                  )
+                                : Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        text,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: header ? Colors.white : null,
+                                          fontWeight: header
+                                              ? FontWeight.w700
+                                              : FontWeight.w600,
+                                        ),
+                                      ),
+                                      Text(
+                                        subtitle,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: colorScheme.onSurfaceVariant,
+                                          fontSize: 11,
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                           );
                         }
 
@@ -1631,6 +1689,9 @@ class _QuizPageState extends State<QuizPage>
                                         ? colorScheme.surface
                                         : colorScheme.surfaceContainerHighest
                                               .withValues(alpha: 0.35),
+                                    subtitle: showEnglish
+                                        ? widget.config.subjectEnglish![index]
+                                        : null,
                                   ),
                               ],
                             ),
@@ -1794,9 +1855,12 @@ class _QuizPageState extends State<QuizPage>
                     const SizedBox(height: 12),
                     LayoutBuilder(
                       builder: (context, constraints) {
-                        const fixedColumnWidth = 120.0;
+                        final showEnglish =
+                            widget.config.subjectEnglish != null &&
+                            NounSettings.instance.showEnglish;
+                        final fixedColumnWidth = showEnglish ? 170.0 : 120.0;
                         const valueColumnWidth = 110.0;
-                        const rowHeight = 48.0;
+                        final rowHeight = showEnglish ? 58.0 : 48.0;
                         final scrollableWidth =
                             valueColumnWidth * widget.config.categories.length;
 
@@ -1805,6 +1869,7 @@ class _QuizPageState extends State<QuizPage>
                           bool header = false,
                           Color? background,
                           String? tooltip,
+                          String? subtitle,
                         }) {
                           final bg =
                               background ??
@@ -1839,16 +1904,45 @@ class _QuizPageState extends State<QuizPage>
                                   ),
                                 ),
                               ),
-                              child: Text(
-                                text,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: header ? Colors.white : fg,
-                                  fontWeight: header
-                                      ? FontWeight.w700
-                                      : FontWeight.w600,
-                                ),
-                              ),
+                              child: subtitle == null
+                                  ? Text(
+                                      text,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: header ? Colors.white : fg,
+                                        fontWeight: header
+                                            ? FontWeight.w700
+                                            : FontWeight.w600,
+                                      ),
+                                    )
+                                  : Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          text,
+                                          textAlign: TextAlign.center,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            color: header ? Colors.white : fg,
+                                            fontWeight: header
+                                                ? FontWeight.w700
+                                                : FontWeight.w600,
+                                          ),
+                                        ),
+                                        Text(
+                                          subtitle,
+                                          textAlign: TextAlign.center,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            color: fg.withValues(alpha: 0.7),
+                                            fontSize: 11,
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                             ),
                           );
                         }
@@ -1945,6 +2039,11 @@ class _QuizPageState extends State<QuizPage>
                                       background: bg,
                                       tooltip:
                                           '$displayName: ${stats['correct']}/${stats['total']} correct',
+                                      subtitle: showEnglish
+                                          ? widget
+                                                .config
+                                                .subjectEnglish![index]
+                                          : null,
                                     );
                                   }(),
                               ],
@@ -2139,6 +2238,19 @@ class _QuizPageState extends State<QuizPage>
                                 onSelected: (_) => _toggleSubject(i),
                               ),
                             ),
+                          ),
+                        ],
+                        if (widget.config.subjectEnglish != null) ...[
+                          const SizedBox(height: 10),
+                          SwitchListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: const Text('Show English meanings'),
+                            value: NounSettings.instance.showEnglish,
+                            onChanged: (value) {
+                              setState(() {
+                                NounSettings.instance.setShowEnglish(value);
+                              });
+                            },
                           ),
                         ],
                         const SizedBox(height: 10),

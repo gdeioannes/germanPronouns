@@ -78,7 +78,11 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
                 children: nouns
                     .map(
                       (n) => FilterChip(
-                        label: Text(n.noun),
+                        label: Text(
+                          NounSettings.instance.showEnglish
+                              ? '${n.noun} (${n.english})'
+                              : n.noun,
+                        ),
                         selected: NounSettings.instance.isEnabled(n.noun),
                         onSelected: (_) => _toggleNoun(n.noun),
                       ),
@@ -116,7 +120,18 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
               'Articles quizzes.',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 6),
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Show English meanings'),
+              value: NounSettings.instance.showEnglish,
+              onChanged: (value) {
+                setState(() {
+                  NounSettings.instance.setShowEnglish(value);
+                });
+              },
+            ),
+            const SizedBox(height: 6),
             Text('Difficulty', style: Theme.of(context).textTheme.labelLarge),
             const SizedBox(height: 6),
             Wrap(

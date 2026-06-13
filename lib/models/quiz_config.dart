@@ -62,6 +62,7 @@ class QuizConfig {
     this.subjectCategories,
     this.subjectDifficulties,
     this.categoryDisplayNames,
+    this.subjectEnglish,
   });
 
   /// AppBar title for this quiz's page.
@@ -119,4 +120,9 @@ class QuizConfig {
   /// Maps [subjectCategories] keys to bilingual display labels, e.g.
   /// {'kitchen': 'Kitchen (Küche)'}.
   final Map<String, String>? categoryDisplayNames;
+
+  /// English translation per subject, parallel to [subjects]. When non-null
+  /// and the user enables "Show English meanings", tables append
+  /// "(translation)" after each subject's display name.
+  final List<String>? subjectEnglish;
 }
