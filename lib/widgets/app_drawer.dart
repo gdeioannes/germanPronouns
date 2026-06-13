@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/noun_settings.dart';
 import '../pages/article_quiz_page.dart';
 import '../pages/noun_article_quiz_page.dart';
 import '../pages/pronoun_quiz_page.dart';
@@ -10,6 +11,25 @@ import '../pages/word_library_page.dart';
 /// can highlight it.
 enum AppPage { pronouns, articles, nounsArticles, wordLibrary, settings }
 
+/// Builds the page widget for [page], used both by the drawer's navigation
+/// and to reopen the app on the last-visited page.
+Widget buildAppPage(AppPage page) => switch (page) {
+  AppPage.pronouns => const PronounQuizPage(),
+  AppPage.articles => const ArticleQuizPage(),
+  AppPage.nounsArticles => const NounArticleQuizPage(),
+  AppPage.wordLibrary => const WordLibraryPage(),
+  AppPage.settings => const SettingsPage(),
+};
+
+/// Looks up an [AppPage] by its enum name (as stored via
+/// [NounSettings.setLastPage]), or null if [name] doesn't match any page.
+AppPage? appPageFromName(String? name) {
+  for (final page in AppPage.values) {
+    if (page.name == name) return page;
+  }
+  return null;
+}
+
 /// Side navigation drawer shared by all quiz pages.
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key, required this.currentPage});
@@ -18,26 +38,13 @@ class AppDrawer extends StatelessWidget {
 
   void _navigateTo(BuildContext context, AppPage page) {
     Navigator.pop(context);
+    NounSettings.instance.setLastPage(page.name);
     if (page == currentPage) return;
 
-    final route = switch (page) {
-      AppPage.pronouns => MaterialPageRoute<void>(
-        builder: (_) => const PronounQuizPage(),
-      ),
-      AppPage.articles => MaterialPageRoute<void>(
-        builder: (_) => const ArticleQuizPage(),
-      ),
-      AppPage.nounsArticles => MaterialPageRoute<void>(
-        builder: (_) => const NounArticleQuizPage(),
-      ),
-      AppPage.wordLibrary => MaterialPageRoute<void>(
-        builder: (_) => const WordLibraryPage(),
-      ),
-      AppPage.settings => MaterialPageRoute<void>(
-        builder: (_) => const SettingsPage(),
-      ),
-    };
-    Navigator.pushReplacement(context, route);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute<void>(builder: (_) => buildAppPage(page)),
+    );
   }
 
   @override

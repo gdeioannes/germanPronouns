@@ -858,7 +858,7 @@ class _QuizPageState extends State<QuizPage>
       if (info == null) {
         spans.add(TextSpan(text: word, style: baseStyle));
       } else {
-        final style = NounSettings.instance.colorNouns
+        final style = NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
             ? (baseStyle ?? const TextStyle()).copyWith(
                 color: NounSettings.instance.colorForGender(info.noun.gender),
                 fontWeight: FontWeight.w800,
@@ -1095,12 +1095,12 @@ class _QuizPageState extends State<QuizPage>
         widget.config.subjectDisplays[_currentSubjectIndex];
     final currentEnglish =
         widget.config.subjectEnglish != null &&
-            NounSettings.instance.showEnglish
+            NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix)
         ? widget.config.subjectEnglish![_currentSubjectIndex]
         : null;
     final currentGenderColor =
         widget.config.subjectGenders != null &&
-            NounSettings.instance.colorNouns
+            NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
         ? NounSettings.instance.colorForGender(
             widget.config.subjectGenders![_currentSubjectIndex],
           )
@@ -1732,7 +1732,7 @@ class _QuizPageState extends State<QuizPage>
                       builder: (context, constraints) {
                         final showEnglish =
                             widget.config.subjectEnglish != null &&
-                            NounSettings.instance.showEnglish;
+                            NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
                         final showSubtitleRow =
                             showEnglish || _useGenderReferenceRows;
                         final fixedColumnWidth = showSubtitleRow
@@ -1893,7 +1893,7 @@ class _QuizPageState extends State<QuizPage>
                                           : colorScheme
                                                 .surfaceContainerHighest
                                                 .withValues(alpha: 0.35),
-                                      textColor: NounSettings.instance.colorNouns
+                                      textColor: NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
                                           ? NounSettings.instance
                                                 .colorForGender(
                                                   genderRows[index],
@@ -1912,7 +1912,7 @@ class _QuizPageState extends State<QuizPage>
                                       textColor:
                                           widget.config.subjectGenders !=
                                                   null &&
-                                              NounSettings.instance.colorNouns
+                                              NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
                                           ? NounSettings.instance
                                                 .colorForGender(
                                                   widget
@@ -1995,7 +1995,7 @@ class _QuizPageState extends State<QuizPage>
                                 '${_genderArticles[gender]} (${_genderRowNames[gender]})',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
-                                  color: NounSettings.instance.colorNouns
+                                  color: NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
                                       ? NounSettings.instance.colorForGender(
                                           gender,
                                         )
@@ -2134,7 +2134,7 @@ class _QuizPageState extends State<QuizPage>
                       builder: (context, constraints) {
                         final showEnglish =
                             widget.config.subjectEnglish != null &&
-                            NounSettings.instance.showEnglish;
+                            NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
                         final showSubtitleRow =
                             showEnglish || _useGenderReferenceRows;
                         final fixedColumnWidth = showSubtitleRow
@@ -2323,7 +2323,7 @@ class _QuizPageState extends State<QuizPage>
                                         displayName,
                                         background: bg,
                                         textColor:
-                                            NounSettings.instance.colorNouns
+                                            NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
                                             ? NounSettings.instance
                                                   .colorForGender(gender)
                                             : null,
@@ -2351,7 +2351,7 @@ class _QuizPageState extends State<QuizPage>
                                       textColor:
                                           widget.config.subjectGenders !=
                                                   null &&
-                                              NounSettings.instance.colorNouns
+                                              NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
                                           ? NounSettings.instance
                                                 .colorForGender(
                                                   widget
@@ -2616,10 +2616,13 @@ class _QuizPageState extends State<QuizPage>
                           SwitchListTile(
                             contentPadding: EdgeInsets.zero,
                             title: const Text('Show English meanings'),
-                            value: NounSettings.instance.showEnglish,
+                            value: NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix),
                             onChanged: (value) {
                               setState(() {
-                                NounSettings.instance.setShowEnglish(value);
+                                NounSettings.instance.setShowEnglishFor(
+                                  widget.config.storageKeyPrefix,
+                                  value,
+                                );
                               });
                             },
                           ),
@@ -2632,10 +2635,13 @@ class _QuizPageState extends State<QuizPage>
                             'Highlights known nouns in sentences by their '
                             'article color (may reveal quiz answers).',
                           ),
-                          value: NounSettings.instance.colorNouns,
+                          value: NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix),
                           onChanged: (value) {
                             setState(() {
-                              NounSettings.instance.setColorNouns(value);
+                              NounSettings.instance.setColorNounsFor(
+                                widget.config.storageKeyPrefix,
+                                value,
+                              );
                             });
                           },
                         ),

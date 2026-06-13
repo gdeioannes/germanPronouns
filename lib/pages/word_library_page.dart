@@ -79,7 +79,7 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
                     .map(
                       (n) => FilterChip(
                         label: Text(
-                          NounSettings.instance.showEnglish
+                          NounSettings.instance.showEnglishFor(NounSettings.wordLibraryPageKey)
                               ? '${n.noun} (${n.english})'
                               : n.noun,
                           style: TextStyle(
@@ -130,10 +130,13 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
             SwitchListTile(
               contentPadding: EdgeInsets.zero,
               title: const Text('Show English meanings'),
-              value: NounSettings.instance.showEnglish,
+              value: NounSettings.instance.showEnglishFor(NounSettings.wordLibraryPageKey),
               onChanged: (value) {
                 setState(() {
-                  NounSettings.instance.setShowEnglish(value);
+                  NounSettings.instance.setShowEnglishFor(
+                    NounSettings.wordLibraryPageKey,
+                    value,
+                  );
                 });
               },
             ),
