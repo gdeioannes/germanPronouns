@@ -22,6 +22,59 @@ class QuizCategoryDefinition {
   final String group;
 }
 
+/// One column of a [HelpMemoryTable], referencing an existing
+/// [QuizCategoryDefinition] by its [categoryLabel].
+class HelpMemoryColumn {
+  const HelpMemoryColumn({required this.categoryLabel, this.displayLabel});
+
+  /// Must match a [QuizCategoryDefinition.label] in [QuizConfig.categories].
+  final String categoryLabel;
+
+  /// Header shown for this column instead of [categoryLabel], e.g. showing
+  /// "Accusative" instead of the more verbose "Poss. Masc. Acc.".
+  final String? displayLabel;
+}
+
+/// One focused reference table shown in the Help Memory section, as an
+/// alternative to the default single table covering every category.
+///
+/// Each table's fixed first column is always
+/// [QuizConfig.subjectColumnLabel]/[QuizConfig.subjectDisplays] (e.g. the
+/// nominative pronouns), followed by one column per entry in [columns].
+class HelpMemoryTable {
+  const HelpMemoryTable({required this.title, required this.columns});
+
+  final String title;
+  final List<HelpMemoryColumn> columns;
+}
+
+/// A small reference table of declension endings (e.g. the endings added to
+/// "mein-"/"dein-"/etc. to form possessive pronouns), shown below the
+/// [HelpMemoryTable]s in the Help Memory section.
+class EndingPatternTable {
+  const EndingPatternTable({
+    required this.title,
+    required this.cornerLabel,
+    required this.columnLabels,
+    required this.rowLabels,
+    required this.rows,
+    this.notes,
+  });
+
+  final String title;
+
+  /// Label shown in the empty top-left cell, e.g. "Case".
+  final String cornerLabel;
+  final List<String> columnLabels;
+  final List<String> rowLabels;
+
+  /// `rows[i]` has one ending per entry in [columnLabels].
+  final List<List<String>> rows;
+
+  /// Bullet-point notes shown below the table.
+  final List<String>? notes;
+}
+
 /// Picks a fill-in-the-blank sentence for a given answer.
 ///
 /// [nominative] is the subject's reference key (the pronoun's nominative
@@ -65,6 +118,8 @@ class QuizConfig {
     this.subjectEnglish,
     this.subjectGenders,
     this.collapseReferenceTablesByGender = false,
+    this.helpMemoryTables,
+    this.endingPatternTables,
   });
 
   /// AppBar title for this quiz's page.
@@ -139,4 +194,13 @@ class QuizConfig {
   /// only depend on gender, not on the specific noun, making a per-subject
   /// table redundant.
   final bool collapseReferenceTablesByGender;
+
+  /// When non-null, the Help Memory section (and its PDF export) shows one
+  /// focused table per entry instead of a single table covering every
+  /// category in [categories].
+  final List<HelpMemoryTable>? helpMemoryTables;
+
+  /// When non-null, these declension-ending reference tables are shown (and
+  /// exported to PDF) below the [helpMemoryTables].
+  final List<EndingPatternTable>? endingPatternTables;
 }

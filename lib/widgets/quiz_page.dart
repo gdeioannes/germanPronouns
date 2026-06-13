@@ -488,107 +488,343 @@ class _QuizPageState extends State<QuizPage>
   int _firstSubjectIndexForGender(String gender) =>
       widget.config.subjectGenders!.indexOf(gender);
 
+  /// Builds one focused reference table for the Help Memory section, with
+  /// [QuizConfig.subjectColumnLabel] as the fixed first column and
+  /// [table]'s columns as the rest.
+  Widget _buildHelpMemoryTable(BuildContext context, HelpMemoryTable table) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final categoriesByLabel = {
+      for (final c in widget.config.categories) c.label: c,
+    };
+
+    Widget cell(String text, {bool header = false}) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: header ? Colors.white : null,
+            fontWeight: header ? FontWeight.w700 : FontWeight.w500,
+          ),
+        ),
+      );
+    }
+
+    TableRow buildRow(int? subjectIndex) {
+      final background = subjectIndex == null
+          ? colorScheme.primary
+          : (subjectIndex.isEven
+                ? colorScheme.surface
+                : colorScheme.surfaceContainerHighest.withValues(alpha: 0.35));
+      return TableRow(
+        decoration: BoxDecoration(color: background),
+        children: [
+          cell(
+            subjectIndex == null
+                ? widget.config.subjectColumnLabel
+                : widget.config.subjectDisplays[subjectIndex],
+            header: subjectIndex == null,
+          ),
+          for (final column in table.columns)
+            cell(
+              subjectIndex == null
+                  ? (column.displayLabel ?? column.categoryLabel)
+                  : categoriesByLabel[column.categoryLabel]!
+                        .values[subjectIndex],
+              header: subjectIndex == null,
+            ),
+        ],
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          table.title,
+          style: Theme.of(
+            context,
+          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 8),
+        Table(
+          border: TableBorder.all(color: colorScheme.outlineVariant),
+          columnWidths: const {0: FixedColumnWidth(110)},
+          defaultColumnWidth: const FlexColumnWidth(),
+          children: [
+            buildRow(null),
+            for (
+              var index = 0;
+              index < widget.config.subjectDisplays.length;
+              index++
+            )
+              buildRow(index),
+          ],
+        ),
+      ],
+    );
+  }
+
+  /// Builds a small declension-ending reference table shown below the
+  /// [HelpMemoryTable]s.
+  Widget _buildEndingPatternTable(BuildContext context, EndingPatternTable table) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    Widget cell(String text, {bool header = false}) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: header ? Colors.white : null,
+            fontWeight: header ? FontWeight.w700 : FontWeight.w500,
+          ),
+        ),
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          table.title,
+          style: Theme.of(
+            context,
+          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 8),
+        Table(
+          border: TableBorder.all(color: colorScheme.outlineVariant),
+          columnWidths: const {0: FixedColumnWidth(110)},
+          defaultColumnWidth: const FlexColumnWidth(),
+          children: [
+            TableRow(
+              decoration: BoxDecoration(color: colorScheme.primary),
+              children: [
+                cell(table.cornerLabel, header: true),
+                for (final label in table.columnLabels)
+                  cell(label, header: true),
+              ],
+            ),
+            for (var index = 0; index < table.rowLabels.length; index++)
+              TableRow(
+                decoration: BoxDecoration(
+                  color: index.isEven
+                      ? colorScheme.surface
+                      : colorScheme.surfaceContainerHighest.withValues(
+                          alpha: 0.35,
+                        ),
+                ),
+                children: [
+                  cell(table.rowLabels[index]),
+                  for (final value in table.rows[index]) cell(value),
+                ],
+              ),
+          ],
+        ),
+        if (table.notes != null) ...[
+          const SizedBox(height: 8),
+          for (final note in table.notes!)
+            Padding(
+              padding: const EdgeInsets.only(left: 8, bottom: 2),
+              child: Text('• $note'),
+            ),
+        ],
+      ],
+    );
+  }
+
   /// Builds a PDF of the Help Memory reference table (and, for the Artikel
   /// quiz, the gender rules below it) and saves/downloads it directly as a
   /// PDF file (no print dialog).
   Future<void> _exportHelpMemoryPdf() async {
-    final showEnglish =
-        widget.config.subjectEnglish != null &&
-        NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
-
-    final genderRows = _useGenderReferenceRows ? _genderRowOrder : null;
-    final rowCount =
-        genderRows?.length ?? widget.config.subjectDisplays.length;
-
-    final headers = [
-      widget.config.subjectColumnLabel,
-      ...widget.config.categories.map((c) => c.label),
-    ];
-
-    final rows = <List<String>>[];
-    for (var index = 0; index < rowCount; index++) {
-      if (genderRows != null) {
-        final gender = genderRows[index];
-        final subjectIndex = _firstSubjectIndexForGender(gender);
-        rows.add([
-          '${_genderArticles[gender]} (${_genderRowNames[gender]})',
-          ...widget.config.categories.map((c) => c.values[subjectIndex]),
-        ]);
-      } else {
-        var label = widget.config.subjectDisplays[index];
-        if (showEnglish) {
-          label = '$label (${widget.config.subjectEnglish![index]})';
-        }
-        rows.add([
-          label,
-          ...widget.config.categories.map((c) => c.values[index]),
-        ]);
-      }
-    }
-
-    final columnCount = headers.length;
-    final cellFontSize = columnCount > 15
-        ? 7.0
-        : columnCount > 7
-            ? 8.0
-            : 10.0;
-    final pageFormat = columnCount > 15
-        ? PdfPageFormat.a3.landscape
-        : columnCount > 5
-            ? PdfPageFormat.a4.landscape
-            : PdfPageFormat.a4;
-
     final baseFont = await PdfGoogleFonts.notoSansRegular();
     final boldFont = await PdfGoogleFonts.notoSansBold();
-
     final doc = pw.Document(
       theme: pw.ThemeData.withFont(base: baseFont, bold: boldFont),
     );
-    doc.addPage(
-      pw.MultiPage(
-        pageFormat: pageFormat,
-        margin: const pw.EdgeInsets.all(24),
-        build: (context) => [
-          pw.Header(
-            level: 0,
-            text: '${widget.config.title} — Help Memory',
-          ),
-          pw.TableHelper.fromTextArray(
-            headers: headers,
-            data: rows,
-            headerStyle: pw.TextStyle(
-              fontWeight: pw.FontWeight.bold,
-              fontSize: cellFontSize,
+
+    if (widget.config.helpMemoryTables != null) {
+      final categoriesByLabel = {
+        for (final c in widget.config.categories) c.label: c,
+      };
+      const cellStyle = pw.TextStyle(fontSize: 10);
+      const cellPadding = pw.EdgeInsets.symmetric(
+        horizontal: 4,
+        vertical: 3,
+      );
+      final headerStyle = pw.TextStyle(
+        fontWeight: pw.FontWeight.bold,
+        fontSize: 10,
+      );
+
+      doc.addPage(
+        pw.MultiPage(
+          pageFormat: PdfPageFormat.a4,
+          margin: const pw.EdgeInsets.all(24),
+          build: (context) => [
+            pw.Header(
+              level: 0,
+              text: '${widget.config.title} — Help Memory',
             ),
-            cellStyle: pw.TextStyle(fontSize: cellFontSize),
-            cellAlignment: pw.Alignment.centerLeft,
-            cellPadding: const pw.EdgeInsets.symmetric(
-              horizontal: 4,
-              vertical: 3,
-            ),
-            columnWidths: {
-              for (var i = 0; i < columnCount; i++) i: const pw.FlexColumnWidth(1),
-            },
-          ),
-          if (_useGenderReferenceRows) ...[
-            pw.SizedBox(height: 16),
-            pw.Header(level: 1, text: 'Gender rules of thumb'),
-            for (final gender in _genderRowOrder) ...[
-              pw.SizedBox(height: 6),
-              pw.Text(
-                '${_genderArticles[gender]} (${_genderRowNames[gender]})',
-                style: pw.TextStyle(
-                  fontWeight: pw.FontWeight.bold,
-                  fontSize: 12,
-                ),
+            for (final table in widget.config.helpMemoryTables!) ...[
+              pw.Header(level: 1, text: table.title),
+              pw.TableHelper.fromTextArray(
+                headers: [
+                  widget.config.subjectColumnLabel,
+                  for (final column in table.columns)
+                    column.displayLabel ?? column.categoryLabel,
+                ],
+                data: [
+                  for (
+                    var i = 0;
+                    i < widget.config.subjectDisplays.length;
+                    i++
+                  )
+                    [
+                      widget.config.subjectDisplays[i],
+                      for (final column in table.columns)
+                        categoriesByLabel[column.categoryLabel]!.values[i],
+                    ],
+                ],
+                headerStyle: headerStyle,
+                cellStyle: cellStyle,
+                cellAlignment: pw.Alignment.centerLeft,
+                cellPadding: cellPadding,
               ),
-              for (final rule in _genderRules[gender]!)
-                pw.Bullet(text: rule, style: const pw.TextStyle(fontSize: 10)),
+              pw.SizedBox(height: 12),
+            ],
+            for (final table
+                in widget.config.endingPatternTables ??
+                    const <EndingPatternTable>[]) ...[
+              pw.Header(level: 1, text: table.title),
+              pw.TableHelper.fromTextArray(
+                headers: [table.cornerLabel, ...table.columnLabels],
+                data: [
+                  for (var i = 0; i < table.rowLabels.length; i++)
+                    [table.rowLabels[i], ...table.rows[i]],
+                ],
+                headerStyle: headerStyle,
+                cellStyle: cellStyle,
+                cellAlignment: pw.Alignment.centerLeft,
+                cellPadding: cellPadding,
+              ),
+              if (table.notes != null) ...[
+                pw.SizedBox(height: 4),
+                for (final note in table.notes!)
+                  pw.Bullet(
+                    text: note,
+                    style: const pw.TextStyle(fontSize: 9),
+                  ),
+              ],
+              pw.SizedBox(height: 12),
             ],
           ],
-        ],
-      ),
-    );
+        ),
+      );
+    } else {
+      final showEnglish =
+          widget.config.subjectEnglish != null &&
+          NounSettings.instance.showEnglishFor(
+            widget.config.storageKeyPrefix,
+          );
+
+      final genderRows = _useGenderReferenceRows ? _genderRowOrder : null;
+      final rowCount =
+          genderRows?.length ?? widget.config.subjectDisplays.length;
+
+      final headers = [
+        widget.config.subjectColumnLabel,
+        ...widget.config.categories.map((c) => c.label),
+      ];
+
+      final rows = <List<String>>[];
+      for (var index = 0; index < rowCount; index++) {
+        if (genderRows != null) {
+          final gender = genderRows[index];
+          final subjectIndex = _firstSubjectIndexForGender(gender);
+          rows.add([
+            '${_genderArticles[gender]} (${_genderRowNames[gender]})',
+            ...widget.config.categories.map((c) => c.values[subjectIndex]),
+          ]);
+        } else {
+          var label = widget.config.subjectDisplays[index];
+          if (showEnglish) {
+            label = '$label (${widget.config.subjectEnglish![index]})';
+          }
+          rows.add([
+            label,
+            ...widget.config.categories.map((c) => c.values[index]),
+          ]);
+        }
+      }
+
+      final columnCount = headers.length;
+      final cellFontSize = columnCount > 15
+          ? 7.0
+          : columnCount > 7
+              ? 8.0
+              : 10.0;
+      final pageFormat = columnCount > 15
+          ? PdfPageFormat.a3.landscape
+          : columnCount > 5
+              ? PdfPageFormat.a4.landscape
+              : PdfPageFormat.a4;
+
+      doc.addPage(
+        pw.MultiPage(
+          pageFormat: pageFormat,
+          margin: const pw.EdgeInsets.all(24),
+          build: (context) => [
+            pw.Header(
+              level: 0,
+              text: '${widget.config.title} — Help Memory',
+            ),
+            pw.TableHelper.fromTextArray(
+              headers: headers,
+              data: rows,
+              headerStyle: pw.TextStyle(
+                fontWeight: pw.FontWeight.bold,
+                fontSize: cellFontSize,
+              ),
+              cellStyle: pw.TextStyle(fontSize: cellFontSize),
+              cellAlignment: pw.Alignment.centerLeft,
+              cellPadding: const pw.EdgeInsets.symmetric(
+                horizontal: 4,
+                vertical: 3,
+              ),
+              columnWidths: {
+                for (var i = 0; i < columnCount; i++)
+                  i: const pw.FlexColumnWidth(1),
+              },
+            ),
+            if (_useGenderReferenceRows) ...[
+              pw.SizedBox(height: 16),
+              pw.Header(level: 1, text: 'Gender rules of thumb'),
+              for (final gender in _genderRowOrder) ...[
+                pw.SizedBox(height: 6),
+                pw.Text(
+                  '${_genderArticles[gender]} (${_genderRowNames[gender]})',
+                  style: pw.TextStyle(
+                    fontWeight: pw.FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
+                for (final rule in _genderRules[gender]!)
+                  pw.Bullet(
+                    text: rule,
+                    style: const pw.TextStyle(fontSize: 10),
+                  ),
+              ],
+            ],
+          ],
+        ),
+      );
+    }
 
     await Printing.sharePdf(
       bytes: await doc.save(),
@@ -815,7 +1051,7 @@ class _QuizPageState extends State<QuizPage>
         _feedbackHint = reminderHint;
         _lastAnswerCorrect = false;
         _feedback =
-            '$nominative → $caseLabel. You wrote "$userAnswerRaw", correct is "$correctAnswer" (-1 pt)';
+            '$nominative → $caseLabel = $correctAnswer (you wrote "$userAnswerRaw")';
         _mistakesByCase[caseLabel] = (_mistakesByCase[caseLabel] ?? 0) + 1;
       }
 
@@ -1869,15 +2105,31 @@ class _QuizPageState extends State<QuizPage>
                       ),
                     ],
                   ),
-                  subtitle: const Text(
-                    'Expanded reference table with all cases.',
+                  subtitle: Text(
+                    widget.config.helpMemoryTables != null
+                        ? 'Reference tables for pronouns, possessives, and '
+                              'endings.'
+                        : 'Expanded reference table with all cases.',
                   ),
                   leading: IconBadge(
                     icon: Icons.menu_book_rounded,
                     color: kSectionAccentColors[0],
                   ),
                   childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                  children: [
+                  children: widget.config.helpMemoryTables != null
+                      ? [
+                          for (final table in widget.config.helpMemoryTables!) ...[
+                            _buildHelpMemoryTable(context, table),
+                            const SizedBox(height: 16),
+                          ],
+                          for (final table
+                              in widget.config.endingPatternTables ??
+                                  const <EndingPatternTable>[]) ...[
+                            _buildEndingPatternTable(context, table),
+                            const SizedBox(height: 16),
+                          ],
+                        ]
+                      : [
                     LayoutBuilder(
                       builder: (context, constraints) {
                         final showEnglish =

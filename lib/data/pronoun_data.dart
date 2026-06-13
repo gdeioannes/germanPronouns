@@ -355,6 +355,140 @@ const Map<String, String> pronounLegacyCaseLabelMigration = {
   'Poss. Pl.': 'Poss. Pl. Nom.',
 };
 
+/// Help Memory reference tables, split by topic instead of one wide table:
+/// personal/reflexive pronouns, then each possessive pronoun group
+/// (masculine/feminine/neuter/plural) separately. Every table keeps the
+/// nominative pronoun as its fixed first column for reference.
+const List<HelpMemoryTable> pronounHelpMemoryTables = [
+  HelpMemoryTable(
+    title: 'Personal & Reflexive Pronouns',
+    columns: [
+      HelpMemoryColumn(categoryLabel: 'Accusative'),
+      HelpMemoryColumn(categoryLabel: 'Dative'),
+      HelpMemoryColumn(categoryLabel: 'Genitive'),
+      HelpMemoryColumn(categoryLabel: 'Reflexive'),
+    ],
+  ),
+  HelpMemoryTable(
+    title: 'Possessive Pronouns — Masculine noun',
+    columns: [
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Masc. Nom.',
+        displayLabel: 'Nominative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Masc. Acc.',
+        displayLabel: 'Accusative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Masc. Dat.',
+        displayLabel: 'Dative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Masc. Gen.',
+        displayLabel: 'Genitive',
+      ),
+    ],
+  ),
+  HelpMemoryTable(
+    title: 'Possessive Pronouns — Feminine noun',
+    columns: [
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Fem. Nom.',
+        displayLabel: 'Nominative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Fem. Acc.',
+        displayLabel: 'Accusative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Fem. Dat.',
+        displayLabel: 'Dative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Fem. Gen.',
+        displayLabel: 'Genitive',
+      ),
+    ],
+  ),
+  HelpMemoryTable(
+    title: 'Possessive Pronouns — Neuter noun',
+    columns: [
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Neut. Nom.',
+        displayLabel: 'Nominative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Neut. Acc.',
+        displayLabel: 'Accusative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Neut. Dat.',
+        displayLabel: 'Dative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Neut. Gen.',
+        displayLabel: 'Genitive',
+      ),
+    ],
+  ),
+  HelpMemoryTable(
+    title: 'Possessive Pronouns — Plural noun',
+    columns: [
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Pl. Nom.',
+        displayLabel: 'Nominative',
+      ),
+      HelpMemoryColumn(
+        categoryLabel: 'Poss. Pl. Gen.',
+        displayLabel: 'Genitive',
+      ),
+    ],
+  ),
+];
+
+/// Reference tables explaining where the possessive-pronoun endings above
+/// come from: the der/die/das declension endings, and the (mostly
+/// identical) endings used for possessive pronouns and other "ein-words".
+const List<EndingPatternTable> pronounEndingPatternTables = [
+  EndingPatternTable(
+    title: 'Definite article endings (der/die/das)',
+    cornerLabel: 'Case',
+    columnLabels: ['Masculine', 'Feminine', 'Neuter', 'Plural'],
+    rowLabels: ['Nominative', 'Accusative', 'Dative', 'Genitive'],
+    rows: [
+      ['der', 'die', 'das', 'die'],
+      ['den', 'die', 'das', 'die'],
+      ['dem', 'der', 'dem', 'den'],
+      ['des', 'der', 'des', 'der'],
+    ],
+    notes: [
+      'The final letters (-er, -ie, -as, -en, -em, -es) are the actual '
+          'case/gender endings — the same endings reappear below on '
+          'possessive pronouns.',
+    ],
+  ),
+  EndingPatternTable(
+    title: 'Possessive pronoun endings (mein-/dein-/sein-/...)',
+    cornerLabel: 'Case',
+    columnLabels: ['Masculine', 'Feminine', 'Neuter', 'Plural'],
+    rowLabels: ['Nominative', 'Accusative', 'Dative', 'Genitive'],
+    rows: [
+      ['—', '-e', '—', '-e'],
+      ['-en', '-e', '—', '-e'],
+      ['-em', '-er', '-em', '-en'],
+      ['-es', '-er', '-es', '-er'],
+    ],
+    notes: [
+      'Add the ending to the possessive stem: mein + -em = meinem '
+          '(masc./neut. dative).',
+      'Same endings as the der/die/das table above, except masc. '
+          'nominative, neut. nominative, and neut. accusative take no '
+          'ending at all (mein, not "meiner"/"meines").',
+    ],
+  ),
+];
+
 const QuizConfig pronounQuizConfig = QuizConfig(
   title: 'German Pronoun Quiz',
   storageKeyPrefix: '',
@@ -369,4 +503,6 @@ const QuizConfig pronounQuizConfig = QuizConfig(
   buildExplanation: buildReferenceExplanation,
   legacyCategoryLabelMigration: pronounLegacyCaseLabelMigration,
   currentPage: AppPage.pronouns,
+  helpMemoryTables: pronounHelpMemoryTables,
+  endingPatternTables: pronounEndingPatternTables,
 );
