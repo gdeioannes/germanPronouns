@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
+import '../pages/word_library_page.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
 
@@ -95,6 +97,15 @@ class _QuizPageState extends State<QuizPage>
     _nextQuestion();
     _loadStoredStats();
     _requestAnswerFocus();
+    if (widget.config.subjectCategories != null) {
+      NounSettings.instance.load().then((_) {
+        if (!mounted) return;
+        final currentNoun = widget.config.subjects[_currentSubjectIndex];
+        if (!NounSettings.instance.isEnabled(currentNoun)) {
+          setState(_nextQuestion);
+        }
+      });
+    }
   }
 
   @override
@@ -243,7 +254,15 @@ class _QuizPageState extends State<QuizPage>
   }
 
   void _nextQuestion() {
-    final enabledSubjects = _enabledSubjectIndices.toList();
+    final enabledSubjects = widget.config.subjectCategories == null
+        ? _enabledSubjectIndices.toList()
+        : _enabledSubjectIndices
+              .where(
+                (i) => NounSettings.instance.isEnabled(
+                  widget.config.subjects[i],
+                ),
+              )
+              .toList();
     if (enabledSubjects.isEmpty == false) {
       _currentSubjectIndex =
           enabledSubjects[_random.nextInt(enabledSubjects.length)];
@@ -330,6 +349,87 @@ class _QuizPageState extends State<QuizPage>
       _nextQuestion();
     });
     _saveStoredStats();
+  }
+
+  /// Bulk-toggles a group of subjects (e.g. all nouns in a category or
+  /// difficulty tier). If every subject in [indices] is currently enabled,
+  /// disables them all (unless that would leave no subjects enabled);
+  /// otherwise enables them all.
+  void _toggleSubjectGroup(Iterable<int> indices) {
+    final indexSet = indices.toSet();
+    if (indexSet.isEmpty) return;
+    final allEnabled = indexSet.every(_enabledSubjectIndices.contains);
+
+    setState(() {
+      if (allEnabled) {
+        final remaining = Set.of(_enabledSubjectIndices)
+          ..removeAll(indexSet);
+        if (remaining.isEmpty) return;
+        _enabledSubjectIndices = remaining;
+      } else {
+        _enabledSubjectIndices = Set.of(_enabledSubjectIndices)
+          ..addAll(indexSet);
+      }
+      _feedback = '';
+      _feedbackHint = '';
+      _lastAnswerCorrect = null;
+      _answerController.clear();
+      _nextQuestion();
+    });
+    _saveStoredStats();
+  }
+
+  /// Indices of subjects tagged with [category] (a subject may belong to
+  /// more than one category).
+  Iterable<int> _subjectIndicesForCategory(String category) {
+    final cats = widget.config.subjectCategories!;
+    return [
+      for (var i = 0; i < cats.length; i++)
+        if (cats[i].contains(category)) i,
+    ];
+  }
+
+  /// Indices of subjects tagged with [difficulty].
+  Iterable<int> _subjectIndicesForDifficulty(NounDifficulty difficulty) {
+    final diffs = widget.config.subjectDifficulties!;
+    return [
+      for (var i = 0; i < diffs.length; i++)
+        if (diffs[i] == difficulty) i,
+    ];
+  }
+
+  /// All category keys used by [widget.config.subjectCategories], in first-
+  /// seen order, deduplicated.
+  List<String> _orderedCategoryKeys() {
+    final cats = widget.config.subjectCategories!;
+    final seen = <String>{};
+    final result = <String>[];
+    for (final list in cats) {
+      for (final c in list) {
+        if (seen.add(c)) result.add(c);
+      }
+    }
+    return result;
+  }
+
+  String _difficultyLabel(NounDifficulty d) => switch (d) {
+    NounDifficulty.beginner => 'Beginner',
+    NounDifficulty.intermediate => 'Intermediate',
+    NounDifficulty.advanced => 'Advanced',
+  };
+
+  /// Opens the global Word Library and, once the user returns, picks a new
+  /// question if the currently displayed noun was disabled there.
+  Future<void> _openWordLibrary() async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute<void>(builder: (_) => const WordLibraryPage()),
+    );
+    if (!mounted) return;
+    final currentNoun = widget.config.subjects[_currentSubjectIndex];
+    if (!NounSettings.instance.isEnabled(currentNoun)) {
+      setState(_nextQuestion);
+    }
   }
 
   Future<void> _resetProgress() async {
@@ -1957,23 +2057,90 @@ class _QuizPageState extends State<QuizPage>
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Active ${widget.config.subjectsLabel}',
-                          style: Theme.of(context).textTheme.labelLarge,
-                        ),
-                        const SizedBox(height: 6),
-                        Wrap(
-                          spacing: 6,
-                          runSpacing: 4,
-                          children: List.generate(
-                            widget.config.subjectDisplays.length,
-                            (i) => FilterChip(
-                              label: Text(widget.config.subjectDisplays[i]),
-                              selected: _enabledSubjectIndices.contains(i),
-                              onSelected: (_) => _toggleSubject(i),
+                        if (widget.config.subjectDifficulties != null) ...[
+                          Text(
+                            'Difficulty',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          const SizedBox(height: 6),
+                          Wrap(
+                            spacing: 6,
+                            runSpacing: 4,
+                            children: NounDifficulty.values.map((d) {
+                              final indices = _subjectIndicesForDifficulty(
+                                d,
+                              ).toList();
+                              final allEnabled = indices.every(
+                                _enabledSubjectIndices.contains,
+                              );
+                              return FilterChip(
+                                label: Text(_difficultyLabel(d)),
+                                selected: allEnabled,
+                                onSelected: (_) => _toggleSubjectGroup(indices),
+                              );
+                            }).toList(),
+                          ),
+                          const SizedBox(height: 10),
+                        ],
+                        if (widget.config.subjectCategories != null) ...[
+                          Text(
+                            'Category',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          const SizedBox(height: 6),
+                          Wrap(
+                            spacing: 6,
+                            runSpacing: 4,
+                            children: _orderedCategoryKeys().map((catKey) {
+                              final indices = _subjectIndicesForCategory(
+                                catKey,
+                              ).toList();
+                              final allEnabled = indices.every(
+                                _enabledSubjectIndices.contains,
+                              );
+                              final label =
+                                  widget.config.categoryDisplayNames?[catKey] ??
+                                  catKey;
+                              return FilterChip(
+                                label: Text(label),
+                                selected: allEnabled,
+                                onSelected: (_) => _toggleSubjectGroup(indices),
+                              );
+                            }).toList(),
+                          ),
+                          const SizedBox(height: 10),
+                        ],
+                        if (widget.config.subjectCategories != null) ...[
+                          Text(
+                            'Manage the full word list, including individual '
+                            'words, in the Word Library.',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          const SizedBox(height: 6),
+                          OutlinedButton.icon(
+                            onPressed: _openWordLibrary,
+                            icon: const Icon(Icons.library_books_rounded),
+                            label: const Text('Open Word Library'),
+                          ),
+                        ] else ...[
+                          Text(
+                            'Active ${widget.config.subjectsLabel}',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          const SizedBox(height: 6),
+                          Wrap(
+                            spacing: 6,
+                            runSpacing: 4,
+                            children: List.generate(
+                              widget.config.subjectDisplays.length,
+                              (i) => FilterChip(
+                                label: Text(widget.config.subjectDisplays[i]),
+                                selected: _enabledSubjectIndices.contains(i),
+                                onSelected: (_) => _toggleSubject(i),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                         const SizedBox(height: 10),
                         Text(
                           'Active Cases',

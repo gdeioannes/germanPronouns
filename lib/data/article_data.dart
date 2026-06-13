@@ -2,11 +2,18 @@ import 'dart:math';
 
 import '../models/quiz_config.dart';
 import '../widgets/app_drawer.dart';
+import 'noun_database.dart';
 
 /// A German noun with its grammatical gender, used to derive the correct
 /// definite article (der/die/das/den/dem) per case.
 class ArticleNoun {
-  const ArticleNoun({required this.noun, required this.gender, required this.english});
+  const ArticleNoun({
+    required this.noun,
+    required this.gender,
+    required this.english,
+    required this.categories,
+    required this.difficulty,
+  });
 
   /// The noun itself, without an article (e.g. "Hund").
   final String noun;
@@ -16,60 +23,29 @@ class ArticleNoun {
 
   /// English translation, used in explanations.
   final String english;
+
+  /// Semantic category keys, see [nounCategoryDisplayNames].
+  final List<String> categories;
+
+  final NounDifficulty difficulty;
 }
 
-const List<ArticleNoun> articleNouns = [
-  // ── Masculine (der) ──────────────────────────────────────────────────
-  ArticleNoun(noun: 'Hund', gender: 'm', english: 'dog'),
-  ArticleNoun(noun: 'Tisch', gender: 'm', english: 'table'),
-  ArticleNoun(noun: 'Stuhl', gender: 'm', english: 'chair'),
-  ArticleNoun(noun: 'Apfel', gender: 'm', english: 'apple'),
-  ArticleNoun(noun: 'Computer', gender: 'm', english: 'computer'),
-  ArticleNoun(noun: 'Schrank', gender: 'm', english: 'wardrobe'),
-  ArticleNoun(noun: 'Mantel', gender: 'm', english: 'coat'),
-  ArticleNoun(noun: 'Garten', gender: 'm', english: 'garden'),
-  ArticleNoun(noun: 'Spiegel', gender: 'm', english: 'mirror'),
-  ArticleNoun(noun: 'Ball', gender: 'm', english: 'ball'),
-  ArticleNoun(noun: 'Berg', gender: 'm', english: 'mountain'),
-  ArticleNoun(noun: 'Wagen', gender: 'm', english: 'car'),
-  ArticleNoun(noun: 'Schlüssel', gender: 'm', english: 'key'),
-  ArticleNoun(noun: 'Teppich', gender: 'm', english: 'carpet'),
-  ArticleNoun(noun: 'Koffer', gender: 'm', english: 'suitcase'),
-
-  // ── Feminine (die) ───────────────────────────────────────────────────
-  ArticleNoun(noun: 'Katze', gender: 'f', english: 'cat'),
-  ArticleNoun(noun: 'Lampe', gender: 'f', english: 'lamp'),
-  ArticleNoun(noun: 'Tasche', gender: 'f', english: 'bag'),
-  ArticleNoun(noun: 'Blume', gender: 'f', english: 'flower'),
-  ArticleNoun(noun: 'Uhr', gender: 'f', english: 'clock'),
-  ArticleNoun(noun: 'Tür', gender: 'f', english: 'door'),
-  ArticleNoun(noun: 'Flasche', gender: 'f', english: 'bottle'),
-  ArticleNoun(noun: 'Zeitung', gender: 'f', english: 'newspaper'),
-  ArticleNoun(noun: 'Brille', gender: 'f', english: 'glasses'),
-  ArticleNoun(noun: 'Gitarre', gender: 'f', english: 'guitar'),
-  ArticleNoun(noun: 'Kamera', gender: 'f', english: 'camera'),
-  ArticleNoun(noun: 'Wand', gender: 'f', english: 'wall'),
-  ArticleNoun(noun: 'Treppe', gender: 'f', english: 'staircase'),
-  ArticleNoun(noun: 'Küche', gender: 'f', english: 'kitchen'),
-  ArticleNoun(noun: 'Bank', gender: 'f', english: 'bench'),
-
-  // ── Neuter (das) ─────────────────────────────────────────────────────
-  ArticleNoun(noun: 'Buch', gender: 'n', english: 'book'),
-  ArticleNoun(noun: 'Auto', gender: 'n', english: 'car'),
-  ArticleNoun(noun: 'Fenster', gender: 'n', english: 'window'),
-  ArticleNoun(noun: 'Haus', gender: 'n', english: 'house'),
-  ArticleNoun(noun: 'Bett', gender: 'n', english: 'bed'),
-  ArticleNoun(noun: 'Telefon', gender: 'n', english: 'phone'),
-  ArticleNoun(noun: 'Bild', gender: 'n', english: 'picture'),
-  ArticleNoun(noun: 'Glas', gender: 'n', english: 'glass'),
-  ArticleNoun(noun: 'Regal', gender: 'n', english: 'shelf'),
-  ArticleNoun(noun: 'Fahrrad', gender: 'n', english: 'bicycle'),
-  ArticleNoun(noun: 'Hemd', gender: 'n', english: 'shirt'),
-  ArticleNoun(noun: 'Messer', gender: 'n', english: 'knife'),
-  ArticleNoun(noun: 'Sofa', gender: 'n', english: 'sofa'),
-  ArticleNoun(noun: 'Radio', gender: 'n', english: 'radio'),
-  ArticleNoun(noun: 'Klavier', gender: 'n', english: 'piano'),
-];
+/// Only declension-safe nouns (regular accusative/dative singular forms) are
+/// suitable for the case-drilling quiz — weak/n-declension nouns like "der
+/// Junge" -> "den Jungen" would make the noun itself change, not just the
+/// article.
+final List<ArticleNoun> articleNouns = germanNouns
+    .where((n) => n.declensionSafe)
+    .map(
+      (n) => ArticleNoun(
+        noun: n.noun,
+        gender: n.gender,
+        english: n.english,
+        categories: n.categories,
+        difficulty: n.difficulty,
+      ),
+    )
+    .toList();
 
 const Map<String, String> _genderNames = {
   'm': 'masculine',
@@ -232,6 +208,9 @@ final QuizConfig articleQuizConfig = QuizConfig(
   subjectColumnLabel: 'Noun',
   subjects: articleNouns.map((n) => n.noun).toList(),
   subjectDisplays: articleNouns.map((n) => n.noun).toList(),
+  subjectCategories: articleNouns.map((n) => n.categories).toList(),
+  subjectDifficulties: articleNouns.map((n) => n.difficulty).toList(),
+  categoryDisplayNames: nounCategoryDisplayNames,
   categories: articleQuizCategories,
   groupWeights: articleGroupChanceWeights,
   pickSentence: pickArticleSentence,

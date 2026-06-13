@@ -2,6 +2,9 @@ import 'dart:math';
 
 import '../widgets/app_drawer.dart';
 
+/// Difficulty tier for a noun, used for bulk Settings toggles.
+enum NounDifficulty { beginner, intermediate, advanced }
+
 /// One quizzable category (e.g. a grammatical case for the pronoun quiz, or
 /// Nominative/Accusative/Dative for the article quiz).
 ///
@@ -56,6 +59,9 @@ class QuizConfig {
     required this.buildExplanation,
     required this.currentPage,
     this.legacyCategoryLabelMigration = const {},
+    this.subjectCategories,
+    this.subjectDifficulties,
+    this.categoryDisplayNames,
   });
 
   /// AppBar title for this quiz's page.
@@ -99,4 +105,18 @@ class QuizConfig {
 
   /// Which page this quiz represents, for drawer highlighting.
   final AppPage currentPage;
+
+  /// Semantic category keys per subject (a subject may belong to more than
+  /// one category), parallel to [subjects]. When non-null, Settings shows
+  /// per-category bulk-toggle chips and groups the "Active {subjectsLabel}"
+  /// chips by category.
+  final List<List<String>>? subjectCategories;
+
+  /// Difficulty per subject, parallel to [subjects]. When non-null, Settings
+  /// shows per-difficulty bulk-toggle chips.
+  final List<NounDifficulty>? subjectDifficulties;
+
+  /// Maps [subjectCategories] keys to bilingual display labels, e.g.
+  /// {'kitchen': 'Kitchen (Küche)'}.
+  final Map<String, String>? categoryDisplayNames;
 }

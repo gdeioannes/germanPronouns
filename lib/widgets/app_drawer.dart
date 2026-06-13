@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../pages/article_quiz_page.dart';
+import '../pages/noun_article_quiz_page.dart';
 import '../pages/pronoun_quiz_page.dart';
+import '../pages/word_library_page.dart';
 
 /// Identifies which top-level quiz page is currently shown, so the drawer
 /// can highlight it.
-enum AppPage { pronouns, articles }
+enum AppPage { pronouns, articles, nounsArticles, wordLibrary }
 
 /// Side navigation drawer shared by all quiz pages.
 class AppDrawer extends StatelessWidget {
@@ -23,6 +25,12 @@ class AppDrawer extends StatelessWidget {
       ),
       AppPage.articles => MaterialPageRoute<void>(
         builder: (_) => const ArticleQuizPage(),
+      ),
+      AppPage.nounsArticles => MaterialPageRoute<void>(
+        builder: (_) => const NounArticleQuizPage(),
+      ),
+      AppPage.wordLibrary => MaterialPageRoute<void>(
+        builder: (_) => const WordLibraryPage(),
       ),
     };
     Navigator.pushReplacement(context, route);
@@ -51,7 +59,7 @@ class AppDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.translate_rounded),
+              leading: const Icon(Icons.groups_rounded),
               title: const Text('Pronouns'),
               selected: currentPage == AppPage.pronouns,
               onTap: () => _navigateTo(context, AppPage.pronouns),
@@ -61,6 +69,19 @@ class AppDrawer extends StatelessWidget {
               title: const Text('Artikel (der/die/das)'),
               selected: currentPage == AppPage.articles,
               onTap: () => _navigateTo(context, AppPage.articles),
+            ),
+            ListTile(
+              leading: const Icon(Icons.abc_rounded),
+              title: const Text('Nouns & Articles'),
+              selected: currentPage == AppPage.nounsArticles,
+              onTap: () => _navigateTo(context, AppPage.nounsArticles),
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.library_books_rounded),
+              title: const Text('Word Library'),
+              selected: currentPage == AppPage.wordLibrary,
+              onTap: () => _navigateTo(context, AppPage.wordLibrary),
             ),
           ],
         ),
