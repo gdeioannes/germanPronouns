@@ -105,17 +105,8 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: colorScheme.inversePrimary,
-        centerTitle: true,
-        title: const Text(
-          'Word Library',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
-        ),
-      ),
+      appBar: AppBar(title: const Text('Word Library')),
       drawer: const AppDrawer(currentPage: AppPage.wordLibrary),
       body: SafeArea(
         child: ListView(

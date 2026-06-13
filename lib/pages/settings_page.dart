@@ -90,17 +90,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: colorScheme.inversePrimary,
-        centerTitle: true,
-        title: const Text(
-          'Settings',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
-        ),
-      ),
+      appBar: AppBar(title: const Text('Settings')),
       drawer: const AppDrawer(currentPage: AppPage.settings),
       body: SafeArea(
         child: ListView(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'models/noun_settings.dart';
+import 'theme/app_theme.dart';
 import 'widgets/app_drawer.dart';
 
 void main() {
@@ -12,15 +13,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final baseTheme = ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      useMaterial3: true,
-    );
-
     return MaterialApp(
       title: 'Germanquiz',
       debugShowCheckedModeBanner: false,
-      theme: baseTheme,
+      theme: buildAppTheme(),
       home: const _InitialPage(),
     );
   }

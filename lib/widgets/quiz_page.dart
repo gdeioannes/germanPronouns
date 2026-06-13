@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -13,6 +12,7 @@ import '../data/noun_lookup.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../pages/word_library_page.dart';
+import '../theme/app_theme.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
 
@@ -1194,9 +1194,7 @@ class _QuizPageState extends State<QuizPage>
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final quizTextTheme = GoogleFonts.latoTextTheme(
-      Theme.of(context).textTheme,
-    );
+    final quizTextTheme = Theme.of(context).textTheme;
     const quizFontScale = 1.2;
     final scaledQuizTextTheme = quizTextTheme.apply(
       fontSizeFactor: quizFontScale,
@@ -1235,15 +1233,7 @@ class _QuizPageState extends State<QuizPage>
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorScheme.inversePrimary,
-        centerTitle: true,
-        title: Text(
-          widget.config.title,
-          style: const TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        title: Text(widget.config.title),
         actions: [
           IconButton(
             tooltip: 'Reset score and history',
@@ -1264,14 +1254,22 @@ class _QuizPageState extends State<QuizPage>
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Card(
-                        color: Color.lerp(
-                          colorScheme.primaryContainer,
-                          Colors.white,
-                          0.35,
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(kRadiusLarge),
+                          boxShadow: [
+                            BoxShadow(
+                              color: colorScheme.outline,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
                         ),
+                        child: Card(
+                        margin: EdgeInsets.zero,
+                        color: colorScheme.surfaceContainer,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
+                          borderRadius: BorderRadius.circular(kRadiusLarge),
+                          side: BorderSide(color: Colors.grey.shade400),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(12),
@@ -1613,11 +1611,8 @@ class _QuizPageState extends State<QuizPage>
                                                               ),
                                                         ),
                                                         filled: true,
-                                                        fillColor: colorScheme
-                                                            .surfaceContainerHighest
-                                                            .withValues(
-                                                              alpha: 0.35,
-                                                            ),
+                                                        fillColor:
+                                                            Colors.white,
                                                       ),
                                                       onSubmitted: (_) =>
                                                           _submitAnswer(),
@@ -1734,7 +1729,9 @@ class _QuizPageState extends State<QuizPage>
                                           : Colors.red.shade500,
                                       width: 1.8,
                                     ),
-                                    borderRadius: BorderRadius.circular(18),
+                                    borderRadius: BorderRadius.circular(
+                                      kRadiusLarge,
+                                    ),
                                   ),
                                   child: Column(
                                     crossAxisAlignment:
@@ -1792,6 +1789,7 @@ class _QuizPageState extends State<QuizPage>
                             ],
                           ),
                         ),
+                        ),
                       ),
                     ],
                   ),
@@ -1817,18 +1815,15 @@ class _QuizPageState extends State<QuizPage>
             const SizedBox(height: 16),
             _sectionWithMaxWidth(
               Card(
-                elevation: 1,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
                   title: Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         child: Text(
                           'Help Memory',
-                          style: TextStyle(fontWeight: FontWeight.w700),
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(fontWeight: FontWeight.w700),
                         ),
                       ),
                       IconButton(
@@ -1841,12 +1836,9 @@ class _QuizPageState extends State<QuizPage>
                   subtitle: const Text(
                     'Expanded reference table with all cases.',
                   ),
-                  leading: CircleAvatar(
-                    backgroundColor: colorScheme.primaryContainer,
-                    child: Icon(
-                      Icons.menu_book_rounded,
-                      color: colorScheme.onPrimaryContainer,
-                    ),
+                  leading: IconBadge(
+                    icon: Icons.menu_book_rounded,
+                    color: kSectionAccentColors[0],
                   ),
                   childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   children: [
@@ -2144,23 +2136,18 @@ class _QuizPageState extends State<QuizPage>
             const SizedBox(height: 16),
             _sectionWithMaxWidth(
               Card(
-                elevation: 1,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
-                  title: const Text(
+                  title: Text(
                     'History',
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                   ),
                   subtitle: const Text('Recent answers and common mistakes.'),
-                  leading: CircleAvatar(
-                    backgroundColor: colorScheme.primaryContainer,
-                    child: Icon(
-                      Icons.history_rounded,
-                      color: colorScheme.onPrimaryContainer,
-                    ),
+                  leading: IconBadge(
+                    icon: Icons.history_rounded,
+                    color: kSectionAccentColors[1],
                   ),
                   childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   children: [
@@ -2220,25 +2207,20 @@ class _QuizPageState extends State<QuizPage>
             const SizedBox(height: 16),
             _sectionWithMaxWidth(
               Card(
-                elevation: 1,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
-                  title: const Text(
+                  title: Text(
                     'Analytics',
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                   ),
                   subtitle: const Text(
                     'Performance heatmap: red bad, yellow mixed, green good.',
                   ),
-                  leading: CircleAvatar(
-                    backgroundColor: colorScheme.primaryContainer,
-                    child: Icon(
-                      Icons.analytics_rounded,
-                      color: colorScheme.onPrimaryContainer,
-                    ),
+                  leading: IconBadge(
+                    icon: Icons.analytics_rounded,
+                    color: kSectionAccentColors[2],
                   ),
                   childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   children: [
@@ -2624,25 +2606,20 @@ class _QuizPageState extends State<QuizPage>
             const SizedBox(height: 16),
             _sectionWithMaxWidth(
               Card(
-                elevation: 1,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
-                  title: const Text(
+                  title: Text(
                     'Settings',
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                   ),
                   subtitle: Text(
                     'Choose which ${widget.config.subjectsLabel.toLowerCase()} and cases appear in the quiz.',
                   ),
-                  leading: CircleAvatar(
-                    backgroundColor: colorScheme.primaryContainer,
-                    child: Icon(
-                      Icons.tune_rounded,
-                      color: colorScheme.onPrimaryContainer,
-                    ),
+                  leading: IconBadge(
+                    icon: Icons.tune_rounded,
+                    color: kSectionAccentColors[3],
                   ),
                   childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   children: [

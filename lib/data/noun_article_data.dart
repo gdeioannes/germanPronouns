@@ -69,7 +69,7 @@ final List<QuizCategoryDefinition> nounArticleQuizCategories = [
 const Map<String, double> nounArticleGroupChanceWeights = {'Artikel': 1};
 
 final QuizConfig nounArticleQuizConfig = QuizConfig(
-  title: 'Nouns & Articles',
+  title: 'German Nouns & Articles',
   storageKeyPrefix: 'noun_article_',
   promptLabel: 'Word',
   subjectsLabel: 'Nouns',
