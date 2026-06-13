@@ -1,5 +1,20 @@
 import 'dart:math';
 
+String _canonicalCaseLabel(String caseLabel) {
+  switch (caseLabel) {
+    case 'Poss. Masc. Nom.':
+      return 'Poss. Masc.';
+    case 'Poss. Fem. Nom.':
+      return 'Poss. Fem.';
+    case 'Poss. Neut. Nom.':
+      return 'Poss. Neut.';
+    case 'Poss. Pl. Nom.':
+      return 'Poss. Pl.';
+    default:
+      return caseLabel;
+  }
+}
+
 /// Returns a sentence that demonstrates the pronoun in a meaningful context.
 /// The blank [______] replaces the pronoun so the user fills it in.
 ///
@@ -19,6 +34,7 @@ String pickReferenceSentence({
   required String answer,
   required Random random,
 }) {
+  final canonicalCase = _canonicalCaseLabel(caseLabel);
   final templates = <String, Map<String, List<String>>>{
     // ── Personal pronouns — Accusative ──────────────────────────────────────
     'Accusative': {
@@ -585,7 +601,7 @@ String pickReferenceSentence({
     },
   };
 
-  final caseTemplates = templates[caseLabel];
+  final caseTemplates = templates[canonicalCase];
   final options =
       caseTemplates?[answer] ?? caseTemplates?[nominative] ?? ['______'];
   return options[random.nextInt(options.length)];
@@ -597,29 +613,30 @@ String buildReferenceExplanation({
   required String answer,
   required String sentence,
 }) {
+  final canonicalCase = _canonicalCaseLabel(caseLabel);
   final pronounMeaning = _pronounMeaning(
-    caseLabel: caseLabel,
+    caseLabel: canonicalCase,
     nominative: nominative,
     answer: answer,
   );
 
-  final grammarNote = _grammarNote(caseLabel: caseLabel);
+  final grammarNote = _grammarNote(caseLabel: canonicalCase);
   final englishMeaning = _englishSentenceMeaning(
-    caseLabel: caseLabel,
+    caseLabel: canonicalCase,
     answer: answer,
     sentence: sentence,
   );
   final triggerNote = _caseTriggerNote(
-    caseLabel: caseLabel,
+    caseLabel: canonicalCase,
     sentence: sentence,
   );
 
-  final possessiveNote = caseLabel.startsWith('Poss.')
+  final possessiveNote = canonicalCase.startsWith('Poss.')
       ? 'This is a possessive determiner (like my/your/his), not a standalone personal pronoun, '
             'so it must agree in gender, number, and case with the noun that follows.'
       : '';
 
-  final targetNote = _targetAgreementNote(caseLabel);
+  final targetNote = _targetAgreementNote(canonicalCase);
 
   return [
     'Example: $sentence',

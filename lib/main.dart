@@ -87,20 +87,20 @@ class _MyHomePageState extends State<MyHomePage>
     'Dative',
     'Genitive',
     'Reflexive',
-    'Poss. Masc.',
+    'Poss. Masc. Nom.',
     'Poss. Masc. Acc.',
     'Poss. Masc. Dat.',
     'Poss. Masc. Gen.',
-    'Poss. Fem.',
+    'Poss. Fem. Nom.',
     'Poss. Fem. Acc.',
     'Poss. Fem. Dat.',
     'Poss. Fem. Gen.',
-    'Poss. Neut.',
+    'Poss. Neut. Nom.',
     'Poss. Neut. Acc.',
     'Poss. Neut. Dat.',
     'Poss. Neut. Gen.',
     'Poss. Pl. Gen.',
-    'Poss. Pl.',
+    'Poss. Pl. Nom.',
   };
 
   List<MapEntry<String, List<String>>> get _tableColumns => [
@@ -109,23 +109,23 @@ class _MyHomePageState extends State<MyHomePage>
     MapEntry('Dative', listPronounsGermanDative),
     MapEntry('Genitive', listPronounsGermanGenitive),
     MapEntry('Reflexive', listPronounsGermanReflexive),
-    MapEntry('Poss. Masc.', listPronounsGermanPossessiveMasculine),
+    MapEntry('Poss. Masc. Nom.', listPronounsGermanPossessiveMasculine),
     MapEntry(
       'Poss. Masc. Acc.',
       listPronounsGermanPossessiveMasculineAccusative,
     ),
     MapEntry('Poss. Masc. Dat.', listPronounsGermanPossessiveMasculineDative),
     MapEntry('Poss. Masc. Gen.', listPronounsGermanPossessiveMasculineGenitive),
-    MapEntry('Poss. Fem.', listPronounsGermanPossessiveFeminine),
+    MapEntry('Poss. Fem. Nom.', listPronounsGermanPossessiveFeminine),
     MapEntry('Poss. Fem. Acc.', listPronounsGermanPossessiveFeminineAccusative),
     MapEntry('Poss. Fem. Dat.', listPronounsGermanPossessiveFeminineDative),
     MapEntry('Poss. Fem. Gen.', listPronounsGermanPossessiveFeminineGenitive),
-    MapEntry('Poss. Neut.', listPronounsGermanPossessiveNeuter),
+    MapEntry('Poss. Neut. Nom.', listPronounsGermanPossessiveNeuter),
     MapEntry('Poss. Neut. Acc.', listPronounsGermanPossessiveNeuterAccusative),
     MapEntry('Poss. Neut. Dat.', listPronounsGermanPossessiveNeuterDative),
     MapEntry('Poss. Neut. Gen.', listPronounsGermanPossessiveNeuterGenitive),
     MapEntry('Poss. Pl. Gen.', listPronounsGermanPossessivePluralGenitive),
-    MapEntry('Poss. Pl.', listPronounsGermanPossessivePlural),
+    MapEntry('Poss. Pl. Nom.', listPronounsGermanPossessivePlural),
   ];
 
   final List<QuizCaseDefinition> _quizCases = [
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage>
       group: 'Reflexive',
     ),
     QuizCaseDefinition(
-      label: 'Poss. Masc.',
+      label: 'Poss. Masc. Nom.',
       values: listPronounsGermanPossessiveMasculine,
       group: 'Possessive',
     ),
@@ -170,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage>
       group: 'Possessive',
     ),
     QuizCaseDefinition(
-      label: 'Poss. Fem.',
+      label: 'Poss. Fem. Nom.',
       values: listPronounsGermanPossessiveFeminine,
       group: 'Possessive',
     ),
@@ -190,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage>
       group: 'Possessive',
     ),
     QuizCaseDefinition(
-      label: 'Poss. Neut.',
+      label: 'Poss. Neut. Nom.',
       values: listPronounsGermanPossessiveNeuter,
       group: 'Possessive',
     ),
@@ -215,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage>
       group: 'Possessive',
     ),
     QuizCaseDefinition(
-      label: 'Poss. Pl.',
+      label: 'Poss. Pl. Nom.',
       values: listPronounsGermanPossessivePlural,
       group: 'Possessive',
     ),
@@ -353,7 +353,20 @@ class _MyHomePageState extends State<MyHomePage>
     if (casesJson != null && casesJson != '') {
       final decoded = jsonDecode(casesJson);
       if (decoded is List) {
-        loadedCases = decoded.map((v) => v.toString()).toSet();
+        loadedCases = decoded.map((v) => v.toString()).map((label) {
+          switch (label) {
+            case 'Poss. Masc.':
+              return 'Poss. Masc. Nom.';
+            case 'Poss. Fem.':
+              return 'Poss. Fem. Nom.';
+            case 'Poss. Neut.':
+              return 'Poss. Neut. Nom.';
+            case 'Poss. Pl.':
+              return 'Poss. Pl. Nom.';
+            default:
+              return label;
+          }
+        }).toSet();
       }
     }
 
