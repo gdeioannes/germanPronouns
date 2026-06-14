@@ -4,6 +4,7 @@ import '../models/quiz_config.dart';
 import '../widgets/app_drawer.dart';
 import 'noun_database.dart';
 import 'noun_progression_data.dart';
+import 'noun_sentences.dart';
 
 const Map<String, String> _baseArticles = {'m': 'der', 'f': 'die', 'n': 'das'};
 
@@ -33,6 +34,9 @@ String pickNounArticleSentence({
   required String answer,
   required Random random,
 }) {
+  final custom = nounSentences[nominative];
+  if (custom != null) return custom;
+
   final template = _sentenceTemplates[random.nextInt(_sentenceTemplates.length)];
   return template.replaceAll('{noun}', nominative);
 }

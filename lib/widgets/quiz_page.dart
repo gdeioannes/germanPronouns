@@ -10,6 +10,7 @@ import 'package:printing/printing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/noun_lookup.dart';
+import '../data/noun_plurals.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../pages/word_library_page.dart';
@@ -1344,15 +1345,50 @@ class _QuizPageState extends State<QuizPage>
     return spans;
   }
 
+  /// Pill-shaped title used by the info dialogs (noun info, sentence info)
+  /// for a consistent look across both.
+  Widget _infoDialogTitle(BuildContext context, String text) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+        decoration: BoxDecoration(
+          color: colorScheme.primary,
+          borderRadius: BorderRadius.circular(kRadiusSmall),
+        ),
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.titleMedium
+              ?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),
+        ),
+      ),
+    );
+  }
+
   void _showNounInfoDialog(NounInfo info) {
+    final pluralEnding = pluralEndingNotation(info.noun.noun);
+    final headline = pluralEnding != null
+        ? '${info.article} ${info.noun.noun} $pluralEnding'
+        : '${info.article} ${info.noun.noun}';
     showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(
-          '${info.article} ${info.noun.noun}',
-          style: TextStyle(color: NounSettings.instance.colorForGender(info.noun.gender)),
+        title: _infoDialogTitle(dialogContext, 'Noun'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              headline,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: NounSettings.instance.colorForGender(info.noun.gender),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text('Translation: ${info.noun.english}'),
+          ],
         ),
-        content: Text(info.noun.english),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
@@ -1367,29 +1403,11 @@ class _QuizPageState extends State<QuizPage>
   /// explanation. Opened via the info button next to the answer field, or
   /// the Ctrl+I keyboard shortcut.
   void _showSentenceInfoDialog(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     showDialog<void>(
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 14,
-                vertical: 6,
-              ),
-              decoration: BoxDecoration(
-                color: colorScheme.primary,
-                borderRadius: BorderRadius.circular(kRadiusSmall),
-              ),
-              child: Text(
-                'Sentence Info',
-                style: Theme.of(dialogContext).textTheme.titleMedium
-                    ?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),
-              ),
-            ),
-          ),
+          title: _infoDialogTitle(dialogContext, 'Sentence Info'),
           content: SingleChildScrollView(
             child: SelectableText.rich(
               TextSpan(
