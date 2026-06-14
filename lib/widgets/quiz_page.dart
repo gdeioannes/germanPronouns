@@ -1036,13 +1036,11 @@ class _QuizPageState extends State<QuizPage>
         _lastAnswerCorrect = true;
         if (lapCompleted && multiplier > 1) {
           _feedback =
-              '$nominative → $caseLabel = $correctAnswer (+$pointsEarned pts, ×$multiplier — lap $streakLapAtSubmit done!)';
+              '$nominative → $caseLabel = $correctAnswer (×$multiplier — lap $streakLapAtSubmit done!)';
         } else if (multiplier > 1) {
-          _feedback =
-              '$nominative → $caseLabel = $correctAnswer (+$pointsEarned pts, ×$multiplier)';
+          _feedback = '$nominative → $caseLabel = $correctAnswer (×$multiplier)';
         } else {
-          _feedback =
-              '$nominative → $caseLabel = $correctAnswer (+$pointsEarned pt)';
+          _feedback = '$nominative → $caseLabel = $correctAnswer';
         }
       } else {
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
@@ -1435,6 +1433,7 @@ class _QuizPageState extends State<QuizPage>
     final scaledQuizTextTheme = quizTextTheme.apply(
       fontSizeFactor: quizFontScale,
     );
+    final isCompact = MediaQuery.sizeOf(context).width < 600;
     final currentCase = widget.config.categories[_currentCategoryIndex].label;
     final currentPronoun =
         widget.config.subjectDisplays[_currentSubjectIndex];
@@ -1469,7 +1468,10 @@ class _QuizPageState extends State<QuizPage>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.config.title),
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(widget.config.title),
+        ),
         actions: [
           IconButton(
             tooltip: 'Reset score and history',
@@ -1528,15 +1530,22 @@ class _QuizPageState extends State<QuizPage>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        padding: const EdgeInsets.fromLTRB(
-                                          10,
-                                          8,
-                                          12,
-                                          8,
-                                        ),
+                                        padding: isCompact
+                                            ? const EdgeInsets.fromLTRB(
+                                                8,
+                                                6,
+                                                10,
+                                                6,
+                                              )
+                                            : const EdgeInsets.fromLTRB(
+                                                10,
+                                                8,
+                                                12,
+                                                8,
+                                              ),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(
-                                            14,
+                                            isCompact ? 12 : 14,
                                           ),
                                           color: _streakLap > 0
                                               ? _rainbowColors[_streakLap %
@@ -1568,8 +1577,8 @@ class _QuizPageState extends State<QuizPage>
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Container(
-                                              width: 26,
-                                              height: 26,
+                                              width: isCompact ? 22 : 26,
+                                              height: isCompact ? 22 : 26,
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.circle,
                                                 color: _streakLap > 0
@@ -1582,11 +1591,11 @@ class _QuizPageState extends State<QuizPage>
                                                 _streakLap > 0
                                                     ? Icons.bolt
                                                     : Icons.star_rounded,
-                                                size: 15,
+                                                size: isCompact ? 13 : 15,
                                                 color: Colors.white,
                                               ),
                                             ),
-                                            const SizedBox(width: 8),
+                                            SizedBox(width: isCompact ? 6 : 8),
                                             Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -1594,28 +1603,37 @@ class _QuizPageState extends State<QuizPage>
                                               children: [
                                                 Text(
                                                   '$_score',
-                                                  style: scaledQuizTextTheme
-                                                      .titleMedium
-                                                      ?.copyWith(
-                                                        fontWeight:
-                                                            FontWeight.w900,
-                                                        color: colorScheme
-                                                            .onSurface,
-                                                      ),
+                                                  style:
+                                                      (isCompact
+                                                              ? quizTextTheme
+                                                                    .titleSmall
+                                                              : scaledQuizTextTheme
+                                                                    .titleMedium)
+                                                          ?.copyWith(
+                                                            fontWeight:
+                                                                FontWeight.w900,
+                                                            color: colorScheme
+                                                                .onSurface,
+                                                          ),
                                                 ),
                                                 if (_streakLap > 0)
                                                   Text(
                                                     '×${_streakLap + 1}',
-                                                    style: scaledQuizTextTheme
-                                                        .labelSmall
-                                                        ?.copyWith(
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                          color:
-                                                              _rainbowColors[_streakLap %
-                                                                  _rainbowColors
-                                                                      .length],
-                                                        ),
+                                                    style:
+                                                        (isCompact
+                                                                ? quizTextTheme
+                                                                      .labelSmall
+                                                                : scaledQuizTextTheme
+                                                                      .labelSmall)
+                                                            ?.copyWith(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w800,
+                                                              color:
+                                                                  _rainbowColors[_streakLap %
+                                                                      _rainbowColors
+                                                                          .length],
+                                                            ),
                                                   ),
                                               ],
                                             ),
@@ -1642,15 +1660,19 @@ class _QuizPageState extends State<QuizPage>
                                             children: [
                                               Icon(
                                                 Icons.emoji_events_rounded,
-                                                size: 12,
+                                                size: isCompact ? 12 : 14,
                                                 color: Colors.amber.shade700,
                                               ),
                                               const SizedBox(width: 4),
                                               Text(
                                                 'Best ×${_bestStreakLap + 1}',
-                                                style: scaledQuizTextTheme
-                                                    .labelSmall
-                                                    ?.copyWith(
+                                                style:
+                                                    (isCompact
+                                                            ? quizTextTheme
+                                                                  .labelSmall
+                                                            : scaledQuizTextTheme
+                                                                  .labelSmall)
+                                                        ?.copyWith(
                                                       fontWeight:
                                                           FontWeight.w700,
                                                       color: colorScheme

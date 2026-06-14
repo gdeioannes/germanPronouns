@@ -203,4 +203,11 @@ class QuizConfig {
   /// When non-null, these declension-ending reference tables are shown (and
   /// exported to PDF) below the [helpMemoryTables].
   final List<EndingPatternTable>? endingPatternTables;
+
+  /// When non-null, identifies this quiz within the noun-category
+  /// progression (a key from `nounCategoryDisplayNames`, or
+  /// `kAllNounsProgressionKey`). Reaching a 10-answer streak marks this key
+  /// as "completed" via `NounSettings.markNounCategoryCompleted`, which may
+  /// unlock the next progression entry.
+  final String? progressionKey;
 }
