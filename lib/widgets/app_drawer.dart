@@ -281,8 +281,9 @@ class _AppDrawerState extends State<AppDrawer> {
       subtitle: Padding(
         padding: const EdgeInsets.only(top: 2),
         child: Text(
-          "Reach a 10-streak in '${previousEntry.displayName}' to unlock"
-          ' (current: $streak/10)',
+          "Reach a $kProgressionUnlockStreak-streak in "
+          "'${previousEntry.displayName}' to unlock "
+          '(current: $streak/$kProgressionUnlockStreak)',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),
@@ -292,20 +293,18 @@ class _AppDrawerState extends State<AppDrawer> {
   }
 
   /// The progression entry to show when the "Noun Categories" section is
-  /// collapsed: the currently-open sub-quiz if there is one, else the last
-  /// one the user opened, falling back to the first (easiest) category.
+  /// collapsed: the currently-open sub-quiz if there is one, else the most
+  /// recently unlocked category.
   NounProgressionEntry _currentNounProgressionEntry(Set<String> completed) {
     final unlockedCount = firstLockedNounProgressionIndex(completed);
-    final key =
-        widget.currentNounProgressionKey ??
-        NounSettings.instance.lastNounProgressionKey;
+    final key = widget.currentNounProgressionKey;
     if (key != null) {
       final index = nounProgressionEntries.indexWhere((e) => e.key == key);
       if (index >= 0 && index < unlockedCount) {
         return nounProgressionEntries[index];
       }
     }
-    return nounProgressionEntries[0];
+    return nounProgressionEntries[unlockedCount - 1];
   }
 
   Widget _nounCategoriesToggleTile(BuildContext context) {

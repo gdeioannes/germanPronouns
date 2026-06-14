@@ -61,8 +61,9 @@ class NounSettings {
   String? get lastPage => _lastPage;
 
   /// Progression keys (noun-category keys, or `kAllNounsProgressionKey`)
-  /// whose quiz has reached a 10-answer streak at least once, permanently
-  /// unlocking the next entry in the noun-category progression.
+  /// whose quiz has reached a `kProgressionUnlockStreak`-answer streak at
+  /// least once, permanently unlocking the next entry in the noun-category
+  /// progression.
   Set<String> get completedNounCategories => _completedNounCategories;
 
   bool isNounCategoryCompleted(String key) =>
@@ -130,8 +131,9 @@ class NounSettings {
   }
 
   /// Marks [key] (a noun-category key, or `kAllNounsProgressionKey`) as
-  /// having reached a 10-answer streak, permanently unlocking the next entry
-  /// in the noun-category progression. No-op if already marked.
+  /// having reached a `kProgressionUnlockStreak`-answer streak, permanently
+  /// unlocking the next entry in the noun-category progression. No-op if
+  /// already marked.
   Future<void> markNounCategoryCompleted(String key) async {
     if (_completedNounCategories.contains(key)) return;
     _completedNounCategories = {..._completedNounCategories, key};

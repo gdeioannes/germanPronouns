@@ -12,6 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/noun_lookup.dart';
 import '../data/noun_plurals.dart';
+import '../data/noun_progression_data.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../pages/word_library_page.dart';
@@ -71,6 +72,12 @@ class _QuizPageState extends State<QuizPage>
   String _feedback = '';
   String _feedbackHint = '';
   bool? _lastAnswerCorrect;
+
+  /// Details of the most recently submitted answer (exercise, user's
+  /// answer, correct answer, and whether it was correct), shown via the
+  /// "Last answer" info button. Persists across questions until the next
+  /// answer is submitted.
+  Map<String, Object>? _lastAnswerInfo;
 
   /// True while the correct answer is being revealed in the answer field
   /// after an incorrect submission (animated or instant, per
@@ -924,6 +931,7 @@ class _QuizPageState extends State<QuizPage>
       _feedback = '';
       _feedbackHint = '';
       _lastAnswerCorrect = null;
+      _lastAnswerInfo = null;
     });
     await _saveStoredStats();
   }
@@ -1093,6 +1101,15 @@ class _QuizPageState extends State<QuizPage>
     var streakLapAtSubmit = 0;
 
     setState(() {
+      _lastAnswerInfo = {
+        'nominative': nominative,
+        'caseLabel': caseLabel,
+        'userAnswer': userAnswerRaw,
+        'correctAnswer': correctAnswer,
+        'isCorrect': isCorrect,
+        'explanation': _currentReferenceExplanation,
+      };
+
       if (isCorrect) {
         _streakAbsolute++;
         final multiplier = _streakLap + 1;
@@ -1104,22 +1121,14 @@ class _QuizPageState extends State<QuizPage>
         shouldCelebrate = true;
         _feedbackHint = successHint;
         _lastAnswerCorrect = true;
-        if (lapCompleted && multiplier > 1) {
-          _feedback =
-              '$nominative → $caseLabel = $correctAnswer (×$multiplier — lap $streakLapAtSubmit done!)';
-        } else if (multiplier > 1) {
-          _feedback = '$nominative → $caseLabel = $correctAnswer (×$multiplier)';
-        } else {
-          _feedback = '$nominative → $caseLabel = $correctAnswer';
-        }
+        _feedback = correctAnswer;
       } else {
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
         _streakAbsolute = 0;
         _score -= 1;
         _feedbackHint = reminderHint;
         _lastAnswerCorrect = false;
-        _feedback =
-            '$nominative → $caseLabel = $correctAnswer (you wrote "$userAnswerRaw")';
+        _feedback = correctAnswer;
         _mistakesByCase[caseLabel] = (_mistakesByCase[caseLabel] ?? 0) + 1;
       }
 
@@ -1152,7 +1161,8 @@ class _QuizPageState extends State<QuizPage>
       );
     }
 
-    if (widget.config.progressionKey != null && _streakAbsolute >= 10) {
+    if (widget.config.progressionKey != null &&
+        _streakAbsolute >= kProgressionUnlockStreak) {
       NounSettings.instance.markNounCategoryCompleted(
         widget.config.progressionKey!,
       );
@@ -1189,9 +1199,6 @@ class _QuizPageState extends State<QuizPage>
 
     setState(() {
       _showingAnswerReveal = false;
-      _feedback = '';
-      _feedbackHint = '';
-      _lastAnswerCorrect = null;
       _answerController.clear();
       _nextQuestion();
     });
@@ -1200,9 +1207,6 @@ class _QuizPageState extends State<QuizPage>
 
   void _newQuestion() {
     setState(() {
-      _feedback = '';
-      _feedbackHint = '';
-      _lastAnswerCorrect = null;
       _answerController.clear();
       _nextQuestion();
     });
@@ -1407,6 +1411,72 @@ class _QuizPageState extends State<QuizPage>
             const SizedBox(height: 4),
             Text('Translation: ${info.noun.english}'),
           ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('Close'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Shows the "Last Answer" dialog with full details about the most
+  /// recently submitted answer: the exercise, the user's answer, whether it
+  /// was correct, and the correct answer. No-op if nothing has been answered
+  /// yet.
+  void _showLastAnswerInfoDialog(BuildContext context) {
+    final info = _lastAnswerInfo;
+    if (info == null) return;
+    final isCorrect = info['isCorrect'] == true;
+    final userAnswer = info['userAnswer'] as String;
+
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: _infoDialogTitle(dialogContext, 'Last Answer'),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('${info['nominative']} → ${info['caseLabel']}'),
+              const SizedBox(height: 8),
+              Text(
+                'Your answer: ${userAnswer.isEmpty ? '(none)' : userAnswer}',
+              ),
+              const SizedBox(height: 4),
+              Text('Correct answer: ${info['correctAnswer']}'),
+              const SizedBox(height: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 6,
+                ),
+                decoration: BoxDecoration(
+                  color: isCorrect
+                      ? kSectionAccentColors[2]
+                      : Theme.of(dialogContext).colorScheme.error,
+                  borderRadius: BorderRadius.circular(kRadiusSmall),
+                ),
+                child: Text(
+                  isCorrect ? 'Correct' : 'Incorrect',
+                  style: Theme.of(dialogContext).textTheme.titleMedium
+                      ?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),
+                ),
+              ),
+              const SizedBox(height: 12),
+              SelectableText.rich(
+                TextSpan(
+                  children: _buildExplanationSpans(
+                    dialogContext,
+                    info['explanation'] as String,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
         actions: [
           TextButton(
@@ -2217,53 +2287,64 @@ class _QuizPageState extends State<QuizPage>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 14,
-                                          vertical: 6,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: _lastAnswerCorrect == true
-                                              ? kSectionAccentColors[2]
-                                              : colorScheme.error,
-                                          borderRadius: BorderRadius.circular(
-                                            kRadiusSmall,
+                                      Row(
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 14,
+                                              vertical: 6,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _lastAnswerCorrect == true
+                                                  ? kSectionAccentColors[2]
+                                                  : colorScheme.error,
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    kRadiusSmall,
+                                                  ),
+                                            ),
+                                            child: Text(
+                                              _lastAnswerCorrect == true
+                                                  ? 'Correct'
+                                                  : 'Incorrect',
+                                              style: scaledQuizTextTheme
+                                                  .titleMedium
+                                                  ?.copyWith(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+                                            ),
                                           ),
-                                        ),
-                                        child: Text(
-                                          _lastAnswerCorrect == true
-                                              ? 'Correct'
-                                              : 'Incorrect',
-                                          style: scaledQuizTextTheme
-                                              .titleMedium
-                                              ?.copyWith(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w700,
-                                              ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 10),
-                                      Text.rich(
-                                        TextSpan(
-                                          children: _highlightNounSpans(
-                                            _feedback,
-                                            Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium
-                                                ?.copyWith(
-                                                  fontSize:
-                                                      (Theme.of(context)
-                                                                  .textTheme
-                                                                  .bodyMedium
-                                                                  ?.fontSize ??
-                                                              14) *
-                                                          1.4,
-                                                  color:
-                                                      colorScheme.onSurface,
-                                                  fontWeight: FontWeight.w700,
+                                          const SizedBox(width: 10),
+                                          Expanded(
+                                            child: Text.rich(
+                                              TextSpan(
+                                                children: _highlightNounSpans(
+                                                  _feedback,
+                                                  Theme.of(context)
+                                                      .textTheme
+                                                      .bodyMedium
+                                                      ?.copyWith(
+                                                        color: colorScheme
+                                                            .onSurface,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
                                                 ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
+                                          IconButton(
+                                            tooltip: 'Last answer details',
+                                            onPressed: () =>
+                                                _showLastAnswerInfoDialog(
+                                                  context,
+                                                ),
+                                            icon: const Icon(
+                                              Icons.info_outline_rounded,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                       if (_feedbackHint != '') ...[
                                         const SizedBox(height: 8),
@@ -3254,6 +3335,18 @@ class _QuizPageState extends State<QuizPage>
                             });
                           },
                         ),
+                        if (widget.config.progressionKey != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            '* A $kProgressionUnlockStreak-streak unlocks the '
+                            'next category either way — turning this off is '
+                            'the fairer challenge, since the article color '
+                            'can otherwise give away the answer.',
+                            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                              color: colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
                         const SizedBox(height: 10),
                         Text(
                           'Active Cases',
