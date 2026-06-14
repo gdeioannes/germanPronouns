@@ -80,6 +80,13 @@ class _QuizPageState extends State<QuizPage>
   late Set<int> _enabledSubjectIndices;
   late Set<String> _enabledCategoryLabels;
 
+  // Shuffle bags for `_nextQuestion`'s subject/group/category picks: each
+  // bag is drained in random order before reshuffling, so every option is
+  // seen once per cycle instead of repeating early.
+  final List<int> _subjectBag = [];
+  final List<String> _groupBag = [];
+  final List<QuizCategoryDefinition> _categoryBag = [];
+
   @override
   void initState() {
     super.initState();
@@ -259,6 +266,41 @@ class _QuizPageState extends State<QuizPage>
     );
   }
 
+  /// Picks the next item from [pool] using a shuffle bag stored in [bag]:
+  /// items are drawn in random order without repeats until every item in
+  /// [pool] has been drawn once, then the bag is reshuffled. A small chance
+  /// of a pure uniform pick (ignoring the bag) keeps selection from feeling
+  /// too mechanical — this is what lets the same item occasionally come up
+  /// twice in a row, just much less often than with plain `Random.nextInt`.
+  ///
+  /// [bag] should be a dedicated, persistent list per pool (e.g. one for
+  /// subjects, one for categories) so it can be drained across calls.
+  T _drawFromShuffleBag<T>(
+    List<T> bag,
+    List<T> pool, {
+    T? avoidRepeat,
+    double randomChance = 0.12,
+  }) {
+    if (pool.length == 1) return pool.first;
+
+    if (_random.nextDouble() < randomChance) {
+      return pool[_random.nextInt(pool.length)];
+    }
+
+    bag.removeWhere((item) => !pool.contains(item));
+    if (bag.isEmpty) {
+      bag.addAll(pool);
+      bag.shuffle(_random);
+      if (avoidRepeat != null && bag.length > 1 && bag.first == avoidRepeat) {
+        final swapIndex = 1 + _random.nextInt(bag.length - 1);
+        final first = bag[0];
+        bag[0] = bag[swapIndex];
+        bag[swapIndex] = first;
+      }
+    }
+    return bag.removeAt(0);
+  }
+
   void _nextQuestion() {
     final enabledSubjects = widget.config.subjectCategories == null
         ? _enabledSubjectIndices.toList()
@@ -269,15 +311,20 @@ class _QuizPageState extends State<QuizPage>
                 ),
               )
               .toList();
-    if (enabledSubjects.isEmpty == false) {
-      _currentSubjectIndex =
-          enabledSubjects[_random.nextInt(enabledSubjects.length)];
+    if (enabledSubjects.isNotEmpty) {
+      _currentSubjectIndex = _drawFromShuffleBag(
+        _subjectBag,
+        enabledSubjects,
+        avoidRepeat: _currentSubjectIndex,
+      );
     }
 
     final enabledCategories = widget.config.categories
         .where((c) => _enabledCategoryLabels.contains(c.label))
         .toList();
     if (enabledCategories.isEmpty) return;
+
+    final previousCategory = widget.config.categories[_currentCategoryIndex];
 
     // Group weighting restricted to groups that have at least one enabled category.
     final availableGroups = enabledCategories.map((c) => c.group).toSet();
@@ -286,22 +333,30 @@ class _QuizPageState extends State<QuizPage>
         (e) => availableGroups.contains(e.key),
       ),
     );
-    final total = weights.values.fold<double>(0, (a, b) => a + b);
-    var threshold = _random.nextDouble() * total;
-    var selectedGroup = weights.keys.first;
-    for (final entry in weights.entries) {
-      threshold -= entry.value;
-      if (threshold <= 0) {
-        selectedGroup = entry.key;
-        break;
-      }
-    }
+
+    // Expand each group into copies proportional to its weight, so the
+    // shuffle bag still respects the configured group weighting.
+    final groupPool = <String>[
+      for (final entry in weights.entries)
+        for (var i = 0; i < max(1, (entry.value * 12).round()); i++)
+          entry.key,
+    ];
+    final selectedGroup = groupPool.isEmpty
+        ? enabledCategories.first.group
+        : _drawFromShuffleBag(
+            _groupBag,
+            groupPool,
+            avoidRepeat: previousCategory.group,
+          );
 
     final categoriesInGroup = enabledCategories
         .where((c) => c.group == selectedGroup)
         .toList();
-    final selectedCategory =
-        categoriesInGroup[_random.nextInt(categoriesInGroup.length)];
+    final selectedCategory = _drawFromShuffleBag(
+      _categoryBag,
+      categoriesInGroup,
+      avoidRepeat: previousCategory,
+    );
     _currentCategoryIndex = widget.config.categories.indexOf(
       selectedCategory,
     );
@@ -330,6 +385,7 @@ class _QuizPageState extends State<QuizPage>
       } else {
         _enabledSubjectIndices = Set.of(_enabledSubjectIndices)..add(index);
       }
+      _subjectBag.clear();
       _feedback = '';
       _feedbackHint = '';
       _lastAnswerCorrect = null;
@@ -348,6 +404,8 @@ class _QuizPageState extends State<QuizPage>
       } else {
         _enabledCategoryLabels = Set.of(_enabledCategoryLabels)..add(label);
       }
+      _groupBag.clear();
+      _categoryBag.clear();
       _feedback = '';
       _feedbackHint = '';
       _lastAnswerCorrect = null;
@@ -376,6 +434,7 @@ class _QuizPageState extends State<QuizPage>
         _enabledSubjectIndices = Set.of(_enabledSubjectIndices)
           ..addAll(indexSet);
       }
+      _subjectBag.clear();
       _feedback = '';
       _feedbackHint = '';
       _lastAnswerCorrect = null;
