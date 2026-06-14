@@ -120,6 +120,7 @@ class QuizConfig {
     this.collapseReferenceTablesByGender = false,
     this.helpMemoryTables,
     this.endingPatternTables,
+    this.progressionKey,
   });
 
   /// AppBar title for this quiz's page.

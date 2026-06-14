@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -1077,6 +1078,12 @@ class _QuizPageState extends State<QuizPage>
       );
     }
 
+    if (widget.config.progressionKey != null && _streakAbsolute >= 10) {
+      NounSettings.instance.markNounCategoryCompleted(
+        widget.config.progressionKey!,
+      );
+    }
+
     _saveStoredStats();
     _requestAnswerFocus();
   }
@@ -1243,6 +1250,54 @@ class _QuizPageState extends State<QuizPage>
           ),
         ],
       ),
+    );
+  }
+
+  /// Shows the "Sentence Info" dialog with the current question's grammar
+  /// explanation. Opened via the info button next to the answer field, or
+  /// the Ctrl+I keyboard shortcut.
+  void _showSentenceInfoDialog(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 14,
+                vertical: 6,
+              ),
+              decoration: BoxDecoration(
+                color: colorScheme.primary,
+                borderRadius: BorderRadius.circular(kRadiusSmall),
+              ),
+              child: Text(
+                'Sentence Info',
+                style: Theme.of(dialogContext).textTheme.titleMedium
+                    ?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),
+              ),
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: SelectableText.rich(
+              TextSpan(
+                children: _buildExplanationSpans(
+                  dialogContext,
+                  _currentReferenceExplanation,
+                ),
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -1480,7 +1535,10 @@ class _QuizPageState extends State<QuizPage>
           ),
         ],
       ),
-      drawer: AppDrawer(currentPage: widget.config.currentPage),
+      drawer: AppDrawer(
+        currentPage: widget.config.currentPage,
+        currentNounProgressionKey: widget.config.progressionKey,
+      ),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
@@ -1844,36 +1902,50 @@ class _QuizPageState extends State<QuizPage>
                                                       ),
                                                   child: SizedBox(
                                                     width: inputWidth,
-                                                    child: TextField(
-                                                      controller:
-                                                          _answerController,
-                                                      focusNode:
-                                                          _answerFocusNode,
-                                                      autofocus: true,
-                                                      textInputAction:
-                                                          TextInputAction.done,
-                                                      style: sentenceStyle,
-                                                      minLines: 1,
-                                                      maxLines: 1,
-                                                      decoration: InputDecoration(
-                                                        isDense: true,
-                                                        contentPadding:
-                                                            const EdgeInsets.symmetric(
-                                                              horizontal: 10,
-                                                              vertical: 10,
-                                                            ),
-                                                        border: OutlineInputBorder(
-                                                          borderRadius:
-                                                              BorderRadius.circular(
-                                                                12,
+                                                    child: CallbackShortcuts(
+                                                      bindings: {
+                                                        const SingleActivator(
+                                                              LogicalKeyboardKey
+                                                                  .keyI,
+                                                              control: true,
+                                                            ):
+                                                            () =>
+                                                                _showSentenceInfoDialog(
+                                                                  context,
+                                                                ),
+                                                      },
+                                                      child: TextField(
+                                                        controller:
+                                                            _answerController,
+                                                        focusNode:
+                                                            _answerFocusNode,
+                                                        autofocus: true,
+                                                        textInputAction:
+                                                            TextInputAction
+                                                                .done,
+                                                        style: sentenceStyle,
+                                                        minLines: 1,
+                                                        maxLines: 1,
+                                                        decoration: InputDecoration(
+                                                          isDense: true,
+                                                          contentPadding:
+                                                              const EdgeInsets.symmetric(
+                                                                horizontal: 10,
+                                                                vertical: 10,
                                                               ),
+                                                          border: OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius.circular(
+                                                                  12,
+                                                                ),
+                                                          ),
+                                                          filled: true,
+                                                          fillColor:
+                                                              Colors.white,
                                                         ),
-                                                        filled: true,
-                                                        fillColor:
-                                                            Colors.white,
+                                                        onSubmitted: (_) =>
+                                                            _submitAnswer(),
                                                       ),
-                                                      onSubmitted: (_) =>
-                                                          _submitAnswer(),
                                                     ),
                                                   ),
                                                 ),
@@ -1898,67 +1970,12 @@ class _QuizPageState extends State<QuizPage>
                                                       ),
                                                   visualDensity:
                                                       VisualDensity.compact,
-                                                  tooltip: 'Grammar info',
-                                                  onPressed: () {
-                                                    showDialog<void>(
-                                                      context: context,
-                                                      builder: (dialogContext) {
-                                                        return AlertDialog(
-                                                          title: Align(
-                                                            alignment: Alignment
-                                                                .centerLeft,
-                                                            child: Container(
-                                                              padding: const EdgeInsets.symmetric(
-                                                                horizontal: 14,
-                                                                vertical: 6,
-                                                              ),
-                                                              decoration: BoxDecoration(
-                                                                color: colorScheme
-                                                                    .primary,
-                                                                borderRadius:
-                                                                    BorderRadius.circular(
-                                                                      kRadiusSmall,
-                                                                    ),
-                                                              ),
-                                                              child: Text(
-                                                                'Sentence Info',
-                                                                style: Theme.of(dialogContext)
-                                                                    .textTheme
-                                                                    .titleMedium
-                                                                    ?.copyWith(
-                                                                      color:
-                                                                          Colors.white,
-                                                                      fontWeight:
-                                                                          FontWeight.w700,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          content: SingleChildScrollView(
-                                                            child: SelectableText.rich(
-                                                              TextSpan(
-                                                                children: _buildExplanationSpans(
-                                                                  dialogContext,
-                                                                  _currentReferenceExplanation,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.of(
-                                                                    dialogContext,
-                                                                  ).pop(),
-                                                              child: const Text(
-                                                                'Close',
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        );
-                                                      },
-                                                    );
-                                                  },
+                                                  tooltip:
+                                                      'Grammar info (Ctrl+I)',
+                                                  onPressed: () =>
+                                                      _showSentenceInfoDialog(
+                                                        context,
+                                                      ),
                                                   icon: const Icon(
                                                     Icons.info_outline_rounded,
                                                   ),

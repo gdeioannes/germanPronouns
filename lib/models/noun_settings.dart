@@ -13,6 +13,10 @@ class NounSettings {
   static const String _showEnglishKeyPrefix = 'show_english_';
   static const String _colorNounsKeyPrefix = 'color_nouns_';
   static const String _lastPageKey = 'last_page';
+  static const String _completedNounCategoriesKey =
+      'noun_progress_completed_categories';
+  static const String _lastNounProgressionKeyPref =
+      'last_noun_progression_key';
 
   /// Page key used by the Word Library page, which isn't tied to a
   /// [QuizConfig.storageKeyPrefix].
@@ -31,6 +35,8 @@ class NounSettings {
   Map<String, bool> _colorNounsByPage = {};
   Map<String, Color> _genderColors = Map.of(defaultGenderColors);
   String? _lastPage;
+  Set<String> _completedNounCategories = {};
+  String? _lastNounProgressionKey;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -38,6 +44,19 @@ class NounSettings {
   /// Name of the [AppPage] the user last navigated to, or null if none was
   /// recorded yet. Used to reopen the app on the same page it was closed on.
   String? get lastPage => _lastPage;
+
+  /// Progression keys (noun-category keys, or `kAllNounsProgressionKey`)
+  /// whose quiz has reached a 10-answer streak at least once, permanently
+  /// unlocking the next entry in the noun-category progression.
+  Set<String> get completedNounCategories => _completedNounCategories;
+
+  bool isNounCategoryCompleted(String key) =>
+      _completedNounCategories.contains(key);
+
+  /// The progression key (noun-category key, or `kAllNounsProgressionKey`)
+  /// of the noun-progression entry the user last opened, or null if none was
+  /// recorded yet.
+  String? get lastNounProgressionKey => _lastNounProgressionKey;
 
   /// Whether English translations should be shown alongside nouns in
   /// reference/analytics tables, keyed by page (a [QuizConfig.storageKeyPrefix]
@@ -75,6 +94,9 @@ class NounSettings {
         ),
     };
     _lastPage = prefs.getString(_lastPageKey);
+    _completedNounCategories =
+        (prefs.getStringList(_completedNounCategoriesKey) ?? const []).toSet();
+    _lastNounProgressionKey = prefs.getString(_lastNounProgressionKeyPref);
     _loaded = true;
   }
 
@@ -82,6 +104,25 @@ class NounSettings {
     _lastPage = page;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_lastPageKey, page);
+  }
+
+  /// Marks [key] (a noun-category key, or `kAllNounsProgressionKey`) as
+  /// having reached a 10-answer streak, permanently unlocking the next entry
+  /// in the noun-category progression. No-op if already marked.
+  Future<void> markNounCategoryCompleted(String key) async {
+    if (_completedNounCategories.contains(key)) return;
+    _completedNounCategories = {..._completedNounCategories, key};
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(
+      _completedNounCategoriesKey,
+      _completedNounCategories.toList(),
+    );
+  }
+
+  Future<void> setLastNounProgressionKey(String key) async {
+    _lastNounProgressionKey = key;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_lastNounProgressionKeyPref, key);
   }
 
   Future<void> _save() async {

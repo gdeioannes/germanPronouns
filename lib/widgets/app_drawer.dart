@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../data/noun_progression_data.dart';
 import '../models/noun_settings.dart';
 import '../pages/article_quiz_page.dart';
 import '../pages/noun_article_quiz_page.dart';
@@ -8,6 +9,7 @@ import '../pages/pronoun_quiz_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
+import 'quiz_page.dart';
 
 /// Identifies which top-level quiz page is currently shown, so the drawer
 /// can highlight it.
@@ -37,20 +39,30 @@ AppPage? appPageFromName(String? name) {
 const Map<AppPage, String> _quizStorageKeyPrefixes = {
   AppPage.pronouns: '',
   AppPage.articles: 'article_',
-  AppPage.nounsArticles: 'noun_article_',
 };
 
 /// Side navigation drawer shared by all quiz pages.
 class AppDrawer extends StatefulWidget {
-  const AppDrawer({super.key, required this.currentPage});
+  const AppDrawer({
+    super.key,
+    required this.currentPage,
+    this.currentNounProgressionKey,
+  });
 
   final AppPage currentPage;
+
+  /// When [currentPage] is [AppPage.nounsArticles], the progression key
+  /// (from [nounProgressionEntries]) of the currently open noun-category
+  /// sub-quiz, used to highlight it in the "Noun Categories" section.
+  final String? currentNounProgressionKey;
 
   @override
   State<AppDrawer> createState() => _AppDrawerState();
 }
 
 class _AppDrawerState extends State<AppDrawer> {
+  bool _nounCategoriesExpanded = false;
+
   void _navigateTo(BuildContext context, AppPage page) {
     Navigator.pop(context);
     NounSettings.instance.setLastPage(page.name);
@@ -82,12 +94,13 @@ class _AppDrawerState extends State<AppDrawer> {
     required IconData icon,
     required Color badgeColor,
     required String title,
-    required AppPage page,
+    required bool selected,
+    required VoidCallback? onTap,
     Widget? subtitle,
+    Color? titleColor,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final selected = widget.currentPage == page;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
@@ -98,7 +111,7 @@ class _AppDrawerState extends State<AppDrawer> {
         borderRadius: BorderRadius.circular(kRadiusLarge),
         child: InkWell(
           borderRadius: BorderRadius.circular(kRadiusLarge),
-          onTap: () => _navigateTo(context, page),
+          onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             child: Row(
@@ -125,7 +138,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           fontWeight: selected
                               ? FontWeight.w700
                               : FontWeight.w500,
-                          color: colorScheme.onSurface,
+                          color: titleColor ?? colorScheme.onSurface,
                         ),
                       ),
                       ?subtitle,
@@ -140,6 +153,41 @@ class _AppDrawerState extends State<AppDrawer> {
     );
   }
 
+  Widget _statsSubtitle(
+    BuildContext context, {
+    required int score,
+    required int streak,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final statStyle = Theme.of(context).textTheme.labelSmall?.copyWith(
+      color: colorScheme.onSurfaceVariant,
+    );
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 2),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            Icons.star_rounded,
+            size: 13,
+            color: colorScheme.onSurfaceVariant,
+          ),
+          const SizedBox(width: 3),
+          Text('$score', style: statStyle),
+          const SizedBox(width: 12),
+          Icon(
+            Icons.bolt_rounded,
+            size: 13,
+            color: colorScheme.onSurfaceVariant,
+          ),
+          const SizedBox(width: 3),
+          Text('$streak', style: statStyle),
+        ],
+      ),
+    );
+  }
+
   Widget _quizTile(
     BuildContext context, {
     required IconData icon,
@@ -148,46 +196,198 @@ class _AppDrawerState extends State<AppDrawer> {
     required AppPage page,
     required SharedPreferences? prefs,
   }) {
-    final colorScheme = Theme.of(context).colorScheme;
     final prefix = _quizStorageKeyPrefixes[page]!;
     final score = prefs?.getInt('${prefix}quiz_score') ?? 0;
     final streak = prefs?.getInt('${prefix}quiz_streak') ?? 0;
-    final statStyle = Theme.of(context).textTheme.labelSmall?.copyWith(
-      color: colorScheme.onSurfaceVariant,
-    );
 
     return _navTile(
       context,
       icon: icon,
       badgeColor: badgeColor,
       title: title,
-      page: page,
+      selected: widget.currentPage == page,
+      onTap: () => _navigateTo(context, page),
       subtitle: prefs == null
           ? null
-          : Padding(
-              padding: const EdgeInsets.only(top: 2),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.star_rounded,
-                    size: 13,
-                    color: colorScheme.onSurfaceVariant,
-                  ),
-                  const SizedBox(width: 3),
-                  Text('$score', style: statStyle),
-                  const SizedBox(width: 12),
-                  Icon(
-                    Icons.bolt_rounded,
-                    size: 13,
-                    color: colorScheme.onSurfaceVariant,
-                  ),
-                  const SizedBox(width: 3),
-                  Text('$streak', style: statStyle),
-                ],
-              ),
-            ),
+          : _statsSubtitle(context, score: score, streak: streak),
     );
+  }
+
+  void _navigateToNounProgression(BuildContext context, String key) {
+    Navigator.pop(context);
+    NounSettings.instance.setLastPage(AppPage.nounsArticles.name);
+    NounSettings.instance.setLastNounProgressionKey(key);
+    if (widget.currentPage == AppPage.nounsArticles &&
+        key == widget.currentNounProgressionKey) {
+      return;
+    }
+
+    final entry = nounProgressionEntries.firstWhere((e) => e.key == key);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute<void>(
+        builder: (_) => QuizPage(config: entry.config),
+      ),
+    );
+  }
+
+  Widget _nounProgressionTile(
+    BuildContext context, {
+    required NounProgressionEntry entry,
+    required SharedPreferences? prefs,
+  }) {
+    final isFinal = entry.key == kAllNounsProgressionKey;
+    final prefix = entry.config.storageKeyPrefix;
+    final score = prefs?.getInt('${prefix}quiz_score') ?? 0;
+    final streak = prefs?.getInt('${prefix}quiz_streak') ?? 0;
+
+    return _navTile(
+      context,
+      icon: isFinal ? Icons.workspace_premium_rounded : Icons.abc_rounded,
+      badgeColor: isFinal
+          ? kSectionAccentColors[3]
+          : kSectionAccentColors[2],
+      title: entry.displayName,
+      selected:
+          widget.currentPage == AppPage.nounsArticles &&
+          entry.key == widget.currentNounProgressionKey,
+      onTap: () => _navigateToNounProgression(context, entry.key),
+      subtitle: prefs == null
+          ? null
+          : _statsSubtitle(context, score: score, streak: streak),
+    );
+  }
+
+  Widget _lockedNounProgressionTile(
+    BuildContext context, {
+    required NounProgressionEntry entry,
+    required NounProgressionEntry previousEntry,
+    required SharedPreferences? prefs,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final streak =
+        prefs?.getInt('${previousEntry.config.storageKeyPrefix}quiz_streak') ??
+        0;
+
+    return _navTile(
+      context,
+      icon: Icons.lock_rounded,
+      badgeColor: colorScheme.onSurfaceVariant,
+      title: entry.displayName,
+      selected: false,
+      onTap: null,
+      titleColor: colorScheme.onSurfaceVariant,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: Text(
+          "Reach a 10-streak in '${previousEntry.displayName}' to unlock"
+          ' (current: $streak/10)',
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// The progression entry to show when the "Noun Categories" section is
+  /// collapsed: the currently-open sub-quiz if there is one, else the last
+  /// one the user opened, falling back to the first (easiest) category.
+  NounProgressionEntry _currentNounProgressionEntry(Set<String> completed) {
+    final unlockedCount = firstLockedNounProgressionIndex(completed);
+    final key =
+        widget.currentNounProgressionKey ??
+        NounSettings.instance.lastNounProgressionKey;
+    if (key != null) {
+      final index = nounProgressionEntries.indexWhere((e) => e.key == key);
+      if (index >= 0 && index < unlockedCount) {
+        return nounProgressionEntries[index];
+      }
+    }
+    return nounProgressionEntries[0];
+  }
+
+  Widget _nounCategoriesToggleTile(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(kRadiusLarge),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(kRadiusLarge),
+          onTap: () =>
+              setState(() => _nounCategoriesExpanded = !_nounCategoriesExpanded),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            child: Row(
+              children: [
+                const SizedBox(width: 15),
+                Icon(
+                  _nounCategoriesExpanded
+                      ? Icons.expand_less_rounded
+                      : Icons.expand_more_rounded,
+                  size: 20,
+                  color: colorScheme.onSurfaceVariant,
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  _nounCategoriesExpanded
+                      ? 'Show less'
+                      : 'Show all categories',
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildNounProgressionTiles(
+    BuildContext context,
+    SharedPreferences? prefs,
+  ) {
+    final completed = NounSettings.instance.completedNounCategories;
+    final unlockedCount = firstLockedNounProgressionIndex(completed);
+
+    final tiles = <Widget>[];
+    if (_nounCategoriesExpanded) {
+      for (var i = 0; i < unlockedCount; i++) {
+        tiles.add(
+          _nounProgressionTile(
+            context,
+            entry: nounProgressionEntries[i],
+            prefs: prefs,
+          ),
+        );
+      }
+      if (unlockedCount < nounProgressionEntries.length) {
+        tiles.add(
+          _lockedNounProgressionTile(
+            context,
+            entry: nounProgressionEntries[unlockedCount],
+            previousEntry: nounProgressionEntries[unlockedCount - 1],
+            prefs: prefs,
+          ),
+        );
+      }
+    } else {
+      tiles.add(
+        _nounProgressionTile(
+          context,
+          entry: _currentNounProgressionEntry(completed),
+          prefs: prefs,
+        ),
+      );
+    }
+    tiles.add(_nounCategoriesToggleTile(context));
+    return tiles;
   }
 
   @override
@@ -257,14 +457,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   page: AppPage.articles,
                   prefs: prefs,
                 ),
-                _quizTile(
-                  context,
-                  icon: Icons.abc_rounded,
-                  badgeColor: kSectionAccentColors[2],
-                  title: 'Nouns & Articles',
-                  page: AppPage.nounsArticles,
-                  prefs: prefs,
-                ),
+                Divider(height: 1, color: colorScheme.outlineVariant),
+                _sectionLabel(context, 'NOUN CATEGORIES'),
+                ..._buildNounProgressionTiles(context, prefs),
                 Divider(height: 1, color: colorScheme.outlineVariant),
                 _sectionLabel(context, 'MORE'),
                 _navTile(
@@ -272,14 +467,16 @@ class _AppDrawerState extends State<AppDrawer> {
                   icon: Icons.library_books_rounded,
                   badgeColor: colorScheme.onSurfaceVariant,
                   title: 'Word Library',
-                  page: AppPage.wordLibrary,
+                  selected: widget.currentPage == AppPage.wordLibrary,
+                  onTap: () => _navigateTo(context, AppPage.wordLibrary),
                 ),
                 _navTile(
                   context,
                   icon: Icons.settings_rounded,
                   badgeColor: colorScheme.onSurfaceVariant,
                   title: 'Settings',
-                  page: AppPage.settings,
+                  selected: widget.currentPage == AppPage.settings,
+                  onTap: () => _navigateTo(context, AppPage.settings),
                 ),
               ],
             );

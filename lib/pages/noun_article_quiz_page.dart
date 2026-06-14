@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../data/noun_article_data.dart';
+import '../data/noun_progression_data.dart';
+import '../models/noun_settings.dart';
 import '../widgets/quiz_page.dart';
 
 class NounArticleQuizPage extends StatelessWidget {
@@ -8,6 +9,11 @@ class NounArticleQuizPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QuizPage(config: nounArticleQuizConfig);
+    return QuizPage(
+      config: resolveNounProgressionConfig(
+        NounSettings.instance.lastNounProgressionKey,
+        NounSettings.instance.completedNounCategories,
+      ),
+    );
   }
 }

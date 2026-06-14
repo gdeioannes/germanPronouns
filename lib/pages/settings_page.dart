@@ -128,6 +128,17 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: const Text('Reset to default colors'),
               ),
             ),
+            const SizedBox(height: 24),
+            Text(
+              'Keyboard Shortcuts',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Ctrl+I — open the Sentence Info panel for the current '
+              'question.',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ],
         ),
       ),

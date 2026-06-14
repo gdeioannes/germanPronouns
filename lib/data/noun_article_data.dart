@@ -3,6 +3,7 @@ import 'dart:math';
 import '../models/quiz_config.dart';
 import '../widgets/app_drawer.dart';
 import 'noun_database.dart';
+import 'noun_progression_data.dart';
 
 const Map<String, String> _baseArticles = {'m': 'der', 'f': 'die', 'n': 'das'};
 
@@ -86,4 +87,5 @@ final QuizConfig nounArticleQuizConfig = QuizConfig(
   pickSentence: pickNounArticleSentence,
   buildExplanation: buildNounArticleExplanation,
   currentPage: AppPage.nounsArticles,
+  progressionKey: kAllNounsProgressionKey,
 );
