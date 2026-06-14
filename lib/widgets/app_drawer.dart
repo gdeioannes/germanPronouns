@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/noun_progression_data.dart';
@@ -410,10 +411,10 @@ class _AppDrawerState extends State<AppDrawer> {
                   padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
                   child: Row(
                     children: [
-                      IconBadge(
-                        icon: Icons.translate_rounded,
-                        color: kSectionAccentColors[0],
-                        size: 44,
+                      SvgPicture.asset(
+                        'assets/icons/QuizLogo-02.svg',
+                        width: 44,
+                        height: 44,
                       ),
                       const SizedBox(width: 12),
                       Expanded(
@@ -422,7 +423,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'German Grammar Quiz',
+                              'German Grammar',
                               style: textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.w700,
                               ),

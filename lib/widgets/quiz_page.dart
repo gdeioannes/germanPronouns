@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -1166,26 +1167,24 @@ class _QuizPageState extends State<QuizPage>
     }
   }
 
-  /// After an incorrect answer, reveals [correctAnswer] in the answer field
-  /// — typed out one letter at a time if
-  /// [NounSettings.answerRevealAnimationEnabled], otherwise shown instantly —
-  /// then waits half a second before advancing to the next question.
+  /// After an incorrect answer, types out [correctAnswer] in the answer
+  /// field one letter at a time, pauses for a duration set by
+  /// [NounSettings.answerRevealMode], then advances to the next question.
   Future<void> _revealCorrectAnswer(String correctAnswer) async {
-    if (NounSettings.instance.answerRevealAnimationEnabled) {
-      for (var i = 1; i <= correctAnswer.length; i++) {
-        await Future.delayed(const Duration(milliseconds: 70));
-        if (!mounted) return;
-        setState(() {
-          _answerController.text = correctAnswer.substring(0, i);
-        });
-      }
-    } else {
+    for (var i = 1; i <= correctAnswer.length; i++) {
+      await Future.delayed(const Duration(milliseconds: 70));
+      if (!mounted) return;
       setState(() {
-        _answerController.text = correctAnswer;
+        _answerController.text = correctAnswer.substring(0, i);
       });
     }
 
-    await Future.delayed(const Duration(milliseconds: 500));
+    final pause = switch (NounSettings.instance.answerRevealMode) {
+      AnswerRevealMode.quick => const Duration(milliseconds: 500),
+      AnswerRevealMode.normal => const Duration(milliseconds: 1500),
+      AnswerRevealMode.slow => const Duration(milliseconds: 3000),
+    };
+    await Future.delayed(pause);
     if (!mounted) return;
 
     setState(() {
@@ -1343,6 +1342,26 @@ class _QuizPageState extends State<QuizPage>
       spans.add(TextSpan(text: text.substring(start), style: baseStyle));
     }
     return spans;
+  }
+
+  /// Renders the AppBar title, replacing a trailing "Quiz" word with the
+  /// QUIZ wordmark logo to match the drawer header's branding.
+  Widget _appBarTitle(String title) {
+    const suffix = 'Quiz';
+    final label = title.endsWith(suffix)
+        ? title.substring(0, title.length - suffix.length)
+        : '$title ';
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(label),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: SvgPicture.asset('assets/icons/QuizLogo-01.svg', height: 43),
+        ),
+      ],
+    );
   }
 
   /// Pill-shaped title used by the info dialogs (noun info, sentence info)
@@ -1653,7 +1672,7 @@ class _QuizPageState extends State<QuizPage>
       appBar: AppBar(
         title: FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(widget.config.title),
+          child: _appBarTitle(widget.config.title),
         ),
         actions: [
           IconButton(
@@ -1662,6 +1681,22 @@ class _QuizPageState extends State<QuizPage>
             icon: const Icon(Icons.restart_alt_rounded),
           ),
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(3),
+          child: Container(
+            height: 3,
+            decoration: BoxDecoration(
+              color: colorScheme.surfaceContainerHigh,
+              boxShadow: [
+                BoxShadow(
+                  color: colorScheme.outline.withValues(alpha: 0.4),
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
       drawer: AppDrawer(
         currentPage: widget.config.currentPage,

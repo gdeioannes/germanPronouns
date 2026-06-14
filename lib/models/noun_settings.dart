@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// How long the correct answer (typed out letter by letter) stays on screen
+/// after an incorrect submission, before moving on to the next question.
+enum AnswerRevealMode {
+  /// Brief pause before advancing.
+  quick,
+
+  /// Moderate pause before advancing.
+  normal,
+
+  /// Extended pause before advancing, giving slower readers more time.
+  slow,
+}
+
 /// Global, app-wide set of nouns excluded from quizzes that draw from the
 /// shared noun database (Artikel and Nouns & Articles). Managed from the
 /// Word Library page and shared across all quizzes that use it.
@@ -17,8 +30,7 @@ class NounSettings {
       'noun_progress_completed_categories';
   static const String _lastNounProgressionKeyPref =
       'last_noun_progression_key';
-  static const String _answerRevealAnimationKey =
-      'answer_reveal_animation_enabled';
+  static const String _answerRevealModeKey = 'answer_reveal_mode';
 
   /// Page key used by the Word Library page, which isn't tied to a
   /// [QuizConfig.storageKeyPrefix].
@@ -39,7 +51,7 @@ class NounSettings {
   String? _lastPage;
   Set<String> _completedNounCategories = {};
   String? _lastNounProgressionKey;
-  bool _answerRevealAnimationEnabled = true;
+  AnswerRevealMode _answerRevealMode = AnswerRevealMode.normal;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -61,10 +73,9 @@ class NounSettings {
   /// recorded yet.
   String? get lastNounProgressionKey => _lastNounProgressionKey;
 
-  /// Whether, after an incorrect answer, the correct answer is typed out
-  /// letter by letter before moving to the next question. When false, the
-  /// correct answer is shown instantly instead.
-  bool get answerRevealAnimationEnabled => _answerRevealAnimationEnabled;
+  /// How long the typed-out correct answer stays on screen after an
+  /// incorrect answer, before moving to the next question.
+  AnswerRevealMode get answerRevealMode => _answerRevealMode;
 
   /// Whether English translations should be shown alongside nouns in
   /// reference/analytics tables, keyed by page (a [QuizConfig.storageKeyPrefix]
@@ -105,8 +116,10 @@ class NounSettings {
     _completedNounCategories =
         (prefs.getStringList(_completedNounCategoriesKey) ?? const []).toSet();
     _lastNounProgressionKey = prefs.getString(_lastNounProgressionKeyPref);
-    _answerRevealAnimationEnabled =
-        prefs.getBool(_answerRevealAnimationKey) ?? true;
+    _answerRevealMode = AnswerRevealMode.values.firstWhere(
+      (mode) => mode.name == prefs.getString(_answerRevealModeKey),
+      orElse: () => AnswerRevealMode.normal,
+    );
     _loaded = true;
   }
 
@@ -135,10 +148,10 @@ class NounSettings {
     await prefs.setString(_lastNounProgressionKeyPref, key);
   }
 
-  Future<void> setAnswerRevealAnimationEnabled(bool value) async {
-    _answerRevealAnimationEnabled = value;
+  Future<void> setAnswerRevealMode(AnswerRevealMode mode) async {
+    _answerRevealMode = mode;
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_answerRevealAnimationKey, value);
+    await prefs.setString(_answerRevealModeKey, mode.name);
   }
 
   Future<void> _save() async {
@@ -175,6 +188,22 @@ class NounSettings {
     for (final gender in defaultGenderColors.keys) {
       await prefs.remove(_colorKey(gender));
     }
+  }
+
+  /// Wipes all stored progress and settings (quiz scores/streaks/history,
+  /// noun-category progression, disabled nouns, gender colors, and the
+  /// answer-reveal preference), restoring everything to its default state.
+  Future<void> resetAll() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    _disabledNouns = {};
+    _showEnglishByPage = {};
+    _colorNounsByPage = {};
+    _genderColors = Map.of(defaultGenderColors);
+    _lastPage = null;
+    _completedNounCategories = {};
+    _lastNounProgressionKey = null;
+    _answerRevealMode = AnswerRevealMode.normal;
   }
 
   Future<void> toggle(String noun) async {

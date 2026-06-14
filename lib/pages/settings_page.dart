@@ -88,6 +88,106 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 
+  /// Wraps a settings section's content in its own card panel.
+  Widget _settingsPanel({required String title, required List<Widget> children}) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 4),
+            ...children,
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Shows a confirmation dialog, then (if confirmed) wipes all stored
+  /// progress and settings and returns to the Pronoun quiz with a fresh
+  /// navigation stack.
+  Future<void> _confirmResetAll() async {
+    final firstConfirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Reset everything?'),
+        content: const Text(
+          'This clears all quiz scores, streaks, and history, noun '
+          'category progress, the word library, article colors, and the '
+          'answer reveal setting. This cannot be undone.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: const Text('Reset Everything'),
+          ),
+        ],
+      ),
+    );
+    if (firstConfirmed != true) return;
+    if (!mounted) return;
+
+    const confirmPhrase = 'delete all';
+    final controller = TextEditingController();
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => StatefulBuilder(
+        builder: (dialogContext, setDialogState) {
+          final matches =
+              controller.text.trim().toLowerCase() == confirmPhrase;
+          return AlertDialog(
+            title: const Text('Are you sure?'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Type "$confirmPhrase" to confirm.'),
+                const SizedBox(height: 8),
+                TextField(
+                  controller: controller,
+                  autofocus: true,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: confirmPhrase,
+                  ),
+                  onChanged: (_) => setDialogState(() {}),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(false),
+                child: const Text('Cancel'),
+              ),
+              FilledButton(
+                onPressed: matches
+                    ? () => Navigator.of(dialogContext).pop(true)
+                    : null,
+                child: const Text('Reset Everything'),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+    controller.dispose();
+    if (confirmed != true) return;
+    if (!mounted) return;
+
+    await NounSettings.instance.resetAll();
+    if (!mounted) return;
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute<void>(builder: (_) => buildAppPage(AppPage.pronouns)),
+      (route) => false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,74 +197,121 @@ class _SettingsPageState extends State<SettingsPage> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            Text(
-              'Article Colors',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              'Pick the highlight color used for masculine, feminine, and '
-              'neuter nouns wherever "Color nouns by article" is turned on.',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            const SizedBox(height: 10),
-            Wrap(
-              spacing: 16,
-              runSpacing: 8,
+            _settingsPanel(
+              title: 'Article Colors',
               children: [
-                _buildGenderColorSwatch('m', 'der (masculine)'),
-                _buildGenderColorSwatch('f', 'die (feminine)'),
-                _buildGenderColorSwatch('n', 'das (neuter)'),
+                Text(
+                  'Pick the highlight color used for masculine, feminine, '
+                  'and neuter nouns wherever "Color nouns by article" is '
+                  'turned on.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 16,
+                  runSpacing: 8,
+                  children: [
+                    _buildGenderColorSwatch('m', 'der (masculine)'),
+                    _buildGenderColorSwatch('f', 'die (feminine)'),
+                    _buildGenderColorSwatch('n', 'das (neuter)'),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        NounSettings.instance.resetGenderColors();
+                      });
+                    },
+                    child: const Text('Reset to default colors'),
+                  ),
+                ),
               ],
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: () {
-                  setState(() {
-                    NounSettings.instance.resetGenderColors();
-                  });
-                },
-                child: const Text('Reset to default colors'),
-              ),
+            const SizedBox(height: 16),
+            _settingsPanel(
+              title: 'Answer Reveal',
+              children: [
+                Text(
+                  'When you answer incorrectly, the correct answer is '
+                  'typed out in the answer field (marked with a red *) '
+                  'before moving on to the next question. Choose how long '
+                  'it stays on screen.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                RadioGroup<AnswerRevealMode>(
+                  groupValue: NounSettings.instance.answerRevealMode,
+                  onChanged: (mode) {
+                    setState(() {
+                      NounSettings.instance.setAnswerRevealMode(mode!);
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      RadioListTile<AnswerRevealMode>(
+                        contentPadding: EdgeInsets.zero,
+                        title: const Text('Quick'),
+                        subtitle: const Text(
+                          'Brief pause before moving to the next question.',
+                        ),
+                        value: AnswerRevealMode.quick,
+                      ),
+                      RadioListTile<AnswerRevealMode>(
+                        contentPadding: EdgeInsets.zero,
+                        title: const Text('Normal'),
+                        subtitle: const Text(
+                          'Moderate pause before moving to the next '
+                          'question.',
+                        ),
+                        value: AnswerRevealMode.normal,
+                      ),
+                      RadioListTile<AnswerRevealMode>(
+                        contentPadding: EdgeInsets.zero,
+                        title: const Text('Slow'),
+                        subtitle: const Text(
+                          'Extended pause — good for slower readers.',
+                        ),
+                        value: AnswerRevealMode.slow,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 24),
-            Text(
-              'Answer Reveal',
-              style: Theme.of(context).textTheme.titleMedium,
+            const SizedBox(height: 16),
+            _settingsPanel(
+              title: 'Keyboard Shortcuts',
+              children: [
+                Text(
+                  'Ctrl+I — open the Sentence Info panel for the current '
+                  'question.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
             ),
-            const SizedBox(height: 4),
-            Text(
-              'When you answer incorrectly, the correct answer is shown in '
-              'the answer field (marked with a red *) before moving on to '
-              'the next question.',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            SwitchListTile(
-              contentPadding: EdgeInsets.zero,
-              title: const Text('Type out the correct answer'),
-              subtitle: const Text(
-                'When off, the correct answer is shown instantly instead.',
-              ),
-              value: NounSettings.instance.answerRevealAnimationEnabled,
-              onChanged: (value) {
-                setState(() {
-                  NounSettings.instance.setAnswerRevealAnimationEnabled(
-                    value,
-                  );
-                });
-              },
-            ),
-            const SizedBox(height: 24),
-            Text(
-              'Keyboard Shortcuts',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              'Ctrl+I — open the Sentence Info panel for the current '
-              'question.',
-              style: Theme.of(context).textTheme.bodyMedium,
+            const SizedBox(height: 16),
+            _settingsPanel(
+              title: 'Reset',
+              children: [
+                Text(
+                  'Wipe all quiz progress, noun category unlocks, the word '
+                  'library, and other settings, restoring the app to its '
+                  'original state.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: FilledButton.tonal(
+                    style: FilledButton.styleFrom(
+                      foregroundColor: Theme.of(context).colorScheme.error,
+                    ),
+                    onPressed: _confirmResetAll,
+                    child: const Text('Reset Everything'),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
