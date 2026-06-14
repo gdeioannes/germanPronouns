@@ -17,6 +17,8 @@ class NounSettings {
       'noun_progress_completed_categories';
   static const String _lastNounProgressionKeyPref =
       'last_noun_progression_key';
+  static const String _answerRevealAnimationKey =
+      'answer_reveal_animation_enabled';
 
   /// Page key used by the Word Library page, which isn't tied to a
   /// [QuizConfig.storageKeyPrefix].
@@ -37,6 +39,7 @@ class NounSettings {
   String? _lastPage;
   Set<String> _completedNounCategories = {};
   String? _lastNounProgressionKey;
+  bool _answerRevealAnimationEnabled = true;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -57,6 +60,11 @@ class NounSettings {
   /// of the noun-progression entry the user last opened, or null if none was
   /// recorded yet.
   String? get lastNounProgressionKey => _lastNounProgressionKey;
+
+  /// Whether, after an incorrect answer, the correct answer is typed out
+  /// letter by letter before moving to the next question. When false, the
+  /// correct answer is shown instantly instead.
+  bool get answerRevealAnimationEnabled => _answerRevealAnimationEnabled;
 
   /// Whether English translations should be shown alongside nouns in
   /// reference/analytics tables, keyed by page (a [QuizConfig.storageKeyPrefix]
@@ -97,6 +105,8 @@ class NounSettings {
     _completedNounCategories =
         (prefs.getStringList(_completedNounCategoriesKey) ?? const []).toSet();
     _lastNounProgressionKey = prefs.getString(_lastNounProgressionKeyPref);
+    _answerRevealAnimationEnabled =
+        prefs.getBool(_answerRevealAnimationKey) ?? true;
     _loaded = true;
   }
 
@@ -123,6 +133,12 @@ class NounSettings {
     _lastNounProgressionKey = key;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_lastNounProgressionKeyPref, key);
+  }
+
+  Future<void> setAnswerRevealAnimationEnabled(bool value) async {
+    _answerRevealAnimationEnabled = value;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_answerRevealAnimationKey, value);
   }
 
   Future<void> _save() async {

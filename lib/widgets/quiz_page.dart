@@ -69,6 +69,12 @@ class _QuizPageState extends State<QuizPage>
   String _feedback = '';
   String _feedbackHint = '';
   bool? _lastAnswerCorrect;
+
+  /// True while the correct answer is being revealed in the answer field
+  /// after an incorrect submission (animated or instant, per
+  /// [NounSettings.answerRevealAnimationEnabled]), before advancing to the
+  /// next question.
+  bool _showingAnswerReveal = false;
   String _currentReferenceSentence = '';
   String _currentReferenceExplanation = '';
   bool _showFireworks = false;
@@ -1059,6 +1065,8 @@ class _QuizPageState extends State<QuizPage>
   }
 
   void _submitAnswer() {
+    if (_showingAnswerReveal) return;
+
     final userAnswerRaw = _answerController.text.trim();
     final userAnswer = userAnswerRaw.toLowerCase();
     final caseLabel = widget.config.categories[_currentCategoryIndex].label;
@@ -1125,8 +1133,13 @@ class _QuizPageState extends State<QuizPage>
         _answerHistory = _answerHistory.take(_maxStoredHistory).toList();
       }
 
-      _answerController.clear();
-      _nextQuestion();
+      if (isCorrect) {
+        _answerController.clear();
+        _nextQuestion();
+      } else {
+        _showingAnswerReveal = true;
+        _answerController.clear();
+      }
     });
 
     if (shouldCelebrate) {
@@ -1144,6 +1157,44 @@ class _QuizPageState extends State<QuizPage>
     }
 
     _saveStoredStats();
+
+    if (isCorrect) {
+      _requestAnswerFocus();
+    } else {
+      _revealCorrectAnswer(correctAnswer);
+    }
+  }
+
+  /// After an incorrect answer, reveals [correctAnswer] in the answer field
+  /// — typed out one letter at a time if
+  /// [NounSettings.answerRevealAnimationEnabled], otherwise shown instantly —
+  /// then waits half a second before advancing to the next question.
+  Future<void> _revealCorrectAnswer(String correctAnswer) async {
+    if (NounSettings.instance.answerRevealAnimationEnabled) {
+      for (var i = 1; i <= correctAnswer.length; i++) {
+        await Future.delayed(const Duration(milliseconds: 70));
+        if (!mounted) return;
+        setState(() {
+          _answerController.text = correctAnswer.substring(0, i);
+        });
+      }
+    } else {
+      setState(() {
+        _answerController.text = correctAnswer;
+      });
+    }
+
+    await Future.delayed(const Duration(milliseconds: 500));
+    if (!mounted) return;
+
+    setState(() {
+      _showingAnswerReveal = false;
+      _feedback = '';
+      _feedbackHint = '';
+      _lastAnswerCorrect = null;
+      _answerController.clear();
+      _nextQuestion();
+    });
     _requestAnswerFocus();
   }
 
@@ -1983,6 +2034,10 @@ class _QuizPageState extends State<QuizPage>
                                                             TextInputAction
                                                                 .done,
                                                         style: sentenceStyle,
+                                                        readOnly:
+                                                            _showingAnswerReveal,
+                                                        showCursor:
+                                                            !_showingAnswerReveal,
                                                         minLines: 1,
                                                         maxLines: 1,
                                                         decoration: InputDecoration(
@@ -2001,6 +2056,18 @@ class _QuizPageState extends State<QuizPage>
                                                           filled: true,
                                                           fillColor:
                                                               Colors.white,
+                                                          prefixText:
+                                                              _showingAnswerReveal
+                                                              ? '*'
+                                                              : null,
+                                                          prefixStyle: sentenceStyle
+                                                              ?.copyWith(
+                                                                color: Colors
+                                                                    .red,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
                                                         ),
                                                         onSubmitted: (_) =>
                                                             _submitAnswer(),
@@ -2053,7 +2120,9 @@ class _QuizPageState extends State<QuizPage>
                                 children: [
                                   Expanded(
                                     child: FilledButton.icon(
-                                      onPressed: _submitAnswer,
+                                      onPressed: _showingAnswerReveal
+                                          ? null
+                                          : _submitAnswer,
                                       icon: const Icon(Icons.check_rounded),
                                       label: Text(
                                         'Check',
@@ -2066,7 +2135,9 @@ class _QuizPageState extends State<QuizPage>
                                   ),
                                   const SizedBox(width: 12),
                                   OutlinedButton.icon(
-                                    onPressed: _newQuestion,
+                                    onPressed: _showingAnswerReveal
+                                        ? null
+                                        : _newQuestion,
                                     icon: const Icon(Icons.skip_next_rounded),
                                     label: Text(
                                       'Next',

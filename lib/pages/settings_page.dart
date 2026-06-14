@@ -130,6 +130,33 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const SizedBox(height: 24),
             Text(
+              'Answer Reveal',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'When you answer incorrectly, the correct answer is shown in '
+              'the answer field (marked with a red *) before moving on to '
+              'the next question.',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Type out the correct answer'),
+              subtitle: const Text(
+                'When off, the correct answer is shown instantly instead.',
+              ),
+              value: NounSettings.instance.answerRevealAnimationEnabled,
+              onChanged: (value) {
+                setState(() {
+                  NounSettings.instance.setAnswerRevealAnimationEnabled(
+                    value,
+                  );
+                });
+              },
+            ),
+            const SizedBox(height: 24),
+            Text(
               'Keyboard Shortcuts',
               style: Theme.of(context).textTheme.titleMedium,
             ),
