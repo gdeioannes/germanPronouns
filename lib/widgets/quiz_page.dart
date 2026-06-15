@@ -90,6 +90,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// [NounSettings.answerRevealAnimationEnabled]), before advancing to the
   /// next question.
   bool _showingAnswerReveal = false;
+
+  /// True while [QuizConfig.sentenceHint] for the current sentence is
+  /// revealed via the eye icon. Resets to false on every new question.
+  bool _showSentenceHint = false;
   String _currentReferenceSentence = '';
   String _currentReferenceExplanation = '';
   bool _showFireworks = false;
@@ -382,6 +386,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   void _nextQuestion() {
+    _showSentenceHint = false;
     final enabledSubjects = widget.config.subjectCategories == null
         ? _enabledSubjectIndices.toList()
         : _enabledSubjectIndices
@@ -1151,7 +1156,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         .config
         .categories[_currentCategoryIndex]
         .values[_currentSubjectIndex];
-    final isCorrect = userAnswer == correctAnswer.toLowerCase();
+    final acceptableAnswers =
+        widget.config.acceptableAnswersForSentence
+            ?.call(_currentReferenceSentence)
+            .map((a) => a.toLowerCase())
+            .toSet() ??
+        {correctAnswer.toLowerCase()};
+    final isCorrect = acceptableAnswers.contains(userAnswer);
     final reminderHint = _buildMistakeReminder(
       caseLabel: caseLabel,
       correctAnswer: correctAnswer,
@@ -1190,7 +1201,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         shouldCelebrate = true;
         _feedbackHint = successHint;
         _lastAnswerCorrect = true;
-        _feedback = correctAnswer;
+        _feedback = widget.config.acceptableAnswersForSentence != null
+            ? userAnswerRaw
+            : correctAnswer;
       } else {
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
         _streakAbsolute = 0;
@@ -2314,6 +2327,51 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                         );
                                       },
                                     ),
+                                    if (widget.config.sentenceHint != null) ...[
+                                      const SizedBox(height: 8),
+                                      InkWell(
+                                        borderRadius: BorderRadius.circular(8),
+                                        onTap: () => setState(
+                                          () => _showSentenceHint =
+                                              !_showSentenceHint,
+                                        ),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              _showSentenceHint
+                                                  ? Icons
+                                                        .visibility_off_rounded
+                                                  : Icons.visibility_rounded,
+                                              size: 18,
+                                              color:
+                                                  colorScheme.onSurfaceVariant,
+                                            ),
+                                            const SizedBox(width: 6),
+                                            Expanded(
+                                              child: Text(
+                                                _showSentenceHint
+                                                    ? (widget
+                                                              .config
+                                                              .sentenceHint!(
+                                                                _currentReferenceSentence,
+                                                              ) ??
+                                                          '')
+                                                    : 'Hinweis anzeigen',
+                                                style: quizTextTheme.bodySmall
+                                                    ?.copyWith(
+                                                      color: colorScheme
+                                                          .onSurfaceVariant,
+                                                      fontStyle:
+                                                          FontStyle.italic,
+                                                    ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ],
                                 ),
                               ),
@@ -2567,10 +2625,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     ],
                   ),
                   subtitle: Text(
-                    widget.config.helpMemoryTables != null
-                        ? 'Reference tables for pronouns, possessives, and '
-                              'endings.'
-                        : 'Expanded reference table with all cases.',
+                    widget.config.helpMemorySubtitle ??
+                        (widget.config.helpMemoryTables != null
+                            ? 'Reference tables for pronouns, possessives, '
+                                  'and endings.'
+                            : 'Expanded reference table with all cases.'),
                   ),
                   leading: IconBadge(
                     icon: Icons.menu_book_rounded,

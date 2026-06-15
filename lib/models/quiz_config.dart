@@ -120,7 +120,10 @@ class QuizConfig {
     this.collapseReferenceTablesByGender = false,
     this.helpMemoryTables,
     this.endingPatternTables,
+    this.helpMemorySubtitle,
     this.progressionKey,
+    this.acceptableAnswersForSentence,
+    this.sentenceHint,
   });
 
   /// AppBar title for this quiz's page.
@@ -205,6 +208,10 @@ class QuizConfig {
   /// exported to PDF) below the [helpMemoryTables].
   final List<EndingPatternTable>? endingPatternTables;
 
+  /// Overrides the default Help Memory section subtitle shown when
+  /// [helpMemoryTables] is non-null. When null, a generic default is used.
+  final String? helpMemorySubtitle;
+
   /// When non-null, identifies this quiz within the noun-category
   /// progression (a key from `nounCategoryDisplayNames`, or
   /// `kAllNounsProgressionKey`). Reaching the configured streak-unlock goal
@@ -212,4 +219,14 @@ class QuizConfig {
   /// via `NounSettings.markNounCategoryCompleted`, which may unlock the next
   /// progression entry.
   final String? progressionKey;
+
+  /// When non-null, returns the set of answers (case-insensitive) accepted
+  /// as correct for [sentence] — the current question's reference sentence.
+  /// When null, only `categories[currentCategoryIndex].values[currentSubjectIndex]`
+  /// is accepted.
+  final Set<String> Function(String sentence)? acceptableAnswersForSentence;
+
+  /// When non-null, returns a hint for [sentence] that is hidden by default
+  /// and revealed via an eye icon next to the quiz sentence.
+  final String? Function(String sentence)? sentenceHint;
 }

@@ -6,6 +6,7 @@ import '../data/noun_progression_data.dart';
 import '../models/noun_settings.dart';
 import '../pages/article_quiz_page.dart';
 import '../pages/noun_article_quiz_page.dart';
+import '../pages/preposition_quiz_page.dart';
 import '../pages/pronoun_quiz_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
@@ -14,7 +15,14 @@ import 'quiz_page.dart';
 
 /// Identifies which top-level quiz page is currently shown, so the drawer
 /// can highlight it.
-enum AppPage { pronouns, articles, nounsArticles, wordLibrary, settings }
+enum AppPage {
+  pronouns,
+  articles,
+  nounsArticles,
+  prepositions,
+  wordLibrary,
+  settings,
+}
 
 /// Builds the page widget for [page], used both by the drawer's navigation
 /// and to reopen the app on the last-visited page.
@@ -22,6 +30,7 @@ Widget buildAppPage(AppPage page) => switch (page) {
   AppPage.pronouns => const PronounQuizPage(),
   AppPage.articles => const ArticleQuizPage(),
   AppPage.nounsArticles => const NounArticleQuizPage(),
+  AppPage.prepositions => const PrepositionQuizPage(),
   AppPage.wordLibrary => const WordLibraryPage(),
   AppPage.settings => const SettingsPage(),
 };
@@ -40,6 +49,7 @@ AppPage? appPageFromName(String? name) {
 const Map<AppPage, String> _quizStorageKeyPrefixes = {
   AppPage.pronouns: '',
   AppPage.articles: 'article_',
+  AppPage.prepositions: 'preposition_',
 };
 
 /// Side navigation drawer shared by all quiz pages.
@@ -501,6 +511,14 @@ class _AppDrawerState extends State<AppDrawer> {
                   badgeColor: kSectionAccentColors[0],
                   title: 'Pronouns',
                   page: AppPage.pronouns,
+                  prefs: prefs,
+                ),
+                _quizTile(
+                  context,
+                  icon: Icons.signpost_rounded,
+                  badgeColor: kSectionAccentColors[2],
+                  title: 'Prepositions',
+                  page: AppPage.prepositions,
                   prefs: prefs,
                 ),
                 Divider(height: 1, color: colorScheme.outlineVariant),
