@@ -29,8 +29,7 @@ class QuizPage extends StatefulWidget {
   State<QuizPage> createState() => _QuizPageState();
 }
 
-class _QuizPageState extends State<QuizPage>
-    with SingleTickerProviderStateMixin {
+class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   final TextEditingController _answerController = TextEditingController();
   final FocusNode _answerFocusNode = FocusNode();
   final ScrollController _tableScrollController = ScrollController();
@@ -58,6 +57,8 @@ class _QuizPageState extends State<QuizPage>
       '${widget.config.storageKeyPrefix}quiz_streak';
   String get _bestStreakLapKey =>
       '${widget.config.storageKeyPrefix}quiz_best_streak_lap';
+  String get _bestStreakAbsoluteKey =>
+      '${widget.config.storageKeyPrefix}quiz_best_streak_absolute';
   String get _enabledSubjectsKey =>
       '${widget.config.storageKeyPrefix}quiz_enabled_pronouns';
   String get _enabledCategoriesKey =>
@@ -66,6 +67,11 @@ class _QuizPageState extends State<QuizPage>
   int _score = 0;
   int _streakAbsolute = 0;
   int _bestStreakLap = 0;
+
+  /// Highest [_streakAbsolute] ever reached for this quiz, persisted under
+  /// [_bestStreakAbsoluteKey] and shown in the drawer's streak stat (which,
+  /// unlike [_streakAbsolute], doesn't reset to 0 on a wrong answer).
+  int _bestStreakAbsolute = 0;
   int get _streakLap => _streakAbsolute ~/ _maxStreak;
   int _currentSubjectIndex = 0;
   int _currentCategoryIndex = 0;
@@ -89,6 +95,14 @@ class _QuizPageState extends State<QuizPage>
   bool _showFireworks = false;
   late final AnimationController _fireworksController;
   List<FireworkParticle> _fireworkParticles = const [];
+
+  /// True while the special "noun category unlocked" celebration (gold
+  /// fireworks plus a centered "Noun Category Unlocked!" banner naming the
+  /// newly-unlocked category) is playing.
+  bool _showCategoryUnlockCelebration = false;
+  late final AnimationController _categoryUnlockController;
+  List<FireworkParticle> _categoryUnlockParticles = const [];
+  String _unlockedCategoryName = '';
   List<Map<String, dynamic>> _answerHistory = [];
   Map<String, int> _mistakesByCase = {};
 
@@ -122,6 +136,17 @@ class _QuizPageState extends State<QuizPage>
             });
           }
         });
+    _categoryUnlockController =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 2800),
+        )..addStatusListener((status) {
+          if (status == AnimationStatus.completed && mounted) {
+            setState(() {
+              _showCategoryUnlockCelebration = false;
+            });
+          }
+        });
     _nextQuestion();
     _loadStoredStats();
     _requestAnswerFocus();
@@ -142,6 +167,7 @@ class _QuizPageState extends State<QuizPage>
     _answerFocusNode.dispose();
     _tableScrollController.dispose();
     _fireworksController.dispose();
+    _categoryUnlockController.dispose();
     super.dispose();
   }
 
@@ -185,6 +211,41 @@ class _QuizPageState extends State<QuizPage>
       _showFireworks = true;
     });
     _fireworksController.forward(from: 0);
+  }
+
+  /// Plays the special "noun category unlocked" celebration: a bigger,
+  /// gold-toned firework burst spreading from across the card, plus a
+  /// centered banner naming [unlockedCategoryName].
+  void _triggerCategoryUnlockCelebration(String unlockedCategoryName) {
+    const palette = [
+      Colors.amber,
+      Colors.amberAccent,
+      Color(0xFFFFD54F),
+      Colors.deepOrange,
+      Colors.white,
+    ];
+
+    final particles = List.generate(160, (_) {
+      final angle = _random.nextDouble() * 2 * pi;
+      final direction = Offset(cos(angle), sin(angle));
+      return FireworkParticle(
+        origin: Offset(
+          0.1 + _random.nextDouble() * 0.8,
+          0.15 + _random.nextDouble() * 0.5,
+        ),
+        direction: direction,
+        speed: 70 + _random.nextDouble() * 90,
+        size: 2.2 + _random.nextDouble() * 3.2,
+        color: palette[_random.nextInt(palette.length)],
+      );
+    });
+
+    setState(() {
+      _categoryUnlockParticles = particles;
+      _unlockedCategoryName = unlockedCategoryName;
+      _showCategoryUnlockCelebration = true;
+    });
+    _categoryUnlockController.forward(from: 0);
   }
 
   void _requestAnswerFocus() {
@@ -248,11 +309,14 @@ class _QuizPageState extends State<QuizPage>
     }
 
     final storedBestLap = prefs.getInt(_bestStreakLapKey) ?? 0;
+    final storedBestStreakAbsolute =
+        prefs.getInt(_bestStreakAbsoluteKey) ?? storedStreak;
     if (!mounted) return;
     setState(() {
       _score = storedScore;
       _streakAbsolute = storedStreak;
       _bestStreakLap = storedBestLap;
+      _bestStreakAbsolute = storedBestStreakAbsolute;
       _answerHistory = loadedHistory;
       _mistakesByCase = loadedMistakes;
       if (loadedSubjects.isEmpty == false) {
@@ -269,6 +333,7 @@ class _QuizPageState extends State<QuizPage>
     await prefs.setInt(_scoreStorageKey, _score);
     await prefs.setInt(_streakStorageKey, _streakAbsolute);
     await prefs.setInt(_bestStreakLapKey, _bestStreakLap);
+    await prefs.setInt(_bestStreakAbsoluteKey, _bestStreakAbsolute);
     await prefs.setString(_historyStorageKey, jsonEncode(_answerHistory));
     await prefs.setString(_mistakesStorageKey, jsonEncode(_mistakesByCase));
     await prefs.setString(
@@ -926,6 +991,7 @@ class _QuizPageState extends State<QuizPage>
       _score = 0;
       _streakAbsolute = 0;
       _bestStreakLap = 0;
+      _bestStreakAbsolute = 0;
       _answerHistory = [];
       _mistakesByCase = {};
       _feedback = '';
@@ -1115,6 +1181,9 @@ class _QuizPageState extends State<QuizPage>
         final multiplier = _streakLap + 1;
         lapCompleted = _streakAbsolute % _maxStreak == 0;
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
+        if (_streakAbsolute > _bestStreakAbsolute) {
+          _bestStreakAbsolute = _streakAbsolute;
+        }
         final pointsEarned = multiplier;
         _score += pointsEarned;
         streakLapAtSubmit = _streakLap;
@@ -1162,10 +1231,20 @@ class _QuizPageState extends State<QuizPage>
     }
 
     if (widget.config.progressionKey != null &&
-        _streakAbsolute >= kProgressionUnlockStreak) {
-      NounSettings.instance.markNounCategoryCompleted(
-        widget.config.progressionKey!,
+        _streakAbsolute >= NounSettings.instance.progressionUnlockStreak &&
+        !NounSettings.instance.isNounCategoryCompleted(
+          widget.config.progressionKey!,
+        )) {
+      final progressionKey = widget.config.progressionKey!;
+      NounSettings.instance.markNounCategoryCompleted(progressionKey);
+      final index = nounProgressionEntries.indexWhere(
+        (e) => e.key == progressionKey,
       );
+      if (index >= 0 && index + 1 < nounProgressionEntries.length) {
+        _triggerCategoryUnlockCelebration(
+          nounProgressionEntries[index + 1].displayName,
+        );
+      }
     }
 
     _saveStoredStats();
@@ -1324,7 +1403,7 @@ class _QuizPageState extends State<QuizPage>
       if (info == null) {
         spans.add(TextSpan(text: word, style: baseStyle));
       } else {
-        final style = NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
+        final style = NounSettings.instance.colorNouns
             ? (baseStyle ?? const TextStyle()).copyWith(
                 color: NounSettings.instance.colorForGender(info.noun.gender),
                 fontWeight: FontWeight.w800,
@@ -1716,7 +1795,7 @@ class _QuizPageState extends State<QuizPage>
         : null;
     final currentGenderColor =
         widget.config.subjectGenders != null &&
-            NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
+            NounSettings.instance.colorNouns
         ? NounSettings.instance.colorForGender(
             widget.config.subjectGenders![_currentSubjectIndex],
           )
@@ -1909,7 +1988,7 @@ class _QuizPageState extends State<QuizPage>
                                                 ),
                                                 if (_streakLap > 0)
                                                   Text(
-                                                    '×${_streakLap + 1}',
+                                                    '×$_streakLap',
                                                     style:
                                                         (isCompact
                                                                 ? quizTextTheme
@@ -1956,7 +2035,7 @@ class _QuizPageState extends State<QuizPage>
                                               ),
                                               const SizedBox(width: 4),
                                               Text(
-                                                'Best ×${_bestStreakLap + 1}',
+                                                'Best ×$_bestStreakLap',
                                                 style:
                                                     (isCompact
                                                             ? quizTextTheme
@@ -2384,6 +2463,85 @@ class _QuizPageState extends State<QuizPage>
                         ),
                       ),
                     ),
+                  if (_showCategoryUnlockCelebration)
+                    Positioned.fill(
+                      child: IgnorePointer(
+                        child: Stack(
+                          children: [
+                            AnimatedBuilder(
+                              animation: _categoryUnlockController,
+                              builder: (context, _) {
+                                return CustomPaint(
+                                  painter: FireworksPainter(
+                                    progress: _categoryUnlockController.value,
+                                    particles: _categoryUnlockParticles,
+                                  ),
+                                );
+                              },
+                            ),
+                            Center(
+                              child: AnimatedBuilder(
+                                animation: _categoryUnlockController,
+                                builder: (context, child) {
+                                  final t = _categoryUnlockController.value;
+                                  final opacity = t < 0.12
+                                      ? (t / 0.12)
+                                      : t > 0.8
+                                      ? ((1 - t) / 0.2)
+                                      : 1.0;
+                                  return Opacity(
+                                    opacity: opacity.clamp(0.0, 1.0),
+                                    child: child,
+                                  );
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 24,
+                                    vertical: 16,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withValues(
+                                      alpha: 0.6,
+                                    ),
+                                    borderRadius: BorderRadius.circular(
+                                      kRadiusLarge,
+                                    ),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        'Noun Category Unlocked!',
+                                        textAlign: TextAlign.center,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall
+                                            ?.copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w800,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        _unlockedCategoryName,
+                                        textAlign: TextAlign.center,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium
+                                            ?.copyWith(
+                                              color: Colors.amber,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -2598,7 +2756,7 @@ class _QuizPageState extends State<QuizPage>
                                           : colorScheme
                                                 .surfaceContainerHighest
                                                 .withValues(alpha: 0.35),
-                                      textColor: NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
+                                      textColor: NounSettings.instance.colorNouns
                                           ? NounSettings.instance
                                                 .colorForGender(
                                                   genderRows[index],
@@ -2617,7 +2775,7 @@ class _QuizPageState extends State<QuizPage>
                                       textColor:
                                           widget.config.subjectGenders !=
                                                   null &&
-                                              NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
+                                              NounSettings.instance.colorNouns
                                           ? NounSettings.instance
                                                 .colorForGender(
                                                   widget
@@ -2700,7 +2858,7 @@ class _QuizPageState extends State<QuizPage>
                                 '${_genderArticles[gender]} (${_genderRowNames[gender]})',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
-                                  color: NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
+                                  color: NounSettings.instance.colorNouns
                                       ? NounSettings.instance.colorForGender(
                                           gender,
                                         )
@@ -3018,7 +3176,7 @@ class _QuizPageState extends State<QuizPage>
                                         displayName,
                                         background: bg,
                                         textColor:
-                                            NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
+                                            NounSettings.instance.colorNouns
                                             ? NounSettings.instance
                                                   .colorForGender(gender)
                                             : null,
@@ -3046,7 +3204,7 @@ class _QuizPageState extends State<QuizPage>
                                       textColor:
                                           widget.config.subjectGenders !=
                                                   null &&
-                                              NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix)
+                                              NounSettings.instance.colorNouns
                                           ? NounSettings.instance
                                                 .colorForGender(
                                                   widget
@@ -3325,23 +3483,23 @@ class _QuizPageState extends State<QuizPage>
                             'Highlights known nouns in sentences by their '
                             'article color (may reveal quiz answers).',
                           ),
-                          value: NounSettings.instance.colorNounsFor(widget.config.storageKeyPrefix),
+                          value: NounSettings.instance.colorNouns,
                           onChanged: (value) {
                             setState(() {
-                              NounSettings.instance.setColorNounsFor(
-                                widget.config.storageKeyPrefix,
-                                value,
-                              );
+                              NounSettings.instance.setColorNouns(value);
                             });
                           },
                         ),
                         if (widget.config.progressionKey != null) ...[
                           const SizedBox(height: 4),
                           Text(
-                            '* A $kProgressionUnlockStreak-streak unlocks the '
-                            'next category either way — turning this off is '
-                            'the fairer challenge, since the article color '
-                            'can otherwise give away the answer.',
+                            '* ${NounSettings.instance.progressionUnlockLaps} '
+                            'streaks in a row '
+                            '(${NounSettings.instance.progressionUnlockStreak} '
+                            'correct answers) unlocks the next category '
+                            'either way — turning this off is the fairer '
+                            'challenge, since the article color can '
+                            'otherwise give away the answer.',
                             style: Theme.of(context).textTheme.labelSmall?.copyWith(
                               color: colorScheme.onSurfaceVariant,
                             ),

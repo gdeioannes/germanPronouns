@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import '../models/noun_settings.dart';
@@ -13,12 +14,37 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  final _progressionUnlockLapsController = TextEditingController();
+  final _progressionUnlockLapsFocusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();
-    NounSettings.instance.load().then((_) {
-      if (mounted) setState(() {});
+    _progressionUnlockLapsFocusNode.addListener(() {
+      if (!_progressionUnlockLapsFocusNode.hasFocus) {
+        setState(() {
+          _progressionUnlockLapsController.text = NounSettings
+              .instance
+              .progressionUnlockLaps
+              .toString();
+        });
+      }
     });
+    NounSettings.instance.load().then((_) {
+      if (!mounted) return;
+      _progressionUnlockLapsController.text = NounSettings
+          .instance
+          .progressionUnlockLaps
+          .toString();
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _progressionUnlockLapsController.dispose();
+    _progressionUnlockLapsFocusNode.dispose();
+    super.dispose();
   }
 
   /// Renders a tappable swatch showing the current highlight color for
@@ -275,6 +301,42 @@ class _SettingsPageState extends State<SettingsPage> {
                         value: AnswerRevealMode.slow,
                       ),
                     ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _settingsPanel(
+              title: 'Noun Category Progression',
+              children: [
+                Text(
+                  'How many 5-answer streaks in a row are needed in a noun '
+                  'category sub-quiz to unlock the next category. Default: '
+                  '${NounSettings.defaultProgressionUnlockLaps}.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                    controller: _progressionUnlockLapsController,
+                    focusNode: _progressionUnlockLapsFocusNode,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Streaks',
+                      isDense: true,
+                    ),
+                    onChanged: (value) {
+                      final parsed = int.tryParse(value);
+                      if (parsed == null) return;
+                      setState(() {
+                        NounSettings.instance.setProgressionUnlockLaps(
+                          parsed,
+                        );
+                      });
+                    },
                   ),
                 ),
               ],

@@ -25,12 +25,20 @@ class NounSettings {
   static const String _storageKey = 'global_disabled_nouns';
   static const String _showEnglishKeyPrefix = 'show_english_';
   static const String _colorNounsKeyPrefix = 'color_nouns_';
+  static const String _colorNounsKey = 'color_nouns';
   static const String _lastPageKey = 'last_page';
   static const String _completedNounCategoriesKey =
       'noun_progress_completed_categories';
   static const String _lastNounProgressionKeyPref =
       'last_noun_progression_key';
   static const String _answerRevealModeKey = 'answer_reveal_mode';
+  static const String _progressionUnlockLapsKey = 'progression_unlock_laps';
+
+  /// Size of one "streak" — a run of this many correct answers in a row.
+  static const int streakLapSize = 5;
+
+  /// Default value for [progressionUnlockLaps].
+  static const int defaultProgressionUnlockLaps = 5;
 
   /// Page key used by the Word Library page, which isn't tied to a
   /// [QuizConfig.storageKeyPrefix].
@@ -46,12 +54,13 @@ class NounSettings {
 
   Set<String> _disabledNouns = {};
   Map<String, bool> _showEnglishByPage = {};
-  Map<String, bool> _colorNounsByPage = {};
+  bool _colorNouns = false;
   Map<String, Color> _genderColors = Map.of(defaultGenderColors);
   String? _lastPage;
   Set<String> _completedNounCategories = {};
   String? _lastNounProgressionKey;
   AnswerRevealMode _answerRevealMode = AnswerRevealMode.normal;
+  int _progressionUnlockLaps = defaultProgressionUnlockLaps;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -61,7 +70,7 @@ class NounSettings {
   String? get lastPage => _lastPage;
 
   /// Progression keys (noun-category keys, or `kAllNounsProgressionKey`)
-  /// whose quiz has reached a `kProgressionUnlockStreak`-answer streak at
+  /// whose quiz has reached a [progressionUnlockStreak]-answer streak at
   /// least once, permanently unlocking the next entry in the noun-category
   /// progression.
   Set<String> get completedNounCategories => _completedNounCategories;
@@ -78,16 +87,27 @@ class NounSettings {
   /// incorrect answer, before moving to the next question.
   AnswerRevealMode get answerRevealMode => _answerRevealMode;
 
+  /// Number of consecutive 5-answer "streaks" needed in a noun-category
+  /// sub-quiz to unlock the next entry in the noun-category progression.
+  /// User-configurable from 1 to 100, defaults to
+  /// [defaultProgressionUnlockLaps].
+  int get progressionUnlockLaps => _progressionUnlockLaps;
+
+  /// Total correct answers in a row needed to unlock the next entry in the
+  /// noun-category progression ([progressionUnlockLaps] streaks of 5
+  /// correct answers each).
+  int get progressionUnlockStreak => _progressionUnlockLaps * streakLapSize;
+
   /// Whether English translations should be shown alongside nouns in
   /// reference/analytics tables, keyed by page (a [QuizConfig.storageKeyPrefix]
   /// or [wordLibraryPageKey]). Saved independently per page.
   bool showEnglishFor(String pageKey) => _showEnglishByPage[pageKey] ?? true;
 
   /// Whether nouns should be highlighted by their article's color in the
-  /// word display, tables, and sentences, keyed by page (a
-  /// [QuizConfig.storageKeyPrefix] or [wordLibraryPageKey]). Defaults to off,
-  /// since the color can reveal quiz answers. Saved independently per page.
-  bool colorNounsFor(String pageKey) => _colorNounsByPage[pageKey] ?? false;
+  /// word display, tables, and sentences. A single app-wide setting,
+  /// adjustable from any quiz's settings panel. Defaults to off, since the
+  /// color can reveal quiz answers.
+  bool get colorNouns => _colorNouns;
 
   /// Highlight color for gender key 'm'/'f'/'n', used to color nouns by
   /// their article in noun-focused pages.
@@ -98,14 +118,25 @@ class NounSettings {
     if (_loaded) return;
     final prefs = await SharedPreferences.getInstance();
     _disabledNouns = (prefs.getStringList(_storageKey) ?? const []).toSet();
+    final legacyColorNounsKeys = <String>[];
     for (final key in prefs.getKeys()) {
       if (key.startsWith(_showEnglishKeyPrefix)) {
         _showEnglishByPage[key.substring(_showEnglishKeyPrefix.length)] =
             prefs.getBool(key) ?? true;
       } else if (key.startsWith(_colorNounsKeyPrefix)) {
-        _colorNounsByPage[key.substring(_colorNounsKeyPrefix.length)] =
-            prefs.getBool(key) ?? false;
+        legacyColorNounsKeys.add(key);
       }
+    }
+    if (prefs.containsKey(_colorNounsKey)) {
+      _colorNouns = prefs.getBool(_colorNounsKey) ?? false;
+    } else {
+      // Migrate from the old per-page setting: on if any page had it on.
+      _colorNouns = legacyColorNounsKeys.any(
+        (key) => prefs.getBool(key) ?? false,
+      );
+    }
+    for (final key in legacyColorNounsKeys) {
+      await prefs.remove(key);
     }
     _genderColors = {
       for (final entry in defaultGenderColors.entries)
@@ -121,6 +152,8 @@ class NounSettings {
       (mode) => mode.name == prefs.getString(_answerRevealModeKey),
       orElse: () => AnswerRevealMode.normal,
     );
+    _progressionUnlockLaps =
+        prefs.getInt(_progressionUnlockLapsKey) ?? defaultProgressionUnlockLaps;
     _loaded = true;
   }
 
@@ -131,7 +164,7 @@ class NounSettings {
   }
 
   /// Marks [key] (a noun-category key, or `kAllNounsProgressionKey`) as
-  /// having reached a `kProgressionUnlockStreak`-answer streak, permanently
+  /// having reached a [progressionUnlockStreak]-answer streak, permanently
   /// unlocking the next entry in the noun-category progression. No-op if
   /// already marked.
   Future<void> markNounCategoryCompleted(String key) async {
@@ -156,6 +189,13 @@ class NounSettings {
     await prefs.setString(_answerRevealModeKey, mode.name);
   }
 
+  /// Sets [progressionUnlockLaps], clamped to the 1-100 range.
+  Future<void> setProgressionUnlockLaps(int laps) async {
+    _progressionUnlockLaps = laps.clamp(1, 100);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_progressionUnlockLapsKey, _progressionUnlockLaps);
+  }
+
   Future<void> _save() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_storageKey, _disabledNouns.toList());
@@ -168,11 +208,10 @@ class NounSettings {
     await prefs.setBool('$_showEnglishKeyPrefix$pageKey', value);
   }
 
-  Future<void> setColorNounsFor(String pageKey, bool value) async {
-    _colorNounsByPage = Map.of(_colorNounsByPage);
-    _colorNounsByPage[pageKey] = value;
+  Future<void> setColorNouns(bool value) async {
+    _colorNouns = value;
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('$_colorNounsKeyPrefix$pageKey', value);
+    await prefs.setBool(_colorNounsKey, value);
   }
 
   String _colorKey(String gender) => 'gender_color_$gender';
@@ -193,19 +232,21 @@ class NounSettings {
   }
 
   /// Wipes all stored progress and settings (quiz scores/streaks/history,
-  /// noun-category progression, disabled nouns, gender colors, and the
-  /// answer-reveal preference), restoring everything to its default state.
+  /// noun-category progression, disabled nouns, gender colors, the
+  /// answer-reveal preference, and the progression streak-unlock goal),
+  /// restoring everything to its default state.
   Future<void> resetAll() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
     _disabledNouns = {};
     _showEnglishByPage = {};
-    _colorNounsByPage = {};
+    _colorNouns = false;
     _genderColors = Map.of(defaultGenderColors);
     _lastPage = null;
     _completedNounCategories = {};
     _lastNounProgressionKey = null;
     _answerRevealMode = AnswerRevealMode.normal;
+    _progressionUnlockLaps = defaultProgressionUnlockLaps;
   }
 
   Future<void> toggle(String noun) async {

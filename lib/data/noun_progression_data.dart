@@ -9,10 +9,6 @@ const Map<String, String> _baseArticles = {'m': 'der', 'f': 'die', 'n': 'das'};
 /// from every noun in [germanNouns] (see `nounArticleQuizConfig`).
 const String kAllNounsProgressionKey = 'all';
 
-/// Number of correct answers in a row needed in a noun-category sub-quiz to
-/// unlock the next entry in the progression.
-const int kProgressionUnlockStreak = 5;
-
 /// All ~30 category keys from [nounCategoryDisplayNames], ordered
 /// easiest-first by each category's average noun [NounDifficulty]
 /// (beginner=0/intermediate=1/advanced=2), ties broken alphabetically.
@@ -107,9 +103,9 @@ final List<NounProgressionEntry> nounProgressionEntries = [
 ];
 
 /// Index of the first entry in [nounProgressionEntries] that isn't unlocked
-/// yet, given [completed] (the set of progression keys that have reached a
-/// `kProgressionUnlockStreak`-answer streak). Entry 0 is always unlocked;
-/// entry `i` (i>0) is
+/// yet, given [completed] (the set of progression keys that have reached the
+/// configured streak-unlock goal, `NounSettings.progressionUnlockStreak`).
+/// Entry 0 is always unlocked; entry `i` (i>0) is
 /// unlocked iff `nounProgressionEntries[i - 1].key` is in [completed].
 /// Returns `nounProgressionEntries.length` if every entry is unlocked.
 int firstLockedNounProgressionIndex(Set<String> completed) {

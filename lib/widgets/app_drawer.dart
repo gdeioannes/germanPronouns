@@ -99,6 +99,7 @@ class _AppDrawerState extends State<AppDrawer> {
     required VoidCallback? onTap,
     Widget? subtitle,
     Color? titleColor,
+    int? number,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
@@ -126,6 +127,20 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                 ),
                 const SizedBox(width: 12),
+                if (number != null) ...[
+                  SizedBox(
+                    width: 20,
+                    child: Text(
+                      '$number',
+                      textAlign: TextAlign.center,
+                      style: textTheme.labelMedium?.copyWith(
+                        color: titleColor ?? colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                ],
                 IconBadge(icon: icon, color: badgeColor, size: 36),
                 const SizedBox(width: 16),
                 Expanded(
@@ -157,12 +172,13 @@ class _AppDrawerState extends State<AppDrawer> {
   Widget _statsSubtitle(
     BuildContext context, {
     required int score,
-    required int streak,
+    required int bestStreakAbsolute,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
     final statStyle = Theme.of(context).textTheme.labelSmall?.copyWith(
       color: colorScheme.onSurfaceVariant,
     );
+    final streaks = bestStreakAbsolute ~/ NounSettings.streakLapSize;
 
     return Padding(
       padding: const EdgeInsets.only(top: 2),
@@ -183,7 +199,7 @@ class _AppDrawerState extends State<AppDrawer> {
             color: colorScheme.onSurfaceVariant,
           ),
           const SizedBox(width: 3),
-          Text('$streak', style: statStyle),
+          Text('×$streaks', style: statStyle),
         ],
       ),
     );
@@ -199,7 +215,8 @@ class _AppDrawerState extends State<AppDrawer> {
   }) {
     final prefix = _quizStorageKeyPrefixes[page]!;
     final score = prefs?.getInt('${prefix}quiz_score') ?? 0;
-    final streak = prefs?.getInt('${prefix}quiz_streak') ?? 0;
+    final bestStreakAbsolute =
+        prefs?.getInt('${prefix}quiz_best_streak_absolute') ?? 0;
 
     return _navTile(
       context,
@@ -210,7 +227,11 @@ class _AppDrawerState extends State<AppDrawer> {
       onTap: () => _navigateTo(context, page),
       subtitle: prefs == null
           ? null
-          : _statsSubtitle(context, score: score, streak: streak),
+          : _statsSubtitle(
+              context,
+              score: score,
+              bestStreakAbsolute: bestStreakAbsolute,
+            ),
     );
   }
 
@@ -236,11 +257,13 @@ class _AppDrawerState extends State<AppDrawer> {
     BuildContext context, {
     required NounProgressionEntry entry,
     required SharedPreferences? prefs,
+    int? number,
   }) {
     final isFinal = entry.key == kAllNounsProgressionKey;
     final prefix = entry.config.storageKeyPrefix;
     final score = prefs?.getInt('${prefix}quiz_score') ?? 0;
-    final streak = prefs?.getInt('${prefix}quiz_streak') ?? 0;
+    final bestStreakAbsolute =
+        prefs?.getInt('${prefix}quiz_best_streak_absolute') ?? 0;
 
     return _navTile(
       context,
@@ -255,7 +278,12 @@ class _AppDrawerState extends State<AppDrawer> {
       onTap: () => _navigateToNounProgression(context, entry.key),
       subtitle: prefs == null
           ? null
-          : _statsSubtitle(context, score: score, streak: streak),
+          : _statsSubtitle(
+              context,
+              score: score,
+              bestStreakAbsolute: bestStreakAbsolute,
+            ),
+      number: number,
     );
   }
 
@@ -264,11 +292,17 @@ class _AppDrawerState extends State<AppDrawer> {
     required NounProgressionEntry entry,
     required NounProgressionEntry previousEntry,
     required SharedPreferences? prefs,
+    int? number,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
-    final streak =
-        prefs?.getInt('${previousEntry.config.storageKeyPrefix}quiz_streak') ??
+    final bestStreakAbsolute =
+        prefs?.getInt(
+          '${previousEntry.config.storageKeyPrefix}quiz_best_streak_absolute',
+        ) ??
         0;
+    final bestStreaks = bestStreakAbsolute ~/ NounSettings.streakLapSize;
+    final unlockLaps = NounSettings.instance.progressionUnlockLaps;
+    final unlockStreak = NounSettings.instance.progressionUnlockStreak;
 
     return _navTile(
       context,
@@ -278,12 +312,14 @@ class _AppDrawerState extends State<AppDrawer> {
       selected: false,
       onTap: null,
       titleColor: colorScheme.onSurfaceVariant,
+      number: number,
       subtitle: Padding(
         padding: const EdgeInsets.only(top: 2),
         child: Text(
-          "Reach a $kProgressionUnlockStreak-streak in "
+          "Reach $unlockLaps streaks in a row "
+          "($unlockStreak correct answers) in "
           "'${previousEntry.displayName}' to unlock "
-          '(current: $streak/$kProgressionUnlockStreak)',
+          '(best: ×$bestStreaks/×$unlockLaps)',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),
@@ -356,37 +392,44 @@ class _AppDrawerState extends State<AppDrawer> {
     final completed = NounSettings.instance.completedNounCategories;
     final unlockedCount = firstLockedNounProgressionIndex(completed);
 
-    final tiles = <Widget>[];
+    final tiles = <Widget>[
+      _nounProgressionTile(
+        context,
+        entry: _currentNounProgressionEntry(completed),
+        prefs: prefs,
+      ),
+      _nounCategoriesToggleTile(context),
+    ];
+
     if (_nounCategoriesExpanded) {
-      for (var i = 0; i < unlockedCount; i++) {
-        tiles.add(
+      final categoryTiles = <Widget>[
+        for (var i = 0; i < unlockedCount; i++)
           _nounProgressionTile(
             context,
             entry: nounProgressionEntries[i],
             prefs: prefs,
+            number: i + 1,
           ),
-        );
-      }
-      if (unlockedCount < nounProgressionEntries.length) {
-        tiles.add(
+        if (unlockedCount < nounProgressionEntries.length)
           _lockedNounProgressionTile(
             context,
             entry: nounProgressionEntries[unlockedCount],
             previousEntry: nounProgressionEntries[unlockedCount - 1],
             prefs: prefs,
+            number: unlockedCount + 1,
           ),
-        );
-      }
-    } else {
+      ];
+
       tiles.add(
-        _nounProgressionTile(
-          context,
-          entry: _currentNounProgressionEntry(completed),
-          prefs: prefs,
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 280),
+          child: Scrollbar(
+            child: ListView(shrinkWrap: true, children: categoryTiles),
+          ),
         ),
       );
     }
-    tiles.add(_nounCategoriesToggleTile(context));
+
     return tiles;
   }
 

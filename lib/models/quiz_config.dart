@@ -207,9 +207,9 @@ class QuizConfig {
 
   /// When non-null, identifies this quiz within the noun-category
   /// progression (a key from `nounCategoryDisplayNames`, or
-  /// `kAllNounsProgressionKey`). Reaching a `kProgressionUnlockStreak`-answer
-  /// streak marks this key as "completed" via
-  /// `NounSettings.markNounCategoryCompleted`, which may unlock the next
+  /// `kAllNounsProgressionKey`). Reaching the configured streak-unlock goal
+  /// (`NounSettings.progressionUnlockStreak`) marks this key as "completed"
+  /// via `NounSettings.markNounCategoryCompleted`, which may unlock the next
   /// progression entry.
   final String? progressionKey;
 }
