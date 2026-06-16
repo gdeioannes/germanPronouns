@@ -375,6 +375,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Mittel/Ursache → "durch" + Akkusativ.',
   ),
 
+  PrepositionSentence(
+    target: 'durch',
+    sentence: 'Der Einbrecher kletterte ____ das offene Fenster.',
+    accepted: {'durch'},
+    english: 'The burglar climbed in through the open window.',
+    hint: 'Bewegung hindurch → "durch" + Akkusativ.',
+  ),
+  PrepositionSentence(
+    target: 'durch',
+    sentence: 'Sie hat die Prüfung ____ viel Üben bestanden.',
+    accepted: {'durch'},
+    english: 'She passed the exam through a lot of practice.',
+    hint: 'Mittel/Ursache → "durch" + Akkusativ.',
+  ),
+
   // für
   PrepositionSentence(
     target: 'für',
@@ -391,6 +406,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Geplante Zeitdauer → "für" + Akkusativ.',
   ),
 
+  PrepositionSentence(
+    target: 'für',
+    sentence: 'Ich habe ein Buch ____ dich gekauft.',
+    accepted: {'für'},
+    english: 'I bought a book for you.',
+    hint: 'Empfänger → "für" + Akkusativ.',
+  ),
+  PrepositionSentence(
+    target: 'für',
+    sentence: 'Er arbeitet ____ eine große Firma.',
+    accepted: {'für'},
+    english: 'He works for a big company.',
+    hint: 'Zweck/Zugehörigkeit → "für" + Akkusativ.',
+  ),
+
   // gegen
   PrepositionSentence(
     target: 'gegen',
@@ -405,6 +435,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     accepted: {'gegen'},
     english: "We're meeting around eight o'clock.",
     hint: 'Ungefähre Uhrzeit → "gegen" + Akkusativ.',
+  ),
+
+  PrepositionSentence(
+    target: 'gegen',
+    sentence: 'Die Mannschaft spielt heute ____ den Tabellenführer.',
+    accepted: {'gegen'},
+    english: 'The team is playing against the league leaders today.',
+    hint: 'Gegnerschaft → "gegen" + Akkusativ.',
+  ),
+  PrepositionSentence(
+    target: 'gegen',
+    sentence: 'Ich nehme eine Tablette ____ die Kopfschmerzen.',
+    accepted: {'gegen'},
+    english: 'I take a pill for the headache.',
+    hint: 'Mittel gegen etwas → "gegen" + Akkusativ.',
   ),
 
   // ohne
@@ -425,6 +470,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
         'Kontext (Diabetes) macht "ohne" eindeutig.',
   ),
 
+  PrepositionSentence(
+    target: 'ohne',
+    sentence: 'Ich trinke meinen Tee ____ Milch.',
+    accepted: {'ohne'},
+    english: 'I drink my tea without milk.',
+    hint: 'Immer Akkusativ — hier ohne Artikel.',
+  ),
+  PrepositionSentence(
+    target: 'ohne',
+    sentence: 'Sie ging ____ einen Mantel in den kalten Schnee.',
+    accepted: {'ohne'},
+    english: 'She went out into the cold snow without a coat.',
+    hint: 'Fehlen von etwas → "ohne" + Akkusativ.',
+  ),
+
   // um
   PrepositionSentence(
     target: 'um',
@@ -439,6 +499,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     accepted: {'um'},
     english: 'The film starts at eight pm.',
     hint: 'Genaue Uhrzeit → "um" + Akkusativ.',
+  ),
+
+  PrepositionSentence(
+    target: 'um',
+    sentence: 'Wir saßen alle ____ das Lagerfeuer.',
+    accepted: {'um'},
+    english: 'We were all sitting around the campfire.',
+    hint: 'Räumlich umschließend → "um" + Akkusativ.',
+  ),
+  PrepositionSentence(
+    target: 'um',
+    sentence: 'Der Unterricht endet pünktlich ____ vierzehn Uhr.',
+    accepted: {'um'},
+    english: 'The lesson ends punctually at two pm.',
+    hint: 'Genaue Uhrzeit ("pünktlich") → "um" + Akkusativ.',
   ),
 
   // bis
@@ -457,6 +532,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Räumliche Grenze → "bis" (ohne Artikel bei Städtenamen).',
   ),
 
+  PrepositionSentence(
+    target: 'bis',
+    sentence: 'Das Geschäft ist ____ zwanzig Uhr geöffnet.',
+    accepted: {'bis'},
+    english: 'The shop is open until eight pm.',
+    hint: 'Zeitpunkt als Grenze → "bis" + Akkusativ (ohne Artikel).',
+  ),
+  PrepositionSentence(
+    target: 'bis',
+    sentence: 'Der Bus fährt nur ____ zur nächsten Haltestelle.',
+    accepted: {'bis'},
+    english: 'The bus only goes as far as the next stop.',
+    hint: 'Räumliche Grenze → "bis" ("bis zu" = bis + zu).',
+  ),
+
   // aus
   PrepositionSentence(
     target: 'aus',
@@ -470,6 +560,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     sentence: 'Der Tisch ist ____ Holz gemacht.',
     accepted: {'aus'},
     english: 'The table is made of wood.',
+    hint: 'Material → "aus" + Dativ.',
+  ),
+
+  PrepositionSentence(
+    target: 'aus',
+    sentence: 'Er nimmt das Geld ____ der Tasche.',
+    accepted: {'aus'},
+    english: 'He takes the money out of the bag.',
+    hint: 'Bewegung von innen heraus → "aus" + Dativ.',
+  ),
+  PrepositionSentence(
+    target: 'aus',
+    sentence: 'Der Ring ist ____ reinem Gold.',
+    accepted: {'aus'},
+    english: 'The ring is made of pure gold.',
     hint: 'Material → "aus" + Dativ.',
   ),
 
@@ -489,6 +594,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Gleichzeitige Tätigkeit → "bei" + Dativ ("beim" = bei + dem).',
   ),
 
+  PrepositionSentence(
+    target: 'bei',
+    sentence: 'Ich war gestern ____ meinem Arzt.',
+    accepted: {'bei'},
+    english: "I was at my doctor's yesterday.",
+    hint: 'Bei einer Person/Ort → "bei" + Dativ.',
+  ),
+  PrepositionSentence(
+    target: 'bei',
+    sentence: '____ der Arbeit höre ich gleichzeitig Musik.',
+    accepted: {'bei'},
+    english: 'While working I listen to music at the same time.',
+    hint: 'Gleichzeitige Tätigkeit → "bei" + Dativ.',
+  ),
+
   // mit
   PrepositionSentence(
     target: 'mit',
@@ -502,6 +622,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     sentence: 'Sie geht ____ ihrem Hund spazieren.',
     accepted: {'mit'},
     english: 'She goes for a walk with her dog.',
+    hint: 'Begleitung → "mit" + Dativ.',
+  ),
+
+  PrepositionSentence(
+    target: 'mit',
+    sentence: 'Ich schreibe den Brief ____ einem Kugelschreiber.',
+    accepted: {'mit'},
+    english: 'I write the letter with a pen.',
+    hint: 'Werkzeug/Mittel → "mit" + Dativ.',
+  ),
+  PrepositionSentence(
+    target: 'mit',
+    sentence: 'Sie spielt gern ____ ihren Freunden.',
+    accepted: {'mit'},
+    english: 'She likes playing with her friends.',
     hint: 'Begleitung → "mit" + Dativ.',
   ),
 
@@ -521,6 +656,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Richtung zu Stadt/Land → "nach" + Dativ (ohne Artikel).',
   ),
 
+  PrepositionSentence(
+    target: 'nach',
+    sentence: '____ dem langen Konzert waren wir alle müde.',
+    accepted: {'nach'},
+    english: 'After the long concert we were all tired.',
+    hint: 'Zeitliche Reihenfolge → "nach" + Dativ.',
+  ),
+  PrepositionSentence(
+    target: 'nach',
+    sentence: 'Im Sommer fliegen wir ____ Italien.',
+    accepted: {'nach'},
+    english: 'In summer we fly to Italy.',
+    hint: 'Richtung zu Land → "nach" + Dativ (ohne Artikel).',
+  ),
+
   // seit
   PrepositionSentence(
     target: 'seit',
@@ -534,6 +684,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     sentence: '____ dem Unfall trägt er eine Brille.',
     accepted: {'seit'},
     english: 'Since the accident he wears glasses.',
+    hint: 'Zeitpunkt in der Vergangenheit bis heute → "seit" + Dativ.',
+  ),
+
+  PrepositionSentence(
+    target: 'seit',
+    sentence: '____ einer Woche habe ich jeden Tag Kopfschmerzen.',
+    accepted: {'seit'},
+    english: "For a week I've had a headache every day.",
+    hint: 'Andauernd bis jetzt (Präsens) → "seit" + Dativ.',
+  ),
+  PrepositionSentence(
+    target: 'seit',
+    sentence: 'Wir kennen uns ____ unserer Schulzeit.',
+    accepted: {'seit'},
+    english: "We've known each other since our school days.",
     hint: 'Zeitpunkt in der Vergangenheit bis heute → "seit" + Dativ.',
   ),
 
@@ -553,6 +718,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Agens im Passiv → "von" + Dativ.',
   ),
 
+  PrepositionSentence(
+    target: 'von',
+    sentence: 'Ich habe einen Brief ____ meiner Tante bekommen.',
+    accepted: {'von'},
+    english: 'I received a letter from my aunt.',
+    hint: 'Herkunft → "von" + Dativ.',
+  ),
+  PrepositionSentence(
+    target: 'von',
+    sentence: 'Das ist das Auto ____ meinem Vater.',
+    accepted: {'von'},
+    english: "That's my father's car.",
+    hint: 'Besitz → "von" + Dativ.',
+  ),
+
   // zu
   PrepositionSentence(
     target: 'zu',
@@ -569,6 +749,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Anlass → "zu" + Dativ ("zu seinem Geburtstag").',
   ),
 
+  PrepositionSentence(
+    target: 'zu',
+    sentence: 'Nach der Schule gehe ich ____ meinem Freund.',
+    accepted: {'zu'},
+    english: "After school I go to my friend's.",
+    hint: 'Richtung zu einer Person → "zu" + Dativ.',
+  ),
+  PrepositionSentence(
+    target: 'zu',
+    sentence: '____ Weihnachten besuchen wir die Großeltern.',
+    accepted: {'zu'},
+    english: 'For Christmas we visit our grandparents.',
+    hint: 'Anlass → "zu" + Dativ.',
+  ),
+
   // während
   PrepositionSentence(
     target: 'während',
@@ -582,6 +777,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     sentence: '____ der Pause sprechen wir über das Projekt.',
     accepted: {'während'},
     english: 'During the break we talk about the project.',
+    hint: 'Zeitraum → "während" + Genitiv.',
+  ),
+
+  PrepositionSentence(
+    target: 'während',
+    sentence: '____ der Vorlesung hat er die ganze Zeit geschlafen.',
+    accepted: {'während'},
+    english: 'During the lecture he slept the whole time.',
+    hint: 'Zeitraum → "während" + Genitiv.',
+  ),
+  PrepositionSentence(
+    target: 'während',
+    sentence: '____ des Films klingelte plötzlich mein Handy.',
+    accepted: {'während'},
+    english: 'During the film my phone suddenly rang.',
     hint: 'Zeitraum → "während" + Genitiv.',
   ),
 
@@ -602,6 +812,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Grund → "wegen" + Genitiv.',
   ),
 
+  PrepositionSentence(
+    target: 'wegen',
+    sentence: '____ des Sturms fiel der Unterricht aus.',
+    accepted: {'wegen'},
+    english: 'Because of the storm the lesson was cancelled.',
+    hint: 'Grund/Ursache → "wegen" + Genitiv.',
+  ),
+  PrepositionSentence(
+    target: 'wegen',
+    sentence: 'Er wurde ____ seines Fehlers kritisiert.',
+    accepted: {'wegen'},
+    english: 'He was criticised because of his mistake.',
+    hint: 'Grund → "wegen" + Genitiv.',
+  ),
+
   // trotz
   PrepositionSentence(
     target: 'trotz',
@@ -615,6 +840,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     sentence: '____ seiner Erkältung ging er zur Arbeit.',
     accepted: {'trotz'},
     english: 'Despite his cold he went to work.',
+    hint: 'Gegensatz → "trotz" + Genitiv.',
+  ),
+
+  PrepositionSentence(
+    target: 'trotz',
+    sentence: '____ des Lärms konnte ich gut schlafen.',
+    accepted: {'trotz'},
+    english: 'Despite the noise I was able to sleep well.',
+    hint: 'Einschränkender Gegensatz → "trotz" + Genitiv.',
+  ),
+  PrepositionSentence(
+    target: 'trotz',
+    sentence: '____ seines hohen Alters läuft er jeden Tag.',
+    accepted: {'trotz'},
+    english: 'Despite his old age he runs every day.',
     hint: 'Gegensatz → "trotz" + Genitiv.',
   ),
 
@@ -634,6 +874,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Alternative → "statt" (+ Genitiv, hier ohne Artikel).',
   ),
 
+  PrepositionSentence(
+    target: 'statt',
+    sentence: '____ eines Autos kaufte er ein Fahrrad.',
+    accepted: {'statt'},
+    english: 'Instead of a car he bought a bicycle.',
+    hint: 'Ersatz/Alternative → "statt" + Genitiv.',
+  ),
+  PrepositionSentence(
+    target: 'statt',
+    sentence: 'Sie trank Wasser ____ eines Bieres.',
+    accepted: {'statt'},
+    english: 'She drank water instead of a beer.',
+    hint: 'Alternative → "statt" + Genitiv.',
+  ),
+
   // innerhalb
   PrepositionSentence(
     target: 'innerhalb',
@@ -647,6 +902,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     sentence: '____ der Stadt gibt es viele Parks.',
     accepted: {'innerhalb'},
     english: 'Within the city there are many parks.',
+    hint: 'Räumliche Begrenzung → "innerhalb" + Genitiv.',
+  ),
+
+  PrepositionSentence(
+    target: 'innerhalb',
+    sentence: '____ einer Woche müssen wir umziehen.',
+    accepted: {'innerhalb'},
+    english: 'Within a week we have to move out.',
+    hint: 'Zeitspanne als Grenze → "innerhalb" + Genitiv.',
+  ),
+  PrepositionSentence(
+    target: 'innerhalb',
+    sentence: '____ des Gebäudes ist das Rauchen verboten.',
+    accepted: {'innerhalb'},
+    english: 'Smoking is forbidden within the building.',
     hint: 'Räumliche Begrenzung → "innerhalb" + Genitiv.',
   ),
 
@@ -673,6 +943,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Wo? → Ort/Lage (Dativ): "an der Straße".',
   ),
 
+  PrepositionSentence(
+    target: 'an',
+    sentence: 'Häng den Kalender ____ die Tür.',
+    accepted: {'an'},
+    english: 'Hang the calendar on the door.',
+    hint: 'Wohin? → Richtung/Bewegung (Akkusativ): "an die Tür".',
+  ),
+  PrepositionSentence(
+    target: 'an',
+    sentence: '____ dem Montag habe ich frei.',
+    accepted: {'an'},
+    english: 'On Monday I have the day off.',
+    hint: 'Tag/Datum → "an" + Dativ ("am Montag").',
+  ),
+
   // auf
   PrepositionSentence(
     target: 'auf',
@@ -696,6 +981,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Wo? → feste Wendung "auf der Party" (Dativ).',
   ),
 
+  PrepositionSentence(
+    target: 'auf',
+    sentence: 'Stell die Teller ____ den Tisch.',
+    accepted: {'auf'},
+    english: 'Put the plates on the table.',
+    hint: 'Wohin? → Richtung/Bewegung (Akkusativ): "auf den Tisch".',
+  ),
+  PrepositionSentence(
+    target: 'auf',
+    sentence: 'Die Katze sitzt ____ dem Dach.',
+    accepted: {'auf'},
+    english: 'The cat is sitting on the roof.',
+    hint: 'Wo? → Ort/Lage (Dativ): "auf dem Dach".',
+  ),
+
   // hinter
   PrepositionSentence(
     target: 'hinter',
@@ -710,6 +1010,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     accepted: {'hinter'},
     english: 'The trash bins are behind the house.',
     hint: 'Wo? → Ort/Lage (Dativ): "hinter dem Haus".',
+  ),
+
+  PrepositionSentence(
+    target: 'hinter',
+    sentence: 'Versteck dich schnell ____ den Vorhang!',
+    accepted: {'hinter'},
+    english: 'Quickly hide behind the curtain!',
+    hint: 'Wohin? → Richtung/Bewegung (Akkusativ): "hinter den Vorhang".',
+  ),
+  PrepositionSentence(
+    target: 'hinter',
+    sentence: 'Die Garage liegt ____ dem Haus, nicht davor.',
+    accepted: {'hinter'},
+    english: 'The garage is behind the house, not in front of it.',
+    hint: 'Wo? → Ort/Lage (Dativ): "hinter dem Haus" ("nicht davor").',
   ),
 
   // in
@@ -735,6 +1050,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     hint: 'Wo? → Ort/Lage (Dativ): "in der Stadtmitte".',
   ),
 
+  PrepositionSentence(
+    target: 'in',
+    sentence: 'Sie legt die Milch ____ den Kühlschrank.',
+    accepted: {'in'},
+    english: 'She puts the milk into the fridge.',
+    hint: 'Wohin? → Richtung/Bewegung (Akkusativ): "in den Kühlschrank".',
+  ),
+  PrepositionSentence(
+    target: 'in',
+    sentence: 'Wir wohnen ____ einer kleinen Stadt.',
+    accepted: {'in'},
+    english: 'We live in a small town.',
+    hint: 'Wo? → Ort/Lage (Dativ): "in einer Stadt".',
+  ),
+
   // neben
   PrepositionSentence(
     target: 'neben',
@@ -749,6 +1079,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     accepted: {'neben'},
     english: 'The dog is lying next to the sofa.',
     hint: 'Wo? → Ort/Lage (Dativ): "neben dem Sofa".',
+  ),
+
+  PrepositionSentence(
+    target: 'neben',
+    sentence: 'Komm und setz dich ____ mich!',
+    accepted: {'neben'},
+    english: 'Come and sit down next to me!',
+    hint: 'Wohin? → Richtung/Bewegung (Akkusativ): "neben mich".',
+  ),
+  PrepositionSentence(
+    target: 'neben',
+    sentence: 'Im Kino saß ich ____ meiner besten Freundin.',
+    accepted: {'neben'},
+    english: 'At the cinema I sat next to my best friend.',
+    hint: 'Wo? → Ort/Lage (Dativ): "neben meiner Freundin".',
   ),
 
   // über
@@ -777,6 +1122,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
         'Wechselpräposition-Bedeutung hier).',
   ),
 
+  PrepositionSentence(
+    target: 'über',
+    sentence: 'Das Flugzeug fliegt hoch ____ die Wolken.',
+    accepted: {'über'},
+    english: 'The plane flies high up over the clouds.',
+    hint: 'Wohin?/Bewegung darüber hinweg → Akkusativ: "über die Wolken".',
+  ),
+  PrepositionSentence(
+    target: 'über',
+    sentence: 'Wir lesen ein Buch ____ die deutsche Geschichte.',
+    accepted: {'über'},
+    english: 'We are reading a book about German history.',
+    hint: 'Thema → "über" + immer Akkusativ.',
+  ),
+
   // unter
   PrepositionSentence(
     target: 'unter',
@@ -791,6 +1151,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     accepted: {'unter'},
     english: 'The shoes are lying under the bed.',
     hint: 'Wo? → Ort/Lage (Dativ): "unter dem Bett".',
+  ),
+
+  PrepositionSentence(
+    target: 'unter',
+    sentence: 'Der Ball rollte ____ das Auto.',
+    accepted: {'unter'},
+    english: 'The ball rolled under the car.',
+    hint: 'Wohin? → Richtung/Bewegung (Akkusativ): "unter das Auto".',
+  ),
+  PrepositionSentence(
+    target: 'unter',
+    sentence: 'Wir saßen ____ einem großen Baum im Schatten.',
+    accepted: {'unter'},
+    english: 'We sat in the shade under a big tree.',
+    hint: 'Wo? → Ort/Lage (Dativ): "unter einem Baum".',
   ),
 
   // vor
@@ -818,6 +1193,21 @@ const List<PrepositionSentence> prepositionSentenceBank = [
         'Wahlmöglichkeit).',
   ),
 
+  PrepositionSentence(
+    target: 'vor',
+    sentence: '____ einer Stunde hat es noch geregnet.',
+    accepted: {'vor'},
+    english: 'An hour ago it was still raining.',
+    hint: 'Zeitangabe "vor" + Dativ = "ago" (bei Zeit immer Dativ).',
+  ),
+  PrepositionSentence(
+    target: 'vor',
+    sentence: 'Wir treffen uns ____ dem Eingang des Kinos.',
+    accepted: {'vor'},
+    english: 'We are meeting in front of the cinema entrance.',
+    hint: 'Wo? → Ort/Lage (Dativ): "vor dem Eingang".',
+  ),
+
   // zwischen
   PrepositionSentence(
     target: 'zwischen',
@@ -832,6 +1222,20 @@ const List<PrepositionSentence> prepositionSentenceBank = [
     accepted: {'zwischen'},
     english: 'The car is parked between the two houses.',
     hint: 'Wo? → Ort/Lage (Dativ): "zwischen den Häusern".',
+  ),
+  PrepositionSentence(
+    target: 'zwischen',
+    sentence: 'Er setzte sich ____ die beiden Mädchen.',
+    accepted: {'zwischen'},
+    english: 'He sat down between the two girls.',
+    hint: 'Wohin? → Richtung/Bewegung (Akkusativ): "zwischen die Mädchen".',
+  ),
+  PrepositionSentence(
+    target: 'zwischen',
+    sentence: 'Die Kirche steht ____ dem Rathaus und der Schule.',
+    accepted: {'zwischen'},
+    english: 'The church stands between the town hall and the school.',
+    hint: 'Wo? → Ort/Lage (Dativ): "zwischen dem Rathaus und der Schule".',
   ),
 ];
 

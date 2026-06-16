@@ -250,6 +250,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Medikament', gender: 'n', english: 'medicine', categories: ['health'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Pflaster', gender: 'n', english: 'band-aid', categories: ['health'], difficulty: NounDifficulty.advanced, declensionSafe: true),
   GermanNoun(noun: 'Symptom', gender: 'n', english: 'symptom', categories: ['health'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Kopfschmerz', gender: 'm', english: 'headache', categories: ['health'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── Clothing (Kleidung) ──────────────────────────────────────────────
   GermanNoun(noun: 'Mantel', gender: 'm', english: 'coat', categories: ['clothing'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -276,6 +277,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Kleid', gender: 'n', english: 'dress', categories: ['clothing'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'T-Shirt', gender: 'n', english: 't-shirt', categories: ['clothing'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Trikot', gender: 'n', english: 'jersey', categories: ['clothing', 'sports'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Ring', gender: 'm', english: 'ring', categories: ['clothing'], difficulty: NounDifficulty.beginner, declensionSafe: true),
 
   // ── Family & People (Familie) ────────────────────────────────────────
   GermanNoun(noun: 'Mann', gender: 'm', english: 'man/husband', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -303,6 +305,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Baby', gender: 'n', english: 'baby', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Mädchen', gender: 'n', english: 'girl', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Enkelkind', gender: 'n', english: 'grandchild', categories: ['family'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Einbrecher', gender: 'm', english: 'burglar', categories: ['family'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── Professions (Berufe) ─────────────────────────────────────────────
   GermanNoun(noun: 'Lehrer', gender: 'm', english: 'teacher', categories: ['professions'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -361,6 +364,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Gemälde', gender: 'n', english: 'painting', categories: ['furniture', 'music'], difficulty: NounDifficulty.advanced, declensionSafe: true),
   GermanNoun(noun: 'Wohnzimmer', gender: 'n', english: 'living room', categories: ['furniture', 'city'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Schlafzimmer', gender: 'n', english: 'bedroom', categories: ['furniture', 'city'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Tür', gender: 'f', english: 'door', categories: ['furniture'], difficulty: NounDifficulty.beginner, declensionSafe: true),
 
   // ── Bathroom (Badezimmer) ────────────────────────────────────────────
   GermanNoun(noun: 'Hahn', gender: 'm', english: 'faucet', categories: ['bathroom'], difficulty: NounDifficulty.advanced, declensionSafe: true),
@@ -396,6 +400,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Feld', gender: 'n', english: 'field', categories: ['nature', 'garden'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Gras', gender: 'n', english: 'grass', categories: ['nature', 'garden'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Holz', gender: 'n', english: 'wood', categories: ['nature', 'materials'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Schatten', gender: 'm', english: 'shadow/shade', categories: ['nature'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── Weather & Seasons (Wetter) ───────────────────────────────────────
   GermanNoun(noun: 'Regen', gender: 'm', english: 'rain', categories: ['weather'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -448,6 +453,10 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Geschäft', gender: 'n', english: 'shop/business', categories: ['city', 'shopping'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Gebäude', gender: 'n', english: 'building', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Theater', gender: 'n', english: 'theater', categories: ['city', 'music'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Kino', gender: 'n', english: 'cinema', categories: ['city'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Dach', gender: 'n', english: 'roof', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Garage', gender: 'f', english: 'garage', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Eingang', gender: 'm', english: 'entrance', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── Transport & Travel (Verkehr) ─────────────────────────────────────
   GermanNoun(noun: 'Bus', gender: 'm', english: 'bus', categories: ['transport'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -470,6 +479,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Taxi', gender: 'n', english: 'taxi', categories: ['transport'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Motorrad', gender: 'n', english: 'motorcycle', categories: ['transport'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Gepäck', gender: 'n', english: 'luggage', categories: ['transport'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Haltestelle', gender: 'f', english: 'stop (bus/tram)', categories: ['transport'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── School & Education (Schule) ──────────────────────────────────────
   GermanNoun(noun: 'Stift', gender: 'm', english: 'pen', categories: ['school', 'office'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -492,6 +502,8 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Studium', gender: 'n', english: 'studies', categories: ['school'], difficulty: NounDifficulty.advanced, declensionSafe: true),
   GermanNoun(noun: 'Zeugnis', gender: 'n', english: 'report card', categories: ['school'], difficulty: NounDifficulty.advanced, declensionSafe: true),
   GermanNoun(noun: 'Gymnasium', gender: 'n', english: 'high school', categories: ['school'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Vorlesung', gender: 'f', english: 'lecture', categories: ['school'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Schulzeit', gender: 'f', english: 'school days', categories: ['school'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── Office & Stationery (Büro) ───────────────────────────────────────
   GermanNoun(noun: 'Computer', gender: 'm', english: 'computer', categories: ['office', 'technology'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -507,6 +519,8 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Dokument', gender: 'n', english: 'document', categories: ['office'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Formular', gender: 'n', english: 'form', categories: ['office'], difficulty: NounDifficulty.advanced, declensionSafe: true),
   GermanNoun(noun: 'Etikett', gender: 'n', english: 'label', categories: ['office'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Arbeit', gender: 'f', english: 'work', categories: ['office'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Firma', gender: 'f', english: 'company', categories: ['office'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── Technology (Technik) ─────────────────────────────────────────────
   GermanNoun(noun: 'Fernseher', gender: 'm', english: 'TV', categories: ['technology', 'media'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -554,6 +568,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Training', gender: 'n', english: 'training', categories: ['sports'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Turnier', gender: 'n', english: 'tournament', categories: ['sports'], difficulty: NounDifficulty.advanced, declensionSafe: true),
   GermanNoun(noun: 'Fitnessstudio', gender: 'n', english: 'gym', categories: ['sports', 'city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Tabellenführer', gender: 'm', english: 'league leader', categories: ['sports'], difficulty: NounDifficulty.advanced, declensionSafe: true),
 
   // ── Hobbies & Leisure (Freizeit) ─────────────────────────────────────
   GermanNoun(noun: 'Film', gender: 'm', english: 'movie', categories: ['hobbies', 'media'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -567,6 +582,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Hobby', gender: 'n', english: 'hobby', categories: ['hobbies'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Puzzle', gender: 'n', english: 'puzzle', categories: ['hobbies'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Picknick', gender: 'n', english: 'picnic', categories: ['hobbies'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Lagerfeuer', gender: 'n', english: 'campfire', categories: ['hobbies'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 
   // ── Music & Arts (Musik) ─────────────────────────────────────────────
   GermanNoun(noun: 'Sänger', gender: 'm', english: 'singer', categories: ['music', 'professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
@@ -598,6 +614,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Jahr', gender: 'n', english: 'year', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Datum', gender: 'n', english: 'date', categories: ['time'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Wochenende', gender: 'n', english: 'weekend', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Montag', gender: 'm', english: 'Monday', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
 
   // ── Money & Shopping (Geld) ──────────────────────────────────────────
   GermanNoun(noun: 'Preis', gender: 'm', english: 'price', categories: ['shopping'], difficulty: NounDifficulty.beginner, declensionSafe: true),
@@ -692,4 +709,7 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Beispiel', gender: 'n', english: 'example', categories: ['abstract'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Ergebnis', gender: 'n', english: 'result', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Recht', gender: 'n', english: 'right', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Lärm', gender: 'm', english: 'noise', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Alter', gender: 'n', english: 'age', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Geschichte', gender: 'f', english: 'history/story', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 ];

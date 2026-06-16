@@ -198,6 +198,7 @@ const Map<String, String> nounPlurals = {
   'Medikament': 'Medikamente',
   'Pflaster': 'Pflaster',
   'Symptom': 'Symptome',
+  'Kopfschmerz': 'Kopfschmerzen',
 
   // ── Clothing (Kleidung) ──────────────────────────────────────────────
   'Mantel': 'Mäntel',
@@ -224,6 +225,7 @@ const Map<String, String> nounPlurals = {
   'Kleid': 'Kleider',
   'T-Shirt': 'T-Shirts',
   'Trikot': 'Trikots',
+  'Ring': 'Ringe',
 
   // ── Family & People (Familie) ────────────────────────────────────────
   'Mann': 'Männer',
@@ -251,6 +253,7 @@ const Map<String, String> nounPlurals = {
   'Baby': 'Babys',
   'Mädchen': 'Mädchen',
   'Enkelkind': 'Enkelkinder',
+  'Einbrecher': 'Einbrecher',
 
   // ── Professions (Berufe) ─────────────────────────────────────────────
   'Lehrer': 'Lehrer',
@@ -308,6 +311,7 @@ const Map<String, String> nounPlurals = {
   'Gemälde': 'Gemälde',
   'Wohnzimmer': 'Wohnzimmer',
   'Schlafzimmer': 'Schlafzimmer',
+  'Tür': 'Türen',
 
   // ── Bathroom (Badezimmer) ────────────────────────────────────────────
   'Hahn': 'Hähne',
@@ -342,6 +346,7 @@ const Map<String, String> nounPlurals = {
   'Feld': 'Felder',
   'Gras': 'Gräser',
   'Holz': 'Hölzer',
+  'Schatten': 'Schatten',
 
   // ── Weather & Seasons (Wetter) ───────────────────────────────────────
   'Wind': 'Winde',
@@ -388,6 +393,10 @@ const Map<String, String> nounPlurals = {
   'Geschäft': 'Geschäfte',
   'Gebäude': 'Gebäude',
   'Theater': 'Theater',
+  'Kino': 'Kinos',
+  'Dach': 'Dächer',
+  'Garage': 'Garagen',
+  'Eingang': 'Eingänge',
 
   // ── Transport & Travel (Verkehr) ─────────────────────────────────────
   'Bus': 'Busse',
@@ -409,6 +418,7 @@ const Map<String, String> nounPlurals = {
   'Schiff': 'Schiffe',
   'Taxi': 'Taxis',
   'Motorrad': 'Motorräder',
+  'Haltestelle': 'Haltestellen',
 
   // ── School & Education (Schule) ──────────────────────────────────────
   'Stift': 'Stifte',
@@ -429,6 +439,8 @@ const Map<String, String> nounPlurals = {
   'Studium': 'Studien',
   'Zeugnis': 'Zeugnisse',
   'Gymnasium': 'Gymnasien',
+  'Vorlesung': 'Vorlesungen',
+  'Schulzeit': 'Schulzeiten',
 
   // ── Office & Stationery (Büro) ───────────────────────────────────────
   'Computer': 'Computer',
@@ -444,6 +456,8 @@ const Map<String, String> nounPlurals = {
   'Dokument': 'Dokumente',
   'Formular': 'Formulare',
   'Etikett': 'Etiketten',
+  'Arbeit': 'Arbeiten',
+  'Firma': 'Firmen',
 
   // ── Technology (Technik) ─────────────────────────────────────────────
   'Fernseher': 'Fernseher',
@@ -487,6 +501,7 @@ const Map<String, String> nounPlurals = {
   'Training': 'Trainings',
   'Turnier': 'Turniere',
   'Fitnessstudio': 'Fitnessstudios',
+  'Tabellenführer': 'Tabellenführer',
 
   // ── Hobbies & Leisure (Freizeit) ─────────────────────────────────────
   'Film': 'Filme',
@@ -499,6 +514,7 @@ const Map<String, String> nounPlurals = {
   'Hobby': 'Hobbys',
   'Puzzle': 'Puzzles',
   'Picknick': 'Picknicks',
+  'Lagerfeuer': 'Lagerfeuer',
 
   // ── Music & Arts (Musik) ─────────────────────────────────────────────
   'Sänger': 'Sänger',
@@ -527,6 +543,7 @@ const Map<String, String> nounPlurals = {
   'Jahr': 'Jahre',
   'Datum': 'Daten',
   'Wochenende': 'Wochenenden',
+  'Montag': 'Montage',
 
   // ── Money & Shopping (Geld) ──────────────────────────────────────────
   'Preis': 'Preise',
@@ -603,4 +620,5 @@ const Map<String, String> nounPlurals = {
   'Beispiel': 'Beispiele',
   'Ergebnis': 'Ergebnisse',
   'Recht': 'Rechte',
+  'Geschichte': 'Geschichten',
 };

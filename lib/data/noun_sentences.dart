@@ -185,6 +185,7 @@ const Map<String, String> nounSentences = {
   'Medikament': '____ Medikament hilft gegen die Schmerzen.',
   'Pflaster': '____ Pflaster klebt auf der Wunde.',
   'Symptom': '____ Symptom verschwindet nach ein paar Tagen.',
+  'Kopfschmerz': '____ Kopfschmerz wird immer schlimmer.',
 
   // ── Clothing (Kleidung) ──────────────────────────────────────────────
   'Mantel': '____ Mantel hängt an der Tür.',
@@ -211,6 +212,7 @@ const Map<String, String> nounSentences = {
   'Kleid': '____ Kleid passt perfekt zur Party.',
   'T-Shirt': '____ T-Shirt ist im Sommer praktisch.',
   'Trikot': '____ Trikot zeigt die Vereinsfarben.',
+  'Ring': '____ Ring glänzt aus reinem Gold.',
 
   // ── Family & People (Familie) ────────────────────────────────────────
   'Mann': '____ Mann liest die Zeitung.',
@@ -238,6 +240,7 @@ const Map<String, String> nounSentences = {
   'Baby': '____ Baby schläft sehr fest.',
   'Mädchen': '____ Mädchen singt ein schönes Lied.',
   'Enkelkind': '____ Enkelkind besucht oft die Großeltern.',
+  'Einbrecher': '____ Einbrecher klettert durch das Fenster.',
 
   // ── Professions (Berufe) ─────────────────────────────────────────────
   'Lehrer': '____ Lehrer erklärt die Aufgabe.',
@@ -296,6 +299,7 @@ const Map<String, String> nounSentences = {
   'Gemälde': '____ Gemälde hängt im Museum.',
   'Wohnzimmer': '____ Wohnzimmer ist hell und gemütlich.',
   'Schlafzimmer': '____ Schlafzimmer liegt im ersten Stock.',
+  'Tür': '____ Tür steht weit offen.',
 
   // ── Bathroom (Badezimmer) ────────────────────────────────────────────
   'Hahn': '____ Hahn tropft schon seit Tagen.',
@@ -331,6 +335,7 @@ const Map<String, String> nounSentences = {
   'Feld': '____ Feld ist voller reifem Weizen.',
   'Gras': '____ Gras wächst nach dem Regen schnell.',
   'Holz': '____ Holz brennt im Kamin.',
+  'Schatten': '____ Schatten fällt auf die Wiese.',
 
   // ── Weather & Seasons (Wetter) ───────────────────────────────────────
   'Regen': '____ Regen fällt die ganze Nacht.',
@@ -383,6 +388,10 @@ const Map<String, String> nounSentences = {
   'Geschäft': '____ Geschäft verkauft schöne Geschenke.',
   'Gebäude': '____ Gebäude ist sehr modern.',
   'Theater': '____ Theater zeigt ein neues Stück.',
+  'Kino': '____ Kino zeigt heute einen neuen Film.',
+  'Dach': '____ Dach ist mit Schnee bedeckt.',
+  'Garage': '____ Garage ist viel zu klein.',
+  'Eingang': '____ Eingang ist gleich um die Ecke.',
 
   // ── Transport & Travel (Verkehr) ─────────────────────────────────────
   'Bus': '____ Bus kommt jede Stunde.',
@@ -405,6 +414,7 @@ const Map<String, String> nounSentences = {
   'Taxi': '____ Taxi wartet vor dem Hotel.',
   'Motorrad': '____ Motorrad ist sehr laut.',
   'Gepäck': '____ Gepäck wiegt zu viel.',
+  'Haltestelle': '____ Haltestelle ist direkt vor dem Haus.',
 
   // ── School & Education (Schule) ──────────────────────────────────────
   'Stift': '____ Stift schreibt nicht mehr.',
@@ -427,6 +437,8 @@ const Map<String, String> nounSentences = {
   'Studium': '____ Studium dauert vier Jahre.',
   'Zeugnis': '____ Zeugnis zeigt gute Noten.',
   'Gymnasium': '____ Gymnasium liegt am Stadtrand.',
+  'Vorlesung': '____ Vorlesung beginnt um neun Uhr.',
+  'Schulzeit': '____ Schulzeit war eine schöne Zeit.',
 
   // ── Office & Stationery (Büro) ───────────────────────────────────────
   'Computer': '____ Computer startet sehr langsam.',
@@ -442,6 +454,8 @@ const Map<String, String> nounSentences = {
   'Dokument': '____ Dokument muss heute noch raus.',
   'Formular': '____ Formular braucht eine Unterschrift.',
   'Etikett': '____ Etikett zeigt den Preis.',
+  'Arbeit': '____ Arbeit macht mir großen Spaß.',
+  'Firma': '____ Firma hat viele Mitarbeiter.',
 
   // ── Technology (Technik) ─────────────────────────────────────────────
   'Fernseher': '____ Fernseher läuft den ganzen Abend.',
@@ -489,6 +503,7 @@ const Map<String, String> nounSentences = {
   'Training': '____ Training beginnt um sechs Uhr.',
   'Turnier': '____ Turnier dauert das ganze Wochenende.',
   'Fitnessstudio': '____ Fitnessstudio ist abends sehr voll.',
+  'Tabellenführer': '____ Tabellenführer gewinnt schon wieder.',
 
   // ── Hobbies & Leisure (Freizeit) ─────────────────────────────────────
   'Film': '____ Film dauert zwei Stunden.',
@@ -502,6 +517,7 @@ const Map<String, String> nounSentences = {
   'Hobby': '____ Hobby macht jeden Tag Spaß.',
   'Puzzle': '____ Puzzle hat tausend Teile.',
   'Picknick': '____ Picknick findet im Park statt.',
+  'Lagerfeuer': '____ Lagerfeuer brennt die ganze Nacht.',
 
   // ── Music & Arts (Musik) ─────────────────────────────────────────────
   'Sänger': '____ Sänger singt vor tausend Fans.',
@@ -533,6 +549,7 @@ const Map<String, String> nounSentences = {
   'Jahr': '____ Jahr endet im Dezember.',
   'Datum': '____ Datum steht oben auf dem Brief.',
   'Wochenende': '____ Wochenende kommt viel zu schnell.',
+  'Montag': '____ Montag ist mein freier Tag.',
 
   // ── Money & Shopping (Geld) ──────────────────────────────────────────
   'Preis': '____ Preis steigt jeden Monat.',
@@ -627,4 +644,7 @@ const Map<String, String> nounSentences = {
   'Beispiel': '____ Beispiel erklärt alles ganz einfach.',
   'Ergebnis': '____ Ergebnis überrascht alle.',
   'Recht': '____ Recht gilt für jeden gleich.',
+  'Lärm': '____ Lärm stört die ganze Nachbarschaft.',
+  'Alter': '____ Alter spielt hier keine Rolle.',
+  'Geschichte': '____ Geschichte handelt von einem Drachen.',
 };
