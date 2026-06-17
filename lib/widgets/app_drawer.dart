@@ -7,6 +7,7 @@ import '../models/noun_settings.dart';
 import '../pages/article_quiz_page.dart';
 import '../pages/noun_article_quiz_page.dart';
 import '../pages/preposition_quiz_page.dart';
+import '../pages/pronoun_article_quiz_page.dart';
 import '../pages/pronoun_quiz_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
@@ -19,6 +20,7 @@ enum AppPage {
   pronouns,
   articles,
   nounsArticles,
+  pronounsAndArticles,
   prepositions,
   wordLibrary,
   settings,
@@ -30,6 +32,7 @@ Widget buildAppPage(AppPage page) => switch (page) {
   AppPage.pronouns => const PronounQuizPage(),
   AppPage.articles => const ArticleQuizPage(),
   AppPage.nounsArticles => const NounArticleQuizPage(),
+  AppPage.pronounsAndArticles => const PronounArticleQuizPage(),
   AppPage.prepositions => const PrepositionQuizPage(),
   AppPage.wordLibrary => const WordLibraryPage(),
   AppPage.settings => const SettingsPage(),
@@ -49,6 +52,7 @@ AppPage? appPageFromName(String? name) {
 const Map<AppPage, String> _quizStorageKeyPrefixes = {
   AppPage.pronouns: '',
   AppPage.articles: 'article_',
+  AppPage.pronounsAndArticles: 'pronoun_article_',
   AppPage.prepositions: 'preposition_',
 };
 
@@ -511,6 +515,14 @@ class _AppDrawerState extends State<AppDrawer> {
                   badgeColor: kSectionAccentColors[0],
                   title: 'Pronouns',
                   page: AppPage.pronouns,
+                  prefs: prefs,
+                ),
+                _quizTile(
+                  context,
+                  icon: Icons.article_rounded,
+                  badgeColor: kSectionAccentColors[3],
+                  title: 'Pronouns & Articles',
+                  page: AppPage.pronounsAndArticles,
                   prefs: prefs,
                 ),
                 _quizTile(

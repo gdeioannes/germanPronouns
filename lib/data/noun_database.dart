@@ -712,4 +712,152 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Lärm', gender: 'm', english: 'noise', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Alter', gender: 'n', english: 'age', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
   GermanNoun(noun: 'Geschichte', gender: 'f', english: 'history/story', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // ── New nouns from Pronouns & Articles sentences ──────────────────────
+  // School context
+  GermanNoun(noun: 'Aufgabe', gender: 'f', english: 'task/assignment', categories: ['school'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Schüler', gender: 'm', english: 'student (male)', categories: ['school', 'professions'], difficulty: NounDifficulty.beginner, declensionSafe: false),
+  GermanNoun(noun: 'Schülerin', gender: 'f', english: 'student (female)', categories: ['school', 'professions'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Schulhof', gender: 'm', english: 'schoolyard', categories: ['school'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Lehrbuch', gender: 'n', english: 'textbook', categories: ['school', 'media'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+
+  // Professions
+  GermanNoun(noun: 'Direktor', gender: 'm', english: 'director/principal', categories: ['professions', 'school'], difficulty: NounDifficulty.intermediate, declensionSafe: false),
+  GermanNoun(noun: 'Direktorin', gender: 'f', english: 'director/principal (female)', categories: ['professions', 'school'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Trainer', gender: 'm', english: 'coach/trainer', categories: ['professions', 'sports'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Reiseleiter', gender: 'm', english: 'tour guide', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Berater', gender: 'm', english: 'advisor/consultant', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Busfahrer', gender: 'm', english: 'bus driver', categories: ['professions', 'transport'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Fahrer', gender: 'm', english: 'driver', categories: ['professions', 'transport'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Mechaniker', gender: 'm', english: 'mechanic', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Mitarbeiter', gender: 'm', english: 'employee/coworker', categories: ['professions', 'office'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Tourist', gender: 'm', english: 'tourist', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: false),
+
+  // Family & People
+  GermanNoun(noun: 'Cousin', gender: 'm', english: 'cousin (male)', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Cousine', gender: 'f', english: 'cousin (female)', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Gast', gender: 'm', english: 'guest', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Gäste', gender: 'm', english: 'guests (plural)', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Großeltern', gender: 'f', english: 'grandparents (plural)', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Eltern', gender: 'f', english: 'parents (plural)', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+
+  // Toys & Games
+  GermanNoun(noun: 'Spielzeug', gender: 'n', english: 'toy', categories: ['hobbies'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+
+  // Places & Things
+  GermanNoun(noun: 'Klassenzimmer', gender: 'n', english: 'classroom', categories: ['school'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Hof', gender: 'm', english: 'yard/courtyard', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Weg', gender: 'm', english: 'way/path', categories: ['city', 'transport'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Zimmer', gender: 'n', english: 'room', categories: ['furniture'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Paket', gender: 'n', english: 'package/parcel', categories: ['shopping'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Vertrag', gender: 'm', english: 'contract', categories: ['office'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // Abstract & Time
+  GermanNoun(noun: 'Gruppe', gender: 'f', english: 'group', categories: ['abstract'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Fest', gender: 'n', english: 'festival/celebration', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Rat', gender: 'm', english: 'advice', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'System', gender: 'n', english: 'system', categories: ['abstract', 'technology'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Abend', gender: 'm', english: 'evening', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Nachmittag', gender: 'm', english: 'afternoon', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+
+  // ── Story vocabulary from the Pronouns & Articles quiz sentences ───────
+  // Animals
+  GermanNoun(noun: 'Taube', gender: 'f', english: 'pigeon/dove', categories: ['animals'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Pinguin', gender: 'm', english: 'penguin', categories: ['animals'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Hamster', gender: 'm', english: 'hamster', categories: ['animals'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Pony', gender: 'n', english: 'pony', categories: ['animals'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Einhorn', gender: 'n', english: 'unicorn', categories: ['animals'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Brieftaube', gender: 'f', english: 'carrier pigeon', categories: ['animals'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+
+  // Family & People
+  GermanNoun(noun: 'Oma', gender: 'f', english: 'grandma', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Opa', gender: 'm', english: 'grandpa', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Brieffreund', gender: 'm', english: 'pen pal (male)', categories: ['family'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Brieffreundin', gender: 'f', english: 'pen pal (female)', categories: ['family'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Gastgeberin', gender: 'f', english: 'hostess', categories: ['family'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Zwilling', gender: 'm', english: 'twin', categories: ['family'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // Professions & Characters
+  GermanNoun(noun: 'Professor', gender: 'm', english: 'professor', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Clown', gender: 'm', english: 'clown', categories: ['professions'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Clownin', gender: 'f', english: 'clown (female)', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Hausmeister', gender: 'm', english: 'caretaker/janitor', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Tanzlehrer', gender: 'm', english: 'dance teacher', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Zauberer', gender: 'm', english: 'wizard/magician', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Ritter', gender: 'm', english: 'knight', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Prinzessin', gender: 'f', english: 'princess', categories: ['professions'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Wahrsagerin', gender: 'f', english: 'fortune teller', categories: ['professions'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Chauffeur', gender: 'm', english: 'chauffeur', categories: ['professions'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Chefin', gender: 'f', english: 'boss (female)', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Profi', gender: 'm', english: 'pro/expert', categories: ['professions'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // Food
+  GermanNoun(noun: 'Pizza', gender: 'f', english: 'pizza', categories: ['food'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Pudding', gender: 'm', english: 'pudding', categories: ['food'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Keks', gender: 'm', english: 'cookie/biscuit', categories: ['food'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Pommes', gender: 'f', english: 'fries (plural)', categories: ['food'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Buffet', gender: 'n', english: 'buffet', categories: ['food'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Geheimrezept', gender: 'n', english: 'secret recipe', categories: ['food'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+
+  // City & Places
+  GermanNoun(noun: 'Brunnen', gender: 'm', english: 'fountain/well', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Palast', gender: 'm', english: 'palace', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Spielplatz', gender: 'm', english: 'playground', categories: ['city'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Riesenrad', gender: 'n', english: 'ferris wheel', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Umzug', gender: 'm', english: 'move/relocation', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // Transport
+  GermanNoun(noun: 'Limousine', gender: 'f', english: 'limousine', categories: ['transport'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Wohnmobil', gender: 'n', english: 'camper van', categories: ['transport'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Eiswagen', gender: 'm', english: 'ice cream van', categories: ['transport'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Aufzug', gender: 'm', english: 'elevator/lift', categories: ['technology'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // Technology
+  GermanNoun(noun: 'Forum', gender: 'n', english: 'forum', categories: ['technology'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Navi', gender: 'n', english: 'sat-nav/GPS', categories: ['technology'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Megafon', gender: 'n', english: 'megaphone', categories: ['technology'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Tablet', gender: 'n', english: 'tablet', categories: ['technology'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+
+  // School
+  GermanNoun(noun: 'Labor', gender: 'n', english: 'laboratory', categories: ['school'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Experiment', gender: 'n', english: 'experiment', categories: ['school'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Klassenfoto', gender: 'n', english: 'class photo', categories: ['school'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Tafeldienst', gender: 'm', english: 'board duty', categories: ['school'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+
+  // Media & Stage
+  GermanNoun(noun: 'Comicheft', gender: 'n', english: 'comic book', categories: ['media'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Talentshow', gender: 'f', english: 'talent show', categories: ['media'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Zeitlupe', gender: 'f', english: 'slow motion', categories: ['media'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Bühne', gender: 'f', english: 'stage', categories: ['media'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // Hobbies & Sports
+  GermanNoun(noun: 'Karaoke', gender: 'n', english: 'karaoke', categories: ['hobbies'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Yoga', gender: 'n', english: 'yoga', categories: ['sports'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Tango', gender: 'm', english: 'tango', categories: ['music'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Trampolin', gender: 'n', english: 'trampoline', categories: ['hobbies'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Luftballon', gender: 'm', english: 'balloon', categories: ['hobbies'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Sticker', gender: 'm', english: 'sticker', categories: ['hobbies'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Trillerpfeife', gender: 'f', english: 'whistle', categories: ['sports'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Laufrad', gender: 'n', english: 'exercise wheel', categories: ['hobbies'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Schneemann', gender: 'm', english: 'snowman', categories: ['weather'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+
+  // Household & Objects
+  GermanNoun(noun: 'Dachkammer', gender: 'f', english: 'attic room', categories: ['furniture'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Schild', gender: 'n', english: 'sign', categories: ['city'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Zettel', gender: 'm', english: 'note/slip of paper', categories: ['office'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Postkarte', gender: 'f', english: 'postcard', categories: ['office'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Riesenpaket', gender: 'n', english: 'huge parcel', categories: ['shopping'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+
+  // Abstract & Time
+  GermanNoun(noun: 'Ausrede', gender: 'f', english: 'excuse', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Brauch', gender: 'm', english: 'custom/tradition', categories: ['abstract'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Zeile', gender: 'f', english: 'line (of text)', categories: ['office'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Witz', gender: 'm', english: 'joke', categories: ['abstract'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Chaos', gender: 'n', english: 'chaos', categories: ['abstract'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Monster', gender: 'n', english: 'monster', categories: ['abstract'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Muskelkraft', gender: 'f', english: 'muscle power', categories: ['health'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  GermanNoun(noun: 'Feier', gender: 'f', english: 'celebration/party', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Urlaub', gender: 'm', english: 'vacation/holiday', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Leute', gender: 'm', english: 'people (plural)', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Dauerschleife', gender: 'f', english: 'continuous loop', categories: ['media'], difficulty: NounDifficulty.advanced, declensionSafe: true),
 ];

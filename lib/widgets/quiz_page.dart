@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../data/noun_lookup.dart';
 import '../data/noun_plurals.dart';
 import '../data/noun_progression_data.dart';
+import '../data/pronoun_article_sentences.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../pages/word_library_page.dart';
@@ -34,6 +35,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   final FocusNode _answerFocusNode = FocusNode();
   final ScrollController _tableScrollController = ScrollController();
   final Random _random = Random();
+  late List<TextEditingController> _multiBlankControllers = [];
+  late List<FocusNode> _multiBlankFocusNodes = [];
 
   static const List<Color> _rainbowColors = [
     Color(0xFFE53935),
@@ -1158,7 +1161,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   void _submitAnswer() {
     if (_showingAnswerReveal) return;
 
-    var userAnswerRaw = _answerController.text.trim();
+    var userAnswerRaw = _multiBlankControllers.isNotEmpty
+        ? _multiBlankControllers.map((c) => c.text.trim()).join(' ')
+        : _answerController.text.trim();
 
     // Clear hint prefix display after submission
     if (_showingFirstLetterHint) {
@@ -1236,7 +1241,30 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         _score -= 1;
         _feedbackHint = reminderHint;
         _lastAnswerCorrect = false;
-        _feedback = correctAnswer;
+
+        // For multiple blanks, get the full answer from sentence data
+        if (_multiBlankControllers.isNotEmpty) {
+          try {
+            final sentenceData = pronounArticleSentences.firstWhere(
+              (s) => s.answerSentence == _currentReferenceSentence,
+              orElse: () => const PronounArticlePair(
+                case_: '',
+                nominative: '',
+                question: '',
+                answerSentence: '',
+                blanks: [],
+                answer: '',
+                pattern: '',
+              ),
+            );
+            _feedback = sentenceData.answer.isNotEmpty ? sentenceData.answer : correctAnswer;
+          } catch (e) {
+            _feedback = correctAnswer;
+          }
+        } else {
+          _feedback = correctAnswer;
+        }
+
         _mistakesByCase[caseLabel] = (_mistakesByCase[caseLabel] ?? 0) + 1;
       }
 
@@ -1254,10 +1282,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
       if (isCorrect) {
         _answerController.clear();
+        for (var controller in _multiBlankControllers) {
+          controller.clear();
+        }
         _nextQuestion();
       } else {
         _showingAnswerReveal = true;
         _answerController.clear();
+        for (var controller in _multiBlankControllers) {
+          controller.clear();
+        }
       }
     });
 
@@ -1318,13 +1352,54 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// field one letter at a time, pauses for a duration set by
   /// [NounSettings.answerRevealMode], then advances to the next question.
   Future<void> _revealCorrectAnswer(String correctAnswer) async {
-    _showingAnswerReveal = true;
-    for (var i = 1; i <= correctAnswer.length; i++) {
-      await Future.delayed(const Duration(milliseconds: 70));
-      if (!mounted) return;
-      setState(() {
-        _answerController.text = correctAnswer.substring(0, i);
-      });
+    // Handle multiple blanks separately
+    if (_multiBlankControllers.isNotEmpty) {
+      // For multiple blanks, get the full answer from sentence data
+      String fullAnswer = correctAnswer;
+      try {
+        final sentenceData = pronounArticleSentences.firstWhere(
+          (s) => s.answerSentence == _currentReferenceSentence,
+          orElse: () => const PronounArticlePair(
+            case_: '',
+            nominative: '',
+            question: '',
+            answerSentence: '',
+            blanks: [],
+            answer: '',
+            pattern: '',
+          ),
+        );
+        if (sentenceData.answer.isNotEmpty) {
+          fullAnswer = sentenceData.answer;
+        }
+      } catch (e) {
+        // If lookup fails, use the provided correctAnswer
+      }
+
+      final answerParts = fullAnswer.split(' ');
+      // Fill each blank sequentially
+      for (int blankIndex = 0; blankIndex < _multiBlankControllers.length && blankIndex < answerParts.length; blankIndex++) {
+        final blankAnswer = answerParts[blankIndex];
+        // Animate filling each blank letter by letter
+        for (var i = 1; i <= blankAnswer.length; i++) {
+          await Future.delayed(const Duration(milliseconds: 70));
+          if (!mounted) return;
+          setState(() {
+            _showingAnswerReveal = true;
+            _multiBlankControllers[blankIndex].text = blankAnswer.substring(0, i);
+          });
+        }
+      }
+    } else {
+      // Single blank - original behavior
+      for (var i = 1; i <= correctAnswer.length; i++) {
+        await Future.delayed(const Duration(milliseconds: 70));
+        if (!mounted) return;
+        setState(() {
+          _showingAnswerReveal = true;
+          _answerController.text = correctAnswer.substring(0, i);
+        });
+      }
     }
 
     final pause = switch (NounSettings.instance.answerRevealMode) {
@@ -1338,6 +1413,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     setState(() {
       _showingAnswerReveal = false;
       _answerController.clear();
+      for (var controller in _multiBlankControllers) {
+        controller.clear();
+      }
       _nextQuestion();
     });
   }
@@ -1479,6 +1557,50 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
       start = match.end;
     }
+    if (start < text.length) {
+      spans.add(TextSpan(text: text.substring(start), style: baseStyle));
+    }
+    return spans;
+  }
+
+  /// Highlight pronouns in the Pronouns & Articles quiz feedback.
+  List<InlineSpan> _highlightPronounSpans(String text, TextStyle? baseStyle) {
+    final pronounList = [
+      'ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr',  // nominative
+      'mich', 'dich', 'ihn', 'uns', 'euch',  // accusative
+      'mir', 'dir', 'ihm', 'ihr', 'ihnen',   // dative
+      'Sie', 'Ihnen',  // formal
+    ];
+    final pattern = RegExp('(${pronounList.join('|')})', caseSensitive: false);
+    final matches = pattern.allMatches(text).toList();
+
+    if (matches.isEmpty) {
+      return [TextSpan(text: text, style: baseStyle)];
+    }
+
+    final spans = <InlineSpan>[];
+    var start = 0;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    for (final match in matches) {
+      if (match.start > start) {
+        spans.add(
+          TextSpan(text: text.substring(start, match.start), style: baseStyle),
+        );
+      }
+
+      final word = match.group(0)!;
+      final highlightStyle = (baseStyle ?? const TextStyle()).copyWith(
+        color: colorScheme.primary,
+        fontWeight: FontWeight.w800,
+      );
+      spans.add(
+        TextSpan(text: word, style: highlightStyle),
+      );
+
+      start = match.end;
+    }
+
     if (start < text.length) {
       spans.add(TextSpan(text: text.substring(start), style: baseStyle));
     }
@@ -1858,13 +1980,83 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             widget.config.subjectGenders![_currentSubjectIndex],
           )
         : null;
-    final blankMatch = RegExp(r'_{4,}').firstMatch(_currentReferenceSentence);
+
+    // Customize display for Pronouns & Articles quiz
+    final isPronounArticlesQuiz = widget.config.currentPage == AppPage.pronounsAndArticles;
+    final displayLabel = isPronounArticlesQuiz
+        ? 'Pronouns & Articles'
+        : widget.config.promptLabel;
+    final displayPronounValue = isPronounArticlesQuiz
+        ? 'Accusative or Dative'
+        : currentPronoun;
+    final displayCaseLabel = isPronounArticlesQuiz ? 'Question' : 'Case';
+
+    // Get the actual question from sentence data for Pronouns & Articles quiz
+    String getQuestionForSentence(String answerSentence) {
+      try {
+        // Try exact match first
+        PronounArticlePair? sentenceData;
+        try {
+          sentenceData = pronounArticleSentences.firstWhere(
+            (s) => s.answerSentence == answerSentence,
+          );
+        } catch (e) {
+          // If exact match fails, try trimmed match
+          sentenceData = pronounArticleSentences.firstWhere(
+            (s) => s.answerSentence.trim() == answerSentence.trim(),
+          );
+        }
+
+        return sentenceData.question.isNotEmpty ? sentenceData.question : answerSentence;
+      } catch (e) {
+        // Fallback: return answerSentence if no match found
+        return answerSentence;
+      }
+    }
+
+    final displayCaseValue = isPronounArticlesQuiz
+        ? getQuestionForSentence(_currentReferenceSentence)
+        : currentCase;
+    final blankMatches = RegExp(r'_{4,}').allMatches(_currentReferenceSentence).toList();
+    final blankMatch = blankMatches.isNotEmpty ? blankMatches.first : null;
+    final hasMultipleBlanks = blankMatches.length > 1;
     final referenceBefore = blankMatch != null
         ? _currentReferenceSentence.substring(0, blankMatch.start)
         : _currentReferenceSentence;
     final referenceAfter = blankMatch != null
         ? _currentReferenceSentence.substring(blankMatch.end)
         : '';
+    final sentenceParts = hasMultipleBlanks
+        ? _currentReferenceSentence.split(RegExp(r'_{4,}'))
+        : [];
+
+    // Initialize multi-blank controllers if needed
+    if (hasMultipleBlanks && (_multiBlankControllers.isEmpty || _multiBlankControllers.length != blankMatches.length)) {
+      for (var controller in _multiBlankControllers) {
+        controller.dispose();
+      }
+      for (var focusNode in _multiBlankFocusNodes) {
+        focusNode.dispose();
+      }
+      _multiBlankControllers = List.generate(
+        blankMatches.length,
+        (index) => TextEditingController(),
+      );
+      _multiBlankFocusNodes = List.generate(
+        blankMatches.length,
+        (index) => FocusNode(),
+      );
+    } else if (!hasMultipleBlanks && _multiBlankControllers.isNotEmpty) {
+      for (var controller in _multiBlankControllers) {
+        controller.dispose();
+      }
+      for (var focusNode in _multiBlankFocusNodes) {
+        focusNode.dispose();
+      }
+      _multiBlankControllers = [];
+      _multiBlankFocusNodes = [];
+    }
+
     final recentHistory = _answerHistory.take(5).toList();
     final topMistakes = _mistakesByCase.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
@@ -2134,7 +2326,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     Row(
                                       children: [
                                         Text(
-                                          widget.config.promptLabel,
+                                          displayLabel,
                                           style: scaledQuizTextTheme.labelLarge
                                               ?.copyWith(
                                                 fontWeight: FontWeight.w300,
@@ -2151,7 +2343,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     const SizedBox(height: 3),
                                     Text.rich(
                                       TextSpan(
-                                        text: currentPronoun,
+                                        text: displayPronounValue,
                                         style: scaledQuizTextTheme
                                             .headlineSmall
                                             ?.copyWith(
@@ -2187,7 +2379,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     ),
                                     const SizedBox(height: 6),
                                     Text(
-                                      'Case',
+                                      displayCaseLabel,
                                       style: scaledQuizTextTheme.labelLarge
                                           ?.copyWith(
                                             fontWeight: FontWeight.w300,
@@ -2200,21 +2392,40 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           ),
                                     ),
                                     const SizedBox(height: 3),
-                                    Text(
-                                      currentCase,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: scaledQuizTextTheme.headlineSmall
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize:
-                                                (scaledQuizTextTheme
-                                                        .headlineSmall
-                                                        ?.fontSize ??
-                                                    24) *
-                                                0.8,
+                                    if (isPronounArticlesQuiz)
+                                      Text.rich(
+                                        TextSpan(
+                                          children: _highlightNounSpans(
+                                            displayCaseValue,
+                                            scaledQuizTextTheme.headlineSmall
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize:
+                                                      (scaledQuizTextTheme
+                                                              .headlineSmall
+                                                              ?.fontSize ??
+                                                          24) *
+                                                          0.8,
+                                                ),
                                           ),
-                                    ),
+                                        ),
+                                      )
+                                    else
+                                      Text(
+                                        displayCaseValue,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: scaledQuizTextTheme.headlineSmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize:
+                                                  (scaledQuizTextTheme
+                                                          .headlineSmall
+                                                          ?.fontSize ??
+                                                      24) *
+                                                      0.8,
+                                            ),
+                                      ),
                                   ],
                                 ),
                               ),
@@ -2254,6 +2465,83 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           130.0,
                                           constraints.maxWidth * 0.4,
                                         );
+
+                                        // For multiple blanks, show inline input fields with RichText
+                                        if (hasMultipleBlanks) {
+                                          return RichText(
+                                            text: TextSpan(
+                                              style: sentenceStyle,
+                                              children: [
+                                                for (int i = 0; i < sentenceParts.length; i++) ...[
+                                                  if (sentenceParts[i].isNotEmpty)
+                                                    TextSpan(text: sentenceParts[i]),
+                                                  if (i < _multiBlankControllers.length)
+                                                    WidgetSpan(
+                                                      alignment: PlaceholderAlignment.middle,
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.symmetric(horizontal: 6),
+                                                        child: SizedBox(
+                                                          width: inputWidth,
+                                                          child: CallbackShortcuts(
+                                                            bindings: {
+                                                              const SingleActivator(
+                                                                LogicalKeyboardKey.keyI,
+                                                                control: true,
+                                                              ): () => _showSentenceInfoDialog(context),
+                                                            },
+                                                            child: TextField(
+                                                              controller: _multiBlankControllers[i],
+                                                              focusNode: _multiBlankFocusNodes[i],
+                                                              autofocus: i == 0,
+                                                              textInputAction: i < _multiBlankControllers.length - 1
+                                                                  ? TextInputAction.next
+                                                                  : TextInputAction.done,
+                                                              style: sentenceStyle,
+                                                              readOnly: _showingAnswerReveal,
+                                                              showCursor: !_showingAnswerReveal,
+                                                              minLines: 1,
+                                                              maxLines: 1,
+                                                              decoration: InputDecoration(
+                                                                isDense: true,
+                                                                contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                                                                border: OutlineInputBorder(
+                                                                  borderRadius: BorderRadius.circular(12),
+                                                                ),
+                                                                filled: true,
+                                                                fillColor: Colors.white,
+                                                                prefixText: (_showingAnswerReveal || _showingFirstLetterHint)
+                                                                    ? '*'
+                                                                    : null,
+                                                                prefixStyle: sentenceStyle?.copyWith(
+                                                                  color: Colors.red,
+                                                                  fontWeight: FontWeight.bold,
+                                                                ),
+                                                              ),
+                                                              onSubmitted: i < _multiBlankControllers.length - 1
+                                                                  ? (_) => _multiBlankFocusNodes[i + 1].requestFocus()
+                                                                  : (_) => _submitAnswer(),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                ],
+                                              WidgetSpan(
+                                                alignment: PlaceholderAlignment.middle,
+                                                child: IconButton(
+                                                  padding: const EdgeInsets.only(left: 4),
+                                                  constraints: const BoxConstraints(minWidth: 28, minHeight: 28),
+                                                  visualDensity: VisualDensity.compact,
+                                                  tooltip: 'Grammar info (Ctrl+I)',
+                                                  onPressed: () => _showSentenceInfoDialog(context),
+                                                  icon: const Icon(Icons.info_outline_rounded),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                        }
+
                                         return RichText(
                                           text: TextSpan(
                                             style: sentenceStyle,
@@ -2507,18 +2795,33 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           Expanded(
                                             child: Text.rich(
                                               TextSpan(
-                                                children: _highlightNounSpans(
-                                                  _feedback,
-                                                  Theme.of(context)
-                                                      .textTheme
-                                                      .bodyMedium
-                                                      ?.copyWith(
-                                                        color: colorScheme
-                                                            .onSurface,
-                                                        fontWeight:
-                                                            FontWeight.w700,
+                                                children: isPronounArticlesQuiz
+                                                    ? _highlightPronounSpans(
+                                                        _feedback,
+                                                        Theme.of(context)
+                                                            .textTheme
+                                                            .bodyMedium
+                                                            ?.copyWith(
+                                                              color: colorScheme
+                                                                  .onSurface,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                            ),
+                                                      )
+                                                    : _highlightNounSpans(
+                                                        _feedback,
+                                                        Theme.of(context)
+                                                            .textTheme
+                                                            .bodyMedium
+                                                            ?.copyWith(
+                                                              color: colorScheme
+                                                                  .onSurface,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                            ),
                                                       ),
-                                                ),
                                               ),
                                             ),
                                           ),
