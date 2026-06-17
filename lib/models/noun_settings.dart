@@ -33,6 +33,7 @@ class NounSettings {
       'last_noun_progression_key';
   static const String _answerRevealModeKey = 'answer_reveal_mode';
   static const String _progressionUnlockLapsKey = 'progression_unlock_laps';
+  static const String _showFirstLetterHintKey = 'show_first_letter_hint';
 
   /// Size of one "streak" — a run of this many correct answers in a row.
   static const int streakLapSize = 5;
@@ -61,6 +62,7 @@ class NounSettings {
   String? _lastNounProgressionKey;
   AnswerRevealMode _answerRevealMode = AnswerRevealMode.normal;
   int _progressionUnlockLaps = defaultProgressionUnlockLaps;
+  bool _showFirstLetterHint = false;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -92,6 +94,12 @@ class NounSettings {
   /// User-configurable from 1 to 100, defaults to
   /// [defaultProgressionUnlockLaps].
   int get progressionUnlockLaps => _progressionUnlockLaps;
+
+  /// Whether to show the first letter of the answer (with a non-deletable red
+  /// asterisk) when a question is answered incorrectly. The user still loses
+  /// their streak. If they answer the same question incorrectly again, the
+  /// answer is shown normally. Defaults to false.
+  bool get showFirstLetterHint => _showFirstLetterHint;
 
   /// Total correct answers in a row needed to unlock the next entry in the
   /// noun-category progression ([progressionUnlockLaps] streaks of 5
@@ -154,6 +162,8 @@ class NounSettings {
     );
     _progressionUnlockLaps =
         prefs.getInt(_progressionUnlockLapsKey) ?? defaultProgressionUnlockLaps;
+    _showFirstLetterHint =
+        prefs.getBool(_showFirstLetterHintKey) ?? false;
     _loaded = true;
   }
 
@@ -196,6 +206,12 @@ class NounSettings {
     await prefs.setInt(_progressionUnlockLapsKey, _progressionUnlockLaps);
   }
 
+  Future<void> setShowFirstLetterHint(bool value) async {
+    _showFirstLetterHint = value;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_showFirstLetterHintKey, value);
+  }
+
   Future<void> _save() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_storageKey, _disabledNouns.toList());
@@ -233,8 +249,8 @@ class NounSettings {
 
   /// Wipes all stored progress and settings (quiz scores/streaks/history,
   /// noun-category progression, disabled nouns, gender colors, the
-  /// answer-reveal preference, and the progression streak-unlock goal),
-  /// restoring everything to its default state.
+  /// answer-reveal preference, the progression streak-unlock goal, and the
+  /// first-letter hint preference), restoring everything to its default state.
   Future<void> resetAll() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
@@ -242,6 +258,7 @@ class NounSettings {
     _showEnglishByPage = {};
     _colorNouns = false;
     _genderColors = Map.of(defaultGenderColors);
+    _showFirstLetterHint = false;
     _lastPage = null;
     _completedNounCategories = {};
     _lastNounProgressionKey = null;

@@ -186,17 +186,17 @@ String pickReferenceSentence({
 
     // ── Reflexive pronouns ───────────────────────────────────────────────────
     'Reflexive': {
-      // mir — dative reflexive for ich
-      'mir': [
-        'Ich kaufe ____ ein neues Fahrrad.',
-        'Ich wünsche ____ mehr Zeit für mich.',
-        'Das muss ich ____ gut merken.',
+      // mich — reflexive for ich
+      'mich': [
+        'Ich freue ____ schon sehr auf das Wochenende.',
+        'Ich habe ____ beim Sport verletzt.',
+        'Ich muss ____ jetzt wirklich beeilen.',
       ],
-      // dir — dative reflexive for du
-      'dir': [
-        'Hast du ____ das Bein verletzt?',
-        'Kauf ____ doch etwas Schönes!',
-        'Das solltest du ____ gut überlegen.',
+      // dich — reflexive for du
+      'dich': [
+        'Hast du ____ gut amüsiert?',
+        'Erinnerst du ____ noch an unseren Urlaub?',
+        'Du solltest ____ jetzt ausruhen.',
       ],
       // sich — 3rd person & formal reflexive
       'sich': [

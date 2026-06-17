@@ -110,6 +110,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   List<Map<String, dynamic>> _answerHistory = [];
   Map<String, int> _mistakesByCase = {};
 
+  /// Tracks sentences that have been answered incorrectly in the current
+  /// question cycle, used to show first letter hint only on first wrong answer.
+  final Set<String> _attemptedSentences = {};
+
+  /// True while showing the first-letter hint, used to display the red asterisk
+  /// prefix without making the field read-only.
+  bool _showingFirstLetterHint = false;
+
   late Set<int> _enabledSubjectIndices;
   late Set<String> _enabledCategoryLabels;
 
@@ -387,6 +395,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   void _nextQuestion() {
     _showSentenceHint = false;
+    _attemptedSentences.clear();
+    _showingFirstLetterHint = false;
     final enabledSubjects = widget.config.subjectCategories == null
         ? _enabledSubjectIndices.toList()
         : _enabledSubjectIndices
@@ -1148,7 +1158,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   void _submitAnswer() {
     if (_showingAnswerReveal) return;
 
-    final userAnswerRaw = _answerController.text.trim();
+    var userAnswerRaw = _answerController.text.trim();
+
+    // Clear hint prefix display after submission
+    if (_showingFirstLetterHint) {
+      _showingFirstLetterHint = false;
+    }
+
     final userAnswer = userAnswerRaw.toLowerCase();
     final caseLabel = widget.config.categories[_currentCategoryIndex].label;
     final nominative = widget.config.subjects[_currentSubjectIndex];
@@ -1163,6 +1179,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             .toSet() ??
         {correctAnswer.toLowerCase()};
     final isCorrect = acceptableAnswers.contains(userAnswer);
+
+    // If first-letter hint is enabled and this is first attempt and answer is wrong,
+    // show hint and don't record submission
+    final isFirstAttempt = !_attemptedSentences.contains(_currentReferenceSentence);
+    if (NounSettings.instance.showFirstLetterHint && isFirstAttempt && !isCorrect) {
+      _attemptedSentences.add(_currentReferenceSentence);
+      // Show first letter animated, keep field editable
+      _revealFirstLetterHint(correctAnswer);
+      return; // Don't process submission, just show hint
+    }
     final reminderHint = _buildMistakeReminder(
       caseLabel: caseLabel,
       correctAnswer: correctAnswer,
@@ -1269,10 +1295,30 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     }
   }
 
+  /// Shows just the first letter of [correctAnswer] typed out animated with a
+  /// non-deletable red asterisk prefix, then keeps the field editable so the
+  /// user can type the rest. Does not record any submission stats (no streak
+  /// loss, no point change).
+  Future<void> _revealFirstLetterHint(String correctAnswer) async {
+    _answerController.clear();
+    // Type out first letter (asterisk will show as red prefix)
+    await Future.delayed(const Duration(milliseconds: 70));
+    if (!mounted) return;
+    setState(() {
+      _showingFirstLetterHint = true;
+      _answerController.text = correctAnswer[0];
+    });
+    // Wait a moment, then let user continue typing
+    await Future.delayed(const Duration(milliseconds: 200));
+    if (!mounted) return;
+    _requestAnswerFocus();
+  }
+
   /// After an incorrect answer, types out [correctAnswer] in the answer
   /// field one letter at a time, pauses for a duration set by
   /// [NounSettings.answerRevealMode], then advances to the next question.
   Future<void> _revealCorrectAnswer(String correctAnswer) async {
+    _showingAnswerReveal = true;
     for (var i = 1; i <= correctAnswer.length; i++) {
       await Future.delayed(const Duration(milliseconds: 70));
       if (!mounted) return;
@@ -1294,7 +1340,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       _answerController.clear();
       _nextQuestion();
     });
-    _requestAnswerFocus();
   }
 
   void _newQuestion() {
@@ -2272,7 +2317,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                           fillColor:
                                                               Colors.white,
                                                           prefixText:
-                                                              _showingAnswerReveal
+                                                              (_showingAnswerReveal || _showingFirstLetterHint)
                                                               ? '*'
                                                               : null,
                                                           prefixStyle: sentenceStyle
@@ -2284,6 +2329,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                                         .bold,
                                                               ),
                                                         ),
+                                                        onChanged: (value) {
+                                                          // Prevent deletion of first letter during hint mode
+                                                          if (_showingFirstLetterHint && value.isEmpty) {
+                                                            _answerController.text = _answerController.text;
+                                                          }
+                                                        },
                                                         onSubmitted: (_) =>
                                                             _submitAnswer(),
                                                       ),

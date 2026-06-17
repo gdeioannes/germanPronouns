@@ -65,8 +65,8 @@ const listPronounsGermanGenitive = [
 ];
 
 const listPronounsGermanReflexive = [
-  'mir',
-  'dir',
+  'mich',
+  'dich',
   'sich',
   'sich',
   'sich',
@@ -256,14 +256,14 @@ const List<QuizCategoryDefinition> quizCases = [
     group: 'Dative',
   ),
   QuizCategoryDefinition(
-    label: 'Genitive',
-    values: listPronounsGermanGenitive,
-    group: 'Genitive',
-  ),
-  QuizCategoryDefinition(
     label: 'Reflexive',
     values: listPronounsGermanReflexive,
     group: 'Reflexive',
+  ),
+  QuizCategoryDefinition(
+    label: 'Genitive',
+    values: listPronounsGermanGenitive,
+    group: 'Genitive',
   ),
   QuizCategoryDefinition(
     label: 'Poss. Masc. Nom.',
@@ -365,8 +365,8 @@ const List<HelpMemoryTable> pronounHelpMemoryTables = [
     columns: [
       HelpMemoryColumn(categoryLabel: 'Accusative'),
       HelpMemoryColumn(categoryLabel: 'Dative'),
-      HelpMemoryColumn(categoryLabel: 'Genitive'),
       HelpMemoryColumn(categoryLabel: 'Reflexive'),
+      HelpMemoryColumn(categoryLabel: 'Genitive'),
     ],
   ),
   HelpMemoryTable(

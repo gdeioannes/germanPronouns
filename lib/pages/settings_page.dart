@@ -307,6 +307,28 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const SizedBox(height: 16),
             _settingsPanel(
+              title: 'First Letter Hint',
+              children: [
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text('Show first letter on wrong answer'),
+                  subtitle: const Text(
+                    'When you answer incorrectly for the first time, show the '
+                    'first letter of the correct answer (marked with a red *). '
+                    'You still lose your streak. If you answer the same '
+                    'question incorrectly again, the full answer is shown.',
+                  ),
+                  value: NounSettings.instance.showFirstLetterHint,
+                  onChanged: (value) {
+                    setState(() {
+                      NounSettings.instance.setShowFirstLetterHint(value);
+                    });
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _settingsPanel(
               title: 'Noun Category Progression',
               children: [
                 Text(
