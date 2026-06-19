@@ -102,6 +102,24 @@ class HelpMemoryTip {
   );
 }
 
+/// An extra, **info-only** column appended to the Help Memory reference table
+/// (not a quizzed category): e.g. the case each preposition governs, or a
+/// noun's plural. [values] is parallel to [QuizConfig.subjects].
+class HelpMemoryInfoColumn {
+  const HelpMemoryInfoColumn({required this.label, required this.values});
+
+  final String label;
+  final List<String> values;
+
+  Map<String, dynamic> toJson() => {'label': label, 'values': values};
+
+  factory HelpMemoryInfoColumn.fromJson(Map<String, dynamic> json) =>
+      HelpMemoryInfoColumn(
+        label: json['label'] as String,
+        values: (json['values'] as List).cast<String>(),
+      );
+}
+
 /// A small reference table of declension endings (e.g. the endings added to
 /// "mein-"/"dein-"/etc. to form possessive pronouns), shown below the
 /// [HelpMemoryTable]s in the Help Memory section.
@@ -199,6 +217,7 @@ class QuizConfig {
     this.helpMemoryIntro,
     this.helpMemoryTips = const [],
     this.helpMemoryColorByGender = false,
+    this.helpMemoryInfoColumns = const [],
     this.progressionKey,
     this.questProgression = false,
     this.acceptableAnswersForSentence,
@@ -303,6 +322,12 @@ class QuizConfig {
   /// always-on reference coloring, independent of the answer-revealing
   /// `NounSettings.colorNouns` toggle.
   final bool helpMemoryColorByGender;
+
+  /// Extra info-only columns appended to the Help Memory reference table (e.g.
+  /// the case a preposition governs, or a noun's plural). Shown in the table
+  /// and PDF but never quizzed; values are parallel to [subjects] and not
+  /// gender-tinted.
+  final List<HelpMemoryInfoColumn> helpMemoryInfoColumns;
 
   /// When non-null, identifies this quiz within the noun-category
   /// progression (a key from `nounCategoryDisplayNames`, or

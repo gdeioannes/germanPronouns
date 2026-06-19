@@ -187,5 +187,15 @@ QuizContent nounProgressionContent(QuizContent allNouns, String key) {
     helpMemoryIntro: allNouns.helpMemoryIntro,
     helpMemoryTips: allNouns.helpMemoryTips,
     helpMemoryColorByGender: allNouns.helpMemoryColorByGender,
+    helpMemoryInfoColumns: [
+      for (final col in allNouns.helpMemoryInfoColumns)
+        HelpMemoryInfoColumn(
+          label: col.label,
+          values: [
+            for (var i = 0; i < allNouns.subjects.length; i++)
+              if (keptKeys.contains(allNouns.subjects[i].key)) col.values[i],
+          ],
+        ),
+    ],
   );
 }

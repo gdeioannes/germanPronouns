@@ -1,6 +1,15 @@
 import '../models/quiz_content.dart';
 import 'preposition_data.dart';
 
+/// Short case label per [PrepositionInfo.caseGroup], shown in the Help Memory
+/// "Case" info column.
+const Map<String, String> _caseShort = {
+  'accusative': 'Akkusativ',
+  'dative': 'Dativ',
+  'genitive': 'Genitiv',
+  'two-way': 'Akk. / Dativ',
+};
+
 /// The Prepositions quiz expressed as serializable [QuizContent], built from
 /// the existing in-memory preposition data.
 ///
@@ -44,14 +53,25 @@ final QuizContent prepositionQuizContent = QuizContent(
       ),
   ],
   categoryDisplayNames: prepositionCaseGroupNames,
+  helpMemoryInfoColumns: [
+    HelpMemoryInfoColumn(
+      label: 'Case',
+      values: [
+        for (final p in prepositionInfos)
+          _caseShort[p.caseGroup] ?? p.caseGroup,
+      ],
+    ),
+  ],
   helpMemorySubtitle:
       'All 27 prepositions grouped by case, with English meanings and '
       'usage notes — exportable as a PDF study sheet.',
   endingPatternTables: prepositionEndingPatternTables,
   helpMemoryIntro:
-      'German prepositions force a specific grammatical case on the noun that '
-      'follows. Learn each preposition together with the case it triggers — '
-      'the article then changes to match that case.',
+      'German prepositions force a specific case on the noun that follows, and '
+      'the article then changes to match. Three groups to know: accusative '
+      '(durch, für, gegen, ohne, um), dative (aus, bei, mit, nach, seit, von, '
+      'zu), and two-way (in, an, auf … — accusative for movement, dative for '
+      'location). The "Case" column below shows each preposition\'s case.',
   helpMemoryTips: const [
     HelpMemoryTip(
       kind: 'mnemonic',

@@ -265,11 +265,14 @@ class QuizPdfTheme {
     double fontSize = 10,
     Map<int, pw.TableColumnWidth>? columnWidths,
     List<PdfColor?>? rowColors,
+    int? coloredColumns,
   }) {
     final base = cellStyle(fontSize: fontSize);
 
     PdfColor? colorFor(int columnIndex, int rowNum) {
       if (rowColors == null || columnIndex < 1) return null;
+      // Only color the quizzed value columns, not appended info columns.
+      if (coloredColumns != null && columnIndex > coloredColumns) return null;
       final i = rowNum - 1; // row 0 is the header
       if (i < 0 || i >= rowColors.length) return null;
       return rowColors[i];

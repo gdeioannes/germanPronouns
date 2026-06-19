@@ -1,6 +1,7 @@
 import '../models/quiz_content.dart';
 import 'noun_article_data.dart';
 import 'noun_database.dart';
+import 'noun_plurals.dart';
 import 'noun_sentences.dart';
 
 /// The Nouns & Articles quiz expressed as serializable [QuizContent].
@@ -48,6 +49,12 @@ final QuizContent nounArticleQuizContent = QuizContent(
   },
   categoryDisplayNames: nounCategoryDisplayNames,
   helpMemoryColorByGender: true,
+  helpMemoryInfoColumns: [
+    HelpMemoryInfoColumn(
+      label: 'Plural',
+      values: [for (final n in germanNouns) nounPlurals[n.noun] ?? '—'],
+    ),
+  ],
   helpMemoryIntro:
       'German noun genders are mostly unpredictable from meaning, so always '
       'learn a noun together with its article (der/die/das). The table lists '
@@ -70,6 +77,12 @@ final QuizContent nounArticleQuizContent = QuizContent(
       title: 'Rules have exceptions',
       text: 'These endings are strong tendencies, not laws. When in doubt, '
           'trust the memorized article over the rule.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Plurals',
+      text: 'In the plural the article is always "die", whatever the gender: '
+          'der Hund → die Hunde. The Plural column lists each noun\'s plural.',
     ),
   ],
 );

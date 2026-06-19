@@ -834,8 +834,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             : 120.0;
                         const valueColumnWidth = 110.0;
                         final rowHeight = showSubtitleRow ? 58.0 : 48.0;
+                        final infoColumns = widget.config.helpMemoryInfoColumns;
                         final scrollableWidth =
-                            valueColumnWidth * widget.config.categories.length;
+                            valueColumnWidth *
+                            (widget.config.categories.length +
+                                infoColumns.length);
 
                         Widget buildFixedCell(
                           String text, {
@@ -917,6 +920,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           bool header = false,
                           Color? background,
                           String? gender,
+                          int tintableCount = 1 << 30,
                         }) {
                           final tint =
                               (!header && widget.config.helpMemoryColorByGender)
@@ -926,7 +930,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             width: scrollableWidth,
                             height: rowHeight,
                             child: Row(
-                              children: values.map((value) {
+                              children: values.asMap().entries.map((entry) {
+                                final cellTint =
+                                    entry.key < tintableCount ? tint : null;
+                                final value = entry.value;
                                 return Container(
                                   width: valueColumnWidth,
                                   height: rowHeight,
@@ -936,7 +943,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                   ),
                                   decoration: BoxDecoration(
                                     color:
-                                        tint?.background ??
+                                        cellTint?.background ??
                                         background ??
                                         (header
                                             ? colorScheme.primary
@@ -958,8 +965,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     style: TextStyle(
                                       color: header
                                           ? Colors.white
-                                          : tint?.foreground,
-                                      fontWeight: header || tint != null
+                                          : cellTint?.foreground,
+                                      fontWeight: header || cellTint != null
                                           ? FontWeight.w700
                                           : FontWeight.w500,
                                     ),
@@ -1042,9 +1049,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     child: Column(
                                       children: [
                                         buildScrollableRow(
-                                          widget.config.categories
-                                              .map((c) => c.label)
-                                              .toList(),
+                                          [
+                                            ...widget.config.categories
+                                                .map((c) => c.label),
+                                            ...infoColumns.map((c) => c.label),
+                                          ],
                                           header: true,
                                         ),
                                         for (
@@ -1053,16 +1062,23 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           index++
                                         )
                                           buildScrollableRow(
-                                            widget.config.categories
-                                                .map(
-                                                  (c) => c.values[genderRows !=
-                                                          null
-                                                      ? _firstSubjectIndexForGender(
-                                                          genderRows[index],
-                                                        )
-                                                      : index],
-                                                )
-                                                .toList(),
+                                            [
+                                              ...widget.config.categories.map(
+                                                (c) => c.values[genderRows !=
+                                                        null
+                                                    ? _firstSubjectIndexForGender(
+                                                        genderRows[index],
+                                                      )
+                                                    : index],
+                                              ),
+                                              ...infoColumns.map(
+                                                (c) => genderRows != null
+                                                    ? ''
+                                                    : c.values[index],
+                                              ),
+                                            ],
+                                            tintableCount:
+                                                widget.config.categories.length,
                                             background: index.isEven
                                                 ? colorScheme.surface
                                                 : colorScheme
@@ -1375,9 +1391,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       final rowCount =
           genderRows?.length ?? widget.config.subjectDisplays.length;
 
+      final infoColumns = widget.config.helpMemoryInfoColumns;
       final headers = [
         widget.config.subjectColumnLabel,
         ...widget.config.categories.map((c) => c.label),
+        ...infoColumns.map((c) => c.label),
       ];
 
       // Match the on-screen gender coloring: tint each row's value cells by
@@ -1398,6 +1416,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           rows.add([
             '${_genderArticles[gender]} (${_genderRowNames[gender]})',
             ...widget.config.categories.map((c) => c.values[subjectIndex]),
+            ...infoColumns.map((_) => ''),
           ]);
           rowColors.add(rowColor(gender));
         } else {
@@ -1408,6 +1427,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           rows.add([
             label,
             ...widget.config.categories.map((c) => c.values[index]),
+            ...infoColumns.map((c) => c.values[index]),
           ]);
           rowColors.add(
             rowColor(
@@ -1445,6 +1465,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               rowColors: widget.config.helpMemoryColorByGender
                   ? rowColors
                   : null,
+              coloredColumns: widget.config.categories.length,
               columnWidths: {
                 for (var i = 0; i < columnCount; i++)
                   i: const pw.FlexColumnWidth(1),

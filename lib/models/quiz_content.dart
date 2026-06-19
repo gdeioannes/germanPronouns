@@ -1,8 +1,8 @@
 import 'quiz_config.dart';
 
 // Re-exported so content files (which import this) can author Help Memory tips
-// without a separate import.
-export 'quiz_config.dart' show HelpMemoryTip;
+// and info columns without a separate import.
+export 'quiz_config.dart' show HelpMemoryTip, HelpMemoryInfoColumn;
 
 /// One quizzable subject (a table row): a pronoun, a noun, a preposition, etc.
 class QuizSubjectData {
@@ -183,6 +183,7 @@ class QuizContent {
     this.helpMemoryIntro,
     this.helpMemoryTips = const [],
     this.helpMemoryColorByGender = false,
+    this.helpMemoryInfoColumns = const [],
   });
 
   /// Stable identifier (e.g. a database primary key or a slug).
@@ -229,6 +230,10 @@ class QuizContent {
   /// When true, Help Memory tables tint value cells by gender (der/die/das).
   final bool helpMemoryColorByGender;
 
+  /// Extra info-only columns appended to the Help Memory table (parallel to
+  /// [subjects]); e.g. a preposition's case or a noun's plural.
+  final List<HelpMemoryInfoColumn> helpMemoryInfoColumns;
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
@@ -255,6 +260,10 @@ class QuizContent {
     if (helpMemoryTips.isNotEmpty)
       'helpMemoryTips': [for (final t in helpMemoryTips) t.toJson()],
     if (helpMemoryColorByGender) 'helpMemoryColorByGender': true,
+    if (helpMemoryInfoColumns.isNotEmpty)
+      'helpMemoryInfoColumns': [
+        for (final c in helpMemoryInfoColumns) c.toJson(),
+      ],
   };
 
   factory QuizContent.fromJson(Map<String, dynamic> json) => QuizContent(
@@ -306,5 +315,9 @@ class QuizContent {
     ],
     helpMemoryColorByGender:
         json['helpMemoryColorByGender'] as bool? ?? false,
+    helpMemoryInfoColumns: [
+      for (final c in (json['helpMemoryInfoColumns'] as List?) ?? const [])
+        HelpMemoryInfoColumn.fromJson(c as Map<String, dynamic>),
+    ],
   );
 }
