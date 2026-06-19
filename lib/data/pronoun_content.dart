@@ -59,4 +59,26 @@ final QuizContent pronounQuizContent = QuizContent(
   legacyCategoryLabelMigration: pronounLegacyCaseLabelMigration,
   helpMemoryTables: pronounHelpMemoryTables,
   endingPatternTables: pronounEndingPatternTables,
+  helpMemoryIntro:
+      'Personal pronouns replace a noun and change with the grammatical case: '
+      'nominative (the subject), accusative (the direct object) and dative '
+      '(the indirect object). Learn each pronoun as a set across the cases.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Which case?',
+      text: 'Nominative = who does it (Wer?), accusative = who/what is affected '
+          '(Wen/Was?), dative = to/for whom (Wem?).',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Sound pattern',
+      text: 'ich → mich → mir, du → dich → dir: the accusative often ends in '
+          '-ch and the dative in -r.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      text: 'Ich sehe dich. (accusative)   Ich gebe dir das Buch. (dative)',
+    ),
+  ],
 );

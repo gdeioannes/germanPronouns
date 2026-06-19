@@ -2301,6 +2301,23 @@
           "Same endings as the der/die/das table above, except masc. nominative, neut. nominative, and neut. accusative take no ending at all (mein, not \"meiner\"/\"meines\")."
         ]
       }
+    ],
+    "helpMemoryIntro": "Personal pronouns replace a noun and change with the grammatical case: nominative (the subject), accusative (the direct object) and dative (the indirect object). Learn each pronoun as a set across the cases.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Which case?",
+        "text": "Nominative = who does it (Wer?), accusative = who/what is affected (Wen/Was?), dative = to/for whom (Wem?)."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Sound pattern",
+        "text": "ich → mich → mir, du → dich → dir: the accusative often ends in -ch and the dative in -r."
+      },
+      {
+        "kind": "example",
+        "text": "Ich sehe dich. (accusative)   Ich gebe dir das Buch. (dative)"
+      }
     ]
   },
   {
@@ -11453,7 +11470,26 @@
       "emotions": "Emotions & Character (Gefühle)",
       "abstract": "Abstract Concepts (Abstrakte Begriffe)"
     },
-    "collapseReferenceTablesByGender": true
+    "collapseReferenceTablesByGender": true,
+    "helpMemoryIntro": "Every German noun has a gender — der (masculine), die (feminine), das (neuter) — and the article changes with the grammatical case. The table shows the definite article for each gender in every case.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Accusative: only \"der\" changes",
+        "text": "In the accusative, masculine der → den. die, das and the plural stay the same as the nominative."
+      },
+      {
+        "kind": "rule",
+        "title": "Dative endings",
+        "text": "Dative: dem (m/n), der (f), and den + an extra -n on the plural noun (die Kinder → den Kindern)."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Color code",
+        "text": "Blue = der (m), red = die (f), green = das (n) — the same colors used across the app."
+      }
+    ],
+    "helpMemoryColorByGender": true
   },
   {
     "id": "noun_article",
@@ -22311,7 +22347,24 @@
       "materials": "Materials (Materialien)",
       "emotions": "Emotions & Character (Gefühle)",
       "abstract": "Abstract Concepts (Abstrakte Begriffe)"
-    }
+    },
+    "helpMemoryIntro": "German noun genders are mostly unpredictable from meaning, so always learn a noun together with its article (der/die/das). The table lists each noun with its gender — colored so the article sticks.",
+    "helpMemoryTips": [
+      {
+        "title": "Feminine endings",
+        "text": "Most nouns ending in -e are die; -ung, -heit, -keit, -schaft, -ion and -tät are (almost) always feminine."
+      },
+      {
+        "title": "Masculine & neuter clues",
+        "text": "der: many -er (jobs/tools), -ig, -ling, and most days/months/seasons. das: -chen and -lein are always neuter (das Mädchen)."
+      },
+      {
+        "kind": "warning",
+        "title": "Rules have exceptions",
+        "text": "These endings are strong tendencies, not laws. When in doubt, trust the memorized article over the rule."
+      }
+    ],
+    "helpMemoryColorByGender": true
   },
   {
     "id": "pronoun_article",
@@ -24994,6 +25047,22 @@
           "A pronoun always comes before a noun: \"Ich gebe ihm das Buch.\""
         ]
       }
+    ],
+    "helpMemoryIntro": "This quiz mixes pronouns and articles: read the question and choose the correct accusative or dative form. The case depends on the verb and on what the question asks.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Accusative vs. dative",
+        "text": "The direct object (Wen/Was? — whom/what) takes the accusative; the indirect object (Wem? — to/for whom) takes the dative."
+      },
+      {
+        "kind": "example",
+        "text": "Wen siehst du? — Ich sehe ihn. (acc)   Wem hilfst du? — Ich helfe ihm. (dat)"
+      },
+      {
+        "title": "Dative verbs",
+        "text": "A few common verbs always take the dative: helfen, danken, gefallen, gehören, antworten."
+      }
     ]
   },
   {
@@ -26614,6 +26683,24 @@
           "\"vor\" meaning \"ago\" (time) is always dative."
         ]
       }
+    ],
+    "helpMemoryIntro": "German prepositions force a specific grammatical case on the noun that follows. Learn each preposition together with the case it triggers — the article then changes to match that case.",
+    "helpMemoryTips": [
+      {
+        "kind": "mnemonic",
+        "title": "Accusative prepositions",
+        "text": "durch, für, gegen, ohne, um (+ bis, entlang) always take the accusative."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Dative prepositions",
+        "text": "aus, bei, mit, nach, seit, von, zu (+ gegenüber) always take the dative."
+      },
+      {
+        "kind": "warning",
+        "title": "Two-way prepositions",
+        "text": "in, an, auf, über, unter, vor, hinter, neben, zwischen take the accusative for movement (wohin?) and the dative for location (wo?)."
+      }
     ]
   },
   {
@@ -26693,7 +26780,15 @@
       "Auf Deutsch": [
         "{subject} = ____"
       ]
-    }
+    },
+    "helpMemoryIntro": "The numbers 0–10 are the foundation — every larger number is built from them, so learn to say and spell each one by heart.",
+    "helpMemoryTips": [
+      {
+        "kind": "warning",
+        "title": "Tricky spellings",
+        "text": "Watch zwei, drei, sechs and sieben. Note \"eins\" when counting, but \"ein\" before a noun (ein Apfel)."
+      }
+    ]
   },
   {
     "id": "quest_a1_1_pronomen",
@@ -26762,7 +26857,19 @@
       "Deutsch": [
         "\"{subject}\" auf Deutsch: ____"
       ]
-    }
+    },
+    "helpMemoryIntro": "Subject (nominative) pronouns say who does the action. They replace the person or thing doing the verb.",
+    "helpMemoryTips": [
+      {
+        "kind": "warning",
+        "title": "\"sie\" is three things",
+        "text": "sie = she, sie = they, and Sie (always capitalized) = you (formal). The verb ending and context tell them apart."
+      },
+      {
+        "title": "du vs. Sie",
+        "text": "Use du with friends, family and children; Sie with strangers, elders and in formal settings."
+      }
+    ]
   },
   {
     "id": "quest_a1_1_artikel",
@@ -26963,7 +27070,21 @@
       "unbestimmt (ein/eine)": [
         "Das ist ____ {subject}."
       ]
-    }
+    },
+    "helpMemoryIntro": "In the nominative (the subject of the sentence) use der/die/das for \"the\" (definite) or ein/eine for \"a/an\" (indefinite). The form depends on the noun's gender.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Indefinite article",
+        "text": "ein for masculine and neuter (der-/das-words), eine for feminine (die-words). Plural has no indefinite article."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Color code",
+        "text": "der = blue, die = red, das = green."
+      }
+    ],
+    "helpMemoryColorByGender": true
   },
   {
     "id": "quest_a1_1_zahlen2",
@@ -27037,7 +27158,20 @@
       "Auf Deutsch": [
         "{subject} = ____"
       ]
-    }
+    },
+    "helpMemoryIntro": "The teens (13–19) follow one simple pattern — unit + \"zehn\" — with a couple of spellings to watch.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Pattern: unit + zehn",
+        "text": "vier + zehn = vierzehn, acht + zehn = achtzehn."
+      },
+      {
+        "kind": "warning",
+        "title": "Exceptions",
+        "text": "16 = sechzehn (drops the -s), 17 = siebzehn (drops the -en). 11 = elf and 12 = zwölf are irregular."
+      }
+    ]
   },
   {
     "id": "quest_a1_1_sein_haben",
@@ -27106,7 +27240,20 @@
       "haben (to have)": [
         "{subject} ____ . (haben)"
       ]
-    }
+    },
+    "helpMemoryIntro": "sein (to be) and haben (to have) are the two most important verbs in German — you use them constantly, and later to build the perfect tense. Both are irregular, so memorize the full set.",
+    "helpMemoryTips": [
+      {
+        "kind": "warning",
+        "title": "sein is fully irregular",
+        "text": "bin, bist, ist, sind, seid, sind — there is no pattern, so learn it by heart."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "haben loses its -b-",
+        "text": "Only du hast and er/sie/es hat drop the -b-; the rest keep it (habe, haben, habt, haben)."
+      }
+    ]
   },
   {
     "id": "quest_a1_1_farben",
@@ -27190,7 +27337,19 @@
       "Deutsch": [
         "\"{subject}\" auf Deutsch: ____"
       ]
-    }
+    },
+    "helpMemoryIntro": "Colours are adjectives. On their own (after sein) they stay in this base form; before a noun they take an ending.",
+    "helpMemoryTips": [
+      {
+        "kind": "example",
+        "text": "Das Auto ist rot. (base form)   →   ein rotes Auto. (with ending)"
+      },
+      {
+        "kind": "warning",
+        "title": "No endings ever",
+        "text": "rosa, lila and orange never change: ein rosa Kleid, ein lila Hut."
+      }
+    ]
   },
   {
     "id": "quest_a1_1_zahlen3",
@@ -27309,7 +27468,25 @@
       "Auf Deutsch": [
         "{subject} = ____"
       ]
-    }
+    },
+    "helpMemoryIntro": "From 21 upward, German names the units BEFORE the tens, joined by \"und\" and written as one word.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Units first",
+        "text": "21 = ein + und + zwanzig = einundzwanzig. Read it right-to-left: the last digit comes first."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "It is \"ein\", not \"eins\"",
+        "text": "Before \"und\" the 1 loses its -s: einundzwanzig, einunddreißig."
+      },
+      {
+        "kind": "warning",
+        "title": "Tens spelling",
+        "text": "zwanzig, dreißig (ß!), vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig, (ein)hundert."
+      }
+    ]
   },
   {
     "id": "quest_a1_1_praesens",
@@ -27478,7 +27655,19 @@
       "sie/Sie": [
         "Sie ____ . ({subject})"
       ]
-    }
+    },
+    "helpMemoryIntro": "Regular verbs in the present tense use the stem (the infinitive minus -en) plus an ending that matches the subject.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Present-tense endings",
+        "text": "ich -e, du -st, er/sie/es -t, wir -en, ihr -t, sie/Sie -en."
+      },
+      {
+        "title": "Extra -e- after -t/-d",
+        "text": "If the stem ends in -t or -d, add -e- before -st/-t: du arbeitest, er arbeitet, ihr findet."
+      }
+    ]
   },
   {
     "id": "quest_a1_1_familie",
@@ -27582,7 +27771,19 @@
       "Deutsch (mit Artikel)": [
         "\"{subject}\" auf Deutsch (mit Artikel): ____"
       ]
-    }
+    },
+    "helpMemoryIntro": "Learn each family word together with its article — the gender is part of the word.",
+    "helpMemoryTips": [
+      {
+        "title": "Female forms end in -in",
+        "text": "der Freund → die Freundin; der Lehrer → die Lehrerin. Many people-words form the female this way."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Color code",
+        "text": "der = blue, die = red, das = green — the same across the app."
+      }
+    ]
   },
   {
     "id": "quest_a1_2_akkusativ",
@@ -27735,7 +27936,25 @@
       "unbestimmt (einen/eine/ein)": [
         "Ich habe ____ {subject}."
       ]
-    }
+    },
+    "helpMemoryIntro": "The accusative marks the direct object — the thing the action happens to (Ich sehe DEN Mann). Only the masculine article changes from the nominative.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Only masculine changes",
+        "text": "der → den and ein → einen. Feminine (die/eine), neuter (das/ein) and plural look exactly like the nominative."
+      },
+      {
+        "kind": "example",
+        "text": "Ich habe einen Hund, eine Katze und ein Auto."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Color code",
+        "text": "der/den = blue, die = red, das = green."
+      }
+    ],
+    "helpMemoryColorByGender": true
   },
   {
     "id": "quest_a1_2_possessiv",
@@ -27894,7 +28113,26 @@
       "mein (my, Akk.)": [
         "Ich sehe ____ {subject}."
       ]
-    }
+    },
+    "helpMemoryIntro": "Possessive articles (mein, dein, sein, ihr …) take the SAME endings as ein/eine. The ending depends on the gender and case of the noun that follows — not on the owner.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Nominative endings",
+        "text": "Bare stem for masculine/neuter (mein Vater, mein Kind); add -e for feminine and plural (meine Mutter, meine Eltern)."
+      },
+      {
+        "kind": "rule",
+        "title": "Accusative",
+        "text": "Like the accusative article, only masculine adds -en: Ich sehe meinen Vater (but meine Mutter, mein Kind)."
+      },
+      {
+        "kind": "warning",
+        "title": "sein vs. ihr",
+        "text": "sein = his/its, ihr = her/their. Choose by the OWNER, then add the ending for the noun."
+      }
+    ],
+    "helpMemoryColorByGender": true
   },
   {
     "id": "quest_a1_2_negation",
@@ -28100,6 +28338,23 @@
         "hint": "Negates an adjective → nicht.",
         "english": "The film is not good."
       }
+    ],
+    "helpMemoryIntro": "German has two ways to say \"not\". kein negates a noun (it replaces ein or the article); nicht negates everything else — verbs, adjectives and adverbs.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "kein for nouns",
+        "text": "Use kein/keine/keinen where English says \"no\" or \"not a\": kein Auto, keine Zeit, keinen Hund."
+      },
+      {
+        "kind": "rule",
+        "title": "nicht for the rest",
+        "text": "Use nicht to negate a verb, adjective or adverb: Ich verstehe nicht; sie ist nicht müde."
+      },
+      {
+        "title": "kein takes ein-endings",
+        "text": "kein declines exactly like ein, so masculine accusative is keinen (Ich habe keinen Hund)."
+      }
     ]
   },
   {
@@ -28199,7 +28454,24 @@
       "möchten (would like)": [
         "{subject} ____ … (möchten)"
       ]
-    }
+    },
+    "helpMemoryIntro": "Modal verbs (können, müssen, wollen, möchten …) express ability, necessity or desire. They are irregular in the singular and push the main verb to the end of the clause as an infinitive.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "ich and er are the same",
+        "text": "The ich- and er/sie/es-forms are identical and take NO ending: ich kann, er kann; ich muss, sie muss."
+      },
+      {
+        "kind": "warning",
+        "title": "Vowel change in the singular",
+        "text": "The singular often changes the stem vowel: können → kann, müssen → muss, wollen → will. The plural keeps the infinitive stem."
+      },
+      {
+        "kind": "example",
+        "text": "Ich kann gut schwimmen. — the second verb (schwimmen) goes to the end as an infinitive."
+      }
+    ]
   },
   {
     "id": "quest_a1_2_uhrzeit",
@@ -28402,6 +28674,23 @@
         "hint": "Colloquial German time for 21:15.",
         "english": "It is 21:15."
       }
+    ],
+    "helpMemoryIntro": "Colloquial German clock times use \"nach\" (past) and \"vor\" (to). The word \"halb\" counts toward the NEXT hour, which trips up English speakers.",
+    "helpMemoryTips": [
+      {
+        "kind": "warning",
+        "title": "\"halb\" looks ahead",
+        "text": "halb drei = 2:30 (half on the way TO three), NOT 3:30."
+      },
+      {
+        "kind": "rule",
+        "title": "nach / vor",
+        "text": "Viertel nach acht = 8:15; Viertel vor neun = 8:45."
+      },
+      {
+        "title": "Official time",
+        "text": "Timetables read the digits: 14:30 = vierzehn Uhr dreißig. Always understood, never wrong."
+      }
     ]
   },
   {
@@ -28521,7 +28810,19 @@
       "Deutsch": [
         "\"{subject}\" auf Deutsch: ____"
       ]
-    }
+    },
+    "helpMemoryIntro": "All days of the week and months are masculine (der-words) and are always written with a capital letter.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Always \"der\"",
+        "text": "der Montag, der Januar … every day and month is masculine."
+      },
+      {
+        "title": "\"am\" for days, \"im\" for months",
+        "text": "am Freitag (on Friday), im Mai (in May). Both come from an/in + dem (dative)."
+      }
+    ]
   },
   {
     "id": "quest_a1_2_praepositionen",
@@ -28693,6 +28994,19 @@
         ],
         "hint": "gegen → accusative. der Baum → den Baum.",
         "english": "The car drives into the tree."
+      }
+    ],
+    "helpMemoryIntro": "The prepositions durch, für, gegen, ohne and um always take the accusative, so the article on the following noun shifts to its accusative form.",
+    "helpMemoryTips": [
+      {
+        "kind": "mnemonic",
+        "title": "Five accusative prepositions",
+        "text": "durch, für, gegen, ohne, um — always accusative, no exceptions."
+      },
+      {
+        "kind": "rule",
+        "title": "What actually changes",
+        "text": "Only masculine: der → den (für den Mann). Feminine (die) and neuter (das) look the same as the nominative."
       }
     ]
   },
@@ -28866,6 +29180,22 @@
         ],
         "hint": "wir form of (zurück)kommen.",
         "english": "We come back on Friday."
+      }
+    ],
+    "helpMemoryIntro": "Separable verbs split in a main clause: the prefix jumps to the END of the sentence while the conjugated stem stays in second position.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Prefix goes to the end",
+        "text": "aufstehen → Ich stehe um 7 Uhr auf. The prefix \"auf\" lands last."
+      },
+      {
+        "kind": "example",
+        "text": "einkaufen → Ich kaufe heute ein.   anrufen → Ich rufe dich an."
+      },
+      {
+        "title": "Common separable prefixes",
+        "text": "auf-, ab-, an-, aus-, ein-, mit-, vor-, zu-, zurück- are usually separable and carry the stress."
       }
     ]
   }

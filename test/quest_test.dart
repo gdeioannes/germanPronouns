@@ -90,6 +90,17 @@ void main() {
         expect(entry.displayName, isNot(contains('·')));
       }
     });
+
+    test('every quest quiz has rich Help Memory content', () {
+      for (final entry in questEntries) {
+        final c = entry.content;
+        expect(c.helpMemoryIntro, isNotNull,
+            reason: '${c.id} is missing a Help Memory intro');
+        expect(c.helpMemoryIntro, isNotEmpty);
+        expect(c.helpMemoryTips, isNotEmpty,
+            reason: '${c.id} has no Help Memory tips');
+      }
+    });
   });
 
   group('Quest unlock chain logic', () {

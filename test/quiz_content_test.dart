@@ -92,6 +92,23 @@ void main() {
     }
   });
 
+  group('every quiz has rich Help Memory content', () {
+    for (final content in _allContent.keys) {
+      test('${content.id}: has an intro and at least one tip', () {
+        expect(content.helpMemoryIntro, isNotNull);
+        expect(content.helpMemoryIntro, isNotEmpty);
+        expect(content.helpMemoryTips, isNotEmpty);
+      });
+
+      test('${content.id}: HelpMemoryTip round-trips through JSON', () {
+        for (final tip in content.helpMemoryTips) {
+          final restored = HelpMemoryTip.fromJson(_throughJson(tip.toJson()));
+          expect(restored.toJson(), tip.toJson());
+        }
+      });
+    }
+  });
+
   group('Prepositions content drives the engine like the original', () {
     final config = buildQuizConfigFromContent(
       prepositionQuizContent,

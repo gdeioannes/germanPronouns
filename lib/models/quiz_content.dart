@@ -1,5 +1,9 @@
 import 'quiz_config.dart';
 
+// Re-exported so content files (which import this) can author Help Memory tips
+// without a separate import.
+export 'quiz_config.dart' show HelpMemoryTip;
+
 /// One quizzable subject (a table row): a pronoun, a noun, a preposition, etc.
 class QuizSubjectData {
   const QuizSubjectData({
@@ -176,6 +180,9 @@ class QuizContent {
     this.helpMemorySubtitle,
     this.helpMemoryTables = const [],
     this.endingPatternTables = const [],
+    this.helpMemoryIntro,
+    this.helpMemoryTips = const [],
+    this.helpMemoryColorByGender = false,
   });
 
   /// Stable identifier (e.g. a database primary key or a slug).
@@ -213,6 +220,15 @@ class QuizContent {
   final List<HelpMemoryTable> helpMemoryTables;
   final List<EndingPatternTable> endingPatternTables;
 
+  /// Rich intro paragraph shown at the top of the Help Memory section.
+  final String? helpMemoryIntro;
+
+  /// Rule/mnemonic/example/warning callouts shown in the Help Memory section.
+  final List<HelpMemoryTip> helpMemoryTips;
+
+  /// When true, Help Memory tables tint value cells by gender (der/die/das).
+  final bool helpMemoryColorByGender;
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
@@ -235,6 +251,10 @@ class QuizContent {
       'helpMemoryTables': [for (final t in helpMemoryTables) t.toJson()],
     if (endingPatternTables.isNotEmpty)
       'endingPatternTables': [for (final t in endingPatternTables) t.toJson()],
+    if (helpMemoryIntro != null) 'helpMemoryIntro': helpMemoryIntro,
+    if (helpMemoryTips.isNotEmpty)
+      'helpMemoryTips': [for (final t in helpMemoryTips) t.toJson()],
+    if (helpMemoryColorByGender) 'helpMemoryColorByGender': true,
   };
 
   factory QuizContent.fromJson(Map<String, dynamic> json) => QuizContent(
@@ -279,5 +299,12 @@ class QuizContent {
       for (final t in (json['endingPatternTables'] as List?) ?? const [])
         EndingPatternTable.fromJson(t as Map<String, dynamic>),
     ],
+    helpMemoryIntro: json['helpMemoryIntro'] as String?,
+    helpMemoryTips: [
+      for (final t in (json['helpMemoryTips'] as List?) ?? const [])
+        HelpMemoryTip.fromJson(t as Map<String, dynamic>),
+    ],
+    helpMemoryColorByGender:
+        json['helpMemoryColorByGender'] as bool? ?? false,
   );
 }

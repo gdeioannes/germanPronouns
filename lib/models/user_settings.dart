@@ -20,6 +20,7 @@ class UserSettings {
     this.questUnlockLaps = 5,
     this.completedQuestQuizzes = const [],
     this.lastQuestQuizKey,
+    this.seenHelpMemory = const [],
     this.showFirstLetterHint = false,
   });
 
@@ -54,6 +55,9 @@ class UserSettings {
   /// The Quest quiz key last opened.
   final String? lastQuestQuizKey;
 
+  /// Quiz storage-key prefixes whose Help Memory has already auto-opened once.
+  final List<String> seenHelpMemory;
+
   final bool showFirstLetterHint;
 
   UserSettings copyWith({
@@ -69,6 +73,7 @@ class UserSettings {
     int? questUnlockLaps,
     List<String>? completedQuestQuizzes,
     String? lastQuestQuizKey,
+    List<String>? seenHelpMemory,
     bool? showFirstLetterHint,
   }) => UserSettings(
     disabledNouns: disabledNouns ?? this.disabledNouns,
@@ -85,6 +90,7 @@ class UserSettings {
     questUnlockLaps: questUnlockLaps ?? this.questUnlockLaps,
     completedQuestQuizzes: completedQuestQuizzes ?? this.completedQuestQuizzes,
     lastQuestQuizKey: lastQuestQuizKey ?? this.lastQuestQuizKey,
+    seenHelpMemory: seenHelpMemory ?? this.seenHelpMemory,
     showFirstLetterHint: showFirstLetterHint ?? this.showFirstLetterHint,
   );
 
@@ -102,6 +108,7 @@ class UserSettings {
     'questUnlockLaps': questUnlockLaps,
     'completedQuestQuizzes': completedQuestQuizzes,
     if (lastQuestQuizKey != null) 'lastQuestQuizKey': lastQuestQuizKey,
+    'seenHelpMemory': seenHelpMemory,
     'showFirstLetterHint': showFirstLetterHint,
   };
 
@@ -123,6 +130,8 @@ class UserSettings {
     completedQuestQuizzes:
         (json['completedQuestQuizzes'] as List?)?.cast<String>() ?? const [],
     lastQuestQuizKey: json['lastQuestQuizKey'] as String?,
+    seenHelpMemory:
+        (json['seenHelpMemory'] as List?)?.cast<String>() ?? const [],
     showFirstLetterHint: json['showFirstLetterHint'] as bool? ?? false,
   );
 }

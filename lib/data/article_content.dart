@@ -40,4 +40,29 @@ final QuizContent articleQuizContent = QuizContent(
   },
   categoryDisplayNames: nounCategoryDisplayNames,
   collapseReferenceTablesByGender: true,
+  helpMemoryColorByGender: true,
+  helpMemoryIntro:
+      'Every German noun has a gender — der (masculine), die (feminine), '
+      'das (neuter) — and the article changes with the grammatical case. The '
+      'table shows the definite article for each gender in every case.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Accusative: only "der" changes',
+      text: 'In the accusative, masculine der → den. die, das and the plural '
+          'stay the same as the nominative.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Dative endings',
+      text: 'Dative: dem (m/n), der (f), and den + an extra -n on the plural '
+          'noun (die Kinder → den Kindern).',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Color code',
+      text: 'Blue = der (m), red = die (f), green = das (n) — the same colors '
+          'used across the app.',
+    ),
+  ],
 );

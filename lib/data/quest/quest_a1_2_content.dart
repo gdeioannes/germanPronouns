@@ -46,6 +46,8 @@ QuizContent sentenceQuestQuiz({
   required String subjectColumnLabel,
   required String categoryLabel,
   required List<QuestSentenceItem> items,
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
 }) {
   return QuizContent(
     id: id,
@@ -79,6 +81,8 @@ QuizContent sentenceQuestQuiz({
               : [items[i].explanation!],
         ),
     ],
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
   );
 }
 
@@ -145,6 +149,28 @@ final QuizContent questAkkusativContent = QuizContent(
     'bestimmt (den/die/das)': ['Ich sehe ____ {subject}.'],
     'unbestimmt (einen/eine/ein)': ['Ich habe ____ {subject}.'],
   },
+  helpMemoryColorByGender: true,
+  helpMemoryIntro:
+      'The accusative marks the direct object — the thing the action happens '
+      'to (Ich sehe DEN Mann). Only the masculine article changes from the '
+      'nominative.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Only masculine changes',
+      text: 'der → den and ein → einen. Feminine (die/eine), neuter (das/ein) '
+          'and plural look exactly like the nominative.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      text: 'Ich habe einen Hund, eine Katze und ein Auto.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Color code',
+      text: 'der/den = blue, die = red, das = green.',
+    ),
+  ],
 );
 
 // ── 2. Possessivartikel (mein/dein/sein/ihr) ─────────────────────────────────
@@ -223,6 +249,31 @@ final QuizContent questPossessivContent = QuizContent(
     'ihr (her, Nom.)': ['Das ist ____ {subject}.'],
     'mein (my, Akk.)': ['Ich sehe ____ {subject}.'],
   },
+  helpMemoryColorByGender: true,
+  helpMemoryIntro:
+      'Possessive articles (mein, dein, sein, ihr …) take the SAME endings as '
+      'ein/eine. The ending depends on the gender and case of the noun that '
+      'follows — not on the owner.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Nominative endings',
+      text: 'Bare stem for masculine/neuter (mein Vater, mein Kind); add -e for '
+          'feminine and plural (meine Mutter, meine Eltern).',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Accusative',
+      text: 'Like the accusative article, only masculine adds -en: '
+          'Ich sehe meinen Vater (but meine Mutter, mein Kind).',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'sein vs. ihr',
+      text: 'sein = his/its, ihr = her/their. Choose by the OWNER, then add the '
+          'ending for the noun.',
+    ),
+  ],
 );
 
 // ── 3. Negation: kein vs nicht ───────────────────────────────────────────────
@@ -311,6 +362,29 @@ final QuizContent questNegationContent = sentenceQuestQuiz(
       hint: 'Negates an adjective → nicht.',
     ),
   ],
+  intro: 'German has two ways to say "not". kein negates a noun (it replaces '
+      'ein or the article); nicht negates everything else — verbs, adjectives '
+      'and adverbs.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'kein for nouns',
+      text: 'Use kein/keine/keinen where English says "no" or "not a": '
+          'kein Auto, keine Zeit, keinen Hund.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'nicht for the rest',
+      text: 'Use nicht to negate a verb, adjective or adverb: '
+          'Ich verstehe nicht; sie ist nicht müde.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'kein takes ein-endings',
+      text: 'kein declines exactly like ein, so masculine accusative is keinen '
+          '(Ich habe keinen Hund).',
+    ),
+  ],
 );
 
 // ── 4. Modalverben (können/müssen/wollen/möchten) ────────────────────────────
@@ -361,6 +435,29 @@ final QuizContent questModalverbenContent = QuizContent(
     'wollen (want)': ['{subject} ____ … (wollen)'],
     'möchten (would like)': ['{subject} ____ … (möchten)'],
   },
+  helpMemoryIntro:
+      'Modal verbs (können, müssen, wollen, möchten …) express ability, '
+      'necessity or desire. They are irregular in the singular and push the '
+      'main verb to the end of the clause as an infinitive.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'ich and er are the same',
+      text: 'The ich- and er/sie/es-forms are identical and take NO ending: '
+          'ich kann, er kann; ich muss, sie muss.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Vowel change in the singular',
+      text: 'The singular often changes the stem vowel: können → kann, '
+          'müssen → muss, wollen → will. The plural keeps the infinitive stem.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      text: 'Ich kann gut schwimmen. — the second verb (schwimmen) goes to '
+          'the end as an infinitive.',
+    ),
+  ],
 );
 
 // ── 5. Uhrzeit (telling time) ────────────────────────────────────────────────
@@ -398,6 +495,27 @@ final QuizContent questUhrzeitContent = sentenceQuestQuiz(
     _time('20:45', 'Viertel vor neun', []),
     _time('21:15', 'Viertel nach neun', []),
   ],
+  intro: 'Colloquial German clock times use "nach" (past) and "vor" (to). The '
+      'word "halb" counts toward the NEXT hour, which trips up English '
+      'speakers.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: '"halb" looks ahead',
+      text: 'halb drei = 2:30 (half on the way TO three), NOT 3:30.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'nach / vor',
+      text: 'Viertel nach acht = 8:15; Viertel vor neun = 8:45.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Official time',
+      text: 'Timetables read the digits: 14:30 = vierzehn Uhr dreißig. Always '
+          'understood, never wrong.',
+    ),
+  ],
 );
 
 // ── 6. Datum: Wochentage & Monate ────────────────────────────────────────────
@@ -430,6 +548,21 @@ final QuizContent questDatumContent = vocabQuestQuiz(
     MapEntry('October', 'Oktober'),
     MapEntry('November', 'November'),
     MapEntry('December', 'Dezember'),
+  ],
+  intro: 'All days of the week and months are masculine (der-words) and are '
+      'always written with a capital letter.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Always "der"',
+      text: 'der Montag, der Januar … every day and month is masculine.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"am" for days, "im" for months',
+      text: 'am Freitag (on Friday), im Mai (in May). Both come from an/in + '
+          'dem (dative).',
+    ),
   ],
 );
 
@@ -506,6 +639,22 @@ final QuizContent questPraepositionenContent = sentenceQuestQuiz(
       hint: 'gegen → accusative. der Baum → den Baum.',
     ),
   ],
+  intro: 'The prepositions durch, für, gegen, ohne and um always take the '
+      'accusative, so the article on the following noun shifts to its '
+      'accusative form.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Five accusative prepositions',
+      text: 'durch, für, gegen, ohne, um — always accusative, no exceptions.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'What actually changes',
+      text: 'Only masculine: der → den (für den Mann). Feminine (die) and '
+          'neuter (das) look the same as the nominative.',
+    ),
+  ],
 );
 
 // ── 8. Trennbare Verben (separable verbs) ────────────────────────────────────
@@ -579,6 +728,25 @@ final QuizContent questTrennbareContent = sentenceQuestQuiz(
       answer: 'kommen',
       english: 'We come back on Friday.',
       hint: 'wir form of (zurück)kommen.',
+    ),
+  ],
+  intro: 'Separable verbs split in a main clause: the prefix jumps to the END '
+      'of the sentence while the conjugated stem stays in second position.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Prefix goes to the end',
+      text: 'aufstehen → Ich stehe um 7 Uhr auf. The prefix "auf" lands last.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      text: 'einkaufen → Ich kaufe heute ein.   anrufen → Ich rufe dich an.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Common separable prefixes',
+      text: 'auf-, ab-, an-, aus-, ein-, mit-, vor-, zu-, zurück- are usually '
+          'separable and carry the stress.',
     ),
   ],
 );

@@ -25,6 +25,7 @@ import '../theme/app_theme.dart';
 import '../theme/pdf_theme.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
+import 'help_memory.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key, required this.config});
@@ -166,6 +167,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _nextQuestion();
     _loadStoredStats();
     _requestAnswerFocus();
+    // The first time this quiz is opened, show the Help Memory as a floating
+    // panel on top so the learner meets the reference material once; the
+    // accordion below remains available for later.
+    final helpKey = widget.config.storageKeyPrefix;
+    if (!NounSettings.instance.hasSeenHelpMemory(helpKey)) {
+      NounSettings.instance.markHelpMemorySeen(helpKey);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _showHelpMemoryDialog();
+      });
+    }
     if (widget.config.subjectCategories != null) {
       NounSettings.instance.load().then((_) {
         if (!mounted) return;
@@ -665,22 +676,484 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// Builds one focused reference table for the Help Memory section, with
   /// [QuizConfig.subjectColumnLabel] as the fixed first column and
   /// [table]'s columns as the rest.
+  /// Shows the Help Memory as a floating panel on top of the quiz — used on
+  /// the learner's first visit so they meet the reference material once.
+  Future<void> _showHelpMemoryDialog() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    return showDialog<void>(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          clipBehavior: Clip.antiAlias,
+          insetPadding: const EdgeInsets.all(20),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: 600,
+              maxHeight: MediaQuery.sizeOf(context).height * 0.85,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 16, 8, 8),
+                  child: Row(
+                    children: [
+                      IconBadge(
+                        icon: Icons.menu_book_rounded,
+                        color: kSectionAccentColors[0],
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Help Memory',
+                              style: textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Text(
+                              'A quick reference — reopen it anytime below.',
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: 'Close',
+                        icon: const Icon(Icons.close_rounded),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                    ],
+                  ),
+                ),
+                Divider(height: 1, color: colorScheme.outlineVariant),
+                Flexible(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: _helpMemoryContent(context),
+                    ),
+                  ),
+                ),
+                Divider(height: 1, color: colorScheme.outlineVariant),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.lightbulb_outline_rounded,
+                            size: 18,
+                            color: kSectionAccentColors[0],
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              'Keep this in your pocket: save it as a PDF and '
+                              'glance back whenever a question trips you up.',
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      SizedBox(
+                        width: double.infinity,
+                        child: FilledButton.icon(
+                          onPressed: _exportHelpMemoryPdf,
+                          icon: const Icon(Icons.picture_as_pdf_rounded),
+                          label: const Text('Save as PDF'),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      SizedBox(
+                        width: double.infinity,
+                        child: TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: const Text('Got it'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  /// The Help Memory content (intro, legend, reference tables, ending
+  /// tables and tip cards), shared by the inline accordion and the
+  /// first-visit floating panel ([_showHelpMemoryDialog]).
+  List<Widget> _helpMemoryContent(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return [
+                    if (widget.config.helpMemoryIntro != null)
+                      HelpMemoryIntro(text: widget.config.helpMemoryIntro!),
+                    if (widget.config.helpMemoryColorByGender) ...[
+                      const GenderLegend(),
+                      const SizedBox(height: 12),
+                    ],
+                    ...(widget.config.helpMemoryTables != null
+                      ? [
+                          for (final table in widget.config.helpMemoryTables!) ...[
+                            _buildHelpMemoryTable(context, table),
+                            const SizedBox(height: 16),
+                          ],
+                          for (final table
+                              in widget.config.endingPatternTables ??
+                                  const <EndingPatternTable>[]) ...[
+                            _buildEndingPatternTable(context, table),
+                            const SizedBox(height: 16),
+                          ],
+                        ]
+                      : [
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final showEnglish =
+                            widget.config.subjectEnglish != null &&
+                            NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
+                        final showSubtitleRow =
+                            showEnglish || _useGenderReferenceRows;
+                        final fixedColumnWidth = showSubtitleRow
+                            ? 170.0
+                            : 120.0;
+                        const valueColumnWidth = 110.0;
+                        final rowHeight = showSubtitleRow ? 58.0 : 48.0;
+                        final scrollableWidth =
+                            valueColumnWidth * widget.config.categories.length;
+
+                        Widget buildFixedCell(
+                          String text, {
+                          bool header = false,
+                          Color? background,
+                          Color? textColor,
+                          String? subtitle,
+                        }) {
+                          return Container(
+                            width: fixedColumnWidth,
+                            height: rowHeight,
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            decoration: BoxDecoration(
+                              color:
+                                  background ??
+                                  (header
+                                      ? colorScheme.primary
+                                      : colorScheme.surface),
+                              border: Border(
+                                right: BorderSide(
+                                  color: header
+                                      ? colorScheme.primary
+                                      : colorScheme.outlineVariant,
+                                ),
+                                bottom: BorderSide(
+                                  color: colorScheme.outlineVariant,
+                                ),
+                              ),
+                            ),
+                            child: subtitle == null
+                                ? Text(
+                                    text,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: header
+                                          ? Colors.white
+                                          : textColor,
+                                      fontWeight: header
+                                          ? FontWeight.w700
+                                          : FontWeight.w600,
+                                    ),
+                                  )
+                                : Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        text,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: header
+                                              ? Colors.white
+                                              : textColor,
+                                          fontWeight: header
+                                              ? FontWeight.w700
+                                              : FontWeight.w600,
+                                        ),
+                                      ),
+                                      Text(
+                                        subtitle,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: colorScheme.onSurfaceVariant,
+                                          fontSize: 11,
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                          );
+                        }
+
+                        Widget buildScrollableRow(
+                          List<String> values, {
+                          bool header = false,
+                          Color? background,
+                          String? gender,
+                        }) {
+                          final tint =
+                              (!header && widget.config.helpMemoryColorByGender)
+                              ? genderTint(gender)
+                              : null;
+                          return SizedBox(
+                            width: scrollableWidth,
+                            height: rowHeight,
+                            child: Row(
+                              children: values.map((value) {
+                                return Container(
+                                  width: valueColumnWidth,
+                                  height: rowHeight,
+                                  alignment: Alignment.center,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color:
+                                        tint?.background ??
+                                        background ??
+                                        (header
+                                            ? colorScheme.primary
+                                            : colorScheme.surface),
+                                    border: Border(
+                                      right: BorderSide(
+                                        color: header
+                                            ? colorScheme.primary
+                                            : colorScheme.outlineVariant,
+                                      ),
+                                      bottom: BorderSide(
+                                        color: colorScheme.outlineVariant,
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    value,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: header
+                                          ? Colors.white
+                                          : tint?.foreground,
+                                      fontWeight: header || tint != null
+                                          ? FontWeight.w700
+                                          : FontWeight.w500,
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          );
+                        }
+
+                        final genderRows = _useGenderReferenceRows
+                            ? _genderRowOrder
+                            : null;
+                        final rowCount =
+                            genderRows?.length ??
+                            widget.config.subjectDisplays.length;
+
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                buildFixedCell(
+                                  widget.config.subjectColumnLabel,
+                                  header: true,
+                                ),
+                                for (int index = 0; index < rowCount; index++)
+                                  if (genderRows != null)
+                                    buildFixedCell(
+                                      _genderArticles[genderRows[index]]!,
+                                      background: index.isEven
+                                          ? colorScheme.surface
+                                          : colorScheme
+                                                .surfaceContainerHighest
+                                                .withValues(alpha: 0.35),
+                                      textColor: NounSettings.instance.colorNouns
+                                          ? NounSettings.instance
+                                                .colorForGender(
+                                                  genderRows[index],
+                                                )
+                                          : null,
+                                      subtitle: _genderRowNames[genderRows[index]],
+                                    )
+                                  else
+                                    buildFixedCell(
+                                      widget.config.subjectDisplays[index],
+                                      background: index.isEven
+                                          ? colorScheme.surface
+                                          : colorScheme
+                                                .surfaceContainerHighest
+                                                .withValues(alpha: 0.35),
+                                      textColor:
+                                          widget.config.subjectGenders !=
+                                                  null &&
+                                              NounSettings.instance.colorNouns
+                                          ? NounSettings.instance
+                                                .colorForGender(
+                                                  widget
+                                                      .config
+                                                      .subjectGenders![index],
+                                                )
+                                          : null,
+                                      subtitle: showEnglish
+                                          ? widget
+                                                .config
+                                                .subjectEnglish![index]
+                                          : null,
+                                    ),
+                              ],
+                            ),
+                            Expanded(
+                              child: Scrollbar(
+                                controller: _tableScrollController,
+                                thumbVisibility: true,
+                                child: SingleChildScrollView(
+                                  controller: _tableScrollController,
+                                  scrollDirection: Axis.horizontal,
+                                  child: SizedBox(
+                                    width: scrollableWidth,
+                                    child: Column(
+                                      children: [
+                                        buildScrollableRow(
+                                          widget.config.categories
+                                              .map((c) => c.label)
+                                              .toList(),
+                                          header: true,
+                                        ),
+                                        for (
+                                          int index = 0;
+                                          index < rowCount;
+                                          index++
+                                        )
+                                          buildScrollableRow(
+                                            widget.config.categories
+                                                .map(
+                                                  (c) => c.values[genderRows !=
+                                                          null
+                                                      ? _firstSubjectIndexForGender(
+                                                          genderRows[index],
+                                                        )
+                                                      : index],
+                                                )
+                                                .toList(),
+                                            background: index.isEven
+                                                ? colorScheme.surface
+                                                : colorScheme
+                                                      .surfaceContainerHighest
+                                                      .withValues(alpha: 0.35),
+                                            gender: genderRows != null
+                                                ? genderRows[index]
+                                                : widget
+                                                      .config
+                                                      .subjectGenders?[index],
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                    if (_useGenderReferenceRows) ...[
+                      const SizedBox(height: 16),
+                      Text(
+                        'Gender rules of thumb (tendencies, not absolute — exceptions exist)',
+                        style: Theme.of(context).textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                      const SizedBox(height: 8),
+                      for (final gender in _genderRowOrder)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${_genderArticles[gender]} (${_genderRowNames[gender]})',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: NounSettings.instance.colorNouns
+                                      ? NounSettings.instance.colorForGender(
+                                          gender,
+                                        )
+                                      : null,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              for (final rule in _genderRules[gender]!)
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 8,
+                                    bottom: 2,
+                                  ),
+                                  child: Text('• $rule'),
+                                ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ]),
+                    if (widget.config.helpMemoryTips.isNotEmpty) ...[
+                      const SizedBox(height: 4),
+                      for (final tip in widget.config.helpMemoryTips)
+                        HelpTipCard(tip: tip),
+                    ],
+    ];
+  }
+
   Widget _buildHelpMemoryTable(BuildContext context, HelpMemoryTable table) {
     final colorScheme = Theme.of(context).colorScheme;
     final categoriesByLabel = {
       for (final c in widget.config.categories) c.label: c,
     };
 
-    Widget cell(String text, {bool header = false}) {
+    Widget cell(
+      String text, {
+      bool header = false,
+      ({Color background, Color foreground})? tint,
+    }) {
       return Container(
+        color: tint?.background,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         alignment: Alignment.center,
         child: Text(
           text,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: header ? Colors.white : null,
-            fontWeight: header ? FontWeight.w700 : FontWeight.w500,
+            color: header ? Colors.white : tint?.foreground,
+            fontWeight: header || tint != null
+                ? FontWeight.w700
+                : FontWeight.w500,
           ),
         ),
       );
@@ -692,6 +1165,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           : (subjectIndex.isEven
                 ? colorScheme.surface
                 : colorScheme.surfaceContainerHighest.withValues(alpha: 0.35));
+      final tint = (subjectIndex != null && widget.config.helpMemoryColorByGender)
+          ? genderTint(widget.config.subjectGenders?[subjectIndex])
+          : null;
       return TableRow(
         decoration: BoxDecoration(color: background),
         children: [
@@ -708,6 +1184,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                   : categoriesByLabel[column.categoryLabel]!
                         .values[subjectIndex],
               header: subjectIndex == null,
+              tint: tint,
             ),
         ],
       );
@@ -818,6 +1295,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   Future<void> _exportHelpMemoryPdf() async {
     final pdf = await QuizPdfTheme.load();
     final doc = pdf.newDocument();
+    final helpIntro = widget.config.helpMemoryIntro;
+    final helpTips = widget.config.helpMemoryTips;
+    final pdfTips = [
+      if (helpTips.isNotEmpty) ...[
+        pw.SizedBox(height: 6),
+        pdf.section('Tips & rules'),
+        for (final t in helpTips)
+          pdf.tip(kind: t.kind, title: t.title, text: t.text),
+      ],
+    ];
 
     if (widget.config.helpMemoryTables != null) {
       final categoriesByLabel = {
@@ -831,6 +1318,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           footer: pdf.footer,
           build: (context) => [
             pdf.brandHeader(widget.config.title, subtitle: 'Help Memory'),
+            if (helpIntro != null) pdf.intro(helpIntro),
             for (final table in widget.config.helpMemoryTables!) ...[
               pdf.section(table.title),
               pdf.table(
@@ -872,6 +1360,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               ],
               pw.SizedBox(height: 14),
             ],
+            ...pdfTips,
           ],
         ),
       );
@@ -891,7 +1380,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         ...widget.config.categories.map((c) => c.label),
       ];
 
+      // Match the on-screen gender coloring: tint each row's value cells by
+      // gender (der=blue, die=red, das=green), using the same user-set colors.
+      PdfColor? rowColor(String? gender) =>
+          (widget.config.helpMemoryColorByGender && gender != null)
+          ? PdfColor.fromInt(
+              NounSettings.instance.colorForGender(gender).toARGB32(),
+            )
+          : null;
+
       final rows = <List<String>>[];
+      final rowColors = <PdfColor?>[];
       for (var index = 0; index < rowCount; index++) {
         if (genderRows != null) {
           final gender = genderRows[index];
@@ -900,6 +1399,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             '${_genderArticles[gender]} (${_genderRowNames[gender]})',
             ...widget.config.categories.map((c) => c.values[subjectIndex]),
           ]);
+          rowColors.add(rowColor(gender));
         } else {
           var label = widget.config.subjectDisplays[index];
           if (showEnglish) {
@@ -909,6 +1409,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             label,
             ...widget.config.categories.map((c) => c.values[index]),
           ]);
+          rowColors.add(
+            rowColor(
+              widget.config.subjectGenders != null
+                  ? widget.config.subjectGenders![index]
+                  : null,
+            ),
+          );
         }
       }
 
@@ -935,6 +1442,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               headers: headers,
               data: rows,
               fontSize: cellFontSize,
+              rowColors: widget.config.helpMemoryColorByGender
+                  ? rowColors
+                  : null,
               columnWidths: {
                 for (var i = 0; i < columnCount; i++)
                   i: const pw.FlexColumnWidth(1),
@@ -953,6 +1463,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                   pw.Bullet(text: rule, style: pdf.bulletStyle(fontSize: 10)),
               ],
             ],
+            ...pdfTips,
           ],
         ),
       );
@@ -3018,308 +3529,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     color: kSectionAccentColors[0],
                   ),
                   childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                  children: widget.config.helpMemoryTables != null
-                      ? [
-                          for (final table in widget.config.helpMemoryTables!) ...[
-                            _buildHelpMemoryTable(context, table),
-                            const SizedBox(height: 16),
-                          ],
-                          for (final table
-                              in widget.config.endingPatternTables ??
-                                  const <EndingPatternTable>[]) ...[
-                            _buildEndingPatternTable(context, table),
-                            const SizedBox(height: 16),
-                          ],
-                        ]
-                      : [
-                    LayoutBuilder(
-                      builder: (context, constraints) {
-                        final showEnglish =
-                            widget.config.subjectEnglish != null &&
-                            NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
-                        final showSubtitleRow =
-                            showEnglish || _useGenderReferenceRows;
-                        final fixedColumnWidth = showSubtitleRow
-                            ? 170.0
-                            : 120.0;
-                        const valueColumnWidth = 110.0;
-                        final rowHeight = showSubtitleRow ? 58.0 : 48.0;
-                        final scrollableWidth =
-                            valueColumnWidth * widget.config.categories.length;
-
-                        Widget buildFixedCell(
-                          String text, {
-                          bool header = false,
-                          Color? background,
-                          Color? textColor,
-                          String? subtitle,
-                        }) {
-                          return Container(
-                            width: fixedColumnWidth,
-                            height: rowHeight,
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
-                            decoration: BoxDecoration(
-                              color:
-                                  background ??
-                                  (header
-                                      ? colorScheme.primary
-                                      : colorScheme.surface),
-                              border: Border(
-                                right: BorderSide(
-                                  color: header
-                                      ? colorScheme.primary
-                                      : colorScheme.outlineVariant,
-                                ),
-                                bottom: BorderSide(
-                                  color: colorScheme.outlineVariant,
-                                ),
-                              ),
-                            ),
-                            child: subtitle == null
-                                ? Text(
-                                    text,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: header
-                                          ? Colors.white
-                                          : textColor,
-                                      fontWeight: header
-                                          ? FontWeight.w700
-                                          : FontWeight.w600,
-                                    ),
-                                  )
-                                : Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        text,
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: header
-                                              ? Colors.white
-                                              : textColor,
-                                          fontWeight: header
-                                              ? FontWeight.w700
-                                              : FontWeight.w600,
-                                        ),
-                                      ),
-                                      Text(
-                                        subtitle,
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: colorScheme.onSurfaceVariant,
-                                          fontSize: 11,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                          );
-                        }
-
-                        Widget buildScrollableRow(
-                          List<String> values, {
-                          bool header = false,
-                          Color? background,
-                        }) {
-                          return SizedBox(
-                            width: scrollableWidth,
-                            height: rowHeight,
-                            child: Row(
-                              children: values.map((value) {
-                                return Container(
-                                  width: valueColumnWidth,
-                                  height: rowHeight,
-                                  alignment: Alignment.center,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color:
-                                        background ??
-                                        (header
-                                            ? colorScheme.primary
-                                            : colorScheme.surface),
-                                    border: Border(
-                                      right: BorderSide(
-                                        color: header
-                                            ? colorScheme.primary
-                                            : colorScheme.outlineVariant,
-                                      ),
-                                      bottom: BorderSide(
-                                        color: colorScheme.outlineVariant,
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    value,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: header ? Colors.white : null,
-                                      fontWeight: header
-                                          ? FontWeight.w700
-                                          : FontWeight.w500,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        }
-
-                        final genderRows = _useGenderReferenceRows
-                            ? _genderRowOrder
-                            : null;
-                        final rowCount =
-                            genderRows?.length ??
-                            widget.config.subjectDisplays.length;
-
-                        return Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              children: [
-                                buildFixedCell(
-                                  widget.config.subjectColumnLabel,
-                                  header: true,
-                                ),
-                                for (int index = 0; index < rowCount; index++)
-                                  if (genderRows != null)
-                                    buildFixedCell(
-                                      _genderArticles[genderRows[index]]!,
-                                      background: index.isEven
-                                          ? colorScheme.surface
-                                          : colorScheme
-                                                .surfaceContainerHighest
-                                                .withValues(alpha: 0.35),
-                                      textColor: NounSettings.instance.colorNouns
-                                          ? NounSettings.instance
-                                                .colorForGender(
-                                                  genderRows[index],
-                                                )
-                                          : null,
-                                      subtitle: _genderRowNames[genderRows[index]],
-                                    )
-                                  else
-                                    buildFixedCell(
-                                      widget.config.subjectDisplays[index],
-                                      background: index.isEven
-                                          ? colorScheme.surface
-                                          : colorScheme
-                                                .surfaceContainerHighest
-                                                .withValues(alpha: 0.35),
-                                      textColor:
-                                          widget.config.subjectGenders !=
-                                                  null &&
-                                              NounSettings.instance.colorNouns
-                                          ? NounSettings.instance
-                                                .colorForGender(
-                                                  widget
-                                                      .config
-                                                      .subjectGenders![index],
-                                                )
-                                          : null,
-                                      subtitle: showEnglish
-                                          ? widget
-                                                .config
-                                                .subjectEnglish![index]
-                                          : null,
-                                    ),
-                              ],
-                            ),
-                            Expanded(
-                              child: Scrollbar(
-                                controller: _tableScrollController,
-                                thumbVisibility: true,
-                                child: SingleChildScrollView(
-                                  controller: _tableScrollController,
-                                  scrollDirection: Axis.horizontal,
-                                  child: SizedBox(
-                                    width: scrollableWidth,
-                                    child: Column(
-                                      children: [
-                                        buildScrollableRow(
-                                          widget.config.categories
-                                              .map((c) => c.label)
-                                              .toList(),
-                                          header: true,
-                                        ),
-                                        for (
-                                          int index = 0;
-                                          index < rowCount;
-                                          index++
-                                        )
-                                          buildScrollableRow(
-                                            widget.config.categories
-                                                .map(
-                                                  (c) => c.values[genderRows !=
-                                                          null
-                                                      ? _firstSubjectIndexForGender(
-                                                          genderRows[index],
-                                                        )
-                                                      : index],
-                                                )
-                                                .toList(),
-                                            background: index.isEven
-                                                ? colorScheme.surface
-                                                : colorScheme
-                                                      .surfaceContainerHighest
-                                                      .withValues(alpha: 0.35),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                    if (_useGenderReferenceRows) ...[
-                      const SizedBox(height: 16),
-                      Text(
-                        'Gender rules of thumb (tendencies, not absolute — exceptions exist)',
-                        style: Theme.of(context).textTheme.titleSmall
-                            ?.copyWith(fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(height: 8),
-                      for (final gender in _genderRowOrder)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '${_genderArticles[gender]} (${_genderRowNames[gender]})',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: NounSettings.instance.colorNouns
-                                      ? NounSettings.instance.colorForGender(
-                                          gender,
-                                        )
-                                      : null,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              for (final rule in _genderRules[gender]!)
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 8,
-                                    bottom: 2,
-                                  ),
-                                  child: Text('• $rule'),
-                                ),
-                            ],
-                          ),
-                        ),
-                    ],
-                  ],
+                  children: _helpMemoryContent(context),
                 ),
               ),
             ),

@@ -44,6 +44,7 @@ class NounSettings {
   static const String _completedQuestQuizzesKey =
       SettingsKeys.completedQuestQuizzes;
   static const String _lastQuestQuizKeyPref = SettingsKeys.lastQuestQuizKey;
+  static const String _seenHelpMemoryKey = SettingsKeys.seenHelpMemory;
 
   /// Size of one "streak" — a run of this many correct answers in a row.
   static const int streakLapSize = 5;
@@ -75,6 +76,7 @@ class NounSettings {
   int _questUnlockLaps = defaultProgressionUnlockLaps;
   Set<String> _completedQuestQuizzes = {};
   String? _lastQuestQuizKey;
+  Set<String> _seenHelpMemory = {};
   bool _showFirstLetterHint = false;
   bool _loaded = false;
 
@@ -140,6 +142,12 @@ class NounSettings {
   /// The Quest quiz key the user last opened, or null if none recorded yet.
   String? get lastQuestQuizKey => _lastQuestQuizKey;
 
+  /// Whether the learner has already had the Help Memory panel auto-open for
+  /// the quiz identified by [storageKeyPrefix]. Used to auto-open it only on
+  /// the first visit.
+  bool hasSeenHelpMemory(String storageKeyPrefix) =>
+      _seenHelpMemory.contains(storageKeyPrefix);
+
   /// Whether English translations should be shown alongside nouns in
   /// reference/analytics tables, keyed by page (a [QuizConfig.storageKeyPrefix]
   /// or [wordLibraryPageKey]). Saved independently per page.
@@ -201,6 +209,8 @@ class NounSettings {
     _completedQuestQuizzes =
         (prefs.getStringList(_completedQuestQuizzesKey) ?? const []).toSet();
     _lastQuestQuizKey = prefs.getString(_lastQuestQuizKeyPref);
+    _seenHelpMemory =
+        (prefs.getStringList(_seenHelpMemoryKey) ?? const []).toSet();
     _showFirstLetterHint =
         prefs.getBool(_showFirstLetterHintKey) ?? false;
     _loaded = true;
@@ -271,6 +281,15 @@ class NounSettings {
     await prefs.setString(_lastQuestQuizKeyPref, key);
   }
 
+  /// Marks the Help Memory panel for [storageKeyPrefix] as seen, so it won't
+  /// auto-open again. No-op if already marked.
+  Future<void> markHelpMemorySeen(String storageKeyPrefix) async {
+    if (_seenHelpMemory.contains(storageKeyPrefix)) return;
+    _seenHelpMemory = {..._seenHelpMemory, storageKeyPrefix};
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_seenHelpMemoryKey, _seenHelpMemory.toList());
+  }
+
   Future<void> setShowFirstLetterHint(bool value) async {
     _showFirstLetterHint = value;
     final prefs = await SharedPreferences.getInstance();
@@ -314,6 +333,7 @@ class NounSettings {
     questUnlockLaps: _questUnlockLaps,
     completedQuestQuizzes: _completedQuestQuizzes.toList(),
     lastQuestQuizKey: _lastQuestQuizKey,
+    seenHelpMemory: _seenHelpMemory.toList(),
     showFirstLetterHint: _showFirstLetterHint,
   );
 
@@ -352,6 +372,7 @@ class NounSettings {
     _questUnlockLaps = defaultProgressionUnlockLaps;
     _completedQuestQuizzes = {};
     _lastQuestQuizKey = null;
+    _seenHelpMemory = {};
   }
 
   Future<void> toggle(String noun) async {

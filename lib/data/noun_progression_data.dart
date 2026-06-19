@@ -184,5 +184,8 @@ QuizContent nounProgressionContent(QuizContent allNouns, String key) {
     sentenceTemplates: allNouns.sentenceTemplates,
     categoryDisplayNames: allNouns.categoryDisplayNames,
     collapseReferenceTablesByGender: allNouns.collapseReferenceTablesByGender,
+    helpMemoryIntro: allNouns.helpMemoryIntro,
+    helpMemoryTips: allNouns.helpMemoryTips,
+    helpMemoryColorByGender: allNouns.helpMemoryColorByGender,
   );
 }

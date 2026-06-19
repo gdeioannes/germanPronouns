@@ -47,4 +47,27 @@ final QuizContent pronounArticleQuizContent = QuizContent(
   helpMemoryTables: pronounArticleHelpMemoryTables,
   endingPatternTables: pronounArticleEndingPatternTables,
   helpMemorySubtitle: pronounArticleQuizConfig.helpMemorySubtitle,
+  helpMemoryIntro:
+      'This quiz mixes pronouns and articles: read the question and choose the '
+      'correct accusative or dative form. The case depends on the verb and on '
+      'what the question asks.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Accusative vs. dative',
+      text: 'The direct object (Wen/Was? — whom/what) takes the accusative; '
+          'the indirect object (Wem? — to/for whom) takes the dative.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      text: 'Wen siehst du? — Ich sehe ihn. (acc)   '
+          'Wem hilfst du? — Ich helfe ihm. (dat)',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Dative verbs',
+      text: 'A few common verbs always take the dative: helfen, danken, '
+          'gefallen, gehören, antworten.',
+    ),
+  ],
 );

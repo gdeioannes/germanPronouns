@@ -28,6 +28,10 @@ class SettingsKeys {
   static const String completedQuestQuizzes = 'quest_completed_quizzes';
   static const String lastQuestQuizKey = 'last_quest_quiz_key';
 
+  /// Quiz storage-key prefixes whose Help Memory panel the learner has already
+  /// seen auto-opened (so it only auto-opens once per quiz).
+  static const String seenHelpMemory = 'seen_help_memory';
+
   /// Per-gender highlight color key (gender is 'm'/'f'/'n').
   static String genderColor(String gender) => 'gender_color_$gender';
 }

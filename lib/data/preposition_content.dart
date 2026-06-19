@@ -48,4 +48,28 @@ final QuizContent prepositionQuizContent = QuizContent(
       'All 27 prepositions grouped by case, with English meanings and '
       'usage notes — exportable as a PDF study sheet.',
   endingPatternTables: prepositionEndingPatternTables,
+  helpMemoryIntro:
+      'German prepositions force a specific grammatical case on the noun that '
+      'follows. Learn each preposition together with the case it triggers — '
+      'the article then changes to match that case.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Accusative prepositions',
+      text: 'durch, für, gegen, ohne, um (+ bis, entlang) always take the '
+          'accusative.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Dative prepositions',
+      text: 'aus, bei, mit, nach, seit, von, zu (+ gegenüber) always take the '
+          'dative.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Two-way prepositions',
+      text: 'in, an, auf, über, unter, vor, hinter, neben, zwischen take the '
+          'accusative for movement (wohin?) and the dative for location (wo?).',
+    ),
+  ],
 );

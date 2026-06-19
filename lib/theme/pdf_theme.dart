@@ -185,25 +185,126 @@ class QuizPdfTheme {
     );
   }
 
+  /// The Help Memory intro paragraph.
+  pw.Widget intro(String text) => pw.Padding(
+        padding: const pw.EdgeInsets.only(bottom: 12),
+        child: pw.Text(
+          text,
+          style: pw.TextStyle(
+            font: _serif,
+            fontSize: 11,
+            color: PdfBrandColors.inkText,
+            lineSpacing: 2,
+          ),
+        ),
+      );
+
+  /// An opaque light tint of [c] (mixed with white by [amount], 0..1). Used
+  /// instead of an alpha color so backgrounds render light and high-contrast in
+  /// every PDF viewer (some ignore fill transparency).
+  PdfColor _tint(PdfColor c, double amount) => PdfColor(
+        c.red * amount + (1 - amount),
+        c.green * amount + (1 - amount),
+        c.blue * amount + (1 - amount),
+      );
+
+  /// Accent color for a tip [kind], mirroring the on-screen `tipVisual`.
+  PdfColor _tipAccent(String kind) => switch (kind) {
+        'rule' => PdfBrandColors.forest,
+        'warning' => PdfBrandColors.terracotta,
+        'example' => PdfBrandColors.ochre,
+        _ => PdfBrandColors.navy,
+      };
+
+  String _tipLabel(String kind) => switch (kind) {
+        'rule' => 'Rule',
+        'warning' => 'Note',
+        'example' => 'Example',
+        'mnemonic' => 'Memory aid',
+        _ => 'Tip',
+      };
+
+  /// A branded callout (rule / mnemonic / example / warning / tip): an
+  /// accent-left-bordered tinted box with a bold heading and body text.
+  pw.Widget tip({required String kind, String? title, required String text}) {
+    final accent = _tipAccent(kind);
+    return pw.Container(
+      margin: const pw.EdgeInsets.only(bottom: 6),
+      padding: const pw.EdgeInsets.fromLTRB(10, 8, 10, 8),
+      decoration: pw.BoxDecoration(
+        color: _tint(accent, 0.10),
+        border: pw.Border(left: pw.BorderSide(color: accent, width: 3)),
+      ),
+      child: pw.Column(
+        crossAxisAlignment: pw.CrossAxisAlignment.start,
+        children: [
+          pw.Text(
+            title ?? _tipLabel(kind),
+            style: pw.TextStyle(
+              fontWeight: pw.FontWeight.bold,
+              fontSize: 10,
+              color: accent,
+            ),
+          ),
+          pw.SizedBox(height: 2),
+          pw.Text(text, style: cellStyle(fontSize: 10)),
+        ],
+      ),
+    );
+  }
+
   /// A branded data table: navy header row with white text, subtle paper
   /// row-striping, and light outline borders.
+  ///
+  /// When [rowColors] is given (one color per data row, parallel to [data]),
+  /// the value cells (every column after the first) are tinted by that color —
+  /// used to color articles by gender, matching the on-screen Help Memory.
   pw.Widget table({
     required List<String> headers,
     required List<List<String>> data,
     double fontSize = 10,
     Map<int, pw.TableColumnWidth>? columnWidths,
+    List<PdfColor?>? rowColors,
   }) {
+    final base = cellStyle(fontSize: fontSize);
+
+    PdfColor? colorFor(int columnIndex, int rowNum) {
+      if (rowColors == null || columnIndex < 1) return null;
+      final i = rowNum - 1; // row 0 is the header
+      if (i < 0 || i >= rowColors.length) return null;
+      return rowColors[i];
+    }
+
     return pw.TableHelper.fromTextArray(
       headers: headers,
       data: data,
       border: pw.TableBorder.all(color: PdfBrandColors.outline, width: 0.5),
       headerStyle: tableHeaderStyle(fontSize: fontSize),
       headerDecoration: const pw.BoxDecoration(color: PdfBrandColors.navy),
-      cellStyle: cellStyle(fontSize: fontSize),
+      cellStyle: base,
       oddRowDecoration: const pw.BoxDecoration(color: PdfBrandColors.paperMid),
       cellAlignment: pw.Alignment.centerLeft,
       cellPadding: const pw.EdgeInsets.symmetric(horizontal: 5, vertical: 4),
       columnWidths: columnWidths,
+      cellDecoration: rowColors == null
+          ? null
+          : (columnIndex, cell, rowNum) {
+              final c = colorFor(columnIndex, rowNum);
+              if (c == null) return const pw.BoxDecoration();
+              return pw.BoxDecoration(color: _tint(c, 0.16));
+            },
+      // Render the gender-colored value cells ourselves so the FONT is colored
+      // (bold, in the gender color); other cells fall back to the default text.
+      cellBuilder: rowColors == null
+          ? null
+          : (columnIndex, cell, rowNum) {
+              final c = colorFor(columnIndex, rowNum);
+              if (c == null) return null;
+              return pw.Text(
+                cell.toString(),
+                style: base.copyWith(color: c, fontWeight: pw.FontWeight.bold),
+              );
+            },
     );
   }
 }

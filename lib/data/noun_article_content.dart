@@ -47,4 +47,29 @@ final QuizContent nounArticleQuizContent = QuizContent(
     ],
   },
   categoryDisplayNames: nounCategoryDisplayNames,
+  helpMemoryColorByGender: true,
+  helpMemoryIntro:
+      'German noun genders are mostly unpredictable from meaning, so always '
+      'learn a noun together with its article (der/die/das). The table lists '
+      'each noun with its gender — colored so the article sticks.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Feminine endings',
+      text: 'Most nouns ending in -e are die; -ung, -heit, -keit, -schaft, '
+          '-ion and -tät are (almost) always feminine.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Masculine & neuter clues',
+      text: 'der: many -er (jobs/tools), -ig, -ling, and most days/months/'
+          'seasons. das: -chen and -lein are always neuter (das Mädchen).',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Rules have exceptions',
+      text: 'These endings are strong tendencies, not laws. When in doubt, '
+          'trust the memorized article over the rule.',
+    ),
+  ],
 );

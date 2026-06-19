@@ -23,6 +23,8 @@ QuizContent vocabQuestQuiz({
   required String categoryLabel,
   required List<MapEntry<String, String>> pairs,
   required String template,
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
 }) {
   return QuizContent(
     id: id,
@@ -45,6 +47,8 @@ QuizContent vocabQuestQuiz({
     sentenceTemplates: {
       categoryLabel: [template],
     },
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
   );
 }
 
@@ -70,6 +74,16 @@ final QuizContent questZahlen1Content = vocabQuestQuiz(
     MapEntry('9', 'neun'),
     MapEntry('10', 'zehn'),
   ],
+  intro: 'The numbers 0–10 are the foundation — every larger number is built '
+      'from them, so learn to say and spell each one by heart.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Tricky spellings',
+      text: 'Watch zwei, drei, sechs and sieben. Note "eins" when counting, '
+          'but "ein" before a noun (ein Apfel).',
+    ),
+  ],
 );
 
 /// 1b. Zahlen 11–20 — the teens (note sechzehn/siebzehn drop letters).
@@ -92,6 +106,21 @@ final QuizContent questZahlen2Content = vocabQuestQuiz(
     MapEntry('18', 'achtzehn'),
     MapEntry('19', 'neunzehn'),
     MapEntry('20', 'zwanzig'),
+  ],
+  intro: 'The teens (13–19) follow one simple pattern — unit + "zehn" — with a '
+      'couple of spellings to watch.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Pattern: unit + zehn',
+      text: 'vier + zehn = vierzehn, acht + zehn = achtzehn.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Exceptions',
+      text: '16 = sechzehn (drops the -s), 17 = siebzehn (drops the -en). '
+          '11 = elf and 12 = zwölf are irregular.',
+    ),
   ],
 );
 
@@ -125,6 +154,27 @@ final QuizContent questZahlen3Content = vocabQuestQuiz(
     MapEntry('99', 'neunundneunzig'),
     MapEntry('100', 'hundert'),
   ],
+  intro: 'From 21 upward, German names the units BEFORE the tens, joined by '
+      '"und" and written as one word.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Units first',
+      text: '21 = ein + und + zwanzig = einundzwanzig. Read it right-to-left: '
+          'the last digit comes first.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'It is "ein", not "eins"',
+      text: 'Before "und" the 1 loses its -s: einundzwanzig, einunddreißig.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Tens spelling',
+      text: 'zwanzig, dreißig (ß!), vierzig, fünfzig, sechzig, siebzig, '
+          'achtzig, neunzig, (ein)hundert.',
+    ),
+  ],
 );
 
 /// 2. Personalpronomen im Nominativ — English → German subject pronoun.
@@ -146,6 +196,22 @@ final QuizContent questPronomenContent = vocabQuestQuiz(
     MapEntry('you (plural)', 'ihr'),
     MapEntry('they', 'sie'),
     MapEntry('you (formal)', 'Sie'),
+  ],
+  intro: 'Subject (nominative) pronouns say who does the action. They replace '
+      'the person or thing doing the verb.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: '"sie" is three things',
+      text: 'sie = she, sie = they, and Sie (always capitalized) = you '
+          '(formal). The verb ending and context tell them apart.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'du vs. Sie',
+      text: 'Use du with friends, family and children; Sie with strangers, '
+          'elders and in formal settings.',
+    ),
   ],
 );
 
@@ -171,6 +237,19 @@ final QuizContent questFarbenContent = vocabQuestQuiz(
     MapEntry('pink', 'rosa'),
     MapEntry('purple', 'lila'),
     MapEntry('colourful', 'bunt'),
+  ],
+  intro: 'Colours are adjectives. On their own (after sein) they stay in this '
+      'base form; before a noun they take an ending.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      text: 'Das Auto ist rot. (base form)   →   ein rotes Auto. (with ending)',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'No endings ever',
+      text: 'rosa, lila and orange never change: ein rosa Kleid, ein lila Hut.',
+    ),
   ],
 );
 
@@ -200,6 +279,21 @@ final QuizContent questFamilieContent = vocabQuestQuiz(
     MapEntry('friend (male)', 'der Freund'),
     MapEntry('friend (female)', 'die Freundin'),
     MapEntry('the family', 'die Familie'),
+  ],
+  intro: 'Learn each family word together with its article — the gender is '
+      'part of the word.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Female forms end in -in',
+      text: 'der Freund → die Freundin; der Lehrer → die Lehrerin. Many '
+          'people-words form the female this way.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Color code',
+      text: 'der = blue, die = red, das = green — the same across the app.',
+    ),
   ],
 );
 
@@ -239,6 +333,24 @@ final QuizContent questSeinHabenContent = QuizContent(
     'sein (to be)': ['{subject} ____ . (sein)'],
     'haben (to have)': ['{subject} ____ . (haben)'],
   },
+  helpMemoryIntro:
+      'sein (to be) and haben (to have) are the two most important verbs in '
+      'German — you use them constantly, and later to build the perfect tense. '
+      'Both are irregular, so memorize the full set.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'sein is fully irregular',
+      text: 'bin, bist, ist, sind, seid, sind — there is no pattern, so learn '
+          'it by heart.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'haben loses its -b-',
+      text: 'Only du hast and er/sie/es hat drop the -b-; the rest keep it '
+          '(habe, haben, habt, haben).',
+    ),
+  ],
 );
 
 /// 4. Regelmäßige Verben — conjugate a regular verb for the shown person.
@@ -303,6 +415,22 @@ final QuizContent questPraesensContent = QuizContent(
     'ihr': ['Ihr ____ . ({subject})'],
     'sie/Sie': ['Sie ____ . ({subject})'],
   },
+  helpMemoryIntro:
+      'Regular verbs in the present tense use the stem (the infinitive minus '
+      '-en) plus an ending that matches the subject.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Present-tense endings',
+      text: 'ich -e, du -st, er/sie/es -t, wir -en, ihr -t, sie/Sie -en.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Extra -e- after -t/-d',
+      text: 'If the stem ends in -t or -d, add -e- before -st/-t: '
+          'du arbeitest, er arbeitet, ihr findet.',
+    ),
+  ],
 );
 
 /// One A1 noun used in the article quizzes, with its gender.
@@ -374,6 +502,24 @@ final QuizContent questArtikelContent = QuizContent(
     'bestimmt (der/die/das)': ['____ {subject} ist hier.'],
     'unbestimmt (ein/eine)': ['Das ist ____ {subject}.'],
   },
+  helpMemoryColorByGender: true,
+  helpMemoryIntro:
+      'In the nominative (the subject of the sentence) use der/die/das for '
+      '"the" (definite) or ein/eine for "a/an" (indefinite). The form depends '
+      "on the noun's gender.",
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Indefinite article',
+      text: 'ein for masculine and neuter (der-/das-words), eine for feminine '
+          '(die-words). Plural has no indefinite article.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Color code',
+      text: 'der = blue, die = red, das = green.',
+    ),
+  ],
 );
 
 /// Every A1.1 quiz, in chain order. The three number drills are spread out

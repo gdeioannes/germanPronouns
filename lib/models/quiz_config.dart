@@ -72,6 +72,36 @@ class HelpMemoryTable {
   );
 }
 
+/// A short, visually distinct callout shown in the Help Memory section — a
+/// rule, mnemonic, worked example, or warning that makes the reference tables
+/// easier to understand.
+class HelpMemoryTip {
+  const HelpMemoryTip({required this.text, this.title, this.kind = 'tip'});
+
+  /// One of: 'tip', 'rule', 'warning', 'example', 'mnemonic'. Drives the
+  /// card's leading icon and accent color (see help_memory.dart). Unknown
+  /// values fall back to the 'tip' style.
+  final String kind;
+
+  /// Optional bold heading shown above [text].
+  final String? title;
+
+  /// The callout body.
+  final String text;
+
+  Map<String, dynamic> toJson() => {
+    if (kind != 'tip') 'kind': kind,
+    if (title != null) 'title': title,
+    'text': text,
+  };
+
+  factory HelpMemoryTip.fromJson(Map<String, dynamic> json) => HelpMemoryTip(
+    kind: json['kind'] as String? ?? 'tip',
+    title: json['title'] as String?,
+    text: json['text'] as String,
+  );
+}
+
 /// A small reference table of declension endings (e.g. the endings added to
 /// "mein-"/"dein-"/etc. to form possessive pronouns), shown below the
 /// [HelpMemoryTable]s in the Help Memory section.
@@ -166,6 +196,9 @@ class QuizConfig {
     this.helpMemoryTables,
     this.endingPatternTables,
     this.helpMemorySubtitle,
+    this.helpMemoryIntro,
+    this.helpMemoryTips = const [],
+    this.helpMemoryColorByGender = false,
     this.progressionKey,
     this.questProgression = false,
     this.acceptableAnswersForSentence,
@@ -257,6 +290,19 @@ class QuizConfig {
   /// Overrides the default Help Memory section subtitle shown when
   /// [helpMemoryTables] is non-null. When null, a generic default is used.
   final String? helpMemorySubtitle;
+
+  /// Optional rich intro paragraph shown at the top of the Help Memory section.
+  final String? helpMemoryIntro;
+
+  /// Visually distinct rule/mnemonic/example/warning callouts shown below the
+  /// Help Memory tables (and in the PDF export).
+  final List<HelpMemoryTip> helpMemoryTips;
+
+  /// When true (and gender is known per subject/row), Help Memory table value
+  /// cells are tinted by their gender (der=blue, die=red, das=green). This is
+  /// always-on reference coloring, independent of the answer-revealing
+  /// `NounSettings.colorNouns` toggle.
+  final bool helpMemoryColorByGender;
 
   /// When non-null, identifies this quiz within the noun-category
   /// progression (a key from `nounCategoryDisplayNames`, or
