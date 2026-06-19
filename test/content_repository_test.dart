@@ -1,0 +1,83 @@
+import 'dart:convert';
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:sembast/sembast_memory.dart';
+
+import 'package:german_pronouns_articles/data/db/content_repository.dart';
+import 'package:german_pronouns_articles/data/preposition_content.dart';
+import 'package:german_pronouns_articles/data/quiz_content_library.dart';
+import 'package:german_pronouns_articles/models/quiz_content.dart';
+
+void main() {
+  var counter = 0;
+
+  Future<ContentRepository> openSeeded() async {
+    // A fresh in-memory database per test, so seeding always runs.
+    final db = await databaseFactoryMemory.openDatabase('test_${counter++}.db');
+    final repo = ContentRepository(db);
+    await repo.seedIfEmpty(allQuizContent);
+    return repo;
+  }
+
+  test('seeds every quiz from the content library', () async {
+    final repo = await openSeeded();
+    final quizzes = await repo.listQuizzes();
+    expect(quizzes.length, allQuizContent.length);
+    expect(
+      quizzes.firstWhere((q) => q.id == 'preposition').sentenceCount,
+      prepositionQuizContent.sentences.length,
+    );
+  });
+
+  test('reconstructs a quiz identical to its seed', () async {
+    final repo = await openSeeded();
+    final restored = await repo.quizContent('preposition');
+    expect(restored!.toJson(), prepositionQuizContent.toJson());
+  });
+
+  test('adds then deletes a sentence', () async {
+    final repo = await openSeeded();
+    final before = (await repo.sentencesFor('preposition')).length;
+
+    final key = await repo.addSentence(
+      'preposition',
+      const QuizSentenceData(
+        subjectKey: 'durch',
+        categoryLabel: 'Präposition',
+        sentence: 'Wir laufen ____ den Park.',
+        acceptedAnswers: ['durch'],
+      ),
+    );
+    expect((await repo.sentencesFor('preposition')).length, before + 1);
+
+    await repo.deleteSentence(key);
+    expect((await repo.sentencesFor('preposition')).length, before);
+  });
+
+  test('updates a sentence in place', () async {
+    final repo = await openSeeded();
+    final first = (await repo.sentencesFor('preposition')).first;
+
+    await repo.updateSentence(
+      'preposition',
+      first.key,
+      QuizSentenceData(
+        subjectKey: first.data.subjectKey,
+        categoryLabel: first.data.categoryLabel,
+        sentence: 'EDITED ____ sentence.',
+        acceptedAnswers: first.data.acceptedAnswers,
+      ),
+    );
+
+    final reloaded =
+        (await repo.sentencesFor('preposition')).firstWhere((s) => s.key == first.key);
+    expect(reloaded.data.sentence, 'EDITED ____ sentence.');
+  });
+
+  test('exports all quizzes as a JSON list', () async {
+    final repo = await openSeeded();
+    final decoded = jsonDecode(await repo.exportJson());
+    expect(decoded, isA<List>());
+    expect((decoded as List).length, allQuizContent.length);
+  });
+}

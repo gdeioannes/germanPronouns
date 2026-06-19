@@ -1,24 +1,20 @@
 import 'dart:math';
 
+import '../models/app_page.dart';
 import '../models/quiz_config.dart';
-import '../widgets/app_drawer.dart';
+import 'german_grammar.dart';
 import 'noun_database.dart';
 import 'noun_progression_data.dart';
 import 'noun_sentences.dart';
-
-const Map<String, String> _baseArticles = {'m': 'der', 'f': 'die', 'n': 'das'};
-
-const Map<String, String> _genderNames = {
-  'm': 'masculine',
-  'f': 'feminine',
-  'n': 'neuter',
-};
 
 final Map<String, GermanNoun> _nounsByName = {
   for (final n in germanNouns) n.noun: n,
 };
 
-const List<String> _sentenceTemplates = [
+/// Generic fill-in-the-blank templates for nouns without a custom sentence in
+/// [nounSentences]. `____` marks the article blank and `{noun}` is replaced
+/// with the noun. Public so the quiz-content layer can expose them as data.
+const List<String> nounArticleSentenceTemplates = [
   '____ {noun} ist hier.',
   '____ {noun} sieht gut aus.',
   'Wo ist ____ {noun}?',
@@ -37,7 +33,9 @@ String pickNounArticleSentence({
   final custom = nounSentences[nominative];
   if (custom != null) return custom;
 
-  final template = _sentenceTemplates[random.nextInt(_sentenceTemplates.length)];
+  final template = nounArticleSentenceTemplates[random.nextInt(
+    nounArticleSentenceTemplates.length,
+  )];
   return template.replaceAll('{noun}', nominative);
 }
 
@@ -52,8 +50,8 @@ String buildNounArticleExplanation({
   required String sentence,
 }) {
   final info = _nounsByName[nominative]!;
-  final genderName = _genderNames[info.gender]!;
-  final article = _baseArticles[info.gender]!;
+  final genderName = genderNames[info.gender]!;
+  final article = baseArticles[info.gender]!;
 
   return [
     'Example: $sentence',
@@ -66,7 +64,7 @@ String buildNounArticleExplanation({
 final List<QuizCategoryDefinition> nounArticleQuizCategories = [
   QuizCategoryDefinition(
     label: 'Artikel',
-    values: germanNouns.map((n) => _baseArticles[n.gender]!).toList(),
+    values: germanNouns.map((n) => baseArticles[n.gender]!).toList(),
     group: 'Artikel',
   ),
 ];

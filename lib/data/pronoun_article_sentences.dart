@@ -25,6 +25,27 @@ class PronounArticlePair {
   final List<String> blanks; // positions of blanks
   final String answer; // correct answer to fill blanks
   final String pattern; // 'together' or 'separate'
+
+  Map<String, dynamic> toJson() => {
+    'case_': case_,
+    'nominative': nominative,
+    'question': question,
+    'answerSentence': answerSentence,
+    'blanks': blanks,
+    'answer': answer,
+    'pattern': pattern,
+  };
+
+  factory PronounArticlePair.fromJson(Map<String, dynamic> json) =>
+      PronounArticlePair(
+        case_: json['case_'] as String,
+        nominative: json['nominative'] as String,
+        question: json['question'] as String,
+        answerSentence: json['answerSentence'] as String,
+        blanks: (json['blanks'] as List).cast<String>(),
+        answer: json['answer'] as String,
+        pattern: json['pattern'] as String,
+      );
 }
 
 const List<PronounArticlePair> pronounArticleSentences = [

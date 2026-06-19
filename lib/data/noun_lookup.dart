@@ -1,6 +1,5 @@
+import 'german_grammar.dart';
 import 'noun_database.dart';
-
-const Map<String, String> _baseArticles = {'m': 'der', 'f': 'die', 'n': 'das'};
 
 /// Maps an inflected surface form (as it appears in sentences, e.g. a
 /// genitive "-es" or a plural) to the dictionary noun in [germanNouns] it
@@ -75,6 +74,6 @@ NounInfo? lookupNoun(String word) {
   if (dictionaryNoun == null) return null;
   return NounInfo(
     noun: dictionaryNoun,
-    article: _baseArticles[dictionaryNoun.gender] ?? 'das',
+    article: baseArticles[dictionaryNoun.gender] ?? 'das',
   );
 }

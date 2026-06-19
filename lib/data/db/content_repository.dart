@@ -1,0 +1,195 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:sembast/sembast.dart';
+
+import '../../models/quiz_content.dart';
+import '../quiz_content_library.dart';
+import 'content_database_factory.dart';
+
+/// Asset holding the published content the database is seeded from. Regenerate
+/// it with `dart run tool/generate_seed.dart`; a teacher's Export overwrites it
+/// to publish edits in the next build.
+const String _seedAsset = 'assets/seed/quiz_content.json';
+
+/// Lightweight summary of a quiz for the back-office list.
+class QuizSummary {
+  const QuizSummary({
+    required this.id,
+    required this.title,
+    required this.sentenceCount,
+  });
+
+  final String id;
+  final String title;
+  final int sentenceCount;
+}
+
+/// A stored sentence together with its database record key, so the UI can
+/// update or delete it.
+class SentenceRecord {
+  const SentenceRecord({required this.key, required this.data});
+
+  final int key;
+  final QuizSentenceData data;
+}
+
+/// Local, editable store of quiz content backed by sembast (IndexedDB on web,
+/// a file on desktop/mobile).
+///
+/// Quiz metadata (title, subjects, categories, templates, reference tables)
+/// lives in the `quizzes` store keyed by quiz id; each fill-in sentence is its
+/// own record in the `sentences` store (tagged with `quizId`) so the back
+/// office can add and delete sentences individually.
+class ContentRepository {
+  ContentRepository(this.db);
+
+  final Database db;
+
+  final StoreRef<String, Map<String, Object?>> _quizzes =
+      stringMapStoreFactory.store('quizzes');
+  final StoreRef<int, Map<String, Object?>> _sentences =
+      intMapStoreFactory.store('sentences');
+
+  /// Seeds the database from [contents] on first run (when it has no quizzes).
+  Future<void> seedIfEmpty(List<QuizContent> contents) async {
+    if (await _quizzes.count(db) > 0) return;
+    await _writeContents(contents);
+  }
+
+  /// Wipes all content and re-seeds from [contents] — used by the back office's
+  /// "Reset to published content" action to discard local edits.
+  Future<void> reseed(List<QuizContent> contents) async {
+    await db.transaction((txn) async {
+      await _quizzes.delete(txn);
+      await _sentences.delete(txn);
+    });
+    await _writeContents(contents);
+  }
+
+  Future<void> _writeContents(List<QuizContent> contents) async {
+    await db.transaction((txn) async {
+      for (final content in contents) {
+        final json = content.toJson();
+        final sentences = (json.remove('sentences') as List?) ?? const [];
+        await _quizzes.record(content.id).put(txn, Map<String, Object?>.from(json));
+        for (final sentence in sentences) {
+          await _sentences.add(txn, {
+            'quizId': content.id,
+            ...(sentence as Map),
+          });
+        }
+      }
+    });
+  }
+
+  Future<List<QuizSummary>> listQuizzes() async {
+    final records = await _quizzes.find(db);
+    final summaries = <QuizSummary>[];
+    for (final record in records) {
+      final count =
+          await _sentences.count(db, filter: Filter.equals('quizId', record.key));
+      summaries.add(
+        QuizSummary(
+          id: record.key,
+          title: (record.value['title'] as String?) ?? record.key,
+          sentenceCount: count,
+        ),
+      );
+    }
+    return summaries;
+  }
+
+  /// Reconstructs the full [QuizContent] for [quizId] (metadata + its
+  /// sentences), or null if it doesn't exist.
+  Future<QuizContent?> quizContent(String quizId) async {
+    final quizJson = await _quizzes.record(quizId).get(db);
+    if (quizJson == null) return null;
+    final records = await _sentences.find(
+      db,
+      finder: Finder(filter: Filter.equals('quizId', quizId)),
+    );
+    final sentences = [
+      for (final record in records)
+        Map<String, Object?>.from(record.value)..remove('quizId'),
+    ];
+    return QuizContent.fromJson({
+      ...Map<String, dynamic>.from(quizJson),
+      'sentences': sentences,
+    });
+  }
+
+  Future<List<SentenceRecord>> sentencesFor(String quizId) async {
+    final records = await _sentences.find(
+      db,
+      finder: Finder(
+        filter: Filter.equals('quizId', quizId),
+        sortOrders: [SortOrder('categoryLabel'), SortOrder('subjectKey')],
+      ),
+    );
+    return [
+      for (final record in records)
+        SentenceRecord(
+          key: record.key,
+          data: QuizSentenceData.fromJson(
+            Map<String, dynamic>.from(record.value)..remove('quizId'),
+          ),
+        ),
+    ];
+  }
+
+  Future<int> addSentence(String quizId, QuizSentenceData sentence) =>
+      _sentences.add(db, {'quizId': quizId, ...sentence.toJson()});
+
+  Future<void> updateSentence(
+    String quizId,
+    int key,
+    QuizSentenceData sentence,
+  ) => _sentences.record(key).put(db, {'quizId': quizId, ...sentence.toJson()});
+
+  Future<void> deleteSentence(int key) => _sentences.record(key).delete(db);
+
+  /// Serializes the whole database back to the seed JSON shape, so a teacher
+  /// can commit it to `assets/` to publish edits to the static build.
+  Future<String> exportJson() async {
+    final records = await _quizzes.find(db);
+    final contents = <Map<String, dynamic>>[];
+    for (final record in records) {
+      final content = await quizContent(record.key);
+      if (content != null) contents.add(content.toJson());
+    }
+    return const JsonEncoder.withIndent('  ').convert(contents);
+  }
+}
+
+/// The published content the database seeds from: the [_seedAsset] JSON if it
+/// is present and valid, otherwise the compiled-in [allQuizContent] as a
+/// fallback (so the app still works if the asset is missing).
+Future<List<QuizContent>> loadPublishedContent() async {
+  try {
+    final raw = await rootBundle.loadString(_seedAsset);
+    final list = jsonDecode(raw) as List;
+    return [
+      for (final entry in list)
+        QuizContent.fromJson(Map<String, dynamic>.from(entry as Map)),
+    ];
+  } catch (_) {
+    return allQuizContent;
+  }
+}
+
+/// Opens the local content database and seeds it from the published content on
+/// first run.
+Future<ContentRepository> openContentRepository() async {
+  final db = await openContentDatabase();
+  final repository = ContentRepository(db);
+  await repository.seedIfEmpty(await loadPublishedContent());
+  return repository;
+}
+
+Future<ContentRepository>? _shared;
+
+/// The app-wide [ContentRepository], opened once and shared by the back office
+/// and the learner quizzes so they use a single database connection.
+Future<ContentRepository> contentRepository() =>
+    _shared ??= openContentRepository();

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'models/noun_settings.dart';
+import 'models/app_session.dart';
+import 'pages/back_office/back_office_home_page.dart';
+import 'pages/learner_home_page.dart';
+import 'pages/login_page.dart';
 import 'theme/app_theme.dart';
-import 'widgets/app_drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,40 +19,30 @@ class MyApp extends StatelessWidget {
       title: 'Germanquiz',
       debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
-      home: const _InitialPage(),
+      home: const AuthGate(),
     );
   }
 }
 
-/// Reopens the app on the page the user last visited (see
-/// [NounSettings.lastPage]), defaulting to the Pronoun quiz.
-class _InitialPage extends StatefulWidget {
-  const _InitialPage();
-
-  @override
-  State<_InitialPage> createState() => _InitialPageState();
-}
-
-class _InitialPageState extends State<_InitialPage> {
-  AppPage? _page;
-
-  @override
-  void initState() {
-    super.initState();
-    NounSettings.instance.load().then((_) {
-      if (!mounted) return;
-      setState(() {
-        _page = appPageFromName(NounSettings.instance.lastPage) ?? AppPage.pronouns;
-      });
-    });
-  }
+/// Routes to the right surface based on the current session: the login screen
+/// when signed out, the back office for teachers, and the quizzes for learners.
+class AuthGate extends StatelessWidget {
+  const AuthGate({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final page = _page;
-    if (page == null) {
-      return const Scaffold(body: SizedBox.shrink());
-    }
-    return buildAppPage(page);
+    return AnimatedBuilder(
+      animation: AppSession.instance,
+      builder: (context, _) {
+        switch (AppSession.instance.role) {
+          case null:
+            return const LoginPage();
+          case UserRole.teacher:
+            return const BackOfficeHomePage();
+          case UserRole.learner:
+            return const LearnerHomePage();
+        }
+      },
+    );
   }
 }

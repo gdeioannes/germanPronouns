@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'settings_keys.dart';
+import 'user_settings.dart';
+
 /// How long the correct answer (typed out letter by letter) stays on screen
 /// after an incorrect submission, before moving on to the next question.
 enum AnswerRevealMode {
@@ -22,18 +25,21 @@ class NounSettings {
 
   static final NounSettings instance = NounSettings._();
 
-  static const String _storageKey = 'global_disabled_nouns';
-  static const String _showEnglishKeyPrefix = 'show_english_';
-  static const String _colorNounsKeyPrefix = 'color_nouns_';
-  static const String _colorNounsKey = 'color_nouns';
-  static const String _lastPageKey = 'last_page';
+  // Key names live in [SettingsKeys] so this singleton and the settings store
+  // share one source of truth (and map to the same future database columns).
+  static const String _storageKey = SettingsKeys.disabledNouns;
+  static const String _showEnglishKeyPrefix = SettingsKeys.showEnglishPrefix;
+  static const String _colorNounsKeyPrefix = SettingsKeys.colorNounsLegacyPrefix;
+  static const String _colorNounsKey = SettingsKeys.colorNouns;
+  static const String _lastPageKey = SettingsKeys.lastPage;
   static const String _completedNounCategoriesKey =
-      'noun_progress_completed_categories';
+      SettingsKeys.completedNounCategories;
   static const String _lastNounProgressionKeyPref =
-      'last_noun_progression_key';
-  static const String _answerRevealModeKey = 'answer_reveal_mode';
-  static const String _progressionUnlockLapsKey = 'progression_unlock_laps';
-  static const String _showFirstLetterHintKey = 'show_first_letter_hint';
+      SettingsKeys.lastNounProgressionKey;
+  static const String _answerRevealModeKey = SettingsKeys.answerRevealMode;
+  static const String _progressionUnlockLapsKey =
+      SettingsKeys.progressionUnlockLaps;
+  static const String _showFirstLetterHintKey = SettingsKeys.showFirstLetterHint;
 
   /// Size of one "streak" — a run of this many correct answers in a row.
   static const int streakLapSize = 5;
@@ -230,7 +236,24 @@ class NounSettings {
     await prefs.setBool(_colorNounsKey, value);
   }
 
-  String _colorKey(String gender) => 'gender_color_$gender';
+  String _colorKey(String gender) => SettingsKeys.genderColor(gender);
+
+  /// Database-ready snapshot of the current in-memory settings. The serializable
+  /// twin a [SettingsStore] (today SharedPreferences, later a database) persists.
+  UserSettings toUserSettings() => UserSettings(
+    disabledNouns: _disabledNouns.toList(),
+    showEnglishByPage: Map.of(_showEnglishByPage),
+    colorNouns: _colorNouns,
+    genderColors: {
+      for (final entry in _genderColors.entries) entry.key: entry.value.toARGB32(),
+    },
+    lastPage: _lastPage,
+    completedNounCategories: _completedNounCategories.toList(),
+    lastNounProgressionKey: _lastNounProgressionKey,
+    answerRevealMode: _answerRevealMode.name,
+    progressionUnlockLaps: _progressionUnlockLaps,
+    showFirstLetterHint: _showFirstLetterHint,
+  );
 
   Future<void> setGenderColor(String gender, Color color) async {
     _genderColors = Map.of(_genderColors);

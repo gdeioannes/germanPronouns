@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import '../models/quiz_config.dart';
-import '../widgets/app_drawer.dart';
+import '../models/app_page.dart';
 
 /// One of the 27 German prepositions covered by the quiz.
 class PrepositionInfo {
@@ -30,6 +30,22 @@ class PrepositionInfo {
   /// Usage explanation and the case(s) this preposition is associated with,
   /// shown in the Help Memory table.
   final String usageNotes;
+
+  Map<String, dynamic> toJson() => {
+    'preposition': preposition,
+    'englishClue': englishClue,
+    'caseGroup': caseGroup,
+    'englishMeaning': englishMeaning,
+    'usageNotes': usageNotes,
+  };
+
+  factory PrepositionInfo.fromJson(Map<String, dynamic> json) => PrepositionInfo(
+    preposition: json['preposition'] as String,
+    englishClue: json['englishClue'] as String,
+    caseGroup: json['caseGroup'] as String,
+    englishMeaning: json['englishMeaning'] as String,
+    usageNotes: json['usageNotes'] as String,
+  );
 }
 
 /// One fill-in-the-blank sentence for the Prepositions quiz. [sentence]
@@ -57,6 +73,23 @@ class PrepositionSentence {
   /// Hidden German case/usage hint for this specific sentence, revealed via
   /// the eye icon.
   final String hint;
+
+  Map<String, dynamic> toJson() => {
+    'target': target,
+    'sentence': sentence,
+    'accepted': accepted.toList(),
+    'english': english,
+    'hint': hint,
+  };
+
+  factory PrepositionSentence.fromJson(Map<String, dynamic> json) =>
+      PrepositionSentence(
+        target: json['target'] as String,
+        sentence: json['sentence'] as String,
+        accepted: (json['accepted'] as List).cast<String>().toSet(),
+        english: json['english'] as String,
+        hint: json['hint'] as String,
+      );
 }
 
 /// Display names for [PrepositionInfo.caseGroup] keys, used for the

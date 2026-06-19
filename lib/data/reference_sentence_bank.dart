@@ -15,8 +15,13 @@ String _canonicalCaseLabel(String caseLabel) {
   }
 }
 
-/// Returns a sentence that demonstrates the pronoun in a meaningful context.
-/// The blank [______] replaces the pronoun so the user fills it in.
+/// Public alias of the case-label canonicalization used by this bank, so the
+/// quiz-content layer can look up [referenceSentenceTemplates] by category.
+String canonicalReferenceCaseLabel(String caseLabel) =>
+    _canonicalCaseLabel(caseLabel);
+
+/// Pronoun example sentences, keyed by canonical case label → answer form →
+/// candidate sentences (each containing a `____` blank).
 ///
 /// Design goals:
 ///  - Every sentence makes the grammatical role *obvious* without hints.
@@ -27,15 +32,11 @@ String _canonicalCaseLabel(String caseLabel) {
 ///  - Genitive    → wegen / trotz / statt constructions
 ///  - Reflexive   → clearly reflexive verbs and structures
 ///  - Possessive  → noun always matches the expected gender/number/case
-///  - Sentences are short enough to read at a glance, concrete enough to picture.
-String pickReferenceSentence({
-  required String caseLabel,
-  required String nominative,
-  required String answer,
-  required Random random,
-}) {
-  final canonicalCase = _canonicalCaseLabel(caseLabel);
-  final templates = <String, Map<String, List<String>>>{
+///
+/// Public so the quiz-content layer can enumerate these as data (see
+/// pronoun_content.dart); also used by [pickReferenceSentence].
+const Map<String, Map<String, List<String>>> referenceSentenceTemplates =
+    <String, Map<String, List<String>>>{
     // ── Personal pronouns — Accusative ──────────────────────────────────────
     'Accusative': {
       // mich — 1 sg acc
@@ -599,9 +600,19 @@ String pickReferenceSentence({
         '____ Kinder sind herzlich eingeladen.',
       ],
     },
-  };
+};
 
-  final caseTemplates = templates[canonicalCase];
+/// Returns a sentence that demonstrates the pronoun in a meaningful context,
+/// chosen at random from [referenceSentenceTemplates] for the (case, answer)
+/// pair. The blank `____` replaces the pronoun so the user fills it in.
+String pickReferenceSentence({
+  required String caseLabel,
+  required String nominative,
+  required String answer,
+  required Random random,
+}) {
+  final canonicalCase = _canonicalCaseLabel(caseLabel);
+  final caseTemplates = referenceSentenceTemplates[canonicalCase];
   final options =
       caseTemplates?[answer] ?? caseTemplates?[nominative] ?? ['______'];
   return options[random.nextInt(options.length)];

@@ -3,58 +3,44 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/noun_progression_data.dart';
+import '../data/section_catalog.dart';
+import '../models/app_page.dart';
 import '../models/noun_settings.dart';
-import '../pages/article_quiz_page.dart';
+import '../models/quiz_section.dart';
+import '../models/quiz_stats_keys.dart';
 import '../pages/noun_article_quiz_page.dart';
-import '../pages/preposition_quiz_page.dart';
-import '../pages/pronoun_article_quiz_page.dart';
-import '../pages/pronoun_quiz_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
-import 'quiz_page.dart';
+import 'db_quiz_loader.dart';
+import 'noun_progression_quiz_loader.dart';
 
-/// Identifies which top-level quiz page is currently shown, so the drawer
-/// can highlight it.
-enum AppPage {
-  pronouns,
-  articles,
-  nounsArticles,
-  pronounsAndArticles,
-  prepositions,
-  wordLibrary,
-  settings,
-}
+// Re-exported so the many files that import this drawer for [AppPage] keep
+// working; the enum itself now lives in the model layer (see app_page.dart).
+export '../models/app_page.dart';
 
 /// Builds the page widget for [page], used both by the drawer's navigation
-/// and to reopen the app on the last-visited page.
-Widget buildAppPage(AppPage page) => switch (page) {
-  AppPage.pronouns => const PronounQuizPage(),
-  AppPage.articles => const ArticleQuizPage(),
-  AppPage.nounsArticles => const NounArticleQuizPage(),
-  AppPage.pronounsAndArticles => const PronounArticleQuizPage(),
-  AppPage.prepositions => const PrepositionQuizPage(),
-  AppPage.wordLibrary => const WordLibraryPage(),
-  AppPage.settings => const SettingsPage(),
-};
-
-/// Looks up an [AppPage] by its enum name (as stored via
-/// [NounSettings.setLastPage]), or null if [name] doesn't match any page.
-AppPage? appPageFromName(String? name) {
-  for (final page in AppPage.values) {
-    if (page.name == name) return page;
+/// and to reopen the app on the last-visited page. Quiz sections are resolved
+/// from the [quizSections] catalog so adding a section requires no change here.
+Widget buildAppPage(AppPage page) {
+  final section = sectionForPage(page);
+  if (section != null) {
+    // Run the quiz from the editable database, falling back to the compiled
+    // config if the database is unavailable.
+    return DbQuizLoader(
+      quizId: section.contentId,
+      currentPage: section.page,
+      fallback: section.primaryQuiz,
+    );
   }
-  return null;
+  return switch (page) {
+    AppPage.nounsArticles => const NounArticleQuizPage(),
+    AppPage.wordLibrary => const WordLibraryPage(),
+    AppPage.settings => const SettingsPage(),
+    // Every other page is a catalog section, handled above.
+    _ => const SettingsPage(),
+  };
 }
-
-/// Storage key prefixes for each quiz page's score/streak, matching
-/// `QuizConfig.storageKeyPrefix` in lib/data/*.
-const Map<AppPage, String> _quizStorageKeyPrefixes = {
-  AppPage.pronouns: '',
-  AppPage.articles: 'article_',
-  AppPage.pronounsAndArticles: 'pronoun_article_',
-  AppPage.prepositions: 'preposition_',
-};
 
 /// Side navigation drawer shared by all quiz pages.
 class AppDrawer extends StatefulWidget {
@@ -221,24 +207,20 @@ class _AppDrawerState extends State<AppDrawer> {
 
   Widget _quizTile(
     BuildContext context, {
-    required IconData icon,
-    required Color badgeColor,
-    required String title,
-    required AppPage page,
+    required QuizSection section,
     required SharedPreferences? prefs,
   }) {
-    final prefix = _quizStorageKeyPrefixes[page]!;
-    final score = prefs?.getInt('${prefix}quiz_score') ?? 0;
-    final bestStreakAbsolute =
-        prefs?.getInt('${prefix}quiz_best_streak_absolute') ?? 0;
+    final keys = section.statsKeys;
+    final score = prefs?.getInt(keys.score) ?? 0;
+    final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;
 
     return _navTile(
       context,
-      icon: icon,
-      badgeColor: badgeColor,
-      title: title,
-      selected: widget.currentPage == page,
-      onTap: () => _navigateTo(context, page),
+      icon: section.icon,
+      badgeColor: section.accent,
+      title: section.title,
+      selected: widget.currentPage == section.page,
+      onTap: () => _navigateTo(context, section.page),
       subtitle: prefs == null
           ? null
           : _statsSubtitle(
@@ -262,7 +244,7 @@ class _AppDrawerState extends State<AppDrawer> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute<void>(
-        builder: (_) => QuizPage(config: entry.config),
+        builder: (_) => NounProgressionQuizLoader(entry: entry),
       ),
     );
   }
@@ -274,10 +256,9 @@ class _AppDrawerState extends State<AppDrawer> {
     int? number,
   }) {
     final isFinal = entry.key == kAllNounsProgressionKey;
-    final prefix = entry.config.storageKeyPrefix;
-    final score = prefs?.getInt('${prefix}quiz_score') ?? 0;
-    final bestStreakAbsolute =
-        prefs?.getInt('${prefix}quiz_best_streak_absolute') ?? 0;
+    final keys = QuizStatsKeys(entry.config.storageKeyPrefix);
+    final score = prefs?.getInt(keys.score) ?? 0;
+    final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;
 
     return _navTile(
       context,
@@ -309,11 +290,9 @@ class _AppDrawerState extends State<AppDrawer> {
     int? number,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
+    final previousKeys = QuizStatsKeys(previousEntry.config.storageKeyPrefix);
     final bestStreakAbsolute =
-        prefs?.getInt(
-          '${previousEntry.config.storageKeyPrefix}quiz_best_streak_absolute',
-        ) ??
-        0;
+        prefs?.getInt(previousKeys.bestStreakAbsolute) ?? 0;
     final bestStreaks = bestStreakAbsolute ~/ NounSettings.streakLapSize;
     final unlockLaps = NounSettings.instance.progressionUnlockLaps;
     final unlockStreak = NounSettings.instance.progressionUnlockStreak;
@@ -501,38 +480,8 @@ class _AppDrawerState extends State<AppDrawer> {
                 ..._buildNounProgressionTiles(context, prefs),
                 Divider(height: 1, color: colorScheme.outlineVariant),
                 _sectionLabel(context, 'QUIZZES'),
-                _quizTile(
-                  context,
-                  icon: Icons.menu_book_rounded,
-                  badgeColor: kSectionAccentColors[1],
-                  title: 'Artikel (der/die/das)',
-                  page: AppPage.articles,
-                  prefs: prefs,
-                ),
-                _quizTile(
-                  context,
-                  icon: Icons.groups_rounded,
-                  badgeColor: kSectionAccentColors[0],
-                  title: 'Pronouns',
-                  page: AppPage.pronouns,
-                  prefs: prefs,
-                ),
-                _quizTile(
-                  context,
-                  icon: Icons.article_rounded,
-                  badgeColor: kSectionAccentColors[3],
-                  title: 'Pronouns & Articles',
-                  page: AppPage.pronounsAndArticles,
-                  prefs: prefs,
-                ),
-                _quizTile(
-                  context,
-                  icon: Icons.signpost_rounded,
-                  badgeColor: kSectionAccentColors[2],
-                  title: 'Prepositions',
-                  page: AppPage.prepositions,
-                  prefs: prefs,
-                ),
+                for (final section in quizSections)
+                  _quizTile(context, section: section, prefs: prefs),
                 Divider(height: 1, color: colorScheme.outlineVariant),
                 _sectionLabel(context, 'MORE'),
                 _navTile(

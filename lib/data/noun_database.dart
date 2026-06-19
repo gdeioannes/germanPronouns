@@ -30,6 +30,25 @@ class GermanNoun {
   /// Experte, Löwe, Bär, Nachbar, Kollege, Herr, etc.) whose accusative/
   /// dative singular form changes (den/dem Jungen). True otherwise.
   final bool declensionSafe;
+
+  /// Database-ready JSON form of this noun.
+  Map<String, dynamic> toJson() => {
+    'noun': noun,
+    'gender': gender,
+    'english': english,
+    'categories': categories,
+    'difficulty': difficulty.name,
+    'declensionSafe': declensionSafe,
+  };
+
+  factory GermanNoun.fromJson(Map<String, dynamic> json) => GermanNoun(
+    noun: json['noun'] as String,
+    gender: json['gender'] as String,
+    english: json['english'] as String,
+    categories: (json['categories'] as List).cast<String>(),
+    difficulty: NounDifficulty.values.byName(json['difficulty'] as String),
+    declensionSafe: json['declensionSafe'] as bool,
+  );
 }
 
 /// Bilingual display labels for each category key, used by Settings UI.

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../widgets/app_drawer.dart';
+import 'app_page.dart';
 
 /// Difficulty tier for a noun, used for bulk Settings toggles.
 enum NounDifficulty { beginner, intermediate, advanced }
@@ -33,6 +33,17 @@ class HelpMemoryColumn {
   /// Header shown for this column instead of [categoryLabel], e.g. showing
   /// "Accusative" instead of the more verbose "Poss. Masc. Acc.".
   final String? displayLabel;
+
+  Map<String, dynamic> toJson() => {
+    'categoryLabel': categoryLabel,
+    if (displayLabel != null) 'displayLabel': displayLabel,
+  };
+
+  factory HelpMemoryColumn.fromJson(Map<String, dynamic> json) =>
+      HelpMemoryColumn(
+        categoryLabel: json['categoryLabel'] as String,
+        displayLabel: json['displayLabel'] as String?,
+      );
 }
 
 /// One focused reference table shown in the Help Memory section, as an
@@ -46,6 +57,19 @@ class HelpMemoryTable {
 
   final String title;
   final List<HelpMemoryColumn> columns;
+
+  Map<String, dynamic> toJson() => {
+    'title': title,
+    'columns': [for (final c in columns) c.toJson()],
+  };
+
+  factory HelpMemoryTable.fromJson(Map<String, dynamic> json) => HelpMemoryTable(
+    title: json['title'] as String,
+    columns: [
+      for (final c in json['columns'] as List)
+        HelpMemoryColumn.fromJson(c as Map<String, dynamic>),
+    ],
+  );
 }
 
 /// A small reference table of declension endings (e.g. the endings added to
@@ -73,6 +97,27 @@ class EndingPatternTable {
 
   /// Bullet-point notes shown below the table.
   final List<String>? notes;
+
+  Map<String, dynamic> toJson() => {
+    'title': title,
+    'cornerLabel': cornerLabel,
+    'columnLabels': columnLabels,
+    'rowLabels': rowLabels,
+    'rows': rows,
+    if (notes != null) 'notes': notes,
+  };
+
+  factory EndingPatternTable.fromJson(Map<String, dynamic> json) =>
+      EndingPatternTable(
+        title: json['title'] as String,
+        cornerLabel: json['cornerLabel'] as String,
+        columnLabels: (json['columnLabels'] as List).cast<String>(),
+        rowLabels: (json['rowLabels'] as List).cast<String>(),
+        rows: [
+          for (final row in json['rows'] as List) (row as List).cast<String>(),
+        ],
+        notes: (json['notes'] as List?)?.cast<String>(),
+      );
 }
 
 /// Picks a fill-in-the-blank sentence for a given answer.

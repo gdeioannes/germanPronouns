@@ -40,6 +40,11 @@ dependencies:
   pdf: ^3.12.0
   printing: ^5.14.3
   flutter_svg: ^2.3.0
+  # Local, client-side database for the back office (works on web via
+  # IndexedDB and on desktop/mobile via a file). Stores our JSON content.
+  sembast: ^3.7.0
+  sembast_web: ^2.4.0
+  path_provider: ^2.1.4
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +71,7 @@ flutter:
   assets:
     - assets/icons/QuizLogo-01.svg
     - assets/icons/QuizLogo-02.svg
+    - assets/seed/quiz_content.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,5 +1,5 @@
+import '../models/app_page.dart';
 import '../models/quiz_config.dart';
-import '../widgets/app_drawer.dart';
 import 'reference_sentence_bank.dart';
 
 const listPronounsGermanNominative = [

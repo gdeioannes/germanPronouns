@@ -1,7 +1,8 @@
 import 'dart:math';
 
+import '../models/app_page.dart';
 import '../models/quiz_config.dart';
-import '../widgets/app_drawer.dart';
+import 'german_grammar.dart';
 import 'noun_database.dart';
 
 /// A German noun with its grammatical gender, used to derive the correct
@@ -47,14 +48,6 @@ final List<ArticleNoun> articleNouns = germanNouns
     )
     .toList();
 
-const Map<String, String> _genderNames = {
-  'm': 'masculine',
-  'f': 'feminine',
-  'n': 'neuter',
-};
-
-const Map<String, String> _baseArticles = {'m': 'der', 'f': 'die', 'n': 'das'};
-
 /// Definite article for each gender, per case.
 const Map<String, Map<String, String>> _articleTable = {
   'm': {'Nominative': 'der', 'Accusative': 'den', 'Dative': 'dem'},
@@ -69,7 +62,10 @@ final Map<String, ArticleNoun> _nounsByName = {
   for (final n in articleNouns) n.noun: n,
 };
 
-const Map<String, List<String>> _sentenceTemplates = {
+/// Fill-in-the-blank sentence templates per case. `____` marks the article
+/// blank and `{noun}` is replaced with the noun. Public so the quiz-content
+/// layer can expose them as data (see article_content.dart).
+const Map<String, List<String>> articleSentenceTemplates = {
   'Nominative': [
     '____ {noun} ist hier.',
     'Wo ist ____ {noun}?',
@@ -99,7 +95,8 @@ String pickArticleSentence({
   required String answer,
   required Random random,
 }) {
-  final templates = _sentenceTemplates[caseLabel] ?? const ['____ {noun}.'];
+  final templates =
+      articleSentenceTemplates[caseLabel] ?? const ['____ {noun}.'];
   final template = templates[random.nextInt(templates.length)];
   return template.replaceAll('{noun}', nominative);
 }
@@ -153,8 +150,8 @@ String buildArticleExplanation({
   final info = _nounsByName[nominative];
   final gender = info?.gender ?? 'n';
   final english = info?.english ?? nominative.toLowerCase();
-  final genderName = _genderNames[gender] ?? 'neuter';
-  final baseArticle = _baseArticles[gender] ?? 'das';
+  final genderName = genderNames[gender] ?? 'neuter';
+  final baseArticle = baseArticles[gender] ?? 'das';
 
   final englishMeaning = switch (caseLabel) {
     'Nominative' =>

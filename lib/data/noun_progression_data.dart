@@ -1,9 +1,9 @@
+import '../models/app_page.dart';
 import '../models/quiz_config.dart';
-import '../widgets/app_drawer.dart';
+import '../models/quiz_content.dart';
+import 'german_grammar.dart';
 import 'noun_article_data.dart';
 import 'noun_database.dart';
-
-const Map<String, String> _baseArticles = {'m': 'der', 'f': 'die', 'n': 'das'};
 
 /// Progression key for the "All Nouns" final-challenge quiz, which draws
 /// from every noun in [germanNouns] (see `nounArticleQuizConfig`).
@@ -60,7 +60,7 @@ QuizConfig nounCategoryQuizConfig(String categoryKey) {
     categories: [
       QuizCategoryDefinition(
         label: 'Artikel',
-        values: subset.map((n) => _baseArticles[n.gender]!).toList(),
+        values: subset.map((n) => baseArticles[n.gender]!).toList(),
         group: 'Artikel',
       ),
     ],
@@ -115,16 +115,74 @@ int firstLockedNounProgressionIndex(Set<String> completed) {
   return nounProgressionEntries.length;
 }
 
-/// Resolves which [QuizConfig] to open for the main "Nouns & Articles"
-/// drawer entry / app restart: [lastKey]'s entry if it's currently unlocked,
-/// otherwise the first (easiest) category.
-QuizConfig resolveNounProgressionConfig(String? lastKey, Set<String> completed) {
+/// Resolves which entry to open for the main "Nouns & Articles" drawer entry /
+/// app restart: [lastKey]'s entry if it's currently unlocked, otherwise the
+/// first (easiest) category.
+NounProgressionEntry resolveNounProgressionEntry(
+  String? lastKey,
+  Set<String> completed,
+) {
   final unlockedCount = firstLockedNounProgressionIndex(completed);
   if (lastKey != null) {
     final index = nounProgressionEntries.indexWhere((e) => e.key == lastKey);
     if (index >= 0 && index < unlockedCount) {
-      return nounProgressionEntries[index].config;
+      return nounProgressionEntries[index];
     }
   }
-  return nounProgressionEntries[0].config;
+  return nounProgressionEntries[0];
+}
+
+/// Resolves which [QuizConfig] to open for the main "Nouns & Articles" drawer
+/// entry / app restart.
+QuizConfig resolveNounProgressionConfig(String? lastKey, Set<String> completed) =>
+    resolveNounProgressionEntry(lastKey, completed).config;
+
+/// Derives the [QuizContent] for noun-progression entry [key] from the full
+/// "All Nouns" content [allNouns] (loaded from the database).
+///
+/// The full content holds every noun and its sentence; a category quiz is just
+/// the subset of subjects (and their parallel article values + sentences)
+/// tagged with that category. This means a teacher edits a noun once and the
+/// change flows to "All Nouns" and every category quiz containing it.
+QuizContent nounProgressionContent(QuizContent allNouns, String key) {
+  if (key == kAllNounsProgressionKey) return allNouns;
+
+  final keptKeys = <String>{};
+  final subjects = <QuizSubjectData>[];
+  for (final subject in allNouns.subjects) {
+    if (subject.categories.contains(key)) {
+      subjects.add(subject);
+      keptKeys.add(subject.key);
+    }
+  }
+
+  final categories = [
+    for (final category in allNouns.categories)
+      QuizCategoryData(
+        label: category.label,
+        group: category.group,
+        values: [
+          for (var i = 0; i < allNouns.subjects.length; i++)
+            if (keptKeys.contains(allNouns.subjects[i].key)) category.values[i],
+        ],
+      ),
+  ];
+
+  return QuizContent(
+    id: 'noun_cat_$key',
+    title: nounCategoryDisplayNames[key] ?? key,
+    storageKeyPrefix: 'noun_cat_${key}_',
+    promptLabel: allNouns.promptLabel,
+    subjectsLabel: allNouns.subjectsLabel,
+    subjectColumnLabel: allNouns.subjectColumnLabel,
+    subjects: subjects,
+    categories: categories,
+    sentences: [
+      for (final sentence in allNouns.sentences)
+        if (keptKeys.contains(sentence.subjectKey)) sentence,
+    ],
+    sentenceTemplates: allNouns.sentenceTemplates,
+    categoryDisplayNames: allNouns.categoryDisplayNames,
+    collapseReferenceTablesByGender: allNouns.collapseReferenceTablesByGender,
+  );
 }

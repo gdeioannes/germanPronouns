@@ -16,6 +16,7 @@ import '../data/noun_progression_data.dart';
 import '../data/pronoun_article_sentences.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
+import '../models/quiz_stats_keys.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
 import 'app_drawer.dart';
@@ -50,22 +51,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   static const int _maxStoredHistory = 100;
   static const int _maxStreak = 5;
 
-  String get _historyStorageKey =>
-      '${widget.config.storageKeyPrefix}quiz_answer_history';
-  String get _mistakesStorageKey =>
-      '${widget.config.storageKeyPrefix}quiz_mistakes_by_case';
-  String get _scoreStorageKey =>
-      '${widget.config.storageKeyPrefix}quiz_score';
-  String get _streakStorageKey =>
-      '${widget.config.storageKeyPrefix}quiz_streak';
-  String get _bestStreakLapKey =>
-      '${widget.config.storageKeyPrefix}quiz_best_streak_lap';
-  String get _bestStreakAbsoluteKey =>
-      '${widget.config.storageKeyPrefix}quiz_best_streak_absolute';
-  String get _enabledSubjectsKey =>
-      '${widget.config.storageKeyPrefix}quiz_enabled_pronouns';
-  String get _enabledCategoriesKey =>
-      '${widget.config.storageKeyPrefix}quiz_enabled_cases';
+  // All SharedPreferences key names are built by [QuizStatsKeys] so the quiz
+  // engine and the drawer can't drift out of sync.
+  QuizStatsKeys get _keys => QuizStatsKeys(widget.config.storageKeyPrefix);
+  String get _historyStorageKey => _keys.answerHistory;
+  String get _mistakesStorageKey => _keys.mistakesByCase;
+  String get _scoreStorageKey => _keys.score;
+  String get _streakStorageKey => _keys.streak;
+  String get _bestStreakLapKey => _keys.bestStreakLap;
+  String get _bestStreakAbsoluteKey => _keys.bestStreakAbsolute;
+  String get _enabledSubjectsKey => _keys.enabledSubjects;
+  String get _enabledCategoriesKey => _keys.enabledCategories;
 
   int _score = 0;
   int _streakAbsolute = 0;

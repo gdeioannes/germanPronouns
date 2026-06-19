@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import '../models/quiz_config.dart';
-import '../widgets/app_drawer.dart';
+import '../models/app_page.dart';
 import 'pronoun_article_sentences.dart';
 
 const List<String> accusativePronounsList = [
