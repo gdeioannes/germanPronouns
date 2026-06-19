@@ -6,7 +6,11 @@ import '../models/app_session.dart';
 /// Sign-in screen. Learners enter directly; teachers unlock the back office
 /// with the local passcode.
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({super.key, this.startInTeacherMode = false});
+
+  /// Opens directly in teacher-passcode mode — used when a remembered teacher
+  /// returns and just needs to re-enter the passcode.
+  final bool startInTeacherMode;
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -14,7 +18,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passcodeController = TextEditingController();
-  bool _teacherMode = false;
+  late bool _teacherMode = widget.startInTeacherMode;
   String? _error;
 
   @override

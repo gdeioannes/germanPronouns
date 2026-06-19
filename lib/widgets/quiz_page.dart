@@ -14,9 +14,11 @@ import '../data/noun_lookup.dart';
 import '../data/noun_plurals.dart';
 import '../data/noun_progression_data.dart';
 import '../data/pronoun_article_sentences.dart';
+import '../models/app_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_stats_keys.dart';
+import '../pages/auth_gate.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
 import 'app_drawer.dart';
@@ -2070,11 +2072,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           child: _appBarTitle(widget.config.title),
         ),
         actions: [
-          IconButton(
-            tooltip: 'Reset score and history',
-            onPressed: _showResetConfirmationPanel,
-            icon: const Icon(Icons.restart_alt_rounded),
-          ),
+          // Learners can log out from here (where the per-quiz reset used to
+          // be); the reset itself now lives in the Settings panel below.
+          if (AppSession.instance.role == UserRole.learner)
+            IconButton(
+              tooltip: 'Log out',
+              onPressed: () => signOutToLogin(context),
+              icon: const Icon(Icons.logout_rounded),
+            ),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(3),
@@ -3934,6 +3939,20 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                 ),
                               )
                               .toList(),
+                        ),
+                        const SizedBox(height: 16),
+                        Divider(color: colorScheme.outlineVariant),
+                        const SizedBox(height: 8),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: OutlinedButton.icon(
+                            onPressed: _showResetConfirmationPanel,
+                            icon: const Icon(Icons.restart_alt_rounded),
+                            label: const Text("Reset this quiz's progress"),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: colorScheme.error,
+                            ),
+                          ),
                         ),
                       ],
                     ),

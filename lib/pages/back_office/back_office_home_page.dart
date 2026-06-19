@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../data/db/content_repository.dart';
-import '../../models/app_session.dart';
 import '../../theme/app_theme.dart';
+import '../auth_gate.dart';
 import '../learner_home_page.dart';
 import 'quiz_sentences_page.dart';
 
@@ -124,7 +124,7 @@ class _BackOfficeHomePageState extends State<BackOfficeHomePage> {
           IconButton(
             tooltip: 'Sign out',
             icon: const Icon(Icons.logout_rounded),
-            onPressed: AppSession.instance.signOut,
+            onPressed: () => signOutToLogin(context),
           ),
         ],
       ),
