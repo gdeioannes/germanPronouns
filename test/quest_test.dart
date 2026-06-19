@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:german_pronouns_articles/data/quest_data.dart';
 import 'package:german_pronouns_articles/data/quiz_content_adapter.dart';
 import 'package:german_pronouns_articles/models/app_page.dart';
+import 'package:german_pronouns_articles/models/nav_layout.dart';
 import 'package:german_pronouns_articles/models/quiz_content.dart';
 
 Map<String, dynamic> _throughJson(Map<String, dynamic> json) =>
@@ -155,6 +156,46 @@ void main() {
         currentPage: AppPage.quest,
       );
       expect(config.acceptableAnswersForSentence, isNull);
+    });
+  });
+
+  group('Quest chain reordering', () {
+    tearDown(() => applyQuestOrder(const [])); // reset to default order
+
+    test('applyQuestOrder reorders the chain and the unlock sequence', () {
+      final keys = questEntries.map((e) => e.key).toList();
+      final reversed = keys.reversed.toList();
+      applyQuestOrder(reversed);
+      expect(questEntries.map((e) => e.key).toList(), reversed);
+      expect(
+        nextQuestEntryName(reversed.first),
+        questEntryByKey(reversed[1])!.displayName,
+      );
+    });
+
+    test('applyQuestOrderFromLayout reads the questChain group order', () {
+      final keys = questEntries.map((e) => e.key).toList();
+      final layout = NavLayout(
+        groups: [
+          NavGroup(
+            id: 'q',
+            title: 'Q',
+            type: NavGroupType.questChain,
+            items: [for (final k in keys.reversed) NavItem(ref: k)],
+          ),
+        ],
+      );
+      applyQuestOrderFromLayout(layout);
+      expect(questEntries.map((e) => e.key).toList(), keys.reversed.toList());
+    });
+
+    test('unlisted keys are appended; empty resets to default', () {
+      final keys = questEntries.map((e) => e.key).toList();
+      applyQuestOrder([keys.last]);
+      expect(questEntries.first.key, keys.last);
+      expect(questEntries.length, keys.length);
+      applyQuestOrder(const []);
+      expect(questEntries.map((e) => e.key).toList(), keys);
     });
   });
 }

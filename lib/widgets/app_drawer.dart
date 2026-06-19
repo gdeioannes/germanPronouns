@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../data/db/content_repository.dart';
+import '../data/nav_layout_data.dart';
 import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
 import '../data/section_catalog.dart';
 import '../models/app_page.dart';
+import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
-import '../models/quiz_section.dart';
 import '../models/quiz_stats_keys.dart';
 import '../pages/noun_article_quiz_page.dart';
 import '../pages/quest_quiz_page.dart';
@@ -48,6 +50,44 @@ Widget buildAppPage(AppPage page) {
   };
 }
 
+/// Builds the learner page for a data-driven nav item that opens the quiz
+/// stored under [contentId] (from the editable navigation layout).
+Widget buildQuizPageForContent(String contentId) {
+  final section = sectionForContentId(contentId);
+  return DbQuizLoader(
+    quizId: contentId,
+    currentPage: section?.page ?? AppPage.articles,
+    fallback: section?.primaryQuiz,
+  );
+}
+
+/// Everything the drawer needs, loaded once: prefs (for scores), the editable
+/// navigation [layout], and a quiz id → summary map (for default titles/keys).
+class _DrawerData {
+  const _DrawerData(this.prefs, this.layout, this.quizzes);
+
+  final SharedPreferences? prefs;
+  final NavLayout layout;
+  final Map<String, QuizSummary> quizzes;
+}
+
+Future<_DrawerData> _loadDrawerData() async {
+  final prefs = await SharedPreferences.getInstance();
+  var layout = defaultNavLayout;
+  final quizzes = <String, QuizSummary>{};
+  try {
+    final repo = await contentRepository();
+    layout = await repo.navLayout();
+    applyQuestOrderFromLayout(layout);
+    for (final q in await repo.listQuizzes()) {
+      quizzes[q.id] = q;
+    }
+  } catch (_) {
+    // Fall back to the default layout if the database is unavailable.
+  }
+  return _DrawerData(prefs, layout, quizzes);
+}
+
 /// Side navigation drawer shared by all quiz pages.
 class AppDrawer extends StatefulWidget {
   const AppDrawer({
@@ -55,9 +95,14 @@ class AppDrawer extends StatefulWidget {
     required this.currentPage,
     this.currentNounProgressionKey,
     this.currentQuestKey,
+    this.currentContentId,
   });
 
   final AppPage currentPage;
+
+  /// `QuizContent.id` of the currently open data-driven nav quiz, used to
+  /// highlight its item in the drawer.
+  final String? currentContentId;
 
   /// When [currentPage] is [AppPage.nounsArticles], the progression key
   /// (from [nounProgressionEntries]) of the currently open noun-category
@@ -76,6 +121,7 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   bool _nounCategoriesExpanded = false;
   bool _questExpanded = false;
+  late final Future<_DrawerData> _drawerDataFuture = _loadDrawerData();
 
   void _navigateTo(BuildContext context, AppPage page) {
     Navigator.pop(context);
@@ -215,32 +261,6 @@ class _AppDrawerState extends State<AppDrawer> {
           Text('×$streaks', style: statStyle),
         ],
       ),
-    );
-  }
-
-  Widget _quizTile(
-    BuildContext context, {
-    required QuizSection section,
-    required SharedPreferences? prefs,
-  }) {
-    final keys = section.statsKeys;
-    final score = prefs?.getInt(keys.score) ?? 0;
-    final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;
-
-    return _navTile(
-      context,
-      icon: section.icon,
-      badgeColor: section.accent,
-      title: section.title,
-      selected: widget.currentPage == section.page,
-      onTap: () => _navigateTo(context, section.page),
-      subtitle: prefs == null
-          ? null
-          : _statsSubtitle(
-              context,
-              score: score,
-              bestStreakAbsolute: bestStreakAbsolute,
-            ),
     );
   }
 
@@ -683,6 +703,104 @@ class _AppDrawerState extends State<AppDrawer> {
     return tiles;
   }
 
+  void _navigateToContent(BuildContext context, String contentId) {
+    Navigator.pop(context);
+    NounSettings.instance.setLastContentId(contentId);
+    if (widget.currentContentId == contentId) return;
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute<void>(
+        builder: (_) => buildQuizPageForContent(contentId),
+      ),
+    );
+  }
+
+  /// A drawer tile for a data-driven quiz item (resolved title/icon/color, with
+  /// the quiz's score/streak), highlighted when it's the open quiz.
+  Widget _quizItemTile(
+    BuildContext context, {
+    required NavItem item,
+    required _DrawerData data,
+  }) {
+    final section = sectionForContentId(item.ref);
+    final summary = data.quizzes[item.ref];
+    final title =
+        item.titleOverride ?? summary?.title ?? section?.title ?? item.ref;
+    final icon = navIconFor(item.iconKey, section?.icon ?? Icons.menu_book_rounded);
+    final color = navColorFor(
+      item.colorIndex,
+      section?.accent ?? kSectionAccentColors[0],
+    );
+    final prefix = summary?.storageKeyPrefix ??
+        section?.primaryQuiz.storageKeyPrefix ??
+        '${item.ref}_';
+    final keys = QuizStatsKeys(prefix);
+    final prefs = data.prefs;
+
+    return _navTile(
+      context,
+      icon: icon,
+      badgeColor: color,
+      title: title,
+      selected: widget.currentContentId == item.ref,
+      onTap: () => _navigateToContent(context, item.ref),
+      subtitle: prefs == null
+          ? null
+          : _statsSubtitle(
+              context,
+              score: prefs.getInt(keys.score) ?? 0,
+              bestStreakAbsolute: prefs.getInt(keys.bestStreakAbsolute) ?? 0,
+            ),
+    );
+  }
+
+  /// A drawer tile for a built-in link item (Word Library / Settings).
+  Widget _linkItemTile(BuildContext context, NavItem item) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final (AppPage, IconData, String) spec;
+    if (item.ref == kWordLibraryRef) {
+      spec = (AppPage.wordLibrary, Icons.library_books_rounded, 'Word Library');
+    } else if (item.ref == kSettingsRef) {
+      spec = (AppPage.settings, Icons.settings_rounded, 'Settings');
+    } else {
+      return const SizedBox.shrink();
+    }
+    return _navTile(
+      context,
+      icon: navIconFor(item.iconKey, spec.$2),
+      badgeColor: navColorFor(item.colorIndex, colorScheme.onSurfaceVariant),
+      title: item.titleOverride ?? spec.$3,
+      selected: widget.currentPage == spec.$1,
+      onTap: () => _navigateTo(context, spec.$1),
+    );
+  }
+
+  /// Renders one navigation group's tiles by [NavGroup.type].
+  List<Widget> _buildGroup(
+    BuildContext context,
+    NavGroup group,
+    _DrawerData? data,
+    SharedPreferences? prefs,
+  ) {
+    switch (group.type) {
+      case NavGroupType.questChain:
+        return _buildQuestTiles(context, prefs);
+      case NavGroupType.nounChain:
+        return _buildNounProgressionTiles(context, prefs);
+      case NavGroupType.quizzes:
+        if (data == null) return const [];
+        return [
+          for (final item in group.items)
+            if (!item.hidden) _quizItemTile(context, item: item, data: data),
+        ];
+      case NavGroupType.links:
+        return [
+          for (final item in group.items)
+            if (!item.hidden) _linkItemTile(context, item),
+        ];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -691,10 +809,12 @@ class _AppDrawerState extends State<AppDrawer> {
     return Drawer(
       backgroundColor: colorScheme.surfaceContainerLow,
       child: SafeArea(
-        child: FutureBuilder<SharedPreferences>(
-          future: SharedPreferences.getInstance(),
+        child: FutureBuilder<_DrawerData>(
+          future: _drawerDataFuture,
           builder: (context, snapshot) {
-            final prefs = snapshot.data;
+            final data = snapshot.data;
+            final layout = data?.layout ?? defaultNavLayout;
+            final prefs = data?.prefs;
 
             return ListView(
               padding: const EdgeInsets.only(bottom: 8),
@@ -732,34 +852,11 @@ class _AppDrawerState extends State<AppDrawer> {
                     ],
                   ),
                 ),
-                Divider(height: 1, color: colorScheme.outlineVariant),
-                _sectionLabel(context, 'QUEST · A1'),
-                ..._buildQuestTiles(context, prefs),
-                Divider(height: 1, color: colorScheme.outlineVariant),
-                _sectionLabel(context, 'NOUN CATEGORIES'),
-                ..._buildNounProgressionTiles(context, prefs),
-                Divider(height: 1, color: colorScheme.outlineVariant),
-                _sectionLabel(context, 'QUIZZES'),
-                for (final section in quizSections)
-                  _quizTile(context, section: section, prefs: prefs),
-                Divider(height: 1, color: colorScheme.outlineVariant),
-                _sectionLabel(context, 'MORE'),
-                _navTile(
-                  context,
-                  icon: Icons.library_books_rounded,
-                  badgeColor: colorScheme.onSurfaceVariant,
-                  title: 'Word Library',
-                  selected: widget.currentPage == AppPage.wordLibrary,
-                  onTap: () => _navigateTo(context, AppPage.wordLibrary),
-                ),
-                _navTile(
-                  context,
-                  icon: Icons.settings_rounded,
-                  badgeColor: colorScheme.onSurfaceVariant,
-                  title: 'Settings',
-                  selected: widget.currentPage == AppPage.settings,
-                  onTap: () => _navigateTo(context, AppPage.settings),
-                ),
+                for (final group in layout.groups) ...[
+                  Divider(height: 1, color: colorScheme.outlineVariant),
+                  _sectionLabel(context, group.title),
+                  ..._buildGroup(context, group, data, prefs),
+                ],
               ],
             );
           },

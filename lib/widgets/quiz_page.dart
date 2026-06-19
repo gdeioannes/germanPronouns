@@ -2631,6 +2631,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         currentQuestKey: widget.config.questProgression
             ? widget.config.progressionKey
             : null,
+        currentContentId: widget.config.contentId,
       ),
       body: SafeArea(
         child: ListView(

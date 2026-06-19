@@ -32,6 +32,7 @@ class NounSettings {
   static const String _colorNounsKeyPrefix = SettingsKeys.colorNounsLegacyPrefix;
   static const String _colorNounsKey = SettingsKeys.colorNouns;
   static const String _lastPageKey = SettingsKeys.lastPage;
+  static const String _lastContentIdKey = SettingsKeys.lastContentId;
   static const String _completedNounCategoriesKey =
       SettingsKeys.completedNounCategories;
   static const String _lastNounProgressionKeyPref =
@@ -69,6 +70,7 @@ class NounSettings {
   bool _colorNouns = false;
   Map<String, Color> _genderColors = Map.of(defaultGenderColors);
   String? _lastPage;
+  String? _lastContentId;
   Set<String> _completedNounCategories = {};
   String? _lastNounProgressionKey;
   AnswerRevealMode _answerRevealMode = AnswerRevealMode.normal;
@@ -85,6 +87,10 @@ class NounSettings {
   /// Name of the [AppPage] the user last navigated to, or null if none was
   /// recorded yet. Used to reopen the app on the same page it was closed on.
   String? get lastPage => _lastPage;
+
+  /// `QuizContent.id` of the last data-driven nav quiz the user opened, used to
+  /// reopen the app on it. Null if the last page wasn't a nav quiz.
+  String? get lastContentId => _lastContentId;
 
   /// Progression keys (noun-category keys, or `kAllNounsProgressionKey`)
   /// whose quiz has reached a [progressionUnlockStreak]-answer streak at
@@ -195,6 +201,7 @@ class NounSettings {
         ),
     };
     _lastPage = prefs.getString(_lastPageKey);
+    _lastContentId = prefs.getString(_lastContentIdKey);
     _completedNounCategories =
         (prefs.getStringList(_completedNounCategoriesKey) ?? const []).toSet();
     _lastNounProgressionKey = prefs.getString(_lastNounProgressionKeyPref);
@@ -218,8 +225,19 @@ class NounSettings {
 
   Future<void> setLastPage(String page) async {
     _lastPage = page;
+    // Leaving a data-driven quiz for a fixed page: clear the content resume.
+    _lastContentId = null;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_lastPageKey, page);
+    await prefs.remove(_lastContentIdKey);
+  }
+
+  /// Records [contentId] as the last data-driven nav quiz opened (takes resume
+  /// priority over [lastPage] until a fixed page is opened).
+  Future<void> setLastContentId(String contentId) async {
+    _lastContentId = contentId;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_lastContentIdKey, contentId);
   }
 
   /// Marks [key] (a noun-category key, or `kAllNounsProgressionKey`) as
@@ -326,6 +344,7 @@ class NounSettings {
       for (final entry in _genderColors.entries) entry.key: entry.value.toARGB32(),
     },
     lastPage: _lastPage,
+    lastContentId: _lastContentId,
     completedNounCategories: _completedNounCategories.toList(),
     lastNounProgressionKey: _lastNounProgressionKey,
     answerRevealMode: _answerRevealMode.name,
@@ -365,6 +384,7 @@ class NounSettings {
     _genderColors = Map.of(defaultGenderColors);
     _showFirstLetterHint = false;
     _lastPage = null;
+    _lastContentId = null;
     _completedNounCategories = {};
     _lastNounProgressionKey = null;
     _answerRevealMode = AnswerRevealMode.normal;

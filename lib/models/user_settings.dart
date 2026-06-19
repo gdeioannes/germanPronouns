@@ -13,6 +13,7 @@ class UserSettings {
     this.colorNouns = false,
     this.genderColors = const {},
     this.lastPage,
+    this.lastContentId,
     this.completedNounCategories = const [],
     this.lastNounProgressionKey,
     this.answerRevealMode = 'normal',
@@ -37,6 +38,10 @@ class UserSettings {
   final Map<String, int> genderColors;
 
   final String? lastPage;
+
+  /// `QuizContent.id` of the last data-driven nav quiz opened (resume).
+  final String? lastContentId;
+
   final List<String> completedNounCategories;
   final String? lastNounProgressionKey;
 
@@ -66,6 +71,7 @@ class UserSettings {
     bool? colorNouns,
     Map<String, int>? genderColors,
     String? lastPage,
+    String? lastContentId,
     List<String>? completedNounCategories,
     String? lastNounProgressionKey,
     String? answerRevealMode,
@@ -81,6 +87,7 @@ class UserSettings {
     colorNouns: colorNouns ?? this.colorNouns,
     genderColors: genderColors ?? this.genderColors,
     lastPage: lastPage ?? this.lastPage,
+    lastContentId: lastContentId ?? this.lastContentId,
     completedNounCategories:
         completedNounCategories ?? this.completedNounCategories,
     lastNounProgressionKey:
@@ -100,6 +107,7 @@ class UserSettings {
     'colorNouns': colorNouns,
     'genderColors': genderColors,
     if (lastPage != null) 'lastPage': lastPage,
+    if (lastContentId != null) 'lastContentId': lastContentId,
     'completedNounCategories': completedNounCategories,
     if (lastNounProgressionKey != null)
       'lastNounProgressionKey': lastNounProgressionKey,
@@ -121,6 +129,7 @@ class UserSettings {
     genderColors:
         (json['genderColors'] as Map?)?.cast<String, int>() ?? const {},
     lastPage: json['lastPage'] as String?,
+    lastContentId: json['lastContentId'] as String?,
     completedNounCategories:
         (json['completedNounCategories'] as List?)?.cast<String>() ?? const [],
     lastNounProgressionKey: json['lastNounProgressionKey'] as String?,

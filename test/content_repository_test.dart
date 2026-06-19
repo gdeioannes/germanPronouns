@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sembast/sembast_memory.dart';
 
 import 'package:german_pronouns_articles/data/db/content_repository.dart';
+import 'package:german_pronouns_articles/models/nav_layout.dart';
 import 'package:german_pronouns_articles/data/preposition_content.dart';
 import 'package:german_pronouns_articles/data/quiz_content_library.dart';
 import 'package:german_pronouns_articles/models/quiz_content.dart';
@@ -76,11 +77,22 @@ void main() {
     expect(reloaded.data.sentence, 'EDITED ____ sentence.');
   });
 
-  test('exports all quizzes as a JSON list', () async {
+  test('exports quizzes and the nav layout as a JSON object', () async {
     final repo = await openSeeded();
-    final decoded = jsonDecode(await repo.exportJson());
-    expect(decoded, isA<List>());
-    expect((decoded as List).length, allQuizContent.length);
+    final decoded = jsonDecode(await repo.exportJson()) as Map<String, dynamic>;
+    expect((decoded['quizzes'] as List).length, allQuizContent.length);
+    expect(decoded['nav'], isA<Map>());
+  });
+
+  test('navLayout defaults, persists and reseeds', () async {
+    final repo = ContentRepository(await openDb());
+    expect((await repo.navLayout()).groups, isNotEmpty); // default
+
+    final edited = NavLayout(groups: [
+      (await repo.navLayout()).groups.first.copyWith(title: 'EDITED'),
+    ]);
+    await repo.saveNavLayout(edited);
+    expect((await repo.navLayout()).groups.single.title, 'EDITED');
   });
 
   group('seedOrUpgrade', () {

@@ -220,6 +220,7 @@ class QuizConfig {
     this.helpMemoryInfoColumns = const [],
     this.progressionKey,
     this.questProgression = false,
+    this.contentId,
     this.acceptableAnswersForSentence,
     this.sentenceHint,
   });
@@ -336,6 +337,10 @@ class QuizConfig {
   /// via `NounSettings.markNounCategoryCompleted`, which may unlock the next
   /// progression entry.
   final String? progressionKey;
+
+  /// The `QuizContent.id` this quiz was loaded from, when known. Lets the
+  /// drawer highlight the matching data-driven navigation item.
+  final String? contentId;
 
   /// When true, [progressionKey] identifies an entry in the **Quest** chain
   /// (`questEntries`) rather than the noun-category chain, so the engine uses

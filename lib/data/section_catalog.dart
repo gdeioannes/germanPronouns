@@ -65,3 +65,12 @@ QuizSection? sectionForPage(AppPage page) {
   }
   return null;
 }
+
+/// The section whose primary quiz is stored under [contentId], or null. Used by
+/// the data-driven drawer to find a known quiz's default icon/accent/config.
+QuizSection? sectionForContentId(String contentId) {
+  for (final section in quizSections) {
+    if (section.contentId == contentId) return section;
+  }
+  return null;
+}

@@ -15,6 +15,9 @@ class SettingsKeys {
   static const String colorNounsLegacyPrefix = 'color_nouns_';
   static const String colorNouns = 'color_nouns';
   static const String lastPage = 'last_page';
+
+  /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
+  static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =
       'noun_progress_completed_categories';
   static const String lastNounProgressionKey = 'last_noun_progression_key';

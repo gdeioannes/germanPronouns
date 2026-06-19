@@ -18,7 +18,7 @@ class DbQuizLoader extends StatefulWidget {
     super.key,
     required this.quizId,
     required this.currentPage,
-    required this.fallback,
+    this.fallback,
     this.progressionKey,
   });
 
@@ -27,8 +27,9 @@ class DbQuizLoader extends StatefulWidget {
 
   final AppPage currentPage;
 
-  /// Used if the database is unavailable or has no such quiz.
-  final QuizConfig fallback;
+  /// Used if the database is unavailable or has no such quiz. May be null for
+  /// a data-driven nav item with no compiled counterpart.
+  final QuizConfig? fallback;
 
   final String? progressionKey;
 
@@ -37,9 +38,9 @@ class DbQuizLoader extends StatefulWidget {
 }
 
 class _DbQuizLoaderState extends State<DbQuizLoader> {
-  late final Future<QuizConfig> _configFuture = _loadConfig();
+  late final Future<QuizConfig?> _configFuture = _loadConfig();
 
-  Future<QuizConfig> _loadConfig() async {
+  Future<QuizConfig?> _loadConfig() async {
     try {
       final repo = await contentRepository();
       final content = await repo.quizContent(widget.quizId);
@@ -57,15 +58,22 @@ class _DbQuizLoaderState extends State<DbQuizLoader> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<QuizConfig>(
+    return FutureBuilder<QuizConfig?>(
       future: _configFuture,
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
+        if (snapshot.connectionState != ConnectionState.done) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
         }
-        return QuizPage(config: snapshot.data!);
+        final config = snapshot.data;
+        if (config == null) {
+          return Scaffold(
+            appBar: AppBar(),
+            body: const Center(child: Text('Quiz not found.')),
+          );
+        }
+        return QuizPage(config: config);
       },
     );
   }

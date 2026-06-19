@@ -5,6 +5,7 @@ import '../../data/db/content_repository.dart';
 import '../../theme/app_theme.dart';
 import '../auth_gate.dart';
 import '../learner_home_page.dart';
+import 'navigation_editor_page.dart';
 import 'quiz_sentences_page.dart';
 
 /// Teacher back office: lists every quiz and lets the teacher drill in to edit
@@ -42,7 +43,8 @@ class _BackOfficeHomePageState extends State<BackOfficeHomePage> {
       ),
     );
     if (confirmed != true) return;
-    await repo.reseed(await loadPublishedContent());
+    final published = await loadPublishedContent();
+    await repo.reseed(published.quizzes, nav: published.nav);
     if (mounted) setState(() => _reloadTick++);
   }
 
@@ -105,10 +107,25 @@ class _BackOfficeHomePageState extends State<BackOfficeHomePage> {
             future: _repoFuture,
             builder: (context, snapshot) {
               if (!snapshot.hasData) return const SizedBox.shrink();
-              return IconButton(
-                tooltip: 'Reset to published content',
-                icon: const Icon(Icons.restart_alt_rounded),
-                onPressed: () => _resetToPublished(snapshot.data!),
+              return Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    tooltip: 'Edit navigation / menu',
+                    icon: const Icon(Icons.account_tree_rounded),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) =>
+                            NavigationEditorPage(repository: snapshot.data!),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: 'Reset to published content',
+                    icon: const Icon(Icons.restart_alt_rounded),
+                    onPressed: () => _resetToPublished(snapshot.data!),
+                  ),
+                ],
               );
             },
           ),

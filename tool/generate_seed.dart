@@ -9,11 +9,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:german_pronouns_articles/data/quiz_content_library.dart';
+import 'package:german_pronouns_articles/models/nav_layout.dart';
 
 void main() {
-  final json = const JsonEncoder.withIndent(
-    '  ',
-  ).convert([for (final content in allQuizContent) content.toJson()]);
+  final json = const JsonEncoder.withIndent('  ').convert({
+    'quizzes': [for (final content in allQuizContent) content.toJson()],
+    'nav': defaultNavLayout.toJson(),
+  });
 
   final file = File('assets/seed/quiz_content.json');
   file.parent.createSync(recursive: true);

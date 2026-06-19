@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:sembast/sembast.dart';
 
+import '../../models/nav_layout.dart';
 import '../../models/quiz_content.dart';
 import '../quiz_content_library.dart';
 import 'content_database_factory.dart';
@@ -18,18 +19,22 @@ const String _seedAsset = 'assets/seed/quiz_content.json';
 /// re-seeded from the published content, so learners get content updates without
 /// a manual reset. Re-seeding replaces any local back-office edits with the
 /// published content; learner progress (SharedPreferences) is not affected.
-const int kSeedVersion = 4;
+const int kSeedVersion = 5;
 
 /// Lightweight summary of a quiz for the back-office list.
 class QuizSummary {
   const QuizSummary({
     required this.id,
     required this.title,
+    required this.storageKeyPrefix,
     required this.sentenceCount,
   });
 
   final String id;
   final String title;
+
+  /// The quiz's SharedPreferences key prefix (for reading its score/streak).
+  final String storageKeyPrefix;
   final int sentenceCount;
 }
 
@@ -76,25 +81,39 @@ class ContentRepository {
   /// content version differs from [kSeedVersion], so shipped content updates
   /// reach existing installs automatically. (Installs predating version
   /// tracking re-seed once.) Learner progress in SharedPreferences is untouched.
-  Future<void> seedOrUpgrade(List<QuizContent> contents) async {
+  Future<void> seedOrUpgrade(List<QuizContent> contents, {NavLayout? nav}) async {
     if (await _quizzes.count(db) == 0) {
       await _writeContents(contents);
+      if (nav != null) await saveNavLayout(nav);
       return;
     }
     if (await seededVersion() != kSeedVersion) {
-      await reseed(contents);
+      await reseed(contents, nav: nav);
     }
   }
 
-  /// Wipes all content and re-seeds from [contents] — used by the back office's
-  /// "Reset to published content" action to discard local edits.
-  Future<void> reseed(List<QuizContent> contents) async {
+  /// Wipes all content and re-seeds from [contents] (and [nav] if given) — used
+  /// by the back office's "Reset to published content" action to discard local
+  /// edits.
+  Future<void> reseed(List<QuizContent> contents, {NavLayout? nav}) async {
     await db.transaction((txn) async {
       await _quizzes.delete(txn);
       await _sentences.delete(txn);
     });
     await _writeContents(contents);
+    if (nav != null) await saveNavLayout(nav);
   }
+
+  /// The editable navigation/drawer layout, or [defaultNavLayout] if none has
+  /// been stored yet.
+  Future<NavLayout> navLayout() async {
+    final json = await _meta.record('nav').get(db);
+    if (json == null) return defaultNavLayout;
+    return NavLayout.fromJson(Map<String, dynamic>.from(json));
+  }
+
+  Future<void> saveNavLayout(NavLayout layout) =>
+      _meta.record('nav').put(db, layout.toJson());
 
   Future<void> _writeContents(List<QuizContent> contents) async {
     await db.transaction((txn) async {
@@ -123,6 +142,8 @@ class ContentRepository {
         QuizSummary(
           id: record.key,
           title: (record.value['title'] as String?) ?? record.key,
+          storageKeyPrefix:
+              (record.value['storageKeyPrefix'] as String?) ?? '${record.key}_',
           sentenceCount: count,
         ),
       );
@@ -179,8 +200,9 @@ class ContentRepository {
 
   Future<void> deleteSentence(int key) => _sentences.record(key).delete(db);
 
-  /// Serializes the whole database back to the seed JSON shape, so a teacher
-  /// can commit it to `assets/` to publish edits to the static build.
+  /// Serializes the whole database back to the seed JSON shape
+  /// (`{ "quizzes": [...], "nav": {...} }`), so a teacher can commit it to
+  /// `assets/` to publish both content and the drawer layout.
   Future<String> exportJson() async {
     final records = await _quizzes.find(db);
     final contents = <Map<String, dynamic>>[];
@@ -188,23 +210,55 @@ class ContentRepository {
       final content = await quizContent(record.key);
       if (content != null) contents.add(content.toJson());
     }
-    return const JsonEncoder.withIndent('  ').convert(contents);
+    final nav = await navLayout();
+    return const JsonEncoder.withIndent('  ').convert({
+      'quizzes': contents,
+      'nav': nav.toJson(),
+    });
   }
 }
 
+/// Published content + drawer layout, parsed from the seed asset.
+class PublishedContent {
+  const PublishedContent({required this.quizzes, required this.nav});
+
+  final List<QuizContent> quizzes;
+  final NavLayout nav;
+}
+
 /// The published content the database seeds from: the [_seedAsset] JSON if it
-/// is present and valid, otherwise the compiled-in [allQuizContent] as a
-/// fallback (so the app still works if the asset is missing).
-Future<List<QuizContent>> loadPublishedContent() async {
+/// is present and valid, otherwise the compiled-in [allQuizContent] +
+/// [defaultNavLayout] as a fallback (so the app still works if the asset is
+/// missing). Accepts both the new object shape
+/// (`{quizzes, nav}`) and the legacy top-level list of quizzes.
+Future<PublishedContent> loadPublishedContent() async {
   try {
     final raw = await rootBundle.loadString(_seedAsset);
-    final list = jsonDecode(raw) as List;
-    return [
+    final decoded = jsonDecode(raw);
+
+    List<QuizContent> parseQuizzes(List<dynamic> list) => [
       for (final entry in list)
         QuizContent.fromJson(Map<String, dynamic>.from(entry as Map)),
     ];
+
+    if (decoded is List) {
+      // Legacy shape: a bare list of quizzes (no layout).
+      return PublishedContent(
+        quizzes: parseQuizzes(decoded),
+        nav: defaultNavLayout,
+      );
+    }
+    final map = Map<String, dynamic>.from(decoded as Map);
+    final quizzes = parseQuizzes((map['quizzes'] as List?) ?? const []);
+    final navJson = map['nav'];
+    return PublishedContent(
+      quizzes: quizzes.isEmpty ? allQuizContent : quizzes,
+      nav: navJson == null
+          ? defaultNavLayout
+          : NavLayout.fromJson(Map<String, dynamic>.from(navJson as Map)),
+    );
   } catch (_) {
-    return allQuizContent;
+    return PublishedContent(quizzes: allQuizContent, nav: defaultNavLayout);
   }
 }
 
@@ -213,7 +267,8 @@ Future<List<QuizContent>> loadPublishedContent() async {
 Future<ContentRepository> openContentRepository() async {
   final db = await openContentDatabase();
   final repository = ContentRepository(db);
-  await repository.seedOrUpgrade(await loadPublishedContent());
+  final published = await loadPublishedContent();
+  await repository.seedOrUpgrade(published.quizzes, nav: published.nav);
   return repository;
 }
 
