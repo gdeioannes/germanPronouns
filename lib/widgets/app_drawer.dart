@@ -1,19 +1,24 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/noun_progression_data.dart';
+import '../data/quest_data.dart';
 import '../data/section_catalog.dart';
 import '../models/app_page.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_section.dart';
 import '../models/quiz_stats_keys.dart';
 import '../pages/noun_article_quiz_page.dart';
+import '../pages/quest_quiz_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
 import 'db_quiz_loader.dart';
 import 'noun_progression_quiz_loader.dart';
+import 'quest_quiz_loader.dart';
 
 // Re-exported so the many files that import this drawer for [AppPage] keep
 // working; the enum itself now lives in the model layer (see app_page.dart).
@@ -35,6 +40,7 @@ Widget buildAppPage(AppPage page) {
   }
   return switch (page) {
     AppPage.nounsArticles => const NounArticleQuizPage(),
+    AppPage.quest => const QuestQuizPage(),
     AppPage.wordLibrary => const WordLibraryPage(),
     AppPage.settings => const SettingsPage(),
     // Every other page is a catalog section, handled above.
@@ -48,6 +54,7 @@ class AppDrawer extends StatefulWidget {
     super.key,
     required this.currentPage,
     this.currentNounProgressionKey,
+    this.currentQuestKey,
   });
 
   final AppPage currentPage;
@@ -57,12 +64,18 @@ class AppDrawer extends StatefulWidget {
   /// sub-quiz, used to highlight it in the "Noun Categories" section.
   final String? currentNounProgressionKey;
 
+  /// When [currentPage] is [AppPage.quest], the key (from [questEntries]) of
+  /// the currently open Quest quiz, used to highlight it in the "Quest"
+  /// section.
+  final String? currentQuestKey;
+
   @override
   State<AppDrawer> createState() => _AppDrawerState();
 }
 
 class _AppDrawerState extends State<AppDrawer> {
   bool _nounCategoriesExpanded = false;
+  bool _questExpanded = false;
 
   void _navigateTo(BuildContext context, AppPage page) {
     Navigator.pop(context);
@@ -426,6 +439,250 @@ class _AppDrawerState extends State<AppDrawer> {
     return tiles;
   }
 
+  // ── Quest (CEFR A-level) section ──────────────────────────────────────────
+
+  void _navigateToQuest(BuildContext context, String key) {
+    Navigator.pop(context);
+    // Tracked for in-section highlight/resume; the app's cross-session
+    // last-page resume deliberately does not include Quest.
+    NounSettings.instance.setLastQuestQuizKey(key);
+    if (widget.currentPage == AppPage.quest && key == widget.currentQuestKey) {
+      return;
+    }
+    final entry = questEntries.firstWhere((e) => e.key == key);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute<void>(builder: (_) => QuestQuizLoader(entry: entry)),
+    );
+  }
+
+  Widget _questTile(
+    BuildContext context, {
+    required QuestEntry entry,
+    required SharedPreferences? prefs,
+    int? number,
+  }) {
+    final keys = QuizStatsKeys(entry.config.storageKeyPrefix);
+    final score = prefs?.getInt(keys.score) ?? 0;
+    final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;
+
+    return _navTile(
+      context,
+      icon: Icons.flag_rounded,
+      badgeColor: kSectionAccentColors[0],
+      title: entry.displayName,
+      selected:
+          widget.currentPage == AppPage.quest &&
+          entry.key == widget.currentQuestKey,
+      onTap: () => _navigateToQuest(context, entry.key),
+      subtitle: prefs == null
+          ? null
+          : _statsSubtitle(
+              context,
+              score: score,
+              bestStreakAbsolute: bestStreakAbsolute,
+            ),
+      number: number,
+    );
+  }
+
+  Widget _lockedQuestTile(
+    BuildContext context, {
+    required QuestEntry entry,
+    required QuestEntry previousEntry,
+    required SharedPreferences? prefs,
+    int? number,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final previousKeys = QuizStatsKeys(previousEntry.config.storageKeyPrefix);
+    final bestStreakAbsolute =
+        prefs?.getInt(previousKeys.bestStreakAbsolute) ?? 0;
+    final bestStreaks = bestStreakAbsolute ~/ NounSettings.streakLapSize;
+    final unlockLaps = NounSettings.instance.questUnlockLaps;
+    final unlockStreak = NounSettings.instance.questUnlockStreak;
+
+    return _navTile(
+      context,
+      icon: Icons.lock_rounded,
+      badgeColor: colorScheme.onSurfaceVariant,
+      title: entry.displayName,
+      selected: false,
+      onTap: null,
+      titleColor: colorScheme.onSurfaceVariant,
+      number: number,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: Text(
+          "Reach $unlockLaps streaks in a row "
+          "($unlockStreak correct answers) in "
+          "'${previousEntry.displayName}' to unlock "
+          '(best: ×$bestStreaks/×$unlockLaps)',
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// A compact, dimmed tile for a locked Quest quiz beyond the immediate next
+  /// one — shown so the learner can see upcoming goals without the full
+  /// unlock-hint text.
+  Widget _lockedQuestPreviewTile(
+    BuildContext context, {
+    required QuestEntry entry,
+    int? number,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return _navTile(
+      context,
+      icon: Icons.lock_outline_rounded,
+      badgeColor: colorScheme.onSurfaceVariant,
+      title: entry.displayName,
+      selected: false,
+      onTap: null,
+      titleColor: colorScheme.onSurfaceVariant,
+      number: number,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: Text(
+          'Locked — keep going to reach this',
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// The Quest entry to show when the section is collapsed: the currently-open
+  /// quiz if there is one, else the most recently unlocked quiz.
+  QuestEntry _currentQuestEntry(Set<String> completed) {
+    final unlockedCount = firstLockedQuestIndex(completed);
+    final key = widget.currentQuestKey;
+    if (key != null) {
+      final index = questEntries.indexWhere((e) => e.key == key);
+      if (index >= 0 && index < unlockedCount) return questEntries[index];
+    }
+    return questEntries[unlockedCount - 1];
+  }
+
+  Widget _questToggleTile(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(kRadiusLarge),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(kRadiusLarge),
+          onTap: () => setState(() => _questExpanded = !_questExpanded),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            child: Row(
+              children: [
+                const SizedBox(width: 15),
+                Icon(
+                  _questExpanded
+                      ? Icons.expand_less_rounded
+                      : Icons.expand_more_rounded,
+                  size: 20,
+                  color: colorScheme.onSurfaceVariant,
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  _questExpanded ? 'Show less' : 'Show all A1 quizzes',
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _questLevelSubheader(BuildContext context, String level) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(28, 10, 24, 2),
+      child: Text(
+        level,
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: colorScheme.primary,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0.8,
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildQuestTiles(BuildContext context, SharedPreferences? prefs) {
+    final completed = NounSettings.instance.completedQuestQuizzes;
+    final unlockedCount = firstLockedQuestIndex(completed);
+
+    final tiles = <Widget>[
+      _questTile(context, entry: _currentQuestEntry(completed), prefs: prefs),
+      _questToggleTile(context),
+    ];
+
+    if (_questExpanded) {
+      // Show a scrollable window of up to [maxVisible] quizzes that always
+      // includes the frontier (the next locked quiz). Locked quizzes stay
+      // visible — dimmed, with a lock — so the learner sees the goals ahead.
+      const maxVisible = 10;
+      final total = questEntries.length;
+      final end = min(total, max(unlockedCount + 1, maxVisible));
+      final start = max(0, end - maxVisible);
+
+      final levelTiles = <Widget>[];
+      String? lastLevel;
+      for (var i = start; i < end; i++) {
+        final entry = questEntries[i];
+        if (entry.levelLabel != lastLevel) {
+          levelTiles.add(_questLevelSubheader(context, entry.levelLabel));
+          lastLevel = entry.levelLabel;
+        }
+        if (i < unlockedCount) {
+          levelTiles.add(
+            _questTile(context, entry: entry, prefs: prefs, number: i + 1),
+          );
+        } else if (i == unlockedCount) {
+          // The immediate next goal — show the full unlock hint.
+          levelTiles.add(
+            _lockedQuestTile(
+              context,
+              entry: entry,
+              previousEntry: questEntries[i - 1],
+              prefs: prefs,
+              number: i + 1,
+            ),
+          );
+        } else {
+          // Further goals — a compact locked preview.
+          levelTiles.add(
+            _lockedQuestPreviewTile(context, entry: entry, number: i + 1),
+          );
+        }
+      }
+
+      tiles.add(
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 360),
+          child: Scrollbar(
+            child: ListView(shrinkWrap: true, children: levelTiles),
+          ),
+        ),
+      );
+    }
+
+    return tiles;
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -475,6 +732,9 @@ class _AppDrawerState extends State<AppDrawer> {
                     ],
                   ),
                 ),
+                Divider(height: 1, color: colorScheme.outlineVariant),
+                _sectionLabel(context, 'QUEST · A1'),
+                ..._buildQuestTiles(context, prefs),
                 Divider(height: 1, color: colorScheme.outlineVariant),
                 _sectionLabel(context, 'NOUN CATEGORIES'),
                 ..._buildNounProgressionTiles(context, prefs),

@@ -10,6 +10,7 @@ enum AppPage {
   nounsArticles,
   pronounsAndArticles,
   prepositions,
+  quest,
   wordLibrary,
   settings,
 }

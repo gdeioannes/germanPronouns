@@ -4,6 +4,7 @@ import 'noun_article_content.dart';
 import 'preposition_content.dart';
 import 'pronoun_article_content.dart';
 import 'pronoun_content.dart';
+import 'quest_data.dart';
 
 /// Every quiz as serializable [QuizContent], compiled into the app. This is
 /// the static, build-time content that seeds the local database on first run
@@ -14,4 +15,6 @@ final List<QuizContent> allQuizContent = [
   nounArticleQuizContent,
   pronounArticleQuizContent,
   prepositionQuizContent,
+  // Quest (CEFR A-level) quizzes — one ordered, streak-unlocked chain.
+  ...questQuizContent,
 ];

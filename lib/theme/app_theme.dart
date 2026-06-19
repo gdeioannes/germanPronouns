@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'brand_palette.dart';
+
 /// Corner radius used for cards, panels, and other large surfaces.
 const double kRadiusLarge = 12.0;
 
@@ -10,31 +12,31 @@ const double kRadiusSmall = 8.0;
 /// Deep ink-navy used as the primary brand color: confident and editorial,
 /// like the cover of a well-made hardcover, rather than a tech-dashboard
 /// blue.
-const Color _kPrimaryNavy = Color(0xFF1F3A5F);
+const Color _kPrimaryNavy = Color(kBrandNavy);
 
 /// Warm terracotta, used sparingly as a secondary accent (selected chips,
 /// highlights) so it doesn't compete with the navy primary or the
 /// red/blue/green gender-color system.
-const Color _kAccentTerracotta = Color(0xFFC9683B);
+const Color _kAccentTerracotta = Color(kBrandTerracotta);
 
 /// Warm "paper" neutrals for backgrounds and surfaces, replacing the cool
 /// greys a default Material neutral palette would produce.
-const Color _kPaper = Color(0xFFFFFFFF);
-const Color _kPaperLow = Color(0xFFFAFAFA);
-const Color _kPaperMid = Color(0xFFF5F5F5);
-const Color _kPaperHigh = Color(0xFFEAEAEA);
-const Color _kPaperHighest = Color(0xFFE0E0E0);
-const Color _kInkText = Color(0xFF2A2A28);
-const Color _kInkMuted = Color(0xFF6E6458);
-const Color _kOutline = Color(0xFFD0D0D0);
-const Color _kOutlineVariant = Color(0xFFE5E5E5);
+const Color _kPaper = Color(kBrandPaper);
+const Color _kPaperLow = Color(kBrandPaperLow);
+const Color _kPaperMid = Color(kBrandPaperMid);
+const Color _kPaperHigh = Color(kBrandPaperHigh);
+const Color _kPaperHighest = Color(kBrandPaperHighest);
+const Color _kInkText = Color(kBrandInkText);
+const Color _kInkMuted = Color(kBrandInkMuted);
+const Color _kOutline = Color(kBrandOutline);
+const Color _kOutlineVariant = Color(kBrandOutlineVariant);
 
 /// Muted forest green and ochre, used alongside the navy primary and
 /// terracotta secondary as a small rotating palette for circular icon
 /// badges (drawer entries, panel headers) — a restrained nod to bold,
 /// multi-color geometric layouts without tinting the rest of the UI.
-const Color _kAccentForest = Color(0xFF3F5D45);
-const Color _kAccentOchre = Color(0xFFA9802A);
+const Color _kAccentForest = Color(kBrandForest);
+const Color _kAccentOchre = Color(kBrandOchre);
 
 /// Rotating accent colors for [IconBadge]s in the drawer and panel headers
 /// (e.g. Help Memory, History, Analytics, Settings).

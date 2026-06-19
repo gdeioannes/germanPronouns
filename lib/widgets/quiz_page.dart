@@ -14,6 +14,7 @@ import '../data/noun_lookup.dart';
 import '../data/noun_plurals.dart';
 import '../data/noun_progression_data.dart';
 import '../data/pronoun_article_sentences.dart';
+import '../data/quest_data.dart';
 import '../models/app_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
@@ -21,6 +22,7 @@ import '../models/quiz_stats_keys.dart';
 import '../pages/auth_gate.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
+import '../theme/pdf_theme.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
 
@@ -108,6 +110,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   late final AnimationController _categoryUnlockController;
   List<FireworkParticle> _categoryUnlockParticles = const [];
   String _unlockedCategoryName = '';
+  String _unlockHeading = 'Noun Category Unlocked!';
   List<Map<String, dynamic>> _answerHistory = [];
   Map<String, int> _mistakesByCase = {};
 
@@ -229,7 +232,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// Plays the special "noun category unlocked" celebration: a bigger,
   /// gold-toned firework burst spreading from across the card, plus a
   /// centered banner naming [unlockedCategoryName].
-  void _triggerCategoryUnlockCelebration(String unlockedCategoryName) {
+  void _triggerCategoryUnlockCelebration(
+    String unlockedCategoryName, {
+    String heading = 'Noun Category Unlocked!',
+  }) {
     const palette = [
       Colors.amber,
       Colors.amberAccent,
@@ -256,6 +262,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     setState(() {
       _categoryUnlockParticles = particles;
       _unlockedCategoryName = unlockedCategoryName;
+      _unlockHeading = heading;
       _showCategoryUnlockCelebration = true;
     });
     _categoryUnlockController.forward(from: 0);
@@ -392,6 +399,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       }
     }
     return bag.removeAt(0);
+  }
+
+  /// Width in logical pixels that [text] would occupy on a single line in
+  /// [style], used to grow the answer field to fit the typed answer.
+  double _measureTextWidth(String text, TextStyle? style) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      textDirection: TextDirection.ltr,
+      maxLines: 1,
+    )..layout();
+    return painter.width;
   }
 
   void _nextQuestion() {
@@ -798,38 +816,24 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// quiz, the gender rules below it) and saves/downloads it directly as a
   /// PDF file (no print dialog).
   Future<void> _exportHelpMemoryPdf() async {
-    final baseFont = await PdfGoogleFonts.notoSansRegular();
-    final boldFont = await PdfGoogleFonts.notoSansBold();
-    final doc = pw.Document(
-      theme: pw.ThemeData.withFont(base: baseFont, bold: boldFont),
-    );
+    final pdf = await QuizPdfTheme.load();
+    final doc = pdf.newDocument();
 
     if (widget.config.helpMemoryTables != null) {
       final categoriesByLabel = {
         for (final c in widget.config.categories) c.label: c,
       };
-      const cellStyle = pw.TextStyle(fontSize: 10);
-      const cellPadding = pw.EdgeInsets.symmetric(
-        horizontal: 4,
-        vertical: 3,
-      );
-      final headerStyle = pw.TextStyle(
-        fontWeight: pw.FontWeight.bold,
-        fontSize: 10,
-      );
 
       doc.addPage(
         pw.MultiPage(
           pageFormat: PdfPageFormat.a4,
-          margin: const pw.EdgeInsets.all(24),
+          margin: const pw.EdgeInsets.all(28),
+          footer: pdf.footer,
           build: (context) => [
-            pw.Header(
-              level: 0,
-              text: '${widget.config.title} — Help Memory',
-            ),
+            pdf.brandHeader(widget.config.title, subtitle: 'Help Memory'),
             for (final table in widget.config.helpMemoryTables!) ...[
-              pw.Header(level: 1, text: table.title),
-              pw.TableHelper.fromTextArray(
+              pdf.section(table.title),
+              pdf.table(
                 headers: [
                   widget.config.subjectColumnLabel,
                   for (final column in table.columns)
@@ -847,37 +851,26 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         categoriesByLabel[column.categoryLabel]!.values[i],
                     ],
                 ],
-                headerStyle: headerStyle,
-                cellStyle: cellStyle,
-                cellAlignment: pw.Alignment.centerLeft,
-                cellPadding: cellPadding,
               ),
-              pw.SizedBox(height: 12),
+              pw.SizedBox(height: 14),
             ],
             for (final table
                 in widget.config.endingPatternTables ??
                     const <EndingPatternTable>[]) ...[
-              pw.Header(level: 1, text: table.title),
-              pw.TableHelper.fromTextArray(
+              pdf.section(table.title),
+              pdf.table(
                 headers: [table.cornerLabel, ...table.columnLabels],
                 data: [
                   for (var i = 0; i < table.rowLabels.length; i++)
                     [table.rowLabels[i], ...table.rows[i]],
                 ],
-                headerStyle: headerStyle,
-                cellStyle: cellStyle,
-                cellAlignment: pw.Alignment.centerLeft,
-                cellPadding: cellPadding,
               ),
               if (table.notes != null) ...[
                 pw.SizedBox(height: 4),
                 for (final note in table.notes!)
-                  pw.Bullet(
-                    text: note,
-                    style: const pw.TextStyle(fontSize: 9),
-                  ),
+                  pw.Bullet(text: note, style: pdf.bulletStyle()),
               ],
-              pw.SizedBox(height: 12),
+              pw.SizedBox(height: 14),
             ],
           ],
         ),
@@ -934,25 +927,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       doc.addPage(
         pw.MultiPage(
           pageFormat: pageFormat,
-          margin: const pw.EdgeInsets.all(24),
+          margin: const pw.EdgeInsets.all(28),
+          footer: pdf.footer,
           build: (context) => [
-            pw.Header(
-              level: 0,
-              text: '${widget.config.title} — Help Memory',
-            ),
-            pw.TableHelper.fromTextArray(
+            pdf.brandHeader(widget.config.title, subtitle: 'Help Memory'),
+            pdf.table(
               headers: headers,
               data: rows,
-              headerStyle: pw.TextStyle(
-                fontWeight: pw.FontWeight.bold,
-                fontSize: cellFontSize,
-              ),
-              cellStyle: pw.TextStyle(fontSize: cellFontSize),
-              cellAlignment: pw.Alignment.centerLeft,
-              cellPadding: const pw.EdgeInsets.symmetric(
-                horizontal: 4,
-                vertical: 3,
-              ),
+              fontSize: cellFontSize,
               columnWidths: {
                 for (var i = 0; i < columnCount; i++)
                   i: const pw.FlexColumnWidth(1),
@@ -960,21 +942,15 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             ),
             if (_useGenderReferenceRows) ...[
               pw.SizedBox(height: 16),
-              pw.Header(level: 1, text: 'Gender rules of thumb'),
+              pdf.section('Gender rules of thumb'),
               for (final gender in _genderRowOrder) ...[
                 pw.SizedBox(height: 6),
                 pw.Text(
                   '${_genderArticles[gender]} (${_genderRowNames[gender]})',
-                  style: pw.TextStyle(
-                    fontWeight: pw.FontWeight.bold,
-                    fontSize: 12,
-                  ),
+                  style: pdf.subheading(fontSize: 12),
                 ),
                 for (final rule in _genderRules[gender]!)
-                  pw.Bullet(
-                    text: rule,
-                    style: const pw.TextStyle(fontSize: 10),
-                  ),
+                  pw.Bullet(text: rule, style: pdf.bulletStyle(fontSize: 10)),
               ],
             ],
           ],
@@ -1301,20 +1277,33 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       );
     }
 
-    if (widget.config.progressionKey != null &&
-        _streakAbsolute >= NounSettings.instance.progressionUnlockStreak &&
-        !NounSettings.instance.isNounCategoryCompleted(
-          widget.config.progressionKey!,
-        )) {
+    if (widget.config.progressionKey != null) {
       final progressionKey = widget.config.progressionKey!;
-      NounSettings.instance.markNounCategoryCompleted(progressionKey);
-      final index = nounProgressionEntries.indexWhere(
-        (e) => e.key == progressionKey,
-      );
-      if (index >= 0 && index + 1 < nounProgressionEntries.length) {
-        _triggerCategoryUnlockCelebration(
-          nounProgressionEntries[index + 1].displayName,
+      if (widget.config.questProgression) {
+        // Quest chain: separate streak goal + completion tracking.
+        if (_streakAbsolute >= NounSettings.instance.questUnlockStreak &&
+            !NounSettings.instance.isQuestQuizCompleted(progressionKey)) {
+          NounSettings.instance.markQuestQuizCompleted(progressionKey);
+          final nextName = nextQuestEntryName(progressionKey);
+          if (nextName != null) {
+            _triggerCategoryUnlockCelebration(
+              nextName,
+              heading: 'Next Quest Unlocked!',
+            );
+          }
+        }
+      } else if (_streakAbsolute >=
+              NounSettings.instance.progressionUnlockStreak &&
+          !NounSettings.instance.isNounCategoryCompleted(progressionKey)) {
+        NounSettings.instance.markNounCategoryCompleted(progressionKey);
+        final index = nounProgressionEntries.indexWhere(
+          (e) => e.key == progressionKey,
         );
+        if (index >= 0 && index + 1 < nounProgressionEntries.length) {
+          _triggerCategoryUnlockCelebration(
+            nounProgressionEntries[index + 1].displayName,
+          );
+        }
       }
     }
 
@@ -1416,6 +1405,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       }
       _nextQuestion();
     });
+    // Restore focus so the user can type the next answer without clicking back
+    // into the field (the field was readOnly during the reveal, which drops
+    // focus on desktop/web).
+    _requestAnswerFocus();
   }
 
   void _newQuestion() {
@@ -2100,7 +2093,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       ),
       drawer: AppDrawer(
         currentPage: widget.config.currentPage,
-        currentNounProgressionKey: widget.config.progressionKey,
+        currentNounProgressionKey: widget.config.questProgression
+            ? null
+            : widget.config.progressionKey,
+        currentQuestKey: widget.config.questProgression
+            ? widget.config.progressionKey
+            : null,
       ),
       body: SafeArea(
         child: ListView(
@@ -2466,6 +2464,32 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           130.0,
                                           constraints.maxWidth * 0.4,
                                         );
+                                        // The single-blank field grows with the
+                                        // typed text: at least [inputWidth] wide,
+                                        // expanding up to most of the line so a
+                                        // long answer stays fully visible instead
+                                        // of scrolling inside a fixed box.
+                                        final revealPrefix =
+                                            (_showingAnswerReveal ||
+                                                _showingFirstLetterHint)
+                                            ? '*'
+                                            : '';
+                                        final measuredAnswerWidth =
+                                            _measureTextWidth(
+                                              '$revealPrefix${_answerController.text}',
+                                              sentenceStyle,
+                                            );
+                                        final maxInputWidth = max(
+                                          inputWidth,
+                                          constraints.maxWidth * 0.92,
+                                        );
+                                        // + content padding (10·2) and a small
+                                        // cursor/buffer allowance (26).
+                                        final singleInputWidth =
+                                            (measuredAnswerWidth + 26).clamp(
+                                              inputWidth,
+                                              maxInputWidth,
+                                            );
 
                                         // For multiple blanks, show inline input fields with RichText
                                         if (hasMultipleBlanks) {
@@ -2560,7 +2584,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                         horizontal: 6,
                                                       ),
                                                   child: SizedBox(
-                                                    width: inputWidth,
+                                                    width: singleInputWidth,
                                                     child: CallbackShortcuts(
                                                       bindings: {
                                                         const SingleActivator(
@@ -2623,6 +2647,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                           if (_showingFirstLetterHint && value.isEmpty) {
                                                             _answerController.text = _answerController.text;
                                                           }
+                                                          // Rebuild so the field
+                                                          // width tracks the text.
+                                                          setState(() {});
                                                         },
                                                         onSubmitted: (_) =>
                                                             _submitAnswer(),
@@ -2924,7 +2951,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        'Noun Category Unlocked!',
+                                        _unlockHeading,
                                         textAlign: TextAlign.center,
                                         style: Theme.of(context)
                                             .textTheme

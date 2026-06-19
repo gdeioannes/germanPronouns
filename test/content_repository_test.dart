@@ -11,10 +11,12 @@ import 'package:german_pronouns_articles/models/quiz_content.dart';
 void main() {
   var counter = 0;
 
+  Future<Database> openDb() =>
+      databaseFactoryMemory.openDatabase('test_${counter++}.db');
+
   Future<ContentRepository> openSeeded() async {
     // A fresh in-memory database per test, so seeding always runs.
-    final db = await databaseFactoryMemory.openDatabase('test_${counter++}.db');
-    final repo = ContentRepository(db);
+    final repo = ContentRepository(await openDb());
     await repo.seedIfEmpty(allQuizContent);
     return repo;
   }
@@ -79,5 +81,59 @@ void main() {
     final decoded = jsonDecode(await repo.exportJson());
     expect(decoded, isA<List>());
     expect((decoded as List).length, allQuizContent.length);
+  });
+
+  group('seedOrUpgrade', () {
+    test('seeds a fresh database and records the version', () async {
+      final repo = ContentRepository(await openDb());
+      await repo.seedOrUpgrade(allQuizContent);
+      expect(await repo.seededVersion(), kSeedVersion);
+      expect((await repo.listQuizzes()).length, allQuizContent.length);
+    });
+
+    test('keeps local edits when the version is unchanged', () async {
+      final repo = ContentRepository(await openDb());
+      await repo.seedOrUpgrade(allQuizContent);
+      final before = (await repo.sentencesFor('preposition')).length;
+      await repo.addSentence(
+        'preposition',
+        const QuizSentenceData(
+          subjectKey: 'durch',
+          categoryLabel: 'Präposition',
+          sentence: 'Local ____ edit.',
+          acceptedAnswers: ['durch'],
+        ),
+      );
+      // Same version → no reseed, the local edit survives.
+      await repo.seedOrUpgrade(allQuizContent);
+      expect((await repo.sentencesFor('preposition')).length, before + 1);
+    });
+
+    test('re-seeds an install with an older content version', () async {
+      final db = await openDb();
+      final repo = ContentRepository(db);
+      await repo.seedOrUpgrade(allQuizContent);
+      // A local edit + a stale stored version (older install).
+      await repo.addSentence(
+        'preposition',
+        const QuizSentenceData(
+          subjectKey: 'durch',
+          categoryLabel: 'Präposition',
+          sentence: 'Stale ____ edit.',
+          acceptedAnswers: ['durch'],
+        ),
+      );
+      await stringMapStoreFactory
+          .store('meta')
+          .record('seed')
+          .put(db, {'version': kSeedVersion - 1});
+
+      final canonical = (await repo.sentencesFor('preposition')).length - 1;
+      await repo.seedOrUpgrade(allQuizContent);
+
+      // Re-seeded back to the published content (edit gone) + version restored.
+      expect((await repo.sentencesFor('preposition')).length, canonical);
+      expect(await repo.seededVersion(), kSeedVersion);
+    });
   });
 }

@@ -167,6 +167,7 @@ class QuizConfig {
     this.endingPatternTables,
     this.helpMemorySubtitle,
     this.progressionKey,
+    this.questProgression = false,
     this.acceptableAnswersForSentence,
     this.sentenceHint,
   });
@@ -264,6 +265,12 @@ class QuizConfig {
   /// via `NounSettings.markNounCategoryCompleted`, which may unlock the next
   /// progression entry.
   final String? progressionKey;
+
+  /// When true, [progressionKey] identifies an entry in the **Quest** chain
+  /// (`questEntries`) rather than the noun-category chain, so the engine uses
+  /// the Quest streak goal and Quest completion tracking to unlock the next
+  /// quiz. Defaults to false (noun-category behavior).
+  final bool questProgression;
 
   /// When non-null, returns the set of answers (case-insensitive) accepted
   /// as correct for [sentence] — the current question's reference sentence.

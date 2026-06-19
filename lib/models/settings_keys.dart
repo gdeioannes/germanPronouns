@@ -22,6 +22,12 @@ class SettingsKeys {
   static const String progressionUnlockLaps = 'progression_unlock_laps';
   static const String showFirstLetterHint = 'show_first_letter_hint';
 
+  /// Quest (CEFR A-level) progression keys — the linear streak chain in
+  /// `questEntries`, kept separate from the noun-category chain.
+  static const String questUnlockLaps = 'quest_unlock_laps';
+  static const String completedQuestQuizzes = 'quest_completed_quizzes';
+  static const String lastQuestQuizKey = 'last_quest_quiz_key';
+
   /// Per-gender highlight color key (gender is 'm'/'f'/'n').
   static String genderColor(String gender) => 'gender_color_$gender';
 }

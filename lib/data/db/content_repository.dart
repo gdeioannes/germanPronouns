@@ -12,6 +12,14 @@ import 'content_database_factory.dart';
 /// to publish edits in the next build.
 const String _seedAsset = 'assets/seed/quiz_content.json';
 
+/// Version of the shipped/published content. **Bump this whenever the seeded
+/// content changes** (new quizzes, edited sentences, reordered chains, etc.):
+/// on launch, an existing install whose stored version differs is automatically
+/// re-seeded from the published content, so learners get content updates without
+/// a manual reset. Re-seeding replaces any local back-office edits with the
+/// published content; learner progress (SharedPreferences) is not affected.
+const int kSeedVersion = 2;
+
 /// Lightweight summary of a quiz for the back-office list.
 class QuizSummary {
   const QuizSummary({
@@ -50,11 +58,32 @@ class ContentRepository {
       stringMapStoreFactory.store('quizzes');
   final StoreRef<int, Map<String, Object?>> _sentences =
       intMapStoreFactory.store('sentences');
+  final StoreRef<String, Map<String, Object?>> _meta =
+      stringMapStoreFactory.store('meta');
 
   /// Seeds the database from [contents] on first run (when it has no quizzes).
   Future<void> seedIfEmpty(List<QuizContent> contents) async {
     if (await _quizzes.count(db) > 0) return;
     await _writeContents(contents);
+  }
+
+  /// The [kSeedVersion] the database was last seeded with, or null if it
+  /// predates version tracking.
+  Future<int?> seededVersion() async =>
+      (await _meta.record('seed').get(db))?['version'] as int?;
+
+  /// Seeds on first run; on later runs, re-seeds from [contents] if the stored
+  /// content version differs from [kSeedVersion], so shipped content updates
+  /// reach existing installs automatically. (Installs predating version
+  /// tracking re-seed once.) Learner progress in SharedPreferences is untouched.
+  Future<void> seedOrUpgrade(List<QuizContent> contents) async {
+    if (await _quizzes.count(db) == 0) {
+      await _writeContents(contents);
+      return;
+    }
+    if (await seededVersion() != kSeedVersion) {
+      await reseed(contents);
+    }
   }
 
   /// Wipes all content and re-seeds from [contents] — used by the back office's
@@ -80,6 +109,7 @@ class ContentRepository {
           });
         }
       }
+      await _meta.record('seed').put(txn, {'version': kSeedVersion});
     });
   }
 
@@ -183,7 +213,7 @@ Future<List<QuizContent>> loadPublishedContent() async {
 Future<ContentRepository> openContentRepository() async {
   final db = await openContentDatabase();
   final repository = ContentRepository(db);
-  await repository.seedIfEmpty(await loadPublishedContent());
+  await repository.seedOrUpgrade(await loadPublishedContent());
   return repository;
 }
 

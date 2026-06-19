@@ -9178,6 +9178,136 @@
         "categories": [
           "media"
         ]
+      },
+      {
+        "key": "Salat",
+        "display": "Salat",
+        "english": "salad",
+        "gender": "m",
+        "difficulty": "beginner",
+        "categories": [
+          "food"
+        ]
+      },
+      {
+        "key": "Butter",
+        "display": "Butter",
+        "english": "butter",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "food"
+        ]
+      },
+      {
+        "key": "Orange",
+        "display": "Orange",
+        "english": "orange (fruit)",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "food"
+        ]
+      },
+      {
+        "key": "Wohnung",
+        "display": "Wohnung",
+        "english": "apartment/flat",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "city"
+        ]
+      },
+      {
+        "key": "Bad",
+        "display": "Bad",
+        "english": "bathroom/bath",
+        "gender": "n",
+        "difficulty": "beginner",
+        "categories": [
+          "bathroom"
+        ]
+      },
+      {
+        "key": "Balkon",
+        "display": "Balkon",
+        "english": "balcony",
+        "gender": "m",
+        "difficulty": "beginner",
+        "categories": [
+          "furniture"
+        ]
+      },
+      {
+        "key": "Kreditkarte",
+        "display": "Kreditkarte",
+        "english": "credit card",
+        "gender": "f",
+        "difficulty": "intermediate",
+        "categories": [
+          "shopping"
+        ]
+      },
+      {
+        "key": "Termin",
+        "display": "Termin",
+        "english": "appointment",
+        "gender": "m",
+        "difficulty": "intermediate",
+        "categories": [
+          "time"
+        ]
+      },
+      {
+        "key": "Morgen",
+        "display": "Morgen",
+        "english": "morning",
+        "gender": "m",
+        "difficulty": "beginner",
+        "categories": [
+          "time"
+        ]
+      },
+      {
+        "key": "Nacht",
+        "display": "Nacht",
+        "english": "night",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "time"
+        ]
+      },
+      {
+        "key": "Ticket",
+        "display": "Ticket",
+        "english": "ticket",
+        "gender": "n",
+        "difficulty": "beginner",
+        "categories": [
+          "transport"
+        ]
+      },
+      {
+        "key": "Telefon",
+        "display": "Telefon",
+        "english": "telephone",
+        "gender": "n",
+        "difficulty": "beginner",
+        "categories": [
+          "technology"
+        ]
+      },
+      {
+        "key": "Geldbeutel",
+        "display": "Geldbeutel",
+        "english": "wallet/purse",
+        "gender": "m",
+        "difficulty": "intermediate",
+        "categories": [
+          "shopping"
+        ]
       }
     ],
     "categories": [
@@ -9861,7 +9991,20 @@
           "die",
           "der",
           "der",
-          "die"
+          "die",
+          "der",
+          "die",
+          "die",
+          "die",
+          "das",
+          "der",
+          "die",
+          "der",
+          "der",
+          "die",
+          "das",
+          "das",
+          "der"
         ]
       },
       {
@@ -10544,7 +10687,20 @@
           "die",
           "den",
           "den",
-          "die"
+          "die",
+          "den",
+          "die",
+          "die",
+          "die",
+          "das",
+          "den",
+          "die",
+          "den",
+          "den",
+          "die",
+          "das",
+          "das",
+          "den"
         ]
       },
       {
@@ -11227,7 +11383,20 @@
           "der",
           "dem",
           "dem",
-          "der"
+          "der",
+          "dem",
+          "der",
+          "der",
+          "der",
+          "dem",
+          "dem",
+          "der",
+          "dem",
+          "dem",
+          "der",
+          "dem",
+          "dem",
+          "dem"
         ]
       }
     ],
@@ -18334,6 +18503,136 @@
         "categories": [
           "media"
         ]
+      },
+      {
+        "key": "Salat",
+        "display": "Salat",
+        "english": "salad",
+        "gender": "m",
+        "difficulty": "beginner",
+        "categories": [
+          "food"
+        ]
+      },
+      {
+        "key": "Butter",
+        "display": "Butter",
+        "english": "butter",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "food"
+        ]
+      },
+      {
+        "key": "Orange",
+        "display": "Orange",
+        "english": "orange (fruit)",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "food"
+        ]
+      },
+      {
+        "key": "Wohnung",
+        "display": "Wohnung",
+        "english": "apartment/flat",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "city"
+        ]
+      },
+      {
+        "key": "Bad",
+        "display": "Bad",
+        "english": "bathroom/bath",
+        "gender": "n",
+        "difficulty": "beginner",
+        "categories": [
+          "bathroom"
+        ]
+      },
+      {
+        "key": "Balkon",
+        "display": "Balkon",
+        "english": "balcony",
+        "gender": "m",
+        "difficulty": "beginner",
+        "categories": [
+          "furniture"
+        ]
+      },
+      {
+        "key": "Kreditkarte",
+        "display": "Kreditkarte",
+        "english": "credit card",
+        "gender": "f",
+        "difficulty": "intermediate",
+        "categories": [
+          "shopping"
+        ]
+      },
+      {
+        "key": "Termin",
+        "display": "Termin",
+        "english": "appointment",
+        "gender": "m",
+        "difficulty": "intermediate",
+        "categories": [
+          "time"
+        ]
+      },
+      {
+        "key": "Morgen",
+        "display": "Morgen",
+        "english": "morning",
+        "gender": "m",
+        "difficulty": "beginner",
+        "categories": [
+          "time"
+        ]
+      },
+      {
+        "key": "Nacht",
+        "display": "Nacht",
+        "english": "night",
+        "gender": "f",
+        "difficulty": "beginner",
+        "categories": [
+          "time"
+        ]
+      },
+      {
+        "key": "Ticket",
+        "display": "Ticket",
+        "english": "ticket",
+        "gender": "n",
+        "difficulty": "beginner",
+        "categories": [
+          "transport"
+        ]
+      },
+      {
+        "key": "Telefon",
+        "display": "Telefon",
+        "english": "telephone",
+        "gender": "n",
+        "difficulty": "beginner",
+        "categories": [
+          "technology"
+        ]
+      },
+      {
+        "key": "Geldbeutel",
+        "display": "Geldbeutel",
+        "english": "wallet/purse",
+        "gender": "m",
+        "difficulty": "intermediate",
+        "categories": [
+          "shopping"
+        ]
       }
     ],
     "categories": [
@@ -19034,7 +19333,20 @@
           "die",
           "der",
           "der",
-          "die"
+          "die",
+          "der",
+          "die",
+          "die",
+          "die",
+          "das",
+          "der",
+          "die",
+          "der",
+          "der",
+          "die",
+          "das",
+          "das",
+          "der"
         ]
       }
     ],
@@ -26301,6 +26613,2259 @@
           "\"über\" meaning \"about\" (a topic) is always accusative, regardless of movement.",
           "\"vor\" meaning \"ago\" (time) is always dative."
         ]
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_zahlen",
+    "title": "A1.1 · Zahlen 0–10",
+    "storageKeyPrefix": "quest_a1_1_zahlen_",
+    "promptLabel": "Zahl",
+    "subjectsLabel": "Zahlen",
+    "subjectColumnLabel": "Zahl",
+    "subjects": [
+      {
+        "key": "0",
+        "display": "0"
+      },
+      {
+        "key": "1",
+        "display": "1"
+      },
+      {
+        "key": "2",
+        "display": "2"
+      },
+      {
+        "key": "3",
+        "display": "3"
+      },
+      {
+        "key": "4",
+        "display": "4"
+      },
+      {
+        "key": "5",
+        "display": "5"
+      },
+      {
+        "key": "6",
+        "display": "6"
+      },
+      {
+        "key": "7",
+        "display": "7"
+      },
+      {
+        "key": "8",
+        "display": "8"
+      },
+      {
+        "key": "9",
+        "display": "9"
+      },
+      {
+        "key": "10",
+        "display": "10"
+      }
+    ],
+    "categories": [
+      {
+        "label": "Auf Deutsch",
+        "group": "Auf Deutsch",
+        "values": [
+          "null",
+          "eins",
+          "zwei",
+          "drei",
+          "vier",
+          "fünf",
+          "sechs",
+          "sieben",
+          "acht",
+          "neun",
+          "zehn"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "Auf Deutsch": [
+        "{subject} = ____"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_pronomen",
+    "title": "A1.1 · Personalpronomen",
+    "storageKeyPrefix": "quest_a1_1_pronomen_",
+    "promptLabel": "Pronomen",
+    "subjectsLabel": "Pronomen",
+    "subjectColumnLabel": "English",
+    "subjects": [
+      {
+        "key": "I",
+        "display": "I"
+      },
+      {
+        "key": "you (informal)",
+        "display": "you (informal)"
+      },
+      {
+        "key": "he",
+        "display": "he"
+      },
+      {
+        "key": "she",
+        "display": "she"
+      },
+      {
+        "key": "it",
+        "display": "it"
+      },
+      {
+        "key": "we",
+        "display": "we"
+      },
+      {
+        "key": "you (plural)",
+        "display": "you (plural)"
+      },
+      {
+        "key": "they",
+        "display": "they"
+      },
+      {
+        "key": "you (formal)",
+        "display": "you (formal)"
+      }
+    ],
+    "categories": [
+      {
+        "label": "Deutsch",
+        "group": "Deutsch",
+        "values": [
+          "ich",
+          "du",
+          "er",
+          "sie",
+          "es",
+          "wir",
+          "ihr",
+          "sie",
+          "Sie"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "Deutsch": [
+        "\"{subject}\" auf Deutsch: ____"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_artikel",
+    "title": "A1.1 · Artikel im Nominativ",
+    "storageKeyPrefix": "quest_a1_1_artikel_",
+    "promptLabel": "Nomen",
+    "subjectsLabel": "Nomen",
+    "subjectColumnLabel": "Nomen",
+    "subjects": [
+      {
+        "key": "Mann",
+        "display": "Mann",
+        "english": "man",
+        "gender": "m"
+      },
+      {
+        "key": "Tisch",
+        "display": "Tisch",
+        "english": "table",
+        "gender": "m"
+      },
+      {
+        "key": "Stuhl",
+        "display": "Stuhl",
+        "english": "chair",
+        "gender": "m"
+      },
+      {
+        "key": "Hund",
+        "display": "Hund",
+        "english": "dog",
+        "gender": "m"
+      },
+      {
+        "key": "Apfel",
+        "display": "Apfel",
+        "english": "apple",
+        "gender": "m"
+      },
+      {
+        "key": "Ball",
+        "display": "Ball",
+        "english": "ball",
+        "gender": "m"
+      },
+      {
+        "key": "Computer",
+        "display": "Computer",
+        "english": "computer",
+        "gender": "m"
+      },
+      {
+        "key": "Schlüssel",
+        "display": "Schlüssel",
+        "english": "key",
+        "gender": "m"
+      },
+      {
+        "key": "Frau",
+        "display": "Frau",
+        "english": "woman",
+        "gender": "f"
+      },
+      {
+        "key": "Lampe",
+        "display": "Lampe",
+        "english": "lamp",
+        "gender": "f"
+      },
+      {
+        "key": "Tür",
+        "display": "Tür",
+        "english": "door",
+        "gender": "f"
+      },
+      {
+        "key": "Katze",
+        "display": "Katze",
+        "english": "cat",
+        "gender": "f"
+      },
+      {
+        "key": "Banane",
+        "display": "Banane",
+        "english": "banana",
+        "gender": "f"
+      },
+      {
+        "key": "Tasche",
+        "display": "Tasche",
+        "english": "bag",
+        "gender": "f"
+      },
+      {
+        "key": "Uhr",
+        "display": "Uhr",
+        "english": "clock",
+        "gender": "f"
+      },
+      {
+        "key": "Kind",
+        "display": "Kind",
+        "english": "child",
+        "gender": "n"
+      },
+      {
+        "key": "Haus",
+        "display": "Haus",
+        "english": "house",
+        "gender": "n"
+      },
+      {
+        "key": "Auto",
+        "display": "Auto",
+        "english": "car",
+        "gender": "n"
+      },
+      {
+        "key": "Buch",
+        "display": "Buch",
+        "english": "book",
+        "gender": "n"
+      },
+      {
+        "key": "Fenster",
+        "display": "Fenster",
+        "english": "window",
+        "gender": "n"
+      },
+      {
+        "key": "Brot",
+        "display": "Brot",
+        "english": "bread",
+        "gender": "n"
+      }
+    ],
+    "categories": [
+      {
+        "label": "bestimmt (der/die/das)",
+        "group": "bestimmt",
+        "values": [
+          "der",
+          "der",
+          "der",
+          "der",
+          "der",
+          "der",
+          "der",
+          "der",
+          "die",
+          "die",
+          "die",
+          "die",
+          "die",
+          "die",
+          "die",
+          "das",
+          "das",
+          "das",
+          "das",
+          "das",
+          "das"
+        ]
+      },
+      {
+        "label": "unbestimmt (ein/eine)",
+        "group": "unbestimmt",
+        "values": [
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "eine",
+          "eine",
+          "eine",
+          "eine",
+          "eine",
+          "eine",
+          "eine",
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "ein"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "bestimmt (der/die/das)": [
+        "____ {subject} ist hier."
+      ],
+      "unbestimmt (ein/eine)": [
+        "Das ist ____ {subject}."
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_zahlen2",
+    "title": "A1.1 · Zahlen 11–20",
+    "storageKeyPrefix": "quest_a1_1_zahlen2_",
+    "promptLabel": "Zahl",
+    "subjectsLabel": "Zahlen",
+    "subjectColumnLabel": "Zahl",
+    "subjects": [
+      {
+        "key": "11",
+        "display": "11"
+      },
+      {
+        "key": "12",
+        "display": "12"
+      },
+      {
+        "key": "13",
+        "display": "13"
+      },
+      {
+        "key": "14",
+        "display": "14"
+      },
+      {
+        "key": "15",
+        "display": "15"
+      },
+      {
+        "key": "16",
+        "display": "16"
+      },
+      {
+        "key": "17",
+        "display": "17"
+      },
+      {
+        "key": "18",
+        "display": "18"
+      },
+      {
+        "key": "19",
+        "display": "19"
+      },
+      {
+        "key": "20",
+        "display": "20"
+      }
+    ],
+    "categories": [
+      {
+        "label": "Auf Deutsch",
+        "group": "Auf Deutsch",
+        "values": [
+          "elf",
+          "zwölf",
+          "dreizehn",
+          "vierzehn",
+          "fünfzehn",
+          "sechzehn",
+          "siebzehn",
+          "achtzehn",
+          "neunzehn",
+          "zwanzig"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "Auf Deutsch": [
+        "{subject} = ____"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_sein_haben",
+    "title": "A1.1 · sein & haben",
+    "storageKeyPrefix": "quest_a1_1_sein_haben_",
+    "promptLabel": "Pronomen",
+    "subjectsLabel": "Pronomen",
+    "subjectColumnLabel": "Pronomen",
+    "subjects": [
+      {
+        "key": "ich",
+        "display": "ich"
+      },
+      {
+        "key": "du",
+        "display": "du"
+      },
+      {
+        "key": "er/sie/es",
+        "display": "er/sie/es"
+      },
+      {
+        "key": "wir",
+        "display": "wir"
+      },
+      {
+        "key": "ihr",
+        "display": "ihr"
+      },
+      {
+        "key": "sie/Sie",
+        "display": "sie/Sie"
+      }
+    ],
+    "categories": [
+      {
+        "label": "sein (to be)",
+        "group": "sein",
+        "values": [
+          "bin",
+          "bist",
+          "ist",
+          "sind",
+          "seid",
+          "sind"
+        ]
+      },
+      {
+        "label": "haben (to have)",
+        "group": "haben",
+        "values": [
+          "habe",
+          "hast",
+          "hat",
+          "haben",
+          "habt",
+          "haben"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "sein (to be)": [
+        "{subject} ____ . (sein)"
+      ],
+      "haben (to have)": [
+        "{subject} ____ . (haben)"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_farben",
+    "title": "A1.1 · Farben",
+    "storageKeyPrefix": "quest_a1_1_farben_",
+    "promptLabel": "Farbe",
+    "subjectsLabel": "Farben",
+    "subjectColumnLabel": "English",
+    "subjects": [
+      {
+        "key": "red",
+        "display": "red"
+      },
+      {
+        "key": "blue",
+        "display": "blue"
+      },
+      {
+        "key": "green",
+        "display": "green"
+      },
+      {
+        "key": "yellow",
+        "display": "yellow"
+      },
+      {
+        "key": "black",
+        "display": "black"
+      },
+      {
+        "key": "white",
+        "display": "white"
+      },
+      {
+        "key": "orange",
+        "display": "orange"
+      },
+      {
+        "key": "brown",
+        "display": "brown"
+      },
+      {
+        "key": "grey",
+        "display": "grey"
+      },
+      {
+        "key": "pink",
+        "display": "pink"
+      },
+      {
+        "key": "purple",
+        "display": "purple"
+      },
+      {
+        "key": "colourful",
+        "display": "colourful"
+      }
+    ],
+    "categories": [
+      {
+        "label": "Deutsch",
+        "group": "Deutsch",
+        "values": [
+          "rot",
+          "blau",
+          "grün",
+          "gelb",
+          "schwarz",
+          "weiß",
+          "orange",
+          "braun",
+          "grau",
+          "rosa",
+          "lila",
+          "bunt"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "Deutsch": [
+        "\"{subject}\" auf Deutsch: ____"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_zahlen3",
+    "title": "A1.1 · Zahlen 20–100",
+    "storageKeyPrefix": "quest_a1_1_zahlen3_",
+    "promptLabel": "Zahl",
+    "subjectsLabel": "Zahlen",
+    "subjectColumnLabel": "Zahl",
+    "subjects": [
+      {
+        "key": "20",
+        "display": "20"
+      },
+      {
+        "key": "21",
+        "display": "21"
+      },
+      {
+        "key": "22",
+        "display": "22"
+      },
+      {
+        "key": "25",
+        "display": "25"
+      },
+      {
+        "key": "30",
+        "display": "30"
+      },
+      {
+        "key": "33",
+        "display": "33"
+      },
+      {
+        "key": "40",
+        "display": "40"
+      },
+      {
+        "key": "47",
+        "display": "47"
+      },
+      {
+        "key": "50",
+        "display": "50"
+      },
+      {
+        "key": "58",
+        "display": "58"
+      },
+      {
+        "key": "60",
+        "display": "60"
+      },
+      {
+        "key": "64",
+        "display": "64"
+      },
+      {
+        "key": "70",
+        "display": "70"
+      },
+      {
+        "key": "76",
+        "display": "76"
+      },
+      {
+        "key": "80",
+        "display": "80"
+      },
+      {
+        "key": "89",
+        "display": "89"
+      },
+      {
+        "key": "90",
+        "display": "90"
+      },
+      {
+        "key": "99",
+        "display": "99"
+      },
+      {
+        "key": "100",
+        "display": "100"
+      }
+    ],
+    "categories": [
+      {
+        "label": "Auf Deutsch",
+        "group": "Auf Deutsch",
+        "values": [
+          "zwanzig",
+          "einundzwanzig",
+          "zweiundzwanzig",
+          "fünfundzwanzig",
+          "dreißig",
+          "dreiunddreißig",
+          "vierzig",
+          "siebenundvierzig",
+          "fünfzig",
+          "achtundfünfzig",
+          "sechzig",
+          "vierundsechzig",
+          "siebzig",
+          "sechsundsiebzig",
+          "achtzig",
+          "neunundachtzig",
+          "neunzig",
+          "neunundneunzig",
+          "hundert"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "Auf Deutsch": [
+        "{subject} = ____"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_praesens",
+    "title": "A1.1 · Regelmäßige Verben (Präsens)",
+    "storageKeyPrefix": "quest_a1_1_praesens_",
+    "promptLabel": "Verb",
+    "subjectsLabel": "Verben",
+    "subjectColumnLabel": "Verb (Infinitiv)",
+    "subjects": [
+      {
+        "key": "machen",
+        "display": "machen"
+      },
+      {
+        "key": "wohnen",
+        "display": "wohnen"
+      },
+      {
+        "key": "spielen",
+        "display": "spielen"
+      },
+      {
+        "key": "lernen",
+        "display": "lernen"
+      },
+      {
+        "key": "kaufen",
+        "display": "kaufen"
+      },
+      {
+        "key": "kommen",
+        "display": "kommen"
+      },
+      {
+        "key": "gehen",
+        "display": "gehen"
+      },
+      {
+        "key": "hören",
+        "display": "hören"
+      },
+      {
+        "key": "arbeiten",
+        "display": "arbeiten"
+      },
+      {
+        "key": "finden",
+        "display": "finden"
+      }
+    ],
+    "categories": [
+      {
+        "label": "ich",
+        "group": "ich",
+        "values": [
+          "mache",
+          "wohne",
+          "spiele",
+          "lerne",
+          "kaufe",
+          "komme",
+          "gehe",
+          "höre",
+          "arbeite",
+          "finde"
+        ]
+      },
+      {
+        "label": "du",
+        "group": "du",
+        "values": [
+          "machst",
+          "wohnst",
+          "spielst",
+          "lernst",
+          "kaufst",
+          "kommst",
+          "gehst",
+          "hörst",
+          "arbeitest",
+          "findest"
+        ]
+      },
+      {
+        "label": "er/sie/es",
+        "group": "er/sie/es",
+        "values": [
+          "macht",
+          "wohnt",
+          "spielt",
+          "lernt",
+          "kauft",
+          "kommt",
+          "geht",
+          "hört",
+          "arbeitet",
+          "findet"
+        ]
+      },
+      {
+        "label": "wir",
+        "group": "wir",
+        "values": [
+          "machen",
+          "wohnen",
+          "spielen",
+          "lernen",
+          "kaufen",
+          "kommen",
+          "gehen",
+          "hören",
+          "arbeiten",
+          "finden"
+        ]
+      },
+      {
+        "label": "ihr",
+        "group": "ihr",
+        "values": [
+          "macht",
+          "wohnt",
+          "spielt",
+          "lernt",
+          "kauft",
+          "kommt",
+          "geht",
+          "hört",
+          "arbeitet",
+          "findet"
+        ]
+      },
+      {
+        "label": "sie/Sie",
+        "group": "sie/Sie",
+        "values": [
+          "machen",
+          "wohnen",
+          "spielen",
+          "lernen",
+          "kaufen",
+          "kommen",
+          "gehen",
+          "hören",
+          "arbeiten",
+          "finden"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "ich": [
+        "Ich ____ . ({subject})"
+      ],
+      "du": [
+        "Du ____ . ({subject})"
+      ],
+      "er/sie/es": [
+        "Er ____ . ({subject})"
+      ],
+      "wir": [
+        "Wir ____ . ({subject})"
+      ],
+      "ihr": [
+        "Ihr ____ . ({subject})"
+      ],
+      "sie/Sie": [
+        "Sie ____ . ({subject})"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_1_familie",
+    "title": "A1.1 · Familie & Menschen",
+    "storageKeyPrefix": "quest_a1_1_familie_",
+    "promptLabel": "Wort",
+    "subjectsLabel": "Wörter",
+    "subjectColumnLabel": "English",
+    "subjects": [
+      {
+        "key": "father",
+        "display": "father"
+      },
+      {
+        "key": "mother",
+        "display": "mother"
+      },
+      {
+        "key": "brother",
+        "display": "brother"
+      },
+      {
+        "key": "sister",
+        "display": "sister"
+      },
+      {
+        "key": "son",
+        "display": "son"
+      },
+      {
+        "key": "daughter",
+        "display": "daughter"
+      },
+      {
+        "key": "grandfather",
+        "display": "grandfather"
+      },
+      {
+        "key": "grandmother",
+        "display": "grandmother"
+      },
+      {
+        "key": "child",
+        "display": "child"
+      },
+      {
+        "key": "the man",
+        "display": "the man"
+      },
+      {
+        "key": "the woman",
+        "display": "the woman"
+      },
+      {
+        "key": "boy",
+        "display": "boy"
+      },
+      {
+        "key": "girl",
+        "display": "girl"
+      },
+      {
+        "key": "friend (male)",
+        "display": "friend (male)"
+      },
+      {
+        "key": "friend (female)",
+        "display": "friend (female)"
+      },
+      {
+        "key": "the family",
+        "display": "the family"
+      }
+    ],
+    "categories": [
+      {
+        "label": "Deutsch (mit Artikel)",
+        "group": "Deutsch (mit Artikel)",
+        "values": [
+          "der Vater",
+          "die Mutter",
+          "der Bruder",
+          "die Schwester",
+          "der Sohn",
+          "die Tochter",
+          "der Großvater",
+          "die Großmutter",
+          "das Kind",
+          "der Mann",
+          "die Frau",
+          "der Junge",
+          "das Mädchen",
+          "der Freund",
+          "die Freundin",
+          "die Familie"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "Deutsch (mit Artikel)": [
+        "\"{subject}\" auf Deutsch (mit Artikel): ____"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_2_akkusativ",
+    "title": "A1.2 · Akkusativ (Artikel)",
+    "storageKeyPrefix": "quest_a1_2_akkusativ_",
+    "promptLabel": "Nomen",
+    "subjectsLabel": "Nomen",
+    "subjectColumnLabel": "Nomen",
+    "subjects": [
+      {
+        "key": "Mann",
+        "display": "Mann",
+        "english": "man",
+        "gender": "m"
+      },
+      {
+        "key": "Tisch",
+        "display": "Tisch",
+        "english": "table",
+        "gender": "m"
+      },
+      {
+        "key": "Hund",
+        "display": "Hund",
+        "english": "dog",
+        "gender": "m"
+      },
+      {
+        "key": "Apfel",
+        "display": "Apfel",
+        "english": "apple",
+        "gender": "m"
+      },
+      {
+        "key": "Ball",
+        "display": "Ball",
+        "english": "ball",
+        "gender": "m"
+      },
+      {
+        "key": "Frau",
+        "display": "Frau",
+        "english": "woman",
+        "gender": "f"
+      },
+      {
+        "key": "Lampe",
+        "display": "Lampe",
+        "english": "lamp",
+        "gender": "f"
+      },
+      {
+        "key": "Katze",
+        "display": "Katze",
+        "english": "cat",
+        "gender": "f"
+      },
+      {
+        "key": "Tasche",
+        "display": "Tasche",
+        "english": "bag",
+        "gender": "f"
+      },
+      {
+        "key": "Banane",
+        "display": "Banane",
+        "english": "banana",
+        "gender": "f"
+      },
+      {
+        "key": "Kind",
+        "display": "Kind",
+        "english": "child",
+        "gender": "n"
+      },
+      {
+        "key": "Auto",
+        "display": "Auto",
+        "english": "car",
+        "gender": "n"
+      },
+      {
+        "key": "Buch",
+        "display": "Buch",
+        "english": "book",
+        "gender": "n"
+      },
+      {
+        "key": "Haus",
+        "display": "Haus",
+        "english": "house",
+        "gender": "n"
+      },
+      {
+        "key": "Brot",
+        "display": "Brot",
+        "english": "bread",
+        "gender": "n"
+      }
+    ],
+    "categories": [
+      {
+        "label": "bestimmt (den/die/das)",
+        "group": "bestimmt",
+        "values": [
+          "den",
+          "den",
+          "den",
+          "den",
+          "den",
+          "die",
+          "die",
+          "die",
+          "die",
+          "die",
+          "das",
+          "das",
+          "das",
+          "das",
+          "das"
+        ]
+      },
+      {
+        "label": "unbestimmt (einen/eine/ein)",
+        "group": "unbestimmt",
+        "values": [
+          "einen",
+          "einen",
+          "einen",
+          "einen",
+          "einen",
+          "eine",
+          "eine",
+          "eine",
+          "eine",
+          "eine",
+          "ein",
+          "ein",
+          "ein",
+          "ein",
+          "ein"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "bestimmt (den/die/das)": [
+        "Ich sehe ____ {subject}."
+      ],
+      "unbestimmt (einen/eine/ein)": [
+        "Ich habe ____ {subject}."
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_2_possessiv",
+    "title": "A1.2 · Possessivartikel",
+    "storageKeyPrefix": "quest_a1_2_possessiv_",
+    "promptLabel": "Nomen",
+    "subjectsLabel": "Nomen",
+    "subjectColumnLabel": "Nomen",
+    "subjects": [
+      {
+        "key": "Vater",
+        "display": "Vater",
+        "english": "father",
+        "gender": "m"
+      },
+      {
+        "key": "Bruder",
+        "display": "Bruder",
+        "english": "brother",
+        "gender": "m"
+      },
+      {
+        "key": "Hund",
+        "display": "Hund",
+        "english": "dog",
+        "gender": "m"
+      },
+      {
+        "key": "Mutter",
+        "display": "Mutter",
+        "english": "mother",
+        "gender": "f"
+      },
+      {
+        "key": "Schwester",
+        "display": "Schwester",
+        "english": "sister",
+        "gender": "f"
+      },
+      {
+        "key": "Tasche",
+        "display": "Tasche",
+        "english": "bag",
+        "gender": "f"
+      },
+      {
+        "key": "Kind",
+        "display": "Kind",
+        "english": "child",
+        "gender": "n"
+      },
+      {
+        "key": "Auto",
+        "display": "Auto",
+        "english": "car",
+        "gender": "n"
+      },
+      {
+        "key": "Haus",
+        "display": "Haus",
+        "english": "house",
+        "gender": "n"
+      }
+    ],
+    "categories": [
+      {
+        "label": "mein (my, Nom.)",
+        "group": "nominativ",
+        "values": [
+          "mein",
+          "mein",
+          "mein",
+          "meine",
+          "meine",
+          "meine",
+          "mein",
+          "mein",
+          "mein"
+        ]
+      },
+      {
+        "label": "dein (your, Nom.)",
+        "group": "nominativ",
+        "values": [
+          "dein",
+          "dein",
+          "dein",
+          "deine",
+          "deine",
+          "deine",
+          "dein",
+          "dein",
+          "dein"
+        ]
+      },
+      {
+        "label": "sein (his, Nom.)",
+        "group": "nominativ",
+        "values": [
+          "sein",
+          "sein",
+          "sein",
+          "seine",
+          "seine",
+          "seine",
+          "sein",
+          "sein",
+          "sein"
+        ]
+      },
+      {
+        "label": "ihr (her, Nom.)",
+        "group": "nominativ",
+        "values": [
+          "ihr",
+          "ihr",
+          "ihr",
+          "ihre",
+          "ihre",
+          "ihre",
+          "ihr",
+          "ihr",
+          "ihr"
+        ]
+      },
+      {
+        "label": "mein (my, Akk.)",
+        "group": "akkusativ",
+        "values": [
+          "meinen",
+          "meinen",
+          "meinen",
+          "meine",
+          "meine",
+          "meine",
+          "mein",
+          "mein",
+          "mein"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "mein (my, Nom.)": [
+        "Das ist ____ {subject}."
+      ],
+      "dein (your, Nom.)": [
+        "Das ist ____ {subject}."
+      ],
+      "sein (his, Nom.)": [
+        "Das ist ____ {subject}."
+      ],
+      "ihr (her, Nom.)": [
+        "Das ist ____ {subject}."
+      ],
+      "mein (my, Akk.)": [
+        "Ich sehe ____ {subject}."
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_2_negation",
+    "title": "A1.2 · Negation (kein/nicht)",
+    "storageKeyPrefix": "quest_a1_2_negation_",
+    "promptLabel": "Satz",
+    "subjectsLabel": "Sätze",
+    "subjectColumnLabel": "English",
+    "subjects": [
+      {
+        "key": "s0",
+        "display": "I have no car."
+      },
+      {
+        "key": "s1",
+        "display": "That is not a problem."
+      },
+      {
+        "key": "s2",
+        "display": "I have no time."
+      },
+      {
+        "key": "s3",
+        "display": "He has no money."
+      },
+      {
+        "key": "s4",
+        "display": "We have no dog."
+      },
+      {
+        "key": "s5",
+        "display": "I do not drink coffee."
+      },
+      {
+        "key": "s6",
+        "display": "She has no siblings."
+      },
+      {
+        "key": "s7",
+        "display": "She is not tired."
+      },
+      {
+        "key": "s8",
+        "display": "I do not understand that."
+      },
+      {
+        "key": "s9",
+        "display": "The book is not expensive."
+      },
+      {
+        "key": "s10",
+        "display": "I do not know him."
+      },
+      {
+        "key": "s11",
+        "display": "The film is not good."
+      }
+    ],
+    "categories": [
+      {
+        "label": "Verneinung",
+        "group": "Verneinung",
+        "values": [
+          "kein",
+          "kein",
+          "keine",
+          "kein",
+          "keinen",
+          "keinen",
+          "keine",
+          "nicht",
+          "nicht",
+          "nicht",
+          "nicht",
+          "nicht"
+        ]
+      }
+    ],
+    "sentences": [
+      {
+        "subjectKey": "s0",
+        "categoryLabel": "Verneinung",
+        "sentence": "Ich habe ____ Auto.",
+        "acceptedAnswers": [
+          "kein"
+        ],
+        "hint": "Negates a neuter noun (das Auto) → kein.",
+        "english": "I have no car.",
+        "explanationSections": [
+          "kein negates nouns. Auto is neuter (das), so: kein Auto."
+        ]
+      },
+      {
+        "subjectKey": "s1",
+        "categoryLabel": "Verneinung",
+        "sentence": "Das ist ____ Problem.",
+        "acceptedAnswers": [
+          "kein"
+        ],
+        "hint": "Negates a neuter noun → kein.",
+        "english": "That is not a problem."
+      },
+      {
+        "subjectKey": "s2",
+        "categoryLabel": "Verneinung",
+        "sentence": "Ich habe ____ Zeit.",
+        "acceptedAnswers": [
+          "keine"
+        ],
+        "hint": "Zeit is feminine (die) → keine.",
+        "english": "I have no time."
+      },
+      {
+        "subjectKey": "s3",
+        "categoryLabel": "Verneinung",
+        "sentence": "Er hat ____ Geld.",
+        "acceptedAnswers": [
+          "kein"
+        ],
+        "hint": "Geld is neuter (das) → kein.",
+        "english": "He has no money."
+      },
+      {
+        "subjectKey": "s4",
+        "categoryLabel": "Verneinung",
+        "sentence": "Wir haben ____ Hund.",
+        "acceptedAnswers": [
+          "keinen"
+        ],
+        "hint": "Hund is masculine (der) in the accusative → keinen.",
+        "english": "We have no dog."
+      },
+      {
+        "subjectKey": "s5",
+        "categoryLabel": "Verneinung",
+        "sentence": "Ich trinke ____ Kaffee.",
+        "acceptedAnswers": [
+          "keinen"
+        ],
+        "hint": "Kaffee is masculine, accusative object → keinen.",
+        "english": "I do not drink coffee."
+      },
+      {
+        "subjectKey": "s6",
+        "categoryLabel": "Verneinung",
+        "sentence": "Sie hat ____ Geschwister.",
+        "acceptedAnswers": [
+          "keine"
+        ],
+        "hint": "Plural noun → keine.",
+        "english": "She has no siblings."
+      },
+      {
+        "subjectKey": "s7",
+        "categoryLabel": "Verneinung",
+        "sentence": "Sie ist ____ müde.",
+        "acceptedAnswers": [
+          "nicht"
+        ],
+        "hint": "Negates an adjective → nicht.",
+        "english": "She is not tired.",
+        "explanationSections": [
+          "nicht negates verbs, adjectives and adverbs. \"müde\" is an adjective, so: nicht müde."
+        ]
+      },
+      {
+        "subjectKey": "s8",
+        "categoryLabel": "Verneinung",
+        "sentence": "Ich verstehe das ____.",
+        "acceptedAnswers": [
+          "nicht"
+        ],
+        "hint": "Negates the verb → nicht.",
+        "english": "I do not understand that."
+      },
+      {
+        "subjectKey": "s9",
+        "categoryLabel": "Verneinung",
+        "sentence": "Das Buch ist ____ teuer.",
+        "acceptedAnswers": [
+          "nicht"
+        ],
+        "hint": "Negates an adjective → nicht.",
+        "english": "The book is not expensive."
+      },
+      {
+        "subjectKey": "s10",
+        "categoryLabel": "Verneinung",
+        "sentence": "Ich kenne ihn ____.",
+        "acceptedAnswers": [
+          "nicht"
+        ],
+        "hint": "Negates the verb → nicht.",
+        "english": "I do not know him."
+      },
+      {
+        "subjectKey": "s11",
+        "categoryLabel": "Verneinung",
+        "sentence": "Der Film ist ____ gut.",
+        "acceptedAnswers": [
+          "nicht"
+        ],
+        "hint": "Negates an adjective → nicht.",
+        "english": "The film is not good."
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_2_modalverben",
+    "title": "A1.2 · Modalverben",
+    "storageKeyPrefix": "quest_a1_2_modalverben_",
+    "promptLabel": "Pronomen",
+    "subjectsLabel": "Pronomen",
+    "subjectColumnLabel": "Pronomen",
+    "subjects": [
+      {
+        "key": "ich",
+        "display": "ich"
+      },
+      {
+        "key": "du",
+        "display": "du"
+      },
+      {
+        "key": "er/sie/es",
+        "display": "er/sie/es"
+      },
+      {
+        "key": "wir",
+        "display": "wir"
+      },
+      {
+        "key": "ihr",
+        "display": "ihr"
+      },
+      {
+        "key": "sie/Sie",
+        "display": "sie/Sie"
+      }
+    ],
+    "categories": [
+      {
+        "label": "können (can)",
+        "group": "können",
+        "values": [
+          "kann",
+          "kannst",
+          "kann",
+          "können",
+          "könnt",
+          "können"
+        ]
+      },
+      {
+        "label": "müssen (must)",
+        "group": "müssen",
+        "values": [
+          "muss",
+          "musst",
+          "muss",
+          "müssen",
+          "müsst",
+          "müssen"
+        ]
+      },
+      {
+        "label": "wollen (want)",
+        "group": "wollen",
+        "values": [
+          "will",
+          "willst",
+          "will",
+          "wollen",
+          "wollt",
+          "wollen"
+        ]
+      },
+      {
+        "label": "möchten (would like)",
+        "group": "möchten",
+        "values": [
+          "möchte",
+          "möchtest",
+          "möchte",
+          "möchten",
+          "möchtet",
+          "möchten"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "können (can)": [
+        "{subject} ____ … (können)"
+      ],
+      "müssen (must)": [
+        "{subject} ____ … (müssen)"
+      ],
+      "wollen (want)": [
+        "{subject} ____ … (wollen)"
+      ],
+      "möchten (would like)": [
+        "{subject} ____ … (möchten)"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_2_uhrzeit",
+    "title": "A1.2 · Uhrzeit",
+    "storageKeyPrefix": "quest_a1_2_uhrzeit_",
+    "promptLabel": "Uhrzeit",
+    "subjectsLabel": "Uhrzeiten",
+    "subjectColumnLabel": "Zeit",
+    "subjects": [
+      {
+        "key": "s0",
+        "display": "It is 07:00."
+      },
+      {
+        "key": "s1",
+        "display": "It is 08:15."
+      },
+      {
+        "key": "s2",
+        "display": "It is 09:30."
+      },
+      {
+        "key": "s3",
+        "display": "It is 10:45."
+      },
+      {
+        "key": "s4",
+        "display": "It is 12:00."
+      },
+      {
+        "key": "s5",
+        "display": "It is 13:00."
+      },
+      {
+        "key": "s6",
+        "display": "It is 14:30."
+      },
+      {
+        "key": "s7",
+        "display": "It is 15:30."
+      },
+      {
+        "key": "s8",
+        "display": "It is 16:45."
+      },
+      {
+        "key": "s9",
+        "display": "It is 18:15."
+      },
+      {
+        "key": "s10",
+        "display": "It is 20:45."
+      },
+      {
+        "key": "s11",
+        "display": "It is 21:15."
+      }
+    ],
+    "categories": [
+      {
+        "label": "Wie spät ist es?",
+        "group": "Wie spät ist es?",
+        "values": [
+          "sieben Uhr",
+          "Viertel nach acht",
+          "halb zehn",
+          "Viertel vor elf",
+          "zwölf Uhr",
+          "ein Uhr",
+          "halb drei",
+          "halb vier",
+          "Viertel vor fünf",
+          "Viertel nach sechs",
+          "Viertel vor neun",
+          "Viertel nach neun"
+        ]
+      }
+    ],
+    "sentences": [
+      {
+        "subjectKey": "s0",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (07:00)",
+        "acceptedAnswers": [
+          "sieben Uhr",
+          "sieben"
+        ],
+        "hint": "Colloquial German time for 07:00.",
+        "english": "It is 07:00."
+      },
+      {
+        "subjectKey": "s1",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (08:15)",
+        "acceptedAnswers": [
+          "Viertel nach acht"
+        ],
+        "hint": "Colloquial German time for 08:15.",
+        "english": "It is 08:15."
+      },
+      {
+        "subjectKey": "s2",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (09:30)",
+        "acceptedAnswers": [
+          "halb zehn"
+        ],
+        "hint": "Colloquial German time for 09:30.",
+        "english": "It is 09:30."
+      },
+      {
+        "subjectKey": "s3",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (10:45)",
+        "acceptedAnswers": [
+          "Viertel vor elf"
+        ],
+        "hint": "Colloquial German time for 10:45.",
+        "english": "It is 10:45."
+      },
+      {
+        "subjectKey": "s4",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (12:00)",
+        "acceptedAnswers": [
+          "zwölf Uhr",
+          "zwölf"
+        ],
+        "hint": "Colloquial German time for 12:00.",
+        "english": "It is 12:00."
+      },
+      {
+        "subjectKey": "s5",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (13:00)",
+        "acceptedAnswers": [
+          "ein Uhr",
+          "eins"
+        ],
+        "hint": "Colloquial German time for 13:00.",
+        "english": "It is 13:00."
+      },
+      {
+        "subjectKey": "s6",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (14:30)",
+        "acceptedAnswers": [
+          "halb drei"
+        ],
+        "hint": "Colloquial German time for 14:30.",
+        "english": "It is 14:30."
+      },
+      {
+        "subjectKey": "s7",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (15:30)",
+        "acceptedAnswers": [
+          "halb vier"
+        ],
+        "hint": "Colloquial German time for 15:30.",
+        "english": "It is 15:30."
+      },
+      {
+        "subjectKey": "s8",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (16:45)",
+        "acceptedAnswers": [
+          "Viertel vor fünf"
+        ],
+        "hint": "Colloquial German time for 16:45.",
+        "english": "It is 16:45."
+      },
+      {
+        "subjectKey": "s9",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (18:15)",
+        "acceptedAnswers": [
+          "Viertel nach sechs"
+        ],
+        "hint": "Colloquial German time for 18:15.",
+        "english": "It is 18:15."
+      },
+      {
+        "subjectKey": "s10",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (20:45)",
+        "acceptedAnswers": [
+          "Viertel vor neun"
+        ],
+        "hint": "Colloquial German time for 20:45.",
+        "english": "It is 20:45."
+      },
+      {
+        "subjectKey": "s11",
+        "categoryLabel": "Wie spät ist es?",
+        "sentence": "Es ist ____ . (21:15)",
+        "acceptedAnswers": [
+          "Viertel nach neun"
+        ],
+        "hint": "Colloquial German time for 21:15.",
+        "english": "It is 21:15."
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_2_datum",
+    "title": "A1.2 · Wochentage & Monate",
+    "storageKeyPrefix": "quest_a1_2_datum_",
+    "promptLabel": "Wort",
+    "subjectsLabel": "Wörter",
+    "subjectColumnLabel": "English",
+    "subjects": [
+      {
+        "key": "Monday",
+        "display": "Monday"
+      },
+      {
+        "key": "Tuesday",
+        "display": "Tuesday"
+      },
+      {
+        "key": "Wednesday",
+        "display": "Wednesday"
+      },
+      {
+        "key": "Thursday",
+        "display": "Thursday"
+      },
+      {
+        "key": "Friday",
+        "display": "Friday"
+      },
+      {
+        "key": "Saturday",
+        "display": "Saturday"
+      },
+      {
+        "key": "Sunday",
+        "display": "Sunday"
+      },
+      {
+        "key": "January",
+        "display": "January"
+      },
+      {
+        "key": "February",
+        "display": "February"
+      },
+      {
+        "key": "March",
+        "display": "March"
+      },
+      {
+        "key": "April",
+        "display": "April"
+      },
+      {
+        "key": "May",
+        "display": "May"
+      },
+      {
+        "key": "June",
+        "display": "June"
+      },
+      {
+        "key": "July",
+        "display": "July"
+      },
+      {
+        "key": "August",
+        "display": "August"
+      },
+      {
+        "key": "September",
+        "display": "September"
+      },
+      {
+        "key": "October",
+        "display": "October"
+      },
+      {
+        "key": "November",
+        "display": "November"
+      },
+      {
+        "key": "December",
+        "display": "December"
+      }
+    ],
+    "categories": [
+      {
+        "label": "Deutsch",
+        "group": "Deutsch",
+        "values": [
+          "Montag",
+          "Dienstag",
+          "Mittwoch",
+          "Donnerstag",
+          "Freitag",
+          "Samstag",
+          "Sonntag",
+          "Januar",
+          "Februar",
+          "März",
+          "April",
+          "Mai",
+          "Juni",
+          "Juli",
+          "August",
+          "September",
+          "Oktober",
+          "November",
+          "Dezember"
+        ]
+      }
+    ],
+    "sentences": [],
+    "sentenceTemplates": {
+      "Deutsch": [
+        "\"{subject}\" auf Deutsch: ____"
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_2_praepositionen",
+    "title": "A1.2 · Akkusativpräpositionen",
+    "storageKeyPrefix": "quest_a1_2_praepositionen_",
+    "promptLabel": "Satz",
+    "subjectsLabel": "Sätze",
+    "subjectColumnLabel": "English",
+    "subjects": [
+      {
+        "key": "s0",
+        "display": "The gift is for the man."
+      },
+      {
+        "key": "s1",
+        "display": "I buy something for the mother."
+      },
+      {
+        "key": "s2",
+        "display": "That is a gift for the child."
+      },
+      {
+        "key": "s3",
+        "display": "We walk through the park."
+      },
+      {
+        "key": "s4",
+        "display": "She runs through the city."
+      },
+      {
+        "key": "s5",
+        "display": "I have nothing against the plan."
+      },
+      {
+        "key": "s6",
+        "display": "Without the car it is hard."
+      },
+      {
+        "key": "s7",
+        "display": "He leaves without the bag."
+      },
+      {
+        "key": "s8",
+        "display": "We sit around the table."
+      },
+      {
+        "key": "s9",
+        "display": "The car drives into the tree."
+      }
+    ],
+    "categories": [
+      {
+        "label": "Artikel (Akkusativ)",
+        "group": "Artikel (Akkusativ)",
+        "values": [
+          "den",
+          "die",
+          "das",
+          "den",
+          "die",
+          "den",
+          "das",
+          "die",
+          "den",
+          "den"
+        ]
+      }
+    ],
+    "sentences": [
+      {
+        "subjectKey": "s0",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Das Geschenk ist für ____ Mann.",
+        "acceptedAnswers": [
+          "den"
+        ],
+        "hint": "für → accusative. der Mann → den Mann.",
+        "english": "The gift is for the man.",
+        "explanationSections": [
+          "für, durch, gegen, ohne, um always take the accusative. der → den, die → die, das → das."
+        ]
+      },
+      {
+        "subjectKey": "s1",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Ich kaufe etwas für ____ Mutter.",
+        "acceptedAnswers": [
+          "die"
+        ],
+        "hint": "für → accusative. die Mutter stays die.",
+        "english": "I buy something for the mother."
+      },
+      {
+        "subjectKey": "s2",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Das ist ein Geschenk für ____ Kind.",
+        "acceptedAnswers": [
+          "das"
+        ],
+        "hint": "für → accusative. das Kind stays das.",
+        "english": "That is a gift for the child."
+      },
+      {
+        "subjectKey": "s3",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Wir gehen durch ____ Park.",
+        "acceptedAnswers": [
+          "den"
+        ],
+        "hint": "durch → accusative. der Park → den Park.",
+        "english": "We walk through the park."
+      },
+      {
+        "subjectKey": "s4",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Sie läuft durch ____ Stadt.",
+        "acceptedAnswers": [
+          "die"
+        ],
+        "hint": "durch → accusative. die Stadt stays die.",
+        "english": "She runs through the city."
+      },
+      {
+        "subjectKey": "s5",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Ich habe nichts gegen ____ Plan.",
+        "acceptedAnswers": [
+          "den"
+        ],
+        "hint": "gegen → accusative. der Plan → den Plan.",
+        "english": "I have nothing against the plan."
+      },
+      {
+        "subjectKey": "s6",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Ohne ____ Auto ist es schwer.",
+        "acceptedAnswers": [
+          "das"
+        ],
+        "hint": "ohne → accusative. das Auto stays das.",
+        "english": "Without the car it is hard."
+      },
+      {
+        "subjectKey": "s7",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Er geht ohne ____ Tasche.",
+        "acceptedAnswers": [
+          "die"
+        ],
+        "hint": "ohne → accusative. die Tasche stays die.",
+        "english": "He leaves without the bag."
+      },
+      {
+        "subjectKey": "s8",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Wir sitzen um ____ Tisch.",
+        "acceptedAnswers": [
+          "den"
+        ],
+        "hint": "um → accusative. der Tisch → den Tisch.",
+        "english": "We sit around the table."
+      },
+      {
+        "subjectKey": "s9",
+        "categoryLabel": "Artikel (Akkusativ)",
+        "sentence": "Das Auto fährt gegen ____ Baum.",
+        "acceptedAnswers": [
+          "den"
+        ],
+        "hint": "gegen → accusative. der Baum → den Baum.",
+        "english": "The car drives into the tree."
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_2_trennbare",
+    "title": "A1.2 · Trennbare Verben",
+    "storageKeyPrefix": "quest_a1_2_trennbare_",
+    "promptLabel": "Satz",
+    "subjectsLabel": "Sätze",
+    "subjectColumnLabel": "English",
+    "subjects": [
+      {
+        "key": "s0",
+        "display": "I get up at 7."
+      },
+      {
+        "key": "s1",
+        "display": "When do you get up?"
+      },
+      {
+        "key": "s2",
+        "display": "The train departs at 9."
+      },
+      {
+        "key": "s3",
+        "display": "I go shopping on Monday."
+      },
+      {
+        "key": "s4",
+        "display": "We invite friends."
+      },
+      {
+        "key": "s5",
+        "display": "She closes the door."
+      },
+      {
+        "key": "s6",
+        "display": "I watch TV."
+      },
+      {
+        "key": "s7",
+        "display": "The shop opens at 8."
+      },
+      {
+        "key": "s8",
+        "display": "I call my friends."
+      },
+      {
+        "key": "s9",
+        "display": "We come back on Friday."
+      }
+    ],
+    "categories": [
+      {
+        "label": "Verbform",
+        "group": "Verbform",
+        "values": [
+          "stehe",
+          "stehst",
+          "fährt",
+          "kaufe",
+          "laden",
+          "macht",
+          "sehe",
+          "macht",
+          "rufe",
+          "kommen"
+        ]
+      }
+    ],
+    "sentences": [
+      {
+        "subjectKey": "s0",
+        "categoryLabel": "Verbform",
+        "sentence": "Ich ____ um 7 Uhr auf. (aufstehen)",
+        "acceptedAnswers": [
+          "stehe"
+        ],
+        "hint": "Separable verb: the prefix \"auf\" goes to the end.",
+        "english": "I get up at 7.",
+        "explanationSections": [
+          "Separable verbs split: the prefix moves to the end of the clause and the conjugated stem takes the verb position."
+        ]
+      },
+      {
+        "subjectKey": "s1",
+        "categoryLabel": "Verbform",
+        "sentence": "Wann ____ du auf? (aufstehen)",
+        "acceptedAnswers": [
+          "stehst"
+        ],
+        "hint": "du form of (auf)stehen.",
+        "english": "When do you get up?"
+      },
+      {
+        "subjectKey": "s2",
+        "categoryLabel": "Verbform",
+        "sentence": "Der Zug ____ um 9 Uhr ab. (abfahren)",
+        "acceptedAnswers": [
+          "fährt"
+        ],
+        "hint": "er/es form of (ab)fahren — stem-changing a → ä.",
+        "english": "The train departs at 9."
+      },
+      {
+        "subjectKey": "s3",
+        "categoryLabel": "Verbform",
+        "sentence": "Ich ____ am Montag ein. (einkaufen)",
+        "acceptedAnswers": [
+          "kaufe"
+        ],
+        "hint": "ich form of (ein)kaufen.",
+        "english": "I go shopping on Monday."
+      },
+      {
+        "subjectKey": "s4",
+        "categoryLabel": "Verbform",
+        "sentence": "Wir ____ Freunde ein. (einladen)",
+        "acceptedAnswers": [
+          "laden"
+        ],
+        "hint": "wir form of (ein)laden.",
+        "english": "We invite friends."
+      },
+      {
+        "subjectKey": "s5",
+        "categoryLabel": "Verbform",
+        "sentence": "Sie ____ die Tür zu. (zumachen)",
+        "acceptedAnswers": [
+          "macht"
+        ],
+        "hint": "sie (she) form of (zu)machen.",
+        "english": "She closes the door."
+      },
+      {
+        "subjectKey": "s6",
+        "categoryLabel": "Verbform",
+        "sentence": "Ich ____ fern. (fernsehen)",
+        "acceptedAnswers": [
+          "sehe"
+        ],
+        "hint": "ich form of (fern)sehen.",
+        "english": "I watch TV."
+      },
+      {
+        "subjectKey": "s7",
+        "categoryLabel": "Verbform",
+        "sentence": "Das Geschäft ____ um 8 Uhr auf. (aufmachen)",
+        "acceptedAnswers": [
+          "macht"
+        ],
+        "hint": "es form of (auf)machen.",
+        "english": "The shop opens at 8."
+      },
+      {
+        "subjectKey": "s8",
+        "categoryLabel": "Verbform",
+        "sentence": "Ich ____ meine Freunde an. (anrufen)",
+        "acceptedAnswers": [
+          "rufe"
+        ],
+        "hint": "ich form of (an)rufen.",
+        "english": "I call my friends."
+      },
+      {
+        "subjectKey": "s9",
+        "categoryLabel": "Verbform",
+        "sentence": "Ich komme mit. Wir ____ am Freitag zurück. (zurückkommen)",
+        "acceptedAnswers": [
+          "kommen"
+        ],
+        "hint": "wir form of (zurück)kommen.",
+        "english": "We come back on Friday."
       }
     ]
   }

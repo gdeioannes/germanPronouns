@@ -879,4 +879,18 @@ const List<GermanNoun> germanNouns = [
   GermanNoun(noun: 'Urlaub', gender: 'm', english: 'vacation/holiday', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Leute', gender: 'm', english: 'people (plural)', categories: ['family'], difficulty: NounDifficulty.beginner, declensionSafe: true),
   GermanNoun(noun: 'Dauerschleife', gender: 'f', english: 'continuous loop', categories: ['media'], difficulty: NounDifficulty.advanced, declensionSafe: true),
+  // ── A1 Quest additions (high-frequency A1 vocabulary) ────────────────────
+  GermanNoun(noun: 'Salat', gender: 'm', english: 'salad', categories: ['food'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Butter', gender: 'f', english: 'butter', categories: ['food'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Orange', gender: 'f', english: 'orange (fruit)', categories: ['food'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Wohnung', gender: 'f', english: 'apartment/flat', categories: ['city'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Bad', gender: 'n', english: 'bathroom/bath', categories: ['bathroom'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Balkon', gender: 'm', english: 'balcony', categories: ['furniture'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Kreditkarte', gender: 'f', english: 'credit card', categories: ['shopping'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Termin', gender: 'm', english: 'appointment', categories: ['time'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
+  GermanNoun(noun: 'Morgen', gender: 'm', english: 'morning', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Nacht', gender: 'f', english: 'night', categories: ['time'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Ticket', gender: 'n', english: 'ticket', categories: ['transport'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Telefon', gender: 'n', english: 'telephone', categories: ['technology'], difficulty: NounDifficulty.beginner, declensionSafe: true),
+  GermanNoun(noun: 'Geldbeutel', gender: 'm', english: 'wallet/purse', categories: ['shopping'], difficulty: NounDifficulty.intermediate, declensionSafe: true),
 ];

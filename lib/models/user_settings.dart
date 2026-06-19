@@ -17,6 +17,9 @@ class UserSettings {
     this.lastNounProgressionKey,
     this.answerRevealMode = 'normal',
     this.progressionUnlockLaps = 5,
+    this.questUnlockLaps = 5,
+    this.completedQuestQuizzes = const [],
+    this.lastQuestQuizKey,
     this.showFirstLetterHint = false,
   });
 
@@ -40,6 +43,17 @@ class UserSettings {
   final String answerRevealMode;
 
   final int progressionUnlockLaps;
+
+  /// Streaks needed to unlock the next Quest quiz (separate from
+  /// [progressionUnlockLaps]).
+  final int questUnlockLaps;
+
+  /// Quest quiz keys that have reached the Quest streak goal at least once.
+  final List<String> completedQuestQuizzes;
+
+  /// The Quest quiz key last opened.
+  final String? lastQuestQuizKey;
+
   final bool showFirstLetterHint;
 
   UserSettings copyWith({
@@ -52,6 +66,9 @@ class UserSettings {
     String? lastNounProgressionKey,
     String? answerRevealMode,
     int? progressionUnlockLaps,
+    int? questUnlockLaps,
+    List<String>? completedQuestQuizzes,
+    String? lastQuestQuizKey,
     bool? showFirstLetterHint,
   }) => UserSettings(
     disabledNouns: disabledNouns ?? this.disabledNouns,
@@ -65,6 +82,9 @@ class UserSettings {
         lastNounProgressionKey ?? this.lastNounProgressionKey,
     answerRevealMode: answerRevealMode ?? this.answerRevealMode,
     progressionUnlockLaps: progressionUnlockLaps ?? this.progressionUnlockLaps,
+    questUnlockLaps: questUnlockLaps ?? this.questUnlockLaps,
+    completedQuestQuizzes: completedQuestQuizzes ?? this.completedQuestQuizzes,
+    lastQuestQuizKey: lastQuestQuizKey ?? this.lastQuestQuizKey,
     showFirstLetterHint: showFirstLetterHint ?? this.showFirstLetterHint,
   );
 
@@ -79,6 +99,9 @@ class UserSettings {
       'lastNounProgressionKey': lastNounProgressionKey,
     'answerRevealMode': answerRevealMode,
     'progressionUnlockLaps': progressionUnlockLaps,
+    'questUnlockLaps': questUnlockLaps,
+    'completedQuestQuizzes': completedQuestQuizzes,
+    if (lastQuestQuizKey != null) 'lastQuestQuizKey': lastQuestQuizKey,
     'showFirstLetterHint': showFirstLetterHint,
   };
 
@@ -96,6 +119,10 @@ class UserSettings {
     lastNounProgressionKey: json['lastNounProgressionKey'] as String?,
     answerRevealMode: json['answerRevealMode'] as String? ?? 'normal',
     progressionUnlockLaps: json['progressionUnlockLaps'] as int? ?? 5,
+    questUnlockLaps: json['questUnlockLaps'] as int? ?? 5,
+    completedQuestQuizzes:
+        (json['completedQuestQuizzes'] as List?)?.cast<String>() ?? const [],
+    lastQuestQuizKey: json['lastQuestQuizKey'] as String?,
     showFirstLetterHint: json['showFirstLetterHint'] as bool? ?? false,
   );
 }

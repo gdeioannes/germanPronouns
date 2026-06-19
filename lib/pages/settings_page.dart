@@ -16,6 +16,8 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   final _progressionUnlockLapsController = TextEditingController();
   final _progressionUnlockLapsFocusNode = FocusNode();
+  final _questUnlockLapsController = TextEditingController();
+  final _questUnlockLapsFocusNode = FocusNode();
 
   @override
   void initState() {
@@ -30,12 +32,22 @@ class _SettingsPageState extends State<SettingsPage> {
         });
       }
     });
+    _questUnlockLapsFocusNode.addListener(() {
+      if (!_questUnlockLapsFocusNode.hasFocus) {
+        setState(() {
+          _questUnlockLapsController.text =
+              NounSettings.instance.questUnlockLaps.toString();
+        });
+      }
+    });
     NounSettings.instance.load().then((_) {
       if (!mounted) return;
       _progressionUnlockLapsController.text = NounSettings
           .instance
           .progressionUnlockLaps
           .toString();
+      _questUnlockLapsController.text =
+          NounSettings.instance.questUnlockLaps.toString();
       setState(() {});
     });
   }
@@ -44,6 +56,8 @@ class _SettingsPageState extends State<SettingsPage> {
   void dispose() {
     _progressionUnlockLapsController.dispose();
     _progressionUnlockLapsFocusNode.dispose();
+    _questUnlockLapsController.dispose();
+    _questUnlockLapsFocusNode.dispose();
     super.dispose();
   }
 
@@ -357,6 +371,41 @@ class _SettingsPageState extends State<SettingsPage> {
                         NounSettings.instance.setProgressionUnlockLaps(
                           parsed,
                         );
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _settingsPanel(
+              title: 'Quest Progression (A1–A2)',
+              children: [
+                Text(
+                  'How many 5-answer streaks in a row are needed in a Quest '
+                  'quiz to unlock the next quiz in the A-level chain. Separate '
+                  'from the noun-category goal. Default: '
+                  '${NounSettings.defaultProgressionUnlockLaps}.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                    controller: _questUnlockLapsController,
+                    focusNode: _questUnlockLapsFocusNode,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Streaks',
+                      isDense: true,
+                    ),
+                    onChanged: (value) {
+                      final parsed = int.tryParse(value);
+                      if (parsed == null) return;
+                      setState(() {
+                        NounSettings.instance.setQuestUnlockLaps(parsed);
                       });
                     },
                   ),

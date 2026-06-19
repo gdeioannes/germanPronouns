@@ -40,6 +40,10 @@ class NounSettings {
   static const String _progressionUnlockLapsKey =
       SettingsKeys.progressionUnlockLaps;
   static const String _showFirstLetterHintKey = SettingsKeys.showFirstLetterHint;
+  static const String _questUnlockLapsKey = SettingsKeys.questUnlockLaps;
+  static const String _completedQuestQuizzesKey =
+      SettingsKeys.completedQuestQuizzes;
+  static const String _lastQuestQuizKeyPref = SettingsKeys.lastQuestQuizKey;
 
   /// Size of one "streak" — a run of this many correct answers in a row.
   static const int streakLapSize = 5;
@@ -68,6 +72,9 @@ class NounSettings {
   String? _lastNounProgressionKey;
   AnswerRevealMode _answerRevealMode = AnswerRevealMode.normal;
   int _progressionUnlockLaps = defaultProgressionUnlockLaps;
+  int _questUnlockLaps = defaultProgressionUnlockLaps;
+  Set<String> _completedQuestQuizzes = {};
+  String? _lastQuestQuizKey;
   bool _showFirstLetterHint = false;
   bool _loaded = false;
 
@@ -111,6 +118,27 @@ class NounSettings {
   /// noun-category progression ([progressionUnlockLaps] streaks of 5
   /// correct answers each).
   int get progressionUnlockStreak => _progressionUnlockLaps * streakLapSize;
+
+  /// Number of consecutive 5-answer "streaks" needed in a Quest quiz to unlock
+  /// the next quiz in the Quest (CEFR A-level) chain. Independent of the
+  /// noun-category goal. User-configurable 1–100, defaults to
+  /// [defaultProgressionUnlockLaps].
+  int get questUnlockLaps => _questUnlockLaps;
+
+  /// Total correct answers in a row needed to unlock the next Quest quiz
+  /// ([questUnlockLaps] streaks of 5 correct answers each).
+  int get questUnlockStreak => _questUnlockLaps * streakLapSize;
+
+  /// Quest quiz keys (from `questEntries`) whose quiz has reached a
+  /// [questUnlockStreak]-answer streak at least once, permanently unlocking the
+  /// next quiz in the Quest chain.
+  Set<String> get completedQuestQuizzes => _completedQuestQuizzes;
+
+  bool isQuestQuizCompleted(String key) =>
+      _completedQuestQuizzes.contains(key);
+
+  /// The Quest quiz key the user last opened, or null if none recorded yet.
+  String? get lastQuestQuizKey => _lastQuestQuizKey;
 
   /// Whether English translations should be shown alongside nouns in
   /// reference/analytics tables, keyed by page (a [QuizConfig.storageKeyPrefix]
@@ -168,6 +196,11 @@ class NounSettings {
     );
     _progressionUnlockLaps =
         prefs.getInt(_progressionUnlockLapsKey) ?? defaultProgressionUnlockLaps;
+    _questUnlockLaps =
+        prefs.getInt(_questUnlockLapsKey) ?? defaultProgressionUnlockLaps;
+    _completedQuestQuizzes =
+        (prefs.getStringList(_completedQuestQuizzesKey) ?? const []).toSet();
+    _lastQuestQuizKey = prefs.getString(_lastQuestQuizKeyPref);
     _showFirstLetterHint =
         prefs.getBool(_showFirstLetterHintKey) ?? false;
     _loaded = true;
@@ -212,6 +245,32 @@ class NounSettings {
     await prefs.setInt(_progressionUnlockLapsKey, _progressionUnlockLaps);
   }
 
+  /// Sets [questUnlockLaps], clamped to the 1-100 range.
+  Future<void> setQuestUnlockLaps(int laps) async {
+    _questUnlockLaps = laps.clamp(1, 100);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_questUnlockLapsKey, _questUnlockLaps);
+  }
+
+  /// Marks Quest quiz [key] as having reached a [questUnlockStreak]-answer
+  /// streak, permanently unlocking the next quiz in the Quest chain. No-op if
+  /// already marked.
+  Future<void> markQuestQuizCompleted(String key) async {
+    if (_completedQuestQuizzes.contains(key)) return;
+    _completedQuestQuizzes = {..._completedQuestQuizzes, key};
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(
+      _completedQuestQuizzesKey,
+      _completedQuestQuizzes.toList(),
+    );
+  }
+
+  Future<void> setLastQuestQuizKey(String key) async {
+    _lastQuestQuizKey = key;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_lastQuestQuizKeyPref, key);
+  }
+
   Future<void> setShowFirstLetterHint(bool value) async {
     _showFirstLetterHint = value;
     final prefs = await SharedPreferences.getInstance();
@@ -252,6 +311,9 @@ class NounSettings {
     lastNounProgressionKey: _lastNounProgressionKey,
     answerRevealMode: _answerRevealMode.name,
     progressionUnlockLaps: _progressionUnlockLaps,
+    questUnlockLaps: _questUnlockLaps,
+    completedQuestQuizzes: _completedQuestQuizzes.toList(),
+    lastQuestQuizKey: _lastQuestQuizKey,
     showFirstLetterHint: _showFirstLetterHint,
   );
 
@@ -287,6 +349,9 @@ class NounSettings {
     _lastNounProgressionKey = null;
     _answerRevealMode = AnswerRevealMode.normal;
     _progressionUnlockLaps = defaultProgressionUnlockLaps;
+    _questUnlockLaps = defaultProgressionUnlockLaps;
+    _completedQuestQuizzes = {};
+    _lastQuestQuizKey = null;
   }
 
   Future<void> toggle(String noun) async {
