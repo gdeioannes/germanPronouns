@@ -232,16 +232,27 @@ final QuizContent esDeHablarSaludos = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "Saludos y cortesía", plus a few extras.
     CourseItem(prompt: 'Hola', answer: 'Hallo'),
     CourseItem(prompt: 'Buenos días', answer: 'Guten Morgen'),
+    CourseItem(prompt: 'Buenas tardes', answer: 'Guten Tag'),
+    CourseItem(prompt: 'Buenas noches (despedida)', answer: 'Gute Nacht'),
+    CourseItem(prompt: 'Adiós', answer: 'Auf Wiedersehen'),
+    CourseItem(prompt: 'Hasta luego', answer: 'Bis später'),
     CourseItem(prompt: 'Por favor', answer: 'Bitte'),
     CourseItem(prompt: 'Gracias', answer: 'Danke'),
     CourseItem(prompt: 'Muchas gracias', answer: 'Danke schön'),
-    CourseItem(prompt: 'De nada', answer: 'Bitte'),
+    CourseItem(prompt: 'De nada', answer: 'Gern geschehen'),
     CourseItem(prompt: 'Perdón / Disculpe', answer: 'Entschuldigung'),
+    CourseItem(prompt: 'Sí', answer: 'Ja'),
+    CourseItem(prompt: 'No', answer: 'Nein'),
     CourseItem(prompt: '¿Cómo está usted?', answer: 'Wie geht es Ihnen?'),
     CourseItem(prompt: 'Me llamo…', answer: 'Ich heiße …'),
     CourseItem(prompt: 'Mucho gusto', answer: 'Freut mich'),
+    // Extras.
+    CourseItem(prompt: 'Buenas noches (saludo)', answer: 'Guten Abend'),
+    CourseItem(prompt: 'Hasta mañana', answer: 'Bis morgen'),
+    CourseItem(prompt: '¿Qué tal?', answer: "Wie geht's?"),
   ],
 );
 
@@ -270,6 +281,8 @@ final QuizContent esDeHablarNumeros = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every number from "Números y precios", plus a few extras.
+    CourseItem(prompt: '0', answer: 'null'),
     CourseItem(prompt: '1', answer: 'eins'),
     CourseItem(prompt: '2', answer: 'zwei'),
     CourseItem(prompt: '3', answer: 'drei'),
@@ -278,9 +291,21 @@ final QuizContent esDeHablarNumeros = speakRepeatQuiz(
     CourseItem(prompt: '6', answer: 'sechs'),
     CourseItem(prompt: '7', answer: 'sieben'),
     CourseItem(prompt: '8', answer: 'acht'),
+    CourseItem(prompt: '9', answer: 'neun'),
     CourseItem(prompt: '10', answer: 'zehn'),
+    CourseItem(prompt: '11', answer: 'elf'),
+    CourseItem(prompt: '12', answer: 'zwölf'),
+    CourseItem(prompt: '13', answer: 'dreizehn'),
+    CourseItem(prompt: '16', answer: 'sechzehn'),
     CourseItem(prompt: '20', answer: 'zwanzig'),
+    CourseItem(prompt: '21', answer: 'einundzwanzig'),
+    CourseItem(prompt: '30', answer: 'dreißig'),
+    CourseItem(prompt: '50', answer: 'fünfzig'),
+    CourseItem(prompt: '100', answer: 'hundert'),
     CourseItem(prompt: '3,50 € (precio)', answer: 'drei Euro fünfzig'),
+    // Extras.
+    CourseItem(prompt: '40', answer: 'vierzig'),
+    CourseItem(prompt: '1000', answer: 'tausend'),
   ],
 );
 
@@ -309,15 +334,22 @@ final QuizContent esDeHablarSupervivencia = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "Frases de supervivencia", plus a few extras.
     CourseItem(prompt: 'No entiendo', answer: 'Ich verstehe nicht'),
     CourseItem(prompt: '¿Habla inglés?', answer: 'Sprechen Sie Englisch?'),
     CourseItem(prompt: 'No hablo alemán', answer: 'Ich spreche kein Deutsch'),
     CourseItem(prompt: '¿Dónde está el baño?', answer: 'Wo ist die Toilette?'),
     CourseItem(prompt: '¿Puede ayudarme?', answer: 'Können Sie mir helfen?'),
+    CourseItem(prompt: '¿Cuánto cuesta?', answer: 'Was kostet das?'),
     CourseItem(prompt: 'Más despacio, por favor', answer: 'Langsamer, bitte'),
+    CourseItem(prompt: '¿Cómo se dice…?', answer: 'Wie sagt man …?'),
     CourseItem(prompt: 'No sé', answer: 'Ich weiß nicht'),
     CourseItem(prompt: 'Estoy perdido', answer: 'Ich habe mich verlaufen'),
     CourseItem(prompt: '¿Tiene wifi?', answer: 'Haben Sie WLAN?'),
+    CourseItem(prompt: 'Una pregunta, por favor', answer: 'Eine Frage, bitte'),
+    // Extras.
+    CourseItem(prompt: '¿Puede repetir?', answer: 'Können Sie das wiederholen?'),
+    CourseItem(prompt: '¿Me lo puede escribir?', answer: 'Können Sie das aufschreiben?'),
   ],
 );
 

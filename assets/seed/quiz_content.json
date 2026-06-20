@@ -9326,6 +9326,211 @@
           "categories": [
             "shopping"
           ]
+        },
+        {
+          "key": "Speisekarte",
+          "display": "Speisekarte",
+          "english": "menu",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "food"
+          ]
+        },
+        {
+          "key": "Frühstück",
+          "display": "Frühstück",
+          "english": "breakfast",
+          "gender": "n",
+          "difficulty": "beginner",
+          "categories": [
+            "food"
+          ]
+        },
+        {
+          "key": "Krankenwagen",
+          "display": "Krankenwagen",
+          "english": "ambulance",
+          "gender": "m",
+          "difficulty": "intermediate",
+          "categories": [
+            "transport",
+            "health"
+          ]
+        },
+        {
+          "key": "Polizei",
+          "display": "Polizei",
+          "english": "police",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "city"
+          ]
+        },
+        {
+          "key": "Gleis",
+          "display": "Gleis",
+          "english": "platform/track",
+          "gender": "n",
+          "difficulty": "beginner",
+          "categories": [
+            "transport"
+          ]
+        },
+        {
+          "key": "Heizung",
+          "display": "Heizung",
+          "english": "heating",
+          "gender": "f",
+          "difficulty": "intermediate",
+          "categories": [
+            "furniture",
+            "technology"
+          ]
+        },
+        {
+          "key": "Tüte",
+          "display": "Tüte",
+          "english": "bag",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "shopping"
+          ]
+        },
+        {
+          "key": "Größe",
+          "display": "Größe",
+          "english": "size",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "shopping",
+            "abstract"
+          ]
+        },
+        {
+          "key": "Notfall",
+          "display": "Notfall",
+          "english": "emergency",
+          "gender": "m",
+          "difficulty": "intermediate",
+          "categories": [
+            "health",
+            "abstract"
+          ]
+        },
+        {
+          "key": "Hilfe",
+          "display": "Hilfe",
+          "english": "help",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "abstract"
+          ]
+        },
+        {
+          "key": "Reservierung",
+          "display": "Reservierung",
+          "english": "reservation",
+          "gender": "f",
+          "difficulty": "intermediate",
+          "categories": [
+            "city",
+            "abstract"
+          ]
+        },
+        {
+          "key": "Einzelzimmer",
+          "display": "Einzelzimmer",
+          "english": "single room",
+          "gender": "n",
+          "difficulty": "intermediate",
+          "categories": [
+            "city"
+          ]
+        },
+        {
+          "key": "Doppelzimmer",
+          "display": "Doppelzimmer",
+          "english": "double room",
+          "gender": "n",
+          "difficulty": "intermediate",
+          "categories": [
+            "city"
+          ]
+        },
+        {
+          "key": "Geburtstag",
+          "display": "Geburtstag",
+          "english": "birthday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Dienstag",
+          "display": "Dienstag",
+          "english": "Tuesday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Mittwoch",
+          "display": "Mittwoch",
+          "english": "Wednesday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Donnerstag",
+          "display": "Donnerstag",
+          "english": "Thursday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Freitag",
+          "display": "Freitag",
+          "english": "Friday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Samstag",
+          "display": "Samstag",
+          "english": "Saturday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Sonntag",
+          "display": "Sonntag",
+          "english": "Sunday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
         }
       ],
       "categories": [
@@ -10022,6 +10227,26 @@
             "die",
             "das",
             "das",
+            "der",
+            "die",
+            "das",
+            "der",
+            "die",
+            "das",
+            "die",
+            "die",
+            "die",
+            "der",
+            "die",
+            "die",
+            "das",
+            "das",
+            "der",
+            "der",
+            "der",
+            "der",
+            "der",
+            "der",
             "der"
           ]
         },
@@ -10718,6 +10943,26 @@
             "die",
             "das",
             "das",
+            "den",
+            "die",
+            "das",
+            "den",
+            "die",
+            "das",
+            "die",
+            "die",
+            "die",
+            "den",
+            "die",
+            "die",
+            "das",
+            "das",
+            "den",
+            "den",
+            "den",
+            "den",
+            "den",
+            "den",
             "den"
           ]
         },
@@ -11412,6 +11657,26 @@
             "dem",
             "dem",
             "der",
+            "dem",
+            "dem",
+            "dem",
+            "der",
+            "dem",
+            "dem",
+            "der",
+            "dem",
+            "der",
+            "der",
+            "der",
+            "dem",
+            "der",
+            "der",
+            "dem",
+            "dem",
+            "dem",
+            "dem",
+            "dem",
+            "dem",
             "dem",
             "dem",
             "dem"
@@ -18670,6 +18935,211 @@
           "categories": [
             "shopping"
           ]
+        },
+        {
+          "key": "Speisekarte",
+          "display": "Speisekarte",
+          "english": "menu",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "food"
+          ]
+        },
+        {
+          "key": "Frühstück",
+          "display": "Frühstück",
+          "english": "breakfast",
+          "gender": "n",
+          "difficulty": "beginner",
+          "categories": [
+            "food"
+          ]
+        },
+        {
+          "key": "Krankenwagen",
+          "display": "Krankenwagen",
+          "english": "ambulance",
+          "gender": "m",
+          "difficulty": "intermediate",
+          "categories": [
+            "transport",
+            "health"
+          ]
+        },
+        {
+          "key": "Polizei",
+          "display": "Polizei",
+          "english": "police",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "city"
+          ]
+        },
+        {
+          "key": "Gleis",
+          "display": "Gleis",
+          "english": "platform/track",
+          "gender": "n",
+          "difficulty": "beginner",
+          "categories": [
+            "transport"
+          ]
+        },
+        {
+          "key": "Heizung",
+          "display": "Heizung",
+          "english": "heating",
+          "gender": "f",
+          "difficulty": "intermediate",
+          "categories": [
+            "furniture",
+            "technology"
+          ]
+        },
+        {
+          "key": "Tüte",
+          "display": "Tüte",
+          "english": "bag",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "shopping"
+          ]
+        },
+        {
+          "key": "Größe",
+          "display": "Größe",
+          "english": "size",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "shopping",
+            "abstract"
+          ]
+        },
+        {
+          "key": "Notfall",
+          "display": "Notfall",
+          "english": "emergency",
+          "gender": "m",
+          "difficulty": "intermediate",
+          "categories": [
+            "health",
+            "abstract"
+          ]
+        },
+        {
+          "key": "Hilfe",
+          "display": "Hilfe",
+          "english": "help",
+          "gender": "f",
+          "difficulty": "beginner",
+          "categories": [
+            "abstract"
+          ]
+        },
+        {
+          "key": "Reservierung",
+          "display": "Reservierung",
+          "english": "reservation",
+          "gender": "f",
+          "difficulty": "intermediate",
+          "categories": [
+            "city",
+            "abstract"
+          ]
+        },
+        {
+          "key": "Einzelzimmer",
+          "display": "Einzelzimmer",
+          "english": "single room",
+          "gender": "n",
+          "difficulty": "intermediate",
+          "categories": [
+            "city"
+          ]
+        },
+        {
+          "key": "Doppelzimmer",
+          "display": "Doppelzimmer",
+          "english": "double room",
+          "gender": "n",
+          "difficulty": "intermediate",
+          "categories": [
+            "city"
+          ]
+        },
+        {
+          "key": "Geburtstag",
+          "display": "Geburtstag",
+          "english": "birthday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Dienstag",
+          "display": "Dienstag",
+          "english": "Tuesday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Mittwoch",
+          "display": "Mittwoch",
+          "english": "Wednesday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Donnerstag",
+          "display": "Donnerstag",
+          "english": "Thursday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Freitag",
+          "display": "Freitag",
+          "english": "Friday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Samstag",
+          "display": "Samstag",
+          "english": "Saturday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
+        },
+        {
+          "key": "Sonntag",
+          "display": "Sonntag",
+          "english": "Sunday",
+          "gender": "m",
+          "difficulty": "beginner",
+          "categories": [
+            "time"
+          ]
         }
       ],
       "categories": [
@@ -19383,6 +19853,26 @@
             "die",
             "das",
             "das",
+            "der",
+            "die",
+            "das",
+            "der",
+            "die",
+            "das",
+            "die",
+            "die",
+            "die",
+            "der",
+            "die",
+            "die",
+            "das",
+            "das",
+            "der",
+            "der",
+            "der",
+            "der",
+            "der",
+            "der",
             "der"
           ]
         }
@@ -23080,7 +23570,27 @@
             "—",
             "—",
             "—",
-            "—"
+            "—",
+            "Speisekarten",
+            "Frühstücke",
+            "Krankenwagen",
+            "—",
+            "Gleise",
+            "Heizungen",
+            "Tüten",
+            "Größen",
+            "Notfälle",
+            "—",
+            "Reservierungen",
+            "Einzelzimmer",
+            "Doppelzimmer",
+            "Geburtstage",
+            "Dienstage",
+            "Mittwoche",
+            "Donnerstage",
+            "Freitage",
+            "Samstage",
+            "Sonntage"
           ]
         }
       ]
@@ -30283,6 +30793,126 @@
       ]
     },
     {
+      "id": "es_de_hablar_saludos",
+      "title": "Hablar: saludos",
+      "storageKeyPrefix": "es_de_hablar_saludos_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hallo",
+          "english": "Hola"
+        },
+        {
+          "key": "s1",
+          "display": "Guten Morgen",
+          "english": "Buenos días"
+        },
+        {
+          "key": "s2",
+          "display": "Guten Tag",
+          "english": "Buenas tardes"
+        },
+        {
+          "key": "s3",
+          "display": "Gute Nacht",
+          "english": "Buenas noches (despedida)"
+        },
+        {
+          "key": "s4",
+          "display": "Auf Wiedersehen",
+          "english": "Adiós"
+        },
+        {
+          "key": "s5",
+          "display": "Bis später",
+          "english": "Hasta luego"
+        },
+        {
+          "key": "s6",
+          "display": "Bitte",
+          "english": "Por favor"
+        },
+        {
+          "key": "s7",
+          "display": "Danke",
+          "english": "Gracias"
+        },
+        {
+          "key": "s8",
+          "display": "Danke schön",
+          "english": "Muchas gracias"
+        },
+        {
+          "key": "s9",
+          "display": "Gern geschehen",
+          "english": "De nada"
+        },
+        {
+          "key": "s10",
+          "display": "Entschuldigung",
+          "english": "Perdón / Disculpe"
+        },
+        {
+          "key": "s11",
+          "display": "Ja",
+          "english": "Sí"
+        },
+        {
+          "key": "s12",
+          "display": "Nein",
+          "english": "No"
+        },
+        {
+          "key": "s13",
+          "display": "Wie geht es Ihnen?",
+          "english": "¿Cómo está usted?"
+        },
+        {
+          "key": "s14",
+          "display": "Ich heiße …",
+          "english": "Me llamo…"
+        },
+        {
+          "key": "s15",
+          "display": "Freut mich",
+          "english": "Mucho gusto"
+        },
+        {
+          "key": "s16",
+          "display": "Guten Abend",
+          "english": "Buenas noches (saludo)"
+        },
+        {
+          "key": "s17",
+          "display": "Bis morgen",
+          "english": "Hasta mañana"
+        },
+        {
+          "key": "s18",
+          "display": "Wie geht's?",
+          "english": "¿Qué tal?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Di en voz alta los saludos y las fórmulas de cortesía. Son lo primero que usarás al llegar, así que conviene que te salgan solas.",
+      "helpMemoryTips": [
+        {
+          "title": "Suena educado",
+          "text": "Un \"Hallo\" o \"Danke\" con una sonrisa abre puertas. Alarga un poco el saludo: \"Guten Taag\"."
+        },
+        {
+          "kind": "example",
+          "title": "La \"sch\" y la \"ü\"",
+          "text": "\"Tschüss\" empieza con \"ch\" fuerte (\"chüss\") y \"schön\" lleva \"ö\". Repite \"Danke schön\" hasta que fluya."
+        }
+      ]
+    },
+    {
       "id": "es_de_numeros",
       "title": "Números y precios",
       "storageKeyPrefix": "es_de_numeros_",
@@ -30415,6 +31045,146 @@
         {
           "title": "Preguntar el precio",
           "text": "\"¿Cuánto cuesta?\" = \"Was kostet das?\" — muy útil en tiendas y mercados."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_numeros",
+      "title": "Hablar: números",
+      "storageKeyPrefix": "es_de_hablar_numeros_",
+      "promptLabel": "Número",
+      "subjectsLabel": "Números",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "null",
+          "english": "0"
+        },
+        {
+          "key": "s1",
+          "display": "eins",
+          "english": "1"
+        },
+        {
+          "key": "s2",
+          "display": "zwei",
+          "english": "2"
+        },
+        {
+          "key": "s3",
+          "display": "drei",
+          "english": "3"
+        },
+        {
+          "key": "s4",
+          "display": "vier",
+          "english": "4"
+        },
+        {
+          "key": "s5",
+          "display": "fünf",
+          "english": "5"
+        },
+        {
+          "key": "s6",
+          "display": "sechs",
+          "english": "6"
+        },
+        {
+          "key": "s7",
+          "display": "sieben",
+          "english": "7"
+        },
+        {
+          "key": "s8",
+          "display": "acht",
+          "english": "8"
+        },
+        {
+          "key": "s9",
+          "display": "neun",
+          "english": "9"
+        },
+        {
+          "key": "s10",
+          "display": "zehn",
+          "english": "10"
+        },
+        {
+          "key": "s11",
+          "display": "elf",
+          "english": "11"
+        },
+        {
+          "key": "s12",
+          "display": "zwölf",
+          "english": "12"
+        },
+        {
+          "key": "s13",
+          "display": "dreizehn",
+          "english": "13"
+        },
+        {
+          "key": "s14",
+          "display": "sechzehn",
+          "english": "16"
+        },
+        {
+          "key": "s15",
+          "display": "zwanzig",
+          "english": "20"
+        },
+        {
+          "key": "s16",
+          "display": "einundzwanzig",
+          "english": "21"
+        },
+        {
+          "key": "s17",
+          "display": "dreißig",
+          "english": "30"
+        },
+        {
+          "key": "s18",
+          "display": "fünfzig",
+          "english": "50"
+        },
+        {
+          "key": "s19",
+          "display": "hundert",
+          "english": "100"
+        },
+        {
+          "key": "s20",
+          "display": "drei Euro fünfzig",
+          "english": "3,50 € (precio)"
+        },
+        {
+          "key": "s21",
+          "display": "vierzig",
+          "english": "40"
+        },
+        {
+          "key": "s22",
+          "display": "tausend",
+          "english": "1000"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Escucha y repite los números. Saber decirlos te ayuda con precios, andenes y números de habitación.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "La \"z\" y la \"ei\"",
+          "text": "\"zwei\" suena \"tsvái\" y \"zwanzig\" \"tsván-tsij\". La \"z\" alemana es siempre \"ts\"."
+        },
+        {
+          "title": "Precios con coma",
+          "text": "\"3,50 €\" se dice \"drei Euro fünfzig\": primero los euros, luego los céntimos."
         }
       ]
     },
@@ -30617,6 +31387,101 @@
           "kind": "example",
           "title": "WLAN = wifi",
           "text": "En Alemania el wifi se llama \"WLAN\" (se dice \"ve-lan\"). El baño es \"die Toilette\" o \"das WC\"."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_supervivencia",
+      "title": "Hablar: supervivencia",
+      "storageKeyPrefix": "es_de_hablar_supervivencia_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Ich verstehe nicht",
+          "english": "No entiendo"
+        },
+        {
+          "key": "s1",
+          "display": "Sprechen Sie Englisch?",
+          "english": "¿Habla inglés?"
+        },
+        {
+          "key": "s2",
+          "display": "Ich spreche kein Deutsch",
+          "english": "No hablo alemán"
+        },
+        {
+          "key": "s3",
+          "display": "Wo ist die Toilette?",
+          "english": "¿Dónde está el baño?"
+        },
+        {
+          "key": "s4",
+          "display": "Können Sie mir helfen?",
+          "english": "¿Puede ayudarme?"
+        },
+        {
+          "key": "s5",
+          "display": "Was kostet das?",
+          "english": "¿Cuánto cuesta?"
+        },
+        {
+          "key": "s6",
+          "display": "Langsamer, bitte",
+          "english": "Más despacio, por favor"
+        },
+        {
+          "key": "s7",
+          "display": "Wie sagt man …?",
+          "english": "¿Cómo se dice…?"
+        },
+        {
+          "key": "s8",
+          "display": "Ich weiß nicht",
+          "english": "No sé"
+        },
+        {
+          "key": "s9",
+          "display": "Ich habe mich verlaufen",
+          "english": "Estoy perdido"
+        },
+        {
+          "key": "s10",
+          "display": "Haben Sie WLAN?",
+          "english": "¿Tiene wifi?"
+        },
+        {
+          "key": "s11",
+          "display": "Eine Frage, bitte",
+          "english": "Una pregunta, por favor"
+        },
+        {
+          "key": "s12",
+          "display": "Können Sie das wiederholen?",
+          "english": "¿Puede repetir?"
+        },
+        {
+          "key": "s13",
+          "display": "Können Sie das aufschreiben?",
+          "english": "¿Me lo puede escribir?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Repite las frases que te sacan de un apuro: pedir ayuda, decir que no entiendes o pedir que te hablen más despacio.",
+      "helpMemoryTips": [
+        {
+          "title": "Vocaliza",
+          "text": "\"Langsamer, bitte\" (más despacio) pierde sentido si la dices rápido. Pronuncia cada sílaba con calma."
+        },
+        {
+          "kind": "example",
+          "title": "La \"v\" y la \"w\"",
+          "text": "\"verstehe\" suena con \"f\" (\"fer-shtée-e\") y \"WLAN\" se dice \"ve-lan\". Practica \"Ich verstehe nicht\"."
         }
       ]
     },
@@ -30905,6 +31770,101 @@
       ]
     },
     {
+      "id": "es_de_hablar_restaurante",
+      "title": "Hablar: restaurante",
+      "storageKeyPrefix": "es_de_hablar_restaurante_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Die Speisekarte, bitte",
+          "english": "La carta, por favor"
+        },
+        {
+          "key": "s1",
+          "display": "Einen Tisch für zwei",
+          "english": "Una mesa para dos"
+        },
+        {
+          "key": "s2",
+          "display": "Ich hätte gern …",
+          "english": "Quisiera…"
+        },
+        {
+          "key": "s3",
+          "display": "Einen Kaffee, bitte",
+          "english": "Un café, por favor"
+        },
+        {
+          "key": "s4",
+          "display": "Ein Bier",
+          "english": "Una cerveza"
+        },
+        {
+          "key": "s5",
+          "display": "Stilles Wasser",
+          "english": "Agua sin gas"
+        },
+        {
+          "key": "s6",
+          "display": "Wasser mit Kohlensäure",
+          "english": "Agua con gas"
+        },
+        {
+          "key": "s7",
+          "display": "Die Rechnung, bitte",
+          "english": "La cuenta, por favor"
+        },
+        {
+          "key": "s8",
+          "display": "Ich bin Vegetarier",
+          "english": "Soy vegetariano"
+        },
+        {
+          "key": "s9",
+          "display": "Es war lecker",
+          "english": "Estaba delicioso"
+        },
+        {
+          "key": "s10",
+          "display": "Zum Mitnehmen",
+          "english": "Para llevar"
+        },
+        {
+          "key": "s11",
+          "display": "Prost!",
+          "english": "¡Salud! (brindis)"
+        },
+        {
+          "key": "s12",
+          "display": "Was empfehlen Sie?",
+          "english": "¿Qué recomienda?"
+        },
+        {
+          "key": "s13",
+          "display": "Getrennt, bitte",
+          "english": "Separado, por favor"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Pide mesa, comida, bebida y la cuenta en voz alta. Practica hasta que puedas pedir sin pensarlo.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "La \"ei\" de \"Ein Bier\"",
+          "text": "\"ein\" se dice \"áin\" y \"Bier\" como \"bíia\". Repite \"Ein Bier, bitte\" con ritmo."
+        },
+        {
+          "title": "Al pagar",
+          "text": "\"Die Rechnung, bitte\" (la cuenta). Di \"Prost!\" al brindar, con la \"o\" bien abierta."
+        }
+      ]
+    },
+    {
       "id": "es_de_direcciones",
       "title": "Direcciones y transporte",
       "storageKeyPrefix": "es_de_direcciones_",
@@ -31090,6 +32050,96 @@
           "kind": "example",
           "title": "Transporte",
           "text": "U-Bahn = metro, S-Bahn = tren suburbano, Straßenbahn = tranvía, Bahnhof = estación, Gleis = andén."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_direcciones",
+      "title": "Hablar: direcciones",
+      "storageKeyPrefix": "es_de_hablar_direcciones_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Wo ist der Bahnhof?",
+          "english": "¿Dónde está la estación?"
+        },
+        {
+          "key": "s1",
+          "display": "links",
+          "english": "A la izquierda"
+        },
+        {
+          "key": "s2",
+          "display": "rechts",
+          "english": "A la derecha"
+        },
+        {
+          "key": "s3",
+          "display": "geradeaus",
+          "english": "Todo recto"
+        },
+        {
+          "key": "s4",
+          "display": "Ist es weit?",
+          "english": "¿Está lejos?"
+        },
+        {
+          "key": "s5",
+          "display": "Eine Fahrkarte nach …, bitte",
+          "english": "Un boleto a…, por favor"
+        },
+        {
+          "key": "s6",
+          "display": "Wo kann ich eine Fahrkarte kaufen?",
+          "english": "¿Dónde compro un boleto?"
+        },
+        {
+          "key": "s7",
+          "display": "Wann fährt der Zug?",
+          "english": "¿Cuándo sale el tren?"
+        },
+        {
+          "key": "s8",
+          "display": "Welches Gleis?",
+          "english": "¿Qué andén?"
+        },
+        {
+          "key": "s9",
+          "display": "Ich möchte nach … fahren",
+          "english": "Quiero ir a…"
+        },
+        {
+          "key": "s10",
+          "display": "Hält er hier?",
+          "english": "¿Para aquí?"
+        },
+        {
+          "key": "s11",
+          "display": "Ist es in der Nähe?",
+          "english": "¿Está cerca?"
+        },
+        {
+          "key": "s12",
+          "display": "Ein Taxi, bitte",
+          "english": "Un taxi, por favor"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Pregunta el camino y compra boletos en voz alta. Son frases que dirás de pie y con prisa, así que conviene tenerlas listas.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "La \"ch\" de \"rechts\"",
+          "text": "\"rechts\" lleva \"ch\" áspera (\"réjts\") y \"Bahnhof\" una \"a\" larga (\"báanhof\")."
+        },
+        {
+          "title": "Pregunta corta",
+          "text": "\"Wo ist…?\" (¿dónde está…?) te sirve para todo: estación, andén, parada. Dilo claro."
         }
       ]
     },
@@ -31284,6 +32334,96 @@
           "kind": "example",
           "title": "Pfand (depósito)",
           "text": "Por muchas botellas y latas pagas un depósito (\"Pfand\") que recuperas al devolverlas en el supermercado. Trae tu propia bolsa."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_compras",
+      "title": "Hablar: compras",
+      "storageKeyPrefix": "es_de_hablar_compras_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Was kostet das?",
+          "english": "¿Cuánto cuesta?"
+        },
+        {
+          "key": "s1",
+          "display": "Haben Sie …?",
+          "english": "¿Tienen…?"
+        },
+        {
+          "key": "s2",
+          "display": "Ich schaue nur",
+          "english": "Solo estoy mirando"
+        },
+        {
+          "key": "s3",
+          "display": "Kann ich mit Karte zahlen?",
+          "english": "¿Puedo pagar con tarjeta?"
+        },
+        {
+          "key": "s4",
+          "display": "in bar",
+          "english": "En efectivo"
+        },
+        {
+          "key": "s5",
+          "display": "Welche Größe?",
+          "english": "¿Qué talla?"
+        },
+        {
+          "key": "s6",
+          "display": "Das ist zu teuer",
+          "english": "Es demasiado caro"
+        },
+        {
+          "key": "s7",
+          "display": "Ich nehme es",
+          "english": "Me lo llevo"
+        },
+        {
+          "key": "s8",
+          "display": "Eine Tüte, bitte",
+          "english": "Una bolsa, por favor"
+        },
+        {
+          "key": "s9",
+          "display": "Wo ist die Kasse?",
+          "english": "¿Dónde está la caja?"
+        },
+        {
+          "key": "s10",
+          "display": "Ist es geöffnet?",
+          "english": "¿Está abierto?"
+        },
+        {
+          "key": "s11",
+          "display": "Kann ich es anprobieren?",
+          "english": "¿Puedo probármelo?"
+        },
+        {
+          "key": "s12",
+          "display": "Ist das im Angebot?",
+          "english": "¿Está en oferta?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Pregunta precios, paga y pide una bolsa en voz alta. Practica para no trabarte en la caja.",
+      "helpMemoryTips": [
+        {
+          "title": "La pregunta clave",
+          "text": "\"Was kostet das?\" (¿cuánto cuesta?) es la que más usarás. Que salga redonda."
+        },
+        {
+          "kind": "example",
+          "title": "La \"ü\" de \"Tüte\"",
+          "text": "La \"ü\" se dice con los labios redondeados, entre \"u\" e \"i\". Practica \"Eine Tüte, bitte\"."
         }
       ]
     },
@@ -31551,6 +32691,96 @@
       ]
     },
     {
+      "id": "es_de_hablar_alojamiento",
+      "title": "Hablar: alojamiento",
+      "storageKeyPrefix": "es_de_hablar_alojamiento_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Ich habe eine Reservierung",
+          "english": "Tengo una reserva"
+        },
+        {
+          "key": "s1",
+          "display": "Ich möchte einchecken",
+          "english": "Quisiera hacer el check-in"
+        },
+        {
+          "key": "s2",
+          "display": "Ein Einzelzimmer",
+          "english": "Una habitación individual"
+        },
+        {
+          "key": "s3",
+          "display": "Ein Doppelzimmer",
+          "english": "Una habitación doble"
+        },
+        {
+          "key": "s4",
+          "display": "Für drei Nächte",
+          "english": "Para tres noches"
+        },
+        {
+          "key": "s5",
+          "display": "Ist das Frühstück inklusive?",
+          "english": "¿Está incluido el desayuno?"
+        },
+        {
+          "key": "s6",
+          "display": "Wann muss ich auschecken?",
+          "english": "¿A qué hora es la salida?"
+        },
+        {
+          "key": "s7",
+          "display": "Den Schlüssel, bitte",
+          "english": "La llave, por favor"
+        },
+        {
+          "key": "s8",
+          "display": "Die Heizung funktioniert nicht",
+          "english": "No funciona la calefacción"
+        },
+        {
+          "key": "s9",
+          "display": "Wo ist der Aufzug?",
+          "english": "¿Dónde está el ascensor?"
+        },
+        {
+          "key": "s10",
+          "display": "Haben Sie WLAN?",
+          "english": "¿Tienen wifi?"
+        },
+        {
+          "key": "s11",
+          "display": "Gibt es einen Safe?",
+          "english": "¿Hay caja fuerte?"
+        },
+        {
+          "key": "s12",
+          "display": "Wann gibt es Frühstück?",
+          "english": "¿A qué hora es el desayuno?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Haz el check-in y resuelve problemas de la habitación en voz alta. Son frases que dirás en la recepción nada más llegar.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "La \"ü\" de \"Frühstück\"",
+          "text": "\"Frühstück\" (desayuno) lleva dos \"ü\". Redondea los labios: \"frü-shtük\"."
+        },
+        {
+          "title": "Check-in",
+          "text": "\"Ich möchte einchecken\" suena \"ish möshte áin-tsheken\". Dilo con calma en la recepción."
+        }
+      ]
+    },
+    {
       "id": "es_de_emergencias",
       "title": "Emergencias y salud",
       "storageKeyPrefix": "es_de_emergencias_",
@@ -31734,6 +32964,97 @@
           "kind": "example",
           "title": "La farmacia (Apotheke)",
           "text": "Tiene una gran \"A\" roja. Las medicinas se compran allí, no en el supermercado. Los domingos hay farmacia de guardia (\"Notdienst\")."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_emergencias",
+      "title": "Hablar: emergencias",
+      "storageKeyPrefix": "es_de_hablar_emergencias_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hilfe!",
+          "english": "¡Ayuda!"
+        },
+        {
+          "key": "s1",
+          "display": "Es ist ein Notfall",
+          "english": "Es una emergencia"
+        },
+        {
+          "key": "s2",
+          "display": "Rufen Sie einen Krankenwagen",
+          "english": "Llame a una ambulancia"
+        },
+        {
+          "key": "s3",
+          "display": "Rufen Sie die Polizei",
+          "english": "Llame a la policía"
+        },
+        {
+          "key": "s4",
+          "display": "Ich brauche einen Arzt",
+          "english": "Necesito un médico"
+        },
+        {
+          "key": "s5",
+          "display": "Mir geht es schlecht",
+          "english": "Me encuentro mal"
+        },
+        {
+          "key": "s6",
+          "display": "Es tut hier weh",
+          "english": "Me duele aquí"
+        },
+        {
+          "key": "s7",
+          "display": "Wo ist die Apotheke?",
+          "english": "¿Dónde está la farmacia?"
+        },
+        {
+          "key": "s8",
+          "display": "Ich bin allergisch gegen …",
+          "english": "Soy alérgico a…"
+        },
+        {
+          "key": "s9",
+          "display": "Ich habe meinen Pass verloren",
+          "english": "He perdido mi pasaporte"
+        },
+        {
+          "key": "s10",
+          "display": "Wo ist das Krankenhaus?",
+          "english": "¿Dónde está el hospital?"
+        },
+        {
+          "key": "s11",
+          "display": "Ich brauche Hilfe",
+          "english": "Necesito ayuda"
+        },
+        {
+          "key": "s12",
+          "display": "Rufen Sie einen Arzt",
+          "english": "Llame a un médico"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Practica en voz alta las frases que pueden ser vitales. En una urgencia tienen que salir fuertes y claras, sin dudar.",
+      "helpMemoryTips": [
+        {
+          "kind": "warning",
+          "title": "Fuerte y claro",
+          "text": "\"Hilfe!\" (¡ayuda!) y \"Notfall\" (emergencia) deben oírse nítidos. Repítelos hasta que suenen seguros."
+        },
+        {
+          "kind": "example",
+          "title": "La \"z\" de \"Arzt\"",
+          "text": "\"Arzt\" (médico) suena \"artst\", con la \"z\" como \"ts\". Practica \"Ich brauche einen Arzt\"."
         }
       ]
     },
@@ -31925,6 +33246,101 @@
       ]
     },
     {
+      "id": "es_de_hablar_fechas",
+      "title": "Hablar: días y horas",
+      "storageKeyPrefix": "es_de_hablar_fechas_",
+      "promptLabel": "Palabra",
+      "subjectsLabel": "Palabras",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "heute",
+          "english": "Hoy"
+        },
+        {
+          "key": "s1",
+          "display": "morgen",
+          "english": "Mañana (el día siguiente)"
+        },
+        {
+          "key": "s2",
+          "display": "gestern",
+          "english": "Ayer"
+        },
+        {
+          "key": "s3",
+          "display": "Montag",
+          "english": "Lunes"
+        },
+        {
+          "key": "s4",
+          "display": "Dienstag",
+          "english": "Martes"
+        },
+        {
+          "key": "s5",
+          "display": "Mittwoch",
+          "english": "Miércoles"
+        },
+        {
+          "key": "s6",
+          "display": "Donnerstag",
+          "english": "Jueves"
+        },
+        {
+          "key": "s7",
+          "display": "Freitag",
+          "english": "Viernes"
+        },
+        {
+          "key": "s8",
+          "display": "Samstag",
+          "english": "Sábado"
+        },
+        {
+          "key": "s9",
+          "display": "Sonntag",
+          "english": "Domingo"
+        },
+        {
+          "key": "s10",
+          "display": "Wie spät ist es?",
+          "english": "¿Qué hora es?"
+        },
+        {
+          "key": "s11",
+          "display": "Um wie viel Uhr?",
+          "english": "¿A qué hora?"
+        },
+        {
+          "key": "s12",
+          "display": "um drei",
+          "english": "A las tres"
+        },
+        {
+          "key": "s13",
+          "display": "Wann öffnet es?",
+          "english": "¿Cuándo abre?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Di en voz alta los días y las horas. Te sirven para reservas, horarios y quedar con alguien.",
+      "helpMemoryTips": [
+        {
+          "title": "Los días en \"-tag\"",
+          "text": "Casi todos los días terminan en \"-tag\" (\"taag\"), con \"a\" larga: Montag, Freitag, Samstag."
+        },
+        {
+          "kind": "example",
+          "title": "La hora",
+          "text": "\"Wie spät ist es?\" (¿qué hora es?) suena \"vii shpeet ist es\". La \"sp\" se dice \"shp\"."
+        }
+      ]
+    },
+    {
       "id": "es_de_cultura",
       "title": "Charla y cultura",
       "storageKeyPrefix": "es_de_cultura_",
@@ -32102,6 +33518,91 @@
           "text": "Separar la basura es serio: vidrio, papel, envases (Gelber Sack) y el depósito de botellas (Pfand)."
         }
       ]
+    },
+    {
+      "id": "es_de_hablar_charla",
+      "title": "Hablar: charla",
+      "storageKeyPrefix": "es_de_hablar_charla_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Woher kommst du?",
+          "english": "¿De dónde eres?"
+        },
+        {
+          "key": "s1",
+          "display": "Ich komme aus …",
+          "english": "Soy de…"
+        },
+        {
+          "key": "s2",
+          "display": "Sprichst du Spanisch?",
+          "english": "¿Hablas español?"
+        },
+        {
+          "key": "s3",
+          "display": "Sehr erfreut",
+          "english": "Encantado"
+        },
+        {
+          "key": "s4",
+          "display": "Guten Appetit!",
+          "english": "¡Buen provecho!"
+        },
+        {
+          "key": "s5",
+          "display": "Alles Gute zum Geburtstag",
+          "english": "¡Feliz cumpleaños!"
+        },
+        {
+          "key": "s6",
+          "display": "Viel Glück!",
+          "english": "¡Buena suerte!"
+        },
+        {
+          "key": "s7",
+          "display": "Gute Besserung!",
+          "english": "¡Que te mejores!"
+        },
+        {
+          "key": "s8",
+          "display": "Es tut mir leid",
+          "english": "Lo siento"
+        },
+        {
+          "key": "s9",
+          "display": "Kein Problem",
+          "english": "No hay problema"
+        },
+        {
+          "key": "s10",
+          "display": "Wie heißt du?",
+          "english": "¿Cómo te llamas?"
+        },
+        {
+          "key": "s11",
+          "display": "Danke für alles",
+          "english": "Gracias por todo"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Rompe el hielo en voz alta: de dónde eres, buenos deseos y fórmulas de cortesía para el día a día.",
+      "helpMemoryTips": [
+        {
+          "title": "Buenos deseos",
+          "text": "\"Viel Glück!\" (¡buena suerte!) y \"Gute Besserung!\" (¡que te mejores!) caen muy bien. Dilos con energía."
+        },
+        {
+          "kind": "example",
+          "title": "La \"w\" de \"Woher\"",
+          "text": "\"Woher kommst du?\" (¿de dónde eres?) suena \"vo-héer\". La \"w\" alemana se dice como \"v\"."
+        }
+      ]
     }
   ],
   "courses": [
@@ -32186,10 +33687,19 @@
                 "ref": "es_de_saludos"
               },
               {
+                "ref": "es_de_hablar_saludos"
+              },
+              {
                 "ref": "es_de_numeros"
               },
               {
+                "ref": "es_de_hablar_numeros"
+              },
+              {
                 "ref": "es_de_supervivencia"
+              },
+              {
+                "ref": "es_de_hablar_supervivencia"
               }
             ]
           },
@@ -32205,10 +33715,19 @@
                 "ref": "es_de_restaurante"
               },
               {
+                "ref": "es_de_hablar_restaurante"
+              },
+              {
                 "ref": "es_de_direcciones"
               },
               {
+                "ref": "es_de_hablar_direcciones"
+              },
+              {
                 "ref": "es_de_compras"
+              },
+              {
+                "ref": "es_de_hablar_compras"
               }
             ]
           },
@@ -32224,13 +33743,25 @@
                 "ref": "es_de_alojamiento"
               },
               {
+                "ref": "es_de_hablar_alojamiento"
+              },
+              {
                 "ref": "es_de_emergencias"
+              },
+              {
+                "ref": "es_de_hablar_emergencias"
               },
               {
                 "ref": "es_de_fechas"
               },
               {
+                "ref": "es_de_hablar_fechas"
+              },
+              {
                 "ref": "es_de_cultura"
+              },
+              {
+                "ref": "es_de_hablar_charla"
               }
             ]
           },

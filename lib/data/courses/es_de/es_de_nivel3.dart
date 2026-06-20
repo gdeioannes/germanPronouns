@@ -264,6 +264,7 @@ final QuizContent esDeHablarAlojamiento = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "Alojamiento", plus a few extras.
     CourseItem(prompt: 'Tengo una reserva', answer: 'Ich habe eine Reservierung'),
     CourseItem(prompt: 'Quisiera hacer el check-in', answer: 'Ich möchte einchecken'),
     CourseItem(prompt: 'Una habitación individual', answer: 'Ein Einzelzimmer'),
@@ -273,9 +274,20 @@ final QuizContent esDeHablarAlojamiento = speakRepeatQuiz(
       prompt: '¿Está incluido el desayuno?',
       answer: 'Ist das Frühstück inklusive?',
     ),
+    CourseItem(
+      prompt: '¿A qué hora es la salida?',
+      answer: 'Wann muss ich auschecken?',
+    ),
     CourseItem(prompt: 'La llave, por favor', answer: 'Den Schlüssel, bitte'),
+    CourseItem(
+      prompt: 'No funciona la calefacción',
+      answer: 'Die Heizung funktioniert nicht',
+    ),
     CourseItem(prompt: '¿Dónde está el ascensor?', answer: 'Wo ist der Aufzug?'),
     CourseItem(prompt: '¿Tienen wifi?', answer: 'Haben Sie WLAN?'),
+    // Extras.
+    CourseItem(prompt: '¿Hay caja fuerte?', answer: 'Gibt es einen Safe?'),
+    CourseItem(prompt: '¿A qué hora es el desayuno?', answer: 'Wann gibt es Frühstück?'),
   ],
 );
 
@@ -304,15 +316,21 @@ final QuizContent esDeHablarEmergencias = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "Emergencias y salud", plus a few extras.
     CourseItem(prompt: '¡Ayuda!', answer: 'Hilfe!'),
     CourseItem(prompt: 'Es una emergencia', answer: 'Es ist ein Notfall'),
     CourseItem(prompt: 'Llame a una ambulancia', answer: 'Rufen Sie einen Krankenwagen'),
+    CourseItem(prompt: 'Llame a la policía', answer: 'Rufen Sie die Polizei'),
     CourseItem(prompt: 'Necesito un médico', answer: 'Ich brauche einen Arzt'),
     CourseItem(prompt: 'Me encuentro mal', answer: 'Mir geht es schlecht'),
     CourseItem(prompt: 'Me duele aquí', answer: 'Es tut hier weh'),
     CourseItem(prompt: '¿Dónde está la farmacia?', answer: 'Wo ist die Apotheke?'),
+    CourseItem(prompt: 'Soy alérgico a…', answer: 'Ich bin allergisch gegen …'),
     CourseItem(prompt: 'He perdido mi pasaporte', answer: 'Ich habe meinen Pass verloren'),
     CourseItem(prompt: '¿Dónde está el hospital?', answer: 'Wo ist das Krankenhaus?'),
+    // Extras.
+    CourseItem(prompt: 'Necesito ayuda', answer: 'Ich brauche Hilfe'),
+    CourseItem(prompt: 'Llame a un médico', answer: 'Rufen Sie einen Arzt'),
   ],
 );
 
@@ -341,9 +359,14 @@ final QuizContent esDeHablarFechas = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every word from "Días, horas y citas", plus the rest of the week.
     CourseItem(prompt: 'Hoy', answer: 'heute'),
     CourseItem(prompt: 'Mañana (el día siguiente)', answer: 'morgen'),
+    CourseItem(prompt: 'Ayer', answer: 'gestern'),
     CourseItem(prompt: 'Lunes', answer: 'Montag'),
+    CourseItem(prompt: 'Martes', answer: 'Dienstag'),
+    CourseItem(prompt: 'Miércoles', answer: 'Mittwoch'),
+    CourseItem(prompt: 'Jueves', answer: 'Donnerstag'),
     CourseItem(prompt: 'Viernes', answer: 'Freitag'),
     CourseItem(prompt: 'Sábado', answer: 'Samstag'),
     CourseItem(prompt: 'Domingo', answer: 'Sonntag'),
@@ -379,6 +402,7 @@ final QuizContent esDeHablarCharla = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "Charla y cultura", plus a few extras.
     CourseItem(prompt: '¿De dónde eres?', answer: 'Woher kommst du?'),
     CourseItem(prompt: 'Soy de…', answer: 'Ich komme aus …'),
     CourseItem(prompt: '¿Hablas español?', answer: 'Sprichst du Spanisch?'),
@@ -389,6 +413,9 @@ final QuizContent esDeHablarCharla = speakRepeatQuiz(
     CourseItem(prompt: '¡Que te mejores!', answer: 'Gute Besserung!'),
     CourseItem(prompt: 'Lo siento', answer: 'Es tut mir leid'),
     CourseItem(prompt: 'No hay problema', answer: 'Kein Problem'),
+    // Extras.
+    CourseItem(prompt: '¿Cómo te llamas?', answer: 'Wie heißt du?'),
+    CourseItem(prompt: 'Gracias por todo', answer: 'Danke für alles'),
   ],
 );
 

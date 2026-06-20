@@ -230,15 +230,22 @@ final QuizContent esDeHablarRestaurante = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "En el restaurante", plus a few extras.
     CourseItem(prompt: 'La carta, por favor', answer: 'Die Speisekarte, bitte'),
     CourseItem(prompt: 'Una mesa para dos', answer: 'Einen Tisch für zwei'),
     CourseItem(prompt: 'Quisiera…', answer: 'Ich hätte gern …'),
     CourseItem(prompt: 'Un café, por favor', answer: 'Einen Kaffee, bitte'),
     CourseItem(prompt: 'Una cerveza', answer: 'Ein Bier'),
+    CourseItem(prompt: 'Agua sin gas', answer: 'Stilles Wasser'),
+    CourseItem(prompt: 'Agua con gas', answer: 'Wasser mit Kohlensäure'),
     CourseItem(prompt: 'La cuenta, por favor', answer: 'Die Rechnung, bitte'),
+    CourseItem(prompt: 'Soy vegetariano', answer: 'Ich bin Vegetarier'),
     CourseItem(prompt: 'Estaba delicioso', answer: 'Es war lecker'),
     CourseItem(prompt: 'Para llevar', answer: 'Zum Mitnehmen'),
     CourseItem(prompt: '¡Salud! (brindis)', answer: 'Prost!'),
+    // Extras.
+    CourseItem(prompt: '¿Qué recomienda?', answer: 'Was empfehlen Sie?'),
+    CourseItem(prompt: 'Separado, por favor', answer: 'Getrennt, bitte'),
   ],
 );
 
@@ -267,6 +274,7 @@ final QuizContent esDeHablarDirecciones = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "Direcciones y transporte", plus a few extras.
     CourseItem(prompt: '¿Dónde está la estación?', answer: 'Wo ist der Bahnhof?'),
     CourseItem(prompt: 'A la izquierda', answer: 'links'),
     CourseItem(prompt: 'A la derecha', answer: 'rechts'),
@@ -276,8 +284,17 @@ final QuizContent esDeHablarDirecciones = speakRepeatQuiz(
       prompt: 'Un boleto a…, por favor',
       answer: 'Eine Fahrkarte nach …, bitte',
     ),
+    CourseItem(
+      prompt: '¿Dónde compro un boleto?',
+      answer: 'Wo kann ich eine Fahrkarte kaufen?',
+    ),
     CourseItem(prompt: '¿Cuándo sale el tren?', answer: 'Wann fährt der Zug?'),
+    CourseItem(prompt: '¿Qué andén?', answer: 'Welches Gleis?'),
     CourseItem(prompt: 'Quiero ir a…', answer: 'Ich möchte nach … fahren'),
+    CourseItem(prompt: '¿Para aquí?', answer: 'Hält er hier?'),
+    // Extras.
+    CourseItem(prompt: '¿Está cerca?', answer: 'Ist es in der Nähe?'),
+    CourseItem(prompt: 'Un taxi, por favor', answer: 'Ein Taxi, bitte'),
   ],
 );
 
@@ -306,6 +323,7 @@ final QuizContent esDeHablarCompras = speakRepeatQuiz(
     ),
   ],
   items: const [
+    // Covers every phrase from "Compras", plus a few extras.
     CourseItem(prompt: '¿Cuánto cuesta?', answer: 'Was kostet das?'),
     CourseItem(prompt: '¿Tienen…?', answer: 'Haben Sie …?'),
     CourseItem(prompt: 'Solo estoy mirando', answer: 'Ich schaue nur'),
@@ -314,10 +332,15 @@ final QuizContent esDeHablarCompras = speakRepeatQuiz(
       answer: 'Kann ich mit Karte zahlen?',
     ),
     CourseItem(prompt: 'En efectivo', answer: 'in bar'),
+    CourseItem(prompt: '¿Qué talla?', answer: 'Welche Größe?'),
     CourseItem(prompt: 'Es demasiado caro', answer: 'Das ist zu teuer'),
     CourseItem(prompt: 'Me lo llevo', answer: 'Ich nehme es'),
     CourseItem(prompt: 'Una bolsa, por favor', answer: 'Eine Tüte, bitte'),
     CourseItem(prompt: '¿Dónde está la caja?', answer: 'Wo ist die Kasse?'),
+    CourseItem(prompt: '¿Está abierto?', answer: 'Ist es geöffnet?'),
+    // Extras.
+    CourseItem(prompt: '¿Puedo probármelo?', answer: 'Kann ich es anprobieren?'),
+    CourseItem(prompt: '¿Está en oferta?', answer: 'Ist das im Angebot?'),
   ],
 );
 
