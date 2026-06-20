@@ -141,6 +141,29 @@ void main() {
     });
   });
 
+  group('Quest sub-level gating', () {
+    test('levels are A1.1 then A1.2; A1.1 has no predecessor', () {
+      expect(questLevels.take(2), ['A1.1', 'A1.2']);
+      expect(questLevelBefore('A1.1'), isNull);
+      expect(questLevelBefore('A1.2'), 'A1.1');
+    });
+
+    test('A1.1 is always unlocked; A1.2 needs every A1.1 quiz completed', () {
+      // First level is open from the start.
+      expect(isQuestLevelUnlocked('A1.1', <String>{}), isTrue);
+      expect(isQuestLevelUnlocked('A1.2', <String>{}), isFalse);
+
+      final a11 = questEntries.where((e) => e.levelLabel == 'A1.1').toList();
+      // Completing all but the last A1.1 quiz still leaves A1.2 locked.
+      final partial = {for (final e in a11.take(a11.length - 1)) e.key};
+      expect(isQuestLevelUnlocked('A1.2', partial), isFalse);
+
+      // Every A1.1 quiz completed → A1.2 unlocks.
+      final all = {for (final e in a11) e.key};
+      expect(isQuestLevelUnlocked('A1.2', all), isTrue);
+    });
+  });
+
   group('answer-style invariants', () {
     test('explicit-answer quizzes expose a per-sentence override', () {
       final config = buildQuizConfigFromContent(

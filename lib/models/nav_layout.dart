@@ -91,6 +91,7 @@ class NavGroup {
     required this.title,
     required this.type,
     this.items = const [],
+    this.level,
   });
 
   /// Stable id (so reordering/renaming doesn't lose identity).
@@ -99,19 +100,31 @@ class NavGroup {
   final NavGroupType type;
   final List<NavItem> items;
 
-  NavGroup copyWith({String? title, NavGroupType? type, List<NavItem>? items}) =>
-      NavGroup(
-        id: id,
-        title: title ?? this.title,
-        type: type ?? this.type,
-        items: items ?? this.items,
-      );
+  /// For a [NavGroupType.questChain] group, restricts it to a single CEFR
+  /// sub-level (e.g. `'A1.1'`) so one course can show several quest groups that
+  /// each cover one slice of the (globally continuous) Quest chain. Null shows
+  /// the whole chain.
+  final String? level;
+
+  NavGroup copyWith({
+    String? title,
+    NavGroupType? type,
+    List<NavItem>? items,
+    String? level,
+  }) => NavGroup(
+    id: id,
+    title: title ?? this.title,
+    type: type ?? this.type,
+    items: items ?? this.items,
+    level: level ?? this.level,
+  );
 
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
     'type': type.name,
     if (items.isNotEmpty) 'items': [for (final i in items) i.toJson()],
+    if (level != null) 'level': level,
   };
 
   factory NavGroup.fromJson(Map<String, dynamic> json) => NavGroup(
@@ -122,6 +135,7 @@ class NavGroup {
       for (final i in (json['items'] as List?) ?? const [])
         NavItem.fromJson(i as Map<String, dynamic>),
     ],
+    level: json['level'] as String?,
   );
 }
 

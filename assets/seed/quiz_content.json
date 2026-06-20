@@ -33607,19 +33607,57 @@
   ],
   "courses": [
     {
-      "id": "en_de",
-      "name": "English → German",
-      "tagline": "Speak English, learn German",
+      "id": "de_cert_a1",
+      "name": "Certification German A.1",
+      "tagline": "Your step-by-step path to the A1 certificate",
       "speakFlag": "🇬🇧",
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "nav": {
         "groups": [
           {
-            "id": "quest",
-            "title": "QUEST · A1",
-            "type": "questChain"
+            "id": "quest_a1_1",
+            "title": "QUEST · A1.1",
+            "type": "questChain",
+            "level": "A1.1"
           },
+          {
+            "id": "quest_a1_2",
+            "title": "QUEST · A1.2",
+            "type": "questChain",
+            "level": "A1.2"
+          },
+          {
+            "id": "more",
+            "title": "MORE",
+            "type": "links",
+            "items": [
+              {
+                "ref": "wordLibrary"
+              },
+              {
+                "ref": "settings"
+              },
+              {
+                "ref": "how_it_works"
+              },
+              {
+                "ref": "courses"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "en_de",
+      "name": "German Grammar in Detail",
+      "tagline": "Articles, pronouns, prepositions & nouns in depth",
+      "speakFlag": "🇬🇧",
+      "learnFlag": "🇩🇪",
+      "uiLang": "en",
+      "nav": {
+        "groups": [
           {
             "id": "nouns",
             "title": "NOUN CATEGORIES",

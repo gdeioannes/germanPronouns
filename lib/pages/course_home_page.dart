@@ -38,6 +38,7 @@ class _HomeQuiz {
     this.stats,
     this.done = false,
     this.locked = false,
+    this.lockedHint,
     this.contentRef,
     this.questEntry,
     this.nounEntry,
@@ -51,6 +52,10 @@ class _HomeQuiz {
   final QuizStats? stats;
   final bool done;
   final bool locked;
+
+  /// Custom locked-state hint (e.g. "Complete A1.1 to unlock"); falls back to a
+  /// generic message when null.
+  final String? lockedHint;
 
   // Exactly one open target is set (unless [locked]).
   final String? contentRef;
@@ -68,10 +73,27 @@ class _HomeQuiz {
 }
 
 /// A titled group of quiz rows (mirrors a navigation group).
+///
+/// [total]/[finished] describe the *whole* group for the overview ring — for a
+/// Quest/Noun chain that means every quiz in the chain, including the ones still
+/// locked (and therefore not present in [quizzes], which only lists the unlocked
+/// rows plus the next locked teaser).
 class _HomeSection {
-  _HomeSection(this.title, this.quizzes);
+  _HomeSection(
+    this.title,
+    this.quizzes, {
+    required this.total,
+    required this.finished,
+    this.moreCount = 0,
+  });
   final String title;
   final List<_HomeQuiz> quizzes;
+  final int total;
+  final int finished;
+
+  /// How many further locked quizzes exist beyond the ones in [quizzes] — drives
+  /// the "… +N more" row that caps a Quest preview window.
+  final int moreCount;
 }
 
 /// The course landing page: one overview per language pair (e.g. English →
@@ -120,13 +142,46 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final row = await _regularQuiz(repo, item.ref);
             if (row != null) rows.add(row);
           }
-          if (rows.isNotEmpty) sections.add(_HomeSection(group.title, rows));
+          // Regular quizzes are never locked, so the rows are the whole group.
+          if (rows.isNotEmpty) {
+            sections.add(_HomeSection(
+              group.title,
+              rows,
+              total: rows.where((r) => r.finishable).length,
+              finished: rows.where((r) => r.done).length,
+            ));
+          }
         case NavGroupType.questChain:
-          final rows = await _questRows();
-          if (rows.isNotEmpty) sections.add(_HomeSection(group.title, rows));
+          final level = group.level;
+          final quest = await _questRows(level: level);
+          if (quest.rows.isNotEmpty) {
+            final levelEntries = level == null
+                ? questEntries
+                : [for (final e in questEntries) if (e.levelLabel == level) e];
+            sections.add(_HomeSection(
+              group.title,
+              quest.rows,
+              total: levelEntries.length,
+              finished: levelEntries
+                  .where((e) =>
+                      NounSettings.instance.isQuestQuizCompleted(e.key))
+                  .length,
+              moreCount: quest.moreCount,
+            ));
+          }
         case NavGroupType.nounChain:
           final rows = await _nounRows();
-          if (rows.isNotEmpty) sections.add(_HomeSection(group.title, rows));
+          if (rows.isNotEmpty) {
+            sections.add(_HomeSection(
+              group.title,
+              rows,
+              total: nounProgressionEntries.length,
+              finished: nounProgressionEntries
+                  .where((e) =>
+                      NounSettings.instance.isNounCategoryCompleted(e.key))
+                  .length,
+            ));
+          }
         case NavGroupType.links:
           break;
       }
@@ -170,39 +225,79 @@ class _CourseHomePageState extends State<CourseHomePage> {
     );
   }
 
-  Future<List<_HomeQuiz>> _questRows() async {
+  /// Number of upcoming locked quizzes a Quest section previews before it caps
+  /// the list with a "… +N more" row.
+  static const int _questLockedPreview = 3;
+
+  /// Rows for a Quest section. With [level] set, only quizzes of that CEFR
+  /// sub-level are shown (the unlock frontier is still computed globally, so the
+  /// chain stays continuous across levels). Shows the level's unlocked quizzes
+  /// plus a short preview of the next quizzes to unlock; [moreCount] is how many
+  /// further locked quizzes were left off (rendered as a "… +N more" row).
+  Future<({List<_HomeQuiz> rows, int moreCount})> _questRows({
+    String? level,
+  }) async {
     final completed = NounSettings.instance.completedQuestQuizzes;
     final unlocked = firstLockedQuestIndex(completed);
     final goalLaps =
         NounSettings.instance.questUnlockStreak ~/ NounSettings.streakLapSize;
+
+    // A whole sub-level (e.g. A1.2) stays locked until the previous one is
+    // finished — shown as a single locked quest card rather than its quizzes.
+    if (level != null && !isQuestLevelUnlocked(level, completed)) {
+      final prior = questLevelBefore(level);
+      return (
+        rows: [
+          _HomeQuiz(
+            title: level,
+            uiKind: _UiKind.quest,
+            goalLaps: goalLaps,
+            locked: true,
+            lockedHint:
+                prior == null ? 'Locked' : 'Complete $prior to unlock',
+          ),
+        ],
+        moreCount: 0,
+      );
+    }
+
+    final entries = questEntries;
     final rows = <_HomeQuiz>[];
-    for (var i = 0; i < unlocked; i++) {
-      final entry = questEntries[i];
-      final stats = await quizStatsStore.load(entry.config.storageKeyPrefix);
-      rows.add(
-        _HomeQuiz(
-          title: entry.displayName,
-          uiKind: _UiKind.quest,
-          goalLaps: goalLaps,
-          stats: stats,
-          done: NounSettings.instance.isQuestQuizCompleted(entry.key),
-          questEntry: entry,
-        ),
-      );
+    var lockedShown = 0;
+    var moreCount = 0;
+    for (var i = 0; i < entries.length; i++) {
+      final entry = entries[i];
+      if (level != null && entry.levelLabel != level) continue;
+      if (i < unlocked) {
+        final stats = await quizStatsStore.load(entry.config.storageKeyPrefix);
+        rows.add(
+          _HomeQuiz(
+            title: entry.displayName,
+            uiKind: _UiKind.quest,
+            goalLaps: goalLaps,
+            stats: stats,
+            done: NounSettings.instance.isQuestQuizCompleted(entry.key),
+            questEntry: entry,
+          ),
+        );
+      } else if (lockedShown < _questLockedPreview) {
+        // Preview the next few quizzes to unlock.
+        rows.add(
+          _HomeQuiz(
+            title: entry.displayName,
+            uiKind: _UiKind.quest,
+            goalLaps: goalLaps,
+            locked: true,
+            questEntry: entry,
+          ),
+        );
+        lockedShown++;
+      } else {
+        // Everything past the preview window is summarized by the "more" row.
+        moreCount++;
+      }
     }
-    if (unlocked < questEntries.length) {
-      final entry = questEntries[unlocked];
-      rows.add(
-        _HomeQuiz(
-          title: entry.displayName,
-          uiKind: _UiKind.quest,
-          goalLaps: goalLaps,
-          locked: true,
-          questEntry: entry,
-        ),
-      );
-    }
-    return rows;
+    return (rows: rows, moreCount: moreCount);
   }
 
   Future<List<_HomeQuiz>> _nounRows() async {
@@ -346,8 +441,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
             if (snapshot.connectionState != ConnectionState.done) {
               return const Center(child: CircularProgressIndicator());
             }
-            final sections = snapshot.data ?? const [];
+            final sections = snapshot.data ?? const <_HomeSection>[];
             final all = [for (final s in sections) ...s.quizzes];
+            final finished =
+                sections.fold<int>(0, (s, sec) => s + sec.finished);
+            final total = sections.fold<int>(0, (s, sec) => s + sec.total);
             final hasPdf = all.any((q) => q.config != null);
             return Center(
               child: ConstrainedBox(
@@ -357,7 +455,12 @@ class _CourseHomePageState extends State<CourseHomePage> {
                   children: [
                     _courseHeaderCard(context, course),
                     const SizedBox(height: 12),
-                    _overviewCard(context, all),
+                    _overviewCard(
+                      context,
+                      all,
+                      finished: finished,
+                      total: total,
+                    ),
                     const SizedBox(height: 10),
                     SizedBox(
                       width: double.infinity,
@@ -382,6 +485,10 @@ class _CourseHomePageState extends State<CourseHomePage> {
                         _quizRow(context, quiz),
                         const SizedBox(height: 8),
                       ],
+                      if (section.moreCount > 0) ...[
+                        _moreRow(context, section.moreCount),
+                        const SizedBox(height: 8),
+                      ],
                     ],
                   ],
                 ),
@@ -404,6 +511,34 @@ class _CourseHomePageState extends State<CourseHomePage> {
           fontWeight: FontWeight.w700,
           letterSpacing: 1.1,
         ),
+      ),
+    );
+  }
+
+  /// Caps a Quest preview window: a compact, non-tappable "… +N more locked"
+  /// row standing in for the quizzes past the preview.
+  Widget _moreRow(BuildContext context, int count) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.more_horiz_rounded,
+            size: 18,
+            color: colorScheme.onSurfaceVariant,
+          ),
+          const SizedBox(width: 6),
+          Text(
+            '+$count more locked',
+            style: textTheme.labelMedium?.copyWith(
+              color: colorScheme.onSurfaceVariant,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -454,14 +589,16 @@ class _CourseHomePageState extends State<CourseHomePage> {
 
   // ── Overview (history + % finished) ───────────────────────────────────────
 
-  Widget _overviewCard(BuildContext context, List<_HomeQuiz> all) {
+  Widget _overviewCard(
+    BuildContext context,
+    List<_HomeQuiz> all, {
+    required int finished,
+    required int total,
+  }) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     final strings = CourseSession.instance.strings;
 
-    final finishable = all.where((q) => q.finishable).toList();
-    final total = finishable.length;
-    final finished = finishable.where((q) => q.done).length;
     final pct = total == 0 ? 0.0 : finished / total;
 
     final totalScore =
@@ -726,7 +863,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
 
     if (quiz.locked) {
       return Text(
-        'Locked — keep going to unlock',
+        quiz.lockedHint ?? 'Locked — keep going to unlock',
         style: textTheme.labelSmall?.copyWith(color: muted),
       );
     }

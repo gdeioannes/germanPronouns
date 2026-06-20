@@ -661,9 +661,20 @@ class _AppDrawerState extends State<AppDrawer> {
     );
   }
 
-  List<Widget> _buildQuestTiles(BuildContext context, SharedPreferences? prefs) {
+  List<Widget> _buildQuestTiles(
+    BuildContext context,
+    SharedPreferences? prefs, {
+    String? level,
+  }) {
     final completed = NounSettings.instance.completedQuestQuizzes;
     final unlockedCount = firstLockedQuestIndex(completed);
+
+    // A level-scoped group (e.g. 'A1.1') lists just that level's quizzes with
+    // their current lock state — the unlock frontier stays global, so A1.2 only
+    // opens up once A1.1 is finished.
+    if (level != null) {
+      return _buildQuestLevelTiles(context, prefs, level, unlockedCount);
+    }
 
     final tiles = <Widget>[
       _questTile(context, entry: _currentQuestEntry(completed), prefs: prefs),
@@ -721,6 +732,96 @@ class _AppDrawerState extends State<AppDrawer> {
     }
 
     return tiles;
+  }
+
+  /// Tiles for a single CEFR sub-[level] of the Quest chain (e.g. 'A1.1'): every
+  /// quiz of that level, each shown unlocked / next-to-unlock / further-locked
+  /// according to the global [unlockedCount] frontier.
+  List<Widget> _buildQuestLevelTiles(
+    BuildContext context,
+    SharedPreferences? prefs,
+    String level,
+    int unlockedCount,
+  ) {
+    // The whole sub-level is gated behind finishing the previous one — show a
+    // single locked tile until then.
+    final completed = NounSettings.instance.completedQuestQuizzes;
+    if (!isQuestLevelUnlocked(level, completed)) {
+      return [
+        _lockedQuestLevelTile(
+          context,
+          level: level,
+          priorLevel: questLevelBefore(level),
+        ),
+      ];
+    }
+
+    final entries = questEntries;
+    final tiles = <Widget>[];
+    for (var i = 0; i < entries.length; i++) {
+      final entry = entries[i];
+      if (entry.levelLabel != level) continue;
+      if (i < unlockedCount) {
+        tiles.add(_questTile(context, entry: entry, prefs: prefs, number: i + 1));
+      } else if (i == unlockedCount) {
+        tiles.add(
+          _lockedQuestTile(
+            context,
+            entry: entry,
+            previousEntry: entries[i - 1],
+            prefs: prefs,
+            number: i + 1,
+          ),
+        );
+      } else {
+        tiles.add(_lockedQuestPreviewTile(context, entry: entry, number: i + 1));
+      }
+    }
+    // A long level (e.g. A1.1 has 9 quizzes) is capped to a scrollable window so
+    // it doesn't push the rest of the drawer (and the next level) off-screen.
+    if (tiles.length > 4) {
+      return [
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 320),
+          child: Scrollbar(
+            child: ListView(
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              children: tiles,
+            ),
+          ),
+        ),
+      ];
+    }
+    return tiles;
+  }
+
+  /// A single locked tile standing in for a whole gated sub-level (e.g. A1.2),
+  /// shown until [priorLevel] is finished.
+  Widget _lockedQuestLevelTile(
+    BuildContext context, {
+    required String level,
+    String? priorLevel,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return _navTile(
+      context,
+      icon: Icons.lock_rounded,
+      badgeColor: colorScheme.onSurfaceVariant,
+      title: level,
+      selected: false,
+      onTap: null,
+      titleColor: colorScheme.onSurfaceVariant,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: Text(
+          priorLevel == null ? 'Locked' : 'Complete $priorLevel to unlock',
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+      ),
+    );
   }
 
   void _navigateToContent(BuildContext context, String contentId) {
@@ -1087,7 +1188,7 @@ class _AppDrawerState extends State<AppDrawer> {
   ) {
     switch (group.type) {
       case NavGroupType.questChain:
-        return _buildQuestTiles(context, prefs);
+        return _buildQuestTiles(context, prefs, level: group.level);
       case NavGroupType.nounChain:
         return _buildNounProgressionTiles(context, prefs);
       case NavGroupType.quizzes:

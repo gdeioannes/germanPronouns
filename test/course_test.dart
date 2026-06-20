@@ -18,10 +18,28 @@ void main() {
     }
   });
 
-  test('defaultCourses has English→German (en) and Español→Alemán (es)', () {
+  test('defaultCourses has the two German (en) tracks and Español→Alemán (es)',
+      () {
     final byId = {for (final c in defaultCourses) c.id: c};
+    // Certification track: the A1 Quest chain, split into two sub-levels.
+    expect(byId['de_cert_a1']!.uiLang, UiLang.en);
+    expect(
+      byId['de_cert_a1']!.nav.groups.map((g) => g.type),
+      isNot(contains(NavGroupType.nounChain)),
+    );
+    final certQuests = byId['de_cert_a1']!
+        .nav
+        .groups
+        .where((g) => g.type == NavGroupType.questChain)
+        .toList();
+    expect(certQuests.map((g) => g.level), ['A1.1', 'A1.2']);
+    // Grammar track keeps the original en_de id and the grammar quizzes.
     expect(byId.containsKey(kDefaultCourseId), isTrue);
     expect(byId['en_de']!.uiLang, UiLang.en);
+    expect(
+      byId['en_de']!.nav.groups.map((g) => g.type),
+      containsAll([NavGroupType.nounChain, NavGroupType.quizzes]),
+    );
     expect(byId['es_de']!.uiLang, UiLang.es);
   });
 

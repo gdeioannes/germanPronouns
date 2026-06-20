@@ -2,6 +2,70 @@ import '../models/course.dart';
 import '../models/nav_layout.dart';
 import 'courses/es_de/es_de_content.dart';
 
+/// Navigation links shared by the English courses (word reference, settings,
+/// how-it-works, course switcher).
+const List<NavItem> _enMoreLinks = [
+  NavItem(ref: kWordLibraryRef),
+  NavItem(ref: kSettingsRef),
+  NavItem(ref: kHowItWorksRef),
+  NavItem(ref: kCoursesRef),
+];
+
+/// The "Certification German A.1" drawer: the A1 Quest chain split into its two
+/// CEFR sub-levels (A1.1, A1.2), plus links. The chain stays globally
+/// continuous — A1.2 only unlocks once A1.1 is complete.
+final NavLayout _certA1Nav = NavLayout(
+  groups: const [
+    NavGroup(
+      id: 'quest_a1_1',
+      title: 'QUEST · A1.1',
+      type: NavGroupType.questChain,
+      level: 'A1.1',
+    ),
+    NavGroup(
+      id: 'quest_a1_2',
+      title: 'QUEST · A1.2',
+      type: NavGroupType.questChain,
+      level: 'A1.2',
+    ),
+    NavGroup(
+      id: 'more',
+      title: 'MORE',
+      type: NavGroupType.links,
+      items: _enMoreLinks,
+    ),
+  ],
+);
+
+/// The "German Grammar in Detail" drawer: noun categories + the grammar
+/// quizzes (plus links).
+final NavLayout _grammarNav = NavLayout(
+  groups: const [
+    NavGroup(
+      id: 'nouns',
+      title: 'NOUN CATEGORIES',
+      type: NavGroupType.nounChain,
+    ),
+    NavGroup(
+      id: 'quizzes',
+      title: 'QUIZZES',
+      type: NavGroupType.quizzes,
+      items: [
+        NavItem(ref: 'article'),
+        NavItem(ref: 'pronoun'),
+        NavItem(ref: 'pronoun_article'),
+        NavItem(ref: 'preposition'),
+      ],
+    ),
+    NavGroup(
+      id: 'more',
+      title: 'MORE',
+      type: NavGroupType.links,
+      items: _enMoreLinks,
+    ),
+  ],
+);
+
 /// The Español → Alemán drawer: three open Niveles plus a links group.
 final NavLayout _esDeNav = NavLayout(
   groups: [
@@ -42,13 +106,22 @@ const String kDefaultCourseId = 'en_de';
 /// All built-in courses, used to seed the database and as a fallback.
 final List<Course> defaultCourses = [
   Course(
-    id: kDefaultCourseId,
-    name: 'English → German',
-    tagline: 'Speak English, learn German',
+    id: 'de_cert_a1',
+    name: 'Certification German A.1',
+    tagline: 'Your step-by-step path to the A1 certificate',
     speakFlag: '🇬🇧',
     learnFlag: '🇩🇪',
     uiLang: UiLang.en,
-    nav: defaultNavLayout,
+    nav: _certA1Nav,
+  ),
+  Course(
+    id: kDefaultCourseId,
+    name: 'German Grammar in Detail',
+    tagline: 'Articles, pronouns, prepositions & nouns in depth',
+    speakFlag: '🇬🇧',
+    learnFlag: '🇩🇪',
+    uiLang: UiLang.en,
+    nav: _grammarNav,
   ),
   Course(
     id: 'es_de',

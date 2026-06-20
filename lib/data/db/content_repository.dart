@@ -21,7 +21,7 @@ const String _seedAsset = 'assets/seed/quiz_content.json';
 /// re-seeded from the published content, so learners get content updates without
 /// a manual reset. Re-seeding replaces any local back-office edits with the
 /// published content; learner progress (SharedPreferences) is not affected.
-const int kSeedVersion = 12;
+const int kSeedVersion = 14;
 
 /// Lightweight summary of a quiz for the back-office list.
 class QuizSummary {

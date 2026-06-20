@@ -41,6 +41,21 @@ void main() {
     ]);
   });
 
+  test('NavGroup level survives JSON; absent when unset', () {
+    const scoped = NavGroup(
+      id: 'quest_a1_1',
+      title: 'QUEST · A1.1',
+      type: NavGroupType.questChain,
+      level: 'A1.1',
+    );
+    expect(scoped.toJson()['level'], 'A1.1');
+    expect(NavGroup.fromJson(scoped.toJson()).level, 'A1.1');
+
+    const plain = NavGroup(id: 'q', title: 'Q', type: NavGroupType.questChain);
+    expect(plain.toJson().containsKey('level'), isFalse);
+    expect(NavGroup.fromJson(plain.toJson()).level, isNull);
+  });
+
   test('NavItem overrides survive JSON; defaults stay sparse', () {
     const full = NavItem(
       ref: 'article',

@@ -99,6 +99,37 @@ QuestEntry? questEntryByKey(String key) {
   return null;
 }
 
+/// The distinct CEFR sub-levels of the Quest chain, in chain order
+/// (e.g. `['A1.1', 'A1.2']`).
+List<String> get questLevels {
+  final levels = <String>[];
+  for (final entry in questEntries) {
+    if (!levels.contains(entry.levelLabel)) levels.add(entry.levelLabel);
+  }
+  return levels;
+}
+
+/// The sub-level immediately before [level] in the chain, or null if [level] is
+/// the first level (or isn't found).
+String? questLevelBefore(String level) {
+  final levels = questLevels;
+  final index = levels.indexOf(level);
+  return index > 0 ? levels[index - 1] : null;
+}
+
+/// Whether [level]'s quizzes are unlocked as a whole: true once **every** quiz
+/// in all preceding sub-levels has been completed (reached the Quest streak
+/// goal). The first level is always unlocked. This gates a whole sub-level
+/// (A1.2) behind finishing the previous one (A1.1), on top of the per-quiz
+/// streak unlocking *within* a level.
+bool isQuestLevelUnlocked(String level, Set<String> completed) {
+  for (final entry in questEntries) {
+    if (entry.levelLabel == level) break; // reached the level → all priors done
+    if (!completed.contains(entry.key)) return false;
+  }
+  return true;
+}
+
 /// Index of the first Quest quiz that isn't unlocked yet, given [completed]
 /// (the keys that have reached the Quest streak goal). Entry 0 is always
 /// unlocked; entry `i` (i>0) is unlocked iff `questEntries[i-1].key` is in
