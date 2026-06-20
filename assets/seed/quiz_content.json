@@ -28057,51 +28057,51 @@
       "id": "quest_a1_1_pronomen",
       "title": "A1.1 · Personalpronomen",
       "storageKeyPrefix": "quest_a1_1_pronomen_",
-      "promptLabel": "Pronomen",
+      "promptLabel": "Welches Pronomen?",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "English",
       "subjects": [
         {
-          "key": "I",
+          "key": "s0",
           "display": "I"
         },
         {
-          "key": "you (informal)",
+          "key": "s1",
           "display": "you (informal)"
         },
         {
-          "key": "he",
+          "key": "s2",
           "display": "he"
         },
         {
-          "key": "she",
+          "key": "s3",
           "display": "she"
         },
         {
-          "key": "it",
+          "key": "s4",
           "display": "it"
         },
         {
-          "key": "we",
+          "key": "s5",
           "display": "we"
         },
         {
-          "key": "you (plural)",
+          "key": "s6",
           "display": "you (plural)"
         },
         {
-          "key": "they",
+          "key": "s7",
           "display": "they"
         },
         {
-          "key": "you (formal)",
+          "key": "s8",
           "display": "you (formal)"
         }
       ],
       "categories": [
         {
-          "label": "Deutsch",
-          "group": "Deutsch",
+          "label": "Welches Pronomen?",
+          "group": "Welches Pronomen?",
           "values": [
             "ich",
             "du",
@@ -28115,13 +28115,99 @@
           ]
         }
       ],
-      "sentences": [],
-      "sentenceTemplates": {
-        "Deutsch": [
-          "\"{subject}\" auf Deutsch: ____"
-        ]
-      },
-      "helpMemoryIntro": "Subject (nominative) pronouns say who does the action. They replace the person or thing doing the verb.",
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "____ bin müde. (I)",
+          "acceptedAnswers": [
+            "ich"
+          ],
+          "hint": "English: I",
+          "english": "____ am tired. (I)"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "____ bist mein Freund. (you, informal)",
+          "acceptedAnswers": [
+            "du"
+          ],
+          "hint": "English: you (informal)",
+          "english": "____ are my friend. (you, informal)"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "Das ist Tom. ____ ist groß. (he)",
+          "acceptedAnswers": [
+            "er"
+          ],
+          "hint": "English: he",
+          "english": "That is Tom. ____ is tall. (he)"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "Das ist Anna. ____ ist nett. (she)",
+          "acceptedAnswers": [
+            "sie"
+          ],
+          "hint": "English: she",
+          "english": "That is Anna. ____ is nice. (she)"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "Das ist das Kind. ____ spielt. (it)",
+          "acceptedAnswers": [
+            "es"
+          ],
+          "hint": "English: it",
+          "english": "That is the child. ____ plays. (it)"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "Anna und ich lernen Deutsch. ____ sind Studenten.",
+          "acceptedAnswers": [
+            "wir"
+          ],
+          "hint": "English: we",
+          "english": "Anna and I study German. ____ are students."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "____ seid meine Freunde. (you, plural)",
+          "acceptedAnswers": [
+            "ihr"
+          ],
+          "hint": "English: you (plural)",
+          "english": "____ are my friends. (you all)"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "Das sind Tom und Anna. ____ kommen aus Berlin. (they)",
+          "acceptedAnswers": [
+            "sie"
+          ],
+          "hint": "English: they",
+          "english": "Those are Tom and Anna. ____ come from Berlin. (they)"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Welches Pronomen?",
+          "sentence": "____ sind sehr nett, Herr Müller. (you, formal)",
+          "acceptedAnswers": [
+            "Sie"
+          ],
+          "hint": "English: you (formal)",
+          "english": "____ are very kind, Mr Müller. (you, formal)"
+        }
+      ],
+      "helpMemoryIntro": "Subject (nominative) pronouns say who does the action. Read the sentence — the verb ending and the English hint tell you which one fits.",
       "helpMemoryTips": [
         {
           "kind": "warning",
@@ -28131,6 +28217,92 @@
         {
           "title": "du vs. Sie",
           "text": "Use du with friends, family and children; Sie with strangers, elders and in formal settings."
+        }
+      ],
+      "contextualLayout": true
+    },
+    {
+      "id": "quest_a1_1_sprechen_vorstellung",
+      "title": "A1.1 · Sprechen: Vorstellung",
+      "storageKeyPrefix": "quest_a1_1_sprechen_vorstellung_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hallo!",
+          "english": "Hello!"
+        },
+        {
+          "key": "s1",
+          "display": "Guten Tag!",
+          "english": "Good day!"
+        },
+        {
+          "key": "s2",
+          "display": "Tschüss!",
+          "english": "Bye!"
+        },
+        {
+          "key": "s3",
+          "display": "Danke!",
+          "english": "Thank you!"
+        },
+        {
+          "key": "s4",
+          "display": "Ich heiße Anna.",
+          "english": "My name is Anna."
+        },
+        {
+          "key": "s5",
+          "display": "Wie heißt du?",
+          "english": "What's your name?"
+        },
+        {
+          "key": "s6",
+          "display": "Freut mich.",
+          "english": "Nice to meet you."
+        },
+        {
+          "key": "s7",
+          "display": "Ich komme aus Spanien.",
+          "english": "I come from Spain."
+        },
+        {
+          "key": "s8",
+          "display": "Woher kommst du?",
+          "english": "Where are you from?"
+        },
+        {
+          "key": "s9",
+          "display": "Ich wohne in Berlin.",
+          "english": "I live in Berlin."
+        },
+        {
+          "key": "s10",
+          "display": "Wie geht es Ihnen?",
+          "english": "How are you? (formal)"
+        },
+        {
+          "key": "s11",
+          "display": "Ich spreche ein bisschen Deutsch.",
+          "english": "I speak a little German."
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Listen to each phrase in German and repeat it aloud. If your microphone is available we tell you how it sounded; if not, just listen and repeat at your own pace, then continue. These are the first things you say when you meet someone.",
+      "helpMemoryTips": [
+        {
+          "title": "Copy the rhythm",
+          "text": "Do not chase every single sound — imitate the melody and stress of the whole phrase. It will sound far more natural."
+        },
+        {
+          "kind": "example",
+          "title": "The \"ei\" and \"ie\"",
+          "text": "\"heiße\" sounds like \"high-sse\"; \"Wie\" sounds like \"vee\". German \"w\" is an English \"v\"."
         }
       ]
     },
@@ -28437,6 +28609,195 @@
       ]
     },
     {
+      "id": "quest_a1_1_wfragen",
+      "title": "A1.1 · W-Fragen",
+      "storageKeyPrefix": "quest_a1_1_wfragen_",
+      "promptLabel": "Welches Fragewort?",
+      "subjectsLabel": "Fragewörter",
+      "subjectColumnLabel": "English",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "who"
+        },
+        {
+          "key": "s1",
+          "display": "what"
+        },
+        {
+          "key": "s2",
+          "display": "where"
+        },
+        {
+          "key": "s3",
+          "display": "where to"
+        },
+        {
+          "key": "s4",
+          "display": "where from"
+        },
+        {
+          "key": "s5",
+          "display": "when"
+        },
+        {
+          "key": "s6",
+          "display": "how"
+        },
+        {
+          "key": "s7",
+          "display": "why"
+        },
+        {
+          "key": "s8",
+          "display": "how much"
+        },
+        {
+          "key": "s9",
+          "display": "how many"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Welches Fragewort?",
+          "group": "Welches Fragewort?",
+          "values": [
+            "wer",
+            "was",
+            "wo",
+            "wohin",
+            "woher",
+            "wann",
+            "wie",
+            "warum",
+            "wie viel",
+            "wie viele"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach einer Person: ____ ist das?",
+          "acceptedAnswers": [
+            "wer"
+          ],
+          "hint": "English: who",
+          "english": "You ask about a person: ____ is that? (who)"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach einer Sache: ____ ist das?",
+          "acceptedAnswers": [
+            "was"
+          ],
+          "hint": "English: what",
+          "english": "You ask about a thing: ____ is that? (what)"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach dem Ort: ____ wohnst du?",
+          "acceptedAnswers": [
+            "wo"
+          ],
+          "hint": "English: where",
+          "english": "You ask about the place: ____ do you live? (where)"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach dem Ziel: ____ gehst du?",
+          "acceptedAnswers": [
+            "wohin"
+          ],
+          "hint": "English: where to",
+          "english": "You ask about the destination: ____ are you going? (where to)"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach der Herkunft: ____ kommst du?",
+          "acceptedAnswers": [
+            "woher"
+          ],
+          "hint": "English: where from",
+          "english": "You ask about origin: ____ do you come from? (where from)"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach der Zeit: ____ beginnt der Film?",
+          "acceptedAnswers": [
+            "wann"
+          ],
+          "hint": "English: when",
+          "english": "You ask about time: ____ does the film start? (when)"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach dem Befinden: ____ geht es dir?",
+          "acceptedAnswers": [
+            "wie"
+          ],
+          "hint": "English: how",
+          "english": "You ask how someone is: ____ are you? (how)"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach dem Grund: ____ lernst du Deutsch?",
+          "acceptedAnswers": [
+            "warum"
+          ],
+          "hint": "English: why",
+          "english": "You ask about the reason: ____ are you learning German? (why)"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach dem Preis: ____ kostet das?",
+          "acceptedAnswers": [
+            "wie viel",
+            "wieviel"
+          ],
+          "hint": "English: how much",
+          "english": "You ask about the price: ____ does that cost? (how much)"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Welches Fragewort?",
+          "sentence": "Du fragst nach der Anzahl: ____ Personen kommen?",
+          "acceptedAnswers": [
+            "wie viele"
+          ],
+          "hint": "English: how many",
+          "english": "You ask about the number: ____ people are coming? (how many)"
+        }
+      ],
+      "helpMemoryIntro": "W-questions start with a question word (almost all begin with \"w-\") followed by the verb in second position: Wo wohnst du? They ask for specific information, unlike yes/no questions.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Word order",
+          "text": "Question word + verb + subject: Wann kommst du? Woher kommt sie?"
+        },
+        {
+          "kind": "warning",
+          "title": "wo / wohin / woher",
+          "text": "wo = where (location), wohin = where to (direction), woher = where from (origin). Three different words in German."
+        },
+        {
+          "title": "wie in combinations",
+          "text": "wie viel = how much, wie viele = how many, wie alt = how old, wie spät = what time."
+        }
+      ],
+      "contextualLayout": true
+    },
+    {
       "id": "quest_a1_1_sein_haben",
       "title": "A1.1 · sein & haben",
       "storageKeyPrefix": "quest_a1_1_sein_haben_",
@@ -28522,63 +28883,63 @@
       "id": "quest_a1_1_farben",
       "title": "A1.1 · Farben",
       "storageKeyPrefix": "quest_a1_1_farben_",
-      "promptLabel": "Farbe",
+      "promptLabel": "Welche Farbe?",
       "subjectsLabel": "Farben",
       "subjectColumnLabel": "English",
       "subjects": [
         {
-          "key": "red",
+          "key": "s0",
           "display": "red"
         },
         {
-          "key": "blue",
+          "key": "s1",
           "display": "blue"
         },
         {
-          "key": "green",
+          "key": "s2",
           "display": "green"
         },
         {
-          "key": "yellow",
+          "key": "s3",
           "display": "yellow"
         },
         {
-          "key": "black",
+          "key": "s4",
           "display": "black"
         },
         {
-          "key": "white",
+          "key": "s5",
           "display": "white"
         },
         {
-          "key": "orange",
+          "key": "s6",
           "display": "orange"
         },
         {
-          "key": "brown",
+          "key": "s7",
           "display": "brown"
         },
         {
-          "key": "grey",
+          "key": "s8",
           "display": "grey"
         },
         {
-          "key": "pink",
+          "key": "s9",
           "display": "pink"
         },
         {
-          "key": "purple",
+          "key": "s10",
           "display": "purple"
         },
         {
-          "key": "colourful",
+          "key": "s11",
           "display": "colourful"
         }
       ],
       "categories": [
         {
-          "label": "Deutsch",
-          "group": "Deutsch",
+          "label": "Welche Farbe?",
+          "group": "Welche Farbe?",
           "values": [
             "rot",
             "blau",
@@ -28595,13 +28956,130 @@
           ]
         }
       ],
-      "sentences": [],
-      "sentenceTemplates": {
-        "Deutsch": [
-          "\"{subject}\" auf Deutsch: ____"
-        ]
-      },
-      "helpMemoryIntro": "Colours are adjectives. On their own (after sein) they stay in this base form; before a noun they take an ending.",
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von Blut und Erdbeeren ist ____.",
+          "acceptedAnswers": [
+            "rot"
+          ],
+          "hint": "English: red",
+          "english": "The colour of blood and strawberries is ____ (red)."
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe vom Himmel ist ____.",
+          "acceptedAnswers": [
+            "blau"
+          ],
+          "hint": "English: blue",
+          "english": "The colour of the sky is ____ (blue)."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von Gras und Blättern ist ____.",
+          "acceptedAnswers": [
+            "grün"
+          ],
+          "hint": "English: green",
+          "english": "The colour of grass and leaves is ____ (green)."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von der Sonne und Bananen ist ____.",
+          "acceptedAnswers": [
+            "gelb"
+          ],
+          "hint": "English: yellow",
+          "english": "The colour of the sun and bananas is ____ (yellow)."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von der Nacht ist ____.",
+          "acceptedAnswers": [
+            "schwarz"
+          ],
+          "hint": "English: black",
+          "english": "The colour of the night is ____ (black)."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von Schnee und Milch ist ____.",
+          "acceptedAnswers": [
+            "weiß",
+            "weiss"
+          ],
+          "hint": "English: white",
+          "english": "The colour of snow and milk is ____ (white)."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von einer Orange und Karotten ist ____.",
+          "acceptedAnswers": [
+            "orange"
+          ],
+          "hint": "English: orange",
+          "english": "The colour of an orange and carrots is ____ (orange)."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von Schokolade und Holz ist ____.",
+          "acceptedAnswers": [
+            "braun"
+          ],
+          "hint": "English: brown",
+          "english": "The colour of chocolate and wood is ____ (brown)."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von einem Elefanten und Wolken ist ____.",
+          "acceptedAnswers": [
+            "grau"
+          ],
+          "hint": "English: grey",
+          "english": "The colour of an elephant and clouds is ____ (grey)."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Eine helle Mischung aus Rot und Weiß ist ____.",
+          "acceptedAnswers": [
+            "rosa"
+          ],
+          "hint": "English: pink",
+          "english": "A light mix of red and white is ____ (pink)."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Die Farbe von einer Aubergine ist ____.",
+          "acceptedAnswers": [
+            "lila"
+          ],
+          "hint": "English: purple",
+          "english": "The colour of an aubergine is ____ (purple)."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Welche Farbe?",
+          "sentence": "Viele Farben zusammen (ein Regenbogen) sind ____.",
+          "acceptedAnswers": [
+            "bunt"
+          ],
+          "hint": "English: colourful",
+          "english": "Many colours together (a rainbow) are ____ (colourful)."
+        }
+      ],
+      "helpMemoryIntro": "Read the clue and name the colour. Colours are adjectives: on their own (after sein) they stay in this base form; before a noun they take an ending (ein rotes Auto).",
       "helpMemoryTips": [
         {
           "kind": "example",
@@ -28611,6 +29089,85 @@
           "kind": "warning",
           "title": "No endings ever",
           "text": "rosa, lila and orange never change: ein rosa Kleid, ein lila Hut."
+        }
+      ],
+      "contextualLayout": true
+    },
+    {
+      "id": "quest_a1_1_lesen_dasbinich",
+      "title": "A1.1 · Lesen: Das bin ich",
+      "storageKeyPrefix": "quest_a1_1_lesen_dasbinich_",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "kind": "reading",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Read the short text once, then answer the questions. You can re-read the passage at any time. Read for the gist first — you do not need to understand every single word.",
+      "helpMemoryTips": [
+        {
+          "title": "Find the key word",
+          "text": "Each question has a key word (alt = age, woher = origin, Beruf = job). Scan the text for it instead of reading everything again."
+        },
+        {
+          "title": "Guess from context",
+          "text": "Unknown word? The sentence around it usually tells you enough. A1 reading is about understanding the main idea."
+        }
+      ],
+      "readingCategory": "Daily Life",
+      "readingTitle": "Das bin ich",
+      "readingPassage": "Hallo! Ich heiße Lena Müller. Ich bin dreißig Jahre alt und komme aus Österreich. Jetzt wohne ich in Hamburg. Ich bin Lehrerin und arbeite an einer Schule. Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Tim. Am Wochenende spiele ich gern Tennis und lese viele Bücher. Am Morgen trinke ich Tee, aber am Nachmittag trinke ich gern Kaffee. Ich spreche Deutsch und Englisch.",
+      "readingQuestions": [
+        {
+          "question": "Wie alt ist Lena?",
+          "options": [
+            "dreizehn",
+            "dreißig",
+            "dreiundzwanzig"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich bin dreißig Jahre alt\" — she is thirty (30)."
+        },
+        {
+          "question": "Woher kommt Lena?",
+          "options": [
+            "aus Deutschland",
+            "aus der Schweiz",
+            "aus Österreich"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"… und komme aus Österreich.\""
+        },
+        {
+          "question": "Was ist Lena von Beruf?",
+          "options": [
+            "Ärztin",
+            "Lehrerin",
+            "Studentin"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich bin Lehrerin und arbeite an einer Schule.\""
+        },
+        {
+          "question": "Was trinkt Lena am Morgen?",
+          "options": [
+            "Kaffee",
+            "Tee",
+            "Wasser"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Morgen trinke ich Tee …\" — coffee is for the afternoon."
+        },
+        {
+          "question": "Was macht Lena gern am Wochenende?",
+          "options": [
+            "Tennis spielen",
+            "schwimmen",
+            "kochen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Am Wochenende spiele ich gern Tennis …\""
         }
       ]
     },
@@ -28936,82 +29493,82 @@
       "id": "quest_a1_1_familie",
       "title": "A1.1 · Familie & Menschen",
       "storageKeyPrefix": "quest_a1_1_familie_",
-      "promptLabel": "Wort",
+      "promptLabel": "Wer ist das?",
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "English",
       "subjects": [
         {
-          "key": "father",
-          "display": "father"
-        },
-        {
-          "key": "mother",
+          "key": "s0",
           "display": "mother"
         },
         {
-          "key": "brother",
-          "display": "brother"
+          "key": "s1",
+          "display": "father"
         },
         {
-          "key": "sister",
-          "display": "sister"
+          "key": "s2",
+          "display": "my brother"
         },
         {
-          "key": "son",
+          "key": "s3",
+          "display": "my sister"
+        },
+        {
+          "key": "s4",
           "display": "son"
         },
         {
-          "key": "daughter",
+          "key": "s5",
           "display": "daughter"
         },
         {
-          "key": "grandfather",
+          "key": "s6",
           "display": "grandfather"
         },
         {
-          "key": "grandmother",
+          "key": "s7",
           "display": "grandmother"
         },
         {
-          "key": "child",
+          "key": "s8",
           "display": "child"
         },
         {
-          "key": "the man",
-          "display": "the man"
+          "key": "s9",
+          "display": "man"
         },
         {
-          "key": "the woman",
-          "display": "the woman"
+          "key": "s10",
+          "display": "woman"
         },
         {
-          "key": "boy",
+          "key": "s11",
           "display": "boy"
         },
         {
-          "key": "girl",
+          "key": "s12",
           "display": "girl"
         },
         {
-          "key": "friend (male)",
-          "display": "friend (male)"
+          "key": "s13",
+          "display": "family"
         },
         {
-          "key": "friend (female)",
-          "display": "friend (female)"
+          "key": "s14",
+          "display": "friend"
         },
         {
-          "key": "the family",
-          "display": "the family"
+          "key": "s15",
+          "display": "friend"
         }
       ],
       "categories": [
         {
-          "label": "Deutsch (mit Artikel)",
-          "group": "Deutsch (mit Artikel)",
+          "label": "Wer ist das?",
+          "group": "Wer ist das?",
           "values": [
-            "der Vater",
             "die Mutter",
+            "der Vater",
             "der Bruder",
             "die Schwester",
             "der Sohn",
@@ -29023,19 +29580,213 @@
             "die Frau",
             "der Junge",
             "das Mädchen",
+            "die Familie",
             "der Freund",
-            "die Freundin",
-            "die Familie"
+            "die Freundin"
           ]
         }
       ],
-      "sentences": [],
-      "sentenceTemplates": {
-        "Deutsch (mit Artikel)": [
-          "\"{subject}\" auf Deutsch (mit Artikel): ____"
-        ]
-      },
-      "helpMemoryIntro": "Learn each family word together with its article — the gender is part of the word.",
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Eine Frau mit einem Kind ist ____.",
+          "acceptedAnswers": [
+            "die Mutter",
+            "Mutter",
+            "eine Mutter"
+          ],
+          "hint": "English: mother",
+          "english": "A woman with a child is ____ (the mother)."
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Ein Mann mit einem Kind ist ____.",
+          "acceptedAnswers": [
+            "der Vater",
+            "Vater",
+            "ein Vater"
+          ],
+          "hint": "English: father",
+          "english": "A man with a child is ____ (the father)."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Der andere Sohn meiner Eltern ist ____.",
+          "acceptedAnswers": [
+            "der Bruder",
+            "Bruder",
+            "ein Bruder",
+            "mein Bruder"
+          ],
+          "hint": "English: my brother",
+          "english": "My parents' other son is ____ (my brother)."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Die andere Tochter meiner Eltern ist ____.",
+          "acceptedAnswers": [
+            "die Schwester",
+            "Schwester",
+            "eine Schwester",
+            "meine Schwester"
+          ],
+          "hint": "English: my sister",
+          "english": "My parents' other daughter is ____ (my sister)."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Das männliche Kind der Familie ist ____.",
+          "acceptedAnswers": [
+            "der Sohn",
+            "Sohn",
+            "ein Sohn"
+          ],
+          "hint": "English: son",
+          "english": "The family's male child is ____ (the son)."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Das weibliche Kind der Familie ist ____.",
+          "acceptedAnswers": [
+            "die Tochter",
+            "Tochter",
+            "eine Tochter"
+          ],
+          "hint": "English: daughter",
+          "english": "The family's female child is ____ (the daughter)."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Der Vater meines Vaters ist ____.",
+          "acceptedAnswers": [
+            "der Großvater",
+            "Großvater",
+            "ein Großvater",
+            "der Opa",
+            "Opa"
+          ],
+          "hint": "English: grandfather",
+          "english": "My father's father is ____ (the grandfather)."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Die Mutter meiner Mutter ist ____.",
+          "acceptedAnswers": [
+            "die Großmutter",
+            "Großmutter",
+            "eine Großmutter",
+            "die Oma",
+            "Oma"
+          ],
+          "hint": "English: grandmother",
+          "english": "My mother's mother is ____ (the grandmother)."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Ein Junge oder ein Mädchen ist ____.",
+          "acceptedAnswers": [
+            "das Kind",
+            "Kind",
+            "ein Kind"
+          ],
+          "hint": "English: child",
+          "english": "A boy or a girl is ____ (a child)."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Eine erwachsene männliche Person ist ____.",
+          "acceptedAnswers": [
+            "der Mann",
+            "Mann",
+            "ein Mann"
+          ],
+          "hint": "English: man",
+          "english": "An adult male person is ____ (the man)."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Eine erwachsene weibliche Person ist ____.",
+          "acceptedAnswers": [
+            "die Frau",
+            "Frau",
+            "eine Frau"
+          ],
+          "hint": "English: woman",
+          "english": "An adult female person is ____ (the woman)."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Ein männliches Kind ist ____.",
+          "acceptedAnswers": [
+            "der Junge",
+            "Junge",
+            "ein Junge"
+          ],
+          "hint": "English: boy",
+          "english": "A male child is ____ (a boy)."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Ein weibliches Kind ist ____.",
+          "acceptedAnswers": [
+            "das Mädchen",
+            "Mädchen",
+            "ein Mädchen"
+          ],
+          "hint": "English: girl",
+          "english": "A female child is ____ (a girl)."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Eltern und Kinder zusammen sind ____.",
+          "acceptedAnswers": [
+            "die Familie",
+            "Familie",
+            "eine Familie"
+          ],
+          "hint": "English: family",
+          "english": "Parents and children together are ____ (a family)."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Eine männliche Person, die du magst, ist ____.",
+          "acceptedAnswers": [
+            "der Freund",
+            "Freund",
+            "ein Freund"
+          ],
+          "hint": "English: friend",
+          "english": "A male person you like is ____ (a friend)."
+        },
+        {
+          "subjectKey": "s15",
+          "categoryLabel": "Wer ist das?",
+          "sentence": "Eine weibliche Person, die du magst, ist ____.",
+          "acceptedAnswers": [
+            "die Freundin",
+            "Freundin",
+            "eine Freundin"
+          ],
+          "hint": "English: friend",
+          "english": "A female person you like is ____ (a friend)."
+        }
+      ],
+      "helpMemoryIntro": "Read the clue (and its English translation), then write the family word — with its article der/die/das, since the gender is part of the word. \"die Mutter\" or just \"Mutter\" both count.",
       "helpMemoryTips": [
         {
           "title": "Female forms end in -in",
@@ -29045,6 +29796,107 @@
           "kind": "mnemonic",
           "title": "Color code",
           "text": "der = blue, die = red, das = green — the same across the app."
+        }
+      ],
+      "contextualLayout": true
+    },
+    {
+      "id": "quest_a1_1_sprechen_zahlen",
+      "title": "A1.1 · Sprechen: Zahlen & Preise",
+      "storageKeyPrefix": "quest_a1_1_sprechen_zahlen_",
+      "promptLabel": "Wort",
+      "subjectsLabel": "Wörter",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "null",
+          "english": "zero (0)"
+        },
+        {
+          "key": "s1",
+          "display": "eins",
+          "english": "one (1)"
+        },
+        {
+          "key": "s2",
+          "display": "zwei",
+          "english": "two (2)"
+        },
+        {
+          "key": "s3",
+          "display": "drei",
+          "english": "three (3)"
+        },
+        {
+          "key": "s4",
+          "display": "vier",
+          "english": "four (4)"
+        },
+        {
+          "key": "s5",
+          "display": "fünf",
+          "english": "five (5)"
+        },
+        {
+          "key": "s6",
+          "display": "sechs",
+          "english": "six (6)"
+        },
+        {
+          "key": "s7",
+          "display": "sieben",
+          "english": "seven (7)"
+        },
+        {
+          "key": "s8",
+          "display": "acht",
+          "english": "eight (8)"
+        },
+        {
+          "key": "s9",
+          "display": "neun",
+          "english": "nine (9)"
+        },
+        {
+          "key": "s10",
+          "display": "zehn",
+          "english": "ten (10)"
+        },
+        {
+          "key": "s11",
+          "display": "zwanzig",
+          "english": "twenty (20)"
+        },
+        {
+          "key": "s12",
+          "display": "einundzwanzig",
+          "english": "twenty-one (21)"
+        },
+        {
+          "key": "s13",
+          "display": "Was kostet das?",
+          "english": "How much is that?"
+        },
+        {
+          "key": "s14",
+          "display": "Das kostet drei Euro fünfzig.",
+          "english": "That costs 3.50."
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Say the numbers and prices out loud. Being able to say them helps with prices, platforms and room numbers. Listen and repeat each one.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "The \"z\" and \"ei\"",
+          "text": "\"zwei\" sounds like \"tsvai\" and \"zwanzig\" like \"tsvan-tsig\". German \"z\" is always \"ts\"."
+        },
+        {
+          "title": "Prices",
+          "text": "\"3,50 €\" is said \"drei Euro fünfzig\": first the euros, then the cents."
         }
       ]
     },
@@ -29398,6 +30250,179 @@
       "helpMemoryColorByGender": true
     },
     {
+      "id": "quest_a1_2_pronomen_akk",
+      "title": "A1.2 · Personalpronomen (Akkusativ)",
+      "storageKeyPrefix": "quest_a1_2_pronomen_akk_",
+      "promptLabel": "Welches Pronomen?",
+      "subjectsLabel": "Pronomen",
+      "subjectColumnLabel": "English",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "me"
+        },
+        {
+          "key": "s1",
+          "display": "you (informal)"
+        },
+        {
+          "key": "s2",
+          "display": "him"
+        },
+        {
+          "key": "s3",
+          "display": "her"
+        },
+        {
+          "key": "s4",
+          "display": "it"
+        },
+        {
+          "key": "s5",
+          "display": "us"
+        },
+        {
+          "key": "s6",
+          "display": "you (plural)"
+        },
+        {
+          "key": "s7",
+          "display": "them"
+        },
+        {
+          "key": "s8",
+          "display": "you"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Welches Pronomen? (Akkusativ)",
+          "group": "Welches Pronomen? (Akkusativ)",
+          "values": [
+            "mich",
+            "dich",
+            "ihn",
+            "sie",
+            "es",
+            "uns",
+            "euch",
+            "sie",
+            "Sie"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Das bin ich auf dem Foto. Siehst du ____?",
+          "acceptedAnswers": [
+            "mich"
+          ],
+          "hint": "English: me",
+          "english": "That's me in the photo. Do you see ____?"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Du bist mein bester Freund. Ich mag ____ sehr.",
+          "acceptedAnswers": [
+            "dich"
+          ],
+          "hint": "English: you (informal)",
+          "english": "You are my best friend. I like ____ a lot."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Das ist Tom. Ich kenne ____. (him)",
+          "acceptedAnswers": [
+            "ihn"
+          ],
+          "hint": "English: him",
+          "english": "That is Tom. I know ____ (him)."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Das ist Anna. Ich kenne ____. (her)",
+          "acceptedAnswers": [
+            "sie"
+          ],
+          "hint": "English: her",
+          "english": "That is Anna. I know ____ (her)."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Das ist das Buch. Ich lese ____. (it)",
+          "acceptedAnswers": [
+            "es"
+          ],
+          "hint": "English: it",
+          "english": "That is the book. I read ____ (it)."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Wir sind zu Hause. Besuchst du ____?",
+          "acceptedAnswers": [
+            "uns"
+          ],
+          "hint": "English: us",
+          "english": "We are at home. Are you visiting ____?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Ihr seid meine Freunde. Ich besuche ____ am Sonntag.",
+          "acceptedAnswers": [
+            "euch"
+          ],
+          "hint": "English: you (plural)",
+          "english": "You are my friends. I visit ____ on Sunday."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Das sind meine Freunde. Ich treffe ____. (them)",
+          "acceptedAnswers": [
+            "sie"
+          ],
+          "hint": "English: them",
+          "english": "Those are my friends. I'm meeting ____ (them)."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Welches Pronomen? (Akkusativ)",
+          "sentence": "Ich verstehe ____ gut, Frau Müller. (you, formal)",
+          "acceptedAnswers": [
+            "Sie"
+          ],
+          "hint": "English: you",
+          "english": "I understand ____ (you) well, Mrs Müller."
+        }
+      ],
+      "helpMemoryIntro": "When a pronoun is the direct object (the accusative), it changes form: \"Ich sehe DICH\" (I see you). Only ich, du, er change a lot; the others look like the nominative.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The ones that change",
+          "text": "ich → mich, du → dich, er → ihn. The rest are the same as the subject form: sie → sie, es → es, wir → uns, ihr → euch."
+        },
+        {
+          "kind": "example",
+          "text": "Liebst du mich? — Ja, ich liebe dich. / Kennst du ihn? — Ja, ich kenne ihn."
+        },
+        {
+          "kind": "warning",
+          "title": "\"sie\" again",
+          "text": "sie = her/them and Sie = you (formal) look identical in the accusative — context decides."
+        }
+      ],
+      "contextualLayout": true
+    },
+    {
       "id": "quest_a1_2_negation",
       "title": "A1.2 · Negation (kein/nicht)",
       "storageKeyPrefix": "quest_a1_2_negation_",
@@ -29621,6 +30646,84 @@
       ]
     },
     {
+      "id": "quest_a1_2_lesen_cafe",
+      "title": "A1.2 · Lesen: Im Café",
+      "storageKeyPrefix": "quest_a1_2_lesen_cafe_",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "kind": "reading",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Read the café scene once, then answer. Watch the verbs of ordering (möchten, nehmen, bestellen, bezahlen) — they come up constantly when eating out.",
+      "helpMemoryTips": [
+        {
+          "title": "Scan for numbers",
+          "text": "Price and quantity questions are easy points: find the digits and the Euro amounts in the text."
+        },
+        {
+          "title": "Who does what",
+          "text": "Underline the names (Anna, Tom, der Kellner) so you can quickly see who orders, who pays and who serves."
+        }
+      ],
+      "readingCategory": "Food & Drink",
+      "readingTitle": "Im Café",
+      "readingPassage": "Anna und Tom gehen in ein Café. Der Kellner kommt und fragt: \"Was möchten Sie trinken?\" Anna möchte einen Kaffee mit Milch. Tom nimmt einen Tee und ein Glas Wasser. Sie haben Hunger und bestellen auch zwei Stück Kuchen. Der Kuchen ist sehr lecker. Am Ende bezahlt Tom. Der Kaffee kostet drei Euro, der Tee zwei Euro. Tom gibt dem Kellner ein kleines Trinkgeld.",
+      "readingQuestions": [
+        {
+          "question": "Wohin gehen Anna und Tom?",
+          "options": [
+            "in die Schule",
+            "in ein Café",
+            "nach Hause"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Anna und Tom gehen in ein Café.\""
+        },
+        {
+          "question": "Was möchte Anna trinken?",
+          "options": [
+            "einen Tee",
+            "ein Wasser",
+            "einen Kaffee mit Milch"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Anna möchte einen Kaffee mit Milch.\""
+        },
+        {
+          "question": "Wer bezahlt am Ende?",
+          "options": [
+            "Anna",
+            "Tom",
+            "der Kellner"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Ende bezahlt Tom.\""
+        },
+        {
+          "question": "Wie viel kostet der Kaffee?",
+          "options": [
+            "zwei Euro",
+            "drei Euro",
+            "vier Euro"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der Kaffee kostet drei Euro …\""
+        },
+        {
+          "question": "Was essen Anna und Tom im Café?",
+          "options": [
+            "Kuchen",
+            "Brot",
+            "Suppe"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… bestellen auch zwei Stück Kuchen.\""
+        }
+      ]
+    },
+    {
       "id": "quest_a1_2_modalverben",
       "title": "A1.2 · Modalverben",
       "storageKeyPrefix": "quest_a1_2_modalverben_",
@@ -29743,6 +30846,7 @@
       "promptLabel": "Uhrzeit",
       "subjectsLabel": "Uhrzeiten",
       "subjectColumnLabel": "Zeit",
+      "stripSentenceCue": true,
       "subjects": [
         {
           "key": "s0",
@@ -29957,94 +31061,169 @@
       ]
     },
     {
+      "id": "quest_a1_2_sprechen_alltag",
+      "title": "A1.2 · Sprechen: Alltag & Uhrzeit",
+      "storageKeyPrefix": "quest_a1_2_sprechen_alltag_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Wie spät ist es?",
+          "english": "What time is it?"
+        },
+        {
+          "key": "s1",
+          "display": "Es ist acht Uhr.",
+          "english": "It's eight o'clock."
+        },
+        {
+          "key": "s2",
+          "display": "Es ist halb zehn.",
+          "english": "It's half past nine."
+        },
+        {
+          "key": "s3",
+          "display": "Es ist Viertel nach drei.",
+          "english": "It's quarter past three."
+        },
+        {
+          "key": "s4",
+          "display": "Ich stehe um sieben Uhr auf.",
+          "english": "I get up at seven."
+        },
+        {
+          "key": "s5",
+          "display": "Ich frühstücke um acht Uhr.",
+          "english": "I have breakfast at eight."
+        },
+        {
+          "key": "s6",
+          "display": "Ich gehe um neun Uhr zur Arbeit.",
+          "english": "I go to work at nine."
+        },
+        {
+          "key": "s7",
+          "display": "Am Abend sehe ich fern.",
+          "english": "In the evening I watch TV."
+        },
+        {
+          "key": "s8",
+          "display": "Wann stehst du auf?",
+          "english": "When do you get up?"
+        },
+        {
+          "key": "s9",
+          "display": "Ich gehe um elf Uhr ins Bett.",
+          "english": "I go to bed at eleven."
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Say your daily routine and the time out loud. Listen and repeat each sentence; if a microphone is available we tell you how it sounded, otherwise just repeat and continue.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "Separable verbs",
+          "text": "\"Ich stehe um sieben Uhr auf\" — say the prefix \"auf\" at the end clearly; it carries the stress."
+        },
+        {
+          "title": "The \"ü\" in Uhr / um",
+          "text": "Round your lips for \"ü\". Practise \"Wie spät ist es?\" until it flows."
+        }
+      ]
+    },
+    {
       "id": "quest_a1_2_datum",
       "title": "A1.2 · Wochentage & Monate",
       "storageKeyPrefix": "quest_a1_2_datum_",
-      "promptLabel": "Wort",
+      "promptLabel": "Welcher Tag/Monat?",
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "English",
       "subjects": [
         {
-          "key": "Monday",
+          "key": "s0",
           "display": "Monday"
         },
         {
-          "key": "Tuesday",
+          "key": "s1",
           "display": "Tuesday"
         },
         {
-          "key": "Wednesday",
+          "key": "s2",
           "display": "Wednesday"
         },
         {
-          "key": "Thursday",
+          "key": "s3",
           "display": "Thursday"
         },
         {
-          "key": "Friday",
+          "key": "s4",
           "display": "Friday"
         },
         {
-          "key": "Saturday",
+          "key": "s5",
           "display": "Saturday"
         },
         {
-          "key": "Sunday",
+          "key": "s6",
           "display": "Sunday"
         },
         {
-          "key": "January",
+          "key": "s7",
           "display": "January"
         },
         {
-          "key": "February",
+          "key": "s8",
           "display": "February"
         },
         {
-          "key": "March",
+          "key": "s9",
           "display": "March"
         },
         {
-          "key": "April",
+          "key": "s10",
           "display": "April"
         },
         {
-          "key": "May",
+          "key": "s11",
           "display": "May"
         },
         {
-          "key": "June",
+          "key": "s12",
           "display": "June"
         },
         {
-          "key": "July",
+          "key": "s13",
           "display": "July"
         },
         {
-          "key": "August",
+          "key": "s14",
           "display": "August"
         },
         {
-          "key": "September",
+          "key": "s15",
           "display": "September"
         },
         {
-          "key": "October",
+          "key": "s16",
           "display": "October"
         },
         {
-          "key": "November",
+          "key": "s17",
           "display": "November"
         },
         {
-          "key": "December",
+          "key": "s18",
           "display": "December"
         }
       ],
       "categories": [
         {
-          "label": "Deutsch",
-          "group": "Deutsch",
+          "label": "Welcher Tag/Monat?",
+          "group": "Welcher Tag/Monat?",
           "values": [
             "Montag",
             "Dienstag",
@@ -30068,12 +31247,199 @@
           ]
         }
       ],
-      "sentences": [],
-      "sentenceTemplates": {
-        "Deutsch": [
-          "\"{subject}\" auf Deutsch: ____"
-        ]
-      },
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der erste Arbeitstag der Woche ist ____.",
+          "acceptedAnswers": [
+            "Montag"
+          ],
+          "hint": "English: Monday",
+          "english": "The first workday of the week is ____ (Monday)."
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Tag nach Montag ist ____.",
+          "acceptedAnswers": [
+            "Dienstag"
+          ],
+          "hint": "English: Tuesday",
+          "english": "The day after Monday is ____ (Tuesday)."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Die Mitte der Arbeitswoche ist ____.",
+          "acceptedAnswers": [
+            "Mittwoch"
+          ],
+          "hint": "English: Wednesday",
+          "english": "The middle of the workweek is ____ (Wednesday)."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Tag vor Freitag ist ____.",
+          "acceptedAnswers": [
+            "Donnerstag"
+          ],
+          "hint": "English: Thursday",
+          "english": "The day before Friday is ____ (Thursday)."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der letzte Arbeitstag der Woche ist ____.",
+          "acceptedAnswers": [
+            "Freitag"
+          ],
+          "hint": "English: Friday",
+          "english": "The last workday of the week is ____ (Friday)."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der erste Tag vom Wochenende ist ____.",
+          "acceptedAnswers": [
+            "Samstag",
+            "Sonnabend"
+          ],
+          "hint": "English: Saturday",
+          "english": "The first day of the weekend is ____ (Saturday)."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Ruhetag vor Montag ist ____.",
+          "acceptedAnswers": [
+            "Sonntag"
+          ],
+          "hint": "English: Sunday",
+          "english": "The day of rest before Monday is ____ (Sunday)."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der erste Monat im Jahr ist ____.",
+          "acceptedAnswers": [
+            "Januar"
+          ],
+          "hint": "English: January",
+          "english": "The first month of the year is ____ (January)."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der kürzeste Monat im Jahr ist ____.",
+          "acceptedAnswers": [
+            "Februar"
+          ],
+          "hint": "English: February",
+          "english": "The shortest month of the year is ____ (February)."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Im ____ beginnt der Frühling.",
+          "acceptedAnswers": [
+            "März"
+          ],
+          "hint": "English: March",
+          "english": "Spring begins in ____ (March)."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Monat nach März ist ____.",
+          "acceptedAnswers": [
+            "April"
+          ],
+          "hint": "English: April",
+          "english": "The month after March is ____ (April)."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Monat nach April ist ____.",
+          "acceptedAnswers": [
+            "Mai"
+          ],
+          "hint": "English: May",
+          "english": "The month after April is ____ (May)."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der erste Sommermonat ist ____.",
+          "acceptedAnswers": [
+            "Juni"
+          ],
+          "hint": "English: June",
+          "english": "The first month of summer is ____ (June)."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Monat nach Juni ist ____.",
+          "acceptedAnswers": [
+            "Juli"
+          ],
+          "hint": "English: July",
+          "english": "The month after June is ____ (July)."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Monat nach Juli ist ____.",
+          "acceptedAnswers": [
+            "August"
+          ],
+          "hint": "English: August",
+          "english": "The month after July is ____ (August)."
+        },
+        {
+          "subjectKey": "s15",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Im ____ beginnt oft die Schule.",
+          "acceptedAnswers": [
+            "September"
+          ],
+          "hint": "English: September",
+          "english": "School often begins in ____ (September)."
+        },
+        {
+          "subjectKey": "s16",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Monat vom Oktoberfest ist ____.",
+          "acceptedAnswers": [
+            "Oktober"
+          ],
+          "hint": "English: October",
+          "english": "The month of Oktoberfest is ____ (October)."
+        },
+        {
+          "subjectKey": "s17",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der Monat vor Dezember ist ____.",
+          "acceptedAnswers": [
+            "November"
+          ],
+          "hint": "English: November",
+          "english": "The month before December is ____ (November)."
+        },
+        {
+          "subjectKey": "s18",
+          "categoryLabel": "Welcher Tag/Monat?",
+          "sentence": "Der letzte Monat im Jahr (mit Weihnachten) ist ____.",
+          "acceptedAnswers": [
+            "Dezember"
+          ],
+          "hint": "English: December",
+          "english": "The last month of the year (with Christmas) is ____ (December)."
+        }
+      ],
       "helpMemoryIntro": "All days of the week and months are masculine (der-words) and are always written with a capital letter.",
       "helpMemoryTips": [
         {
@@ -30085,7 +31451,8 @@
           "title": "\"am\" for days, \"im\" for months",
           "text": "am Freitag (on Friday), im Mai (in May). Both come from an/in + dem (dative)."
         }
-      ]
+      ],
+      "contextualLayout": true
     },
     {
       "id": "quest_a1_2_praepositionen",
@@ -30270,6 +31637,84 @@
           "kind": "rule",
           "title": "What actually changes",
           "text": "Only masculine: der → den (für den Mann). Feminine (die) and neuter (das) look the same as the nominative."
+        }
+      ]
+    },
+    {
+      "id": "quest_a1_2_lesen_reise",
+      "title": "A1.2 · Lesen: Eine kleine Reise",
+      "storageKeyPrefix": "quest_a1_2_lesen_reise_",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "kind": "reading",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Read the travel story once, then answer. Travel words (Zug, Bahnhof, Fahrkarte, Hotel) and times/prices are common in the A1 reading exam.",
+      "helpMemoryTips": [
+        {
+          "title": "Times and places",
+          "text": "Note the time the train leaves and where they stay — questions often ask exactly those details."
+        },
+        {
+          "title": "mit dem …",
+          "text": "Transport uses \"mit dem Zug / Bus / Auto\" — a good clue for the \"how do they travel?\" question."
+        }
+      ],
+      "readingCategory": "Travel",
+      "readingTitle": "Eine kleine Reise",
+      "readingPassage": "Im Sommer macht Familie Schmidt eine Reise nach München. Sie fahren mit dem Zug. Der Zug fährt um neun Uhr am Bahnhof ab. Die Fahrkarte kostet vierzig Euro. Die Reise dauert vier Stunden. In München wohnen sie in einem Hotel im Zentrum. Sie besuchen ein Museum und einen großen Park. Das Wetter ist schön und warm. Am Abend essen sie in einem Restaurant. Die Kinder sind sehr glücklich.",
+      "readingQuestions": [
+        {
+          "question": "Wohin fährt Familie Schmidt?",
+          "options": [
+            "nach Berlin",
+            "nach München",
+            "nach Hamburg"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… eine Reise nach München.\""
+        },
+        {
+          "question": "Wie fahren sie?",
+          "options": [
+            "mit dem Auto",
+            "mit dem Bus",
+            "mit dem Zug"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Sie fahren mit dem Zug.\""
+        },
+        {
+          "question": "Wie viel kostet die Fahrkarte?",
+          "options": [
+            "vierzig Euro",
+            "vierzehn Euro",
+            "vier Euro"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die Fahrkarte kostet vierzig Euro.\""
+        },
+        {
+          "question": "Wie ist das Wetter?",
+          "options": [
+            "kalt",
+            "schön und warm",
+            "windig"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das Wetter ist schön und warm.\""
+        },
+        {
+          "question": "Was besuchen sie in München?",
+          "options": [
+            "ein Museum und einen Park",
+            "ein Theater",
+            "ein Kino"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Sie besuchen ein Museum und einen großen Park.\""
         }
       ]
     },

@@ -1,4 +1,5 @@
 import '../../models/quiz_content.dart';
+import 'quest_builders.dart';
 
 /// CEFR **A1.1 — "Erste Schritte"** Quest quizzes, authored as serializable
 /// [QuizContent] so they seed into the database, are editable in the back
@@ -177,28 +178,74 @@ final QuizContent questZahlen3Content = vocabQuestQuiz(
   ],
 );
 
-/// 2. Personalpronomen im Nominativ — English → German subject pronoun.
-final QuizContent questPronomenContent = vocabQuestQuiz(
+/// 2. Personalpronomen im Nominativ — fill the subject pronoun in context.
+final QuizContent questPronomenContent = sentenceQuestQuiz(
   id: 'quest_a1_1_pronomen',
   title: 'A1.1 · Personalpronomen',
-  promptLabel: 'Pronomen',
+  promptLabel: 'Welches Pronomen?',
   subjectsLabel: 'Pronomen',
   subjectColumnLabel: 'English',
-  categoryLabel: 'Deutsch',
-  template: '"{subject}" auf Deutsch: ____',
-  pairs: const [
-    MapEntry('I', 'ich'),
-    MapEntry('you (informal)', 'du'),
-    MapEntry('he', 'er'),
-    MapEntry('she', 'sie'),
-    MapEntry('it', 'es'),
-    MapEntry('we', 'wir'),
-    MapEntry('you (plural)', 'ihr'),
-    MapEntry('they', 'sie'),
-    MapEntry('you (formal)', 'Sie'),
+  categoryLabel: 'Welches Pronomen?',
+  contextualLayout: true,
+  items: const [
+    QuestSentenceItem(
+      sentence: '____ bin müde. (I)',
+      answer: 'ich',
+      english: '____ am tired. (I)',
+      gloss: 'I',
+    ),
+    QuestSentenceItem(
+      sentence: '____ bist mein Freund. (you, informal)',
+      answer: 'du',
+      english: '____ are my friend. (you, informal)',
+      gloss: 'you (informal)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das ist Tom. ____ ist groß. (he)',
+      answer: 'er',
+      english: 'That is Tom. ____ is tall. (he)',
+      gloss: 'he',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das ist Anna. ____ ist nett. (she)',
+      answer: 'sie',
+      english: 'That is Anna. ____ is nice. (she)',
+      gloss: 'she',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das ist das Kind. ____ spielt. (it)',
+      answer: 'es',
+      english: 'That is the child. ____ plays. (it)',
+      gloss: 'it',
+    ),
+    QuestSentenceItem(
+      sentence: 'Anna und ich lernen Deutsch. ____ sind Studenten.',
+      answer: 'wir',
+      english: 'Anna and I study German. ____ are students.',
+      gloss: 'we',
+    ),
+    QuestSentenceItem(
+      sentence: '____ seid meine Freunde. (you, plural)',
+      answer: 'ihr',
+      english: '____ are my friends. (you all)',
+      gloss: 'you (plural)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das sind Tom und Anna. ____ kommen aus Berlin. (they)',
+      answer: 'sie',
+      english: 'Those are Tom and Anna. ____ come from Berlin. (they)',
+      gloss: 'they',
+    ),
+    QuestSentenceItem(
+      sentence: '____ sind sehr nett, Herr Müller. (you, formal)',
+      answer: 'Sie',
+      english: '____ are very kind, Mr Müller. (you, formal)',
+      gloss: 'you (formal)',
+    ),
   ],
-  intro: 'Subject (nominative) pronouns say who does the action. They replace '
-      'the person or thing doing the verb.',
+  intro: 'Subject (nominative) pronouns say who does the action. Read the '
+      'sentence — the verb ending and the English hint tell you which one '
+      'fits.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
@@ -215,31 +262,81 @@ final QuizContent questPronomenContent = vocabQuestQuiz(
   ],
 );
 
-/// 6. Farben — English → German colour word.
-final QuizContent questFarbenContent = vocabQuestQuiz(
+/// 6. Farben — name the colour from a clue.
+final QuizContent questFarbenContent = sentenceQuestQuiz(
   id: 'quest_a1_1_farben',
   title: 'A1.1 · Farben',
-  promptLabel: 'Farbe',
+  promptLabel: 'Welche Farbe?',
   subjectsLabel: 'Farben',
   subjectColumnLabel: 'English',
-  categoryLabel: 'Deutsch',
-  template: '"{subject}" auf Deutsch: ____',
-  pairs: const [
-    MapEntry('red', 'rot'),
-    MapEntry('blue', 'blau'),
-    MapEntry('green', 'grün'),
-    MapEntry('yellow', 'gelb'),
-    MapEntry('black', 'schwarz'),
-    MapEntry('white', 'weiß'),
-    MapEntry('orange', 'orange'),
-    MapEntry('brown', 'braun'),
-    MapEntry('grey', 'grau'),
-    MapEntry('pink', 'rosa'),
-    MapEntry('purple', 'lila'),
-    MapEntry('colourful', 'bunt'),
+  categoryLabel: 'Welche Farbe?',
+  contextualLayout: true,
+  items: const [
+    QuestSentenceItem(
+      sentence: 'Die Farbe von Blut und Erdbeeren ist ____.',
+      answer: 'rot',
+      english: 'The colour of blood and strawberries is ____ (red).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe vom Himmel ist ____.',
+      answer: 'blau',
+      english: 'The colour of the sky is ____ (blue).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von Gras und Blättern ist ____.',
+      answer: 'grün',
+      english: 'The colour of grass and leaves is ____ (green).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von der Sonne und Bananen ist ____.',
+      answer: 'gelb',
+      english: 'The colour of the sun and bananas is ____ (yellow).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von der Nacht ist ____.',
+      answer: 'schwarz',
+      english: 'The colour of the night is ____ (black).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von Schnee und Milch ist ____.',
+      answer: 'weiß',
+      english: 'The colour of snow and milk is ____ (white).',
+      accepted: ['weiss'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von einer Orange und Karotten ist ____.',
+      answer: 'orange',
+      english: 'The colour of an orange and carrots is ____ (orange).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von Schokolade und Holz ist ____.',
+      answer: 'braun',
+      english: 'The colour of chocolate and wood is ____ (brown).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von einem Elefanten und Wolken ist ____.',
+      answer: 'grau',
+      english: 'The colour of an elephant and clouds is ____ (grey).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Eine helle Mischung aus Rot und Weiß ist ____.',
+      answer: 'rosa',
+      english: 'A light mix of red and white is ____ (pink).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von einer Aubergine ist ____.',
+      answer: 'lila',
+      english: 'The colour of an aubergine is ____ (purple).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Viele Farben zusammen (ein Regenbogen) sind ____.',
+      answer: 'bunt',
+      english: 'Many colours together (a rainbow) are ____ (colourful).',
+    ),
   ],
-  intro: 'Colours are adjectives. On their own (after sein) they stay in this '
-      'base form; before a noun they take an ending.',
+  intro: 'Read the clue and name the colour. Colours are adjectives: on their '
+      'own (after sein) they stay in this base form; before a noun they take an '
+      'ending (ein rotes Auto).',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
@@ -253,35 +350,116 @@ final QuizContent questFarbenContent = vocabQuestQuiz(
   ],
 );
 
-/// 7. Familie & Menschen — English → German noun *with its article*.
-final QuizContent questFamilieContent = vocabQuestQuiz(
+/// 7. Familie & Menschen — read a clue, name the person *with their article*.
+final QuizContent questFamilieContent = sentenceQuestQuiz(
   id: 'quest_a1_1_familie',
   title: 'A1.1 · Familie & Menschen',
-  promptLabel: 'Wort',
+  promptLabel: 'Wer ist das?',
   subjectsLabel: 'Wörter',
   subjectColumnLabel: 'English',
-  categoryLabel: 'Deutsch (mit Artikel)',
-  template: '"{subject}" auf Deutsch (mit Artikel): ____',
-  pairs: const [
-    MapEntry('father', 'der Vater'),
-    MapEntry('mother', 'die Mutter'),
-    MapEntry('brother', 'der Bruder'),
-    MapEntry('sister', 'die Schwester'),
-    MapEntry('son', 'der Sohn'),
-    MapEntry('daughter', 'die Tochter'),
-    MapEntry('grandfather', 'der Großvater'),
-    MapEntry('grandmother', 'die Großmutter'),
-    MapEntry('child', 'das Kind'),
-    MapEntry('the man', 'der Mann'),
-    MapEntry('the woman', 'die Frau'),
-    MapEntry('boy', 'der Junge'),
-    MapEntry('girl', 'das Mädchen'),
-    MapEntry('friend (male)', 'der Freund'),
-    MapEntry('friend (female)', 'die Freundin'),
-    MapEntry('the family', 'die Familie'),
+  categoryLabel: 'Wer ist das?',
+  contextualLayout: true,
+  items: const [
+    QuestSentenceItem(
+      sentence: 'Eine Frau mit einem Kind ist ____.',
+      answer: 'die Mutter',
+      english: 'A woman with a child is ____ (the mother).',
+      accepted: ['Mutter', 'eine Mutter'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Ein Mann mit einem Kind ist ____.',
+      answer: 'der Vater',
+      english: 'A man with a child is ____ (the father).',
+      accepted: ['Vater', 'ein Vater'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Der andere Sohn meiner Eltern ist ____.',
+      answer: 'der Bruder',
+      english: "My parents' other son is ____ (my brother).",
+      accepted: ['Bruder', 'ein Bruder', 'mein Bruder'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Die andere Tochter meiner Eltern ist ____.',
+      answer: 'die Schwester',
+      english: "My parents' other daughter is ____ (my sister).",
+      accepted: ['Schwester', 'eine Schwester', 'meine Schwester'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Das männliche Kind der Familie ist ____.',
+      answer: 'der Sohn',
+      english: "The family's male child is ____ (the son).",
+      accepted: ['Sohn', 'ein Sohn'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Das weibliche Kind der Familie ist ____.',
+      answer: 'die Tochter',
+      english: "The family's female child is ____ (the daughter).",
+      accepted: ['Tochter', 'eine Tochter'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Vater meines Vaters ist ____.',
+      answer: 'der Großvater',
+      english: "My father's father is ____ (the grandfather).",
+      accepted: ['Großvater', 'ein Großvater', 'der Opa', 'Opa'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Mutter meiner Mutter ist ____.',
+      answer: 'die Großmutter',
+      english: "My mother's mother is ____ (the grandmother).",
+      accepted: ['Großmutter', 'eine Großmutter', 'die Oma', 'Oma'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Ein Junge oder ein Mädchen ist ____.',
+      answer: 'das Kind',
+      english: 'A boy or a girl is ____ (a child).',
+      accepted: ['Kind', 'ein Kind'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Eine erwachsene männliche Person ist ____.',
+      answer: 'der Mann',
+      english: 'An adult male person is ____ (the man).',
+      accepted: ['Mann', 'ein Mann'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Eine erwachsene weibliche Person ist ____.',
+      answer: 'die Frau',
+      english: 'An adult female person is ____ (the woman).',
+      accepted: ['Frau', 'eine Frau'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Ein männliches Kind ist ____.',
+      answer: 'der Junge',
+      english: 'A male child is ____ (a boy).',
+      accepted: ['Junge', 'ein Junge'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Ein weibliches Kind ist ____.',
+      answer: 'das Mädchen',
+      english: 'A female child is ____ (a girl).',
+      accepted: ['Mädchen', 'ein Mädchen'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Eltern und Kinder zusammen sind ____.',
+      answer: 'die Familie',
+      english: 'Parents and children together are ____ (a family).',
+      accepted: ['Familie', 'eine Familie'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Eine männliche Person, die du magst, ist ____.',
+      answer: 'der Freund',
+      english: 'A male person you like is ____ (a friend).',
+      accepted: ['Freund', 'ein Freund'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Eine weibliche Person, die du magst, ist ____.',
+      answer: 'die Freundin',
+      english: 'A female person you like is ____ (a friend).',
+      accepted: ['Freundin', 'eine Freundin'],
+    ),
   ],
-  intro: 'Learn each family word together with its article — the gender is '
-      'part of the word.',
+  intro: 'Read the clue (and its English translation), then write the family '
+      'word — with its article der/die/das, since the gender is part of the '
+      'word. "die Mutter" or just "Mutter" both count.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
@@ -522,17 +700,264 @@ final QuizContent questArtikelContent = QuizContent(
   ],
 );
 
-/// Every A1.1 quiz, in chain order. The three number drills are spread out
-/// (positions 1, 4, 7) and the vocab/grammar quizzes interleaved, so the
-/// learner never faces two same-type quizzes back-to-back.
+/// 8. W-Fragen — pick the right question word for what is being asked.
+final QuizContent questWFragenContent = sentenceQuestQuiz(
+  id: 'quest_a1_1_wfragen',
+  title: 'A1.1 · W-Fragen',
+  promptLabel: 'Welches Fragewort?',
+  subjectsLabel: 'Fragewörter',
+  subjectColumnLabel: 'English',
+  categoryLabel: 'Welches Fragewort?',
+  contextualLayout: true,
+  items: const [
+    QuestSentenceItem(
+      sentence: 'Du fragst nach einer Person: ____ ist das?',
+      answer: 'wer',
+      english: 'You ask about a person: ____ is that? (who)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach einer Sache: ____ ist das?',
+      answer: 'was',
+      english: 'You ask about a thing: ____ is that? (what)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Ort: ____ wohnst du?',
+      answer: 'wo',
+      english: 'You ask about the place: ____ do you live? (where)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Ziel: ____ gehst du?',
+      answer: 'wohin',
+      english: 'You ask about the destination: ____ are you going? (where to)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach der Herkunft: ____ kommst du?',
+      answer: 'woher',
+      english: 'You ask about origin: ____ do you come from? (where from)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach der Zeit: ____ beginnt der Film?',
+      answer: 'wann',
+      english: 'You ask about time: ____ does the film start? (when)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Befinden: ____ geht es dir?',
+      answer: 'wie',
+      english: 'You ask how someone is: ____ are you? (how)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Grund: ____ lernst du Deutsch?',
+      answer: 'warum',
+      english: 'You ask about the reason: ____ are you learning German? (why)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Preis: ____ kostet das?',
+      answer: 'wie viel',
+      english: 'You ask about the price: ____ does that cost? (how much)',
+      accepted: ['wieviel'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach der Anzahl: ____ Personen kommen?',
+      answer: 'wie viele',
+      english: 'You ask about the number: ____ people are coming? (how many)',
+    ),
+  ],
+  intro: 'W-questions start with a question word (almost all begin with "w-") '
+      'followed by the verb in second position: Wo wohnst du? They ask for '
+      'specific information, unlike yes/no questions.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Word order',
+      text: 'Question word + verb + subject: Wann kommst du? Woher kommt sie?',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'wo / wohin / woher',
+      text: 'wo = where (location), wohin = where to (direction), woher = where '
+          'from (origin). Three different words in German.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'wie in combinations',
+      text: 'wie viel = how much, wie viele = how many, wie alt = how old, '
+          'wie spät = what time.',
+    ),
+  ],
+);
+
+/// Speaking 1 — Begrüßung & Vorstellung: greet people and introduce yourself.
+final QuizContent questSpeakBegruessungContent = speakQuestQuiz(
+  id: 'quest_a1_1_sprechen_vorstellung',
+  title: 'A1.1 · Sprechen: Vorstellung',
+  promptLabel: 'Satz',
+  subjectsLabel: 'Sätze',
+  subjectColumnLabel: 'Deutsch',
+  intro: 'Listen to each phrase in German and repeat it aloud. If your '
+      'microphone is available we tell you how it sounded; if not, just listen '
+      'and repeat at your own pace, then continue. These are the first things '
+      'you say when you meet someone.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Copy the rhythm',
+      text: 'Do not chase every single sound — imitate the melody and stress of '
+          'the whole phrase. It will sound far more natural.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'The "ei" and "ie"',
+      text: '"heiße" sounds like "high-sse"; "Wie" sounds like "vee". German '
+          '"w" is an English "v".',
+    ),
+  ],
+  phrases: const [
+    SpeakPhrase(phrase: 'Hallo!', meaning: 'Hello!'),
+    SpeakPhrase(phrase: 'Guten Tag!', meaning: 'Good day!'),
+    SpeakPhrase(phrase: 'Tschüss!', meaning: 'Bye!'),
+    SpeakPhrase(phrase: 'Danke!', meaning: 'Thank you!'),
+    SpeakPhrase(phrase: 'Ich heiße Anna.', meaning: 'My name is Anna.'),
+    SpeakPhrase(phrase: 'Wie heißt du?', meaning: "What's your name?"),
+    SpeakPhrase(phrase: 'Freut mich.', meaning: 'Nice to meet you.'),
+    SpeakPhrase(phrase: 'Ich komme aus Spanien.', meaning: 'I come from Spain.'),
+    SpeakPhrase(phrase: 'Woher kommst du?', meaning: 'Where are you from?'),
+    SpeakPhrase(phrase: 'Ich wohne in Berlin.', meaning: 'I live in Berlin.'),
+    SpeakPhrase(
+      phrase: 'Wie geht es Ihnen?',
+      meaning: 'How are you? (formal)',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich spreche ein bisschen Deutsch.',
+      meaning: 'I speak a little German.',
+    ),
+  ],
+);
+
+/// Speaking 2 — Zahlen & Preise: say numbers and prices aloud.
+final QuizContent questSpeakZahlenContent = speakQuestQuiz(
+  id: 'quest_a1_1_sprechen_zahlen',
+  title: 'A1.1 · Sprechen: Zahlen & Preise',
+  promptLabel: 'Wort',
+  subjectsLabel: 'Wörter',
+  subjectColumnLabel: 'Deutsch',
+  intro: 'Say the numbers and prices out loud. Being able to say them helps '
+      'with prices, platforms and room numbers. Listen and repeat each one.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'The "z" and "ei"',
+      text: '"zwei" sounds like "tsvai" and "zwanzig" like "tsvan-tsig". German '
+          '"z" is always "ts".',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Prices',
+      text: '"3,50 €" is said "drei Euro fünfzig": first the euros, then the '
+          'cents.',
+    ),
+  ],
+  phrases: const [
+    SpeakPhrase(phrase: 'null', meaning: 'zero (0)'),
+    SpeakPhrase(phrase: 'eins', meaning: 'one (1)'),
+    SpeakPhrase(phrase: 'zwei', meaning: 'two (2)'),
+    SpeakPhrase(phrase: 'drei', meaning: 'three (3)'),
+    SpeakPhrase(phrase: 'vier', meaning: 'four (4)'),
+    SpeakPhrase(phrase: 'fünf', meaning: 'five (5)'),
+    SpeakPhrase(phrase: 'sechs', meaning: 'six (6)'),
+    SpeakPhrase(phrase: 'sieben', meaning: 'seven (7)'),
+    SpeakPhrase(phrase: 'acht', meaning: 'eight (8)'),
+    SpeakPhrase(phrase: 'neun', meaning: 'nine (9)'),
+    SpeakPhrase(phrase: 'zehn', meaning: 'ten (10)'),
+    SpeakPhrase(phrase: 'zwanzig', meaning: 'twenty (20)'),
+    SpeakPhrase(phrase: 'einundzwanzig', meaning: 'twenty-one (21)'),
+    SpeakPhrase(phrase: 'Was kostet das?', meaning: 'How much is that?'),
+    SpeakPhrase(
+      phrase: 'Das kostet drei Euro fünfzig.',
+      meaning: 'That costs 3.50.',
+    ),
+  ],
+);
+
+/// Reading 1 — "Das bin ich" (Daily Life / personal information).
+final QuizContent questReadingDasBinIchContent = readingQuestQuiz(
+  id: 'quest_a1_1_lesen_dasbinich',
+  title: 'A1.1 · Lesen: Das bin ich',
+  category: 'Daily Life',
+  passageTitle: 'Das bin ich',
+  passage:
+      'Hallo! Ich heiße Lena Müller. Ich bin dreißig Jahre alt und komme aus '
+      'Österreich. Jetzt wohne ich in Hamburg. Ich bin Lehrerin und arbeite an '
+      'einer Schule. Ich habe einen Bruder und eine Schwester. Mein Bruder '
+      'heißt Tim. Am Wochenende spiele ich gern Tennis und lese viele Bücher. '
+      'Am Morgen trinke ich Tee, aber am Nachmittag trinke ich gern Kaffee. '
+      'Ich spreche Deutsch und Englisch.',
+  questions: const [
+    ReadingQuestion(
+      question: 'Wie alt ist Lena?',
+      options: ['dreizehn', 'dreißig', 'dreiundzwanzig'],
+      correctIndex: 1,
+      explanation: '"Ich bin dreißig Jahre alt" — she is thirty (30).',
+    ),
+    ReadingQuestion(
+      question: 'Woher kommt Lena?',
+      options: ['aus Deutschland', 'aus der Schweiz', 'aus Österreich'],
+      correctIndex: 2,
+      explanation: '"… und komme aus Österreich."',
+    ),
+    ReadingQuestion(
+      question: 'Was ist Lena von Beruf?',
+      options: ['Ärztin', 'Lehrerin', 'Studentin'],
+      correctIndex: 1,
+      explanation: '"Ich bin Lehrerin und arbeite an einer Schule."',
+    ),
+    ReadingQuestion(
+      question: 'Was trinkt Lena am Morgen?',
+      options: ['Kaffee', 'Tee', 'Wasser'],
+      correctIndex: 1,
+      explanation: '"Am Morgen trinke ich Tee …" — coffee is for the afternoon.',
+    ),
+    ReadingQuestion(
+      question: 'Was macht Lena gern am Wochenende?',
+      options: ['Tennis spielen', 'schwimmen', 'kochen'],
+      correctIndex: 0,
+      explanation: '"Am Wochenende spiele ich gern Tennis …"',
+    ),
+  ],
+  intro: 'Read the short text once, then answer the questions. You can re-read '
+      'the passage at any time. Read for the gist first — you do not need to '
+      'understand every single word.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Find the key word',
+      text: 'Each question has a key word (alt = age, woher = origin, Beruf = '
+          'job). Scan the text for it instead of reading everything again.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Guess from context',
+      text: 'Unknown word? The sentence around it usually tells you enough. '
+          'A1 reading is about understanding the main idea.',
+    ),
+  ],
+);
+
+/// Every A1.1 quiz, in chain order. Number drills, vocab and grammar are
+/// interleaved with the new Speaking and Reading skill exercises so the learner
+/// never faces two same-type quizzes back-to-back (knowledge → speaking →
+/// knowledge → reading …), following the Goethe A1 progression.
 final List<QuizContent> questA1_1Content = [
-  questZahlen1Content, //   Zahlen 0–10
-  questPronomenContent, //  Personalpronomen
-  questArtikelContent, //   Artikel im Nominativ
-  questZahlen2Content, //   Zahlen 11–20
-  questSeinHabenContent, // sein & haben
-  questFarbenContent, //    Farben
-  questZahlen3Content, //   Zahlen 20–100
-  questPraesensContent, //  Regelmäßige Verben
-  questFamilieContent, //   Familie & Menschen
+  questZahlen1Content, //          Zahlen 0–10            (knowledge)
+  questPronomenContent, //         Personalpronomen       (knowledge)
+  questSpeakBegruessungContent, // Sprechen: Vorstellung  (speaking)
+  questArtikelContent, //          Artikel im Nominativ   (knowledge)
+  questZahlen2Content, //          Zahlen 11–20           (knowledge)
+  questWFragenContent, //          W-Fragen               (knowledge)
+  questSeinHabenContent, //        sein & haben           (knowledge)
+  questFarbenContent, //           Farben                 (knowledge)
+  questReadingDasBinIchContent, // Lesen: Das bin ich     (reading)
+  questZahlen3Content, //          Zahlen 20–100          (knowledge)
+  questPraesensContent, //         Regelmäßige Verben     (knowledge)
+  questFamilieContent, //          Familie & Menschen     (knowledge)
+  questSpeakZahlenContent, //      Sprechen: Zahlen       (speaking)
 ];

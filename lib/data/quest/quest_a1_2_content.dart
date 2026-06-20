@@ -1,5 +1,5 @@
 import '../../models/quiz_content.dart';
-import 'quest_a1_1_content.dart' show vocabQuestQuiz;
+import 'quest_builders.dart';
 
 /// CEFR **A1.2 — "Im Alltag"** Quest quizzes (serializable [QuizContent]).
 ///
@@ -12,79 +12,6 @@ import 'quest_a1_1_content.dart' show vocabQuestQuiz;
 ///   spellings/forms can be accepted. Their subject *display* is the English
 ///   gloss (shown above the German fill-in), giving context without revealing
 ///   the German answer.
-
-// ── Explicit-answer (sentence bank) helper ──────────────────────────────────
-
-/// One explicit-answer item: a German [sentence] with a `____` blank, the
-/// [answer] revealed when wrong, every accepted spelling, an English gloss, and
-/// an optional hint/explanation.
-class QuestSentenceItem {
-  const QuestSentenceItem({
-    required this.sentence,
-    required this.answer,
-    required this.english,
-    List<String>? accepted,
-    this.hint,
-    this.explanation,
-  }) : accepted = accepted ?? const [];
-
-  final String sentence;
-  final String answer;
-  final String english;
-  final List<String> accepted;
-  final String? hint;
-  final String? explanation;
-}
-
-/// Builds a single-category explicit-answer quiz. Each item becomes one subject
-/// (keyed `s0`…, displayed as its English gloss) and one stored sentence.
-QuizContent sentenceQuestQuiz({
-  required String id,
-  required String title,
-  required String promptLabel,
-  required String subjectsLabel,
-  required String subjectColumnLabel,
-  required String categoryLabel,
-  required List<QuestSentenceItem> items,
-  String? intro,
-  List<HelpMemoryTip> tips = const [],
-}) {
-  return QuizContent(
-    id: id,
-    title: title,
-    storageKeyPrefix: '${id}_',
-    promptLabel: promptLabel,
-    subjectsLabel: subjectsLabel,
-    subjectColumnLabel: subjectColumnLabel,
-    subjects: [
-      for (var i = 0; i < items.length; i++)
-        QuizSubjectData(key: 's$i', display: items[i].english),
-    ],
-    categories: [
-      QuizCategoryData(
-        label: categoryLabel,
-        group: categoryLabel,
-        values: [for (final it in items) it.answer],
-      ),
-    ],
-    sentences: [
-      for (var i = 0; i < items.length; i++)
-        QuizSentenceData(
-          subjectKey: 's$i',
-          categoryLabel: categoryLabel,
-          sentence: items[i].sentence,
-          acceptedAnswers: {items[i].answer, ...items[i].accepted}.toList(),
-          english: items[i].english,
-          hint: items[i].hint,
-          explanationSections: items[i].explanation == null
-              ? const []
-              : [items[i].explanation!],
-        ),
-    ],
-    helpMemoryIntro: intro,
-    helpMemoryTips: tips,
-  );
-}
 
 // ── 1. Akkusativ — Artikel (den/die/das + einen/eine/ein) ────────────────────
 
@@ -481,6 +408,10 @@ final QuizContent questUhrzeitContent = sentenceQuestQuiz(
   subjectsLabel: 'Uhrzeiten',
   subjectColumnLabel: 'Zeit',
   categoryLabel: 'Wie spät ist es?',
+  // The "(21:15)" in each sentence is only there to keep the sentence string
+  // unique for answer-keying; the time is already shown in the prompt, so hide
+  // the duplicate cue from the interactive line.
+  stripSentenceCue: true,
   items: [
     _time('07:00', 'sieben Uhr', ['sieben']),
     _time('08:15', 'Viertel nach acht', []),
@@ -520,34 +451,111 @@ final QuizContent questUhrzeitContent = sentenceQuestQuiz(
 
 // ── 6. Datum: Wochentage & Monate ────────────────────────────────────────────
 
-final QuizContent questDatumContent = vocabQuestQuiz(
+final QuizContent questDatumContent = sentenceQuestQuiz(
   id: 'quest_a1_2_datum',
   title: 'A1.2 · Wochentage & Monate',
-  promptLabel: 'Wort',
+  promptLabel: 'Welcher Tag/Monat?',
   subjectsLabel: 'Wörter',
   subjectColumnLabel: 'English',
-  categoryLabel: 'Deutsch',
-  template: '"{subject}" auf Deutsch: ____',
-  pairs: const [
-    MapEntry('Monday', 'Montag'),
-    MapEntry('Tuesday', 'Dienstag'),
-    MapEntry('Wednesday', 'Mittwoch'),
-    MapEntry('Thursday', 'Donnerstag'),
-    MapEntry('Friday', 'Freitag'),
-    MapEntry('Saturday', 'Samstag'),
-    MapEntry('Sunday', 'Sonntag'),
-    MapEntry('January', 'Januar'),
-    MapEntry('February', 'Februar'),
-    MapEntry('March', 'März'),
-    MapEntry('April', 'April'),
-    MapEntry('May', 'Mai'),
-    MapEntry('June', 'Juni'),
-    MapEntry('July', 'Juli'),
-    MapEntry('August', 'August'),
-    MapEntry('September', 'September'),
-    MapEntry('October', 'Oktober'),
-    MapEntry('November', 'November'),
-    MapEntry('December', 'Dezember'),
+  categoryLabel: 'Welcher Tag/Monat?',
+  contextualLayout: true,
+  items: const [
+    QuestSentenceItem(
+      sentence: 'Der erste Arbeitstag der Woche ist ____.',
+      answer: 'Montag',
+      english: 'The first workday of the week is ____ (Monday).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Tag nach Montag ist ____.',
+      answer: 'Dienstag',
+      english: 'The day after Monday is ____ (Tuesday).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Mitte der Arbeitswoche ist ____.',
+      answer: 'Mittwoch',
+      english: 'The middle of the workweek is ____ (Wednesday).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Tag vor Freitag ist ____.',
+      answer: 'Donnerstag',
+      english: 'The day before Friday is ____ (Thursday).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der letzte Arbeitstag der Woche ist ____.',
+      answer: 'Freitag',
+      english: 'The last workday of the week is ____ (Friday).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der erste Tag vom Wochenende ist ____.',
+      answer: 'Samstag',
+      english: 'The first day of the weekend is ____ (Saturday).',
+      accepted: ['Sonnabend'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Ruhetag vor Montag ist ____.',
+      answer: 'Sonntag',
+      english: 'The day of rest before Monday is ____ (Sunday).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der erste Monat im Jahr ist ____.',
+      answer: 'Januar',
+      english: 'The first month of the year is ____ (January).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der kürzeste Monat im Jahr ist ____.',
+      answer: 'Februar',
+      english: 'The shortest month of the year is ____ (February).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Im ____ beginnt der Frühling.',
+      answer: 'März',
+      english: 'Spring begins in ____ (March).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Monat nach März ist ____.',
+      answer: 'April',
+      english: 'The month after March is ____ (April).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Monat nach April ist ____.',
+      answer: 'Mai',
+      english: 'The month after April is ____ (May).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der erste Sommermonat ist ____.',
+      answer: 'Juni',
+      english: 'The first month of summer is ____ (June).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Monat nach Juni ist ____.',
+      answer: 'Juli',
+      english: 'The month after June is ____ (July).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Monat nach Juli ist ____.',
+      answer: 'August',
+      english: 'The month after July is ____ (August).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Im ____ beginnt oft die Schule.',
+      answer: 'September',
+      english: 'School often begins in ____ (September).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Monat vom Oktoberfest ist ____.',
+      answer: 'Oktober',
+      english: 'The month of Oktoberfest is ____ (October).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der Monat vor Dezember ist ____.',
+      answer: 'November',
+      english: 'The month before December is ____ (November).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Der letzte Monat im Jahr (mit Weihnachten) ist ____.',
+      answer: 'Dezember',
+      english: 'The last month of the year (with Christmas) is ____ (December).',
+    ),
   ],
   intro: 'All days of the week and months are masculine (der-words) and are '
       'always written with a capital letter.',
@@ -751,14 +759,288 @@ final QuizContent questTrennbareContent = sentenceQuestQuiz(
   ],
 );
 
-/// Every A1.2 quiz, in display order.
+// ── 9. Personalpronomen im Akkusativ (mich/dich/ihn …) ───────────────────────
+
+final QuizContent questPronomenAkkContent = sentenceQuestQuiz(
+  id: 'quest_a1_2_pronomen_akk',
+  title: 'A1.2 · Personalpronomen (Akkusativ)',
+  promptLabel: 'Welches Pronomen?',
+  subjectsLabel: 'Pronomen',
+  subjectColumnLabel: 'English',
+  categoryLabel: 'Welches Pronomen? (Akkusativ)',
+  contextualLayout: true,
+  items: const [
+    QuestSentenceItem(
+      sentence: 'Das bin ich auf dem Foto. Siehst du ____?',
+      answer: 'mich',
+      english: "That's me in the photo. Do you see ____?",
+      gloss: 'me',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du bist mein bester Freund. Ich mag ____ sehr.',
+      answer: 'dich',
+      english: 'You are my best friend. I like ____ a lot.',
+      gloss: 'you (informal)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das ist Tom. Ich kenne ____. (him)',
+      answer: 'ihn',
+      english: 'That is Tom. I know ____ (him).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das ist Anna. Ich kenne ____. (her)',
+      answer: 'sie',
+      english: 'That is Anna. I know ____ (her).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das ist das Buch. Ich lese ____. (it)',
+      answer: 'es',
+      english: 'That is the book. I read ____ (it).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Wir sind zu Hause. Besuchst du ____?',
+      answer: 'uns',
+      english: 'We are at home. Are you visiting ____?',
+      gloss: 'us',
+    ),
+    QuestSentenceItem(
+      sentence: 'Ihr seid meine Freunde. Ich besuche ____ am Sonntag.',
+      answer: 'euch',
+      english: 'You are my friends. I visit ____ on Sunday.',
+      gloss: 'you (plural)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das sind meine Freunde. Ich treffe ____. (them)',
+      answer: 'sie',
+      english: "Those are my friends. I'm meeting ____ (them).",
+    ),
+    QuestSentenceItem(
+      sentence: 'Ich verstehe ____ gut, Frau Müller. (you, formal)',
+      answer: 'Sie',
+      english: 'I understand ____ (you) well, Mrs Müller.',
+    ),
+  ],
+  intro: 'When a pronoun is the direct object (the accusative), it changes form: '
+      '"Ich sehe DICH" (I see you). Only ich, du, er change a lot; the others '
+      'look like the nominative.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'The ones that change',
+      text: 'ich → mich, du → dich, er → ihn. The rest are the same as the '
+          'subject form: sie → sie, es → es, wir → uns, ihr → euch.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      text: 'Liebst du mich? — Ja, ich liebe dich. / Kennst du ihn? — Ja, ich '
+          'kenne ihn.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: '"sie" again',
+      text: 'sie = her/them and Sie = you (formal) look identical in the '
+          'accusative — context decides.',
+    ),
+  ],
+);
+
+// ── Reading: "Im Café" (Food & drink) ────────────────────────────────────────
+
+final QuizContent questReadingCafeContent = readingQuestQuiz(
+  id: 'quest_a1_2_lesen_cafe',
+  title: 'A1.2 · Lesen: Im Café',
+  category: 'Food & Drink',
+  passageTitle: 'Im Café',
+  passage:
+      'Anna und Tom gehen in ein Café. Der Kellner kommt und fragt: "Was '
+      'möchten Sie trinken?" Anna möchte einen Kaffee mit Milch. Tom nimmt '
+      'einen Tee und ein Glas Wasser. Sie haben Hunger und bestellen auch zwei '
+      'Stück Kuchen. Der Kuchen ist sehr lecker. Am Ende bezahlt Tom. Der '
+      'Kaffee kostet drei Euro, der Tee zwei Euro. Tom gibt dem Kellner ein '
+      'kleines Trinkgeld.',
+  questions: const [
+    ReadingQuestion(
+      question: 'Wohin gehen Anna und Tom?',
+      options: ['in die Schule', 'in ein Café', 'nach Hause'],
+      correctIndex: 1,
+      explanation: '"Anna und Tom gehen in ein Café."',
+    ),
+    ReadingQuestion(
+      question: 'Was möchte Anna trinken?',
+      options: ['einen Tee', 'ein Wasser', 'einen Kaffee mit Milch'],
+      correctIndex: 2,
+      explanation: '"Anna möchte einen Kaffee mit Milch."',
+    ),
+    ReadingQuestion(
+      question: 'Wer bezahlt am Ende?',
+      options: ['Anna', 'Tom', 'der Kellner'],
+      correctIndex: 1,
+      explanation: '"Am Ende bezahlt Tom."',
+    ),
+    ReadingQuestion(
+      question: 'Wie viel kostet der Kaffee?',
+      options: ['zwei Euro', 'drei Euro', 'vier Euro'],
+      correctIndex: 1,
+      explanation: '"Der Kaffee kostet drei Euro …"',
+    ),
+    ReadingQuestion(
+      question: 'Was essen Anna und Tom im Café?',
+      options: ['Kuchen', 'Brot', 'Suppe'],
+      correctIndex: 0,
+      explanation: '"… bestellen auch zwei Stück Kuchen."',
+    ),
+  ],
+  intro: 'Read the café scene once, then answer. Watch the verbs of ordering '
+      '(möchten, nehmen, bestellen, bezahlen) — they come up constantly when '
+      'eating out.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Scan for numbers',
+      text: 'Price and quantity questions are easy points: find the digits and '
+          'the Euro amounts in the text.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Who does what',
+      text: 'Underline the names (Anna, Tom, der Kellner) so you can quickly '
+          'see who orders, who pays and who serves.',
+    ),
+  ],
+);
+
+// ── Speaking: Alltag & Uhrzeit (daily routine & time) ────────────────────────
+
+final QuizContent questSpeakAlltagContent = speakQuestQuiz(
+  id: 'quest_a1_2_sprechen_alltag',
+  title: 'A1.2 · Sprechen: Alltag & Uhrzeit',
+  promptLabel: 'Satz',
+  subjectsLabel: 'Sätze',
+  subjectColumnLabel: 'Deutsch',
+  intro: 'Say your daily routine and the time out loud. Listen and repeat each '
+      'sentence; if a microphone is available we tell you how it sounded, '
+      'otherwise just repeat and continue.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'Separable verbs',
+      text: '"Ich stehe um sieben Uhr auf" — say the prefix "auf" at the end '
+          'clearly; it carries the stress.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'The "ü" in Uhr / um',
+      text: 'Round your lips for "ü". Practise "Wie spät ist es?" until it '
+          'flows.',
+    ),
+  ],
+  phrases: const [
+    SpeakPhrase(phrase: 'Wie spät ist es?', meaning: 'What time is it?'),
+    SpeakPhrase(phrase: 'Es ist acht Uhr.', meaning: "It's eight o'clock."),
+    SpeakPhrase(phrase: 'Es ist halb zehn.', meaning: "It's half past nine."),
+    SpeakPhrase(
+      phrase: 'Es ist Viertel nach drei.',
+      meaning: "It's quarter past three.",
+    ),
+    SpeakPhrase(
+      phrase: 'Ich stehe um sieben Uhr auf.',
+      meaning: 'I get up at seven.',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich frühstücke um acht Uhr.',
+      meaning: 'I have breakfast at eight.',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich gehe um neun Uhr zur Arbeit.',
+      meaning: 'I go to work at nine.',
+    ),
+    SpeakPhrase(phrase: 'Am Abend sehe ich fern.', meaning: 'In the evening I watch TV.'),
+    SpeakPhrase(phrase: 'Wann stehst du auf?', meaning: 'When do you get up?'),
+    SpeakPhrase(
+      phrase: 'Ich gehe um elf Uhr ins Bett.',
+      meaning: 'I go to bed at eleven.',
+    ),
+  ],
+);
+
+// ── Reading: "Eine kleine Reise" (Travel) ────────────────────────────────────
+
+final QuizContent questReadingReiseContent = readingQuestQuiz(
+  id: 'quest_a1_2_lesen_reise',
+  title: 'A1.2 · Lesen: Eine kleine Reise',
+  category: 'Travel',
+  passageTitle: 'Eine kleine Reise',
+  passage:
+      'Im Sommer macht Familie Schmidt eine Reise nach München. Sie fahren mit '
+      'dem Zug. Der Zug fährt um neun Uhr am Bahnhof ab. Die Fahrkarte kostet '
+      'vierzig Euro. Die Reise dauert vier Stunden. In München wohnen sie in '
+      'einem Hotel im Zentrum. Sie besuchen ein Museum und einen großen Park. '
+      'Das Wetter ist schön und warm. Am Abend essen sie in einem Restaurant. '
+      'Die Kinder sind sehr glücklich.',
+  questions: const [
+    ReadingQuestion(
+      question: 'Wohin fährt Familie Schmidt?',
+      options: ['nach Berlin', 'nach München', 'nach Hamburg'],
+      correctIndex: 1,
+      explanation: '"… eine Reise nach München."',
+    ),
+    ReadingQuestion(
+      question: 'Wie fahren sie?',
+      options: ['mit dem Auto', 'mit dem Bus', 'mit dem Zug'],
+      correctIndex: 2,
+      explanation: '"Sie fahren mit dem Zug."',
+    ),
+    ReadingQuestion(
+      question: 'Wie viel kostet die Fahrkarte?',
+      options: ['vierzig Euro', 'vierzehn Euro', 'vier Euro'],
+      correctIndex: 0,
+      explanation: '"Die Fahrkarte kostet vierzig Euro."',
+    ),
+    ReadingQuestion(
+      question: 'Wie ist das Wetter?',
+      options: ['kalt', 'schön und warm', 'windig'],
+      correctIndex: 1,
+      explanation: '"Das Wetter ist schön und warm."',
+    ),
+    ReadingQuestion(
+      question: 'Was besuchen sie in München?',
+      options: ['ein Museum und einen Park', 'ein Theater', 'ein Kino'],
+      correctIndex: 0,
+      explanation: '"Sie besuchen ein Museum und einen großen Park."',
+    ),
+  ],
+  intro: 'Read the travel story once, then answer. Travel words (Zug, Bahnhof, '
+      'Fahrkarte, Hotel) and times/prices are common in the A1 reading exam.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Times and places',
+      text: 'Note the time the train leaves and where they stay — questions '
+          'often ask exactly those details.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'mit dem …',
+      text: 'Transport uses "mit dem Zug / Bus / Auto" — a good clue for the '
+          '"how do they travel?" question.',
+    ),
+  ],
+);
+
+/// Every A1.2 quiz, in chain order — grammar interleaved with the new Reading
+/// and Speaking skill exercises (knowledge → reading → knowledge → speaking …),
+/// following the Goethe A1 progression.
 final List<QuizContent> questA1_2Content = [
-  questAkkusativContent,
-  questPossessivContent,
-  questNegationContent,
-  questModalverbenContent,
-  questUhrzeitContent,
-  questDatumContent,
-  questPraepositionenContent,
-  questTrennbareContent,
+  questAkkusativContent, //       Akkusativ (Artikel)        (knowledge)
+  questPossessivContent, //       Possessivartikel           (knowledge)
+  questPronomenAkkContent, //     Personalpronomen Akkusativ (knowledge)
+  questNegationContent, //        Negation (kein/nicht)      (knowledge)
+  questReadingCafeContent, //     Lesen: Im Café             (reading)
+  questModalverbenContent, //     Modalverben                (knowledge)
+  questUhrzeitContent, //         Uhrzeit                    (knowledge)
+  questSpeakAlltagContent, //     Sprechen: Alltag & Uhrzeit (speaking)
+  questDatumContent, //           Wochentage & Monate        (knowledge)
+  questPraepositionenContent, //  Akkusativpräpositionen     (knowledge)
+  questReadingReiseContent, //    Lesen: Eine kleine Reise   (reading)
+  questTrennbareContent, //       Trennbare Verben           (knowledge)
 ];

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
+import '../data/debug_unlock.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../widgets/app_drawer.dart';
@@ -19,6 +20,44 @@ class _SettingsPageState extends State<SettingsPage> {
   final _progressionUnlockLapsFocusNode = FocusNode();
   final _questUnlockLapsController = TextEditingController();
   final _questUnlockLapsFocusNode = FocusNode();
+
+  /// Whether the hidden Debug section is revealed. Triggered by typing the word
+  /// "debug" while on this page (with no text field focused).
+  bool _showDebug = false;
+
+  /// Rolling buffer of the last few letters typed on the page, used to detect
+  /// the "debug" trigger word.
+  String _debugBuffer = '';
+
+  /// Accumulates typed letters and reveals the Debug section once "debug" is
+  /// spelled out. Always returns [KeyEventResult.ignored] so it never swallows
+  /// keys from the rest of the page.
+  KeyEventResult _handleDebugKey(FocusNode node, KeyEvent event) {
+    if (_showDebug || event is! KeyDownEvent) return KeyEventResult.ignored;
+    final ch = event.character?.toLowerCase();
+    if (ch == null || !RegExp(r'^[a-z]$').hasMatch(ch)) {
+      return KeyEventResult.ignored;
+    }
+    _debugBuffer = '$_debugBuffer$ch';
+    if (_debugBuffer.length > 5) {
+      _debugBuffer = _debugBuffer.substring(_debugBuffer.length - 5);
+    }
+    if (_debugBuffer == 'debug') {
+      setState(() => _showDebug = true);
+    }
+    return KeyEventResult.ignored;
+  }
+
+
+  /// Debug helper: marks every Quest quiz and noun-category as completed and
+  /// every listen-&-repeat quiz as played through, so the whole app is unlocked.
+  Future<void> _unlockAll() async {
+    await unlockEverything();
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Unlocked everything in the app.')),
+    );
+  }
 
   @override
   void initState() {
@@ -235,7 +274,10 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(title: Text(CourseSession.instance.strings.settings)),
       drawer: const AppDrawer(currentPage: AppPage.settings),
       body: SafeArea(
-        child: ListView(
+        child: Focus(
+          autofocus: true,
+          onKeyEvent: _handleDebugKey,
+          child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
             _settingsPanel(
@@ -386,7 +428,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   'How many 5-answer streaks in a row are needed in a Quest '
                   'quiz to unlock the next quiz in the A-level chain. Separate '
                   'from the noun-category goal. Default: '
-                  '${NounSettings.defaultProgressionUnlockLaps}.',
+                  '${NounSettings.defaultQuestUnlockLaps}.',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 10),
@@ -447,7 +489,31 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ],
             ),
+            if (_showDebug) ...[
+              const SizedBox(height: 16),
+              _settingsPanel(
+                title: 'Debug',
+                children: [
+                  Text(
+                    'Developer tools. Unlock every Quest quiz, noun category '
+                    'and listen-&-repeat quiz so you can open anything in the '
+                    'app.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 10),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: FilledButton.icon(
+                      onPressed: _unlockAll,
+                      icon: const Icon(Icons.lock_open_rounded),
+                      label: const Text('Unlock everything'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ],
+          ),
         ),
       ),
     );

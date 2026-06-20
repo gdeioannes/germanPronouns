@@ -18,7 +18,7 @@ class UserSettings {
     this.lastNounProgressionKey,
     this.answerRevealMode = 'normal',
     this.progressionUnlockLaps = 5,
-    this.questUnlockLaps = 5,
+    this.questUnlockLaps = 2,
     this.completedQuestQuizzes = const [],
     this.lastQuestQuizKey,
     this.completedSpeakQuizzes = const [],
@@ -142,7 +142,7 @@ class UserSettings {
     lastNounProgressionKey: json['lastNounProgressionKey'] as String?,
     answerRevealMode: json['answerRevealMode'] as String? ?? 'normal',
     progressionUnlockLaps: json['progressionUnlockLaps'] as int? ?? 5,
-    questUnlockLaps: json['questUnlockLaps'] as int? ?? 5,
+    questUnlockLaps: json['questUnlockLaps'] as int? ?? 2,
     completedQuestQuizzes:
         (json['completedQuestQuizzes'] as List?)?.cast<String>() ?? const [],
     lastQuestQuizKey: json['lastQuestQuizKey'] as String?,

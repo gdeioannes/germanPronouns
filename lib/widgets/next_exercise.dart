@@ -51,6 +51,12 @@ Future<NextExercise?> resolveNextExerciseForConfig(QuizConfig config) {
 Future<NextExercise?> resolveNextExerciseForContent(String contentId) =>
     _nextNavQuiz(contentId);
 
+/// The next Quest-chain exercise after [key], for the speak/reading skill pages
+/// that run as a Quest entry (no [QuizConfig], so they can't use
+/// [resolveNextExerciseForConfig]). The cert course has no `quizzes` nav group,
+/// so the nav-based resolver wouldn't find anything.
+NextExercise? questNextExercise(String key) => _nextQuest(key);
+
 /// The next quiz in the Quest chain after [key], if any.
 NextExercise? _nextQuest(String key) {
   final entries = questEntries;

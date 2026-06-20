@@ -223,6 +223,10 @@ class QuizConfig {
     this.contentId,
     this.acceptableAnswersForSentence,
     this.sentenceHint,
+    this.sentenceEnglish,
+    this.helpMemoryExample,
+    this.contextualLayout = false,
+    this.stripSentenceCue = false,
   });
 
   /// AppBar title for this quiz's page.
@@ -357,4 +361,29 @@ class QuizConfig {
   /// When non-null, returns a hint for [sentence] that is hidden by default
   /// and revealed via an eye icon next to the quiz sentence.
   final String? Function(String sentence)? sentenceHint;
+
+  /// When non-null, returns the English translation of [sentence]. Used by the
+  /// [contextualLayout] to show the translation beneath the German question.
+  final String? Function(String sentence)? sentenceEnglish;
+
+  /// When non-null, returns a German example sentence for the given subject +
+  /// category, with the quizzed answer filled into the blank and wrapped in
+  /// `**…**` bold markup (e.g. `Ich habe **kein** Auto.`). The Help Memory
+  /// reference table shows this instead of the bare answer word, so the learner
+  /// sees the full German sentence alongside its English gloss. Null for quizzes
+  /// without explicit per-sentence answers (article/noun template quizzes).
+  final String? Function(String subjectKey, String categoryLabel)?
+      helpMemoryExample;
+
+  /// When true, the question card shows the current German sentence (with its
+  /// English translation) as the prompt, instead of the default
+  /// subject-value + category-label summary. Set by contextual vocab quizzes.
+  final bool contextualLayout;
+
+  /// When true, a trailing "(…)" cue is stripped from the *displayed* quiz
+  /// sentence (the interactive blank line). Used by quizzes whose sentence
+  /// embeds a cue only for uniqueness/answer-keying that is already shown
+  /// elsewhere on the card (e.g. Uhrzeit's "(21:15)", repeated in the prompt),
+  /// so it isn't shown twice. The full sentence is still used as the answer key.
+  final bool stripSentenceCue;
 }

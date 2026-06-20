@@ -23,7 +23,15 @@ import '../widgets/quest_quiz_loader.dart';
 import 'auth_gate.dart';
 
 /// Visual kind of a home-page quiz row, driving its icon and accent color.
-enum _UiKind { fillBlank, speak, quest, noun, nounFinal }
+enum _UiKind { fillBlank, speak, reading, quest, noun, nounFinal }
+
+/// The home-row visual kind for a Quest entry of [kind] (knowledge quizzes show
+/// the Quest flag; speaking/reading show their own icon).
+_UiKind _questUiKind(QuizKind kind) => switch (kind) {
+  QuizKind.speakRepeat => _UiKind.speak,
+  QuizKind.reading => _UiKind.reading,
+  QuizKind.fillBlank => _UiKind.quest,
+};
 
 /// One quiz row on the course home: a regular/pronunciation quiz, or a Quest /
 /// Noun-category chain entry. [config] is set only for fill-in quizzes that have
@@ -65,6 +73,7 @@ class _HomeQuiz {
   final QuizConfig? config;
 
   bool get isSpeak => uiKind == _UiKind.speak;
+  bool get isReading => uiKind == _UiKind.reading;
   // Speak quizzes have no streak goal, but they're "finished" once played
   // through to the end, so they count toward the overview like the rest.
   bool get finishable => !locked;
@@ -169,7 +178,13 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final levelEntries = level == null
                 ? questEntries
                 : [for (final e in questEntries) if (e.levelLabel == level) e];
-            bookletConfigs.addAll(levelEntries.map((e) => e.config));
+            // Only fill-in quizzes have Help-Memory reference tables; speaking
+            // and reading entries have nothing to put in the study booklet.
+            bookletConfigs.addAll(
+              levelEntries
+                  .where((e) => e.content.kind == QuizKind.fillBlank)
+                  .map((e) => e.config),
+            );
             sections.add(_HomeSection(
               group.title,
               quest.rows,
@@ -287,7 +302,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
         rows.add(
           _HomeQuiz(
             title: entry.displayName,
-            uiKind: _UiKind.quest,
+            uiKind: _questUiKind(entry.content.kind),
             goalLaps: goalLaps,
             stats: stats,
             done: NounSettings.instance.isQuestQuizCompleted(entry.key),
@@ -299,7 +314,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
         rows.add(
           _HomeQuiz(
             title: entry.displayName,
-            uiKind: _UiKind.quest,
+            uiKind: _questUiKind(entry.content.kind),
             goalLaps: goalLaps,
             locked: true,
             questEntry: entry,
@@ -760,6 +775,10 @@ class _CourseHomePageState extends State<CourseHomePage> {
         icon: Icons.record_voice_over_rounded,
         color: kSectionAccentColors[2],
       ),
+      _UiKind.reading => (
+        icon: Icons.chrome_reader_mode_rounded,
+        color: kSectionAccentColors[1],
+      ),
       _UiKind.quest => (icon: Icons.flag_rounded, color: kSectionAccentColors[0]),
       _UiKind.noun => (icon: Icons.abc_rounded, color: kSectionAccentColors[2]),
       _UiKind.nounFinal => (
@@ -886,6 +905,20 @@ class _CourseHomePageState extends State<CourseHomePage> {
           const SizedBox(width: 4),
           Text(
             'Listen & repeat',
+            style: textTheme.labelSmall?.copyWith(color: muted),
+          ),
+        ],
+      );
+    }
+
+    if (quiz.isReading) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.menu_book_rounded, size: 14, color: muted),
+          const SizedBox(width: 4),
+          Text(
+            'Read & answer',
             style: textTheme.labelSmall?.copyWith(color: muted),
           ),
         ],

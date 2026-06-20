@@ -870,16 +870,26 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         // Scrollable value columns (categories + info columns):
                         // gather every cell so each column can size to its own
                         // content.
+                        // The German example sentence shown in a category value
+                        // cell (blank filled, answer **bold**), or the bare
+                        // answer when the quiz has no stored example.
+                        String categoryCell(QuizCategoryDefinition c, int index) {
+                          final subjectIndex = genderRows != null
+                              ? _firstSubjectIndexForGender(genderRows[index])
+                              : index;
+                          return widget.config.helpMemoryExample?.call(
+                                widget.config.subjects[subjectIndex],
+                                c.label,
+                              ) ??
+                              c.values[subjectIndex];
+                        }
+
                         final valueColumnContents = <List<String>>[
                           for (final c in widget.config.categories)
                             [
                               c.label,
                               for (int index = 0; index < rowCount; index++)
-                                c.values[genderRows != null
-                                    ? _firstSubjectIndexForGender(
-                                        genderRows[index],
-                                      )
-                                    : index],
+                                stripBoldMarkup(categoryCell(c, index)),
                             ],
                           for (final c in infoColumns)
                             [
@@ -890,7 +900,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         ];
                         final naturalWidths = <double>[
                           for (final col in valueColumnContents)
-                            columnContentWidth(col).clamp(64.0, 260.0).toDouble(),
+                            columnContentWidth(col).clamp(64.0, 320.0).toDouble(),
                         ];
                         final totalNatural = naturalWidths.fold<double>(
                           0,
@@ -1038,17 +1048,34 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                  child: Text(
-                                    value,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: header
-                                          ? Colors.white
-                                          : cellTint?.foreground,
-                                      fontWeight: header || cellTint != null
-                                          ? FontWeight.w700
-                                          : FontWeight.w500,
-                                    ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final baseStyle = TextStyle(
+                                        color: header
+                                            ? Colors.white
+                                            : cellTint?.foreground,
+                                        fontWeight: header || cellTint != null
+                                            ? FontWeight.w700
+                                            : FontWeight.w500,
+                                      );
+                                      return Text.rich(
+                                        TextSpan(
+                                          children: boldMarkupSpans(
+                                            value,
+                                            baseStyle: baseStyle,
+                                            boldStyle: baseStyle.copyWith(
+                                              fontWeight: FontWeight.w800,
+                                              color: header
+                                                  ? Colors.white
+                                                  : colorScheme.primary,
+                                            ),
+                                          ),
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      );
+                                    },
                                   ),
                                 );
                               }).toList(),
@@ -1136,12 +1163,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           buildScrollableRow(
                                             [
                                               ...widget.config.categories.map(
-                                                (c) => c.values[genderRows !=
-                                                        null
-                                                    ? _firstSubjectIndexForGender(
-                                                        genderRows[index],
-                                                      )
-                                                    : index],
+                                                (c) => categoryCell(c, index),
                                               ),
                                               ...infoColumns.map(
                                                 (c) => genderRows != null
@@ -2467,13 +2489,37 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
     // Customize display for Pronouns & Articles quiz
     final isPronounArticlesQuiz = widget.config.currentPage == AppPage.pronounsAndArticles;
+    // Contextual ("light quiz") layout: show the German sentence as the question
+    // and its English translation in the second slot, instead of the default
+    // subject-value + category-label summary.
+    final useContextual =
+        widget.config.contextualLayout && !isPronounArticlesQuiz;
+    // In the contextual layout, the visible text must never reveal the answer:
+    // strip a trailing "(…)" cue (e.g. "(the mother)") from the displayed
+    // sentence/translation. The full text is still used as the answer key, and
+    // the cue survives as the Help-Memory gloss + the info-icon hint.
+    String stripCue(String s) => s
+        .replaceFirstMapped(
+          RegExp(r'\s*\([^)]*\)\s*([.!?]*)\s*$'),
+          (m) => m.group(1) ?? '',
+        )
+        .trim();
+    final displaySentence = useContextual || widget.config.stripSentenceCue
+        ? stripCue(_currentReferenceSentence)
+        : _currentReferenceSentence;
     final displayLabel = isPronounArticlesQuiz
         ? 'Pronouns & Articles'
         : widget.config.promptLabel;
     final displayPronounValue = isPronounArticlesQuiz
         ? 'Accusative or Dative'
+        : useContextual
+        ? displaySentence.replaceAll(RegExp(r'_{4,}'), '…')
         : currentPronoun;
-    final displayCaseLabel = isPronounArticlesQuiz ? 'Question' : 'Case';
+    final displayCaseLabel = isPronounArticlesQuiz
+        ? 'Question'
+        : useContextual
+        ? 'English'
+        : 'Case';
 
     // Get the actual question from sentence data for Pronouns & Articles quiz
     String getQuestionForSentence(String answerSentence) {
@@ -2500,18 +2546,26 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
     final displayCaseValue = isPronounArticlesQuiz
         ? getQuestionForSentence(_currentReferenceSentence)
+        : useContextual
+        ? (() {
+            final english =
+                widget.config.sentenceEnglish?.call(_currentReferenceSentence);
+            return english == null
+                ? currentCase
+                : stripCue(english).replaceAll(RegExp(r'_{4,}'), '…');
+          })()
         : currentCase;
-    final blankMatches = RegExp(r'_{4,}').allMatches(_currentReferenceSentence).toList();
+    final blankMatches = RegExp(r'_{4,}').allMatches(displaySentence).toList();
     final blankMatch = blankMatches.isNotEmpty ? blankMatches.first : null;
     final hasMultipleBlanks = blankMatches.length > 1;
     final referenceBefore = blankMatch != null
-        ? _currentReferenceSentence.substring(0, blankMatch.start)
-        : _currentReferenceSentence;
+        ? displaySentence.substring(0, blankMatch.start)
+        : displaySentence;
     final referenceAfter = blankMatch != null
-        ? _currentReferenceSentence.substring(blankMatch.end)
+        ? displaySentence.substring(blankMatch.end)
         : '';
     final sentenceParts = hasMultipleBlanks
-        ? _currentReferenceSentence.split(RegExp(r'_{4,}'))
+        ? displaySentence.split(RegExp(r'_{4,}'))
         : [];
 
     // Initialize multi-blank controllers if needed

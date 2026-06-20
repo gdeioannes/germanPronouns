@@ -10,7 +10,47 @@ export 'quiz_config.dart' show HelpMemoryTip, HelpMemoryInfoColumn;
 /// engine. [speakRepeat] is a pronunciation quiz: the app reads each phrase
 /// aloud (TTS) and the learner repeats it (STT), rendered by
 /// `SpeakRepeatQuizPage` instead of going through the fill-in engine.
-enum QuizKind { fillBlank, speakRepeat }
+/// [reading] is a reading-comprehension quiz: a short passage followed by
+/// multiple-choice questions, rendered by `ReadingQuizPage`. Both [speakRepeat]
+/// and [reading] leave the fill-in fields (categories/sentences) empty and
+/// carry their own data ([QuizContent.subjects] for speak; the reading fields
+/// for reading).
+enum QuizKind { fillBlank, speakRepeat, reading }
+
+/// One multiple-choice question in a [QuizKind.reading] quiz: a [question]
+/// stem, the answer [options], the index of the correct option, and an optional
+/// [explanation] shown after answering.
+class ReadingQuestion {
+  const ReadingQuestion({
+    required this.question,
+    required this.options,
+    required this.correctIndex,
+    this.explanation,
+  });
+
+  final String question;
+  final List<String> options;
+
+  /// Index into [options] of the correct answer.
+  final int correctIndex;
+
+  /// Optional explanation shown once the question is answered/submitted.
+  final String? explanation;
+
+  Map<String, dynamic> toJson() => {
+    'question': question,
+    'options': options,
+    'correctIndex': correctIndex,
+    if (explanation != null) 'explanation': explanation,
+  };
+
+  factory ReadingQuestion.fromJson(Map<String, dynamic> json) => ReadingQuestion(
+    question: json['question'] as String,
+    options: (json['options'] as List).cast<String>(),
+    correctIndex: json['correctIndex'] as int,
+    explanation: json['explanation'] as String?,
+  );
+}
 
 /// One quizzable subject (a table row): a pronoun, a noun, a preposition, etc.
 class QuizSubjectData {
@@ -193,6 +233,12 @@ class QuizContent {
     this.helpMemoryTips = const [],
     this.helpMemoryColorByGender = false,
     this.helpMemoryInfoColumns = const [],
+    this.readingCategory,
+    this.readingTitle,
+    this.readingPassage,
+    this.readingQuestions = const [],
+    this.contextualLayout = false,
+    this.stripSentenceCue = false,
   });
 
   /// Stable identifier (e.g. a database primary key or a slug).
@@ -247,6 +293,27 @@ class QuizContent {
   /// [subjects]); e.g. a preposition's case or a noun's plural.
   final List<HelpMemoryInfoColumn> helpMemoryInfoColumns;
 
+  /// For [QuizKind.reading] quizzes: the passage's topic category label shown
+  /// as a chip (e.g. 'Daily Life'), the on-screen title, the passage body
+  /// (50–100 A1-level words), and the multiple-choice questions. Empty/null for
+  /// other quiz kinds.
+  final String? readingCategory;
+  final String? readingTitle;
+  final String? readingPassage;
+  final List<ReadingQuestion> readingQuestions;
+
+  /// When true, the quiz page shows the German sentence as the question (with
+  /// its English translation beneath it) instead of the default subject/Case
+  /// summary — used by the contextual "light quiz" vocab quizzes so the German
+  /// comes first and the English is the translation.
+  final bool contextualLayout;
+
+  /// When true, a trailing "(…)" cue is stripped from the displayed quiz
+  /// sentence (e.g. Uhrzeit's "(21:15)"), which exists only to keep each
+  /// sentence unique for answer-keying and is already shown in the prompt. The
+  /// full sentence is still used as the answer key.
+  final bool stripSentenceCue;
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
@@ -278,6 +345,13 @@ class QuizContent {
       'helpMemoryInfoColumns': [
         for (final c in helpMemoryInfoColumns) c.toJson(),
       ],
+    if (readingCategory != null) 'readingCategory': readingCategory,
+    if (readingTitle != null) 'readingTitle': readingTitle,
+    if (readingPassage != null) 'readingPassage': readingPassage,
+    if (readingQuestions.isNotEmpty)
+      'readingQuestions': [for (final q in readingQuestions) q.toJson()],
+    if (contextualLayout) 'contextualLayout': true,
+    if (stripSentenceCue) 'stripSentenceCue': true,
   };
 
   factory QuizContent.fromJson(Map<String, dynamic> json) => QuizContent(
@@ -334,5 +408,14 @@ class QuizContent {
       for (final c in (json['helpMemoryInfoColumns'] as List?) ?? const [])
         HelpMemoryInfoColumn.fromJson(c as Map<String, dynamic>),
     ],
+    readingCategory: json['readingCategory'] as String?,
+    readingTitle: json['readingTitle'] as String?,
+    readingPassage: json['readingPassage'] as String?,
+    readingQuestions: [
+      for (final q in (json['readingQuestions'] as List?) ?? const [])
+        ReadingQuestion.fromJson(q as Map<String, dynamic>),
+    ],
+    contextualLayout: json['contextualLayout'] as bool? ?? false,
+    stripSentenceCue: json['stripSentenceCue'] as bool? ?? false,
   );
 }

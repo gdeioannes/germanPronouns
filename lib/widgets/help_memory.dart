@@ -9,6 +9,41 @@ import '../theme/app_theme.dart';
 /// per-gender cell-tint helper. Centralized here so the look is changed in one
 /// place (see also `theme/pdf_theme.dart` for the PDF equivalents).
 
+/// Matches `**bold**` runs in a Help Memory cell. Authored content marks the
+/// quizzed word inside an example sentence (e.g. `Ich habe **kein** Auto.`) so
+/// the answer can be emphasized both on screen and in the PDF.
+final RegExp _boldMarkup = RegExp(r'\*\*(.+?)\*\*');
+
+/// Splits [text] into spans, rendering `**…**` runs with [boldStyle] and the
+/// rest with [baseStyle]. Returns a single base-styled span when there is no
+/// markup, so callers can use it uniformly for plain and rich cells.
+List<InlineSpan> boldMarkupSpans(
+  String text, {
+  required TextStyle? baseStyle,
+  required TextStyle? boldStyle,
+}) {
+  if (!text.contains('**')) {
+    return [TextSpan(text: text, style: baseStyle)];
+  }
+  final spans = <InlineSpan>[];
+  var index = 0;
+  for (final match in _boldMarkup.allMatches(text)) {
+    if (match.start > index) {
+      spans.add(TextSpan(text: text.substring(index, match.start), style: baseStyle));
+    }
+    spans.add(TextSpan(text: match.group(1), style: boldStyle));
+    index = match.end;
+  }
+  if (index < text.length) {
+    spans.add(TextSpan(text: text.substring(index), style: baseStyle));
+  }
+  return spans;
+}
+
+/// The [text] with the `**…**` bold markers removed — used for plain-text
+/// measurement (column sizing) where the markers must not count as width.
+String stripBoldMarkup(String text) => text.replaceAll('**', '');
+
 /// Soft background + readable foreground tint for a value cell of the given
 /// grammatical [gender] ('m'/'f'/'n'), using the app-wide gender colors
 /// (der=blue, die=red, das=green). Returns null when there's no gender.

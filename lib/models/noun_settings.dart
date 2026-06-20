@@ -55,6 +55,10 @@ class NounSettings {
   /// Default value for [progressionUnlockLaps].
   static const int defaultProgressionUnlockLaps = 5;
 
+  /// Default number of 5-answer streaks (laps) needed to pass a Quest quiz — a
+  /// shorter goal than the noun-category default so cert quizzes advance faster.
+  static const int defaultQuestUnlockLaps = 2;
+
   /// Page key used by the Word Library page, which isn't tied to a
   /// [QuizConfig.storageKeyPrefix].
   static const String wordLibraryPageKey = 'word_library_';
@@ -77,7 +81,7 @@ class NounSettings {
   String? _lastNounProgressionKey;
   AnswerRevealMode _answerRevealMode = AnswerRevealMode.normal;
   int _progressionUnlockLaps = defaultProgressionUnlockLaps;
-  int _questUnlockLaps = defaultProgressionUnlockLaps;
+  int _questUnlockLaps = defaultQuestUnlockLaps;
   Set<String> _completedQuestQuizzes = {};
   String? _lastQuestQuizKey;
   Set<String> _completedSpeakQuizzes = {};
@@ -133,7 +137,7 @@ class NounSettings {
   /// Number of consecutive 5-answer "streaks" needed in a Quest quiz to unlock
   /// the next quiz in the Quest (CEFR A-level) chain. Independent of the
   /// noun-category goal. User-configurable 1–100, defaults to
-  /// [defaultProgressionUnlockLaps].
+  /// [defaultQuestUnlockLaps].
   int get questUnlockLaps => _questUnlockLaps;
 
   /// Total correct answers in a row needed to unlock the next Quest quiz
@@ -245,7 +249,7 @@ class NounSettings {
     _progressionUnlockLaps =
         prefs.getInt(_progressionUnlockLapsKey) ?? defaultProgressionUnlockLaps;
     _questUnlockLaps =
-        prefs.getInt(_questUnlockLapsKey) ?? defaultProgressionUnlockLaps;
+        prefs.getInt(_questUnlockLapsKey) ?? defaultQuestUnlockLaps;
     _completedQuestQuizzes =
         (prefs.getStringList(_completedQuestQuizzesKey) ?? const []).toSet();
     _lastQuestQuizKey = prefs.getString(_lastQuestQuizKeyPref);
@@ -438,7 +442,7 @@ class NounSettings {
     _lastNounProgressionKey = null;
     _answerRevealMode = AnswerRevealMode.normal;
     _progressionUnlockLaps = defaultProgressionUnlockLaps;
-    _questUnlockLaps = defaultProgressionUnlockLaps;
+    _questUnlockLaps = defaultQuestUnlockLaps;
     _completedQuestQuizzes = {};
     _lastQuestQuizKey = null;
     _completedSpeakQuizzes = {};

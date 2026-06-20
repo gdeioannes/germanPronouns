@@ -3,6 +3,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
+import '../l10n/app_strings.dart';
 import '../models/course.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
@@ -34,10 +35,16 @@ class SpeakRepeatQuizPage extends StatefulWidget {
     super.key,
     required this.content,
     required this.currentPage,
+    this.questProgressionKey,
   });
 
   final QuizContent content;
   final AppPage currentPage;
+
+  /// When set, this quiz is a Quest-chain entry: playing through to the end
+  /// marks this key complete, unlocking the next chain quiz. Speaking never
+  /// requires a microphone, so reaching the end is always achievable.
+  final String? questProgressionKey;
 
   @override
   State<SpeakRepeatQuizPage> createState() => _SpeakRepeatQuizPageState();
@@ -127,20 +134,31 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         UiLang.en => 'en-US',
       };
 
-  /// Human label for the meaning's language, used in buttons/toggles.
+  /// Human label for the meaning's language (the learner's own language), used
+  /// in buttons/toggles.
   String get _meaningLangLabel =>
       switch (CourseSession.instance.activeCourse.uiLang) {
         UiLang.es => 'español',
-        UiLang.en => 'inglés',
+        UiLang.en => 'English',
       };
+
+  /// Localized chrome strings for the active course's UI language.
+  AppStrings get _strings => CourseSession.instance.strings;
 
   @override
   void initState() {
     super.initState();
     _initEngines();
-    resolveNextExerciseForContent(widget.content.id).then((next) {
-      if (mounted && next != null) setState(() => _nextExercise = next);
-    });
+    final questKey = widget.questProgressionKey;
+    if (questKey != null) {
+      // A Quest-chain entry: the next exercise is the next chain quiz (the cert
+      // course has no `quizzes` nav group for the nav-based resolver to use).
+      _nextExercise = questNextExercise(questKey);
+    } else {
+      resolveNextExerciseForContent(widget.content.id).then((next) {
+        if (mounted && next != null) setState(() => _nextExercise = next);
+      });
+    }
   }
 
   Future<void> _initEngines() async {
@@ -417,6 +435,11 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       // Played through every phrase to the end: flag this quiz "done" so it
       // shows the ribbon on the quiz home page.
       NounSettings.instance.markSpeakQuizCompleted(widget.content.id);
+      // As a Quest-chain entry, playing through also unlocks the next quiz.
+      final questKey = widget.questProgressionKey;
+      if (questKey != null) {
+        NounSettings.instance.markQuestQuizCompleted(questKey);
+      }
       return;
     }
     setState(() {
@@ -481,7 +504,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         title: Text(widget.content.title),
         actions: [
           IconButton(
-            tooltip: 'Ayuda',
+            tooltip: _strings.help,
             icon: const Icon(Icons.help_outline_rounded),
             onPressed: _showHelp,
           ),
@@ -534,10 +557,10 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     if (_cards.isEmpty) {
       content = _panel(
         context,
-        child: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 24),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 24),
           child: Text(
-            'No hay frases en esta lección.',
+            _strings.noPhrases,
             textAlign: TextAlign.center,
           ),
         ),
@@ -646,7 +669,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
                     IconButton(
                       visualDensity: VisualDensity.compact,
                       iconSize: 20,
-                      tooltip: 'Escuchar en $_meaningLangLabel',
+                      tooltip: '${_strings.listenIn} $_meaningLangLabel',
                       color: theme.colorScheme.onSurfaceVariant,
                       onPressed: canSpeak ? _speakMeaning : null,
                       icon: const Icon(Icons.volume_up_rounded),
@@ -656,7 +679,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
               ],
               const SizedBox(height: 6),
               Text(
-                _speaking ? 'Reproduciendo…' : 'Toca para escuchar',
+                _speaking ? _strings.playing : _strings.tapToListen,
                 style: theme.textTheme.labelSmall?.copyWith(
                   color: _speaking
                       ? theme.colorScheme.primary
@@ -739,8 +762,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     if (_heard == null) {
       if (_sttAvailable != true) {
         return Text(
-          'Micrófono no disponible. Escucha la frase y repítela en voz alta, '
-          'luego pulsa Siguiente.',
+          _strings.micUnavailable,
           textAlign: TextAlign.center,
           style: theme.textTheme.bodyMedium?.copyWith(
             color: theme.colorScheme.onSurfaceVariant,
@@ -748,9 +770,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         );
       }
       return Text(
-        _listening
-            ? 'Escuchando… repite la frase.'
-            : 'Pulsa el micrófono y repite la frase.',
+        _listening ? _strings.listening : _strings.tapMicAndRepeat,
         textAlign: TextAlign.center,
         style: theme.textTheme.bodyMedium?.copyWith(
           color: theme.colorScheme.onSurfaceVariant,
@@ -770,7 +790,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
             ),
             const SizedBox(width: 8),
             Text(
-              correct ? '¡Bien hecho!' : 'Casi… inténtalo otra vez',
+              correct ? _strings.wellDone : _strings.almostTryAgain,
               style: theme.textTheme.titleMedium?.copyWith(
                 color: color,
                 fontWeight: FontWeight.w700,
@@ -781,7 +801,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         if (_heard!.trim().isNotEmpty) ...[
           const SizedBox(height: 4),
           Text(
-            'Te escuché: "${_heard!}"',
+            '${_strings.iHeard} "${_heard!}"',
             textAlign: TextAlign.center,
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
@@ -794,7 +814,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
 
   Widget _buildControls(BuildContext context) {
     final isLast = _index >= _cards.length - 1;
-    final nextLabel = isLast ? 'Terminar' : 'Siguiente';
+    final nextLabel = isLast ? _strings.finish : _strings.next;
 
     if (_sttAvailable != true) {
       // No recognizer: listen-and-advance only.
@@ -812,12 +832,12 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
               ? FilledButton.tonalIcon(
                   onPressed: _stopListening,
                   icon: const Icon(Icons.stop_rounded),
-                  label: const Text('Detener'),
+                  label: Text(_strings.stop),
                 )
               : FilledButton.tonalIcon(
                   onPressed: _startListening,
                   icon: const Icon(Icons.mic_rounded),
-                  label: Text(_heard == null ? 'Repetir' : 'Reintentar'),
+                  label: Text(_heard == null ? _strings.repeat : _strings.retry),
                 ),
         ),
         const SizedBox(width: 12),
@@ -842,7 +862,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         OutlinedButton.icon(
           onPressed: _listening ? null : _playLoop,
           icon: Icon(_looping ? Icons.stop_rounded : Icons.repeat_rounded),
-          label: Text(_looping ? 'Detener' : 'Reproducir todo'),
+          label: Text(_looping ? _strings.stop : _strings.playAll),
         ),
         const SizedBox(width: 12),
         // Editable loop count: − / value / +.
@@ -856,7 +876,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
             children: [
               IconButton(
                 visualDensity: VisualDensity.compact,
-                tooltip: 'Menos',
+                tooltip: _strings.decrease,
                 onPressed: _loopCount > 1
                     ? () => setState(() => _loopCount--)
                     : null,
@@ -874,7 +894,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
               ),
               IconButton(
                 visualDensity: VisualDensity.compact,
-                tooltip: 'Más',
+                tooltip: _strings.increase,
                 onPressed: _loopCount < _maxLoopCount
                     ? () => setState(() => _loopCount++)
                     : null,
@@ -902,11 +922,10 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
               color: theme.colorScheme.primary,
             ),
             const SizedBox(height: 16),
-            Text('¡Terminado!', style: theme.textTheme.headlineSmall),
+            Text(_strings.finished, style: theme.textTheme.headlineSmall),
             const SizedBox(height: 8),
             Text(
-              'Has practicado ${_cards.length} frases. '
-              'Repite la lección cuando quieras.',
+              _strings.speakFinishedBody,
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
@@ -916,7 +935,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
             FilledButton.icon(
               onPressed: _restart,
               icon: const Icon(Icons.replay_rounded),
-              label: const Text('Repetir de nuevo'),
+              label: Text(_strings.repeatAgain),
             ),
             if (_nextExercise != null) ...[
               const SizedBox(height: 12),

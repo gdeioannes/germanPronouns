@@ -137,7 +137,11 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
       }
       rows.add([
         label,
-        ...config.categories.map((c) => c.values[index]),
+        ...config.categories.map(
+          (c) =>
+              config.helpMemoryExample?.call(config.subjects[index], c.label) ??
+              c.values[index],
+        ),
         ...infoColumns.map((c) => c.values[index]),
       ]);
       rowColors.add(

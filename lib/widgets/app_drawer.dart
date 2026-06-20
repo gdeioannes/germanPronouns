@@ -500,13 +500,42 @@ class _AppDrawerState extends State<AppDrawer> {
     required SharedPreferences? prefs,
     int? number,
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
     final keys = QuizStatsKeys(entry.config.storageKeyPrefix);
     final score = prefs?.getInt(keys.score) ?? 0;
     final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;
+    final kind = entry.content.kind;
+
+    // Speaking/reading quizzes have no streak — they show a kind label instead
+    // of the score/streak line and their own icon.
+    final (IconData icon, String? kindLabel) = switch (kind) {
+      QuizKind.speakRepeat => (Icons.record_voice_over_rounded, 'Listen & repeat'),
+      QuizKind.reading => (Icons.chrome_reader_mode_rounded, 'Read & answer'),
+      QuizKind.fillBlank => (Icons.flag_rounded, null),
+    };
+
+    Widget? subtitle;
+    if (kindLabel != null) {
+      subtitle = Padding(
+        padding: const EdgeInsets.only(top: 1),
+        child: Text(
+          kindLabel,
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+      );
+    } else if (prefs != null) {
+      subtitle = _statsSubtitle(
+        context,
+        score: score,
+        bestStreakAbsolute: bestStreakAbsolute,
+      );
+    }
 
     return _navTile(
       context,
-      icon: Icons.flag_rounded,
+      icon: icon,
       badgeColor: kSectionAccentColors[0],
       title: entry.displayName,
       selected:
@@ -515,13 +544,7 @@ class _AppDrawerState extends State<AppDrawer> {
       onTap: () => _navigateToQuest(context, entry.key),
       done: NounSettings.instance.isQuestQuizCompleted(entry.key),
       doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
-      subtitle: prefs == null
-          ? null
-          : _statsSubtitle(
-              context,
-              score: score,
-              bestStreakAbsolute: bestStreakAbsolute,
-            ),
+      subtitle: subtitle,
       number: number,
     );
   }

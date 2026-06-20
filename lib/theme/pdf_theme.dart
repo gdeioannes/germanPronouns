@@ -268,6 +268,7 @@ class QuizPdfTheme {
     int? coloredColumns,
   }) {
     final base = cellStyle(fontSize: fontSize);
+    final hasMarkup = data.any((row) => row.any((c) => c.contains('**')));
 
     PdfColor? colorFor(int columnIndex, int rowNum) {
       if (rowColors == null || columnIndex < 1) return null;
@@ -276,6 +277,26 @@ class QuizPdfTheme {
       final i = rowNum - 1; // row 0 is the header
       if (i < 0 || i >= rowColors.length) return null;
       return rowColors[i];
+    }
+
+    // Renders `**…**` runs in [text] bold (the quizzed word inside a Help
+    // Memory example sentence), the rest in [style].
+    pw.Widget markupText(String text, pw.TextStyle style) {
+      final bold = style.copyWith(fontWeight: pw.FontWeight.bold);
+      final spans = <pw.TextSpan>[];
+      final re = RegExp(r'\*\*(.+?)\*\*');
+      var i = 0;
+      for (final m in re.allMatches(text)) {
+        if (m.start > i) {
+          spans.add(pw.TextSpan(text: text.substring(i, m.start), style: style));
+        }
+        spans.add(pw.TextSpan(text: m.group(1), style: bold));
+        i = m.end;
+      }
+      if (i < text.length) {
+        spans.add(pw.TextSpan(text: text.substring(i), style: style));
+      }
+      return pw.RichText(text: pw.TextSpan(children: spans));
     }
 
     return pw.TableHelper.fromTextArray(
@@ -297,14 +318,22 @@ class QuizPdfTheme {
               return pw.BoxDecoration(color: _tint(c, 0.16));
             },
       // Render the gender-colored value cells ourselves so the FONT is colored
-      // (bold, in the gender color); other cells fall back to the default text.
-      cellBuilder: rowColors == null
+      // (bold, in the gender color); render example-sentence cells with the
+      // quizzed word bold. Other cells fall back to the default text.
+      cellBuilder: (rowColors == null && !hasMarkup)
           ? null
           : (columnIndex, cell, rowNum) {
+              final text = cell.toString();
               final c = colorFor(columnIndex, rowNum);
+              if (text.contains('**')) {
+                return markupText(
+                  text,
+                  c == null ? base : base.copyWith(color: c),
+                );
+              }
               if (c == null) return null;
               return pw.Text(
-                cell.toString(),
+                text,
                 style: base.copyWith(color: c, fontWeight: pw.FontWeight.bold),
               );
             },

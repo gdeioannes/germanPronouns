@@ -37,6 +37,37 @@ class AppStrings {
     required this.home,
     required this.quizzesFinished,
     required this.nextExercise,
+    required this.help,
+    required this.noPhrases,
+    required this.micUnavailable,
+    required this.listening,
+    required this.tapMicAndRepeat,
+    required this.wellDone,
+    required this.almostTryAgain,
+    required this.iHeard,
+    required this.finish,
+    required this.next,
+    required this.stop,
+    required this.repeat,
+    required this.retry,
+    required this.playAll,
+    required this.decrease,
+    required this.increase,
+    required this.playing,
+    required this.tapToListen,
+    required this.finished,
+    required this.speakFinishedBody,
+    required this.repeatAgain,
+    required this.listenIn,
+    required this.readingStartQuestions,
+    required this.readingQuestionsTitle,
+    required this.readingCheckAnswers,
+    required this.readingTryAgain,
+    required this.readingReadAgain,
+    required this.readingPassed,
+    required this.readingKeepPracticing,
+    required this.readingCorrect,
+    required this.readingAnswerAll,
   });
 
   final String chooseCourse;
@@ -69,6 +100,41 @@ class AppStrings {
   final String home;
   final String quizzesFinished;
   final String nextExercise;
+
+  // Speaking (listen & repeat) page.
+  final String help;
+  final String noPhrases;
+  final String micUnavailable;
+  final String listening;
+  final String tapMicAndRepeat;
+  final String wellDone;
+  final String almostTryAgain;
+  final String iHeard;
+  final String finish;
+  final String next;
+  final String stop;
+  final String repeat;
+  final String retry;
+  final String playAll;
+  final String decrease;
+  final String increase;
+  final String playing;
+  final String tapToListen;
+  final String finished;
+  final String speakFinishedBody;
+  final String repeatAgain;
+  final String listenIn;
+
+  // Reading page.
+  final String readingStartQuestions;
+  final String readingQuestionsTitle;
+  final String readingCheckAnswers;
+  final String readingTryAgain;
+  final String readingReadAgain;
+  final String readingPassed;
+  final String readingKeepPracticing;
+  final String readingCorrect;
+  final String readingAnswerAll;
 }
 
 const AppStrings _en = AppStrings(
@@ -104,6 +170,39 @@ const AppStrings _en = AppStrings(
   home: 'Home',
   quizzesFinished: 'quizzes finished',
   nextExercise: 'Next exercise',
+  help: 'Help',
+  noPhrases: 'No phrases in this lesson.',
+  micUnavailable:
+      'Microphone unavailable. Listen to the phrase and repeat it aloud, then '
+      'press Next.',
+  listening: 'Listening… repeat the phrase.',
+  tapMicAndRepeat: 'Press the microphone and repeat the phrase.',
+  wellDone: 'Well done!',
+  almostTryAgain: 'Almost… try again',
+  iHeard: 'I heard:',
+  finish: 'Finish',
+  next: 'Next',
+  stop: 'Stop',
+  repeat: 'Repeat',
+  retry: 'Retry',
+  playAll: 'Play all',
+  decrease: 'Less',
+  increase: 'More',
+  playing: 'Playing…',
+  tapToListen: 'Tap to listen',
+  finished: 'Finished!',
+  speakFinishedBody: 'You practiced the phrases. Repeat the lesson anytime.',
+  repeatAgain: 'Repeat again',
+  listenIn: 'Listen in',
+  readingStartQuestions: 'Start questions',
+  readingQuestionsTitle: 'Questions',
+  readingCheckAnswers: 'Check answers',
+  readingTryAgain: 'Try again',
+  readingReadAgain: 'Read the text again',
+  readingPassed: 'Passed!',
+  readingKeepPracticing: 'Almost — read again and retry',
+  readingCorrect: 'correct',
+  readingAnswerAll: 'Answer every question to check.',
 );
 
 const AppStrings _es = AppStrings(
@@ -139,6 +238,40 @@ const AppStrings _es = AppStrings(
   home: 'Inicio',
   quizzesFinished: 'quizzes completados',
   nextExercise: 'Siguiente ejercicio',
+  help: 'Ayuda',
+  noPhrases: 'No hay frases en esta lección.',
+  micUnavailable:
+      'Micrófono no disponible. Escucha la frase y repítela en voz alta, luego '
+      'pulsa Siguiente.',
+  listening: 'Escuchando… repite la frase.',
+  tapMicAndRepeat: 'Pulsa el micrófono y repite la frase.',
+  wellDone: '¡Bien hecho!',
+  almostTryAgain: 'Casi… inténtalo otra vez',
+  iHeard: 'Te escuché:',
+  finish: 'Terminar',
+  next: 'Siguiente',
+  stop: 'Detener',
+  repeat: 'Repetir',
+  retry: 'Reintentar',
+  playAll: 'Reproducir todo',
+  decrease: 'Menos',
+  increase: 'Más',
+  playing: 'Reproduciendo…',
+  tapToListen: 'Toca para escuchar',
+  finished: '¡Terminado!',
+  speakFinishedBody:
+      'Has practicado las frases. Repite la lección cuando quieras.',
+  repeatAgain: 'Repetir de nuevo',
+  listenIn: 'Escuchar en',
+  readingStartQuestions: 'Empezar preguntas',
+  readingQuestionsTitle: 'Preguntas',
+  readingCheckAnswers: 'Comprobar respuestas',
+  readingTryAgain: 'Inténtalo otra vez',
+  readingReadAgain: 'Leer el texto otra vez',
+  readingPassed: '¡Aprobado!',
+  readingKeepPracticing: 'Casi… vuelve a leer e inténtalo',
+  readingCorrect: 'correctas',
+  readingAnswerAll: 'Responde todas las preguntas para comprobar.',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {
