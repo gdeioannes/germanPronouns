@@ -27,7 +27,11 @@ final NavLayout _esDeNav = NavLayout(
       id: 'more',
       title: 'MÁS',
       type: NavGroupType.links,
-      items: [NavItem(ref: kSettingsRef), NavItem(ref: kCoursesRef)],
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
     ),
   ],
 );

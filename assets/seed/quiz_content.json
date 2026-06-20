@@ -30546,6 +30546,81 @@
       ]
     },
     {
+      "id": "es_de_hablar_basico",
+      "title": "Hablar: lo básico",
+      "storageKeyPrefix": "es_de_hablar_basico_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hallo",
+          "english": "Hola"
+        },
+        {
+          "key": "s1",
+          "display": "Guten Morgen",
+          "english": "Buenos días"
+        },
+        {
+          "key": "s2",
+          "display": "Danke",
+          "english": "Gracias"
+        },
+        {
+          "key": "s3",
+          "display": "Bitte",
+          "english": "Por favor"
+        },
+        {
+          "key": "s4",
+          "display": "Entschuldigung",
+          "english": "Perdón / Disculpe"
+        },
+        {
+          "key": "s5",
+          "display": "Ja",
+          "english": "Sí"
+        },
+        {
+          "key": "s6",
+          "display": "Nein",
+          "english": "No"
+        },
+        {
+          "key": "s7",
+          "display": "Auf Wiedersehen",
+          "english": "Adiós"
+        },
+        {
+          "key": "s8",
+          "display": "Sprechen Sie Englisch?",
+          "english": "¿Habla inglés?"
+        },
+        {
+          "key": "s9",
+          "display": "Was kostet das?",
+          "english": "¿Cuánto cuesta?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Escucha cada frase en alemán y repítela en voz alta. Si tu micrófono está disponible, te diremos si te salió bien. Si no, escucha y repite a tu ritmo y pasa a la siguiente.",
+      "helpMemoryTips": [
+        {
+          "title": "Imita el ritmo",
+          "text": "No te fijes solo en cada sonido: copia la entonación y el ritmo de la frase. Sonará mucho más natural."
+        },
+        {
+          "kind": "example",
+          "title": "La \"ch\" y la \"r\"",
+          "text": "\"Ich\" suena suave (como un susurro), y la \"r\" alemana se hace en la garganta. Repite \"Danke\" y \"Entschuldigung\" varias veces."
+        }
+      ]
+    },
+    {
       "id": "es_de_restaurante",
       "title": "En el restaurante",
       "storageKeyPrefix": "es_de_restaurante_",
@@ -30750,7 +30825,7 @@
         },
         {
           "title": "Agua",
-          "text": "El agua del grifo casi no se sirve; pídela como \"Leitungswasser\". Lo normal es agua con gas (\"mit Kohlensäure\")."
+          "text": "El agua de la llave casi no se sirve; pídela como \"Leitungswasser\". Lo normal es agua con gas (\"mit Kohlensäure\")."
         }
       ]
     },
@@ -30784,11 +30859,11 @@
         },
         {
           "key": "s5",
-          "display": "Un billete a…, por favor"
+          "display": "Un boleto a…, por favor"
         },
         {
           "key": "s6",
-          "display": "¿Dónde compro un billete?"
+          "display": "¿Dónde compro un boleto?"
         },
         {
           "key": "s7",
@@ -30877,20 +30952,20 @@
         {
           "subjectKey": "s5",
           "categoryLabel": "En alemán",
-          "sentence": "Un billete a…, por favor → ____",
+          "sentence": "Un boleto a…, por favor → ____",
           "acceptedAnswers": [
             "Eine Fahrkarte nach …, bitte"
           ],
-          "english": "Un billete a…, por favor"
+          "english": "Un boleto a…, por favor"
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "En alemán",
-          "sentence": "¿Dónde compro un billete? → ____",
+          "sentence": "¿Dónde compro un boleto? → ____",
           "acceptedAnswers": [
             "Wo kann ich eine Fahrkarte kaufen?"
           ],
-          "english": "¿Dónde compro un billete?"
+          "english": "¿Dónde compro un boleto?"
         },
         {
           "subjectKey": "s7",
@@ -30929,17 +31004,17 @@
           "english": "¿Para aquí?"
         }
       ],
-      "helpMemoryIntro": "Para moverte por la ciudad: preguntar el camino, comprar billetes y coger el tren o el metro.",
+      "helpMemoryIntro": "Para moverte por la ciudad: preguntar el camino, comprar boletos y tomar el tren o el metro.",
       "helpMemoryTips": [
         {
           "kind": "warning",
-          "title": "Valida tu billete",
-          "text": "Compra el billete antes de subir y, si hace falta, válidalo. Los controles (\"Kontrolle\") multan a quien va sin billete válido."
+          "title": "Valida tu boleto",
+          "text": "Compra el boleto antes de subir y, si hace falta, valídalo. Los controles (\"Kontrolle\") multan a quien va sin boleto válido."
         },
         {
           "kind": "example",
           "title": "Transporte",
-          "text": "U-Bahn = metro, S-Bahn = cercanías, Straßenbahn = tranvía, Bahnhof = estación, Gleis = andén."
+          "text": "U-Bahn = metro, S-Bahn = tren suburbano, Straßenbahn = tranvía, Bahnhof = estación, Gleis = andén."
         }
       ]
     },
@@ -31138,6 +31213,81 @@
       ]
     },
     {
+      "id": "es_de_hablar_ciudad",
+      "title": "Hablar: en la ciudad",
+      "storageKeyPrefix": "es_de_hablar_ciudad_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Die Speisekarte, bitte",
+          "english": "La carta, por favor"
+        },
+        {
+          "key": "s1",
+          "display": "Einen Kaffee, bitte",
+          "english": "Un café, por favor"
+        },
+        {
+          "key": "s2",
+          "display": "Ein Bier",
+          "english": "Una cerveza"
+        },
+        {
+          "key": "s3",
+          "display": "Die Rechnung, bitte",
+          "english": "La cuenta, por favor"
+        },
+        {
+          "key": "s4",
+          "display": "Prost!",
+          "english": "¡Salud! (brindis)"
+        },
+        {
+          "key": "s5",
+          "display": "Wo ist der Bahnhof?",
+          "english": "¿Dónde está la estación?"
+        },
+        {
+          "key": "s6",
+          "display": "links",
+          "english": "A la izquierda"
+        },
+        {
+          "key": "s7",
+          "display": "rechts",
+          "english": "A la derecha"
+        },
+        {
+          "key": "s8",
+          "display": "geradeaus",
+          "english": "Todo recto"
+        },
+        {
+          "key": "s9",
+          "display": "Ich nehme es",
+          "english": "Me lo llevo"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Escucha y repite frases para el restaurante, moverte por la ciudad y hacer compras. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
+      "helpMemoryTips": [
+        {
+          "title": "Las vocales largas",
+          "text": "\"Bahnhof\" y \"Kaffee\" llevan vocales largas. Alárgalas un poco: \"Baahnhof\", \"Kafee\"."
+        },
+        {
+          "kind": "example",
+          "title": "La \"ei\" y la \"ie\"",
+          "text": "\"ei\" se dice como \"ái\" (zwei = tsvái) y \"ie\" como \"íi\" (Bier = bíia). Practícalo con \"Ein Bier\"."
+        }
+      ]
+    },
+    {
       "id": "es_de_alojamiento",
       "title": "Alojamiento",
       "storageKeyPrefix": "es_de_alojamiento_",
@@ -31320,7 +31470,7 @@
         },
         {
           "title": "El pasaporte",
-          "text": "Muchos alojamientos piden el pasaporte o DNI al hacer el check-in."
+          "text": "Muchos alojamientos piden el pasaporte o un documento de identidad al hacer el check-in."
         }
       ]
     },
@@ -31712,7 +31862,7 @@
         },
         {
           "key": "s1",
-          "display": "Soy de España"
+          "display": "Soy de…"
         },
         {
           "key": "s2",
@@ -31753,7 +31903,7 @@
           "group": "En alemán",
           "values": [
             "Woher kommst du?",
-            "Ich komme aus Spanien",
+            "Ich komme aus …",
             "Sprichst du Spanisch?",
             "Sehr erfreut",
             "Guten Appetit!",
@@ -31779,11 +31929,11 @@
         {
           "subjectKey": "s1",
           "categoryLabel": "En alemán",
-          "sentence": "Soy de España → ____",
+          "sentence": "Soy de… → ____",
           "acceptedAnswers": [
-            "Ich komme aus Spanien"
+            "Ich komme aus …"
           ],
-          "english": "Soy de España"
+          "english": "Soy de…"
         },
         {
           "subjectKey": "s2",
@@ -31876,6 +32026,82 @@
           "text": "Separar la basura es serio: vidrio, papel, envases (Gelber Sack) y el depósito de botellas (Pfand)."
         }
       ]
+    },
+    {
+      "id": "es_de_hablar_situaciones",
+      "title": "Hablar: situaciones",
+      "storageKeyPrefix": "es_de_hablar_situaciones_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hilfe!",
+          "english": "¡Ayuda!"
+        },
+        {
+          "key": "s1",
+          "display": "Es ist ein Notfall",
+          "english": "Es una emergencia"
+        },
+        {
+          "key": "s2",
+          "display": "Ich brauche einen Arzt",
+          "english": "Necesito un médico"
+        },
+        {
+          "key": "s3",
+          "display": "Wo ist die Apotheke?",
+          "english": "¿Dónde está la farmacia?"
+        },
+        {
+          "key": "s4",
+          "display": "Es tut mir leid",
+          "english": "Lo siento"
+        },
+        {
+          "key": "s5",
+          "display": "Kein Problem",
+          "english": "No hay problema"
+        },
+        {
+          "key": "s6",
+          "display": "Guten Appetit!",
+          "english": "¡Buen provecho!"
+        },
+        {
+          "key": "s7",
+          "display": "Viel Glück!",
+          "english": "¡Buena suerte!"
+        },
+        {
+          "key": "s8",
+          "display": "Gute Besserung!",
+          "english": "¡Que te mejores!"
+        },
+        {
+          "key": "s9",
+          "display": "Woher kommst du?",
+          "english": "¿De dónde eres?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Escucha y repite frases para emergencias, el alojamiento y la charla cotidiana. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
+      "helpMemoryTips": [
+        {
+          "kind": "warning",
+          "title": "Que se entienda",
+          "text": "En una emergencia, habla despacio y claro. \"Hilfe!\" y \"Notfall\" deben sonar fuertes y nítidos."
+        },
+        {
+          "kind": "example",
+          "title": "La \"z\" y la \"v\"",
+          "text": "La \"z\" suena \"ts\" (Arzt = \"artst\") y la \"v\" suena como \"f\" (viel = \"fíl\"). Practícalo con \"Viel Glück!\"."
+        }
+      ]
     }
   ],
   "courses": [
@@ -31929,6 +32155,9 @@
                 "ref": "settings"
               },
               {
+                "ref": "how_it_works"
+              },
+              {
                 "ref": "courses"
               }
             ]
@@ -31958,6 +32187,9 @@
               },
               {
                 "ref": "es_de_supervivencia"
+              },
+              {
+                "ref": "es_de_hablar_basico"
               }
             ]
           },
@@ -31974,6 +32206,9 @@
               },
               {
                 "ref": "es_de_compras"
+              },
+              {
+                "ref": "es_de_hablar_ciudad"
               }
             ]
           },
@@ -31993,6 +32228,9 @@
               },
               {
                 "ref": "es_de_cultura"
+              },
+              {
+                "ref": "es_de_hablar_situaciones"
               }
             ]
           },
@@ -32003,6 +32241,9 @@
             "items": [
               {
                 "ref": "settings"
+              },
+              {
+                "ref": "how_it_works"
               },
               {
                 "ref": "courses"

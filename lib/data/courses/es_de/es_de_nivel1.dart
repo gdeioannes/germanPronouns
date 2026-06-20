@@ -168,8 +168,48 @@ final QuizContent esDeSupervivencia = sentenceCourseQuiz(
   ],
 );
 
+/// Listen & repeat: practice saying the most useful Nivel 1 phrases aloud.
+final QuizContent esDeHablarBasico = speakRepeatQuiz(
+  id: 'es_de_hablar_basico',
+  title: 'Hablar: lo básico',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Escucha cada frase en alemán y repítela en voz alta. Si tu micrófono '
+      'está disponible, te diremos si te salió bien. Si no, escucha y repite a '
+      'tu ritmo y pasa a la siguiente.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Imita el ritmo',
+      text: 'No te fijes solo en cada sonido: copia la entonación y el ritmo de '
+          'la frase. Sonará mucho más natural.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "ch" y la "r"',
+      text: '"Ich" suena suave (como un susurro), y la "r" alemana se hace en '
+          'la garganta. Repite "Danke" y "Entschuldigung" varias veces.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Hola', answer: 'Hallo'),
+    CourseItem(prompt: 'Buenos días', answer: 'Guten Morgen'),
+    CourseItem(prompt: 'Gracias', answer: 'Danke'),
+    CourseItem(prompt: 'Por favor', answer: 'Bitte'),
+    CourseItem(prompt: 'Perdón / Disculpe', answer: 'Entschuldigung'),
+    CourseItem(prompt: 'Sí', answer: 'Ja'),
+    CourseItem(prompt: 'No', answer: 'Nein'),
+    CourseItem(prompt: 'Adiós', answer: 'Auf Wiedersehen'),
+    CourseItem(prompt: '¿Habla inglés?', answer: 'Sprechen Sie Englisch?'),
+    CourseItem(prompt: '¿Cuánto cuesta?', answer: 'Was kostet das?'),
+  ],
+);
+
 final List<QuizContent> esDeNivel1 = [
   esDeSaludos,
   esDeNumeros,
   esDeSupervivencia,
+  esDeHablarBasico,
 ];

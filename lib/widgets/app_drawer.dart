@@ -14,7 +14,9 @@ import '../models/course.dart';
 import '../models/course_session.dart';
 import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
+import '../models/quiz_content.dart';
 import '../models/quiz_stats_keys.dart';
+import '../pages/course_intro_page.dart';
 import '../pages/course_selector_page.dart';
 import '../pages/learner_home_page.dart';
 import '../pages/noun_article_quiz_page.dart';
@@ -731,7 +733,12 @@ class _AppDrawerState extends State<AppDrawer> {
     final summary = data.quizzes[item.ref];
     final title =
         item.titleOverride ?? summary?.title ?? section?.title ?? item.ref;
-    final icon = navIconFor(item.iconKey, section?.icon ?? Icons.menu_book_rounded);
+    // Listen-&-repeat (audio) quizzes get a distinct voice icon; an explicit
+    // per-item iconKey still wins.
+    final defaultIcon = summary?.kind == QuizKind.speakRepeat
+        ? Icons.record_voice_over_rounded
+        : (section?.icon ?? Icons.menu_book_rounded);
+    final icon = navIconFor(item.iconKey, defaultIcon);
     final color = navColorFor(
       item.colorIndex,
       section?.accent ?? kSectionAccentColors[0],
@@ -763,6 +770,23 @@ class _AppDrawerState extends State<AppDrawer> {
   Widget _linkItemTile(BuildContext context, NavItem item) {
     final colorScheme = Theme.of(context).colorScheme;
     final strings = CourseSession.instance.strings;
+
+    // "How it works" opens the course intro page (no fixed AppPage).
+    if (item.ref == kHowItWorksRef) {
+      return _navTile(
+        context,
+        icon: navIconFor(item.iconKey, Icons.help_outline_rounded),
+        badgeColor: navColorFor(item.colorIndex, colorScheme.onSurfaceVariant),
+        title: item.titleOverride ?? strings.howItWorks,
+        selected: false,
+        onTap: () {
+          Navigator.pop(context);
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(builder: (_) => const CourseIntroPage()),
+          );
+        },
+      );
+    }
 
     // "Switch course" opens the course selector (no fixed AppPage).
     if (item.ref == kCoursesRef) {

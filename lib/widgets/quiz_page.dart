@@ -829,16 +829,125 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
                         final showSubtitleRow =
                             showEnglish || _useGenderReferenceRows;
-                        final fixedColumnWidth = showSubtitleRow
-                            ? 170.0
-                            : 120.0;
-                        const valueColumnWidth = 110.0;
                         final rowHeight = showSubtitleRow ? 58.0 : 48.0;
                         final infoColumns = widget.config.helpMemoryInfoColumns;
-                        final scrollableWidth =
-                            valueColumnWidth *
-                            (widget.config.categories.length +
-                                infoColumns.length);
+                        final genderRows = _useGenderReferenceRows
+                            ? _genderRowOrder
+                            : null;
+                        final rowCount =
+                            genderRows?.length ??
+                            widget.config.subjectDisplays.length;
+
+                        // --- Content-aware column sizing ---------------------
+                        // Measure the rendered width of each column's text so a
+                        // column is only as wide as its content needs (no wasted
+                        // space, no cramped cells); then either grow the columns
+                        // to fill the container or fall back to horizontal scroll
+                        // when the content is genuinely wider than it.
+                        final textDirection = Directionality.of(context);
+                        final textScaler = MediaQuery.textScalerOf(context);
+                        final baseStyle = DefaultTextStyle.of(context).style;
+                        final mainStyle = baseStyle.copyWith(
+                          fontWeight: FontWeight.w700,
+                        );
+                        final subtitleStyle = baseStyle.copyWith(fontSize: 11);
+                        double measure(String text, TextStyle style) {
+                          final painter = TextPainter(
+                            text: TextSpan(text: text, style: style),
+                            textDirection: textDirection,
+                            textScaler: textScaler,
+                            maxLines: 1,
+                          )..layout();
+                          return painter.width;
+                        }
+                        // Widest line in a column + cell padding (24) + slack (8).
+                        double columnContentWidth(
+                          Iterable<String> mainTexts, {
+                          Iterable<String> subtitleTexts = const [],
+                        }) {
+                          var widest = 0.0;
+                          for (final t in mainTexts) {
+                            widest = max(widest, measure(t, mainStyle));
+                          }
+                          for (final t in subtitleTexts) {
+                            widest = max(widest, measure(t, subtitleStyle));
+                          }
+                          return widest + 24 + 8;
+                        }
+
+                        // Pinned subject column (rows may carry a subtitle).
+                        final subjectMain = <String>[
+                          widget.config.subjectColumnLabel,
+                          for (int index = 0; index < rowCount; index++)
+                            genderRows != null
+                                ? _genderArticles[genderRows[index]]!
+                                : widget.config.subjectDisplays[index],
+                        ];
+                        final subjectSubtitles = <String>[
+                          if (showSubtitleRow)
+                            for (int index = 0; index < rowCount; index++)
+                              genderRows != null
+                                  ? (_genderRowNames[genderRows[index]] ?? '')
+                                  : (showEnglish
+                                        ? widget.config.subjectEnglish![index]
+                                        : ''),
+                        ];
+                        final fixedColumnWidth = columnContentWidth(
+                          subjectMain,
+                          subtitleTexts: subjectSubtitles,
+                        ).clamp(96.0, 220.0).toDouble();
+
+                        // Scrollable value columns (categories + info columns):
+                        // gather every cell so each column can size to its own
+                        // content.
+                        final valueColumnContents = <List<String>>[
+                          for (final c in widget.config.categories)
+                            [
+                              c.label,
+                              for (int index = 0; index < rowCount; index++)
+                                c.values[genderRows != null
+                                    ? _firstSubjectIndexForGender(
+                                        genderRows[index],
+                                      )
+                                    : index],
+                            ],
+                          for (final c in infoColumns)
+                            [
+                              c.label,
+                              for (int index = 0; index < rowCount; index++)
+                                genderRows != null ? '' : c.values[index],
+                            ],
+                        ];
+                        final naturalWidths = <double>[
+                          for (final col in valueColumnContents)
+                            columnContentWidth(col).clamp(64.0, 260.0).toDouble(),
+                        ];
+                        final totalNatural = naturalWidths.fold<double>(
+                          0,
+                          (sum, w) => sum + w,
+                        );
+                        final availableScrollableWidth =
+                            (constraints.maxWidth - fixedColumnWidth)
+                                .clamp(0.0, double.infinity)
+                                .toDouble();
+                        // When the columns fit, share the leftover space in
+                        // proportion to each column's content so wider columns
+                        // get a little more; otherwise keep natural widths and
+                        // scroll horizontally.
+                        final columnWidths =
+                            (totalNatural > 0 &&
+                                totalNatural < availableScrollableWidth)
+                            ? <double>[
+                                for (final w in naturalWidths)
+                                  w +
+                                      (availableScrollableWidth - totalNatural) *
+                                          (w / totalNatural),
+                              ]
+                            : naturalWidths;
+                        final scrollableWidth = columnWidths.fold<double>(
+                          0,
+                          (sum, w) => sum + w,
+                        );
 
                         Widget buildFixedCell(
                           String text, {
@@ -935,7 +1044,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     entry.key < tintableCount ? tint : null;
                                 final value = entry.value;
                                 return Container(
-                                  width: valueColumnWidth,
+                                  width: columnWidths[entry.key],
                                   height: rowHeight,
                                   alignment: Alignment.center,
                                   padding: const EdgeInsets.symmetric(
@@ -976,13 +1085,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             ),
                           );
                         }
-
-                        final genderRows = _useGenderReferenceRows
-                            ? _genderRowOrder
-                            : null;
-                        final rowCount =
-                            genderRows?.length ??
-                            widget.config.subjectDisplays.length;
 
                         return Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -3672,13 +3774,112 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
                         final showSubtitleRow =
                             showEnglish || _useGenderReferenceRows;
-                        final fixedColumnWidth = showSubtitleRow
-                            ? 170.0
-                            : 120.0;
-                        const valueColumnWidth = 110.0;
                         final rowHeight = showSubtitleRow ? 58.0 : 48.0;
-                        final scrollableWidth =
-                            valueColumnWidth * widget.config.categories.length;
+                        final genderRows = _useGenderReferenceRows
+                            ? _genderRowOrder
+                            : null;
+                        final rowCount =
+                            genderRows?.length ??
+                            widget.config.subjects.length;
+
+                        // --- Content-aware column sizing ---------------------
+                        // Mirror the Help Memory table: size each column to the
+                        // width its text actually needs, then grow the columns to
+                        // fill the container (or scroll when they overflow).
+                        final textDirection = Directionality.of(context);
+                        final textScaler = MediaQuery.textScalerOf(context);
+                        final baseStyle = DefaultTextStyle.of(context).style;
+                        final mainStyle = baseStyle.copyWith(
+                          fontWeight: FontWeight.w700,
+                        );
+                        final subtitleStyle = baseStyle.copyWith(fontSize: 11);
+                        double measure(String text, TextStyle style) {
+                          final painter = TextPainter(
+                            text: TextSpan(text: text, style: style),
+                            textDirection: textDirection,
+                            textScaler: textScaler,
+                            maxLines: 1,
+                          )..layout();
+                          return painter.width;
+                        }
+                        // Widest line in a column + cell padding (24) + slack (8).
+                        double columnContentWidth(
+                          Iterable<String> mainTexts, {
+                          Iterable<String> subtitleTexts = const [],
+                        }) {
+                          var widest = 0.0;
+                          for (final t in mainTexts) {
+                            widest = max(widest, measure(t, mainStyle));
+                          }
+                          for (final t in subtitleTexts) {
+                            widest = max(widest, measure(t, subtitleStyle));
+                          }
+                          return widest + 24 + 8;
+                        }
+
+                        // Pinned subject column (rows may carry a subtitle).
+                        final subjectMain = <String>[
+                          widget.config.subjectColumnLabel,
+                          for (int index = 0; index < rowCount; index++)
+                            genderRows != null
+                                ? _genderArticles[genderRows[index]]!
+                                : widget.config.subjectDisplays[index],
+                        ];
+                        final subjectSubtitles = <String>[
+                          if (showSubtitleRow)
+                            for (int index = 0; index < rowCount; index++)
+                              genderRows != null
+                                  ? (_genderRowNames[genderRows[index]] ?? '')
+                                  : (showEnglish
+                                        ? widget.config.subjectEnglish![index]
+                                        : ''),
+                        ];
+                        final fixedColumnWidth = columnContentWidth(
+                          subjectMain,
+                          subtitleTexts: subjectSubtitles,
+                        ).clamp(96.0, 220.0).toDouble();
+
+                        // Scrollable value columns (one per case category).
+                        final valueColumnContents = <List<String>>[
+                          for (final c in widget.config.categories)
+                            [
+                              c.label,
+                              for (int index = 0; index < rowCount; index++)
+                                c.values[genderRows != null
+                                    ? _firstSubjectIndexForGender(
+                                        genderRows[index],
+                                      )
+                                    : index],
+                            ],
+                        ];
+                        final naturalWidths = <double>[
+                          for (final col in valueColumnContents)
+                            columnContentWidth(col).clamp(64.0, 260.0).toDouble(),
+                        ];
+                        final totalNatural = naturalWidths.fold<double>(
+                          0,
+                          (sum, w) => sum + w,
+                        );
+                        final availableScrollableWidth =
+                            (constraints.maxWidth - fixedColumnWidth)
+                                .clamp(0.0, double.infinity)
+                                .toDouble();
+                        // Share leftover space in proportion to content when the
+                        // columns fit; otherwise keep natural widths and scroll.
+                        final columnWidths =
+                            (totalNatural > 0 &&
+                                totalNatural < availableScrollableWidth)
+                            ? <double>[
+                                for (final w in naturalWidths)
+                                  w +
+                                      (availableScrollableWidth - totalNatural) *
+                                          (w / totalNatural),
+                              ]
+                            : naturalWidths;
+                        final scrollableWidth = columnWidths.fold<double>(
+                          0,
+                          (sum, w) => sum + w,
+                        );
 
                         Widget buildFixedCell(
                           String text, {
@@ -3790,7 +3991,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                 return Tooltip(
                                   message: tooltips?[idx] ?? values[idx],
                                   child: Container(
-                                    width: valueColumnWidth,
+                                    width: columnWidths[idx],
                                     height: rowHeight,
                                     alignment: Alignment.center,
                                     padding: const EdgeInsets.symmetric(
@@ -3825,13 +4026,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             ),
                           );
                         }
-
-                        final genderRows = _useGenderReferenceRows
-                            ? _genderRowOrder
-                            : null;
-                        final rowCount =
-                            genderRows?.length ??
-                            widget.config.subjects.length;
 
                         return Row(
                           crossAxisAlignment: CrossAxisAlignment.start,

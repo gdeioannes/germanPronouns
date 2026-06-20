@@ -66,6 +66,48 @@ class CourseItem {
   final String? hint;
 }
 
+/// A "listen & repeat" pronunciation quiz ([QuizKind.speakRepeat]). The app
+/// reads each German phrase aloud (TTS) and the learner repeats it (STT). Each
+/// [CourseItem]'s German [CourseItem.answer] is the phrase to speak and show;
+/// its Spanish [CourseItem.prompt] is shown underneath as the meaning. The
+/// fill-in fields ([QuizContent.categories]/[QuizContent.sentences]) are left
+/// empty — speak quizzes are rendered by `SpeakRepeatQuizPage`, not the engine.
+QuizContent speakRepeatQuiz({
+  required String id,
+  required String title,
+  required String promptLabel,
+  required String subjectsLabel,
+  required String subjectColumnLabel,
+  required List<CourseItem> items,
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
+}) {
+  return QuizContent(
+    id: id,
+    title: title,
+    kind: QuizKind.speakRepeat,
+    storageKeyPrefix: '${id}_',
+    promptLabel: promptLabel,
+    subjectsLabel: subjectsLabel,
+    subjectColumnLabel: subjectColumnLabel,
+    subjects: [
+      for (var i = 0; i < items.length; i++)
+        QuizSubjectData(
+          key: 's$i',
+          // The German phrase the learner hears and repeats.
+          display: items[i].answer,
+          // Repurposed (like the other es_de builders) to carry the Spanish
+          // meaning, shown under the phrase.
+          english: items[i].prompt,
+        ),
+    ],
+    categories: const [],
+    sentences: const [],
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
+  );
+}
+
 /// A "say it in German" quiz where several German forms are accepted. The
 /// subject display is the Spanish prompt; one stored sentence per item carries
 /// the accepted German answers.

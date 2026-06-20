@@ -86,6 +86,8 @@ class _NavigationEditorPageState extends State<NavigationEditorPage> {
   String _linkTitle(String ref) => switch (ref) {
     kWordLibraryRef => 'Word Library',
     kSettingsRef => 'Settings',
+    kCoursesRef => 'Switch course',
+    kHowItWorksRef => 'How it works',
     _ => ref,
   };
 

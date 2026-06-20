@@ -27,7 +27,12 @@ void main() {
 
   test('every course nav quiz ref resolves to a real quiz', () {
     final ids = {for (final q in allQuizContent) q.id};
-    const builtIn = {kWordLibraryRef, kSettingsRef, kCoursesRef};
+    const builtIn = {
+      kWordLibraryRef,
+      kSettingsRef,
+      kCoursesRef,
+      kHowItWorksRef,
+    };
     for (final course in defaultCourses) {
       for (final group in course.nav.groups) {
         if (group.type == NavGroupType.questChain ||

@@ -4,6 +4,14 @@ import 'quiz_config.dart';
 // and info columns without a separate import.
 export 'quiz_config.dart' show HelpMemoryTip, HelpMemoryInfoColumn;
 
+/// How a quiz is played.
+///
+/// [fillBlank] is the default typing quiz driven by the generic `QuizPage`
+/// engine. [speakRepeat] is a pronunciation quiz: the app reads each phrase
+/// aloud (TTS) and the learner repeats it (STT), rendered by
+/// `SpeakRepeatQuizPage` instead of going through the fill-in engine.
+enum QuizKind { fillBlank, speakRepeat }
+
 /// One quizzable subject (a table row): a pronoun, a noun, a preposition, etc.
 class QuizSubjectData {
   const QuizSubjectData({
@@ -173,6 +181,7 @@ class QuizContent {
     required this.subjects,
     required this.categories,
     required this.sentences,
+    this.kind = QuizKind.fillBlank,
     this.sentenceTemplates = const {},
     this.categoryDisplayNames = const {},
     this.legacyCategoryLabelMigration = const {},
@@ -194,6 +203,10 @@ class QuizContent {
   final String promptLabel;
   final String subjectsLabel;
   final String subjectColumnLabel;
+
+  /// How this quiz is played; selects which page renders it. Defaults to
+  /// [QuizKind.fillBlank].
+  final QuizKind kind;
 
   final List<QuizSubjectData> subjects;
   final List<QuizCategoryData> categories;
@@ -241,6 +254,7 @@ class QuizContent {
     'promptLabel': promptLabel,
     'subjectsLabel': subjectsLabel,
     'subjectColumnLabel': subjectColumnLabel,
+    if (kind != QuizKind.fillBlank) 'kind': kind.name,
     'subjects': [for (final s in subjects) s.toJson()],
     'categories': [for (final c in categories) c.toJson()],
     'sentences': [for (final s in sentences) s.toJson()],
@@ -273,6 +287,7 @@ class QuizContent {
     promptLabel: json['promptLabel'] as String,
     subjectsLabel: json['subjectsLabel'] as String,
     subjectColumnLabel: json['subjectColumnLabel'] as String,
+    kind: QuizKind.values.byName(json['kind'] as String? ?? 'fillBlank'),
     subjects: [
       for (final s in json['subjects'] as List)
         QuizSubjectData.fromJson(s as Map<String, dynamic>),

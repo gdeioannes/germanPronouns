@@ -21,7 +21,7 @@ const String _seedAsset = 'assets/seed/quiz_content.json';
 /// re-seeded from the published content, so learners get content updates without
 /// a manual reset. Re-seeding replaces any local back-office edits with the
 /// published content; learner progress (SharedPreferences) is not affected.
-const int kSeedVersion = 6;
+const int kSeedVersion = 9;
 
 /// Lightweight summary of a quiz for the back-office list.
 class QuizSummary {
@@ -30,6 +30,7 @@ class QuizSummary {
     required this.title,
     required this.storageKeyPrefix,
     required this.sentenceCount,
+    this.kind = QuizKind.fillBlank,
   });
 
   final String id;
@@ -38,6 +39,10 @@ class QuizSummary {
   /// The quiz's SharedPreferences key prefix (for reading its score/streak).
   final String storageKeyPrefix;
   final int sentenceCount;
+
+  /// The quiz type, so the UI can pick a kind-specific icon (e.g. an audio
+  /// glyph for [QuizKind.speakRepeat] listen-&-repeat quizzes).
+  final QuizKind kind;
 }
 
 /// A stored sentence together with its database record key, so the UI can
@@ -162,6 +167,9 @@ class ContentRepository {
           storageKeyPrefix:
               (record.value['storageKeyPrefix'] as String?) ?? '${record.key}_',
           sentenceCount: count,
+          kind: QuizKind.values.byName(
+            (record.value['kind'] as String?) ?? 'fillBlank',
+          ),
         ),
       );
     }

@@ -36,6 +36,7 @@ void main() {
     expect(links.items.map((i) => i.ref), [
       kWordLibraryRef,
       kSettingsRef,
+      kHowItWorksRef,
       kCoursesRef,
     ]);
   });

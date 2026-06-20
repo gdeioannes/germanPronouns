@@ -23,7 +23,8 @@ final QuizContent esDeAlojamiento = sentenceCourseQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: 'El pasaporte',
-      text: 'Muchos alojamientos piden el pasaporte o DNI al hacer el check-in.',
+      text: 'Muchos alojamientos piden el pasaporte o un documento de identidad '
+          'al hacer el check-in.',
     ),
   ],
   items: const [
@@ -180,7 +181,7 @@ final QuizContent esDeCultura = sentenceCourseQuiz(
       answer: 'Woher kommst du?',
       accepted: ['Woher kommen Sie?'],
     ),
-    CourseItem(prompt: 'Soy de España', answer: 'Ich komme aus Spanien'),
+    CourseItem(prompt: 'Soy de…', answer: 'Ich komme aus …'),
     CourseItem(prompt: '¿Hablas español?', answer: 'Sprichst du Spanisch?'),
     CourseItem(
       prompt: 'Encantado',
@@ -199,9 +200,49 @@ final QuizContent esDeCultura = sentenceCourseQuiz(
   ],
 );
 
+/// Listen & repeat: practice saying the most useful Nivel 3 phrases aloud.
+final QuizContent esDeHablarSituaciones = speakRepeatQuiz(
+  id: 'es_de_hablar_situaciones',
+  title: 'Hablar: situaciones',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Escucha y repite frases para emergencias, el alojamiento y la charla '
+      'cotidiana. Con el micrófono te decimos si te salió bien; sin él, repite '
+      'a tu ritmo y pasa a la siguiente.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Que se entienda',
+      text: 'En una emergencia, habla despacio y claro. "Hilfe!" y "Notfall" '
+          'deben sonar fuertes y nítidos.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "z" y la "v"',
+      text: 'La "z" suena "ts" (Arzt = "artst") y la "v" suena como "f" '
+          '(viel = "fíl"). Practícalo con "Viel Glück!".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '¡Ayuda!', answer: 'Hilfe!'),
+    CourseItem(prompt: 'Es una emergencia', answer: 'Es ist ein Notfall'),
+    CourseItem(prompt: 'Necesito un médico', answer: 'Ich brauche einen Arzt'),
+    CourseItem(prompt: '¿Dónde está la farmacia?', answer: 'Wo ist die Apotheke?'),
+    CourseItem(prompt: 'Lo siento', answer: 'Es tut mir leid'),
+    CourseItem(prompt: 'No hay problema', answer: 'Kein Problem'),
+    CourseItem(prompt: '¡Buen provecho!', answer: 'Guten Appetit!'),
+    CourseItem(prompt: '¡Buena suerte!', answer: 'Viel Glück!'),
+    CourseItem(prompt: '¡Que te mejores!', answer: 'Gute Besserung!'),
+    CourseItem(prompt: '¿De dónde eres?', answer: 'Woher kommst du?'),
+  ],
+);
+
 final List<QuizContent> esDeNivel3 = [
   esDeAlojamiento,
   esDeEmergencias,
   esDeFechas,
   esDeCultura,
+  esDeHablarSituaciones,
 ];

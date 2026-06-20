@@ -9,6 +9,7 @@ class AppStrings {
   const AppStrings({
     required this.chooseCourse,
     required this.switchCourse,
+    required this.howItWorks,
     required this.logOut,
     required this.settings,
     required this.wordLibrary,
@@ -35,6 +36,7 @@ class AppStrings {
 
   final String chooseCourse;
   final String switchCourse;
+  final String howItWorks;
   final String logOut;
   final String settings;
   final String wordLibrary;
@@ -62,6 +64,7 @@ class AppStrings {
 const AppStrings _en = AppStrings(
   chooseCourse: 'Choose your course',
   switchCourse: 'Switch course',
+  howItWorks: 'How it works',
   logOut: 'Log out',
   settings: 'Settings',
   wordLibrary: 'Word Library',
@@ -91,12 +94,13 @@ const AppStrings _en = AppStrings(
 const AppStrings _es = AppStrings(
   chooseCourse: 'Elige tu curso',
   switchCourse: 'Cambiar curso',
+  howItWorks: 'Cómo funciona',
   logOut: 'Salir',
   settings: 'Ajustes',
   wordLibrary: 'Vocabulario',
   history: 'Historial',
   analytics: 'Estadísticas',
-  helpMemory: 'Chuleta',
+  helpMemory: 'Guía rápida',
   saveAsPdf: 'Guardar como PDF',
   gotIt: 'Entendido',
   close: 'Cerrar',

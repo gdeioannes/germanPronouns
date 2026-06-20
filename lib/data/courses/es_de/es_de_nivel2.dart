@@ -29,7 +29,7 @@ final QuizContent esDeRestaurante = sentenceCourseQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Agua',
-      text: 'El agua del grifo casi no se sirve; pídela como "Leitungswasser". '
+      text: 'El agua de la llave casi no se sirve; pídela como "Leitungswasser". '
           'Lo normal es agua con gas ("mit Kohlensäure").',
     ),
   ],
@@ -73,19 +73,19 @@ final QuizContent esDeDirecciones = sentenceCourseQuiz(
   subjectColumnLabel: 'Español',
   categoryLabel: 'En alemán',
   intro:
-      'Para moverte por la ciudad: preguntar el camino, comprar billetes y '
-      'coger el tren o el metro.',
+      'Para moverte por la ciudad: preguntar el camino, comprar boletos y '
+      'tomar el tren o el metro.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
-      title: 'Valida tu billete',
-      text: 'Compra el billete antes de subir y, si hace falta, válidalo. Los '
-          'controles ("Kontrolle") multan a quien va sin billete válido.',
+      title: 'Valida tu boleto',
+      text: 'Compra el boleto antes de subir y, si hace falta, valídalo. Los '
+          'controles ("Kontrolle") multan a quien va sin boleto válido.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Transporte',
-      text: 'U-Bahn = metro, S-Bahn = cercanías, Straßenbahn = tranvía, '
+      text: 'U-Bahn = metro, S-Bahn = tren suburbano, Straßenbahn = tranvía, '
           'Bahnhof = estación, Gleis = andén.',
     ),
   ],
@@ -100,11 +100,11 @@ final QuizContent esDeDirecciones = sentenceCourseQuiz(
     CourseItem(prompt: 'Todo recto', answer: 'geradeaus'),
     CourseItem(prompt: '¿Está lejos?', answer: 'Ist es weit?'),
     CourseItem(
-      prompt: 'Un billete a…, por favor',
+      prompt: 'Un boleto a…, por favor',
       answer: 'Eine Fahrkarte nach …, bitte',
     ),
     CourseItem(
-      prompt: '¿Dónde compro un billete?',
+      prompt: '¿Dónde compro un boleto?',
       answer: 'Wo kann ich eine Fahrkarte kaufen?',
     ),
     CourseItem(prompt: '¿Cuándo sale el tren?', answer: 'Wann fährt der Zug?'),
@@ -166,8 +166,48 @@ final QuizContent esDeCompras = sentenceCourseQuiz(
   ],
 );
 
+/// Listen & repeat: practice saying the most useful Nivel 2 phrases aloud.
+final QuizContent esDeHablarCiudad = speakRepeatQuiz(
+  id: 'es_de_hablar_ciudad',
+  title: 'Hablar: en la ciudad',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Escucha y repite frases para el restaurante, moverte por la ciudad y '
+      'hacer compras. Con el micrófono te decimos si te salió bien; sin él, '
+      'repite a tu ritmo y pasa a la siguiente.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Las vocales largas',
+      text: '"Bahnhof" y "Kaffee" llevan vocales largas. Alárgalas un poco: '
+          '"Baahnhof", "Kafee".',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "ei" y la "ie"',
+      text: '"ei" se dice como "ái" (zwei = tsvái) y "ie" como "íi" (Bier = '
+          'bíia). Practícalo con "Ein Bier".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'La carta, por favor', answer: 'Die Speisekarte, bitte'),
+    CourseItem(prompt: 'Un café, por favor', answer: 'Einen Kaffee, bitte'),
+    CourseItem(prompt: 'Una cerveza', answer: 'Ein Bier'),
+    CourseItem(prompt: 'La cuenta, por favor', answer: 'Die Rechnung, bitte'),
+    CourseItem(prompt: '¡Salud! (brindis)', answer: 'Prost!'),
+    CourseItem(prompt: '¿Dónde está la estación?', answer: 'Wo ist der Bahnhof?'),
+    CourseItem(prompt: 'A la izquierda', answer: 'links'),
+    CourseItem(prompt: 'A la derecha', answer: 'rechts'),
+    CourseItem(prompt: 'Todo recto', answer: 'geradeaus'),
+    CourseItem(prompt: 'Me lo llevo', answer: 'Ich nehme es'),
+  ],
+);
+
 final List<QuizContent> esDeNivel2 = [
   esDeRestaurante,
   esDeDirecciones,
   esDeCompras,
+  esDeHablarCiudad,
 ];

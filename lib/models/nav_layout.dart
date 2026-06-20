@@ -150,6 +150,7 @@ class NavLayout {
 const String kWordLibraryRef = 'wordLibrary';
 const String kSettingsRef = 'settings';
 const String kCoursesRef = 'courses';
+const String kHowItWorksRef = 'how_it_works';
 
 /// The default drawer layout — reproduces the previously-hardcoded structure,
 /// so the app looks identical until a teacher edits it. Used as the seed/
@@ -177,6 +178,7 @@ const NavLayout defaultNavLayout = NavLayout(
       items: [
         NavItem(ref: kWordLibraryRef),
         NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
         NavItem(ref: kCoursesRef),
       ],
     ),
