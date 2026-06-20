@@ -145,6 +145,28 @@ class NounSettings {
   bool isQuestQuizCompleted(String key) =>
       _completedQuestQuizzes.contains(key);
 
+  /// Best-streak a plain (non-progression) quiz must reach to count as "done"
+  /// in the menu. Reuses the same configurable lap goal as the noun-category
+  /// progression so the whole app shares one "goal".
+  int get quizGoalStreak => progressionUnlockStreak;
+
+  /// Whether a quiz has passed its streak goal (shown as a "Done" badge in the
+  /// drawer and on the quiz home page). Quest and noun-category quizzes use
+  /// their permanent completion sets; every other quiz is done once its best
+  /// streak reaches [quizGoalStreak].
+  bool isQuizDone({
+    String? progressionKey,
+    bool questProgression = false,
+    required int bestStreakAbsolute,
+  }) {
+    if (progressionKey != null) {
+      return questProgression
+          ? isQuestQuizCompleted(progressionKey)
+          : isNounCategoryCompleted(progressionKey);
+    }
+    return bestStreakAbsolute >= quizGoalStreak;
+  }
+
   /// The Quest quiz key the user last opened, or null if none recorded yet.
   String? get lastQuestQuizKey => _lastQuestQuizKey;
 

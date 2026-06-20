@@ -5,11 +5,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../data/gender_reference.dart';
 import '../data/noun_lookup.dart';
 import '../data/noun_plurals.dart';
 import '../data/noun_progression_data.dart';
@@ -23,6 +23,7 @@ import '../models/quiz_stats_keys.dart';
 import '../pages/auth_gate.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
+import '../theme/help_memory_pdf.dart';
 import '../theme/pdf_theme.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
@@ -615,58 +616,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       widget.config.collapseReferenceTablesByGender &&
       widget.config.subjectGenders != null;
 
-  static const List<String> _genderRowOrder = ['m', 'f', 'n'];
-
-  static const Map<String, String> _genderArticles = {
-    'm': 'der',
-    'f': 'die',
-    'n': 'das',
-  };
-
-  static const Map<String, String> _genderRowNames = {
-    'm': 'masculine',
-    'f': 'feminine',
-    'n': 'neuter',
-  };
-
-  /// Common (non-absolute) rules of thumb for guessing a noun's gender from
-  /// its ending or meaning, shown below the reference table for the Artikel
-  /// quiz. Each entry is "pattern — example(s)".
-  static const Map<String, List<String>> _genderRules = {
-    'm': [
-      '-er for people/professions and many tools — der Lehrer, der Bäcker, der Computer',
-      '-or — der Motor, der Doktor, der Professor',
-      '-ig, -ling, -ich — der König, der Frühling, der Teppich',
-      '-ant, -ist, -ismus — der Praktikant, der Tourist, der Optimismus',
-      'Seasons, months, days of the week — der Winter, der Mai, der Montag',
-      'Weather phenomena — der Regen, der Schnee, der Wind, der Sturm',
-      'Cardinal directions — der Norden, der Süden, der Osten, der Westen',
-      'Most nouns formed from a verb stem + -en — der Wagen, der Garten',
-    ],
-    'f': [
-      '-e — die Lampe, die Blume, die Tasche (many, but not all: der Junge, das Auge)',
-      '-ung — die Zeitung, die Wohnung, die Übung',
-      '-heit, -keit, -igkeit — die Freiheit, die Möglichkeit, die Süßigkeit',
-      '-schaft — die Freundschaft, die Mannschaft, die Landschaft',
-      '-ion, -tion — die Nation, die Information, die Diskussion',
-      '-tät — die Universität, die Realität, die Qualität',
-      '-ik — die Musik, die Politik, die Mathematik',
-      '-ur — die Natur, die Kultur, die Temperatur',
-      '-enz, -anz — die Differenz, die Distanz, die Toleranz',
-      'Most numbers used as nouns — die Million, die Eins, die Hundert',
-      'Many tree and flower names — die Eiche, die Tulpe, die Rose',
-    ],
-    'n': [
-      '-chen, -lein (diminutives) — das Mädchen, das Fräulein, das Häuschen',
-      '-um — das Museum, das Zentrum, das Datum',
-      '-ment — das Dokument, das Experiment, das Element',
-      'Infinitives used as nouns — das Essen, das Leben, das Lesen, das Schwimmen',
-      'Most Ge- collective nouns — das Gebäude, das Geschenk, das Gepäck',
-      'Young people and animals — das Kind, das Baby, das Fohlen',
-      'Metals and chemical elements — das Gold, das Silber, das Eisen',
-      'Letters, colors, and languages used as nouns — das A, das Blau, das Deutsch',
-    ],
-  };
+  // Gender reference data lives in data/gender_reference.dart so the on-screen
+  // tables here and the PDF export share one source; aliased to keep the many
+  // in-file references unchanged.
+  static const List<String> _genderRowOrder = kGenderRowOrder;
+  static const Map<String, String> _genderArticles = kGenderArticles;
+  static const Map<String, String> _genderRowNames = kGenderRowNames;
+  static const Map<String, List<String>> _genderRules = kGenderRules;
 
   /// Index of the first subject with [gender], used to read a
   /// gender-independent value out of [QuizConfig.categories] (every subject
@@ -1413,191 +1369,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   Future<void> _exportHelpMemoryPdf() async {
     final pdf = await QuizPdfTheme.load();
     final doc = pdf.newDocument();
-    final helpIntro = widget.config.helpMemoryIntro;
-    final helpTips = widget.config.helpMemoryTips;
-    final pdfTips = [
-      if (helpTips.isNotEmpty) ...[
-        pw.SizedBox(height: 6),
-        pdf.section(CourseSession.instance.strings.tipsAndRules),
-        for (final t in helpTips)
-          pdf.tip(kind: t.kind, title: t.title, text: t.text),
-      ],
-    ];
-
-    if (widget.config.helpMemoryTables != null) {
-      final categoriesByLabel = {
-        for (final c in widget.config.categories) c.label: c,
-      };
-
-      doc.addPage(
-        pw.MultiPage(
-          pageFormat: PdfPageFormat.a4,
-          margin: const pw.EdgeInsets.all(28),
-          footer: pdf.footer,
-          build: (context) => [
-            pdf.brandHeader(
-              widget.config.title,
-              subtitle: CourseSession.instance.strings.helpMemory,
-            ),
-            if (helpIntro != null) pdf.intro(helpIntro),
-            for (final table in widget.config.helpMemoryTables!) ...[
-              pdf.section(table.title),
-              pdf.table(
-                headers: [
-                  widget.config.subjectColumnLabel,
-                  for (final column in table.columns)
-                    column.displayLabel ?? column.categoryLabel,
-                ],
-                data: [
-                  for (
-                    var i = 0;
-                    i < widget.config.subjectDisplays.length;
-                    i++
-                  )
-                    [
-                      widget.config.subjectDisplays[i],
-                      for (final column in table.columns)
-                        categoriesByLabel[column.categoryLabel]!.values[i],
-                    ],
-                ],
-              ),
-              pw.SizedBox(height: 14),
-            ],
-            for (final table
-                in widget.config.endingPatternTables ??
-                    const <EndingPatternTable>[]) ...[
-              pdf.section(table.title),
-              pdf.table(
-                headers: [table.cornerLabel, ...table.columnLabels],
-                data: [
-                  for (var i = 0; i < table.rowLabels.length; i++)
-                    [table.rowLabels[i], ...table.rows[i]],
-                ],
-              ),
-              if (table.notes != null) ...[
-                pw.SizedBox(height: 4),
-                for (final note in table.notes!)
-                  pw.Bullet(text: note, style: pdf.bulletStyle()),
-              ],
-              pw.SizedBox(height: 14),
-            ],
-            ...pdfTips,
-          ],
-        ),
-      );
-    } else {
-      final showEnglish =
-          widget.config.subjectEnglish != null &&
-          NounSettings.instance.showEnglishFor(
-            widget.config.storageKeyPrefix,
-          );
-
-      final genderRows = _useGenderReferenceRows ? _genderRowOrder : null;
-      final rowCount =
-          genderRows?.length ?? widget.config.subjectDisplays.length;
-
-      final infoColumns = widget.config.helpMemoryInfoColumns;
-      final headers = [
-        widget.config.subjectColumnLabel,
-        ...widget.config.categories.map((c) => c.label),
-        ...infoColumns.map((c) => c.label),
-      ];
-
-      // Match the on-screen gender coloring: tint each row's value cells by
-      // gender (der=blue, die=red, das=green), using the same user-set colors.
-      PdfColor? rowColor(String? gender) =>
-          (widget.config.helpMemoryColorByGender && gender != null)
-          ? PdfColor.fromInt(
-              NounSettings.instance.colorForGender(gender).toARGB32(),
-            )
-          : null;
-
-      final rows = <List<String>>[];
-      final rowColors = <PdfColor?>[];
-      for (var index = 0; index < rowCount; index++) {
-        if (genderRows != null) {
-          final gender = genderRows[index];
-          final subjectIndex = _firstSubjectIndexForGender(gender);
-          rows.add([
-            '${_genderArticles[gender]} (${_genderRowNames[gender]})',
-            ...widget.config.categories.map((c) => c.values[subjectIndex]),
-            ...infoColumns.map((_) => ''),
-          ]);
-          rowColors.add(rowColor(gender));
-        } else {
-          var label = widget.config.subjectDisplays[index];
-          if (showEnglish) {
-            label = '$label (${widget.config.subjectEnglish![index]})';
-          }
-          rows.add([
-            label,
-            ...widget.config.categories.map((c) => c.values[index]),
-            ...infoColumns.map((c) => c.values[index]),
-          ]);
-          rowColors.add(
-            rowColor(
-              widget.config.subjectGenders != null
-                  ? widget.config.subjectGenders![index]
-                  : null,
-            ),
-          );
-        }
-      }
-
-      final columnCount = headers.length;
-      final cellFontSize = columnCount > 15
-          ? 7.0
-          : columnCount > 7
-              ? 8.0
-              : 10.0;
-      final pageFormat = columnCount > 15
-          ? PdfPageFormat.a3.landscape
-          : columnCount > 5
-              ? PdfPageFormat.a4.landscape
-              : PdfPageFormat.a4;
-
-      doc.addPage(
-        pw.MultiPage(
-          pageFormat: pageFormat,
-          margin: const pw.EdgeInsets.all(28),
-          footer: pdf.footer,
-          build: (context) => [
-            pdf.brandHeader(
-              widget.config.title,
-              subtitle: CourseSession.instance.strings.helpMemory,
-            ),
-            pdf.table(
-              headers: headers,
-              data: rows,
-              fontSize: cellFontSize,
-              rowColors: widget.config.helpMemoryColorByGender
-                  ? rowColors
-                  : null,
-              coloredColumns: widget.config.categories.length,
-              columnWidths: {
-                for (var i = 0; i < columnCount; i++)
-                  i: const pw.FlexColumnWidth(1),
-              },
-            ),
-            if (_useGenderReferenceRows) ...[
-              pw.SizedBox(height: 16),
-              pdf.section('Gender rules of thumb'),
-              for (final gender in _genderRowOrder) ...[
-                pw.SizedBox(height: 6),
-                pw.Text(
-                  '${_genderArticles[gender]} (${_genderRowNames[gender]})',
-                  style: pdf.subheading(fontSize: 12),
-                ),
-                for (final rule in _genderRules[gender]!)
-                  pw.Bullet(text: rule, style: pdf.bulletStyle(fontSize: 10)),
-              ],
-            ],
-            ...pdfTips,
-          ],
-        ),
-      );
-    }
-
+    doc.addPage(
+      pw.MultiPage(
+        pageFormat: helpMemoryPageFormat(widget.config),
+        margin: const pw.EdgeInsets.all(28),
+        footer: pdf.footer,
+        build: (context) => buildHelpMemoryPdfBody(pdf, widget.config),
+      ),
+    );
     await Printing.sharePdf(
       bytes: await doc.save(),
       filename: '${widget.config.storageKeyPrefix}help_memory.pdf',

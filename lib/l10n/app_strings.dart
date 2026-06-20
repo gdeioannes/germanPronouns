@@ -32,6 +32,10 @@ class AppStrings {
     required this.neuter,
     required this.learnerContinue,
     required this.teacherMode,
+    required this.generateAllPdf,
+    required this.doneLabel,
+    required this.home,
+    required this.quizzesFinished,
   });
 
   final String chooseCourse;
@@ -59,6 +63,10 @@ class AppStrings {
   final String neuter;
   final String learnerContinue;
   final String teacherMode;
+  final String generateAllPdf;
+  final String doneLabel;
+  final String home;
+  final String quizzesFinished;
 }
 
 const AppStrings _en = AppStrings(
@@ -89,6 +97,10 @@ const AppStrings _en = AppStrings(
   neuter: 'neuter',
   learnerContinue: 'Continue as learner',
   teacherMode: 'Teacher',
+  generateAllPdf: 'Reference PDF (all quizzes)',
+  doneLabel: 'Done',
+  home: 'Home',
+  quizzesFinished: 'quizzes finished',
 );
 
 const AppStrings _es = AppStrings(
@@ -119,6 +131,10 @@ const AppStrings _es = AppStrings(
   neuter: 'neutro',
   learnerContinue: 'Entrar como estudiante',
   teacherMode: 'Profesor',
+  generateAllPdf: 'PDF de referencia (todos)',
+  doneLabel: 'Hecho',
+  home: 'Inicio',
+  quizzesFinished: 'quizzes completados',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

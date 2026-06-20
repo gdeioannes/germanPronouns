@@ -101,6 +101,16 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   /// meaning aloud in the learner's language after the German phrase.
   bool _alsoMeaning = false;
 
+  /// How many times the loop plays through the whole word list. Editable, min 1.
+  int _loopCount = 1;
+
+  /// The largest loop count the stepper allows.
+  static const int _maxLoopCount = 10;
+
+  /// True while a loop playthrough of all words is running (drives the loop
+  /// button's play/stop state).
+  bool _looping = false;
+
   /// The language being learned (the phrase to repeat).
   static const String _learnLocale = 'de-DE';
 
@@ -246,19 +256,76 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     }
   }
 
-  /// Reads the current phrase (German), then — if [_alsoMeaning] is on — its
-  /// meaning in the learner's language.
-  Future<void> _speakCurrent() async {
-    if (_finished || _cards.isEmpty || _listening) return;
-    final gen = ++_speakGen;
+  /// Reads the current phrase (German) once, then — if [_alsoMeaning] is on —
+  /// its meaning in the learner's language, all under play request [gen].
+  Future<void> _speakSequence(int gen) async {
     await _speakOnce(_card.phrase, _learnLocale, gen);
     if (_alsoMeaning) await _speakOnce(_card.meaning, _meaningLocale, gen);
+  }
+
+  /// Bumps the play token and clears any running loop, so a one-off play
+  /// supersedes a loop cleanly. Returns the new token.
+  int _supersede() {
+    if (_looping) _looping = false;
+    return ++_speakGen;
+  }
+
+  /// Plays the current card once (phrase, plus meaning if enabled).
+  Future<void> _speakCurrent() async {
+    if (_finished || _cards.isEmpty || _listening) return;
+    final gen = _supersede();
+    if (mounted) setState(() {});
+    await _speakSequence(gen);
+  }
+
+  /// Plays every word in the quiz, [_loopCount] times through, advancing the
+  /// visible card as it goes. Tapping the loop button again (or any other play /
+  /// the mic / navigating) stops it. Safe against overlap via the play token.
+  Future<void> _playLoop() async {
+    if (_finished || _cards.isEmpty || _listening) return;
+    // Toggle: a second tap while looping stops playback.
+    if (_looping) {
+      _stopLoop();
+      return;
+    }
+    final gen = ++_speakGen;
+    setState(() => _looping = true);
+    for (var pass = 0; pass < _loopCount; pass++) {
+      for (var i = 0; i < _cards.length; i++) {
+        if (!mounted || gen != _speakGen || _listening) {
+          _finishLoop(gen);
+          return;
+        }
+        setState(() {
+          _index = i;
+          _heard = null;
+          _correct = null;
+        });
+        await _speakSequence(gen);
+      }
+    }
+    _finishLoop(gen);
+  }
+
+  /// Clears the looping flag if this play token still owns it.
+  void _finishLoop(int gen) {
+    if (mounted && gen == _speakGen && _looping) {
+      setState(() => _looping = false);
+    }
+  }
+
+  /// Stops a running loop immediately.
+  void _stopLoop() {
+    _speakGen++;
+    _tts.stop();
+    if (mounted) setState(() => _looping = false);
   }
 
   /// Reads just the meaning aloud in the learner's language (manual button).
   Future<void> _speakMeaning() async {
     if (_finished || _cards.isEmpty || _listening) return;
-    final gen = ++_speakGen;
+    final gen = _supersede();
+    if (mounted) setState(() {});
     await _speakOnce(_card.meaning, _meaningLocale, gen);
   }
 
@@ -268,8 +335,15 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   void _autoSpeak() {
     if (!_autoPlay) return;
     final scheduledIndex = _index;
+    final scheduledGen = _speakGen;
     Future<void>.delayed(const Duration(seconds: 1), () {
-      if (!mounted || _finished || _index != scheduledIndex || _listening) {
+      // Skip if the card changed, the page closed, the mic is active, or any
+      // other playback (e.g. a loop) started in the meantime.
+      if (!mounted ||
+          _finished ||
+          _index != scheduledIndex ||
+          _listening ||
+          _speakGen != scheduledGen) {
         return;
       }
       _speakCurrent();
@@ -278,9 +352,11 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
 
   Future<void> _startListening() async {
     if (_sttAvailable != true || _listening) return;
-    // Cancel any in-flight or scheduled playback so TTS can't talk over the mic.
+    // Cancel any in-flight or scheduled playback (including a loop) so TTS can't
+    // talk over the mic.
     _speakGen++;
     setState(() {
+      _looping = false;
       _heard = null;
       _correct = null;
     });
@@ -321,11 +397,18 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   }
 
   void _next() {
+    // Navigating supersedes any running loop / in-flight playback.
+    _speakGen++;
+    _tts.stop();
     if (_index >= _cards.length - 1) {
-      setState(() => _finished = true);
+      setState(() {
+        _looping = false;
+        _finished = true;
+      });
       return;
     }
     setState(() {
+      _looping = false;
       _index++;
       _heard = null;
       _correct = null;
@@ -334,7 +417,10 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   }
 
   void _restart() {
+    _speakGen++;
+    _tts.stop();
     setState(() {
+      _looping = false;
       _index = 0;
       _heard = null;
       _correct = null;
@@ -470,37 +556,42 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Progress.
-          LinearProgressIndicator(
-            value: (_index + 1) / _cards.length,
-            minHeight: 6,
-            borderRadius: BorderRadius.circular(kRadiusSmall),
+          // Progress + counter on one line.
+          Row(
+            children: [
+              Expanded(
+                child: LinearProgressIndicator(
+                  value: (_index + 1) / _cards.length,
+                  minHeight: 6,
+                  borderRadius: BorderRadius.circular(kRadiusSmall),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Text(
+                '${_index + 1} / ${_cards.length}',
+                style: theme.textTheme.labelMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 8),
-          Text(
-            'Tarjeta ${_index + 1} de ${_cards.length}',
-            style: theme.textTheme.labelMedium?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
-          ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
           _buildPhrase(context),
-          const SizedBox(height: 8),
-          _buildAutoPlayToggle(context),
-          _buildAlsoMeaningToggle(context),
           const SizedBox(height: 12),
+          _buildOptions(context),
+          const SizedBox(height: 14),
           _buildFeedback(context),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           _buildControls(context),
         ],
       ),
     );
   }
 
-  /// The phrase to repeat, in a contained tile with the animated speaking
-  /// indicator and a replay button. Tapping anywhere on the tile reads the
-  /// phrase aloud, so the whole panel — not just the "Escuchar" button — says
-  /// the word.
+  /// The phrase to repeat, in a contained tile. Tapping anywhere on the tile
+  /// reads the phrase aloud (the whole panel is the play button); a small icon
+  /// next to the meaning plays it in the learner's language.
   Widget _buildPhrase(BuildContext context) {
     final theme = Theme.of(context);
     final canSpeak = !_listening && !_speaking;
@@ -511,11 +602,11 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       child: InkWell(
         onTap: canSpeak ? _speakCurrent : null,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Column(
             children: [
               _buildSpeakingIndicator(context),
-              const SizedBox(height: 14),
+              const SizedBox(height: 12),
               Text(
                 _card.phrase,
                 textAlign: TextAlign.center,
@@ -524,7 +615,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
                 ),
               ),
               if (_card.meaning.isNotEmpty) ...[
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -539,7 +630,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
                         ),
                       ),
                     ),
-                    const SizedBox(width: 4),
+                    const SizedBox(width: 2),
                     IconButton(
                       visualDensity: VisualDensity.compact,
                       iconSize: 20,
@@ -551,16 +642,13 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
                   ],
                 ),
               ],
-              const SizedBox(height: 20),
-              OutlinedButton.icon(
-                onPressed: canSpeak ? _speakCurrent : null,
-                icon: Icon(
-                  _speaking
-                      ? Icons.graphic_eq_rounded
-                      : Icons.volume_up_rounded,
-                ),
-                label: Text(
-                  _speaking ? 'Reproduciendo…' : 'Escuchar · toca la frase',
+              const SizedBox(height: 6),
+              Text(
+                _speaking ? 'Reproduciendo…' : 'Toca para escuchar',
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: _speaking
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -570,64 +658,36 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     );
   }
 
-  /// A compact switch in the quiz box to turn the 1-second auto-play of each
-  /// phrase on or off.
-  Widget _buildAutoPlayToggle(BuildContext context) {
-    final theme = Theme.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
+  /// Compact playback options: chip toggles for auto-play and reading the
+  /// meaning, plus the "play all in a loop" control with its count.
+  Widget _buildOptions(BuildContext context) {
+    return Column(
       children: [
-        Icon(
-          Icons.play_circle_outline_rounded,
-          size: 18,
-          color: theme.colorScheme.onSurfaceVariant,
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            FilterChip(
+              avatar: const Icon(Icons.play_circle_outline_rounded, size: 18),
+              label: const Text('Auto'),
+              selected: _autoPlay,
+              onSelected: (value) {
+                setState(() => _autoPlay = value);
+                // Turning it on mid-card plays the current phrase right away.
+                if (value) _speakCurrent();
+              },
+            ),
+            FilterChip(
+              avatar: const Icon(Icons.translate_rounded, size: 18),
+              label: Text(_meaningLangLabel),
+              selected: _alsoMeaning,
+              onSelected: (value) => setState(() => _alsoMeaning = value),
+            ),
+          ],
         ),
-        const SizedBox(width: 6),
-        Text(
-          'Reproducir automáticamente',
-          style: theme.textTheme.labelLarge?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
-          ),
-        ),
-        const SizedBox(width: 4),
-        Switch(
-          value: _autoPlay,
-          onChanged: (value) {
-            setState(() => _autoPlay = value);
-            // Turning it on mid-card plays the current phrase right away.
-            if (value) _speakCurrent();
-          },
-        ),
-      ],
-    );
-  }
-
-  /// A compact switch to also read each phrase's meaning aloud (in the
-  /// learner's language) after the German phrase, during playback.
-  Widget _buildAlsoMeaningToggle(BuildContext context) {
-    final theme = Theme.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          Icons.translate_rounded,
-          size: 18,
-          color: theme.colorScheme.onSurfaceVariant,
-        ),
-        const SizedBox(width: 6),
-        Text(
-          'Decir también en $_meaningLangLabel',
-          style: theme.textTheme.labelLarge?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
-          ),
-        ),
-        const SizedBox(width: 4),
-        Switch(
-          value: _alsoMeaning,
-          onChanged: (value) => setState(() => _alsoMeaning = value),
-        ),
+        const SizedBox(height: 10),
+        _buildLoopControls(context),
       ],
     );
   }
@@ -754,6 +814,61 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
             onPressed: _listening ? null : _next,
             icon: const Icon(Icons.arrow_forward_rounded),
             label: Text(nextLabel),
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// A "play all in a loop" button beside an editable count (min 1): tapping it
+  /// plays through every word in the quiz, that many times. Tapping again stops.
+  Widget _buildLoopControls(BuildContext context) {
+    final theme = Theme.of(context);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        OutlinedButton.icon(
+          onPressed: _listening ? null : _playLoop,
+          icon: Icon(_looping ? Icons.stop_rounded : Icons.repeat_rounded),
+          label: Text(_looping ? 'Detener' : 'Reproducir todo'),
+        ),
+        const SizedBox(width: 12),
+        // Editable loop count: − / value / +.
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(kRadiusSmall),
+            border: Border.all(color: theme.colorScheme.outline),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                visualDensity: VisualDensity.compact,
+                tooltip: 'Menos',
+                onPressed: _loopCount > 1
+                    ? () => setState(() => _loopCount--)
+                    : null,
+                icon: const Icon(Icons.remove_rounded),
+              ),
+              SizedBox(
+                width: 24,
+                child: Text(
+                  '$_loopCount',
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              IconButton(
+                visualDensity: VisualDensity.compact,
+                tooltip: 'Más',
+                onPressed: _loopCount < _maxLoopCount
+                    ? () => setState(() => _loopCount++)
+                    : null,
+                icon: const Icon(Icons.add_rounded),
+              ),
+            ],
           ),
         ),
       ],

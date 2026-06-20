@@ -16,6 +16,7 @@ import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../models/quiz_stats_keys.dart';
+import '../pages/course_home_page.dart';
 import '../pages/course_intro_page.dart';
 import '../pages/course_selector_page.dart';
 import '../pages/learner_home_page.dart';
@@ -24,6 +25,7 @@ import '../pages/quest_quiz_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
+import '../theme/brand_palette.dart';
 import 'db_quiz_loader.dart';
 import 'noun_progression_quiz_loader.dart';
 import 'quest_quiz_loader.dart';
@@ -166,6 +168,7 @@ class _AppDrawerState extends State<AppDrawer> {
     Widget? subtitle,
     Color? titleColor,
     int? number,
+    bool done = false,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
@@ -227,10 +230,41 @@ class _AppDrawerState extends State<AppDrawer> {
                     ],
                   ),
                 ),
+                if (done) ...[
+                  const SizedBox(width: 8),
+                  _doneChip(context),
+                ],
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  /// A small forest-green "Done" pill shown on a quiz tile once it has passed
+  /// its streak goal (or been completed, for Quest/Noun progression quizzes).
+  Widget _doneChip(BuildContext context) {
+    const forest = Color(kBrandForest);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: forest.withValues(alpha: 0.14),
+        borderRadius: BorderRadius.circular(kRadiusSmall),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(Icons.check_circle_rounded, size: 14, color: forest),
+          const SizedBox(width: 4),
+          Text(
+            CourseSession.instance.strings.doneLabel,
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+              color: forest,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -311,6 +345,7 @@ class _AppDrawerState extends State<AppDrawer> {
           widget.currentPage == AppPage.nounsArticles &&
           entry.key == widget.currentNounProgressionKey,
       onTap: () => _navigateToNounProgression(context, entry.key),
+      done: NounSettings.instance.isNounCategoryCompleted(entry.key),
       subtitle: prefs == null
           ? null
           : _statsSubtitle(
@@ -502,6 +537,7 @@ class _AppDrawerState extends State<AppDrawer> {
           widget.currentPage == AppPage.quest &&
           entry.key == widget.currentQuestKey,
       onTap: () => _navigateToQuest(context, entry.key),
+      done: NounSettings.instance.isQuestQuizCompleted(entry.key),
       subtitle: prefs == null
           ? null
           : _statsSubtitle(
@@ -748,6 +784,7 @@ class _AppDrawerState extends State<AppDrawer> {
         '${item.ref}_';
     final keys = QuizStatsKeys(prefix);
     final prefs = data.prefs;
+    final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;
 
     return _navTile(
       context,
@@ -756,12 +793,15 @@ class _AppDrawerState extends State<AppDrawer> {
       title: title,
       selected: widget.currentContentId == item.ref,
       onTap: () => _navigateToContent(context, item.ref),
+      done: NounSettings.instance.isQuizDone(
+        bestStreakAbsolute: bestStreakAbsolute,
+      ),
       subtitle: prefs == null
           ? null
           : _statsSubtitle(
               context,
               score: prefs.getInt(keys.score) ?? 0,
-              bestStreakAbsolute: prefs.getInt(keys.bestStreakAbsolute) ?? 0,
+              bestStreakAbsolute: bestStreakAbsolute,
             ),
     );
   }
@@ -824,6 +864,24 @@ class _AppDrawerState extends State<AppDrawer> {
       title: item.titleOverride ?? spec.$3,
       selected: widget.currentPage == spec.$1,
       onTap: () => _navigateTo(context, spec.$1),
+    );
+  }
+
+  /// A fixed tile at the top of the drawer that returns to the active course's
+  /// overview ([CourseHomePage]).
+  Widget _homeTile(BuildContext context) {
+    return _navTile(
+      context,
+      icon: Icons.home_rounded,
+      badgeColor: kSectionAccentColors[0],
+      title: CourseSession.instance.strings.home,
+      selected: false,
+      onTap: () {
+        Navigator.pop(context);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute<void>(builder: (_) => const CourseHomePage()),
+        );
+      },
     );
   }
 
@@ -1081,6 +1139,7 @@ class _AppDrawerState extends State<AppDrawer> {
               padding: const EdgeInsets.only(bottom: 8),
               children: [
                 _buildCourseHeader(context),
+                _homeTile(context),
                 for (final group in layout.groups) ...[
                   Divider(height: 1, color: colorScheme.outlineVariant),
                   _sectionLabel(context, group.title),
