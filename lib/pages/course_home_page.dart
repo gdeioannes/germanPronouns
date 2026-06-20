@@ -112,6 +112,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
   late Future<List<_HomeSection>> _sectionsFuture;
   bool _generatingPdf = false;
 
+  /// Help-Memory configs for *every* quiz in the active course (regular, Quest
+  /// and Noun — including still-locked ones), gathered in [_load]. Drives the
+  /// always-available "Reference PDF (all quizzes)" study booklet.
+  List<QuizConfig> _bookletConfigs = const [];
+
   @override
   void initState() {
     super.initState();
@@ -125,6 +130,9 @@ class _CourseHomePageState extends State<CourseHomePage> {
     applyQuestOrderFromLayout(course.nav);
 
     final sections = <_HomeSection>[];
+    // Every quiz's reference page for the always-on study booklet — independent
+    // of lock state and of how many rows the home actually lists.
+    final bookletConfigs = <QuizConfig>[];
     ContentRepository? repo;
     try {
       repo = await contentRepository();
@@ -140,7 +148,10 @@ class _CourseHomePageState extends State<CourseHomePage> {
           for (final item in group.items) {
             if (item.hidden) continue;
             final row = await _regularQuiz(repo, item.ref);
-            if (row != null) rows.add(row);
+            if (row != null) {
+              rows.add(row);
+              if (row.config != null) bookletConfigs.add(row.config!);
+            }
           }
           // Regular quizzes are never locked, so the rows are the whole group.
           if (rows.isNotEmpty) {
@@ -158,6 +169,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final levelEntries = level == null
                 ? questEntries
                 : [for (final e in questEntries) if (e.levelLabel == level) e];
+            bookletConfigs.addAll(levelEntries.map((e) => e.config));
             sections.add(_HomeSection(
               group.title,
               quest.rows,
@@ -172,6 +184,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
         case NavGroupType.nounChain:
           final rows = await _nounRows();
           if (rows.isNotEmpty) {
+            bookletConfigs.addAll(nounProgressionEntries.map((e) => e.config));
             sections.add(_HomeSection(
               group.title,
               rows,
@@ -186,6 +199,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
           break;
       }
     }
+    _bookletConfigs = bookletConfigs;
     return sections;
   }
 
@@ -366,11 +380,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
     }
   }
 
-  Future<void> _generateBooklet(List<_HomeQuiz> all) async {
-    final configs = [
-      for (final q in all)
-        if (q.config != null) q.config!,
-    ];
+  Future<void> _generateBooklet(List<QuizConfig> configs) async {
     if (configs.isEmpty) return;
     setState(() => _generatingPdf = true);
     try {
@@ -446,7 +456,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final finished =
                 sections.fold<int>(0, (s, sec) => s + sec.finished);
             final total = sections.fold<int>(0, (s, sec) => s + sec.total);
-            final hasPdf = all.any((q) => q.config != null);
+            final hasPdf = _bookletConfigs.isNotEmpty;
             return Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 720),
@@ -467,7 +477,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
                       child: FilledButton.icon(
                         onPressed: (!hasPdf || _generatingPdf)
                             ? null
-                            : () => _generateBooklet(all),
+                            : () => _generateBooklet(_bookletConfigs),
                         icon: _generatingPdf
                             ? const SizedBox(
                                 width: 18,
