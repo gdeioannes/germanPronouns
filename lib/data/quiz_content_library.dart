@@ -20,4 +20,6 @@ final List<QuizContent> allQuizContent = [
   ...questQuizContent,
   // Español → Alemán travel course quizzes.
   ...esDeContent,
+  // German Emotions course (emotions & couple communication, es → de).
+  ...esDeEmocionesContent,
 ];

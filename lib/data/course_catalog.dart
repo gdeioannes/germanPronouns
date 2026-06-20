@@ -100,6 +100,53 @@ final NavLayout _esDeNav = NavLayout(
   ],
 );
 
+/// The "German Emotions" drawer: emotions vocabulary and healthy couple
+/// communication, grouped into thematic bloques plus a links group.
+final NavLayout _emotionsNav = NavLayout(
+  groups: [
+    NavGroup(
+      id: 'emo_a',
+      title: 'BLOQUE A · LAS EMOCIONES',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueA) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'emo_b',
+      title: 'BLOQUE B · EXPRESAR SENTIMIENTOS',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueB) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'emo_c',
+      title: 'BLOQUE C · COMUNICACIÓN EN PAREJA',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueC) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'emo_d',
+      title: 'BLOQUE D · CONFLICTO Y RECONCILIACIÓN',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueD) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'emo_e',
+      title: 'BLOQUE E · LECTURA',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueE) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'more',
+      title: 'MÁS',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
 /// The id of the course shown by default (the original German app).
 const String kDefaultCourseId = 'en_de';
 
@@ -131,5 +178,14 @@ final List<Course> defaultCourses = [
     learnFlag: '🇩🇪',
     uiLang: UiLang.es,
     nav: _esDeNav,
+  ),
+  Course(
+    id: 'es_de_emotions',
+    name: 'German Emotions',
+    tagline: 'Sentimientos y comunicación en pareja',
+    speakFlag: '🇪🇸',
+    learnFlag: '🇩🇪',
+    uiLang: UiLang.es,
+    nav: _emotionsNav,
   ),
 ];

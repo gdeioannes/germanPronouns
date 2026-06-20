@@ -30846,7 +30846,6 @@
       "promptLabel": "Uhrzeit",
       "subjectsLabel": "Uhrzeiten",
       "subjectColumnLabel": "Zeit",
-      "stripSentenceCue": true,
       "subjects": [
         {
           "key": "s0",
@@ -31058,7 +31057,8 @@
           "title": "Official time",
           "text": "Timetables read the digits: 14:30 = vierzehn Uhr dreißig. Always understood, never wrong."
         }
-      ]
+      ],
+      "stripSentenceCue": true
     },
     {
       "id": "quest_a1_2_sprechen_alltag",
@@ -35048,6 +35048,2168 @@
           "text": "\"Woher kommst du?\" (¿de dónde eres?) suena \"vo-héer\". La \"w\" alemana se dice como \"v\"."
         }
       ]
+    },
+    {
+      "id": "es_de_emociones_basicas",
+      "title": "Emociones básicas",
+      "storageKeyPrefix": "es_de_emociones_basicas_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hoy soy muy feliz"
+        },
+        {
+          "key": "s1",
+          "display": "Estoy contento con el resultado"
+        },
+        {
+          "key": "s2",
+          "display": "Hoy estoy un poco triste"
+        },
+        {
+          "key": "s3",
+          "display": "Estoy enfadado contigo"
+        },
+        {
+          "key": "s4",
+          "display": "Estoy un poco nervioso"
+        },
+        {
+          "key": "s5",
+          "display": "Hoy estoy muy cansado"
+        },
+        {
+          "key": "s6",
+          "display": "Estoy aburrido"
+        },
+        {
+          "key": "s7",
+          "display": "Estoy muy sorprendido"
+        },
+        {
+          "key": "s8",
+          "display": "Ahora estoy tranquilo"
+        },
+        {
+          "key": "s9",
+          "display": "Estoy emocionado por el viaje"
+        },
+        {
+          "key": "s10",
+          "display": "Estoy muy estresado en el trabajo"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Heute bin ich sehr glücklich",
+            "Ich bin zufrieden mit dem Ergebnis",
+            "Heute bin ich ein bisschen traurig",
+            "Ich bin wütend auf dich",
+            "Ich bin ein bisschen nervös",
+            "Ich bin heute sehr müde",
+            "Mir ist langweilig",
+            "Ich bin sehr überrascht",
+            "Jetzt bin ich ruhig",
+            "Ich bin aufgeregt wegen der Reise",
+            "Ich bin sehr gestresst bei der Arbeit"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Hoy soy muy feliz → ____",
+          "acceptedAnswers": [
+            "Heute bin ich sehr glücklich"
+          ],
+          "english": "Hoy soy muy feliz"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy contento con el resultado → ____",
+          "acceptedAnswers": [
+            "Ich bin zufrieden mit dem Ergebnis"
+          ],
+          "english": "Estoy contento con el resultado"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Hoy estoy un poco triste → ____",
+          "acceptedAnswers": [
+            "Heute bin ich ein bisschen traurig"
+          ],
+          "english": "Hoy estoy un poco triste"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy enfadado contigo → ____",
+          "acceptedAnswers": [
+            "Ich bin wütend auf dich",
+            "Ich bin sauer auf dich"
+          ],
+          "english": "Estoy enfadado contigo"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy un poco nervioso → ____",
+          "acceptedAnswers": [
+            "Ich bin ein bisschen nervös"
+          ],
+          "english": "Estoy un poco nervioso"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Hoy estoy muy cansado → ____",
+          "acceptedAnswers": [
+            "Ich bin heute sehr müde"
+          ],
+          "english": "Hoy estoy muy cansado"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy aburrido → ____",
+          "acceptedAnswers": [
+            "Mir ist langweilig"
+          ],
+          "english": "Estoy aburrido"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy muy sorprendido → ____",
+          "acceptedAnswers": [
+            "Ich bin sehr überrascht"
+          ],
+          "english": "Estoy muy sorprendido"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Ahora estoy tranquilo → ____",
+          "acceptedAnswers": [
+            "Jetzt bin ich ruhig"
+          ],
+          "english": "Ahora estoy tranquilo"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy emocionado por el viaje → ____",
+          "acceptedAnswers": [
+            "Ich bin aufgeregt wegen der Reise"
+          ],
+          "english": "Estoy emocionado por el viaje"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy muy estresado en el trabajo → ____",
+          "acceptedAnswers": [
+            "Ich bin sehr gestresst bei der Arbeit"
+          ],
+          "english": "Estoy muy estresado en el trabajo"
+        }
+      ],
+      "helpMemoryIntro": "Lo primero para hablar de sentimientos es poder nombrarlos, pero en una frase completa. Estos adjetivos de emoción casi siempre van con el verbo \"sein\": \"Ich bin müde\" (estoy cansado). Fíjate en las preposiciones que acompañan a cada emoción.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Estados con \"sein\"",
+          "text": "Para un estado de ánimo se usa \"sein\": \"Ich bin glücklich\". El adjetivo no cambia después de \"sein\"."
+        },
+        {
+          "kind": "example",
+          "title": "\"wütend auf\" / \"Mir ist langweilig\"",
+          "text": "\"enfadado con alguien\" = \"wütend auf jemanden\". Y \"estoy aburrido\" se dice con dativo: \"Mir ist langweilig\", no \"Ich bin gelangweilt\"."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_emociones_basicas",
+      "title": "Hablar: emociones básicas",
+      "storageKeyPrefix": "es_de_hablar_emociones_basicas_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Heute bin ich sehr glücklich",
+          "english": "Hoy soy muy feliz"
+        },
+        {
+          "key": "s1",
+          "display": "Ich bin zufrieden mit dem Ergebnis",
+          "english": "Estoy contento con el resultado"
+        },
+        {
+          "key": "s2",
+          "display": "Heute bin ich ein bisschen traurig",
+          "english": "Hoy estoy un poco triste"
+        },
+        {
+          "key": "s3",
+          "display": "Ich bin wütend auf dich",
+          "english": "Estoy enfadado contigo"
+        },
+        {
+          "key": "s4",
+          "display": "Ich bin ein bisschen nervös",
+          "english": "Estoy un poco nervioso"
+        },
+        {
+          "key": "s5",
+          "display": "Ich bin heute sehr müde",
+          "english": "Hoy estoy muy cansado"
+        },
+        {
+          "key": "s6",
+          "display": "Mir ist langweilig",
+          "english": "Estoy aburrido"
+        },
+        {
+          "key": "s7",
+          "display": "Jetzt bin ich ruhig",
+          "english": "Ahora estoy tranquilo"
+        },
+        {
+          "key": "s8",
+          "display": "Ich bin aufgeregt wegen der Reise",
+          "english": "Estoy emocionado por el viaje"
+        },
+        {
+          "key": "s9",
+          "display": "Ich bin sehr gestresst bei der Arbeit",
+          "english": "Estoy muy estresado en el trabajo"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Escucha y repite frases enteras con las emociones básicas. Decir la emoción dentro de una frase suena mucho más natural que decir la palabra suelta.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "La \"ü\"",
+          "text": "\"müde\" (cansado) suena \"mü-de\": redondea los labios como para decir \"u\" pero di \"i\". Practica \"Ich bin heute sehr müde\"."
+        },
+        {
+          "title": "Dilo con la emoción",
+          "text": "Pon el tono de la emoción al repetir: \"traurig\" triste y bajo, \"aufgeregt\" con energía. Ayuda a memorizar."
+        }
+      ]
+    },
+    {
+      "id": "es_de_emociones_matices",
+      "title": "Emociones y matices",
+      "storageKeyPrefix": "es_de_emociones_matices_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Estoy decepcionado contigo"
+        },
+        {
+          "key": "s1",
+          "display": "A veces soy celoso"
+        },
+        {
+          "key": "s2",
+          "display": "Estoy muy dolido"
+        },
+        {
+          "key": "s3",
+          "display": "A veces me siento abrumado"
+        },
+        {
+          "key": "s4",
+          "display": "A veces me siento muy solo"
+        },
+        {
+          "key": "s5",
+          "display": "Estoy agradecido por tu ayuda"
+        },
+        {
+          "key": "s6",
+          "display": "Ahora estoy aliviado"
+        },
+        {
+          "key": "s7",
+          "display": "Me da vergüenza"
+        },
+        {
+          "key": "s8",
+          "display": "Me siento inseguro"
+        },
+        {
+          "key": "s9",
+          "display": "Estoy orgulloso de nosotros"
+        },
+        {
+          "key": "s10",
+          "display": "A veces estoy frustrado"
+        },
+        {
+          "key": "s11",
+          "display": "Estoy preocupado por ti"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Ich bin enttäuscht von dir",
+            "Manchmal bin ich eifersüchtig",
+            "Ich bin sehr verletzt",
+            "Manchmal fühle ich mich überfordert",
+            "Manchmal fühle ich mich sehr einsam",
+            "Ich bin dankbar für deine Hilfe",
+            "Jetzt bin ich erleichtert",
+            "Es ist mir peinlich",
+            "Ich fühle mich unsicher",
+            "Ich bin stolz auf uns",
+            "Manchmal bin ich frustriert",
+            "Ich bin besorgt um dich"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy decepcionado contigo → ____",
+          "acceptedAnswers": [
+            "Ich bin enttäuscht von dir"
+          ],
+          "english": "Estoy decepcionado contigo"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "A veces soy celoso → ____",
+          "acceptedAnswers": [
+            "Manchmal bin ich eifersüchtig"
+          ],
+          "english": "A veces soy celoso"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy muy dolido → ____",
+          "acceptedAnswers": [
+            "Ich bin sehr verletzt"
+          ],
+          "english": "Estoy muy dolido"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "A veces me siento abrumado → ____",
+          "acceptedAnswers": [
+            "Manchmal fühle ich mich überfordert"
+          ],
+          "english": "A veces me siento abrumado"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "A veces me siento muy solo → ____",
+          "acceptedAnswers": [
+            "Manchmal fühle ich mich sehr einsam"
+          ],
+          "english": "A veces me siento muy solo"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy agradecido por tu ayuda → ____",
+          "acceptedAnswers": [
+            "Ich bin dankbar für deine Hilfe"
+          ],
+          "english": "Estoy agradecido por tu ayuda"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Ahora estoy aliviado → ____",
+          "acceptedAnswers": [
+            "Jetzt bin ich erleichtert"
+          ],
+          "english": "Ahora estoy aliviado"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Me da vergüenza → ____",
+          "acceptedAnswers": [
+            "Es ist mir peinlich"
+          ],
+          "english": "Me da vergüenza"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Me siento inseguro → ____",
+          "acceptedAnswers": [
+            "Ich fühle mich unsicher"
+          ],
+          "english": "Me siento inseguro"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy orgulloso de nosotros → ____",
+          "acceptedAnswers": [
+            "Ich bin stolz auf uns"
+          ],
+          "english": "Estoy orgulloso de nosotros"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "A veces estoy frustrado → ____",
+          "acceptedAnswers": [
+            "Manchmal bin ich frustriert"
+          ],
+          "english": "A veces estoy frustrado"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy preocupado por ti → ____",
+          "acceptedAnswers": [
+            "Ich bin besorgt um dich",
+            "Ich mache mir Sorgen um dich"
+          ],
+          "english": "Estoy preocupado por ti"
+        }
+      ],
+      "helpMemoryIntro": "Emociones más profundas, las que aparecen en una conversación de pareja, también en frases completas. Muchas piden una preposición fija: \"enttäuscht von\", \"dankbar für\", \"stolz auf\", \"besorgt um\".",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Emoción + preposición",
+          "text": "Cada emoción suele llevar su preposición: \"enttäuscht von dir\" (decepcionado de ti), \"stolz auf uns\" (orgulloso de nosotros)."
+        },
+        {
+          "title": "\"Es ist mir peinlich\"",
+          "text": "Para \"me da vergüenza\" lo natural es \"Es ist mir peinlich\" (con dativo), más que \"Ich bin beschämt\"."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_emociones_matices",
+      "title": "Hablar: emociones y matices",
+      "storageKeyPrefix": "es_de_hablar_emociones_matices_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Ich bin enttäuscht von dir",
+          "english": "Estoy decepcionado contigo"
+        },
+        {
+          "key": "s1",
+          "display": "Manchmal bin ich eifersüchtig",
+          "english": "A veces soy celoso"
+        },
+        {
+          "key": "s2",
+          "display": "Ich bin sehr verletzt",
+          "english": "Estoy muy dolido"
+        },
+        {
+          "key": "s3",
+          "display": "Manchmal fühle ich mich überfordert",
+          "english": "A veces me siento abrumado"
+        },
+        {
+          "key": "s4",
+          "display": "Manchmal fühle ich mich sehr einsam",
+          "english": "A veces me siento muy solo"
+        },
+        {
+          "key": "s5",
+          "display": "Ich bin dankbar für deine Hilfe",
+          "english": "Estoy agradecido por tu ayuda"
+        },
+        {
+          "key": "s6",
+          "display": "Es ist mir peinlich",
+          "english": "Me da vergüenza"
+        },
+        {
+          "key": "s7",
+          "display": "Ich bin stolz auf uns",
+          "english": "Estoy orgulloso de nosotros"
+        },
+        {
+          "key": "s8",
+          "display": "Manchmal bin ich frustriert",
+          "english": "A veces estoy frustrado"
+        },
+        {
+          "key": "s9",
+          "display": "Ich bin besorgt um dich",
+          "english": "Estoy preocupado por ti"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Repite frases enteras con las emociones más profundas. Son frases con palabras largas: haz una pequeña pausa y di cada parte con calma.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "Palabras largas, por partes",
+          "text": "\"enttäuscht\" = ent-täuscht; \"eifersüchtig\" = ei-fer-süch-tig. Primero despacio, luego más fluido."
+        },
+        {
+          "title": "La \"ei\" y la \"eu/äu\"",
+          "text": "\"ei\" suena \"ái\" (einsam = \"áin-zam\") y \"äu\" suena \"oi\" (enttäuscht)."
+        }
+      ]
+    },
+    {
+      "id": "es_de_expresar_sentimientos",
+      "title": "Expresar cómo me siento",
+      "storageKeyPrefix": "es_de_expresar_sentimientos_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Me siento triste"
+        },
+        {
+          "key": "s1",
+          "display": "Me siento solo"
+        },
+        {
+          "key": "s2",
+          "display": "Estoy abrumado"
+        },
+        {
+          "key": "s3",
+          "display": "Te echo de menos"
+        },
+        {
+          "key": "s4",
+          "display": "Soy feliz contigo"
+        },
+        {
+          "key": "s5",
+          "display": "Tengo miedo"
+        },
+        {
+          "key": "s6",
+          "display": "Estoy decepcionado"
+        },
+        {
+          "key": "s7",
+          "display": "No me siento bien"
+        },
+        {
+          "key": "s8",
+          "display": "Necesito tiempo para mí"
+        },
+        {
+          "key": "s9",
+          "display": "Me siento herido"
+        },
+        {
+          "key": "s10",
+          "display": "Estoy agradecido por ti"
+        },
+        {
+          "key": "s11",
+          "display": "Me cuesta hablar de esto"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Ich fühle mich traurig",
+            "Ich fühle mich allein",
+            "Ich bin überfordert",
+            "Ich vermisse dich",
+            "Ich bin glücklich mit dir",
+            "Ich habe Angst",
+            "Ich bin enttäuscht",
+            "Es geht mir nicht gut",
+            "Ich brauche Zeit für mich",
+            "Ich fühle mich verletzt",
+            "Ich bin dankbar für dich",
+            "Es fällt mir schwer, darüber zu reden"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Me siento triste → ____",
+          "acceptedAnswers": [
+            "Ich fühle mich traurig"
+          ],
+          "english": "Me siento triste"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Me siento solo → ____",
+          "acceptedAnswers": [
+            "Ich fühle mich allein",
+            "Ich fühle mich einsam"
+          ],
+          "english": "Me siento solo"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy abrumado → ____",
+          "acceptedAnswers": [
+            "Ich bin überfordert"
+          ],
+          "english": "Estoy abrumado"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Te echo de menos → ____",
+          "acceptedAnswers": [
+            "Ich vermisse dich"
+          ],
+          "english": "Te echo de menos"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Soy feliz contigo → ____",
+          "acceptedAnswers": [
+            "Ich bin glücklich mit dir"
+          ],
+          "english": "Soy feliz contigo"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Tengo miedo → ____",
+          "acceptedAnswers": [
+            "Ich habe Angst"
+          ],
+          "english": "Tengo miedo"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy decepcionado → ____",
+          "acceptedAnswers": [
+            "Ich bin enttäuscht"
+          ],
+          "english": "Estoy decepcionado"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "No me siento bien → ____",
+          "acceptedAnswers": [
+            "Es geht mir nicht gut",
+            "Mir geht es nicht gut"
+          ],
+          "english": "No me siento bien"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Necesito tiempo para mí → ____",
+          "acceptedAnswers": [
+            "Ich brauche Zeit für mich"
+          ],
+          "english": "Necesito tiempo para mí"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Me siento herido → ____",
+          "acceptedAnswers": [
+            "Ich fühle mich verletzt"
+          ],
+          "english": "Me siento herido"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy agradecido por ti → ____",
+          "acceptedAnswers": [
+            "Ich bin dankbar für dich"
+          ],
+          "english": "Estoy agradecido por ti"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "En alemán",
+          "sentence": "Me cuesta hablar de esto → ____",
+          "acceptedAnswers": [
+            "Es fällt mir schwer, darüber zu reden"
+          ],
+          "english": "Me cuesta hablar de esto"
+        }
+      ],
+      "helpMemoryIntro": "Dos formas básicas para decir cómo estás: \"Ich bin …\" (estoy …) y \"Ich fühle mich …\" (me siento …). \"sich fühlen\" es reflexivo: no olvides el \"mich\".",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "\"Ich fühle mich …\"",
+          "text": "\"fühlen\" es reflexivo aquí: siempre \"Ich fühle mich\" + adjetivo. \"Ich fühle mich allein\" = me siento solo."
+        },
+        {
+          "kind": "example",
+          "title": "\"Mir geht es gut/schlecht\"",
+          "text": "Para \"estoy bien/mal\" se usa una construcción con dativo: \"Mir geht es gut\" o \"Es geht mir gut\". Las dos valen."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_sentimientos",
+      "title": "Hablar: expresar sentimientos",
+      "storageKeyPrefix": "es_de_hablar_sentimientos_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Ich fühle mich traurig",
+          "english": "Me siento triste"
+        },
+        {
+          "key": "s1",
+          "display": "Ich fühle mich allein",
+          "english": "Me siento solo"
+        },
+        {
+          "key": "s2",
+          "display": "Ich bin überfordert",
+          "english": "Estoy abrumado"
+        },
+        {
+          "key": "s3",
+          "display": "Ich vermisse dich",
+          "english": "Te echo de menos"
+        },
+        {
+          "key": "s4",
+          "display": "Ich habe Angst",
+          "english": "Tengo miedo"
+        },
+        {
+          "key": "s5",
+          "display": "Ich bin enttäuscht",
+          "english": "Estoy decepcionado"
+        },
+        {
+          "key": "s6",
+          "display": "Es geht mir nicht gut",
+          "english": "No me siento bien"
+        },
+        {
+          "key": "s7",
+          "display": "Ich brauche Zeit für mich",
+          "english": "Necesito tiempo para mí"
+        },
+        {
+          "key": "s8",
+          "display": "Ich fühle mich verletzt",
+          "english": "Me siento herido"
+        },
+        {
+          "key": "s9",
+          "display": "Ich bin dankbar für dich",
+          "english": "Estoy agradecido por ti"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Di en voz alta cómo te sientes. Frases cortas que conviene tener listas para el momento en que de verdad las necesites.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "\"Ich vermisse dich\"",
+          "text": "Suena \"ish fer-mí-se dish\". La \"v\" se dice \"f\" y la \"ch\" de \"ich/dich\" es suave."
+        },
+        {
+          "title": "Tono honesto",
+          "text": "Estas frases tienen fuerza por sí solas. Dilas despacio y con calma; no hace falta exagerar."
+        }
+      ]
+    },
+    {
+      "id": "es_de_abrir_conversacion",
+      "title": "Abrir la conversación",
+      "storageKeyPrefix": "es_de_abrir_conversacion_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "¿Podemos hablar?"
+        },
+        {
+          "key": "s1",
+          "display": "¿Tienes un momento?"
+        },
+        {
+          "key": "s2",
+          "display": "Tenemos que hablar"
+        },
+        {
+          "key": "s3",
+          "display": "Quiero hablar contigo de algo"
+        },
+        {
+          "key": "s4",
+          "display": "¿Es un buen momento?"
+        },
+        {
+          "key": "s5",
+          "display": "No quiero discutir"
+        },
+        {
+          "key": "s6",
+          "display": "Hablémoslo con calma"
+        },
+        {
+          "key": "s7",
+          "display": "Esto es importante para mí"
+        },
+        {
+          "key": "s8",
+          "display": "¿Cómo te sientes con esto?"
+        },
+        {
+          "key": "s9",
+          "display": "Quiero entenderte"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Können wir reden?",
+            "Hast du kurz Zeit?",
+            "Wir müssen reden",
+            "Ich möchte mit dir über etwas reden",
+            "Passt es dir gerade?",
+            "Ich will nicht streiten",
+            "Lass uns in Ruhe reden",
+            "Das ist mir wichtig",
+            "Wie fühlst du dich damit?",
+            "Ich möchte dich verstehen"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Podemos hablar? → ____",
+          "acceptedAnswers": [
+            "Können wir reden?"
+          ],
+          "english": "¿Podemos hablar?"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Tienes un momento? → ____",
+          "acceptedAnswers": [
+            "Hast du kurz Zeit?"
+          ],
+          "english": "¿Tienes un momento?"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Tenemos que hablar → ____",
+          "acceptedAnswers": [
+            "Wir müssen reden"
+          ],
+          "english": "Tenemos que hablar"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Quiero hablar contigo de algo → ____",
+          "acceptedAnswers": [
+            "Ich möchte mit dir über etwas reden"
+          ],
+          "english": "Quiero hablar contigo de algo"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Es un buen momento? → ____",
+          "acceptedAnswers": [
+            "Passt es dir gerade?",
+            "Ist es ein guter Moment?"
+          ],
+          "english": "¿Es un buen momento?"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "No quiero discutir → ____",
+          "acceptedAnswers": [
+            "Ich will nicht streiten"
+          ],
+          "english": "No quiero discutir"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Hablémoslo con calma → ____",
+          "acceptedAnswers": [
+            "Lass uns in Ruhe reden",
+            "Lass uns in Ruhe darüber reden"
+          ],
+          "english": "Hablémoslo con calma"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Esto es importante para mí → ____",
+          "acceptedAnswers": [
+            "Das ist mir wichtig"
+          ],
+          "english": "Esto es importante para mí"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Cómo te sientes con esto? → ____",
+          "acceptedAnswers": [
+            "Wie fühlst du dich damit?"
+          ],
+          "english": "¿Cómo te sientes con esto?"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Quiero entenderte → ____",
+          "acceptedAnswers": [
+            "Ich möchte dich verstehen"
+          ],
+          "english": "Quiero entenderte"
+        }
+      ],
+      "helpMemoryIntro": "Antes de hablar de algo importante, conviene abrir bien la conversación: pedir un momento, elegir el tono y dejar claro que no quieres pelear, sino entenderte.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "\"reden\" vs. \"sprechen\"",
+          "text": "Para \"hablar de algo\" en pareja se usa mucho \"reden\": \"Können wir reden?\". \"über etwas reden\" = hablar sobre algo."
+        },
+        {
+          "title": "\"Passt es dir?\"",
+          "text": "\"Passt es dir gerade?\" = ¿te viene bien ahora? Preguntar por el momento adecuado evita discusiones a destiempo."
+        }
+      ]
+    },
+    {
+      "id": "es_de_mensajes_yo",
+      "title": "Mensajes-yo (Ich-Botschaften)",
+      "storageKeyPrefix": "es_de_mensajes_yo_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Me siento herido cuando me ignoras"
+        },
+        {
+          "key": "s1",
+          "display": "Me siento solo cuando llegas tarde"
+        },
+        {
+          "key": "s2",
+          "display": "Para mí es importante que hablemos"
+        },
+        {
+          "key": "s3",
+          "display": "Me gustaría que pasáramos más tiempo juntos"
+        },
+        {
+          "key": "s4",
+          "display": "No me gusta cuando gritas"
+        },
+        {
+          "key": "s5",
+          "display": "Quiero que me escuches"
+        },
+        {
+          "key": "s6",
+          "display": "Necesito tu apoyo"
+        },
+        {
+          "key": "s7",
+          "display": "¿Podemos buscar una solución juntos?"
+        },
+        {
+          "key": "s8",
+          "display": "Necesito sentir que me valoras"
+        },
+        {
+          "key": "s9",
+          "display": "Me siento mejor cuando hablamos"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Ich fühle mich verletzt, wenn du mich ignorierst",
+            "Ich fühle mich allein, wenn du spät kommst",
+            "Mir ist wichtig, dass wir reden",
+            "Ich wünsche mir, dass wir mehr Zeit zusammen verbringen",
+            "Ich mag es nicht, wenn du schreist",
+            "Ich möchte, dass du mir zuhörst",
+            "Ich brauche deine Unterstützung",
+            "Können wir zusammen eine Lösung finden?",
+            "Ich brauche das Gefühl, dass du mich wertschätzt",
+            "Ich fühle mich besser, wenn wir reden"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Me siento herido cuando me ignoras → ____",
+          "acceptedAnswers": [
+            "Ich fühle mich verletzt, wenn du mich ignorierst"
+          ],
+          "english": "Me siento herido cuando me ignoras"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Me siento solo cuando llegas tarde → ____",
+          "acceptedAnswers": [
+            "Ich fühle mich allein, wenn du spät kommst"
+          ],
+          "english": "Me siento solo cuando llegas tarde"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Para mí es importante que hablemos → ____",
+          "acceptedAnswers": [
+            "Mir ist wichtig, dass wir reden"
+          ],
+          "english": "Para mí es importante que hablemos"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Me gustaría que pasáramos más tiempo juntos → ____",
+          "acceptedAnswers": [
+            "Ich wünsche mir, dass wir mehr Zeit zusammen verbringen"
+          ],
+          "english": "Me gustaría que pasáramos más tiempo juntos"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "No me gusta cuando gritas → ____",
+          "acceptedAnswers": [
+            "Ich mag es nicht, wenn du schreist"
+          ],
+          "english": "No me gusta cuando gritas"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Quiero que me escuches → ____",
+          "acceptedAnswers": [
+            "Ich möchte, dass du mir zuhörst"
+          ],
+          "english": "Quiero que me escuches"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Necesito tu apoyo → ____",
+          "acceptedAnswers": [
+            "Ich brauche deine Unterstützung"
+          ],
+          "english": "Necesito tu apoyo"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Podemos buscar una solución juntos? → ____",
+          "acceptedAnswers": [
+            "Können wir zusammen eine Lösung finden?"
+          ],
+          "english": "¿Podemos buscar una solución juntos?"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Necesito sentir que me valoras → ____",
+          "acceptedAnswers": [
+            "Ich brauche das Gefühl, dass du mich wertschätzt"
+          ],
+          "english": "Necesito sentir que me valoras"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Me siento mejor cuando hablamos → ____",
+          "acceptedAnswers": [
+            "Ich fühle mich besser, wenn wir reden"
+          ],
+          "english": "Me siento mejor cuando hablamos"
+        }
+      ],
+      "helpMemoryIntro": "El corazón de este nivel: la \"Ich-Botschaft\" (mensaje-yo). En vez de acusar (\"siempre haces…\"), hablas de ti: \"me siento … cuando … porque necesito …\". Suena menos a ataque y abre el diálogo.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "El verbo al final",
+          "text": "Tras \"wenn\" (cuando) y \"dass\" (que) el verbo va al final: \"Ich fühle mich allein, wenn du spät *kommst*\"."
+        },
+        {
+          "kind": "example",
+          "title": "Yo en vez de tú",
+          "text": "Compara \"Du hörst nie zu\" (acusación) con \"Ich möchte, dass du mir zuhörst\" (mensaje-yo). La segunda invita a colaborar."
+        },
+        {
+          "title": "\"Mir ist wichtig, dass …\"",
+          "text": "Una fórmula muy útil para pedir algo sin exigir: \"Mir ist wichtig, dass wir ehrlich sind\" (para mí es importante que seamos sinceros)."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_comunicacion",
+      "title": "Hablar: comunicación en pareja",
+      "storageKeyPrefix": "es_de_hablar_comunicacion_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Können wir reden?",
+          "english": "¿Podemos hablar?"
+        },
+        {
+          "key": "s1",
+          "display": "Hast du kurz Zeit?",
+          "english": "¿Tienes un momento?"
+        },
+        {
+          "key": "s2",
+          "display": "Ich will nicht streiten",
+          "english": "No quiero discutir"
+        },
+        {
+          "key": "s3",
+          "display": "Lass uns in Ruhe reden",
+          "english": "Hablémoslo con calma"
+        },
+        {
+          "key": "s4",
+          "display": "Ich möchte dich verstehen",
+          "english": "Quiero entenderte"
+        },
+        {
+          "key": "s5",
+          "display": "Ich fühle mich allein, wenn du spät kommst",
+          "english": "Me siento solo cuando llegas tarde"
+        },
+        {
+          "key": "s6",
+          "display": "Ich möchte, dass du mir zuhörst",
+          "english": "Quiero que me escuches"
+        },
+        {
+          "key": "s7",
+          "display": "Ich brauche deine Unterstützung",
+          "english": "Necesito tu apoyo"
+        },
+        {
+          "key": "s8",
+          "display": "Können wir zusammen eine Lösung finden?",
+          "english": "¿Podemos buscar una solución juntos?"
+        },
+        {
+          "key": "s9",
+          "display": "Das ist mir wichtig",
+          "english": "Esto es importante para mí"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Practica en voz alta cómo abrir una conversación y formular mensajes-yo. El tono importa tanto como las palabras: tranquilo y sin reproche.",
+      "helpMemoryTips": [
+        {
+          "title": "Ritmo de frase larga",
+          "text": "En \"Ich fühle mich allein, wenn du spät kommst\" haz una pequeña pausa en la coma. Ayuda a que se entienda."
+        },
+        {
+          "kind": "example",
+          "title": "\"zuhören\"",
+          "text": "\"Ich möchte, dass du mir zuhörst\" — \"zuhören\" es escuchar (con atención). Suena \"tsú-hö-ren\"."
+        }
+      ]
+    },
+    {
+      "id": "es_de_escuchar_empatia",
+      "title": "Escuchar con empatía",
+      "storageKeyPrefix": "es_de_escuchar_empatia_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Te entiendo"
+        },
+        {
+          "key": "s1",
+          "display": "Entiendo cómo te sientes"
+        },
+        {
+          "key": "s2",
+          "display": "Tienes razón"
+        },
+        {
+          "key": "s3",
+          "display": "Cuéntame más"
+        },
+        {
+          "key": "s4",
+          "display": "Te escucho"
+        },
+        {
+          "key": "s5",
+          "display": "¿Qué necesitas de mí?"
+        },
+        {
+          "key": "s6",
+          "display": "Eso suena difícil"
+        },
+        {
+          "key": "s7",
+          "display": "Estoy aquí para ti"
+        },
+        {
+          "key": "s8",
+          "display": "Gracias por contármelo"
+        },
+        {
+          "key": "s9",
+          "display": "Lo siento mucho"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Ich verstehe dich",
+            "Ich verstehe, wie du dich fühlst",
+            "Du hast recht",
+            "Erzähl mir mehr",
+            "Ich höre dir zu",
+            "Was brauchst du von mir?",
+            "Das klingt schwer",
+            "Ich bin für dich da",
+            "Danke, dass du es mir sagst",
+            "Das tut mir sehr leid"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Te entiendo → ____",
+          "acceptedAnswers": [
+            "Ich verstehe dich"
+          ],
+          "english": "Te entiendo"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Entiendo cómo te sientes → ____",
+          "acceptedAnswers": [
+            "Ich verstehe, wie du dich fühlst"
+          ],
+          "english": "Entiendo cómo te sientes"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Tienes razón → ____",
+          "acceptedAnswers": [
+            "Du hast recht"
+          ],
+          "english": "Tienes razón"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Cuéntame más → ____",
+          "acceptedAnswers": [
+            "Erzähl mir mehr"
+          ],
+          "english": "Cuéntame más"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Te escucho → ____",
+          "acceptedAnswers": [
+            "Ich höre dir zu"
+          ],
+          "english": "Te escucho"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Qué necesitas de mí? → ____",
+          "acceptedAnswers": [
+            "Was brauchst du von mir?"
+          ],
+          "english": "¿Qué necesitas de mí?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Eso suena difícil → ____",
+          "acceptedAnswers": [
+            "Das klingt schwer",
+            "Das hört sich schwer an"
+          ],
+          "english": "Eso suena difícil"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy aquí para ti → ____",
+          "acceptedAnswers": [
+            "Ich bin für dich da"
+          ],
+          "english": "Estoy aquí para ti"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Gracias por contármelo → ____",
+          "acceptedAnswers": [
+            "Danke, dass du es mir sagst"
+          ],
+          "english": "Gracias por contármelo"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Lo siento mucho → ____",
+          "acceptedAnswers": [
+            "Das tut mir sehr leid"
+          ],
+          "english": "Lo siento mucho"
+        }
+      ],
+      "helpMemoryIntro": "Comunicarse bien es la mitad escuchar. Estas frases muestran que estás presente, validan al otro y le invitan a seguir hablando.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "\"Ich bin für dich da\"",
+          "text": "\"für dich da sein\" = estar ahí para alguien. \"Ich bin für dich da\" es una de las frases de apoyo más bonitas en alemán."
+        },
+        {
+          "title": "Validar, no resolver",
+          "text": "A veces basta con \"Das klingt schwer\" (eso suena difícil). No hace falta dar una solución; escuchar ya ayuda."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_empatia",
+      "title": "Hablar: escuchar con empatía",
+      "storageKeyPrefix": "es_de_hablar_empatia_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Ich verstehe dich",
+          "english": "Te entiendo"
+        },
+        {
+          "key": "s1",
+          "display": "Ich verstehe, wie du dich fühlst",
+          "english": "Entiendo cómo te sientes"
+        },
+        {
+          "key": "s2",
+          "display": "Du hast recht",
+          "english": "Tienes razón"
+        },
+        {
+          "key": "s3",
+          "display": "Erzähl mir mehr",
+          "english": "Cuéntame más"
+        },
+        {
+          "key": "s4",
+          "display": "Ich höre dir zu",
+          "english": "Te escucho"
+        },
+        {
+          "key": "s5",
+          "display": "Was brauchst du von mir?",
+          "english": "¿Qué necesitas de mí?"
+        },
+        {
+          "key": "s6",
+          "display": "Das klingt schwer",
+          "english": "Eso suena difícil"
+        },
+        {
+          "key": "s7",
+          "display": "Ich bin für dich da",
+          "english": "Estoy aquí para ti"
+        },
+        {
+          "key": "s8",
+          "display": "Danke, dass du es mir sagst",
+          "english": "Gracias por contármelo"
+        },
+        {
+          "key": "s9",
+          "display": "Das tut mir sehr leid",
+          "english": "Lo siento mucho"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Repite las frases de empatía y apoyo. Dilas con suavidad: aquí el tono cálido es la mitad del mensaje.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "\"Ich höre dir zu\"",
+          "text": "Verbo separable \"zuhören\": el \"zu\" se va al final → \"Ich höre dir zu\". Suena \"ish hö-re dir tsú\"."
+        },
+        {
+          "title": "Voz tranquila",
+          "text": "No subas el volumen: \"Ich bin für dich da\" funciona mejor dicho bajito y despacio."
+        }
+      ]
+    },
+    {
+      "id": "es_de_conflictos",
+      "title": "Conflictos y desacuerdos",
+      "storageKeyPrefix": "es_de_conflictos_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "No estoy de acuerdo"
+        },
+        {
+          "key": "s1",
+          "display": "Lo veo diferente"
+        },
+        {
+          "key": "s2",
+          "display": "Eso no es justo"
+        },
+        {
+          "key": "s3",
+          "display": "Estoy enfadado"
+        },
+        {
+          "key": "s4",
+          "display": "Me has decepcionado"
+        },
+        {
+          "key": "s5",
+          "display": "No me gusta cómo me hablas"
+        },
+        {
+          "key": "s6",
+          "display": "Necesito una pausa"
+        },
+        {
+          "key": "s7",
+          "display": "Hablemos más tarde"
+        },
+        {
+          "key": "s8",
+          "display": "No quiero pelear"
+        },
+        {
+          "key": "s9",
+          "display": "Cálmate, por favor"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Ich bin nicht einverstanden",
+            "Ich sehe das anders",
+            "Das ist nicht fair",
+            "Ich bin wütend",
+            "Du hast mich enttäuscht",
+            "Ich mag nicht, wie du mit mir redest",
+            "Ich brauche eine Pause",
+            "Lass uns später reden",
+            "Ich will mich nicht streiten",
+            "Beruhige dich bitte"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "No estoy de acuerdo → ____",
+          "acceptedAnswers": [
+            "Ich bin nicht einverstanden",
+            "Ich bin anderer Meinung"
+          ],
+          "english": "No estoy de acuerdo"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Lo veo diferente → ____",
+          "acceptedAnswers": [
+            "Ich sehe das anders"
+          ],
+          "english": "Lo veo diferente"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Eso no es justo → ____",
+          "acceptedAnswers": [
+            "Das ist nicht fair"
+          ],
+          "english": "Eso no es justo"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy enfadado → ____",
+          "acceptedAnswers": [
+            "Ich bin wütend",
+            "Ich bin sauer"
+          ],
+          "english": "Estoy enfadado"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Me has decepcionado → ____",
+          "acceptedAnswers": [
+            "Du hast mich enttäuscht"
+          ],
+          "english": "Me has decepcionado"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "No me gusta cómo me hablas → ____",
+          "acceptedAnswers": [
+            "Ich mag nicht, wie du mit mir redest"
+          ],
+          "english": "No me gusta cómo me hablas"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Necesito una pausa → ____",
+          "acceptedAnswers": [
+            "Ich brauche eine Pause"
+          ],
+          "english": "Necesito una pausa"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Hablemos más tarde → ____",
+          "acceptedAnswers": [
+            "Lass uns später reden"
+          ],
+          "english": "Hablemos más tarde"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "No quiero pelear → ____",
+          "acceptedAnswers": [
+            "Ich will mich nicht streiten",
+            "Ich will nicht streiten"
+          ],
+          "english": "No quiero pelear"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Cálmate, por favor → ____",
+          "acceptedAnswers": [
+            "Beruhige dich bitte"
+          ],
+          "english": "Cálmate, por favor"
+        }
+      ],
+      "helpMemoryIntro": "Discrepar es normal y sano. Lo importante es hacerlo con respeto: marcar tu postura, poner un límite y, si hace falta, pedir una pausa antes de que la cosa suba de tono.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "\"Ich sehe das anders\"",
+          "text": "\"Lo veo diferente\" suena mucho mejor que \"estás equivocado\". \"anders\" = de otra manera."
+        },
+        {
+          "title": "Pedir una pausa",
+          "text": "\"Ich brauche eine Pause\" (necesito una pausa) es una herramienta clave: parar a tiempo evita decir cosas de las que te arrepientas."
+        }
+      ]
+    },
+    {
+      "id": "es_de_reconciliacion",
+      "title": "Reconciliación y perdón",
+      "storageKeyPrefix": "es_de_reconciliacion_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Lo siento, tienes razón"
+        },
+        {
+          "key": "s1",
+          "display": "No quería herirte"
+        },
+        {
+          "key": "s2",
+          "display": "Perdóname"
+        },
+        {
+          "key": "s3",
+          "display": "Fue culpa mía"
+        },
+        {
+          "key": "s4",
+          "display": "Hagamos las paces"
+        },
+        {
+          "key": "s5",
+          "display": "Te perdono"
+        },
+        {
+          "key": "s6",
+          "display": "Empecemos de nuevo"
+        },
+        {
+          "key": "s7",
+          "display": "Lo solucionaremos"
+        },
+        {
+          "key": "s8",
+          "display": "Te quiero a pesar de todo"
+        },
+        {
+          "key": "s9",
+          "display": "Gracias por entenderme"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Es tut mir leid, du hast recht",
+            "Ich wollte dich nicht verletzen",
+            "Verzeih mir",
+            "Es war mein Fehler",
+            "Vertragen wir uns wieder",
+            "Ich verzeihe dir",
+            "Lass uns neu anfangen",
+            "Wir bekommen das hin",
+            "Ich liebe dich trotz allem",
+            "Danke, dass du mich verstehst"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Lo siento, tienes razón → ____",
+          "acceptedAnswers": [
+            "Es tut mir leid, du hast recht"
+          ],
+          "english": "Lo siento, tienes razón"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "No quería herirte → ____",
+          "acceptedAnswers": [
+            "Ich wollte dich nicht verletzen"
+          ],
+          "english": "No quería herirte"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Perdóname → ____",
+          "acceptedAnswers": [
+            "Verzeih mir",
+            "Entschuldige"
+          ],
+          "english": "Perdóname"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Fue culpa mía → ____",
+          "acceptedAnswers": [
+            "Es war mein Fehler"
+          ],
+          "english": "Fue culpa mía"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Hagamos las paces → ____",
+          "acceptedAnswers": [
+            "Vertragen wir uns wieder",
+            "Lass uns Frieden schließen"
+          ],
+          "english": "Hagamos las paces"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Te perdono → ____",
+          "acceptedAnswers": [
+            "Ich verzeihe dir"
+          ],
+          "english": "Te perdono"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Empecemos de nuevo → ____",
+          "acceptedAnswers": [
+            "Lass uns neu anfangen"
+          ],
+          "english": "Empecemos de nuevo"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Lo solucionaremos → ____",
+          "acceptedAnswers": [
+            "Wir bekommen das hin",
+            "Wir schaffen das"
+          ],
+          "english": "Lo solucionaremos"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Te quiero a pesar de todo → ____",
+          "acceptedAnswers": [
+            "Ich liebe dich trotz allem"
+          ],
+          "english": "Te quiero a pesar de todo"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Gracias por entenderme → ____",
+          "acceptedAnswers": [
+            "Danke, dass du mich verstehst"
+          ],
+          "english": "Gracias por entenderme"
+        }
+      ],
+      "helpMemoryIntro": "Saber reparar es lo que mantiene fuerte una relación: reconocer el error, disculparse de verdad y volver a empezar.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "\"Es tut mir leid\"",
+          "text": "La disculpa estándar. Para más fuerza: \"Es tut mir wirklich leid\" (lo siento de verdad)."
+        },
+        {
+          "title": "\"sich vertragen\"",
+          "text": "\"Vertragen wir uns wieder\" = hagamos las paces. \"sich vertragen\" es reconciliarse, llevarse bien de nuevo."
+        }
+      ]
+    },
+    {
+      "id": "es_de_hablar_reconciliacion",
+      "title": "Hablar: reconciliación",
+      "storageKeyPrefix": "es_de_hablar_reconciliacion_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Es tut mir leid, du hast recht",
+          "english": "Lo siento, tienes razón"
+        },
+        {
+          "key": "s1",
+          "display": "Ich wollte dich nicht verletzen",
+          "english": "No quería herirte"
+        },
+        {
+          "key": "s2",
+          "display": "Verzeih mir",
+          "english": "Perdóname"
+        },
+        {
+          "key": "s3",
+          "display": "Es war mein Fehler",
+          "english": "Fue culpa mía"
+        },
+        {
+          "key": "s4",
+          "display": "Vertragen wir uns wieder",
+          "english": "Hagamos las paces"
+        },
+        {
+          "key": "s5",
+          "display": "Ich verzeihe dir",
+          "english": "Te perdono"
+        },
+        {
+          "key": "s6",
+          "display": "Lass uns neu anfangen",
+          "english": "Empecemos de nuevo"
+        },
+        {
+          "key": "s7",
+          "display": "Wir schaffen das",
+          "english": "Lo solucionaremos"
+        },
+        {
+          "key": "s8",
+          "display": "Danke, dass du mich verstehst",
+          "english": "Gracias por entenderme"
+        },
+        {
+          "key": "s9",
+          "display": "Ich liebe dich trotz allem",
+          "english": "Te quiero a pesar de todo"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Practica en voz alta las disculpas y la reconciliación. Que suenen sinceras: despacio, con contacto visual imaginado y sin prisa.",
+      "helpMemoryTips": [
+        {
+          "kind": "example",
+          "title": "\"Verzeih mir\"",
+          "text": "Suena \"fer-tsái mir\". La \"v\" es \"f\" y la \"z\" es \"ts\". Es más íntimo que \"Entschuldigung\"."
+        },
+        {
+          "title": "Frases de cierre",
+          "text": "\"Wir schaffen das\" (lo conseguiremos) cierra bien una reconciliación. Dilo con seguridad y calma."
+        }
+      ]
+    },
+    {
+      "id": "es_de_amor_aprecio",
+      "title": "Amor y aprecio",
+      "storageKeyPrefix": "es_de_amor_aprecio_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Te quiero (cariño)"
+        },
+        {
+          "key": "s1",
+          "display": "Te amo"
+        },
+        {
+          "key": "s2",
+          "display": "Significas mucho para mí"
+        },
+        {
+          "key": "s3",
+          "display": "Me haces feliz"
+        },
+        {
+          "key": "s4",
+          "display": "Estoy orgulloso de ti"
+        },
+        {
+          "key": "s5",
+          "display": "Gracias por estar aquí"
+        },
+        {
+          "key": "s6",
+          "display": "Eres importante para mí"
+        },
+        {
+          "key": "s7",
+          "display": "Te aprecio"
+        },
+        {
+          "key": "s8",
+          "display": "Me encanta estar contigo"
+        },
+        {
+          "key": "s9",
+          "display": "Eres lo mejor que me ha pasado"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Ich hab dich lieb",
+            "Ich liebe dich",
+            "Du bedeutest mir viel",
+            "Du machst mich glücklich",
+            "Ich bin stolz auf dich",
+            "Danke, dass du da bist",
+            "Du bist mir wichtig",
+            "Ich schätze dich",
+            "Ich bin gern mit dir zusammen",
+            "Du bist das Beste, was mir passiert ist"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Te quiero (cariño) → ____",
+          "acceptedAnswers": [
+            "Ich hab dich lieb"
+          ],
+          "english": "Te quiero (cariño)"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Te amo → ____",
+          "acceptedAnswers": [
+            "Ich liebe dich"
+          ],
+          "english": "Te amo"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Significas mucho para mí → ____",
+          "acceptedAnswers": [
+            "Du bedeutest mir viel"
+          ],
+          "english": "Significas mucho para mí"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Me haces feliz → ____",
+          "acceptedAnswers": [
+            "Du machst mich glücklich"
+          ],
+          "english": "Me haces feliz"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy orgulloso de ti → ____",
+          "acceptedAnswers": [
+            "Ich bin stolz auf dich"
+          ],
+          "english": "Estoy orgulloso de ti"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Gracias por estar aquí → ____",
+          "acceptedAnswers": [
+            "Danke, dass du da bist"
+          ],
+          "english": "Gracias por estar aquí"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Eres importante para mí → ____",
+          "acceptedAnswers": [
+            "Du bist mir wichtig"
+          ],
+          "english": "Eres importante para mí"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Te aprecio → ____",
+          "acceptedAnswers": [
+            "Ich schätze dich"
+          ],
+          "english": "Te aprecio"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Me encanta estar contigo → ____",
+          "acceptedAnswers": [
+            "Ich bin gern mit dir zusammen"
+          ],
+          "english": "Me encanta estar contigo"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Eres lo mejor que me ha pasado → ____",
+          "acceptedAnswers": [
+            "Du bist das Beste, was mir passiert ist"
+          ],
+          "english": "Eres lo mejor que me ha pasado"
+        }
+      ],
+      "helpMemoryIntro": "El cariño también se entrena. Decir lo que valoras del otro, a menudo y en voz alta, es lo que más cuida una relación.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "\"lieben\" vs. \"lieb haben\"",
+          "text": "\"Ich liebe dich\" es el \"te amo\" pleno. \"Ich hab dich lieb\" es más suave y cariñoso, también entre familia y amigos."
+        },
+        {
+          "kind": "example",
+          "title": "\"Du bedeutest mir viel\"",
+          "text": "\"Significas mucho para mí\": \"bedeuten\" = significar, con dativo (\"mir\"). Una frase de aprecio muy natural."
+        }
+      ]
+    },
+    {
+      "id": "es_de_lectura_pareja",
+      "title": "Lectura: una conversación de pareja",
+      "storageKeyPrefix": "es_de_lectura_pareja_",
+      "promptLabel": "Pregunta",
+      "subjectsLabel": "Preguntas",
+      "subjectColumnLabel": "Pregunta",
+      "kind": "reading",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Lee un breve diálogo entre Anna y Tom. Fíjate en cómo Anna usa un mensaje-yo en vez de acusar, y responde luego a las preguntas.",
+      "helpMemoryTips": [
+        {
+          "title": "\"als\" para el pasado",
+          "text": "\"als du nicht angerufen hast\" = cuando no llamaste. Para un momento concreto del pasado se usa \"als\", no \"wenn\"."
+        },
+        {
+          "kind": "example",
+          "title": "La clave: la Ich-Botschaft",
+          "text": "Anna no dice \"Du rufst nie an!\" (acusación), sino \"Ich habe mich allein gefühlt\" (mensaje-yo). Por eso Tom no se pone a la defensiva."
+        }
+      ],
+      "readingCategory": "Emociones y pareja",
+      "readingTitle": "Ein schwieriger Abend",
+      "readingPassage": "Anna und Tom hatten einen schwierigen Abend. Tom kam spät von der Arbeit nach Hause, ohne anzurufen. Anna war zuerst wütend, aber dann atmete sie tief durch.\n\n«Tom, können wir kurz reden? Ich möchte nicht streiten», sagte sie ruhig. «Ich habe mir Sorgen gemacht, als du nicht angerufen hast. Ich habe mich allein gefühlt.»\n\nTom hörte ihr zu. «Es tut mir leid», antwortete er. «Du hast recht. Ich war im Stress und habe nicht an dich gedacht. Das nächste Mal schreibe ich dir eine Nachricht.»\n\nAnna lächelte. «Danke. Das ist mir wichtig.» Sie umarmten sich, und der Abend wurde doch noch schön.",
+      "readingQuestions": [
+        {
+          "question": "¿Por qué estaba preocupada Anna?",
+          "options": [
+            "Porque Tom llegó tarde sin avisar",
+            "Porque Tom le gritó",
+            "Porque Tom olvidó su cumpleaños",
+            "Porque Tom quería separarse"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Tom kam spät … nach Hause, ohne anzurufen.\" Llegó tarde sin llamar, y por eso Anna se preocupó."
+        },
+        {
+          "question": "¿Cómo reaccionó Anna al principio y qué hizo después?",
+          "options": [
+            "Se enfadó, pero respiró hondo y habló con calma",
+            "Se puso a gritar enseguida",
+            "Se fue de casa sin decir nada",
+            "Fingió que no pasaba nada"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Anna war zuerst wütend, aber dann atmete sie tief durch\" y habló \"ruhig\" (con calma)."
+        },
+        {
+          "question": "¿Qué respondió Tom?",
+          "options": [
+            "«Lo siento, tienes razón»",
+            "«No es culpa mía»",
+            "«No quiero hablar de esto»",
+            "«Siempre te quejas»"
+          ],
+          "correctIndex": 0,
+          "explanation": "«Es tut mir leid … Du hast recht.» Tom reconoce el error en lugar de defenderse."
+        },
+        {
+          "question": "¿Cuál de estas frases es un \"mensaje-yo\" (Ich-Botschaft)?",
+          "options": [
+            "«Me sentí sola cuando no llamaste»",
+            "«Siempre llegas tarde»",
+            "«Nunca piensas en mí»",
+            "«Eres un egoísta»"
+          ],
+          "correctIndex": 0,
+          "explanation": "Un mensaje-yo habla de los propios sentimientos sin acusar: \"Ich habe mich allein gefühlt\". Las otras tres son reproches (\"tú …\")."
+        }
+      ]
     }
   ],
   "courses": [
@@ -35245,6 +37407,117 @@
               },
               {
                 "ref": "es_de_hablar_charla"
+              }
+            ]
+          },
+          {
+            "id": "more",
+            "title": "MÁS",
+            "type": "links",
+            "items": [
+              {
+                "ref": "settings"
+              },
+              {
+                "ref": "how_it_works"
+              },
+              {
+                "ref": "courses"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "es_de_emotions",
+      "name": "German Emotions",
+      "tagline": "Sentimientos y comunicación en pareja",
+      "speakFlag": "🇪🇸",
+      "learnFlag": "🇩🇪",
+      "uiLang": "es",
+      "nav": {
+        "groups": [
+          {
+            "id": "emo_a",
+            "title": "BLOQUE A · LAS EMOCIONES",
+            "type": "quizzes",
+            "items": [
+              {
+                "ref": "es_de_emociones_basicas"
+              },
+              {
+                "ref": "es_de_hablar_emociones_basicas"
+              },
+              {
+                "ref": "es_de_emociones_matices"
+              },
+              {
+                "ref": "es_de_hablar_emociones_matices"
+              }
+            ]
+          },
+          {
+            "id": "emo_b",
+            "title": "BLOQUE B · EXPRESAR SENTIMIENTOS",
+            "type": "quizzes",
+            "items": [
+              {
+                "ref": "es_de_expresar_sentimientos"
+              },
+              {
+                "ref": "es_de_hablar_sentimientos"
+              }
+            ]
+          },
+          {
+            "id": "emo_c",
+            "title": "BLOQUE C · COMUNICACIÓN EN PAREJA",
+            "type": "quizzes",
+            "items": [
+              {
+                "ref": "es_de_abrir_conversacion"
+              },
+              {
+                "ref": "es_de_mensajes_yo"
+              },
+              {
+                "ref": "es_de_hablar_comunicacion"
+              },
+              {
+                "ref": "es_de_escuchar_empatia"
+              },
+              {
+                "ref": "es_de_hablar_empatia"
+              }
+            ]
+          },
+          {
+            "id": "emo_d",
+            "title": "BLOQUE D · CONFLICTO Y RECONCILIACIÓN",
+            "type": "quizzes",
+            "items": [
+              {
+                "ref": "es_de_conflictos"
+              },
+              {
+                "ref": "es_de_reconciliacion"
+              },
+              {
+                "ref": "es_de_hablar_reconciliacion"
+              },
+              {
+                "ref": "es_de_amor_aprecio"
+              }
+            ]
+          },
+          {
+            "id": "emo_e",
+            "title": "BLOQUE E · LECTURA",
+            "type": "quizzes",
+            "items": [
+              {
+                "ref": "es_de_lectura_pareja"
               }
             ]
           },

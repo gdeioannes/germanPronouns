@@ -108,6 +108,42 @@ QuizContent speakRepeatQuiz({
   );
 }
 
+/// A reading-comprehension quiz ([QuizKind.reading]) for the Español → Alemán
+/// course: a short German [passage] plus Spanish multiple-choice [questions].
+/// The fill-in fields are left empty — it renders through `ReadingQuizPage`,
+/// like the Quest reading quizzes, but with Spanish UI labels.
+QuizContent readingCourseQuiz({
+  required String id,
+  required String title,
+  required String category,
+  required String passageTitle,
+  required String passage,
+  required List<ReadingQuestion> questions,
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
+}) {
+  return QuizContent(
+    id: id,
+    title: title,
+    kind: QuizKind.reading,
+    storageKeyPrefix: '${id}_',
+    // Reading runs on its own page; these labels just keep the content valid
+    // and give the back-office list something sensible to show.
+    promptLabel: 'Pregunta',
+    subjectsLabel: 'Preguntas',
+    subjectColumnLabel: 'Pregunta',
+    subjects: const [],
+    categories: const [],
+    sentences: const [],
+    readingCategory: category,
+    readingTitle: passageTitle,
+    readingPassage: passage,
+    readingQuestions: questions,
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
+  );
+}
+
 /// A "say it in German" quiz where several German forms are accepted. The
 /// subject display is the Spanish prompt; one stored sentence per item carries
 /// the accepted German answers.
