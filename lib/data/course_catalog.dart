@@ -130,9 +130,27 @@ final NavLayout _emotionsNav = NavLayout(
     ),
     NavGroup(
       id: 'emo_e',
-      title: 'BLOQUE E · LECTURA',
+      title: 'BLOQUE E · COMUNICACIÓN PROFUNDA (B2–C1)',
       type: NavGroupType.quizzes,
       items: [for (final c in esDeEmocionesBloqueE) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'emo_f',
+      title: 'BLOQUE F · CONFRONTACIÓN Y CONFLICTO (B2–C1)',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueF) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'emo_g',
+      title: 'BLOQUE G · RUPTURA Y RECONCILIACIÓN (B2–C1)',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueG) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'emo_h',
+      title: 'BLOQUE H · LECTURA',
+      type: NavGroupType.quizzes,
+      items: [for (final c in esDeEmocionesBloqueH) NavItem(ref: c.id)],
     ),
     NavGroup(
       id: 'more',

@@ -30,28 +30,27 @@ final QuizContent esDeAlojamiento = sentenceCourseQuiz(
   items: const [
     CourseItem(
       prompt: 'Tengo una reserva',
-      answer: 'Ich habe eine Reservierung',
+      answer: 'Ich habe eine **Reservierung**',
     ),
-    CourseItem(prompt: 'Quisiera hacer el check-in', answer: 'Ich möchte einchecken'),
-    CourseItem(prompt: 'Una habitación individual', answer: 'Ein Einzelzimmer'),
-    CourseItem(prompt: 'Una habitación doble', answer: 'Ein Doppelzimmer'),
-    CourseItem(prompt: 'Para tres noches', answer: 'Für drei Nächte'),
+    CourseItem(prompt: 'Quisiera hacer el check-in', answer: 'Ich möchte **einchecken**'),
+    CourseItem(prompt: 'Una habitación individual', answer: 'Ein **Einzelzimmer**'),
+    CourseItem(prompt: 'Una habitación doble', answer: 'Ein **Doppelzimmer**'),
+    CourseItem(prompt: 'Para tres noches', answer: 'Für drei **Nächte**'),
     CourseItem(
       prompt: '¿Está incluido el desayuno?',
-      answer: 'Ist das Frühstück inklusive?',
+      answer: 'Ist das **Frühstück** inklusive?',
     ),
     CourseItem(
       prompt: '¿A qué hora es la salida?',
-      answer: 'Wann muss ich auschecken?',
-      accepted: ['Wann ist Check-out?'],
+      answer: 'Wann muss ich **auschecken**?',
     ),
-    CourseItem(prompt: 'La llave, por favor', answer: 'Den Schlüssel, bitte'),
+    CourseItem(prompt: 'La llave, por favor', answer: 'Den **Schlüssel**, bitte'),
     CourseItem(
       prompt: 'No funciona la calefacción',
-      answer: 'Die Heizung funktioniert nicht',
+      answer: 'Die **Heizung** funktioniert nicht',
     ),
-    CourseItem(prompt: '¿Dónde está el ascensor?', answer: 'Wo ist der Aufzug?'),
-    CourseItem(prompt: '¿Tienen wifi?', answer: 'Haben Sie WLAN?'),
+    CourseItem(prompt: '¿Dónde está el ascensor?', answer: 'Wo ist der **Aufzug**?'),
+    CourseItem(prompt: '¿Tienen wifi?', answer: 'Haben Sie **WLAN**?'),
   ],
 );
 
@@ -81,25 +80,25 @@ final QuizContent esDeEmergencias = sentenceCourseQuiz(
   ],
   items: const [
     CourseItem(prompt: '¡Ayuda!', answer: 'Hilfe!'),
-    CourseItem(prompt: 'Es una emergencia', answer: 'Es ist ein Notfall'),
+    CourseItem(prompt: 'Es una emergencia', answer: 'Es ist ein **Notfall**'),
     CourseItem(
       prompt: 'Llame a una ambulancia',
-      answer: 'Rufen Sie einen Krankenwagen',
+      answer: 'Rufen Sie einen **Krankenwagen**',
     ),
-    CourseItem(prompt: 'Llame a la policía', answer: 'Rufen Sie die Polizei'),
-    CourseItem(prompt: 'Necesito un médico', answer: 'Ich brauche einen Arzt'),
-    CourseItem(prompt: 'Me encuentro mal', answer: 'Mir geht es schlecht'),
-    CourseItem(prompt: 'Me duele aquí', answer: 'Es tut hier weh'),
-    CourseItem(prompt: '¿Dónde está la farmacia?', answer: 'Wo ist die Apotheke?'),
+    CourseItem(prompt: 'Llame a la policía', answer: 'Rufen Sie die **Polizei**'),
+    CourseItem(prompt: 'Necesito un médico', answer: 'Ich brauche einen **Arzt**'),
+    CourseItem(prompt: 'Me encuentro mal', answer: 'Mir geht es **schlecht**'),
+    CourseItem(prompt: 'Me duele aquí', answer: 'Es tut hier **weh**'),
+    CourseItem(prompt: '¿Dónde está la farmacia?', answer: 'Wo ist die **Apotheke**?'),
     CourseItem(
       prompt: 'Soy alérgico a…',
-      answer: 'Ich bin allergisch gegen …',
+      answer: 'Ich bin **allergisch** gegen …',
     ),
     CourseItem(
       prompt: 'He perdido mi pasaporte',
-      answer: 'Ich habe meinen Pass verloren',
+      answer: 'Ich habe meinen **Pass** verloren',
     ),
-    CourseItem(prompt: '¿Dónde está el hospital?', answer: 'Wo ist das Krankenhaus?'),
+    CourseItem(prompt: '¿Dónde está el hospital?', answer: 'Wo ist das **Krankenhaus**?'),
   ],
 );
 
@@ -135,13 +134,13 @@ final QuizContent esDeFechas = sentenceCourseQuiz(
     CourseItem(prompt: 'Viernes', answer: 'Freitag'),
     CourseItem(prompt: 'Sábado', answer: 'Samstag'),
     CourseItem(prompt: 'Domingo', answer: 'Sonntag'),
-    CourseItem(prompt: '¿Qué hora es?', answer: 'Wie spät ist es?'),
+    CourseItem(prompt: '¿Qué hora es?', answer: 'Wie **spät** ist es?'),
     CourseItem(
       prompt: '¿A qué hora?',
-      answer: 'Um wie viel Uhr?',
+      answer: 'Um wie viel **Uhr**?',
     ),
-    CourseItem(prompt: 'A las tres', answer: 'um drei', accepted: ['um drei Uhr']),
-    CourseItem(prompt: '¿Cuándo abre?', answer: 'Wann öffnet es?'),
+    CourseItem(prompt: 'A las tres', answer: 'um **drei**'),
+    CourseItem(prompt: '¿Cuándo abre?', answer: 'Wann **öffnet** es?'),
   ],
 );
 
@@ -178,25 +177,23 @@ final QuizContent esDeCultura = sentenceCourseQuiz(
   items: const [
     CourseItem(
       prompt: '¿De dónde eres?',
-      answer: 'Woher kommst du?',
-      accepted: ['Woher kommen Sie?'],
+      answer: 'Woher **kommst** du?',
     ),
-    CourseItem(prompt: 'Soy de…', answer: 'Ich komme aus …'),
-    CourseItem(prompt: '¿Hablas español?', answer: 'Sprichst du Spanisch?'),
+    CourseItem(prompt: 'Soy de…', answer: 'Ich **komme** aus …'),
+    CourseItem(prompt: '¿Hablas español?', answer: '**Sprichst** du Spanisch?'),
     CourseItem(
       prompt: 'Encantado',
-      answer: 'Sehr erfreut',
-      accepted: ['Freut mich'],
+      answer: 'Sehr **erfreut**',
     ),
-    CourseItem(prompt: '¡Buen provecho!', answer: 'Guten Appetit!'),
+    CourseItem(prompt: '¡Buen provecho!', answer: 'Guten **Appetit**!'),
     CourseItem(
       prompt: '¡Feliz cumpleaños!',
-      answer: 'Alles Gute zum Geburtstag',
+      answer: 'Alles Gute zum **Geburtstag**',
     ),
-    CourseItem(prompt: '¡Buena suerte!', answer: 'Viel Glück!'),
-    CourseItem(prompt: '¡Que te mejores!', answer: 'Gute Besserung!'),
-    CourseItem(prompt: 'Lo siento', answer: 'Es tut mir leid'),
-    CourseItem(prompt: 'No hay problema', answer: 'Kein Problem'),
+    CourseItem(prompt: '¡Buena suerte!', answer: 'Viel **Glück**!'),
+    CourseItem(prompt: '¡Que te mejores!', answer: 'Gute **Besserung**!'),
+    CourseItem(prompt: 'Lo siento', answer: 'Es tut mir **leid**'),
+    CourseItem(prompt: 'No hay problema', answer: 'Kein **Problem**'),
   ],
 );
 

@@ -57,6 +57,7 @@ class QuizSubjectData {
   const QuizSubjectData({
     required this.key,
     required this.display,
+    this.referenceLabel,
     this.english,
     this.gender,
     this.difficulty,
@@ -70,6 +71,14 @@ class QuizSubjectData {
 
   /// Label shown in the UI.
   final String display;
+
+  /// Optional override for this row's first cell in the Help Memory reference
+  /// table only (the live quiz still shows [display]). Used by the Español →
+  /// Alemán courses to show the vocabulary word in both languages (e.g.
+  /// `feliz · **glücklich**`) instead of repeating the full Spanish prompt that
+  /// already appears in the example column. May carry `**…**` bold markup. Null
+  /// keeps [display] as the cell.
+  final String? referenceLabel;
 
   /// English translation, when available.
   final String? english;
@@ -89,6 +98,7 @@ class QuizSubjectData {
   Map<String, dynamic> toJson() => {
     'key': key,
     'display': display,
+    if (referenceLabel != null) 'referenceLabel': referenceLabel,
     if (english != null) 'english': english,
     if (gender != null) 'gender': gender,
     if (difficulty != null) 'difficulty': difficulty,
@@ -99,6 +109,7 @@ class QuizSubjectData {
   factory QuizSubjectData.fromJson(Map<String, dynamic> json) => QuizSubjectData(
     key: json['key'] as String,
     display: json['display'] as String,
+    referenceLabel: json['referenceLabel'] as String?,
     english: json['english'] as String?,
     gender: json['gender'] as String?,
     difficulty: json['difficulty'] as String?,
@@ -146,6 +157,7 @@ class QuizSentenceData {
     this.prompt,
     this.hint,
     this.english,
+    this.referenceExample,
     this.explanationSections = const [],
   });
 
@@ -173,6 +185,14 @@ class QuizSentenceData {
   /// Optional English translation of the filled sentence.
   final String? english;
 
+  /// Optional pre-built example for the Help Memory reference column,
+  /// already filled in (no `____`) and with `**…**` bold markup around the
+  /// word(s) to learn — e.g. `Hoy soy muy **feliz** → Heute bin ich sehr
+  /// **glücklich**`. When set, the adapter shows this instead of reconstructing
+  /// the example from [sentence] + [acceptedAnswers], so the Español → Alemán
+  /// courses can bold the Spanish keyword too. Null keeps the reconstruction.
+  final String? referenceExample;
+
   /// Optional pre-built explanation paragraphs. When empty, the engine builds
   /// a generic explanation from the subject/answer data.
   final List<String> explanationSections;
@@ -185,6 +205,7 @@ class QuizSentenceData {
     if (prompt != null) 'prompt': prompt,
     if (hint != null) 'hint': hint,
     if (english != null) 'english': english,
+    if (referenceExample != null) 'referenceExample': referenceExample,
     if (explanationSections.isNotEmpty)
       'explanationSections': explanationSections,
   };
@@ -199,6 +220,7 @@ class QuizSentenceData {
         prompt: json['prompt'] as String?,
         hint: json['hint'] as String?,
         english: json['english'] as String?,
+        referenceExample: json['referenceExample'] as String?,
         explanationSections:
             (json['explanationSections'] as List?)?.cast<String>() ?? const [],
       );

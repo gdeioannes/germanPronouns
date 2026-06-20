@@ -144,9 +144,60 @@ QuizContent readingCourseQuiz({
   );
 }
 
+/// Marks the vocabulary word to isolate inside a German [CourseItem.answer].
+/// Wrapping a word in `**…**` (e.g. `**Vertrauen** baut sich langsam wieder
+/// auf`) turns just that word into the blank — the rest of the sentence is
+/// shown as context — and makes it the only accepted answer. An answer with no
+/// marker keeps the full-sentence behavior: the learner types the whole German
+/// translation. The `**…**` convention is the same one the Help Memory uses to
+/// bold the quizzed word, so the reference table renders these consistently.
+final RegExp _focusWordMarker = RegExp(r'\*\*(.+?)\*\*');
+
+/// The engine data derived from a [CourseItem]: the German [template] (with
+/// `____` where the blank goes), the [acceptedAnswers] for that blank, and the
+/// [categoryValue] used as the answer key (and first-letter-hint source). For a
+/// marked item the blank is the single isolated word; otherwise it is the whole
+/// sentence.
+({String template, List<String> acceptedAnswers, String categoryValue})
+_courseItemCloze(CourseItem item) {
+  final marker = _focusWordMarker.firstMatch(item.answer);
+  if (marker == null) {
+    return (
+      template: '____',
+      acceptedAnswers: {item.answer, ...item.accepted}.toList(),
+      categoryValue: item.answer,
+    );
+  }
+  final word = marker.group(1)!;
+  // Blank out only the marked word; strip any stray markers so none render.
+  final template = item.answer
+      .replaceRange(marker.start, marker.end, '____')
+      .replaceAll('**', '');
+  return (
+    template: template,
+    acceptedAnswers: {word, ...item.accepted}.toList(),
+    categoryValue: word,
+  );
+}
+
+/// The Spanish [keyword] marked inside a [CourseItem.prompt] with `**…**`
+/// (mirroring the German marker), plus the [cleanPrompt] with the markers
+/// stripped. The clean prompt is what the live quiz shows and keys on; the
+/// keyword feeds the Help Memory's both-languages vocabulary cell. A prompt with
+/// no marker yields a null keyword (the reference cell then keeps the prompt).
+({String cleanPrompt, String? keyword}) _promptKeyword(String prompt) {
+  final marker = _focusWordMarker.firstMatch(prompt);
+  if (marker == null) return (cleanPrompt: prompt, keyword: null);
+  return (cleanPrompt: prompt.replaceAll('**', ''), keyword: marker.group(1));
+}
+
 /// A "say it in German" quiz where several German forms are accepted. The
 /// subject display is the Spanish prompt; one stored sentence per item carries
-/// the accepted German answers.
+/// the accepted German answers. Each item may isolate a single vocabulary word
+/// to quiz via a `**…**` marker (see [_courseItemCloze]); the Spanish
+/// [CourseItem.prompt] may mark its matching word the same way, which the Help
+/// Memory reference table shows as a `palabra · **Wort**` pair plus a
+/// both-languages example, instead of repeating the full Spanish prompt.
 QuizContent sentenceCourseQuiz({
   required String id,
   required String title,
@@ -158,6 +209,8 @@ QuizContent sentenceCourseQuiz({
   String? intro,
   List<HelpMemoryTip> tips = const [],
 }) {
+  final clozes = [for (final it in items) _courseItemCloze(it)];
+  final prompts = [for (final it in items) _promptKeyword(it.prompt)];
   return QuizContent(
     id: id,
     title: title,
@@ -167,13 +220,22 @@ QuizContent sentenceCourseQuiz({
     subjectColumnLabel: subjectColumnLabel,
     subjects: [
       for (var i = 0; i < items.length; i++)
-        QuizSubjectData(key: 's$i', display: items[i].prompt),
+        QuizSubjectData(
+          key: 's$i',
+          display: prompts[i].cleanPrompt,
+          // The Help Memory shows the vocabulary word in both languages
+          // (Spanish keyword + the bold German word) when the prompt marks one,
+          // so the row no longer repeats the whole Spanish sentence.
+          referenceLabel: prompts[i].keyword == null
+              ? null
+              : '${prompts[i].keyword} · **${clozes[i].categoryValue}**',
+        ),
     ],
     categories: [
       QuizCategoryData(
         label: categoryLabel,
         group: categoryLabel,
-        values: [for (final it in items) it.answer],
+        values: [for (final c in clozes) c.categoryValue],
       ),
     ],
     sentences: [
@@ -182,11 +244,17 @@ QuizContent sentenceCourseQuiz({
           subjectKey: 's$i',
           categoryLabel: categoryLabel,
           // Unique per item (the Spanish prompt) so accepted answers don't
-          // collapse; shows the prompt with the blank.
-          sentence: '${items[i].prompt} → ____',
-          acceptedAnswers: {items[i].answer, ...items[i].accepted}.toList(),
-          english: items[i].prompt,
+          // collapse; shows the prompt, then the German with the blank.
+          sentence: '${prompts[i].cleanPrompt} → ${clozes[i].template}',
+          acceptedAnswers: clozes[i].acceptedAnswers,
+          english: prompts[i].cleanPrompt,
           hint: items[i].hint,
+          // Both-languages example for the reference column, with the Spanish
+          // and German words bold (kept as authored). Only when the prompt
+          // marks a keyword; otherwise the adapter fills the blank itself.
+          referenceExample: prompts[i].keyword == null
+              ? null
+              : '${items[i].prompt} → ${items[i].answer}',
         ),
     ],
     helpMemoryIntro: intro,

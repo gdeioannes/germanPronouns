@@ -18,7 +18,7 @@ final QuizContent esDeEmocionesBasicas = sentenceCourseQuiz(
   title: 'Emociones básicas',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Sentimiento',
   categoryLabel: 'En alemán',
   intro:
       'Lo primero para hablar de sentimientos es poder nombrarlos, pero en una '
@@ -40,30 +40,29 @@ final QuizContent esDeEmocionesBasicas = sentenceCourseQuiz(
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Hoy soy muy feliz', answer: 'Heute bin ich sehr glücklich'),
+    CourseItem(prompt: 'Hoy soy muy **feliz**', answer: 'Heute bin ich sehr **glücklich**'),
     CourseItem(
-      prompt: 'Estoy contento con el resultado',
-      answer: 'Ich bin zufrieden mit dem Ergebnis',
+      prompt: 'Estoy **contento** con el resultado',
+      answer: 'Ich bin **zufrieden** mit dem Ergebnis',
     ),
     CourseItem(
-      prompt: 'Hoy estoy un poco triste',
-      answer: 'Heute bin ich ein bisschen traurig',
+      prompt: 'Hoy estoy un poco **triste**',
+      answer: 'Heute bin ich ein bisschen **traurig**',
     ),
     CourseItem(
-      prompt: 'Estoy enfadado contigo',
-      answer: 'Ich bin wütend auf dich',
-      accepted: ['Ich bin sauer auf dich'],
+      prompt: 'Estoy **enfadado** contigo',
+      answer: 'Ich bin **wütend** auf dich',
     ),
-    CourseItem(prompt: 'Estoy un poco nervioso', answer: 'Ich bin ein bisschen nervös'),
-    CourseItem(prompt: 'Hoy estoy muy cansado', answer: 'Ich bin heute sehr müde'),
-    CourseItem(prompt: 'Estoy aburrido', answer: 'Mir ist langweilig'),
-    CourseItem(prompt: 'Estoy muy sorprendido', answer: 'Ich bin sehr überrascht'),
-    CourseItem(prompt: 'Ahora estoy tranquilo', answer: 'Jetzt bin ich ruhig'),
+    CourseItem(prompt: 'Estoy un poco **nervioso**', answer: 'Ich bin ein bisschen **nervös**'),
+    CourseItem(prompt: 'Hoy estoy muy **cansado**', answer: 'Ich bin heute sehr **müde**'),
+    CourseItem(prompt: 'Estoy **aburrido**', answer: 'Mir ist **langweilig**'),
+    CourseItem(prompt: 'Estoy muy **sorprendido**', answer: 'Ich bin sehr **überrascht**'),
+    CourseItem(prompt: 'Ahora estoy **tranquilo**', answer: 'Jetzt bin ich **ruhig**'),
     CourseItem(
-      prompt: 'Estoy emocionado por el viaje',
-      answer: 'Ich bin aufgeregt wegen der Reise',
+      prompt: 'Estoy **emocionado** por el viaje',
+      answer: 'Ich bin **aufgeregt** wegen der Reise',
     ),
-    CourseItem(prompt: 'Estoy muy estresado en el trabajo', answer: 'Ich bin sehr gestresst bei der Arbeit'),
+    CourseItem(prompt: 'Estoy muy **estresado** en el trabajo', answer: 'Ich bin sehr **gestresst** bei der Arbeit'),
   ],
 );
 
@@ -111,7 +110,7 @@ final QuizContent esDeEmocionesMatices = sentenceCourseQuiz(
   title: 'Emociones y matices',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Sentimiento',
   categoryLabel: 'En alemán',
   intro:
       'Emociones más profundas, las que aparecen en una conversación de pareja, '
@@ -133,32 +132,31 @@ final QuizContent esDeEmocionesMatices = sentenceCourseQuiz(
   ],
   items: const [
     CourseItem(
-      prompt: 'Estoy decepcionado contigo',
-      answer: 'Ich bin enttäuscht von dir',
+      prompt: 'Estoy **decepcionado** contigo',
+      answer: 'Ich bin **enttäuscht** von dir',
     ),
-    CourseItem(prompt: 'A veces soy celoso', answer: 'Manchmal bin ich eifersüchtig'),
-    CourseItem(prompt: 'Estoy muy dolido', answer: 'Ich bin sehr verletzt'),
+    CourseItem(prompt: 'A veces soy **celoso**', answer: 'Manchmal bin ich **eifersüchtig**'),
+    CourseItem(prompt: 'Estoy muy **dolido**', answer: 'Ich bin sehr **verletzt**'),
     CourseItem(
-      prompt: 'A veces me siento abrumado',
-      answer: 'Manchmal fühle ich mich überfordert',
-    ),
-    CourseItem(
-      prompt: 'A veces me siento muy solo',
-      answer: 'Manchmal fühle ich mich sehr einsam',
+      prompt: 'A veces me siento **abrumado**',
+      answer: 'Manchmal fühle ich mich **überfordert**',
     ),
     CourseItem(
-      prompt: 'Estoy agradecido por tu ayuda',
-      answer: 'Ich bin dankbar für deine Hilfe',
+      prompt: 'A veces me siento muy **solo**',
+      answer: 'Manchmal fühle ich mich sehr **einsam**',
     ),
-    CourseItem(prompt: 'Ahora estoy aliviado', answer: 'Jetzt bin ich erleichtert'),
-    CourseItem(prompt: 'Me da vergüenza', answer: 'Es ist mir peinlich'),
-    CourseItem(prompt: 'Me siento inseguro', answer: 'Ich fühle mich unsicher'),
-    CourseItem(prompt: 'Estoy orgulloso de nosotros', answer: 'Ich bin stolz auf uns'),
-    CourseItem(prompt: 'A veces estoy frustrado', answer: 'Manchmal bin ich frustriert'),
     CourseItem(
-      prompt: 'Estoy preocupado por ti',
-      answer: 'Ich bin besorgt um dich',
-      accepted: ['Ich mache mir Sorgen um dich'],
+      prompt: 'Estoy **agradecido** por tu ayuda',
+      answer: 'Ich bin **dankbar** für deine Hilfe',
+    ),
+    CourseItem(prompt: 'Ahora estoy **aliviado**', answer: 'Jetzt bin ich **erleichtert**'),
+    CourseItem(prompt: 'Me da **vergüenza**', answer: 'Es ist mir **peinlich**'),
+    CourseItem(prompt: 'Me siento **inseguro**', answer: 'Ich fühle mich **unsicher**'),
+    CourseItem(prompt: 'Estoy **orgulloso** de nosotros', answer: 'Ich bin **stolz** auf uns'),
+    CourseItem(prompt: 'A veces estoy **frustrado**', answer: 'Manchmal bin ich **frustriert**'),
+    CourseItem(
+      prompt: 'Estoy **preocupado** por ti',
+      answer: 'Ich bin **besorgt** um dich',
     ),
   ],
 );
@@ -208,7 +206,7 @@ final QuizContent esDeExpresarSentimientos = sentenceCourseQuiz(
   title: 'Expresar cómo me siento',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Sentimiento',
   categoryLabel: 'En alemán',
   intro:
       'Dos formas básicas para decir cómo estás: "Ich bin …" (estoy …) y "Ich '
@@ -229,34 +227,32 @@ final QuizContent esDeExpresarSentimientos = sentenceCourseQuiz(
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Me siento triste', answer: 'Ich fühle mich traurig'),
+    CourseItem(prompt: 'Me siento **triste**', answer: 'Ich fühle mich **traurig**'),
     CourseItem(
-      prompt: 'Me siento solo',
-      answer: 'Ich fühle mich allein',
-      accepted: ['Ich fühle mich einsam'],
+      prompt: 'Me siento **solo**',
+      answer: 'Ich fühle mich **allein**',
     ),
-    CourseItem(prompt: 'Estoy abrumado', answer: 'Ich bin überfordert'),
-    CourseItem(prompt: 'Te echo de menos', answer: 'Ich vermisse dich'),
-    CourseItem(prompt: 'Soy feliz contigo', answer: 'Ich bin glücklich mit dir'),
-    CourseItem(prompt: 'Tengo miedo', answer: 'Ich habe Angst'),
-    CourseItem(prompt: 'Estoy decepcionado', answer: 'Ich bin enttäuscht'),
+    CourseItem(prompt: 'Estoy **abrumado**', answer: 'Ich bin **überfordert**'),
+    CourseItem(prompt: 'Te **echo de menos**', answer: 'Ich **vermisse** dich'),
+    CourseItem(prompt: 'Soy **feliz** contigo', answer: 'Ich bin **glücklich** mit dir'),
+    CourseItem(prompt: 'Tengo **miedo**', answer: 'Ich habe **Angst**'),
+    CourseItem(prompt: 'Estoy **decepcionado**', answer: 'Ich bin **enttäuscht**'),
     CourseItem(
-      prompt: 'No me siento bien',
-      answer: 'Es geht mir nicht gut',
-      accepted: ['Mir geht es nicht gut'],
+      prompt: 'No me siento **bien**',
+      answer: 'Es geht mir nicht **gut**',
     ),
     CourseItem(
-      prompt: 'Necesito tiempo para mí',
-      answer: 'Ich brauche Zeit für mich',
+      prompt: 'Necesito **tiempo** para mí',
+      answer: 'Ich brauche **Zeit** für mich',
     ),
-    CourseItem(prompt: 'Me siento herido', answer: 'Ich fühle mich verletzt'),
+    CourseItem(prompt: 'Me siento **herido**', answer: 'Ich fühle mich **verletzt**'),
     CourseItem(
-      prompt: 'Estoy agradecido por ti',
-      answer: 'Ich bin dankbar für dich',
+      prompt: 'Estoy **agradecido** por ti',
+      answer: 'Ich bin **dankbar** für dich',
     ),
     CourseItem(
-      prompt: 'Me cuesta hablar de esto',
-      answer: 'Es fällt mir schwer, darüber zu reden',
+      prompt: 'Me **cuesta** hablar de esto',
+      answer: 'Es fällt mir **schwer**, darüber zu reden',
     ),
   ],
 );
@@ -306,7 +302,7 @@ final QuizContent esDeAbrirConversacion = sentenceCourseQuiz(
   title: 'Abrir la conversación',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Palabra clave',
   categoryLabel: 'En alemán',
   intro:
       'Antes de hablar de algo importante, conviene abrir bien la conversación: '
@@ -327,30 +323,28 @@ final QuizContent esDeAbrirConversacion = sentenceCourseQuiz(
     ),
   ],
   items: const [
-    CourseItem(prompt: '¿Podemos hablar?', answer: 'Können wir reden?'),
-    CourseItem(prompt: '¿Tienes un momento?', answer: 'Hast du kurz Zeit?'),
-    CourseItem(prompt: 'Tenemos que hablar', answer: 'Wir müssen reden'),
+    CourseItem(prompt: '¿Podemos **hablar**?', answer: 'Können wir **reden**?'),
+    CourseItem(prompt: '¿Tienes un **momento**?', answer: 'Hast du kurz **Zeit**?'),
+    CourseItem(prompt: '**Tenemos que** hablar', answer: 'Wir **müssen** reden'),
     CourseItem(
-      prompt: 'Quiero hablar contigo de algo',
-      answer: 'Ich möchte mit dir über etwas reden',
+      prompt: 'Quiero **hablar** contigo de algo',
+      answer: 'Ich möchte mit dir über etwas **reden**',
     ),
     CourseItem(
-      prompt: '¿Es un buen momento?',
-      answer: 'Passt es dir gerade?',
-      accepted: ['Ist es ein guter Moment?'],
+      prompt: '¿Es un **buen momento**?',
+      answer: '**Passt** es dir gerade?',
     ),
-    CourseItem(prompt: 'No quiero discutir', answer: 'Ich will nicht streiten'),
+    CourseItem(prompt: 'No quiero **discutir**', answer: 'Ich will nicht **streiten**'),
     CourseItem(
-      prompt: 'Hablémoslo con calma',
-      answer: 'Lass uns in Ruhe reden',
-      accepted: ['Lass uns in Ruhe darüber reden'],
+      prompt: 'Hablémoslo con **calma**',
+      answer: 'Lass uns in **Ruhe** reden',
     ),
-    CourseItem(prompt: 'Esto es importante para mí', answer: 'Das ist mir wichtig'),
+    CourseItem(prompt: 'Esto es **importante** para mí', answer: 'Das ist mir **wichtig**'),
     CourseItem(
-      prompt: '¿Cómo te sientes con esto?',
-      answer: 'Wie fühlst du dich damit?',
+      prompt: '¿Cómo te **sientes** con esto?',
+      answer: 'Wie **fühlst** du dich damit?',
     ),
-    CourseItem(prompt: 'Quiero entenderte', answer: 'Ich möchte dich verstehen'),
+    CourseItem(prompt: 'Quiero **entenderte**', answer: 'Ich möchte dich **verstehen**'),
   ],
 );
 
@@ -359,7 +353,7 @@ final QuizContent esDeMensajesYo = sentenceCourseQuiz(
   title: 'Mensajes-yo (Ich-Botschaften)',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Palabra clave',
   categoryLabel: 'En alemán',
   intro:
       'El corazón de este nivel: la "Ich-Botschaft" (mensaje-yo). En vez de '
@@ -387,41 +381,41 @@ final QuizContent esDeMensajesYo = sentenceCourseQuiz(
   ],
   items: const [
     CourseItem(
-      prompt: 'Me siento herido cuando me ignoras',
-      answer: 'Ich fühle mich verletzt, wenn du mich ignorierst',
+      prompt: 'Me siento herido cuando me **ignoras**',
+      answer: 'Ich fühle mich verletzt, wenn du mich **ignorierst**',
     ),
     CourseItem(
-      prompt: 'Me siento solo cuando llegas tarde',
-      answer: 'Ich fühle mich allein, wenn du spät kommst',
+      prompt: 'Me siento solo cuando **llegas** tarde',
+      answer: 'Ich fühle mich allein, wenn du spät **kommst**',
     ),
     CourseItem(
-      prompt: 'Para mí es importante que hablemos',
-      answer: 'Mir ist wichtig, dass wir reden',
+      prompt: 'Para mí es **importante** que hablemos',
+      answer: 'Mir ist **wichtig**, dass wir reden',
     ),
     CourseItem(
-      prompt: 'Me gustaría que pasáramos más tiempo juntos',
-      answer: 'Ich wünsche mir, dass wir mehr Zeit zusammen verbringen',
+      prompt: 'Me gustaría que **pasáramos** más tiempo juntos',
+      answer: 'Ich wünsche mir, dass wir mehr Zeit zusammen **verbringen**',
     ),
     CourseItem(
-      prompt: 'No me gusta cuando gritas',
-      answer: 'Ich mag es nicht, wenn du schreist',
+      prompt: 'No me gusta cuando **gritas**',
+      answer: 'Ich mag es nicht, wenn du **schreist**',
     ),
     CourseItem(
-      prompt: 'Quiero que me escuches',
-      answer: 'Ich möchte, dass du mir zuhörst',
+      prompt: 'Quiero que me **escuches**',
+      answer: 'Ich möchte, dass du mir **zuhörst**',
     ),
-    CourseItem(prompt: 'Necesito tu apoyo', answer: 'Ich brauche deine Unterstützung'),
+    CourseItem(prompt: 'Necesito tu **apoyo**', answer: 'Ich brauche deine **Unterstützung**'),
     CourseItem(
-      prompt: '¿Podemos buscar una solución juntos?',
-      answer: 'Können wir zusammen eine Lösung finden?',
-    ),
-    CourseItem(
-      prompt: 'Necesito sentir que me valoras',
-      answer: 'Ich brauche das Gefühl, dass du mich wertschätzt',
+      prompt: '¿Podemos buscar una **solución** juntos?',
+      answer: 'Können wir zusammen eine **Lösung** finden?',
     ),
     CourseItem(
-      prompt: 'Me siento mejor cuando hablamos',
-      answer: 'Ich fühle mich besser, wenn wir reden',
+      prompt: 'Necesito sentir que me **valoras**',
+      answer: 'Ich brauche das Gefühl, dass du mich **wertschätzt**',
+    ),
+    CourseItem(
+      prompt: 'Me siento **mejor** cuando hablamos',
+      answer: 'Ich fühle mich **besser**, wenn wir reden',
     ),
   ],
 );
@@ -475,7 +469,7 @@ final QuizContent esDeEscucharEmpatia = sentenceCourseQuiz(
   title: 'Escuchar con empatía',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Palabra clave',
   categoryLabel: 'En alemán',
   intro:
       'Comunicarse bien es la mitad escuchar. Estas frases muestran que estás '
@@ -495,26 +489,25 @@ final QuizContent esDeEscucharEmpatia = sentenceCourseQuiz(
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Te entiendo', answer: 'Ich verstehe dich'),
+    CourseItem(prompt: 'Te **entiendo**', answer: 'Ich **verstehe** dich'),
     CourseItem(
-      prompt: 'Entiendo cómo te sientes',
-      answer: 'Ich verstehe, wie du dich fühlst',
+      prompt: 'Entiendo cómo te **sientes**',
+      answer: 'Ich verstehe, wie du dich **fühlst**',
     ),
-    CourseItem(prompt: 'Tienes razón', answer: 'Du hast recht'),
-    CourseItem(prompt: 'Cuéntame más', answer: 'Erzähl mir mehr'),
-    CourseItem(prompt: 'Te escucho', answer: 'Ich höre dir zu'),
-    CourseItem(prompt: '¿Qué necesitas de mí?', answer: 'Was brauchst du von mir?'),
+    CourseItem(prompt: 'Tienes **razón**', answer: 'Du hast **recht**'),
+    CourseItem(prompt: '**Cuéntame** más', answer: '**Erzähl** mir mehr'),
+    CourseItem(prompt: 'Te **escucho**', answer: 'Ich **höre** dir zu'),
+    CourseItem(prompt: '¿Qué **necesitas** de mí?', answer: 'Was **brauchst** du von mir?'),
     CourseItem(
-      prompt: 'Eso suena difícil',
-      answer: 'Das klingt schwer',
-      accepted: ['Das hört sich schwer an'],
+      prompt: 'Eso **suena** difícil',
+      answer: 'Das **klingt** schwer',
     ),
-    CourseItem(prompt: 'Estoy aquí para ti', answer: 'Ich bin für dich da'),
+    CourseItem(prompt: 'Estoy **aquí** para ti', answer: 'Ich bin für dich **da**'),
     CourseItem(
-      prompt: 'Gracias por contármelo',
-      answer: 'Danke, dass du es mir sagst',
+      prompt: 'Gracias por **contármelo**',
+      answer: 'Danke, dass du es mir **sagst**',
     ),
-    CourseItem(prompt: 'Lo siento mucho', answer: 'Das tut mir sehr leid'),
+    CourseItem(prompt: '**Lo siento** mucho', answer: 'Das tut mir sehr **leid**'),
   ],
 );
 
@@ -563,7 +556,7 @@ final QuizContent esDeConflictos = sentenceCourseQuiz(
   title: 'Conflictos y desacuerdos',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Palabra clave',
   categoryLabel: 'En alemán',
   intro:
       'Discrepar es normal y sano. Lo importante es hacerlo con respeto: marcar '
@@ -585,30 +578,27 @@ final QuizContent esDeConflictos = sentenceCourseQuiz(
   ],
   items: const [
     CourseItem(
-      prompt: 'No estoy de acuerdo',
-      answer: 'Ich bin nicht einverstanden',
-      accepted: ['Ich bin anderer Meinung'],
+      prompt: 'No estoy **de acuerdo**',
+      answer: 'Ich bin nicht **einverstanden**',
     ),
-    CourseItem(prompt: 'Lo veo diferente', answer: 'Ich sehe das anders'),
-    CourseItem(prompt: 'Eso no es justo', answer: 'Das ist nicht fair'),
+    CourseItem(prompt: 'Lo veo **diferente**', answer: 'Ich sehe das **anders**'),
+    CourseItem(prompt: 'Eso no es **justo**', answer: 'Das ist nicht **fair**'),
     CourseItem(
-      prompt: 'Estoy enfadado',
-      answer: 'Ich bin wütend',
-      accepted: ['Ich bin sauer'],
+      prompt: 'Estoy **enfadado**',
+      answer: 'Ich bin **wütend**',
     ),
-    CourseItem(prompt: 'Me has decepcionado', answer: 'Du hast mich enttäuscht'),
+    CourseItem(prompt: 'Me has **decepcionado**', answer: 'Du hast mich **enttäuscht**'),
     CourseItem(
-      prompt: 'No me gusta cómo me hablas',
-      answer: 'Ich mag nicht, wie du mit mir redest',
+      prompt: 'No me gusta cómo me **hablas**',
+      answer: 'Ich mag nicht, wie du mit mir **redest**',
     ),
-    CourseItem(prompt: 'Necesito una pausa', answer: 'Ich brauche eine Pause'),
-    CourseItem(prompt: 'Hablemos más tarde', answer: 'Lass uns später reden'),
+    CourseItem(prompt: 'Necesito una **pausa**', answer: 'Ich brauche eine **Pause**'),
+    CourseItem(prompt: 'Hablemos **más tarde**', answer: 'Lass uns **später** reden'),
     CourseItem(
-      prompt: 'No quiero pelear',
-      answer: 'Ich will mich nicht streiten',
-      accepted: ['Ich will nicht streiten'],
+      prompt: 'No quiero **pelear**',
+      answer: 'Ich will mich nicht **streiten**',
     ),
-    CourseItem(prompt: 'Cálmate, por favor', answer: 'Beruhige dich bitte'),
+    CourseItem(prompt: '**Cálmate**, por favor', answer: '**Beruhige** dich bitte'),
   ],
 );
 
@@ -617,7 +607,7 @@ final QuizContent esDeReconciliacion = sentenceCourseQuiz(
   title: 'Reconciliación y perdón',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Palabra clave',
   categoryLabel: 'En alemán',
   intro:
       'Saber reparar es lo que mantiene fuerte una relación: reconocer el '
@@ -638,35 +628,32 @@ final QuizContent esDeReconciliacion = sentenceCourseQuiz(
   ],
   items: const [
     CourseItem(
-      prompt: 'Lo siento, tienes razón',
-      answer: 'Es tut mir leid, du hast recht',
+      prompt: '**Lo siento**, tienes razón',
+      answer: 'Es tut mir **leid**, du hast recht',
     ),
     CourseItem(
-      prompt: 'No quería herirte',
-      answer: 'Ich wollte dich nicht verletzen',
+      prompt: 'No quería **herirte**',
+      answer: 'Ich wollte dich nicht **verletzen**',
     ),
     CourseItem(
-      prompt: 'Perdóname',
-      answer: 'Verzeih mir',
-      accepted: ['Entschuldige'],
+      prompt: '**Perdóname**',
+      answer: '**Verzeih** mir',
     ),
-    CourseItem(prompt: 'Fue culpa mía', answer: 'Es war mein Fehler'),
+    CourseItem(prompt: 'Fue **culpa** mía', answer: 'Es war mein **Fehler**'),
     CourseItem(
-      prompt: 'Hagamos las paces',
-      answer: 'Vertragen wir uns wieder',
-      accepted: ['Lass uns Frieden schließen'],
+      prompt: 'Hagamos **las paces**',
+      answer: '**Vertragen** wir uns wieder',
     ),
-    CourseItem(prompt: 'Te perdono', answer: 'Ich verzeihe dir'),
-    CourseItem(prompt: 'Empecemos de nuevo', answer: 'Lass uns neu anfangen'),
+    CourseItem(prompt: 'Te **perdono**', answer: 'Ich **verzeihe** dir'),
+    CourseItem(prompt: '**Empecemos** de nuevo', answer: 'Lass uns neu **anfangen**'),
     CourseItem(
-      prompt: 'Lo solucionaremos',
-      answer: 'Wir bekommen das hin',
-      accepted: ['Wir schaffen das'],
+      prompt: 'Lo **solucionaremos**',
+      answer: 'Wir **bekommen** das hin',
     ),
-    CourseItem(prompt: 'Te quiero a pesar de todo', answer: 'Ich liebe dich trotz allem'),
+    CourseItem(prompt: 'Te quiero **a pesar de** todo', answer: 'Ich liebe dich **trotz** allem'),
     CourseItem(
-      prompt: 'Gracias por entenderme',
-      answer: 'Danke, dass du mich verstehst',
+      prompt: 'Gracias por **entenderme**',
+      answer: 'Danke, dass du mich **verstehst**',
     ),
   ],
 );
@@ -714,7 +701,7 @@ final QuizContent esDeAmorAprecio = sentenceCourseQuiz(
   title: 'Amor y aprecio',
   promptLabel: 'Frase',
   subjectsLabel: 'Frases',
-  subjectColumnLabel: 'Español',
+  subjectColumnLabel: 'Palabra clave',
   categoryLabel: 'En alemán',
   intro:
       'El cariño también se entrena. Decir lo que valoras del otro, a menudo y '
@@ -734,23 +721,629 @@ final QuizContent esDeAmorAprecio = sentenceCourseQuiz(
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Te quiero (cariño)', answer: 'Ich hab dich lieb'),
-    CourseItem(prompt: 'Te amo', answer: 'Ich liebe dich'),
-    CourseItem(prompt: 'Significas mucho para mí', answer: 'Du bedeutest mir viel'),
-    CourseItem(prompt: 'Me haces feliz', answer: 'Du machst mich glücklich'),
-    CourseItem(prompt: 'Estoy orgulloso de ti', answer: 'Ich bin stolz auf dich'),
-    CourseItem(prompt: 'Gracias por estar aquí', answer: 'Danke, dass du da bist'),
-    CourseItem(prompt: 'Eres importante para mí', answer: 'Du bist mir wichtig'),
-    CourseItem(prompt: 'Te aprecio', answer: 'Ich schätze dich'),
-    CourseItem(prompt: 'Me encanta estar contigo', answer: 'Ich bin gern mit dir zusammen'),
+    CourseItem(prompt: '**Te quiero** (cariño)', answer: 'Ich hab dich **lieb**'),
+    CourseItem(prompt: 'Te **amo**', answer: 'Ich **liebe** dich'),
+    CourseItem(prompt: '**Significas** mucho para mí', answer: 'Du **bedeutest** mir viel'),
+    CourseItem(prompt: 'Me haces **feliz**', answer: 'Du machst mich **glücklich**'),
+    CourseItem(prompt: 'Estoy **orgulloso** de ti', answer: 'Ich bin **stolz** auf dich'),
+    CourseItem(prompt: 'Gracias por **estar aquí**', answer: 'Danke, dass du **da** bist'),
+    CourseItem(prompt: 'Eres **importante** para mí', answer: 'Du bist mir **wichtig**'),
+    CourseItem(prompt: 'Te **aprecio**', answer: 'Ich **schätze** dich'),
+    CourseItem(prompt: '**Me encanta** estar contigo', answer: 'Ich bin **gern** mit dir zusammen'),
     CourseItem(
-      prompt: 'Eres lo mejor que me ha pasado',
-      answer: 'Du bist das Beste, was mir passiert ist',
+      prompt: 'Eres lo mejor que me ha **pasado**',
+      answer: 'Du bist das Beste, was mir **passiert** ist',
     ),
   ],
 );
 
-// ─────────────────────────── Bloque E · Lectura ─────────────────────────────
+// ─────────────── Bloque E · Comunicación emocional profunda (B2–C1) ─────────
+// Tier avanzado: vocabulario abstracto y matices para hablar de vínculo,
+// vulnerabilidad y distancia emocional. Usa Konjunktiv II para suavizar deseos.
+
+final QuizContent esDeVinculoVocab = sentenceCourseQuiz(
+  id: 'es_de_vinculo_vocab',
+  title: 'Vínculo: vocabulario (B2)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'Nivel B2: los sustantivos abstractos del vínculo emocional. Casi todos '
+      'son femeninos (die Nähe, die Geborgenheit) y aparecen en frases con '
+      '"brauchen", "schätzen" o "sich sehnen nach".',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '"sich sehnen nach"',
+      text: '"anhelar algo" = "sich nach etwas sehnen" (+ dativo): "Ich sehne '
+          'mich nach Nähe". El "nach" rige dativo.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'Sustantivos abstractos',
+      text: 'die Geborgenheit (seguridad afectiva), die Wertschätzung '
+          '(aprecio), die Sehnsucht (anhelo): conceptos clave a nivel B2.',
+    ),
+  ],
+  items: const [
+    CourseItem(
+      prompt: 'La **confianza** es la base de todo',
+      answer: '**Vertrauen** ist die Basis von allem',
+    ),
+    CourseItem(prompt: 'Necesito más **cercanía** emocional', answer: 'Ich brauche mehr emotionale **Nähe**'),
+    CourseItem(
+      prompt: 'Para mí la **seguridad afectiva** es importante',
+      answer: '**Geborgenheit** ist mir wichtig',
+    ),
+    CourseItem(prompt: 'Valoro mucho tu **sinceridad**', answer: 'Ich schätze deine **Ehrlichkeit** sehr'),
+    CourseItem(
+      prompt: 'Tengo una gran **necesidad** de afecto',
+      answer: 'Ich habe ein großes **Bedürfnis** nach Zuneigung',
+    ),
+    CourseItem(
+      prompt: 'Siento mucho **aprecio** por ti',
+      answer: 'Ich empfinde große **Wertschätzung** für dich',
+    ),
+    CourseItem(prompt: 'A veces siento un **vacío**', answer: 'Manchmal fühle ich eine **Leere**'),
+    CourseItem(
+      prompt: 'Anhelo más **ternura**',
+      answer: 'Ich sehne mich nach mehr **Zärtlichkeit**',
+    ),
+    CourseItem(
+      prompt: 'El **respeto** mutuo es esencial',
+      answer: 'Gegenseitiger **Respekt** ist entscheidend',
+    ),
+    CourseItem(
+      prompt: 'Nuestra relación necesita más **atención**',
+      answer: 'Unsere Beziehung braucht mehr **Aufmerksamkeit**',
+    ),
+    CourseItem(prompt: 'Quiero sentirme **comprendido**', answer: 'Ich möchte mich **verstanden** fühlen'),
+    CourseItem(
+      prompt: 'Echo de menos nuestra **complicidad**',
+      answer: 'Ich vermisse unsere **Vertrautheit**',
+    ),
+  ],
+);
+
+final QuizContent esDeVulnerabilidad = sentenceCourseQuiz(
+  id: 'es_de_vulnerabilidad',
+  title: 'Vulnerabilidad y cercanía (B2–C1)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'Abrirse de verdad. A este nivel se usa mucho el Konjunktiv II para '
+      'suavizar ("Ich würde mir wünschen, dass…", "Ich wünschte, wir würden…") '
+      'y oraciones con verbo al final.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Konjunktiv II para suavizar',
+      text: '"Ich würde mir wünschen, dass du fragst…" suena más delicado que '
+          '"Ich will, dass…". Es la cortesía del alemán culto.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"sich verlassen auf"',
+      text: '"contar con alguien" = "sich auf jemanden verlassen": "Ich kann '
+          'mich auf dich verlassen". No confundir con "verlassen" (abandonar).',
+    ),
+  ],
+  items: const [
+    CourseItem(
+      prompt: 'Me cuesta mostrarme **vulnerable**',
+      answer: 'Es fällt mir schwer, mich **verletzlich** zu zeigen',
+    ),
+    CourseItem(prompt: 'Quiero **abrirme** más a ti', answer: 'Ich möchte mich dir mehr **öffnen**'),
+    CourseItem(
+      prompt: 'A veces me escondo tras una **fachada**',
+      answer: 'Manchmal verstecke ich mich hinter einer **Fassade**',
+    ),
+    CourseItem(
+      prompt: 'Necesito sentir que puedo **contar contigo**',
+      answer: 'Ich muss das Gefühl haben, dass ich mich auf dich **verlassen** kann',
+    ),
+    CourseItem(prompt: 'Te muestro mi lado más **sensible**', answer: 'Ich zeige dir meine **verletzliche** Seite'),
+    CourseItem(prompt: 'A tu lado me siento **seguro**', answer: 'An deiner Seite fühle ich mich **geborgen**'),
+    CourseItem(
+      prompt: 'Ojalá **habláramos** más de nuestros sentimientos',
+      answer: 'Ich wünschte, wir würden mehr über unsere Gefühle **sprechen**',
+    ),
+    CourseItem(prompt: 'Necesito tu **cercanía**, no soluciones', answer: 'Ich brauche deine **Nähe**, keine Lösungen'),
+    CourseItem(
+      prompt: 'Me gustaría que me **preguntaras** cómo estoy',
+      answer: 'Ich würde mir wünschen, dass du mich **fragst**, wie es mir geht',
+    ),
+    CourseItem(
+      prompt: 'Confiar me da miedo, pero quiero **intentarlo**',
+      answer: 'Vertrauen macht mir Angst, aber ich möchte es **versuchen**',
+    ),
+    CourseItem(
+      prompt: 'Cuando me **abrazas**, me siento comprendido',
+      answer: 'Wenn du mich **umarmst**, fühle ich mich verstanden',
+    ),
+    CourseItem(
+      prompt: 'Quiero que me **aceptes** como soy',
+      answer: 'Ich möchte, dass du mich so **akzeptierst**, wie ich bin',
+    ),
+  ],
+);
+
+final QuizContent esDeDistancia = sentenceCourseQuiz(
+  id: 'es_de_distancia',
+  title: 'Distancia y desconexión (B2–C1)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'Nombrar el distanciamiento antes de que sea tarde. Verbos reflexivos y '
+      'separables clave: "sich auseinanderleben" (distanciarse), "sich '
+      'entfernen" (alejarse), "zueinander finden" (reencontrarse).',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"sich auseinanderleben"',
+      text: '"Wir haben uns auseinandergelebt" = nos hemos distanciado (con el '
+          'tiempo). Es una expresión muy típica al hablar de crisis.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"an erster Stelle stehen"',
+      text: '"ser la prioridad" = "an erster Stelle stehen". "Ich stehe nicht '
+          'mehr an erster Stelle" = ya no soy la prioridad.',
+    ),
+  ],
+  items: const [
+    CourseItem(
+      prompt: 'Tengo la sensación de que nos hemos **distanciado**',
+      answer: 'Ich habe das Gefühl, dass wir uns **auseinandergelebt** haben',
+    ),
+    CourseItem(prompt: 'Me siento emocionalmente **descuidado**', answer: 'Ich fühle mich emotional **vernachlässigt**'),
+    CourseItem(prompt: 'Últimamente **apenas** hablamos', answer: 'In letzter Zeit reden wir **kaum** noch'),
+    CourseItem(
+      prompt: 'Me siento solo **aunque** estés aquí',
+      answer: 'Ich fühle mich allein, **obwohl** du da bist',
+    ),
+    CourseItem(prompt: 'Echo de menos cómo éramos **antes**', answer: 'Ich vermisse, wie wir **früher** waren'),
+    CourseItem(
+      prompt: 'Tengo miedo de que nos estemos **alejando**',
+      answer: 'Ich habe Angst, dass wir uns voneinander **entfernen**',
+    ),
+    CourseItem(
+      prompt: 'Ya no siento que sea tu **prioridad**',
+      answer: 'Ich habe nicht mehr das Gefühl, an erster **Stelle** zu stehen',
+    ),
+    CourseItem(prompt: 'Necesito que volvamos a **conectar**', answer: 'Ich brauche, dass wir wieder **zueinander** finden'),
+    CourseItem(prompt: 'A veces me siento **invisible**', answer: 'Manchmal fühle ich mich **übersehen**'),
+    CourseItem(prompt: 'Quiero **recuperar** nuestra cercanía', answer: 'Ich möchte unsere Nähe **zurückgewinnen**'),
+    CourseItem(prompt: 'Me duele tu **indiferencia**', answer: 'Deine **Gleichgültigkeit** verletzt mich'),
+    CourseItem(prompt: 'Deberíamos **cuidar** más lo nuestro', answer: 'Wir sollten mehr auf uns **achten**'),
+  ],
+);
+
+/// Listen & repeat (audio 7/9 — tier avanzado).
+final QuizContent esDeHablarProfunda = speakRepeatQuiz(
+  id: 'es_de_hablar_profunda',
+  title: 'Hablar: comunicación profunda',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Di en voz alta frases largas y delicadas. A este nivel, las pausas y la '
+      'entonación transmiten tanto como las palabras: tómate tu tiempo.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Frases subordinadas',
+      text: 'En "…, dass wir uns auseinandergelebt haben" el verbo va al final. '
+          'Haz una pausa tras la coma para que se entienda.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "v" de "vernachlässigt"',
+      text: '"vernachlässigt" suena "fer-náj-le-sigt". La "v" es "f" y la "ch" '
+          'es suave.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Necesito más cercanía emocional', answer: 'Ich brauche mehr emotionale Nähe'),
+    CourseItem(prompt: 'Anhelo más ternura', answer: 'Ich sehne mich nach mehr Zärtlichkeit'),
+    CourseItem(prompt: 'Quiero sentirme comprendido', answer: 'Ich möchte mich verstanden fühlen'),
+    CourseItem(prompt: 'Me cuesta mostrarme vulnerable', answer: 'Es fällt mir schwer, mich verletzlich zu zeigen'),
+    CourseItem(prompt: 'A tu lado me siento seguro', answer: 'An deiner Seite fühle ich mich geborgen'),
+    CourseItem(prompt: 'Quiero que me aceptes como soy', answer: 'Ich möchte, dass du mich so akzeptierst, wie ich bin'),
+    CourseItem(prompt: 'Nos hemos distanciado', answer: 'Wir haben uns auseinandergelebt'),
+    CourseItem(prompt: 'Me siento emocionalmente descuidado', answer: 'Ich fühle mich emotional vernachlässigt'),
+    CourseItem(prompt: 'Me siento solo aunque estés aquí', answer: 'Ich fühle mich allein, obwohl du da bist'),
+    CourseItem(prompt: 'Quiero recuperar nuestra cercanía', answer: 'Ich möchte unsere Nähe zurückgewinnen'),
+  ],
+);
+
+// ──────────────── Bloque F · Confrontación y conflicto (B2–C1) ───────────────
+// Discusiones serias, límites, patrones que se repiten y ruptura de confianza,
+// siempre buscando una salida constructiva.
+
+final QuizContent esDeConflictoVocab = sentenceCourseQuiz(
+  id: 'es_de_conflicto_vocab',
+  title: 'Conflicto: vocabulario (B2)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'El léxico preciso del conflicto: der Vorwurf (reproche), die '
+      'Auseinandersetzung (enfrentamiento), der Kompromiss, die Grenze. '
+      'Diferéncialos del lenguaje básico de la pelea cotidiana.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"Grenzen ziehen/setzen"',
+      text: '"poner límites" = "Grenzen ziehen" o "Grenzen setzen". "Ich muss '
+          'eine Grenze ziehen" = tengo que poner un límite.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '"jemandem Vorwürfe machen"',
+      text: '"hacer reproches a alguien" rige dativo: "Ich will dir keine '
+          'Vorwürfe machen". El "dir" es dativo.',
+    ),
+  ],
+  items: const [
+    CourseItem(
+      prompt: 'Otra vez la misma **discusión**',
+      answer: 'Schon wieder dieselbe **Auseinandersetzung**',
+    ),
+    CourseItem(prompt: 'No quiero hacerte **reproches**', answer: 'Ich will dir keine **Vorwürfe** machen'),
+    CourseItem(prompt: 'Necesitamos un **compromiso**', answer: 'Wir brauchen einen **Kompromiss**'),
+    CourseItem(prompt: 'Tengo que poner un **límite**', answer: 'Ich muss eine **Grenze** ziehen'),
+    CourseItem(prompt: 'Esto fue un **malentendido**', answer: 'Das war ein **Missverständnis**'),
+    CourseItem(prompt: 'Las **acusaciones** no ayudan', answer: '**Schuldzuweisungen** helfen nicht'),
+    CourseItem(prompt: 'La situación se está **agravando**', answer: 'Die Situation **eskaliert**'),
+    CourseItem(
+      prompt: 'Necesitamos una **conversación franca**',
+      answer: 'Wir brauchen eine offene **Aussprache**',
+    ),
+    CourseItem(prompt: 'Estás **evitando** el tema', answer: 'Du **weichst** dem Thema aus'),
+    CourseItem(prompt: 'No **soporto** estas peleas constantes', answer: 'Ich **ertrage** diese ständigen Streits nicht'),
+    CourseItem(prompt: 'Hay mucha **tensión** entre nosotros', answer: 'Zwischen uns herrscht viel **Spannung**'),
+    CourseItem(prompt: 'Quiero que nos **respetemos**', answer: 'Ich möchte, dass wir uns **respektieren**'),
+  ],
+);
+
+final QuizContent esDeAfrontarConflicto = sentenceCourseQuiz(
+  id: 'es_de_afrontar_conflicto',
+  title: 'Afrontar el conflicto (B2–C1)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'Discutir sin destruir: mantenerse objetivo, dejar terminar al otro y '
+      'buscar una solución conjunta. Verbos útiles: ausreden lassen (dejar '
+      'terminar), nachgeben (ceder), sachlich bleiben (ser objetivo).',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"ausreden lassen"',
+      text: '"dejar terminar de hablar" = "jemanden ausreden lassen". "Lass '
+          'mich bitte ausreden" = déjame terminar, por favor.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"sachlich bleiben"',
+      text: '"sachlich" = objetivo, centrado en los hechos. "Lass uns sachlich '
+          'bleiben" baja la temperatura de una discusión.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Tenemos que hablar **en serio**', answer: 'Wir müssen **ernsthaft** reden'),
+    CourseItem(prompt: 'Así no podemos **seguir**', answer: 'Das geht so nicht **weiter**'),
+    CourseItem(prompt: 'Quiero entender tu **punto de vista**', answer: 'Ich möchte deine **Sichtweise** verstehen'),
+    CourseItem(prompt: 'Seamos **objetivos**', answer: 'Lass uns **sachlich** bleiben'),
+    CourseItem(prompt: 'No me **grites**, por favor', answer: 'Bitte **schrei** mich nicht an'),
+    CourseItem(
+      prompt: 'Me gustaría que me dejaras **terminar**',
+      answer: 'Ich würde mir wünschen, dass du mich **ausreden** lässt',
+    ),
+    CourseItem(prompt: 'Estamos dando vueltas en **círculo**', answer: 'Wir drehen uns im **Kreis**'),
+    CourseItem(prompt: 'Busquemos juntos una **solución**', answer: 'Lass uns gemeinsam eine **Lösung** finden'),
+    CourseItem(prompt: 'Necesito que asumas tu **parte**', answer: 'Ich brauche, dass du deinen **Anteil** übernimmst'),
+    CourseItem(prompt: 'Estoy dispuesto a **ceder**', answer: 'Ich bin bereit, **nachzugeben**'),
+    CourseItem(
+      prompt: 'No quiero **ganar**, quiero que nos entendamos',
+      answer: 'Ich will nicht **gewinnen**, ich will uns verstehen',
+    ),
+    CourseItem(
+      prompt: 'Hagamos una pausa antes de **seguir**',
+      answer: 'Lass uns eine Pause machen, bevor wir **weiterreden**',
+    ),
+  ],
+);
+
+final QuizContent esDeConfianzaRota = sentenceCourseQuiz(
+  id: 'es_de_confianza_rota',
+  title: 'Cuando se rompe la confianza (B2–C1)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'Las palabras para la herida más difícil: la traición y la confianza '
+      'rota. Verbos clave: hintergehen (traicionar), missbrauchen (abusar de), '
+      'anlügen (mentir a). El objetivo sigue siendo reparar, no hundir.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"jemanden hintergehen"',
+      text: '"traicionar a alguien" = "jemanden hintergehen". "Ich fühle mich '
+          'hintergangen" = me siento traicionado.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '"schaden" + dativo',
+      text: '"perjudicar a algo/alguien" rige dativo: "Das hat unserer '
+          'Beziehung geschadet" (eso ha dañado nuestra relación).',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Me has **decepcionado** profundamente', answer: 'Du hast mich zutiefst **enttäuscht**'),
+    CourseItem(prompt: 'Me siento **traicionado**', answer: 'Ich fühle mich **hintergangen**'),
+    CourseItem(prompt: 'Has **abusado** de mi confianza', answer: 'Du hast mein Vertrauen **missbraucht**'),
+    CourseItem(prompt: 'Me has **mentido**', answer: 'Du hast mich **angelogen**'),
+    CourseItem(prompt: 'Necesito tiempo para volver a **confiar**', answer: 'Ich brauche Zeit, um wieder zu **vertrauen**'),
+    CourseItem(prompt: '¿Cómo voy a volver a **creerte**?', answer: 'Wie soll ich dir wieder **glauben**?'),
+    CourseItem(
+      prompt: 'Me siento **herido** y enfadado a la vez',
+      answer: 'Ich fühle mich **verletzt** und wütend zugleich',
+    ),
+    CourseItem(prompt: 'Necesito **sinceridad** total', answer: 'Ich brauche absolute **Ehrlichkeit**'),
+    CourseItem(prompt: 'La **confianza** se reconstruye despacio', answer: '**Vertrauen** baut sich langsam wieder auf'),
+    CourseItem(prompt: 'Quiero creer que puedes **cambiar**', answer: 'Ich will glauben, dass du dich **ändern** kannst'),
+    CourseItem(prompt: 'Esto ha **dañado** mucho nuestra relación', answer: 'Das hat unserer Beziehung sehr **geschadet**'),
+    CourseItem(prompt: 'No puedo **seguir** así', answer: 'So kann ich nicht **weitermachen**'),
+  ],
+);
+
+/// Listen & repeat (audio 8/9 — tier avanzado).
+final QuizContent esDeHablarConfrontacion = speakRepeatQuiz(
+  id: 'es_de_hablar_confrontacion',
+  title: 'Hablar: confrontación',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Practica frases de confrontación con firmeza pero sin gritar. El tono '
+      'controlado es lo que las hace eficaces en un conflicto real.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Firme, no agresivo',
+      text: '"Das geht so nicht weiter" gana fuerza dicho despacio y serio, no '
+          'a gritos. Controla el volumen.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'Verbos separables',
+      text: '"Du weichst dem Thema aus" — el "aus" va al final. "anschreien", '
+          '"anlügen" funcionan igual.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Tenemos que hablar en serio', answer: 'Wir müssen ernsthaft reden'),
+    CourseItem(prompt: 'Así no podemos seguir', answer: 'Das geht so nicht weiter'),
+    CourseItem(prompt: 'Seamos objetivos', answer: 'Lass uns sachlich bleiben'),
+    CourseItem(prompt: 'Estamos dando vueltas en círculo', answer: 'Wir drehen uns im Kreis'),
+    CourseItem(prompt: 'No quiero hacerte reproches', answer: 'Ich will dir keine Vorwürfe machen'),
+    CourseItem(prompt: 'Me siento traicionado', answer: 'Ich fühle mich hintergangen'),
+    CourseItem(prompt: 'Necesito tiempo para volver a confiar', answer: 'Ich brauche Zeit, um wieder zu vertrauen'),
+    CourseItem(prompt: 'No quiero ganar, quiero que nos entendamos', answer: 'Ich will nicht gewinnen, ich will uns verstehen'),
+    CourseItem(prompt: 'Necesito que asumas tu parte', answer: 'Ich brauche, dass du deinen Anteil übernimmst'),
+    CourseItem(prompt: 'Busquemos juntos una solución', answer: 'Lass uns gemeinsam eine Lösung finden'),
+  ],
+);
+
+// ──────────────── Bloque G · Ruptura y reconciliación (B2–C1) ────────────────
+// Las conversaciones más duras: la ruptura, la separación respetuosa y la
+// reconstrucción profunda de la relación. Énfasis en la reparación.
+
+final QuizContent esDeRuptura = sentenceCourseQuiz(
+  id: 'es_de_ruptura',
+  title: 'La ruptura (B2–C1)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'Cómo decir lo más difícil con honestidad y respeto. Verbos clave: sich '
+      'trennen (separarse), sich entlieben (desenamorarse), sich entfernen '
+      '(alejarse). Decir la verdad no está reñido con el cuidado.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"Es liegt an …"',
+      text: '"es por…" / "la causa es…" = "es liegt an …" (+ dativo): "Es liegt '
+          'nicht an dir" = no es por ti.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"der Liebeskummer"',
+      text: '"el mal de amores / corazón roto" = "der Liebeskummer". "Ich habe '
+          'Liebeskummer" es lo natural, más que "mein Herz ist gebrochen".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Creo que deberíamos **separarnos**', answer: 'Ich glaube, wir sollten uns **trennen**'),
+    CourseItem(prompt: 'Necesito un **tiempo**', answer: 'Ich brauche eine **Auszeit**'),
+    CourseItem(prompt: 'Ya no **encajamos**', answer: 'Wir passen einfach nicht mehr **zusammen**'),
+    CourseItem(prompt: 'Te quiero, pero ya no **basta**', answer: 'Ich liebe dich, aber es **reicht** nicht mehr'),
+    CourseItem(prompt: 'Me he **desenamorado**', answer: 'Ich habe mich **entliebt**'),
+    CourseItem(
+      prompt: 'No **imagino** un futuro juntos',
+      answer: 'Ich kann mir keine gemeinsame Zukunft mehr **vorstellen**',
+    ),
+    CourseItem(prompt: 'No es **por ti**, soy yo', answer: 'Es **liegt** nicht an dir, es liegt an mir'),
+    CourseItem(prompt: 'Esto me resulta muy **difícil**', answer: 'Das fällt mir unglaublich **schwer**'),
+    CourseItem(
+      prompt: 'Nos hemos ido **alejando** con el tiempo',
+      answer: 'Wir haben uns mit der Zeit voneinander **entfernt**',
+    ),
+    CourseItem(prompt: 'Necesito seguir mi propio **camino**', answer: 'Ich muss meinen eigenen **Weg** gehen'),
+    CourseItem(prompt: 'Tengo el **corazón roto**', answer: 'Ich habe **Liebeskummer**'),
+    CourseItem(prompt: 'No quiero seguir fingiendo', answer: 'Ich will nicht länger so tun als ob'),
+  ],
+);
+
+final QuizContent esDeSeparacionRespetuosa = sentenceCourseQuiz(
+  id: 'es_de_separacion_respetuosa',
+  title: 'Separarse en buenos términos (B2–C1)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'Si la relación termina, terminar bien también es una forma de cuidado. '
+      'Gratitud, respeto y buenos deseos: "im Guten auseinandergehen" '
+      '(separarse en buenos términos).',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"im Guten auseinandergehen"',
+      text: '"separarse en buenos términos" = "im Guten auseinandergehen". Lo '
+          'contrario: "im Streit auseinandergehen" (terminar peleados).',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"in guter Erinnerung behalten"',
+      text: '"guardar un buen recuerdo de alguien" = "jemanden in guter '
+          'Erinnerung behalten".',
+    ),
+  ],
+  items: const [
+    CourseItem(
+      prompt: 'Quiero que nos separemos **en buenos términos**',
+      answer: 'Ich möchte, dass wir im Guten **auseinandergehen**',
+    ),
+    CourseItem(
+      prompt: 'Te **agradezco** nuestro tiempo juntos',
+      answer: 'Ich bin **dankbar** für unsere gemeinsame Zeit',
+    ),
+    CourseItem(
+      prompt: 'Siempre te **recordaré** con cariño',
+      answer: 'Ich werde dich immer in guter **Erinnerung** behalten',
+    ),
+    CourseItem(prompt: 'Sigamos siendo **respetuosos**', answer: 'Lass uns **respektvoll** bleiben'),
+    CourseItem(
+      prompt: 'No quiero que terminemos con **rencor**',
+      answer: 'Ich möchte nicht im **Streit** auseinandergehen',
+    ),
+    CourseItem(prompt: '**Aprendí** mucho contigo', answer: 'Ich habe viel von dir **gelernt**'),
+    CourseItem(prompt: 'Te **deseo** lo mejor', answer: 'Ich **wünsche** dir alles Gute'),
+    CourseItem(
+      prompt: 'Hablémoslo con calma y sin **reproches**',
+      answer: 'Lass uns in Ruhe und ohne **Vorwürfe** reden',
+    ),
+    CourseItem(prompt: 'Espero que sigamos en **contacto**', answer: 'Ich hoffe, wir bleiben in **Kontakt**'),
+    CourseItem(
+      prompt: 'Esto no borra lo bueno que **vivimos**',
+      answer: 'Das löscht nicht aus, was wir Schönes **erlebt** haben',
+    ),
+    CourseItem(prompt: '**Cuídate** mucho', answer: '**Pass** gut auf dich auf'),
+    CourseItem(prompt: 'No te **guardo rencor**', answer: 'Ich bin dir nicht **böse**'),
+  ],
+);
+
+final QuizContent esDeReconstruir = sentenceCourseQuiz(
+  id: 'es_de_reconstruir',
+  title: 'Reconstruir la relación (B2–C1)',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Palabra clave',
+  categoryLabel: 'En alemán',
+  intro:
+      'El camino de vuelta: asumir la responsabilidad, recuperar la confianza y '
+      'atreverse a empezar de nuevo. Aquí está el corazón reparador del curso: '
+      '"an der Beziehung arbeiten" (trabajar en la relación).',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"Verantwortung übernehmen"',
+      text: '"asumir la responsabilidad" = "Verantwortung übernehmen". "Ich '
+          'übernehme die Verantwortung für meinen Anteil" suena muy maduro.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"um jemanden kämpfen"',
+      text: '"luchar por alguien" = "um jemanden kämpfen": "Ich will um uns '
+          'kämpfen" = quiero luchar por nosotros.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Quiero **trabajar** en nuestra relación', answer: 'Ich möchte an unserer Beziehung **arbeiten**'),
+    CourseItem(prompt: 'Atrevámonos a un **nuevo comienzo**', answer: 'Lass uns einen **Neuanfang** wagen'),
+    CourseItem(
+      prompt: 'Asumo la **responsabilidad** de mi parte',
+      answer: 'Ich übernehme die **Verantwortung** für meinen Anteil',
+    ),
+    CourseItem(prompt: 'Quiero **recuperar** tu confianza', answer: 'Ich möchte dein Vertrauen **zurückgewinnen**'),
+    CourseItem(prompt: 'Estoy dispuesto a **perdonarte**', answer: 'Ich bin bereit, dir zu **verzeihen**'),
+    CourseItem(
+      prompt: 'Te prometo que voy a **esforzarme**',
+      answer: 'Ich verspreche dir, dass ich mich **bemühen** werde',
+    ),
+    CourseItem(
+      prompt: 'Me he **dado cuenta** de lo importante que eres para mí',
+      answer: 'Mir ist **klar** geworden, wie wichtig du mir bist',
+    ),
+    CourseItem(prompt: '¿Podemos **empezar de cero**?', answer: 'Können wir noch einmal von vorne **anfangen**?'),
+    CourseItem(prompt: 'Quizá una **terapia de pareja** nos ayude', answer: 'Vielleicht hilft uns eine **Paartherapie**'),
+    CourseItem(prompt: 'Quiero **luchar** por nosotros', answer: 'Ich will um uns **kämpfen**'),
+    CourseItem(prompt: 'Necesitaremos **paciencia**', answer: 'Wir werden **Geduld** brauchen'),
+    CourseItem(prompt: 'Te perdono **de verdad**', answer: 'Ich verzeihe dir **wirklich**'),
+  ],
+);
+
+/// Listen & repeat (audio 9/9 — tier avanzado).
+final QuizContent esDeHablarRupturaReconciliacion = speakRepeatQuiz(
+  id: 'es_de_hablar_ruptura_reconciliacion',
+  title: 'Hablar: ruptura y reconciliación',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Las frases más difíciles, en voz alta. Dilas despacio y con calma: tanto '
+      'una despedida como una reconciliación merecen un tono cuidado.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"sich trennen"',
+      text: '"wir sollten uns trennen" suena "viir zóllten uns trénnen". La "z" '
+          'es "ts" y la "tr" es nítida.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Tono según el mensaje',
+      text: 'Una ruptura pide calma y suavidad; una reconciliación, calidez y '
+          'seguridad. Adapta la voz al contenido.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Creo que deberíamos separarnos', answer: 'Ich glaube, wir sollten uns trennen'),
+    CourseItem(prompt: 'Ya no encajamos', answer: 'Wir passen einfach nicht mehr zusammen'),
+    CourseItem(prompt: 'Quiero que nos separemos en buenos términos', answer: 'Ich möchte, dass wir im Guten auseinandergehen'),
+    CourseItem(prompt: 'Te deseo lo mejor', answer: 'Ich wünsche dir alles Gute'),
+    CourseItem(prompt: 'Quiero trabajar en nuestra relación', answer: 'Ich möchte an unserer Beziehung arbeiten'),
+    CourseItem(prompt: 'Asumo la responsabilidad de mi parte', answer: 'Ich übernehme die Verantwortung für meinen Anteil'),
+    CourseItem(prompt: 'Quiero recuperar tu confianza', answer: 'Ich möchte dein Vertrauen zurückgewinnen'),
+    CourseItem(prompt: '¿Podemos empezar de cero?', answer: 'Können wir noch einmal von vorne anfangen?'),
+    CourseItem(prompt: 'Quiero luchar por nosotros', answer: 'Ich will um uns kämpfen'),
+    CourseItem(prompt: 'Te perdono de verdad', answer: 'Ich verzeihe dir wirklich'),
+  ],
+);
+
+// ─────────────────────────── Bloque H · Lectura ─────────────────────────────
 
 /// Reading-comprehension capstone: a couple resolves a misunderstanding using
 /// an Ich-Botschaft. Ties together the vocabulary and the communication tools.
@@ -844,9 +1437,104 @@ final QuizContent esDeLecturaPareja = readingCourseQuiz(
   ],
 );
 
+/// Reading-comprehension capstone (B2–C1): a couple that has drifted apart has
+/// an honest "Aussprache", owns their share, and chooses repair over breakup.
+final QuizContent esDeLecturaAussprache = readingCourseQuiz(
+  id: 'es_de_lectura_aussprache',
+  title: 'Lectura: la conversación decisiva (B2–C1)',
+  category: 'Emociones y pareja',
+  passageTitle: 'Die Aussprache',
+  intro:
+      'Un diálogo más exigente (B2–C1). Lena y Markus llevan meses '
+      'distanciados. Fíjate en el vocabulario avanzado (sich auseinanderleben, '
+      'Vorwürfe, Verantwortung übernehmen, Neuanfang) y luego responde.',
+  passage:
+      'Lena und Markus saßen sich am Küchentisch gegenüber. Seit Monaten hatten '
+      'sie sich auseinandergelebt – sie stritten oft, oder sie schwiegen.\n\n'
+      '«Ich muss ehrlich sein», begann Markus leise. «In letzter Zeit habe ich '
+      'sogar daran gedacht, zu gehen.» Lena schluckte. «Das tut weh zu hören. '
+      'Aber ich bin froh, dass du es aussprichst.»\n\n'
+      '«Ich will dir keine Vorwürfe machen», sagte sie. «Ich habe mich auch '
+      'zurückgezogen. Ich übernehme meinen Anteil daran.» Markus nickte. '
+      '«Vielleicht brauchen wir Hilfe von außen. Was hältst du von einer '
+      'Paartherapie?»\n\n'
+      'Lena überlegte. «Ich möchte es versuchen. Ich bin noch nicht bereit '
+      'aufzugeben.» Zum ersten Mal seit Langem griff Markus nach ihrer Hand. '
+      '«Dann wagen wir einen Neuanfang – langsam, Schritt für Schritt.»',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"sich zurückziehen"',
+      text: '"Ich habe mich zurückgezogen" = me he ido apartando/encerrando. '
+          'Reconocer el propio repliegue es asumir el "Anteil" (la parte).',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"Was hältst du von …?"',
+      text: '"¿qué te parece…?" = "Was hältst du von …?" (+ dativo). Una forma '
+          'culta de proponer algo, como aquí la "Paartherapie".',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: '¿Qué le confiesa Markus a Lena?',
+      options: [
+        'Que incluso había pensado en marcharse',
+        'Que ha conocido a otra persona',
+        'Que quiere mudarse de ciudad',
+        'Que ha perdido su trabajo',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«In letzter Zeit habe ich sogar daran gedacht, zu gehen.» Reconoce '
+          'que pensó en dejar la relación.',
+    ),
+    ReadingQuestion(
+      question: '¿Cómo reacciona Lena ante esa confesión?',
+      options: [
+        'Le duele, pero agradece su sinceridad',
+        'Se enfada y se va de la cocina',
+        'Le grita y le hace reproches',
+        'Se ríe y no le da importancia',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Das tut weh zu hören. Aber ich bin froh, dass du es aussprichst.» '
+          'Valida su honestidad pese al dolor.',
+    ),
+    ReadingQuestion(
+      question: '¿Qué actitud madura muestra Lena en el conflicto?',
+      options: [
+        'Asume su parte sin culpar al otro',
+        'Culpa a Markus de todo lo ocurrido',
+        'Niega que haya ningún problema',
+        'Le exige que se disculpe primero',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Ich will dir keine Vorwürfe machen … Ich übernehme meinen Anteil '
+          'daran.» Evita los reproches y asume responsabilidad.',
+    ),
+    ReadingQuestion(
+      question: '¿Qué deciden hacer al final?',
+      options: [
+        'Intentar un nuevo comienzo, quizá con terapia de pareja',
+        'Separarse de inmediato',
+        'Dejar de hablarse durante un tiempo',
+        'Seguir como hasta ahora sin cambios',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Dann wagen wir einen Neuanfang …» y barajan una "Paartherapie": '
+          'eligen reparar la relación.',
+    ),
+  ],
+);
+
 // ─────────────────────────────── Bloques ───────────────────────────────────
 // The "German Emotions" course is its own course (not part of the travel
 // course); these per-bloque lists feed its drawer groups in the catalog.
+// Bloques A–D son el tronco A1–B1; E–G son el tier avanzado B2–C1.
 
 /// Bloque A · Las emociones (vocabulario + audio).
 final List<QuizContent> esDeEmocionesBloqueA = [
@@ -879,16 +1567,45 @@ final List<QuizContent> esDeEmocionesBloqueD = [
   esDeAmorAprecio,
 ];
 
-/// Bloque E · Lectura.
+/// Bloque E · Comunicación emocional profunda (B2–C1).
 final List<QuizContent> esDeEmocionesBloqueE = [
-  esDeLecturaPareja,
+  esDeVinculoVocab,
+  esDeVulnerabilidad,
+  esDeDistancia,
+  esDeHablarProfunda,
 ];
 
-/// "German Emotions" — Emociones y pareja. 16 quizzes en orden de uso.
+/// Bloque F · Confrontación y conflicto (B2–C1).
+final List<QuizContent> esDeEmocionesBloqueF = [
+  esDeConflictoVocab,
+  esDeAfrontarConflicto,
+  esDeConfianzaRota,
+  esDeHablarConfrontacion,
+];
+
+/// Bloque G · Ruptura y reconciliación (B2–C1).
+final List<QuizContent> esDeEmocionesBloqueG = [
+  esDeRuptura,
+  esDeSeparacionRespetuosa,
+  esDeReconstruir,
+  esDeHablarRupturaReconciliacion,
+];
+
+/// Bloque H · Lectura (A2–B1 y B2–C1).
+final List<QuizContent> esDeEmocionesBloqueH = [
+  esDeLecturaPareja,
+  esDeLecturaAussprache,
+];
+
+/// "German Emotions" — Emociones y pareja. 29 quizzes en orden de uso
+/// (A–D: A1–B1; E–G: B2–C1; H: lectura).
 final List<QuizContent> esDeEmocionesContent = [
   ...esDeEmocionesBloqueA,
   ...esDeEmocionesBloqueB,
   ...esDeEmocionesBloqueC,
   ...esDeEmocionesBloqueD,
   ...esDeEmocionesBloqueE,
+  ...esDeEmocionesBloqueF,
+  ...esDeEmocionesBloqueG,
+  ...esDeEmocionesBloqueH,
 ];

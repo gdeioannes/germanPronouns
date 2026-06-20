@@ -845,13 +845,21 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           return widest + 24 + 8;
                         }
 
+                        // The reference table's first cell may differ from the
+                        // live quiz's subject display (e.g. the Español → Alemán
+                        // vocab word in both languages); it may carry `**…**`
+                        // bold markup, stripped when measuring column widths.
+                        String referenceRowLabel(int index) =>
+                            widget.config.subjectReferenceLabels?[index] ??
+                            widget.config.subjectDisplays[index];
+
                         // Pinned subject column (rows may carry a subtitle).
                         final subjectMain = <String>[
                           widget.config.subjectColumnLabel,
                           for (int index = 0; index < rowCount; index++)
                             genderRows != null
                                 ? _genderArticles[genderRows[index]]!
-                                : widget.config.subjectDisplays[index],
+                                : stripBoldMarkup(referenceRowLabel(index)),
                         ];
                         final subjectSubtitles = <String>[
                           if (showSubtitleRow)
@@ -929,16 +937,103 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           (sum, w) => sum + w,
                         );
 
+                        // Row heights that fit the wrapped content so every
+                        // cell shows all of its lines instead of truncating
+                        // with an ellipsis. Measured at the (bold) header
+                        // weight used to size the columns, so the estimate is
+                        // never narrower — and so never shorter — than what
+                        // actually renders.
+                        double cellContentHeight(
+                          String text,
+                          double cellWidth,
+                          TextStyle style,
+                        ) {
+                          final painter = TextPainter(
+                            text: TextSpan(text: text, style: style),
+                            textDirection: textDirection,
+                            textScaler: textScaler,
+                          )..layout(
+                            maxWidth: (cellWidth - 26).clamp(
+                              0.0,
+                              double.infinity,
+                            ),
+                          );
+                          return painter.height;
+                        }
+
+                        double rowHeightFor(int listIndex, {bool header = false}) {
+                          var tallest = cellContentHeight(
+                            subjectMain[listIndex],
+                            fixedColumnWidth,
+                            mainStyle,
+                          );
+                          if (!header && showSubtitleRow) {
+                            tallest += cellContentHeight(
+                              subjectSubtitles[listIndex - 1],
+                              fixedColumnWidth,
+                              subtitleStyle,
+                            );
+                          }
+                          for (
+                            var col = 0;
+                            col < valueColumnContents.length;
+                            col++
+                          ) {
+                            tallest = max(
+                              tallest,
+                              cellContentHeight(
+                                valueColumnContents[col][listIndex],
+                                columnWidths[col],
+                                mainStyle,
+                              ),
+                            );
+                          }
+                          return max(rowHeight, tallest + 18);
+                        }
+
+                        final rowHeights = <double>[
+                          rowHeightFor(0, header: true),
+                          for (int index = 0; index < rowCount; index++)
+                            rowHeightFor(index + 1),
+                        ];
+
                         Widget buildFixedCell(
                           String text, {
                           bool header = false,
                           Color? background,
                           Color? textColor,
                           String? subtitle,
+                          double? height,
                         }) {
+                          final baseStyle = TextStyle(
+                            color: header ? Colors.white : textColor,
+                            fontWeight:
+                                header ? FontWeight.w700 : FontWeight.w600,
+                          );
+                          // Render `**…**` runs bold (e.g. the German word in a
+                          // both-languages vocab label) like the value cells do.
+                          final mainText = Text.rich(
+                            TextSpan(
+                              children: boldMarkupSpans(
+                                text,
+                                baseStyle: baseStyle,
+                                boldStyle: baseStyle.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: header
+                                      ? Colors.white
+                                      : colorScheme.primary,
+                                ),
+                              ),
+                            ),
+                            textAlign: TextAlign.center,
+                            maxLines: subtitle == null ? null : 1,
+                            overflow: subtitle == null
+                                ? TextOverflow.clip
+                                : TextOverflow.ellipsis,
+                          );
                           return Container(
                             width: fixedColumnWidth,
-                            height: rowHeight,
+                            height: height ?? rowHeight,
                             alignment: Alignment.center,
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             decoration: BoxDecoration(
@@ -959,35 +1054,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                               ),
                             ),
                             child: subtitle == null
-                                ? Text(
-                                    text,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: header
-                                          ? Colors.white
-                                          : textColor,
-                                      fontWeight: header
-                                          ? FontWeight.w700
-                                          : FontWeight.w600,
-                                    ),
-                                  )
+                                ? mainText
                                 : Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        text,
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: header
-                                              ? Colors.white
-                                              : textColor,
-                                          fontWeight: header
-                                              ? FontWeight.w700
-                                              : FontWeight.w600,
-                                        ),
-                                      ),
+                                      mainText,
                                       Text(
                                         subtitle,
                                         textAlign: TextAlign.center,
@@ -1010,6 +1081,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           Color? background,
                           String? gender,
                           int tintableCount = 1 << 30,
+                          double? height,
                         }) {
                           final tint =
                               (!header && widget.config.helpMemoryColorByGender)
@@ -1017,7 +1089,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                               : null;
                           return SizedBox(
                             width: scrollableWidth,
-                            height: rowHeight,
+                            height: height ?? rowHeight,
                             child: Row(
                               children: values.asMap().entries.map((entry) {
                                 final cellTint =
@@ -1025,7 +1097,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                 final value = entry.value;
                                 return Container(
                                   width: columnWidths[entry.key],
-                                  height: rowHeight,
+                                  height: height ?? rowHeight,
                                   alignment: Alignment.center,
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 12,
@@ -1072,8 +1144,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           ),
                                         ),
                                         textAlign: TextAlign.center,
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
                                       );
                                     },
                                   ),
@@ -1091,11 +1161,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                 buildFixedCell(
                                   widget.config.subjectColumnLabel,
                                   header: true,
+                                  height: rowHeights[0],
                                 ),
                                 for (int index = 0; index < rowCount; index++)
                                   if (genderRows != null)
                                     buildFixedCell(
                                       _genderArticles[genderRows[index]]!,
+                                      height: rowHeights[index + 1],
                                       background: index.isEven
                                           ? colorScheme.surface
                                           : colorScheme
@@ -1111,7 +1183,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     )
                                   else
                                     buildFixedCell(
-                                      widget.config.subjectDisplays[index],
+                                      referenceRowLabel(index),
+                                      height: rowHeights[index + 1],
                                       background: index.isEven
                                           ? colorScheme.surface
                                           : colorScheme
@@ -1154,6 +1227,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                             ...infoColumns.map((c) => c.label),
                                           ],
                                           header: true,
+                                          height: rowHeights[0],
                                         ),
                                         for (
                                           int index = 0;
@@ -1173,6 +1247,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                             ],
                                             tintableCount:
                                                 widget.config.categories.length,
+                                            height: rowHeights[index + 1],
                                             background: index.isEven
                                                 ? colorScheme.surface
                                                 : colorScheme
@@ -2504,9 +2579,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           (m) => m.group(1) ?? '',
         )
         .trim();
-    final displaySentence = useContextual || widget.config.stripSentenceCue
+    var displaySentence = useContextual || widget.config.stripSentenceCue
         ? stripCue(_currentReferenceSentence)
         : _currentReferenceSentence;
+    // The Español → Alemán "say it in German" quizzes store each sentence as
+    // "{subject} → ____" so its text stays unique (the accepted-answers lookup
+    // is keyed by sentence text). The subject is already shown above as the
+    // prompt, so drop the leading "{subject} " here to avoid printing the
+    // phrase twice — leaving just "→ ____".
+    if (displaySentence.startsWith('$currentPronoun → ')) {
+      displaySentence = displaySentence.substring('$currentPronoun '.length);
+    }
     final displayLabel = isPronounArticlesQuiz
         ? 'Pronouns & Articles'
         : widget.config.promptLabel;

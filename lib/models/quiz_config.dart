@@ -199,6 +199,7 @@ class QuizConfig {
     required this.subjectColumnLabel,
     required this.subjects,
     required this.subjectDisplays,
+    this.subjectReferenceLabels,
     required this.categories,
     required this.groupWeights,
     required this.pickSentence,
@@ -253,6 +254,14 @@ class QuizConfig {
 
   /// Display labels for each subject, shown in the table and settings.
   final List<String> subjectDisplays;
+
+  /// Optional per-subject override for the first cell of the Help Memory
+  /// reference table only (parallel to [subjectDisplays]). The live quiz still
+  /// uses [subjectDisplays]; the reference table shows this when non-null so the
+  /// Español → Alemán courses can present the vocabulary word in both languages
+  /// (e.g. `feliz · **glücklich**`) instead of repeating the full Spanish prompt.
+  /// May contain `**…**` bold markup. Null falls back to [subjectDisplays].
+  final List<String>? subjectReferenceLabels;
 
   /// Quizzable categories (columns).
   final List<QuizCategoryDefinition> categories;
