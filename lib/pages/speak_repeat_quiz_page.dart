@@ -5,6 +5,7 @@ import 'package:speech_to_text/speech_to_text.dart';
 
 import '../models/course.dart';
 import '../models/course_session.dart';
+import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../theme/app_theme.dart';
 import '../utils/speech_match.dart';
@@ -405,6 +406,9 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         _looping = false;
         _finished = true;
       });
+      // Played through every phrase to the end: flag this quiz "done" so it
+      // shows the ribbon on the quiz home page.
+      NounSettings.instance.markSpeakQuizCompleted(widget.content.id);
       return;
     }
     setState(() {

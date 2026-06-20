@@ -45,6 +45,8 @@ class NounSettings {
   static const String _completedQuestQuizzesKey =
       SettingsKeys.completedQuestQuizzes;
   static const String _lastQuestQuizKeyPref = SettingsKeys.lastQuestQuizKey;
+  static const String _completedSpeakQuizzesKey =
+      SettingsKeys.completedSpeakQuizzes;
   static const String _seenHelpMemoryKey = SettingsKeys.seenHelpMemory;
 
   /// Size of one "streak" — a run of this many correct answers in a row.
@@ -78,6 +80,7 @@ class NounSettings {
   int _questUnlockLaps = defaultProgressionUnlockLaps;
   Set<String> _completedQuestQuizzes = {};
   String? _lastQuestQuizKey;
+  Set<String> _completedSpeakQuizzes = {};
   Set<String> _seenHelpMemory = {};
   bool _showFirstLetterHint = false;
   bool _loaded = false;
@@ -144,6 +147,14 @@ class NounSettings {
 
   bool isQuestQuizCompleted(String key) =>
       _completedQuestQuizzes.contains(key);
+
+  /// `QuizContent.id`s of listen-&-repeat (audio) quizzes the learner has
+  /// played through to the end at least once. Such quizzes have no streak, so
+  /// they count as "done" once seen in full rather than via a goal.
+  Set<String> get completedSpeakQuizzes => _completedSpeakQuizzes;
+
+  bool isSpeakQuizCompleted(String contentId) =>
+      _completedSpeakQuizzes.contains(contentId);
 
   /// Best-streak a plain (non-progression) quiz must reach to count as "done"
   /// in the menu. Reuses the same configurable lap goal as the noun-category
@@ -238,6 +249,8 @@ class NounSettings {
     _completedQuestQuizzes =
         (prefs.getStringList(_completedQuestQuizzesKey) ?? const []).toSet();
     _lastQuestQuizKey = prefs.getString(_lastQuestQuizKeyPref);
+    _completedSpeakQuizzes =
+        (prefs.getStringList(_completedSpeakQuizzesKey) ?? const []).toSet();
     _seenHelpMemory =
         (prefs.getStringList(_seenHelpMemoryKey) ?? const []).toSet();
     _showFirstLetterHint =
@@ -321,6 +334,19 @@ class NounSettings {
     await prefs.setString(_lastQuestQuizKeyPref, key);
   }
 
+  /// Marks listen-&-repeat quiz [contentId] as played through to the end,
+  /// permanently flagging it "done" on the quiz home page. No-op if already
+  /// marked.
+  Future<void> markSpeakQuizCompleted(String contentId) async {
+    if (_completedSpeakQuizzes.contains(contentId)) return;
+    _completedSpeakQuizzes = {..._completedSpeakQuizzes, contentId};
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(
+      _completedSpeakQuizzesKey,
+      _completedSpeakQuizzes.toList(),
+    );
+  }
+
   /// Marks the Help Memory panel for [storageKeyPrefix] as seen, so it won't
   /// auto-open again. No-op if already marked.
   Future<void> markHelpMemorySeen(String storageKeyPrefix) async {
@@ -374,6 +400,7 @@ class NounSettings {
     questUnlockLaps: _questUnlockLaps,
     completedQuestQuizzes: _completedQuestQuizzes.toList(),
     lastQuestQuizKey: _lastQuestQuizKey,
+    completedSpeakQuizzes: _completedSpeakQuizzes.toList(),
     seenHelpMemory: _seenHelpMemory.toList(),
     showFirstLetterHint: _showFirstLetterHint,
   );
@@ -414,6 +441,7 @@ class NounSettings {
     _questUnlockLaps = defaultProgressionUnlockLaps;
     _completedQuestQuizzes = {};
     _lastQuestQuizKey = null;
+    _completedSpeakQuizzes = {};
     _seenHelpMemory = {};
   }
 

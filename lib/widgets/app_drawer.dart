@@ -25,7 +25,7 @@ import '../pages/quest_quiz_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
-import '../theme/brand_palette.dart';
+import 'completion_ribbon.dart';
 import 'db_quiz_loader.dart';
 import 'noun_progression_quiz_loader.dart';
 import 'quest_quiz_loader.dart';
@@ -169,6 +169,7 @@ class _AppDrawerState extends State<AppDrawer> {
     Color? titleColor,
     int? number,
     bool done = false,
+    int doneLaps = 0,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
@@ -231,40 +232,13 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                 ),
                 if (done) ...[
-                  const SizedBox(width: 8),
-                  _doneChip(context),
+                  const SizedBox(width: 10),
+                  BookmarkRibbon(color: tierColorForLaps(doneLaps), width: 18),
                 ],
               ],
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  /// A small forest-green "Done" pill shown on a quiz tile once it has passed
-  /// its streak goal (or been completed, for Quest/Noun progression quizzes).
-  Widget _doneChip(BuildContext context) {
-    const forest = Color(kBrandForest);
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: forest.withValues(alpha: 0.14),
-        borderRadius: BorderRadius.circular(kRadiusSmall),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(Icons.check_circle_rounded, size: 14, color: forest),
-          const SizedBox(width: 4),
-          Text(
-            CourseSession.instance.strings.doneLabel,
-            style: Theme.of(context).textTheme.labelSmall?.copyWith(
-              color: forest,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -346,6 +320,7 @@ class _AppDrawerState extends State<AppDrawer> {
           entry.key == widget.currentNounProgressionKey,
       onTap: () => _navigateToNounProgression(context, entry.key),
       done: NounSettings.instance.isNounCategoryCompleted(entry.key),
+      doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: prefs == null
           ? null
           : _statsSubtitle(
@@ -538,6 +513,7 @@ class _AppDrawerState extends State<AppDrawer> {
           entry.key == widget.currentQuestKey,
       onTap: () => _navigateToQuest(context, entry.key),
       done: NounSettings.instance.isQuestQuizCompleted(entry.key),
+      doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: prefs == null
           ? null
           : _statsSubtitle(
@@ -771,7 +747,8 @@ class _AppDrawerState extends State<AppDrawer> {
         item.titleOverride ?? summary?.title ?? section?.title ?? item.ref;
     // Listen-&-repeat (audio) quizzes get a distinct voice icon; an explicit
     // per-item iconKey still wins.
-    final defaultIcon = summary?.kind == QuizKind.speakRepeat
+    final isSpeak = summary?.kind == QuizKind.speakRepeat;
+    final defaultIcon = isSpeak
         ? Icons.record_voice_over_rounded
         : (section?.icon ?? Icons.menu_book_rounded);
     final icon = navIconFor(item.iconKey, defaultIcon);
@@ -793,9 +770,14 @@ class _AppDrawerState extends State<AppDrawer> {
       title: title,
       selected: widget.currentContentId == item.ref,
       onTap: () => _navigateToContent(context, item.ref),
-      done: NounSettings.instance.isQuizDone(
-        bestStreakAbsolute: bestStreakAbsolute,
-      ),
+      // Speak quizzes have no streak — they're "done" once played through,
+      // matching how the course home marks them.
+      done: isSpeak
+          ? NounSettings.instance.isSpeakQuizCompleted(item.ref)
+          : NounSettings.instance.isQuizDone(
+              bestStreakAbsolute: bestStreakAbsolute,
+            ),
+      doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: prefs == null
           ? null
           : _statsSubtitle(

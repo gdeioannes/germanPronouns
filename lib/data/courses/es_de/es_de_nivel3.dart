@@ -240,9 +240,9 @@ final QuizContent esDeHablarSituaciones = speakRepeatQuiz(
 );
 
 final List<QuizContent> esDeNivel3 = [
+  esDeHablarSituaciones,
   esDeAlojamiento,
   esDeEmergencias,
   esDeFechas,
   esDeCultura,
-  esDeHablarSituaciones,
 ];

@@ -21,6 +21,7 @@ class UserSettings {
     this.questUnlockLaps = 5,
     this.completedQuestQuizzes = const [],
     this.lastQuestQuizKey,
+    this.completedSpeakQuizzes = const [],
     this.seenHelpMemory = const [],
     this.showFirstLetterHint = false,
   });
@@ -60,6 +61,9 @@ class UserSettings {
   /// The Quest quiz key last opened.
   final String? lastQuestQuizKey;
 
+  /// `QuizContent.id`s of listen-&-repeat quizzes played through to the end.
+  final List<String> completedSpeakQuizzes;
+
   /// Quiz storage-key prefixes whose Help Memory has already auto-opened once.
   final List<String> seenHelpMemory;
 
@@ -79,6 +83,7 @@ class UserSettings {
     int? questUnlockLaps,
     List<String>? completedQuestQuizzes,
     String? lastQuestQuizKey,
+    List<String>? completedSpeakQuizzes,
     List<String>? seenHelpMemory,
     bool? showFirstLetterHint,
   }) => UserSettings(
@@ -97,6 +102,7 @@ class UserSettings {
     questUnlockLaps: questUnlockLaps ?? this.questUnlockLaps,
     completedQuestQuizzes: completedQuestQuizzes ?? this.completedQuestQuizzes,
     lastQuestQuizKey: lastQuestQuizKey ?? this.lastQuestQuizKey,
+    completedSpeakQuizzes: completedSpeakQuizzes ?? this.completedSpeakQuizzes,
     seenHelpMemory: seenHelpMemory ?? this.seenHelpMemory,
     showFirstLetterHint: showFirstLetterHint ?? this.showFirstLetterHint,
   );
@@ -116,6 +122,7 @@ class UserSettings {
     'questUnlockLaps': questUnlockLaps,
     'completedQuestQuizzes': completedQuestQuizzes,
     if (lastQuestQuizKey != null) 'lastQuestQuizKey': lastQuestQuizKey,
+    'completedSpeakQuizzes': completedSpeakQuizzes,
     'seenHelpMemory': seenHelpMemory,
     'showFirstLetterHint': showFirstLetterHint,
   };
@@ -139,6 +146,8 @@ class UserSettings {
     completedQuestQuizzes:
         (json['completedQuestQuizzes'] as List?)?.cast<String>() ?? const [],
     lastQuestQuizKey: json['lastQuestQuizKey'] as String?,
+    completedSpeakQuizzes:
+        (json['completedSpeakQuizzes'] as List?)?.cast<String>() ?? const [],
     seenHelpMemory:
         (json['seenHelpMemory'] as List?)?.cast<String>() ?? const [],
     showFirstLetterHint: json['showFirstLetterHint'] as bool? ?? false,

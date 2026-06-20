@@ -29953,6 +29953,81 @@
       ]
     },
     {
+      "id": "es_de_hablar_basico",
+      "title": "Hablar: lo básico",
+      "storageKeyPrefix": "es_de_hablar_basico_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "kind": "speakRepeat",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hallo",
+          "english": "Hola"
+        },
+        {
+          "key": "s1",
+          "display": "Guten Morgen",
+          "english": "Buenos días"
+        },
+        {
+          "key": "s2",
+          "display": "Danke",
+          "english": "Gracias"
+        },
+        {
+          "key": "s3",
+          "display": "Bitte",
+          "english": "Por favor"
+        },
+        {
+          "key": "s4",
+          "display": "Entschuldigung",
+          "english": "Perdón / Disculpe"
+        },
+        {
+          "key": "s5",
+          "display": "Ja",
+          "english": "Sí"
+        },
+        {
+          "key": "s6",
+          "display": "Nein",
+          "english": "No"
+        },
+        {
+          "key": "s7",
+          "display": "Auf Wiedersehen",
+          "english": "Adiós"
+        },
+        {
+          "key": "s8",
+          "display": "Sprechen Sie Englisch?",
+          "english": "¿Habla inglés?"
+        },
+        {
+          "key": "s9",
+          "display": "Was kostet das?",
+          "english": "¿Cuánto cuesta?"
+        }
+      ],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Escucha cada frase en alemán y repítela en voz alta. Si tu micrófono está disponible, te diremos si te salió bien. Si no, escucha y repite a tu ritmo y pasa a la siguiente.",
+      "helpMemoryTips": [
+        {
+          "title": "Imita el ritmo",
+          "text": "No te fijes solo en cada sonido: copia la entonación y el ritmo de la frase. Sonará mucho más natural."
+        },
+        {
+          "kind": "example",
+          "title": "La \"ch\" y la \"r\"",
+          "text": "\"Ich\" suena suave (como un susurro), y la \"r\" alemana se hace en la garganta. Repite \"Danke\" y \"Entschuldigung\" varias veces."
+        }
+      ]
+    },
+    {
       "id": "es_de_saludos",
       "title": "Saludos y cortesía",
       "storageKeyPrefix": "es_de_saludos_",
@@ -30546,9 +30621,9 @@
       ]
     },
     {
-      "id": "es_de_hablar_basico",
-      "title": "Hablar: lo básico",
-      "storageKeyPrefix": "es_de_hablar_basico_",
+      "id": "es_de_hablar_ciudad",
+      "title": "Hablar: en la ciudad",
+      "storageKeyPrefix": "es_de_hablar_ciudad_",
       "promptLabel": "Frase",
       "subjectsLabel": "Frases",
       "subjectColumnLabel": "Alemán",
@@ -30556,67 +30631,67 @@
       "subjects": [
         {
           "key": "s0",
-          "display": "Hallo",
-          "english": "Hola"
+          "display": "Die Speisekarte, bitte",
+          "english": "La carta, por favor"
         },
         {
           "key": "s1",
-          "display": "Guten Morgen",
-          "english": "Buenos días"
+          "display": "Einen Kaffee, bitte",
+          "english": "Un café, por favor"
         },
         {
           "key": "s2",
-          "display": "Danke",
-          "english": "Gracias"
+          "display": "Ein Bier",
+          "english": "Una cerveza"
         },
         {
           "key": "s3",
-          "display": "Bitte",
-          "english": "Por favor"
+          "display": "Die Rechnung, bitte",
+          "english": "La cuenta, por favor"
         },
         {
           "key": "s4",
-          "display": "Entschuldigung",
-          "english": "Perdón / Disculpe"
+          "display": "Prost!",
+          "english": "¡Salud! (brindis)"
         },
         {
           "key": "s5",
-          "display": "Ja",
-          "english": "Sí"
+          "display": "Wo ist der Bahnhof?",
+          "english": "¿Dónde está la estación?"
         },
         {
           "key": "s6",
-          "display": "Nein",
-          "english": "No"
+          "display": "links",
+          "english": "A la izquierda"
         },
         {
           "key": "s7",
-          "display": "Auf Wiedersehen",
-          "english": "Adiós"
+          "display": "rechts",
+          "english": "A la derecha"
         },
         {
           "key": "s8",
-          "display": "Sprechen Sie Englisch?",
-          "english": "¿Habla inglés?"
+          "display": "geradeaus",
+          "english": "Todo recto"
         },
         {
           "key": "s9",
-          "display": "Was kostet das?",
-          "english": "¿Cuánto cuesta?"
+          "display": "Ich nehme es",
+          "english": "Me lo llevo"
         }
       ],
       "categories": [],
       "sentences": [],
-      "helpMemoryIntro": "Escucha cada frase en alemán y repítela en voz alta. Si tu micrófono está disponible, te diremos si te salió bien. Si no, escucha y repite a tu ritmo y pasa a la siguiente.",
+      "helpMemoryIntro": "Escucha y repite frases para el restaurante, moverte por la ciudad y hacer compras. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
       "helpMemoryTips": [
         {
-          "title": "Imita el ritmo",
-          "text": "No te fijes solo en cada sonido: copia la entonación y el ritmo de la frase. Sonará mucho más natural."
+          "title": "Las vocales largas",
+          "text": "\"Bahnhof\" y \"Kaffee\" llevan vocales largas. Alárgalas un poco: \"Baahnhof\", \"Kafee\"."
         },
         {
           "kind": "example",
-          "title": "La \"ch\" y la \"r\"",
-          "text": "\"Ich\" suena suave (como un susurro), y la \"r\" alemana se hace en la garganta. Repite \"Danke\" y \"Entschuldigung\" varias veces."
+          "title": "La \"ei\" y la \"ie\"",
+          "text": "\"ei\" se dice como \"ái\" (zwei = tsvái) y \"ie\" como \"íi\" (Bier = bíia). Practícalo con \"Ein Bier\"."
         }
       ]
     },
@@ -31213,9 +31288,9 @@
       ]
     },
     {
-      "id": "es_de_hablar_ciudad",
-      "title": "Hablar: en la ciudad",
-      "storageKeyPrefix": "es_de_hablar_ciudad_",
+      "id": "es_de_hablar_situaciones",
+      "title": "Hablar: situaciones",
+      "storageKeyPrefix": "es_de_hablar_situaciones_",
       "promptLabel": "Frase",
       "subjectsLabel": "Frases",
       "subjectColumnLabel": "Alemán",
@@ -31223,67 +31298,68 @@
       "subjects": [
         {
           "key": "s0",
-          "display": "Die Speisekarte, bitte",
-          "english": "La carta, por favor"
+          "display": "Hilfe!",
+          "english": "¡Ayuda!"
         },
         {
           "key": "s1",
-          "display": "Einen Kaffee, bitte",
-          "english": "Un café, por favor"
+          "display": "Es ist ein Notfall",
+          "english": "Es una emergencia"
         },
         {
           "key": "s2",
-          "display": "Ein Bier",
-          "english": "Una cerveza"
+          "display": "Ich brauche einen Arzt",
+          "english": "Necesito un médico"
         },
         {
           "key": "s3",
-          "display": "Die Rechnung, bitte",
-          "english": "La cuenta, por favor"
+          "display": "Wo ist die Apotheke?",
+          "english": "¿Dónde está la farmacia?"
         },
         {
           "key": "s4",
-          "display": "Prost!",
-          "english": "¡Salud! (brindis)"
+          "display": "Es tut mir leid",
+          "english": "Lo siento"
         },
         {
           "key": "s5",
-          "display": "Wo ist der Bahnhof?",
-          "english": "¿Dónde está la estación?"
+          "display": "Kein Problem",
+          "english": "No hay problema"
         },
         {
           "key": "s6",
-          "display": "links",
-          "english": "A la izquierda"
+          "display": "Guten Appetit!",
+          "english": "¡Buen provecho!"
         },
         {
           "key": "s7",
-          "display": "rechts",
-          "english": "A la derecha"
+          "display": "Viel Glück!",
+          "english": "¡Buena suerte!"
         },
         {
           "key": "s8",
-          "display": "geradeaus",
-          "english": "Todo recto"
+          "display": "Gute Besserung!",
+          "english": "¡Que te mejores!"
         },
         {
           "key": "s9",
-          "display": "Ich nehme es",
-          "english": "Me lo llevo"
+          "display": "Woher kommst du?",
+          "english": "¿De dónde eres?"
         }
       ],
       "categories": [],
       "sentences": [],
-      "helpMemoryIntro": "Escucha y repite frases para el restaurante, moverte por la ciudad y hacer compras. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
+      "helpMemoryIntro": "Escucha y repite frases para emergencias, el alojamiento y la charla cotidiana. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
       "helpMemoryTips": [
         {
-          "title": "Las vocales largas",
-          "text": "\"Bahnhof\" y \"Kaffee\" llevan vocales largas. Alárgalas un poco: \"Baahnhof\", \"Kafee\"."
+          "kind": "warning",
+          "title": "Que se entienda",
+          "text": "En una emergencia, habla despacio y claro. \"Hilfe!\" y \"Notfall\" deben sonar fuertes y nítidos."
         },
         {
           "kind": "example",
-          "title": "La \"ei\" y la \"ie\"",
-          "text": "\"ei\" se dice como \"ái\" (zwei = tsvái) y \"ie\" como \"íi\" (Bier = bíia). Practícalo con \"Ein Bier\"."
+          "title": "La \"z\" y la \"v\"",
+          "text": "La \"z\" suena \"ts\" (Arzt = \"artst\") y la \"v\" suena como \"f\" (viel = \"fíl\"). Practícalo con \"Viel Glück!\"."
         }
       ]
     },
@@ -32026,82 +32102,6 @@
           "text": "Separar la basura es serio: vidrio, papel, envases (Gelber Sack) y el depósito de botellas (Pfand)."
         }
       ]
-    },
-    {
-      "id": "es_de_hablar_situaciones",
-      "title": "Hablar: situaciones",
-      "storageKeyPrefix": "es_de_hablar_situaciones_",
-      "promptLabel": "Frase",
-      "subjectsLabel": "Frases",
-      "subjectColumnLabel": "Alemán",
-      "kind": "speakRepeat",
-      "subjects": [
-        {
-          "key": "s0",
-          "display": "Hilfe!",
-          "english": "¡Ayuda!"
-        },
-        {
-          "key": "s1",
-          "display": "Es ist ein Notfall",
-          "english": "Es una emergencia"
-        },
-        {
-          "key": "s2",
-          "display": "Ich brauche einen Arzt",
-          "english": "Necesito un médico"
-        },
-        {
-          "key": "s3",
-          "display": "Wo ist die Apotheke?",
-          "english": "¿Dónde está la farmacia?"
-        },
-        {
-          "key": "s4",
-          "display": "Es tut mir leid",
-          "english": "Lo siento"
-        },
-        {
-          "key": "s5",
-          "display": "Kein Problem",
-          "english": "No hay problema"
-        },
-        {
-          "key": "s6",
-          "display": "Guten Appetit!",
-          "english": "¡Buen provecho!"
-        },
-        {
-          "key": "s7",
-          "display": "Viel Glück!",
-          "english": "¡Buena suerte!"
-        },
-        {
-          "key": "s8",
-          "display": "Gute Besserung!",
-          "english": "¡Que te mejores!"
-        },
-        {
-          "key": "s9",
-          "display": "Woher kommst du?",
-          "english": "¿De dónde eres?"
-        }
-      ],
-      "categories": [],
-      "sentences": [],
-      "helpMemoryIntro": "Escucha y repite frases para emergencias, el alojamiento y la charla cotidiana. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
-      "helpMemoryTips": [
-        {
-          "kind": "warning",
-          "title": "Que se entienda",
-          "text": "En una emergencia, habla despacio y claro. \"Hilfe!\" y \"Notfall\" deben sonar fuertes y nítidos."
-        },
-        {
-          "kind": "example",
-          "title": "La \"z\" y la \"v\"",
-          "text": "La \"z\" suena \"ts\" (Arzt = \"artst\") y la \"v\" suena como \"f\" (viel = \"fíl\"). Practícalo con \"Viel Glück!\"."
-        }
-      ]
     }
   ],
   "courses": [
@@ -32168,7 +32168,7 @@
     {
       "id": "es_de",
       "name": "Español → Alemán",
-      "tagline": "Habla español, aprende alemán",
+      "tagline": "Un viaje rápido a Alemania",
       "speakFlag": "🇪🇸",
       "learnFlag": "🇩🇪",
       "uiLang": "es",
@@ -32180,6 +32180,9 @@
             "type": "quizzes",
             "items": [
               {
+                "ref": "es_de_hablar_basico"
+              },
+              {
                 "ref": "es_de_saludos"
               },
               {
@@ -32187,9 +32190,6 @@
               },
               {
                 "ref": "es_de_supervivencia"
-              },
-              {
-                "ref": "es_de_hablar_basico"
               }
             ]
           },
@@ -32199,6 +32199,9 @@
             "type": "quizzes",
             "items": [
               {
+                "ref": "es_de_hablar_ciudad"
+              },
+              {
                 "ref": "es_de_restaurante"
               },
               {
@@ -32206,9 +32209,6 @@
               },
               {
                 "ref": "es_de_compras"
-              },
-              {
-                "ref": "es_de_hablar_ciudad"
               }
             ]
           },
@@ -32217,6 +32217,9 @@
             "title": "NIVEL 3 · SITUACIONES",
             "type": "quizzes",
             "items": [
+              {
+                "ref": "es_de_hablar_situaciones"
+              },
               {
                 "ref": "es_de_alojamiento"
               },
@@ -32228,9 +32231,6 @@
               },
               {
                 "ref": "es_de_cultura"
-              },
-              {
-                "ref": "es_de_hablar_situaciones"
               }
             ]
           },

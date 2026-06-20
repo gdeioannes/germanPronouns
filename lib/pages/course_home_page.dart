@@ -17,6 +17,7 @@ import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
 import '../theme/help_memory_pdf.dart';
 import '../widgets/app_drawer.dart';
+import '../widgets/completion_ribbon.dart';
 import '../widgets/noun_progression_quiz_loader.dart';
 import '../widgets/quest_quiz_loader.dart';
 import 'auth_gate.dart';
@@ -59,7 +60,9 @@ class _HomeQuiz {
   final QuizConfig? config;
 
   bool get isSpeak => uiKind == _UiKind.speak;
-  bool get finishable => !isSpeak && !locked;
+  // Speak quizzes have no streak goal, but they're "finished" once played
+  // through to the end, so they count toward the overview like the rest.
+  bool get finishable => !locked;
   int get laps =>
       (stats?.bestStreakAbsolute ?? 0) ~/ NounSettings.streakLapSize;
 }
@@ -145,6 +148,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
         goalLaps: _regularGoalLaps,
         summary: content.helpMemorySubtitle ?? content.helpMemoryIntro,
         stats: stats,
+        done: NounSettings.instance.isSpeakQuizCompleted(ref),
         contentRef: ref,
       );
     }
@@ -663,13 +667,19 @@ class _CourseHomePageState extends State<CourseHomePage> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Icon(
-                  quiz.locked
-                      ? Icons.lock_outline_rounded
-                      : Icons.chevron_right_rounded,
-                  size: 20,
-                  color: colorScheme.onSurfaceVariant,
-                ),
+                // Completed cards surrender this corner to the award rosette
+                // overlay, so the chevron is dropped (its width is kept so the
+                // title doesn't reflow).
+                if (quiz.done)
+                  const SizedBox(width: 20)
+                else
+                  Icon(
+                    quiz.locked
+                        ? Icons.lock_outline_rounded
+                        : Icons.chevron_right_rounded,
+                    size: 20,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
               ],
             ),
           ),
@@ -678,16 +688,18 @@ class _CourseHomePageState extends State<CourseHomePage> {
     );
 
     if (!quiz.done) return card;
-    // A clean corner "ribbon" for finished quizzes, clipped to the card's
-    // rounded corner.
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(kRadiusLarge),
-      child: Banner(
-        message: CourseSession.instance.strings.doneLabel,
-        location: BannerLocation.topEnd,
-        color: const Color(kBrandForest),
-        child: card,
-      ),
+    // A finished quiz gets a simple bookmark ribbon tucked into its top-right
+    // edge — clear of the left-aligned text. Its color marks the streak tier.
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        card,
+        Positioned(
+          top: -2,
+          right: 14,
+          child: BookmarkRibbon(color: tierColorForLaps(quiz.laps)),
+        ),
+      ],
     );
   }
 

@@ -31,6 +31,10 @@ class SettingsKeys {
   static const String completedQuestQuizzes = 'quest_completed_quizzes';
   static const String lastQuestQuizKey = 'last_quest_quiz_key';
 
+  /// `QuizContent.id`s of listen-&-repeat (audio) quizzes the learner has played
+  /// through to the end at least once. Marks them "done" on the quiz home page.
+  static const String completedSpeakQuizzes = 'speak_completed_quizzes';
+
   /// Quiz storage-key prefixes whose Help Memory panel the learner has already
   /// seen auto-opened (so it only auto-opens once per quiz).
   static const String seenHelpMemory = 'seen_help_memory';

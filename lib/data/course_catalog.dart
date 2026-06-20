@@ -53,7 +53,7 @@ final List<Course> defaultCourses = [
   Course(
     id: 'es_de',
     name: 'Español → Alemán',
-    tagline: 'Habla español, aprende alemán',
+    tagline: 'Un viaje rápido a Alemania',
     speakFlag: '🇪🇸',
     learnFlag: '🇩🇪',
     uiLang: UiLang.es,
