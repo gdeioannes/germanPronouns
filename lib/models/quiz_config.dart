@@ -225,6 +225,7 @@ class QuizConfig {
     this.sentenceHint,
     this.sentenceEnglish,
     this.helpMemoryExample,
+    this.helpMemoryExampleEnglish,
     this.contextualLayout = false,
     this.stripSentenceCue = false,
   });
@@ -374,6 +375,15 @@ class QuizConfig {
   /// without explicit per-sentence answers (article/noun template quizzes).
   final String? Function(String subjectKey, String categoryLabel)?
       helpMemoryExample;
+
+  /// When non-null, returns the English translation of the [helpMemoryExample]
+  /// for the given subject + category, with the pronoun/word filled into the
+  /// blank and wrapped in `**…**` bold markup (e.g. `Do you see **me**?`). The
+  /// Help Memory reference table shows this beneath the German example so each
+  /// cell is bilingual (German line + English line, answer bold in both). Null
+  /// for quizzes whose sentences carry no English translation.
+  final String? Function(String subjectKey, String categoryLabel)?
+      helpMemoryExampleEnglish;
 
   /// When true, the question card shows the current German sentence (with its
   /// English translation) as the prompt, instead of the default

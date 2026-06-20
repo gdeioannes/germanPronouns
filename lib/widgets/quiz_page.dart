@@ -794,16 +794,29 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       : [
                     LayoutBuilder(
                       builder: (context, constraints) {
-                        final showEnglish =
-                            widget.config.subjectEnglish != null &&
-                            NounSettings.instance.showEnglishFor(widget.config.storageKeyPrefix);
-                        final showSubtitleRow =
-                            showEnglish || _useGenderReferenceRows;
-                        final rowHeight = showSubtitleRow ? 58.0 : 48.0;
+                        // The Help Memory is a study reference, so it always
+                        // shows the English meaning next to the German when the
+                        // quiz carries one — independent of the in-quiz "Show
+                        // English" toggle (which only affects the live question).
+                        final showEnglish = widget.config.subjectEnglish != null;
                         final infoColumns = widget.config.helpMemoryInfoColumns;
                         final genderRows = _useGenderReferenceRows
                             ? _genderRowOrder
                             : null;
+                        // Bilingual reference rows: the subject column shows the
+                        // German answer over its English meaning, and each value
+                        // cell shows the German example over its English
+                        // translation (answer bold in both). Only when the quiz
+                        // carries both example forms and isn't gender-collapsed.
+                        final bilingual = genderRows == null &&
+                            widget.config.helpMemoryExample != null &&
+                            widget.config.helpMemoryExampleEnglish != null;
+                        final showSubtitleRow =
+                            showEnglish || _useGenderReferenceRows || bilingual;
+                        final rowHeight = bilingual
+                            ? 104.0
+                            : (showSubtitleRow ? 58.0 : 48.0);
+                        final cellMaxLines = bilingual ? 5 : 2;
                         final rowCount =
                             genderRows?.length ??
                             widget.config.subjectDisplays.length;
@@ -836,14 +849,28 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           Iterable<String> subtitleTexts = const [],
                         }) {
                           var widest = 0.0;
+                          // Cells may be multi-line (German over English); size
+                          // to the widest single line, not the joined string.
                           for (final t in mainTexts) {
-                            widest = max(widest, measure(t, mainStyle));
+                            for (final line in t.split('\n')) {
+                              widest = max(widest, measure(line, mainStyle));
+                            }
                           }
                           for (final t in subtitleTexts) {
-                            widest = max(widest, measure(t, subtitleStyle));
+                            for (final line in t.split('\n')) {
+                              widest = max(widest, measure(line, subtitleStyle));
+                            }
                           }
                           return widest + 24 + 8;
                         }
+
+                        // The German answer shown as the subject column's main
+                        // line in bilingual mode (e.g. "mich"), taken from the
+                        // first category's value for that row.
+                        String subjectAnswer(int index) =>
+                            widget.config.categories.isEmpty
+                            ? widget.config.subjectDisplays[index]
+                            : widget.config.categories.first.values[index];
 
                         // Pinned subject column (rows may carry a subtitle).
                         final subjectMain = <String>[
@@ -851,6 +878,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           for (int index = 0; index < rowCount; index++)
                             genderRows != null
                                 ? _genderArticles[genderRows[index]]!
+                                : bilingual
+                                ? subjectAnswer(index)
                                 : widget.config.subjectDisplays[index],
                         ];
                         final subjectSubtitles = <String>[
@@ -858,6 +887,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             for (int index = 0; index < rowCount; index++)
                               genderRows != null
                                   ? (_genderRowNames[genderRows[index]] ?? '')
+                                  : bilingual
+                                  ? widget.config.subjectDisplays[index]
                                   : (showEnglish
                                         ? widget.config.subjectEnglish![index]
                                         : ''),
@@ -877,11 +908,18 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           final subjectIndex = genderRows != null
                               ? _firstSubjectIndexForGender(genderRows[index])
                               : index;
-                          return widget.config.helpMemoryExample?.call(
+                          final german =
+                              widget.config.helpMemoryExample?.call(
                                 widget.config.subjects[subjectIndex],
                                 c.label,
                               ) ??
                               c.values[subjectIndex];
+                          if (!bilingual) return german;
+                          // Bilingual cell: German example over its English
+                          // translation (answer **bold** in both).
+                          final english = widget.config.helpMemoryExampleEnglish
+                              ?.call(widget.config.subjects[subjectIndex], c.label);
+                          return english == null ? german : '$german\n$english';
                         }
 
                         final valueColumnContents = <List<String>>[
@@ -1072,7 +1110,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           ),
                                         ),
                                         textAlign: TextAlign.center,
-                                        maxLines: 2,
+                                        maxLines: header ? 2 : cellMaxLines,
                                         overflow: TextOverflow.ellipsis,
                                       );
                                     },
@@ -1111,7 +1149,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     )
                                   else
                                     buildFixedCell(
-                                      widget.config.subjectDisplays[index],
+                                      bilingual
+                                          ? subjectAnswer(index)
+                                          : widget
+                                                .config
+                                                .subjectDisplays[index],
                                       background: index.isEven
                                           ? colorScheme.surface
                                           : colorScheme
@@ -1128,11 +1170,15 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                       .subjectGenders![index],
                                                 )
                                           : null,
-                                      subtitle: showEnglish
+                                      subtitle: bilingual
                                           ? widget
                                                 .config
-                                                .subjectEnglish![index]
-                                          : null,
+                                                .subjectDisplays[index]
+                                          : (showEnglish
+                                                ? widget
+                                                      .config
+                                                      .subjectEnglish![index]
+                                                : null),
                                     ),
                               ],
                             ),
@@ -1251,21 +1297,39 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       String text, {
       bool header = false,
       ({Color background, Color foreground})? tint,
+      String? subtitle,
     }) {
+      final main = Text(
+        text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: header ? Colors.white : tint?.foreground,
+          fontWeight: header || tint != null
+              ? FontWeight.w700
+              : FontWeight.w500,
+        ),
+      );
       return Container(
         color: tint?.background,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         alignment: Alignment.center,
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: header ? Colors.white : tint?.foreground,
-            fontWeight: header || tint != null
-                ? FontWeight.w700
-                : FontWeight.w500,
-          ),
-        ),
+        child: subtitle == null || subtitle.isEmpty
+            ? main
+            : Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  main,
+                  Text(
+                    subtitle,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: colorScheme.onSurfaceVariant,
+                      fontSize: 11,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              ),
       );
     }
 
@@ -1286,6 +1350,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 ? widget.config.subjectColumnLabel
                 : widget.config.subjectDisplays[subjectIndex],
             header: subjectIndex == null,
+            subtitle: subjectIndex == null
+                ? null
+                : widget.config.subjectEnglish?[subjectIndex],
           ),
           for (final column in table.columns)
             cell(
@@ -2504,16 +2571,49 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           (m) => m.group(1) ?? '',
         )
         .trim();
-    final displaySentence = useContextual || widget.config.stripSentenceCue
+    // A trailing "(x)" cue is redundant when "x" already appears on the card —
+    // i.e. it repeats the Case value (e.g. "(haben)" under Case "haben (to
+    // have)") or the subject (e.g. praesens' "(machen)" verb shown above).
+    // Strip it from the display in that case; genuinely informative cues (a
+    // verb not shown elsewhere, like Trennbare's "(aufstehen)") are kept.
+    bool cueRepeatsCard(String s) {
+      final match = RegExp(r'\(([^)]*)\)\s*[.!?…]*\s*$').firstMatch(s);
+      if (match == null) return false;
+      final cue = match.group(1)!.trim().toLowerCase();
+      if (cue.isEmpty) return false;
+      String head(String t) {
+        final i = t.indexOf('(');
+        return (i < 0 ? t : t.substring(0, i)).trim().toLowerCase();
+      }
+      return cue == head(currentCase) || cue == head(currentPronoun);
+    }
+    final displaySentence =
+        useContextual ||
+            widget.config.stripSentenceCue ||
+            cueRepeatsCard(_currentReferenceSentence)
         ? stripCue(_currentReferenceSentence)
         : _currentReferenceSentence;
+    // Contextual layout: the interactive line below already shows the German
+    // sentence, so the prompt card shows only its English meaning (no repeat).
+    final contextualEnglish = useContextual
+        ? (() {
+            final english =
+                widget.config.sentenceEnglish?.call(_currentReferenceSentence);
+            return english == null
+                ? null
+                : stripCue(english).replaceAll(RegExp(r'_{4,}'), '…');
+          })()
+        : null;
     final displayLabel = isPronounArticlesQuiz
         ? 'Pronouns & Articles'
         : widget.config.promptLabel;
     final displayPronounValue = isPronounArticlesQuiz
         ? 'Accusative or Dative'
         : useContextual
-        ? displaySentence.replaceAll(RegExp(r'_{4,}'), '…')
+        // Show the English meaning; fall back to the German sentence only when
+        // no translation is available.
+        ? (contextualEnglish ??
+              displaySentence.replaceAll(RegExp(r'_{4,}'), '…'))
         : currentPronoun;
     final displayCaseLabel = isPronounArticlesQuiz
         ? 'Question'
@@ -2546,14 +2646,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
     final displayCaseValue = isPronounArticlesQuiz
         ? getQuestionForSentence(_currentReferenceSentence)
-        : useContextual
-        ? (() {
-            final english =
-                widget.config.sentenceEnglish?.call(_currentReferenceSentence);
-            return english == null
-                ? currentCase
-                : stripCue(english).replaceAll(RegExp(r'_{4,}'), '…');
-          })()
         : currentCase;
     final blankMatches = RegExp(r'_{4,}').allMatches(displaySentence).toList();
     final blankMatch = blankMatches.isNotEmpty ? blankMatches.first : null;
@@ -2903,7 +2995,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                   0.8,
                                               color: currentGenderColor,
                                             ),
-                                        children: currentEnglish == null
+                                        children: useContextual
+                                            ? null
+                                            : currentEnglish == null
                                             ? null
                                             : [
                                                 TextSpan(
@@ -2921,9 +3015,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                 ),
                                               ],
                                       ),
-                                      maxLines: 1,
+                                      maxLines: useContextual ? 2 : 1,
                                       overflow: TextOverflow.ellipsis,
                                     ),
+                                    // The second tier (case label + value) is
+                                    // hidden in the contextual layout: its
+                                    // English meaning is now the tier above and
+                                    // the German lives in the interactive line.
+                                    if (!useContextual) ...[
                                     const SizedBox(height: 6),
                                     Text(
                                       displayCaseLabel,
@@ -2973,6 +3072,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                       0.8,
                                             ),
                                       ),
+                                    ],
                                   ],
                                 ),
                               ),
@@ -3718,11 +3818,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           Iterable<String> subtitleTexts = const [],
                         }) {
                           var widest = 0.0;
+                          // Cells may be multi-line (German over English); size
+                          // to the widest single line, not the joined string.
                           for (final t in mainTexts) {
-                            widest = max(widest, measure(t, mainStyle));
+                            for (final line in t.split('\n')) {
+                              widest = max(widest, measure(line, mainStyle));
+                            }
                           }
                           for (final t in subtitleTexts) {
-                            widest = max(widest, measure(t, subtitleStyle));
+                            for (final line in t.split('\n')) {
+                              widest = max(widest, measure(line, subtitleStyle));
+                            }
                           }
                           return widest + 24 + 8;
                         }

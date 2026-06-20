@@ -68,7 +68,10 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
           data: [
             for (var i = 0; i < config.subjectDisplays.length; i++)
               [
-                config.subjectDisplays[i],
+                config.subjectEnglish != null &&
+                        config.subjectEnglish![i].isNotEmpty
+                    ? '${config.subjectDisplays[i]}\n${config.subjectEnglish![i]}'
+                    : config.subjectDisplays[i],
                 for (final column in table.columns)
                   categoriesByLabel[column.categoryLabel]!.values[i],
               ],
@@ -98,10 +101,18 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
   }
 
   // Default single-table layout covering every category (plus info columns).
-  final showEnglish = config.subjectEnglish != null &&
-      NounSettings.instance.showEnglishFor(config.storageKeyPrefix);
+  // The Help Memory is a study reference, so it always shows the English
+  // meaning next to the German when the quiz carries one — independent of the
+  // in-quiz "Show English" toggle.
+  final showEnglish = config.subjectEnglish != null;
   final genderRows = _useGenderRows(config) ? kGenderRowOrder : null;
   final rowCount = genderRows?.length ?? config.subjectDisplays.length;
+  // Bilingual rows (German over English, answer bold in both) — mirrors the
+  // on-screen Help Memory table. Only when the quiz carries both example forms
+  // and isn't gender-collapsed.
+  final bilingual = genderRows == null &&
+      config.helpMemoryExample != null &&
+      config.helpMemoryExampleEnglish != null;
   final infoColumns = config.helpMemoryInfoColumns;
   final headers = [
     config.subjectColumnLabel,
@@ -130,6 +141,31 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
         ...infoColumns.map((_) => ''),
       ]);
       rowColors.add(rowColor(gender));
+    } else if (bilingual) {
+      final answer = config.categories.isEmpty
+          ? config.subjectDisplays[index]
+          : config.categories.first.values[index];
+      rows.add([
+        '$answer\n${config.subjectDisplays[index]}',
+        ...config.categories.map((c) {
+          final german =
+              config.helpMemoryExample?.call(config.subjects[index], c.label) ??
+              c.values[index];
+          final english = config.helpMemoryExampleEnglish?.call(
+            config.subjects[index],
+            c.label,
+          );
+          return english == null ? german : '$german\n$english';
+        }),
+        ...infoColumns.map((c) => c.values[index]),
+      ]);
+      rowColors.add(
+        rowColor(
+          config.subjectGenders != null
+              ? config.subjectGenders![index]
+              : null,
+        ),
+      );
     } else {
       var label = config.subjectDisplays[index];
       if (showEnglish) {
