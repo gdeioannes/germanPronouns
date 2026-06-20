@@ -185,12 +185,12 @@ class _AppDrawerState extends State<AppDrawer> {
           borderRadius: BorderRadius.circular(kRadiusLarge),
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
             child: Row(
               children: [
                 Container(
                   width: 3,
-                  height: 28,
+                  height: 24,
                   decoration: BoxDecoration(
                     color: selected ? colorScheme.primary : Colors.transparent,
                     borderRadius: BorderRadius.circular(2),
@@ -211,8 +211,8 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   const SizedBox(width: 8),
                 ],
-                IconBadge(icon: icon, color: badgeColor, size: 36),
-                const SizedBox(width: 16),
+                IconBadge(icon: icon, color: badgeColor, size: 30),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -220,7 +220,8 @@ class _AppDrawerState extends State<AppDrawer> {
                     children: [
                       Text(
                         title,
-                        style: textTheme.bodyLarge?.copyWith(
+                        style: textTheme.bodyMedium?.copyWith(
+                          height: 1.2,
                           fontWeight: selected
                               ? FontWeight.w700
                               : FontWeight.w500,
@@ -255,13 +256,13 @@ class _AppDrawerState extends State<AppDrawer> {
     final streaks = bestStreakAbsolute ~/ NounSettings.streakLapSize;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 2),
+      padding: const EdgeInsets.only(top: 1),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             Icons.star_rounded,
-            size: 13,
+            size: 12,
             color: colorScheme.onSurfaceVariant,
           ),
           const SizedBox(width: 3),
@@ -269,7 +270,7 @@ class _AppDrawerState extends State<AppDrawer> {
           const SizedBox(width: 12),
           Icon(
             Icons.bolt_rounded,
-            size: 13,
+            size: 12,
             color: colorScheme.onSurfaceVariant,
           ),
           const SizedBox(width: 3),

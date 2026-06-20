@@ -36,6 +36,7 @@ class AppStrings {
     required this.doneLabel,
     required this.home,
     required this.quizzesFinished,
+    required this.nextExercise,
   });
 
   final String chooseCourse;
@@ -67,6 +68,7 @@ class AppStrings {
   final String doneLabel;
   final String home;
   final String quizzesFinished;
+  final String nextExercise;
 }
 
 const AppStrings _en = AppStrings(
@@ -101,6 +103,7 @@ const AppStrings _en = AppStrings(
   doneLabel: 'Done',
   home: 'Home',
   quizzesFinished: 'quizzes finished',
+  nextExercise: 'Next exercise',
 );
 
 const AppStrings _es = AppStrings(
@@ -135,6 +138,7 @@ const AppStrings _es = AppStrings(
   doneLabel: 'Hecho',
   home: 'Inicio',
   quizzesFinished: 'quizzes completados',
+  nextExercise: 'Siguiente ejercicio',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

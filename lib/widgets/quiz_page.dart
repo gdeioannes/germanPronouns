@@ -23,11 +23,13 @@ import '../models/quiz_stats_keys.dart';
 import '../pages/auth_gate.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
+import '../theme/brand_palette.dart';
 import '../theme/help_memory_pdf.dart';
 import '../theme/pdf_theme.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
 import 'help_memory.dart';
+import 'next_exercise.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key, required this.config});
@@ -103,6 +105,15 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   String _currentReferenceSentence = '';
   String _currentReferenceExplanation = '';
   bool _showFireworks = false;
+
+  /// The exercise to advance to from the "Next exercise" button, resolved once
+  /// from the course navigation / progression chain. Null when this is the last
+  /// exercise in its sequence (the button is then hidden).
+  NextExercise? _nextExercise;
+
+  /// True once the learner has completed at least one full streak lap this
+  /// session, which reveals the "Next exercise" button below the quiz.
+  bool _streakReached = false;
   late final AnimationController _fireworksController;
   List<FireworkParticle> _fireworkParticles = const [];
 
@@ -169,6 +180,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _nextQuestion();
     _loadStoredStats();
     _requestAnswerFocus();
+    resolveNextExerciseForConfig(widget.config).then((next) {
+      if (mounted && next != null) setState(() => _nextExercise = next);
+    });
     // The first time this quiz is opened, show the Help Memory as a floating
     // panel on top so the learner meets the reference material once; the
     // accordion below remains available for later.
@@ -1615,6 +1629,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         _streakAbsolute++;
         final multiplier = _streakLap + 1;
         lapCompleted = _streakAbsolute % _maxStreak == 0;
+        // A completed lap is "a streak achieved": keep the Next exercise button
+        // visible from here on so the learner can move on whenever they like.
+        if (lapCompleted) _streakReached = true;
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
         if (_streakAbsolute > _bestStreakAbsolute) {
           _bestStreakAbsolute = _streakAbsolute;
@@ -2365,6 +2382,60 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 620),
         child: child,
+      ),
+    );
+  }
+
+  /// Whether to show the "Next exercise" button below the quiz. A plain quiz
+  /// surfaces it once any streak lap is hit this session; a Quest / noun-chain
+  /// quiz waits until its progression is actually completed (the next step
+  /// unlocked), so the button never lets a learner skip the chain's gating.
+  bool get _canShowNextExercise {
+    if (_nextExercise == null) return false;
+    final key = widget.config.progressionKey;
+    if (key != null) {
+      return widget.config.questProgression
+          ? NounSettings.instance.isQuestQuizCompleted(key)
+          : NounSettings.instance.isNounCategoryCompleted(key);
+    }
+    return _streakReached;
+  }
+
+  /// A full-width "Next exercise" call-to-action, shown below the quiz once a
+  /// streak is achieved, that advances to [next].
+  Widget _buildNextExerciseButton(BuildContext context, NextExercise next) {
+    final textTheme = Theme.of(context).textTheme;
+    return SizedBox(
+      width: double.infinity,
+      child: FilledButton.icon(
+        onPressed: () => next.open(context),
+        style: FilledButton.styleFrom(
+          backgroundColor: const Color(kBrandForest),
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 18),
+        ),
+        icon: const Icon(Icons.arrow_forward_rounded),
+        label: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              CourseSession.instance.strings.nextExercise,
+              style: textTheme.titleSmall?.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Text(
+              next.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: textTheme.bodySmall?.copyWith(
+                color: Colors.white.withValues(alpha: 0.85),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -3408,6 +3479,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 ],
               ),
             ),
+            if (_canShowNextExercise) ...[
+              const SizedBox(height: 16),
+              _sectionWithMaxWidth(
+                _buildNextExerciseButton(context, _nextExercise!),
+              ),
+            ],
             const SizedBox(height: 16),
             _sectionWithMaxWidth(
               Card(

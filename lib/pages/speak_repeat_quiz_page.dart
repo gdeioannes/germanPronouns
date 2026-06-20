@@ -11,6 +11,7 @@ import '../theme/app_theme.dart';
 import '../utils/speech_match.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/help_memory.dart';
+import '../widgets/next_exercise.dart';
 
 /// One phrase to practice: the German text read aloud and repeated, plus its
 /// Spanish meaning shown underneath.
@@ -79,6 +80,10 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
 
   bool _finished = false;
 
+  /// The exercise to advance to from the "Next exercise" button shown on the
+  /// finished screen. Null when this is the last quiz in the course's nav.
+  NextExercise? _nextExercise;
+
   /// Whether each phrase auto-plays (after a ~1s pause) when its card appears.
   /// Toggleable from the quiz box; manual playback (button or tile tap) always
   /// works regardless.
@@ -133,6 +138,9 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   void initState() {
     super.initState();
     _initEngines();
+    resolveNextExerciseForContent(widget.content.id).then((next) {
+      if (mounted && next != null) setState(() => _nextExercise = next);
+    });
   }
 
   Future<void> _initEngines() async {
@@ -909,6 +917,47 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
               onPressed: _restart,
               icon: const Icon(Icons.replay_rounded),
               label: const Text('Repetir de nuevo'),
+            ),
+            if (_nextExercise != null) ...[
+              const SizedBox(height: 12),
+              _buildNextExerciseButton(context, _nextExercise!),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// A full-width "Next exercise" call-to-action shown on the finished screen,
+  /// advancing to [next].
+  Widget _buildNextExerciseButton(BuildContext context, NextExercise next) {
+    final theme = Theme.of(context);
+    return SizedBox(
+      width: double.infinity,
+      child: FilledButton.icon(
+        onPressed: () => next.open(context),
+        style: FilledButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 18),
+        ),
+        icon: const Icon(Icons.arrow_forward_rounded),
+        label: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              CourseSession.instance.strings.nextExercise,
+              style: theme.textTheme.titleSmall?.copyWith(
+                color: theme.colorScheme.onPrimary,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Text(
+              next.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onPrimary.withValues(alpha: 0.85),
+              ),
             ),
           ],
         ),

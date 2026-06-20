@@ -239,10 +239,167 @@ final QuizContent esDeHablarSituaciones = speakRepeatQuiz(
   ],
 );
 
+/// Listen & repeat: say the accommodation phrases aloud.
+final QuizContent esDeHablarAlojamiento = speakRepeatQuiz(
+  id: 'es_de_hablar_alojamiento',
+  title: 'Hablar: alojamiento',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Haz el check-in y resuelve problemas de la habitación en voz alta. Son '
+      'frases que dirás en la recepción nada más llegar.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "ü" de "Frühstück"',
+      text: '"Frühstück" (desayuno) lleva dos "ü". Redondea los labios: '
+          '"frü-shtük".',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Check-in',
+      text: '"Ich möchte einchecken" suena "ish möshte áin-tsheken". Dilo con '
+          'calma en la recepción.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Tengo una reserva', answer: 'Ich habe eine Reservierung'),
+    CourseItem(prompt: 'Quisiera hacer el check-in', answer: 'Ich möchte einchecken'),
+    CourseItem(prompt: 'Una habitación individual', answer: 'Ein Einzelzimmer'),
+    CourseItem(prompt: 'Una habitación doble', answer: 'Ein Doppelzimmer'),
+    CourseItem(prompt: 'Para tres noches', answer: 'Für drei Nächte'),
+    CourseItem(
+      prompt: '¿Está incluido el desayuno?',
+      answer: 'Ist das Frühstück inklusive?',
+    ),
+    CourseItem(prompt: 'La llave, por favor', answer: 'Den Schlüssel, bitte'),
+    CourseItem(prompt: '¿Dónde está el ascensor?', answer: 'Wo ist der Aufzug?'),
+    CourseItem(prompt: '¿Tienen wifi?', answer: 'Haben Sie WLAN?'),
+  ],
+);
+
+/// Listen & repeat: say the emergency and health phrases aloud.
+final QuizContent esDeHablarEmergencias = speakRepeatQuiz(
+  id: 'es_de_hablar_emergencias',
+  title: 'Hablar: emergencias',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Practica en voz alta las frases que pueden ser vitales. En una urgencia '
+      'tienen que salir fuertes y claras, sin dudar.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Fuerte y claro',
+      text: '"Hilfe!" (¡ayuda!) y "Notfall" (emergencia) deben oírse nítidos. '
+          'Repítelos hasta que suenen seguros.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "z" de "Arzt"',
+      text: '"Arzt" (médico) suena "artst", con la "z" como "ts". Practica "Ich '
+          'brauche einen Arzt".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '¡Ayuda!', answer: 'Hilfe!'),
+    CourseItem(prompt: 'Es una emergencia', answer: 'Es ist ein Notfall'),
+    CourseItem(prompt: 'Llame a una ambulancia', answer: 'Rufen Sie einen Krankenwagen'),
+    CourseItem(prompt: 'Necesito un médico', answer: 'Ich brauche einen Arzt'),
+    CourseItem(prompt: 'Me encuentro mal', answer: 'Mir geht es schlecht'),
+    CourseItem(prompt: 'Me duele aquí', answer: 'Es tut hier weh'),
+    CourseItem(prompt: '¿Dónde está la farmacia?', answer: 'Wo ist die Apotheke?'),
+    CourseItem(prompt: 'He perdido mi pasaporte', answer: 'Ich habe meinen Pass verloren'),
+    CourseItem(prompt: '¿Dónde está el hospital?', answer: 'Wo ist das Krankenhaus?'),
+  ],
+);
+
+/// Listen & repeat: say the days, times and appointment phrases aloud.
+final QuizContent esDeHablarFechas = speakRepeatQuiz(
+  id: 'es_de_hablar_fechas',
+  title: 'Hablar: días y horas',
+  promptLabel: 'Palabra',
+  subjectsLabel: 'Palabras',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Di en voz alta los días y las horas. Te sirven para reservas, horarios y '
+      'quedar con alguien.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Los días en "-tag"',
+      text: 'Casi todos los días terminan en "-tag" ("taag"), con "a" larga: '
+          'Montag, Freitag, Samstag.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La hora',
+      text: '"Wie spät ist es?" (¿qué hora es?) suena "vii shpeet ist es". La '
+          '"sp" se dice "shp".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Hoy', answer: 'heute'),
+    CourseItem(prompt: 'Mañana (el día siguiente)', answer: 'morgen'),
+    CourseItem(prompt: 'Lunes', answer: 'Montag'),
+    CourseItem(prompt: 'Viernes', answer: 'Freitag'),
+    CourseItem(prompt: 'Sábado', answer: 'Samstag'),
+    CourseItem(prompt: 'Domingo', answer: 'Sonntag'),
+    CourseItem(prompt: '¿Qué hora es?', answer: 'Wie spät ist es?'),
+    CourseItem(prompt: '¿A qué hora?', answer: 'Um wie viel Uhr?'),
+    CourseItem(prompt: 'A las tres', answer: 'um drei'),
+    CourseItem(prompt: '¿Cuándo abre?', answer: 'Wann öffnet es?'),
+  ],
+);
+
+/// Listen & repeat: say the small-talk and culture phrases aloud.
+final QuizContent esDeHablarCharla = speakRepeatQuiz(
+  id: 'es_de_hablar_charla',
+  title: 'Hablar: charla',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Rompe el hielo en voz alta: de dónde eres, buenos deseos y fórmulas de '
+      'cortesía para el día a día.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Buenos deseos',
+      text: '"Viel Glück!" (¡buena suerte!) y "Gute Besserung!" (¡que te '
+          'mejores!) caen muy bien. Dilos con energía.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "w" de "Woher"',
+      text: '"Woher kommst du?" (¿de dónde eres?) suena "vo-héer". La "w" '
+          'alemana se dice como "v".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '¿De dónde eres?', answer: 'Woher kommst du?'),
+    CourseItem(prompt: 'Soy de…', answer: 'Ich komme aus …'),
+    CourseItem(prompt: '¿Hablas español?', answer: 'Sprichst du Spanisch?'),
+    CourseItem(prompt: 'Encantado', answer: 'Sehr erfreut'),
+    CourseItem(prompt: '¡Buen provecho!', answer: 'Guten Appetit!'),
+    CourseItem(prompt: '¡Feliz cumpleaños!', answer: 'Alles Gute zum Geburtstag'),
+    CourseItem(prompt: '¡Buena suerte!', answer: 'Viel Glück!'),
+    CourseItem(prompt: '¡Que te mejores!', answer: 'Gute Besserung!'),
+    CourseItem(prompt: 'Lo siento', answer: 'Es tut mir leid'),
+    CourseItem(prompt: 'No hay problema', answer: 'Kein Problem'),
+  ],
+);
+
 final List<QuizContent> esDeNivel3 = [
   esDeHablarSituaciones,
   esDeAlojamiento,
+  esDeHablarAlojamiento,
   esDeEmergencias,
+  esDeHablarEmergencias,
   esDeFechas,
+  esDeHablarFechas,
   esDeCultura,
+  esDeHablarCharla,
 ];

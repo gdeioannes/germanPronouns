@@ -205,9 +205,128 @@ final QuizContent esDeHablarCiudad = speakRepeatQuiz(
   ],
 );
 
+/// Listen & repeat: say the restaurant phrases aloud.
+final QuizContent esDeHablarRestaurante = speakRepeatQuiz(
+  id: 'es_de_hablar_restaurante',
+  title: 'Hablar: restaurante',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Pide mesa, comida, bebida y la cuenta en voz alta. Practica hasta que '
+      'puedas pedir sin pensarlo.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "ei" de "Ein Bier"',
+      text: '"ein" se dice "áin" y "Bier" como "bíia". Repite "Ein Bier, bitte" '
+          'con ritmo.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Al pagar',
+      text: '"Die Rechnung, bitte" (la cuenta). Di "Prost!" al brindar, con la '
+          '"o" bien abierta.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'La carta, por favor', answer: 'Die Speisekarte, bitte'),
+    CourseItem(prompt: 'Una mesa para dos', answer: 'Einen Tisch für zwei'),
+    CourseItem(prompt: 'Quisiera…', answer: 'Ich hätte gern …'),
+    CourseItem(prompt: 'Un café, por favor', answer: 'Einen Kaffee, bitte'),
+    CourseItem(prompt: 'Una cerveza', answer: 'Ein Bier'),
+    CourseItem(prompt: 'La cuenta, por favor', answer: 'Die Rechnung, bitte'),
+    CourseItem(prompt: 'Estaba delicioso', answer: 'Es war lecker'),
+    CourseItem(prompt: 'Para llevar', answer: 'Zum Mitnehmen'),
+    CourseItem(prompt: '¡Salud! (brindis)', answer: 'Prost!'),
+  ],
+);
+
+/// Listen & repeat: say the directions and transport phrases aloud.
+final QuizContent esDeHablarDirecciones = speakRepeatQuiz(
+  id: 'es_de_hablar_direcciones',
+  title: 'Hablar: direcciones',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Pregunta el camino y compra boletos en voz alta. Son frases que dirás de '
+      'pie y con prisa, así que conviene tenerlas listas.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "ch" de "rechts"',
+      text: '"rechts" lleva "ch" áspera ("réjts") y "Bahnhof" una "a" larga '
+          '("báanhof").',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Pregunta corta',
+      text: '"Wo ist…?" (¿dónde está…?) te sirve para todo: estación, andén, '
+          'parada. Dilo claro.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '¿Dónde está la estación?', answer: 'Wo ist der Bahnhof?'),
+    CourseItem(prompt: 'A la izquierda', answer: 'links'),
+    CourseItem(prompt: 'A la derecha', answer: 'rechts'),
+    CourseItem(prompt: 'Todo recto', answer: 'geradeaus'),
+    CourseItem(prompt: '¿Está lejos?', answer: 'Ist es weit?'),
+    CourseItem(
+      prompt: 'Un boleto a…, por favor',
+      answer: 'Eine Fahrkarte nach …, bitte',
+    ),
+    CourseItem(prompt: '¿Cuándo sale el tren?', answer: 'Wann fährt der Zug?'),
+    CourseItem(prompt: 'Quiero ir a…', answer: 'Ich möchte nach … fahren'),
+  ],
+);
+
+/// Listen & repeat: say the shopping phrases aloud.
+final QuizContent esDeHablarCompras = speakRepeatQuiz(
+  id: 'es_de_hablar_compras',
+  title: 'Hablar: compras',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Pregunta precios, paga y pide una bolsa en voz alta. Practica para no '
+      'trabarte en la caja.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'La pregunta clave',
+      text: '"Was kostet das?" (¿cuánto cuesta?) es la que más usarás. Que salga '
+          'redonda.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "ü" de "Tüte"',
+      text: 'La "ü" se dice con los labios redondeados, entre "u" e "i". '
+          'Practica "Eine Tüte, bitte".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '¿Cuánto cuesta?', answer: 'Was kostet das?'),
+    CourseItem(prompt: '¿Tienen…?', answer: 'Haben Sie …?'),
+    CourseItem(prompt: 'Solo estoy mirando', answer: 'Ich schaue nur'),
+    CourseItem(
+      prompt: '¿Puedo pagar con tarjeta?',
+      answer: 'Kann ich mit Karte zahlen?',
+    ),
+    CourseItem(prompt: 'En efectivo', answer: 'in bar'),
+    CourseItem(prompt: 'Es demasiado caro', answer: 'Das ist zu teuer'),
+    CourseItem(prompt: 'Me lo llevo', answer: 'Ich nehme es'),
+    CourseItem(prompt: 'Una bolsa, por favor', answer: 'Eine Tüte, bitte'),
+    CourseItem(prompt: '¿Dónde está la caja?', answer: 'Wo ist die Kasse?'),
+  ],
+);
+
 final List<QuizContent> esDeNivel2 = [
   esDeHablarCiudad,
   esDeRestaurante,
+  esDeHablarRestaurante,
   esDeDirecciones,
+  esDeHablarDirecciones,
   esDeCompras,
+  esDeHablarCompras,
 ];

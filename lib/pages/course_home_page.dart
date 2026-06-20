@@ -298,7 +298,21 @@ class _CourseHomePageState extends State<CourseHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(strings.home),
+        title: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(strings.home),
+            Text(
+              course.name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
         actions: [
           if (AppSession.instance.role == UserRole.learner)
             IconButton(

@@ -207,9 +207,126 @@ final QuizContent esDeHablarBasico = speakRepeatQuiz(
   ],
 );
 
+/// Listen & repeat: say the greetings and courtesy formulas aloud.
+final QuizContent esDeHablarSaludos = speakRepeatQuiz(
+  id: 'es_de_hablar_saludos',
+  title: 'Hablar: saludos',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Di en voz alta los saludos y las fórmulas de cortesía. Son lo primero '
+      'que usarás al llegar, así que conviene que te salgan solas.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Suena educado',
+      text: 'Un "Hallo" o "Danke" con una sonrisa abre puertas. Alarga un poco '
+          'el saludo: "Guten Taag".',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "sch" y la "ü"',
+      text: '"Tschüss" empieza con "ch" fuerte ("chüss") y "schön" lleva "ö". '
+          'Repite "Danke schön" hasta que fluya.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'Hola', answer: 'Hallo'),
+    CourseItem(prompt: 'Buenos días', answer: 'Guten Morgen'),
+    CourseItem(prompt: 'Por favor', answer: 'Bitte'),
+    CourseItem(prompt: 'Gracias', answer: 'Danke'),
+    CourseItem(prompt: 'Muchas gracias', answer: 'Danke schön'),
+    CourseItem(prompt: 'De nada', answer: 'Bitte'),
+    CourseItem(prompt: 'Perdón / Disculpe', answer: 'Entschuldigung'),
+    CourseItem(prompt: '¿Cómo está usted?', answer: 'Wie geht es Ihnen?'),
+    CourseItem(prompt: 'Me llamo…', answer: 'Ich heiße …'),
+    CourseItem(prompt: 'Mucho gusto', answer: 'Freut mich'),
+  ],
+);
+
+/// Listen & repeat: say the numbers and prices aloud.
+final QuizContent esDeHablarNumeros = speakRepeatQuiz(
+  id: 'es_de_hablar_numeros',
+  title: 'Hablar: números',
+  promptLabel: 'Número',
+  subjectsLabel: 'Números',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Escucha y repite los números. Saber decirlos te ayuda con precios, '
+      'andenes y números de habitación.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "z" y la "ei"',
+      text: '"zwei" suena "tsvái" y "zwanzig" "tsván-tsij". La "z" alemana es '
+          'siempre "ts".',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Precios con coma',
+      text: '"3,50 €" se dice "drei Euro fünfzig": primero los euros, luego los '
+          'céntimos.',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '1', answer: 'eins'),
+    CourseItem(prompt: '2', answer: 'zwei'),
+    CourseItem(prompt: '3', answer: 'drei'),
+    CourseItem(prompt: '4', answer: 'vier'),
+    CourseItem(prompt: '5', answer: 'fünf'),
+    CourseItem(prompt: '6', answer: 'sechs'),
+    CourseItem(prompt: '7', answer: 'sieben'),
+    CourseItem(prompt: '8', answer: 'acht'),
+    CourseItem(prompt: '10', answer: 'zehn'),
+    CourseItem(prompt: '20', answer: 'zwanzig'),
+    CourseItem(prompt: '3,50 € (precio)', answer: 'drei Euro fünfzig'),
+  ],
+);
+
+/// Listen & repeat: say the survival phrases aloud.
+final QuizContent esDeHablarSupervivencia = speakRepeatQuiz(
+  id: 'es_de_hablar_supervivencia',
+  title: 'Hablar: supervivencia',
+  promptLabel: 'Frase',
+  subjectsLabel: 'Frases',
+  subjectColumnLabel: 'Alemán',
+  intro:
+      'Repite las frases que te sacan de un apuro: pedir ayuda, decir que no '
+      'entiendes o pedir que te hablen más despacio.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Vocaliza',
+      text: '"Langsamer, bitte" (más despacio) pierde sentido si la dices '
+          'rápido. Pronuncia cada sílaba con calma.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'La "v" y la "w"',
+      text: '"verstehe" suena con "f" ("fer-shtée-e") y "WLAN" se dice "ve-lan". '
+          'Practica "Ich verstehe nicht".',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: 'No entiendo', answer: 'Ich verstehe nicht'),
+    CourseItem(prompt: '¿Habla inglés?', answer: 'Sprechen Sie Englisch?'),
+    CourseItem(prompt: 'No hablo alemán', answer: 'Ich spreche kein Deutsch'),
+    CourseItem(prompt: '¿Dónde está el baño?', answer: 'Wo ist die Toilette?'),
+    CourseItem(prompt: '¿Puede ayudarme?', answer: 'Können Sie mir helfen?'),
+    CourseItem(prompt: 'Más despacio, por favor', answer: 'Langsamer, bitte'),
+    CourseItem(prompt: 'No sé', answer: 'Ich weiß nicht'),
+    CourseItem(prompt: 'Estoy perdido', answer: 'Ich habe mich verlaufen'),
+    CourseItem(prompt: '¿Tiene wifi?', answer: 'Haben Sie WLAN?'),
+  ],
+);
+
 final List<QuizContent> esDeNivel1 = [
   esDeHablarBasico,
   esDeSaludos,
+  esDeHablarSaludos,
   esDeNumeros,
+  esDeHablarNumeros,
   esDeSupervivencia,
+  esDeHablarSupervivencia,
 ];
