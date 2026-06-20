@@ -33,7 +33,11 @@ void main() {
     ]);
 
     final links = groups.firstWhere((g) => g.type == NavGroupType.links);
-    expect(links.items.map((i) => i.ref), [kWordLibraryRef, kSettingsRef]);
+    expect(links.items.map((i) => i.ref), [
+      kWordLibraryRef,
+      kSettingsRef,
+      kCoursesRef,
+    ]);
   });
 
   test('NavItem overrides survive JSON; defaults stay sparse', () {

@@ -1,5 +1,6 @@
 import '../models/quiz_content.dart';
 import 'article_content.dart';
+import 'courses/es_de/es_de_content.dart';
 import 'noun_article_content.dart';
 import 'preposition_content.dart';
 import 'pronoun_article_content.dart';
@@ -17,4 +18,6 @@ final List<QuizContent> allQuizContent = [
   prepositionQuizContent,
   // Quest (CEFR A-level) quizzes — one ordered, streak-unlocked chain.
   ...questQuizContent,
+  // Español → Alemán travel course quizzes.
+  ...esDeContent,
 ];

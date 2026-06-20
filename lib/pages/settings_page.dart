@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
+import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../widgets/app_drawer.dart';
 
@@ -231,7 +232,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(CourseSession.instance.strings.settings)),
       drawer: const AppDrawer(currentPage: AppPage.settings),
       body: SafeArea(
         child: ListView(

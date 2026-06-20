@@ -16,6 +16,7 @@ import '../data/noun_progression_data.dart';
 import '../data/pronoun_article_sentences.dart';
 import '../data/quest_data.dart';
 import '../models/app_session.dart';
+import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_stats_keys.dart';
@@ -710,13 +711,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Help Memory',
+                              CourseSession.instance.strings.helpMemory,
                               style: textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
                             Text(
-                              'A quick reference — reopen it anytime below.',
+                              CourseSession.instance.strings.helpPanelSubtitle,
                               style: textTheme.bodySmall?.copyWith(
                                 color: colorScheme.onSurfaceVariant,
                               ),
@@ -725,7 +726,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         ),
                       ),
                       IconButton(
-                        tooltip: 'Close',
+                        tooltip: CourseSession.instance.strings.close,
                         icon: const Icon(Icons.close_rounded),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
@@ -759,8 +760,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              'Keep this in your pocket: save it as a PDF and '
-                              'glance back whenever a question trips you up.',
+                              CourseSession.instance.strings.helpPanelTagline,
                               style: textTheme.bodySmall?.copyWith(
                                 color: colorScheme.onSurfaceVariant,
                               ),
@@ -774,7 +774,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         child: FilledButton.icon(
                           onPressed: _exportHelpMemoryPdf,
                           icon: const Icon(Icons.picture_as_pdf_rounded),
-                          label: const Text('Save as PDF'),
+                          label: Text(CourseSession.instance.strings.saveAsPdf),
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -782,7 +782,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         width: double.infinity,
                         child: TextButton(
                           onPressed: () => Navigator.of(context).pop(),
-                          child: const Text('Got it'),
+                          child: Text(CourseSession.instance.strings.gotIt),
                         ),
                       ),
                     ],
@@ -1316,7 +1316,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     final pdfTips = [
       if (helpTips.isNotEmpty) ...[
         pw.SizedBox(height: 6),
-        pdf.section('Tips & rules'),
+        pdf.section(CourseSession.instance.strings.tipsAndRules),
         for (final t in helpTips)
           pdf.tip(kind: t.kind, title: t.title, text: t.text),
       ],
@@ -1333,7 +1333,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           margin: const pw.EdgeInsets.all(28),
           footer: pdf.footer,
           build: (context) => [
-            pdf.brandHeader(widget.config.title, subtitle: 'Help Memory'),
+            pdf.brandHeader(
+              widget.config.title,
+              subtitle: CourseSession.instance.strings.helpMemory,
+            ),
             if (helpIntro != null) pdf.intro(helpIntro),
             for (final table in widget.config.helpMemoryTables!) ...[
               pdf.section(table.title),
@@ -1457,7 +1460,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           margin: const pw.EdgeInsets.all(28),
           footer: pdf.footer,
           build: (context) => [
-            pdf.brandHeader(widget.config.title, subtitle: 'Help Memory'),
+            pdf.brandHeader(
+              widget.config.title,
+              subtitle: CourseSession.instance.strings.helpMemory,
+            ),
             pdf.table(
               headers: headers,
               data: rows,
@@ -2278,7 +2284,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: _infoDialogTitle(dialogContext, 'Sentence Info'),
+          title: _infoDialogTitle(
+            dialogContext,
+            CourseSession.instance.strings.sentenceInfo,
+          ),
           content: SingleChildScrollView(
             child: SelectableText.rich(
               TextSpan(
@@ -2601,7 +2610,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           // be); the reset itself now lives in the Settings panel below.
           if (AppSession.instance.role == UserRole.learner)
             IconButton(
-              tooltip: 'Log out',
+              tooltip: CourseSession.instance.strings.logOut,
               onPressed: () => signOutToLogin(context),
               icon: const Icon(Icons.logout_rounded),
             ),
@@ -2817,7 +2826,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                               ),
                                               const SizedBox(width: 4),
                                               Text(
-                                                'Best ×$_bestStreakLap',
+                                                '${CourseSession.instance.strings.best} ×$_bestStreakLap',
                                                 style:
                                                     (isCompact
                                                             ? quizTextTheme
@@ -3527,13 +3536,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     children: [
                       Expanded(
                         child: Text(
-                          'Help Memory',
+                          CourseSession.instance.strings.helpMemory,
                           style: Theme.of(context).textTheme.titleMedium
                               ?.copyWith(fontWeight: FontWeight.w700),
                         ),
                       ),
                       IconButton(
-                        tooltip: 'Save as PDF',
+                        tooltip: CourseSession.instance.strings.saveAsPdf,
                         icon: const Icon(Icons.picture_as_pdf_rounded),
                         onPressed: _exportHelpMemoryPdf,
                       ),
@@ -3561,7 +3570,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
                   title: Text(
-                    'History',
+                    CourseSession.instance.strings.history,
                     style: Theme.of(
                       context,
                     ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
@@ -3632,7 +3641,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
                   title: Text(
-                    'Analytics',
+                    CourseSession.instance.strings.analytics,
                     style: Theme.of(
                       context,
                     ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
@@ -4031,7 +4040,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 clipBehavior: Clip.antiAlias,
                 child: ExpansionTile(
                   title: Text(
-                    'Settings',
+                    CourseSession.instance.strings.settings,
                     style: Theme.of(
                       context,
                     ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
@@ -4207,7 +4216,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           child: OutlinedButton.icon(
                             onPressed: _showResetConfirmationPanel,
                             icon: const Icon(Icons.restart_alt_rounded),
-                            label: const Text("Reset this quiz's progress"),
+                            label: Text(CourseSession.instance.strings.resetThisQuiz),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: colorScheme.error,
                             ),

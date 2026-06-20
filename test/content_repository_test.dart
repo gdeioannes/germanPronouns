@@ -77,22 +77,28 @@ void main() {
     expect(reloaded.data.sentence, 'EDITED ____ sentence.');
   });
 
-  test('exports quizzes and the nav layout as a JSON object', () async {
+  test('exports quizzes and courses as a JSON object', () async {
     final repo = await openSeeded();
     final decoded = jsonDecode(await repo.exportJson()) as Map<String, dynamic>;
     expect((decoded['quizzes'] as List).length, allQuizContent.length);
-    expect(decoded['nav'], isA<Map>());
+    expect(decoded['courses'], isA<List>());
   });
 
-  test('navLayout defaults, persists and reseeds', () async {
+  test('courses default, and saveNavLayout updates one course', () async {
     final repo = ContentRepository(await openDb());
-    expect((await repo.navLayout()).groups, isNotEmpty); // default
+    final courses = await repo.courses();
+    expect(courses, isNotEmpty); // default
 
-    final edited = NavLayout(groups: [
-      (await repo.navLayout()).groups.first.copyWith(title: 'EDITED'),
-    ]);
-    await repo.saveNavLayout(edited);
-    expect((await repo.navLayout()).groups.single.title, 'EDITED');
+    final first = courses.first;
+    await repo.saveNavLayout(
+      first.id,
+      NavLayout(groups: [first.nav.groups.first.copyWith(title: 'EDITED')]),
+    );
+    final reloaded = await repo.courses();
+    expect(
+      reloaded.firstWhere((c) => c.id == first.id).nav.groups.single.title,
+      'EDITED',
+    );
   });
 
   group('seedOrUpgrade', () {

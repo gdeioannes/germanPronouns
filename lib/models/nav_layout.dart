@@ -149,6 +149,7 @@ class NavLayout {
 /// Built-in link refs for `links` groups.
 const String kWordLibraryRef = 'wordLibrary';
 const String kSettingsRef = 'settings';
+const String kCoursesRef = 'courses';
 
 /// The default drawer layout — reproduces the previously-hardcoded structure,
 /// so the app looks identical until a teacher edits it. Used as the seed/
@@ -173,7 +174,11 @@ const NavLayout defaultNavLayout = NavLayout(
       id: 'more',
       title: 'MORE',
       type: NavGroupType.links,
-      items: [NavItem(ref: kWordLibraryRef), NavItem(ref: kSettingsRef)],
+      items: [
+        NavItem(ref: kWordLibraryRef),
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kCoursesRef),
+      ],
     ),
   ],
 );

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../data/course_catalog.dart';
 import '../../data/db/content_repository.dart';
 import '../../data/nav_layout_data.dart';
 import '../../data/quest_data.dart';
 import '../../data/section_catalog.dart';
+import '../../models/course.dart';
 import '../../models/nav_layout.dart';
 import '../../theme/app_theme.dart';
 
@@ -23,6 +25,8 @@ class NavigationEditorPage extends StatefulWidget {
 class _NavigationEditorPageState extends State<NavigationEditorPage> {
   List<NavGroup>? _groups;
   Map<String, QuizSummary> _quizzes = const {};
+  List<Course> _courses = const [];
+  String _courseId = kDefaultCourseId;
   bool _dirty = false;
 
   @override
@@ -31,18 +35,33 @@ class _NavigationEditorPageState extends State<NavigationEditorPage> {
     _load();
   }
 
+  Course get _currentCourse =>
+      _courses.firstWhere((c) => c.id == _courseId, orElse: () => _courses.first);
+
+  List<NavGroup> _groupsForCourse(Course course) => [
+    for (final g in course.nav.groups)
+      g.type == NavGroupType.questChain
+          ? g.copyWith(items: _mergedQuestItems(g.items))
+          : g,
+  ];
+
   Future<void> _load() async {
-    final layout = await widget.repository.navLayout();
+    final courses = await widget.repository.courses();
     final quizzes = {for (final q in await widget.repository.listQuizzes()) q.id: q};
     if (!mounted) return;
     setState(() {
-      _groups = [
-        for (final g in layout.groups)
-          g.type == NavGroupType.questChain
-              ? g.copyWith(items: _mergedQuestItems(g.items))
-              : g,
-      ];
+      _courses = courses;
+      _courseId = courses.isNotEmpty ? courses.first.id : kDefaultCourseId;
+      _groups = _groupsForCourse(_currentCourse);
       _quizzes = quizzes;
+    });
+  }
+
+  void _switchCourse(String id) {
+    setState(() {
+      _courseId = id;
+      _groups = _groupsForCourse(_currentCourse);
+      _dirty = false;
     });
   }
 
@@ -350,7 +369,7 @@ class _NavigationEditorPageState extends State<NavigationEditorPage> {
   }
 
   Future<void> _save() async {
-    await widget.repository.saveNavLayout(NavLayout(groups: _groups!));
+    await widget.repository.saveNavLayout(_courseId, NavLayout(groups: _groups!));
     if (!mounted) return;
     setState(() => _dirty = false);
     ScaffoldMessenger.of(context).showSnackBar(
@@ -384,6 +403,24 @@ class _NavigationEditorPageState extends State<NavigationEditorPage> {
           : ListView(
               padding: const EdgeInsets.all(12),
               children: [
+                if (_courses.length > 1)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: DropdownButtonFormField<String>(
+                      initialValue: _courseId,
+                      decoration: const InputDecoration(
+                        labelText: 'Course / menu',
+                        isDense: true,
+                      ),
+                      items: [
+                        for (final c in _courses)
+                          DropdownMenuItem(value: c.id, child: Text(c.name)),
+                      ],
+                      onChanged: (id) {
+                        if (id != null && id != _courseId) _switchCourse(id);
+                      },
+                    ),
+                  ),
                 for (var g = 0; g < groups.length; g++)
                   _groupCard(context, g, groups[g]),
               ],

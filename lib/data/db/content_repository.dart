@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:sembast/sembast.dart';
 
+import '../../models/course.dart';
 import '../../models/nav_layout.dart';
 import '../../models/quiz_content.dart';
+import '../course_catalog.dart';
 import '../quiz_content_library.dart';
 import 'content_database_factory.dart';
 
@@ -19,7 +21,7 @@ const String _seedAsset = 'assets/seed/quiz_content.json';
 /// re-seeded from the published content, so learners get content updates without
 /// a manual reset. Re-seeding replaces any local back-office edits with the
 /// published content; learner progress (SharedPreferences) is not affected.
-const int kSeedVersion = 5;
+const int kSeedVersion = 6;
 
 /// Lightweight summary of a quiz for the back-office list.
 class QuizSummary {
@@ -81,39 +83,54 @@ class ContentRepository {
   /// content version differs from [kSeedVersion], so shipped content updates
   /// reach existing installs automatically. (Installs predating version
   /// tracking re-seed once.) Learner progress in SharedPreferences is untouched.
-  Future<void> seedOrUpgrade(List<QuizContent> contents, {NavLayout? nav}) async {
+  Future<void> seedOrUpgrade(
+    List<QuizContent> contents, {
+    List<Course>? courses,
+  }) async {
     if (await _quizzes.count(db) == 0) {
       await _writeContents(contents);
-      if (nav != null) await saveNavLayout(nav);
+      if (courses != null) await saveCourses(courses);
       return;
     }
     if (await seededVersion() != kSeedVersion) {
-      await reseed(contents, nav: nav);
+      await reseed(contents, courses: courses);
     }
   }
 
-  /// Wipes all content and re-seeds from [contents] (and [nav] if given) — used
-  /// by the back office's "Reset to published content" action to discard local
-  /// edits.
-  Future<void> reseed(List<QuizContent> contents, {NavLayout? nav}) async {
+  /// Wipes all content and re-seeds from [contents] (and [courses] if given) —
+  /// used by the back office's "Reset to published content" action.
+  Future<void> reseed(List<QuizContent> contents, {List<Course>? courses}) async {
     await db.transaction((txn) async {
       await _quizzes.delete(txn);
       await _sentences.delete(txn);
     });
     await _writeContents(contents);
-    if (nav != null) await saveNavLayout(nav);
+    if (courses != null) await saveCourses(courses);
   }
 
-  /// The editable navigation/drawer layout, or [defaultNavLayout] if none has
-  /// been stored yet.
-  Future<NavLayout> navLayout() async {
-    final json = await _meta.record('nav').get(db);
-    if (json == null) return defaultNavLayout;
-    return NavLayout.fromJson(Map<String, dynamic>.from(json));
+  /// The editable courses (each with its own drawer layout), or
+  /// [defaultCourses] if none has been stored yet.
+  Future<List<Course>> courses() async {
+    final json = await _meta.record('courses').get(db);
+    final list = json?['list'] as List?;
+    if (list == null) return defaultCourses;
+    return [
+      for (final c in list) Course.fromJson(Map<String, dynamic>.from(c as Map)),
+    ];
   }
 
-  Future<void> saveNavLayout(NavLayout layout) =>
-      _meta.record('nav').put(db, layout.toJson());
+  Future<void> saveCourses(List<Course> courses) => _meta.record('courses').put(
+    db,
+    {'list': [for (final c in courses) c.toJson()]},
+  );
+
+  /// Replaces the navigation layout of the course with [courseId].
+  Future<void> saveNavLayout(String courseId, NavLayout nav) async {
+    final list = await courses();
+    await saveCourses([
+      for (final c in list) c.id == courseId ? c.copyWith(nav: nav) : c,
+    ]);
+  }
 
   Future<void> _writeContents(List<QuizContent> contents) async {
     await db.transaction((txn) async {
@@ -201,8 +218,8 @@ class ContentRepository {
   Future<void> deleteSentence(int key) => _sentences.record(key).delete(db);
 
   /// Serializes the whole database back to the seed JSON shape
-  /// (`{ "quizzes": [...], "nav": {...} }`), so a teacher can commit it to
-  /// `assets/` to publish both content and the drawer layout.
+  /// (`{ "quizzes": [...], "courses": [...] }`), so a teacher can commit it to
+  /// `assets/` to publish both content and the courses/menus.
   Future<String> exportJson() async {
     final records = await _quizzes.find(db);
     final contents = <Map<String, dynamic>>[];
@@ -210,27 +227,26 @@ class ContentRepository {
       final content = await quizContent(record.key);
       if (content != null) contents.add(content.toJson());
     }
-    final nav = await navLayout();
+    final courseList = await courses();
     return const JsonEncoder.withIndent('  ').convert({
       'quizzes': contents,
-      'nav': nav.toJson(),
+      'courses': [for (final c in courseList) c.toJson()],
     });
   }
 }
 
-/// Published content + drawer layout, parsed from the seed asset.
+/// Published content + courses, parsed from the seed asset.
 class PublishedContent {
-  const PublishedContent({required this.quizzes, required this.nav});
+  const PublishedContent({required this.quizzes, required this.courses});
 
   final List<QuizContent> quizzes;
-  final NavLayout nav;
+  final List<Course> courses;
 }
 
 /// The published content the database seeds from: the [_seedAsset] JSON if it
 /// is present and valid, otherwise the compiled-in [allQuizContent] +
-/// [defaultNavLayout] as a fallback (so the app still works if the asset is
-/// missing). Accepts both the new object shape
-/// (`{quizzes, nav}`) and the legacy top-level list of quizzes.
+/// [defaultCourses] as a fallback. Accepts the new `{quizzes, courses}` shape,
+/// the legacy `{quizzes, nav}` (wrapped as the default course), and a bare list.
 Future<PublishedContent> loadPublishedContent() async {
   try {
     final raw = await rootBundle.loadString(_seedAsset);
@@ -242,23 +258,34 @@ Future<PublishedContent> loadPublishedContent() async {
     ];
 
     if (decoded is List) {
-      // Legacy shape: a bare list of quizzes (no layout).
-      return PublishedContent(
-        quizzes: parseQuizzes(decoded),
-        nav: defaultNavLayout,
-      );
+      return PublishedContent(quizzes: parseQuizzes(decoded), courses: defaultCourses);
     }
     final map = Map<String, dynamic>.from(decoded as Map);
     final quizzes = parseQuizzes((map['quizzes'] as List?) ?? const []);
-    final navJson = map['nav'];
+
+    List<Course> courses;
+    if (map['courses'] is List) {
+      courses = [
+        for (final c in map['courses'] as List)
+          Course.fromJson(Map<String, dynamic>.from(c as Map)),
+      ];
+    } else if (map['nav'] is Map) {
+      // Legacy single-nav seed → apply it to the default (English) course.
+      final nav = NavLayout.fromJson(Map<String, dynamic>.from(map['nav'] as Map));
+      courses = [
+        for (final c in defaultCourses)
+          c.id == kDefaultCourseId ? c.copyWith(nav: nav) : c,
+      ];
+    } else {
+      courses = defaultCourses;
+    }
+
     return PublishedContent(
       quizzes: quizzes.isEmpty ? allQuizContent : quizzes,
-      nav: navJson == null
-          ? defaultNavLayout
-          : NavLayout.fromJson(Map<String, dynamic>.from(navJson as Map)),
+      courses: courses.isEmpty ? defaultCourses : courses,
     );
   } catch (_) {
-    return PublishedContent(quizzes: allQuizContent, nav: defaultNavLayout);
+    return PublishedContent(quizzes: allQuizContent, courses: defaultCourses);
   }
 }
 
@@ -268,7 +295,7 @@ Future<ContentRepository> openContentRepository() async {
   final db = await openContentDatabase();
   final repository = ContentRepository(db);
   final published = await loadPublishedContent();
-  await repository.seedOrUpgrade(published.quizzes, nav: published.nav);
+  await repository.seedOrUpgrade(published.quizzes, courses: published.courses);
   return repository;
 }
 

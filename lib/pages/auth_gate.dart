@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../models/app_session.dart';
+import '../models/course_session.dart';
 import 'back_office/back_office_home_page.dart';
+import 'course_selector_page.dart';
 import 'learner_home_page.dart';
 import 'login_page.dart';
 
@@ -16,7 +18,10 @@ class AuthGate extends StatefulWidget {
 }
 
 class _AuthGateState extends State<AuthGate> {
-  late final Future<void> _loaded = AppSession.instance.load();
+  late final Future<void> _loaded = Future.wait([
+    AppSession.instance.load(),
+    CourseSession.instance.load(),
+  ]);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,10 @@ class _AuthGateState extends State<AuthGate> {
               case UserRole.teacher:
                 return const BackOfficeHomePage();
               case UserRole.learner:
-                return const LearnerHomePage();
+                // First-time learners pick a language-pair course.
+                return CourseSession.instance.hasChosenCourse
+                    ? const LearnerHomePage()
+                    : const CourseSelectorPage();
               case null:
                 // A remembered teacher must re-enter the passcode, so open the
                 // login screen straight in teacher mode for them.

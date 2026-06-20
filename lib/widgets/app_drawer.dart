@@ -10,9 +10,13 @@ import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
 import '../data/section_catalog.dart';
 import '../models/app_page.dart';
+import '../models/course.dart';
+import '../models/course_session.dart';
 import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_stats_keys.dart';
+import '../pages/course_selector_page.dart';
+import '../pages/learner_home_page.dart';
 import '../pages/noun_article_quiz_page.dart';
 import '../pages/quest_quiz_page.dart';
 import '../pages/settings_page.dart';
@@ -75,15 +79,16 @@ Future<_DrawerData> _loadDrawerData() async {
   final prefs = await SharedPreferences.getInstance();
   var layout = defaultNavLayout;
   final quizzes = <String, QuizSummary>{};
+  await CourseSession.instance.loadCourses();
+  layout = CourseSession.instance.activeCourse.nav;
+  applyQuestOrderFromLayout(layout);
   try {
     final repo = await contentRepository();
-    layout = await repo.navLayout();
-    applyQuestOrderFromLayout(layout);
     for (final q in await repo.listQuizzes()) {
       quizzes[q.id] = q;
     }
   } catch (_) {
-    // Fall back to the default layout if the database is unavailable.
+    // Fall back to the (already-set) layout if the database is unavailable.
   }
   return _DrawerData(prefs, layout, quizzes);
 }
@@ -757,11 +762,34 @@ class _AppDrawerState extends State<AppDrawer> {
   /// A drawer tile for a built-in link item (Word Library / Settings).
   Widget _linkItemTile(BuildContext context, NavItem item) {
     final colorScheme = Theme.of(context).colorScheme;
+    final strings = CourseSession.instance.strings;
+
+    // "Switch course" opens the course selector (no fixed AppPage).
+    if (item.ref == kCoursesRef) {
+      return _navTile(
+        context,
+        icon: navIconFor(item.iconKey, Icons.translate_rounded),
+        badgeColor: navColorFor(item.colorIndex, colorScheme.onSurfaceVariant),
+        title: item.titleOverride ?? strings.switchCourse,
+        selected: false,
+        onTap: () {
+          Navigator.pop(context);
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(builder: (_) => const CourseSelectorPage()),
+          );
+        },
+      );
+    }
+
     final (AppPage, IconData, String) spec;
     if (item.ref == kWordLibraryRef) {
-      spec = (AppPage.wordLibrary, Icons.library_books_rounded, 'Word Library');
+      spec = (
+        AppPage.wordLibrary,
+        Icons.library_books_rounded,
+        strings.wordLibrary,
+      );
     } else if (item.ref == kSettingsRef) {
-      spec = (AppPage.settings, Icons.settings_rounded, 'Settings');
+      spec = (AppPage.settings, Icons.settings_rounded, strings.settings);
     } else {
       return const SizedBox.shrink();
     }
@@ -772,6 +800,216 @@ class _AppDrawerState extends State<AppDrawer> {
       title: item.titleOverride ?? spec.$3,
       selected: widget.currentPage == spec.$1,
       onTap: () => _navigateTo(context, spec.$1),
+    );
+  }
+
+  // ── Course switcher (drawer header) ───────────────────────────────────────
+
+  /// The drawer header, which doubles as a course switcher: it shows the
+  /// active course (logo, name, language pair, tagline) and, when more than one
+  /// course exists, opens a sheet to switch between them.
+  Widget _buildCourseHeader(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    final course = CourseSession.instance.activeCourse;
+    final multiple = CourseSession.instance.courses.length > 1;
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 16, 12, 8),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(kRadiusLarge),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(kRadiusLarge),
+          onTap: multiple ? () => _showCourseSwitcher(context) : null,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 12, 10, 12),
+            child: Row(
+              children: [
+                SvgPicture.asset(
+                  'assets/icons/QuizLogo-02.svg',
+                  width: 40,
+                  height: 40,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        course.name,
+                        style: textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Text(
+                            '${course.speakFlag} → ${course.learnFlag}',
+                            style: const TextStyle(fontSize: 13),
+                          ),
+                          const SizedBox(width: 6),
+                          Flexible(
+                            child: Text(
+                              course.tagline,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                if (multiple) ...[
+                  const SizedBox(width: 6),
+                  Icon(
+                    Icons.unfold_more_rounded,
+                    size: 20,
+                    color: colorScheme.primary,
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Opens a bottom sheet to pick a course; switches if a different one is
+  /// chosen.
+  Future<void> _showCourseSwitcher(BuildContext context) async {
+    final courses = CourseSession.instance.courses;
+    final activeId = CourseSession.instance.activeCourseId;
+    final strings = CourseSession.instance.strings;
+
+    final chosen = await showModalBottomSheet<Course>(
+      context: context,
+      showDragHandle: true,
+      constraints: const BoxConstraints(maxWidth: 480),
+      builder: (sheetContext) {
+        final colorScheme = Theme.of(sheetContext).colorScheme;
+        final textTheme = Theme.of(sheetContext).textTheme;
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.translate_rounded,
+                      size: 20,
+                      color: colorScheme.primary,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      strings.switchCourse,
+                      style: textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              for (final course in courses)
+                _courseSwitcherTile(
+                  sheetContext,
+                  course: course,
+                  active: course.id == activeId,
+                ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        );
+      },
+    );
+
+    if (!context.mounted) return;
+    if (chosen != null && chosen.id != activeId) {
+      await _switchCourse(context, chosen);
+    }
+  }
+
+  Widget _courseSwitcherTile(
+    BuildContext context, {
+    required Course course,
+    required bool active,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
+      child: Material(
+        color: active
+            ? colorScheme.primaryContainer.withValues(alpha: 0.5)
+            : colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(kRadiusLarge),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(kRadiusLarge),
+          onTap: () => Navigator.pop(context, course),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Text(
+                  '${course.speakFlag} → ${course.learnFlag}',
+                  style: const TextStyle(fontSize: 24),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        course.name,
+                        style: textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Text(
+                        course.tagline,
+                        style: textTheme.bodySmall?.copyWith(
+                          color: colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(
+                  active
+                      ? Icons.check_circle_rounded
+                      : Icons.chevron_right_rounded,
+                  color: active
+                      ? colorScheme.primary
+                      : colorScheme.onSurfaceVariant,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Activates [course] and reopens the app on its home, clearing the old
+  /// course's navigation stack.
+  Future<void> _switchCourse(BuildContext context, Course course) async {
+    await CourseSession.instance.setActiveCourse(course.id);
+    applyQuestOrderFromLayout(course.nav);
+    if (!context.mounted) return;
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute<void>(builder: (_) => const LearnerHomePage()),
+      (route) => false,
     );
   }
 
@@ -804,7 +1042,6 @@ class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
 
     return Drawer(
       backgroundColor: colorScheme.surfaceContainerLow,
@@ -819,39 +1056,7 @@ class _AppDrawerState extends State<AppDrawer> {
             return ListView(
               padding: const EdgeInsets.only(bottom: 8),
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/QuizLogo-02.svg',
-                        width: 44,
-                        height: 44,
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'German Grammar',
-                              style: textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            Text(
-                              'der · die · das',
-                              style: textTheme.bodySmall?.copyWith(
-                                color: colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                _buildCourseHeader(context),
                 for (final group in layout.groups) ...[
                   Divider(height: 1, color: colorScheme.outlineVariant),
                   _sectionLabel(context, group.title),
