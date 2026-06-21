@@ -152,6 +152,122 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
     );
   }
 
+  /// Floating panel with the translation of [question] and its options (and the
+  /// explanation, once revealed), so the quiz can stay in German while help is
+  /// one tap away.
+  void _showTranslation(BuildContext context, ReadingQuestion question) {
+    final optionsTranslation = question.optionsTranslation;
+    final explanationTranslation = question.explanationTranslation;
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) {
+        final theme = Theme.of(dialogContext);
+        return AlertDialog(
+          title: Row(
+            children: [
+              const Icon(Icons.translate_rounded, size: 20),
+              const SizedBox(width: 8),
+              Text(CourseSession.instance.strings.help),
+            ],
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  question.questionTranslation ?? question.question,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                if (optionsTranslation != null) ...[
+                  const SizedBox(height: 12),
+                  for (var o = 0; o < question.options.length; o++)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 6),
+                      child: Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: question.options[o],
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            if (o < optionsTranslation.length)
+                              TextSpan(
+                                text: '  —  ${optionsTranslation[o]}',
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ),
+                ],
+                // Only worth showing the explanation translation once the
+                // learner has submitted and the German explanation is visible.
+                if (_submitted && explanationTranslation != null) ...[
+                  const SizedBox(height: 12),
+                  Text(
+                    explanationTranslation,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: Text(CourseSession.instance.strings.close),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  /// Floating panel with the translation of the reading passage, so the passage
+  /// itself can stay in German with the translation one tap away.
+  void _showPassageTranslation(BuildContext context) {
+    final translation = widget.content.readingPassageTranslation;
+    if (translation == null) return;
+    final title = widget.content.readingTitle;
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) {
+        final theme = Theme.of(dialogContext);
+        return AlertDialog(
+          title: Row(
+            children: [
+              const Icon(Icons.translate_rounded, size: 20),
+              const SizedBox(width: 8),
+              Expanded(child: Text(title ?? CourseSession.instance.strings.help)),
+            ],
+          ),
+          content: SingleChildScrollView(
+            child: Text(
+              translation,
+              style: theme.textTheme.bodyMedium?.copyWith(height: 1.5),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: Text(CourseSession.instance.strings.close),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final strings = CourseSession.instance.strings;
@@ -253,13 +369,32 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
               ),
             ),
           const SizedBox(height: 10),
-          if (content.readingTitle != null)
-            Text(
-              content.readingTitle!,
-              style: theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w700,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: content.readingTitle != null
+                    ? Text(
+                        content.readingTitle!,
+                        style: theme.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )
+                    : const SizedBox.shrink(),
               ),
-            ),
+              // The passage stays in German; its translation lives behind this
+              // info button.
+              if (content.readingPassageTranslation != null)
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                  padding: EdgeInsets.zero,
+                  tooltip: CourseSession.instance.strings.help,
+                  icon: const Icon(Icons.translate_rounded, size: 20),
+                  onPressed: () => _showPassageTranslation(context),
+                ),
+            ],
+          ),
           const SizedBox(height: 8),
           Text(
             content.readingPassage ?? '',
@@ -302,11 +437,29 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            '${index + 1}. ${question.question}',
-            style: theme.textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.w700,
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Text(
+                  '${index + 1}. ${question.question}',
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              // The quiz stays in German; the translation of the question and
+              // its options lives behind this info button.
+              if (question.questionTranslation != null)
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                  padding: EdgeInsets.zero,
+                  tooltip: CourseSession.instance.strings.help,
+                  icon: const Icon(Icons.translate_rounded, size: 20),
+                  onPressed: () => _showTranslation(context, question),
+                ),
+            ],
           ),
           const SizedBox(height: 6),
           for (var o = 0; o < question.options.length; o++)

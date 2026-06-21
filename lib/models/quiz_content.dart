@@ -26,22 +26,45 @@ class ReadingQuestion {
     required this.options,
     required this.correctIndex,
     this.explanation,
+    this.questionTranslation,
+    this.optionsTranslation,
+    this.explanationTranslation,
   });
 
+  /// The question stem, in German (the target language).
   final String question;
+
+  /// The answer options, in German.
   final List<String> options;
 
   /// Index into [options] of the correct answer.
   final int correctIndex;
 
-  /// Optional explanation shown once the question is answered/submitted.
+  /// Optional explanation shown once the question is answered/submitted, in
+  /// German. Its [explanationTranslation] is offered behind the info button.
   final String? explanation;
+
+  /// Translation of [question] into the learner's language, shown behind the
+  /// per-question info button so the quiz itself stays in German. Null hides
+  /// the button for this question.
+  final String? questionTranslation;
+
+  /// Translations of [options], parallel to it, shown alongside the German
+  /// alternatives in the same info panel.
+  final List<String>? optionsTranslation;
+
+  /// Translation of [explanation], shown in the same info panel.
+  final String? explanationTranslation;
 
   Map<String, dynamic> toJson() => {
     'question': question,
     'options': options,
     'correctIndex': correctIndex,
     if (explanation != null) 'explanation': explanation,
+    if (questionTranslation != null) 'questionTranslation': questionTranslation,
+    if (optionsTranslation != null) 'optionsTranslation': optionsTranslation,
+    if (explanationTranslation != null)
+      'explanationTranslation': explanationTranslation,
   };
 
   factory ReadingQuestion.fromJson(Map<String, dynamic> json) => ReadingQuestion(
@@ -49,6 +72,9 @@ class ReadingQuestion {
     options: (json['options'] as List).cast<String>(),
     correctIndex: json['correctIndex'] as int,
     explanation: json['explanation'] as String?,
+    questionTranslation: json['questionTranslation'] as String?,
+    optionsTranslation: (json['optionsTranslation'] as List?)?.cast<String>(),
+    explanationTranslation: json['explanationTranslation'] as String?,
   );
 }
 
@@ -258,6 +284,7 @@ class QuizContent {
     this.readingCategory,
     this.readingTitle,
     this.readingPassage,
+    this.readingPassageTranslation,
     this.readingQuestions = const [],
     this.contextualLayout = false,
     this.stripSentenceCue = false,
@@ -322,6 +349,11 @@ class QuizContent {
   final String? readingCategory;
   final String? readingTitle;
   final String? readingPassage;
+
+  /// Translation of [readingPassage] into the learner's language, offered
+  /// behind the passage's info button so the passage itself stays in German.
+  final String? readingPassageTranslation;
+
   final List<ReadingQuestion> readingQuestions;
 
   /// When true, the quiz page shows the German sentence as the question (with
@@ -370,6 +402,8 @@ class QuizContent {
     if (readingCategory != null) 'readingCategory': readingCategory,
     if (readingTitle != null) 'readingTitle': readingTitle,
     if (readingPassage != null) 'readingPassage': readingPassage,
+    if (readingPassageTranslation != null)
+      'readingPassageTranslation': readingPassageTranslation,
     if (readingQuestions.isNotEmpty)
       'readingQuestions': [for (final q in readingQuestions) q.toJson()],
     if (contextualLayout) 'contextualLayout': true,
@@ -433,6 +467,7 @@ class QuizContent {
     readingCategory: json['readingCategory'] as String?,
     readingTitle: json['readingTitle'] as String?,
     readingPassage: json['readingPassage'] as String?,
+    readingPassageTranslation: json['readingPassageTranslation'] as String?,
     readingQuestions: [
       for (final q in (json['readingQuestions'] as List?) ?? const [])
         ReadingQuestion.fromJson(q as Map<String, dynamic>),

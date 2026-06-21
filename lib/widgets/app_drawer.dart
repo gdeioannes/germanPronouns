@@ -509,8 +509,10 @@ class _AppDrawerState extends State<AppDrawer> {
     // Speaking/reading quizzes have no streak — they show a kind label instead
     // of the score/streak line and their own icon.
     final (IconData icon, String? kindLabel) = switch (kind) {
-      QuizKind.speakRepeat => (Icons.record_voice_over_rounded, 'Listen & repeat'),
-      QuizKind.reading => (Icons.chrome_reader_mode_rounded, 'Read & answer'),
+      QuizKind.speakRepeat => (quizKindIcon(QuizKind.speakRepeat), 'Listen & repeat'),
+      QuizKind.reading => (quizKindIcon(QuizKind.reading), 'Read & answer'),
+      // Knowledge quizzes in the quest chain keep the quest flag (a milestone
+      // marker) rather than the generic question icon.
       QuizKind.fillBlank => (Icons.flag_rounded, null),
     };
 
@@ -536,7 +538,7 @@ class _AppDrawerState extends State<AppDrawer> {
     return _navTile(
       context,
       icon: icon,
-      badgeColor: kSectionAccentColors[0],
+      badgeColor: quizKindColor(kind),
       title: entry.displayName,
       selected:
           widget.currentPage == AppPage.quest &&
@@ -870,16 +872,25 @@ class _AppDrawerState extends State<AppDrawer> {
     final summary = data.quizzes[item.ref];
     final title =
         item.titleOverride ?? summary?.title ?? section?.title ?? item.ref;
-    // Listen-&-repeat (audio) quizzes get a distinct voice icon; an explicit
-    // per-item iconKey still wins.
-    final isSpeak = summary?.kind == QuizKind.speakRepeat;
-    final defaultIcon = isSpeak
-        ? Icons.record_voice_over_rounded
-        : (section?.icon ?? Icons.menu_book_rounded);
+    // Default icon per quiz kind via the shared [quizKindIcon] map, so the
+    // drawer and the course home stay in sync: reading → book, fill-in
+    // "question" quizzes → quiz card, speak → voice. A known grammar section
+    // icon still wins for fill-in; an explicit per-item iconKey wins over all.
+    final kind = summary?.kind;
+    final isSpeak = kind == QuizKind.speakRepeat;
+    final defaultIcon = switch (kind) {
+      null => section?.icon ?? Icons.menu_book_rounded,
+      QuizKind.fillBlank => section?.icon ?? quizKindIcon(QuizKind.fillBlank),
+      final k => quizKindIcon(k),
+    };
     final icon = navIconFor(item.iconKey, defaultIcon);
+    // Badge color mirrors the icon: explicit per-item colorIndex wins, then a
+    // grammar section accent, else the shared per-kind accent so the drawer
+    // tints each kind the same as the home.
     final color = navColorFor(
       item.colorIndex,
-      section?.accent ?? kSectionAccentColors[0],
+      section?.accent ??
+          (kind == null ? kSectionAccentColors[0] : quizKindColor(kind)),
     );
     final prefix = summary?.storageKeyPrefix ??
         section?.primaryQuiz.storageKeyPrefix ??

@@ -1367,6 +1367,16 @@ final QuizContent esDeLecturaPareja = readingCourseQuiz(
       'ich dir eine Nachricht.»\n\n'
       'Anna lächelte. «Danke. Das ist mir wichtig.» Sie umarmten sich, und der '
       'Abend wurde doch noch schön.',
+  passageTranslation:
+      'Anna y Tom tuvieron una noche difícil. Tom llegó tarde del trabajo a '
+      'casa, sin avisar. Anna al principio estaba enfadada, pero luego respiró '
+      'hondo.\n\n'
+      '«Tom, ¿podemos hablar un momento? No quiero discutir», dijo con calma. '
+      '«Me preocupé cuando no llamaste. Me sentí sola.»\n\n'
+      'Tom la escuchó. «Lo siento», respondió. «Tienes razón. Estaba estresado '
+      'y no pensé en ti. La próxima vez te escribiré un mensaje.»\n\n'
+      'Anna sonrió. «Gracias. Eso es importante para mí.» Se abrazaron, y la '
+      'noche acabó siendo bonita de todos modos.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
@@ -1383,8 +1393,15 @@ final QuizContent esDeLecturaPareja = readingCourseQuiz(
   ],
   questions: const [
     ReadingQuestion(
-      question: '¿Por qué estaba preocupada Anna?',
+      question: 'Warum hat sich Anna Sorgen gemacht?',
+      questionTranslation: '¿Por qué estaba preocupada Anna?',
       options: [
+        'Weil Tom spät und ohne anzurufen nach Hause kam',
+        'Weil Tom sie angeschrien hat',
+        'Weil Tom ihren Geburtstag vergessen hat',
+        'Weil Tom sich trennen wollte',
+      ],
+      optionsTranslation: [
         'Porque Tom llegó tarde sin avisar',
         'Porque Tom le gritó',
         'Porque Tom olvidó su cumpleaños',
@@ -1392,12 +1409,22 @@ final QuizContent esDeLecturaPareja = readingCourseQuiz(
       ],
       correctIndex: 0,
       explanation:
+          '«Tom kam spät … nach Hause, ohne anzurufen.» Er kam spät und ohne '
+          'anzurufen — deshalb hat sich Anna Sorgen gemacht.',
+      explanationTranslation:
           '"Tom kam spät … nach Hause, ohne anzurufen." Llegó tarde sin llamar, '
           'y por eso Anna se preocupó.',
     ),
     ReadingQuestion(
-      question: '¿Cómo reaccionó Anna al principio y qué hizo después?',
+      question: 'Wie hat Anna zuerst reagiert und was hat sie dann gemacht?',
+      questionTranslation: '¿Cómo reaccionó Anna al principio y qué hizo después?',
       options: [
+        'Sie war wütend, aber sie atmete tief durch und sprach ruhig',
+        'Sie fing sofort an zu schreien',
+        'Sie ging ohne ein Wort aus dem Haus',
+        'Sie tat so, als wäre nichts passiert',
+      ],
+      optionsTranslation: [
         'Se enfadó, pero respiró hondo y habló con calma',
         'Se puso a gritar enseguida',
         'Se fue de casa sin decir nada',
@@ -1405,12 +1432,22 @@ final QuizContent esDeLecturaPareja = readingCourseQuiz(
       ],
       correctIndex: 0,
       explanation:
+          '«Anna war zuerst wütend, aber dann atmete sie tief durch» und sie '
+          'sprach «ruhig».',
+      explanationTranslation:
           '"Anna war zuerst wütend, aber dann atmete sie tief durch" y habló '
           '"ruhig" (con calma).',
     ),
     ReadingQuestion(
-      question: '¿Qué respondió Tom?',
+      question: 'Was hat Tom geantwortet?',
+      questionTranslation: '¿Qué respondió Tom?',
       options: [
+        '«Es tut mir leid, du hast recht»',
+        '«Das ist nicht meine Schuld»',
+        '«Ich will darüber nicht reden»',
+        '«Du beschwerst dich immer»',
+      ],
+      optionsTranslation: [
         '«Lo siento, tienes razón»',
         '«No es culpa mía»',
         '«No quiero hablar de esto»',
@@ -1418,12 +1455,22 @@ final QuizContent esDeLecturaPareja = readingCourseQuiz(
       ],
       correctIndex: 0,
       explanation:
+          '«Es tut mir leid … Du hast recht.» Tom gibt den Fehler zu, statt '
+          'sich zu verteidigen.',
+      explanationTranslation:
           '«Es tut mir leid … Du hast recht.» Tom reconoce el error en lugar de '
           'defenderse.',
     ),
     ReadingQuestion(
-      question: '¿Cuál de estas frases es un "mensaje-yo" (Ich-Botschaft)?',
+      question: 'Welcher dieser Sätze ist eine Ich-Botschaft?',
+      questionTranslation: '¿Cuál de estas frases es un "mensaje-yo" (Ich-Botschaft)?',
       options: [
+        '«Ich habe mich allein gefühlt, als du nicht angerufen hast»',
+        '«Du kommst immer zu spät»',
+        '«Du denkst nie an mich»',
+        '«Du bist egoistisch»',
+      ],
+      optionsTranslation: [
         '«Me sentí sola cuando no llamaste»',
         '«Siempre llegas tarde»',
         '«Nunca piensas en mí»',
@@ -1431,6 +1478,10 @@ final QuizContent esDeLecturaPareja = readingCourseQuiz(
       ],
       correctIndex: 0,
       explanation:
+          'Eine Ich-Botschaft spricht über die eigenen Gefühle, ohne '
+          'anzuklagen: «Ich habe mich allein gefühlt.» Die anderen drei sind '
+          'Vorwürfe («Du …»).',
+      explanationTranslation:
           'Un mensaje-yo habla de los propios sentimientos sin acusar: "Ich '
           'habe mich allein gefühlt". Las otras tres son reproches ("tú …").',
     ),
@@ -1461,6 +1512,19 @@ final QuizContent esDeLecturaAussprache = readingCourseQuiz(
       'Lena überlegte. «Ich möchte es versuchen. Ich bin noch nicht bereit '
       'aufzugeben.» Zum ersten Mal seit Langem griff Markus nach ihrer Hand. '
       '«Dann wagen wir einen Neuanfang – langsam, Schritt für Schritt.»',
+  passageTranslation:
+      'Lena y Markus estaban sentados frente a frente en la mesa de la cocina. '
+      'Desde hacía meses se habían ido distanciando: discutían a menudo, o se '
+      'quedaban en silencio.\n\n'
+      '«Tengo que ser sincero», empezó Markus en voz baja. «Últimamente '
+      'incluso he pensado en marcharme.» Lena tragó saliva. «Duele oír eso. '
+      'Pero me alegra que lo digas.»\n\n'
+      '«No quiero hacerte reproches», dijo ella. «Yo también me he ido '
+      'apartando. Asumo mi parte en esto.» Markus asintió. «Quizá necesitemos '
+      'ayuda de fuera. ¿Qué te parece una terapia de pareja?»\n\n'
+      'Lena reflexionó. «Quiero intentarlo. Todavía no estoy lista para '
+      'rendirme.» Por primera vez en mucho tiempo, Markus tomó su mano. '
+      '«Entonces nos atrevemos a un nuevo comienzo, despacio, paso a paso.»',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
@@ -1477,8 +1541,15 @@ final QuizContent esDeLecturaAussprache = readingCourseQuiz(
   ],
   questions: const [
     ReadingQuestion(
-      question: '¿Qué le confiesa Markus a Lena?',
+      question: 'Was gesteht Markus Lena?',
+      questionTranslation: '¿Qué le confiesa Markus a Lena?',
       options: [
+        'Dass er sogar daran gedacht hat zu gehen',
+        'Dass er jemand anderen kennengelernt hat',
+        'Dass er in eine andere Stadt ziehen will',
+        'Dass er seine Arbeit verloren hat',
+      ],
+      optionsTranslation: [
         'Que incluso había pensado en marcharse',
         'Que ha conocido a otra persona',
         'Que quiere mudarse de ciudad',
@@ -1486,12 +1557,22 @@ final QuizContent esDeLecturaAussprache = readingCourseQuiz(
       ],
       correctIndex: 0,
       explanation:
+          '«In letzter Zeit habe ich sogar daran gedacht, zu gehen.» Er gibt '
+          'zu, dass er an eine Trennung gedacht hat.',
+      explanationTranslation:
           '«In letzter Zeit habe ich sogar daran gedacht, zu gehen.» Reconoce '
           'que pensó en dejar la relación.',
     ),
     ReadingQuestion(
-      question: '¿Cómo reacciona Lena ante esa confesión?',
+      question: 'Wie reagiert Lena auf dieses Geständnis?',
+      questionTranslation: '¿Cómo reacciona Lena ante esa confesión?',
       options: [
+        'Es tut ihr weh, aber sie ist froh über seine Ehrlichkeit',
+        'Sie wird wütend und verlässt die Küche',
+        'Sie schreit ihn an und macht ihm Vorwürfe',
+        'Sie lacht und nimmt es nicht ernst',
+      ],
+      optionsTranslation: [
         'Le duele, pero agradece su sinceridad',
         'Se enfada y se va de la cocina',
         'Le grita y le hace reproches',
@@ -1500,11 +1581,21 @@ final QuizContent esDeLecturaAussprache = readingCourseQuiz(
       correctIndex: 0,
       explanation:
           '«Das tut weh zu hören. Aber ich bin froh, dass du es aussprichst.» '
+          'Sie würdigt seine Ehrlichkeit trotz des Schmerzes.',
+      explanationTranslation:
+          '«Das tut weh zu hören. Aber ich bin froh, dass du es aussprichst.» '
           'Valida su honestidad pese al dolor.',
     ),
     ReadingQuestion(
-      question: '¿Qué actitud madura muestra Lena en el conflicto?',
+      question: 'Welche reife Haltung zeigt Lena im Konflikt?',
+      questionTranslation: '¿Qué actitud madura muestra Lena en el conflicto?',
       options: [
+        'Sie übernimmt ihren Anteil, ohne den anderen zu beschuldigen',
+        'Sie gibt Markus die Schuld an allem',
+        'Sie leugnet, dass es überhaupt ein Problem gibt',
+        'Sie verlangt, dass er sich zuerst entschuldigt',
+      ],
+      optionsTranslation: [
         'Asume su parte sin culpar al otro',
         'Culpa a Markus de todo lo ocurrido',
         'Niega que haya ningún problema',
@@ -1513,11 +1604,21 @@ final QuizContent esDeLecturaAussprache = readingCourseQuiz(
       correctIndex: 0,
       explanation:
           '«Ich will dir keine Vorwürfe machen … Ich übernehme meinen Anteil '
+          'daran.» Sie vermeidet Vorwürfe und übernimmt Verantwortung.',
+      explanationTranslation:
+          '«Ich will dir keine Vorwürfe machen … Ich übernehme meinen Anteil '
           'daran.» Evita los reproches y asume responsabilidad.',
     ),
     ReadingQuestion(
-      question: '¿Qué deciden hacer al final?',
+      question: 'Was beschließen sie am Ende?',
+      questionTranslation: '¿Qué deciden hacer al final?',
       options: [
+        'Einen Neuanfang zu versuchen, vielleicht mit einer Paartherapie',
+        'Sich sofort zu trennen',
+        'Eine Zeit lang nicht miteinander zu reden',
+        'Weiterzumachen wie bisher, ohne etwas zu ändern',
+      ],
+      optionsTranslation: [
         'Intentar un nuevo comienzo, quizá con terapia de pareja',
         'Separarse de inmediato',
         'Dejar de hablarse durante un tiempo',
@@ -1525,6 +1626,9 @@ final QuizContent esDeLecturaAussprache = readingCourseQuiz(
       ],
       correctIndex: 0,
       explanation:
+          '«Dann wagen wir einen Neuanfang …» und sie überlegen eine '
+          '«Paartherapie»: Sie wählen, die Beziehung zu reparieren.',
+      explanationTranslation:
           '«Dann wagen wir einen Neuanfang …» y barajan una "Paartherapie": '
           'eligen reparar la relación.',
     ),

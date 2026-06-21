@@ -109,9 +109,11 @@ QuizContent speakRepeatQuiz({
 }
 
 /// A reading-comprehension quiz ([QuizKind.reading]) for the Español → Alemán
-/// course: a short German [passage] plus Spanish multiple-choice [questions].
-/// The fill-in fields are left empty — it renders through `ReadingQuizPage`,
-/// like the Quest reading quizzes, but with Spanish UI labels.
+/// course: a short German [passage] and German [questions], all read and
+/// answered in German. The Spanish [passageTranslation] and the per-question
+/// translations are offered behind info buttons, so the learner reads the
+/// German first. The fill-in fields are left empty — it renders through
+/// `ReadingQuizPage`, like the Quest reading quizzes.
 QuizContent readingCourseQuiz({
   required String id,
   required String title,
@@ -119,6 +121,7 @@ QuizContent readingCourseQuiz({
   required String passageTitle,
   required String passage,
   required List<ReadingQuestion> questions,
+  String? passageTranslation,
   String? intro,
   List<HelpMemoryTip> tips = const [],
 }) {
@@ -138,6 +141,7 @@ QuizContent readingCourseQuiz({
     readingCategory: category,
     readingTitle: passageTitle,
     readingPassage: passage,
+    readingPassageTranslation: passageTranslation,
     readingQuestions: questions,
     helpMemoryIntro: intro,
     helpMemoryTips: tips,

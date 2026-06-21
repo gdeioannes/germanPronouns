@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/quiz_content.dart';
 import '../theme/app_theme.dart';
 
 /// Curated icon set for the back-office icon picker. Keyed by a stable string
@@ -33,6 +34,28 @@ const Map<String, IconData> navIconChoices = {
 /// [fallback].
 IconData navIconFor(String? iconKey, IconData fallback) =>
     iconKey == null ? fallback : (navIconChoices[iconKey] ?? fallback);
+
+/// The default tile icon for a quiz of [kind] — the single source of truth
+/// shared by the drawer and the course home so both surfaces show the same
+/// icon per kind: reading → book, fill-in "question" quizzes → quiz card,
+/// listen-&-repeat → voice. An explicit per-item iconKey or a known grammar
+/// section icon still wins over this default where those apply.
+IconData quizKindIcon(QuizKind kind) => switch (kind) {
+  QuizKind.speakRepeat => Icons.record_voice_over_rounded,
+  QuizKind.reading => Icons.menu_book_rounded,
+  QuizKind.fillBlank => Icons.quiz_rounded,
+};
+
+/// The default badge/accent color for a quiz of [kind], paired with
+/// [quizKindIcon] so the drawer and the course home tint each kind the same way:
+/// reading, fill-in "question", and listen-&-repeat quizzes each get their own
+/// accent. A known grammar section accent or an explicit per-item colorIndex
+/// still wins over this default where those apply.
+Color quizKindColor(QuizKind kind) => switch (kind) {
+  QuizKind.speakRepeat => kSectionAccentColors[2],
+  QuizKind.reading => kSectionAccentColors[1],
+  QuizKind.fillBlank => kSectionAccentColors[0],
+};
 
 /// Resolves an item's accent color from [kSectionAccentColors] by
 /// [colorIndex], else [fallback].

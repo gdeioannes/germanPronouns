@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/db/content_repository.dart';
+import '../data/nav_layout_data.dart';
 import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
 import '../data/quiz_content_adapter.dart';
@@ -242,7 +243,9 @@ class _CourseHomePageState extends State<CourseHomePage> {
     );
     return _HomeQuiz(
       title: config.title,
-      uiKind: _UiKind.fillBlank,
+      uiKind: content.kind == QuizKind.reading
+          ? _UiKind.reading
+          : _UiKind.fillBlank,
       goalLaps: _regularGoalLaps,
       summary: config.helpMemorySubtitle ?? config.helpMemoryIntro,
       stats: stats,
@@ -767,17 +770,20 @@ class _CourseHomePageState extends State<CourseHomePage> {
       );
     }
     return switch (quiz.uiKind) {
+      // Reading / question / speak icons and colors come from the shared
+      // [quizKindIcon]/[quizKindColor] maps so the home rows match the drawer
+      // tiles for the same quizzes.
       _UiKind.fillBlank => (
-        icon: Icons.menu_book_rounded,
-        color: kSectionAccentColors[0],
+        icon: quizKindIcon(QuizKind.fillBlank),
+        color: quizKindColor(QuizKind.fillBlank),
       ),
       _UiKind.speak => (
-        icon: Icons.record_voice_over_rounded,
-        color: kSectionAccentColors[2],
+        icon: quizKindIcon(QuizKind.speakRepeat),
+        color: quizKindColor(QuizKind.speakRepeat),
       ),
       _UiKind.reading => (
-        icon: Icons.chrome_reader_mode_rounded,
-        color: kSectionAccentColors[1],
+        icon: quizKindIcon(QuizKind.reading),
+        color: quizKindColor(QuizKind.reading),
       ),
       _UiKind.quest => (icon: Icons.flag_rounded, color: kSectionAccentColors[0]),
       _UiKind.noun => (icon: Icons.abc_rounded, color: kSectionAccentColors[2]),
