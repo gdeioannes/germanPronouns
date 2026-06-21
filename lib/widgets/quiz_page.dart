@@ -657,7 +657,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       builder: (context) {
         return Dialog(
           clipBehavior: Clip.antiAlias,
-          insetPadding: const EdgeInsets.all(20),
+          insetPadding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.sizeOf(context).width < 480 ? 8 : 20,
+            vertical: 24,
+          ),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth: 600,
@@ -829,10 +832,20 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         final textDirection = Directionality.of(context);
                         final textScaler = MediaQuery.textScalerOf(context);
                         final baseStyle = DefaultTextStyle.of(context).style;
+                        // On phone-width screens, shrink the type and cell
+                        // padding so the reference table fits without
+                        // horizontal scrolling or ellipsized cells.
+                        final compact = constraints.maxWidth < 480;
+                        final cellFontSize = compact ? 12.0 : 14.0;
+                        final subtitleFontSize = compact ? 10.0 : 11.0;
+                        final cellPadH = compact ? 8.0 : 12.0;
                         final mainStyle = baseStyle.copyWith(
                           fontWeight: FontWeight.w700,
+                          fontSize: cellFontSize,
                         );
-                        final subtitleStyle = baseStyle.copyWith(fontSize: 11);
+                        final subtitleStyle = baseStyle.copyWith(
+                          fontSize: subtitleFontSize,
+                        );
                         double measure(String text, TextStyle style) {
                           final painter = TextPainter(
                             text: TextSpan(text: text, style: style),
@@ -842,7 +855,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           )..layout();
                           return painter.width;
                         }
-                        // Widest line in a column + cell padding (24) + slack (8).
+                        // Widest line in a column + cell padding + slack.
                         double columnContentWidth(
                           Iterable<String> mainTexts, {
                           Iterable<String> subtitleTexts = const [],
@@ -860,7 +873,22 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                               widest = max(widest, measure(line, subtitleStyle));
                             }
                           }
-                          return widest + 24 + 8;
+                          return widest + cellPadH * 2 + 8;
+                        }
+                        // The narrowest a column can get before its longest
+                        // word would overflow: text wraps at spaces, so a column
+                        // only needs to be as wide as its widest single word
+                        // (plus padding). Used to shrink columns to fit instead
+                        // of scrolling sideways.
+                        double columnMinWidth(Iterable<String> texts) {
+                          var widest = 0.0;
+                          for (final t in texts) {
+                            for (final word in t.split(RegExp(r'\s+'))) {
+                              if (word.isEmpty) continue;
+                              widest = max(widest, measure(word, mainStyle));
+                            }
+                          }
+                          return widest + cellPadH * 2 + 4;
                         }
 
                         // The German answer shown as the subject column's main
@@ -902,7 +930,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         final fixedColumnWidth = columnContentWidth(
                           subjectMain,
                           subtitleTexts: subjectSubtitles,
-                        ).clamp(96.0, 220.0).toDouble();
+                        ).clamp(compact ? 76.0 : 96.0, compact ? 168.0 : 220.0)
+                            .toDouble();
 
                         // Scrollable value columns (categories + info columns):
                         // gather every cell so each column can size to its own
@@ -944,9 +973,25 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         ];
                         final naturalWidths = <double>[
                           for (final col in valueColumnContents)
-                            columnContentWidth(col).clamp(64.0, 320.0).toDouble(),
+                            columnContentWidth(col)
+                                .clamp(compact ? 52.0 : 64.0, 320.0)
+                                .toDouble(),
+                        ];
+                        // Floor for each column, never wider than its natural
+                        // width, so shrinking can't push a column past the point
+                        // where its longest word no longer fits on one line.
+                        final minWidths = <double>[
+                          for (var i = 0; i < valueColumnContents.length; i++)
+                            min(
+                              columnMinWidth(valueColumnContents[i]),
+                              naturalWidths[i],
+                            ),
                         ];
                         final totalNatural = naturalWidths.fold<double>(
+                          0,
+                          (sum, w) => sum + w,
+                        );
+                        final totalMin = minWidths.fold<double>(
                           0,
                           (sum, w) => sum + w,
                         );
@@ -954,20 +999,37 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             (constraints.maxWidth - fixedColumnWidth)
                                 .clamp(0.0, double.infinity)
                                 .toDouble();
-                        // When the columns fit, share the leftover space in
-                        // proportion to each column's content so wider columns
-                        // get a little more; otherwise keep natural widths and
-                        // scroll horizontally.
-                        final columnWidths =
-                            (totalNatural > 0 &&
-                                totalNatural < availableScrollableWidth)
-                            ? <double>[
-                                for (final w in naturalWidths)
-                                  w +
-                                      (availableScrollableWidth - totalNatural) *
-                                          (w / totalNatural),
-                              ]
-                            : naturalWidths;
+                        // Three regimes, always preferring vertical growth over
+                        // a sideways scroll:
+                        //  • columns fit at natural width → grow them to fill;
+                        //  • they fit only once shrunk → shrink each toward its
+                        //    minimum so cells wrap onto more lines but the table
+                        //    still fits the screen (no horizontal scroll);
+                        //  • too wide even at minimum widths → fall back to a
+                        //    horizontal scroll at those compact widths.
+                        final List<double> columnWidths;
+                        if (totalNatural > 0 &&
+                            totalNatural < availableScrollableWidth) {
+                          columnWidths = <double>[
+                            for (final w in naturalWidths)
+                              w +
+                                  (availableScrollableWidth - totalNatural) *
+                                      (w / totalNatural),
+                          ];
+                        } else if (totalMin < availableScrollableWidth &&
+                            totalNatural > totalMin) {
+                          final slack = availableScrollableWidth - totalMin;
+                          final shrinkable = totalNatural - totalMin;
+                          columnWidths = <double>[
+                            for (var i = 0; i < naturalWidths.length; i++)
+                              minWidths[i] +
+                                  slack *
+                                      ((naturalWidths[i] - minWidths[i]) /
+                                          shrinkable),
+                          ];
+                        } else {
+                          columnWidths = minWidths;
+                        }
                         final scrollableWidth = columnWidths.fold<double>(
                           0,
                           (sum, w) => sum + w,
@@ -989,7 +1051,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             textDirection: textDirection,
                             textScaler: textScaler,
                           )..layout(
-                            maxWidth: (cellWidth - 26).clamp(
+                            maxWidth: (cellWidth - (cellPadH * 2 + 2)).clamp(
                               0.0,
                               double.infinity,
                             ),
@@ -1045,9 +1107,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             color: header ? Colors.white : textColor,
                             fontWeight:
                                 header ? FontWeight.w700 : FontWeight.w600,
+                            fontSize: cellFontSize,
                           );
                           // Render `**…**` runs bold (e.g. the German word in a
                           // both-languages vocab label) like the value cells do.
+                          // No maxLines/ellipsis: the row height is sized to the
+                          // wrapped text, so the cell always shows it in full.
                           final mainText = Text.rich(
                             TextSpan(
                               children: boldMarkupSpans(
@@ -1062,16 +1127,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                               ),
                             ),
                             textAlign: TextAlign.center,
-                            maxLines: subtitle == null ? null : 1,
-                            overflow: subtitle == null
-                                ? TextOverflow.clip
-                                : TextOverflow.ellipsis,
                           );
                           return Container(
                             width: fixedColumnWidth,
                             height: height ?? rowHeight,
                             alignment: Alignment.center,
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            padding: EdgeInsets.symmetric(horizontal: cellPadH),
                             decoration: BoxDecoration(
                               color:
                                   background ??
@@ -1098,11 +1159,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                       Text(
                                         subtitle,
                                         textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                           color: colorScheme.onSurfaceVariant,
-                                          fontSize: 11,
+                                          fontSize: subtitleFontSize,
                                           fontStyle: FontStyle.italic,
                                         ),
                                       ),
@@ -1135,8 +1194,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                   width: columnWidths[entry.key],
                                   height: height ?? rowHeight,
                                   alignment: Alignment.center,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: cellPadH,
                                   ),
                                   decoration: BoxDecoration(
                                     color:
@@ -1165,6 +1224,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                         fontWeight: header || cellTint != null
                                             ? FontWeight.w700
                                             : FontWeight.w500,
+                                        fontSize: cellFontSize,
                                       );
                                       return Text.rich(
                                         TextSpan(
@@ -1360,6 +1420,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   Widget _buildHelpMemoryTable(BuildContext context, HelpMemoryTable table) {
     final colorScheme = Theme.of(context).colorScheme;
+    // Phone-width screens get smaller type, tighter padding and a narrower
+    // label column so the table fits without cramped, wrapped-to-death cells.
+    final compact = MediaQuery.sizeOf(context).width < 480;
     final categoriesByLabel = {
       for (final c in widget.config.categories) c.label: c,
     };
@@ -1378,11 +1441,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           fontWeight: header || tint != null
               ? FontWeight.w700
               : FontWeight.w500,
+          fontSize: compact ? 12.5 : null,
         ),
       );
       return Container(
         color: tint?.background,
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: compact ? 6 : 10, vertical: 8),
         alignment: Alignment.center,
         child: subtitle == null || subtitle.isEmpty
             ? main
@@ -1395,7 +1459,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: colorScheme.onSurfaceVariant,
-                      fontSize: 11,
+                      fontSize: compact ? 10 : 11,
                       fontStyle: FontStyle.italic,
                     ),
                   ),
@@ -1450,7 +1514,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         const SizedBox(height: 8),
         Table(
           border: TableBorder.all(color: colorScheme.outlineVariant),
-          columnWidths: const {0: FixedColumnWidth(110)},
+          columnWidths: {0: FixedColumnWidth(compact ? 84 : 110)},
           defaultColumnWidth: const FlexColumnWidth(),
           children: [
             buildRow(null),
@@ -1470,10 +1534,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// [HelpMemoryTable]s.
   Widget _buildEndingPatternTable(BuildContext context, EndingPatternTable table) {
     final colorScheme = Theme.of(context).colorScheme;
+    // Match the responsive sizing of the reference tables above (see
+    // [_buildHelpMemoryTable]) so endings stay readable on a phone.
+    final compact = MediaQuery.sizeOf(context).width < 480;
 
     Widget cell(String text, {bool header = false}) {
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: compact ? 6 : 10, vertical: 8),
         alignment: Alignment.center,
         child: Text(
           text,
@@ -1481,6 +1548,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           style: TextStyle(
             color: header ? Colors.white : null,
             fontWeight: header ? FontWeight.w700 : FontWeight.w500,
+            fontSize: compact ? 12.5 : null,
           ),
         ),
       );
@@ -1498,7 +1566,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         const SizedBox(height: 8),
         Table(
           border: TableBorder.all(color: colorScheme.outlineVariant),
-          columnWidths: const {0: FixedColumnWidth(110)},
+          columnWidths: {0: FixedColumnWidth(compact ? 84 : 110)},
           defaultColumnWidth: const FlexColumnWidth(),
           children: [
             TableRow(
