@@ -891,34 +891,50 @@ final QuizContent questReadingDasBinIchContent = readingQuestQuiz(
       'heißt Tim. Am Wochenende spiele ich gern Tennis und lese viele Bücher. '
       'Am Morgen trinke ich Tee, aber am Nachmittag trinke ich gern Kaffee. '
       'Ich spreche Deutsch und Englisch.',
+  passageTranslation:
+      'Hi! My name is Lena Müller. I am thirty years old and come from Austria. '
+      'Now I live in Hamburg. I am a teacher and work at a school. I have a '
+      'brother and a sister. My brother is called Tim. On the weekend I like to '
+      'play tennis and read a lot of books. In the morning I drink tea, but in '
+      'the afternoon I like to drink coffee. I speak German and English.',
   questions: const [
     ReadingQuestion(
       question: 'Wie alt ist Lena?',
+      questionTranslation: 'How old is Lena?',
       options: ['dreizehn', 'dreißig', 'dreiundzwanzig'],
+      optionsTranslation: ['thirteen', 'thirty', 'twenty-three'],
       correctIndex: 1,
       explanation: '"Ich bin dreißig Jahre alt" — she is thirty (30).',
     ),
     ReadingQuestion(
       question: 'Woher kommt Lena?',
+      questionTranslation: 'Where is Lena from?',
       options: ['aus Deutschland', 'aus der Schweiz', 'aus Österreich'],
+      optionsTranslation: ['from Germany', 'from Switzerland', 'from Austria'],
       correctIndex: 2,
       explanation: '"… und komme aus Österreich."',
     ),
     ReadingQuestion(
       question: 'Was ist Lena von Beruf?',
+      questionTranslation: "What is Lena's profession?",
       options: ['Ärztin', 'Lehrerin', 'Studentin'],
+      optionsTranslation: ['doctor', 'teacher', 'student'],
       correctIndex: 1,
       explanation: '"Ich bin Lehrerin und arbeite an einer Schule."',
     ),
     ReadingQuestion(
       question: 'Was trinkt Lena am Morgen?',
+      questionTranslation: 'What does Lena drink in the morning?',
       options: ['Kaffee', 'Tee', 'Wasser'],
+      optionsTranslation: ['coffee', 'tea', 'water'],
       correctIndex: 1,
       explanation: '"Am Morgen trinke ich Tee …" — coffee is for the afternoon.',
     ),
     ReadingQuestion(
       question: 'Was macht Lena gern am Wochenende?',
+      questionTranslation: 'What does Lena like to do on the weekend?',
       options: ['Tennis spielen', 'schwimmen', 'kochen'],
+      optionsTranslation: ['play tennis', 'swim', 'cook'],
       correctIndex: 0,
       explanation: '"Am Wochenende spiele ich gern Tennis …"',
     ),

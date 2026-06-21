@@ -164,6 +164,7 @@ QuizContent readingQuestQuiz({
   required String passageTitle,
   required String passage,
   required List<ReadingQuestion> questions,
+  String? passageTranslation,
   String? intro,
   List<HelpMemoryTip> tips = const [],
 }) {
@@ -183,6 +184,7 @@ QuizContent readingQuestQuiz({
     readingCategory: category,
     readingTitle: passageTitle,
     readingPassage: passage,
+    readingPassageTranslation: passageTranslation,
     readingQuestions: questions,
     helpMemoryIntro: intro,
     helpMemoryTips: tips,

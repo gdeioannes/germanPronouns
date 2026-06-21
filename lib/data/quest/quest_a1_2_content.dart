@@ -858,34 +858,50 @@ final QuizContent questReadingCafeContent = readingQuestQuiz(
       'Stück Kuchen. Der Kuchen ist sehr lecker. Am Ende bezahlt Tom. Der '
       'Kaffee kostet drei Euro, der Tee zwei Euro. Tom gibt dem Kellner ein '
       'kleines Trinkgeld.',
+  passageTranslation:
+      'Anna and Tom go to a café. The waiter comes and asks: "What would you '
+      'like to drink?" Anna would like a coffee with milk. Tom has a tea and a '
+      'glass of water. They are hungry and also order two pieces of cake. The '
+      'cake is very tasty. In the end Tom pays. The coffee costs three euros, '
+      'the tea two euros. Tom gives the waiter a small tip.',
   questions: const [
     ReadingQuestion(
       question: 'Wohin gehen Anna und Tom?',
+      questionTranslation: 'Where do Anna and Tom go?',
       options: ['in die Schule', 'in ein Café', 'nach Hause'],
+      optionsTranslation: ['to school', 'to a café', 'home'],
       correctIndex: 1,
       explanation: '"Anna und Tom gehen in ein Café."',
     ),
     ReadingQuestion(
       question: 'Was möchte Anna trinken?',
+      questionTranslation: 'What would Anna like to drink?',
       options: ['einen Tee', 'ein Wasser', 'einen Kaffee mit Milch'],
+      optionsTranslation: ['a tea', 'a water', 'a coffee with milk'],
       correctIndex: 2,
       explanation: '"Anna möchte einen Kaffee mit Milch."',
     ),
     ReadingQuestion(
       question: 'Wer bezahlt am Ende?',
+      questionTranslation: 'Who pays in the end?',
       options: ['Anna', 'Tom', 'der Kellner'],
+      optionsTranslation: ['Anna', 'Tom', 'the waiter'],
       correctIndex: 1,
       explanation: '"Am Ende bezahlt Tom."',
     ),
     ReadingQuestion(
       question: 'Wie viel kostet der Kaffee?',
+      questionTranslation: 'How much does the coffee cost?',
       options: ['zwei Euro', 'drei Euro', 'vier Euro'],
+      optionsTranslation: ['two euros', 'three euros', 'four euros'],
       correctIndex: 1,
       explanation: '"Der Kaffee kostet drei Euro …"',
     ),
     ReadingQuestion(
       question: 'Was essen Anna und Tom im Café?',
+      questionTranslation: 'What do Anna and Tom eat in the café?',
       options: ['Kuchen', 'Brot', 'Suppe'],
+      optionsTranslation: ['cake', 'bread', 'soup'],
       correctIndex: 0,
       explanation: '"… bestellen auch zwei Stück Kuchen."',
     ),
@@ -977,34 +993,51 @@ final QuizContent questReadingReiseContent = readingQuestQuiz(
       'einem Hotel im Zentrum. Sie besuchen ein Museum und einen großen Park. '
       'Das Wetter ist schön und warm. Am Abend essen sie in einem Restaurant. '
       'Die Kinder sind sehr glücklich.',
+  passageTranslation:
+      'In summer the Schmidt family takes a trip to Munich. They travel by '
+      'train. The train leaves the station at nine o\'clock. The ticket costs '
+      'forty euros. The journey takes four hours. In Munich they stay in a '
+      'hotel in the centre. They visit a museum and a big park. The weather is '
+      'nice and warm. In the evening they eat at a restaurant. The children '
+      'are very happy.',
   questions: const [
     ReadingQuestion(
       question: 'Wohin fährt Familie Schmidt?',
+      questionTranslation: 'Where is the Schmidt family travelling to?',
       options: ['nach Berlin', 'nach München', 'nach Hamburg'],
+      optionsTranslation: ['to Berlin', 'to Munich', 'to Hamburg'],
       correctIndex: 1,
       explanation: '"… eine Reise nach München."',
     ),
     ReadingQuestion(
       question: 'Wie fahren sie?',
+      questionTranslation: 'How do they travel?',
       options: ['mit dem Auto', 'mit dem Bus', 'mit dem Zug'],
+      optionsTranslation: ['by car', 'by bus', 'by train'],
       correctIndex: 2,
       explanation: '"Sie fahren mit dem Zug."',
     ),
     ReadingQuestion(
       question: 'Wie viel kostet die Fahrkarte?',
+      questionTranslation: 'How much does the ticket cost?',
       options: ['vierzig Euro', 'vierzehn Euro', 'vier Euro'],
+      optionsTranslation: ['forty euros', 'fourteen euros', 'four euros'],
       correctIndex: 0,
       explanation: '"Die Fahrkarte kostet vierzig Euro."',
     ),
     ReadingQuestion(
       question: 'Wie ist das Wetter?',
+      questionTranslation: 'What is the weather like?',
       options: ['kalt', 'schön und warm', 'windig'],
+      optionsTranslation: ['cold', 'nice and warm', 'windy'],
       correctIndex: 1,
       explanation: '"Das Wetter ist schön und warm."',
     ),
     ReadingQuestion(
       question: 'Was besuchen sie in München?',
+      questionTranslation: 'What do they visit in Munich?',
       options: ['ein Museum und einen Park', 'ein Theater', 'ein Kino'],
+      optionsTranslation: ['a museum and a park', 'a theatre', 'a cinema'],
       correctIndex: 0,
       explanation: '"Sie besuchen ein Museum und einen großen Park."',
     ),

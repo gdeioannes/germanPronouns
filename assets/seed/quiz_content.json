@@ -29118,6 +29118,7 @@
       "readingCategory": "Daily Life",
       "readingTitle": "Das bin ich",
       "readingPassage": "Hallo! Ich heiße Lena Müller. Ich bin dreißig Jahre alt und komme aus Österreich. Jetzt wohne ich in Hamburg. Ich bin Lehrerin und arbeite an einer Schule. Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Tim. Am Wochenende spiele ich gern Tennis und lese viele Bücher. Am Morgen trinke ich Tee, aber am Nachmittag trinke ich gern Kaffee. Ich spreche Deutsch und Englisch.",
+      "readingPassageTranslation": "Hi! My name is Lena Müller. I am thirty years old and come from Austria. Now I live in Hamburg. I am a teacher and work at a school. I have a brother and a sister. My brother is called Tim. On the weekend I like to play tennis and read a lot of books. In the morning I drink tea, but in the afternoon I like to drink coffee. I speak German and English.",
       "readingQuestions": [
         {
           "question": "Wie alt ist Lena?",
@@ -29127,7 +29128,13 @@
             "dreiundzwanzig"
           ],
           "correctIndex": 1,
-          "explanation": "\"Ich bin dreißig Jahre alt\" — she is thirty (30)."
+          "explanation": "\"Ich bin dreißig Jahre alt\" — she is thirty (30).",
+          "questionTranslation": "How old is Lena?",
+          "optionsTranslation": [
+            "thirteen",
+            "thirty",
+            "twenty-three"
+          ]
         },
         {
           "question": "Woher kommt Lena?",
@@ -29137,7 +29144,13 @@
             "aus Österreich"
           ],
           "correctIndex": 2,
-          "explanation": "\"… und komme aus Österreich.\""
+          "explanation": "\"… und komme aus Österreich.\"",
+          "questionTranslation": "Where is Lena from?",
+          "optionsTranslation": [
+            "from Germany",
+            "from Switzerland",
+            "from Austria"
+          ]
         },
         {
           "question": "Was ist Lena von Beruf?",
@@ -29147,7 +29160,13 @@
             "Studentin"
           ],
           "correctIndex": 1,
-          "explanation": "\"Ich bin Lehrerin und arbeite an einer Schule.\""
+          "explanation": "\"Ich bin Lehrerin und arbeite an einer Schule.\"",
+          "questionTranslation": "What is Lena's profession?",
+          "optionsTranslation": [
+            "doctor",
+            "teacher",
+            "student"
+          ]
         },
         {
           "question": "Was trinkt Lena am Morgen?",
@@ -29157,7 +29176,13 @@
             "Wasser"
           ],
           "correctIndex": 1,
-          "explanation": "\"Am Morgen trinke ich Tee …\" — coffee is for the afternoon."
+          "explanation": "\"Am Morgen trinke ich Tee …\" — coffee is for the afternoon.",
+          "questionTranslation": "What does Lena drink in the morning?",
+          "optionsTranslation": [
+            "coffee",
+            "tea",
+            "water"
+          ]
         },
         {
           "question": "Was macht Lena gern am Wochenende?",
@@ -29167,7 +29192,13 @@
             "kochen"
           ],
           "correctIndex": 0,
-          "explanation": "\"Am Wochenende spiele ich gern Tennis …\""
+          "explanation": "\"Am Wochenende spiele ich gern Tennis …\"",
+          "questionTranslation": "What does Lena like to do on the weekend?",
+          "optionsTranslation": [
+            "play tennis",
+            "swim",
+            "cook"
+          ]
         }
       ]
     },
@@ -30670,6 +30701,7 @@
       "readingCategory": "Food & Drink",
       "readingTitle": "Im Café",
       "readingPassage": "Anna und Tom gehen in ein Café. Der Kellner kommt und fragt: \"Was möchten Sie trinken?\" Anna möchte einen Kaffee mit Milch. Tom nimmt einen Tee und ein Glas Wasser. Sie haben Hunger und bestellen auch zwei Stück Kuchen. Der Kuchen ist sehr lecker. Am Ende bezahlt Tom. Der Kaffee kostet drei Euro, der Tee zwei Euro. Tom gibt dem Kellner ein kleines Trinkgeld.",
+      "readingPassageTranslation": "Anna and Tom go to a café. The waiter comes and asks: \"What would you like to drink?\" Anna would like a coffee with milk. Tom has a tea and a glass of water. They are hungry and also order two pieces of cake. The cake is very tasty. In the end Tom pays. The coffee costs three euros, the tea two euros. Tom gives the waiter a small tip.",
       "readingQuestions": [
         {
           "question": "Wohin gehen Anna und Tom?",
@@ -30679,7 +30711,13 @@
             "nach Hause"
           ],
           "correctIndex": 1,
-          "explanation": "\"Anna und Tom gehen in ein Café.\""
+          "explanation": "\"Anna und Tom gehen in ein Café.\"",
+          "questionTranslation": "Where do Anna and Tom go?",
+          "optionsTranslation": [
+            "to school",
+            "to a café",
+            "home"
+          ]
         },
         {
           "question": "Was möchte Anna trinken?",
@@ -30689,7 +30727,13 @@
             "einen Kaffee mit Milch"
           ],
           "correctIndex": 2,
-          "explanation": "\"Anna möchte einen Kaffee mit Milch.\""
+          "explanation": "\"Anna möchte einen Kaffee mit Milch.\"",
+          "questionTranslation": "What would Anna like to drink?",
+          "optionsTranslation": [
+            "a tea",
+            "a water",
+            "a coffee with milk"
+          ]
         },
         {
           "question": "Wer bezahlt am Ende?",
@@ -30699,7 +30743,13 @@
             "der Kellner"
           ],
           "correctIndex": 1,
-          "explanation": "\"Am Ende bezahlt Tom.\""
+          "explanation": "\"Am Ende bezahlt Tom.\"",
+          "questionTranslation": "Who pays in the end?",
+          "optionsTranslation": [
+            "Anna",
+            "Tom",
+            "the waiter"
+          ]
         },
         {
           "question": "Wie viel kostet der Kaffee?",
@@ -30709,7 +30759,13 @@
             "vier Euro"
           ],
           "correctIndex": 1,
-          "explanation": "\"Der Kaffee kostet drei Euro …\""
+          "explanation": "\"Der Kaffee kostet drei Euro …\"",
+          "questionTranslation": "How much does the coffee cost?",
+          "optionsTranslation": [
+            "two euros",
+            "three euros",
+            "four euros"
+          ]
         },
         {
           "question": "Was essen Anna und Tom im Café?",
@@ -30719,7 +30775,13 @@
             "Suppe"
           ],
           "correctIndex": 0,
-          "explanation": "\"… bestellen auch zwei Stück Kuchen.\""
+          "explanation": "\"… bestellen auch zwei Stück Kuchen.\"",
+          "questionTranslation": "What do Anna and Tom eat in the café?",
+          "optionsTranslation": [
+            "cake",
+            "bread",
+            "soup"
+          ]
         }
       ]
     },
@@ -31665,6 +31727,7 @@
       "readingCategory": "Travel",
       "readingTitle": "Eine kleine Reise",
       "readingPassage": "Im Sommer macht Familie Schmidt eine Reise nach München. Sie fahren mit dem Zug. Der Zug fährt um neun Uhr am Bahnhof ab. Die Fahrkarte kostet vierzig Euro. Die Reise dauert vier Stunden. In München wohnen sie in einem Hotel im Zentrum. Sie besuchen ein Museum und einen großen Park. Das Wetter ist schön und warm. Am Abend essen sie in einem Restaurant. Die Kinder sind sehr glücklich.",
+      "readingPassageTranslation": "In summer the Schmidt family takes a trip to Munich. They travel by train. The train leaves the station at nine o'clock. The ticket costs forty euros. The journey takes four hours. In Munich they stay in a hotel in the centre. They visit a museum and a big park. The weather is nice and warm. In the evening they eat at a restaurant. The children are very happy.",
       "readingQuestions": [
         {
           "question": "Wohin fährt Familie Schmidt?",
@@ -31674,7 +31737,13 @@
             "nach Hamburg"
           ],
           "correctIndex": 1,
-          "explanation": "\"… eine Reise nach München.\""
+          "explanation": "\"… eine Reise nach München.\"",
+          "questionTranslation": "Where is the Schmidt family travelling to?",
+          "optionsTranslation": [
+            "to Berlin",
+            "to Munich",
+            "to Hamburg"
+          ]
         },
         {
           "question": "Wie fahren sie?",
@@ -31684,7 +31753,13 @@
             "mit dem Zug"
           ],
           "correctIndex": 2,
-          "explanation": "\"Sie fahren mit dem Zug.\""
+          "explanation": "\"Sie fahren mit dem Zug.\"",
+          "questionTranslation": "How do they travel?",
+          "optionsTranslation": [
+            "by car",
+            "by bus",
+            "by train"
+          ]
         },
         {
           "question": "Wie viel kostet die Fahrkarte?",
@@ -31694,7 +31769,13 @@
             "vier Euro"
           ],
           "correctIndex": 0,
-          "explanation": "\"Die Fahrkarte kostet vierzig Euro.\""
+          "explanation": "\"Die Fahrkarte kostet vierzig Euro.\"",
+          "questionTranslation": "How much does the ticket cost?",
+          "optionsTranslation": [
+            "forty euros",
+            "fourteen euros",
+            "four euros"
+          ]
         },
         {
           "question": "Wie ist das Wetter?",
@@ -31704,7 +31785,13 @@
             "windig"
           ],
           "correctIndex": 1,
-          "explanation": "\"Das Wetter ist schön und warm.\""
+          "explanation": "\"Das Wetter ist schön und warm.\"",
+          "questionTranslation": "What is the weather like?",
+          "optionsTranslation": [
+            "cold",
+            "nice and warm",
+            "windy"
+          ]
         },
         {
           "question": "Was besuchen sie in München?",
@@ -31714,7 +31801,13 @@
             "ein Kino"
           ],
           "correctIndex": 0,
-          "explanation": "\"Sie besuchen ein Museum und einen großen Park.\""
+          "explanation": "\"Sie besuchen ein Museum und einen großen Park.\"",
+          "questionTranslation": "What do they visit in Munich?",
+          "optionsTranslation": [
+            "a museum and a park",
+            "a theatre",
+            "a cinema"
+          ]
         }
       ]
     },
