@@ -11,7 +11,6 @@ import '../models/course.dart';
 import '../models/course_session.dart';
 import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
-import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
 import '../models/quiz_stats.dart';
 import '../theme/app_theme.dart';
@@ -35,8 +34,9 @@ _UiKind _questUiKind(QuizKind kind) => switch (kind) {
 };
 
 /// One quiz row on the course home: a regular/pronunciation quiz, or a Quest /
-/// Noun-category chain entry. [config] is set only for fill-in quizzes that have
-/// reference tables (so they go into the global PDF); chain entries and locked
+/// Noun-category chain entry. [bookletEntry] is set for quizzes that contribute
+/// a section to the global reference PDF (fill-in → Help-Memory tables, reading
+/// → passage + translation + questions); speak quizzes, chain entries and locked
 /// rows leave it null.
 class _HomeQuiz {
   _HomeQuiz({
@@ -51,7 +51,7 @@ class _HomeQuiz {
     this.contentRef,
     this.questEntry,
     this.nounEntry,
-    this.config,
+    this.bookletEntry,
   });
 
   final String title;
@@ -71,7 +71,9 @@ class _HomeQuiz {
   final QuestEntry? questEntry;
   final NounProgressionEntry? nounEntry;
 
-  final QuizConfig? config;
+  /// The section this quiz contributes to the all-quizzes reference PDF, or null
+  /// if it has nothing to add (speak quizzes, chain entries, locked rows).
+  final BookletEntry? bookletEntry;
 
   bool get isSpeak => uiKind == _UiKind.speak;
   bool get isReading => uiKind == _UiKind.reading;
@@ -122,10 +124,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
   late Future<List<_HomeSection>> _sectionsFuture;
   bool _generatingPdf = false;
 
-  /// Help-Memory configs for *every* quiz in the active course (regular, Quest
-  /// and Noun — including still-locked ones), gathered in [_load]. Drives the
-  /// always-available "Reference PDF (all quizzes)" study booklet.
-  List<QuizConfig> _bookletConfigs = const [];
+  /// Reference-PDF sections for *every* quiz in the active course (regular,
+  /// Quest and Noun — including still-locked ones), gathered in [_load]. Drives
+  /// the always-available "Reference PDF (all quizzes)" study booklet (Help-Memory
+  /// tables for fill-in quizzes, passage + translation + questions for reading).
+  List<BookletEntry> _bookletEntries = const [];
 
   @override
   void initState() {
@@ -140,9 +143,9 @@ class _CourseHomePageState extends State<CourseHomePage> {
     applyQuestOrderFromLayout(course.nav);
 
     final sections = <_HomeSection>[];
-    // Every quiz's reference page for the always-on study booklet — independent
-    // of lock state and of how many rows the home actually lists.
-    final bookletConfigs = <QuizConfig>[];
+    // Every quiz's reference section for the always-on study booklet —
+    // independent of lock state and of how many rows the home actually lists.
+    final bookletEntries = <BookletEntry>[];
     ContentRepository? repo;
     try {
       repo = await contentRepository();
@@ -160,7 +163,8 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final row = await _regularQuiz(repo, item.ref);
             if (row != null) {
               rows.add(row);
-              if (row.config != null) bookletConfigs.add(row.config!);
+              final entry = row.bookletEntry;
+              if (entry != null) bookletEntries.add(entry);
             }
           }
           // Regular quizzes are never locked, so the rows are the whole group.
@@ -179,13 +183,19 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final levelEntries = level == null
                 ? questEntries
                 : [for (final e in questEntries) if (e.levelLabel == level) e];
-            // Only fill-in quizzes have Help-Memory reference tables; speaking
-            // and reading entries have nothing to put in the study booklet.
-            bookletConfigs.addAll(
-              levelEntries
-                  .where((e) => e.content.kind == QuizKind.fillBlank)
-                  .map((e) => e.config),
-            );
+            // Fill-in quizzes contribute their Help-Memory tables; reading
+            // quizzes contribute their passage + translation + questions;
+            // speaking quizzes have nothing to put in the study booklet.
+            for (final e in levelEntries) {
+              switch (e.content.kind) {
+                case QuizKind.fillBlank:
+                  bookletEntries.add(HelpMemoryBookletEntry(e.config));
+                case QuizKind.reading:
+                  bookletEntries.add(ReadingBookletEntry(e.content));
+                case QuizKind.speakRepeat:
+                  break;
+              }
+            }
             sections.add(_HomeSection(
               group.title,
               quest.rows,
@@ -200,7 +210,9 @@ class _CourseHomePageState extends State<CourseHomePage> {
         case NavGroupType.nounChain:
           final rows = await _nounRows();
           if (rows.isNotEmpty) {
-            bookletConfigs.addAll(nounProgressionEntries.map((e) => e.config));
+            bookletEntries.addAll(
+              nounProgressionEntries.map((e) => HelpMemoryBookletEntry(e.config)),
+            );
             sections.add(_HomeSection(
               group.title,
               rows,
@@ -215,7 +227,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
           break;
       }
     }
-    _bookletConfigs = bookletConfigs;
+    _bookletEntries = bookletEntries;
     return sections;
   }
 
@@ -256,7 +268,9 @@ class _CourseHomePageState extends State<CourseHomePage> {
               bestStreakAbsolute: stats.bestStreakAbsolute,
             ),
       contentRef: ref,
-      config: config,
+      bookletEntry: isReading
+          ? ReadingBookletEntry(content)
+          : HelpMemoryBookletEntry(config),
     );
   }
 
@@ -401,11 +415,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
     }
   }
 
-  Future<void> _generateBooklet(List<QuizConfig> configs) async {
-    if (configs.isEmpty) return;
+  Future<void> _generateBooklet(List<BookletEntry> entries) async {
+    if (entries.isEmpty) return;
     setState(() => _generatingPdf = true);
     try {
-      await exportQuizzesBookletPdf(configs);
+      await exportQuizzesBookletPdf(entries);
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(
@@ -477,7 +491,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final finished =
                 sections.fold<int>(0, (s, sec) => s + sec.finished);
             final total = sections.fold<int>(0, (s, sec) => s + sec.total);
-            final hasPdf = _bookletConfigs.isNotEmpty;
+            final hasPdf = _bookletEntries.isNotEmpty;
             return Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 720),
@@ -498,7 +512,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
                       child: FilledButton.icon(
                         onPressed: (!hasPdf || _generatingPdf)
                             ? null
-                            : () => _generateBooklet(_bookletConfigs),
+                            : () => _generateBooklet(_bookletEntries),
                         icon: _generatingPdf
                             ? const SizedBox(
                                 width: 18,

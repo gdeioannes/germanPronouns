@@ -68,6 +68,9 @@ class AppStrings {
     required this.readingKeepPracticing,
     required this.readingCorrect,
     required this.readingAnswerAll,
+    required this.readingText,
+    required this.translation,
+    required this.answer,
   });
 
   final String chooseCourse;
@@ -135,6 +138,13 @@ class AppStrings {
   final String readingKeepPracticing;
   final String readingCorrect;
   final String readingAnswerAll;
+
+  /// Booklet/PDF labels: the "Reading" section subtitle, the "Translation"
+  /// heading for a passage's translation, and the "Answer" label marking a
+  /// reading question's correct option.
+  final String readingText;
+  final String translation;
+  final String answer;
 }
 
 const AppStrings _en = AppStrings(
@@ -203,6 +213,9 @@ const AppStrings _en = AppStrings(
   readingKeepPracticing: 'Almost — read again and retry',
   readingCorrect: 'correct',
   readingAnswerAll: 'Answer every question to check.',
+  readingText: 'Reading',
+  translation: 'Translation',
+  answer: 'Answer',
 );
 
 const AppStrings _es = AppStrings(
@@ -272,6 +285,9 @@ const AppStrings _es = AppStrings(
   readingKeepPracticing: 'Casi… vuelve a leer e inténtalo',
   readingCorrect: 'correctas',
   readingAnswerAll: 'Responde todas las preguntas para comprobar.',
+  readingText: 'Lectura',
+  translation: 'Traducción',
+  answer: 'Respuesta',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

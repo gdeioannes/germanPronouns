@@ -104,14 +104,14 @@ void main() {
   group('seedOrUpgrade', () {
     test('seeds a fresh database and records the version', () async {
       final repo = ContentRepository(await openDb());
-      await repo.seedOrUpgrade(allQuizContent);
-      expect(await repo.seededVersion(), kSeedVersion);
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
+      expect(await repo.seededDataVersion(), '1.0.0');
       expect((await repo.listQuizzes()).length, allQuizContent.length);
     });
 
     test('keeps local edits when the version is unchanged', () async {
       final repo = ContentRepository(await openDb());
-      await repo.seedOrUpgrade(allQuizContent);
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
       final before = (await repo.sentencesFor('preposition')).length;
       await repo.addSentence(
         'preposition',
@@ -123,15 +123,14 @@ void main() {
         ),
       );
       // Same version → no reseed, the local edit survives.
-      await repo.seedOrUpgrade(allQuizContent);
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
       expect((await repo.sentencesFor('preposition')).length, before + 1);
     });
 
-    test('re-seeds an install with an older content version', () async {
-      final db = await openDb();
-      final repo = ContentRepository(db);
-      await repo.seedOrUpgrade(allQuizContent);
-      // A local edit + a stale stored version (older install).
+    test('re-seeds an install with a different content version', () async {
+      final repo = ContentRepository(await openDb());
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
+      // A local edit on top of the seeded content.
       await repo.addSentence(
         'preposition',
         const QuizSentenceData(
@@ -141,17 +140,25 @@ void main() {
           acceptedAnswers: ['durch'],
         ),
       );
-      await stringMapStoreFactory
-          .store('meta')
-          .record('seed')
-          .put(db, {'version': kSeedVersion - 1});
 
       final canonical = (await repo.sentencesFor('preposition')).length - 1;
-      await repo.seedOrUpgrade(allQuizContent);
+      // A newer published version → reseed, dropping the local edit.
+      await repo.seedOrUpgrade(allQuizContent, version: '1.1.0');
 
-      // Re-seeded back to the published content (edit gone) + version restored.
       expect((await repo.sentencesFor('preposition')).length, canonical);
-      expect(await repo.seededVersion(), kSeedVersion);
+      expect(await repo.seededDataVersion(), '1.1.0');
+    });
+
+    test('re-seeds an empty store even when the version matches', () async {
+      final repo = ContentRepository(await openDb());
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
+      // Simulate a previously interrupted seed: content wiped, version intact.
+      await repo.reseed(const [], version: '1.0.0');
+      expect((await repo.listQuizzes()).length, 0);
+
+      // Same version, but an empty store must still self-heal.
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
+      expect((await repo.listQuizzes()).length, allQuizContent.length);
     });
   });
 }

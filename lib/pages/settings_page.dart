@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
+import '../data/data_version.dart';
+import '../data/db/content_repository.dart';
 import '../data/debug_unlock.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
@@ -28,6 +30,11 @@ class _SettingsPageState extends State<SettingsPage> {
   /// Rolling buffer of the last few letters typed on the page, used to detect
   /// the "debug" trigger word.
   String _debugBuffer = '';
+
+  /// The content data version installed in the local database (the seed JSON's
+  /// `"version"`), loaded asynchronously for the "App Content" panel. Falls back
+  /// to the bundled [kDataVersion] if the database can't be read.
+  String? _dataVersion;
 
   /// Accumulates typed letters and reveals the Debug section once "debug" is
   /// spelled out. Always returns [KeyEventResult.ignored] so it never swallows
@@ -90,6 +97,21 @@ class _SettingsPageState extends State<SettingsPage> {
           NounSettings.instance.questUnlockLaps.toString();
       setState(() {});
     });
+    _loadDataVersion();
+  }
+
+  /// Reads the installed content data version from the local database, falling
+  /// back to the bundled [kDataVersion] if the database is unavailable.
+  Future<void> _loadDataVersion() async {
+    String version;
+    try {
+      version = (await (await contentRepository()).seededDataVersion()) ??
+          kDataVersion;
+    } catch (_) {
+      version = kDataVersion;
+    }
+    if (!mounted) return;
+    setState(() => _dataVersion = version);
   }
 
   @override
@@ -463,6 +485,35 @@ class _SettingsPageState extends State<SettingsPage> {
                   'Ctrl+I — open the Sentence Info panel for the current '
                   'question.',
                   style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _settingsPanel(
+              title: 'App Content',
+              children: [
+                Text(
+                  'The version of the quiz content currently installed on this '
+                  'device. The app refreshes its content automatically when a '
+                  'newer version is published.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.dataset_rounded,
+                      size: 18,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Content version: ${_dataVersion ?? '…'}',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

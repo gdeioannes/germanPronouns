@@ -9,10 +9,12 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:german_pronouns_articles/data/course_catalog.dart';
+import 'package:german_pronouns_articles/data/data_version.dart';
 import 'package:german_pronouns_articles/data/quiz_content_library.dart';
 
 void main() {
   final json = const JsonEncoder.withIndent('  ').convert({
+    'version': kDataVersion,
     'quizzes': [for (final content in allQuizContent) content.toJson()],
     'courses': [for (final course in defaultCourses) course.toJson()],
   });

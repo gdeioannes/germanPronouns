@@ -7,6 +7,7 @@ import '../../models/course.dart';
 import '../../models/nav_layout.dart';
 import '../../models/quiz_content.dart';
 import '../course_catalog.dart';
+import '../data_version.dart';
 import '../quiz_content_library.dart';
 import 'content_database_factory.dart';
 
@@ -15,13 +16,8 @@ import 'content_database_factory.dart';
 /// to publish edits in the next build.
 const String _seedAsset = 'assets/seed/quiz_content.json';
 
-/// Version of the shipped/published content. **Bump this whenever the seeded
-/// content changes** (new quizzes, edited sentences, reordered chains, etc.):
-/// on launch, an existing install whose stored version differs is automatically
-/// re-seeded from the published content, so learners get content updates without
-/// a manual reset. Re-seeding replaces any local back-office edits with the
-/// published content; learner progress (SharedPreferences) is not affected.
-const int kSeedVersion = 26;
+// The published content version lives in [kDataVersion] (see
+// `lib/data/data_version.dart`) and is carried in the seed JSON's `"version"`.
 
 /// Lightweight summary of a quiz for the back-office list.
 class QuizSummary {
@@ -76,41 +72,55 @@ class ContentRepository {
   /// Seeds the database from [contents] on first run (when it has no quizzes).
   Future<void> seedIfEmpty(List<QuizContent> contents) async {
     if (await _quizzes.count(db) > 0) return;
-    await _writeContents(contents);
+    await db.transaction(
+      (txn) => _writeContentsInto(txn, contents, kDataVersion),
+    );
   }
 
-  /// The [kSeedVersion] the database was last seeded with, or null if it
-  /// predates version tracking.
-  Future<int?> seededVersion() async =>
-      (await _meta.record('seed').get(db))?['version'] as int?;
+  /// The data version the database was last seeded with, or null if it predates
+  /// version tracking (older int-versioned installs read as null and re-seed).
+  Future<String?> seededDataVersion() async =>
+      (await _meta.record('seed').get(db))?['dataVersion'] as String?;
 
-  /// Seeds on first run; on later runs, re-seeds from [contents] if the stored
-  /// content version differs from [kSeedVersion], so shipped content updates
-  /// reach existing installs automatically. (Installs predating version
-  /// tracking re-seed once.) Learner progress in SharedPreferences is untouched.
+  /// Seeds on first run; on later runs, re-seeds from [contents] when the stored
+  /// data version differs from [version], so shipped content updates reach
+  /// existing installs automatically. An empty quiz store is always (re-)seeded —
+  /// this self-heals a database left blank by a previously interrupted seed.
+  /// (Installs predating version tracking re-seed once.) Learner progress in
+  /// SharedPreferences is untouched.
   Future<void> seedOrUpgrade(
     List<QuizContent> contents, {
     List<Course>? courses,
+    String version = kDataVersion,
   }) async {
-    if (await _quizzes.count(db) == 0) {
-      await _writeContents(contents);
-      if (courses != null) await saveCourses(courses);
-      return;
-    }
-    if (await seededVersion() != kSeedVersion) {
-      await reseed(contents, courses: courses);
+    final isEmpty = await _quizzes.count(db) == 0;
+    if (isEmpty || await seededDataVersion() != version) {
+      await reseed(contents, courses: courses, version: version);
     }
   }
 
   /// Wipes all content and re-seeds from [contents] (and [courses] if given) —
-  /// used by the back office's "Reset to published content" action.
-  Future<void> reseed(List<QuizContent> contents, {List<Course>? courses}) async {
+  /// used on a version change and by the back office's "Reset to published
+  /// content" action.
+  ///
+  /// The wipe and the re-seed run in a *single* transaction, so an interrupted
+  /// or failed re-seed rolls back as a whole rather than leaving the database
+  /// half-empty (which previously could blank out all content on web).
+  Future<void> reseed(
+    List<QuizContent> contents, {
+    List<Course>? courses,
+    String version = kDataVersion,
+  }) async {
     await db.transaction((txn) async {
       await _quizzes.delete(txn);
       await _sentences.delete(txn);
+      await _writeContentsInto(txn, contents, version);
+      if (courses != null) {
+        await _meta.record('courses').put(txn, {
+          'list': [for (final c in courses) c.toJson()],
+        });
+      }
     });
-    await _writeContents(contents);
-    if (courses != null) await saveCourses(courses);
   }
 
   /// The editable courses (each with its own drawer layout), or
@@ -137,21 +147,29 @@ class ContentRepository {
     ]);
   }
 
-  Future<void> _writeContents(List<QuizContent> contents) async {
-    await db.transaction((txn) async {
-      for (final content in contents) {
-        final json = content.toJson();
-        final sentences = (json.remove('sentences') as List?) ?? const [];
-        await _quizzes.record(content.id).put(txn, Map<String, Object?>.from(json));
-        for (final sentence in sentences) {
-          await _sentences.add(txn, {
-            'quizId': content.id,
-            ...(sentence as Map),
-          });
-        }
+  /// Writes [contents] (quiz metadata + sentences) and records [version] using
+  /// [client], which may be the database or an open transaction — letting a
+  /// caller bundle the write into a larger atomic transaction (see [reseed]).
+  Future<void> _writeContentsInto(
+    DatabaseClient client,
+    List<QuizContent> contents,
+    String version,
+  ) async {
+    for (final content in contents) {
+      final json = content.toJson();
+      final sentences = (json.remove('sentences') as List?) ?? const [];
+      await _quizzes.record(content.id).put(
+        client,
+        Map<String, Object?>.from(json),
+      );
+      for (final sentence in sentences) {
+        await _sentences.add(client, {
+          'quizId': content.id,
+          ...(sentence as Map),
+        });
       }
-      await _meta.record('seed').put(txn, {'version': kSeedVersion});
-    });
+    }
+    await _meta.record('seed').put(client, {'dataVersion': version});
   }
 
   Future<List<QuizSummary>> listQuizzes() async {
@@ -226,8 +244,10 @@ class ContentRepository {
   Future<void> deleteSentence(int key) => _sentences.record(key).delete(db);
 
   /// Serializes the whole database back to the seed JSON shape
-  /// (`{ "quizzes": [...], "courses": [...] }`), so a teacher can commit it to
-  /// `assets/` to publish both content and the courses/menus.
+  /// (`{ "version": ..., "quizzes": [...], "courses": [...] }`), so a teacher
+  /// can commit it to `assets/` to publish both content and the courses/menus.
+  /// The exported `"version"` is the currently-seeded one; bump it (in the JSON
+  /// or [kDataVersion]) to make existing installs re-seed from the new content.
   Future<String> exportJson() async {
     final records = await _quizzes.find(db);
     final contents = <Map<String, dynamic>>[];
@@ -237,6 +257,7 @@ class ContentRepository {
     }
     final courseList = await courses();
     return const JsonEncoder.withIndent('  ').convert({
+      'version': await seededDataVersion() ?? kDataVersion,
       'quizzes': contents,
       'courses': [for (final c in courseList) c.toJson()],
     });
@@ -245,8 +266,15 @@ class ContentRepository {
 
 /// Published content + courses, parsed from the seed asset.
 class PublishedContent {
-  const PublishedContent({required this.quizzes, required this.courses});
+  const PublishedContent({
+    required this.version,
+    required this.quizzes,
+    required this.courses,
+  });
 
+  /// The published data version (the seed JSON's `"version"`), compared against
+  /// the installed version to decide whether to re-seed.
+  final String version;
   final List<QuizContent> quizzes;
   final List<Course> courses;
 }
@@ -266,9 +294,14 @@ Future<PublishedContent> loadPublishedContent() async {
     ];
 
     if (decoded is List) {
-      return PublishedContent(quizzes: parseQuizzes(decoded), courses: defaultCourses);
+      return PublishedContent(
+        version: kDataVersion,
+        quizzes: parseQuizzes(decoded),
+        courses: defaultCourses,
+      );
     }
     final map = Map<String, dynamic>.from(decoded as Map);
+    final version = (map['version'] as String?) ?? kDataVersion;
     final quizzes = parseQuizzes((map['quizzes'] as List?) ?? const []);
 
     List<Course> courses;
@@ -289,11 +322,16 @@ Future<PublishedContent> loadPublishedContent() async {
     }
 
     return PublishedContent(
+      version: version,
       quizzes: quizzes.isEmpty ? allQuizContent : quizzes,
       courses: courses.isEmpty ? defaultCourses : courses,
     );
   } catch (_) {
-    return PublishedContent(quizzes: allQuizContent, courses: defaultCourses);
+    return PublishedContent(
+      version: kDataVersion,
+      quizzes: allQuizContent,
+      courses: defaultCourses,
+    );
   }
 }
 
@@ -303,7 +341,11 @@ Future<ContentRepository> openContentRepository() async {
   final db = await openContentDatabase();
   final repository = ContentRepository(db);
   final published = await loadPublishedContent();
-  await repository.seedOrUpgrade(published.quizzes, courses: published.courses);
+  await repository.seedOrUpgrade(
+    published.quizzes,
+    courses: published.courses,
+    version: published.version,
+  );
   return repository;
 }
 

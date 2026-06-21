@@ -6,6 +6,7 @@ import '../data/gender_reference.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
+import '../models/quiz_content.dart';
 import 'pdf_theme.dart';
 
 /// Builds the Help Memory reference material as PDF widgets, shared by the
@@ -230,21 +231,163 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
   ];
 }
 
-/// Builds and shares a single combined booklet covering [configs] — one branded
-/// Help Memory section per quiz, each on its own best-fit page format. Caller
-/// should ensure [configs] is non-empty.
-Future<void> exportQuizzesBookletPdf(List<QuizConfig> configs) async {
+/// The `pw.MultiPage` body for one reading quiz: a branded header, the German
+/// passage, its translation, and the comprehension questions (each with its
+/// translation and the correct answer marked). Mirrors the on-screen reading
+/// page so the booklet doubles as a study reference. Reads localized labels
+/// from the [CourseSession] singleton, so it works without a live quiz page.
+List<pw.Widget> buildReadingPdfBody(QuizPdfTheme pdf, QuizContent content) {
+  final strings = CourseSession.instance.strings;
+  final passageStyle = pw.TextStyle(
+    fontSize: 11,
+    color: PdfBrandColors.inkText,
+    lineSpacing: 2,
+  );
+  final translationStyle = pw.TextStyle(
+    fontSize: 10,
+    color: PdfBrandColors.inkMuted,
+    fontStyle: pw.FontStyle.italic,
+    lineSpacing: 2,
+  );
+  final mutedSmall = pw.TextStyle(
+    fontSize: 9,
+    color: PdfBrandColors.inkMuted,
+    fontStyle: pw.FontStyle.italic,
+  );
+
+  final widgets = <pw.Widget>[
+    pdf.brandHeader(
+      content.readingTitle ?? content.title,
+      subtitle: strings.readingText,
+    ),
+  ];
+
+  if (content.readingCategory != null) {
+    widgets
+      ..add(
+        pw.Text(
+          content.readingCategory!.toUpperCase(),
+          style: pw.TextStyle(
+            fontSize: 9,
+            fontWeight: pw.FontWeight.bold,
+            color: PdfBrandColors.terracotta,
+          ),
+        ),
+      )
+      ..add(pw.SizedBox(height: 8));
+  }
+
+  if (content.readingPassage != null) {
+    widgets.add(pw.Text(content.readingPassage!, style: passageStyle));
+  }
+
+  if (content.readingPassageTranslation != null) {
+    widgets
+      ..add(pw.SizedBox(height: 12))
+      ..add(pdf.section(strings.translation))
+      ..add(pw.Text(content.readingPassageTranslation!, style: translationStyle));
+  }
+
+  if (content.readingQuestions.isNotEmpty) {
+    widgets
+      ..add(pw.SizedBox(height: 16))
+      ..add(pdf.section(strings.readingQuestionsTitle));
+    for (var i = 0; i < content.readingQuestions.length; i++) {
+      final q = content.readingQuestions[i];
+      final optionTranslation = q.optionsTranslation;
+      widgets.add(
+        pw.Padding(
+          padding: const pw.EdgeInsets.only(bottom: 12),
+          child: pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.Text(
+                '${i + 1}. ${q.question}',
+                style: pdf.subheading(fontSize: 11),
+              ),
+              if (q.questionTranslation != null)
+                pw.Text(q.questionTranslation!, style: mutedSmall),
+              pw.SizedBox(height: 4),
+              for (var o = 0; o < q.options.length; o++)
+                pw.Bullet(
+                  text: optionTranslation != null &&
+                          o < optionTranslation.length
+                      ? '${q.options[o]}  —  ${optionTranslation[o]}'
+                      : q.options[o],
+                  style: pdf.cellStyle(fontSize: 10),
+                ),
+              pw.SizedBox(height: 2),
+              pw.Text(
+                '${strings.answer}: ${q.options[q.correctIndex]}',
+                style: pw.TextStyle(
+                  fontSize: 10,
+                  fontWeight: pw.FontWeight.bold,
+                  color: PdfBrandColors.forest,
+                ),
+              ),
+              if (q.explanation != null) ...[
+                pw.SizedBox(height: 2),
+                pw.Text(q.explanation!, style: mutedSmall),
+              ],
+              if (q.explanationTranslation != null)
+                pw.Text(q.explanationTranslation!, style: mutedSmall),
+            ],
+          ),
+        ),
+      );
+    }
+  }
+
+  return widgets;
+}
+
+/// One section of the all-quizzes reference booklet ([exportQuizzesBookletPdf]):
+/// either a Help-Memory quiz (reference tables, intro and tips) or a reading
+/// quiz (German passage, its translation and the questions).
+sealed class BookletEntry {
+  const BookletEntry();
+}
+
+/// A Help-Memory quiz section of the booklet.
+class HelpMemoryBookletEntry extends BookletEntry {
+  const HelpMemoryBookletEntry(this.config);
+  final QuizConfig config;
+}
+
+/// A reading quiz section of the booklet (passage + translation + questions).
+class ReadingBookletEntry extends BookletEntry {
+  const ReadingBookletEntry(this.content);
+  final QuizContent content;
+}
+
+/// Builds and shares a single combined booklet covering [entries] — one branded
+/// section per quiz (Help-Memory tables, or a reading passage with its
+/// translation and questions), each on its own best-fit page format. Caller
+/// should ensure [entries] is non-empty.
+Future<void> exportQuizzesBookletPdf(List<BookletEntry> entries) async {
   final pdf = await QuizPdfTheme.load();
   final doc = pdf.newDocument();
-  for (final config in configs) {
-    doc.addPage(
-      pw.MultiPage(
-        pageFormat: helpMemoryPageFormat(config),
-        margin: const pw.EdgeInsets.all(28),
-        footer: pdf.footer,
-        build: (context) => buildHelpMemoryPdfBody(pdf, config),
-      ),
-    );
+  for (final entry in entries) {
+    switch (entry) {
+      case HelpMemoryBookletEntry(:final config):
+        doc.addPage(
+          pw.MultiPage(
+            pageFormat: helpMemoryPageFormat(config),
+            margin: const pw.EdgeInsets.all(28),
+            footer: pdf.footer,
+            build: (context) => buildHelpMemoryPdfBody(pdf, config),
+          ),
+        );
+      case ReadingBookletEntry(:final content):
+        doc.addPage(
+          pw.MultiPage(
+            pageFormat: PdfPageFormat.a4,
+            margin: const pw.EdgeInsets.all(28),
+            footer: pdf.footer,
+            build: (context) => buildReadingPdfBody(pdf, content),
+          ),
+        );
+    }
   }
   await Printing.sharePdf(
     bytes: await doc.save(),

@@ -44,7 +44,11 @@ class _BackOfficeHomePageState extends State<BackOfficeHomePage> {
     );
     if (confirmed != true) return;
     final published = await loadPublishedContent();
-    await repo.reseed(published.quizzes, courses: published.courses);
+    await repo.reseed(
+      published.quizzes,
+      courses: published.courses,
+      version: published.version,
+    );
     if (mounted) setState(() => _reloadTick++);
   }
 
