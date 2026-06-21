@@ -1229,20 +1229,39 @@ class _AppDrawerState extends State<AppDrawer> {
           future: _drawerDataFuture,
           builder: (context, snapshot) {
             final data = snapshot.data;
-            final layout = data?.layout ?? defaultNavLayout;
+            // Fall back to the active course's nav (available in memory now),
+            // not defaultNavLayout — otherwise the drawer briefly flashes the
+            // default course's menu before _loadDrawerData resolves.
+            final layout =
+                data?.layout ?? CourseSession.instance.activeCourse.nav;
             final prefs = data?.prefs;
 
-            return ListView(
-              padding: const EdgeInsets.only(bottom: 8),
-              children: [
-                _buildCourseHeader(context),
-                _homeTile(context),
-                for (final group in layout.groups) ...[
-                  Divider(height: 1, color: colorScheme.outlineVariant),
-                  _sectionLabel(context, group.title),
-                  ..._buildGroup(context, group, data, prefs),
+            // Fade + slide the whole menu in each time the drawer opens (the
+            // drawer's State is rebuilt per open, so this replays every time),
+            // so the content arrives smoothly instead of snapping into place.
+            return TweenAnimationBuilder<double>(
+              tween: Tween(begin: 0.0, end: 1.0),
+              duration: const Duration(milliseconds: 350),
+              curve: Curves.easeOutCubic,
+              builder: (context, t, child) => Opacity(
+                opacity: t,
+                child: Transform.translate(
+                  offset: Offset(0, (1 - t) * 16),
+                  child: child,
+                ),
+              ),
+              child: ListView(
+                padding: const EdgeInsets.only(bottom: 8),
+                children: [
+                  _buildCourseHeader(context),
+                  _homeTile(context),
+                  for (final group in layout.groups) ...[
+                    Divider(height: 1, color: colorScheme.outlineVariant),
+                    _sectionLabel(context, group.title),
+                    ..._buildGroup(context, group, data, prefs),
+                  ],
                 ],
-              ],
+              ),
             );
           },
         ),

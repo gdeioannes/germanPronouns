@@ -8,7 +8,6 @@ import '../data/quest_data.dart';
 import '../data/quiz_content_adapter.dart';
 import '../data/quiz_stats_store.dart';
 import '../models/app_session.dart';
-import '../models/course.dart';
 import '../models/course_session.dart';
 import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
@@ -425,20 +424,40 @@ class _CourseHomePageState extends State<CourseHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(strings.home),
-            Text(
-              course.name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: colorScheme.onSurfaceVariant,
-                fontWeight: FontWeight.w600,
+        centerTitle: true,
+        toolbarHeight: 64,
+        // The course identity (centered), replacing the old "Inicio" title band
+        // and the separate header card it duplicated. Wrapped in a FittedBox so
+        // a long name/tagline shrinks to fit rather than truncating with "…".
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    '${course.speakFlag} → ${course.learnFlag}',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    course.name,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
+              Text(
+                course.tagline,
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  color: colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ],
+          ),
         ),
         actions: [
           if (AppSession.instance.role == UserRole.learner)
@@ -485,8 +504,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
                 child: ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
-                    _courseHeaderCard(context, course),
-                    const SizedBox(height: 12),
                     _overviewCard(
                       context,
                       all,
@@ -575,50 +592,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
     );
   }
 
-  // ── Course header ─────────────────────────────────────────────────────────
-
-  Widget _courseHeaderCard(BuildContext context, Course course) {
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
-    return Card(
-      margin: EdgeInsets.zero,
-      child: Padding(
-        padding: const EdgeInsets.all(14),
-        child: Row(
-          children: [
-            Text(
-              '${course.speakFlag} → ${course.learnFlag}',
-              style: const TextStyle(fontSize: 24),
-            ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    course.name,
-                    style: textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  Text(
-                    course.tagline,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: textTheme.bodySmall?.copyWith(
-                      color: colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   // ── Overview (history + % finished) ───────────────────────────────────────
 
   Widget _overviewCard(
@@ -648,12 +621,15 @@ class _CourseHomePageState extends State<CourseHomePage> {
 
     return Card(
       margin: EdgeInsets.zero,
+      // A tinted, taller card gives the progress overview clearly more weight
+      // than the quiz rows below it.
+      color: colorScheme.primaryContainer.withValues(alpha: 0.35),
       child: Padding(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(20),
         child: Row(
           children: [
             _percentRing(context, pct),
-            const SizedBox(width: 16),
+            const SizedBox(width: 20),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -661,11 +637,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
                 children: [
                   Text(
                     '$finished / $total ${strings.quizzesFinished}',
-                    style: textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
+                    style: textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   Wrap(
                     spacing: 14,
                     runSpacing: 6,
@@ -707,17 +683,17 @@ class _CourseHomePageState extends State<CourseHomePage> {
     final colorScheme = Theme.of(context).colorScheme;
     final done = pct >= 1.0;
     return SizedBox(
-      width: 72,
-      height: 72,
+      width: 96,
+      height: 96,
       child: Stack(
         alignment: Alignment.center,
         children: [
           SizedBox(
-            width: 72,
-            height: 72,
+            width: 96,
+            height: 96,
             child: CircularProgressIndicator(
               value: pct,
-              strokeWidth: 7,
+              strokeWidth: 9,
               backgroundColor: colorScheme.surfaceContainerHighest,
               color: done ? const Color(kBrandForest) : colorScheme.primary,
             ),
@@ -726,7 +702,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
             '${(pct * 100).round()}%',
             style: Theme.of(
               context,
-            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
           ),
         ],
       ),
@@ -744,11 +720,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, size: 15, color: colorScheme.onSurfaceVariant),
-        const SizedBox(width: 4),
+        Icon(icon, size: 17, color: colorScheme.onSurfaceVariant),
+        const SizedBox(width: 5),
         Text(
           value,
-          style: textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+          style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(width: 3),
         Text(

@@ -432,7 +432,12 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.content.title),
+        // Shrink long titles to fit on one line instead of truncating with "…".
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: Text(widget.content.title),
+        ),
         actions: [
           IconButton(
             tooltip: _strings.help,
