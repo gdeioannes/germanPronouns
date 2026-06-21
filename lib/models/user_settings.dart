@@ -17,11 +17,12 @@ class UserSettings {
     this.completedNounCategories = const [],
     this.lastNounProgressionKey,
     this.answerRevealMode = 'normal',
-    this.progressionUnlockLaps = 5,
+    this.progressionUnlockLaps = 2,
     this.questUnlockLaps = 2,
     this.completedQuestQuizzes = const [],
     this.lastQuestQuizKey,
     this.completedSpeakQuizzes = const [],
+    this.completedReadingQuizzes = const [],
     this.seenHelpMemory = const [],
     this.showFirstLetterHint = false,
   });
@@ -64,6 +65,9 @@ class UserSettings {
   /// `QuizContent.id`s of listen-&-repeat quizzes played through to the end.
   final List<String> completedSpeakQuizzes;
 
+  /// `QuizContent.id`s of reading-comprehension quizzes passed at least once.
+  final List<String> completedReadingQuizzes;
+
   /// Quiz storage-key prefixes whose Help Memory has already auto-opened once.
   final List<String> seenHelpMemory;
 
@@ -84,6 +88,7 @@ class UserSettings {
     List<String>? completedQuestQuizzes,
     String? lastQuestQuizKey,
     List<String>? completedSpeakQuizzes,
+    List<String>? completedReadingQuizzes,
     List<String>? seenHelpMemory,
     bool? showFirstLetterHint,
   }) => UserSettings(
@@ -103,6 +108,8 @@ class UserSettings {
     completedQuestQuizzes: completedQuestQuizzes ?? this.completedQuestQuizzes,
     lastQuestQuizKey: lastQuestQuizKey ?? this.lastQuestQuizKey,
     completedSpeakQuizzes: completedSpeakQuizzes ?? this.completedSpeakQuizzes,
+    completedReadingQuizzes:
+        completedReadingQuizzes ?? this.completedReadingQuizzes,
     seenHelpMemory: seenHelpMemory ?? this.seenHelpMemory,
     showFirstLetterHint: showFirstLetterHint ?? this.showFirstLetterHint,
   );
@@ -123,6 +130,7 @@ class UserSettings {
     'completedQuestQuizzes': completedQuestQuizzes,
     if (lastQuestQuizKey != null) 'lastQuestQuizKey': lastQuestQuizKey,
     'completedSpeakQuizzes': completedSpeakQuizzes,
+    'completedReadingQuizzes': completedReadingQuizzes,
     'seenHelpMemory': seenHelpMemory,
     'showFirstLetterHint': showFirstLetterHint,
   };
@@ -141,13 +149,15 @@ class UserSettings {
         (json['completedNounCategories'] as List?)?.cast<String>() ?? const [],
     lastNounProgressionKey: json['lastNounProgressionKey'] as String?,
     answerRevealMode: json['answerRevealMode'] as String? ?? 'normal',
-    progressionUnlockLaps: json['progressionUnlockLaps'] as int? ?? 5,
+    progressionUnlockLaps: json['progressionUnlockLaps'] as int? ?? 2,
     questUnlockLaps: json['questUnlockLaps'] as int? ?? 2,
     completedQuestQuizzes:
         (json['completedQuestQuizzes'] as List?)?.cast<String>() ?? const [],
     lastQuestQuizKey: json['lastQuestQuizKey'] as String?,
     completedSpeakQuizzes:
         (json['completedSpeakQuizzes'] as List?)?.cast<String>() ?? const [],
+    completedReadingQuizzes:
+        (json['completedReadingQuizzes'] as List?)?.cast<String>() ?? const [],
     seenHelpMemory:
         (json['seenHelpMemory'] as List?)?.cast<String>() ?? const [],
     showFirstLetterHint: json['showFirstLetterHint'] as bool? ?? false,

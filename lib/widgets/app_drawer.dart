@@ -878,6 +878,7 @@ class _AppDrawerState extends State<AppDrawer> {
     // icon still wins for fill-in; an explicit per-item iconKey wins over all.
     final kind = summary?.kind;
     final isSpeak = kind == QuizKind.speakRepeat;
+    final isReading = kind == QuizKind.reading;
     final defaultIcon = switch (kind) {
       null => section?.icon ?? Icons.menu_book_rounded,
       QuizKind.fillBlank => section?.icon ?? quizKindIcon(QuizKind.fillBlank),
@@ -906,13 +907,16 @@ class _AppDrawerState extends State<AppDrawer> {
       title: title,
       selected: widget.currentContentId == item.ref,
       onTap: () => _navigateToContent(context, item.ref),
-      // Speak quizzes have no streak — they're "done" once played through,
-      // matching how the course home marks them.
+      // Speak and reading quizzes have no streak — they're "done" once played
+      // through / passed, matching how the course home marks them; fill-in
+      // quizzes are done once their best streak reaches the goal.
       done: isSpeak
           ? NounSettings.instance.isSpeakQuizCompleted(item.ref)
-          : NounSettings.instance.isQuizDone(
-              bestStreakAbsolute: bestStreakAbsolute,
-            ),
+          : isReading
+              ? NounSettings.instance.isReadingQuizCompleted(item.ref)
+              : NounSettings.instance.isQuizDone(
+                  bestStreakAbsolute: bestStreakAbsolute,
+                ),
       doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: prefs == null
           ? null

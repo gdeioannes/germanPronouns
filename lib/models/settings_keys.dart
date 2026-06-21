@@ -35,6 +35,12 @@ class SettingsKeys {
   /// through to the end at least once. Marks them "done" on the quiz home page.
   static const String completedSpeakQuizzes = 'speak_completed_quizzes';
 
+  /// `QuizContent.id`s of reading-comprehension quizzes the learner has passed
+  /// at least once. Reading has no streak, so this marks them "done" (ribbon) on
+  /// the quiz home page and drawer, the same way [completedSpeakQuizzes] does for
+  /// listen-&-repeat quizzes.
+  static const String completedReadingQuizzes = 'reading_completed_quizzes';
+
   /// Quiz storage-key prefixes whose Help Memory panel the learner has already
   /// seen auto-opened (so it only auto-opens once per quiz).
   static const String seenHelpMemory = 'seen_help_memory';

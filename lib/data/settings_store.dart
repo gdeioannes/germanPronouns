@@ -65,7 +65,7 @@ class SharedPreferencesSettingsStore implements SettingsStore {
       answerRevealMode:
           prefs.getString(SettingsKeys.answerRevealMode) ?? 'normal',
       progressionUnlockLaps:
-          prefs.getInt(SettingsKeys.progressionUnlockLaps) ?? 5,
+          prefs.getInt(SettingsKeys.progressionUnlockLaps) ?? 2,
       showFirstLetterHint:
           prefs.getBool(SettingsKeys.showFirstLetterHint) ?? false,
     );

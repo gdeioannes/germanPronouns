@@ -40,8 +40,19 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
   /// Two stages: read the passage, then answer the questions.
   bool _showQuestions = false;
 
-  /// Selected option index per question (null = unanswered).
+  /// Selected option index per question (null = unanswered). Stored as the
+  /// option's *original* index, so scoring against [ReadingQuestion.correctIndex]
+  /// is unaffected by the shuffled display order.
   late final List<int?> _selected = List<int?>.filled(_questions.length, null);
+
+  /// Per-question display order as a list of original option indices, reshuffled
+  /// on each attempt so the correct answer's position can't be memorized.
+  late List<List<int>> _optionOrder = _shuffledOptionOrder();
+
+  List<List<int>> _shuffledOptionOrder() => [
+        for (final q in _questions)
+          List<int>.generate(q.options.length, (i) => i)..shuffle(),
+      ];
 
   /// True once the learner has submitted; reveals correctness + explanations.
   bool _submitted = false;
@@ -53,10 +64,10 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
 
   List<ReadingQuestion> get _questions => widget.content.readingQuestions;
 
-  /// Questions to answer correctly to pass: two thirds, rounded up.
-  int get _passThreshold => _questions.isEmpty
-      ? 0
-      : ((_questions.length * 2) + 2) ~/ 3;
+  /// Questions to answer correctly to pass: at least 65% of them, rounded up
+  /// (e.g. 2/3, 3/4, 4/5, 7/10).
+  int get _passThreshold =>
+      _questions.isEmpty ? 0 : (_questions.length * 65 + 99) ~/ 100;
 
   int get _correctCount {
     var n = 0;
@@ -109,11 +120,16 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
         // Best-effort persistence.
       }
     }
-    // Passing a gated reading quiz unlocks the next Quest chain entry.
-    if (_passed && widget.questProgressionKey != null) {
-      await NounSettings.instance.markQuestQuizCompleted(
-        widget.questProgressionKey!,
-      );
+    if (_passed) {
+      // Passing flags this reading quiz "done" so it shows the ribbon on the
+      // quiz home page and drawer (reading has no streak to reach a goal with).
+      await NounSettings.instance.markReadingQuizCompleted(widget.content.id);
+      // As a Quest-chain entry, passing also unlocks the next chain quiz.
+      if (widget.questProgressionKey != null) {
+        await NounSettings.instance.markQuestQuizCompleted(
+          widget.questProgressionKey!,
+        );
+      }
     }
   }
 
@@ -123,6 +139,8 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
       for (var i = 0; i < _selected.length; i++) {
         _selected[i] = null;
       }
+      // Reshuffle so a retry doesn't present the same option order.
+      _optionOrder = _shuffledOptionOrder();
       _showQuestions = false;
     });
   }
@@ -155,7 +173,11 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
   /// Floating panel with the translation of [question] and its options (and the
   /// explanation, once revealed), so the quiz can stay in German while help is
   /// one tap away.
-  void _showTranslation(BuildContext context, ReadingQuestion question) {
+  void _showTranslation(
+    BuildContext context,
+    ReadingQuestion question,
+    List<int> order,
+  ) {
     final optionsTranslation = question.optionsTranslation;
     final explanationTranslation = question.explanationTranslation;
     showDialog<void>(
@@ -183,7 +205,7 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
                 ),
                 if (optionsTranslation != null) ...[
                   const SizedBox(height: 12),
-                  for (var o = 0; o < question.options.length; o++)
+                  for (final o in order)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 6),
                       child: Text.rich(
@@ -457,13 +479,13 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
                   padding: EdgeInsets.zero,
                   tooltip: CourseSession.instance.strings.help,
                   icon: const Icon(Icons.translate_rounded, size: 20),
-                  onPressed: () => _showTranslation(context, question),
+                  onPressed: () =>
+                      _showTranslation(context, question, _optionOrder[index]),
                 ),
             ],
           ),
           const SizedBox(height: 6),
-          for (var o = 0; o < question.options.length; o++)
-            _buildOption(context, index, o),
+          for (final o in _optionOrder[index]) _buildOption(context, index, o),
           if (_submitted && question.explanation != null) ...[
             const SizedBox(height: 4),
             Text(

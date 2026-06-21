@@ -47,13 +47,17 @@ class NounSettings {
   static const String _lastQuestQuizKeyPref = SettingsKeys.lastQuestQuizKey;
   static const String _completedSpeakQuizzesKey =
       SettingsKeys.completedSpeakQuizzes;
+  static const String _completedReadingQuizzesKey =
+      SettingsKeys.completedReadingQuizzes;
   static const String _seenHelpMemoryKey = SettingsKeys.seenHelpMemory;
 
   /// Size of one "streak" — a run of this many correct answers in a row.
   static const int streakLapSize = 5;
 
-  /// Default value for [progressionUnlockLaps].
-  static const int defaultProgressionUnlockLaps = 5;
+  /// Default value for [progressionUnlockLaps]. Two 5-answer streaks, so a
+  /// fill-in quiz is "done" (and its ribbon shows) — and the next noun category
+  /// unlocks — at ×2/2, matching the Quest goal rather than a longer grind.
+  static const int defaultProgressionUnlockLaps = 2;
 
   /// Default number of 5-answer streaks (laps) needed to pass a Quest quiz — a
   /// shorter goal than the noun-category default so cert quizzes advance faster.
@@ -85,6 +89,7 @@ class NounSettings {
   Set<String> _completedQuestQuizzes = {};
   String? _lastQuestQuizKey;
   Set<String> _completedSpeakQuizzes = {};
+  Set<String> _completedReadingQuizzes = {};
   Set<String> _seenHelpMemory = {};
   bool _showFirstLetterHint = false;
   bool _loaded = false;
@@ -159,6 +164,14 @@ class NounSettings {
 
   bool isSpeakQuizCompleted(String contentId) =>
       _completedSpeakQuizzes.contains(contentId);
+
+  /// `QuizContent.id`s of reading-comprehension quizzes the learner has passed
+  /// at least once. Reading is scored but has no streak, so it counts as "done"
+  /// once passed rather than via the streak goal.
+  Set<String> get completedReadingQuizzes => _completedReadingQuizzes;
+
+  bool isReadingQuizCompleted(String contentId) =>
+      _completedReadingQuizzes.contains(contentId);
 
   /// Best-streak a plain (non-progression) quiz must reach to count as "done"
   /// in the menu. Reuses the same configurable lap goal as the noun-category
@@ -255,6 +268,8 @@ class NounSettings {
     _lastQuestQuizKey = prefs.getString(_lastQuestQuizKeyPref);
     _completedSpeakQuizzes =
         (prefs.getStringList(_completedSpeakQuizzesKey) ?? const []).toSet();
+    _completedReadingQuizzes =
+        (prefs.getStringList(_completedReadingQuizzesKey) ?? const []).toSet();
     _seenHelpMemory =
         (prefs.getStringList(_seenHelpMemoryKey) ?? const []).toSet();
     _showFirstLetterHint =
@@ -351,6 +366,19 @@ class NounSettings {
     );
   }
 
+  /// Marks reading-comprehension quiz [contentId] as passed, permanently
+  /// flagging it "done" (ribbon) on the quiz home page and drawer. No-op if
+  /// already marked.
+  Future<void> markReadingQuizCompleted(String contentId) async {
+    if (_completedReadingQuizzes.contains(contentId)) return;
+    _completedReadingQuizzes = {..._completedReadingQuizzes, contentId};
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(
+      _completedReadingQuizzesKey,
+      _completedReadingQuizzes.toList(),
+    );
+  }
+
   /// Marks the Help Memory panel for [storageKeyPrefix] as seen, so it won't
   /// auto-open again. No-op if already marked.
   Future<void> markHelpMemorySeen(String storageKeyPrefix) async {
@@ -405,6 +433,7 @@ class NounSettings {
     completedQuestQuizzes: _completedQuestQuizzes.toList(),
     lastQuestQuizKey: _lastQuestQuizKey,
     completedSpeakQuizzes: _completedSpeakQuizzes.toList(),
+    completedReadingQuizzes: _completedReadingQuizzes.toList(),
     seenHelpMemory: _seenHelpMemory.toList(),
     showFirstLetterHint: _showFirstLetterHint,
   );
@@ -446,6 +475,7 @@ class NounSettings {
     _completedQuestQuizzes = {};
     _lastQuestQuizKey = null;
     _completedSpeakQuizzes = {};
+    _completedReadingQuizzes = {};
     _seenHelpMemory = {};
   }
 

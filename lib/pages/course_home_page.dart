@@ -241,17 +241,20 @@ class _CourseHomePageState extends State<CourseHomePage> {
       content,
       currentPage: AppPage.articles,
     );
+    final isReading = content.kind == QuizKind.reading;
     return _HomeQuiz(
       title: config.title,
-      uiKind: content.kind == QuizKind.reading
-          ? _UiKind.reading
-          : _UiKind.fillBlank,
+      uiKind: isReading ? _UiKind.reading : _UiKind.fillBlank,
       goalLaps: _regularGoalLaps,
       summary: config.helpMemorySubtitle ?? config.helpMemoryIntro,
       stats: stats,
-      done: NounSettings.instance.isQuizDone(
-        bestStreakAbsolute: stats.bestStreakAbsolute,
-      ),
+      // Reading has no streak — it's "done" once passed, like listen-&-repeat;
+      // fill-in quizzes are done once their best streak reaches the goal.
+      done: isReading
+          ? NounSettings.instance.isReadingQuizCompleted(ref)
+          : NounSettings.instance.isQuizDone(
+              bestStreakAbsolute: stats.bestStreakAbsolute,
+            ),
       contentRef: ref,
       config: config,
     );
