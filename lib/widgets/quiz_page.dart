@@ -3162,8 +3162,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                 ),
                                               ],
                                       ),
-                                      maxLines: useContextual ? 2 : 1,
-                                      overflow: TextOverflow.ellipsis,
                                     ),
                                     // The second tier (case label + value) is
                                     // hidden in the contextual layout: its
@@ -3206,8 +3204,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                     else
                                       Text(
                                         displayCaseValue,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
                                         style: scaledQuizTextTheme.headlineSmall
                                             ?.copyWith(
                                               fontWeight: FontWeight.w600,
