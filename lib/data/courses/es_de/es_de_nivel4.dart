@@ -8,8 +8,10 @@ import 'es_de_builder.dart';
 /// la comunicación no violenta: hablar de los propios sentimientos y
 /// necesidades en vez de acusar. Registro A2–B1, trato informal ("du").
 ///
-/// 16 quizzes: 2 de vocabulario, 8 de frases, 6 de "Hablar" (audio) y 1 de
-/// lectura como cierre.
+/// Cada bloque temático (A–G) cierra con una lectura situacional que reutiliza
+/// su propio vocabulario; los bloques H añaden dos lecturas-resumen (capstone).
+/// Las lecturas se leen y se responden en alemán, con la traducción al español
+/// detrás de un icono "i" (en el texto y en cada pregunta).
 
 // ───────────────────────────── Bloque A · Las emociones ────────────────────
 
@@ -199,6 +201,139 @@ final QuizContent esDeHablarEmocionesMatices = speakRepeatQuiz(
   ],
 );
 
+/// Reading (Bloque A): a short diary entry naming the emotions of a normal day.
+/// Reuses the basic + nuanced emotion adjectives with "sein"/"sich fühlen".
+final QuizContent esDeLecturaEmocionesDia = readingCourseQuiz(
+  id: 'es_de_lectura_emociones_dia',
+  title: 'Lectura: un día de muchas emociones',
+  category: 'Las emociones',
+  passageTitle: 'Ein Tag voller Gefühle',
+  intro:
+      'Lee el diario de un día normal y fíjate en las emociones (müde, '
+      'gestresst, glücklich…) con "sein" y "sich fühlen". Léelo primero en '
+      'alemán; el icono de traducción está si lo necesitas.',
+  passage:
+      'Heute war ein Tag voller Gefühle. Am Morgen war ich sehr müde und ein '
+      'bisschen nervös, denn ich hatte viel Arbeit. Im Büro war ich gestresst '
+      'und am Mittag sogar ein bisschen frustriert.\n\n'
+      'Am Nachmittag kam eine gute Nachricht: Mein Projekt ist fertig! '
+      'Plötzlich war ich erleichtert und richtig glücklich. Ich war auch stolz '
+      'auf mich.\n\n'
+      'Am Abend war ich zwar noch müde, aber zufrieden. Jetzt bin ich ruhig '
+      'und dankbar für diesen Tag.',
+  passageTranslation:
+      'Hoy ha sido un día lleno de emociones. Por la mañana estaba muy cansado '
+      'y un poco nervioso, porque tenía mucho trabajo. En la oficina estaba '
+      'estresado y al mediodía incluso un poco frustrado.\n\n'
+      'Por la tarde llegó una buena noticia: ¡mi proyecto está terminado! De '
+      'repente estaba aliviado y realmente feliz. También estaba orgulloso de '
+      'mí.\n\n'
+      'Por la noche todavía estaba cansado, pero satisfecho. Ahora estoy '
+      'tranquilo y agradecido por este día.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '"sein" o "sich fühlen"',
+      text: 'Para un estado se usa "sein" ("Ich bin müde") o el reflexivo '
+          '"sich fühlen" ("Ich fühle mich allein"). No olvides el "mich".',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Emoción + preposición',
+      text: '"stolz auf mich" (orgulloso de mí), "dankbar für" (agradecido '
+          'por). Cada emoción suele llevar su preposición fija.',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'Wie fühlt sich die Person am Morgen?',
+      questionTranslation: '¿Cómo se siente la persona por la mañana?',
+      options: [
+        'Müde und ein bisschen nervös',
+        'Glücklich und ruhig',
+        'Stolz und erleichtert',
+        'Wütend und eifersüchtig',
+      ],
+      optionsTranslation: [
+        'Cansada y un poco nerviosa',
+        'Feliz y tranquila',
+        'Orgullosa y aliviada',
+        'Enfadada y celosa',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Am Morgen war ich sehr müde und ein bisschen nervös.»',
+      explanationTranslation:
+          'Por la mañana estaba muy cansada y un poco nerviosa.',
+    ),
+    ReadingQuestion(
+      question: 'Warum war die Person gestresst?',
+      questionTranslation: '¿Por qué estaba estresada la persona?',
+      options: [
+        'Weil sie viel Arbeit hatte',
+        'Weil sie krank war',
+        'Weil sie Streit hatte',
+        'Weil sie kein Geld hatte',
+      ],
+      optionsTranslation: [
+        'Porque tenía mucho trabajo',
+        'Porque estaba enferma',
+        'Porque había discutido',
+        'Porque no tenía dinero',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«… denn ich hatte viel Arbeit. Im Büro war ich gestresst.»',
+      explanationTranslation:
+          '«… denn ich hatte viel Arbeit.» Estaba estresada por la carga de '
+          'trabajo.',
+    ),
+    ReadingQuestion(
+      question: 'Wie fühlt sich die Person nach der guten Nachricht?',
+      questionTranslation: '¿Cómo se siente tras la buena noticia?',
+      options: [
+        'Erleichtert und richtig glücklich',
+        'Traurig und einsam',
+        'Nervös und unsicher',
+        'Müde und frustriert',
+      ],
+      optionsTranslation: [
+        'Aliviada y muy feliz',
+        'Triste y sola',
+        'Nerviosa e insegura',
+        'Cansada y frustrada',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Plötzlich war ich erleichtert und richtig glücklich.»',
+      explanationTranslation:
+          'Tras la buena noticia se sintió aliviada y muy feliz.',
+    ),
+    ReadingQuestion(
+      question: 'Wie ist ihre Stimmung am Abend?',
+      questionTranslation: '¿Cuál es su estado de ánimo por la noche?',
+      options: [
+        'Müde, aber zufrieden und dankbar',
+        'Wütend und enttäuscht',
+        'Gelangweilt',
+        'Eifersüchtig',
+      ],
+      optionsTranslation: [
+        'Cansada, pero satisfecha y agradecida',
+        'Enfadada y decepcionada',
+        'Aburrida',
+        'Celosa',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Am Abend war ich zwar noch müde, aber zufrieden … dankbar für '
+          'diesen Tag.»',
+      explanationTranslation:
+          'Por la noche sigue cansada, pero satisfecha y agradecida.',
+    ),
+  ],
+);
+
 // ──────────────────────── Bloque B · Expresar sentimientos ──────────────────
 
 final QuizContent esDeExpresarSentimientos = sentenceCourseQuiz(
@@ -292,6 +427,133 @@ final QuizContent esDeHablarSentimientos = speakRepeatQuiz(
     CourseItem(prompt: 'Necesito tiempo para mí', answer: 'Ich brauche Zeit für mich'),
     CourseItem(prompt: 'Me siento herido', answer: 'Ich fühle mich verletzt'),
     CourseItem(prompt: 'Estoy agradecido por ti', answer: 'Ich bin dankbar für dich'),
+  ],
+);
+
+/// Reading (Bloque B): an honest little note to a partner. Reuses "Ich fühle
+/// mich …", "Ich vermisse dich", "Ich brauche Zeit für mich", "dankbar für".
+final QuizContent esDeLecturaNotaSincera = readingCourseQuiz(
+  id: 'es_de_lectura_nota_sincera',
+  title: 'Lectura: una nota sincera',
+  category: 'Expresar sentimientos',
+  passageTitle: 'Eine ehrliche Nachricht',
+  intro:
+      'Jan le escribe una nota a Sofia para decirle cómo se siente. Fíjate en '
+      'las fórmulas para expresar sentimientos y léelo primero en alemán.',
+  passage:
+      'Liebe Sofia,\n\n'
+      'ich möchte dir ehrlich schreiben, wie es mir geht. In letzter Zeit geht '
+      'es mir nicht gut. Ich bin oft überfordert und manchmal fühle ich mich '
+      'allein.\n\n'
+      'Es fällt mir schwer, darüber zu reden. Aber ich vermisse dich, wenn du '
+      'auf der Arbeit bist. Ich brauche auch ein bisschen Zeit für mich.\n\n'
+      'Trotzdem bin ich glücklich mit dir und sehr dankbar für dich. Lass uns '
+      'bald in Ruhe reden.\n\n'
+      'Jan',
+  passageTranslation:
+      'Querida Sofia:\n\n'
+      'quiero escribirte con sinceridad cómo me siento. Últimamente no me '
+      'siento bien. A menudo estoy abrumado y a veces me siento solo.\n\n'
+      'Me cuesta hablar de esto. Pero te echo de menos cuando estás en el '
+      'trabajo. También necesito un poco de tiempo para mí.\n\n'
+      'Aun así soy feliz contigo y estoy muy agradecido por ti. Hablémoslo '
+      'pronto con calma.\n\n'
+      'Jan',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '"Ich fühle mich …"',
+      text: '"fühlen" es reflexivo: "Ich fühle mich allein". Y para "estoy '
+          'bien/mal" se usa el dativo: "Es geht mir (nicht) gut".',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"Ich vermisse dich"',
+      text: '"vermissen" = echar de menos. "Ich vermisse dich" es una de las '
+          'frases más sinceras que puedes decir.',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'Wie geht es Jan in letzter Zeit?',
+      questionTranslation: '¿Cómo se siente Jan últimamente?',
+      options: [
+        'Nicht gut, er ist oft überfordert',
+        'Sehr gut und entspannt',
+        'Wütend auf Sofia',
+        'Gelangweilt',
+      ],
+      optionsTranslation: [
+        'No muy bien, a menudo está abrumado',
+        'Muy bien y relajado',
+        'Enfadado con Sofia',
+        'Aburrido',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«… geht es mir nicht gut. Ich bin oft überfordert …»',
+      explanationTranslation:
+          'No se siente bien; a menudo está abrumado.',
+    ),
+    ReadingQuestion(
+      question: 'Was fällt Jan schwer?',
+      questionTranslation: '¿Qué le cuesta a Jan?',
+      options: [
+        'Über seine Gefühle zu reden',
+        'Zur Arbeit zu gehen',
+        'Zu schlafen',
+        'Zu essen',
+      ],
+      optionsTranslation: [
+        'Hablar de sus sentimientos',
+        'Ir al trabajo',
+        'Dormir',
+        'Comer',
+      ],
+      correctIndex: 0,
+      explanation: '«Es fällt mir schwer, darüber zu reden.»',
+      explanationTranslation: 'Le cuesta hablar de sus sentimientos.',
+    ),
+    ReadingQuestion(
+      question: 'Was braucht Jan?',
+      questionTranslation: '¿Qué necesita Jan?',
+      options: [
+        'Ein bisschen Zeit für sich',
+        'Mehr Geld',
+        'Eine neue Arbeit',
+        'Einen Urlaub',
+      ],
+      optionsTranslation: [
+        'Un poco de tiempo para sí mismo',
+        'Más dinero',
+        'Un nuevo trabajo',
+        'Unas vacaciones',
+      ],
+      correctIndex: 0,
+      explanation: '«Ich brauche auch ein bisschen Zeit für mich.»',
+      explanationTranslation: 'Necesita un poco de tiempo para sí mismo.',
+    ),
+    ReadingQuestion(
+      question: 'Wie fühlt sich Jan trotz allem?',
+      questionTranslation: '¿Cómo se siente Jan a pesar de todo?',
+      options: [
+        'Glücklich mit Sofia und dankbar',
+        'Allein und traurig',
+        'Enttäuscht von Sofia',
+        'Eifersüchtig',
+      ],
+      optionsTranslation: [
+        'Feliz con Sofia y agradecido',
+        'Solo y triste',
+        'Decepcionado de Sofia',
+        'Celoso',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Trotzdem bin ich glücklich mit dir und sehr dankbar für dich.»',
+      explanationTranslation:
+          'A pesar de todo es feliz con ella y le está agradecido.',
+    ),
   ],
 );
 
@@ -549,6 +811,138 @@ final QuizContent esDeHablarEmpatia = speakRepeatQuiz(
   ],
 );
 
+/// Reading (Bloque C): one partner opens a calm conversation with an
+/// Ich-Botschaft and the other listens with empathy. Reuses the opener phrases,
+/// the "Ich fühle mich …, wenn …" pattern and the empathy phrases.
+final QuizContent esDeLecturaConversacionCalma = readingCourseQuiz(
+  id: 'es_de_lectura_conversacion_calma',
+  title: 'Lectura: una conversación con calma',
+  category: 'Comunicación en pareja',
+  passageTitle: 'In Ruhe reden',
+  intro:
+      'Nora abre una conversación con calma y usa un mensaje-yo; Paul escucha '
+      'con empatía. Fíjate en cómo lo dice sin acusar y léelo primero en '
+      'alemán.',
+  passage:
+      'Nora setzte sich neben Paul. «Hast du kurz Zeit? Ich möchte mit dir '
+      'über etwas reden. Ich will nicht streiten», sagte sie ruhig.\n\n'
+      '«Klar, erzähl mir mehr», antwortete Paul.\n\n'
+      '«Mir ist wichtig, dass wir am Abend zusammen sind. Ich fühle mich '
+      'allein, wenn du immer am Handy bist», sagte Nora. «Ich möchte, dass du '
+      'mir mehr zuhörst.»\n\n'
+      'Paul nickte. «Du hast recht. Das tut mir leid. Ich verstehe dich, und '
+      'ich bin für dich da», sagte er. «Lass uns zusammen eine Lösung finden.»',
+  passageTranslation:
+      'Nora se sentó al lado de Paul. «¿Tienes un momento? Quiero hablar '
+      'contigo de algo. No quiero discutir», dijo con calma.\n\n'
+      '«Claro, cuéntame más», respondió Paul.\n\n'
+      '«Para mí es importante que estemos juntos por la noche. Me siento sola '
+      'cuando siempre estás con el móvil», dijo Nora. «Me gustaría que me '
+      'escucharas más.»\n\n'
+      'Paul asintió. «Tienes razón. Lo siento. Te entiendo y estoy aquí para '
+      'ti», dijo. «Busquemos juntos una solución.»',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'Mensaje-yo, no acusación',
+      text: 'Compara «Du bist immer am Handy» (acusación) con «Ich fühle mich '
+          'allein, wenn du immer am Handy bist» (mensaje-yo).',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Escuchar con empatía',
+      text: '«Du hast recht», «Ich verstehe dich», «Ich bin für dich da»: '
+          'frases que validan al otro y abren el diálogo.',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'Wie beginnt Nora das Gespräch?',
+      questionTranslation: '¿Cómo empieza Nora la conversación?',
+      options: [
+        'Ruhig; sie fragt, ob Paul kurz Zeit hat',
+        'Sie schreit Paul an',
+        'Sie macht Paul Vorwürfe',
+        'Sie geht wütend weg',
+      ],
+      optionsTranslation: [
+        'Con calma; pregunta si Paul tiene un momento',
+        'Le grita a Paul',
+        'Le hace reproches',
+        'Se va enfadada',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Hast du kurz Zeit? … Ich will nicht streiten», sagte sie ruhig.',
+      explanationTranslation:
+          'Empieza con calma y pide un momento para hablar.',
+    ),
+    ReadingQuestion(
+      question: 'Was ist Nora wichtig?',
+      questionTranslation: '¿Qué es importante para Nora?',
+      options: [
+        'Dass sie am Abend zusammen sind',
+        'Dass Paul mehr arbeitet',
+        'Dass Paul ihr Geschenke macht',
+        'Dass sie allein ist',
+      ],
+      optionsTranslation: [
+        'Estar juntos por la noche',
+        'Que Paul trabaje más',
+        'Que Paul le haga regalos',
+        'Estar sola',
+      ],
+      correctIndex: 0,
+      explanation: '«Mir ist wichtig, dass wir am Abend zusammen sind.»',
+      explanationTranslation: 'Le importa estar juntos por la noche.',
+    ),
+    ReadingQuestion(
+      question: 'Welchen Satz benutzt Nora als Ich-Botschaft?',
+      questionTranslation: '¿Qué frase usa Nora como mensaje-yo?',
+      options: [
+        '«Ich fühle mich allein, wenn du immer am Handy bist»',
+        '«Du bist immer am Handy»',
+        '«Nie hörst du mir zu»',
+        '«Du bist egoistisch»',
+      ],
+      optionsTranslation: [
+        '«Me siento sola cuando siempre estás con el móvil»',
+        '«Siempre estás con el móvil»',
+        '«Nunca me escuchas»',
+        '«Eres un egoísta»',
+      ],
+      correctIndex: 0,
+      explanation:
+          'Una Ich-Botschaft habla del propio sentimiento: «Ich fühle mich '
+          'allein …», en vez de acusar.',
+      explanationTranslation:
+          'Una Ich-Botschaft habla del propio sentimiento, no acusa al otro.',
+    ),
+    ReadingQuestion(
+      question: 'Wie reagiert Paul?',
+      questionTranslation: '¿Cómo reacciona Paul?',
+      options: [
+        'Mit Empathie; er hört zu und will eine Lösung finden',
+        'Er wird wütend',
+        'Er ignoriert sie',
+        'Er verlässt die Wohnung',
+      ],
+      optionsTranslation: [
+        'Con empatía; escucha y quiere buscar una solución',
+        'Se enfada',
+        'La ignora',
+        'Se va de casa',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Du hast recht … Ich bin für dich da … Lass uns zusammen eine '
+          'Lösung finden.»',
+      explanationTranslation:
+          'Reacciona con empatía: valida, se disculpa y busca una solución.',
+    ),
+  ],
+);
+
 // ─────────────────────── Bloque D · Conflicto y reconciliación ──────────────
 
 final QuizContent esDeConflictos = sentenceCourseQuiz(
@@ -733,6 +1127,137 @@ final QuizContent esDeAmorAprecio = sentenceCourseQuiz(
     CourseItem(
       prompt: 'Eres lo mejor que me ha **pasado**',
       answer: 'Du bist das Beste, was mir **passiert** ist',
+    ),
+  ],
+);
+
+/// Reading (Bloque D): a small argument that is paused and then repaired with
+/// an apology and words of affection. Reuses the conflict, reconciliation and
+/// "amor y aprecio" phrases.
+final QuizContent esDeLecturaPeleaPaces = readingCourseQuiz(
+  id: 'es_de_lectura_pelea_paces',
+  title: 'Lectura: la pelea y las paces',
+  category: 'Conflicto y reconciliación',
+  passageTitle: 'Streit und Versöhnung',
+  intro:
+      'Mia y Leon discuten, piden una pausa y luego hacen las paces. Fíjate en '
+      'cómo se pone un límite con respeto y cómo se pide perdón. Léelo primero '
+      'en alemán.',
+  passage:
+      'Mia und Leon hatten Streit. «Das ist nicht fair! Du hast mich '
+      'enttäuscht», sagte Mia wütend.\n\n'
+      '«Ich sehe das anders», antwortete Leon laut. Dann hielt er kurz inne. '
+      '«Stopp. Ich will mich nicht streiten. Ich brauche eine Pause. Lass uns '
+      'später reden.»\n\n'
+      'Eine Stunde später war es ruhiger. «Es tut mir leid, du hast recht», '
+      'sagte Leon. «Ich wollte dich nicht verletzen. Verzeih mir.»\n\n'
+      '«Ich verzeihe dir», sagte Mia. «Vertragen wir uns wieder. Ich liebe '
+      'dich trotz allem.» Leon lächelte: «Du bedeutest mir viel. Wir schaffen '
+      'das.»',
+  passageTranslation:
+      'Mia y Leon discutieron. «¡Eso no es justo! Me has decepcionado», dijo '
+      'Mia enfadada.\n\n'
+      '«Yo lo veo diferente», respondió Leon en voz alta. Luego se detuvo un '
+      'momento. «Para. No quiero pelear. Necesito una pausa. Hablemos más '
+      'tarde.»\n\n'
+      'Una hora después estaba todo más tranquilo. «Lo siento, tienes razón», '
+      'dijo Leon. «No quería herirte. Perdóname.»\n\n'
+      '«Te perdono», dijo Mia. «Hagamos las paces. Te quiero a pesar de todo.» '
+      'Leon sonrió: «Significas mucho para mí. Lo conseguiremos.»',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Pedir una pausa',
+      text: '«Ich brauche eine Pause. Lass uns später reden» evita que la '
+          'discusión suba de tono. Parar a tiempo es una herramienta clave.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'Disculpa + aprecio',
+      text: '«Es tut mir leid … Verzeih mir» (disculpa) y «Du bedeutest mir '
+          'viel» (aprecio): reparar la relación tras el conflicto.',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'Warum ist Mia wütend?',
+      questionTranslation: '¿Por qué está enfadada Mia?',
+      options: [
+        'Weil Leon sie enttäuscht hat',
+        'Weil Leon zu spät kam',
+        'Weil Leon krank ist',
+        'Weil Leon kein Geld hat',
+      ],
+      optionsTranslation: [
+        'Porque Leon la ha decepcionado',
+        'Porque Leon llegó tarde',
+        'Porque Leon está enfermo',
+        'Porque Leon no tiene dinero',
+      ],
+      correctIndex: 0,
+      explanation: '«Das ist nicht fair! Du hast mich enttäuscht», sagte Mia.',
+      explanationTranslation: 'Está enfadada porque Leon la ha decepcionado.',
+    ),
+    ReadingQuestion(
+      question: 'Was macht Leon, als der Streit lauter wird?',
+      questionTranslation: '¿Qué hace Leon cuando la pelea sube de tono?',
+      options: [
+        'Er bittet um eine Pause',
+        'Er schreit weiter',
+        'Er geht für immer',
+        'Er lacht',
+      ],
+      optionsTranslation: [
+        'Pide una pausa',
+        'Sigue gritando',
+        'Se va para siempre',
+        'Se ríe',
+      ],
+      correctIndex: 0,
+      explanation: '«Ich brauche eine Pause. Lass uns später reden.»',
+      explanationTranslation: 'Pide una pausa para no seguir discutiendo.',
+    ),
+    ReadingQuestion(
+      question: 'Wie entschuldigt sich Leon?',
+      questionTranslation: '¿Cómo se disculpa Leon?',
+      options: [
+        '«Es tut mir leid … Verzeih mir»',
+        '«Es war nicht meine Schuld»',
+        '«Du bist schuld»',
+        '«Das ist mir egal»',
+      ],
+      optionsTranslation: [
+        '«Lo siento … Perdóname»',
+        '«No fue culpa mía»',
+        '«Es culpa tuya»',
+        '«Me da igual»',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Es tut mir leid, du hast recht … Verzeih mir.» Reconoce su error.',
+      explanationTranslation:
+          '«Es tut mir leid … Verzeih mir.» Reconoce su error y pide perdón.',
+    ),
+    ReadingQuestion(
+      question: 'Wie endet die Szene?',
+      questionTranslation: '¿Cómo termina la escena?',
+      options: [
+        'Sie versöhnen sich und zeigen Zuneigung',
+        'Sie trennen sich',
+        'Sie reden nie wieder',
+        'Sie streiten weiter',
+      ],
+      optionsTranslation: [
+        'Se reconcilian y muestran cariño',
+        'Se separan',
+        'No vuelven a hablar',
+        'Siguen peleando',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Vertragen wir uns wieder. Ich liebe dich … Du bedeutest mir viel.»',
+      explanationTranslation:
+          'Hacen las paces y se expresan cariño y aprecio.',
     ),
   ],
 );
@@ -962,6 +1487,143 @@ final QuizContent esDeHablarProfunda = speakRepeatQuiz(
   ],
 );
 
+/// Reading (Bloque E): a reflective B2 journal entry about emotional distance
+/// and the wish for closeness. Reuses the abstract bond vocabulary, the
+/// vulnerability verbs and Konjunktiv II ("Ich wünschte, wir würden …").
+final QuizContent esDeLecturaMasCerca = readingCourseQuiz(
+  id: 'es_de_lectura_mas_cerca',
+  title: 'Lectura: más cerca otra vez (B2–C1)',
+  category: 'Comunicación profunda',
+  passageTitle: 'Wieder zueinander finden',
+  intro:
+      'Un texto reflexivo (B2). Alguien escribe sobre el distanciamiento y su '
+      'deseo de cercanía. Fíjate en el vocabulario abstracto (Nähe, '
+      'Vertrautheit) y el Konjunktiv II. Léelo primero en alemán.',
+  passage:
+      'Seit einigen Monaten habe ich das Gefühl, dass wir uns auseinandergelebt '
+      'haben. Wir reden kaum noch, und manchmal fühle ich mich allein, obwohl '
+      'du neben mir sitzt.\n\n'
+      'Ich vermisse unsere Vertrautheit und die emotionale Nähe von früher. Ich '
+      'brauche mehr Aufmerksamkeit und das Gefühl, an erster Stelle zu '
+      'stehen.\n\n'
+      'Es fällt mir schwer, mich verletzlich zu zeigen. Aber ich möchte mich '
+      'dir wieder öffnen, denn ich vertraue dir. Ich wünschte, wir würden öfter '
+      'über unsere Gefühle sprechen.\n\n'
+      'Ich will keine Vorwürfe machen. Ich möchte nur, dass wir wieder '
+      'zueinander finden und mehr auf uns achten.',
+  passageTranslation:
+      'Desde hace unos meses tengo la sensación de que nos hemos ido '
+      'distanciando. Apenas hablamos, y a veces me siento solo, aunque estés '
+      'sentado a mi lado.\n\n'
+      'Echo de menos nuestra complicidad y la cercanía emocional de antes. '
+      'Necesito más atención y sentir que soy la prioridad.\n\n'
+      'Me cuesta mostrarme vulnerable. Pero quiero volver a abrirme a ti, '
+      'porque confío en ti. Ojalá habláramos más a menudo de nuestros '
+      'sentimientos.\n\n'
+      'No quiero hacer reproches. Solo quiero que volvamos a reconectar y que '
+      'nos cuidemos más.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"sich auseinanderleben"',
+      text: '«Wir haben uns auseinandergelebt» = nos hemos distanciado con el '
+          'tiempo. Expresión muy típica para hablar de una crisis.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Konjunktiv II para suavizar',
+      text: '«Ich wünschte, wir würden … sprechen» suena más delicado que «Ich '
+          'will, dass …». Es la cortesía del alemán culto.',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'Welches Gefühl beschreibt die Person?',
+      questionTranslation: '¿Qué sensación describe la persona?',
+      options: [
+        'Dass sie sich auseinandergelebt haben',
+        'Dass alles perfekt ist',
+        'Dass sie verliebt wie am Anfang ist',
+        'Dass sie umziehen will',
+      ],
+      optionsTranslation: [
+        'Que se han ido distanciando',
+        'Que todo es perfecto',
+        'Que está enamorada como al principio',
+        'Que quiere mudarse',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«… dass wir uns auseinandergelebt haben.» Siente que se han '
+          'distanciado.',
+      explanationTranslation:
+          'Describe la sensación de haberse ido distanciando.',
+    ),
+    ReadingQuestion(
+      question: 'Was vermisst die Person?',
+      questionTranslation: '¿Qué echa de menos la persona?',
+      options: [
+        'Die Vertrautheit und emotionale Nähe von früher',
+        'Mehr Geld',
+        'Mehr Urlaub',
+        'Eine größere Wohnung',
+      ],
+      optionsTranslation: [
+        'La complicidad y la cercanía emocional de antes',
+        'Más dinero',
+        'Más vacaciones',
+        'Una casa más grande',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Ich vermisse unsere Vertrautheit und die emotionale Nähe von '
+          'früher.»',
+      explanationTranslation:
+          'Echa de menos la complicidad y la cercanía emocional de antes.',
+    ),
+    ReadingQuestion(
+      question: 'Was fällt der Person schwer?',
+      questionTranslation: '¿Qué le cuesta a la persona?',
+      options: [
+        'Sich verletzlich zu zeigen',
+        'Zu arbeiten',
+        'Zu reisen',
+        'Zu kochen',
+      ],
+      optionsTranslation: [
+        'Mostrarse vulnerable',
+        'Trabajar',
+        'Viajar',
+        'Cocinar',
+      ],
+      correctIndex: 0,
+      explanation: '«Es fällt mir schwer, mich verletzlich zu zeigen.»',
+      explanationTranslation: 'Le cuesta mostrarse vulnerable.',
+    ),
+    ReadingQuestion(
+      question: 'Was wünscht sich die Person am Ende?',
+      questionTranslation: '¿Qué desea la persona al final?',
+      options: [
+        'Dass sie wieder zueinander finden und mehr aufeinander achten',
+        'Dass sie sich trennen',
+        'Dass der andere geht',
+        'Dass sich nichts ändert',
+      ],
+      optionsTranslation: [
+        'Que vuelvan a reconectar y se cuiden más',
+        'Que se separen',
+        'Que el otro se vaya',
+        'Que nada cambie',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«… dass wir wieder zueinander finden und mehr auf uns achten.»',
+      explanationTranslation:
+          'Desea que vuelvan a reconectar y se cuiden más.',
+    ),
+  ],
+);
+
 // ──────────────── Bloque F · Confrontación y conflicto (B2–C1) ───────────────
 // Discusiones serias, límites, patrones que se repiten y ruptura de confianza,
 // siempre buscando una salida constructiva.
@@ -1142,6 +1804,142 @@ final QuizContent esDeHablarConfrontacion = speakRepeatQuiz(
     CourseItem(prompt: 'No quiero ganar, quiero que nos entendamos', answer: 'Ich will nicht gewinnen, ich will uns verstehen'),
     CourseItem(prompt: 'Necesito que asumas tu parte', answer: 'Ich brauche, dass du deinen Anteil übernimmst'),
     CourseItem(prompt: 'Busquemos juntos una solución', answer: 'Lass uns gemeinsam eine Lösung finden'),
+  ],
+);
+
+/// Reading (Bloque F): a serious but constructive confrontation. Reuses the
+/// conflict nouns (Auseinandersetzung, Vorwürfe, Grenze, Kompromiss) and the
+/// "afrontar el conflicto" phrases (sachlich bleiben, ausreden lassen, Anteil).
+final QuizContent esDeLecturaConversacionFranca = readingCourseQuiz(
+  id: 'es_de_lectura_conversacion_franca',
+  title: 'Lectura: una conversación franca (B2–C1)',
+  category: 'Confrontación y conflicto',
+  passageTitle: 'Eine offene Aussprache',
+  intro:
+      'Clara y Tomás afrontan una discusión que se repite. Fíjate en cómo '
+      'mantienen el tono objetivo, ponen un límite y buscan una solución. '
+      'Léelo primero en alemán.',
+  passage:
+      '«Schon wieder dieselbe Auseinandersetzung», seufzte Clara. «Wir drehen '
+      'uns im Kreis. Das geht so nicht weiter.»\n\n'
+      '«Ich will dir keine Vorwürfe machen», sagte Tomás, «aber ich brauche '
+      'eine offene Aussprache. Lass uns sachlich bleiben, und bitte schrei '
+      'mich nicht an.»\n\n'
+      '«Du weichst dem Thema immer aus», antwortete Clara. «Ich muss eine '
+      'Grenze ziehen. Ich möchte, dass wir uns respektieren und einander '
+      'ausreden lassen.»\n\n'
+      'Tomás atmete tief durch. «Du hast recht. Ich übernehme meinen Anteil. '
+      'Ich will nicht gewinnen, ich will, dass wir eine Lösung finden. '
+      'Vielleicht brauchen wir einen Kompromiss.»',
+  passageTranslation:
+      '«Otra vez la misma discusión», suspiró Clara. «Estamos dando vueltas en '
+      'círculo. Así no podemos seguir.»\n\n'
+      '«No quiero hacerte reproches», dijo Tomás, «pero necesito una '
+      'conversación franca. Seamos objetivos y, por favor, no me grites.»\n\n'
+      '«Siempre evitas el tema», respondió Clara. «Tengo que poner un límite. '
+      'Quiero que nos respetemos y que nos dejemos terminar de hablar.»\n\n'
+      'Tomás respiró hondo. «Tienes razón. Asumo mi parte. No quiero ganar, '
+      'quiero que encontremos una solución. Quizá necesitemos un compromiso.»',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"Grenzen ziehen"',
+      text: '«Ich muss eine Grenze ziehen» = tengo que poner un límite. '
+          'También vale «Grenzen setzen».',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"sachlich bleiben"',
+      text: '«Lass uns sachlich bleiben» (seamos objetivos) baja la temperatura '
+          'de una discusión. «jemanden ausreden lassen» = dejar terminar.',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'Worüber beschwert sich Clara am Anfang?',
+      questionTranslation: '¿De qué se queja Clara al principio?',
+      options: [
+        'Dass sie sich im Kreis drehen und es so nicht weitergeht',
+        'Dass Tomás zu viel arbeitet',
+        'Dass Tomás sie hintergangen hat',
+        'Dass sie umziehen müssen',
+      ],
+      optionsTranslation: [
+        'De que dan vueltas en círculo y así no pueden seguir',
+        'De que Tomás trabaja demasiado',
+        'De que Tomás la ha traicionado',
+        'De que tienen que mudarse',
+      ],
+      correctIndex: 0,
+      explanation: '«Wir drehen uns im Kreis. Das geht so nicht weiter.»',
+      explanationTranslation:
+          'Se queja de que dan vueltas en círculo y así no pueden seguir.',
+    ),
+    ReadingQuestion(
+      question: 'Was braucht Tomás?',
+      questionTranslation: '¿Qué necesita Tomás?',
+      options: [
+        'Eine offene Aussprache, sachlich und ohne Schreien',
+        'Mehr Freiheit',
+        'Ein neues Auto',
+        'Eine Pause vom Job',
+      ],
+      optionsTranslation: [
+        'Una conversación franca, objetiva y sin gritos',
+        'Más libertad',
+        'Un coche nuevo',
+        'Una pausa del trabajo',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«… ich brauche eine offene Aussprache. Lass uns sachlich bleiben …»',
+      explanationTranslation:
+          'Necesita una conversación franca, objetiva y sin gritos.',
+    ),
+    ReadingQuestion(
+      question: 'Was möchte Clara setzen?',
+      questionTranslation: '¿Qué quiere poner Clara?',
+      options: [
+        'Eine Grenze; sie will einander ausreden lassen',
+        'Ein Ultimatum',
+        'Eine Wette',
+        'Eine Frist',
+      ],
+      optionsTranslation: [
+        'Un límite; quiere que se dejen terminar de hablar',
+        'Un ultimátum',
+        'Una apuesta',
+        'Un plazo',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Ich muss eine Grenze ziehen. Ich möchte, dass wir uns '
+          'respektieren und einander ausreden lassen.»',
+      explanationTranslation:
+          'Quiere poner un límite y que se dejen terminar de hablar.',
+    ),
+    ReadingQuestion(
+      question: 'Wie reagiert Tomás am Ende konstruktiv?',
+      questionTranslation: '¿Cómo reacciona Tomás de forma constructiva al final?',
+      options: [
+        'Er übernimmt seinen Anteil und sucht eine Lösung',
+        'Er will unbedingt gewinnen',
+        'Er weicht weiter aus',
+        'Er macht ihr Vorwürfe',
+      ],
+      optionsTranslation: [
+        'Asume su parte y busca una solución',
+        'Quiere ganar a toda costa',
+        'Sigue evitando el tema',
+        'Le hace reproches',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Ich übernehme meinen Anteil. Ich will nicht gewinnen, ich will, '
+          'dass wir eine Lösung finden.»',
+      explanationTranslation:
+          'Asume su parte y, en vez de ganar, busca una solución.',
+    ),
   ],
 );
 
@@ -1340,6 +2138,142 @@ final QuizContent esDeHablarRupturaReconciliacion = speakRepeatQuiz(
     CourseItem(prompt: '¿Podemos empezar de cero?', answer: 'Können wir noch einmal von vorne anfangen?'),
     CourseItem(prompt: 'Quiero luchar por nosotros', answer: 'Ich will um uns kämpfen'),
     CourseItem(prompt: 'Te perdono de verdad', answer: 'Ich verzeihe dir wirklich'),
+  ],
+);
+
+/// Reading (Bloque G): a respectful goodbye. The capstone (Bloque H) shows a
+/// couple that repairs; this one shows a couple that ends well. Reuses the
+/// breakup verbs and the "separarse en buenos términos" phrases.
+final QuizContent esDeLecturaDespedida = readingCourseQuiz(
+  id: 'es_de_lectura_despedida',
+  title: 'Lectura: una despedida en buenos términos (B2–C1)',
+  category: 'Ruptura y reconciliación',
+  passageTitle: 'Im Guten auseinandergehen',
+  intro:
+      'Eva y Daniel deciden separarse, pero con respeto y gratitud. Fíjate en '
+      'los verbos de la ruptura (sich trennen, sich entfernen) y en las frases '
+      'para terminar en buenos términos. Léelo primero en alemán.',
+  passage:
+      'Es war eine schwere Entscheidung, aber Eva und Daniel hatten sie '
+      'gemeinsam getroffen: Sie wollten sich trennen.\n\n'
+      '«Wir passen einfach nicht mehr zusammen», sagte Eva leise. «Wir haben '
+      'uns mit der Zeit voneinander entfernt. Es liegt nicht an dir.»\n\n'
+      '«Ich weiß», antwortete Daniel. «Es fällt mir schwer, aber ich möchte, '
+      'dass wir im Guten auseinandergehen. Ich bin dankbar für unsere '
+      'gemeinsame Zeit und habe viel von dir gelernt.»\n\n'
+      '«Lass uns ohne Vorwürfe reden und respektvoll bleiben», sagte Eva. «Ich '
+      'werde dich in guter Erinnerung behalten. Ich wünsche dir alles Gute. '
+      'Pass gut auf dich auf.»',
+  passageTranslation:
+      'Fue una decisión difícil, pero Eva y Daniel la habían tomado juntos: '
+      'querían separarse.\n\n'
+      '«Simplemente ya no encajamos», dijo Eva en voz baja. «Nos hemos ido '
+      'alejando con el tiempo. No es por ti.»\n\n'
+      '«Lo sé», respondió Daniel. «Me resulta difícil, pero quiero que nos '
+      'separemos en buenos términos. Estoy agradecido por nuestro tiempo '
+      'juntos y he aprendido mucho de ti.»\n\n'
+      '«Hablémoslo sin reproches y sigamos siendo respetuosos», dijo Eva. «Te '
+      'recordaré con cariño. Te deseo lo mejor. Cuídate mucho.»',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '"im Guten auseinandergehen"',
+      text: '«Im Guten auseinandergehen» = separarse en buenos términos. Lo '
+          'contrario: «im Streit auseinandergehen» (terminar peleados).',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '"Es liegt nicht an dir"',
+      text: '«Es liegt an …» (+ dativo) = la causa es… «Es liegt nicht an dir» '
+          '= no es por ti.',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'Welche Entscheidung haben Eva und Daniel getroffen?',
+      questionTranslation: '¿Qué decisión han tomado Eva y Daniel?',
+      options: [
+        'Sich zu trennen',
+        'Zu heiraten',
+        'Zusammenzuziehen',
+        'Ein Kind zu bekommen',
+      ],
+      optionsTranslation: [
+        'Separarse',
+        'Casarse',
+        'Irse a vivir juntos',
+        'Tener un hijo',
+      ],
+      correctIndex: 0,
+      explanation: '«… sie wollten sich trennen.»',
+      explanationTranslation: 'Han decidido separarse.',
+    ),
+    ReadingQuestion(
+      question: 'Wie erklärt Eva die Trennung?',
+      questionTranslation: '¿Cómo explica Eva la separación?',
+      options: [
+        'Sie passen nicht mehr zusammen und haben sich entfernt',
+        'Daniel hat sie hintergangen',
+        'Daniel hat sie angelogen',
+        'Sie hat jemand Neuen',
+      ],
+      optionsTranslation: [
+        'Ya no encajan y se han alejado',
+        'Daniel la ha traicionado',
+        'Daniel le ha mentido',
+        'Ella tiene a otra persona',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Wir passen einfach nicht mehr zusammen … Wir haben uns … '
+          'voneinander entfernt.»',
+      explanationTranslation:
+          'Ya no encajan y se han ido alejando con el tiempo.',
+    ),
+    ReadingQuestion(
+      question: 'Wie möchte Daniel auseinandergehen?',
+      questionTranslation: '¿Cómo quiere separarse Daniel?',
+      options: [
+        'Im Guten, dankbar für die gemeinsame Zeit',
+        'Im Streit',
+        'Ohne ein Wort',
+        'Mit Vorwürfen',
+      ],
+      optionsTranslation: [
+        'En buenos términos, agradecido por el tiempo juntos',
+        'Peleados',
+        'Sin decir nada',
+        'Con reproches',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«… ich möchte, dass wir im Guten auseinandergehen. Ich bin dankbar '
+          'für unsere gemeinsame Zeit …»',
+      explanationTranslation:
+          'Quiere separarse en buenos términos y agradece el tiempo juntos.',
+    ),
+    ReadingQuestion(
+      question: 'Was wünscht Eva Daniel zum Schluss?',
+      questionTranslation: '¿Qué le desea Eva a Daniel al final?',
+      options: [
+        'Alles Gute; sie behält ihn in guter Erinnerung',
+        'Dass es ihm schlecht geht',
+        'Dass er sie vergisst',
+        'Dass er alles bezahlt',
+      ],
+      optionsTranslation: [
+        'Todo lo mejor; lo recordará con cariño',
+        'Que le vaya mal',
+        'Que la olvide',
+        'Que lo pague todo',
+      ],
+      correctIndex: 0,
+      explanation:
+          '«Ich werde dich in guter Erinnerung behalten. Ich wünsche dir alles '
+          'Gute.»',
+      explanationTranslation:
+          'Le desea lo mejor y lo recordará con cariño.',
+    ),
   ],
 );
 
@@ -1640,18 +2574,20 @@ final QuizContent esDeLecturaAussprache = readingCourseQuiz(
 // course); these per-bloque lists feed its drawer groups in the catalog.
 // Bloques A–D son el tronco A1–B1; E–G son el tier avanzado B2–C1.
 
-/// Bloque A · Las emociones (vocabulario + audio).
+/// Bloque A · Las emociones (vocabulario + audio + lectura).
 final List<QuizContent> esDeEmocionesBloqueA = [
   esDeEmocionesBasicas,
   esDeHablarEmocionesBasicas,
   esDeEmocionesMatices,
   esDeHablarEmocionesMatices,
+  esDeLecturaEmocionesDia,
 ];
 
 /// Bloque B · Expresar sentimientos.
 final List<QuizContent> esDeEmocionesBloqueB = [
   esDeExpresarSentimientos,
   esDeHablarSentimientos,
+  esDeLecturaNotaSincera,
 ];
 
 /// Bloque C · Comunicación en pareja.
@@ -1661,6 +2597,7 @@ final List<QuizContent> esDeEmocionesBloqueC = [
   esDeHablarComunicacion,
   esDeEscucharEmpatia,
   esDeHablarEmpatia,
+  esDeLecturaConversacionCalma,
 ];
 
 /// Bloque D · Conflicto y reconciliación.
@@ -1669,6 +2606,7 @@ final List<QuizContent> esDeEmocionesBloqueD = [
   esDeReconciliacion,
   esDeHablarReconciliacion,
   esDeAmorAprecio,
+  esDeLecturaPeleaPaces,
 ];
 
 /// Bloque E · Comunicación emocional profunda (B2–C1).
@@ -1677,6 +2615,7 @@ final List<QuizContent> esDeEmocionesBloqueE = [
   esDeVulnerabilidad,
   esDeDistancia,
   esDeHablarProfunda,
+  esDeLecturaMasCerca,
 ];
 
 /// Bloque F · Confrontación y conflicto (B2–C1).
@@ -1685,6 +2624,7 @@ final List<QuizContent> esDeEmocionesBloqueF = [
   esDeAfrontarConflicto,
   esDeConfianzaRota,
   esDeHablarConfrontacion,
+  esDeLecturaConversacionFranca,
 ];
 
 /// Bloque G · Ruptura y reconciliación (B2–C1).
@@ -1693,16 +2633,18 @@ final List<QuizContent> esDeEmocionesBloqueG = [
   esDeSeparacionRespetuosa,
   esDeReconstruir,
   esDeHablarRupturaReconciliacion,
+  esDeLecturaDespedida,
 ];
 
-/// Bloque H · Lectura (A2–B1 y B2–C1).
+/// Bloque H · Lectura (capstones A2–B1 y B2–C1).
 final List<QuizContent> esDeEmocionesBloqueH = [
   esDeLecturaPareja,
   esDeLecturaAussprache,
 ];
 
-/// "German Emotions" — Emociones y pareja. 29 quizzes en orden de uso
-/// (A–D: A1–B1; E–G: B2–C1; H: lectura).
+/// "German Emotions" — Emociones y pareja, en orden de uso
+/// (A–D: A1–B1; E–G: B2–C1; H: lecturas-resumen). Cada bloque A–G termina con
+/// su propia lectura situacional.
 final List<QuizContent> esDeEmocionesContent = [
   ...esDeEmocionesBloqueA,
   ...esDeEmocionesBloqueB,
