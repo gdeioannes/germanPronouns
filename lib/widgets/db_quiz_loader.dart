@@ -7,6 +7,7 @@ import '../data/quiz_explanation_overrides.dart';
 import '../models/app_page.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
+import '../pages/reading_quiz_page.dart';
 import '../pages/speak_repeat_quiz_page.dart';
 import 'quiz_page.dart';
 
@@ -15,7 +16,8 @@ import 'quiz_page.dart';
 ///
 /// The page is chosen by [QuizContent.kind]: fill-in-the-blank quizzes run
 /// through the shared [QuizPage] engine, while [QuizKind.speakRepeat] quizzes
-/// render [SpeakRepeatQuizPage].
+/// render [SpeakRepeatQuizPage] and [QuizKind.reading] quizzes render
+/// [ReadingQuizPage].
 ///
 /// If the database can't be opened or the quiz isn't found, it falls back to
 /// the compiled-in content (or the [fallback] config), so the learner
@@ -70,6 +72,12 @@ class _DbQuizLoaderState extends State<DbQuizLoader> {
     final effective = content ?? _compiledContent;
     if (effective != null && effective.kind == QuizKind.speakRepeat) {
       return SpeakRepeatQuizPage(
+        content: effective,
+        currentPage: widget.currentPage,
+      );
+    }
+    if (effective != null && effective.kind == QuizKind.reading) {
+      return ReadingQuizPage(
         content: effective,
         currentPage: widget.currentPage,
       );

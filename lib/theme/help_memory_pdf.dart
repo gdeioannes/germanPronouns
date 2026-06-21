@@ -167,7 +167,11 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
         ),
       );
     } else {
-      var label = config.subjectDisplays[index];
+      // The reference table may show a different first-cell label than the live
+      // quiz (e.g. the Español → Alemán vocab word in both languages), carrying
+      // `**…**` bold markup the table renderer already honors.
+      var label =
+          config.subjectReferenceLabels?[index] ?? config.subjectDisplays[index];
       if (showEnglish) {
         label = '$label (${config.subjectEnglish![index]})';
       }
