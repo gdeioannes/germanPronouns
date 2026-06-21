@@ -33,6 +33,10 @@ migrate_working_dir/
 /build/
 /coverage/
 
+# TTS cloud secrets (Azure/Google keys) consumed via --dart-define-from-file.
+# Never commit real keys.
+tts_secrets.json
+
 # Symbolication related
 app.*.symbols
 

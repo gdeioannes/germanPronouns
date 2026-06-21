@@ -45,6 +45,12 @@ class SettingsKeys {
   /// seen auto-opened (so it only auto-opens once per quiz).
   static const String seenHelpMemory = 'seen_help_memory';
 
+  /// Whether the learner has forced the low-quality on-device voice instead of
+  /// the premium cloud voices (the voice-quality "offline only" toggle). A
+  /// per-device playback preference owned by `TtsService`, not part of the
+  /// learner-progress snapshot.
+  static const String voiceOfflineOnly = 'voice_offline_only';
+
   /// Per-gender highlight color key (gender is 'm'/'f'/'n').
   static String genderColor(String gender) => 'gender_color_$gender';
 }

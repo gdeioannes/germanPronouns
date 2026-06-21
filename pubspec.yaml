@@ -51,6 +51,11 @@ dependencies:
   # plain "next" button.
   flutter_tts: ^4.2.0
   speech_to_text: ^7.0.0
+  # Premium cloud voices: REST calls to Azure / Google neural TTS (http) and
+  # playback of the returned MP3 bytes (audioplayers). Both gate on a key
+  # supplied via --dart-define; without one the chain falls back to flutter_tts.
+  http: ^1.2.0
+  audioplayers: ^6.0.0
 
 dev_dependencies:
   flutter_test:

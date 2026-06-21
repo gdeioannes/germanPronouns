@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
@@ -8,11 +7,13 @@ import '../models/course.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
+import '../services/tts/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../utils/speech_match.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/help_memory.dart';
 import '../widgets/next_exercise.dart';
+import '../widgets/voice_status_chip.dart';
 
 /// One phrase to practice: the German text read aloud and repeated, plus its
 /// Spanish meaning shown underneath.
@@ -52,7 +53,9 @@ class SpeakRepeatQuizPage extends StatefulWidget {
 
 class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     with SingleTickerProviderStateMixin {
-  final FlutterTts _tts = FlutterTts();
+  /// Reads phrases aloud through the premium-cloud → on-device fallback chain,
+  /// and exposes which voice is live (shown by [VoiceStatusChip]).
+  final TtsService _voice = TtsService.instance;
   final SpeechToText _speech = SpeechToText();
 
   /// Drives the pulsing "speaking" indicator while TTS plays.
@@ -95,14 +98,6 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   /// Toggleable from the quiz box; manual playback (button or tile tap) always
   /// works regardless.
   bool _autoPlay = true;
-
-  /// True once the browser/engine has reported its (asynchronously-loaded)
-  /// voice list, so we only wait for voices once.
-  bool _voicesLoaded = false;
-
-  /// The locale currently applied to the TTS engine, so we skip re-selecting a
-  /// voice when speaking consecutive phrases in the same language.
-  String? _appliedLocale;
 
   /// Bumped on every play request (and when starting the mic). A play only
   /// reaches `speak()` if its token is still the latest, so overlapping
@@ -162,26 +157,10 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   }
 
   Future<void> _initEngines() async {
-    try {
-      await _tts.setSpeechRate(0.45);
-      await _tts.awaitSpeakCompletion(true);
-      _tts.setStartHandler(() {
-        if (mounted) setState(() => _speaking = true);
-      });
-      _tts.setCompletionHandler(() {
-        if (mounted) setState(() => _speaking = false);
-      });
-      _tts.setCancelHandler(() {
-        if (mounted) setState(() => _speaking = false);
-      });
-      _tts.setErrorHandler((_) {
-        if (mounted) setState(() => _speaking = false);
-      });
-      // Warm up the German voice so the first auto-play isn't read in English.
-      await _applyLanguage(_learnLocale);
-    } catch (_) {
-      // TTS is best-effort; a silent failure just means no audio playback.
-    }
+    // Mirror the shared engine's speaking state onto this page's indicator.
+    _voice.speaking.addListener(_onSpeakingChanged);
+    // Warm up the German voice so the first auto-play isn't read in English.
+    await _voice.warmUp(_learnLocale);
     var available = false;
     try {
       available = await _speech.initialize(
@@ -205,69 +184,22 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     if (_listening != stillGoing) setState(() => _listening = stillGoing);
   }
 
+  /// Reflects the shared TTS engine's "speaking" state onto this page (drives
+  /// the pulsing indicator and disables play taps while a phrase plays).
+  void _onSpeakingChanged() {
+    if (!mounted) return;
+    final speaking = _voice.speaking.value;
+    if (_speaking != speaking) setState(() => _speaking = speaking);
+  }
+
   _SpeakCard get _card => _cards[_index];
-
-  /// Waits (briefly, once) for the engine to report its voice list. On web the
-  /// browser loads voices asynchronously and `setLanguage` only takes effect
-  /// once they're available, so applying a language before this resolves would
-  /// silently leave the default (usually English) voice.
-  Future<void> _waitForVoices() async {
-    if (_voicesLoaded) return;
-    for (var attempt = 0; attempt < 8; attempt++) {
-      try {
-        final voices = await _tts.getVoices;
-        if (voices is List && voices.isNotEmpty) {
-          _voicesLoaded = true;
-          return;
-        }
-      } catch (_) {
-        // Engine may not expose voices on this platform; stop waiting.
-        break;
-      }
-      await Future<void>.delayed(const Duration(milliseconds: 200));
-    }
-    _voicesLoaded = true; // Give up waiting and proceed with whatever exists.
-  }
-
-  /// Applies [localeId] (e.g. 'de-DE', 'es-ES') to the engine and selects a
-  /// matching voice, so each language is read with its proper pronunciation.
-  /// Skips work when the locale is already applied.
-  Future<void> _applyLanguage(String localeId) async {
-    if (_appliedLocale == localeId) return;
-    await _waitForVoices();
-    await _tts.setLanguage(localeId);
-    await _selectVoice(localeId.split('-').first.toLowerCase());
-    _appliedLocale = localeId;
-  }
-
-  /// Picks the first voice whose locale starts with [langPrefix] ('de', 'es',
-  /// …), where the engine exposes a voice list. A no-op elsewhere.
-  Future<void> _selectVoice(String langPrefix) async {
-    try {
-      final voices = await _tts.getVoices;
-      if (voices is! List) return;
-      for (final voice in voices) {
-        if (voice is! Map) continue;
-        final locale = (voice['locale'] ?? '').toString().toLowerCase();
-        if (locale.startsWith(langPrefix)) {
-          await _tts.setVoice({
-            'name': (voice['name'] ?? '').toString(),
-            'locale': (voice['locale'] ?? '').toString(),
-          });
-          return;
-        }
-      }
-    } catch (_) {
-      // Voice selection is best-effort; setLanguage already covers most cases.
-    }
-  }
 
   /// Speaks [text] in [localeId], but only while [gen] is still the latest play
   /// request. Includes the post-stop gap that makes web playback reliable.
   Future<void> _speakOnce(String text, String localeId, int gen) async {
     if (text.trim().isEmpty) return;
     try {
-      await _tts.stop();
+      await _voice.stop();
       // The web SpeechSynthesis API silently drops an utterance when speak()
       // runs in the same tick as a cancel(); a short gap makes playback
       // reliable. The generation check then guarantees that only the latest
@@ -275,9 +207,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       // overlap or leave a stale phrase playing.
       await Future<void>.delayed(const Duration(milliseconds: 150));
       if (!mounted || gen != _speakGen || _listening) return;
-      await _applyLanguage(localeId);
-      if (!mounted || gen != _speakGen || _listening) return;
-      await _tts.speak(text); // awaits completion (awaitSpeakCompletion is on)
+      await _voice.speak(text, localeId);
     } catch (_) {
       // Ignore playback errors (e.g. no audio output available).
     }
@@ -344,7 +274,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   /// Stops a running loop immediately.
   void _stopLoop() {
     _speakGen++;
-    _tts.stop();
+    _voice.stop();
     if (mounted) setState(() => _looping = false);
   }
 
@@ -388,7 +318,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       _correct = null;
     });
     try {
-      await _tts.stop();
+      await _voice.stop();
       await _speech.listen(
         onResult: _onResult,
         listenOptions: SpeechListenOptions(
@@ -426,7 +356,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   void _next() {
     // Navigating supersedes any running loop / in-flight playback.
     _speakGen++;
-    _tts.stop();
+    _voice.stop();
     if (_index >= _cards.length - 1) {
       setState(() {
         _looping = false;
@@ -453,7 +383,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
 
   void _restart() {
     _speakGen++;
-    _tts.stop();
+    _voice.stop();
     setState(() {
       _looping = false;
       _index = 0;
@@ -492,7 +422,8 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   @override
   void dispose() {
     _pulse.dispose();
-    _tts.stop();
+    _voice.speaking.removeListener(_onSpeakingChanged);
+    _voice.stop();
     _speech.cancel();
     super.dispose();
   }
@@ -591,6 +522,13 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // Which voice is reading aloud (premium cloud vs offline), tappable
+          // to retry premium or force the offline voice.
+          const Align(
+            alignment: Alignment.centerRight,
+            child: VoiceStatusChip(),
+          ),
+          const SizedBox(height: 10),
           // Progress + counter on one line.
           Row(
             children: [

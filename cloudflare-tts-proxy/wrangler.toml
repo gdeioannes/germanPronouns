@@ -1,0 +1,16 @@
+name = "german-tts-proxy"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# Non-secret config only. Secrets (the API keys) are set with `wrangler secret
+# put ...` and live in Cloudflare, NOT in this file. See README.md.
+[vars]
+# Comma-separated list of origins allowed to call the proxy. Locked to the
+# GitHub Pages site. The browser's Origin header is the domain only — NO path,
+# NO trailing slash — so even though the app lives at /germanPronouns/, this is
+# exactly "https://gdeioannes.github.io". Add more (e.g. a custom domain, or
+# http://localhost:PORT for local testing) comma-separated.
+ALLOWED_ORIGINS = "https://gdeioannes.github.io"
+
+# Azure resource region (not secret). The Azure KEY is a secret (see README).
+AZURE_TTS_REGION = "germanywestcentral"
