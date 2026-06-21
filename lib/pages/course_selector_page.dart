@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../data/quest_data.dart';
 import '../models/course.dart';
 import '../models/course_session.dart';
-import 'learner_home_page.dart';
 
 /// Lets the learner pick a language-pair course ("speak X, learn Y"). Shown on
 /// first launch and reachable later via the "Switch course" menu entry.
@@ -15,9 +15,7 @@ class CourseSelectorPage extends StatelessWidget {
     // Apply this course's Quest chain order (no-op for courses without one).
     applyQuestOrderFromLayout(course.nav);
     if (!context.mounted) return;
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(builder: (_) => const LearnerHomePage()),
-    );
+    context.go('/home');
   }
 
   @override

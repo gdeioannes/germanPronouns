@@ -56,6 +56,8 @@ dependencies:
   # supplied via --dart-define; without one the chain falls back to flutter_tts.
   http: ^1.2.0
   audioplayers: ^6.0.0
+  # URL-based navigation (browser back/forward, deep links). See app_router.dart.
+  go_router: ^17.3.0
 
 dev_dependencies:
   flutter_test:

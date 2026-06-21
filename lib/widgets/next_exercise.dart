@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../data/db/content_repository.dart';
 import '../data/noun_progression_data.dart';
@@ -9,8 +10,6 @@ import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import 'app_drawer.dart';
-import 'noun_progression_quiz_loader.dart';
-import 'quest_quiz_loader.dart';
 
 /// A pointer to the exercise that follows the current one: its display [title]
 /// and an [open] action that replaces the current route with it. Surfaced as a
@@ -67,9 +66,7 @@ NextExercise? _nextQuest(String key) {
     title: next.displayName,
     open: (context) {
       NounSettings.instance.setLastQuestQuizKey(next.key);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute<void>(builder: (_) => QuestQuizLoader(entry: next)),
-      );
+      context.go('/quest/${next.key}');
     },
   );
 }
@@ -85,11 +82,7 @@ NextExercise? _nextNoun(String key) {
     open: (context) {
       NounSettings.instance.setLastPage(AppPage.nounsArticles.name);
       NounSettings.instance.setLastNounProgressionKey(next.key);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute<void>(
-          builder: (_) => NounProgressionQuizLoader(entry: next),
-        ),
-      );
+      context.go('/noun/${next.key}');
     },
   );
 }
@@ -114,11 +107,7 @@ Future<NextExercise?> _nextNavQuiz(String contentId) async {
     title: await _navQuizTitle(nextRef),
     open: (context) {
       NounSettings.instance.setLastContentId(nextRef);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute<void>(
-          builder: (_) => buildQuizPageForContent(nextRef),
-        ),
-      );
+      context.go('/quiz/$nextRef');
     },
   );
 }

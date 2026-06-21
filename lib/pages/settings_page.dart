@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:go_router/go_router.dart';
 
 import '../data/data_version.dart';
 import '../data/db/content_repository.dart';
@@ -284,10 +285,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
     await NounSettings.instance.resetAll();
     if (!mounted) return;
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute<void>(builder: (_) => buildAppPage(AppPage.pronouns)),
-      (route) => false,
-    );
+    // After wiping progress, drop back to the course overview (a fresh start).
+    context.go('/home');
   }
 
   @override

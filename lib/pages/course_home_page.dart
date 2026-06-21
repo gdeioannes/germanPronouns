@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../data/db/content_repository.dart';
 import '../data/nav_layout_data.dart';
@@ -18,8 +19,6 @@ import '../theme/brand_palette.dart';
 import '../theme/help_memory_pdf.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/completion_ribbon.dart';
-import '../widgets/noun_progression_quiz_loader.dart';
-import '../widgets/quest_quiz_loader.dart';
 import 'auth_gate.dart';
 
 /// Visual kind of a home-page quiz row, driving its icon and accent color.
@@ -392,26 +391,14 @@ class _CourseHomePageState extends State<CourseHomePage> {
     if (quiz.locked) return;
     if (quiz.questEntry != null) {
       NounSettings.instance.setLastQuestQuizKey(quiz.questEntry!.key);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute<void>(
-          builder: (_) => QuestQuizLoader(entry: quiz.questEntry!),
-        ),
-      );
+      context.go('/quest/${quiz.questEntry!.key}');
     } else if (quiz.nounEntry != null) {
       NounSettings.instance.setLastPage(AppPage.nounsArticles.name);
       NounSettings.instance.setLastNounProgressionKey(quiz.nounEntry!.key);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute<void>(
-          builder: (_) => NounProgressionQuizLoader(entry: quiz.nounEntry!),
-        ),
-      );
+      context.go('/noun/${quiz.nounEntry!.key}');
     } else if (quiz.contentRef != null) {
       NounSettings.instance.setLastContentId(quiz.contentRef!);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute<void>(
-          builder: (_) => buildQuizPageForContent(quiz.contentRef!),
-        ),
-      );
+      context.go('/quiz/${quiz.contentRef!}');
     }
   }
 

@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,7 +22,6 @@ import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_stats_keys.dart';
 import '../pages/auth_gate.dart';
-import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
 import '../theme/help_memory_pdf.dart';
@@ -1628,10 +1628,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// Opens the global Word Library and, once the user returns, picks a new
   /// question if the currently displayed noun was disabled there.
   Future<void> _openWordLibrary() async {
-    await Navigator.push(
-      context,
-      MaterialPageRoute<void>(builder: (_) => const WordLibraryPage()),
-    );
+    // Pushed (not go) so it returns to this quiz when closed.
+    await context.push('/library');
     if (!mounted) return;
     final currentNoun = widget.config.subjects[_currentSubjectIndex];
     if (!NounSettings.instance.isEnabled(currentNoun)) {

@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'app_router.dart';
 import 'data/debug_unlock.dart';
-import 'pages/auth_gate.dart';
+import 'models/app_session.dart';
+import 'models/course_session.dart';
+import 'models/noun_settings.dart';
 import 'theme/app_theme.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // The router's redirect reads the session + chosen course, and a deep link
+  // can open a quiz on first frame, so load the persisted state before runApp.
+  // (Each load() is guarded, so the later in-page calls stay no-ops.)
+  await Future.wait([
+    AppSession.instance.load(),
+    CourseSession.instance.load(),
+    NounSettings.instance.load(),
+  ]);
   runApp(const MyApp());
 }
 
@@ -69,12 +81,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Germanquiz',
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: _messengerKey,
       theme: buildAppTheme(),
-      home: const AuthGate(),
+      routerConfig: appRouter,
     );
   }
 }

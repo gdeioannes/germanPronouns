@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/db/content_repository.dart';
@@ -16,10 +17,6 @@ import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../models/quiz_stats_keys.dart';
-import '../pages/course_home_page.dart';
-import '../pages/course_intro_page.dart';
-import '../pages/course_selector_page.dart';
-import '../pages/learner_home_page.dart';
 import '../pages/noun_article_quiz_page.dart';
 import '../pages/quest_quiz_page.dart';
 import '../pages/settings_page.dart';
@@ -27,8 +24,6 @@ import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
 import 'completion_ribbon.dart';
 import 'db_quiz_loader.dart';
-import 'noun_progression_quiz_loader.dart';
-import 'quest_quiz_loader.dart';
 
 // Re-exported so the many files that import this drawer for [AppPage] keep
 // working; the enum itself now lives in the model layer (see app_page.dart).
@@ -136,12 +131,17 @@ class _AppDrawerState extends State<AppDrawer> {
     Navigator.pop(context);
     NounSettings.instance.setLastPage(page.name);
     if (page == widget.currentPage) return;
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute<void>(builder: (_) => buildAppPage(page)),
-    );
+    context.go(_pathForAppPage(page));
   }
+
+  /// Route for a built-in link page. Only the Word Library and Settings reach
+  /// here (the other [AppPage]s are quizzes, navigated by ref/key); anything
+  /// else falls back to the course home.
+  String _pathForAppPage(AppPage page) => switch (page) {
+    AppPage.wordLibrary => '/library',
+    AppPage.settings => '/settings',
+    _ => '/home',
+  };
 
   Widget _sectionLabel(BuildContext context, String text) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -288,14 +288,7 @@ class _AppDrawerState extends State<AppDrawer> {
         key == widget.currentNounProgressionKey) {
       return;
     }
-
-    final entry = nounProgressionEntries.firstWhere((e) => e.key == key);
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute<void>(
-        builder: (_) => NounProgressionQuizLoader(entry: entry),
-      ),
-    );
+    context.go('/noun/$key');
   }
 
   Widget _nounProgressionTile(
@@ -487,11 +480,7 @@ class _AppDrawerState extends State<AppDrawer> {
     if (widget.currentPage == AppPage.quest && key == widget.currentQuestKey) {
       return;
     }
-    final entry = questEntries.firstWhere((e) => e.key == key);
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute<void>(builder: (_) => QuestQuizLoader(entry: entry)),
-    );
+    context.go('/quest/$key');
   }
 
   Widget _questTile(
@@ -853,12 +842,7 @@ class _AppDrawerState extends State<AppDrawer> {
     Navigator.pop(context);
     NounSettings.instance.setLastContentId(contentId);
     if (widget.currentContentId == contentId) return;
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute<void>(
-        builder: (_) => buildQuizPageForContent(contentId),
-      ),
-    );
+    context.go('/quiz/$contentId');
   }
 
   /// A drawer tile for a data-driven quiz item (resolved title/icon/color, with
@@ -943,9 +927,7 @@ class _AppDrawerState extends State<AppDrawer> {
         selected: false,
         onTap: () {
           Navigator.pop(context);
-          Navigator.of(context).push(
-            MaterialPageRoute<void>(builder: (_) => const CourseIntroPage()),
-          );
+          context.push('/intro');
         },
       );
     }
@@ -960,9 +942,7 @@ class _AppDrawerState extends State<AppDrawer> {
         selected: false,
         onTap: () {
           Navigator.pop(context);
-          Navigator.of(context).push(
-            MaterialPageRoute<void>(builder: (_) => const CourseSelectorPage()),
-          );
+          context.push('/courses');
         },
       );
     }
@@ -990,7 +970,7 @@ class _AppDrawerState extends State<AppDrawer> {
   }
 
   /// A fixed tile at the top of the drawer that returns to the active course's
-  /// overview ([CourseHomePage]).
+  /// overview (the `/home` route).
   Widget _homeTile(BuildContext context) {
     return _navTile(
       context,
@@ -1000,9 +980,7 @@ class _AppDrawerState extends State<AppDrawer> {
       selected: false,
       onTap: () {
         Navigator.pop(context);
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute<void>(builder: (_) => const CourseHomePage()),
-        );
+        context.go('/home');
       },
     );
   }
@@ -1138,7 +1116,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
     if (!context.mounted) return;
     if (chosen != null && chosen.id != activeId) {
-      await _switchCourse(context, chosen);
+      _switchCourse(context, chosen);
     }
   }
 
@@ -1207,14 +1185,11 @@ class _AppDrawerState extends State<AppDrawer> {
 
   /// Activates [course] and reopens the app on its home, clearing the old
   /// course's navigation stack.
-  Future<void> _switchCourse(BuildContext context, Course course) async {
-    await CourseSession.instance.setActiveCourse(course.id);
-    applyQuestOrderFromLayout(course.nav);
-    if (!context.mounted) return;
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute<void>(builder: (_) => const LearnerHomePage()),
-      (route) => false,
-    );
+  void _switchCourse(BuildContext context, Course course) {
+    // Navigate to the course's own home; LearnerHomePage adopts it from the
+    // route (sets it active, applies its Quest order), so the URL stays the
+    // single source of truth.
+    context.go('/course/${course.id}');
   }
 
   /// Renders one navigation group's tiles by [NavGroup.type].

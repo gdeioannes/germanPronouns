@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../data/db/content_repository.dart';
+import '../../models/course_session.dart';
 import '../../theme/app_theme.dart';
 import '../auth_gate.dart';
 import '../learner_home_page.dart';
@@ -138,7 +139,9 @@ class _BackOfficeHomePageState extends State<BackOfficeHomePage> {
             icon: const Icon(Icons.visibility_rounded),
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute<void>(
-                builder: (_) => const LearnerHomePage(),
+                builder: (_) => LearnerHomePage(
+                  courseId: CourseSession.instance.activeCourse.id,
+                ),
               ),
             ),
           ),
