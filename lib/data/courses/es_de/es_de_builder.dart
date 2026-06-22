@@ -253,11 +253,15 @@ QuizContent sentenceCourseQuiz({
           acceptedAnswers: clozes[i].acceptedAnswers,
           english: prompts[i].cleanPrompt,
           hint: items[i].hint,
-          // Both-languages example for the reference column, with the Spanish
-          // and German words bold (kept as authored). Only when the prompt
-          // marks a keyword; otherwise the adapter fills the blank itself.
+          // Reference-column example. With a marked keyword, show a both-
+          // languages example (prompt → answer). Otherwise show ONLY the answer
+          // side (the filled cloze) — never the "prompt →" prefix, which would
+          // just repeat the prompt that already sits in the first column.
           referenceExample: prompts[i].keyword == null
-              ? null
+              ? clozes[i].template.replaceFirst(
+                  '____',
+                  '**${clozes[i].categoryValue}**',
+                )
               : '${items[i].prompt} → ${items[i].answer}',
         ),
     ],
