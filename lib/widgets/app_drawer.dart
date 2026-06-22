@@ -1026,9 +1026,16 @@ class _AppDrawerState extends State<AppDrawer> {
     final bool selected;
     final VoidCallback onTap;
 
-    // "Switch course" (kCoursesRef) is filtered out before reaching here; the
-    // drawer's course header opens the switcher instead.
-    if (item.ref == kHowItWorksRef) {
+    if (item.ref == kCoursesRef) {
+      // Only useful when there's more than one course to switch between.
+      if (CourseSession.instance.courses.length <= 1) {
+        return const SizedBox.shrink();
+      }
+      icon = navIconFor(item.iconKey, Icons.translate_rounded);
+      tooltip = item.titleOverride ?? strings.switchCourse;
+      selected = false;
+      onTap = () => _showCourseSwitcher(context);
+    } else if (item.ref == kHowItWorksRef) {
       icon = navIconFor(item.iconKey, Icons.help_outline_rounded);
       tooltip = item.titleOverride ?? strings.howItWorks;
       selected = false;
@@ -1412,7 +1419,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         children: [
                           for (final group in linkGroups)
                             for (final item in group.items)
-                              if (!item.hidden && item.ref != kCoursesRef)
+                              if (!item.hidden)
                                 _linkIconButton(context, item),
                         ],
                       ),

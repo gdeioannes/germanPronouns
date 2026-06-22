@@ -157,6 +157,12 @@ QuizContent readingCourseQuiz({
 /// bold the quizzed word, so the reference table renders these consistently.
 final RegExp _focusWordMarker = RegExp(r'\*\*(.+?)\*\*');
 
+/// Strips a single sentence-final period from [s] (an ellipsis `...` is left
+/// intact). Used so a full-sentence answer's closing "." is rendered after the
+/// blank (`____.`) instead of being something the learner has to type.
+String _withoutSentencePeriod(String s) =>
+    (s.endsWith('.') && !s.endsWith('..')) ? s.substring(0, s.length - 1) : s;
+
 /// The engine data derived from a [CourseItem]: the German [template] (with
 /// `____` where the blank goes), the [acceptedAnswers] for that blank, and the
 /// [categoryValue] used as the answer key (and first-letter-hint source). For a
@@ -166,6 +172,21 @@ final RegExp _focusWordMarker = RegExp(r'\*\*(.+?)\*\*');
 _courseItemCloze(CourseItem item) {
   final marker = _focusWordMarker.firstMatch(item.answer);
   if (marker == null) {
+    // A full-sentence answer ending in a sentence period: render the period
+    // after the blank ("____.") and drop it from the accepted answers, so the
+    // learner types just the words — the closing "." sits outside the input and
+    // a missing one is never marked wrong.
+    if (item.answer.endsWith('.') && !item.answer.endsWith('..')) {
+      final answer = item.answer.substring(0, item.answer.length - 1);
+      return (
+        template: '____.',
+        acceptedAnswers: {
+          answer,
+          for (final a in item.accepted) _withoutSentencePeriod(a),
+        }.toList(),
+        categoryValue: answer,
+      );
+    }
     return (
       template: '____',
       acceptedAnswers: {item.answer, ...item.accepted}.toList(),
