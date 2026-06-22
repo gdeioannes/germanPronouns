@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.2.0",
   "quizzes": [
     {
       "id": "pronoun",
@@ -56073,7 +56073,8 @@
               {
                 "ref": "de_es_a1_1_sprechen_clase"
               }
-            ]
+            ],
+            "gated": true
           },
           {
             "id": "a1_2",
@@ -56125,7 +56126,8 @@
               {
                 "ref": "de_es_a1_2_lesen_casa"
               }
-            ]
+            ],
+            "gated": true
           },
           {
             "id": "a2_1",
@@ -56177,7 +56179,8 @@
               {
                 "ref": "de_es_a2_1_sprechen_hotel"
               }
-            ]
+            ],
+            "gated": true
           },
           {
             "id": "a2_2",
@@ -56229,7 +56232,8 @@
               {
                 "ref": "de_es_a2_2_sprechen_medico"
               }
-            ]
+            ],
+            "gated": true
           },
           {
             "id": "b1_1",
@@ -56281,7 +56285,8 @@
               {
                 "ref": "de_es_b1_1_sprechen_entrevista"
               }
-            ]
+            ],
+            "gated": true
           },
           {
             "id": "b1_2",
@@ -56333,7 +56338,8 @@
               {
                 "ref": "de_es_b1_2_sprechen_telefono"
               }
-            ]
+            ],
+            "gated": true
           },
           {
             "id": "b2",
@@ -56388,7 +56394,8 @@
               {
                 "ref": "de_es_b2_lesen_articulo"
               }
-            ]
+            ],
+            "gated": true
           },
           {
             "id": "more",

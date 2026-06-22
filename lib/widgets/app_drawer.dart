@@ -29,6 +29,11 @@ import 'db_quiz_loader.dart';
 // working; the enum itself now lives in the model layer (see app_page.dart).
 export '../models/app_page.dart';
 
+/// Lock state of a quiz tile inside a [NavGroup.gated] (pass-to-unlock) chain:
+/// [unlocked] is open (it's done, or it's the one in progress); [next] is the
+/// immediate goal still to unlock; [locked] is a further quiz down the chain.
+enum _QuizLock { unlocked, next, locked }
+
 /// Builds the page widget for [page], used both by the drawer's navigation
 /// and to reopen the app on the last-visited page. Quiz sections are resolved
 /// from the [quizSections] catalog so adding a section requires no change here.
@@ -850,17 +855,108 @@ class _AppDrawerState extends State<AppDrawer> {
     context.go('/quiz/$contentId');
   }
 
+  /// Whether the quiz behind a nav [item] counts as finished — the same rule the
+  /// tile's "done" ribbon uses: listen-&-repeat once played through, reading
+  /// once passed, every other quiz once its best streak reaches the goal. Used
+  /// to advance the pass-to-unlock frontier of a [NavGroup.gated] chain.
+  bool _isQuizItemDone(NavItem item, _DrawerData data) {
+    final summary = data.quizzes[item.ref];
+    switch (summary?.kind) {
+      case QuizKind.speakRepeat:
+        return NounSettings.instance.isSpeakQuizCompleted(item.ref);
+      case QuizKind.reading:
+        return NounSettings.instance.isReadingQuizCompleted(item.ref);
+      case QuizKind.fillBlank:
+      case null:
+        final prefix =
+            summary?.storageKeyPrefix ??
+            sectionForContentId(item.ref)?.primaryQuiz.storageKeyPrefix ??
+            '${item.ref}_';
+        final best =
+            data.prefs?.getInt(QuizStatsKeys(prefix).bestStreakAbsolute) ?? 0;
+        return NounSettings.instance.isQuizDone(bestStreakAbsolute: best);
+    }
+  }
+
+  /// Resolves the lock state of every quiz in the course's gated chain. The
+  /// frontier runs continuously through *all* [NavGroup.gated] quizzes groups in
+  /// layout order (so an A1–B2 certification unlocks one quiz at a time straight
+  /// across its levels): walking in order, each quiz is [_QuizLock.unlocked]
+  /// until the first one that isn't finished yet (still open — it's the one in
+  /// progress); the quiz right after it is [_QuizLock.next] and the rest are
+  /// [_QuizLock.locked]. Refs of ungated groups are absent (always open).
+  Map<String, _QuizLock> _computeQuizLocks(NavLayout layout, _DrawerData data) {
+    final locks = <String, _QuizLock>{};
+    var sawIncomplete = false;
+    var markedNext = false;
+    for (final group in layout.groups) {
+      if (group.type != NavGroupType.quizzes || !group.gated) continue;
+      for (final item in group.items) {
+        if (item.hidden) continue;
+        if (!sawIncomplete) {
+          locks[item.ref] = _QuizLock.unlocked;
+          if (!_isQuizItemDone(item, data)) sawIncomplete = true;
+        } else if (!markedNext) {
+          locks[item.ref] = _QuizLock.next;
+          markedNext = true;
+        } else {
+          locks[item.ref] = _QuizLock.locked;
+        }
+      }
+    }
+    return locks;
+  }
+
+  /// A non-tappable tile for a quiz still locked in a gated chain: a lock badge
+  /// and the "finish the previous quiz" hint.
+  Widget _lockedQuizItemTile(
+    BuildContext context, {
+    required String title,
+    required bool isNext,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return _navTile(
+      context,
+      icon: isNext ? Icons.lock_rounded : Icons.lock_outline_rounded,
+      badgeColor: colorScheme.onSurfaceVariant,
+      title: title,
+      selected: false,
+      onTap: null,
+      titleColor: colorScheme.onSurfaceVariant,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: Text(
+          CourseSession.instance.strings.lockedHint,
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+      ),
+    );
+  }
+
   /// A drawer tile for a data-driven quiz item (resolved title/icon/color, with
-  /// the quiz's score/streak), highlighted when it's the open quiz.
+  /// the quiz's score/streak), highlighted when it's the open quiz. When [lock]
+  /// is [_QuizLock.next] or [_QuizLock.locked] (a gated chain) it renders the
+  /// locked variant instead.
   Widget _quizItemTile(
     BuildContext context, {
     required NavItem item,
     required _DrawerData data,
+    _QuizLock? lock,
   }) {
     final section = sectionForContentId(item.ref);
     final summary = data.quizzes[item.ref];
     final title =
         item.titleOverride ?? summary?.title ?? section?.title ?? item.ref;
+
+    if (lock == _QuizLock.next || lock == _QuizLock.locked) {
+      return _lockedQuizItemTile(
+        context,
+        title: title,
+        isNext: lock == _QuizLock.next,
+      );
+    }
     // Default icon per quiz kind via the shared [quizKindIcon] map, so the
     // drawer and the course home stay in sync: reading → book, fill-in
     // "question" quizzes → quiz card, speak → voice. A known grammar section
@@ -1197,12 +1293,15 @@ class _AppDrawerState extends State<AppDrawer> {
     context.go('/course/${course.id}');
   }
 
-  /// Renders one navigation group's tiles by [NavGroup.type].
+  /// Renders one navigation group's tiles by [NavGroup.type]. [locks] holds the
+  /// pass-to-unlock state of every quiz in the course's gated chain (see
+  /// [_computeQuizLocks]); refs absent from it are open.
   List<Widget> _buildGroup(
     BuildContext context,
     NavGroup group,
     _DrawerData? data,
     SharedPreferences? prefs,
+    Map<String, _QuizLock> locks,
   ) {
     switch (group.type) {
       case NavGroupType.questChain:
@@ -1213,7 +1312,13 @@ class _AppDrawerState extends State<AppDrawer> {
         if (data == null) return const [];
         return [
           for (final item in group.items)
-            if (!item.hidden) _quizItemTile(context, item: item, data: data),
+            if (!item.hidden)
+              _quizItemTile(
+                context,
+                item: item,
+                data: data,
+                lock: group.gated ? locks[item.ref] : null,
+              ),
         ];
       case NavGroupType.links:
         return [
@@ -1240,6 +1345,12 @@ class _AppDrawerState extends State<AppDrawer> {
             final layout =
                 data?.layout ?? CourseSession.instance.activeCourse.nav;
             final prefs = data?.prefs;
+            // Pass-to-unlock state for every quiz in the course's gated chain.
+            // Empty until the drawer data resolves (so quizzes show open during
+            // the brief load rather than flashing locked).
+            final locks = data == null
+                ? const <String, _QuizLock>{}
+                : _computeQuizLocks(layout, data);
 
             // Fade + slide the whole menu in each time the drawer opens (the
             // drawer's State is rebuilt per open, so this replays every time),
@@ -1263,7 +1374,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   for (final group in layout.groups) ...[
                     Divider(height: 1, color: colorScheme.outlineVariant),
                     _sectionLabel(context, group.title),
-                    ..._buildGroup(context, group, data, prefs),
+                    ..._buildGroup(context, group, data, prefs, locks),
                   ],
                 ],
               ),

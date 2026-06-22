@@ -168,48 +168,59 @@ final NavLayout _emotionsNav = NavLayout(
 
 /// The "Spanisch-Zertifikat" drawer (Deutsch → Spanisch): seven CEFR sub-level
 /// groups (A1.1 … B2), each listing its quizzes in chain order, plus links.
+///
+/// The seven level groups are [NavGroup.gated], so the whole A1.1 → B2 sequence
+/// is one continuous pass-to-unlock chain: each quiz opens only once the
+/// previous one is finished.
 final NavLayout _deEsCertNav = NavLayout(
   groups: [
     NavGroup(
       id: 'a1_1',
       title: 'A1.1 · PRIMEROS PASOS',
       type: NavGroupType.quizzes,
+      gated: true,
       items: [for (final c in deEsA1_1) NavItem(ref: c.id)],
     ),
     NavGroup(
       id: 'a1_2',
       title: 'A1.2 · MI VIDA DIARIA',
       type: NavGroupType.quizzes,
+      gated: true,
       items: [for (final c in deEsA1_2) NavItem(ref: c.id)],
     ),
     NavGroup(
       id: 'a2_1',
       title: 'A2.1 · EXPERIENCIAS',
       type: NavGroupType.quizzes,
+      gated: true,
       items: [for (final c in deEsA2_1) NavItem(ref: c.id)],
     ),
     NavGroup(
       id: 'a2_2',
       title: 'A2.2 · DESCRIBIR Y COMPARAR',
       type: NavGroupType.quizzes,
+      gated: true,
       items: [for (final c in deEsA2_2) NavItem(ref: c.id)],
     ),
     NavGroup(
       id: 'b1_1',
       title: 'B1.1 · OPINIONES Y DESEOS',
       type: NavGroupType.quizzes,
+      gated: true,
       items: [for (final c in deEsB1_1) NavItem(ref: c.id)],
     ),
     NavGroup(
       id: 'b1_2',
       title: 'B1.2 · RELATOS Y CONJETURAS',
       type: NavGroupType.quizzes,
+      gated: true,
       items: [for (final c in deEsB1_2) NavItem(ref: c.id)],
     ),
     NavGroup(
       id: 'b2',
       title: 'B2 · ARGUMENTAR Y MATIZAR',
       type: NavGroupType.quizzes,
+      gated: true,
       items: [for (final c in deEsB2) NavItem(ref: c.id)],
     ),
     NavGroup(

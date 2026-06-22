@@ -92,6 +92,7 @@ class NavGroup {
     required this.type,
     this.items = const [],
     this.level,
+    this.gated = false,
   });
 
   /// Stable id (so reordering/renaming doesn't lose identity).
@@ -106,17 +107,27 @@ class NavGroup {
   /// the whole chain.
   final String? level;
 
+  /// For [NavGroupType.quizzes] groups, locks the quizzes into a pass-to-unlock
+  /// chain: a quiz opens only once the previous quiz in the chain is finished
+  /// (its streak goal reached / reading passed / listen-&-repeat played
+  /// through). The frontier is continuous across *all* gated quizzes groups in
+  /// the course in order, so e.g. an A1–B2 certification unlocks one quiz at a
+  /// time straight through the levels. Default false (every quiz open).
+  final bool gated;
+
   NavGroup copyWith({
     String? title,
     NavGroupType? type,
     List<NavItem>? items,
     String? level,
+    bool? gated,
   }) => NavGroup(
     id: id,
     title: title ?? this.title,
     type: type ?? this.type,
     items: items ?? this.items,
     level: level ?? this.level,
+    gated: gated ?? this.gated,
   );
 
   Map<String, dynamic> toJson() => {
@@ -125,6 +136,7 @@ class NavGroup {
     'type': type.name,
     if (items.isNotEmpty) 'items': [for (final i in items) i.toJson()],
     if (level != null) 'level': level,
+    if (gated) 'gated': true,
   };
 
   factory NavGroup.fromJson(Map<String, dynamic> json) => NavGroup(
@@ -136,6 +148,7 @@ class NavGroup {
         NavItem.fromJson(i as Map<String, dynamic>),
     ],
     level: json['level'] as String?,
+    gated: json['gated'] as bool? ?? false,
   );
 }
 

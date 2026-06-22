@@ -43,6 +43,19 @@ void main() {
     expect(byId['es_de']!.uiLang, UiLang.es);
   });
 
+  test('de_es certification level groups are gated (pass-to-unlock chain)', () {
+    final deEs = defaultCourses.firstWhere((c) => c.id == 'de_es');
+    final quizGroups =
+        deEs.nav.groups.where((g) => g.type == NavGroupType.quizzes).toList();
+    // Every CEFR level group (A1.1 … B2) locks into the chain; only the links
+    // group stays open.
+    expect(quizGroups, isNotEmpty);
+    expect(quizGroups.every((g) => g.gated), isTrue);
+    // Other courses stay open (no accidental gating).
+    final esDe = defaultCourses.firstWhere((c) => c.id == 'es_de');
+    expect(esDe.nav.groups.any((g) => g.gated), isFalse);
+  });
+
   test('every course nav quiz ref resolves to a real quiz', () {
     final ids = {for (final q in allQuizContent) q.id};
     const builtIn = {

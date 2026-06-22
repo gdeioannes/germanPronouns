@@ -151,6 +151,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
       repo = null;
     }
 
+    // Tracks the pass-to-unlock frontier of the course's gated quiz chain as it
+    // runs continuously across the [NavGroup.gated] groups (in layout order):
+    // once a quiz in the chain is unfinished, every later quiz is locked.
+    var gatedFrontierClosed = false;
+
     for (final group in course.nav.groups) {
       switch (group.type) {
         case NavGroupType.quizzes:
@@ -159,18 +164,36 @@ class _CourseHomePageState extends State<CourseHomePage> {
           for (final item in group.items) {
             if (item.hidden) continue;
             final row = await _regularQuiz(repo, item.ref);
-            if (row != null) {
+            if (row == null) continue;
+            // Every quiz contributes its reference section to the study booklet,
+            // whether or not it's still locked.
+            final entry = row.bookletEntry;
+            if (entry != null) bookletEntries.add(entry);
+            if (group.gated && gatedFrontierClosed) {
+              // Past the frontier — show it locked and non-tappable.
+              rows.add(_HomeQuiz(
+                title: row.title,
+                uiKind: row.uiKind,
+                goalLaps: row.goalLaps,
+                locked: true,
+                lockedHint: CourseSession.instance.strings.lockedHint,
+              ));
+            } else {
               rows.add(row);
-              final entry = row.bookletEntry;
-              if (entry != null) bookletEntries.add(entry);
+              // The first unfinished quiz in a gated chain closes the frontier:
+              // everything after it stays locked until it's completed.
+              if (group.gated && !row.done) gatedFrontierClosed = true;
             }
           }
-          // Regular quizzes are never locked, so the rows are the whole group.
           if (rows.isNotEmpty) {
             sections.add(_HomeSection(
               group.title,
               rows,
-              total: rows.where((r) => r.finishable).length,
+              // A gated chain counts its still-locked quizzes toward the course
+              // total (they must still be finished); ungated groups have none.
+              total: group.gated
+                  ? rows.length
+                  : rows.where((r) => r.finishable).length,
               finished: rows.where((r) => r.done).length,
             ));
           }

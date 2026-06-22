@@ -37,6 +37,7 @@ class AppStrings {
     required this.home,
     required this.quizzesFinished,
     required this.nextExercise,
+    required this.lockedHint,
     required this.help,
     required this.noPhrases,
     required this.micUnavailable,
@@ -103,6 +104,9 @@ class AppStrings {
   final String home;
   final String quizzesFinished;
   final String nextExercise;
+
+  /// Subtitle on a locked quiz tile in a pass-to-unlock certification chain.
+  final String lockedHint;
 
   // Speaking (listen & repeat) page.
   final String help;
@@ -180,6 +184,7 @@ const AppStrings _en = AppStrings(
   home: 'Home',
   quizzesFinished: 'quizzes finished',
   nextExercise: 'Next exercise',
+  lockedHint: 'Finish the previous quiz to unlock',
   help: 'Help',
   noPhrases: 'No phrases in this lesson.',
   micUnavailable:
@@ -251,6 +256,7 @@ const AppStrings _es = AppStrings(
   home: 'Inicio',
   quizzesFinished: 'quizzes completados',
   nextExercise: 'Siguiente ejercicio',
+  lockedHint: 'Completa el quiz anterior para desbloquear',
   help: 'Ayuda',
   noPhrases: 'No hay frases en esta lección.',
   micUnavailable:
@@ -323,6 +329,7 @@ const AppStrings _de = AppStrings(
   home: 'Start',
   quizzesFinished: 'Quizze abgeschlossen',
   nextExercise: 'Nächste Übung',
+  lockedHint: 'Schließe zuerst das vorherige Quiz ab',
   help: 'Hilfe',
   noPhrases: 'Keine Sätze in dieser Lektion.',
   micUnavailable:

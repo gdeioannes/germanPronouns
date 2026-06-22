@@ -56,6 +56,21 @@ void main() {
     expect(NavGroup.fromJson(plain.toJson()).level, isNull);
   });
 
+  test('NavGroup gated survives JSON; absent (false) when unset', () {
+    const locked = NavGroup(
+      id: 'a1_1',
+      title: 'A1.1',
+      type: NavGroupType.quizzes,
+      gated: true,
+    );
+    expect(locked.toJson()['gated'], true);
+    expect(NavGroup.fromJson(locked.toJson()).gated, isTrue);
+
+    const open = NavGroup(id: 'q', title: 'Q', type: NavGroupType.quizzes);
+    expect(open.toJson().containsKey('gated'), isFalse);
+    expect(NavGroup.fromJson(open.toJson()).gated, isFalse);
+  });
+
   test('NavItem overrides survive JSON; defaults stay sparse', () {
     const full = NavItem(
       ref: 'article',
