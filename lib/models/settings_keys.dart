@@ -25,6 +25,16 @@ class SettingsKeys {
   static const String progressionUnlockLaps = 'progression_unlock_laps';
   static const String showFirstLetterHint = 'show_first_letter_hint';
 
+  /// Whether typed answers are checked leniently — accents, umlauts and ß are
+  /// folded to their plain base letter before comparison (see
+  /// `utils/answer_normalization.dart`), so a learner without the right keyboard
+  /// isn't marked wrong for a missing mark.
+  static const String relaxedCorrection = 'relaxed_correction';
+
+  /// Whether the one-time "turn on relaxed correction" hint has been shown after
+  /// the learner's first answer that was wrong only because of an accent/umlaut.
+  static const String seenRelaxedCorrectionHint = 'seen_relaxed_correction_hint';
+
   /// Quest (CEFR A-level) progression keys — the linear streak chain in
   /// `questEntries`, kept separate from the noun-category chain.
   static const String questUnlockLaps = 'quest_unlock_laps';

@@ -68,6 +68,10 @@ class SharedPreferencesSettingsStore implements SettingsStore {
           prefs.getInt(SettingsKeys.progressionUnlockLaps) ?? 2,
       showFirstLetterHint:
           prefs.getBool(SettingsKeys.showFirstLetterHint) ?? false,
+      relaxedCorrection:
+          prefs.getBool(SettingsKeys.relaxedCorrection) ?? false,
+      seenRelaxedCorrectionHint:
+          prefs.getBool(SettingsKeys.seenRelaxedCorrectionHint) ?? false,
     );
   }
 
@@ -110,6 +114,14 @@ class SharedPreferencesSettingsStore implements SettingsStore {
     await prefs.setBool(
       SettingsKeys.showFirstLetterHint,
       settings.showFirstLetterHint,
+    );
+    await prefs.setBool(
+      SettingsKeys.relaxedCorrection,
+      settings.relaxedCorrection,
+    );
+    await prefs.setBool(
+      SettingsKeys.seenRelaxedCorrectionHint,
+      settings.seenRelaxedCorrectionHint,
     );
   }
 }

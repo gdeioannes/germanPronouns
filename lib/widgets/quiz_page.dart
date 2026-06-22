@@ -26,6 +26,7 @@ import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
 import '../theme/help_memory_pdf.dart';
 import '../theme/pdf_theme.dart';
+import '../utils/answer_normalization.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
 import 'help_memory.dart';
@@ -1803,20 +1804,49 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       _showingFirstLetterHint = false;
     }
 
-    final userAnswer = userAnswerRaw.toLowerCase();
     final caseLabel = widget.config.categories[_currentCategoryIndex].label;
     final nominative = widget.config.subjects[_currentSubjectIndex];
     final correctAnswer = widget
         .config
         .categories[_currentCategoryIndex]
         .values[_currentSubjectIndex];
-    final acceptableAnswers =
+    // The accepted spelling(s) for this question (one, or several when the quiz
+    // supplies alternatives for the sentence).
+    final acceptableRaw =
         widget.config.acceptableAnswersForSentence
-            ?.call(_currentReferenceSentence)
-            .map((a) => a.toLowerCase())
-            .toSet() ??
-        {correctAnswer.toLowerCase()};
-    final isCorrect = acceptableAnswers.contains(userAnswer);
+            ?.call(_currentReferenceSentence) ??
+        [correctAnswer];
+    // "Relaxed correction" folds accents, umlauts and ß to their plain base
+    // letter on both sides before comparing, so a learner whose keyboard can't
+    // type these marks isn't penalized for one (see
+    // utils/answer_normalization.dart).
+    final relaxed = NounSettings.instance.relaxedCorrection;
+    final acceptableAnswers =
+        acceptableRaw.map((a) => normalizeAnswer(a, relaxed: relaxed)).toSet();
+    final isCorrect = acceptableAnswers.contains(
+      normalizeAnswer(userAnswerRaw, relaxed: relaxed),
+    );
+
+    // The first time an answer is wrong *only* because of an accent/umlaut
+    // (and relaxed correction is off), point the learner to the setting — once,
+    // ever. With relaxed correction already on, such an answer counts as
+    // correct, so this never fires.
+    if (!relaxed &&
+        !isCorrect &&
+        !NounSettings.instance.hasSeenRelaxedCorrectionHint) {
+      final acceptableRelaxed = acceptableRaw
+          .map((a) => normalizeAnswer(a, relaxed: true))
+          .toSet();
+      final wrongOnlyByDiacritics = acceptableRelaxed.contains(
+        normalizeAnswer(userAnswerRaw, relaxed: true),
+      );
+      if (wrongOnlyByDiacritics) {
+        NounSettings.instance.markRelaxedCorrectionHintSeen();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) _showRelaxedCorrectionHint();
+        });
+      }
+    }
 
     // If first-letter hint is enabled and this is first attempt and answer is wrong,
     // show hint and don't record submission
@@ -1976,6 +2006,36 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     } else {
       _revealCorrectAnswer(correctAnswer);
     }
+  }
+
+  /// One-time panel shown after the learner's first answer that was wrong only
+  /// because of an accent or umlaut, pointing them to the "Relaxed correction"
+  /// setting and offering to switch it on right away.
+  Future<void> _showRelaxedCorrectionHint() {
+    final strings = CourseSession.instance.strings;
+    final colorScheme = Theme.of(context).colorScheme;
+    return showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        icon: Icon(Icons.spellcheck_rounded, color: colorScheme.primary),
+        title: Text(strings.relaxedCorrectionHintTitle),
+        content: Text(strings.relaxedCorrectionHintBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: Text(strings.relaxedCorrectionNotNow),
+          ),
+          FilledButton(
+            onPressed: () {
+              NounSettings.instance.setRelaxedCorrection(true);
+              Navigator.of(dialogContext).pop();
+              if (mounted) setState(() {});
+            },
+            child: Text(strings.relaxedCorrectionEnable),
+          ),
+        ],
+      ),
+    );
   }
 
   /// Shows just the first letter of [correctAnswer] typed out animated with a
@@ -4382,6 +4442,36 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       },
                     ),
                   ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            // Always-visible (no accordion) toggle for relaxed correction, with
+            // a one-line explanation. Single app-wide setting, mirrored in
+            // global Settings (with a fuller explanation).
+            _sectionWithMaxWidth(
+              Card(
+                clipBehavior: Clip.antiAlias,
+                child: SwitchListTile(
+                  contentPadding: const EdgeInsets.fromLTRB(16, 4, 12, 4),
+                  secondary: IconBadge(
+                    icon: Icons.spellcheck_rounded,
+                    color: kSectionAccentColors[2],
+                  ),
+                  title: Text(
+                    CourseSession.instance.strings.relaxedCorrectionTitle,
+                    style: Theme.of(context).textTheme.titleMedium
+                        ?.copyWith(fontWeight: FontWeight.w700),
+                  ),
+                  subtitle: Text(
+                    CourseSession.instance.strings.relaxedCorrectionShort,
+                  ),
+                  value: NounSettings.instance.relaxedCorrection,
+                  onChanged: (value) {
+                    setState(() {
+                      NounSettings.instance.setRelaxedCorrection(value);
+                    });
+                  },
                 ),
               ),
             ),

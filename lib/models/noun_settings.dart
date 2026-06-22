@@ -41,6 +41,9 @@ class NounSettings {
   static const String _progressionUnlockLapsKey =
       SettingsKeys.progressionUnlockLaps;
   static const String _showFirstLetterHintKey = SettingsKeys.showFirstLetterHint;
+  static const String _relaxedCorrectionKey = SettingsKeys.relaxedCorrection;
+  static const String _seenRelaxedCorrectionHintKey =
+      SettingsKeys.seenRelaxedCorrectionHint;
   static const String _questUnlockLapsKey = SettingsKeys.questUnlockLaps;
   static const String _completedQuestQuizzesKey =
       SettingsKeys.completedQuestQuizzes;
@@ -92,6 +95,8 @@ class NounSettings {
   Set<String> _completedReadingQuizzes = {};
   Set<String> _seenHelpMemory = {};
   bool _showFirstLetterHint = false;
+  bool _relaxedCorrection = false;
+  bool _seenRelaxedCorrectionHint = false;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -133,6 +138,18 @@ class NounSettings {
   /// their streak. If they answer the same question incorrectly again, the
   /// answer is shown normally. Defaults to false.
   bool get showFirstLetterHint => _showFirstLetterHint;
+
+  /// Whether typed answers are checked leniently: accents, umlauts and ß are
+  /// folded to their plain base letter (ä→a, ö→o, ü→u, ß→ss, á/é/í/ó/ú→a/e/i/o/u,
+  /// ñ→n, …) before comparison, so a learner whose keyboard can't type these
+  /// marks isn't penalized for a missing accent. A single app-wide setting,
+  /// adjustable from any quiz and from global Settings. Defaults to off.
+  bool get relaxedCorrection => _relaxedCorrection;
+
+  /// Whether the one-time "turn on relaxed correction" hint has already been
+  /// shown (after the learner's first answer that was wrong only because of an
+  /// accent/umlaut). Used to show that panel at most once.
+  bool get hasSeenRelaxedCorrectionHint => _seenRelaxedCorrectionHint;
 
   /// Total correct answers in a row needed to unlock the next entry in the
   /// noun-category progression ([progressionUnlockLaps] streaks of 5
@@ -274,6 +291,9 @@ class NounSettings {
         (prefs.getStringList(_seenHelpMemoryKey) ?? const []).toSet();
     _showFirstLetterHint =
         prefs.getBool(_showFirstLetterHintKey) ?? false;
+    _relaxedCorrection = prefs.getBool(_relaxedCorrectionKey) ?? false;
+    _seenRelaxedCorrectionHint =
+        prefs.getBool(_seenRelaxedCorrectionHintKey) ?? false;
     _loaded = true;
   }
 
@@ -394,6 +414,21 @@ class NounSettings {
     await prefs.setBool(_showFirstLetterHintKey, value);
   }
 
+  Future<void> setRelaxedCorrection(bool value) async {
+    _relaxedCorrection = value;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_relaxedCorrectionKey, value);
+  }
+
+  /// Marks the one-time relaxed-correction hint as shown, so it won't appear
+  /// again. No-op if already marked.
+  Future<void> markRelaxedCorrectionHintSeen() async {
+    if (_seenRelaxedCorrectionHint) return;
+    _seenRelaxedCorrectionHint = true;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_seenRelaxedCorrectionHintKey, true);
+  }
+
   Future<void> _save() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_storageKey, _disabledNouns.toList());
@@ -436,6 +471,8 @@ class NounSettings {
     completedReadingQuizzes: _completedReadingQuizzes.toList(),
     seenHelpMemory: _seenHelpMemory.toList(),
     showFirstLetterHint: _showFirstLetterHint,
+    relaxedCorrection: _relaxedCorrection,
+    seenRelaxedCorrectionHint: _seenRelaxedCorrectionHint,
   );
 
   Future<void> setGenderColor(String gender, Color color) async {
@@ -465,6 +502,8 @@ class NounSettings {
     _colorNouns = false;
     _genderColors = Map.of(defaultGenderColors);
     _showFirstLetterHint = false;
+    _relaxedCorrection = false;
+    _seenRelaxedCorrectionHint = false;
     _lastPage = null;
     _lastContentId = null;
     _completedNounCategories = {};

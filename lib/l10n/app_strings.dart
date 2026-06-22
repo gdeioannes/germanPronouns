@@ -72,6 +72,13 @@ class AppStrings {
     required this.readingText,
     required this.translation,
     required this.answer,
+    required this.relaxedCorrectionTitle,
+    required this.relaxedCorrectionShort,
+    required this.relaxedCorrectionLong,
+    required this.relaxedCorrectionHintTitle,
+    required this.relaxedCorrectionHintBody,
+    required this.relaxedCorrectionEnable,
+    required this.relaxedCorrectionNotNow,
   });
 
   final String chooseCourse;
@@ -149,6 +156,28 @@ class AppStrings {
   final String readingText;
   final String translation;
   final String answer;
+
+  // Relaxed correction (accent/umlaut-insensitive answer checking).
+  /// Title of the setting, shown on the in-quiz card and the Settings panel.
+  final String relaxedCorrectionTitle;
+
+  /// One-line explanation shown under the in-quiz toggle.
+  final String relaxedCorrectionShort;
+
+  /// Fuller explanation shown in the global Settings panel.
+  final String relaxedCorrectionLong;
+
+  /// Title of the one-time hint panel.
+  final String relaxedCorrectionHintTitle;
+
+  /// Body of the one-time hint panel.
+  final String relaxedCorrectionHintBody;
+
+  /// Label of the hint panel's "turn it on now" button.
+  final String relaxedCorrectionEnable;
+
+  /// Label of the hint panel's dismiss button.
+  final String relaxedCorrectionNotNow;
 }
 
 const AppStrings _en = AppStrings(
@@ -221,6 +250,24 @@ const AppStrings _en = AppStrings(
   readingText: 'Reading',
   translation: 'Translation',
   answer: 'Answer',
+  relaxedCorrectionTitle: 'Relaxed correction',
+  relaxedCorrectionShort:
+      'Don\'t mark answers wrong just for missing accents or umlauts '
+      '(ä→a, é→e, ß→ss).',
+  relaxedCorrectionLong:
+      'When checking your typed answers, accents, umlauts and similar marks '
+      'are ignored: ä, ö, ü become a, o, u; ß becomes ss; á, é, í, ó, ú and ñ '
+      'lose their accent. Question and exclamation marks (¿ ? ¡ !) are ignored '
+      'too. Handy when your keyboard can\'t easily type these characters, so '
+      'you\'re not marked wrong just for a missing accent or mark. The expected '
+      'answer still shows the correct spelling.',
+  relaxedCorrectionHintTitle: 'Was it just an accent?',
+  relaxedCorrectionHintBody:
+      'Your answer was only off by an accent or umlaut. You can turn on '
+      '"Relaxed correction" so answers aren\'t marked wrong just for missing '
+      'accents, umlauts or ß. You can change this anytime in Settings.',
+  relaxedCorrectionEnable: 'Enable relaxed correction',
+  relaxedCorrectionNotNow: 'Not now',
 );
 
 const AppStrings _es = AppStrings(
@@ -294,6 +341,26 @@ const AppStrings _es = AppStrings(
   readingText: 'Lectura',
   translation: 'Traducción',
   answer: 'Respuesta',
+  relaxedCorrectionTitle: 'Corrección flexible',
+  relaxedCorrectionShort:
+      'No marca mal las respuestas solo por acentos o diéresis que falten '
+      '(ä→a, é→e, ß→ss).',
+  relaxedCorrectionLong:
+      'Al revisar tus respuestas escritas, se ignoran los acentos, las '
+      'diéresis y marcas similares: ä, ö, ü pasan a a, o, u; ß pasa a ss; á, '
+      'é, í, ó, ú y ñ pierden el acento. También se ignoran los signos de '
+      'interrogación y exclamación (¿ ? ¡ !). Útil cuando tu teclado no puede '
+      'escribir fácilmente estos caracteres, para que no te marquen mal solo '
+      'por un acento o signo que falte. La respuesta esperada sigue mostrando '
+      'la ortografía correcta.',
+  relaxedCorrectionHintTitle: '¿Era solo un acento?',
+  relaxedCorrectionHintBody:
+      'Tu respuesta solo falló por un acento o una diéresis. Puedes activar '
+      'la "Corrección flexible" para que las respuestas no se marquen mal solo '
+      'por acentos, diéresis o ß que falten. Puedes cambiarlo cuando quieras '
+      'en Ajustes.',
+  relaxedCorrectionEnable: 'Activar corrección flexible',
+  relaxedCorrectionNotNow: 'Ahora no',
 );
 
 const AppStrings _de = AppStrings(
@@ -367,6 +434,26 @@ const AppStrings _de = AppStrings(
   readingText: 'Lesen',
   translation: 'Übersetzung',
   answer: 'Antwort',
+  relaxedCorrectionTitle: 'Nachsichtige Korrektur',
+  relaxedCorrectionShort:
+      'Antworten gelten nicht als falsch, nur weil Akzente oder Umlaute '
+      'fehlen (ä→a, é→e, ß→ss).',
+  relaxedCorrectionLong:
+      'Beim Prüfen deiner getippten Antworten werden Akzente, Umlaute und '
+      'ähnliche Zeichen ignoriert: ä, ö, ü werden zu a, o, u; ß wird zu ss; á, '
+      'é, í, ó, ú und ñ verlieren ihren Akzent. Frage- und Ausrufezeichen '
+      '(¿ ? ¡ !) werden ebenfalls ignoriert. Praktisch, wenn deine Tastatur '
+      'diese Zeichen nicht leicht tippen kann, damit dir ein fehlender Akzent '
+      'oder ein fehlendes Zeichen nicht als Fehler angerechnet wird. Die '
+      'erwartete Antwort zeigt weiterhin die korrekte Schreibweise.',
+  relaxedCorrectionHintTitle: 'War es nur ein Akzent?',
+  relaxedCorrectionHintBody:
+      'Deine Antwort war nur wegen eines Akzents oder Umlauts falsch. Du '
+      'kannst die „Nachsichtige Korrektur" aktivieren, damit Antworten nicht '
+      'als falsch gelten, nur weil Akzente, Umlaute oder ß fehlen. Du kannst '
+      'das jederzeit in den Einstellungen ändern.',
+  relaxedCorrectionEnable: 'Nachsichtige Korrektur aktivieren',
+  relaxedCorrectionNotNow: 'Jetzt nicht',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

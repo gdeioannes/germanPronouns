@@ -25,6 +25,8 @@ class UserSettings {
     this.completedReadingQuizzes = const [],
     this.seenHelpMemory = const [],
     this.showFirstLetterHint = false,
+    this.relaxedCorrection = false,
+    this.seenRelaxedCorrectionHint = false,
   });
 
   /// Nouns excluded from quizzes that draw on the shared noun database.
@@ -73,6 +75,13 @@ class UserSettings {
 
   final bool showFirstLetterHint;
 
+  /// Whether typed answers are checked leniently (accents/umlauts/ß folded to
+  /// their base letter before comparison).
+  final bool relaxedCorrection;
+
+  /// Whether the one-time relaxed-correction hint panel has been shown.
+  final bool seenRelaxedCorrectionHint;
+
   UserSettings copyWith({
     List<String>? disabledNouns,
     Map<String, bool>? showEnglishByPage,
@@ -91,6 +100,8 @@ class UserSettings {
     List<String>? completedReadingQuizzes,
     List<String>? seenHelpMemory,
     bool? showFirstLetterHint,
+    bool? relaxedCorrection,
+    bool? seenRelaxedCorrectionHint,
   }) => UserSettings(
     disabledNouns: disabledNouns ?? this.disabledNouns,
     showEnglishByPage: showEnglishByPage ?? this.showEnglishByPage,
@@ -112,6 +123,9 @@ class UserSettings {
         completedReadingQuizzes ?? this.completedReadingQuizzes,
     seenHelpMemory: seenHelpMemory ?? this.seenHelpMemory,
     showFirstLetterHint: showFirstLetterHint ?? this.showFirstLetterHint,
+    relaxedCorrection: relaxedCorrection ?? this.relaxedCorrection,
+    seenRelaxedCorrectionHint:
+        seenRelaxedCorrectionHint ?? this.seenRelaxedCorrectionHint,
   );
 
   Map<String, dynamic> toJson() => {
@@ -133,6 +147,8 @@ class UserSettings {
     'completedReadingQuizzes': completedReadingQuizzes,
     'seenHelpMemory': seenHelpMemory,
     'showFirstLetterHint': showFirstLetterHint,
+    'relaxedCorrection': relaxedCorrection,
+    'seenRelaxedCorrectionHint': seenRelaxedCorrectionHint,
   };
 
   factory UserSettings.fromJson(Map<String, dynamic> json) => UserSettings(
@@ -161,5 +177,8 @@ class UserSettings {
     seenHelpMemory:
         (json['seenHelpMemory'] as List?)?.cast<String>() ?? const [],
     showFirstLetterHint: json['showFirstLetterHint'] as bool? ?? false,
+    relaxedCorrection: json['relaxedCorrection'] as bool? ?? false,
+    seenRelaxedCorrectionHint:
+        json['seenRelaxedCorrectionHint'] as bool? ?? false,
   );
 }

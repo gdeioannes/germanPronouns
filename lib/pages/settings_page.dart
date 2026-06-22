@@ -407,6 +407,28 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const SizedBox(height: 16),
             _settingsPanel(
+              title: CourseSession.instance.strings.relaxedCorrectionTitle,
+              children: [
+                Text(
+                  CourseSession.instance.strings.relaxedCorrectionLong,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(
+                    CourseSession.instance.strings.relaxedCorrectionTitle,
+                  ),
+                  value: NounSettings.instance.relaxedCorrection,
+                  onChanged: (value) {
+                    setState(() {
+                      NounSettings.instance.setRelaxedCorrection(value);
+                    });
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _settingsPanel(
               title: 'Noun Category Progression',
               children: [
                 Text(
