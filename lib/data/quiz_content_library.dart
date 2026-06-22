@@ -1,5 +1,6 @@
 import '../models/quiz_content.dart';
 import 'article_content.dart';
+import 'courses/de_es/de_es_content.dart';
 import 'courses/es_de/es_de_content.dart';
 import 'noun_article_content.dart';
 import 'preposition_content.dart';
@@ -22,4 +23,6 @@ final List<QuizContent> allQuizContent = [
   ...esDeContent,
   // German Emotions course (emotions & couple communication, es → de).
   ...esDeEmocionesContent,
+  // Spanisch-Zertifikat A1–B2 (Deutsch → Spanisch).
+  ...deEsContent,
 ];

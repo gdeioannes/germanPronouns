@@ -2,7 +2,7 @@ import 'nav_layout.dart';
 
 /// The language the learner already speaks — drives which language the app's
 /// chrome (buttons, menus, dialogs) is shown in.
-enum UiLang { en, es }
+enum UiLang { en, es, de }
 
 UiLang _uiLangFromName(String? name) {
   for (final l in UiLang.values) {
@@ -23,6 +23,7 @@ class Course {
     required this.learnFlag,
     required this.uiLang,
     required this.nav,
+    this.learnLocale = 'de-DE',
   });
 
   /// Stable id, e.g. 'en_de', 'es_de'.
@@ -43,6 +44,11 @@ class Course {
   /// UI/chrome language for this course.
   final UiLang uiLang;
 
+  /// BCP-47 locale of the language being **learned** (the target the TTS speaks
+  /// in listen-&-repeat / reading). Defaults to German since every original
+  /// course teaches German; the `de_es` course sets it to `es-ES`.
+  final String learnLocale;
+
   /// This course's drawer layout.
   final NavLayout nav;
 
@@ -53,6 +59,7 @@ class Course {
     speakFlag: speakFlag,
     learnFlag: learnFlag,
     uiLang: uiLang,
+    learnLocale: learnLocale,
     nav: nav ?? this.nav,
   );
 
@@ -63,6 +70,7 @@ class Course {
     'speakFlag': speakFlag,
     'learnFlag': learnFlag,
     'uiLang': uiLang.name,
+    'learnLocale': learnLocale,
     'nav': nav.toJson(),
   };
 
@@ -73,6 +81,7 @@ class Course {
     speakFlag: json['speakFlag'] as String? ?? '',
     learnFlag: json['learnFlag'] as String? ?? '',
     uiLang: _uiLangFromName(json['uiLang'] as String?),
+    learnLocale: json['learnLocale'] as String? ?? 'de-DE',
     nav: NavLayout.fromJson(
       Map<String, dynamic>.from(json['nav'] as Map? ?? const {}),
     ),

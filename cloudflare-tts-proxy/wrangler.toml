@@ -10,7 +10,8 @@ compatibility_date = "2024-11-01"
 # NO trailing slash — so even though the app lives at /germanPronouns/, this is
 # exactly "https://gdeioannes.github.io". Add more (e.g. a custom domain, or
 # http://localhost:PORT for local testing) comma-separated.
-ALLOWED_ORIGINS = "https://gdeioannes.github.io"
+# ALLOWED_ORIGINS = "https://gdeioannes.github.io,http://localhost:8080"
+ALLOWED_ORIGINS = "https://gdeioannes.github.io,http://localhost:8080"
 
 # Azure resource region (not secret). The Azure KEY is a secret (see README).
 AZURE_TTS_REGION = "germanywestcentral"

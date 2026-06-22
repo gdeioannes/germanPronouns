@@ -1,5 +1,6 @@
 import '../models/course.dart';
 import '../models/nav_layout.dart';
+import 'courses/de_es/de_es_content.dart';
 import 'courses/es_de/es_de_content.dart';
 
 /// Navigation links shared by the English courses (word reference, settings,
@@ -165,6 +166,65 @@ final NavLayout _emotionsNav = NavLayout(
   ],
 );
 
+/// The "Spanisch-Zertifikat" drawer (Deutsch → Spanisch): seven CEFR sub-level
+/// groups (A1.1 … B2), each listing its quizzes in chain order, plus links.
+final NavLayout _deEsCertNav = NavLayout(
+  groups: [
+    NavGroup(
+      id: 'a1_1',
+      title: 'A1.1 · PRIMEROS PASOS',
+      type: NavGroupType.quizzes,
+      items: [for (final c in deEsA1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a1_2',
+      title: 'A1.2 · MI VIDA DIARIA',
+      type: NavGroupType.quizzes,
+      items: [for (final c in deEsA1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_1',
+      title: 'A2.1 · EXPERIENCIAS',
+      type: NavGroupType.quizzes,
+      items: [for (final c in deEsA2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_2',
+      title: 'A2.2 · DESCRIBIR Y COMPARAR',
+      type: NavGroupType.quizzes,
+      items: [for (final c in deEsA2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_1',
+      title: 'B1.1 · OPINIONES Y DESEOS',
+      type: NavGroupType.quizzes,
+      items: [for (final c in deEsB1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_2',
+      title: 'B1.2 · RELATOS Y CONJETURAS',
+      type: NavGroupType.quizzes,
+      items: [for (final c in deEsB1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2',
+      title: 'B2 · ARGUMENTAR Y MATIZAR',
+      type: NavGroupType.quizzes,
+      items: [for (final c in deEsB2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'more',
+      title: 'MÁS',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
 /// The id of the course shown by default (the original German app).
 const String kDefaultCourseId = 'en_de';
 
@@ -205,5 +265,15 @@ final List<Course> defaultCourses = [
     learnFlag: '🇩🇪',
     uiLang: UiLang.es,
     nav: _emotionsNav,
+  ),
+  Course(
+    id: 'de_es',
+    name: 'Spanisch-Zertifikat A1–B2',
+    tagline: 'Dein Schritt-für-Schritt-Weg zum Spanisch-Zertifikat',
+    speakFlag: '🇩🇪',
+    learnFlag: '🇪🇸',
+    uiLang: UiLang.de,
+    learnLocale: 'es-ES',
+    nav: _deEsCertNav,
   ),
 ];

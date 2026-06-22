@@ -138,7 +138,50 @@ const IntroStrings _es = IntroStrings(
   startButton: 'Empezar a practicar',
 );
 
+const IntroStrings _de = IntroStrings(
+  menuTitle: 'So funktioniert es',
+  headline: 'Übe genau das, was dir Probleme macht',
+  intro:
+      'Dies ist ein gezieltes Übungstool — kurze, knackige Quizze für die '
+      'Feinheiten, die man leicht falsch macht. Nutze es ergänzend zu dem, '
+      'womit du schon lernst.',
+  companionTitle: 'Eine Ergänzung, kein Ersatz',
+  companionBody:
+      'Große Apps und Kurse gehen schnell voran und lassen Lücken — ser oder '
+      'estar, das richtige Pronomen, der Subjuntivo. Diese App zoomt genau '
+      'darauf, damit es kein Ratespiel mehr ist, sondern in Fleisch und Blut '
+      'übergeht.',
+  featuresHeader: 'WAS DRIN IST',
+  quizTitle: 'Kurze, gezielte Quizze',
+  quizBody:
+      'Lies den Satz, fülle die Lücke oder wähle die Antwort und bekomme sofort '
+      'Feedback. Die Runden sind kurz — übe überall.',
+  streakTitle: 'Serien, die Schwung geben',
+  streakBody:
+      'Jede richtige Antwort verlängert deine Serie und füllt den Balken. Jage '
+      'deinen Rekord — so wird Übung zur Gewohnheit.',
+  helpTitle: 'Schnellhilfe-Spickzettel',
+  helpBody:
+      'Jedes Quiz hat eine farbcodierte Referenz mit den Regeln und Tabellen, '
+      'die du brauchst — direkt dort, wo du übst.',
+  tipsTitle: 'Tipps & Erklärungen',
+  tipsBody:
+      'Wenn etwas knifflig ist, erklärt ein kurzer Tipp das Warum — damit du '
+      'die Regel lernst, nicht nur die richtige Antwort.',
+  pdfTitle: 'Nimm es mit (PDF)',
+  pdfBody:
+      'Speichere jede Schnellhilfe als sauberes PDF und schau sie offline an, '
+      'wann immer eine Frage dich ins Stolpern bringt.',
+  analyticsTitle: 'Sieh deinen Fortschritt',
+  analyticsBody:
+      'Verlauf und Statistiken zeigen deine Genauigkeit und deine Schwachstellen, '
+      'damit du immer weißt, was als Nächstes dran ist.',
+  closing: 'Das war\'s. Wähle ein Quiz und leg los, wann du bereit bist.',
+  startButton: 'Üben starten',
+);
+
 IntroStrings introStringsFor(UiLang lang) => switch (lang) {
   UiLang.en => _en,
   UiLang.es => _es,
+  UiLang.de => _de,
 };

@@ -119,14 +119,16 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
   /// button's play/stop state).
   bool _looping = false;
 
-  /// The language being learned (the phrase to repeat).
-  static const String _learnLocale = 'de-DE';
+  /// The language being learned (the phrase to repeat) — the active course's
+  /// target locale (German for the original courses, Spanish for `de_es`).
+  String get _learnLocale => CourseSession.instance.activeCourse.learnLocale;
 
   /// TTS locale for the meaning, derived from the active course's UI language.
   String get _meaningLocale =>
       switch (CourseSession.instance.activeCourse.uiLang) {
         UiLang.es => 'es-ES',
         UiLang.en => 'en-US',
+        UiLang.de => 'de-DE',
       };
 
   /// Human label for the meaning's language (the learner's own language), used
@@ -135,6 +137,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       switch (CourseSession.instance.activeCourse.uiLang) {
         UiLang.es => 'español',
         UiLang.en => 'English',
+        UiLang.de => 'Deutsch',
       };
 
   /// Localized chrome strings for the active course's UI language.

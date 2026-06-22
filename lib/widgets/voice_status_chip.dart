@@ -260,7 +260,30 @@ class _VoiceStrings {
   static _VoiceStrings of() => switch (CourseSession.instance.activeCourse.uiLang) {
     UiLang.es => _es,
     UiLang.en => _en,
+    UiLang.de => _de,
   };
+
+  static const _VoiceStrings _de = _VoiceStrings(
+    hdVoice: 'HD-Stimme',
+    offlineVoice: 'Offline-Stimme',
+    panelTitle: 'Sprachqualität',
+    premiumExplainer:
+        'Die Sätze werden mit einer hochwertigen Online-Stimme vorgelesen.',
+    degradedExplainer:
+        'Die Premium-Stimme ist gerade nicht verfügbar, daher wird die '
+        'Offline-Stimme verwendet. Sie wechselt automatisch zurück, sobald die '
+        'Premium-Stimme wieder da ist.',
+    offlineExplainer:
+        'Die Sätze werden mit der eingebauten Offline-Stimme vorgelesen — '
+        'geringere Qualität, funktioniert aber ohne Internet.',
+    useOffline: 'Immer die Offline-Stimme verwenden',
+    useOfflineSubtitle: 'Geringere Qualität, privat, funktioniert ohne Internet.',
+    retryPremium: 'Premium-Stimme erneut versuchen',
+    notConfigured: 'Nicht eingerichtet',
+    unavailable: 'Nicht verfügbar',
+    active: 'In Verwendung',
+    ready: 'Bereit',
+  );
 
   static const _VoiceStrings _en = _VoiceStrings(
     hdVoice: 'HD voice',
