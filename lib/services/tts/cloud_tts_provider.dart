@@ -77,21 +77,73 @@ abstract class CloudTtsProvider implements TtsProvider {
 
   @override
   Future<bool> speak(String text, String locale) async {
+    // A failed synthesis (no bytes) is the only thing that demotes this provider
+    // and lets the chain fall back to the on-device voice. Once we *have* audio
+    // for the requested locale, we commit to it: returning false here would hand
+    // the phrase to the device voice, which on some platforms (notably web) has
+    // no voice for the target language and would read it in the wrong accent.
     final bytes = await synthesize(text, locale);
     if (bytes == null || bytes.isEmpty) return false;
     onSpeakingChanged?.call(true);
+    final startedAt = DateTime.now();
     try {
       await _player.stop();
-      // Subscribe before play() so we can't miss a fast completion.
+      // Subscribe before play() so we can't miss a completion event.
       final completed = _player.onPlayerComplete.first;
-      await _player.play(
-        BytesSource(Uint8List.fromList(bytes), mimeType: _audioMimeType),
-      );
-      await completed.timeout(_playbackTimeout, onTimeout: () {});
+      // On web, `audioplayers`' play() Future can reject *after* the audio has
+      // already started — the cause of the earlier double-voice (the throw used
+      // to cascade the chain into the device voice while the cloud clip kept
+      // playing). Swallow it and keep going: the audio is playing.
+      try {
+        await _player.play(
+          BytesSource(Uint8List.fromList(bytes), mimeType: _audioMimeType),
+        );
+      } catch (_) {
+        // Playback Future rejected; the clip may still be playing, so don't
+        // stop it or fall back — wait it out below.
+      }
+      await _awaitClipEnd(completed, startedAt);
     } finally {
       onSpeakingChanged?.call(false);
     }
     return true;
+  }
+
+  /// Blocks until the clip has really finished, so the caller awaiting [speak]
+  /// only continues once the audio is done — otherwise a follow-up utterance
+  /// (e.g. the translation read right after the phrase) would `stop()` this clip
+  /// and cut it off mid-word.
+  ///
+  /// The clip's own **duration** is the reliable signal: on web `audioplayers`
+  /// fires [onPlayerComplete] *early* (often as soon as playback starts), so the
+  /// passed-in [completed] event is only a fallback for when the duration can't
+  /// be read. Capped by [_playbackTimeout] so a stuck clip can't wedge playback.
+  Future<void> _awaitClipEnd(Future<void> completed, DateTime startedAt) async {
+    Duration? duration;
+    for (var attempt = 0; attempt < 5; attempt++) {
+      try {
+        duration = await _player.getDuration();
+      } catch (_) {
+        // Not available yet (web loads metadata asynchronously) — retry briefly.
+      }
+      if (duration != null && duration > Duration.zero) break;
+      await Future<void>.delayed(const Duration(milliseconds: 60));
+    }
+    if (duration != null && duration > Duration.zero) {
+      // Hold for the rest of the clip (minus the time already spent starting it
+      // and reading the duration), plus a small tail so the last word isn't
+      // clipped by the next utterance.
+      final target = duration + const Duration(milliseconds: 200);
+      final remaining = target - DateTime.now().difference(startedAt);
+      final capped = remaining > _playbackTimeout ? _playbackTimeout : remaining;
+      if (capped > Duration.zero) await Future<void>.delayed(capped);
+    } else {
+      try {
+        await completed.timeout(_playbackTimeout, onTimeout: () {});
+      } catch (_) {
+        // Completion event errored after playback — the audio still played.
+      }
+    }
   }
 
   @override
