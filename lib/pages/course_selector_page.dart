@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../data/quest_data.dart';
 import '../models/course.dart';
 import '../models/course_session.dart';
+import '../widgets/country_flag.dart';
 
 /// Lets the learner pick a language-pair course ("speak X, learn Y"). Shown on
 /// first launch and reachable later via the "Switch course" menu entry.
@@ -58,9 +59,10 @@ class CourseSelectorPage extends StatelessWidget {
                         padding: const EdgeInsets.all(16),
                         child: Row(
                           children: [
-                            Text(
-                              '${course.speakFlag} → ${course.learnFlag}',
-                              style: const TextStyle(fontSize: 28),
+                            CourseFlagPair(
+                              speakFlag: course.speakFlag,
+                              learnFlag: course.learnFlag,
+                              diameter: 28,
                             ),
                             const SizedBox(width: 16),
                             Expanded(

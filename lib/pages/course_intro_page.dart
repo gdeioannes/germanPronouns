@@ -5,6 +5,7 @@ import '../l10n/intro_strings.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../theme/app_theme.dart';
+import '../widgets/country_flag.dart';
 
 /// A friendly, illustrated "what this app is and how to use it" page, localized
 /// per course. Shown automatically the first time a learner opens a course and
@@ -54,14 +55,26 @@ class CourseIntroPage extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          Text(
-                            '${course.speakFlag} → ${course.learnFlag}  ·  '
-                            '${course.tagline}',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: textTheme.bodySmall?.copyWith(
-                              color: colorScheme.onSurfaceVariant,
-                            ),
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              CourseFlagPair(
+                                speakFlag: course.speakFlag,
+                                learnFlag: course.learnFlag,
+                                diameter: 18,
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  course.tagline,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: textTheme.bodySmall?.copyWith(
+                                    color: colorScheme.onSurfaceVariant,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

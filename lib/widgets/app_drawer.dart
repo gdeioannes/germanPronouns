@@ -23,6 +23,7 @@ import '../pages/settings_page.dart';
 import '../pages/word_library_page.dart';
 import '../theme/app_theme.dart';
 import 'completion_ribbon.dart';
+import 'country_flag.dart';
 import 'db_quiz_loader.dart';
 
 // Re-exported so the many files that import this drawer for [AppPage] keep
@@ -1013,60 +1014,47 @@ class _AppDrawerState extends State<AppDrawer> {
     );
   }
 
-  /// A drawer tile for a built-in link item (Word Library / Settings).
-  Widget _linkItemTile(BuildContext context, NavItem item) {
+  /// Icon-only button for a built-in link item (Settings / How it works /
+  /// Word Library). Rendered in the horizontal row pinned to the drawer bottom;
+  /// the label is dropped and shown only as a tooltip.
+  Widget _linkIconButton(BuildContext context, NavItem item) {
     final colorScheme = Theme.of(context).colorScheme;
     final strings = CourseSession.instance.strings;
 
-    // "How it works" opens the course intro page (no fixed AppPage).
+    final IconData icon;
+    final String tooltip;
+    final bool selected;
+    final VoidCallback onTap;
+
+    // "Switch course" (kCoursesRef) is filtered out before reaching here; the
+    // drawer's course header opens the switcher instead.
     if (item.ref == kHowItWorksRef) {
-      return _navTile(
-        context,
-        icon: navIconFor(item.iconKey, Icons.help_outline_rounded),
-        badgeColor: navColorFor(item.colorIndex, colorScheme.onSurfaceVariant),
-        title: item.titleOverride ?? strings.howItWorks,
-        selected: false,
-        onTap: () {
-          Navigator.pop(context);
-          context.push('/intro');
-        },
-      );
-    }
-
-    // "Switch course" opens the course selector (no fixed AppPage).
-    if (item.ref == kCoursesRef) {
-      return _navTile(
-        context,
-        icon: navIconFor(item.iconKey, Icons.translate_rounded),
-        badgeColor: navColorFor(item.colorIndex, colorScheme.onSurfaceVariant),
-        title: item.titleOverride ?? strings.switchCourse,
-        selected: false,
-        onTap: () {
-          Navigator.pop(context);
-          context.push('/courses');
-        },
-      );
-    }
-
-    final (AppPage, IconData, String) spec;
-    if (item.ref == kWordLibraryRef) {
-      spec = (
-        AppPage.wordLibrary,
-        Icons.library_books_rounded,
-        strings.wordLibrary,
-      );
+      icon = navIconFor(item.iconKey, Icons.help_outline_rounded);
+      tooltip = item.titleOverride ?? strings.howItWorks;
+      selected = false;
+      onTap = () {
+        Navigator.pop(context);
+        context.push('/intro');
+      };
+    } else if (item.ref == kWordLibraryRef) {
+      icon = navIconFor(item.iconKey, Icons.library_books_rounded);
+      tooltip = item.titleOverride ?? strings.wordLibrary;
+      selected = widget.currentPage == AppPage.wordLibrary;
+      onTap = () => _navigateTo(context, AppPage.wordLibrary);
     } else if (item.ref == kSettingsRef) {
-      spec = (AppPage.settings, Icons.settings_rounded, strings.settings);
+      icon = navIconFor(item.iconKey, Icons.settings_rounded);
+      tooltip = item.titleOverride ?? strings.settings;
+      selected = widget.currentPage == AppPage.settings;
+      onTap = () => _navigateTo(context, AppPage.settings);
     } else {
       return const SizedBox.shrink();
     }
-    return _navTile(
-      context,
-      icon: navIconFor(item.iconKey, spec.$2),
-      badgeColor: navColorFor(item.colorIndex, colorScheme.onSurfaceVariant),
-      title: item.titleOverride ?? spec.$3,
-      selected: widget.currentPage == spec.$1,
-      onTap: () => _navigateTo(context, spec.$1),
+
+    return IconButton(
+      onPressed: onTap,
+      icon: Icon(icon),
+      tooltip: tooltip,
+      color: selected ? colorScheme.primary : colorScheme.onSurfaceVariant,
     );
   }
 
@@ -1129,11 +1117,12 @@ class _AppDrawerState extends State<AppDrawer> {
                       const SizedBox(height: 2),
                       Row(
                         children: [
-                          Text(
-                            '${course.speakFlag} → ${course.learnFlag}',
-                            style: const TextStyle(fontSize: 13),
+                          CourseFlagPair(
+                            speakFlag: course.speakFlag,
+                            learnFlag: course.learnFlag,
+                            diameter: 18,
                           ),
-                          const SizedBox(width: 6),
+                          const SizedBox(width: 8),
                           Flexible(
                             child: Text(
                               course.tagline,
@@ -1261,11 +1250,12 @@ class _AppDrawerState extends State<AppDrawer> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             child: Row(
               children: [
-                Text(
-                  '${course.speakFlag} → ${course.learnFlag}',
-                  style: const TextStyle(fontSize: 24),
+                CourseFlagPair(
+                  speakFlag: course.speakFlag,
+                  learnFlag: course.learnFlag,
+                  diameter: 22,
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 14),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1339,10 +1329,9 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
         ];
       case NavGroupType.links:
-        return [
-          for (final item in group.items)
-            if (!item.hidden) _linkItemTile(context, item),
-        ];
+        // Link items are rendered as an icon row pinned to the drawer bottom
+        // (see build), not inline in the scrolling list.
+        return const [];
     }
   }
 
@@ -1370,6 +1359,17 @@ class _AppDrawerState extends State<AppDrawer> {
                 ? const <String, _QuizLock>{}
                 : _computeQuizLocks(layout, data);
 
+            // Link groups (Settings, How it works) are pinned to the bottom of
+            // the drawer so they're always visible; everything else scrolls.
+            final linkGroups = [
+              for (final g in layout.groups)
+                if (g.type == NavGroupType.links) g,
+            ];
+            final mainGroups = [
+              for (final g in layout.groups)
+                if (g.type != NavGroupType.links) g,
+            ];
+
             // Fade + slide the whole menu in each time the drawer opens (the
             // drawer's State is rebuilt per open, so this replays every time),
             // so the content arrives smoothly instead of snapping into place.
@@ -1384,15 +1384,39 @@ class _AppDrawerState extends State<AppDrawer> {
                   child: child,
                 ),
               ),
-              child: ListView(
-                padding: const EdgeInsets.only(bottom: 8),
+              child: Column(
                 children: [
-                  _buildCourseHeader(context),
-                  _homeTile(context),
-                  for (final group in layout.groups) ...[
+                  Expanded(
+                    child: ListView(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      children: [
+                        _buildCourseHeader(context),
+                        _homeTile(context),
+                        for (final group in mainGroups) ...[
+                          Divider(height: 1, color: colorScheme.outlineVariant),
+                          _sectionLabel(context, group.title),
+                          ..._buildGroup(context, group, data, prefs, locks),
+                        ],
+                      ],
+                    ),
+                  ),
+                  // Pinned at the bottom, always visible: link items such as
+                  // Settings and "How it works", shown as icons in a row with
+                  // no labels and no section header.
+                  if (linkGroups.isNotEmpty) ...[
                     Divider(height: 1, color: colorScheme.outlineVariant),
-                    _sectionLabel(context, group.title),
-                    ..._buildGroup(context, group, data, prefs, locks),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (final group in linkGroups)
+                            for (final item in group.items)
+                              if (!item.hidden && item.ref != kCoursesRef)
+                                _linkIconButton(context, item),
+                        ],
+                      ),
+                    ),
                   ],
                 ],
               ),

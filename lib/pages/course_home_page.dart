@@ -18,6 +18,7 @@ import '../theme/brand_palette.dart';
 import '../theme/help_memory_pdf.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/completion_ribbon.dart';
+import '../widgets/country_flag.dart';
 import 'auth_gate.dart';
 
 /// Visual kind of a home-page quiz row, driving its icon and accent color.
@@ -460,9 +461,10 @@ class _CourseHomePageState extends State<CourseHomePage> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    '${course.speakFlag} → ${course.learnFlag}',
-                    style: const TextStyle(fontSize: 16),
+                  CourseFlagPair(
+                    speakFlag: course.speakFlag,
+                    learnFlag: course.learnFlag,
+                    diameter: 20,
                   ),
                   const SizedBox(width: 8),
                   Text(
