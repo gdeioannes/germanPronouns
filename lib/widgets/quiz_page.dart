@@ -100,6 +100,22 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   /// next question.
   bool _showingAnswerReveal = false;
 
+  /// True while the *correct* answer's proper spelling is being revealed in the
+  /// answer field after relaxed correction accepted a near-miss (e.g. the
+  /// learner typed it without accents/umlauts). Shown with a green "*", it still
+  /// counts as a correct answer — the positive twin of [_showingAnswerReveal].
+  bool _showingCorrectReveal = false;
+
+  /// Whether a reveal "*" prefix should show in the answer field: a wrong-answer
+  /// reveal, the first-letter hint, or the positive proper-spelling reveal.
+  bool get _revealActive =>
+      _showingAnswerReveal || _showingFirstLetterHint || _showingCorrectReveal;
+
+  /// Whether the answer field is locked (read-only, no cursor) during a reveal.
+  /// The first-letter hint keeps the field editable, so it's excluded here.
+  bool get _answerFieldLocked =>
+      _showingAnswerReveal || _showingCorrectReveal;
+
   /// True while [QuizConfig.sentenceHint] for the current sentence is
   /// revealed via the eye icon. Resets to false on every new question.
   bool _showSentenceHint = false;
@@ -1793,7 +1809,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   void _submitAnswer() {
-    if (_showingAnswerReveal) return;
+    if (_showingAnswerReveal || _showingCorrectReveal) return;
 
     var userAnswerRaw = _multiBlankControllers.isNotEmpty
         ? _multiBlankControllers.map((c) => c.text.trim()).join(' ')
@@ -1825,6 +1841,22 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         acceptableRaw.map((a) => normalizeAnswer(a, relaxed: relaxed)).toSet();
     final isCorrect = acceptableAnswers.contains(
       normalizeAnswer(userAnswerRaw, relaxed: relaxed),
+    );
+
+    // A correct answer that matched only because relaxed correction folded
+    // accents/umlauts/punctuation (not an exact spelling). It still counts as
+    // correct, but we reveal the proper spelling with a green "*" so the learner
+    // sees the right notation. [matchedCanonical] is the accepted answer they
+    // hit, shown with its correct accents.
+    final exactMatch = acceptableRaw
+        .map((a) => normalizeAnswer(a, relaxed: false))
+        .contains(normalizeAnswer(userAnswerRaw, relaxed: false));
+    final acceptedViaRelaxed = isCorrect && !exactMatch;
+    final matchedCanonical = acceptableRaw.firstWhere(
+      (a) =>
+          normalizeAnswer(a, relaxed: relaxed) ==
+          normalizeAnswer(userAnswerRaw, relaxed: relaxed),
+      orElse: () => correctAnswer,
     );
 
     // The first time an answer is wrong *only* because of an accent/umlaut
@@ -1898,9 +1930,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         shouldCelebrate = true;
         _feedbackHint = successHint;
         _lastAnswerCorrect = true;
-        _feedback = widget.config.acceptableAnswersForSentence != null
-            ? userAnswerRaw
-            : correctAnswer;
+        // Accepted via relaxed correction: surface the proper spelling, not the
+        // learner's un-accented input.
+        _feedback = acceptedViaRelaxed
+            ? matchedCanonical
+            : (widget.config.acceptableAnswersForSentence != null
+                  ? userAnswerRaw
+                  : correctAnswer);
       } else {
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
         _streakAbsolute = 0;
@@ -1951,7 +1987,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         for (var controller in _multiBlankControllers) {
           controller.clear();
         }
-        _nextQuestion();
+        if (acceptedViaRelaxed) {
+          // Keep the field on screen for the positive proper-spelling reveal,
+          // animated below after this setState; don't advance yet.
+          _showingCorrectReveal = true;
+        } else {
+          _nextQuestion();
+        }
       } else {
         _showingAnswerReveal = true;
         _answerController.clear();
@@ -2002,7 +2044,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _saveStoredStats();
 
     if (isCorrect) {
-      _requestAnswerFocus();
+      if (acceptedViaRelaxed) {
+        _revealCorrectAnswer(matchedCanonical, positive: true);
+      } else {
+        _requestAnswerFocus();
+      }
     } else {
       _revealCorrectAnswer(correctAnswer);
     }
@@ -2057,10 +2103,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _requestAnswerFocus();
   }
 
-  /// After an incorrect answer, types out [correctAnswer] in the answer
-  /// field one letter at a time, pauses for a duration set by
-  /// [NounSettings.answerRevealMode], then advances to the next question.
-  Future<void> _revealCorrectAnswer(String correctAnswer) async {
+  /// Types out [correctAnswer] in the answer field one letter at a time, pauses
+  /// for a duration set by [NounSettings.answerRevealMode], then advances to the
+  /// next question. With [positive] true this is the green-asterisk "proper
+  /// spelling" reveal shown after relaxed correction accepted a near-miss (still
+  /// a correct answer); otherwise it's the red-asterisk reveal after a wrong
+  /// answer.
+  Future<void> _revealCorrectAnswer(
+    String correctAnswer, {
+    bool positive = false,
+  }) async {
     // Handle multiple blanks separately
     if (_multiBlankControllers.isNotEmpty) {
       // For multiple blanks, get the full answer from sentence data
@@ -2094,7 +2146,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           await Future.delayed(const Duration(milliseconds: 70));
           if (!mounted) return;
           setState(() {
-            _showingAnswerReveal = true;
+            if (positive) {
+              _showingCorrectReveal = true;
+            } else {
+              _showingAnswerReveal = true;
+            }
             _multiBlankControllers[blankIndex].text = blankAnswer.substring(0, i);
           });
         }
@@ -2105,7 +2161,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         await Future.delayed(const Duration(milliseconds: 70));
         if (!mounted) return;
         setState(() {
-          _showingAnswerReveal = true;
+          if (positive) {
+            _showingCorrectReveal = true;
+          } else {
+            _showingAnswerReveal = true;
+          }
           _answerController.text = correctAnswer.substring(0, i);
         });
       }
@@ -2121,6 +2181,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
     setState(() {
       _showingAnswerReveal = false;
+      _showingCorrectReveal = false;
       _answerController.clear();
       for (var controller in _multiBlankControllers) {
         controller.clear();
@@ -3318,9 +3379,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                         // expanding up to most of the line so a
                                         // long answer stays fully visible instead
                                         // of scrolling inside a fixed box.
-                                        final revealPrefix =
-                                            (_showingAnswerReveal ||
-                                                _showingFirstLetterHint)
+                                        final revealPrefix = _revealActive
                                             ? '*'
                                             : '';
                                         final measuredAnswerWidth =
@@ -3371,8 +3430,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                                   ? TextInputAction.next
                                                                   : TextInputAction.done,
                                                               style: sentenceStyle,
-                                                              readOnly: _showingAnswerReveal,
-                                                              showCursor: !_showingAnswerReveal,
+                                                              readOnly: _answerFieldLocked,
+                                                              showCursor: !_answerFieldLocked,
                                                               minLines: 1,
                                                               maxLines: 1,
                                                               decoration: InputDecoration(
@@ -3383,11 +3442,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                                 ),
                                                                 filled: true,
                                                                 fillColor: Colors.white,
-                                                                prefixText: (_showingAnswerReveal || _showingFirstLetterHint)
+                                                                prefixText: _revealActive
                                                                     ? '*'
                                                                     : null,
                                                                 prefixStyle: sentenceStyle?.copyWith(
-                                                                  color: Colors.red,
+                                                                  color: _showingCorrectReveal
+                                                                      ? kSectionAccentColors[2]
+                                                                      : Colors.red,
                                                                   fontWeight: FontWeight.bold,
                                                                 ),
                                                               ),
@@ -3457,9 +3518,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                                 .done,
                                                         style: sentenceStyle,
                                                         readOnly:
-                                                            _showingAnswerReveal,
+                                                            _answerFieldLocked,
                                                         showCursor:
-                                                            !_showingAnswerReveal,
+                                                            !_answerFieldLocked,
                                                         minLines: 1,
                                                         maxLines: 1,
                                                         decoration: InputDecoration(
@@ -3479,13 +3540,15 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                           fillColor:
                                                               Colors.white,
                                                           prefixText:
-                                                              (_showingAnswerReveal || _showingFirstLetterHint)
+                                                              _revealActive
                                                               ? '*'
                                                               : null,
                                                           prefixStyle: sentenceStyle
                                                               ?.copyWith(
-                                                                color: Colors
-                                                                    .red,
+                                                                color:
+                                                                    _showingCorrectReveal
+                                                                    ? kSectionAccentColors[2]
+                                                                    : Colors.red,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -3596,7 +3659,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                 children: [
                                   Expanded(
                                     child: FilledButton.icon(
-                                      onPressed: _showingAnswerReveal
+                                      onPressed: _answerFieldLocked
                                           ? null
                                           : _submitAnswer,
                                       icon: const Icon(Icons.check_rounded),
@@ -3611,7 +3674,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                   ),
                                   const SizedBox(width: 12),
                                   OutlinedButton.icon(
-                                    onPressed: _showingAnswerReveal
+                                    onPressed: _answerFieldLocked
                                         ? null
                                         : _newQuestion,
                                     icon: const Icon(Icons.skip_next_rounded),
