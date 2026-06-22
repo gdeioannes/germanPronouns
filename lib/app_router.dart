@@ -104,16 +104,28 @@ final GoRouter appRouter = GoRouter(
           questEntryByKey(state.pathParameters['key']!) == null
               ? '/home'
               : null,
-      builder: (context, state) =>
-          QuestQuizLoader(entry: questEntryByKey(state.pathParameters['key']!)!),
+      // Keyed by the quest key: every `/quest/:key` shares one page key (the
+      // route template), so without a param key go_router reuses the loader's
+      // State and its already-resolved quiz when switching quests.
+      builder: (context, state) {
+        final key = state.pathParameters['key']!;
+        return QuestQuizLoader(
+          key: ValueKey('quest-$key'),
+          entry: questEntryByKey(key)!,
+        );
+      },
     ),
     GoRoute(
       path: '/noun/:key',
       redirect: (context, state) =>
           nounEntryByKey(state.pathParameters['key']!) == null ? '/home' : null,
-      builder: (context, state) => NounProgressionQuizLoader(
-        entry: nounEntryByKey(state.pathParameters['key']!)!,
-      ),
+      builder: (context, state) {
+        final key = state.pathParameters['key']!;
+        return NounProgressionQuizLoader(
+          key: ValueKey('noun-$key'),
+          entry: nounEntryByKey(key)!,
+        );
+      },
     ),
   ],
   errorBuilder: (context, state) => Scaffold(

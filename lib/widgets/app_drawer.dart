@@ -58,6 +58,11 @@ Widget buildAppPage(AppPage page) {
 Widget buildQuizPageForContent(String contentId) {
   final section = sectionForContentId(contentId);
   return DbQuizLoader(
+    // Keyed by the quiz id: `/quiz/article` and `/quiz/pronoun` match the same
+    // route template, so go_router gives them the same page key and would reuse
+    // the loader's State (and its already-resolved quiz) on switch. The id key
+    // forces a fresh State — and a fresh load — for each quiz.
+    key: ValueKey('quiz-$contentId'),
     quizId: contentId,
     currentPage: section?.page ?? AppPage.articles,
     fallback: section?.primaryQuiz,
