@@ -1172,44 +1172,62 @@ class _AppDrawerState extends State<AppDrawer> {
     final activeId = CourseSession.instance.activeCourseId;
     final strings = CourseSession.instance.strings;
 
-    final chosen = await showModalBottomSheet<Course>(
+    final chosen = await showDialog<Course>(
       context: context,
-      showDragHandle: true,
-      constraints: const BoxConstraints(maxWidth: 480),
       builder: (sheetContext) {
         final colorScheme = Theme.of(sheetContext).colorScheme;
         final textTheme = Theme.of(sheetContext).textTheme;
-        return SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.translate_rounded,
-                      size: 20,
-                      color: colorScheme.primary,
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      strings.switchCourse,
-                      style: textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w700,
+        final media = MediaQuery.of(sheetContext);
+        return Dialog(
+          insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+          clipBehavior: Clip.antiAlias,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: 480,
+              // Cap height so the panel floats in the middle and the list
+              // scrolls instead of overflowing/clipping lower courses.
+              maxHeight: media.size.height * 0.7,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 20, 24, 12),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.translate_rounded,
+                        size: 20,
+                        color: colorScheme.primary,
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          strings.switchCourse,
+                          style: textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              for (final course in courses)
-                _courseSwitcherTile(
-                  sheetContext,
-                  course: course,
-                  active: course.id == activeId,
+                Flexible(
+                  child: ListView(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.only(bottom: 12),
+                    children: [
+                      for (final course in courses)
+                        _courseSwitcherTile(
+                          sheetContext,
+                          course: course,
+                          active: course.id == activeId,
+                        ),
+                    ],
+                  ),
                 ),
-              const SizedBox(height: 8),
-            ],
+              ],
+            ),
           ),
         );
       },
