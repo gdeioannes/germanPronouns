@@ -8,27 +8,7 @@ import 'package:german_pronouns_articles/data/quiz_content_library.dart';
 import 'package:german_pronouns_articles/models/content/populated_course.dart';
 import 'package:german_pronouns_articles/models/content/quiz.dart';
 
-class _MemSource implements ContentSource {
-  _MemSource(this.courseStr);
-  final String courseStr;
-  @override
-  Future<String> catalogJson() async => '{"version":"t","courses":[]}';
-  @override
-  Future<String> appConfigJson() async => '{"version":"t"}';
-  @override
-  Future<String> courseJson(String courseId) async => courseStr;
-}
-
-class _MemStore implements CourseBundleStore {
-  final Map<String, Map<String, dynamic>> data = {};
-  @override
-  Future<Map<String, dynamic>?> read(String id) async => data[id];
-  @override
-  Future<void> write(String id, Map<String, dynamic> json) async =>
-      data[id] = json;
-  @override
-  Future<void> remove(String id) async => data.remove(id);
-}
+import 'support/in_memory_content.dart';
 
 /// Returns a copy of [q] with one JSON field changed — a stand-in for the
 /// editor forms building an edited quiz.
@@ -45,9 +25,16 @@ void main() {
     PopulatedCourse(course: course, version: 't', quizzes: seedQuizzes).toJson(),
   );
 
-  ({ContentEditor editor, CachingCourseProvider provider, _MemStore store}) build() {
-    final store = _MemStore();
-    final provider = CachingCourseProvider(_MemSource(courseStr), store: store);
+  ({
+    ContentEditor editor,
+    CachingCourseProvider provider,
+    InMemoryBundleStore store,
+  }) build() {
+    final store = InMemoryBundleStore();
+    final provider = CachingCourseProvider(
+      InMemoryContentSource(courseStr),
+      store: store,
+    );
     return (
       editor: ContentEditor(provider: provider, store: store),
       provider: provider,
