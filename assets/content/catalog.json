@@ -1,0 +1,55 @@
+{
+  "version": "1.4.0",
+  "courses": [
+    {
+      "id": "de_cert_a1",
+      "name": "Certification German A1–C2",
+      "tagline": "Your step-by-step path from A1 to the C2 certificate",
+      "speakFlag": "🇬🇧",
+      "learnFlag": "🇩🇪",
+      "uiLang": "en",
+      "learnLocale": "de-DE",
+      "version": "1.4.0"
+    },
+    {
+      "id": "en_de",
+      "name": "German Grammar in Detail",
+      "tagline": "Articles, pronouns, prepositions & nouns in depth",
+      "speakFlag": "🇬🇧",
+      "learnFlag": "🇩🇪",
+      "uiLang": "en",
+      "learnLocale": "de-DE",
+      "version": "1.4.0"
+    },
+    {
+      "id": "es_de",
+      "name": "Español → Alemán",
+      "tagline": "Un viaje rápido a Alemania",
+      "speakFlag": "🇪🇸",
+      "learnFlag": "🇩🇪",
+      "uiLang": "es",
+      "learnLocale": "de-DE",
+      "version": "1.4.0"
+    },
+    {
+      "id": "es_de_emotions",
+      "name": "German Emotions",
+      "tagline": "Sentimientos y comunicación en pareja",
+      "speakFlag": "🇪🇸",
+      "learnFlag": "🇩🇪",
+      "uiLang": "es",
+      "learnLocale": "de-DE",
+      "version": "1.4.0"
+    },
+    {
+      "id": "de_es",
+      "name": "Spanisch-Zertifikat A1–B2",
+      "tagline": "Dein Schritt-für-Schritt-Weg zum Spanisch-Zertifikat",
+      "speakFlag": "🇩🇪",
+      "learnFlag": "🇪🇸",
+      "uiLang": "de",
+      "learnLocale": "es-ES",
+      "version": "1.4.0"
+    }
+  ]
+}

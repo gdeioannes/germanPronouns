@@ -85,6 +85,9 @@ flutter:
     - assets/icons/QuizLogo-01.svg
     - assets/icons/QuizLogo-02.svg
     - assets/seed/quiz_content.json
+    - assets/content/catalog.json
+    - assets/content/app.json
+    - assets/content/courses/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

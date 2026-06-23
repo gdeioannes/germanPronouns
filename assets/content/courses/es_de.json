@@ -1,0 +1,3386 @@
+{
+  "id": "es_de",
+  "name": "Español → Alemán",
+  "tagline": "Un viaje rápido a Alemania",
+  "speakFlag": "🇪🇸",
+  "learnFlag": "🇩🇪",
+  "uiLang": "es",
+  "learnLocale": "de-DE",
+  "nav": {
+    "groups": [
+      {
+        "id": "n1",
+        "title": "NIVEL 1 · LO BÁSICO",
+        "type": "quizzes",
+        "items": [
+          {
+            "ref": "es_de_hablar_basico"
+          },
+          {
+            "ref": "es_de_saludos"
+          },
+          {
+            "ref": "es_de_hablar_saludos"
+          },
+          {
+            "ref": "es_de_numeros"
+          },
+          {
+            "ref": "es_de_hablar_numeros"
+          },
+          {
+            "ref": "es_de_supervivencia"
+          },
+          {
+            "ref": "es_de_hablar_supervivencia"
+          }
+        ]
+      },
+      {
+        "id": "n2",
+        "title": "NIVEL 2 · EN LA CIUDAD",
+        "type": "quizzes",
+        "items": [
+          {
+            "ref": "es_de_hablar_ciudad"
+          },
+          {
+            "ref": "es_de_restaurante"
+          },
+          {
+            "ref": "es_de_hablar_restaurante"
+          },
+          {
+            "ref": "es_de_direcciones"
+          },
+          {
+            "ref": "es_de_hablar_direcciones"
+          },
+          {
+            "ref": "es_de_compras"
+          },
+          {
+            "ref": "es_de_hablar_compras"
+          }
+        ]
+      },
+      {
+        "id": "n3",
+        "title": "NIVEL 3 · SITUACIONES",
+        "type": "quizzes",
+        "items": [
+          {
+            "ref": "es_de_hablar_situaciones"
+          },
+          {
+            "ref": "es_de_alojamiento"
+          },
+          {
+            "ref": "es_de_hablar_alojamiento"
+          },
+          {
+            "ref": "es_de_emergencias"
+          },
+          {
+            "ref": "es_de_hablar_emergencias"
+          },
+          {
+            "ref": "es_de_fechas"
+          },
+          {
+            "ref": "es_de_hablar_fechas"
+          },
+          {
+            "ref": "es_de_cultura"
+          },
+          {
+            "ref": "es_de_hablar_charla"
+          }
+        ]
+      },
+      {
+        "id": "more",
+        "title": "MÁS",
+        "type": "links",
+        "items": [
+          {
+            "ref": "settings"
+          },
+          {
+            "ref": "how_it_works"
+          },
+          {
+            "ref": "courses"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "1.4.0",
+  "quizzes": [
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_basico",
+      "title": "Hablar: lo básico",
+      "storageKeyPrefix": "es_de_hablar_basico_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Escucha cada frase en alemán y repítela en voz alta. Si tu micrófono está disponible, te diremos si te salió bien. Si no, escucha y repite a tu ritmo y pasa a la siguiente.",
+        "tips": [
+          {
+            "title": "Imita el ritmo",
+            "text": "No te fijes solo en cada sonido: copia la entonación y el ritmo de la frase. Sonará mucho más natural."
+          },
+          {
+            "kind": "example",
+            "title": "La \"ch\" y la \"r\"",
+            "text": "\"Ich\" suena suave (como un susurro), y la \"r\" alemana se hace en la garganta. Repite \"Danke\" y \"Entschuldigung\" varias veces."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Hallo",
+          "translation": "Hola"
+        },
+        {
+          "id": "s1",
+          "text": "Guten Morgen",
+          "translation": "Buenos días"
+        },
+        {
+          "id": "s2",
+          "text": "Danke",
+          "translation": "Gracias"
+        },
+        {
+          "id": "s3",
+          "text": "Bitte",
+          "translation": "Por favor"
+        },
+        {
+          "id": "s4",
+          "text": "Entschuldigung",
+          "translation": "Perdón / Disculpe"
+        },
+        {
+          "id": "s5",
+          "text": "Ja",
+          "translation": "Sí"
+        },
+        {
+          "id": "s6",
+          "text": "Nein",
+          "translation": "No"
+        },
+        {
+          "id": "s7",
+          "text": "Auf Wiedersehen",
+          "translation": "Adiós"
+        },
+        {
+          "id": "s8",
+          "text": "Sprechen Sie Englisch?",
+          "translation": "¿Habla inglés?"
+        },
+        {
+          "id": "s9",
+          "text": "Was kostet das?",
+          "translation": "¿Cuánto cuesta?"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_saludos",
+      "title": "Saludos y cortesía",
+      "storageKeyPrefix": "es_de_saludos_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "Lo primero al viajar: saludar y ser educado. En Alemania la cortesía y un saludo claro abren muchas puertas. Aprende estas fórmulas de memoria.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Tú (du) vs. usted (Sie)",
+            "text": "Con desconocidos, en tiendas y con mayores usa la forma formal \"Sie\". El \"du\" es para amigos, familia y niños."
+          },
+          {
+            "kind": "example",
+            "title": "Cultura",
+            "text": "Los alemanes suelen saludar con un apretón de manos firme y contacto visual. \"Tschüss\" es informal; \"Auf Wiedersehen\", formal."
+          },
+          {
+            "title": "Gracias",
+            "text": "\"Danke\" = gracias. Para dar más énfasis: \"Danke schön\" o \"Vielen Dank\". Te responderán \"Bitte\" (de nada)."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hola"
+        },
+        {
+          "key": "s1",
+          "display": "Buenos días"
+        },
+        {
+          "key": "s2",
+          "display": "Buenas tardes"
+        },
+        {
+          "key": "s3",
+          "display": "Buenas noches (despedida)"
+        },
+        {
+          "key": "s4",
+          "display": "Adiós"
+        },
+        {
+          "key": "s5",
+          "display": "Hasta luego"
+        },
+        {
+          "key": "s6",
+          "display": "Por favor"
+        },
+        {
+          "key": "s7",
+          "display": "Gracias"
+        },
+        {
+          "key": "s8",
+          "display": "De nada"
+        },
+        {
+          "key": "s9",
+          "display": "Perdón / Disculpe"
+        },
+        {
+          "key": "s10",
+          "display": "Sí"
+        },
+        {
+          "key": "s11",
+          "display": "No"
+        },
+        {
+          "key": "s12",
+          "display": "¿Cómo está usted?"
+        },
+        {
+          "key": "s13",
+          "display": "Me llamo…"
+        },
+        {
+          "key": "s14",
+          "display": "Mucho gusto"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Hallo",
+            "Guten Morgen",
+            "Guten Tag",
+            "Gute Nacht",
+            "Auf Wiedersehen",
+            "Bis später",
+            "Bitte",
+            "Danke",
+            "Bitte",
+            "Entschuldigung",
+            "Ja",
+            "Nein",
+            "Wie geht es Ihnen?",
+            "Ich heiße …",
+            "Freut mich"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Hola → ____",
+          "acceptedAnswers": [
+            "Hallo",
+            "Guten Tag"
+          ],
+          "english": "Hola",
+          "referenceExample": "**Hallo**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Buenos días → ____",
+          "acceptedAnswers": [
+            "Guten Morgen"
+          ],
+          "english": "Buenos días",
+          "referenceExample": "**Guten Morgen**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Buenas tardes → ____",
+          "acceptedAnswers": [
+            "Guten Tag"
+          ],
+          "english": "Buenas tardes",
+          "referenceExample": "**Guten Tag**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Buenas noches (despedida) → ____",
+          "acceptedAnswers": [
+            "Gute Nacht"
+          ],
+          "english": "Buenas noches (despedida)",
+          "referenceExample": "**Gute Nacht**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Adiós → ____",
+          "acceptedAnswers": [
+            "Auf Wiedersehen",
+            "Tschüss"
+          ],
+          "english": "Adiós",
+          "referenceExample": "**Auf Wiedersehen**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Hasta luego → ____",
+          "acceptedAnswers": [
+            "Bis später",
+            "Bis bald"
+          ],
+          "english": "Hasta luego",
+          "referenceExample": "**Bis später**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Por favor → ____",
+          "acceptedAnswers": [
+            "Bitte"
+          ],
+          "english": "Por favor",
+          "referenceExample": "**Bitte**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Gracias → ____",
+          "acceptedAnswers": [
+            "Danke",
+            "Danke schön",
+            "Vielen Dank"
+          ],
+          "english": "Gracias",
+          "referenceExample": "**Danke**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "De nada → ____",
+          "acceptedAnswers": [
+            "Bitte",
+            "Gern geschehen"
+          ],
+          "english": "De nada",
+          "referenceExample": "**Bitte**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Perdón / Disculpe → ____",
+          "acceptedAnswers": [
+            "Entschuldigung",
+            "Entschuldigen Sie"
+          ],
+          "english": "Perdón / Disculpe",
+          "referenceExample": "**Entschuldigung**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "Sí → ____",
+          "acceptedAnswers": [
+            "Ja"
+          ],
+          "english": "Sí",
+          "referenceExample": "**Ja**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "En alemán",
+          "sentence": "No → ____",
+          "acceptedAnswers": [
+            "Nein"
+          ],
+          "english": "No",
+          "referenceExample": "**Nein**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Cómo está usted? → ____",
+          "acceptedAnswers": [
+            "Wie geht es Ihnen?",
+            "Wie geht's?"
+          ],
+          "english": "¿Cómo está usted?",
+          "referenceExample": "**Wie geht es Ihnen?**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "En alemán",
+          "sentence": "Me llamo… → ____",
+          "acceptedAnswers": [
+            "Ich heiße …"
+          ],
+          "english": "Me llamo…",
+          "referenceExample": "**Ich heiße …**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "En alemán",
+          "sentence": "Mucho gusto → ____",
+          "acceptedAnswers": [
+            "Freut mich"
+          ],
+          "english": "Mucho gusto",
+          "referenceExample": "**Freut mich**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_saludos",
+      "title": "Hablar: saludos",
+      "storageKeyPrefix": "es_de_hablar_saludos_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Di en voz alta los saludos y las fórmulas de cortesía. Son lo primero que usarás al llegar, así que conviene que te salgan solas.",
+        "tips": [
+          {
+            "title": "Suena educado",
+            "text": "Un \"Hallo\" o \"Danke\" con una sonrisa abre puertas. Alarga un poco el saludo: \"Guten Taag\"."
+          },
+          {
+            "kind": "example",
+            "title": "La \"sch\" y la \"ü\"",
+            "text": "\"Tschüss\" empieza con \"ch\" fuerte (\"chüss\") y \"schön\" lleva \"ö\". Repite \"Danke schön\" hasta que fluya."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Hallo",
+          "translation": "Hola"
+        },
+        {
+          "id": "s1",
+          "text": "Guten Morgen",
+          "translation": "Buenos días"
+        },
+        {
+          "id": "s2",
+          "text": "Guten Tag",
+          "translation": "Buenas tardes"
+        },
+        {
+          "id": "s3",
+          "text": "Gute Nacht",
+          "translation": "Buenas noches (despedida)"
+        },
+        {
+          "id": "s4",
+          "text": "Auf Wiedersehen",
+          "translation": "Adiós"
+        },
+        {
+          "id": "s5",
+          "text": "Bis später",
+          "translation": "Hasta luego"
+        },
+        {
+          "id": "s6",
+          "text": "Bitte",
+          "translation": "Por favor"
+        },
+        {
+          "id": "s7",
+          "text": "Danke",
+          "translation": "Gracias"
+        },
+        {
+          "id": "s8",
+          "text": "Danke schön",
+          "translation": "Muchas gracias"
+        },
+        {
+          "id": "s9",
+          "text": "Gern geschehen",
+          "translation": "De nada"
+        },
+        {
+          "id": "s10",
+          "text": "Entschuldigung",
+          "translation": "Perdón / Disculpe"
+        },
+        {
+          "id": "s11",
+          "text": "Ja",
+          "translation": "Sí"
+        },
+        {
+          "id": "s12",
+          "text": "Nein",
+          "translation": "No"
+        },
+        {
+          "id": "s13",
+          "text": "Wie geht es Ihnen?",
+          "translation": "¿Cómo está usted?"
+        },
+        {
+          "id": "s14",
+          "text": "Ich heiße …",
+          "translation": "Me llamo…"
+        },
+        {
+          "id": "s15",
+          "text": "Freut mich",
+          "translation": "Mucho gusto"
+        },
+        {
+          "id": "s16",
+          "text": "Guten Abend",
+          "translation": "Buenas noches (saludo)"
+        },
+        {
+          "id": "s17",
+          "text": "Bis morgen",
+          "translation": "Hasta mañana"
+        },
+        {
+          "id": "s18",
+          "text": "Wie geht's?",
+          "translation": "¿Qué tal?"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_numeros",
+      "title": "Números y precios",
+      "storageKeyPrefix": "es_de_numeros_",
+      "promptLabel": "Número",
+      "subjectsLabel": "Números",
+      "subjectColumnLabel": "Número",
+      "help": {
+        "intro": "Los números son imprescindibles para precios, horarios y direcciones. Fíjate: a partir de 21 el alemán dice primero las unidades (einundzwanzig = uno-y-veinte).",
+        "tips": [
+          {
+            "kind": "warning",
+            "title": "Ortografía",
+            "text": "16 = sechzehn, 17 = siebzehn, 30 = dreißig (con ß). Los precios se leen con coma: 3,50 € = \"drei Euro fünfzig\"."
+          },
+          {
+            "title": "Preguntar el precio",
+            "text": "\"¿Cuánto cuesta?\" = \"Was kostet das?\" — muy útil en tiendas y mercados."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "0",
+          "display": "0"
+        },
+        {
+          "key": "1",
+          "display": "1"
+        },
+        {
+          "key": "2",
+          "display": "2"
+        },
+        {
+          "key": "3",
+          "display": "3"
+        },
+        {
+          "key": "4",
+          "display": "4"
+        },
+        {
+          "key": "5",
+          "display": "5"
+        },
+        {
+          "key": "6",
+          "display": "6"
+        },
+        {
+          "key": "7",
+          "display": "7"
+        },
+        {
+          "key": "8",
+          "display": "8"
+        },
+        {
+          "key": "9",
+          "display": "9"
+        },
+        {
+          "key": "10",
+          "display": "10"
+        },
+        {
+          "key": "11",
+          "display": "11"
+        },
+        {
+          "key": "12",
+          "display": "12"
+        },
+        {
+          "key": "13",
+          "display": "13"
+        },
+        {
+          "key": "16",
+          "display": "16"
+        },
+        {
+          "key": "20",
+          "display": "20"
+        },
+        {
+          "key": "21",
+          "display": "21"
+        },
+        {
+          "key": "30",
+          "display": "30"
+        },
+        {
+          "key": "50",
+          "display": "50"
+        },
+        {
+          "key": "100",
+          "display": "100"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "null",
+            "eins",
+            "zwei",
+            "drei",
+            "vier",
+            "fünf",
+            "sechs",
+            "sieben",
+            "acht",
+            "neun",
+            "zehn",
+            "elf",
+            "zwölf",
+            "dreizehn",
+            "sechzehn",
+            "zwanzig",
+            "einundzwanzig",
+            "dreißig",
+            "fünfzig",
+            "hundert"
+          ]
+        }
+      ],
+      "sentences": [],
+      "sentenceTemplates": {
+        "En alemán": [
+          "El número {subject} en alemán: ____"
+        ]
+      }
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_numeros",
+      "title": "Hablar: números",
+      "storageKeyPrefix": "es_de_hablar_numeros_",
+      "promptLabel": "Número",
+      "subjectsLabel": "Números",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Escucha y repite los números. Saber decirlos te ayuda con precios, andenes y números de habitación.",
+        "tips": [
+          {
+            "kind": "example",
+            "title": "La \"z\" y la \"ei\"",
+            "text": "\"zwei\" suena \"tsvái\" y \"zwanzig\" \"tsván-tsij\". La \"z\" alemana es siempre \"ts\"."
+          },
+          {
+            "title": "Precios con coma",
+            "text": "\"3,50 €\" se dice \"drei Euro fünfzig\": primero los euros, luego los céntimos."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "null",
+          "translation": "0"
+        },
+        {
+          "id": "s1",
+          "text": "eins",
+          "translation": "1"
+        },
+        {
+          "id": "s2",
+          "text": "zwei",
+          "translation": "2"
+        },
+        {
+          "id": "s3",
+          "text": "drei",
+          "translation": "3"
+        },
+        {
+          "id": "s4",
+          "text": "vier",
+          "translation": "4"
+        },
+        {
+          "id": "s5",
+          "text": "fünf",
+          "translation": "5"
+        },
+        {
+          "id": "s6",
+          "text": "sechs",
+          "translation": "6"
+        },
+        {
+          "id": "s7",
+          "text": "sieben",
+          "translation": "7"
+        },
+        {
+          "id": "s8",
+          "text": "acht",
+          "translation": "8"
+        },
+        {
+          "id": "s9",
+          "text": "neun",
+          "translation": "9"
+        },
+        {
+          "id": "s10",
+          "text": "zehn",
+          "translation": "10"
+        },
+        {
+          "id": "s11",
+          "text": "elf",
+          "translation": "11"
+        },
+        {
+          "id": "s12",
+          "text": "zwölf",
+          "translation": "12"
+        },
+        {
+          "id": "s13",
+          "text": "dreizehn",
+          "translation": "13"
+        },
+        {
+          "id": "s14",
+          "text": "sechzehn",
+          "translation": "16"
+        },
+        {
+          "id": "s15",
+          "text": "zwanzig",
+          "translation": "20"
+        },
+        {
+          "id": "s16",
+          "text": "einundzwanzig",
+          "translation": "21"
+        },
+        {
+          "id": "s17",
+          "text": "dreißig",
+          "translation": "30"
+        },
+        {
+          "id": "s18",
+          "text": "fünfzig",
+          "translation": "50"
+        },
+        {
+          "id": "s19",
+          "text": "hundert",
+          "translation": "100"
+        },
+        {
+          "id": "s20",
+          "text": "drei Euro fünfzig",
+          "translation": "3,50 € (precio)"
+        },
+        {
+          "id": "s21",
+          "text": "vierzig",
+          "translation": "40"
+        },
+        {
+          "id": "s22",
+          "text": "tausend",
+          "translation": "1000"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_supervivencia",
+      "title": "Frases de supervivencia",
+      "storageKeyPrefix": "es_de_supervivencia_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "Cuando no entiendes nada, estas frases te salvan. Memorízalas: te permiten pedir ayuda y que te hablen más despacio.",
+        "tips": [
+          {
+            "title": "Pide ayuda en inglés",
+            "text": "Muchos alemanes hablan inglés. \"Sprechen Sie Englisch?\" (¿Habla inglés?) suele funcionar si te atascas."
+          },
+          {
+            "kind": "example",
+            "title": "WLAN = wifi",
+            "text": "En Alemania el wifi se llama \"WLAN\" (se dice \"ve-lan\"). El baño es \"die Toilette\" o \"das WC\"."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "No entiendo"
+        },
+        {
+          "key": "s1",
+          "display": "¿Habla inglés?"
+        },
+        {
+          "key": "s2",
+          "display": "No hablo alemán"
+        },
+        {
+          "key": "s3",
+          "display": "¿Dónde está el baño?"
+        },
+        {
+          "key": "s4",
+          "display": "¿Puede ayudarme?"
+        },
+        {
+          "key": "s5",
+          "display": "¿Cuánto cuesta?"
+        },
+        {
+          "key": "s6",
+          "display": "Más despacio, por favor"
+        },
+        {
+          "key": "s7",
+          "display": "¿Cómo se dice…?"
+        },
+        {
+          "key": "s8",
+          "display": "No sé"
+        },
+        {
+          "key": "s9",
+          "display": "Estoy perdido"
+        },
+        {
+          "key": "s10",
+          "display": "¿Tiene wifi?"
+        },
+        {
+          "key": "s11",
+          "display": "Una pregunta, por favor"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "verstehe",
+            "Sprechen",
+            "spreche",
+            "Toilette",
+            "helfen",
+            "kostet",
+            "Langsamer",
+            "sagt",
+            "weiß",
+            "verlaufen",
+            "WLAN",
+            "Frage"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "No entiendo → Ich ____ nicht",
+          "acceptedAnswers": [
+            "verstehe"
+          ],
+          "english": "No entiendo",
+          "referenceExample": "Ich **verstehe** nicht"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Habla inglés? → ____ Sie Englisch?",
+          "acceptedAnswers": [
+            "Sprechen"
+          ],
+          "english": "¿Habla inglés?",
+          "referenceExample": "**Sprechen** Sie Englisch?"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "No hablo alemán → Ich ____ kein Deutsch",
+          "acceptedAnswers": [
+            "spreche"
+          ],
+          "english": "No hablo alemán",
+          "referenceExample": "Ich **spreche** kein Deutsch"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Dónde está el baño? → Wo ist die ____?",
+          "acceptedAnswers": [
+            "Toilette"
+          ],
+          "english": "¿Dónde está el baño?",
+          "referenceExample": "Wo ist die **Toilette**?"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Puede ayudarme? → Können Sie mir ____?",
+          "acceptedAnswers": [
+            "helfen"
+          ],
+          "english": "¿Puede ayudarme?",
+          "referenceExample": "Können Sie mir **helfen**?"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Cuánto cuesta? → Was ____ das?",
+          "acceptedAnswers": [
+            "kostet"
+          ],
+          "english": "¿Cuánto cuesta?",
+          "referenceExample": "Was **kostet** das?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Más despacio, por favor → ____, bitte",
+          "acceptedAnswers": [
+            "Langsamer"
+          ],
+          "english": "Más despacio, por favor",
+          "referenceExample": "**Langsamer**, bitte"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Cómo se dice…? → Wie ____ man …?",
+          "acceptedAnswers": [
+            "sagt"
+          ],
+          "english": "¿Cómo se dice…?",
+          "referenceExample": "Wie **sagt** man …?"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "No sé → Ich ____ nicht",
+          "acceptedAnswers": [
+            "weiß"
+          ],
+          "english": "No sé",
+          "referenceExample": "Ich **weiß** nicht"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Estoy perdido → Ich habe mich ____",
+          "acceptedAnswers": [
+            "verlaufen"
+          ],
+          "english": "Estoy perdido",
+          "referenceExample": "Ich habe mich **verlaufen**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Tiene wifi? → Haben Sie ____?",
+          "acceptedAnswers": [
+            "WLAN"
+          ],
+          "english": "¿Tiene wifi?",
+          "referenceExample": "Haben Sie **WLAN**?"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "En alemán",
+          "sentence": "Una pregunta, por favor → Eine ____, bitte",
+          "acceptedAnswers": [
+            "Frage"
+          ],
+          "english": "Una pregunta, por favor",
+          "referenceExample": "Eine **Frage**, bitte"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_supervivencia",
+      "title": "Hablar: supervivencia",
+      "storageKeyPrefix": "es_de_hablar_supervivencia_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Repite las frases que te sacan de un apuro: pedir ayuda, decir que no entiendes o pedir que te hablen más despacio.",
+        "tips": [
+          {
+            "title": "Vocaliza",
+            "text": "\"Langsamer, bitte\" (más despacio) pierde sentido si la dices rápido. Pronuncia cada sílaba con calma."
+          },
+          {
+            "kind": "example",
+            "title": "La \"v\" y la \"w\"",
+            "text": "\"verstehe\" suena con \"f\" (\"fer-shtée-e\") y \"WLAN\" se dice \"ve-lan\". Practica \"Ich verstehe nicht\"."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Ich verstehe nicht",
+          "translation": "No entiendo"
+        },
+        {
+          "id": "s1",
+          "text": "Sprechen Sie Englisch?",
+          "translation": "¿Habla inglés?"
+        },
+        {
+          "id": "s2",
+          "text": "Ich spreche kein Deutsch",
+          "translation": "No hablo alemán"
+        },
+        {
+          "id": "s3",
+          "text": "Wo ist die Toilette?",
+          "translation": "¿Dónde está el baño?"
+        },
+        {
+          "id": "s4",
+          "text": "Können Sie mir helfen?",
+          "translation": "¿Puede ayudarme?"
+        },
+        {
+          "id": "s5",
+          "text": "Was kostet das?",
+          "translation": "¿Cuánto cuesta?"
+        },
+        {
+          "id": "s6",
+          "text": "Langsamer, bitte",
+          "translation": "Más despacio, por favor"
+        },
+        {
+          "id": "s7",
+          "text": "Wie sagt man …?",
+          "translation": "¿Cómo se dice…?"
+        },
+        {
+          "id": "s8",
+          "text": "Ich weiß nicht",
+          "translation": "No sé"
+        },
+        {
+          "id": "s9",
+          "text": "Ich habe mich verlaufen",
+          "translation": "Estoy perdido"
+        },
+        {
+          "id": "s10",
+          "text": "Haben Sie WLAN?",
+          "translation": "¿Tiene wifi?"
+        },
+        {
+          "id": "s11",
+          "text": "Eine Frage, bitte",
+          "translation": "Una pregunta, por favor"
+        },
+        {
+          "id": "s12",
+          "text": "Können Sie das wiederholen?",
+          "translation": "¿Puede repetir?"
+        },
+        {
+          "id": "s13",
+          "text": "Können Sie das aufschreiben?",
+          "translation": "¿Me lo puede escribir?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_ciudad",
+      "title": "Hablar: en la ciudad",
+      "storageKeyPrefix": "es_de_hablar_ciudad_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Escucha y repite frases para el restaurante, moverte por la ciudad y hacer compras. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
+        "tips": [
+          {
+            "title": "Las vocales largas",
+            "text": "\"Bahnhof\" y \"Kaffee\" llevan vocales largas. Alárgalas un poco: \"Baahnhof\", \"Kafee\"."
+          },
+          {
+            "kind": "example",
+            "title": "La \"ei\" y la \"ie\"",
+            "text": "\"ei\" se dice como \"ái\" (zwei = tsvái) y \"ie\" como \"íi\" (Bier = bíia). Practícalo con \"Ein Bier\"."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Die Speisekarte, bitte",
+          "translation": "La carta, por favor"
+        },
+        {
+          "id": "s1",
+          "text": "Einen Kaffee, bitte",
+          "translation": "Un café, por favor"
+        },
+        {
+          "id": "s2",
+          "text": "Ein Bier",
+          "translation": "Una cerveza"
+        },
+        {
+          "id": "s3",
+          "text": "Die Rechnung, bitte",
+          "translation": "La cuenta, por favor"
+        },
+        {
+          "id": "s4",
+          "text": "Prost!",
+          "translation": "¡Salud! (brindis)"
+        },
+        {
+          "id": "s5",
+          "text": "Wo ist der Bahnhof?",
+          "translation": "¿Dónde está la estación?"
+        },
+        {
+          "id": "s6",
+          "text": "links",
+          "translation": "A la izquierda"
+        },
+        {
+          "id": "s7",
+          "text": "rechts",
+          "translation": "A la derecha"
+        },
+        {
+          "id": "s8",
+          "text": "geradeaus",
+          "translation": "Todo recto"
+        },
+        {
+          "id": "s9",
+          "text": "Ich nehme es",
+          "translation": "Me lo llevo"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_restaurante",
+      "title": "En el restaurante",
+      "storageKeyPrefix": "es_de_restaurante_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "Comer fuera es de lo mejor de viajar. Con estas frases pides mesa, comida, bebida y la cuenta sin problemas.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "La propina (Trinkgeld)",
+            "text": "Se deja un 5-10%, redondeando. Dilo al pagar en vez de dejarlo en la mesa: si son 18,50 €, di \"20, bitte\"."
+          },
+          {
+            "kind": "example",
+            "title": "Juntos o separados",
+            "text": "Te preguntarán \"Zusammen oder getrennt?\" (¿junto o separado?). En Alemania es normal pagar cada uno lo suyo."
+          },
+          {
+            "title": "Agua",
+            "text": "El agua de la llave casi no se sirve; pídela como \"Leitungswasser\". Lo normal es agua con gas (\"mit Kohlensäure\")."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "La carta, por favor"
+        },
+        {
+          "key": "s1",
+          "display": "Una mesa para dos"
+        },
+        {
+          "key": "s2",
+          "display": "Quisiera…"
+        },
+        {
+          "key": "s3",
+          "display": "Un café, por favor"
+        },
+        {
+          "key": "s4",
+          "display": "Una cerveza"
+        },
+        {
+          "key": "s5",
+          "display": "Agua sin gas"
+        },
+        {
+          "key": "s6",
+          "display": "Agua con gas"
+        },
+        {
+          "key": "s7",
+          "display": "La cuenta, por favor"
+        },
+        {
+          "key": "s8",
+          "display": "Soy vegetariano"
+        },
+        {
+          "key": "s9",
+          "display": "Estaba delicioso"
+        },
+        {
+          "key": "s10",
+          "display": "Para llevar"
+        },
+        {
+          "key": "s11",
+          "display": "¡Salud! (brindis)"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Speisekarte",
+            "Tisch",
+            "gern",
+            "Kaffee",
+            "Bier",
+            "Stilles",
+            "Kohlensäure",
+            "Rechnung",
+            "Vegetarier",
+            "lecker",
+            "Mitnehmen",
+            "Prost!"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "La carta, por favor → Die ____, bitte",
+          "acceptedAnswers": [
+            "Speisekarte"
+          ],
+          "english": "La carta, por favor",
+          "referenceExample": "Die **Speisekarte**, bitte"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Una mesa para dos → Einen ____ für zwei",
+          "acceptedAnswers": [
+            "Tisch"
+          ],
+          "english": "Una mesa para dos",
+          "referenceExample": "Einen **Tisch** für zwei"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Quisiera… → Ich hätte ____ …",
+          "acceptedAnswers": [
+            "gern"
+          ],
+          "english": "Quisiera…",
+          "referenceExample": "Ich hätte **gern** …"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Un café, por favor → Einen ____, bitte",
+          "acceptedAnswers": [
+            "Kaffee"
+          ],
+          "english": "Un café, por favor",
+          "referenceExample": "Einen **Kaffee**, bitte"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Una cerveza → Ein ____",
+          "acceptedAnswers": [
+            "Bier"
+          ],
+          "english": "Una cerveza",
+          "referenceExample": "Ein **Bier**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Agua sin gas → ____ Wasser",
+          "acceptedAnswers": [
+            "Stilles"
+          ],
+          "english": "Agua sin gas",
+          "referenceExample": "**Stilles** Wasser"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Agua con gas → Wasser mit ____",
+          "acceptedAnswers": [
+            "Kohlensäure"
+          ],
+          "english": "Agua con gas",
+          "referenceExample": "Wasser mit **Kohlensäure**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "La cuenta, por favor → Die ____, bitte",
+          "acceptedAnswers": [
+            "Rechnung"
+          ],
+          "english": "La cuenta, por favor",
+          "referenceExample": "Die **Rechnung**, bitte"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Soy vegetariano → Ich bin ____",
+          "acceptedAnswers": [
+            "Vegetarier"
+          ],
+          "english": "Soy vegetariano",
+          "referenceExample": "Ich bin **Vegetarier**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Estaba delicioso → Es war ____",
+          "acceptedAnswers": [
+            "lecker"
+          ],
+          "english": "Estaba delicioso",
+          "referenceExample": "Es war **lecker**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "Para llevar → Zum ____",
+          "acceptedAnswers": [
+            "Mitnehmen"
+          ],
+          "english": "Para llevar",
+          "referenceExample": "Zum **Mitnehmen**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "En alemán",
+          "sentence": "¡Salud! (brindis) → ____",
+          "acceptedAnswers": [
+            "Prost!"
+          ],
+          "english": "¡Salud! (brindis)",
+          "referenceExample": "**Prost!**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_restaurante",
+      "title": "Hablar: restaurante",
+      "storageKeyPrefix": "es_de_hablar_restaurante_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Pide mesa, comida, bebida y la cuenta en voz alta. Practica hasta que puedas pedir sin pensarlo.",
+        "tips": [
+          {
+            "kind": "example",
+            "title": "La \"ei\" de \"Ein Bier\"",
+            "text": "\"ein\" se dice \"áin\" y \"Bier\" como \"bíia\". Repite \"Ein Bier, bitte\" con ritmo."
+          },
+          {
+            "title": "Al pagar",
+            "text": "\"Die Rechnung, bitte\" (la cuenta). Di \"Prost!\" al brindar, con la \"o\" bien abierta."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Die Speisekarte, bitte",
+          "translation": "La carta, por favor"
+        },
+        {
+          "id": "s1",
+          "text": "Einen Tisch für zwei",
+          "translation": "Una mesa para dos"
+        },
+        {
+          "id": "s2",
+          "text": "Ich hätte gern …",
+          "translation": "Quisiera…"
+        },
+        {
+          "id": "s3",
+          "text": "Einen Kaffee, bitte",
+          "translation": "Un café, por favor"
+        },
+        {
+          "id": "s4",
+          "text": "Ein Bier",
+          "translation": "Una cerveza"
+        },
+        {
+          "id": "s5",
+          "text": "Stilles Wasser",
+          "translation": "Agua sin gas"
+        },
+        {
+          "id": "s6",
+          "text": "Wasser mit Kohlensäure",
+          "translation": "Agua con gas"
+        },
+        {
+          "id": "s7",
+          "text": "Die Rechnung, bitte",
+          "translation": "La cuenta, por favor"
+        },
+        {
+          "id": "s8",
+          "text": "Ich bin Vegetarier",
+          "translation": "Soy vegetariano"
+        },
+        {
+          "id": "s9",
+          "text": "Es war lecker",
+          "translation": "Estaba delicioso"
+        },
+        {
+          "id": "s10",
+          "text": "Zum Mitnehmen",
+          "translation": "Para llevar"
+        },
+        {
+          "id": "s11",
+          "text": "Prost!",
+          "translation": "¡Salud! (brindis)"
+        },
+        {
+          "id": "s12",
+          "text": "Was empfehlen Sie?",
+          "translation": "¿Qué recomienda?"
+        },
+        {
+          "id": "s13",
+          "text": "Getrennt, bitte",
+          "translation": "Separado, por favor"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_direcciones",
+      "title": "Direcciones y transporte",
+      "storageKeyPrefix": "es_de_direcciones_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "Para moverte por la ciudad: preguntar el camino, comprar boletos y tomar el tren o el metro.",
+        "tips": [
+          {
+            "kind": "warning",
+            "title": "Valida tu boleto",
+            "text": "Compra el boleto antes de subir y, si hace falta, valídalo. Los controles (\"Kontrolle\") multan a quien va sin boleto válido."
+          },
+          {
+            "kind": "example",
+            "title": "Transporte",
+            "text": "U-Bahn = metro, S-Bahn = tren suburbano, Straßenbahn = tranvía, Bahnhof = estación, Gleis = andén."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "¿Dónde está la estación?"
+        },
+        {
+          "key": "s1",
+          "display": "A la izquierda"
+        },
+        {
+          "key": "s2",
+          "display": "A la derecha"
+        },
+        {
+          "key": "s3",
+          "display": "Todo recto"
+        },
+        {
+          "key": "s4",
+          "display": "¿Está lejos?"
+        },
+        {
+          "key": "s5",
+          "display": "Un boleto a…, por favor"
+        },
+        {
+          "key": "s6",
+          "display": "¿Dónde compro un boleto?"
+        },
+        {
+          "key": "s7",
+          "display": "¿Cuándo sale el tren?"
+        },
+        {
+          "key": "s8",
+          "display": "¿Qué andén?"
+        },
+        {
+          "key": "s9",
+          "display": "Quiero ir a…"
+        },
+        {
+          "key": "s10",
+          "display": "¿Para aquí?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Bahnhof",
+            "links",
+            "rechts",
+            "geradeaus",
+            "weit",
+            "Fahrkarte",
+            "kaufen",
+            "fährt",
+            "Gleis",
+            "fahren",
+            "Hält"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Dónde está la estación? → Wo ist der ____?",
+          "acceptedAnswers": [
+            "Bahnhof"
+          ],
+          "english": "¿Dónde está la estación?",
+          "referenceExample": "Wo ist der **Bahnhof**?"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "A la izquierda → ____",
+          "acceptedAnswers": [
+            "links",
+            "nach links"
+          ],
+          "english": "A la izquierda",
+          "referenceExample": "**links**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "A la derecha → ____",
+          "acceptedAnswers": [
+            "rechts",
+            "nach rechts"
+          ],
+          "english": "A la derecha",
+          "referenceExample": "**rechts**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Todo recto → ____",
+          "acceptedAnswers": [
+            "geradeaus"
+          ],
+          "english": "Todo recto",
+          "referenceExample": "**geradeaus**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Está lejos? → Ist es ____?",
+          "acceptedAnswers": [
+            "weit"
+          ],
+          "english": "¿Está lejos?",
+          "referenceExample": "Ist es **weit**?"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Un boleto a…, por favor → Eine ____ nach …, bitte",
+          "acceptedAnswers": [
+            "Fahrkarte"
+          ],
+          "english": "Un boleto a…, por favor",
+          "referenceExample": "Eine **Fahrkarte** nach …, bitte"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Dónde compro un boleto? → Wo kann ich eine Fahrkarte ____?",
+          "acceptedAnswers": [
+            "kaufen"
+          ],
+          "english": "¿Dónde compro un boleto?",
+          "referenceExample": "Wo kann ich eine Fahrkarte **kaufen**?"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Cuándo sale el tren? → Wann ____ der Zug?",
+          "acceptedAnswers": [
+            "fährt"
+          ],
+          "english": "¿Cuándo sale el tren?",
+          "referenceExample": "Wann **fährt** der Zug?"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Qué andén? → Welches ____?",
+          "acceptedAnswers": [
+            "Gleis"
+          ],
+          "english": "¿Qué andén?",
+          "referenceExample": "Welches **Gleis**?"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "Quiero ir a… → Ich möchte nach … ____",
+          "acceptedAnswers": [
+            "fahren"
+          ],
+          "english": "Quiero ir a…",
+          "referenceExample": "Ich möchte nach … **fahren**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Para aquí? → ____ er hier?",
+          "acceptedAnswers": [
+            "Hält"
+          ],
+          "english": "¿Para aquí?",
+          "referenceExample": "**Hält** er hier?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_direcciones",
+      "title": "Hablar: direcciones",
+      "storageKeyPrefix": "es_de_hablar_direcciones_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Pregunta el camino y compra boletos en voz alta. Son frases que dirás de pie y con prisa, así que conviene tenerlas listas.",
+        "tips": [
+          {
+            "kind": "example",
+            "title": "La \"ch\" de \"rechts\"",
+            "text": "\"rechts\" lleva \"ch\" áspera (\"réjts\") y \"Bahnhof\" una \"a\" larga (\"báanhof\")."
+          },
+          {
+            "title": "Pregunta corta",
+            "text": "\"Wo ist…?\" (¿dónde está…?) te sirve para todo: estación, andén, parada. Dilo claro."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Wo ist der Bahnhof?",
+          "translation": "¿Dónde está la estación?"
+        },
+        {
+          "id": "s1",
+          "text": "links",
+          "translation": "A la izquierda"
+        },
+        {
+          "id": "s2",
+          "text": "rechts",
+          "translation": "A la derecha"
+        },
+        {
+          "id": "s3",
+          "text": "geradeaus",
+          "translation": "Todo recto"
+        },
+        {
+          "id": "s4",
+          "text": "Ist es weit?",
+          "translation": "¿Está lejos?"
+        },
+        {
+          "id": "s5",
+          "text": "Eine Fahrkarte nach …, bitte",
+          "translation": "Un boleto a…, por favor"
+        },
+        {
+          "id": "s6",
+          "text": "Wo kann ich eine Fahrkarte kaufen?",
+          "translation": "¿Dónde compro un boleto?"
+        },
+        {
+          "id": "s7",
+          "text": "Wann fährt der Zug?",
+          "translation": "¿Cuándo sale el tren?"
+        },
+        {
+          "id": "s8",
+          "text": "Welches Gleis?",
+          "translation": "¿Qué andén?"
+        },
+        {
+          "id": "s9",
+          "text": "Ich möchte nach … fahren",
+          "translation": "Quiero ir a…"
+        },
+        {
+          "id": "s10",
+          "text": "Hält er hier?",
+          "translation": "¿Para aquí?"
+        },
+        {
+          "id": "s11",
+          "text": "Ist es in der Nähe?",
+          "translation": "¿Está cerca?"
+        },
+        {
+          "id": "s12",
+          "text": "Ein Taxi, bitte",
+          "translation": "Un taxi, por favor"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_compras",
+      "title": "Compras",
+      "storageKeyPrefix": "es_de_compras_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "En tiendas, mercados y supermercados. Pregunta precios, paga y pide una bolsa.",
+        "tips": [
+          {
+            "kind": "warning",
+            "title": "Lleva efectivo",
+            "text": "No en todos los sitios aceptan tarjeta, sobre todo los pequeños. El efectivo (\"Bargeld\") siempre funciona."
+          },
+          {
+            "kind": "rule",
+            "title": "Domingos cerrado",
+            "text": "Casi todas las tiendas cierran los domingos. Haz la compra el sábado."
+          },
+          {
+            "kind": "example",
+            "title": "Pfand (depósito)",
+            "text": "Por muchas botellas y latas pagas un depósito (\"Pfand\") que recuperas al devolverlas en el supermercado. Trae tu propia bolsa."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "¿Cuánto cuesta?"
+        },
+        {
+          "key": "s1",
+          "display": "¿Tienen…?"
+        },
+        {
+          "key": "s2",
+          "display": "Solo estoy mirando"
+        },
+        {
+          "key": "s3",
+          "display": "¿Puedo pagar con tarjeta?"
+        },
+        {
+          "key": "s4",
+          "display": "En efectivo"
+        },
+        {
+          "key": "s5",
+          "display": "¿Qué talla?"
+        },
+        {
+          "key": "s6",
+          "display": "Es demasiado caro"
+        },
+        {
+          "key": "s7",
+          "display": "Me lo llevo"
+        },
+        {
+          "key": "s8",
+          "display": "Una bolsa, por favor"
+        },
+        {
+          "key": "s9",
+          "display": "¿Dónde está la caja?"
+        },
+        {
+          "key": "s10",
+          "display": "¿Está abierto?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "kostet",
+            "Haben",
+            "schaue",
+            "zahlen",
+            "bar",
+            "Größe",
+            "teuer",
+            "nehme",
+            "Tüte",
+            "Kasse",
+            "geöffnet"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Cuánto cuesta? → Was ____ das?",
+          "acceptedAnswers": [
+            "kostet"
+          ],
+          "english": "¿Cuánto cuesta?",
+          "referenceExample": "Was **kostet** das?"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Tienen…? → ____ Sie …?",
+          "acceptedAnswers": [
+            "Haben"
+          ],
+          "english": "¿Tienen…?",
+          "referenceExample": "**Haben** Sie …?"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Solo estoy mirando → Ich ____ nur",
+          "acceptedAnswers": [
+            "schaue"
+          ],
+          "english": "Solo estoy mirando",
+          "referenceExample": "Ich **schaue** nur"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Puedo pagar con tarjeta? → Kann ich mit Karte ____?",
+          "acceptedAnswers": [
+            "zahlen"
+          ],
+          "english": "¿Puedo pagar con tarjeta?",
+          "referenceExample": "Kann ich mit Karte **zahlen**?"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "En efectivo → in ____",
+          "acceptedAnswers": [
+            "bar"
+          ],
+          "english": "En efectivo",
+          "referenceExample": "in **bar**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Qué talla? → Welche ____?",
+          "acceptedAnswers": [
+            "Größe"
+          ],
+          "english": "¿Qué talla?",
+          "referenceExample": "Welche **Größe**?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Es demasiado caro → Das ist zu ____",
+          "acceptedAnswers": [
+            "teuer"
+          ],
+          "english": "Es demasiado caro",
+          "referenceExample": "Das ist zu **teuer**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "Me lo llevo → Ich ____ es",
+          "acceptedAnswers": [
+            "nehme"
+          ],
+          "english": "Me lo llevo",
+          "referenceExample": "Ich **nehme** es"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Una bolsa, por favor → Eine ____, bitte",
+          "acceptedAnswers": [
+            "Tüte"
+          ],
+          "english": "Una bolsa, por favor",
+          "referenceExample": "Eine **Tüte**, bitte"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Dónde está la caja? → Wo ist die ____?",
+          "acceptedAnswers": [
+            "Kasse"
+          ],
+          "english": "¿Dónde está la caja?",
+          "referenceExample": "Wo ist die **Kasse**?"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Está abierto? → Ist es ____?",
+          "acceptedAnswers": [
+            "geöffnet"
+          ],
+          "english": "¿Está abierto?",
+          "referenceExample": "Ist es **geöffnet**?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_compras",
+      "title": "Hablar: compras",
+      "storageKeyPrefix": "es_de_hablar_compras_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Pregunta precios, paga y pide una bolsa en voz alta. Practica para no trabarte en la caja.",
+        "tips": [
+          {
+            "title": "La pregunta clave",
+            "text": "\"Was kostet das?\" (¿cuánto cuesta?) es la que más usarás. Que salga redonda."
+          },
+          {
+            "kind": "example",
+            "title": "La \"ü\" de \"Tüte\"",
+            "text": "La \"ü\" se dice con los labios redondeados, entre \"u\" e \"i\". Practica \"Eine Tüte, bitte\"."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Was kostet das?",
+          "translation": "¿Cuánto cuesta?"
+        },
+        {
+          "id": "s1",
+          "text": "Haben Sie …?",
+          "translation": "¿Tienen…?"
+        },
+        {
+          "id": "s2",
+          "text": "Ich schaue nur",
+          "translation": "Solo estoy mirando"
+        },
+        {
+          "id": "s3",
+          "text": "Kann ich mit Karte zahlen?",
+          "translation": "¿Puedo pagar con tarjeta?"
+        },
+        {
+          "id": "s4",
+          "text": "in bar",
+          "translation": "En efectivo"
+        },
+        {
+          "id": "s5",
+          "text": "Welche Größe?",
+          "translation": "¿Qué talla?"
+        },
+        {
+          "id": "s6",
+          "text": "Das ist zu teuer",
+          "translation": "Es demasiado caro"
+        },
+        {
+          "id": "s7",
+          "text": "Ich nehme es",
+          "translation": "Me lo llevo"
+        },
+        {
+          "id": "s8",
+          "text": "Eine Tüte, bitte",
+          "translation": "Una bolsa, por favor"
+        },
+        {
+          "id": "s9",
+          "text": "Wo ist die Kasse?",
+          "translation": "¿Dónde está la caja?"
+        },
+        {
+          "id": "s10",
+          "text": "Ist es geöffnet?",
+          "translation": "¿Está abierto?"
+        },
+        {
+          "id": "s11",
+          "text": "Kann ich es anprobieren?",
+          "translation": "¿Puedo probármelo?"
+        },
+        {
+          "id": "s12",
+          "text": "Ist das im Angebot?",
+          "translation": "¿Está en oferta?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_situaciones",
+      "title": "Hablar: situaciones",
+      "storageKeyPrefix": "es_de_hablar_situaciones_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Escucha y repite frases para emergencias, el alojamiento y la charla cotidiana. Con el micrófono te decimos si te salió bien; sin él, repite a tu ritmo y pasa a la siguiente.",
+        "tips": [
+          {
+            "kind": "warning",
+            "title": "Que se entienda",
+            "text": "En una emergencia, habla despacio y claro. \"Hilfe!\" y \"Notfall\" deben sonar fuertes y nítidos."
+          },
+          {
+            "kind": "example",
+            "title": "La \"z\" y la \"v\"",
+            "text": "La \"z\" suena \"ts\" (Arzt = \"artst\") y la \"v\" suena como \"f\" (viel = \"fíl\"). Practícalo con \"Viel Glück!\"."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Hilfe!",
+          "translation": "¡Ayuda!"
+        },
+        {
+          "id": "s1",
+          "text": "Es ist ein Notfall",
+          "translation": "Es una emergencia"
+        },
+        {
+          "id": "s2",
+          "text": "Ich brauche einen Arzt",
+          "translation": "Necesito un médico"
+        },
+        {
+          "id": "s3",
+          "text": "Wo ist die Apotheke?",
+          "translation": "¿Dónde está la farmacia?"
+        },
+        {
+          "id": "s4",
+          "text": "Es tut mir leid",
+          "translation": "Lo siento"
+        },
+        {
+          "id": "s5",
+          "text": "Kein Problem",
+          "translation": "No hay problema"
+        },
+        {
+          "id": "s6",
+          "text": "Guten Appetit!",
+          "translation": "¡Buen provecho!"
+        },
+        {
+          "id": "s7",
+          "text": "Viel Glück!",
+          "translation": "¡Buena suerte!"
+        },
+        {
+          "id": "s8",
+          "text": "Gute Besserung!",
+          "translation": "¡Que te mejores!"
+        },
+        {
+          "id": "s9",
+          "text": "Woher kommst du?",
+          "translation": "¿De dónde eres?"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_alojamiento",
+      "title": "Alojamiento",
+      "storageKeyPrefix": "es_de_alojamiento_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "En el hotel o el albergue: registrarte, preguntar por el desayuno y el wifi, y resolver problemas en la habitación.",
+        "tips": [
+          {
+            "kind": "example",
+            "title": "El desayuno alemán",
+            "text": "El \"Frühstück\" suele ser abundante: panes, embutidos, quesos y huevo. Pregunta si está incluido."
+          },
+          {
+            "title": "El pasaporte",
+            "text": "Muchos alojamientos piden el pasaporte o un documento de identidad al hacer el check-in."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Tengo una reserva"
+        },
+        {
+          "key": "s1",
+          "display": "Quisiera hacer el check-in"
+        },
+        {
+          "key": "s2",
+          "display": "Una habitación individual"
+        },
+        {
+          "key": "s3",
+          "display": "Una habitación doble"
+        },
+        {
+          "key": "s4",
+          "display": "Para tres noches"
+        },
+        {
+          "key": "s5",
+          "display": "¿Está incluido el desayuno?"
+        },
+        {
+          "key": "s6",
+          "display": "¿A qué hora es la salida?"
+        },
+        {
+          "key": "s7",
+          "display": "La llave, por favor"
+        },
+        {
+          "key": "s8",
+          "display": "No funciona la calefacción"
+        },
+        {
+          "key": "s9",
+          "display": "¿Dónde está el ascensor?"
+        },
+        {
+          "key": "s10",
+          "display": "¿Tienen wifi?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Reservierung",
+            "einchecken",
+            "Einzelzimmer",
+            "Doppelzimmer",
+            "Nächte",
+            "Frühstück",
+            "auschecken",
+            "Schlüssel",
+            "Heizung",
+            "Aufzug",
+            "WLAN"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Tengo una reserva → Ich habe eine ____",
+          "acceptedAnswers": [
+            "Reservierung"
+          ],
+          "english": "Tengo una reserva",
+          "referenceExample": "Ich habe eine **Reservierung**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Quisiera hacer el check-in → Ich möchte ____",
+          "acceptedAnswers": [
+            "einchecken"
+          ],
+          "english": "Quisiera hacer el check-in",
+          "referenceExample": "Ich möchte **einchecken**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Una habitación individual → Ein ____",
+          "acceptedAnswers": [
+            "Einzelzimmer"
+          ],
+          "english": "Una habitación individual",
+          "referenceExample": "Ein **Einzelzimmer**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Una habitación doble → Ein ____",
+          "acceptedAnswers": [
+            "Doppelzimmer"
+          ],
+          "english": "Una habitación doble",
+          "referenceExample": "Ein **Doppelzimmer**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Para tres noches → Für drei ____",
+          "acceptedAnswers": [
+            "Nächte"
+          ],
+          "english": "Para tres noches",
+          "referenceExample": "Für drei **Nächte**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Está incluido el desayuno? → Ist das ____ inklusive?",
+          "acceptedAnswers": [
+            "Frühstück"
+          ],
+          "english": "¿Está incluido el desayuno?",
+          "referenceExample": "Ist das **Frühstück** inklusive?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "¿A qué hora es la salida? → Wann muss ich ____?",
+          "acceptedAnswers": [
+            "auschecken"
+          ],
+          "english": "¿A qué hora es la salida?",
+          "referenceExample": "Wann muss ich **auschecken**?"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "La llave, por favor → Den ____, bitte",
+          "acceptedAnswers": [
+            "Schlüssel"
+          ],
+          "english": "La llave, por favor",
+          "referenceExample": "Den **Schlüssel**, bitte"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "No funciona la calefacción → Die ____ funktioniert nicht",
+          "acceptedAnswers": [
+            "Heizung"
+          ],
+          "english": "No funciona la calefacción",
+          "referenceExample": "Die **Heizung** funktioniert nicht"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Dónde está el ascensor? → Wo ist der ____?",
+          "acceptedAnswers": [
+            "Aufzug"
+          ],
+          "english": "¿Dónde está el ascensor?",
+          "referenceExample": "Wo ist der **Aufzug**?"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Tienen wifi? → Haben Sie ____?",
+          "acceptedAnswers": [
+            "WLAN"
+          ],
+          "english": "¿Tienen wifi?",
+          "referenceExample": "Haben Sie **WLAN**?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_alojamiento",
+      "title": "Hablar: alojamiento",
+      "storageKeyPrefix": "es_de_hablar_alojamiento_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Haz el check-in y resuelve problemas de la habitación en voz alta. Son frases que dirás en la recepción nada más llegar.",
+        "tips": [
+          {
+            "kind": "example",
+            "title": "La \"ü\" de \"Frühstück\"",
+            "text": "\"Frühstück\" (desayuno) lleva dos \"ü\". Redondea los labios: \"frü-shtük\"."
+          },
+          {
+            "title": "Check-in",
+            "text": "\"Ich möchte einchecken\" suena \"ish möshte áin-tsheken\". Dilo con calma en la recepción."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Ich habe eine Reservierung",
+          "translation": "Tengo una reserva"
+        },
+        {
+          "id": "s1",
+          "text": "Ich möchte einchecken",
+          "translation": "Quisiera hacer el check-in"
+        },
+        {
+          "id": "s2",
+          "text": "Ein Einzelzimmer",
+          "translation": "Una habitación individual"
+        },
+        {
+          "id": "s3",
+          "text": "Ein Doppelzimmer",
+          "translation": "Una habitación doble"
+        },
+        {
+          "id": "s4",
+          "text": "Für drei Nächte",
+          "translation": "Para tres noches"
+        },
+        {
+          "id": "s5",
+          "text": "Ist das Frühstück inklusive?",
+          "translation": "¿Está incluido el desayuno?"
+        },
+        {
+          "id": "s6",
+          "text": "Wann muss ich auschecken?",
+          "translation": "¿A qué hora es la salida?"
+        },
+        {
+          "id": "s7",
+          "text": "Den Schlüssel, bitte",
+          "translation": "La llave, por favor"
+        },
+        {
+          "id": "s8",
+          "text": "Die Heizung funktioniert nicht",
+          "translation": "No funciona la calefacción"
+        },
+        {
+          "id": "s9",
+          "text": "Wo ist der Aufzug?",
+          "translation": "¿Dónde está el ascensor?"
+        },
+        {
+          "id": "s10",
+          "text": "Haben Sie WLAN?",
+          "translation": "¿Tienen wifi?"
+        },
+        {
+          "id": "s11",
+          "text": "Gibt es einen Safe?",
+          "translation": "¿Hay caja fuerte?"
+        },
+        {
+          "id": "s12",
+          "text": "Wann gibt es Frühstück?",
+          "translation": "¿A qué hora es el desayuno?"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_emergencias",
+      "title": "Emergencias y salud",
+      "storageKeyPrefix": "es_de_emergencias_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "Esperamos que no las necesites, pero estas frases pueden ser vitales: pedir ayuda, un médico o la farmacia.",
+        "tips": [
+          {
+            "kind": "warning",
+            "title": "Número de emergencias: 112",
+            "text": "En Alemania (y toda la UE) el 112 es para ambulancia y bomberos; la policía es el 110."
+          },
+          {
+            "kind": "example",
+            "title": "La farmacia (Apotheke)",
+            "text": "Tiene una gran \"A\" roja. Las medicinas se compran allí, no en el supermercado. Los domingos hay farmacia de guardia (\"Notdienst\")."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "¡Ayuda!"
+        },
+        {
+          "key": "s1",
+          "display": "Es una emergencia"
+        },
+        {
+          "key": "s2",
+          "display": "Llame a una ambulancia"
+        },
+        {
+          "key": "s3",
+          "display": "Llame a la policía"
+        },
+        {
+          "key": "s4",
+          "display": "Necesito un médico"
+        },
+        {
+          "key": "s5",
+          "display": "Me encuentro mal"
+        },
+        {
+          "key": "s6",
+          "display": "Me duele aquí"
+        },
+        {
+          "key": "s7",
+          "display": "¿Dónde está la farmacia?"
+        },
+        {
+          "key": "s8",
+          "display": "Soy alérgico a…"
+        },
+        {
+          "key": "s9",
+          "display": "He perdido mi pasaporte"
+        },
+        {
+          "key": "s10",
+          "display": "¿Dónde está el hospital?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "Hilfe!",
+            "Notfall",
+            "Krankenwagen",
+            "Polizei",
+            "Arzt",
+            "schlecht",
+            "weh",
+            "Apotheke",
+            "allergisch",
+            "Pass",
+            "Krankenhaus"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "¡Ayuda! → ____",
+          "acceptedAnswers": [
+            "Hilfe!"
+          ],
+          "english": "¡Ayuda!",
+          "referenceExample": "**Hilfe!**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Es una emergencia → Es ist ein ____",
+          "acceptedAnswers": [
+            "Notfall"
+          ],
+          "english": "Es una emergencia",
+          "referenceExample": "Es ist ein **Notfall**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Llame a una ambulancia → Rufen Sie einen ____",
+          "acceptedAnswers": [
+            "Krankenwagen"
+          ],
+          "english": "Llame a una ambulancia",
+          "referenceExample": "Rufen Sie einen **Krankenwagen**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Llame a la policía → Rufen Sie die ____",
+          "acceptedAnswers": [
+            "Polizei"
+          ],
+          "english": "Llame a la policía",
+          "referenceExample": "Rufen Sie die **Polizei**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Necesito un médico → Ich brauche einen ____",
+          "acceptedAnswers": [
+            "Arzt"
+          ],
+          "english": "Necesito un médico",
+          "referenceExample": "Ich brauche einen **Arzt**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Me encuentro mal → Mir geht es ____",
+          "acceptedAnswers": [
+            "schlecht"
+          ],
+          "english": "Me encuentro mal",
+          "referenceExample": "Mir geht es **schlecht**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Me duele aquí → Es tut hier ____",
+          "acceptedAnswers": [
+            "weh"
+          ],
+          "english": "Me duele aquí",
+          "referenceExample": "Es tut hier **weh**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Dónde está la farmacia? → Wo ist die ____?",
+          "acceptedAnswers": [
+            "Apotheke"
+          ],
+          "english": "¿Dónde está la farmacia?",
+          "referenceExample": "Wo ist die **Apotheke**?"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Soy alérgico a… → Ich bin ____ gegen …",
+          "acceptedAnswers": [
+            "allergisch"
+          ],
+          "english": "Soy alérgico a…",
+          "referenceExample": "Ich bin **allergisch** gegen …"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "He perdido mi pasaporte → Ich habe meinen ____ verloren",
+          "acceptedAnswers": [
+            "Pass"
+          ],
+          "english": "He perdido mi pasaporte",
+          "referenceExample": "Ich habe meinen **Pass** verloren"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Dónde está el hospital? → Wo ist das ____?",
+          "acceptedAnswers": [
+            "Krankenhaus"
+          ],
+          "english": "¿Dónde está el hospital?",
+          "referenceExample": "Wo ist das **Krankenhaus**?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_emergencias",
+      "title": "Hablar: emergencias",
+      "storageKeyPrefix": "es_de_hablar_emergencias_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Practica en voz alta las frases que pueden ser vitales. En una urgencia tienen que salir fuertes y claras, sin dudar.",
+        "tips": [
+          {
+            "kind": "warning",
+            "title": "Fuerte y claro",
+            "text": "\"Hilfe!\" (¡ayuda!) y \"Notfall\" (emergencia) deben oírse nítidos. Repítelos hasta que suenen seguros."
+          },
+          {
+            "kind": "example",
+            "title": "La \"z\" de \"Arzt\"",
+            "text": "\"Arzt\" (médico) suena \"artst\", con la \"z\" como \"ts\". Practica \"Ich brauche einen Arzt\"."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Hilfe!",
+          "translation": "¡Ayuda!"
+        },
+        {
+          "id": "s1",
+          "text": "Es ist ein Notfall",
+          "translation": "Es una emergencia"
+        },
+        {
+          "id": "s2",
+          "text": "Rufen Sie einen Krankenwagen",
+          "translation": "Llame a una ambulancia"
+        },
+        {
+          "id": "s3",
+          "text": "Rufen Sie die Polizei",
+          "translation": "Llame a la policía"
+        },
+        {
+          "id": "s4",
+          "text": "Ich brauche einen Arzt",
+          "translation": "Necesito un médico"
+        },
+        {
+          "id": "s5",
+          "text": "Mir geht es schlecht",
+          "translation": "Me encuentro mal"
+        },
+        {
+          "id": "s6",
+          "text": "Es tut hier weh",
+          "translation": "Me duele aquí"
+        },
+        {
+          "id": "s7",
+          "text": "Wo ist die Apotheke?",
+          "translation": "¿Dónde está la farmacia?"
+        },
+        {
+          "id": "s8",
+          "text": "Ich bin allergisch gegen …",
+          "translation": "Soy alérgico a…"
+        },
+        {
+          "id": "s9",
+          "text": "Ich habe meinen Pass verloren",
+          "translation": "He perdido mi pasaporte"
+        },
+        {
+          "id": "s10",
+          "text": "Wo ist das Krankenhaus?",
+          "translation": "¿Dónde está el hospital?"
+        },
+        {
+          "id": "s11",
+          "text": "Ich brauche Hilfe",
+          "translation": "Necesito ayuda"
+        },
+        {
+          "id": "s12",
+          "text": "Rufen Sie einen Arzt",
+          "translation": "Llame a un médico"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_fechas",
+      "title": "Días, horas y citas",
+      "storageKeyPrefix": "es_de_fechas_",
+      "promptLabel": "Palabra",
+      "subjectsLabel": "Palabras",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "Para horarios, reservas y citas: los días, decir la hora y preguntar \"¿a qué hora?\".",
+        "tips": [
+          {
+            "title": "\"morgen\" tiene truco",
+            "text": "\"morgen\" = mañana (el día siguiente), pero \"der Morgen\" / \"am Morgen\" = la mañana (parte del día)."
+          },
+          {
+            "kind": "example",
+            "title": "La hora",
+            "text": "\"halb drei\" = las 2:30 (¡media hacia las tres!), no las 3:30. Formal: \"vierzehn Uhr dreißig\"."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hoy"
+        },
+        {
+          "key": "s1",
+          "display": "Mañana (el día siguiente)"
+        },
+        {
+          "key": "s2",
+          "display": "Ayer"
+        },
+        {
+          "key": "s3",
+          "display": "Lunes"
+        },
+        {
+          "key": "s4",
+          "display": "Viernes"
+        },
+        {
+          "key": "s5",
+          "display": "Sábado"
+        },
+        {
+          "key": "s6",
+          "display": "Domingo"
+        },
+        {
+          "key": "s7",
+          "display": "¿Qué hora es?"
+        },
+        {
+          "key": "s8",
+          "display": "¿A qué hora?"
+        },
+        {
+          "key": "s9",
+          "display": "A las tres"
+        },
+        {
+          "key": "s10",
+          "display": "¿Cuándo abre?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "heute",
+            "morgen",
+            "gestern",
+            "Montag",
+            "Freitag",
+            "Samstag",
+            "Sonntag",
+            "spät",
+            "Uhr",
+            "drei",
+            "öffnet"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "Hoy → ____",
+          "acceptedAnswers": [
+            "heute"
+          ],
+          "english": "Hoy",
+          "referenceExample": "**heute**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Mañana (el día siguiente) → ____",
+          "acceptedAnswers": [
+            "morgen"
+          ],
+          "english": "Mañana (el día siguiente)",
+          "referenceExample": "**morgen**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "Ayer → ____",
+          "acceptedAnswers": [
+            "gestern"
+          ],
+          "english": "Ayer",
+          "referenceExample": "**gestern**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Lunes → ____",
+          "acceptedAnswers": [
+            "Montag"
+          ],
+          "english": "Lunes",
+          "referenceExample": "**Montag**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "Viernes → ____",
+          "acceptedAnswers": [
+            "Freitag"
+          ],
+          "english": "Viernes",
+          "referenceExample": "**Freitag**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "Sábado → ____",
+          "acceptedAnswers": [
+            "Samstag"
+          ],
+          "english": "Sábado",
+          "referenceExample": "**Samstag**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "Domingo → ____",
+          "acceptedAnswers": [
+            "Sonntag"
+          ],
+          "english": "Domingo",
+          "referenceExample": "**Sonntag**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Qué hora es? → Wie ____ ist es?",
+          "acceptedAnswers": [
+            "spät"
+          ],
+          "english": "¿Qué hora es?",
+          "referenceExample": "Wie **spät** ist es?"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "¿A qué hora? → Um wie viel ____?",
+          "acceptedAnswers": [
+            "Uhr"
+          ],
+          "english": "¿A qué hora?",
+          "referenceExample": "Um wie viel **Uhr**?"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "A las tres → um ____",
+          "acceptedAnswers": [
+            "drei"
+          ],
+          "english": "A las tres",
+          "referenceExample": "um **drei**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Cuándo abre? → Wann ____ es?",
+          "acceptedAnswers": [
+            "öffnet"
+          ],
+          "english": "¿Cuándo abre?",
+          "referenceExample": "Wann **öffnet** es?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_fechas",
+      "title": "Hablar: días y horas",
+      "storageKeyPrefix": "es_de_hablar_fechas_",
+      "promptLabel": "Palabra",
+      "subjectsLabel": "Palabras",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Di en voz alta los días y las horas. Te sirven para reservas, horarios y quedar con alguien.",
+        "tips": [
+          {
+            "title": "Los días en \"-tag\"",
+            "text": "Casi todos los días terminan en \"-tag\" (\"taag\"), con \"a\" larga: Montag, Freitag, Samstag."
+          },
+          {
+            "kind": "example",
+            "title": "La hora",
+            "text": "\"Wie spät ist es?\" (¿qué hora es?) suena \"vii shpeet ist es\". La \"sp\" se dice \"shp\"."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "heute",
+          "translation": "Hoy"
+        },
+        {
+          "id": "s1",
+          "text": "morgen",
+          "translation": "Mañana (el día siguiente)"
+        },
+        {
+          "id": "s2",
+          "text": "gestern",
+          "translation": "Ayer"
+        },
+        {
+          "id": "s3",
+          "text": "Montag",
+          "translation": "Lunes"
+        },
+        {
+          "id": "s4",
+          "text": "Dienstag",
+          "translation": "Martes"
+        },
+        {
+          "id": "s5",
+          "text": "Mittwoch",
+          "translation": "Miércoles"
+        },
+        {
+          "id": "s6",
+          "text": "Donnerstag",
+          "translation": "Jueves"
+        },
+        {
+          "id": "s7",
+          "text": "Freitag",
+          "translation": "Viernes"
+        },
+        {
+          "id": "s8",
+          "text": "Samstag",
+          "translation": "Sábado"
+        },
+        {
+          "id": "s9",
+          "text": "Sonntag",
+          "translation": "Domingo"
+        },
+        {
+          "id": "s10",
+          "text": "Wie spät ist es?",
+          "translation": "¿Qué hora es?"
+        },
+        {
+          "id": "s11",
+          "text": "Um wie viel Uhr?",
+          "translation": "¿A qué hora?"
+        },
+        {
+          "id": "s12",
+          "text": "um drei",
+          "translation": "A las tres"
+        },
+        {
+          "id": "s13",
+          "text": "Wann öffnet es?",
+          "translation": "¿Cuándo abre?"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "es_de_cultura",
+      "title": "Charla y cultura",
+      "storageKeyPrefix": "es_de_cultura_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Español",
+      "help": {
+        "intro": "Para romper el hielo y entender las costumbres. Un poco de charla y de cultura alemana hacen el viaje mucho más fácil.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Puntualidad",
+            "text": "Llegar a la hora es muy importante en Alemania; mejor 5 minutos antes que 1 tarde."
+          },
+          {
+            "kind": "example",
+            "title": "Domingo tranquilo (Ruhetag)",
+            "text": "Los domingos las tiendas cierran y se evita el ruido (¡nada de taladrar!). Es día de descanso."
+          },
+          {
+            "title": "Reciclaje",
+            "text": "Separar la basura es serio: vidrio, papel, envases (Gelber Sack) y el depósito de botellas (Pfand)."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "¿De dónde eres?"
+        },
+        {
+          "key": "s1",
+          "display": "Soy de…"
+        },
+        {
+          "key": "s2",
+          "display": "¿Hablas español?"
+        },
+        {
+          "key": "s3",
+          "display": "Encantado"
+        },
+        {
+          "key": "s4",
+          "display": "¡Buen provecho!"
+        },
+        {
+          "key": "s5",
+          "display": "¡Feliz cumpleaños!"
+        },
+        {
+          "key": "s6",
+          "display": "¡Buena suerte!"
+        },
+        {
+          "key": "s7",
+          "display": "¡Que te mejores!"
+        },
+        {
+          "key": "s8",
+          "display": "Lo siento"
+        },
+        {
+          "key": "s9",
+          "display": "No hay problema"
+        }
+      ],
+      "categories": [
+        {
+          "label": "En alemán",
+          "group": "En alemán",
+          "values": [
+            "kommst",
+            "komme",
+            "Sprichst",
+            "erfreut",
+            "Appetit",
+            "Geburtstag",
+            "Glück",
+            "Besserung",
+            "leid",
+            "Problem"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "En alemán",
+          "sentence": "¿De dónde eres? → Woher ____ du?",
+          "acceptedAnswers": [
+            "kommst"
+          ],
+          "english": "¿De dónde eres?",
+          "referenceExample": "Woher **kommst** du?"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "En alemán",
+          "sentence": "Soy de… → Ich ____ aus …",
+          "acceptedAnswers": [
+            "komme"
+          ],
+          "english": "Soy de…",
+          "referenceExample": "Ich **komme** aus …"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "En alemán",
+          "sentence": "¿Hablas español? → ____ du Spanisch?",
+          "acceptedAnswers": [
+            "Sprichst"
+          ],
+          "english": "¿Hablas español?",
+          "referenceExample": "**Sprichst** du Spanisch?"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "En alemán",
+          "sentence": "Encantado → Sehr ____",
+          "acceptedAnswers": [
+            "erfreut"
+          ],
+          "english": "Encantado",
+          "referenceExample": "Sehr **erfreut**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "En alemán",
+          "sentence": "¡Buen provecho! → Guten ____!",
+          "acceptedAnswers": [
+            "Appetit"
+          ],
+          "english": "¡Buen provecho!",
+          "referenceExample": "Guten **Appetit**!"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "En alemán",
+          "sentence": "¡Feliz cumpleaños! → Alles Gute zum ____",
+          "acceptedAnswers": [
+            "Geburtstag"
+          ],
+          "english": "¡Feliz cumpleaños!",
+          "referenceExample": "Alles Gute zum **Geburtstag**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "En alemán",
+          "sentence": "¡Buena suerte! → Viel ____!",
+          "acceptedAnswers": [
+            "Glück"
+          ],
+          "english": "¡Buena suerte!",
+          "referenceExample": "Viel **Glück**!"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "En alemán",
+          "sentence": "¡Que te mejores! → Gute ____!",
+          "acceptedAnswers": [
+            "Besserung"
+          ],
+          "english": "¡Que te mejores!",
+          "referenceExample": "Gute **Besserung**!"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "En alemán",
+          "sentence": "Lo siento → Es tut mir ____",
+          "acceptedAnswers": [
+            "leid"
+          ],
+          "english": "Lo siento",
+          "referenceExample": "Es tut mir **leid**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "En alemán",
+          "sentence": "No hay problema → Kein ____",
+          "acceptedAnswers": [
+            "Problem"
+          ],
+          "english": "No hay problema",
+          "referenceExample": "Kein **Problem**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "es_de_hablar_charla",
+      "title": "Hablar: charla",
+      "storageKeyPrefix": "es_de_hablar_charla_",
+      "promptLabel": "Frase",
+      "subjectsLabel": "Frases",
+      "subjectColumnLabel": "Alemán",
+      "help": {
+        "intro": "Rompe el hielo en voz alta: de dónde eres, buenos deseos y fórmulas de cortesía para el día a día.",
+        "tips": [
+          {
+            "title": "Buenos deseos",
+            "text": "\"Viel Glück!\" (¡buena suerte!) y \"Gute Besserung!\" (¡que te mejores!) caen muy bien. Dilos con energía."
+          },
+          {
+            "kind": "example",
+            "title": "La \"w\" de \"Woher\"",
+            "text": "\"Woher kommst du?\" (¿de dónde eres?) suena \"vo-héer\". La \"w\" alemana se dice como \"v\"."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Woher kommst du?",
+          "translation": "¿De dónde eres?"
+        },
+        {
+          "id": "s1",
+          "text": "Ich komme aus …",
+          "translation": "Soy de…"
+        },
+        {
+          "id": "s2",
+          "text": "Sprichst du Spanisch?",
+          "translation": "¿Hablas español?"
+        },
+        {
+          "id": "s3",
+          "text": "Sehr erfreut",
+          "translation": "Encantado"
+        },
+        {
+          "id": "s4",
+          "text": "Guten Appetit!",
+          "translation": "¡Buen provecho!"
+        },
+        {
+          "id": "s5",
+          "text": "Alles Gute zum Geburtstag",
+          "translation": "¡Feliz cumpleaños!"
+        },
+        {
+          "id": "s6",
+          "text": "Viel Glück!",
+          "translation": "¡Buena suerte!"
+        },
+        {
+          "id": "s7",
+          "text": "Gute Besserung!",
+          "translation": "¡Que te mejores!"
+        },
+        {
+          "id": "s8",
+          "text": "Es tut mir leid",
+          "translation": "Lo siento"
+        },
+        {
+          "id": "s9",
+          "text": "Kein Problem",
+          "translation": "No hay problema"
+        },
+        {
+          "id": "s10",
+          "text": "Wie heißt du?",
+          "translation": "¿Cómo te llamas?"
+        },
+        {
+          "id": "s11",
+          "text": "Danke für alles",
+          "translation": "Gracias por todo"
+        }
+      ]
+    }
+  ]
+}
