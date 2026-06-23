@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../data/content/active_course_content.dart';
 import '../data/db/content_repository.dart';
 import '../data/noun_article_data.dart';
 import '../data/noun_progression_data.dart';
 import '../data/quiz_content_adapter.dart';
 import '../models/app_page.dart';
 import '../models/quiz_config.dart';
+import '../models/quiz_content.dart';
 import 'quiz_page.dart';
 
 /// Runs a noun-progression quiz (a category sub-quiz or "All Nouns") from the
@@ -27,8 +29,11 @@ class _NounProgressionQuizLoaderState extends State<NounProgressionQuizLoader> {
 
   Future<QuizConfig> _loadConfig() async {
     try {
-      final repo = await contentRepository();
-      final allNouns = await repo.quizContent('noun_article');
+      // The "All Nouns" source comes from the active course bundle (lazy +
+      // cached) first, then the database; the per-category quiz is derived from
+      // it exactly as before.
+      QuizContent? allNouns = (await activeCourseQuiz('noun_article'))?.toLegacy();
+      allNouns ??= await (await contentRepository()).quizContent('noun_article');
       if (allNouns == null) return widget.entry.config;
       final content = nounProgressionContent(allNouns, widget.entry.key);
       return buildQuizConfigFromContent(

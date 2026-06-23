@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../data/content/active_course_content.dart';
 import '../data/db/content_repository.dart';
 import '../data/quiz_content_adapter.dart';
 import '../data/quiz_content_library.dart';
@@ -59,12 +60,17 @@ class _DbQuizLoaderState extends State<DbQuizLoader> {
   }
 
   Future<Widget> _loadPage() async {
-    QuizContent? content;
-    try {
-      final repo = await contentRepository();
-      content = await repo.quizContent(widget.quizId);
-    } catch (_) {
-      // Database unavailable — fall through to the compiled content / fallback.
+    // Read from the active course's JSON bundle (lazy + cached) first, then
+    // fall back to the content database, then to compiled content — so the
+    // learner read path moves onto the collections without ever breaking.
+    QuizContent? content = (await activeCourseQuiz(widget.quizId))?.toLegacy();
+    if (content == null) {
+      try {
+        final repo = await contentRepository();
+        content = await repo.quizContent(widget.quizId);
+      } catch (_) {
+        // Database unavailable — fall through to the compiled content / fallback.
+      }
     }
 
     // Pick the page by kind, preferring DB content and falling back to the

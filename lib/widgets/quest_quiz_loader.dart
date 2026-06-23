@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../data/content/active_course_content.dart';
 import '../data/db/content_repository.dart';
 import '../data/quest_data.dart';
 import '../data/quiz_content_adapter.dart';
@@ -36,12 +37,16 @@ class _QuestQuizLoaderState extends State<QuestQuizLoader> {
   late final Future<Widget> _pageFuture = _loadPage();
 
   Future<Widget> _loadPage() async {
-    QuizContent? content;
-    try {
-      final repo = await contentRepository();
-      content = await repo.quizContent(widget.entry.key);
-    } catch (_) {
-      // Database unavailable — fall back to the compiled content/config.
+    // Active course bundle (lazy + cached) first, then the database, then the
+    // compiled content carried by the quest entry.
+    QuizContent? content = (await activeCourseQuiz(widget.entry.key))?.toLegacy();
+    if (content == null) {
+      try {
+        final repo = await contentRepository();
+        content = await repo.quizContent(widget.entry.key);
+      } catch (_) {
+        // Database unavailable — fall back to the compiled content/config.
+      }
     }
     final effective = content ?? widget.entry.content;
 
