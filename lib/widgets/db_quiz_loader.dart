@@ -1,28 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../data/content/active_course_content.dart';
-import '../data/db/content_repository.dart';
-import '../data/quiz_content_adapter.dart';
 import '../data/quiz_content_library.dart';
 import '../data/quiz_explanation_overrides.dart';
 import '../models/app_page.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
-import '../pages/reading_quiz_page.dart';
-import '../pages/speak_repeat_quiz_page.dart';
 import 'quiz_page.dart';
+import 'quiz_page_dispatch.dart';
 
-/// Loads a quiz's content from the local database and renders it, so teacher
-/// edits in the back office show up for learners.
-///
-/// The page is chosen by [QuizContent.kind]: fill-in-the-blank quizzes run
-/// through the shared [QuizPage] engine, while [QuizKind.speakRepeat] quizzes
-/// render [SpeakRepeatQuizPage] and [QuizKind.reading] quizzes render
-/// [ReadingQuizPage].
-///
-/// If the database can't be opened or the quiz isn't found, it falls back to
-/// the compiled-in content (or the [fallback] config), so the learner
-/// experience never breaks.
+/// Loads a quiz's content (active course bundle → database → compiled) and
+/// renders it with the page chosen by [QuizContent.kind] (see
+/// [pageForQuizContent]). If nothing is found, it falls back to the compiled
+/// content / the [fallback] config so the learner experience never breaks.
 class DbQuizLoader extends StatefulWidget {
   const DbQuizLoader({
     super.key,
@@ -32,12 +22,12 @@ class DbQuizLoader extends StatefulWidget {
     this.progressionKey,
   });
 
-  /// The `QuizContent.id` to load from the database.
+  /// The `QuizContent.id` to load.
   final String quizId;
 
   final AppPage currentPage;
 
-  /// Used if the database is unavailable or has no such quiz. May be null for
+  /// Used if neither the bundle nor the database has this quiz. May be null for
   /// a data-driven nav item with no compiled counterpart.
   final QuizConfig? fallback;
 
@@ -50,8 +40,8 @@ class DbQuizLoader extends StatefulWidget {
 class _DbQuizLoaderState extends State<DbQuizLoader> {
   late final Future<Widget> _pageFuture = _loadPage();
 
-  /// The compiled-in content for this quiz id, used as a fallback for the
-  /// page-kind decision when the database is unavailable.
+  /// The compiled-in content for this quiz id, used as a last-resort source for
+  /// the page-kind decision when both the bundle and database are unavailable.
   QuizContent? get _compiledContent {
     for (final c in allQuizContent) {
       if (c.id == widget.quizId) return c;
@@ -60,45 +50,20 @@ class _DbQuizLoaderState extends State<DbQuizLoader> {
   }
 
   Future<Widget> _loadPage() async {
-    // Read from the active course's JSON bundle (lazy + cached) first, then
-    // fall back to the content database, then to compiled content — so the
-    // learner read path moves onto the collections without ever breaking.
-    QuizContent? content = (await activeCourseQuiz(widget.quizId))?.toLegacy();
-    if (content == null) {
-      try {
-        final repo = await contentRepository();
-        content = await repo.quizContent(widget.quizId);
-      } catch (_) {
-        // Database unavailable — fall through to the compiled content / fallback.
-      }
-    }
-
-    // Pick the page by kind, preferring DB content and falling back to the
-    // compiled-in content for the decision when the database has nothing.
+    final content = await resolveQuizContent(widget.quizId);
     final effective = content ?? _compiledContent;
-    if (effective != null && effective.kind == QuizKind.speakRepeat) {
-      return SpeakRepeatQuizPage(
-        content: effective,
-        currentPage: widget.currentPage,
-      );
-    }
-    if (effective != null && effective.kind == QuizKind.reading) {
-      return ReadingQuizPage(
-        content: effective,
-        currentPage: widget.currentPage,
-      );
-    }
 
-    // Fill-in-the-blank path (unchanged): run DB content through the engine,
-    // else fall back to the compiled-in [fallback] config.
+    // Audio/reading kinds render from the resolved (or compiled) content.
+    if (effective != null && effective.kind != QuizKind.fillBlank) {
+      return pageForQuizContent(effective, currentPage: widget.currentPage);
+    }
+    // Fill-in-the-blank: build from resolved content, else the fallback config.
     if (content != null) {
-      return QuizPage(
-        config: buildQuizConfigFromContent(
-          content,
-          currentPage: widget.currentPage,
-          progressionKey: widget.progressionKey,
-          explanationOverride: explanationOverrides[widget.quizId],
-        ),
+      return pageForQuizContent(
+        content,
+        currentPage: widget.currentPage,
+        progressionKey: widget.progressionKey,
+        explanationOverride: explanationOverrides[widget.quizId],
       );
     }
     final fallback = widget.fallback;
