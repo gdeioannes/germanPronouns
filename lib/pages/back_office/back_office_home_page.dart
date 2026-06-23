@@ -6,6 +6,7 @@ import '../../models/course_session.dart';
 import '../../theme/app_theme.dart';
 import '../auth_gate.dart';
 import '../learner_home_page.dart';
+import 'course_content_editor_page.dart';
 import 'navigation_editor_page.dart';
 import 'quiz_sentences_page.dart';
 
@@ -115,6 +116,15 @@ class _BackOfficeHomePageState extends State<BackOfficeHomePage> {
               return Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  IconButton(
+                    tooltip: 'Edit course content (collections)',
+                    icon: const Icon(Icons.menu_book_rounded),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const CourseContentEditorPage(),
+                      ),
+                    ),
+                  ),
                   IconButton(
                     tooltip: 'Edit navigation / menu',
                     icon: const Icon(Icons.account_tree_rounded),

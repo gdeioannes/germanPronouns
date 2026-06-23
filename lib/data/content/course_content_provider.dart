@@ -26,15 +26,28 @@ abstract interface class ContentSource {
   Future<String> courseJson(String courseId);
 }
 
+/// A writable override store for teacher-edited course bundles. When it has a
+/// bundle for a course, the provider serves that instead of the shipped asset —
+/// so edits persist locally and reach learners (the local stand-in for writing
+/// to a remote database).
+abstract interface class CourseBundleStore {
+  Future<Map<String, dynamic>?> read(String courseId);
+  Future<void> write(String courseId, Map<String, dynamic> json);
+  Future<void> remove(String courseId);
+}
+
 /// [CourseContentProvider] that parses JSON from a [ContentSource] and caches
 /// the results: the catalog and app config are memoized, and each course's
 /// populated bundle is fetched + parsed once, then served from memory — so
 /// opening a course is lazy (nothing course-specific loads until asked) and
 /// re-opening is instant.
 class CachingCourseProvider implements CourseContentProvider {
-  CachingCourseProvider(this._source);
+  CachingCourseProvider(this._source, {this._store});
 
   final ContentSource _source;
+
+  /// Optional writable override (teacher edits); consulted before the asset.
+  final CourseBundleStore? _store;
 
   Catalog? _catalog;
   AppConfig? _appConfig;
@@ -54,7 +67,9 @@ class CachingCourseProvider implements CourseContentProvider {
   Future<PopulatedCourse> populated(String courseId) async {
     final cached = _courses[courseId];
     if (cached != null) return cached;
-    final json =
+    // Teacher-edited override first, then the shipped asset bundle.
+    final edited = await _store?.read(courseId);
+    final json = edited ??
         jsonDecode(await _source.courseJson(courseId)) as Map<String, dynamic>;
     return _courses[courseId] = PopulatedCourse.fromJson(json);
   }

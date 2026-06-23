@@ -69,6 +69,25 @@ class ContentRepository {
   final StoreRef<String, Map<String, Object?>> _meta =
       stringMapStoreFactory.store('meta');
 
+  /// Teacher-edited per-course bundles, keyed by course id. When present, one of
+  /// these overrides the shipped `assets/content/courses/<id>.json` (the
+  /// `CourseContentProvider` reads this first) — this is the editable, writable
+  /// half of "keep the DB as the cache". Empty until a teacher saves an edit.
+  final StoreRef<String, Map<String, Object?>> _bundles =
+      stringMapStoreFactory.store('course_bundles');
+
+  /// The teacher-edited bundle JSON for [courseId], or null if unedited.
+  Future<Map<String, Object?>?> readBundle(String courseId) =>
+      _bundles.record(courseId).get(db);
+
+  /// Saves a teacher-edited [json] bundle for [courseId].
+  Future<void> writeBundle(String courseId, Map<String, Object?> json) =>
+      _bundles.record(courseId).put(db, json);
+
+  /// Drops [courseId]'s edits, so it reverts to the shipped bundle.
+  Future<void> removeBundle(String courseId) =>
+      _bundles.record(courseId).delete(db);
+
   /// Seeds the database from [contents] on first run (when it has no quizzes).
   Future<void> seedIfEmpty(List<QuizContent> contents) async {
     if (await _quizzes.count(db) > 0) return;
