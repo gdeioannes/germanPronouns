@@ -31,6 +31,14 @@ String? pluralEndingNotation(String noun) {
   return hasUmlaut ? '¨$ending' : ending;
 }
 
+/// The plural as shown in the noun reference: the compact dictionary-style
+/// ending (e.g. "-e", "¨-er") when the plural is a simple suffix/umlaut change,
+/// the full form for irregulars (e.g. "Daten"), or "—" when [noun] has no
+/// plural. Shared by the seeded content, the compiled configs and the PDFs so
+/// every noun reference shows the plural the same way.
+String pluralEndingDisplay(String noun) =>
+    pluralEndingNotation(noun) ?? nounPlurals[noun] ?? '—';
+
 /// Plural forms for nouns in [germanNouns], keyed by the noun itself (e.g.
 /// `'Hund'` -> `'Hunde'`). The plural definite article is always `die`.
 /// Nouns without a natural plural (mass nouns like `Wasser`, `Milch`,

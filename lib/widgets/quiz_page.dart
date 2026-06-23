@@ -786,11 +786,125 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
   }
 
+  /// The Help Memory body for noun references: a merged list where each row
+  /// shows the article (colored by gender) in front of the noun with the plural
+  /// ending appended — "die Uhr, -en" — and the English meaning beneath,
+  /// matching the noun reference PDF. Replaces the generic subject/Artikel table
+  /// so the article sits next to its word instead of in a separate column.
+  Widget _buildNounReferenceList(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final config = widget.config;
+    final articles =
+        config.categories.isNotEmpty ? config.categories.first.values : null;
+    final genders = config.subjectGenders;
+    final english = config.subjectEnglish;
+    final colorNouns = NounSettings.instance.colorNouns;
+
+    // Plural endings ("-e", "¨-er", or a full irregular form) from the Plural
+    // info column; "—"/empty means there's no plural to show.
+    List<String>? plurals;
+    for (final c in config.helpMemoryInfoColumns) {
+      if (c.label.toLowerCase() == 'plural') {
+        plurals = c.values;
+        break;
+      }
+    }
+
+    Widget row(int i) {
+      final gender =
+          (genders != null && i < genders.length) ? genders[i] : null;
+      final article =
+          (articles != null && i < articles.length) ? articles[i] : null;
+      // The article always carries its gender color (the der/die/das system);
+      // the noun follows the user's "color nouns" toggle.
+      final articleColor = gender != null
+          ? NounSettings.instance.colorForGender(gender)
+          : colorScheme.onSurface;
+      final nounColor = (gender != null && colorNouns)
+          ? NounSettings.instance.colorForGender(gender)
+          : colorScheme.onSurface;
+      final plural = (plurals != null && i < plurals.length) ? plurals[i] : null;
+      final hasPlural = plural != null && plural.isNotEmpty && plural != '—';
+      final meaning =
+          (english != null && i < english.length) ? english[i] : null;
+
+      return Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+        decoration: BoxDecoration(
+          color: i.isEven
+              ? colorScheme.surface
+              : colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
+          border: Border(bottom: BorderSide(color: colorScheme.outlineVariant)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text.rich(
+              TextSpan(
+                style: const TextStyle(fontSize: 15),
+                children: [
+                  if (article != null)
+                    TextSpan(
+                      text: '$article ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: articleColor,
+                      ),
+                    ),
+                  TextSpan(
+                    text: config.subjectDisplays[i],
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: nounColor,
+                    ),
+                  ),
+                  if (hasPlural)
+                    TextSpan(
+                      text: ', $plural',
+                      style: TextStyle(color: colorScheme.onSurfaceVariant),
+                    ),
+                ],
+              ),
+            ),
+            if (meaning != null && meaning.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 2),
+                child: Text(
+                  meaning,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontStyle: FontStyle.italic,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ),
+          ],
+        ),
+      );
+    }
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Column(
+        children: [
+          for (var i = 0; i < config.subjectDisplays.length; i++) row(i),
+        ],
+      ),
+    );
+  }
+
   /// The Help Memory content (intro, legend, reference tables, ending
   /// tables and tip cards), shared by the inline accordion and the
   /// first-visit floating panel ([_showHelpMemoryDialog]).
   List<Widget> _helpMemoryContent(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    // Noun references render as a merged "die Uhr, -en" list (article colored,
+    // then the word with its plural ending, English beneath) rather than the
+    // generic subject/value table.
+    final isNounReference =
+        widget.config.currentPage == AppPage.nounsArticles &&
+        widget.config.helpMemoryTables == null;
     return [
                     if (widget.config.helpMemoryIntro != null)
                       HelpMemoryIntro(text: widget.config.helpMemoryIntro!),
@@ -811,6 +925,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             const SizedBox(height: 16),
                           ],
                         ]
+                      : isNounReference
+                      ? [_buildNounReferenceList(context)]
                       : [
                     LayoutBuilder(
                       builder: (context, constraints) {

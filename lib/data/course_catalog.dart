@@ -38,18 +38,13 @@ final NavLayout _certA1Nav = NavLayout(
   ],
 );
 
-/// The "German Grammar in Detail" drawer: noun categories + the grammar
-/// quizzes (plus links).
+/// The "German Grammar in Detail" drawer: the grammar quizzes first, then the
+/// noun categories (plus links).
 final NavLayout _grammarNav = NavLayout(
   groups: const [
     NavGroup(
-      id: 'nouns',
-      title: 'NOUN CATEGORIES',
-      type: NavGroupType.nounChain,
-    ),
-    NavGroup(
       id: 'quizzes',
-      title: 'QUIZZES',
+      title: 'GRAMMAR QUIZZES',
       type: NavGroupType.quizzes,
       items: [
         NavItem(ref: 'article'),
@@ -57,6 +52,11 @@ final NavLayout _grammarNav = NavLayout(
         NavItem(ref: 'pronoun_article'),
         NavItem(ref: 'preposition'),
       ],
+    ),
+    NavGroup(
+      id: 'nouns',
+      title: 'NOUN CATEGORIES',
+      type: NavGroupType.nounChain,
     ),
     NavGroup(
       id: 'more',

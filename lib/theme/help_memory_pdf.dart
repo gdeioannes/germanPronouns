@@ -3,6 +3,7 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
 import '../data/gender_reference.dart';
+import '../models/app_page.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
@@ -49,6 +50,15 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
         pdf.tip(kind: t.kind, title: t.title, text: t.text),
     ],
   ];
+
+  // Nouns & Articles: a compact, multi-column reference of "der Hund" entries
+  // (article colored by gender) with the plural and English meaning — far
+  // denser than the single wide gender-colored table.
+  if (config.currentPage == AppPage.nounsArticles &&
+      config.categories.isNotEmpty &&
+      config.subjectGenders != null) {
+    return _buildNounReferenceBody(pdf, config, helpIntro, pdfTips);
+  }
 
   // Focused-table layout: one table per [HelpMemoryTable], plus any ending
   // pattern tables.
@@ -227,6 +237,121 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
           pw.Bullet(text: rule, style: pdf.bulletStyle(fontSize: 10)),
       ],
     ],
+    ...pdfTips,
+  ];
+}
+
+/// Compact reference body for the Nouns & Articles quiz: a three-column grid of
+/// entries, each showing the article (colored by gender) right next to the
+/// noun, with the plural ending appended — "der Hund, -e" — and the English
+/// meaning beneath. Replaces the single full-width gender-colored table so the
+/// booklet fits many more nouns per page. The grid is a [pw.Table] whose rows
+/// the surrounding `pw.MultiPage` splits across pages as needed.
+List<pw.Widget> _buildNounReferenceBody(
+  QuizPdfTheme pdf,
+  QuizConfig config,
+  String? helpIntro,
+  List<pw.Widget> pdfTips,
+) {
+  final strings = CourseSession.instance.strings;
+  final articles = config.categories.first.values;
+  final genders = config.subjectGenders!;
+  final english = config.subjectEnglish;
+
+  // The plural lives in the "Plural" info column as a compact ending notation
+  // (e.g. "-e", "¨-er"), or the full form for irregulars; "—" means no plural.
+  List<String>? plurals;
+  for (final column in config.helpMemoryInfoColumns) {
+    if (column.label.toLowerCase() == 'plural') {
+      plurals = column.values;
+      break;
+    }
+  }
+
+  pw.Widget nounEntry(int i) {
+    final color = PdfColor.fromInt(
+      NounSettings.instance.colorForGender(genders[i]).toARGB32(),
+    );
+    final plural = (plurals != null && i < plurals.length) ? plurals[i] : null;
+    final hasPlural = plural != null && plural.isNotEmpty && plural != '—';
+    final meaning = (english != null && i < english.length) ? english[i] : null;
+
+    return pw.Column(
+      crossAxisAlignment: pw.CrossAxisAlignment.start,
+      children: [
+        pw.RichText(
+          text: pw.TextSpan(
+            children: [
+              // Article carries the gender color, sitting next to the noun.
+              pw.TextSpan(
+                text: '${articles[i]} ',
+                style: pw.TextStyle(
+                  fontSize: 10.5,
+                  fontWeight: pw.FontWeight.bold,
+                  color: color,
+                ),
+              ),
+              pw.TextSpan(
+                text: config.subjectDisplays[i],
+                style: pw.TextStyle(
+                  fontSize: 10.5,
+                  fontWeight: pw.FontWeight.bold,
+                  color: PdfBrandColors.inkText,
+                ),
+              ),
+              // Plural ending appended to the noun (e.g. ", -e"), not the full
+              // "die …" form, which is redundant.
+              if (hasPlural)
+                pw.TextSpan(
+                  text: ', $plural',
+                  style: pw.TextStyle(
+                    fontSize: 9,
+                    color: PdfBrandColors.inkMuted,
+                  ),
+                ),
+            ],
+          ),
+        ),
+        if (meaning != null && meaning.isNotEmpty)
+          pw.Text(
+            meaning,
+            style: pw.TextStyle(fontSize: 8, color: PdfBrandColors.inkMuted),
+          ),
+      ],
+    );
+  }
+
+  const columns = 3;
+  final count = config.subjectDisplays.length;
+  final rows = <pw.TableRow>[];
+  for (var start = 0; start < count; start += columns) {
+    rows.add(
+      pw.TableRow(
+        children: [
+          for (var col = 0; col < columns; col++)
+            pw.Padding(
+              padding: const pw.EdgeInsets.symmetric(vertical: 3, horizontal: 4),
+              child: start + col < count
+                  ? nounEntry(start + col)
+                  : pw.SizedBox(),
+            ),
+        ],
+      ),
+    );
+  }
+
+  return [
+    pdf.brandHeader(config.title, subtitle: strings.helpMemory),
+    if (helpIntro != null) pdf.intro(helpIntro),
+    pw.Table(
+      columnWidths: const {
+        0: pw.FlexColumnWidth(1),
+        1: pw.FlexColumnWidth(1),
+        2: pw.FlexColumnWidth(1),
+      },
+      children: rows,
+    ),
+    pw.SizedBox(height: 12),
     ...pdfTips,
   ];
 }

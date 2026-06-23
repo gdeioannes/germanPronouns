@@ -4,6 +4,7 @@ import '../models/app_page.dart';
 import '../models/quiz_config.dart';
 import 'german_grammar.dart';
 import 'noun_database.dart';
+import 'noun_plurals.dart';
 import 'noun_progression_data.dart';
 import 'noun_sentences.dart';
 
@@ -85,6 +86,13 @@ final QuizConfig nounArticleQuizConfig = QuizConfig(
   subjectEnglish: germanNouns.map((n) => n.english).toList(),
   subjectGenders: germanNouns.map((n) => n.gender).toList(),
   categories: nounArticleQuizCategories,
+  helpMemoryColorByGender: true,
+  helpMemoryInfoColumns: [
+    HelpMemoryInfoColumn(
+      label: 'Plural',
+      values: germanNouns.map((n) => pluralEndingDisplay(n.noun)).toList(),
+    ),
+  ],
   groupWeights: nounArticleGroupChanceWeights,
   pickSentence: pickNounArticleSentence,
   buildExplanation: buildNounArticleExplanation,

@@ -4,6 +4,7 @@ import '../models/quiz_content.dart';
 import 'german_grammar.dart';
 import 'noun_article_data.dart';
 import 'noun_database.dart';
+import 'noun_plurals.dart';
 
 /// Progression key for the "All Nouns" final-challenge quiz, which draws
 /// from every noun in [germanNouns] (see `nounArticleQuizConfig`).
@@ -62,6 +63,13 @@ QuizConfig nounCategoryQuizConfig(String categoryKey) {
         label: 'Artikel',
         values: subset.map((n) => baseArticles[n.gender]!).toList(),
         group: 'Artikel',
+      ),
+    ],
+    helpMemoryColorByGender: true,
+    helpMemoryInfoColumns: [
+      HelpMemoryInfoColumn(
+        label: 'Plural',
+        values: subset.map((n) => pluralEndingDisplay(n.noun)).toList(),
       ),
     ],
     groupWeights: nounArticleGroupChanceWeights,

@@ -52,7 +52,7 @@ final QuizContent nounArticleQuizContent = QuizContent(
   helpMemoryInfoColumns: [
     HelpMemoryInfoColumn(
       label: 'Plural',
-      values: [for (final n in germanNouns) nounPlurals[n.noun] ?? '—'],
+      values: [for (final n in germanNouns) pluralEndingDisplay(n.noun)],
     ),
   ],
   helpMemoryIntro:
@@ -82,7 +82,8 @@ final QuizContent nounArticleQuizContent = QuizContent(
       kind: 'tip',
       title: 'Plurals',
       text: 'In the plural the article is always "die", whatever the gender: '
-          'der Hund → die Hunde. The Plural column lists each noun\'s plural.',
+          'der Hund → die Hunde. The Plural column shows each noun\'s plural '
+          'ending (e.g. -e, ¨-er); irregular plurals are written in full.',
     ),
   ],
 );
