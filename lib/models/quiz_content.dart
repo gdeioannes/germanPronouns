@@ -11,11 +11,19 @@ export 'quiz_config.dart' show HelpMemoryTip, HelpMemoryInfoColumn;
 /// aloud (TTS) and the learner repeats it (STT), rendered by
 /// `SpeakRepeatQuizPage` instead of going through the fill-in engine.
 /// [reading] is a reading-comprehension quiz: a short passage followed by
-/// multiple-choice questions, rendered by `ReadingQuizPage`. Both [speakRepeat]
-/// and [reading] leave the fill-in fields (categories/sentences) empty and
-/// carry their own data ([QuizContent.subjects] for speak; the reading fields
-/// for reading).
-enum QuizKind { fillBlank, speakRepeat, reading }
+/// multiple-choice questions, rendered by `ReadingQuizPage`. [listening] is the
+/// audio twin of [reading]: the same passage + questions, but the passage is
+/// **hidden** and read aloud by TTS (rendered by `ListeningQuizPage`); it reuses
+/// the reading fields (the `readingPassage` is the hidden script, its
+/// translation the info-button script). [dictation] is a listen-&-write quiz
+/// (rendered by `DictationQuizPage`): TTS reads each sentence and the learner
+/// **types** what they hear, checked forgivingly; it reuses the [speakRepeat]
+/// data shape (each [QuizContent.subjects] entry is a sentence to dictate, with
+/// its translation in `english`). [speakRepeat], [reading], [listening], and
+/// [dictation] all leave the fill-in fields (categories/sentences) empty and
+/// carry their own data ([QuizContent.subjects] for speak/dictation; the reading
+/// fields for reading/listening).
+enum QuizKind { fillBlank, speakRepeat, reading, listening, dictation }
 
 /// One multiple-choice question in a [QuizKind.reading] quiz: a [question]
 /// stem, the answer [options], the index of the correct option, and an optional

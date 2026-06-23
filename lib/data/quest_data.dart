@@ -4,6 +4,16 @@ import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
 import 'quest/quest_a1_1_content.dart';
 import 'quest/quest_a1_2_content.dart';
+import 'quest/quest_a2_1_content.dart';
+import 'quest/quest_a2_2_content.dart';
+import 'quest/quest_b1_1_content.dart';
+import 'quest/quest_b1_2_content.dart';
+import 'quest/quest_b2_1_content.dart';
+import 'quest/quest_b2_2_content.dart';
+import 'quest/quest_c1_1_content.dart';
+import 'quest/quest_c1_2_content.dart';
+import 'quest/quest_c2_1_content.dart';
+import 'quest/quest_c2_2_content.dart';
 import 'quiz_content_adapter.dart';
 
 /// One quiz in the **Quest** (CEFR A-level) progression — a single ordered,
@@ -42,11 +52,23 @@ class QuestEntry {
 String _shortName(String title) =>
     title.contains('· ') ? title.split('· ').last.trim() : title;
 
-/// The compiled Quest chain in its default order: every A1.1 quiz, then every
-/// A1.2 quiz. (A2 is a pure follow-up: append more entries here.)
+/// The compiled Quest chain in its default order: the full Goethe ladder from
+/// A1.1 to C2.2. Each sub-level's quizzes run as a contiguous block; a whole
+/// sub-level unlocks only once every quiz in the preceding ones is done
+/// (`isQuestLevelUnlocked`). Append further levels here.
 final List<QuestEntry> _compiledQuestEntries = [
   for (final c in questA1_1Content) QuestEntry(levelLabel: 'A1.1', content: c),
   for (final c in questA1_2Content) QuestEntry(levelLabel: 'A1.2', content: c),
+  for (final c in questA2_1Content) QuestEntry(levelLabel: 'A2.1', content: c),
+  for (final c in questA2_2Content) QuestEntry(levelLabel: 'A2.2', content: c),
+  for (final c in questB1_1Content) QuestEntry(levelLabel: 'B1.1', content: c),
+  for (final c in questB1_2Content) QuestEntry(levelLabel: 'B1.2', content: c),
+  for (final c in questB2_1Content) QuestEntry(levelLabel: 'B2.1', content: c),
+  for (final c in questB2_2Content) QuestEntry(levelLabel: 'B2.2', content: c),
+  for (final c in questC1_1Content) QuestEntry(levelLabel: 'C1.1', content: c),
+  for (final c in questC1_2Content) QuestEntry(levelLabel: 'C1.2', content: c),
+  for (final c in questC2_1Content) QuestEntry(levelLabel: 'C2.1', content: c),
+  for (final c in questC2_2Content) QuestEntry(levelLabel: 'C2.2', content: c),
 ];
 
 /// A teacher-defined order (content ids) for the Quest chain, or null for the

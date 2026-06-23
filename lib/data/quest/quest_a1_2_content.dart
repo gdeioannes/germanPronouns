@@ -1060,20 +1060,274 @@ final QuizContent questReadingReiseContent = readingQuestQuiz(
   ],
 );
 
-/// Every A1.2 quiz, in chain order — grammar interleaved with the new Reading
-/// and Speaking skill exercises (knowledge → reading → knowledge → speaking …),
-/// following the Goethe A1 progression.
+// ── Listening: "Im Café" (ordering dialogue, heard not read) ─────────────────
+
+/// Listening 1 — Im Café bestellen: a first-person ordering dialogue the learner
+/// only HEARS. Deliberately distinct from the "Im Café" reading (different guest,
+/// items and prices) so the two skills don't overlap.
+final QuizContent questHoerenCafeContent = listeningQuestQuiz(
+  id: 'quest_a1_2_hoeren_cafe',
+  title: 'A1.2 · Hören: Im Café',
+  category: 'Food & Drink',
+  passageTitle: 'Eine Bestellung im Café',
+  passage:
+      'Guten Tag, was möchten Sie bestellen? – Ich nehme einen Kaffee und ein '
+      'Stück Apfelkuchen, bitte. – Möchten Sie den Kaffee mit Milch? – Ja, gern, '
+      'mit Milch und Zucker. – Und etwas zu trinken? – Nein, danke. Was kostet '
+      'das? – Das macht vier Euro achtzig. – Hier sind fünf Euro. – Danke schön!',
+  passageTranslation:
+      'Good day, what would you like to order? – I\'ll have a coffee and a piece '
+      'of apple cake, please. – Would you like the coffee with milk? – Yes, '
+      'gladly, with milk and sugar. – And something to drink? – No, thanks. What '
+      'does it cost? – That\'s four euros eighty. – Here are five euros. – Thanks!',
+  questions: const [
+    ReadingQuestion(
+      question: 'Was bestellt der Gast zu essen?',
+      questionTranslation: 'What does the guest order to eat?',
+      options: ['Schokokuchen', 'Apfelkuchen', 'ein Brot'],
+      optionsTranslation: ['chocolate cake', 'apple cake', 'bread'],
+      correctIndex: 1,
+      explanation: '"… ein Stück Apfelkuchen, bitte."',
+    ),
+    ReadingQuestion(
+      question: 'Wie möchte der Gast den Kaffee?',
+      questionTranslation: 'How does the guest want the coffee?',
+      options: ['schwarz', 'mit Milch und Zucker', 'mit Zitrone'],
+      optionsTranslation: ['black', 'with milk and sugar', 'with lemon'],
+      correctIndex: 1,
+      explanation: '"Ja, gern, mit Milch und Zucker."',
+    ),
+    ReadingQuestion(
+      question: 'Was kostet die Bestellung?',
+      questionTranslation: 'What does the order cost?',
+      options: ['vier Euro achtzig', 'vier Euro achtzehn', 'fünf Euro'],
+      optionsTranslation: [
+        'four euros eighty',
+        'four euros eighteen',
+        'five euros',
+      ],
+      correctIndex: 0,
+      explanation: '"Das macht vier Euro achtzig."',
+    ),
+  ],
+  intro: 'A guest orders in a café — you only hear the dialogue. Listen for what '
+      'they order, how they want it, and the price. Replay as often as you like; '
+      'the full text is behind "Show text".',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'The ordering verbs',
+      text: 'möchten (would like), nehmen (have/take) and kosten (cost) are the '
+          'signposts — they mark what is ordered and the price.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Two speakers',
+      text: 'This is a dialogue. Track who speaks: the server asks, the guest '
+          'answers. The price comes from the server at the end.',
+    ),
+  ],
+);
+
+// ── Listening: "Termine & Uhrzeit" (answerphone message) ─────────────────────
+
+/// Listening 2 — Termine & Uhrzeit: an answerphone message, heard not read.
+/// Reuses the "halb acht = 7:30" time trap from the Uhrzeit knowledge quiz.
+final QuizContent questHoerenTermineContent = listeningQuestQuiz(
+  id: 'quest_a1_2_hoeren_termine',
+  title: 'A1.2 · Hören: Termine & Uhrzeit',
+  category: 'Daily Life',
+  passageTitle: 'Eine Nachricht von Anna',
+  passage:
+      'Hallo Tom, hier ist Anna. Wir treffen uns morgen, am Samstag. Der Film im '
+      'Kino beginnt um halb acht. Komm bitte schon um sieben Uhr, dann essen wir '
+      'vorher eine Pizza. Wir treffen uns direkt vor dem Kino. Mein Handy ist an '
+      '– ruf mich bitte an! Bis morgen, tschüss!',
+  passageTranslation:
+      'Hi Tom, this is Anna. We\'re meeting tomorrow, on Saturday. The film at '
+      'the cinema starts at half past seven. Please come at seven o\'clock, then '
+      'we\'ll eat a pizza beforehand. We\'ll meet right in front of the cinema. '
+      'My phone is on – please call me! See you tomorrow, bye!',
+  questions: const [
+    ReadingQuestion(
+      question: 'Wann beginnt der Film?',
+      questionTranslation: 'When does the film start?',
+      options: ['um sieben Uhr', 'um halb acht (19:30)', 'um acht Uhr'],
+      optionsTranslation: [
+        'at seven',
+        'at half past seven (19:30)',
+        'at eight',
+      ],
+      correctIndex: 1,
+      explanation: '"… beginnt um halb acht" — halb acht is 7:30, not 8:30.',
+    ),
+    ReadingQuestion(
+      question: 'Wo treffen sich Anna und Tom?',
+      questionTranslation: 'Where do Anna and Tom meet?',
+      options: ['im Kino', 'vor dem Kino', 'bei Anna'],
+      optionsTranslation: [
+        'inside the cinema',
+        'in front of the cinema',
+        'at Anna\'s',
+      ],
+      correctIndex: 1,
+      explanation: '"Wir treffen uns direkt vor dem Kino."',
+    ),
+    ReadingQuestion(
+      question: 'An welchem Tag treffen sie sich?',
+      questionTranslation: 'On which day do they meet?',
+      options: ['am Freitag', 'am Samstag', 'am Sonntag'],
+      optionsTranslation: ['on Friday', 'on Saturday', 'on Sunday'],
+      correctIndex: 1,
+      explanation: '"Wir treffen uns morgen, am Samstag."',
+    ),
+  ],
+  intro: 'Anna leaves Tom a voicemail — you only hear it. Catch the day, the '
+      'times and the meeting place. Be careful with "halb acht"! Replay as '
+      'needed; the text is behind "Show text".',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'halb acht = 7:30',
+      text: 'German counts toward the next hour: "halb acht" is 7:30, NOT 8:30. '
+          'So the film is at 19:30 and the meeting is at 19:00.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Small words, big difference',
+      text: '"vor dem Kino" = in front of the cinema (outside), not "im Kino" '
+          '(inside). The preposition changes the answer.',
+    ),
+  ],
+);
+
+// ── Speaking: Einkaufen & Bestellen (shopping & ordering) ────────────────────
+
+/// Speaking (new) — Einkaufen & Bestellen: polite shopping and ordering phrases,
+/// built around the all-purpose opener "Ich hätte gern …".
+final QuizContent questSpeakEinkaufenContent = speakQuestQuiz(
+  id: 'quest_a1_2_sprechen_einkaufen',
+  title: 'A1.2 · Sprechen: Einkaufen & Bestellen',
+  promptLabel: 'Satz',
+  subjectsLabel: 'Sätze',
+  subjectColumnLabel: 'Deutsch',
+  intro: 'Shopping and ordering out loud. "Ich hätte gern …" is the polite '
+      'all-purpose opener for any shop or café — bank it. Listen and repeat each '
+      'phrase, short to long.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'The polite opener',
+      text: '"Ich hätte gern …" (I\'d like …) works in every shop, bakery and '
+          'café — softer and more natural than "Ich will …".',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'The "ö" in möchten / Brötchen',
+      text: 'Round your lips for "ö": "Ich möchte ein Brötchen." Practise it '
+          'until it flows.',
+    ),
+  ],
+  phrases: const [
+    SpeakPhrase(phrase: 'Ich hätte gern …', meaning: "I'd like …"),
+    SpeakPhrase(
+      phrase: 'Ein Kilo Äpfel, bitte.',
+      meaning: 'A kilo of apples, please.',
+    ),
+    SpeakPhrase(phrase: 'Was kostet das?', meaning: 'How much is that?'),
+    SpeakPhrase(
+      phrase: 'Ich nehme die Bananen.',
+      meaning: "I'll take the bananas.",
+    ),
+    SpeakPhrase(phrase: 'Haben Sie auch Eier?', meaning: 'Do you also have eggs?'),
+    SpeakPhrase(phrase: 'Ein Brötchen, bitte.', meaning: 'A bread roll, please.'),
+    SpeakPhrase(phrase: 'Das ist alles, danke.', meaning: "That's all, thanks."),
+    SpeakPhrase(
+      phrase: 'Zusammen oder getrennt?',
+      meaning: 'Together or separately?',
+    ),
+    SpeakPhrase(phrase: 'Ich zahle mit Karte.', meaning: "I'll pay by card."),
+    SpeakPhrase(phrase: 'Einen schönen Tag noch!', meaning: 'Have a nice day!'),
+  ],
+);
+
+// ── Dictation: "Mein Tag" (listen & write) ───────────────────────────────────
+
+/// Dictation (Diktat) — Mein Tag: daily-routine and time sentences the learner
+/// HEARS and TYPES. Reinforces separable verbs, clock time and the ordering
+/// vocabulary of this sub-level.
+final QuizContent questDiktatMeinTagContent = dictationQuestQuiz(
+  id: 'quest_a1_2_diktat_meintag',
+  title: 'A1.2 · Diktat: Mein Tag',
+  promptLabel: 'Satz',
+  subjectsLabel: 'Sätze',
+  subjectColumnLabel: 'Deutsch',
+  intro: 'A dictation: you HEAR a sentence and TYPE it. These sentences use the '
+      'daily-routine verbs, the clock and the ordering phrases from this level. '
+      'Replay as often as you like, then write what you heard.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Separable verbs split',
+      text: 'Listen for the prefix at the end: "Ich stehe um sieben Uhr auf." '
+          'Write the "auf" where you hear it.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'halb acht = 7:30',
+      text: 'Times come up here. Remember "halb acht" means 7:30, not 8:30.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'Umlauts are lenient',
+      text: '"fährt" may be typed "faehrt" and "Äpfel" as "Aepfel"; just spell '
+          'the rest of the word in full.',
+    ),
+  ],
+  sentences: const [
+    SpeakPhrase(
+      phrase: 'Ich stehe um sieben Uhr auf.',
+      meaning: 'I get up at seven.',
+    ),
+    SpeakPhrase(phrase: 'Es ist halb acht.', meaning: "It's half past seven."),
+    SpeakPhrase(phrase: 'Ich nehme einen Kaffee.', meaning: "I'll have a coffee."),
+    SpeakPhrase(phrase: 'Was kostet das Brot?', meaning: 'How much is the bread?'),
+    SpeakPhrase(phrase: 'Ich gehe ins Kino.', meaning: "I'm going to the cinema."),
+    SpeakPhrase(
+      phrase: 'Wir treffen uns am Samstag.',
+      meaning: "We're meeting on Saturday.",
+    ),
+    SpeakPhrase(
+      phrase: 'Ich kaufe Äpfel und Eier.',
+      meaning: 'I buy apples and eggs.',
+    ),
+    SpeakPhrase(
+      phrase: 'Der Zug fährt um neun Uhr ab.',
+      meaning: 'The train leaves at nine.',
+    ),
+  ],
+);
+
+/// Every A1.2 quiz, in chain order — grammar interleaved with the Reading,
+/// Speaking, Listening and Dictation skill exercises so the learner never faces
+/// more than two same-type quizzes in a row (knowledge → listening → knowledge →
+/// reading …), following the Goethe A1 progression. All five exercise types
+/// appear in this sub-level.
 final List<QuizContent> questA1_2Content = [
-  questAkkusativContent, //       Akkusativ (Artikel)        (knowledge)
-  questPossessivContent, //       Possessivartikel           (knowledge)
-  questPronomenAkkContent, //     Personalpronomen Akkusativ (knowledge)
-  questNegationContent, //        Negation (kein/nicht)      (knowledge)
-  questReadingCafeContent, //     Lesen: Im Café             (reading)
-  questModalverbenContent, //     Modalverben                (knowledge)
-  questUhrzeitContent, //         Uhrzeit                    (knowledge)
-  questSpeakAlltagContent, //     Sprechen: Alltag & Uhrzeit (speaking)
-  questDatumContent, //           Wochentage & Monate        (knowledge)
-  questPraepositionenContent, //  Akkusativpräpositionen     (knowledge)
-  questReadingReiseContent, //    Lesen: Eine kleine Reise   (reading)
-  questTrennbareContent, //       Trennbare Verben           (knowledge)
+  questAkkusativContent, //         Akkusativ (Artikel)         (knowledge)
+  questPossessivContent, //         Possessivartikel            (knowledge)
+  questHoerenCafeContent, //        Hören: Im Café              (listening)
+  questPronomenAkkContent, //       Personalpronomen Akkusativ  (knowledge)
+  questNegationContent, //          Negation (kein/nicht)       (knowledge)
+  questReadingCafeContent, //       Lesen: Im Café              (reading)
+  questModalverbenContent, //       Modalverben                 (knowledge)
+  questSpeakAlltagContent, //       Sprechen: Alltag & Uhrzeit  (speaking)
+  questUhrzeitContent, //           Uhrzeit                     (knowledge)
+  questDatumContent, //             Wochentage & Monate         (knowledge)
+  questDiktatMeinTagContent, //     Diktat: Mein Tag            (dictation)
+  questHoerenTermineContent, //     Hören: Termine & Uhrzeit    (listening)
+  questPraepositionenContent, //    Akkusativpräpositionen      (knowledge)
+  questTrennbareContent, //         Trennbare Verben            (knowledge)
+  questSpeakEinkaufenContent, //    Sprechen: Einkaufen         (speaking)
+  questReadingReiseContent, //      Lesen: Eine kleine Reise    (reading)
 ];

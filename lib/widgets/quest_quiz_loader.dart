@@ -5,6 +5,8 @@ import '../data/quest_data.dart';
 import '../data/quiz_content_adapter.dart';
 import '../models/app_page.dart';
 import '../models/quiz_content.dart';
+import '../pages/dictation_quiz_page.dart';
+import '../pages/listening_quiz_page.dart';
 import '../pages/reading_quiz_page.dart';
 import '../pages/speak_repeat_quiz_page.dart';
 import 'quiz_page.dart';
@@ -52,6 +54,18 @@ class _QuestQuizLoaderState extends State<QuestQuizLoader> {
         );
       case QuizKind.reading:
         return ReadingQuizPage(
+          content: effective,
+          currentPage: AppPage.quest,
+          questProgressionKey: widget.entry.key,
+        );
+      case QuizKind.listening:
+        return ListeningQuizPage(
+          content: effective,
+          currentPage: AppPage.quest,
+          questProgressionKey: widget.entry.key,
+        );
+      case QuizKind.dictation:
+        return DictationQuizPage(
           content: effective,
           currentPage: AppPage.quest,
           questProgressionKey: widget.entry.key,

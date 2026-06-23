@@ -43,6 +43,8 @@ IconData navIconFor(String? iconKey, IconData fallback) =>
 IconData quizKindIcon(QuizKind kind) => switch (kind) {
   QuizKind.speakRepeat => Icons.record_voice_over_rounded,
   QuizKind.reading => Icons.menu_book_rounded,
+  QuizKind.listening => Icons.hearing_rounded,
+  QuizKind.dictation => Icons.spellcheck_rounded,
   QuizKind.fillBlank => Icons.quiz_rounded,
 };
 
@@ -54,6 +56,8 @@ IconData quizKindIcon(QuizKind kind) => switch (kind) {
 Color quizKindColor(QuizKind kind) => switch (kind) {
   QuizKind.speakRepeat => kSectionAccentColors[2],
   QuizKind.reading => kSectionAccentColors[1],
+  QuizKind.listening => kSectionAccentColors[3],
+  QuizKind.dictation => kSectionAccentColors[1],
   QuizKind.fillBlank => kSectionAccentColors[0],
 };
 

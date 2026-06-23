@@ -12,9 +12,10 @@ const List<NavItem> _enMoreLinks = [
   NavItem(ref: kCoursesRef),
 ];
 
-/// The "Certification German A.1" drawer: the A1 Quest chain split into its two
-/// CEFR sub-levels (A1.1, A1.2), plus links. The chain stays globally
-/// continuous — A1.2 only unlocks once A1.1 is complete.
+/// The "Certification German A1–C2" drawer: the full Goethe-ladder Quest chain
+/// split into its twelve CEFR sub-levels (A1.1 … C2.2), plus links. The chain
+/// stays globally continuous — each sub-level only unlocks once every quiz in
+/// the preceding ones is complete.
 final NavLayout _certA1Nav = NavLayout(
   groups: const [
     NavGroup(
@@ -28,6 +29,66 @@ final NavLayout _certA1Nav = NavLayout(
       title: 'QUEST · A1.2',
       type: NavGroupType.questChain,
       level: 'A1.2',
+    ),
+    NavGroup(
+      id: 'quest_a2_1',
+      title: 'QUEST · A2.1',
+      type: NavGroupType.questChain,
+      level: 'A2.1',
+    ),
+    NavGroup(
+      id: 'quest_a2_2',
+      title: 'QUEST · A2.2',
+      type: NavGroupType.questChain,
+      level: 'A2.2',
+    ),
+    NavGroup(
+      id: 'quest_b1_1',
+      title: 'QUEST · B1.1',
+      type: NavGroupType.questChain,
+      level: 'B1.1',
+    ),
+    NavGroup(
+      id: 'quest_b1_2',
+      title: 'QUEST · B1.2',
+      type: NavGroupType.questChain,
+      level: 'B1.2',
+    ),
+    NavGroup(
+      id: 'quest_b2_1',
+      title: 'QUEST · B2.1',
+      type: NavGroupType.questChain,
+      level: 'B2.1',
+    ),
+    NavGroup(
+      id: 'quest_b2_2',
+      title: 'QUEST · B2.2',
+      type: NavGroupType.questChain,
+      level: 'B2.2',
+    ),
+    NavGroup(
+      id: 'quest_c1_1',
+      title: 'QUEST · C1.1',
+      type: NavGroupType.questChain,
+      level: 'C1.1',
+    ),
+    NavGroup(
+      id: 'quest_c1_2',
+      title: 'QUEST · C1.2',
+      type: NavGroupType.questChain,
+      level: 'C1.2',
+    ),
+    NavGroup(
+      id: 'quest_c2_1',
+      title: 'QUEST · C2.1',
+      type: NavGroupType.questChain,
+      level: 'C2.1',
+    ),
+    NavGroup(
+      id: 'quest_c2_2',
+      title: 'QUEST · C2.2',
+      type: NavGroupType.questChain,
+      level: 'C2.2',
     ),
     NavGroup(
       id: 'more',
@@ -243,8 +304,8 @@ const String kDefaultCourseId = 'en_de';
 final List<Course> defaultCourses = [
   Course(
     id: 'de_cert_a1',
-    name: 'Certification German A.1',
-    tagline: 'Your step-by-step path to the A1 certificate',
+    name: 'Certification German A1–C2',
+    tagline: 'Your step-by-step path from A1 to the C2 certificate',
     speakFlag: '🇬🇧',
     learnFlag: '🇩🇪',
     uiLang: UiLang.en,

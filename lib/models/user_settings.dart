@@ -23,6 +23,8 @@ class UserSettings {
     this.lastQuestQuizKey,
     this.completedSpeakQuizzes = const [],
     this.completedReadingQuizzes = const [],
+    this.completedListeningQuizzes = const [],
+    this.completedDictationQuizzes = const [],
     this.seenHelpMemory = const [],
     this.showFirstLetterHint = false,
     this.relaxedCorrection = false,
@@ -70,6 +72,13 @@ class UserSettings {
   /// `QuizContent.id`s of reading-comprehension quizzes passed at least once.
   final List<String> completedReadingQuizzes;
 
+  /// `QuizContent.id`s of listening-comprehension (Hörverstehen) quizzes passed
+  /// at least once.
+  final List<String> completedListeningQuizzes;
+
+  /// `QuizContent.id`s of dictation (Diktat) quizzes passed at least once.
+  final List<String> completedDictationQuizzes;
+
   /// Quiz storage-key prefixes whose Help Memory has already auto-opened once.
   final List<String> seenHelpMemory;
 
@@ -98,6 +107,8 @@ class UserSettings {
     String? lastQuestQuizKey,
     List<String>? completedSpeakQuizzes,
     List<String>? completedReadingQuizzes,
+    List<String>? completedListeningQuizzes,
+    List<String>? completedDictationQuizzes,
     List<String>? seenHelpMemory,
     bool? showFirstLetterHint,
     bool? relaxedCorrection,
@@ -121,6 +132,10 @@ class UserSettings {
     completedSpeakQuizzes: completedSpeakQuizzes ?? this.completedSpeakQuizzes,
     completedReadingQuizzes:
         completedReadingQuizzes ?? this.completedReadingQuizzes,
+    completedListeningQuizzes:
+        completedListeningQuizzes ?? this.completedListeningQuizzes,
+    completedDictationQuizzes:
+        completedDictationQuizzes ?? this.completedDictationQuizzes,
     seenHelpMemory: seenHelpMemory ?? this.seenHelpMemory,
     showFirstLetterHint: showFirstLetterHint ?? this.showFirstLetterHint,
     relaxedCorrection: relaxedCorrection ?? this.relaxedCorrection,
@@ -145,6 +160,8 @@ class UserSettings {
     if (lastQuestQuizKey != null) 'lastQuestQuizKey': lastQuestQuizKey,
     'completedSpeakQuizzes': completedSpeakQuizzes,
     'completedReadingQuizzes': completedReadingQuizzes,
+    'completedListeningQuizzes': completedListeningQuizzes,
+    'completedDictationQuizzes': completedDictationQuizzes,
     'seenHelpMemory': seenHelpMemory,
     'showFirstLetterHint': showFirstLetterHint,
     'relaxedCorrection': relaxedCorrection,
@@ -174,6 +191,12 @@ class UserSettings {
         (json['completedSpeakQuizzes'] as List?)?.cast<String>() ?? const [],
     completedReadingQuizzes:
         (json['completedReadingQuizzes'] as List?)?.cast<String>() ?? const [],
+    completedListeningQuizzes:
+        (json['completedListeningQuizzes'] as List?)?.cast<String>() ??
+        const [],
+    completedDictationQuizzes:
+        (json['completedDictationQuizzes'] as List?)?.cast<String>() ??
+        const [],
     seenHelpMemory:
         (json['seenHelpMemory'] as List?)?.cast<String>() ?? const [],
     showFirstLetterHint: json['showFirstLetterHint'] as bool? ?? false,

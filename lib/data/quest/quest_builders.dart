@@ -43,6 +43,24 @@ String _glossFor(QuestSentenceItem item) {
   return item.english;
 }
 
+/// Compact positional constructor for a [QuestSentenceItem], used by the longer
+/// A2–C2 content lists to keep each item to one or two lines:
+/// `qsi('German ____', 'answer', 'English', 'gloss')`.
+QuestSentenceItem qsi(
+  String sentence,
+  String answer,
+  String english,
+  String gloss, {
+  List<String>? accepted,
+}) =>
+    QuestSentenceItem(
+      sentence: sentence,
+      answer: answer,
+      english: english,
+      gloss: gloss,
+      accepted: accepted,
+    );
+
 /// Builds a single-category explicit-answer quiz. Each item becomes one subject
 /// (keyed `s0`…, displayed as its English gloss) and one stored sentence, so the
 /// learner reads a German clue/sentence (with its English translation) and types
@@ -154,6 +172,45 @@ QuizContent speakQuestQuiz({
   );
 }
 
+/// A dictation (Diktat) quiz ([QuizKind.dictation]) — a listen-&-write exercise.
+/// TTS reads each German sentence aloud and the learner types what they hear,
+/// checked forgivingly (umlaut spelling, case and punctuation are folded away).
+/// It reuses the [speakQuestQuiz] data shape: each [SpeakPhrase] becomes one
+/// subject whose display is the sentence to dictate and whose english is the
+/// translation shown after answering. Order sentences short → long.
+QuizContent dictationQuestQuiz({
+  required String id,
+  required String title,
+  required String promptLabel,
+  required String subjectsLabel,
+  required String subjectColumnLabel,
+  required List<SpeakPhrase> sentences,
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
+}) {
+  return QuizContent(
+    id: id,
+    title: title,
+    kind: QuizKind.dictation,
+    storageKeyPrefix: '${id}_',
+    promptLabel: promptLabel,
+    subjectsLabel: subjectsLabel,
+    subjectColumnLabel: subjectColumnLabel,
+    subjects: [
+      for (var i = 0; i < sentences.length; i++)
+        QuizSubjectData(
+          key: 's$i',
+          display: sentences[i].phrase,
+          english: sentences[i].meaning,
+        ),
+    ],
+    categories: const [],
+    sentences: const [],
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
+  );
+}
+
 /// A reading-comprehension quiz ([QuizKind.reading]): a short A1 passage plus
 /// multiple-choice questions. The fill-in fields are left empty — the page reads
 /// the passage and questions from the reading fields.
@@ -174,6 +231,46 @@ QuizContent readingQuestQuiz({
     kind: QuizKind.reading,
     storageKeyPrefix: '${id}_',
     // Reading runs on its own page, but these labels keep the content valid and
+    // give the back-office list something sensible to show.
+    promptLabel: 'Frage',
+    subjectsLabel: 'Fragen',
+    subjectColumnLabel: 'Frage',
+    subjects: const [],
+    categories: const [],
+    sentences: const [],
+    readingCategory: category,
+    readingTitle: passageTitle,
+    readingPassage: passage,
+    readingPassageTranslation: passageTranslation,
+    readingQuestions: questions,
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
+  );
+}
+
+/// A listening-comprehension quiz ([QuizKind.listening]) — the audio twin of
+/// [readingQuestQuiz]. It reuses the reading fields, so the only difference is
+/// [QuizContent.kind]: the [passage] (~40–60 German words) is **hidden** and
+/// read aloud by TTS on `ListeningQuizPage`; the German [passage] and its
+/// [passageTranslation] sit behind the info button as the script. Pass questions
+/// that can be answered from listening alone (no on-screen text to scan).
+QuizContent listeningQuestQuiz({
+  required String id,
+  required String title,
+  required String category,
+  required String passageTitle,
+  required String passage,
+  required List<ReadingQuestion> questions,
+  required String passageTranslation,
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
+}) {
+  return QuizContent(
+    id: id,
+    title: title,
+    kind: QuizKind.listening,
+    storageKeyPrefix: '${id}_',
+    // Listening runs on its own page; these labels keep the content valid and
     // give the back-office list something sensible to show.
     promptLabel: 'Frage',
     subjectsLabel: 'Fragen',

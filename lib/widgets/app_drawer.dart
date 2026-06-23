@@ -511,6 +511,8 @@ class _AppDrawerState extends State<AppDrawer> {
     final (IconData icon, String? kindLabel) = switch (kind) {
       QuizKind.speakRepeat => (quizKindIcon(QuizKind.speakRepeat), 'Listen & repeat'),
       QuizKind.reading => (quizKindIcon(QuizKind.reading), 'Read & answer'),
+      QuizKind.listening => (quizKindIcon(QuizKind.listening), 'Listen & answer'),
+      QuizKind.dictation => (quizKindIcon(QuizKind.dictation), 'Listen & write'),
       // Knowledge quizzes in the quest chain keep the quest flag (a milestone
       // marker) rather than the generic question icon.
       QuizKind.fillBlank => (Icons.flag_rounded, null),
@@ -867,6 +869,10 @@ class _AppDrawerState extends State<AppDrawer> {
         return NounSettings.instance.isSpeakQuizCompleted(item.ref);
       case QuizKind.reading:
         return NounSettings.instance.isReadingQuizCompleted(item.ref);
+      case QuizKind.listening:
+        return NounSettings.instance.isListeningQuizCompleted(item.ref);
+      case QuizKind.dictation:
+        return NounSettings.instance.isDictationQuizCompleted(item.ref);
       case QuizKind.fillBlank:
       case null:
         final prefix =
@@ -965,6 +971,8 @@ class _AppDrawerState extends State<AppDrawer> {
     final kind = summary?.kind;
     final isSpeak = kind == QuizKind.speakRepeat;
     final isReading = kind == QuizKind.reading;
+    final isListening = kind == QuizKind.listening;
+    final isDictation = kind == QuizKind.dictation;
     final defaultIcon = switch (kind) {
       null => section?.icon ?? Icons.menu_book_rounded,
       QuizKind.fillBlank => section?.icon ?? quizKindIcon(QuizKind.fillBlank),
@@ -1000,9 +1008,13 @@ class _AppDrawerState extends State<AppDrawer> {
           ? NounSettings.instance.isSpeakQuizCompleted(item.ref)
           : isReading
               ? NounSettings.instance.isReadingQuizCompleted(item.ref)
-              : NounSettings.instance.isQuizDone(
-                  bestStreakAbsolute: bestStreakAbsolute,
-                ),
+              : isListening
+                  ? NounSettings.instance.isListeningQuizCompleted(item.ref)
+                  : isDictation
+                      ? NounSettings.instance.isDictationQuizCompleted(item.ref)
+                      : NounSettings.instance.isQuizDone(
+                          bestStreakAbsolute: bestStreakAbsolute,
+                        ),
       doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: prefs == null
           ? null

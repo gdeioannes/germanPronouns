@@ -51,6 +51,17 @@ class SettingsKeys {
   /// listen-&-repeat quizzes.
   static const String completedReadingQuizzes = 'reading_completed_quizzes';
 
+  /// `QuizContent.id`s of listening-comprehension (Hörverstehen) quizzes the
+  /// learner has passed at least once. Like reading, listening is scored but has
+  /// no streak, so this marks them "done" (ribbon), the same way
+  /// [completedReadingQuizzes] does for reading.
+  static const String completedListeningQuizzes = 'listening_completed_quizzes';
+
+  /// `QuizContent.id`s of dictation (Diktat) quizzes the learner has passed at
+  /// least once. Like reading/listening, dictation is scored with no streak, so
+  /// this marks them "done" (ribbon).
+  static const String completedDictationQuizzes = 'dictation_completed_quizzes';
+
   /// Quiz storage-key prefixes whose Help Memory panel the learner has already
   /// seen auto-opened (so it only auto-opens once per quiz).
   static const String seenHelpMemory = 'seen_help_memory';

@@ -52,6 +52,10 @@ class NounSettings {
       SettingsKeys.completedSpeakQuizzes;
   static const String _completedReadingQuizzesKey =
       SettingsKeys.completedReadingQuizzes;
+  static const String _completedListeningQuizzesKey =
+      SettingsKeys.completedListeningQuizzes;
+  static const String _completedDictationQuizzesKey =
+      SettingsKeys.completedDictationQuizzes;
   static const String _seenHelpMemoryKey = SettingsKeys.seenHelpMemory;
 
   /// Size of one "streak" — a run of this many correct answers in a row.
@@ -93,6 +97,8 @@ class NounSettings {
   String? _lastQuestQuizKey;
   Set<String> _completedSpeakQuizzes = {};
   Set<String> _completedReadingQuizzes = {};
+  Set<String> _completedListeningQuizzes = {};
+  Set<String> _completedDictationQuizzes = {};
   Set<String> _seenHelpMemory = {};
   bool _showFirstLetterHint = false;
   bool _relaxedCorrection = false;
@@ -189,6 +195,23 @@ class NounSettings {
 
   bool isReadingQuizCompleted(String contentId) =>
       _completedReadingQuizzes.contains(contentId);
+
+  /// `QuizContent.id`s of listening-comprehension (Hörverstehen) quizzes the
+  /// learner has passed at least once. Scored but has no streak, so it counts
+  /// as "done" once passed rather than via the streak goal — the audio twin of
+  /// [completedReadingQuizzes].
+  Set<String> get completedListeningQuizzes => _completedListeningQuizzes;
+
+  bool isListeningQuizCompleted(String contentId) =>
+      _completedListeningQuizzes.contains(contentId);
+
+  /// `QuizContent.id`s of dictation (Diktat) quizzes the learner has passed at
+  /// least once. Scored with no streak, so it counts as "done" once passed — the
+  /// listen-&-write twin of [completedListeningQuizzes].
+  Set<String> get completedDictationQuizzes => _completedDictationQuizzes;
+
+  bool isDictationQuizCompleted(String contentId) =>
+      _completedDictationQuizzes.contains(contentId);
 
   /// Best-streak a plain (non-progression) quiz must reach to count as "done"
   /// in the menu. Reuses the same configurable lap goal as the noun-category
@@ -287,6 +310,10 @@ class NounSettings {
         (prefs.getStringList(_completedSpeakQuizzesKey) ?? const []).toSet();
     _completedReadingQuizzes =
         (prefs.getStringList(_completedReadingQuizzesKey) ?? const []).toSet();
+    _completedListeningQuizzes =
+        (prefs.getStringList(_completedListeningQuizzesKey) ?? const []).toSet();
+    _completedDictationQuizzes =
+        (prefs.getStringList(_completedDictationQuizzesKey) ?? const []).toSet();
     _seenHelpMemory =
         (prefs.getStringList(_seenHelpMemoryKey) ?? const []).toSet();
     _showFirstLetterHint =
@@ -399,6 +426,32 @@ class NounSettings {
     );
   }
 
+  /// Marks listening-comprehension (Hörverstehen) quiz [contentId] as passed,
+  /// permanently flagging it "done" (ribbon) on the quiz home page and drawer —
+  /// the audio twin of [markReadingQuizCompleted]. No-op if already marked.
+  Future<void> markListeningQuizCompleted(String contentId) async {
+    if (_completedListeningQuizzes.contains(contentId)) return;
+    _completedListeningQuizzes = {..._completedListeningQuizzes, contentId};
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(
+      _completedListeningQuizzesKey,
+      _completedListeningQuizzes.toList(),
+    );
+  }
+
+  /// Marks dictation (Diktat) quiz [contentId] as passed, permanently flagging
+  /// it "done" (ribbon) — the listen-&-write twin of
+  /// [markListeningQuizCompleted]. No-op if already marked.
+  Future<void> markDictationQuizCompleted(String contentId) async {
+    if (_completedDictationQuizzes.contains(contentId)) return;
+    _completedDictationQuizzes = {..._completedDictationQuizzes, contentId};
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(
+      _completedDictationQuizzesKey,
+      _completedDictationQuizzes.toList(),
+    );
+  }
+
   /// Marks the Help Memory panel for [storageKeyPrefix] as seen, so it won't
   /// auto-open again. No-op if already marked.
   Future<void> markHelpMemorySeen(String storageKeyPrefix) async {
@@ -469,6 +522,8 @@ class NounSettings {
     lastQuestQuizKey: _lastQuestQuizKey,
     completedSpeakQuizzes: _completedSpeakQuizzes.toList(),
     completedReadingQuizzes: _completedReadingQuizzes.toList(),
+    completedListeningQuizzes: _completedListeningQuizzes.toList(),
+    completedDictationQuizzes: _completedDictationQuizzes.toList(),
     seenHelpMemory: _seenHelpMemory.toList(),
     showFirstLetterHint: _showFirstLetterHint,
     relaxedCorrection: _relaxedCorrection,
@@ -515,6 +570,8 @@ class NounSettings {
     _lastQuestQuizKey = null;
     _completedSpeakQuizzes = {};
     _completedReadingQuizzes = {};
+    _completedListeningQuizzes = {};
+    _completedDictationQuizzes = {};
     _seenHelpMemory = {};
   }
 

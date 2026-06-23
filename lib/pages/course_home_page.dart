@@ -22,13 +22,24 @@ import '../widgets/country_flag.dart';
 import 'auth_gate.dart';
 
 /// Visual kind of a home-page quiz row, driving its icon and accent color.
-enum _UiKind { fillBlank, speak, reading, quest, noun, nounFinal }
+enum _UiKind {
+  fillBlank,
+  speak,
+  reading,
+  listening,
+  dictation,
+  quest,
+  noun,
+  nounFinal,
+}
 
 /// The home-row visual kind for a Quest entry of [kind] (knowledge quizzes show
-/// the Quest flag; speaking/reading show their own icon).
+/// the Quest flag; speaking/reading/listening/dictation show their own icon).
 _UiKind _questUiKind(QuizKind kind) => switch (kind) {
   QuizKind.speakRepeat => _UiKind.speak,
   QuizKind.reading => _UiKind.reading,
+  QuizKind.listening => _UiKind.listening,
+  QuizKind.dictation => _UiKind.dictation,
   QuizKind.fillBlank => _UiKind.quest,
 };
 
@@ -76,6 +87,8 @@ class _HomeQuiz {
 
   bool get isSpeak => uiKind == _UiKind.speak;
   bool get isReading => uiKind == _UiKind.reading;
+  bool get isListening => uiKind == _UiKind.listening;
+  bool get isDictation => uiKind == _UiKind.dictation;
   // Speak quizzes have no streak goal, but they're "finished" once played
   // through to the end, so they count toward the overview like the rest.
   bool get finishable => !locked;
@@ -213,8 +226,14 @@ class _CourseHomePageState extends State<CourseHomePage> {
                 case QuizKind.fillBlank:
                   bookletEntries.add(HelpMemoryBookletEntry(e.config));
                 case QuizKind.reading:
+                case QuizKind.listening:
+                  // Listening reuses the reading fields, so its hidden script +
+                  // translation + questions print like a reading section.
                   bookletEntries.add(ReadingBookletEntry(e.content));
                 case QuizKind.speakRepeat:
+                case QuizKind.dictation:
+                  // Spoken / dictated sentence sets have nothing to add to the
+                  // printable study booklet.
                   break;
               }
             }
@@ -271,26 +290,48 @@ class _CourseHomePageState extends State<CourseHomePage> {
         contentRef: ref,
       );
     }
+    if (content.kind == QuizKind.dictation) {
+      return _HomeQuiz(
+        title: content.title,
+        uiKind: _UiKind.dictation,
+        goalLaps: _regularGoalLaps,
+        summary: content.helpMemorySubtitle ?? content.helpMemoryIntro,
+        stats: stats,
+        done: NounSettings.instance.isDictationQuizCompleted(ref),
+        contentRef: ref,
+      );
+    }
     final config = buildQuizConfigFromContent(
       content,
       currentPage: AppPage.articles,
     );
     final isReading = content.kind == QuizKind.reading;
+    final isListening = content.kind == QuizKind.listening;
+    // Listening is the audio twin of reading: same passage-based row, "done"
+    // once passed, and the passage prints in the study booklet the same way.
+    final isPassage = isReading || isListening;
     return _HomeQuiz(
       title: config.title,
-      uiKind: isReading ? _UiKind.reading : _UiKind.fillBlank,
+      uiKind: isListening
+          ? _UiKind.listening
+          : isReading
+              ? _UiKind.reading
+              : _UiKind.fillBlank,
       goalLaps: _regularGoalLaps,
       summary: config.helpMemorySubtitle ?? config.helpMemoryIntro,
       stats: stats,
-      // Reading has no streak — it's "done" once passed, like listen-&-repeat;
-      // fill-in quizzes are done once their best streak reaches the goal.
-      done: isReading
-          ? NounSettings.instance.isReadingQuizCompleted(ref)
-          : NounSettings.instance.isQuizDone(
-              bestStreakAbsolute: stats.bestStreakAbsolute,
-            ),
+      // Reading/listening have no streak — they're "done" once passed, like
+      // listen-&-repeat; fill-in quizzes are done once their best streak reaches
+      // the goal.
+      done: isListening
+          ? NounSettings.instance.isListeningQuizCompleted(ref)
+          : isReading
+              ? NounSettings.instance.isReadingQuizCompleted(ref)
+              : NounSettings.instance.isQuizDone(
+                  bestStreakAbsolute: stats.bestStreakAbsolute,
+                ),
       contentRef: ref,
-      bookletEntry: isReading
+      bookletEntry: isPassage
           ? ReadingBookletEntry(content)
           : HelpMemoryBookletEntry(config),
     );
@@ -786,6 +827,14 @@ class _CourseHomePageState extends State<CourseHomePage> {
         icon: quizKindIcon(QuizKind.speakRepeat),
         color: quizKindColor(QuizKind.speakRepeat),
       ),
+      _UiKind.listening => (
+        icon: quizKindIcon(QuizKind.listening),
+        color: quizKindColor(QuizKind.listening),
+      ),
+      _UiKind.dictation => (
+        icon: quizKindIcon(QuizKind.dictation),
+        color: quizKindColor(QuizKind.dictation),
+      ),
       _UiKind.reading => (
         icon: quizKindIcon(QuizKind.reading),
         color: quizKindColor(QuizKind.reading),
@@ -930,6 +979,34 @@ class _CourseHomePageState extends State<CourseHomePage> {
           const SizedBox(width: 4),
           Text(
             'Read & answer',
+            style: textTheme.labelSmall?.copyWith(color: muted),
+          ),
+        ],
+      );
+    }
+
+    if (quiz.isListening) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(quizKindIcon(QuizKind.listening), size: 14, color: muted),
+          const SizedBox(width: 4),
+          Text(
+            'Listen & answer',
+            style: textTheme.labelSmall?.copyWith(color: muted),
+          ),
+        ],
+      );
+    }
+
+    if (quiz.isDictation) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(quizKindIcon(QuizKind.dictation), size: 14, color: muted),
+          const SizedBox(width: 4),
+          Text(
+            'Listen & write',
             style: textTheme.labelSmall?.copyWith(color: muted),
           ),
         ],

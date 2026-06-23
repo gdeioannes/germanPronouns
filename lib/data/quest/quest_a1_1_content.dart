@@ -611,6 +611,90 @@ final QuizContent questPraesensContent = QuizContent(
   ],
 );
 
+/// 4b. Unregelmäßige Verben (Vokalwechsel) — the very common stem-changing
+/// verbs. Only the du and er/sie/es forms shift the stem vowel (a→ä, e→i, e→ie);
+/// every ending stays regular. Subjects are the verbs; categories are the six
+/// persons. Authored right after the regular verbs so the contrast is fresh.
+const List<String> _stemChangingVerbs = [
+  'fahren',
+  'schlafen',
+  'lesen',
+  'sehen',
+  'sprechen',
+  'essen',
+  'nehmen',
+  'geben',
+];
+
+final QuizContent questVokalwechselContent = QuizContent(
+  id: 'quest_a1_1_vokalwechsel',
+  title: 'A1.1 · Unregelmäßige Verben (Vokalwechsel)',
+  storageKeyPrefix: 'quest_a1_1_vokalwechsel_',
+  promptLabel: 'Verb',
+  subjectsLabel: 'Verben',
+  subjectColumnLabel: 'Verb (Infinitiv)',
+  subjects: [
+    for (final v in _stemChangingVerbs) QuizSubjectData(key: v, display: v),
+  ],
+  categories: [
+    _personColumn('ich', 'ich', const [
+      'fahre', 'schlafe', 'lese', 'sehe', 'spreche', 'esse', 'nehme', 'gebe',
+    ]),
+    _personColumn('du', 'du', const [
+      'fährst', 'schläfst', 'liest', 'siehst', 'sprichst', 'isst', 'nimmst',
+      'gibst',
+    ]),
+    _personColumn('er/sie/es', 'er/sie/es', const [
+      'fährt', 'schläft', 'liest', 'sieht', 'spricht', 'isst', 'nimmt', 'gibt',
+    ]),
+    _personColumn('wir', 'wir', const [
+      'fahren', 'schlafen', 'lesen', 'sehen', 'sprechen', 'essen', 'nehmen',
+      'geben',
+    ]),
+    _personColumn('ihr', 'ihr', const [
+      'fahrt', 'schlaft', 'lest', 'seht', 'sprecht', 'esst', 'nehmt', 'gebt',
+    ]),
+    _personColumn('sie/Sie', 'sie/Sie', const [
+      'fahren', 'schlafen', 'lesen', 'sehen', 'sprechen', 'essen', 'nehmen',
+      'geben',
+    ]),
+  ],
+  sentences: const [],
+  sentenceTemplates: const {
+    'ich': ['Ich ____ . ({subject})'],
+    'du': ['Du ____ . ({subject})'],
+    'er/sie/es': ['Er ____ . ({subject})'],
+    'wir': ['Wir ____ . ({subject})'],
+    'ihr': ['Ihr ____ . ({subject})'],
+    'sie/Sie': ['Sie ____ . ({subject})'],
+  },
+  helpMemoryIntro:
+      'A handful of very common verbs change their stem vowel in the present '
+      'tense — but ONLY in the du and er/sie/es forms. The endings stay '
+      'perfectly regular; just the vowel shifts. Master these eight and you have '
+      'most of the A1 irregular verbs.',
+  helpMemoryTips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Only du & er/sie/es change',
+      text: 'ich, wir, ihr and sie/Sie keep the infinitive stem (ich fahre, wir '
+          'fahren). Only du and er/sie/es shift the vowel (du fährst, er fährt).',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Three shifts: a→ä, e→i, e→ie',
+      text: 'a→ä: fahren → du fährst. e→i: sprechen → du sprichst, essen → du '
+          'isst. e→ie: lesen → du liest, sehen → du siehst.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'nehmen is extra irregular',
+      text: 'nehmen doubles the m and drops the h: du nimmst, er nimmt. Worth '
+          'learning on its own.',
+    ),
+  ],
+);
+
 /// One A1 noun used in the article quizzes, with its gender.
 class _ArtikelNoun {
   const _ArtikelNoun(this.noun, this.gender, this.english);
@@ -958,22 +1042,215 @@ final QuizContent questReadingDasBinIchContent = readingQuestQuiz(
   ],
 );
 
+/// Listening 1 — Begrüßung & Vorstellung: a short self-introduction the learner
+/// only HEARS (TTS reads it; the text is hidden behind the info button). Kept
+/// deliberately distinct from the "Das bin ich" reading so the two don't overlap.
+final QuizContent questHoerenVorstellungContent = listeningQuestQuiz(
+  id: 'quest_a1_1_hoeren_vorstellung',
+  title: 'A1.1 · Hören: Vorstellung',
+  category: 'Daily Life',
+  passageTitle: 'Max stellt sich vor',
+  passage:
+      'Hallo! Ich heiße Max. Ich bin Student und komme aus England. Jetzt wohne '
+      'ich in München und lerne Deutsch. Ich bin dreiundzwanzig Jahre alt. Ich '
+      'habe einen Hund. Mein Hund heißt Rocky. Am Wochenende spiele ich Fußball '
+      'und höre gern Musik. Und wer bist du?',
+  passageTranslation:
+      'Hello! My name is Max. I am a student and come from England. Now I live '
+      'in Munich and I am learning German. I am twenty-three years old. I have a '
+      'dog. My dog is called Rocky. On the weekend I play football and like '
+      'listening to music. And who are you?',
+  questions: const [
+    ReadingQuestion(
+      question: 'Woher kommt Max?',
+      questionTranslation: 'Where is Max from?',
+      options: ['aus Deutschland', 'aus England', 'aus Österreich'],
+      optionsTranslation: ['from Germany', 'from England', 'from Austria'],
+      correctIndex: 1,
+      explanation: '"… und komme aus England."',
+    ),
+    ReadingQuestion(
+      question: 'Was macht Max?',
+      questionTranslation: 'What does Max do?',
+      options: ['Er ist Lehrer.', 'Er ist Student.', 'Er ist Arzt.'],
+      optionsTranslation: [
+        'He is a teacher.',
+        'He is a student.',
+        'He is a doctor.',
+      ],
+      correctIndex: 1,
+      explanation: '"Ich bin Student …"',
+    ),
+    ReadingQuestion(
+      question: 'Wie alt ist Max?',
+      questionTranslation: 'How old is Max?',
+      options: ['dreizehn', 'dreiundzwanzig', 'dreißig'],
+      optionsTranslation: ['thirteen', 'twenty-three', 'thirty'],
+      correctIndex: 1,
+      explanation: '"Ich bin dreiundzwanzig Jahre alt."',
+    ),
+    ReadingQuestion(
+      question: 'Was hat Max?',
+      questionTranslation: 'What does Max have?',
+      options: ['eine Katze', 'einen Hund', 'ein Auto'],
+      optionsTranslation: ['a cat', 'a dog', 'a car'],
+      correctIndex: 1,
+      explanation: '"Ich habe einen Hund. Mein Hund heißt Rocky."',
+    ),
+  ],
+  intro: 'You will only HEAR this short text — it is not shown. Press play and '
+      'listen, then answer the questions. You can replay the audio as often as '
+      'you like, and the full text (German + English) is behind "Show text".',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Listen for the W-answers',
+      text: 'Each question answers a W-word: woher (origin), was (job), wie alt '
+          '(age). Wait for that part instead of trying to catch every word.',
+    ),
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Replay is free',
+      text: 'Real exams play the audio twice. Use the replay button — listening '
+          'again is part of the skill, not cheating.',
+    ),
+  ],
+);
+
+/// Listening 2 — Im Geschäft: Zahlen & Preise: a market seller calling out
+/// prices, heard not read. Trains number + price comprehension.
+final QuizContent questHoerenZahlenContent = listeningQuestQuiz(
+  id: 'quest_a1_1_hoeren_zahlen',
+  title: 'A1.1 · Hören: Zahlen & Preise',
+  category: 'Shopping',
+  passageTitle: 'Auf dem Markt',
+  passage:
+      'Guten Tag und herzlich willkommen auf dem Markt! Heute sind die Äpfel '
+      'billig: ein Kilo kostet nur zwei Euro. Die Bananen kosten drei Euro. Ein '
+      'Brot kostet einen Euro fünfzig. Möchten Sie auch Eier? Zehn Eier kosten '
+      'zwei Euro zwanzig. Vielen Dank und einen schönen Tag!',
+  passageTranslation:
+      'Good day and welcome to the market! Today the apples are cheap: one kilo '
+      'costs only two euros. The bananas cost three euros. A loaf of bread costs '
+      'one euro fifty. Would you like eggs too? Ten eggs cost two euros twenty. '
+      'Thank you and have a nice day!',
+  questions: const [
+    ReadingQuestion(
+      question: 'Wie viel kostet ein Kilo Äpfel?',
+      questionTranslation: 'How much does one kilo of apples cost?',
+      options: ['zwei Euro', 'drei Euro', 'ein Euro fünfzig'],
+      optionsTranslation: ['two euros', 'three euros', 'one euro fifty'],
+      correctIndex: 0,
+      explanation: '"… ein Kilo kostet nur zwei Euro."',
+    ),
+    ReadingQuestion(
+      question: 'Was kostet drei Euro?',
+      questionTranslation: 'What costs three euros?',
+      options: ['die Äpfel', 'die Bananen', 'das Brot'],
+      optionsTranslation: ['the apples', 'the bananas', 'the bread'],
+      correctIndex: 1,
+      explanation: '"Die Bananen kosten drei Euro."',
+    ),
+    ReadingQuestion(
+      question: 'Wie viele Eier kosten zwei Euro zwanzig?',
+      questionTranslation: 'How many eggs cost two euros twenty?',
+      options: ['fünf', 'zehn', 'zwanzig'],
+      optionsTranslation: ['five', 'ten', 'twenty'],
+      correctIndex: 1,
+      explanation: '"Zehn Eier kosten zwei Euro zwanzig."',
+    ),
+  ],
+  intro: 'A market seller calls out today\'s prices — you only hear it. Press '
+      'play, listen for the numbers, and match each price to its product. '
+      'Replay as needed; the text is behind "Show text".',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Catch the product, then the price',
+      text: 'The price always follows the product name: "Äpfel … zwei Euro". '
+          'Hold the pair together in your head.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'Saying prices',
+      text: '"2,20 €" is "zwei Euro zwanzig" — euros first, then cents, with no '
+          'word for the comma.',
+    ),
+  ],
+);
+
+/// Dictation (Diktat) — Steckbrief: short self-introduction sentences the
+/// learner HEARS and TYPES. The writing (Schreiben) counterpart of the listening
+/// quizzes; it reinforces the spelling of the A1.1 verbs and vocabulary.
+final QuizContent questDiktatSteckbriefContent = dictationQuestQuiz(
+  id: 'quest_a1_1_diktat_steckbrief',
+  title: 'A1.1 · Diktat: Steckbrief',
+  promptLabel: 'Satz',
+  subjectsLabel: 'Sätze',
+  subjectColumnLabel: 'Deutsch',
+  intro: 'A dictation: you HEAR a sentence and TYPE it. Press play, listen, then '
+      'write exactly what you heard. You can replay as often as you like. '
+      'Capitalisation and umlaut spelling are judged leniently (ä or ae both '
+      'count), but spell the words correctly.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Listen, then write',
+      text: 'Play the sentence as many times as you need before typing. Hold the '
+          'whole sentence in your head, then write it in one go.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'German nouns are capitalised',
+      text: 'Hund, Student, Deutsch — every noun starts with a capital. The '
+          'check is lenient, but build the habit now.',
+    ),
+    HelpMemoryTip(
+      kind: 'example',
+      title: 'No ß or ä on your keyboard?',
+      text: 'Type "ss" and "ae": "ich heisse" is accepted for "ich heiße", '
+          '"Fussball" for "Fußball".',
+    ),
+  ],
+  sentences: const [
+    SpeakPhrase(phrase: 'Ich heiße Anna.', meaning: 'My name is Anna.'),
+    SpeakPhrase(
+      phrase: 'Ich komme aus England.',
+      meaning: 'I come from England.',
+    ),
+    SpeakPhrase(phrase: 'Ich wohne in Berlin.', meaning: 'I live in Berlin.'),
+    SpeakPhrase(phrase: 'Ich bin Student.', meaning: 'I am a student.'),
+    SpeakPhrase(phrase: 'Ich lerne Deutsch.', meaning: 'I am learning German.'),
+    SpeakPhrase(phrase: 'Ich habe einen Hund.', meaning: 'I have a dog.'),
+    SpeakPhrase(
+      phrase: 'Ich spiele gern Fußball.',
+      meaning: 'I like playing football.',
+    ),
+    SpeakPhrase(phrase: 'Wie heißt du?', meaning: "What's your name?"),
+  ],
+);
+
 /// Every A1.1 quiz, in chain order. Number drills, vocab and grammar are
-/// interleaved with the new Speaking and Reading skill exercises so the learner
-/// never faces two same-type quizzes back-to-back (knowledge → speaking →
-/// knowledge → reading …), following the Goethe A1 progression.
+/// interleaved with the Speaking, Reading, Listening and Dictation skill
+/// exercises so the learner never faces more than two same-type quizzes in a row
+/// (knowledge → speaking → knowledge → listening → reading …), following the
+/// Goethe A1 progression. All five exercise types appear in this sub-level.
 final List<QuizContent> questA1_1Content = [
-  questZahlen1Content, //          Zahlen 0–10            (knowledge)
-  questPronomenContent, //         Personalpronomen       (knowledge)
-  questSpeakBegruessungContent, // Sprechen: Vorstellung  (speaking)
-  questArtikelContent, //          Artikel im Nominativ   (knowledge)
-  questZahlen2Content, //          Zahlen 11–20           (knowledge)
-  questWFragenContent, //          W-Fragen               (knowledge)
-  questSeinHabenContent, //        sein & haben           (knowledge)
-  questFarbenContent, //           Farben                 (knowledge)
-  questReadingDasBinIchContent, // Lesen: Das bin ich     (reading)
-  questZahlen3Content, //          Zahlen 20–100          (knowledge)
-  questPraesensContent, //         Regelmäßige Verben     (knowledge)
-  questFamilieContent, //          Familie & Menschen     (knowledge)
-  questSpeakZahlenContent, //      Sprechen: Zahlen       (speaking)
+  questZahlen1Content, //           Zahlen 0–10               (knowledge)
+  questPronomenContent, //          Personalpronomen          (knowledge)
+  questSpeakBegruessungContent, //  Sprechen: Vorstellung     (speaking)
+  questArtikelContent, //           Artikel im Nominativ      (knowledge)
+  questZahlen2Content, //           Zahlen 11–20              (knowledge)
+  questHoerenVorstellungContent, // Hören: Vorstellung        (listening)
+  questSeinHabenContent, //         sein & haben              (knowledge·verb)
+  questWFragenContent, //           W-Fragen                  (knowledge)
+  questReadingDasBinIchContent, //  Lesen: Das bin ich        (reading)
+  questPraesensContent, //          Regelmäßige Verben        (knowledge·verb)
+  questVokalwechselContent, //      Unregelmäßige Verben      (knowledge·verb)
+  questDiktatSteckbriefContent, //  Diktat: Steckbrief        (dictation)
+  questHoerenZahlenContent, //      Hören: Zahlen & Preise    (listening)
+  questZahlen3Content, //           Zahlen 20–100             (knowledge)
+  questFarbenContent, //            Farben                    (knowledge)
+  questSpeakZahlenContent, //       Sprechen: Zahlen          (speaking)
+  questFamilieContent, //           Familie & Menschen        (knowledge)
 ];

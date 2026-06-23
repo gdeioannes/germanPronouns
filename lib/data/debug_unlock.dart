@@ -29,6 +29,10 @@ Future<void> unlockEverything() async {
         await NounSettings.instance.markSpeakQuizCompleted(content.id);
       case QuizKind.reading:
         await NounSettings.instance.markReadingQuizCompleted(content.id);
+      case QuizKind.listening:
+        await NounSettings.instance.markListeningQuizCompleted(content.id);
+      case QuizKind.dictation:
+        await NounSettings.instance.markDictationQuizCompleted(content.id);
       case QuizKind.fillBlank:
         // No completion set for plain fill-in quizzes — they're "done" once
         // their stored best streak reaches the goal, so bump it there.
