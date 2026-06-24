@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
 
 import '../data/gender_reference.dart';
 import '../data/noun_lookup.dart';
@@ -23,12 +21,11 @@ import '../models/quiz_stats.dart';
 import '../pages/auth_gate.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
-import '../theme/help_memory_pdf.dart';
-import '../theme/pdf_theme.dart';
 import '../utils/answer_normalization.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
 import 'help_memory.dart';
+import 'help_memory_pdf_export.dart';
 import 'help_memory_tables.dart';
 import 'next_exercise.dart';
 
@@ -1398,25 +1395,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     EndingPatternTable table,
   ) => EndingPatternTableView(table: table);
 
-  /// Builds a PDF of the Help Memory reference table (and, for the Artikel
-  /// quiz, the gender rules below it) and saves/downloads it directly as a
-  /// PDF file (no print dialog).
-  Future<void> _exportHelpMemoryPdf() async {
-    final pdf = await QuizPdfTheme.load();
-    final doc = pdf.newDocument();
-    doc.addPage(
-      pw.MultiPage(
-        pageFormat: helpMemoryPageFormat(widget.config),
-        margin: const pw.EdgeInsets.all(28),
-        footer: pdf.footer,
-        build: (context) => buildHelpMemoryPdfBody(pdf, widget.config),
-      ),
-    );
-    await Printing.sharePdf(
-      bytes: await doc.save(),
-      filename: '${widget.config.storageKeyPrefix}help_memory.pdf',
-    );
-  }
+  /// Builds + shares a PDF of this quiz's Help Memory reference.
+  Future<void> _exportHelpMemoryPdf() => exportHelpMemoryPdf(widget.config);
 
   /// Opens the global Word Library and, once the user returns, picks a new
   /// question if the currently displayed noun was disabled there.
