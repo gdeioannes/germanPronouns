@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:convert';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/gender_reference.dart';
 import '../data/noun_lookup.dart';
@@ -16,11 +14,12 @@ import '../data/noun_plurals.dart';
 import '../data/noun_progression_data.dart';
 import '../data/pronoun_article_sentences.dart';
 import '../data/quest_data.dart';
+import '../data/quiz_stats_store.dart';
 import '../models/app_session.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
-import '../models/quiz_stats_keys.dart';
+import '../models/quiz_stats.dart';
 import '../pages/auth_gate.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
@@ -61,25 +60,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   static const int _maxStoredHistory = 100;
   static const int _maxStreak = 5;
 
-  // All SharedPreferences key names are built by [QuizStatsKeys] so the quiz
-  // engine and the drawer can't drift out of sync.
-  QuizStatsKeys get _keys => QuizStatsKeys(widget.config.storageKeyPrefix);
-  String get _historyStorageKey => _keys.answerHistory;
-  String get _mistakesStorageKey => _keys.mistakesByCase;
-  String get _scoreStorageKey => _keys.score;
-  String get _streakStorageKey => _keys.streak;
-  String get _bestStreakLapKey => _keys.bestStreakLap;
-  String get _bestStreakAbsoluteKey => _keys.bestStreakAbsolute;
-  String get _enabledSubjectsKey => _keys.enabledSubjects;
-  String get _enabledCategoriesKey => _keys.enabledCategories;
-
   int _score = 0;
   int _streakAbsolute = 0;
   int _bestStreakLap = 0;
 
-  /// Highest [_streakAbsolute] ever reached for this quiz, persisted under
-  /// [_bestStreakAbsoluteKey] and shown in the drawer's streak stat (which,
-  /// unlike [_streakAbsolute], doesn't reset to 0 on a wrong answer).
+  /// Highest [_streakAbsolute] ever reached for this quiz, persisted via
+  /// [quizStatsStore] and shown in the drawer's streak stat (which, unlike
+  /// [_streakAbsolute], doesn't reset to 0 on a wrong answer).
   int _bestStreakAbsolute = 0;
   int get _streakLap => _streakAbsolute ~/ _maxStreak;
   int _currentSubjectIndex = 0;
@@ -321,92 +308,41 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   Future<void> _loadStoredStats() async {
-    final prefs = await SharedPreferences.getInstance();
-    final historyJson = prefs.getString(_historyStorageKey);
-    final mistakesJson = prefs.getString(_mistakesStorageKey);
-    final storedScore = prefs.getInt(_scoreStorageKey) ?? 0;
-    final storedStreak = prefs.getInt(_streakStorageKey) ?? 0;
-
-    List<Map<String, dynamic>> loadedHistory = [];
-    Map<String, int> loadedMistakes = {};
-
-    if (historyJson != null && historyJson != '') {
-      final decoded = jsonDecode(historyJson);
-      if (decoded is List) {
-        loadedHistory = decoded
-            .whereType<Map>()
-            .map((item) => item.map((k, v) => MapEntry(k.toString(), v)))
-            .toList();
-      }
-    }
-
-    if (mistakesJson != null && mistakesJson != '') {
-      final decoded = jsonDecode(mistakesJson);
-      if (decoded is Map) {
-        loadedMistakes = decoded.map(
-          (k, v) => MapEntry(k.toString(), (v as num).toInt()),
-        );
-      }
-    }
-
-    final subjectsJson = prefs.getString(_enabledSubjectsKey);
-    final categoriesJson = prefs.getString(_enabledCategoriesKey);
-
-    Set<int> loadedSubjects = _enabledSubjectIndices;
-    Set<String> loadedCategories = _enabledCategoryLabels;
-
-    if (subjectsJson != null && subjectsJson != '') {
-      final decoded = jsonDecode(subjectsJson);
-      if (decoded is List) {
-        loadedSubjects = decoded.map((v) => (v as num).toInt()).toSet();
-      }
-    }
-    if (categoriesJson != null && categoriesJson != '') {
-      final decoded = jsonDecode(categoriesJson);
-      if (decoded is List) {
-        final migration = widget.config.legacyCategoryLabelMigration;
-        loadedCategories = decoded
-            .map((v) => v.toString())
-            .map((label) => migration[label] ?? label)
-            .toSet();
-      }
-    }
-
-    final storedBestLap = prefs.getInt(_bestStreakLapKey) ?? 0;
-    final storedBestStreakAbsolute =
-        prefs.getInt(_bestStreakAbsoluteKey) ?? storedStreak;
+    final stats = await quizStatsStore.load(
+      widget.config.storageKeyPrefix,
+      legacyCategoryLabelMigration: widget.config.legacyCategoryLabelMigration,
+    );
     if (!mounted) return;
     setState(() {
-      _score = storedScore;
-      _streakAbsolute = storedStreak;
-      _bestStreakLap = storedBestLap;
-      _bestStreakAbsolute = storedBestStreakAbsolute;
-      _answerHistory = loadedHistory;
-      _mistakesByCase = loadedMistakes;
-      if (loadedSubjects.isEmpty == false) {
-        _enabledSubjectIndices = loadedSubjects;
+      _score = stats.score;
+      _streakAbsolute = stats.streak;
+      _bestStreakLap = stats.bestStreakLap;
+      _bestStreakAbsolute = stats.bestStreakAbsolute;
+      _answerHistory = stats.answerHistory;
+      _mistakesByCase = stats.mistakesByCase;
+      // An empty stored selection means "all" — keep the initState defaults.
+      if (stats.enabledSubjects.isNotEmpty) {
+        _enabledSubjectIndices = stats.enabledSubjects.toSet();
       }
-      if (loadedCategories.isEmpty == false) {
-        _enabledCategoryLabels = loadedCategories;
+      if (stats.enabledCategories.isNotEmpty) {
+        _enabledCategoryLabels = stats.enabledCategories.toSet();
       }
     });
   }
 
   Future<void> _saveStoredStats() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(_scoreStorageKey, _score);
-    await prefs.setInt(_streakStorageKey, _streakAbsolute);
-    await prefs.setInt(_bestStreakLapKey, _bestStreakLap);
-    await prefs.setInt(_bestStreakAbsoluteKey, _bestStreakAbsolute);
-    await prefs.setString(_historyStorageKey, jsonEncode(_answerHistory));
-    await prefs.setString(_mistakesStorageKey, jsonEncode(_mistakesByCase));
-    await prefs.setString(
-      _enabledSubjectsKey,
-      jsonEncode(_enabledSubjectIndices.toList()),
-    );
-    await prefs.setString(
-      _enabledCategoriesKey,
-      jsonEncode(_enabledCategoryLabels.toList()),
+    await quizStatsStore.save(
+      widget.config.storageKeyPrefix,
+      QuizStats(
+        score: _score,
+        streak: _streakAbsolute,
+        bestStreakLap: _bestStreakLap,
+        bestStreakAbsolute: _bestStreakAbsolute,
+        answerHistory: _answerHistory,
+        mistakesByCase: _mistakesByCase,
+        enabledSubjects: _enabledSubjectIndices.toList(),
+        enabledCategories: _enabledCategoryLabels.toList(),
+      ),
     );
   }
 
