@@ -78,9 +78,19 @@ class TtsService extends ChangeNotifier {
   bool _offlineOnly = false;
   String? _activeId;
 
+  /// The provider whose [speak] is currently in flight (still playing, possibly
+  /// paused), so [pause]/[resume] act on the one actually producing audio —
+  /// which isn't yet [_activeId] (that's set only once [speak] returns).
+  TtsProvider? _playing;
+
   /// True while a phrase is being read aloud, mirrored from the active
   /// provider's start/stop events. Listen to drive a "speaking" indicator.
   final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
+
+  /// True while in-progress playback is paused via [pause] (distinct from
+  /// [speaking], which is false both when paused and when nothing is playing).
+  /// Listen to drive a play/pause toggle.
+  final ValueNotifier<bool> paused = ValueNotifier<bool>(false);
 
   bool get offlineOnly => _offlineOnly;
 
@@ -179,15 +189,21 @@ class TtsService extends ChangeNotifier {
     return _device;
   }
 
-  /// Reads [text] in [locale], walking the chain until a provider succeeds.
-  /// Updates [status] / [speaking] and notifies listeners when the active
-  /// provider changes.
-  Future<void> speak(String text, String locale) async {
+  /// Reads [text] in [locale] with a [gender]-matched voice, walking the chain
+  /// until a provider succeeds. Updates [status] / [speaking] and notifies
+  /// listeners when the active provider changes. [gender] defaults to
+  /// [VoiceGender.female] (the app's long-standing voices).
+  Future<void> speak(
+    String text,
+    String locale, {
+    VoiceGender gender = VoiceGender.female,
+  }) async {
     if (text.trim().isEmpty) return;
     for (final provider in _chain) {
       if (!provider.isConfigured || !_isHealthy(provider)) continue;
+      _playing = provider;
       try {
-        final ok = await provider.speak(text, locale);
+        final ok = await provider.speak(text, locale, gender: gender);
         if (ok) {
           _failedAt.remove(provider.id);
           _markActive(provider.id);
@@ -196,6 +212,12 @@ class TtsService extends ChangeNotifier {
         _failedAt[provider.id] = DateTime.now();
       } catch (_) {
         _failedAt[provider.id] = DateTime.now();
+      } finally {
+        // This provider is no longer the live one once its clip ends.
+        if (_playing == provider) {
+          _playing = null;
+          paused.value = false;
+        }
       }
     }
     // Nothing spoke (e.g. only the device floor, which can silently no-op on a
@@ -209,8 +231,30 @@ class TtsService extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Pauses the clip currently playing, keeping its position where the backend
+  /// supports it. A no-op when nothing is playing.
+  Future<void> pause() async {
+    final provider = _playing;
+    if (provider == null || paused.value) return;
+    await provider.pause();
+    paused.value = true;
+  }
+
+  /// Resumes a clip paused by [pause]. Returns true if it resumed in place;
+  /// false when the live backend can't (the on-device floor), so the caller
+  /// should replay the phrase from the start instead.
+  Future<bool> resume() async {
+    final provider = _playing;
+    if (provider == null) return false;
+    final resumed = await provider.resume();
+    paused.value = false;
+    return resumed;
+  }
+
   /// Stops any in-progress playback across every provider.
   Future<void> stop() async {
+    _playing = null;
+    paused.value = false;
     for (final p in _providers) {
       await p.stop();
     }

@@ -57,6 +57,18 @@ abstract class CloudTtsProvider implements TtsProvider {
   /// Hard cap so a stuck playback can never wedge the play funnel.
   static const Duration _playbackTimeout = Duration(seconds: 30);
 
+  /// A short silence synthesized at the head of every clip. The audio
+  /// device/decoder takes a beat to start emitting samples on Windows (Media
+  /// Foundation) and on web; without a silent head, that start-up latency
+  /// swallows the first word. Long enough to cover the spin-up, short enough to
+  /// not read as a deliberate pause.
+  static const Duration _leadInSilence = Duration(milliseconds: 250);
+
+  /// An SSML `<break>` element that prepends [_leadInSilence] inside a `<speak>`
+  /// body, so the synthesized audio already carries the silent head.
+  static String get leadInBreak =>
+      '<break time="${_leadInSilence.inMilliseconds}ms"/>';
+
   @override
   VoiceTier get tier => VoiceTier.premium;
 
@@ -85,19 +97,33 @@ abstract class CloudTtsProvider implements TtsProvider {
     final bytes = await synthesize(text, locale);
     if (bytes == null || bytes.isEmpty) return false;
     onSpeakingChanged?.call(true);
-    final startedAt = DateTime.now();
     try {
       await _player.stop();
-      // Subscribe before play() so we can't miss a completion event.
+      final source = BytesSource(
+        Uint8List.fromList(bytes),
+        mimeType: _audioMimeType,
+      );
+      // Subscribe before playback so we can't miss a completion event.
       final completed = _player.onPlayerComplete.first;
-      // On web, `audioplayers`' play() Future can reject *after* the audio has
-      // already started — the cause of the earlier double-voice (the throw used
-      // to cascade the chain into the device voice while the cloud clip kept
-      // playing). Swallow it and keep going: the audio is playing.
+      // Load the clip and let the engine prepare it *before* starting the
+      // playback clock. play() is setSource+resume in one step, which begins
+      // counting the moment the bytes are handed over — but the audio
+      // device/decoder takes a beat to actually emit samples on Windows (Media
+      // Foundation) and web, so that head start is lost and the first word is
+      // clipped. Pre-buffering, then resuming, keeps the start of the clip.
+      //
+      // On web `audioplayers`' resume() Future can also reject *after* the
+      // audio has already started — the cause of the earlier double-voice (the
+      // throw used to cascade the chain into the device voice while the cloud
+      // clip kept playing). Swallow it and keep going: the audio is playing.
+      // Captured at resume(), not before setSource, so the pre-buffer time
+      // isn't mistaken for playback elapsed and doesn't shorten the tail wait.
+      var startedAt = DateTime.now();
       try {
-        await _player.play(
-          BytesSource(Uint8List.fromList(bytes), mimeType: _audioMimeType),
-        );
+        await _player.setSource(source);
+        await _awaitSourceReady();
+        startedAt = DateTime.now();
+        await _player.resume();
       } catch (_) {
         // Playback Future rejected; the clip may still be playing, so don't
         // stop it or fall back — wait it out below.
@@ -107,6 +133,24 @@ abstract class CloudTtsProvider implements TtsProvider {
       onSpeakingChanged?.call(false);
     }
     return true;
+  }
+
+  /// Waits (briefly) for the just-set source to finish loading, signalled by a
+  /// readable duration, so [_player.resume] starts a clip the engine has
+  /// already decoded rather than one it's still fetching — the head of which
+  /// would otherwise be dropped while the device spins up. Gives up after a
+  /// short budget and resumes anyway; a missing duration just means we proceed
+  /// as the old [play] did.
+  Future<void> _awaitSourceReady() async {
+    for (var attempt = 0; attempt < 5; attempt++) {
+      try {
+        final duration = await _player.getDuration();
+        if (duration != null && duration > Duration.zero) return;
+      } catch (_) {
+        // Metadata not available yet on this platform; retry briefly.
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 40));
+    }
   }
 
   /// Blocks until the clip has really finished, so the caller awaiting [speak]
@@ -196,6 +240,7 @@ class AzureTtsProvider extends CloudTtsProvider {
     final ssml =
         '<speak version="1.0" xml:lang="$locale">'
         '<voice xml:lang="$locale" name="$voice">'
+        '${CloudTtsProvider.leadInBreak}'
         '${CloudTtsProvider.escapeXml(text)}'
         '</voice></speak>';
     try {
@@ -251,7 +296,13 @@ class GoogleTtsProvider extends CloudTtsProvider {
         uri,
         headers: const {'Content-Type': 'application/json; charset=utf-8'},
         body: jsonEncode({
-          'input': {'text': text},
+          // SSML (not plain text) so the clip carries the lead-in silence that
+          // keeps the device's start-up latency from clipping the first word.
+          'input': {
+            'ssml':
+                '<speak>${CloudTtsProvider.leadInBreak}'
+                '${CloudTtsProvider.escapeXml(text)}</speak>',
+          },
           'voice': {'languageCode': locale, 'name': _voiceFor(locale)},
           'audioConfig': {'audioEncoding': 'MP3'},
         }),

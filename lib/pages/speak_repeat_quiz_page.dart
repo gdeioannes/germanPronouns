@@ -178,8 +178,11 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     }
     if (!mounted) return;
     setState(() => _sttAvailable = available);
-    // Auto-play the first card (after a brief pause) once everything is ready.
-    _autoSpeak();
+    // The first card deliberately does NOT auto-play. On the web the speech
+    // engine won't start an utterance until the page has had a user gesture, so
+    // an auto-play right after load (especially a refresh) stalls and gets stuck
+    // instead of speaking. The learner taps play for this first card; from card
+    // two onward that tap counts as the gesture and auto-play (in _next) works.
   }
 
   void _onSpeechStatus(String status) {

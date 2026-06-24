@@ -1,3 +1,7 @@
+import '../../models/voice_gender.dart';
+
+export '../../models/voice_gender.dart';
+
 /// The audio-quality tier a [TtsProvider] belongs to.
 ///
 /// Tiers order the fallback chain (premium cloud voices first, the on-device
@@ -31,13 +35,28 @@ abstract class TtsProvider {
   /// phrase so the opening word isn't read in the wrong language.
   Future<void> warmUp(String locale);
 
-  /// Reads [text] in [locale], completing when playback finishes. Returns true
-  /// when audio was actually produced; returning false (or throwing) tells the
-  /// chain this provider failed and to fall through to the next one.
-  Future<bool> speak(String text, String locale);
+  /// Reads [text] in [locale] with a [gender]-matched voice, completing when
+  /// playback finishes. Returns true when audio was actually produced; returning
+  /// false (or throwing) tells the chain this provider failed and to fall
+  /// through to the next one. [gender] defaults to [VoiceGender.female] (the
+  /// app's long-standing voices) so callers that don't care are unaffected.
+  Future<bool> speak(
+    String text,
+    String locale, {
+    VoiceGender gender = VoiceGender.female,
+  });
 
   /// Stops any in-progress playback immediately.
   Future<void> stop();
+
+  /// Pauses in-progress playback, keeping the position where the backend can
+  /// (cloud audio); a no-op when nothing is playing.
+  Future<void> pause();
+
+  /// Resumes playback paused by [pause]. Returns true if it resumed in place;
+  /// false when this backend can't resume (e.g. the on-device engine has no
+  /// resume), so the caller should replay from the start instead.
+  Future<bool> resume();
 }
 
 /// An immutable snapshot of one provider's state, for the status panel.
