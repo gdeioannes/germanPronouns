@@ -17,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// without touching the database.
 QuizConfig _config({
   List<HelpMemoryTable>? helpMemoryTables,
+  List<EndingPatternTable>? endingPatternTables,
   String storageKeyPrefix = 'smoke_quiz_',
 }) => QuizConfig(
   title: 'Smoke Quiz',
@@ -43,7 +44,39 @@ QuizConfig _config({
     required String sentence,
   }) => 'Erklärung.',
   helpMemoryTables: helpMemoryTables,
+  endingPatternTables: endingPatternTables,
   currentPage: AppPage.articles,
+);
+
+/// A noun-quiz config: no help tables, currentPage = nounsArticles, so the Help
+/// Memory uses the noun-reference list (now [NounReferenceList]).
+QuizConfig _nounConfig() => QuizConfig(
+  title: 'Noun Quiz',
+  storageKeyPrefix: 'smoke_noun_',
+  promptLabel: 'Artikel',
+  subjectsLabel: 'Nouns',
+  subjectColumnLabel: 'Noun',
+  subjects: const ['s0'],
+  subjectDisplays: const ['Uhr'],
+  subjectGenders: const ['f'],
+  subjectEnglish: const ['the clock'],
+  categories: const [
+    QuizCategoryDefinition(label: 'Artikel', values: ['die'], group: 'g'),
+  ],
+  groupWeights: const {'g': 1.0},
+  pickSentence: ({
+    required String caseLabel,
+    required String nominative,
+    required String answer,
+    required Random random,
+  }) => '____ Uhr',
+  buildExplanation: ({
+    required String caseLabel,
+    required String nominative,
+    required String answer,
+    required String sentence,
+  }) => '.',
+  currentPage: AppPage.nounsArticles,
 );
 
 void main() {
@@ -88,13 +121,36 @@ void main() {
               columns: [HelpMemoryColumn(categoryLabel: 'Nominativ')],
             ),
           ],
+          endingPatternTables: const [
+            EndingPatternTable(
+              title: 'Endings',
+              cornerLabel: 'Case',
+              columnLabels: ['m'],
+              rowLabels: ['Nom'],
+              rows: [
+                ['-er'],
+              ],
+            ),
+          ],
         ),
       ),
     ));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
-    // The first-visit Help Memory renders the table via HelpMemoryDataTable.
-    expect(find.text('Reference'), findsWidgets);
+    // The first-visit Help Memory renders both extracted table widgets.
+    expect(find.text('Reference'), findsWidgets); // HelpMemoryDataTable
+    expect(find.text('Endings'), findsWidgets); // EndingPatternTableView
+  });
+
+  testWidgets('renders the extracted noun reference list (nouns mode)',
+      (tester) async {
+    await tester.pumpWidget(MaterialApp(home: QuizPage(config: _nounConfig())));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    // Noun-mode Help Memory renders via NounReferenceList; the meaning shows
+    // as plain text beneath the "die Uhr" line.
+    expect(find.text('the clock'), findsWidgets);
   });
 }
