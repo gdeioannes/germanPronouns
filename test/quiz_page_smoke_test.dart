@@ -52,14 +52,23 @@ void main() {
     await NounSettings.instance.load();
   });
 
-  testWidgets('QuizPage renders a fill-in question with an answer field',
+  testWidgets(
+      'renders a fill-in question and auto-opens Help Memory on first visit',
       (tester) async {
     await tester.pumpWidget(MaterialApp(home: QuizPage(config: _minimalConfig())));
-    // Repeating animations mean pumpAndSettle would never settle; a couple of
-    // bounded pumps are enough to build the first frame.
-    await tester.pump(const Duration(milliseconds: 200));
+    // First frame schedules the first-visit Help Memory dialog; a second bounded
+    // pump lets its route build. (Repeating animations mean pumpAndSettle would
+    // never settle.)
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
 
     expect(find.byType(QuizPage), findsOneWidget);
     expect(find.byType(TextField), findsWidgets);
+    // The auto-opened Help Memory exercises the complex, content-aware
+    // reference-table rendering — the safety net for extracting that builder.
+    expect(
+      find.text(CourseSession.instance.strings.helpMemory),
+      findsWidgets,
+    );
   });
 }
