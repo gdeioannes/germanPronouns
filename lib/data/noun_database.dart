@@ -10,6 +10,8 @@ class GermanNoun {
     required this.categories,
     required this.difficulty,
     required this.declensionSafe,
+    this.plural,
+    this.sentence,
   });
 
   /// Capitalized German noun, no article (e.g. "Hund").
@@ -31,6 +33,29 @@ class GermanNoun {
   /// dative singular form changes (den/dem Jungen). True otherwise.
   final bool declensionSafe;
 
+  /// Plural-form display for the Help-Memory "Plural" column (e.g. "die Hunde").
+  /// Null in the compiled list; populated when the noun is part of a shared
+  /// reference collection (see `enrichedGermanNouns`).
+  final String? plural;
+
+  /// Custom example sentence for the noun-article quiz (the article blanked
+  /// out, e.g. "____ Hund ist hier."). Null falls back to generic templates.
+  /// Populated only for shared-collection nouns.
+  final String? sentence;
+
+  /// A copy with reference fields ([plural]/[sentence]) filled in. Used to
+  /// enrich the compiled list into the shared collection without mutating it.
+  GermanNoun copyWith({String? plural, String? sentence}) => GermanNoun(
+    noun: noun,
+    gender: gender,
+    english: english,
+    categories: categories,
+    difficulty: difficulty,
+    declensionSafe: declensionSafe,
+    plural: plural ?? this.plural,
+    sentence: sentence ?? this.sentence,
+  );
+
   /// Database-ready JSON form of this noun.
   Map<String, dynamic> toJson() => {
     'noun': noun,
@@ -39,6 +64,8 @@ class GermanNoun {
     'categories': categories,
     'difficulty': difficulty.name,
     'declensionSafe': declensionSafe,
+    if (plural != null) 'plural': plural,
+    if (sentence != null) 'sentence': sentence,
   };
 
   factory GermanNoun.fromJson(Map<String, dynamic> json) => GermanNoun(
@@ -48,6 +75,8 @@ class GermanNoun {
     categories: (json['categories'] as List).cast<String>(),
     difficulty: NounDifficulty.values.byName(json['difficulty'] as String),
     declensionSafe: json['declensionSafe'] as bool,
+    plural: json['plural'] as String?,
+    sentence: json['sentence'] as String?,
   );
 }
 

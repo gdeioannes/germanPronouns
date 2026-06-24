@@ -1,17 +1,42 @@
 import '../models/quiz_content.dart';
+import 'german_grammar.dart';
 import 'noun_article_data.dart';
 import 'noun_database.dart';
 import 'noun_plurals.dart';
 import 'noun_sentences.dart';
 
-/// The Nouns & Articles quiz expressed as serializable [QuizContent].
+/// The compiled German noun list enriched with the two reference fields the
+/// noun-article quiz needs beyond the bare list — the plural-form display and
+/// the custom example sentence. This is the *populated* noun reference: a
+/// plain `List<GermanNoun>` that fully describes the quiz, so it can be built
+/// either from here (compiled fallback) or from the shared
+/// `nouns/<lang>.json` collection at runtime, via [buildNounArticleContent].
+final List<GermanNoun> enrichedGermanNouns = [
+  for (final n in germanNouns)
+    n.copyWith(
+      plural: pluralEndingDisplay(n.noun),
+      sentence: nounSentences[n.noun],
+    ),
+];
+
+/// Builds the Nouns & Articles quiz as serializable [QuizContent] from a list
+/// of nouns — the single, data-driven source for both the compiled fallback
+/// ([nounArticleQuizContent]) and the shared-collection path.
 ///
-/// Mixed source: nouns with a hand-written sentence in [nounSentences] become
-/// stored [QuizContent.sentences]; the rest fall back to the per-category
-/// [QuizContent.sentenceTemplates]. The correct article for each noun is the
-/// category value (the engine's default answer). Database-ready twin of
-/// `nounArticleQuizConfig`; the live app still runs on the latter.
-final QuizContent nounArticleQuizContent = QuizContent(
+/// Each noun's [GermanNoun.gender] picks its article (the engine's default
+/// answer / category value), [GermanNoun.sentence] (if present) becomes a
+/// stored [QuizContent.sentences] entry, and [GermanNoun.plural] fills the
+/// Help-Memory "Plural" column. Nouns without a sentence fall back to the
+/// per-category [QuizContent.sentenceTemplates]. Sentences come out in noun
+/// order (the engine looks them up by `subjectKey`, so order is cosmetic).
+///
+/// The live app renders the noun quizzes from this content, built from the
+/// shared `nouns/<lang>.json` collection (via `resolveNounArticleContent`);
+/// `nounArticleQuizConfig` is now only the compiled fallback + generator source.
+QuizContent buildNounArticleContent(
+  List<GermanNoun> nouns,
+  Map<String, String> categoryDisplayNames,
+) => QuizContent(
   id: 'noun_article',
   title: 'German Nouns & Articles',
   storageKeyPrefix: 'noun_article_',
@@ -19,7 +44,7 @@ final QuizContent nounArticleQuizContent = QuizContent(
   subjectsLabel: 'Nouns',
   subjectColumnLabel: 'Noun',
   subjects: [
-    for (final n in germanNouns)
+    for (final n in nouns)
       QuizSubjectData(
         key: n.noun,
         display: n.noun,
@@ -30,16 +55,20 @@ final QuizContent nounArticleQuizContent = QuizContent(
       ),
   ],
   categories: [
-    for (final c in nounArticleQuizCategories)
-      QuizCategoryData(label: c.label, group: c.group, values: c.values),
+    QuizCategoryData(
+      label: 'Artikel',
+      group: 'Artikel',
+      values: [for (final n in nouns) baseArticles[n.gender]!],
+    ),
   ],
   sentences: [
-    for (final entry in nounSentences.entries)
-      QuizSentenceData(
-        subjectKey: entry.key,
-        categoryLabel: 'Artikel',
-        sentence: entry.value,
-      ),
+    for (final n in nouns)
+      if (n.sentence != null)
+        QuizSentenceData(
+          subjectKey: n.noun,
+          categoryLabel: 'Artikel',
+          sentence: n.sentence!,
+        ),
   ],
   sentenceTemplates: {
     'Artikel': [
@@ -47,12 +76,12 @@ final QuizContent nounArticleQuizContent = QuizContent(
         t.replaceAll('{noun}', '{subject}'),
     ],
   },
-  categoryDisplayNames: nounCategoryDisplayNames,
+  categoryDisplayNames: categoryDisplayNames,
   helpMemoryColorByGender: true,
   helpMemoryInfoColumns: [
     HelpMemoryInfoColumn(
       label: 'Plural',
-      values: [for (final n in germanNouns) pluralEndingDisplay(n.noun)],
+      values: [for (final n in nouns) n.plural ?? ''],
     ),
   ],
   helpMemoryIntro:
@@ -86,4 +115,13 @@ final QuizContent nounArticleQuizContent = QuizContent(
           'ending (e.g. -e, ¨-er); irregular plurals are written in full.',
     ),
   ],
+);
+
+/// The Nouns & Articles quiz expressed as serializable [QuizContent], built
+/// from the compiled [enrichedGermanNouns]. Used as the compiled fallback when
+/// the shared `nouns/<lang>.json` collection is unavailable, and as the golden
+/// twin the shared-collection build is verified against.
+final QuizContent nounArticleQuizContent = buildNounArticleContent(
+  enrichedGermanNouns,
+  nounCategoryDisplayNames,
 );

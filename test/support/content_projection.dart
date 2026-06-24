@@ -12,3 +12,8 @@ String canonicalContentProjection(List<QuizContent> contents) {
   final map = <String, dynamic>{for (final c in sorted) c.id: c.toJson()};
   return const JsonEncoder.withIndent('  ').convert(map);
 }
+
+/// Normalizes line endings so golden comparisons don't break when git
+/// re-materializes the committed golden files with CRLF on a Windows checkout
+/// (the computed projections always use `\n`).
+String lf(String s) => s.replaceAll('\r\n', '\n');

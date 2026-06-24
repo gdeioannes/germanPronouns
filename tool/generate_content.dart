@@ -15,11 +15,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:german_pronouns_articles/data/article_content.dart';
+import 'package:german_pronouns_articles/data/content/noun_collection.dart';
 import 'package:german_pronouns_articles/data/course_catalog.dart';
 import 'package:german_pronouns_articles/data/courses/de_es/de_es_content.dart';
 import 'package:german_pronouns_articles/data/courses/es_de/es_de_content.dart';
 import 'package:german_pronouns_articles/data/data_version.dart';
 import 'package:german_pronouns_articles/data/noun_article_content.dart';
+import 'package:german_pronouns_articles/data/noun_database.dart';
 import 'package:german_pronouns_articles/data/preposition_content.dart';
 import 'package:german_pronouns_articles/data/pronoun_article_content.dart';
 import 'package:german_pronouns_articles/data/pronoun_content.dart';
@@ -33,10 +35,12 @@ import 'package:german_pronouns_articles/models/quiz_content.dart';
 /// concatenated in `allQuizContent`, so every quiz lands in exactly one bundle.
 Map<String, List<QuizContent>> _contentByCourse() => {
   'de_cert_a1': [...questQuizContent],
+  // noun_article is intentionally absent: it's derived at runtime from the
+  // shared `nouns/de.json` collection (below), not baked into the bundle, so
+  // every German course can share one noun list.
   'en_de': [
     pronounQuizContent,
     articleQuizContent,
-    nounArticleQuizContent,
     pronounArticleQuizContent,
     prepositionQuizContent,
   ],
@@ -79,6 +83,21 @@ void main() {
   // Global, non-course UI content (placeholder until a screen reads from it).
   File('assets/content/app.json')
       .writeAsStringSync(encoder.convert(AppConfig(version: kDataVersion).toJson()));
+
+  // Shared, cross-course reference collections, keyed by learned-language code.
+  // The German noun list lives here once — as the *populated* reference
+  // ([enrichedGermanNouns]: each noun carries its plural + custom sentence) —
+  // instead of being baked into every German course's bundle. The noun-article
+  // quiz is rebuilt from this at runtime via `buildNounArticleContent`.
+  Directory('assets/content/shared/nouns').createSync(recursive: true);
+  File('assets/content/shared/nouns/de.json').writeAsStringSync(
+    encoder.convert(
+      NounCollection(
+        categoryDisplayNames: nounCategoryDisplayNames,
+        nouns: enrichedGermanNouns,
+      ).toJson(),
+    ),
+  );
 
   stdout.writeln(
     'Wrote catalog.json + app.json + ${defaultCourses.length} course bundles '

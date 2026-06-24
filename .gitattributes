@@ -1,0 +1,6 @@
+# Keep test goldens and the generated content collections LF so they don't
+# churn (and break byte-exact golden comparisons) on Windows checkouts, where
+# git's autocrlf would otherwise rewrite them with CRLF.
+test/golden/*.json    text eol=lf
+assets/content/**.json text eol=lf
+assets/seed/*.json    text eol=lf

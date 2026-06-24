@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:german_pronouns_articles/data/quiz_content_library.dart';
 
+import 'support/content_projection.dart';
+
 /// Pins every quiz's `storageKeyPrefix`. These prefixes key a learner's saved
 /// score/streak/history in SharedPreferences, so the JSON-collections rewrite
 /// must never change them — doing so would silently orphan saved progress.
@@ -22,8 +24,8 @@ void main() {
     }
 
     expect(
-      current,
-      golden.readAsStringSync(),
+      lf(current),
+      lf(golden.readAsStringSync()),
       reason: 'A quiz storageKeyPrefix changed — this orphans learners\' saved '
           'scores/streaks. Prefixes must stay stable across the rewrite.',
     );

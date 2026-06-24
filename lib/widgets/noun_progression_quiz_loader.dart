@@ -8,10 +8,11 @@ import '../models/app_page.dart';
 import '../models/quiz_config.dart';
 import 'quiz_page.dart';
 
-/// Runs a noun-progression quiz (a category sub-quiz or "All Nouns"): it loads
-/// the full "All Nouns" content (active course bundle → database), filters it to
-/// the entry's category, and builds the config. Falls back to the entry's
-/// compiled config if neither source has it, so the learner flow never breaks.
+/// Runs a noun-progression quiz (a category sub-quiz or "All Nouns"): it builds
+/// the full "All Nouns" content from the active course's shared noun collection
+/// (`nouns/<lang>.json`), filters it to the entry's category, and builds the
+/// config. Falls back to the resolved compiled content, then to the entry's
+/// compiled config, so the learner flow never breaks.
 class NounProgressionQuizLoader extends StatefulWidget {
   const NounProgressionQuizLoader({super.key, required this.entry});
 
@@ -26,7 +27,7 @@ class _NounProgressionQuizLoaderState extends State<NounProgressionQuizLoader> {
   late final Future<QuizConfig> _configFuture = _loadConfig();
 
   Future<QuizConfig> _loadConfig() async {
-    final allNouns = await resolveQuizContent('noun_article');
+    final allNouns = await resolveNounArticleContent();
     if (allNouns == null) return widget.entry.config;
     final content = nounProgressionContent(allNouns, widget.entry.key);
     return buildQuizConfigFromContent(

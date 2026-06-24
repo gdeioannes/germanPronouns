@@ -3,8 +3,10 @@ import 'pronoun_article_quiz_config.dart';
 import 'pronoun_article_sentences.dart';
 
 /// The Pronouns & Articles quiz expressed as serializable [QuizContent], built
-/// from the existing `PronounArticlePair` bank. Database-ready twin of
-/// `pronounArticleQuizConfig`; the live app still runs on the latter.
+/// from the existing `PronounArticlePair` bank. The live app renders this
+/// content from the course bundle (JSON, via `resolveQuizContent`);
+/// `pronounArticleQuizConfig` is now only the compiled fallback + generator
+/// source.
 String _capitalize(String s) =>
     s.isEmpty ? s : '${s[0].toUpperCase()}${s.substring(1)}';
 

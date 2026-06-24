@@ -19,8 +19,8 @@ void main() {
     }
 
     expect(
-      current,
-      golden.readAsStringSync(),
+      lf(current),
+      lf(golden.readAsStringSync()),
       reason: 'Quiz content changed vs the frozen snapshot. If this change is '
           'intentional, refresh it with UPDATE_GOLDEN=1 and review the diff.',
     );

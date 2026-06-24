@@ -151,6 +151,8 @@ class _CourseHomePageState extends State<CourseHomePage> {
 
   Future<List<_HomeSection>> _load() async {
     await CourseSession.instance.loadCourses();
+    // Source the menu structure from the course's JSON bundle (lazy + cached).
+    await CourseSession.instance.ensureActiveNavLoaded();
     final course = CourseSession.instance.activeCourse;
     // Order the Quest chain per this course before reading its unlock state.
     applyQuestOrderFromLayout(course.nav);
@@ -257,10 +259,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
         case NavGroupType.nounChain:
           final rows = await _nounRows();
           if (rows.isNotEmpty) {
-            // Source the "All Nouns" content from the bundle (JSON) and derive
-            // each category's reference from it, matching the live quiz; fall
-            // back to the compiled per-category configs if it isn't available.
-            final allNouns = await resolveQuizContent('noun_article');
+            // Source the "All Nouns" content from the shared noun collection
+            // (JSON) and derive each category's reference from it, matching the
+            // live quiz; fall back to the compiled per-category configs if it
+            // isn't available.
+            final allNouns = await resolveNounArticleContent();
             if (allNouns != null) {
               for (final e in nounProgressionEntries) {
                 bookletEntries.add(

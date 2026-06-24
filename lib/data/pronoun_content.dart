@@ -6,8 +6,9 @@ import 'reference_sentence_bank.dart';
 ///
 /// The sentence bank is normalized out of [referenceSentenceTemplates] (a
 /// nested case → answer → sentences map) into flat [QuizSentenceData] rows —
-/// exactly the shape a database `sentences` table would hold. Database-ready
-/// twin of `pronounQuizConfig`; the live app still runs on the latter.
+/// exactly the shape a database `sentences` table would hold. The live app
+/// renders this content from the course bundle (JSON, via `resolveQuizContent`);
+/// `pronounQuizConfig` is now only the compiled fallback + generator source.
 ///
 /// Answers are not stored per sentence: like the live quiz, the correct answer
 /// for a (subject, case) is the category's value, so the adapter falls back to

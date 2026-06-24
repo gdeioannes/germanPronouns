@@ -7,11 +7,13 @@ class InMemoryContentSource implements ContentSource {
     this.courseStr, {
     this.catalogStr = '{"version":"t","courses":[]}',
     this.appStr = '{"version":"t"}',
+    this.sharedNounsStr = '{"nouns":[]}',
   });
 
   final String courseStr;
   final String catalogStr;
   final String appStr;
+  final String sharedNounsStr;
 
   @override
   Future<String> catalogJson() async => catalogStr;
@@ -19,6 +21,8 @@ class InMemoryContentSource implements ContentSource {
   Future<String> appConfigJson() async => appStr;
   @override
   Future<String> courseJson(String courseId) async => courseStr;
+  @override
+  Future<String> sharedNounsJson(String langCode) async => sharedNounsStr;
 }
 
 /// In-memory [CourseBundleStore] for editor tests — captures teacher edits.

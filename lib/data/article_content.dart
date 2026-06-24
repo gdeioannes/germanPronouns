@@ -7,8 +7,9 @@ import 'noun_database.dart';
 /// This quiz generates its sentences from templates rather than storing a
 /// bank, so the content carries [QuizContent.sentenceTemplates] (per case)
 /// instead of a sentence list. The correct article for each (noun, case) is
-/// the category value, which the engine uses as the answer. Database-ready
-/// twin of `articleQuizConfig`; the live app still runs on the latter.
+/// the category value, which the engine uses as the answer. The live app
+/// renders this content from the course bundle (JSON, via `resolveQuizContent`);
+/// `articleQuizConfig` is now only the compiled fallback + generator source.
 final QuizContent articleQuizContent = QuizContent(
   id: 'article',
   title: 'German Artikel Quiz',

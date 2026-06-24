@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../../models/content/catalog.dart';
 import '../../models/content/populated_course.dart';
+import 'noun_collection.dart';
 
 /// Read seam for the JSON content collections. The learner UI depends only on
 /// this interface, so the backing store can change (bundled assets now, a remote
@@ -15,6 +16,10 @@ abstract interface class CourseContentProvider {
 
   /// The populated bundle for [courseId] — loaded on first open and cached.
   Future<PopulatedCourse> populated(String courseId);
+
+  /// The shared noun list for a learned-language code (e.g. `de`), used
+  /// cross-course; empty when that language has no noun collection.
+  Future<NounCollection> nounCollection(String langCode);
 }
 
 /// Where raw collection JSON comes from. Splitting this out keeps the caching
@@ -24,6 +29,7 @@ abstract interface class ContentSource {
   Future<String> catalogJson();
   Future<String> appConfigJson();
   Future<String> courseJson(String courseId);
+  Future<String> sharedNounsJson(String langCode);
 }
 
 /// A writable override store for teacher-edited course bundles. When it has a
@@ -52,6 +58,7 @@ class CachingCourseProvider implements CourseContentProvider {
   Catalog? _catalog;
   AppConfig? _appConfig;
   final Map<String, PopulatedCourse> _courses = {};
+  final Map<String, NounCollection> _nouns = {};
 
   @override
   Future<Catalog> catalog() async => _catalog ??= Catalog.fromJson(
@@ -72,6 +79,21 @@ class CachingCourseProvider implements CourseContentProvider {
     final json = edited ??
         jsonDecode(await _source.courseJson(courseId)) as Map<String, dynamic>;
     return _courses[courseId] = PopulatedCourse.fromJson(json);
+  }
+
+  @override
+  Future<NounCollection> nounCollection(String langCode) async {
+    final cached = _nouns[langCode];
+    if (cached != null) return cached;
+    try {
+      final json =
+          jsonDecode(await _source.sharedNounsJson(langCode))
+              as Map<String, dynamic>;
+      return _nouns[langCode] = NounCollection.fromJson(json);
+    } catch (_) {
+      // No shared noun collection for this language — serve an empty one.
+      return _nouns[langCode] = const NounCollection();
+    }
   }
 
   /// Drops the cached bundle for [courseId] (e.g. after a teacher edit or a

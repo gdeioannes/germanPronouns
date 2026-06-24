@@ -90,6 +90,8 @@ Future<_DrawerData> _loadDrawerData() async {
   var layout = defaultNavLayout;
   final quizzes = <String, QuizSummary>{};
   await CourseSession.instance.loadCourses();
+  // Source the drawer layout from the course's JSON bundle (lazy + cached).
+  await CourseSession.instance.ensureActiveNavLoaded();
   layout = CourseSession.instance.activeCourse.nav;
   applyQuestOrderFromLayout(layout);
   try {

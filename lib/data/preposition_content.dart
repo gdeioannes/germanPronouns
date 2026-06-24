@@ -16,7 +16,8 @@ const Map<String, String> _caseShort = {
 /// This is the proof case for the database migration: every field the engine
 /// needs is captured as plain data here, so the same quiz could instead be
 /// loaded from a database (see `buildQuizConfigFromContent`). The live app
-/// still runs on `prepositionQuizConfig`; this is the round-trippable twin.
+/// renders this content from the course bundle (JSON, via `resolveQuizContent`);
+/// `prepositionQuizConfig` is now only the compiled fallback + generator source.
 final QuizContent prepositionQuizContent = QuizContent(
   id: 'preposition',
   title: 'German Prepositions Quiz',

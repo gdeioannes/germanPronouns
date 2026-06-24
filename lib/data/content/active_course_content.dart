@@ -2,6 +2,7 @@ import '../../models/content/quiz.dart';
 import '../../models/course_session.dart';
 import '../../models/quiz_content.dart';
 import '../db/content_repository.dart';
+import '../noun_article_content.dart';
 import 'asset_course_provider.dart';
 
 /// Resolves [quizId] from the **active course's** populated bundle (lazily
@@ -33,4 +34,23 @@ Future<QuizContent?> resolveQuizContent(String quizId) async {
   } catch (_) {
     return null;
   }
+}
+
+/// The full "All Nouns" content for the active course, built from its shared
+/// noun collection (`nouns/<lang>.json`, keyed by the learned language) so
+/// multiple courses for the same language share one list — `noun_article` is
+/// deliberately not baked into any course bundle. Falls back to
+/// [resolveQuizContent] (DB → compiled) when the language has no shared
+/// collection. Returns null only if no source has it.
+Future<QuizContent?> resolveNounArticleContent() async {
+  final lang =
+      CourseSession.instance.activeCourse.learnLocale.split('-').first;
+  final collection = await courseContentProvider.nounCollection(lang);
+  if (!collection.isEmpty) {
+    return buildNounArticleContent(
+      collection.nouns,
+      collection.categoryDisplayNames,
+    );
+  }
+  return resolveQuizContent('noun_article');
 }
