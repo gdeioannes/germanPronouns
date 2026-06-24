@@ -29,6 +29,7 @@ import '../utils/answer_normalization.dart';
 import 'app_drawer.dart';
 import 'fireworks.dart';
 import 'help_memory.dart';
+import 'help_memory_tables.dart';
 import 'next_exercise.dart';
 
 class QuizPage extends StatefulWidget {
@@ -1487,117 +1488,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     ];
   }
 
-  Widget _buildHelpMemoryTable(BuildContext context, HelpMemoryTable table) {
-    final colorScheme = Theme.of(context).colorScheme;
-    // Phone-width screens get smaller type, tighter padding and a narrower
-    // label column so the table fits without cramped, wrapped-to-death cells.
-    final compact = MediaQuery.sizeOf(context).width < 480;
-    final categoriesByLabel = {
-      for (final c in widget.config.categories) c.label: c,
-    };
-
-    Widget cell(
-      String text, {
-      bool header = false,
-      ({Color background, Color foreground})? tint,
-      String? subtitle,
-    }) {
-      final main = Text(
-        text,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: header ? Colors.white : tint?.foreground,
-          fontWeight: header || tint != null
-              ? FontWeight.w700
-              : FontWeight.w500,
-          fontSize: compact ? 12.5 : null,
-        ),
-      );
-      return Container(
-        color: tint?.background,
-        padding: EdgeInsets.symmetric(horizontal: compact ? 6 : 10, vertical: 8),
-        alignment: Alignment.center,
-        child: subtitle == null || subtitle.isEmpty
-            ? main
-            : Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  main,
-                  Text(
-                    subtitle,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: colorScheme.onSurfaceVariant,
-                      fontSize: compact ? 10 : 11,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ],
-              ),
-      );
-    }
-
-    TableRow buildRow(int? subjectIndex) {
-      final background = subjectIndex == null
-          ? colorScheme.primary
-          : (subjectIndex.isEven
-                ? colorScheme.surface
-                : colorScheme.surfaceContainerHighest.withValues(alpha: 0.35));
-      final tint = (subjectIndex != null && widget.config.helpMemoryColorByGender)
-          ? genderTint(widget.config.subjectGenders?[subjectIndex])
-          : null;
-      return TableRow(
-        decoration: BoxDecoration(color: background),
-        children: [
-          cell(
-            subjectIndex == null
-                ? widget.config.subjectColumnLabel
-                : widget.config.subjectDisplays[subjectIndex],
-            header: subjectIndex == null,
-            subtitle: subjectIndex == null
-                ? null
-                : widget.config.subjectEnglish?[subjectIndex],
-          ),
-          for (final column in table.columns)
-            cell(
-              subjectIndex == null
-                  ? (column.displayLabel ?? column.categoryLabel)
-                  : categoriesByLabel[column.categoryLabel]!
-                        .values[subjectIndex],
-              header: subjectIndex == null,
-              tint: tint,
-            ),
-        ],
-      );
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          table.title,
-          style: Theme.of(
-            context,
-          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
-        ),
-        const SizedBox(height: 8),
-        Table(
-          border: TableBorder.all(color: colorScheme.outlineVariant),
-          columnWidths: {0: FixedColumnWidth(compact ? 84 : 110)},
-          defaultColumnWidth: const FlexColumnWidth(),
-          children: [
-            buildRow(null),
-            for (
-              var index = 0;
-              index < widget.config.subjectDisplays.length;
-              index++
-            )
-              buildRow(index),
-          ],
-        ),
-      ],
-    );
-  }
+  Widget _buildHelpMemoryTable(BuildContext context, HelpMemoryTable table) =>
+      HelpMemoryDataTable(config: widget.config, table: table);
 
   /// Builds a small declension-ending reference table shown below the
   /// [HelpMemoryTable]s.

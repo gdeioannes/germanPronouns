@@ -15,9 +15,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// the monolith leans on. Built from a minimal hand-made [QuizConfig] with no
 /// progression/content id, so `initState` resolves "next exercise" to null
 /// without touching the database.
-QuizConfig _minimalConfig() => QuizConfig(
+QuizConfig _config({
+  List<HelpMemoryTable>? helpMemoryTables,
+  String storageKeyPrefix = 'smoke_quiz_',
+}) => QuizConfig(
   title: 'Smoke Quiz',
-  storageKeyPrefix: 'smoke_quiz_',
+  storageKeyPrefix: storageKeyPrefix,
   promptLabel: 'Wort',
   subjectsLabel: 'Subjects',
   subjectColumnLabel: 'Subject',
@@ -39,6 +42,7 @@ QuizConfig _minimalConfig() => QuizConfig(
     required String answer,
     required String sentence,
   }) => 'Erklärung.',
+  helpMemoryTables: helpMemoryTables,
   currentPage: AppPage.articles,
 );
 
@@ -55,7 +59,7 @@ void main() {
   testWidgets(
       'renders a fill-in question and auto-opens Help Memory on first visit',
       (tester) async {
-    await tester.pumpWidget(MaterialApp(home: QuizPage(config: _minimalConfig())));
+    await tester.pumpWidget(MaterialApp(home: QuizPage(config: _config())));
     // First frame schedules the first-visit Help Memory dialog; a second bounded
     // pump lets its route build. (Repeating animations mean pumpAndSettle would
     // never settle.)
@@ -70,5 +74,27 @@ void main() {
       find.text(CourseSession.instance.strings.helpMemory),
       findsWidgets,
     );
+  });
+
+  testWidgets('renders the extracted Help Memory reference table',
+      (tester) async {
+    await tester.pumpWidget(MaterialApp(
+      home: QuizPage(
+        config: _config(
+          storageKeyPrefix: 'smoke_table_',
+          helpMemoryTables: const [
+            HelpMemoryTable(
+              title: 'Reference',
+              columns: [HelpMemoryColumn(categoryLabel: 'Nominativ')],
+            ),
+          ],
+        ),
+      ),
+    ));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    // The first-visit Help Memory renders the table via HelpMemoryDataTable.
+    expect(find.text('Reference'), findsWidgets);
   });
 }
