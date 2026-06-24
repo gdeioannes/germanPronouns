@@ -59,8 +59,12 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
   /// True while the passage is being read aloud, mirrored from the engine.
   bool _speaking = false;
 
+  /// True while playback is paused (mirrored from the engine). Distinct from
+  /// [_speaking], which is false both when paused and when idle.
+  bool _paused = false;
+
   /// Bumped on every play request; a play only reaches `speak()` if its token
-  /// is still the latest, so overlapping taps / auto-play can't stack up.
+  /// is still the latest, so overlapping taps can't stack up.
   int _speakGen = 0;
 
   /// Two stages: listen to the passage, then answer the questions.
@@ -108,6 +112,7 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
   void initState() {
     super.initState();
     _voice.speaking.addListener(_onSpeakingChanged);
+    _voice.paused.addListener(_onPausedChanged);
     _loadBest();
     final questKey = widget.questProgressionKey;
     if (questKey != null) {
@@ -117,17 +122,12 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
         if (mounted && next != null) setState(() => _nextExercise = next);
       });
     }
-    _warmUpAndPlay();
-  }
-
-  Future<void> _warmUpAndPlay() async {
-    // Warm up the German voice so the first auto-play isn't read in English.
-    await _voice.warmUp(_learnLocale);
-    if (!mounted) return;
-    // Auto-play the passage once, after a brief pause so the screen settles.
-    Future<void>.delayed(const Duration(milliseconds: 600), () {
-      if (mounted && !_showQuestions) _playPassage();
-    });
+    // Warm up the German voice so the first play isn't read in English, but do
+    // NOT auto-play: playback is started by the learner (tapping the play
+    // surface). On the web the speech engine won't start an utterance before
+    // the page has had a user gesture, so an auto-play on load stalls; letting
+    // the learner press play also keeps them in control of when they listen.
+    _voice.warmUp(_learnLocale);
   }
 
   Future<void> _loadBest() async {
@@ -146,6 +146,12 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
     if (_speaking != speaking) setState(() => _speaking = speaking);
   }
 
+  void _onPausedChanged() {
+    if (!mounted) return;
+    final paused = _voice.paused.value;
+    if (_paused != paused) setState(() => _paused = paused);
+  }
+
   /// Reads the (hidden) passage aloud once, superseding any in-flight play.
   Future<void> _playPassage() async {
     if (_passage.trim().isEmpty) return;
@@ -156,16 +162,39 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
       // the generation check then guarantees only the latest request speaks.
       await Future<void>.delayed(const Duration(milliseconds: 150));
       if (!mounted || gen != _speakGen) return;
-      await _voice.speak(_passage, _learnLocale);
+      await _voice.speak(
+        _passage,
+        _learnLocale,
+        gender: widget.content.voiceGender,
+      );
     } catch (_) {
       // Ignore playback errors (e.g. no audio output available).
     }
+  }
+
+  /// Pauses the passage mid-playback (the learner can resume from where it
+  /// stopped, or stop entirely).
+  Future<void> _pausePlayback() => _voice.pause();
+
+  /// Resumes a paused passage. The premium voices resume in place; the on-device
+  /// floor can't, so [TtsService.resume] reports false and we replay from the
+  /// start.
+  Future<void> _resumePlayback() async {
+    final resumed = await _voice.resume();
+    if (!resumed && mounted) await _playPassage();
+  }
+
+  /// Stops playback entirely and supersedes any in-flight play.
+  Future<void> _stopPlayback() async {
+    _speakGen++;
+    await _voice.stop();
   }
 
   @override
   void dispose() {
     _pulse.dispose();
     _voice.speaking.removeListener(_onSpeakingChanged);
+    _voice.paused.removeListener(_onPausedChanged);
     _voice.stop();
     super.dispose();
   }
@@ -201,7 +230,9 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
       _optionOrder = _shuffledOptionOrder();
       _showQuestions = false;
     });
-    _playPassage();
+    // Back on the listen screen, but idle — the learner taps play to hear it
+    // again, matching the user-initiated playback everywhere else on this page.
+    _voice.stop();
   }
 
   /// The transcript behind the info button: the German script the learner just
@@ -345,6 +376,8 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
               const SizedBox(height: 16),
               // The big tappable play surface — the audio, never the text.
               _buildPlaySurface(context),
+              // Pause / Resume / Stop, shown only while the audio is running.
+              _buildPlaybackControls(context),
               const SizedBox(height: 12),
               // The script (German + English) is help, behind an info action.
               Center(
@@ -367,43 +400,93 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
     );
   }
 
-  /// A large surface that plays (or replays) the hidden passage when tapped,
-  /// with a pulsing speaker while it reads.
+  /// A large, full-width surface that starts the hidden passage when tapped (and
+  /// pauses / resumes it while it plays), with a pulsing speaker while it reads.
   Widget _buildPlaySurface(BuildContext context) {
     final theme = Theme.of(context);
     final strings = CourseSession.instance.strings;
-    return Material(
-      color: theme.colorScheme.surfaceContainerHighest,
-      borderRadius: BorderRadius.circular(kRadiusLarge),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: _speaking ? null : _playPassage,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-          child: Column(
-            children: [
-              _buildSpeakingIndicator(context),
-              const SizedBox(height: 12),
-              Text(
-                _speaking ? strings.playing : strings.tapToListen,
-                style: theme.textTheme.titleMedium?.copyWith(
-                  color: _speaking
-                      ? theme.colorScheme.primary
-                      : theme.colorScheme.onSurfaceVariant,
-                  fontWeight: FontWeight.w600,
+    // Tapping the surface drives the obvious next action for the current state:
+    // start when idle, pause while playing, resume while paused.
+    final VoidCallback onTap = _speaking
+        ? _pausePlayback
+        : _paused
+            ? _resumePlayback
+            : _playPassage;
+    final String label = _speaking
+        ? strings.playing
+        : _paused
+            ? strings.resume
+            : strings.tapToListen;
+    return SizedBox(
+      width: double.infinity,
+      child: Material(
+        color: theme.colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(kRadiusLarge),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            child: Column(
+              children: [
+                _buildSpeakingIndicator(context),
+                const SizedBox(height: 12),
+                Text(
+                  label,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    color: _speaking
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Listen to the audio, then answer the questions.',
-                textAlign: TextAlign.center,
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
+                const SizedBox(height: 4),
+                Text(
+                  'Listen to the audio, then answer the questions.',
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  /// Pause/Resume + Stop controls, shown under the play surface only while a
+  /// passage is playing or paused, so the learner can hold or stop the audio.
+  Widget _buildPlaybackControls(BuildContext context) {
+    final strings = CourseSession.instance.strings;
+    if (!_speaking && !_paused) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: Row(
+        children: [
+          Expanded(
+            child: _paused
+                ? FilledButton.tonalIcon(
+                    onPressed: _resumePlayback,
+                    icon: const Icon(Icons.play_arrow_rounded),
+                    label: Text(strings.resume),
+                  )
+                : FilledButton.tonalIcon(
+                    onPressed: _pausePlayback,
+                    icon: const Icon(Icons.pause_rounded),
+                    label: Text(strings.pause),
+                  ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: OutlinedButton.icon(
+              onPressed: _stopPlayback,
+              icon: const Icon(Icons.stop_rounded),
+              label: Text(strings.stop),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -461,15 +544,37 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
             icon: const Icon(Icons.subject_rounded, size: 18),
             label: const Text('Text'),
           ),
-          FilledButton.tonalIcon(
-            onPressed: _speaking ? null : _playPassage,
-            icon: const Icon(Icons.replay_rounded),
-            label: Text(_speaking
-                ? CourseSession.instance.strings.playing
-                : 'Replay'),
-          ),
+          ..._buildAudioBarControls(context),
         ],
       ),
     );
+  }
+
+  /// Trailing playback controls for the stage-2 audio bar: a Replay button when
+  /// idle, or compact Pause/Resume + Stop buttons while the audio is running, so
+  /// the learner can hold or stop it without leaving the questions.
+  List<Widget> _buildAudioBarControls(BuildContext context) {
+    final strings = CourseSession.instance.strings;
+    if (!_speaking && !_paused) {
+      return [
+        FilledButton.tonalIcon(
+          onPressed: _playPassage,
+          icon: const Icon(Icons.replay_rounded),
+          label: const Text('Replay'),
+        ),
+      ];
+    }
+    return [
+      IconButton(
+        onPressed: _paused ? _resumePlayback : _pausePlayback,
+        tooltip: _paused ? strings.resume : strings.pause,
+        icon: Icon(_paused ? Icons.play_arrow_rounded : Icons.pause_rounded),
+      ),
+      IconButton(
+        onPressed: _stopPlayback,
+        tooltip: strings.stop,
+        icon: const Icon(Icons.stop_rounded),
+      ),
+    ];
   }
 }

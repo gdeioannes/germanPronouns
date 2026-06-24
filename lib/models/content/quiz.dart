@@ -292,12 +292,18 @@ _Passage _passageFromContent(QuizContent c) => (
   questions: c.readingQuestions,
 );
 
-QuizContent _passageToLegacy(Quiz q, _Passage p, QuizKind kind) => QuizContent(
+QuizContent _passageToLegacy(
+  Quiz q,
+  _Passage p,
+  QuizKind kind, {
+  VoiceGender voiceGender = VoiceGender.female,
+}) => QuizContent(
   id: q.id,
   title: q.title,
   storageKeyPrefix: q.storageKeyPrefix,
   promptLabel: q.promptLabel,
   subjectsLabel: q.subjectsLabel,
+  voiceGender: voiceGender,
   subjectColumnLabel: q.subjectColumnLabel,
   kind: kind,
   subjects: const [],
@@ -420,6 +426,7 @@ final class ListeningQuiz extends Quiz {
     this.passage,
     this.passageTranslation,
     this.questions = const [],
+    this.voiceGender = VoiceGender.female,
   });
 
   final String? category;
@@ -427,6 +434,9 @@ final class ListeningQuiz extends Quiz {
   final String? passage;
   final String? passageTranslation;
   final List<ReadingQuestion> questions;
+
+  /// Gender of the narrator voice that reads the (hidden) passage aloud.
+  final VoiceGender voiceGender;
 
   @override
   String get type => 'listening';
@@ -441,6 +451,7 @@ final class ListeningQuiz extends Quiz {
       passageTranslation: passageTranslation,
       questions: questions,
     ),
+    if (voiceGender != VoiceGender.female) 'voiceGender': voiceGender.name,
   };
 
   factory ListeningQuiz.fromJson(Map<String, dynamic> json) {
@@ -459,6 +470,7 @@ final class ListeningQuiz extends Quiz {
       passage: p.passage,
       passageTranslation: p.passageTranslation,
       questions: p.questions,
+      voiceGender: VoiceGender.fromName(json['voiceGender'] as String?),
     );
   }
 
@@ -478,6 +490,7 @@ final class ListeningQuiz extends Quiz {
       passage: p.passage,
       passageTranslation: p.passageTranslation,
       questions: p.questions,
+      voiceGender: c.voiceGender,
     );
   }
 
@@ -492,6 +505,7 @@ final class ListeningQuiz extends Quiz {
       questions: questions,
     ),
     QuizKind.listening,
+    voiceGender: voiceGender,
   );
 }
 
@@ -502,38 +516,60 @@ final class ListeningQuiz extends Quiz {
 
 /// One spoken line: the German [text] read aloud, and its [translation].
 class SpokenLine {
-  const SpokenLine({required this.id, required this.text, this.translation});
+  const SpokenLine({
+    required this.id,
+    required this.text,
+    this.translation,
+    this.gender,
+  });
 
   final String id;
   final String text;
   final String? translation;
 
+  /// Gender of the voice that reads this line. Null inherits the quiz's default
+  /// voice; set it only for a line spoken by a different/specific speaker.
+  final VoiceGender? gender;
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'text': text,
     if (translation != null) 'translation': translation,
+    if (gender != null) 'gender': gender!.name,
   };
 
   factory SpokenLine.fromJson(Map<String, dynamic> json) => SpokenLine(
     id: json['id'] as String,
     text: json['text'] as String,
     translation: json['translation'] as String?,
+    gender: json['gender'] == null
+        ? null
+        : VoiceGender.fromName(json['gender'] as String?),
   );
 
   /// A legacy speak/dictation subject stores the phrase in `display` and its
   /// meaning in `english`, keyed by the subject key.
-  factory SpokenLine.fromSubject(QuizSubjectData s) =>
-      SpokenLine(id: s.key, text: s.display, translation: s.english);
+  factory SpokenLine.fromSubject(QuizSubjectData s) => SpokenLine(
+    id: s.key,
+    text: s.display,
+    translation: s.english,
+    gender: s.voiceGender,
+  );
 
-  QuizSubjectData toSubject() =>
-      QuizSubjectData(key: id, display: text, english: translation);
+  QuizSubjectData toSubject() => QuizSubjectData(
+    key: id,
+    display: text,
+    english: translation,
+    voiceGender: gender,
+  );
 }
 
 QuizContent _spokenToLegacy(
   Quiz q,
   List<SpokenLine> lines,
-  QuizKind kind,
-) => QuizContent(
+  QuizKind kind, {
+  VoiceGender voiceGender = VoiceGender.female,
+}) => QuizContent(
   id: q.id,
   title: q.title,
   storageKeyPrefix: q.storageKeyPrefix,
@@ -541,6 +577,7 @@ QuizContent _spokenToLegacy(
   subjectsLabel: q.subjectsLabel,
   subjectColumnLabel: q.subjectColumnLabel,
   kind: kind,
+  voiceGender: voiceGender,
   subjects: [for (final l in lines) l.toSubject()],
   categories: const [],
   sentences: const [],
@@ -563,9 +600,14 @@ final class SpeakRepeatQuiz extends Quiz {
     required super.subjectColumnLabel,
     super.help,
     this.phrases = const [],
+    this.voiceGender = VoiceGender.female,
   });
 
   final List<SpokenLine> phrases;
+
+  /// Default gender of the voice that reads the phrases aloud; individual
+  /// [SpokenLine.gender]s override it per line.
+  final VoiceGender voiceGender;
 
   @override
   String get type => 'speakRepeat';
@@ -574,6 +616,7 @@ final class SpeakRepeatQuiz extends Quiz {
   Map<String, dynamic> toJson() => {
     ..._baseJson(this),
     'phrases': [for (final p in phrases) p.toJson()],
+    if (voiceGender != VoiceGender.female) 'voiceGender': voiceGender.name,
   };
 
   factory SpeakRepeatQuiz.fromJson(Map<String, dynamic> json) {
@@ -590,6 +633,7 @@ final class SpeakRepeatQuiz extends Quiz {
         for (final p in (json['phrases'] as List?) ?? const [])
           SpokenLine.fromJson(Map<String, dynamic>.from(p as Map)),
       ],
+      voiceGender: VoiceGender.fromName(json['voiceGender'] as String?),
     );
   }
 
@@ -604,12 +648,14 @@ final class SpeakRepeatQuiz extends Quiz {
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
       phrases: [for (final s in c.subjects) SpokenLine.fromSubject(s)],
+      voiceGender: c.voiceGender,
     );
   }
 
   @override
   QuizContent toLegacy() =>
-      _spokenToLegacy(this, phrases, QuizKind.speakRepeat);
+      _spokenToLegacy(this, phrases, QuizKind.speakRepeat,
+          voiceGender: voiceGender);
 }
 
 final class DictationQuiz extends Quiz {
@@ -622,9 +668,14 @@ final class DictationQuiz extends Quiz {
     required super.subjectColumnLabel,
     super.help,
     this.items = const [],
+    this.voiceGender = VoiceGender.female,
   });
 
   final List<SpokenLine> items;
+
+  /// Default gender of the voice that dictates the sentences; individual
+  /// [SpokenLine.gender]s override it per line.
+  final VoiceGender voiceGender;
 
   @override
   String get type => 'dictation';
@@ -633,6 +684,7 @@ final class DictationQuiz extends Quiz {
   Map<String, dynamic> toJson() => {
     ..._baseJson(this),
     'items': [for (final i in items) i.toJson()],
+    if (voiceGender != VoiceGender.female) 'voiceGender': voiceGender.name,
   };
 
   factory DictationQuiz.fromJson(Map<String, dynamic> json) {
@@ -649,6 +701,7 @@ final class DictationQuiz extends Quiz {
         for (final i in (json['items'] as List?) ?? const [])
           SpokenLine.fromJson(Map<String, dynamic>.from(i as Map)),
       ],
+      voiceGender: VoiceGender.fromName(json['voiceGender'] as String?),
     );
   }
 
@@ -663,9 +716,11 @@ final class DictationQuiz extends Quiz {
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
       items: [for (final s in c.subjects) SpokenLine.fromSubject(s)],
+      voiceGender: c.voiceGender,
     );
   }
 
   @override
-  QuizContent toLegacy() => _spokenToLegacy(this, items, QuizKind.dictation);
+  QuizContent toLegacy() =>
+      _spokenToLegacy(this, items, QuizKind.dictation, voiceGender: voiceGender);
 }

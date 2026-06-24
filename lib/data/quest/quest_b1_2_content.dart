@@ -206,6 +206,8 @@ final QuizContent questB12PassivContent = sentenceQuestQuiz(
 /// 6. Hören: Eine Durchsage.
 final QuizContent questB12HoerenDurchsageContent = listeningQuestQuiz(
   id: 'quest_b1_2_hoeren_durchsage',
+  // Station announcer (no gendered cue) — cast as a male voice for variety.
+  voiceGender: VoiceGender.male,
   title: 'B1.2 · Hören: Eine Durchsage',
   category: 'Travel',
   passageTitle: 'Durchsage am Bahnhof',

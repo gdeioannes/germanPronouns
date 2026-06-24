@@ -477,6 +477,8 @@ final QuizContent questC22WissenschaftsspracheContent = sentenceQuestQuiz(
 /// 10. Hören: Eine literarische Lesung.
 final QuizContent questC22HoerenLesungContent = listeningQuestQuiz(
   id: 'quest_c2_2_hoeren_lesung',
+  // The literary text follows a man ("Er hatte den Koffer …") — male voice.
+  voiceGender: VoiceGender.male,
   title: 'C2.2 · Hören: Literarische Lesung',
   category: 'Arts',
   passageTitle: 'Lesung: Der Koffer',

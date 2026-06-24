@@ -17,11 +17,16 @@ import '../widgets/quiz_scaffold.dart';
 import '../widgets/voice_status_chip.dart';
 
 /// One phrase to practice: the German text read aloud and repeated, plus its
-/// Spanish meaning shown underneath.
+/// Spanish meaning shown underneath. [gender] picks the voice that reads it.
 class _SpeakCard {
-  const _SpeakCard({required this.phrase, required this.meaning});
+  const _SpeakCard({
+    required this.phrase,
+    required this.meaning,
+    required this.gender,
+  });
   final String phrase;
   final String meaning;
+  final VoiceGender gender;
 }
 
 /// A "listen & repeat" pronunciation quiz ([QuizKind.speakRepeat]): the app
@@ -71,7 +76,12 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
 
   late final List<_SpeakCard> _cards = [
     for (final s in widget.content.subjects)
-      _SpeakCard(phrase: s.display, meaning: s.english ?? ''),
+      _SpeakCard(
+        phrase: s.display,
+        meaning: s.english ?? '',
+        // Per-line speaker if set, otherwise the quiz's default voice.
+        gender: s.voiceGender ?? widget.content.voiceGender,
+      ),
   ];
 
   int _index = 0;
@@ -201,9 +211,15 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
 
   _SpeakCard get _card => _cards[_index];
 
-  /// Speaks [text] in [localeId], but only while [gen] is still the latest play
-  /// request. Includes the post-stop gap that makes web playback reliable.
-  Future<void> _speakOnce(String text, String localeId, int gen) async {
+  /// Speaks [text] in [localeId] with the [gender]-matched voice, but only while
+  /// [gen] is still the latest play request. Includes the post-stop gap that
+  /// makes web playback reliable.
+  Future<void> _speakOnce(
+    String text,
+    String localeId,
+    int gen,
+    VoiceGender gender,
+  ) async {
     if (text.trim().isEmpty) return;
     try {
       await _voice.stop();
@@ -214,17 +230,20 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       // overlap or leave a stale phrase playing.
       await Future<void>.delayed(const Duration(milliseconds: 150));
       if (!mounted || gen != _speakGen || _listening) return;
-      await _voice.speak(text, localeId);
+      await _voice.speak(text, localeId, gender: gender);
     } catch (_) {
       // Ignore playback errors (e.g. no audio output available).
     }
   }
 
   /// Reads the current phrase (German) once, then — if [_alsoMeaning] is on —
-  /// its meaning in the learner's language, all under play request [gen].
+  /// its meaning in the learner's language, all under play request [gen]. Both
+  /// use the card's speaker [gender] so one character sounds consistent.
   Future<void> _speakSequence(int gen) async {
-    await _speakOnce(_card.phrase, _learnLocale, gen);
-    if (_alsoMeaning) await _speakOnce(_card.meaning, _meaningLocale, gen);
+    await _speakOnce(_card.phrase, _learnLocale, gen, _card.gender);
+    if (_alsoMeaning) {
+      await _speakOnce(_card.meaning, _meaningLocale, gen, _card.gender);
+    }
   }
 
   /// Bumps the play token and clears any running loop, so a one-off play
@@ -290,7 +309,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
     if (_finished || _cards.isEmpty || _listening) return;
     final gen = _supersede();
     if (mounted) setState(() {});
-    await _speakOnce(_card.meaning, _meaningLocale, gen);
+    await _speakOnce(_card.meaning, _meaningLocale, gen, _card.gender);
   }
 
   /// Plays the current card automatically after a ~1s pause, unless the learner

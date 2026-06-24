@@ -207,6 +207,8 @@ final QuizContent questA22WeilContent = sentenceQuestQuiz(
 /// 6. Hören: Eine Verabredung.
 final QuizContent questA22HoerenVerabredungContent = listeningQuestQuiz(
   id: 'quest_a2_2_hoeren_verabredung',
+  // The speaker is Jan ("ich bin es, Jan"), a man — read with a male voice.
+  voiceGender: VoiceGender.male,
   title: 'A2.2 · Hören: Eine Verabredung',
   category: 'Daily Life',
   passageTitle: 'Ein Plan für Samstag',

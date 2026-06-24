@@ -15,10 +15,16 @@ import '../widgets/voice_status_chip.dart';
 
 /// One sentence to dictate: the German [sentence] read aloud (and the target the
 /// typed answer is checked against) and its [meaning] revealed after answering.
+/// [gender] picks the voice that dictates it.
 class _DictationItem {
-  const _DictationItem({required this.sentence, required this.meaning});
+  const _DictationItem({
+    required this.sentence,
+    required this.meaning,
+    required this.gender,
+  });
   final String sentence;
   final String meaning;
+  final VoiceGender gender;
 }
 
 /// A dictation (Diktat) quiz ([QuizKind.dictation]) — a listen-&-write exercise
@@ -65,7 +71,12 @@ class _DictationQuizPageState extends State<DictationQuizPage>
 
   late final List<_DictationItem> _items = [
     for (final s in widget.content.subjects)
-      _DictationItem(sentence: s.display, meaning: s.english ?? ''),
+      _DictationItem(
+        sentence: s.display,
+        meaning: s.english ?? '',
+        // Per-line speaker if set, otherwise the quiz's default voice.
+        gender: s.voiceGender ?? widget.content.voiceGender,
+      ),
   ];
 
   int _index = 0;
@@ -142,7 +153,7 @@ class _DictationQuizPageState extends State<DictationQuizPage>
       await _voice.stop();
       await Future<void>.delayed(const Duration(milliseconds: 150));
       if (!mounted || gen != _speakGen) return;
-      await _voice.speak(_item.sentence, _learnLocale);
+      await _voice.speak(_item.sentence, _learnLocale, gender: _item.gender);
     } catch (_) {
       // Ignore playback errors.
     }

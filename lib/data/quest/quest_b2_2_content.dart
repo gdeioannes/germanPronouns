@@ -209,6 +209,8 @@ final QuizContent questB22GenitivPraepContent = sentenceQuestQuiz(
 /// 6. Hören: Ein Vortrag.
 final QuizContent questB22HoerenVortragContent = listeningQuestQuiz(
   id: 'quest_b2_2_hoeren_vortrag',
+  // Lecturer (no gendered cue) — cast as a male voice for variety.
+  voiceGender: VoiceGender.male,
   title: 'B2.2 · Hören: Ein Vortrag',
   category: 'Science',
   passageTitle: 'Vortrag: Schlaf',

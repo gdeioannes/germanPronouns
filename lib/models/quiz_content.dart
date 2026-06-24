@@ -1,8 +1,10 @@
 import 'quiz_config.dart';
+import 'voice_gender.dart';
 
 // Re-exported so content files (which import this) can author Help Memory tips
 // and info columns without a separate import.
 export 'quiz_config.dart' show HelpMemoryTip, HelpMemoryInfoColumn;
+export 'voice_gender.dart' show VoiceGender;
 
 /// How a quiz is played.
 ///
@@ -97,6 +99,7 @@ class QuizSubjectData {
     this.difficulty,
     this.notes,
     this.categories = const [],
+    this.voiceGender,
   });
 
   /// Internal key, parallel to each [QuizCategoryData.values] entry and to
@@ -129,6 +132,12 @@ class QuizSubjectData {
   /// Semantic category keys this subject belongs to.
   final List<String> categories;
 
+  /// The gender of the voice that reads this line aloud, for spoken quizzes
+  /// (speak-repeat / dictation). Null means "use the quiz's default voice"
+  /// ([QuizContent.voiceGender]), so most lines need no annotation; set it only
+  /// where a specific speaker differs (e.g. a male character's line).
+  final VoiceGender? voiceGender;
+
   Map<String, dynamic> toJson() => {
     'key': key,
     'display': display,
@@ -138,6 +147,7 @@ class QuizSubjectData {
     if (difficulty != null) 'difficulty': difficulty,
     if (notes != null) 'notes': notes,
     if (categories.isNotEmpty) 'categories': categories,
+    if (voiceGender != null) 'voiceGender': voiceGender!.name,
   };
 
   factory QuizSubjectData.fromJson(Map<String, dynamic> json) => QuizSubjectData(
@@ -149,6 +159,9 @@ class QuizSubjectData {
     difficulty: json['difficulty'] as String?,
     notes: json['notes'] as String?,
     categories: (json['categories'] as List?)?.cast<String>() ?? const [],
+    voiceGender: json['voiceGender'] == null
+        ? null
+        : VoiceGender.fromName(json['voiceGender'] as String?),
   );
 }
 
@@ -296,6 +309,7 @@ class QuizContent {
     this.readingQuestions = const [],
     this.contextualLayout = false,
     this.stripSentenceCue = false,
+    this.voiceGender = VoiceGender.female,
   });
 
   /// Stable identifier (e.g. a database primary key or a slug).
@@ -376,6 +390,12 @@ class QuizContent {
   /// full sentence is still used as the answer key.
   final bool stripSentenceCue;
 
+  /// Default gender of the voice that reads this quiz's audio aloud
+  /// (listening passages and any speak-repeat / dictation line that doesn't
+  /// override it via [QuizSubjectData.voiceGender]). Defaults to
+  /// [VoiceGender.female], matching the app's long-standing voices.
+  final VoiceGender voiceGender;
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
@@ -416,6 +436,7 @@ class QuizContent {
       'readingQuestions': [for (final q in readingQuestions) q.toJson()],
     if (contextualLayout) 'contextualLayout': true,
     if (stripSentenceCue) 'stripSentenceCue': true,
+    if (voiceGender != VoiceGender.female) 'voiceGender': voiceGender.name,
   };
 
   factory QuizContent.fromJson(Map<String, dynamic> json) => QuizContent(
@@ -482,5 +503,6 @@ class QuizContent {
     ],
     contextualLayout: json['contextualLayout'] as bool? ?? false,
     stripSentenceCue: json['stripSentenceCue'] as bool? ?? false,
+    voiceGender: VoiceGender.fromName(json['voiceGender'] as String?),
   );
 }

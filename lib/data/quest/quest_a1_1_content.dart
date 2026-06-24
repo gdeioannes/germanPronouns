@@ -1115,12 +1115,16 @@ final QuizContent questHoerenVorstellungContent = listeningQuestQuiz(
           'again is part of the skill, not cheating.',
     ),
   ],
+  // The narrator is Max, a young man, so it is read with a male voice.
+  voiceGender: VoiceGender.male,
 );
 
 /// Listening 2 — Im Geschäft: Zahlen & Preise: a market seller calling out
 /// prices, heard not read. Trains number + price comprehension.
 final QuizContent questHoerenZahlenContent = listeningQuestQuiz(
   id: 'quest_a1_1_hoeren_zahlen',
+  // A market vendor calling out prices — read with a male voice.
+  voiceGender: VoiceGender.male,
   title: 'A1.1 · Hören: Zahlen & Preise',
   category: 'Shopping',
   passageTitle: 'Auf dem Markt',

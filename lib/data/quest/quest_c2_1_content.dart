@@ -211,6 +211,8 @@ final QuizContent questC21StilmittelContent = sentenceQuestQuiz(
 /// 6. Hören: Ein Feature / eine Dokumentation.
 final QuizContent questC21HoerenFeatureContent = listeningQuestQuiz(
   id: 'quest_c2_1_hoeren_feature',
+  // Radio feature narrator (no gendered cue) — cast as a male voice for variety.
+  voiceGender: VoiceGender.male,
   title: 'C2.1 · Hören: Feature',
   category: 'Media',
   passageTitle: 'Feature: Die Stille der Großstadt',
@@ -598,6 +600,8 @@ final QuizContent questC21SprechenModerierenContent = speakQuestQuiz(
 /// 13. Hören: Satire / Kabarett-Ausschnitt.
 final QuizContent questC21HoerenSatireContent = listeningQuestQuiz(
   id: 'quest_c2_1_hoeren_satire',
+  // The cabaret piece portrays a man ("der perfekte Bürger … er") — male voice.
+  voiceGender: VoiceGender.male,
   title: 'C2.1 · Hören: Satire',
   category: 'Media',
   passageTitle: 'Kabarett: Der perfekte Bürger',

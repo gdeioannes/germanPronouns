@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../data/db/content_repository.dart';
+import '../data/content/active_course_content.dart';
 import '../data/nav_layout_data.dart';
+import '../data/noun_article_data.dart';
 import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
 import '../data/quiz_content_adapter.dart';
@@ -158,12 +159,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
     // Every quiz's reference section for the always-on study booklet —
     // independent of lock state and of how many rows the home actually lists.
     final bookletEntries = <BookletEntry>[];
-    ContentRepository? repo;
-    try {
-      repo = await contentRepository();
-    } catch (_) {
-      repo = null;
-    }
 
     // Tracks the pass-to-unlock frontier of the course's gated quiz chain as it
     // runs continuously across the [NavGroup.gated] groups (in layout order):
@@ -173,11 +168,10 @@ class _CourseHomePageState extends State<CourseHomePage> {
     for (final group in course.nav.groups) {
       switch (group.type) {
         case NavGroupType.quizzes:
-          if (repo == null) break;
           final rows = <_HomeQuiz>[];
           for (final item in group.items) {
             if (item.hidden) continue;
-            final row = await _regularQuiz(repo, item.ref);
+            final row = await _regularQuiz(item.ref);
             if (row == null) continue;
             // Every quiz contributes its reference section to the study booklet,
             // whether or not it's still locked.
@@ -222,14 +216,26 @@ class _CourseHomePageState extends State<CourseHomePage> {
             // quizzes contribute their passage + translation + questions;
             // speaking quizzes have nothing to put in the study booklet.
             for (final e in levelEntries) {
-              switch (e.content.kind) {
+              // Source the printable content from the course bundle (JSON) so
+              // the booklet reflects edits, falling back to the compiled entry.
+              final content = await resolveQuizContent(e.key) ?? e.content;
+              switch (content.kind) {
                 case QuizKind.fillBlank:
-                  bookletEntries.add(HelpMemoryBookletEntry(e.config));
+                  bookletEntries.add(
+                    HelpMemoryBookletEntry(
+                      buildQuizConfigFromContent(
+                        content,
+                        currentPage: AppPage.quest,
+                        progressionKey: e.key,
+                        questProgression: true,
+                      ),
+                    ),
+                  );
                 case QuizKind.reading:
                 case QuizKind.listening:
                   // Listening reuses the reading fields, so its hidden script +
                   // translation + questions print like a reading section.
-                  bookletEntries.add(ReadingBookletEntry(e.content));
+                  bookletEntries.add(ReadingBookletEntry(content));
                 case QuizKind.speakRepeat:
                 case QuizKind.dictation:
                   // Spoken / dictated sentence sets have nothing to add to the
@@ -251,9 +257,29 @@ class _CourseHomePageState extends State<CourseHomePage> {
         case NavGroupType.nounChain:
           final rows = await _nounRows();
           if (rows.isNotEmpty) {
-            bookletEntries.addAll(
-              nounProgressionEntries.map((e) => HelpMemoryBookletEntry(e.config)),
-            );
+            // Source the "All Nouns" content from the bundle (JSON) and derive
+            // each category's reference from it, matching the live quiz; fall
+            // back to the compiled per-category configs if it isn't available.
+            final allNouns = await resolveQuizContent('noun_article');
+            if (allNouns != null) {
+              for (final e in nounProgressionEntries) {
+                bookletEntries.add(
+                  HelpMemoryBookletEntry(
+                    buildQuizConfigFromContent(
+                      nounProgressionContent(allNouns, e.key),
+                      currentPage: AppPage.nounsArticles,
+                      progressionKey: e.key,
+                      explanationOverride: buildNounArticleExplanation,
+                    ),
+                  ),
+                );
+              }
+            } else {
+              bookletEntries.addAll(
+                nounProgressionEntries
+                    .map((e) => HelpMemoryBookletEntry(e.config)),
+              );
+            }
             sections.add(_HomeSection(
               group.title,
               rows,
@@ -275,8 +301,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
   int get _regularGoalLaps =>
       NounSettings.instance.quizGoalStreak ~/ NounSettings.streakLapSize;
 
-  Future<_HomeQuiz?> _regularQuiz(ContentRepository repo, String ref) async {
-    final content = await repo.quizContent(ref);
+  Future<_HomeQuiz?> _regularQuiz(String ref) async {
+    // Content comes from the active course's JSON bundle (lazy + cached), then
+    // the database, then compiled — so the home rows and study booklet reflect
+    // teacher edits made through the collections.
+    final content = await resolveQuizContent(ref);
     if (content == null) return null;
     final stats = await quizStatsStore.load(content.storageKeyPrefix);
     if (content.kind == QuizKind.speakRepeat) {

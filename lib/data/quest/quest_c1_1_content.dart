@@ -247,6 +247,8 @@ final QuizContent questC11BarLichContent = sentenceQuestQuiz(
 /// 7. Hören: Ein Universitätsvortrag.
 final QuizContent questC11HoerenVorlesungContent = listeningQuestQuiz(
   id: 'quest_c1_1_hoeren_vorlesung',
+  // University lecturer (no gendered cue) — cast as a male voice for variety.
+  voiceGender: VoiceGender.male,
   title: 'C1.1 · Hören: Vorlesung',
   category: 'Education',
   passageTitle: 'Vorlesung: Sprache und Denken',
@@ -595,6 +597,8 @@ final QuizContent questC11SprechenGrafikContent = speakQuestQuiz(
 /// 13. Hören: Eine Diskussionsrunde.
 final QuizContent questC11HoerenPodiumContent = listeningQuestQuiz(
   id: 'quest_c1_1_hoeren_podiumsdiskussion',
+  // Panel moderator (no gendered cue) — cast as a male voice for variety.
+  voiceGender: VoiceGender.male,
   title: 'C1.1 · Hören: Diskussionsrunde',
   category: 'Society',
   passageTitle: 'Podium: Digitalisierung der Schule',

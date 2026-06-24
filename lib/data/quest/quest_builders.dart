@@ -130,9 +130,17 @@ QuizContent sentenceQuestQuiz({
 /// One phrase in a [speakQuestQuiz]: the German [phrase] the learner hears and
 /// repeats, and its English [meaning] shown underneath.
 class SpeakPhrase {
-  const SpeakPhrase({required this.phrase, required this.meaning});
+  const SpeakPhrase({
+    required this.phrase,
+    required this.meaning,
+    this.gender,
+  });
   final String phrase;
   final String meaning;
+
+  /// Gender of the voice that reads this phrase. Null inherits the quiz's
+  /// default voice; set it for a line spoken by a specific/different speaker.
+  final VoiceGender? gender;
 }
 
 /// A listen-&-repeat pronunciation quiz ([QuizKind.speakRepeat]) for the cert
@@ -148,6 +156,7 @@ QuizContent speakQuestQuiz({
   required List<SpeakPhrase> phrases,
   String? intro,
   List<HelpMemoryTip> tips = const [],
+  VoiceGender voiceGender = VoiceGender.female,
 }) {
   return QuizContent(
     id: id,
@@ -157,12 +166,14 @@ QuizContent speakQuestQuiz({
     promptLabel: promptLabel,
     subjectsLabel: subjectsLabel,
     subjectColumnLabel: subjectColumnLabel,
+    voiceGender: voiceGender,
     subjects: [
       for (var i = 0; i < phrases.length; i++)
         QuizSubjectData(
           key: 's$i',
           display: phrases[i].phrase,
           english: phrases[i].meaning,
+          voiceGender: phrases[i].gender,
         ),
     ],
     categories: const [],
@@ -187,6 +198,7 @@ QuizContent dictationQuestQuiz({
   required List<SpeakPhrase> sentences,
   String? intro,
   List<HelpMemoryTip> tips = const [],
+  VoiceGender voiceGender = VoiceGender.female,
 }) {
   return QuizContent(
     id: id,
@@ -196,12 +208,14 @@ QuizContent dictationQuestQuiz({
     promptLabel: promptLabel,
     subjectsLabel: subjectsLabel,
     subjectColumnLabel: subjectColumnLabel,
+    voiceGender: voiceGender,
     subjects: [
       for (var i = 0; i < sentences.length; i++)
         QuizSubjectData(
           key: 's$i',
           display: sentences[i].phrase,
           english: sentences[i].meaning,
+          voiceGender: sentences[i].gender,
         ),
     ],
     categories: const [],
@@ -264,6 +278,7 @@ QuizContent listeningQuestQuiz({
   required String passageTranslation,
   String? intro,
   List<HelpMemoryTip> tips = const [],
+  VoiceGender voiceGender = VoiceGender.female,
 }) {
   return QuizContent(
     id: id,
@@ -275,6 +290,7 @@ QuizContent listeningQuestQuiz({
     promptLabel: 'Frage',
     subjectsLabel: 'Fragen',
     subjectColumnLabel: 'Frage',
+    voiceGender: voiceGender,
     subjects: const [],
     categories: const [],
     sentences: const [],

@@ -55,6 +55,8 @@ class AppStrings {
     required this.decrease,
     required this.increase,
     required this.playing,
+    required this.pause,
+    required this.resume,
     required this.tapToListen,
     required this.finished,
     required this.speakFinishedBody,
@@ -133,6 +135,8 @@ class AppStrings {
   final String decrease;
   final String increase;
   final String playing;
+  final String pause;
+  final String resume;
   final String tapToListen;
   final String finished;
   final String speakFinishedBody;
@@ -233,6 +237,8 @@ const AppStrings _en = AppStrings(
   decrease: 'Less',
   increase: 'More',
   playing: 'Playing…',
+  pause: 'Pause',
+  resume: 'Resume',
   tapToListen: 'Tap to listen',
   finished: 'Finished!',
   speakFinishedBody: 'You practiced the phrases. Repeat the lesson anytime.',
@@ -323,6 +329,8 @@ const AppStrings _es = AppStrings(
   decrease: 'Menos',
   increase: 'Más',
   playing: 'Reproduciendo…',
+  pause: 'Pausar',
+  resume: 'Reanudar',
   tapToListen: 'Toca para escuchar',
   finished: '¡Terminado!',
   speakFinishedBody:
@@ -416,6 +424,8 @@ const AppStrings _de = AppStrings(
   decrease: 'Weniger',
   increase: 'Mehr',
   playing: 'Wird abgespielt…',
+  pause: 'Pause',
+  resume: 'Fortsetzen',
   tapToListen: 'Zum Anhören tippen',
   finished: 'Fertig!',
   speakFinishedBody:

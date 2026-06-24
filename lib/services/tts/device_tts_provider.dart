@@ -46,6 +46,10 @@ class DeviceTtsProvider implements TtsProvider {
   /// voice when speaking consecutive phrases in the same language.
   String? _appliedLocale;
 
+  /// The voice gender currently applied, so we re-select a voice when the
+  /// speaker's gender changes even though the locale stayed the same.
+  VoiceGender? _appliedGender;
+
   @override
   String get id => 'device';
 
@@ -81,7 +85,7 @@ class DeviceTtsProvider implements TtsProvider {
   @override
   Future<void> warmUp(String locale) async {
     await _ensureInitialized();
-    await _applyLanguage(locale);
+    await _applyLanguage(locale, VoiceGender.female);
     await _prime();
   }
 
@@ -119,10 +123,14 @@ class DeviceTtsProvider implements TtsProvider {
   }
 
   @override
-  Future<bool> speak(String text, String locale) async {
+  Future<bool> speak(
+    String text,
+    String locale, {
+    VoiceGender gender = VoiceGender.female,
+  }) async {
     if (text.trim().isEmpty) return true;
     await _ensureInitialized();
-    await _applyLanguage(locale);
+    await _applyLanguage(locale, gender);
     // Lead-in pause so the engine's spin-up doesn't clip the first word.
     final phrase = '$_leadInPause$text';
     // Watchdog: web SpeechSynthesis can stall an utterance — typically the
@@ -159,6 +167,16 @@ class DeviceTtsProvider implements TtsProvider {
     }
   }
 
+  /// The on-device engine has no reliable resume across platforms (flutter_tts
+  /// exposes `pause` but no `resume`, and browser SpeechSynthesis resume is
+  /// flaky), so pause here simply stops. [resume] then reports it can't continue
+  /// in place and the caller replays the passage from the start.
+  @override
+  Future<void> pause() => stop();
+
+  @override
+  Future<bool> resume() async => false;
+
   /// Waits (briefly, once) for the engine to report its voice list. On web the
   /// browser loads voices asynchronously and `setLanguage` only takes effect
   /// once they're available, so applying a language before this resolves would
@@ -182,35 +200,63 @@ class DeviceTtsProvider implements TtsProvider {
   }
 
   /// Applies [localeId] (e.g. 'de-DE', 'es-ES') to the engine and selects a
-  /// matching voice, so each language is read with its proper pronunciation.
-  /// Skips work when the locale is already applied.
-  Future<void> _applyLanguage(String localeId) async {
-    if (_appliedLocale == localeId) return;
+  /// voice matching it and [gender], so each language is read with its proper
+  /// pronunciation. Skips work when the same locale *and* gender are applied.
+  Future<void> _applyLanguage(String localeId, VoiceGender gender) async {
+    if (_appliedLocale == localeId && _appliedGender == gender) return;
     await _waitForVoices();
     await _tts.setLanguage(localeId);
-    await _selectVoice(localeId.split('-').first.toLowerCase());
+    await _selectVoice(localeId.split('-').first.toLowerCase(), gender);
     _appliedLocale = localeId;
+    _appliedGender = gender;
   }
 
-  /// Picks the first voice whose locale starts with [langPrefix] ('de', 'es',
-  /// …), where the engine exposes a voice list. A no-op elsewhere.
-  Future<void> _selectVoice(String langPrefix) async {
+  /// Picks a voice whose locale starts with [langPrefix] ('de', 'es', …),
+  /// preferring one that matches [gender] when the engine reports it. Falls back
+  /// to the first locale match (the old behaviour) when no gendered voice is
+  /// found — gender is best-effort here, since many platforms (Windows SAPI,
+  /// most browsers) expose only one voice per language or no gender metadata.
+  /// A no-op where the engine exposes no voice list.
+  Future<void> _selectVoice(String langPrefix, VoiceGender gender) async {
     try {
       final voices = await _tts.getVoices;
       if (voices is! List) return;
+      Map<dynamic, dynamic>? firstMatch;
       for (final voice in voices) {
         if (voice is! Map) continue;
         final locale = (voice['locale'] ?? '').toString().toLowerCase();
-        if (locale.startsWith(langPrefix)) {
-          await _tts.setVoice({
-            'name': (voice['name'] ?? '').toString(),
-            'locale': (voice['locale'] ?? '').toString(),
-          });
+        if (!locale.startsWith(langPrefix)) continue;
+        firstMatch ??= voice;
+        if (_voiceMatchesGender(voice, gender)) {
+          await _setVoice(voice);
           return;
         }
       }
+      // No gender-matched voice — use the first locale match, as before.
+      if (firstMatch != null) await _setVoice(firstMatch);
     } catch (_) {
       // Voice selection is best-effort; setLanguage already covers most cases.
     }
+  }
+
+  Future<void> _setVoice(Map<dynamic, dynamic> voice) => _tts.setVoice({
+    'name': (voice['name'] ?? '').toString(),
+    'locale': (voice['locale'] ?? '').toString(),
+  });
+
+  /// Whether [voice]'s reported metadata matches [gender]. Reads the engine's
+  /// `gender` field where present (Android/iOS), else looks for a male/female
+  /// hint in the voice name; returns false when nothing indicates a gender, so
+  /// the caller keeps its default rather than forcing a wrong match.
+  bool _voiceMatchesGender(Map<dynamic, dynamic> voice, VoiceGender gender) {
+    final reported = (voice['gender'] ?? '').toString().toLowerCase();
+    final name = (voice['name'] ?? '').toString().toLowerCase();
+    // "female" contains the substring "male", so test female first / explicitly.
+    final looksFemale =
+        reported == 'female' || reported == 'f' || name.contains('female');
+    final looksMale =
+        !looksFemale && (reported == 'male' || reported == 'm' ||
+            name.contains('male'));
+    return gender == VoiceGender.male ? looksMale : looksFemale;
   }
 }

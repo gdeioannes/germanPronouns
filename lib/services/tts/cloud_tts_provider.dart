@@ -51,6 +51,22 @@ abstract class CloudTtsProvider implements TtsProvider {
   /// Created on first playback (so unconfigured providers cost nothing).
   late final AudioPlayer _player = AudioPlayer();
 
+  /// True while playback is paused via [pause] (the audio clock is frozen).
+  bool _paused = false;
+
+  /// When the current pause began, used to keep paused time out of the clip's
+  /// elapsed-time accounting (see [_awaitClipEnd]).
+  DateTime? _pausedAt;
+
+  /// Total time spent paused during the current clip, excluded from its
+  /// elapsed-time wait so a pause never ends the clip early.
+  Duration _pausedAccrued = Duration.zero;
+
+  /// Bumped by [stop] (and each [speak]) so a running [_awaitClipEnd] wait can
+  /// tell its clip was superseded — including while it sits paused — and bail
+  /// out instead of spinning forever.
+  int _playGen = 0;
+
   /// The cloud REST endpoints both return MP3 (see the synthesize requests).
   static const String _audioMimeType = 'audio/mpeg';
 
@@ -79,8 +95,9 @@ abstract class CloudTtsProvider implements TtsProvider {
   String get apiKey;
 
   /// Calls the provider's REST API and returns encoded audio bytes for [text]
-  /// in [locale], or null on failure. Implemented per provider.
-  Future<List<int>?> synthesize(String text, String locale);
+  /// in [locale] read by a [gender]-matched voice, or null on failure.
+  /// Implemented per provider.
+  Future<List<int>?> synthesize(String text, String locale, VoiceGender gender);
 
   @override
   Future<void> warmUp(String locale) async {
@@ -88,15 +105,25 @@ abstract class CloudTtsProvider implements TtsProvider {
   }
 
   @override
-  Future<bool> speak(String text, String locale) async {
+  Future<bool> speak(
+    String text,
+    String locale, {
+    VoiceGender gender = VoiceGender.female,
+  }) async {
     // A failed synthesis (no bytes) is the only thing that demotes this provider
     // and lets the chain fall back to the on-device voice. Once we *have* audio
     // for the requested locale, we commit to it: returning false here would hand
     // the phrase to the device voice, which on some platforms (notably web) has
     // no voice for the target language and would read it in the wrong accent.
-    final bytes = await synthesize(text, locale);
+    final bytes = await synthesize(text, locale, gender);
     if (bytes == null || bytes.isEmpty) return false;
     onSpeakingChanged?.call(true);
+    // Fresh clip: clear any pause state from a previous one and claim a new
+    // generation so a stale [_awaitClipEnd] wait bows out.
+    _paused = false;
+    _pausedAt = null;
+    _pausedAccrued = Duration.zero;
+    final gen = ++_playGen;
     try {
       await _player.stop();
       final source = BytesSource(
@@ -128,11 +155,43 @@ abstract class CloudTtsProvider implements TtsProvider {
         // Playback Future rejected; the clip may still be playing, so don't
         // stop it or fall back — wait it out below.
       }
-      await _awaitClipEnd(completed, startedAt);
+      await _awaitClipEnd(completed, startedAt, gen);
     } finally {
       onSpeakingChanged?.call(false);
     }
     return true;
+  }
+
+  @override
+  Future<void> pause() async {
+    if (_paused) return;
+    try {
+      await _player.pause();
+      _paused = true;
+      _pausedAt = DateTime.now();
+      // The clip is silent now, so drop the speaking indicator while paused.
+      onSpeakingChanged?.call(false);
+    } catch (_) {
+      // Nothing playing to pause is fine.
+    }
+  }
+
+  @override
+  Future<bool> resume() async {
+    if (!_paused) return false;
+    try {
+      await _player.resume();
+      final pausedAt = _pausedAt;
+      if (pausedAt != null) {
+        _pausedAccrued += DateTime.now().difference(pausedAt);
+      }
+      _pausedAt = null;
+      _paused = false;
+      onSpeakingChanged?.call(true);
+      return true;
+    } catch (_) {
+      return false;
+    }
   }
 
   /// Waits (briefly) for the just-set source to finish loading, signalled by a
@@ -162,7 +221,11 @@ abstract class CloudTtsProvider implements TtsProvider {
   /// fires [onPlayerComplete] *early* (often as soon as playback starts), so the
   /// passed-in [completed] event is only a fallback for when the duration can't
   /// be read. Capped by [_playbackTimeout] so a stuck clip can't wedge playback.
-  Future<void> _awaitClipEnd(Future<void> completed, DateTime startedAt) async {
+  Future<void> _awaitClipEnd(
+    Future<void> completed,
+    DateTime startedAt,
+    int gen,
+  ) async {
     Duration? duration;
     for (var attempt = 0; attempt < 5; attempt++) {
       try {
@@ -174,13 +237,26 @@ abstract class CloudTtsProvider implements TtsProvider {
       await Future<void>.delayed(const Duration(milliseconds: 60));
     }
     if (duration != null && duration > Duration.zero) {
-      // Hold for the rest of the clip (minus the time already spent starting it
-      // and reading the duration), plus a small tail so the last word isn't
-      // clipped by the next utterance.
+      // Hold for the rest of the clip (plus a small tail so the last word isn't
+      // clipped by the next utterance). Polled in small steps rather than slept
+      // in one shot so that time spent paused — during which the player's clock
+      // is frozen — is excluded: a fixed wall-clock wait would otherwise lapse
+      // mid-pause and let the next utterance start over the paused one.
       final target = duration + const Duration(milliseconds: 200);
-      final remaining = target - DateTime.now().difference(startedAt);
-      final capped = remaining > _playbackTimeout ? _playbackTimeout : remaining;
-      if (capped > Duration.zero) await Future<void>.delayed(capped);
+      while (gen == _playGen) {
+        // Active (non-paused) time the clip has been playing.
+        final pausing = _paused && _pausedAt != null
+            ? DateTime.now().difference(_pausedAt!)
+            : Duration.zero;
+        final played =
+            DateTime.now().difference(startedAt) - _pausedAccrued - pausing;
+        if (!_paused && played >= target) break;
+        // Safety net: never wait more than the timeout of *active* playback, so
+        // a clip whose duration was misread can't wedge the funnel (a long
+        // pause, which freezes `played`, is intentionally exempt).
+        if (played >= _playbackTimeout) break;
+        await Future<void>.delayed(const Duration(milliseconds: 80));
+      }
     } else {
       try {
         await completed.timeout(_playbackTimeout, onTimeout: () {});
@@ -192,6 +268,12 @@ abstract class CloudTtsProvider implements TtsProvider {
 
   @override
   Future<void> stop() async {
+    // Supersede any running clip-end wait (including one sitting paused) and
+    // clear pause state so the next clip starts clean.
+    _playGen++;
+    _paused = false;
+    _pausedAt = null;
+    _pausedAccrued = Duration.zero;
     try {
       await _player.stop();
     } catch (_) {
@@ -229,10 +311,14 @@ class AzureTtsProvider extends CloudTtsProvider {
       apiKey.isNotEmpty && TtsCloudConfig.azureRegion.isNotEmpty;
 
   @override
-  Future<List<int>?> synthesize(String text, String locale) async {
+  Future<List<int>?> synthesize(
+    String text,
+    String locale,
+    VoiceGender gender,
+  ) async {
     final region = TtsCloudConfig.azureRegion;
     if (region.isEmpty || apiKey.isEmpty) return null;
-    final voice = _voiceFor(locale);
+    final voice = _voiceFor(locale, gender);
     if (voice == null) return null;
     final uri = Uri.parse(
       'https://$region.tts.speech.microsoft.com/cognitiveservices/v1',
@@ -261,14 +347,18 @@ class AzureTtsProvider extends CloudTtsProvider {
     }
   }
 
-  /// Azure neural voice name for [locale]; null for an unsupported language.
-  String? _voiceFor(String locale) =>
-      switch (locale.split('-').first.toLowerCase()) {
-        'de' => 'de-DE-KatjaNeural',
-        'es' => 'es-ES-ElviraNeural',
-        'en' => 'en-US-JennyNeural',
-        _ => null,
-      };
+  /// Azure neural voice name for [locale] and [gender]; null for an unsupported
+  /// language. The female voices are the app's long-standing defaults (Katja /
+  /// Elvira / Jenny); the male voices are their well-known counterparts.
+  String? _voiceFor(String locale, VoiceGender gender) {
+    final male = gender == VoiceGender.male;
+    return switch (locale.split('-').first.toLowerCase()) {
+      'de' => male ? 'de-DE-ConradNeural' : 'de-DE-KatjaNeural',
+      'es' => male ? 'es-ES-AlvaroNeural' : 'es-ES-ElviraNeural',
+      'en' => male ? 'en-US-GuyNeural' : 'en-US-JennyNeural',
+      _ => null,
+    };
+  }
 }
 
 /// Google Cloud Text-to-Speech neural voices (Neural2). Excellent German and a
@@ -286,7 +376,11 @@ class GoogleTtsProvider extends CloudTtsProvider {
   String get apiKey => TtsCloudConfig.googleKey;
 
   @override
-  Future<List<int>?> synthesize(String text, String locale) async {
+  Future<List<int>?> synthesize(
+    String text,
+    String locale,
+    VoiceGender gender,
+  ) async {
     if (apiKey.isEmpty) return null;
     final uri = Uri.parse(
       'https://texttospeech.googleapis.com/v1/text:synthesize?key=$apiKey',
@@ -303,7 +397,7 @@ class GoogleTtsProvider extends CloudTtsProvider {
                 '<speak>${CloudTtsProvider.leadInBreak}'
                 '${CloudTtsProvider.escapeXml(text)}</speak>',
           },
-          'voice': {'languageCode': locale, 'name': _voiceFor(locale)},
+          'voice': {'languageCode': locale, 'name': _voiceFor(locale, gender)},
           'audioConfig': {'audioEncoding': 'MP3'},
         }),
       );
@@ -317,13 +411,17 @@ class GoogleTtsProvider extends CloudTtsProvider {
     }
   }
 
-  /// Google neural voice name for [locale], defaulting to German.
-  String _voiceFor(String locale) =>
-      switch (locale.split('-').first.toLowerCase()) {
-        'es' => 'es-ES-Neural2-A',
-        'en' => 'en-US-Neural2-C',
-        _ => 'de-DE-Neural2-C',
-      };
+  /// Google neural voice name for [locale] and [gender], defaulting to German.
+  /// The female voices are the app's long-standing defaults; the male voices
+  /// are the matching Neural2 male voices for each language.
+  String _voiceFor(String locale, VoiceGender gender) {
+    final male = gender == VoiceGender.male;
+    return switch (locale.split('-').first.toLowerCase()) {
+      'es' => male ? 'es-ES-Neural2-B' : 'es-ES-Neural2-A',
+      'en' => male ? 'en-US-Neural2-D' : 'en-US-Neural2-C',
+      _ => male ? 'de-DE-Neural2-B' : 'de-DE-Neural2-C',
+    };
+  }
 }
 
 /// Routes synthesis through a standalone server-side proxy (the Cloudflare
@@ -353,14 +451,20 @@ class ProxyTtsProvider extends CloudTtsProvider {
   bool get isConfigured => TtsCloudConfig.proxyUrl.isNotEmpty;
 
   @override
-  Future<List<int>?> synthesize(String text, String locale) async {
+  Future<List<int>?> synthesize(
+    String text,
+    String locale,
+    VoiceGender gender,
+  ) async {
     final url = TtsCloudConfig.proxyUrl;
     if (url.isEmpty) return null;
     try {
       final resp = await http.post(
         Uri.parse(url),
         headers: const {'Content-Type': 'application/json; charset=utf-8'},
-        body: jsonEncode({'text': text, 'locale': locale}),
+        // `gender` lets the worker pick a male/female voice; older workers that
+        // ignore it simply read in the default voice, so this stays compatible.
+        body: jsonEncode({'text': text, 'locale': locale, 'gender': gender.name}),
       );
       if (resp.statusCode != 200 || resp.bodyBytes.isEmpty) return null;
       return resp.bodyBytes;

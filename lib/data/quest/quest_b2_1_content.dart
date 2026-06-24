@@ -584,6 +584,8 @@ final QuizContent questB21PassivPerfektContent = sentenceQuestQuiz(
 /// 13. Hören: Ein Nachrichtenbeitrag.
 final QuizContent questB21HoerenNachrichtenContent = listeningQuestQuiz(
   id: 'quest_b2_1_hoeren_nachrichten',
+  // News anchor (no gendered cue) — cast as a male voice for variety.
+  voiceGender: VoiceGender.male,
   title: 'B2.1 · Hören: Nachrichten',
   category: 'Media',
   passageTitle: 'Kurznachrichten',
