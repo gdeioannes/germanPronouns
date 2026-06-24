@@ -1,9 +1,10 @@
 // Cloudflare Worker: TTS proxy.
 //
 // Holds the Azure/Google cloud keys server-side so the published web app
-// (GitHub Pages) never ships them. The browser POSTs { text, locale }; the
-// Worker adds the key, calls the cloud TTS API, and returns MP3 bytes. It tries
-// Azure first (clearest German), then Google as a fallback.
+// (GitHub Pages) never ships them. The browser POSTs { text, locale, gender };
+// the Worker adds the key, calls the cloud TTS API, and returns MP3 bytes. It
+// tries Azure first (clearest German), then Google as a fallback. `gender`
+// ('male'/'female', default female) selects a male or female neural voice.
 //
 // Secrets/vars are set with wrangler — see README.md. Nothing secret lives in
 // this file or in wrangler.toml.
@@ -28,11 +29,13 @@ export default {
 
     const text = String(body.text ?? '').trim();
     const locale = String(body.locale ?? 'de-DE');
+    // 'male' picks a male voice; anything else (incl. missing) stays female.
+    const gender = body.gender === 'male' ? 'male' : 'female';
     if (!text) return json({ error: 'missing text' }, 400, cors);
     if (text.length > 600) return json({ error: 'text too long' }, 413, cors);
 
-    let audio = await azureSynthesize(text, locale, env);
-    if (!audio) audio = await googleSynthesize(text, locale, env);
+    let audio = await azureSynthesize(text, locale, gender, env);
+    if (!audio) audio = await googleSynthesize(text, locale, gender, env);
     if (!audio) return json({ error: 'tts unavailable' }, 502, cors);
 
     return new Response(audio, {
@@ -70,15 +73,17 @@ function json(obj, status, cors) {
 
 // --- Providers ---------------------------------------------------------------
 
+// Female voices are the app's long-standing defaults; male voices are their
+// matching neural counterparts, keyed by language then gender.
 const AZURE_VOICES = {
-  de: 'de-DE-KatjaNeural',
-  es: 'es-ES-ElviraNeural',
-  en: 'en-US-JennyNeural',
+  de: { female: 'de-DE-KatjaNeural', male: 'de-DE-ConradNeural' },
+  es: { female: 'es-ES-ElviraNeural', male: 'es-ES-AlvaroNeural' },
+  en: { female: 'en-US-JennyNeural', male: 'en-US-GuyNeural' },
 };
 const GOOGLE_VOICES = {
-  de: 'de-DE-Neural2-C',
-  es: 'es-ES-Neural2-A',
-  en: 'en-US-Neural2-C',
+  de: { female: 'de-DE-Neural2-C', male: 'de-DE-Neural2-B' },
+  es: { female: 'es-ES-Neural2-A', male: 'es-ES-Neural2-B' },
+  en: { female: 'en-US-Neural2-C', male: 'en-US-Neural2-D' },
 };
 
 const langOf = (locale) => (locale.split('-')[0] || 'de').toLowerCase();
@@ -91,11 +96,11 @@ const escapeXml = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 
-async function azureSynthesize(text, locale, env) {
+async function azureSynthesize(text, locale, gender, env) {
   const key = env.AZURE_TTS_KEY;
   const region = env.AZURE_TTS_REGION;
   if (!key || !region) return null;
-  const voice = AZURE_VOICES[langOf(locale)];
+  const voice = AZURE_VOICES[langOf(locale)]?.[gender];
   if (!voice) return null;
   const ssml =
     `<speak version="1.0" xml:lang="${locale}">` +
@@ -122,10 +127,12 @@ async function azureSynthesize(text, locale, env) {
   }
 }
 
-async function googleSynthesize(text, locale, env) {
+async function googleSynthesize(text, locale, gender, env) {
   const key = env.GOOGLE_TTS_KEY;
   if (!key) return null;
-  const voice = GOOGLE_VOICES[langOf(locale)] || GOOGLE_VOICES.de;
+  const voice =
+    (GOOGLE_VOICES[langOf(locale)] || GOOGLE_VOICES.de)[gender] ||
+    GOOGLE_VOICES.de[gender];
   try {
     const resp = await fetch(
       `https://texttospeech.googleapis.com/v1/text:synthesize?key=${key}`,
