@@ -5,6 +5,7 @@ import '../../data/content/content_editor.dart';
 import '../../models/content/catalog.dart';
 import '../../models/content/populated_course.dart';
 import '../../models/content/quiz.dart';
+import 'course_quiz_sentences_page.dart';
 
 /// Teacher editor over the JSON content **collections**: pick a course, see its
 /// quizzes (served from the per-course bundle), edit one, and the change is
@@ -163,7 +164,25 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
             return ListTile(
               title: Text(quiz.title),
               subtitle: Text('${quiz.type} · ${quiz.storageKeyPrefix}'),
-              trailing: const Icon(Icons.edit_rounded),
+              trailing: quiz is FillBlankQuiz
+                  ? IconButton(
+                      tooltip: 'Edit sentences',
+                      icon: const Icon(Icons.notes_rounded),
+                      onPressed: () async {
+                        await Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => CourseQuizSentencesPage(
+                              editor: _editor,
+                              courseId: _courseId!,
+                              quizId: quiz.id,
+                              title: quiz.title,
+                            ),
+                          ),
+                        );
+                        _reload();
+                      },
+                    )
+                  : const Icon(Icons.edit_rounded),
               onTap: () => _editQuizTitle(quiz),
             );
           },
