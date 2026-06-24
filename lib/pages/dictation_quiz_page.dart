@@ -8,8 +8,9 @@ import '../services/tts/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../utils/speech_match.dart';
 import '../widgets/app_drawer.dart';
-import '../widgets/help_memory.dart';
 import '../widgets/next_exercise.dart';
+import '../widgets/quiz_help_sheet.dart';
+import '../widgets/quiz_panel.dart';
 import '../widgets/voice_status_chip.dart';
 
 /// One sentence to dictate: the German [sentence] read aloud (and the target the
@@ -220,30 +221,7 @@ class _DictationQuizPageState extends State<DictationQuizPage>
     _play();
   }
 
-  void _showHelp() {
-    final content = widget.content;
-    showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      builder: (context) => DraggableScrollableSheet(
-        expand: false,
-        initialChildSize: 0.6,
-        maxChildSize: 0.9,
-        builder: (context, controller) => ListView(
-          controller: controller,
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-          children: [
-            Text(content.title, style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 12),
-            if (content.helpMemoryIntro != null)
-              HelpMemoryIntro(text: content.helpMemoryIntro!),
-            for (final tip in content.helpMemoryTips) HelpTipCard(tip: tip),
-          ],
-        ),
-      ),
-    );
-  }
+  void _showHelp() => showQuizHelpSheet(context, widget.content);
 
   @override
   void dispose() {
@@ -309,26 +287,8 @@ class _DictationQuizPageState extends State<DictationQuizPage>
     );
   }
 
-  Widget _panel(BuildContext context, {required Widget child}) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kRadiusLarge),
-        boxShadow: [
-          BoxShadow(color: colorScheme.outline, offset: const Offset(0, 3)),
-        ],
-      ),
-      child: Card(
-        margin: EdgeInsets.zero,
-        color: colorScheme.surfaceContainer,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(kRadiusLarge),
-          side: BorderSide(color: Colors.grey.shade400),
-        ),
-        child: Padding(padding: const EdgeInsets.all(16), child: child),
-      ),
-    );
-  }
+  Widget _panel(BuildContext context, {required Widget child}) =>
+      QuizPanel(child: child);
 
   Widget _buildCard(BuildContext context) {
     final theme = Theme.of(context);
