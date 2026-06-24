@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/app_page.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../services/tts/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../utils/speech_match.dart';
-import '../widgets/app_drawer.dart';
 import '../widgets/next_exercise.dart';
-import '../widgets/quiz_help_sheet.dart';
 import '../widgets/quiz_panel.dart';
+import '../widgets/quiz_scaffold.dart';
 import '../widgets/voice_status_chip.dart';
 
 /// One sentence to dictate: the German [sentence] read aloud (and the target the
@@ -221,8 +221,6 @@ class _DictationQuizPageState extends State<DictationQuizPage>
     _play();
   }
 
-  void _showHelp() => showQuizHelpSheet(context, widget.content);
-
   @override
   void dispose() {
     _pulse.dispose();
@@ -235,26 +233,9 @@ class _DictationQuizPageState extends State<DictationQuizPage>
 
   @override
   Widget build(BuildContext context) {
-    final strings = CourseSession.instance.strings;
-    return Scaffold(
-      appBar: AppBar(
-        title: FittedBox(
-          fit: BoxFit.scaleDown,
-          alignment: Alignment.centerLeft,
-          child: Text(widget.content.title),
-        ),
-        actions: [
-          IconButton(
-            tooltip: strings.help,
-            icon: const Icon(Icons.help_outline_rounded),
-            onPressed: _showHelp,
-          ),
-        ],
-      ),
-      drawer: AppDrawer(
-        currentPage: widget.currentPage,
-        currentContentId: widget.content.id,
-      ),
+    return QuizScaffold(
+      content: widget.content,
+      currentPage: widget.currentPage,
       body: SafeArea(
         child: Align(
           alignment: Alignment.topCenter,

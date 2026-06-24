@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/app_page.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../theme/app_theme.dart';
-import '../widgets/app_drawer.dart';
 import '../widgets/multiple_choice_questions.dart';
 import '../widgets/next_exercise.dart';
-import '../widgets/quiz_help_sheet.dart';
 import '../widgets/quiz_panel.dart';
+import '../widgets/quiz_scaffold.dart';
 
 /// A reading-comprehension quiz ([QuizKind.reading]): a short A1 passage shown
 /// first, then a set of multiple-choice questions (rendered by the shared
@@ -171,26 +171,9 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    final strings = CourseSession.instance.strings;
-    return Scaffold(
-      appBar: AppBar(
-        title: FittedBox(
-          fit: BoxFit.scaleDown,
-          alignment: Alignment.centerLeft,
-          child: Text(widget.content.title),
-        ),
-        actions: [
-          IconButton(
-            tooltip: strings.help,
-            icon: const Icon(Icons.help_outline_rounded),
-            onPressed: () => showQuizHelpSheet(context, widget.content),
-          ),
-        ],
-      ),
-      drawer: AppDrawer(
-        currentPage: widget.currentPage,
-        currentContentId: widget.content.id,
-      ),
+    return QuizScaffold(
+      content: widget.content,
+      currentPage: widget.currentPage,
       body: SafeArea(
         child: Align(
           alignment: Alignment.topCenter,
