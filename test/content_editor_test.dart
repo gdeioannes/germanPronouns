@@ -74,6 +74,97 @@ void main() {
     expect((await t.editor.course('en_de')).quizById('pronoun'), isNotNull);
   });
 
+  test('reorderQuizzes persists the new order', () async {
+    final t = build();
+    final before =
+        (await t.editor.course('en_de')).quizzes.map((q) => q.id).toList();
+    expect(before.length, 2);
+
+    await t.editor.reorderQuizzes(
+      'en_de',
+      (await t.editor.course('en_de')).quizzes.reversed.toList(),
+    );
+
+    final after =
+        (await t.editor.course('en_de')).quizzes.map((q) => q.id).toList();
+    expect(after, before.reversed.toList());
+  });
+
+  test('reorderQuizzes rejects adding/dropping a quiz', () async {
+    final t = build();
+    final quizzes = (await t.editor.course('en_de')).quizzes;
+    expect(
+      () => t.editor.reorderQuizzes('en_de', [quizzes.first]),
+      throwsArgumentError,
+    );
+  });
+
+  test('createQuiz adds an empty typed quiz the teacher can fill', () async {
+    final t = build();
+
+    final created = await t.editor.createQuiz(
+      'en_de',
+      type: 'reading',
+      id: 'r1',
+      title: 'New Reading',
+      storageKeyPrefix: 'r1_',
+    );
+    expect(created, isA<ReadingQuiz>());
+
+    final reloaded = (await t.editor.course('en_de')).quizById('r1');
+    expect(reloaded, isA<ReadingQuiz>());
+    expect(reloaded!.title, 'New Reading');
+    expect(reloaded.storageKeyPrefix, 'r1_');
+  });
+
+  test('createQuiz rejects a duplicate storageKeyPrefix', () async {
+    final t = build();
+    final existing = (await t.editor.course('en_de')).quizById('article')!;
+    expect(
+      () => t.editor.createQuiz(
+        'en_de',
+        type: 'fillBlank',
+        id: 'dup',
+        title: 'Dup',
+        storageKeyPrefix: existing.storageKeyPrefix,
+      ),
+      throwsArgumentError,
+    );
+  });
+
+  test('emptyQuiz builds the right subtype for each discriminator', () {
+    expect(
+      emptyQuiz(type: 'fillBlank', id: 'a', title: 'A', storageKeyPrefix: 'a_'),
+      isA<FillBlankQuiz>(),
+    );
+    expect(
+      emptyQuiz(type: 'reading', id: 'b', title: 'B', storageKeyPrefix: 'b_'),
+      isA<ReadingQuiz>(),
+    );
+    expect(
+      emptyQuiz(type: 'listening', id: 'c', title: 'C', storageKeyPrefix: 'c_'),
+      isA<ListeningQuiz>(),
+    );
+    expect(
+      emptyQuiz(
+        type: 'speakRepeat',
+        id: 'd',
+        title: 'D',
+        storageKeyPrefix: 'd_',
+      ),
+      isA<SpeakRepeatQuiz>(),
+    );
+    expect(
+      emptyQuiz(
+        type: 'dictation',
+        id: 'e',
+        title: 'E',
+        storageKeyPrefix: 'e_',
+      ),
+      isA<DictationQuiz>(),
+    );
+  });
+
   test('resetCourse drops edits and reverts to the shipped bundle', () async {
     final t = build();
     final original = (await t.editor.course('en_de')).quizById('article')!;

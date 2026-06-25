@@ -109,6 +109,15 @@ class _CourseSpokenLinesPageState extends State<CourseSpokenLinesPage> {
     await _persist();
   }
 
+  /// [newIndex] is already adjusted for the removed item (onReorderItem).
+  Future<void> _reorder(int oldIndex, int newIndex) async {
+    setState(() {
+      final item = _lines.removeAt(oldIndex);
+      _lines.insert(newIndex, item);
+    });
+    await _persist();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,12 +126,17 @@ class _CourseSpokenLinesPageState extends State<CourseSpokenLinesPage> {
           ? const Center(child: CircularProgressIndicator())
           : _quiz == null
           ? const Center(child: Text('This quiz has no spoken lines.'))
-          : ListView.separated(
+          : ReorderableListView.builder(
               itemCount: _lines.length,
-              separatorBuilder: (_, _) => const Divider(height: 1),
+              onReorderItem: _reorder,
               itemBuilder: (context, index) {
                 final l = _lines[index];
                 return ListTile(
+                  key: ObjectKey(l),
+                  leading: ReorderableDragStartListener(
+                    index: index,
+                    child: const Icon(Icons.drag_handle_rounded),
+                  ),
                   title: Text(l.text),
                   subtitle: (l.translation ?? '').isEmpty
                       ? null

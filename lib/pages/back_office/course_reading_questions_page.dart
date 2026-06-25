@@ -95,6 +95,15 @@ class _CourseReadingQuestionsPageState
     await _persist();
   }
 
+  /// [newIndex] is already adjusted for the removed item (onReorderItem).
+  Future<void> _reorder(int oldIndex, int newIndex) async {
+    setState(() {
+      final item = _questions.removeAt(oldIndex);
+      _questions.insert(newIndex, item);
+    });
+    await _persist();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,9 +112,9 @@ class _CourseReadingQuestionsPageState
           ? const Center(child: CircularProgressIndicator())
           : _quiz == null
           ? const Center(child: Text('This quiz has no questions.'))
-          : ListView.separated(
+          : ReorderableListView.builder(
               itemCount: _questions.length,
-              separatorBuilder: (_, _) => const Divider(height: 1),
+              onReorderItem: _reorder,
               itemBuilder: (context, index) {
                 final q = _questions[index];
                 final correct = q.correctIndex >= 0 &&
@@ -113,6 +122,11 @@ class _CourseReadingQuestionsPageState
                     ? q.options[q.correctIndex]
                     : '?';
                 return ListTile(
+                  key: ObjectKey(q),
+                  leading: ReorderableDragStartListener(
+                    index: index,
+                    child: const Icon(Icons.drag_handle_rounded),
+                  ),
                   title: Text(q.question),
                   subtitle: Text('${q.options.length} options · ✓ $correct'),
                   onTap: () => _addOrEdit(index: index),

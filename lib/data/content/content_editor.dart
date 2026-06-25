@@ -2,6 +2,57 @@ import '../../models/content/populated_course.dart';
 import '../../models/content/quiz.dart';
 import 'course_content_provider.dart';
 
+/// Builds an empty quiz of [type] with sensible per-type labels — the blank a
+/// teacher starts from when adding a quiz (filled in afterwards with the
+/// per-type forms). [type] is a [Quiz] discriminator.
+Quiz emptyQuiz({
+  required String type,
+  required String id,
+  required String title,
+  required String storageKeyPrefix,
+}) => switch (type) {
+  'reading' => ReadingQuiz(
+    id: id,
+    title: title,
+    storageKeyPrefix: storageKeyPrefix,
+    promptLabel: 'Question',
+    subjectsLabel: 'Questions',
+    subjectColumnLabel: 'Question',
+  ),
+  'listening' => ListeningQuiz(
+    id: id,
+    title: title,
+    storageKeyPrefix: storageKeyPrefix,
+    promptLabel: 'Question',
+    subjectsLabel: 'Questions',
+    subjectColumnLabel: 'Question',
+  ),
+  'speakRepeat' => SpeakRepeatQuiz(
+    id: id,
+    title: title,
+    storageKeyPrefix: storageKeyPrefix,
+    promptLabel: 'Phrase',
+    subjectsLabel: 'Phrases',
+    subjectColumnLabel: 'Phrase',
+  ),
+  'dictation' => DictationQuiz(
+    id: id,
+    title: title,
+    storageKeyPrefix: storageKeyPrefix,
+    promptLabel: 'Sentence',
+    subjectsLabel: 'Sentences',
+    subjectColumnLabel: 'Sentence',
+  ),
+  _ => FillBlankQuiz(
+    id: id,
+    title: title,
+    storageKeyPrefix: storageKeyPrefix,
+    promptLabel: 'Word',
+    subjectsLabel: 'Items',
+    subjectColumnLabel: 'Item',
+  ),
+};
+
 /// Local, validated editor for the JSON content collections — the **write** side
 /// of the same seam the learner reads. Edits are persisted to a
 /// [CourseBundleStore] (the device database) and override the shipped asset
@@ -40,6 +91,40 @@ class ContentEditor {
         if (q.id != quizId) q,
     ];
     await _persist(current, quizzes);
+  }
+
+  /// Persists a reordered quiz list for [courseId] (drag-to-rearrange). The
+  /// quizzes are unchanged — only their order — but it's validated to be the
+  /// same set (no accidental add/drop) before writing.
+  Future<void> reorderQuizzes(String courseId, List<Quiz> ordered) async {
+    final current = await provider.populated(courseId);
+    final before = {for (final q in current.quizzes) q.id};
+    final after = {for (final q in ordered) q.id};
+    if (before.length != after.length || !before.containsAll(after)) {
+      throw ArgumentError('Reorder must keep the same set of quizzes.');
+    }
+    await _persist(current, ordered);
+  }
+
+  /// Creates an empty quiz of [type] in [courseId] (the teacher then fills it in
+  /// with the per-type forms), validated and persisted. [type] is a [Quiz]
+  /// discriminator (`fillBlank` | `reading` | `listening` | `speakRepeat` |
+  /// `dictation`).
+  Future<Quiz> createQuiz(
+    String courseId, {
+    required String type,
+    required String id,
+    required String title,
+    required String storageKeyPrefix,
+  }) async {
+    final quiz = emptyQuiz(
+      type: type,
+      id: id.trim(),
+      title: title.trim(),
+      storageKeyPrefix: storageKeyPrefix.trim(),
+    );
+    await saveQuiz(courseId, quiz);
+    return quiz;
   }
 
   /// Reverts [courseId] to the shipped bundle (drops all local edits).
