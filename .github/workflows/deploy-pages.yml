@@ -34,8 +34,12 @@ jobs:
         run: flutter pub get
 
       - name: Build web app
-       # Updated --base-href to "/" for custom domain use
         run: flutter build web --release --base-href "/" --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev
+
+      # 🌟 CRITICAL STEP: Add this to keep GitHub Pages tied to your custom domain
+      - name: Inject CNAME file
+        run: echo "languagequiz.org" > build/web/CNAME
+
       - name: Setup Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
