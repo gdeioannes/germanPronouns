@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'German Grammar',
+                  'Language Courses & Quizzes',
                   textAlign: TextAlign.center,
                   style: textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w700,
