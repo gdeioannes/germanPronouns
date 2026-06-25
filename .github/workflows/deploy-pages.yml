@@ -34,10 +34,8 @@ jobs:
         run: flutter pub get
 
       - name: Build web app
-        # TTS_PROXY_URL points the web app at the Cloudflare Worker that holds
-        # the cloud TTS keys (it's a URL, not a secret, so it's fine inline).
-        run: flutter build web --release --base-href "/${{ github.event.repository.name }}/" --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev
-
+       # Updated --base-href to "/" for custom domain use
+        run: flutter build web --release --base-href "/" --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev
       - name: Setup Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
