@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Germanquiz',
+      title: 'languagequiz',
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: _messengerKey,
       theme: buildAppTheme(),
