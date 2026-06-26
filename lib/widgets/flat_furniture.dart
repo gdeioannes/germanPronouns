@@ -25,6 +25,10 @@ const Set<String> _animatedGlyphs = {
   'clock', // sweeping second hand
   'tv', 'computer', 'laptop', 'arcade', // screen flicker
   'window', 'archwindow', 'roundwindow', // drifting clouds / shifting sky
+  // People — small in-character motions (a writing hand, a jog in place, mug
+  // steam, drifting Zzz…). Meditator & Yogi instead just breathe (whole-piece).
+  'reader', 'student', 'stretch', 'jogger', 'walker', 'coffee',
+  'sleeper', 'dreamer', 'petter', 'listener',
 };
 
 /// Whether [glyph]'s drawing animates itself when given an idle clock.
@@ -156,6 +160,58 @@ class _FurniturePainter extends CustomPainter {
         circ(x, y, 0.02 + 0.02 * rise,
             Colors.white.withValues(alpha: math.sin(rise * math.pi) * 0.4));
       }
+    }
+
+    // A stroked circle outline (for glasses, etc.).
+    void ring(double cx, double cy, double rad, double w, Color color) {
+      canvas.drawCircle(
+        Offset(cx * u, cy * u),
+        rad * u,
+        paint
+          ..color = color
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = w * u,
+      );
+    }
+
+    // A little person's head: a hair cap, a face, two eyes and a gentle smile —
+    // shared by every "People" pose so they read as one calm, friendly cast.
+    // [sleeping] draws closed eyes; [glasses] adds round spectacles.
+    const skin = Color(0xFFE9B68C);
+    const hair = Color(0xFF4A3B30);
+    const eye = Color(0xFF2E251F);
+    void head(double cx, double cy, double r,
+        {bool sleeping = false, bool glasses = false}) {
+      circ(cx, cy - r * 0.22, r, hair); // hair (sits a touch higher)
+      circ(cx, cy, r * 0.9, skin); // face
+      final ey = cy - r * 0.04; // eye line
+      final edx = r * 0.34; // eye spacing from centre
+      if (sleeping) {
+        line(cx - edx - r * 0.14, ey, cx - edx + r * 0.14, ey, 0.012, eye);
+        line(cx + edx - r * 0.14, ey, cx + edx + r * 0.14, ey, 0.012, eye);
+      } else {
+        circ(cx - edx, ey, r * 0.12, eye); // eyes
+        circ(cx + edx, ey, r * 0.12, eye);
+      }
+      if (glasses) {
+        ring(cx - edx, ey, r * 0.22, r * 0.045, eye);
+        ring(cx + edx, ey, r * 0.22, r * 0.045, eye);
+        line(cx - edx + r * 0.2, ey, cx + edx - r * 0.2, ey, 0.008, eye);
+      }
+      // A soft smile: the lower arc of a small circle (concave up).
+      canvas.drawArc(
+        Rect.fromCircle(
+            center: Offset(cx * u, (cy + r * 0.16) * u), radius: r * 0.34 * u),
+        0.18 * math.pi,
+        0.64 * math.pi,
+        false,
+        Paint()
+          ..color = eye
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = r * 0.085 * u
+          ..strokeCap = StrokeCap.round
+          ..isAntiAlias = true,
+      );
     }
 
     // Every floor piece is grounded near y = 0.90 and uses most of the box
@@ -861,6 +917,191 @@ class _FurniturePainter extends CustomPainter {
           circ(0.50, 0.76, 0.02, dark); // bolt
           circ(0.20, 0.46, 0.02, dark); // bolt
           circ(0.80, 0.46, 0.02, dark); // bolt
+        }
+      // ── People (calm little characters) ─────────────────────────────────
+      // Limbs are round-capped strokes, the torso a soft box, the head a hair
+      // cap over a face — all in the item's clothing colour.
+      case 'reader': // sits with knees up, reading a book
+        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // floor cushion
+        line(0.40, 0.82, 0.58, 0.82, 0.06, base); // thigh
+        line(0.58, 0.82, 0.60, 0.70, 0.06, base); // shin (knee up)
+        box(0.40, 0.52, 0.60, 0.80, 0.07, base); // torso
+        head(0.50, 0.42 + 0.008 * wv(1), 0.095,
+            glasses: true); // gentle reading nod, in reading glasses
+        line(0.42, 0.58, 0.44, 0.68, 0.04, base); // arm
+        line(0.58, 0.58, 0.56, 0.68, 0.04, base); // arm
+        box(0.37, 0.62, 0.63, 0.70, 0.008, offWhite); // open book
+        line(0.50, 0.62, 0.50, 0.70, 0.006, dark); // spine
+      case 'student': // sits writing in a notebook
+        {
+          box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
+          poly(const [
+            Offset(0.36, 0.83),
+            Offset(0.64, 0.83),
+            Offset(0.58, 0.74),
+            Offset(0.42, 0.74),
+          ], base); // folded legs
+          box(0.42, 0.52, 0.60, 0.76, 0.07, base); // torso
+          head(0.51, 0.42, 0.095, glasses: true); // studious glasses
+          final w = 0.025 * wv(2); // writing hand wiggles across the page
+          line(0.45, 0.60, 0.40 + w, 0.72, 0.04, base); // writing arm
+          box(0.32, 0.72, 0.50, 0.78, 0.008, offWhite); // notebook
+          line(0.39 + w, 0.72, 0.43 + w, 0.68, 0.01, dark); // pencil
+        }
+      case 'meditator': // cross-legged, hands resting on knees
+        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
+        poly(const [
+          Offset(0.32, 0.83),
+          Offset(0.68, 0.83),
+          Offset(0.60, 0.74),
+          Offset(0.40, 0.74),
+        ], base); // crossed legs
+        box(0.43, 0.50, 0.57, 0.76, 0.07, base); // torso
+        head(0.50, 0.40, 0.10, sleeping: true); // eyes closed, serene
+        line(0.43, 0.58, 0.35, 0.74, 0.04, base); // arm to knee
+        line(0.57, 0.58, 0.65, 0.74, 0.04, base); // arm to knee
+      case 'yogatree': // tree pose — one leg up, palms together overhead
+        line(0.50, 0.62, 0.50, 0.88, 0.055, base); // standing leg
+        line(0.50, 0.70, 0.41, 0.78, 0.05, base); // bent thigh
+        line(0.41, 0.78, 0.49, 0.70, 0.05, base); // foot to knee
+        box(0.43, 0.42, 0.57, 0.64, 0.07, base); // torso
+        head(0.50, 0.32, 0.095);
+        circ(0.50, 0.222, 0.028, const Color(0xFF4A3B30)); // hair bun on top
+        line(0.47, 0.46, 0.50, 0.20, 0.038, base); // arm up
+        line(0.53, 0.46, 0.50, 0.20, 0.038, base); // arm up
+      case 'stretch': // gentle overhead side stretch
+        {
+          line(0.46, 0.62, 0.45, 0.88, 0.05, base); // leg
+          line(0.54, 0.62, 0.55, 0.88, 0.05, base); // leg
+          box(0.43, 0.42, 0.57, 0.64, 0.07, base); // torso
+          head(0.53, 0.32, 0.095);
+          line(0.46, 0.295, 0.61, 0.295, 0.022, light); // sweatband
+          final r = on ? 0.025 * (0.5 + 0.5 * wv(1)) : 0.0; // slow reach up
+          line(0.50, 0.46, 0.66, 0.30 - r, 0.038, base); // reaching arms
+          line(0.50, 0.48, 0.62, 0.34 - r, 0.038, base);
+        }
+      case 'jogger': // light jog in place — legs and arms swing in counter-time
+        {
+          final s = 0.09 * wv(2); // stride swing
+          line(0.50, 0.60, 0.46 + s, 0.88, 0.05, base); // leg
+          line(0.50, 0.60, 0.54 - s, 0.86, 0.05, base); // leg
+          box(0.44, 0.40, 0.60, 0.60, 0.06, base); // torso (slight lean)
+          head(0.55, 0.30, 0.09);
+          line(0.47, 0.275, 0.63, 0.275, 0.022, light); // sweatband
+          line(0.48, 0.46, 0.42 - s, 0.50, 0.038, base); // arm
+          line(0.58, 0.46, 0.62 + s, 0.42, 0.038, base); // arm
+        }
+      case 'walker': // a calm walk in place
+        {
+          final s = 0.05 * wv(1); // gentle stride
+          line(0.50, 0.62, 0.44 + s, 0.88, 0.05, base); // leg
+          line(0.50, 0.62, 0.56 - s, 0.88, 0.05, base); // leg
+          box(0.44, 0.40, 0.58, 0.64, 0.07, base); // torso
+          head(0.51, 0.30, 0.095);
+          box(0.45, 0.385, 0.57, 0.42, 0.01, light); // scarf
+          box(0.46, 0.40, 0.50, 0.50, 0.01, light); // scarf tail
+          line(0.46, 0.46, 0.42 - s, 0.58, 0.038, base); // arm
+          line(0.56, 0.46, 0.60 + s, 0.58, 0.038, base); // arm
+        }
+      case 'coffee': // sits relaxed with a warm mug
+        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
+        poly(const [
+          Offset(0.34, 0.83),
+          Offset(0.66, 0.83),
+          Offset(0.60, 0.74),
+          Offset(0.40, 0.74),
+        ], base); // legs
+        box(0.42, 0.52, 0.60, 0.76, 0.07, base); // torso
+        head(0.50, 0.42, 0.095);
+        line(0.44, 0.60, 0.49, 0.66, 0.038, base); // arm to mug
+        line(0.56, 0.60, 0.51, 0.66, 0.038, base); // arm to mug
+        box(0.46, 0.63, 0.54, 0.70, 0.015, offWhite); // mug
+        line(0.54, 0.65, 0.57, 0.67, 0.012, offWhite); // handle
+        steam(0.50, 0.61); // warm steam curling off the mug
+      case 'sleeper': // curled on a pillow, Zzz drifting up
+        {
+          box(0.30, 0.74, 0.86, 0.86, 0.06, base); // body under a blanket
+          box(0.20, 0.72, 0.36, 0.82, 0.04, offWhite); // pillow
+          head(0.28, 0.68, 0.08, sleeping: true); // peaceful sleeping face
+          poly(const [
+            Offset(0.20, 0.64),
+            Offset(0.37, 0.63),
+            Offset(0.26, 0.50),
+          ], base); // nightcap
+          circ(0.26, 0.50, 0.018, offWhite); // pom-pom
+          final z = saw(1); // 0..1 drift cycle
+          final dy = on ? -0.10 * z : 0.0; // float up
+          final zc = dark.withValues(alpha: on ? math.sin(z * math.pi) : 1.0);
+          line(0.64, 0.50 + dy, 0.71, 0.50 + dy, 0.012, zc); // big Z
+          line(0.71, 0.50 + dy, 0.64, 0.58 + dy, 0.012, zc);
+          line(0.64, 0.58 + dy, 0.71, 0.58 + dy, 0.012, zc);
+          line(0.74, 0.42 + dy, 0.79, 0.42 + dy, 0.01, zc); // small z
+          line(0.79, 0.42 + dy, 0.74, 0.48 + dy, 0.01, zc);
+          line(0.74, 0.48 + dy, 0.79, 0.48 + dy, 0.01, zc);
+        }
+      case 'dreamer': // lying back, knees up, hands behind the head
+        box(0.20, 0.80, 0.78, 0.88, 0.05, base); // body lying
+        poly(const [
+          Offset(0.64, 0.80),
+          Offset(0.78, 0.80),
+          Offset(0.76, 0.70),
+          Offset(0.68, 0.72),
+        ], base); // knees up
+        head(0.26, 0.76, 0.08, sleeping: true); // dreaming, eyes closed
+        line(0.20, 0.78, 0.30, 0.72, 0.03, base); // arm behind head
+        if (on) {
+          // Two little dream bubbles drift up from the head and fade away.
+          for (var k = 0; k < 2; k++) {
+            final d = saw(1, k * 0.5);
+            circ(0.30 + 0.03 * k, 0.70 - 0.18 * d, 0.016 + 0.008 * k,
+                Colors.white.withValues(alpha: math.sin(d * math.pi) * 0.5));
+          }
+        }
+      case 'petter': // sits gently petting a little cat
+        {
+          box(0.24, 0.84, 0.76, 0.90, 0.03, dark); // mat
+          poly(const [
+            Offset(0.32, 0.83),
+            Offset(0.62, 0.83),
+            Offset(0.56, 0.74),
+            Offset(0.38, 0.74),
+          ], base); // legs
+          box(0.38, 0.54, 0.56, 0.76, 0.07, base); // torso
+          head(0.47, 0.44, 0.095);
+          final pat = on ? 0.018 * (0.5 + 0.5 * wv(2)) : 0.0; // stroking
+          line(0.54, 0.60, 0.66, 0.74 + pat, 0.038, base); // arm pets the cat
+          line(0.62, 0.84, 0.56, 0.80, 0.02, dark); // cat tail
+          box(0.62, 0.80, 0.76, 0.87, 0.05, dark); // cat body
+          circ(0.74, 0.78, 0.045, dark); // cat head
+          poly(const [
+            Offset(0.71, 0.75),
+            Offset(0.72, 0.71),
+            Offset(0.745, 0.75),
+          ], dark); // cat ear
+        }
+      case 'listener': // sits back with headphones on
+        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
+        poly(const [
+          Offset(0.34, 0.83),
+          Offset(0.66, 0.83),
+          Offset(0.60, 0.74),
+          Offset(0.40, 0.74),
+        ], base); // legs
+        box(0.42, 0.54, 0.58, 0.76, 0.07, base); // torso
+        head(0.50, 0.44, 0.10);
+        line(0.41, 0.44, 0.50, 0.35, 0.016, dark); // headphone band
+        line(0.50, 0.35, 0.59, 0.44, 0.016, dark);
+        circ(0.40, 0.47, 0.035, dark); // ear cup
+        circ(0.60, 0.47, 0.035, dark); // ear cup
+        line(0.44, 0.60, 0.42, 0.72, 0.038, base); // relaxed arm
+        line(0.56, 0.60, 0.58, 0.72, 0.038, base); // relaxed arm
+        if (on) {
+          // A little music note floats up and fades, by the right ear.
+          final n = saw(1);
+          final ny = 0.42 - 0.20 * n;
+          final nc = dark.withValues(alpha: math.sin(n * math.pi) * 0.7);
+          circ(0.70, ny, 0.02, nc); // note head
+          line(0.719, ny, 0.719, ny - 0.06, 0.01, nc); // stem
         }
       default:
         circ(0.5, 0.5, 0.30, base);

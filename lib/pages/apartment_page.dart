@@ -530,6 +530,9 @@ class _RoomCanvasState extends State<_RoomCanvas>
               iid,
               Offset(c.dx / size.width, c.dy / size.height),
             );
+            // The piece just arranged jumps to the top of the stack and stays
+            // there, above everything else.
+            Apartment.instance.bringToFront(iid);
           }
           setState(() {
             _dragId = null;
@@ -593,8 +596,11 @@ _Motion _motionFor(String glyph) {
     case 'hangingplant':
     case 'birdcage':
       return _Motion.pendulum;
-    // The cat softly breathes.
+    // The cat, the meditator and the yogi softly breathe (whole-piece). The
+    // other people have their own small in-character motions in the painter.
     case 'pet':
+    case 'meditator':
+    case 'yogatree':
       return _Motion.breathe;
     default:
       return _Motion.none;

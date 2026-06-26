@@ -24,6 +24,14 @@ void main() {
     expect(find.byType(FlatFurniture), findsNWidgets(shopCatalog.length));
   });
 
+  test('the People category has 50+ calm characters', () {
+    final people = shopCatalog.where((i) => i.category == 'People').toList();
+    expect(people.length, greaterThanOrEqualTo(50));
+    // They're placeable characters, not room surfaces, and hang on the floor.
+    expect(people.every((i) => !i.isSurface), isTrue);
+    expect(people.every((i) => !i.onWall), isTrue);
+  });
+
   test('only in-character glyphs report an idle animation', () {
     // A flame, a fish tank and a fan animate; plain furniture does not.
     expect(furnitureHasIdleAnimation('candle'), isTrue);

@@ -405,6 +405,45 @@ final List<ShopItem> _more = [
   ..._ways('pet', 'Cat',
       hues: const [_orange, _charcoal, _cream, _white],
       basePrice: 75, step: 5, scale: 0.5),
+  // People — calm little characters to bring the room to life: reading,
+  // studying, resting, a little gentle yoga and light sport. Each pose comes in
+  // a few outfit colours (the colourway tints their clothes).
+  ..._ways('reader', 'Reader',
+      hues: const [_sage, _teal, _mustard, _navy, _rose],
+      basePrice: 50, step: 5, scale: 0.85),
+  ..._ways('student', 'Student',
+      hues: const [_terra, _plum, _blush, _charcoal, _cream],
+      basePrice: 55, step: 5, scale: 0.85),
+  ..._ways('meditator', 'Meditator',
+      hues: const [_sage, _teal, _mustard, _navy, _rose],
+      basePrice: 60, step: 5, scale: 0.85),
+  ..._ways('yogatree', 'Yogi',
+      hues: const [_terra, _plum, _blush, _charcoal, _cream],
+      basePrice: 60, step: 5, scale: 1.05),
+  ..._ways('stretch', 'Stretcher',
+      hues: const [_sage, _teal, _mustard, _navy, _rose],
+      basePrice: 58, step: 5, scale: 1.05),
+  ..._ways('jogger', 'Jogger',
+      hues: const [_terra, _plum, _blush, _charcoal, _cream],
+      basePrice: 62, step: 5, scale: 1.0),
+  ..._ways('walker', 'Walker',
+      hues: const [_sage, _teal, _mustard, _navy, _rose],
+      basePrice: 56, step: 5, scale: 1.05),
+  ..._ways('coffee', 'Coffee Break',
+      hues: const [_terra, _plum, _blush, _charcoal, _cream],
+      basePrice: 64, step: 5, scale: 0.85),
+  ..._ways('sleeper', 'Sleeper',
+      hues: const [_sage, _teal, _mustard, _navy, _rose],
+      basePrice: 52, step: 5, scale: 0.95),
+  ..._ways('dreamer', 'Dreamer',
+      hues: const [_terra, _plum, _blush, _charcoal, _cream],
+      basePrice: 54, step: 5, scale: 0.95),
+  ..._ways('petter', 'Pet Lover',
+      hues: const [_sage, _teal, _mustard, _navy, _rose],
+      basePrice: 66, step: 5, scale: 0.85),
+  ..._ways('listener', 'Listener',
+      hues: const [_terra, _plum, _blush, _charcoal, _cream],
+      basePrice: 58, step: 5, scale: 0.85),
   // Flooring — changes the room's floor. The newest one bought shows; donating
   // it reveals the previous, down to the default wood.
   ..._ways('floorwood', 'Wood Floor',
@@ -453,6 +492,7 @@ const List<String> shopCategories = [
   'Bathroom',
   'Accessories',
   'Pets',
+  'People',
 ];
 
 /// Which category each drawing belongs to. Keyed by [ShopItem.glyph], so every
@@ -502,6 +542,11 @@ const Map<String, String> _categoryByGlyph = {
   'trashcan': 'Accessories',
   // Pets.
   'pet': 'Pets', 'fishbowl': 'Pets', 'aquarium': 'Pets', 'birdcage': 'Pets',
+  // People (calm little characters).
+  'reader': 'People', 'student': 'People', 'meditator': 'People',
+  'yogatree': 'People', 'stretch': 'People', 'jogger': 'People',
+  'walker': 'People', 'coffee': 'People', 'sleeper': 'People',
+  'dreamer': 'People', 'petter': 'People', 'listener': 'People',
 };
 
 /// The category for [glyph] (falls back to "Accessories" for anything new).

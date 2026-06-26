@@ -92,6 +92,20 @@ const Map<String, Map<String, String>> furnitureNames = {
   'window': {'en': 'window', 'de': 'das Fenster', 'es': 'la ventana'},
   'archwindow': {'en': 'arched window', 'de': 'das Bogenfenster', 'es': 'la ventana de arco'},
   'roundwindow': {'en': 'round window', 'de': 'das Rundfenster', 'es': 'la ventana redonda'},
+  // People — the calm characters. Named for who they are or what they're doing,
+  // so double-tapping one still teaches a useful word.
+  'reader': {'en': 'reader', 'de': 'der Leser', 'es': 'el lector'},
+  'student': {'en': 'student', 'de': 'der Student', 'es': 'el estudiante'},
+  'meditator': {'en': 'meditation', 'de': 'die Meditation', 'es': 'la meditación'},
+  'yogatree': {'en': 'yoga', 'de': 'das Yoga', 'es': 'el yoga'},
+  'stretch': {'en': 'stretching', 'de': 'das Dehnen', 'es': 'el estiramiento'},
+  'jogger': {'en': 'jogger', 'de': 'der Jogger', 'es': 'el corredor'},
+  'walker': {'en': 'walk', 'de': 'der Spaziergang', 'es': 'el paseo'},
+  'coffee': {'en': 'coffee', 'de': 'der Kaffee', 'es': 'el café'},
+  'sleeper': {'en': 'sleep', 'de': 'der Schlaf', 'es': 'el sueño'},
+  'dreamer': {'en': 'dreamer', 'de': 'der Träumer', 'es': 'el soñador'},
+  'petter': {'en': 'pet lover', 'de': 'der Tierfreund', 'es': 'el amante de los animales'},
+  'listener': {'en': 'music', 'de': 'die Musik', 'es': 'la música'},
 };
 
 /// The word for [glyph] in [lang], or its English word, or [fallback] (the

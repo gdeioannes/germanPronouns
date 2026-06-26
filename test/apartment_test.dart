@@ -143,6 +143,27 @@ void main() {
     expect(Apartment.instance.isFlipped(iid), isFalse);
   });
 
+  test('bringToFront moves a piece to the top of the stack and persists',
+      () async {
+    await loadWith(100);
+    final a = await Apartment.instance.grant('table');
+    final b = await Apartment.instance.grant('lamp');
+    final c = await Apartment.instance.grant('plant');
+    // Insertion order is the stacking order; the last granted is on top.
+    expect(Apartment.instance.pieces.keys.last, c);
+
+    await Apartment.instance.bringToFront(a); // the table jumps to the front
+    expect(Apartment.instance.pieces.keys.last, a);
+    expect(Apartment.instance.pieces.keys.toList(), [b, c, a]);
+
+    // The new order survives a reload.
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.pieces.keys.last, a);
+  });
+
   test('animation toggle persists and reloads (default on)', () async {
     await loadWith(100);
     expect(Apartment.instance.animate, isTrue); // on by default

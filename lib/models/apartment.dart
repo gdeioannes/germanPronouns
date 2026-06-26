@@ -178,6 +178,20 @@ class Apartment extends ChangeNotifier {
     return instanceId;
   }
 
+  /// Moves the piece [instanceId] to the top of the stack (drawn last, above
+  /// everything else) — used when the learner finishes dragging it, so the piece
+  /// they just arranged stays in front. Persists the new order + notifies.
+  Future<void> bringToFront(String instanceId) async {
+    final catalogId = _pieces[instanceId];
+    if (catalogId == null) return;
+    if (_pieces.keys.last == instanceId) return; // already on top
+    _pieces = {..._pieces}..remove(instanceId);
+    _pieces[instanceId] = catalogId; // re-add at the end (top of the stack)
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(SettingsKeys.apartmentItems, _encodePieces());
+  }
+
   /// Switches the room between day and night. Persists + notifies so the
   /// lighting overlay updates.
   Future<void> setNight(bool night) async {
