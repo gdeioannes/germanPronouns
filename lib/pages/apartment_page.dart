@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../data/furniture_names.dart';
+import '../data/room_catalog.dart';
 import '../data/shop_catalog.dart';
 import '../models/apartment.dart';
 import '../models/coin_wallet.dart';
@@ -216,20 +217,35 @@ class _ApartmentPageState extends State<ApartmentPage> {
                     flex: _focusRoom ? 100 : 54,
                     child: LayoutBuilder(
                       builder: (context, rc) {
-                        const aspect = 0.82; // width / height
+                        // Every room keeps the same standard 0.82 (W/H) portrait
+                        // proportion (the largest that fits, leaving room for the
+                        // carousel below it); focus mode grows it.
+                        const aspect = 0.82;
+                        const barH = 54.0;
                         final pad = _focusRoom ? 8.0 : 12.0;
                         final areaW = rc.maxWidth - pad * 2;
-                        final areaH = rc.maxHeight - pad * 2;
+                        final areaH = rc.maxHeight - pad * 2 - barH;
                         final roomW = math.min(areaW, areaH * aspect);
                         final roomH = roomW / aspect;
                         return Center(
-                          child: SizedBox(
-                            width: roomW,
-                            height: roomH,
-                            child: _RoomCanvas(
-                              repaintKey: _roomKey,
-                              exporting: _exporting,
-                            ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(
+                                width: roomW,
+                                height: roomH,
+                                child: _RoomCanvas(
+                                  repaintKey: _roomKey,
+                                  exporting: _exporting,
+                                ),
+                              ),
+                              // The room carousel sits under the room, matched to
+                              // its width.
+                              SizedBox(
+                                width: roomW,
+                                child: _RoomBar(onBuy: _openRoomShop),
+                              ),
+                            ],
                           ),
                         );
                       },
@@ -265,6 +281,27 @@ class _ApartmentPageState extends State<ApartmentPage> {
       ),
       builder: (_) => const _DonationSheet(),
     );
+  }
+
+  // ── Buy a new room ─────────────────────────────────────────────────────────
+
+  Future<void> _openRoomShop() async {
+    final movedInto = await showModalBottomSheet<String>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: _pal.panel,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (_) => const _RoomShopSheet(),
+    );
+    if (movedInto != null && mounted) {
+      ScaffoldMessenger.of(context)
+        ..clearSnackBars()
+        ..showSnackBar(
+          SnackBar(content: Text('Welcome to your new $movedInto! ✨')),
+        );
+    }
   }
 
   // ── Image export ──────────────────────────────────────────────────────────
@@ -394,7 +431,9 @@ class _RoomCanvasState extends State<_RoomCanvas>
               for (final p in pieces) if (p.$1 != _dragId) p,
               for (final p in pieces) if (p.$1 == _dragId) p,
             ];
-            // The current floor / wall surfaces (newest bought), or null default.
+            // The current floor / wall surfaces (newest bought), falling back to
+            // the room theme's own default look when nothing's been bought.
+            final theme = Apartment.instance.currentRoom;
             final floor = shopItemById(Apartment.instance.currentFloor ?? '');
             final wall = shopItemById(Apartment.instance.currentWall ?? '');
             // Light cast by any owned light pieces, at their live spots —
@@ -409,10 +448,11 @@ class _RoomCanvasState extends State<_RoomCanvas>
               children: [
                 Positioned.fill(
                   child: _CosyRoom(
-                    floorGlyph: floor?.glyph,
-                    floorColor: floor?.color,
-                    wallGlyph: wall?.glyph,
-                    wallColor: wall?.color,
+                    floorGlyph: floor?.glyph ?? theme.floorGlyph,
+                    floorColor: floor?.color ?? theme.floorColor,
+                    wallGlyph: wall?.glyph ?? theme.wallGlyph,
+                    wallColor: wall?.color ?? theme.wallColor,
+                    backdrop: theme.backdrop,
                   ),
                 ),
                 for (final p in ordered) _draggable(p.$1, p.$2, size, baseTile),
@@ -750,12 +790,14 @@ class _CosyRoom extends StatelessWidget {
     this.floorColor,
     this.wallGlyph,
     this.wallColor,
+    this.backdrop = RoomBackdrop.none,
   });
 
   final String? floorGlyph;
   final Color? floorColor;
   final String? wallGlyph;
   final Color? wallColor;
+  final RoomBackdrop backdrop;
 
   @override
   Widget build(BuildContext context) {
@@ -766,6 +808,7 @@ class _CosyRoom extends StatelessWidget {
         floorColor: floorColor,
         wallGlyph: wallGlyph,
         wallColor: wallColor,
+        backdrop: backdrop,
       ),
     );
   }
@@ -777,12 +820,14 @@ class _CosyRoomPainter extends CustomPainter {
     this.floorColor,
     this.wallGlyph,
     this.wallColor,
+    this.backdrop = RoomBackdrop.none,
   });
 
   final String? floorGlyph;
   final Color? floorColor;
   final String? wallGlyph;
   final Color? wallColor;
+  final RoomBackdrop backdrop;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -791,7 +836,10 @@ class _CosyRoomPainter extends CustomPainter {
     final floorY = h * 0.66;
     final p = Paint()..isAntiAlias = true;
 
-    paintWall(canvas, Rect.fromLTWH(0, 0, w, floorY), wallGlyph, wallColor);
+    final wall = Rect.fromLTWH(0, 0, w, floorY);
+    paintWall(canvas, wall, wallGlyph, wallColor);
+    // The themed motif on the back wall, behind the furniture.
+    _paintBackdrop(canvas, wall);
     paintFloor(
         canvas, Rect.fromLTWH(0, floorY, w, h - floorY), floorGlyph, floorColor);
 
@@ -807,12 +855,180 @@ class _CosyRoomPainter extends CustomPainter {
     p.style = PaintingStyle.fill;
   }
 
+  /// Paints the room theme's decorative motif within the wall [r] — flat, soft
+  /// and low-contrast so the furniture stays the focus.
+  void _paintBackdrop(Canvas canvas, Rect r) {
+    final p = Paint()..isAntiAlias = true;
+    final w = r.width;
+    final h = r.height;
+    double px(double f) => r.left + w * f;
+    double py(double f) => r.top + h * f;
+
+    void rrect(double l, double t, double rr, double b, double rad, Color c) {
+      canvas.drawRRect(
+        RRect.fromLTRBR(px(l), py(t), px(rr), py(b), Radius.circular(w * rad)),
+        p..color = c,
+      );
+    }
+
+    void disc(double cx, double cy, double rad, Color c) {
+      canvas.drawCircle(Offset(px(cx), py(cy)), w * rad, p..color = c);
+    }
+
+    void stroke(double x1, double y1, double x2, double y2, double sw, Color c) {
+      canvas.drawLine(
+        Offset(px(x1), py(y1)),
+        Offset(px(x2), py(y2)),
+        p
+          ..color = c
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = w * sw
+          ..strokeCap = StrokeCap.round,
+      );
+      p.style = PaintingStyle.fill;
+    }
+
+    switch (backdrop) {
+      case RoomBackdrop.none:
+        break;
+      case RoomBackdrop.sun:
+        const glow = Color(0x33FFE08A);
+        disc(0.5, 0.34, 0.30, glow);
+        disc(0.5, 0.34, 0.20, const Color(0x4DFFE7A0));
+        disc(0.5, 0.34, 0.12, const Color(0x66FFEFB8));
+        for (var i = 0; i < 12; i++) {
+          final a = i * math.pi / 6;
+          stroke(
+            0.5 + math.cos(a) * 0.24,
+            0.34 + math.sin(a) * 0.24 * (w / h),
+            0.5 + math.cos(a) * 0.30,
+            0.34 + math.sin(a) * 0.30 * (w / h),
+            0.012,
+            const Color(0x33FFD98A),
+          );
+        }
+      case RoomBackdrop.shelves:
+        // A bookcase silhouette on the right side of the wall.
+        rrect(0.56, 0.08, 0.96, 1.0, 0.01, const Color(0x22000000));
+        const spines = [
+          Color(0x55C7572E), Color(0x554E7CA8), Color(0x556B9E63),
+          Color(0x55C99A3D), Color(0x55865C9C), Color(0x55B5524A),
+        ];
+        for (var shelf = 0; shelf < 4; shelf++) {
+          final t = 0.12 + shelf * 0.22;
+          for (var b = 0; b < 6; b++) {
+            final x = 0.585 + b * 0.058;
+            final hh = 0.16 + ((b + shelf) % 3) * 0.012;
+            rrect(x, t + 0.20 - hh, x + 0.045, t + 0.20,
+                0.004, spines[(b + shelf) % spines.length]);
+          }
+          stroke(0.57, t + 0.205, 0.95, t + 0.205, 0.01,
+              const Color(0x33000000));
+        }
+      case RoomBackdrop.trellis:
+        const line = Color(0x2638694A);
+        for (var i = -6; i < 14; i++) {
+          stroke(i * 0.16, 0.0, i * 0.16 + 0.7, 1.0, 0.01, line);
+          stroke(i * 0.16, 1.0, i * 0.16 + 0.7, 0.0, 0.01, line);
+        }
+        disc(0.18, 0.2, 0.035, const Color(0x4D6B9E63));
+        disc(0.84, 0.3, 0.04, const Color(0x4D6B9E63));
+        disc(0.74, 0.12, 0.03, const Color(0x4D6B9E63));
+      case RoomBackdrop.canvas:
+        rrect(0.30, 0.14, 0.70, 0.56, 0.015, const Color(0x33000000));
+        rrect(0.33, 0.17, 0.67, 0.53, 0.01, const Color(0xCCF7F1E6));
+        disc(0.44, 0.30, 0.06, const Color(0x66E2574C));
+        rrect(0.52, 0.24, 0.63, 0.46, 0.01, const Color(0x664E7CA8));
+        disc(0.58, 0.40, 0.045, const Color(0x66F4C430));
+      case RoomBackdrop.drapes:
+        // A soft headboard arch behind the centre.
+        final arch = Path()
+          ..moveTo(px(0.2), py(1.0))
+          ..lineTo(px(0.2), py(0.46))
+          ..quadraticBezierTo(px(0.5), py(0.18), px(0.8), py(0.46))
+          ..lineTo(px(0.8), py(1.0))
+          ..close();
+        canvas.drawPath(arch, p..color = const Color(0x22FFFFFF));
+        // Curtains at the sides.
+        rrect(0.0, 0.0, 0.12, 1.0, 0.02, const Color(0x22FFFFFF));
+        rrect(0.88, 0.0, 1.0, 1.0, 0.02, const Color(0x22FFFFFF));
+        for (final x in const [0.03, 0.06, 0.09, 0.91, 0.94, 0.97]) {
+          stroke(x, 0.0, x, 1.0, 0.006, const Color(0x18000000));
+        }
+      case RoomBackdrop.tiles:
+        // A window, top-centre.
+        rrect(0.36, 0.12, 0.64, 0.44, 0.02, const Color(0x33000000));
+        rrect(0.38, 0.14, 0.62, 0.42, 0.01, const Color(0x66BFE3F2));
+        stroke(0.5, 0.14, 0.5, 0.42, 0.01, const Color(0x33000000));
+        stroke(0.38, 0.28, 0.62, 0.28, 0.01, const Color(0x33000000));
+        // Backsplash tiles just above the floor.
+        for (var row = 0; row < 2; row++) {
+          for (var col = 0; col < 12; col++) {
+            rrect(0.02 + col * 0.082, 0.66 + row * 0.15,
+                0.02 + col * 0.082 + 0.072, 0.66 + row * 0.15 + 0.12,
+                0.01, const Color(0x22FFFFFF));
+          }
+        }
+      case RoomBackdrop.waves:
+        for (var i = 0; i < 5; i++) {
+          final y = 0.2 + i * 0.13;
+          final path = Path()..moveTo(r.left, py(y));
+          for (var x = 0.0; x <= 1.0; x += 0.1) {
+            path.quadraticBezierTo(
+              px(x + 0.025), py(y + (i.isEven ? 0.03 : -0.03)),
+              px(x + 0.05), py(y),
+            );
+          }
+          canvas.drawPath(
+            path,
+            p
+              ..color = const Color(0x33CFEFFB)
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = w * 0.012,
+          );
+          p.style = PaintingStyle.fill;
+        }
+        disc(0.78, 0.22, 0.10, const Color(0x33000000));
+        disc(0.78, 0.22, 0.085, const Color(0x66BFE3F2));
+      case RoomBackdrop.skyline:
+        // A big picture window onto a city skyline.
+        rrect(0.1, 0.1, 0.9, 0.92, 0.01, const Color(0x33000000));
+        rrect(0.12, 0.12, 0.88, 0.9, 0.005, const Color(0x553A4A6B));
+        const b = Color(0x77222B3F);
+        rrect(0.16, 0.5, 0.27, 0.9, 0.0, b);
+        rrect(0.29, 0.38, 0.39, 0.9, 0.0, b);
+        rrect(0.41, 0.56, 0.5, 0.9, 0.0, b);
+        rrect(0.52, 0.3, 0.61, 0.9, 0.0, b);
+        rrect(0.63, 0.48, 0.73, 0.9, 0.0, b);
+        rrect(0.75, 0.4, 0.84, 0.9, 0.0, b);
+        for (var i = 0; i < 16; i++) {
+          final wx = 0.18 + (i % 8) * 0.08;
+          final wy = 0.55 + (i ~/ 8) * 0.12;
+          rrect(wx, wy, wx + 0.02, wy + 0.03, 0.0,
+              const Color(0x66FFE9A8));
+        }
+        stroke(0.5, 0.12, 0.5, 0.9, 0.008, const Color(0x33000000));
+      case RoomBackdrop.neon:
+        for (final spec in const [
+          [0.12, Color(0x55FF4D9D)],
+          [0.26, Color(0x4D49E0FF)],
+          [0.4, Color(0x55C46BFF)],
+        ]) {
+          final y = spec[0] as double;
+          rrect(0.1, y, 0.9, y + 0.05, 0.025, spec[1] as Color);
+        }
+        disc(0.22, 0.62, 0.06, const Color(0x55FF4D9D));
+        disc(0.8, 0.66, 0.05, const Color(0x4D49E0FF));
+    }
+  }
+
   @override
   bool shouldRepaint(_CosyRoomPainter oldDelegate) =>
       oldDelegate.floorGlyph != floorGlyph ||
       oldDelegate.floorColor != floorColor ||
       oldDelegate.wallGlyph != wallGlyph ||
-      oldDelegate.wallColor != wallColor;
+      oldDelegate.wallColor != wallColor ||
+      oldDelegate.backdrop != backdrop;
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -1254,6 +1470,371 @@ class _CollapsedShopBar extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// The room carousel: chevrons page through the owned rooms, the current room's
+/// name sits above a dot for each room, and (when one's still for sale) a button
+/// on the right buys a new one. Lives inside the body's [Apartment] listener, so
+/// it rebuilds when the room, ownership or night mode changes.
+class _RoomBar extends StatelessWidget {
+  const _RoomBar({required this.onBuy});
+
+  final VoidCallback onBuy;
+
+  @override
+  Widget build(BuildContext context) {
+    final apt = Apartment.instance;
+    final rooms = apt.ownedRooms;
+    final idx = apt.currentRoomIndex;
+    final room = apt.currentRoom;
+    final forSale = apt.nextRoomForSale;
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(6, 6, 6, 2),
+      child: Row(
+        children: [
+          _RoomChevron(
+            icon: Icons.chevron_left_rounded,
+            enabled: idx > 0,
+            onTap: () => apt.setCurrentRoomIndex(idx - 1),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  '${room.emoji}  ${room.name}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 14,
+                    color: _pal.text,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    for (var i = 0; i < rooms.length; i++)
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 2),
+                        width: i == idx ? 7 : 6,
+                        height: i == idx ? 7 : 6,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: i == idx
+                              ? _pal.text
+                              : _pal.text.withValues(alpha: 0.28),
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          _RoomChevron(
+            icon: Icons.chevron_right_rounded,
+            enabled: idx < rooms.length - 1,
+            onTap: () => apt.setCurrentRoomIndex(idx + 1),
+          ),
+          if (forSale != null) ...[
+            const SizedBox(width: 2),
+            _BuyRoomButton(onTap: onBuy),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _RoomChevron extends StatelessWidget {
+  const _RoomChevron({
+    required this.icon,
+    required this.enabled,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final bool enabled;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    // A clear, filled round button so it's obviously tappable; faded when there's
+    // no room that way.
+    final bg = enabled ? const Color(0xFFFFD54F) : _pal.tabInactive;
+    final fg = enabled
+        ? const Color(0xFF6B4D1F)
+        : _pal.text.withValues(alpha: 0.3);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: Material(
+        color: bg,
+        shape: const CircleBorder(),
+        elevation: enabled ? 1.5 : 0,
+        child: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: enabled ? onTap : null,
+          child: SizedBox(
+            width: 40,
+            height: 40,
+            child: Icon(icon, size: 28, color: fg),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The "buy a new room" button on the right of the carousel — a round gold
+/// button matching the chevrons, so the whole bar fits even in a narrow room.
+class _BuyRoomButton extends StatelessWidget {
+  const _BuyRoomButton({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: Tooltip(
+        message: 'Buy a new room',
+        child: Material(
+          color: const Color(0xFFFFD54F),
+          shape: const CircleBorder(),
+          elevation: 1.5,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: onTap,
+            child: const SizedBox(
+              width: 40,
+              height: 40,
+              child: Icon(Icons.add_home_rounded,
+                  size: 24, color: Color(0xFF6B4D1F)),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The room shop: a horizontal carousel of the rooms still for sale, each with a
+/// little preview and its (high) price. Buying one spends the coins, adds the
+/// room and moves the learner straight into it — popping with the new room's
+/// name so the page can welcome them.
+class _RoomShopSheet extends StatelessWidget {
+  const _RoomShopSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListenableBuilder(
+      listenable: Listenable.merge([Apartment.instance, CoinWallet.instance]),
+      builder: (context, _) {
+        final rooms = Apartment.instance.buyableRooms;
+        final balance = CoinWallet.instance.balance;
+        return SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: _pal.text.withValues(alpha: 0.25),
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  children: [
+                    Text(
+                      '🏠  Buy a new room',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w900,
+                        color: _pal.text,
+                      ),
+                    ),
+                    const Spacer(),
+                    const CoinGlyph(size: 16, withShadow: false),
+                    const SizedBox(width: 4),
+                    Text(
+                      '$balance',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        color: _pal.text,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'A fresh space to furnish — your other rooms keep everything '
+                  'you placed in them.',
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: _pal.textSoft,
+                    height: 1.3,
+                  ),
+                ),
+                const SizedBox(height: 14),
+                if (rooms.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 28),
+                    child: Center(
+                      child: Text(
+                        'You own every room! 🎉',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: _pal.text,
+                        ),
+                      ),
+                    ),
+                  )
+                else
+                  SizedBox(
+                    height: 210,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: rooms.length,
+                      separatorBuilder: (_, _) => const SizedBox(width: 12),
+                      itemBuilder: (context, i) =>
+                          _RoomShopCard(room: rooms[i]),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _RoomShopCard extends StatelessWidget {
+  const _RoomShopCard({required this.room});
+
+  final RoomTheme room;
+
+  @override
+  Widget build(BuildContext context) {
+    final canAfford = CoinWallet.instance.balance >= room.price;
+    return Container(
+      width: 158,
+      decoration: BoxDecoration(
+        color: _pal.card,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: _pal.cardBorder),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+            child: _RoomPreview(room: room),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${room.emoji}  ${room.name}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 13.5,
+                    color: _pal.text,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: const Color(0xFFFFD54F),
+                      foregroundColor: const Color(0xFF6B4D1F),
+                      disabledBackgroundColor: _pal.tabInactive,
+                      disabledForegroundColor:
+                          _pal.text.withValues(alpha: 0.4),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onPressed: canAfford
+                        ? () async {
+                            await CoinWallet.instance.spend(room.price);
+                            await Apartment.instance.buyRoom(room.id);
+                            if (context.mounted) {
+                              Navigator.of(context).pop(room.name);
+                            }
+                          }
+                        : null,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CoinGlyph(size: 15, withShadow: false),
+                        const SizedBox(width: 5),
+                        Text(
+                          '${room.price}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A little thumbnail of a room: its wall over its floor (theme colours, or the
+/// cosy defaults), with the room emoji floating inside.
+class _RoomPreview extends StatelessWidget {
+  const _RoomPreview({required this.room});
+
+  final RoomTheme room;
+
+  @override
+  Widget build(BuildContext context) {
+    final wall = room.wallColor ?? const Color(0xFFF1E6D0);
+    final floor = room.floorColor ?? const Color(0xFFD8B68A);
+    return SizedBox(
+      height: 104,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Column(
+            children: [
+              Expanded(flex: 62, child: ColoredBox(color: wall)),
+              Expanded(flex: 38, child: ColoredBox(color: floor)),
+            ],
+          ),
+          Center(
+            child: Text(room.emoji, style: const TextStyle(fontSize: 40)),
+          ),
+        ],
       ),
     );
   }

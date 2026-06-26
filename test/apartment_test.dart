@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:german_pronouns_articles/data/room_catalog.dart';
 import 'package:german_pronouns_articles/data/shop_catalog.dart';
 import 'package:german_pronouns_articles/models/apartment.dart';
 import 'package:german_pronouns_articles/models/coin_wallet.dart';
@@ -141,6 +142,55 @@ void main() {
 
     await Apartment.instance.toggleFlip(iid);
     expect(Apartment.instance.isFlipped(iid), isFalse);
+  });
+
+  test('rooms: starts with only the free starter room', () async {
+    await loadWith(100);
+    expect(Apartment.instance.roomCount, 1);
+    expect(Apartment.instance.currentRoomId, kStarterRoomId);
+    expect(Apartment.instance.ownedRooms.single.id, kStarterRoomId);
+    expect(Apartment.instance.buyableRooms.length, roomCatalog.length - 1);
+  });
+
+  test('rooms: buying a room adds it, switches to it, and persists', () async {
+    await loadWith(100);
+    final shop = Apartment.instance.nextRoomForSale!;
+
+    await Apartment.instance.buyRoom(shop.id);
+    expect(Apartment.instance.roomCount, 2);
+    expect(Apartment.instance.currentRoomId, shop.id); // moved straight in
+    expect(Apartment.instance.ownsRoom(shop.id), isTrue);
+
+    // Survives a reload, and we're still in the bought room.
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.ownsRoom(shop.id), isTrue);
+    expect(Apartment.instance.currentRoomId, shop.id);
+  });
+
+  test('rooms: furniture is owned per room and stays put', () async {
+    await loadWith(100);
+    final second = Apartment.instance.nextRoomForSale!;
+
+    // Place a table in the starter room.
+    await Apartment.instance.grant('table');
+    expect(Apartment.instance.pieceCount, 1);
+
+    // The new room starts empty; the starter's table isn't here.
+    await Apartment.instance.buyRoom(second.id);
+    expect(Apartment.instance.pieceCount, 0);
+    expect(Apartment.instance.owns('table'), isFalse);
+
+    // A plant placed here belongs to this room only.
+    await Apartment.instance.grant('plant');
+    expect(Apartment.instance.owns('plant'), isTrue);
+
+    // Back in the starter room: the table is still there, the plant isn't.
+    await Apartment.instance.setCurrentRoom(kStarterRoomId);
+    expect(Apartment.instance.owns('table'), isTrue);
+    expect(Apartment.instance.owns('plant'), isFalse);
   });
 
   test('bringToFront moves a piece to the top of the stack and persists',

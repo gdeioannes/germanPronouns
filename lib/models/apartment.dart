@@ -3,13 +3,19 @@ import 'dart:convert';
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../data/room_catalog.dart';
 import '../data/shop_catalog.dart';
 import 'coin_wallet.dart';
 import 'settings_keys.dart';
 
-/// The learner's room: the furniture pieces they've placed ([pieces]), which
-/// catalogue items have been *revealed* in the shop ([isRevealed] — they became
-/// affordable once and now stay), and where each piece sits ([positionOf]).
+/// The learner's apartment: a set of owned **rooms**, each with its own placed
+/// furniture, and a global pool of *revealed* shop items.
+///
+/// Furniture is owned **per room** ([pieces], [positionOf]…), so the piece-level
+/// API ([grant], [donate], [currentFloor]…) always acts on the [currentRoom].
+/// Switching rooms ([setCurrentRoom]) or buying one ([buyRoom]) just changes
+/// which room those operate on. Reveals ([isRevealed]) and the day/night and
+/// animation toggles are global to the whole apartment.
 ///
 /// Each placed piece is an **instance** with its own id, so the learner can buy
 /// several of the same thing and arrange them independently. A piece is revealed
@@ -25,41 +31,105 @@ class Apartment extends ChangeNotifier {
   /// Fraction of the balance an element's price must fit within to be revealed.
   static const double revealFraction = 0.20;
 
-  /// Placed pieces, by instance id → catalogue id ([ShopItem.id]). Insertion
-  /// order is the stacking order in the room.
-  Map<String, String> _pieces = {};
+  // Per-room state, keyed by room id (see [roomCatalog]).
+  Map<String, Map<String, String>> _pieces = {}; // room → (iid → catalogId)
+  Map<String, Map<String, Offset>> _positions = {}; // room → (iid → pos)
+  Map<String, Set<String>> _flipped = {}; // room → mirrored iids
+
+  // Owned rooms (insertion = display order is taken from [roomCatalog]) and the
+  // one currently shown.
+  List<String> _ownedRooms = [kStarterRoomId];
+  String _currentRoom = kStarterRoomId;
+
   Set<String> _revealed = {};
-  Map<String, Offset> _positions = {};
-  Set<String> _flipped = {};
   bool _night = false;
   bool _animate = true;
   bool _loaded = false;
   int _seq = 0; // disambiguates instance ids minted in the same microsecond
 
-  /// Placed pieces: instance id → catalogue id.
-  Map<String, String> get pieces => _pieces;
+  // ── Rooms ──────────────────────────────────────────────────────────────────
 
-  /// How many pieces are in the room.
-  int get pieceCount => _pieces.length;
+  /// The rooms the learner owns, in catalogue (display) order.
+  List<RoomTheme> get ownedRooms =>
+      [for (final r in roomCatalog) if (_ownedRooms.contains(r.id)) r];
+
+  /// How many rooms the learner owns.
+  int get roomCount => _ownedRooms.length;
+
+  /// The room currently shown/edited.
+  RoomTheme get currentRoom => roomById(_currentRoom) ?? roomCatalog.first;
+  String get currentRoomId => _currentRoom;
+
+  /// Index of the current room within [ownedRooms] (for the carousel).
+  int get currentRoomIndex {
+    final i = ownedRooms.indexWhere((r) => r.id == _currentRoom);
+    return i < 0 ? 0 : i;
+  }
+
+  bool ownsRoom(String id) => _ownedRooms.contains(id);
+
+  /// Rooms not yet owned, cheapest first (what the room shop offers).
+  List<RoomTheme> get buyableRooms =>
+      [for (final r in roomCatalog) if (!_ownedRooms.contains(r.id)) r];
+
+  /// The cheapest room still for sale, or null when every room is owned.
+  RoomTheme? get nextRoomForSale =>
+      buyableRooms.isEmpty ? null : buyableRooms.first;
+
+  /// Switches to an owned room. Persists + notifies.
+  Future<void> setCurrentRoom(String id) async {
+    if (_currentRoom == id || !_ownedRooms.contains(id)) return;
+    _currentRoom = id;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(SettingsKeys.apartmentCurrentRoom, _currentRoom);
+  }
+
+  /// Switches to the owned room at [index] in [ownedRooms] (carousel paging).
+  Future<void> setCurrentRoomIndex(int index) async {
+    final rooms = ownedRooms;
+    if (index < 0 || index >= rooms.length) return;
+    await setCurrentRoom(rooms[index].id);
+  }
+
+  /// Buys the room [id] (the caller spends the coins) and switches to it — a
+  /// fresh, empty room to furnish. Persists + notifies.
+  Future<void> buyRoom(String id) async {
+    if (_ownedRooms.contains(id) || roomById(id) == null) return;
+    _ownedRooms = [..._ownedRooms, id];
+    _currentRoom = id;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(SettingsKeys.apartmentRooms, _ownedRooms);
+    await prefs.setString(SettingsKeys.apartmentCurrentRoom, _currentRoom);
+  }
+
+  // ── Pieces (always the current room) ─────────────────────────────────────────
+
+  /// Placed pieces in the current room: instance id → catalogue id.
+  Map<String, String> get pieces => _pieces[_currentRoom] ?? const {};
+
+  /// How many pieces are in the current room.
+  int get pieceCount => pieces.length;
 
   Set<String> get revealedIds => _revealed;
 
-  /// How many copies of catalogue item [catalogId] are placed.
+  /// How many copies of catalogue item [catalogId] are placed in this room.
   int countOf(String catalogId) =>
-      _pieces.values.where((id) => id == catalogId).length;
+      pieces.values.where((id) => id == catalogId).length;
 
-  /// Whether at least one [catalogId] is placed.
-  bool owns(String catalogId) => _pieces.values.contains(catalogId);
+  /// Whether at least one [catalogId] is placed in this room.
+  bool owns(String catalogId) => pieces.values.contains(catalogId);
 
-  /// The catalogue id of the floor / wall currently shown — the most recently
-  /// bought one of that kind (insertion order = stacking order), or null for the
-  /// cosy default. Donating it reveals the previous one underneath.
+  /// The catalogue id of the floor / wall currently shown in this room — the
+  /// most recently bought surface of that kind (insertion = stacking order), or
+  /// null to fall back to the room theme's default look.
   String? get currentFloor => _topOfCategory('Floors');
   String? get currentWall => _topOfCategory('Walls');
 
   String? _topOfCategory(String category) {
     String? top;
-    for (final catalogId in _pieces.values) {
+    for (final catalogId in pieces.values) {
       if (shopItemById(catalogId)?.category == category) top = catalogId;
     }
     return top;
@@ -83,30 +153,46 @@ class Apartment extends ChangeNotifier {
     await prefs.setBool(SettingsKeys.apartmentAnimate, _animate);
   }
 
-  /// Whether the piece [instanceId] is mirrored horizontally.
-  bool isFlipped(String instanceId) => _flipped.contains(instanceId);
+  /// Whether the piece [instanceId] (in this room) is mirrored horizontally.
+  bool isFlipped(String instanceId) =>
+      _flipped[_currentRoom]?.contains(instanceId) ?? false;
 
-  /// Mirrors / un-mirrors the piece [instanceId] horizontally. Persists +
+  /// Mirrors / un-mirrors the piece [instanceId] in this room. Persists +
   /// notifies so the room redraws.
   Future<void> toggleFlip(String instanceId) async {
-    _flipped = {..._flipped};
-    if (!_flipped.add(instanceId)) _flipped.remove(instanceId);
+    final set = {...?_flipped[_currentRoom]};
+    if (!set.add(instanceId)) set.remove(instanceId);
+    _flipped = {..._flipped, _currentRoom: set};
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList(
-        SettingsKeys.apartmentFlipped, _flipped.toList());
+    await prefs.setString(
+        SettingsKeys.apartmentFlippedRooms, _encodeFlipped());
   }
 
   Future<void> load() async {
     if (_loaded) return;
     final prefs = await SharedPreferences.getInstance();
-    _pieces = _loadPieces(prefs);
+
+    _ownedRooms = _loadRooms(prefs);
+    _currentRoom = prefs.getString(SettingsKeys.apartmentCurrentRoom) ??
+        kStarterRoomId;
+    if (!_ownedRooms.contains(_currentRoom)) _currentRoom = _ownedRooms.first;
+
+    // Items used to be stored as a `StringList` (oldest), then a flat JSON map,
+    // now a per-room JSON map. Read the JSON string if present, else fall back to
+    // the legacy list — guarded, since asking for the wrong type can throw.
+    final itemsRaw = _getString(prefs, SettingsKeys.apartmentItems);
+    final itemsLegacy = itemsRaw == null
+        ? _getStringList(prefs, SettingsKeys.apartmentItems)
+        : null;
+    _pieces = _decodePieces(itemsRaw, legacy: itemsLegacy);
+    _positions =
+        _decodeLayout(_getString(prefs, SettingsKeys.apartmentLayout));
+    _flipped = _loadFlipped(prefs);
+
     _revealed =
         (prefs.getStringList(SettingsKeys.apartmentRevealed) ?? const [])
             .toSet();
-    _positions = _decodeLayout(prefs.getString(SettingsKeys.apartmentLayout));
-    _flipped =
-        (prefs.getStringList(SettingsKeys.apartmentFlipped) ?? const []).toSet();
     _night = prefs.getBool(SettingsKeys.apartmentNight) ?? false;
     _animate = prefs.getBool(SettingsKeys.apartmentAnimate) ?? true;
     _loaded = true;
@@ -117,22 +203,31 @@ class Apartment extends ChangeNotifier {
     await refreshReveals();
   }
 
-  /// Reads the placed pieces, migrating the old "list of catalogue ids" format
-  /// (one of each) by giving each piece an instance id equal to its catalogue id
-  /// — which keeps its saved position (also keyed that way) intact.
-  Map<String, String> _loadPieces(SharedPreferences prefs) {
-    final raw = prefs.getString(SettingsKeys.apartmentItems);
-    if (raw != null && raw.isNotEmpty) {
-      try {
-        final decoded = jsonDecode(raw) as Map<String, dynamic>;
-        return {for (final e in decoded.entries) e.key: e.value as String};
-      } catch (_) {
-        return {};
-      }
+  /// Reads a [String] pref, returning null if it's missing or stored as another
+  /// type (e.g. an old `StringList` under the same key) rather than throwing.
+  static String? _getString(SharedPreferences prefs, String key) {
+    try {
+      return prefs.getString(key);
+    } catch (_) {
+      return null;
     }
-    final legacy = prefs.getStringList(SettingsKeys.apartmentItems);
-    if (legacy != null) return {for (final id in legacy) id: id};
-    return {};
+  }
+
+  static List<String>? _getStringList(SharedPreferences prefs, String key) {
+    try {
+      return prefs.getStringList(key);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  List<String> _loadRooms(SharedPreferences prefs) {
+    final saved = prefs.getStringList(SettingsKeys.apartmentRooms);
+    final rooms = <String>[
+      kStarterRoomId,
+      ...?saved?.where((id) => id != kStarterRoomId && roomById(id) != null),
+    ];
+    return rooms.toSet().toList(); // de-dupe, keep order
   }
 
   void _onWalletChanged() {
@@ -167,29 +262,17 @@ class Apartment extends ChangeNotifier {
   }
 
   /// Records that the learner bought a [catalogId], adding a fresh instance to
-  /// the room (you can own several of the same). Returns the new instance id.
-  /// Persists + notifies.
+  /// the current room (you can own several of the same). Returns the new
+  /// instance id. Persists + notifies.
   Future<String> grant(String catalogId) async {
-    final instanceId = '$catalogId#${DateTime.now().microsecondsSinceEpoch}-${_seq++}';
-    _pieces = {..._pieces, instanceId: catalogId};
+    final instanceId =
+        '$catalogId#${DateTime.now().microsecondsSinceEpoch}-${_seq++}';
+    final room = {...?_pieces[_currentRoom], instanceId: catalogId};
+    _pieces = {..._pieces, _currentRoom: room};
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(SettingsKeys.apartmentItems, _encodePieces());
     return instanceId;
-  }
-
-  /// Moves the piece [instanceId] to the top of the stack (drawn last, above
-  /// everything else) — used when the learner finishes dragging it, so the piece
-  /// they just arranged stays in front. Persists the new order + notifies.
-  Future<void> bringToFront(String instanceId) async {
-    final catalogId = _pieces[instanceId];
-    if (catalogId == null) return;
-    if (_pieces.keys.last == instanceId) return; // already on top
-    _pieces = {..._pieces}..remove(instanceId);
-    _pieces[instanceId] = catalogId; // re-add at the end (top of the stack)
-    notifyListeners();
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(SettingsKeys.apartmentItems, _encodePieces());
   }
 
   /// Switches the room between day and night. Persists + notifies so the
@@ -202,38 +285,59 @@ class Apartment extends ChangeNotifier {
     await prefs.setBool(SettingsKeys.apartmentNight, _night);
   }
 
+  /// Moves the piece [instanceId] to the top of the current room's stack (drawn
+  /// last, above everything else) — used when the learner finishes dragging it,
+  /// so the piece they just arranged stays in front. Persists + notifies.
+  Future<void> bringToFront(String instanceId) async {
+    final room = _pieces[_currentRoom];
+    final catalogId = room?[instanceId];
+    if (room == null || catalogId == null) return;
+    if (room.keys.last == instanceId) return; // already on top
+    final next = {...room}..remove(instanceId);
+    next[instanceId] = catalogId; // re-add at the end (top of the stack)
+    _pieces = {..._pieces, _currentRoom: next};
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(SettingsKeys.apartmentItems, _encodePieces());
+  }
+
   /// The learner gave the piece [instanceId] away in the giving corner: it
-  /// leaves the room. Its catalogue item stays revealed, so it can be bought
-  /// again. Persists + notifies.
+  /// leaves the current room. Its catalogue item stays revealed, so it can be
+  /// bought again. Persists + notifies.
   Future<void> donate(String instanceId) async {
-    if (!_pieces.containsKey(instanceId)) return;
-    _pieces = {..._pieces}..remove(instanceId);
-    _positions = {..._positions}..remove(instanceId);
-    _flipped = {..._flipped}..remove(instanceId);
+    final room = _pieces[_currentRoom];
+    if (room == null || !room.containsKey(instanceId)) return;
+    _pieces = {..._pieces, _currentRoom: {...room}..remove(instanceId)};
+    final pos = {...?_positions[_currentRoom]}..remove(instanceId);
+    _positions = {..._positions, _currentRoom: pos};
+    final flip = {...?_flipped[_currentRoom]}..remove(instanceId);
+    _flipped = {..._flipped, _currentRoom: flip};
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(SettingsKeys.apartmentItems, _encodePieces());
     await prefs.setString(SettingsKeys.apartmentLayout, _encodeLayout());
-    await prefs.setStringList(
-        SettingsKeys.apartmentFlipped, _flipped.toList());
+    await prefs.setString(
+        SettingsKeys.apartmentFlippedRooms, _encodeFlipped());
   }
 
-  /// Normalized (0..1) position of piece [instanceId] (a [catalogId] copy): where
-  /// it was dragged, or a deterministic scattered default.
+  /// Normalized (0..1) position of piece [instanceId] (a [catalogId] copy) in
+  /// this room: where it was dragged, or a deterministic scattered default.
   Offset positionOf(String instanceId, String catalogId) =>
-      _positions[instanceId] ?? _defaultPositionFor(instanceId, catalogId);
+      _positions[_currentRoom]?[instanceId] ??
+      _defaultPositionFor(instanceId, catalogId);
 
   Future<void> setPosition(String instanceId, Offset pos) =>
       setPositions({instanceId: pos});
 
-  /// Records several positions at once and persists in a single write.
+  /// Records several positions at once (in this room) and persists in one write.
   Future<void> setPositions(Map<String, Offset> positions) async {
     if (positions.isEmpty) return;
-    final next = {..._positions};
+    final next = {...?_positions[_currentRoom]};
     for (final e in positions.entries) {
-      next[e.key] = Offset(e.value.dx.clamp(0.0, 1.0), e.value.dy.clamp(0.0, 1.0));
+      next[e.key] =
+          Offset(e.value.dx.clamp(0.0, 1.0), e.value.dy.clamp(0.0, 1.0));
     }
-    _positions = next;
+    _positions = {..._positions, _currentRoom: next};
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(SettingsKeys.apartmentLayout, _encodeLayout());
@@ -252,35 +356,114 @@ class Apartment extends ChangeNotifier {
     return Offset(x, y);
   }
 
+  // ── Encode / decode (per-room JSON, with migration from the old flat data) ──
+
   String _encodePieces() => jsonEncode(_pieces);
 
   String _encodeLayout() => jsonEncode({
-    for (final e in _positions.entries) e.key: [e.value.dx, e.value.dy],
-  });
+        for (final room in _positions.entries)
+          room.key: {
+            for (final e in room.value.entries) e.key: [e.value.dx, e.value.dy],
+          },
+      });
 
-  static Map<String, Offset> _decodeLayout(String? raw) {
+  String _encodeFlipped() => jsonEncode({
+        for (final room in _flipped.entries) room.key: room.value.toList(),
+      });
+
+  /// Reads placed pieces. New format is `{roomId: {iid: catalogId}}`; the old
+  /// flat `{iid: catalogId}` (or the even older `StringList` of catalogue ids)
+  /// is migrated into the starter room.
+  static Map<String, Map<String, String>> _decodePieces(String? raw,
+      {List<String>? legacy}) {
+    if (raw != null && raw.isNotEmpty) {
+      try {
+        final decoded = jsonDecode(raw) as Map<String, dynamic>;
+        if (decoded.isEmpty) return {};
+        if (decoded.values.first is Map) {
+          return {
+            for (final room in decoded.entries)
+              room.key: {
+                for (final e in (room.value as Map).entries)
+                  e.key as String: e.value as String,
+              },
+          };
+        }
+        // Old flat format — one room's worth, put it in the starter room.
+        return {
+          kStarterRoomId: {
+            for (final e in decoded.entries) e.key: e.value as String,
+          },
+        };
+      } catch (_) {
+        return {};
+      }
+    }
+    if (legacy != null) {
+      return {
+        kStarterRoomId: {for (final id in legacy) id: id},
+      };
+    }
+    return {};
+  }
+
+  static Map<String, Map<String, Offset>> _decodeLayout(String? raw) {
     if (raw == null || raw.isEmpty) return {};
     try {
       final decoded = jsonDecode(raw) as Map<String, dynamic>;
+      if (decoded.isEmpty) return {};
+      Offset toOffset(dynamic v) =>
+          Offset((v[0] as num).toDouble(), (v[1] as num).toDouble());
+      if (decoded.values.first is Map) {
+        return {
+          for (final room in decoded.entries)
+            room.key: {
+              for (final e in (room.value as Map).entries)
+                e.key as String: toOffset(e.value),
+            },
+        };
+      }
+      // Old flat layout → starter room.
       return {
-        for (final e in decoded.entries)
-          e.key: Offset(
-            (e.value[0] as num).toDouble(),
-            (e.value[1] as num).toDouble(),
-          ),
+        kStarterRoomId: {
+          for (final e in decoded.entries) e.key: toOffset(e.value),
+        },
       };
     } catch (_) {
       return {};
     }
   }
 
+  Map<String, Set<String>> _loadFlipped(SharedPreferences prefs) {
+    final raw = prefs.getString(SettingsKeys.apartmentFlippedRooms);
+    if (raw != null && raw.isNotEmpty) {
+      try {
+        final decoded = jsonDecode(raw) as Map<String, dynamic>;
+        return {
+          for (final room in decoded.entries)
+            room.key: {for (final id in (room.value as List)) id as String},
+        };
+      } catch (_) {
+        return {};
+      }
+    }
+    // Migrate the old flat StringList into the starter room.
+    final legacy = prefs.getStringList(SettingsKeys.apartmentFlipped);
+    if (legacy != null && legacy.isNotEmpty) {
+      return {kStarterRoomId: legacy.toSet()};
+    }
+    return {};
+  }
+
   /// Test-only reset of the in-memory state (does not touch storage).
   @visibleForTesting
   void resetForTest() {
     _pieces = {};
-    _revealed = {};
     _positions = {};
     _flipped = {};
+    _ownedRooms = [kStarterRoomId];
+    _currentRoom = kStarterRoomId;
+    _revealed = {};
     _night = false;
     _animate = true;
     _loaded = false;

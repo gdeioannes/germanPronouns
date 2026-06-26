@@ -46,6 +46,17 @@ class SettingsKeys {
   /// true). See `Apartment.animate`.
   static const String apartmentAnimate = 'apartment_animate';
 
+  /// Ids of the rooms the learner owns (the starter plus any bought). A
+  /// `StringList`. See `Apartment` and `roomCatalog`.
+  static const String apartmentRooms = 'apartment_rooms';
+
+  /// Id of the room currently being viewed/edited. A `String`. See `Apartment`.
+  static const String apartmentCurrentRoom = 'apartment_current_room';
+
+  /// Per-room mirrored pieces, as JSON `{roomId: [instanceId, …]}`. Replaces the
+  /// old flat [apartmentFlipped] `StringList` (still read once, to migrate).
+  static const String apartmentFlippedRooms = 'apartment_flipped_rooms';
+
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =

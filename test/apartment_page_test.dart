@@ -194,6 +194,39 @@ void main() {
     expect(find.byTooltip('Switch to day'), findsOneWidget);
   });
 
+  testWidgets('can buy a new room from the carousel', (tester) async {
+    tester.view.physicalSize = const Size(1000, 1700);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    SharedPreferences.setMockInitialValues({
+      SettingsKeys.coinBalance: 100000, // enough for a (pricey) room
+      SettingsKeys.apartmentAnimate: false,
+    });
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    expect(Apartment.instance.roomCount, 1);
+
+    // Open the room shop from the carousel's "buy a room" button.
+    await tester.tap(find.byTooltip('Buy a new room'));
+    await tester.pumpAndSettle();
+    expect(find.text('🏠  Buy a new room'), findsOneWidget);
+
+    // Buy the cheapest room offered (tap its price button).
+    final cheapest = Apartment.instance.buyableRooms.first;
+    await tester.tap(find.text('${cheapest.price}'));
+    await tester.pumpAndSettle();
+
+    expect(Apartment.instance.roomCount, 2);
+    expect(Apartment.instance.currentRoomId, cheapest.id); // moved straight in
+    expect(CoinWallet.instance.balance, 100000 - cheapest.price);
+  });
+
   testWidgets('giving a piece away in the giving corner removes it',
       (tester) async {
     SharedPreferences.setMockInitialValues(
