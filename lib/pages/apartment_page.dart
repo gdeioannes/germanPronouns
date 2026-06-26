@@ -1544,6 +1544,7 @@ class _InfoCard extends StatelessWidget {
       (learn, course.learnFlag, true),
       if (speak != learn) (speak, course.speakFlag, false),
     ];
+    final canAfford = CoinWallet.instance.balance >= item.price;
     return Dialog(
       backgroundColor: Colors.transparent,
       insetPadding: const EdgeInsets.all(28),
@@ -1617,17 +1618,83 @@ class _InfoCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: FilledButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    style: FilledButton.styleFrom(
-                      backgroundColor: const Color(0xFF7C5E48),
+                  child: OutlinedButton.icon(
+                    // Give this exact piece away (it returns to the shop).
+                    onPressed: () {
+                      final messenger = ScaffoldMessenger.of(context);
+                      Apartment.instance.donate(instanceId);
+                      Navigator.of(context).pop();
+                      messenger
+                        ..clearSnackBars()
+                        ..showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'You gave away the ${item.name.toLowerCase()} 💛  '
+                              'Someone will love it!',
+                            ),
+                          ),
+                        );
+                    },
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: const Color(0xFFD9645C),
+                      side: const BorderSide(color: Color(0xFFD9645C)),
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
-                    child: const Text('Got it',
+                    icon: const Icon(Icons.volunteer_activism_rounded, size: 18),
+                    label: const Text('Give away',
                         style: TextStyle(fontWeight: FontWeight.w800)),
                   ),
                 ),
               ],
+            ),
+            const SizedBox(height: 10),
+            // Buy another copy of the same piece — shows the cost.
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                onPressed: canAfford
+                    ? () async {
+                        final messenger = ScaffoldMessenger.of(context);
+                        final navigator = Navigator.of(context);
+                        final ok =
+                            await CoinWallet.instance.spend(item.price);
+                        if (ok) await Apartment.instance.grant(item.id);
+                        navigator.pop();
+                        messenger
+                          ..clearSnackBars()
+                          ..showSnackBar(SnackBar(
+                            content: Text(ok
+                                ? 'Added another ${item.name.toLowerCase()}!'
+                                : 'Not enough coins.'),
+                          ));
+                      }
+                    : null,
+                style: FilledButton.styleFrom(
+                  backgroundColor: const Color(0xFFFFD54F),
+                  foregroundColor: const Color(0xFF5A3D00),
+                  disabledBackgroundColor: const Color(0xFFE6E0EE),
+                  disabledForegroundColor: const Color(0xFF9A8FB0),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Shop another  ',
+                        style: TextStyle(fontWeight: FontWeight.w900)),
+                    const CoinGlyph(size: 16, withShadow: false),
+                    const SizedBox(width: 4),
+                    Text('${item.price}',
+                        style: const TextStyle(fontWeight: FontWeight.w900)),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 4),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              style: TextButton.styleFrom(foregroundColor: _cocoa),
+              child: const Text('Got it',
+                  style: TextStyle(fontWeight: FontWeight.w800)),
             ),
           ],
         ),

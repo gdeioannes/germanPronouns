@@ -124,6 +124,52 @@ void main() {
     expect(Apartment.instance.isFlipped(iid), isTrue);
   });
 
+  testWidgets('a room piece can be given away from its card', (tester) async {
+    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await Apartment.instance.grant('table');
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    final piece = find.byType(FlatFurniture).first;
+    await tester.tap(piece);
+    await tester.pump(const Duration(milliseconds: 60));
+    await tester.tap(piece);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Give away'));
+    await tester.pumpAndSettle();
+    expect(Apartment.instance.owns('table'), isFalse);
+  });
+
+  testWidgets('can buy another of the same piece from its card',
+      (tester) async {
+    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await Apartment.instance.grant('table');
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    final piece = find.byType(FlatFurniture).first;
+    await tester.tap(piece);
+    await tester.pump(const Duration(milliseconds: 60));
+    await tester.tap(piece);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Shop another  '));
+    await tester.pumpAndSettle();
+
+    final table = shopItemById('table')!;
+    expect(Apartment.instance.countOf('table'), 2);
+    expect(CoinWallet.instance.balance, 50 - table.price);
+  });
+
   testWidgets('day/night toggle flips and persists the room mode',
       (tester) async {
     SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
