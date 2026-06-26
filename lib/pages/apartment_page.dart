@@ -52,6 +52,8 @@ class _ApartmentPageState extends State<ApartmentPage> {
             letterSpacing: 0.5,
           ),
         ),
+        // No back arrow — the room is a docked panel, not a pushed route.
+        automaticallyImplyLeading: false,
         // Solid cocoa (with a gradient overlay that reliably fills) so the white
         // title and action icons are always visible.
         backgroundColor: const Color(0xFF6F5544),
@@ -236,27 +238,29 @@ class _RoomCanvasState extends State<_RoomCanvas> {
             final size = Size(c.maxWidth, c.maxHeight);
             // The reference size for a scale-1.0 piece; each piece scales off it.
             final baseTile = (size.shortestSide * 0.2).clamp(40.0, 88.0);
-            final owned = [
-              for (final item in shopCatalog)
-                if (Apartment.instance.owns(item.id)) item,
+            // Each placed piece is (instanceId, catalogue item); a learner can
+            // own several of the same item, each arranged on its own.
+            final pieces = [
+              for (final e in Apartment.instance.pieces.entries)
+                if (shopItemById(e.value) case final item?) (e.key, item),
             ];
             // Draw the held piece last so it floats above the others.
             final ordered = [
-              for (final item in owned) if (item.id != _dragId) item,
-              for (final item in owned) if (item.id == _dragId) item,
+              for (final p in pieces) if (p.$1 != _dragId) p,
+              for (final p in pieces) if (p.$1 == _dragId) p,
             ];
             // Light cast by any owned light pieces, at their live spots —
             // lamps throw a downward cone, others a soft directional pool.
             final night = Apartment.instance.isNight;
             final lights = <_LightSpec>[
-              for (final item in owned)
-                if (_lightFx[item.glyph] case final fx?)
-                  _lightSpec(item, fx, size, baseTile),
+              for (final p in pieces)
+                if (_lightFx[p.$2.glyph] case final fx?)
+                  _lightSpec(p.$1, p.$2, fx, size, baseTile),
             ];
             return Stack(
               children: [
                 const Positioned.fill(child: _CosyRoom()),
-                for (final item in ordered) _draggable(item, size, baseTile),
+                for (final p in ordered) _draggable(p.$1, p.$2, size, baseTile),
                 if (night || lights.isNotEmpty)
                   Positioned.fill(
                     child: IgnorePointer(
@@ -265,7 +269,7 @@ class _RoomCanvasState extends State<_RoomCanvas> {
                       ),
                     ),
                   ),
-                if (owned.isEmpty)
+                if (pieces.isEmpty)
                   const _EmptyRoom()
                 else
                   const Positioned(left: 12, top: 10, child: _DragHint()),
@@ -277,9 +281,9 @@ class _RoomCanvasState extends State<_RoomCanvas> {
     );
   }
 
-  Offset _centerPx(ShopItem item, Size size) {
-    if (item.id == _dragId && _dragCenter != null) return _dragCenter!;
-    final n = Apartment.instance.positionOf(item.id);
+  Offset _centerPx(String iid, ShopItem item, Size size) {
+    if (iid == _dragId && _dragCenter != null) return _dragCenter!;
+    final n = Apartment.instance.positionOf(iid, item.id);
     return Offset(n.dx * size.width, n.dy * size.height);
   }
 
@@ -288,9 +292,10 @@ class _RoomCanvasState extends State<_RoomCanvas> {
 
   /// Resolves a light's pixel geometry: a downward cone for beam lights (apex at
   /// the shade), or a soft elliptical pool for the rest.
-  _LightSpec _lightSpec(ShopItem item, _LightFx fx, Size size, double baseTile) {
+  _LightSpec _lightSpec(
+      String iid, ShopItem item, _LightFx fx, Size size, double baseTile) {
     final s = _sizeOf(item, baseTile, size);
-    final c = _centerPx(item, size);
+    final c = _centerPx(iid, item, size);
     if (fx.beam) {
       return _LightSpec(
         beam: true,
@@ -302,6 +307,8 @@ class _RoomCanvasState extends State<_RoomCanvas> {
         a: s * fx.apexHalf,
         b: s * fx.spread,
         len: s * fx.length,
+        soft: s * fx.soft,
+        cut: double.infinity,
       );
     }
     return _LightSpec(
@@ -314,27 +321,29 @@ class _RoomCanvasState extends State<_RoomCanvas> {
       a: s * fx.w,
       b: s * fx.h,
       len: 0,
+      soft: 0,
+      cut: fx.cutBase.isFinite ? c.dy + fx.cutBase * s : double.infinity,
     );
   }
 
-  Widget _draggable(ShopItem item, Size size, double baseTile) {
+  Widget _draggable(String iid, ShopItem item, Size size, double baseTile) {
     final itemSize = _sizeOf(item, baseTile, size);
     final half = itemSize / 2;
-    final isDragging = _dragId == item.id;
-    final center = _centerPx(item, size);
+    final isDragging = _dragId == iid;
+    final center = _centerPx(iid, item, size);
     final left = (center.dx - half).clamp(0.0, size.width - itemSize);
     final top = (center.dy - half).clamp(0.0, size.height - itemSize);
 
     return Positioned(
-      // Keyed so reordering (held piece drawn last) keeps each gesture on its
-      // own item.
-      key: ValueKey(item.id),
+      // Keyed by instance so reordering (held piece drawn last) keeps each
+      // gesture on its own piece.
+      key: ValueKey(iid),
       left: left,
       top: top,
       child: GestureDetector(
         // Brighten as soon as the piece is touched, before any movement.
         onPanDown: (_) => setState(() {
-          _dragId = item.id;
+          _dragId = iid;
           _dragCenter = center;
         }),
         onPanUpdate: (d) {
@@ -351,7 +360,7 @@ class _RoomCanvasState extends State<_RoomCanvas> {
           final c = _dragCenter;
           if (c != null) {
             Apartment.instance.setPosition(
-              item.id,
+              iid,
               Offset(c.dx / size.width, c.dy / size.height),
             );
           }
@@ -364,12 +373,13 @@ class _RoomCanvasState extends State<_RoomCanvas> {
           _dragId = null;
           _dragCenter = null;
         }),
-        // Double-tap a piece to see its name in the languages you're learning.
-        onDoubleTap: () => _showInfoCard(context, item),
+        // Double-tap a piece for its name (and to flip it).
+        onDoubleTap: () => _showInfoCard(context, iid, item),
         child: _FurnitureToken(
           item: item,
           size: itemSize,
           highlighted: isDragging,
+          flipped: Apartment.instance.isFlipped(iid),
         ),
       ),
     );
@@ -384,11 +394,13 @@ class _FurnitureToken extends StatelessWidget {
     required this.item,
     required this.size,
     this.highlighted = false,
+    this.flipped = false,
   });
 
   final ShopItem item;
   final double size;
   final bool highlighted;
+  final bool flipped;
 
   @override
   Widget build(BuildContext context) {
@@ -403,6 +415,9 @@ class _FurnitureToken extends StatelessWidget {
         ),
         child: furniture,
       );
+    }
+    if (flipped) {
+      furniture = Transform.scale(scaleX: -1, child: furniture);
     }
     return TweenAnimationBuilder<double>(
       key: ValueKey(item.id),
@@ -535,6 +550,8 @@ class _LightFx {
     this.spread = 1,
     this.apexHalf = 0.16,
     this.apexDy = 0,
+    this.soft = 0.06,
+    this.cutBase = double.infinity,
   });
   final Color color;
   final double intensity;
@@ -548,6 +565,15 @@ class _LightFx {
   final double spread;
   final double apexHalf;
   final double apexDy;
+
+  /// Cone edge softness as a fraction of the piece size — small keeps the cone's
+  /// polygon edges sharp; 0 makes them razor crisp.
+  final double soft;
+
+  /// For pool lights, the surface to clip the glow at, as a fraction of the
+  /// piece size below its centre — so a candle's light is cut flat at its base
+  /// instead of spilling below it. Infinity means no cut.
+  final double cutBase;
 }
 
 /// Which pieces give off light, keyed by [ShopItem.glyph]. Lamps cast a downward
@@ -555,17 +581,17 @@ class _LightFx {
 /// spill.
 const Map<String, _LightFx> _lightFx = {
   'pendant': _LightFx(
-      color: Color(0xFFFFE0A0), intensity: 0.55, glow: 0.26,
-      beam: true, length: 2.5, spread: 1.0, apexHalf: 0.16, apexDy: 0.05),
+      color: Color(0xFFFFE0A0), intensity: 0.55, glow: 0.26, beam: true,
+      length: 1.7, spread: 0.85, apexHalf: 0.16, apexDy: 0.05, soft: 0.04),
   'lamp': _LightFx(
-      color: Color(0xFFFFD98A), intensity: 0.55, glow: 0.26,
-      beam: true, length: 2.3, spread: 0.95, apexHalf: 0.16, apexDy: -0.12),
+      color: Color(0xFFFFD98A), intensity: 0.55, glow: 0.26, beam: true,
+      length: 1.6, spread: 0.8, apexHalf: 0.16, apexDy: -0.12, soft: 0.04),
   'lantern': _LightFx(
       color: Color(0xFFFFD98A), intensity: 0.5, glow: 0.26,
-      w: 1.0, h: 1.2, dy: 0.15),
+      w: 1.0, h: 1.25, dy: 0, focal: Alignment(0, -0.05), cutBase: 0.34),
   'candle': _LightFx(
       color: Color(0xFFFFC97A), intensity: 0.4, glow: 0.24,
-      w: 0.65, h: 0.85, dy: -0.15, focal: Alignment(0, 0.3)),
+      w: 0.7, h: 0.95, dy: 0, focal: Alignment(0, -0.1), cutBase: 0.4),
   'fireplace': _LightFx(
       color: Color(0xFFFF9A52), intensity: 0.65, glow: 0.34,
       w: 1.8, h: 1.4, dy: -0.2, focal: Alignment(0, 0.4)),
@@ -591,6 +617,8 @@ class _LightSpec {
     required this.a,
     required this.b,
     required this.len,
+    required this.soft,
+    required this.cut,
     required this.focal,
     required this.color,
     required this.intensity,
@@ -601,6 +629,11 @@ class _LightSpec {
   final double a;
   final double b;
   final double len;
+  final double soft;
+
+  /// Pixel y at which a pool light's glow is clipped flat (its base), or
+  /// infinity for no cut.
+  final double cut;
   final Alignment focal;
   final Color color;
   final double intensity;
@@ -637,18 +670,20 @@ class _RoomLightingPainter extends CustomPainter {
         ..lineTo(apex.dx + l.b, apex.dy + l.len)
         ..lineTo(apex.dx - l.b, apex.dy + l.len)
         ..close();
-      paint
-        ..shader = LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            color.withValues(alpha: alpha),
-            color.withValues(alpha: alpha * 0.35),
-            color.withValues(alpha: 0),
-          ],
-          stops: const [0.0, 0.55, 1.0],
-        ).createShader(rect)
-        ..maskFilter = MaskFilter.blur(BlurStyle.normal, l.b * 0.45);
+      paint.shader = LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          color.withValues(alpha: alpha),
+          color.withValues(alpha: alpha * 0.4),
+          color.withValues(alpha: 0),
+        ],
+        stops: const [0.0, 0.6, 1.0],
+      ).createShader(rect);
+      // Keep the cone's polygon edges crisp; only a hair of feather for AA.
+      if (l.soft > 0) {
+        paint.maskFilter = MaskFilter.blur(BlurStyle.normal, l.soft);
+      }
       canvas.drawPath(cone, paint);
     } else {
       final pool = Rect.fromCenter(
@@ -659,7 +694,14 @@ class _RoomLightingPainter extends CustomPainter {
         colors: [color.withValues(alpha: alpha), color.withValues(alpha: 0)],
         stops: const [0.0, 1.0],
       ).createShader(pool);
+      // Cut the glow flat at the base (e.g. the surface a candle sits on).
+      final clip = l.cut.isFinite;
+      if (clip) {
+        canvas.save();
+        canvas.clipRect(Rect.fromLTRB(pool.left, pool.top, pool.right, l.cut));
+      }
       canvas.drawOval(pool, paint);
+      if (clip) canvas.restore();
     }
   }
 
@@ -741,8 +783,9 @@ class _EmptyRoom extends StatelessWidget {
 // Shop
 // ─────────────────────────────────────────────────────────────────────────
 
-/// The shop: revealed-but-not-yet-owned furniture, split into category tabs with
-/// an "All" tab in front. Tapping a card opens the buy confirmation.
+/// The shop: every revealed furniture item, split into category tabs with an
+/// "All" tab in front. Items stay buyable after you own them, so you can buy
+/// several of the same. Tapping a card opens the buy confirmation.
 class _Shop extends StatelessWidget {
   const _Shop();
 
@@ -750,9 +793,7 @@ class _Shop extends StatelessWidget {
   Widget build(BuildContext context) {
     final forSale = [
       for (final item in shopCatalog)
-        if (Apartment.instance.isRevealed(item.id) &&
-            !Apartment.instance.owns(item.id))
-          item,
+        if (Apartment.instance.isRevealed(item.id)) item,
     ];
 
     return DefaultTabController(
@@ -815,9 +856,7 @@ class _ShopGrid extends StatelessWidget {
     final list = items ??
         [
           for (final item in shopCatalog)
-            if (Apartment.instance.isRevealed(item.id) &&
-                !Apartment.instance.owns(item.id))
-              item,
+            if (Apartment.instance.isRevealed(item.id)) item,
         ];
     if (list.isEmpty) {
       return Center(
@@ -855,7 +894,7 @@ class _ShopHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final owned = Apartment.instance.ownedIds.length;
+    final placed = Apartment.instance.pieceCount;
     // Next unlock: the cheapest piece not yet revealed, and the coins needed.
     int? nextCoins;
     for (final item in shopCatalog) {
@@ -893,7 +932,8 @@ class _ShopHeader extends StatelessWidget {
             )
           else
             _Chip(
-              child: Text('$owned / ${shopCatalog.length} owned',
+              child: Text(
+                  placed == 1 ? '1 piece placed' : '$placed pieces placed',
                   style: const TextStyle(fontWeight: FontWeight.w800)),
             ),
         ],
@@ -1215,15 +1255,20 @@ class _ExportSheet extends StatelessWidget {
 // Info card (double-tap)
 // ─────────────────────────────────────────────────────────────────────────
 
-void _showInfoCard(BuildContext context, ShopItem item) {
-  showDialog<void>(context: context, builder: (_) => _InfoCard(item: item));
+void _showInfoCard(BuildContext context, String instanceId, ShopItem item) {
+  showDialog<void>(
+    context: context,
+    builder: (_) => _InfoCard(instanceId: instanceId, item: item),
+  );
 }
 
 /// Shown on double-tap: the piece's name in the languages the learner is
 /// studying (their active course's pair), so the room reinforces vocabulary —
-/// the learned language first and highlighted.
+/// the learned language first and highlighted — plus a button to flip the piece
+/// horizontally.
 class _InfoCard extends StatelessWidget {
-  const _InfoCard({required this.item});
+  const _InfoCard({required this.instanceId, required this.item});
+  final String instanceId;
   final ShopItem item;
 
   @override
@@ -1282,18 +1327,43 @@ class _InfoCard extends StatelessWidget {
                   highlight: isLearn,
                 ),
               ),
-            const SizedBox(height: 6),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                onPressed: () => Navigator.of(context).pop(),
-                style: FilledButton.styleFrom(
-                  backgroundColor: const Color(0xFF7C5E48),
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    // Flip the piece and close, so the result is visible.
+                    onPressed: () {
+                      Apartment.instance.toggleFlip(instanceId);
+                      Navigator.of(context).pop();
+                    },
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: _cocoa,
+                      side: const BorderSide(color: Color(0xFF7C5E48)),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                    ),
+                    icon: const Icon(Icons.flip_rounded, size: 18),
+                    label: Text(
+                      Apartment.instance.isFlipped(instanceId)
+                          ? 'Unflip'
+                          : 'Flip',
+                      style: const TextStyle(fontWeight: FontWeight.w800),
+                    ),
+                  ),
                 ),
-                child: const Text('Got it',
-                    style: TextStyle(fontWeight: FontWeight.w800)),
-              ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: FilledButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: const Color(0xFF7C5E48),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                    ),
+                    child: const Text('Got it',
+                        style: TextStyle(fontWeight: FontWeight.w800)),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -1377,9 +1447,9 @@ class _DonationSheetState extends State<_DonationSheet> {
   // Bumped on every gift; the sharing table watches it to fire a heart burst.
   int _burstCount = 0;
 
-  void _giveAway(ShopItem item) {
+  void _giveAway(String instanceId, ShopItem item) {
     final messenger = ScaffoldMessenger.of(context);
-    Apartment.instance.donate(item.id);
+    Apartment.instance.donate(instanceId);
     setState(() => _burstCount++);
     messenger
       ..clearSnackBars()
@@ -1437,8 +1507,9 @@ class _DonationSheetState extends State<_DonationSheet> {
                   listenable: Apartment.instance,
                   builder: (context, _) {
                     final owned = [
-                      for (final i in shopCatalog)
-                        if (Apartment.instance.owns(i.id)) i,
+                      for (final e in Apartment.instance.pieces.entries)
+                        if (shopItemById(e.value) case final item?)
+                          (e.key, item),
                     ];
                     if (owned.isEmpty) {
                       return Center(
@@ -1468,8 +1539,8 @@ class _DonationSheetState extends State<_DonationSheet> {
                       ),
                       itemCount: owned.length,
                       itemBuilder: (context, i) => _DonationCard(
-                        item: owned[i],
-                        onGive: () => _giveAway(owned[i]),
+                        item: owned[i].$2,
+                        onGive: () => _giveAway(owned[i].$1, owned[i].$2),
                       ),
                     );
                   },

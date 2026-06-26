@@ -68,32 +68,59 @@ void main() {
     );
   });
 
-  test('grant() records ownership and persists', () async {
+  test('grant() places a piece, and you can buy several of the same', () async {
     await loadWith(100);
     final id = shopCatalog.first.id;
 
     await Apartment.instance.grant(id);
+    await Apartment.instance.grant(id);
     expect(Apartment.instance.owns(id), isTrue);
+    expect(Apartment.instance.countOf(id), 2);
+    expect(Apartment.instance.pieceCount, 2);
 
-    final prefs = await SharedPreferences.getInstance();
-    expect(prefs.getStringList(SettingsKeys.apartmentItems), contains(id));
+    // Persists across reload.
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.countOf(id), 2);
   });
 
-  test('donate() drops ownership and persists (piece returns to the shop)',
-      () async {
+  test('donate() removes one instance and persists', () async {
     await loadWith(100);
     final id = shopCatalog.first.id;
+    final first = await Apartment.instance.grant(id);
     await Apartment.instance.grant(id);
-    expect(Apartment.instance.owns(id), isTrue);
+    expect(Apartment.instance.countOf(id), 2);
 
-    await Apartment.instance.donate(id);
-    expect(Apartment.instance.owns(id), isFalse);
+    await Apartment.instance.donate(first);
+    expect(Apartment.instance.countOf(id), 1); // the other copy stays
     // Still revealed, so it's buyable again.
     expect(Apartment.instance.isRevealed(id), isTrue);
 
-    final prefs = await SharedPreferences.getInstance();
-    expect(prefs.getStringList(SettingsKeys.apartmentItems) ?? const [],
-        isNot(contains(id)));
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.countOf(id), 1);
+  });
+
+  test('flip toggles per piece, persists and reloads', () async {
+    await loadWith(100);
+    final iid = await Apartment.instance.grant(shopCatalog.first.id);
+    expect(Apartment.instance.isFlipped(iid), isFalse);
+
+    await Apartment.instance.toggleFlip(iid);
+    expect(Apartment.instance.isFlipped(iid), isTrue);
+
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.isFlipped(iid), isTrue);
+
+    await Apartment.instance.toggleFlip(iid);
+    expect(Apartment.instance.isFlipped(iid), isFalse);
   });
 
   test('night mode toggles, persists and reloads', () async {
@@ -116,15 +143,16 @@ void main() {
   test('positions clamp, persist and reload', () async {
     await loadWith(100);
     final id = shopCatalog.first.id;
+    final iid = await Apartment.instance.grant(id);
 
-    await Apartment.instance.setPosition(id, const Offset(1.4, -0.2));
-    expect(Apartment.instance.positionOf(id), const Offset(1.0, 0.0));
+    await Apartment.instance.setPosition(iid, const Offset(1.4, -0.2));
+    expect(Apartment.instance.positionOf(iid, id), const Offset(1.0, 0.0));
 
-    await Apartment.instance.setPosition(id, const Offset(0.3, 0.7));
+    await Apartment.instance.setPosition(iid, const Offset(0.3, 0.7));
     Apartment.instance.resetForTest();
     CoinWallet.instance.resetForTest();
     await CoinWallet.instance.load();
     await Apartment.instance.load();
-    expect(Apartment.instance.positionOf(id), const Offset(0.3, 0.7));
+    expect(Apartment.instance.positionOf(iid, id), const Offset(0.3, 0.7));
   });
 }

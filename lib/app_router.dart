@@ -5,7 +5,6 @@ import 'data/noun_progression_data.dart';
 import 'data/quest_data.dart';
 import 'models/app_session.dart';
 import 'models/course_session.dart';
-import 'pages/apartment_page.dart';
 import 'pages/back_office/back_office_home_page.dart';
 import 'pages/course_intro_page.dart';
 import 'pages/course_selector_page.dart';
@@ -14,9 +13,9 @@ import 'pages/login_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/word_library_page.dart';
 import 'widgets/app_drawer.dart';
-import 'widgets/mystery_bottom_bar.dart';
 import 'widgets/noun_progression_quiz_loader.dart';
 import 'widgets/quest_quiz_loader.dart';
+import 'widgets/room_panel.dart';
 
 /// The app's single source of navigation truth.
 ///
@@ -62,18 +61,13 @@ final GoRouter appRouter = GoRouter(
       redirect: (context, state) => homeLocation(),
     ),
     GoRoute(
-      // The room mini-game — a top-level route (outside the learner shell) so it
-      // opens full-screen over everything, without the room door at its bottom.
-      path: '/apartment',
-      builder: (context, state) => const ApartmentPage(),
-    ),
-    GoRoute(
       path: '/back-office',
       builder: (context, state) => const BackOfficeHomePage(),
     ),
-    // Every learner content screen sits inside this shell, which pins the room
-    // door ("???") to the bottom — so the room is always one tap away. Sign-in /
-    // onboarding, the back office and the room itself stay outside it.
+    // Every learner content screen sits inside this shell, which docks the room
+    // panel ("My Room") at the bottom — peeking, and sliding up on tap/drag — so
+    // the room is always there. Sign-in / onboarding and the back office stay
+    // outside it.
     ShellRoute(
       builder: (context, state, child) => _LearnerShell(child: child),
       routes: [
@@ -163,9 +157,9 @@ final GoRouter appRouter = GoRouter(
   ),
 );
 
-/// The persistent shell around every learner content screen: the page on top,
-/// the always-present room door ("???") pinned at the bottom. One shared bar for
-/// the whole learner area, instead of one per page.
+/// The persistent shell around every learner content screen: the page fills the
+/// space, with the room [RoomPanel] docked at the bottom (peeking, and sliding
+/// up over the page on tap/drag). One shared panel for the whole learner area.
 class _LearnerShell extends StatelessWidget {
   const _LearnerShell({required this.child});
 
@@ -173,10 +167,10 @@ class _LearnerShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Expanded(child: child),
-        const MysteryBottomBar(),
+        Positioned.fill(child: child),
+        const RoomPanel(),
       ],
     );
   }

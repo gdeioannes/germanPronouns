@@ -41,6 +41,21 @@ void main() {
     expect(CoinWallet.instance.balance, 25 - item.price);
   });
 
+  testWidgets('can buy the same piece more than once', (tester) async {
+    await pumpShop(tester); // 25 coins; only the cheapest piece is revealed
+
+    // Buy the cheapest piece twice from its shop card.
+    for (var n = 0; n < 2; n++) {
+      await tester.tap(find.text(item.name).first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(FilledButton));
+      await tester.pumpAndSettle();
+    }
+
+    expect(Apartment.instance.countOf(item.id), 2);
+    expect(CoinWallet.instance.balance, 25 - item.price * 2);
+  });
+
   testWidgets("can't buy a piece you can no longer afford", (tester) async {
     // Reveal lots at a high balance, then spend down so a revealed piece is
     // unaffordable; the buy dialog disables its Buy button.
@@ -78,6 +93,29 @@ void main() {
     // The card shows the word in the learned language (German, by default).
     expect(find.text('Got it'), findsOneWidget);
     expect(find.text('der Tisch'), findsOneWidget);
+  });
+
+  testWidgets('a room piece can be flipped from its card', (tester) async {
+    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await Apartment.instance.grant('table');
+    final iid = Apartment.instance.pieces.keys.first;
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    final piece = find.byType(FlatFurniture).first;
+    await tester.tap(piece);
+    await tester.pump(const Duration(milliseconds: 60));
+    await tester.tap(piece);
+    await tester.pumpAndSettle();
+
+    expect(Apartment.instance.isFlipped(iid), isFalse);
+    await tester.tap(find.text('Flip'));
+    await tester.pumpAndSettle();
+    expect(Apartment.instance.isFlipped(iid), isTrue);
   });
 
   testWidgets('day/night toggle flips and persists the room mode',

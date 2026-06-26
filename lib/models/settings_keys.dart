@@ -38,6 +38,10 @@ class SettingsKeys {
   /// `bool`. See `Apartment.isNight`.
   static const String apartmentNight = 'apartment_night';
 
+  /// Instance ids of placed pieces that are mirrored horizontally. A
+  /// `StringList`. See `Apartment.isFlipped`.
+  static const String apartmentFlipped = 'apartment_flipped';
+
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =
