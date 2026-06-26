@@ -27,7 +27,11 @@ import '../widgets/room_surfaces.dart';
 /// Deliberately warm and calm — a cosy reward for the learning the rest of the
 /// app is about.
 class ApartmentPage extends StatefulWidget {
-  const ApartmentPage({super.key});
+  const ApartmentPage({super.key, this.onClose});
+
+  /// Closes the room when it's docked as a slide-up panel; null when shown as a
+  /// standalone page (then no close button is offered).
+  final VoidCallback? onClose;
 
   @override
   State<ApartmentPage> createState() => _ApartmentPageState();
@@ -90,7 +94,8 @@ const _palDark = _Pal(
 /// The current palette — dark while the room is in night mode.
 _Pal get _pal => Apartment.instance.isNight ? _palDark : _palLight;
 
-class _ApartmentPageState extends State<ApartmentPage> {
+class _ApartmentPageState extends State<ApartmentPage>
+    with SingleTickerProviderStateMixin {
   // Keys the room's RepaintBoundary so we can grab a picture of just the room.
   final GlobalKey _roomKey = GlobalKey();
 
@@ -98,12 +103,115 @@ class _ApartmentPageState extends State<ApartmentPage> {
   // languagequiz watermark, so the shared picture is branded (not the hint).
   bool _exporting = false;
 
-  // While true, the room editor expands and the shop collapses down, to give
-  // more space for arranging furniture.
-  bool _focusRoom = false;
+  // The shop is a draggable sheet that snaps to three rungs: collapsed (the room
+  // gets the screen), the default split, and expanded (the shop fills the
+  // screen). [_shopFraction] is how much of the body the shop takes; a drag
+  // never rests between rungs — on release it snaps to the nearest one.
+  static const double _shopCollapsed = 0.13;
+  static const double _shopMiddle = 0.48;
+  static const double _shopExpanded = 0.9;
+  double _shopFraction = _shopMiddle;
+
+  // Eases [_shopFraction] to a rung when a drag ends or the toolbar toggles it.
+  // Created in initState (not a lazy `late final`) so it always exists by the
+  // time dispose runs, even if the learner never drags.
+  late final AnimationController _snapCtrl;
+  Animation<double>? _snapAnim;
+
+  @override
+  void initState() {
+    super.initState();
+    _snapCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 240),
+    );
+  }
+
+  @override
+  void dispose() {
+    _snapCtrl.dispose();
+    super.dispose();
+  }
+
+  void _onShopDrag(double dy, double total) {
+    if (_snapCtrl.isAnimating) _snapCtrl.stop();
+    setState(() {
+      _shopFraction =
+          (_shopFraction - dy / total).clamp(_shopCollapsed, _shopExpanded);
+    });
+  }
+
+  void _snapShop(double velocity, double total) {
+    var f = _shopFraction;
+    // A firm flick jumps a rung in its direction; otherwise snap to the nearest.
+    if (velocity < -500) {
+      f += 0.2; // flicked up → bigger shop
+    } else if (velocity > 500) {
+      f -= 0.2; // flicked down → smaller shop
+    }
+    const rungs = [_shopCollapsed, _shopMiddle, _shopExpanded];
+    final target =
+        rungs.reduce((a, b) => (f - a).abs() <= (f - b).abs() ? a : b);
+    _animateShopTo(target);
+  }
+
+  void _animateShopTo(double target) {
+    _snapAnim = Tween<double>(begin: _shopFraction, end: target).animate(
+      CurvedAnimation(parent: _snapCtrl, curve: Curves.easeOutCubic),
+    )..addListener(() => setState(() => _shopFraction = _snapAnim!.value));
+    _snapCtrl.forward(from: 0);
+  }
+
+  /// The toolbar button: collapse the shop to give the room the screen, or
+  /// restore the default split.
+  void _toggleShop() => _animateShopTo(
+        _shopFraction <= _shopCollapsed + 0.01 ? _shopMiddle : _shopCollapsed,
+      );
+
+  /// The room area (the room canvas + its selector bar), robust at any height:
+  /// the canvas shrinks to fit, so it never overflows when the shop expands.
+  Widget _roomArea({required bool compact, required bool roomBig}) {
+    final pad = roomBig ? 8.0 : 12.0;
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: pad),
+      child: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(top: pad),
+              child: Center(
+                child: LayoutBuilder(
+                  builder: (context, rc) {
+                    const aspect = 0.82;
+                    final w = math.max(
+                      0.0,
+                      math.min(rc.maxWidth, rc.maxHeight * aspect),
+                    );
+                    if (w < 1) return const SizedBox.shrink();
+                    return SizedBox(
+                      width: w,
+                      height: w / aspect,
+                      child: _RoomCanvas(
+                        repaintKey: _roomKey,
+                        exporting: _exporting,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+          _RoomBar(onTap: _openRoomPicker, compact: compact),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    // On phones the room is a tall panel with little width to spare, so the
+    // toolbar's secondary actions collapse into an overflow menu.
+    final compact = MediaQuery.sizeOf(context).width < 700;
     // Rebuild the page (incl. the app bar) when night flips, so the whole room
     // UI switches to the dark palette, not just the lighting.
     return ListenableBuilder(
@@ -120,9 +228,18 @@ class _ApartmentPageState extends State<ApartmentPage> {
             letterSpacing: 0.5,
           ),
         ),
-        titleSpacing: 8,
-        // No back arrow — the room is a docked panel, not a pushed route.
+        titleSpacing: widget.onClose != null ? 0 : 8,
+        // When docked as a slide-up panel, an explicit close (down) button —
+        // the room now covers the whole screen, so there's no app behind to tap.
         automaticallyImplyLeading: false,
+        leading: widget.onClose == null
+            ? null
+            : IconButton(
+                tooltip: 'Close the room',
+                icon: const Icon(Icons.keyboard_arrow_down_rounded,
+                    color: Colors.white),
+                onPressed: widget.onClose,
+              ),
         // A gradient bar that reliably fills, so the white title/icons stay
         // visible; switches to the dark palette at night.
         backgroundColor: _pal.appBar2,
@@ -137,60 +254,7 @@ class _ApartmentPageState extends State<ApartmentPage> {
           ),
         ),
         elevation: 0,
-        actions: [
-          // Play / pause the gentle idle animation of room pieces.
-          IconButton(
-            tooltip: Apartment.instance.animate
-                ? 'Pause animation'
-                : 'Play animation',
-            icon: Icon(
-              Apartment.instance.animate
-                  ? Icons.pause_circle_outline
-                  : Icons.play_circle_outline,
-              color: Colors.white,
-            ),
-            onPressed: () =>
-                Apartment.instance.setAnimate(!Apartment.instance.animate),
-          ),
-          // Expand the room editor (collapse the shop) to arrange in more space.
-          IconButton(
-            tooltip: _focusRoom ? 'Show the shop' : 'Make the room bigger',
-            icon: Icon(
-              _focusRoom ? Icons.close_fullscreen : Icons.open_in_full,
-              color: Colors.white,
-            ),
-            onPressed: () => setState(() => _focusRoom = !_focusRoom),
-          ),
-          // Day / night toggle, so the lighting effect is easy to see.
-          ListenableBuilder(
-            listenable: Apartment.instance,
-            builder: (context, _) {
-              final night = Apartment.instance.isNight;
-              return IconButton(
-                tooltip: night ? 'Switch to day' : 'Switch to night',
-                icon: Icon(
-                  night ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
-                  color: Colors.white,
-                ),
-                onPressed: () => Apartment.instance.setNight(!night),
-              );
-            },
-          ),
-          // The donation spot: opens the Giving Corner to give furniture away.
-          IconButton(
-            tooltip: 'Give away furniture',
-            icon: const Icon(Icons.volunteer_activism_rounded,
-                color: Colors.white),
-            onPressed: _openGivingCorner,
-          ),
-          IconButton(
-            tooltip: 'Save or copy a picture of your room',
-            icon: const Icon(Icons.ios_share_rounded, color: Colors.white),
-            onPressed: _exportRoom,
-          ),
-          const CoinBalancePill(),
-          const SizedBox(width: 6),
-        ],
+        actions: _roomActions(compact),
       ),
       body: DecoratedBox(
         decoration: BoxDecoration(
@@ -208,63 +272,152 @@ class _ApartmentPageState extends State<ApartmentPage> {
               CoinWallet.instance,
             ]),
             builder: (context, _) {
-              return Column(
-                children: [
-                  // The room keeps a fixed 0.82 (W/H) portrait proportion (the
-                  // largest that fits its area). In focus mode the shop collapses
-                  // to a thin bar so the room area — and the room — grows.
-                  Expanded(
-                    flex: _focusRoom ? 100 : 54,
-                    child: LayoutBuilder(
-                      builder: (context, rc) {
-                        // Every room keeps the same standard 0.82 (W/H) portrait
-                        // proportion (the largest that fits, leaving room for the
-                        // carousel below it); focus mode grows it.
-                        const aspect = 0.82;
-                        const barH = 54.0;
-                        final pad = _focusRoom ? 8.0 : 12.0;
-                        final areaW = rc.maxWidth - pad * 2;
-                        final areaH = rc.maxHeight - pad * 2 - barH;
-                        final roomW = math.min(areaW, areaH * aspect);
-                        final roomH = roomW / aspect;
-                        return Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(
-                                width: roomW,
-                                height: roomH,
-                                child: _RoomCanvas(
-                                  repaintKey: _roomKey,
-                                  exporting: _exporting,
-                                ),
-                              ),
-                              // The room carousel sits under the room, matched to
-                              // its width.
-                              SizedBox(
-                                width: roomW,
-                                child: _RoomBar(onBuy: _openRoomShop),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  if (_focusRoom)
-                    _CollapsedShopBar(
-                      onTap: () => setState(() => _focusRoom = false),
-                    )
-                  // Not const: the shop reads the night-aware palette, so it must
-                  // rebuild when night flips (a const instance would be reused).
-                  else
-                    Expanded(flex: 46, child: _Shop()),
-                ],
+              // On phones, shrink the room carousel and hand the freed space to
+              // the room and the shop so nothing feels cramped.
+              final compact = MediaQuery.sizeOf(context).width < 700;
+              // The room sits above the shop; the shop is a draggable sheet that
+              // snaps to collapsed / middle / expanded. The room area gets the
+              // rest and always keeps at least its selector bar visible.
+              return LayoutBuilder(
+                builder: (context, c) {
+                  final total = c.maxHeight;
+                  // Keep at least the room's selector bar on screen, so the room
+                  // area never collapses to nothing while the shop expands.
+                  final shopH =
+                      (total * _shopFraction).clamp(0.0, total - 56.0);
+                  final roomH = total - shopH;
+                  final roomBig = _shopFraction <= _shopCollapsed + 0.01;
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: roomH,
+                        child: _roomArea(compact: compact, roomBig: roomBig),
+                      ),
+                      SizedBox(
+                        height: shopH,
+                        // Not const: the shop reads the night-aware palette, so
+                        // it must rebuild when night flips.
+                        child: _Shop(
+                          // Too short to show the full store → a peek bar.
+                          collapsed: shopH < 130,
+                          onDrag: (dy) => _onShopDrag(dy, total),
+                          onDragEnd: (v) => _snapShop(v, total),
+                          onToggle: _toggleShop,
+                        ),
+                      ),
+                    ],
+                  );
+                },
               );
             },
           ),
         ),
       ),
+      ),
+    );
+  }
+
+  // ── Toolbar ────────────────────────────────────────────────────────────────
+
+  /// The room toolbar. On wide screens every control is its own button; on
+  /// phones only the "make the room bigger" toggle and the coin pill stay out,
+  /// and the rest (play/pause, day/night, give away, share) fold into a single
+  /// overflow menu so the bar isn't crammed.
+  List<Widget> _roomActions(bool compact) {
+    final apt = Apartment.instance;
+    final roomBig = _shopFraction <= _shopCollapsed + 0.01;
+    final focusButton = IconButton(
+      tooltip: roomBig ? 'Show the shop' : 'Make the room bigger',
+      icon: Icon(
+        roomBig ? Icons.close_fullscreen : Icons.open_in_full,
+        color: Colors.white,
+      ),
+      onPressed: _toggleShop,
+    );
+
+    if (compact) {
+      return [
+        focusButton,
+        PopupMenuButton<String>(
+          tooltip: 'More room options',
+          icon: const Icon(Icons.more_vert, color: Colors.white),
+          color: _pal.card,
+          onSelected: (value) {
+            switch (value) {
+              case 'animate':
+                apt.setAnimate(!apt.animate);
+              case 'night':
+                apt.setNight(!apt.isNight);
+              case 'give':
+                _openGivingCorner();
+              case 'share':
+                _exportRoom();
+            }
+          },
+          itemBuilder: (_) => [
+            _overflowItem(
+              'animate',
+              apt.animate ? Icons.pause_circle_outline : Icons.play_circle_outline,
+              apt.animate ? 'Pause animation' : 'Play animation',
+            ),
+            _overflowItem(
+              'night',
+              apt.isNight ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+              apt.isNight ? 'Switch to day' : 'Switch to night',
+            ),
+            _overflowItem(
+              'give', Icons.volunteer_activism_rounded, 'Give away furniture'),
+            _overflowItem(
+              'share', Icons.ios_share_rounded, 'Save or copy a picture'),
+          ],
+        ),
+        const CoinBalancePill(),
+        const SizedBox(width: 4),
+      ];
+    }
+
+    return [
+      IconButton(
+        tooltip: apt.animate ? 'Pause animation' : 'Play animation',
+        icon: Icon(
+          apt.animate ? Icons.pause_circle_outline : Icons.play_circle_outline,
+          color: Colors.white,
+        ),
+        onPressed: () => apt.setAnimate(!apt.animate),
+      ),
+      focusButton,
+      IconButton(
+        tooltip: apt.isNight ? 'Switch to day' : 'Switch to night',
+        icon: Icon(
+          apt.isNight ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+          color: Colors.white,
+        ),
+        onPressed: () => apt.setNight(!apt.isNight),
+      ),
+      IconButton(
+        tooltip: 'Give away furniture',
+        icon: const Icon(Icons.volunteer_activism_rounded, color: Colors.white),
+        onPressed: _openGivingCorner,
+      ),
+      IconButton(
+        tooltip: 'Save or copy a picture of your room',
+        icon: const Icon(Icons.ios_share_rounded, color: Colors.white),
+        onPressed: _exportRoom,
+      ),
+      const CoinBalancePill(),
+      const SizedBox(width: 6),
+    ];
+  }
+
+  PopupMenuItem<String> _overflowItem(String value, IconData icon, String label) {
+    return PopupMenuItem<String>(
+      value: value,
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: _pal.text),
+          const SizedBox(width: 12),
+          Text(label, style: TextStyle(color: _pal.text)),
+        ],
       ),
     );
   }
@@ -285,7 +438,7 @@ class _ApartmentPageState extends State<ApartmentPage> {
 
   // ── Buy a new room ─────────────────────────────────────────────────────────
 
-  Future<void> _openRoomShop() async {
+  Future<void> _openRoomPicker() async {
     final movedInto = await showModalBottomSheet<String>(
       context: context,
       isScrollControlled: true,
@@ -293,7 +446,7 @@ class _ApartmentPageState extends State<ApartmentPage> {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
-      builder: (_) => const _RoomShopSheet(),
+      builder: (_) => const _RoomPickerSheet(),
     );
     if (movedInto != null && mounted) {
       ScaffoldMessenger.of(context)
@@ -326,6 +479,7 @@ class _ApartmentPageState extends State<ApartmentPage> {
     }
     showModalBottomSheet<void>(
       context: context,
+      isScrollControlled: true,
       backgroundColor: _cream,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
@@ -368,11 +522,22 @@ class _RoomCanvas extends StatefulWidget {
 }
 
 class _RoomCanvasState extends State<_RoomCanvas>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   // The piece currently held (brightened + drawn on top), and its live pixel
-  // centre while it's being dragged.
+  // centre (the finger position) while it's being dragged.
   String? _dragId;
   Offset? _dragCenter;
+
+  // The held piece is drawn lifted above the fingertip so the finger never hides
+  // it. The lift eases in (0 → [_liftTarget] px) once dragging starts, so it
+  // glides up instead of snapping.
+  double _liftTarget = 0;
+  late final AnimationController _lift = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 170),
+  )..addListener(() {
+      if (mounted) setState(() {});
+    });
 
   // A slow, looping clock that drives the gentle idle float of room pieces.
   late final AnimationController _idle = AnimationController(
@@ -380,8 +545,12 @@ class _RoomCanvasState extends State<_RoomCanvas>
     duration: const Duration(seconds: 6),
   );
 
+  /// The current lift in pixels, eased by [_lift] (0 while not dragging).
+  double get _liftPx => _liftTarget * Curves.easeOut.transform(_lift.value);
+
   @override
   void dispose() {
+    _lift.dispose();
     _idle.dispose();
     super.dispose();
   }
@@ -484,7 +653,10 @@ class _RoomCanvasState extends State<_RoomCanvas>
   }
 
   Offset _centerPx(String iid, ShopItem item, Size size) {
-    if (iid == _dragId && _dragCenter != null) return _dragCenter!;
+    if (iid == _dragId && _dragCenter != null) {
+      // Draw the held piece lifted above the finger (the lift eases in).
+      return Offset(_dragCenter!.dx, _dragCenter!.dy - _liftPx);
+    }
     final n = Apartment.instance.positionOf(iid, item.id);
     return Offset(n.dx * size.width, n.dy * size.height);
   }
@@ -548,12 +720,17 @@ class _RoomCanvasState extends State<_RoomCanvas>
       left: left,
       top: top,
       child: GestureDetector(
-        // Brighten as soon as the piece is touched, before any movement.
+        // Brighten as soon as the piece is touched; the lift above the fingertip
+        // glides in once dragging actually starts (so a tap doesn't move it).
         onPanDown: (_) => setState(() {
           _dragId = iid;
           _dragCenter = center;
+          _liftTarget = itemSize * 0.5 + 28;
+          _lift.value = 0;
         }),
         onPanUpdate: (d) {
+          // Ease the lift in on the first movement, then track the finger.
+          if (_lift.value == 0 && !_lift.isAnimating) _lift.forward();
           final cur = _dragCenter ?? center;
           final c = cur + d.delta;
           setState(() {
@@ -564,24 +741,30 @@ class _RoomCanvasState extends State<_RoomCanvas>
           });
         },
         onPanEnd: (_) {
-          final c = _dragCenter;
-          if (c != null) {
-            Apartment.instance.setPosition(
-              iid,
-              Offset(c.dx / size.width, c.dy / size.height),
-            );
-            // The piece just arranged jumps to the top of the stack and stays
-            // there, above everything else.
-            Apartment.instance.bringToFront(iid);
-          }
+          // Drop where the lifted piece is shown — what you see is where it lands.
+          final c = _centerPx(iid, item, size);
+          Apartment.instance.setPosition(
+            iid,
+            Offset(
+              c.dx.clamp(half, size.width - half) / size.width,
+              c.dy.clamp(half, size.height - half) / size.height,
+            ),
+          );
+          // The piece just arranged jumps to the top of the stack and stays
+          // there, above everything else.
+          Apartment.instance.bringToFront(iid);
           setState(() {
             _dragId = null;
             _dragCenter = null;
+            _lift.value = 0;
+            _liftTarget = 0;
           });
         },
         onPanCancel: () => setState(() {
           _dragId = null;
           _dragCenter = null;
+          _lift.value = 0;
+          _liftTarget = 0;
         }),
         // Double-tap a piece for its name (and to flip it).
         onDoubleTap: () => _showInfoCard(context, iid, item),
@@ -1350,7 +1533,24 @@ class _EmptyRoom extends StatelessWidget {
 /// "All" tab in front. Items stay buyable after you own them, so you can buy
 /// several of the same. Tapping a card opens the buy confirmation.
 class _Shop extends StatelessWidget {
-  const _Shop();
+  const _Shop({
+    required this.collapsed,
+    required this.onDrag,
+    required this.onDragEnd,
+    required this.onToggle,
+  });
+
+  /// When true the panel is too short for the store, so it shows a peek bar
+  /// (grab handle + label) instead of the tabs/grid.
+  final bool collapsed;
+
+  /// Vertical drag of the grab handle (`delta.dy`) and the fling velocity at its
+  /// end, which the page turns into resize + snap.
+  final ValueChanged<double> onDrag;
+  final ValueChanged<double> onDragEnd;
+
+  /// Tapping the handle toggles between the default split and collapsed.
+  final VoidCallback onToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -1374,12 +1574,71 @@ class _Shop extends StatelessWidget {
         ],
       ),
       clipBehavior: Clip.antiAlias,
-      child: DefaultTabController(
-        length: shopCategories.length + 1, // "All" + one tab per category
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // Drag this handle to resize the shop (it snaps to collapsed / middle
+          // / full); tap it to toggle the room-focused view.
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onVerticalDragUpdate: (d) => onDrag(d.primaryDelta ?? 0),
+            onVerticalDragEnd: (d) => onDragEnd(d.primaryVelocity ?? 0),
+            onTap: onToggle,
+            child: SizedBox(
+              height: 26,
+              child: Center(
+                child: Container(
+                  width: 44,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: _pal.text.withValues(alpha: 0.3),
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          if (collapsed)
+            Expanded(
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: onToggle,
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.storefront_rounded,
+                          size: 18, color: _pal.text.withValues(alpha: 0.85)),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Furniture Shop',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w800,
+                          color: _pal.text.withValues(alpha: 0.85),
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Icon(Icons.keyboard_arrow_up_rounded,
+                          size: 20, color: _pal.text.withValues(alpha: 0.7)),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          else
+            Expanded(child: _shopStore(forSale)),
+        ],
+      ),
+    );
+  }
+
+  Widget _shopStore(List<ShopItem> forSale) {
+    return DefaultTabController(
+      length: shopCategories.length + 1, // "All" + one tab per category
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
             // Not const — these read the night-aware palette and must rebuild
             // when night flips.
             _ShopHeader(),
@@ -1434,291 +1693,272 @@ class _Shop extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
 
-/// The thin "show the shop" bar shown at the bottom while the room is focused;
-/// tapping it (or the app-bar toggle) brings the shop back.
-class _CollapsedShopBar extends StatelessWidget {
-  const _CollapsedShopBar({required this.onTap});
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: _pal.tabStrip,
-      child: InkWell(
-        onTap: onTap,
-        child: SizedBox(
-          height: 46,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.keyboard_arrow_up_rounded,
-                  size: 20, color: _pal.text.withValues(alpha: 0.8)),
-              const SizedBox(width: 6),
-              Text(
-                'Show the shop',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w800,
-                  color: _pal.text.withValues(alpha: 0.8),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// The room carousel: chevrons page through the owned rooms, the current room's
-/// name sits above a dot for each room, and (when one's still for sale) a button
-/// on the right buys a new one. Lives inside the body's [Apartment] listener, so
-/// it rebuilds when the room, ownership or night mode changes.
+/// The room selector: one full-width button showing the current room. Tap it to
+/// open the room picker — switch between owned rooms or buy a new one — which is
+/// far easier on a phone than cramped paging chevrons. Lives inside the body's
+/// [Apartment] listener, so it rebuilds when the room/ownership/night changes.
 class _RoomBar extends StatelessWidget {
-  const _RoomBar({required this.onBuy});
+  const _RoomBar({required this.onTap, this.compact = false});
 
-  final VoidCallback onBuy;
+  final VoidCallback onTap;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
     final apt = Apartment.instance;
-    final rooms = apt.ownedRooms;
-    final idx = apt.currentRoomIndex;
     final room = apt.currentRoom;
-    final forSale = apt.nextRoomForSale;
+    final count = apt.roomCount;
+    final idx = apt.currentRoomIndex;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(6, 6, 6, 2),
-      child: Row(
-        children: [
-          _RoomChevron(
-            icon: Icons.chevron_left_rounded,
-            enabled: idx > 0,
-            onTap: () => apt.setCurrentRoomIndex(idx - 1),
-          ),
-          Expanded(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+      padding: compact
+          ? const EdgeInsets.fromLTRB(8, 2, 8, 0)
+          : const EdgeInsets.fromLTRB(8, 6, 8, 2),
+      child: Material(
+        color: _pal.tabStrip,
+        borderRadius: BorderRadius.circular(14),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: onTap,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 14,
+              vertical: compact ? 9 : 11,
+            ),
+            child: Row(
               children: [
-                Text(
-                  '${room.emoji}  ${room.name}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
-                    color: _pal.text,
+                Text(room.emoji, style: TextStyle(fontSize: compact ? 16 : 18)),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    room.name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: compact ? 14 : 15,
+                      color: _pal.text,
+                    ),
                   ),
                 ),
-                const SizedBox(height: 3),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (var i = 0; i < rooms.length; i++)
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 2),
-                        width: i == idx ? 7 : 6,
-                        height: i == idx ? 7 : 6,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: i == idx
-                              ? _pal.text
-                              : _pal.text.withValues(alpha: 0.28),
-                        ),
-                      ),
-                  ],
-                ),
+                if (count > 1) ...[
+                  Text(
+                    '${idx + 1}/$count',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
+                      color: _pal.text.withValues(alpha: 0.6),
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                ],
+                Icon(Icons.expand_more_rounded, size: 22, color: _pal.text),
               ],
             ),
           ),
-          _RoomChevron(
-            icon: Icons.chevron_right_rounded,
-            enabled: idx < rooms.length - 1,
-            onTap: () => apt.setCurrentRoomIndex(idx + 1),
-          ),
-          if (forSale != null) ...[
-            const SizedBox(width: 2),
-            _BuyRoomButton(onTap: onBuy),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-class _RoomChevron extends StatelessWidget {
-  const _RoomChevron({
-    required this.icon,
-    required this.enabled,
-    required this.onTap,
-  });
-
-  final IconData icon;
-  final bool enabled;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    // A clear, filled round button so it's obviously tappable; faded when there's
-    // no room that way.
-    final bg = enabled ? const Color(0xFFFFD54F) : _pal.tabInactive;
-    final fg = enabled
-        ? const Color(0xFF6B4D1F)
-        : _pal.text.withValues(alpha: 0.3);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: Material(
-        color: bg,
-        shape: const CircleBorder(),
-        elevation: enabled ? 1.5 : 0,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: enabled ? onTap : null,
-          child: SizedBox(
-            width: 40,
-            height: 40,
-            child: Icon(icon, size: 28, color: fg),
-          ),
         ),
       ),
     );
   }
 }
 
-/// The "buy a new room" button on the right of the carousel — a round gold
-/// button matching the chevrons, so the whole bar fits even in a narrow room.
-class _BuyRoomButton extends StatelessWidget {
-  const _BuyRoomButton({required this.onTap});
-
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: Tooltip(
-        message: 'Buy a new room',
-        child: Material(
-          color: const Color(0xFFFFD54F),
-          shape: const CircleBorder(),
-          elevation: 1.5,
-          child: InkWell(
-            customBorder: const CircleBorder(),
-            onTap: onTap,
-            child: const SizedBox(
-              width: 40,
-              height: 40,
-              child: Icon(Icons.add_home_rounded,
-                  size: 24, color: Color(0xFF6B4D1F)),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// The room shop: a horizontal carousel of the rooms still for sale, each with a
-/// little preview and its (high) price. Buying one spends the coins, adds the
-/// room and moves the learner straight into it — popping with the new room's
-/// name so the page can welcome them.
-class _RoomShopSheet extends StatelessWidget {
-  const _RoomShopSheet();
+/// The room picker: a full, scrollable sheet that always works regardless of how
+/// many rooms you own. Owned rooms are tappable to switch into; rooms still for
+/// sale show their price and buy on tap. Popped with the new room's name when one
+/// is bought (so the page can welcome the learner) or with null on a plain
+/// switch.
+class _RoomPickerSheet extends StatelessWidget {
+  const _RoomPickerSheet();
 
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
       listenable: Listenable.merge([Apartment.instance, CoinWallet.instance]),
       builder: (context, _) {
-        final rooms = Apartment.instance.buyableRooms;
+        final apt = Apartment.instance;
+        final owned = apt.ownedRooms;
+        final buyable = apt.buyableRooms;
         final balance = CoinWallet.instance.balance;
         return SafeArea(
           top: false,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.sizeOf(context).height * 0.82,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: _pal.text.withValues(alpha: 0.25),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
+                const SizedBox(height: 10),
+                Container(
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: _pal.text.withValues(alpha: 0.25),
+                    borderRadius: BorderRadius.circular(2),
                   ),
                 ),
                 const SizedBox(height: 14),
-                Row(
-                  children: [
-                    Text(
-                      '🏠  Buy a new room',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: _pal.text,
-                      ),
-                    ),
-                    const Spacer(),
-                    const CoinGlyph(size: 16, withShadow: false),
-                    const SizedBox(width: 4),
-                    Text(
-                      '$balance',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        color: _pal.text,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  'A fresh space to furnish — your other rooms keep everything '
-                  'you placed in them.',
-                  style: TextStyle(
-                    fontSize: 12.5,
-                    color: _pal.textSoft,
-                    height: 1.3,
-                  ),
-                ),
-                const SizedBox(height: 14),
-                if (rooms.isEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 28),
-                    child: Center(
-                      child: Text(
-                        'You own every room! 🎉',
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Text(
+                        '🛋️  Your rooms',
                         style: TextStyle(
-                          fontWeight: FontWeight.w800,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
                           color: _pal.text,
                         ),
                       ),
-                    ),
-                  )
-                else
-                  SizedBox(
-                    height: 210,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: rooms.length,
-                      separatorBuilder: (_, _) => const SizedBox(width: 12),
-                      itemBuilder: (context, i) =>
-                          _RoomShopCard(room: rooms[i]),
+                      const Spacer(),
+                      const CoinGlyph(size: 16, withShadow: false),
+                      const SizedBox(width: 4),
+                      Text(
+                        '$balance',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: _pal.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Flexible(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Wrap(
+                          spacing: 12,
+                          runSpacing: 12,
+                          children: [
+                            for (final r in owned)
+                              _OwnedRoomCard(
+                                room: r,
+                                current: r.id == apt.currentRoomId,
+                              ),
+                          ],
+                        ),
+                        if (buyable.isNotEmpty) ...[
+                          const SizedBox(height: 20),
+                          Text(
+                            'Get more rooms',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w900,
+                              color: _pal.text,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            'A fresh space to furnish — your other rooms keep '
+                            'everything you placed in them.',
+                            style: TextStyle(
+                              fontSize: 12.5,
+                              color: _pal.textSoft,
+                              height: 1.3,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Wrap(
+                            spacing: 12,
+                            runSpacing: 12,
+                            children: [
+                              for (final r in buyable) _RoomShopCard(room: r),
+                            ],
+                          ),
+                        ],
+                      ],
                     ),
                   ),
+                ),
               ],
             ),
           ),
         );
       },
+    );
+  }
+}
+
+/// One owned room in the picker: its preview + name, the current one outlined
+/// with a check; tapping any other switches into it and closes the sheet.
+class _OwnedRoomCard extends StatelessWidget {
+  const _OwnedRoomCard({required this.room, required this.current});
+
+  final RoomTheme room;
+  final bool current;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 158,
+      child: Material(
+        color: _pal.card,
+        borderRadius: BorderRadius.circular(16),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: current
+              ? null
+              : () async {
+                  await Apartment.instance.setCurrentRoom(room.id);
+                  if (context.mounted) Navigator.of(context).pop();
+                },
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: current ? const Color(0xFFFFD54F) : _pal.cardBorder,
+                width: current ? 2.5 : 1,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ClipRRect(
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(14)),
+                  child: _RoomPreview(room: room),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '${room.emoji}  ${room.name}',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 13,
+                            color: _pal.text,
+                          ),
+                        ),
+                      ),
+                      Icon(
+                        current
+                            ? Icons.check_circle_rounded
+                            : Icons.login_rounded,
+                        size: 18,
+                        color: current
+                            ? const Color(0xFFE0A92E)
+                            : _pal.text.withValues(alpha: 0.5),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -2216,9 +2456,12 @@ class _ExportSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Cap the preview to a slice of the screen so the Save/Copy buttons below it
+    // always stay on screen (above the home indicator), even on short phones.
+    final previewMax = MediaQuery.sizeOf(context).height * 0.42;
     return SafeArea(
       top: false,
-      child: Padding(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(20, 14, 20, 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -2242,7 +2485,7 @@ class _ExportSheet extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 280),
+              constraints: BoxConstraints(maxHeight: previewMax),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: Image.memory(png, fit: BoxFit.contain),

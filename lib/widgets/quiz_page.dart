@@ -3306,7 +3306,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                             child: TextField(
                                                               controller: _multiBlankControllers[i],
                                                               focusNode: _multiBlankFocusNodes[i],
-                                                              autofocus: i == 0,
+                                                              autofocus:
+                                                                  !isCompact &&
+                                                                  i == 0,
                                                               textInputAction: i < _multiBlankControllers.length - 1
                                                                   ? TextInputAction.next
                                                                   : TextInputAction.done,
@@ -3393,7 +3395,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                             _answerController,
                                                         focusNode:
                                                             _answerFocusNode,
-                                                        autofocus: true,
+                                                        autofocus: !isCompact,
                                                         textInputAction:
                                                             TextInputAction
                                                                 .done,

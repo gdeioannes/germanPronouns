@@ -194,7 +194,7 @@ void main() {
     expect(find.byTooltip('Switch to day'), findsOneWidget);
   });
 
-  testWidgets('can buy a new room from the carousel', (tester) async {
+  testWidgets('can buy a new room from the room picker', (tester) async {
     tester.view.physicalSize = const Size(1000, 1700);
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.resetPhysicalSize);
@@ -212,14 +212,14 @@ void main() {
 
     expect(Apartment.instance.roomCount, 1);
 
-    // Open the room shop from the carousel's "buy a room" button.
-    await tester.tap(find.byTooltip('Buy a new room'));
+    // Open the room picker from the room bar (its trailing chevron).
+    await tester.tap(find.byIcon(Icons.expand_more_rounded));
     await tester.pumpAndSettle();
-    expect(find.text('🏠  Buy a new room'), findsOneWidget);
+    expect(find.text('🛋️  Your rooms'), findsOneWidget);
 
-    // Buy the cheapest room offered (tap its price button).
+    // Buy the first room offered (tap its price button).
     final cheapest = Apartment.instance.buyableRooms.first;
-    await tester.tap(find.text('${cheapest.price}'));
+    await tester.tap(find.text('${cheapest.price}').first);
     await tester.pumpAndSettle();
 
     expect(Apartment.instance.roomCount, 2);

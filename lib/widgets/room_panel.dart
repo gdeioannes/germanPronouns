@@ -29,9 +29,6 @@ class _RoomPanelState extends State<RoomPanel>
   /// Height of the little door tab that pokes out at the bottom when closed.
   static const double _peek = 38;
 
-  /// Fraction of the screen left showing the app behind when the panel is open.
-  static const double _topGap = 0.05;
-
   @override
   void dispose() {
     _c.dispose();
@@ -65,7 +62,9 @@ class _RoomPanelState extends State<RoomPanel>
       child: LayoutBuilder(
         builder: (context, c) {
           final h = c.maxHeight;
-          final openTop = h * _topGap;
+          // Open to just under the status bar so the room covers the screen
+          // (including the page header behind it) — one header, not two.
+          final openTop = MediaQuery.paddingOf(context).top;
           final closedTop = h - _peek;
           final travel = closedTop - openTop;
           return AnimatedBuilder(
@@ -116,25 +115,35 @@ class _RoomPanelState extends State<RoomPanel>
             : const Color(0xFF6F5544);
         return Column(
           children: [
-            // The little door tab: tap to open/close, drag to slide. It's the
-            // only thing showing when the panel is closed.
-            SizedBox(
-              height: _peek,
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: _toggle,
-                    onVerticalDragUpdate: (d) =>
-                        _onDrag(d.primaryDelta ?? 0, travel),
-                    onVerticalDragEnd: (d) =>
-                        _onDragEnd(d.primaryVelocity ?? 0),
-                    child: _RoomTab(color: barColor),
+            // When closed, a little door tab peeks at the bottom-right (tap to
+            // open, drag to slide). When open it becomes a slim, centered grab
+            // handle — a clearer "drag down to close" affordance that doesn't
+            // look like a stray floating tab, and frees a little height.
+            AnimatedBuilder(
+              animation: _c,
+              builder: (context, _) {
+                final open = _c.value > 0.5;
+                return SizedBox(
+                  height: open ? 22 : _peek,
+                  child: Align(
+                    alignment: open ? Alignment.center : Alignment.centerRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(right: open ? 0 : 16),
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: _toggle,
+                        onVerticalDragUpdate: (d) =>
+                            _onDrag(d.primaryDelta ?? 0, travel),
+                        onVerticalDragEnd: (d) =>
+                            _onDragEnd(d.primaryVelocity ?? 0),
+                        child: open
+                            ? const _GrabHandle()
+                            : _RoomTab(color: barColor),
+                      ),
+                    ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
             // The room sheet fills the rest. Drop the top padding so its app bar
             // sits flush under the tab wherever the panel is.
@@ -148,13 +157,36 @@ class _RoomPanelState extends State<RoomPanel>
                 child: MediaQuery.removePadding(
                   context: context,
                   removeTop: true,
-                  child: const ApartmentPage(),
+                  child: ApartmentPage(onClose: _close),
                 ),
               ),
             ),
           ],
         );
       },
+    );
+  }
+}
+
+/// The slim grab handle shown at the top of the panel while it's open — a clear
+/// "drag down to close" affordance.
+class _GrabHandle extends StatelessWidget {
+  const _GrabHandle();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 64,
+      height: 22,
+      alignment: Alignment.center,
+      child: Container(
+        width: 44,
+        height: 5,
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.55),
+          borderRadius: BorderRadius.circular(3),
+        ),
+      ),
     );
   }
 }
