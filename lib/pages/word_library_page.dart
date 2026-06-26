@@ -7,6 +7,8 @@ import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../widgets/app_drawer.dart';
+import '../widgets/coin_balance_pill.dart';
+import '../widgets/mystery_bottom_bar.dart';
 
 /// Lets the user enable/disable individual nouns (and bulk-toggle by category or
 /// difficulty) for quizzes that draw from the active course's **shared** noun
@@ -105,8 +107,12 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Word Library')),
+      appBar: AppBar(
+        title: const Text('Word Library'),
+        actions: const [CoinBalancePill()],
+      ),
       drawer: const AppDrawer(currentPage: AppPage.wordLibrary),
+      bottomNavigationBar: const MysteryBottomBar(),
       body: SafeArea(
         child: FutureBuilder<NounCollection>(
           future: _collectionFuture,

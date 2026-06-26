@@ -6,12 +6,29 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+/// The medal tier a finished quiz's ribbon shows, by streak laps.
+enum RibbonTier { bronze, silver, gold }
+
+/// Ribbon tier by streak laps: bronze from the first lap, silver at 3 laps,
+/// gold at 5+. Single source of the tier boundaries — both [tierColorForLaps]
+/// and the coin reward (`CoinWallet.coinsForLaps`) read it.
+RibbonTier ribbonTierForLaps(int laps) {
+  if (laps >= 5) return RibbonTier.gold;
+  if (laps >= 3) return RibbonTier.silver;
+  return RibbonTier.bronze;
+}
+
 /// Tier color for a finished quiz, by streak laps: bronze from the first lap,
 /// silver at 3 laps, gold at 5+.
 Color tierColorForLaps(int laps) {
-  if (laps >= 5) return const Color(0xFFD7A93A); // gold
-  if (laps >= 3) return const Color(0xFFAAB2BE); // silver
-  return const Color(0xFFC07F49); // bronze
+  switch (ribbonTierForLaps(laps)) {
+    case RibbonTier.gold:
+      return const Color(0xFFD7A93A); // gold
+    case RibbonTier.silver:
+      return const Color(0xFFAAB2BE); // silver
+    case RibbonTier.bronze:
+      return const Color(0xFFC07F49); // bronze
+  }
 }
 
 /// A simple flat bookmark ribbon: a plain [color] fill with a swallowtail

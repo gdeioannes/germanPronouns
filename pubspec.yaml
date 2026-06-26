@@ -58,6 +58,10 @@ dependencies:
   audioplayers: ^6.0.0
   # URL-based navigation (browser back/forward, deep links). See app_router.dart.
   go_router: ^17.3.0
+  # Browser bindings used by the room's "save / copy image" export on web
+  # (download a PNG, write it to the clipboard). Desktop/mobile use dart:io
+  # instead — see lib/utils/room_image_export.dart.
+  web: ^1.1.0
 
 dev_dependencies:
   flutter_test:

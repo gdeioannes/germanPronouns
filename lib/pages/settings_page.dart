@@ -9,6 +9,8 @@ import '../data/debug_unlock.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../widgets/app_drawer.dart';
+import '../widgets/coin_balance_pill.dart';
+import '../widgets/mystery_bottom_bar.dart';
 
 /// App-wide settings, reachable from the drawer on every page.
 class SettingsPage extends StatefulWidget {
@@ -292,8 +294,12 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(CourseSession.instance.strings.settings)),
+      appBar: AppBar(
+        title: Text(CourseSession.instance.strings.settings),
+        actions: const [CoinBalancePill()],
+      ),
       drawer: const AppDrawer(currentPage: AppPage.settings),
+      bottomNavigationBar: const MysteryBottomBar(),
       body: SafeArea(
         child: Focus(
           autofocus: true,

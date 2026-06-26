@@ -14,6 +14,7 @@ import '../data/pronoun_article_sentences.dart';
 import '../data/quest_data.dart';
 import '../data/quiz_stats_store.dart';
 import '../models/app_session.dart';
+import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
@@ -23,7 +24,10 @@ import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
 import '../utils/answer_normalization.dart';
 import 'app_drawer.dart';
+import 'coin_balance_pill.dart';
+import 'coin_flight.dart';
 import 'fireworks.dart';
+import 'mystery_bottom_bar.dart';
 import 'help_memory.dart';
 import 'help_memory_pdf_export.dart';
 import 'help_memory_tables.dart';
@@ -43,6 +47,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   final FocusNode _answerFocusNode = FocusNode();
   final ScrollController _tableScrollController = ScrollController();
   final Random _random = Random();
+
+  /// The coin-holder badge (formerly the point counter): earned coins fly into
+  /// it and it ticks up to the global [CoinWallet] balance.
+  final GlobalKey _coinHolderKey = GlobalKey();
+
+  /// Where earned coins launch from — the streak tracker, so a completed streak
+  /// visibly pours coins across into the holder.
+  final GlobalKey _coinSourceKey = GlobalKey();
+
+  /// Drives a brief scale "pop" on the coin holder when coins land in it.
+  late final AnimationController _coinBumpController;
   late List<TextEditingController> _multiBlankControllers = [];
   late List<FocusNode> _multiBlankFocusNodes = [];
 
@@ -179,6 +194,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             });
           }
         });
+    _coinBumpController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 360),
+    );
     _nextQuestion();
     _loadStoredStats();
     _requestAnswerFocus();
@@ -213,6 +232,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _tableScrollController.dispose();
     _fireworksController.dispose();
     _categoryUnlockController.dispose();
+    _coinBumpController.dispose();
     super.dispose();
   }
 
@@ -303,6 +323,44 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         _answerFocusNode.requestFocus();
       }
     });
+  }
+
+  /// Credits [count] coins to the global [CoinWallet] and flies them, with a
+  /// little burst animation, into the coin holder (which then ticks up to the
+  /// new balance). A non-positive [count] is a no-op — coins are only given,
+  /// never taken, so callers can pass a computed reward unguarded.
+  void _awardCoins(int count) {
+    if (count <= 0) return;
+    // Persist immediately so the balance is safe even if the page is left
+    // mid-flight; the flight and the holder's tick-up are pure presentation.
+    CoinWallet.instance.add(count);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final from = _coinFlightSource();
+      if (from == null) return;
+      playCoinFlight(context, from: from, targetKey: _coinHolderKey, count: count);
+      // Pop the holder roughly as the coins arrive.
+      Future.delayed(const Duration(milliseconds: 480), () {
+        if (mounted) _coinBumpController.forward(from: 0);
+      });
+    });
+  }
+
+  /// Global launch point for a coin burst: the streak tracker's centre, or, if
+  /// it isn't laid out, just below the holder so coins still rise into it.
+  Offset? _coinFlightSource() {
+    final sourceBox =
+        _coinSourceKey.currentContext?.findRenderObject() as RenderBox?;
+    if (sourceBox != null && sourceBox.hasSize) {
+      return sourceBox.localToGlobal(sourceBox.size.center(Offset.zero));
+    }
+    final holderBox =
+        _coinHolderKey.currentContext?.findRenderObject() as RenderBox?;
+    if (holderBox != null && holderBox.hasSize) {
+      return holderBox.localToGlobal(holderBox.size.center(Offset.zero)) +
+          const Offset(0, 180);
+    }
+    return null;
   }
 
   Future<void> _loadStoredStats() async {
@@ -1696,7 +1754,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       } else {
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
         _streakAbsolute = 0;
-        _score -= 1;
+        // A wrong answer breaks the streak but never costs coins — coins are
+        // only ever given, never taken.
         _feedbackHint = reminderHint;
         _lastAnswerCorrect = false;
 
@@ -1765,6 +1824,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         lapCompleted: lapCompleted,
         streakLap: streakLapAtSubmit,
       );
+      // Every correct answer has a chance to drop a coin; completing a streak
+      // lap always pays out coins for the ribbon tier it earns/renews.
+      var coins = _random.nextDouble() < CoinWallet.coinChancePerAnswer ? 1 : 0;
+      if (lapCompleted) coins += CoinWallet.coinsForLaps(streakLapAtSubmit);
+      _awardCoins(coins);
     }
 
     if (widget.config.progressionKey != null) {
@@ -1774,6 +1838,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         if (_streakAbsolute >= NounSettings.instance.questUnlockStreak &&
             !NounSettings.instance.isQuestQuizCompleted(progressionKey)) {
           NounSettings.instance.markQuestQuizCompleted(progressionKey);
+          _awardCoins(CoinWallet.quizFinishedBonus);
           final nextName = nextQuestEntryName(progressionKey);
           if (nextName != null) {
             _triggerCategoryUnlockCelebration(
@@ -1786,6 +1851,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               NounSettings.instance.progressionUnlockStreak &&
           !NounSettings.instance.isNounCategoryCompleted(progressionKey)) {
         NounSettings.instance.markNounCategoryCompleted(progressionKey);
+        _awardCoins(CoinWallet.quizFinishedBonus);
         final index = nounProgressionEntries.indexWhere(
           (e) => e.key == progressionKey,
         );
@@ -2726,6 +2792,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           child: _appBarTitle(widget.config.title),
         ),
         actions: [
+          // The wallet stays pinned here: the in-card coin holder below scrolls
+          // away with the page, so this keeps the balance always on screen.
+          const CoinBalancePill(),
           // Learners can log out from here (where the per-quiz reset used to
           // be); the reset itself now lives in the Settings panel below.
           if (AppSession.instance.role == UserRole.learner)
@@ -2762,6 +2831,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             : null,
         currentContentId: widget.config.contentId,
       ),
+      bottomNavigationBar: const MysteryBottomBar(),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
@@ -2801,7 +2871,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                   Expanded(
                                     child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: _buildStreakTracker(colorScheme),
+                                      child: KeyedSubtree(
+                                        key: _coinSourceKey,
+                                        child: _buildStreakTracker(colorScheme),
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(width: 10),
@@ -2811,6 +2884,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
+                                        key: _coinHolderKey,
                                         padding: isCompact
                                             ? const EdgeInsets.fromLTRB(
                                                 8,
@@ -2857,23 +2931,51 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            Container(
-                                              width: isCompact ? 22 : 26,
-                                              height: isCompact ? 22 : 26,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: _streakLap > 0
-                                                    ? _rainbowColors[_streakLap %
-                                                          _rainbowColors.length]
-                                                    : colorScheme.primary,
-                                              ),
-                                              alignment: Alignment.center,
-                                              child: Icon(
-                                                _streakLap > 0
-                                                    ? Icons.bolt
-                                                    : Icons.star_rounded,
-                                                size: isCompact ? 13 : 15,
-                                                color: Colors.white,
+                                            AnimatedBuilder(
+                                              animation: _coinBumpController,
+                                              builder: (context, child) {
+                                                // 1 -> ~1.35 -> 1 pop as coins
+                                                // land in the holder.
+                                                final pulse = 1 +
+                                                    0.35 *
+                                                        sin(
+                                                          pi *
+                                                              _coinBumpController
+                                                                  .value,
+                                                        );
+                                                return Transform.scale(
+                                                  scale: pulse,
+                                                  child: child,
+                                                );
+                                              },
+                                              child: Container(
+                                                width: isCompact ? 22 : 26,
+                                                height: isCompact ? 22 : 26,
+                                                decoration: const BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  gradient: RadialGradient(
+                                                    center: Alignment(-0.3, -0.4),
+                                                    radius: 0.95,
+                                                    colors: [
+                                                      Color(0xFFFFF1A8),
+                                                      Color(0xFFF6C543),
+                                                      Color(0xFFC8870F),
+                                                    ],
+                                                    stops: [0.0, 0.55, 1.0],
+                                                  ),
+                                                  border: Border.fromBorderSide(
+                                                    BorderSide(
+                                                      color: Color(0xFFB5750A),
+                                                      width: 1.3,
+                                                    ),
+                                                  ),
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Icon(
+                                                  Icons.star_rounded,
+                                                  size: isCompact ? 13 : 15,
+                                                  color: const Color(0xFFFFF6CC),
+                                                ),
                                               ),
                                             ),
                                             SizedBox(width: isCompact ? 6 : 8),
@@ -2882,20 +2984,45 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                                   CrossAxisAlignment.start,
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
-                                                Text(
-                                                  '$_score',
-                                                  style:
-                                                      (isCompact
-                                                              ? quizTextTheme
-                                                                    .titleSmall
-                                                              : scaledQuizTextTheme
-                                                                    .titleMedium)
-                                                          ?.copyWith(
-                                                            fontWeight:
-                                                                FontWeight.w900,
-                                                            color: colorScheme
-                                                                .onSurface,
+                                                ListenableBuilder(
+                                                  listenable:
+                                                      CoinWallet.instance,
+                                                  builder: (context, _) {
+                                                    // Tick the number up to the
+                                                    // new balance as the coins
+                                                    // fly in.
+                                                    return TweenAnimationBuilder<
+                                                      double
+                                                    >(
+                                                      tween: Tween<double>(
+                                                        end: CoinWallet
+                                                            .instance
+                                                            .balance
+                                                            .toDouble(),
+                                                      ),
+                                                      duration: const Duration(
+                                                        milliseconds: 600,
+                                                      ),
+                                                      curve: Curves.easeOut,
+                                                      builder: (context, value, _) =>
+                                                          Text(
+                                                            '${value.round()}',
+                                                            style:
+                                                                (isCompact
+                                                                        ? quizTextTheme
+                                                                              .titleSmall
+                                                                        : scaledQuizTextTheme
+                                                                              .titleMedium)
+                                                                    ?.copyWith(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w900,
+                                                                      color: colorScheme
+                                                                          .onSurface,
+                                                                    ),
                                                           ),
+                                                    );
+                                                  },
                                                 ),
                                                 if (_streakLap > 0)
                                                   Text(

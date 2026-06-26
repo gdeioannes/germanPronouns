@@ -5,6 +5,7 @@ import '../l10n/intro_strings.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../theme/app_theme.dart';
+import '../widgets/coin_balance_pill.dart';
 import '../widgets/country_flag.dart';
 
 /// A friendly, illustrated "what this app is and how to use it" page, localized
@@ -27,6 +28,7 @@ class CourseIntroPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(s.menuTitle),
         backgroundColor: colorScheme.surface,
+        actions: const [CoinBalancePill()],
       ),
       body: SafeArea(
         child: Center(

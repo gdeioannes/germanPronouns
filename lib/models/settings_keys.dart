@@ -16,6 +16,24 @@ class SettingsKeys {
   static const String colorNouns = 'color_nouns';
   static const String lastPage = 'last_page';
 
+  /// The learner's global coin balance (the coin "wallet"). One app-wide value,
+  /// not per-quiz: every quiz adds to and shows the same total. See [CoinWallet].
+  static const String coinBalance = 'coin_balance';
+
+  /// Ids of the furniture the learner has bought for the apartment mini-game
+  /// (a `StringList`). See `Apartment` and `shopCatalog`.
+  static const String apartmentItems = 'apartment_items';
+
+  /// Where each owned item sits in the room, as a JSON map of `id -> [x, y]`
+  /// with x/y normalized to 0..1 (so positions survive across different screen
+  /// sizes). See `Apartment`.
+  static const String apartmentLayout = 'apartment_layout';
+
+  /// Ids of the furniture that has been *revealed* (became affordable at least
+  /// once, so it appears in the shop and stays). A `StringList`. See
+  /// `Apartment` and `shopCatalog`.
+  static const String apartmentRevealed = 'apartment_revealed';
+
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =

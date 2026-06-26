@@ -49,3 +49,16 @@ Future<void> unlockEverything() async {
 
 /// The word that, typed twice in a row from any screen, unlocks the whole app.
 const String debugUnlockTrigger = 'debugdebug';
+
+/// Typed from any screen, grants [debugCoinAmount] coins — a debug shortcut to
+/// fill the wallet for testing the apartment shop. See the global key handler
+/// in `main.dart`.
+const String debugCoinTrigger = 'coincoin';
+
+/// How many coins [debugCoinTrigger] grants each time it's typed.
+const int debugCoinAmount = 100000;
+
+/// Typed from any screen, reveals every element in the room shop at once
+/// (bypassing the earn-as-you-go reveal gate). See the global key handler in
+/// `main.dart`.
+const String debugRevealAllTrigger = 'roomroom';

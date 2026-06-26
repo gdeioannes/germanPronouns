@@ -5,6 +5,7 @@ import 'data/noun_progression_data.dart';
 import 'data/quest_data.dart';
 import 'models/app_session.dart';
 import 'models/course_session.dart';
+import 'pages/apartment_page.dart';
 import 'pages/back_office/back_office_home_page.dart';
 import 'pages/course_intro_page.dart';
 import 'pages/course_selector_page.dart';
@@ -82,6 +83,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/library',
       builder: (context, state) => const WordLibraryPage(),
+    ),
+    GoRoute(
+      path: '/apartment',
+      builder: (context, state) => const ApartmentPage(),
     ),
     GoRoute(
       path: '/settings',
