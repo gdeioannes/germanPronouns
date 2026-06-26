@@ -67,6 +67,21 @@ class _ApartmentPageState extends State<ApartmentPage> {
         ),
         elevation: 0,
         actions: [
+          // Day / night toggle, so the lighting effect is easy to see.
+          ListenableBuilder(
+            listenable: Apartment.instance,
+            builder: (context, _) {
+              final night = Apartment.instance.isNight;
+              return IconButton(
+                tooltip: night ? 'Switch to day' : 'Switch to night',
+                icon: Icon(
+                  night ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                  color: Colors.white,
+                ),
+                onPressed: () => Apartment.instance.setNight(!night),
+              );
+            },
+          ),
           // The donation spot: opens the Giving Corner to give furniture away.
           IconButton(
             tooltip: 'Give away furniture',
@@ -230,15 +245,30 @@ class _RoomCanvasState extends State<_RoomCanvas> {
               for (final item in owned) if (item.id != _dragId) item,
               for (final item in owned) if (item.id == _dragId) item,
             ];
+            // Light cast by any owned light pieces, at their live spots —
+            // lamps throw a downward cone, others a soft directional pool.
+            final night = Apartment.instance.isNight;
+            final lights = <_LightSpec>[
+              for (final item in owned)
+                if (_lightFx[item.glyph] case final fx?)
+                  _lightSpec(item, fx, size, baseTile),
+            ];
             return Stack(
               children: [
                 const Positioned.fill(child: _CosyRoom()),
+                for (final item in ordered) _draggable(item, size, baseTile),
+                if (night || lights.isNotEmpty)
+                  Positioned.fill(
+                    child: IgnorePointer(
+                      child: CustomPaint(
+                        painter: _RoomLightingPainter(night: night, lights: lights),
+                      ),
+                    ),
+                  ),
                 if (owned.isEmpty)
                   const _EmptyRoom()
-                else ...[
+                else
                   const Positioned(left: 12, top: 10, child: _DragHint()),
-                  for (final item in ordered) _draggable(item, size, baseTile),
-                ],
               ],
             );
           },
@@ -255,6 +285,37 @@ class _RoomCanvasState extends State<_RoomCanvas> {
 
   double _sizeOf(ShopItem item, double baseTile, Size size) =>
       (baseTile * item.scale).clamp(26.0, size.shortestSide * 0.95);
+
+  /// Resolves a light's pixel geometry: a downward cone for beam lights (apex at
+  /// the shade), or a soft elliptical pool for the rest.
+  _LightSpec _lightSpec(ShopItem item, _LightFx fx, Size size, double baseTile) {
+    final s = _sizeOf(item, baseTile, size);
+    final c = _centerPx(item, size);
+    if (fx.beam) {
+      return _LightSpec(
+        beam: true,
+        at: c + Offset(0, fx.apexDy * s),
+        color: fx.color,
+        intensity: fx.intensity,
+        glow: fx.glow,
+        focal: Alignment.center,
+        a: s * fx.apexHalf,
+        b: s * fx.spread,
+        len: s * fx.length,
+      );
+    }
+    return _LightSpec(
+      beam: false,
+      at: c + Offset(0, fx.dy * s),
+      color: fx.color,
+      intensity: fx.intensity,
+      glow: fx.glow,
+      focal: fx.focal,
+      a: s * fx.w,
+      b: s * fx.h,
+      len: 0,
+    );
+  }
 
   Widget _draggable(ShopItem item, Size size, double baseTile) {
     final itemSize = _sizeOf(item, baseTile, size);
@@ -446,6 +507,187 @@ class _CosyRoomPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_CosyRoomPainter oldDelegate) => false;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Lighting
+// ─────────────────────────────────────────────────────────────────────────
+
+/// How a light-emitting piece glows. It lifts the night darkness by [intensity]
+/// (0..1) and adds a [glow] bloom (0..1) in its [color].
+///
+/// A [beam] light (a lamp) throws a soft downward cone from its shade: starting
+/// [apexDy] × size below the piece centre, [apexHalf] wide at the shade and
+/// [spread] wide [length] down (all × the piece's drawn size). A non-beam light
+/// (candle, fire, screen) is a soft ellipse [w]×[h] × size, offset by [dy] and
+/// biased toward [focal] — so it still has a direction.
+class _LightFx {
+  const _LightFx({
+    required this.color,
+    required this.intensity,
+    required this.glow,
+    this.w = 1,
+    this.h = 1,
+    this.dy = 0,
+    this.focal = Alignment.center,
+    this.beam = false,
+    this.length = 2.4,
+    this.spread = 1,
+    this.apexHalf = 0.16,
+    this.apexDy = 0,
+  });
+  final Color color;
+  final double intensity;
+  final double glow;
+  final double w;
+  final double h;
+  final double dy;
+  final Alignment focal;
+  final bool beam;
+  final double length;
+  final double spread;
+  final double apexHalf;
+  final double apexDy;
+}
+
+/// Which pieces give off light, keyed by [ShopItem.glyph]. Lamps cast a downward
+/// cone; a candle is a tiny glow, a fire a wide upward wash, screens a cool
+/// spill.
+const Map<String, _LightFx> _lightFx = {
+  'pendant': _LightFx(
+      color: Color(0xFFFFE0A0), intensity: 0.55, glow: 0.26,
+      beam: true, length: 2.5, spread: 1.0, apexHalf: 0.16, apexDy: 0.05),
+  'lamp': _LightFx(
+      color: Color(0xFFFFD98A), intensity: 0.55, glow: 0.26,
+      beam: true, length: 2.3, spread: 0.95, apexHalf: 0.16, apexDy: -0.12),
+  'lantern': _LightFx(
+      color: Color(0xFFFFD98A), intensity: 0.5, glow: 0.26,
+      w: 1.0, h: 1.2, dy: 0.15),
+  'candle': _LightFx(
+      color: Color(0xFFFFC97A), intensity: 0.4, glow: 0.24,
+      w: 0.65, h: 0.85, dy: -0.15, focal: Alignment(0, 0.3)),
+  'fireplace': _LightFx(
+      color: Color(0xFFFF9A52), intensity: 0.65, glow: 0.34,
+      w: 1.8, h: 1.4, dy: -0.2, focal: Alignment(0, 0.4)),
+  'tv': _LightFx(
+      color: Color(0xFF9AD0FF), intensity: 0.4, glow: 0.2,
+      w: 1.4, h: 1.1, dy: 0.1),
+  'arcade': _LightFx(
+      color: Color(0xFF9AD0FF), intensity: 0.4, glow: 0.2,
+      w: 1.1, h: 1.2, focal: Alignment(0, -0.3)),
+  'aquarium': _LightFx(
+      color: Color(0xFF7FE0FF), intensity: 0.4, glow: 0.18,
+      w: 1.3, h: 1.0),
+};
+
+/// A resolved light to paint, in pixels. For a [beam], [at] is the cone apex,
+/// [a] the apex half-width, [b] the base half-width and [len] the cone length.
+/// Otherwise [at] is the pool centre, [a]/[b] its half-extents and [focal] its
+/// bright spot.
+class _LightSpec {
+  const _LightSpec({
+    required this.beam,
+    required this.at,
+    required this.a,
+    required this.b,
+    required this.len,
+    required this.focal,
+    required this.color,
+    required this.intensity,
+    required this.glow,
+  });
+  final bool beam;
+  final Offset at;
+  final double a;
+  final double b;
+  final double len;
+  final Alignment focal;
+  final Color color;
+  final double intensity;
+  final double glow;
+}
+
+/// Paints the room's lighting on top of the furniture: at night a dark scrim
+/// that each light lifts in its own shape (a soft cone for lamps so the light
+/// comes out of the shade, an ellipse otherwise), plus a gentle warm/cool bloom
+/// — strong at night, subtle by day — so the effect is visible either way.
+class _RoomLightingPainter extends CustomPainter {
+  _RoomLightingPainter({required this.night, required this.lights});
+
+  final bool night;
+  final List<_LightSpec> lights;
+
+  /// Draws one light, either as a "hole" that lifts the night scrim ([hole]) or
+  /// as a colour bloom, scaling its alpha by [mul].
+  void _paintLight(Canvas canvas, _LightSpec l,
+      {required bool hole, required double mul}) {
+    final color = hole ? Colors.white : l.color;
+    final alpha = (hole ? l.intensity : l.glow) * mul;
+    final paint = Paint()
+      ..blendMode = hole ? BlendMode.dstOut : BlendMode.plus;
+
+    if (l.beam) {
+      // A trapezoid cone from the shade, softened so it reads as a light beam.
+      final apex = l.at;
+      final rect = Rect.fromLTRB(
+          apex.dx - l.b, apex.dy, apex.dx + l.b, apex.dy + l.len);
+      final cone = Path()
+        ..moveTo(apex.dx - l.a, apex.dy)
+        ..lineTo(apex.dx + l.a, apex.dy)
+        ..lineTo(apex.dx + l.b, apex.dy + l.len)
+        ..lineTo(apex.dx - l.b, apex.dy + l.len)
+        ..close();
+      paint
+        ..shader = LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            color.withValues(alpha: alpha),
+            color.withValues(alpha: alpha * 0.35),
+            color.withValues(alpha: 0),
+          ],
+          stops: const [0.0, 0.55, 1.0],
+        ).createShader(rect)
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, l.b * 0.45);
+      canvas.drawPath(cone, paint);
+    } else {
+      final pool = Rect.fromCenter(
+          center: l.at, width: l.a * 2, height: l.b * 2);
+      paint.shader = RadialGradient(
+        center: l.focal,
+        radius: 0.9,
+        colors: [color.withValues(alpha: alpha), color.withValues(alpha: 0)],
+        stops: const [0.0, 1.0],
+      ).createShader(pool);
+      canvas.drawOval(pool, paint);
+    }
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = Offset.zero & size;
+    final scrimAlpha = night ? 0.5 : 0.0;
+    final bloom = night ? 1.0 : 0.3;
+
+    if (scrimAlpha > 0) {
+      canvas.saveLayer(rect, Paint());
+      canvas.drawRect(
+        rect,
+        Paint()..color = const Color(0xFF0A1633).withValues(alpha: scrimAlpha),
+      );
+      for (final l in lights) {
+        _paintLight(canvas, l, hole: true, mul: 1.0);
+      }
+      canvas.restore();
+    }
+
+    for (final l in lights) {
+      _paintLight(canvas, l, hole: false, mul: bloom);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_RoomLightingPainter oldDelegate) => true;
 }
 
 class _DragHint extends StatelessWidget {

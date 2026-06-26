@@ -96,6 +96,23 @@ void main() {
         isNot(contains(id)));
   });
 
+  test('night mode toggles, persists and reloads', () async {
+    await loadWith(100);
+    expect(Apartment.instance.isNight, isFalse); // day by default
+
+    await Apartment.instance.setNight(true);
+    expect(Apartment.instance.isNight, isTrue);
+
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.getBool(SettingsKeys.apartmentNight), isTrue);
+
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.isNight, isTrue);
+  });
+
   test('positions clamp, persist and reload', () async {
     await loadWith(100);
     final id = shopCatalog.first.id;

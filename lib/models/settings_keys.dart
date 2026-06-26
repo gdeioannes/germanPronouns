@@ -34,6 +34,10 @@ class SettingsKeys {
   /// `Apartment` and `shopCatalog`.
   static const String apartmentRevealed = 'apartment_revealed';
 
+  /// Whether the room is shown at night (lights cast warm pools) vs day. A
+  /// `bool`. See `Apartment.isNight`.
+  static const String apartmentNight = 'apartment_night';
+
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =

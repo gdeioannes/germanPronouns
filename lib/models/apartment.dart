@@ -26,12 +26,17 @@ class Apartment extends ChangeNotifier {
   Set<String> _owned = {};
   Set<String> _revealed = {};
   Map<String, Offset> _positions = {};
+  bool _night = false;
   bool _loaded = false;
 
   Set<String> get ownedIds => _owned;
   Set<String> get revealedIds => _revealed;
   bool owns(String id) => _owned.contains(id);
   bool isRevealed(String id) => _revealed.contains(id);
+
+  /// Whether the room is shown at night — the lighting overlay darkens the room
+  /// and light pieces (lamps, candles, fireplace…) cast warm pools.
+  bool get isNight => _night;
 
   Future<void> load() async {
     if (_loaded) return;
@@ -42,6 +47,7 @@ class Apartment extends ChangeNotifier {
         (prefs.getStringList(SettingsKeys.apartmentRevealed) ?? const [])
             .toSet();
     _positions = _decodeLayout(prefs.getString(SettingsKeys.apartmentLayout));
+    _night = prefs.getBool(SettingsKeys.apartmentNight) ?? false;
     _loaded = true;
     // Remove-then-add so repeated loads (e.g. after resetForTest) don't stack
     // duplicate listeners.
@@ -89,6 +95,16 @@ class Apartment extends ChangeNotifier {
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(SettingsKeys.apartmentItems, _owned.toList());
+  }
+
+  /// Switches the room between day and night. Persists + notifies so the
+  /// lighting overlay updates.
+  Future<void> setNight(bool night) async {
+    if (_night == night) return;
+    _night = night;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(SettingsKeys.apartmentNight, _night);
   }
 
   /// The learner gave [id] away in the giving corner: drops ownership so it
@@ -161,6 +177,7 @@ class Apartment extends ChangeNotifier {
     _owned = {};
     _revealed = {};
     _positions = {};
+    _night = false;
     _loaded = false;
   }
 }

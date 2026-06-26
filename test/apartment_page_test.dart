@@ -80,6 +80,24 @@ void main() {
     expect(find.text('der Tisch'), findsOneWidget);
   });
 
+  testWidgets('day/night toggle flips and persists the room mode',
+      (tester) async {
+    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    expect(Apartment.instance.isNight, isFalse);
+    await tester.tap(find.byTooltip('Switch to night'));
+    await tester.pumpAndSettle();
+
+    expect(Apartment.instance.isNight, isTrue);
+    expect(find.byTooltip('Switch to day'), findsOneWidget);
+  });
+
   testWidgets('giving a piece away in the giving corner removes it',
       (tester) async {
     SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
