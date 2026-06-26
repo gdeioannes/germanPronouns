@@ -111,12 +111,15 @@ class _ApartmentPageState extends State<ApartmentPage> {
         appBar: AppBar(
         title: const Text(
           '🛋️ My Room',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontWeight: FontWeight.w900,
             color: Colors.white,
             letterSpacing: 0.5,
           ),
         ),
+        titleSpacing: 8,
         // No back arrow — the room is a docked panel, not a pushed route.
         automaticallyImplyLeading: false,
         // A gradient bar that reliably fills, so the white title/icons stay
@@ -134,6 +137,20 @@ class _ApartmentPageState extends State<ApartmentPage> {
         ),
         elevation: 0,
         actions: [
+          // Play / pause the gentle idle animation of room pieces.
+          IconButton(
+            tooltip: Apartment.instance.animate
+                ? 'Pause animation'
+                : 'Play animation',
+            icon: Icon(
+              Apartment.instance.animate
+                  ? Icons.pause_circle_outline
+                  : Icons.play_circle_outline,
+              color: Colors.white,
+            ),
+            onPressed: () =>
+                Apartment.instance.setAnimate(!Apartment.instance.animate),
+          ),
           // Expand the room editor (collapse the shop) to arrange in more space.
           IconButton(
             tooltip: _focusRoom ? 'Show the shop' : 'Make the room bigger',
@@ -313,14 +330,34 @@ class _RoomCanvas extends StatefulWidget {
   State<_RoomCanvas> createState() => _RoomCanvasState();
 }
 
-class _RoomCanvasState extends State<_RoomCanvas> {
+class _RoomCanvasState extends State<_RoomCanvas>
+    with SingleTickerProviderStateMixin {
   // The piece currently held (brightened + drawn on top), and its live pixel
   // centre while it's being dragged.
   String? _dragId;
   Offset? _dragCenter;
 
+  // A slow, looping clock that drives the gentle idle float of room pieces.
+  late final AnimationController _idle = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 6),
+  );
+
+  @override
+  void dispose() {
+    _idle.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Run the idle clock only while animation is on (and only matters when
+    // pieces are present); pausing it stops the float entirely.
+    if (Apartment.instance.animate) {
+      if (!_idle.isAnimating) _idle.repeat();
+    } else if (_idle.isAnimating) {
+      _idle.stop();
+    }
     return RepaintBoundary(
       key: widget.repaintKey,
       child: Container(
@@ -383,7 +420,11 @@ class _RoomCanvasState extends State<_RoomCanvas> {
                   Positioned.fill(
                     child: IgnorePointer(
                       child: CustomPaint(
-                        painter: _RoomLightingPainter(night: night, lights: lights),
+                        painter: _RoomLightingPainter(
+                          night: night,
+                          lights: lights,
+                          clock: Apartment.instance.animate ? _idle : null,
+                        ),
                       ),
                     ),
                   ),
@@ -419,6 +460,7 @@ class _RoomCanvasState extends State<_RoomCanvas> {
       String iid, ShopItem item, _LightFx fx, Size size, double baseTile) {
     final s = _sizeOf(item, baseTile, size);
     final c = _centerPx(iid, item, size);
+    final phase = (iid.hashCode & 0xFFFF) / 0xFFFF;
     if (fx.beam) {
       return _LightSpec(
         beam: true,
@@ -431,6 +473,8 @@ class _RoomCanvasState extends State<_RoomCanvas> {
         b: s * fx.spread,
         len: s * fx.length,
         soft: s * fx.soft,
+        flicker: fx.flicker,
+        phase: phase,
       );
     }
     return _LightSpec(
@@ -444,6 +488,8 @@ class _RoomCanvasState extends State<_RoomCanvas> {
       b: s * fx.h,
       len: 0,
       soft: 0,
+      flicker: fx.flicker,
+      phase: phase,
     );
   }
 
@@ -496,14 +542,62 @@ class _RoomCanvasState extends State<_RoomCanvas> {
         }),
         // Double-tap a piece for its name (and to flip it).
         onDoubleTap: () => _showInfoCard(context, iid, item),
-        child: _FurnitureToken(
-          item: item,
-          size: itemSize,
-          highlighted: isDragging,
-          flipped: Apartment.instance.isFlipped(iid),
-        ),
+        child: _idleToken(iid, item, itemSize, isDragging),
       ),
     );
+  }
+
+  /// The piece's drawing, given the idle animations that fit it: an in-character
+  /// painter animation (flame, fish, fan… — see [furnitureHasIdleAnimation]) for
+  /// some, and/or a whole-piece motion (plants sway, hung pieces swing, the cat
+  /// breathes — see [_motionFor]). Held or paused pieces are perfectly still.
+  Widget _idleToken(String iid, ShopItem item, double itemSize, bool isDragging) {
+    final animating = Apartment.instance.animate && !isDragging;
+    final glyph = item.glyph;
+    final phase = (iid.hashCode & 0xFFFF) / 0xFFFF;
+
+    Widget token = _FurnitureToken(
+      item: item,
+      size: itemSize,
+      highlighted: isDragging,
+      flipped: Apartment.instance.isFlipped(iid),
+      animation:
+          animating && furnitureHasIdleAnimation(glyph) ? _idle : null,
+      phase: phase,
+    );
+
+    final motion = _motionFor(glyph);
+    if (animating && motion != _Motion.none) {
+      token = _IdleMotion(
+          clock: _idle, seed: iid.hashCode, motion: motion, child: token);
+    }
+    return token;
+  }
+}
+
+/// The fitting whole-piece idle motion for a glyph (or [_Motion.none] for the
+/// many pieces that should just sit still).
+enum _Motion { none, sway, pendulum, breathe }
+
+_Motion _motionFor(String glyph) {
+  switch (glyph) {
+    // Plants nod in a breeze, pivoting at the pot.
+    case 'plant':
+    case 'cactus':
+    case 'succulent':
+    case 'palm':
+    case 'vase':
+      return _Motion.sway;
+    // Hung pieces swing from their cord / hook.
+    case 'pendant':
+    case 'hangingplant':
+    case 'birdcage':
+      return _Motion.pendulum;
+    // The cat softly breathes.
+    case 'pet':
+      return _Motion.breathe;
+    default:
+      return _Motion.none;
   }
 }
 
@@ -516,6 +610,8 @@ class _FurnitureToken extends StatelessWidget {
     required this.size,
     this.highlighted = false,
     this.flipped = false,
+    this.animation,
+    this.phase = 0,
   });
 
   final ShopItem item;
@@ -523,9 +619,15 @@ class _FurnitureToken extends StatelessWidget {
   final bool highlighted;
   final bool flipped;
 
+  /// Drives the piece's in-character idle drawing (flame flicker, swimming
+  /// fish…); null when paused / held, so it shows the still pose.
+  final Animation<double>? animation;
+  final double phase;
+
   @override
   Widget build(BuildContext context) {
-    Widget furniture = FlatFurniture(item: item, size: size);
+    Widget furniture =
+        FlatFurniture(item: item, size: size, animation: animation, phase: phase);
     if (highlighted) {
       // Tint the drawn pixels toward white so the held piece looks a touch
       // brighter, following its shape (transparent areas stay clear).
@@ -572,6 +674,63 @@ class _FurnitureToken extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// A tiny, slow whole-piece idle motion that suits the object: a plant [sway]ing
+/// from its pot, a hung piece swinging like a [pendulum] from its cord, or the
+/// cat softly [breathe]ing. Each piece is offset by its [seed] so identical
+/// pieces drift out of sync. Always gentle — a few degrees, a couple of percent.
+class _IdleMotion extends StatelessWidget {
+  const _IdleMotion({
+    required this.clock,
+    required this.seed,
+    required this.motion,
+    required this.child,
+  });
+
+  final Animation<double> clock; // loops 0..1
+  final int seed;
+  final _Motion motion;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final phase = (seed & 0xFF) / 255.0; // where in the cycle this piece is
+    final amp = 0.7 + ((seed >> 8) & 0xFF) / 255.0 * 0.6; // 0.7..1.3
+    return AnimatedBuilder(
+      animation: clock,
+      child: child,
+      builder: (context, child) {
+        final a = (clock.value + phase) * 2 * math.pi;
+        switch (motion) {
+          case _Motion.sway:
+            // A breeze: rock a little around the base (the pot stays put).
+            return Transform(
+              alignment: Alignment.bottomCenter,
+              transform: Matrix4.rotationZ(math.sin(a) * 0.03 * amp), // ±~1.7°
+              child: child,
+            );
+          case _Motion.pendulum:
+            // Swing from the cord / hook at the very top.
+            return Transform(
+              alignment: Alignment.topCenter,
+              transform: Matrix4.rotationZ(math.sin(a) * 0.05 * amp), // ±~2.9°
+              child: child,
+            );
+          case _Motion.breathe:
+            // Slow in/out, like a sleeping breath.
+            return Transform(
+              alignment: Alignment.bottomCenter,
+              transform: Matrix4.diagonal3Values(
+                  1, 1 + math.sin(a) * 0.02 * amp, 1), // ±2% height
+              child: child,
+            );
+          case _Motion.none:
+            return child!;
+        }
+      },
     );
   }
 }
@@ -677,6 +836,7 @@ class _LightFx {
     this.apexHalf = 0.16,
     this.apexDy = 0,
     this.soft = 0.06,
+    this.flicker = false,
   });
   final Color color;
   final double intensity;
@@ -690,6 +850,10 @@ class _LightFx {
   final double spread;
   final double apexHalf;
   final double apexDy;
+
+  /// Whether this is a live flame whose cast light should waver (candles,
+  /// fireplace, lantern) rather than a steady electric glow.
+  final bool flicker;
 
   /// Cone edge softness as a fraction of the piece size — small keeps the cone's
   /// polygon edges sharp; 0 makes them razor crisp.
@@ -708,15 +872,15 @@ const Map<String, _LightFx> _lightFx = {
       length: 1.6, spread: 0.8, apexHalf: 0.16, apexDy: -0.12, soft: 0.04),
   'lantern': _LightFx(
       color: Color(0xFFFFD98A), intensity: 0.5, glow: 0.26,
-      w: 1.0, h: 1.0, dy: 0),
+      w: 1.0, h: 1.0, dy: 0, flicker: true),
   // The ellipse sits above the flame so its soft bottom edge fades out right at
   // the candle's base — no spill below, and no hard crop line.
   'candle': _LightFx(
       color: Color(0xFFFFC97A), intensity: 0.42, glow: 0.24,
-      w: 0.9, h: 0.7, dy: -0.28),
+      w: 0.9, h: 0.7, dy: -0.28, flicker: true),
   'fireplace': _LightFx(
       color: Color(0xFFFF9A52), intensity: 0.65, glow: 0.34,
-      w: 1.8, h: 1.4, dy: -0.2, focal: Alignment(0, 0.4)),
+      w: 1.8, h: 1.4, dy: -0.2, focal: Alignment(0, 0.4), flicker: true),
   'tv': _LightFx(
       color: Color(0xFF9AD0FF), intensity: 0.4, glow: 0.2,
       w: 1.4, h: 1.1, dy: 0.1),
@@ -744,6 +908,8 @@ class _LightSpec {
     required this.color,
     required this.intensity,
     required this.glow,
+    this.flicker = false,
+    this.phase = 0,
   });
   final bool beam;
   final Offset at;
@@ -755,6 +921,8 @@ class _LightSpec {
   final Color color;
   final double intensity;
   final double glow;
+  final bool flicker;
+  final double phase;
 }
 
 /// Paints the room's lighting on top of the furniture: at night a dark scrim
@@ -762,10 +930,28 @@ class _LightSpec {
 /// comes out of the shade, an ellipse otherwise), plus a gentle warm/cool bloom
 /// — strong at night, subtle by day — so the effect is visible either way.
 class _RoomLightingPainter extends CustomPainter {
-  _RoomLightingPainter({required this.night, required this.lights});
+  _RoomLightingPainter({required this.night, required this.lights, this.clock})
+      : super(repaint: clock);
 
   final bool night;
   final List<_LightSpec> lights;
+
+  /// The idle clock (0..1, looping) when animation is on, else null. Flame
+  /// lights waver their cast light in time with it.
+  final Animation<double>? clock;
+
+  /// A gentle multiplier (~0.8–1.2) on a flame light's brightness, layered from
+  /// a few sines so it wavers organically; 1.0 (steady) for electric lights or
+  /// when paused.
+  double _flick(_LightSpec l) {
+    final c = clock;
+    if (c == null || !l.flicker) return 1.0;
+    final t = c.value;
+    final n = 0.55 * math.sin((t * 3 + l.phase) * 2 * math.pi) +
+        0.30 * math.sin((t * 7 + l.phase * 1.7) * 2 * math.pi) +
+        0.15 * math.sin((t * 13 + l.phase * 2.3) * 2 * math.pi);
+    return (1.0 + 0.16 * n).clamp(0.78, 1.22);
+  }
 
   /// Draws one light, either as a "hole" that lifts the night scrim ([hole]) or
   /// as a colour bloom, scaling its alpha by [mul].
@@ -833,13 +1019,13 @@ class _RoomLightingPainter extends CustomPainter {
         Paint()..color = const Color(0xFF0A1633).withValues(alpha: scrimAlpha),
       );
       for (final l in lights) {
-        _paintLight(canvas, l, hole: true, mul: 1.0);
+        _paintLight(canvas, l, hole: true, mul: _flick(l));
       }
       canvas.restore();
     }
 
     for (final l in lights) {
-      _paintLight(canvas, l, hole: false, mul: bloom);
+      _paintLight(canvas, l, hole: false, mul: bloom * _flick(l));
     }
   }
 

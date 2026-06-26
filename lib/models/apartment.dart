@@ -32,6 +32,7 @@ class Apartment extends ChangeNotifier {
   Map<String, Offset> _positions = {};
   Set<String> _flipped = {};
   bool _night = false;
+  bool _animate = true;
   bool _loaded = false;
   int _seq = 0; // disambiguates instance ids minted in the same microsecond
 
@@ -70,6 +71,18 @@ class Apartment extends ChangeNotifier {
   /// and light pieces (lamps, candles, fireplace…) cast warm pools.
   bool get isNight => _night;
 
+  /// Whether the gentle idle animation of room pieces is playing.
+  bool get animate => _animate;
+
+  /// Turns the idle animation on/off. Persists + notifies.
+  Future<void> setAnimate(bool on) async {
+    if (_animate == on) return;
+    _animate = on;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(SettingsKeys.apartmentAnimate, _animate);
+  }
+
   /// Whether the piece [instanceId] is mirrored horizontally.
   bool isFlipped(String instanceId) => _flipped.contains(instanceId);
 
@@ -95,6 +108,7 @@ class Apartment extends ChangeNotifier {
     _flipped =
         (prefs.getStringList(SettingsKeys.apartmentFlipped) ?? const []).toSet();
     _night = prefs.getBool(SettingsKeys.apartmentNight) ?? false;
+    _animate = prefs.getBool(SettingsKeys.apartmentAnimate) ?? true;
     _loaded = true;
     // Remove-then-add so repeated loads (e.g. after resetForTest) don't stack
     // duplicate listeners.
@@ -254,6 +268,7 @@ class Apartment extends ChangeNotifier {
     _positions = {};
     _flipped = {};
     _night = false;
+    _animate = true;
     _loaded = false;
     _seq = 0;
   }

@@ -42,6 +42,10 @@ class SettingsKeys {
   /// `StringList`. See `Apartment.isFlipped`.
   static const String apartmentFlipped = 'apartment_flipped';
 
+  /// Whether the gentle idle animation of room pieces is on. A `bool` (default
+  /// true). See `Apartment.animate`.
+  static const String apartmentAnimate = 'apartment_animate';
+
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =

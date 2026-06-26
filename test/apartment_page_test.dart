@@ -15,7 +15,8 @@ void main() {
   final item = shopCatalog.first;
 
   Future<void> pumpShop(WidgetTester tester, {int coins = 25}) async {
-    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: coins});
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: coins, SettingsKeys.apartmentAnimate: false});
     CoinWallet.instance.resetForTest();
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
@@ -79,7 +80,8 @@ void main() {
   });
 
   testWidgets('double-tapping a room piece shows its name card', (tester) async {
-    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
     CoinWallet.instance.resetForTest();
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
@@ -102,7 +104,8 @@ void main() {
   });
 
   testWidgets('a room piece can be flipped from its card', (tester) async {
-    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
     CoinWallet.instance.resetForTest();
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
@@ -125,7 +128,8 @@ void main() {
   });
 
   testWidgets('a room piece can be given away from its card', (tester) async {
-    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
     CoinWallet.instance.resetForTest();
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
@@ -147,7 +151,8 @@ void main() {
 
   testWidgets('can buy another of the same piece from its card',
       (tester) async {
-    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
     CoinWallet.instance.resetForTest();
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
@@ -172,7 +177,8 @@ void main() {
 
   testWidgets('day/night toggle flips and persists the room mode',
       (tester) async {
-    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
     CoinWallet.instance.resetForTest();
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
@@ -190,7 +196,8 @@ void main() {
 
   testWidgets('giving a piece away in the giving corner removes it',
       (tester) async {
-    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
     CoinWallet.instance.resetForTest();
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();

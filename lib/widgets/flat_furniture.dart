@@ -3,6 +3,8 @@
 /// icons. Used in both the room and the shop so the whole game looks flat.
 library;
 
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../data/shop_catalog.dart';
@@ -11,18 +13,48 @@ import '../data/shop_catalog.dart';
 /// same item looks identical in both places.
 const double kFurnitureSize = 78;
 
+/// Glyphs whose flat drawing has a small "in character" idle animation built
+/// into the painter (a flickering flame, a swimming fish, a spinning fan…). The
+/// room wires its idle clock into [FlatFurniture] only for these, so every other
+/// piece stays a cheap static drawing.
+const Set<String> _animatedGlyphs = {
+  'candle', 'fireplace', 'lantern', 'pendant', // flames / glow flicker
+  'aquarium', 'fishbowl', 'bathtub', // water: fish, bubbles, ripple
+  'kettle', 'teapot', 'mug', // rising steam
+  'fan', // spinning blades
+  'clock', // sweeping second hand
+  'tv', 'computer', 'laptop', 'arcade', // screen flicker
+  'window', 'archwindow', 'roundwindow', // drifting clouds / shifting sky
+};
+
+/// Whether [glyph]'s drawing animates itself when given an idle clock.
+bool furnitureHasIdleAnimation(String glyph) => _animatedGlyphs.contains(glyph);
+
 /// Draws [item] as a flat illustration filling a [size]×[size] square.
+///
+/// When [animation] is supplied the drawing animates in a way that fits the
+/// object (see [furnitureHasIdleAnimation]); [phase] (0..1) desyncs one piece
+/// from another so identical pieces don't move in lockstep. With no [animation]
+/// the drawing is static — the same neutral pose the shop shows.
 class FlatFurniture extends StatelessWidget {
-  const FlatFurniture({super.key, required this.item, required this.size});
+  const FlatFurniture({
+    super.key,
+    required this.item,
+    required this.size,
+    this.animation,
+    this.phase = 0,
+  });
 
   final ShopItem item;
   final double size;
+  final Animation<double>? animation;
+  final double phase;
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
       size: Size.square(size),
-      painter: _FurniturePainter(item),
+      painter: _FurniturePainter(item, animation: animation, phase: phase),
     );
   }
 }
@@ -37,9 +69,12 @@ Color _shade(Color c, double amount) {
 }
 
 class _FurniturePainter extends CustomPainter {
-  _FurniturePainter(this.item);
+  _FurniturePainter(this.item, {this.animation, this.phase = 0})
+      : super(repaint: animation);
 
   final ShopItem item;
+  final Animation<double>? animation;
+  final double phase;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -48,6 +83,22 @@ class _FurniturePainter extends CustomPainter {
     final dark = _shade(base, -0.16);
     final light = _shade(base, 0.26);
     final paint = Paint()..isAntiAlias = true;
+
+    // The idle clock (0..1, looping) or null when static. Animated glyphs build
+    // their motion from [wv]/[saw], each oscillation reduced to its neutral
+    // (resting) value when there's no clock — so the shop and a paused room show
+    // the exact same still drawing.
+    final on = animation != null;
+    final t = animation?.value ?? 0.0;
+    double wv(double speed, [double off = 0]) =>
+        on ? math.sin((t * speed + phase + off) * 2 * math.pi) : 0.0;
+    double saw(double speed, [double off = 0]) =>
+        on ? (t * speed + phase + off) % 1.0 : 0.0;
+
+    // A faintly flickering screen tint (mid = the static screen blue 0xFF4A6572)
+    // shared by the TV / computer / laptop / arcade drawings.
+    final screen = Color.lerp(const Color(0xFF425D6A), const Color(0xFF526D7A),
+        0.5 + 0.5 * wv(5))!;
 
     void box(double l, double t, double r, double b, double rad, Color color) {
       canvas.drawRRect(
@@ -89,6 +140,22 @@ class _FurniturePainter extends CustomPainter {
           ..strokeWidth = w * u
           ..strokeCap = StrokeCap.round,
       );
+    }
+
+    // Two soft wisps of steam rising from [cx],[topY] and fading as they climb —
+    // for the hot drinks (kettle, teapot, mug). Only when animated.
+    void steam(double cx, double topY) {
+      if (!on) return;
+      for (var k = 0; k < 2; k++) {
+        // Integer speed → the wisp resets exactly at the loop boundary, and the
+        // sine envelope makes it fade to nothing at both ends, so the restart is
+        // invisible (no jump).
+        final rise = saw(1, k * 0.5); // 0..1 up the cycle
+        final y = topY - 0.22 * rise;
+        final x = cx + 0.03 * math.sin((rise + k * 0.5) * 2 * math.pi);
+        circ(x, y, 0.02 + 0.02 * rise,
+            Colors.white.withValues(alpha: math.sin(rise * math.pi) * 0.4));
+      }
     }
 
     // Every floor piece is grounded near y = 0.90 and uses most of the box
@@ -133,11 +200,19 @@ class _FurniturePainter extends CustomPainter {
         ], base); // mountain
         circ(0.64, 0.34, 0.07, light); // sun
       case 'clock': // wall piece — centred
-        circ(0.50, 0.45, 0.33, base);
-        circ(0.50, 0.45, 0.275, offWhite);
-        line(0.50, 0.45, 0.50, 0.22, 0.03, dark);
-        line(0.50, 0.45, 0.67, 0.50, 0.03, dark);
-        circ(0.50, 0.45, 0.028, dark);
+        {
+          circ(0.50, 0.45, 0.33, base);
+          circ(0.50, 0.45, 0.275, offWhite);
+          line(0.50, 0.45, 0.50, 0.22, 0.03, dark); // hour hand
+          line(0.50, 0.45, 0.67, 0.50, 0.03, dark); // minute hand
+          if (on) {
+            final a = (t + phase) * 2 * math.pi - math.pi / 2; // sweeps round
+            line(0.50, 0.45, 0.50 + 0.23 * math.cos(a),
+                0.45 + 0.23 * math.sin(a), 0.012,
+                const Color(0xFFE2574C)); // second hand
+          }
+          circ(0.50, 0.45, 0.028, dark);
+        }
       case 'bookshelf':
         box(0.24, 0.10, 0.76, 0.90, 0.02, base);
         box(0.28, 0.13, 0.72, 0.87, 0.01, light);
@@ -174,7 +249,7 @@ class _FurniturePainter extends CustomPainter {
         box(0.80, 0.72, 0.86, 0.88, 0.012, dark); // leg
       case 'tv':
         box(0.14, 0.16, 0.86, 0.62, 0.03, base); // bezel
-        box(0.175, 0.195, 0.825, 0.585, 0.02, const Color(0xFF4A6572)); // screen
+        box(0.175, 0.195, 0.825, 0.585, 0.02, screen); // screen
         line(0.32, 0.24, 0.24, 0.54, 0.018, Colors.white.withValues(alpha: 0.16));
         box(0.46, 0.62, 0.54, 0.74, 0.006, base); // neck
         box(0.32, 0.74, 0.68, 0.78, 0.01, base); // foot
@@ -194,13 +269,16 @@ class _FurniturePainter extends CustomPainter {
         ], base); // ear
         circ(0.69, 0.47, 0.02, dark); // eye
       case 'bathtub':
-        box(0.16, 0.44, 0.84, 0.82, 0.16, base); // tub
-        box(0.205, 0.475, 0.795, 0.79, 0.12, offWhite); // inside
-        box(0.26, 0.51, 0.74, 0.64, 0.06, light); // water
-        box(0.15, 0.32, 0.195, 0.50, 0.01, dark); // faucet riser
-        box(0.15, 0.32, 0.30, 0.355, 0.01, dark); // spout
-        box(0.26, 0.82, 0.33, 0.90, 0.01, dark); // foot
-        box(0.67, 0.82, 0.74, 0.90, 0.01, dark); // foot
+        {
+          box(0.16, 0.44, 0.84, 0.82, 0.16, base); // tub
+          box(0.205, 0.475, 0.795, 0.79, 0.12, offWhite); // inside
+          final wob = 0.006 * wv(2); // gentle ripple on the surface
+          box(0.26, 0.51 + wob, 0.74, 0.64, 0.06, light); // water
+          box(0.15, 0.32, 0.195, 0.50, 0.01, dark); // faucet riser
+          box(0.15, 0.32, 0.30, 0.355, 0.01, dark); // spout
+          box(0.26, 0.82, 0.33, 0.90, 0.01, dark); // foot
+          box(0.67, 0.82, 0.74, 0.90, 0.01, dark); // foot
+        }
       case 'rug': // flat on the floor
         box(0.08, 0.62, 0.92, 0.90, 0.10, dark);
         box(0.13, 0.66, 0.87, 0.86, 0.08, base);
@@ -252,19 +330,23 @@ class _FurniturePainter extends CustomPainter {
         circ(0.44, 0.70, 0.20, base); // lower bout
         circ(0.44, 0.64, 0.055, dark); // sound hole
       case 'fireplace':
-        box(0.16, 0.32, 0.84, 0.90, 0.03, base); // body
-        box(0.12, 0.30, 0.88, 0.40, 0.02, dark); // mantel
-        box(0.30, 0.50, 0.70, 0.90, 0.03, const Color(0xFF2B1B16)); // opening
-        poly(const [
-          Offset(0.41, 0.86),
-          Offset(0.50, 0.58),
-          Offset(0.59, 0.86),
-        ], const Color(0xFFFF7043)); // flame
-        poly(const [
-          Offset(0.45, 0.86),
-          Offset(0.50, 0.68),
-          Offset(0.55, 0.86),
-        ], const Color(0xFFFFCA28)); // inner flame
+        {
+          box(0.16, 0.32, 0.84, 0.90, 0.03, base); // body
+          box(0.12, 0.30, 0.88, 0.40, 0.02, dark); // mantel
+          box(0.30, 0.50, 0.70, 0.90, 0.03, const Color(0xFF2B1B16)); // opening
+          final f1 = wv(5); // height flicker
+          final f2 = wv(8, 0.4); // lateral lick
+          poly([
+            Offset(0.41, 0.86),
+            Offset(0.50 + 0.02 * f2, 0.58 - 0.03 * f1),
+            Offset(0.59, 0.86),
+          ], const Color(0xFFFF7043)); // flame
+          poly([
+            Offset(0.45, 0.86),
+            Offset(0.50 + 0.015 * f2, 0.68 - 0.02 * f1),
+            Offset(0.55, 0.86),
+          ], const Color(0xFFFFCA28)); // inner flame
+        }
       case 'fridge':
         box(0.28, 0.12, 0.72, 0.90, 0.05, base);
         box(0.31, 0.15, 0.69, 0.87, 0.03, light);
@@ -287,16 +369,29 @@ class _FurniturePainter extends CustomPainter {
         box(0.27, 0.88, 0.34, 0.92, 0.01, dark); // foot
         box(0.66, 0.88, 0.73, 0.92, 0.01, dark); // foot
       case 'aquarium':
-        box(0.16, 0.34, 0.84, 0.86, 0.04, base); // frame
-        box(0.195, 0.37, 0.805, 0.82, 0.03, const Color(0xFF4FC3F7)); // water
-        circ(0.47, 0.56, 0.065, const Color(0xFFFF8A50)); // fish
-        poly(const [
-          Offset(0.40, 0.56),
-          Offset(0.345, 0.50),
-          Offset(0.345, 0.62),
-        ], const Color(0xFFFF8A50)); // tail
-        circ(0.49, 0.535, 0.013, Colors.white); // eye
-        circ(0.62, 0.46, 0.02, Colors.white); // bubble
+        {
+          box(0.16, 0.34, 0.84, 0.86, 0.04, base); // frame
+          box(0.195, 0.37, 0.805, 0.82, 0.03,
+              const Color(0xFF4FC3F7)); // water
+          const orange = Color(0xFFFF8A50);
+          final cx = 0.47 + 0.12 * wv(2); // fish swims side to side
+          circ(cx, 0.56, 0.065, orange); // fish
+          poly([
+            Offset(cx - 0.07, 0.56),
+            Offset(cx - 0.125, 0.50),
+            Offset(cx - 0.125, 0.62),
+          ], orange); // tail
+          circ(cx + 0.02, 0.535, 0.013, Colors.white); // eye
+          // Bubble rises and fades to nothing at both ends, so its loop restart
+          // is invisible; the static drawing keeps the shop's bubble in place.
+          if (on) {
+            final rise = saw(1);
+            circ(0.64, 0.78 - 0.40 * rise, 0.02,
+                Colors.white.withValues(alpha: math.sin(rise * math.pi) * 0.7));
+          } else {
+            circ(0.64, 0.46, 0.02, Colors.white);
+          }
+        }
       case 'beanbag':
         box(0.20, 0.48, 0.80, 0.90, 0.24, base);
         box(0.30, 0.52, 0.70, 0.66, 0.12, light); // top dent
@@ -385,27 +480,44 @@ class _FurniturePainter extends CustomPainter {
           Offset(0.58, 0.40),
           Offset(0.42, 0.40),
         ], base); // shade
-        circ(0.50, 0.64, 0.05, const Color(0xFFFFE9A8)); // bulb glow
+        circ(
+          0.50,
+          0.64,
+          0.05,
+          Color.lerp(const Color(0xFFFFE096), const Color(0xFFFFF2BA),
+              0.5 + 0.5 * wv(6))!,
+        ); // bulb glow
       case 'lantern':
-        box(0.34, 0.28, 0.66, 0.34, 0.02, dark); // top
-        line(0.50, 0.18, 0.50, 0.28, 0.018, dark); // handle
-        box(0.37, 0.34, 0.63, 0.78, 0.03, base); // frame
-        box(0.41, 0.38, 0.59, 0.74, 0.02, const Color(0xFFFFE9A8)); // glass glow
-        box(0.34, 0.78, 0.66, 0.84, 0.02, dark); // base
+        {
+          box(0.34, 0.28, 0.66, 0.34, 0.02, dark); // top
+          line(0.50, 0.18, 0.50, 0.28, 0.018, dark); // handle
+          box(0.37, 0.34, 0.63, 0.78, 0.03, base); // frame
+          // Glass glow pulses between a dim and a bright warm tone (mid = the
+          // static FFE9A8) so the flame inside looks alive.
+          final glow = Color.lerp(const Color(0xFFFFE096),
+              const Color(0xFFFFF2BA), 0.5 + 0.5 * wv(7))!;
+          box(0.41, 0.38, 0.59, 0.74, 0.02, glow); // glass glow
+          box(0.34, 0.78, 0.66, 0.84, 0.02, dark); // base
+        }
       case 'candle':
-        box(0.42, 0.44, 0.58, 0.84, 0.02, base); // candle
-        box(0.40, 0.84, 0.60, 0.90, 0.01, dark); // holder
-        line(0.50, 0.40, 0.50, 0.44, 0.01, dark); // wick
-        poly(const [
-          Offset(0.46, 0.44),
-          Offset(0.50, 0.30),
-          Offset(0.54, 0.44),
-        ], const Color(0xFFFF9A3D)); // flame
-        poly(const [
-          Offset(0.48, 0.44),
-          Offset(0.50, 0.36),
-          Offset(0.52, 0.44),
-        ], const Color(0xFFFFD54F)); // inner flame
+        {
+          box(0.42, 0.44, 0.58, 0.84, 0.02, base); // candle
+          box(0.40, 0.84, 0.60, 0.90, 0.01, dark); // holder
+          line(0.50, 0.40, 0.50, 0.44, 0.01, dark); // wick
+          final flick = wv(6); // flame height flicker
+          final sway = wv(9, 0.3); // tip sway
+          final w = 0.04 + 0.006 * flick;
+          poly([
+            Offset(0.50 - w, 0.44),
+            Offset(0.50 + 0.012 * sway, 0.30 - 0.02 * flick),
+            Offset(0.50 + w, 0.44),
+          ], const Color(0xFFFF9A3D)); // flame
+          poly([
+            Offset(0.48, 0.44),
+            Offset(0.50 + 0.008 * sway, 0.36 - 0.012 * flick),
+            Offset(0.52, 0.44),
+          ], const Color(0xFFFFD54F)); // inner flame
+        }
       case 'succulent':
         poly(const [
           Offset(0.40, 0.62),
@@ -491,13 +603,13 @@ class _FurniturePainter extends CustomPainter {
         poly(const [Offset(0.64, 0.78), Offset(0.70, 0.78), Offset(0.67, 0.84)], base);
       case 'computer':
         box(0.22, 0.26, 0.78, 0.60, 0.03, base); // monitor
-        box(0.255, 0.295, 0.745, 0.565, 0.02, const Color(0xFF4A6572)); // screen
+        box(0.255, 0.295, 0.745, 0.565, 0.02, screen); // screen
         box(0.46, 0.60, 0.54, 0.68, 0.006, dark); // neck
         box(0.36, 0.68, 0.64, 0.72, 0.01, dark); // base
         box(0.28, 0.78, 0.72, 0.84, 0.02, dark); // keyboard
       case 'laptop':
         box(0.26, 0.34, 0.74, 0.62, 0.02, base); // lid
-        box(0.295, 0.37, 0.705, 0.59, 0.01, const Color(0xFF4A6572)); // screen
+        box(0.295, 0.37, 0.705, 0.59, 0.01, screen); // screen
         poly(const [
           Offset(0.22, 0.62),
           Offset(0.78, 0.62),
@@ -506,7 +618,7 @@ class _FurniturePainter extends CustomPainter {
         ], dark); // keyboard base
       case 'arcade':
         box(0.28, 0.16, 0.72, 0.90, 0.04, base); // cabinet
-        box(0.32, 0.22, 0.68, 0.40, 0.02, const Color(0xFF4A6572)); // screen
+        box(0.32, 0.22, 0.68, 0.40, 0.02, screen); // screen
         box(0.32, 0.44, 0.68, 0.50, 0.01, light); // marquee
         box(0.34, 0.54, 0.66, 0.64, 0.02, dark); // control panel
         circ(0.42, 0.59, 0.02, const Color(0xFFEF5350)); // button
@@ -542,6 +654,7 @@ class _FurniturePainter extends CustomPainter {
         circ(0.71, 0.50, 0.015, light); // button
         circ(0.71, 0.56, 0.015, light); // button
       case 'kettle':
+        steam(0.30, 0.48); // wisps off the spout
         poly(const [
           Offset(0.36, 0.52),
           Offset(0.64, 0.52),
@@ -561,12 +674,14 @@ class _FurniturePainter extends CustomPainter {
         box(0.70, 0.56, 0.74, 0.66, 0.01, dark); // lever
         circ(0.36, 0.70, 0.02, dark); // knob
       case 'mug':
+        steam(0.48, 0.44); // wisps off the hot drink
         box(0.36, 0.46, 0.60, 0.80, 0.05, base); // cup
         box(0.38, 0.46, 0.58, 0.52, 0.02, light); // drink
         box(0.60, 0.54, 0.70, 0.58, 0.02, base); // handle
         box(0.66, 0.54, 0.70, 0.70, 0.02, base); // handle
         box(0.60, 0.66, 0.70, 0.70, 0.02, base); // handle
       case 'teapot':
+        steam(0.32, 0.42); // wisps off the lid
         circ(0.50, 0.62, 0.17, base); // body
         box(0.42, 0.44, 0.58, 0.50, 0.03, base); // lid
         circ(0.50, 0.42, 0.025, dark); // knob
@@ -636,36 +751,40 @@ class _FurniturePainter extends CustomPainter {
         box(0.40, 0.68, 0.60, 0.74, 0.02, dark); // base
         box(0.36, 0.74, 0.64, 0.80, 0.02, dark); // base
       case 'fishbowl':
-        circ(0.50, 0.58, 0.22, const Color(0xFFCDEAF5)); // water
-        circ(0.50, 0.56, 0.07, base); // fish
-        poly(const [
-          Offset(0.43, 0.56),
-          Offset(0.36, 0.50),
-          Offset(0.36, 0.62),
-        ], base); // tail
-        circ(0.52, 0.54, 0.012, Colors.white); // eye
-        box(0.40, 0.78, 0.60, 0.84, 0.02, dark); // stand
+        {
+          circ(0.50, 0.58, 0.22, const Color(0xFFCDEAF5)); // water
+          final cx = 0.50 + 0.06 * wv(2); // fish swims in the bowl
+          circ(cx, 0.56, 0.07, base); // fish
+          poly([
+            Offset(cx - 0.07, 0.56),
+            Offset(cx - 0.14, 0.50),
+            Offset(cx - 0.14, 0.62),
+          ], base); // tail
+          circ(cx + 0.02, 0.54, 0.012, Colors.white); // eye
+          if (on) {
+            final rise = saw(1, 0.2); // fades at both ends → clean restart
+            circ(cx + 0.05, 0.66 - 0.18 * rise, 0.012,
+                Colors.white.withValues(alpha: math.sin(rise * math.pi) * 0.7));
+          }
+          box(0.40, 0.78, 0.60, 0.84, 0.02, dark); // stand
+        }
       case 'fan':
-        circ(0.50, 0.42, 0.20, dark); // cage
-        circ(0.50, 0.42, 0.17, light); // cage inner
-        poly(const [
-          Offset(0.50, 0.42),
-          Offset(0.40, 0.28),
-          Offset(0.56, 0.32),
-        ], base); // blade
-        poly(const [
-          Offset(0.50, 0.42),
-          Offset(0.64, 0.36),
-          Offset(0.58, 0.52),
-        ], base); // blade
-        poly(const [
-          Offset(0.50, 0.42),
-          Offset(0.44, 0.56),
-          Offset(0.36, 0.46),
-        ], base); // blade
-        circ(0.50, 0.42, 0.04, dark); // hub
-        box(0.485, 0.62, 0.515, 0.84, 0.012, base); // stem
-        box(0.42, 0.84, 0.58, 0.88, 0.02, dark); // base
+        {
+          circ(0.50, 0.42, 0.20, dark); // cage
+          circ(0.50, 0.42, 0.17, light); // cage inner
+          final ang = on ? (t + phase) * 2 * math.pi : 0.0; // blades spin
+          final ca = math.cos(ang), sa = math.sin(ang);
+          Offset rb(double px, double py) {
+            final dx = px - 0.50, dy = py - 0.42; // rotate around the hub
+            return Offset(0.50 + dx * ca - dy * sa, 0.42 + dx * sa + dy * ca);
+          }
+          poly([rb(0.50, 0.42), rb(0.40, 0.28), rb(0.56, 0.32)], base); // blade
+          poly([rb(0.50, 0.42), rb(0.64, 0.36), rb(0.58, 0.52)], base); // blade
+          poly([rb(0.50, 0.42), rb(0.44, 0.56), rb(0.36, 0.46)], base); // blade
+          circ(0.50, 0.42, 0.04, dark); // hub
+          box(0.485, 0.62, 0.515, 0.84, 0.012, base); // stem
+          box(0.42, 0.84, 0.58, 0.88, 0.02, dark); // base
+        }
       case 'ladder':
         line(0.40, 0.18, 0.30, 0.88, 0.025, base); // rail
         line(0.60, 0.18, 0.70, 0.88, 0.025, base); // rail
@@ -702,33 +821,47 @@ class _FurniturePainter extends CustomPainter {
         circ(0.40, 0.28, 0.05, light); // lens end
         circ(0.62, 0.50, 0.03, dark); // eyepiece
       case 'window': // wall piece — classic four-pane
-        const sky = Color(0xFFBFE3F2);
-        box(0.16, 0.14, 0.84, 0.84, 0.04, base); // frame
-        box(0.21, 0.19, 0.79, 0.79, 0.02, sky); // glass
-        circ(0.62, 0.36, 0.06, Colors.white); // cloud
-        circ(0.69, 0.40, 0.045, Colors.white); // cloud
-        box(0.47, 0.19, 0.53, 0.79, 0.0, base); // mullion (vertical)
-        box(0.21, 0.46, 0.79, 0.52, 0.0, base); // mullion (horizontal)
-        box(0.13, 0.84, 0.87, 0.90, 0.01, dark); // sill
+        {
+          // Sky tint drifts (mid = the static 0xFFBFE3F2) and the clouds slide
+          // gently across the pane — the view "outside" feels alive.
+          final sky = Color.lerp(const Color(0xFFB6DEEF),
+              const Color(0xFFC8E8F5), 0.5 + 0.5 * wv(1))!;
+          final drift = 0.04 * wv(1);
+          box(0.16, 0.14, 0.84, 0.84, 0.04, base); // frame
+          box(0.21, 0.19, 0.79, 0.79, 0.02, sky); // glass
+          circ(0.62 + drift, 0.36, 0.06, Colors.white); // cloud
+          circ(0.69 + drift, 0.40, 0.045, Colors.white); // cloud
+          box(0.47, 0.19, 0.53, 0.79, 0.0, base); // mullion (vertical)
+          box(0.21, 0.46, 0.79, 0.52, 0.0, base); // mullion (horizontal)
+          box(0.13, 0.84, 0.87, 0.90, 0.01, dark); // sill
+        }
       case 'archwindow': // wall piece — arched top
-        const sky = Color(0xFFBFE3F2);
-        circ(0.50, 0.40, 0.30, base); // arch frame
-        box(0.20, 0.40, 0.80, 0.84, 0.0, base); // body frame
-        circ(0.50, 0.41, 0.24, sky); // arch glass
-        box(0.26, 0.41, 0.74, 0.79, 0.0, sky); // body glass
-        box(0.47, 0.17, 0.53, 0.79, 0.0, base); // mullion (vertical)
-        box(0.26, 0.55, 0.74, 0.60, 0.0, base); // mullion (horizontal)
-        box(0.15, 0.84, 0.85, 0.90, 0.01, dark); // sill
+        {
+          final sky = Color.lerp(const Color(0xFFB6DEEF),
+              const Color(0xFFC8E8F5), 0.5 + 0.5 * wv(1))!; // sky shifts
+          circ(0.50, 0.40, 0.30, base); // arch frame
+          box(0.20, 0.40, 0.80, 0.84, 0.0, base); // body frame
+          circ(0.50, 0.41, 0.24, sky); // arch glass
+          box(0.26, 0.41, 0.74, 0.79, 0.0, sky); // body glass
+          box(0.47, 0.17, 0.53, 0.79, 0.0, base); // mullion (vertical)
+          box(0.26, 0.55, 0.74, 0.60, 0.0, base); // mullion (horizontal)
+          box(0.15, 0.84, 0.85, 0.90, 0.01, dark); // sill
+        }
       case 'roundwindow': // wall piece — porthole
-        circ(0.50, 0.46, 0.34, base); // frame
-        circ(0.50, 0.46, 0.27, const Color(0xFFBFE3F2)); // glass
-        circ(0.60, 0.38, 0.05, Colors.white); // cloud
-        box(0.23, 0.43, 0.77, 0.49, 0.0, base); // mullion (horizontal)
-        box(0.47, 0.19, 0.53, 0.73, 0.0, base); // mullion (vertical)
-        circ(0.50, 0.16, 0.02, dark); // bolt
-        circ(0.50, 0.76, 0.02, dark); // bolt
-        circ(0.20, 0.46, 0.02, dark); // bolt
-        circ(0.80, 0.46, 0.02, dark); // bolt
+        {
+          final sky = Color.lerp(const Color(0xFFB6DEEF),
+              const Color(0xFFC8E8F5), 0.5 + 0.5 * wv(1))!; // sky shifts
+          final drift = 0.035 * wv(1); // cloud drifts
+          circ(0.50, 0.46, 0.34, base); // frame
+          circ(0.50, 0.46, 0.27, sky); // glass
+          circ(0.60 + drift, 0.38, 0.05, Colors.white); // cloud
+          box(0.23, 0.43, 0.77, 0.49, 0.0, base); // mullion (horizontal)
+          box(0.47, 0.19, 0.53, 0.73, 0.0, base); // mullion (vertical)
+          circ(0.50, 0.16, 0.02, dark); // bolt
+          circ(0.50, 0.76, 0.02, dark); // bolt
+          circ(0.20, 0.46, 0.02, dark); // bolt
+          circ(0.80, 0.46, 0.02, dark); // bolt
+        }
       default:
         circ(0.5, 0.5, 0.30, base);
     }
@@ -737,5 +870,9 @@ class _FurniturePainter extends CustomPainter {
   @override
   bool shouldRepaint(_FurniturePainter oldDelegate) =>
       oldDelegate.item.id != item.id ||
-      oldDelegate.item.color != item.color;
+      oldDelegate.item.color != item.color ||
+      oldDelegate.animation != animation ||
+      oldDelegate.phase != phase;
+  // While [animation] is non-null the painter also repaints every tick via
+  // `super(repaint: animation)`, without the widget rebuilding.
 }

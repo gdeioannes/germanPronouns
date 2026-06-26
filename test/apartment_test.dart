@@ -143,6 +143,20 @@ void main() {
     expect(Apartment.instance.isFlipped(iid), isFalse);
   });
 
+  test('animation toggle persists and reloads (default on)', () async {
+    await loadWith(100);
+    expect(Apartment.instance.animate, isTrue); // on by default
+
+    await Apartment.instance.setAnimate(false);
+    expect(Apartment.instance.animate, isFalse);
+
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.animate, isFalse);
+  });
+
   test('night mode toggles, persists and reloads', () async {
     await loadWith(100);
     expect(Apartment.instance.isNight, isFalse); // day by default
