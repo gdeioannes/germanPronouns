@@ -4,7 +4,6 @@ import '../models/course_session.dart';
 import '../models/quiz_content.dart';
 import 'app_drawer.dart';
 import 'coin_balance_pill.dart';
-import 'mystery_bottom_bar.dart';
 import 'quiz_help_sheet.dart';
 
 /// The shared shell for the reading / listening / dictation / speak quiz pages:
@@ -46,7 +45,6 @@ class QuizScaffold extends StatelessWidget {
         currentPage: currentPage,
         currentContentId: content.id,
       ),
-      bottomNavigationBar: const MysteryBottomBar(),
       body: body,
     );
   }

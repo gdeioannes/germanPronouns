@@ -91,6 +91,17 @@ class Apartment extends ChangeNotifier {
     await prefs.setStringList(SettingsKeys.apartmentItems, _owned.toList());
   }
 
+  /// The learner gave [id] away in the giving corner: drops ownership so it
+  /// leaves the room. It stays revealed, so it returns to the shop to buy again.
+  /// Persists + notifies.
+  Future<void> donate(String id) async {
+    if (!_owned.contains(id)) return;
+    _owned = {..._owned}..remove(id);
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(SettingsKeys.apartmentItems, _owned.toList());
+  }
+
   /// Normalized (0..1) position of [id] in the room: where the learner dragged
   /// it, or a deterministic scattered default keyed off the id.
   Offset positionOf(String id) => _positions[id] ?? _defaultPositionFor(id);

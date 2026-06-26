@@ -37,8 +37,8 @@ class _MysteryBottomBarState extends State<MysteryBottomBar>
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        // Resolve the router only on tap, so building this needs no GoRouter in
-        // the tree (keeps widget tests that render these scaffolds passing).
+        // Lives inside the learner shell (within the navigator), so the router
+        // is in context — push the room over the current screen.
         onTap: () => context.push('/apartment'),
         child: Container(
           height: 52,

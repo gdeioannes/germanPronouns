@@ -52,17 +52,28 @@ class _ApartmentPageState extends State<ApartmentPage> {
             letterSpacing: 0.5,
           ),
         ),
+        // Solid cocoa (with a gradient overlay that reliably fills) so the white
+        // title and action icons are always visible.
+        backgroundColor: const Color(0xFF6F5544),
+        foregroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.white),
-        flexibleSpace: const DecoratedBox(
-          decoration: BoxDecoration(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Color(0xFF7C5E48), Color(0xFF6F5544)],
             ),
           ),
         ),
-        backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
+          // The donation spot: opens the Giving Corner to give furniture away.
+          IconButton(
+            tooltip: 'Give away furniture',
+            icon: const Icon(Icons.volunteer_activism_rounded,
+                color: Colors.white),
+            onPressed: _openGivingCorner,
+          ),
           IconButton(
             tooltip: 'Save or copy a picture of your room',
             icon: const Icon(Icons.ios_share_rounded, color: Colors.white),
@@ -113,6 +124,20 @@ class _ApartmentPageState extends State<ApartmentPage> {
           ),
         ),
       ),
+    );
+  }
+
+  // ── Giving corner (donation) ───────────────────────────────────────────────
+
+  void _openGivingCorner() {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: _cream,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (_) => const _DonationSheet(),
     );
   }
 
@@ -1090,4 +1115,374 @@ class _LangLine extends StatelessWidget {
       ),
     );
   }
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Giving corner (donation)
+// ─────────────────────────────────────────────────────────────────────────
+
+/// A cosy donation place: tap an owned piece to give it away. It leaves the room
+/// (and, still revealed, returns to the shop), and a flurry of hearts rises from
+/// the sharing table — framed as donating to people who'll love it.
+class _DonationSheet extends StatefulWidget {
+  const _DonationSheet();
+
+  @override
+  State<_DonationSheet> createState() => _DonationSheetState();
+}
+
+class _DonationSheetState extends State<_DonationSheet> {
+  // Bumped on every gift; the sharing table watches it to fire a heart burst.
+  int _burstCount = 0;
+
+  void _giveAway(ShopItem item) {
+    final messenger = ScaffoldMessenger.of(context);
+    Apartment.instance.donate(item.id);
+    setState(() => _burstCount++);
+    messenger
+      ..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          content: Text('You gave away the ${item.name.toLowerCase()} 💛  '
+              'Someone will love it!'),
+        ),
+      );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.72,
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+          child: Column(
+            children: [
+              Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: _cocoa.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                '💛 Giving Corner',
+                style: TextStyle(
+                  color: _cardText,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 20,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                'Give away what you no longer need —\n'
+                'someone out there will love it!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: _cocoa.withValues(alpha: 0.75),
+                  fontSize: 13,
+                  height: 1.4,
+                ),
+              ),
+              const SizedBox(height: 8),
+              _SharingTable(burstCount: _burstCount),
+              const SizedBox(height: 8),
+              Expanded(
+                child: ListenableBuilder(
+                  listenable: Apartment.instance,
+                  builder: (context, _) {
+                    final owned = [
+                      for (final i in shopCatalog)
+                        if (Apartment.instance.owns(i.id)) i,
+                    ];
+                    if (owned.isEmpty) {
+                      return Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Text(
+                            'Your room is empty —\nnothing to give away yet.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: _cocoa.withValues(alpha: 0.8),
+                              fontWeight: FontWeight.w800,
+                              fontSize: 15,
+                              height: 1.5,
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    return GridView.builder(
+                      padding: const EdgeInsets.only(top: 4, bottom: 8),
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 120,
+                        mainAxisExtent: 132,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemCount: owned.length,
+                      itemBuilder: (context, i) => _DonationCard(
+                        item: owned[i],
+                        onGive: () => _giveAway(owned[i]),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The sharing table at the top of the giving corner: a warm pad with a
+/// hands-holding-heart icon, from which hearts burst each time [burstCount]
+/// increments (i.e. each time a piece is given away).
+class _SharingTable extends StatefulWidget {
+  const _SharingTable({required this.burstCount});
+  final int burstCount;
+
+  @override
+  State<_SharingTable> createState() => _SharingTableState();
+}
+
+class _SharingTableState extends State<_SharingTable> {
+  int _next = 0;
+  final Set<int> _bursts = {};
+
+  @override
+  void didUpdateWidget(_SharingTable oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.burstCount > oldWidget.burstCount) {
+      setState(() => _bursts.add(_next++));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 128,
+      child: Stack(
+        alignment: Alignment.center,
+        clipBehavior: Clip.none,
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 74,
+                height: 74,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xFFFFE3E0),
+                  border: Border.all(color: const Color(0xFFEFA9A2), width: 2),
+                ),
+                child: const Icon(
+                  Icons.volunteer_activism_rounded,
+                  color: Color(0xFFD9645C),
+                  size: 36,
+                ),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                'Tap a piece to give it away',
+                style: TextStyle(
+                  color: _cocoa.withValues(alpha: 0.7),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+          for (final b in _bursts)
+            _HeartBurst(
+              key: ValueKey(b),
+              onDone: () {
+                if (mounted) setState(() => _bursts.remove(b));
+              },
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// One owned piece in the giving corner; tapping it gives it away.
+class _DonationCard extends StatelessWidget {
+  const _DonationCard({required this.item, required this.onGive});
+  final ShopItem item;
+  final VoidCallback onGive;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onGive,
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.10),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FlatFurniture(item: item, size: 50),
+            Text(
+              item.name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontWeight: FontWeight.w800,
+                color: _cardText,
+                fontSize: 12,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFE3E0),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.favorite, size: 12, color: Color(0xFFD9645C)),
+                  SizedBox(width: 4),
+                  Text(
+                    'Give',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      color: Color(0xFFD9645C),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A one-shot burst of hearts that rise and fade from the centre, then calls
+/// [onDone] so the parent can drop it.
+class _HeartBurst extends StatefulWidget {
+  const _HeartBurst({super.key, required this.onDone});
+  final VoidCallback onDone;
+
+  @override
+  State<_HeartBurst> createState() => _HeartBurstState();
+}
+
+class _HeartBurstState extends State<_HeartBurst>
+    with SingleTickerProviderStateMixin {
+  static const _colors = [
+    Color(0xFFE0577A),
+    Color(0xFFEF7CA0),
+    Color(0xFFF4A8C0),
+    Color(0xFFD9645C),
+    Color(0xFFF6B26B),
+  ];
+
+  late final AnimationController _c;
+  late final List<_Heart> _hearts;
+
+  @override
+  void initState() {
+    super.initState();
+    final rng = math.Random();
+    _hearts = List.generate(10, (i) {
+      return _Heart(
+        dx: (rng.nextDouble() - 0.5) * 96,
+        rise: 64 + rng.nextDouble() * 78,
+        drift: (rng.nextDouble() - 0.5) * 34,
+        size: 15 + rng.nextDouble() * 16,
+        delay: rng.nextDouble() * 0.32,
+        color: _colors[i % _colors.length],
+      );
+    });
+    _c = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )
+      ..addStatusListener((s) {
+        if (s == AnimationStatus.completed) widget.onDone();
+      })
+      ..forward();
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: AnimatedBuilder(
+        animation: _c,
+        builder: (context, _) => Stack(
+          alignment: Alignment.center,
+          clipBehavior: Clip.none,
+          children: [for (final h in _hearts) _heart(h)],
+        ),
+      ),
+    );
+  }
+
+  Widget _heart(_Heart h) {
+    final raw = (_c.value - h.delay) / (1 - h.delay);
+    if (raw <= 0) return const SizedBox.shrink();
+    final t = raw.clamp(0.0, 1.0);
+    final eased = Curves.easeOut.transform(t);
+    final opacity = (t < 0.18 ? t / 0.18 : 1 - (t - 0.18) / 0.82).clamp(0.0, 1.0);
+    final dy = -h.rise * eased;
+    final dx = h.dx + h.drift * t;
+    final scale = 0.5 + 0.6 * Curves.easeOutBack.transform(t);
+    return Transform.translate(
+      offset: Offset(dx, dy),
+      child: Opacity(
+        opacity: opacity,
+        child: Transform.scale(
+          scale: scale,
+          child: Icon(Icons.favorite, color: h.color, size: h.size),
+        ),
+      ),
+    );
+  }
+}
+
+/// One floating heart's fixed parameters within a burst.
+class _Heart {
+  const _Heart({
+    required this.dx,
+    required this.rise,
+    required this.drift,
+    required this.size,
+    required this.delay,
+    required this.color,
+  });
+
+  final double dx;
+  final double rise;
+  final double drift;
+  final double size;
+  final double delay;
+  final Color color;
 }

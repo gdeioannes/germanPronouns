@@ -27,7 +27,6 @@ import 'app_drawer.dart';
 import 'coin_balance_pill.dart';
 import 'coin_flight.dart';
 import 'fireworks.dart';
-import 'mystery_bottom_bar.dart';
 import 'help_memory.dart';
 import 'help_memory_pdf_export.dart';
 import 'help_memory_tables.dart';
@@ -2831,7 +2830,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             : null,
         currentContentId: widget.config.contentId,
       ),
-      bottomNavigationBar: const MysteryBottomBar(),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),

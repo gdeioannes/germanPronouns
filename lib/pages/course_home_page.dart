@@ -20,7 +20,6 @@ import '../theme/help_memory_pdf.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/coin_balance_pill.dart';
 import '../widgets/completion_ribbon.dart';
-import '../widgets/mystery_bottom_bar.dart';
 import '../widgets/country_flag.dart';
 import 'auth_gate.dart';
 
@@ -586,7 +585,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
         ),
       ),
       drawer: const AppDrawer(currentPage: AppPage.articles),
-      bottomNavigationBar: const MysteryBottomBar(),
       body: SafeArea(
         child: FutureBuilder<List<_HomeSection>>(
           future: _sectionsFuture,

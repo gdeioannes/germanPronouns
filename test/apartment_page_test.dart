@@ -79,4 +79,27 @@ void main() {
     expect(find.text('Got it'), findsOneWidget);
     expect(find.text('der Tisch'), findsOneWidget);
   });
+
+  testWidgets('giving a piece away in the giving corner removes it',
+      (tester) async {
+    SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 50});
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await Apartment.instance.grant('table');
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    // Open the giving corner and give the table away.
+    await tester.tap(find.byTooltip('Give away furniture'));
+    await tester.pumpAndSettle();
+    expect(find.text('Tap a piece to give it away'), findsOneWidget);
+
+    await tester.tap(find.text('Table').first);
+    await tester.pump(); // run donate + start the heart burst
+    expect(Apartment.instance.owns('table'), isFalse);
+
+    await tester.pumpAndSettle(); // let the hearts finish
+  });
 }

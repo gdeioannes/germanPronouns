@@ -79,6 +79,23 @@ void main() {
     expect(prefs.getStringList(SettingsKeys.apartmentItems), contains(id));
   });
 
+  test('donate() drops ownership and persists (piece returns to the shop)',
+      () async {
+    await loadWith(100);
+    final id = shopCatalog.first.id;
+    await Apartment.instance.grant(id);
+    expect(Apartment.instance.owns(id), isTrue);
+
+    await Apartment.instance.donate(id);
+    expect(Apartment.instance.owns(id), isFalse);
+    // Still revealed, so it's buyable again.
+    expect(Apartment.instance.isRevealed(id), isTrue);
+
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.getStringList(SettingsKeys.apartmentItems) ?? const [],
+        isNot(contains(id)));
+  });
+
   test('positions clamp, persist and reload', () async {
     await loadWith(100);
     final id = shopCatalog.first.id;
