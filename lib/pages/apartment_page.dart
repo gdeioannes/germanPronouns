@@ -32,11 +32,62 @@ class ApartmentPage extends StatefulWidget {
   State<ApartmentPage> createState() => _ApartmentPageState();
 }
 
-// Warm, cosy palette shared across the page.
+// Warm, cosy palette shared across the page (light-mode constants; the
+// night-aware versions live in [_Pal] below).
 const _cream = Color(0xFFF4E9D8);
-const _creamDeep = Color(0xFFE7D3B6);
 const _cocoa = Color(0xFF6F5544);
 const _cardText = Color(0xFF4A3728);
+
+/// The room UI palette, which flips to dark when the room is in night mode — so
+/// the whole shop/chrome matches the dark room, not just the lighting.
+class _Pal {
+  const _Pal({
+    required this.bgTop,
+    required this.bgBottom,
+    required this.appBar1,
+    required this.appBar2,
+    required this.cardBorder,
+    required this.panel,
+    required this.tabStrip,
+    required this.tabInactive,
+    required this.card,
+    required this.text,
+    required this.textSoft,
+  });
+  final Color bgTop, bgBottom, appBar1, appBar2, cardBorder, panel, tabStrip;
+  final Color tabInactive, card, text, textSoft;
+}
+
+const _palLight = _Pal(
+  bgTop: Color(0xFFF4E9D8),
+  bgBottom: Color(0xFFE7D3B6),
+  appBar1: Color(0xFF7C5E48),
+  appBar2: Color(0xFF6F5544),
+  cardBorder: Color(0xFFFBF6EC),
+  panel: Color(0xFFF4E8D2),
+  tabStrip: Color(0xFFE9D9BD),
+  tabInactive: Color(0xFFDCC9A4),
+  card: Colors.white,
+  text: Color(0xFF6F5544),
+  textSoft: Color(0xFF8A7256),
+);
+
+const _palDark = _Pal(
+  bgTop: Color(0xFF241F2C),
+  bgBottom: Color(0xFF16131D),
+  appBar1: Color(0xFF2E2839),
+  appBar2: Color(0xFF26212F),
+  cardBorder: Color(0xFF3A3447),
+  panel: Color(0xFF2A2535),
+  tabStrip: Color(0xFF1C1925),
+  tabInactive: Color(0xFF231F2C),
+  card: Color(0xFF332E3F),
+  text: Color(0xFFEDE6DA),
+  textSoft: Color(0xFFAFA6BC),
+);
+
+/// The current palette — dark while the room is in night mode.
+_Pal get _pal => Apartment.instance.isNight ? _palDark : _palLight;
 
 class _ApartmentPageState extends State<ApartmentPage> {
   // Keys the room's RepaintBoundary so we can grab a picture of just the room.
@@ -46,10 +97,18 @@ class _ApartmentPageState extends State<ApartmentPage> {
   // languagequiz watermark, so the shared picture is branded (not the hint).
   bool _exporting = false;
 
+  // While true, the room editor expands and the shop collapses down, to give
+  // more space for arranging furniture.
+  bool _focusRoom = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    // Rebuild the page (incl. the app bar) when night flips, so the whole room
+    // UI switches to the dark palette, not just the lighting.
+    return ListenableBuilder(
+      listenable: Apartment.instance,
+      builder: (context, _) => Scaffold(
+        appBar: AppBar(
         title: const Text(
           '🛋️ My Room',
           style: TextStyle(
@@ -60,21 +119,30 @@ class _ApartmentPageState extends State<ApartmentPage> {
         ),
         // No back arrow — the room is a docked panel, not a pushed route.
         automaticallyImplyLeading: false,
-        // Solid cocoa (with a gradient overlay that reliably fills) so the white
-        // title and action icons are always visible.
-        backgroundColor: const Color(0xFF6F5544),
+        // A gradient bar that reliably fills, so the white title/icons stay
+        // visible; switches to the dark palette at night.
+        backgroundColor: _pal.appBar2,
         foregroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.white),
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF7C5E48), Color(0xFF6F5544)],
+              colors: [_pal.appBar1, _pal.appBar2],
             ),
           ),
         ),
         elevation: 0,
         actions: [
+          // Expand the room editor (collapse the shop) to arrange in more space.
+          IconButton(
+            tooltip: _focusRoom ? 'Show the shop' : 'Make the room bigger',
+            icon: Icon(
+              _focusRoom ? Icons.close_fullscreen : Icons.open_in_full,
+              color: Colors.white,
+            ),
+            onPressed: () => setState(() => _focusRoom = !_focusRoom),
+          ),
           // Day / night toggle, so the lighting effect is easy to see.
           ListenableBuilder(
             listenable: Apartment.instance,
@@ -107,11 +175,11 @@ class _ApartmentPageState extends State<ApartmentPage> {
         ],
       ),
       body: DecoratedBox(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [_cream, _creamDeep],
+            colors: [_pal.bgTop, _pal.bgBottom],
           ),
         ),
         child: SafeArea(
@@ -122,15 +190,22 @@ class _ApartmentPageState extends State<ApartmentPage> {
               CoinWallet.instance,
             ]),
             builder: (context, _) {
-              return LayoutBuilder(
-                builder: (context, c) {
-                  final roomH = (c.maxHeight * 0.52).clamp(220.0, 560.0);
-                  final roomW = math.min(c.maxWidth - 24, roomH * 0.82);
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),
-                        child: Center(
+              return Column(
+                children: [
+                  // The room keeps a fixed 0.82 (W/H) portrait proportion (the
+                  // largest that fits its area). In focus mode the shop collapses
+                  // to a thin bar so the room area — and the room — grows.
+                  Expanded(
+                    flex: _focusRoom ? 100 : 54,
+                    child: LayoutBuilder(
+                      builder: (context, rc) {
+                        const aspect = 0.82; // width / height
+                        final pad = _focusRoom ? 8.0 : 12.0;
+                        final areaW = rc.maxWidth - pad * 2;
+                        final areaH = rc.maxHeight - pad * 2;
+                        final roomW = math.min(areaW, areaH * aspect);
+                        final roomH = roomW / aspect;
+                        return Center(
                           child: SizedBox(
                             width: roomW,
                             height: roomH,
@@ -139,16 +214,24 @@ class _ApartmentPageState extends State<ApartmentPage> {
                               exporting: _exporting,
                             ),
                           ),
-                        ),
-                      ),
-                      const Expanded(child: _Shop()),
-                    ],
-                  );
-                },
+                        );
+                      },
+                    ),
+                  ),
+                  if (_focusRoom)
+                    _CollapsedShopBar(
+                      onTap: () => setState(() => _focusRoom = false),
+                    )
+                  // Not const: the shop reads the night-aware palette, so it must
+                  // rebuild when night flips (a const instance would be reused).
+                  else
+                    Expanded(flex: 46, child: _Shop()),
+                ],
               );
             },
           ),
         ),
+      ),
       ),
     );
   }
@@ -244,7 +327,7 @@ class _RoomCanvasState extends State<_RoomCanvas> {
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4),
-          border: Border.all(color: const Color(0xFFFBF6EC), width: 4),
+          border: Border.all(color: _pal.cardBorder, width: 4),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.18),
@@ -256,8 +339,10 @@ class _RoomCanvasState extends State<_RoomCanvas> {
         child: LayoutBuilder(
           builder: (context, c) {
             final size = Size(c.maxWidth, c.maxHeight);
-            // The reference size for a scale-1.0 piece; each piece scales off it.
-            final baseTile = (size.shortestSide * 0.2).clamp(40.0, 88.0);
+            // The reference size for a scale-1.0 piece — strictly proportional to
+            // the room (no clamp), so pieces and the gaps between them keep the
+            // same relative size/spacing whenever the room resizes.
+            final baseTile = size.shortestSide * 0.21;
             // Each placed piece is (instanceId, catalogue item); a learner can
             // own several of the same item, each arranged on its own. Surfaces
             // (floors / walls) are owned too but change the background instead of
@@ -304,10 +389,11 @@ class _RoomCanvasState extends State<_RoomCanvas> {
                   ),
                 if (widget.exporting)
                   const Positioned(right: 14, bottom: 12, child: _RoomWatermark())
+                // Not const — these read the night-aware palette.
                 else if (pieces.isEmpty)
-                  const _EmptyRoom()
+                  _EmptyRoom()
                 else
-                  const Positioned(left: 12, top: 10, child: _DragHint()),
+                  Positioned(left: 12, top: 10, child: _DragHint()),
               ],
             );
           },
@@ -323,7 +409,9 @@ class _RoomCanvasState extends State<_RoomCanvas> {
   }
 
   double _sizeOf(ShopItem item, double baseTile, Size size) =>
-      (baseTile * item.scale).clamp(26.0, size.shortestSide * 0.95);
+      // Proportional; the wide clamp is only a safety net far outside the normal
+      // range, so it never breaks the relative sizing.
+      (baseTile * item.scale).clamp(6.0, size.shortestSide * 0.95);
 
   /// Resolves a light's pixel geometry: a downward cone for beam lights (apex at
   /// the shade), or a soft elliptical pool for the rest.
@@ -768,14 +856,14 @@ class _DragHint extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(Icons.open_with_rounded,
-            size: 13, color: _cocoa.withValues(alpha: 0.55)),
+            size: 13, color: _pal.text.withValues(alpha: 0.55)),
         const SizedBox(width: 4),
         Text(
           'Drag to rearrange',
           style: TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.w700,
-            color: _cocoa.withValues(alpha: 0.7),
+            color: _pal.text.withValues(alpha: 0.7),
           ),
         ),
       ],
@@ -835,7 +923,7 @@ class _EmptyRoom extends StatelessWidget {
           '🛋️\nBuy furniture below\nto fill your cosy room!',
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: _cocoa.withValues(alpha: 0.8),
+            color: _pal.text.withValues(alpha: 0.85),
             fontWeight: FontWeight.w800,
             fontSize: 16,
             height: 1.5,
@@ -867,7 +955,7 @@ class _Shop extends StatelessWidget {
     // the store lifts off the room background instead of blending into it.
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFFF4E8D2),
+        color: _pal.panel,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         boxShadow: [
           BoxShadow(
@@ -884,39 +972,46 @@ class _Shop extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 4),
-            const _ShopHeader(),
-            // A darker strip carrying pill-shaped category tabs.
+            // Not const — these read the night-aware palette and must rebuild
+            // when night flips.
+            _ShopHeader(),
+            // A darker strip the category tabs sit on. Folder-style tabs: the
+            // active one is the content colour at full height (merging into the
+            // grid); inactive ones are a touch shorter and darker (recessed). We
+            // draw the caps ourselves so each tab can be styled.
             Container(
-              color: const Color(0xFFE9D9BD),
-              padding: const EdgeInsets.symmetric(vertical: 7),
-              child: TabBar(
-                isScrollable: true,
-                tabAlignment: TabAlignment.start,
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicator: BoxDecoration(
-                  color: _cocoa,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                indicatorPadding:
-                    const EdgeInsets.symmetric(horizontal: 3, vertical: 7),
-                dividerColor: Colors.transparent,
-                labelColor: Colors.white,
-                unselectedLabelColor: _cocoa.withValues(alpha: 0.6),
-                labelStyle:
-                    const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
-                unselectedLabelStyle:
-                    const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-                tabs: [
-                  const Tab(text: 'All'),
-                  for (final c in shopCategories) Tab(text: c),
-                ],
+              color: _pal.tabStrip,
+              padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
+              child: Builder(
+                builder: (context) {
+                  final controller = DefaultTabController.of(context);
+                  return AnimatedBuilder(
+                    animation: controller,
+                    builder: (context, _) => TabBar(
+                      isScrollable: true,
+                      tabAlignment: TabAlignment.start,
+                      indicator: const BoxDecoration(),
+                      dividerColor: Colors.transparent,
+                      labelPadding: const EdgeInsets.symmetric(horizontal: 3),
+                      tabs: [
+                        _CategoryTab(
+                            label: 'All', selected: controller.index == 0),
+                        for (var i = 0; i < shopCategories.length; i++)
+                          _CategoryTab(
+                            label: shopCategories[i],
+                            selected: controller.index == i + 1,
+                          ),
+                      ],
+                    ),
+                  );
+                },
               ),
             ),
             Expanded(
               child: TabBarView(
                 children: [
                   // The All tab (null items → resolves to the full live list).
-                  const _ShopGrid(
+                  _ShopGrid(
                     items: null,
                     emptyHint: '🪙\nEarn coins in quizzes to\n'
                         'unlock your first furniture!',
@@ -930,6 +1025,81 @@ class _Shop extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// The thin "show the shop" bar shown at the bottom while the room is focused;
+/// tapping it (or the app-bar toggle) brings the shop back.
+class _CollapsedShopBar extends StatelessWidget {
+  const _CollapsedShopBar({required this.onTap});
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: _pal.tabStrip,
+      child: InkWell(
+        onTap: onTap,
+        child: SizedBox(
+          height: 46,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.keyboard_arrow_up_rounded,
+                  size: 20, color: _pal.text.withValues(alpha: 0.8)),
+              const SizedBox(width: 6),
+              Text(
+                'Show the shop',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w800,
+                  color: _pal.text.withValues(alpha: 0.8),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// One folder-style category tab: the active one is full height in the content
+/// colour (merging into the grid); inactive ones are 4px shorter and a little
+/// darker, so they read as recessed.
+class _CategoryTab extends StatelessWidget {
+  const _CategoryTab({required this.label, required this.selected});
+
+  final String label;
+  final bool selected;
+
+  static const double _height = 38;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: _height,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          height: selected ? _height : _height - 4,
+          padding: const EdgeInsets.symmetric(horizontal: 14),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: selected ? _pal.panel : _pal.tabInactive,
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+          ),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: selected ? FontWeight.w800 : FontWeight.w700,
+              color: selected ? _pal.text : _pal.text.withValues(alpha: 0.6),
+            ),
+          ),
         ),
       ),
     );
@@ -960,7 +1130,7 @@ class _ShopGrid extends StatelessWidget {
             emptyHint,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: _cocoa.withValues(alpha: 0.8),
+              color: _pal.text.withValues(alpha: 0.8),
               fontWeight: FontWeight.w800,
               fontSize: 15,
               height: 1.5,
@@ -1001,12 +1171,12 @@ class _ShopHeader extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: Row(
         children: [
-          const Text(
+          Text(
             '🛒 Furniture Shop',
             style: TextStyle(
               fontWeight: FontWeight.w900,
               fontSize: 20,
-              color: _cocoa,
+              color: _pal.text,
             ),
           ),
           const Spacer(),
@@ -1044,12 +1214,12 @@ class _Chip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.85),
+        color: _pal.card.withValues(alpha: 0.85),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0x33000000)),
+        border: Border.all(color: _pal.text.withValues(alpha: 0.2)),
       ),
       child: DefaultTextStyle.merge(
-        style: const TextStyle(color: _cardText, fontSize: 12),
+        style: TextStyle(color: _pal.text, fontSize: 12),
         child: child,
       ),
     );
@@ -1068,7 +1238,7 @@ class _ShopCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: _pal.card,
           borderRadius: BorderRadius.circular(18),
           boxShadow: [
             BoxShadow(
@@ -1086,9 +1256,9 @@ class _ShopCard extends StatelessWidget {
               item.name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w800,
-                color: _cardText,
+                color: _pal.text,
               ),
             ),
             Container(

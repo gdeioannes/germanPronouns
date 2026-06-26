@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/apartment.dart';
 import '../pages/apartment_page.dart';
 
 /// The room ("My Room") as a panel docked at the bottom of every learner screen,
@@ -105,42 +106,55 @@ class _RoomPanelState extends State<RoomPanel>
   }
 
   Widget _content(BuildContext context, double travel) {
-    return Column(
-      children: [
-        // The little door tab: tap to open/close, drag to slide. It's the only
-        // thing showing when the panel is closed.
-        SizedBox(
-          height: _peek,
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: _toggle,
-                onVerticalDragUpdate: (d) => _onDrag(d.primaryDelta ?? 0, travel),
-                onVerticalDragEnd: (d) => _onDragEnd(d.primaryVelocity ?? 0),
-                child: const _RoomTab(),
+    // Rebuild the tab + sheet chrome when night mode flips, so the panel matches
+    // the room's dark mode (which is itself persisted via Apartment.isNight).
+    return ListenableBuilder(
+      listenable: Apartment.instance,
+      builder: (context, _) {
+        final barColor = Apartment.instance.isNight
+            ? const Color(0xFF26212F)
+            : const Color(0xFF6F5544);
+        return Column(
+          children: [
+            // The little door tab: tap to open/close, drag to slide. It's the
+            // only thing showing when the panel is closed.
+            SizedBox(
+              height: _peek,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: _toggle,
+                    onVerticalDragUpdate: (d) =>
+                        _onDrag(d.primaryDelta ?? 0, travel),
+                    onVerticalDragEnd: (d) =>
+                        _onDragEnd(d.primaryVelocity ?? 0),
+                    child: _RoomTab(color: barColor),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        // The room sheet fills the rest. Drop the top padding so its app bar
-        // sits flush under the tab wherever the panel is.
-        Expanded(
-          child: Material(
-            elevation: 18,
-            color: const Color(0xFF6F5544),
-            clipBehavior: Clip.antiAlias,
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-            child: MediaQuery.removePadding(
-              context: context,
-              removeTop: true,
-              child: const ApartmentPage(),
+            // The room sheet fills the rest. Drop the top padding so its app bar
+            // sits flush under the tab wherever the panel is.
+            Expanded(
+              child: Material(
+                elevation: 18,
+                color: barColor,
+                clipBehavior: Clip.antiAlias,
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(20)),
+                child: MediaQuery.removePadding(
+                  context: context,
+                  removeTop: true,
+                  child: const ApartmentPage(),
+                ),
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }
@@ -148,7 +162,9 @@ class _RoomPanelState extends State<RoomPanel>
 /// The small door tab that pokes out at the bottom of the screen; tapping it
 /// raises/lowers the room panel.
 class _RoomTab extends StatelessWidget {
-  const _RoomTab();
+  const _RoomTab({required this.color});
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +172,7 @@ class _RoomTab extends StatelessWidget {
       width: 96,
       height: _RoomPanelState._peek,
       decoration: BoxDecoration(
-        color: const Color(0xFF6F5544),
+        color: color,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
         boxShadow: [
           BoxShadow(
