@@ -4,20 +4,28 @@ import '../../data/content/ai_authoring_service.dart';
 import '../../data/content/asset_course_provider.dart';
 import '../../data/content/content_editor.dart';
 import '../../models/content/catalog.dart';
-import '../../models/content/populated_course.dart';
 import '../../models/content/quiz.dart';
 import 'course_quiz_sentences_page.dart';
 import 'course_reading_questions_page.dart';
 import 'course_spoken_lines_page.dart';
 
+/// The quiz [Quiz.type] discriminators with teacher-friendly labels, used by the
+/// "New quiz" dialog.
+const Map<String, String> _quizTypeLabels = {
+  'fillBlank': 'Fill in the blank',
+  'reading': 'Reading (passage + questions)',
+  'listening': 'Listening (audio + questions)',
+  'speakRepeat': 'Speak & repeat (phrases)',
+  'dictation': 'Dictation (type what you hear)',
+};
+
 /// Teacher editor over the JSON content **collections**: pick a course, see its
-/// quizzes (served from the per-course bundle), edit one, and the change is
-/// persisted locally (overriding the shipped bundle) and shown to learners.
-///
-/// This is the collections-native back office — it writes through
-/// [ContentEditor], the same seam a future remote database will implement. It
-/// edits a quiz's title here; richer per-type forms (sentences, questions, help)
-/// extend the same save path.
+/// quizzes (served from the per-course bundle), then **organize** them — drag to
+/// reorder, add a new quiz of any type, rename, delete, or drill in to edit a
+/// quiz's elements (which themselves reorder/add/edit/delete). Every change is
+/// persisted locally through [ContentEditor] (overriding the shipped bundle, so
+/// it shows for learners) — the same write seam a future remote database will
+/// implement.
 class CourseContentEditorPage extends StatefulWidget {
   const CourseContentEditorPage({super.key});
 
@@ -36,18 +44,27 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
 
   final Future<Catalog> _catalogFuture = courseContentProvider.catalog();
   String? _courseId;
-  Future<PopulatedCourse>? _courseFuture;
+  List<Quiz>? _quizzes;
+  bool _loading = false;
 
   void _selectCourse(String id) {
     setState(() {
       _courseId = id;
-      _courseFuture = _editor.course(id);
+      _quizzes = null;
     });
+    _loadQuizzes();
   }
 
-  void _reload() {
+  Future<void> _loadQuizzes() async {
     final id = _courseId;
-    if (id != null) setState(() => _courseFuture = _editor.course(id));
+    if (id == null) return;
+    setState(() => _loading = true);
+    final course = await _editor.course(id);
+    if (!mounted) return;
+    setState(() {
+      _quizzes = [...course.quizzes];
+      _loading = false;
+    });
   }
 
   /// Opens [page], then reloads the quiz list so edits made there show up.
@@ -55,7 +72,46 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => page),
     );
-    _reload();
+    await _loadQuizzes();
+  }
+
+  /// Drag-to-reorder the quizzes. [newIndex] is already adjusted for the removed
+  /// item (onReorderItem); persist the new order through the editor.
+  Future<void> _reorderQuiz(int oldIndex, int newIndex) async {
+    final quizzes = _quizzes;
+    final id = _courseId;
+    if (quizzes == null || id == null) return;
+    setState(() {
+      final item = quizzes.removeAt(oldIndex);
+      quizzes.insert(newIndex, item);
+    });
+    await _editor.reorderQuizzes(id, quizzes);
+  }
+
+  Future<void> _newQuiz() async {
+    final courseId = _courseId;
+    if (courseId == null) return;
+    final spec = await showDialog<_NewQuizSpec>(
+      context: context,
+      builder: (_) => const _NewQuizDialog(),
+    );
+    if (spec == null || !mounted) return;
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await _editor.createQuiz(
+        courseId,
+        type: spec.type,
+        id: spec.id,
+        title: spec.title,
+        storageKeyPrefix: spec.storageKeyPrefix,
+      );
+      messenger.showSnackBar(
+        SnackBar(content: Text('Added "${spec.title}" — tap it to add content.')),
+      );
+    } catch (e) {
+      messenger.showSnackBar(SnackBar(content: Text('Could not add quiz: $e')));
+    }
+    await _loadQuizzes();
   }
 
   /// Generates a draft quiz with the AI authoring service and saves it into the
@@ -84,7 +140,7 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
     } catch (e) {
       messenger.showSnackBar(SnackBar(content: Text('Draft failed: $e')));
     }
-    if (mounted) _reload();
+    await _loadQuizzes();
   }
 
   Future<void> _editQuizTitle(Quiz quiz) async {
@@ -92,7 +148,7 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
     final newTitle = await showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Edit quiz title'),
+        title: const Text('Rename quiz'),
         content: TextField(
           controller: controller,
           autofocus: true,
@@ -113,7 +169,33 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
     if (newTitle == null || newTitle.isEmpty || newTitle == quiz.title) return;
     final edited = Quiz.fromJson(quiz.toJson()..['title'] = newTitle);
     await _editor.saveQuiz(_courseId!, edited);
-    _reload();
+    await _loadQuizzes();
+  }
+
+  Future<void> _deleteQuiz(Quiz quiz) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Delete "${quiz.title}"?'),
+        content: const Text(
+          'Removes the quiz from this course. Learner progress saved under its '
+          'key is left untouched. You can Reset the course to restore it.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    await _editor.deleteQuiz(_courseId!, quiz.id);
+    await _loadQuizzes();
   }
 
   Future<void> _resetCourse() async {
@@ -138,7 +220,7 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
     );
     if (confirmed != true) return;
     await _editor.resetCourse(id);
-    _reload();
+    await _loadQuizzes();
   }
 
   @override
@@ -189,74 +271,183 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
           Expanded(child: _quizList()),
         ],
       ),
+      floatingActionButton: _courseId == null
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: _newQuiz,
+              icon: const Icon(Icons.add_rounded),
+              label: const Text('New quiz'),
+            ),
     );
   }
 
   Widget _quizList() {
-    final future = _courseFuture;
-    if (future == null) {
+    if (_courseId == null) {
       return const Center(child: Text('Pick a course to edit its quizzes.'));
     }
-    return FutureBuilder<PopulatedCourse>(
-      future: future,
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        final quizzes = snapshot.data!.quizzes;
-        return ListView.separated(
-          itemCount: quizzes.length,
-          separatorBuilder: (_, _) => const Divider(height: 1),
-          itemBuilder: (context, index) {
-            final quiz = quizzes[index];
-            return ListTile(
-              title: Text(quiz.title),
-              subtitle: Text('${quiz.type} · ${quiz.storageKeyPrefix}'),
-              trailing: quiz is FillBlankQuiz
-                  ? IconButton(
-                      tooltip: 'Edit sentences',
-                      icon: const Icon(Icons.notes_rounded),
-                      onPressed: () => _openPage(
-                        CourseQuizSentencesPage(
-                          editor: _editor,
-                          courseId: _courseId!,
-                          quizId: quiz.id,
-                          title: quiz.title,
-                        ),
-                      ),
-                    )
-                  : (quiz is ReadingQuiz || quiz is ListeningQuiz)
-                  ? IconButton(
-                      tooltip: 'Edit questions',
-                      icon: const Icon(Icons.quiz_rounded),
-                      onPressed: () => _openPage(
-                        CourseReadingQuestionsPage(
-                          editor: _editor,
-                          courseId: _courseId!,
-                          quizId: quiz.id,
-                          title: quiz.title,
-                        ),
-                      ),
-                    )
-                  : (quiz is SpeakRepeatQuiz || quiz is DictationQuiz)
-                  ? IconButton(
-                      tooltip: 'Edit lines',
-                      icon: const Icon(Icons.record_voice_over_rounded),
-                      onPressed: () => _openPage(
-                        CourseSpokenLinesPage(
-                          editor: _editor,
-                          courseId: _courseId!,
-                          quizId: quiz.id,
-                          title: quiz.title,
-                        ),
-                      ),
-                    )
-                  : const Icon(Icons.edit_rounded),
-              onTap: () => _editQuizTitle(quiz),
-            );
-          },
+    final quizzes = _quizzes;
+    if (_loading || quizzes == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (quizzes.isEmpty) {
+      return const Center(
+        child: Text('No quizzes yet — tap "New quiz" to add one.'),
+      );
+    }
+    return ReorderableListView.builder(
+      itemCount: quizzes.length,
+      onReorderItem: _reorderQuiz,
+      itemBuilder: (context, index) {
+        final quiz = quizzes[index];
+        return ListTile(
+          key: ValueKey(quiz.id),
+          leading: ReorderableDragStartListener(
+            index: index,
+            child: const Icon(Icons.drag_handle_rounded),
+          ),
+          title: Text(quiz.title),
+          subtitle: Text(
+            '${_quizTypeLabels[quiz.type] ?? quiz.type} · ${quiz.storageKeyPrefix}',
+          ),
+          onTap: () => _openElementEditor(quiz),
+          trailing: PopupMenuButton<String>(
+            onSelected: (value) {
+              if (value == 'rename') _editQuizTitle(quiz);
+              if (value == 'delete') _deleteQuiz(quiz);
+              if (value == 'edit') _openElementEditor(quiz);
+            },
+            itemBuilder: (_) => const [
+              PopupMenuItem(value: 'edit', child: Text('Edit content')),
+              PopupMenuItem(value: 'rename', child: Text('Rename')),
+              PopupMenuItem(value: 'delete', child: Text('Delete')),
+            ],
+          ),
         );
       },
+    );
+  }
+
+  /// Opens the per-type element editor for [quiz] (sentences / questions /
+  /// lines), reloading the list afterwards.
+  void _openElementEditor(Quiz quiz) {
+    final courseId = _courseId!;
+    final page = switch (quiz) {
+      FillBlankQuiz() => CourseQuizSentencesPage(
+        editor: _editor,
+        courseId: courseId,
+        quizId: quiz.id,
+        title: quiz.title,
+      ),
+      ReadingQuiz() || ListeningQuiz() => CourseReadingQuestionsPage(
+        editor: _editor,
+        courseId: courseId,
+        quizId: quiz.id,
+        title: quiz.title,
+      ),
+      SpeakRepeatQuiz() || DictationQuiz() => CourseSpokenLinesPage(
+        editor: _editor,
+        courseId: courseId,
+        quizId: quiz.id,
+        title: quiz.title,
+      ),
+    };
+    _openPage(page);
+  }
+}
+
+/// The fields collected by the "New quiz" dialog.
+typedef _NewQuizSpec = ({
+  String type,
+  String id,
+  String title,
+  String storageKeyPrefix,
+});
+
+/// Collects the type, id, title and storage-key prefix for a brand-new quiz.
+class _NewQuizDialog extends StatefulWidget {
+  const _NewQuizDialog();
+
+  @override
+  State<_NewQuizDialog> createState() => _NewQuizDialogState();
+}
+
+class _NewQuizDialogState extends State<_NewQuizDialog> {
+  String _type = 'fillBlank';
+  final TextEditingController _id = TextEditingController();
+  final TextEditingController _title = TextEditingController();
+  final TextEditingController _prefix = TextEditingController();
+
+  @override
+  void dispose() {
+    _id.dispose();
+    _title.dispose();
+    _prefix.dispose();
+    super.dispose();
+  }
+
+  void _create() {
+    final id = _id.text.trim();
+    final title = _title.text.trim();
+    if (id.isEmpty || title.isEmpty) return;
+    // Default the storage key to the id (the teacher can override it); it keys
+    // saved learner progress and is validated unique on save.
+    final prefix = _prefix.text.trim().isEmpty
+        ? '${id}_'
+        : _prefix.text.trim();
+    Navigator.pop<_NewQuizSpec>(
+      context,
+      (type: _type, id: id, title: title, storageKeyPrefix: prefix),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('New quiz'),
+      content: SizedBox(
+        width: 420,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            DropdownButtonFormField<String>(
+              initialValue: _type,
+              decoration: const InputDecoration(labelText: 'Type'),
+              items: [
+                for (final entry in _quizTypeLabels.entries)
+                  DropdownMenuItem(value: entry.key, child: Text(entry.value)),
+              ],
+              onChanged: (v) => setState(() => _type = v ?? 'fillBlank'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _title,
+              autofocus: true,
+              decoration: const InputDecoration(labelText: 'Title'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _id,
+              decoration: const InputDecoration(
+                labelText: 'Id (stable, unique — e.g. greetings_a1)',
+              ),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _prefix,
+              decoration: const InputDecoration(
+                labelText: 'Storage key prefix (optional — defaults to id_)',
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(onPressed: _create, child: const Text('Create')),
+      ],
     );
   }
 }

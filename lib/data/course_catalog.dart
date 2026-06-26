@@ -1,6 +1,8 @@
 import '../models/course.dart';
 import '../models/nav_layout.dart';
+import '../models/quiz_content.dart';
 import 'courses/de_es/de_es_content.dart';
+import 'courses/en_de/en_de_content.dart';
 import 'courses/es_de/es_de_content.dart';
 
 /// Navigation links shared by the English courses (word reference, settings,
@@ -20,73 +22,73 @@ final NavLayout _certA1Nav = NavLayout(
   groups: const [
     NavGroup(
       id: 'quest_a1_1',
-      title: 'QUEST · A1.1',
+      title: 'A1.1 · ERSTE SCHRITTE',
       type: NavGroupType.questChain,
       level: 'A1.1',
     ),
     NavGroup(
       id: 'quest_a1_2',
-      title: 'QUEST · A1.2',
+      title: 'A1.2 · IM ALLTAG',
       type: NavGroupType.questChain,
       level: 'A1.2',
     ),
     NavGroup(
       id: 'quest_a2_1',
-      title: 'QUEST · A2.1',
+      title: 'A2.1 · ERLEBNISSE',
       type: NavGroupType.questChain,
       level: 'A2.1',
     ),
     NavGroup(
       id: 'quest_a2_2',
-      title: 'QUEST · A2.2',
+      title: 'A2.2 · BESCHREIBEN & PLANEN',
       type: NavGroupType.questChain,
       level: 'A2.2',
     ),
     NavGroup(
       id: 'quest_b1_1',
-      title: 'QUEST · B1.1',
+      title: 'B1.1 · MEINUNGEN & WÜNSCHE',
       type: NavGroupType.questChain,
       level: 'B1.1',
     ),
     NavGroup(
       id: 'quest_b1_2',
-      title: 'QUEST · B1.2',
+      title: 'B1.2 · ERZÄHLEN & BEGRÜNDEN',
       type: NavGroupType.questChain,
       level: 'B1.2',
     ),
     NavGroup(
       id: 'quest_b2_1',
-      title: 'QUEST · B2.1',
+      title: 'B2.1 · ARGUMENTIEREN',
       type: NavGroupType.questChain,
       level: 'B2.1',
     ),
     NavGroup(
       id: 'quest_b2_2',
-      title: 'QUEST · B2.2',
+      title: 'B2.2 · DIFFERENZIEREN',
       type: NavGroupType.questChain,
       level: 'B2.2',
     ),
     NavGroup(
       id: 'quest_c1_1',
-      title: 'QUEST · C1.1',
+      title: 'C1.1 · ABSTRAHIEREN',
       type: NavGroupType.questChain,
       level: 'C1.1',
     ),
     NavGroup(
       id: 'quest_c1_2',
-      title: 'QUEST · C1.2',
+      title: 'C1.2 · NUANCIEREN',
       type: NavGroupType.questChain,
       level: 'C1.2',
     ),
     NavGroup(
       id: 'quest_c2_1',
-      title: 'QUEST · C2.1',
+      title: 'C2.1 · STILSICHERHEIT',
       type: NavGroupType.questChain,
       level: 'C2.1',
     ),
     NavGroup(
       id: 'quest_c2_2',
-      title: 'QUEST · C2.2',
+      title: 'C2.2 · MEISTERSCHAFT',
       type: NavGroupType.questChain,
       level: 'C2.2',
     ),
@@ -99,13 +101,43 @@ final NavLayout _certA1Nav = NavLayout(
   ],
 );
 
-/// The "German Grammar in Detail" drawer: the grammar quizzes first, then the
-/// noun categories (plus links).
-final NavLayout _grammarNav = NavLayout(
-  groups: const [
+/// One drawer group for a grammar quest, its tiles built from the quest's
+/// quiz list so the menu never drifts from the content.
+NavGroup _enQuest(String id, String title, List<QuizContent> quizzes) =>
     NavGroup(
+      id: id,
+      title: title,
+      type: NavGroupType.quizzes,
+      items: [for (final c in quizzes) NavItem(ref: c.id)],
+    );
+
+/// The "German Grammar in Detail" drawer: the step-by-step quests (Quest 1 →
+/// Quest 17, A1 → B2), then the four original reference quizzes, the noun
+/// categories, and links. Quests are ungated for now so every quiz is open to
+/// practise in any order; give a group `gated: true` to turn it into a
+/// pass-to-unlock chain.
+final NavLayout _grammarNav = NavLayout(
+  groups: [
+    _enQuest('m1', 'QUEST 1 · PRESENT TENSE & WORD ORDER', enDeM1),
+    _enQuest('m2', 'QUEST 2 · GENDER & THE NOMINATIVE', enDeM2),
+    _enQuest('m3', 'QUEST 3 · THE ACCUSATIVE', enDeM3),
+    _enQuest('m4', 'QUEST 4 · THE DATIVE', enDeM4),
+    _enQuest('m5', 'QUEST 5 · PUTTING THE CASES TOGETHER', enDeM5),
+    _enQuest('m6', 'QUEST 6 · TWO-WAY PREPOSITIONS', enDeM6),
+    _enQuest('m7', 'QUEST 7 · ADJECTIVE ENDINGS', enDeM7),
+    _enQuest('m8', 'QUEST 8 · THE PERFEKT', enDeM8),
+    _enQuest('m9', 'QUEST 9 · MODAL & SEPARABLE VERBS', enDeM9),
+    _enQuest('m10', 'QUEST 10 · COMPARISONS', enDeM10),
+    _enQuest('m11', 'QUEST 11 · CONNECTING SENTENCES', enDeM11),
+    _enQuest('m12', 'QUEST 12 · FULL ADJECTIVE DECLENSION', enDeM12),
+    _enQuest('m13', 'QUEST 13 · GENITIVE & PRÄTERITUM', enDeM13),
+    _enQuest('m14', 'QUEST 14 · RELATIVE CLAUSES', enDeM14),
+    _enQuest('m15', 'QUEST 15 · KONJUNKTIV II & REFLEXIVE', enDeM15),
+    _enQuest('m16', 'QUEST 16 · THE PASSIVE', enDeM16),
+    _enQuest('m17', 'QUEST 17 · INDIRECT SPEECH', enDeM17),
+    const NavGroup(
       id: 'quizzes',
-      title: 'GRAMMAR QUIZZES',
+      title: 'REFERENCE QUIZZES',
       type: NavGroupType.quizzes,
       items: [
         NavItem(ref: 'article'),
@@ -114,12 +146,12 @@ final NavLayout _grammarNav = NavLayout(
         NavItem(ref: 'preposition'),
       ],
     ),
-    NavGroup(
+    const NavGroup(
       id: 'nouns',
       title: 'NOUN CATEGORIES',
       type: NavGroupType.nounChain,
     ),
-    NavGroup(
+    const NavGroup(
       id: 'more',
       title: 'MORE',
       type: NavGroupType.links,

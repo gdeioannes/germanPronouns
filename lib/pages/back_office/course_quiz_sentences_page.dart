@@ -89,6 +89,15 @@ class _CourseQuizSentencesPageState extends State<CourseQuizSentencesPage> {
     await _persist();
   }
 
+  /// [newIndex] is already adjusted for the removed item (onReorderItem).
+  Future<void> _reorder(int oldIndex, int newIndex) async {
+    setState(() {
+      final item = _sentences.removeAt(oldIndex);
+      _sentences.insert(newIndex, item);
+    });
+    await _persist();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,12 +106,17 @@ class _CourseQuizSentencesPageState extends State<CourseQuizSentencesPage> {
           ? const Center(child: CircularProgressIndicator())
           : _quiz == null
           ? const Center(child: Text('This quiz has no fill-in sentences.'))
-          : ListView.separated(
+          : ReorderableListView.builder(
               itemCount: _sentences.length,
-              separatorBuilder: (_, _) => const Divider(height: 1),
+              onReorderItem: _reorder,
               itemBuilder: (context, index) {
                 final s = _sentences[index];
                 return ListTile(
+                  key: ObjectKey(s),
+                  leading: ReorderableDragStartListener(
+                    index: index,
+                    child: const Icon(Icons.drag_handle_rounded),
+                  ),
                   title: Text(s.sentence),
                   subtitle: s.acceptedAnswers.isEmpty
                       ? null

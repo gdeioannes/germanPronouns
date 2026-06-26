@@ -7,6 +7,7 @@ import '../data/db/content_repository.dart';
 import '../l10n/app_strings.dart';
 import 'course.dart';
 import 'nav_layout.dart';
+import 'noun_settings.dart';
 
 /// App-wide selected course (language pair). Holds the loaded course list (from
 /// the content database) and the learner's chosen course, and exposes the
@@ -69,12 +70,24 @@ class CourseSession extends ChangeNotifier {
   /// Localized chrome strings for the active course's UI language.
   AppStrings get strings => stringsFor(activeCourse.uiLang);
 
+  /// Pushes the active course's [CourseGating] into [NounSettings] as the unlock
+  /// defaults, so each course carries its own unlock economy. The learner's own
+  /// override (if any) still wins; this only sets the per-course fallback.
+  void _applyActiveGating() {
+    final g = _activeBaseCourse().gating;
+    NounSettings.instance.applyCourseGating(
+      progressionUnlockLaps: g.progressionUnlockLaps,
+      questUnlockLaps: g.questUnlockLaps,
+    );
+  }
+
   /// Loads the chosen course id from SharedPreferences (fast — safe to await at
   /// startup). The course list defaults to [defaultCourses] until
   /// [loadCourses] reads any teacher edits from the database.
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     _activeCourseId = prefs.getString(_activeKey);
+    _applyActiveGating();
   }
 
   /// Loads the course list from the content database (teacher-edited menus),
@@ -86,6 +99,7 @@ class CourseSession extends ChangeNotifier {
     } catch (_) {
       _courses = defaultCourses;
     }
+    _applyActiveGating();
     notifyListeners();
   }
 
@@ -93,6 +107,7 @@ class CourseSession extends ChangeNotifier {
     _activeCourseId = id;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_activeKey, id);
+    _applyActiveGating();
     notifyListeners();
   }
 }

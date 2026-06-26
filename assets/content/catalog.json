@@ -1,5 +1,6 @@
 {
-  "version": "1.5.0",
+  "version": "1.7.6",
+  "defaultCourseId": "en_de",
   "courses": [
     {
       "id": "de_cert_a1",
@@ -9,7 +10,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
-      "version": "1.5.0"
+      "version": "1.7.6"
     },
     {
       "id": "en_de",
@@ -19,7 +20,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
-      "version": "1.5.0"
+      "version": "1.7.6"
     },
     {
       "id": "es_de",
@@ -29,7 +30,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
-      "version": "1.5.0"
+      "version": "1.7.6"
     },
     {
       "id": "es_de_emotions",
@@ -39,7 +40,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
-      "version": "1.5.0"
+      "version": "1.7.6"
     },
     {
       "id": "de_es",
@@ -49,7 +50,7 @@
       "learnFlag": "🇪🇸",
       "uiLang": "de",
       "learnLocale": "es-ES",
-      "version": "1.5.0"
+      "version": "1.7.6"
     }
   ]
 }

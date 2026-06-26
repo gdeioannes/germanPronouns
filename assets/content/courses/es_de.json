@@ -6,6 +6,10 @@
   "learnFlag": "🇩🇪",
   "uiLang": "es",
   "learnLocale": "de-DE",
+  "gating": {
+    "progressionUnlockLaps": 2,
+    "questUnlockLaps": 2
+  },
   "nav": {
     "groups": [
       {
@@ -116,7 +120,7 @@
       }
     ]
   },
-  "version": "1.5.0",
+  "version": "1.7.6",
   "quizzes": [
     {
       "type": "speakRepeat",

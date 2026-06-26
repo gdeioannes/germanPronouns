@@ -71,18 +71,29 @@ UiLang _uiLangFromName(String? name) {
 /// The course index: the small, always-loaded list of [CourseCard]s the start
 /// menu renders. Heavy per-course bundles are fetched only when a course opens.
 class Catalog {
-  const Catalog({required this.version, this.courses = const []});
+  const Catalog({
+    required this.version,
+    this.courses = const [],
+    this.defaultCourseId,
+  });
 
   final String version;
   final List<CourseCard> courses;
 
+  /// Id of the course shown by default before the learner has chosen one. Null
+  /// falls back to the first card. Data-driven twin of the old `kDefaultCourseId`
+  /// compile-time constant.
+  final String? defaultCourseId;
+
   Map<String, dynamic> toJson() => {
     'version': version,
+    if (defaultCourseId != null) 'defaultCourseId': defaultCourseId,
     'courses': [for (final c in courses) c.toJson()],
   };
 
   factory Catalog.fromJson(Map<String, dynamic> json) => Catalog(
     version: json['version'] as String? ?? '',
+    defaultCourseId: json['defaultCourseId'] as String?,
     courses: [
       for (final c in (json['courses'] as List?) ?? const [])
         CourseCard.fromJson(Map<String, dynamic>.from(c as Map)),

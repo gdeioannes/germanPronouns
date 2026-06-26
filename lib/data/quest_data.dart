@@ -21,8 +21,9 @@ import 'quiz_content_adapter.dart';
 /// the noun-category progression (`nounProgressionEntries`) but is a separate
 /// chain with its own completion set and unlock goal (`NounSettings`).
 class QuestEntry {
-  QuestEntry({required this.levelLabel, required this.content})
+  QuestEntry({required this.content})
     : key = content.id,
+      levelLabel = content.level ?? '',
       displayName = _shortName(content.title),
       config = buildQuizConfigFromContent(
         content,
@@ -31,7 +32,8 @@ class QuestEntry {
         questProgression: true,
       );
 
-  /// CEFR sub-level header this quiz belongs to, e.g. 'A1.1'.
+  /// CEFR sub-level header this quiz belongs to, e.g. 'A1.1' — taken from
+  /// [QuizContent.level], the single source of a quiz's level.
   final String levelLabel;
 
   /// The serializable content this quiz runs from (the DB fallback source).
@@ -57,18 +59,18 @@ String _shortName(String title) =>
 /// sub-level unlocks only once every quiz in the preceding ones is done
 /// (`isQuestLevelUnlocked`). Append further levels here.
 final List<QuestEntry> _compiledQuestEntries = [
-  for (final c in questA1_1Content) QuestEntry(levelLabel: 'A1.1', content: c),
-  for (final c in questA1_2Content) QuestEntry(levelLabel: 'A1.2', content: c),
-  for (final c in questA2_1Content) QuestEntry(levelLabel: 'A2.1', content: c),
-  for (final c in questA2_2Content) QuestEntry(levelLabel: 'A2.2', content: c),
-  for (final c in questB1_1Content) QuestEntry(levelLabel: 'B1.1', content: c),
-  for (final c in questB1_2Content) QuestEntry(levelLabel: 'B1.2', content: c),
-  for (final c in questB2_1Content) QuestEntry(levelLabel: 'B2.1', content: c),
-  for (final c in questB2_2Content) QuestEntry(levelLabel: 'B2.2', content: c),
-  for (final c in questC1_1Content) QuestEntry(levelLabel: 'C1.1', content: c),
-  for (final c in questC1_2Content) QuestEntry(levelLabel: 'C1.2', content: c),
-  for (final c in questC2_1Content) QuestEntry(levelLabel: 'C2.1', content: c),
-  for (final c in questC2_2Content) QuestEntry(levelLabel: 'C2.2', content: c),
+  for (final c in questA1_1Content) QuestEntry(content: c.copyWith(level: 'A1.1')),
+  for (final c in questA1_2Content) QuestEntry(content: c.copyWith(level: 'A1.2')),
+  for (final c in questA2_1Content) QuestEntry(content: c.copyWith(level: 'A2.1')),
+  for (final c in questA2_2Content) QuestEntry(content: c.copyWith(level: 'A2.2')),
+  for (final c in questB1_1Content) QuestEntry(content: c.copyWith(level: 'B1.1')),
+  for (final c in questB1_2Content) QuestEntry(content: c.copyWith(level: 'B1.2')),
+  for (final c in questB2_1Content) QuestEntry(content: c.copyWith(level: 'B2.1')),
+  for (final c in questB2_2Content) QuestEntry(content: c.copyWith(level: 'B2.2')),
+  for (final c in questC1_1Content) QuestEntry(content: c.copyWith(level: 'C1.1')),
+  for (final c in questC1_2Content) QuestEntry(content: c.copyWith(level: 'C1.2')),
+  for (final c in questC2_1Content) QuestEntry(content: c.copyWith(level: 'C2.1')),
+  for (final c in questC2_2Content) QuestEntry(content: c.copyWith(level: 'C2.2')),
 ];
 
 /// A teacher-defined order (content ids) for the Quest chain, or null for the

@@ -19,6 +19,7 @@ sealed class Quiz {
     required this.subjectsLabel,
     required this.subjectColumnLabel,
     this.help = const HelpMemory(),
+    this.level,
   });
 
   final String id;
@@ -28,6 +29,9 @@ sealed class Quiz {
   final String subjectsLabel;
   final String subjectColumnLabel;
   final HelpMemory help;
+
+  /// CEFR sub-level (e.g. `'A1.1'`), or null. See [QuizContent.level].
+  final String? level;
 
   /// JSON discriminator (`'fillBlank'` | `'reading'` | `'listening'` |
   /// `'speakRepeat'` | `'dictation'`).
@@ -67,6 +71,7 @@ typedef _Base = ({
   String subjectsLabel,
   String subjectColumnLabel,
   HelpMemory help,
+  String? level,
 });
 
 _Base _baseFromJson(Map<String, dynamic> json) => (
@@ -79,6 +84,7 @@ _Base _baseFromJson(Map<String, dynamic> json) => (
   help: json['help'] == null
       ? const HelpMemory()
       : HelpMemory.fromJson(Map<String, dynamic>.from(json['help'] as Map)),
+  level: json['level'] as String?,
 );
 
 _Base _baseFromContent(QuizContent c) => (
@@ -89,6 +95,7 @@ _Base _baseFromContent(QuizContent c) => (
   subjectsLabel: c.subjectsLabel,
   subjectColumnLabel: c.subjectColumnLabel,
   help: HelpMemory.fromContent(c),
+  level: c.level,
 );
 
 Map<String, dynamic> _baseJson(Quiz q) => {
@@ -99,6 +106,7 @@ Map<String, dynamic> _baseJson(Quiz q) => {
   'promptLabel': q.promptLabel,
   'subjectsLabel': q.subjectsLabel,
   'subjectColumnLabel': q.subjectColumnLabel,
+  if (q.level != null) 'level': q.level,
   if (!q.help.isEmpty) 'help': q.help.toJson(),
 };
 
@@ -115,6 +123,7 @@ final class FillBlankQuiz extends Quiz {
     required super.subjectsLabel,
     required super.subjectColumnLabel,
     super.help,
+    super.level,
     this.subjects = const [],
     this.categories = const [],
     this.sentences = const [],
@@ -166,6 +175,7 @@ final class FillBlankQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       subjects: [
         for (final s in (json['subjects'] as List?) ?? const [])
           QuizSubjectData.fromJson(Map<String, dynamic>.from(s as Map)),
@@ -207,6 +217,7 @@ final class FillBlankQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       subjects: c.subjects,
       categories: c.categories,
       sentences: c.sentences,
@@ -227,6 +238,7 @@ final class FillBlankQuiz extends Quiz {
     promptLabel: promptLabel,
     subjectsLabel: subjectsLabel,
     subjectColumnLabel: subjectColumnLabel,
+    level: level,
     subjects: subjects,
     categories: categories,
     sentences: sentences,
@@ -297,6 +309,8 @@ QuizContent _passageToLegacy(
   _Passage p,
   QuizKind kind, {
   VoiceGender voiceGender = VoiceGender.female,
+  String? inlineTemplate,
+  List<InlineBlank> inlineBlanks = const [],
 }) => QuizContent(
   id: q.id,
   title: q.title,
@@ -306,6 +320,7 @@ QuizContent _passageToLegacy(
   voiceGender: voiceGender,
   subjectColumnLabel: q.subjectColumnLabel,
   kind: kind,
+  level: q.level,
   subjects: const [],
   categories: const [],
   sentences: const [],
@@ -314,6 +329,8 @@ QuizContent _passageToLegacy(
   readingPassage: p.passage,
   readingPassageTranslation: p.passageTranslation,
   readingQuestions: p.questions,
+  inlineTemplate: inlineTemplate,
+  inlineBlanks: inlineBlanks,
   helpMemorySubtitle: q.help.subtitle,
   helpMemoryIntro: q.help.intro,
   helpMemoryTips: q.help.tips,
@@ -332,11 +349,14 @@ final class ReadingQuiz extends Quiz {
     required super.subjectsLabel,
     required super.subjectColumnLabel,
     super.help,
+    super.level,
     this.category,
     this.passageTitle,
     this.passage,
     this.passageTranslation,
     this.questions = const [],
+    this.inlineTemplate,
+    this.inlineBlanks = const [],
   });
 
   final String? category;
@@ -344,6 +364,12 @@ final class ReadingQuiz extends Quiz {
   final String? passage;
   final String? passageTranslation;
   final List<ReadingQuestion> questions;
+
+  /// Inline "big text" data: when [inlineBlanks] is non-empty this reading quiz
+  /// is answered *inside* the passage ([inlineTemplate], with `{{n}}` controls)
+  /// rather than via [questions]. See `QuizContent.inlineTemplate`.
+  final String? inlineTemplate;
+  final List<InlineBlank> inlineBlanks;
 
   @override
   String get type => 'reading';
@@ -358,6 +384,9 @@ final class ReadingQuiz extends Quiz {
       passageTranslation: passageTranslation,
       questions: questions,
     ),
+    if (inlineTemplate != null) 'inlineTemplate': inlineTemplate,
+    if (inlineBlanks.isNotEmpty)
+      'inlineBlanks': [for (final b in inlineBlanks) b.toJson()],
   };
 
   factory ReadingQuiz.fromJson(Map<String, dynamic> json) {
@@ -371,11 +400,17 @@ final class ReadingQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       category: p.category,
       passageTitle: p.passageTitle,
       passage: p.passage,
       passageTranslation: p.passageTranslation,
       questions: p.questions,
+      inlineTemplate: json['inlineTemplate'] as String?,
+      inlineBlanks: [
+        for (final b in (json['inlineBlanks'] as List?) ?? const [])
+          InlineBlank.fromJson(Map<String, dynamic>.from(b as Map)),
+      ],
     );
   }
 
@@ -390,11 +425,14 @@ final class ReadingQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       category: p.category,
       passageTitle: p.passageTitle,
       passage: p.passage,
       passageTranslation: p.passageTranslation,
       questions: p.questions,
+      inlineTemplate: c.inlineTemplate,
+      inlineBlanks: c.inlineBlanks,
     );
   }
 
@@ -409,6 +447,8 @@ final class ReadingQuiz extends Quiz {
       questions: questions,
     ),
     QuizKind.reading,
+    inlineTemplate: inlineTemplate,
+    inlineBlanks: inlineBlanks,
   );
 }
 
@@ -421,6 +461,7 @@ final class ListeningQuiz extends Quiz {
     required super.subjectsLabel,
     required super.subjectColumnLabel,
     super.help,
+    super.level,
     this.category,
     this.passageTitle,
     this.passage,
@@ -465,6 +506,7 @@ final class ListeningQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       category: p.category,
       passageTitle: p.passageTitle,
       passage: p.passage,
@@ -485,6 +527,7 @@ final class ListeningQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       category: p.category,
       passageTitle: p.passageTitle,
       passage: p.passage,
@@ -577,6 +620,7 @@ QuizContent _spokenToLegacy(
   subjectsLabel: q.subjectsLabel,
   subjectColumnLabel: q.subjectColumnLabel,
   kind: kind,
+  level: q.level,
   voiceGender: voiceGender,
   subjects: [for (final l in lines) l.toSubject()],
   categories: const [],
@@ -599,6 +643,7 @@ final class SpeakRepeatQuiz extends Quiz {
     required super.subjectsLabel,
     required super.subjectColumnLabel,
     super.help,
+    super.level,
     this.phrases = const [],
     this.voiceGender = VoiceGender.female,
   });
@@ -629,6 +674,7 @@ final class SpeakRepeatQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       phrases: [
         for (final p in (json['phrases'] as List?) ?? const [])
           SpokenLine.fromJson(Map<String, dynamic>.from(p as Map)),
@@ -647,6 +693,7 @@ final class SpeakRepeatQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       phrases: [for (final s in c.subjects) SpokenLine.fromSubject(s)],
       voiceGender: c.voiceGender,
     );
@@ -667,6 +714,7 @@ final class DictationQuiz extends Quiz {
     required super.subjectsLabel,
     required super.subjectColumnLabel,
     super.help,
+    super.level,
     this.items = const [],
     this.voiceGender = VoiceGender.female,
   });
@@ -697,6 +745,7 @@ final class DictationQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       items: [
         for (final i in (json['items'] as List?) ?? const [])
           SpokenLine.fromJson(Map<String, dynamic>.from(i as Map)),
@@ -715,6 +764,7 @@ final class DictationQuiz extends Quiz {
       subjectsLabel: b.subjectsLabel,
       subjectColumnLabel: b.subjectColumnLabel,
       help: b.help,
+      level: b.level,
       items: [for (final s in c.subjects) SpokenLine.fromSubject(s)],
       voiceGender: c.voiceGender,
     );
