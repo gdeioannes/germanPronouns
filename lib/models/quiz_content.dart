@@ -88,6 +88,64 @@ class ReadingQuestion {
   );
 }
 
+/// One interactive blank inside a [QuizContent.inlineTemplate] — the "big text"
+/// where the learner answers *inside* the passage. A [kind] `'select'` blank is
+/// a dropdown (pick the [answer] from [options], e.g. the case Nominativ /
+/// Akkusativ / Dativ for a marked phrase); a `'input'` blank is a typed field
+/// (type the [answer], e.g. an adjective ending), checked forgivingly against
+/// [answer] plus any [accepted] spellings.
+class InlineBlank {
+  const InlineBlank({
+    required this.kind,
+    required this.answer,
+    this.options = const [],
+    this.accepted = const [],
+    this.hint,
+    this.translation,
+  });
+
+  /// `'select'` (dropdown over [options]) or `'input'` (typed field).
+  final String kind;
+
+  /// The correct value: the chosen option for a select, or the expected text
+  /// for an input.
+  final String answer;
+
+  /// The choices shown for a `'select'` blank (includes [answer]). Empty for
+  /// `'input'` blanks.
+  final List<String> options;
+
+  /// Extra accepted spellings for an `'input'` blank (case-insensitive). Unused
+  /// by `'select'` blanks.
+  final List<String> accepted;
+
+  /// Optional hint shown for this blank (e.g. the nominative form to decline).
+  final String? hint;
+
+  /// Optional translation of the marked span, shown behind an info affordance.
+  final String? translation;
+
+  bool get isSelect => kind == 'select';
+
+  Map<String, dynamic> toJson() => {
+    'kind': kind,
+    'answer': answer,
+    if (options.isNotEmpty) 'options': options,
+    if (accepted.isNotEmpty) 'accepted': accepted,
+    if (hint != null) 'hint': hint,
+    if (translation != null) 'translation': translation,
+  };
+
+  factory InlineBlank.fromJson(Map<String, dynamic> json) => InlineBlank(
+    kind: json['kind'] as String? ?? 'select',
+    answer: json['answer'] as String,
+    options: (json['options'] as List?)?.cast<String>() ?? const [],
+    accepted: (json['accepted'] as List?)?.cast<String>() ?? const [],
+    hint: json['hint'] as String?,
+    translation: json['translation'] as String?,
+  );
+}
+
 /// One quizzable subject (a table row): a pronoun, a noun, a preposition, etc.
 class QuizSubjectData {
   const QuizSubjectData({
@@ -307,6 +365,8 @@ class QuizContent {
     this.readingPassage,
     this.readingPassageTranslation,
     this.readingQuestions = const [],
+    this.inlineTemplate,
+    this.inlineBlanks = const [],
     this.contextualLayout = false,
     this.stripSentenceCue = false,
     this.voiceGender = VoiceGender.female,
@@ -378,6 +438,17 @@ class QuizContent {
 
   final List<ReadingQuestion> readingQuestions;
 
+  /// For an inline "big text" reading quiz: the passage with `{{0}}`, `{{1}}`…
+  /// placeholders marking where each interactive control goes (a literal phrase
+  /// like `den Tisch` is authored inline for select blanks; a `{{n}}` replaces
+  /// the word for typed blanks). Null for a normal multiple-choice reading quiz.
+  final String? inlineTemplate;
+
+  /// The blanks parallel to the `{{n}}` placeholders in [inlineTemplate]. Empty
+  /// for a normal reading quiz; when non-empty the quiz renders inline (see
+  /// `InlineClozeQuizPage`) instead of with questions below the passage.
+  final List<InlineBlank> inlineBlanks;
+
   /// When true, the quiz page shows the German sentence as the question (with
   /// its English translation beneath it) instead of the default subject/Case
   /// summary — used by the contextual "light quiz" vocab quizzes so the German
@@ -434,6 +505,9 @@ class QuizContent {
       'readingPassageTranslation': readingPassageTranslation,
     if (readingQuestions.isNotEmpty)
       'readingQuestions': [for (final q in readingQuestions) q.toJson()],
+    if (inlineTemplate != null) 'inlineTemplate': inlineTemplate,
+    if (inlineBlanks.isNotEmpty)
+      'inlineBlanks': [for (final b in inlineBlanks) b.toJson()],
     if (contextualLayout) 'contextualLayout': true,
     if (stripSentenceCue) 'stripSentenceCue': true,
     if (voiceGender != VoiceGender.female) 'voiceGender': voiceGender.name,
@@ -500,6 +574,11 @@ class QuizContent {
     readingQuestions: [
       for (final q in (json['readingQuestions'] as List?) ?? const [])
         ReadingQuestion.fromJson(q as Map<String, dynamic>),
+    ],
+    inlineTemplate: json['inlineTemplate'] as String?,
+    inlineBlanks: [
+      for (final b in (json['inlineBlanks'] as List?) ?? const [])
+        InlineBlank.fromJson(b as Map<String, dynamic>),
     ],
     contextualLayout: json['contextualLayout'] as bool? ?? false,
     stripSentenceCue: json['stripSentenceCue'] as bool? ?? false,

@@ -138,6 +138,14 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   bool _nounCategoriesExpanded = false;
   bool _questExpanded = false;
+
+  /// The one group accordion currently open (only one at a time). Until the
+  /// learner taps a header [_userToggledGroup] is false and the drawer follows
+  /// the computed default (the active module); after a tap [_openGroupId] holds
+  /// their explicit choice — or null when they collapse the open group.
+  String? _openGroupId;
+  bool _userToggledGroup = false;
+
   late final Future<_DrawerData> _drawerDataFuture = _loadDrawerData();
 
   void _navigateTo(BuildContext context, AppPage page) {
@@ -155,21 +163,6 @@ class _AppDrawerState extends State<AppDrawer> {
     AppPage.settings => '/settings',
     _ => '/home',
   };
-
-  Widget _sectionLabel(BuildContext context, String text) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(24, 12, 24, 6),
-      child: Text(
-        text,
-        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-          color: colorScheme.onSurfaceVariant,
-          fontWeight: FontWeight.w700,
-          letterSpacing: 1.1,
-        ),
-      ),
-    );
-  }
 
   Widget _navTile(
     BuildContext context, {
@@ -470,14 +463,7 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
       ];
 
-      tiles.add(
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 280),
-          child: Scrollbar(
-            child: ListView(shrinkWrap: true, children: categoryTiles),
-          ),
-        ),
-      );
+      tiles.addAll(categoryTiles);
     }
 
     return tiles;
@@ -711,9 +697,9 @@ class _AppDrawerState extends State<AppDrawer> {
     ];
 
     if (_questExpanded) {
-      // Show a scrollable window of up to [maxVisible] quizzes that always
-      // includes the frontier (the next locked quiz). Locked quizzes stay
-      // visible — dimmed, with a lock — so the learner sees the goals ahead.
+      // Show a window of up to [maxVisible] quizzes that always includes the
+      // frontier (the next locked quiz). Locked quizzes stay visible — dimmed,
+      // with a lock — so the learner sees the goals ahead.
       const maxVisible = 10;
       final total = questEntries.length;
       final end = min(total, max(unlockedCount + 1, maxVisible));
@@ -750,14 +736,7 @@ class _AppDrawerState extends State<AppDrawer> {
         }
       }
 
-      tiles.add(
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 360),
-          child: Scrollbar(
-            child: ListView(shrinkWrap: true, children: levelTiles),
-          ),
-        ),
-      );
+      tiles.addAll(levelTiles);
     }
 
     return tiles;
@@ -805,22 +784,6 @@ class _AppDrawerState extends State<AppDrawer> {
       } else {
         tiles.add(_lockedQuestPreviewTile(context, entry: entry, number: i + 1));
       }
-    }
-    // A long level (e.g. A1.1 has 9 quizzes) is capped to a scrollable window so
-    // it doesn't push the rest of the drawer (and the next level) off-screen.
-    if (tiles.length > 4) {
-      return [
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 320),
-          child: Scrollbar(
-            child: ListView(
-              shrinkWrap: true,
-              padding: EdgeInsets.zero,
-              children: tiles,
-            ),
-          ),
-        ),
-      ];
     }
     return tiles;
   }
@@ -1322,6 +1285,219 @@ class _AppDrawerState extends State<AppDrawer> {
     context.go('/course/${course.id}');
   }
 
+  // ── Accordion sections ────────────────────────────────────────────────────
+
+  /// The single open group: the learner's explicit choice once they've tapped a
+  /// header, otherwise the computed default ([defaultExpandedId] — the active
+  /// module). Null means every group is collapsed.
+  String? _openGroup(String? defaultExpandedId) =>
+      _userToggledGroup ? _openGroupId : defaultExpandedId;
+
+  /// Opens [id] (closing whatever else was open), or closes it when it's already
+  /// the open group — only one accordion is ever open at a time.
+  void _toggleGroup(String id, bool currentlyExpanded) {
+    setState(() {
+      _userToggledGroup = true;
+      _openGroupId = currentlyExpanded ? null : id;
+    });
+  }
+
+  /// Whether [group] holds the currently-open quiz / quest / noun page — used to
+  /// auto-expand exactly the active module's accordion.
+  bool _isGroupActive(NavGroup group) {
+    switch (group.type) {
+      case NavGroupType.quizzes:
+        final current = widget.currentContentId;
+        if (current == null) return false;
+        return group.items.any((i) => !i.hidden && i.ref == current);
+      case NavGroupType.questChain:
+        if (widget.currentPage != AppPage.quest) return false;
+        if (group.level == null) return true;
+        final completed = NounSettings.instance.completedQuestQuizzes;
+        return _currentQuestEntry(completed).levelLabel == group.level;
+      case NavGroupType.nounChain:
+        return widget.currentPage == AppPage.nounsArticles;
+      case NavGroupType.links:
+        return false;
+    }
+  }
+
+  /// (done, total) finished-quiz counts for a group, shown as its `3/5` chip.
+  (int, int) _groupProgress(NavGroup group, _DrawerData? data) {
+    switch (group.type) {
+      case NavGroupType.quizzes:
+        if (data == null) return (0, 0);
+        var done = 0;
+        var total = 0;
+        for (final item in group.items) {
+          if (item.hidden) continue;
+          total++;
+          if (_isQuizItemDone(item, data)) done++;
+        }
+        return (done, total);
+      case NavGroupType.questChain:
+        var done = 0;
+        var total = 0;
+        for (final e in questEntries) {
+          if (group.level != null && e.levelLabel != group.level) continue;
+          total++;
+          if (NounSettings.instance.isQuestQuizCompleted(e.key)) done++;
+        }
+        return (done, total);
+      case NavGroupType.nounChain:
+        var done = 0;
+        for (final e in nounProgressionEntries) {
+          if (NounSettings.instance.isNounCategoryCompleted(e.key)) done++;
+        }
+        return (done, nounProgressionEntries.length);
+      case NavGroupType.links:
+        return (0, 0);
+    }
+  }
+
+  /// The single group to open by default: the active module if one is open,
+  /// otherwise the first not-yet-finished module, otherwise the first group.
+  String? _defaultExpandedGroupId(List<NavGroup> groups, _DrawerData? data) {
+    for (final g in groups) {
+      if (_isGroupActive(g)) return g.id;
+    }
+    for (final g in groups) {
+      final (done, total) = _groupProgress(g, data);
+      if (total > 0 && done < total) return g.id;
+    }
+    return groups.isEmpty ? null : groups.first.id;
+  }
+
+  /// A small `done/total` pill for an accordion header; tinted when complete.
+  Widget _progressChip(
+    BuildContext context, {
+    required int done,
+    required int total,
+    required bool complete,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      decoration: BoxDecoration(
+        color: complete
+            ? colorScheme.primaryContainer
+            : colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Text(
+        '$done/$total',
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: complete
+              ? colorScheme.onPrimaryContainer
+              : colorScheme.onSurfaceVariant,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+
+  /// The tappable header of a group accordion: the section title, an expand
+  /// chevron, the `done/total` progress chip and — once every quiz in the group
+  /// is finished — the completion ribbon.
+  Widget _accordionHeader(
+    BuildContext context, {
+    required String title,
+    required int done,
+    required int total,
+    required bool expanded,
+    required VoidCallback onTap,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final complete = total > 0 && done >= total;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(kRadiusLarge),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(kRadiusLarge),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+            child: Row(
+              children: [
+                Icon(
+                  expanded
+                      ? Icons.expand_less_rounded
+                      : Icons.expand_more_rounded,
+                  size: 20,
+                  color: colorScheme.onSurfaceVariant,
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    title,
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.1,
+                    ),
+                  ),
+                ),
+                if (total > 0) ...[
+                  _progressChip(
+                    context,
+                    done: done,
+                    total: total,
+                    complete: complete,
+                  ),
+                  if (complete) ...[
+                    const SizedBox(width: 8),
+                    BookmarkRibbon(color: tierColorForLaps(5), width: 14),
+                  ],
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// One group rendered as a collapsible accordion: a progress header plus the
+  /// group's tiles, shown only while [expanded].
+  Widget _accordionGroup(
+    BuildContext context, {
+    required NavGroup group,
+    required _DrawerData? data,
+    required SharedPreferences? prefs,
+    required Map<String, _QuizLock> locks,
+    required bool expanded,
+  }) {
+    final (done, total) = _groupProgress(group, data);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        _accordionHeader(
+          context,
+          title: group.title,
+          done: done,
+          total: total,
+          expanded: expanded,
+          onTap: () => _toggleGroup(group.id, expanded),
+        ),
+        AnimatedSize(
+          duration: const Duration(milliseconds: 220),
+          curve: Curves.easeOutCubic,
+          alignment: Alignment.topCenter,
+          child: expanded
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: _buildGroup(context, group, data, prefs, locks),
+                )
+              : const SizedBox(width: double.infinity),
+        ),
+      ],
+    );
+  }
+
   /// Renders one navigation group's tiles by [NavGroup.type]. [locks] holds the
   /// pass-to-unlock state of every quiz in the course's gated chain (see
   /// [_computeQuizLocks]); refs absent from it are open.
@@ -1390,6 +1566,12 @@ class _AppDrawerState extends State<AppDrawer> {
               for (final g in layout.groups)
                 if (g.type != NavGroupType.links) g,
             ];
+            // Only one accordion is open at a time: the active module by
+            // default (or the first unfinished one), until the learner taps a
+            // header to open a different group.
+            final openGroupId = _openGroup(
+              _defaultExpandedGroupId(mainGroups, data),
+            );
 
             // Fade + slide the whole menu in each time the drawer opens (the
             // drawer's State is rebuilt per open, so this replays every time),
@@ -1415,8 +1597,14 @@ class _AppDrawerState extends State<AppDrawer> {
                         _homeTile(context),
                         for (final group in mainGroups) ...[
                           Divider(height: 1, color: colorScheme.outlineVariant),
-                          _sectionLabel(context, group.title),
-                          ..._buildGroup(context, group, data, prefs, locks),
+                          _accordionGroup(
+                            context,
+                            group: group,
+                            data: data,
+                            prefs: prefs,
+                            locks: locks,
+                            expanded: group.id == openGroupId,
+                          ),
                         ],
                       ],
                     ),

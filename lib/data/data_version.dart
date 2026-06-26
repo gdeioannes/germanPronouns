@@ -16,4 +16,4 @@
 ///
 /// This constant is deliberately free of Flutter imports so the seed generator
 /// (`tool/generate_seed.dart`, a plain `dart run` script) can share it.
-const String kDataVersion = '1.5.0';
+const String kDataVersion = '1.7.5';

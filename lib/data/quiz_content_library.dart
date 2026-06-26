@@ -1,6 +1,7 @@
 import '../models/quiz_content.dart';
 import 'article_content.dart';
 import 'courses/de_es/de_es_content.dart';
+import 'courses/en_de/en_de_content.dart';
 import 'courses/es_de/es_de_content.dart';
 import 'noun_article_content.dart';
 import 'preposition_content.dart';
@@ -17,6 +18,8 @@ final List<QuizContent> allQuizContent = [
   nounArticleQuizContent,
   pronounArticleQuizContent,
   prepositionQuizContent,
+  // German Grammar in Detail — step-by-step grammar modules (M3, …).
+  ...enDeGrammarContent,
   // Quest (CEFR A-level) quizzes — one ordered, streak-unlocked chain.
   ...questQuizContent,
   // Español → Alemán travel course quizzes.

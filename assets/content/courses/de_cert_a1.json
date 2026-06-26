@@ -10,73 +10,73 @@
     "groups": [
       {
         "id": "quest_a1_1",
-        "title": "QUEST · A1.1",
+        "title": "A1.1 · ERSTE SCHRITTE",
         "type": "questChain",
         "level": "A1.1"
       },
       {
         "id": "quest_a1_2",
-        "title": "QUEST · A1.2",
+        "title": "A1.2 · IM ALLTAG",
         "type": "questChain",
         "level": "A1.2"
       },
       {
         "id": "quest_a2_1",
-        "title": "QUEST · A2.1",
+        "title": "A2.1 · ERLEBNISSE",
         "type": "questChain",
         "level": "A2.1"
       },
       {
         "id": "quest_a2_2",
-        "title": "QUEST · A2.2",
+        "title": "A2.2 · BESCHREIBEN & PLANEN",
         "type": "questChain",
         "level": "A2.2"
       },
       {
         "id": "quest_b1_1",
-        "title": "QUEST · B1.1",
+        "title": "B1.1 · MEINUNGEN & WÜNSCHE",
         "type": "questChain",
         "level": "B1.1"
       },
       {
         "id": "quest_b1_2",
-        "title": "QUEST · B1.2",
+        "title": "B1.2 · ERZÄHLEN & BEGRÜNDEN",
         "type": "questChain",
         "level": "B1.2"
       },
       {
         "id": "quest_b2_1",
-        "title": "QUEST · B2.1",
+        "title": "B2.1 · ARGUMENTIEREN",
         "type": "questChain",
         "level": "B2.1"
       },
       {
         "id": "quest_b2_2",
-        "title": "QUEST · B2.2",
+        "title": "B2.2 · DIFFERENZIEREN",
         "type": "questChain",
         "level": "B2.2"
       },
       {
         "id": "quest_c1_1",
-        "title": "QUEST · C1.1",
+        "title": "C1.1 · ABSTRAHIEREN",
         "type": "questChain",
         "level": "C1.1"
       },
       {
         "id": "quest_c1_2",
-        "title": "QUEST · C1.2",
+        "title": "C1.2 · NUANCIEREN",
         "type": "questChain",
         "level": "C1.2"
       },
       {
         "id": "quest_c2_1",
-        "title": "QUEST · C2.1",
+        "title": "C2.1 · STILSICHERHEIT",
         "type": "questChain",
         "level": "C2.1"
       },
       {
         "id": "quest_c2_2",
-        "title": "QUEST · C2.2",
+        "title": "C2.2 · MEISTERSCHAFT",
         "type": "questChain",
         "level": "C2.2"
       },
@@ -101,7 +101,7 @@
       }
     ]
   },
-  "version": "1.5.0",
+  "version": "1.7.5",
   "quizzes": [
     {
       "type": "fillBlank",

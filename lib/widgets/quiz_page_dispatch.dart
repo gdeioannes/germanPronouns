@@ -5,6 +5,7 @@ import '../models/app_page.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
 import '../pages/dictation_quiz_page.dart';
+import '../pages/inline_cloze_quiz_page.dart';
 import '../pages/listening_quiz_page.dart';
 import '../pages/reading_quiz_page.dart';
 import '../pages/speak_repeat_quiz_page.dart';
@@ -34,6 +35,15 @@ Widget pageForQuizContent(
         questProgressionKey: questProgressionKey,
       );
     case QuizKind.reading:
+      // A reading quiz carrying inline blanks is the "big text" answered inside
+      // the passage; without them it's the classic passage + multiple-choice.
+      if (content.inlineBlanks.isNotEmpty) {
+        return InlineClozeQuizPage(
+          content: content,
+          currentPage: currentPage,
+          questProgressionKey: questProgressionKey,
+        );
+      }
       return ReadingQuizPage(
         content: content,
         currentPage: currentPage,

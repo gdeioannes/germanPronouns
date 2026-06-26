@@ -297,6 +297,8 @@ QuizContent _passageToLegacy(
   _Passage p,
   QuizKind kind, {
   VoiceGender voiceGender = VoiceGender.female,
+  String? inlineTemplate,
+  List<InlineBlank> inlineBlanks = const [],
 }) => QuizContent(
   id: q.id,
   title: q.title,
@@ -314,6 +316,8 @@ QuizContent _passageToLegacy(
   readingPassage: p.passage,
   readingPassageTranslation: p.passageTranslation,
   readingQuestions: p.questions,
+  inlineTemplate: inlineTemplate,
+  inlineBlanks: inlineBlanks,
   helpMemorySubtitle: q.help.subtitle,
   helpMemoryIntro: q.help.intro,
   helpMemoryTips: q.help.tips,
@@ -337,6 +341,8 @@ final class ReadingQuiz extends Quiz {
     this.passage,
     this.passageTranslation,
     this.questions = const [],
+    this.inlineTemplate,
+    this.inlineBlanks = const [],
   });
 
   final String? category;
@@ -344,6 +350,12 @@ final class ReadingQuiz extends Quiz {
   final String? passage;
   final String? passageTranslation;
   final List<ReadingQuestion> questions;
+
+  /// Inline "big text" data: when [inlineBlanks] is non-empty this reading quiz
+  /// is answered *inside* the passage ([inlineTemplate], with `{{n}}` controls)
+  /// rather than via [questions]. See `QuizContent.inlineTemplate`.
+  final String? inlineTemplate;
+  final List<InlineBlank> inlineBlanks;
 
   @override
   String get type => 'reading';
@@ -358,6 +370,9 @@ final class ReadingQuiz extends Quiz {
       passageTranslation: passageTranslation,
       questions: questions,
     ),
+    if (inlineTemplate != null) 'inlineTemplate': inlineTemplate,
+    if (inlineBlanks.isNotEmpty)
+      'inlineBlanks': [for (final b in inlineBlanks) b.toJson()],
   };
 
   factory ReadingQuiz.fromJson(Map<String, dynamic> json) {
@@ -376,6 +391,11 @@ final class ReadingQuiz extends Quiz {
       passage: p.passage,
       passageTranslation: p.passageTranslation,
       questions: p.questions,
+      inlineTemplate: json['inlineTemplate'] as String?,
+      inlineBlanks: [
+        for (final b in (json['inlineBlanks'] as List?) ?? const [])
+          InlineBlank.fromJson(Map<String, dynamic>.from(b as Map)),
+      ],
     );
   }
 
@@ -395,6 +415,8 @@ final class ReadingQuiz extends Quiz {
       passage: p.passage,
       passageTranslation: p.passageTranslation,
       questions: p.questions,
+      inlineTemplate: c.inlineTemplate,
+      inlineBlanks: c.inlineBlanks,
     );
   }
 
@@ -409,6 +431,8 @@ final class ReadingQuiz extends Quiz {
       questions: questions,
     ),
     QuizKind.reading,
+    inlineTemplate: inlineTemplate,
+    inlineBlanks: inlineBlanks,
   );
 }
 
