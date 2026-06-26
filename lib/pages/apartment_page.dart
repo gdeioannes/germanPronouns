@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../data/furniture_names.dart';
 import '../data/shop_catalog.dart';
@@ -14,6 +15,7 @@ import '../utils/room_image_export.dart';
 import '../widgets/coin_balance_pill.dart';
 import '../widgets/coin_glyph.dart';
 import '../widgets/flat_furniture.dart';
+import '../widgets/room_surfaces.dart';
 
 /// The room mini-game: spend the coins earned in quizzes on flat-design
 /// furniture, then drag the pieces around to furnish and decorate a cosy little
@@ -39,6 +41,10 @@ const _cardText = Color(0xFF4A3728);
 class _ApartmentPageState extends State<ApartmentPage> {
   // Keys the room's RepaintBoundary so we can grab a picture of just the room.
   final GlobalKey _roomKey = GlobalKey();
+
+  // While true, the room swaps the "Drag to rearrange" hint for the small
+  // languagequiz watermark, so the shared picture is branded (not the hint).
+  bool _exporting = false;
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +134,10 @@ class _ApartmentPageState extends State<ApartmentPage> {
                           child: SizedBox(
                             width: roomW,
                             height: roomH,
-                            child: _RoomCanvas(repaintKey: _roomKey),
+                            child: _RoomCanvas(
+                              repaintKey: _roomKey,
+                              exporting: _exporting,
+                            ),
                           ),
                         ),
                       ),
@@ -161,8 +170,15 @@ class _ApartmentPageState extends State<ApartmentPage> {
   // ── Image export ──────────────────────────────────────────────────────────
 
   Future<void> _exportRoom() async {
+    // Show the watermark instead of the hint, give the logo a moment to decode
+    // and paint, then snapshot.
+    setState(() => _exporting = true);
+    await WidgetsBinding.instance.endOfFrame;
+    await Future<void>.delayed(const Duration(milliseconds: 70));
+    await WidgetsBinding.instance.endOfFrame;
     final png = await _captureRoom();
     if (!mounted) return;
+    setState(() => _exporting = false);
     if (png == null) {
       ScaffoldMessenger.of(context)
         ..clearSnackBars()
@@ -202,9 +218,13 @@ class _ApartmentPageState extends State<ApartmentPage> {
 /// furniture can be freely dragged around (pieces may overlap — there's no
 /// collision). Wrapped in a [RepaintBoundary] so the page can snapshot it.
 class _RoomCanvas extends StatefulWidget {
-  const _RoomCanvas({required this.repaintKey});
+  const _RoomCanvas({required this.repaintKey, this.exporting = false});
 
   final GlobalKey repaintKey;
+
+  /// While true, the room shows the languagequiz watermark instead of the drag
+  /// hint, so the snapshot is branded.
+  final bool exporting;
 
   @override
   State<_RoomCanvas> createState() => _RoomCanvasState();
@@ -223,7 +243,7 @@ class _RoomCanvasState extends State<_RoomCanvas> {
       child: Container(
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(4),
           border: Border.all(color: const Color(0xFFFBF6EC), width: 4),
           boxShadow: [
             BoxShadow(
@@ -239,16 +259,22 @@ class _RoomCanvasState extends State<_RoomCanvas> {
             // The reference size for a scale-1.0 piece; each piece scales off it.
             final baseTile = (size.shortestSide * 0.2).clamp(40.0, 88.0);
             // Each placed piece is (instanceId, catalogue item); a learner can
-            // own several of the same item, each arranged on its own.
+            // own several of the same item, each arranged on its own. Surfaces
+            // (floors / walls) are owned too but change the background instead of
+            // being placed, so they're left out of the draggable pieces.
             final pieces = [
               for (final e in Apartment.instance.pieces.entries)
-                if (shopItemById(e.value) case final item?) (e.key, item),
+                if (shopItemById(e.value) case final item? when !item.isSurface)
+                  (e.key, item),
             ];
             // Draw the held piece last so it floats above the others.
             final ordered = [
               for (final p in pieces) if (p.$1 != _dragId) p,
               for (final p in pieces) if (p.$1 == _dragId) p,
             ];
+            // The current floor / wall surfaces (newest bought), or null default.
+            final floor = shopItemById(Apartment.instance.currentFloor ?? '');
+            final wall = shopItemById(Apartment.instance.currentWall ?? '');
             // Light cast by any owned light pieces, at their live spots —
             // lamps throw a downward cone, others a soft directional pool.
             final night = Apartment.instance.isNight;
@@ -259,7 +285,14 @@ class _RoomCanvasState extends State<_RoomCanvas> {
             ];
             return Stack(
               children: [
-                const Positioned.fill(child: _CosyRoom()),
+                Positioned.fill(
+                  child: _CosyRoom(
+                    floorGlyph: floor?.glyph,
+                    floorColor: floor?.color,
+                    wallGlyph: wall?.glyph,
+                    wallColor: wall?.color,
+                  ),
+                ),
                 for (final p in ordered) _draggable(p.$1, p.$2, size, baseTile),
                 if (night || lights.isNotEmpty)
                   Positioned.fill(
@@ -269,7 +302,9 @@ class _RoomCanvasState extends State<_RoomCanvas> {
                       ),
                     ),
                   ),
-                if (pieces.isEmpty)
+                if (widget.exporting)
+                  const Positioned(right: 14, bottom: 12, child: _RoomWatermark())
+                else if (pieces.isEmpty)
                   const _EmptyRoom()
                 else
                   const Positioned(left: 12, top: 10, child: _DragHint()),
@@ -308,7 +343,6 @@ class _RoomCanvasState extends State<_RoomCanvas> {
         b: s * fx.spread,
         len: s * fx.length,
         soft: s * fx.soft,
-        cut: double.infinity,
       );
     }
     return _LightSpec(
@@ -322,7 +356,6 @@ class _RoomCanvasState extends State<_RoomCanvas> {
       b: s * fx.h,
       len: 0,
       soft: 0,
-      cut: fx.cutBase.isFinite ? c.dy + fx.cutBase * s : double.infinity,
     );
   }
 
@@ -455,18 +488,49 @@ class _FurnitureToken extends StatelessWidget {
   }
 }
 
-/// The cosy flat backdrop: a warm wall with a sunny window, a wood floor and a
-/// skirting board. Painted, not furniture, so it's part of every snapshot.
+/// The cosy flat backdrop: the wall (the bought wallpaper or default cream), the
+/// floor (the bought flooring or default wood) and a skirting board between
+/// them. Painted, not furniture, so it's part of every snapshot.
 class _CosyRoom extends StatelessWidget {
-  const _CosyRoom();
+  const _CosyRoom({
+    this.floorGlyph,
+    this.floorColor,
+    this.wallGlyph,
+    this.wallColor,
+  });
+
+  final String? floorGlyph;
+  final Color? floorColor;
+  final String? wallGlyph;
+  final Color? wallColor;
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(painter: _CosyRoomPainter(), size: Size.infinite);
+    return CustomPaint(
+      size: Size.infinite,
+      painter: _CosyRoomPainter(
+        floorGlyph: floorGlyph,
+        floorColor: floorColor,
+        wallGlyph: wallGlyph,
+        wallColor: wallColor,
+      ),
+    );
   }
 }
 
 class _CosyRoomPainter extends CustomPainter {
+  _CosyRoomPainter({
+    this.floorGlyph,
+    this.floorColor,
+    this.wallGlyph,
+    this.wallColor,
+  });
+
+  final String? floorGlyph;
+  final Color? floorColor;
+  final String? wallGlyph;
+  final Color? wallColor;
+
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width;
@@ -474,41 +538,11 @@ class _CosyRoomPainter extends CustomPainter {
     final floorY = h * 0.66;
     final p = Paint()..isAntiAlias = true;
 
-    // Wall — a soft warm cream, slightly deeper toward the floor.
-    final wallRect = Rect.fromLTWH(0, 0, w, floorY);
-    p.shader = const LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [Color(0xFFFBF3E6), Color(0xFFF1E3CC)],
-    ).createShader(wallRect);
-    canvas.drawRect(wallRect, p);
-    p.shader = null;
-
-    // The wall is left bare on purpose — windows (and other décor) are bought
-    // in the shop and hung here.
-
-    // Floor — warm wood, a touch lighter at the back.
-    final floorRect = Rect.fromLTWH(0, floorY, w, h - floorY);
-    p.shader = const LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [Color(0xFFD9B98C), Color(0xFFC59C66)],
-    ).createShader(floorRect);
-    canvas.drawRect(floorRect, p);
-    p.shader = null;
-
-    // Floorboard seams.
-    p
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = math.max(1.0, h * 0.004)
-      ..color = const Color(0x1A4A3728);
-    for (final f in const [0.30, 0.58, 0.86]) {
-      final y = floorY + (h - floorY) * f;
-      canvas.drawLine(Offset(0, y), Offset(w, y), p);
-    }
+    paintWall(canvas, Rect.fromLTWH(0, 0, w, floorY), wallGlyph, wallColor);
+    paintFloor(
+        canvas, Rect.fromLTWH(0, floorY, w, h - floorY), floorGlyph, floorColor);
 
     // Skirting board between wall and floor.
-    p.style = PaintingStyle.fill;
     final skH = h * 0.024;
     p.color = const Color(0xFFFBF6EC);
     canvas.drawRect(Rect.fromLTWH(0, floorY - skH, w, skH), p);
@@ -521,7 +555,11 @@ class _CosyRoomPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_CosyRoomPainter oldDelegate) => false;
+  bool shouldRepaint(_CosyRoomPainter oldDelegate) =>
+      oldDelegate.floorGlyph != floorGlyph ||
+      oldDelegate.floorColor != floorColor ||
+      oldDelegate.wallGlyph != wallGlyph ||
+      oldDelegate.wallColor != wallColor;
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -551,7 +589,6 @@ class _LightFx {
     this.apexHalf = 0.16,
     this.apexDy = 0,
     this.soft = 0.06,
-    this.cutBase = double.infinity,
   });
   final Color color;
   final double intensity;
@@ -569,11 +606,6 @@ class _LightFx {
   /// Cone edge softness as a fraction of the piece size — small keeps the cone's
   /// polygon edges sharp; 0 makes them razor crisp.
   final double soft;
-
-  /// For pool lights, the surface to clip the glow at, as a fraction of the
-  /// piece size below its centre — so a candle's light is cut flat at its base
-  /// instead of spilling below it. Infinity means no cut.
-  final double cutBase;
 }
 
 /// Which pieces give off light, keyed by [ShopItem.glyph]. Lamps cast a downward
@@ -588,10 +620,12 @@ const Map<String, _LightFx> _lightFx = {
       length: 1.6, spread: 0.8, apexHalf: 0.16, apexDy: -0.12, soft: 0.04),
   'lantern': _LightFx(
       color: Color(0xFFFFD98A), intensity: 0.5, glow: 0.26,
-      w: 1.0, h: 1.25, dy: 0, focal: Alignment(0, -0.05), cutBase: 0.34),
+      w: 1.0, h: 1.0, dy: 0),
+  // The ellipse sits above the flame so its soft bottom edge fades out right at
+  // the candle's base — no spill below, and no hard crop line.
   'candle': _LightFx(
-      color: Color(0xFFFFC97A), intensity: 0.4, glow: 0.24,
-      w: 0.7, h: 0.95, dy: 0, focal: Alignment(0, -0.1), cutBase: 0.4),
+      color: Color(0xFFFFC97A), intensity: 0.42, glow: 0.24,
+      w: 0.9, h: 0.7, dy: -0.28),
   'fireplace': _LightFx(
       color: Color(0xFFFF9A52), intensity: 0.65, glow: 0.34,
       w: 1.8, h: 1.4, dy: -0.2, focal: Alignment(0, 0.4)),
@@ -618,7 +652,6 @@ class _LightSpec {
     required this.b,
     required this.len,
     required this.soft,
-    required this.cut,
     required this.focal,
     required this.color,
     required this.intensity,
@@ -630,10 +663,6 @@ class _LightSpec {
   final double b;
   final double len;
   final double soft;
-
-  /// Pixel y at which a pool light's glow is clipped flat (its base), or
-  /// infinity for no cut.
-  final double cut;
   final Alignment focal;
   final Color color;
   final double intensity;
@@ -688,20 +717,18 @@ class _RoomLightingPainter extends CustomPainter {
     } else {
       final pool = Rect.fromCenter(
           center: l.at, width: l.a * 2, height: l.b * 2);
-      paint.shader = RadialGradient(
-        center: l.focal,
-        radius: 0.9,
-        colors: [color.withValues(alpha: alpha), color.withValues(alpha: 0)],
-        stops: const [0.0, 1.0],
-      ).createShader(pool);
-      // Cut the glow flat at the base (e.g. the surface a candle sits on).
-      final clip = l.cut.isFinite;
-      if (clip) {
-        canvas.save();
-        canvas.clipRect(Rect.fromLTRB(pool.left, pool.top, pool.right, l.cut));
-      }
+      paint
+        ..shader = RadialGradient(
+          center: l.focal,
+          radius: 0.95,
+          colors: [color.withValues(alpha: alpha), color.withValues(alpha: 0)],
+          stops: const [0.0, 1.0],
+        ).createShader(pool)
+        // Soft, feathered edge so the pool melts into the room rather than
+        // showing a hard ellipse.
+        ..maskFilter =
+            MaskFilter.blur(BlurStyle.normal, math.min(l.a, l.b) * 0.22);
       canvas.drawOval(pool, paint);
-      if (clip) canvas.restore();
     }
   }
 
@@ -756,6 +783,46 @@ class _DragHint extends StatelessWidget {
   }
 }
 
+/// A small, classy languagequiz wordmark stamped into the corner of a shared
+/// room picture (replacing the drag hint while exporting).
+class _RoomWatermark extends StatelessWidget {
+  const _RoomWatermark();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.6),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.12),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SvgPicture.asset('assets/icons/QuizLogo-02.svg', height: 16),
+          const SizedBox(width: 6),
+          const Text(
+            'languagequiz',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.3,
+              color: _cardText,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _EmptyRoom extends StatelessWidget {
   const _EmptyRoom();
 
@@ -796,47 +863,74 @@ class _Shop extends StatelessWidget {
         if (Apartment.instance.isRevealed(item.id)) item,
     ];
 
-    return DefaultTabController(
-      length: shopCategories.length + 1, // "All" + one tab per category
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const _ShopHeader(),
-          TabBar(
-            isScrollable: true,
-            tabAlignment: TabAlignment.start,
-            labelColor: _cocoa,
-            unselectedLabelColor: _cocoa.withValues(alpha: 0.45),
-            indicatorColor: _cocoa,
-            indicatorWeight: 3,
-            dividerColor: Colors.transparent,
-            labelStyle:
-                const TextStyle(fontWeight: FontWeight.w900, fontSize: 13),
-            unselectedLabelStyle:
-                const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-            tabs: [
-              const Tab(text: 'All'),
-              for (final c in shopCategories) Tab(text: c),
-            ],
-          ),
-          Expanded(
-            child: TabBarView(
-              children: [
-                // The All tab (null items → resolves to the full live list).
-                const _ShopGrid(
-                  items: null,
-                  emptyHint: '🪙\nEarn coins in quizzes to\n'
-                      'unlock your first furniture!',
-                ),
-                for (final c in shopCategories)
-                  _ShopGrid(
-                    items: [for (final i in forSale) if (i.category == c) i],
-                    emptyHint: 'Nothing here yet —\nkeep earning coins!',
-                  ),
-              ],
-            ),
+    // A distinct, slightly darker panel surface (rounded top + soft shadow) so
+    // the store lifts off the room background instead of blending into it.
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFF4E8D2),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.12),
+            blurRadius: 12,
+            offset: const Offset(0, -3),
           ),
         ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: DefaultTabController(
+        length: shopCategories.length + 1, // "All" + one tab per category
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 4),
+            const _ShopHeader(),
+            // A darker strip carrying pill-shaped category tabs.
+            Container(
+              color: const Color(0xFFE9D9BD),
+              padding: const EdgeInsets.symmetric(vertical: 7),
+              child: TabBar(
+                isScrollable: true,
+                tabAlignment: TabAlignment.start,
+                indicatorSize: TabBarIndicatorSize.tab,
+                indicator: BoxDecoration(
+                  color: _cocoa,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                indicatorPadding:
+                    const EdgeInsets.symmetric(horizontal: 3, vertical: 7),
+                dividerColor: Colors.transparent,
+                labelColor: Colors.white,
+                unselectedLabelColor: _cocoa.withValues(alpha: 0.6),
+                labelStyle:
+                    const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
+                unselectedLabelStyle:
+                    const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+                tabs: [
+                  const Tab(text: 'All'),
+                  for (final c in shopCategories) Tab(text: c),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  // The All tab (null items → resolves to the full live list).
+                  const _ShopGrid(
+                    items: null,
+                    emptyHint: '🪙\nEarn coins in quizzes to\n'
+                        'unlock your first furniture!',
+                  ),
+                  for (final c in shopCategories)
+                    _ShopGrid(
+                      items: [for (final i in forSale) if (i.category == c) i],
+                      emptyHint: 'Nothing here yet —\nkeep earning coins!',
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -987,7 +1081,7 @@ class _ShopCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            FlatFurniture(item: item, size: 58),
+            pieceIcon(item, 58),
             Text(
               item.name,
               maxLines: 1,
@@ -1081,7 +1175,7 @@ class _BuyDialog extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: FlatFurniture(item: item, size: 88),
+              child: pieceIcon(item, 88),
             ),
             const SizedBox(height: 14),
             Text(
@@ -1299,7 +1393,7 @@ class _InfoCard extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: FlatFurniture(item: item, size: 76),
+              child: pieceIcon(item, 76),
             ),
             const SizedBox(height: 12),
             Text(
@@ -1652,7 +1746,7 @@ class _DonationCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            FlatFurniture(item: item, size: 50),
+            pieceIcon(item, 50),
             Text(
               item.name,
               maxLines: 1,

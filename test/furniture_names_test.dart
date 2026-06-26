@@ -16,9 +16,13 @@ void main() {
     }
   });
 
-  test('every glyph used by the catalog has a name in every taught language',
-      () {
-    final glyphs = {for (final i in shopCatalog) i.glyph};
+  test('every furniture glyph has a name in every taught language', () {
+    // Surfaces (floors/walls) aren't double-tapped for an info card, so they
+    // don't need translations.
+    final glyphs = {
+      for (final i in shopCatalog)
+        if (!i.isSurface) i.glyph,
+    };
     for (final g in glyphs) {
       final row = furnitureNames[g];
       expect(row, isNotNull, reason: 'no translations for glyph "$g"');
@@ -50,5 +54,13 @@ void main() {
     final windows = [for (final i in shopCatalog) if (i.category == 'Windows') i];
     expect(windows.length, greaterThanOrEqualTo(3));
     expect(windows.every((i) => i.onWall), isTrue);
+  });
+
+  test('floors and walls exist and are surfaces', () {
+    final floors = [for (final i in shopCatalog) if (i.category == 'Floors') i];
+    final walls = [for (final i in shopCatalog) if (i.category == 'Walls') i];
+    expect(floors.length, greaterThanOrEqualTo(3));
+    expect(walls.length, greaterThanOrEqualTo(3));
+    expect([...floors, ...walls].every((i) => i.isSurface), isTrue);
   });
 }

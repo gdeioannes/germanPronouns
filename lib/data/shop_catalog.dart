@@ -45,6 +45,10 @@ class ShopItem {
   /// Which shop tab this piece lives under (see [shopCategories]).
   String get category => shopCategoryOf(glyph);
 
+  /// Whether this is a room surface (flooring / wallpaper) rather than a piece
+  /// of furniture — surfaces change the room background instead of being placed.
+  bool get isSurface => category == 'Floors' || category == 'Walls';
+
   /// Floor pieces get a soft shadow under them; wall pieces and the flat rug
   /// don't.
   bool get castsShadow => !onWall && glyph != 'rug';
@@ -401,6 +405,19 @@ final List<ShopItem> _more = [
   ..._ways('pet', 'Cat',
       hues: const [_orange, _charcoal, _cream, _white],
       basePrice: 75, step: 5, scale: 0.5),
+  // Flooring — changes the room's floor. The newest one bought shows; donating
+  // it reveals the previous, down to the default wood.
+  ..._ways('floorwood', 'Wood Floor',
+      hues: const [_oak, _walnut, _ash], basePrice: 60, step: 8),
+  ..._ways('floorcarpet', 'Carpet',
+      hues: const [_rose, _sage, _navy, _mustard], basePrice: 70, step: 6),
+  ShopItem(id: 'floortile', name: 'Tiled Floor', color: Color(0xFF9AA6AF), price: 85),
+  ShopItem(id: 'floormarble', name: 'Marble Floor', color: Color(0xFFEAE6DE), price: 130),
+  // Wallpaper — changes the room's wall.
+  ..._ways('wallsolid', 'Wallpaper',
+      hues: const [_cream, _sage, _blue, _blush, _terra], basePrice: 50, step: 5),
+  ShopItem(id: 'wallstripes', name: 'Striped Wallpaper', color: Color(0xFFEAD9C0), price: 75),
+  ShopItem(id: 'wallbrick', name: 'Brick Wall', color: Color(0xFFC07E64), price: 95),
 ];
 
 /// The full catalogue — starter pieces plus every colourway — sorted cheapest
@@ -429,6 +446,8 @@ const List<String> shopCategories = [
   'Plants',
   'Windows',
   'Décor',
+  'Floors',
+  'Walls',
   'Electronics',
   'Kitchen',
   'Bathroom',
@@ -459,6 +478,10 @@ const Map<String, String> _categoryByGlyph = {
   'palm': 'Plants', 'hangingplant': 'Plants', 'vase': 'Plants',
   // Windows.
   'window': 'Windows', 'archwindow': 'Windows', 'roundwindow': 'Windows',
+  // Floors & walls (surfaces).
+  'floorwood': 'Floors', 'floortile': 'Floors', 'floorcarpet': 'Floors',
+  'floormarble': 'Floors',
+  'wallsolid': 'Walls', 'wallstripes': 'Walls', 'wallbrick': 'Walls',
   // Décor.
   'painting': 'Décor', 'poster': 'Décor', 'photo': 'Décor', 'mirror': 'Décor',
   'clock': 'Décor', 'tapestry': 'Décor', 'wallshelf': 'Décor', 'rug': 'Décor',

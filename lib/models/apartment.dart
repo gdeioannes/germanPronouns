@@ -50,6 +50,20 @@ class Apartment extends ChangeNotifier {
   /// Whether at least one [catalogId] is placed.
   bool owns(String catalogId) => _pieces.values.contains(catalogId);
 
+  /// The catalogue id of the floor / wall currently shown — the most recently
+  /// bought one of that kind (insertion order = stacking order), or null for the
+  /// cosy default. Donating it reveals the previous one underneath.
+  String? get currentFloor => _topOfCategory('Floors');
+  String? get currentWall => _topOfCategory('Walls');
+
+  String? _topOfCategory(String category) {
+    String? top;
+    for (final catalogId in _pieces.values) {
+      if (shopItemById(catalogId)?.category == category) top = catalogId;
+    }
+    return top;
+  }
+
   bool isRevealed(String id) => _revealed.contains(id);
 
   /// Whether the room is shown at night — the lighting overlay darkens the room

@@ -105,6 +105,26 @@ void main() {
     expect(Apartment.instance.countOf(id), 1);
   });
 
+  test('floors stack — newest shows, donating reveals the previous', () async {
+    await loadWith(100);
+    final floors = [for (final i in shopCatalog) if (i.category == 'Floors') i];
+    final a = floors[0].id;
+    final b = floors[1].id;
+    expect(Apartment.instance.currentFloor, isNull); // cosy default
+
+    final ia = await Apartment.instance.grant(a);
+    expect(Apartment.instance.currentFloor, a);
+
+    final ib = await Apartment.instance.grant(b);
+    expect(Apartment.instance.currentFloor, b); // newest on top
+
+    await Apartment.instance.donate(ib);
+    expect(Apartment.instance.currentFloor, a); // reveals the old one
+
+    await Apartment.instance.donate(ia);
+    expect(Apartment.instance.currentFloor, isNull); // back to default
+  });
+
   test('flip toggles per piece, persists and reloads', () async {
     await loadWith(100);
     final iid = await Apartment.instance.grant(shopCatalog.first.id);

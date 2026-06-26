@@ -42,6 +42,12 @@ void main() {
   });
 
   testWidgets('can buy the same piece more than once', (tester) async {
+    // A roomy (phone-tall) window so the shop grid isn't cramped and the card
+    // stays clear of the "added to your room" snackbar between buys.
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     await pumpShop(tester); // 25 coins; only the cheapest piece is revealed
 
     // Buy the cheapest piece twice from its shop card.
