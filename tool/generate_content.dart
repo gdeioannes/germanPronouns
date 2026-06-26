@@ -17,6 +17,7 @@ import 'dart:io';
 import 'package:german_pronouns_articles/data/article_content.dart';
 import 'package:german_pronouns_articles/data/content/noun_collection.dart';
 import 'package:german_pronouns_articles/data/course_catalog.dart';
+import 'package:german_pronouns_articles/data/courses/de_cs/de_cs_content.dart';
 import 'package:german_pronouns_articles/data/courses/de_es/de_es_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_de/en_de_content.dart';
 import 'package:german_pronouns_articles/data/courses/es_de/es_de_content.dart';
@@ -51,6 +52,7 @@ Map<String, List<QuizContent>> _contentByCourse() => {
   'es_de': [...esDeContent],
   'es_de_emotions': [...esDeEmocionesContent],
   'de_es': [...deEsContent],
+  'de_cs': [...deCsContent],
 };
 
 void main() {

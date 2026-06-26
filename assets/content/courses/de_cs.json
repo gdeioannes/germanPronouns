@@ -1,0 +1,3331 @@
+{
+  "id": "de_cs",
+  "name": "Tschechisch entdecken",
+  "tagline": "Ein tiefer Einstieg ins Tschechische – für Sprachliebhaber",
+  "speakFlag": "🇩🇪",
+  "learnFlag": "🇨🇿",
+  "uiLang": "de",
+  "learnLocale": "cs-CZ",
+  "gating": {
+    "progressionUnlockLaps": 2,
+    "questUnlockLaps": 2
+  },
+  "nav": {
+    "groups": [
+      {
+        "id": "m1",
+        "title": "MODUL 1 · ERSTE KLÄNGE",
+        "type": "quizzes",
+        "items": [
+          {
+            "ref": "de_cs_m1_pozdravy"
+          },
+          {
+            "ref": "de_cs_m1_hlasky"
+          },
+          {
+            "ref": "de_cs_m1_delka_prizvuk"
+          },
+          {
+            "ref": "de_cs_m1_r_hacek"
+          },
+          {
+            "ref": "de_cs_m1_jak_se_mas"
+          },
+          {
+            "ref": "de_cs_m1_cteni_ahoj"
+          },
+          {
+            "ref": "de_cs_m1_zvuky_slov"
+          }
+        ],
+        "gated": true
+      },
+      {
+        "id": "m2",
+        "title": "MODUL 2 · ICH & DIE ANDEREN",
+        "type": "quizzes",
+        "items": [
+          {
+            "ref": "de_cs_m2_zajmena"
+          },
+          {
+            "ref": "de_cs_m2_predstaveni"
+          },
+          {
+            "ref": "de_cs_m2_byt"
+          },
+          {
+            "ref": "de_cs_m2_lide_vztahy"
+          },
+          {
+            "ref": "de_cs_m2_cteni_klara"
+          },
+          {
+            "ref": "de_cs_m2_rod_zivotnost"
+          },
+          {
+            "ref": "de_cs_m2_osloveni"
+          },
+          {
+            "ref": "de_cs_m2_cisla"
+          }
+        ],
+        "gated": true
+      },
+      {
+        "id": "m3",
+        "title": "MODUL 3 · DER ASPEKT",
+        "type": "quizzes",
+        "items": [
+          {
+            "ref": "de_cs_m3_sloveso"
+          },
+          {
+            "ref": "de_cs_m3_kazdy_den"
+          },
+          {
+            "ref": "de_cs_m3_aspekt"
+          },
+          {
+            "ref": "de_cs_m3_aspekt_mluvit"
+          },
+          {
+            "ref": "de_cs_m3_cteni_den"
+          },
+          {
+            "ref": "de_cs_m3_instrumental"
+          },
+          {
+            "ref": "de_cs_m3_se_si"
+          },
+          {
+            "ref": "de_cs_m3_co_dal"
+          }
+        ],
+        "gated": true
+      },
+      {
+        "id": "more",
+        "title": "MEHR",
+        "type": "links",
+        "items": [
+          {
+            "ref": "settings"
+          },
+          {
+            "ref": "how_it_works"
+          },
+          {
+            "ref": "courses"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "1.8.0",
+  "quizzes": [
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m1_pozdravy",
+      "title": "Pozdravy a zdvořilost",
+      "storageKeyPrefix": "de_cs_m1_pozdravy_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Die wichtigsten tschechischen Begrüßungen und Höflichkeitsformeln. Sprich sie laut mit — und merke dir: Tschechisch braucht keinen Artikel.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Kein Artikel, kein »es«",
+            "text": "Tschechisch hat KEINE Artikel: »Dobrý den« = wörtlich »guter Tag«, kein der/die/das, kein »einen«. [FR] anders als »le/un jour«."
+          },
+          {
+            "kind": "example",
+            "title": "Dobrý + Tageszeit (erstes Kasus-Aha)",
+            "text": "Die Endung folgt dem Genus des Substantivs: den (m) → Dobr**ý** den, ráno (n) → Dobr**é** ráno, noc (f, Akk.) → Dobr**ou** noc. Das Adjektiv richtet sich nach dem Nomen – wie im Deutschen, nur ohne Artikel."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Ahoj = hallo UND tschüss",
+            "text": "»Ahoj« und »Čau« (aus dem ital. *ciao*!) grüßen beim Kommen und Gehen. »Prosím« heißt »bitte«, »hier bitte« und »gern geschehen« – [FR] wie *je vous en prie*."
+          },
+          {
+            "kind": "warning",
+            "title": "Förmlich oder vertraut?",
+            "text": "Zu Fremden »Dobrý den«, unter Freunden »Ahoj«. Die du/Sie-Wahl kennst du doppelt: [DE] du/Sie, [FR] tu/vous. Tschechisch: tykání/vykání."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Hallo (informell)"
+        },
+        {
+          "key": "s1",
+          "display": "Guten Tag"
+        },
+        {
+          "key": "s2",
+          "display": "Guten Morgen"
+        },
+        {
+          "key": "s3",
+          "display": "Guten Abend"
+        },
+        {
+          "key": "s4",
+          "display": "Gute Nacht"
+        },
+        {
+          "key": "s5",
+          "display": "Auf Wiedersehen"
+        },
+        {
+          "key": "s6",
+          "display": "Tschüss (informell)"
+        },
+        {
+          "key": "s7",
+          "display": "Bitte / Gern geschehen"
+        },
+        {
+          "key": "s8",
+          "display": "Danke"
+        },
+        {
+          "key": "s9",
+          "display": "Vielen Dank"
+        },
+        {
+          "key": "s10",
+          "display": "Entschuldigung"
+        },
+        {
+          "key": "s11",
+          "display": "Ja"
+        },
+        {
+          "key": "s12",
+          "display": "Nein"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "Ahoj",
+            "Dobrý den",
+            "Dobré ráno",
+            "Dobrý večer",
+            "Dobrou noc",
+            "Na shledanou",
+            "Měj se",
+            "Prosím",
+            "Děkuji",
+            "Mockrát děkuji",
+            "Promiňte",
+            "Ano",
+            "Ne"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Hallo (informell) → ____",
+          "acceptedAnswers": [
+            "Ahoj",
+            "Čau",
+            "Nazdar"
+          ],
+          "english": "Hallo (informell)",
+          "referenceExample": "**Ahoj**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Guten Tag → ____",
+          "acceptedAnswers": [
+            "Dobrý den"
+          ],
+          "english": "Guten Tag",
+          "referenceExample": "**Dobrý den**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Guten Morgen → ____",
+          "acceptedAnswers": [
+            "Dobré ráno"
+          ],
+          "english": "Guten Morgen",
+          "referenceExample": "**Dobré ráno**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Guten Abend → ____",
+          "acceptedAnswers": [
+            "Dobrý večer"
+          ],
+          "english": "Guten Abend",
+          "referenceExample": "**Dobrý večer**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Gute Nacht → ____",
+          "acceptedAnswers": [
+            "Dobrou noc"
+          ],
+          "english": "Gute Nacht",
+          "referenceExample": "**Dobrou noc**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Auf Wiedersehen → ____",
+          "acceptedAnswers": [
+            "Na shledanou"
+          ],
+          "english": "Auf Wiedersehen",
+          "referenceExample": "**Na shledanou**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Tschüss (informell) → ____",
+          "acceptedAnswers": [
+            "Měj se",
+            "Ahoj",
+            "Čau"
+          ],
+          "english": "Tschüss (informell)",
+          "referenceExample": "**Měj se**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Bitte / Gern geschehen → ____",
+          "acceptedAnswers": [
+            "Prosím"
+          ],
+          "english": "Bitte / Gern geschehen",
+          "referenceExample": "**Prosím**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Danke → ____",
+          "acceptedAnswers": [
+            "Děkuji",
+            "Díky",
+            "Děkuju"
+          ],
+          "english": "Danke",
+          "referenceExample": "**Děkuji**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Vielen Dank → ____",
+          "acceptedAnswers": [
+            "Mockrát děkuji",
+            "Děkuji mnohokrát"
+          ],
+          "english": "Vielen Dank",
+          "referenceExample": "**Mockrát děkuji**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Entschuldigung → ____",
+          "acceptedAnswers": [
+            "Promiňte",
+            "Promiň"
+          ],
+          "english": "Entschuldigung",
+          "referenceExample": "**Promiňte**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ja → ____",
+          "acceptedAnswers": [
+            "Ano",
+            "Jo"
+          ],
+          "english": "Ja",
+          "referenceExample": "**Ano**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Nein → ____",
+          "acceptedAnswers": [
+            "Ne"
+          ],
+          "english": "Nein",
+          "referenceExample": "**Ne**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m1_hlasky",
+      "title": "Hlásky a háčky (das Lautsystem)",
+      "storageKeyPrefix": "de_cs_m1_hlasky_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Höre die typischen tschechischen Laute und sprich sie nach. Drei davon kannst du dank Französisch schon perfekt.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Ein Zeichen = ein Laut",
+            "text": "Tschechisch schreibt fast lautgetreu. Der Haken (háček) macht aus s→š, c→č, z→ž, r→ř, n→ň, t→ť, d→ď, e→ě."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "[FR] Dein Französisch-Anker",
+            "text": "»ž« = das frz. *j* in *jour* [ʒ]. »š« = frz. *ch* in *chat*. »ň« = frz. *gn* in *Espagne*. Drei Laute beherrschst du schon!"
+          },
+          {
+            "title": "»h« ist stimmhaft, nicht stumm",
+            "text": "Das tschechische »h« wird wirklich gehaucht (»Praha«, »ahoj«), nie stumm wie das frz. *h* in *hôtel*."
+          },
+          {
+            "kind": "warning",
+            "title": "»ě« ist kein normales e",
+            "text": "»ě« erweicht den Konsonanten davor: dě/tě/ně klingen ďe/ťe/ňe; »mě« klingt »mňe«. Es ist ein Erweichungszeichen, kein eigener Vokal."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "čaj",
+          "translation": "Tee — »č« = dt. »tsch« (Tschechien); [FR] wie *tch* in *tchèque*"
+        },
+        {
+          "id": "s1",
+          "text": "šest",
+          "translation": "sechs — »š« = dt. »sch«; [FR] wie *ch* in *chat*"
+        },
+        {
+          "id": "s2",
+          "text": "žena",
+          "translation": "Frau — »ž« = das frz. *j* in *jour* [ʒ]! Dein bester Anker"
+        },
+        {
+          "id": "s3",
+          "text": "řeka",
+          "translation": "Fluss — »ř«, der Dvořák-Laut: gerolltes »r« + »ž« gleichzeitig"
+        },
+        {
+          "id": "s4",
+          "text": "němčina",
+          "translation": "die deutsche Sprache — weich: »ňem-či-na«; [FR] *ň* = gn in *Allemagne*"
+        },
+        {
+          "id": "s5",
+          "text": "dobrý den",
+          "translation": "guten Tag — langes »ý« [iː]; Akzent auf der 1. Silbe: DOB-rý"
+        },
+        {
+          "id": "s6",
+          "text": "ahoj",
+          "translation": "hallo/tschüss — »h« gehaucht und stimmhaft, nicht stumm"
+        },
+        {
+          "id": "s7",
+          "text": "děkuji",
+          "translation": "danke — »ě« macht »d« weich → ďe-ku-ji"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m1_delka_prizvuk",
+      "title": "Délka a přízvuk (Länge & Betonung)",
+      "storageKeyPrefix": "de_cs_m1_delka_prizvuk_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Schreib die Wörter mit den richtigen Längenzeichen. Vokallänge verändert die Bedeutung – und liegt nie dort, wo eine französische Zunge sie erwartet.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Länge trägt Bedeutung",
+            "text": "á é í ó ú/ů ý sind LANGE Vokale (doppelt so lang). byt (Wohnung) ≠ být (sein); dráha (Bahn) ≠ drahá (teuer). [DE] wie Staat/Stadt – [FR] kennt diesen Längenunterschied nicht."
+          },
+          {
+            "kind": "warning",
+            "title": "Betonung ≠ Länge",
+            "text": "Der Akzent liegt IMMER auf der 1. Silbe (DOB-ře, ČE-sky, U-či-tel) – egal wo das Längenzeichen sitzt. [FR] Gegenteil: Französisch betont die letzte Silbe."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "»ú« oder »ů«?",
+            "text": "Beide klingen gleich [uː]. »ú« steht am Wortanfang (úterý = Dienstag), »ů« in der Mitte und am Ende (dům = Haus, stůl = Tisch)."
+          },
+          {
+            "title": "Háček-Buchstaben sind eigene Buchstaben",
+            "text": "č, š, ž, ř, ě, ň zählen im Alphabet eigenständig – im Wörterbuch steht »č« direkt hinter »c«."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "die Wohnung (kurzes y)"
+        },
+        {
+          "key": "s1",
+          "display": "sein / er ist (langes ý)"
+        },
+        {
+          "key": "s2",
+          "display": "die Bahn, die Strecke"
+        },
+        {
+          "key": "s3",
+          "display": "teuer (weiblich)"
+        },
+        {
+          "key": "s4",
+          "display": "gut, richtig (Adverb)"
+        },
+        {
+          "key": "s5",
+          "display": "tschechisch (Adverb)"
+        },
+        {
+          "key": "s6",
+          "display": "Prag"
+        },
+        {
+          "key": "s7",
+          "display": "der Kaffee"
+        },
+        {
+          "key": "s8",
+          "display": "das Haus"
+        },
+        {
+          "key": "s9",
+          "display": "der Tisch"
+        },
+        {
+          "key": "s10",
+          "display": "der Lehrer"
+        },
+        {
+          "key": "s11",
+          "display": "Dienstag"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "byt",
+            "být",
+            "dráha",
+            "drahá",
+            "dobře",
+            "česky",
+            "Praha",
+            "káva",
+            "dům",
+            "stůl",
+            "učitel",
+            "úterý"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "die Wohnung (kurzes y) → ____",
+          "acceptedAnswers": [
+            "byt"
+          ],
+          "english": "die Wohnung (kurzes y)",
+          "referenceExample": "**byt**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sein / er ist (langes ý) → ____",
+          "acceptedAnswers": [
+            "být"
+          ],
+          "english": "sein / er ist (langes ý)",
+          "referenceExample": "**být**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "die Bahn, die Strecke → ____",
+          "acceptedAnswers": [
+            "dráha"
+          ],
+          "english": "die Bahn, die Strecke",
+          "referenceExample": "**dráha**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "teuer (weiblich) → ____",
+          "acceptedAnswers": [
+            "drahá"
+          ],
+          "english": "teuer (weiblich)",
+          "referenceExample": "**drahá**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "gut, richtig (Adverb) → ____",
+          "acceptedAnswers": [
+            "dobře"
+          ],
+          "english": "gut, richtig (Adverb)",
+          "referenceExample": "**dobře**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "tschechisch (Adverb) → ____",
+          "acceptedAnswers": [
+            "česky"
+          ],
+          "english": "tschechisch (Adverb)",
+          "referenceExample": "**česky**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Prag → ____",
+          "acceptedAnswers": [
+            "Praha"
+          ],
+          "english": "Prag",
+          "referenceExample": "**Praha**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Kaffee → ____",
+          "acceptedAnswers": [
+            "káva"
+          ],
+          "english": "der Kaffee",
+          "referenceExample": "**káva**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "das Haus → ____",
+          "acceptedAnswers": [
+            "dům"
+          ],
+          "english": "das Haus",
+          "referenceExample": "**dům**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Tisch → ____",
+          "acceptedAnswers": [
+            "stůl"
+          ],
+          "english": "der Tisch",
+          "referenceExample": "**stůl**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Lehrer → ____",
+          "acceptedAnswers": [
+            "učitel"
+          ],
+          "english": "der Lehrer",
+          "referenceExample": "**učitel**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Dienstag → ____",
+          "acceptedAnswers": [
+            "úterý"
+          ],
+          "english": "Dienstag",
+          "referenceExample": "**úterý**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m1_r_hacek",
+      "title": "Der ř-Laut & Zungenbrecher",
+      "storageKeyPrefix": "de_cs_m1_r_hacek_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Der schwierigste Laut Europas – und ein Satz ganz ohne Vokal. Trau dich, niemand erwartet ihn beim ersten Mal perfekt.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Wie man »ř« macht",
+            "text": "Gerollter »r«-Verschluss UND gleichzeitige »ž«-Reibung. Selbst tschechische Kinder lernen ihn zuletzt. Es ist EIN Laut, nicht »r« + »ž« nacheinander."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Dvořák trägt ihn im Namen",
+            "text": "Der Komponist Dvořák, »dobře« (gut), »tři« (drei), »řeka« (Fluss) – das ř begegnet dir täglich."
+          },
+          {
+            "kind": "example",
+            "title": "Silbenbildendes r / l",
+            "text": "In prst (Finger), vlk (Wolf), krk (Hals) ist »r«/»l« der Silbenkern – kein Vokal nötig. [DE]/[FR] undenkbar. Probier: Strč prst skrz krk."
+          },
+          {
+            "kind": "warning",
+            "title": "Stimmhaft oder stimmlos",
+            "text": "»ř« klingt stimmhaft (řeka) – aber nach/vor stimmlosem Laut stimmlos (tři, při, keř). Hör auf den Nachbarlaut."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "řeka",
+          "translation": "Fluss — Zungenspitze wie beim gerollten »r«, dann sofort »ž«"
+        },
+        {
+          "id": "s1",
+          "text": "tři",
+          "translation": "drei — »tř« in einem Rutsch; das ř ist der härteste Laut Europas"
+        },
+        {
+          "id": "s2",
+          "text": "dobře",
+          "translation": "gut, richtig — sehr häufig; DOB-ře"
+        },
+        {
+          "id": "s3",
+          "text": "Dvořák",
+          "translation": "der Komponist — sein Name IST eine ř-Lektion"
+        },
+        {
+          "id": "s4",
+          "text": "čtyři",
+          "translation": "vier — »čty-ři«: erst »č«, dann »ř«"
+        },
+        {
+          "id": "s5",
+          "text": "moře",
+          "translation": "(das) Meer — [FR] wie *mer*, aber mit ř"
+        },
+        {
+          "id": "s6",
+          "text": "Strč prst skrz krk",
+          "translation": "»steck den Finger durch den Hals« — ein Satz GANZ OHNE Vokal"
+        },
+        {
+          "id": "s7",
+          "text": "prst",
+          "translation": "der Finger — das »r« ist hier der Silbenkern"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m1_jak_se_mas",
+      "title": "Jak se máš? (Smalltalk)",
+      "storageKeyPrefix": "de_cs_m1_jak_se_mas_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Der wichtigste Mini-Dialog: fragen, wie es geht, und antworten. Achte auf das »se« – das Verb ist reflexiv.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "tykání vs vykání",
+            "text": "»máš« (du) vs »máte« (Sie). [FR] wie tu/vous, [DE] wie du/Sie – du kennst die Unterscheidung doppelt. Achtung: »vy« ist Sie UND ihr."
+          },
+          {
+            "kind": "rule",
+            "title": "»se« gehört zum Verb",
+            "text": "»mít se« (sich befinden) ist reflexiv: »Jak se máš?« = wörtlich »Wie hast du DICH?«. [FR] vgl. *Comment vas-tu* – das »se« darfst du nie weglassen."
+          },
+          {
+            "kind": "warning",
+            "title": "Pro-Drop: kein »já«",
+            "text": "»Mám se dobře« ohne »já«. Das Subjektpronomen entfällt – die Endung »-m« sagt schon »ich«. [DE]/[FR] verlangen beide ein Pronomen, Tschechisch nicht."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Sprachen als Adverb",
+            "text": "»mluvím česky / německy / francouzsky« (ich spreche tschechisch / deutsch / französisch) – klein, ohne Artikel. [FR] anders als *le français*."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Wie geht's dir? (du)"
+        },
+        {
+          "key": "s1",
+          "display": "Wie geht es Ihnen? (Sie)"
+        },
+        {
+          "key": "s2",
+          "display": "Mir geht's gut."
+        },
+        {
+          "key": "s3",
+          "display": "Danke, gut. Und dir?"
+        },
+        {
+          "key": "s4",
+          "display": "Und Ihnen?"
+        },
+        {
+          "key": "s5",
+          "display": "Es geht. / So lala"
+        },
+        {
+          "key": "s6",
+          "display": "Freut mich."
+        },
+        {
+          "key": "s7",
+          "display": "Wie heißt du?"
+        },
+        {
+          "key": "s8",
+          "display": "Ich heiße Klára."
+        },
+        {
+          "key": "s9",
+          "display": "Sprichst du Deutsch?"
+        },
+        {
+          "key": "s10",
+          "display": "Ich spreche ein bisschen Tschechisch."
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "Jak se máš?",
+            "Jak se máte?",
+            "Mám se dobře",
+            "Děkuji, dobře. A ty?",
+            "A vy?",
+            "Ujde to",
+            "Těší mě",
+            "Jak se jmenuješ?",
+            "Jmenuji se Klára",
+            "Mluvíš německy?",
+            "Mluvím trochu česky"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Wie geht's dir? (du) → ____",
+          "acceptedAnswers": [
+            "Jak se máš?"
+          ],
+          "english": "Wie geht's dir? (du)",
+          "referenceExample": "**Jak se máš?**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Wie geht es Ihnen? (Sie) → ____",
+          "acceptedAnswers": [
+            "Jak se máte?"
+          ],
+          "english": "Wie geht es Ihnen? (Sie)",
+          "referenceExample": "**Jak se máte?**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Mir geht's gut. → ____.",
+          "acceptedAnswers": [
+            "Mám se dobře"
+          ],
+          "english": "Mir geht's gut.",
+          "referenceExample": "**Mám se dobře**."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Danke, gut. Und dir? → ____",
+          "acceptedAnswers": [
+            "Děkuji, dobře. A ty?"
+          ],
+          "english": "Danke, gut. Und dir?",
+          "referenceExample": "**Děkuji, dobře. A ty?**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Und Ihnen? → ____",
+          "acceptedAnswers": [
+            "A vy?"
+          ],
+          "english": "Und Ihnen?",
+          "referenceExample": "**A vy?**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Es geht. / So lala → ____",
+          "acceptedAnswers": [
+            "Ujde to",
+            "Jde to",
+            "Nic moc"
+          ],
+          "english": "Es geht. / So lala",
+          "referenceExample": "**Ujde to**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Freut mich. → ____",
+          "acceptedAnswers": [
+            "Těší mě"
+          ],
+          "english": "Freut mich.",
+          "referenceExample": "**Těší mě**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Wie heißt du? → ____",
+          "acceptedAnswers": [
+            "Jak se jmenuješ?"
+          ],
+          "english": "Wie heißt du?",
+          "referenceExample": "**Jak se jmenuješ?**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich heiße Klára. → ____.",
+          "acceptedAnswers": [
+            "Jmenuji se Klára",
+            "Jmenuju se Klára"
+          ],
+          "english": "Ich heiße Klára.",
+          "referenceExample": "**Jmenuji se Klára**."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Sprichst du Deutsch? → ____",
+          "acceptedAnswers": [
+            "Mluvíš německy?"
+          ],
+          "english": "Sprichst du Deutsch?",
+          "referenceExample": "**Mluvíš německy?**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich spreche ein bisschen Tschechisch. → ____.",
+          "acceptedAnswers": [
+            "Mluvím trochu česky"
+          ],
+          "english": "Ich spreche ein bisschen Tschechisch.",
+          "referenceExample": "**Mluvím trochu česky**."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "id": "de_cs_m1_cteni_ahoj",
+      "title": "Lesen: Ahoj, jsem Klára",
+      "storageKeyPrefix": "de_cs_m1_cteni_ahoj_",
+      "promptLabel": "Pregunta",
+      "subjectsLabel": "Preguntas",
+      "subjectColumnLabel": "Pregunta",
+      "help": {
+        "intro": "Lies einen kurzen tschechischen Steckbrief – mit lauter Wörtern, die du schon kennst.",
+        "tips": [
+          {
+            "title": "Lesestrategie",
+            "text": "Suche bekannte Wörter (Berlín, studentka, jazyky, Praha). Du musst nicht jedes Wort verstehen, um den Sinn zu treffen."
+          },
+          {
+            "kind": "rule",
+            "title": "Pro-Drop in Aktion",
+            "text": "»Jmenuji se… Jsem… Studuji… Bydlím…« – kein einziges »já«. Die Verbendung trägt die Person."
+          },
+          {
+            "kind": "example",
+            "title": "Sprachnamen auf -ština",
+            "text": "»francouzština« (das Französische), »čeština« (das Tschechische) – die Endung »-ština« macht den Sprachnamen (feminin). Als Adverb: »francouzsky«, »česky«."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "v + Ort = Lokativ (Vorgeschmack)",
+            "text": "»v Praze« (in Prag), nicht »v Praha«: nach »v« ändert sich die Endung. Das ist schon der 6. Fall – mehr dazu in Modul 2 und 3."
+          }
+        ]
+      },
+      "category": "Lektüre",
+      "passageTitle": "Ahoj, jsem Klára",
+      "passage": "Ahoj! Jmenuji se Klára. Jsem z Berlína, z Německa. Jsem studentka. Studuji jazyky: francouzštinu a teď taky češtinu. Mluvím německy, francouzsky a trochu česky. Bydlím v Praze. Praha je krásná! A ty? Jak se jmenuješ?",
+      "passageTranslation": "Hallo! Ich heiße Klára. Ich bin aus Berlin, aus Deutschland. Ich bin Studentin. Ich studiere Sprachen: Französisch und jetzt auch Tschechisch. Ich spreche Deutsch, Französisch und ein bisschen Tschechisch. Ich wohne in Prag. Prag ist schön! Und du? Wie heißt du?",
+      "questions": [
+        {
+          "question": "Odkud je Klára?",
+          "options": [
+            "Z Berlína",
+            "Z Prahy",
+            "Z Vídně"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Woher kommt Klára?"
+        },
+        {
+          "question": "Co studuje?",
+          "options": [
+            "Medicínu",
+            "Jazyky",
+            "Hudbu"
+          ],
+          "correctIndex": 1,
+          "questionTranslation": "Was studiert sie?"
+        },
+        {
+          "question": "Kde bydlí?",
+          "options": [
+            "V Berlíně",
+            "V Praze",
+            "V Paříži"
+          ],
+          "correctIndex": 1,
+          "questionTranslation": "Wo wohnt sie?"
+        },
+        {
+          "question": "Kolik jazyků zná Klára?",
+          "options": [
+            "Jeden",
+            "Dva",
+            "Tři"
+          ],
+          "correctIndex": 2,
+          "questionTranslation": "Wie viele Sprachen kann Klára?"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m1_zvuky_slov",
+      "title": "Sprechen: Klang & Bedeutung (Triade)",
+      "storageKeyPrefix": "de_cs_m1_zvuky_slov_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Sag die wichtigsten Wörter laut – und nimm bei jedem einen Klang- oder Sprachtipp mit. Was du auf Französisch schon fühlst, hilft dir hier.",
+        "tips": [
+          {
+            "kind": "mnemonic",
+            "title": "Die Triade-Methode",
+            "text": "Jede Zeile zeigt Tschechisch (hören & sprechen), Deutsch (Bedeutung) und Französisch (Anker). Sprich das Tschechische, denk ans Französische."
+          },
+          {
+            "kind": "rule",
+            "title": "Erstsilben-Akzent bleibt",
+            "text": "Auch im Satz: DOB-rý den, NA shle-da-nou. [FR] widersteh dem Drang, die letzte Silbe zu betonen."
+          },
+          {
+            "kind": "example",
+            "title": "Erweichung hören",
+            "text": "»Děkuji«, »Promiňte«, »Těší mě« – überall macht das ě/ň/ť den Konsonanten weich. Genau das gibt dem Tschechischen seinen Klang."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Dobrý den.",
+          "translation": "Guten Tag ([FR] Bonjour — wörtl. »guter Tag«; Akzent auf DOB-rý, nie auf der Endung; kein Artikel)"
+        },
+        {
+          "id": "s1",
+          "text": "Děkuji.",
+          "translation": "Danke ([FR] Merci — »ě« erweicht das »d«: ďe-ku-ji, mouilliert wie gn)"
+        },
+        {
+          "id": "s2",
+          "text": "Prosím.",
+          "translation": "Bitte / gern geschehen ([FR] S’il vous plaît / je vous en prie — ein Wort, zwei Funktionen; langes í)"
+        },
+        {
+          "id": "s3",
+          "text": "Ano. Ne.",
+          "translation": "Ja. Nein. ([FR] Oui / Non — Achtung: kurzes »no« heißt umgangssprachlich »ja«!)"
+        },
+        {
+          "id": "s4",
+          "text": "Na shledanou.",
+          "translation": "Auf Wiedersehen ([FR] Au revoir — beide wörtl. »auf das Wiedersehen«; shl ohne Vokal)"
+        },
+        {
+          "id": "s5",
+          "text": "Promiňte.",
+          "translation": "Entschuldigung ([FR] Pardon / excusez-moi — »ň« = das frz. gn in Espagne; Sie-Form auf -te)"
+        },
+        {
+          "id": "s6",
+          "text": "Těší mě.",
+          "translation": "Freut mich ([FR] Enchanté(e) — »ě« erweicht »t« → ťe-ší; mě klingt mňe)"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m2_zajmena",
+      "title": "Osobní zájmena (Personalpronomen)",
+      "storageKeyPrefix": "de_cs_m2_zajmena_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Die tschechischen Personalpronomen – und warum du sie meistens gar nicht sagst.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Pro-Drop: meist weglassen",
+            "text": "Im Satz entfällt das Pronomen fast immer (»Jsem Klára«, nicht »Já jsem Klára«). »já« nur zur Betonung: »JÁ to vím« = ICH weiß es. [DE]/[FR] brauchen das Pronomen immer."
+          },
+          {
+            "kind": "rule",
+            "title": "»vy« = Sie UND ihr",
+            "text": "Genau wie das [FR] *vous*: Höflichkeitsform (Sie) UND Plural (ihr). Der Kontext entscheidet."
+          },
+          {
+            "kind": "warning",
+            "title": "3. Person Plural hat drei Formen",
+            "text": "oni (belebte Männer/gemischt), ony (Frauen + unbelebte Dinge), ona (Neutra). Nur in der Schrift unterschieden – gesprochen oft alles »oni«."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "on / ona / ono",
+            "text": "Die Endung verrät das Genus: -a = feminin (ona = sie), -o = neutrum (ono = es), Konsonant = maskulin (on = er) – wie bei den Nomen."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "ich"
+        },
+        {
+          "key": "s1",
+          "display": "du"
+        },
+        {
+          "key": "s2",
+          "display": "er"
+        },
+        {
+          "key": "s3",
+          "display": "sie (Einzahl)"
+        },
+        {
+          "key": "s4",
+          "display": "es"
+        },
+        {
+          "key": "s5",
+          "display": "wir"
+        },
+        {
+          "key": "s6",
+          "display": "ihr"
+        },
+        {
+          "key": "s7",
+          "display": "Sie (höflich)"
+        },
+        {
+          "key": "s8",
+          "display": "sie (Plural, Männer)"
+        },
+        {
+          "key": "s9",
+          "display": "sie (Plural, Frauen/Dinge)"
+        },
+        {
+          "key": "s10",
+          "display": "wer?"
+        },
+        {
+          "key": "s11",
+          "display": "was?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "já",
+            "ty",
+            "on",
+            "ona",
+            "ono",
+            "my",
+            "vy",
+            "vy",
+            "oni",
+            "ony",
+            "kdo",
+            "co"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ich → ____",
+          "acceptedAnswers": [
+            "já"
+          ],
+          "english": "ich",
+          "referenceExample": "**já**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "du → ____",
+          "acceptedAnswers": [
+            "ty"
+          ],
+          "english": "du",
+          "referenceExample": "**ty**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "er → ____",
+          "acceptedAnswers": [
+            "on"
+          ],
+          "english": "er",
+          "referenceExample": "**on**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sie (Einzahl) → ____",
+          "acceptedAnswers": [
+            "ona"
+          ],
+          "english": "sie (Einzahl)",
+          "referenceExample": "**ona**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "es → ____",
+          "acceptedAnswers": [
+            "ono"
+          ],
+          "english": "es",
+          "referenceExample": "**ono**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "wir → ____",
+          "acceptedAnswers": [
+            "my"
+          ],
+          "english": "wir",
+          "referenceExample": "**my**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ihr → ____",
+          "acceptedAnswers": [
+            "vy"
+          ],
+          "english": "ihr",
+          "referenceExample": "**vy**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Sie (höflich) → ____",
+          "acceptedAnswers": [
+            "vy"
+          ],
+          "english": "Sie (höflich)",
+          "referenceExample": "**vy**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sie (Plural, Männer) → ____",
+          "acceptedAnswers": [
+            "oni"
+          ],
+          "english": "sie (Plural, Männer)",
+          "referenceExample": "**oni**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sie (Plural, Frauen/Dinge) → ____",
+          "acceptedAnswers": [
+            "ony"
+          ],
+          "english": "sie (Plural, Frauen/Dinge)",
+          "referenceExample": "**ony**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "wer? → ____",
+          "acceptedAnswers": [
+            "kdo"
+          ],
+          "english": "wer?",
+          "referenceExample": "**kdo**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "was? → ____",
+          "acceptedAnswers": [
+            "co"
+          ],
+          "english": "was?",
+          "referenceExample": "**co**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m2_predstaveni",
+      "title": "Sprechen: Jmenuji se…",
+      "storageKeyPrefix": "de_cs_m2_predstaveni_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Stell dich auf Tschechisch vor – hören und nachsprechen. Jede Zeile mit französischem Anker.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "jmenovat se = sich nennen",
+            "text": "Reflexiv mit »se«, [FR] wie *je m’appelle*. Formell »jmenuji se«, umgangssprachlich »jmenuju se«."
+          },
+          {
+            "kind": "rule",
+            "title": "Alter: »je mi … let«",
+            "text": "Wörtlich »mir sind … Jahre«. [FR] *j’ai 20 ans* (haben), [DE] ich bin 20 (sein), Tschechisch: »mir ist«. »let« = Genitiv Plural von »rok« (Jahr)."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "z + woher, v + wo",
+            "text": "»z Německa« (aus Deutschland, + Genitiv), »v Praze« (in Prag, + Lokativ). Zwei Präpositionen, zwei Fälle – ein erster Blick aufs System."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Jmenuji se Klára.",
+          "translation": "Ich heiße Klára ([FR] Je m’appelle Klára — reflexives »se«; jmenovat SE)"
+        },
+        {
+          "id": "s1",
+          "text": "Jsem z Německa.",
+          "translation": "Ich bin aus Deutschland ([FR] Je suis d’Allemagne — »z« + Genitiv: Německo → Německa)"
+        },
+        {
+          "id": "s2",
+          "text": "Jsem studentka.",
+          "translation": "Ich bin Studentin ([FR] Je suis étudiante — kein Artikel, nicht »eine«)"
+        },
+        {
+          "id": "s3",
+          "text": "Je mi dvacet let.",
+          "translation": "Ich bin zwanzig ([FR] J’ai vingt ans — wörtl. »mir sind 20 Jahre«)"
+        },
+        {
+          "id": "s4",
+          "text": "Bydlím v Praze.",
+          "translation": "Ich wohne in Prag ([FR] J’habite à Prague — »v« + Lokativ: Praha → Praze)"
+        },
+        {
+          "id": "s5",
+          "text": "Mluvím německy a francouzsky.",
+          "translation": "Ich spreche Deutsch und Französisch ([FR] Je parle… — Adverb, klein)"
+        },
+        {
+          "id": "s6",
+          "text": "Učím se česky.",
+          "translation": "Ich lerne Tschechisch ([FR] J’apprends le tchèque — »učit se« reflexiv + Adverb)"
+        },
+        {
+          "id": "s7",
+          "text": "Těší mě.",
+          "translation": "Freut mich ([FR] Enchanté(e))"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m2_byt",
+      "title": "Sloveso «být» + zápor",
+      "storageKeyPrefix": "de_cs_m2_byt_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Das Verb »být« (sein) im Präsens und seine Verneinung – das Rückgrat jedes Satzes.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Verneinung mit »ne-«",
+            "text": "Einfach »ne-« vorne ankleben: jsem → nejsem, jsme → nejsme. [FR] braucht zwei Teile (*ne…pas*), Tschechisch nur eine Vorsilbe."
+          },
+          {
+            "kind": "warning",
+            "title": "»není« ist die Ausnahme",
+            "text": "»er/sie/es ist nicht« = není (nicht »neje«!). Die einzige unregelmäßige Form im ganzen Paradigma – gut merken."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "»To je…« = Das ist…",
+            "text": "»To je Tomáš«, »To je káva«. »to« (das) ist geschlechtsneutral – egal ob Mann, Frau oder Ding. [FR] vgl. *c’est*."
+          },
+          {
+            "kind": "example",
+            "title": "Das ganze Paradigma",
+            "text": "jsem · jsi · je / jsme · jste · jsou. Verneint: nejsem · nejsi · není / nejsme · nejste · nejsou."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "ich bin"
+        },
+        {
+          "key": "s1",
+          "display": "du bist"
+        },
+        {
+          "key": "s2",
+          "display": "er/sie/es ist"
+        },
+        {
+          "key": "s3",
+          "display": "wir sind"
+        },
+        {
+          "key": "s4",
+          "display": "ihr seid / Sie sind"
+        },
+        {
+          "key": "s5",
+          "display": "sie sind"
+        },
+        {
+          "key": "s6",
+          "display": "ich bin nicht"
+        },
+        {
+          "key": "s7",
+          "display": "er/sie ist nicht"
+        },
+        {
+          "key": "s8",
+          "display": "wir sind nicht"
+        },
+        {
+          "key": "s9",
+          "display": "Ich bin Studentin."
+        },
+        {
+          "key": "s10",
+          "display": "Bist du aus Prag?"
+        },
+        {
+          "key": "s11",
+          "display": "Das ist Tomáš."
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "jsem",
+            "jsi",
+            "je",
+            "jsme",
+            "jste",
+            "jsou",
+            "nejsem",
+            "není",
+            "nejsme",
+            "Jsem studentka",
+            "Jsi z Prahy?",
+            "To je Tomáš"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ich bin → ____",
+          "acceptedAnswers": [
+            "jsem"
+          ],
+          "english": "ich bin",
+          "referenceExample": "**jsem**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "du bist → ____",
+          "acceptedAnswers": [
+            "jsi",
+            "seš"
+          ],
+          "english": "du bist",
+          "referenceExample": "**jsi**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "er/sie/es ist → ____",
+          "acceptedAnswers": [
+            "je"
+          ],
+          "english": "er/sie/es ist",
+          "referenceExample": "**je**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "wir sind → ____",
+          "acceptedAnswers": [
+            "jsme"
+          ],
+          "english": "wir sind",
+          "referenceExample": "**jsme**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ihr seid / Sie sind → ____",
+          "acceptedAnswers": [
+            "jste"
+          ],
+          "english": "ihr seid / Sie sind",
+          "referenceExample": "**jste**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sie sind → ____",
+          "acceptedAnswers": [
+            "jsou"
+          ],
+          "english": "sie sind",
+          "referenceExample": "**jsou**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ich bin nicht → ____",
+          "acceptedAnswers": [
+            "nejsem"
+          ],
+          "english": "ich bin nicht",
+          "referenceExample": "**nejsem**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "er/sie ist nicht → ____",
+          "acceptedAnswers": [
+            "není"
+          ],
+          "english": "er/sie ist nicht",
+          "referenceExample": "**není**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "wir sind nicht → ____",
+          "acceptedAnswers": [
+            "nejsme"
+          ],
+          "english": "wir sind nicht",
+          "referenceExample": "**nejsme**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich bin Studentin. → ____.",
+          "acceptedAnswers": [
+            "Jsem studentka"
+          ],
+          "english": "Ich bin Studentin.",
+          "referenceExample": "**Jsem studentka**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Bist du aus Prag? → ____",
+          "acceptedAnswers": [
+            "Jsi z Prahy?"
+          ],
+          "english": "Bist du aus Prag?",
+          "referenceExample": "**Jsi z Prahy?**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Das ist Tomáš. → ____.",
+          "acceptedAnswers": [
+            "To je Tomáš"
+          ],
+          "english": "Das ist Tomáš.",
+          "referenceExample": "**To je Tomáš**."
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m2_lide_vztahy",
+      "title": "Sprechen: Menschen & Wörter mit Geschichte (Triade)",
+      "storageKeyPrefix": "de_cs_m2_lide_vztahy_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Über Menschen sprechen – und nebenbei sehen, wie viele tschechische Wörter aus dem Französischen oder Lateinischen kommen.",
+        "tips": [
+          {
+            "kind": "example",
+            "title": "Lehnwörter, die du kennst",
+            "text": "»kamarád« ← frz. *camarade*; »restaurace«, »prezident«, »student« – internationale Wörter, die dir vertraut sind."
+          },
+          {
+            "kind": "rule",
+            "title": "»-ová« bei Frauennamen",
+            "text": "Weibliche Nachnamen bekommen »-ová« – aus jeder Ausländerin wird »Merkelová«, »Macronová«. Ein Possessiv-Suffix: »die zu … Gehörige«."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "mít rád = gern haben",
+            "text": "Zuneigung mit »mít rád/ráda« (wörtl. »froh haben«): »Mám rád kávu«. Mann sagt rád, Frau ráda. [FR] vgl. *aimer bien*."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "To je můj kamarád Tomáš.",
+          "translation": "Das ist mein Freund Tomáš ([FR] camarade — »kamarád« ist dasselbe Lehnwort)"
+        },
+        {
+          "id": "s1",
+          "text": "Je to Čech.",
+          "translation": "Er ist Tscheche ([FR] Tchèque — Nation groß »Čech«, Sprache klein »česky«)"
+        },
+        {
+          "id": "s2",
+          "text": "Mluví francouzsky.",
+          "translation": "Er spricht Französisch ([FR] Il parle français — Sprache klein, kein Artikel)"
+        },
+        {
+          "id": "s3",
+          "text": "To je paní Nováková.",
+          "translation": "Das ist Frau Nováková ([FR] Madame Nováková — »-ová« weibl. Nachnamen-Endung, sogar »Macronová«!)"
+        },
+        {
+          "id": "s4",
+          "text": "Má rád kávu.",
+          "translation": "Er mag Kaffee ([FR] Il aime le café — »mít rád« = gern haben; káva → kávu im Akkusativ)"
+        },
+        {
+          "id": "s5",
+          "text": "Je velmi milá.",
+          "translation": "Sie ist sehr nett ([FR] Elle est très gentille — »milá« feminin auf -á)"
+        },
+        {
+          "id": "s6",
+          "text": "Kdo je to?",
+          "translation": "Wer ist das? ([FR] Qui est-ce ? — Frage ohne Hilfsverb; Wortstellung frei dank Kasus)"
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "id": "de_cs_m2_cteni_klara",
+      "title": "Lesen: Klára v Praze",
+      "storageKeyPrefix": "de_cs_m2_cteni_klara_",
+      "promptLabel": "Pregunta",
+      "subjectsLabel": "Preguntas",
+      "subjectColumnLabel": "Pregunta",
+      "help": {
+        "intro": "Lies über Klára und ihren Freund Tomáš – mit Possessiva und dem ersten reflexiven »se«.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Keine Artikel – Kontext entscheidet",
+            "text": "»je studentka« (eine Studentin), »Praha je město« (eine/die Stadt). Ob bestimmt oder unbestimmt, sagt der Zusammenhang, nicht der/ein."
+          },
+          {
+            "kind": "example",
+            "title": "Possessiv: můj / její",
+            "text": "»můj domov« (mein Zuhause, m), »její kamarád« (ihr Freund). Possessiva richten sich nach dem Genus des besessenen Dings, nicht des Besitzers."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Das »se« wandert",
+            "text": "»Klára se učí« – das »se« steht an zweiter Satzstelle, nicht am Verb kleben. [FR] vgl. die Klitik-Logik bei *se / le / lui*."
+          }
+        ]
+      },
+      "category": "Lektüre",
+      "passageTitle": "Klára v Praze",
+      "passage": "Tohle je Klára. Je z Německa, ale teď bydlí v Praze. Je studentka a má ráda jazyky. Její kamarád Tomáš je Čech. Tomáš mluví německy a Klára se učí česky. Praha je krásné město. „Praha je můj domov,“ říká Klára.",
+      "passageTranslation": "Das ist Klára. Sie ist aus Deutschland, aber jetzt wohnt sie in Prag. Sie ist Studentin und mag Sprachen. Ihr Freund Tomáš ist Tscheche. Tomáš spricht Deutsch und Klára lernt Tschechisch. Prag ist eine schöne Stadt. „Prag ist mein Zuhause“, sagt Klára.",
+      "questions": [
+        {
+          "question": "Odkud je Klára?",
+          "options": [
+            "Z Německa",
+            "Z Čech",
+            "Z Francie"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Woher kommt Klára?"
+        },
+        {
+          "question": "Kdo je Tomáš?",
+          "options": [
+            "Učitel",
+            "Klářin kamarád",
+            "Student z Berlína"
+          ],
+          "correctIndex": 1,
+          "questionTranslation": "Wer ist Tomáš?"
+        },
+        {
+          "question": "Co dělá Klára v Praze?",
+          "options": [
+            "Učí se česky",
+            "Učí němčinu",
+            "Pracuje"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Was macht Klára in Prag?"
+        },
+        {
+          "question": "Jak Klára mluví o Praze?",
+          "options": [
+            "Je to její domov",
+            "Je to drahé město",
+            "Je to malé město"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Wie spricht Klára über Prag?"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m2_rod_zivotnost",
+      "title": "Bez členů: rod a životnost",
+      "storageKeyPrefix": "de_cs_m2_rod_zivotnost_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Tschechisch hat keine Artikel – aber sehr wohl drei Genera und eine Besonderheit, die es weder im Deutschen noch im Französischen gibt: die Belebtheit.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Drei Genera – an der Endung erkennbar",
+            "text": "Meist Konsonant = maskulin (muž, dům), -a = feminin (žena, káva), -o/-e = neutrum (město, pivo). [FR] hat nur zwei Genera, Tschechisch drei."
+          },
+          {
+            "kind": "warning",
+            "title": "Das Genus weicht vom Deutschen ab",
+            "text": "der Kaffee → káva (f!), die Sprache → jazyk (m!), das Haus → dům (m!). Vertrau der tschechischen Endung, nicht dem deutschen Artikel."
+          },
+          {
+            "kind": "rule",
+            "title": "Belebtheit (životnost)",
+            "text": "Maskulina sind belebt (muž, pes, student) oder unbelebt (dům, stůl). Das verändert später die Akkusativ-Endung – ein viertes »Untergenus«, das [DE]/[FR] nicht kennen."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Die Endung ist dein neuer »Artikel«",
+            "text": "Ohne der/die/das trägt die Wortendung die Information. Lern jedes Nomen mit Gefühl für seine Endung, nicht mit einem Artikel davor."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "der Mann (belebt)"
+        },
+        {
+          "key": "s1",
+          "display": "die Frau"
+        },
+        {
+          "key": "s2",
+          "display": "das Kind"
+        },
+        {
+          "key": "s3",
+          "display": "der Hund (belebt)"
+        },
+        {
+          "key": "s4",
+          "display": "die Katze"
+        },
+        {
+          "key": "s5",
+          "display": "die Stadt (im Tsch. neutrum!)"
+        },
+        {
+          "key": "s6",
+          "display": "das Haus (im Tsch. maskulin!)"
+        },
+        {
+          "key": "s7",
+          "display": "der Tisch (unbelebt)"
+        },
+        {
+          "key": "s8",
+          "display": "der Kaffee (im Tsch. feminin!)"
+        },
+        {
+          "key": "s9",
+          "display": "die Sprache (im Tsch. maskulin!)"
+        },
+        {
+          "key": "s10",
+          "display": "das Bier"
+        },
+        {
+          "key": "s11",
+          "display": "der Tag"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "muž",
+            "žena",
+            "dítě",
+            "pes",
+            "kočka",
+            "město",
+            "dům",
+            "stůl",
+            "káva",
+            "jazyk",
+            "pivo",
+            "den"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Mann (belebt) → ____",
+          "acceptedAnswers": [
+            "muž"
+          ],
+          "english": "der Mann (belebt)",
+          "referenceExample": "**muž**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "die Frau → ____",
+          "acceptedAnswers": [
+            "žena"
+          ],
+          "english": "die Frau",
+          "referenceExample": "**žena**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "das Kind → ____",
+          "acceptedAnswers": [
+            "dítě"
+          ],
+          "english": "das Kind",
+          "referenceExample": "**dítě**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Hund (belebt) → ____",
+          "acceptedAnswers": [
+            "pes"
+          ],
+          "english": "der Hund (belebt)",
+          "referenceExample": "**pes**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "die Katze → ____",
+          "acceptedAnswers": [
+            "kočka"
+          ],
+          "english": "die Katze",
+          "referenceExample": "**kočka**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "die Stadt (im Tsch. neutrum!) → ____",
+          "acceptedAnswers": [
+            "město"
+          ],
+          "english": "die Stadt (im Tsch. neutrum!)",
+          "referenceExample": "**město**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "das Haus (im Tsch. maskulin!) → ____",
+          "acceptedAnswers": [
+            "dům"
+          ],
+          "english": "das Haus (im Tsch. maskulin!)",
+          "referenceExample": "**dům**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Tisch (unbelebt) → ____",
+          "acceptedAnswers": [
+            "stůl"
+          ],
+          "english": "der Tisch (unbelebt)",
+          "referenceExample": "**stůl**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Kaffee (im Tsch. feminin!) → ____",
+          "acceptedAnswers": [
+            "káva"
+          ],
+          "english": "der Kaffee (im Tsch. feminin!)",
+          "referenceExample": "**káva**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "die Sprache (im Tsch. maskulin!) → ____",
+          "acceptedAnswers": [
+            "jazyk"
+          ],
+          "english": "die Sprache (im Tsch. maskulin!)",
+          "referenceExample": "**jazyk**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "das Bier → ____",
+          "acceptedAnswers": [
+            "pivo"
+          ],
+          "english": "das Bier",
+          "referenceExample": "**pivo**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "der Tag → ____",
+          "acceptedAnswers": [
+            "den"
+          ],
+          "english": "der Tag",
+          "referenceExample": "**den**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m2_osloveni",
+      "title": "Sprechen: Oslovení (5. pád / Vokativ)",
+      "storageKeyPrefix": "de_cs_m2_osloveni_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Wen du direkt ansprichst, steht im Vokativ – einem eigenen Fall mit eigener Endung. Den hatte das Latein, das Französische hat ihn verloren.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Der 5. Fall: die Anrede",
+            "text": "Wen du rufst oder ansprichst, bekommt eine Vokativ-Endung. [DE] hat keinen morphologischen Vokativ, [FR] hat ihn verloren – aber Latein hatte ihn (»Brute!«)."
+          },
+          {
+            "kind": "example",
+            "title": "Typische Endungen",
+            "text": "-e: Petr → Petře, pan → pane. -i: Tomáš → Tomáši, kamarádi. -o: Klára → Kláro, žena → ženo."
+          },
+          {
+            "kind": "warning",
+            "title": "Nicht der Nominativ!",
+            "text": "»Ahoj, Tomáš« klingt für Tschechen abrupt – richtig ist »Ahoj, Tomáši«. Bei direkter Anrede immer den Vokativ nehmen."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "»-ová« bleibt gleich",
+            "text": "Weibliche Nachnamen auf »-ová« ändern sich im Vokativ nicht: »paní Nováková«."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Ahoj, Tomáši!",
+          "translation": "Hallo, Tomáš! ([FR] Salut, Tomáš ! — Vokativ: Tomáš → Tomáši)"
+        },
+        {
+          "id": "s1",
+          "text": "Petře, pojď sem!",
+          "translation": "Petr, komm her! ([FR] Pierre, viens ! — Petr → Petře)"
+        },
+        {
+          "id": "s2",
+          "text": "Dobrý den, pane Nováku!",
+          "translation": "Guten Tag, Herr Novák! ([FR] Bonjour Monsieur — pan Novák → pane Nováku)"
+        },
+        {
+          "id": "s3",
+          "text": "Kláro, máš se dobře?",
+          "translation": "Klára, geht's dir gut? ([FR] Klára… — Klára → Kláro)"
+        },
+        {
+          "id": "s4",
+          "text": "Děkuji, paní Nováková.",
+          "translation": "Danke, Frau Nováková ([FR] Madame — weibl. »-ová« bleibt im Vokativ gleich)"
+        },
+        {
+          "id": "s5",
+          "text": "Mami, kde jsi?",
+          "translation": "Mama, wo bist du? ([FR] Maman — máma → mami)"
+        },
+        {
+          "id": "s6",
+          "text": "Pojďme, kamarádi!",
+          "translation": "Los, Freunde! ([FR] les amis ! — kamarádi → Vokativ Plural)"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m2_cisla",
+      "title": "Čísla 1–10 a počítání",
+      "storageKeyPrefix": "de_cs_m2_cisla_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Die Zahlen 1–10 – und der erste echte Schock fürs deutsche und französische Sprachgefühl: Zahlen bestimmen den Fall des gezählten Worts.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Zahlen regieren den Kasus",
+            "text": "Ab 5 steht das Gezählte im Genitiv Plural: »pět korun« (5 Kronen), »pět piv«, »deset studentů«. [DE]/[FR] kennen das nicht – dort bleibt der Plural unverändert."
+          },
+          {
+            "kind": "rule",
+            "title": "Paukal 2–4",
+            "text": "2, 3, 4 nehmen den Nominativ Plural: »dva studenti«, »tři koruny«, »čtyři piva«. Erst ab 5 kippt es in den Genitiv."
+          },
+          {
+            "kind": "warning",
+            "title": "1 und 2 haben Genus",
+            "text": "jeden (m) / jedna (f) / jedno (n); dva (m) / dvě (f, n). Eins und Zwei richten sich nach dem Nomen."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "sedm / osm – silbenbildendes m",
+            "text": "»sedm« (7) und »osm« (8) haben ein silbenbildendes »m«: sprich fast »se-dum / o-sum«."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "eins"
+        },
+        {
+          "key": "s1",
+          "display": "zwei"
+        },
+        {
+          "key": "s2",
+          "display": "drei"
+        },
+        {
+          "key": "s3",
+          "display": "vier"
+        },
+        {
+          "key": "s4",
+          "display": "fünf"
+        },
+        {
+          "key": "s5",
+          "display": "sechs"
+        },
+        {
+          "key": "s6",
+          "display": "sieben"
+        },
+        {
+          "key": "s7",
+          "display": "acht"
+        },
+        {
+          "key": "s8",
+          "display": "neun"
+        },
+        {
+          "key": "s9",
+          "display": "zehn"
+        },
+        {
+          "key": "s10",
+          "display": "fünf Kronen"
+        },
+        {
+          "key": "s11",
+          "display": "zwei Studenten"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "jedna",
+            "dva",
+            "tři",
+            "čtyři",
+            "pět",
+            "šest",
+            "sedm",
+            "osm",
+            "devět",
+            "deset",
+            "pět korun",
+            "dva studenti"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "eins → ____",
+          "acceptedAnswers": [
+            "jedna",
+            "jeden",
+            "jedno"
+          ],
+          "english": "eins",
+          "referenceExample": "**jedna**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "zwei → ____",
+          "acceptedAnswers": [
+            "dva",
+            "dvě"
+          ],
+          "english": "zwei",
+          "referenceExample": "**dva**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "drei → ____",
+          "acceptedAnswers": [
+            "tři"
+          ],
+          "english": "drei",
+          "referenceExample": "**tři**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "vier → ____",
+          "acceptedAnswers": [
+            "čtyři"
+          ],
+          "english": "vier",
+          "referenceExample": "**čtyři**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "fünf → ____",
+          "acceptedAnswers": [
+            "pět"
+          ],
+          "english": "fünf",
+          "referenceExample": "**pět**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sechs → ____",
+          "acceptedAnswers": [
+            "šest"
+          ],
+          "english": "sechs",
+          "referenceExample": "**šest**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sieben → ____",
+          "acceptedAnswers": [
+            "sedm"
+          ],
+          "english": "sieben",
+          "referenceExample": "**sedm**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "acht → ____",
+          "acceptedAnswers": [
+            "osm"
+          ],
+          "english": "acht",
+          "referenceExample": "**osm**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "neun → ____",
+          "acceptedAnswers": [
+            "devět"
+          ],
+          "english": "neun",
+          "referenceExample": "**devět**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "zehn → ____",
+          "acceptedAnswers": [
+            "deset"
+          ],
+          "english": "zehn",
+          "referenceExample": "**deset**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "fünf Kronen → ____",
+          "acceptedAnswers": [
+            "pět korun"
+          ],
+          "english": "fünf Kronen",
+          "referenceExample": "**pět korun**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "zwei Studenten → ____",
+          "acceptedAnswers": [
+            "dva studenti"
+          ],
+          "english": "zwei Studenten",
+          "referenceExample": "**dva studenti**"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m3_sloveso",
+      "title": "Pravidelné sloveso «dělat»",
+      "storageKeyPrefix": "de_cs_m3_sloveso_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Das erste regelmäßige Verb: »dělat« (machen/tun) im Präsens. Eine ganze Verbklasse auf einmal.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Die -at-Klasse",
+            "text": "Endungen: -ám / -áš / -á / -áme / -áte / -ají. Stamm »dělá-« + Endung. Sehr regelmäßig – viele Verben gehen so (dělat, snídat, čekat)."
+          },
+          {
+            "kind": "warning",
+            "title": "Pro-Drop, schon wieder",
+            "text": "»Dělám« heißt komplett »ich mache«. Das Pronomen »já« nur zur Betonung. Die Endung trägt die Person."
+          },
+          {
+            "kind": "rule",
+            "title": "Doppelte Verneinung ist Pflicht",
+            "text": "»ne-« vor das Verb: nedělám (ich mache nicht). Und: »Nic nedělám« = wörtl. »nichts mache-ich-nicht«. [FR] *ne…rien* hat auch zwei Teile, [DE] nur eines."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "dělat → udělat",
+            "text": "Mit der Vorsilbe »u-« wird »dělat« vollendet (»udělat« = fertig machen). Genau das ist der Aspekt – gleich mehr dazu."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "ich mache"
+        },
+        {
+          "key": "s1",
+          "display": "du machst"
+        },
+        {
+          "key": "s2",
+          "display": "er/sie/es macht"
+        },
+        {
+          "key": "s3",
+          "display": "wir machen"
+        },
+        {
+          "key": "s4",
+          "display": "ihr macht"
+        },
+        {
+          "key": "s5",
+          "display": "sie machen"
+        },
+        {
+          "key": "s6",
+          "display": "ich mache nicht"
+        },
+        {
+          "key": "s7",
+          "display": "Was machst du?"
+        },
+        {
+          "key": "s8",
+          "display": "Ich mache nichts."
+        },
+        {
+          "key": "s9",
+          "display": "Wir machen es zusammen."
+        },
+        {
+          "key": "s10",
+          "display": "Was macht Tomáš?"
+        },
+        {
+          "key": "s11",
+          "display": "Macht ihr das oft?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "dělám",
+            "děláš",
+            "dělá",
+            "děláme",
+            "děláte",
+            "dělají",
+            "nedělám",
+            "Co děláš?",
+            "Nic nedělám",
+            "Děláme to spolu",
+            "Co dělá Tomáš?",
+            "Děláte to často?"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ich mache → ____",
+          "acceptedAnswers": [
+            "dělám"
+          ],
+          "english": "ich mache",
+          "referenceExample": "**dělám**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "du machst → ____",
+          "acceptedAnswers": [
+            "děláš"
+          ],
+          "english": "du machst",
+          "referenceExample": "**děláš**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "er/sie/es macht → ____",
+          "acceptedAnswers": [
+            "dělá"
+          ],
+          "english": "er/sie/es macht",
+          "referenceExample": "**dělá**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "wir machen → ____",
+          "acceptedAnswers": [
+            "děláme"
+          ],
+          "english": "wir machen",
+          "referenceExample": "**děláme**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ihr macht → ____",
+          "acceptedAnswers": [
+            "děláte"
+          ],
+          "english": "ihr macht",
+          "referenceExample": "**děláte**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "sie machen → ____",
+          "acceptedAnswers": [
+            "dělají"
+          ],
+          "english": "sie machen",
+          "referenceExample": "**dělají**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "ich mache nicht → ____",
+          "acceptedAnswers": [
+            "nedělám"
+          ],
+          "english": "ich mache nicht",
+          "referenceExample": "**nedělám**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Was machst du? → ____",
+          "acceptedAnswers": [
+            "Co děláš?"
+          ],
+          "english": "Was machst du?",
+          "referenceExample": "**Co děláš?**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich mache nichts. → ____.",
+          "acceptedAnswers": [
+            "Nic nedělám"
+          ],
+          "english": "Ich mache nichts.",
+          "referenceExample": "**Nic nedělám**."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Wir machen es zusammen. → ____.",
+          "acceptedAnswers": [
+            "Děláme to spolu"
+          ],
+          "english": "Wir machen es zusammen.",
+          "referenceExample": "**Děláme to spolu**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Was macht Tomáš? → ____",
+          "acceptedAnswers": [
+            "Co dělá Tomáš?"
+          ],
+          "english": "Was macht Tomáš?",
+          "referenceExample": "**Co dělá Tomáš?**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Macht ihr das oft? → ____",
+          "acceptedAnswers": [
+            "Děláte to často?"
+          ],
+          "english": "Macht ihr das oft?",
+          "referenceExample": "**Děláte to často?**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m3_kazdy_den",
+      "title": "Sprechen: Co děláš každý den?",
+      "storageKeyPrefix": "de_cs_m3_kazdy_den_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Dein Tagesablauf auf Tschechisch. Alles, was du regelmäßig tust, steht in der unvollendeten Form – das ist schon der Aspekt.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Gewohnheit = imperfektiv",
+            "text": "Was du regelmäßig tust, steht unvollendet (piju, čtu, učím se). [FR] das ist das *imparfait*-Gefühl, hier im Präsens vorbereitet."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Signalwörter",
+            "text": "ráno (morgens), večer (abends), každý den (jeden Tag) kündigen eine Gewohnheit an."
+          },
+          {
+            "kind": "example",
+            "title": "Präposition zieht ihren Fall",
+            "text": "v kavárně / v restauraci (Lokativ, »wo«), s Tomášem (Instrumental, »mit wem«). Jede Präposition bestimmt den Fall."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Ráno piju kávu.",
+          "translation": "Morgens trinke ich Kaffee ([FR] Le matin je bois un café — Gewohnheit, imperfektiv)"
+        },
+        {
+          "id": "s1",
+          "text": "Každý den se učím česky.",
+          "translation": "Jeden Tag lerne ich Tschechisch ([FR] Chaque jour j’apprends — »se« an zweiter Stelle)"
+        },
+        {
+          "id": "s2",
+          "text": "Pracuji v kavárně.",
+          "translation": "Ich arbeite in einem Café ([FR] Je travaille au café — »v« + Lokativ)"
+        },
+        {
+          "id": "s3",
+          "text": "Večer čtu knihu.",
+          "translation": "Abends lese ich ein Buch ([FR] Le soir je lis un livre — kniha → knihu Akkusativ)"
+        },
+        {
+          "id": "s4",
+          "text": "Mluvím s Tomášem.",
+          "translation": "Ich spreche mit Tomáš ([FR] Je parle avec Tomáš — »s« + Instrumental: Tomáš → Tomášem)"
+        },
+        {
+          "id": "s5",
+          "text": "Jím v restauraci.",
+          "translation": "Ich esse im Restaurant ([FR] Je mange au restaurant — restaurace ← frz.!)"
+        },
+        {
+          "id": "s6",
+          "text": "Bydlím v Praze.",
+          "translation": "Ich wohne in Prag ([FR] J’habite à Prague)"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m3_aspekt",
+      "title": "Vid: dokonavý a nedokonavý (Aspekt)",
+      "storageKeyPrefix": "de_cs_m3_aspekt_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Das Herzstück des Tschechischen – und dein größter Vorteil als Französischlehrerin. Fast jedes Verb hat ZWEI Formen: unvollendet (Verlauf, Gewohnheit) und vollendet (abgeschlossen, einmalig).",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Zwei Verben für ein deutsches",
+            "text": "Jedes Verb hat ein Paar: nedokonavý (unvollendet) für Verlauf/Gewohnheit, dokonavý (vollendet) für die abgeschlossene, einmalige Tat. [DE] hat KEIN grammatisches Aspektsystem."
+          },
+          {
+            "kind": "rule",
+            "title": "[FR] Dein Anker: imparfait vs passé composé",
+            "text": "imperfektiv ≈ *je lisais* (imparfait: Verlauf, Gewohnheit). perfektiv ≈ *j’ai lu* (passé composé: abgeschlossen). Genau diese Unterscheidung unterrichtest du jeden Tag."
+          },
+          {
+            "kind": "warning",
+            "title": "Perfektives Präsens = Zukunft!",
+            "text": "»napíšu« sieht aus wie Präsens, heißt aber »ich werde schreiben«. Eine vollendete Handlung kann nicht »gerade jetzt« laufen. [DE]/[FR] brauchen ein Hilfsverb für die Zukunft – Tschechisch nicht."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Vorsilbe oder neuer Stamm",
+            "text": "Oft macht eine Vorsilbe vollendet: psát → NApsat, číst → PŘEčíst, dělat → Udělat. Manchmal wechselt der Stamm: kupovat → koupit."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "machen / tun (Verlauf, unvollendet)"
+        },
+        {
+          "key": "s1",
+          "display": "erledigen / fertig machen (vollendet)"
+        },
+        {
+          "key": "s2",
+          "display": "schreiben (Verlauf, unvollendet)"
+        },
+        {
+          "key": "s3",
+          "display": "(zu Ende) schreiben (vollendet)"
+        },
+        {
+          "key": "s4",
+          "display": "lesen (Verlauf, unvollendet)"
+        },
+        {
+          "key": "s5",
+          "display": "(ganz) lesen (vollendet)"
+        },
+        {
+          "key": "s6",
+          "display": "kaufen (gewohnt, unvollendet)"
+        },
+        {
+          "key": "s7",
+          "display": "(einmal) kaufen (vollendet)"
+        },
+        {
+          "key": "s8",
+          "display": "Ich schreibe (gerade) einen Brief."
+        },
+        {
+          "key": "s9",
+          "display": "Ich schreibe den Brief (morgen) fertig."
+        },
+        {
+          "key": "s10",
+          "display": "Jeden Tag lese ich."
+        },
+        {
+          "key": "s11",
+          "display": "Ich habe das Buch (ganz) gelesen."
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "dělat",
+            "udělat",
+            "psát",
+            "napsat",
+            "číst",
+            "přečíst",
+            "kupovat",
+            "koupit",
+            "Píšu dopis",
+            "Napíšu dopis",
+            "Každý den čtu",
+            "Přečetl jsem knihu"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "machen / tun (Verlauf, unvollendet) → ____",
+          "acceptedAnswers": [
+            "dělat"
+          ],
+          "english": "machen / tun (Verlauf, unvollendet)",
+          "referenceExample": "**dělat**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "erledigen / fertig machen (vollendet) → ____",
+          "acceptedAnswers": [
+            "udělat"
+          ],
+          "english": "erledigen / fertig machen (vollendet)",
+          "referenceExample": "**udělat**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "schreiben (Verlauf, unvollendet) → ____",
+          "acceptedAnswers": [
+            "psát"
+          ],
+          "english": "schreiben (Verlauf, unvollendet)",
+          "referenceExample": "**psát**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "(zu Ende) schreiben (vollendet) → ____",
+          "acceptedAnswers": [
+            "napsat"
+          ],
+          "english": "(zu Ende) schreiben (vollendet)",
+          "referenceExample": "**napsat**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "lesen (Verlauf, unvollendet) → ____",
+          "acceptedAnswers": [
+            "číst"
+          ],
+          "english": "lesen (Verlauf, unvollendet)",
+          "referenceExample": "**číst**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "(ganz) lesen (vollendet) → ____",
+          "acceptedAnswers": [
+            "přečíst"
+          ],
+          "english": "(ganz) lesen (vollendet)",
+          "referenceExample": "**přečíst**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "kaufen (gewohnt, unvollendet) → ____",
+          "acceptedAnswers": [
+            "kupovat"
+          ],
+          "english": "kaufen (gewohnt, unvollendet)",
+          "referenceExample": "**kupovat**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "(einmal) kaufen (vollendet) → ____",
+          "acceptedAnswers": [
+            "koupit"
+          ],
+          "english": "(einmal) kaufen (vollendet)",
+          "referenceExample": "**koupit**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich schreibe (gerade) einen Brief. → ____.",
+          "acceptedAnswers": [
+            "Píšu dopis"
+          ],
+          "english": "Ich schreibe (gerade) einen Brief.",
+          "referenceExample": "**Píšu dopis**."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich schreibe den Brief (morgen) fertig. → ____.",
+          "acceptedAnswers": [
+            "Napíšu dopis"
+          ],
+          "english": "Ich schreibe den Brief (morgen) fertig.",
+          "referenceExample": "**Napíšu dopis**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Jeden Tag lese ich. → ____.",
+          "acceptedAnswers": [
+            "Každý den čtu"
+          ],
+          "english": "Jeden Tag lese ich.",
+          "referenceExample": "**Každý den čtu**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich habe das Buch (ganz) gelesen. → ____.",
+          "acceptedAnswers": [
+            "Přečetl jsem knihu",
+            "Přečetla jsem knihu"
+          ],
+          "english": "Ich habe das Buch (ganz) gelesen.",
+          "referenceExample": "**Přečetl jsem knihu**."
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m3_aspekt_mluvit",
+      "title": "Sprechen: Vid v akci (Aspekt im Satz)",
+      "storageKeyPrefix": "de_cs_m3_aspekt_mluvit_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Den Aspekt fühlst du über das Französische: imperfektiv ≈ imparfait, perfektiv ≈ passé composé. Sprich die Paare laut und höre den Unterschied.",
+        "tips": [
+          {
+            "kind": "mnemonic",
+            "title": "Hör den Aspekt",
+            "text": "Sprich die Paare hintereinander: čtu / přečetl, píšu / napíšu, kupuju / koupím. Der Unterschied ist hörbar – wie imparfait vs passé composé."
+          },
+          {
+            "kind": "warning",
+            "title": "Perfektiv zeigt in die Zukunft",
+            "text": "»napíšu«, »koupím«, »přečtu« meinen die Zukunft. Für »gerade jetzt« nimm die imperfektive Form (píšu, kupuju, čtu)."
+          },
+          {
+            "kind": "rule",
+            "title": "Zeit-Signale lenken den Aspekt",
+            "text": "vždycky (immer), každý den (jeden Tag), často (oft) → imperfektiv. včera (gestern), dnes (heute, einmal), zítra (morgen) → oft perfektiv."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Každý den čtu noviny.",
+          "translation": "Jeden Tag lese ich Zeitung ([FR] Je lisais le journal — imperfektiv »čtu« = Gewohnheit, imparfait-Gefühl)"
+        },
+        {
+          "id": "s1",
+          "text": "Včera jsem přečetl knihu.",
+          "translation": "Gestern habe ich das Buch ausgelesen ([FR] J’ai lu le livre — perfektiv »přečetl«, Präfix pře- = fertig)"
+        },
+        {
+          "id": "s2",
+          "text": "Píšu dopis.",
+          "translation": "Ich schreibe (gerade) einen Brief ([FR] Je suis en train d’écrire — imperfektiv, Verlauf)"
+        },
+        {
+          "id": "s3",
+          "text": "Napíšu ti zítra.",
+          "translation": "Ich schreibe dir morgen ([FR] Je t’écrirai — perfektives Präsens = Zukunft! na- vollendet)"
+        },
+        {
+          "id": "s4",
+          "text": "Vždycky kupuju chleba.",
+          "translation": "Ich kaufe immer Brot ([FR] J’achète toujours du pain — imperfektiv »kupuju«, Gewohnheit)"
+        },
+        {
+          "id": "s5",
+          "text": "Dnes koupím víno.",
+          "translation": "Heute kaufe ich Wein ([FR] J’achèterai du vin — perfektiv »koupím«, einmalig)"
+        },
+        {
+          "id": "s6",
+          "text": "Učím se a naučím se!",
+          "translation": "Ich lerne — und ich werde es lernen! ([FR] j’apprends … je vais l’apprendre — Prozess vs Resultat)"
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "id": "de_cs_m3_cteni_den",
+      "title": "Lesen: Klářin den v Praze",
+      "storageKeyPrefix": "de_cs_m3_cteni_den_",
+      "promptLabel": "Pregunta",
+      "subjectsLabel": "Preguntas",
+      "subjectColumnLabel": "Pregunta",
+      "help": {
+        "intro": "Klářin Tag – Gewohntes und ein besonderer Moment. Achte darauf, wie der Aspekt zwischen beidem wechselt.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Vergangenheit: -l-Partizip",
+            "text": "Die Vergangenheit bildet man mit dem -l-Partizip (+ Form von být in der 1./2. Person): »koupila«, »jela«, »dali si«. »udělala« ist perfektiv (fertig), »pije/čte« imperfektiv (Gewohnheit)."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "[FR] Dein Erzähl-Rhythmus",
+            "text": "Gewohntes (pije, čte) wie *imparfait*, der besondere Tag (koupila, jela, potkala) wie *passé composé*. Genau dein französisches Erzählgefühl – nur im Tschechischen."
+          },
+          {
+            "kind": "example",
+            "title": "Partizip kongruiert mit dem Subjekt",
+            "text": "Klára koupil**a** (sie, f), Tomáš řek**l** (er, m). Das -l-Partizip zeigt das Genus des Subjekts."
+          }
+        ]
+      },
+      "category": "Lektüre",
+      "passageTitle": "Klářin den v Praze",
+      "passage": "Klára má ráda Prahu. Každé ráno pije kávu v malé kavárně a čte noviny. Pak jde do školy. Dnes ale udělala něco jiného: koupila lístek a jela tramvají na Pražský hrad. Tam potkala Tomáše. „Ahoj, Kláro!“ řekl Tomáš. Spolu si dali oběd a mluvili česky. Byl to krásný den.",
+      "passageTranslation": "Klára mag Prag. Jeden Morgen trinkt sie Kaffee in einem kleinen Café und liest Zeitung. Dann geht sie zur Uni. Heute aber machte sie etwas anderes: sie kaufte ein Ticket und fuhr mit der Straßenbahn zur Prager Burg. Dort traf sie Tomáš. „Hallo, Klára!“, sagte Tomáš. Zusammen aßen sie zu Mittag und sprachen Tschechisch. Es war ein schöner Tag.",
+      "questions": [
+        {
+          "question": "Co dělá Klára každé ráno?",
+          "options": [
+            "Pije kávu a čte noviny",
+            "Jde na hrad",
+            "Pracuje v kavárně"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Was macht Klára jeden Morgen?"
+        },
+        {
+          "question": "Co udělala dnes?",
+          "options": [
+            "Koupila lístek a jela na hrad",
+            "Zůstala doma",
+            "Učila se česky"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Was machte sie heute?"
+        },
+        {
+          "question": "Koho potkala na hradě?",
+          "options": [
+            "Tomáše",
+            "Kláru",
+            "Pana Nováka"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Wen traf sie auf der Burg?"
+        },
+        {
+          "question": "Jaký byl ten den?",
+          "options": [
+            "Krásný",
+            "Dlouhý",
+            "Smutný"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Wie war der Tag?"
+        }
+      ]
+    },
+    {
+      "type": "fillBlank",
+      "id": "de_cs_m3_instrumental",
+      "title": "Instrumentál: autem, s kamarádem",
+      "storageKeyPrefix": "de_cs_m3_instrumental_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "help": {
+        "intro": "Das »Womit« und das »Mit wem« – der 7. Fall. Oft braucht er nicht einmal eine Präposition: die Endung allein sagt »mit«.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Das Mittel: blanker Instrumental",
+            "text": "Werkzeug/Verkehrsmittel stehen im Instrumental – OHNE Präposition: »autem« (mit dem Auto), »vlakem« (mit dem Zug), »lžící« (mit dem Löffel). [DE] mit + Dativ, [FR] en/avec."
+          },
+          {
+            "kind": "rule",
+            "title": "Die Begleitung: »s« + Instrumental",
+            "text": "»MIT jemandem« = »s« + Instrumental: s kamarádem, s Tomášem, s Klárou. Hier steht »s«; beim Mittel (autem) steht keine Präposition."
+          },
+          {
+            "kind": "warning",
+            "title": "Die Endungen",
+            "text": "maskulin/neutrum: -em (vlak → vlakem, učitel → učitelem). feminin: -ou (káva → kávou, Klára → Klárou) oder -í (tramvaj → tramvají)."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "[FR] Zwei Wörter, hier eine Endung",
+            "text": "*en voiture*, *avec un ami* – Französisch nimmt Präpositionen, Tschechisch packt das »mit« oft direkt in die Endung."
+          }
+        ]
+      },
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "mit dem Auto"
+        },
+        {
+          "key": "s1",
+          "display": "mit dem Zug"
+        },
+        {
+          "key": "s2",
+          "display": "mit der Straßenbahn"
+        },
+        {
+          "key": "s3",
+          "display": "mit dem Bus"
+        },
+        {
+          "key": "s4",
+          "display": "mit einem Freund"
+        },
+        {
+          "key": "s5",
+          "display": "mit einer Freundin"
+        },
+        {
+          "key": "s6",
+          "display": "mit Tomáš"
+        },
+        {
+          "key": "s7",
+          "display": "mit Klára"
+        },
+        {
+          "key": "s8",
+          "display": "Ich fahre mit dem Auto."
+        },
+        {
+          "key": "s9",
+          "display": "Ich spreche mit dem Lehrer."
+        },
+        {
+          "key": "s10",
+          "display": "Ich esse mit einem Löffel."
+        },
+        {
+          "key": "s11",
+          "display": "Kaffee mit Milch"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Auf Tschechisch",
+          "group": "Auf Tschechisch",
+          "values": [
+            "autem",
+            "vlakem",
+            "tramvají",
+            "autobusem",
+            "s kamarádem",
+            "s kamarádkou",
+            "s Tomášem",
+            "s Klárou",
+            "Jedu autem",
+            "Mluvím s učitelem",
+            "Jím lžící",
+            "káva s mlékem"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit dem Auto → ____",
+          "acceptedAnswers": [
+            "autem"
+          ],
+          "english": "mit dem Auto",
+          "referenceExample": "**autem**"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit dem Zug → ____",
+          "acceptedAnswers": [
+            "vlakem"
+          ],
+          "english": "mit dem Zug",
+          "referenceExample": "**vlakem**"
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit der Straßenbahn → ____",
+          "acceptedAnswers": [
+            "tramvají"
+          ],
+          "english": "mit der Straßenbahn",
+          "referenceExample": "**tramvají**"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit dem Bus → ____",
+          "acceptedAnswers": [
+            "autobusem"
+          ],
+          "english": "mit dem Bus",
+          "referenceExample": "**autobusem**"
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit einem Freund → ____",
+          "acceptedAnswers": [
+            "s kamarádem"
+          ],
+          "english": "mit einem Freund",
+          "referenceExample": "**s kamarádem**"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit einer Freundin → ____",
+          "acceptedAnswers": [
+            "s kamarádkou"
+          ],
+          "english": "mit einer Freundin",
+          "referenceExample": "**s kamarádkou**"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit Tomáš → ____",
+          "acceptedAnswers": [
+            "s Tomášem"
+          ],
+          "english": "mit Tomáš",
+          "referenceExample": "**s Tomášem**"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "mit Klára → ____",
+          "acceptedAnswers": [
+            "s Klárou"
+          ],
+          "english": "mit Klára",
+          "referenceExample": "**s Klárou**"
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich fahre mit dem Auto. → ____.",
+          "acceptedAnswers": [
+            "Jedu autem"
+          ],
+          "english": "Ich fahre mit dem Auto.",
+          "referenceExample": "**Jedu autem**."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich spreche mit dem Lehrer. → ____.",
+          "acceptedAnswers": [
+            "Mluvím s učitelem"
+          ],
+          "english": "Ich spreche mit dem Lehrer.",
+          "referenceExample": "**Mluvím s učitelem**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Ich esse mit einem Löffel. → ____.",
+          "acceptedAnswers": [
+            "Jím lžící"
+          ],
+          "english": "Ich esse mit einem Löffel.",
+          "referenceExample": "**Jím lžící**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Tschechisch",
+          "sentence": "Kaffee mit Milch → ____",
+          "acceptedAnswers": [
+            "káva s mlékem"
+          ],
+          "english": "Kaffee mit Milch",
+          "referenceExample": "**káva s mlékem**"
+        }
+      ]
+    },
+    {
+      "type": "speakRepeat",
+      "id": "de_cs_m3_se_si",
+      "title": "Sprechen: Reflexiva se/si",
+      "storageKeyPrefix": "de_cs_m3_se_si_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Tschechisch",
+      "help": {
+        "intro": "Das kleine Wort »se« (und sein Dativ-Bruder »si«) steckt in vielen Alltagsverben – und sitzt immer an zweiter Satzstelle.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "»se« (Akkusativ) vs »si« (Dativ)",
+            "text": "»se« = sich (wen?), »si« = sich (wem?). »myji se« (ich wasche mich) vs »myji si ruce« (ich wasche mir die Hände). [DE] kennt genau diesen Akk/Dat-Split bei »sich«."
+          },
+          {
+            "kind": "rule",
+            "title": "Klitika in zweiter Position",
+            "text": "»se/si« rutschen an die zweite Satzstelle, nicht ans Verb: »Učím se«, aber »Každý den SE učím«. [FR] vgl. die feste Reihenfolge in *je le lui donne*."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "»se« = man",
+            "text": "»Mluví se tady česky?« (Spricht man hier Tschechisch?), »Jak se to řekne?« (Wie sagt man das?) – unpersönliches »se«. [FR] vgl. *on*."
+          },
+          {
+            "kind": "example",
+            "title": "»si« = für mich selbst",
+            "text": "»Dám si kávu« (ich nehme mir einen Kaffee), »Sednu si« (ich setze mich). Das »si« macht die Handlung persönlich-zugewandt."
+          }
+        ]
+      },
+      "phrases": [
+        {
+          "id": "s0",
+          "text": "Jmenuji se Klára.",
+          "translation": "Ich heiße Klára ([FR] Je m’appelle — »se« = Akkusativ-Reflexiv)"
+        },
+        {
+          "id": "s1",
+          "text": "Učím se česky.",
+          "translation": "Ich lerne Tschechisch ([FR] J’apprends — »učit se«: das »se« gehört zum Verb)"
+        },
+        {
+          "id": "s2",
+          "text": "Dám si kávu.",
+          "translation": "Ich nehme einen Kaffee ([FR] Je prends un café — »si« = Dativ-Reflexiv, »ich gebe mir«)"
+        },
+        {
+          "id": "s3",
+          "text": "Jak se máš?",
+          "translation": "Wie geht's dir? ([FR] Comment vas-tu ? — reflexives »mít se«)"
+        },
+        {
+          "id": "s4",
+          "text": "Dívám se na film.",
+          "translation": "Ich schaue einen Film ([FR] Je regarde un film — »dívat se« reflexiv)"
+        },
+        {
+          "id": "s5",
+          "text": "Mluví se tady česky?",
+          "translation": "Spricht man hier Tschechisch? ([FR] parle-t-on — »se« = man, unpersönlich)"
+        },
+        {
+          "id": "s6",
+          "text": "Sednu si sem.",
+          "translation": "Ich setze mich hierher ([FR] Je m’assieds — »si« Dativ-Reflexiv)"
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "id": "de_cs_m3_co_dal",
+      "title": "Lesen: Co bude dál? (Ausblick)",
+      "storageKeyPrefix": "de_cs_m3_co_dal_",
+      "promptLabel": "Pregunta",
+      "subjectsLabel": "Preguntas",
+      "subjectColumnLabel": "Pregunta",
+      "help": {
+        "intro": "Ein kurzer Ausblick: Was du schon kannst, und was als Nächstes wartet. Dein Fundament ist größer, als du denkst.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Dein Fundament steht",
+            "text": "Vier Fälle kennst du aus dem Deutschen (Nominativ, Akkusativ, Dativ, Genitiv), den Aspekt fühlst du aus dem Französischen (imparfait / passé composé). Tschechisch baut nur darauf auf."
+          },
+          {
+            "kind": "example",
+            "title": "Die 7 Fälle (Vorschau)",
+            "text": "1. Nominativ (kdo? co?) · 2. Genitiv (koho? čeho?) · 3. Dativ (komu? čemu?) · 4. Akkusativ (koho? co?) · 5. Vokativ (Anrede) · 6. Lokativ (nur mit Präposition) · 7. Instrumental (kým? čím?). Drei davon hast du hier schon getroffen!"
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Ein Wort, sieben Gesichter",
+            "text": "»student« wird zu studenta, studentovi, studente, studentem… Im Aufbaukurs lernst du die ganze Tabelle – Schritt für Schritt."
+          },
+          {
+            "title": "Weiter geht’s",
+            "text": "Den schwersten Teil – die Scheu – hast du schon hinter dir. »Učím se a naučím se.«"
+          }
+        ]
+      },
+      "category": "Lektüre",
+      "passageTitle": "Co bude dál?",
+      "passage": "Gratuluji! Teď umíš pozdravit, představit se, počítat a cítíš první rozdíl mezi dokonavým a nedokonavým videm. To je víc, než si myslíš. Čeština má sedm pádů a u každého slovesa dvojici vidů. Zní to těžko? Ty už máš základ: znáš čtyři pády z němčiny a cítíš vid z francouzštiny. „Učím se a naučím se,“ říká Klára. Tak pojď dál – těší mě, že jsi tady!",
+      "passageTranslation": "Gratuliere! Jetzt kannst du grüßen, dich vorstellen, zählen und spürst den ersten Unterschied zwischen vollendetem und unvollendetem Aspekt. Das ist mehr, als du denkst. Tschechisch hat sieben Fälle und zu jedem Verb ein Aspektpaar. Klingt schwer? Du hast schon das Fundament: Du kennst vier Fälle aus dem Deutschen und fühlst den Aspekt aus dem Französischen. „Ich lerne – und ich werde es lernen“, sagt Klára. Also komm weiter – schön, dass du hier bist!",
+      "questions": [
+        {
+          "question": "Co už umíš?",
+          "options": [
+            "Pozdravit a představit se",
+            "Vařit česká jídla",
+            "Řídit auto"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Was kannst du schon?"
+        },
+        {
+          "question": "Kolik pádů má čeština?",
+          "options": [
+            "Čtyři",
+            "Sedm",
+            "Deset"
+          ],
+          "correctIndex": 1,
+          "questionTranslation": "Wie viele Fälle hat Tschechisch?"
+        },
+        {
+          "question": "Odkud znáš pády a vid?",
+          "options": [
+            "Z němčiny a francouzštiny",
+            "Z angličtiny",
+            "Ze španělštiny"
+          ],
+          "correctIndex": 0,
+          "questionTranslation": "Woher kennst du Fälle und Aspekt?"
+        }
+      ]
+    }
+  ]
+}

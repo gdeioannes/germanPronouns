@@ -1,6 +1,7 @@
 import '../models/course.dart';
 import '../models/nav_layout.dart';
 import '../models/quiz_content.dart';
+import 'courses/de_cs/de_cs_content.dart';
 import 'courses/de_es/de_es_content.dart';
 import 'courses/en_de/en_de_content.dart';
 import 'courses/es_de/es_de_content.dart';
@@ -329,6 +330,46 @@ final NavLayout _deEsCertNav = NavLayout(
   ],
 );
 
+/// The "Tschechisch entdecken" drawer (Deutsch → Tschechisch): three gated
+/// module groups (Erste Klänge, Ich & die anderen, Aspekt) in chain order, plus
+/// links. A deep but short introductory taster, so the whole sequence is one
+/// continuous pass-to-unlock chain.
+final NavLayout _deCsNav = NavLayout(
+  groups: [
+    NavGroup(
+      id: 'm1',
+      title: 'MODUL 1 · ERSTE KLÄNGE',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in deCsM1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'm2',
+      title: 'MODUL 2 · ICH & DIE ANDEREN',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in deCsM2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'm3',
+      title: 'MODUL 3 · DER ASPEKT',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in deCsM3) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'more',
+      title: 'MEHR',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
 /// The id of the course shown by default (the original German app).
 const String kDefaultCourseId = 'en_de';
 
@@ -379,5 +420,15 @@ final List<Course> defaultCourses = [
     uiLang: UiLang.de,
     learnLocale: 'es-ES',
     nav: _deEsCertNav,
+  ),
+  Course(
+    id: 'de_cs',
+    name: 'Tschechisch entdecken',
+    tagline: 'Ein tiefer Einstieg ins Tschechische – für Sprachliebhaber',
+    speakFlag: '🇩🇪',
+    learnFlag: '🇨🇿',
+    uiLang: UiLang.de,
+    learnLocale: 'cs-CZ',
+    nav: _deCsNav,
   ),
 ];
