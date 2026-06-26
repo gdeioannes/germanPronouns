@@ -23,6 +23,7 @@ import 'package:german_pronouns_articles/data/courses/es_de/es_de_content.dart';
 import 'package:german_pronouns_articles/data/data_version.dart';
 import 'package:german_pronouns_articles/data/noun_article_content.dart';
 import 'package:german_pronouns_articles/data/noun_database.dart';
+import 'package:german_pronouns_articles/data/noun_progression_data.dart';
 import 'package:german_pronouns_articles/data/preposition_content.dart';
 import 'package:german_pronouns_articles/data/pronoun_article_content.dart';
 import 'package:german_pronouns_articles/data/pronoun_content.dart';
@@ -76,6 +77,7 @@ void main() {
   // The always-loaded catalog (cards only — no course content).
   final catalog = Catalog(
     version: kDataVersion,
+    defaultCourseId: kDefaultCourseId,
     courses: [
       for (final c in defaultCourses) CourseCard.fromCourse(c, version: kDataVersion),
     ],
@@ -97,6 +99,10 @@ void main() {
     encoder.convert(
       NounCollection(
         categoryDisplayNames: nounCategoryDisplayNames,
+        // The difficulty-sorted progression order + the capstone label, so the
+        // chain travels in the JSON instead of only being recomputed in code.
+        progressionOrder: nounCategoryOrder,
+        allNounsLabel: nounProgressionEntries.last.displayName,
         nouns: enrichedGermanNouns,
       ).toJson(),
     ),

@@ -91,8 +91,13 @@ class NounSettings {
   Set<String> _completedNounCategories = {};
   String? _lastNounProgressionKey;
   AnswerRevealMode _answerRevealMode = AnswerRevealMode.normal;
-  int _progressionUnlockLaps = defaultProgressionUnlockLaps;
-  int _questUnlockLaps = defaultQuestUnlockLaps;
+  // The learner's explicit override (null = follow the active course's gating).
+  int? _progressionUnlockLapsOverride;
+  int? _questUnlockLapsOverride;
+  // The active course's gating defaults, pushed in via [applyCourseGating];
+  // start at the app-wide constants until a course is activated.
+  int _courseProgressionUnlockLaps = defaultProgressionUnlockLaps;
+  int _courseQuestUnlockLaps = defaultQuestUnlockLaps;
   Set<String> _completedQuestQuizzes = {};
   String? _lastQuestQuizKey;
   Set<String> _completedSpeakQuizzes = {};
@@ -137,7 +142,8 @@ class NounSettings {
   /// sub-quiz to unlock the next entry in the noun-category progression.
   /// User-configurable from 1 to 100, defaults to
   /// [defaultProgressionUnlockLaps].
-  int get progressionUnlockLaps => _progressionUnlockLaps;
+  int get progressionUnlockLaps =>
+      _progressionUnlockLapsOverride ?? _courseProgressionUnlockLaps;
 
   /// Whether to show the first letter of the answer (with a non-deletable red
   /// asterisk) when a question is answered incorrectly. The user still loses
@@ -160,17 +166,18 @@ class NounSettings {
   /// Total correct answers in a row needed to unlock the next entry in the
   /// noun-category progression ([progressionUnlockLaps] streaks of 5
   /// correct answers each).
-  int get progressionUnlockStreak => _progressionUnlockLaps * streakLapSize;
+  int get progressionUnlockStreak => progressionUnlockLaps * streakLapSize;
 
   /// Number of consecutive 5-answer "streaks" needed in a Quest quiz to unlock
   /// the next quiz in the Quest (CEFR A-level) chain. Independent of the
   /// noun-category goal. User-configurable 1–100, defaults to
   /// [defaultQuestUnlockLaps].
-  int get questUnlockLaps => _questUnlockLaps;
+  int get questUnlockLaps =>
+      _questUnlockLapsOverride ?? _courseQuestUnlockLaps;
 
   /// Total correct answers in a row needed to unlock the next Quest quiz
   /// ([questUnlockLaps] streaks of 5 correct answers each).
-  int get questUnlockStreak => _questUnlockLaps * streakLapSize;
+  int get questUnlockStreak => questUnlockLaps * streakLapSize;
 
   /// Quest quiz keys (from `questEntries`) whose quiz has reached a
   /// [questUnlockStreak]-answer streak at least once, permanently unlocking the
@@ -299,10 +306,8 @@ class NounSettings {
       (mode) => mode.name == prefs.getString(_answerRevealModeKey),
       orElse: () => AnswerRevealMode.normal,
     );
-    _progressionUnlockLaps =
-        prefs.getInt(_progressionUnlockLapsKey) ?? defaultProgressionUnlockLaps;
-    _questUnlockLaps =
-        prefs.getInt(_questUnlockLapsKey) ?? defaultQuestUnlockLaps;
+    _progressionUnlockLapsOverride = prefs.getInt(_progressionUnlockLapsKey);
+    _questUnlockLapsOverride = prefs.getInt(_questUnlockLapsKey);
     _completedQuestQuizzes =
         (prefs.getStringList(_completedQuestQuizzesKey) ?? const []).toSet();
     _lastQuestQuizKey = prefs.getString(_lastQuestQuizKeyPref);
@@ -367,18 +372,32 @@ class NounSettings {
     await prefs.setString(_answerRevealModeKey, mode.name);
   }
 
-  /// Sets [progressionUnlockLaps], clamped to the 1-100 range.
+  /// Sets the learner's [progressionUnlockLaps] override, clamped to 1-100.
   Future<void> setProgressionUnlockLaps(int laps) async {
-    _progressionUnlockLaps = laps.clamp(1, 100);
+    _progressionUnlockLapsOverride = laps.clamp(1, 100);
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(_progressionUnlockLapsKey, _progressionUnlockLaps);
+    await prefs.setInt(
+      _progressionUnlockLapsKey,
+      _progressionUnlockLapsOverride!,
+    );
   }
 
-  /// Sets [questUnlockLaps], clamped to the 1-100 range.
+  /// Sets the learner's [questUnlockLaps] override, clamped to 1-100.
   Future<void> setQuestUnlockLaps(int laps) async {
-    _questUnlockLaps = laps.clamp(1, 100);
+    _questUnlockLapsOverride = laps.clamp(1, 100);
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(_questUnlockLapsKey, _questUnlockLaps);
+    await prefs.setInt(_questUnlockLapsKey, _questUnlockLapsOverride!);
+  }
+
+  /// Applies the active course's [gating] thresholds as the defaults used when
+  /// the learner has no explicit override. Called when a course is activated so
+  /// each course can carry its own unlock economy (see `CourseGating`).
+  void applyCourseGating({
+    required int progressionUnlockLaps,
+    required int questUnlockLaps,
+  }) {
+    _courseProgressionUnlockLaps = progressionUnlockLaps;
+    _courseQuestUnlockLaps = questUnlockLaps;
   }
 
   /// Marks Quest quiz [key] as having reached a [questUnlockStreak]-answer
@@ -516,8 +535,8 @@ class NounSettings {
     completedNounCategories: _completedNounCategories.toList(),
     lastNounProgressionKey: _lastNounProgressionKey,
     answerRevealMode: _answerRevealMode.name,
-    progressionUnlockLaps: _progressionUnlockLaps,
-    questUnlockLaps: _questUnlockLaps,
+    progressionUnlockLaps: progressionUnlockLaps,
+    questUnlockLaps: questUnlockLaps,
     completedQuestQuizzes: _completedQuestQuizzes.toList(),
     lastQuestQuizKey: _lastQuestQuizKey,
     completedSpeakQuizzes: _completedSpeakQuizzes.toList(),
@@ -564,8 +583,8 @@ class NounSettings {
     _completedNounCategories = {};
     _lastNounProgressionKey = null;
     _answerRevealMode = AnswerRevealMode.normal;
-    _progressionUnlockLaps = defaultProgressionUnlockLaps;
-    _questUnlockLaps = defaultQuestUnlockLaps;
+    _progressionUnlockLapsOverride = null;
+    _questUnlockLapsOverride = null;
     _completedQuestQuizzes = {};
     _lastQuestQuizKey = null;
     _completedSpeakQuizzes = {};

@@ -1,5 +1,5 @@
 {
-  "version": "1.7.5",
+  "version": "1.7.6",
   "quizzes": [
     {
       "id": "pronoun",
@@ -42905,6 +42905,7 @@
       "promptLabel": "Zahl",
       "subjectsLabel": "Zahlen",
       "subjectColumnLabel": "Zahl",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "0",
@@ -42992,6 +42993,7 @@
       "promptLabel": "Welches Pronomen?",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "s0",
@@ -43161,6 +43163,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "s0",
@@ -43245,6 +43248,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "Mann",
@@ -43460,6 +43464,7 @@
       "promptLabel": "Zahl",
       "subjectsLabel": "Zahlen",
       "subjectColumnLabel": "Zahl",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "11",
@@ -43548,6 +43553,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "A1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -43641,6 +43647,7 @@
       "promptLabel": "Pronomen",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "Pronomen",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "ich",
@@ -43723,6 +43730,7 @@
       "promptLabel": "Welches Fragewort?",
       "subjectsLabel": "Fragewörter",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "s0",
@@ -43913,6 +43921,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "A1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -44021,6 +44030,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Verb (Infinitiv)",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "machen",
@@ -44202,6 +44212,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Verb (Infinitiv)",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "fahren",
@@ -44370,6 +44381,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "s0",
@@ -44440,6 +44452,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "A1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -44518,6 +44531,7 @@
       "promptLabel": "Zahl",
       "subjectsLabel": "Zahlen",
       "subjectColumnLabel": "Zahl",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "20",
@@ -44655,6 +44669,7 @@
       "promptLabel": "Welche Farbe?",
       "subjectsLabel": "Farben",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "s0",
@@ -44870,6 +44885,7 @@
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "s0",
@@ -44969,6 +44985,7 @@
       "promptLabel": "Wer ist das?",
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "subjects": [
         {
           "key": "s0",
@@ -45280,6 +45297,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "Mann",
@@ -45451,6 +45469,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "Vater",
@@ -45630,6 +45649,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "A1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -45706,6 +45726,7 @@
       "promptLabel": "Welches Pronomen?",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -45879,6 +45900,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -46103,6 +46125,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "A1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -46211,6 +46234,7 @@
       "promptLabel": "Pronomen",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "Pronomen",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "ich",
@@ -46328,6 +46352,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -46402,6 +46427,7 @@
       "promptLabel": "Uhrzeit",
       "subjectsLabel": "Uhrzeiten",
       "subjectColumnLabel": "Zeit",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -46623,6 +46649,7 @@
       "promptLabel": "Welcher Tag/Monat?",
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -46943,6 +46970,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -47013,6 +47041,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "A1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -47090,6 +47119,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -47276,6 +47306,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -47466,6 +47497,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A1.2",
       "subjects": [
         {
           "key": "s0",
@@ -47541,6 +47573,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "A1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -47649,6 +47682,7 @@
       "promptLabel": "Partizip II",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -47794,6 +47828,7 @@
       "promptLabel": "Partizip II",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -47926,6 +47961,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -47985,6 +48021,7 @@
       "promptLabel": "Artikel",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -48103,6 +48140,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "A2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -48179,6 +48217,7 @@
       "promptLabel": "Präposition",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -48310,6 +48349,7 @@
       "promptLabel": "Pronomen",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "English",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -48435,6 +48475,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "A2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -48511,6 +48552,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -48642,6 +48684,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Wetter",
       "subjectColumnLabel": "English",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -48767,6 +48810,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -48827,6 +48871,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -48886,6 +48931,7 @@
       "promptLabel": "Komparativ",
       "subjectsLabel": "Adjektive",
       "subjectColumnLabel": "Adjektiv",
+      "level": "A2.1",
       "subjects": [
         {
           "key": "s0",
@@ -49004,6 +49050,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "A2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -49081,6 +49128,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "A2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -49157,6 +49205,7 @@
       "promptLabel": "Artikel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -49274,6 +49323,7 @@
       "promptLabel": "Artikel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -49392,6 +49442,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -49446,6 +49497,7 @@
       "promptLabel": "Reflexivpronomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -49563,6 +49615,7 @@
       "promptLabel": "Verb am Ende",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -49666,6 +49719,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "A2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -49743,6 +49797,7 @@
       "promptLabel": "Verb am Ende",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -49846,6 +49901,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Körper",
       "subjectColumnLabel": "English",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -49955,6 +50011,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "A2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -50031,6 +50088,7 @@
       "promptLabel": "Imperativ",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -50135,6 +50193,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -50195,6 +50254,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -50249,6 +50309,7 @@
       "promptLabel": "Superlativ",
       "subjectsLabel": "Adjektive",
       "subjectColumnLabel": "Adjektiv",
+      "level": "A2.2",
       "subjects": [
         {
           "key": "s0",
@@ -50353,6 +50414,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "A2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -50429,6 +50491,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Arbeit",
       "subjectColumnLabel": "English",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -50553,6 +50616,7 @@
       "promptLabel": "Endung",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -50657,6 +50721,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -50711,6 +50776,7 @@
       "promptLabel": "Endung",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -50814,6 +50880,7 @@
       "promptLabel": "würde-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -50918,6 +50985,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -50994,6 +51062,7 @@
       "promptLabel": "Konjunktiv II",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -51098,6 +51167,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -51174,6 +51244,7 @@
       "promptLabel": "werden-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -51276,6 +51347,7 @@
       "promptLabel": "Relativpronomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -51380,6 +51452,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -51434,6 +51507,7 @@
       "promptLabel": "Genitiv",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -51538,6 +51612,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -51592,6 +51667,7 @@
       "promptLabel": "Konjunktion",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "subjects": [
         {
           "key": "s0",
@@ -51696,6 +51772,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -51773,6 +51850,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -51849,6 +51927,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Technik",
       "subjectColumnLabel": "English",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -51958,6 +52037,7 @@
       "promptLabel": "Präteritum",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52060,6 +52140,7 @@
       "promptLabel": "Präteritum",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52164,6 +52245,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52218,6 +52300,7 @@
       "promptLabel": "werden-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52322,6 +52405,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -52399,6 +52483,7 @@
       "promptLabel": "wurde-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52501,6 +52586,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Nomen",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52605,6 +52691,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -52681,6 +52768,7 @@
       "promptLabel": "zu-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52785,6 +52873,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52839,6 +52928,7 @@
       "promptLabel": "Relativpronomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52942,6 +53032,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B1.2",
       "subjects": [
         {
           "key": "s0",
@@ -52997,6 +53088,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -53074,6 +53166,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -53150,6 +53243,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Gesellschaft",
       "subjectColumnLabel": "English",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -53258,6 +53352,7 @@
       "promptLabel": "Konjunktiv I",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -53361,6 +53456,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -53415,6 +53511,7 @@
       "promptLabel": "Einleitewort",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -53518,6 +53615,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -53621,6 +53719,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -53697,6 +53796,7 @@
       "promptLabel": "Präposition",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -53800,6 +53900,7 @@
       "promptLabel": "Partizip",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -53904,6 +54005,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -53980,6 +54082,7 @@
       "promptLabel": "Konnektor",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -54084,6 +54187,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -54138,6 +54242,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -54242,6 +54347,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -54320,6 +54426,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B2.1",
       "subjects": [
         {
           "key": "s0",
@@ -54375,6 +54482,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -54451,6 +54559,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Umwelt",
       "subjectColumnLabel": "English",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -54559,6 +54668,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -54662,6 +54772,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -54765,6 +54876,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -54819,6 +54931,7 @@
       "promptLabel": "Präposition",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -54922,6 +55035,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -54999,6 +55113,7 @@
       "promptLabel": "Partizip",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -55101,6 +55216,7 @@
       "promptLabel": "Partikel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -55204,6 +55320,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -55280,6 +55397,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -55383,6 +55501,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -55437,6 +55556,7 @@
       "promptLabel": "Konnektor",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -55541,6 +55661,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "B2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -55618,6 +55739,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "B2.2",
       "subjects": [
         {
           "key": "s0",
@@ -55673,6 +55795,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "B2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -55749,6 +55872,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Wissenschaft",
       "subjectColumnLabel": "English",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -55857,6 +55981,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb → Nomen",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -55960,6 +56085,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56014,6 +56140,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Nomen → Verb",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56116,6 +56243,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56220,6 +56348,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -56297,6 +56426,7 @@
       "promptLabel": "Adjektiv",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb → Adjektiv",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56400,6 +56530,7 @@
       "promptLabel": "Konnektor",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56504,6 +56635,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -56580,6 +56712,7 @@
       "promptLabel": "Partizip",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56684,6 +56817,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56739,6 +56873,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C1.1",
       "subjects": [
         {
           "key": "s0",
@@ -56794,6 +56929,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -56872,6 +57008,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C1.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -56948,6 +57085,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Kultur",
       "subjectColumnLabel": "English",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57056,6 +57194,7 @@
       "promptLabel": "Modalverb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Sicherheit",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57159,6 +57298,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57213,6 +57353,7 @@
       "promptLabel": "Modalverb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Quelle",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57315,6 +57456,7 @@
       "promptLabel": "Vorsilbe",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57418,6 +57560,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -57494,6 +57637,7 @@
       "promptLabel": "Nachsilbe",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bildung",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57597,6 +57741,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Redewendungen",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57700,6 +57845,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -57776,6 +57922,7 @@
       "promptLabel": "Verweismittel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Funktion",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57880,6 +58027,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57935,6 +58083,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C1.2",
       "subjects": [
         {
           "key": "s0",
@@ -57990,6 +58139,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -58067,6 +58217,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C1.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -58143,6 +58294,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Fachwortschatz",
       "subjectColumnLabel": "English",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -58252,6 +58404,7 @@
       "promptLabel": "Register",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Umgangssprache → formell",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -58355,6 +58508,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -58409,6 +58563,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Kollokationen",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -58512,6 +58667,7 @@
       "promptLabel": "Stilmittel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Beispiel",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -58615,6 +58771,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -58692,6 +58849,7 @@
       "promptLabel": "Konjunktiv I",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -58794,6 +58952,7 @@
       "promptLabel": "Konnotation",
       "subjectsLabel": "Wortpaare",
       "subjectColumnLabel": "Bewertung",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -58897,6 +59056,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -58973,6 +59133,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Sprichwörter",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -59076,6 +59237,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "dictation",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -59131,6 +59293,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C2.1",
       "subjects": [
         {
           "key": "s0",
@@ -59186,6 +59349,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -59264,6 +59428,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C2.1",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -59340,6 +59505,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Abstrakt",
       "subjectColumnLabel": "English",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -59448,6 +59614,7 @@
       "promptLabel": "Position",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Effekt",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -59552,6 +59719,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -59606,6 +59774,7 @@
       "promptLabel": "Bedeutung",
       "subjectsLabel": "Äußerungen",
       "subjectColumnLabel": "gemeint ist",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -59708,6 +59877,7 @@
       "promptLabel": "Synonym",
       "subjectsLabel": "Ausdrücke",
       "subjectColumnLabel": "Variante",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -59811,6 +59981,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -59887,6 +60058,7 @@
       "promptLabel": "Lesart",
       "subjectsLabel": "Beispiele",
       "subjectColumnLabel": "Doppelsinn",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -59990,6 +60162,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -60066,6 +60239,7 @@
       "promptLabel": "Wendung",
       "subjectsLabel": "Wendungen",
       "subjectColumnLabel": "Funktion",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -60169,6 +60343,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -60247,6 +60422,7 @@
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
       "kind": "speakRepeat",
+      "level": "C2.2",
       "subjects": [
         {
           "key": "s0",
@@ -60302,6 +60478,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "listening",
+      "level": "C2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -60379,6 +60556,7 @@
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
       "kind": "reading",
+      "level": "C2.2",
       "subjects": [],
       "categories": [],
       "sentences": [],
@@ -84060,6 +84238,10 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
+      "gating": {
+        "progressionUnlockLaps": 2,
+        "questUnlockLaps": 2
+      },
       "nav": {
         "groups": [
           {
@@ -84164,6 +84346,10 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
+      "gating": {
+        "progressionUnlockLaps": 2,
+        "questUnlockLaps": 2
+      },
       "nav": {
         "groups": [
           {
@@ -84741,6 +84927,10 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
+      "gating": {
+        "progressionUnlockLaps": 2,
+        "questUnlockLaps": 2
+      },
       "nav": {
         "groups": [
           {
@@ -84860,6 +85050,10 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
+      "gating": {
+        "progressionUnlockLaps": 2,
+        "questUnlockLaps": 2
+      },
       "nav": {
         "groups": [
           {
@@ -85053,6 +85247,10 @@
       "learnFlag": "🇪🇸",
       "uiLang": "de",
       "learnLocale": "es-ES",
+      "gating": {
+        "progressionUnlockLaps": 2,
+        "questUnlockLaps": 2
+      },
       "nav": {
         "groups": [
           {

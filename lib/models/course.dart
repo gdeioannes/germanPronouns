@@ -11,6 +11,36 @@ UiLang _uiLangFromName(String? name) {
   return UiLang.en;
 }
 
+/// Per-course gating thresholds — the "unlock economy" of a course, data-driven
+/// so a strict certification course can differ from a casual one. The values
+/// are the number of 5-answer streaks ("laps") a learner must reach to advance.
+/// Defaults match the app's long-standing values, so an unset course behaves
+/// exactly as before. The learner's own override (Settings) still wins at
+/// runtime — these are only the per-course *defaults* (see
+/// `NounSettings.applyCourseGating`).
+class CourseGating {
+  const CourseGating({
+    this.progressionUnlockLaps = 2,
+    this.questUnlockLaps = 2,
+  });
+
+  /// Streaks needed to unlock the next noun-category in the progression.
+  final int progressionUnlockLaps;
+
+  /// Streaks needed to pass a Quest quiz and unlock the next one in the chain.
+  final int questUnlockLaps;
+
+  Map<String, dynamic> toJson() => {
+    'progressionUnlockLaps': progressionUnlockLaps,
+    'questUnlockLaps': questUnlockLaps,
+  };
+
+  factory CourseGating.fromJson(Map<String, dynamic> json) => CourseGating(
+    progressionUnlockLaps: json['progressionUnlockLaps'] as int? ?? 2,
+    questUnlockLaps: json['questUnlockLaps'] as int? ?? 2,
+  );
+}
+
 /// A language-pair course ("speak X, learn Y"): its display metadata, the UI
 /// language for its chrome, and its own navigation menu (which references
 /// quizzes stored in the shared content database by `contentId`).
@@ -24,6 +54,7 @@ class Course {
     required this.uiLang,
     required this.nav,
     this.learnLocale = 'de-DE',
+    this.gating = const CourseGating(),
   });
 
   /// Stable id, e.g. 'en_de', 'es_de'.
@@ -52,7 +83,15 @@ class Course {
   /// This course's drawer layout.
   final NavLayout nav;
 
-  Course copyWith({String? name, String? tagline, NavLayout? nav}) => Course(
+  /// This course's unlock economy (per-course gating defaults).
+  final CourseGating gating;
+
+  Course copyWith({
+    String? name,
+    String? tagline,
+    NavLayout? nav,
+    CourseGating? gating,
+  }) => Course(
     id: id,
     name: name ?? this.name,
     tagline: tagline ?? this.tagline,
@@ -61,6 +100,7 @@ class Course {
     uiLang: uiLang,
     learnLocale: learnLocale,
     nav: nav ?? this.nav,
+    gating: gating ?? this.gating,
   );
 
   Map<String, dynamic> toJson() => {
@@ -71,6 +111,7 @@ class Course {
     'learnFlag': learnFlag,
     'uiLang': uiLang.name,
     'learnLocale': learnLocale,
+    'gating': gating.toJson(),
     'nav': nav.toJson(),
   };
 
@@ -82,6 +123,9 @@ class Course {
     learnFlag: json['learnFlag'] as String? ?? '',
     uiLang: _uiLangFromName(json['uiLang'] as String?),
     learnLocale: json['learnLocale'] as String? ?? 'de-DE',
+    gating: json['gating'] == null
+        ? const CourseGating()
+        : CourseGating.fromJson(Map<String, dynamic>.from(json['gating'] as Map)),
     nav: NavLayout.fromJson(
       Map<String, dynamic>.from(json['nav'] as Map? ?? const {}),
     ),

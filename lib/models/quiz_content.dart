@@ -349,6 +349,7 @@ class QuizContent {
     required this.categories,
     required this.sentences,
     this.kind = QuizKind.fillBlank,
+    this.level,
     this.sentenceTemplates = const {},
     this.categoryDisplayNames = const {},
     this.legacyCategoryLabelMigration = const {},
@@ -384,6 +385,11 @@ class QuizContent {
   /// How this quiz is played; selects which page renders it. Defaults to
   /// [QuizKind.fillBlank].
   final QuizKind kind;
+
+  /// CEFR sub-level this quiz belongs to (e.g. `'A1.1'`), or null for quizzes
+  /// not organized by level. The single source of a quiz's level — the Quest
+  /// chain derives its sub-level grouping from this (see `quest_data.dart`).
+  final String? level;
 
   final List<QuizSubjectData> subjects;
   final List<QuizCategoryData> categories;
@@ -467,6 +473,43 @@ class QuizContent {
   /// [VoiceGender.female], matching the app's long-standing voices.
   final VoiceGender voiceGender;
 
+  /// Returns a copy with [level] replaced (all other fields preserved). Used to
+  /// stamp a quiz with its CEFR sub-level at chain-build time.
+  QuizContent copyWith({String? level}) => QuizContent(
+    id: id,
+    title: title,
+    storageKeyPrefix: storageKeyPrefix,
+    promptLabel: promptLabel,
+    subjectsLabel: subjectsLabel,
+    subjectColumnLabel: subjectColumnLabel,
+    kind: kind,
+    level: level ?? this.level,
+    subjects: subjects,
+    categories: categories,
+    sentences: sentences,
+    sentenceTemplates: sentenceTemplates,
+    categoryDisplayNames: categoryDisplayNames,
+    legacyCategoryLabelMigration: legacyCategoryLabelMigration,
+    collapseReferenceTablesByGender: collapseReferenceTablesByGender,
+    helpMemorySubtitle: helpMemorySubtitle,
+    helpMemoryTables: helpMemoryTables,
+    endingPatternTables: endingPatternTables,
+    helpMemoryIntro: helpMemoryIntro,
+    helpMemoryTips: helpMemoryTips,
+    helpMemoryColorByGender: helpMemoryColorByGender,
+    helpMemoryInfoColumns: helpMemoryInfoColumns,
+    readingCategory: readingCategory,
+    readingTitle: readingTitle,
+    readingPassage: readingPassage,
+    readingPassageTranslation: readingPassageTranslation,
+    readingQuestions: readingQuestions,
+    inlineTemplate: inlineTemplate,
+    inlineBlanks: inlineBlanks,
+    contextualLayout: contextualLayout,
+    stripSentenceCue: stripSentenceCue,
+    voiceGender: voiceGender,
+  );
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
@@ -475,6 +518,7 @@ class QuizContent {
     'subjectsLabel': subjectsLabel,
     'subjectColumnLabel': subjectColumnLabel,
     if (kind != QuizKind.fillBlank) 'kind': kind.name,
+    if (level != null) 'level': level,
     'subjects': [for (final s in subjects) s.toJson()],
     'categories': [for (final c in categories) c.toJson()],
     'sentences': [for (final s in sentences) s.toJson()],
@@ -521,6 +565,7 @@ class QuizContent {
     subjectsLabel: json['subjectsLabel'] as String,
     subjectColumnLabel: json['subjectColumnLabel'] as String,
     kind: QuizKind.values.byName(json['kind'] as String? ?? 'fillBlank'),
+    level: json['level'] as String?,
     subjects: [
       for (final s in json['subjects'] as List)
         QuizSubjectData.fromJson(s as Map<String, dynamic>),

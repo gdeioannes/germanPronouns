@@ -6,6 +6,10 @@
   "learnFlag": "🇩🇪",
   "uiLang": "en",
   "learnLocale": "de-DE",
+  "gating": {
+    "progressionUnlockLaps": 2,
+    "questUnlockLaps": 2
+  },
   "nav": {
     "groups": [
       {
@@ -101,7 +105,7 @@
       }
     ]
   },
-  "version": "1.7.5",
+  "version": "1.7.6",
   "quizzes": [
     {
       "type": "fillBlank",
@@ -111,6 +115,7 @@
       "promptLabel": "Zahl",
       "subjectsLabel": "Zahlen",
       "subjectColumnLabel": "Zahl",
+      "level": "A1.1",
       "help": {
         "intro": "The numbers 0–10 are the foundation — every larger number is built from them, so learn to say and spell each one by heart.",
         "tips": [
@@ -201,6 +206,7 @@
       "promptLabel": "Welches Pronomen?",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "help": {
         "intro": "Subject (nominative) pronouns say who does the action. Read the sentence — the verb ending and the English hint tell you which one fits.",
         "tips": [
@@ -372,6 +378,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A1.1",
       "help": {
         "intro": "Listen to each phrase in German and repeat it aloud. If your microphone is available we tell you how it sounded; if not, just listen and repeat at your own pace, then continue. These are the first things you say when you meet someone.",
         "tips": [
@@ -457,6 +464,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A1.1",
       "help": {
         "intro": "In the nominative (the subject of the sentence) use der/die/das for \"the\" (definite) or ein/eine for \"a/an\" (indefinite). The form depends on the noun's gender.",
         "tips": [
@@ -675,6 +683,7 @@
       "promptLabel": "Zahl",
       "subjectsLabel": "Zahlen",
       "subjectColumnLabel": "Zahl",
+      "level": "A1.1",
       "help": {
         "intro": "The teens (13–19) follow one simple pattern — unit + \"zehn\" — with a couple of spellings to watch.",
         "tips": [
@@ -765,6 +774,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A1.1",
       "help": {
         "intro": "You will only HEAR this short text — it is not shown. Press play and listen, then answer the questions. You can replay the audio as often as you like, and the full text (German + English) is behind \"Show text\".",
         "tips": [
@@ -858,6 +868,7 @@
       "promptLabel": "Pronomen",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "Pronomen",
+      "level": "A1.1",
       "help": {
         "intro": "sein (to be) and haben (to have) are the two most important verbs in German — you use them constantly, and later to build the perfect tense. Both are irregular, so memorize the full set.",
         "tips": [
@@ -943,6 +954,7 @@
       "promptLabel": "Welches Fragewort?",
       "subjectsLabel": "Fragewörter",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "help": {
         "intro": "W-questions start with a question word (almost all begin with \"w-\") followed by the verb in second position: Wo wohnst du? They ask for specific information, unlike yes/no questions.",
         "tips": [
@@ -1135,6 +1147,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A1.1",
       "help": {
         "intro": "Read the short text once, then answer the questions. You can re-read the passage at any time. Read for the gist first — you do not need to understand every single word.",
         "tips": [
@@ -1243,6 +1256,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Verb (Infinitiv)",
+      "level": "A1.1",
       "help": {
         "intro": "Regular verbs in the present tense use the stem (the infinitive minus -en) plus an ending that matches the subject.",
         "tips": [
@@ -1427,6 +1441,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Verb (Infinitiv)",
+      "level": "A1.1",
       "help": {
         "intro": "A handful of very common verbs change their stem vowel in the present tense — but ONLY in the du and er/sie/es forms. The endings stay perfectly regular; just the vowel shifts. Master these eight and you have most of the A1 irregular verbs.",
         "tips": [
@@ -1597,6 +1612,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A1.1",
       "help": {
         "intro": "A dictation: you HEAR a sentence and TYPE it. Press play, listen, then write exactly what you heard. You can replay as often as you like. Capitalisation and umlaut spelling are judged leniently (ä or ae both count), but spell the words correctly.",
         "tips": [
@@ -1667,6 +1683,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A1.1",
       "help": {
         "intro": "A market seller calls out today's prices — you only hear it. Press play, listen for the numbers, and match each price to its product. Replay as needed; the text is behind \"Show text\".",
         "tips": [
@@ -1745,6 +1762,7 @@
       "promptLabel": "Zahl",
       "subjectsLabel": "Zahlen",
       "subjectColumnLabel": "Zahl",
+      "level": "A1.1",
       "help": {
         "intro": "From 21 upward, German names the units BEFORE the tens, joined by \"und\" and written as one word.",
         "tips": [
@@ -1885,6 +1903,7 @@
       "promptLabel": "Welche Farbe?",
       "subjectsLabel": "Farben",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "help": {
         "intro": "Read the clue and name the colour. Colours are adjectives: on their own (after sein) they stay in this base form; before a noun they take an ending (ein rotes Auto).",
         "tips": [
@@ -2102,6 +2121,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "Deutsch",
+      "level": "A1.1",
       "help": {
         "intro": "Say the numbers and prices out loud. Being able to say them helps with prices, platforms and room numbers. Listen and repeat each one.",
         "tips": [
@@ -2202,6 +2222,7 @@
       "promptLabel": "Wer ist das?",
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "English",
+      "level": "A1.1",
       "help": {
         "intro": "Read the clue (and its English translation), then write the family word — with its article der/die/das, since the gender is part of the word. \"die Mutter\" or just \"Mutter\" both count.",
         "tips": [
@@ -2516,6 +2537,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A1.2",
       "help": {
         "intro": "The accusative marks the direct object — the thing the action happens to (Ich sehe DEN Mann). Only the masculine article changes from the nominative.",
         "tips": [
@@ -2690,6 +2712,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A1.2",
       "help": {
         "intro": "Possessive articles (mein, dein, sein, ihr …) take the SAME endings as ein/eine. The ending depends on the gender and case of the noun that follows — not on the owner.",
         "tips": [
@@ -2871,6 +2894,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A1.2",
       "help": {
         "intro": "A guest orders in a café — you only hear the dialogue. Listen for what they order, how they want it, and the price. Replay as often as you like; the full text is behind \"Show text\".",
         "tips": [
@@ -2947,6 +2971,7 @@
       "promptLabel": "Welches Pronomen?",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "help": {
         "intro": "When a pronoun is the direct object (the accusative), it changes form: \"Ich sehe DICH\" (I see you). Only ich, du, er change a lot; the others look like the nominative.",
         "tips": [
@@ -3123,6 +3148,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "help": {
         "intro": "German has two ways to say \"not\". kein negates a noun (it replaces ein or the article); nicht negates everything else — verbs, adjectives and adverbs.",
         "tips": [
@@ -3349,6 +3375,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A1.2",
       "help": {
         "intro": "Read the café scene once, then answer. Watch the verbs of ordering (möchten, nehmen, bestellen, bezahlen) — they come up constantly when eating out.",
         "tips": [
@@ -3457,6 +3484,7 @@
       "promptLabel": "Pronomen",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "Pronomen",
+      "level": "A1.2",
       "help": {
         "intro": "Modal verbs (können, müssen, wollen, möchten …) express ability, necessity or desire. They are irregular in the singular and push the main verb to the end of the clause as an infinitive.",
         "tips": [
@@ -3576,6 +3604,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A1.2",
       "help": {
         "intro": "Say your daily routine and the time out loud. Listen and repeat each sentence; if a microphone is available we tell you how it sounded, otherwise just repeat and continue.",
         "tips": [
@@ -3651,6 +3680,7 @@
       "promptLabel": "Uhrzeit",
       "subjectsLabel": "Uhrzeiten",
       "subjectColumnLabel": "Zeit",
+      "level": "A1.2",
       "help": {
         "intro": "Colloquial German clock times use \"nach\" (past) and \"vor\" (to). The word \"halb\" counts toward the NEXT hour, which trips up English speakers.",
         "tips": [
@@ -3875,6 +3905,7 @@
       "promptLabel": "Welcher Tag/Monat?",
       "subjectsLabel": "Wörter",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "help": {
         "intro": "All days of the week and months are masculine (der-words) and are always written with a capital letter.",
         "tips": [
@@ -4197,6 +4228,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A1.2",
       "help": {
         "intro": "A dictation: you HEAR a sentence and TYPE it. These sentences use the daily-routine verbs, the clock and the ordering phrases from this level. Replay as often as you like, then write what you heard.",
         "tips": [
@@ -4267,6 +4299,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A1.2",
       "help": {
         "intro": "Anna leaves Tom a voicemail — you only hear it. Catch the day, the times and the meeting place. Be careful with \"halb acht\"! Replay as needed; the text is behind \"Show text\".",
         "tips": [
@@ -4344,6 +4377,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "help": {
         "intro": "The prepositions durch, für, gegen, ohne and um always take the accusative, so the article on the following noun shifts to its accusative form.",
         "tips": [
@@ -4533,6 +4567,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "English",
+      "level": "A1.2",
       "help": {
         "intro": "Separable verbs split in a main clause: the prefix jumps to the END of the sentence while the conjugated stem stays in second position.",
         "tips": [
@@ -4725,6 +4760,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A1.2",
       "help": {
         "intro": "Shopping and ordering out loud. \"Ich hätte gern …\" is the polite all-purpose opener for any shop or café — bank it. Listen and repeat each phrase, short to long.",
         "tips": [
@@ -4800,6 +4836,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A1.2",
       "help": {
         "intro": "Read the travel story once, then answer. Travel words (Zug, Bahnhof, Fahrkarte, Hotel) and times/prices are common in the A1 reading exam.",
         "tips": [
@@ -4908,6 +4945,7 @@
       "promptLabel": "Partizip II",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "A2.1",
       "help": {
         "intro": "German talks about the past mostly with the **Perfekt**: a form of haben (or sein) plus the past participle (Partizip II) at the end. Most verbs take haben.",
         "tips": [
@@ -5056,6 +5094,7 @@
       "promptLabel": "Partizip II",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "A2.1",
       "help": {
         "intro": "A small but important group of verbs builds the Perfekt with **sein**, not haben — verbs of movement (from A to B) and change of state.",
         "tips": [
@@ -5190,6 +5229,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A2.1",
       "help": {
         "intro": "Talk about your weekend in the Perfekt. Listen and repeat each sentence, then try to say your own.",
         "tips": [
@@ -5250,6 +5290,7 @@
       "promptLabel": "Artikel",
       "subjectsLabel": "Nomen",
       "subjectColumnLabel": "Nomen",
+      "level": "A2.1",
       "help": {
         "intro": "The **dative** marks the indirect object (the receiver) and follows many prepositions. The articles change: der→dem, die→der, das→dem, and the plural→den (and the noun adds -n).",
         "tips": [
@@ -5370,6 +5411,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A2.1",
       "help": {
         "intro": "Listen to the travel story — it is read aloud, not shown. Listen for the means of transport, where she stayed and the weather. Replay as needed; the script is behind \"Show text\".",
         "tips": [
@@ -5446,6 +5488,7 @@
       "promptLabel": "Präposition",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.1",
       "help": {
         "intro": "A fixed group of prepositions **always** takes the dative — there are no exceptions, so the article is always dem/der/den.",
         "tips": [
@@ -5580,6 +5623,7 @@
       "promptLabel": "Pronomen",
       "subjectsLabel": "Pronomen",
       "subjectColumnLabel": "English",
+      "level": "A2.1",
       "help": {
         "intro": "When a pronoun is the receiver (the indirect object), it takes its dative form. These come up constantly with verbs like helfen, danken, gefallen and geben.",
         "tips": [
@@ -5707,6 +5751,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A2.1",
       "help": {
         "intro": "Read the weekend story, then answer. It uses the Perfekt throughout (sind gefahren, haben gemacht) — the most common past tense.",
         "tips": [
@@ -5783,6 +5828,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.1",
       "help": {
         "intro": "sein and haben are normally used in the simple past (Präteritum), even in everyday speech: **war** (was) and **hatte** (had), not \"bin gewesen\".",
         "tips": [
@@ -5917,6 +5963,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Wetter",
       "subjectColumnLabel": "English",
+      "level": "A2.1",
       "help": {
         "intro": "Weather and seasons come up in small talk and in the A2 exam. Note that German often uses \"es\" + verb: es regnet, es schneit.",
         "tips": [
@@ -6044,6 +6091,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A2.1",
       "help": {
         "intro": "A dictation using the Perfekt. You HEAR a sentence and TYPE it. Listen for the auxiliary (habe/bin) and the participle at the end. Replay as often as you like.",
         "tips": [
@@ -6104,6 +6152,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A2.1",
       "help": {
         "intro": "Ask for and follow directions. These use the dative prepositions and the imperative — both common in town.",
         "tips": [
@@ -6164,6 +6213,7 @@
       "promptLabel": "Komparativ",
       "subjectsLabel": "Adjektive",
       "subjectColumnLabel": "Adjektiv",
+      "level": "A2.1",
       "help": {
         "intro": "To compare two things, add **-er** to the adjective and join with **als** (than). Many short adjectives also take an umlaut.",
         "tips": [
@@ -6284,6 +6334,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A2.1",
       "help": {
         "intro": "A weather report on the radio — you only hear it. Listen for north vs south, the temperature and the advice at the end. Replay as needed.",
         "tips": [
@@ -6360,6 +6411,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A2.1",
       "help": {
         "intro": "Emma is an English student in Munich — a character you will meet again in later readings. The text mixes Perfekt (hat gefunden) and war/hatte.",
         "tips": [
@@ -6436,6 +6488,7 @@
       "promptLabel": "Artikel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "help": {
         "intro": "Nine prepositions can take EITHER case. When they answer **wo?** (location, no movement) they take the **dative**.",
         "tips": [
@@ -6556,6 +6609,7 @@
       "promptLabel": "Artikel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "help": {
         "intro": "The same nine prepositions take the **accusative** when they answer **wohin?** (movement towards a goal).",
         "tips": [
@@ -6676,6 +6730,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A2.2",
       "help": {
         "intro": "Describe a room using the two-way prepositions in their location (dative) sense. Listen and repeat.",
         "tips": [
@@ -6731,6 +6786,7 @@
       "promptLabel": "Reflexivpronomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb",
+      "level": "A2.2",
       "help": {
         "intro": "Many German verbs are **reflexive**: the action points back at the subject with a reflexive pronoun (mich, dich, sich, uns, euch, sich).",
         "tips": [
@@ -6851,6 +6907,7 @@
       "promptLabel": "Verb am Ende",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "help": {
         "intro": "After **weil** (because) the conjugated verb jumps to the **very end** of the clause — a key difference from English word order.",
         "tips": [
@@ -6956,6 +7013,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A2.2",
       "help": {
         "intro": "A voicemail making a plan — you only hear it. Listen for the activity, the reason (weil …) and the meeting place. Replay as needed.",
         "tips": [
@@ -7033,6 +7091,7 @@
       "promptLabel": "Verb am Ende",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "help": {
         "intro": "**dass** (that) introduces a reported idea, and like weil it sends the verb to the end. Use it after verbs of thinking and saying.",
         "tips": [
@@ -7139,6 +7198,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Körper",
       "subjectColumnLabel": "English",
+      "level": "A2.2",
       "help": {
         "intro": "Body parts and being ill — essential for a visit to the doctor. Note the phrase \"Ich habe … schmerzen\" for aches.",
         "tips": [
@@ -7250,6 +7310,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A2.2",
       "help": {
         "intro": "A scene at the doctor’s. It recycles the health vocabulary, weil, and modal verbs (müssen).",
         "tips": [
@@ -7326,6 +7387,7 @@
       "promptLabel": "Imperativ",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "A2.2",
       "help": {
         "intro": "The imperative gives commands, advice and instructions. It has three forms — du, ihr and Sie — and the verb comes first.",
         "tips": [
@@ -7432,6 +7494,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A2.2",
       "help": {
         "intro": "A dictation with two-way prepositions and subordinate clauses. You HEAR a sentence and TYPE it. Listen for the case after the preposition and the verb at the end of weil/dass clauses.",
         "tips": [
@@ -7492,6 +7555,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "A2.2",
       "help": {
         "intro": "Describe what people look like and what they are like. Listen and repeat; notice ser-like sein for character (Er ist nett) vs states.",
         "tips": [
@@ -7547,6 +7611,7 @@
       "promptLabel": "Superlativ",
       "subjectsLabel": "Adjektive",
       "subjectColumnLabel": "Adjektiv",
+      "level": "A2.2",
       "help": {
         "intro": "The superlative names the top of a group. The adverbial form is **am …-sten**: \"Er läuft am schnellsten.\"",
         "tips": [
@@ -7653,6 +7718,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "A2.2",
       "help": {
         "intro": "A friendly email. It uses weil, deshalb and the superlative — a good review of this level’s grammar in a real text type.",
         "tips": [
@@ -7729,6 +7795,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Arbeit",
       "subjectColumnLabel": "English",
+      "level": "B1.1",
       "help": {
         "intro": "The world of work is a core B1 topic. Watch the false friends: \"der Chef\" = boss, \"die Rente\" = pension, \"der Termin\" = appointment.",
         "tips": [
@@ -7856,6 +7923,7 @@
       "promptLabel": "Endung",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "When an adjective stands before a noun it needs an ending. After the definite article (der/die/das), which already shows the case, the adjective just takes **-e** or **-en** — the \"weak\" endings.",
         "tips": [
@@ -7962,6 +8030,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B1.1",
       "help": {
         "intro": "Polite requests use the Konjunktiv II — könnten, würden, hätte gern. Listen and repeat; these soften a request the way \"could/would\" do in English.",
         "tips": [
@@ -8017,6 +8086,7 @@
       "promptLabel": "Endung",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "After ein/eine (which does NOT show the case for masculine nominative or any neuter), the adjective itself must carry the signal: -er / -e / -es.",
         "tips": [
@@ -8123,6 +8193,7 @@
       "promptLabel": "würde-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "The Konjunktiv II expresses wishes, polite requests and hypotheses. The all-purpose form is **würde + infinitive** — your safe default.",
         "tips": [
@@ -8229,6 +8300,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.1",
       "help": {
         "intro": "A job interview — you only hear it. Listen for the past job, the reason (weil …) and the question she asks. Replay as needed.",
         "tips": [
@@ -8305,6 +8377,7 @@
       "promptLabel": "Konjunktiv II",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "A few very common verbs use their own one-word Konjunktiv II instead of würde: **hätte** (would have), **wäre** (would be), **könnte** (could), plus möchte and the modals.",
         "tips": [
@@ -8411,6 +8484,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.1",
       "help": {
         "intro": "An opinion text about home office. It uses weil, Konjunktiv II (könnten) and the future (werden) — a realistic B1 reading.",
         "tips": [
@@ -8487,6 +8561,7 @@
       "promptLabel": "werden-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "The future tense uses **werden + infinitive**. It often expresses a prediction or a firm intention (everyday plans usually just use the present + a time word).",
         "tips": [
@@ -8592,6 +8667,7 @@
       "promptLabel": "Relativpronomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "A relative clause adds information about a noun. The relative pronoun (der/die/das…) matches the noun’s **gender/number**, but its **case** comes from its role inside the relative clause. The verb goes to the end.",
         "tips": [
@@ -8698,6 +8774,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B1.1",
       "help": {
         "intro": "A dictation with the Konjunktiv II. You HEAR a sentence and TYPE it. Listen for würde/hätte/wäre/könnte and the infinitive at the end.",
         "tips": [
@@ -8753,6 +8830,7 @@
       "promptLabel": "Genitiv",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "The **Genitiv** shows possession and relationships (English \"of\" / ’s). The articles are des/der/des/der and masculine & neuter nouns add **-s** (des Mannes).",
         "tips": [
@@ -8859,6 +8937,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B1.1",
       "help": {
         "intro": "Express and justify an opinion — a core B1 speaking skill. Listen and repeat these opener phrases.",
         "tips": [
@@ -8914,6 +8993,7 @@
       "promptLabel": "Konjunktion",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.1",
       "help": {
         "intro": "These subordinating conjunctions all send the verb to the end: **wenn** (if/whenever), **als** (when, single past event), **obwohl** (although).",
         "tips": [
@@ -9020,6 +9100,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.1",
       "help": {
         "intro": "A street survey with three speakers — you only hear it. Keep each person’s answer separate. Replay as needed.",
         "tips": [
@@ -9096,6 +9177,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.1",
       "help": {
         "intro": "A text about studying abroad, with the Genitiv (die Entscheidung ihres Lebens) and dass-clauses. A nice review of B1.1.",
         "tips": [
@@ -9172,6 +9254,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Technik",
       "subjectColumnLabel": "English",
+      "level": "B1.2",
       "help": {
         "intro": "Technology and media vocabulary for B1. Note \"aktuell\" = current (not \"actual\") — a classic false friend.",
         "tips": [
@@ -9284,6 +9367,7 @@
       "promptLabel": "Präteritum",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "B1.2",
       "help": {
         "intro": "The **Präteritum** is the written/narrative past — used in stories, reports and novels. Regular verbs insert **-te-**: machen → machte.",
         "tips": [
@@ -9389,6 +9473,7 @@
       "promptLabel": "Präteritum",
       "subjectsLabel": "Verben",
       "subjectColumnLabel": "Infinitiv",
+      "level": "B1.2",
       "help": {
         "intro": "Strong verbs change their stem vowel in the Präteritum (gehen → ging) and add no -te. There is no ending in the ich/er form. Learn the common ones by heart.",
         "tips": [
@@ -9495,6 +9580,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B1.2",
       "help": {
         "intro": "Tell a short story, using time connectors to order events. Listen and repeat.",
         "tips": [
@@ -9550,6 +9636,7 @@
       "promptLabel": "werden-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "help": {
         "intro": "The passive focuses on the action, not the doer. German builds it with **werden + Partizip II**: \"Das Haus __wird__ __gebaut__.\"",
         "tips": [
@@ -9656,6 +9743,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.2",
       "help": {
         "intro": "A station announcement — you only hear it. Listen for the delay, the platform change and the destination. Replay as needed.",
         "tips": [
@@ -9733,6 +9821,7 @@
       "promptLabel": "wurde-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "help": {
         "intro": "In the past, the passive uses **wurde + Partizip II**: \"Das Haus __wurde__ 1990 __gebaut__.\"",
         "tips": [
@@ -9838,6 +9927,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Nomen",
+      "level": "B1.2",
       "help": {
         "intro": "A group of masculine nouns (often people and animals) add **-(e)n** in every case except the nominative singular: der Junge → den Jungen.",
         "tips": [
@@ -9944,6 +10034,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.2",
       "help": {
         "intro": "A short anecdote in the Präteritum, with a passive (Die Datei wurde geöffnet) and the genitive (seiner Präsentation).",
         "tips": [
@@ -10020,6 +10111,7 @@
       "promptLabel": "zu-Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "help": {
         "intro": "To express purpose, German uses **um … zu + infinitive** (in order to). The infinitive goes to the end, after \"zu\".",
         "tips": [
@@ -10126,6 +10218,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B1.2",
       "help": {
         "intro": "A dictation in the narrative past. You HEAR a sentence and TYPE it. Listen for the Präteritum forms (ging, kam, war) and the connectors.",
         "tips": [
@@ -10181,6 +10274,7 @@
       "promptLabel": "Relativpronomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B1.2",
       "help": {
         "intro": "When the relative pronoun is a dative object or follows a preposition, it takes the dative (dem/der/dem/denen); the genitive uses dessen/deren.",
         "tips": [
@@ -10286,6 +10380,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B1.2",
       "help": {
         "intro": "Give reasons for your choices and opinions. Listen and repeat these cause-and-effect phrases.",
         "tips": [
@@ -10341,6 +10436,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.2",
       "help": {
         "intro": "A short podcast clip — you only hear it. Listen for the topic, the tip and the number. Replay as needed.",
         "tips": [
@@ -10417,6 +10513,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B1.2",
       "help": {
         "intro": "A true little story in the Präteritum, with a hint of Konjunktiv II (hätten … behalten) and the comparative (wichtiger als).",
         "tips": [
@@ -10493,6 +10590,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Gesellschaft",
       "subjectColumnLabel": "English",
+      "level": "B2.1",
       "help": {
         "intro": "Abstract vocabulary for debate and current affairs — the register of the B2 exam.",
         "tips": [
@@ -10604,6 +10702,7 @@
       "promptLabel": "Konjunktiv I",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "help": {
         "intro": "In formal reported speech (news, reports), German uses the **Konjunktiv I** to show that someone else said it: \"Er sagt, er __sei__ krank.\" It signals distance from the claim.",
         "tips": [
@@ -10709,6 +10808,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B2.1",
       "help": {
         "intro": "Defend a position and respond to counter-arguments — a core B2 speaking skill. Listen and repeat these discourse phrases.",
         "tips": [
@@ -10764,6 +10864,7 @@
       "promptLabel": "Einleitewort",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "help": {
         "intro": "Reported questions become subordinate clauses (verb to the end). W-questions keep their W-word; yes/no questions use **ob** (whether).",
         "tips": [
@@ -10870,6 +10971,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "help": {
         "intro": "A modal + passive expresses what can/must be done: **Modal + Partizip II + werden** (infinitive). \"Das __kann gemacht werden__.\"",
         "tips": [
@@ -10975,6 +11077,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.1",
       "help": {
         "intro": "A debate — you only hear it. Keep the two sides apart: Befürworter (supporters) vs Gegner (opponents). Note the Konjunktiv I (werde, seien). Replay as needed.",
         "tips": [
@@ -11051,6 +11154,7 @@
       "promptLabel": "Präposition",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb",
+      "level": "B2.1",
       "help": {
         "intro": "Many verbs take a fixed preposition you must learn together: warten **auf**, sich freuen **auf/über**, denken **an**, sich interessieren **für**. For things, use da-/wo-compounds (darauf, worauf).",
         "tips": [
@@ -11157,6 +11261,7 @@
       "promptLabel": "Partizip",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "help": {
         "intro": "Participles can work as adjectives (with endings). **Partizip I** (-end) is active/ongoing: \"das __spielende__ Kind\". **Partizip II** is passive/finished: \"das __gekochte__ Ei\".",
         "tips": [
@@ -11263,6 +11368,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.1",
       "help": {
         "intro": "An argumentative text with reported speech (verschwimme, sei, arbeite) and a \"nicht …, sondern …\" conclusion. Typical B2 reading.",
         "tips": [
@@ -11339,6 +11445,7 @@
       "promptLabel": "Konnektor",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "help": {
         "intro": "Adverbial connectors link sentences and take **position 1 + verb second**: trotzdem (nevertheless), deshalb/folglich (therefore), außerdem (moreover).",
         "tips": [
@@ -11445,6 +11552,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B2.1",
       "help": {
         "intro": "A dictation with argumentative language and the modal passive. You HEAR a sentence and TYPE it. Listen for connectors and \"werden\" at the end of passive phrases.",
         "tips": [
@@ -11500,6 +11608,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.1",
       "help": {
         "intro": "The perfect passive uses **sein + Partizip II + worden** (note: worden, not geworden, in the passive): \"Das Haus __ist gebaut worden__.\"",
         "tips": [
@@ -11606,6 +11715,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.1",
       "help": {
         "intro": "A news bulletin — you only hear it. Reported speech (werde, sei) marks official claims. Track who supports and who warns. Replay as needed.",
         "tips": [
@@ -11683,6 +11793,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B2.1",
       "help": {
         "intro": "Structure a short argument: introduce, give examples, conclude. Listen and repeat these signposting phrases.",
         "tips": [
@@ -11738,6 +11849,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.1",
       "help": {
         "intro": "A formal reader’s letter — a B2 text type. It uses the perfect passive (ist gebaut worden), um…zu, and a polite demand (Ich fordere … auf).",
         "tips": [
@@ -11814,6 +11926,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Umwelt",
       "subjectColumnLabel": "English",
+      "level": "B2.2",
       "help": {
         "intro": "Science and environment vocabulary for nuanced B2 discussion.",
         "tips": [
@@ -11925,6 +12038,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "help": {
         "intro": "To talk about an unreal **past** (something that didn’t happen), use **hätte/wäre + Partizip II**: \"Ich __hätte__ das nie __gesagt__.\" Expresses regret and \"would have\".",
         "tips": [
@@ -12031,6 +12145,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "help": {
         "intro": "Unreal conditionals describe what would happen/have happened if things were different: \"Wenn ich Zeit __hätte__, __würde__ ich kommen.\" Present and past forms — a strong bridge to English \"if I had …\".",
         "tips": [
@@ -12136,6 +12251,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B2.2",
       "help": {
         "intro": "Speculate and express regret with the Konjunktiv II. Listen and repeat.",
         "tips": [
@@ -12191,6 +12307,7 @@
       "promptLabel": "Präposition",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "help": {
         "intro": "A set of prepositions takes the **genitive** in formal German: trotz (despite), während (during), wegen (because of), aufgrund (due to), innerhalb (within).",
         "tips": [
@@ -12296,6 +12413,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.2",
       "help": {
         "intro": "A short lecture — you only hear it. Listen for the numbers and the unreal conditional at the end (Hätten wir …, würden wir …). Replay as needed.",
         "tips": [
@@ -12373,6 +12491,7 @@
       "promptLabel": "Partizip",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "help": {
         "intro": "Formal/written German compresses a relative clause into an extended participle before the noun: \"das __von mir gelesene__ Buch\" = the book read by me. The participle sits right before the noun, with its modifiers in front.",
         "tips": [
@@ -12478,6 +12597,7 @@
       "promptLabel": "Partikel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "help": {
         "intro": "Modal particles (doch, ja, mal, eben, halt) add tone and attitude — they are tiny but make German sound natural. They have no direct English equivalent.",
         "tips": [
@@ -12583,6 +12703,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.2",
       "help": {
         "intro": "An argumentative text using reported speech (könne) and a past unreal conditional (Hätten alle … gesenkt, wäre …). Typical demanding B2 reading.",
         "tips": [
@@ -12659,6 +12780,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "help": {
         "intro": "Funktionsverbgefüge are fixed noun + verb collocations common in formal/written German: \"eine Entscheidung __treffen__\", \"in Betracht __ziehen__\". Learn them as units.",
         "tips": [
@@ -12764,6 +12886,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B2.2",
       "help": {
         "intro": "A dictation with unreal conditionals and genitive prepositions. You HEAR a sentence and TYPE it. Listen for hätte/wäre and trotz/wegen + genitive.",
         "tips": [
@@ -12819,6 +12942,7 @@
       "promptLabel": "Konnektor",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "B2.2",
       "help": {
         "intro": "Concessive clauses express \"although/even though\". **obwohl** + verb at the end (subordinate); **trotzdem** + verb second (adverb).",
         "tips": [
@@ -12925,6 +13049,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.2",
       "help": {
         "intro": "An expert interview — you only hear it. Listen for the advice, the nuance about sweets (nicht völlig) and the cause at the end. Replay as needed.",
         "tips": [
@@ -13001,6 +13126,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "B2.2",
       "help": {
         "intro": "Concede a point and then disagree — the heart of nuanced B2 discussion. Listen and repeat.",
         "tips": [
@@ -13056,6 +13182,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "B2.2",
       "help": {
         "intro": "A book review — a B2 text type with evaluation and concession (Zwar …, doch …) and a participial attribute (die ruhig erzählten Kapitel).",
         "tips": [
@@ -13132,6 +13259,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Wissenschaft",
       "subjectColumnLabel": "English",
+      "level": "C1.1",
       "help": {
         "intro": "Academic vocabulary for the abstract, nominal style of C1 texts.",
         "tips": [
@@ -13243,6 +13371,7 @@
       "promptLabel": "Nomen",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb → Nomen",
+      "level": "C1.1",
       "help": {
         "intro": "Academic German turns verbs and clauses into nouns. Recognise and form the noun from the verb: ankommen → die Ankunft, entscheiden → die Entscheidung.",
         "tips": [
@@ -13348,6 +13477,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C1.1",
       "help": {
         "intro": "Present a topic clearly and academically. Listen and repeat these structuring phrases for a C1 presentation.",
         "tips": [
@@ -13403,6 +13533,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Nomen → Verb",
+      "level": "C1.1",
       "help": {
         "intro": "The reverse skill: unpack a dense noun phrase into a clearer verbal clause. \"Nach der Prüfung der Daten …\" → \"Nachdem man die Daten geprüft hat …\".",
         "tips": [
@@ -13508,6 +13639,7 @@
       "promptLabel": "Form",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.1",
       "help": {
         "intro": "C1 German often replaces the passive with **sein + zu + Infinitiv** (must/can be done) or **sich lassen + Infinitiv** (can be done). Both sound more elegant than \"kann/muss … werden\".",
         "tips": [
@@ -13614,6 +13746,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.1",
       "help": {
         "intro": "An academic lecture — you only hear it. Listen for the central question, the old assumption (Konjunktiv I: sei) and the speaker’s caveat. Replay as needed.",
         "tips": [
@@ -13691,6 +13824,7 @@
       "promptLabel": "Adjektiv",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Verb → Adjektiv",
+      "level": "C1.1",
       "help": {
         "intro": "Another passive alternative: the suffix **-bar** (and sometimes **-lich**) turns a verb into \"able to be …\": lösen → lösbar (solvable).",
         "tips": [
@@ -13797,6 +13931,7 @@
       "promptLabel": "Konnektor",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.1",
       "help": {
         "intro": "Sophisticated connectors give precise logical relations: **sofern** (provided that), **insofern** (in that respect), **zumal** (especially since), **indem** (by …-ing).",
         "tips": [
@@ -13903,6 +14038,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.1",
       "help": {
         "intro": "A popular-science article with passive alternatives (eingesetzt werden kann) and nominal style. C1-level density.",
         "tips": [
@@ -13979,6 +14115,7 @@
       "promptLabel": "Partizip",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.1",
       "help": {
         "intro": "A participial clause shortens a subordinate clause to a participle phrase: \"In Berlin __angekommen__, suchte er ein Hotel\" = Having arrived in Berlin, he looked for a hotel.",
         "tips": [
@@ -14085,6 +14222,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C1.1",
       "help": {
         "intro": "A dictation in academic register. You HEAR a sentence and TYPE it. Listen for nominal phrases, passive alternatives (lässt sich, ist zu) and precise connectors.",
         "tips": [
@@ -14140,6 +14278,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C1.1",
       "help": {
         "intro": "Describe and interpret a chart — a frequent C1 exam task. Listen and repeat these phrases for trends and figures.",
         "tips": [
@@ -14195,6 +14334,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.1",
       "help": {
         "intro": "A panel discussion — you only hear it. Track the two positions and their common ground, in reported speech (könnten, leide, garantiere). Replay as needed.",
         "tips": [
@@ -14272,6 +14412,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.1",
       "help": {
         "intro": "An essay extract — abstract and reflective, with passive alternatives (zu vermeiden gilt) and a Konjunktiv II suggestion (wäre … klug). A demanding C1 read.",
         "tips": [
@@ -14348,6 +14489,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Kultur",
       "subjectColumnLabel": "English",
+      "level": "C1.2",
       "help": {
         "intro": "Elevated vocabulary for culture and media commentary.",
         "tips": [
@@ -14459,6 +14601,7 @@
       "promptLabel": "Modalverb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Sicherheit",
+      "level": "C1.2",
       "help": {
         "intro": "Modal verbs can express the speaker’s **degree of certainty** about a fact, not ability or obligation: muss (almost certain) > dürfte > könnte/kann (possible) > mag.",
         "tips": [
@@ -14564,6 +14707,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C1.2",
       "help": {
         "intro": "Hedge and soften your statements — a mark of nuanced C1 speech. Listen and repeat.",
         "tips": [
@@ -14619,6 +14763,7 @@
       "promptLabel": "Modalverb",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Quelle",
+      "level": "C1.2",
       "help": {
         "intro": "Two modals report claims: **sollen** = \"is said to\" (others claim); **wollen** = \"claims to\" (the subject claims it of themselves).",
         "tips": [
@@ -14724,6 +14869,7 @@
       "promptLabel": "Vorsilbe",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.2",
       "help": {
         "intro": "Prefixes change a verb’s meaning systematically: **ver-** (away/wrong/completion), **zer-** (to pieces), **ent-** (removal/escape), **be-** (makes a verb transitive).",
         "tips": [
@@ -14829,6 +14975,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.2",
       "help": {
         "intro": "A reportage — you only hear it. Lots of reported speech (seien, habe, stärke). Track the benefit and the problem. Replay as needed.",
         "tips": [
@@ -14905,6 +15052,7 @@
       "promptLabel": "Nachsilbe",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bildung",
+      "level": "C1.2",
       "help": {
         "intro": "Suffixes derive new words and signal gender: **-heit/-keit** and **-ung** make feminine abstract nouns; **-los** (without), **-voll** (full of) make adjectives.",
         "tips": [
@@ -15011,6 +15159,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Redewendungen",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C1.2",
       "help": {
         "intro": "Idioms make speech vivid but can’t be translated word for word. Learn the fixed wording. (E20: false-friend idioms abound.)",
         "tips": [
@@ -15116,6 +15265,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.2",
       "help": {
         "intro": "A newspaper column — personal, ironic in places (\"Eben.\"), with a rhetorical question opening. A nuanced C1 read.",
         "tips": [
@@ -15192,6 +15342,7 @@
       "promptLabel": "Verweismittel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Funktion",
+      "level": "C1.2",
       "help": {
         "intro": "Cohesive devices tie a text together: pronominal adverbs (dadurch, dabei, dafür) and reference words (dies, jener, ein solcher) point back to what was said.",
         "tips": [
@@ -15298,6 +15449,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C1.2",
       "help": {
         "intro": "A dictation with idioms and subjective modals. You HEAR a sentence and TYPE it. Listen for the fixed idiom wording and modal verbs of certainty.",
         "tips": [
@@ -15353,6 +15505,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C1.2",
       "help": {
         "intro": "Tone and stress change meaning. Listen and repeat, copying the intonation — irony lives in the melody.",
         "tips": [
@@ -15408,6 +15561,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.2",
       "help": {
         "intro": "A radio-play scene — you only hear it. Atmosphere and tone matter. Follow the time, the reason and the resolution. Replay as needed.",
         "tips": [
@@ -15484,6 +15638,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C1.2",
       "help": {
         "intro": "A literary extract — mood, ambiguity and an aphoristic ending. Read for atmosphere and implication, not just facts. A demanding C1 text.",
         "tips": [
@@ -15560,6 +15715,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Fachwortschatz",
       "subjectColumnLabel": "English",
+      "level": "C2.1",
       "help": {
         "intro": "Specialist vocabulary from economics and law — the register of broadsheet journalism and GDS texts.",
         "tips": [
@@ -15672,6 +15828,7 @@
       "promptLabel": "Register",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Umgangssprache → formell",
+      "level": "C2.1",
       "help": {
         "intro": "A C2 speaker chooses the right register. Replace a colloquial word with its formal equivalent: kriegen → erhalten, kaputt → defekt, Kumpel → Bekannter.",
         "tips": [
@@ -15777,6 +15934,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C2.1",
       "help": {
         "intro": "Deliver a formal speech with rhetorical flair. Listen and repeat, paying attention to rhythm and emphasis.",
         "tips": [
@@ -15832,6 +15990,7 @@
       "promptLabel": "Verb",
       "subjectsLabel": "Kollokationen",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C2.1",
       "help": {
         "intro": "Native fluency depends on collocations — words that conventionally go together. You \"treffen eine Entscheidung\", not \"machen\". (E20: collocations rarely match English.)",
         "tips": [
@@ -15938,6 +16097,7 @@
       "promptLabel": "Stilmittel",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Beispiel",
+      "level": "C2.1",
       "help": {
         "intro": "Recognise rhetorical devices: the **Metapher** (image), the **rhetorische Frage**, the **Ironie**, the **Übertreibung** (hyperbole). They shape meaning beyond the literal.",
         "tips": [
@@ -16043,6 +16203,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.1",
       "help": {
         "intro": "A literary radio feature — you only hear it. The language is poetic (personification: die Metropole hält den Atem an). Listen for image and mood. Replay as needed.",
         "tips": [
@@ -16120,6 +16281,7 @@
       "promptLabel": "Konjunktiv I",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C2.1",
       "help": {
         "intro": "Quality journalism uses the Konjunktiv I consistently for reported speech across whole paragraphs, marking everything as someone else’s claim. Master the less common forms (habe, sei, werde, gehe, könne).",
         "tips": [
@@ -16225,6 +16387,7 @@
       "promptLabel": "Konnotation",
       "subjectsLabel": "Wortpaare",
       "subjectColumnLabel": "Bewertung",
+      "level": "C2.1",
       "help": {
         "intro": "Near-synonyms carry different connotations. \"sparsam\" (thrifty, positive) vs \"geizig\" (stingy, negative) describe the same behaviour with opposite judgement. C2 means choosing the loaded word deliberately.",
         "tips": [
@@ -16330,6 +16493,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.1",
       "help": {
         "intro": "A demanding op-ed with long periodic sentences, reported speech (entdeckten, sei es), and an aphoristic conclusion. GDS-level reading.",
         "tips": [
@@ -16406,6 +16570,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Sprichwörter",
       "subjectColumnLabel": "Bedeutung",
+      "level": "C2.1",
       "help": {
         "intro": "Proverbs condense cultural wisdom into fixed sayings. A C2 speaker recognises and deploys them. Complete the missing word.",
         "tips": [
@@ -16511,6 +16676,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C2.1",
       "help": {
         "intro": "A dictation in elevated, formal German. You HEAR a sentence and TYPE it. Listen for collocations, Konjunktiv I and precise vocabulary.",
         "tips": [
@@ -16566,6 +16732,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C2.1",
       "help": {
         "intro": "Chair a discussion and react spontaneously — fluent, flexible C2 speech. Listen and repeat these moderation phrases.",
         "tips": [
@@ -16621,6 +16788,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.1",
       "help": {
         "intro": "A satirical cabaret piece — you only hear it. The humour is in the irony and the exaggeration. Listen for the contradiction the artist exposes. Replay as needed.",
         "tips": [
@@ -16698,6 +16866,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.1",
       "help": {
         "intro": "A literary short story — restrained, melancholic, with reported speech (er habe) and an ambiguous, empathetic ending. GDS-level interpretation.",
         "tips": [
@@ -16774,6 +16943,7 @@
       "promptLabel": "Wort",
       "subjectsLabel": "Abstrakt",
       "subjectColumnLabel": "English",
+      "level": "C2.2",
       "help": {
         "intro": "The most abstract register of the course — the vocabulary of essays and philosophical debate.",
         "tips": [
@@ -16885,6 +17055,7 @@
       "promptLabel": "Position",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Effekt",
+      "level": "C2.2",
       "help": {
         "intro": "At C2, word order is a stylistic tool. Fronting an element (Vorfeld) emphasises it; particles like \"selbst\", \"gerade\", \"ausgerechnet\" focus attention precisely.",
         "tips": [
@@ -16991,6 +17162,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C2.2",
       "help": {
         "intro": "Hold your own in a heated but civil debate — interrupt, rebut and reframe. Listen and repeat these high-level discussion gambits.",
         "tips": [
@@ -17046,6 +17218,7 @@
       "promptLabel": "Bedeutung",
       "subjectsLabel": "Äußerungen",
       "subjectColumnLabel": "gemeint ist",
+      "level": "C2.2",
       "help": {
         "intro": "Mastery means hearing what is *meant*, not just said. Indirect requests, understatement and allusion all imply more than the words. Choose what the speaker really means.",
         "tips": [
@@ -17151,6 +17324,7 @@
       "promptLabel": "Synonym",
       "subjectsLabel": "Ausdrücke",
       "subjectColumnLabel": "Variante",
+      "level": "C2.2",
       "help": {
         "intro": "A master speaker varies expression to avoid repetition and to fit the register. Reformulate \"weil\" as \"da/aufgrund der Tatsache, dass\", \"wichtig\" as \"von Bedeutung\".",
         "tips": [
@@ -17256,6 +17430,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.2",
       "help": {
         "intro": "A dense academic lecture at natural pace — you only hear it. Abstract and full of reported, hedged claims (werde, könne, wäre). This is the listening ceiling. Replay as needed.",
         "tips": [
@@ -17332,6 +17507,7 @@
       "promptLabel": "Lesart",
       "subjectsLabel": "Beispiele",
       "subjectColumnLabel": "Doppelsinn",
+      "level": "C2.2",
       "help": {
         "intro": "Wordplay exploits double meanings (Doppeldeutigkeit) and homonyms. Appreciating it is the last step to native-like command — headlines, jokes and ads rely on it.",
         "tips": [
@@ -17437,6 +17613,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.2",
       "help": {
         "intro": "A philosophical essay — abstract, paradoxical, with an aphoristic thesis. The reading ceiling of the course. Read for argument and nuance.",
         "tips": [
@@ -17513,6 +17690,7 @@
       "promptLabel": "Wendung",
       "subjectsLabel": "Wendungen",
       "subjectColumnLabel": "Funktion",
+      "level": "C2.2",
       "help": {
         "intro": "Academic German has its own formulae for hedging, referencing and concluding. Mastering them lets you read and write like a specialist.",
         "tips": [
@@ -17618,6 +17796,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.2",
       "help": {
         "intro": "An author’s reading — you only hear it. Dense, metaphorical prose (the suitcase as a symbol). Listen for image and implication, not just facts. Replay as needed.",
         "tips": [
@@ -17695,6 +17874,7 @@
       "promptLabel": "Satz",
       "subjectsLabel": "Sätze",
       "subjectColumnLabel": "Deutsch",
+      "level": "C2.2",
       "help": {
         "intro": "Present a literary or argumentative analysis aloud — precise, structured, evaluative. Listen and repeat these analytical phrases.",
         "tips": [
@@ -17750,6 +17930,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.2",
       "help": {
         "intro": "The capstone listening: a multi-speaker panel at natural pace, with overlap of viewpoints and a subtle moderator’s point. Track three voices and the conditional that frames the debate. Replay as needed.",
         "tips": [
@@ -17826,6 +18007,7 @@
       "promptLabel": "Frage",
       "subjectsLabel": "Fragen",
       "subjectColumnLabel": "Frage",
+      "level": "C2.2",
       "help": {
         "intro": "The capstone reading: a literary miniature whose meaning lies entirely in its symbol and its closing aphorism. Interpret the gesture, weigh the final sentence. This is the C2 ceiling of the course — and its finale.",
         "tips": [

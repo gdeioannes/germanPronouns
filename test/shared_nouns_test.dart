@@ -7,6 +7,7 @@ import 'package:german_pronouns_articles/data/content/course_content_provider.da
 import 'package:german_pronouns_articles/data/content/noun_collection.dart';
 import 'package:german_pronouns_articles/data/noun_article_content.dart';
 import 'package:german_pronouns_articles/data/noun_database.dart';
+import 'package:german_pronouns_articles/data/noun_progression_data.dart';
 
 import 'support/content_projection.dart';
 
@@ -25,6 +26,8 @@ void main() {
     // plural + custom sentence (see enrichedGermanNouns), not the bare list.
     final source = NounCollection(
       categoryDisplayNames: nounCategoryDisplayNames,
+      progressionOrder: nounCategoryOrder,
+      allNounsLabel: nounProgressionEntries.last.displayName,
       nouns: enrichedGermanNouns,
     );
     expect(lf(encode(loaded)), lf(encode(source)));
