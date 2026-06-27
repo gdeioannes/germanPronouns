@@ -122,6 +122,15 @@ class ContentRepository {
   /// used on a version change and by the back office's "Reset to published
   /// content" action.
   ///
+  /// This also drops any teacher-edited course-bundle overrides (the `_bundles`
+  /// store). Those overrides are consulted *before* the shipped
+  /// `assets/content/courses/<id>.json` (see [CachingCourseProvider.populated]),
+  /// so a stale override would otherwise keep hiding updated shipped content
+  /// after an app update — the new content would only appear after the user
+  /// cleared app data (which is what wipes `_bundles`). Clearing them on a
+  /// version change lets the fresh asset bundles win. Learner progress lives in
+  /// SharedPreferences, a separate store, so it is untouched.
+  ///
   /// The wipe and the re-seed run in a *single* transaction, so an interrupted
   /// or failed re-seed rolls back as a whole rather than leaving the database
   /// half-empty (which previously could blank out all content on web).
@@ -133,6 +142,7 @@ class ContentRepository {
     await db.transaction((txn) async {
       await _quizzes.delete(txn);
       await _sentences.delete(txn);
+      await _bundles.delete(txn);
       await _writeContentsInto(txn, contents, version);
       if (courses != null) {
         await _meta.record('courses').put(txn, {

@@ -160,5 +160,22 @@ void main() {
       await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
       expect((await repo.listQuizzes()).length, allQuizContent.length);
     });
+
+    test('a version bump drops stale teacher-edited bundle overrides', () async {
+      final repo = ContentRepository(await openDb());
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
+      // A teacher edit saved as a course-bundle override on the device.
+      await repo.writeBundle('en_de', {'id': 'en_de', 'stale': true});
+      expect(await repo.readBundle('en_de'), isNotNull);
+
+      // Same version → override survives (an in-progress local edit).
+      await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
+      expect(await repo.readBundle('en_de'), isNotNull);
+
+      // Newer published version → the override is cleared so the freshly
+      // shipped asset bundle wins on the next load.
+      await repo.seedOrUpgrade(allQuizContent, version: '1.1.0');
+      expect(await repo.readBundle('en_de'), isNull);
+    });
   });
 }

@@ -564,6 +564,237 @@ final List<ShopItem> _themed = [
   _t('arcadetower', 'Arcade Tower', const Color(0xFF8E68C8), 6000, scale: 1.1),
 ];
 
+/// Wave 2 — a broad expansion: bigger statement plants/lighting, more beds and
+/// windows, a wall of famous-art homages, a water-rich bathroom, cuter pets, a
+/// new Food collection, and more. Same distinct-shape-over-recolour rule.
+final List<ShopItem> _themed2 = [
+  // ── Beds ────────────────────────────────────────────────────────────────
+  _t('crib', 'Crib', const Color(0xFFE6C7A6), 90, scale: 0.8),
+  _t('kidsbed', 'Kids Bed', const Color(0xFF6FB0D8), 120, scale: 0.9),
+  _t('bunkbed', 'Bunk Bed', const Color(0xFF8D6E63), 320, scale: 1.1),
+  _t('canopybed', 'Canopy Bed', const Color(0xFF7E5A86), 1500, scale: 1.2),
+  // ── Lighting (premium, larger scale) ────────────────────────────────────
+  _t('paperlantern', 'Paper Lantern', const Color(0xFFF2D9A0), 70, scale: 0.8, onWall: true),
+  _t('lavalamp', 'Lava Lamp', const Color(0xFFE2574C), 150, scale: 0.7),
+  _t('arclamp', 'Arc Floor Lamp', const Color(0xFF566066), 280, scale: 1.2),
+  _t('neonhalo', 'Neon Halo', const Color(0xFFE86BA8), 600, scale: 0.9, onWall: true),
+  _t('chandelier', 'Crystal Chandelier', const Color(0xFFE6CF8A), 2200, scale: 1.0, onWall: true),
+  // ── Plants (big statement greenery) ─────────────────────────────────────
+  _t('snakeplant', 'Snake Plant', const Color(0xFF3F8F5A), 130, scale: 1.1),
+  _t('monstera', 'Monstera', const Color(0xFF4F9F5A), 260, scale: 1.3),
+  _t('bigcactus', 'Giant Cactus', const Color(0xFF4F8F4A), 420, scale: 1.4),
+  _t('figtree', 'Fiddle-Leaf Fig', const Color(0xFF3F8F5A), 700, scale: 1.5),
+  _t('bonsai', 'Bonsai Tree', const Color(0xFF5BA85A), 900, scale: 0.85),
+  _t('citrustree', 'Lemon Tree', const Color(0xFF6BA86B), 1300, scale: 1.45),
+  // ── Windows ─────────────────────────────────────────────────────────────
+  _t('shutterwindow', 'Shuttered Window', const Color(0xFFD8C7A6), 160, scale: 0.9, onWall: true),
+  _t('skylight', 'Skylight', const Color(0xFFBFE0F0), 380, scale: 1.0, onWall: true),
+  _t('baywindow', 'Bay Window', const Color(0xFF9CC0D8), 520, scale: 1.1, onWall: true),
+  _t('stainedglass', 'Stained Glass', const Color(0xFF8E68C8), 1200, scale: 0.95, onWall: true),
+  // ── Décor — stylized famous-art homages ─────────────────────────────────
+  _t('artmondrian', 'Grid in Primaries', const Color(0xFFE6E2DA), 500, scale: 0.68, onWall: true),
+  _t('artgothic', 'Country Couple', const Color(0xFF8A7A5A), 600, scale: 0.70, onWall: true),
+  _t('artsunflowers', 'Sunflowers', const Color(0xFFE0A82E), 700, scale: 0.72, onWall: true),
+  _t('artscream', 'The Cry', const Color(0xFFE0862E), 800, scale: 0.70, onWall: true),
+  _t('artlilies', 'Water Lilies', const Color(0xFF6BA88E), 850, scale: 0.74, onWall: true),
+  _t('artswirl', 'Starry Swirl', const Color(0xFF2E4A8E), 1000, scale: 0.75, onWall: true),
+  _t('artwave', 'The Great Wave', const Color(0xFF2E6E9E), 1100, scale: 0.78, onWall: true),
+  _t('artpearl', 'Girl with a Pearl', const Color(0xFF2A2A4A), 1600, scale: 0.70, onWall: true),
+  // ── Bathroom (water & steam) ────────────────────────────────────────────
+  _t('towelwarmer', 'Towel Warmer', const Color(0xFFB7C0C7), 250, scale: 0.9),
+  _t('bubbletub', 'Bubble Bath', const Color(0xFF7FC0D8), 420, scale: 1.05),
+  _t('rainshower', 'Rainfall Shower', const Color(0xFFB7C0C7), 700, scale: 1.2),
+  _t('clawtub', 'Clawfoot Tub', const Color(0xFFECECEC), 950, scale: 1.1),
+  _t('walkinshower', 'Walk-in Shower', const Color(0xFF9CC0C8), 1100, scale: 1.2),
+  _t('doublevanity', 'Double Vanity', const Color(0xFFC8A06B), 1300, scale: 1.1),
+  _t('designertub', 'Designer Tub', const Color(0xFF3B4D7A), 2000, scale: 1.15),
+  _t('steamsauna', 'Steam Sauna', const Color(0xFFB07A4A), 6000, scale: 1.3),
+  // ── Accessories ─────────────────────────────────────────────────────────
+  _t('windchime', 'Wind Chime', const Color(0xFFC0A86A), 70, scale: 0.85, onWall: true),
+  _t('hourglass', 'Hourglass', const Color(0xFFD9A86A), 90, scale: 0.5),
+  _t('snowglobe', 'Snow Globe', const Color(0xFFBFE0F0), 110, scale: 0.5),
+  _t('blocktower', 'Block Tower', const Color(0xFFD9A86A), 130, scale: 0.6),
+  _t('terrarium', 'Terrarium', const Color(0xFF6BA86B), 180, scale: 0.6),
+  _t('recordplayer', 'Record Player', const Color(0xFF6D4C41), 360, scale: 0.7),
+  // ── Pets (cute, minimal idle motion) ────────────────────────────────────
+  _t('hamster', 'Hamster', const Color(0xFFE0A86A), 80, scale: 0.42),
+  _t('duck', 'Duck', const Color(0xFFF4C430), 90, scale: 0.45),
+  _t('bunny', 'Bunny', const Color(0xFFE9E3DA), 120, scale: 0.5),
+  _t('turtle', 'Turtle', const Color(0xFF4F8F4A), 140, scale: 0.5),
+  _t('puppy', 'Puppy', const Color(0xFFE0C7A6), 160, scale: 0.55),
+  _t('dog', 'Dog', const Color(0xFFC8975A), 220, scale: 0.7),
+  _t('parrot', 'Parrot', const Color(0xFF5BA85A), 260, scale: 0.55),
+  _t('fishtank', 'Fish Tank', const Color(0xFF4F9DAE), 340, scale: 0.9),
+  // ── Garden (recognizable flowers) ───────────────────────────────────────
+  _t('daisies', 'Daisies', const Color(0xFFF2F2F2), 55, scale: 0.55),
+  _t('tulips', 'Tulips', const Color(0xFFE2574C), 60, scale: 0.6),
+  _t('lavender', 'Lavender', const Color(0xFF8E68C8), 110, scale: 0.6),
+  _t('roses', 'Rose Bush', const Color(0xFFD9748F), 150, scale: 0.7),
+  // ── Spa ─────────────────────────────────────────────────────────────────
+  _t('hotstones', 'Hot Stones', const Color(0xFF5A5048), 130, scale: 0.5),
+  _t('coldplunge', 'Cold Plunge', const Color(0xFF4F9DAE), 800, scale: 0.95),
+  _t('saunacabin', 'Sauna Cabin', const Color(0xFFB07A4A), 2200, scale: 1.3),
+  // ── Gourmet Kitchen ─────────────────────────────────────────────────────
+  _t('waffleiron', 'Waffle Iron', const Color(0xFFB7C0C7), 160, scale: 0.55),
+  _t('airfryer', 'Air Fryer', const Color(0xFF3A3A3A), 280, scale: 0.6),
+  _t('mixerpro', 'Pro Stand Mixer', const Color(0xFFE2574C), 500, scale: 0.65),
+  // ── Food (new collection) ───────────────────────────────────────────────
+  _t('coffeecup', 'Coffee To-Go', const Color(0xFFB07A4A), 30, scale: 0.45),
+  _t('donut', 'Donut', const Color(0xFFE7A9C3), 35, scale: 0.45),
+  _t('croissant', 'Croissant', const Color(0xFFD9A86A), 40, scale: 0.45),
+  _t('cupcake', 'Cupcake', const Color(0xFFE86BA8), 45, scale: 0.45),
+  _t('taco', 'Taco', const Color(0xFFE0A82E), 55, scale: 0.5),
+  _t('icecream', 'Ice Cream', const Color(0xFFF4C7D0), 60, scale: 0.5),
+  _t('burger', 'Burger', const Color(0xFFD9A86A), 75, scale: 0.5),
+  _t('pizza', 'Pizza', const Color(0xFFE0A82E), 95, scale: 0.6),
+  _t('cake', 'Layer Cake', const Color(0xFFE7A9C3), 120, scale: 0.6),
+  _t('ramen', 'Ramen Bowl', const Color(0xFFC0584F), 140, scale: 0.6),
+  _t('sushi', 'Sushi Set', const Color(0xFFECE6DA), 160, scale: 0.58),
+  _t('fruitbasket', 'Fruit Basket', const Color(0xFF6BA86B), 280, scale: 0.7),
+  // ── Art Studio ──────────────────────────────────────────────────────────
+  _t('spraycans', 'Spray Cans', const Color(0xFFE2574C), 110, scale: 0.5),
+  _t('sculptstand', 'Sculpting Stand', const Color(0xFF9E8B6A), 520, scale: 0.85),
+  _t('screenpress', 'Screen Press', const Color(0xFF566066), 660, scale: 0.85),
+  // ── Game Room ───────────────────────────────────────────────────────────
+  _t('handheld', 'Retro Handheld', const Color(0xFF8AA37B), 90, scale: 0.5),
+  _t('gachapon', 'Capsule Machine', const Color(0xFFE2574C), 380, scale: 0.85),
+  _t('modconsole', 'Modern Console', const Color(0xFF2A2A2A), 700, scale: 0.7),
+  // ── Floors & Walls (surfaces) ───────────────────────────────────────────
+  _t('floorhex', 'Hex Tile', const Color(0xFFC8A06B), 85),
+  _t('floorazulejo', 'Azulejo Tile', const Color(0xFF4A8FE0), 95),
+  _t('floorherringbone', 'Herringbone Floor', const Color(0xFF8D6E63), 110),
+  _t('wallgeo', 'Geometric Wallpaper', const Color(0xFFE0A82E), 85),
+  _t('walldamask', 'Damask Wallpaper', const Color(0xFF7E5A86), 90),
+  _t('wallbotanical', 'Botanical Wallpaper', const Color(0xFF5BA85A), 95),
+];
+
+/// Wave 3 — deepening the Food and Décor (famous-art) collections toward ~50
+/// each, plus more animated Accessories.
+final List<ShopItem> _themed3 = [
+  // ── Food ────────────────────────────────────────────────────────────────
+  _t('lollipop', 'Lollipop', const Color(0xFFE2574C), 25, scale: 0.4),
+  _t('friedegg', 'Fried Egg', const Color(0xFFF4E0A0), 30, scale: 0.45),
+  _t('strawberry', 'Strawberry', const Color(0xFFD9534F), 30, scale: 0.4),
+  _t('cookie', 'Cookie', const Color(0xFFC8975A), 30, scale: 0.42),
+  _t('bagel', 'Bagel', const Color(0xFFD9A86A), 35, scale: 0.45),
+  _t('avocado', 'Avocado', const Color(0xFF6BA84A), 35, scale: 0.45),
+  _t('chocolatebar', 'Chocolate Bar', const Color(0xFF6B3A20), 40, scale: 0.45),
+  _t('fries', 'Fries', const Color(0xFFF4C430), 40, scale: 0.45),
+  _t('grapes', 'Grapes', const Color(0xFF8E68C8), 40, scale: 0.45),
+  _t('muffin', 'Muffin', const Color(0xFFC97FA0), 40, scale: 0.45),
+  _t('hotdog', 'Hot Dog', const Color(0xFFD9A86A), 45, scale: 0.5),
+  _t('watermelon', 'Watermelon', const Color(0xFF4F9F5A), 45, scale: 0.5),
+  _t('cinnamonroll', 'Cinnamon Roll', const Color(0xFFD9A86A), 50, scale: 0.45),
+  _t('popcorn', 'Popcorn', const Color(0xFFE2574C), 50, scale: 0.5),
+  _t('pretzel', 'Pretzel', const Color(0xFFB07A4A), 50, scale: 0.5),
+  _t('milkshake', 'Milkshake', const Color(0xFFF4C7D0), 55, scale: 0.5),
+  _t('sandwich', 'Sandwich', const Color(0xFFE8C56A), 55, scale: 0.5),
+  _t('salad', 'Salad Bowl', const Color(0xFF6BA86B), 60, scale: 0.55),
+  _t('bobatea', 'Boba Tea', const Color(0xFFC8975A), 60, scale: 0.5),
+  _t('pancakes', 'Pancakes', const Color(0xFFD9A86A), 70, scale: 0.5),
+  _t('cocktail', 'Cocktail', const Color(0xFFE86BA8), 80, scale: 0.5),
+  _t('dumplings', 'Dumplings', const Color(0xFFECE6DA), 90, scale: 0.55),
+  _t('macarons', 'Macarons', const Color(0xFFBFE0D0), 90, scale: 0.5),
+  _t('pie', 'Pie', const Color(0xFFE0A82E), 100, scale: 0.55),
+  _t('spaghetti', 'Spaghetti', const Color(0xFFE0A82E), 110, scale: 0.6),
+  _t('steak', 'Steak', const Color(0xFF8B4A3A), 130, scale: 0.55),
+  _t('winebottle', 'Wine & Glass', const Color(0xFF7A2E3A), 160, scale: 0.6),
+  _t('cheeseboard', 'Cheese Board', const Color(0xFFE0C060), 180, scale: 0.65),
+  // ── Décor — more famous-art homages ──────────────────────────────────────
+  _t('artpipe', 'This Is Not a Pipe', const Color(0xFFE6E0CE), 500, scale: 0.68, onWall: true),
+  _t('artrothko', 'Colour Field', const Color(0xFFC0584F), 500, scale: 0.70, onWall: true),
+  _t('artbird', 'Blue Bird', const Color(0xFF4A8FE0), 500, scale: 0.66, onWall: true),
+  _t('artharing', 'Dancing Figures', const Color(0xFFF4C430), 550, scale: 0.70, onWall: true),
+  _t('artcomic', 'Comic Panel', const Color(0xFF4A8FE0), 600, scale: 0.70, onWall: true),
+  _t('artkandinsky', 'Circles & Lines', const Color(0xFF3B4D7A), 600, scale: 0.70, onWall: true),
+  _t('artwhistler', "Painter's Mother", const Color(0xFF3A3A3A), 600, scale: 0.70, onWall: true),
+  _t('artpop', 'Soup Can', const Color(0xFFE2574C), 620, scale: 0.66, onWall: true),
+  _t('artbasquiat', 'Crown', const Color(0xFF1A1A1A), 650, scale: 0.70, onWall: true),
+  _t('artapple', 'Son of an Apple', const Color(0xFF3A5A4A), 700, scale: 0.70, onWall: true),
+  _t('artballoon', 'Balloon Girl', const Color(0xFFD9D4C8), 700, scale: 0.70, onWall: true),
+  _t('artpollock', 'Splatter No. 1', const Color(0xFFE6E2DA), 700, scale: 0.72, onWall: true),
+  _t('artnighthawks', 'Late Diner', const Color(0xFF2E5A6A), 800, scale: 0.74, onWall: true),
+  _t('artpointillism', 'Sunday Dots', const Color(0xFF6BA88E), 800, scale: 0.74, onWall: true),
+  _t('artsunrise', 'Harbour Sunrise', const Color(0xFF4A6E8E), 850, scale: 0.74, onWall: true),
+  _t('artcafe', 'Café at Night', const Color(0xFF2E4A7A), 900, scale: 0.74, onWall: true),
+  _t('artmelt', 'Melting Time', const Color(0xFFC9A86A), 950, scale: 0.74, onWall: true),
+  _t('artnightwatch', 'Night Patrol', const Color(0xFF3A2E1A), 1100, scale: 0.78, onWall: true),
+  _t('artvenus', 'Birth of Venus', const Color(0xFF7FA8B0), 1200, scale: 0.78, onWall: true),
+  _t('artkiss', 'The Golden Kiss', const Color(0xFFD7A93A), 1300, scale: 0.74, onWall: true),
+  _t('artmona', 'Mystic Smile', const Color(0xFF3A4A2A), 1400, scale: 0.72, onWall: true),
+  _t('artarnolfini', 'The Betrothal', const Color(0xFF5A3A4A), 1450, scale: 0.74, onWall: true),
+  _t('artbosch', 'Garden of Delights', const Color(0xFF6BA88E), 1500, scale: 0.80, onWall: true),
+  _t('artcreation', 'Spark of Life', const Color(0xFFC9B89A), 1600, scale: 0.80, onWall: true),
+  // ── Accessories (animated) ────────────────────────────────────────────────
+  _t('pinwheel', 'Pinwheel', const Color(0xFFE2574C), 40, scale: 0.5),
+  _t('pennant', 'Pennant Flag', const Color(0xFFE2574C), 50, scale: 0.8, onWall: true),
+  _t('puzzlecube', 'Puzzle Cube', const Color(0xFFF4C430), 70, scale: 0.45),
+  _t('incense', 'Incense Burner', const Color(0xFFB07A4A), 70, scale: 0.5),
+  _t('dreamcatcher', 'Dream Catcher', const Color(0xFFC0A86A), 80, scale: 0.75, onWall: true),
+  _t('kaleidoscope', 'Kaleidoscope', const Color(0xFF8E68C8), 90, scale: 0.5),
+  _t('magicball', 'Fortune Ball', const Color(0xFF2A2A3A), 90, scale: 0.5),
+  _t('abacus', 'Abacus', const Color(0xFFB07A4A), 110, scale: 0.6),
+  _t('fairylights', 'Fairy Lights', const Color(0xFFF2D98A), 120, scale: 0.9, onWall: true),
+  _t('crystalcluster', 'Crystal Cluster', const Color(0xFF9C8AD0), 150, scale: 0.5),
+  _t('newtoncradle', "Newton's Cradle", const Color(0xFFB7C0C7), 180, scale: 0.55),
+  _t('musicbox', 'Music Box', const Color(0xFF8D6E63), 200, scale: 0.55),
+  _t('chessset', 'Chess Set', const Color(0xFF6D4C41), 220, scale: 0.6),
+  _t('fortunecat', 'Lucky Cat', const Color(0xFFF2F2F2), 260, scale: 0.55),
+];
+
+/// Wave 4 — completing the Food (~50) and Décor famous-art (~50) collections,
+/// plus deeper Pets / Garden / Spa / Gourmet-Kitchen passes.
+final List<ShopItem> _themed4 = [
+  // ── Food ────────────────────────────────────────────────────────────────
+  _t('gummybears', 'Gummy Bears', const Color(0xFFE2574C), 30, scale: 0.45),
+  _t('baguette', 'Baguette', const Color(0xFFD9A86A), 35, scale: 0.5),
+  _t('candyapple', 'Candy Apple', const Color(0xFFD9534F), 40, scale: 0.45),
+  _t('gingerbread', 'Gingerbread Man', const Color(0xFFB07A4A), 40, scale: 0.45),
+  _t('churros', 'Churros', const Color(0xFFD9A86A), 50, scale: 0.5),
+  _t('waffle', 'Waffle', const Color(0xFFD9A86A), 55, scale: 0.45),
+  _t('soup', 'Soup Bowl', const Color(0xFFE0A040), 60, scale: 0.55),
+  _t('friedchicken', 'Fried Chicken', const Color(0xFFD9A050), 80, scale: 0.5),
+  _t('breakfastplate', 'Breakfast', const Color(0xFFE6E2DA), 110, scale: 0.6),
+  _t('bento', 'Bento Box', const Color(0xFFC0584F), 160, scale: 0.6),
+  // ── Décor — more famous-art homages (wall) ────────────────────────────────
+  _t('artcave', 'Cave Painting', const Color(0xFFC8975A), 500, scale: 0.72, onWall: true),
+  _t('artegypt', 'Nile Profile', const Color(0xFFE0C060), 550, scale: 0.70, onWall: true),
+  _t('artredroom', 'The Red Room', const Color(0xFFC0392B), 650, scale: 0.72, onWall: true),
+  _t('artrain', 'Paris in the Rain', const Color(0xFF8A8F94), 700, scale: 0.74, onWall: true),
+  _t('artflag', 'Stars & Stripes', const Color(0xFF3B4D7A), 700, scale: 0.70, onWall: true),
+  _t('artgrid', 'Pop Grid', const Color(0xFFE86BA8), 720, scale: 0.70, onWall: true),
+  _t('artmiro', 'Constellation', const Color(0xFFEDE7DA), 720, scale: 0.70, onWall: true),
+  _t('artdance', 'The Dance', const Color(0xFFC0584F), 760, scale: 0.72, onWall: true),
+  _t('artbar', 'The Bar', const Color(0xFF6B4A2A), 800, scale: 0.74, onWall: true),
+  _t('artjungle', 'Jungle Dream', const Color(0xFF3F8F5A), 820, scale: 0.74, onWall: true),
+  _t('artvanitas', 'Vanitas', const Color(0xFF2A2A2A), 850, scale: 0.70, onWall: true),
+  _t('artgeisha', 'Floating World', const Color(0xFFE6E2DA), 920, scale: 0.72, onWall: true),
+  _t('artweeping', 'Weeping Woman', const Color(0xFF8AA37B), 950, scale: 0.70, onWall: true),
+  _t('artselfvan', 'The Painter', const Color(0xFF2E6E6A), 1000, scale: 0.70, onWall: true),
+  _t('artguernica', 'War Mural', const Color(0xFF8A8A82), 1100, scale: 0.78, onWall: true),
+  _t('artkahlo', 'Self-Portrait', const Color(0xFF6BA86B), 1200, scale: 0.70, onWall: true),
+  _t('artklimttree', 'Tree of Life', const Color(0xFFD7A93A), 1300, scale: 0.76, onWall: true),
+  _t('artballoondog', 'Balloon Dog', const Color(0xFFE2574C), 1500, scale: 0.74, onWall: true),
+  // ── Pets ────────────────────────────────────────────────────────────────
+  _t('snail', 'Snail', const Color(0xFFD9A86A), 60, scale: 0.45),
+  _t('mouse', 'Mouse', const Color(0xFFB7B0A3), 70, scale: 0.4),
+  _t('chick', 'Chick', const Color(0xFFF4C430), 80, scale: 0.4),
+  _t('frog', 'Frog', const Color(0xFF6BA84A), 90, scale: 0.45),
+  _t('kitten', 'Kitten', const Color(0xFFC8975A), 120, scale: 0.5),
+  // ── Garden ────────────────────────────────────────────────────────────────
+  _t('birdfeeder', 'Bird Feeder', const Color(0xFFB07A4A), 130, scale: 0.7),
+  _t('sunlounger', 'Sun Lounger', const Color(0xFFE0C060), 240, scale: 0.9),
+  _t('gardenswing', 'Garden Swing', const Color(0xFF8D6E63), 520, scale: 1.0),
+  // ── Spa ─────────────────────────────────────────────────────────────────
+  _t('eyemask', 'Eye Mask', const Color(0xFF8E68C8), 50, scale: 0.45),
+  _t('poolfloat', 'Pool Float', const Color(0xFFF4C430), 90, scale: 0.7),
+  _t('bathrobe', 'Bathrobe', const Color(0xFFE6E2DA), 110, scale: 0.7),
+  // ── Gourmet Kitchen ───────────────────────────────────────────────────────
+  _t('juicer', 'Juicer', const Color(0xFFE0A82E), 180, scale: 0.55),
+  _t('toasteroven', 'Toaster Oven', const Color(0xFFB7C0C7), 220, scale: 0.65),
+  _t('breadmaker', 'Bread Maker', const Color(0xFF566066), 300, scale: 0.7),
+];
+
 /// The full catalogue — starter pieces, every colourway, plus the themed
 /// collections — sorted cheapest first so the shop grid and the earn-as-you-go
 /// reveal both open in price order.
@@ -571,6 +802,9 @@ final List<ShopItem> shopCatalog = [
   ..._starter,
   ..._more,
   ..._themed,
+  ..._themed2,
+  ..._themed3,
+  ..._themed4,
 ]..sort((a, b) => a.price.compareTo(b.price));
 
 /// Lookup by [ShopItem.id], so the room can find an owned piece's metadata (its
@@ -603,6 +837,7 @@ const List<String> shopCategories = [
   'Garden',
   'Spa',
   'Gourmet Kitchen',
+  'Food',
   'Art Studio',
   'Game Room',
 ];
@@ -694,6 +929,103 @@ const Map<String, String> _categoryByGlyph = {
   'pooltable': 'Game Room', 'foosball': 'Game Room', 'jukebox': 'Game Room',
   'racingsim': 'Game Room', 'clawmachine': 'Game Room',
   'arcadetower': 'Game Room',
+  // ── Wave 2 additions ──────────────────────────────────────────────────────
+  // Beds.
+  'kidsbed': 'Beds', 'bunkbed': 'Beds', 'canopybed': 'Beds', 'crib': 'Beds',
+  // Lighting.
+  'chandelier': 'Lighting', 'arclamp': 'Lighting', 'paperlantern': 'Lighting',
+  'lavalamp': 'Lighting', 'neonhalo': 'Lighting',
+  // Plants.
+  'bigcactus': 'Plants', 'figtree': 'Plants', 'monstera': 'Plants',
+  'bonsai': 'Plants', 'citrustree': 'Plants', 'snakeplant': 'Plants',
+  // Windows.
+  'baywindow': 'Windows', 'stainedglass': 'Windows', 'skylight': 'Windows',
+  'shutterwindow': 'Windows',
+  // Décor — stylized homages of famous artworks.
+  'artswirl': 'Décor', 'artscream': 'Décor', 'artpearl': 'Décor',
+  'artsunflowers': 'Décor', 'artgothic': 'Décor', 'artmondrian': 'Décor',
+  'artwave': 'Décor', 'artlilies': 'Décor',
+  // Bathroom.
+  'rainshower': 'Bathroom', 'walkinshower': 'Bathroom', 'clawtub': 'Bathroom',
+  'designertub': 'Bathroom', 'doublevanity': 'Bathroom', 'steamsauna': 'Bathroom',
+  'towelwarmer': 'Bathroom', 'bubbletub': 'Bathroom',
+  // Accessories.
+  'hourglass': 'Accessories', 'terrarium': 'Accessories',
+  'recordplayer': 'Accessories', 'snowglobe': 'Accessories',
+  'windchime': 'Accessories', 'blocktower': 'Accessories',
+  // Pets.
+  'dog': 'Pets', 'puppy': 'Pets', 'bunny': 'Pets', 'hamster': 'Pets',
+  'parrot': 'Pets', 'turtle': 'Pets', 'fishtank': 'Pets', 'duck': 'Pets',
+  // Garden.
+  'tulips': 'Garden', 'roses': 'Garden', 'daisies': 'Garden',
+  'lavender': 'Garden',
+  // Spa.
+  'saunacabin': 'Spa', 'coldplunge': 'Spa', 'hotstones': 'Spa',
+  // Gourmet Kitchen.
+  'mixerpro': 'Gourmet Kitchen', 'airfryer': 'Gourmet Kitchen',
+  'waffleiron': 'Gourmet Kitchen',
+  // Food.
+  'cake': 'Food', 'cupcake': 'Food', 'pizza': 'Food', 'burger': 'Food',
+  'sushi': 'Food', 'icecream': 'Food', 'donut': 'Food', 'coffeecup': 'Food',
+  'croissant': 'Food', 'taco': 'Food', 'ramen': 'Food', 'fruitbasket': 'Food',
+  // Art Studio.
+  'screenpress': 'Art Studio', 'sculptstand': 'Art Studio',
+  'spraycans': 'Art Studio',
+  // Game Room.
+  'handheld': 'Game Room', 'modconsole': 'Game Room', 'gachapon': 'Game Room',
+  // Floors & Walls (surfaces — no furniture name needed).
+  'floorazulejo': 'Floors', 'floorhex': 'Floors', 'floorherringbone': 'Floors',
+  'walldamask': 'Walls', 'wallbotanical': 'Walls', 'wallgeo': 'Walls',
+  // ── Wave 3 ────────────────────────────────────────────────────────────────
+  // Food.
+  'hotdog': 'Food', 'fries': 'Food', 'pretzel': 'Food', 'bagel': 'Food',
+  'sandwich': 'Food', 'salad': 'Food', 'steak': 'Food', 'friedegg': 'Food',
+  'pancakes': 'Food', 'dumplings': 'Food', 'spaghetti': 'Food',
+  'winebottle': 'Food', 'cocktail': 'Food', 'milkshake': 'Food',
+  'bobatea': 'Food', 'macarons': 'Food', 'pie': 'Food', 'lollipop': 'Food',
+  'chocolatebar': 'Food', 'popcorn': 'Food', 'watermelon': 'Food',
+  'grapes': 'Food', 'strawberry': 'Food', 'avocado': 'Food',
+  'cheeseboard': 'Food', 'cookie': 'Food', 'muffin': 'Food',
+  'cinnamonroll': 'Food',
+  // Décor — more famous-art homages.
+  'artmona': 'Décor', 'artmelt': 'Décor', 'artvenus': 'Décor',
+  'artkiss': 'Décor', 'artnighthawks': 'Décor', 'artrothko': 'Décor',
+  'artpollock': 'Décor', 'artpop': 'Décor', 'artcomic': 'Décor',
+  'artpointillism': 'Décor', 'artapple': 'Décor', 'artpipe': 'Décor',
+  'artcreation': 'Décor', 'artharing': 'Décor', 'artbasquiat': 'Décor',
+  'artcafe': 'Décor', 'artsunrise': 'Décor', 'artballoon': 'Décor',
+  'artkandinsky': 'Décor', 'artwhistler': 'Décor', 'artnightwatch': 'Décor',
+  'artbird': 'Décor', 'artbosch': 'Décor', 'artarnolfini': 'Décor',
+  // Accessories.
+  'chessset': 'Accessories', 'puzzlecube': 'Accessories',
+  'newtoncradle': 'Accessories', 'kaleidoscope': 'Accessories',
+  'fortunecat': 'Accessories', 'dreamcatcher': 'Accessories',
+  'pinwheel': 'Accessories', 'incense': 'Accessories',
+  'crystalcluster': 'Accessories', 'musicbox': 'Accessories',
+  'abacus': 'Accessories', 'magicball': 'Accessories',
+  'pennant': 'Accessories', 'fairylights': 'Accessories',
+  // ── Wave 4 ────────────────────────────────────────────────────────────────
+  // Food.
+  'waffle': 'Food', 'bento': 'Food', 'churros': 'Food', 'gingerbread': 'Food',
+  'friedchicken': 'Food', 'baguette': 'Food', 'soup': 'Food',
+  'breakfastplate': 'Food', 'gummybears': 'Food', 'candyapple': 'Food',
+  // Décor — more famous-art homages.
+  'artweeping': 'Décor', 'artguernica': 'Décor', 'artjungle': 'Décor',
+  'artbar': 'Décor', 'artrain': 'Décor', 'artdance': 'Décor',
+  'artredroom': 'Décor', 'artkahlo': 'Décor', 'artcave': 'Décor',
+  'artegypt': 'Décor', 'artgeisha': 'Décor', 'artselfvan': 'Décor',
+  'artklimttree': 'Décor', 'artflag': 'Décor', 'artballoondog': 'Décor',
+  'artgrid': 'Décor', 'artvanitas': 'Décor', 'artmiro': 'Décor',
+  // Pets.
+  'kitten': 'Pets', 'frog': 'Pets', 'mouse': 'Pets', 'chick': 'Pets',
+  'snail': 'Pets',
+  // Garden.
+  'sunlounger': 'Garden', 'birdfeeder': 'Garden', 'gardenswing': 'Garden',
+  // Spa.
+  'poolfloat': 'Spa', 'eyemask': 'Spa', 'bathrobe': 'Spa',
+  // Gourmet Kitchen.
+  'toasteroven': 'Gourmet Kitchen', 'juicer': 'Gourmet Kitchen',
+  'breadmaker': 'Gourmet Kitchen',
 };
 
 /// The category for [glyph] (falls back to "Accessories" for anything new).

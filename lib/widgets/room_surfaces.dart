@@ -7,6 +7,8 @@
 /// none is owned.
 library;
 
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../data/shop_catalog.dart';
@@ -67,6 +69,94 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
         }
       }
       p.style = PaintingStyle.fill;
+    case 'wallgeo':
+      {
+        final c1 = _shade(base, 0.08);
+        final c2 = _shade(base, -0.08);
+        const cols = 7;
+        final w = rect.width / cols;
+        p.style = PaintingStyle.fill;
+        var row = 0;
+        for (var y = rect.top; y < rect.bottom; y += w) {
+          for (var i = 0; i < cols; i++) {
+            final x = rect.left + i * w;
+            p.color = (i + row).isEven ? c1 : c2;
+            final path = Path()
+              ..moveTo(x, y + w)
+              ..lineTo(x + w / 2, y)
+              ..lineTo(x + w, y + w)
+              ..close();
+            canvas.drawPath(path, p);
+          }
+          row++;
+        }
+      }
+    case 'walldamask':
+      {
+        const cols = 4;
+        final cell = rect.width / cols;
+        p
+          ..style = PaintingStyle.fill
+          ..color = _shade(base, 0.10);
+        var row = 0;
+        for (var y = rect.top; y < rect.bottom; y += cell) {
+          final xoff = row.isEven ? 0.0 : cell / 2;
+          for (var x = rect.left - cell; x < rect.right + cell; x += cell) {
+            final cx = x + xoff + cell / 2;
+            final cy = y + cell / 2;
+            final r = cell * 0.22;
+            for (var k = 0; k < 4; k++) {
+              final a = k * math.pi / 2;
+              canvas.drawOval(
+                  Rect.fromCenter(
+                      center: Offset(cx + r * math.cos(a), cy + r * math.sin(a)),
+                      width: r * 0.9, height: r * 1.5),
+                  p);
+            }
+            canvas.drawCircle(Offset(cx, cy), r * 0.4, p);
+          }
+          row++;
+        }
+      }
+    case 'wallbotanical':
+      {
+        const cols = 4;
+        final cell = rect.width / cols;
+        final leaf = _shade(base, 0.10);
+        final stem = _shade(base, -0.06);
+        var row = 0;
+        for (var y = rect.top; y < rect.bottom; y += cell) {
+          final xoff = row.isEven ? 0.0 : cell / 2;
+          for (var x = rect.left - cell; x < rect.right + cell; x += cell) {
+            final cx = x + xoff + cell / 2;
+            final cy = y + cell / 2;
+            p
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = rect.width * 0.004
+              ..color = stem;
+            canvas.drawLine(
+                Offset(cx, cy - cell * 0.3), Offset(cx, cy + cell * 0.3), p);
+            p
+              ..style = PaintingStyle.fill
+              ..color = leaf;
+            for (var k = 0; k < 3; k++) {
+              final ly = cy - cell * 0.2 + k * cell * 0.2;
+              canvas.drawOval(
+                  Rect.fromCenter(
+                      center: Offset(cx - cell * 0.12, ly),
+                      width: cell * 0.2, height: cell * 0.1),
+                  p);
+              canvas.drawOval(
+                  Rect.fromCenter(
+                      center: Offset(cx + cell * 0.12, ly),
+                      width: cell * 0.2, height: cell * 0.1),
+                  p);
+            }
+          }
+          row++;
+        }
+        p.style = PaintingStyle.fill;
+      }
     default: // 'wallsolid' / null — just the wash.
       break;
   }
@@ -126,6 +216,83 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color) {
         canvas.drawPath(path, p);
       }
       p.style = PaintingStyle.fill;
+    case 'floorhex':
+      {
+        final dark = _shade(base, -0.07);
+        final light = _shade(base, 0.07);
+        final s = rect.width / 7;
+        p.style = PaintingStyle.fill;
+        var row = 0;
+        for (var y = rect.top - s; y < rect.bottom + s; y += s * 0.86) {
+          final xoff = row.isEven ? 0.0 : s * 0.75;
+          var col = 0;
+          for (var x = rect.left - s; x < rect.right + s; x += s * 1.5) {
+            final cx = x + xoff;
+            p.color = ((row + col) % 3 == 0) ? light : dark;
+            final path = Path();
+            for (var k = 0; k < 6; k++) {
+              final a = k * math.pi / 3;
+              final px = cx + s * 0.5 * math.cos(a);
+              final py = y + s * 0.5 * math.sin(a);
+              k == 0 ? path.moveTo(px, py) : path.lineTo(px, py);
+            }
+            canvas.drawPath(path..close(), p);
+            col++;
+          }
+          row++;
+        }
+      }
+    case 'floorazulejo':
+      {
+        const cols = 5;
+        final cell = rect.width / cols;
+        p.style = PaintingStyle.fill;
+        for (var y = rect.top; y < rect.bottom; y += cell) {
+          for (var x = rect.left; x < rect.right; x += cell) {
+            p.color = const Color(0xFFEDF2F7);
+            canvas.drawRect(Rect.fromLTWH(x, y, cell + 0.5, cell + 0.5), p);
+            p.color = base;
+            final cx = x + cell / 2;
+            final cy = y + cell / 2;
+            final r = cell * 0.18;
+            for (var k = 0; k < 4; k++) {
+              final a = k * math.pi / 2;
+              canvas.drawCircle(
+                  Offset(cx + r * math.cos(a), cy + r * math.sin(a)),
+                  r * 0.7, p);
+            }
+            final path = Path()
+              ..moveTo(cx, cy - r)
+              ..lineTo(cx + r, cy)
+              ..lineTo(cx, cy + r)
+              ..lineTo(cx - r, cy)
+              ..close();
+            canvas.drawPath(path, p);
+          }
+        }
+      }
+    case 'floorherringbone':
+      {
+        final dark = _shade(base, -0.08);
+        final light = _shade(base, 0.06);
+        final pw = rect.width / 6;
+        p.style = PaintingStyle.fill;
+        for (var y = rect.top; y < rect.bottom; y += pw * 0.5) {
+          var col = 0;
+          for (var x = rect.left; x < rect.right; x += pw * 0.5) {
+            p.color = col.isEven ? dark : light;
+            canvas.save();
+            canvas.translate(x + pw * 0.25, y + pw * 0.25);
+            canvas.rotate(col.isEven ? math.pi / 4 : -math.pi / 4);
+            canvas.drawRect(
+                Rect.fromCenter(
+                    center: Offset.zero, width: pw * 0.5, height: pw * 0.18),
+                p);
+            canvas.restore();
+            col++;
+          }
+        }
+      }
     default: // 'floorwood' / null — planks.
       wash(_shade(base, 0.07), _shade(base, -0.05));
       p

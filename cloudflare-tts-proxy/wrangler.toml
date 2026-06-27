@@ -5,13 +5,14 @@ compatibility_date = "2024-11-01"
 # Non-secret config only. Secrets (the API keys) are set with `wrangler secret
 # put ...` and live in Cloudflare, NOT in this file. See README.md.
 [vars]
-# Comma-separated list of origins allowed to call the proxy. Locked to the
-# GitHub Pages site. The browser's Origin header is the domain only — NO path,
-# NO trailing slash — so even though the app lives at /germanPronouns/, this is
-# exactly "https://gdeioannes.github.io". Add more (e.g. a custom domain, or
-# http://localhost:PORT for local testing) comma-separated.
-# ALLOWED_ORIGINS = "https://gdeioannes.github.io,http://localhost:8080"
-ALLOWED_ORIGINS = "https://gdeioannes.github.io,http://localhost:8080"
+# Comma-separated list of origins allowed to call the proxy. The browser's
+# Origin header is the scheme+domain only — NO path, NO trailing slash. The
+# production site is served from the custom domain languagequiz.org (see the
+# CNAME the deploy workflow injects), so that origin (and its www. host) MUST be
+# listed or the browser CORS-blocks the proxy and the app falls back to the
+# robotic on-device voice. gdeioannes.github.io is the old Pages origin (kept so
+# that URL still works); localhost is for local testing.
+ALLOWED_ORIGINS = "https://languagequiz.org,https://www.languagequiz.org,https://gdeioannes.github.io,http://localhost:8080"
 
 # Azure resource region (not secret). The Azure KEY is a secret (see README).
 AZURE_TTS_REGION = "germanywestcentral"

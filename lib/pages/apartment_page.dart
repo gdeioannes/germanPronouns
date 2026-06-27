@@ -692,7 +692,7 @@ class _RoomCanvasState extends State<_RoomCanvas>
     if (fx.beam) {
       return _LightSpec(
         beam: true,
-        at: c + Offset(0, fx.apexDy * s),
+        at: c + Offset(fx.apexDx * s, fx.apexDy * s),
         color: fx.color,
         intensity: fx.intensity,
         glow: fx.glow,
@@ -1256,6 +1256,7 @@ class _LightFx {
     this.length = 2.4,
     this.spread = 1,
     this.apexHalf = 0.16,
+    this.apexDx = 0,
     this.apexDy = 0,
     this.soft = 0.06,
     this.flicker = false,
@@ -1265,12 +1266,18 @@ class _LightFx {
   final double glow;
   final double w;
   final double h;
+
+  /// Vertical offset of the light from the piece centre, as a fraction of the
+  /// piece size.
   final double dy;
   final Alignment focal;
   final bool beam;
   final double length;
   final double spread;
   final double apexHalf;
+
+  /// Horizontal/vertical offset of a beam's cone apex from the piece centre.
+  final double apexDx;
   final double apexDy;
 
   /// Whether this is a live flame whose cast light should waver (candles,
@@ -1312,6 +1319,61 @@ const Map<String, _LightFx> _lightFx = {
   'aquarium': _LightFx(
       color: Color(0xFF7FE0FF), intensity: 0.4, glow: 0.18,
       w: 1.3, h: 1.0),
+  'fishtank': _LightFx(
+      color: Color(0xFF7FE0FF), intensity: 0.36, glow: 0.16,
+      w: 1.2, h: 1.0),
+  // ── Lighting category — every lamp earns its keep after dark ──────────────
+  // The chandelier is the hero ceiling light: a big, soft, warm pool.
+  'chandelier': _LightFx(
+      color: Color(0xFFFFE0A0), intensity: 0.5, glow: 0.26,
+      w: 2.3, h: 1.7, dy: 0.12),
+  // Its shade sits to the right of the drawing where the arc reaches over, so
+  // the cone casts from there (apexDx), softened so the edges feather out.
+  'arclamp': _LightFx(
+      color: Color(0xFFFFD98A), intensity: 0.42, glow: 0.22, beam: true,
+      length: 1.5, spread: 0.78, apexHalf: 0.13,
+      apexDx: 0.24, apexDy: 0.02, soft: 0.11),
+  'paperlantern': _LightFx(
+      color: Color(0xFFFFE0B0), intensity: 0.4, glow: 0.24,
+      w: 1.5, h: 1.5),
+  'lavalamp': _LightFx(
+      color: Color(0xFFFF7A5C), intensity: 0.34, glow: 0.26,
+      w: 1.1, h: 1.5, flicker: true),
+  'neonhalo': _LightFx(
+      color: Color(0xFFFF8AD0), intensity: 0.38, glow: 0.30,
+      w: 1.7, h: 1.7),
+  // ── Glowing décor / electronics across the catalogue ──────────────────────
+  'fairylights': _LightFx(
+      color: Color(0xFFFFE0A0), intensity: 0.36, glow: 0.26,
+      w: 2.3, h: 1.1, dy: 0.18, flicker: true),
+  'neonsign': _LightFx(
+      color: Color(0xFFFF7AC8), intensity: 0.38, glow: 0.28,
+      w: 1.9, h: 1.3, dy: 0.08),
+  'spacandles': _LightFx(
+      color: Color(0xFFFFC97A), intensity: 0.34, glow: 0.22,
+      w: 1.0, h: 0.8, dy: -0.18, flicker: true),
+  'jukebox': _LightFx(
+      color: Color(0xFFFFC07A), intensity: 0.38, glow: 0.24,
+      w: 1.4, h: 1.5, dy: -0.08),
+  'arcadetower': _LightFx(
+      color: Color(0xFFB89AFF), intensity: 0.38, glow: 0.22,
+      w: 1.3, h: 1.4, focal: Alignment(0, -0.2)),
+  'computer': _LightFx(
+      color: Color(0xFF9AD0FF), intensity: 0.36, glow: 0.18,
+      w: 1.2, h: 1.0),
+  'laptop': _LightFx(
+      color: Color(0xFF9AD0FF), intensity: 0.34, glow: 0.18,
+      w: 1.1, h: 0.9),
+  'pinball': _LightFx(
+      color: Color(0xFFFFB0C0), intensity: 0.34, glow: 0.22,
+      w: 1.2, h: 1.3, dy: -0.1),
+  // Wood-fired / heated pieces throw a warm, wavering ember glow.
+  'pizzaoven': _LightFx(
+      color: Color(0xFFFF9A52), intensity: 0.48, glow: 0.28,
+      w: 1.5, h: 1.2, dy: 0.0, focal: Alignment(0, 0.2), flicker: true),
+  'kiln': _LightFx(
+      color: Color(0xFFFF9A52), intensity: 0.4, glow: 0.24,
+      w: 1.2, h: 1.1, dy: 0.1, flicker: true),
 };
 
 /// A resolved light to paint, in pixels. For a [beam], [at] is the cone apex,
