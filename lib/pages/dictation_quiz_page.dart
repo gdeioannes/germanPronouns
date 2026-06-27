@@ -11,6 +11,7 @@ import '../utils/speech_match.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
 import '../widgets/quiz_scaffold.dart';
+import '../widgets/speak_icon_button.dart';
 import '../widgets/voice_status_chip.dart';
 
 /// One sentence to dictate: the German [sentence] read aloud (and the target the
@@ -253,7 +254,14 @@ class _DictationQuizPageState extends State<DictationQuizPage>
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 620),
             child: ListView(
-              padding: const EdgeInsets.all(16),
+              // Pad past the keyboard so the answer field can scroll above it
+              // (QuizScaffold no longer reserves keyboard space).
+              padding: EdgeInsets.fromLTRB(
+                16,
+                16,
+                16,
+                16 + MediaQuery.viewInsetsOf(context).bottom,
+              ),
               children: [
                 const SizedBox(height: 8),
                 if (_items.isEmpty)
@@ -448,11 +456,24 @@ class _DictationQuizPageState extends State<DictationQuizPage>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                _item.sentence,
-                style: theme.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Text(
+                      _item.sentence,
+                      style: theme.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  // Replay just this sentence in the target language.
+                  SpeakIconButton(
+                    text: _item.sentence,
+                    gender: _item.gender,
+                    size: 20,
+                  ),
+                ],
               ),
               if (_item.meaning.isNotEmpty) ...[
                 const SizedBox(height: 4),

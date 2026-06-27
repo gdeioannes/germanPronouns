@@ -11,6 +11,7 @@ import '../widgets/multiple_choice_questions.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
 import '../widgets/quiz_scaffold.dart';
+import '../widgets/speak_icon_button.dart';
 import '../widgets/voice_status_chip.dart';
 
 /// A listening-comprehension quiz ([QuizKind.listening]) — the audio twin of
@@ -253,6 +254,8 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
               Expanded(
                 child: Text(title ?? CourseSession.instance.strings.help),
               ),
+              // Replay the script aloud in the target language.
+              SpeakIconButton(text: _passage, size: 20),
             ],
           ),
           content: SingleChildScrollView(
@@ -384,7 +387,7 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
                 child: TextButton.icon(
                   onPressed: () => _showScript(context),
                   icon: const Icon(Icons.subject_rounded, size: 18),
-                  label: const Text('Show text'),
+                  label: Text(CourseSession.instance.strings.showScript),
                 ),
               ),
             ],
@@ -442,7 +445,7 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Listen to the audio, then answer the questions.',
+                  CourseSession.instance.strings.listeningInstruction,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.labelSmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
@@ -542,7 +545,7 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
           TextButton.icon(
             onPressed: () => _showScript(context),
             icon: const Icon(Icons.subject_rounded, size: 18),
-            label: const Text('Text'),
+            label: Text(CourseSession.instance.strings.scriptLabel),
           ),
           ..._buildAudioBarControls(context),
         ],
@@ -560,7 +563,7 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
         FilledButton.tonalIcon(
           onPressed: _playPassage,
           icon: const Icon(Icons.replay_rounded),
-          label: const Text('Replay'),
+          label: Text(strings.replay),
         ),
       ];
     }

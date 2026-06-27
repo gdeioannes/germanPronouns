@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import 'help_memory.dart';
+import 'speak_icon_button.dart';
 
 /// The Help Memory reference table for one [HelpMemoryTable]: a header row of
 /// the table's columns, then one row per subject with values read from the
@@ -265,6 +266,9 @@ class NounReferenceList extends StatelessWidget {
       final hasPlural = plural != null && plural.isNotEmpty && plural != '—';
       final meaning =
           (english != null && i < english.length) ? english[i] : null;
+      // The noun with its article, e.g. "die Uhr" — read aloud by the speaker.
+      final spoken =
+          '${article != null ? '$article ' : ''}${config.subjectDisplays[i]}';
 
       return Container(
         width: double.infinity,
@@ -275,7 +279,10 @@ class NounReferenceList extends StatelessWidget {
               : colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
           border: Border(bottom: BorderSide(color: colorScheme.outlineVariant)),
         ),
-        child: Column(
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text.rich(
@@ -317,6 +324,10 @@ class NounReferenceList extends StatelessWidget {
                   ),
                 ),
               ),
+                ],
+              ),
+            ),
+            SpeakIconButton(text: spoken, size: 18),
           ],
         ),
       );

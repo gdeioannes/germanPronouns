@@ -79,11 +79,15 @@ const AZURE_VOICES = {
   de: { female: 'de-DE-KatjaNeural', male: 'de-DE-ConradNeural' },
   es: { female: 'es-ES-ElviraNeural', male: 'es-ES-AlvaroNeural' },
   en: { female: 'en-US-JennyNeural', male: 'en-US-GuyNeural' },
+  cs: { female: 'cs-CZ-VlastaNeural', male: 'cs-CZ-AntoninNeural' },
+  fr: { female: 'fr-FR-DeniseNeural', male: 'fr-FR-HenriNeural' },
 };
 const GOOGLE_VOICES = {
   de: { female: 'de-DE-Neural2-C', male: 'de-DE-Neural2-B' },
   es: { female: 'es-ES-Neural2-A', male: 'es-ES-Neural2-B' },
   en: { female: 'en-US-Neural2-C', male: 'en-US-Neural2-D' },
+  cs: { female: 'cs-CZ-Wavenet-A', male: 'cs-CZ-Wavenet-B' },
+  fr: { female: 'fr-FR-Neural2-A', male: 'fr-FR-Neural2-B' },
 };
 
 const langOf = (locale) => (locale.split('-')[0] || 'de').toLowerCase();

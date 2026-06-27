@@ -984,9 +984,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
     final colorScheme = Theme.of(context).colorScheme;
     final muted = colorScheme.onSurfaceVariant;
 
+    final strings = CourseSession.instance.strings;
+
     if (quiz.locked) {
       return Text(
-        quiz.lockedHint ?? 'Locked — keep going to unlock',
+        quiz.lockedHint ?? strings.lockedHint,
         style: textTheme.labelSmall?.copyWith(color: muted),
       );
     }
@@ -998,7 +1000,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
           Icon(Icons.headphones_rounded, size: 14, color: muted),
           const SizedBox(width: 4),
           Text(
-            'Listen & repeat',
+            strings.listenAndRepeat,
             style: textTheme.labelSmall?.copyWith(color: muted),
           ),
         ],
@@ -1012,7 +1014,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
           Icon(Icons.menu_book_rounded, size: 14, color: muted),
           const SizedBox(width: 4),
           Text(
-            'Read & answer',
+            strings.readAndAnswer,
             style: textTheme.labelSmall?.copyWith(color: muted),
           ),
         ],
@@ -1026,7 +1028,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
           Icon(quizKindIcon(QuizKind.listening), size: 14, color: muted),
           const SizedBox(width: 4),
           Text(
-            'Listen & answer',
+            strings.listenAndAnswer,
             style: textTheme.labelSmall?.copyWith(color: muted),
           ),
         ],
@@ -1040,7 +1042,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
           Icon(quizKindIcon(QuizKind.dictation), size: 14, color: muted),
           const SizedBox(width: 4),
           Text(
-            'Listen & write',
+            strings.listenAndWrite,
             style: textTheme.labelSmall?.copyWith(color: muted),
           ),
         ],

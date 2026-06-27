@@ -545,8 +545,22 @@ class _RoomCanvasState extends State<_RoomCanvas>
     duration: const Duration(seconds: 6),
   );
 
-  /// The current lift in pixels, eased by [_lift] (0 while not dragging).
-  double get _liftPx => _liftTarget * Curves.easeOut.transform(_lift.value);
+  /// The lift in pixels for a finger at [fingerY] in a room [height] tall, eased
+  /// in by [_lift] (0 while not dragging). The lift floats the piece above the
+  /// finger so the finger never hides it — but the finger can't reach below the
+  /// room's bottom edge, so it scales with how high the finger is: full near the
+  /// top, smoothly down to 0 at the floor. That way moving the piece down only
+  /// ever shrinks the gap (never grows it), and a piece can still be placed flush
+  /// against the bottom. [half] is the piece's half-size (its centre ranges over
+  /// [half] .. [height] - [half]).
+  double _liftAt(double fingerY, double half, double height) {
+    final full = _liftTarget * Curves.easeOut.transform(_lift.value);
+    if (full == 0) return 0;
+    final travel = height - 2 * half; // the finger's vertical range
+    if (travel <= 0) return 0;
+    final fromBottom = ((height - half) - fingerY).clamp(0.0, travel);
+    return full * (fromBottom / travel);
+  }
 
   @override
   void dispose() {
@@ -652,10 +666,12 @@ class _RoomCanvasState extends State<_RoomCanvas>
     );
   }
 
-  Offset _centerPx(String iid, ShopItem item, Size size) {
+  Offset _centerPx(String iid, ShopItem item, Size size, double half) {
     if (iid == _dragId && _dragCenter != null) {
-      // Draw the held piece lifted above the finger (the lift eases in).
-      return Offset(_dragCenter!.dx, _dragCenter!.dy - _liftPx);
+      // Draw the held piece lifted above the finger (the lift eases in, and
+      // tapers near the bottom so the piece can still be placed on the floor).
+      final lift = _liftAt(_dragCenter!.dy, half, size.height);
+      return Offset(_dragCenter!.dx, _dragCenter!.dy - lift);
     }
     final n = Apartment.instance.positionOf(iid, item.id);
     return Offset(n.dx * size.width, n.dy * size.height);
@@ -671,7 +687,7 @@ class _RoomCanvasState extends State<_RoomCanvas>
   _LightSpec _lightSpec(
       String iid, ShopItem item, _LightFx fx, Size size, double baseTile) {
     final s = _sizeOf(item, baseTile, size);
-    final c = _centerPx(iid, item, size);
+    final c = _centerPx(iid, item, size, s / 2);
     final phase = (iid.hashCode & 0xFFFF) / 0xFFFF;
     if (fx.beam) {
       return _LightSpec(
@@ -709,7 +725,7 @@ class _RoomCanvasState extends State<_RoomCanvas>
     final itemSize = _sizeOf(item, baseTile, size);
     final half = itemSize / 2;
     final isDragging = _dragId == iid;
-    final center = _centerPx(iid, item, size);
+    final center = _centerPx(iid, item, size, half);
     final left = (center.dx - half).clamp(0.0, size.width - itemSize);
     final top = (center.dy - half).clamp(0.0, size.height - itemSize);
 
@@ -732,17 +748,18 @@ class _RoomCanvasState extends State<_RoomCanvas>
           // Ease the lift in on the first movement, then track the finger.
           if (_lift.value == 0 && !_lift.isAnimating) _lift.forward();
           final cur = _dragCenter ?? center;
-          final c = cur + d.delta;
-          setState(() {
-            _dragCenter = Offset(
-              c.dx.clamp(half, size.width - half),
-              c.dy.clamp(half, size.height - half),
-            );
-          });
+          // Track the finger's *true* position (don't clamp it here). The piece
+          // itself is kept inside the room by the display clamp (left/top below)
+          // and the drop clamp in onPanEnd. Clamping the stored position instead
+          // would discard any overshoot past an edge, so reversing direction
+          // would jump the piece off the edge ahead of the finger, leaving a
+          // spurious gap. Keeping the true position pins the piece at the edge
+          // until the finger travels back, so they stay aligned.
+          setState(() => _dragCenter = cur + d.delta);
         },
         onPanEnd: (_) {
           // Drop where the lifted piece is shown — what you see is where it lands.
-          final c = _centerPx(iid, item, size);
+          final c = _centerPx(iid, item, size, half);
           Apartment.instance.setPosition(
             iid,
             Offset(
@@ -2554,12 +2571,15 @@ class _InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final course = CourseSession.instance.activeCourse;
+    final strings = CourseSession.instance.strings;
     final learn = course.learnLocale.split('-').first; // 'de' / 'es'
     final speak = course.uiLang.name; // 'en' / 'es' / 'de'
     final langs = <(String code, String flag, bool isLearn)>[
       (learn, course.learnFlag, true),
       if (speak != learn) (speak, course.speakFlag, false),
     ];
+    // The piece's name in the learner's own (UI) language, for snackbars.
+    final localName = furnitureName(item.glyph, speak, fallback: item.name);
     final canAfford = CoinWallet.instance.balance >= item.price;
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -2594,7 +2614,7 @@ class _InfoCard extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              'What is this called?',
+              strings.whatIsThisCalled,
               style: TextStyle(color: _cocoa.withValues(alpha: 0.7), fontSize: 13),
             ),
             const SizedBox(height: 14),
@@ -2626,8 +2646,8 @@ class _InfoCard extends StatelessWidget {
                     icon: const Icon(Icons.flip_rounded, size: 18),
                     label: Text(
                       Apartment.instance.isFlipped(instanceId)
-                          ? 'Unflip'
-                          : 'Flip',
+                          ? strings.unflip
+                          : strings.flip,
                       style: const TextStyle(fontWeight: FontWeight.w800),
                     ),
                   ),
@@ -2645,8 +2665,7 @@ class _InfoCard extends StatelessWidget {
                         ..showSnackBar(
                           SnackBar(
                             content: Text(
-                              'You gave away the ${item.name.toLowerCase()} 💛  '
-                              'Someone will love it!',
+                              strings.gaveAwayItem.replaceAll('{item}', localName),
                             ),
                           ),
                         );
@@ -2657,8 +2676,8 @@ class _InfoCard extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
                     icon: const Icon(Icons.volunteer_activism_rounded, size: 18),
-                    label: const Text('Give away',
-                        style: TextStyle(fontWeight: FontWeight.w800)),
+                    label: Text(strings.giveAway,
+                        style: const TextStyle(fontWeight: FontWeight.w800)),
                   ),
                 ),
               ],
@@ -2680,8 +2699,9 @@ class _InfoCard extends StatelessWidget {
                           ..clearSnackBars()
                           ..showSnackBar(SnackBar(
                             content: Text(ok
-                                ? 'Added another ${item.name.toLowerCase()}!'
-                                : 'Not enough coins.'),
+                                ? strings.addedAnotherItem
+                                    .replaceAll('{item}', localName)
+                                : strings.notEnoughCoins),
                           ));
                       }
                     : null,
@@ -2695,8 +2715,8 @@ class _InfoCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Shop another  ',
-                        style: TextStyle(fontWeight: FontWeight.w900)),
+                    Text('${strings.shopAnother}  ',
+                        style: const TextStyle(fontWeight: FontWeight.w900)),
                     const CoinGlyph(size: 16, withShadow: false),
                     const SizedBox(width: 4),
                     Text('${item.price}',
@@ -2709,8 +2729,8 @@ class _InfoCard extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
               style: TextButton.styleFrom(foregroundColor: _cocoa),
-              child: const Text('Got it',
-                  style: TextStyle(fontWeight: FontWeight.w800)),
+              child: Text(strings.gotIt,
+                  style: const TextStyle(fontWeight: FontWeight.w800)),
             ),
           ],
         ),

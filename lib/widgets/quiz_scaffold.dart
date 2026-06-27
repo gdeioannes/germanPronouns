@@ -25,6 +25,12 @@ class QuizScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Let the soft keyboard overlay the page instead of reserving a band of
+      // blank space above it. The typed-answer fields on these quizzes sit near
+      // the top, so shrinking the body just left a big white gap between the
+      // field and the keyboard on mobile web. Scroll views in the bodies pad
+      // their bottom by viewInsets so lower fields stay reachable.
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         // Shrink long titles to fit on one line instead of truncating with "…".
         title: FittedBox(

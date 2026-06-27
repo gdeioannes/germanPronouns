@@ -5,6 +5,7 @@ import '../models/quiz_content.dart';
 import '../theme/app_theme.dart';
 import 'next_exercise.dart';
 import 'quiz_panel.dart';
+import 'speak_icon_button.dart';
 
 /// The multiple-choice questions panel shared by the reading and listening
 /// quizzes (their question/option/submit/result rendering was byte-identical).
@@ -99,6 +100,8 @@ class MultipleChoiceQuestions extends StatelessWidget {
                   ),
                 ),
               ),
+              // Hear the question read aloud in the target language.
+              SpeakIconButton(text: question.question, size: 20),
               if (question.questionTranslation != null)
                 IconButton(
                   visualDensity: VisualDensity.compact,
@@ -184,6 +187,8 @@ class MultipleChoiceQuestions extends StatelessWidget {
                     style: theme.textTheme.bodyMedium,
                   ),
                 ),
+                // Hear this answer option in the target language.
+                SpeakIconButton(text: question.options[oIndex], size: 18),
                 ?trailing,
               ],
             ),

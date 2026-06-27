@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../theme/app_theme.dart';
+import 'speak_icon_button.dart';
 
 /// Reusable visual building blocks for the quizzes' "Help Memory" section: a
 /// gender color legend, rule/mnemonic callout cards, an intro paragraph, and a
@@ -184,6 +185,11 @@ class HelpTipCard extends StatelessWidget {
               ],
             ),
           ),
+          // Example tips quote a target-language sentence — let it be heard.
+          // (Other tip kinds are explanatory text in the learner's own
+          // language, so they carry no target-language speaker.)
+          if (tip.kind == 'example')
+            SpeakIconButton(text: stripBoldMarkup(tip.text), size: 18),
         ],
       ),
     );

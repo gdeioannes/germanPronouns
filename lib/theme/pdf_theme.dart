@@ -3,6 +3,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
+import '../models/course_session.dart';
 import 'brand_palette.dart';
 
 /// Brand palette for generated PDFs, derived from the shared [brand_palette]
@@ -125,26 +126,28 @@ class QuizPdfTheme {
               pw.SvgImage(svg: _logoSvg, width: 32, height: 32),
               pw.SizedBox(width: 10),
             ],
-            pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Text(
-                  'German Grammar',
-                  style: pw.TextStyle(
-                    font: _serifBold,
-                    fontSize: 13,
-                    color: PdfBrandColors.navy,
+            pw.Expanded(
+              child: pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: [
+                  pw.Text(
+                    CourseSession.instance.activeCourse.name,
+                    style: pw.TextStyle(
+                      font: _serifBold,
+                      fontSize: 13,
+                      color: PdfBrandColors.navy,
+                    ),
                   ),
-                ),
-                pw.Text(
-                  'der · die · das',
-                  style: pw.TextStyle(
-                    font: _serif,
-                    fontSize: 9,
-                    color: PdfBrandColors.inkMuted,
+                  pw.Text(
+                    CourseSession.instance.activeCourse.tagline,
+                    style: pw.TextStyle(
+                      font: _serif,
+                      fontSize: 9,
+                      color: PdfBrandColors.inkMuted,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
@@ -174,7 +177,7 @@ class QuizPdfTheme {
       alignment: pw.Alignment.centerRight,
       margin: const pw.EdgeInsets.only(top: 10),
       child: pw.Text(
-        'German Grammar · der · die · das      '
+        '${CourseSession.instance.activeCourse.name}      '
         '${context.pageNumber} / ${context.pagesCount}',
         style: pw.TextStyle(
           font: _serif,
@@ -216,13 +219,16 @@ class QuizPdfTheme {
         _ => PdfBrandColors.navy,
       };
 
-  String _tipLabel(String kind) => switch (kind) {
-        'rule' => 'Rule',
-        'warning' => 'Note',
-        'example' => 'Example',
-        'mnemonic' => 'Memory aid',
-        _ => 'Tip',
-      };
+  String _tipLabel(String kind) {
+    final strings = CourseSession.instance.strings;
+    return switch (kind) {
+      'rule' => strings.tipRule,
+      'warning' => strings.tipNote,
+      'example' => strings.tipExample,
+      'mnemonic' => strings.tipMemoryAid,
+      _ => strings.tipGeneric,
+    };
+  }
 
   /// A branded callout (rule / mnemonic / example / warning / tip): an
   /// accent-left-bordered tinted box with a bold heading and body text.

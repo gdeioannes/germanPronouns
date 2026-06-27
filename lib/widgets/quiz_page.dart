@@ -31,6 +31,7 @@ import 'help_memory.dart';
 import 'help_memory_pdf_export.dart';
 import 'help_memory_tables.dart';
 import 'next_exercise.dart';
+import 'speak_icon_button.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key, required this.config});
@@ -1484,85 +1485,72 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   String _buildMistakeReminder({
-    required String caseLabel,
     required String correctAnswer,
     required String explanation,
   }) {
-    final sections = explanation
-        .split('\n\n')
-        .map((part) => part.trim())
-        .where((part) => part != '')
-        .toList();
-
-    String? pickBody(String prefix) {
-      for (final section in sections) {
-        if (section.startsWith(prefix)) {
-          return section.substring(prefix.length).trim();
-        }
-      }
-      return null;
+    final strings = CourseSession.instance.strings;
+    final hint = _pickExplanationHint(explanation);
+    if (hint != null) {
+      return '${strings.feedbackTipPrefix}$hint';
     }
-
-    final triggerHint = pickBody('Trigger:');
-    if (triggerHint != null && triggerHint != '') {
-      return 'Tip: $triggerHint';
-    }
-
-    final grammarHint = pickBody('Grammar:');
-    if (grammarHint != null && grammarHint != '') {
-      return 'Tip: $grammarHint';
-    }
-
-    return 'RemiTipnder: In $caseLabel, use "$correctAnswer" for this pronoun.';
+    return strings.feedbackMistakeFallback.replaceAll('{answer}', correctAnswer);
   }
 
   String _buildSuccessReminder({
-    required String caseLabel,
     required String correctAnswer,
     required String explanation,
   }) {
-    final sections = explanation
-        .split('\n\n')
-        .map((part) => part.trim())
-        .where((part) => part != '')
-        .toList();
-
-    String? pickBody(String prefix) {
-      for (final section in sections) {
-        if (section.startsWith(prefix)) {
-          return section.substring(prefix.length).trim();
-        }
-      }
-      return null;
-    }
-
-    final triggerHint = pickBody('Trigger:');
+    final strings = CourseSession.instance.strings;
+    final sections = _explanationSections(explanation);
+    final triggerHint = _pickSectionBody(sections, 'Trigger:');
     if (triggerHint != null && triggerHint != '') {
-      return 'Nice work: keep an eye on this trigger next time too - $triggerHint';
+      return strings.feedbackSuccessTrigger.replaceAll('{hint}', triggerHint);
     }
-
-    final grammarHint = pickBody('Grammar:');
+    final grammarHint = _pickSectionBody(sections, 'Grammar:');
     if (grammarHint != null && grammarHint != '') {
-      return 'Nice work: $grammarHint';
+      return '${strings.feedbackSuccessPrefix}$grammarHint';
     }
+    return strings.feedbackSuccessFallback.replaceAll('{answer}', correctAnswer);
+  }
 
-    return 'Nice work: "$correctAnswer" is the right $caseLabel form here.';
+  /// First non-empty Trigger/Grammar note in an explanation, or null.
+  String? _pickExplanationHint(String explanation) {
+    final sections = _explanationSections(explanation);
+    for (final prefix in const ['Trigger:', 'Grammar:']) {
+      final body = _pickSectionBody(sections, prefix);
+      if (body != null && body != '') return body;
+    }
+    return null;
+  }
+
+  List<String> _explanationSections(String explanation) => explanation
+      .split('\n\n')
+      .map((part) => part.trim())
+      .where((part) => part != '')
+      .toList();
+
+  String? _pickSectionBody(List<String> sections, String prefix) {
+    for (final section in sections) {
+      if (section.startsWith(prefix)) {
+        return section.substring(prefix.length).trim();
+      }
+    }
+    return null;
   }
 
   Future<void> _showResetConfirmationPanel() async {
     final colorScheme = Theme.of(context).colorScheme;
+    final strings = CourseSession.instance.strings;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const Text('Reset Progress'),
+          title: Text(strings.resetProgressTitle),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'This will reset your score and clear your history data.',
-              ),
+              Text(strings.resetProgressBody),
               const SizedBox(height: 12),
               Container(
                 width: double.infinity,
@@ -1581,7 +1569,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
-                        'This action is irreversible.',
+                        strings.resetProgressIrreversible,
                         style: TextStyle(
                           color: colorScheme.onErrorContainer,
                           fontWeight: FontWeight.w700,
@@ -1596,7 +1584,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: const Text('Cancel'),
+              child: Text(strings.cancel),
             ),
             FilledButton(
               onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -1604,7 +1592,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 backgroundColor: colorScheme.error,
                 foregroundColor: colorScheme.onError,
               ),
-              child: const Text('Reset'),
+              child: Text(strings.resetAction),
             ),
           ],
         );
@@ -1616,7 +1604,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Score and history reset.')));
+      ).showSnackBar(SnackBar(content: Text(strings.scoreHistoryReset)));
       _requestAnswerFocus();
     }
   }
@@ -1703,12 +1691,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       return; // Don't process submission, just show hint
     }
     final reminderHint = _buildMistakeReminder(
-      caseLabel: caseLabel,
       correctAnswer: correctAnswer,
       explanation: _currentReferenceExplanation,
     );
     final successHint = _buildSuccessReminder(
-      caseLabel: caseLabel,
       correctAnswer: correctAnswer,
       explanation: _currentReferenceExplanation,
     );
@@ -2285,11 +2271,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     if (info == null) return;
     final isCorrect = info['isCorrect'] == true;
     final userAnswer = info['userAnswer'] as String;
+    final strings = CourseSession.instance.strings;
 
     showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: _infoDialogTitle(dialogContext, 'Last Answer'),
+        title: _infoDialogTitle(dialogContext, strings.lastAnswerTitle),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -2298,10 +2285,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               Text('${info['nominative']} → ${info['caseLabel']}'),
               const SizedBox(height: 8),
               Text(
-                'Your answer: ${userAnswer.isEmpty ? '(none)' : userAnswer}',
+                '${strings.yourAnswerPrefix}'
+                '${userAnswer.isEmpty ? strings.noneAnswer : userAnswer}',
               ),
               const SizedBox(height: 4),
-              Text('Correct answer: ${info['correctAnswer']}'),
+              Text('${strings.correctAnswerPrefix}${info['correctAnswer']}'),
               const SizedBox(height: 8),
               Container(
                 padding: const EdgeInsets.symmetric(
@@ -2315,7 +2303,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                   borderRadius: BorderRadius.circular(kRadiusSmall),
                 ),
                 child: Text(
-                  isCorrect ? 'Correct' : 'Incorrect',
+                  isCorrect ? strings.correctLabel : strings.incorrectLabel,
                   style: Theme.of(dialogContext).textTheme.titleMedium
                       ?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),
                 ),
@@ -2743,6 +2731,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     final referenceAfter = blankMatch != null
         ? displaySentence.substring(blankMatch.end)
         : '';
+    // The full sentence the speak icon reads aloud: the displayed sentence with
+    // its blank(s) filled by the correct answer, so it's a natural, complete
+    // target-language sentence rather than one with a spoken "blank".
+    final currentAnswer = widget
+        .config
+        .categories[_currentCategoryIndex]
+        .values[_currentSubjectIndex];
+    final spokenSentence = blankMatch == null
+        ? displaySentence
+        : displaySentence.replaceAll(RegExp(r'_{4,}'), currentAnswer);
     final sentenceParts = hasMultipleBlanks
         ? displaySentence.split(RegExp(r'_{4,}'))
         : [];
@@ -2785,6 +2783,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
 
     return Scaffold(
+      // Let the soft keyboard overlay the page instead of reserving a band of
+      // blank space above it. The typed answer field sits near the top, so
+      // shrinking the body just left a big white gap between the field and the
+      // keyboard on mobile web. The ListView below pads its bottom by viewInsets
+      // so content lower on the page stays reachable above the keyboard.
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: FittedBox(
           fit: BoxFit.scaleDown,
@@ -2832,7 +2836,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          // Pad past the keyboard so the focused field can scroll above it
+          // (the Scaffold no longer reserves keyboard space; see above).
+          padding: EdgeInsets.fromLTRB(
+            16,
+            16,
+            16,
+            16 + MediaQuery.viewInsetsOf(context).bottom,
+          ),
           children: [
             const SizedBox(height: 8),
             _sectionWithMaxWidth(
@@ -3235,18 +3246,29 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      'Quiz',
-                                      style: scaledQuizTextTheme.labelLarge
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.w300,
-                                            fontSize:
-                                                (scaledQuizTextTheme
-                                                        .labelLarge
-                                                        ?.fontSize ??
-                                                    14) *
-                                                0.8,
-                                          ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Quiz',
+                                          style: scaledQuizTextTheme.labelLarge
+                                              ?.copyWith(
+                                                fontWeight: FontWeight.w300,
+                                                fontSize:
+                                                    (scaledQuizTextTheme
+                                                            .labelLarge
+                                                            ?.fontSize ??
+                                                        14) *
+                                                    0.8,
+                                              ),
+                                        ),
+                                        const Spacer(),
+                                        // Hear the full sentence (blank filled)
+                                        // read aloud in the target language.
+                                        SpeakIconButton(
+                                          text: spokenSentence,
+                                          size: 20,
+                                        ),
+                                      ],
                                     ),
                                     const SizedBox(height: 6),
                                     LayoutBuilder(
@@ -3604,8 +3626,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                             ),
                                             child: Text(
                                               _lastAnswerCorrect == true
-                                                  ? 'Correct'
-                                                  : 'Incorrect',
+                                                  ? CourseSession
+                                                        .instance
+                                                        .strings
+                                                        .correctLabel
+                                                  : CourseSession
+                                                        .instance
+                                                        .strings
+                                                        .incorrectLabel,
                                               style: scaledQuizTextTheme
                                                   .titleMedium
                                                   ?.copyWith(
@@ -3834,7 +3862,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       context,
                     ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                   ),
-                  subtitle: const Text('Recent answers and common mistakes.'),
+                  subtitle: Text(CourseSession.instance.strings.historySubtitle),
                   leading: IconBadge(
                     icon: Icons.history_rounded,
                     color: kSectionAccentColors[1],
@@ -3845,17 +3873,21 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'No history yet.',
+                          CourseSession.instance.strings.noHistoryYet,
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       )
                     else
                       ...recentHistory.map((entry) {
                         final ok = entry['correct'] == true;
+                        final correction = ok
+                            ? ''
+                            : ' (✓ ${entry['correctAnswer']})';
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: Text(
-                            '${ok ? 'OK' : 'X'} ${entry['nominative']} -> ${entry['case']}: ${entry['answer']} (correct: ${entry['correctAnswer']})',
+                            '${ok ? '✓' : '✗'} ${entry['nominative']} → '
+                            '${entry['case']}: ${entry['answer']}$correction',
                             style: TextStyle(
                               color: ok
                                   ? colorScheme.primary
@@ -3866,7 +3898,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       }),
                     const SizedBox(height: 8),
                     Text(
-                      'Mistake Analytics',
+                      CourseSession.instance.strings.mistakeAnalytics,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w700,
                       ),
@@ -3876,7 +3908,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'No mistakes tracked yet.',
+                          CourseSession.instance.strings.noMistakesTracked,
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       )
@@ -3905,8 +3937,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       context,
                     ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                   ),
-                  subtitle: const Text(
-                    'Performance heatmap: red bad, yellow mixed, green good.',
+                  subtitle: Text(
+                    CourseSession.instance.strings.analyticsSubtitle,
                   ),
                   leading: IconBadge(
                     icon: Icons.analytics_rounded,
@@ -4547,10 +4579,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         const SizedBox(height: 10),
                         SwitchListTile(
                           contentPadding: EdgeInsets.zero,
-                          title: const Text('Color nouns by article'),
-                          subtitle: const Text(
-                            'Highlights known nouns in sentences by their '
-                            'article color (may reveal quiz answers).',
+                          title: Text(
+                            CourseSession.instance.strings.colorNounsByArticle,
+                          ),
+                          subtitle: Text(
+                            CourseSession
+                                .instance
+                                .strings
+                                .colorNounsByArticleSubtitle,
                           ),
                           value: NounSettings.instance.colorNouns,
                           onChanged: (value) {

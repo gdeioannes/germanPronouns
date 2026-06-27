@@ -11,6 +11,7 @@ import '../utils/answer_normalization.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
 import '../widgets/quiz_scaffold.dart';
+import '../widgets/speak_icon_button.dart';
 
 /// One run of the parsed [QuizContent.inlineTemplate]: either a literal stretch
 /// of [text], or the [blankIndex]-th interactive blank.
@@ -108,6 +109,16 @@ class _InlineClozeQuizPageState extends State<InlineClozeQuizPage> {
 
   String? _currentAnswer(int i) =>
       _blanks[i].isSelect ? _answers[i] : _controllers[i]?.text;
+
+  /// The full passage with every blank filled by its correct answer — the
+  /// natural, complete target-language text to read aloud via the speak icon.
+  String get _solvedPassage {
+    final buffer = StringBuffer();
+    for (final token in _tokens) {
+      buffer.write(token.isBlank ? _blanks[token.blankIndex].answer : token.text);
+    }
+    return buffer.toString();
+  }
 
   bool _isCorrect(int i) {
     final blank = _blanks[i];
@@ -237,7 +248,14 @@ class _InlineClozeQuizPageState extends State<InlineClozeQuizPage> {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 620),
             child: ListView(
-              padding: const EdgeInsets.all(16),
+              // Pad past the keyboard so the focused blank can scroll above it
+              // (QuizScaffold no longer reserves keyboard space).
+              padding: EdgeInsets.fromLTRB(
+                16,
+                16,
+                16,
+                16 + MediaQuery.viewInsetsOf(context).bottom,
+              ),
               children: [
                 const SizedBox(height: 8),
                 _buildPassageCard(context),
@@ -288,6 +306,8 @@ class _InlineClozeQuizPageState extends State<InlineClozeQuizPage> {
                       )
                     : const SizedBox.shrink(),
               ),
+              // Read the full passage (blanks filled in) in the target language.
+              SpeakIconButton(text: _solvedPassage, size: 20),
               if (content.readingPassageTranslation != null)
                 IconButton(
                   visualDensity: VisualDensity.compact,

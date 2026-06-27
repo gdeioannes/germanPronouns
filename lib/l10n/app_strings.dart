@@ -58,6 +58,7 @@ class AppStrings {
     required this.pause,
     required this.resume,
     required this.tapToListen,
+    required this.listen,
     required this.finished,
     required this.speakFinishedBody,
     required this.repeatAgain,
@@ -81,6 +82,51 @@ class AppStrings {
     required this.relaxedCorrectionHintBody,
     required this.relaxedCorrectionEnable,
     required this.relaxedCorrectionNotNow,
+    required this.correctLabel,
+    required this.incorrectLabel,
+    required this.feedbackTipPrefix,
+    required this.feedbackMistakeFallback,
+    required this.feedbackSuccessPrefix,
+    required this.feedbackSuccessTrigger,
+    required this.feedbackSuccessFallback,
+    required this.lastAnswerTitle,
+    required this.yourAnswerPrefix,
+    required this.correctAnswerPrefix,
+    required this.noneAnswer,
+    required this.resetProgressTitle,
+    required this.resetProgressBody,
+    required this.resetProgressIrreversible,
+    required this.cancel,
+    required this.resetAction,
+    required this.scoreHistoryReset,
+    required this.historySubtitle,
+    required this.noHistoryYet,
+    required this.mistakeAnalytics,
+    required this.noMistakesTracked,
+    required this.analyticsSubtitle,
+    required this.colorNounsByArticle,
+    required this.colorNounsByArticleSubtitle,
+    required this.showScript,
+    required this.scriptLabel,
+    required this.replay,
+    required this.listenAndRepeat,
+    required this.readAndAnswer,
+    required this.listenAndAnswer,
+    required this.listenAndWrite,
+    required this.listeningInstruction,
+    required this.tipRule,
+    required this.tipNote,
+    required this.tipExample,
+    required this.tipMemoryAid,
+    required this.tipGeneric,
+    required this.whatIsThisCalled,
+    required this.flip,
+    required this.unflip,
+    required this.giveAway,
+    required this.shopAnother,
+    required this.notEnoughCoins,
+    required this.gaveAwayItem,
+    required this.addedAnotherItem,
   });
 
   final String chooseCourse;
@@ -138,6 +184,12 @@ class AppStrings {
   final String pause;
   final String resume;
   final String tapToListen;
+
+  /// Tooltip for the inline speaker icon shown next to learning-content
+  /// sentences (passages, questions, options, examples) so any of them can be
+  /// heard in the target language.
+  final String listen;
+
   final String finished;
   final String speakFinishedBody;
   final String repeatAgain;
@@ -182,6 +234,92 @@ class AppStrings {
 
   /// Label of the hint panel's dismiss button.
   final String relaxedCorrectionNotNow;
+
+  // Typed-answer quiz feedback.
+  /// Badge shown over a correct / incorrect answer.
+  final String correctLabel;
+  final String incorrectLabel;
+
+  /// Prefix for a mistake tip drawn from the explanation's Trigger/Grammar note.
+  final String feedbackTipPrefix;
+
+  /// Fallback mistake reminder when no Trigger/Grammar note exists. `{answer}`
+  /// is replaced with the correct answer.
+  final String feedbackMistakeFallback;
+
+  /// Prefix for a success note drawn from the explanation's Grammar note.
+  final String feedbackSuccessPrefix;
+
+  /// Success note that reuses the explanation's Trigger note. `{hint}` is
+  /// replaced with the trigger text.
+  final String feedbackSuccessTrigger;
+
+  /// Fallback success note when no Trigger/Grammar note exists. `{answer}` is
+  /// replaced with the correct answer.
+  final String feedbackSuccessFallback;
+
+  // "Last answer" info dialog.
+  final String lastAnswerTitle;
+  final String yourAnswerPrefix;
+  final String correctAnswerPrefix;
+
+  /// Shown in place of the answer when the learner submitted nothing.
+  final String noneAnswer;
+
+  // Reset-progress dialog.
+  final String resetProgressTitle;
+  final String resetProgressBody;
+  final String resetProgressIrreversible;
+  final String cancel;
+  final String resetAction;
+  final String scoreHistoryReset;
+
+  // History & analytics panels.
+  final String historySubtitle;
+  final String noHistoryYet;
+  final String mistakeAnalytics;
+  final String noMistakesTracked;
+  final String analyticsSubtitle;
+
+  // Quiz settings toggles.
+  final String colorNounsByArticle;
+  final String colorNounsByArticleSubtitle;
+
+  // Listening quiz: reveal the script / replay the audio.
+  final String showScript;
+  final String scriptLabel;
+  final String replay;
+
+  // Quiz-kind subtitles on the course home tiles.
+  final String listenAndRepeat;
+  final String readAndAnswer;
+  final String listenAndAnswer;
+  final String listenAndWrite;
+
+  /// Stage-1 prompt on a listening quiz.
+  final String listeningInstruction;
+
+  // PDF tip-callout kind labels (fallback heading when a tip has no title).
+  final String tipRule;
+  final String tipNote;
+  final String tipExample;
+  final String tipMemoryAid;
+  final String tipGeneric;
+
+  // Room item info card.
+  /// Prompt under the piece's picture ("What is this called?").
+  final String whatIsThisCalled;
+  final String flip;
+  final String unflip;
+  final String giveAway;
+  final String shopAnother;
+  final String notEnoughCoins;
+
+  /// Snackbar after donating a piece. `{item}` is the piece's name.
+  final String gaveAwayItem;
+
+  /// Snackbar after buying another copy. `{item}` is the piece's name.
+  final String addedAnotherItem;
 }
 
 const AppStrings _en = AppStrings(
@@ -240,6 +378,7 @@ const AppStrings _en = AppStrings(
   pause: 'Pause',
   resume: 'Resume',
   tapToListen: 'Tap to listen',
+  listen: 'Listen',
   finished: 'Finished!',
   speakFinishedBody: 'You practiced the phrases. Repeat the lesson anytime.',
   repeatAgain: 'Repeat again',
@@ -274,6 +413,54 @@ const AppStrings _en = AppStrings(
       'accents, umlauts or ß. You can change this anytime in Settings.',
   relaxedCorrectionEnable: 'Enable relaxed correction',
   relaxedCorrectionNotNow: 'Not now',
+  correctLabel: 'Correct',
+  incorrectLabel: 'Incorrect',
+  feedbackTipPrefix: 'Tip: ',
+  feedbackMistakeFallback: 'Reminder: "{answer}" is the right answer here.',
+  feedbackSuccessPrefix: 'Nice work: ',
+  feedbackSuccessTrigger:
+      'Nice work: keep an eye on this trigger next time too — {hint}',
+  feedbackSuccessFallback: 'Nice work: "{answer}" is the right answer here.',
+  lastAnswerTitle: 'Last Answer',
+  yourAnswerPrefix: 'Your answer: ',
+  correctAnswerPrefix: 'Correct answer: ',
+  noneAnswer: '(none)',
+  resetProgressTitle: 'Reset Progress',
+  resetProgressBody: 'This will reset your score and clear your history data.',
+  resetProgressIrreversible: 'This action is irreversible.',
+  cancel: 'Cancel',
+  resetAction: 'Reset',
+  scoreHistoryReset: 'Score and history reset.',
+  historySubtitle: 'Recent answers and common mistakes.',
+  noHistoryYet: 'No history yet.',
+  mistakeAnalytics: 'Mistake Analytics',
+  noMistakesTracked: 'No mistakes tracked yet.',
+  analyticsSubtitle: 'Performance heatmap: red bad, yellow mixed, green good.',
+  colorNounsByArticle: 'Color nouns by article',
+  colorNounsByArticleSubtitle:
+      'Highlights known nouns in sentences by their article color '
+      '(may reveal quiz answers).',
+  showScript: 'Show text',
+  scriptLabel: 'Text',
+  replay: 'Replay',
+  listenAndRepeat: 'Listen & repeat',
+  readAndAnswer: 'Read & answer',
+  listenAndAnswer: 'Listen & answer',
+  listenAndWrite: 'Listen & write',
+  listeningInstruction: 'Listen to the audio, then answer the questions.',
+  tipRule: 'Rule',
+  tipNote: 'Note',
+  tipExample: 'Example',
+  tipMemoryAid: 'Memory aid',
+  tipGeneric: 'Tip',
+  whatIsThisCalled: 'What is this called?',
+  flip: 'Flip',
+  unflip: 'Unflip',
+  giveAway: 'Give away',
+  shopAnother: 'Shop another',
+  notEnoughCoins: 'Not enough coins.',
+  gaveAwayItem: 'You gave away the {item} 💛  Someone will love it!',
+  addedAnotherItem: 'Added another {item}!',
 );
 
 const AppStrings _es = AppStrings(
@@ -332,6 +519,7 @@ const AppStrings _es = AppStrings(
   pause: 'Pausar',
   resume: 'Reanudar',
   tapToListen: 'Toca para escuchar',
+  listen: 'Escuchar',
   finished: '¡Terminado!',
   speakFinishedBody:
       'Has practicado las frases. Repite la lección cuando quieras.',
@@ -369,6 +557,55 @@ const AppStrings _es = AppStrings(
       'en Ajustes.',
   relaxedCorrectionEnable: 'Activar corrección flexible',
   relaxedCorrectionNotNow: 'Ahora no',
+  correctLabel: 'Correcto',
+  incorrectLabel: 'Incorrecto',
+  feedbackTipPrefix: 'Consejo: ',
+  feedbackMistakeFallback: 'Recordatorio: «{answer}» es la respuesta correcta aquí.',
+  feedbackSuccessPrefix: '¡Bien hecho! ',
+  feedbackSuccessTrigger:
+      '¡Bien hecho! La próxima vez sigue atento a este detonante: {hint}',
+  feedbackSuccessFallback: '¡Bien hecho! «{answer}» es la respuesta correcta aquí.',
+  lastAnswerTitle: 'Última respuesta',
+  yourAnswerPrefix: 'Tu respuesta: ',
+  correctAnswerPrefix: 'Respuesta correcta: ',
+  noneAnswer: '(ninguna)',
+  resetProgressTitle: 'Reiniciar progreso',
+  resetProgressBody: 'Esto reiniciará tu puntuación y borrará tu historial.',
+  resetProgressIrreversible: 'Esta acción es irreversible.',
+  cancel: 'Cancelar',
+  resetAction: 'Reiniciar',
+  scoreHistoryReset: 'Puntuación e historial reiniciados.',
+  historySubtitle: 'Respuestas recientes y errores comunes.',
+  noHistoryYet: 'Aún no hay historial.',
+  mistakeAnalytics: 'Análisis de errores',
+  noMistakesTracked: 'Aún no se registran errores.',
+  analyticsSubtitle:
+      'Mapa de rendimiento: rojo mal, amarillo regular, verde bien.',
+  colorNounsByArticle: 'Colorear sustantivos por artículo',
+  colorNounsByArticleSubtitle:
+      'Resalta los sustantivos conocidos en las frases con el color de su '
+      'artículo (puede revelar respuestas).',
+  showScript: 'Ver texto',
+  scriptLabel: 'Texto',
+  replay: 'Repetir',
+  listenAndRepeat: 'Escuchar y repetir',
+  readAndAnswer: 'Leer y responder',
+  listenAndAnswer: 'Escuchar y responder',
+  listenAndWrite: 'Escuchar y escribir',
+  listeningInstruction: 'Escucha el audio y luego responde las preguntas.',
+  tipRule: 'Regla',
+  tipNote: 'Nota',
+  tipExample: 'Ejemplo',
+  tipMemoryAid: 'Regla mnemotécnica',
+  tipGeneric: 'Consejo',
+  whatIsThisCalled: '¿Cómo se llama esto?',
+  flip: 'Girar',
+  unflip: 'Deshacer giro',
+  giveAway: 'Regalar',
+  shopAnother: 'Comprar otro',
+  notEnoughCoins: 'No tienes monedas suficientes.',
+  gaveAwayItem: 'Regalaste {item} 💛  ¡Alguien lo va a adorar!',
+  addedAnotherItem: '¡Añadiste otro: {item}!',
 );
 
 const AppStrings _de = AppStrings(
@@ -427,6 +664,7 @@ const AppStrings _de = AppStrings(
   pause: 'Pause',
   resume: 'Fortsetzen',
   tapToListen: 'Zum Anhören tippen',
+  listen: 'Anhören',
   finished: 'Fertig!',
   speakFinishedBody:
       'Du hast die Sätze geübt. Wiederhole die Lektion jederzeit.',
@@ -464,6 +702,55 @@ const AppStrings _de = AppStrings(
       'das jederzeit in den Einstellungen ändern.',
   relaxedCorrectionEnable: 'Nachsichtige Korrektur aktivieren',
   relaxedCorrectionNotNow: 'Jetzt nicht',
+  correctLabel: 'Richtig',
+  incorrectLabel: 'Falsch',
+  feedbackTipPrefix: 'Tipp: ',
+  feedbackMistakeFallback: 'Tipp: „{answer}" ist hier richtig.',
+  feedbackSuccessPrefix: 'Gut gemacht: ',
+  feedbackSuccessTrigger:
+      'Gut gemacht: Achte beim nächsten Mal weiter auf diesen Auslöser – {hint}',
+  feedbackSuccessFallback: 'Gut gemacht: „{answer}" ist hier richtig.',
+  lastAnswerTitle: 'Letzte Antwort',
+  yourAnswerPrefix: 'Deine Antwort: ',
+  correctAnswerPrefix: 'Richtige Antwort: ',
+  noneAnswer: '(keine)',
+  resetProgressTitle: 'Fortschritt zurücksetzen',
+  resetProgressBody:
+      'Damit werden deine Punktzahl und dein Verlauf zurückgesetzt.',
+  resetProgressIrreversible: 'Diese Aktion ist unwiderruflich.',
+  cancel: 'Abbrechen',
+  resetAction: 'Zurücksetzen',
+  scoreHistoryReset: 'Punktzahl und Verlauf zurückgesetzt.',
+  historySubtitle: 'Letzte Antworten und häufige Fehler.',
+  noHistoryYet: 'Noch kein Verlauf.',
+  mistakeAnalytics: 'Fehler-Analyse',
+  noMistakesTracked: 'Noch keine Fehler erfasst.',
+  analyticsSubtitle: 'Leistungs-Heatmap: Rot schlecht, Gelb gemischt, Grün gut.',
+  colorNounsByArticle: 'Nomen nach Artikel einfärben',
+  colorNounsByArticleSubtitle:
+      'Hebt bekannte Nomen in Sätzen in der Farbe ihres Artikels hervor '
+      '(kann Quizantworten verraten).',
+  showScript: 'Text anzeigen',
+  scriptLabel: 'Text',
+  replay: 'Erneut abspielen',
+  listenAndRepeat: 'Hören & nachsprechen',
+  readAndAnswer: 'Lesen & beantworten',
+  listenAndAnswer: 'Hören & beantworten',
+  listenAndWrite: 'Hören & schreiben',
+  listeningInstruction: 'Höre die Aufnahme und beantworte dann die Fragen.',
+  tipRule: 'Regel',
+  tipNote: 'Hinweis',
+  tipExample: 'Beispiel',
+  tipMemoryAid: 'Eselsbrücke',
+  tipGeneric: 'Tipp',
+  whatIsThisCalled: 'Wie heißt das?',
+  flip: 'Umdrehen',
+  unflip: 'Zurückdrehen',
+  giveAway: 'Verschenken',
+  shopAnother: 'Noch eins kaufen',
+  notEnoughCoins: 'Nicht genug Münzen.',
+  gaveAwayItem: 'Du hast {item} verschenkt 💛  Jemand wird es lieben!',
+  addedAnotherItem: '{item} noch einmal hinzugefügt!',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

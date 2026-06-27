@@ -357,6 +357,7 @@ class AzureTtsProvider extends CloudTtsProvider {
       'es' => male ? 'es-ES-AlvaroNeural' : 'es-ES-ElviraNeural',
       'en' => male ? 'en-US-GuyNeural' : 'en-US-JennyNeural',
       'cs' => male ? 'cs-CZ-AntoninNeural' : 'cs-CZ-VlastaNeural',
+      'fr' => male ? 'fr-FR-HenriNeural' : 'fr-FR-DeniseNeural',
       _ => null,
     };
   }
@@ -421,6 +422,7 @@ class GoogleTtsProvider extends CloudTtsProvider {
       'es' => male ? 'es-ES-Neural2-B' : 'es-ES-Neural2-A',
       'en' => male ? 'en-US-Neural2-D' : 'en-US-Neural2-C',
       'cs' => male ? 'cs-CZ-Wavenet-B' : 'cs-CZ-Wavenet-A',
+      'fr' => male ? 'fr-FR-Neural2-B' : 'fr-FR-Neural2-A',
       _ => male ? 'de-DE-Neural2-B' : 'de-DE-Neural2-C',
     };
   }

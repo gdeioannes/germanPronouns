@@ -10,6 +10,7 @@ import '../widgets/multiple_choice_questions.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
 import '../widgets/quiz_scaffold.dart';
+import '../widgets/speak_icon_button.dart';
 
 /// A reading-comprehension quiz ([QuizKind.reading]): a short A1 passage shown
 /// first, then a set of multiple-choice questions (rendered by the shared
@@ -258,6 +259,8 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
                       )
                     : const SizedBox.shrink(),
               ),
+              // Read the whole passage aloud in the target language.
+              SpeakIconButton(text: content.readingPassage ?? '', size: 20),
               if (content.readingPassageTranslation != null)
                 IconButton(
                   visualDensity: VisualDensity.compact,
