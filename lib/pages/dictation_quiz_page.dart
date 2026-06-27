@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/app_page.dart';
+import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
@@ -210,7 +211,13 @@ class _DictationQuizPageState extends State<DictationQuizPage>
       }
     }
     if (_passed) {
+      final newlyDone =
+          !NounSettings.instance.isDictationQuizCompleted(widget.content.id);
       await NounSettings.instance.markDictationQuizCompleted(widget.content.id);
+      // Finishing any quiz earns its (bronze) ribbon and pays out coins.
+      if (newlyDone) {
+        await CoinWallet.instance.add(CoinWallet.rollRibbonCoins(1));
+      }
       if (widget.questProgressionKey != null) {
         await NounSettings.instance.markQuestQuizCompleted(
           widget.questProgressionKey!,

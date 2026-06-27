@@ -11,7 +11,7 @@ enum RibbonTier { bronze, silver, gold }
 
 /// Ribbon tier by streak laps: bronze from the first lap, silver at 3 laps,
 /// gold at 5+. Single source of the tier boundaries — both [tierColorForLaps]
-/// and the coin reward (`CoinWallet.coinsForLaps`) read it.
+/// and the coin reward (`CoinWallet.rollRibbonCoins`) read it.
 RibbonTier ribbonTierForLaps(int laps) {
   if (laps >= 5) return RibbonTier.gold;
   if (laps >= 3) return RibbonTier.silver;

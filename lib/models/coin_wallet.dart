@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,17 +27,23 @@ class CoinWallet extends ChangeNotifier {
   /// Flat bonus for finishing a quiz (its progression goal unlocked / "done").
   static const int quizFinishedBonus = 5;
 
-  /// Coins granted when a streak lap completes and earns/renews a ribbon, by the
-  /// ribbon tier the new lap count reaches (bronze/silver/gold). Always ≥ 1.
-  static int coinsForLaps(int laps) {
-    switch (ribbonTierForLaps(laps)) {
-      case RibbonTier.gold:
-        return 5;
-      case RibbonTier.silver:
-        return 3;
-      case RibbonTier.bronze:
-        return 2;
-    }
+  /// Coin reward range (inclusive) per ribbon tier. Each time a ribbon is earned
+  /// or renewed, a random amount in its tier's band is paid out. Every completed
+  /// quiz earns at least a bronze ribbon, so a completion is never worth nothing.
+  static const Map<RibbonTier, (int min, int max)> ribbonCoinRange = {
+    RibbonTier.bronze: (10, 30),
+    RibbonTier.silver: (35, 70),
+    RibbonTier.gold: (100, 200),
+  };
+
+  static final Random _rng = Random();
+
+  /// A random coin reward for the ribbon tier [laps] reaches — bronze 10–30,
+  /// silver 35–70, gold 100–200. Always ≥ 10, so finishing any quiz (every
+  /// type: typed, reading, long-text, listening, dictation, speaking) pays out.
+  static int rollRibbonCoins(int laps) {
+    final (lo, hi) = ribbonCoinRange[ribbonTierForLaps(laps)]!;
+    return lo + _rng.nextInt(hi - lo + 1);
   }
 
   int _balance = 0;

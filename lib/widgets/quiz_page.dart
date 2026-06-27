@@ -1812,7 +1812,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       // Every correct answer has a chance to drop a coin; completing a streak
       // lap always pays out coins for the ribbon tier it earns/renews.
       var coins = _random.nextDouble() < CoinWallet.coinChancePerAnswer ? 1 : 0;
-      if (lapCompleted) coins += CoinWallet.coinsForLaps(streakLapAtSubmit);
+      if (lapCompleted) coins += CoinWallet.rollRibbonCoins(streakLapAtSubmit);
       _awardCoins(coins);
     }
 

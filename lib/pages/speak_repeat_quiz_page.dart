@@ -4,6 +4,7 @@ import 'package:speech_to_text/speech_to_text.dart';
 
 import '../l10n/app_strings.dart';
 import '../models/app_page.dart';
+import '../models/coin_wallet.dart';
 import '../models/course.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
@@ -389,8 +390,13 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         _finished = true;
       });
       // Played through every phrase to the end: flag this quiz "done" so it
-      // shows the ribbon on the quiz home page.
+      // shows the ribbon on the quiz home page, and pay out its ribbon coins.
+      final newlyDone =
+          !NounSettings.instance.isSpeakQuizCompleted(widget.content.id);
       NounSettings.instance.markSpeakQuizCompleted(widget.content.id);
+      if (newlyDone) {
+        CoinWallet.instance.add(CoinWallet.rollRibbonCoins(1));
+      }
       // As a Quest-chain entry, playing through also unlocks the next quiz.
       final questKey = widget.questProgressionKey;
       if (questKey != null) {

@@ -459,12 +459,118 @@ final List<ShopItem> _more = [
   ShopItem(id: 'wallbrick', name: 'Brick Wall', color: Color(0xFFC07E64), price: 95),
 ];
 
-/// The full catalogue — starter pieces plus every colourway — sorted cheapest
-/// first so the shop grid and the earn-as-you-go reveal both open in price
-/// order.
+/// One themed piece: a distinct hand-drawn shape (its own glyph = [id]), not a
+/// colourway. Themed collections favour unique drawings over recolours, with a
+/// rarity-tiered price (easy 20–150, medium 250–700, hard 1k–2.5k, legendary
+/// 3k–8k) so the cool stuff is something to save up for.
+ShopItem _t(
+  String id,
+  String name,
+  Color color,
+  int price, {
+  double scale = 1.0,
+  bool onWall = false,
+}) => ShopItem(
+  id: id,
+  name: name,
+  color: color,
+  price: price,
+  scale: scale,
+  onWall: onWall,
+);
+
+/// The five room-themed collections — Garden, Spa, Gourmet Kitchen, Art Studio,
+/// Game Room — each ~15 distinct animated pieces on a 4-tier rarity curve.
+final List<ShopItem> _themed = [
+  // ── Garden 🌿 ──────────────────────────────────────────────────────────────
+  _t('gardenpot', 'Flower Pot', const Color(0xFFC96F4A), 25, scale: 0.55),
+  _t('wateringcan', 'Watering Can', const Color(0xFF6FA8A0), 40, scale: 0.62),
+  _t('gnome', 'Garden Gnome', const Color(0xFFD9534F), 55, scale: 0.6),
+  _t('toadstool', 'Toadstool', const Color(0xFFE05252), 70, scale: 0.5),
+  _t('birdbath', 'Bird Bath', const Color(0xFFB7B0A3), 90, scale: 0.72),
+  _t('flowerbox', 'Flower Box', const Color(0xFF9E6B43), 110, scale: 0.6),
+  _t('topiary', 'Topiary', const Color(0xFF4F8F4A), 130, scale: 0.75),
+  _t('sunflower', 'Sunflower', const Color(0xFFE6B422), 150, scale: 0.82),
+  _t('fountain', 'Fountain', const Color(0xFFAEB4B0), 280, scale: 0.9),
+  _t('beehive', 'Beehive', const Color(0xFFE0A82E), 380, scale: 0.7),
+  _t('lilypond', 'Lily Pond', const Color(0xFF4F9DAE), 520, scale: 0.85),
+  _t('wheelbarrow', 'Wheelbarrow', const Color(0xFF8A8F94), 660, scale: 0.8),
+  _t('greenhouse', 'Greenhouse', const Color(0xFF8FC0A9), 1300, scale: 0.95),
+  _t('rosearch', 'Rose Arch', const Color(0xFFE6DCC8), 2100, scale: 1.0),
+  _t('blossomtree', 'Blossom Tree', const Color(0xFFE69AB8), 6000, scale: 1.1),
+  // ── Spa 🧖 ─────────────────────────────────────────────────────────────────
+  _t('towelstack', 'Towel Stack', const Color(0xFFD9E2E4), 25, scale: 0.55),
+  _t('spacandles', 'Spa Candles', const Color(0xFFE9DCC0), 40, scale: 0.5),
+  _t('diffuser', 'Aroma Diffuser', const Color(0xFFB99B7A), 55, scale: 0.55),
+  _t('bathsalts', 'Bath Salts', const Color(0xFFB39DD0), 70, scale: 0.5),
+  _t('slippers', 'Spa Slippers', const Color(0xFFE0B7C0), 90, scale: 0.5),
+  _t('loofah', 'Loofah', const Color(0xFFD9C28A), 110, scale: 0.5),
+  _t('orchid', 'Orchid', const Color(0xFFD98AB8), 130, scale: 0.72),
+  _t('stonestack', 'Zen Stones', const Color(0xFF7E776E), 150, scale: 0.55),
+  _t('hottub', 'Hot Tub', const Color(0xFF5AA0B0), 280, scale: 0.95),
+  _t('saunabucket', 'Sauna Bucket', const Color(0xFFB07A4A), 380, scale: 0.6),
+  _t('massagetable', 'Massage Table', const Color(0xFFD8CFC2), 520, scale: 0.9),
+  _t('footbath', 'Foot Spa', const Color(0xFF6FA8C0), 660, scale: 0.6),
+  _t('stonebath', 'Stone Bath', const Color(0xFF9AA0A2), 1300, scale: 1.0),
+  _t('waterfallwall', 'Waterfall Wall', const Color(0xFF6FB6C8), 2100, scale: 1.0),
+  _t('onsen', 'Hot Spring', const Color(0xFF7BB0A8), 6000, scale: 1.1),
+  // ── Gourmet Kitchen 🍳 ──────────────────────────────────────────────────────
+  _t('cuttingboard', 'Cutting Board', const Color(0xFFC8975A), 25, scale: 0.55),
+  _t('spicerack', 'Spice Rack', const Color(0xFFB07A4A), 40, scale: 0.6, onWall: true),
+  _t('fruitbowl', 'Fruit Bowl', const Color(0xFFDCCBB0), 55, scale: 0.55),
+  _t('coffeemaker', 'Coffee Maker', const Color(0xFF4A4A4A), 70, scale: 0.6),
+  _t('blender', 'Blender', const Color(0xFF6A9FB0), 90, scale: 0.6),
+  _t('cookbook', 'Cookbook Stand', const Color(0xFFC0584F), 110, scale: 0.55),
+  _t('potrack', 'Pot Rack', const Color(0xFF566066), 130, scale: 0.7, onWall: true),
+  _t('breadbasket', 'Bread Basket', const Color(0xFFC8975A), 150, scale: 0.55),
+  _t('espresso', 'Espresso Machine', const Color(0xFFB7C0C7), 280, scale: 0.7),
+  _t('standmixer', 'Stand Mixer', const Color(0xFFE07A9A), 380, scale: 0.65),
+  _t('winerack', 'Wine Rack', const Color(0xFF6D4C41), 520, scale: 0.8),
+  _t('rangehood', 'Range Hood', const Color(0xFFB7C0C7), 660, scale: 0.85),
+  _t('kitchenisland', 'Kitchen Island', const Color(0xFF3B4D7A), 1300, scale: 1.0),
+  _t('smartfridge', 'Smart Fridge', const Color(0xFFB7C0C7), 2100, scale: 1.0),
+  _t('pizzaoven', 'Pizza Oven', const Color(0xFFC96F4A), 6000, scale: 1.05),
+  // ── Art Studio 🎨 ───────────────────────────────────────────────────────────
+  _t('easel', 'Easel', const Color(0xFFC8A06B), 25, scale: 0.85),
+  _t('palette', 'Paint Palette', const Color(0xFFC8975A), 40, scale: 0.5),
+  _t('brushjar', 'Brush Jar', const Color(0xFFB7C0C7), 55, scale: 0.5),
+  _t('paintcans', 'Paint Cans', const Color(0xFF8E68C8), 70, scale: 0.55),
+  _t('sketchpad', 'Sketch Pad', const Color(0xFFE6DCC8), 90, scale: 0.55),
+  _t('pottery', 'Pottery', const Color(0xFFC96F4A), 110, scale: 0.5),
+  _t('bust', 'Sculpture Bust', const Color(0xFFD8D2C8), 130, scale: 0.65),
+  _t('colorwheel', 'Color Wheel', const Color(0xFFE2574C), 150, scale: 0.6, onWall: true),
+  _t('potterywheel', 'Pottery Wheel', const Color(0xFF7E776E), 280, scale: 0.7),
+  _t('abstractart', 'Abstract Canvas', const Color(0xFF7E57C2), 380, scale: 0.7, onWall: true),
+  _t('artmannequin', 'Art Mannequin', const Color(0xFFC8A06B), 520, scale: 0.7),
+  _t('draftingtable', 'Drafting Table', const Color(0xFF6D4C41), 660, scale: 0.85),
+  _t('kiln', 'Kiln', const Color(0xFF8A8F94), 1300, scale: 0.9),
+  _t('marblestatue', 'Marble Statue', const Color(0xFFE6E2DA), 2100, scale: 1.0),
+  _t('grandeasel', 'Masterpiece Easel', const Color(0xFF6D4C41), 6000, scale: 1.1),
+  // ── Game Room 🎮 ────────────────────────────────────────────────────────────
+  _t('gamepad', 'Game Controller', const Color(0xFF3B4D7A), 25, scale: 0.5),
+  _t('retroconsole', 'Retro Console', const Color(0xFF8A8F94), 40, scale: 0.55),
+  _t('dartboard', 'Dartboard', const Color(0xFFC0584F), 55, scale: 0.6, onWall: true),
+  _t('dicetower', 'Dice Tower', const Color(0xFF6D4C41), 70, scale: 0.55),
+  _t('neonsign', 'Neon Sign', const Color(0xFFE86BA8), 90, scale: 0.6, onWall: true),
+  _t('gamingchair', 'Gaming Chair', const Color(0xFFE2574C), 110, scale: 0.82),
+  _t('vrheadset', 'VR Headset', const Color(0xFF4A4A4A), 130, scale: 0.55),
+  _t('boardgame', 'Board Game', const Color(0xFF4A8FE0), 150, scale: 0.55),
+  _t('pinball', 'Pinball Machine', const Color(0xFFE2574C), 280, scale: 0.85),
+  _t('jukebox', 'Jukebox', const Color(0xFFC0584F), 380, scale: 0.8),
+  _t('pooltable', 'Pool Table', const Color(0xFF2E7D5B), 520, scale: 0.95),
+  _t('foosball', 'Foosball Table', const Color(0xFF4A8FE0), 660, scale: 0.9),
+  _t('racingsim', 'Racing Sim', const Color(0xFF333333), 1300, scale: 1.0),
+  _t('clawmachine', 'Claw Machine', const Color(0xFFE86BA8), 2100, scale: 0.95),
+  _t('arcadetower', 'Arcade Tower', const Color(0xFF8E68C8), 6000, scale: 1.1),
+];
+
+/// The full catalogue — starter pieces, every colourway, plus the themed
+/// collections — sorted cheapest first so the shop grid and the earn-as-you-go
+/// reveal both open in price order.
 final List<ShopItem> shopCatalog = [
   ..._starter,
   ..._more,
+  ..._themed,
 ]..sort((a, b) => a.price.compareTo(b.price));
 
 /// Lookup by [ShopItem.id], so the room can find an owned piece's metadata (its
@@ -493,6 +599,12 @@ const List<String> shopCategories = [
   'Accessories',
   'Pets',
   'People',
+  // Room-themed collections (distinct hand-drawn pieces, tiered by rarity).
+  'Garden',
+  'Spa',
+  'Gourmet Kitchen',
+  'Art Studio',
+  'Game Room',
 ];
 
 /// Which category each drawing belongs to. Keyed by [ShopItem.glyph], so every
@@ -547,6 +659,41 @@ const Map<String, String> _categoryByGlyph = {
   'yogatree': 'People', 'stretch': 'People', 'jogger': 'People',
   'walker': 'People', 'coffee': 'People', 'sleeper': 'People',
   'dreamer': 'People', 'petter': 'People', 'listener': 'People',
+  // Garden.
+  'gardenpot': 'Garden', 'wateringcan': 'Garden', 'gnome': 'Garden',
+  'toadstool': 'Garden', 'birdbath': 'Garden', 'flowerbox': 'Garden',
+  'topiary': 'Garden', 'sunflower': 'Garden', 'fountain': 'Garden',
+  'beehive': 'Garden', 'lilypond': 'Garden', 'wheelbarrow': 'Garden',
+  'greenhouse': 'Garden', 'rosearch': 'Garden', 'blossomtree': 'Garden',
+  // Spa.
+  'towelstack': 'Spa', 'spacandles': 'Spa', 'diffuser': 'Spa',
+  'bathsalts': 'Spa', 'slippers': 'Spa', 'loofah': 'Spa', 'orchid': 'Spa',
+  'stonestack': 'Spa', 'hottub': 'Spa', 'saunabucket': 'Spa',
+  'massagetable': 'Spa', 'footbath': 'Spa', 'stonebath': 'Spa',
+  'waterfallwall': 'Spa', 'onsen': 'Spa',
+  // Gourmet Kitchen.
+  'cuttingboard': 'Gourmet Kitchen', 'spicerack': 'Gourmet Kitchen',
+  'fruitbowl': 'Gourmet Kitchen', 'coffeemaker': 'Gourmet Kitchen',
+  'blender': 'Gourmet Kitchen', 'cookbook': 'Gourmet Kitchen',
+  'potrack': 'Gourmet Kitchen', 'breadbasket': 'Gourmet Kitchen',
+  'espresso': 'Gourmet Kitchen', 'standmixer': 'Gourmet Kitchen',
+  'winerack': 'Gourmet Kitchen', 'rangehood': 'Gourmet Kitchen',
+  'kitchenisland': 'Gourmet Kitchen', 'smartfridge': 'Gourmet Kitchen',
+  'pizzaoven': 'Gourmet Kitchen',
+  // Art Studio.
+  'easel': 'Art Studio', 'palette': 'Art Studio', 'brushjar': 'Art Studio',
+  'paintcans': 'Art Studio', 'sketchpad': 'Art Studio', 'pottery': 'Art Studio',
+  'bust': 'Art Studio', 'colorwheel': 'Art Studio',
+  'potterywheel': 'Art Studio', 'abstractart': 'Art Studio',
+  'artmannequin': 'Art Studio', 'draftingtable': 'Art Studio',
+  'kiln': 'Art Studio', 'marblestatue': 'Art Studio', 'grandeasel': 'Art Studio',
+  // Game Room.
+  'gamepad': 'Game Room', 'retroconsole': 'Game Room', 'dartboard': 'Game Room',
+  'dicetower': 'Game Room', 'neonsign': 'Game Room', 'gamingchair': 'Game Room',
+  'vrheadset': 'Game Room', 'boardgame': 'Game Room', 'pinball': 'Game Room',
+  'pooltable': 'Game Room', 'foosball': 'Game Room', 'jukebox': 'Game Room',
+  'racingsim': 'Game Room', 'clawmachine': 'Game Room',
+  'arcadetower': 'Game Room',
 };
 
 /// The category for [glyph] (falls back to "Accessories" for anything new).

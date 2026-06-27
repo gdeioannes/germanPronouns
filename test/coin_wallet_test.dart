@@ -70,15 +70,20 @@ void main() {
     expect(CoinWallet.instance.balance, 0);
   });
 
-  test('coinsForLaps follows the ribbon tiers (bronze/silver/gold)', () {
-    expect(CoinWallet.coinsForLaps(1), 2); // bronze
-    expect(CoinWallet.coinsForLaps(2), 2); // bronze
-    expect(CoinWallet.coinsForLaps(3), 3); // silver
-    expect(CoinWallet.coinsForLaps(4), 3); // silver
-    expect(CoinWallet.coinsForLaps(5), 5); // gold
-    expect(CoinWallet.coinsForLaps(9), 5); // gold
-    // Always pays at least one coin.
-    expect(CoinWallet.coinsForLaps(1), greaterThan(0));
+  test('rollRibbonCoins pays a random amount in each ribbon tier band', () {
+    // Roll many times so every result must land inside the tier's [min, max].
+    for (var i = 0; i < 200; i++) {
+      final bronze = CoinWallet.rollRibbonCoins(1); // laps 1–2 → bronze
+      expect(bronze, inInclusiveRange(10, 30));
+      final silver = CoinWallet.rollRibbonCoins(3); // laps 3–4 → silver
+      expect(silver, inInclusiveRange(35, 70));
+      final gold = CoinWallet.rollRibbonCoins(5); // laps 5+ → gold
+      expect(gold, inInclusiveRange(100, 200));
+    }
+    // Tier boundaries match the ribbon tiers.
+    expect(CoinWallet.rollRibbonCoins(2), inInclusiveRange(10, 30)); // bronze
+    expect(CoinWallet.rollRibbonCoins(4), inInclusiveRange(35, 70)); // silver
+    expect(CoinWallet.rollRibbonCoins(9), inInclusiveRange(100, 200)); // gold
   });
 
   test('first run seeds the wallet from existing per-quiz scores (clamped)',
