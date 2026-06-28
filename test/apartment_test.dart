@@ -228,6 +228,20 @@ void main() {
     expect(Apartment.instance.animate, isFalse);
   });
 
+  test('effects toggle persists and reloads (default on)', () async {
+    await loadWith(100);
+    expect(Apartment.instance.effects, isTrue); // on by default
+
+    await Apartment.instance.setEffects(false);
+    expect(Apartment.instance.effects, isFalse);
+
+    Apartment.instance.resetForTest();
+    CoinWallet.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    expect(Apartment.instance.effects, isFalse);
+  });
+
   test('night mode toggles, persists and reloads', () async {
     await loadWith(100);
     expect(Apartment.instance.isNight, isFalse); // day by default

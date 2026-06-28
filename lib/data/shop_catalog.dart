@@ -263,6 +263,15 @@ final List<ShopItem> _more = [
   ..._ways('hangingplant', 'Hanging Plant',
       hues: const [_leaf, _fern],
       basePrice: 24, step: 3, scale: 0.7, onWall: true),
+  ..._ways('fern', 'Fern',
+      hues: const [_fern, _leaf, _emerald],
+      basePrice: 40, step: 4, scale: 0.9),
+  ..._ways('aloe', 'Aloe',
+      hues: const [_leaf, _emerald, _mint],
+      basePrice: 28, step: 3, scale: 0.72),
+  ..._ways('pampas', 'Pampas Grass',
+      hues: const [_cream, _blush],
+      basePrice: 46, step: 5, scale: 1.0),
   ..._ways('vase', 'Vase',
       hues: const [_teal, _rose, _mustard, _navy, _white],
       basePrice: 16, step: 2, scale: 0.5),
@@ -863,6 +872,7 @@ const Map<String, String> _categoryByGlyph = {
   // Plants.
   'plant': 'Plants', 'cactus': 'Plants', 'succulent': 'Plants',
   'palm': 'Plants', 'hangingplant': 'Plants', 'vase': 'Plants',
+  'fern': 'Plants', 'aloe': 'Plants', 'pampas': 'Plants',
   // Windows.
   'window': 'Windows', 'archwindow': 'Windows', 'roundwindow': 'Windows',
   // Floors & walls (surfaces).

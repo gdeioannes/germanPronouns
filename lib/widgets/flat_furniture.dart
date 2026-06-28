@@ -1,6 +1,9 @@
-/// Flat, minimal vector illustrations of the shop furniture — solid shapes in a
-/// small palette derived from each item's color, no gradients, no shadows, no
-/// icons. Used in both the room and the shop so the whole game looks flat.
+/// Minimal vector illustrations of the shop furniture — solid shapes in a small
+/// palette derived from each item's color, no icons. The style stays flat and
+/// clean, but every solid shape is now lit from one consistent direction (top,
+/// a hair left) through a soft gradient, so pieces read with a little volume and
+/// sit in the room's light instead of looking like flat stickers. Used in both
+/// the room and the shop so the whole game looks of a piece.
 library;
 
 import 'dart:math' as math;
@@ -29,6 +32,9 @@ const Set<String> _animatedGlyphs = {
   // steam, drifting Zzz…). Meditator & Yogi instead just breathe (whole-piece).
   'reader', 'student', 'stretch', 'jogger', 'walker', 'coffee',
   'sleeper', 'dreamer', 'petter', 'listener',
+  // Plants — gentle sway, with the odd butterfly or bee drifting past.
+  'plant', 'cactus', 'succulent', 'palm', 'hangingplant',
+  'fern', 'aloe', 'pampas',
   // Garden — every themed piece has an in-character idle motion.
   'gardenpot', 'wateringcan', 'gnome', 'toadstool', 'birdbath', 'flowerbox',
   'topiary', 'sunflower', 'fountain', 'beehive', 'lilypond', 'wheelbarrow',
@@ -170,34 +176,72 @@ class _FurniturePainter extends CustomPainter {
     final screen = Color.lerp(const Color(0xFF425D6A), const Color(0xFF526D7A),
         0.5 + 0.5 * wv(5))!;
 
-    void box(double l, double t, double r, double b, double rad, Color color) {
-      canvas.drawRRect(
-        RRect.fromLTRBR(l * u, t * u, r * u, b * u, Radius.circular(rad * u)),
+    // ── Soft, consistent volume ───────────────────────────────────────────────
+    // The whole set is lit from the top (a hair to the left), so every solid
+    // shape is filled with a gentle gradient along that light instead of a dead
+    // flat colour: a lighter crown, the true [color] through the middle, a soft
+    // shaded foot. It keeps the flat, minimal look but gives each piece a little
+    // body so it reads as sitting in the room rather than a sticker on the wall.
+    Shader vshade(Rect r, Color c, double hi, double lo) => LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [_shade(c, hi), c, _shade(c, -lo)],
+          stops: const [0.0, 0.55, 1.0],
+        ).createShader(r);
+
+    // A box fill. Tall panels get the light gradient; very thin slivers (handles,
+    // keys, ledges) and anything asking to stay [flat] keep a crisp solid fill.
+    void box(double l, double t, double r, double b, double rad, Color color,
+        {bool flat = false}) {
+      final rect = Rect.fromLTRB(l * u, t * u, r * u, b * u);
+      paint.style = PaintingStyle.fill;
+      if (flat || (b - t) < 0.05) {
         paint
-          ..color = color
-          ..style = PaintingStyle.fill,
-      );
+          ..shader = null
+          ..color = color;
+      } else {
+        paint.shader = vshade(rect, color, 0.10, 0.12);
+      }
+      canvas.drawRRect(RRect.fromRectAndRadius(rect, Radius.circular(rad * u)),
+          paint);
+      paint.shader = null;
     }
 
-    void circ(double cx, double cy, double rad, Color color) {
-      canvas.drawCircle(
-        Offset(cx * u, cy * u),
-        rad * u,
+    // A disc. Bigger discs are shaded as little spheres (the light pooling toward
+    // the top-left); tiny dots (eyes, knobs) stay solid so they read crisp.
+    void circ(double cx, double cy, double rad, Color color, {bool flat = false}) {
+      final center = Offset(cx * u, cy * u);
+      final rr = rad * u;
+      paint.style = PaintingStyle.fill;
+      if (flat || rad < 0.035) {
         paint
-          ..color = color
-          ..style = PaintingStyle.fill,
-      );
+          ..shader = null
+          ..color = color;
+      } else {
+        paint.shader = RadialGradient(
+          center: const Alignment(-0.4, -0.5),
+          radius: 1.05,
+          colors: [_shade(color, 0.17), color, _shade(color, -0.14)],
+          stops: const [0.0, 0.55, 1.0],
+        ).createShader(Rect.fromCircle(center: center, radius: rr));
+      }
+      canvas.drawCircle(center, rr, paint);
+      paint.shader = null;
     }
 
-    void poly(List<Offset> pts, Color color) {
+    void poly(List<Offset> pts, Color color, {bool flat = false}) {
       final path = Path()
         ..addPolygon([for (final o in pts) Offset(o.dx * u, o.dy * u)], true);
-      canvas.drawPath(
-        path,
+      paint.style = PaintingStyle.fill;
+      if (flat) {
         paint
-          ..color = color
-          ..style = PaintingStyle.fill,
-      );
+          ..shader = null
+          ..color = color;
+      } else {
+        paint.shader = vshade(path.getBounds(), color, 0.09, 0.11);
+      }
+      canvas.drawPath(path, paint);
+      paint.shader = null;
     }
 
     void line(double x1, double y1, double x2, double y2, double w, Color c) {
@@ -243,13 +287,18 @@ class _FurniturePainter extends CustomPainter {
     // Filled half-discs: [dome] is the top half (mushroom caps, arches), [bowl]
     // the bottom half (basins, fruit bowls). Flat side sits at [cy].
     void halfDisc(double cx, double cy, double rad, double start, Color color) {
-      canvas.drawArc(
-        Rect.fromCircle(center: Offset(cx * u, cy * u), radius: rad * u),
-        start, math.pi, false,
+      final rect =
+          Rect.fromCircle(center: Offset(cx * u, cy * u), radius: rad * u);
+      paint.style = PaintingStyle.fill;
+      if (rad < 0.04) {
         paint
-          ..color = color
-          ..style = PaintingStyle.fill,
-      );
+          ..shader = null
+          ..color = color;
+      } else {
+        paint.shader = vshade(rect, color, 0.10, 0.12);
+      }
+      canvas.drawArc(rect, start, math.pi, false, paint);
+      paint.shader = null;
     }
     void dome(double cx, double cy, double r, Color c) => halfDisc(cx, cy, r, math.pi, c);
     void bowl(double cx, double cy, double r, Color c) => halfDisc(cx, cy, r, 0, c);
@@ -268,43 +317,145 @@ class _FurniturePainter extends CustomPainter {
       );
     }
 
-    // A little person's head: a hair cap, a face, two eyes and a gentle smile —
-    // shared by every "People" pose so they read as one calm, friendly cast.
-    // [sleeping] draws closed eyes; [glasses] adds round spectacles.
+    // The People cast's palette. A handful of skin tones and hair colours so the
+    // little characters read as different individuals rather than one cloned
+    // figure — each pose picks a pair (see the per-case [skinTone]/[hairColor]).
     const skin = Color(0xFFE9B68C);
     const hair = Color(0xFF4A3B30);
     const eye = Color(0xFF2E251F);
+    const blush = Color(0x24D77B62); // a faint warm cheek
+    const skinTones = [
+      Color(0xFFF2CDA6), Color(0xFFE9B68C), Color(0xFFCF9468), Color(0xFF9C6B45),
+    ];
+    const hairColors = [
+      Color(0xFF3A2C22), Color(0xFF6E4A2B), Color(0xFF211D19),
+      Color(0xFFB98A3E), Color(0xFF8C8C8C),
+    ];
+
+    // A little person's head: a neck tucked into the torso, ears, a face under a
+    // chosen hairstyle, two eyes, soft cheeks and a gentle smile. Shared by every
+    // "People" pose so the whole cast reads as one warm, hand-drawn family, while
+    // [skinTone]/[hairColor]/[style] let each be its own person. [sleeping] shuts
+    // the eyes; [glasses] adds round spectacles; [neck]/[ears] can be turned off
+    // when a pose (lying down, a hood) hides them. Hair [style]s: short, side,
+    // bun, pony, long, curly, bald.
     void head(double cx, double cy, double r,
-        {bool sleeping = false, bool glasses = false}) {
-      circ(cx, cy - r * 0.22, r, hair); // hair (sits a touch higher)
-      circ(cx, cy, r * 0.9, skin); // face
-      final ey = cy - r * 0.04; // eye line
-      final edx = r * 0.34; // eye spacing from centre
+        {bool sleeping = false,
+        bool glasses = false,
+        bool neck = true,
+        bool ears = true,
+        String style = 'short',
+        Color? skinTone,
+        Color? hairColor}) {
+      final sk = skinTone ?? skin;
+      final hc = hairColor ?? hair;
+      final fr = r * 0.92; // face radius
+      final ey = cy + r * 0.04; // eye line (sits a hair below centre)
+      final edx = r * 0.32; // eye spacing from centre
+      // Neck — a short skin column under the chin that sinks into the torso, so
+      // the head rests on the body rather than floating over it.
+      if (neck) {
+        box(cx - r * 0.23, cy + r * 0.52, cx + r * 0.23, cy + r * 1.28,
+            r * 0.16, _shade(sk, -0.07));
+      }
+      // Ears, level with the eyes (drawn first so hair/face frame them).
+      if (ears) {
+        circ(cx - fr, cy + r * 0.08, r * 0.17, sk);
+        circ(cx + fr, cy + r * 0.08, r * 0.17, sk);
+      }
+      // Back hair — a soft mass behind the face; long styles fall past the jaw.
+      if (style == 'long') {
+        box(cx - fr * 1.05, cy - r * 0.05, cx + fr * 1.05, cy + r * 1.08,
+            fr * 0.7, hc);
+      }
+      if (style != 'bald') circ(cx, cy - r * 0.16, fr * 1.12, hc); // crown
+      circ(cx, cy + r * 0.07, fr, sk); // face (low, so the crown shows on top)
+      // Front hairline + style accents, on top of the face.
+      switch (style) {
+        case 'bald':
+          break;
+        case 'curly':
+          for (var i = -2; i <= 2; i++) {
+            circ(cx + i * fr * 0.44, cy - r * 0.48 + i.abs() * r * 0.06,
+                fr * 0.36, hc);
+          }
+        case 'bun':
+          circ(cx, cy - r * 0.7, r * 0.26, hc); // top knot
+          arc(cx, cy + r * 0.05, fr * 0.84, math.pi * 1.16, math.pi * 0.68,
+              r * 0.2, hc);
+        case 'pony':
+          poly([
+            Offset(cx + fr * 0.78, cy - r * 0.34),
+            Offset(cx + fr * 1.32, cy + r * 0.04),
+            Offset(cx + fr * 1.12, cy + r * 0.5),
+            Offset(cx + fr * 0.74, cy + r * 0.08),
+          ], hc); // ponytail off the back
+          arc(cx, cy + r * 0.05, fr * 0.84, math.pi * 1.16, math.pi * 0.68,
+              r * 0.2, hc);
+        case 'side':
+          poly([
+            Offset(cx - fr * 0.95, cy - r * 0.18),
+            Offset(cx + fr * 0.2, cy - r * 0.56),
+            Offset(cx + fr * 0.98, cy - r * 0.12),
+            Offset(cx + fr * 0.1, cy - r * 0.28),
+          ], hc); // a swept fringe
+        default: // short, long
+          arc(cx, cy + r * 0.05, fr * 0.84, math.pi * 1.16, math.pi * 0.68,
+              r * 0.2, hc); // a clean fringe band
+      }
+      // Soft cheeks — a touch of warmth low on the face.
+      circ(cx - r * 0.5, cy + r * 0.34, r * 0.17, blush, flat: true);
+      circ(cx + r * 0.5, cy + r * 0.34, r * 0.17, blush, flat: true);
+      // Eyes — open dots with a tiny catch-light, or content closed curves.
       if (sleeping) {
-        line(cx - edx - r * 0.14, ey, cx - edx + r * 0.14, ey, 0.012, eye);
-        line(cx + edx - r * 0.14, ey, cx + edx + r * 0.14, ey, 0.012, eye);
+        arc(cx - edx, ey - r * 0.04, r * 0.17, math.pi * 0.18, math.pi * 0.64,
+            0.012, eye);
+        arc(cx + edx, ey - r * 0.04, r * 0.17, math.pi * 0.18, math.pi * 0.64,
+            0.012, eye);
       } else {
-        circ(cx - edx, ey, r * 0.12, eye); // eyes
-        circ(cx + edx, ey, r * 0.12, eye);
+        circ(cx - edx, ey, r * 0.13, eye);
+        circ(cx + edx, ey, r * 0.13, eye);
+        circ(cx - edx - r * 0.04, ey - r * 0.05, r * 0.04, Colors.white,
+            flat: true); // catch-light
+        circ(cx + edx - r * 0.04, ey - r * 0.05, r * 0.04, Colors.white,
+            flat: true);
       }
       if (glasses) {
-        ring(cx - edx, ey, r * 0.22, r * 0.045, eye);
-        ring(cx + edx, ey, r * 0.22, r * 0.045, eye);
-        line(cx - edx + r * 0.2, ey, cx + edx - r * 0.2, ey, 0.008, eye);
+        ring(cx - edx, ey, r * 0.24, r * 0.045, eye);
+        ring(cx + edx, ey, r * 0.24, r * 0.045, eye);
+        line(cx - edx + r * 0.22, ey, cx + edx - r * 0.22, ey, 0.008, eye);
       }
       // A soft smile: the lower arc of a small circle (concave up).
       canvas.drawArc(
         Rect.fromCircle(
-            center: Offset(cx * u, (cy + r * 0.16) * u), radius: r * 0.34 * u),
-        0.18 * math.pi,
-        0.64 * math.pi,
+            center: Offset(cx * u, (cy + r * 0.32) * u), radius: r * 0.3 * u),
+        0.2 * math.pi,
+        0.6 * math.pi,
         false,
         Paint()
           ..color = eye
           ..style = PaintingStyle.stroke
-          ..strokeWidth = r * 0.085 * u
+          ..strokeWidth = r * 0.08 * u
           ..strokeCap = StrokeCap.round
           ..isAntiAlias = true,
+      );
+    }
+
+    // Limb terminators, so arms and legs finish in hands and shoes instead of
+    // blunt round stumps. [hand] is a soft skin disc; [shoe] a small rounded
+    // sole pointing toward [dir] (+1 right, −1 left), in the outfit's dark tone.
+    void hand(double x, double y, {Color? c, double r = 0.026}) =>
+        circ(x, y, r, c ?? skin);
+    void shoe(double x, double y, double dir, Color c) {
+      canvas.drawOval(
+        Rect.fromCenter(
+            center: Offset((x + dir * 0.02) * u, y * u),
+            width: 0.075 * u,
+            height: 0.038 * u),
+        paint
+          ..style = PaintingStyle.fill
+          ..shader = null
+          ..color = c,
       );
     }
 
@@ -312,6 +463,112 @@ class _FurniturePainter extends CustomPainter {
     // height, so the items read as a consistent set rather than one tall lamp
     // next to a tiny table. Wall pieces (painting, clock) are centred instead.
     const offWhite = Color(0xFFFBFAF6);
+
+    // ── Plant primitives ──────────────────────────────────────────────────────
+    // Recognizable greenery parts, shared by every plant so the whole shelf
+    // reads as one hand: a real planter, almond leaves with a midrib, layered
+    // blooms, and pollinators drifting past. Tune these — not each case — to keep
+    // the ~dozen plants consistent.
+
+    // A tapered clay planter: a body, a band of soil in the mouth and an
+    // overhanging lip, so foliage reads as growing *out of a pot*. Draw the
+    // foliage first, then the pot — the lip tucks the stems in like real soil.
+    void pot(double cx, double topHalf, double botHalf, double topY, double botY,
+        Color clay, {bool soil = false}) {
+      poly([
+        Offset(cx - topHalf, topY), Offset(cx + topHalf, topY),
+        Offset(cx + botHalf, botY), Offset(cx - botHalf, botY),
+      ], clay);
+      if (soil) {
+        canvas.drawOval(
+          Rect.fromCenter(
+              center: Offset(cx * u, topY * u),
+              width: topHalf * 1.9 * u, height: topHalf * 0.55 * u),
+          paint
+            ..style = PaintingStyle.fill
+            ..shader = null
+            ..color = const Color(0xFF5A4636));
+      }
+      box(cx - topHalf - 0.014, topY - 0.022, cx + topHalf + 0.014,
+          topY + 0.022, 0.014, _shade(clay, 0.06));
+    }
+
+    // An almond leaf from base→tip with a max half-width [w] and a central vein;
+    // [curve] bows it sideways for a natural arch. Lit like every other solid.
+    void leaf(double bx, double by, double tx, double ty, double w, Color c,
+        {double curve = 0, bool vein = true}) {
+      final b = Offset(bx * u, by * u);
+      final tip = Offset(tx * u, ty * u);
+      final dir = tip - b;
+      final len = dir.distance;
+      if (len < 1e-6) return;
+      final px = -dir.dy / len, py = dir.dx / len; // unit perpendicular
+      final mx = (b.dx + tip.dx) / 2 + px * curve * u;
+      final my = (b.dy + tip.dy) / 2 + py * curve * u;
+      final path = Path()
+        ..moveTo(b.dx, b.dy)
+        ..quadraticBezierTo(mx + px * w * u, my + py * w * u, tip.dx, tip.dy)
+        ..quadraticBezierTo(mx - px * w * u, my - py * w * u, b.dx, b.dy)
+        ..close();
+      paint
+        ..style = PaintingStyle.fill
+        ..shader = vshade(path.getBounds(), c, 0.14, 0.12);
+      canvas.drawPath(path, paint);
+      paint.shader = null;
+      if (vein) {
+        canvas.drawLine(
+            b, tip,
+            paint
+              ..color = _shade(c, -0.16)
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = math.max(0.8, w * 0.22 * u)
+              ..strokeCap = StrokeCap.round);
+      }
+    }
+
+    // A simple bloom: [petals] petals around a centre disc.
+    void flower(double cx, double cy, double r, Color petal, Color centre,
+        {int petals = 5, double rot = -math.pi / 2}) {
+      for (var i = 0; i < petals; i++) {
+        final a = rot + i * 2 * math.pi / petals;
+        leaf(cx, cy, cx + r * math.cos(a), cy + r * math.sin(a), r * 0.5, petal,
+            vein: false);
+      }
+      circ(cx, cy, r * 0.4, centre);
+    }
+
+    // A butterfly opening its wings with [flap] (0..1); the case drifts it on a
+    // path. Two wing discs a side over a slim body, with little antennae.
+    void butterfly(double cx, double cy, double s, Color c, double flap) {
+      final sp = 0.5 + 0.5 * flap;
+      final edge = _shade(c, -0.24);
+      circ(cx - s * 0.5 * sp, cy - s * 0.16, s * 0.30, c);
+      circ(cx + s * 0.5 * sp, cy - s * 0.16, s * 0.30, c);
+      circ(cx - s * 0.42 * sp, cy + s * 0.20, s * 0.22, _shade(c, 0.10));
+      circ(cx + s * 0.42 * sp, cy + s * 0.20, s * 0.22, _shade(c, 0.10));
+      box(cx - s * 0.05, cy - s * 0.30, cx + s * 0.05, cy + s * 0.34, s * 0.05,
+          edge, flat: true);
+      line(cx, cy - s * 0.28, cx - s * 0.16, cy - s * 0.52, 0.005, edge);
+      line(cx, cy - s * 0.28, cx + s * 0.16, cy - s * 0.52, 0.005, edge);
+    }
+
+    // A fuzzy bee: a gold body banded black with a pale wing-blur flicking on
+    // [flap], buzzing wherever the case places it.
+    void bee(double cx, double cy, double s, double flap) {
+      final wa = 0.4 + 0.6 * flap;
+      circ(cx - s * 0.18, cy - s * 0.5 * wa, s * 0.26,
+          Colors.white.withValues(alpha: 0.55));
+      circ(cx + s * 0.18, cy - s * 0.5 * wa, s * 0.26,
+          Colors.white.withValues(alpha: 0.55));
+      box(cx - s * 0.5, cy - s * 0.32, cx + s * 0.5, cy + s * 0.32, s * 0.32,
+          const Color(0xFFF2C019));
+      line(cx - s * 0.12, cy - s * 0.30, cx - s * 0.12, cy + s * 0.30, 0.012,
+          const Color(0xFF2A2118));
+      line(cx + s * 0.16, cy - s * 0.26, cx + s * 0.16, cy + s * 0.26, 0.012,
+          const Color(0xFF2A2118));
+      circ(cx - s * 0.5, cy, s * 0.15, const Color(0xFF2A2118));
+    }
+
     switch (item.glyph) {
       case 'lamp':
         box(0.355, 0.84, 0.645, 0.90, 0.02, dark); // base
@@ -323,18 +580,30 @@ class _FurniturePainter extends CustomPainter {
           Offset(0.30, 0.36),
         ], base); // shade
         line(0.43, 0.20, 0.57, 0.20, 0.012, light); // shade highlight
-      case 'plant':
-        circ(0.50, 0.32, 0.17, base);
-        circ(0.33, 0.46, 0.13, light);
-        circ(0.67, 0.46, 0.13, dark);
-        circ(0.50, 0.47, 0.15, base);
-        poly(const [
-          Offset(0.35, 0.60),
-          Offset(0.65, 0.60),
-          Offset(0.59, 0.90),
-          Offset(0.41, 0.90),
-        ], const Color(0xFFC9885A)); // pot
-        box(0.32, 0.55, 0.68, 0.625, 0.02, const Color(0xFFB97548)); // rim
+      case 'plant': // a leafy bush fanning from a pot, a butterfly visiting
+        {
+          final sway = wv(1) * 0.02;
+          const bx = 0.50, by = 0.66;
+          // a fan of broad leaves, outer pair first so inner overlaps cleanly
+          for (var i = 0; i < 5; i++) {
+            final a = -math.pi / 2 + (i - 2) * 0.52;
+            final tx = bx + 0.30 * math.cos(a) + sway * (i - 2);
+            final ty = by + 0.30 * math.sin(a);
+            leaf(bx, by, tx, ty, 0.085, i.isEven ? base : _shade(base, 0.07),
+                curve: (i - 2) * 0.03);
+          }
+          leaf(bx, by, bx - 0.09 + sway, by - 0.34, 0.06, _shade(base, -0.05),
+              vein: false);
+          leaf(bx, by, bx + 0.09 + sway, by - 0.34, 0.06, _shade(base, -0.04),
+              vein: false);
+          pot(0.50, 0.16, 0.115, 0.66, 0.90, const Color(0xFFCE8A52));
+          if (on) {
+            final d = saw(1);
+            butterfly(0.74 - 0.10 * math.sin(d * 2 * math.pi),
+                0.24 + 0.07 * math.cos(d * 2 * math.pi), 0.10,
+                const Color(0xFFE8943C), 0.5 + 0.5 * wv(7));
+          }
+        }
       case 'chair':
         box(0.34, 0.12, 0.62, 0.56, 0.03, base); // backrest
         box(0.30, 0.52, 0.70, 0.63, 0.03, dark); // seat
@@ -433,20 +702,24 @@ class _FurniturePainter extends CustomPainter {
         box(0.08, 0.62, 0.92, 0.90, 0.10, dark);
         box(0.13, 0.66, 0.87, 0.86, 0.08, base);
         box(0.24, 0.71, 0.76, 0.81, 0.05, light);
-      case 'cactus':
-        box(0.44, 0.24, 0.56, 0.70, 0.06, base); // trunk
-        box(0.30, 0.42, 0.45, 0.50, 0.04, base); // left arm
-        box(0.30, 0.36, 0.39, 0.50, 0.04, base); // left arm up
-        box(0.55, 0.46, 0.70, 0.54, 0.04, base); // right arm
-        box(0.61, 0.40, 0.70, 0.54, 0.04, base); // right arm up
-        circ(0.50, 0.23, 0.05, const Color(0xFFEC407A)); // flower
-        poly(const [
-          Offset(0.37, 0.66),
-          Offset(0.63, 0.66),
-          Offset(0.59, 0.90),
-          Offset(0.41, 0.90),
-        ], const Color(0xFFC9885A)); // pot
-        box(0.34, 0.62, 0.66, 0.685, 0.02, const Color(0xFFB97548));
+      case 'cactus': // a ribbed barrel cactus with arms, crowned by a bloom
+        {
+          final s = wv(1) * 0.01;
+          box(0.43 + s, 0.30, 0.57 + s, 0.70, 0.07, base); // trunk
+          box(0.30 + s, 0.44, 0.46 + s, 0.52, 0.05, base); // left arm
+          box(0.30 + s, 0.34, 0.39 + s, 0.52, 0.05, base); // left arm up
+          box(0.54 + s, 0.48, 0.70 + s, 0.56, 0.05, base); // right arm
+          box(0.61 + s, 0.38, 0.70 + s, 0.56, 0.05, base); // right arm up
+          for (final f in const [0.47, 0.50, 0.53]) {
+            line(f + s, 0.34, f + s, 0.68, 0.004, _shade(base, -0.14)); // ribs
+          }
+          for (var i = 0; i < 5; i++) {
+            circ(0.50 + s, 0.36 + i * 0.07, 0.006, _shade(base, 0.22)); // spines
+          }
+          flower(0.50 + s, 0.27, 0.06, const Color(0xFFEC6F9C),
+              const Color(0xFFF4C430), petals: 6);
+          pot(0.50, 0.16, 0.115, 0.66, 0.90, const Color(0xFFCE8A52));
+        }
       case 'mirror': // wall piece
         box(0.30, 0.12, 0.70, 0.80, 0.20, base); // frame
         box(0.355, 0.17, 0.645, 0.75, 0.16, const Color(0xFFD7EAF0)); // glass
@@ -459,20 +732,28 @@ class _FurniturePainter extends CustomPainter {
         line(0.60, 0.66, 0.82, 0.66, 0.012, base); // drawer divider
         circ(0.71, 0.58, 0.018, light); // knob
         circ(0.71, 0.78, 0.018, light); // knob
-      case 'vase':
-        line(0.50, 0.34, 0.50, 0.58, 0.014, const Color(0xFF4CAF50));
-        line(0.40, 0.42, 0.49, 0.57, 0.014, const Color(0xFF4CAF50));
-        line(0.60, 0.42, 0.51, 0.57, 0.014, const Color(0xFF4CAF50));
-        circ(0.50, 0.28, 0.075, const Color(0xFFEC407A));
-        circ(0.37, 0.38, 0.06, const Color(0xFFFFCA28));
-        circ(0.63, 0.38, 0.06, const Color(0xFF7E57C2));
-        poly(const [
-          Offset(0.40, 0.58),
-          Offset(0.60, 0.58),
-          Offset(0.64, 0.90),
-          Offset(0.36, 0.90),
-        ], base); // vase body
-        box(0.37, 0.55, 0.63, 0.61, 0.02, dark); // rim
+      case 'vase': // a posy of layered blooms in a coloured vase
+        {
+          const stem = Color(0xFF4F8F4A);
+          line(0.50, 0.58, 0.50, 0.30, 0.012, stem); // stems
+          line(0.50, 0.54, 0.40, 0.34, 0.012, stem);
+          line(0.50, 0.54, 0.60, 0.34, 0.012, stem);
+          leaf(0.50, 0.52, 0.42, 0.46, 0.03, stem, vein: false);
+          leaf(0.50, 0.50, 0.58, 0.47, 0.03, _shade(stem, 0.08), vein: false);
+          flower(0.40, 0.32, 0.07, const Color(0xFFE2574C),
+              const Color(0xFFF4C430)); // red
+          flower(0.60, 0.32, 0.065, const Color(0xFF8E68C8),
+              const Color(0xFFF4C430)); // purple
+          flower(0.50, 0.27, 0.078, const Color(0xFFE86BA8),
+              const Color(0xFFF4C430), petals: 6); // pink, front
+          poly(const [
+            Offset(0.42, 0.58), Offset(0.58, 0.58),
+            Offset(0.62, 0.88), Offset(0.38, 0.88),
+          ], base); // vase body
+          box(0.40, 0.55, 0.60, 0.605, 0.02, _shade(base, -0.12)); // rim
+          line(0.45, 0.64, 0.43, 0.80, 0.01,
+              Colors.white.withValues(alpha: 0.25)); // glaze highlight
+        }
       case 'guitar':
         box(0.52, 0.10, 0.62, 0.20, 0.02, dark); // head
         box(0.54, 0.16, 0.60, 0.58, 0.0, dark); // neck
@@ -668,65 +949,83 @@ class _FurniturePainter extends CustomPainter {
             Offset(0.52, 0.44),
           ], const Color(0xFFFFD54F)); // inner flame
         }
-      case 'succulent':
-        poly(const [
-          Offset(0.40, 0.62),
-          Offset(0.60, 0.62),
-          Offset(0.57, 0.86),
-          Offset(0.43, 0.86),
-        ], const Color(0xFFC9885A)); // pot
-        box(0.38, 0.58, 0.62, 0.65, 0.02, const Color(0xFFB97548)); // rim
-        circ(0.50, 0.50, 0.10, base); // rosette
-        circ(0.42, 0.54, 0.06, light);
-        circ(0.58, 0.54, 0.06, dark);
-        circ(0.50, 0.44, 0.05, light);
-      case 'hangingplant': // wall piece — hangs
-        line(0.50, 0.10, 0.50, 0.28, 0.01, dark); // hanger
-        poly(const [
-          Offset(0.40, 0.28),
-          Offset(0.60, 0.28),
-          Offset(0.56, 0.46),
-          Offset(0.44, 0.46),
-        ], base); // pot
-        line(0.45, 0.46, 0.40, 0.72, 0.016, light); // vine
-        line(0.50, 0.46, 0.50, 0.80, 0.016, base); // vine
-        line(0.55, 0.46, 0.61, 0.66, 0.016, dark); // vine
-        circ(0.40, 0.72, 0.03, light);
-        circ(0.50, 0.80, 0.03, base);
-        circ(0.61, 0.66, 0.03, dark);
-      case 'palm':
-        poly(const [
-          Offset(0.42, 0.74),
-          Offset(0.58, 0.74),
-          Offset(0.55, 0.90),
-          Offset(0.45, 0.90),
-        ], const Color(0xFFC9885A)); // pot
-        box(0.485, 0.36, 0.515, 0.76, 0.0, const Color(0xFF8D6E63)); // trunk
-        poly(const [
-          Offset(0.50, 0.40),
-          Offset(0.20, 0.30),
-          Offset(0.30, 0.42),
-        ], base); // frond
-        poly(const [
-          Offset(0.50, 0.40),
-          Offset(0.80, 0.30),
-          Offset(0.70, 0.42),
-        ], dark); // frond
-        poly(const [
-          Offset(0.50, 0.38),
-          Offset(0.34, 0.16),
-          Offset(0.46, 0.30),
-        ], light); // frond
-        poly(const [
-          Offset(0.50, 0.38),
-          Offset(0.66, 0.16),
-          Offset(0.54, 0.30),
-        ], base); // frond
-        poly(const [
-          Offset(0.50, 0.40),
-          Offset(0.50, 0.14),
-          Offset(0.56, 0.28),
-        ], dark); // frond
+      case 'succulent': // an echeveria rosette of fat leaves in a low pot
+        {
+          const cx = 0.50, cy = 0.50;
+          for (var i = 0; i < 8; i++) {
+            final a = i * math.pi / 4 - math.pi / 2;
+            leaf(cx, cy, cx + 0.17 * math.cos(a), cy + 0.17 * math.sin(a) - 0.02,
+                0.06, _shade(base, -0.04), vein: false); // outer ring
+          }
+          for (var i = 0; i < 6; i++) {
+            final a = i * math.pi / 3 - math.pi / 2 + 0.3;
+            leaf(cx, cy, cx + 0.11 * math.cos(a), cy + 0.11 * math.sin(a) - 0.02,
+                0.05, base, vein: false); // mid ring
+          }
+          for (var i = 0; i < 3; i++) {
+            final a = i * 2 * math.pi / 3 - math.pi / 2;
+            leaf(cx, cy, cx + 0.055 * math.cos(a), cy + 0.055 * math.sin(a),
+                0.035, _shade(base, 0.12), vein: false); // tight core
+          }
+          circ(cx, cy - 0.01, 0.028, _shade(base, 0.16));
+          pot(0.50, 0.18, 0.155, 0.62, 0.86, const Color(0xFFCE8A52),
+              soil: true);
+        }
+      case 'hangingplant': // wall piece — a trailing pothos in a macramé sling
+        {
+          final s = wv(1); // the whole plant sways a touch in the breeze
+          // macramé cords up to a ceiling hook
+          line(0.50, 0.06, 0.38, 0.32, 0.006, _shade(base, -0.3));
+          line(0.50, 0.06, 0.62, 0.32, 0.006, _shade(base, -0.3));
+          line(0.40, 0.30, 0.60, 0.30, 0.005, _shade(base, -0.3));
+          circ(0.50, 0.06, 0.018, dark);
+          pot(0.50, 0.13, 0.10, 0.32, 0.46, const Color(0xFFCE8A52));
+          // three vines cascading down with heart leaves, lengthening in front
+          void vine(double x0, double len, double dir) {
+            var px = x0, py = 0.44;
+            const n = 6;
+            for (var k = 1; k <= n; k++) {
+              final f = k / n;
+              final nx = x0 + dir * 0.11 * math.sin(f * 2.4) + s * 0.02 * f;
+              final ny = 0.44 + len * f;
+              line(px, py, nx, ny, 0.006, _shade(base, -0.06));
+              leaf(nx, ny, nx + dir * 0.055, ny + 0.018, 0.03,
+                  k.isEven ? base : _shade(base, 0.08), vein: false);
+              px = nx;
+              py = ny;
+            }
+          }
+          vine(0.42, 0.40, -1);
+          vine(0.50, 0.50, 0.2);
+          vine(0.58, 0.42, 1);
+        }
+      case 'palm': // a parlour palm — arching feathery fronds from a pot
+        {
+          final s = wv(1) * 0.02;
+          box(0.485, 0.46, 0.515, 0.76, 0.0, const Color(0xFF8D6E63)); // trunk
+          // A frond: an arching leaf spine with leaflet ticks down each side.
+          void frond(double ang, double len, Color c) {
+            const fbx = 0.50, fby = 0.46;
+            final tx = fbx + len * math.cos(ang) + s;
+            final ty = fby + len * math.sin(ang);
+            leaf(fbx, fby, tx, ty, 0.05, c, curve: 0.05);
+            for (var k = 1; k < 7; k++) {
+              final f = k / 7.0;
+              final mx = fbx + (tx - fbx) * f, my = fby + (ty - fby) * f;
+              final ll = 0.075 * math.sin(f * math.pi) + 0.03;
+              leaf(mx, my, mx + ll * math.cos(ang - 0.75),
+                  my + ll * math.sin(ang - 0.75), ll * 0.22, c, vein: false);
+              leaf(mx, my, mx + ll * math.cos(ang + 0.75),
+                  my + ll * math.sin(ang + 0.75), ll * 0.22, c, vein: false);
+            }
+          }
+          frond(-math.pi / 2 - 1.05, 0.34, _shade(base, -0.08)); // far left
+          frond(-math.pi / 2 + 1.05, 0.34, _shade(base, -0.08)); // far right
+          frond(-math.pi / 2 - 0.55, 0.37, _shade(base, 0.04));
+          frond(-math.pi / 2 + 0.55, 0.37, _shade(base, -0.02));
+          frond(-math.pi / 2, 0.34, base); // upright
+          pot(0.50, 0.14, 0.10, 0.76, 0.90, const Color(0xFFCE8A52));
+        }
       case 'poster': // wall piece
         box(0.24, 0.12, 0.76, 0.84, 0.02, dark); // thin frame
         box(0.26, 0.15, 0.74, 0.81, 0.01, offWhite); // paper
@@ -1022,116 +1321,182 @@ class _FurniturePainter extends CustomPainter {
           circ(0.80, 0.46, 0.02, dark); // bolt
         }
       // ── People (calm little characters) ─────────────────────────────────
-      // Limbs are round-capped strokes, the torso a soft box, the head a hair
-      // cap over a face — all in the item's clothing colour.
-      case 'reader': // sits with knees up, reading a book
-        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // floor cushion
-        line(0.40, 0.82, 0.58, 0.82, 0.06, base); // thigh
-        line(0.58, 0.82, 0.60, 0.70, 0.06, base); // shin (knee up)
-        box(0.40, 0.52, 0.60, 0.80, 0.07, base); // torso
-        head(0.50, 0.42 + 0.008 * wv(1), 0.095,
-            glasses: true); // gentle reading nod, in reading glasses
-        line(0.42, 0.58, 0.44, 0.68, 0.04, base); // arm
-        line(0.58, 0.58, 0.56, 0.68, 0.04, base); // arm
-        box(0.37, 0.62, 0.63, 0.70, 0.008, offWhite); // open book
-        line(0.50, 0.62, 0.50, 0.70, 0.006, dark); // spine
-      case 'student': // sits writing in a notebook
+      // A shared toolkit keeps the cast of one hand: a soft-box torso, round-
+      // capped limbs that finish in [hand]s and [shoe]s, and a [head] with a
+      // neck, ears, a hairstyle and a gentle face. Clothes take the item colour;
+      // each pose picks its own skin/hair/style so they read as individuals.
+      case 'reader': // sits knees-up, lost in a book; reading glasses, soft nod
         {
-          box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
+          final nod = 0.008 * wv(1); // a gentle reading nod
+          box(0.27, 0.85, 0.73, 0.905, 0.028, dark); // floor cushion
+          line(0.40, 0.835, 0.57, 0.835, 0.07, base); // thigh
+          line(0.57, 0.835, 0.585, 0.70, 0.07, base); // shin (knee up)
+          shoe(0.40, 0.845, -1, _shade(base, -0.22)); // tucked foot
+          box(0.41, 0.55, 0.59, 0.83, 0.085, base); // torso
+          head(0.50, 0.45 + nod, 0.093,
+              glasses: true,
+              style: 'side',
+              skinTone: skinTones[1],
+              hairColor: hairColors[1]);
+          line(0.43, 0.60, 0.42, 0.69, 0.042, base); // arm
+          line(0.57, 0.60, 0.58, 0.69, 0.042, base); // arm
+          poly([
+            const Offset(0.36, 0.72), Offset(0.50, 0.665 + nod),
+            Offset(0.50, 0.61 + nod), const Offset(0.355, 0.655),
+          ], offWhite); // left page
+          poly([
+            const Offset(0.64, 0.72), Offset(0.50, 0.665 + nod),
+            Offset(0.50, 0.61 + nod), const Offset(0.645, 0.655),
+          ], offWhite); // right page
+          hand(0.40, 0.70); // hands hold the covers
+          hand(0.60, 0.70);
+        }
+      case 'student': // sits cross-legged, writing in a notebook
+        {
+          box(0.26, 0.85, 0.74, 0.905, 0.028, dark); // mat
           poly(const [
-            Offset(0.36, 0.83),
-            Offset(0.64, 0.83),
-            Offset(0.58, 0.74),
-            Offset(0.42, 0.74),
+            Offset(0.34, 0.84), Offset(0.66, 0.84),
+            Offset(0.58, 0.73), Offset(0.42, 0.73),
           ], base); // folded legs
-          box(0.42, 0.52, 0.60, 0.76, 0.07, base); // torso
-          head(0.51, 0.42, 0.095, glasses: true); // studious glasses
-          final w = 0.025 * wv(2); // writing hand wiggles across the page
-          line(0.45, 0.60, 0.40 + w, 0.72, 0.04, base); // writing arm
-          box(0.32, 0.72, 0.50, 0.78, 0.008, offWhite); // notebook
-          line(0.39 + w, 0.72, 0.43 + w, 0.68, 0.01, dark); // pencil
+          box(0.43, 0.53, 0.59, 0.78, 0.085, base); // torso
+          head(0.51, 0.43, 0.092,
+              glasses: true,
+              style: 'bun',
+              skinTone: skinTones[3],
+              hairColor: hairColors[2]);
+          box(0.31, 0.72, 0.51, 0.80, 0.012, offWhite); // notebook
+          final w = 0.03 * saw(1) - 0.015; // hand tracks left→right across a line
+          line(0.46, 0.61, 0.41 + w, 0.715, 0.042, base); // writing arm
+          hand(0.41 + w, 0.72);
+          line(0.40 + w, 0.725, 0.435 + w, 0.685, 0.011, dark); // pencil
+          line(0.55, 0.61, 0.585, 0.715, 0.042, base); // resting arm
+          hand(0.585, 0.72);
         }
-      case 'meditator': // cross-legged, hands resting on knees
-        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
-        poly(const [
-          Offset(0.32, 0.83),
-          Offset(0.68, 0.83),
-          Offset(0.60, 0.74),
-          Offset(0.40, 0.74),
-        ], base); // crossed legs
-        box(0.43, 0.50, 0.57, 0.76, 0.07, base); // torso
-        head(0.50, 0.40, 0.10, sleeping: true); // eyes closed, serene
-        line(0.43, 0.58, 0.35, 0.74, 0.04, base); // arm to knee
-        line(0.57, 0.58, 0.65, 0.74, 0.04, base); // arm to knee
-      case 'yogatree': // tree pose — one leg up, palms together overhead
-        line(0.50, 0.62, 0.50, 0.88, 0.055, base); // standing leg
-        line(0.50, 0.70, 0.41, 0.78, 0.05, base); // bent thigh
-        line(0.41, 0.78, 0.49, 0.70, 0.05, base); // foot to knee
-        box(0.43, 0.42, 0.57, 0.64, 0.07, base); // torso
-        head(0.50, 0.32, 0.095);
-        circ(0.50, 0.222, 0.028, const Color(0xFF4A3B30)); // hair bun on top
-        line(0.47, 0.46, 0.50, 0.20, 0.038, base); // arm up
-        line(0.53, 0.46, 0.50, 0.20, 0.038, base); // arm up
-      case 'stretch': // gentle overhead side stretch
+      case 'meditator': // cross-legged, palms on knees, slow breath
         {
-          line(0.46, 0.62, 0.45, 0.88, 0.05, base); // leg
-          line(0.54, 0.62, 0.55, 0.88, 0.05, base); // leg
-          box(0.43, 0.42, 0.57, 0.64, 0.07, base); // torso
-          head(0.53, 0.32, 0.095);
-          line(0.46, 0.295, 0.61, 0.295, 0.022, light); // sweatband
-          final r = on ? 0.025 * (0.5 + 0.5 * wv(1)) : 0.0; // slow reach up
-          line(0.50, 0.46, 0.66, 0.30 - r, 0.038, base); // reaching arms
-          line(0.50, 0.48, 0.62, 0.34 - r, 0.038, base);
+          final br = on ? 0.012 * (0.5 + 0.5 * wv(0.4)) : 0.0; // breath lift
+          box(0.25, 0.85, 0.75, 0.905, 0.028, dark); // mat
+          poly(const [
+            Offset(0.31, 0.84), Offset(0.69, 0.84),
+            Offset(0.60, 0.73), Offset(0.40, 0.73),
+          ], base); // crossed legs
+          box(0.43, 0.52 - br, 0.57, 0.80, 0.085, base); // torso (rises a touch)
+          head(0.50, 0.42 - br, 0.10,
+              sleeping: true,
+              style: 'short',
+              skinTone: skinTones[2],
+              hairColor: hairColors[0]);
+          line(0.44, 0.60 - br, 0.35, 0.74, 0.042, base); // arm to knee
+          line(0.56, 0.60 - br, 0.65, 0.74, 0.042, base); // arm to knee
+          hand(0.345, 0.745, c: skinTones[2]); // palms rest, thumb-up
+          hand(0.655, 0.745, c: skinTones[2]);
         }
-      case 'jogger': // light jog in place — legs and arms swing in counter-time
+      case 'yogatree': // tree pose — one foot to the thigh, palms overhead, sway
         {
-          final s = 0.09 * wv(2); // stride swing
-          line(0.50, 0.60, 0.46 + s, 0.88, 0.05, base); // leg
-          line(0.50, 0.60, 0.54 - s, 0.86, 0.05, base); // leg
-          box(0.44, 0.40, 0.60, 0.60, 0.06, base); // torso (slight lean)
-          head(0.55, 0.30, 0.09);
-          line(0.47, 0.275, 0.63, 0.275, 0.022, light); // sweatband
-          line(0.48, 0.46, 0.42 - s, 0.50, 0.038, base); // arm
-          line(0.58, 0.46, 0.62 + s, 0.42, 0.038, base); // arm
+          final sw = 0.012 * wv(0.5); // a balancing sway
+          line(0.50, 0.60, 0.50 - sw * 0.3, 0.88, 0.058, base); // standing leg
+          shoe(0.50 - sw * 0.3, 0.885, -1, _shade(base, -0.22));
+          line(0.50, 0.70, 0.40, 0.79, 0.052, base); // bent thigh
+          line(0.40, 0.79, 0.49, 0.69, 0.052, base); // shin tucked to knee
+          box(0.43, 0.42, 0.57, 0.64, 0.085, base); // torso
+          head(0.50 + sw, 0.32 + 0.6 * (0.50 - (0.50 - sw)), 0.092,
+              style: 'bun',
+              skinTone: skinTones[0],
+              hairColor: hairColors[3]);
+          line(0.47, 0.46, 0.50 + sw, 0.20, 0.04, base); // arm up
+          line(0.53, 0.46, 0.50 + sw, 0.20, 0.04, base); // arm up
+          hand(0.50 + sw, 0.185, c: skinTones[0], r: 0.022); // palms together
         }
-      case 'walker': // a calm walk in place
+      case 'stretch': // a gentle overhead side stretch
+        {
+          line(0.46, 0.62, 0.45, 0.88, 0.052, base); // leg
+          line(0.54, 0.62, 0.55, 0.88, 0.052, base); // leg
+          shoe(0.45, 0.885, -1, _shade(base, -0.22));
+          shoe(0.55, 0.885, 1, _shade(base, -0.22));
+          box(0.43, 0.42, 0.57, 0.64, 0.085, base); // torso
+          head(0.53, 0.32, 0.092,
+              style: 'pony',
+              skinTone: skinTones[1],
+              hairColor: hairColors[4]);
+          line(0.45, 0.30, 0.61, 0.295, 0.024, light); // sweatband
+          final reach = on ? 0.03 * (0.5 + 0.5 * wv(0.8)) : 0.0; // slow reach up
+          line(0.50, 0.46, 0.66, 0.30 - reach, 0.04, base); // reaching arm
+          line(0.50, 0.50, 0.40, 0.40, 0.04, base); // anchored arm
+          hand(0.66, 0.295 - reach, c: skinTones[1]);
+          hand(0.395, 0.395, c: skinTones[1]);
+        }
+      case 'jogger': // a light jog in place, arms and legs in counter-swing
+        {
+          final s = 0.085 * wv(2); // stride swing
+          final bob = 0.012 * (0.5 - 0.5 * wv(4)).abs(); // a small lift each step
+          line(0.50, 0.60 - bob, 0.45 + s, 0.88, 0.05, base); // leg
+          line(0.50, 0.60 - bob, 0.55 - s, 0.86, 0.05, base); // leg
+          shoe(0.45 + s, 0.885, 1, _shade(base, -0.22));
+          shoe(0.55 - s, 0.865, 1, _shade(base, -0.22));
+          box(0.45, 0.40 - bob, 0.60, 0.61 - bob, 0.075, base); // torso (leans)
+          head(0.55, 0.30 - bob, 0.088,
+              style: 'short',
+              skinTone: skinTones[3],
+              hairColor: hairColors[2]);
+          line(0.46, 0.28 - bob, 0.63, 0.275 - bob, 0.024, light); // sweatband
+          line(0.49, 0.46 - bob, 0.42 - s, 0.50 - bob, 0.04, base); // arm
+          line(0.57, 0.46 - bob, 0.62 + s, 0.41 - bob, 0.04, base); // arm
+          hand(0.42 - s, 0.51 - bob, c: skinTones[3]);
+          hand(0.62 + s, 0.40 - bob, c: skinTones[3]);
+        }
+      case 'walker': // a calm walk in place, a scarf trailing
         {
           final s = 0.05 * wv(1); // gentle stride
           line(0.50, 0.62, 0.44 + s, 0.88, 0.05, base); // leg
           line(0.50, 0.62, 0.56 - s, 0.88, 0.05, base); // leg
-          box(0.44, 0.40, 0.58, 0.64, 0.07, base); // torso
-          head(0.51, 0.30, 0.095);
-          box(0.45, 0.385, 0.57, 0.42, 0.01, light); // scarf
-          box(0.46, 0.40, 0.50, 0.50, 0.01, light); // scarf tail
-          line(0.46, 0.46, 0.42 - s, 0.58, 0.038, base); // arm
-          line(0.56, 0.46, 0.60 + s, 0.58, 0.038, base); // arm
+          shoe(0.44 + s, 0.885, -1, _shade(base, -0.22));
+          shoe(0.56 - s, 0.885, 1, _shade(base, -0.22));
+          box(0.44, 0.40, 0.58, 0.64, 0.085, base); // torso
+          head(0.51, 0.30, 0.092,
+              style: 'long',
+              skinTone: skinTones[0],
+              hairColor: hairColors[1]);
+          box(0.45, 0.385, 0.57, 0.42, 0.012, light); // scarf
+          final tail = 0.005 * wv(1.5); // scarf tail flutters
+          box(0.46, 0.40, 0.50, 0.52 + tail, 0.012, light); // scarf tail
+          line(0.46, 0.46, 0.42 - s, 0.58, 0.04, base); // arm
+          line(0.56, 0.46, 0.60 + s, 0.58, 0.04, base); // arm
+          hand(0.42 - s, 0.59, c: skinTones[0]);
+          hand(0.60 + s, 0.59, c: skinTones[0]);
         }
-      case 'coffee': // sits relaxed with a warm mug
-        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
-        poly(const [
-          Offset(0.34, 0.83),
-          Offset(0.66, 0.83),
-          Offset(0.60, 0.74),
-          Offset(0.40, 0.74),
-        ], base); // legs
-        box(0.42, 0.52, 0.60, 0.76, 0.07, base); // torso
-        head(0.50, 0.42, 0.095);
-        line(0.44, 0.60, 0.49, 0.66, 0.038, base); // arm to mug
-        line(0.56, 0.60, 0.51, 0.66, 0.038, base); // arm to mug
-        box(0.46, 0.63, 0.54, 0.70, 0.015, offWhite); // mug
-        line(0.54, 0.65, 0.57, 0.67, 0.012, offWhite); // handle
-        steam(0.50, 0.61); // warm steam curling off the mug
-      case 'sleeper': // curled on a pillow, Zzz drifting up
+      case 'coffee': // sits relaxed, both hands round a warm mug
         {
-          box(0.30, 0.74, 0.86, 0.86, 0.06, base); // body under a blanket
-          box(0.20, 0.72, 0.36, 0.82, 0.04, offWhite); // pillow
-          head(0.28, 0.68, 0.08, sleeping: true); // peaceful sleeping face
+          box(0.26, 0.85, 0.74, 0.905, 0.028, dark); // mat
           poly(const [
-            Offset(0.20, 0.64),
-            Offset(0.37, 0.63),
-            Offset(0.26, 0.50),
+            Offset(0.34, 0.84), Offset(0.66, 0.84),
+            Offset(0.60, 0.73), Offset(0.40, 0.73),
+          ], base); // legs
+          box(0.42, 0.53, 0.58, 0.78, 0.085, base); // torso
+          head(0.50, 0.43, 0.092,
+              style: 'curly',
+              skinTone: skinTones[2],
+              hairColor: hairColors[3]);
+          line(0.44, 0.61, 0.485, 0.675, 0.04, base); // arm to mug
+          line(0.56, 0.61, 0.515, 0.675, 0.04, base); // arm to mug
+          box(0.455, 0.65, 0.545, 0.72, 0.016, offWhite); // mug
+          arc(0.55, 0.685, 0.028, -0.4 * math.pi, math.pi, 0.014, offWhite);
+          steam(0.50, 0.635); // warm steam curling off the mug
+        }
+      case 'sleeper': // curled under a blanket on a pillow, Zzz drifting up
+        {
+          box(0.30, 0.74, 0.86, 0.87, 0.06, base); // body under a blanket
+          box(0.30, 0.745, 0.86, 0.78, 0.06, light); // turned-down blanket edge
+          box(0.19, 0.72, 0.37, 0.82, 0.045, offWhite); // pillow
+          head(0.29, 0.685, 0.078,
+              sleeping: true,
+              neck: false,
+              ears: false,
+              style: 'bald', // tucked under the nightcap
+              skinTone: skinTones[1]);
+          poly(const [
+            Offset(0.20, 0.65), Offset(0.385, 0.635), Offset(0.27, 0.49),
           ], base); // nightcap
-          circ(0.26, 0.50, 0.018, offWhite); // pom-pom
+          circ(0.27, 0.49, 0.02, offWhite); // pom-pom
           final z = saw(1); // 0..1 drift cycle
           final dy = on ? -0.10 * z : 0.0; // float up
           final zc = dark.withValues(alpha: on ? math.sin(z * math.pi) : 1.0);
@@ -1142,69 +1507,248 @@ class _FurniturePainter extends CustomPainter {
           line(0.79, 0.42 + dy, 0.74, 0.48 + dy, 0.01, zc);
           line(0.74, 0.48 + dy, 0.79, 0.48 + dy, 0.01, zc);
         }
-      case 'dreamer': // lying back, knees up, hands behind the head
-        box(0.20, 0.80, 0.78, 0.88, 0.05, base); // body lying
-        poly(const [
-          Offset(0.64, 0.80),
-          Offset(0.78, 0.80),
-          Offset(0.76, 0.70),
-          Offset(0.68, 0.72),
-        ], base); // knees up
-        head(0.26, 0.76, 0.08, sleeping: true); // dreaming, eyes closed
-        line(0.20, 0.78, 0.30, 0.72, 0.03, base); // arm behind head
-        if (on) {
-          // Two little dream bubbles drift up from the head and fade away.
-          for (var k = 0; k < 2; k++) {
-            final d = saw(1, k * 0.5);
-            circ(0.30 + 0.03 * k, 0.70 - 0.18 * d, 0.016 + 0.008 * k,
-                Colors.white.withValues(alpha: math.sin(d * math.pi) * 0.5));
+      case 'dreamer': // lying back, hands behind the head, dream bubbles rising
+        {
+          box(0.22, 0.80, 0.74, 0.88, 0.05, base); // body lying
+          poly(const [
+            Offset(0.62, 0.805), Offset(0.78, 0.805),
+            Offset(0.755, 0.70), Offset(0.66, 0.715),
+          ], base); // a knee up
+          line(0.66, 0.715, 0.78, 0.79, 0.045, base); // shin down
+          shoe(0.79, 0.80, 1, _shade(base, -0.22));
+          head(0.27, 0.755, 0.078,
+              sleeping: true,
+              neck: false,
+              style: 'curly',
+              skinTone: skinTones[3],
+              hairColor: hairColors[1]);
+          line(0.255, 0.755, 0.34, 0.715, 0.03, base); // arm behind head
+          hand(0.345, 0.71, c: skinTones[3]);
+          if (on) {
+            // Two little dream bubbles drift up from the head and fade away.
+            for (var k = 0; k < 2; k++) {
+              final d = saw(1, k * 0.5);
+              circ(0.31 + 0.03 * k, 0.66 - 0.18 * d, 0.016 + 0.008 * k,
+                  Colors.white.withValues(alpha: math.sin(d * math.pi) * 0.5));
+            }
           }
         }
-      case 'petter': // sits gently petting a little cat
+      case 'petter': // sits gently stroking a little cat that purrs along
         {
-          box(0.24, 0.84, 0.76, 0.90, 0.03, dark); // mat
+          box(0.24, 0.85, 0.76, 0.905, 0.028, dark); // mat
           poly(const [
-            Offset(0.32, 0.83),
-            Offset(0.62, 0.83),
-            Offset(0.56, 0.74),
-            Offset(0.38, 0.74),
+            Offset(0.30, 0.84), Offset(0.60, 0.84),
+            Offset(0.54, 0.73), Offset(0.36, 0.73),
           ], base); // legs
-          box(0.38, 0.54, 0.56, 0.76, 0.07, base); // torso
-          head(0.47, 0.44, 0.095);
-          final pat = on ? 0.018 * (0.5 + 0.5 * wv(2)) : 0.0; // stroking
-          line(0.54, 0.60, 0.66, 0.74 + pat, 0.038, base); // arm pets the cat
-          line(0.62, 0.84, 0.56, 0.80, 0.02, dark); // cat tail
-          box(0.62, 0.80, 0.76, 0.87, 0.05, dark); // cat body
-          circ(0.74, 0.78, 0.045, dark); // cat head
+          box(0.37, 0.55, 0.55, 0.78, 0.085, base); // torso
+          head(0.46, 0.45, 0.092,
+              style: 'pony',
+              skinTone: skinTones[0],
+              hairColor: hairColors[2]);
+          final pat = on ? 0.016 * (0.5 + 0.5 * wv(2)) : 0.0; // stroking motion
+          line(0.52, 0.62, 0.65, 0.73 + pat, 0.04, base); // arm pets the cat
+          hand(0.66, 0.735 + pat, c: skinTones[0]);
+          line(0.60, 0.855, 0.55, 0.80, 0.02, dark); // curled cat tail
+          box(0.60, 0.80, 0.77, 0.87, 0.05, dark); // cat body
+          circ(0.745, 0.775, 0.045, dark); // cat head
           poly(const [
-            Offset(0.71, 0.75),
-            Offset(0.72, 0.71),
-            Offset(0.745, 0.75),
+            Offset(0.715, 0.745), Offset(0.725, 0.705), Offset(0.75, 0.745),
           ], dark); // cat ear
+          poly(const [
+            Offset(0.76, 0.745), Offset(0.775, 0.705), Offset(0.785, 0.745),
+          ], dark); // cat ear
+          circ(0.735, 0.775, 0.007, offWhite, flat: true); // a content eye
         }
-      case 'listener': // sits back with headphones on
-        box(0.26, 0.84, 0.74, 0.90, 0.03, dark); // mat
-        poly(const [
-          Offset(0.34, 0.83),
-          Offset(0.66, 0.83),
-          Offset(0.60, 0.74),
-          Offset(0.40, 0.74),
-        ], base); // legs
-        box(0.42, 0.54, 0.58, 0.76, 0.07, base); // torso
-        head(0.50, 0.44, 0.10);
-        line(0.41, 0.44, 0.50, 0.35, 0.016, dark); // headphone band
-        line(0.50, 0.35, 0.59, 0.44, 0.016, dark);
-        circ(0.40, 0.47, 0.035, dark); // ear cup
-        circ(0.60, 0.47, 0.035, dark); // ear cup
-        line(0.44, 0.60, 0.42, 0.72, 0.038, base); // relaxed arm
-        line(0.56, 0.60, 0.58, 0.72, 0.038, base); // relaxed arm
-        if (on) {
-          // A little music note floats up and fades, by the right ear.
-          final n = saw(1);
-          final ny = 0.42 - 0.20 * n;
-          final nc = dark.withValues(alpha: math.sin(n * math.pi) * 0.7);
-          circ(0.70, ny, 0.02, nc); // note head
-          line(0.719, ny, 0.719, ny - 0.06, 0.01, nc); // stem
+      case 'listener': // sits back, eyes closed, headphones on, a note rising
+        {
+          box(0.26, 0.85, 0.74, 0.905, 0.028, dark); // mat
+          poly(const [
+            Offset(0.34, 0.84), Offset(0.66, 0.84),
+            Offset(0.60, 0.73), Offset(0.40, 0.73),
+          ], base); // legs
+          box(0.42, 0.55, 0.58, 0.78, 0.085, base); // torso
+          head(0.50, 0.45, 0.098,
+              sleeping: true,
+              ears: false, // the cups cover them
+              style: 'short',
+              skinTone: skinTones[2],
+              hairColor: hairColors[4]);
+          arc(0.50, 0.46, 0.115, math.pi * 1.12, math.pi * 0.76, 0.018,
+              dark); // headphone band
+          circ(0.395, 0.475, 0.038, dark); // ear cup
+          circ(0.605, 0.475, 0.038, dark); // ear cup
+          line(0.44, 0.62, 0.42, 0.72, 0.04, base); // relaxed arm
+          line(0.56, 0.62, 0.58, 0.72, 0.04, base); // relaxed arm
+          hand(0.415, 0.725, c: skinTones[2]);
+          hand(0.585, 0.725, c: skinTones[2]);
+          if (on) {
+            // A little music note floats up and fades, by the right ear.
+            final n = saw(1);
+            final ny = 0.42 - 0.20 * n;
+            final nc = dark.withValues(alpha: math.sin(n * math.pi) * 0.7);
+            circ(0.72, ny, 0.02, nc); // note head
+            line(0.739, ny, 0.739, ny - 0.06, 0.01, nc); // stem
+          }
+        }
+      case 'painter': // stands at an easel, dabbing colour onto a canvas
+        {
+          // easel — two splayed legs and a crossbar holding the canvas
+          line(0.66, 0.52, 0.60, 0.90, 0.016, _shade(_oak, -0.1)); // back leg
+          line(0.66, 0.52, 0.74, 0.90, 0.016, _oak); // front leg
+          line(0.62, 0.74, 0.78, 0.74, 0.012, _oak); // tray
+          box(0.60, 0.46, 0.80, 0.70, 0.012, offWhite); // canvas
+          // a couple of fresh strokes already on the canvas
+          line(0.64, 0.62, 0.71, 0.55, 0.018, const Color(0xFFE0A82E));
+          line(0.66, 0.66, 0.76, 0.63, 0.016, const Color(0xFF2E9E9B));
+          // the painter
+          line(0.34, 0.62, 0.33, 0.90, 0.052, base); // leg
+          line(0.40, 0.62, 0.41, 0.90, 0.052, base); // leg
+          shoe(0.33, 0.905, -1, _shade(base, -0.22));
+          shoe(0.41, 0.905, 1, _shade(base, -0.22));
+          box(0.31, 0.42, 0.45, 0.64, 0.085, base); // torso (apron)
+          box(0.345, 0.50, 0.415, 0.62, 0.01, light); // apron bib
+          head(0.38, 0.32, 0.092,
+              style: 'side',
+              skinTone: skinTones[1],
+              hairColor: hairColors[3]);
+          // palette hand
+          line(0.34, 0.50, 0.26, 0.58, 0.04, base); // arm
+          circ(0.24, 0.60, 0.05, _oak); // palette
+          circ(0.22, 0.585, 0.012, const Color(0xFFE2574C), flat: true);
+          circ(0.255, 0.575, 0.012, const Color(0xFF4A8FE0), flat: true);
+          circ(0.255, 0.62, 0.012, const Color(0xFFE0A82E), flat: true);
+          // brush hand dabs at the canvas
+          final dab = on ? 0.02 * wv(2) : 0.0;
+          line(0.43, 0.50, 0.58 + dab, 0.58, 0.04, base); // arm
+          hand(0.59 + dab, 0.585, c: skinTones[1]);
+          line(0.60 + dab, 0.585, 0.66 + dab, 0.60, 0.01, _walnut); // brush
+          circ(0.665 + dab, 0.603, 0.012, const Color(0xFFE2574C)); // loaded tip
+        }
+      case 'guitarist': // sits cross-legged, strumming an acoustic guitar
+        {
+          box(0.26, 0.85, 0.74, 0.905, 0.028, dark); // mat
+          poly(const [
+            Offset(0.30, 0.84), Offset(0.62, 0.84),
+            Offset(0.55, 0.73), Offset(0.37, 0.73),
+          ], base); // crossed legs
+          box(0.40, 0.52, 0.56, 0.76, 0.085, base); // torso
+          head(0.48, 0.42, 0.092,
+              style: 'curly',
+              skinTone: skinTones[3],
+              hairColor: hairColors[0]);
+          // guitar across the lap, neck up to the left hand
+          circ(0.585, 0.745, 0.105, _oak); // lower bout
+          circ(0.55, 0.66, 0.072, _oak); // upper bout
+          circ(0.585, 0.745, 0.026, _shade(_oak, -0.4)); // sound hole
+          line(0.52, 0.62, 0.34, 0.49, 0.022, _walnut); // neck
+          box(0.32, 0.46, 0.36, 0.50, 0.008, _shade(_walnut, -0.1)); // headstock
+          for (var i = 0; i < 3; i++) {
+            line(0.52, 0.62, 0.345, 0.495 + i * 0.006, 0.003,
+                const Color(0xFFE6D7B8)); // strings
+          }
+          line(0.40, 0.56, 0.345, 0.49, 0.038, base); // fretting arm
+          hand(0.345, 0.485, c: skinTones[3]);
+          final strum = on ? 0.02 * wv(3) : 0.0; // strumming hand
+          line(0.50, 0.62, 0.585, 0.74 + strum, 0.038, base); // strum arm
+          hand(0.59, 0.745 + strum, c: skinTones[3]);
+        }
+      case 'gardener': // kneels potting a little seedling with a trowel
+        {
+          box(0.22, 0.85, 0.78, 0.905, 0.028, _shade(_oak, 0.04)); // soil bed
+          line(0.40, 0.66, 0.34, 0.86, 0.052, base); // kneeling leg (shin down)
+          line(0.40, 0.66, 0.52, 0.80, 0.052, base); // thigh forward
+          line(0.52, 0.80, 0.60, 0.86, 0.05, base); // lower leg
+          shoe(0.34, 0.87, -1, _shade(base, -0.22));
+          box(0.34, 0.50, 0.50, 0.70, 0.085, base); // torso (leans in)
+          head(0.40, 0.40, 0.09,
+              style: 'short',
+              skinTone: skinTones[2],
+              hairColor: hairColors[1]);
+          arc(0.40, 0.345, 0.085, math.pi, math.pi, 0.02, _mustard); // sun-hat
+          box(0.31, 0.34, 0.49, 0.355, 0.006, _shade(_mustard, -0.05)); // brim
+          // trowel hand digs
+          final dig = on ? 0.015 * (0.5 + 0.5 * wv(1.5)) : 0.0;
+          line(0.46, 0.58, 0.58, 0.72 + dig, 0.038, base); // arm
+          hand(0.585, 0.725 + dig, c: skinTones[2]);
+          poly([
+            Offset(0.58, 0.74 + dig), Offset(0.63, 0.78 + dig),
+            Offset(0.585, 0.80 + dig),
+          ], _silver); // trowel
+          // a potted seedling
+          poly(const [
+            Offset(0.66, 0.78), Offset(0.78, 0.78),
+            Offset(0.75, 0.88), Offset(0.69, 0.88),
+          ], _terra); // pot
+          line(0.72, 0.78, 0.72, 0.70, 0.012, const Color(0xFF4F8F4A)); // stem
+          leaf(0.72, 0.74, 0.67, 0.70, 0.022, const Color(0xFF5BA85A), curve: 0.02);
+          leaf(0.72, 0.74, 0.77, 0.70, 0.022, const Color(0xFF5BA85A), curve: -0.02);
+        }
+      case 'chef': // stands in apron and toque, stirring a steaming pot
+        {
+          line(0.40, 0.64, 0.40, 0.90, 0.052, base); // leg
+          line(0.47, 0.64, 0.47, 0.90, 0.052, base); // leg
+          shoe(0.40, 0.905, -1, const Color(0xFF333333));
+          shoe(0.47, 0.905, 1, const Color(0xFF333333));
+          box(0.35, 0.44, 0.53, 0.66, 0.085, offWhite); // chef's whites
+          box(0.37, 0.52, 0.51, 0.66, 0.012, _shade(offWhite, -0.05)); // apron
+          head(0.44, 0.34, 0.09,
+              style: 'bald', // under the toque
+              ears: true,
+              skinTone: skinTones[0],
+              hairColor: hairColors[2]);
+          box(0.38, 0.235, 0.50, 0.285, 0.01, offWhite); // toque band
+          dome(0.44, 0.245, 0.075, offWhite); // toque puff
+          // stirring arm over the pot
+          final stir = on ? 0.02 * wv(2) : 0.0;
+          line(0.50, 0.52, 0.62 + stir, 0.60, 0.04, offWhite); // arm
+          hand(0.63 + stir, 0.605, c: skinTones[0]);
+          line(0.63 + stir, 0.605, 0.66, 0.70, 0.01, _walnut); // spoon
+          box(0.58, 0.70, 0.78, 0.78, 0.02, _silver); // pot body
+          box(0.56, 0.685, 0.80, 0.71, 0.012, _shade(_silver, -0.08)); // rim
+          steam(0.68, 0.685); // steam off the pot
+        }
+      case 'dancer': // a graceful pose mid-sway, one arm curved overhead
+        {
+          final sway = on ? 0.02 * wv(0.7) : 0.0; // a slow musical sway
+          line(0.50, 0.60, 0.45, 0.90, 0.05, base); // standing leg
+          line(0.50, 0.60, 0.63 + sway, 0.80, 0.05, base); // extended leg
+          shoe(0.45, 0.905, -1, _shade(base, -0.22));
+          shoe(0.65 + sway, 0.80, 1, _shade(base, -0.22));
+          // a little skirt
+          poly([
+            const Offset(0.42, 0.58), const Offset(0.58, 0.58),
+            Offset(0.64 + sway, 0.70), Offset(0.37 + sway * 0.5, 0.70),
+          ], _shade(base, 0.08));
+          box(0.44, 0.40, 0.56, 0.60, 0.08, base); // torso (leans into the sway)
+          head(0.50 + sway, 0.31, 0.09,
+              style: 'bun',
+              skinTone: skinTones[1],
+              hairColor: hairColors[2]);
+          line(0.48, 0.44, 0.40 + sway, 0.22, 0.038, base); // arm curved overhead
+          hand(0.395 + sway, 0.21, c: skinTones[1]);
+          line(0.55, 0.46, 0.68 + sway, 0.52, 0.038, base); // arm extended out
+          hand(0.69 + sway, 0.525, c: skinTones[1]);
+        }
+      case 'child': // a small one sitting, stacking little blocks
+        {
+          box(0.26, 0.85, 0.74, 0.905, 0.028, dark); // play mat
+          poly(const [
+            Offset(0.30, 0.84), Offset(0.56, 0.84),
+            Offset(0.50, 0.76), Offset(0.34, 0.76),
+          ], base); // little legs out front
+          box(0.34, 0.60, 0.50, 0.80, 0.085, base); // small torso
+          head(0.42, 0.49, 0.105, // a bigger head, child proportions
+              style: 'short',
+              skinTone: skinTones[0],
+              hairColor: hairColors[3]);
+          // a tower of bright blocks, the top one being placed
+          box(0.58, 0.80, 0.70, 0.88, 0.01, const Color(0xFFE2574C));
+          box(0.585, 0.72, 0.695, 0.80, 0.01, const Color(0xFF4A8FE0));
+          final lift = on ? 0.02 * (0.5 + 0.5 * wv(1.5)) : 0.0;
+          box(0.59, 0.645 - lift, 0.69, 0.715 - lift, 0.01,
+              const Color(0xFFE0A82E)); // top block, hovering as it's placed
+          line(0.47, 0.66, 0.585, 0.68 - lift, 0.038, base); // reaching arm
+          hand(0.58, 0.685 - lift, c: skinTones[0], r: 0.022);
         }
       // ── Garden 🌿 ─────────────────────────────────────────────────────────
       case 'gardenpot': // a potted flower whose bloom sways
@@ -3091,100 +3635,236 @@ class _FurniturePainter extends CustomPainter {
           box(0.46, 0.70, 0.54, 0.78, 0.02, const Color(0xFF2A2A2A));
         }
       // ── Plants (big statement greenery) 🌿 ──────────────────────────────────
-      case 'bigcactus': // a tall saguaro, slow sway
+      case 'bigcactus': // a tall ribbed saguaro in bloom, slow sway
         {
-          final s = on ? wv(0.4) * 0.012 : 0.0;
-          poly(const [
-            Offset(0.40, 0.80), Offset(0.60, 0.80),
-            Offset(0.57, 0.90), Offset(0.43, 0.90),
-          ], const Color(0xFFC07E54));
-          box(0.45 + s * 0.3, 0.22, 0.55 + s * 0.3, 0.80, 0.05, base);
-          box(0.30 + s, 0.44, 0.40 + s, 0.50, 0.04, base);
-          box(0.30 + s, 0.34, 0.36 + s, 0.50, 0.04, base);
-          box(0.60 - s, 0.52, 0.70 - s, 0.58, 0.04, base);
-          box(0.64 - s, 0.40, 0.70 - s, 0.58, 0.04, base);
+          final s = wv(1) * 0.012;
+          box(0.45 + s * 0.3, 0.18, 0.55 + s * 0.3, 0.82, 0.06, base); // trunk
+          box(0.28 + s, 0.42, 0.46 + s, 0.50, 0.05, base); // left arm out
+          box(0.28 + s, 0.30, 0.36 + s, 0.50, 0.05, base); // left arm up
+          box(0.54 - s, 0.52, 0.72 - s, 0.60, 0.05, base); // right arm out
+          box(0.64 - s, 0.40, 0.72 - s, 0.60, 0.05, base); // right arm up
           for (final f in const [0.47, 0.50, 0.53]) {
-            line(f + s * 0.3, 0.26, f + s * 0.3, 0.78, 0.004,
-                _shade(base, -0.14));
+            line(f + s * 0.3, 0.20, f + s * 0.3, 0.80, 0.004,
+                _shade(base, -0.14)); // ribs
           }
-          circ(0.50 + s * 0.3, 0.22, 0.03, const Color(0xFFE2574C));
+          flower(0.50 + s * 0.3, 0.18, 0.05, const Color(0xFFEC6F9C),
+              const Color(0xFFF4C430), petals: 6);
+          flower(0.32 + s, 0.30, 0.035, const Color(0xFFF2C84B),
+              const Color(0xFFE2574C), petals: 6);
+          pot(0.50, 0.18, 0.135, 0.80, 0.92, const Color(0xFFC07E54));
         }
-      case 'figtree': // a fiddle-leaf fig, leaves swaying
+      case 'figtree': // a fiddle-leaf fig — big violin leaves swaying
         {
-          poly(const [
-            Offset(0.40, 0.78), Offset(0.60, 0.78),
-            Offset(0.57, 0.90), Offset(0.43, 0.90),
-          ], const Color(0xFFE6E2DA));
-          line(0.50, 0.78, 0.50, 0.36, 0.02, const Color(0xFF7A5A3A));
-          final s = on ? wv(0.5) : 0.0;
-          for (var i = 0; i < 6; i++) {
-            final a = -math.pi / 2 + (i - 2.5) * 0.4;
-            final lx = 0.50 + 0.22 * math.cos(a) + s * 0.02 * i;
-            final ly = 0.46 + 0.22 * math.sin(a);
-            circ(lx, ly, 0.08, i.isEven ? base : _shade(base, 0.06));
+          final s = wv(1) * 0.02;
+          line(0.50, 0.82, 0.50, 0.40, 0.022, const Color(0xFF7A5A3A)); // trunk
+          for (var i = 0; i < 7; i++) {
+            final a = -math.pi / 2 + (i - 3) * 0.46;
+            final bx = 0.50, by = 0.42 + (i.isEven ? 0.0 : 0.07);
+            final tx = bx + 0.25 * math.cos(a) + s * (i - 3);
+            final ty = by + 0.25 * math.sin(a);
+            leaf(bx, by, tx, ty, 0.10, i.isEven ? base : _shade(base, 0.06),
+                curve: (i - 3) * 0.02);
           }
-          circ(0.50 + s * 0.04, 0.30, 0.09, base);
+          leaf(0.50, 0.42, 0.50 + s, 0.14, 0.095, base); // crown
+          pot(0.50, 0.14, 0.10, 0.82, 0.92, const Color(0xFFE6E2DA));
         }
-      case 'monstera': // a monstera, leaves swaying
+      case 'monstera': // big split leaves nodding; a butterfly drifts by
         {
+          final s = wv(1) * 0.02;
+          // A bold monstera leaf: a broad blade whose margin scallops in toward
+          // the midrib, so the deep notches read as the plant's signature
+          // splits. Built as one filled outline (right side up, left side down).
+          void monsteraLeaf(
+              double bx, double by, double ang, double len, double wid, Color c) {
+            final dx = math.cos(ang), dy = math.sin(ang);
+            final pxu = -dy, pyu = dx; // unit perpendicular
+            Offset edge(double tt, double side) {
+              final env = math.sin(math.pi * tt); // 0→1→0 along the blade
+              final lobe = 0.42 +
+                  0.58 * (0.5 + 0.5 * math.cos(tt * 2 * math.pi * 3)); // scallops
+              final w = wid * env * lobe;
+              final rx = bx + dx * len * tt, ry = by + dy * len * tt;
+              return Offset(
+                  (rx + pxu * w * side) * u, (ry + pyu * w * side) * u);
+            }
+            const steps = 26;
+            final path = Path()..moveTo(bx * u, by * u);
+            for (var k = 0; k <= steps; k++) {
+              final p = edge(k / steps, 1);
+              path.lineTo(p.dx, p.dy);
+            }
+            for (var k = steps; k >= 0; k--) {
+              final p = edge(k / steps, -1);
+              path.lineTo(p.dx, p.dy);
+            }
+            path.close();
+            paint
+              ..style = PaintingStyle.fill
+              ..shader = vshade(path.getBounds(), c, 0.14, 0.12);
+            canvas.drawPath(path, paint);
+            paint.shader = null;
+            line(bx, by, bx + dx * len, by + dy * len, 0.01,
+                _shade(c, -0.16)); // midrib
+          }
+          line(0.50, 0.82, 0.42, 0.58, 0.012, const Color(0xFF3F8F5A));
+          line(0.50, 0.82, 0.58, 0.56, 0.012, const Color(0xFF3F8F5A));
+          line(0.50, 0.82, 0.50, 0.52, 0.012, const Color(0xFF3F8F5A));
+          monsteraLeaf(0.42, 0.58, -math.pi / 2 - 0.62 + s, 0.32, 0.17,
+              _shade(base, -0.05));
+          monsteraLeaf(0.58, 0.56, -math.pi / 2 + 0.62 - s, 0.32, 0.17,
+              _shade(base, 0.03));
+          monsteraLeaf(0.50, 0.52, -math.pi / 2 + s, 0.40, 0.21, base);
+          pot(0.50, 0.16, 0.12, 0.80, 0.92, const Color(0xFFC8975A));
+          if (on) {
+            final d = saw(1);
+            butterfly(0.78 - 0.12 * math.sin(d * 2 * math.pi),
+                0.28 + 0.10 * math.cos(d * 2 * math.pi), 0.085,
+                const Color(0xFF7FB0E0), 0.5 + 0.5 * wv(7));
+          }
+        }
+      case 'bonsai': // a gnarled bonsai with cloud-pruned foliage pads
+        {
+          box(0.26, 0.80, 0.74, 0.88, 0.03, const Color(0xFF6E5A52)); // tray
+          box(0.30, 0.77, 0.70, 0.82, 0.02,
+              _shade(const Color(0xFF6E5A52), 0.08)); // rim
+          line(0.50, 0.80, 0.46, 0.58, 0.03, const Color(0xFF6D4C41)); // trunk
+          line(0.46, 0.62, 0.33, 0.52, 0.02, const Color(0xFF6D4C41)); // branch
+          line(0.46, 0.60, 0.62, 0.48, 0.02, const Color(0xFF6D4C41)); // branch
+          line(0.58, 0.51, 0.66, 0.42, 0.016, const Color(0xFF6D4C41));
+          final s = wv(1) * 0.6; // foliage shimmers in the light
+          void pad(double cx, double cy, double r, Color c) {
+            circ(cx, cy, r, _shade(c, -0.06));
+            for (var i = 0; i < 7; i++) {
+              final a = i * 2 * math.pi / 7;
+              leaf(cx, cy, cx + r * 1.05 * math.cos(a),
+                  cy + r * 1.05 * math.sin(a), r * 0.4, c, vein: false);
+            }
+          }
+          pad(0.33, 0.48, 0.10, _shade(base, s * 0.06));
+          pad(0.62, 0.40, 0.11, base);
+          pad(0.49, 0.36, 0.09, _shade(base, s * 0.06));
+        }
+      case 'citrustree': // a lemon tree heavy with fruit; a bee visits
+        {
+          final s = wv(1) * 0.015;
+          line(0.50, 0.82, 0.50, 0.50, 0.024, const Color(0xFF7A5A3A)); // trunk
+          void canopy(double cx, double cy, double r, Color c) {
+            circ(cx, cy, r, _shade(c, -0.05));
+            for (var i = 0; i < 9; i++) {
+              final a = i * 2 * math.pi / 9;
+              leaf(cx, cy, cx + r * 1.1 * math.cos(a), cy + r * 1.1 * math.sin(a),
+                  r * 0.32, c, vein: false);
+            }
+          }
+          canopy(0.34 + s, 0.46, 0.12, _shade(base, 0.05));
+          canopy(0.66 + s, 0.46, 0.12, _shade(base, -0.05));
+          canopy(0.50 + s, 0.38, 0.18, base);
+          for (final p in const [
+            Offset(0.40, 0.44), Offset(0.60, 0.40),
+            Offset(0.50, 0.52), Offset(0.58, 0.32),
+          ]) {
+            circ(p.dx + s, p.dy, 0.032, const Color(0xFFF4C430)); // lemons
+          }
+          pot(0.50, 0.16, 0.125, 0.82, 0.92, const Color(0xFFC07E54));
+          if (on) {
+            final d = saw(1);
+            bee(0.50 + 0.24 * math.sin(d * 2 * math.pi),
+                0.32 + 0.07 * math.sin(d * 4 * math.pi), 0.05,
+                0.5 + 0.5 * wv(9)); // a seamless figure-8 buzz
+          }
+        }
+      case 'snakeplant': // tall variegated sword leaves, faint sway
+        {
+          final s = wv(1) * 0.014;
+          for (var i = 0; i < 5; i++) {
+            final bx = 0.50 + (i - 2) * 0.045;
+            final tx = 0.50 + (i - 2) * 0.10 + s * (i - 2);
+            final ty = 0.22 + (i - 2).abs() * 0.03;
+            final c = (i - 2) * 0.02;
+            leaf(bx, 0.76, tx, ty, 0.055, const Color(0xFFD4CC57),
+                curve: c, vein: false); // broad yellow margin
+            leaf(bx, 0.76, tx, ty, 0.034, i.isEven ? base : _shade(base, 0.08),
+                curve: c, vein: false); // green centre
+            // faint cross-banding, the snake-plant's mottled stripes
+            for (var k = 1; k < 5; k++) {
+              final f = k / 5.0;
+              line(bx + (tx - bx) * f - 0.02, 0.76 + (ty - 0.76) * f,
+                  bx + (tx - bx) * f + 0.02, 0.76 + (ty - 0.76) * f, 0.006,
+                  _shade(base, -0.12));
+            }
+          }
+          pot(0.50, 0.15, 0.115, 0.76, 0.92, const Color(0xFFC8975A));
+        }
+      case 'fern': // a bushy fern bursting in arching feathery fronds
+        {
+          final s = wv(1) * 0.02;
+          // A weeping frond: a curved spine of leaflets that arches out and
+          // droops, [bow] bending it away from centre so the fern reads feathery
+          // rather than a dense mound.
+          void farch(double ang, double len, double bow, Color c) {
+            const bx = 0.50, by = 0.68;
+            final tx = bx + len * math.cos(ang) + s + bow * 0.5;
+            final ty = by + len * math.sin(ang) + bow.abs() * 0.4; // droop
+            leaf(bx, by, tx, ty, 0.022, c, curve: bow, vein: false); // spine
+            for (var k = 1; k < 8; k++) {
+              final f = k / 8.0;
+              final mx = bx + (tx - bx) * f + bow * math.sin(f * math.pi);
+              final my = by + (ty - by) * f;
+              final la = math.atan2(ty - by, tx - bx);
+              final ll = 0.06 * math.sin(f * math.pi) + 0.015;
+              leaf(mx, my, mx + ll * math.cos(la - 0.85),
+                  my + ll * math.sin(la - 0.85), ll * 0.3, c, vein: false);
+              leaf(mx, my, mx + ll * math.cos(la + 0.85),
+                  my + ll * math.sin(la + 0.85), ll * 0.3, c, vein: false);
+            }
+          }
+          for (var i = 0; i < 7; i++) {
+            final a = -math.pi / 2 + (i - 3) * 0.42;
+            farch(a, 0.30 + (i - 3).abs() * 0.015, (i - 3) * 0.05,
+                i.isEven ? base : _shade(base, 0.07));
+          }
+          pot(0.50, 0.16, 0.12, 0.68, 0.90, const Color(0xFFCE8A52));
+        }
+      case 'aloe': // fat splayed aloe leaves fanning from a pot
+        {
+          final s = wv(1) * 0.015;
+          const bx = 0.50, by = 0.68;
+          for (var i = 0; i < 7; i++) {
+            final a = -math.pi / 2 + (i - 3) * 0.4;
+            final tx = bx + 0.34 * math.cos(a) + s * (i - 3);
+            final ty = by + 0.34 * math.sin(a);
+            leaf(bx, by, tx, ty, 0.05, i.isEven ? base : _shade(base, 0.07),
+                curve: (i - 3) * 0.015);
+          }
+          pot(0.50, 0.16, 0.12, 0.68, 0.90, const Color(0xFFCE8A52), soil: true);
+        }
+      case 'pampas': // tall pampas grass, fluffy plumes nodding
+        {
+          for (var i = 0; i < 7; i++) {
+            final x = 0.34 + i * 0.055;
+            final sway = wv(1, i * 0.12) * 0.025;
+            line(x, 0.86, x + (x - 0.50) * 0.5 + sway, 0.44, 0.008,
+                const Color(0xFF9C8A52)); // blade
+          }
+          // fluffy foxtail plumes, each a tapering tuft with a soft shaded edge
+          for (var i = 0; i < 5; i++) {
+            final x = 0.37 + i * 0.065;
+            final sway = wv(1, i * 0.17) * 0.03;
+            final px = x + (x - 0.50) * 0.6 + sway;
+            for (var k = 0; k < 9; k++) {
+              final f = k / 9.0;
+              final cx = px + sway * f;
+              final cy = 0.46 - 0.24 * f;
+              final r = 0.04 * (1 - f * 0.5);
+              circ(cx + 0.006, cy, r, _shade(base, -0.18)); // shaded edge
+              circ(cx, cy, r, base);
+            }
+          }
           poly(const [
             Offset(0.42, 0.80), Offset(0.58, 0.80),
-            Offset(0.55, 0.90), Offset(0.45, 0.90),
-          ], const Color(0xFFC8975A));
-          final s = on ? wv(0.5) * 0.02 : 0.0;
-          line(0.50, 0.80, 0.50, 0.50, 0.014, const Color(0xFF3F8F5A));
-          for (final p in [
-            Offset(0.36 + s, 0.46), Offset(0.64 - s, 0.42),
-            Offset(0.50 + s, 0.32), const Offset(0.50, 0.60),
-          ]) {
-            circ(p.dx, p.dy, 0.12, _shade(base, p.dy < 0.45 ? 0.06 : -0.04));
-          }
-        }
-      case 'bonsai': // a bonsai tree, leaves shimmering
-        {
-          box(0.28, 0.78, 0.72, 0.86, 0.03, const Color(0xFF6E5A52));
-          line(0.50, 0.78, 0.46, 0.56, 0.03, const Color(0xFF6D4C41));
-          line(0.46, 0.62, 0.34, 0.52, 0.02, const Color(0xFF6D4C41));
-          line(0.46, 0.60, 0.62, 0.50, 0.02, const Color(0xFF6D4C41));
-          final s = on ? wv(1) * 0.3 + 0.7 : 0.8;
-          circ(0.34, 0.48, 0.10, base.withValues(alpha: s));
-          circ(0.60, 0.46, 0.11, base);
-          circ(0.48, 0.42, 0.10, base.withValues(alpha: s));
-        }
-      case 'citrustree': // a lemon tree with fruit, gentle sway
-        {
-          poly(const [
-            Offset(0.40, 0.78), Offset(0.60, 0.78),
-            Offset(0.57, 0.90), Offset(0.43, 0.90),
-          ], const Color(0xFFC07E54));
-          line(0.50, 0.78, 0.50, 0.46, 0.024, const Color(0xFF7A5A3A));
-          final s = on ? wv(0.5) * 0.015 : 0.0;
-          circ(0.50 + s, 0.36, 0.22, base);
-          circ(0.34 + s, 0.44, 0.12, _shade(base, 0.05));
-          circ(0.66 + s, 0.44, 0.12, _shade(base, -0.05));
-          for (final p in const [
-            Offset(0.40, 0.40), Offset(0.60, 0.38),
-            Offset(0.50, 0.50), Offset(0.56, 0.30),
-          ]) {
-            circ(p.dx + s, p.dy, 0.03, const Color(0xFFF4C430));
-          }
-        }
-      case 'snakeplant': // tall snake plant leaves, faint sway
-        {
-          poly(const [
-            Offset(0.40, 0.78), Offset(0.60, 0.78),
-            Offset(0.56, 0.90), Offset(0.44, 0.90),
-          ], const Color(0xFFC8975A));
-          final s = on ? wv(0.5) * 0.015 : 0.0;
-          for (var i = 0; i < 5; i++) {
-            final x = 0.40 + i * 0.05;
-            final tipx = x + (i - 2) * 0.04 + s;
-            poly([
-              Offset(x - 0.018, 0.78), Offset(x + 0.018, 0.78),
-              Offset(tipx + 0.012, 0.22 + i * 0.02),
-              Offset(tipx - 0.012, 0.22 + i * 0.02),
-            ], i.isEven ? base : _shade(base, 0.06));
-          }
+            Offset(0.62, 0.92), Offset(0.38, 0.92),
+          ], const Color(0xFFC9885A)); // tall pot
+          box(0.40, 0.78, 0.60, 0.83, 0.02, const Color(0xFFB97548));
         }
       // ── Beds 🛏️ ─────────────────────────────────────────────────────────────
       case 'crib': // a crib with a swaying mobile

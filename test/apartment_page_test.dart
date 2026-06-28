@@ -250,4 +250,52 @@ void main() {
 
     await tester.pumpAndSettle(); // let the hearts finish
   });
+
+  testWidgets('zoom controls scale the room and reset returns to 1x',
+      (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await pumpShop(tester);
+
+    // The reset button is derived from the live zoom level: hidden at 1×, shown
+    // once zoomed. So its presence is a faithful proxy for "the room is zoomed".
+    expect(find.byKey(const Key('room-zoom-reset')), findsNothing);
+
+    await tester.tap(find.byKey(const Key('room-zoom-in')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('room-zoom-reset')), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('room-zoom-reset')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('room-zoom-reset')), findsNothing);
+  });
+
+  testWidgets('a piece can still be dragged with the zoom viewer in place',
+      (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await Apartment.instance.grant('table');
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    final iid = Apartment.instance.pieces.keys.first;
+    final before = Apartment.instance.positionOf(iid, 'table');
+
+    // A one-finger drag must reach the piece (panEnabled:false on the viewer),
+    // not get swallowed as a canvas pan/zoom.
+    await tester.drag(find.byKey(ValueKey(iid)), const Offset(0, -140));
+    await tester.pumpAndSettle();
+
+    expect(Apartment.instance.positionOf(iid, 'table'), isNot(before));
+  });
 }

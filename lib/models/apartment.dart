@@ -44,6 +44,7 @@ class Apartment extends ChangeNotifier {
   Set<String> _revealed = {};
   bool _night = false;
   bool _animate = true;
+  bool _effects = true;
   bool _loaded = false;
   int _seq = 0; // disambiguates instance ids minted in the same microsecond
 
@@ -153,6 +154,20 @@ class Apartment extends ChangeNotifier {
     await prefs.setBool(SettingsKeys.apartmentAnimate, _animate);
   }
 
+  /// Whether the GPU-heavy visual effects — blurred contact shadows and blurred
+  /// light glows — are drawn. Off = a flatter look but far less GPU work, for
+  /// weak devices.
+  bool get effects => _effects;
+
+  /// Turns the blur effects on/off. Persists + notifies.
+  Future<void> setEffects(bool on) async {
+    if (_effects == on) return;
+    _effects = on;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(SettingsKeys.apartmentEffects, _effects);
+  }
+
   /// Whether the piece [instanceId] (in this room) is mirrored horizontally.
   bool isFlipped(String instanceId) =>
       _flipped[_currentRoom]?.contains(instanceId) ?? false;
@@ -195,6 +210,7 @@ class Apartment extends ChangeNotifier {
             .toSet();
     _night = prefs.getBool(SettingsKeys.apartmentNight) ?? false;
     _animate = prefs.getBool(SettingsKeys.apartmentAnimate) ?? true;
+    _effects = prefs.getBool(SettingsKeys.apartmentEffects) ?? true;
     _loaded = true;
     // Remove-then-add so repeated loads (e.g. after resetForTest) don't stack
     // duplicate listeners.
@@ -466,6 +482,7 @@ class Apartment extends ChangeNotifier {
     _revealed = {};
     _night = false;
     _animate = true;
+    _effects = true;
     _loaded = false;
     _seq = 0;
   }

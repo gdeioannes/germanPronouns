@@ -8,6 +8,7 @@
 library;
 
 import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
@@ -164,7 +165,37 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
 
 /// Paints the floor into [rect] for flooring [glyph] in [color] (or the warm
 /// wood default when [glyph]/[color] is null).
-void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color) {
+///
+/// With [perspective] on (the room — not the little flat shop swatch), the
+/// pattern is drawn into its own flat space and then replayed tilted back into
+/// the room, so the boards / tiles recede toward the wall and the floor reads as
+/// a real receding plane rather than a flat strip.
+void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
+    {bool perspective = false}) {
+  if (perspective) {
+    // Record the flat pattern in local space (far edge at the top), then replay
+    // it through a perspective tilt pivoting on the far edge — so the far edge
+    // stays pinned to the wall seam (no gap) while the near edge swells toward
+    // the viewer. The perspective strength scales with the floor height so the
+    // foreshortening looks the same at any room size.
+    final recorder = ui.PictureRecorder();
+    paintFloor(Canvas(recorder), Offset.zero & rect.size, glyph, color);
+    final pic = recorder.endRecording();
+    final h = rect.height;
+    final m = Matrix4.identity()
+      ..setEntry(3, 2, 0.9 / h) // size-independent foreshortening
+      ..translateByDouble(rect.width / 2, 0.0, 0.0, 1.0)
+      ..rotateX(-0.62)
+      ..translateByDouble(-rect.width / 2, 0.0, 0.0, 1.0);
+    canvas
+      ..save()
+      ..clipRect(rect)
+      ..translate(rect.left, rect.top)
+      ..transform(m.storage)
+      ..drawPicture(pic)
+      ..restore();
+    return;
+  }
   final p = Paint()..isAntiAlias = true;
   final base = color ?? const Color(0xFFC8A06B);
 
@@ -293,15 +324,31 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color) {
           }
         }
       }
-    default: // 'floorwood' / null — planks.
+    default: // 'floorwood' / null — repeating planks (recede well in the room).
       wash(_shade(base, 0.07), _shade(base, -0.05));
+      // Evenly-spaced board seams across the whole height, plus offset short
+      // joints, so the boards keep their size whatever the floor height — and so
+      // they read as many receding boards once the room tilts the floor back.
+      final rows = math.max(3, (rect.height / (rect.width * 0.13)).round());
+      final boardH = rect.height / rows;
+      final boardW = rect.width / 4;
       p
         ..style = PaintingStyle.stroke
-        ..strokeWidth = rect.width * 0.0045
-        ..color = _shade(base, -0.18).withValues(alpha: 0.5);
-      for (final f in const [0.30, 0.58, 0.86]) {
-        final y = rect.top + rect.height * f;
+        ..strokeWidth = math.max(0.6, rect.width * 0.004)
+        ..color = _shade(base, -0.20).withValues(alpha: 0.55);
+      for (var r = 0; r < rows; r++) {
+        final y = rect.top + r * boardH;
         canvas.drawLine(Offset(rect.left, y), Offset(rect.right, y), p);
+        // Staggered cross-joints between boards, brick-laid.
+        final offset = r.isEven ? 0.0 : boardW / 2;
+        for (var x = offset; x < rect.width; x += boardW) {
+          canvas.drawLine(
+            Offset(rect.left + x, y),
+            Offset(rect.left + x, y + boardH),
+            p..color = _shade(base, -0.14).withValues(alpha: 0.4),
+          );
+        }
+        p.color = _shade(base, -0.20).withValues(alpha: 0.55);
       }
       p.style = PaintingStyle.fill;
   }

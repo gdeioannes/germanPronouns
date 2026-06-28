@@ -46,6 +46,12 @@ class SettingsKeys {
   /// true). See `Apartment.animate`.
   static const String apartmentAnimate = 'apartment_animate';
 
+  /// Whether the GPU-heavy visual effects — the blurred contact shadows under
+  /// pieces and the blurred light glows — are on. A `bool` (default true).
+  /// Turning it off trades the soft look for much lower GPU load on weak
+  /// devices. See `Apartment.effects`.
+  static const String apartmentEffects = 'apartment_effects';
+
   /// Ids of the rooms the learner owns (the starter plus any bought). A
   /// `StringList`. See `Apartment` and `roomCatalog`.
   static const String apartmentRooms = 'apartment_rooms';

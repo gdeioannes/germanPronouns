@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -136,8 +137,10 @@ class _ApartmentPageState extends State<ApartmentPage>
   void _onShopDrag(double dy, double total) {
     if (_snapCtrl.isAnimating) _snapCtrl.stop();
     setState(() {
-      _shopFraction =
-          (_shopFraction - dy / total).clamp(_shopCollapsed, _shopExpanded);
+      _shopFraction = (_shopFraction - dy / total).clamp(
+        _shopCollapsed,
+        _shopExpanded,
+      );
     });
   }
 
@@ -150,8 +153,9 @@ class _ApartmentPageState extends State<ApartmentPage>
       f -= 0.2; // flicked down → smaller shop
     }
     const rungs = [_shopCollapsed, _shopMiddle, _shopExpanded];
-    final target =
-        rungs.reduce((a, b) => (f - a).abs() <= (f - b).abs() ? a : b);
+    final target = rungs.reduce(
+      (a, b) => (f - a).abs() <= (f - b).abs() ? a : b,
+    );
     _animateShopTo(target);
   }
 
@@ -165,8 +169,8 @@ class _ApartmentPageState extends State<ApartmentPage>
   /// The toolbar button: collapse the shop to give the room the screen, or
   /// restore the default split.
   void _toggleShop() => _animateShopTo(
-        _shopFraction <= _shopCollapsed + 0.01 ? _shopMiddle : _shopCollapsed,
-      );
+    _shopFraction <= _shopCollapsed + 0.01 ? _shopMiddle : _shopCollapsed,
+  );
 
   /// The room area (the room canvas + its selector bar), robust at any height:
   /// the canvas shrinks to fit, so it never overflows when the shop expands.
@@ -218,101 +222,103 @@ class _ApartmentPageState extends State<ApartmentPage>
       listenable: Apartment.instance,
       builder: (context, _) => Scaffold(
         appBar: AppBar(
-        title: const Text(
-          '🛋️ My Room',
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontWeight: FontWeight.w900,
-            color: Colors.white,
-            letterSpacing: 0.5,
+          title: const Text(
+            '🛋️ My Room',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontWeight: FontWeight.w900,
+              color: Colors.white,
+              letterSpacing: 0.5,
+            ),
           ),
+          titleSpacing: widget.onClose != null ? 0 : 8,
+          // When docked as a slide-up panel, an explicit close (down) button —
+          // the room now covers the whole screen, so there's no app behind to tap.
+          automaticallyImplyLeading: false,
+          leading: widget.onClose == null
+              ? null
+              : IconButton(
+                  tooltip: 'Close the room',
+                  icon: const Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: Colors.white,
+                  ),
+                  onPressed: widget.onClose,
+                ),
+          // A gradient bar that reliably fills, so the white title/icons stay
+          // visible; switches to the dark palette at night.
+          backgroundColor: _pal.appBar2,
+          foregroundColor: Colors.white,
+          surfaceTintColor: Colors.transparent,
+          iconTheme: const IconThemeData(color: Colors.white),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [_pal.appBar1, _pal.appBar2]),
+            ),
+          ),
+          elevation: 0,
+          actions: _roomActions(compact),
         ),
-        titleSpacing: widget.onClose != null ? 0 : 8,
-        // When docked as a slide-up panel, an explicit close (down) button —
-        // the room now covers the whole screen, so there's no app behind to tap.
-        automaticallyImplyLeading: false,
-        leading: widget.onClose == null
-            ? null
-            : IconButton(
-                tooltip: 'Close the room',
-                icon: const Icon(Icons.keyboard_arrow_down_rounded,
-                    color: Colors.white),
-                onPressed: widget.onClose,
-              ),
-        // A gradient bar that reliably fills, so the white title/icons stay
-        // visible; switches to the dark palette at night.
-        backgroundColor: _pal.appBar2,
-        foregroundColor: Colors.white,
-        surfaceTintColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.white),
-        flexibleSpace: Container(
+        body: DecoratedBox(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [_pal.appBar1, _pal.appBar2],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [_pal.bgTop, _pal.bgBottom],
+            ),
+          ),
+          child: SafeArea(
+            top: false,
+            child: ListenableBuilder(
+              listenable: Listenable.merge([
+                Apartment.instance,
+                CoinWallet.instance,
+              ]),
+              builder: (context, _) {
+                // On phones, shrink the room carousel and hand the freed space to
+                // the room and the shop so nothing feels cramped.
+                final compact = MediaQuery.sizeOf(context).width < 700;
+                // The room sits above the shop; the shop is a draggable sheet that
+                // snaps to collapsed / middle / expanded. The room area gets the
+                // rest and always keeps at least its selector bar visible.
+                return LayoutBuilder(
+                  builder: (context, c) {
+                    final total = c.maxHeight;
+                    // Keep at least the room's selector bar on screen, so the room
+                    // area never collapses to nothing while the shop expands.
+                    final shopH = (total * _shopFraction).clamp(
+                      0.0,
+                      total - 56.0,
+                    );
+                    final roomH = total - shopH;
+                    final roomBig = _shopFraction <= _shopCollapsed + 0.01;
+                    return Column(
+                      children: [
+                        SizedBox(
+                          height: roomH,
+                          child: _roomArea(compact: compact, roomBig: roomBig),
+                        ),
+                        SizedBox(
+                          height: shopH,
+                          // Not const: the shop reads the night-aware palette, so
+                          // it must rebuild when night flips.
+                          child: _Shop(
+                            // Too short to show the full store → a peek bar.
+                            collapsed: shopH < 130,
+                            onDrag: (dy) => _onShopDrag(dy, total),
+                            onDragEnd: (v) => _snapShop(v, total),
+                            onToggle: _toggleShop,
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
             ),
           ),
         ),
-        elevation: 0,
-        actions: _roomActions(compact),
-      ),
-      body: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [_pal.bgTop, _pal.bgBottom],
-          ),
-        ),
-        child: SafeArea(
-          top: false,
-          child: ListenableBuilder(
-            listenable: Listenable.merge([
-              Apartment.instance,
-              CoinWallet.instance,
-            ]),
-            builder: (context, _) {
-              // On phones, shrink the room carousel and hand the freed space to
-              // the room and the shop so nothing feels cramped.
-              final compact = MediaQuery.sizeOf(context).width < 700;
-              // The room sits above the shop; the shop is a draggable sheet that
-              // snaps to collapsed / middle / expanded. The room area gets the
-              // rest and always keeps at least its selector bar visible.
-              return LayoutBuilder(
-                builder: (context, c) {
-                  final total = c.maxHeight;
-                  // Keep at least the room's selector bar on screen, so the room
-                  // area never collapses to nothing while the shop expands.
-                  final shopH =
-                      (total * _shopFraction).clamp(0.0, total - 56.0);
-                  final roomH = total - shopH;
-                  final roomBig = _shopFraction <= _shopCollapsed + 0.01;
-                  return Column(
-                    children: [
-                      SizedBox(
-                        height: roomH,
-                        child: _roomArea(compact: compact, roomBig: roomBig),
-                      ),
-                      SizedBox(
-                        height: shopH,
-                        // Not const: the shop reads the night-aware palette, so
-                        // it must rebuild when night flips.
-                        child: _Shop(
-                          // Too short to show the full store → a peek bar.
-                          collapsed: shopH < 130,
-                          onDrag: (dy) => _onShopDrag(dy, total),
-                          onDragEnd: (v) => _snapShop(v, total),
-                          onToggle: _toggleShop,
-                        ),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-          ),
-        ),
-      ),
       ),
     );
   }
@@ -346,6 +352,8 @@ class _ApartmentPageState extends State<ApartmentPage>
             switch (value) {
               case 'animate':
                 apt.setAnimate(!apt.animate);
+              case 'effects':
+                apt.setEffects(!apt.effects);
               case 'night':
                 apt.setNight(!apt.isNight);
               case 'give':
@@ -357,8 +365,15 @@ class _ApartmentPageState extends State<ApartmentPage>
           itemBuilder: (_) => [
             _overflowItem(
               'animate',
-              apt.animate ? Icons.pause_circle_outline : Icons.play_circle_outline,
+              apt.animate
+                  ? Icons.pause_circle_outline
+                  : Icons.play_circle_outline,
               apt.animate ? 'Pause animation' : 'Play animation',
+            ),
+            _overflowItem(
+              'effects',
+              apt.effects ? Icons.blur_off_rounded : Icons.blur_on_rounded,
+              apt.effects ? 'Turn off blur effects' : 'Turn on blur effects',
             ),
             _overflowItem(
               'night',
@@ -366,9 +381,15 @@ class _ApartmentPageState extends State<ApartmentPage>
               apt.isNight ? 'Switch to day' : 'Switch to night',
             ),
             _overflowItem(
-              'give', Icons.volunteer_activism_rounded, 'Give away furniture'),
+              'give',
+              Icons.volunteer_activism_rounded,
+              'Give away furniture',
+            ),
             _overflowItem(
-              'share', Icons.ios_share_rounded, 'Save or copy a picture'),
+              'share',
+              Icons.ios_share_rounded,
+              'Save or copy a picture',
+            ),
           ],
         ),
         const CoinBalancePill(),
@@ -384,6 +405,16 @@ class _ApartmentPageState extends State<ApartmentPage>
           color: Colors.white,
         ),
         onPressed: () => apt.setAnimate(!apt.animate),
+      ),
+      IconButton(
+        tooltip: apt.effects
+            ? 'Turn off blur effects (faster on weak devices)'
+            : 'Turn on blur effects',
+        icon: Icon(
+          apt.effects ? Icons.blur_off_rounded : Icons.blur_on_rounded,
+          color: Colors.white,
+        ),
+        onPressed: () => apt.setEffects(!apt.effects),
       ),
       focusButton,
       IconButton(
@@ -409,7 +440,11 @@ class _ApartmentPageState extends State<ApartmentPage>
     ];
   }
 
-  PopupMenuItem<String> _overflowItem(String value, IconData icon, String label) {
+  PopupMenuItem<String> _overflowItem(
+    String value,
+    IconData icon,
+    String label,
+  ) {
     return PopupMenuItem<String>(
       value: value,
       child: Row(
@@ -532,18 +567,96 @@ class _RoomCanvasState extends State<_RoomCanvas>
   // it. The lift eases in (0 → [_liftTarget] px) once dragging starts, so it
   // glides up instead of snapping.
   double _liftTarget = 0;
-  late final AnimationController _lift = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 170),
-  )..addListener(() {
-      if (mounted) setState(() {});
-    });
+  late final AnimationController _lift =
+      AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 170),
+      )..addListener(() {
+        if (mounted) setState(() {});
+      });
 
   // A slow, looping clock that drives the gentle idle float of room pieces.
   late final AnimationController _idle = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 6),
   );
+
+  // ── Zoom ──────────────────────────────────────────────────────────────────
+  // The room can be zoomed in to inspect or place pieces closely. Pinch (mobile
+  // / trackpad) drives the [InteractiveViewer] directly; the +/−/reset buttons
+  // and the mouse scroll-wheel drive it through this controller. One-finger
+  // drags still reach the pieces (the viewer's own panning is off), so zoom
+  // never fights with dragging furniture around. Zoom is a transient view state,
+  // not a saved setting — every visit starts at 1×.
+  static const double _minZoom = 1.0;
+  static const double _maxZoom = 3.0;
+  final TransformationController _zoom = TransformationController();
+
+  // The room's on-screen size, captured each build so the zoom maths (anchoring,
+  // edge-clamping) can run from the button / scroll callbacks outside the layout.
+  Size _viewport = Size.zero;
+
+  /// Scales the view by [factor] about [focal] (in room pixels), clamped to
+  /// [[_minZoom], [_maxZoom]] and kept flush to the edges so the room always
+  /// fills the frame (no background gaps). [focal] defaults to the centre.
+  void _zoomBy(double factor, {Offset? focal}) {
+    if (_viewport.isEmpty) return;
+    final pivot = focal ?? _viewport.center(Offset.zero);
+    final current = _zoom.value.getMaxScaleOnAxis();
+    final target = (current * factor).clamp(_minZoom, _maxZoom);
+    if (target == current) return;
+    final realFactor = target / current;
+    // new = current · translate(scene) · scale(factor) · translate(-scene) —
+    // i.e. scale about the scene point under the focal so that point stays put.
+    final scene = _zoom.toScene(pivot);
+    final m = _zoom.value
+        .clone()
+        .multiplied(Matrix4.translationValues(scene.dx, scene.dy, 0))
+        .multiplied(Matrix4.diagonal3Values(realFactor, realFactor, 1))
+        .multiplied(Matrix4.translationValues(-scene.dx, -scene.dy, 0));
+    // Clamp the pan so the (now larger) room can't slide off and reveal a gap.
+    // storage[12]/[13] are the matrix's x/y translation.
+    final s = m.getMaxScaleOnAxis();
+    m.storage[12] = m.storage[12].clamp(_viewport.width * (1 - s), 0.0);
+    m.storage[13] = m.storage[13].clamp(_viewport.height * (1 - s), 0.0);
+    _zoom.value = m;
+  }
+
+  void _resetZoom() => _zoom.value = Matrix4.identity();
+
+  void _onPointerSignal(PointerSignalEvent e) {
+    if (e is! PointerScrollEvent) return;
+    // Wheel up (negative dy) zooms in toward the cursor; down zooms out.
+    _zoomBy(e.scrollDelta.dy < 0 ? 1.15 : 1 / 1.15, focal: e.localPosition);
+  }
+
+  // Live finger positions, for pinch-to-zoom. Tracked via a raw [Listener] so
+  // observing them never steals the one-finger drag from a piece. The pinch is
+  // a two-finger gesture only; a lone finger is ignored here and left to the
+  // furniture's own drag handlers.
+  final Map<int, Offset> _pointers = {};
+  double? _pinchSpan; // finger distance at the previous move, or null
+
+  void _onPointerDown(PointerDownEvent e) =>
+      _pointers[e.pointer] = e.localPosition;
+
+  void _onPointerEnd(PointerEvent e) {
+    _pointers.remove(e.pointer);
+    if (_pointers.length < 2) _pinchSpan = null;
+  }
+
+  void _onPointerMove(PointerMoveEvent e) {
+    if (!_pointers.containsKey(e.pointer)) return;
+    _pointers[e.pointer] = e.localPosition;
+    if (_pointers.length != 2) return;
+    final pts = _pointers.values.toList(growable: false);
+    final span = (pts[0] - pts[1]).distance;
+    final mid = (pts[0] + pts[1]) / 2;
+    if (_pinchSpan != null && _pinchSpan! > 0 && span > 0) {
+      _zoomBy(span / _pinchSpan!, focal: mid);
+    }
+    _pinchSpan = span;
+  }
 
   /// The lift in pixels for a finger at [fingerY] in a room [height] tall, eased
   /// in by [_lift] (0 while not dragging). The lift floats the piece above the
@@ -566,6 +679,7 @@ class _RoomCanvasState extends State<_RoomCanvas>
   void dispose() {
     _lift.dispose();
     _idle.dispose();
+    _zoom.dispose();
     super.dispose();
   }
 
@@ -578,91 +692,161 @@ class _RoomCanvasState extends State<_RoomCanvas>
     } else if (_idle.isAnimating) {
       _idle.stop();
     }
-    return RepaintBoundary(
-      key: widget.repaintKey,
-      child: Container(
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
-          border: Border.all(color: _pal.cardBorder, width: 4),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.18),
-              blurRadius: 16,
-              offset: const Offset(0, 6),
-            ),
-          ],
-        ),
-        child: LayoutBuilder(
-          builder: (context, c) {
-            final size = Size(c.maxWidth, c.maxHeight);
-            // The reference size for a scale-1.0 piece — strictly proportional to
-            // the room (no clamp), so pieces and the gaps between them keep the
-            // same relative size/spacing whenever the room resizes.
-            final baseTile = size.shortestSide * 0.21;
-            // Each placed piece is (instanceId, catalogue item); a learner can
-            // own several of the same item, each arranged on its own. Surfaces
-            // (floors / walls) are owned too but change the background instead of
-            // being placed, so they're left out of the draggable pieces.
-            final pieces = [
-              for (final e in Apartment.instance.pieces.entries)
-                if (shopItemById(e.value) case final item? when !item.isSurface)
-                  (e.key, item),
-            ];
-            // Draw the held piece last so it floats above the others.
-            final ordered = [
-              for (final p in pieces) if (p.$1 != _dragId) p,
-              for (final p in pieces) if (p.$1 == _dragId) p,
-            ];
-            // The current floor / wall surfaces (newest bought), falling back to
-            // the room theme's own default look when nothing's been bought.
-            final theme = Apartment.instance.currentRoom;
-            final floor = shopItemById(Apartment.instance.currentFloor ?? '');
-            final wall = shopItemById(Apartment.instance.currentWall ?? '');
-            // Light cast by any owned light pieces, at their live spots —
-            // lamps throw a downward cone, others a soft directional pool.
-            final night = Apartment.instance.isNight;
-            final lights = <_LightSpec>[
-              for (final p in pieces)
-                if (_lightFx[p.$2.glyph] case final fx?)
-                  _lightSpec(p.$1, p.$2, fx, size, baseTile),
-            ];
-            return Stack(
-              children: [
-                Positioned.fill(
-                  child: _CosyRoom(
-                    floorGlyph: floor?.glyph ?? theme.floorGlyph,
-                    floorColor: floor?.color ?? theme.floorColor,
-                    wallGlyph: wall?.glyph ?? theme.wallGlyph,
-                    wallColor: wall?.color ?? theme.wallColor,
-                    backdrop: theme.backdrop,
-                  ),
+    return Stack(
+      children: [
+        // The room frame's drop shadow lives out here, behind everything, so it
+        // stays put (and unscaled) while only the interior zooms within.
+        Positioned.fill(
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.18),
+                  blurRadius: 16,
+                  offset: const Offset(0, 6),
                 ),
-                for (final p in ordered) _draggable(p.$1, p.$2, size, baseTile),
-                if (night || lights.isNotEmpty)
-                  Positioned.fill(
-                    child: IgnorePointer(
-                      child: CustomPaint(
-                        painter: _RoomLightingPainter(
-                          night: night,
-                          lights: lights,
-                          clock: Apartment.instance.animate ? _idle : null,
-                        ),
-                      ),
+              ],
+            ),
+          ),
+        ),
+        // The zoom rides on a plain [Transform] driven by [_zoom]. A raw
+        // [Listener] (which only *observes* pointers — it never enters the
+        // gesture arena) handles two-finger pinch and the scroll-wheel, so
+        // one-finger drags fall straight through to the furniture and zoom never
+        // fights with rearranging pieces.
+        Positioned.fill(
+          child: Listener(
+            onPointerDown: _onPointerDown,
+            onPointerMove: _onPointerMove,
+            onPointerUp: _onPointerEnd,
+            onPointerCancel: _onPointerEnd,
+            onPointerSignal: _onPointerSignal,
+            child: ClipRect(
+              child: ValueListenableBuilder<Matrix4>(
+                valueListenable: _zoom,
+                builder: (context, m, child) =>
+                    Transform(transform: m, child: child),
+                child: RepaintBoundary(
+                  key: widget.repaintKey,
+                  child: Container(
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(color: _pal.cardBorder, width: 4),
+                    ),
+                    child: LayoutBuilder(
+                      builder: (context, c) {
+                        final size = Size(c.maxWidth, c.maxHeight);
+                        _viewport = size;
+                        // The reference size for a scale-1.0 piece — strictly proportional to
+                        // the room (no clamp), so pieces and the gaps between them keep the
+                        // same relative size/spacing whenever the room resizes.
+                        final baseTile = size.shortestSide * 0.21;
+                        // Each placed piece is (instanceId, catalogue item); a learner can
+                        // own several of the same item, each arranged on its own. Surfaces
+                        // (floors / walls) are owned too but change the background instead of
+                        // being placed, so they're left out of the draggable pieces.
+                        final pieces = [
+                          for (final e in Apartment.instance.pieces.entries)
+                            if (shopItemById(e.value) case final item?
+                                when !item.isSurface)
+                              (e.key, item),
+                        ];
+                        // Draw the held piece last so it floats above the others.
+                        final ordered = [
+                          for (final p in pieces)
+                            if (p.$1 != _dragId) p,
+                          for (final p in pieces)
+                            if (p.$1 == _dragId) p,
+                        ];
+                        // The current floor / wall surfaces (newest bought), falling back to
+                        // the room theme's own default look when nothing's been bought.
+                        final theme = Apartment.instance.currentRoom;
+                        final floor = shopItemById(
+                          Apartment.instance.currentFloor ?? '',
+                        );
+                        final wall = shopItemById(
+                          Apartment.instance.currentWall ?? '',
+                        );
+                        // Light cast by any owned light pieces, at their live spots —
+                        // lamps throw a downward cone, others a soft directional pool. The
+                        // glows are blurred (GPU-heavy), so with effects off we drop them
+                        // and let the room keep only the flat night dimming.
+                        final night = Apartment.instance.isNight;
+                        final lights = <_LightSpec>[
+                          if (Apartment.instance.effects)
+                            for (final p in pieces)
+                              if (_lightFx[p.$2.glyph] case final fx?)
+                                _lightSpec(p.$1, p.$2, fx, size, baseTile),
+                        ];
+                        return Stack(
+                          children: [
+                            Positioned.fill(
+                              child: _CosyRoom(
+                                floorGlyph: floor?.glyph ?? theme.floorGlyph,
+                                floorColor: floor?.color ?? theme.floorColor,
+                                wallGlyph: wall?.glyph ?? theme.wallGlyph,
+                                wallColor: wall?.color ?? theme.wallColor,
+                                backdrop: theme.backdrop,
+                              ),
+                            ),
+                            for (final p in ordered)
+                              _draggable(p.$1, p.$2, size, baseTile),
+                            if (night || lights.isNotEmpty)
+                              Positioned.fill(
+                                child: IgnorePointer(
+                                  child: CustomPaint(
+                                    painter: _RoomLightingPainter(
+                                      night: night,
+                                      lights: lights,
+                                      // Only the blurred glows flicker; with effects off
+                                      // there are none, so don't drive a per-frame repaint
+                                      // just to redraw the flat night dimming.
+                                      clock:
+                                          Apartment.instance.animate &&
+                                              Apartment.instance.effects
+                                          ? _idle
+                                          : null,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (widget.exporting)
+                              const Positioned(
+                                right: 14,
+                                bottom: 12,
+                                child: _RoomWatermark(),
+                              )
+                            // Not const — these read the night-aware palette.
+                            else if (pieces.isEmpty)
+                              _EmptyRoom()
+                            else
+                              Positioned(left: 12, top: 10, child: _DragHint()),
+                          ],
+                        );
+                      },
                     ),
                   ),
-                if (widget.exporting)
-                  const Positioned(right: 14, bottom: 12, child: _RoomWatermark())
-                // Not const — these read the night-aware palette.
-                else if (pieces.isEmpty)
-                  _EmptyRoom()
-                else
-                  Positioned(left: 12, top: 10, child: _DragHint()),
-              ],
-            );
-          },
+                ),
+              ),
+            ),
+          ),
         ),
-      ),
+        if (!widget.exporting)
+          Positioned(
+            right: 12,
+            bottom: 12,
+            child: _ZoomControls(
+              zoom: _zoom,
+              min: _minZoom,
+              max: _maxZoom,
+              onIn: () => _zoomBy(1.4),
+              onOut: () => _zoomBy(1 / 1.4),
+              onReset: _resetZoom,
+            ),
+          ),
+      ],
     );
   }
 
@@ -685,7 +869,12 @@ class _RoomCanvasState extends State<_RoomCanvas>
   /// Resolves a light's pixel geometry: a downward cone for beam lights (apex at
   /// the shade), or a soft elliptical pool for the rest.
   _LightSpec _lightSpec(
-      String iid, ShopItem item, _LightFx fx, Size size, double baseTile) {
+    String iid,
+    ShopItem item,
+    _LightFx fx,
+    Size size,
+    double baseTile,
+  ) {
     final s = _sizeOf(item, baseTile, size);
     final c = _centerPx(iid, item, size, s / 2);
     final phase = (iid.hashCode & 0xFFFF) / 0xFFFF;
@@ -794,7 +983,12 @@ class _RoomCanvasState extends State<_RoomCanvas>
   /// painter animation (flame, fish, fan… — see [furnitureHasIdleAnimation]) for
   /// some, and/or a whole-piece motion (plants sway, hung pieces swing, the cat
   /// breathes — see [_motionFor]). Held or paused pieces are perfectly still.
-  Widget _idleToken(String iid, ShopItem item, double itemSize, bool isDragging) {
+  Widget _idleToken(
+    String iid,
+    ShopItem item,
+    double itemSize,
+    bool isDragging,
+  ) {
     final animating = Apartment.instance.animate && !isDragging;
     final glyph = item.glyph;
     final phase = (iid.hashCode & 0xFFFF) / 0xFFFF;
@@ -804,15 +998,18 @@ class _RoomCanvasState extends State<_RoomCanvas>
       size: itemSize,
       highlighted: isDragging,
       flipped: Apartment.instance.isFlipped(iid),
-      animation:
-          animating && furnitureHasIdleAnimation(glyph) ? _idle : null,
+      animation: animating && furnitureHasIdleAnimation(glyph) ? _idle : null,
       phase: phase,
     );
 
     final motion = _motionFor(glyph);
     if (animating && motion != _Motion.none) {
       token = _IdleMotion(
-          clock: _idle, seed: iid.hashCode, motion: motion, child: token);
+        clock: _idle,
+        seed: iid.hashCode,
+        motion: motion,
+        child: token,
+      );
     }
     return token;
   }
@@ -872,8 +1069,12 @@ class _FurnitureToken extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget furniture =
-        FlatFurniture(item: item, size: size, animation: animation, phase: phase);
+    Widget furniture = FlatFurniture(
+      item: item,
+      size: size,
+      animation: animation,
+      phase: phase,
+    );
     if (highlighted) {
       // Tint the drawn pixels toward white so the held piece looks a touch
       // brighter, following its shape (transparent areas stay clear).
@@ -903,15 +1104,28 @@ class _FurnitureToken extends StatelessWidget {
               Positioned(
                 left: 0,
                 right: 0,
-                bottom: size * 0.07,
+                bottom: size * 0.05,
                 child: Center(
-                  child: Container(
-                    width: size * 0.66,
-                    height: size * 0.10,
-                    decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.14),
-                      borderRadius:
-                          BorderRadius.all(Radius.elliptical(size * 0.33, size * 0.05)),
+                  // A soft, blurred contact shadow that melts into the floor, so
+                  // the piece sits in the room instead of hovering on a hard grey
+                  // ellipse. The real-time blur is the most GPU-heavy thing here,
+                  // so with effects off we draw the plain ellipse (a touch more
+                  // transparent to soften the hard edge) and skip the blur.
+                  child: _maybeBlur(
+                    blur: Apartment.instance.effects,
+                    sigmaX: size * 0.03,
+                    sigmaY: size * 0.02,
+                    child: Container(
+                      width: size * 0.62,
+                      height: size * 0.12,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withValues(
+                          alpha: Apartment.instance.effects ? 0.18 : 0.12,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.elliptical(size * 0.31, size * 0.06),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -922,6 +1136,23 @@ class _FurnitureToken extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Wraps [child] in a gaussian [ui.ImageFilter.blur] when [blur] is true, else
+/// returns it untouched. Real-time blur is the heaviest GPU work in the room, so
+/// the room's "effects" toggle (`Apartment.effects`) routes its blurs through
+/// here to switch them off on weak devices.
+Widget _maybeBlur({
+  required bool blur,
+  required double sigmaX,
+  required double sigmaY,
+  required Widget child,
+}) {
+  if (!blur) return child;
+  return ImageFiltered(
+    imageFilter: ui.ImageFilter.blur(sigmaX: sigmaX, sigmaY: sigmaY),
+    child: child,
+  );
 }
 
 /// A tiny, slow whole-piece idle motion that suits the object: a plant [sway]ing
@@ -970,7 +1201,10 @@ class _IdleMotion extends StatelessWidget {
             return Transform(
               alignment: Alignment.bottomCenter,
               transform: Matrix4.diagonal3Values(
-                  1, 1 + math.sin(a) * 0.02 * amp, 1), // ±2% height
+                1,
+                1 + math.sin(a) * 0.02 * amp,
+                1,
+              ), // ±2% height
               child: child,
             );
           case _Motion.none:
@@ -1040,19 +1274,57 @@ class _CosyRoomPainter extends CustomPainter {
     paintWall(canvas, wall, wallGlyph, wallColor);
     // The themed motif on the back wall, behind the furniture.
     _paintBackdrop(canvas, wall);
-    paintFloor(
-        canvas, Rect.fromLTWH(0, floorY, w, h - floorY), floorGlyph, floorColor);
+    // The floor now recedes into the room (a tilted plane), and a soft depth
+    // pass shades the back corners so the space reads as a 3-D box.
+    final floorRect = Rect.fromLTWH(0, floorY, w, h - floorY);
+    paintFloor(canvas, floorRect, floorGlyph, floorColor, perspective: true);
+    _paintRoomDepth(canvas, size, floorY);
 
-    // Skirting board between wall and floor.
+    // Skirting board between wall and floor, plus a hairline shadow it casts
+    // down onto the receding floor so the back of the room reads grounded.
     final skH = h * 0.024;
     p.color = const Color(0xFFFBF6EC);
     canvas.drawRect(Rect.fromLTWH(0, floorY - skH, w, skH), p);
+    p.shader = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [Colors.black.withValues(alpha: 0.12), Colors.transparent],
+    ).createShader(Rect.fromLTWH(0, floorY, w, h * 0.05));
+    canvas.drawRect(Rect.fromLTWH(0, floorY, w, h * 0.05), p);
+    p.shader = null;
     p
       ..style = PaintingStyle.stroke
       ..strokeWidth = math.max(1.0, h * 0.003)
       ..color = const Color(0x22000000);
     canvas.drawLine(Offset(0, floorY), Offset(w, floorY), p);
     p.style = PaintingStyle.fill;
+  }
+
+  /// A soft, low-contrast depth pass over the whole room: the wall's side edges
+  /// fall into shadow (the side walls receding) and the very front of the floor
+  /// catches a little light, so the space reads as a 3-D box rather than two
+  /// flat bands. Kept faint so the furniture stays the focus.
+  void _paintRoomDepth(Canvas canvas, Size size, double floorY) {
+    final w = size.width;
+    final h = size.height;
+    final p = Paint()..isAntiAlias = true;
+    for (final left in const [true, false]) {
+      final rect = Rect.fromLTWH(left ? 0 : w * 0.82, 0, w * 0.18, floorY);
+      p.shader = LinearGradient(
+        begin: left ? Alignment.centerLeft : Alignment.centerRight,
+        end: left ? Alignment.centerRight : Alignment.centerLeft,
+        colors: [Colors.black.withValues(alpha: 0.07), Colors.transparent],
+      ).createShader(rect);
+      canvas.drawRect(rect, p);
+    }
+    final floor = Rect.fromLTWH(0, floorY, w, h - floorY);
+    p.shader = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [Colors.transparent, Colors.white.withValues(alpha: 0.05)],
+    ).createShader(floor);
+    canvas.drawRect(floor, p);
+    p.shader = null;
   }
 
   /// Paints the room theme's decorative motif within the wall [r] — flat, soft
@@ -1075,7 +1347,14 @@ class _CosyRoomPainter extends CustomPainter {
       canvas.drawCircle(Offset(px(cx), py(cy)), w * rad, p..color = c);
     }
 
-    void stroke(double x1, double y1, double x2, double y2, double sw, Color c) {
+    void stroke(
+      double x1,
+      double y1,
+      double x2,
+      double y2,
+      double sw,
+      Color c,
+    ) {
       canvas.drawLine(
         Offset(px(x1), py(y1)),
         Offset(px(x2), py(y2)),
@@ -1111,19 +1390,35 @@ class _CosyRoomPainter extends CustomPainter {
         // A bookcase silhouette on the right side of the wall.
         rrect(0.56, 0.08, 0.96, 1.0, 0.01, const Color(0x22000000));
         const spines = [
-          Color(0x55C7572E), Color(0x554E7CA8), Color(0x556B9E63),
-          Color(0x55C99A3D), Color(0x55865C9C), Color(0x55B5524A),
+          Color(0x55C7572E),
+          Color(0x554E7CA8),
+          Color(0x556B9E63),
+          Color(0x55C99A3D),
+          Color(0x55865C9C),
+          Color(0x55B5524A),
         ];
         for (var shelf = 0; shelf < 4; shelf++) {
           final t = 0.12 + shelf * 0.22;
           for (var b = 0; b < 6; b++) {
             final x = 0.585 + b * 0.058;
             final hh = 0.16 + ((b + shelf) % 3) * 0.012;
-            rrect(x, t + 0.20 - hh, x + 0.045, t + 0.20,
-                0.004, spines[(b + shelf) % spines.length]);
+            rrect(
+              x,
+              t + 0.20 - hh,
+              x + 0.045,
+              t + 0.20,
+              0.004,
+              spines[(b + shelf) % spines.length],
+            );
           }
-          stroke(0.57, t + 0.205, 0.95, t + 0.205, 0.01,
-              const Color(0x33000000));
+          stroke(
+            0.57,
+            t + 0.205,
+            0.95,
+            t + 0.205,
+            0.01,
+            const Color(0x33000000),
+          );
         }
       case RoomBackdrop.trellis:
         const line = Color(0x2638694A);
@@ -1164,9 +1459,14 @@ class _CosyRoomPainter extends CustomPainter {
         // Backsplash tiles just above the floor.
         for (var row = 0; row < 2; row++) {
           for (var col = 0; col < 12; col++) {
-            rrect(0.02 + col * 0.082, 0.66 + row * 0.15,
-                0.02 + col * 0.082 + 0.072, 0.66 + row * 0.15 + 0.12,
-                0.01, const Color(0x22FFFFFF));
+            rrect(
+              0.02 + col * 0.082,
+              0.66 + row * 0.15,
+              0.02 + col * 0.082 + 0.072,
+              0.66 + row * 0.15 + 0.12,
+              0.01,
+              const Color(0x22FFFFFF),
+            );
           }
         }
       case RoomBackdrop.waves:
@@ -1175,8 +1475,10 @@ class _CosyRoomPainter extends CustomPainter {
           final path = Path()..moveTo(r.left, py(y));
           for (var x = 0.0; x <= 1.0; x += 0.1) {
             path.quadraticBezierTo(
-              px(x + 0.025), py(y + (i.isEven ? 0.03 : -0.03)),
-              px(x + 0.05), py(y),
+              px(x + 0.025),
+              py(y + (i.isEven ? 0.03 : -0.03)),
+              px(x + 0.05),
+              py(y),
             );
           }
           canvas.drawPath(
@@ -1204,8 +1506,7 @@ class _CosyRoomPainter extends CustomPainter {
         for (var i = 0; i < 16; i++) {
           final wx = 0.18 + (i % 8) * 0.08;
           final wy = 0.55 + (i ~/ 8) * 0.12;
-          rrect(wx, wy, wx + 0.02, wy + 0.03, 0.0,
-              const Color(0x66FFE9A8));
+          rrect(wx, wy, wx + 0.02, wy + 0.03, 0.0, const Color(0x66FFE9A8));
         }
         stroke(0.5, 0.12, 0.5, 0.9, 0.008, const Color(0x33000000));
       case RoomBackdrop.neon:
@@ -1294,86 +1595,218 @@ class _LightFx {
 /// spill.
 const Map<String, _LightFx> _lightFx = {
   'pendant': _LightFx(
-      color: Color(0xFFFFE0A0), intensity: 0.55, glow: 0.26, beam: true,
-      length: 1.7, spread: 0.85, apexHalf: 0.16, apexDy: 0.05, soft: 0.04),
+    color: Color(0xFFFFE0A0),
+    intensity: 0.55,
+    glow: 0.26,
+    beam: true,
+    length: 1.7,
+    spread: 0.85,
+    apexHalf: 0.16,
+    apexDy: 0.05,
+    soft: 0.04,
+  ),
   'lamp': _LightFx(
-      color: Color(0xFFFFD98A), intensity: 0.55, glow: 0.26, beam: true,
-      length: 1.6, spread: 0.8, apexHalf: 0.16, apexDy: -0.12, soft: 0.04),
+    color: Color(0xFFFFD98A),
+    intensity: 0.55,
+    glow: 0.26,
+    beam: true,
+    length: 1.6,
+    spread: 0.8,
+    apexHalf: 0.16,
+    apexDy: -0.12,
+    soft: 0.04,
+  ),
   'lantern': _LightFx(
-      color: Color(0xFFFFD98A), intensity: 0.5, glow: 0.26,
-      w: 1.0, h: 1.0, dy: 0, flicker: true),
+    color: Color(0xFFFFD98A),
+    intensity: 0.5,
+    glow: 0.26,
+    w: 1.0,
+    h: 1.0,
+    dy: 0,
+    flicker: true,
+  ),
   // The ellipse sits above the flame so its soft bottom edge fades out right at
   // the candle's base — no spill below, and no hard crop line.
   'candle': _LightFx(
-      color: Color(0xFFFFC97A), intensity: 0.42, glow: 0.24,
-      w: 0.9, h: 0.7, dy: -0.28, flicker: true),
+    color: Color(0xFFFFC97A),
+    intensity: 0.42,
+    glow: 0.24,
+    w: 0.9,
+    h: 0.7,
+    dy: -0.28,
+    flicker: true,
+  ),
   'fireplace': _LightFx(
-      color: Color(0xFFFF9A52), intensity: 0.65, glow: 0.34,
-      w: 1.8, h: 1.4, dy: -0.2, focal: Alignment(0, 0.4), flicker: true),
+    color: Color(0xFFFF9A52),
+    intensity: 0.65,
+    glow: 0.34,
+    w: 1.8,
+    h: 1.4,
+    dy: -0.2,
+    focal: Alignment(0, 0.4),
+    flicker: true,
+  ),
   'tv': _LightFx(
-      color: Color(0xFF9AD0FF), intensity: 0.4, glow: 0.2,
-      w: 1.4, h: 1.1, dy: 0.1),
+    color: Color(0xFF9AD0FF),
+    intensity: 0.4,
+    glow: 0.2,
+    w: 1.4,
+    h: 1.1,
+    dy: 0.1,
+  ),
   'arcade': _LightFx(
-      color: Color(0xFF9AD0FF), intensity: 0.4, glow: 0.2,
-      w: 1.1, h: 1.2, focal: Alignment(0, -0.3)),
+    color: Color(0xFF9AD0FF),
+    intensity: 0.4,
+    glow: 0.2,
+    w: 1.1,
+    h: 1.2,
+    focal: Alignment(0, -0.3),
+  ),
   'aquarium': _LightFx(
-      color: Color(0xFF7FE0FF), intensity: 0.4, glow: 0.18,
-      w: 1.3, h: 1.0),
+    color: Color(0xFF7FE0FF),
+    intensity: 0.4,
+    glow: 0.18,
+    w: 1.3,
+    h: 1.0,
+  ),
   'fishtank': _LightFx(
-      color: Color(0xFF7FE0FF), intensity: 0.36, glow: 0.16,
-      w: 1.2, h: 1.0),
+    color: Color(0xFF7FE0FF),
+    intensity: 0.36,
+    glow: 0.16,
+    w: 1.2,
+    h: 1.0,
+  ),
   // ── Lighting category — every lamp earns its keep after dark ──────────────
   // The chandelier is the hero ceiling light: a big, soft, warm pool.
   'chandelier': _LightFx(
-      color: Color(0xFFFFE0A0), intensity: 0.5, glow: 0.26,
-      w: 2.3, h: 1.7, dy: 0.12),
+    color: Color(0xFFFFE0A0),
+    intensity: 0.5,
+    glow: 0.26,
+    w: 2.3,
+    h: 1.7,
+    dy: 0.12,
+  ),
   // Its shade sits to the right of the drawing where the arc reaches over, so
   // the cone casts from there (apexDx), softened so the edges feather out.
   'arclamp': _LightFx(
-      color: Color(0xFFFFD98A), intensity: 0.42, glow: 0.22, beam: true,
-      length: 1.5, spread: 0.78, apexHalf: 0.13,
-      apexDx: 0.24, apexDy: 0.02, soft: 0.11),
+    color: Color(0xFFFFD98A),
+    intensity: 0.42,
+    glow: 0.22,
+    beam: true,
+    length: 1.5,
+    spread: 0.78,
+    apexHalf: 0.13,
+    apexDx: 0.24,
+    apexDy: 0.02,
+    soft: 0.11,
+  ),
   'paperlantern': _LightFx(
-      color: Color(0xFFFFE0B0), intensity: 0.4, glow: 0.24,
-      w: 1.5, h: 1.5),
+    color: Color(0xFFFFE0B0),
+    intensity: 0.4,
+    glow: 0.24,
+    w: 1.5,
+    h: 1.5,
+  ),
   'lavalamp': _LightFx(
-      color: Color(0xFFFF7A5C), intensity: 0.34, glow: 0.26,
-      w: 1.1, h: 1.5, flicker: true),
+    color: Color(0xFFFF7A5C),
+    intensity: 0.34,
+    glow: 0.26,
+    w: 1.1,
+    h: 1.5,
+    flicker: true,
+  ),
   'neonhalo': _LightFx(
-      color: Color(0xFFFF8AD0), intensity: 0.38, glow: 0.30,
-      w: 1.7, h: 1.7),
+    color: Color(0xFFFF8AD0),
+    intensity: 0.38,
+    glow: 0.30,
+    w: 1.7,
+    h: 1.7,
+  ),
   // ── Glowing décor / electronics across the catalogue ──────────────────────
   'fairylights': _LightFx(
-      color: Color(0xFFFFE0A0), intensity: 0.36, glow: 0.26,
-      w: 2.3, h: 1.1, dy: 0.18, flicker: true),
+    color: Color(0xFFFFE0A0),
+    intensity: 0.36,
+    glow: 0.26,
+    w: 2.3,
+    h: 1.1,
+    dy: 0.18,
+    flicker: true,
+  ),
   'neonsign': _LightFx(
-      color: Color(0xFFFF7AC8), intensity: 0.38, glow: 0.28,
-      w: 1.9, h: 1.3, dy: 0.08),
+    color: Color(0xFFFF7AC8),
+    intensity: 0.38,
+    glow: 0.28,
+    w: 1.9,
+    h: 1.3,
+    dy: 0.08,
+  ),
   'spacandles': _LightFx(
-      color: Color(0xFFFFC97A), intensity: 0.34, glow: 0.22,
-      w: 1.0, h: 0.8, dy: -0.18, flicker: true),
+    color: Color(0xFFFFC97A),
+    intensity: 0.34,
+    glow: 0.22,
+    w: 1.0,
+    h: 0.8,
+    dy: -0.18,
+    flicker: true,
+  ),
   'jukebox': _LightFx(
-      color: Color(0xFFFFC07A), intensity: 0.38, glow: 0.24,
-      w: 1.4, h: 1.5, dy: -0.08),
+    color: Color(0xFFFFC07A),
+    intensity: 0.38,
+    glow: 0.24,
+    w: 1.4,
+    h: 1.5,
+    dy: -0.08,
+  ),
   'arcadetower': _LightFx(
-      color: Color(0xFFB89AFF), intensity: 0.38, glow: 0.22,
-      w: 1.3, h: 1.4, focal: Alignment(0, -0.2)),
+    color: Color(0xFFB89AFF),
+    intensity: 0.38,
+    glow: 0.22,
+    w: 1.3,
+    h: 1.4,
+    focal: Alignment(0, -0.2),
+  ),
   'computer': _LightFx(
-      color: Color(0xFF9AD0FF), intensity: 0.36, glow: 0.18,
-      w: 1.2, h: 1.0),
+    color: Color(0xFF9AD0FF),
+    intensity: 0.36,
+    glow: 0.18,
+    w: 1.2,
+    h: 1.0,
+  ),
   'laptop': _LightFx(
-      color: Color(0xFF9AD0FF), intensity: 0.34, glow: 0.18,
-      w: 1.1, h: 0.9),
+    color: Color(0xFF9AD0FF),
+    intensity: 0.34,
+    glow: 0.18,
+    w: 1.1,
+    h: 0.9,
+  ),
   'pinball': _LightFx(
-      color: Color(0xFFFFB0C0), intensity: 0.34, glow: 0.22,
-      w: 1.2, h: 1.3, dy: -0.1),
+    color: Color(0xFFFFB0C0),
+    intensity: 0.34,
+    glow: 0.22,
+    w: 1.2,
+    h: 1.3,
+    dy: -0.1,
+  ),
   // Wood-fired / heated pieces throw a warm, wavering ember glow.
   'pizzaoven': _LightFx(
-      color: Color(0xFFFF9A52), intensity: 0.48, glow: 0.28,
-      w: 1.5, h: 1.2, dy: 0.0, focal: Alignment(0, 0.2), flicker: true),
+    color: Color(0xFFFF9A52),
+    intensity: 0.48,
+    glow: 0.28,
+    w: 1.5,
+    h: 1.2,
+    dy: 0.0,
+    focal: Alignment(0, 0.2),
+    flicker: true,
+  ),
   'kiln': _LightFx(
-      color: Color(0xFFFF9A52), intensity: 0.4, glow: 0.24,
-      w: 1.2, h: 1.1, dy: 0.1, flicker: true),
+    color: Color(0xFFFF9A52),
+    intensity: 0.4,
+    glow: 0.24,
+    w: 1.2,
+    h: 1.1,
+    dy: 0.1,
+    flicker: true,
+  ),
 };
 
 /// A resolved light to paint, in pixels. For a [beam], [at] is the cone apex,
@@ -1415,7 +1848,7 @@ class _LightSpec {
 /// — strong at night, subtle by day — so the effect is visible either way.
 class _RoomLightingPainter extends CustomPainter {
   _RoomLightingPainter({required this.night, required this.lights, this.clock})
-      : super(repaint: clock);
+    : super(repaint: clock);
 
   final bool night;
   final List<_LightSpec> lights;
@@ -1431,7 +1864,8 @@ class _RoomLightingPainter extends CustomPainter {
     final c = clock;
     if (c == null || !l.flicker) return 1.0;
     final t = c.value;
-    final n = 0.55 * math.sin((t * 3 + l.phase) * 2 * math.pi) +
+    final n =
+        0.55 * math.sin((t * 3 + l.phase) * 2 * math.pi) +
         0.30 * math.sin((t * 7 + l.phase * 1.7) * 2 * math.pi) +
         0.15 * math.sin((t * 13 + l.phase * 2.3) * 2 * math.pi);
     return (1.0 + 0.16 * n).clamp(0.78, 1.22);
@@ -1439,18 +1873,25 @@ class _RoomLightingPainter extends CustomPainter {
 
   /// Draws one light, either as a "hole" that lifts the night scrim ([hole]) or
   /// as a colour bloom, scaling its alpha by [mul].
-  void _paintLight(Canvas canvas, _LightSpec l,
-      {required bool hole, required double mul}) {
+  void _paintLight(
+    Canvas canvas,
+    _LightSpec l, {
+    required bool hole,
+    required double mul,
+  }) {
     final color = hole ? Colors.white : l.color;
     final alpha = (hole ? l.intensity : l.glow) * mul;
-    final paint = Paint()
-      ..blendMode = hole ? BlendMode.dstOut : BlendMode.plus;
+    final paint = Paint()..blendMode = hole ? BlendMode.dstOut : BlendMode.plus;
 
     if (l.beam) {
       // A trapezoid cone from the shade, softened so it reads as a light beam.
       final apex = l.at;
       final rect = Rect.fromLTRB(
-          apex.dx - l.b, apex.dy, apex.dx + l.b, apex.dy + l.len);
+        apex.dx - l.b,
+        apex.dy,
+        apex.dx + l.b,
+        apex.dy + l.len,
+      );
       final cone = Path()
         ..moveTo(apex.dx - l.a, apex.dy)
         ..lineTo(apex.dx + l.a, apex.dy)
@@ -1474,18 +1915,26 @@ class _RoomLightingPainter extends CustomPainter {
       canvas.drawPath(cone, paint);
     } else {
       final pool = Rect.fromCenter(
-          center: l.at, width: l.a * 2, height: l.b * 2);
+        center: l.at,
+        width: l.a * 2,
+        height: l.b * 2,
+      );
       paint
         ..shader = RadialGradient(
           center: l.focal,
           radius: 0.95,
-          colors: [color.withValues(alpha: alpha), color.withValues(alpha: 0)],
+          colors: [
+            color.withValues(alpha: alpha),
+            color.withValues(alpha: 0),
+          ],
           stops: const [0.0, 1.0],
         ).createShader(pool)
         // Soft, feathered edge so the pool melts into the room rather than
         // showing a hard ellipse.
-        ..maskFilter =
-            MaskFilter.blur(BlurStyle.normal, math.min(l.a, l.b) * 0.22);
+        ..maskFilter = MaskFilter.blur(
+          BlurStyle.normal,
+          math.min(l.a, l.b) * 0.22,
+        );
       canvas.drawOval(pool, paint);
     }
   }
@@ -1497,15 +1946,20 @@ class _RoomLightingPainter extends CustomPainter {
     final bloom = night ? 1.0 : 0.3;
 
     if (scrimAlpha > 0) {
-      canvas.saveLayer(rect, Paint());
-      canvas.drawRect(
-        rect,
-        Paint()..color = const Color(0xFF0A1633).withValues(alpha: scrimAlpha),
-      );
-      for (final l in lights) {
-        _paintLight(canvas, l, hole: true, mul: _flick(l));
+      final scrim = Paint()
+        ..color = const Color(0xFF0A1633).withValues(alpha: scrimAlpha);
+      if (lights.isEmpty) {
+        // No glows to punch holes through the scrim — just a flat dim rectangle,
+        // skipping the costly saveLayer entirely (the effects-off path).
+        canvas.drawRect(rect, scrim);
+      } else {
+        canvas.saveLayer(rect, Paint());
+        canvas.drawRect(rect, scrim);
+        for (final l in lights) {
+          _paintLight(canvas, l, hole: true, mul: _flick(l));
+        }
+        canvas.restore();
       }
-      canvas.restore();
     }
 
     for (final l in lights) {
@@ -1517,6 +1971,96 @@ class _RoomLightingPainter extends CustomPainter {
   bool shouldRepaint(_RoomLightingPainter oldDelegate) => true;
 }
 
+/// The little zoom cluster over the room (bottom-right): + and −, plus a reset
+/// that appears only once zoomed. It listens to the [zoom] controller so the
+/// buttons disable at the limits and the reset shows exactly when it's useful —
+/// covering a plain mouse with no wheel and no pinch.
+class _ZoomControls extends StatelessWidget {
+  const _ZoomControls({
+    required this.zoom,
+    required this.min,
+    required this.max,
+    required this.onIn,
+    required this.onOut,
+    required this.onReset,
+  });
+
+  final TransformationController zoom;
+  final double min;
+  final double max;
+  final VoidCallback onIn;
+  final VoidCallback onOut;
+  final VoidCallback onReset;
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<Matrix4>(
+      valueListenable: zoom,
+      builder: (context, m, _) {
+        final scale = m.getMaxScaleOnAxis();
+        final canIn = scale < max - 0.001;
+        final canOut = scale > min + 0.001;
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.black.withValues(alpha: 0.42),
+            borderRadius: BorderRadius.circular(22),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.2),
+                blurRadius: 6,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _btn(
+                btnKey: const Key('room-zoom-in'),
+                icon: Icons.add_rounded,
+                tooltip: 'Zoom in',
+                onTap: canIn ? onIn : null,
+              ),
+              _btn(
+                btnKey: const Key('room-zoom-out'),
+                icon: Icons.remove_rounded,
+                tooltip: 'Zoom out',
+                onTap: canOut ? onOut : null,
+              ),
+              if (canOut)
+                _btn(
+                  btnKey: const Key('room-zoom-reset'),
+                  icon: Icons.center_focus_strong_rounded,
+                  tooltip: 'Reset zoom',
+                  onTap: onReset,
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _btn({
+    required Key btnKey,
+    required IconData icon,
+    required String tooltip,
+    required VoidCallback? onTap,
+  }) {
+    return IconButton(
+      key: btnKey,
+      tooltip: tooltip,
+      iconSize: 20,
+      visualDensity: VisualDensity.compact,
+      constraints: const BoxConstraints.tightFor(width: 40, height: 40),
+      color: Colors.white,
+      disabledColor: Colors.white24,
+      onPressed: onTap,
+      icon: Icon(icon),
+    );
+  }
+}
+
 class _DragHint extends StatelessWidget {
   const _DragHint();
 
@@ -1525,8 +2069,11 @@ class _DragHint extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(Icons.open_with_rounded,
-            size: 13, color: _pal.text.withValues(alpha: 0.55)),
+        Icon(
+          Icons.open_with_rounded,
+          size: 13,
+          color: _pal.text.withValues(alpha: 0.55),
+        ),
         const SizedBox(width: 4),
         Text(
           'Drag to rearrange',
@@ -1686,8 +2233,11 @@ class _Shop extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.storefront_rounded,
-                          size: 18, color: _pal.text.withValues(alpha: 0.85)),
+                      Icon(
+                        Icons.storefront_rounded,
+                        size: 18,
+                        color: _pal.text.withValues(alpha: 0.85),
+                      ),
                       const SizedBox(width: 8),
                       Text(
                         'Furniture Shop',
@@ -1698,8 +2248,11 @@ class _Shop extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 4),
-                      Icon(Icons.keyboard_arrow_up_rounded,
-                          size: 20, color: _pal.text.withValues(alpha: 0.7)),
+                      Icon(
+                        Icons.keyboard_arrow_up_rounded,
+                        size: 20,
+                        color: _pal.text.withValues(alpha: 0.7),
+                      ),
                     ],
                   ),
                 ),
@@ -1718,61 +2271,67 @@ class _Shop extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-            // Not const — these read the night-aware palette and must rebuild
-            // when night flips.
-            _ShopHeader(),
-            // A darker strip the category tabs sit on. Folder-style tabs: the
-            // active one is the content colour at full height (merging into the
-            // grid); inactive ones are a touch shorter and darker (recessed). We
-            // draw the caps ourselves so each tab can be styled.
-            Container(
-              color: _pal.tabStrip,
-              padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
-              child: Builder(
-                builder: (context) {
-                  final controller = DefaultTabController.of(context);
-                  return AnimatedBuilder(
-                    animation: controller,
-                    builder: (context, _) => TabBar(
-                      isScrollable: true,
-                      tabAlignment: TabAlignment.start,
-                      indicator: const BoxDecoration(),
-                      dividerColor: Colors.transparent,
-                      labelPadding: const EdgeInsets.symmetric(horizontal: 3),
-                      tabs: [
+          // Not const — these read the night-aware palette and must rebuild
+          // when night flips.
+          _ShopHeader(),
+          // A darker strip the category tabs sit on. Folder-style tabs: the
+          // active one is the content colour at full height (merging into the
+          // grid); inactive ones are a touch shorter and darker (recessed). We
+          // draw the caps ourselves so each tab can be styled.
+          Container(
+            color: _pal.tabStrip,
+            padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
+            child: Builder(
+              builder: (context) {
+                final controller = DefaultTabController.of(context);
+                return AnimatedBuilder(
+                  animation: controller,
+                  builder: (context, _) => TabBar(
+                    isScrollable: true,
+                    tabAlignment: TabAlignment.start,
+                    indicator: const BoxDecoration(),
+                    dividerColor: Colors.transparent,
+                    labelPadding: const EdgeInsets.symmetric(horizontal: 3),
+                    tabs: [
+                      _CategoryTab(
+                        label: 'All',
+                        selected: controller.index == 0,
+                      ),
+                      for (var i = 0; i < shopCategories.length; i++)
                         _CategoryTab(
-                            label: 'All', selected: controller.index == 0),
-                        for (var i = 0; i < shopCategories.length; i++)
-                          _CategoryTab(
-                            label: shopCategories[i],
-                            selected: controller.index == i + 1,
-                          ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  // The All tab (null items → resolves to the full live list).
-                  _ShopGrid(
-                    items: null,
-                    emptyHint: '🪙\nEarn coins in quizzes to\n'
-                        'unlock your first furniture!',
+                          label: shopCategories[i],
+                          selected: controller.index == i + 1,
+                        ),
+                    ],
                   ),
-                  for (final c in shopCategories)
-                    _ShopGrid(
-                      items: [for (final i in forSale) if (i.category == c) i],
-                      emptyHint: 'Nothing here yet —\nkeep earning coins!',
-                    ),
-                ],
-              ),
+                );
+              },
             ),
-          ],
-        ),
-      );
+          ),
+          Expanded(
+            child: TabBarView(
+              children: [
+                // The All tab (null items → resolves to the full live list).
+                _ShopGrid(
+                  items: null,
+                  emptyHint:
+                      '🪙\nEarn coins in quizzes to\n'
+                      'unlock your first furniture!',
+                ),
+                for (final c in shopCategories)
+                  _ShopGrid(
+                    items: [
+                      for (final i in forSale)
+                        if (i.category == c) i,
+                    ],
+                    emptyHint: 'Nothing here yet —\nkeep earning coins!',
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -2001,8 +2560,9 @@ class _OwnedRoomCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ClipRRect(
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(14)),
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(14),
+                  ),
                   child: _RoomPreview(room: room),
                 ),
                 Padding(
@@ -2087,8 +2647,7 @@ class _RoomShopCard extends StatelessWidget {
                       backgroundColor: const Color(0xFFFFD54F),
                       foregroundColor: const Color(0xFF6B4D1F),
                       disabledBackgroundColor: _pal.tabInactive,
-                      disabledForegroundColor:
-                          _pal.text.withValues(alpha: 0.4),
+                      disabledForegroundColor: _pal.text.withValues(alpha: 0.4),
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -2150,9 +2709,7 @@ class _RoomPreview extends StatelessWidget {
               Expanded(flex: 38, child: ColoredBox(color: floor)),
             ],
           ),
-          Center(
-            child: Text(room.emoji, style: const TextStyle(fontSize: 40)),
-          ),
+          Center(child: Text(room.emoji, style: const TextStyle(fontSize: 40))),
         ],
       ),
     );
@@ -2209,7 +2766,8 @@ class _ShopGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final list = items ??
+    final list =
+        items ??
         [
           for (final item in shopCatalog)
             if (Apartment.instance.isRevealed(item.id)) item,
@@ -2277,20 +2835,25 @@ class _ShopHeader extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text('next at ',
-                      style: TextStyle(fontWeight: FontWeight.w700)),
+                  const Text(
+                    'next at ',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
                   const CoinGlyph(size: 14, withShadow: false),
                   const SizedBox(width: 3),
-                  Text('$nextCoins',
-                      style: const TextStyle(fontWeight: FontWeight.w900)),
+                  Text(
+                    '$nextCoins',
+                    style: const TextStyle(fontWeight: FontWeight.w900),
+                  ),
                 ],
               ),
             )
           else
             _Chip(
               child: Text(
-                  placed == 1 ? '1 piece placed' : '$placed pieces placed',
-                  style: const TextStyle(fontWeight: FontWeight.w800)),
+                placed == 1 ? '1 piece placed' : '$placed pieces placed',
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
             ),
         ],
       ),
@@ -2348,10 +2911,7 @@ class _ShopCard extends StatelessWidget {
               item.name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-                color: _pal.text,
-              ),
+              style: TextStyle(fontWeight: FontWeight.w800, color: _pal.text),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -2408,9 +2968,11 @@ class _BuyDialog extends StatelessWidget {
       ..clearSnackBars()
       ..showSnackBar(
         SnackBar(
-          content: Text(ok
-              ? 'Added the ${item.name.toLowerCase()} to your room!'
-              : 'Not enough coins.'),
+          content: Text(
+            ok
+                ? 'Added the ${item.name.toLowerCase()} to your room!'
+                : 'Not enough coins.',
+          ),
         ),
       );
   }
@@ -2451,7 +3013,10 @@ class _BuyDialog extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               item.onWall ? 'Hangs on the wall' : 'Stands on the floor',
-              style: TextStyle(color: _cocoa.withValues(alpha: 0.7), fontSize: 13),
+              style: TextStyle(
+                color: _cocoa.withValues(alpha: 0.7),
+                fontSize: 13,
+              ),
             ),
             if (!canAfford) ...[
               const SizedBox(height: 10),
@@ -2473,8 +3038,10 @@ class _BuyDialog extends StatelessWidget {
                       foregroundColor: _cocoa,
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
-                    child: const Text('Cancel',
-                        style: TextStyle(fontWeight: FontWeight.w800)),
+                    child: const Text(
+                      'Cancel',
+                      style: TextStyle(fontWeight: FontWeight.w800),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -2491,12 +3058,16 @@ class _BuyDialog extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('Buy for ',
-                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        const Text(
+                          'Buy for ',
+                          style: TextStyle(fontWeight: FontWeight.w900),
+                        ),
                         const CoinGlyph(size: 18, withShadow: false),
                         const SizedBox(width: 4),
-                        Text('${item.price}',
-                            style: const TextStyle(fontWeight: FontWeight.w900)),
+                        Text(
+                          '${item.price}',
+                          style: const TextStyle(fontWeight: FontWeight.w900),
+                        ),
                       ],
                     ),
                   ),
@@ -2581,8 +3152,10 @@ class _ExportSheet extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 13),
                     ),
                     icon: const Icon(Icons.download_rounded),
-                    label: const Text('Save',
-                        style: TextStyle(fontWeight: FontWeight.w800)),
+                    label: const Text(
+                      'Save',
+                      style: TextStyle(fontWeight: FontWeight.w800),
+                    ),
                   ),
                 ),
                 if (canCopyRoomImage) ...[
@@ -2596,8 +3169,10 @@ class _ExportSheet extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 13),
                       ),
                       icon: const Icon(Icons.copy_rounded),
-                      label: const Text('Copy',
-                          style: TextStyle(fontWeight: FontWeight.w800)),
+                      label: const Text(
+                        'Copy',
+                        style: TextStyle(fontWeight: FontWeight.w800),
+                      ),
                     ),
                   ),
                 ],
@@ -2677,7 +3252,10 @@ class _InfoCard extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               strings.whatIsThisCalled,
-              style: TextStyle(color: _cocoa.withValues(alpha: 0.7), fontSize: 13),
+              style: TextStyle(
+                color: _cocoa.withValues(alpha: 0.7),
+                fontSize: 13,
+              ),
             ),
             const SizedBox(height: 14),
             for (final (code, flag, isLearn) in langs)
@@ -2727,7 +3305,10 @@ class _InfoCard extends StatelessWidget {
                         ..showSnackBar(
                           SnackBar(
                             content: Text(
-                              strings.gaveAwayItem.replaceAll('{item}', localName),
+                              strings.gaveAwayItem.replaceAll(
+                                '{item}',
+                                localName,
+                              ),
                             ),
                           ),
                         );
@@ -2737,9 +3318,14 @@ class _InfoCard extends StatelessWidget {
                       side: const BorderSide(color: Color(0xFFD9645C)),
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
-                    icon: const Icon(Icons.volunteer_activism_rounded, size: 18),
-                    label: Text(strings.giveAway,
-                        style: const TextStyle(fontWeight: FontWeight.w800)),
+                    icon: const Icon(
+                      Icons.volunteer_activism_rounded,
+                      size: 18,
+                    ),
+                    label: Text(
+                      strings.giveAway,
+                      style: const TextStyle(fontWeight: FontWeight.w800),
+                    ),
                   ),
                 ),
               ],
@@ -2753,18 +3339,23 @@ class _InfoCard extends StatelessWidget {
                     ? () async {
                         final messenger = ScaffoldMessenger.of(context);
                         final navigator = Navigator.of(context);
-                        final ok =
-                            await CoinWallet.instance.spend(item.price);
+                        final ok = await CoinWallet.instance.spend(item.price);
                         if (ok) await Apartment.instance.grant(item.id);
                         navigator.pop();
                         messenger
                           ..clearSnackBars()
-                          ..showSnackBar(SnackBar(
-                            content: Text(ok
-                                ? strings.addedAnotherItem
-                                    .replaceAll('{item}', localName)
-                                : strings.notEnoughCoins),
-                          ));
+                          ..showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                ok
+                                    ? strings.addedAnotherItem.replaceAll(
+                                        '{item}',
+                                        localName,
+                                      )
+                                    : strings.notEnoughCoins,
+                              ),
+                            ),
+                          );
                       }
                     : null,
                 style: FilledButton.styleFrom(
@@ -2777,12 +3368,16 @@ class _InfoCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('${strings.shopAnother}  ',
-                        style: const TextStyle(fontWeight: FontWeight.w900)),
+                    Text(
+                      '${strings.shopAnother}  ',
+                      style: const TextStyle(fontWeight: FontWeight.w900),
+                    ),
                     const CoinGlyph(size: 16, withShadow: false),
                     const SizedBox(width: 4),
-                    Text('${item.price}',
-                        style: const TextStyle(fontWeight: FontWeight.w900)),
+                    Text(
+                      '${item.price}',
+                      style: const TextStyle(fontWeight: FontWeight.w900),
+                    ),
                   ],
                 ),
               ),
@@ -2791,8 +3386,10 @@ class _InfoCard extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
               style: TextButton.styleFrom(foregroundColor: _cocoa),
-              child: Text(strings.gotIt,
-                  style: const TextStyle(fontWeight: FontWeight.w800)),
+              child: Text(
+                strings.gotIt,
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
             ),
           ],
         ),
@@ -2884,8 +3481,10 @@ class _DonationSheetState extends State<_DonationSheet> {
       ..clearSnackBars()
       ..showSnackBar(
         SnackBar(
-          content: Text('You gave away the ${item.name.toLowerCase()} 💛  '
-              'Someone will love it!'),
+          content: Text(
+            'You gave away the ${item.name.toLowerCase()} 💛  '
+            'Someone will love it!',
+          ),
         ),
       );
   }
@@ -2961,11 +3560,11 @@ class _DonationSheetState extends State<_DonationSheet> {
                       padding: const EdgeInsets.only(top: 4, bottom: 8),
                       gridDelegate:
                           const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 120,
-                        mainAxisExtent: 132,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                      ),
+                            maxCrossAxisExtent: 120,
+                            mainAxisExtent: 132,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                          ),
                       itemCount: owned.length,
                       itemBuilder: (context, i) => _DonationCard(
                         item: owned[i].$2,
@@ -3158,14 +3757,15 @@ class _HeartBurstState extends State<_HeartBurst>
         color: _colors[i % _colors.length],
       );
     });
-    _c = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1200),
-    )
-      ..addStatusListener((s) {
-        if (s == AnimationStatus.completed) widget.onDone();
-      })
-      ..forward();
+    _c =
+        AnimationController(
+            vsync: this,
+            duration: const Duration(milliseconds: 1200),
+          )
+          ..addStatusListener((s) {
+            if (s == AnimationStatus.completed) widget.onDone();
+          })
+          ..forward();
   }
 
   @override
@@ -3193,7 +3793,10 @@ class _HeartBurstState extends State<_HeartBurst>
     if (raw <= 0) return const SizedBox.shrink();
     final t = raw.clamp(0.0, 1.0);
     final eased = Curves.easeOut.transform(t);
-    final opacity = (t < 0.18 ? t / 0.18 : 1 - (t - 0.18) / 0.82).clamp(0.0, 1.0);
+    final opacity = (t < 0.18 ? t / 0.18 : 1 - (t - 0.18) / 0.82).clamp(
+      0.0,
+      1.0,
+    );
     final dy = -h.rise * eased;
     final dx = h.dx + h.drift * t;
     final scale = 0.5 + 0.6 * Curves.easeOutBack.transform(t);
