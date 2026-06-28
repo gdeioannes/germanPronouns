@@ -56,7 +56,7 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
   late final AnimationController _pulse = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 700),
-  )..repeat(reverse: true);
+  );
 
   /// True while the passage is being read aloud, mirrored from the engine.
   bool _speaking = false;
@@ -145,7 +145,18 @@ class _ListeningQuizPageState extends State<ListeningQuizPage>
   void _onSpeakingChanged() {
     if (!mounted) return;
     final speaking = _voice.speaking.value;
-    if (_speaking != speaking) setState(() => _speaking = speaking);
+    if (_speaking == speaking) return;
+    // Run the pulse clock only while audio actually plays. Left repeating, it
+    // rebuilds the indicator 60×/sec for nothing — a needless battery/heat drain
+    // (notably on web), since the scale ignores [_pulse] unless [_speaking].
+    if (speaking) {
+      _pulse.repeat(reverse: true);
+    } else {
+      _pulse
+        ..stop()
+        ..value = 0;
+    }
+    setState(() => _speaking = speaking);
   }
 
   void _onPausedChanged() {

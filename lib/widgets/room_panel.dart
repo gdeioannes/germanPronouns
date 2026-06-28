@@ -24,10 +24,26 @@ class _RoomPanelState extends State<RoomPanel>
     vsync: this,
     duration: const Duration(milliseconds: 320),
     value: 0,
-  );
+  )..addListener(_syncRoomMounted);
 
   /// Height of the little door tab that pokes out at the bottom when closed.
   static const double _peek = 38;
+
+  // The room ([ApartmentPage]) is heavy — its idle clock ticks and it repaints
+  // continuously — so we keep it out of the tree entirely while the panel sits
+  // fully closed. Then only the door tab lives in the shell; the room mounts the
+  // instant a tap/drag begins to open it, and unmounts again once it settles
+  // shut. The furniture is held in the [Apartment.instance] singleton, so the
+  // room is unchanged across mount/unmount (transient view state — zoom, shop
+  // split — resets, matching the existing "every visit starts at 1×" intent).
+  bool _roomMounted = false;
+
+  void _syncRoomMounted() {
+    final shouldMount = _c.value > 0;
+    if (shouldMount != _roomMounted) {
+      setState(() => _roomMounted = shouldMount);
+    }
+  }
 
   @override
   void dispose() {
@@ -154,11 +170,15 @@ class _RoomPanelState extends State<RoomPanel>
                 clipBehavior: Clip.antiAlias,
                 borderRadius:
                     const BorderRadius.vertical(top: Radius.circular(20)),
-                child: MediaQuery.removePadding(
-                  context: context,
-                  removeTop: true,
-                  child: ApartmentPage(onClose: _close),
-                ),
+                // Only build the room while the panel is off its closed rest
+                // position; otherwise the Expanded sits off-screen and empty.
+                child: _roomMounted
+                    ? MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        child: ApartmentPage(onClose: _close),
+                      )
+                    : const SizedBox.shrink(),
               ),
             ),
           ],
