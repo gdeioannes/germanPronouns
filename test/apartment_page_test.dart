@@ -309,4 +309,44 @@ void main() {
 
     expect(Apartment.instance.positionOf(iid, 'table'), isNot(before));
   });
+
+  testWidgets('a two-finger pinch zooms without dragging the piece under it',
+      (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    SharedPreferences.setMockInitialValues(
+        {SettingsKeys.coinBalance: 50, SettingsKeys.apartmentAnimate: false});
+    CoinWallet.instance.resetForTest();
+    Apartment.instance.resetForTest();
+    await CoinWallet.instance.load();
+    await Apartment.instance.load();
+    await grantTableAt();
+    await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
+    await tester.pumpAndSettle();
+
+    final iid = Apartment.instance.pieces.keys.first;
+    final before = Apartment.instance.positionOf(iid, 'table');
+    expect(find.byKey(const Key('room-zoom-reset')), findsNothing); // at 1×
+
+    // First finger lands on the piece, then a second finger arrives and the two
+    // spread apart — a pinch. The piece must not move (the pinch drops the grab),
+    // and the room must end up zoomed.
+    final center = tester.getCenter(find.byKey(ValueKey(iid)));
+    final f1 = await tester.startGesture(center, pointer: 1);
+    final f2 = await tester.startGesture(center + const Offset(28, 24), pointer: 2);
+    await tester.pump();
+    for (var i = 0; i < 6; i++) {
+      await f1.moveBy(const Offset(-14, -12));
+      await f2.moveBy(const Offset(14, 12));
+      await tester.pump();
+    }
+    await f1.up();
+    await f2.up();
+    await tester.pumpAndSettle();
+
+    expect(Apartment.instance.positionOf(iid, 'table'), before); // never moved
+    expect(find.byKey(const Key('room-zoom-reset')), findsOneWidget); // zoomed
+  });
 }

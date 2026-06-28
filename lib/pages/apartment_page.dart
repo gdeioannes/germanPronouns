@@ -1,10 +1,11 @@
 import 'dart:math' as math;
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../data/furniture_names.dart';
@@ -126,10 +127,16 @@ class _ApartmentPageState extends State<ApartmentPage>
       vsync: this,
       duration: const Duration(milliseconds: 240),
     );
+    // On the web, dragging to pan/rearrange with the mouse otherwise pops the
+    // browser's right-click context menu over the room. Suppress it while the
+    // editor is open, and restore it on the way out so the rest of the app
+    // (text fields, links) keeps the native menu.
+    if (kIsWeb) BrowserContextMenu.disableContextMenu();
   }
 
   @override
   void dispose() {
+    if (kIsWeb) BrowserContextMenu.enableContextMenu();
     _snapCtrl.dispose();
     super.dispose();
   }
@@ -581,13 +588,22 @@ class _RoomCanvasState extends State<_RoomCanvas>
     duration: const Duration(seconds: 6),
   );
 
-  // ── Zoom ──────────────────────────────────────────────────────────────────
-  // The room can be zoomed in to inspect or place pieces closely. Pinch (mobile
-  // / trackpad) drives the [InteractiveViewer] directly; the +/−/reset buttons
-  // and the mouse scroll-wheel drive it through this controller. One-finger
-  // drags still reach the pieces (the viewer's own panning is off), so zoom
-  // never fights with dragging furniture around. Zoom is a transient view state,
-  // not a saved setting — every visit starts at 1×.
+  // ── Zoom & pan ─────────────────────────────────────────────────────────────
+  // The room can be zoomed in to inspect or place pieces closely. All view
+  // manipulation rides on a plain [Transform] driven by [_zoom]; nothing here
+  // uses InteractiveViewer, so it never competes with dragging furniture.
+  //
+  // Inputs, by device:
+  //  • Mobile  — two-finger pinch zooms (and those two fingers drag to pan); a
+  //    lone finger drags a piece, or pans the view when it lands on empty floor.
+  //  • Desktop — the scroll-wheel zooms toward the cursor, a trackpad pinch
+  //    zooms / two-finger drag pans, and a mouse drag on empty floor pans.
+  //
+  // The rule that stops a pinch from doubling as a "select": the instant a
+  // second finger lands we lock into a pinch ([_pinchActive]) and drop whatever
+  // piece the first finger had grabbed — so zooming never moves furniture, and
+  // the lock holds until every finger lifts. Zoom/pan is transient view state,
+  // not a saved setting — every visit starts at 1×, flush to the edges.
   static const double _minZoom = 1.0;
   static const double _maxZoom = 3.0;
   final TransformationController _zoom = TransformationController();
@@ -622,6 +638,21 @@ class _RoomCanvasState extends State<_RoomCanvas>
     _zoom.value = m;
   }
 
+  /// Translates the view by [delta] screen pixels, clamped so the (zoomed) room
+  /// stays flush to the frame — no background gaps. A no-op at 1×, where there's
+  /// nothing to pan.
+  void _panBy(Offset delta) {
+    if (_viewport.isEmpty) return;
+    final s = _zoom.value.getMaxScaleOnAxis();
+    if (s <= _minZoom) return;
+    final m = _zoom.value.clone();
+    m.storage[12] =
+        (m.storage[12] + delta.dx).clamp(_viewport.width * (1 - s), 0.0);
+    m.storage[13] =
+        (m.storage[13] + delta.dy).clamp(_viewport.height * (1 - s), 0.0);
+    _zoom.value = m;
+  }
+
   void _resetZoom() => _zoom.value = Matrix4.identity();
 
   void _onPointerSignal(PointerSignalEvent e) {
@@ -630,32 +661,84 @@ class _RoomCanvasState extends State<_RoomCanvas>
     _zoomBy(e.scrollDelta.dy < 0 ? 1.15 : 1 / 1.15, focal: e.localPosition);
   }
 
-  // Live finger positions, for pinch-to-zoom. Tracked via a raw [Listener] so
-  // observing them never steals the one-finger drag from a piece. The pinch is
-  // a two-finger gesture only; a lone finger is ignored here and left to the
-  // furniture's own drag handlers.
+  // Trackpad gestures arrive as pan/zoom events (not as two pointers): a
+  // two-finger drag pans, a pinch zooms toward the pointer. [_panZoomScale]
+  // tracks the cumulative scale so each update can apply only its increment.
+  double _panZoomScale = 1.0;
+
+  void _onPanZoomStart(PointerPanZoomStartEvent e) => _panZoomScale = 1.0;
+
+  void _onPanZoomUpdate(PointerPanZoomUpdateEvent e) {
+    if (e.localPanDelta != Offset.zero) _panBy(e.localPanDelta);
+    final factor = _panZoomScale == 0 ? 1.0 : e.scale / _panZoomScale;
+    _panZoomScale = e.scale;
+    if ((factor - 1).abs() > 1e-3) _zoomBy(factor, focal: e.localPosition);
+  }
+
+  // Live finger positions, tracked via a raw [Listener] so observing them never
+  // steals a one-finger drag from a piece. Two fingers pinch-zoom and pan; a
+  // lone finger pans the view, but only when it isn't already dragging a piece
+  // (see [_dragId]) — so the furniture and the camera never move at once.
   final Map<int, Offset> _pointers = {};
   double? _pinchSpan; // finger distance at the previous move, or null
+  Offset? _pinchMid; // two-finger midpoint at the previous move, or null
+  // Set the instant a second finger lands; holds until every finger lifts, so a
+  // pinch never doubles as dragging a piece, and lifting one finger of a pinch
+  // doesn't resume a drag with the other.
+  bool _pinchActive = false;
 
-  void _onPointerDown(PointerDownEvent e) =>
-      _pointers[e.pointer] = e.localPosition;
+  void _onPointerDown(PointerDownEvent e) {
+    _pointers[e.pointer] = e.localPosition;
+    if (_pointers.length >= 2) {
+      _pinchActive = true;
+      _pinchSpan = null;
+      _pinchMid = null;
+      _cancelActiveDrag();
+    }
+  }
 
   void _onPointerEnd(PointerEvent e) {
     _pointers.remove(e.pointer);
-    if (_pointers.length < 2) _pinchSpan = null;
+    if (_pointers.length < 2) {
+      _pinchSpan = null;
+      _pinchMid = null;
+    }
+    if (_pointers.isEmpty) _pinchActive = false;
   }
 
   void _onPointerMove(PointerMoveEvent e) {
-    if (!_pointers.containsKey(e.pointer)) return;
+    final prev = _pointers[e.pointer];
+    if (prev == null) return;
     _pointers[e.pointer] = e.localPosition;
-    if (_pointers.length != 2) return;
-    final pts = _pointers.values.toList(growable: false);
-    final span = (pts[0] - pts[1]).distance;
-    final mid = (pts[0] + pts[1]) / 2;
-    if (_pinchSpan != null && _pinchSpan! > 0 && span > 0) {
-      _zoomBy(span / _pinchSpan!, focal: mid);
+
+    if (_pointers.length >= 2) {
+      // Two fingers: pinch-zoom about the midpoint and pan as it travels.
+      final pts = _pointers.values.toList(growable: false);
+      final span = (pts[0] - pts[1]).distance;
+      final mid = (pts[0] + pts[1]) / 2;
+      if (_pinchSpan != null && _pinchSpan! > 0 && span > 0) {
+        _zoomBy(span / _pinchSpan!, focal: mid);
+      }
+      if (_pinchMid != null) _panBy(mid - _pinchMid!);
+      _pinchSpan = span;
+      _pinchMid = mid;
+      return;
     }
-    _pinchSpan = span;
+
+    // One finger on empty floor (nothing grabbed) pans the zoomed-in view.
+    if (!_pinchActive && _dragId == null) _panBy(e.localPosition - prev);
+  }
+
+  /// Drops an in-progress piece drag without committing it — the piece springs
+  /// back to where it was. Used when a pinch starts mid-drag.
+  void _cancelActiveDrag() {
+    if (_dragId == null) return;
+    setState(() {
+      _dragId = null;
+      _dragCenter = null;
+      _lift.value = 0;
+      _liftTarget = 0;
+    });
   }
 
   /// The lift in pixels for a finger at [fingerY] in a room [height] tall, eased
@@ -717,11 +800,17 @@ class _RoomCanvasState extends State<_RoomCanvas>
         // fights with rearranging pieces.
         Positioned.fill(
           child: Listener(
+            // Opaque so a drag on empty floor always reaches here to pan the
+            // view; pieces (descendants) and the zoom buttons (a later sibling)
+            // still receive their own touches first.
+            behavior: HitTestBehavior.opaque,
             onPointerDown: _onPointerDown,
             onPointerMove: _onPointerMove,
             onPointerUp: _onPointerEnd,
             onPointerCancel: _onPointerEnd,
             onPointerSignal: _onPointerSignal,
+            onPointerPanZoomStart: _onPanZoomStart,
+            onPointerPanZoomUpdate: _onPanZoomUpdate,
             child: ClipRect(
               child: ValueListenableBuilder<Matrix4>(
                 valueListenable: _zoom,
@@ -927,13 +1016,21 @@ class _RoomCanvasState extends State<_RoomCanvas>
       child: GestureDetector(
         // Brighten as soon as the piece is touched; the lift above the fingertip
         // glides in once dragging actually starts (so a tap doesn't move it).
-        onPanDown: (_) => setState(() {
-          _dragId = iid;
-          _dragCenter = center;
-          _liftTarget = itemSize * 0.5 + 28;
-          _lift.value = 0;
-        }),
+        onPanDown: (_) {
+          // A pinch already owns the gesture — don't grab the piece beneath it.
+          if (_pinchActive) return;
+          setState(() {
+            _dragId = iid;
+            _dragCenter = center;
+            _liftTarget = itemSize * 0.5 + 28;
+            _lift.value = 0;
+          });
+        },
         onPanUpdate: (d) {
+          // If a pinch took over mid-drag it cleared [_dragId]; ignore the
+          // leftover updates from that finger so the piece stays put while you
+          // zoom. Only the actively-held piece tracks the finger.
+          if (_dragId != iid) return;
           // Ease the lift in on the first movement, then track the finger.
           if (_lift.value == 0 && !_lift.isAnimating) _lift.forward();
           final cur = _dragCenter ?? center;
@@ -947,6 +1044,9 @@ class _RoomCanvasState extends State<_RoomCanvas>
           setState(() => _dragCenter = cur + d.delta);
         },
         onPanEnd: (_) {
+          // If a pinch stole the gesture mid-drag the piece was already sprung
+          // back to its spot — there's nothing to commit.
+          if (_dragId != iid) return;
           // Drop where the lifted piece is shown — what you see is where it lands.
           final c = _centerPx(iid, item, size, half);
           Apartment.instance.setPosition(
