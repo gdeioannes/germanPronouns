@@ -21,6 +21,16 @@ Color _shade(Color c, double amount) {
   return hsl.withLightness((hsl.lightness + amount).clamp(0.0, 1.0)).toColor();
 }
 
+/// How much finer the surface patterns tile than the original art. The tiles /
+/// bricks / planks read too large in the room, so every repeat count is scaled
+/// up by this (higher = smaller, more numerous tiles). One knob for the whole
+/// look — tweak it to taste.
+const double _tileDensity = 1.8;
+
+/// Scales an integer repeat count ([cols]/[rows]) by [_tileDensity], never below
+/// 1, for the "N across" patterns.
+int _repeats(num base) => math.max(1, (base * _tileDensity).round());
+
 /// Paints the wall into [rect] for wallpaper [glyph] in [color] (or the cosy
 /// cream default when [glyph]/[color] is null).
 void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
@@ -41,18 +51,23 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
   switch (glyph) {
     case 'wallstripes':
       p.color = _shade(base, 0.07);
-      const cols = 9;
+      final cols = _repeats(9);
       final stripeW = rect.width / cols;
       for (var i = 0; i < cols; i += 2) {
         canvas.drawRect(
-          Rect.fromLTWH(rect.left + i * stripeW, rect.top, stripeW, rect.height),
+          Rect.fromLTWH(
+            rect.left + i * stripeW,
+            rect.top,
+            stripeW,
+            rect.height,
+          ),
           p,
         );
       }
     case 'wallbrick':
-      final rows = (rect.height / (rect.width * 0.07)).ceil();
+      final rows = (rect.height / (rect.width * 0.07 / _tileDensity)).ceil();
       final brickH = rect.height / rows;
-      final brickW = rect.width / 6;
+      final brickW = rect.width / (6 * _tileDensity);
       p
         ..style = PaintingStyle.stroke
         ..strokeWidth = rect.width * 0.006
@@ -74,7 +89,7 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
       {
         final c1 = _shade(base, 0.08);
         final c2 = _shade(base, -0.08);
-        const cols = 7;
+        final cols = _repeats(7);
         final w = rect.width / cols;
         p.style = PaintingStyle.fill;
         var row = 0;
@@ -94,7 +109,7 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
       }
     case 'walldamask':
       {
-        const cols = 4;
+        final cols = _repeats(4);
         final cell = rect.width / cols;
         p
           ..style = PaintingStyle.fill
@@ -109,10 +124,13 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
             for (var k = 0; k < 4; k++) {
               final a = k * math.pi / 2;
               canvas.drawOval(
-                  Rect.fromCenter(
-                      center: Offset(cx + r * math.cos(a), cy + r * math.sin(a)),
-                      width: r * 0.9, height: r * 1.5),
-                  p);
+                Rect.fromCenter(
+                  center: Offset(cx + r * math.cos(a), cy + r * math.sin(a)),
+                  width: r * 0.9,
+                  height: r * 1.5,
+                ),
+                p,
+              );
             }
             canvas.drawCircle(Offset(cx, cy), r * 0.4, p);
           }
@@ -121,7 +139,7 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
       }
     case 'wallbotanical':
       {
-        const cols = 4;
+        final cols = _repeats(4);
         final cell = rect.width / cols;
         final leaf = _shade(base, 0.10);
         final stem = _shade(base, -0.06);
@@ -136,22 +154,31 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
               ..strokeWidth = rect.width * 0.004
               ..color = stem;
             canvas.drawLine(
-                Offset(cx, cy - cell * 0.3), Offset(cx, cy + cell * 0.3), p);
+              Offset(cx, cy - cell * 0.3),
+              Offset(cx, cy + cell * 0.3),
+              p,
+            );
             p
               ..style = PaintingStyle.fill
               ..color = leaf;
             for (var k = 0; k < 3; k++) {
               final ly = cy - cell * 0.2 + k * cell * 0.2;
               canvas.drawOval(
-                  Rect.fromCenter(
-                      center: Offset(cx - cell * 0.12, ly),
-                      width: cell * 0.2, height: cell * 0.1),
-                  p);
+                Rect.fromCenter(
+                  center: Offset(cx - cell * 0.12, ly),
+                  width: cell * 0.2,
+                  height: cell * 0.1,
+                ),
+                p,
+              );
               canvas.drawOval(
-                  Rect.fromCenter(
-                      center: Offset(cx + cell * 0.12, ly),
-                      width: cell * 0.2, height: cell * 0.1),
-                  p);
+                Rect.fromCenter(
+                  center: Offset(cx + cell * 0.12, ly),
+                  width: cell * 0.2,
+                  height: cell * 0.1,
+                ),
+                p,
+              );
             }
           }
           row++;
@@ -170,8 +197,13 @@ void paintWall(Canvas canvas, Rect rect, String? glyph, Color? color) {
 /// pattern is drawn into its own flat space and then replayed tilted back into
 /// the room, so the boards / tiles recede toward the wall and the floor reads as
 /// a real receding plane rather than a flat strip.
-void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
-    {bool perspective = false}) {
+void paintFloor(
+  Canvas canvas,
+  Rect rect,
+  String? glyph,
+  Color? color, {
+  bool perspective = false,
+}) {
   if (perspective) {
     // Record the flat pattern in local space (far edge at the top), then replay
     // it through a perspective tilt pivoting on the far edge — so the far edge
@@ -211,7 +243,7 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
 
   switch (glyph) {
     case 'floortile':
-      const cols = 6;
+      final cols = _repeats(6);
       final cell = rect.width / cols;
       final dark = _shade(base, -0.06);
       final light = _shade(base, 0.08);
@@ -251,7 +283,7 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
       {
         final dark = _shade(base, -0.07);
         final light = _shade(base, 0.07);
-        final s = rect.width / 7;
+        final s = rect.width / (7 * _tileDensity);
         p.style = PaintingStyle.fill;
         var row = 0;
         for (var y = rect.top - s; y < rect.bottom + s; y += s * 0.86) {
@@ -275,7 +307,7 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
       }
     case 'floorazulejo':
       {
-        const cols = 5;
+        final cols = _repeats(5);
         final cell = rect.width / cols;
         p.style = PaintingStyle.fill;
         for (var y = rect.top; y < rect.bottom; y += cell) {
@@ -289,8 +321,10 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
             for (var k = 0; k < 4; k++) {
               final a = k * math.pi / 2;
               canvas.drawCircle(
-                  Offset(cx + r * math.cos(a), cy + r * math.sin(a)),
-                  r * 0.7, p);
+                Offset(cx + r * math.cos(a), cy + r * math.sin(a)),
+                r * 0.7,
+                p,
+              );
             }
             final path = Path()
               ..moveTo(cx, cy - r)
@@ -306,7 +340,7 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
       {
         final dark = _shade(base, -0.08);
         final light = _shade(base, 0.06);
-        final pw = rect.width / 6;
+        final pw = rect.width / (6 * _tileDensity);
         p.style = PaintingStyle.fill;
         for (var y = rect.top; y < rect.bottom; y += pw * 0.5) {
           var col = 0;
@@ -316,9 +350,13 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
             canvas.translate(x + pw * 0.25, y + pw * 0.25);
             canvas.rotate(col.isEven ? math.pi / 4 : -math.pi / 4);
             canvas.drawRect(
-                Rect.fromCenter(
-                    center: Offset.zero, width: pw * 0.5, height: pw * 0.18),
-                p);
+              Rect.fromCenter(
+                center: Offset.zero,
+                width: pw * 0.5,
+                height: pw * 0.18,
+              ),
+              p,
+            );
             canvas.restore();
             col++;
           }
@@ -329,9 +367,12 @@ void paintFloor(Canvas canvas, Rect rect, String? glyph, Color? color,
       // Evenly-spaced board seams across the whole height, plus offset short
       // joints, so the boards keep their size whatever the floor height — and so
       // they read as many receding boards once the room tilts the floor back.
-      final rows = math.max(3, (rect.height / (rect.width * 0.13)).round());
+      final rows = math.max(
+        3,
+        (rect.height / (rect.width * 0.13 / _tileDensity)).round(),
+      );
       final boardH = rect.height / rows;
-      final boardW = rect.width / 4;
+      final boardW = rect.width / (4 * _tileDensity);
       p
         ..style = PaintingStyle.stroke
         ..strokeWidth = math.max(0.6, rect.width * 0.004)

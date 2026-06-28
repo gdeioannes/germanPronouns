@@ -25,6 +25,17 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  // Grant a table and pin it to a fixed, safe spot. Default positions are
+  // hash-randomised per run (see Apartment._defaultPositionFor), so a piece can
+  // land under the bottom-right zoom controls — there a centre-tap hits a zoom
+  // button instead of the piece. Pinning it well clear keeps the card / drag
+  // tests deterministic.
+  Future<void> grantTableAt([Offset at = const Offset(0.4, 0.5)]) async {
+    await Apartment.instance.grant('table');
+    await Apartment.instance
+        .setPosition(Apartment.instance.pieces.keys.first, at);
+  }
+
   testWidgets('buying a piece spends the coins and adds it to the room',
       (tester) async {
     await pumpShop(tester);
@@ -88,7 +99,7 @@ void main() {
     await Apartment.instance.load();
     // Own the table so it sits in the room (the room's pieces are built before
     // the shop, so the first FlatFurniture is in the room).
-    await Apartment.instance.grant('table');
+    await grantTableAt();
     await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
     await tester.pumpAndSettle();
 
@@ -110,7 +121,7 @@ void main() {
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
     await Apartment.instance.load();
-    await Apartment.instance.grant('table');
+    await grantTableAt();
     final iid = Apartment.instance.pieces.keys.first;
     await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
     await tester.pumpAndSettle();
@@ -134,7 +145,7 @@ void main() {
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
     await Apartment.instance.load();
-    await Apartment.instance.grant('table');
+    await grantTableAt();
     await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
     await tester.pumpAndSettle();
 
@@ -157,7 +168,7 @@ void main() {
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
     await Apartment.instance.load();
-    await Apartment.instance.grant('table');
+    await grantTableAt();
     await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
     await tester.pumpAndSettle();
 
@@ -235,7 +246,7 @@ void main() {
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
     await Apartment.instance.load();
-    await Apartment.instance.grant('table');
+    await grantTableAt();
     await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
     await tester.pumpAndSettle();
 
@@ -284,7 +295,7 @@ void main() {
     Apartment.instance.resetForTest();
     await CoinWallet.instance.load();
     await Apartment.instance.load();
-    await Apartment.instance.grant('table');
+    await grantTableAt();
     await tester.pumpWidget(const MaterialApp(home: ApartmentPage()));
     await tester.pumpAndSettle();
 

@@ -144,6 +144,15 @@ Color _shade(Color c, double amount) {
       .toColor();
 }
 
+// Shared material tones for the "person at an activity" pieces (painter's easel,
+// guitar, gardener's pot/trowel, chef's pot…), so wood, metal and clay read the
+// same across every figure — tune these here, not in each case.
+const Color _oak = Color(0xFFC9A66B); // light oak wood
+const Color _walnut = Color(0xFF6E4A2B); // dark brown wood
+const Color _mustard = Color(0xFFD9A521); // mustard yellow (sun-hat)
+const Color _silver = Color(0xFFC2C7CC); // brushed metal
+const Color _terra = Color(0xFFC56A45); // terracotta clay
+
 class _FurniturePainter extends CustomPainter {
   _FurniturePainter(this.item, {this.animation, this.phase = 0})
       : super(repaint: animation);

@@ -2021,19 +2021,23 @@ class _ZoomControls extends StatelessWidget {
                 tooltip: 'Zoom in',
                 onTap: canIn ? onIn : null,
               ),
-              _btn(
-                btnKey: const Key('room-zoom-out'),
-                icon: Icons.remove_rounded,
-                tooltip: 'Zoom out',
-                onTap: canOut ? onOut : null,
-              ),
-              if (canOut)
+              // Out / reset only appear once zoomed, so at the default 1× the
+              // cluster is a single button — a smaller footprint over the room,
+              // less likely to sit on top of a corner piece.
+              if (canOut) ...[
+                _btn(
+                  btnKey: const Key('room-zoom-out'),
+                  icon: Icons.remove_rounded,
+                  tooltip: 'Zoom out',
+                  onTap: onOut,
+                ),
                 _btn(
                   btnKey: const Key('room-zoom-reset'),
                   icon: Icons.center_focus_strong_rounded,
                   tooltip: 'Reset zoom',
                   onTap: onReset,
                 ),
+              ],
             ],
           ),
         );
