@@ -62,6 +62,11 @@ dependencies:
   # (download a PNG, write it to the clipboard). Desktop/mobile use dart:io
   # instead — see lib/utils/room_image_export.dart.
   web: ^1.1.0
+  # Privacy-first, cookieless usage analytics (web + mobile + desktop in one
+  # SDK). No cookies, no persistent identifiers, no personal data, so it needs
+  # no consent banner. Disabled unless an app key is supplied via
+  # --dart-define=APTABASE_APP_KEY=... (see lib/services/analytics.dart).
+  aptabase_flutter: ^0.4.1
 
 dev_dependencies:
   flutter_test:

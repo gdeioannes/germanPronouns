@@ -8,6 +8,7 @@ import 'models/app_session.dart';
 import 'models/coin_wallet.dart';
 import 'models/course_session.dart';
 import 'models/noun_settings.dart';
+import 'services/analytics.dart';
 import 'theme/app_theme.dart';
 
 Future<void> main() async {
@@ -22,6 +23,11 @@ Future<void> main() async {
     CoinWallet.instance.load(),
     Apartment.instance.load(),
   ]);
+  // Cookieless, privacy-first usage analytics. init() is a no-op when no key is
+  // configured; attachRouter records a pageview per navigation. Both must run
+  // before runApp so the very first screen is counted. See services/analytics.dart.
+  await Analytics.init();
+  Analytics.attachRouter(appRouter);
   runApp(const MyApp());
 }
 
