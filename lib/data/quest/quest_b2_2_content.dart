@@ -253,6 +253,31 @@ final QuizContent questB22HoerenVortragContent = listeningQuestQuiz(
       explanation: '"Hätten wir alle eine feste Routine, würden wir … besser '
           'schlafen."',
     ),
+    ReadingQuestion(
+      question: 'Was riskiert, wer dauerhaft zu wenig schläft?',
+      questionTranslation: 'What does someone who permanently sleeps too little risk?',
+      options: [
+        'gesundheitliche Probleme',
+        'einen schlechten Job',
+        'weniger Freizeit',
+      ],
+      optionsTranslation: [
+        'health problems',
+        'a bad job',
+        'less free time',
+      ],
+      correctIndex: 0,
+      explanation: '"Wer dauerhaft weniger schläft, riskiert gesundheitliche '
+          'Probleme."',
+    ),
+    ReadingQuestion(
+      question: 'Worüber hält der Redner seinen Vortrag?',
+      questionTranslation: 'What is the speaker giving his talk about?',
+      options: ['über den Schlaf', 'über Ernährung', 'über Sport'],
+      optionsTranslation: ['about sleep', 'about nutrition', 'about sport'],
+      correctIndex: 0,
+      explanation: '"… willkommen zu meinem Vortrag über den Schlaf."',
+    ),
   ],
   intro: 'A short lecture — you only hear it. Listen for the numbers and the '
       'unreal conditional at the end (Hätten wir …, würden wir …). Replay as '
@@ -422,6 +447,40 @@ final QuizContent questB22LesenKlimaContent = readingQuestQuiz(
       ],
       correctIndex: 1,
       explanation: '"Es ist also nie zu spät, anzufangen."',
+    ),
+    ReadingQuestion(
+      question: 'Wie trägt der Einzelne laut Text zum Klimaschutz bei?',
+      questionTranslation: 'How does the individual contribute to climate protection, per the text?',
+      options: [
+        'weniger Fleisch essen und öfter Rad fahren',
+        'mehr arbeiten',
+        'mehr fliegen',
+      ],
+      optionsTranslation: [
+        'eat less meat and cycle more',
+        'work more',
+        'fly more',
+      ],
+      correctIndex: 0,
+      explanation: '"Wer weniger Fleisch isst, öfter das Rad nimmt … trägt zum '
+          'Klimaschutz bei."',
+    ),
+    ReadingQuestion(
+      question: 'Was wäre laut Text heute anders, wenn alle früher gehandelt hätten?',
+      questionTranslation: 'What would be different today if everyone had acted earlier?',
+      options: [
+        'Die Lage wäre weniger dramatisch.',
+        'Es gäbe keine Politik mehr.',
+        'Alles wäre teurer.',
+      ],
+      optionsTranslation: [
+        'The situation would be less dramatic.',
+        'There would be no politics anymore.',
+        'Everything would be more expensive.',
+      ],
+      correctIndex: 0,
+      explanation: '"Hätten alle Menschen ihren Energieverbrauch schon früher '
+          'gesenkt, wäre die Lage heute weniger dramatisch."',
     ),
   ],
   intro: 'An argumentative text using reported speech (könne) and a past unreal '
@@ -625,6 +684,23 @@ final QuizContent questB22HoerenFachinterviewContent = listeningQuestQuiz(
       correctIndex: 0,
       explanation: '"Denn Stress führt oft zu schlechten Gewohnheiten."',
     ),
+    ReadingQuestion(
+      question: 'Worauf kommt es bei Süßigkeiten laut Ärztin an?',
+      questionTranslation: 'What matters with sweets, according to the doctor?',
+      options: ['auf das Maß', 'auf den Preis', 'auf die Uhrzeit'],
+      optionsTranslation: ['on moderation', 'on the price', 'on the time of day'],
+      correctIndex: 0,
+      explanation: '"… entscheidend ist das Maß."',
+    ),
+    ReadingQuestion(
+      question: 'Was würde laut Ärztin gesünderes Essen fördern?',
+      questionTranslation: 'What would promote healthier eating, per the doctor?',
+      options: ['weniger Stress', 'mehr Geld', 'mehr Termine'],
+      optionsTranslation: ['less stress', 'more money', 'more appointments'],
+      correctIndex: 0,
+      explanation: '"Hätten die Menschen weniger Stress, würden sie … gesünder '
+          'essen."',
+    ),
   ],
   intro: 'An expert interview — you only hear it. Listen for the advice, the '
       'nuance about sweets (nicht völlig) and the cause at the end. Replay as '
@@ -741,6 +817,23 @@ final QuizContent questB22LesenRezensionContent = readingQuestQuiz(
       correctIndex: 1,
       explanation: '"Ein lesenswertes Buch."',
     ),
+    ReadingQuestion(
+      question: 'Wie beurteilt der Rezensent den Anfang des Buches?',
+      questionTranslation: 'How does the reviewer judge the start of the book?',
+      options: ['etwas langsam', 'sehr spannend', 'zu brutal'],
+      optionsTranslation: ['a little slow', 'very exciting', 'too brutal'],
+      correctIndex: 0,
+      explanation: '"Zwar ist der Anfang etwas langsam, doch wer durchhält, wird '
+          'belohnt."',
+    ),
+    ReadingQuestion(
+      question: 'Wie fand der Rezensent selbst die vielen Figuren?',
+      questionTranslation: 'How did the reviewer himself find the many characters?',
+      options: ['überzeugend', 'verwirrend', 'langweilig'],
+      optionsTranslation: ['convincing', 'confusing', 'boring'],
+      correctIndex: 0,
+      explanation: '"… ich jedoch fand gerade diese Vielfalt überzeugend."',
+    ),
   ],
   intro: 'A book review — a B2 text type with evaluation and concession (Zwar …, '
       'doch …) and a participial attribute (die ruhig erzählten Kapitel).',
@@ -760,11 +853,70 @@ final QuizContent questB22LesenRezensionContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Verpasste Chancen: the irreal past (Konjunktiv II
+/// der Vergangenheit) as a stream of regrets after a failed exam. Every gap is a
+/// hätte/wäre + Partizip II — including the wenn-less inversion (Hätte ich …) —
+/// which is exactly how native speakers pile up "if only I had …".
+final QuizContent questB22BigTextChancenContent = bigTextQuestQuiz(
+  id: 'quest_b2_2_bigtext_chancen',
+  title: 'B2.2 · Großer Text: Verpasste Chancen',
+  passageTitle: 'Verpasste Chancen',
+  template:
+      'Gestern hatte ich eine wichtige Prüfung, und leider habe ich sie nicht '
+      'bestanden. Wenn ich mehr {{0}} hätte, hätte ich sie bestanden. Wenn ich '
+      'am Abend früher ins Bett {{1}} wäre, {{2}} ich nicht so müde gewesen. Ich '
+      'hätte mich besser vorbereitet, wenn ich weniger Zeit am Handy {{3}} '
+      'hätte. Hätte mir mein Freund {{4}}, wäre ich ruhiger geblieben. Ach, '
+      '{{5}} ich nur mehr geübt! Und {{6}} ich am Morgen nicht den Bus '
+      'verpasst, {{7}} ich pünktlich gewesen.',
+  blanks: [
+    inputBlank('gelernt', hint: 'lernen → Partizip II'),
+    inputBlank('gegangen', hint: 'gehen → Partizip II (Bewegung)'),
+    inputBlank('wäre', accepted: const ['waere'], hint: 'sein als Hilfsverb'),
+    inputBlank('verbracht', hint: 'verbringen → Partizip II'),
+    inputBlank('geholfen', hint: 'helfen → Partizip II'),
+    inputBlank('hätte', accepted: const ['haette'], hint: 'haben als Hilfsverb'),
+    inputBlank('hätte', accepted: const ['haette'], hint: 'haben als Hilfsverb'),
+    inputBlank('wäre', accepted: const ['waere'], hint: 'sein als Hilfsverb'),
+  ],
+  passageTranslation:
+      'Yesterday I had an important exam, and unfortunately I didn’t pass it. If '
+      'I had studied more, I would have passed it. If I had gone to bed earlier '
+      'in the evening, I wouldn’t have been so tired. I would have prepared '
+      'better if I had spent less time on my phone. If my friend had helped me, '
+      'I would have stayed calmer. Oh, if only I had practised more! And if I '
+      'hadn’t missed the bus in the morning, I would have been on time.',
+  intro: 'Regret the past. The irreal past is built from hätte or wäre + the '
+      'Partizip II: "Wenn ich mehr gelernt hätte, hätte ich bestanden." Choose '
+      'hätte or wäre exactly as the Perfekt would (movers/changers → wäre).',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'hätte / wäre + Partizip II',
+      text: 'Same auxiliary split as the Perfekt: haben-verbs → hätte … gelernt; '
+          'sein-verbs (gehen, bleiben, sein) → wäre … gegangen.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Drop wenn, move the verb up',
+      text: '"Wenn ich … gehabt hätte" = "Hätte ich … gehabt". Starting with the '
+          'conjugated hätte/wäre replaces wenn — very common in speech.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Two participles can stack',
+      text: 'With a modal it becomes a double infinitive: "Ich hätte lernen '
+          'müssen" — but the plain regret here is just aux + one Partizip II.',
+    ),
+  ],
+);
+
 /// Every B2.2 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questB2_2Content = [
   questB22UmweltContent, //              Wissenschaft & Umwelt   (knowledge)
   questB22Konj2VergContent, //          Konj. II Vergangenheit  (knowledge·verb)
   questB22IrrealContent, //             Irreale Bedingungen     (knowledge·verb)
+  questB22BigTextChancenContent, //     Großer Text: Chancen    (reading·cloze)
   questB22SprechenHypotheseContent, //  Sprechen: Hypothesen    (speaking)
   questB22GenitivPraepContent, //       Genitivpräpositionen    (knowledge)
   questB22HoerenVortragContent, //      Hören: Vortrag          (listening)

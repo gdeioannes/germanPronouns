@@ -303,6 +303,40 @@ final QuizContent questC12HoerenReportageContent = listeningQuestQuiz(
       correctIndex: 0,
       explanation: '"Dennoch fehlt es vielerorts an Helfern."',
     ),
+    ReadingQuestion(
+      question: 'Was wird über die meisten Freiwilligen gesagt?',
+      questionTranslation: 'What is said about most of the volunteers?',
+      options: [
+        'Sie seien selbst einmal auf Hilfe angewiesen gewesen.',
+        'Sie seien alle sehr reich.',
+        'Sie kämen aus dem Ausland.',
+      ],
+      optionsTranslation: [
+        'They were once dependent on help themselves.',
+        'They are all very rich.',
+        'They come from abroad.',
+      ],
+      correctIndex: 0,
+      explanation: '"Die meisten … seien selbst einmal auf Unterstützung '
+          'angewiesen gewesen."',
+    ),
+    ReadingQuestion(
+      question: 'Was stärkt das Ehrenamt laut Experten außer der Gemeinschaft?',
+      questionTranslation: 'Besides the community, what does volunteering strengthen, per experts?',
+      options: [
+        'das eigene Wohlbefinden',
+        'die Wirtschaft',
+        'die Politik',
+      ],
+      optionsTranslation: [
+        'one’s own well-being',
+        'the economy',
+        'politics',
+      ],
+      correctIndex: 0,
+      explanation: '"… stärke nicht nur die Gemeinschaft, sondern auch das eigene '
+          'Wohlbefinden."',
+    ),
   ],
   intro: 'A reportage — you only hear it. Lots of reported speech (seien, habe, '
       'stärke). Track the benefit and the problem. Replay as needed.',
@@ -728,12 +762,74 @@ final QuizContent questC12LesenLiteraturContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Der geheimnisvolle Nachbar: subjective modal verbs,
+/// where the modal encodes how sure the speaker is. Reading clues off a
+/// mysterious neighbour, the learner slots in muss (certain), dürfte (likely),
+/// könnte (possible), soll (hearsay) and will (claim) — the C1 art of hedging.
+final QuizContent questC12BigTextNachbarContent = bigTextQuestQuiz(
+  id: 'quest_c1_2_bigtext_nachbar',
+  title: 'C1.2 · Großer Text: Der geheimnisvolle Nachbar',
+  passageTitle: 'Der geheimnisvolle Nachbar',
+  template:
+      'Im Haus gegenüber geht etwas Seltsames vor. Das Licht brennt die ganze '
+      'Nacht — der Bewohner {{0}} krank sein. Sein Auto fehlt; er {{1}} verreist '
+      'sein. Die volle Mailbox zeigt: Er {{2}} schon seit Tagen weg sein. '
+      'Angeblich {{3}} er ein berühmter Autor sein. Er selbst {{4}} viele Preise '
+      'gewonnen haben. Sicher weiß das niemand, doch die Nachbarn {{5}} recht '
+      'haben. Bald {{6}} sich alles klären.',
+  blanks: [
+    inputBlank('muss', hint: 'muss = starke Vermutung (must be)'),
+    inputBlank('könnte', accepted: const ['koennte'],
+        hint: 'könnte = möglich (might)'),
+    inputBlank('dürfte', accepted: const ['duerfte'],
+        hint: 'dürfte = wahrscheinlich (probably)'),
+    inputBlank('soll', hint: 'soll = Hörensagen (is said to)'),
+    inputBlank('will', hint: 'will = Behauptung (claims to)'),
+    inputBlank('könnten', accepted: const ['koennten'],
+        hint: 'könnten = möglich (could)'),
+    inputBlank('dürfte', accepted: const ['duerfte'],
+        hint: 'dürfte = Vorhersage (probably will)'),
+  ],
+  passageTranslation:
+      'Something strange is going on in the house across the street. The light '
+      'burns all night — the resident must be ill. His car is missing; he might '
+      'be away. The full voicemail shows: he has probably been away for days. He '
+      'is supposedly a famous author. He himself claims to have won many prizes. '
+      'No one knows for sure, but the neighbours could be right. Everything will '
+      'probably become clear soon.',
+  intro: 'Modal verbs don’t only say ability or duty — subjectively they say how '
+      'sure you are. muss = I’m certain, dürfte = likely, könnte = possible, '
+      'soll = others say, will = he claims. Pick the modal that fits the clue.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'A scale of certainty',
+      text: 'muss (100%) → dürfte (≈80%) → könnte/mag (≈50%). soll and will are '
+          'not about probability but about the source: soll = they say, will = '
+          'he claims.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'soll vs will',
+      text: '"Er soll reich sein" = others say he’s rich. "Er will reich sein" = '
+          'he himself claims it. Same words as English "shall/will", opposite job.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Inference about the past',
+      text: 'For a past guess, add the perfect infinitive: "Er muss krank '
+          'gewesen sein", "Er will Preise gewonnen haben".',
+    ),
+  ],
+);
+
 /// Every C1.2 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questC1_2Content = [
   questC12KulturContent, //              Kultur & Medien        (knowledge)
   questC12ModalVermutungContent, //      Modal: Vermutung       (knowledge·verb)
   questC12SprechenAbschwaechenContent, // Sprechen: abschwächen (speaking)
   questC12ModalHoerensagenContent, //    Modal: Hörensagen      (knowledge·verb)
+  questC12BigTextNachbarContent, //      Großer Text: Nachbar   (reading·cloze)
   questC12WortbildungVorContent, //      Wortbildung: Vorsilben (knowledge)
   questC12HoerenReportageContent, //     Hören: Reportage       (listening)
   questC12WortbildungNachContent, //     Wortbildung: Nachsilben(knowledge)

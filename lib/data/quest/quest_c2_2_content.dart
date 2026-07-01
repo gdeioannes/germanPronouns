@@ -280,6 +280,30 @@ final QuizContent questC22HoerenFachvortragContent = listeningQuestQuiz(
       explanation: '"… deren Zuverlässigkeit wir womöglich systematisch '
           'überschätzen."',
     ),
+    ReadingQuestion(
+      question: 'Wie wurde das Gedächtnis früher metaphorisch beschrieben?',
+      questionTranslation: 'How was memory formerly described metaphorically?',
+      options: ['wie ein Archiv', 'wie ein Fluss', 'wie ein Spiegel'],
+      optionsTranslation: ['like an archive', 'like a river', 'like a mirror'],
+      correctIndex: 0,
+      explanation: '"… stellte man sich das Gedächtnis wie ein Archiv vor …"',
+    ),
+    ReadingQuestion(
+      question: 'Als was beschreibt der Redner das Erinnern letztlich?',
+      questionTranslation: 'What does the speaker ultimately describe remembering as?',
+      options: [
+        'als schöpferischen Akt',
+        'als reines Wiederfinden',
+        'als bloßen Zufall',
+      ],
+      optionsTranslation: [
+        'as a creative act',
+        'as pure retrieval',
+        'as mere chance',
+      ],
+      correctIndex: 0,
+      explanation: '"Erinnern wäre demnach … ein schöpferischer Akt …"',
+    ),
   ],
   intro: 'A dense academic lecture at natural pace — you only hear it. Abstract '
       'and full of reported, hedged claims (werde, könne, wäre). This is the '
@@ -787,6 +811,70 @@ final QuizContent questC22LesenCapstoneContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Zum Wert des Lesens: the course capstone. A single
+/// polished paragraph deliberately braids together everything the C-band taught —
+/// Konjunktiv I (reported), a Passiversatz (sich lassen), a Funktionsverbgefüge
+/// (Kritik üben), a genitive adjective ending, a subjective modal (dürfte) and a
+/// fixed idiom. If the learner can complete this, they command written German.
+final QuizContent questC22BigTextLesenContent = bigTextQuestQuiz(
+  id: 'quest_c2_2_bigtext_lesen',
+  title: 'C2.2 · Großer Text: Zum Wert des Lesens',
+  passageTitle: 'Zum Wert des Lesens',
+  template:
+      'Dass das Lesen in Zeiten des Internets an Bedeutung {{0}}, wird oft '
+      'behauptet. Doch diese These {{1}} sich leicht widerlegen. Studien {{2}} '
+      'nahe, dass Leser konzentrierter und empathischer {{3}}. Ein aufmerksamer '
+      'Leser {{4}} Kritik an allzu einfachen Antworten. Man sollte den Wert '
+      'eines gut {{5}} Buches nicht unterschätzen. Wer viel liest, {{6}} über '
+      'einen größeren Wortschatz verfügen. Kurz: Das Buch {{7}} noch lange nicht '
+      'ausgedient.',
+  blanks: [
+    inputBlank('verliere', hint: 'verlieren → Konj. I (dass … verliere)'),
+    inputBlank('lässt', accepted: const ['laesst'],
+        hint: 'sich lassen (= kann widerlegt werden)'),
+    inputBlank('legen', hint: 'nahe … (FVG: nahelegen = to suggest)'),
+    inputBlank('seien', hint: 'sein → Konj. I, Plural (dass Leser … seien)'),
+    inputBlank('übt', hint: 'Kritik … (FVG: üben = to criticise)'),
+    inputBlank('geschriebenen',
+        hint: 'schreiben → Adj-Endung, Genitiv, n (eines gut … Buches)'),
+    inputBlank('dürfte', accepted: const ['duerfte'],
+        hint: 'subjektiver Modal = wahrscheinlich'),
+    inputBlank('hat', hint: 'Idiom: … ausgedient (has had its day)'),
+  ],
+  passageTranslation:
+      'It is often claimed that reading is losing importance in the age of the '
+      'internet. But this thesis can easily be refuted. Studies suggest that '
+      'readers are more focused and more empathetic. An attentive reader '
+      'criticises overly simple answers. One should not underestimate the value '
+      'of a well-written book. Anyone who reads a lot probably has a larger '
+      'vocabulary. In short: the book is far from having had its day.',
+  intro: 'The capstone cloze. This one paragraph asks for every C-band structure '
+      'at once: reported Konjunktiv I, a passive substitute, a '
+      'Funktionsverbgefüge, a genitive adjective ending, a subjective modal and '
+      'an idiom. Read for the grammar behind each gap.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Six systems, one text',
+      text: 'verliere/seien = Konj. I; lässt sich = Passiversatz; nahelegen/'
+          'Kritik üben = FVG; geschriebenen = Adjektivendung im Genitiv; dürfte = '
+          'subjektiver Modal; hat ausgedient = Idiom.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'eines gut geschriebenen Buches',
+      text: 'Genitive, neuter, after ein-word → the adjective takes -en: eines '
+          'gut geschrieben__en__ Buches. The dative/genitive default is -en.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'You’ve reached the top',
+      text: 'Complete this and you handle the full written system, from A1 '
+          'articles to C2 register. Herzlichen Glückwunsch!',
+    ),
+  ],
+);
+
 /// Every C2.2 quiz, in chain order — the capstone module; all five exercise
 /// types, interleaved, at the C2 ceiling of the course.
 final List<QuizContent> questC2_2Content = [
@@ -799,6 +887,7 @@ final List<QuizContent> questC2_2Content = [
   questC22WortspielContent, //           Wortspiel              (knowledge)
   questC22LesenEssayContent, //          Lesen: Essay           (reading)
   questC22WissenschaftsspracheContent, // Wissenschaftssprache  (knowledge)
+  questC22BigTextLesenContent, //        Großer Text: Lesen     (reading·cloze)
   questC22HoerenLesungContent, //        Hören: Lesung          (listening)
   questC22SprechenAnalyseContent, //     Sprechen: Analyse      (speaking)
   questC22HoerenCapstoneContent, //      Hören: Capstone        (listening)

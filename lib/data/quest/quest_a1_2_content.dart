@@ -354,6 +354,16 @@ final QuizContent questModalverbenContent = QuizContent(
       group: 'möchten',
       values: ['möchte', 'möchtest', 'möchte', 'möchten', 'möchtet', 'möchten'],
     ),
+    QuizCategoryData(
+      label: 'dürfen (may/allowed)',
+      group: 'dürfen',
+      values: ['darf', 'darfst', 'darf', 'dürfen', 'dürft', 'dürfen'],
+    ),
+    QuizCategoryData(
+      label: 'sollen (should)',
+      group: 'sollen',
+      values: ['soll', 'sollst', 'soll', 'sollen', 'sollt', 'sollen'],
+    ),
   ],
   sentences: const [],
   sentenceTemplates: const {
@@ -361,6 +371,8 @@ final QuizContent questModalverbenContent = QuizContent(
     'müssen (must)': ['{subject} ____ … (müssen)'],
     'wollen (want)': ['{subject} ____ … (wollen)'],
     'möchten (would like)': ['{subject} ____ … (möchten)'],
+    'dürfen (may/allowed)': ['{subject} ____ … (dürfen)'],
+    'sollen (should)': ['{subject} ____ … (sollen)'],
   },
   helpMemoryIntro:
       'Modal verbs (können, müssen, wollen, möchten …) express ability, '
@@ -1109,6 +1121,22 @@ final QuizContent questHoerenCafeContent = listeningQuestQuiz(
       correctIndex: 0,
       explanation: '"Das macht vier Euro achtzig."',
     ),
+    ReadingQuestion(
+      question: 'Was möchte der Gast trinken?',
+      questionTranslation: 'What does the guest want to drink?',
+      options: ['einen Tee', 'einen Kaffee', 'ein Wasser'],
+      optionsTranslation: ['a tea', 'a coffee', 'a water'],
+      correctIndex: 1,
+      explanation: '"Ich nehme einen Kaffee …"',
+    ),
+    ReadingQuestion(
+      question: 'Wie viel gibt der Gast dem Kellner?',
+      questionTranslation: 'How much does the guest give the waiter?',
+      options: ['vier Euro', 'fünf Euro', 'zehn Euro'],
+      optionsTranslation: ['four euros', 'five euros', 'ten euros'],
+      correctIndex: 1,
+      explanation: '"Hier sind fünf Euro."',
+    ),
   ],
   intro: 'A guest orders in a café — you only hear the dialogue. Listen for what '
       'they order, how they want it, and the price. Replay as often as you like; '
@@ -1180,6 +1208,26 @@ final QuizContent questHoerenTermineContent = listeningQuestQuiz(
       optionsTranslation: ['on Friday', 'on Saturday', 'on Sunday'],
       correctIndex: 1,
       explanation: '"Wir treffen uns morgen, am Samstag."',
+    ),
+    ReadingQuestion(
+      question: 'Was essen Anna und Tom vorher?',
+      questionTranslation: 'What do Anna and Tom eat beforehand?',
+      options: ['einen Salat', 'eine Pizza', 'ein Eis'],
+      optionsTranslation: ['a salad', 'a pizza', 'an ice cream'],
+      correctIndex: 1,
+      explanation: '"… dann essen wir vorher eine Pizza."',
+    ),
+    ReadingQuestion(
+      question: 'Was soll Tom machen?',
+      questionTranslation: 'What should Tom do?',
+      options: ['eine SMS schreiben', 'Anna anrufen', 'zu Hause bleiben'],
+      optionsTranslation: [
+        'write a text message',
+        'call Anna',
+        'stay at home',
+      ],
+      correctIndex: 1,
+      explanation: '"Mein Handy ist an – ruf mich bitte an!"',
     ),
   ],
   intro: 'Anna leaves Tom a voicemail — you only hear it. Catch the day, the '
@@ -1313,6 +1361,62 @@ final QuizContent questDiktatMeinTagContent = dictationQuestQuiz(
 /// more than two same-type quizzes in a row (knowledge → listening → knowledge →
 /// reading …), following the Goethe A1 progression. All five exercise types
 /// appear in this sub-level.
+/// Big text (inline cloze) — Mein Tag: the whole A1.2 tool-kit worked into one
+/// day-in-the-life: accusative articles (den/einen for masculine), kein, modal
+/// verbs pushing the infinitive to the end, and separable verbs snapping their
+/// prefix off. Drilling them inside a connected text stops any one item from
+/// recurring the way a short list does.
+final QuizContent questBigTextMeinTagContent = bigTextQuestQuiz(
+  id: 'quest_a1_2_bigtext_meintag',
+  title: 'A1.2 · Großer Text: Mein Tag',
+  passageTitle: 'Mein Tag',
+  template:
+      'Ich {{0}} um sieben Uhr auf und trinke {{1}} Kaffee. Dann {{2}} ich '
+      'einkaufen. Im Supermarkt kaufe ich {{3}} Brot, {{4}} Banane und {{5}} '
+      'Apfel. Ich habe {{6}} Auto, also nehme ich {{7}} Bus. Am Abend {{8}} ich '
+      'fern. Ich {{9}} einen Film sehen.',
+  blanks: [
+    inputBlank('stehe', hint: 'aufstehen · ich'),
+    inputBlank('einen', hint: 'a — der Kaffee, Akk'),
+    inputBlank('muss', hint: 'müssen · ich'),
+    inputBlank('ein', hint: 'a — das Brot, Akk'),
+    inputBlank('eine', hint: 'a — die Banane, Akk'),
+    inputBlank('einen', hint: 'a — der Apfel, Akk'),
+    inputBlank('kein', hint: 'not a — das Auto'),
+    inputBlank('den', hint: 'the — der Bus, Akk'),
+    inputBlank('sehe', hint: 'fernsehen · ich'),
+    inputBlank('will', accepted: const ['möchte'], hint: 'wollen · ich'),
+  ],
+  passageTranslation:
+      'I get up at seven o\'clock and drink a coffee. Then I have to go '
+      'shopping. At the supermarket I buy a loaf of bread, a banana and an '
+      'apple. I don\'t have a car, so I take the bus. In the evening I watch TV. '
+      'I want to watch a film.',
+  intro: 'Fill the whole day in. It uses everything from A1.2 together: the '
+      'accusative (only masculine changes: der→den, ein→einen), kein, modal '
+      'verbs, and separable verbs (the prefix auf/fern is already at the end).',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Only masculine moves',
+      text: 'In the accusative, der→den and ein→einen; die/das and eine/ein '
+          '(f/n) stay the same. So: einen Apfel, but eine Banane, ein Brot.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Separable prefix at the end',
+      text: 'aufstehen → "ich stehe … auf", fernsehen → "ich sehe … fern". Type '
+          'only the conjugated part; the prefix is already waiting at the end.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'kein, not nicht',
+      text: 'A noun that would take ein is negated with kein: "Ich habe kein '
+          'Auto." Use nicht only for verbs, adjectives and definite nouns.',
+    ),
+  ],
+);
+
 final List<QuizContent> questA1_2Content = [
   questAkkusativContent, //         Akkusativ (Artikel)         (knowledge)
   questPossessivContent, //         Possessivartikel            (knowledge)
@@ -1327,6 +1431,7 @@ final List<QuizContent> questA1_2Content = [
   questDiktatMeinTagContent, //     Diktat: Mein Tag            (dictation)
   questHoerenTermineContent, //     Hören: Termine & Uhrzeit    (listening)
   questPraepositionenContent, //    Akkusativpräpositionen      (knowledge)
+  questBigTextMeinTagContent, //    Großer Text: Mein Tag       (reading·cloze)
   questTrennbareContent, //         Trennbare Verben            (knowledge)
   questSpeakEinkaufenContent, //    Sprechen: Einkaufen         (speaking)
   questReadingReiseContent, //      Lesen: Eine kleine Reise    (reading)

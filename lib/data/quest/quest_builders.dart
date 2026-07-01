@@ -262,6 +262,81 @@ QuizContent readingQuestQuiz({
   );
 }
 
+/// A case-classification dropdown blank for the cert "big text" cloze: the
+/// learner picks the [answer] case from the standard German three (or a custom
+/// [options] set). Mirrors the en_de course's `caseBlank` so both courses author
+/// inline cloze the same way.
+InlineBlank caseBlank(
+  String answer, {
+  List<String> options = const ['Nominativ', 'Akkusativ', 'Dativ'],
+  String? translation,
+}) =>
+    InlineBlank(
+      kind: 'select',
+      answer: answer,
+      options: options,
+      translation: translation,
+    );
+
+/// A typed-input blank for the cert "big text" cloze (e.g. an article or verb
+/// form the learner types into the passage). [accepted] lists extra accepted
+/// spellings; [hint] is shown faint inside the empty field.
+InlineBlank inputBlank(
+  String answer, {
+  List<String> accepted = const [],
+  String? hint,
+}) =>
+    InlineBlank(kind: 'input', answer: answer, accepted: accepted, hint: hint);
+
+final RegExp _questInlinePlaceholder = RegExp(r'\{\{(\d+)\}\}');
+
+/// A "big text" inline-cloze quiz ([QuizKind.reading] + inlineBlanks) for the
+/// cert course — an engaging, low-repetition exercise where the learner fills
+/// missing words *inside* a whole German paragraph. [template] holds the passage
+/// with `{{0}}`, `{{1}}`… placeholders parallel to [blanks]; the clean read-first
+/// passage is derived from the template (select blanks collapse, input blanks
+/// fill with their answer). Runs through `InlineClozeQuizPage`. Borrowed from the
+/// en_de "German Grammar in Detail" course's `enDeBigText`.
+QuizContent bigTextQuestQuiz({
+  required String id,
+  required String title,
+  required String passageTitle,
+  required String template,
+  required List<InlineBlank> blanks,
+  required String passageTranslation,
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
+}) {
+  final clean = template
+      .replaceAllMapped(_questInlinePlaceholder, (m) {
+        final blank = blanks[int.parse(m.group(1)!)];
+        return blank.isSelect ? '' : blank.answer;
+      })
+      .replaceAll(RegExp(r' {2,}'), ' ')
+      .replaceAllMapped(RegExp(r' ([.,!?])'), (m) => m.group(1)!)
+      .trim();
+  return QuizContent(
+    id: id,
+    title: title,
+    kind: QuizKind.reading,
+    storageKeyPrefix: '${id}_',
+    promptLabel: 'Satz',
+    subjectsLabel: 'Sätze',
+    subjectColumnLabel: 'Deutsch',
+    subjects: const [],
+    categories: const [],
+    sentences: const [],
+    readingCategory: 'Lesen',
+    readingTitle: passageTitle,
+    readingPassage: clean,
+    readingPassageTranslation: passageTranslation,
+    inlineTemplate: template,
+    inlineBlanks: blanks,
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
+  );
+}
+
 /// A listening-comprehension quiz ([QuizKind.listening]) — the audio twin of
 /// [readingQuestQuiz]. It reuses the reading fields, so the only difference is
 /// [QuizContent.kind]: the [passage] (~40–60 German words) is **hidden** and

@@ -1097,6 +1097,38 @@ final QuizContent questHoerenVorstellungContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"Ich habe einen Hund. Mein Hund heißt Rocky."',
     ),
+    ReadingQuestion(
+      question: 'Wo wohnt Max jetzt?',
+      questionTranslation: 'Where does Max live now?',
+      options: ['in Berlin', 'in München', 'in Hamburg'],
+      optionsTranslation: ['in Berlin', 'in Munich', 'in Hamburg'],
+      correctIndex: 1,
+      explanation: '"Jetzt wohne ich in München …"',
+    ),
+    ReadingQuestion(
+      question: 'Was macht Max am Wochenende?',
+      questionTranslation: 'What does Max do on the weekend?',
+      options: [
+        'Er spielt Fußball.',
+        'Er lernt Englisch.',
+        'Er arbeitet.',
+      ],
+      optionsTranslation: [
+        'He plays football.',
+        'He studies English.',
+        'He works.',
+      ],
+      correctIndex: 0,
+      explanation: '"Am Wochenende spiele ich Fußball und höre gern Musik."',
+    ),
+    ReadingQuestion(
+      question: 'Wie heißt der Hund von Max?',
+      questionTranslation: "What is Max's dog called?",
+      options: ['Rocky', 'Bello', 'Max'],
+      optionsTranslation: ['Rocky', 'Bello', 'Max'],
+      correctIndex: 0,
+      explanation: '"Mein Hund heißt Rocky."',
+    ),
   ],
   intro: 'You will only HEAR this short text — it is not shown. Press play and '
       'listen, then answer the questions. You can replay the audio as often as '
@@ -1162,6 +1194,22 @@ final QuizContent questHoerenZahlenContent = listeningQuestQuiz(
       optionsTranslation: ['five', 'ten', 'twenty'],
       correctIndex: 1,
       explanation: '"Zehn Eier kosten zwei Euro zwanzig."',
+    ),
+    ReadingQuestion(
+      question: 'Was kostet ein Brot?',
+      questionTranslation: 'What does a loaf of bread cost?',
+      options: ['einen Euro fünfzig', 'zwei Euro', 'drei Euro'],
+      optionsTranslation: ['one euro fifty', 'two euros', 'three euros'],
+      correctIndex: 0,
+      explanation: '"Ein Brot kostet einen Euro fünfzig."',
+    ),
+    ReadingQuestion(
+      question: 'Wie sind die Äpfel heute?',
+      questionTranslation: 'How are the apples today?',
+      options: ['teuer', 'billig', 'alt'],
+      optionsTranslation: ['expensive', 'cheap', 'old'],
+      correctIndex: 1,
+      explanation: '"Heute sind die Äpfel billig …"',
     ),
   ],
   intro: 'A market seller calls out today\'s prices — you only hear it. Press '
@@ -1234,6 +1282,62 @@ final QuizContent questDiktatSteckbriefContent = dictationQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Das bin ich: the learner fills the missing verbs
+/// and articles straight into a whole self-introduction. It recycles every A1.1
+/// structure at once (present-tense endings, sein/haben, nominative der/ein,
+/// possessives) in a connected text, so no single item can repeat the way a
+/// short drill does. Read-first passage is derived from the template.
+final QuizContent questBigTextDasBinIchContent = bigTextQuestQuiz(
+  id: 'quest_a1_1_bigtext_dasbinich',
+  title: 'A1.1 · Großer Text: Das bin ich',
+  passageTitle: 'Das bin ich',
+  template:
+      'Hallo! Ich {{0}} Lisa und ich {{1}} aus Italien. Jetzt {{2}} ich in '
+      'Köln. Ich {{3}} Studentin und ich {{4}} Deutsch an der Universität. Ich '
+      '{{5}} eine Schwester und einen Bruder. {{6}} Bruder heißt Marco. Wir '
+      '{{7}} einen Hund. {{8}} Hund ist klein und braun. Ich {{9}} '
+      'dreiundzwanzig Jahre alt. Und wer bist du?',
+  blanks: [
+    inputBlank('heiße', accepted: const ['heisse'], hint: 'heißen · ich'),
+    inputBlank('komme', hint: 'kommen · ich'),
+    inputBlank('wohne', hint: 'wohnen · ich'),
+    inputBlank('bin', hint: 'sein · ich'),
+    inputBlank('lerne', hint: 'lernen · ich'),
+    inputBlank('habe', hint: 'haben · ich'),
+    inputBlank('Mein', hint: 'my (der Bruder)'),
+    inputBlank('haben', hint: 'haben · wir'),
+    inputBlank('Der', hint: 'the (der Hund)'),
+    inputBlank('bin', hint: 'sein · ich'),
+  ],
+  passageTranslation:
+      'Hi! My name is Lisa and I come from Italy. Now I live in Cologne. I am a '
+      'student and I study German at university. I have a sister and a brother. '
+      'My brother is called Marco. We have a dog. The dog is small and brown. I '
+      'am twenty-three years old. And who are you?',
+  intro: 'Fill the missing words straight into the text. It uses everything from '
+      'A1.1 at once — present-tense verbs (ich -e), sein/haben, and the '
+      'nominative articles der/ein/mein. Read it once first, then fill the gaps.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Verb endings (ich / wir)',
+      text: 'ich + verb-stem + -e (ich wohne); wir + infinitive (wir haben). '
+          'sein is irregular: ich bin.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'der Hund, mein Bruder',
+      text: 'Both are masculine, so in the nominative they take der and mein '
+          '(the ein-word with no ending).',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Capital nouns',
+      text: 'Bruder, Hund, Deutsch — nouns keep their capital even mid-sentence.',
+    ),
+  ],
+);
+
 /// Every A1.1 quiz, in chain order. Number drills, vocab and grammar are
 /// interleaved with the Speaking, Reading, Listening and Dictation skill
 /// exercises so the learner never faces more than two same-type quizzes in a row
@@ -1251,6 +1355,7 @@ final List<QuizContent> questA1_1Content = [
   questReadingDasBinIchContent, //  Lesen: Das bin ich        (reading)
   questPraesensContent, //          Regelmäßige Verben        (knowledge·verb)
   questVokalwechselContent, //      Unregelmäßige Verben      (knowledge·verb)
+  questBigTextDasBinIchContent, //  Großer Text: Das bin ich  (reading·cloze)
   questDiktatSteckbriefContent, //  Diktat: Steckbrief        (dictation)
   questHoerenZahlenContent, //      Hören: Zahlen & Preise    (listening)
   questZahlen3Content, //           Zahlen 20–100             (knowledge)

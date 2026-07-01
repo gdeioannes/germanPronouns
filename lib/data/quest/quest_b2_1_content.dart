@@ -270,6 +270,38 @@ final QuizContent questB21HoerenDebatteContent = listeningQuestQuiz(
       correctIndex: 0,
       explanation: '"… dass eine Lösung gefunden werden muss."',
     ),
+    ReadingQuestion(
+      question: 'Womit argumentieren die Befürworter?',
+      questionTranslation: 'What do the supporters argue with?',
+      options: [
+        'die Luft werde sauberer und die Straßen sicherer',
+        'die Mieten würden sinken',
+        'die Stadt werde reicher',
+      ],
+      optionsTranslation: [
+        'the air would be cleaner and the streets safer',
+        'rents would fall',
+        'the city would get richer',
+      ],
+      correctIndex: 0,
+      explanation: '"… die Luft sauberer werde und die Straßen sicherer seien."',
+    ),
+    ReadingQuestion(
+      question: 'Was fordert die Sprecherin zuerst?',
+      questionTranslation: 'What does the spokeswoman demand first?',
+      options: [
+        'den öffentlichen Verkehr verbessern',
+        'die Steuern senken',
+        'mehr Parkhäuser bauen',
+      ],
+      optionsTranslation: [
+        'improve public transport',
+        'lower taxes',
+        'build more car parks',
+      ],
+      correctIndex: 0,
+      explanation: '"… man müsse den öffentlichen Verkehr zuerst verbessern."',
+    ),
   ],
   intro: 'A debate — you only hear it. Keep the two sides apart: Befürworter '
       '(supporters) vs Gegner (opponents). Note the Konjunktiv I (werde, seien). '
@@ -365,6 +397,12 @@ final QuizContent questB21PartizipAdjContent = sentenceQuestQuiz(
         'That is a well-written book.', 'ein geschriebenes Buch'),
     qsi('Die ____ Blumen sind schön. (blühen → Partizip I)', 'blühenden',
         'The blooming flowers are beautiful.', 'die blühenden Blumen'),
+    qsi('Der ____ Zug hatte Verspätung. (ankommen → Partizip I)', 'ankommende',
+        'The arriving train was late.', 'der ankommende Zug'),
+    qsi('Ich trage ein frisch ____ Hemd. (bügeln → Partizip II)', 'gebügeltes',
+        'I wear a freshly ironed shirt.', 'ein gebügeltes Hemd'),
+    qsi('Die ____ Kinder waren laut. (spielen → Partizip I)', 'spielenden',
+        'The playing children were loud.', 'die spielenden Kinder'),
   ],
 );
 
@@ -436,6 +474,40 @@ final QuizContent questB21LesenHomeofficeContent = readingQuestQuiz(
       ],
       correctIndex: 1,
       explanation: '"… nicht der Ort, sondern eine klare Regelung …"',
+    ),
+    ReadingQuestion(
+      question: 'Wie wird Homeoffice oft dargestellt?',
+      questionTranslation: 'How is home office often presented?',
+      options: [
+        'als ideale Lösung',
+        'als teurer Fehler',
+        'als altmodisch',
+      ],
+      optionsTranslation: [
+        'as the ideal solution',
+        'as an expensive mistake',
+        'as old-fashioned',
+      ],
+      correctIndex: 0,
+      explanation: '"Das Arbeiten von zu Hause wird oft als ideale Lösung '
+          'dargestellt."',
+    ),
+    ReadingQuestion(
+      question: 'Was passiert mit Menschen, die ständig erreichbar sind?',
+      questionTranslation: 'What happens to people who are constantly reachable?',
+      options: [
+        'Sie arbeiten am Ende mehr.',
+        'Sie verdienen mehr Geld.',
+        'Sie haben mehr Freizeit.',
+      ],
+      optionsTranslation: [
+        'They end up working more.',
+        'They earn more money.',
+        'They have more free time.',
+      ],
+      correctIndex: 0,
+      explanation: '"Wer ständig erreichbar sei, arbeite am Ende mehr, nicht '
+          'weniger."',
     ),
   ],
   intro: 'An argumentative text with reported speech (verschwimme, sei, arbeite) '
@@ -627,6 +699,38 @@ final QuizContent questB21HoerenNachrichtenContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"… doch die Wirtschaft warnt vor höheren Kosten …"',
     ),
+    ReadingQuestion(
+      question: 'Was ist laut Sprecher das Ziel des Gesetzes?',
+      questionTranslation: 'What, according to the spokesperson, is the goal of the law?',
+      options: [
+        'weniger Autos in den Städten',
+        'mehr Parkplätze bauen',
+        'billigeres Benzin',
+      ],
+      optionsTranslation: [
+        'fewer cars in the cities',
+        'to build more car parks',
+        'cheaper petrol',
+      ],
+      correctIndex: 0,
+      explanation: '"… das Ziel sei, weniger Autos in den Städten zu haben."',
+    ),
+    ReadingQuestion(
+      question: 'Wie reagieren die Umweltverbände?',
+      questionTranslation: 'How do the environmental groups react?',
+      options: [
+        'Sie begrüßen den Plan.',
+        'Sie lehnen ihn ab.',
+        'Sie fordern höhere Preise.',
+      ],
+      optionsTranslation: [
+        'They welcome the plan.',
+        'They reject it.',
+        'They demand higher prices.',
+      ],
+      correctIndex: 0,
+      explanation: '"Umweltverbände begrüßen den Plan …"',
+    ),
   ],
   intro: 'A news bulletin — you only hear it. Reported speech (werde, sei) marks '
       'official claims. Track who supports and who warns. Replay as needed.',
@@ -761,6 +865,30 @@ final QuizContent questB21LesenLeserbriefContent = readingQuestQuiz(
       correctIndex: 0,
       explanation: '"… mehr an die Bewohner zu denken."',
     ),
+    ReadingQuestion(
+      question: 'Was ist dort gebaut worden, wo früher ein Park war?',
+      questionTranslation: 'What has been built where a park used to be?',
+      options: ['ein Parkhaus', 'ein Spielplatz', 'ein Krankenhaus'],
+      optionsTranslation: ['a multi-storey car park', 'a playground', 'a hospital'],
+      correctIndex: 0,
+      explanation: '"Wo früher ein Park war, ist ein Parkhaus gebaut worden."',
+    ),
+    ReadingQuestion(
+      question: 'Wer hat den Leserbrief geschrieben?',
+      questionTranslation: 'Who wrote the reader’s letter?',
+      options: [
+        'ein langjähriger Bewohner',
+        'der Bürgermeister',
+        'ein Journalist',
+      ],
+      optionsTranslation: [
+        'a long-time resident',
+        'the mayor',
+        'a journalist',
+      ],
+      correctIndex: 0,
+      explanation: '"Als langjähriger Bewohner möchte ich … einen Punkt ergänzen …"',
+    ),
   ],
   intro: 'A formal reader’s letter — a B2 text type. It uses the perfect passive '
       '(ist gebaut worden), um…zu, and a polite demand (Ich fordere … auf).',
@@ -780,10 +908,68 @@ final QuizContent questB21LesenLeserbriefContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Die Pressekonferenz: reported speech (indirekte
+/// Rede) built on the Konjunktiv I. A journalist relays what a minister said, so
+/// every reported verb shifts to sei/habe/müsse/werde/gebe/könne — the exact
+/// forms a B2 exam tests, practised in a running report rather than a paradigm.
+final QuizContent questB21BigTextPresseContent = bigTextQuestQuiz(
+  id: 'quest_b2_1_bigtext_presse',
+  title: 'B2.1 · Großer Text: Die Pressekonferenz',
+  passageTitle: 'Die Pressekonferenz',
+  template:
+      'Der Minister sagte, die Lage {{0}} ernst, aber die Regierung {{1}} einen '
+      'Plan. Er betonte, das Land {{2}} mehr investieren. Ein Experte erklärte, '
+      'die Zahl der Arbeitslosen {{3}} bald sinken. Er fügte hinzu, es {{4}} '
+      'keine schnelle Lösung. Die Ministerin sagte, sie {{5}} mit den Bürgern '
+      'sprechen. Sie meinte, jeder {{6}} helfen. Am Ende sagte sie, sie {{7}} '
+      'optimistisch.',
+  blanks: [
+    inputBlank('sei', hint: 'sein → Konj. I · die Lage'),
+    inputBlank('habe', hint: 'haben → Konj. I · die Regierung'),
+    inputBlank('müsse', hint: 'müssen → Konj. I · das Land'),
+    inputBlank('werde', hint: 'werden → Konj. I · die Zahl'),
+    inputBlank('gebe', hint: 'geben → Konj. I · es …'),
+    inputBlank('werde', hint: 'werden → Konj. I · sie'),
+    inputBlank('könne', hint: 'können → Konj. I · jeder'),
+    inputBlank('sei', hint: 'sein → Konj. I · sie'),
+  ],
+  passageTranslation:
+      'The minister said the situation was serious, but the government had a '
+      'plan. He stressed that the country had to invest more. An expert '
+      'explained that the number of unemployed would soon fall. He added that '
+      'there was no quick solution. The minister (she) said she would speak with '
+      'the citizens. She said everyone could help. In the end she said she was '
+      'optimistic.',
+  intro: 'Report what was said. In indirect speech German shifts the verb to the '
+      'Konjunktiv I: ist→sei, hat→habe, muss→müsse, wird→werde, gibt→gebe, '
+      'kann→könne. It keeps the reporter neutral about whether it is true.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'The Konjunktiv I endings',
+      text: 'Take the infinitive stem + -e/-est/-e/-en… : er sei, er habe, er '
+          'müsse, er werde, er könne. sein is the odd one: ich sei, er sei.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'German backshifts the mood, not the tense',
+      text: 'English shifts tense ("he said he WAS…"); German keeps the tense but '
+          'switches to Konjunktiv I ("er sagte, er SEI…").',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'When Konj. I looks like the present, use Konj. II',
+      text: 'In the plural (sie haben → sie hätten) the Konjunktiv I would look '
+          'like the indicative, so German substitutes the Konjunktiv II.',
+    ),
+  ],
+);
+
 /// Every B2.1 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questB2_1Content = [
   questB21GesellschaftContent, //       Gesellschaft & Politik  (knowledge)
   questB21Konj1Content, //              Konjunktiv I            (knowledge·verb)
+  questB21BigTextPresseContent, //      Großer Text: Presse     (reading·cloze)
   questB21SprechenVerteidigenContent, // Sprechen: verteidigen  (speaking)
   questB21IndirektContent, //           Indirekte Fragen        (knowledge)
   questB21ModalpassivContent, //        Modalpassiv             (knowledge·verb)

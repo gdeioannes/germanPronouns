@@ -318,6 +318,39 @@ final QuizContent questC11HoerenVorlesungContent = listeningQuestQuiz(
       explanation: '"… ist dieser Einfluss schwer zu messen und bleibt '
           'umstritten."',
     ),
+    ReadingQuestion(
+      question: 'Was legen neuere Studien nahe?',
+      questionTranslation: 'What do newer studies suggest?',
+      options: [
+        'dass die Sprachstruktur unsere Wahrnehmung prägt',
+        'dass Sprache keine Rolle spielt',
+        'dass alle Sprachen gleich sind',
+      ],
+      optionsTranslation: [
+        'that language structure shapes our perception',
+        'that language plays no role',
+        'that all languages are the same',
+      ],
+      correctIndex: 0,
+      explanation: '"… dass die Struktur einer Sprache durchaus prägt, wie wir '
+          'die Welt wahrnehmen."',
+    ),
+    ReadingQuestion(
+      question: 'Was kündigt der Redner für den zweiten Teil an?',
+      questionTranslation: 'What does the speaker announce for the second part?',
+      options: [
+        'konkrete Beispiele',
+        'eine Prüfung',
+        'eine Pause',
+      ],
+      optionsTranslation: [
+        'concrete examples',
+        'an exam',
+        'a break',
+      ],
+      correctIndex: 0,
+      explanation: '"Im zweiten Teil werden wir konkrete Beispiele betrachten."',
+    ),
   ],
   intro: 'An academic lecture — you only hear it. Listen for the central '
       'question, the old assumption (Konjunktiv I: sei) and the speaker’s '
@@ -776,6 +809,68 @@ final QuizContent questC11LesenEssayContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Hinweise zum neuen System: the passive-substitute
+/// forms (Passiversatzformen) in their natural home, a formal office notice. The
+/// gaps rotate through sich lassen, sein + zu, the -bar adjective and the plain
+/// modal passive — the four ways C1 German avoids a bare "werden" passive.
+final QuizContent questC11BigTextHinweiseContent = bigTextQuestQuiz(
+  id: 'quest_c1_1_bigtext_hinweise',
+  title: 'C1.1 · Großer Text: Hinweise zum neuen System',
+  passageTitle: 'Hinweise zum neuen System',
+  template:
+      'Liebe Kolleginnen und Kollegen, hier einige Hinweise zum neuen System. '
+      'Das Programm {{0}} sich in wenigen Minuten installieren. Die Anleitung '
+      'ist auf der Webseite zu {{1}}. Alle technischen Probleme sind sofort dem '
+      'Support zu {{2}}. Das Passwort ist jederzeit {{3}}. Das alte System {{4}} '
+      'sich nicht mehr verwenden. Diese Regeln {{5}} von allen beachtet werden. '
+      'Fehler sind unbedingt zu {{6}}. Wir danken für Ihr {{7}}.',
+  blanks: [
+    inputBlank('lässt', accepted: const ['laesst'],
+        hint: 'sich lassen = kann … werden'),
+    inputBlank('finden', hint: 'sein + zu … (= muss gefunden werden)'),
+    inputBlank('melden', hint: 'sein + zu … (= müssen gemeldet werden)'),
+    inputBlank('änderbar', accepted: const ['aenderbar'],
+        hint: '-bar = kann geändert werden (ändern)'),
+    inputBlank('lässt', accepted: const ['laesst'],
+        hint: 'sich lassen = kann … werden'),
+    inputBlank('müssen', hint: 'Modalpassiv: … beachtet werden'),
+    inputBlank('vermeiden', hint: 'sein + zu … (= müssen vermieden werden)'),
+    inputBlank('Verständnis', accepted: const ['Verstaendnis'],
+        hint: 'Nomen: danken für Ihr …'),
+  ],
+  passageTranslation:
+      'Dear colleagues, here are some notes on the new system. The programme can '
+      'be installed in a few minutes. The instructions can be found on the '
+      'website. All technical problems must be reported to support immediately. '
+      'The password can be changed at any time. The old system can no longer be '
+      'used. These rules must be observed by everyone. Errors are absolutely to '
+      'be avoided. Thank you for your understanding.',
+  intro: 'Formal German rarely leaves a plain "werden" passive standing. It '
+      'prefers substitutes: sich lassen (lässt sich …), sein + zu + Infinitiv '
+      '(ist zu …), and the -bar adjective (änderbar). Fill each with the right '
+      'form.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Three ways to say "can be done"',
+      text: 'kann installiert werden = lässt sich installieren = ist installierbar. '
+          'All three mean the same; the notice mixes them for style.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'sein + zu = müssen/können + Passiv',
+      text: '"ist zu melden" = muss gemeldet werden (obligation); "ist zu finden" '
+          '= kann gefunden werden (possibility). Context tells you which.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: '-bar means "-able"',
+      text: 'machbar (doable), lesbar (legible), änderbar (changeable): the -bar '
+          'adjective packs a whole "can be …ed" passive into one word.',
+    ),
+  ],
+);
+
 /// Every C1.1 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questC1_1Content = [
   questC11BildungContent, //            Bildung & Wissenschaft  (knowledge)
@@ -783,6 +878,7 @@ final List<QuizContent> questC1_1Content = [
   questC11SprechenDarstellenContent, // Sprechen: darstellen    (speaking)
   questC11VerbalisierungContent, //     Verbalisierung          (knowledge)
   questC11PassiversatzContent, //       Passiversatz            (knowledge·verb)
+  questC11BigTextHinweiseContent, //    Großer Text: Hinweise   (reading·cloze)
   questC11HoerenVorlesungContent, //    Hören: Vorlesung        (listening)
   questC11BarLichContent, //            Adjektive -bar/-lich    (knowledge)
   questC11KonnektorenContent, //        Konnektoren             (knowledge)

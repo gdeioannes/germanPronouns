@@ -278,6 +278,39 @@ final QuizContent questC21HoerenFeatureContent = listeningQuestQuiz(
       correctIndex: 0,
       explanation: '"… verletzlich, leer und auf eigentümliche Weise schön."',
     ),
+    ReadingQuestion(
+      question: 'Wer ist in diesem Moment schon verschwunden?',
+      questionTranslation: 'Who has already disappeared at this moment?',
+      options: [
+        'die letzten Nachtschwärmer',
+        'die ersten Bäcker',
+        'die Straßenkehrer',
+      ],
+      optionsTranslation: [
+        'the last night owls',
+        'the first bakers',
+        'the street sweepers',
+      ],
+      correctIndex: 0,
+      explanation: '"Die letzten Nachtschwärmer sind verschwunden …"',
+    ),
+    ReadingQuestion(
+      question: 'Was scheint die Metropole in diesem Moment zu tun?',
+      questionTranslation: 'What does the metropolis seem to do at this moment?',
+      options: [
+        'den Atem anzuhalten',
+        'zu erwachen',
+        'zu explodieren',
+      ],
+      optionsTranslation: [
+        'to hold its breath',
+        'to wake up',
+        'to explode',
+      ],
+      correctIndex: 0,
+      explanation: '"… in dem selbst die rastlose Metropole den Atem anzuhalten '
+          'scheint."',
+    ),
   ],
   intro: 'A literary radio feature — you only hear it. The language is poetic '
       '(personification: die Metropole hält den Atem an). Listen for image and '
@@ -778,12 +811,69 @@ final QuizContent questC21LesenKurzgeschichteContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Aus der Vorstandssitzung: Funktionsverbgefüge, the
+/// fixed noun + "light verb" collocations of formal register (eine Entscheidung
+/// treffen, in Kraft treten, in Betracht ziehen …). The noun carries the meaning;
+/// the learner supplies the correct function verb — the mark of idiomatic C2.
+final QuizContent questC21BigTextVorstandContent = bigTextQuestQuiz(
+  id: 'quest_c2_1_bigtext_vorstand',
+  title: 'C2.1 · Großer Text: Aus der Vorstandssitzung',
+  passageTitle: 'Aus der Vorstandssitzung',
+  template:
+      'Der Vorstand {{0}} gestern eine wichtige Entscheidung. Die neuen Regeln '
+      '{{1}} nächsten Monat in Kraft. Kritiker {{2}} scharfe Kritik an dem Plan. '
+      'Man müsse, so heißt es, auch die Kosten in Betracht {{3}}. Die Firma '
+      '{{4}} den Mitarbeitern neue Software zur Verfügung. Der Sprecher {{5}} '
+      'seine Bedenken deutlich zum Ausdruck. Künftig werde man auf die Umwelt '
+      'mehr Rücksicht {{6}}.',
+  blanks: [
+    inputBlank('traf', hint: 'eine Entscheidung … (treffen, Prät.)'),
+    inputBlank('treten', hint: 'in Kraft … (= come into force)'),
+    inputBlank('üben', hint: 'Kritik … (= to criticise)'),
+    inputBlank('ziehen', hint: 'in Betracht … (= to consider)'),
+    inputBlank('stellt', hint: 'zur Verfügung … (= to provide)'),
+    inputBlank('bringt', hint: 'zum Ausdruck … (= to express)'),
+    inputBlank('nehmen', hint: 'Rücksicht … (= to show consideration)'),
+  ],
+  passageTranslation:
+      'The board made an important decision yesterday. The new rules come into '
+      'force next month. Critics voice sharp criticism of the plan. One must, it '
+      'is said, also take the costs into consideration. The company provides the '
+      'employees with new software. The spokesperson clearly expresses his '
+      'concerns. In future more consideration will be given to the environment.',
+  intro: 'Funktionsverbgefüge are fixed pairings where the noun means everything '
+      'and the verb is almost empty: eine Entscheidung TREFFEN, in Kraft TRETEN, '
+      'Kritik ÜBEN. The wrong verb sounds instantly foreign — supply the right '
+      'one.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Learn the pair, not the verb',
+      text: 'You cannot guess the verb from English: "make a decision" is eine '
+          'Entscheidung TREFFEN (not machen); "criticise" is Kritik ÜBEN.',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'They lift the register',
+      text: 'in Betracht ziehen = berücksichtigen, zum Ausdruck bringen = '
+          'ausdrücken. The FVG is the formal, official-sounding twin.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Fixed prepositions too',
+      text: 'The preposition is locked in: in Kraft, zur Verfügung, in Betracht. '
+          'Change it and the collocation breaks.',
+    ),
+  ],
+);
+
 /// Every C2.1 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questC2_1Content = [
   questC21WirtschaftContent, //          Wirtschaft & Recht     (knowledge)
   questC21RegisterContent, //            Register               (knowledge)
   questC21SprechenRedeContent, //        Sprechen: Rede         (speaking)
   questC21KollokationenContent, //       Kollokationen          (knowledge)
+  questC21BigTextVorstandContent, //     Großer Text: Vorstand  (reading·cloze)
   questC21StilmittelContent, //          Stilmittel & Rhetorik  (knowledge)
   questC21HoerenFeatureContent, //       Hören: Feature         (listening)
   questC21Konj1LitContent, //            Konjunktiv I (Presse)  (knowledge·verb)

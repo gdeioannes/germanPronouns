@@ -255,6 +255,30 @@ final QuizContent questA22HoerenVerabredungContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"Treffen wir uns vor dem Museum?"',
     ),
+    ReadingQuestion(
+      question: 'An welchem Tag soll die Verabredung sein?',
+      questionTranslation: 'On which day should the meeting be?',
+      options: ['am Freitag', 'am Samstag', 'am Sonntag'],
+      optionsTranslation: ['on Friday', 'on Saturday', 'on Sunday'],
+      correctIndex: 1,
+      explanation: '"Hast du am Samstag Zeit? … Bis Samstag!"',
+    ),
+    ReadingQuestion(
+      question: 'Was wollen sie nach der Ausstellung machen?',
+      questionTranslation: 'What do they want to do after the exhibition?',
+      options: [
+        'einen Kaffee trinken',
+        'essen gehen',
+        'ins Kino gehen',
+      ],
+      optionsTranslation: [
+        'have a coffee',
+        'go for a meal',
+        'go to the cinema',
+      ],
+      correctIndex: 0,
+      explanation: '"Danach trinken wir vielleicht einen Kaffee."',
+    ),
   ],
   intro: 'A voicemail making a plan — you only hear it. Listen for the activity, '
       'the reason (weil …) and the meeting place. Replay as needed.',
@@ -408,6 +432,22 @@ final QuizContent questA22LesenArztContent = readingQuestQuiz(
       ],
       correctIndex: 1,
       explanation: '"Sie müssen viel trinken und im Bett bleiben."',
+    ),
+    ReadingQuestion(
+      question: 'Wie lange hat er schon Kopfschmerzen?',
+      questionTranslation: 'How long has he had a headache?',
+      options: ['seit einem Tag', 'seit drei Tagen', 'seit einer Woche'],
+      optionsTranslation: ['for one day', 'for three days', 'for a week'],
+      correctIndex: 1,
+      explanation: '"Er hat seit drei Tagen Kopfschmerzen und Fieber."',
+    ),
+    ReadingQuestion(
+      question: 'Wo holt Herr Berger die Tabletten?',
+      questionTranslation: 'Where does Mr Berger pick up the tablets?',
+      options: ['im Supermarkt', 'in der Apotheke', 'beim Arzt'],
+      optionsTranslation: ['at the supermarket', 'at the pharmacy', 'at the doctor'],
+      correctIndex: 1,
+      explanation: '"In der Apotheke holt er die Tabletten."',
     ),
   ],
   intro: 'A scene at the doctor’s. It recycles the health vocabulary, weil, and '
@@ -646,6 +686,26 @@ final QuizContent questA22LesenEmailContent = readingQuestQuiz(
       correctIndex: 1,
       explanation: '"Am Samstag mache ich eine kleine Party."',
     ),
+    ReadingQuestion(
+      question: 'In welchem Stock liegt die Wohnung?',
+      questionTranslation: 'On which floor is the flat?',
+      options: ['im zweiten Stock', 'im vierten Stock', 'im Erdgeschoss'],
+      optionsTranslation: [
+        'on the second floor',
+        'on the fourth floor',
+        'on the ground floor',
+      ],
+      correctIndex: 1,
+      explanation: '"… weil sie im vierten Stock liegt."',
+    ),
+    ReadingQuestion(
+      question: 'Welches Zimmer findet Marie am schönsten?',
+      questionTranslation: 'Which room does Marie find the nicest?',
+      options: ['das Wohnzimmer', 'das Schlafzimmer', 'die Küche'],
+      optionsTranslation: ['the living room', 'the bedroom', 'the kitchen'],
+      correctIndex: 1,
+      explanation: '"Das Schlafzimmer ist am schönsten."',
+    ),
   ],
   intro: 'A friendly email. It uses weil, deshalb and the superlative — a good '
       'review of this level’s grammar in a real text type.',
@@ -665,10 +725,66 @@ final QuizContent questA22LesenEmailContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Mein Zimmer: the Wechselpräpositionen in action.
+/// First the learner locates things (Wo? → Dativ), then tidies up and moves
+/// them (Wohin? → Akkusativ), so the case flips inside one passage exactly where
+/// the meaning flips — the clearest way to feel the two-way prepositions.
+final QuizContent questA22BigTextZimmerContent = bigTextQuestQuiz(
+  id: 'quest_a2_2_bigtext_zimmer',
+  title: 'A2.2 · Großer Text: Mein Zimmer',
+  passageTitle: 'Mein Zimmer',
+  template:
+      'Mein Zimmer ist klein. Das Bett steht an {{0}} Wand. Über {{1}} Bett '
+      'hängt ein Poster. Der Schreibtisch steht vor {{2}} Fenster. Jetzt räume '
+      'ich auf: Ich lege die Bücher auf {{3}} Regal. Ich hänge die Jacke in '
+      '{{4}} Schrank. Ich stelle die Lampe auf {{5}} Tisch. Dann setze ich mich '
+      'auf {{6}} Sofa und lege das Handy neben {{7}} Bett.',
+  blanks: [
+    inputBlank('der', hint: 'Wo? → Dativ · die Wand'),
+    inputBlank('dem', hint: 'Wo? → Dativ · das Bett'),
+    inputBlank('dem', hint: 'Wo? → Dativ · das Fenster'),
+    inputBlank('das', hint: 'Wohin? → Akk · das Regal'),
+    inputBlank('den', hint: 'Wohin? → Akk · der Schrank'),
+    inputBlank('den', hint: 'Wohin? → Akk · der Tisch'),
+    inputBlank('das', hint: 'Wohin? → Akk · das Sofa'),
+    inputBlank('das', hint: 'Wohin? → Akk · das Bett'),
+  ],
+  passageTranslation:
+      'My room is small. The bed stands against the wall. A poster hangs above '
+      'the bed. The desk stands in front of the window. Now I tidy up: I put the '
+      'books on the shelf. I hang the jacket in the wardrobe. I put the lamp on '
+      'the table. Then I sit down on the sofa and put the phone next to the bed.',
+  intro: 'The nine two-way prepositions (an, auf, in, über, vor, neben …) take '
+      'the DATIVE for a location (Wo?) and the ACCUSATIVE for a movement '
+      '(Wohin?). Watch the verb: stehen/hängen/liegen = Wo?, legen/stellen/'
+      'hängen(+obj) = Wohin?',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Movement → Akkusativ',
+      text: 'The cat sits ON the box (auf der Box, Dat) vs jumps ONTO the box '
+          '(auf die Box, Akk). An arrow of movement points to the accusative.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'The verb gives it away',
+      text: 'stehen, liegen, hängen (be in a place) → Dativ. legen, stellen, '
+          'setzen, hängen (put somewhere) → Akkusativ.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Same preposition, two cases',
+      text: 'in/an/auf don’t pick a fixed case like für or mit — they switch, '
+          'so you must read the sentence, not just the preposition.',
+    ),
+  ],
+);
+
 /// Every A2.2 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questA2_2Content = [
   questA22WechselWoContent, //        Wechselpräp.: Wo?      (knowledge)
   questA22WechselWohinContent, //     Wechselpräp.: Wohin?   (knowledge)
+  questA22BigTextZimmerContent, //    Großer Text: Mein Zimmer (reading·cloze)
   questA22SprechenZimmerContent, //   Sprechen: Mein Zimmer  (speaking)
   questA22ReflexivContent, //         Reflexive Verben       (knowledge·verb)
   questA22WeilContent, //             Nebensatz: weil        (knowledge)

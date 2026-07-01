@@ -13,6 +13,18 @@ void main() {
     for (final e in questEntries)
       if (e.content.kind == QuizKind.reading) e,
   ];
+  // A reading quiz is either a classic passage + multiple-choice questions, or a
+  // "big text" inline cloze (fill words into the passage). Both are
+  // QuizKind.reading but carry their data in different fields, so they are
+  // validated separately.
+  final classicReadingEntries = [
+    for (final e in readingEntries)
+      if (e.content.inlineBlanks.isEmpty) e,
+  ];
+  final clozeReadingEntries = [
+    for (final e in readingEntries)
+      if (e.content.inlineBlanks.isNotEmpty) e,
+  ];
   final speakEntries = [
     for (final e in questEntries)
       if (e.content.kind == QuizKind.speakRepeat) e,
@@ -109,7 +121,7 @@ void main() {
   });
 
   group('Reading content is well-formed', () {
-    for (final entry in readingEntries) {
+    for (final entry in classicReadingEntries) {
       final c = entry.content;
 
       test('${c.id}: has a passage and questions', () {
@@ -138,6 +150,61 @@ void main() {
       });
 
       test('${c.id}: reading content round-trips through JSON', () {
+        final restored = QuizContent.fromJson(_throughJson(c.toJson()));
+        expect(restored.toJson(), c.toJson());
+        expect(restored.kind, QuizKind.reading);
+      });
+
+      test('${c.id}: leaves the fill-in fields empty', () {
+        expect(c.categories, isEmpty);
+        expect(c.sentences, isEmpty);
+      });
+    }
+  });
+
+  group('Big-text (inline cloze) content is well-formed', () {
+    final placeholder = RegExp(r'\{\{(\d+)\}\}');
+    for (final entry in clozeReadingEntries) {
+      final c = entry.content;
+
+      test('${c.id}: has a derived passage, a template and blanks', () {
+        // The read-first passage is derived from the template, so it must exist.
+        expect(c.readingPassage, isNotNull);
+        expect(c.readingPassage, isNotEmpty);
+        expect(c.readingTitle, isNotNull);
+        expect(c.readingCategory, isNotNull);
+        expect(c.inlineTemplate, isNotNull);
+        expect(c.inlineTemplate, isNotEmpty);
+        expect(c.inlineBlanks, isNotEmpty);
+        // A cloze uses inline blanks, not multiple-choice reading questions.
+        expect(c.readingQuestions, isEmpty);
+      });
+
+      test('${c.id}: template placeholders line up 1:1 with the blanks', () {
+        final indices = placeholder
+            .allMatches(c.inlineTemplate!)
+            .map((m) => int.parse(m.group(1)!))
+            .toList();
+        // Every blank is referenced exactly once, and indices are 0..n-1.
+        expect(indices.length, c.inlineBlanks.length,
+            reason: '${c.id}: ${indices.length} placeholders vs '
+                '${c.inlineBlanks.length} blanks');
+        expect(indices.toSet(), {for (var i = 0; i < c.inlineBlanks.length; i++) i},
+            reason: '${c.id}: placeholder indices must be 0..n-1 with no gaps');
+      });
+
+      test('${c.id}: every blank has an answer (and select blanks list it)', () {
+        for (final b in c.inlineBlanks) {
+          expect(b.answer.trim(), isNotEmpty,
+              reason: '${c.id}: a blank has no answer');
+          if (b.isSelect) {
+            expect(b.options, contains(b.answer),
+                reason: '${c.id}: select blank answer "${b.answer}" not in options');
+          }
+        }
+      });
+
+      test('${c.id}: cloze content round-trips through JSON as reading', () {
         final restored = QuizContent.fromJson(_throughJson(c.toJson()));
         expect(restored.toJson(), c.toJson());
         expect(restored.kind, QuizKind.reading);

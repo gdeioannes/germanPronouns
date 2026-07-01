@@ -268,6 +268,30 @@ final QuizContent questB11HoerenInterviewContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"… wie die Arbeitszeiten sind?"',
     ),
+    ReadingQuestion(
+      question: 'Wie lange hat sie als Verkäuferin gearbeitet?',
+      questionTranslation: 'How long did she work as a salesperson?',
+      options: ['ein Jahr', 'drei Jahre', 'fünf Jahre'],
+      optionsTranslation: ['one year', 'three years', 'five years'],
+      correctIndex: 1,
+      explanation: '"Ich habe drei Jahre als Verkäuferin gearbeitet …"',
+    ),
+    ReadingQuestion(
+      question: 'Welche Sprachen spricht Frau Wagner?',
+      questionTranslation: 'Which languages does Ms Wagner speak?',
+      options: [
+        'Deutsch und Französisch',
+        'Deutsch und Englisch',
+        'nur Deutsch',
+      ],
+      optionsTranslation: [
+        'German and French',
+        'German and English',
+        'only German',
+      ],
+      correctIndex: 1,
+      explanation: '"Ich spreche Deutsch und Englisch."',
+    ),
   ],
   intro: 'A job interview — you only hear it. Listen for the past job, the '
       'reason (weil …) and the question she asks. Replay as needed.',
@@ -323,6 +347,14 @@ final QuizContent questB11Konj2HaetteContent = sentenceQuestQuiz(
         'We really ought to go now.', 'wir müssten'),
     qsi('An deiner Stelle ____ ich froh. (sein)', 'wäre',
         'In your place I would be glad.', 'ich wäre'),
+    qsi('Wenn ich reich ____, würde ich reisen. (sein)', 'wäre',
+        'If I were rich, I would travel.', 'ich wäre'),
+    qsi('____ ihr uns morgen besuchen? (können)', 'Könntet',
+        'Could you visit us tomorrow?', 'ihr könntet'),
+    qsi('Ich ____ gern einen Kaffee. (mögen)', 'möchte',
+        'I would like a coffee.', 'ich möchte'),
+    qsi('Wir ____ gern ein größeres Auto. (haben)', 'hätten',
+        'We would like a bigger car.', 'wir hätten'),
   ],
 );
 
@@ -394,6 +426,30 @@ final QuizContent questB11LesenArbeitContent = readingQuestQuiz(
       ],
       correctIndex: 2,
       explanation: '"… nur noch ein paar Tage pro Woche ins Büro fahren werden."',
+    ),
+    ReadingQuestion(
+      question: 'Wie nennt man das Arbeiten von zu Hause?',
+      questionTranslation: 'What is working from home called?',
+      options: ['Homeoffice', 'Teilzeit', 'Freizeit'],
+      optionsTranslation: ['home office', 'part-time', 'free time'],
+      correctIndex: 0,
+      explanation: '"Das nennt man Homeoffice."',
+    ),
+    ReadingQuestion(
+      question: 'Was könnten die Angestellten im Homeoffice tun?',
+      questionTranslation: 'What could the employees do in the home office?',
+      options: [
+        'morgens länger schlafen und flexibler arbeiten',
+        'mehr Urlaub nehmen',
+        'ein höheres Gehalt verlangen',
+      ],
+      optionsTranslation: [
+        'sleep longer and work more flexibly',
+        'take more holiday',
+        'demand a higher salary',
+      ],
+      correctIndex: 0,
+      explanation: '"Sie könnten morgens länger schlafen und flexibler arbeiten."',
     ),
   ],
   intro: 'An opinion text about home office. It uses weil, Konjunktiv II '
@@ -710,6 +766,30 @@ final QuizContent questB11HoerenUmfrageContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"… treffe ich Freunde und spiele Gitarre."',
     ),
+    ReadingQuestion(
+      question: 'Warum reist der ältere Mann nicht mehr?',
+      questionTranslation: 'Why doesn’t the older man travel more?',
+      options: [
+        'weil er wenig Geld hat',
+        'weil er keine Zeit hat',
+        'weil er krank ist',
+      ],
+      optionsTranslation: [
+        'because he has little money',
+        'because he has no time',
+        'because he is ill',
+      ],
+      correctIndex: 0,
+      explanation: '"… aber ich habe leider wenig Geld."',
+    ),
+    ReadingQuestion(
+      question: 'Wie viele Personen antworten in der Umfrage?',
+      questionTranslation: 'How many people answer in the survey?',
+      options: ['zwei', 'drei', 'vier'],
+      optionsTranslation: ['two', 'three', 'four'],
+      correctIndex: 1,
+      explanation: 'A young woman, an older man and a student — three answers.',
+    ),
   ],
   intro: 'A street survey with three speakers — you only hear it. Keep each '
       'person’s answer separate. Replay as needed.',
@@ -790,6 +870,38 @@ final QuizContent questB11LesenStudiumContent = readingQuestQuiz(
       correctIndex: 1,
       explanation: '"… die beste Entscheidung ihres Lebens war."',
     ),
+    ReadingQuestion(
+      question: 'Was möchten viele Studenten machen?',
+      questionTranslation: 'What do many students want to do?',
+      options: [
+        'ein Semester im Ausland verbringen',
+        'sofort Geld verdienen',
+        'nie umziehen',
+      ],
+      optionsTranslation: [
+        'spend a semester abroad',
+        'earn money right away',
+        'never move',
+      ],
+      correctIndex: 0,
+      explanation: '"Viele Studenten möchten ein Semester im Ausland verbringen."',
+    ),
+    ReadingQuestion(
+      question: 'Welche Schwierigkeit nennt der Text?',
+      questionTranslation: 'Which difficulty does the text mention?',
+      options: [
+        'Am Anfang ist alles fremd.',
+        'Das Studium ist zu leicht.',
+        'Es gibt keine Sprachkurse.',
+      ],
+      optionsTranslation: [
+        'At first everything is foreign.',
+        'The studies are too easy.',
+        'There are no language courses.',
+      ],
+      correctIndex: 0,
+      explanation: '"Am Anfang fühlt man sich oft allein, und alles ist fremd."',
+    ),
   ],
   intro: 'A text about studying abroad, with the Genitiv (die Entscheidung '
       'ihres Lebens) and dass-clauses. A nice review of B1.1.',
@@ -809,12 +921,69 @@ final QuizContent questB11LesenStudiumContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Meine neue Wohnung: adjective endings, the B1.1
+/// "cliff", drilled where they actually hurt — inside noun phrases spread across
+/// der-words, ein-words and no article, and across nominative/accusative/dative.
+/// The learner types the whole declined adjective, so the ending is a decision,
+/// not a lookup.
+final QuizContent questB11BigTextWohnungContent = bigTextQuestQuiz(
+  id: 'quest_b1_1_bigtext_wohnung',
+  title: 'B1.1 · Großer Text: Meine neue Wohnung',
+  passageTitle: 'Meine neue Wohnung',
+  template:
+      'Ich habe eine {{0}} Wohnung gefunden. Das {{1}} Zimmer hat ein {{2}} '
+      'Fenster. An der Wand hängt ein {{3}} Bild. Ich sitze gern auf dem {{4}} '
+      'Sofa. Vor dem Haus steht ein {{5}} Baum. Ich habe {{6}} Nachbarn. Am '
+      'Abend trinke ich einen {{7}} Tee.',
+  blanks: [
+    inputBlank('neue', hint: 'neu · eine … Wohnung (Akk, f)'),
+    inputBlank('große', hint: 'groß · das … Zimmer (Nom, n)'),
+    inputBlank('großes', hint: 'groß · ein … Fenster (Akk, n)'),
+    inputBlank('schönes', hint: 'schön · ein … Bild (Nom, n)'),
+    inputBlank('bequemen', hint: 'bequem · auf dem … Sofa (Dat, n)'),
+    inputBlank('alter', hint: 'alt · ein … Baum (Nom, m)'),
+    inputBlank('nette', hint: 'nett · … Nachbarn (Akk, Plural, kein Artikel)'),
+    inputBlank('heißen', accepted: const ['heissen'],
+        hint: 'heiß · einen … Tee (Akk, m)'),
+  ],
+  passageTranslation:
+      'I have found a new flat. The big room has a big window. A beautiful '
+      'picture hangs on the wall. I like sitting on the comfortable sofa. In '
+      'front of the house stands an old tree. I have nice neighbours. In the '
+      'evening I drink a hot tea.',
+  intro: 'Type each adjective with its ending. The ending depends on three '
+      'things at once: the article type (der-word / ein-word / none), the '
+      'gender, and the case. Read the noun phrase, decide, then write it.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'One strong signal',
+      text: 'If the article already shows the case (das, dem, den …), the '
+          'adjective just takes -e or -en. With ein/eine or no article, the '
+          'adjective itself carries the strong ending (-er/-es/-e).',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Dative & plural → -en',
+      text: 'After a dative (dem/der) and in almost every plural, the ending is '
+          '-en: auf dem bequemen Sofa, mit den netten Nachbarn.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'ein has no ending — so the adjective shows the gender',
+      text: 'ein __alter__ Baum (m), ein __schönes__ Bild (n): because ein looks '
+          'the same, the adjective must reveal masculine (-er) vs neuter (-es).',
+    ),
+  ],
+);
+
 /// Every B1.1 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questB1_1Content = [
   questB11ArbeitContent, //          Die Welt der Arbeit    (knowledge)
   questB11AdjBestimmtContent, //     Adj.: bestimmt         (knowledge)
   questB11SprechenBittenContent, //  Sprechen: Bitten       (speaking)
   questB11AdjUnbestimmtContent, //   Adj.: unbestimmt       (knowledge)
+  questB11BigTextWohnungContent, //  Großer Text: Wohnung   (reading·cloze)
   questB11Konj2WuerdeContent, //     Konj. II: würde        (knowledge·verb)
   questB11HoerenInterviewContent, // Hören: Interview       (listening)
   questB11Konj2HaetteContent, //     Konj. II: hätte/wäre   (knowledge·verb)

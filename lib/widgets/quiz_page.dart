@@ -23,6 +23,7 @@ import '../pages/auth_gate.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
 import '../utils/answer_normalization.dart';
+import '../utils/shuffle_bag.dart';
 import 'app_drawer.dart';
 import 'coin_balance_pill.dart';
 import 'coin_flight.dart';
@@ -402,40 +403,22 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
   }
 
-  /// Picks the next item from [pool] using a shuffle bag stored in [bag]:
-  /// items are drawn in random order without repeats until every item in
-  /// [pool] has been drawn once, then the bag is reshuffled. A small chance
-  /// of a pure uniform pick (ignoring the bag) keeps selection from feeling
-  /// too mechanical — this is what lets the same item occasionally come up
-  /// twice in a row, just much less often than with plain `Random.nextInt`.
-  ///
-  /// [bag] should be a dedicated, persistent list per pool (e.g. one for
-  /// subjects, one for categories) so it can be drained across calls.
+  /// Picks the next item from [pool] via the shared [drawFromShuffleBag] helper,
+  /// which guarantees the same item never comes up twice in a row (unless the
+  /// pool has no alternative). See `lib/utils/shuffle_bag.dart` for the rules.
   T _drawFromShuffleBag<T>(
     List<T> bag,
     List<T> pool, {
     T? avoidRepeat,
     double randomChance = 0.12,
-  }) {
-    if (pool.length == 1) return pool.first;
-
-    if (_random.nextDouble() < randomChance) {
-      return pool[_random.nextInt(pool.length)];
-    }
-
-    bag.removeWhere((item) => !pool.contains(item));
-    if (bag.isEmpty) {
-      bag.addAll(pool);
-      bag.shuffle(_random);
-      if (avoidRepeat != null && bag.length > 1 && bag.first == avoidRepeat) {
-        final swapIndex = 1 + _random.nextInt(bag.length - 1);
-        final first = bag[0];
-        bag[0] = bag[swapIndex];
-        bag[swapIndex] = first;
-      }
-    }
-    return bag.removeAt(0);
-  }
+  }) =>
+      drawFromShuffleBag(
+        bag,
+        pool,
+        avoidRepeat: avoidRepeat,
+        randomChance: randomChance,
+        random: _random,
+      );
 
   /// Width in logical pixels that [text] would occupy on a single line in
   /// [style], used to grow the answer field to fit the typed answer.

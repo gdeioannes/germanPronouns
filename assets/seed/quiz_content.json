@@ -1,5 +1,5 @@
 {
-  "version": "1.11.0",
+  "version": "1.12.0",
   "quizzes": [
     {
       "id": "pronoun",
@@ -43636,6 +43636,54 @@
             "a dog",
             "a car"
           ]
+        },
+        {
+          "question": "Wo wohnt Max jetzt?",
+          "options": [
+            "in Berlin",
+            "in München",
+            "in Hamburg"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Jetzt wohne ich in München …\"",
+          "questionTranslation": "Where does Max live now?",
+          "optionsTranslation": [
+            "in Berlin",
+            "in Munich",
+            "in Hamburg"
+          ]
+        },
+        {
+          "question": "Was macht Max am Wochenende?",
+          "options": [
+            "Er spielt Fußball.",
+            "Er lernt Englisch.",
+            "Er arbeitet."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Am Wochenende spiele ich Fußball und höre gern Musik.\"",
+          "questionTranslation": "What does Max do on the weekend?",
+          "optionsTranslation": [
+            "He plays football.",
+            "He studies English.",
+            "He works."
+          ]
+        },
+        {
+          "question": "Wie heißt der Hund von Max?",
+          "options": [
+            "Rocky",
+            "Bello",
+            "Max"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Mein Hund heißt Rocky.\"",
+          "questionTranslation": "What is Max's dog called?",
+          "optionsTranslation": [
+            "Rocky",
+            "Bello",
+            "Max"
+          ]
         }
       ],
       "voiceGender": "male"
@@ -44374,6 +44422,97 @@
       ]
     },
     {
+      "id": "quest_a1_1_bigtext_dasbinich",
+      "title": "A1.1 · Großer Text: Das bin ich",
+      "storageKeyPrefix": "quest_a1_1_bigtext_dasbinich_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "A1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Fill the missing words straight into the text. It uses everything from A1.1 at once — present-tense verbs (ich -e), sein/haben, and the nominative articles der/ein/mein. Read it once first, then fill the gaps.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Verb endings (ich / wir)",
+          "text": "ich + verb-stem + -e (ich wohne); wir + infinitive (wir haben). sein is irregular: ich bin."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "der Hund, mein Bruder",
+          "text": "Both are masculine, so in the nominative they take der and mein (the ein-word with no ending)."
+        },
+        {
+          "kind": "warning",
+          "title": "Capital nouns",
+          "text": "Bruder, Hund, Deutsch — nouns keep their capital even mid-sentence."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Das bin ich",
+      "readingPassage": "Hallo! Ich heiße Lisa und ich komme aus Italien. Jetzt wohne ich in Köln. Ich bin Studentin und ich lerne Deutsch an der Universität. Ich habe eine Schwester und einen Bruder. Mein Bruder heißt Marco. Wir haben einen Hund. Der Hund ist klein und braun. Ich bin dreiundzwanzig Jahre alt. Und wer bist du?",
+      "readingPassageTranslation": "Hi! My name is Lisa and I come from Italy. Now I live in Cologne. I am a student and I study German at university. I have a sister and a brother. My brother is called Marco. We have a dog. The dog is small and brown. I am twenty-three years old. And who are you?",
+      "inlineTemplate": "Hallo! Ich {{0}} Lisa und ich {{1}} aus Italien. Jetzt {{2}} ich in Köln. Ich {{3}} Studentin und ich {{4}} Deutsch an der Universität. Ich {{5}} eine Schwester und einen Bruder. {{6}} Bruder heißt Marco. Wir {{7}} einen Hund. {{8}} Hund ist klein und braun. Ich {{9}} dreiundzwanzig Jahre alt. Und wer bist du?",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "heiße",
+          "accepted": [
+            "heisse"
+          ],
+          "hint": "heißen · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "komme",
+          "hint": "kommen · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "wohne",
+          "hint": "wohnen · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "bin",
+          "hint": "sein · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "lerne",
+          "hint": "lernen · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "habe",
+          "hint": "haben · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "Mein",
+          "hint": "my (der Bruder)"
+        },
+        {
+          "kind": "input",
+          "answer": "haben",
+          "hint": "haben · wir"
+        },
+        {
+          "kind": "input",
+          "answer": "Der",
+          "hint": "the (der Hund)"
+        },
+        {
+          "kind": "input",
+          "answer": "bin",
+          "hint": "sein · ich"
+        }
+      ]
+    },
+    {
       "id": "quest_a1_1_diktat_steckbrief",
       "title": "A1.1 · Diktat: Steckbrief",
       "storageKeyPrefix": "quest_a1_1_diktat_steckbrief_",
@@ -44519,6 +44658,38 @@
             "five",
             "ten",
             "twenty"
+          ]
+        },
+        {
+          "question": "Was kostet ein Brot?",
+          "options": [
+            "einen Euro fünfzig",
+            "zwei Euro",
+            "drei Euro"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Ein Brot kostet einen Euro fünfzig.\"",
+          "questionTranslation": "What does a loaf of bread cost?",
+          "optionsTranslation": [
+            "one euro fifty",
+            "two euros",
+            "three euros"
+          ]
+        },
+        {
+          "question": "Wie sind die Äpfel heute?",
+          "options": [
+            "teuer",
+            "billig",
+            "alt"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Heute sind die Äpfel billig …\"",
+          "questionTranslation": "How are the apples today?",
+          "optionsTranslation": [
+            "expensive",
+            "cheap",
+            "old"
           ]
         }
       ],
@@ -45716,6 +45887,38 @@
             "four euros eighteen",
             "five euros"
           ]
+        },
+        {
+          "question": "Was möchte der Gast trinken?",
+          "options": [
+            "einen Tee",
+            "einen Kaffee",
+            "ein Wasser"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich nehme einen Kaffee …\"",
+          "questionTranslation": "What does the guest want to drink?",
+          "optionsTranslation": [
+            "a tea",
+            "a coffee",
+            "a water"
+          ]
+        },
+        {
+          "question": "Wie viel gibt der Gast dem Kellner?",
+          "options": [
+            "vier Euro",
+            "fünf Euro",
+            "zehn Euro"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hier sind fünf Euro.\"",
+          "questionTranslation": "How much does the guest give the waiter?",
+          "optionsTranslation": [
+            "four euros",
+            "five euros",
+            "ten euros"
+          ]
         }
       ]
     },
@@ -46309,6 +46512,30 @@
             "möchtet",
             "möchten"
           ]
+        },
+        {
+          "label": "dürfen (may/allowed)",
+          "group": "dürfen",
+          "values": [
+            "darf",
+            "darfst",
+            "darf",
+            "dürfen",
+            "dürft",
+            "dürfen"
+          ]
+        },
+        {
+          "label": "sollen (should)",
+          "group": "sollen",
+          "values": [
+            "soll",
+            "sollst",
+            "soll",
+            "sollen",
+            "sollt",
+            "sollen"
+          ]
         }
       ],
       "sentences": [],
@@ -46324,6 +46551,12 @@
         ],
         "möchten (would like)": [
           "{subject} ____ … (möchten)"
+        ],
+        "dürfen (may/allowed)": [
+          "{subject} ____ … (dürfen)"
+        ],
+        "sollen (should)": [
+          "{subject} ____ … (sollen)"
         ]
       },
       "helpMemoryIntro": "Modal verbs (können, müssen, wollen, möchten …) express ability, necessity or desire. They are irregular in the singular and push the main verb to the end of the clause as an infinitive.",
@@ -47109,6 +47342,38 @@
             "on Saturday",
             "on Sunday"
           ]
+        },
+        {
+          "question": "Was essen Anna und Tom vorher?",
+          "options": [
+            "einen Salat",
+            "eine Pizza",
+            "ein Eis"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… dann essen wir vorher eine Pizza.\"",
+          "questionTranslation": "What do Anna and Tom eat beforehand?",
+          "optionsTranslation": [
+            "a salad",
+            "a pizza",
+            "an ice cream"
+          ]
+        },
+        {
+          "question": "Was soll Tom machen?",
+          "options": [
+            "eine SMS schreiben",
+            "Anna anrufen",
+            "zu Hause bleiben"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Mein Handy ist an – ruf mich bitte an!\"",
+          "questionTranslation": "What should Tom do?",
+          "optionsTranslation": [
+            "write a text message",
+            "call Anna",
+            "stay at home"
+          ]
         }
       ]
     },
@@ -47296,6 +47561,97 @@
           "kind": "rule",
           "title": "What actually changes",
           "text": "Only masculine: der → den (für den Mann). Feminine (die) and neuter (das) look the same as the nominative."
+        }
+      ]
+    },
+    {
+      "id": "quest_a1_2_bigtext_meintag",
+      "title": "A1.2 · Großer Text: Mein Tag",
+      "storageKeyPrefix": "quest_a1_2_bigtext_meintag_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "A1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Fill the whole day in. It uses everything from A1.2 together: the accusative (only masculine changes: der→den, ein→einen), kein, modal verbs, and separable verbs (the prefix auf/fern is already at the end).",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Only masculine moves",
+          "text": "In the accusative, der→den and ein→einen; die/das and eine/ein (f/n) stay the same. So: einen Apfel, but eine Banane, ein Brot."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Separable prefix at the end",
+          "text": "aufstehen → \"ich stehe … auf\", fernsehen → \"ich sehe … fern\". Type only the conjugated part; the prefix is already waiting at the end."
+        },
+        {
+          "kind": "warning",
+          "title": "kein, not nicht",
+          "text": "A noun that would take ein is negated with kein: \"Ich habe kein Auto.\" Use nicht only for verbs, adjectives and definite nouns."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Mein Tag",
+      "readingPassage": "Ich stehe um sieben Uhr auf und trinke einen Kaffee. Dann muss ich einkaufen. Im Supermarkt kaufe ich ein Brot, eine Banane und einen Apfel. Ich habe kein Auto, also nehme ich den Bus. Am Abend sehe ich fern. Ich will einen Film sehen.",
+      "readingPassageTranslation": "I get up at seven o'clock and drink a coffee. Then I have to go shopping. At the supermarket I buy a loaf of bread, a banana and an apple. I don't have a car, so I take the bus. In the evening I watch TV. I want to watch a film.",
+      "inlineTemplate": "Ich {{0}} um sieben Uhr auf und trinke {{1}} Kaffee. Dann {{2}} ich einkaufen. Im Supermarkt kaufe ich {{3}} Brot, {{4}} Banane und {{5}} Apfel. Ich habe {{6}} Auto, also nehme ich {{7}} Bus. Am Abend {{8}} ich fern. Ich {{9}} einen Film sehen.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "stehe",
+          "hint": "aufstehen · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "einen",
+          "hint": "a — der Kaffee, Akk"
+        },
+        {
+          "kind": "input",
+          "answer": "muss",
+          "hint": "müssen · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "ein",
+          "hint": "a — das Brot, Akk"
+        },
+        {
+          "kind": "input",
+          "answer": "eine",
+          "hint": "a — die Banane, Akk"
+        },
+        {
+          "kind": "input",
+          "answer": "einen",
+          "hint": "a — der Apfel, Akk"
+        },
+        {
+          "kind": "input",
+          "answer": "kein",
+          "hint": "not a — das Auto"
+        },
+        {
+          "kind": "input",
+          "answer": "den",
+          "hint": "the — der Bus, Akk"
+        },
+        {
+          "kind": "input",
+          "answer": "sehe",
+          "hint": "fernsehen · ich"
+        },
+        {
+          "kind": "input",
+          "answer": "will",
+          "accepted": [
+            "möchte"
+          ],
+          "hint": "wollen · ich"
         }
       ]
     },
@@ -48207,6 +48563,38 @@
             "very hot",
             "rainy"
           ]
+        },
+        {
+          "question": "Wie lange hat die Reise gedauert?",
+          "options": [
+            "zwei Stunden",
+            "acht Stunden",
+            "einen Tag"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Reise hat acht Stunden gedauert.\"",
+          "questionTranslation": "How long did the journey take?",
+          "optionsTranslation": [
+            "two hours",
+            "eight hours",
+            "a day"
+          ]
+        },
+        {
+          "question": "Was haben sie jeden Abend gegessen?",
+          "options": [
+            "Pasta",
+            "Pizza",
+            "Salat"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… jeden Abend Pizza gegessen.\"",
+          "questionTranslation": "What did they eat every evening?",
+          "optionsTranslation": [
+            "pasta",
+            "pizza",
+            "salad"
+          ]
         }
       ]
     },
@@ -48374,6 +48762,18 @@
         {
           "key": "s5",
           "display": "you (formal)"
+        },
+        {
+          "key": "s6",
+          "display": "you (plural)"
+        },
+        {
+          "key": "s7",
+          "display": "them"
+        },
+        {
+          "key": "s8",
+          "display": "it"
         }
       ],
       "categories": [
@@ -48386,7 +48786,10 @@
             "ihm",
             "ihr",
             "uns",
-            "Ihnen"
+            "Ihnen",
+            "euch",
+            "ihnen",
+            "ihm"
           ]
         }
       ],
@@ -48450,6 +48853,36 @@
           ],
           "hint": "English: you (formal)",
           "english": "How are you, Mr Müller?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Dativ",
+          "sentence": "Ich danke ____ für die Hilfe. (you, plural)",
+          "acceptedAnswers": [
+            "euch"
+          ],
+          "hint": "English: you (plural)",
+          "english": "I thank you (all) for the help."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Dativ",
+          "sentence": "Das Geschenk gefällt ____. (them)",
+          "acceptedAnswers": [
+            "ihnen"
+          ],
+          "hint": "English: them",
+          "english": "They like the present."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Dativ",
+          "sentence": "Das Kind weint — gib ____ den Ball! (it)",
+          "acceptedAnswers": [
+            "ihm"
+          ],
+          "hint": "English: it",
+          "english": "The child is crying — give it the ball!"
         }
       ],
       "helpMemoryIntro": "When a pronoun is the receiver (the indirect object), it takes its dative form. These come up constantly with verbs like helfen, danken, gefallen and geben.",
@@ -48541,6 +48974,38 @@
             "It was too hot.",
             "It rained.",
             "It was a holiday."
+          ]
+        },
+        {
+          "question": "Was hat die Familie am Samstag gemacht?",
+          "options": [
+            "eine Hafenrundfahrt",
+            "einen Zoobesuch",
+            "eine Radtour"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Am Samstag haben sie eine Hafenrundfahrt gemacht …\"",
+          "questionTranslation": "What did the family do on Saturday?",
+          "optionsTranslation": [
+            "a harbour boat tour",
+            "a zoo visit",
+            "a bike tour"
+          ]
+        },
+        {
+          "question": "Wie sind sie am Abend nach Hause gekommen?",
+          "options": [
+            "wütend und nass",
+            "müde, aber glücklich",
+            "hungrig und traurig"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… müde, aber glücklich nach Hause gekommen.\"",
+          "questionTranslation": "How did they come home in the evening?",
+          "optionsTranslation": [
+            "angry and wet",
+            "tired but happy",
+            "hungry and sad"
           ]
         }
       ]
@@ -48674,6 +49139,94 @@
           "kind": "example",
           "title": "Use them for description",
           "text": "\"Das Wetter __war__ schön und ich __hatte__ viel Zeit.\" Background and states love war/hatte."
+        }
+      ]
+    },
+    {
+      "id": "quest_a2_1_bigtext_wochenende",
+      "title": "A2.1 · Großer Text: Ein Wochenende bei Oma",
+      "storageKeyPrefix": "quest_a2_1_bigtext_wochenende_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "A2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Fill in the past. Two things at once: the Perfekt (pick haben or sein) and the dative article after mit, bei and nach. Read it once, then fill each gap.",
+      "helpMemoryTips": [
+        {
+          "kind": "mnemonic",
+          "title": "Movers & changers take sein",
+          "text": "Verbs of motion or change (fahren, gehen, kommen) build the Perfekt with sein; everything else (besuchen, essen, zeigen) uses haben."
+        },
+        {
+          "kind": "rule",
+          "title": "mit / bei / nach → Dativ",
+          "text": "These always take the dative: der→dem, die→der, das→dem. So mit dem Bus, bei der Oma, nach dem Essen."
+        },
+        {
+          "kind": "warning",
+          "title": "war = the simple past of sein",
+          "text": "sein and haben prefer the simple past even in speech: \"Es war schön\", not \"Es ist schön gewesen\"."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Ein Wochenende bei Oma",
+      "readingPassage": "Letztes Wochenende habe ich meine Oma besucht. Ich bin mit dem Bus gefahren. Bei der Oma habe ich Kuchen gegessen. Sie hat mir viele Fotos gezeigt. Nach dem Essen sind wir im Park spazieren gegangen. Am Abend bin ich nach Hause gekommen. Es war ein schöner Tag.",
+      "readingPassageTranslation": "Last weekend I visited my grandma. I went by bus. At grandma's I ate cake. She showed me lots of photos. After the meal we went for a walk in the park. In the evening I came home. It was a lovely day.",
+      "inlineTemplate": "Letztes Wochenende {{0}} ich meine Oma besucht. Ich {{1}} mit {{2}} Bus gefahren. Bei {{3}} Oma {{4}} ich Kuchen gegessen. Sie {{5}} mir viele Fotos gezeigt. Nach {{6}} Essen {{7}} wir im Park spazieren gegangen. Am Abend {{8}} ich nach Hause gekommen. Es {{9}} ein schöner Tag.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "habe",
+          "hint": "haben/sein? · besuchen"
+        },
+        {
+          "kind": "input",
+          "answer": "bin",
+          "hint": "haben/sein? · fahren (Bewegung)"
+        },
+        {
+          "kind": "input",
+          "answer": "dem",
+          "hint": "mit + Dativ · der Bus"
+        },
+        {
+          "kind": "input",
+          "answer": "der",
+          "hint": "bei + Dativ · die Oma"
+        },
+        {
+          "kind": "input",
+          "answer": "habe",
+          "hint": "haben/sein? · essen"
+        },
+        {
+          "kind": "input",
+          "answer": "hat",
+          "hint": "haben/sein? · zeigen"
+        },
+        {
+          "kind": "input",
+          "answer": "dem",
+          "hint": "nach + Dativ · das Essen"
+        },
+        {
+          "kind": "input",
+          "answer": "sind",
+          "hint": "haben/sein? · gehen (Bewegung)"
+        },
+        {
+          "kind": "input",
+          "answer": "bin",
+          "hint": "haben/sein? · kommen (Bewegung)"
+        },
+        {
+          "kind": "input",
+          "answer": "war",
+          "hint": "sein im Präteritum"
         }
       ]
     },
@@ -48956,6 +49509,22 @@
         {
           "key": "s5",
           "display": "gern → lieber"
+        },
+        {
+          "key": "s6",
+          "display": "langsam"
+        },
+        {
+          "key": "s7",
+          "display": "kurz"
+        },
+        {
+          "key": "s8",
+          "display": "jung"
+        },
+        {
+          "key": "s9",
+          "display": "viel → mehr"
         }
       ],
       "categories": [
@@ -48968,7 +49537,11 @@
             "größer",
             "wärmer",
             "besser",
-            "lieber"
+            "lieber",
+            "langsamer",
+            "kürzer",
+            "jünger",
+            "mehr"
           ]
         }
       ],
@@ -49026,6 +49599,42 @@
             "lieber"
           ],
           "english": "I prefer tea to coffee."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Komparativ",
+          "sentence": "Ein Fahrrad ist ____ als ein Auto. (langsam)",
+          "acceptedAnswers": [
+            "langsamer"
+          ],
+          "english": "A bike is slower than a car."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Komparativ",
+          "sentence": "Im Winter sind die Tage ____ als im Sommer. (kurz)",
+          "acceptedAnswers": [
+            "kürzer"
+          ],
+          "english": "In winter the days are shorter than in summer."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Komparativ",
+          "sentence": "Meine Schwester ist ____ als ich. (jung)",
+          "acceptedAnswers": [
+            "jünger"
+          ],
+          "english": "My sister is younger than me."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Komparativ",
+          "sentence": "Ich esse ____ Obst als Süßigkeiten. (viel → mehr)",
+          "acceptedAnswers": [
+            "mehr"
+          ],
+          "english": "I eat more fruit than sweets."
         }
       ],
       "helpMemoryIntro": "To compare two things, add **-er** to the adjective and join with **als** (than). Many short adjectives also take an umlaut.",
@@ -49117,6 +49726,38 @@
             "an umbrella",
             "a scarf"
           ]
+        },
+        {
+          "question": "Woher kommt am Abend der Wind?",
+          "options": [
+            "aus dem Osten",
+            "aus dem Westen",
+            "aus dem Süden"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Abend kommt Wind aus dem Westen.\"",
+          "questionTranslation": "Where does the wind come from in the evening?",
+          "optionsTranslation": [
+            "from the east",
+            "from the west",
+            "from the south"
+          ]
+        },
+        {
+          "question": "Wo scheint am Nachmittag die Sonne?",
+          "options": [
+            "im Norden",
+            "im Süden",
+            "im Westen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Nachmittag scheint im Süden die Sonne …\"",
+          "questionTranslation": "Where does the sun shine in the afternoon?",
+          "optionsTranslation": [
+            "in the north",
+            "in the south",
+            "in the west"
+          ]
         }
       ]
     },
@@ -49194,6 +49835,38 @@
             "boring",
             "too expensive",
             "she really likes it"
+          ]
+        },
+        {
+          "question": "Was hat Emma am Dienstag gemacht?",
+          "options": [
+            "neue Leute kennengelernt",
+            "ein Fahrrad gekauft",
+            "die Eltern besucht"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… und hat neue Leute kennengelernt.\"",
+          "questionTranslation": "What did Emma do on Tuesday?",
+          "optionsTranslation": [
+            "met new people",
+            "bought a bike",
+            "visited her parents"
+          ]
+        },
+        {
+          "question": "Wie ist Emma am Wochenende durch die Stadt gefahren?",
+          "options": [
+            "mit dem Bus",
+            "mit dem Fahrrad",
+            "zu Fuß"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… ist sie mit dem Fahrrad durch die Stadt gefahren.\"",
+          "questionTranslation": "How did Emma travel through the city at the weekend?",
+          "optionsTranslation": [
+            "by bus",
+            "by bike",
+            "on foot"
           ]
         }
       ]
@@ -49431,6 +50104,84 @@
           "kind": "example",
           "title": "stellen/legen/hängen (action) vs stehen/liegen/hängen (state)",
           "text": "\"Ich lege das Buch __auf den__ Tisch\" (wohin? Akk) vs \"Das Buch liegt __auf dem__ Tisch\" (wo? Dat)."
+        }
+      ]
+    },
+    {
+      "id": "quest_a2_2_bigtext_zimmer",
+      "title": "A2.2 · Großer Text: Mein Zimmer",
+      "storageKeyPrefix": "quest_a2_2_bigtext_zimmer_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "A2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The nine two-way prepositions (an, auf, in, über, vor, neben …) take the DATIVE for a location (Wo?) and the ACCUSATIVE for a movement (Wohin?). Watch the verb: stehen/hängen/liegen = Wo?, legen/stellen/hängen(+obj) = Wohin?",
+      "helpMemoryTips": [
+        {
+          "kind": "mnemonic",
+          "title": "Movement → Akkusativ",
+          "text": "The cat sits ON the box (auf der Box, Dat) vs jumps ONTO the box (auf die Box, Akk). An arrow of movement points to the accusative."
+        },
+        {
+          "kind": "rule",
+          "title": "The verb gives it away",
+          "text": "stehen, liegen, hängen (be in a place) → Dativ. legen, stellen, setzen, hängen (put somewhere) → Akkusativ."
+        },
+        {
+          "kind": "warning",
+          "title": "Same preposition, two cases",
+          "text": "in/an/auf don’t pick a fixed case like für or mit — they switch, so you must read the sentence, not just the preposition."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Mein Zimmer",
+      "readingPassage": "Mein Zimmer ist klein. Das Bett steht an der Wand. Über dem Bett hängt ein Poster. Der Schreibtisch steht vor dem Fenster. Jetzt räume ich auf: Ich lege die Bücher auf das Regal. Ich hänge die Jacke in den Schrank. Ich stelle die Lampe auf den Tisch. Dann setze ich mich auf das Sofa und lege das Handy neben das Bett.",
+      "readingPassageTranslation": "My room is small. The bed stands against the wall. A poster hangs above the bed. The desk stands in front of the window. Now I tidy up: I put the books on the shelf. I hang the jacket in the wardrobe. I put the lamp on the table. Then I sit down on the sofa and put the phone next to the bed.",
+      "inlineTemplate": "Mein Zimmer ist klein. Das Bett steht an {{0}} Wand. Über {{1}} Bett hängt ein Poster. Der Schreibtisch steht vor {{2}} Fenster. Jetzt räume ich auf: Ich lege die Bücher auf {{3}} Regal. Ich hänge die Jacke in {{4}} Schrank. Ich stelle die Lampe auf {{5}} Tisch. Dann setze ich mich auf {{6}} Sofa und lege das Handy neben {{7}} Bett.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "der",
+          "hint": "Wo? → Dativ · die Wand"
+        },
+        {
+          "kind": "input",
+          "answer": "dem",
+          "hint": "Wo? → Dativ · das Bett"
+        },
+        {
+          "kind": "input",
+          "answer": "dem",
+          "hint": "Wo? → Dativ · das Fenster"
+        },
+        {
+          "kind": "input",
+          "answer": "das",
+          "hint": "Wohin? → Akk · das Regal"
+        },
+        {
+          "kind": "input",
+          "answer": "den",
+          "hint": "Wohin? → Akk · der Schrank"
+        },
+        {
+          "kind": "input",
+          "answer": "den",
+          "hint": "Wohin? → Akk · der Tisch"
+        },
+        {
+          "kind": "input",
+          "answer": "das",
+          "hint": "Wohin? → Akk · das Sofa"
+        },
+        {
+          "kind": "input",
+          "answer": "das",
+          "hint": "Wohin? → Akk · das Bett"
         }
       ]
     },
@@ -49786,6 +50537,38 @@
             "in front of the museum",
             "at the station"
           ]
+        },
+        {
+          "question": "An welchem Tag soll die Verabredung sein?",
+          "options": [
+            "am Freitag",
+            "am Samstag",
+            "am Sonntag"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hast du am Samstag Zeit? … Bis Samstag!\"",
+          "questionTranslation": "On which day should the meeting be?",
+          "optionsTranslation": [
+            "on Friday",
+            "on Saturday",
+            "on Sunday"
+          ]
+        },
+        {
+          "question": "Was wollen sie nach der Ausstellung machen?",
+          "options": [
+            "einen Kaffee trinken",
+            "essen gehen",
+            "ins Kino gehen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Danach trinken wir vielleicht einen Kaffee.\"",
+          "questionTranslation": "What do they want to do after the exhibition?",
+          "optionsTranslation": [
+            "have a coffee",
+            "go for a meal",
+            "go to the cinema"
+          ]
         }
       ],
       "voiceGender": "male"
@@ -50077,6 +50860,38 @@
             "do sport",
             "drink a lot and stay in bed",
             "go to hospital immediately"
+          ]
+        },
+        {
+          "question": "Wie lange hat er schon Kopfschmerzen?",
+          "options": [
+            "seit einem Tag",
+            "seit drei Tagen",
+            "seit einer Woche"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Er hat seit drei Tagen Kopfschmerzen und Fieber.\"",
+          "questionTranslation": "How long has he had a headache?",
+          "optionsTranslation": [
+            "for one day",
+            "for three days",
+            "for a week"
+          ]
+        },
+        {
+          "question": "Wo holt Herr Berger die Tabletten?",
+          "options": [
+            "im Supermarkt",
+            "in der Apotheke",
+            "beim Arzt"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"In der Apotheke holt er die Tabletten.\"",
+          "questionTranslation": "Where does Mr Berger pick up the tablets?",
+          "optionsTranslation": [
+            "at the supermarket",
+            "at the pharmacy",
+            "at the doctor"
           ]
         }
       ]
@@ -50481,6 +51296,38 @@
             "a party",
             "a trip"
           ]
+        },
+        {
+          "question": "In welchem Stock liegt die Wohnung?",
+          "options": [
+            "im zweiten Stock",
+            "im vierten Stock",
+            "im Erdgeschoss"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… weil sie im vierten Stock liegt.\"",
+          "questionTranslation": "On which floor is the flat?",
+          "optionsTranslation": [
+            "on the second floor",
+            "on the fourth floor",
+            "on the ground floor"
+          ]
+        },
+        {
+          "question": "Welches Zimmer findet Marie am schönsten?",
+          "options": [
+            "das Wohnzimmer",
+            "das Schlafzimmer",
+            "die Küche"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das Schlafzimmer ist am schönsten.\"",
+          "questionTranslation": "Which room does Marie find the nicest?",
+          "optionsTranslation": [
+            "the living room",
+            "the bedroom",
+            "the kitchen"
+          ]
         }
       ]
     },
@@ -50874,6 +51721,87 @@
       ]
     },
     {
+      "id": "quest_b1_1_bigtext_wohnung",
+      "title": "B1.1 · Großer Text: Meine neue Wohnung",
+      "storageKeyPrefix": "quest_b1_1_bigtext_wohnung_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "B1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Type each adjective with its ending. The ending depends on three things at once: the article type (der-word / ein-word / none), the gender, and the case. Read the noun phrase, decide, then write it.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "One strong signal",
+          "text": "If the article already shows the case (das, dem, den …), the adjective just takes -e or -en. With ein/eine or no article, the adjective itself carries the strong ending (-er/-es/-e)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Dative & plural → -en",
+          "text": "After a dative (dem/der) and in almost every plural, the ending is -en: auf dem bequemen Sofa, mit den netten Nachbarn."
+        },
+        {
+          "kind": "warning",
+          "title": "ein has no ending — so the adjective shows the gender",
+          "text": "ein __alter__ Baum (m), ein __schönes__ Bild (n): because ein looks the same, the adjective must reveal masculine (-er) vs neuter (-es)."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Meine neue Wohnung",
+      "readingPassage": "Ich habe eine neue Wohnung gefunden. Das große Zimmer hat ein großes Fenster. An der Wand hängt ein schönes Bild. Ich sitze gern auf dem bequemen Sofa. Vor dem Haus steht ein alter Baum. Ich habe nette Nachbarn. Am Abend trinke ich einen heißen Tee.",
+      "readingPassageTranslation": "I have found a new flat. The big room has a big window. A beautiful picture hangs on the wall. I like sitting on the comfortable sofa. In front of the house stands an old tree. I have nice neighbours. In the evening I drink a hot tea.",
+      "inlineTemplate": "Ich habe eine {{0}} Wohnung gefunden. Das {{1}} Zimmer hat ein {{2}} Fenster. An der Wand hängt ein {{3}} Bild. Ich sitze gern auf dem {{4}} Sofa. Vor dem Haus steht ein {{5}} Baum. Ich habe {{6}} Nachbarn. Am Abend trinke ich einen {{7}} Tee.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "neue",
+          "hint": "neu · eine … Wohnung (Akk, f)"
+        },
+        {
+          "kind": "input",
+          "answer": "große",
+          "hint": "groß · das … Zimmer (Nom, n)"
+        },
+        {
+          "kind": "input",
+          "answer": "großes",
+          "hint": "groß · ein … Fenster (Akk, n)"
+        },
+        {
+          "kind": "input",
+          "answer": "schönes",
+          "hint": "schön · ein … Bild (Nom, n)"
+        },
+        {
+          "kind": "input",
+          "answer": "bequemen",
+          "hint": "bequem · auf dem … Sofa (Dat, n)"
+        },
+        {
+          "kind": "input",
+          "answer": "alter",
+          "hint": "alt · ein … Baum (Nom, m)"
+        },
+        {
+          "kind": "input",
+          "answer": "nette",
+          "hint": "nett · … Nachbarn (Akk, Plural, kein Artikel)"
+        },
+        {
+          "kind": "input",
+          "answer": "heißen",
+          "accepted": [
+            "heissen"
+          ],
+          "hint": "heiß · einen … Tee (Akk, m)"
+        }
+      ]
+    },
+    {
       "id": "quest_b1_1_konj2_wuerde",
       "title": "B1.1 · Konjunktiv II: würde + Infinitiv",
       "storageKeyPrefix": "quest_b1_1_konj2_wuerde_",
@@ -51052,6 +51980,38 @@
             "the working hours",
             "the holidays"
           ]
+        },
+        {
+          "question": "Wie lange hat sie als Verkäuferin gearbeitet?",
+          "options": [
+            "ein Jahr",
+            "drei Jahre",
+            "fünf Jahre"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich habe drei Jahre als Verkäuferin gearbeitet …\"",
+          "questionTranslation": "How long did she work as a salesperson?",
+          "optionsTranslation": [
+            "one year",
+            "three years",
+            "five years"
+          ]
+        },
+        {
+          "question": "Welche Sprachen spricht Frau Wagner?",
+          "options": [
+            "Deutsch und Französisch",
+            "Deutsch und Englisch",
+            "nur Deutsch"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich spreche Deutsch und Englisch.\"",
+          "questionTranslation": "Which languages does Ms Wagner speak?",
+          "optionsTranslation": [
+            "German and French",
+            "German and English",
+            "only German"
+          ]
         }
       ]
     },
@@ -51083,6 +52043,22 @@
         {
           "key": "s4",
           "display": "ich wäre"
+        },
+        {
+          "key": "s5",
+          "display": "ich wäre"
+        },
+        {
+          "key": "s6",
+          "display": "ihr könntet"
+        },
+        {
+          "key": "s7",
+          "display": "ich möchte"
+        },
+        {
+          "key": "s8",
+          "display": "wir hätten"
         }
       ],
       "categories": [
@@ -51094,7 +52070,11 @@
             "wäre",
             "Könntest",
             "müssten",
-            "wäre"
+            "wäre",
+            "wäre",
+            "Könntet",
+            "möchte",
+            "hätten"
           ]
         }
       ],
@@ -51143,6 +52123,42 @@
             "wäre"
           ],
           "english": "In your place I would be glad."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "hätte/wäre/könnte",
+          "sentence": "Wenn ich reich ____, würde ich reisen. (sein)",
+          "acceptedAnswers": [
+            "wäre"
+          ],
+          "english": "If I were rich, I would travel."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "hätte/wäre/könnte",
+          "sentence": "____ ihr uns morgen besuchen? (können)",
+          "acceptedAnswers": [
+            "Könntet"
+          ],
+          "english": "Could you visit us tomorrow?"
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "hätte/wäre/könnte",
+          "sentence": "Ich ____ gern einen Kaffee. (mögen)",
+          "acceptedAnswers": [
+            "möchte"
+          ],
+          "english": "I would like a coffee."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "hätte/wäre/könnte",
+          "sentence": "Wir ____ gern ein größeres Auto. (haben)",
+          "acceptedAnswers": [
+            "hätten"
+          ],
+          "english": "We would like a bigger car."
         }
       ],
       "helpMemoryIntro": "A few very common verbs use their own one-word Konjunktiv II instead of würde: **hätte** (would have), **wäre** (would be), **könnte** (could), plus möchte and the modals.",
@@ -51233,6 +52249,38 @@
             "Everyone will work only at home.",
             "No one will go to the office anymore.",
             "Many will go to the office only a few days a week."
+          ]
+        },
+        {
+          "question": "Wie nennt man das Arbeiten von zu Hause?",
+          "options": [
+            "Homeoffice",
+            "Teilzeit",
+            "Freizeit"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Das nennt man Homeoffice.\"",
+          "questionTranslation": "What is working from home called?",
+          "optionsTranslation": [
+            "home office",
+            "part-time",
+            "free time"
+          ]
+        },
+        {
+          "question": "Was könnten die Angestellten im Homeoffice tun?",
+          "options": [
+            "morgens länger schlafen und flexibler arbeiten",
+            "mehr Urlaub nehmen",
+            "ein höheres Gehalt verlangen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Sie könnten morgens länger schlafen und flexibler arbeiten.\"",
+          "questionTranslation": "What could the employees do in the home office?",
+          "optionsTranslation": [
+            "sleep longer and work more flexibly",
+            "take more holiday",
+            "demand a higher salary"
           ]
         }
       ]
@@ -51839,6 +52887,38 @@
             "meet friends and play guitar",
             "go to the cinema"
           ]
+        },
+        {
+          "question": "Warum reist der ältere Mann nicht mehr?",
+          "options": [
+            "weil er wenig Geld hat",
+            "weil er keine Zeit hat",
+            "weil er krank ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… aber ich habe leider wenig Geld.\"",
+          "questionTranslation": "Why doesn’t the older man travel more?",
+          "optionsTranslation": [
+            "because he has little money",
+            "because he has no time",
+            "because he is ill"
+          ]
+        },
+        {
+          "question": "Wie viele Personen antworten in der Umfrage?",
+          "options": [
+            "zwei",
+            "drei",
+            "vier"
+          ],
+          "correctIndex": 1,
+          "explanation": "A young woman, an older man and a student — three answers.",
+          "questionTranslation": "How many people answer in the survey?",
+          "optionsTranslation": [
+            "two",
+            "three",
+            "four"
+          ]
         }
       ]
     },
@@ -51916,6 +52996,38 @@
             "It was too expensive.",
             "It was the best decision of their lives.",
             "They wouldn’t do it again."
+          ]
+        },
+        {
+          "question": "Was möchten viele Studenten machen?",
+          "options": [
+            "ein Semester im Ausland verbringen",
+            "sofort Geld verdienen",
+            "nie umziehen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Viele Studenten möchten ein Semester im Ausland verbringen.\"",
+          "questionTranslation": "What do many students want to do?",
+          "optionsTranslation": [
+            "spend a semester abroad",
+            "earn money right away",
+            "never move"
+          ]
+        },
+        {
+          "question": "Welche Schwierigkeit nennt der Text?",
+          "options": [
+            "Am Anfang ist alles fremd.",
+            "Das Studium ist zu leicht.",
+            "Es gibt keine Sprachkurse."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Am Anfang fühlt man sich oft allein, und alles ist fremd.\"",
+          "questionTranslation": "Which difficulty does the text mention?",
+          "optionsTranslation": [
+            "At first everything is foreign.",
+            "The studies are too easy.",
+            "There are no language courses."
           ]
         }
       ]
@@ -52238,6 +53350,97 @@
       ]
     },
     {
+      "id": "quest_b1_2_bigtext_ritter",
+      "title": "B1.2 · Großer Text: Der kleine Ritter",
+      "storageKeyPrefix": "quest_b1_2_bigtext_ritter_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "B1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Tell the story in the Präteritum, the past you meet in books and reports. Weak verbs add -te (wohnte); strong verbs change the stem vowel (kommen → kam, nehmen → nahm). Read the sentence, then write the form.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Weak vs strong",
+          "text": "Weak: stem + -te (wohnen → wohnte, kämpfen → kämpfte). Strong: new stem vowel, no -te (kommen → kam, sprechen → sprach, reiten → ritt)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "\"Es war einmal …\"",
+          "text": "Every German fairy tale opens with the Präteritum of sein. war, hatte, wurde are the three you will reach for most."
+        },
+        {
+          "kind": "warning",
+          "title": "Plurals still change",
+          "text": "Präteritum takes endings too: er war → sie waren, er hatte → sie hatten, er wurde → sie wurden."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Der kleine Ritter",
+      "readingPassage": "Es war einmal ein kleiner Ritter. Er wohnte in einem alten Schloss. Eines Tages kam ein Drache ins Dorf. Die Menschen hatten große Angst. Der Ritter nahm sein Pferd und ritt zum Drachen. Er kämpfte nicht, sondern sprach freundlich mit dem Drachen. Am Ende wurden sie Freunde. Alle waren glücklich.",
+      "readingPassageTranslation": "Once upon a time there was a little knight. He lived in an old castle. One day a dragon came into the village. The people were very afraid. The knight took his horse and rode to the dragon. He did not fight, but spoke kindly with the dragon. In the end they became friends. Everyone was happy.",
+      "inlineTemplate": "Es {{0}} einmal ein kleiner Ritter. Er {{1}} in einem alten Schloss. Eines Tages {{2}} ein Drache ins Dorf. Die Menschen {{3}} große Angst. Der Ritter {{4}} sein Pferd und {{5}} zum Drachen. Er {{6}} nicht, sondern {{7}} freundlich mit dem Drachen. Am Ende {{8}} sie Freunde. Alle {{9}} glücklich.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "war",
+          "hint": "sein → Präteritum"
+        },
+        {
+          "kind": "input",
+          "answer": "wohnte",
+          "hint": "wohnen (schwach)"
+        },
+        {
+          "kind": "input",
+          "answer": "kam",
+          "hint": "kommen (stark)"
+        },
+        {
+          "kind": "input",
+          "answer": "hatten",
+          "hint": "haben (Plural)"
+        },
+        {
+          "kind": "input",
+          "answer": "nahm",
+          "hint": "nehmen (stark)"
+        },
+        {
+          "kind": "input",
+          "answer": "ritt",
+          "hint": "reiten (stark)"
+        },
+        {
+          "kind": "input",
+          "answer": "kämpfte",
+          "accepted": [
+            "kaempfte"
+          ],
+          "hint": "kämpfen (schwach)"
+        },
+        {
+          "kind": "input",
+          "answer": "sprach",
+          "hint": "sprechen (stark)"
+        },
+        {
+          "kind": "input",
+          "answer": "wurden",
+          "hint": "werden (stark, Plural)"
+        },
+        {
+          "kind": "input",
+          "answer": "waren",
+          "hint": "sein (Plural)"
+        }
+      ]
+    },
+    {
       "id": "quest_b1_2_sprechen_geschichte",
       "title": "B1.2 · Sprechen: Eine Geschichte erzählen",
       "storageKeyPrefix": "quest_b1_2_sprechen_geschichte_",
@@ -52471,6 +53674,38 @@
             "to Munich",
             "to Frankfurt",
             "to Hamburg"
+          ]
+        },
+        {
+          "question": "Was sollen die Reisenden beachten?",
+          "options": [
+            "die Anzeigetafeln",
+            "den Fahrplan im Zug",
+            "die Ansage im Bus"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Bitte beachten Sie die … Information auf den Anzeigetafeln.\"",
+          "questionTranslation": "What should the travellers note?",
+          "optionsTranslation": [
+            "the display boards",
+            "the timetable on the train",
+            "the announcement on the bus"
+          ]
+        },
+        {
+          "question": "Was wünscht die Durchsage den Reisenden?",
+          "options": [
+            "einen schönen Tag",
+            "eine gute Reise",
+            "viel Erfolg"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… wünschen Ihnen eine gute Reise.\"",
+          "questionTranslation": "What does the announcement wish the travellers?",
+          "optionsTranslation": [
+            "a nice day",
+            "a good journey",
+            "good luck"
           ]
         }
       ],
@@ -52757,6 +53992,38 @@
             "He no longer uses computers.",
             "He saves everything twice.",
             "He’s always late."
+          ]
+        },
+        {
+          "question": "Wo war die Präsentation gespeichert?",
+          "options": [
+            "auf der Festplatte",
+            "auf einem USB-Stick",
+            "in der Cloud"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Seine Präsentation war auf der Festplatte gespeichert …\"",
+          "questionTranslation": "Where was the presentation saved?",
+          "optionsTranslation": [
+            "on the hard drive",
+            "on a USB stick",
+            "in the cloud"
+          ]
+        },
+        {
+          "question": "Konnte der Vortrag am Ende beginnen?",
+          "options": [
+            "Ja, mit der Kopie vom USB-Stick.",
+            "Nein, er fiel aus.",
+            "Nein, er wurde verschoben."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die Datei wurde schnell geöffnet, und der Vortrag konnte doch noch beginnen.\"",
+          "questionTranslation": "Could the talk begin in the end?",
+          "optionsTranslation": [
+            "Yes, with the copy from the USB stick.",
+            "No, it was cancelled.",
+            "No, it was postponed."
           ]
         }
       ]
@@ -53155,6 +54422,38 @@
             "twenty minutes",
             "an hour"
           ]
+        },
+        {
+          "question": "Warum fühlen sich viele Menschen gestresst?",
+          "options": [
+            "weil sie zu viel arbeiten und zu wenig schlafen",
+            "weil sie zu viel Sport machen",
+            "weil sie keine Hobbys haben"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… weil sie zu viel arbeiten und zu wenig schlafen.\"",
+          "questionTranslation": "Why do many people feel stressed?",
+          "optionsTranslation": [
+            "because they work too much and sleep too little",
+            "because they do too much sport",
+            "because they have no hobbies"
+          ]
+        },
+        {
+          "question": "Was passiert beim Sport laut Podcast?",
+          "options": [
+            "Stress wird abgebaut.",
+            "Man schläft schlechter.",
+            "Man wird hungrig."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… denn dabei wird Stress abgebaut.\"",
+          "questionTranslation": "What happens during sport according to the podcast?",
+          "optionsTranslation": [
+            "Stress is reduced.",
+            "You sleep worse.",
+            "You get hungry."
+          ]
         }
       ]
     },
@@ -53232,6 +54531,38 @@
             "Honesty is more important to him than money.",
             "He had enough money.",
             "The owner was too poor."
+          ]
+        },
+        {
+          "question": "Wie viel Geld war in der Brieftasche?",
+          "options": [
+            "dreißig Euro",
+            "dreihundert Euro",
+            "dreitausend Euro"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Darin waren dreihundert Euro und ein Ausweis.\"",
+          "questionTranslation": "How much money was in the wallet?",
+          "optionsTranslation": [
+            "thirty euros",
+            "three hundred euros",
+            "three thousand euros"
+          ]
+        },
+        {
+          "question": "Wie viel bot der Besitzer dem Jungen an?",
+          "options": [
+            "fünf Euro",
+            "fünfzig Euro",
+            "fünfhundert Euro"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Er bot dem Jungen fünfzig Euro an …\"",
+          "questionTranslation": "How much did the owner offer the boy?",
+          "optionsTranslation": [
+            "five euros",
+            "fifty euros",
+            "five hundred euros"
           ]
         }
       ]
@@ -53445,6 +54776,84 @@
         {
           "title": "Switch to Konjunktiv II if identical",
           "text": "If the Konj. I looks like the present (sie haben → sie haben), use Konj. II instead (sie hätten)."
+        }
+      ]
+    },
+    {
+      "id": "quest_b2_1_bigtext_presse",
+      "title": "B2.1 · Großer Text: Die Pressekonferenz",
+      "storageKeyPrefix": "quest_b2_1_bigtext_presse_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "B2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Report what was said. In indirect speech German shifts the verb to the Konjunktiv I: ist→sei, hat→habe, muss→müsse, wird→werde, gibt→gebe, kann→könne. It keeps the reporter neutral about whether it is true.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The Konjunktiv I endings",
+          "text": "Take the infinitive stem + -e/-est/-e/-en… : er sei, er habe, er müsse, er werde, er könne. sein is the odd one: ich sei, er sei."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "German backshifts the mood, not the tense",
+          "text": "English shifts tense (\"he said he WAS…\"); German keeps the tense but switches to Konjunktiv I (\"er sagte, er SEI…\")."
+        },
+        {
+          "kind": "warning",
+          "title": "When Konj. I looks like the present, use Konj. II",
+          "text": "In the plural (sie haben → sie hätten) the Konjunktiv I would look like the indicative, so German substitutes the Konjunktiv II."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Die Pressekonferenz",
+      "readingPassage": "Der Minister sagte, die Lage sei ernst, aber die Regierung habe einen Plan. Er betonte, das Land müsse mehr investieren. Ein Experte erklärte, die Zahl der Arbeitslosen werde bald sinken. Er fügte hinzu, es gebe keine schnelle Lösung. Die Ministerin sagte, sie werde mit den Bürgern sprechen. Sie meinte, jeder könne helfen. Am Ende sagte sie, sie sei optimistisch.",
+      "readingPassageTranslation": "The minister said the situation was serious, but the government had a plan. He stressed that the country had to invest more. An expert explained that the number of unemployed would soon fall. He added that there was no quick solution. The minister (she) said she would speak with the citizens. She said everyone could help. In the end she said she was optimistic.",
+      "inlineTemplate": "Der Minister sagte, die Lage {{0}} ernst, aber die Regierung {{1}} einen Plan. Er betonte, das Land {{2}} mehr investieren. Ein Experte erklärte, die Zahl der Arbeitslosen {{3}} bald sinken. Er fügte hinzu, es {{4}} keine schnelle Lösung. Die Ministerin sagte, sie {{5}} mit den Bürgern sprechen. Sie meinte, jeder {{6}} helfen. Am Ende sagte sie, sie {{7}} optimistisch.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "sei",
+          "hint": "sein → Konj. I · die Lage"
+        },
+        {
+          "kind": "input",
+          "answer": "habe",
+          "hint": "haben → Konj. I · die Regierung"
+        },
+        {
+          "kind": "input",
+          "answer": "müsse",
+          "hint": "müssen → Konj. I · das Land"
+        },
+        {
+          "kind": "input",
+          "answer": "werde",
+          "hint": "werden → Konj. I · die Zahl"
+        },
+        {
+          "kind": "input",
+          "answer": "gebe",
+          "hint": "geben → Konj. I · es …"
+        },
+        {
+          "kind": "input",
+          "answer": "werde",
+          "hint": "werden → Konj. I · sie"
+        },
+        {
+          "kind": "input",
+          "answer": "könne",
+          "hint": "können → Konj. I · jeder"
+        },
+        {
+          "kind": "input",
+          "answer": "sei",
+          "hint": "sein → Konj. I · sie"
         }
       ]
     },
@@ -53786,6 +55195,38 @@
             "that nothing will change",
             "that the opponents are right"
           ]
+        },
+        {
+          "question": "Womit argumentieren die Befürworter?",
+          "options": [
+            "die Luft werde sauberer und die Straßen sicherer",
+            "die Mieten würden sinken",
+            "die Stadt werde reicher"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… die Luft sauberer werde und die Straßen sicherer seien.\"",
+          "questionTranslation": "What do the supporters argue with?",
+          "optionsTranslation": [
+            "the air would be cleaner and the streets safer",
+            "rents would fall",
+            "the city would get richer"
+          ]
+        },
+        {
+          "question": "Was fordert die Sprecherin zuerst?",
+          "options": [
+            "den öffentlichen Verkehr verbessern",
+            "die Steuern senken",
+            "mehr Parkhäuser bauen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… man müsse den öffentlichen Verkehr zuerst verbessern.\"",
+          "questionTranslation": "What does the spokeswoman demand first?",
+          "optionsTranslation": [
+            "improve public transport",
+            "lower taxes",
+            "build more car parks"
+          ]
         }
       ]
     },
@@ -53921,6 +55362,18 @@
         {
           "key": "s4",
           "display": "die blühenden Blumen"
+        },
+        {
+          "key": "s5",
+          "display": "der ankommende Zug"
+        },
+        {
+          "key": "s6",
+          "display": "ein gebügeltes Hemd"
+        },
+        {
+          "key": "s7",
+          "display": "die spielenden Kinder"
         }
       ],
       "categories": [
@@ -53932,7 +55385,10 @@
             "untergehende",
             "gekochtes",
             "geschriebenes",
-            "blühenden"
+            "blühenden",
+            "ankommende",
+            "gebügeltes",
+            "spielenden"
           ]
         }
       ],
@@ -53981,6 +55437,33 @@
             "blühenden"
           ],
           "english": "The blooming flowers are beautiful."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Partizip-Adjektiv",
+          "sentence": "Der ____ Zug hatte Verspätung. (ankommen → Partizip I)",
+          "acceptedAnswers": [
+            "ankommende"
+          ],
+          "english": "The arriving train was late."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Partizip-Adjektiv",
+          "sentence": "Ich trage ein frisch ____ Hemd. (bügeln → Partizip II)",
+          "acceptedAnswers": [
+            "gebügeltes"
+          ],
+          "english": "I wear a freshly ironed shirt."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Partizip-Adjektiv",
+          "sentence": "Die ____ Kinder waren laut. (spielen → Partizip I)",
+          "acceptedAnswers": [
+            "spielenden"
+          ],
+          "english": "The playing children were loud."
         }
       ],
       "helpMemoryIntro": "Participles can work as adjectives (with endings). **Partizip I** (-end) is active/ongoing: \"das __spielende__ Kind\". **Partizip II** is passive/finished: \"das __gekochte__ Ei\".",
@@ -54071,6 +55554,38 @@
             "the workplace",
             "a clear arrangement of working hours",
             "a good computer"
+          ]
+        },
+        {
+          "question": "Wie wird Homeoffice oft dargestellt?",
+          "options": [
+            "als ideale Lösung",
+            "als teurer Fehler",
+            "als altmodisch"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Das Arbeiten von zu Hause wird oft als ideale Lösung dargestellt.\"",
+          "questionTranslation": "How is home office often presented?",
+          "optionsTranslation": [
+            "as the ideal solution",
+            "as an expensive mistake",
+            "as old-fashioned"
+          ]
+        },
+        {
+          "question": "Was passiert mit Menschen, die ständig erreichbar sind?",
+          "options": [
+            "Sie arbeiten am Ende mehr.",
+            "Sie verdienen mehr Geld.",
+            "Sie haben mehr Freizeit."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Wer ständig erreichbar sei, arbeite am Ende mehr, nicht weniger.\"",
+          "questionTranslation": "What happens to people who are constantly reachable?",
+          "optionsTranslation": [
+            "They end up working more.",
+            "They earn more money.",
+            "They have more free time."
           ]
         }
       ]
@@ -54414,6 +55929,38 @@
             "the business sector",
             "the pupils"
           ]
+        },
+        {
+          "question": "Was ist laut Sprecher das Ziel des Gesetzes?",
+          "options": [
+            "weniger Autos in den Städten",
+            "mehr Parkplätze bauen",
+            "billigeres Benzin"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… das Ziel sei, weniger Autos in den Städten zu haben.\"",
+          "questionTranslation": "What, according to the spokesperson, is the goal of the law?",
+          "optionsTranslation": [
+            "fewer cars in the cities",
+            "to build more car parks",
+            "cheaper petrol"
+          ]
+        },
+        {
+          "question": "Wie reagieren die Umweltverbände?",
+          "options": [
+            "Sie begrüßen den Plan.",
+            "Sie lehnen ihn ab.",
+            "Sie fordern höhere Preise."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Umweltverbände begrüßen den Plan …\"",
+          "questionTranslation": "How do the environmental groups react?",
+          "optionsTranslation": [
+            "They welcome the plan.",
+            "They reject it.",
+            "They demand higher prices."
+          ]
         }
       ],
       "voiceGender": "male"
@@ -54548,6 +56095,38 @@
             "to think more about the residents",
             "to demolish the car park",
             "to lower the rents"
+          ]
+        },
+        {
+          "question": "Was ist dort gebaut worden, wo früher ein Park war?",
+          "options": [
+            "ein Parkhaus",
+            "ein Spielplatz",
+            "ein Krankenhaus"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Wo früher ein Park war, ist ein Parkhaus gebaut worden.\"",
+          "questionTranslation": "What has been built where a park used to be?",
+          "optionsTranslation": [
+            "a multi-storey car park",
+            "a playground",
+            "a hospital"
+          ]
+        },
+        {
+          "question": "Wer hat den Leserbrief geschrieben?",
+          "options": [
+            "ein langjähriger Bewohner",
+            "der Bürgermeister",
+            "ein Journalist"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Als langjähriger Bewohner möchte ich … einen Punkt ergänzen …\"",
+          "questionTranslation": "Who wrote the reader’s letter?",
+          "optionsTranslation": [
+            "a long-time resident",
+            "the mayor",
+            "a journalist"
           ]
         }
       ]
@@ -54869,6 +56448,96 @@
       ]
     },
     {
+      "id": "quest_b2_2_bigtext_chancen",
+      "title": "B2.2 · Großer Text: Verpasste Chancen",
+      "storageKeyPrefix": "quest_b2_2_bigtext_chancen_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "B2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Regret the past. The irreal past is built from hätte or wäre + the Partizip II: \"Wenn ich mehr gelernt hätte, hätte ich bestanden.\" Choose hätte or wäre exactly as the Perfekt would (movers/changers → wäre).",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "hätte / wäre + Partizip II",
+          "text": "Same auxiliary split as the Perfekt: haben-verbs → hätte … gelernt; sein-verbs (gehen, bleiben, sein) → wäre … gegangen."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Drop wenn, move the verb up",
+          "text": "\"Wenn ich … gehabt hätte\" = \"Hätte ich … gehabt\". Starting with the conjugated hätte/wäre replaces wenn — very common in speech."
+        },
+        {
+          "kind": "warning",
+          "title": "Two participles can stack",
+          "text": "With a modal it becomes a double infinitive: \"Ich hätte lernen müssen\" — but the plain regret here is just aux + one Partizip II."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Verpasste Chancen",
+      "readingPassage": "Gestern hatte ich eine wichtige Prüfung, und leider habe ich sie nicht bestanden. Wenn ich mehr gelernt hätte, hätte ich sie bestanden. Wenn ich am Abend früher ins Bett gegangen wäre, wäre ich nicht so müde gewesen. Ich hätte mich besser vorbereitet, wenn ich weniger Zeit am Handy verbracht hätte. Hätte mir mein Freund geholfen, wäre ich ruhiger geblieben. Ach, hätte ich nur mehr geübt! Und hätte ich am Morgen nicht den Bus verpasst, wäre ich pünktlich gewesen.",
+      "readingPassageTranslation": "Yesterday I had an important exam, and unfortunately I didn’t pass it. If I had studied more, I would have passed it. If I had gone to bed earlier in the evening, I wouldn’t have been so tired. I would have prepared better if I had spent less time on my phone. If my friend had helped me, I would have stayed calmer. Oh, if only I had practised more! And if I hadn’t missed the bus in the morning, I would have been on time.",
+      "inlineTemplate": "Gestern hatte ich eine wichtige Prüfung, und leider habe ich sie nicht bestanden. Wenn ich mehr {{0}} hätte, hätte ich sie bestanden. Wenn ich am Abend früher ins Bett {{1}} wäre, {{2}} ich nicht so müde gewesen. Ich hätte mich besser vorbereitet, wenn ich weniger Zeit am Handy {{3}} hätte. Hätte mir mein Freund {{4}}, wäre ich ruhiger geblieben. Ach, {{5}} ich nur mehr geübt! Und {{6}} ich am Morgen nicht den Bus verpasst, {{7}} ich pünktlich gewesen.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "gelernt",
+          "hint": "lernen → Partizip II"
+        },
+        {
+          "kind": "input",
+          "answer": "gegangen",
+          "hint": "gehen → Partizip II (Bewegung)"
+        },
+        {
+          "kind": "input",
+          "answer": "wäre",
+          "accepted": [
+            "waere"
+          ],
+          "hint": "sein als Hilfsverb"
+        },
+        {
+          "kind": "input",
+          "answer": "verbracht",
+          "hint": "verbringen → Partizip II"
+        },
+        {
+          "kind": "input",
+          "answer": "geholfen",
+          "hint": "helfen → Partizip II"
+        },
+        {
+          "kind": "input",
+          "answer": "hätte",
+          "accepted": [
+            "haette"
+          ],
+          "hint": "haben als Hilfsverb"
+        },
+        {
+          "kind": "input",
+          "answer": "hätte",
+          "accepted": [
+            "haette"
+          ],
+          "hint": "haben als Hilfsverb"
+        },
+        {
+          "kind": "input",
+          "answer": "wäre",
+          "accepted": [
+            "waere"
+          ],
+          "hint": "sein als Hilfsverb"
+        }
+      ]
+    },
+    {
       "id": "quest_b2_2_sprechen_hypothese",
       "title": "B2.2 · Sprechen: Hypothesen & Bedauern",
       "storageKeyPrefix": "quest_b2_2_sprechen_hypothese_",
@@ -55101,6 +56770,38 @@
             "more coffee",
             "a fixed routine",
             "less sport"
+          ]
+        },
+        {
+          "question": "Was riskiert, wer dauerhaft zu wenig schläft?",
+          "options": [
+            "gesundheitliche Probleme",
+            "einen schlechten Job",
+            "weniger Freizeit"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Wer dauerhaft weniger schläft, riskiert gesundheitliche Probleme.\"",
+          "questionTranslation": "What does someone who permanently sleeps too little risk?",
+          "optionsTranslation": [
+            "health problems",
+            "a bad job",
+            "less free time"
+          ]
+        },
+        {
+          "question": "Worüber hält der Redner seinen Vortrag?",
+          "options": [
+            "über den Schlaf",
+            "über Ernährung",
+            "über Sport"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… willkommen zu meinem Vortrag über den Schlaf.\"",
+          "questionTranslation": "What is the speaker giving his talk about?",
+          "optionsTranslation": [
+            "about sleep",
+            "about nutrition",
+            "about sport"
           ]
         }
       ],
@@ -55386,6 +57087,38 @@
             "It is too late.",
             "It is never too late to start.",
             "Only politics can act."
+          ]
+        },
+        {
+          "question": "Wie trägt der Einzelne laut Text zum Klimaschutz bei?",
+          "options": [
+            "weniger Fleisch essen und öfter Rad fahren",
+            "mehr arbeiten",
+            "mehr fliegen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Wer weniger Fleisch isst, öfter das Rad nimmt … trägt zum Klimaschutz bei.\"",
+          "questionTranslation": "How does the individual contribute to climate protection, per the text?",
+          "optionsTranslation": [
+            "eat less meat and cycle more",
+            "work more",
+            "fly more"
+          ]
+        },
+        {
+          "question": "Was wäre laut Text heute anders, wenn alle früher gehandelt hätten?",
+          "options": [
+            "Die Lage wäre weniger dramatisch.",
+            "Es gäbe keine Politik mehr.",
+            "Alles wäre teurer."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Hätten alle Menschen ihren Energieverbrauch schon früher gesenkt, wäre die Lage heute weniger dramatisch.\"",
+          "questionTranslation": "What would be different today if everyone had acted earlier?",
+          "optionsTranslation": [
+            "The situation would be less dramatic.",
+            "There would be no politics anymore.",
+            "Everything would be more expensive."
           ]
         }
       ]
@@ -55728,6 +57461,38 @@
             "sport",
             "water"
           ]
+        },
+        {
+          "question": "Worauf kommt es bei Süßigkeiten laut Ärztin an?",
+          "options": [
+            "auf das Maß",
+            "auf den Preis",
+            "auf die Uhrzeit"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… entscheidend ist das Maß.\"",
+          "questionTranslation": "What matters with sweets, according to the doctor?",
+          "optionsTranslation": [
+            "on moderation",
+            "on the price",
+            "on the time of day"
+          ]
+        },
+        {
+          "question": "Was würde laut Ärztin gesünderes Essen fördern?",
+          "options": [
+            "weniger Stress",
+            "mehr Geld",
+            "mehr Termine"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Hätten die Menschen weniger Stress, würden sie … gesünder essen.\"",
+          "questionTranslation": "What would promote healthier eating, per the doctor?",
+          "optionsTranslation": [
+            "less stress",
+            "more money",
+            "more appointments"
+          ]
         }
       ]
     },
@@ -55861,6 +57626,38 @@
             "as disappointing",
             "as worth reading",
             "as too short"
+          ]
+        },
+        {
+          "question": "Wie beurteilt der Rezensent den Anfang des Buches?",
+          "options": [
+            "etwas langsam",
+            "sehr spannend",
+            "zu brutal"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Zwar ist der Anfang etwas langsam, doch wer durchhält, wird belohnt.\"",
+          "questionTranslation": "How does the reviewer judge the start of the book?",
+          "optionsTranslation": [
+            "a little slow",
+            "very exciting",
+            "too brutal"
+          ]
+        },
+        {
+          "question": "Wie fand der Rezensent selbst die vielen Figuren?",
+          "options": [
+            "überzeugend",
+            "verwirrend",
+            "langweilig"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… ich jedoch fand gerade diese Vielfalt überzeugend.\"",
+          "questionTranslation": "How did the reviewer himself find the many characters?",
+          "optionsTranslation": [
+            "convincing",
+            "confusing",
+            "boring"
           ]
         }
       ]
@@ -56341,6 +58138,96 @@
       ]
     },
     {
+      "id": "quest_c1_1_bigtext_hinweise",
+      "title": "C1.1 · Großer Text: Hinweise zum neuen System",
+      "storageKeyPrefix": "quest_c1_1_bigtext_hinweise_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "C1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Formal German rarely leaves a plain \"werden\" passive standing. It prefers substitutes: sich lassen (lässt sich …), sein + zu + Infinitiv (ist zu …), and the -bar adjective (änderbar). Fill each with the right form.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Three ways to say \"can be done\"",
+          "text": "kann installiert werden = lässt sich installieren = ist installierbar. All three mean the same; the notice mixes them for style."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "sein + zu = müssen/können + Passiv",
+          "text": "\"ist zu melden\" = muss gemeldet werden (obligation); \"ist zu finden\" = kann gefunden werden (possibility). Context tells you which."
+        },
+        {
+          "kind": "warning",
+          "title": "-bar means \"-able\"",
+          "text": "machbar (doable), lesbar (legible), änderbar (changeable): the -bar adjective packs a whole \"can be …ed\" passive into one word."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Hinweise zum neuen System",
+      "readingPassage": "Liebe Kolleginnen und Kollegen, hier einige Hinweise zum neuen System. Das Programm lässt sich in wenigen Minuten installieren. Die Anleitung ist auf der Webseite zu finden. Alle technischen Probleme sind sofort dem Support zu melden. Das Passwort ist jederzeit änderbar. Das alte System lässt sich nicht mehr verwenden. Diese Regeln müssen von allen beachtet werden. Fehler sind unbedingt zu vermeiden. Wir danken für Ihr Verständnis.",
+      "readingPassageTranslation": "Dear colleagues, here are some notes on the new system. The programme can be installed in a few minutes. The instructions can be found on the website. All technical problems must be reported to support immediately. The password can be changed at any time. The old system can no longer be used. These rules must be observed by everyone. Errors are absolutely to be avoided. Thank you for your understanding.",
+      "inlineTemplate": "Liebe Kolleginnen und Kollegen, hier einige Hinweise zum neuen System. Das Programm {{0}} sich in wenigen Minuten installieren. Die Anleitung ist auf der Webseite zu {{1}}. Alle technischen Probleme sind sofort dem Support zu {{2}}. Das Passwort ist jederzeit {{3}}. Das alte System {{4}} sich nicht mehr verwenden. Diese Regeln {{5}} von allen beachtet werden. Fehler sind unbedingt zu {{6}}. Wir danken für Ihr {{7}}.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "lässt",
+          "accepted": [
+            "laesst"
+          ],
+          "hint": "sich lassen = kann … werden"
+        },
+        {
+          "kind": "input",
+          "answer": "finden",
+          "hint": "sein + zu … (= muss gefunden werden)"
+        },
+        {
+          "kind": "input",
+          "answer": "melden",
+          "hint": "sein + zu … (= müssen gemeldet werden)"
+        },
+        {
+          "kind": "input",
+          "answer": "änderbar",
+          "accepted": [
+            "aenderbar"
+          ],
+          "hint": "-bar = kann geändert werden (ändern)"
+        },
+        {
+          "kind": "input",
+          "answer": "lässt",
+          "accepted": [
+            "laesst"
+          ],
+          "hint": "sich lassen = kann … werden"
+        },
+        {
+          "kind": "input",
+          "answer": "müssen",
+          "hint": "Modalpassiv: … beachtet werden"
+        },
+        {
+          "kind": "input",
+          "answer": "vermeiden",
+          "hint": "sein + zu … (= müssen vermieden werden)"
+        },
+        {
+          "kind": "input",
+          "answer": "Verständnis",
+          "accepted": [
+            "Verstaendnis"
+          ],
+          "hint": "Nomen: danken für Ihr …"
+        }
+      ]
+    },
+    {
       "id": "quest_c1_1_hoeren_vorlesung",
       "title": "C1.1 · Hören: Vorlesung",
       "storageKeyPrefix": "quest_c1_1_hoeren_vorlesung_",
@@ -56414,6 +58301,38 @@
             "as clearly proven",
             "as hard to measure and controversial",
             "as completely unimportant"
+          ]
+        },
+        {
+          "question": "Was legen neuere Studien nahe?",
+          "options": [
+            "dass die Sprachstruktur unsere Wahrnehmung prägt",
+            "dass Sprache keine Rolle spielt",
+            "dass alle Sprachen gleich sind"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… dass die Struktur einer Sprache durchaus prägt, wie wir die Welt wahrnehmen.\"",
+          "questionTranslation": "What do newer studies suggest?",
+          "optionsTranslation": [
+            "that language structure shapes our perception",
+            "that language plays no role",
+            "that all languages are the same"
+          ]
+        },
+        {
+          "question": "Was kündigt der Redner für den zweiten Teil an?",
+          "options": [
+            "konkrete Beispiele",
+            "eine Prüfung",
+            "eine Pause"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Im zweiten Teil werden wir konkrete Beispiele betrachten.\"",
+          "questionTranslation": "What does the speaker announce for the second part?",
+          "optionsTranslation": [
+            "concrete examples",
+            "an exam",
+            "a break"
           ]
         }
       ],
@@ -57450,6 +59369,91 @@
       ]
     },
     {
+      "id": "quest_c1_2_bigtext_nachbar",
+      "title": "C1.2 · Großer Text: Der geheimnisvolle Nachbar",
+      "storageKeyPrefix": "quest_c1_2_bigtext_nachbar_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "C1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Modal verbs don’t only say ability or duty — subjectively they say how sure you are. muss = I’m certain, dürfte = likely, könnte = possible, soll = others say, will = he claims. Pick the modal that fits the clue.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "A scale of certainty",
+          "text": "muss (100%) → dürfte (≈80%) → könnte/mag (≈50%). soll and will are not about probability but about the source: soll = they say, will = he claims."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "soll vs will",
+          "text": "\"Er soll reich sein\" = others say he’s rich. \"Er will reich sein\" = he himself claims it. Same words as English \"shall/will\", opposite job."
+        },
+        {
+          "kind": "warning",
+          "title": "Inference about the past",
+          "text": "For a past guess, add the perfect infinitive: \"Er muss krank gewesen sein\", \"Er will Preise gewonnen haben\"."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Der geheimnisvolle Nachbar",
+      "readingPassage": "Im Haus gegenüber geht etwas Seltsames vor. Das Licht brennt die ganze Nacht — der Bewohner muss krank sein. Sein Auto fehlt; er könnte verreist sein. Die volle Mailbox zeigt: Er dürfte schon seit Tagen weg sein. Angeblich soll er ein berühmter Autor sein. Er selbst will viele Preise gewonnen haben. Sicher weiß das niemand, doch die Nachbarn könnten recht haben. Bald dürfte sich alles klären.",
+      "readingPassageTranslation": "Something strange is going on in the house across the street. The light burns all night — the resident must be ill. His car is missing; he might be away. The full voicemail shows: he has probably been away for days. He is supposedly a famous author. He himself claims to have won many prizes. No one knows for sure, but the neighbours could be right. Everything will probably become clear soon.",
+      "inlineTemplate": "Im Haus gegenüber geht etwas Seltsames vor. Das Licht brennt die ganze Nacht — der Bewohner {{0}} krank sein. Sein Auto fehlt; er {{1}} verreist sein. Die volle Mailbox zeigt: Er {{2}} schon seit Tagen weg sein. Angeblich {{3}} er ein berühmter Autor sein. Er selbst {{4}} viele Preise gewonnen haben. Sicher weiß das niemand, doch die Nachbarn {{5}} recht haben. Bald {{6}} sich alles klären.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "muss",
+          "hint": "muss = starke Vermutung (must be)"
+        },
+        {
+          "kind": "input",
+          "answer": "könnte",
+          "accepted": [
+            "koennte"
+          ],
+          "hint": "könnte = möglich (might)"
+        },
+        {
+          "kind": "input",
+          "answer": "dürfte",
+          "accepted": [
+            "duerfte"
+          ],
+          "hint": "dürfte = wahrscheinlich (probably)"
+        },
+        {
+          "kind": "input",
+          "answer": "soll",
+          "hint": "soll = Hörensagen (is said to)"
+        },
+        {
+          "kind": "input",
+          "answer": "will",
+          "hint": "will = Behauptung (claims to)"
+        },
+        {
+          "kind": "input",
+          "answer": "könnten",
+          "accepted": [
+            "koennten"
+          ],
+          "hint": "könnten = möglich (could)"
+        },
+        {
+          "kind": "input",
+          "answer": "dürfte",
+          "accepted": [
+            "duerfte"
+          ],
+          "hint": "dürfte = Vorhersage (probably will)"
+        }
+      ]
+    },
+    {
       "id": "quest_c1_2_wortbildung_vor",
       "title": "C1.2 · Wortbildung: Vorsilben",
       "storageKeyPrefix": "quest_c1_2_wortbildung_vor_",
@@ -57626,6 +59630,38 @@
             "There is a lack of helpers.",
             "There are too many helpers.",
             "Volunteering is banned."
+          ]
+        },
+        {
+          "question": "Was wird über die meisten Freiwilligen gesagt?",
+          "options": [
+            "Sie seien selbst einmal auf Hilfe angewiesen gewesen.",
+            "Sie seien alle sehr reich.",
+            "Sie kämen aus dem Ausland."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die meisten … seien selbst einmal auf Unterstützung angewiesen gewesen.\"",
+          "questionTranslation": "What is said about most of the volunteers?",
+          "optionsTranslation": [
+            "They were once dependent on help themselves.",
+            "They are all very rich.",
+            "They come from abroad."
+          ]
+        },
+        {
+          "question": "Was stärkt das Ehrenamt laut Experten außer der Gemeinschaft?",
+          "options": [
+            "das eigene Wohlbefinden",
+            "die Wirtschaft",
+            "die Politik"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… stärke nicht nur die Gemeinschaft, sondern auch das eigene Wohlbefinden.\"",
+          "questionTranslation": "Besides the community, what does volunteering strengthen, per experts?",
+          "optionsTranslation": [
+            "one’s own well-being",
+            "the economy",
+            "politics"
           ]
         }
       ]
@@ -58661,6 +60697,79 @@
       ]
     },
     {
+      "id": "quest_c2_1_bigtext_vorstand",
+      "title": "C2.1 · Großer Text: Aus der Vorstandssitzung",
+      "storageKeyPrefix": "quest_c2_1_bigtext_vorstand_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "C2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Funktionsverbgefüge are fixed pairings where the noun means everything and the verb is almost empty: eine Entscheidung TREFFEN, in Kraft TRETEN, Kritik ÜBEN. The wrong verb sounds instantly foreign — supply the right one.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Learn the pair, not the verb",
+          "text": "You cannot guess the verb from English: \"make a decision\" is eine Entscheidung TREFFEN (not machen); \"criticise\" is Kritik ÜBEN."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "They lift the register",
+          "text": "in Betracht ziehen = berücksichtigen, zum Ausdruck bringen = ausdrücken. The FVG is the formal, official-sounding twin."
+        },
+        {
+          "kind": "warning",
+          "title": "Fixed prepositions too",
+          "text": "The preposition is locked in: in Kraft, zur Verfügung, in Betracht. Change it and the collocation breaks."
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Aus der Vorstandssitzung",
+      "readingPassage": "Der Vorstand traf gestern eine wichtige Entscheidung. Die neuen Regeln treten nächsten Monat in Kraft. Kritiker üben scharfe Kritik an dem Plan. Man müsse, so heißt es, auch die Kosten in Betracht ziehen. Die Firma stellt den Mitarbeitern neue Software zur Verfügung. Der Sprecher bringt seine Bedenken deutlich zum Ausdruck. Künftig werde man auf die Umwelt mehr Rücksicht nehmen.",
+      "readingPassageTranslation": "The board made an important decision yesterday. The new rules come into force next month. Critics voice sharp criticism of the plan. One must, it is said, also take the costs into consideration. The company provides the employees with new software. The spokesperson clearly expresses his concerns. In future more consideration will be given to the environment.",
+      "inlineTemplate": "Der Vorstand {{0}} gestern eine wichtige Entscheidung. Die neuen Regeln {{1}} nächsten Monat in Kraft. Kritiker {{2}} scharfe Kritik an dem Plan. Man müsse, so heißt es, auch die Kosten in Betracht {{3}}. Die Firma {{4}} den Mitarbeitern neue Software zur Verfügung. Der Sprecher {{5}} seine Bedenken deutlich zum Ausdruck. Künftig werde man auf die Umwelt mehr Rücksicht {{6}}.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "traf",
+          "hint": "eine Entscheidung … (treffen, Prät.)"
+        },
+        {
+          "kind": "input",
+          "answer": "treten",
+          "hint": "in Kraft … (= come into force)"
+        },
+        {
+          "kind": "input",
+          "answer": "üben",
+          "hint": "Kritik … (= to criticise)"
+        },
+        {
+          "kind": "input",
+          "answer": "ziehen",
+          "hint": "in Betracht … (= to consider)"
+        },
+        {
+          "kind": "input",
+          "answer": "stellt",
+          "hint": "zur Verfügung … (= to provide)"
+        },
+        {
+          "kind": "input",
+          "answer": "bringt",
+          "hint": "zum Ausdruck … (= to express)"
+        },
+        {
+          "kind": "input",
+          "answer": "nehmen",
+          "hint": "Rücksicht … (= to show consideration)"
+        }
+      ]
+    },
+    {
       "id": "quest_c2_1_stilmittel",
       "title": "C2.1 · Stilmittel & Rhetorik",
       "storageKeyPrefix": "quest_c2_1_stilmittel_",
@@ -58837,6 +60946,38 @@
             "vulnerable and beautiful in a peculiar way",
             "loud and hectic",
             "grey and ugly"
+          ]
+        },
+        {
+          "question": "Wer ist in diesem Moment schon verschwunden?",
+          "options": [
+            "die letzten Nachtschwärmer",
+            "die ersten Bäcker",
+            "die Straßenkehrer"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die letzten Nachtschwärmer sind verschwunden …\"",
+          "questionTranslation": "Who has already disappeared at this moment?",
+          "optionsTranslation": [
+            "the last night owls",
+            "the first bakers",
+            "the street sweepers"
+          ]
+        },
+        {
+          "question": "Was scheint die Metropole in diesem Moment zu tun?",
+          "options": [
+            "den Atem anzuhalten",
+            "zu erwachen",
+            "zu explodieren"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… in dem selbst die rastlose Metropole den Atem anzuhalten scheint.\"",
+          "questionTranslation": "What does the metropolis seem to do at this moment?",
+          "optionsTranslation": [
+            "to hold its breath",
+            "to wake up",
+            "to explode"
           ]
         }
       ],
@@ -60048,6 +62189,38 @@
             "Our memories are absolutely reliable.",
             "Remembering is impossible."
           ]
+        },
+        {
+          "question": "Wie wurde das Gedächtnis früher metaphorisch beschrieben?",
+          "options": [
+            "wie ein Archiv",
+            "wie ein Fluss",
+            "wie ein Spiegel"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… stellte man sich das Gedächtnis wie ein Archiv vor …\"",
+          "questionTranslation": "How was memory formerly described metaphorically?",
+          "optionsTranslation": [
+            "like an archive",
+            "like a river",
+            "like a mirror"
+          ]
+        },
+        {
+          "question": "Als was beschreibt der Redner das Erinnern letztlich?",
+          "options": [
+            "als schöpferischen Akt",
+            "als reines Wiederfinden",
+            "als bloßen Zufall"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Erinnern wäre demnach … ein schöpferischer Akt …\"",
+          "questionTranslation": "What does the speaker ultimately describe remembering as?",
+          "optionsTranslation": [
+            "as a creative act",
+            "as pure retrieval",
+            "as mere chance"
+          ]
         }
       ]
     },
@@ -60332,6 +62505,90 @@
         {
           "title": "Impersonal & hedged",
           "text": "Academic style avoids \"ich\" and hedges claims: \"vermutlich\", \"tendenziell\", \"es ist anzunehmen\"."
+        }
+      ]
+    },
+    {
+      "id": "quest_c2_2_bigtext_lesen",
+      "title": "C2.2 · Großer Text: Zum Wert des Lesens",
+      "storageKeyPrefix": "quest_c2_2_bigtext_lesen_",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Deutsch",
+      "kind": "reading",
+      "level": "C2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The capstone cloze. This one paragraph asks for every C-band structure at once: reported Konjunktiv I, a passive substitute, a Funktionsverbgefüge, a genitive adjective ending, a subjective modal and an idiom. Read for the grammar behind each gap.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Six systems, one text",
+          "text": "verliere/seien = Konj. I; lässt sich = Passiversatz; nahelegen/Kritik üben = FVG; geschriebenen = Adjektivendung im Genitiv; dürfte = subjektiver Modal; hat ausgedient = Idiom."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "eines gut geschriebenen Buches",
+          "text": "Genitive, neuter, after ein-word → the adjective takes -en: eines gut geschrieben__en__ Buches. The dative/genitive default is -en."
+        },
+        {
+          "kind": "warning",
+          "title": "You’ve reached the top",
+          "text": "Complete this and you handle the full written system, from A1 articles to C2 register. Herzlichen Glückwunsch!"
+        }
+      ],
+      "readingCategory": "Lesen",
+      "readingTitle": "Zum Wert des Lesens",
+      "readingPassage": "Dass das Lesen in Zeiten des Internets an Bedeutung verliere, wird oft behauptet. Doch diese These lässt sich leicht widerlegen. Studien legen nahe, dass Leser konzentrierter und empathischer seien. Ein aufmerksamer Leser übt Kritik an allzu einfachen Antworten. Man sollte den Wert eines gut geschriebenen Buches nicht unterschätzen. Wer viel liest, dürfte über einen größeren Wortschatz verfügen. Kurz: Das Buch hat noch lange nicht ausgedient.",
+      "readingPassageTranslation": "It is often claimed that reading is losing importance in the age of the internet. But this thesis can easily be refuted. Studies suggest that readers are more focused and more empathetic. An attentive reader criticises overly simple answers. One should not underestimate the value of a well-written book. Anyone who reads a lot probably has a larger vocabulary. In short: the book is far from having had its day.",
+      "inlineTemplate": "Dass das Lesen in Zeiten des Internets an Bedeutung {{0}}, wird oft behauptet. Doch diese These {{1}} sich leicht widerlegen. Studien {{2}} nahe, dass Leser konzentrierter und empathischer {{3}}. Ein aufmerksamer Leser {{4}} Kritik an allzu einfachen Antworten. Man sollte den Wert eines gut {{5}} Buches nicht unterschätzen. Wer viel liest, {{6}} über einen größeren Wortschatz verfügen. Kurz: Das Buch {{7}} noch lange nicht ausgedient.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "verliere",
+          "hint": "verlieren → Konj. I (dass … verliere)"
+        },
+        {
+          "kind": "input",
+          "answer": "lässt",
+          "accepted": [
+            "laesst"
+          ],
+          "hint": "sich lassen (= kann widerlegt werden)"
+        },
+        {
+          "kind": "input",
+          "answer": "legen",
+          "hint": "nahe … (FVG: nahelegen = to suggest)"
+        },
+        {
+          "kind": "input",
+          "answer": "seien",
+          "hint": "sein → Konj. I, Plural (dass Leser … seien)"
+        },
+        {
+          "kind": "input",
+          "answer": "übt",
+          "hint": "Kritik … (FVG: üben = to criticise)"
+        },
+        {
+          "kind": "input",
+          "answer": "geschriebenen",
+          "hint": "schreiben → Adj-Endung, Genitiv, n (eines gut … Buches)"
+        },
+        {
+          "kind": "input",
+          "answer": "dürfte",
+          "accepted": [
+            "duerfte"
+          ],
+          "hint": "subjektiver Modal = wahrscheinlich"
+        },
+        {
+          "kind": "input",
+          "answer": "hat",
+          "hint": "Idiom: … ausgedient (has had its day)"
         }
       ]
     },

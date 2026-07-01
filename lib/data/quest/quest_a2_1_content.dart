@@ -328,6 +328,22 @@ final QuizContent questA21HoerenReiseContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"Das Wetter war sehr heiß."',
     ),
+    ReadingQuestion(
+      question: 'Wie lange hat die Reise gedauert?',
+      questionTranslation: 'How long did the journey take?',
+      options: ['zwei Stunden', 'acht Stunden', 'einen Tag'],
+      optionsTranslation: ['two hours', 'eight hours', 'a day'],
+      correctIndex: 1,
+      explanation: '"Die Reise hat acht Stunden gedauert."',
+    ),
+    ReadingQuestion(
+      question: 'Was haben sie jeden Abend gegessen?',
+      questionTranslation: 'What did they eat every evening?',
+      options: ['Pasta', 'Pizza', 'Salat'],
+      optionsTranslation: ['pasta', 'pizza', 'salad'],
+      correctIndex: 1,
+      explanation: '"… jeden Abend Pizza gegessen."',
+    ),
   ],
   intro: 'Listen to the travel story — it is read aloud, not shown. Listen for '
       'the means of transport, where she stayed and the weather. Replay as '
@@ -404,6 +420,21 @@ final QuizContent questA21PronomenDativContent = sentenceQuestQuiz(
         answer: 'Ihnen',
         english: 'How are you, Mr Müller?',
         gloss: 'you (formal)'),
+    QuestSentenceItem(
+        sentence: 'Ich danke ____ für die Hilfe. (you, plural)',
+        answer: 'euch',
+        english: 'I thank you (all) for the help.',
+        gloss: 'you (plural)'),
+    QuestSentenceItem(
+        sentence: 'Das Geschenk gefällt ____. (them)',
+        answer: 'ihnen',
+        english: 'They like the present.',
+        gloss: 'them'),
+    QuestSentenceItem(
+        sentence: 'Das Kind weint — gib ____ den Ball! (it)',
+        answer: 'ihm',
+        english: 'The child is crying — give it the ball!',
+        gloss: 'it'),
   ],
 );
 
@@ -450,6 +481,38 @@ final QuizContent questA21LesenHamburgContent = readingQuestQuiz(
       optionsTranslation: ['It was too hot.', 'It rained.', 'It was a holiday.'],
       correctIndex: 1,
       explanation: '"Am Sonntag hat es geregnet, deshalb …"',
+    ),
+    ReadingQuestion(
+      question: 'Was hat die Familie am Samstag gemacht?',
+      questionTranslation: 'What did the family do on Saturday?',
+      options: [
+        'eine Hafenrundfahrt',
+        'einen Zoobesuch',
+        'eine Radtour',
+      ],
+      optionsTranslation: [
+        'a harbour boat tour',
+        'a zoo visit',
+        'a bike tour',
+      ],
+      correctIndex: 0,
+      explanation: '"Am Samstag haben sie eine Hafenrundfahrt gemacht …"',
+    ),
+    ReadingQuestion(
+      question: 'Wie sind sie am Abend nach Hause gekommen?',
+      questionTranslation: 'How did they come home in the evening?',
+      options: [
+        'wütend und nass',
+        'müde, aber glücklich',
+        'hungrig und traurig',
+      ],
+      optionsTranslation: [
+        'angry and wet',
+        'tired but happy',
+        'hungry and sad',
+      ],
+      correctIndex: 1,
+      explanation: '"… müde, aber glücklich nach Hause gekommen."',
     ),
   ],
   intro: 'Read the weekend story, then answer. It uses the Perfekt throughout '
@@ -737,6 +800,26 @@ final QuizContent questA21KomparativContent = sentenceQuestQuiz(
         answer: 'lieber',
         english: 'I prefer tea to coffee.',
         gloss: 'gern → lieber'),
+    QuestSentenceItem(
+        sentence: 'Ein Fahrrad ist ____ als ein Auto. (langsam)',
+        answer: 'langsamer',
+        english: 'A bike is slower than a car.',
+        gloss: 'langsam'),
+    QuestSentenceItem(
+        sentence: 'Im Winter sind die Tage ____ als im Sommer. (kurz)',
+        answer: 'kürzer',
+        english: 'In winter the days are shorter than in summer.',
+        gloss: 'kurz'),
+    QuestSentenceItem(
+        sentence: 'Meine Schwester ist ____ als ich. (jung)',
+        answer: 'jünger',
+        english: 'My sister is younger than me.',
+        gloss: 'jung'),
+    QuestSentenceItem(
+        sentence: 'Ich esse ____ Obst als Süßigkeiten. (viel → mehr)',
+        answer: 'mehr',
+        english: 'I eat more fruit than sweets.',
+        gloss: 'viel → mehr'),
   ],
 );
 
@@ -780,6 +863,22 @@ final QuizContent questA21HoerenWetterContent = listeningQuestQuiz(
       optionsTranslation: ['sunglasses', 'an umbrella', 'a scarf'],
       correctIndex: 1,
       explanation: '"Nehmen Sie im Norden einen Regenschirm mit!"',
+    ),
+    ReadingQuestion(
+      question: 'Woher kommt am Abend der Wind?',
+      questionTranslation: 'Where does the wind come from in the evening?',
+      options: ['aus dem Osten', 'aus dem Westen', 'aus dem Süden'],
+      optionsTranslation: ['from the east', 'from the west', 'from the south'],
+      correctIndex: 1,
+      explanation: '"Am Abend kommt Wind aus dem Westen."',
+    ),
+    ReadingQuestion(
+      question: 'Wo scheint am Nachmittag die Sonne?',
+      questionTranslation: 'Where does the sun shine in the afternoon?',
+      options: ['im Norden', 'im Süden', 'im Westen'],
+      optionsTranslation: ['in the north', 'in the south', 'in the west'],
+      correctIndex: 1,
+      explanation: '"Am Nachmittag scheint im Süden die Sonne …"',
     ),
   ],
   intro: 'A weather report on the radio — you only hear it. Listen for north vs '
@@ -852,6 +951,30 @@ final QuizContent questA21LesenEmmaContent = readingQuestQuiz(
       correctIndex: 2,
       explanation: '"Jetzt gefällt ihr das Leben in München sehr."',
     ),
+    ReadingQuestion(
+      question: 'Was hat Emma am Dienstag gemacht?',
+      questionTranslation: 'What did Emma do on Tuesday?',
+      options: [
+        'neue Leute kennengelernt',
+        'ein Fahrrad gekauft',
+        'die Eltern besucht',
+      ],
+      optionsTranslation: [
+        'met new people',
+        'bought a bike',
+        'visited her parents',
+      ],
+      correctIndex: 0,
+      explanation: '"… und hat neue Leute kennengelernt."',
+    ),
+    ReadingQuestion(
+      question: 'Wie ist Emma am Wochenende durch die Stadt gefahren?',
+      questionTranslation: 'How did Emma travel through the city at the weekend?',
+      options: ['mit dem Bus', 'mit dem Fahrrad', 'zu Fuß'],
+      optionsTranslation: ['by bus', 'by bike', 'on foot'],
+      correctIndex: 1,
+      explanation: '"… ist sie mit dem Fahrrad durch die Stadt gefahren."',
+    ),
   ],
   intro: 'Emma is an English student in Munich — a character you will meet again '
       'in later readings. The text mixes Perfekt (hat gefunden) and war/hatte.',
@@ -871,6 +994,59 @@ final QuizContent questA21LesenEmmaContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Mein Wochenende bei Oma: the two A2.1 big rocks in
+/// one narration — the Perfekt (choosing haben vs sein) and the dative article
+/// after mit/bei/nach. Filling them inside a story keeps each choice fresh.
+final QuizContent questA21BigTextWochenendeContent = bigTextQuestQuiz(
+  id: 'quest_a2_1_bigtext_wochenende',
+  title: 'A2.1 · Großer Text: Ein Wochenende bei Oma',
+  passageTitle: 'Ein Wochenende bei Oma',
+  template:
+      'Letztes Wochenende {{0}} ich meine Oma besucht. Ich {{1}} mit {{2}} Bus '
+      'gefahren. Bei {{3}} Oma {{4}} ich Kuchen gegessen. Sie {{5}} mir viele '
+      'Fotos gezeigt. Nach {{6}} Essen {{7}} wir im Park spazieren gegangen. Am '
+      'Abend {{8}} ich nach Hause gekommen. Es {{9}} ein schöner Tag.',
+  blanks: [
+    inputBlank('habe', hint: 'haben/sein? · besuchen'),
+    inputBlank('bin', hint: 'haben/sein? · fahren (Bewegung)'),
+    inputBlank('dem', hint: 'mit + Dativ · der Bus'),
+    inputBlank('der', hint: 'bei + Dativ · die Oma'),
+    inputBlank('habe', hint: 'haben/sein? · essen'),
+    inputBlank('hat', hint: 'haben/sein? · zeigen'),
+    inputBlank('dem', hint: 'nach + Dativ · das Essen'),
+    inputBlank('sind', hint: 'haben/sein? · gehen (Bewegung)'),
+    inputBlank('bin', hint: 'haben/sein? · kommen (Bewegung)'),
+    inputBlank('war', hint: 'sein im Präteritum'),
+  ],
+  passageTranslation:
+      'Last weekend I visited my grandma. I went by bus. At grandma\'s I ate '
+      'cake. She showed me lots of photos. After the meal we went for a walk in '
+      'the park. In the evening I came home. It was a lovely day.',
+  intro: 'Fill in the past. Two things at once: the Perfekt (pick haben or sein) '
+      'and the dative article after mit, bei and nach. Read it once, then fill '
+      'each gap.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: 'Movers & changers take sein',
+      text: 'Verbs of motion or change (fahren, gehen, kommen) build the Perfekt '
+          'with sein; everything else (besuchen, essen, zeigen) uses haben.',
+    ),
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'mit / bei / nach → Dativ',
+      text: 'These always take the dative: der→dem, die→der, das→dem. So mit dem '
+          'Bus, bei der Oma, nach dem Essen.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'war = the simple past of sein',
+      text: 'sein and haben prefer the simple past even in speech: "Es war schön", '
+          'not "Es ist schön gewesen".',
+    ),
+  ],
+);
+
 /// Every A2.1 quiz, in chain order — knowledge interleaved with the four skill
 /// types (Sprechen, Hören, Lesen, Diktat), never more than two knowledge quizzes
 /// in a row.
@@ -884,6 +1060,7 @@ final List<QuizContent> questA2_1Content = [
   questA21PronomenDativContent, //    Pronomen im Dativ      (knowledge)
   questA21LesenHamburgContent, //     Lesen: Hamburg         (reading)
   questA21WarHatteContent, //         war & hatte            (knowledge·verb)
+  questA21BigTextWochenendeContent, // Großer Text: bei Oma  (reading·cloze)
   questA21WetterContent, //           Wetter & Jahreszeiten  (knowledge)
   questA21DiktatContent, //           Diktat: Im Perfekt     (dictation)
   questA21SprechenWegContent, //      Sprechen: Nach dem Weg (speaking)

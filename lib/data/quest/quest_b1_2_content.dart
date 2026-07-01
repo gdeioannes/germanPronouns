@@ -248,6 +248,30 @@ final QuizContent questB12HoerenDurchsageContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"… für die Reisenden nach Frankfurt."',
     ),
+    ReadingQuestion(
+      question: 'Was sollen die Reisenden beachten?',
+      questionTranslation: 'What should the travellers note?',
+      options: [
+        'die Anzeigetafeln',
+        'den Fahrplan im Zug',
+        'die Ansage im Bus',
+      ],
+      optionsTranslation: [
+        'the display boards',
+        'the timetable on the train',
+        'the announcement on the bus',
+      ],
+      correctIndex: 0,
+      explanation: '"Bitte beachten Sie die … Information auf den Anzeigetafeln."',
+    ),
+    ReadingQuestion(
+      question: 'Was wünscht die Durchsage den Reisenden?',
+      questionTranslation: 'What does the announcement wish the travellers?',
+      options: ['einen schönen Tag', 'eine gute Reise', 'viel Erfolg'],
+      optionsTranslation: ['a nice day', 'a good journey', 'good luck'],
+      correctIndex: 1,
+      explanation: '"… wünschen Ihnen eine gute Reise."',
+    ),
   ],
   intro: 'A station announcement — you only hear it. Listen for the delay, the '
       'platform change and the destination. Replay as needed.',
@@ -410,6 +434,31 @@ final QuizContent questB12LesenTechnikContent = readingQuestQuiz(
       ],
       correctIndex: 1,
       explanation: '"Seitdem speichert Herr Klein alles zweimal."',
+    ),
+    ReadingQuestion(
+      question: 'Wo war die Präsentation gespeichert?',
+      questionTranslation: 'Where was the presentation saved?',
+      options: ['auf der Festplatte', 'auf einem USB-Stick', 'in der Cloud'],
+      optionsTranslation: ['on the hard drive', 'on a USB stick', 'in the cloud'],
+      correctIndex: 0,
+      explanation: '"Seine Präsentation war auf der Festplatte gespeichert …"',
+    ),
+    ReadingQuestion(
+      question: 'Konnte der Vortrag am Ende beginnen?',
+      questionTranslation: 'Could the talk begin in the end?',
+      options: [
+        'Ja, mit der Kopie vom USB-Stick.',
+        'Nein, er fiel aus.',
+        'Nein, er wurde verschoben.',
+      ],
+      optionsTranslation: [
+        'Yes, with the copy from the USB stick.',
+        'No, it was cancelled.',
+        'No, it was postponed.',
+      ],
+      correctIndex: 0,
+      explanation: '"Die Datei wurde schnell geöffnet, und der Vortrag konnte '
+          'doch noch beginnen."',
     ),
   ],
   intro: 'A short anecdote in the Präteritum, with a passive (Die Datei wurde '
@@ -646,6 +695,38 @@ final QuizContent questB12HoerenPodcastContent = listeningQuestQuiz(
       correctIndex: 1,
       explanation: '"Schon zwanzig Minuten pro Tag …"',
     ),
+    ReadingQuestion(
+      question: 'Warum fühlen sich viele Menschen gestresst?',
+      questionTranslation: 'Why do many people feel stressed?',
+      options: [
+        'weil sie zu viel arbeiten und zu wenig schlafen',
+        'weil sie zu viel Sport machen',
+        'weil sie keine Hobbys haben',
+      ],
+      optionsTranslation: [
+        'because they work too much and sleep too little',
+        'because they do too much sport',
+        'because they have no hobbies',
+      ],
+      correctIndex: 0,
+      explanation: '"… weil sie zu viel arbeiten und zu wenig schlafen."',
+    ),
+    ReadingQuestion(
+      question: 'Was passiert beim Sport laut Podcast?',
+      questionTranslation: 'What happens during sport according to the podcast?',
+      options: [
+        'Stress wird abgebaut.',
+        'Man schläft schlechter.',
+        'Man wird hungrig.',
+      ],
+      optionsTranslation: [
+        'Stress is reduced.',
+        'You sleep worse.',
+        'You get hungry.',
+      ],
+      correctIndex: 0,
+      explanation: '"… denn dabei wird Stress abgebaut."',
+    ),
   ],
   intro: 'A short podcast clip — you only hear it. Listen for the topic, the tip '
       'and the number. Replay as needed.',
@@ -725,6 +806,22 @@ final QuizContent questB12LesenAnekdoteContent = readingQuestQuiz(
       correctIndex: 0,
       explanation: '"Ehrlichkeit ist wichtiger als Geld."',
     ),
+    ReadingQuestion(
+      question: 'Wie viel Geld war in der Brieftasche?',
+      questionTranslation: 'How much money was in the wallet?',
+      options: ['dreißig Euro', 'dreihundert Euro', 'dreitausend Euro'],
+      optionsTranslation: ['thirty euros', 'three hundred euros', 'three thousand euros'],
+      correctIndex: 1,
+      explanation: '"Darin waren dreihundert Euro und ein Ausweis."',
+    ),
+    ReadingQuestion(
+      question: 'Wie viel bot der Besitzer dem Jungen an?',
+      questionTranslation: 'How much did the owner offer the boy?',
+      options: ['fünf Euro', 'fünfzig Euro', 'fünfhundert Euro'],
+      optionsTranslation: ['five euros', 'fifty euros', 'five hundred euros'],
+      correctIndex: 1,
+      explanation: '"Er bot dem Jungen fünfzig Euro an …"',
+    ),
   ],
   intro: 'A true little story in the Präteritum, with a hint of Konjunktiv II '
       '(hätten … behalten) and the comparative (wichtiger als).',
@@ -744,11 +841,69 @@ final QuizContent questB12LesenAnekdoteContent = readingQuestQuiz(
   ],
 );
 
+/// Big text (inline cloze) — Der kleine Ritter: a fairy tale told in the
+/// Präteritum, the written/narrative past. It mixes weak (-te) and strong
+/// (vowel-change) forms in one flowing story, which is exactly how the narrative
+/// past is actually used — far more memorable than a form table.
+final QuizContent questB12BigTextRitterContent = bigTextQuestQuiz(
+  id: 'quest_b1_2_bigtext_ritter',
+  title: 'B1.2 · Großer Text: Der kleine Ritter',
+  passageTitle: 'Der kleine Ritter',
+  template:
+      'Es {{0}} einmal ein kleiner Ritter. Er {{1}} in einem alten Schloss. '
+      'Eines Tages {{2}} ein Drache ins Dorf. Die Menschen {{3}} große Angst. '
+      'Der Ritter {{4}} sein Pferd und {{5}} zum Drachen. Er {{6}} nicht, '
+      'sondern {{7}} freundlich mit dem Drachen. Am Ende {{8}} sie Freunde. '
+      'Alle {{9}} glücklich.',
+  blanks: [
+    inputBlank('war', hint: 'sein → Präteritum'),
+    inputBlank('wohnte', hint: 'wohnen (schwach)'),
+    inputBlank('kam', hint: 'kommen (stark)'),
+    inputBlank('hatten', hint: 'haben (Plural)'),
+    inputBlank('nahm', hint: 'nehmen (stark)'),
+    inputBlank('ritt', hint: 'reiten (stark)'),
+    inputBlank('kämpfte', accepted: const ['kaempfte'], hint: 'kämpfen (schwach)'),
+    inputBlank('sprach', hint: 'sprechen (stark)'),
+    inputBlank('wurden', hint: 'werden (stark, Plural)'),
+    inputBlank('waren', hint: 'sein (Plural)'),
+  ],
+  passageTranslation:
+      'Once upon a time there was a little knight. He lived in an old castle. '
+      'One day a dragon came into the village. The people were very afraid. The '
+      'knight took his horse and rode to the dragon. He did not fight, but spoke '
+      'kindly with the dragon. In the end they became friends. Everyone was '
+      'happy.',
+  intro: 'Tell the story in the Präteritum, the past you meet in books and '
+      'reports. Weak verbs add -te (wohnte); strong verbs change the stem vowel '
+      '(kommen → kam, nehmen → nahm). Read the sentence, then write the form.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Weak vs strong',
+      text: 'Weak: stem + -te (wohnen → wohnte, kämpfen → kämpfte). Strong: new '
+          'stem vowel, no -te (kommen → kam, sprechen → sprach, reiten → ritt).',
+    ),
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: '"Es war einmal …"',
+      text: 'Every German fairy tale opens with the Präteritum of sein. war, '
+          'hatte, wurde are the three you will reach for most.',
+    ),
+    HelpMemoryTip(
+      kind: 'warning',
+      title: 'Plurals still change',
+      text: 'Präteritum takes endings too: er war → sie waren, er hatte → sie '
+          'hatten, er wurde → sie wurden.',
+    ),
+  ],
+);
+
 /// Every B1.2 quiz, in chain order — all five exercise types, interleaved.
 final List<QuizContent> questB1_2Content = [
   questB12TechnikContent, //          Technik & Medien      (knowledge)
   questB12PraetRegContent, //         Präteritum: regelm.   (knowledge·verb)
   questB12PraetUnregContent, //       Präteritum: unregelm. (knowledge·verb)
+  questB12BigTextRitterContent, //    Großer Text: Ritter   (reading·cloze)
   questB12SprechenGeschichteContent, // Sprechen: Geschichte (speaking)
   questB12PassivContent, //           Passiv (Präsens)      (knowledge·verb)
   questB12HoerenDurchsageContent, //  Hören: Durchsage      (listening)
