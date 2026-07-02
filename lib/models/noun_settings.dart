@@ -29,7 +29,8 @@ class NounSettings {
   // share one source of truth (and map to the same future database columns).
   static const String _storageKey = SettingsKeys.disabledNouns;
   static const String _showEnglishKeyPrefix = SettingsKeys.showEnglishPrefix;
-  static const String _colorNounsKeyPrefix = SettingsKeys.colorNounsLegacyPrefix;
+  static const String _colorNounsKeyPrefix =
+      SettingsKeys.colorNounsLegacyPrefix;
   static const String _colorNounsKey = SettingsKeys.colorNouns;
   static const String _lastPageKey = SettingsKeys.lastPage;
   static const String _lastContentIdKey = SettingsKeys.lastContentId;
@@ -40,7 +41,8 @@ class NounSettings {
   static const String _answerRevealModeKey = SettingsKeys.answerRevealMode;
   static const String _progressionUnlockLapsKey =
       SettingsKeys.progressionUnlockLaps;
-  static const String _showFirstLetterHintKey = SettingsKeys.showFirstLetterHint;
+  static const String _showFirstLetterHintKey =
+      SettingsKeys.showFirstLetterHint;
   static const String _relaxedCorrectionKey = SettingsKeys.relaxedCorrection;
   static const String _seenRelaxedCorrectionHintKey =
       SettingsKeys.seenRelaxedCorrectionHint;
@@ -172,8 +174,7 @@ class NounSettings {
   /// the next quiz in the Quest (CEFR A-level) chain. Independent of the
   /// noun-category goal. User-configurable 1–100, defaults to
   /// [defaultQuestUnlockLaps].
-  int get questUnlockLaps =>
-      _questUnlockLapsOverride ?? _courseQuestUnlockLaps;
+  int get questUnlockLaps => _questUnlockLapsOverride ?? _courseQuestUnlockLaps;
 
   /// Total correct answers in a row needed to unlock the next Quest quiz
   /// ([questUnlockLaps] streaks of 5 correct answers each).
@@ -184,8 +185,7 @@ class NounSettings {
   /// next quiz in the Quest chain.
   Set<String> get completedQuestQuizzes => _completedQuestQuizzes;
 
-  bool isQuestQuizCompleted(String key) =>
-      _completedQuestQuizzes.contains(key);
+  bool isQuestQuizCompleted(String key) => _completedQuestQuizzes.contains(key);
 
   /// `QuizContent.id`s of listen-&-repeat (audio) quizzes the learner has
   /// played through to the end at least once. Such quizzes have no streak, so
@@ -316,13 +316,14 @@ class NounSettings {
     _completedReadingQuizzes =
         (prefs.getStringList(_completedReadingQuizzesKey) ?? const []).toSet();
     _completedListeningQuizzes =
-        (prefs.getStringList(_completedListeningQuizzesKey) ?? const []).toSet();
+        (prefs.getStringList(_completedListeningQuizzesKey) ?? const [])
+            .toSet();
     _completedDictationQuizzes =
-        (prefs.getStringList(_completedDictationQuizzesKey) ?? const []).toSet();
-    _seenHelpMemory =
-        (prefs.getStringList(_seenHelpMemoryKey) ?? const []).toSet();
-    _showFirstLetterHint =
-        prefs.getBool(_showFirstLetterHintKey) ?? false;
+        (prefs.getStringList(_completedDictationQuizzesKey) ?? const [])
+            .toSet();
+    _seenHelpMemory = (prefs.getStringList(_seenHelpMemoryKey) ?? const [])
+        .toSet();
+    _showFirstLetterHint = prefs.getBool(_showFirstLetterHintKey) ?? false;
     _relaxedCorrection = prefs.getBool(_relaxedCorrectionKey) ?? false;
     _seenRelaxedCorrectionHint =
         prefs.getBool(_seenRelaxedCorrectionHintKey) ?? false;
@@ -471,6 +472,45 @@ class NounSettings {
     );
   }
 
+  /// Removes [ids] (content ids / chain keys) from *every* completion set, so
+  /// the quizzes behind them read as not-done again. Used when a course's
+  /// progress is deleted (My Courses → Delete); ids are globally unique across
+  /// the sets, so sweeping all six at once is safe.
+  Future<void> unmarkCompletions(Iterable<String> ids) async {
+    final drop = ids.toSet();
+    _completedNounCategories = _completedNounCategories.difference(drop);
+    _completedQuestQuizzes = _completedQuestQuizzes.difference(drop);
+    _completedSpeakQuizzes = _completedSpeakQuizzes.difference(drop);
+    _completedReadingQuizzes = _completedReadingQuizzes.difference(drop);
+    _completedListeningQuizzes = _completedListeningQuizzes.difference(drop);
+    _completedDictationQuizzes = _completedDictationQuizzes.difference(drop);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(
+      _completedNounCategoriesKey,
+      _completedNounCategories.toList(),
+    );
+    await prefs.setStringList(
+      _completedQuestQuizzesKey,
+      _completedQuestQuizzes.toList(),
+    );
+    await prefs.setStringList(
+      _completedSpeakQuizzesKey,
+      _completedSpeakQuizzes.toList(),
+    );
+    await prefs.setStringList(
+      _completedReadingQuizzesKey,
+      _completedReadingQuizzes.toList(),
+    );
+    await prefs.setStringList(
+      _completedListeningQuizzesKey,
+      _completedListeningQuizzes.toList(),
+    );
+    await prefs.setStringList(
+      _completedDictationQuizzesKey,
+      _completedDictationQuizzes.toList(),
+    );
+  }
+
   /// Marks the Help Memory panel for [storageKeyPrefix] as seen, so it won't
   /// auto-open again. No-op if already marked.
   Future<void> markHelpMemorySeen(String storageKeyPrefix) async {
@@ -528,7 +568,8 @@ class NounSettings {
     showEnglishByPage: Map.of(_showEnglishByPage),
     colorNouns: _colorNouns,
     genderColors: {
-      for (final entry in _genderColors.entries) entry.key: entry.value.toARGB32(),
+      for (final entry in _genderColors.entries)
+        entry.key: entry.value.toARGB32(),
     },
     lastPage: _lastPage,
     lastContentId: _lastContentId,

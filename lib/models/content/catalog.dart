@@ -12,6 +12,8 @@ class CourseCard {
     required this.learnFlag,
     required this.uiLang,
     this.learnLocale = 'de-DE',
+    this.goal,
+    this.level,
     this.version,
   });
 
@@ -22,6 +24,11 @@ class CourseCard {
   final String learnFlag;
   final UiLang uiLang;
   final String learnLocale;
+
+  /// The course's goal key and CEFR range (see [Course.goal]/[Course.level]) —
+  /// card-level facets the course finder filters on and displays.
+  final String? goal;
+  final String? level;
 
   /// Content version of this course's bundle, used to invalidate a stale cache.
   final String? version;
@@ -34,6 +41,8 @@ class CourseCard {
     'learnFlag': learnFlag,
     'uiLang': uiLang.name,
     'learnLocale': learnLocale,
+    if (goal != null) 'goal': goal,
+    if (level != null) 'level': level,
     if (version != null) 'version': version,
   };
 
@@ -45,6 +54,8 @@ class CourseCard {
     learnFlag: json['learnFlag'] as String? ?? '',
     uiLang: _uiLangFromName(json['uiLang'] as String?),
     learnLocale: json['learnLocale'] as String? ?? 'de-DE',
+    goal: json['goal'] as String?,
+    level: json['level'] as String?,
     version: json['version'] as String?,
   );
 
@@ -57,6 +68,8 @@ class CourseCard {
     learnFlag: c.learnFlag,
     uiLang: c.uiLang,
     learnLocale: c.learnLocale,
+    goal: c.goal,
+    level: c.level,
     version: version,
   );
 }

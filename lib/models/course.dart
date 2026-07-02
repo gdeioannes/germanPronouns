@@ -55,6 +55,8 @@ class Course {
     required this.nav,
     this.learnLocale = 'de-DE',
     this.gating = const CourseGating(),
+    this.goal,
+    this.level,
   });
 
   /// Stable id, e.g. 'en_de', 'es_de'.
@@ -86,6 +88,15 @@ class Course {
   /// This course's unlock economy (per-course gating defaults).
   final CourseGating gating;
 
+  /// What the course is *for* — one of the canonical goal keys the course
+  /// finder filters on ('certification', 'grammar', 'vocabulary', 'discover').
+  /// Null hides the course from goal filtering (it only appears under "All").
+  final String? goal;
+
+  /// CEFR range the course covers, for display on its finder card (e.g. 'A1',
+  /// 'A1–B2'). Free text; null shows no level badge.
+  final String? level;
+
   Course copyWith({
     String? name,
     String? tagline,
@@ -101,6 +112,8 @@ class Course {
     learnLocale: learnLocale,
     nav: nav ?? this.nav,
     gating: gating ?? this.gating,
+    goal: goal,
+    level: level,
   );
 
   Map<String, dynamic> toJson() => {
@@ -111,6 +124,8 @@ class Course {
     'learnFlag': learnFlag,
     'uiLang': uiLang.name,
     'learnLocale': learnLocale,
+    if (goal != null) 'goal': goal,
+    if (level != null) 'level': level,
     'gating': gating.toJson(),
     'nav': nav.toJson(),
   };
@@ -123,9 +138,13 @@ class Course {
     learnFlag: json['learnFlag'] as String? ?? '',
     uiLang: _uiLangFromName(json['uiLang'] as String?),
     learnLocale: json['learnLocale'] as String? ?? 'de-DE',
+    goal: json['goal'] as String?,
+    level: json['level'] as String?,
     gating: json['gating'] == null
         ? const CourseGating()
-        : CourseGating.fromJson(Map<String, dynamic>.from(json['gating'] as Map)),
+        : CourseGating.fromJson(
+            Map<String, dynamic>.from(json['gating'] as Map),
+          ),
     nav: NavLayout.fromJson(
       Map<String, dynamic>.from(json['nav'] as Map? ?? const {}),
     ),

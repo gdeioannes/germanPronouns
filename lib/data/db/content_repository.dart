@@ -62,19 +62,19 @@ class ContentRepository {
 
   final Database db;
 
-  final StoreRef<String, Map<String, Object?>> _quizzes =
-      stringMapStoreFactory.store('quizzes');
-  final StoreRef<int, Map<String, Object?>> _sentences =
-      intMapStoreFactory.store('sentences');
-  final StoreRef<String, Map<String, Object?>> _meta =
-      stringMapStoreFactory.store('meta');
+  final StoreRef<String, Map<String, Object?>> _quizzes = stringMapStoreFactory
+      .store('quizzes');
+  final StoreRef<int, Map<String, Object?>> _sentences = intMapStoreFactory
+      .store('sentences');
+  final StoreRef<String, Map<String, Object?>> _meta = stringMapStoreFactory
+      .store('meta');
 
   /// Teacher-edited per-course bundles, keyed by course id. When present, one of
   /// these overrides the shipped `assets/content/courses/<id>.json` (the
   /// `CourseContentProvider` reads this first) — this is the editable, writable
   /// half of "keep the DB as the cache". Empty until a teacher saves an edit.
-  final StoreRef<String, Map<String, Object?>> _bundles =
-      stringMapStoreFactory.store('course_bundles');
+  final StoreRef<String, Map<String, Object?>> _bundles = stringMapStoreFactory
+      .store('course_bundles');
 
   /// The teacher-edited bundle JSON for [courseId], or null if unedited.
   Future<Map<String, Object?>?> readBundle(String courseId) =>
@@ -159,14 +159,15 @@ class ContentRepository {
     final list = json?['list'] as List?;
     if (list == null) return defaultCourses;
     return [
-      for (final c in list) Course.fromJson(Map<String, dynamic>.from(c as Map)),
+      for (final c in list)
+        Course.fromJson(Map<String, dynamic>.from(c as Map)),
     ];
   }
 
-  Future<void> saveCourses(List<Course> courses) => _meta.record('courses').put(
-    db,
-    {'list': [for (final c in courses) c.toJson()]},
-  );
+  Future<void> saveCourses(List<Course> courses) =>
+      _meta.record('courses').put(db, {
+        'list': [for (final c in courses) c.toJson()],
+      });
 
   /// Replaces the navigation layout of the course with [courseId].
   Future<void> saveNavLayout(String courseId, NavLayout nav) async {
@@ -187,10 +188,9 @@ class ContentRepository {
     for (final content in contents) {
       final json = content.toJson();
       final sentences = (json.remove('sentences') as List?) ?? const [];
-      await _quizzes.record(content.id).put(
-        client,
-        Map<String, Object?>.from(json),
-      );
+      await _quizzes
+          .record(content.id)
+          .put(client, Map<String, Object?>.from(json));
       for (final sentence in sentences) {
         await _sentences.add(client, {
           'quizId': content.id,
@@ -203,24 +203,28 @@ class ContentRepository {
 
   Future<List<QuizSummary>> listQuizzes() async {
     final records = await _quizzes.find(db);
-    final summaries = <QuizSummary>[];
-    for (final record in records) {
-      final count =
-          await _sentences.count(db, filter: Filter.equals('quizId', record.key));
-      summaries.add(
+    // Sentence counts in a single pass over the store. One filtered count
+    // query per quiz (the previous approach) re-scanned every sentence record
+    // once per quiz — 500+ full scans that made every caller (course finder,
+    // drawer, back office) visibly slow.
+    final counts = <String, int>{};
+    for (final sentence in await _sentences.find(db)) {
+      final quizId = sentence.value['quizId'] as String?;
+      if (quizId != null) counts[quizId] = (counts[quizId] ?? 0) + 1;
+    }
+    return [
+      for (final record in records)
         QuizSummary(
           id: record.key,
           title: (record.value['title'] as String?) ?? record.key,
           storageKeyPrefix:
               (record.value['storageKeyPrefix'] as String?) ?? '${record.key}_',
-          sentenceCount: count,
+          sentenceCount: counts[record.key] ?? 0,
           kind: QuizKind.values.byName(
             (record.value['kind'] as String?) ?? 'fillBlank',
           ),
         ),
-      );
-    }
-    return summaries;
+    ];
   }
 
   /// Reconstructs the full [QuizContent] for [quizId] (metadata + its
@@ -341,7 +345,9 @@ Future<PublishedContent> loadPublishedContent() async {
       ];
     } else if (map['nav'] is Map) {
       // Legacy single-nav seed → apply it to the default (English) course.
-      final nav = NavLayout.fromJson(Map<String, dynamic>.from(map['nav'] as Map));
+      final nav = NavLayout.fromJson(
+        Map<String, dynamic>.from(map['nav'] as Map),
+      );
       courses = [
         for (final c in defaultCourses)
           c.id == kDefaultCourseId ? c.copyWith(nav: nav) : c,
