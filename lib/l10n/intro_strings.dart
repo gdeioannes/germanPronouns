@@ -180,8 +180,43 @@ const IntroStrings _de = IntroStrings(
   startButton: 'Üben starten',
 );
 
+const IntroStrings _zh = IntroStrings(
+  menuTitle: '使用说明',
+  headline: '专攻真正让你卡壳的地方',
+  intro:
+      '这是一个专注的练习工具——针对容易出错的细节，做简短而精准的小测验。'
+      '把它当作你现有学习方式的补充。',
+  companionTitle: '是补充，不是替代',
+  companionBody:
+      '像 Duolingo 这样的大型课程推进很快，会留下缝隙——什么时候用 a、an 还是 the，'
+      '动词第三人称要不要加 -s，时态怎么变。这个应用正是聚焦这些，'
+      '让它们不再靠猜，而变成本能。',
+  featuresHeader: '内容包含',
+  quizTitle: '简短、专注的练习',
+  quizBody:
+      '读句子，填空或选答案，立刻得到反馈。每轮都很短，随时随地都能练。',
+  streakTitle: '连击带来动力',
+  streakBody:
+      '每答对一题都会延长你的连击并填满进度条。挑战你的最佳纪录——让练习成为习惯。',
+  helpTitle: '记忆助手小抄',
+  helpBody:
+      '每个练习都配有一份参考卡，附上你需要的规则和表格，就在你练习的地方。',
+  tipsTitle: '技巧与讲解',
+  tipsBody:
+      '遇到难点时，一条简短的提示会解释"为什么"——让你学到规则，而不只是正确答案。',
+  pdfTitle: '随身携带（PDF）',
+  pdfBody:
+      '把任意记忆助手保存为简洁的 PDF，离线随时复习。',
+  analyticsTitle: '看见你的进步',
+  analyticsBody:
+      '历史和分析显示你的正确率和薄弱环节，让你随时知道接下来该练什么。',
+  closing: '就这些。准备好了就挑一个练习开始吧。',
+  startButton: '开始练习',
+);
+
 IntroStrings introStringsFor(UiLang lang) => switch (lang) {
   UiLang.en => _en,
   UiLang.es => _es,
   UiLang.de => _de,
+  UiLang.zh => _zh,
 };

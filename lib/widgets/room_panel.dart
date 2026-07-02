@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/apartment.dart';
 import '../pages/apartment_page.dart';
+import '../services/analytics.dart';
 
 /// The room ("My Room") as a panel docked at the bottom of every learner screen,
 /// instead of a separate full-screen route — so it feels part of the app.
@@ -24,7 +25,9 @@ class _RoomPanelState extends State<RoomPanel>
     vsync: this,
     duration: const Duration(milliseconds: 320),
     value: 0,
-  )..addListener(_syncRoomMounted);
+  )
+    ..addListener(_syncRoomMounted)
+    ..addListener(_trackOpenClose);
 
   /// Height of the little door tab that pokes out at the bottom when closed.
   static const double _peek = 38;
@@ -42,6 +45,30 @@ class _RoomPanelState extends State<RoomPanel>
     final shouldMount = _c.value > 0;
     if (shouldMount != _roomMounted) {
       setState(() => _roomMounted = shouldMount);
+    }
+  }
+
+  // Analytics: a "visit" is the panel crossing half-open — not merely mounting,
+  // which already happens the instant a drag starts, so a wiggle of the tab
+  // that falls back shut wouldn't count. Closing reports the dwell time. (A
+  // visit cut short by leaving the app loses only its `room_close`.)
+  bool _trackedOpen = false;
+  DateTime? _openedAt;
+
+  void _trackOpenClose() {
+    final open = _c.value > 0.5;
+    if (open == _trackedOpen) return;
+    _trackedOpen = open;
+    if (open) {
+      _openedAt = DateTime.now();
+      Analytics.track('room_open');
+    } else {
+      final opened = _openedAt;
+      _openedAt = null;
+      Analytics.track('room_close', {
+        if (opened != null)
+          'seconds': DateTime.now().difference(opened).inSeconds,
+      });
     }
   }
 

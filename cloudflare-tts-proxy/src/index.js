@@ -74,23 +74,35 @@ function json(obj, status, cors) {
 // --- Providers ---------------------------------------------------------------
 
 // Female voices are the app's long-standing defaults; male voices are their
-// matching neural counterparts, keyed by language then gender.
+// matching neural counterparts. Keyed by full lowercase locale first (so en-GB
+// gets a British voice) and then by bare language as the fallback for any
+// regional variant.
 const AZURE_VOICES = {
   de: { female: 'de-DE-KatjaNeural', male: 'de-DE-ConradNeural' },
   es: { female: 'es-ES-ElviraNeural', male: 'es-ES-AlvaroNeural' },
   en: { female: 'en-US-JennyNeural', male: 'en-US-GuyNeural' },
+  'en-gb': { female: 'en-GB-SoniaNeural', male: 'en-GB-RyanNeural' },
   cs: { female: 'cs-CZ-VlastaNeural', male: 'cs-CZ-AntoninNeural' },
   fr: { female: 'fr-FR-DeniseNeural', male: 'fr-FR-HenriNeural' },
+  zh: { female: 'zh-CN-XiaoxiaoNeural', male: 'zh-CN-YunxiNeural' },
 };
 const GOOGLE_VOICES = {
   de: { female: 'de-DE-Neural2-C', male: 'de-DE-Neural2-B' },
   es: { female: 'es-ES-Neural2-A', male: 'es-ES-Neural2-B' },
   en: { female: 'en-US-Neural2-C', male: 'en-US-Neural2-D' },
+  'en-gb': { female: 'en-GB-Neural2-A', male: 'en-GB-Neural2-B' },
   cs: { female: 'cs-CZ-Wavenet-A', male: 'cs-CZ-Wavenet-B' },
   fr: { female: 'fr-FR-Neural2-A', male: 'fr-FR-Neural2-B' },
+  // Google names its Mandarin voices cmn-CN (not zh-CN); the request's
+  // languageCode is derived from the voice name so the pair always matches.
+  zh: { female: 'cmn-CN-Wavenet-A', male: 'cmn-CN-Wavenet-B' },
 };
 
 const langOf = (locale) => (locale.split('-')[0] || 'de').toLowerCase();
+
+// Full-locale entry first (en-gb), then the bare language (en).
+const voiceFor = (table, locale, gender) =>
+  (table[locale.toLowerCase()] || table[langOf(locale)])?.[gender];
 
 const escapeXml = (s) =>
   s
@@ -104,7 +116,7 @@ async function azureSynthesize(text, locale, gender, env) {
   const key = env.AZURE_TTS_KEY;
   const region = env.AZURE_TTS_REGION;
   if (!key || !region) return null;
-  const voice = AZURE_VOICES[langOf(locale)]?.[gender];
+  const voice = voiceFor(AZURE_VOICES, locale, gender);
   if (!voice) return null;
   const ssml =
     `<speak version="1.0" xml:lang="${locale}">` +
@@ -135,8 +147,11 @@ async function googleSynthesize(text, locale, gender, env) {
   const key = env.GOOGLE_TTS_KEY;
   if (!key) return null;
   const voice =
-    (GOOGLE_VOICES[langOf(locale)] || GOOGLE_VOICES.de)[gender] ||
-    GOOGLE_VOICES.de[gender];
+    voiceFor(GOOGLE_VOICES, locale, gender) || GOOGLE_VOICES.de[gender];
+  // The voice name leads with its own language code (e.g. cmn-CN-Wavenet-A);
+  // send that as languageCode so voice/language always agree, even where the
+  // app's locale differs from Google's naming (zh-CN vs cmn-CN, en-GB vs en-US).
+  const languageCode = voice.split('-').slice(0, 2).join('-');
   try {
     const resp = await fetch(
       `https://texttospeech.googleapis.com/v1/text:synthesize?key=${key}`,
@@ -145,7 +160,7 @@ async function googleSynthesize(text, locale, gender, env) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           input: { text },
-          voice: { languageCode: locale, name: voice },
+          voice: { languageCode, name: voice },
           audioConfig: { audioEncoding: 'MP3' },
         }),
       }

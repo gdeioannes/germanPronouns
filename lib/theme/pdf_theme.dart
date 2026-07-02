@@ -3,6 +3,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
+import '../models/course.dart';
 import '../models/course_session.dart';
 import 'brand_palette.dart';
 
@@ -32,12 +33,28 @@ class PdfBrandColors {
 /// documents from [newDocument], [brandHeader], [footer] and [table], using the
 /// shared text-style getters. To restyle, edit this file (and [PdfBrandColors]).
 class QuizPdfTheme {
-  QuizPdfTheme._(this._serif, this._serifBold, this._theme, this._logoSvg);
+  QuizPdfTheme._(
+    this._serif,
+    this._serifBold,
+    this._theme,
+    this._logoSvg,
+    this._boldFallback,
+  );
 
   final pw.Font _serif;
   final pw.Font _serifBold;
   final pw.ThemeData _theme;
   final String? _logoSvg;
+
+  /// Bold companion to the theme-wide CJK fallback. The fallback list is not
+  /// weight-aware, so bold styles attach this explicitly (merge keeps the
+  /// theme's regular fallback after it) — otherwise Chinese in headings would
+  /// silently drop to regular weight. Empty for non-Chinese courses.
+  final List<pw.Font> _boldFallback;
+
+  /// For PDF builders that construct their own bold [pw.TextStyle]s outside
+  /// this theme: attach as `fontFallback` wherever `fontWeight` is bold.
+  List<pw.Font> get boldFallback => _boldFallback;
 
   /// The square brand mark shown in the drawer header, reused on PDFs.
   static const String _logoAsset = 'assets/icons/QuizLogo-02.svg';
@@ -50,6 +67,13 @@ class QuizPdfTheme {
     final interItalic = await PdfGoogleFonts.interItalic();
     final serif = await PdfGoogleFonts.sourceSerif4Regular();
     final serifBold = await PdfGoogleFonts.sourceSerif4Bold();
+    // Inter/Source Serif carry no CJK glyphs; when the active course involves
+    // Chinese, fall back to Noto Sans SC so hanzi don't render as tofu boxes.
+    final course = CourseSession.instance.activeCourse;
+    final needsCjk =
+        course.uiLang == UiLang.zh || course.learnLocale.startsWith('zh');
+    final cjk = needsCjk ? await PdfGoogleFonts.notoSansSCRegular() : null;
+    final cjkBold = needsCjk ? await PdfGoogleFonts.notoSansSCBold() : null;
     String? logoSvg;
     try {
       logoSvg = await rootBundle.loadString(_logoAsset);
@@ -60,8 +84,9 @@ class QuizPdfTheme {
       base: inter,
       bold: interBold,
       italic: interItalic,
+      fontFallback: [?cjk],
     );
-    return QuizPdfTheme._(serif, serifBold, theme, logoSvg);
+    return QuizPdfTheme._(serif, serifBold, theme, logoSvg, [?cjkBold]);
   }
 
   /// A new document pre-set with the Inter base theme.
@@ -69,14 +94,23 @@ class QuizPdfTheme {
 
   // ── Shared text styles ─────────────────────────────────────────────────
 
-  pw.TextStyle get documentTitle =>
-      pw.TextStyle(font: _serifBold, fontSize: 22, color: PdfBrandColors.navy);
+  pw.TextStyle get documentTitle => pw.TextStyle(
+        font: _serifBold,
+        fontFallback: _boldFallback,
+        fontSize: 22,
+        color: PdfBrandColors.navy,
+      );
 
-  pw.TextStyle get sectionHeading =>
-      pw.TextStyle(font: _serifBold, fontSize: 13, color: PdfBrandColors.navy);
+  pw.TextStyle get sectionHeading => pw.TextStyle(
+        font: _serifBold,
+        fontFallback: _boldFallback,
+        fontSize: 13,
+        color: PdfBrandColors.navy,
+      );
 
   pw.TextStyle subheading({double fontSize = 11}) => pw.TextStyle(
         font: _serifBold,
+        fontFallback: _boldFallback,
         fontSize: fontSize,
         color: PdfBrandColors.inkText,
       );
@@ -84,6 +118,7 @@ class QuizPdfTheme {
   pw.TextStyle tableHeaderStyle({double fontSize = 10}) => pw.TextStyle(
         fontSize: fontSize,
         fontWeight: pw.FontWeight.bold,
+        fontFallback: _boldFallback,
         color: PdfColors.white,
       );
 
@@ -134,6 +169,7 @@ class QuizPdfTheme {
                     CourseSession.instance.activeCourse.name,
                     style: pw.TextStyle(
                       font: _serifBold,
+                      fontFallback: _boldFallback,
                       fontSize: 13,
                       color: PdfBrandColors.navy,
                     ),
@@ -248,6 +284,7 @@ class QuizPdfTheme {
             title ?? _tipLabel(kind),
             style: pw.TextStyle(
               fontWeight: pw.FontWeight.bold,
+              fontFallback: _boldFallback,
               fontSize: 10,
               color: accent,
             ),
@@ -288,7 +325,10 @@ class QuizPdfTheme {
     // Renders `**…**` runs in [text] bold (the quizzed word inside a Help
     // Memory example sentence), the rest in [style].
     pw.Widget markupText(String text, pw.TextStyle style) {
-      final bold = style.copyWith(fontWeight: pw.FontWeight.bold);
+      final bold = style.copyWith(
+        fontWeight: pw.FontWeight.bold,
+        fontFallback: _boldFallback,
+      );
       final spans = <pw.TextSpan>[];
       final re = RegExp(r'\*\*(.+?)\*\*');
       var i = 0;
@@ -340,7 +380,11 @@ class QuizPdfTheme {
               if (c == null) return null;
               return pw.Text(
                 text,
-                style: base.copyWith(color: c, fontWeight: pw.FontWeight.bold),
+                style: base.copyWith(
+                  color: c,
+                  fontWeight: pw.FontWeight.bold,
+                  fontFallback: _boldFallback,
+                ),
               );
             },
     );

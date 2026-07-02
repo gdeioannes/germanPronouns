@@ -349,15 +349,21 @@ class AzureTtsProvider extends CloudTtsProvider {
 
   /// Azure neural voice name for [locale] and [gender]; null for an unsupported
   /// language. The female voices are the app's long-standing defaults (Katja /
-  /// Elvira / Jenny); the male voices are their well-known counterparts.
+  /// Elvira / Jenny); the male voices are their well-known counterparts. The
+  /// full locale is matched first so regional variants (en-GB) get their own
+  /// voice before falling back to the bare language.
   String? _voiceFor(String locale, VoiceGender gender) {
     final male = gender == VoiceGender.male;
+    if (locale.toLowerCase() == 'en-gb') {
+      return male ? 'en-GB-RyanNeural' : 'en-GB-SoniaNeural';
+    }
     return switch (locale.split('-').first.toLowerCase()) {
       'de' => male ? 'de-DE-ConradNeural' : 'de-DE-KatjaNeural',
       'es' => male ? 'es-ES-AlvaroNeural' : 'es-ES-ElviraNeural',
       'en' => male ? 'en-US-GuyNeural' : 'en-US-JennyNeural',
       'cs' => male ? 'cs-CZ-AntoninNeural' : 'cs-CZ-VlastaNeural',
       'fr' => male ? 'fr-FR-HenriNeural' : 'fr-FR-DeniseNeural',
+      'zh' => male ? 'zh-CN-YunxiNeural' : 'zh-CN-XiaoxiaoNeural',
       _ => null,
     };
   }
@@ -387,6 +393,7 @@ class GoogleTtsProvider extends CloudTtsProvider {
     final uri = Uri.parse(
       'https://texttospeech.googleapis.com/v1/text:synthesize?key=$apiKey',
     );
+    final voice = _voiceFor(locale, gender);
     try {
       final resp = await http.post(
         uri,
@@ -399,7 +406,7 @@ class GoogleTtsProvider extends CloudTtsProvider {
                 '<speak>${CloudTtsProvider.leadInBreak}'
                 '${CloudTtsProvider.escapeXml(text)}</speak>',
           },
-          'voice': {'languageCode': locale, 'name': _voiceFor(locale, gender)},
+          'voice': {'languageCode': _languageCodeOf(voice), 'name': voice},
           'audioConfig': {'audioEncoding': 'MP3'},
         }),
       );
@@ -415,17 +422,31 @@ class GoogleTtsProvider extends CloudTtsProvider {
 
   /// Google neural voice name for [locale] and [gender], defaulting to German.
   /// The female voices are the app's long-standing defaults; the male voices
-  /// are the matching Neural2 male voices for each language.
+  /// are the matching Neural2 male voices for each language. The full locale is
+  /// matched first so regional variants (en-GB) get their own voice.
   String _voiceFor(String locale, VoiceGender gender) {
     final male = gender == VoiceGender.male;
+    if (locale.toLowerCase() == 'en-gb') {
+      return male ? 'en-GB-Neural2-B' : 'en-GB-Neural2-A';
+    }
     return switch (locale.split('-').first.toLowerCase()) {
       'es' => male ? 'es-ES-Neural2-B' : 'es-ES-Neural2-A',
       'en' => male ? 'en-US-Neural2-D' : 'en-US-Neural2-C',
       'cs' => male ? 'cs-CZ-Wavenet-B' : 'cs-CZ-Wavenet-A',
       'fr' => male ? 'fr-FR-Neural2-B' : 'fr-FR-Neural2-A',
+      // Google names its Mandarin voices cmn-CN (not zh-CN); the request's
+      // languageCode is derived from the voice name so the pair matches.
+      'zh' => male ? 'cmn-CN-Wavenet-B' : 'cmn-CN-Wavenet-A',
       _ => male ? 'de-DE-Neural2-B' : 'de-DE-Neural2-C',
     };
   }
+
+  /// The language code a [voice] name leads with (e.g. `cmn-CN-Wavenet-A` →
+  /// `cmn-CN`), sent as the request's languageCode so voice/language always
+  /// agree even where the app's locale differs from Google's naming
+  /// (zh-CN vs cmn-CN, en-GB vs en-US).
+  static String _languageCodeOf(String voice) =>
+      voice.split('-').take(2).join('-');
 }
 
 /// Routes synthesis through a standalone server-side proxy (the Cloudflare

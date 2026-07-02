@@ -1,5 +1,5 @@
 {
-  "version": "1.12.0",
+  "version": "1.14.0",
   "defaultCourseId": "en_de",
   "courses": [
     {
@@ -10,7 +10,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
-      "version": "1.12.0"
+      "version": "1.14.0"
     },
     {
       "id": "en_de",
@@ -20,7 +20,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
-      "version": "1.12.0"
+      "version": "1.14.0"
     },
     {
       "id": "es_de",
@@ -30,7 +30,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
-      "version": "1.12.0"
+      "version": "1.14.0"
     },
     {
       "id": "es_de_emotions",
@@ -40,7 +40,7 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
-      "version": "1.12.0"
+      "version": "1.14.0"
     },
     {
       "id": "de_es",
@@ -50,7 +50,7 @@
       "learnFlag": "🇪🇸",
       "uiLang": "de",
       "learnLocale": "es-ES",
-      "version": "1.12.0"
+      "version": "1.14.0"
     },
     {
       "id": "de_cs",
@@ -60,7 +60,27 @@
       "learnFlag": "🇨🇿",
       "uiLang": "de",
       "learnLocale": "cs-CZ",
-      "version": "1.12.0"
+      "version": "1.14.0"
+    },
+    {
+      "id": "zh_en",
+      "name": "英语认证 A1–C2",
+      "tagline": "从零基础到精通，一步步考取英语证书",
+      "speakFlag": "🇨🇳",
+      "learnFlag": "🇬🇧",
+      "uiLang": "zh",
+      "learnLocale": "en-GB",
+      "version": "1.14.0"
+    },
+    {
+      "id": "en_zh",
+      "name": "Certification Chinese · HSK",
+      "tagline": "From nǐ hǎo to HSK mastery — tones, characters and all",
+      "speakFlag": "🇬🇧",
+      "learnFlag": "🇨🇳",
+      "uiLang": "en",
+      "learnLocale": "zh-CN",
+      "version": "1.14.0"
     }
   ]
 }

@@ -14,6 +14,7 @@ import '../data/shop_catalog.dart';
 import '../models/apartment.dart';
 import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
+import '../services/analytics.dart';
 import '../utils/room_image_export.dart';
 import '../widgets/coin_balance_pill.dart';
 import '../widgets/coin_glyph.dart';
@@ -362,7 +363,7 @@ class _ApartmentPageState extends State<ApartmentPage>
               case 'effects':
                 apt.setEffects(!apt.effects);
               case 'night':
-                apt.setNight(!apt.isNight);
+                _toggleNight();
               case 'give':
                 _openGivingCorner();
               case 'share':
@@ -430,7 +431,7 @@ class _ApartmentPageState extends State<ApartmentPage>
           apt.isNight ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
           color: Colors.white,
         ),
-        onPressed: () => apt.setNight(!apt.isNight),
+        onPressed: _toggleNight,
       ),
       IconButton(
         tooltip: 'Give away furniture',
@@ -465,6 +466,12 @@ class _ApartmentPageState extends State<ApartmentPage>
   }
 
   // ── Giving corner (donation) ───────────────────────────────────────────────
+
+  void _toggleNight() {
+    final apt = Apartment.instance;
+    apt.setNight(!apt.isNight);
+    Analytics.track('room_night_toggle', {'night': apt.isNight});
+  }
 
   void _openGivingCorner() {
     showModalBottomSheet<void>(
@@ -519,6 +526,7 @@ class _ApartmentPageState extends State<ApartmentPage>
         );
       return;
     }
+    Analytics.track('room_export');
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
@@ -2761,6 +2769,10 @@ class _RoomShopCard extends StatelessWidget {
                         ? () async {
                             await CoinWallet.instance.spend(room.price);
                             await Apartment.instance.buyRoom(room.id);
+                            Analytics.track('room_bought', {
+                              'room': room.id,
+                              'price': room.price,
+                            });
                             if (context.mounted) {
                               Navigator.of(context).pop(room.name);
                             }
@@ -3066,7 +3078,14 @@ class _BuyDialog extends StatelessWidget {
     final navigator = Navigator.of(context);
     final messenger = ScaffoldMessenger.of(context);
     final ok = await CoinWallet.instance.spend(item.price);
-    if (ok) await Apartment.instance.grant(item.id);
+    if (ok) {
+      await Apartment.instance.grant(item.id);
+      Analytics.track('room_item_bought', {
+        'item': item.id,
+        'category': item.category,
+        'price': item.price,
+      });
+    }
     navigator.pop();
     messenger
       ..clearSnackBars()
@@ -3403,6 +3422,7 @@ class _InfoCard extends StatelessWidget {
                     onPressed: () {
                       final messenger = ScaffoldMessenger.of(context);
                       Apartment.instance.donate(instanceId);
+                      Analytics.track('room_item_given', {'item': item.id});
                       Navigator.of(context).pop();
                       messenger
                         ..clearSnackBars()
@@ -3444,7 +3464,14 @@ class _InfoCard extends StatelessWidget {
                         final messenger = ScaffoldMessenger.of(context);
                         final navigator = Navigator.of(context);
                         final ok = await CoinWallet.instance.spend(item.price);
-                        if (ok) await Apartment.instance.grant(item.id);
+                        if (ok) {
+                          await Apartment.instance.grant(item.id);
+                          Analytics.track('room_item_bought', {
+                            'item': item.id,
+                            'category': item.category,
+                            'price': item.price,
+                          });
+                        }
                         navigator.pop();
                         messenger
                           ..clearSnackBars()
@@ -3580,6 +3607,7 @@ class _DonationSheetState extends State<_DonationSheet> {
   void _giveAway(String instanceId, ShopItem item) {
     final messenger = ScaffoldMessenger.of(context);
     Apartment.instance.donate(instanceId);
+    Analytics.track('room_item_given', {'item': item.id});
     setState(() => _burstCount++);
     messenger
       ..clearSnackBars()

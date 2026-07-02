@@ -1,0 +1,104 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:german_pronouns_articles/data/course_catalog.dart';
+import 'package:german_pronouns_articles/data/courses/zh_en/zh_en_content.dart';
+import 'package:german_pronouns_articles/l10n/app_strings.dart';
+import 'package:german_pronouns_articles/models/course.dart';
+import 'package:german_pronouns_articles/models/quiz_content.dart';
+
+/// Quality gate for the "英语认证 A1–C2" course (Mandarin → English): the course
+/// is registered with the right seams, every quiz teaches (a Help Memory intro +
+/// at least one real tip), and each quiz kind carries answerable/consistent data.
+void main() {
+  group('zh_en course is registered correctly', () {
+    final course = defaultCourses.firstWhere((c) => c.id == 'zh_en');
+
+    test('uiLang zh, learns English, Chinese/British flags', () {
+      expect(course.uiLang, UiLang.zh);
+      expect(course.learnLocale, 'en-GB');
+      expect(course.speakFlag, '🇨🇳');
+      expect(course.learnFlag, '🇬🇧');
+    });
+
+    test('Chinese UI strings resolve for UiLang.zh', () {
+      final s = stringsFor(UiLang.zh);
+      expect(s.settings.trim(), isNotEmpty);
+      expect(s.listenAndWrite.trim(), isNotEmpty);
+      expect(s.readingPassed.trim(), isNotEmpty);
+    });
+
+    test('the A1.1 nav group lists exactly the A1.1 quizzes in order', () {
+      final group = course.nav.groups.firstWhere((g) => g.id == 'a1_1');
+      expect(
+        group.items.map((i) => i.ref).toList(),
+        zhEnA1_1.map((q) => q.id).toList(),
+      );
+      expect(group.gated, isTrue);
+    });
+  });
+
+  test('quiz ids are unique', () {
+    final ids = zhEnContent.map((q) => q.id).toList();
+    expect(ids.toSet().length, ids.length, reason: 'duplicate quiz id');
+  });
+
+  group('every zh_en quiz has a working Help Memory', () {
+    for (final q in zhEnContent) {
+      test('${q.id}: intro + at least one tip', () {
+        expect(q.helpMemoryIntro, isNotNull, reason: '${q.id} has no intro');
+        expect(q.helpMemoryIntro!.trim(), isNotEmpty);
+        expect(q.helpMemoryTips, isNotEmpty, reason: '${q.id} has no tips');
+        for (final tip in q.helpMemoryTips) {
+          expect(tip.text.trim(), isNotEmpty, reason: '${q.id} has an empty tip');
+        }
+      });
+    }
+  });
+
+  group('reading & listening quizzes have answerable questions', () {
+    final passages = zhEnContent.where(
+      (q) => q.kind == QuizKind.reading || q.kind == QuizKind.listening,
+    );
+    test('the course contains reading and listening quizzes', () {
+      expect(passages.any((q) => q.kind == QuizKind.reading), isTrue);
+      expect(passages.any((q) => q.kind == QuizKind.listening), isTrue);
+    });
+    for (final q in passages) {
+      test('${q.id}: has a passage and valid questions', () {
+        expect(q.readingPassage, isNotNull);
+        expect(q.readingPassage!.trim(), isNotEmpty);
+        expect(q.readingPassageTranslation?.trim(), isNotEmpty,
+            reason: '${q.id}: no Chinese translation');
+        expect(q.readingQuestions, isNotEmpty);
+        for (final question in q.readingQuestions) {
+          expect(question.options.length, greaterThanOrEqualTo(2));
+          expect(question.correctIndex,
+              inInclusiveRange(0, question.options.length - 1));
+        }
+      });
+    }
+  });
+
+  test('speak & dictation quizzes carry English lines with Chinese meanings', () {
+    final spoken = zhEnContent.where(
+      (q) => q.kind == QuizKind.speakRepeat || q.kind == QuizKind.dictation,
+    );
+    expect(spoken, isNotEmpty);
+    for (final q in spoken) {
+      expect(q.subjects, isNotEmpty, reason: '${q.id} has no lines');
+      for (final s in q.subjects) {
+        expect(s.display.trim(), isNotEmpty, reason: '${q.id}: empty line');
+        expect(s.english, isNotNull,
+            reason: '${q.id}: line "${s.display}" has no meaning');
+      }
+    }
+  });
+
+  test('fill-in quizzes carry subjects and answer categories', () {
+    final fills = zhEnContent.where((q) => q.kind == QuizKind.fillBlank);
+    expect(fills, isNotEmpty);
+    for (final q in fills) {
+      expect(q.subjects, isNotEmpty, reason: '${q.id} has no subjects');
+      expect(q.categories, isNotEmpty, reason: '${q.id} has no answer category');
+    }
+  });
+}

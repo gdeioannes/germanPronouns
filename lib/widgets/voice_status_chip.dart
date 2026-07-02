@@ -261,6 +261,7 @@ class _VoiceStrings {
     UiLang.es => _es,
     UiLang.en => _en,
     UiLang.de => _de,
+    UiLang.zh => _zh,
   };
 
   static const _VoiceStrings _de = _VoiceStrings(
@@ -325,5 +326,23 @@ class _VoiceStrings {
     unavailable: 'No disponible',
     active: 'En uso',
     ready: 'Lista',
+  );
+
+  static const _VoiceStrings _zh = _VoiceStrings(
+    hdVoice: 'HD 语音',
+    offlineVoice: '离线语音',
+    panelTitle: '语音质量',
+    premiumExplainer: '句子会用高质量的在线语音朗读。',
+    degradedExplainer:
+        '高级语音暂时不可用，正在使用离线语音。高级语音恢复后会自动切换回来。',
+    offlineExplainer:
+        '句子会用内置的离线语音朗读——质量较低，但无需联网即可使用。',
+    useOffline: '始终使用离线语音',
+    useOfflineSubtitle: '质量较低，隐私，无需联网。',
+    retryPremium: '重试高级语音',
+    notConfigured: '未配置',
+    unavailable: '不可用',
+    active: '使用中',
+    ready: '就绪',
   );
 }

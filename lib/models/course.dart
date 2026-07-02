@@ -2,7 +2,7 @@ import 'nav_layout.dart';
 
 /// The language the learner already speaks — drives which language the app's
 /// chrome (buttons, menus, dialogs) is shown in.
-enum UiLang { en, es, de }
+enum UiLang { en, es, de, zh }
 
 UiLang _uiLangFromName(String? name) {
   for (final l in UiLang.values) {

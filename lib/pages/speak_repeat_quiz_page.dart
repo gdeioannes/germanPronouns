@@ -141,6 +141,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         UiLang.es => 'es-ES',
         UiLang.en => 'en-US',
         UiLang.de => 'de-DE',
+        UiLang.zh => 'zh-CN',
       };
 
   /// Human label for the meaning's language (the learner's own language), used
@@ -150,6 +151,7 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
         UiLang.es => 'español',
         UiLang.en => 'English',
         UiLang.de => 'Deutsch',
+        UiLang.zh => '中文',
       };
 
   /// Localized chrome strings for the active course's UI language.
@@ -360,11 +362,15 @@ class _SpeakRepeatQuizPageState extends State<SpeakRepeatQuizPage>
       await _speech.listen(
         onResult: _onResult,
         listenOptions: SpeechListenOptions(
-          localeId: 'de_DE',
+          // Recognize the course's target language, not always German.
+          localeId: _learnLocale,
           cancelOnError: true,
-          listenMode: ListenMode.confirmation,
+          // Dictation keeps the recognizer transcribing whole sentences;
+          // confirmation is a short-utterance hint that finalizes after the
+          // first word or two (notably on iOS).
+          listenMode: ListenMode.dictation,
           pauseFor: const Duration(seconds: 3),
-          listenFor: const Duration(seconds: 8),
+          listenFor: const Duration(seconds: 30),
         ),
       );
     } catch (_) {

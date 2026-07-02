@@ -395,6 +395,7 @@ List<pw.Widget> buildReadingPdfBody(QuizPdfTheme pdf, QuizContent content) {
           style: pw.TextStyle(
             fontSize: 9,
             fontWeight: pw.FontWeight.bold,
+            fontFallback: pdf.boldFallback,
             color: PdfBrandColors.terracotta,
           ),
         ),
@@ -447,6 +448,7 @@ List<pw.Widget> buildReadingPdfBody(QuizPdfTheme pdf, QuizContent content) {
                 style: pw.TextStyle(
                   fontSize: 10,
                   fontWeight: pw.FontWeight.bold,
+                  fontFallback: pdf.boldFallback,
                   color: PdfBrandColors.forest,
                 ),
               ),

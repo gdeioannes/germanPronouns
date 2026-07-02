@@ -1,0 +1,462 @@
+import '../../../models/quiz_content.dart';
+import 'zh_en_builder.dart';
+
+/// C1.2 — Register & Rhetoric · 语体与修辞. Mandarin → English.
+///
+/// Big rock: inversion / cleft / fronting, participle-clause mastery, and
+/// hedging & stance (Z31 — Chinese directness vs English hedging). Also
+/// impersonal passive reporting (Z27), concession (Z25), collocation & idiom
+/// (Z32), fronting/topic (Z22).
+
+final QuizContent zhEnC12Inversion = zhEnFill(
+  id: 'zh_en_c1_2_inversion',
+  title: '否定副词前置引起的倒装',
+  intro: '否定或限制性副词放在句首时，主谓要倒装——这是正式、强调的写法。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: '⚠️ 否定开头就倒装（Z22）',
+      text: 'Never / Not only / Little / Under no circumstances 放句首 → 借助动词倒装（Never **have** I…）。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '我从没见过这样的美景。', answer: 'Never **have** I seen such beauty.'),
+    CourseItem(prompt: '他不但迟到，还忘了带报告。', answer: 'Not only **was** he late, but he also forgot the report.'),
+    CourseItem(prompt: '他一到就下起了雨。', answer: 'No sooner **had** he arrived than it rained.'),
+    CourseItem(prompt: '我几乎不了解她。', answer: 'Little **did** I know her.'),
+    CourseItem(prompt: '任何情况下都不应开门。', answer: 'Under no circumstances **should** you open the door.'),
+  ],
+);
+
+final QuizContent zhEnC12CondInversion = zhEnFill(
+  id: 'zh_en_c1_2_cond_inversion',
+  title: '条件句的倒装（省略 if）',
+  intro: '正式条件句可以省略 if，改用倒装。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: 'Had / Were / Should 开头',
+      text: 'Had I known… = If I had known…；Were I… = If I were…；Should you… = If you should…。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '要是我早知道，就会帮你。', answer: '**Had** I known, I would have helped.'),
+    CourseItem(prompt: '如果我是你，我会拒绝。', answer: '**Were** I you, I would refuse.'),
+    CourseItem(prompt: '万一你需要帮助，打给我。', answer: '**Should** you need help, call me.'),
+    CourseItem(prompt: '要是没有你的帮助，我们就失败了。', answer: 'Had it not been for your help, we **would** have failed.'),
+  ],
+);
+
+final QuizContent zhEnC12Fronting = zhEnFill(
+  id: 'zh_en_c1_2_fronting',
+  title: '前置强调',
+  intro: '把想强调的成分提到句首，让语气更有力，有时会引起倒装。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: '⚠️ 主题前置（Z22）',
+      text: '源自中文的主题句：把强调的部分提前——Money I don\'t have; time I **do**。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '这样的错误绝不能重犯。', answer: 'Such mistakes **must** never be repeated.'),
+    CourseItem(prompt: '钱我没有，时间我有。', answer: "Money I don't have; time I **do**."),
+    CourseItem(prompt: '山谷中坐落着一座小村庄。', answer: 'In the valley **lay** a small village.'),
+    CourseItem(prompt: '他说的话我一个字都不信。', answer: 'Not a word **did** I believe.'),
+    CourseItem(prompt: '她这么说，也这么做了。', answer: 'So she said, and so she **did**.'),
+  ],
+);
+
+final QuizContent zhEnC12SpeakRegister = zhEnSpeak(
+  id: 'zh_en_c1_2_speak_register',
+  title: '开口说：正式与非正式语体',
+  intro: '同一个意思，正式和非正式场合说法不同。听并跟读，感受差异。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '语体的选择（Z32）',
+      text: '正式场合更委婉、更间接：Would you like me to assist you? vs Need a hand?',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '非正式：需要帮忙吗？', answer: 'Do you need a hand?'),
+    CourseItem(prompt: '正式：需要我协助吗？', answer: 'Would you like me to assist you?'),
+    CourseItem(prompt: '非正式：我觉得不行。', answer: "I don't think so."),
+    CourseItem(prompt: '正式：恐怕这不太可行。', answer: "I'm afraid that won't be possible."),
+    CourseItem(prompt: '正式请求', answer: 'I was wondering if you could help me.'),
+  ],
+);
+
+final QuizContent zhEnC12Hedging = zhEnFill(
+  id: 'zh_en_c1_2_hedging',
+  title: '模糊限制与语气软化',
+  intro: '学术和正式英语常用模糊限制语来软化语气、避免绝对化。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: '⚠️ 别太绝对（Z31）',
+      text: 'tend to / appear to / arguably / to some extent 让论断更谨慎。中文更直接，注意补上这层委婉。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '这在某种程度上是对的。', answer: 'This is, to some **extent**, true.'),
+    CourseItem(prompt: '似乎有个误会。', answer: 'There **appears** to be a misunderstanding.'),
+    CourseItem(prompt: '这往往是这样。', answer: 'This **tends** to be the case.'),
+    CourseItem(prompt: '可以说结果是成功的。', answer: 'The result was, **arguably**, a success.'),
+    CourseItem(prompt: '我倾向于认为他错了。', answer: "I'm **inclined** to think he's wrong."),
+  ],
+);
+
+final QuizContent zhEnC12Impersonal = zhEnFill(
+  id: 'zh_en_c1_2_impersonal',
+  title: '客观被动转述',
+  intro: '用 It is said that… / 主语 + be + 过去分词 + to do 客观转述，不点名消息来源。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '两种句型',
+      text: 'It is said/believed that…；或 He is thought/said to be…。常见于新闻和学术。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '据说他很有钱。', answer: 'It is **said** that he is rich.'),
+    CourseItem(prompt: '人们认为运动有益健康。', answer: 'Exercise is **thought** to be good for health.'),
+    CourseItem(prompt: '据报道事故发生在夜里。', answer: 'The accident is **reported** to have happened at night.'),
+    CourseItem(prompt: '大家普遍相信……', answer: 'It is widely **believed** that ...'),
+    CourseItem(prompt: '他被认为是最佳人选。', answer: 'He is **considered** to be the best candidate.'),
+  ],
+);
+
+final QuizContent zhEnC12ListenInterview = zhEnListen(
+  id: 'zh_en_c1_2_listen_interview',
+  title: '听力：A political interview',
+  passageTitle: 'The minister responds',
+  passage:
+      'Minister, thank you for joining us. Critics say your new housing policy '
+      'has failed. How do you respond? — Well, I would say it\'s too early to '
+      'judge. It is true that progress has been slower than we hoped. However, '
+      "we've laid the foundations for long-term change. — But families are "
+      'still waiting for homes. — I understand their frustration, and I share '
+      'it. What I would ask is for a little more patience. Rome, as they say, '
+      "wasn't built in a day. — Minister, thank you.",
+  passageTranslation:
+      '部长，感谢您接受采访。批评者说您的新住房政策失败了，您怎么回应？——嗯，我会说现在下结论'
+      '还为时过早。诚然，进展比我们希望的要慢。然而，我们已经为长期变革打下了基础。——但families'
+      '仍在等待住房。——我理解他们的沮丧，我也感同身受。我想请求的是多一点耐心。正如人们所说，'
+      '罗马不是一天建成的。——部长，谢谢您。',
+  intro: '先听，再答题。政治访谈中大量使用委婉和习语。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '委婉 + 习语（Z31/Z32）',
+      text: "I would say、too early to judge（委婉）；Rome wasn't built in a day（习语）；What I would ask…（强调句）。",
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'What is the interview about?',
+      options: ['A housing policy', 'A war', 'The economy'],
+      correctIndex: 0,
+      questionTranslation: '采访的主题是什么？',
+    ),
+    ReadingQuestion(
+      question: 'How does the minister respond to criticism?',
+      options: ["It's too early to judge", 'He agrees it failed', 'He refuses to answer'],
+      correctIndex: 0,
+      questionTranslation: '部长如何回应批评？',
+    ),
+    ReadingQuestion(
+      question: 'What does he ask for?',
+      options: ['Patience', 'Money', 'Votes'],
+      correctIndex: 0,
+      questionTranslation: '他请求什么？',
+    ),
+  ],
+);
+
+final QuizContent zhEnC12Discourse = zhEnFill(
+  id: 'zh_en_c1_2_discourse',
+  title: '语篇连接词',
+  intro: '用 nonetheless、moreover、by contrast 等连接观点，让论述更有条理、更正式。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '连接词的功能',
+      text: 'nonetheless（尽管如此）、moreover（此外）、by contrast（相比之下）、in other words（换言之）。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '尽管如此，我们仍需谨慎。', answer: '**Nonetheless**, we must be cautious.'),
+    CourseItem(prompt: '此外，还有其他因素。', answer: '**Moreover**, there are other factors.'),
+    CourseItem(prompt: '相比之下，第二种方案更便宜。', answer: 'By **contrast**, the second option is cheaper.'),
+    CourseItem(prompt: '换句话说，我们失败了。', answer: 'In **other** words, we failed.'),
+    CourseItem(prompt: '也就是说，需要更多时间。', answer: 'That is to **say**, more time is needed.'),
+  ],
+);
+
+final QuizContent zhEnC12ReadColumn = zhEnRead(
+  id: 'zh_en_c1_2_read_column',
+  title: '阅读：An opinion column',
+  passageTitle: 'The tyranny of the slogan',
+  passage:
+      'There is a growing tendency, especially among politicians, to speak in '
+      'slogans rather than substance. Complex problems are reduced to '
+      'three-word phrases, as if a catchy rhyme could solve a housing crisis or '
+      'repair a broken health service. This, I would argue, is not merely '
+      'lazy; it is dangerous. When language becomes empty, so too does thought. '
+      'A society that stops demanding careful argument will, sooner or later, '
+      'stop receiving it. We would do well to remember that the loudest voice '
+      'is rarely the wisest, and that a simple answer to a difficult question '
+      'is almost always the wrong one.',
+  passageTranslation:
+      '有一种日益增长的倾向，尤其在政客中间：说口号，而非实质。复杂的问题被简化成三字短语，'
+      '仿佛一句朗朗上口的顺口溜就能解决住房危机或修复崩坏的医疗系统。我要说，这不仅仅是懒惰，'
+      '更是危险。当语言变得空洞，思想也随之空洞。一个不再要求缜密论证的社会，迟早也将不再得到'
+      '缜密论证。我们最好记住：最大的嗓门很少是最智慧的，而对难题给出的简单答案，几乎总是错的。',
+  intro: '读一篇观点专栏。留意修辞、倒装和习语式的表达。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '修辞语体',
+      text: 'so too does thought（倒装）；We would do well to…（委婉建议）；排比与对比增强说服力。',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'What does the writer criticise?',
+      options: ['Empty slogans', 'Long books', 'Foreign words'],
+      correctIndex: 0,
+      questionTranslation: '作者批评什么？',
+    ),
+    ReadingQuestion(
+      question: 'What does the writer fear?',
+      options: ['That thought becomes empty', 'That people read too much', 'Nothing'],
+      correctIndex: 0,
+      questionTranslation: '作者担心什么？',
+    ),
+    ReadingQuestion(
+      question: 'What is the writer\'s view of simple answers?',
+      options: ['Usually wrong', 'Always right', 'Harmless'],
+      correctIndex: 0,
+      questionTranslation: '作者怎么看简单答案？',
+    ),
+  ],
+);
+
+final QuizContent zhEnC12Concession = zhEnFill(
+  id: 'zh_en_c1_2_concession',
+  title: '让步：whereas / albeit / despite',
+  intro: '让步与对比连接词各有搭配，用对了文风才地道。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: '⚠️ 搭配不同（Z25）',
+      text: 'although/though + 句子；despite / in spite of + 名词或 -ing；whereas 表对比；albeit 很正式。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '他很聪明，尽管有点懒。', answer: 'He is clever, **albeit** a little lazy.'),
+    CourseItem(prompt: '尽管下雨，比赛还是进行了。', answer: '**Despite** the rain, the match went ahead.'),
+    CourseItem(prompt: '有些人喜欢城市，而另一些喜欢乡村。', answer: 'Some like the city, **whereas** others prefer the country.'),
+    CourseItem(prompt: '虽然努力了，她还是失败了。', answer: '**Although** she tried, she failed.'),
+    CourseItem(prompt: '尽管有困难，他们成功了。', answer: 'They succeeded **in** spite of the difficulties.'),
+  ],
+);
+
+final QuizContent zhEnC12Idioms = zhEnFill(
+  id: 'zh_en_c1_2_idioms',
+  title: '高级搭配与习语',
+  intro: '地道的搭配和习语要整体记忆——这是摆脱中式英语的关键。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'mnemonic',
+      title: '⚠️ 成组记忆（Z32）',
+      text: 'make up your mind、come to terms with、break the ice——别逐字直译中文。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '下定决心', answer: 'to **make** up your mind'),
+    CourseItem(prompt: '接受（并释怀）', answer: 'to **come** to terms with it'),
+    CourseItem(prompt: '起重要作用', answer: 'to play a key **role**'),
+    CourseItem(prompt: '打破僵局', answer: 'to break the **ice**'),
+    CourseItem(prompt: '权衡利弊', answer: 'to weigh the **pros** and cons'),
+  ],
+);
+
+final QuizContent zhEnC12SpeakPersuade = zhEnSpeak(
+  id: 'zh_en_c1_2_speak_persuade',
+  title: '发音：有说服力的语调',
+  intro: '用停顿、重音和排比增强说服力；语调传达信念。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: '修辞节奏',
+      text: '三段排比、反问、恰当停顿，让讲话更有力量。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '三段排比', answer: 'It is unfair, it is unwise, and it is unnecessary.'),
+    CourseItem(prompt: '反问', answer: 'How much longer must we wait?'),
+    CourseItem(prompt: '停顿制造效果', answer: 'The answer … is simple.'),
+    CourseItem(prompt: '升调引出重点', answer: 'And the reason? Trust.'),
+    CourseItem(prompt: '一整句', answer: 'We can do better, and we must.'),
+  ],
+);
+
+final QuizContent zhEnC12PhrasalAdv = zhEnFill(
+  id: 'zh_en_c1_2_phrasal_adv',
+  title: '高级短语与介词动词',
+  intro: '高级短语动词常有抽象含义，不能字面理解。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'rule',
+      title: '抽象含义（Z30）',
+      text: 'come down to（归结为）、fall through（落空）、come across（偶然遇到）、back up（支持）。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '这归结为金钱问题。', answer: 'It **comes** down to money.'),
+    CourseItem(prompt: '我们必须坚持到底。', answer: 'We must **carry** on to the end.'),
+    CourseItem(prompt: '那个计划落空了。', answer: 'The plan **fell** through.'),
+    CourseItem(prompt: '他偶然发现了真相。', answer: 'He **came** across the truth by chance.'),
+    CourseItem(prompt: '我支持你的决定。', answer: 'I **back** you up.'),
+  ],
+);
+
+final QuizContent zhEnC12ListenNegotiation = zhEnListen(
+  id: 'zh_en_c1_2_listen_negotiation',
+  title: '听力：A business negotiation',
+  passageTitle: 'Closing the deal',
+  passage:
+      "Thank you for meeting us. Let me be direct: we're very interested in "
+      'your product, but the price is a concern. — I appreciate your honesty. '
+      'What did you have in mind? — If you could reduce the price by ten per '
+      "cent, we'd be prepared to sign a two-year contract. — That's a "
+      'significant reduction. However, for a two-year commitment, I think we '
+      "could offer eight per cent. — Let's say nine, and we have a deal. — Nine "
+      "it is. I'll have the contract drawn up.",
+  passageTranslation:
+      '感谢与我们会面。我就直说了：我们对贵方的产品很感兴趣，但价格是个顾虑。——感谢您的坦诚。'
+      '您有什么想法？——如果您能把价格降低百分之十，我们愿意签一份两年的合同。——这个降幅可不小。'
+      '不过，考虑到两年的承诺，我想我们可以让百分之八。——就九个点吧，成交。——那就九个点。'
+      '我这就让人把合同拟好。',
+  intro: '先听，再答题。留意谈判中的委婉条件句和使役结构。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '条件 + 使役',
+      text: "If you could reduce…we'd be prepared（委婉条件）；have the contract drawn up（使役被动）。",
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'What is the buyer concerned about?',
+      options: ['The price', 'The colour', 'The delivery'],
+      correctIndex: 0,
+      questionTranslation: '买方担心什么？',
+    ),
+    ReadingQuestion(
+      question: 'What does the buyer offer in return for a discount?',
+      options: ['A two-year contract', 'More orders', 'Nothing'],
+      correctIndex: 0,
+      questionTranslation: '买方为折扣提供什么？',
+    ),
+    ReadingQuestion(
+      question: 'What discount do they agree on?',
+      options: ['Nine per cent', 'Ten per cent', 'Eight per cent'],
+      correctIndex: 0,
+      questionTranslation: '他们最终同意打几折？',
+    ),
+  ],
+);
+
+final QuizContent zhEnC12DictEmail = zhEnDict(
+  id: 'zh_en_c1_2_dict_email',
+  title: '听写：A formal email',
+  intro: '听句子并打出来。注意正式邮件的固定表达。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'warning',
+      title: '⚠️ 正式表达（Z32）',
+      text: '写出 I would be grateful if…、Please find attached…、Should you have any questions…。英式拼写 enquire。',
+    ),
+  ],
+  items: const [
+    CourseItem(prompt: '我写信是想咨询贵方的服务。', answer: 'I am writing to enquire about your services.'),
+    CourseItem(prompt: '如蒙尽快回复，我将不胜感激。', answer: 'I would be grateful if you could reply soon.'),
+    CourseItem(prompt: '随附您所要求的文件。', answer: 'Please find attached the requested document.'),
+    CourseItem(prompt: '期待您的回复。', answer: 'I look forward to hearing from you.'),
+    CourseItem(prompt: '如有任何问题，请随时与我联系。', answer: 'Should you have any questions, do not hesitate to contact me.'),
+  ],
+);
+
+final QuizContent zhEnC12ReadReviews = zhEnRead(
+  id: 'zh_en_c1_2_read_reviews',
+  title: '阅读：Two reviews, two registers',
+  passageTitle: 'A tale of two reviews',
+  passage:
+      'Here are two reviews of the same restaurant. The first, from a food '
+      "critic, reads: 'The dishes, though modest in appearance, reveal a chef "
+      'of considerable skill; the balance of flavours is, quite frankly, '
+      "exquisite.' The second, posted online by a customer, says: 'Food was "
+      "well nice! A bit pricey but worth it lol. Will defo go back!' Both "
+      'reviews are positive, yet they could hardly be more different. The first '
+      'uses careful, formal language; the second is casual and full of slang. '
+      "Neither is 'wrong'. Rather, each is appropriate to its context — and "
+      'knowing which register to use, and when, is one of the true marks of '
+      'fluency.',
+  passageTranslation:
+      '这里有对同一家餐厅的两则评价。第一则出自美食评论家：「这些菜肴外表朴素，却显露出一位技艺'
+      '不凡的厨师；风味的平衡，坦白说，堪称精妙。」第二则由一位顾客发在网上：「东西超好吃！有点小贵'
+      '但值了 哈哈。绝对还会再去！」两则都是好评，却几乎再不同不过。前者用词讲究、正式；后者随意，'
+      '满是俚语。两者都没有「错」。相反，各自都契合其语境——而知道该在何时使用哪种语体，正是真正'
+      '流利的标志之一。',
+  intro: '读两则语体截然不同的评价。本课的核心：语体意识。',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'example',
+      title: '语体对比（Z32）',
+      text: '正式：exquisite、considerable skill；非正式：well nice、defo、lol。流利 = 会在对的场合用对的语体。',
+    ),
+  ],
+  questions: const [
+    ReadingQuestion(
+      question: 'How are the two reviews similar?',
+      options: ['Both positive', 'Both negative', 'Both formal'],
+      correctIndex: 0,
+      questionTranslation: '两则评价有什么共同点？',
+    ),
+    ReadingQuestion(
+      question: 'How do they differ?',
+      options: ['In register / formality', 'In the food', 'In the price'],
+      correctIndex: 0,
+      questionTranslation: '它们有什么不同？',
+    ),
+    ReadingQuestion(
+      question: "What is 'a true mark of fluency'?",
+      options: ['Knowing which register to use', 'Using slang', 'Being formal'],
+      correctIndex: 0,
+      questionTranslation: '「真正流利的标志」是什么？',
+    ),
+  ],
+);
+
+/// C1.2 in chain order.
+final List<QuizContent> zhEnC1_2 = [
+  zhEnC12Inversion,
+  zhEnC12CondInversion,
+  zhEnC12Fronting,
+  zhEnC12SpeakRegister,
+  zhEnC12Hedging,
+  zhEnC12Impersonal,
+  zhEnC12ListenInterview,
+  zhEnC12Discourse,
+  zhEnC12ReadColumn,
+  zhEnC12Concession,
+  zhEnC12Idioms,
+  zhEnC12SpeakPersuade,
+  zhEnC12PhrasalAdv,
+  zhEnC12ListenNegotiation,
+  zhEnC12DictEmail,
+  zhEnC12ReadReviews,
+];

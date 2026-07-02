@@ -4,7 +4,9 @@ import '../models/quiz_content.dart';
 import 'courses/de_cs/de_cs_content.dart';
 import 'courses/de_es/de_es_content.dart';
 import 'courses/en_de/en_de_content.dart';
+import 'courses/en_zh/en_zh_content.dart';
 import 'courses/es_de/es_de_content.dart';
+import 'courses/zh_en/zh_en_content.dart';
 
 /// Navigation links shared by the English courses (word reference, settings,
 /// how-it-works, course switcher).
@@ -370,6 +372,213 @@ final NavLayout _deCsNav = NavLayout(
   ],
 );
 
+/// The "英语认证 A1–C2" drawer (Mandarin → English): the CEFR sub-level groups in
+/// chain order, plus links. Each level group is [NavGroup.gated], so the whole
+/// sequence is one continuous pass-to-unlock chain. Modules A1.2 … C2.2 are
+/// added here as they are authored (see `docs/zh_en_certification_plan.md`).
+final NavLayout _zhEnCertNav = NavLayout(
+  groups: [
+    NavGroup(
+      id: 'a1_1',
+      title: 'A1.1 · 初次接触',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnA1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a1_2',
+      title: 'A1.2 · 日常生活',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnA1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_1',
+      title: 'A2.1 · 过去与经历',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnA2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_2',
+      title: 'A2.2 · 计划与数量',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnA2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_1',
+      title: 'B1.1 · 经历与联系',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnB1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_2',
+      title: 'B1.2 · 叙述与条件',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnB1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_1',
+      title: 'B2.1 · 观点与假设',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnB2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_2',
+      title: 'B2.2 · 转述与细节',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnB2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_1',
+      title: 'C1.1 · 抽象与精确',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnC1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_2',
+      title: 'C1.2 · 语体与修辞',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnC1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_1',
+      title: 'C2.1 · 风格驾驭',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnC2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_2',
+      title: 'C2.2 · 精通',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in zhEnC2_2) NavItem(ref: c.id)],
+    ),
+    const NavGroup(
+      id: 'more',
+      title: '更多',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
+/// The "Certification Chinese · HSK" drawer (English → Mandarin): the twelve
+/// CEFR sub-level groups (A1.1 … C2.2) in chain order, each mapped to its HSK
+/// band, plus links. Each level group is [NavGroup.gated], so the whole
+/// sequence is one continuous pass-to-unlock chain. See
+/// `docs/en_zh_certification_plan.md`.
+final NavLayout _enZhCertNav = NavLayout(
+  groups: [
+    NavGroup(
+      id: 'a1_1',
+      title: 'A1.1 · FIRST SOUNDS & TONES',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhA1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a1_2',
+      title: 'A1.2 · PEOPLE & THINGS',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhA1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_1',
+      title: 'A2.1 · TIME & DAILY LIFE',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhA2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_2',
+      title: 'A2.2 · DONE & EXPERIENCED',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhA2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_1',
+      title: 'B1.1 · RESULTS & DIRECTIONS',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhB1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_2',
+      title: 'B1.2 · DESCRIBING & DEFINING',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhB1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_1',
+      title: 'B2.1 · HANDLING & BEING HANDLED',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhB2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_2',
+      title: 'B2.2 · ATTITUDE & FLOW',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhB2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_1',
+      title: 'C1.1 · PRECISION & NUANCE',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhC1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_2',
+      title: 'C1.2 · THE WRITTEN REGISTER',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhC1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_1',
+      title: 'C2.1 · IDIOM & COLOR',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhC2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_2',
+      title: 'C2.2 · MASTERY',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enZhC2_2) NavItem(ref: c.id)],
+    ),
+    const NavGroup(
+      id: 'more',
+      title: 'MORE',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
 /// The id of the course shown by default (the original German app).
 const String kDefaultCourseId = 'en_de';
 
@@ -430,5 +639,25 @@ final List<Course> defaultCourses = [
     uiLang: UiLang.de,
     learnLocale: 'cs-CZ',
     nav: _deCsNav,
+  ),
+  Course(
+    id: 'zh_en',
+    name: '英语认证 A1–C2',
+    tagline: '从零基础到精通，一步步考取英语证书',
+    speakFlag: '🇨🇳',
+    learnFlag: '🇬🇧',
+    uiLang: UiLang.zh,
+    learnLocale: 'en-GB',
+    nav: _zhEnCertNav,
+  ),
+  Course(
+    id: 'en_zh',
+    name: 'Certification Chinese · HSK',
+    tagline: 'From nǐ hǎo to HSK mastery — tones, characters and all',
+    speakFlag: '🇬🇧',
+    learnFlag: '🇨🇳',
+    uiLang: UiLang.en,
+    learnLocale: 'zh-CN',
+    nav: _enZhCertNav,
   ),
 ];
