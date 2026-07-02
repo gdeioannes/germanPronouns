@@ -24,8 +24,14 @@ export 'voice_gender.dart' show VoiceGender;
 /// its translation in `english`). [speakRepeat], [reading], [listening], and
 /// [dictation] all leave the fill-in fields (categories/sentences) empty and
 /// carry their own data ([QuizContent.subjects] for speak/dictation; the reading
-/// fields for reading/listening).
-enum QuizKind { fillBlank, speakRepeat, reading, listening, dictation }
+/// fields for reading/listening). [draw] is a character-writing quiz (rendered
+/// by `DrawQuizPage`): TTS reads each character/word aloud and the learner
+/// **draws** it on a canvas — traced over a faint template (easy) or from
+/// memory with a reveal-to-check (hard); it reuses the [speakRepeat] data shape
+/// (each [QuizContent.subjects] entry is a character to draw, with its
+/// pinyin/meaning in `english`) and, like [speakRepeat], completes on
+/// play-through (no scoring — the learner self-checks against the template).
+enum QuizKind { fillBlank, speakRepeat, reading, listening, dictation, draw }
 
 /// One multiple-choice question in a [QuizKind.reading] quiz: a [question]
 /// stem, the answer [options], the index of the correct option, and an optional

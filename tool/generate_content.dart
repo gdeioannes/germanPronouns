@@ -21,6 +21,7 @@ import 'package:german_pronouns_articles/data/courses/de_cs/de_cs_content.dart';
 import 'package:german_pronouns_articles/data/courses/de_es/de_es_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_de/en_de_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_zh/en_zh_content.dart';
+import 'package:german_pronouns_articles/data/courses/en_zh_hanzi/en_zh_hanzi_content.dart';
 import 'package:german_pronouns_articles/data/courses/es_de/es_de_content.dart';
 import 'package:german_pronouns_articles/data/courses/zh_en/zh_en_content.dart';
 import 'package:german_pronouns_articles/data/data_version.dart';
@@ -57,6 +58,7 @@ Map<String, List<QuizContent>> _contentByCourse() => {
   'de_cs': [...deCsContent],
   'zh_en': [...zhEnContent],
   'en_zh': [...enZhContent],
+  'en_zh_hanzi': [...enZhHanziContent],
 };
 
 void main() {

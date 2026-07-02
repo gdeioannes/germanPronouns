@@ -4,6 +4,7 @@ import '../models/quiz_content.dart';
 import 'courses/de_cs/de_cs_content.dart';
 import 'courses/de_es/de_es_content.dart';
 import 'courses/en_de/en_de_content.dart';
+import 'courses/en_zh_hanzi/en_zh_hanzi_content.dart';
 import 'courses/en_zh/en_zh_content.dart';
 import 'courses/es_de/es_de_content.dart';
 import 'courses/zh_en/zh_en_content.dart';
@@ -579,6 +580,35 @@ final NavLayout _enZhCertNav = NavLayout(
   ],
 );
 
+/// The "Hanzi Writing · 汉字" drawer (English → Chinese characters): the 1000
+/// most common characters grouped into friendly themed modules ("PEOPLE &
+/// FAMILY", "FOOD & KITCHEN", …), each opening with a culture reading and
+/// followed by its draw quizzes. Groups are gated so the themes unlock in
+/// order — but every draw quiz completes on play-through, so nothing ever
+/// blocks on drawing "correctly".
+final NavLayout _enZhHanziNav = NavLayout(
+  groups: [
+    for (final m in enZhHanziModules)
+      NavGroup(
+        id: m.category.id,
+        title: m.category.title.toUpperCase(),
+        type: NavGroupType.quizzes,
+        gated: true,
+        items: [for (final c in m.quizzes) NavItem(ref: c.id)],
+      ),
+    const NavGroup(
+      id: 'more',
+      title: 'MORE',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
 /// The id of the course shown by default (the original German app).
 const String kDefaultCourseId = 'en_de';
 
@@ -675,5 +705,17 @@ final List<Course> defaultCourses = [
     goal: 'certification',
     level: 'A1–C2',
     nav: _enZhCertNav,
+  ),
+  Course(
+    id: 'en_zh_hanzi',
+    name: 'Hanzi Writing · 汉字',
+    tagline: 'Listen, trace and write the 1000 most common Chinese characters',
+    speakFlag: '🇬🇧',
+    learnFlag: '🇨🇳',
+    uiLang: UiLang.en,
+    learnLocale: 'zh-CN',
+    goal: 'vocabulary',
+    level: 'HSK 1–4',
+    nav: _enZhHanziNav,
   ),
 ];

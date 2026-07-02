@@ -4,6 +4,7 @@ import 'courses/de_cs/de_cs_content.dart';
 import 'courses/de_es/de_es_content.dart';
 import 'courses/en_de/en_de_content.dart';
 import 'courses/en_zh/en_zh_content.dart';
+import 'courses/en_zh_hanzi/en_zh_hanzi_content.dart';
 import 'courses/es_de/es_de_content.dart';
 import 'courses/zh_en/zh_en_content.dart';
 import 'noun_article_content.dart';
@@ -37,4 +38,6 @@ final List<QuizContent> allQuizContent = [
   ...zhEnContent,
   // Certification Chinese · HSK — English speakers learning Mandarin (en → zh).
   ...enZhContent,
+  // Hanzi Writing — draw the 1000 most common characters (en → zh).
+  ...enZhHanziContent,
 ];

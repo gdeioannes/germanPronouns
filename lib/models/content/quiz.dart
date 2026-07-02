@@ -34,7 +34,7 @@ sealed class Quiz {
   final String? level;
 
   /// JSON discriminator (`'fillBlank'` | `'reading'` | `'listening'` |
-  /// `'speakRepeat'` | `'dictation'`).
+  /// `'speakRepeat'` | `'dictation'` | `'draw'`).
   String get type;
 
   Map<String, dynamic> toJson();
@@ -49,6 +49,7 @@ sealed class Quiz {
       'listening' => ListeningQuiz.fromJson(json),
       'speakRepeat' => SpeakRepeatQuiz.fromJson(json),
       'dictation' => DictationQuiz.fromJson(json),
+      'draw' => DrawQuiz.fromJson(json),
       _ => FillBlankQuiz.fromJson(json),
     };
   }
@@ -58,6 +59,7 @@ sealed class Quiz {
     QuizKind.listening => ListeningQuiz.fromContent(c),
     QuizKind.speakRepeat => SpeakRepeatQuiz.fromContent(c),
     QuizKind.dictation => DictationQuiz.fromContent(c),
+    QuizKind.draw => DrawQuiz.fromContent(c),
     QuizKind.fillBlank => FillBlankQuiz.fromContent(c),
   };
 }
@@ -773,4 +775,83 @@ final class DictationQuiz extends Quiz {
   @override
   QuizContent toLegacy() =>
       _spokenToLegacy(this, items, QuizKind.dictation, voiceGender: voiceGender);
+}
+
+// ---------------------------------------------------------------------------
+// Draw (character writing)
+// ---------------------------------------------------------------------------
+
+/// A character-writing quiz: each [SpokenLine] is a character/word the app
+/// reads aloud ([SpokenLine.text]) and the learner draws on a canvas, with its
+/// pinyin/meaning as the cue ([SpokenLine.meaning]). Same data shape as
+/// [DictationQuiz] — only the rendering (a drawing canvas instead of a text
+/// field) differs.
+final class DrawQuiz extends Quiz {
+  const DrawQuiz({
+    required super.id,
+    required super.title,
+    required super.storageKeyPrefix,
+    required super.promptLabel,
+    required super.subjectsLabel,
+    required super.subjectColumnLabel,
+    super.help,
+    super.level,
+    this.items = const [],
+    this.voiceGender = VoiceGender.female,
+  });
+
+  final List<SpokenLine> items;
+
+  /// Default gender of the voice that reads the characters; individual
+  /// [SpokenLine.gender]s override it per line.
+  final VoiceGender voiceGender;
+
+  @override
+  String get type => 'draw';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    ..._baseJson(this),
+    'items': [for (final i in items) i.toJson()],
+    if (voiceGender != VoiceGender.female) 'voiceGender': voiceGender.name,
+  };
+
+  factory DrawQuiz.fromJson(Map<String, dynamic> json) {
+    final b = _baseFromJson(json);
+    return DrawQuiz(
+      id: b.id,
+      title: b.title,
+      storageKeyPrefix: b.storageKeyPrefix,
+      promptLabel: b.promptLabel,
+      subjectsLabel: b.subjectsLabel,
+      subjectColumnLabel: b.subjectColumnLabel,
+      help: b.help,
+      level: b.level,
+      items: [
+        for (final i in (json['items'] as List?) ?? const [])
+          SpokenLine.fromJson(Map<String, dynamic>.from(i as Map)),
+      ],
+      voiceGender: VoiceGender.fromName(json['voiceGender'] as String?),
+    );
+  }
+
+  factory DrawQuiz.fromContent(QuizContent c) {
+    final b = _baseFromContent(c);
+    return DrawQuiz(
+      id: b.id,
+      title: b.title,
+      storageKeyPrefix: b.storageKeyPrefix,
+      promptLabel: b.promptLabel,
+      subjectsLabel: b.subjectsLabel,
+      subjectColumnLabel: b.subjectColumnLabel,
+      help: b.help,
+      level: b.level,
+      items: [for (final s in c.subjects) SpokenLine.fromSubject(s)],
+      voiceGender: c.voiceGender,
+    );
+  }
+
+  @override
+  QuizContent toLegacy() =>
+      _spokenToLegacy(this, items, QuizKind.draw, voiceGender: voiceGender);
 }

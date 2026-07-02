@@ -5,6 +5,7 @@ import '../models/app_page.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
 import '../pages/dictation_quiz_page.dart';
+import '../pages/draw_quiz_page.dart';
 import '../pages/inline_cloze_quiz_page.dart';
 import '../pages/listening_quiz_page.dart';
 import '../pages/reading_quiz_page.dart';
@@ -57,6 +58,12 @@ Widget pageForQuizContent(
       );
     case QuizKind.dictation:
       return DictationQuizPage(
+        content: content,
+        currentPage: currentPage,
+        questProgressionKey: questProgressionKey,
+      );
+    case QuizKind.draw:
+      return DrawQuizPage(
         content: content,
         currentPage: currentPage,
         questProgressionKey: questProgressionKey,

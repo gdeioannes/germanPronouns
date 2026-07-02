@@ -500,6 +500,7 @@ class _AppDrawerState extends State<AppDrawer> {
       QuizKind.reading => (quizKindIcon(QuizKind.reading), 'Read & answer'),
       QuizKind.listening => (quizKindIcon(QuizKind.listening), 'Listen & answer'),
       QuizKind.dictation => (quizKindIcon(QuizKind.dictation), 'Listen & write'),
+      QuizKind.draw => (quizKindIcon(QuizKind.draw), 'Listen & draw'),
       // Knowledge quizzes in the quest chain keep the quest flag (a milestone
       // marker) rather than the generic question icon.
       QuizKind.fillBlank => (Icons.flag_rounded, null),
@@ -837,6 +838,9 @@ class _AppDrawerState extends State<AppDrawer> {
         return NounSettings.instance.isListeningQuizCompleted(item.ref);
       case QuizKind.dictation:
         return NounSettings.instance.isDictationQuizCompleted(item.ref);
+      case QuizKind.draw:
+        // Drawing completes on play-through, sharing the speak completion set.
+        return NounSettings.instance.isSpeakQuizCompleted(item.ref);
       case QuizKind.fillBlank:
       case null:
         final prefix =

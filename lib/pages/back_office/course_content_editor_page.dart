@@ -344,7 +344,9 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
         quizId: quiz.id,
         title: quiz.title,
       ),
-      SpeakRepeatQuiz() || DictationQuiz() => CourseSpokenLinesPage(
+      // Draw quizzes carry the same spoken-line shape (character + meaning),
+      // so they edit through the spoken-lines page too.
+      SpeakRepeatQuiz() || DictationQuiz() || DrawQuiz() => CourseSpokenLinesPage(
         editor: _editor,
         courseId: courseId,
         quizId: quiz.id,

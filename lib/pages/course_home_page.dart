@@ -30,6 +30,7 @@ enum _UiKind {
   reading,
   listening,
   dictation,
+  draw,
   quest,
   noun,
   nounFinal,
@@ -42,6 +43,7 @@ _UiKind _questUiKind(QuizKind kind) => switch (kind) {
   QuizKind.reading => _UiKind.reading,
   QuizKind.listening => _UiKind.listening,
   QuizKind.dictation => _UiKind.dictation,
+  QuizKind.draw => _UiKind.draw,
   QuizKind.fillBlank => _UiKind.quest,
 };
 
@@ -241,7 +243,8 @@ class _CourseHomePageState extends State<CourseHomePage> {
                   bookletEntries.add(ReadingBookletEntry(content));
                 case QuizKind.speakRepeat:
                 case QuizKind.dictation:
-                  // Spoken / dictated sentence sets have nothing to add to the
+                case QuizKind.draw:
+                  // Spoken / dictated / drawn sets have nothing to add to the
                   // printable study booklet.
                   break;
               }
@@ -868,6 +871,10 @@ class _CourseHomePageState extends State<CourseHomePage> {
       _UiKind.dictation => (
         icon: quizKindIcon(QuizKind.dictation),
         color: quizKindColor(QuizKind.dictation),
+      ),
+      _UiKind.draw => (
+        icon: quizKindIcon(QuizKind.draw),
+        color: quizKindColor(QuizKind.draw),
       ),
       _UiKind.reading => (
         icon: quizKindIcon(QuizKind.reading),

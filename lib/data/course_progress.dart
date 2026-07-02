@@ -202,6 +202,13 @@ _QuizRef _resolveItem(
         summary!.storageKeyPrefix,
         NounSettings.instance.isDictationQuizCompleted(ref),
       );
+    case QuizKind.draw:
+      // Drawing completes on play-through, sharing the speak completion set.
+      return _QuizRef(
+        ref,
+        summary!.storageKeyPrefix,
+        NounSettings.instance.isSpeakQuizCompleted(ref),
+      );
     case QuizKind.fillBlank:
     case null:
       final prefix =
