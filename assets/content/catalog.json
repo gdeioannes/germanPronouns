@@ -1,5 +1,5 @@
 {
-  "version": "1.14.0",
+  "version": "1.15.0",
   "defaultCourseId": "en_de",
   "courses": [
     {
@@ -10,7 +10,9 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
-      "version": "1.14.0"
+      "goal": "certification",
+      "level": "A1–C2",
+      "version": "1.15.0"
     },
     {
       "id": "en_de",
@@ -20,7 +22,9 @@
       "learnFlag": "🇩🇪",
       "uiLang": "en",
       "learnLocale": "de-DE",
-      "version": "1.14.0"
+      "goal": "grammar",
+      "level": "A1–B2",
+      "version": "1.15.0"
     },
     {
       "id": "es_de",
@@ -30,7 +34,9 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
-      "version": "1.14.0"
+      "goal": "discover",
+      "level": "A1",
+      "version": "1.15.0"
     },
     {
       "id": "es_de_emotions",
@@ -40,7 +46,9 @@
       "learnFlag": "🇩🇪",
       "uiLang": "es",
       "learnLocale": "de-DE",
-      "version": "1.14.0"
+      "goal": "vocabulary",
+      "level": "A2–C1",
+      "version": "1.15.0"
     },
     {
       "id": "de_es",
@@ -50,7 +58,9 @@
       "learnFlag": "🇪🇸",
       "uiLang": "de",
       "learnLocale": "es-ES",
-      "version": "1.14.0"
+      "goal": "certification",
+      "level": "A1–B2",
+      "version": "1.15.0"
     },
     {
       "id": "de_cs",
@@ -60,7 +70,9 @@
       "learnFlag": "🇨🇿",
       "uiLang": "de",
       "learnLocale": "cs-CZ",
-      "version": "1.14.0"
+      "goal": "discover",
+      "level": "A1",
+      "version": "1.15.0"
     },
     {
       "id": "zh_en",
@@ -70,7 +82,9 @@
       "learnFlag": "🇬🇧",
       "uiLang": "zh",
       "learnLocale": "en-GB",
-      "version": "1.14.0"
+      "goal": "certification",
+      "level": "A1–C2",
+      "version": "1.15.0"
     },
     {
       "id": "en_zh",
@@ -80,7 +94,9 @@
       "learnFlag": "🇨🇳",
       "uiLang": "en",
       "learnLocale": "zh-CN",
-      "version": "1.14.0"
+      "goal": "certification",
+      "level": "A1–C2",
+      "version": "1.15.0"
     }
   ]
 }

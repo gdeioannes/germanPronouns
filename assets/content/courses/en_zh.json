@@ -6,6 +6,8 @@
   "learnFlag": "🇨🇳",
   "uiLang": "en",
   "learnLocale": "zh-CN",
+  "goal": "certification",
+  "level": "A1–C2",
   "gating": {
     "progressionUnlockLaps": 2,
     "questUnlockLaps": 2
@@ -672,7 +674,7 @@
       }
     ]
   },
-  "version": "1.14.0",
+  "version": "1.15.0",
   "quizzes": [
     {
       "type": "speakRepeat",

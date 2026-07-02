@@ -11,7 +11,6 @@ import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
 import '../data/section_catalog.dart';
 import '../models/app_page.dart';
-import '../models/course.dart';
 import '../models/course_session.dart';
 import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
@@ -1011,7 +1010,7 @@ class _AppDrawerState extends State<AppDrawer> {
       icon = navIconFor(item.iconKey, Icons.translate_rounded);
       tooltip = item.titleOverride ?? strings.switchCourse;
       selected = false;
-      onTap = () => _showCourseSwitcher(context);
+      onTap = () => _openCourseFinder(context);
     } else if (item.ref == kHowItWorksRef) {
       icon = navIconFor(item.iconKey, Icons.help_outline_rounded);
       tooltip = item.titleOverride ?? strings.howItWorks;
@@ -1076,7 +1075,7 @@ class _AppDrawerState extends State<AppDrawer> {
         borderRadius: BorderRadius.circular(kRadiusLarge),
         child: InkWell(
           borderRadius: BorderRadius.circular(kRadiusLarge),
-          onTap: multiple ? () => _showCourseSwitcher(context) : null,
+          onTap: multiple ? () => _openCourseFinder(context) : null,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(12, 12, 10, 12),
             child: Row(
@@ -1138,151 +1137,14 @@ class _AppDrawerState extends State<AppDrawer> {
     );
   }
 
-  /// Opens a bottom sheet to pick a course; switches if a different one is
-  /// chosen.
-  Future<void> _showCourseSwitcher(BuildContext context) async {
-    final courses = CourseSession.instance.courses;
-    final activeId = CourseSession.instance.activeCourseId;
-    final strings = CourseSession.instance.strings;
-
-    final chosen = await showDialog<Course>(
-      context: context,
-      builder: (sheetContext) {
-        final colorScheme = Theme.of(sheetContext).colorScheme;
-        final textTheme = Theme.of(sheetContext).textTheme;
-        final media = MediaQuery.of(sheetContext);
-        return Dialog(
-          insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-          clipBehavior: Clip.antiAlias,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: 480,
-              // Cap height so the panel floats in the middle and the list
-              // scrolls instead of overflowing/clipping lower courses.
-              maxHeight: media.size.height * 0.7,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 20, 24, 12),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.translate_rounded,
-                        size: 20,
-                        color: colorScheme.primary,
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          strings.switchCourse,
-                          style: textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Flexible(
-                  child: ListView(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.only(bottom: 12),
-                    children: [
-                      for (final course in courses)
-                        _courseSwitcherTile(
-                          sheetContext,
-                          course: course,
-                          active: course.id == activeId,
-                        ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-
-    if (!context.mounted) return;
-    if (chosen != null && chosen.id != activeId) {
-      _switchCourse(context, chosen);
-    }
-  }
-
-  Widget _courseSwitcherTile(
-    BuildContext context, {
-    required Course course,
-    required bool active,
-  }) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
-      child: Material(
-        color: active
-            ? colorScheme.primaryContainer.withValues(alpha: 0.5)
-            : colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(kRadiusLarge),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(kRadiusLarge),
-          onTap: () => Navigator.pop(context, course),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            child: Row(
-              children: [
-                CourseFlagPair(
-                  speakFlag: course.speakFlag,
-                  learnFlag: course.learnFlag,
-                  diameter: 22,
-                ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        course.name,
-                        style: textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      Text(
-                        course.tagline,
-                        style: textTheme.bodySmall?.copyWith(
-                          color: colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Icon(
-                  active
-                      ? Icons.check_circle_rounded
-                      : Icons.chevron_right_rounded,
-                  color: active
-                      ? colorScheme.primary
-                      : colorScheme.onSurfaceVariant,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  /// Activates [course] and reopens the app on its home, clearing the old
-  /// course's navigation stack.
-  void _switchCourse(BuildContext context, Course course) {
-    // Navigate to the course's own home; LearnerHomePage adopts it from the
-    // route (sets it active, applies its Quest order), so the URL stays the
-    // single source of truth.
-    context.go('/course/${course.id}');
+  /// Opens the course finder — the same "I speak / I want to learn" screen
+  /// shown on first launch — to switch courses, so there's one course-choosing
+  /// experience everywhere. Pushed (not gone to), so backing out returns here
+  /// without switching; the finder itself preselects the learner's spoken
+  /// language from the active course.
+  void _openCourseFinder(BuildContext context) {
+    Navigator.pop(context); // Close the drawer first.
+    context.push('/courses');
   }
 
   // ── Accordion sections ────────────────────────────────────────────────────

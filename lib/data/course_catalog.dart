@@ -591,6 +591,8 @@ final List<Course> defaultCourses = [
     speakFlag: '🇬🇧',
     learnFlag: '🇩🇪',
     uiLang: UiLang.en,
+    goal: 'certification',
+    level: 'A1–C2',
     nav: _certA1Nav,
   ),
   Course(
@@ -600,6 +602,8 @@ final List<Course> defaultCourses = [
     speakFlag: '🇬🇧',
     learnFlag: '🇩🇪',
     uiLang: UiLang.en,
+    goal: 'grammar',
+    level: 'A1–B2',
     nav: _grammarNav,
   ),
   Course(
@@ -609,6 +613,8 @@ final List<Course> defaultCourses = [
     speakFlag: '🇪🇸',
     learnFlag: '🇩🇪',
     uiLang: UiLang.es,
+    goal: 'discover',
+    level: 'A1',
     nav: _esDeNav,
   ),
   Course(
@@ -618,6 +624,8 @@ final List<Course> defaultCourses = [
     speakFlag: '🇪🇸',
     learnFlag: '🇩🇪',
     uiLang: UiLang.es,
+    goal: 'vocabulary',
+    level: 'A2–C1',
     nav: _emotionsNav,
   ),
   Course(
@@ -628,6 +636,8 @@ final List<Course> defaultCourses = [
     learnFlag: '🇪🇸',
     uiLang: UiLang.de,
     learnLocale: 'es-ES',
+    goal: 'certification',
+    level: 'A1–B2',
     nav: _deEsCertNav,
   ),
   Course(
@@ -638,6 +648,8 @@ final List<Course> defaultCourses = [
     learnFlag: '🇨🇿',
     uiLang: UiLang.de,
     learnLocale: 'cs-CZ',
+    goal: 'discover',
+    level: 'A1',
     nav: _deCsNav,
   ),
   Course(
@@ -648,6 +660,8 @@ final List<Course> defaultCourses = [
     learnFlag: '🇬🇧',
     uiLang: UiLang.zh,
     learnLocale: 'en-GB',
+    goal: 'certification',
+    level: 'A1–C2',
     nav: _zhEnCertNav,
   ),
   Course(
@@ -658,6 +672,8 @@ final List<Course> defaultCourses = [
     learnFlag: '🇨🇳',
     uiLang: UiLang.en,
     learnLocale: 'zh-CN',
+    goal: 'certification',
+    level: 'A1–C2',
     nav: _enZhCertNav,
   ),
 ];

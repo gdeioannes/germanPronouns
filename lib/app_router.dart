@@ -9,6 +9,7 @@ import 'pages/back_office/back_office_home_page.dart';
 import 'pages/course_intro_page.dart';
 import 'pages/course_selector_page.dart';
 import 'pages/learner_home_page.dart';
+import 'pages/my_courses_page.dart';
 import 'pages/login_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/word_library_page.dart';
@@ -50,6 +51,12 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const CourseSelectorPage(),
     ),
     GoRoute(
+      // The courses-taken management page (switch / archive / delete), pushed
+      // from the finder's "All my courses" link.
+      path: '/my-courses',
+      builder: (context, state) => const MyCoursesPage(),
+    ),
+    GoRoute(
       path: '/intro',
       builder: (context, state) => const CourseIntroPage(),
     ),
@@ -78,8 +85,8 @@ final GoRouter appRouter = GoRouter(
           path: '/course/:courseId',
           redirect: (context, state) =>
               courseExists(state.pathParameters['courseId']!)
-                  ? null
-                  : homeLocation(),
+              ? null
+              : homeLocation(),
           // Keyed by the course id: `/course/A` and `/course/B` match the same
           // route template, so without a param-derived key go_router reuses the
           // page (and its State) and the home never reloads on switch.
@@ -110,8 +117,8 @@ final GoRouter appRouter = GoRouter(
           // throwing on the null entry.
           redirect: (context, state) =>
               questEntryByKey(state.pathParameters['key']!) == null
-                  ? '/home'
-                  : null,
+              ? '/home'
+              : null,
           // Keyed by the quest key: every `/quest/:key` shares one page key (the
           // route template), so without a param key go_router reuses the loader's
           // State and its already-resolved quiz when switching quests.
@@ -127,8 +134,8 @@ final GoRouter appRouter = GoRouter(
           path: '/noun/:key',
           redirect: (context, state) =>
               nounEntryByKey(state.pathParameters['key']!) == null
-                  ? '/home'
-                  : null,
+              ? '/home'
+              : null,
           builder: (context, state) {
             final key = state.pathParameters['key']!;
             return NounProgressionQuizLoader(

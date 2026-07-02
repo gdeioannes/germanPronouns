@@ -6,6 +6,8 @@
   "learnFlag": "🇩🇪",
   "uiLang": "es",
   "learnLocale": "de-DE",
+  "goal": "discover",
+  "level": "A1",
   "gating": {
     "progressionUnlockLaps": 2,
     "questUnlockLaps": 2
@@ -120,7 +122,7 @@
       }
     ]
   },
-  "version": "1.14.0",
+  "version": "1.15.0",
   "quizzes": [
     {
       "type": "speakRepeat",

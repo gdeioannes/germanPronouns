@@ -18,9 +18,13 @@ class CourseSession extends ChangeNotifier {
   static final CourseSession instance = CourseSession._();
 
   static const String _activeKey = 'active_course_id';
+  static const String _startedKey = 'started_course_ids';
+  static const String _archivedKey = 'archived_course_ids';
 
   List<Course> _courses = defaultCourses;
   String? _activeCourseId;
+  List<String> _startedCourseIds = [];
+  List<String> _archivedCourseIds = [];
 
   /// Navs hydrated from the JSON course bundles, by course id (see
   /// [ensureActiveNavLoaded]). The menu/home structure as data, not compiled.
@@ -32,6 +36,51 @@ class CourseSession extends ChangeNotifier {
 
   /// Whether the learner has picked a course yet.
   bool get hasChosenCourse => _activeCourseId != null;
+
+  /// Ids of the courses the learner has opened at least once, most recent
+  /// first — the "your courses" list on the course finder and the My Courses
+  /// management page.
+  List<String> get startedCourseIds => _startedCourseIds;
+
+  /// Ids of started courses the learner has archived (set aside as "not
+  /// active"). Always a subset of [startedCourseIds]; archived courses are
+  /// hidden from the finder's shortcut and listed separately on My Courses.
+  List<String> get archivedCourseIds => _archivedCourseIds;
+
+  bool isArchived(String id) => _archivedCourseIds.contains(id);
+
+  /// Moves [id] into the archive. The active course cannot be archived (the
+  /// UI prevents it; this guard keeps `/home` resolvable regardless).
+  Future<void> archiveCourse(String id) async {
+    if (id == _activeCourseId || _archivedCourseIds.contains(id)) return;
+    _archivedCourseIds = [..._archivedCourseIds, id];
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_archivedKey, _archivedCourseIds);
+    notifyListeners();
+  }
+
+  /// Takes [id] back out of the archive (it keeps its place in the
+  /// most-recently-used order of [startedCourseIds]).
+  Future<void> unarchiveCourse(String id) async {
+    if (!_archivedCourseIds.contains(id)) return;
+    _archivedCourseIds = [..._archivedCourseIds.where((e) => e != id)];
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_archivedKey, _archivedCourseIds);
+    notifyListeners();
+  }
+
+  /// Forgets [id] entirely: out of the started list and the archive, as if
+  /// never opened. The caller wipes the course's progress data first (see
+  /// `clearCourseProgress`); the course itself stays available in the finder.
+  Future<void> removeStartedCourse(String id) async {
+    if (id == _activeCourseId) return; // the UI prevents this
+    _startedCourseIds = [..._startedCourseIds.where((e) => e != id)];
+    _archivedCourseIds = [..._archivedCourseIds.where((e) => e != id)];
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_startedKey, _startedCourseIds);
+    await prefs.setStringList(_archivedKey, _archivedCourseIds);
+    notifyListeners();
+  }
 
   /// The active course, or the first available if none/unknown is selected. Its
   /// nav is overlaid from the JSON bundle once [ensureActiveNavLoaded] has run,
@@ -87,6 +136,14 @@ class CourseSession extends ChangeNotifier {
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     _activeCourseId = prefs.getString(_activeKey);
+    _startedCourseIds = prefs.getStringList(_startedKey) ?? [];
+    _archivedCourseIds = prefs.getStringList(_archivedKey) ?? [];
+    // Older installs predate the started list: seed it with the course already
+    // in use so the finder's "your courses" section doesn't start empty.
+    if (_startedCourseIds.isEmpty && _activeCourseId != null) {
+      _startedCourseIds = [_activeCourseId!];
+      await prefs.setStringList(_startedKey, _startedCourseIds);
+    }
     _applyActiveGating();
   }
 
@@ -105,8 +162,12 @@ class CourseSession extends ChangeNotifier {
 
   Future<void> setActiveCourse(String id) async {
     _activeCourseId = id;
+    // Move (or add) this course to the front of the started list, keeping it
+    // ordered by most recent use.
+    _startedCourseIds = [id, ..._startedCourseIds.where((e) => e != id)];
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_activeKey, id);
+    await prefs.setStringList(_startedKey, _startedCourseIds);
     _applyActiveGating();
     notifyListeners();
   }
