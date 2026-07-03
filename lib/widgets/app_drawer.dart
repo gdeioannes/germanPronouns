@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/db/content_repository.dart';
+import '../data/debug_unlock.dart';
 import '../data/nav_layout_data.dart';
 import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
@@ -152,6 +153,62 @@ class _AppDrawerState extends State<AppDrawer> {
     NounSettings.instance.setLastPage(page.name);
     if (page == widget.currentPage) return;
     context.go(_pathForAppPage(page));
+  }
+
+  /// Ribbon debug mode (see [debugRibbonTrigger]): a tap on a quiz tile lands
+  /// here instead of navigating. Advances the quiz one ribbon step (done →
+  /// silver → gold, paying the tier's coins), then rebuilds so ribbons, locks
+  /// and progress chips reflect the new state. The drawer deliberately stays
+  /// open so the newly unlocked quiz can be tapped straight away.
+  Future<void> _debugRibbonTap(
+    BuildContext context, {
+    required String title,
+    required String storageKeyPrefix,
+    required bool isDone,
+    required Future<void> Function() markDone,
+  }) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final result = await debugAdvanceRibbon(
+      storageKeyPrefix: storageKeyPrefix,
+      isDone: isDone,
+      markDone: markDone,
+    );
+    if (!mounted) return;
+    setState(() {});
+    messenger
+      ..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 1),
+          content: Text(
+            result == null
+                ? "'$title' already has the gold ribbon."
+                : "'$title' → ${result.$2.name} ribbon, "
+                      '+${result.$1} coins (debug).',
+          ),
+        ),
+      );
+  }
+
+  /// The kind-specific completion [debugAdvanceRibbon] needs for a nav quiz
+  /// item: the play-through / passed sets, mirroring [_isQuizItemDone].
+  /// Fill-in quizzes have no set — the streak-goal bump covers them.
+  Future<void> _markQuizItemDoneDebug(QuizKind? kind, String ref) async {
+    final settings = NounSettings.instance;
+    switch (kind) {
+      case QuizKind.speakRepeat:
+      case QuizKind.draw:
+        await settings.markSpeakQuizCompleted(ref);
+      case QuizKind.reading:
+        await settings.markReadingQuizCompleted(ref);
+      case QuizKind.listening:
+        await settings.markListeningQuizCompleted(ref);
+      case QuizKind.dictation:
+        await settings.markDictationQuizCompleted(ref);
+      case QuizKind.fillBlank:
+      case null:
+        break;
+    }
   }
 
   /// Route for a built-in link page. Only the Word Library and Settings reach
@@ -317,7 +374,17 @@ class _AppDrawerState extends State<AppDrawer> {
       selected:
           widget.currentPage == AppPage.nounsArticles &&
           entry.key == widget.currentNounProgressionKey,
-      onTap: () => _navigateToNounProgression(context, entry.key),
+      onTap: debugRibbonModeActive.value
+          ? () => _debugRibbonTap(
+                context,
+                title: entry.displayName,
+                storageKeyPrefix: entry.config.storageKeyPrefix,
+                isDone:
+                    NounSettings.instance.isNounCategoryCompleted(entry.key),
+                markDone: () =>
+                    NounSettings.instance.markNounCategoryCompleted(entry.key),
+              )
+          : () => _navigateToNounProgression(context, entry.key),
       done: NounSettings.instance.isNounCategoryCompleted(entry.key),
       doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: prefs == null
@@ -533,7 +600,16 @@ class _AppDrawerState extends State<AppDrawer> {
       selected:
           widget.currentPage == AppPage.quest &&
           entry.key == widget.currentQuestKey,
-      onTap: () => _navigateToQuest(context, entry.key),
+      onTap: debugRibbonModeActive.value
+          ? () => _debugRibbonTap(
+                context,
+                title: entry.displayName,
+                storageKeyPrefix: entry.config.storageKeyPrefix,
+                isDone: NounSettings.instance.isQuestQuizCompleted(entry.key),
+                markDone: () =>
+                    NounSettings.instance.markQuestQuizCompleted(entry.key),
+              )
+          : () => _navigateToQuest(context, entry.key),
       done: NounSettings.instance.isQuestQuizCompleted(entry.key),
       doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: subtitle,
@@ -937,10 +1013,6 @@ class _AppDrawerState extends State<AppDrawer> {
     // "question" quizzes → quiz card, speak → voice. A known grammar section
     // icon still wins for fill-in; an explicit per-item iconKey wins over all.
     final kind = summary?.kind;
-    final isSpeak = kind == QuizKind.speakRepeat;
-    final isReading = kind == QuizKind.reading;
-    final isListening = kind == QuizKind.listening;
-    final isDictation = kind == QuizKind.dictation;
     final defaultIcon = switch (kind) {
       null => section?.icon ?? Icons.menu_book_rounded,
       QuizKind.fillBlank => section?.icon ?? quizKindIcon(QuizKind.fillBlank),
@@ -961,6 +1033,10 @@ class _AppDrawerState extends State<AppDrawer> {
     final keys = QuizStatsKeys(prefix);
     final prefs = data.prefs;
     final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;
+    // Same per-kind rule the gated chain and the group progress chip use:
+    // audio/text quizzes are "done" once played through / passed, fill-in
+    // quizzes once their best streak reaches the goal.
+    final done = _isQuizItemDone(item, data);
 
     return _navTile(
       context,
@@ -968,21 +1044,16 @@ class _AppDrawerState extends State<AppDrawer> {
       badgeColor: color,
       title: title,
       selected: widget.currentContentId == item.ref,
-      onTap: () => _navigateToContent(context, item.ref),
-      // Speak and reading quizzes have no streak — they're "done" once played
-      // through / passed, matching how the course home marks them; fill-in
-      // quizzes are done once their best streak reaches the goal.
-      done: isSpeak
-          ? NounSettings.instance.isSpeakQuizCompleted(item.ref)
-          : isReading
-              ? NounSettings.instance.isReadingQuizCompleted(item.ref)
-              : isListening
-                  ? NounSettings.instance.isListeningQuizCompleted(item.ref)
-                  : isDictation
-                      ? NounSettings.instance.isDictationQuizCompleted(item.ref)
-                      : NounSettings.instance.isQuizDone(
-                          bestStreakAbsolute: bestStreakAbsolute,
-                        ),
+      onTap: debugRibbonModeActive.value
+          ? () => _debugRibbonTap(
+                context,
+                title: title,
+                storageKeyPrefix: prefix,
+                isDone: done,
+                markDone: () => _markQuizItemDoneDebug(kind, item.ref),
+              )
+          : () => _navigateToContent(context, item.ref),
+      done: done,
       doneLaps: bestStreakAbsolute ~/ NounSettings.streakLapSize,
       subtitle: prefs == null
           ? null

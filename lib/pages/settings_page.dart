@@ -585,6 +585,25 @@ class _SettingsPageState extends State<SettingsPage> {
                       label: const Text('Unlock everything'),
                     ),
                   ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Ribbon debug: while on, tapping a quiz in the menu '
+                    'completes it instead of opening it — the first touch '
+                    'earns its ribbon and unlocks the next quiz, further '
+                    'touches raise the tier (silver, then gold) — and every '
+                    'touch pays the tier\'s coins. Also toggled by typing '
+                    '"$debugRibbonTrigger" anywhere in the app.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  ValueListenableBuilder<bool>(
+                    valueListenable: debugRibbonModeActive,
+                    builder: (context, active, _) => SwitchListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: const Text('Ribbon debug mode'),
+                      value: active,
+                      onChanged: (v) => debugRibbonModeActive.value = v,
+                    ),
+                  ),
                 ],
               ),
             ],

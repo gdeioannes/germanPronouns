@@ -53,6 +53,7 @@ class _MyAppState extends State<MyApp> {
     debugUnlockTrigger.length,
     debugCoinTrigger.length,
     debugRevealAllTrigger.length,
+    debugRibbonTrigger.length,
   ].reduce((a, b) => a > b ? a : b);
 
   @override
@@ -90,6 +91,9 @@ class _MyAppState extends State<MyApp> {
     } else if (_typedBuffer.endsWith(debugRevealAllTrigger)) {
       _typedBuffer = '';
       _triggerRevealAll();
+    } else if (_typedBuffer.endsWith(debugRibbonTrigger)) {
+      _typedBuffer = '';
+      _toggleRibbonDebug();
     }
     return false;
   }
@@ -121,6 +125,26 @@ class _MyAppState extends State<MyApp> {
       );
   }
 
+  /// Toggles ribbon debug mode (see [debugRibbonTrigger]): while on, tapping a
+  /// quiz in the drawer completes it / raises its ribbon instead of opening it,
+  /// and a warning bar shows on every screen (see the [MaterialApp.builder]).
+  void _toggleRibbonDebug() {
+    final active = !debugRibbonModeActive.value;
+    debugRibbonModeActive.value = active;
+    _messengerKey.currentState
+      ?..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(
+            active
+                ? 'Ribbon debug ON — tap a quiz in the menu to complete it '
+                      'and raise its ribbon.'
+                : 'Ribbon debug OFF.',
+          ),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -129,6 +153,77 @@ class _MyAppState extends State<MyApp> {
       scaffoldMessengerKey: _messengerKey,
       theme: buildAppTheme(),
       routerConfig: appRouter,
+      // While ribbon debug mode is on, pin a warning bar under the whole app
+      // so it's obvious on every screen that menu taps complete quizzes
+      // instead of opening them.
+      builder: (context, child) => ValueListenableBuilder<bool>(
+        valueListenable: debugRibbonModeActive,
+        builder: (context, active, _) {
+          final app = child ?? const SizedBox.shrink();
+          if (!active) return app;
+          return Column(
+            children: [
+              Expanded(
+                // The bar owns the bottom safe-area inset now, so drop it from
+                // the app above (otherwise pages pad for an inset that the bar
+                // already covers).
+                child: MediaQuery.removePadding(
+                  context: context,
+                  removeBottom: true,
+                  child: app,
+                ),
+              ),
+              _RibbonDebugBar(onDismiss: _toggleRibbonDebug),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+/// The warning bar pinned below the app while ribbon debug mode is on. Tapping
+/// it turns the mode off — the typed trigger needs a hardware keyboard, so the
+/// bar itself is the way out on a phone.
+class _RibbonDebugBar extends StatelessWidget {
+  const _RibbonDebugBar({required this.onDismiss});
+
+  final VoidCallback onDismiss;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.amber.shade600,
+      child: InkWell(
+        onTap: onDismiss,
+        child: SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.bug_report_rounded,
+                  size: 18,
+                  color: Colors.black87,
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    'Ribbon debug ON — tapping a menu quiz completes it and '
+                    'raises its ribbon. Tap here (or type '
+                    '"$debugRibbonTrigger") to turn off.',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

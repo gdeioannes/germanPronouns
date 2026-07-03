@@ -1,5 +1,6 @@
 import 'dart:ui' show PointMode;
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../models/app_page.dart';
@@ -578,8 +579,9 @@ class _DrawQuizPageState extends State<DrawQuizPage>
 /// A square practice canvas: the classic 米字格 guide grid, an optional faint
 /// [template] character behind, and the learner's ink on top. Strokes are held
 /// in normalized (0..1) coordinates by the parent so undo/clear/redraws are its
-/// state changes. Pointer events are handled with a raw [Listener], which never
-/// competes in the gesture arena — drawing wins over any surrounding scroll.
+/// state changes. Strokes are captured by an [_EagerPanGestureRecognizer] that
+/// claims the pointer on contact, so a stroke that starts on the canvas can
+/// never be stolen by the surrounding scroll view.
 class _DrawCanvas extends StatelessWidget {
   const _DrawCanvas({
     required this.strokes,
@@ -606,16 +608,24 @@ class _DrawCanvas extends StatelessWidget {
         return SizedBox(
           width: side,
           height: side,
-          child: Listener(
-            onPointerDown: (e) {
-              if (!inside(e.localPosition)) return;
-              strokes.add([norm(e.localPosition)]);
-              onStrokesChanged();
-            },
-            onPointerMove: (e) {
-              if (strokes.isEmpty || !inside(e.localPosition)) return;
-              strokes.last.add(norm(e.localPosition));
-              onStrokesChanged();
+          child: RawGestureDetector(
+            gestures: <Type, GestureRecognizerFactory>{
+              _EagerPanGestureRecognizer: GestureRecognizerFactoryWithHandlers<
+                  _EagerPanGestureRecognizer>(
+                _EagerPanGestureRecognizer.new,
+                (recognizer) => recognizer
+                  ..dragStartBehavior = DragStartBehavior.down
+                  ..onStart = (d) {
+                    if (!inside(d.localPosition)) return;
+                    strokes.add([norm(d.localPosition)]);
+                    onStrokesChanged();
+                  }
+                  ..onUpdate = (d) {
+                    if (strokes.isEmpty || !inside(d.localPosition)) return;
+                    strokes.last.add(norm(d.localPosition));
+                    onStrokesChanged();
+                  },
+              ),
             },
             child: CustomPaint(
               painter: _DrawPainter(
@@ -632,6 +642,18 @@ class _DrawCanvas extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+/// A pan recognizer that claims the pointer the moment it lands on the canvas.
+/// Without this the ancestor [ListView]'s drag recognizer wins the gesture
+/// arena for vertical movement and scrolls the page mid-stroke, making the
+/// character impossible to draw.
+class _EagerPanGestureRecognizer extends PanGestureRecognizer {
+  @override
+  void addAllowedPointer(PointerDownEvent event) {
+    super.addAllowedPointer(event);
+    resolve(GestureDisposition.accepted);
   }
 }
 
