@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../data/content/active_course_content.dart';
+import '../data/exercise_sheet_builder.dart';
 import '../data/nav_layout_data.dart';
 import '../data/noun_article_data.dart';
 import '../data/noun_progression_data.dart';
@@ -16,6 +17,7 @@ import '../models/quiz_content.dart';
 import '../models/quiz_stats.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
+import '../theme/exercise_sheet_pdf.dart';
 import '../theme/help_memory_pdf.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/coin_balance_pill.dart';
@@ -139,6 +141,7 @@ class CourseHomePage extends StatefulWidget {
 class _CourseHomePageState extends State<CourseHomePage> {
   late Future<List<_HomeSection>> _sectionsFuture;
   bool _generatingPdf = false;
+  bool _generatingExercises = false;
 
   /// Reference-PDF sections for *every* quiz in the active course (regular,
   /// Quest and Noun — including still-locked ones), gathered in [_load]. Drives
@@ -517,6 +520,124 @@ class _CourseHomePageState extends State<CourseHomePage> {
     }
   }
 
+  /// Asks for the worksheet's scope (whole course / completed quizzes /
+  /// weakest knowledge) and size, then builds and shares the exercise PDF with
+  /// its fold-away answer column.
+  Future<void> _exerciseSheetDialog() async {
+    final strings = CourseSession.instance.strings;
+    var scope = ExerciseScope.fullCourse;
+    int? count = 40;
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => StatefulBuilder(
+        builder: (dialogContext, setLocal) => AlertDialog(
+          title: Text(strings.exerciseSheetTitle),
+          content: SizedBox(
+            width: 380,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    strings.exerciseScopeLabel,
+                    style: Theme.of(dialogContext).textTheme.labelLarge,
+                  ),
+                  RadioGroup<ExerciseScope>(
+                    groupValue: scope,
+                    onChanged: (v) => setLocal(() => scope = v!),
+                    child: Column(
+                      children: [
+                        RadioListTile<ExerciseScope>(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(strings.exerciseScopeFull),
+                          value: ExerciseScope.fullCourse,
+                        ),
+                        RadioListTile<ExerciseScope>(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(strings.exerciseScopeAchieved),
+                          value: ExerciseScope.achieved,
+                        ),
+                        RadioListTile<ExerciseScope>(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(strings.exerciseScopeWeak),
+                          subtitle: Text(strings.exerciseScopeWeakHint),
+                          value: ExerciseScope.weakSpots,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    strings.exerciseCountLabel,
+                    style: Theme.of(dialogContext).textTheme.labelLarge,
+                  ),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 8,
+                    children: [
+                      for (final n in const [20, 40, 80])
+                        ChoiceChip(
+                          label: Text('$n'),
+                          selected: count == n,
+                          onSelected: (_) => setLocal(() => count = n),
+                        ),
+                      ChoiceChip(
+                        label: Text(strings.exerciseCountAll),
+                        selected: count == null,
+                        onSelected: (_) => setLocal(() => count = null),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(false),
+              child: Text(strings.cancel),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(dialogContext).pop(true),
+              child: Text(strings.createPdf),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (confirmed != true || !mounted) return;
+
+    setState(() => _generatingExercises = true);
+    try {
+      final sections = await buildExerciseSheet(
+        CourseSession.instance.activeCourse,
+        scope: scope,
+        maxItems: count,
+      );
+      if (sections.isEmpty) {
+        if (mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(strings.nothingToPrint)));
+        }
+        return;
+      }
+      await exportExerciseSheetPdf(sections, scope: scope, requestedSize: count);
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Could not generate PDF: $e')));
+    } finally {
+      if (mounted) setState(() => _generatingExercises = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -628,6 +749,26 @@ class _CourseHomePageState extends State<CourseHomePage> {
                               )
                             : const Icon(Icons.picture_as_pdf_rounded),
                         label: Text(strings.generateAllPdf),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    // Printable worksheet with a fold-away answer column,
+                    // built from the same quizzes (scope + size chosen in a
+                    // dialog).
+                    SizedBox(
+                      width: double.infinity,
+                      child: FilledButton.tonalIcon(
+                        onPressed: _generatingExercises
+                            ? null
+                            : _exerciseSheetDialog,
+                        icon: _generatingExercises
+                            ? const SizedBox(
+                                width: 18,
+                                height: 18,
+                                child: CircularProgressIndicator(strokeWidth: 2),
+                              )
+                            : const Icon(Icons.edit_note_rounded),
+                        label: Text(strings.exercisePdf),
                       ),
                     ),
                     const SizedBox(height: 8),

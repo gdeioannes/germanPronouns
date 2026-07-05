@@ -33,6 +33,24 @@ class AppStrings {
     required this.learnerContinue,
     required this.teacherMode,
     required this.generateAllPdf,
+    required this.exercisePdf,
+    required this.exerciseSheetTitle,
+    required this.exerciseScopeLabel,
+    required this.exerciseScopeFull,
+    required this.exerciseScopeAchieved,
+    required this.exerciseScopeWeak,
+    required this.exerciseScopeWeakHint,
+    required this.exerciseCountLabel,
+    required this.exerciseCountAll,
+    required this.createPdf,
+    required this.exerciseFoldTitle,
+    required this.exerciseFoldBody,
+    required this.answersColumn,
+    required this.foldHere,
+    required this.nameLabel,
+    required this.dateLabel,
+    required this.nothingToPrint,
+    required this.exercisesWord,
     required this.doneLabel,
     required this.home,
     required this.quizzesFinished,
@@ -155,6 +173,30 @@ class AppStrings {
   final String learnerContinue;
   final String teacherMode;
   final String generateAllPdf;
+
+  // Printable exercise worksheet (course home): button, options dialog and the
+  // labels printed on the PDF itself (fold-away answer column).
+  final String exercisePdf;
+  final String exerciseSheetTitle;
+  final String exerciseScopeLabel;
+  final String exerciseScopeFull;
+  final String exerciseScopeAchieved;
+  final String exerciseScopeWeak;
+  final String exerciseScopeWeakHint;
+  final String exerciseCountLabel;
+  final String exerciseCountAll;
+  final String createPdf;
+  final String exerciseFoldTitle;
+  final String exerciseFoldBody;
+  final String answersColumn;
+  final String foldHere;
+  final String nameLabel;
+  final String dateLabel;
+  final String nothingToPrint;
+
+  /// Unit word after a count in the worksheet subtitle (e.g. "40 exercises").
+  final String exercisesWord;
+
   final String doneLabel;
   final String home;
   final String quizzesFinished;
@@ -351,6 +393,27 @@ const AppStrings _en = AppStrings(
   learnerContinue: 'Continue as learner',
   teacherMode: 'Teacher',
   generateAllPdf: 'Reference PDF (all quizzes)',
+  exercisePdf: 'Exercise PDF (worksheet)',
+  exerciseSheetTitle: 'Exercise Worksheet',
+  exerciseScopeLabel: 'Exercises from',
+  exerciseScopeFull: 'Whole course',
+  exerciseScopeAchieved: 'Completed quizzes',
+  exerciseScopeWeak: 'Weakest knowledge',
+  exerciseScopeWeakHint: 'Trains what you get wrong most often.',
+  exerciseCountLabel: 'Number of exercises',
+  exerciseCountAll: 'All',
+  createPdf: 'Create PDF',
+  exerciseFoldTitle: 'Fold the answers away',
+  exerciseFoldBody:
+      'The column on the right holds the answer to every exercise. Fold the '
+      'page along the dashed line to hide it while you write, then unfold it '
+      'to check yourself.',
+  answersColumn: 'Answers',
+  foldHere: 'fold here',
+  nameLabel: 'Name',
+  dateLabel: 'Date',
+  nothingToPrint: 'Nothing to print for this selection yet.',
+  exercisesWord: 'exercises',
   doneLabel: 'Done',
   home: 'Home',
   quizzesFinished: 'quizzes finished',
@@ -492,6 +555,27 @@ const AppStrings _es = AppStrings(
   learnerContinue: 'Entrar como estudiante',
   teacherMode: 'Profesor',
   generateAllPdf: 'PDF de referencia (todos)',
+  exercisePdf: 'PDF de ejercicios (hoja de práctica)',
+  exerciseSheetTitle: 'Hoja de ejercicios',
+  exerciseScopeLabel: 'Ejercicios de',
+  exerciseScopeFull: 'Todo el curso',
+  exerciseScopeAchieved: 'Quizzes completados',
+  exerciseScopeWeak: 'Puntos débiles',
+  exerciseScopeWeakHint: 'Entrena lo que más fallas.',
+  exerciseCountLabel: 'Número de ejercicios',
+  exerciseCountAll: 'Todos',
+  createPdf: 'Crear PDF',
+  exerciseFoldTitle: 'Dobla las respuestas',
+  exerciseFoldBody:
+      'La columna derecha contiene la respuesta de cada ejercicio. Dobla la '
+      'hoja por la línea discontinua para ocultarla mientras escribes y '
+      'desdóblala para corregirte.',
+  answersColumn: 'Respuestas',
+  foldHere: 'dobla aquí',
+  nameLabel: 'Nombre',
+  dateLabel: 'Fecha',
+  nothingToPrint: 'Aún no hay nada que imprimir para esta selección.',
+  exercisesWord: 'ejercicios',
   doneLabel: 'Hecho',
   home: 'Inicio',
   quizzesFinished: 'quizzes completados',
@@ -637,6 +721,27 @@ const AppStrings _de = AppStrings(
   learnerContinue: 'Als Lernende/r fortfahren',
   teacherMode: 'Lehrkraft',
   generateAllPdf: 'Referenz-PDF (alle Quizze)',
+  exercisePdf: 'Übungs-PDF (Arbeitsblatt)',
+  exerciseSheetTitle: 'Arbeitsblatt',
+  exerciseScopeLabel: 'Übungen aus',
+  exerciseScopeFull: 'Ganzer Kurs',
+  exerciseScopeAchieved: 'Abgeschlossene Quizze',
+  exerciseScopeWeak: 'Schwächstes Wissen',
+  exerciseScopeWeakHint: 'Trainiert, was du am häufigsten falsch machst.',
+  exerciseCountLabel: 'Anzahl der Übungen',
+  exerciseCountAll: 'Alle',
+  createPdf: 'PDF erstellen',
+  exerciseFoldTitle: 'Antworten wegfalten',
+  exerciseFoldBody:
+      'Die rechte Spalte enthält die Antwort zu jeder Übung. Falte das Blatt '
+      'an der gestrichelten Linie, um sie beim Schreiben zu verdecken — und '
+      'falte es zum Korrigieren wieder auf.',
+  answersColumn: 'Antworten',
+  foldHere: 'hier falten',
+  nameLabel: 'Name',
+  dateLabel: 'Datum',
+  nothingToPrint: 'Für diese Auswahl gibt es noch nichts zu drucken.',
+  exercisesWord: 'Übungen',
   doneLabel: 'Fertig',
   home: 'Start',
   quizzesFinished: 'Quizze abgeschlossen',
@@ -780,6 +885,24 @@ const AppStrings _zh = AppStrings(
   learnerContinue: '以学习者身份继续',
   teacherMode: '教师',
   generateAllPdf: '参考 PDF（全部练习）',
+  exercisePdf: '练习 PDF（练习纸）',
+  exerciseSheetTitle: '练习纸',
+  exerciseScopeLabel: '练习范围',
+  exerciseScopeFull: '整个课程',
+  exerciseScopeAchieved: '已完成的练习',
+  exerciseScopeWeak: '薄弱知识点',
+  exerciseScopeWeakHint: '针对你最常出错的内容进行训练。',
+  exerciseCountLabel: '练习数量',
+  exerciseCountAll: '全部',
+  createPdf: '生成 PDF',
+  exerciseFoldTitle: '把答案折起来',
+  exerciseFoldBody: '右侧栏是每道练习的答案。沿虚线把纸折起来，写答案时就看不到它；写完后展开即可自我批改。',
+  answersColumn: '答案',
+  foldHere: '沿此折叠',
+  nameLabel: '姓名',
+  dateLabel: '日期',
+  nothingToPrint: '当前选择还没有可打印的内容。',
+  exercisesWord: '道练习',
   doneLabel: '完成',
   home: '首页',
   quizzesFinished: '个练习已完成',

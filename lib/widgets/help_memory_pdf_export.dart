@@ -1,7 +1,9 @@
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
+import '../models/course_session.dart';
 import '../models/quiz_config.dart';
+import '../services/analytics.dart';
 import '../theme/help_memory_pdf.dart';
 import '../theme/pdf_theme.dart';
 
@@ -10,6 +12,10 @@ import '../theme/pdf_theme.dart';
 /// print dialog). Extracted from `quiz_page.dart`'s `_exportHelpMemoryPdf` so
 /// the monolith no longer pulls in the PDF/printing packages directly.
 Future<void> exportHelpMemoryPdf(QuizConfig config) async {
+  Analytics.track('help_memory_pdf', {
+    'course': CourseSession.instance.activeCourse.id,
+    'quiz': config.contentId ?? config.storageKeyPrefix,
+  });
   final pdf = await QuizPdfTheme.load();
   final doc = pdf.newDocument();
   doc.addPage(

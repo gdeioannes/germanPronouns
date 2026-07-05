@@ -8,6 +8,7 @@ import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
+import '../services/analytics.dart';
 import 'pdf_theme.dart';
 
 /// Builds the Help Memory reference material as PDF widgets, shared by the
@@ -492,6 +493,10 @@ class ReadingBookletEntry extends BookletEntry {
 /// translation and questions), each on its own best-fit page format. Caller
 /// should ensure [entries] is non-empty.
 Future<void> exportQuizzesBookletPdf(List<BookletEntry> entries) async {
+  Analytics.track('reference_pdf', {
+    'course': CourseSession.instance.activeCourse.id,
+    'sections': entries.length,
+  });
   final pdf = await QuizPdfTheme.load();
   final doc = pdf.newDocument();
   for (final entry in entries) {
