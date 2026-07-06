@@ -60,6 +60,13 @@ final QuizContent enDeM3Artikel = enDeFill(
     CourseItem(prompt: 'Mio eats the bed. (das Bett)', answer: 'Mio frisst **das** Bett'),
     CourseItem(prompt: 'Mio eats the shoes. (die Schuhe, pl)', answer: 'Mio frisst **die** Schuhe'),
     CourseItem(prompt: 'Mio eats the homework. (die Hausaufgaben, pl)', answer: 'Mio frisst **die** Hausaufgaben'),
+    CourseItem(prompt: 'Mio eats the ball. (der Ball)', answer: 'Mio frisst **den** Ball'),
+    CourseItem(prompt: 'Mio eats the flower. (die Blume)', answer: 'Mio frisst **die** Blume'),
+    CourseItem(prompt: 'Mio eats the book. (das Buch)', answer: 'Mio frisst **das** Buch'),
+    CourseItem(prompt: 'Mio eats the carpet. (der Teppich)', answer: 'Mio frisst **den** Teppich'),
+    CourseItem(prompt: 'Mio eats the newspaper. (die Zeitung)', answer: 'Mio frisst **die** Zeitung'),
+    CourseItem(prompt: 'Mio eats the pillow. (das Kissen)', answer: 'Mio frisst **das** Kissen'),
+    CourseItem(prompt: 'Mio eats the plants. (die Pflanzen, pl)', answer: 'Mio frisst **die** Pflanzen'),
   ],
 );
 
@@ -78,6 +85,15 @@ final QuizContent enDeM3Haben = enDeFill(
     CourseItem(prompt: 'Mio eats the bread. (das Brot)', answer: 'Mio isst **das** Brot'),
     CourseItem(prompt: 'Mio buys an apple. (der Apfel)', answer: 'Mio kauft **einen** Apfel'),
     CourseItem(prompt: 'Mio sees the cake. (der Kuchen)', answer: 'Mio sieht **den** Kuchen'),
+    CourseItem(prompt: 'Mio has a plan. (der Plan)', answer: 'Mio hat **einen** Plan'),
+    CourseItem(prompt: 'Mio would like a sausage. (die Wurst)', answer: 'Mio möchte **eine** Wurst'),
+    CourseItem(prompt: 'Mio has an idea. (die Idee)', answer: 'Mio hat **eine** Idee'),
+    CourseItem(prompt: 'Mio would like an egg. (das Ei)', answer: 'Mio möchte **ein** Ei'),
+    CourseItem(prompt: 'Mio buys a cake. (der Kuchen)', answer: 'Mio kauft **einen** Kuchen'),
+    CourseItem(prompt: 'Mio drinks a juice. (der Saft)', answer: 'Mio trinkt **einen** Saft'),
+    CourseItem(prompt: 'Mio takes the banana. (die Banane)', answer: 'Mio nimmt **die** Banane'),
+    CourseItem(prompt: 'Mio would like a salad. (der Salat)', answer: 'Mio möchte **einen** Salat'),
+    CourseItem(prompt: 'Mio finds a biscuit. (der Keks)', answer: 'Mio findet **einen** Keks'),
   ],
 );
 
@@ -146,6 +162,13 @@ final QuizContent enDeM3Pronomen = enDeFill(
     CourseItem(prompt: 'The monster sees us. (wir)', answer: 'Das Monster sieht **uns**'),
     CourseItem(prompt: 'The monster sees you all. (ihr)', answer: 'Das Monster sieht **euch**'),
     CourseItem(prompt: 'The monster sees you. (formal, Sie)', answer: 'Das Monster sieht **Sie**'),
+    CourseItem(prompt: 'Anna hears me. (ich)', answer: 'Anna hört **mich**'),
+    CourseItem(prompt: 'We visit him. (er)', answer: 'Wir besuchen **ihn**'),
+    CourseItem(prompt: 'I know her. (sie)', answer: 'Ich kenne **sie**'),
+    CourseItem(prompt: 'Mio eats it. (es — das Brot)', answer: 'Mio frisst **es**'),
+    CourseItem(prompt: 'They invite us. (wir)', answer: 'Sie laden **uns** ein'),
+    CourseItem(prompt: 'Tom asks you all. (ihr)', answer: 'Tom fragt **euch**'),
+    CourseItem(prompt: 'I understand you. (formal, Sie)', answer: 'Ich verstehe **Sie**'),
   ],
 );
 
@@ -179,6 +202,16 @@ final QuizContent enDeM3Praepositionen = enDeFill(
     CourseItem(prompt: 'Mio dances around the table. (der Tisch)', answer: 'Mio tanzt um **den** Tisch'),
     CourseItem(prompt: 'Mio never eats without the spoon. (der Löffel)', answer: 'Mio frisst nie ohne **den** Löffel'),
     CourseItem(prompt: 'Mio cooks a soup for the cat. (die Katze)', answer: 'Mio kocht eine Suppe für **die** Katze'),
+    CourseItem(prompt: 'Mio jumps through the window. (das Fenster)', answer: 'Mio springt durch **das** Fenster'),
+    CourseItem(prompt: 'The gift is for the monster. (das Monster)', answer: 'Das Geschenk ist für **das** Monster'),
+    CourseItem(prompt: 'Mio is against the plan. (der Plan)', answer: 'Mio ist gegen **den** Plan'),
+    CourseItem(prompt: 'Mio walks around the house. (das Haus)', answer: 'Mio läuft um **das** Haus'),
+    CourseItem(prompt: 'Without the cat Mio is sad. (die Katze)', answer: 'Ohne **die** Katze ist Mio traurig'),
+    CourseItem(prompt: 'Mio runs through the kitchen. (die Küche)', answer: 'Mio rennt durch **die** Küche'),
+    CourseItem(prompt: 'The cake is for the child. (das Kind)', answer: 'Der Kuchen ist für **das** Kind'),
+    CourseItem(prompt: 'Mio swims through the river. (der Fluss)', answer: 'Mio schwimmt durch **den** Fluss'),
+    CourseItem(prompt: 'Mio dances around the lamp. (die Lampe)', answer: 'Mio tanzt um **die** Lampe'),
+    CourseItem(prompt: 'Mio never sleeps without the teddy. (der Teddy)', answer: 'Mio schläft nie ohne **den** Teddy'),
   ],
 );
 
@@ -290,6 +323,16 @@ final QuizContent enDeM3Diktat = enDeDict(
     CourseItem(prompt: 'Mio eats the sofa.', answer: 'Mio frisst das Sofa.'),
     CourseItem(prompt: 'Tom sees the monster.', answer: 'Tom sieht das Monster.'),
     CourseItem(prompt: 'Mio looks for an apple.', answer: 'Mio sucht einen Apfel.'),
+    CourseItem(prompt: 'Mio has a plan.', answer: 'Mio hat einen Plan.'),
+    CourseItem(prompt: 'The monster sees me.', answer: 'Das Monster sieht mich.'),
+    CourseItem(prompt: 'Mio buys a cake.', answer: 'Mio kauft einen Kuchen.'),
+    CourseItem(prompt: 'Mio runs through the garden.', answer: 'Mio rennt durch den Garten.'),
+    CourseItem(prompt: 'The soup is for the cat.', answer: 'Die Suppe ist für die Katze.'),
+    CourseItem(prompt: 'Mio eats the bread.', answer: 'Mio isst das Brot.'),
+    CourseItem(prompt: 'I know him well.', answer: 'Ich kenne ihn gut.'),
+    CourseItem(prompt: 'Mio dances around the table.', answer: 'Mio tanzt um den Tisch.'),
+    CourseItem(prompt: 'Without the spoon Mio does not eat.', answer: 'Ohne den Löffel frisst Mio nicht.'),
+    CourseItem(prompt: 'Do you see the monster?', answer: 'Siehst du das Monster?'),
   ],
 );
 

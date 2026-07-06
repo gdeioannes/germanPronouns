@@ -71,6 +71,41 @@ final QuizContent questA21PerfektHabenContent = sentenceQuestQuiz(
         answer: 'gemacht',
         english: 'What did you do yesterday?',
         gloss: 'machen'),
+    QuestSentenceItem(
+        sentence: 'Ich habe laute Musik ____. (hören)',
+        answer: 'gehört',
+        english: 'I listened to loud music.',
+        gloss: 'hören'),
+    QuestSentenceItem(
+        sentence: 'Sie hat Deutsch ____. (lernen)',
+        answer: 'gelernt',
+        english: 'She learned German.',
+        gloss: 'lernen'),
+    QuestSentenceItem(
+        sentence: 'Er hat einen Brief ____. (schreiben)',
+        answer: 'geschrieben',
+        english: 'He wrote a letter.',
+        gloss: 'schreiben'),
+    QuestSentenceItem(
+        sentence: 'Ich habe meine Schlüssel ____. (finden)',
+        answer: 'gefunden',
+        english: 'I found my keys.',
+        gloss: 'finden'),
+    QuestSentenceItem(
+        sentence: 'Wir haben den Bus ____. (nehmen)',
+        answer: 'genommen',
+        english: 'We took the bus.',
+        gloss: 'nehmen'),
+    QuestSentenceItem(
+        sentence: 'Sie hat ihre Freunde ____. (treffen)',
+        answer: 'getroffen',
+        english: 'She met her friends.',
+        gloss: 'treffen'),
+    QuestSentenceItem(
+        sentence: 'Er hat eine Suppe ____. (kochen)',
+        answer: 'gekocht',
+        english: 'He cooked a soup.',
+        gloss: 'kochen'),
   ],
 );
 
@@ -134,6 +169,46 @@ final QuizContent questA21PerfektSeinContent = sentenceQuestQuiz(
         answer: 'eingeschlafen',
         english: 'The baby fell asleep quickly.',
         gloss: 'einschlafen'),
+    QuestSentenceItem(
+        sentence: 'Wir sind nach Spanien ____. (fliegen)',
+        answer: 'geflogen',
+        english: 'We flew to Spain.',
+        gloss: 'fliegen'),
+    QuestSentenceItem(
+        sentence: 'Er ist zum Bahnhof ____. (laufen)',
+        answer: 'gelaufen',
+        english: 'He ran to the station.',
+        gloss: 'laufen'),
+    QuestSentenceItem(
+        sentence: 'Wir sind im See ____. (schwimmen)',
+        answer: 'geschwommen',
+        english: 'We swam in the lake.',
+        gloss: 'schwimmen'),
+    QuestSentenceItem(
+        sentence: 'Ich bin noch nie in Wien ____. (sein)',
+        answer: 'gewesen',
+        english: 'I have never been to Vienna.',
+        gloss: 'sein'),
+    QuestSentenceItem(
+        sentence: 'Sie ist letzten Monat nach Köln ____. (umziehen)',
+        answer: 'umgezogen',
+        english: 'She moved to Cologne last month.',
+        gloss: 'umziehen'),
+    QuestSentenceItem(
+        sentence: 'Was ist gestern ____? (passieren)',
+        answer: 'passiert',
+        english: 'What happened yesterday?',
+        gloss: 'passieren'),
+    QuestSentenceItem(
+        sentence: 'Ich bin heute früh ____. (aufwachen)',
+        answer: 'aufgewacht',
+        english: 'I woke up early today.',
+        gloss: 'aufwachen'),
+    QuestSentenceItem(
+        sentence: 'Wir sind in den Bergen ____. (wandern)',
+        answer: 'gewandert',
+        english: 'We hiked in the mountains.',
+        gloss: 'wandern'),
   ],
 );
 
@@ -223,6 +298,24 @@ final QuizContent questA21DativArtikelContent = sentenceQuestQuiz(
         'The car belongs to the teacher.', 'der Lehrer → Dativ'),
     _di('Ich gebe ____ Katze Milch. (die)', 'der', 'I give the cat milk.',
         'die Katze → Dativ'),
+    _di('Ich schenke ____ Vater eine Krawatte. (der)', 'dem',
+        'I give the father a tie.', 'der Vater → Dativ'),
+    _di('Er antwortet ____ Lehrerin. (die)', 'der',
+        'He answers the teacher.', 'die Lehrerin → Dativ'),
+    _di('Wir helfen ____ Nachbarn. (die, Plural)', 'den',
+        'We help the neighbours.', 'die Nachbarn → Dativ'),
+    _di('Das Fahrrad gehört ____ Mädchen. (das)', 'dem',
+        'The bike belongs to the girl.', 'das Mädchen → Dativ'),
+    _di('Sie erzählt ____ Kindern eine Geschichte. (die, Plural)', 'den',
+        'She tells the children a story.', 'die Kinder → Dativ'),
+    _di('Der Kellner bringt ____ Gast die Rechnung. (der)', 'dem',
+        'The waiter brings the guest the bill.', 'der Gast → Dativ'),
+    _di('Ich zeige ____ Touristin den Weg. (die)', 'der',
+        'I show the tourist the way.', 'die Touristin → Dativ'),
+    _di('Das Eis schmeckt ____ Kind. (das)', 'dem',
+        'The child likes the ice cream.', 'das Kind → Dativ'),
+    _di('Wir danken ____ Eltern. (die, Plural)', 'den',
+        'We thank the parents.', 'die Eltern → Dativ'),
   ],
 );
 
@@ -285,6 +378,47 @@ final QuizContent questA21DativPraepContent = sentenceQuestQuiz(
         answer: 'zum',
         english: 'I go to the doctor.',
         gloss: 'zu (to)'),
+    QuestSentenceItem(
+        sentence: 'Er kommt gerade ____ dem Haus. (out of)',
+        answer: 'aus',
+        english: 'He is just coming out of the house.',
+        gloss: 'aus (out of)'),
+    QuestSentenceItem(
+        sentence: 'Ich kaufe Brot ____ Bäcker. (bei + dem = beim)',
+        answer: 'beim',
+        english: 'I buy bread at the baker\'s.',
+        gloss: 'bei (at)'),
+    QuestSentenceItem(
+        sentence: 'Sie spricht ____ ihrer Freundin. (with)',
+        answer: 'mit',
+        english: 'She talks with her friend.',
+        gloss: 'mit (with)'),
+    QuestSentenceItem(
+        sentence: 'Wir fahren morgen ____ Berlin. (to a city)',
+        answer: 'nach',
+        english: 'Tomorrow we go to Berlin.',
+        gloss: 'nach (to)'),
+    QuestSentenceItem(
+        sentence: '____ Montag bin ich krank. (since)',
+        answer: 'seit',
+        english: 'I have been ill since Monday.',
+        gloss: 'seit (since)'),
+    QuestSentenceItem(
+        sentence: 'Das Brot ist frisch ____ Bäcker. (von + dem = vom)',
+        answer: 'vom',
+        english: 'The bread is fresh from the baker.',
+        gloss: 'von (from)'),
+    QuestSentenceItem(
+        sentence: 'Ich bringe die Kinder ____ Schule. (zu + der = zur)',
+        answer: 'zur',
+        english: 'I take the children to school.',
+        gloss: 'zu (to, f.)'),
+    QuestSentenceItem(
+        sentence: 'Die Apotheke liegt ____ dem Bahnhof. (opposite)',
+        answer: 'gegenüber',
+        english: 'The pharmacy is opposite the station.',
+        gloss: 'gegenüber (opposite)',
+        accepted: ['gegenueber']),
   ],
 );
 
@@ -435,6 +569,36 @@ final QuizContent questA21PronomenDativContent = sentenceQuestQuiz(
         answer: 'ihm',
         english: 'The child is crying — give it the ball!',
         gloss: 'it'),
+    QuestSentenceItem(
+        sentence: 'Der Rock gefällt ____ nicht. (me)',
+        answer: 'mir',
+        english: 'I do not like the skirt.',
+        gloss: 'me (gefallen)'),
+    QuestSentenceItem(
+        sentence: 'Ich schreibe ____ eine E-Mail. (you, informal)',
+        answer: 'dir',
+        english: 'I write you an e-mail.',
+        gloss: 'you (schreiben)'),
+    QuestSentenceItem(
+        sentence: 'Die Tasche gehört ____. (her)',
+        answer: 'ihr',
+        english: 'The bag belongs to her.',
+        gloss: 'her (gehören)'),
+    QuestSentenceItem(
+        sentence: 'Schmeckt ____ die Suppe? (you, plural)',
+        answer: 'euch',
+        english: 'Do you (all) like the soup?',
+        gloss: 'you all (schmecken)'),
+    QuestSentenceItem(
+        sentence: 'Ich zeige ____ die Stadt. (them)',
+        answer: 'ihnen',
+        english: 'I show them the city.',
+        gloss: 'them (zeigen)'),
+    QuestSentenceItem(
+        sentence: 'Kann ich ____ helfen, Frau Braun? (you, formal)',
+        answer: 'Ihnen',
+        english: 'Can I help you, Mrs Braun?',
+        gloss: 'you (formal, helfen)'),
   ],
 );
 
@@ -592,6 +756,46 @@ final QuizContent questA21WarHatteContent = sentenceQuestQuiz(
         answer: 'hatten',
         english: 'We had a lot of fun.',
         gloss: 'wir hatten'),
+    QuestSentenceItem(
+        sentence: 'Wo ____ ihr im Sommer? (sein, ihr)',
+        answer: 'wart',
+        english: 'Where were you (all) in the summer?',
+        gloss: 'ihr wart'),
+    QuestSentenceItem(
+        sentence: '____ du gestern Zeit? (haben, du)',
+        answer: 'hattest',
+        english: 'Did you have time yesterday?',
+        gloss: 'du hattest'),
+    QuestSentenceItem(
+        sentence: 'Er ____ gestern nicht im Büro. (sein, er)',
+        answer: 'war',
+        english: 'He was not in the office yesterday.',
+        gloss: 'er war'),
+    QuestSentenceItem(
+        sentence: 'Meine Eltern ____ ein kleines Haus. (haben, sie Pl.)',
+        answer: 'hatten',
+        english: 'My parents had a small house.',
+        gloss: 'sie hatten'),
+    QuestSentenceItem(
+        sentence: '____ ihr Hunger? (haben, ihr)',
+        answer: 'hattet',
+        english: 'Were you (all) hungry?',
+        gloss: 'ihr hattet'),
+    QuestSentenceItem(
+        sentence: 'Als Kind ____ ich viele Freunde. (haben, ich)',
+        answer: 'hatte',
+        english: 'As a child I had many friends.',
+        gloss: 'ich hatte (als Kind)'),
+    QuestSentenceItem(
+        sentence: 'Die Party ____ super. (sein, sie Sg.)',
+        answer: 'war',
+        english: 'The party was great.',
+        gloss: 'sie war'),
+    QuestSentenceItem(
+        sentence: '____ Sie schon in Wien, Herr Braun? (sein, Sie)',
+        answer: 'waren',
+        english: 'Have you been to Vienna, Mr Braun?',
+        gloss: 'Sie waren'),
   ],
 );
 
@@ -651,6 +855,53 @@ final QuizContent questA21WetterContent = sentenceQuestQuiz(
         answer: 'windig',
         english: 'It is cold and windy.',
         gloss: 'windy'),
+    QuestSentenceItem(
+        sentence: 'Im ____ werden die Bäume wieder grün. (spring)',
+        answer: 'Frühling',
+        english: 'In spring the trees turn green again.',
+        gloss: 'spring'),
+    QuestSentenceItem(
+        sentence: 'Im ____ ist es kalt und dunkel. (winter)',
+        answer: 'Winter',
+        english: 'In winter it is cold and dark.',
+        gloss: 'winter'),
+    QuestSentenceItem(
+        sentence: 'Der Himmel ist grau und ____. (cloudy)',
+        answer: 'bewölkt',
+        english: 'The sky is grey and cloudy.',
+        gloss: 'cloudy',
+        accepted: ['bewoelkt']),
+    QuestSentenceItem(
+        sentence: 'Heute sind viele ____ am Himmel. (clouds)',
+        answer: 'Wolken',
+        english: 'Today there are many clouds in the sky.',
+        gloss: 'clouds'),
+    QuestSentenceItem(
+        sentence: 'Es sind heute dreißig ____. (degrees)',
+        answer: 'Grad',
+        english: 'It is thirty degrees today.',
+        gloss: 'degrees'),
+    QuestSentenceItem(
+        sentence: 'Es regnet — ich brauche einen ____. (umbrella)',
+        answer: 'Regenschirm',
+        english: 'It is raining — I need an umbrella.',
+        gloss: 'umbrella'),
+    QuestSentenceItem(
+        sentence: 'Nur zwei Grad — es ist sehr ____. (cold)',
+        answer: 'kalt',
+        english: 'Only two degrees — it is very cold.',
+        gloss: 'cold'),
+    QuestSentenceItem(
+        sentence: 'Im Juli ist es oft ____. (hot)',
+        answer: 'heiß',
+        english: 'In July it is often hot.',
+        gloss: 'hot',
+        accepted: ['heiss']),
+    QuestSentenceItem(
+        sentence: 'Es gibt ein ____ mit Blitz und Donner. (thunderstorm)',
+        answer: 'Gewitter',
+        english: 'There is a thunderstorm with lightning and thunder.',
+        gloss: 'thunderstorm'),
   ],
 );
 
@@ -699,6 +950,30 @@ final QuizContent questA21DiktatContent = dictationQuestQuiz(
     SpeakPhrase(
         phrase: 'Er ist zu Hause geblieben.',
         meaning: 'He stayed at home.'),
+    SpeakPhrase(
+        phrase: 'Ich habe Musik gehört.',
+        meaning: 'I listened to music.'),
+    SpeakPhrase(
+        phrase: 'Wir haben Freunde getroffen.',
+        meaning: 'We met friends.'),
+    SpeakPhrase(
+        phrase: 'Sie hat einen Brief geschrieben.',
+        meaning: 'She wrote a letter.'),
+    SpeakPhrase(
+        phrase: 'Ich bin nach Italien geflogen.',
+        meaning: 'I flew to Italy.'),
+    SpeakPhrase(
+        phrase: 'Er hat die Rechnung bezahlt.',
+        meaning: 'He paid the bill.'),
+    SpeakPhrase(
+        phrase: 'Wir sind im See geschwommen.',
+        meaning: 'We swam in the lake.'),
+    SpeakPhrase(
+        phrase: 'Ich habe meine Oma besucht.',
+        meaning: 'I visited my grandma.'),
+    SpeakPhrase(
+        phrase: 'Der Zug ist zu spät gekommen.',
+        meaning: 'The train came too late.'),
   ],
 );
 
@@ -820,6 +1095,33 @@ final QuizContent questA21KomparativContent = sentenceQuestQuiz(
         answer: 'mehr',
         english: 'I eat more fruit than sweets.',
         gloss: 'viel → mehr'),
+    QuestSentenceItem(
+        sentence: 'Kaffee ist ____ als Tee. (stark)',
+        answer: 'stärker',
+        english: 'Coffee is stronger than tea.',
+        gloss: 'stark',
+        accepted: ['staerker']),
+    QuestSentenceItem(
+        sentence: 'Das Hotel ist ____ als die Jugendherberge. (teuer)',
+        answer: 'teurer',
+        english: 'The hotel is more expensive than the youth hostel.',
+        gloss: 'teuer → teurer'),
+    QuestSentenceItem(
+        sentence: 'Mein neues Handy ist ____ als das alte. (leicht)',
+        answer: 'leichter',
+        english: 'My new phone is lighter than the old one.',
+        gloss: 'leicht'),
+    QuestSentenceItem(
+        sentence: 'Die Wohnung ist ____ als das Haus. (klein)',
+        answer: 'kleiner',
+        english: 'The flat is smaller than the house.',
+        gloss: 'klein'),
+    QuestSentenceItem(
+        sentence: 'Im Sommer sind die Tage ____ als im Winter. (lang)',
+        answer: 'länger',
+        english: 'In summer the days are longer than in winter.',
+        gloss: 'lang',
+        accepted: ['laenger']),
   ],
 );
 

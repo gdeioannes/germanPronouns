@@ -54,6 +54,13 @@ final QuizContent enDeM9ModalForms = enDeFill(
     CourseItem(prompt: 'you may (dürfen, du)', answer: 'du **darfst**'),
     CourseItem(prompt: 'I like (mögen)', answer: 'ich **mag**'),
     CourseItem(prompt: 'I would like (möchte)', answer: 'ich **möchte**'),
+    CourseItem(prompt: 'she can (können)', answer: 'sie **kann**'),
+    CourseItem(prompt: 'you must (müssen, du)', answer: 'du **musst**'),
+    CourseItem(prompt: 'he wants (wollen)', answer: 'er **will**'),
+    CourseItem(prompt: 'you all may (dürfen, ihr)', answer: 'ihr **dürft**'),
+    CourseItem(prompt: 'they must (müssen)', answer: 'sie **müssen**'),
+    CourseItem(prompt: 'you all should (sollen, ihr)', answer: 'ihr **sollt**'),
+    CourseItem(prompt: 'we would like (möchten)', answer: 'wir **möchten**'),
   ],
 );
 
@@ -70,6 +77,15 @@ final QuizContent enDeM9ModalOrder = enDeFill(
     CourseItem(prompt: 'May I open the window? (öffnen)', answer: 'Darf ich das Fenster **öffnen**?'),
     CourseItem(prompt: "She can't come. (kommen)", answer: 'Sie kann nicht **kommen**'),
     CourseItem(prompt: 'You should sleep more. (schlafen)', answer: 'Du sollst mehr **schlafen**'),
+    CourseItem(prompt: 'He wants to buy a car. (kaufen)', answer: 'Er will ein Auto **kaufen**'),
+    CourseItem(prompt: 'I must get up early. (aufstehen)', answer: 'Ich muss früh **aufstehen**'),
+    CourseItem(prompt: 'We may stay here. (bleiben)', answer: 'Wir dürfen hier **bleiben**'),
+    CourseItem(prompt: 'She would like to drink a coffee. (trinken)', answer: 'Sie möchte einen Kaffee **trinken**'),
+    CourseItem(prompt: 'They can help us. (helfen)', answer: 'Sie können uns **helfen**'),
+    CourseItem(prompt: 'You all must learn German. (lernen, ihr)', answer: 'Ihr müsst Deutsch **lernen**'),
+    CourseItem(prompt: 'I want to eat something. (essen)', answer: 'Ich will etwas **essen**'),
+    CourseItem(prompt: 'One may not smoke here. (rauchen)', answer: 'Man darf hier nicht **rauchen**'),
+    CourseItem(prompt: 'We should visit grandma. (besuchen)', answer: 'Wir sollen Oma **besuchen**'),
   ],
 );
 
@@ -122,6 +138,15 @@ final QuizContent enDeM9Separable = enDeFill(
     CourseItem(prompt: 'He calls his mother. (anrufen)', answer: 'Er ruft seine Mutter **an**'),
     CourseItem(prompt: 'The train departs. (abfahren)', answer: 'Der Zug fährt **ab**'),
     CourseItem(prompt: 'I tidy up the room. (aufräumen)', answer: 'Ich räume das Zimmer **auf**'),
+    CourseItem(prompt: 'The film starts at eight. (anfangen)', answer: 'Der Film fängt um acht **an**'),
+    CourseItem(prompt: 'I bring a cake. (mitbringen)', answer: 'Ich bringe einen Kuchen **mit**'),
+    CourseItem(prompt: 'She invites her friends. (einladen)', answer: 'Sie lädt ihre Freunde **ein**'),
+    CourseItem(prompt: 'We come back on Friday. (zurückkommen)', answer: 'Wir kommen am Freitag **zurück**'),
+    CourseItem(prompt: 'He closes the door. (zumachen)', answer: 'Er macht die Tür **zu**'),
+    CourseItem(prompt: 'I pick you up at six. (abholen)', answer: 'Ich hole dich um sechs **ab**'),
+    CourseItem(prompt: 'The shop opens at nine. (aufmachen)', answer: 'Das Geschäft macht um neun **auf**'),
+    CourseItem(prompt: 'She turns off the light. (ausmachen)', answer: 'Sie macht das Licht **aus**'),
+    CourseItem(prompt: 'We go out tonight. (ausgehen)', answer: 'Wir gehen heute Abend **aus**'),
   ],
 );
 
@@ -138,6 +163,15 @@ final QuizContent enDeM9Imperative = enDeFill(
     CourseItem(prompt: 'Open the window! (Sie, öffnen)', answer: '**Öffnen** Sie das Fenster!'),
     CourseItem(prompt: 'Wait! (ihr, warten)', answer: '**Wartet**!'),
     CourseItem(prompt: 'Get up! (du, aufstehen)', answer: '**Steh** auf!'),
+    CourseItem(prompt: 'Take the bus! (du, nehmen)', answer: '**Nimm** den Bus!'),
+    CourseItem(prompt: 'Speak more slowly! (du, sprechen)', answer: '**Sprich** langsamer!'),
+    CourseItem(prompt: 'Please come in! (Sie, kommen)', answer: '**Kommen** Sie bitte herein!'),
+    CourseItem(prompt: 'Eat your vegetables! (ihr, essen)', answer: '**Esst** euer Gemüse!'),
+    CourseItem(prompt: 'Drink more water! (du, trinken)', answer: '**Trink** mehr Wasser!'),
+    CourseItem(prompt: 'Give me the book! (du, geben)', answer: '**Gib** mir das Buch!'),
+    CourseItem(prompt: 'Please wait here! (Sie, warten)', answer: '**Warten** Sie bitte hier!'),
+    CourseItem(prompt: 'Be nice! (ihr, sein)', answer: '**Seid** nett!'),
+    CourseItem(prompt: 'Buy the tickets! (du, kaufen)', answer: '**Kauf** die Tickets!'),
   ],
 );
 
@@ -208,6 +242,16 @@ final QuizContent enDeM9Dictation = enDeDict(
     CourseItem(prompt: 'We watch TV.', answer: 'Wir sehen fern.'),
     CourseItem(prompt: 'He calls his mother.', answer: 'Er ruft seine Mutter an.'),
     CourseItem(prompt: 'I tidy up the room.', answer: 'Ich räume das Zimmer auf.'),
+    CourseItem(prompt: 'The train departs at eight.', answer: 'Der Zug fährt um acht Uhr ab.'),
+    CourseItem(prompt: 'The film starts now.', answer: 'Der Film fängt jetzt an.'),
+    CourseItem(prompt: 'I can speak German.', answer: 'Ich kann Deutsch sprechen.'),
+    CourseItem(prompt: 'We must work today.', answer: 'Wir müssen heute arbeiten.'),
+    CourseItem(prompt: 'She wants to go to the cinema.', answer: 'Sie will ins Kino gehen.'),
+    CourseItem(prompt: 'I pick you up at six.', answer: 'Ich hole dich um sechs ab.'),
+    CourseItem(prompt: 'Please close the door.', answer: 'Mach bitte die Tür zu.'),
+    CourseItem(prompt: 'We go out tonight.', answer: 'Wir gehen heute Abend aus.'),
+    CourseItem(prompt: 'May I open the window?', answer: 'Darf ich das Fenster öffnen?'),
+    CourseItem(prompt: 'She invites her friends.', answer: 'Sie lädt ihre Freunde ein.'),
   ],
 );
 

@@ -27,6 +27,9 @@ final QuizContent deEsB2Sociedad = deEsFill(
     CourseItem(prompt: 'die Einwanderung', answer: 'la inmigración'),
     CourseItem(prompt: 'die Menschenrechte', answer: 'los derechos humanos'),
     CourseItem(prompt: 'die Demonstration', answer: 'la manifestación'),
+    CourseItem(prompt: 'die Meinungsfreiheit', answer: 'la libertad de expresión'),
+    CourseItem(prompt: 'die Steuern', answer: 'los impuestos'),
+    CourseItem(prompt: 'die Gerechtigkeit', answer: 'la justicia'),
   ],
 );
 
@@ -56,6 +59,9 @@ final QuizContent deEsB2SubjImperf = deEsFill(
     CourseItem(prompt: 'dass ich sagte (decir)', answer: 'que dijera'),
     CourseItem(prompt: 'dass ich ginge (ir)', answer: 'que fuera'),
     CourseItem(prompt: 'dass ich wüsste (saber)', answer: 'que supiera'),
+    CourseItem(prompt: 'dass ihr sprächet (hablar)', answer: 'que hablarais'),
+    CourseItem(prompt: 'dass ich sähe (ver)', answer: 'que viera'),
+    CourseItem(prompt: 'dass ich setzte/legte (poner)', answer: 'que pusiera'),
   ],
 );
 
@@ -85,6 +91,9 @@ final QuizContent deEsB2CondicIrreal = deEsFill(
     CourseItem(prompt: 'Wenn wir reich wären, …', answer: 'Si fuéramos ricos, ...'),
     CourseItem(prompt: 'Ich würde es kaufen, wenn es billiger wäre.', answer: 'Lo compraría si fuera más barato.'),
     CourseItem(prompt: 'Wenn du mich liebtest, …', answer: 'Si me quisieras, ...'),
+    CourseItem(prompt: 'Wenn er hier lebte, würden wir uns öfter sehen.', answer: 'Si viviera aquí, nos veríamos más.'),
+    CourseItem(prompt: 'Wenn ihr früher kämet, hätten wir mehr Zeit.', answer: 'Si vinierais antes, tendríamos más tiempo.'),
+    CourseItem(prompt: 'Wenn es ein Heilmittel gäbe, …', answer: 'Si hubiera un remedio, ...'),
   ],
 );
 
@@ -136,6 +145,9 @@ final QuizContent deEsB2VerbosCambio = deEsFill(
     CourseItem(prompt: 'Das Wetter wurde schlecht.', answer: 'El tiempo se puso feo.'),
     CourseItem(prompt: 'Mit der Zeit wurden sie Freunde.', answer: 'Con el tiempo, se hicieron amigos.'),
     CourseItem(prompt: 'Sie wurde traurig.', answer: 'Se puso triste.'),
+    CourseItem(prompt: 'Er wurde still. (Resultat)', answer: 'Se quedó callado.'),
+    CourseItem(prompt: 'Sie wurde berühmt. (allmählich)', answer: 'Se hizo famosa.'),
+    CourseItem(prompt: 'Er wurde krank. (ponerse)', answer: 'Se puso enfermo.'),
   ],
 );
 
@@ -245,6 +257,9 @@ final QuizContent deEsB2SerEstarAdv = deEsFill(
     CourseItem(prompt: 'Die Banane ist noch grün (unreif).', answer: 'El plátano está verde.'),
     CourseItem(prompt: 'Mein Opa lebt noch.', answer: 'Mi abuelo está vivo.'),
     CourseItem(prompt: 'Er ist sehr gewitzt.', answer: 'Es muy vivo.'),
+    CourseItem(prompt: 'Sie ist eine aufmerksame Person.', answer: 'Es atenta.'),
+    CourseItem(prompt: 'Der Kaffee ist (schon) kalt.', answer: 'El café está frío.'),
+    CourseItem(prompt: 'Er ist ein kalter Mensch.', answer: 'Es frío.'),
   ],
 );
 
@@ -271,6 +286,11 @@ final QuizContent deEsB2Concesivas = deEsFill(
     CourseItem(prompt: 'auch wenn du nicht willst', answer: 'aunque no quieras'),
     CourseItem(prompt: 'Selbst wenn du es mir sagst, glaube ich nicht.', answer: 'Aunque me lo digas, no lo creo.'),
     CourseItem(prompt: 'Obwohl wir wenig Geld haben, …', answer: 'Aunque tenemos poco dinero, ...'),
+    CourseItem(prompt: 'Auch wenn es spät wird, bleibe ich.', answer: 'Aunque se haga tarde, me quedo.'),
+    CourseItem(prompt: 'Obwohl sie viel arbeitet, verdient sie wenig.', answer: 'Aunque trabaja mucho, gana poco.'),
+    CourseItem(prompt: 'Auch wenn es teuer sein sollte, kaufe ich es.', answer: 'Aunque sea caro, lo compraré.'),
+    CourseItem(prompt: 'Obwohl er es wusste, sagte er nichts.', answer: 'Aunque lo sabía, no dijo nada.'),
+    CourseItem(prompt: 'Auch wenn ihr nicht kommt, feiern wir.', answer: 'Aunque no vengáis, celebraremos.'),
   ],
 );
 
@@ -298,6 +318,11 @@ final QuizContent deEsB2Pasiva = deEsFill(
     CourseItem(prompt: 'Hier darf man nicht rauchen.', answer: 'Aquí no se puede fumar.'),
     CourseItem(prompt: 'Die Tür öffnete sich.', answer: 'Se abrió la puerta.'),
     CourseItem(prompt: 'In Spanien isst man spät.', answer: 'En España se come tarde.'),
+    CourseItem(prompt: 'Man vermietet Zimmer.', answer: 'Se alquilan habitaciones.'),
+    CourseItem(prompt: 'Das Museum wurde 1950 eröffnet.', answer: 'El museo fue inaugurado en 1950.'),
+    CourseItem(prompt: 'Wie sagt man das auf Spanisch?', answer: '¿Cómo se dice en español?'),
+    CourseItem(prompt: 'Von hier aus sieht man das Meer.', answer: 'Desde aquí se ve el mar.'),
+    CourseItem(prompt: 'Das Problem wurde gelöst.', answer: 'El problema se resolvió.'),
   ],
 );
 
@@ -348,6 +373,11 @@ final QuizContent deEsB2SubjTemporal = deEsFill(
     CourseItem(prompt: 'Nachdem wir gegessen haben, gehen wir.', answer: 'Después de que comamos, salimos.'),
     CourseItem(prompt: 'Während du arbeitest, koche ich.', answer: 'Mientras trabajas, cocino.'),
     CourseItem(prompt: 'Wenn der Sommer kommt, reisen wir.', answer: 'Cuando llegue el verano, viajaremos.'),
+    CourseItem(prompt: 'Sobald der Film endet, gehen wir. (Zukunft)', answer: 'En cuanto termine la película, nos vamos.'),
+    CourseItem(prompt: 'Bis es aufhört zu regnen, bleiben wir hier.', answer: 'Hasta que deje de llover, nos quedamos aquí.'),
+    CourseItem(prompt: 'Wenn du fertig bist, sag mir Bescheid. (Zukunft)', answer: 'Cuando termines, avísame.'),
+    CourseItem(prompt: 'Bevor es dunkel wird, gehen wir zurück.', answer: 'Antes de que anochezca, volvemos.'),
+    CourseItem(prompt: 'Wenn ich Zeit habe, lese ich. (Gewohnheit)', answer: 'Cuando tengo tiempo, leo.'),
   ],
 );
 
@@ -454,6 +484,9 @@ final QuizContent deEsB2Modismos = deEsFill(
     CourseItem(prompt: 'ehrlich gesagt', answer: 'la verdad es que'),
     CourseItem(prompt: 'kurz gesagt', answer: 'en pocas palabras'),
     CourseItem(prompt: 'früher oder später', answer: 'tarde o temprano'),
+    CourseItem(prompt: 'auf dem Holzweg sein / sich irren', answer: 'estar equivocado'),
+    CourseItem(prompt: 'in null Komma nichts', answer: 'en un abrir y cerrar de ojos'),
+    CourseItem(prompt: 'ab und zu', answer: 'de vez en cuando'),
   ],
 );
 

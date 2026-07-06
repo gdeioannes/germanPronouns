@@ -31,6 +31,15 @@ final QuizContent zhEnA21PastReg = zhEnFill(
     CourseItem(prompt: '他们昨天踢了足球。', answer: 'They **played** football yesterday.'),
     CourseItem(prompt: '他两小时前到的。', answer: 'He **arrived** two hours ago.'),
     CourseItem(prompt: '她在门口停下了。', answer: 'She **stopped** at the door.'),
+    CourseItem(prompt: '我昨晚给妈妈打了电话。', answer: 'I **called** my mother last night.'),
+    CourseItem(prompt: '他在那家公司工作了两年。', answer: 'He **worked** at that company for two years.'),
+    CourseItem(prompt: '我们昨天打扫了房间。', answer: 'We **cleaned** the room yesterday.'),
+    CourseItem(prompt: '她打开了窗户。', answer: 'She **opened** the window.'),
+    CourseItem(prompt: '我昨晚很早就睡了。（decide 规则变化）', answer: 'I **decided** to sleep early last night.'),
+    CourseItem(prompt: '他们在公园里聊了很久。（chat → 双写）', answer: 'They **chatted** for a long time in the park.'),
+    CourseItem(prompt: '她试穿了那条裙子。（try → ied）', answer: 'She **tried** on the dress.'),
+    CourseItem(prompt: '音乐会八点开始。（start）', answer: 'The concert **started** at eight.'),
+    CourseItem(prompt: '我们昨天帮助了一位老人。', answer: 'We **helped** an old man yesterday.'),
   ],
 );
 
@@ -72,6 +81,15 @@ final QuizContent zhEnA21PastIrreg = zhEnFill(
     CourseItem(prompt: '他吃了三个苹果。', answer: 'He **ate** three apples.'),
     CourseItem(prompt: '我买了一本新书。', answer: 'I **bought** a new book.'),
     CourseItem(prompt: '他们来晚了。', answer: 'They **came** late.'),
+    CourseItem(prompt: '她做了一个蛋糕。', answer: 'She **made** a cake.'),
+    CourseItem(prompt: '他告诉了我这个消息。', answer: 'He **told** me the news.'),
+    CourseItem(prompt: '我今天早上收到了一封信。', answer: 'I **got** a letter this morning.'),
+    CourseItem(prompt: '我们坐了火车。', answer: 'We **took** the train.'),
+    CourseItem(prompt: '我昨晚睡得很好。（sleep→slept）', answer: 'I **slept** well last night.'),
+    CourseItem(prompt: '她给我写了一封长信。（write→wrote）', answer: 'She **wrote** me a long letter.'),
+    CourseItem(prompt: '他们上周五离开了。（leave→left）', answer: 'They **left** last Friday.'),
+    CourseItem(prompt: '我在车站遇见了她。（meet→met）', answer: 'I **met** her at the station.'),
+    CourseItem(prompt: '他喝了两杯咖啡。（drink→drank）', answer: 'He **drank** two cups of coffee.'),
   ],
 );
 
@@ -92,6 +110,16 @@ final QuizContent zhEnA21WasWere = zhEnFill(
     CourseItem(prompt: '天气很好。', answer: 'The weather **was** nice.'),
     CourseItem(prompt: '你昨晚在家吗？', answer: '**Were** you at home last night?'),
     CourseItem(prompt: '电影不好看。', answer: "The film **wasn't** good."),
+    CourseItem(prompt: '她小时候个子很小。', answer: 'She **was** small as a child.'),
+    CourseItem(prompt: '我们迟到了。', answer: 'We **were** late.'),
+    CourseItem(prompt: '街上没有人。', answer: 'There **were** no people in the street.'),
+    CourseItem(prompt: '他昨天不在办公室。', answer: "He **wasn't** in the office yesterday."),
+    CourseItem(prompt: '你们在哪儿？', answer: '**Where** were you?'),
+    CourseItem(prompt: '考试很难。', answer: 'The exam **was** difficult.'),
+    CourseItem(prompt: '孩子们昨天在学校吗？', answer: '**Were** the children at school yesterday?'),
+    CourseItem(prompt: '门是开着的。', answer: 'The door **was** open.'),
+    CourseItem(prompt: '商店里人不多。', answer: "There **weren't** many people in the shop."),
+    CourseItem(prompt: '你小时候害羞吗？', answer: '**Were** you shy as a child?'),
   ],
 );
 
@@ -112,6 +140,16 @@ final QuizContent zhEnA21Did = zhEnFill(
     CourseItem(prompt: '她昨晚给你打电话了吗？', answer: '**Did** she call you last night?'),
     CourseItem(prompt: '他们不喜欢那部电影。', answer: "They **didn't** like the film."),
     CourseItem(prompt: '你周末做什么了？', answer: 'What **did** you do at the weekend?'),
+    CourseItem(prompt: '他昨天来了吗？', answer: '**Did** he come yesterday?'),
+    CourseItem(prompt: '我们没看那场比赛。', answer: "We **didn't** watch the match."),
+    CourseItem(prompt: '你们在哪儿吃的饭？', answer: 'Where **did** you eat?'),
+    CourseItem(prompt: '她没买那条裙子。', answer: "She **didn't** buy the dress."),
+    CourseItem(prompt: '你什么时候到的？', answer: 'When **did** you arrive?'),
+    CourseItem(prompt: '你为什么没来？', answer: 'Why **didn\'t** you come?'),
+    CourseItem(prompt: '他吃早饭了吗？', answer: '**Did** he have breakfast?'),
+    CourseItem(prompt: '我昨晚没睡好。', answer: "I **didn't** sleep well last night."),
+    CourseItem(prompt: '火车旅程花了多长时间？', answer: 'How long **did** the journey take?'),
+    CourseItem(prompt: '她没告诉我她的名字。', answer: "She **didn't** tell me her name."),
   ],
 );
 
@@ -174,6 +212,16 @@ final QuizContent zhEnA21TimeOrder = zhEnFill(
     CourseItem(prompt: '他们两年前搬走了。', answer: 'They moved away two years **ago**.'),
     CourseItem(prompt: '我今天早上见到他了。', answer: 'I saw him this **morning**.'),
     CourseItem(prompt: '我们去年去了日本。', answer: 'We went to Japan last **year**.'),
+    CourseItem(prompt: '他昨晚给我打了电话。', answer: 'He called me last **night**.'),
+    CourseItem(prompt: '我三天前买了这本书。', answer: 'I bought this book three days **ago**.'),
+    CourseItem(prompt: '她上个月开始了新工作。', answer: 'She started her new job last **month**.'),
+    CourseItem(prompt: '我们昨天下午见了面。', answer: 'We met yesterday **afternoon**.'),
+    CourseItem(prompt: '他一小时前离开了。', answer: 'He left an hour **ago**.'),
+    CourseItem(prompt: '我们前天到的。（the day before yesterday）', answer: 'We arrived the day before **yesterday**.'),
+    CourseItem(prompt: '她昨天晚上学习了英语。', answer: 'She studied English last **night**.'),
+    CourseItem(prompt: '他们五分钟前出发了。', answer: 'They left five minutes **ago**.'),
+    CourseItem(prompt: '我上周日见了我的祖父母。', answer: 'I saw my grandparents last **Sunday**.'),
+    CourseItem(prompt: '我们今天下午买了菜。', answer: 'We bought vegetables this **afternoon**.'),
   ],
 );
 
@@ -263,6 +311,8 @@ final QuizContent zhEnA21Transport = zhEnVocab(
     MapEntry('自行车', 'bike'),
     MapEntry('车站', 'station'),
     MapEntry('机场', 'airport'),
+    MapEntry('船', 'boat'),
+    MapEntry('摩托车', 'motorbike'),
   ],
 );
 
@@ -286,6 +336,8 @@ final QuizContent zhEnA21Weather = zhEnVocab(
     MapEntry('夏天', 'summer'),
     MapEntry('秋天', 'autumn'),
     MapEntry('冬天', 'winter'),
+    MapEntry('下雪的', 'snowy'),
+    MapEntry('有雾的', 'foggy'),
   ],
 );
 
@@ -306,6 +358,16 @@ final QuizContent zhEnA21Connectors = zhEnFill(
     CourseItem(prompt: '我想去，但我很忙。', answer: 'I wanted to go, **but** I was busy.'),
     CourseItem(prompt: '她饿了，所以做了饭。', answer: 'She was hungry, **so** she cooked.'),
     CourseItem(prompt: '他学习了，但没通过。', answer: "He studied, **but** he didn't pass."),
+    CourseItem(prompt: '天冷，所以我们待在家里。', answer: 'It was cold, **so** we stayed at home.'),
+    CourseItem(prompt: '她高兴，因为她通过了考试。', answer: 'She was happy **because** she passed the exam.'),
+    CourseItem(prompt: '这家餐馆很好，但很贵。', answer: 'The restaurant was good, **but** expensive.'),
+    CourseItem(prompt: '我迟到了，因为公交车没来。', answer: "I was late **because** the bus didn't come."),
+    CourseItem(prompt: '他没带伞，所以淋湿了。', answer: "He didn't have an umbrella, **so** he got wet."),
+    CourseItem(prompt: '我买了票，但把它忘在家里了。', answer: 'I bought the ticket, **but** I left it at home.'),
+    CourseItem(prompt: '她很累，因为她工作到很晚。', answer: 'She was tired **because** she worked late.'),
+    CourseItem(prompt: '火车晚点了，所以我们等了一个小时。', answer: 'The train was late, **so** we waited an hour.'),
+    CourseItem(prompt: '他想买那辆车，但太贵了。', answer: 'He wanted to buy the car, **but** it was too expensive.'),
+    CourseItem(prompt: '我们没出去，因为天气太冷。', answer: "We didn't go out **because** it was too cold."),
   ],
 );
 
@@ -371,6 +433,15 @@ final QuizContent zhEnA21DictWeekend = zhEnDict(
     CourseItem(prompt: '他们参观了一家博物馆。', answer: 'They visited a museum.'),
     CourseItem(prompt: '天气很冷。', answer: 'It was very cold.'),
     CourseItem(prompt: '我没有学习。', answer: "I didn't study."),
+    CourseItem(prompt: '他买了一份礼物。', answer: 'He bought a present.'),
+    CourseItem(prompt: '我们坐火车回家的。', answer: 'We took the train home.'),
+    CourseItem(prompt: '你昨天见到她了吗？', answer: 'Did you see her yesterday?'),
+    CourseItem(prompt: '他们上周在上海。', answer: 'They were in Shanghai last week.'),
+    CourseItem(prompt: '我昨晚给她打了电话。', answer: 'I called her last night.'),
+    CourseItem(prompt: '她做了一个蛋糕。', answer: 'She made a cake.'),
+    CourseItem(prompt: '我们没看那部电影。', answer: "We didn't watch that film."),
+    CourseItem(prompt: '他一小时前离开了。', answer: 'He left an hour ago.'),
+    CourseItem(prompt: '你去哪儿了？', answer: 'Where did you go?'),
   ],
 );
 

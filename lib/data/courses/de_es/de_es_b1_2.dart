@@ -28,6 +28,9 @@ final QuizContent deEsB12Tecnologia = deEsFill(
     CourseItem(prompt: 'hochladen', answer: 'subir'),
     CourseItem(prompt: 'die sozialen Netzwerke', answer: 'las redes sociales'),
     CourseItem(prompt: 'die Nachricht', answer: 'el mensaje'),
+    CourseItem(prompt: 'die Webseite', answer: 'la página web'),
+    CourseItem(prompt: 'der Drucker', answer: 'la impresora'),
+    CourseItem(prompt: 'die E-Mail', answer: 'el correo electrónico', accepted: ['el correo']),
   ],
 );
 
@@ -57,6 +60,9 @@ final QuizContent deEsB12Condicional = deEsFill(
     CourseItem(prompt: 'ich würde machen (hacer)', answer: 'haría'),
     CourseItem(prompt: 'ich würde haben (tener)', answer: 'tendría'),
     CourseItem(prompt: 'Es wäre besser zu warten.', answer: 'Sería mejor esperar.'),
+    CourseItem(prompt: 'ich würde sagen (decir)', answer: 'diría'),
+    CourseItem(prompt: 'ihr würdet reisen', answer: 'viajaríais'),
+    CourseItem(prompt: 'Was würdest du tun?', answer: '¿Qué harías?'),
   ],
 );
 
@@ -107,6 +113,11 @@ final QuizContent deEsB12Pluscuamperfecto = deEsFill(
     CourseItem(prompt: 'Sie sagte, dass sie es vergessen hatte.', answer: 'Dijo que lo había olvidado.'),
     CourseItem(prompt: 'Wir hatten das Haus schon verkauft.', answer: 'Ya habíamos vendido la casa.'),
     CourseItem(prompt: 'Hattest du das gewusst?', answer: '¿Lo habías sabido?'),
+    CourseItem(prompt: 'ihr hattet gearbeitet', answer: 'habíais trabajado'),
+    CourseItem(prompt: 'ich hatte geschrieben (escribir)', answer: 'había escrito'),
+    CourseItem(prompt: 'Der Zug war schon abgefahren.', answer: 'El tren ya había salido.'),
+    CourseItem(prompt: 'Sie hatten das Hotel schon reserviert.', answer: 'Ya habían reservado el hotel.'),
+    CourseItem(prompt: 'Ich hatte ihn nie zuvor gesehen.', answer: 'Nunca lo había visto antes.'),
   ],
 );
 
@@ -134,6 +145,10 @@ final QuizContent deEsB12SubjDuda = deEsFill(
     CourseItem(prompt: 'ABER: Es ist sicher, dass er kommt.', answer: 'Es seguro que viene.'),
     CourseItem(prompt: 'Ich bin nicht sicher, dass das gut ist.', answer: 'No estoy seguro de que sea bueno.'),
     CourseItem(prompt: 'Vielleicht haben sie recht.', answer: 'Tal vez tengan razón.'),
+    CourseItem(prompt: 'Ich glaube nicht, dass es teuer ist.', answer: 'No creo que sea caro.'),
+    CourseItem(prompt: 'Es ist möglich, dass wir umziehen.', answer: 'Es posible que nos mudemos.'),
+    CourseItem(prompt: 'Ich bezweifle, dass er es weiß.', answer: 'Dudo que lo sepa.'),
+    CourseItem(prompt: 'ABER: Ich bin sicher, dass sie es weiß.', answer: 'Estoy seguro de que lo sabe.'),
   ],
 );
 
@@ -229,6 +244,11 @@ final QuizContent deEsB12EstiloIndirecto = deEsFill(
     CourseItem(prompt: 'Er sagte, dass er nicht könne.', answer: 'Dijo que no podía.'),
     CourseItem(prompt: 'Sie fragte, ob ich Zeit habe.', answer: 'Preguntó si tenía tiempo.'),
     CourseItem(prompt: 'Er antwortete, dass er es nicht wisse.', answer: 'Respondió que no lo sabía.'),
+    CourseItem(prompt: 'Sie sagte, dass sie müde sei.', answer: 'Dijo que estaba cansada.'),
+    CourseItem(prompt: 'Er erzählte, dass er gereist war.', answer: 'Contó que había viajado.'),
+    CourseItem(prompt: 'Sie fragten, wann wir ankommen würden.', answer: 'Preguntaron cuándo llegaríamos.'),
+    CourseItem(prompt: 'Er sagte mir, ich solle warten.', answer: 'Me dijo que esperara.'),
+    CourseItem(prompt: 'Sie erklärte, dass sie das Buch gelesen hatte.', answer: 'Explicó que había leído el libro.'),
   ],
 );
 
@@ -256,6 +276,11 @@ final QuizContent deEsB12SubjRelativo = deEsFill(
     CourseItem(prompt: 'Kauf, was du willst.', answer: 'Compra lo que quieras.'),
     CourseItem(prompt: 'Ich kenne einen Mann, der dort wohnt.', answer: 'Conozco a un hombre que vive allí.'),
     CourseItem(prompt: 'Such ein Restaurant, das geöffnet hat.', answer: 'Busca un restaurante que esté abierto.'),
+    CourseItem(prompt: 'Ich suche einen Job, der mir gefällt.', answer: 'Busco un trabajo que me guste.'),
+    CourseItem(prompt: 'Es gibt niemanden, der es versteht.', answer: 'No hay nadie que lo entienda.'),
+    CourseItem(prompt: 'Wir brauchen ein Auto, das wenig verbraucht.', answer: 'Necesitamos un coche que consuma poco.'),
+    CourseItem(prompt: 'Mach, was dir gefällt.', answer: 'Haz lo que te guste.'),
+    CourseItem(prompt: 'Ich habe einen Freund, der in Peru lebt. (existiert)', answer: 'Tengo un amigo que vive en Perú.'),
   ],
 );
 
@@ -284,6 +309,9 @@ final QuizContent deEsB12MedioAmbiente = deEsFill(
     CourseItem(prompt: 'schützen', answer: 'proteger'),
     CourseItem(prompt: 'der Treibhauseffekt', answer: 'el efecto invernadero'),
     CourseItem(prompt: 'die Tierart', answer: 'la especie'),
+    CourseItem(prompt: 'der Wald', answer: 'el bosque'),
+    CourseItem(prompt: 'die Dürre', answer: 'la sequía'),
+    CourseItem(prompt: 'wiederverwenden', answer: 'reutilizar'),
   ],
 );
 
@@ -334,6 +362,10 @@ final QuizContent deEsB12PorPara = deEsFill(
     CourseItem(prompt: 'für immer', answer: 'para siempre'),
     CourseItem(prompt: 'aus Angst', answer: 'por miedo'),
     CourseItem(prompt: 'um die Prüfung zu bestehen', answer: 'para aprobar el examen'),
+    CourseItem(prompt: 'Ich arbeite für eine Firma. (Ziel)', answer: 'Trabajo para una empresa.'),
+    CourseItem(prompt: 'Ich arbeite für Geld. (Grund)', answer: 'Trabajo por dinero.'),
+    CourseItem(prompt: 'durch die Stadt spazieren', answer: 'pasear por la ciudad'),
+    CourseItem(prompt: 'ein Flug nach Madrid (Ziel)', answer: 'un vuelo para Madrid'),
   ],
 );
 
@@ -428,6 +460,9 @@ final QuizContent deEsB12Conectores = deEsFill(
     CourseItem(prompt: 'schließlich', answer: 'por último'),
     CourseItem(prompt: 'einerseits', answer: 'por un lado'),
     CourseItem(prompt: 'andererseits', answer: 'por otro lado'),
+    CourseItem(prompt: 'zusammenfassend', answer: 'en resumen'),
+    CourseItem(prompt: 'dennoch / gleichwohl', answer: 'no obstante'),
+    CourseItem(prompt: 'danach / anschließend', answer: 'después', accepted: ['a continuación']),
   ],
 );
 

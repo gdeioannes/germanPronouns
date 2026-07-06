@@ -28,6 +28,9 @@ final QuizContent deEsB11Trabajo = deEsFill(
     CourseItem(prompt: 'die Besprechung', answer: 'la reunión'),
     CourseItem(prompt: 'Vollzeit', answer: 'a tiempo completo'),
     CourseItem(prompt: 'in Rente gehen', answer: 'jubilarse'),
+    CourseItem(prompt: 'der Vertrag', answer: 'el contrato'),
+    CourseItem(prompt: 'arbeitslos', answer: 'desempleado', accepted: ['en paro']),
+    CourseItem(prompt: 'eine Stelle suchen', answer: 'buscar trabajo'),
   ],
 );
 
@@ -57,6 +60,9 @@ final QuizContent deEsB11Futuro = deEsFill(
     CourseItem(prompt: 'ich werde kommen (venir)', answer: 'vendré'),
     CourseItem(prompt: 'ich werde sagen (decir)', answer: 'diré'),
     CourseItem(prompt: 'Wer mag das sein?', answer: '¿Quién será?'),
+    CourseItem(prompt: 'ich werde können (poder)', answer: 'podré'),
+    CourseItem(prompt: 'ihr werdet sprechen', answer: 'hablaréis'),
+    CourseItem(prompt: 'Nächstes Jahr werden wir umziehen.', answer: 'El año que viene nos mudaremos.'),
   ],
 );
 
@@ -108,6 +114,9 @@ final QuizContent deEsB11SubjFormas = deEsFill(
     CourseItem(prompt: 'dass ich bin (ser)', answer: 'que sea'),
     CourseItem(prompt: 'dass ich habe (tener)', answer: 'que tenga'),
     CourseItem(prompt: 'dass es gibt (haber)', answer: 'que haya'),
+    CourseItem(prompt: 'dass ich komme (venir)', answer: 'que venga'),
+    CourseItem(prompt: 'dass ich weiß (saber)', answer: 'que sepa'),
+    CourseItem(prompt: 'dass ihr esst (comer)', answer: 'que comáis'),
   ],
 );
 
@@ -136,6 +145,10 @@ final QuizContent deEsB11SubjDeseos = deEsFill(
     CourseItem(prompt: 'Sie wollen, dass ich bleibe.', answer: 'Quieren que me quede.'),
     CourseItem(prompt: 'Ich will, dass du glücklich bist.', answer: 'Quiero que seas feliz.'),
     CourseItem(prompt: 'Wir hoffen, dass ihr gewinnt.', answer: 'Esperamos que ganéis.'),
+    CourseItem(prompt: 'Hoffentlich kommt er bald!', answer: '¡Ojalá venga pronto!'),
+    CourseItem(prompt: 'Sie hofft, dass wir sie besuchen.', answer: 'Espera que la visitemos.'),
+    CourseItem(prompt: 'Es ist besser, dass du es weißt.', answer: 'Es mejor que lo sepas.'),
+    CourseItem(prompt: 'Ich will, dass es dir gefällt.', answer: 'Quiero que te guste.'),
   ],
 );
 
@@ -226,6 +239,11 @@ final QuizContent deEsB11Consejos = deEsFill(
     CourseItem(prompt: 'Sie raten uns, früh zu kommen.', answer: 'Nos aconsejan que vengamos pronto.'),
     CourseItem(prompt: 'Es lohnt sich, dass du es versuchst.', answer: 'Vale la pena que lo intentes.'),
     CourseItem(prompt: 'Ich rate dir, ehrlich zu sein.', answer: 'Te aconsejo que seas sincero.'),
+    CourseItem(prompt: 'Ich empfehle, dass ihr früher schlaft.', answer: 'Recomiendo que durmáis más temprano.'),
+    CourseItem(prompt: 'Es ist ratsam, dass du Wasser trinkst.', answer: 'Es aconsejable que bebas agua.'),
+    CourseItem(prompt: 'Der Lehrer schlägt vor, dass wir üben.', answer: 'El profesor propone que practiquemos.'),
+    CourseItem(prompt: 'Ich rate euch, den Zug zu nehmen.', answer: 'Os aconsejo que toméis el tren.'),
+    CourseItem(prompt: 'Es ist wichtig, dass sie zuhören.', answer: 'Es importante que escuchen.'),
   ],
 );
 
@@ -255,6 +273,9 @@ final QuizContent deEsB11Imperativo = deEsFill(
     CourseItem(prompt: 'Warten Sie!', answer: '¡Espere!'),
     CourseItem(prompt: 'Geh! (tú)', answer: '¡Vete!'),
     CourseItem(prompt: 'Setzt euch! (vosotros)', answer: '¡Sentaos!'),
+    CourseItem(prompt: 'Hör zu! (tú, escuchar)', answer: '¡Escucha!'),
+    CourseItem(prompt: 'Mach dir keine Sorgen!', answer: '¡No te preocupes!'),
+    CourseItem(prompt: 'Sprechen Sie langsamer! (usted)', answer: '¡Hable más despacio!'),
   ],
 );
 
@@ -304,6 +325,11 @@ final QuizContent deEsB11Dobles = deEsFill(
     CourseItem(prompt: 'Ich schenke es ihr.', answer: 'Se lo regalo.'),
     CourseItem(prompt: 'Sie erklären es mir.', answer: 'Me lo explican.'),
     CourseItem(prompt: 'Ich bringe es euch.', answer: 'Os lo traigo.'),
+    CourseItem(prompt: 'Erzähl es mir!', answer: '¡Cuéntamelo!'),
+    CourseItem(prompt: 'Ich zeige sie (die Fotos) dir.', answer: 'Te las enseño.', accepted: ['Te los enseño.']),
+    CourseItem(prompt: 'Er leiht es uns.', answer: 'Nos lo presta.'),
+    CourseItem(prompt: 'Sag es mir nicht!', answer: '¡No me lo digas!'),
+    CourseItem(prompt: 'Ich habe es ihr gegeben.', answer: 'Se lo he dado.'),
   ],
 );
 
@@ -330,6 +356,11 @@ final QuizContent deEsB11CondicReal = deEsFill(
     CourseItem(prompt: 'Wenn ihr Hunger habt, essen wir.', answer: 'Si tenéis hambre, comemos.'),
     CourseItem(prompt: 'Wenn das stimmt, ist es ein Problem.', answer: 'Si eso es verdad, es un problema.'),
     CourseItem(prompt: 'Wenn du nicht kommst, gehe ich allein.', answer: 'Si no vienes, voy solo.'),
+    CourseItem(prompt: 'Wenn es sonnig ist, gehen wir an den Strand.', answer: 'Si hace sol, vamos a la playa.'),
+    CourseItem(prompt: 'Wenn du müde bist, ruh dich aus.', answer: 'Si estás cansado, descansa.'),
+    CourseItem(prompt: 'Wenn sie anruft, sag es mir.', answer: 'Si llama, dímelo.'),
+    CourseItem(prompt: 'Wenn ich Geld habe, werde ich reisen.', answer: 'Si tengo dinero, viajaré.'),
+    CourseItem(prompt: 'Wenn ihr wollt, gehen wir ins Kino.', answer: 'Si queréis, vamos al cine.'),
   ],
 );
 
@@ -420,6 +451,11 @@ final QuizContent deEsB11Sentimientos = deEsFill(
     CourseItem(prompt: 'Es überrascht mich, dass du das sagst.', answer: 'Me sorprende que digas eso.'),
     CourseItem(prompt: 'Ich bin froh, dass wir uns sehen.', answer: 'Me alegro de que nos veamos.'),
     CourseItem(prompt: 'Es macht mich traurig, dass du gehst.', answer: 'Me da pena que te vayas.'),
+    CourseItem(prompt: 'Es freut mich, dass es dir gefällt.', answer: 'Me alegra que te guste.'),
+    CourseItem(prompt: 'Es ärgert mich, dass er lügt.', answer: 'Me enfada que mienta.'),
+    CourseItem(prompt: 'Es wundert mich, dass sie schweigt.', answer: 'Me extraña que no diga nada.'),
+    CourseItem(prompt: 'Wir freuen uns, dass ihr da seid.', answer: 'Nos alegramos de que estéis aquí.'),
+    CourseItem(prompt: 'Es stört mich, dass es so laut ist.', answer: 'Me molesta que haya tanto ruido.'),
   ],
 );
 

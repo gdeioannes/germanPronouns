@@ -28,6 +28,9 @@ final QuizContent deEsA22Cuerpo = deEsFill(
     CourseItem(prompt: 'Ich habe Fieber.', answer: 'Tengo fiebre.'),
     CourseItem(prompt: 'Ich brauche einen Arzt.', answer: 'Necesito un médico.'),
     CourseItem(prompt: 'die Erkältung', answer: 'el resfriado'),
+    CourseItem(prompt: 'der Mund', answer: 'la boca'),
+    CourseItem(prompt: 'das Ohr', answer: 'la oreja'),
+    CourseItem(prompt: 'Mir tun die Füße weh.', answer: 'Me duelen los pies.'),
   ],
 );
 
@@ -56,6 +59,9 @@ final QuizContent deEsA22Imperfecto = deEsFill(
     CourseItem(prompt: 'ich sah (ver)', answer: 'veía'),
     CourseItem(prompt: 'Früher wohnte ich in Berlin.', answer: 'Antes vivía en Berlín.'),
     CourseItem(prompt: 'Als Kind spielte ich Fußball.', answer: 'De niño jugaba al fútbol.'),
+    CourseItem(prompt: 'ihr spracht (hablar)', answer: 'hablabais'),
+    CourseItem(prompt: 'wir lebten (vivir)', answer: 'vivíamos'),
+    CourseItem(prompt: 'Meine Oma erzählte immer Geschichten.', answer: 'Mi abuela siempre contaba historias.'),
   ],
 );
 
@@ -84,6 +90,10 @@ final QuizContent deEsA22ImpVsIndef = deEsFill(
     CourseItem(prompt: 'Jeden Tag stand sie um 6 auf.', answer: 'Cada día se levantaba a las seis.'),
     CourseItem(prompt: 'An jenem Tag stand sie um 5 auf.', answer: 'Aquel día se levantó a las cinco.'),
     CourseItem(prompt: 'Während ich las, kam er herein.', answer: 'Mientras leía, él entró.'),
+    CourseItem(prompt: 'Die Sonne schien, als wir losfuhren.', answer: 'Hacía sol cuando salimos.'),
+    CourseItem(prompt: 'Ich war müde und ging ins Bett.', answer: 'Estaba cansado y me acosté.'),
+    CourseItem(prompt: 'Früher rauchte er viel.', answer: 'Antes fumaba mucho.'),
+    CourseItem(prompt: 'Eines Tages fand sie einen Brief.', answer: 'Un día encontró una carta.'),
   ],
 );
 
@@ -135,6 +145,9 @@ final QuizContent deEsA22Comparativos = deEsFill(
     CourseItem(prompt: 'Madrid ist größer als Sevilla.', answer: 'Madrid es más grande que Sevilla.'),
     CourseItem(prompt: 'super lecker', answer: 'riquísimo'),
     CourseItem(prompt: 'wunderschön', answer: 'guapísimo'),
+    CourseItem(prompt: 'Er ist so groß wie sein Bruder.', answer: 'Es tan alto como su hermano.'),
+    CourseItem(prompt: 'der beste Film', answer: 'la mejor película'),
+    CourseItem(prompt: 'sehr teuer (mit -ísimo)', answer: 'carísimo'),
   ],
 );
 
@@ -223,6 +236,11 @@ final QuizContent deEsA22Oi = deEsFill(
     CourseItem(prompt: 'Ich erzähle euch alles.', answer: 'Os cuento todo.'),
     CourseItem(prompt: 'Sie schenkt ihrer Mutter Blumen.', answer: 'Le regala flores a su madre.'),
     CourseItem(prompt: 'Ich frage den Lehrer.', answer: 'Le pregunto al profesor.'),
+    CourseItem(prompt: 'Ich gebe es ihnen.', answer: 'Se lo doy a ellos.', accepted: ['Se lo doy.']),
+    CourseItem(prompt: 'Er erklärt uns die Aufgabe.', answer: 'Nos explica la tarea.'),
+    CourseItem(prompt: 'Kannst du mir helfen?', answer: '¿Puedes ayudarme?', accepted: ['¿Me puedes ayudar?']),
+    CourseItem(prompt: 'Ich zeige dir die Stadt.', answer: 'Te enseño la ciudad.'),
+    CourseItem(prompt: 'Sie bringt ihm einen Kaffee.', answer: 'Le trae un café.'),
   ],
 );
 
@@ -249,6 +267,11 @@ final QuizContent deEsA22Gerundio = deEsFill(
     CourseItem(prompt: 'Ich war gerade am Kochen.', answer: 'Estaba cocinando.'),
     CourseItem(prompt: 'Sie schreibt gerade.', answer: 'Está escribiendo.'),
     CourseItem(prompt: 'Worüber redest du gerade?', answer: '¿De qué estás hablando?'),
+    CourseItem(prompt: 'Die Kinder spielen gerade.', answer: 'Los niños están jugando.'),
+    CourseItem(prompt: 'Ich höre gerade Musik.', answer: 'Estoy escuchando música.'),
+    CourseItem(prompt: 'Er duscht gerade.', answer: 'Se está duchando.', accepted: ['Está duchándose.']),
+    CourseItem(prompt: 'Wir sehen gerade fern.', answer: 'Estamos viendo la tele.'),
+    CourseItem(prompt: 'Sie bittet gerade um Hilfe. (pedir)', answer: 'Está pidiendo ayuda.'),
   ],
 );
 
@@ -277,6 +300,9 @@ final QuizContent deEsA22Ropa = deEsFill(
     CourseItem(prompt: 'zu teuer', answer: 'demasiado caro'),
     CourseItem(prompt: 'im Angebot', answer: 'en oferta'),
     CourseItem(prompt: 'Ich nehme es.', answer: 'Me lo llevo.'),
+    CourseItem(prompt: 'der Rock', answer: 'la falda'),
+    CourseItem(prompt: 'das T-Shirt', answer: 'la camiseta'),
+    CourseItem(prompt: 'Kann ich es anprobieren?', answer: '¿Puedo probármelo?'),
   ],
 );
 
@@ -328,6 +354,9 @@ final QuizContent deEsA22PorPara = deEsFill(
     CourseItem(prompt: 'zweimal pro Woche', answer: 'dos veces por semana'),
     CourseItem(prompt: 'Das ist für meine Mutter.', answer: 'Es para mi madre.'),
     CourseItem(prompt: 'telefonisch', answer: 'por teléfono'),
+    CourseItem(prompt: 'für mich (Meinung)', answer: 'para mí'),
+    CourseItem(prompt: 'Ich tausche es gegen deins.', answer: 'Lo cambio por el tuyo.'),
+    CourseItem(prompt: 'Wir arbeiten für die Firma.', answer: 'Trabajamos para la empresa.'),
   ],
 );
 
@@ -421,6 +450,9 @@ final QuizContent deEsA22Caracter = deEsFill(
     CourseItem(prompt: 'intelligent', answer: 'inteligente'),
     CourseItem(prompt: 'Er ist sehr nett.', answer: 'Es muy simpático.'),
     CourseItem(prompt: 'Heute ist sie nervös.', answer: 'Hoy está nerviosa.'),
+    CourseItem(prompt: 'optimistisch', answer: 'optimista'),
+    CourseItem(prompt: 'geduldig', answer: 'paciente'),
+    CourseItem(prompt: 'mutig', answer: 'valiente'),
   ],
 );
 

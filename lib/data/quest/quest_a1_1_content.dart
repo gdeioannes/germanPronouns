@@ -242,6 +242,42 @@ final QuizContent questPronomenContent = sentenceQuestQuiz(
       english: '____ are very kind, Mr Müller. (you, formal)',
       gloss: 'you (formal)',
     ),
+    QuestSentenceItem(
+      sentence: 'Heute lerne ____ Deutsch. (I)',
+      answer: 'ich',
+      english: 'Today ____ am learning German. (I)',
+      gloss: 'I (after the verb)',
+    ),
+    QuestSentenceItem(
+      sentence: '____ trinkst Kaffee, oder? (you, informal)',
+      answer: 'du',
+      english: '____ drink coffee, right? (you, informal)',
+      gloss: 'you (question)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das ist mein Vater. ____ arbeitet in Bonn. (he)',
+      answer: 'er',
+      english: 'That is my father. ____ works in Bonn. (he)',
+      gloss: 'he (my father)',
+    ),
+    QuestSentenceItem(
+      sentence: '____ regnet heute. (it)',
+      answer: 'es',
+      english: '____ is raining today. (it)',
+      gloss: 'it (weather)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Morgen fahren ____ nach Berlin. (we)',
+      answer: 'wir',
+      english: 'Tomorrow ____ are going to Berlin. (we)',
+      gloss: 'we (after the verb)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Woher kommen ____, Frau Schmidt? (you, formal)',
+      answer: 'Sie',
+      english: 'Where do ____ come from, Mrs Schmidt? (you, formal)',
+      gloss: 'you (formal question)',
+    ),
   ],
   intro: 'Subject (nominative) pronouns say who does the action. Read the '
       'sentence — the verb ending and the English hint tell you which one '
@@ -332,6 +368,24 @@ final QuizContent questFarbenContent = sentenceQuestQuiz(
       sentence: 'Viele Farben zusammen (ein Regenbogen) sind ____.',
       answer: 'bunt',
       english: 'Many colours together (a rainbow) are ____ (colourful).',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von Tomaten und Kirschen ist ____.',
+      answer: 'rot',
+      english: 'The colour of tomatoes and cherries is ____ (red).',
+      gloss: 'red (tomatoes)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von Zitronen ist ____.',
+      answer: 'gelb',
+      english: 'The colour of lemons is ____ (yellow).',
+      gloss: 'yellow (lemons)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Farbe von kleinen Schweinen ist ____.',
+      answer: 'rosa',
+      english: 'The colour of little pigs is ____ (pink).',
+      gloss: 'pink (pigs)',
     ),
   ],
   intro: 'Read the clue and name the colour. Colours are adjectives: on their '
@@ -845,6 +899,32 @@ final QuizContent questWFragenContent = sentenceQuestQuiz(
       answer: 'wie viele',
       english: 'You ask about the number: ____ people are coming? (how many)',
     ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Alter: ____ bist du?',
+      answer: 'wie alt',
+      english: 'You ask about age: ____ are you? (how old)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach der Uhrzeit: ____ ist es?',
+      answer: 'wie spät',
+      english: 'You ask about the time: ____ is it? (how late = what time)',
+      accepted: ['wie spat', 'wie spaet'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach der Dauer: ____ bleibst du?',
+      answer: 'wie lange',
+      english: 'You ask about duration: ____ are you staying? (how long)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Wetter: ____ ist das Wetter heute?',
+      answer: 'wie',
+      english: 'You ask about the weather: ____ is the weather today? (how)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Du fragst nach dem Wort: ____ heißt das auf Deutsch?',
+      answer: 'was',
+      english: 'You ask about a word: ____ is that called in German? (what)',
+    ),
   ],
   intro: 'W-questions start with a question word (almost all begin with "w-") '
       'followed by the verb in second position: Wo wohnst du? They ask for '
@@ -1279,6 +1359,22 @@ final QuizContent questDiktatSteckbriefContent = dictationQuestQuiz(
       meaning: 'I like playing football.',
     ),
     SpeakPhrase(phrase: 'Wie heißt du?', meaning: "What's your name?"),
+    SpeakPhrase(phrase: 'Ich habe eine Schwester.', meaning: 'I have a sister.'),
+    SpeakPhrase(phrase: 'Mein Bruder heißt Tim.', meaning: 'My brother is called Tim.'),
+    SpeakPhrase(phrase: 'Ich arbeite in Hamburg.', meaning: 'I work in Hamburg.'),
+    SpeakPhrase(phrase: 'Ich trinke gern Kaffee.', meaning: 'I like drinking coffee.'),
+    SpeakPhrase(
+      phrase: 'Ich bin zwanzig Jahre alt.',
+      meaning: 'I am twenty years old.',
+    ),
+    SpeakPhrase(
+      phrase: 'Meine Familie wohnt in Wien.',
+      meaning: 'My family lives in Vienna.',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich spreche Englisch und ein bisschen Deutsch.',
+      meaning: 'I speak English and a little German.',
+    ),
   ],
 );
 

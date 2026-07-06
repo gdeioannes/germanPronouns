@@ -55,6 +55,13 @@ final QuizContent enDeM4Articles = enDeFill(
     CourseItem(prompt: 'We give the dog food. (der Hund)', answer: 'Wir geben **dem** Hund Futter'),
     CourseItem(prompt: 'The book belongs to the woman. (die Frau)', answer: 'Das Buch gehört **der** Frau'),
     CourseItem(prompt: 'She answers the child. (das Kind)', answer: 'Sie antwortet **dem** Kind'),
+    CourseItem(prompt: 'Oma gives the grandpa a hat. (der Opa)', answer: 'Oma gibt **dem** Opa eine Mütze'),
+    CourseItem(prompt: 'The house belongs to the aunt. (die Tante)', answer: 'Das Haus gehört **der** Tante'),
+    CourseItem(prompt: 'I show the tourists the way. (die Touristen, pl)', answer: 'Ich zeige **den** Touristen den Weg'),
+    CourseItem(prompt: 'He brings the girl a book. (das Mädchen)', answer: 'Er bringt **dem** Mädchen ein Buch'),
+    CourseItem(prompt: 'We thank the neighbour. (die Nachbarin)', answer: 'Wir danken **der** Nachbarin'),
+    CourseItem(prompt: 'The cake tastes good to the guests. (die Gäste, pl)', answer: 'Der Kuchen schmeckt **den** Gästen'),
+    CourseItem(prompt: 'She writes the doctor a letter. (der Arzt)', answer: 'Sie schreibt **dem** Arzt einen Brief'),
   ],
 );
 
@@ -120,6 +127,13 @@ final QuizContent enDeM4Pronouns = enDeFill(
     CourseItem(prompt: 'That pleases me. (gefallen)', answer: 'Das gefällt **mir**'),
     CourseItem(prompt: 'Can I help you? (Sie)', answer: 'Kann ich **Ihnen** helfen?'),
     CourseItem(prompt: 'The jacket suits you. (du)', answer: 'Die Jacke passt **dir**'),
+    CourseItem(prompt: 'The city pleases us. (wir)', answer: 'Die Stadt gefällt **uns**'),
+    CourseItem(prompt: 'I show you all the photos. (ihr)', answer: 'Ich zeige **euch** die Fotos'),
+    CourseItem(prompt: 'The dog belongs to him. (er)', answer: 'Der Hund gehört **ihm**'),
+    CourseItem(prompt: 'Can you help me? (ich)', answer: 'Kannst du **mir** helfen?'),
+    CourseItem(prompt: 'The soup tastes good to her. (sie)', answer: 'Die Suppe schmeckt **ihr**'),
+    CourseItem(prompt: 'I thank you all. (ihr)', answer: 'Ich danke **euch**'),
+    CourseItem(prompt: 'She answers them politely. (sie, pl)', answer: 'Sie antwortet **ihnen** höflich'),
   ],
 );
 
@@ -138,6 +152,14 @@ final QuizContent enDeM4Verbs = enDeFill(
     CourseItem(prompt: 'The pizza tastes good to me. (ich)', answer: 'Die Pizza schmeckt **mir**'),
     CourseItem(prompt: 'She answers the teacher. (der Lehrer)', answer: 'Sie antwortet **dem** Lehrer'),
     CourseItem(prompt: 'The dress suits her. (sie)', answer: 'Das Kleid passt **ihr**'),
+    CourseItem(prompt: 'We help the neighbours. (die Nachbarn, pl)', answer: 'Wir helfen **den** Nachbarn'),
+    CourseItem(prompt: 'The garden belongs to the grandpa. (der Opa)', answer: 'Der Garten gehört **dem** Opa'),
+    CourseItem(prompt: 'The music pleases the guests. (die Gäste, pl)', answer: 'Die Musik gefällt **den** Gästen'),
+    CourseItem(prompt: 'She thanks the woman. (die Frau)', answer: 'Sie dankt **der** Frau'),
+    CourseItem(prompt: 'The soup tastes good to the child. (das Kind)', answer: 'Die Suppe schmeckt **dem** Kind'),
+    CourseItem(prompt: 'He answers the police officer. (der Polizist)', answer: 'Er antwortet **dem** Polizisten'),
+    CourseItem(prompt: 'The shoes fit the boy. (der Junge)', answer: 'Die Schuhe passen **dem** Jungen'),
+    CourseItem(prompt: 'I congratulate the winner. (gratulieren, der Gewinner)', answer: 'Ich gratuliere **dem** Gewinner'),
   ],
 );
 
@@ -167,6 +189,15 @@ final QuizContent enDeM4Prepositions = enDeFill(
     CourseItem(prompt: 'I get a present from grandma. (von, die Oma)', answer: 'Ich bekomme ein Geschenk von **der** Oma'),
     CourseItem(prompt: 'After the meal I sleep. (nach, das Essen)', answer: 'Nach **dem** Essen schlafe ich'),
     CourseItem(prompt: 'For a year I have been here. (seit, ein Jahr)', answer: 'Seit **einem** Jahr bin ich hier'),
+    CourseItem(prompt: 'He comes out of the house. (aus, das Haus)', answer: 'Er kommt aus **dem** Haus'),
+    CourseItem(prompt: 'She works at the baker\'s. (bei, der Bäcker)', answer: 'Sie arbeitet bei **dem** Bäcker'),
+    CourseItem(prompt: 'We play with the dog. (mit, der Hund)', answer: 'Wir spielen mit **dem** Hund'),
+    CourseItem(prompt: 'After the film we go home. (nach, der Film)', answer: 'Nach **dem** Film gehen wir nach Hause'),
+    CourseItem(prompt: 'The letter is from the school. (von, die Schule)', answer: 'Der Brief ist von **der** Schule'),
+    CourseItem(prompt: 'I go to the doctor. (zu, der Arzt)', answer: 'Ich gehe zu **dem** Arzt'),
+    CourseItem(prompt: 'Since the winter he lives here. (seit, der Winter)', answer: 'Seit **dem** Winter wohnt er hier'),
+    CourseItem(prompt: 'She drives to work with the bus. (mit, der Bus)', answer: 'Sie fährt mit **dem** Bus zur Arbeit'),
+    CourseItem(prompt: 'The children come out of the school. (aus, die Schule)', answer: 'Die Kinder kommen aus **der** Schule'),
   ],
 );
 
@@ -254,6 +285,16 @@ final QuizContent enDeM4Dictation = enDeDict(
     CourseItem(prompt: 'We give the children sweets.', answer: 'Wir geben den Kindern Süßigkeiten.'),
     CourseItem(prompt: 'The book belongs to the child.', answer: 'Das Buch gehört dem Kind.'),
     CourseItem(prompt: 'I travel by train.', answer: 'Ich fahre mit dem Zug.'),
+    CourseItem(prompt: 'That pleases me very much.', answer: 'Das gefällt mir sehr.'),
+    CourseItem(prompt: 'He thanks the teacher.', answer: 'Er dankt dem Lehrer.'),
+    CourseItem(prompt: 'She lives with her grandma.', answer: 'Sie wohnt bei der Oma.'),
+    CourseItem(prompt: 'After the meal we play cards.', answer: 'Nach dem Essen spielen wir Karten.'),
+    CourseItem(prompt: 'Can you help me?', answer: 'Kannst du mir helfen?'),
+    CourseItem(prompt: 'The jacket suits her.', answer: 'Die Jacke passt ihr.'),
+    CourseItem(prompt: 'I come from the city.', answer: 'Ich komme aus der Stadt.'),
+    CourseItem(prompt: 'He gives her flowers.', answer: 'Er gibt ihr Blumen.'),
+    CourseItem(prompt: 'We go to the doctor.', answer: 'Wir gehen zum Arzt.'),
+    CourseItem(prompt: 'The pizza tastes good to us.', answer: 'Die Pizza schmeckt uns.'),
   ],
 );
 

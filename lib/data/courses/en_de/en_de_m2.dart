@@ -56,6 +56,13 @@ final QuizContent enDeM2Articles = enDeFill(
     CourseItem(prompt: 'the house', answer: '**das** Haus'),
     CourseItem(prompt: 'the table', answer: '**der** Tisch'),
     CourseItem(prompt: 'the book', answer: '**das** Buch'),
+    CourseItem(prompt: 'the chair (m)', answer: '**der** Stuhl'),
+    CourseItem(prompt: 'the door (f)', answer: '**die** Tür'),
+    CourseItem(prompt: 'the car (n)', answer: '**das** Auto'),
+    CourseItem(prompt: 'the key (m)', answer: '**der** Schlüssel'),
+    CourseItem(prompt: 'the lamp (f)', answer: '**die** Lampe'),
+    CourseItem(prompt: 'the window (n)', answer: '**das** Fenster'),
+    CourseItem(prompt: 'the apple (m)', answer: '**der** Apfel'),
   ],
 );
 
@@ -74,6 +81,13 @@ final QuizContent enDeM2GenderEndings = enDeFill(
     CourseItem(prompt: 'the little house (Häuschen → -chen)', answer: '**das** Häuschen'),
     CourseItem(prompt: 'the teacher/m (Lehrer → -er)', answer: '**der** Lehrer'),
     CourseItem(prompt: 'the computer (-er)', answer: '**der** Computer'),
+    CourseItem(prompt: 'the information (-tion)', answer: '**die** Information'),
+    CourseItem(prompt: 'the possibility (Möglichkeit → -keit)', answer: '**die** Möglichkeit'),
+    CourseItem(prompt: 'the invitation (Einladung → -ung)', answer: '**die** Einladung'),
+    CourseItem(prompt: 'the illness (Krankheit → -heit)', answer: '**die** Krankheit'),
+    CourseItem(prompt: 'the little dog (Hündchen → -chen)', answer: '**das** Hündchen'),
+    CourseItem(prompt: 'the baker/m (Bäcker → -er)', answer: '**der** Bäcker'),
+    CourseItem(prompt: 'the nation (-tion)', answer: '**die** Nation'),
   ],
 );
 
@@ -104,6 +118,13 @@ final QuizContent enDeM2Ein = enDeFill(
     CourseItem(prompt: 'That is no problem. (n)', answer: 'Das ist **kein** Problem'),
     CourseItem(prompt: 'Here is a child.', answer: 'Hier ist **ein** Kind'),
     CourseItem(prompt: 'There is a lamp. (f)', answer: 'Da ist **eine** Lampe'),
+    CourseItem(prompt: 'That is a book. (n)', answer: 'Das ist **ein** Buch'),
+    CourseItem(prompt: 'There is a table. (m)', answer: 'Da ist **ein** Tisch'),
+    CourseItem(prompt: 'That is a cat. (f)', answer: 'Das ist **eine** Katze'),
+    CourseItem(prompt: 'That is no cat. (f)', answer: 'Das ist **keine** Katze'),
+    CourseItem(prompt: 'Here is an apple. (m)', answer: 'Hier ist **ein** Apfel'),
+    CourseItem(prompt: 'That is no car. (n)', answer: 'Das ist **kein** Auto'),
+    CourseItem(prompt: 'There is a school. (f)', answer: 'Da ist **eine** Schule'),
   ],
 );
 
@@ -136,6 +157,12 @@ final QuizContent enDeM2Pronouns = enDeFill(
     CourseItem(prompt: 'you (plural, informal)', answer: 'ihr'),
     CourseItem(prompt: 'they', answer: 'sie'),
     CourseItem(prompt: 'you (formal)', answer: 'Sie'),
+    CourseItem(prompt: 'my brother and I (= we)', answer: 'wir'),
+    CourseItem(prompt: 'Mr Müller, when addressing him politely', answer: 'Sie'),
+    CourseItem(prompt: 'Anna (= she)', answer: 'sie'),
+    CourseItem(prompt: 'the child (= it)', answer: 'es'),
+    CourseItem(prompt: 'Tom (= he)', answer: 'er'),
+    CourseItem(prompt: 'you and your friends (informal plural)', answer: 'ihr'),
   ],
 );
 
@@ -277,6 +304,15 @@ final QuizContent enDeM2Dictation = enDeDict(
     CourseItem(prompt: 'the computer', answer: 'der Computer'),
     CourseItem(prompt: 'the newspaper', answer: 'die Zeitung'),
     CourseItem(prompt: 'the house', answer: 'das Haus'),
+    CourseItem(prompt: 'the key', answer: 'der Schlüssel'),
+    CourseItem(prompt: 'the door', answer: 'die Tür'),
+    CourseItem(prompt: 'the window', answer: 'das Fenster'),
+    CourseItem(prompt: 'the teacher', answer: 'der Lehrer'),
+    CourseItem(prompt: 'the flat', answer: 'die Wohnung'),
+    CourseItem(prompt: 'the book', answer: 'das Buch'),
+    CourseItem(prompt: 'the chair', answer: 'der Stuhl'),
+    CourseItem(prompt: 'the school', answer: 'die Schule'),
+    CourseItem(prompt: 'the car', answer: 'das Auto'),
   ],
 );
 

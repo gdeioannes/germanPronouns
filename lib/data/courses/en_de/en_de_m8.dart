@@ -54,6 +54,13 @@ final QuizContent enDeM8Regular = enDeFill(
     CourseItem(prompt: 'hören → heard', answer: 'gehört'),
     CourseItem(prompt: 'arbeiten → worked', answer: 'gearbeitet'),
     CourseItem(prompt: 'wohnen → lived', answer: 'gewohnt'),
+    CourseItem(prompt: 'fragen → asked', answer: 'gefragt'),
+    CourseItem(prompt: 'sagen → said', answer: 'gesagt'),
+    CourseItem(prompt: 'tanzen → danced', answer: 'getanzt'),
+    CourseItem(prompt: 'warten → waited', answer: 'gewartet'),
+    CourseItem(prompt: 'lachen → laughed', answer: 'gelacht'),
+    CourseItem(prompt: 'zeigen → shown', answer: 'gezeigt'),
+    CourseItem(prompt: 'suchen → searched', answer: 'gesucht'),
   ],
 );
 
@@ -72,6 +79,13 @@ final QuizContent enDeM8Strong = enDeFill(
     CourseItem(prompt: 'lesen → read', answer: 'gelesen'),
     CourseItem(prompt: 'schreiben → written', answer: 'geschrieben'),
     CourseItem(prompt: 'nehmen → taken', answer: 'genommen'),
+    CourseItem(prompt: 'kommen → come', answer: 'gekommen'),
+    CourseItem(prompt: 'finden → found', answer: 'gefunden'),
+    CourseItem(prompt: 'schlafen → slept', answer: 'geschlafen'),
+    CourseItem(prompt: 'sprechen → spoken', answer: 'gesprochen'),
+    CourseItem(prompt: 'helfen → helped', answer: 'geholfen'),
+    CourseItem(prompt: 'geben → given', answer: 'gegeben'),
+    CourseItem(prompt: 'treffen → met', answer: 'getroffen'),
   ],
 );
 
@@ -88,6 +102,15 @@ final QuizContent enDeM8HabenSein = enDeFill(
     CourseItem(prompt: 'We drove to Berlin. (sein, fahren)', answer: 'Wir **sind** nach Berlin gefahren'),
     CourseItem(prompt: 'He has bought a car. (haben)', answer: 'Er **hat** ein Auto gekauft'),
     CourseItem(prompt: 'They stayed at home. (sein, bleiben)', answer: 'Sie **sind** zu Hause geblieben'),
+    CourseItem(prompt: 'We have read the book. (haben)', answer: 'Wir **haben** das Buch gelesen'),
+    CourseItem(prompt: 'She flew to Rome. (sein, fliegen)', answer: 'Sie **ist** nach Rom geflogen'),
+    CourseItem(prompt: 'I have slept well. (haben)', answer: 'Ich **habe** gut geschlafen'),
+    CourseItem(prompt: 'He got up early. (sein, aufstehen)', answer: 'Er **ist** früh aufgestanden'),
+    CourseItem(prompt: 'You have worked a lot. (haben, du)', answer: 'Du **hast** viel gearbeitet'),
+    CourseItem(prompt: 'The train has left. (sein, abfahren)', answer: 'Der Zug **ist** abgefahren'),
+    CourseItem(prompt: 'They have found the key. (haben)', answer: 'Sie **haben** den Schlüssel gefunden'),
+    CourseItem(prompt: 'I came home late. (sein, kommen)', answer: 'Ich **bin** spät nach Hause gekommen'),
+    CourseItem(prompt: 'We swam in the lake. (sein, schwimmen)', answer: 'Wir **sind** im See geschwommen'),
   ],
 );
 
@@ -103,6 +126,16 @@ final QuizContent enDeM8WordOrder = enDeFill(
     CourseItem(prompt: 'We drove to Berlin. (fahren)', answer: 'Wir sind nach Berlin **gefahren**'),
     CourseItem(prompt: 'I have learned a lot. (lernen)', answer: 'Ich habe viel **gelernt**'),
     CourseItem(prompt: 'He has read the book. (lesen)', answer: 'Er hat das Buch **gelesen**'),
+    CourseItem(prompt: 'Today we cooked a soup. (kochen)', answer: 'Heute haben wir eine Suppe **gekocht**'),
+    CourseItem(prompt: 'On Sunday she slept long. (schlafen)', answer: 'Am Sonntag hat sie lange **geschlafen**'),
+    CourseItem(prompt: 'Yesterday he met his friends. (treffen)', answer: 'Gestern hat er seine Freunde **getroffen**'),
+    CourseItem(prompt: 'In the evening I heard music. (hören)', answer: 'Am Abend habe ich Musik **gehört**'),
+    CourseItem(prompt: 'We have found the way. (finden)', answer: 'Wir haben den Weg **gefunden**'),
+    CourseItem(prompt: 'She has written a letter. (schreiben)', answer: 'Sie hat einen Brief **geschrieben**'),
+    CourseItem(prompt: 'They have drunk coffee. (trinken)', answer: 'Sie haben Kaffee **getrunken**'),
+    CourseItem(prompt: 'This morning I bought bread. (kaufen)', answer: 'Heute Morgen habe ich Brot **gekauft**'),
+    CourseItem(prompt: 'He has helped me. (helfen)', answer: 'Er hat mir **geholfen**'),
+    CourseItem(prompt: 'Last week we saw the film. (sehen)', answer: 'Letzte Woche haben wir den Film **gesehen**'),
   ],
 );
 

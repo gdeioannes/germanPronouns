@@ -28,6 +28,9 @@ final QuizContent deEsA21Ciudad = deEsFill(
     CourseItem(prompt: 'die Kirche', answer: 'la iglesia'),
     CourseItem(prompt: 'das Museum', answer: 'el museo'),
     CourseItem(prompt: 'das Rathaus', answer: 'el ayuntamiento'),
+    CourseItem(prompt: 'der Park', answer: 'el parque'),
+    CourseItem(prompt: 'die Bibliothek', answer: 'la biblioteca'),
+    CourseItem(prompt: 'der Markt', answer: 'el mercado'),
   ],
 );
 
@@ -56,6 +59,9 @@ final QuizContent deEsA21Perfecto = deEsFill(
     CourseItem(prompt: 'Ich habe es gesehen.', answer: 'Lo he visto.'),
     CourseItem(prompt: 'Sie hat es gesagt.', answer: 'Lo ha dicho.'),
     CourseItem(prompt: 'Ich habe es geschrieben.', answer: 'Lo he escrito.'),
+    CourseItem(prompt: 'Wir haben den Film gesehen.', answer: 'Hemos visto la película.'),
+    CourseItem(prompt: 'Er hat viel gereist. (viajar)', answer: 'Ha viajado mucho.'),
+    CourseItem(prompt: 'Diese Woche habe ich gearbeitet.', answer: 'Esta semana he trabajado.'),
   ],
 );
 
@@ -108,6 +114,9 @@ final QuizContent deEsA21IndefinidoReg = deEsFill(
     CourseItem(prompt: 'sie arbeiteten', answer: 'trabajaron'),
     CourseItem(prompt: 'Gestern arbeitete ich.', answer: 'Ayer trabajé.'),
     CourseItem(prompt: '2019 reisten wir nach Spanien.', answer: 'En 2019 viajamos a España.'),
+    CourseItem(prompt: 'du aßest (comer)', answer: 'comiste'),
+    CourseItem(prompt: 'sie schrieben (escribir)', answer: 'escribieron'),
+    CourseItem(prompt: 'Gestern kaufte sie ein Kleid.', answer: 'Ayer compró un vestido.'),
   ],
 );
 
@@ -136,6 +145,9 @@ final QuizContent deEsA21IndefinidoIrreg = deEsFill(
     CourseItem(prompt: 'ich kam (venir)', answer: 'vine'),
     CourseItem(prompt: 'er gab (dar)', answer: 'dio'),
     CourseItem(prompt: 'er sagte (decir)', answer: 'dijo'),
+    CourseItem(prompt: 'ich wollte (querer)', answer: 'quise'),
+    CourseItem(prompt: 'er setzte/legte (poner)', answer: 'puso'),
+    CourseItem(prompt: 'wir waren / gingen (ser/ir)', answer: 'fuimos'),
   ],
 );
 
@@ -224,6 +236,11 @@ final QuizContent deEsA21Od = deEsFill(
     CourseItem(prompt: 'Ich besuche sie (Plural).', answer: 'Los visito.'),
     CourseItem(prompt: 'Kennst du ihn?', answer: '¿Lo conoces?'),
     CourseItem(prompt: 'Ich nehme es.', answer: 'Lo tomo.'),
+    CourseItem(prompt: 'Ich lese sie (die Zeitung).', answer: 'La leo.'),
+    CourseItem(prompt: 'Wir hören sie (die Lieder).', answer: 'Las escuchamos.'),
+    CourseItem(prompt: 'Er sieht uns.', answer: 'Nos ve.'),
+    CourseItem(prompt: 'Ich habe es gekauft.', answer: 'Lo he comprado.'),
+    CourseItem(prompt: 'Sie ruft mich an.', answer: 'Me llama.'),
   ],
 );
 
@@ -250,6 +267,11 @@ final QuizContent deEsA21APersonal = deEsFill(
     CourseItem(prompt: 'Ich esse einen Apfel. (Sache)', answer: 'Como una manzana.'),
     CourseItem(prompt: 'Sie hilft ihrer Freundin.', answer: 'Ayuda a su amiga.'),
     CourseItem(prompt: 'Ich rufe den Arzt.', answer: 'Llamo al médico.'),
+    CourseItem(prompt: 'Ich kaufe das Brot. (Sache)', answer: 'Compro el pan.'),
+    CourseItem(prompt: 'Wir hören die Musik. (Sache)', answer: 'Escuchamos la música.'),
+    CourseItem(prompt: 'Ich sehe meine Nachbarn.', answer: 'Veo a mis vecinos.'),
+    CourseItem(prompt: 'Sie sucht ihren Hund. (Haustier, mit a)', answer: 'Busca a su perro.'),
+    CourseItem(prompt: 'Ich erwarte einen Freund.', answer: 'Espero a un amigo.'),
   ],
 );
 
@@ -278,6 +300,9 @@ final QuizContent deEsA21Direcciones = deEsFill(
     CourseItem(prompt: 'an der Ecke', answer: 'en la esquina'),
     CourseItem(prompt: 'in der Nähe', answer: 'cerca'),
     CourseItem(prompt: 'weit', answer: 'lejos'),
+    CourseItem(prompt: 'der Flughafen', answer: 'el aeropuerto'),
+    CourseItem(prompt: 'die Haltestelle', answer: 'la parada'),
+    CourseItem(prompt: 'zu Fuß', answer: 'a pie'),
   ],
 );
 
@@ -327,6 +352,11 @@ final QuizContent deEsA21Clima = deEsFill(
     CourseItem(prompt: 'Es ist bewölkt.', answer: 'Está nublado.'),
     CourseItem(prompt: 'Wie ist das Wetter?', answer: '¿Qué tiempo hace?'),
     CourseItem(prompt: 'Es sind 30 Grad.', answer: 'Hace treinta grados.'),
+    CourseItem(prompt: 'Es ist schlechtes Wetter.', answer: 'Hace mal tiempo.'),
+    CourseItem(prompt: 'der Frühling', answer: 'la primavera'),
+    CourseItem(prompt: 'der Sommer', answer: 'el verano'),
+    CourseItem(prompt: 'der Herbst', answer: 'el otoño'),
+    CourseItem(prompt: 'der Winter', answer: 'el invierno'),
   ],
 );
 
@@ -417,6 +447,11 @@ final QuizContent deEsA21PerfVsIndef = deEsFill(
     CourseItem(prompt: '2018 war ich in Peru.', answer: 'En 2018 estuve en Perú.'),
     CourseItem(prompt: 'Heute Morgen bin ich aufgestanden.', answer: 'Esta mañana me he levantado.'),
     CourseItem(prompt: 'Vorgestern stand ich früh auf.', answer: 'Anteayer me levanté temprano.'),
+    CourseItem(prompt: 'Diesen Monat habe ich viel gelernt.', answer: 'Este mes he estudiado mucho.'),
+    CourseItem(prompt: 'Letzten Sommer schwamm ich im Meer.', answer: 'El verano pasado nadé en el mar.'),
+    CourseItem(prompt: 'Wir haben den Film noch nicht gesehen.', answer: 'Todavía no hemos visto la película.'),
+    CourseItem(prompt: 'Am Montag kaufte er das Auto.', answer: 'El lunes compró el coche.'),
+    CourseItem(prompt: 'Warst du schon einmal in Madrid?', answer: '¿Has estado alguna vez en Madrid?'),
   ],
 );
 

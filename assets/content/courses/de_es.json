@@ -403,7 +403,7 @@
       }
     ]
   },
-  "version": "1.16.0",
+  "version": "1.18.0",
   "quizzes": [
     {
       "type": "fillBlank",
@@ -475,6 +475,14 @@
         {
           "key": "s12",
           "display": "Nein"
+        },
+        {
+          "key": "s13",
+          "display": "Bis morgen"
+        },
+        {
+          "key": "s14",
+          "display": "Willkommen"
         }
       ],
       "categories": [
@@ -494,7 +502,9 @@
             "¿Qué tal?",
             "Bien, gracias",
             "Sí",
-            "No"
+            "No",
+            "Hasta mañana",
+            "Bienvenido"
           ]
         }
       ],
@@ -631,6 +641,27 @@
           ],
           "english": "Nein",
           "referenceExample": "**No**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Bis morgen → ____",
+          "acceptedAnswers": [
+            "Hasta mañana"
+          ],
+          "english": "Bis morgen",
+          "referenceExample": "**Hasta mañana**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Willkommen → ____",
+          "acceptedAnswers": [
+            "Bienvenido",
+            "Bienvenida"
+          ],
+          "english": "Willkommen",
+          "referenceExample": "**Bienvenido**"
         }
       ]
     },
@@ -748,6 +779,30 @@
         {
           "key": "s8",
           "display": "Sie (höflich, Plural)"
+        },
+        {
+          "key": "s9",
+          "display": "wir (nur Frauen)"
+        },
+        {
+          "key": "s10",
+          "display": "sie (Plural, nur Frauen)"
+        },
+        {
+          "key": "s11",
+          "display": "ihr (nur Frauen)"
+        },
+        {
+          "key": "s12",
+          "display": "Anna und ich (= wir)"
+        },
+        {
+          "key": "s13",
+          "display": "Herr López (höfliche Anrede)"
+        },
+        {
+          "key": "s14",
+          "display": "Tom und Anna (= sie)"
         }
       ],
       "categories": [
@@ -763,7 +818,13 @@
             "vosotros",
             "ellos",
             "usted",
-            "ustedes"
+            "ustedes",
+            "nosotras",
+            "ellas",
+            "vosotras",
+            "nosotros",
+            "usted",
+            "ellos"
           ]
         }
       ],
@@ -860,6 +921,67 @@
           ],
           "english": "Sie (höflich, Plural)",
           "referenceExample": "**ustedes**"
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "wir (nur Frauen) → ____",
+          "acceptedAnswers": [
+            "nosotras"
+          ],
+          "english": "wir (nur Frauen)",
+          "referenceExample": "**nosotras**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "sie (Plural, nur Frauen) → ____",
+          "acceptedAnswers": [
+            "ellas"
+          ],
+          "english": "sie (Plural, nur Frauen)",
+          "referenceExample": "**ellas**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ihr (nur Frauen) → ____",
+          "acceptedAnswers": [
+            "vosotras"
+          ],
+          "english": "ihr (nur Frauen)",
+          "referenceExample": "**vosotras**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Anna und ich (= wir) → ____",
+          "acceptedAnswers": [
+            "nosotros",
+            "nosotras"
+          ],
+          "english": "Anna und ich (= wir)",
+          "referenceExample": "**nosotros**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Herr López (höfliche Anrede) → ____",
+          "acceptedAnswers": [
+            "usted"
+          ],
+          "english": "Herr López (höfliche Anrede)",
+          "referenceExample": "**usted**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Tom und Anna (= sie) → ____",
+          "acceptedAnswers": [
+            "ellos"
+          ],
+          "english": "Tom und Anna (= sie)",
+          "referenceExample": "**ellos**"
         }
       ]
     },
@@ -925,6 +1047,22 @@
         {
           "key": "s10",
           "display": "Es ist wichtig."
+        },
+        {
+          "key": "s11",
+          "display": "Sie sind Lehrer. (Plural)"
+        },
+        {
+          "key": "s12",
+          "display": "Ihr seid nett."
+        },
+        {
+          "key": "s13",
+          "display": "Sie ist meine Freundin."
+        },
+        {
+          "key": "s14",
+          "display": "Sind Sie Herr García?"
         }
       ],
       "categories": [
@@ -942,7 +1080,11 @@
             "¿Eres estudiante?",
             "Es de Berlín",
             "Somos alemanes",
-            "Es importante"
+            "Es importante",
+            "Son profesores",
+            "Sois simpáticos",
+            "Es mi amiga",
+            "¿Es usted el señor García?"
           ]
         }
       ],
@@ -1056,6 +1198,46 @@
           ],
           "english": "Es ist wichtig.",
           "referenceExample": "**Es importante**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie sind Lehrer. (Plural) → ____.",
+          "acceptedAnswers": [
+            "Son profesores"
+          ],
+          "english": "Sie sind Lehrer. (Plural)",
+          "referenceExample": "**Son profesores**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ihr seid nett. → ____.",
+          "acceptedAnswers": [
+            "Sois simpáticos"
+          ],
+          "english": "Ihr seid nett.",
+          "referenceExample": "**Sois simpáticos**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie ist meine Freundin. → ____.",
+          "acceptedAnswers": [
+            "Es mi amiga"
+          ],
+          "english": "Sie ist meine Freundin.",
+          "referenceExample": "**Es mi amiga**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sind Sie Herr García? → ____",
+          "acceptedAnswers": [
+            "¿Es usted el señor García?"
+          ],
+          "english": "Sind Sie Herr García?",
+          "referenceExample": "**¿Es usted el señor García?**"
         }
       ]
     },
@@ -1326,6 +1508,18 @@
         {
           "key": "s11",
           "display": "Ich spreche Deutsch."
+        },
+        {
+          "key": "s12",
+          "display": "ein Spanier"
+        },
+        {
+          "key": "s13",
+          "display": "eine Spanierin"
+        },
+        {
+          "key": "s14",
+          "display": "Mexiko"
         }
       ],
       "categories": [
@@ -1344,7 +1538,10 @@
             "Suiza",
             "Italia",
             "Inglaterra",
-            "Hablo alemán"
+            "Hablo alemán",
+            "un español",
+            "una española",
+            "México"
           ]
         }
       ],
@@ -1469,6 +1666,37 @@
           ],
           "english": "Ich spreche Deutsch.",
           "referenceExample": "**Hablo alemán**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ein Spanier → ____",
+          "acceptedAnswers": [
+            "un español"
+          ],
+          "english": "ein Spanier",
+          "referenceExample": "**un español**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "eine Spanierin → ____",
+          "acceptedAnswers": [
+            "una española"
+          ],
+          "english": "eine Spanierin",
+          "referenceExample": "**una española**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Mexiko → ____",
+          "acceptedAnswers": [
+            "México",
+            "Méjico"
+          ],
+          "english": "Mexiko",
+          "referenceExample": "**México**"
         }
       ]
     },
@@ -1534,6 +1762,22 @@
         {
           "key": "s10",
           "display": "die Stadt"
+        },
+        {
+          "key": "s11",
+          "display": "ein Auto"
+        },
+        {
+          "key": "s12",
+          "display": "eine Tür"
+        },
+        {
+          "key": "s13",
+          "display": "der Tag"
+        },
+        {
+          "key": "s14",
+          "display": "die Hand"
         }
       ],
       "categories": [
@@ -1551,7 +1795,11 @@
             "la manzana",
             "el agua",
             "la flor",
-            "la ciudad"
+            "la ciudad",
+            "un coche",
+            "una puerta",
+            "el día",
+            "la mano"
           ]
         }
       ],
@@ -1665,6 +1913,46 @@
           ],
           "english": "die Stadt",
           "referenceExample": "**la ciudad**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ein Auto → ____",
+          "acceptedAnswers": [
+            "un coche"
+          ],
+          "english": "ein Auto",
+          "referenceExample": "**un coche**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "eine Tür → ____",
+          "acceptedAnswers": [
+            "una puerta"
+          ],
+          "english": "eine Tür",
+          "referenceExample": "**una puerta**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Tag → ____",
+          "acceptedAnswers": [
+            "el día"
+          ],
+          "english": "der Tag",
+          "referenceExample": "**el día**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Hand → ____",
+          "acceptedAnswers": [
+            "la mano"
+          ],
+          "english": "die Hand",
+          "referenceExample": "**la mano**"
         }
       ]
     },
@@ -1794,6 +2082,22 @@
         {
           "key": "s10",
           "display": "arbeitslos"
+        },
+        {
+          "key": "s11",
+          "display": "der Journalist"
+        },
+        {
+          "key": "s12",
+          "display": "die Verkäuferin"
+        },
+        {
+          "key": "s13",
+          "display": "der Polizist"
+        },
+        {
+          "key": "s14",
+          "display": "Ich bin Ingenieurin."
         }
       ],
       "categories": [
@@ -1811,7 +2115,11 @@
             "el ingeniero",
             "el abogado",
             "el cocinero",
-            "desempleado"
+            "desempleado",
+            "el periodista",
+            "la vendedora",
+            "el policía",
+            "Soy ingeniera"
           ]
         }
       ],
@@ -1927,6 +2235,46 @@
           ],
           "english": "arbeitslos",
           "referenceExample": "**desempleado**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Journalist → ____",
+          "acceptedAnswers": [
+            "el periodista"
+          ],
+          "english": "der Journalist",
+          "referenceExample": "**el periodista**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Verkäuferin → ____",
+          "acceptedAnswers": [
+            "la vendedora"
+          ],
+          "english": "die Verkäuferin",
+          "referenceExample": "**la vendedora**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Polizist → ____",
+          "acceptedAnswers": [
+            "el policía"
+          ],
+          "english": "der Polizist",
+          "referenceExample": "**el policía**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich bin Ingenieurin. → ____.",
+          "acceptedAnswers": [
+            "Soy ingeniera"
+          ],
+          "english": "Ich bin Ingenieurin.",
+          "referenceExample": "**Soy ingeniera**."
         }
       ]
     },
@@ -1992,6 +2340,22 @@
         {
           "key": "s10",
           "display": "Ich spreche Spanisch."
+        },
+        {
+          "key": "s11",
+          "display": "du tanzt (bailar)"
+        },
+        {
+          "key": "s12",
+          "display": "er hört Musik (escuchar)"
+        },
+        {
+          "key": "s13",
+          "display": "ihr singt (cantar)"
+        },
+        {
+          "key": "s14",
+          "display": "Wir arbeiten in Madrid."
         }
       ],
       "categories": [
@@ -2009,7 +2373,11 @@
             "estudia",
             "viajamos",
             "compran",
-            "Hablo español"
+            "Hablo español",
+            "bailas",
+            "escucha",
+            "cantáis",
+            "Trabajamos en Madrid"
           ]
         }
       ],
@@ -2123,6 +2491,46 @@
           ],
           "english": "Ich spreche Spanisch.",
           "referenceExample": "**Hablo español**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "du tanzt (bailar) → ____",
+          "acceptedAnswers": [
+            "bailas"
+          ],
+          "english": "du tanzt (bailar)",
+          "referenceExample": "**bailas**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "er hört Musik (escuchar) → ____",
+          "acceptedAnswers": [
+            "escucha"
+          ],
+          "english": "er hört Musik (escuchar)",
+          "referenceExample": "**escucha**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ihr singt (cantar) → ____",
+          "acceptedAnswers": [
+            "cantáis"
+          ],
+          "english": "ihr singt (cantar)",
+          "referenceExample": "**cantáis**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir arbeiten in Madrid. → ____.",
+          "acceptedAnswers": [
+            "Trabajamos en Madrid"
+          ],
+          "english": "Wir arbeiten in Madrid.",
+          "referenceExample": "**Trabajamos en Madrid**."
         }
       ]
     },
@@ -2367,6 +2775,18 @@
         {
           "key": "s11",
           "display": "die Familie"
+        },
+        {
+          "key": "s12",
+          "display": "die Geschwister"
+        },
+        {
+          "key": "s13",
+          "display": "der Cousin"
+        },
+        {
+          "key": "s14",
+          "display": "die Großeltern"
         }
       ],
       "categories": [
@@ -2385,7 +2805,10 @@
             "la abuela",
             "el tío",
             "la tía",
-            "la familia"
+            "la familia",
+            "los hermanos",
+            "el primo",
+            "los abuelos"
           ]
         }
       ],
@@ -2509,6 +2932,36 @@
           ],
           "english": "die Familie",
           "referenceExample": "**la familia**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Geschwister → ____",
+          "acceptedAnswers": [
+            "los hermanos"
+          ],
+          "english": "die Geschwister",
+          "referenceExample": "**los hermanos**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Cousin → ____",
+          "acceptedAnswers": [
+            "el primo"
+          ],
+          "english": "der Cousin",
+          "referenceExample": "**el primo**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Großeltern → ____",
+          "acceptedAnswers": [
+            "los abuelos"
+          ],
+          "english": "die Großeltern",
+          "referenceExample": "**los abuelos**"
         }
       ]
     },
@@ -2574,6 +3027,22 @@
         {
           "key": "s10",
           "display": "sie schreiben (escribir)"
+        },
+        {
+          "key": "s11",
+          "display": "du trinkst (beber)"
+        },
+        {
+          "key": "s12",
+          "display": "er lernt (aprender)"
+        },
+        {
+          "key": "s13",
+          "display": "ich schreibe (escribir)"
+        },
+        {
+          "key": "s14",
+          "display": "Wir leben in Berlin."
         }
       ],
       "categories": [
@@ -2591,7 +3060,11 @@
             "vivimos",
             "vivís",
             "leo",
-            "escriben"
+            "escriben",
+            "bebes",
+            "aprende",
+            "escribo",
+            "Vivimos en Berlín"
           ]
         }
       ],
@@ -2705,6 +3178,46 @@
           ],
           "english": "sie schreiben (escribir)",
           "referenceExample": "**escriben**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "du trinkst (beber) → ____",
+          "acceptedAnswers": [
+            "bebes"
+          ],
+          "english": "du trinkst (beber)",
+          "referenceExample": "**bebes**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "er lernt (aprender) → ____",
+          "acceptedAnswers": [
+            "aprende"
+          ],
+          "english": "er lernt (aprender)",
+          "referenceExample": "**aprende**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ich schreibe (escribir) → ____",
+          "acceptedAnswers": [
+            "escribo"
+          ],
+          "english": "ich schreibe (escribir)",
+          "referenceExample": "**escribo**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir leben in Berlin. → ____.",
+          "acceptedAnswers": [
+            "Vivimos en Berlín"
+          ],
+          "english": "Wir leben in Berlin.",
+          "referenceExample": "**Vivimos en Berlín**."
         }
       ]
     },
@@ -2770,6 +3283,22 @@
         {
           "key": "s10",
           "display": "Sie sind (gerade) glücklich."
+        },
+        {
+          "key": "s11",
+          "display": "Der Kaffee ist heiß. (Zustand)"
+        },
+        {
+          "key": "s12",
+          "display": "Ich bin zu Hause. (Ort)"
+        },
+        {
+          "key": "s13",
+          "display": "Das Auto ist neu. (Eigenschaft)"
+        },
+        {
+          "key": "s14",
+          "display": "Bist du krank? (Zustand)"
         }
       ],
       "categories": [
@@ -2787,7 +3316,11 @@
             "La casa es grande",
             "La comida está fría",
             "Es español",
-            "Están contentos"
+            "Están contentos",
+            "El café está caliente",
+            "Estoy en casa",
+            "El coche es nuevo",
+            "¿Estás enfermo?"
           ]
         }
       ],
@@ -2901,6 +3434,46 @@
           ],
           "english": "Sie sind (gerade) glücklich.",
           "referenceExample": "**Están contentos**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Der Kaffee ist heiß. (Zustand) → ____.",
+          "acceptedAnswers": [
+            "El café está caliente"
+          ],
+          "english": "Der Kaffee ist heiß. (Zustand)",
+          "referenceExample": "**El café está caliente**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich bin zu Hause. (Ort) → ____.",
+          "acceptedAnswers": [
+            "Estoy en casa"
+          ],
+          "english": "Ich bin zu Hause. (Ort)",
+          "referenceExample": "**Estoy en casa**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Das Auto ist neu. (Eigenschaft) → ____.",
+          "acceptedAnswers": [
+            "El coche es nuevo"
+          ],
+          "english": "Das Auto ist neu. (Eigenschaft)",
+          "referenceExample": "**El coche es nuevo**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Bist du krank? (Zustand) → ____",
+          "acceptedAnswers": [
+            "¿Estás enfermo?"
+          ],
+          "english": "Bist du krank? (Zustand)",
+          "referenceExample": "**¿Estás enfermo?**"
         }
       ]
     },
@@ -3017,6 +3590,26 @@
         {
           "key": "s9",
           "display": "Ich habe einen Bruder."
+        },
+        {
+          "key": "s10",
+          "display": "Ich habe Durst."
+        },
+        {
+          "key": "s11",
+          "display": "Sie hat zwei Kinder."
+        },
+        {
+          "key": "s12",
+          "display": "Wir haben keine Zeit."
+        },
+        {
+          "key": "s13",
+          "display": "Hast du ein Auto?"
+        },
+        {
+          "key": "s14",
+          "display": "Ich habe Angst."
         }
       ],
       "categories": [
@@ -3033,7 +3626,12 @@
             "Tengo veinticinco años",
             "¿Cuántos años tienes?",
             "Tengo hambre",
-            "Tengo un hermano"
+            "Tengo un hermano",
+            "Tengo sed",
+            "Tiene dos hijos",
+            "No tenemos tiempo",
+            "¿Tienes coche?",
+            "Tengo miedo"
           ]
         }
       ],
@@ -3137,6 +3735,57 @@
           ],
           "english": "Ich habe einen Bruder.",
           "referenceExample": "**Tengo un hermano**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich habe Durst. → ____.",
+          "acceptedAnswers": [
+            "Tengo sed"
+          ],
+          "english": "Ich habe Durst.",
+          "referenceExample": "**Tengo sed**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie hat zwei Kinder. → ____.",
+          "acceptedAnswers": [
+            "Tiene dos hijos"
+          ],
+          "english": "Sie hat zwei Kinder.",
+          "referenceExample": "**Tiene dos hijos**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir haben keine Zeit. → ____.",
+          "acceptedAnswers": [
+            "No tenemos tiempo"
+          ],
+          "english": "Wir haben keine Zeit.",
+          "referenceExample": "**No tenemos tiempo**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Hast du ein Auto? → ____",
+          "acceptedAnswers": [
+            "¿Tienes coche?",
+            "¿Tienes un coche?"
+          ],
+          "english": "Hast du ein Auto?",
+          "referenceExample": "**¿Tienes coche?**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich habe Angst. → ____.",
+          "acceptedAnswers": [
+            "Tengo miedo"
+          ],
+          "english": "Ich habe Angst.",
+          "referenceExample": "**Tengo miedo**."
         }
       ]
     },
@@ -3202,6 +3851,22 @@
         {
           "key": "s10",
           "display": "Mir gefällt es sehr."
+        },
+        {
+          "key": "s11",
+          "display": "Ich mag Bücher. (Plural)"
+        },
+        {
+          "key": "s12",
+          "display": "Uns gefällt die Stadt."
+        },
+        {
+          "key": "s13",
+          "display": "Ich tanze gern."
+        },
+        {
+          "key": "s14",
+          "display": "Ihm gefallen die Filme. (Plural)"
         }
       ],
       "categories": [
@@ -3219,7 +3884,11 @@
             "Me gusta viajar",
             "¿Te gusta el fútbol?",
             "No me gusta",
-            "Me gusta mucho"
+            "Me gusta mucho",
+            "Me gustan los libros",
+            "Nos gusta la ciudad",
+            "Me gusta bailar",
+            "Le gustan las películas"
           ]
         }
       ],
@@ -3333,6 +4002,46 @@
           ],
           "english": "Mir gefällt es sehr.",
           "referenceExample": "**Me gusta mucho**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich mag Bücher. (Plural) → ____.",
+          "acceptedAnswers": [
+            "Me gustan los libros"
+          ],
+          "english": "Ich mag Bücher. (Plural)",
+          "referenceExample": "**Me gustan los libros**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Uns gefällt die Stadt. → ____.",
+          "acceptedAnswers": [
+            "Nos gusta la ciudad"
+          ],
+          "english": "Uns gefällt die Stadt.",
+          "referenceExample": "**Nos gusta la ciudad**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich tanze gern. → ____.",
+          "acceptedAnswers": [
+            "Me gusta bailar"
+          ],
+          "english": "Ich tanze gern.",
+          "referenceExample": "**Me gusta bailar**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ihm gefallen die Filme. (Plural) → ____.",
+          "acceptedAnswers": [
+            "Le gustan las películas"
+          ],
+          "english": "Ihm gefallen die Filme. (Plural)",
+          "referenceExample": "**Le gustan las películas**."
         }
       ]
     },
@@ -3466,6 +4175,18 @@
         {
           "key": "s11",
           "display": "das Frühstück"
+        },
+        {
+          "key": "s12",
+          "display": "das Mittagessen"
+        },
+        {
+          "key": "s13",
+          "display": "das Abendessen"
+        },
+        {
+          "key": "s14",
+          "display": "der Saft"
         }
       ],
       "categories": [
@@ -3484,7 +4205,10 @@
             "la fruta",
             "la verdura",
             "el queso",
-            "el desayuno"
+            "el desayuno",
+            "la comida",
+            "la cena",
+            "el zumo"
           ]
         }
       ],
@@ -3608,6 +4332,38 @@
           ],
           "english": "das Frühstück",
           "referenceExample": "**el desayuno**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "das Mittagessen → ____",
+          "acceptedAnswers": [
+            "la comida",
+            "el almuerzo"
+          ],
+          "english": "das Mittagessen",
+          "referenceExample": "**la comida**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "das Abendessen → ____",
+          "acceptedAnswers": [
+            "la cena"
+          ],
+          "english": "das Abendessen",
+          "referenceExample": "**la cena**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Saft → ____",
+          "acceptedAnswers": [
+            "el zumo",
+            "el jugo"
+          ],
+          "english": "der Saft",
+          "referenceExample": "**el zumo**"
         }
       ]
     },
@@ -3685,6 +4441,10 @@
         {
           "key": "s13",
           "display": "das Wochenende"
+        },
+        {
+          "key": "s14",
+          "display": "Es ist zehn nach sechs."
         }
       ],
       "categories": [
@@ -3705,7 +4465,8 @@
             "viernes",
             "sábado",
             "domingo",
-            "el fin de semana"
+            "el fin de semana",
+            "Son las seis y diez"
           ]
         }
       ],
@@ -3849,6 +4610,16 @@
           ],
           "english": "das Wochenende",
           "referenceExample": "**el fin de semana**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es ist zehn nach sechs. → ____.",
+          "acceptedAnswers": [
+            "Son las seis y diez"
+          ],
+          "english": "Es ist zehn nach sechs.",
+          "referenceExample": "**Son las seis y diez**."
         }
       ]
     },
@@ -3966,6 +4737,26 @@
         {
           "key": "s9",
           "display": "ihr Haus (von ihnen)"
+        },
+        {
+          "key": "s10",
+          "display": "unsere Schule (f)"
+        },
+        {
+          "key": "s11",
+          "display": "eure Bücher"
+        },
+        {
+          "key": "s12",
+          "display": "meine Schwester"
+        },
+        {
+          "key": "s13",
+          "display": "dein Hund"
+        },
+        {
+          "key": "s14",
+          "display": "ihre Autos (von ihnen)"
         }
       ],
       "categories": [
@@ -3982,7 +4773,12 @@
             "nuestra casa",
             "nuestros hijos",
             "vuestro coche",
-            "su casa"
+            "su casa",
+            "nuestra escuela",
+            "vuestros libros",
+            "mi hermana",
+            "tu perro",
+            "sus coches"
           ]
         }
       ],
@@ -4086,6 +4882,56 @@
           ],
           "english": "ihr Haus (von ihnen)",
           "referenceExample": "**su casa**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "unsere Schule (f) → ____",
+          "acceptedAnswers": [
+            "nuestra escuela"
+          ],
+          "english": "unsere Schule (f)",
+          "referenceExample": "**nuestra escuela**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "eure Bücher → ____",
+          "acceptedAnswers": [
+            "vuestros libros"
+          ],
+          "english": "eure Bücher",
+          "referenceExample": "**vuestros libros**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "meine Schwester → ____",
+          "acceptedAnswers": [
+            "mi hermana"
+          ],
+          "english": "meine Schwester",
+          "referenceExample": "**mi hermana**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dein Hund → ____",
+          "acceptedAnswers": [
+            "tu perro"
+          ],
+          "english": "dein Hund",
+          "referenceExample": "**tu perro**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ihre Autos (von ihnen) → ____",
+          "acceptedAnswers": [
+            "sus coches"
+          ],
+          "english": "ihre Autos (von ihnen)",
+          "referenceExample": "**sus coches**"
         }
       ]
     },
@@ -4147,6 +4993,26 @@
         {
           "key": "s9",
           "display": "Sie werden essen."
+        },
+        {
+          "key": "s10",
+          "display": "Ich werde ein Buch lesen."
+        },
+        {
+          "key": "s11",
+          "display": "Er wird arbeiten."
+        },
+        {
+          "key": "s12",
+          "display": "Wir werden zu Abend essen."
+        },
+        {
+          "key": "s13",
+          "display": "Ihr werdet tanzen."
+        },
+        {
+          "key": "s14",
+          "display": "Ich gehe ins Kino."
         }
       ],
       "categories": [
@@ -4163,7 +5029,12 @@
             "Voy a aprender español",
             "Vamos a viajar a Madrid",
             "¿Qué vas a hacer?",
-            "Van a comer"
+            "Van a comer",
+            "Voy a leer un libro",
+            "Va a trabajar",
+            "Vamos a cenar",
+            "Vais a bailar",
+            "Voy al cine"
           ]
         }
       ],
@@ -4267,6 +5138,56 @@
           ],
           "english": "Sie werden essen.",
           "referenceExample": "**Van a comer**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich werde ein Buch lesen. → ____.",
+          "acceptedAnswers": [
+            "Voy a leer un libro"
+          ],
+          "english": "Ich werde ein Buch lesen.",
+          "referenceExample": "**Voy a leer un libro**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er wird arbeiten. → ____.",
+          "acceptedAnswers": [
+            "Va a trabajar"
+          ],
+          "english": "Er wird arbeiten.",
+          "referenceExample": "**Va a trabajar**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir werden zu Abend essen. → ____.",
+          "acceptedAnswers": [
+            "Vamos a cenar"
+          ],
+          "english": "Wir werden zu Abend essen.",
+          "referenceExample": "**Vamos a cenar**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ihr werdet tanzen. → ____.",
+          "acceptedAnswers": [
+            "Vais a bailar"
+          ],
+          "english": "Ihr werdet tanzen.",
+          "referenceExample": "**Vais a bailar**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich gehe ins Kino. → ____.",
+          "acceptedAnswers": [
+            "Voy al cine"
+          ],
+          "english": "Ich gehe ins Kino.",
+          "referenceExample": "**Voy al cine**."
         }
       ]
     },
@@ -4521,6 +5442,18 @@
         {
           "key": "s11",
           "display": "das Rathaus"
+        },
+        {
+          "key": "s12",
+          "display": "der Park"
+        },
+        {
+          "key": "s13",
+          "display": "die Bibliothek"
+        },
+        {
+          "key": "s14",
+          "display": "der Markt"
         }
       ],
       "categories": [
@@ -4539,7 +5472,10 @@
             "la estación",
             "la iglesia",
             "el museo",
-            "el ayuntamiento"
+            "el ayuntamiento",
+            "el parque",
+            "la biblioteca",
+            "el mercado"
           ]
         }
       ],
@@ -4663,6 +5599,36 @@
           ],
           "english": "das Rathaus",
           "referenceExample": "**el ayuntamiento**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Park → ____",
+          "acceptedAnswers": [
+            "el parque"
+          ],
+          "english": "der Park",
+          "referenceExample": "**el parque**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Bibliothek → ____",
+          "acceptedAnswers": [
+            "la biblioteca"
+          ],
+          "english": "die Bibliothek",
+          "referenceExample": "**la biblioteca**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Markt → ____",
+          "acceptedAnswers": [
+            "el mercado"
+          ],
+          "english": "der Markt",
+          "referenceExample": "**el mercado**"
         }
       ]
     },
@@ -4732,6 +5698,18 @@
         {
           "key": "s11",
           "display": "Ich habe es geschrieben."
+        },
+        {
+          "key": "s12",
+          "display": "Wir haben den Film gesehen."
+        },
+        {
+          "key": "s13",
+          "display": "Er hat viel gereist. (viajar)"
+        },
+        {
+          "key": "s14",
+          "display": "Diese Woche habe ich gearbeitet."
         }
       ],
       "categories": [
@@ -4750,7 +5728,10 @@
             "Nunca hemos estado allí",
             "Lo he visto",
             "Lo ha dicho",
-            "Lo he escrito"
+            "Lo he escrito",
+            "Hemos visto la película",
+            "Ha viajado mucho",
+            "Esta semana he trabajado"
           ]
         }
       ],
@@ -4874,6 +5855,36 @@
           ],
           "english": "Ich habe es geschrieben.",
           "referenceExample": "**Lo he escrito**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir haben den Film gesehen. → ____.",
+          "acceptedAnswers": [
+            "Hemos visto la película"
+          ],
+          "english": "Wir haben den Film gesehen.",
+          "referenceExample": "**Hemos visto la película**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er hat viel gereist. (viajar) → ____.",
+          "acceptedAnswers": [
+            "Ha viajado mucho"
+          ],
+          "english": "Er hat viel gereist. (viajar)",
+          "referenceExample": "**Ha viajado mucho**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Diese Woche habe ich gearbeitet. → ____.",
+          "acceptedAnswers": [
+            "Esta semana he trabajado"
+          ],
+          "english": "Diese Woche habe ich gearbeitet.",
+          "referenceExample": "**Esta semana he trabajado**."
         }
       ]
     },
@@ -4999,6 +6010,18 @@
         {
           "key": "s11",
           "display": "2019 reisten wir nach Spanien."
+        },
+        {
+          "key": "s12",
+          "display": "du aßest (comer)"
+        },
+        {
+          "key": "s13",
+          "display": "sie schrieben (escribir)"
+        },
+        {
+          "key": "s14",
+          "display": "Gestern kaufte sie ein Kleid."
         }
       ],
       "categories": [
@@ -5017,7 +6040,10 @@
             "compramos",
             "trabajaron",
             "Ayer trabajé",
-            "En 2019 viajamos a España"
+            "En 2019 viajamos a España",
+            "comiste",
+            "escribieron",
+            "Ayer compró un vestido"
           ]
         }
       ],
@@ -5141,6 +6167,36 @@
           ],
           "english": "2019 reisten wir nach Spanien.",
           "referenceExample": "**En 2019 viajamos a España**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "du aßest (comer) → ____",
+          "acceptedAnswers": [
+            "comiste"
+          ],
+          "english": "du aßest (comer)",
+          "referenceExample": "**comiste**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "sie schrieben (escribir) → ____",
+          "acceptedAnswers": [
+            "escribieron"
+          ],
+          "english": "sie schrieben (escribir)",
+          "referenceExample": "**escribieron**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Gestern kaufte sie ein Kleid. → ____.",
+          "acceptedAnswers": [
+            "Ayer compró un vestido"
+          ],
+          "english": "Gestern kaufte sie ein Kleid.",
+          "referenceExample": "**Ayer compró un vestido**."
         }
       ]
     },
@@ -5210,6 +6266,18 @@
         {
           "key": "s11",
           "display": "er sagte (decir)"
+        },
+        {
+          "key": "s12",
+          "display": "ich wollte (querer)"
+        },
+        {
+          "key": "s13",
+          "display": "er setzte/legte (poner)"
+        },
+        {
+          "key": "s14",
+          "display": "wir waren / gingen (ser/ir)"
         }
       ],
       "categories": [
@@ -5228,7 +6296,10 @@
             "pude",
             "vine",
             "dio",
-            "dijo"
+            "dijo",
+            "quise",
+            "puso",
+            "fuimos"
           ]
         }
       ],
@@ -5352,6 +6423,36 @@
           ],
           "english": "er sagte (decir)",
           "referenceExample": "**dijo**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ich wollte (querer) → ____",
+          "acceptedAnswers": [
+            "quise"
+          ],
+          "english": "ich wollte (querer)",
+          "referenceExample": "**quise**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "er setzte/legte (poner) → ____",
+          "acceptedAnswers": [
+            "puso"
+          ],
+          "english": "er setzte/legte (poner)",
+          "referenceExample": "**puso**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "wir waren / gingen (ser/ir) → ____",
+          "acceptedAnswers": [
+            "fuimos"
+          ],
+          "english": "wir waren / gingen (ser/ir)",
+          "referenceExample": "**fuimos**"
         }
       ]
     },
@@ -5487,6 +6588,26 @@
         {
           "key": "s9",
           "display": "Ich nehme es."
+        },
+        {
+          "key": "s10",
+          "display": "Ich lese sie (die Zeitung)."
+        },
+        {
+          "key": "s11",
+          "display": "Wir hören sie (die Lieder)."
+        },
+        {
+          "key": "s12",
+          "display": "Er sieht uns."
+        },
+        {
+          "key": "s13",
+          "display": "Ich habe es gekauft."
+        },
+        {
+          "key": "s14",
+          "display": "Sie ruft mich an."
         }
       ],
       "categories": [
@@ -5503,7 +6624,12 @@
             "Os llamo",
             "Los visito",
             "¿Lo conoces?",
-            "Lo tomo"
+            "Lo tomo",
+            "La leo",
+            "Las escuchamos",
+            "Nos ve",
+            "Lo he comprado",
+            "Me llama"
           ]
         }
       ],
@@ -5607,6 +6733,56 @@
           ],
           "english": "Ich nehme es.",
           "referenceExample": "**Lo tomo**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich lese sie (die Zeitung). → ____.",
+          "acceptedAnswers": [
+            "La leo"
+          ],
+          "english": "Ich lese sie (die Zeitung).",
+          "referenceExample": "**La leo**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir hören sie (die Lieder). → ____.",
+          "acceptedAnswers": [
+            "Las escuchamos"
+          ],
+          "english": "Wir hören sie (die Lieder).",
+          "referenceExample": "**Las escuchamos**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er sieht uns. → ____.",
+          "acceptedAnswers": [
+            "Nos ve"
+          ],
+          "english": "Er sieht uns.",
+          "referenceExample": "**Nos ve**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich habe es gekauft. → ____.",
+          "acceptedAnswers": [
+            "Lo he comprado"
+          ],
+          "english": "Ich habe es gekauft.",
+          "referenceExample": "**Lo he comprado**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie ruft mich an. → ____.",
+          "acceptedAnswers": [
+            "Me llama"
+          ],
+          "english": "Sie ruft mich an.",
+          "referenceExample": "**Me llama**."
         }
       ]
     },
@@ -5668,6 +6844,26 @@
         {
           "key": "s9",
           "display": "Ich rufe den Arzt."
+        },
+        {
+          "key": "s10",
+          "display": "Ich kaufe das Brot. (Sache)"
+        },
+        {
+          "key": "s11",
+          "display": "Wir hören die Musik. (Sache)"
+        },
+        {
+          "key": "s12",
+          "display": "Ich sehe meine Nachbarn."
+        },
+        {
+          "key": "s13",
+          "display": "Sie sucht ihren Hund. (Haustier, mit a)"
+        },
+        {
+          "key": "s14",
+          "display": "Ich erwarte einen Freund."
         }
       ],
       "categories": [
@@ -5684,7 +6880,12 @@
             "¿Escuchas al profesor?",
             "Como una manzana",
             "Ayuda a su amiga",
-            "Llamo al médico"
+            "Llamo al médico",
+            "Compro el pan",
+            "Escuchamos la música",
+            "Veo a mis vecinos",
+            "Busca a su perro",
+            "Espero a un amigo"
           ]
         }
       ],
@@ -5788,6 +6989,56 @@
           ],
           "english": "Ich rufe den Arzt.",
           "referenceExample": "**Llamo al médico**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich kaufe das Brot. (Sache) → ____.",
+          "acceptedAnswers": [
+            "Compro el pan"
+          ],
+          "english": "Ich kaufe das Brot. (Sache)",
+          "referenceExample": "**Compro el pan**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir hören die Musik. (Sache) → ____.",
+          "acceptedAnswers": [
+            "Escuchamos la música"
+          ],
+          "english": "Wir hören die Musik. (Sache)",
+          "referenceExample": "**Escuchamos la música**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich sehe meine Nachbarn. → ____.",
+          "acceptedAnswers": [
+            "Veo a mis vecinos"
+          ],
+          "english": "Ich sehe meine Nachbarn.",
+          "referenceExample": "**Veo a mis vecinos**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie sucht ihren Hund. (Haustier, mit a) → ____.",
+          "acceptedAnswers": [
+            "Busca a su perro"
+          ],
+          "english": "Sie sucht ihren Hund. (Haustier, mit a)",
+          "referenceExample": "**Busca a su perro**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich erwarte einen Freund. → ____.",
+          "acceptedAnswers": [
+            "Espero a un amigo"
+          ],
+          "english": "Ich erwarte einen Freund.",
+          "referenceExample": "**Espero a un amigo**."
         }
       ]
     },
@@ -5856,6 +7107,18 @@
         {
           "key": "s11",
           "display": "weit"
+        },
+        {
+          "key": "s12",
+          "display": "der Flughafen"
+        },
+        {
+          "key": "s13",
+          "display": "die Haltestelle"
+        },
+        {
+          "key": "s14",
+          "display": "zu Fuß"
         }
       ],
       "categories": [
@@ -5874,7 +7137,10 @@
             "todo recto",
             "en la esquina",
             "cerca",
-            "lejos"
+            "lejos",
+            "el aeropuerto",
+            "la parada",
+            "a pie"
           ]
         }
       ],
@@ -5998,6 +7264,36 @@
           ],
           "english": "weit",
           "referenceExample": "**lejos**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Flughafen → ____",
+          "acceptedAnswers": [
+            "el aeropuerto"
+          ],
+          "english": "der Flughafen",
+          "referenceExample": "**el aeropuerto**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Haltestelle → ____",
+          "acceptedAnswers": [
+            "la parada"
+          ],
+          "english": "die Haltestelle",
+          "referenceExample": "**la parada**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "zu Fuß → ____",
+          "acceptedAnswers": [
+            "a pie"
+          ],
+          "english": "zu Fuß",
+          "referenceExample": "**a pie**"
         }
       ]
     },
@@ -6114,6 +7410,26 @@
         {
           "key": "s9",
           "display": "Es sind 30 Grad."
+        },
+        {
+          "key": "s10",
+          "display": "Es ist schlechtes Wetter."
+        },
+        {
+          "key": "s11",
+          "display": "der Frühling"
+        },
+        {
+          "key": "s12",
+          "display": "der Sommer"
+        },
+        {
+          "key": "s13",
+          "display": "der Herbst"
+        },
+        {
+          "key": "s14",
+          "display": "der Winter"
         }
       ],
       "categories": [
@@ -6130,7 +7446,12 @@
             "Hace viento",
             "Está nublado",
             "¿Qué tiempo hace?",
-            "Hace treinta grados"
+            "Hace treinta grados",
+            "Hace mal tiempo",
+            "la primavera",
+            "el verano",
+            "el otoño",
+            "el invierno"
           ]
         }
       ],
@@ -6234,6 +7555,56 @@
           ],
           "english": "Es sind 30 Grad.",
           "referenceExample": "**Hace treinta grados**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es ist schlechtes Wetter. → ____.",
+          "acceptedAnswers": [
+            "Hace mal tiempo"
+          ],
+          "english": "Es ist schlechtes Wetter.",
+          "referenceExample": "**Hace mal tiempo**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Frühling → ____",
+          "acceptedAnswers": [
+            "la primavera"
+          ],
+          "english": "der Frühling",
+          "referenceExample": "**la primavera**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Sommer → ____",
+          "acceptedAnswers": [
+            "el verano"
+          ],
+          "english": "der Sommer",
+          "referenceExample": "**el verano**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Herbst → ____",
+          "acceptedAnswers": [
+            "el otoño"
+          ],
+          "english": "der Herbst",
+          "referenceExample": "**el otoño**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Winter → ____",
+          "acceptedAnswers": [
+            "el invierno"
+          ],
+          "english": "der Winter",
+          "referenceExample": "**el invierno**"
         }
       ]
     },
@@ -6369,6 +7740,26 @@
         {
           "key": "s9",
           "display": "Vorgestern stand ich früh auf."
+        },
+        {
+          "key": "s10",
+          "display": "Diesen Monat habe ich viel gelernt."
+        },
+        {
+          "key": "s11",
+          "display": "Letzten Sommer schwamm ich im Meer."
+        },
+        {
+          "key": "s12",
+          "display": "Wir haben den Film noch nicht gesehen."
+        },
+        {
+          "key": "s13",
+          "display": "Am Montag kaufte er das Auto."
+        },
+        {
+          "key": "s14",
+          "display": "Warst du schon einmal in Madrid?"
         }
       ],
       "categories": [
@@ -6385,7 +7776,12 @@
             "Nunca he estado en Perú",
             "En 2018 estuve en Perú",
             "Esta mañana me he levantado",
-            "Anteayer me levanté temprano"
+            "Anteayer me levanté temprano",
+            "Este mes he estudiado mucho",
+            "El verano pasado nadé en el mar",
+            "Todavía no hemos visto la película",
+            "El lunes compró el coche",
+            "¿Has estado alguna vez en Madrid?"
           ]
         }
       ],
@@ -6489,6 +7885,56 @@
           ],
           "english": "Vorgestern stand ich früh auf.",
           "referenceExample": "**Anteayer me levanté temprano**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Diesen Monat habe ich viel gelernt. → ____.",
+          "acceptedAnswers": [
+            "Este mes he estudiado mucho"
+          ],
+          "english": "Diesen Monat habe ich viel gelernt.",
+          "referenceExample": "**Este mes he estudiado mucho**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Letzten Sommer schwamm ich im Meer. → ____.",
+          "acceptedAnswers": [
+            "El verano pasado nadé en el mar"
+          ],
+          "english": "Letzten Sommer schwamm ich im Meer.",
+          "referenceExample": "**El verano pasado nadé en el mar**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir haben den Film noch nicht gesehen. → ____.",
+          "acceptedAnswers": [
+            "Todavía no hemos visto la película"
+          ],
+          "english": "Wir haben den Film noch nicht gesehen.",
+          "referenceExample": "**Todavía no hemos visto la película**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Am Montag kaufte er das Auto. → ____.",
+          "acceptedAnswers": [
+            "El lunes compró el coche"
+          ],
+          "english": "Am Montag kaufte er das Auto.",
+          "referenceExample": "**El lunes compró el coche**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Warst du schon einmal in Madrid? → ____",
+          "acceptedAnswers": [
+            "¿Has estado alguna vez en Madrid?"
+          ],
+          "english": "Warst du schon einmal in Madrid?",
+          "referenceExample": "**¿Has estado alguna vez en Madrid?**"
         }
       ]
     },
@@ -6687,6 +8133,18 @@
         {
           "key": "s11",
           "display": "die Erkältung"
+        },
+        {
+          "key": "s12",
+          "display": "der Mund"
+        },
+        {
+          "key": "s13",
+          "display": "das Ohr"
+        },
+        {
+          "key": "s14",
+          "display": "Mir tun die Füße weh."
         }
       ],
       "categories": [
@@ -6705,7 +8163,10 @@
             "Estoy enfermo",
             "Tengo fiebre",
             "Necesito un médico",
-            "el resfriado"
+            "el resfriado",
+            "la boca",
+            "la oreja",
+            "Me duelen los pies"
           ]
         }
       ],
@@ -6829,6 +8290,36 @@
           ],
           "english": "die Erkältung",
           "referenceExample": "**el resfriado**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Mund → ____",
+          "acceptedAnswers": [
+            "la boca"
+          ],
+          "english": "der Mund",
+          "referenceExample": "**la boca**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "das Ohr → ____",
+          "acceptedAnswers": [
+            "la oreja"
+          ],
+          "english": "das Ohr",
+          "referenceExample": "**la oreja**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Mir tun die Füße weh. → ____.",
+          "acceptedAnswers": [
+            "Me duelen los pies"
+          ],
+          "english": "Mir tun die Füße weh.",
+          "referenceExample": "**Me duelen los pies**."
         }
       ]
     },
@@ -6898,6 +8389,18 @@
         {
           "key": "s11",
           "display": "Als Kind spielte ich Fußball."
+        },
+        {
+          "key": "s12",
+          "display": "ihr spracht (hablar)"
+        },
+        {
+          "key": "s13",
+          "display": "wir lebten (vivir)"
+        },
+        {
+          "key": "s14",
+          "display": "Meine Oma erzählte immer Geschichten."
         }
       ],
       "categories": [
@@ -6916,7 +8419,10 @@
             "iba",
             "veía",
             "Antes vivía en Berlín",
-            "De niño jugaba al fútbol"
+            "De niño jugaba al fútbol",
+            "hablabais",
+            "vivíamos",
+            "Mi abuela siempre contaba historias"
           ]
         }
       ],
@@ -7040,6 +8546,36 @@
           ],
           "english": "Als Kind spielte ich Fußball.",
           "referenceExample": "**De niño jugaba al fútbol**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ihr spracht (hablar) → ____",
+          "acceptedAnswers": [
+            "hablabais"
+          ],
+          "english": "ihr spracht (hablar)",
+          "referenceExample": "**hablabais**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "wir lebten (vivir) → ____",
+          "acceptedAnswers": [
+            "vivíamos"
+          ],
+          "english": "wir lebten (vivir)",
+          "referenceExample": "**vivíamos**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Meine Oma erzählte immer Geschichten. → ____.",
+          "acceptedAnswers": [
+            "Mi abuela siempre contaba historias"
+          ],
+          "english": "Meine Oma erzählte immer Geschichten.",
+          "referenceExample": "**Mi abuela siempre contaba historias**."
         }
       ]
     },
@@ -7105,6 +8641,22 @@
         {
           "key": "s10",
           "display": "Während ich las, kam er herein."
+        },
+        {
+          "key": "s11",
+          "display": "Die Sonne schien, als wir losfuhren."
+        },
+        {
+          "key": "s12",
+          "display": "Ich war müde und ging ins Bett."
+        },
+        {
+          "key": "s13",
+          "display": "Früher rauchte er viel."
+        },
+        {
+          "key": "s14",
+          "display": "Eines Tages fand sie einen Brief."
         }
       ],
       "categories": [
@@ -7122,7 +8674,11 @@
             "Nos conocimos en 2010",
             "Cada día se levantaba a las seis",
             "Aquel día se levantó a las cinco",
-            "Mientras leía, él entró"
+            "Mientras leía, él entró",
+            "Hacía sol cuando salimos",
+            "Estaba cansado y me acosté",
+            "Antes fumaba mucho",
+            "Un día encontró una carta"
           ]
         }
       ],
@@ -7236,6 +8792,46 @@
           ],
           "english": "Während ich las, kam er herein.",
           "referenceExample": "**Mientras leía, él entró**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Die Sonne schien, als wir losfuhren. → ____.",
+          "acceptedAnswers": [
+            "Hacía sol cuando salimos"
+          ],
+          "english": "Die Sonne schien, als wir losfuhren.",
+          "referenceExample": "**Hacía sol cuando salimos**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich war müde und ging ins Bett. → ____.",
+          "acceptedAnswers": [
+            "Estaba cansado y me acosté"
+          ],
+          "english": "Ich war müde und ging ins Bett.",
+          "referenceExample": "**Estaba cansado y me acosté**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Früher rauchte er viel. → ____.",
+          "acceptedAnswers": [
+            "Antes fumaba mucho"
+          ],
+          "english": "Früher rauchte er viel.",
+          "referenceExample": "**Antes fumaba mucho**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Eines Tages fand sie einen Brief. → ____.",
+          "acceptedAnswers": [
+            "Un día encontró una carta"
+          ],
+          "english": "Eines Tages fand sie einen Brief.",
+          "referenceExample": "**Un día encontró una carta**."
         }
       ]
     },
@@ -7360,6 +8956,18 @@
         {
           "key": "s11",
           "display": "wunderschön"
+        },
+        {
+          "key": "s12",
+          "display": "Er ist so groß wie sein Bruder."
+        },
+        {
+          "key": "s13",
+          "display": "der beste Film"
+        },
+        {
+          "key": "s14",
+          "display": "sehr teuer (mit -ísimo)"
         }
       ],
       "categories": [
@@ -7378,7 +8986,10 @@
             "el más grande",
             "Madrid es más grande que Sevilla",
             "riquísimo",
-            "guapísimo"
+            "guapísimo",
+            "Es tan alto como su hermano",
+            "la mejor película",
+            "carísimo"
           ]
         }
       ],
@@ -7502,6 +9113,36 @@
           ],
           "english": "wunderschön",
           "referenceExample": "**guapísimo**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er ist so groß wie sein Bruder. → ____.",
+          "acceptedAnswers": [
+            "Es tan alto como su hermano"
+          ],
+          "english": "Er ist so groß wie sein Bruder.",
+          "referenceExample": "**Es tan alto como su hermano**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der beste Film → ____",
+          "acceptedAnswers": [
+            "la mejor película"
+          ],
+          "english": "der beste Film",
+          "referenceExample": "**la mejor película**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "sehr teuer (mit -ísimo) → ____",
+          "acceptedAnswers": [
+            "carísimo"
+          ],
+          "english": "sehr teuer (mit -ísimo)",
+          "referenceExample": "**carísimo**"
         }
       ]
     },
@@ -7637,6 +9278,26 @@
         {
           "key": "s9",
           "display": "Ich frage den Lehrer."
+        },
+        {
+          "key": "s10",
+          "display": "Ich gebe es ihnen."
+        },
+        {
+          "key": "s11",
+          "display": "Er erklärt uns die Aufgabe."
+        },
+        {
+          "key": "s12",
+          "display": "Kannst du mir helfen?"
+        },
+        {
+          "key": "s13",
+          "display": "Ich zeige dir die Stadt."
+        },
+        {
+          "key": "s14",
+          "display": "Sie bringt ihm einen Kaffee."
         }
       ],
       "categories": [
@@ -7653,7 +9314,12 @@
             "¿Te gusta?",
             "Os cuento todo",
             "Le regala flores a su madre",
-            "Le pregunto al profesor"
+            "Le pregunto al profesor",
+            "Se lo doy a ellos",
+            "Nos explica la tarea",
+            "¿Puedes ayudarme?",
+            "Te enseño la ciudad",
+            "Le trae un café"
           ]
         }
       ],
@@ -7757,6 +9423,58 @@
           ],
           "english": "Ich frage den Lehrer.",
           "referenceExample": "**Le pregunto al profesor**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich gebe es ihnen. → ____.",
+          "acceptedAnswers": [
+            "Se lo doy a ellos",
+            "Se lo doy"
+          ],
+          "english": "Ich gebe es ihnen.",
+          "referenceExample": "**Se lo doy a ellos**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er erklärt uns die Aufgabe. → ____.",
+          "acceptedAnswers": [
+            "Nos explica la tarea"
+          ],
+          "english": "Er erklärt uns die Aufgabe.",
+          "referenceExample": "**Nos explica la tarea**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Kannst du mir helfen? → ____",
+          "acceptedAnswers": [
+            "¿Puedes ayudarme?",
+            "¿Me puedes ayudar?"
+          ],
+          "english": "Kannst du mir helfen?",
+          "referenceExample": "**¿Puedes ayudarme?**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich zeige dir die Stadt. → ____.",
+          "acceptedAnswers": [
+            "Te enseño la ciudad"
+          ],
+          "english": "Ich zeige dir die Stadt.",
+          "referenceExample": "**Te enseño la ciudad**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie bringt ihm einen Kaffee. → ____.",
+          "acceptedAnswers": [
+            "Le trae un café"
+          ],
+          "english": "Sie bringt ihm einen Kaffee.",
+          "referenceExample": "**Le trae un café**."
         }
       ]
     },
@@ -7818,6 +9536,26 @@
         {
           "key": "s9",
           "display": "Worüber redest du gerade?"
+        },
+        {
+          "key": "s10",
+          "display": "Die Kinder spielen gerade."
+        },
+        {
+          "key": "s11",
+          "display": "Ich höre gerade Musik."
+        },
+        {
+          "key": "s12",
+          "display": "Er duscht gerade."
+        },
+        {
+          "key": "s13",
+          "display": "Wir sehen gerade fern."
+        },
+        {
+          "key": "s14",
+          "display": "Sie bittet gerade um Hilfe. (pedir)"
         }
       ],
       "categories": [
@@ -7834,7 +9572,12 @@
             "Está lloviendo",
             "Estaba cocinando",
             "Está escribiendo",
-            "¿De qué estás hablando?"
+            "¿De qué estás hablando?",
+            "Los niños están jugando",
+            "Estoy escuchando música",
+            "Se está duchando",
+            "Estamos viendo la tele",
+            "Está pidiendo ayuda"
           ]
         }
       ],
@@ -7938,6 +9681,57 @@
           ],
           "english": "Worüber redest du gerade?",
           "referenceExample": "**¿De qué estás hablando?**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Die Kinder spielen gerade. → ____.",
+          "acceptedAnswers": [
+            "Los niños están jugando"
+          ],
+          "english": "Die Kinder spielen gerade.",
+          "referenceExample": "**Los niños están jugando**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich höre gerade Musik. → ____.",
+          "acceptedAnswers": [
+            "Estoy escuchando música"
+          ],
+          "english": "Ich höre gerade Musik.",
+          "referenceExample": "**Estoy escuchando música**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er duscht gerade. → ____.",
+          "acceptedAnswers": [
+            "Se está duchando",
+            "Está duchándose"
+          ],
+          "english": "Er duscht gerade.",
+          "referenceExample": "**Se está duchando**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir sehen gerade fern. → ____.",
+          "acceptedAnswers": [
+            "Estamos viendo la tele"
+          ],
+          "english": "Wir sehen gerade fern.",
+          "referenceExample": "**Estamos viendo la tele**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie bittet gerade um Hilfe. (pedir) → ____.",
+          "acceptedAnswers": [
+            "Está pidiendo ayuda"
+          ],
+          "english": "Sie bittet gerade um Hilfe. (pedir)",
+          "referenceExample": "**Está pidiendo ayuda**."
         }
       ]
     },
@@ -8007,6 +9801,18 @@
         {
           "key": "s11",
           "display": "Ich nehme es."
+        },
+        {
+          "key": "s12",
+          "display": "der Rock"
+        },
+        {
+          "key": "s13",
+          "display": "das T-Shirt"
+        },
+        {
+          "key": "s14",
+          "display": "Kann ich es anprobieren?"
         }
       ],
       "categories": [
@@ -8025,7 +9831,10 @@
             "¿Cuánto cuesta?",
             "demasiado caro",
             "en oferta",
-            "Me lo llevo"
+            "Me lo llevo",
+            "la falda",
+            "la camiseta",
+            "¿Puedo probármelo?"
           ]
         }
       ],
@@ -8149,6 +9958,36 @@
           ],
           "english": "Ich nehme es.",
           "referenceExample": "**Me lo llevo**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Rock → ____",
+          "acceptedAnswers": [
+            "la falda"
+          ],
+          "english": "der Rock",
+          "referenceExample": "**la falda**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "das T-Shirt → ____",
+          "acceptedAnswers": [
+            "la camiseta"
+          ],
+          "english": "das T-Shirt",
+          "referenceExample": "**la camiseta**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Kann ich es anprobieren? → ____",
+          "acceptedAnswers": [
+            "¿Puedo probármelo?"
+          ],
+          "english": "Kann ich es anprobieren?",
+          "referenceExample": "**¿Puedo probármelo?**"
         }
       ]
     },
@@ -8274,6 +10113,18 @@
         {
           "key": "s11",
           "display": "telefonisch"
+        },
+        {
+          "key": "s12",
+          "display": "für mich (Meinung)"
+        },
+        {
+          "key": "s13",
+          "display": "Ich tausche es gegen deins."
+        },
+        {
+          "key": "s14",
+          "display": "Wir arbeiten für die Firma."
         }
       ],
       "categories": [
@@ -8292,7 +10143,10 @@
             "por amor",
             "dos veces por semana",
             "Es para mi madre",
-            "por teléfono"
+            "por teléfono",
+            "para mí",
+            "Lo cambio por el tuyo",
+            "Trabajamos para la empresa"
           ]
         }
       ],
@@ -8416,6 +10270,36 @@
           ],
           "english": "telefonisch",
           "referenceExample": "**por teléfono**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "für mich (Meinung) → ____",
+          "acceptedAnswers": [
+            "para mí"
+          ],
+          "english": "für mich (Meinung)",
+          "referenceExample": "**para mí**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich tausche es gegen deins. → ____.",
+          "acceptedAnswers": [
+            "Lo cambio por el tuyo"
+          ],
+          "english": "Ich tausche es gegen deins.",
+          "referenceExample": "**Lo cambio por el tuyo**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir arbeiten für die Firma. → ____.",
+          "acceptedAnswers": [
+            "Trabajamos para la empresa"
+          ],
+          "english": "Wir arbeiten für die Firma.",
+          "referenceExample": "**Trabajamos para la empresa**."
         }
       ]
     },
@@ -8559,6 +10443,18 @@
         {
           "key": "s11",
           "display": "Heute ist sie nervös."
+        },
+        {
+          "key": "s12",
+          "display": "optimistisch"
+        },
+        {
+          "key": "s13",
+          "display": "geduldig"
+        },
+        {
+          "key": "s14",
+          "display": "mutig"
         }
       ],
       "categories": [
@@ -8577,7 +10473,10 @@
             "honesto",
             "inteligente",
             "Es muy simpático",
-            "Hoy está nerviosa"
+            "Hoy está nerviosa",
+            "optimista",
+            "paciente",
+            "valiente"
           ]
         }
       ],
@@ -8704,6 +10603,36 @@
           ],
           "english": "Heute ist sie nervös.",
           "referenceExample": "**Hoy está nerviosa**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "optimistisch → ____",
+          "acceptedAnswers": [
+            "optimista"
+          ],
+          "english": "optimistisch",
+          "referenceExample": "**optimista**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "geduldig → ____",
+          "acceptedAnswers": [
+            "paciente"
+          ],
+          "english": "geduldig",
+          "referenceExample": "**paciente**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "mutig → ____",
+          "acceptedAnswers": [
+            "valiente"
+          ],
+          "english": "mutig",
+          "referenceExample": "**valiente**"
         }
       ]
     },
@@ -8903,6 +10832,18 @@
         {
           "key": "s11",
           "display": "in Rente gehen"
+        },
+        {
+          "key": "s12",
+          "display": "der Vertrag"
+        },
+        {
+          "key": "s13",
+          "display": "arbeitslos"
+        },
+        {
+          "key": "s14",
+          "display": "eine Stelle suchen"
         }
       ],
       "categories": [
@@ -8921,7 +10862,10 @@
             "la experiencia",
             "la reunión",
             "a tiempo completo",
-            "jubilarse"
+            "jubilarse",
+            "el contrato",
+            "desempleado",
+            "buscar trabajo"
           ]
         }
       ],
@@ -9048,6 +10992,37 @@
           ],
           "english": "in Rente gehen",
           "referenceExample": "**jubilarse**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Vertrag → ____",
+          "acceptedAnswers": [
+            "el contrato"
+          ],
+          "english": "der Vertrag",
+          "referenceExample": "**el contrato**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "arbeitslos → ____",
+          "acceptedAnswers": [
+            "desempleado",
+            "en paro"
+          ],
+          "english": "arbeitslos",
+          "referenceExample": "**desempleado**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "eine Stelle suchen → ____",
+          "acceptedAnswers": [
+            "buscar trabajo"
+          ],
+          "english": "eine Stelle suchen",
+          "referenceExample": "**buscar trabajo**"
         }
       ]
     },
@@ -9117,6 +11092,18 @@
         {
           "key": "s11",
           "display": "Wer mag das sein?"
+        },
+        {
+          "key": "s12",
+          "display": "ich werde können (poder)"
+        },
+        {
+          "key": "s13",
+          "display": "ihr werdet sprechen"
+        },
+        {
+          "key": "s14",
+          "display": "Nächstes Jahr werden wir umziehen."
         }
       ],
       "categories": [
@@ -9135,7 +11122,10 @@
             "tendré",
             "vendré",
             "diré",
-            "¿Quién será?"
+            "¿Quién será?",
+            "podré",
+            "hablaréis",
+            "El año que viene nos mudaremos"
           ]
         }
       ],
@@ -9259,6 +11249,36 @@
           ],
           "english": "Wer mag das sein?",
           "referenceExample": "**¿Quién será?**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ich werde können (poder) → ____",
+          "acceptedAnswers": [
+            "podré"
+          ],
+          "english": "ich werde können (poder)",
+          "referenceExample": "**podré**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ihr werdet sprechen → ____",
+          "acceptedAnswers": [
+            "hablaréis"
+          ],
+          "english": "ihr werdet sprechen",
+          "referenceExample": "**hablaréis**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Nächstes Jahr werden wir umziehen. → ____.",
+          "acceptedAnswers": [
+            "El año que viene nos mudaremos"
+          ],
+          "english": "Nächstes Jahr werden wir umziehen.",
+          "referenceExample": "**El año que viene nos mudaremos**."
         }
       ]
     },
@@ -9383,6 +11403,18 @@
         {
           "key": "s11",
           "display": "dass es gibt (haber)"
+        },
+        {
+          "key": "s12",
+          "display": "dass ich komme (venir)"
+        },
+        {
+          "key": "s13",
+          "display": "dass ich weiß (saber)"
+        },
+        {
+          "key": "s14",
+          "display": "dass ihr esst (comer)"
         }
       ],
       "categories": [
@@ -9401,7 +11433,10 @@
             "que vaya",
             "que sea",
             "que tenga",
-            "que haya"
+            "que haya",
+            "que venga",
+            "que sepa",
+            "que comáis"
           ]
         }
       ],
@@ -9525,6 +11560,36 @@
           ],
           "english": "dass es gibt (haber)",
           "referenceExample": "**que haya**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dass ich komme (venir) → ____",
+          "acceptedAnswers": [
+            "que venga"
+          ],
+          "english": "dass ich komme (venir)",
+          "referenceExample": "**que venga**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dass ich weiß (saber) → ____",
+          "acceptedAnswers": [
+            "que sepa"
+          ],
+          "english": "dass ich weiß (saber)",
+          "referenceExample": "**que sepa**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dass ihr esst (comer) → ____",
+          "acceptedAnswers": [
+            "que comáis"
+          ],
+          "english": "dass ihr esst (comer)",
+          "referenceExample": "**que comáis**"
         }
       ]
     },
@@ -9590,6 +11655,22 @@
         {
           "key": "s10",
           "display": "Wir hoffen, dass ihr gewinnt."
+        },
+        {
+          "key": "s11",
+          "display": "Hoffentlich kommt er bald!"
+        },
+        {
+          "key": "s12",
+          "display": "Sie hofft, dass wir sie besuchen."
+        },
+        {
+          "key": "s13",
+          "display": "Es ist besser, dass du es weißt."
+        },
+        {
+          "key": "s14",
+          "display": "Ich will, dass es dir gefällt."
         }
       ],
       "categories": [
@@ -9607,7 +11688,11 @@
             "Te pido que esperes",
             "Quieren que me quede",
             "Quiero que seas feliz",
-            "Esperamos que ganéis"
+            "Esperamos que ganéis",
+            "¡Ojalá venga pronto!",
+            "Espera que la visitemos",
+            "Es mejor que lo sepas",
+            "Quiero que te guste"
           ]
         }
       ],
@@ -9721,6 +11806,46 @@
           ],
           "english": "Wir hoffen, dass ihr gewinnt.",
           "referenceExample": "**Esperamos que ganéis**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Hoffentlich kommt er bald! → ____",
+          "acceptedAnswers": [
+            "¡Ojalá venga pronto!"
+          ],
+          "english": "Hoffentlich kommt er bald!",
+          "referenceExample": "**¡Ojalá venga pronto!**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie hofft, dass wir sie besuchen. → ____.",
+          "acceptedAnswers": [
+            "Espera que la visitemos"
+          ],
+          "english": "Sie hofft, dass wir sie besuchen.",
+          "referenceExample": "**Espera que la visitemos**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es ist besser, dass du es weißt. → ____.",
+          "acceptedAnswers": [
+            "Es mejor que lo sepas"
+          ],
+          "english": "Es ist besser, dass du es weißt.",
+          "referenceExample": "**Es mejor que lo sepas**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich will, dass es dir gefällt. → ____.",
+          "acceptedAnswers": [
+            "Quiero que te guste"
+          ],
+          "english": "Ich will, dass es dir gefällt.",
+          "referenceExample": "**Quiero que te guste**."
         }
       ]
     },
@@ -9856,6 +11981,26 @@
         {
           "key": "s9",
           "display": "Ich rate dir, ehrlich zu sein."
+        },
+        {
+          "key": "s10",
+          "display": "Ich empfehle, dass ihr früher schlaft."
+        },
+        {
+          "key": "s11",
+          "display": "Es ist ratsam, dass du Wasser trinkst."
+        },
+        {
+          "key": "s12",
+          "display": "Der Lehrer schlägt vor, dass wir üben."
+        },
+        {
+          "key": "s13",
+          "display": "Ich rate euch, den Zug zu nehmen."
+        },
+        {
+          "key": "s14",
+          "display": "Es ist wichtig, dass sie zuhören."
         }
       ],
       "categories": [
@@ -9872,7 +12017,12 @@
             "Es bueno que practiques",
             "Nos aconsejan que vengamos pronto",
             "Vale la pena que lo intentes",
-            "Te aconsejo que seas sincero"
+            "Te aconsejo que seas sincero",
+            "Recomiendo que durmáis más temprano",
+            "Es aconsejable que bebas agua",
+            "El profesor propone que practiquemos",
+            "Os aconsejo que toméis el tren",
+            "Es importante que escuchen"
           ]
         }
       ],
@@ -9976,6 +12126,56 @@
           ],
           "english": "Ich rate dir, ehrlich zu sein.",
           "referenceExample": "**Te aconsejo que seas sincero**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich empfehle, dass ihr früher schlaft. → ____.",
+          "acceptedAnswers": [
+            "Recomiendo que durmáis más temprano"
+          ],
+          "english": "Ich empfehle, dass ihr früher schlaft.",
+          "referenceExample": "**Recomiendo que durmáis más temprano**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es ist ratsam, dass du Wasser trinkst. → ____.",
+          "acceptedAnswers": [
+            "Es aconsejable que bebas agua"
+          ],
+          "english": "Es ist ratsam, dass du Wasser trinkst.",
+          "referenceExample": "**Es aconsejable que bebas agua**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Der Lehrer schlägt vor, dass wir üben. → ____.",
+          "acceptedAnswers": [
+            "El profesor propone que practiquemos"
+          ],
+          "english": "Der Lehrer schlägt vor, dass wir üben.",
+          "referenceExample": "**El profesor propone que practiquemos**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich rate euch, den Zug zu nehmen. → ____.",
+          "acceptedAnswers": [
+            "Os aconsejo que toméis el tren"
+          ],
+          "english": "Ich rate euch, den Zug zu nehmen.",
+          "referenceExample": "**Os aconsejo que toméis el tren**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es ist wichtig, dass sie zuhören. → ____.",
+          "acceptedAnswers": [
+            "Es importante que escuchen"
+          ],
+          "english": "Es ist wichtig, dass sie zuhören.",
+          "referenceExample": "**Es importante que escuchen**."
         }
       ]
     },
@@ -10045,6 +12245,18 @@
         {
           "key": "s11",
           "display": "Setzt euch! (vosotros)"
+        },
+        {
+          "key": "s12",
+          "display": "Hör zu! (tú, escuchar)"
+        },
+        {
+          "key": "s13",
+          "display": "Mach dir keine Sorgen!"
+        },
+        {
+          "key": "s14",
+          "display": "Sprechen Sie langsamer! (usted)"
         }
       ],
       "categories": [
@@ -10063,7 +12275,10 @@
             "Dígame ...",
             "¡Espere!",
             "¡Vete!",
-            "¡Sentaos!"
+            "¡Sentaos!",
+            "¡Escucha!",
+            "¡No te preocupes!",
+            "¡Hable más despacio!"
           ]
         }
       ],
@@ -10187,6 +12402,36 @@
           ],
           "english": "Setzt euch! (vosotros)",
           "referenceExample": "**¡Sentaos!**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Hör zu! (tú, escuchar) → ____",
+          "acceptedAnswers": [
+            "¡Escucha!"
+          ],
+          "english": "Hör zu! (tú, escuchar)",
+          "referenceExample": "**¡Escucha!**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Mach dir keine Sorgen! → ____",
+          "acceptedAnswers": [
+            "¡No te preocupes!"
+          ],
+          "english": "Mach dir keine Sorgen!",
+          "referenceExample": "**¡No te preocupes!**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sprechen Sie langsamer! (usted) → ____",
+          "acceptedAnswers": [
+            "¡Hable más despacio!"
+          ],
+          "english": "Sprechen Sie langsamer! (usted)",
+          "referenceExample": "**¡Hable más despacio!**"
         }
       ]
     },
@@ -10304,6 +12549,26 @@
         {
           "key": "s9",
           "display": "Ich bringe es euch."
+        },
+        {
+          "key": "s10",
+          "display": "Erzähl es mir!"
+        },
+        {
+          "key": "s11",
+          "display": "Ich zeige sie (die Fotos) dir."
+        },
+        {
+          "key": "s12",
+          "display": "Er leiht es uns."
+        },
+        {
+          "key": "s13",
+          "display": "Sag es mir nicht!"
+        },
+        {
+          "key": "s14",
+          "display": "Ich habe es ihr gegeben."
         }
       ],
       "categories": [
@@ -10320,7 +12585,12 @@
             "¡Díselo!",
             "Se lo regalo",
             "Me lo explican",
-            "Os lo traigo"
+            "Os lo traigo",
+            "¡Cuéntamelo!",
+            "Te las enseño",
+            "Nos lo presta",
+            "¡No me lo digas!",
+            "Se lo he dado"
           ]
         }
       ],
@@ -10424,6 +12694,57 @@
           ],
           "english": "Ich bringe es euch.",
           "referenceExample": "**Os lo traigo**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Erzähl es mir! → ____",
+          "acceptedAnswers": [
+            "¡Cuéntamelo!"
+          ],
+          "english": "Erzähl es mir!",
+          "referenceExample": "**¡Cuéntamelo!**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich zeige sie (die Fotos) dir. → ____.",
+          "acceptedAnswers": [
+            "Te las enseño",
+            "Te los enseño"
+          ],
+          "english": "Ich zeige sie (die Fotos) dir.",
+          "referenceExample": "**Te las enseño**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er leiht es uns. → ____.",
+          "acceptedAnswers": [
+            "Nos lo presta"
+          ],
+          "english": "Er leiht es uns.",
+          "referenceExample": "**Nos lo presta**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sag es mir nicht! → ____",
+          "acceptedAnswers": [
+            "¡No me lo digas!"
+          ],
+          "english": "Sag es mir nicht!",
+          "referenceExample": "**¡No me lo digas!**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich habe es ihr gegeben. → ____.",
+          "acceptedAnswers": [
+            "Se lo he dado"
+          ],
+          "english": "Ich habe es ihr gegeben.",
+          "referenceExample": "**Se lo he dado**."
         }
       ]
     },
@@ -10485,6 +12806,26 @@
         {
           "key": "s9",
           "display": "Wenn du nicht kommst, gehe ich allein."
+        },
+        {
+          "key": "s10",
+          "display": "Wenn es sonnig ist, gehen wir an den Strand."
+        },
+        {
+          "key": "s11",
+          "display": "Wenn du müde bist, ruh dich aus."
+        },
+        {
+          "key": "s12",
+          "display": "Wenn sie anruft, sag es mir."
+        },
+        {
+          "key": "s13",
+          "display": "Wenn ich Geld habe, werde ich reisen."
+        },
+        {
+          "key": "s14",
+          "display": "Wenn ihr wollt, gehen wir ins Kino."
         }
       ],
       "categories": [
@@ -10501,7 +12842,12 @@
             "Si es barato, lo compro",
             "Si tenéis hambre, comemos",
             "Si eso es verdad, es un problema",
-            "Si no vienes, voy solo"
+            "Si no vienes, voy solo",
+            "Si hace sol, vamos a la playa",
+            "Si estás cansado, descansa",
+            "Si llama, dímelo",
+            "Si tengo dinero, viajaré",
+            "Si queréis, vamos al cine"
           ]
         }
       ],
@@ -10605,6 +12951,56 @@
           ],
           "english": "Wenn du nicht kommst, gehe ich allein.",
           "referenceExample": "**Si no vienes, voy solo**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn es sonnig ist, gehen wir an den Strand. → ____.",
+          "acceptedAnswers": [
+            "Si hace sol, vamos a la playa"
+          ],
+          "english": "Wenn es sonnig ist, gehen wir an den Strand.",
+          "referenceExample": "**Si hace sol, vamos a la playa**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn du müde bist, ruh dich aus. → ____.",
+          "acceptedAnswers": [
+            "Si estás cansado, descansa"
+          ],
+          "english": "Wenn du müde bist, ruh dich aus.",
+          "referenceExample": "**Si estás cansado, descansa**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn sie anruft, sag es mir. → ____.",
+          "acceptedAnswers": [
+            "Si llama, dímelo"
+          ],
+          "english": "Wenn sie anruft, sag es mir.",
+          "referenceExample": "**Si llama, dímelo**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn ich Geld habe, werde ich reisen. → ____.",
+          "acceptedAnswers": [
+            "Si tengo dinero, viajaré"
+          ],
+          "english": "Wenn ich Geld habe, werde ich reisen.",
+          "referenceExample": "**Si tengo dinero, viajaré**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn ihr wollt, gehen wir ins Kino. → ____.",
+          "acceptedAnswers": [
+            "Si queréis, vamos al cine"
+          ],
+          "english": "Wenn ihr wollt, gehen wir ins Kino.",
+          "referenceExample": "**Si queréis, vamos al cine**."
         }
       ]
     },
@@ -10740,6 +13136,26 @@
         {
           "key": "s9",
           "display": "Es macht mich traurig, dass du gehst."
+        },
+        {
+          "key": "s10",
+          "display": "Es freut mich, dass es dir gefällt."
+        },
+        {
+          "key": "s11",
+          "display": "Es ärgert mich, dass er lügt."
+        },
+        {
+          "key": "s12",
+          "display": "Es wundert mich, dass sie schweigt."
+        },
+        {
+          "key": "s13",
+          "display": "Wir freuen uns, dass ihr da seid."
+        },
+        {
+          "key": "s14",
+          "display": "Es stört mich, dass es so laut ist."
         }
       ],
       "categories": [
@@ -10756,7 +13172,12 @@
             "Espero que todo salga bien",
             "Me sorprende que digas eso",
             "Me alegro de que nos veamos",
-            "Me da pena que te vayas"
+            "Me da pena que te vayas",
+            "Me alegra que te guste",
+            "Me enfada que mienta",
+            "Me extraña que no diga nada",
+            "Nos alegramos de que estéis aquí",
+            "Me molesta que haya tanto ruido"
           ]
         }
       ],
@@ -10860,6 +13281,56 @@
           ],
           "english": "Es macht mich traurig, dass du gehst.",
           "referenceExample": "**Me da pena que te vayas**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es freut mich, dass es dir gefällt. → ____.",
+          "acceptedAnswers": [
+            "Me alegra que te guste"
+          ],
+          "english": "Es freut mich, dass es dir gefällt.",
+          "referenceExample": "**Me alegra que te guste**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es ärgert mich, dass er lügt. → ____.",
+          "acceptedAnswers": [
+            "Me enfada que mienta"
+          ],
+          "english": "Es ärgert mich, dass er lügt.",
+          "referenceExample": "**Me enfada que mienta**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es wundert mich, dass sie schweigt. → ____.",
+          "acceptedAnswers": [
+            "Me extraña que no diga nada"
+          ],
+          "english": "Es wundert mich, dass sie schweigt.",
+          "referenceExample": "**Me extraña que no diga nada**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir freuen uns, dass ihr da seid. → ____.",
+          "acceptedAnswers": [
+            "Nos alegramos de que estéis aquí"
+          ],
+          "english": "Wir freuen uns, dass ihr da seid.",
+          "referenceExample": "**Nos alegramos de que estéis aquí**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es stört mich, dass es so laut ist. → ____.",
+          "acceptedAnswers": [
+            "Me molesta que haya tanto ruido"
+          ],
+          "english": "Es stört mich, dass es so laut ist.",
+          "referenceExample": "**Me molesta que haya tanto ruido**."
         }
       ]
     },
@@ -11058,6 +13529,18 @@
         {
           "key": "s11",
           "display": "die Nachricht"
+        },
+        {
+          "key": "s12",
+          "display": "die Webseite"
+        },
+        {
+          "key": "s13",
+          "display": "der Drucker"
+        },
+        {
+          "key": "s14",
+          "display": "die E-Mail"
         }
       ],
       "categories": [
@@ -11076,7 +13559,10 @@
             "descargar",
             "subir",
             "las redes sociales",
-            "el mensaje"
+            "el mensaje",
+            "la página web",
+            "la impresora",
+            "el correo electrónico"
           ]
         }
       ],
@@ -11200,6 +13686,37 @@
           ],
           "english": "die Nachricht",
           "referenceExample": "**el mensaje**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Webseite → ____",
+          "acceptedAnswers": [
+            "la página web"
+          ],
+          "english": "die Webseite",
+          "referenceExample": "**la página web**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Drucker → ____",
+          "acceptedAnswers": [
+            "la impresora"
+          ],
+          "english": "der Drucker",
+          "referenceExample": "**la impresora**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die E-Mail → ____",
+          "acceptedAnswers": [
+            "el correo electrónico",
+            "el correo"
+          ],
+          "english": "die E-Mail",
+          "referenceExample": "**el correo electrónico**"
         }
       ]
     },
@@ -11269,6 +13786,18 @@
         {
           "key": "s11",
           "display": "Es wäre besser zu warten."
+        },
+        {
+          "key": "s12",
+          "display": "ich würde sagen (decir)"
+        },
+        {
+          "key": "s13",
+          "display": "ihr würdet reisen"
+        },
+        {
+          "key": "s14",
+          "display": "Was würdest du tun?"
         }
       ],
       "categories": [
@@ -11287,7 +13816,10 @@
             "Yo que tú, iría",
             "haría",
             "tendría",
-            "Sería mejor esperar"
+            "Sería mejor esperar",
+            "diría",
+            "viajaríais",
+            "¿Qué harías?"
           ]
         }
       ],
@@ -11411,6 +13943,36 @@
           ],
           "english": "Es wäre besser zu warten.",
           "referenceExample": "**Sería mejor esperar**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ich würde sagen (decir) → ____",
+          "acceptedAnswers": [
+            "diría"
+          ],
+          "english": "ich würde sagen (decir)",
+          "referenceExample": "**diría**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ihr würdet reisen → ____",
+          "acceptedAnswers": [
+            "viajaríais"
+          ],
+          "english": "ihr würdet reisen",
+          "referenceExample": "**viajaríais**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Was würdest du tun? → ____",
+          "acceptedAnswers": [
+            "¿Qué harías?"
+          ],
+          "english": "Was würdest du tun?",
+          "referenceExample": "**¿Qué harías?**"
         }
       ]
     },
@@ -11527,6 +14089,26 @@
         {
           "key": "s9",
           "display": "Hattest du das gewusst?"
+        },
+        {
+          "key": "s10",
+          "display": "ihr hattet gearbeitet"
+        },
+        {
+          "key": "s11",
+          "display": "ich hatte geschrieben (escribir)"
+        },
+        {
+          "key": "s12",
+          "display": "Der Zug war schon abgefahren."
+        },
+        {
+          "key": "s13",
+          "display": "Sie hatten das Hotel schon reserviert."
+        },
+        {
+          "key": "s14",
+          "display": "Ich hatte ihn nie zuvor gesehen."
         }
       ],
       "categories": [
@@ -11543,7 +14125,12 @@
             "Nunca había comido paella antes",
             "Dijo que lo había olvidado",
             "Ya habíamos vendido la casa",
-            "¿Lo habías sabido?"
+            "¿Lo habías sabido?",
+            "habíais trabajado",
+            "había escrito",
+            "El tren ya había salido",
+            "Ya habían reservado el hotel",
+            "Nunca lo había visto antes"
           ]
         }
       ],
@@ -11647,6 +14234,56 @@
           ],
           "english": "Hattest du das gewusst?",
           "referenceExample": "**¿Lo habías sabido?**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ihr hattet gearbeitet → ____",
+          "acceptedAnswers": [
+            "habíais trabajado"
+          ],
+          "english": "ihr hattet gearbeitet",
+          "referenceExample": "**habíais trabajado**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ich hatte geschrieben (escribir) → ____",
+          "acceptedAnswers": [
+            "había escrito"
+          ],
+          "english": "ich hatte geschrieben (escribir)",
+          "referenceExample": "**había escrito**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Der Zug war schon abgefahren. → ____.",
+          "acceptedAnswers": [
+            "El tren ya había salido"
+          ],
+          "english": "Der Zug war schon abgefahren.",
+          "referenceExample": "**El tren ya había salido**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie hatten das Hotel schon reserviert. → ____.",
+          "acceptedAnswers": [
+            "Ya habían reservado el hotel"
+          ],
+          "english": "Sie hatten das Hotel schon reserviert.",
+          "referenceExample": "**Ya habían reservado el hotel**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich hatte ihn nie zuvor gesehen. → ____.",
+          "acceptedAnswers": [
+            "Nunca lo había visto antes"
+          ],
+          "english": "Ich hatte ihn nie zuvor gesehen.",
+          "referenceExample": "**Nunca lo había visto antes**."
         }
       ]
     },
@@ -11712,6 +14349,22 @@
         {
           "key": "s10",
           "display": "Vielleicht haben sie recht."
+        },
+        {
+          "key": "s11",
+          "display": "Ich glaube nicht, dass es teuer ist."
+        },
+        {
+          "key": "s12",
+          "display": "Es ist möglich, dass wir umziehen."
+        },
+        {
+          "key": "s13",
+          "display": "Ich bezweifle, dass er es weiß."
+        },
+        {
+          "key": "s14",
+          "display": "ABER: Ich bin sicher, dass sie es weiß."
         }
       ],
       "categories": [
@@ -11729,7 +14382,11 @@
             "Creo que viene",
             "Es seguro que viene",
             "No estoy seguro de que sea bueno",
-            "Tal vez tengan razón"
+            "Tal vez tengan razón",
+            "No creo que sea caro",
+            "Es posible que nos mudemos",
+            "Dudo que lo sepa",
+            "Estoy seguro de que lo sabe"
           ]
         }
       ],
@@ -11843,6 +14500,46 @@
           ],
           "english": "Vielleicht haben sie recht.",
           "referenceExample": "**Tal vez tengan razón**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich glaube nicht, dass es teuer ist. → ____.",
+          "acceptedAnswers": [
+            "No creo que sea caro"
+          ],
+          "english": "Ich glaube nicht, dass es teuer ist.",
+          "referenceExample": "**No creo que sea caro**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es ist möglich, dass wir umziehen. → ____.",
+          "acceptedAnswers": [
+            "Es posible que nos mudemos"
+          ],
+          "english": "Es ist möglich, dass wir umziehen.",
+          "referenceExample": "**Es posible que nos mudemos**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich bezweifle, dass er es weiß. → ____.",
+          "acceptedAnswers": [
+            "Dudo que lo sepa"
+          ],
+          "english": "Ich bezweifle, dass er es weiß.",
+          "referenceExample": "**Dudo que lo sepa**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ABER: Ich bin sicher, dass sie es weiß. → ____.",
+          "acceptedAnswers": [
+            "Estoy seguro de que lo sabe"
+          ],
+          "english": "ABER: Ich bin sicher, dass sie es weiß.",
+          "referenceExample": "**Estoy seguro de que lo sabe**."
         }
       ]
     },
@@ -11978,6 +14675,26 @@
         {
           "key": "s9",
           "display": "Er antwortete, dass er es nicht wisse."
+        },
+        {
+          "key": "s10",
+          "display": "Sie sagte, dass sie müde sei."
+        },
+        {
+          "key": "s11",
+          "display": "Er erzählte, dass er gereist war."
+        },
+        {
+          "key": "s12",
+          "display": "Sie fragten, wann wir ankommen würden."
+        },
+        {
+          "key": "s13",
+          "display": "Er sagte mir, ich solle warten."
+        },
+        {
+          "key": "s14",
+          "display": "Sie erklärte, dass sie das Buch gelesen hatte."
         }
       ],
       "categories": [
@@ -11994,7 +14711,12 @@
             "Dijo que viniera pronto",
             "Dijo que no podía",
             "Preguntó si tenía tiempo",
-            "Respondió que no lo sabía"
+            "Respondió que no lo sabía",
+            "Dijo que estaba cansada",
+            "Contó que había viajado",
+            "Preguntaron cuándo llegaríamos",
+            "Me dijo que esperara",
+            "Explicó que había leído el libro"
           ]
         }
       ],
@@ -12098,6 +14820,56 @@
           ],
           "english": "Er antwortete, dass er es nicht wisse.",
           "referenceExample": "**Respondió que no lo sabía**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie sagte, dass sie müde sei. → ____.",
+          "acceptedAnswers": [
+            "Dijo que estaba cansada"
+          ],
+          "english": "Sie sagte, dass sie müde sei.",
+          "referenceExample": "**Dijo que estaba cansada**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er erzählte, dass er gereist war. → ____.",
+          "acceptedAnswers": [
+            "Contó que había viajado"
+          ],
+          "english": "Er erzählte, dass er gereist war.",
+          "referenceExample": "**Contó que había viajado**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie fragten, wann wir ankommen würden. → ____.",
+          "acceptedAnswers": [
+            "Preguntaron cuándo llegaríamos"
+          ],
+          "english": "Sie fragten, wann wir ankommen würden.",
+          "referenceExample": "**Preguntaron cuándo llegaríamos**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er sagte mir, ich solle warten. → ____.",
+          "acceptedAnswers": [
+            "Me dijo que esperara"
+          ],
+          "english": "Er sagte mir, ich solle warten.",
+          "referenceExample": "**Me dijo que esperara**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie erklärte, dass sie das Buch gelesen hatte. → ____.",
+          "acceptedAnswers": [
+            "Explicó que había leído el libro"
+          ],
+          "english": "Sie erklärte, dass sie das Buch gelesen hatte.",
+          "referenceExample": "**Explicó que había leído el libro**."
         }
       ]
     },
@@ -12159,6 +14931,26 @@
         {
           "key": "s9",
           "display": "Such ein Restaurant, das geöffnet hat."
+        },
+        {
+          "key": "s10",
+          "display": "Ich suche einen Job, der mir gefällt."
+        },
+        {
+          "key": "s11",
+          "display": "Es gibt niemanden, der es versteht."
+        },
+        {
+          "key": "s12",
+          "display": "Wir brauchen ein Auto, das wenig verbraucht."
+        },
+        {
+          "key": "s13",
+          "display": "Mach, was dir gefällt."
+        },
+        {
+          "key": "s14",
+          "display": "Ich habe einen Freund, der in Peru lebt. (existiert)"
         }
       ],
       "categories": [
@@ -12175,7 +14967,12 @@
             "Queremos un hotel que sea tranquilo",
             "Compra lo que quieras",
             "Conozco a un hombre que vive allí",
-            "Busca un restaurante que esté abierto"
+            "Busca un restaurante que esté abierto",
+            "Busco un trabajo que me guste",
+            "No hay nadie que lo entienda",
+            "Necesitamos un coche que consuma poco",
+            "Haz lo que te guste",
+            "Tengo un amigo que vive en Perú"
           ]
         }
       ],
@@ -12279,6 +15076,56 @@
           ],
           "english": "Such ein Restaurant, das geöffnet hat.",
           "referenceExample": "**Busca un restaurante que esté abierto**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich suche einen Job, der mir gefällt. → ____.",
+          "acceptedAnswers": [
+            "Busco un trabajo que me guste"
+          ],
+          "english": "Ich suche einen Job, der mir gefällt.",
+          "referenceExample": "**Busco un trabajo que me guste**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Es gibt niemanden, der es versteht. → ____.",
+          "acceptedAnswers": [
+            "No hay nadie que lo entienda"
+          ],
+          "english": "Es gibt niemanden, der es versteht.",
+          "referenceExample": "**No hay nadie que lo entienda**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wir brauchen ein Auto, das wenig verbraucht. → ____.",
+          "acceptedAnswers": [
+            "Necesitamos un coche que consuma poco"
+          ],
+          "english": "Wir brauchen ein Auto, das wenig verbraucht.",
+          "referenceExample": "**Necesitamos un coche que consuma poco**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Mach, was dir gefällt. → ____.",
+          "acceptedAnswers": [
+            "Haz lo que te guste"
+          ],
+          "english": "Mach, was dir gefällt.",
+          "referenceExample": "**Haz lo que te guste**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich habe einen Freund, der in Peru lebt. (existiert) → ____.",
+          "acceptedAnswers": [
+            "Tengo un amigo que vive en Perú"
+          ],
+          "english": "Ich habe einen Freund, der in Peru lebt. (existiert)",
+          "referenceExample": "**Tengo un amigo que vive en Perú**."
         }
       ]
     },
@@ -12347,6 +15194,18 @@
         {
           "key": "s11",
           "display": "die Tierart"
+        },
+        {
+          "key": "s12",
+          "display": "der Wald"
+        },
+        {
+          "key": "s13",
+          "display": "die Dürre"
+        },
+        {
+          "key": "s14",
+          "display": "wiederverwenden"
         }
       ],
       "categories": [
@@ -12365,7 +15224,10 @@
             "el derroche",
             "proteger",
             "el efecto invernadero",
-            "la especie"
+            "la especie",
+            "el bosque",
+            "la sequía",
+            "reutilizar"
           ]
         }
       ],
@@ -12489,6 +15351,36 @@
           ],
           "english": "die Tierart",
           "referenceExample": "**la especie**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "der Wald → ____",
+          "acceptedAnswers": [
+            "el bosque"
+          ],
+          "english": "der Wald",
+          "referenceExample": "**el bosque**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Dürre → ____",
+          "acceptedAnswers": [
+            "la sequía"
+          ],
+          "english": "die Dürre",
+          "referenceExample": "**la sequía**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "wiederverwenden → ____",
+          "acceptedAnswers": [
+            "reutilizar"
+          ],
+          "english": "wiederverwenden",
+          "referenceExample": "**reutilizar**"
         }
       ]
     },
@@ -12610,6 +15502,22 @@
         {
           "key": "s10",
           "display": "um die Prüfung zu bestehen"
+        },
+        {
+          "key": "s11",
+          "display": "Ich arbeite für eine Firma. (Ziel)"
+        },
+        {
+          "key": "s12",
+          "display": "Ich arbeite für Geld. (Grund)"
+        },
+        {
+          "key": "s13",
+          "display": "durch die Stadt spazieren"
+        },
+        {
+          "key": "s14",
+          "display": "ein Flug nach Madrid (Ziel)"
         }
       ],
       "categories": [
@@ -12627,7 +15535,11 @@
             "Voy por pan",
             "para siempre",
             "por miedo",
-            "para aprobar el examen"
+            "para aprobar el examen",
+            "Trabajo para una empresa",
+            "Trabajo por dinero",
+            "pasear por la ciudad",
+            "un vuelo para Madrid"
           ]
         }
       ],
@@ -12741,6 +15653,46 @@
           ],
           "english": "um die Prüfung zu bestehen",
           "referenceExample": "**para aprobar el examen**"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich arbeite für eine Firma. (Ziel) → ____.",
+          "acceptedAnswers": [
+            "Trabajo para una empresa"
+          ],
+          "english": "Ich arbeite für eine Firma. (Ziel)",
+          "referenceExample": "**Trabajo para una empresa**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Ich arbeite für Geld. (Grund) → ____.",
+          "acceptedAnswers": [
+            "Trabajo por dinero"
+          ],
+          "english": "Ich arbeite für Geld. (Grund)",
+          "referenceExample": "**Trabajo por dinero**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "durch die Stadt spazieren → ____",
+          "acceptedAnswers": [
+            "pasear por la ciudad"
+          ],
+          "english": "durch die Stadt spazieren",
+          "referenceExample": "**pasear por la ciudad**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ein Flug nach Madrid (Ziel) → ____",
+          "acceptedAnswers": [
+            "un vuelo para Madrid"
+          ],
+          "english": "ein Flug nach Madrid (Ziel)",
+          "referenceExample": "**un vuelo para Madrid**"
         }
       ]
     },
@@ -12884,6 +15836,18 @@
         {
           "key": "s11",
           "display": "andererseits"
+        },
+        {
+          "key": "s12",
+          "display": "zusammenfassend"
+        },
+        {
+          "key": "s13",
+          "display": "dennoch / gleichwohl"
+        },
+        {
+          "key": "s14",
+          "display": "danach / anschließend"
         }
       ],
       "categories": [
@@ -12902,7 +15866,10 @@
             "aun así",
             "por último",
             "por un lado",
-            "por otro lado"
+            "por otro lado",
+            "en resumen",
+            "no obstante",
+            "después"
           ]
         }
       ],
@@ -13026,6 +15993,37 @@
           ],
           "english": "andererseits",
           "referenceExample": "**por otro lado**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "zusammenfassend → ____",
+          "acceptedAnswers": [
+            "en resumen"
+          ],
+          "english": "zusammenfassend",
+          "referenceExample": "**en resumen**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dennoch / gleichwohl → ____",
+          "acceptedAnswers": [
+            "no obstante"
+          ],
+          "english": "dennoch / gleichwohl",
+          "referenceExample": "**no obstante**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "danach / anschließend → ____",
+          "acceptedAnswers": [
+            "después",
+            "a continuación"
+          ],
+          "english": "danach / anschließend",
+          "referenceExample": "**después**"
         }
       ]
     },
@@ -13224,6 +16222,18 @@
         {
           "key": "s11",
           "display": "die Demonstration"
+        },
+        {
+          "key": "s12",
+          "display": "die Meinungsfreiheit"
+        },
+        {
+          "key": "s13",
+          "display": "die Steuern"
+        },
+        {
+          "key": "s14",
+          "display": "die Gerechtigkeit"
         }
       ],
       "categories": [
@@ -13242,7 +16252,10 @@
             "el desempleo",
             "la inmigración",
             "los derechos humanos",
-            "la manifestación"
+            "la manifestación",
+            "la libertad de expresión",
+            "los impuestos",
+            "la justicia"
           ]
         }
       ],
@@ -13368,6 +16381,36 @@
           ],
           "english": "die Demonstration",
           "referenceExample": "**la manifestación**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Meinungsfreiheit → ____",
+          "acceptedAnswers": [
+            "la libertad de expresión"
+          ],
+          "english": "die Meinungsfreiheit",
+          "referenceExample": "**la libertad de expresión**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Steuern → ____",
+          "acceptedAnswers": [
+            "los impuestos"
+          ],
+          "english": "die Steuern",
+          "referenceExample": "**los impuestos**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "die Gerechtigkeit → ____",
+          "acceptedAnswers": [
+            "la justicia"
+          ],
+          "english": "die Gerechtigkeit",
+          "referenceExample": "**la justicia**"
         }
       ]
     },
@@ -13437,6 +16480,18 @@
         {
           "key": "s11",
           "display": "dass ich wüsste (saber)"
+        },
+        {
+          "key": "s12",
+          "display": "dass ihr sprächet (hablar)"
+        },
+        {
+          "key": "s13",
+          "display": "dass ich sähe (ver)"
+        },
+        {
+          "key": "s14",
+          "display": "dass ich setzte/legte (poner)"
         }
       ],
       "categories": [
@@ -13455,7 +16510,10 @@
             "que pudiera",
             "que dijera",
             "que fuera",
-            "que supiera"
+            "que supiera",
+            "que hablarais",
+            "que viera",
+            "que pusiera"
           ]
         }
       ],
@@ -13579,6 +16637,36 @@
           ],
           "english": "dass ich wüsste (saber)",
           "referenceExample": "**que supiera**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dass ihr sprächet (hablar) → ____",
+          "acceptedAnswers": [
+            "que hablarais"
+          ],
+          "english": "dass ihr sprächet (hablar)",
+          "referenceExample": "**que hablarais**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dass ich sähe (ver) → ____",
+          "acceptedAnswers": [
+            "que viera"
+          ],
+          "english": "dass ich sähe (ver)",
+          "referenceExample": "**que viera**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "dass ich setzte/legte (poner) → ____",
+          "acceptedAnswers": [
+            "que pusiera"
+          ],
+          "english": "dass ich setzte/legte (poner)",
+          "referenceExample": "**que pusiera**"
         }
       ]
     },
@@ -13648,6 +16736,18 @@
         {
           "key": "s11",
           "display": "Wenn du mich liebtest, …"
+        },
+        {
+          "key": "s12",
+          "display": "Wenn er hier lebte, würden wir uns öfter sehen."
+        },
+        {
+          "key": "s13",
+          "display": "Wenn ihr früher kämet, hätten wir mehr Zeit."
+        },
+        {
+          "key": "s14",
+          "display": "Wenn es ein Heilmittel gäbe, …"
         }
       ],
       "categories": [
@@ -13666,7 +16766,10 @@
             "Si estudiara más, aprobaría",
             "Si fuéramos ricos, ...",
             "Lo compraría si fuera más barato",
-            "Si me quisieras, ..."
+            "Si me quisieras, ...",
+            "Si viviera aquí, nos veríamos más",
+            "Si vinierais antes, tendríamos más tiempo",
+            "Si hubiera un remedio, ..."
           ]
         }
       ],
@@ -13790,6 +16893,36 @@
           ],
           "english": "Wenn du mich liebtest, …",
           "referenceExample": "**Si me quisieras, ...**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn er hier lebte, würden wir uns öfter sehen. → ____.",
+          "acceptedAnswers": [
+            "Si viviera aquí, nos veríamos más"
+          ],
+          "english": "Wenn er hier lebte, würden wir uns öfter sehen.",
+          "referenceExample": "**Si viviera aquí, nos veríamos más**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn ihr früher kämet, hätten wir mehr Zeit. → ____.",
+          "acceptedAnswers": [
+            "Si vinierais antes, tendríamos más tiempo"
+          ],
+          "english": "Wenn ihr früher kämet, hätten wir mehr Zeit.",
+          "referenceExample": "**Si vinierais antes, tendríamos más tiempo**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn es ein Heilmittel gäbe, … → ____",
+          "acceptedAnswers": [
+            "Si hubiera un remedio, ..."
+          ],
+          "english": "Wenn es ein Heilmittel gäbe, …",
+          "referenceExample": "**Si hubiera un remedio, ...**"
         }
       ]
     },
@@ -13914,6 +17047,18 @@
         {
           "key": "s11",
           "display": "Sie wurde traurig."
+        },
+        {
+          "key": "s12",
+          "display": "Er wurde still. (Resultat)"
+        },
+        {
+          "key": "s13",
+          "display": "Sie wurde berühmt. (allmählich)"
+        },
+        {
+          "key": "s14",
+          "display": "Er wurde krank. (ponerse)"
         }
       ],
       "categories": [
@@ -13932,7 +17077,10 @@
             "Se quedó ciego",
             "El tiempo se puso feo",
             "Con el tiempo, se hicieron amigos",
-            "Se puso triste"
+            "Se puso triste",
+            "Se quedó callado",
+            "Se hizo famosa",
+            "Se puso enfermo"
           ]
         }
       ],
@@ -14056,6 +17204,36 @@
           ],
           "english": "Sie wurde traurig.",
           "referenceExample": "**Se puso triste**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er wurde still. (Resultat) → ____.",
+          "acceptedAnswers": [
+            "Se quedó callado"
+          ],
+          "english": "Er wurde still. (Resultat)",
+          "referenceExample": "**Se quedó callado**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie wurde berühmt. (allmählich) → ____.",
+          "acceptedAnswers": [
+            "Se hizo famosa"
+          ],
+          "english": "Sie wurde berühmt. (allmählich)",
+          "referenceExample": "**Se hizo famosa**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er wurde krank. (ponerse) → ____.",
+          "acceptedAnswers": [
+            "Se puso enfermo"
+          ],
+          "english": "Er wurde krank. (ponerse)",
+          "referenceExample": "**Se puso enfermo**."
         }
       ]
     },
@@ -14209,6 +17387,18 @@
         {
           "key": "s11",
           "display": "Er ist sehr gewitzt."
+        },
+        {
+          "key": "s12",
+          "display": "Sie ist eine aufmerksame Person."
+        },
+        {
+          "key": "s13",
+          "display": "Der Kaffee ist (schon) kalt."
+        },
+        {
+          "key": "s14",
+          "display": "Er ist ein kalter Mensch."
         }
       ],
       "categories": [
@@ -14227,7 +17417,10 @@
             "Es malo",
             "El plátano está verde",
             "Mi abuelo está vivo",
-            "Es muy vivo"
+            "Es muy vivo",
+            "Es atenta",
+            "El café está frío",
+            "Es frío"
           ]
         }
       ],
@@ -14351,6 +17544,36 @@
           ],
           "english": "Er ist sehr gewitzt.",
           "referenceExample": "**Es muy vivo**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sie ist eine aufmerksame Person. → ____.",
+          "acceptedAnswers": [
+            "Es atenta"
+          ],
+          "english": "Sie ist eine aufmerksame Person.",
+          "referenceExample": "**Es atenta**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Der Kaffee ist (schon) kalt. → ____.",
+          "acceptedAnswers": [
+            "El café está frío"
+          ],
+          "english": "Der Kaffee ist (schon) kalt.",
+          "referenceExample": "**El café está frío**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Er ist ein kalter Mensch. → ____.",
+          "acceptedAnswers": [
+            "Es frío"
+          ],
+          "english": "Er ist ein kalter Mensch.",
+          "referenceExample": "**Es frío**."
         }
       ]
     },
@@ -14412,6 +17635,26 @@
         {
           "key": "s9",
           "display": "Obwohl wir wenig Geld haben, …"
+        },
+        {
+          "key": "s10",
+          "display": "Auch wenn es spät wird, bleibe ich."
+        },
+        {
+          "key": "s11",
+          "display": "Obwohl sie viel arbeitet, verdient sie wenig."
+        },
+        {
+          "key": "s12",
+          "display": "Auch wenn es teuer sein sollte, kaufe ich es."
+        },
+        {
+          "key": "s13",
+          "display": "Obwohl er es wusste, sagte er nichts."
+        },
+        {
+          "key": "s14",
+          "display": "Auch wenn ihr nicht kommt, feiern wir."
         }
       ],
       "categories": [
@@ -14428,7 +17671,12 @@
             "Aunque no me guste, lo acepto",
             "aunque no quieras",
             "Aunque me lo digas, no lo creo",
-            "Aunque tenemos poco dinero, ..."
+            "Aunque tenemos poco dinero, ...",
+            "Aunque se haga tarde, me quedo",
+            "Aunque trabaja mucho, gana poco",
+            "Aunque sea caro, lo compraré",
+            "Aunque lo sabía, no dijo nada",
+            "Aunque no vengáis, celebraremos"
           ]
         }
       ],
@@ -14532,6 +17780,56 @@
           ],
           "english": "Obwohl wir wenig Geld haben, …",
           "referenceExample": "**Aunque tenemos poco dinero, ...**"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Auch wenn es spät wird, bleibe ich. → ____.",
+          "acceptedAnswers": [
+            "Aunque se haga tarde, me quedo"
+          ],
+          "english": "Auch wenn es spät wird, bleibe ich.",
+          "referenceExample": "**Aunque se haga tarde, me quedo**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Obwohl sie viel arbeitet, verdient sie wenig. → ____.",
+          "acceptedAnswers": [
+            "Aunque trabaja mucho, gana poco"
+          ],
+          "english": "Obwohl sie viel arbeitet, verdient sie wenig.",
+          "referenceExample": "**Aunque trabaja mucho, gana poco**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Auch wenn es teuer sein sollte, kaufe ich es. → ____.",
+          "acceptedAnswers": [
+            "Aunque sea caro, lo compraré"
+          ],
+          "english": "Auch wenn es teuer sein sollte, kaufe ich es.",
+          "referenceExample": "**Aunque sea caro, lo compraré**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Obwohl er es wusste, sagte er nichts. → ____.",
+          "acceptedAnswers": [
+            "Aunque lo sabía, no dijo nada"
+          ],
+          "english": "Obwohl er es wusste, sagte er nichts.",
+          "referenceExample": "**Aunque lo sabía, no dijo nada**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Auch wenn ihr nicht kommt, feiern wir. → ____.",
+          "acceptedAnswers": [
+            "Aunque no vengáis, celebraremos"
+          ],
+          "english": "Auch wenn ihr nicht kommt, feiern wir.",
+          "referenceExample": "**Aunque no vengáis, celebraremos**."
         }
       ]
     },
@@ -14593,6 +17891,26 @@
         {
           "key": "s9",
           "display": "In Spanien isst man spät."
+        },
+        {
+          "key": "s10",
+          "display": "Man vermietet Zimmer."
+        },
+        {
+          "key": "s11",
+          "display": "Das Museum wurde 1950 eröffnet."
+        },
+        {
+          "key": "s12",
+          "display": "Wie sagt man das auf Spanisch?"
+        },
+        {
+          "key": "s13",
+          "display": "Von hier aus sieht man das Meer."
+        },
+        {
+          "key": "s14",
+          "display": "Das Problem wurde gelöst."
         }
       ],
       "categories": [
@@ -14609,7 +17927,12 @@
             "El libro fue escrito por García Márquez",
             "Aquí no se puede fumar",
             "Se abrió la puerta",
-            "En España se come tarde"
+            "En España se come tarde",
+            "Se alquilan habitaciones",
+            "El museo fue inaugurado en 1950",
+            "¿Cómo se dice en español?",
+            "Desde aquí se ve el mar",
+            "El problema se resolvió"
           ]
         }
       ],
@@ -14713,6 +18036,56 @@
           ],
           "english": "In Spanien isst man spät.",
           "referenceExample": "**En España se come tarde**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Man vermietet Zimmer. → ____.",
+          "acceptedAnswers": [
+            "Se alquilan habitaciones"
+          ],
+          "english": "Man vermietet Zimmer.",
+          "referenceExample": "**Se alquilan habitaciones**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Das Museum wurde 1950 eröffnet. → ____.",
+          "acceptedAnswers": [
+            "El museo fue inaugurado en 1950"
+          ],
+          "english": "Das Museum wurde 1950 eröffnet.",
+          "referenceExample": "**El museo fue inaugurado en 1950**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wie sagt man das auf Spanisch? → ____",
+          "acceptedAnswers": [
+            "¿Cómo se dice en español?"
+          ],
+          "english": "Wie sagt man das auf Spanisch?",
+          "referenceExample": "**¿Cómo se dice en español?**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Von hier aus sieht man das Meer. → ____.",
+          "acceptedAnswers": [
+            "Desde aquí se ve el mar"
+          ],
+          "english": "Von hier aus sieht man das Meer.",
+          "referenceExample": "**Desde aquí se ve el mar**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Das Problem wurde gelöst. → ____.",
+          "acceptedAnswers": [
+            "El problema se resolvió"
+          ],
+          "english": "Das Problem wurde gelöst.",
+          "referenceExample": "**El problema se resolvió**."
         }
       ]
     },
@@ -14829,6 +18202,26 @@
         {
           "key": "s9",
           "display": "Wenn der Sommer kommt, reisen wir."
+        },
+        {
+          "key": "s10",
+          "display": "Sobald der Film endet, gehen wir. (Zukunft)"
+        },
+        {
+          "key": "s11",
+          "display": "Bis es aufhört zu regnen, bleiben wir hier."
+        },
+        {
+          "key": "s12",
+          "display": "Wenn du fertig bist, sag mir Bescheid. (Zukunft)"
+        },
+        {
+          "key": "s13",
+          "display": "Bevor es dunkel wird, gehen wir zurück."
+        },
+        {
+          "key": "s14",
+          "display": "Wenn ich Zeit habe, lese ich. (Gewohnheit)"
         }
       ],
       "categories": [
@@ -14845,7 +18238,12 @@
             "Antes de que te vayas, come algo",
             "Después de que comamos, salimos",
             "Mientras trabajas, cocino",
-            "Cuando llegue el verano, viajaremos"
+            "Cuando llegue el verano, viajaremos",
+            "En cuanto termine la película, nos vamos",
+            "Hasta que deje de llover, nos quedamos aquí",
+            "Cuando termines, avísame",
+            "Antes de que anochezca, volvemos",
+            "Cuando tengo tiempo, leo"
           ]
         }
       ],
@@ -14949,6 +18347,56 @@
           ],
           "english": "Wenn der Sommer kommt, reisen wir.",
           "referenceExample": "**Cuando llegue el verano, viajaremos**."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Sobald der Film endet, gehen wir. (Zukunft) → ____.",
+          "acceptedAnswers": [
+            "En cuanto termine la película, nos vamos"
+          ],
+          "english": "Sobald der Film endet, gehen wir. (Zukunft)",
+          "referenceExample": "**En cuanto termine la película, nos vamos**."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Bis es aufhört zu regnen, bleiben wir hier. → ____.",
+          "acceptedAnswers": [
+            "Hasta que deje de llover, nos quedamos aquí"
+          ],
+          "english": "Bis es aufhört zu regnen, bleiben wir hier.",
+          "referenceExample": "**Hasta que deje de llover, nos quedamos aquí**."
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn du fertig bist, sag mir Bescheid. (Zukunft) → ____.",
+          "acceptedAnswers": [
+            "Cuando termines, avísame"
+          ],
+          "english": "Wenn du fertig bist, sag mir Bescheid. (Zukunft)",
+          "referenceExample": "**Cuando termines, avísame**."
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Bevor es dunkel wird, gehen wir zurück. → ____.",
+          "acceptedAnswers": [
+            "Antes de que anochezca, volvemos"
+          ],
+          "english": "Bevor es dunkel wird, gehen wir zurück.",
+          "referenceExample": "**Antes de que anochezca, volvemos**."
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "Wenn ich Zeit habe, lese ich. (Gewohnheit) → ____.",
+          "acceptedAnswers": [
+            "Cuando tengo tiempo, leo"
+          ],
+          "english": "Wenn ich Zeit habe, lese ich. (Gewohnheit)",
+          "referenceExample": "**Cuando tengo tiempo, leo**."
         }
       ]
     },
@@ -15102,6 +18550,18 @@
         {
           "key": "s11",
           "display": "früher oder später"
+        },
+        {
+          "key": "s12",
+          "display": "auf dem Holzweg sein / sich irren"
+        },
+        {
+          "key": "s13",
+          "display": "in null Komma nichts"
+        },
+        {
+          "key": "s14",
+          "display": "ab und zu"
         }
       ],
       "categories": [
@@ -15120,7 +18580,10 @@
             "estar hasta las narices",
             "la verdad es que",
             "en pocas palabras",
-            "tarde o temprano"
+            "tarde o temprano",
+            "estar equivocado",
+            "en un abrir y cerrar de ojos",
+            "de vez en cuando"
           ]
         }
       ],
@@ -15244,6 +18707,36 @@
           ],
           "english": "früher oder später",
           "referenceExample": "**tarde o temprano**"
+        },
+        {
+          "subjectKey": "s12",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "auf dem Holzweg sein / sich irren → ____",
+          "acceptedAnswers": [
+            "estar equivocado"
+          ],
+          "english": "auf dem Holzweg sein / sich irren",
+          "referenceExample": "**estar equivocado**"
+        },
+        {
+          "subjectKey": "s13",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "in null Komma nichts → ____",
+          "acceptedAnswers": [
+            "en un abrir y cerrar de ojos"
+          ],
+          "english": "in null Komma nichts",
+          "referenceExample": "**en un abrir y cerrar de ojos**"
+        },
+        {
+          "subjectKey": "s14",
+          "categoryLabel": "Auf Spanisch",
+          "sentence": "ab und zu → ____",
+          "acceptedAnswers": [
+            "de vez en cuando"
+          ],
+          "english": "ab und zu",
+          "referenceExample": "**de vez en cuando**"
         }
       ]
     },

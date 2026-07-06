@@ -47,6 +47,13 @@ final QuizContent enDeM14Forms = enDeFill(
     CourseItem(prompt: 'to whom (f, Dat)', answer: 'der'),
     CourseItem(prompt: 'to whom (pl, Dat)', answer: 'denen'),
     CourseItem(prompt: 'whose (m/n, Gen)', answer: 'dessen'),
+    CourseItem(prompt: 'whose (f/pl, Gen)', answer: 'deren'),
+    CourseItem(prompt: 'whom (f, Akk)', answer: 'die'),
+    CourseItem(prompt: 'that (n, Akk)', answer: 'das'),
+    CourseItem(prompt: 'who/that (pl, Nom)', answer: 'die'),
+    CourseItem(prompt: 'whom (pl, Akk)', answer: 'die'),
+    CourseItem(prompt: 'to whom (n, Dat — das Kind)', answer: 'dem'),
+    CourseItem(prompt: 'who/that (m, Nom — der Zug)', answer: 'der'),
   ],
 );
 
@@ -62,6 +69,15 @@ final QuizContent enDeM14Case = enDeFill(
     CourseItem(prompt: 'The woman who works here. (Nom)', answer: 'Die Frau, **die** hier arbeitet'),
     CourseItem(prompt: 'The book that I read. (Akk, n)', answer: 'Das Buch, **das** ich lese'),
     CourseItem(prompt: 'The children who play. (Nom, pl)', answer: 'Die Kinder, **die** spielen'),
+    CourseItem(prompt: 'The film that we saw. (Akk, m)', answer: 'Der Film, **den** wir gesehen haben'),
+    CourseItem(prompt: 'The woman whom I thank. (Dat)', answer: 'Die Frau, **der** ich danke'),
+    CourseItem(prompt: 'The dog that barks. (Nom, m)', answer: 'Der Hund, **der** bellt'),
+    CourseItem(prompt: 'The people whom I trust. (Dat, pl)', answer: 'Die Leute, **denen** ich vertraue'),
+    CourseItem(prompt: 'The city that we visit. (Akk, f)', answer: 'Die Stadt, **die** wir besuchen'),
+    CourseItem(prompt: 'The child to whom I give the ball. (Dat, n)', answer: 'Das Kind, **dem** ich den Ball gebe'),
+    CourseItem(prompt: 'The cake that tastes good. (Nom, m)', answer: 'Der Kuchen, **der** gut schmeckt'),
+    CourseItem(prompt: 'The song that she sings. (Akk, n — das Lied)', answer: 'Das Lied, **das** sie singt'),
+    CourseItem(prompt: 'The neighbours who are loud. (Nom, pl)', answer: 'Die Nachbarn, **die** laut sind'),
   ],
 );
 
@@ -111,6 +127,17 @@ final QuizContent enDeM14Preposition = enDeFill(
     CourseItem(prompt: 'The woman with whom I speak. (mit + Dat)', answer: 'Die Frau, mit **der** ich spreche'),
     CourseItem(prompt: 'The friend for whom I cook. (für + Akk)', answer: 'Der Freund, für **den** ich koche'),
     CourseItem(prompt: 'The city in which she lives. (in + Dat)', answer: 'Die Stadt, in **der** sie wohnt'),
+    CourseItem(prompt: 'The table at which we eat. (an + Dat)', answer: 'Der Tisch, an **dem** wir essen'),
+    CourseItem(prompt: 'The friends with whom I travel. (mit + Dat, pl)', answer: 'Die Freunde, mit **denen** ich reise'),
+    CourseItem(prompt: 'The bag in which the keys are. (in + Dat, f)', answer: 'Die Tasche, in **der** die Schlüssel sind'),
+    CourseItem(prompt: 'The man about whom we talk. (über + Akk)', answer: 'Der Mann, über **den** wir sprechen'),
+    CourseItem(prompt: 'The village from which he comes. (aus + Dat, n)', answer: 'Das Dorf, aus **dem** er kommt'),
+    CourseItem(prompt: 'The party to which I invite you. (zu + Dat, f)', answer: 'Die Party, zu **der** ich dich einlade'),
+    CourseItem(prompt: 'The chair on which she sits. (auf + Dat, m)', answer: 'Der Stuhl, auf **dem** sie sitzt'),
+    CourseItem(prompt: 'The music to which we dance. (zu + Dat, f)', answer: 'Die Musik, zu **der** wir tanzen'),
+    CourseItem(prompt: 'The bridge over which we drive. (über + Akk, f)', answer: 'Die Brücke, über **die** wir fahren'),
+    CourseItem(prompt: 'The friend on whom I wait. (auf + Akk)', answer: 'Der Freund, auf **den** ich warte'),
+    CourseItem(prompt: 'The garden in which the children play. (in + Dat, m)', answer: 'Der Garten, in **dem** die Kinder spielen'),
   ],
 );
 

@@ -28,6 +28,9 @@ final QuizContent deEsA12Familia = deEsFill(
     CourseItem(prompt: 'der Onkel', answer: 'el tío'),
     CourseItem(prompt: 'die Tante', answer: 'la tía'),
     CourseItem(prompt: 'die Familie', answer: 'la familia'),
+    CourseItem(prompt: 'die Geschwister', answer: 'los hermanos'),
+    CourseItem(prompt: 'der Cousin', answer: 'el primo'),
+    CourseItem(prompt: 'die Großeltern', answer: 'los abuelos'),
   ],
 );
 
@@ -55,6 +58,10 @@ final QuizContent deEsA12VerbosErIr = deEsFill(
     CourseItem(prompt: 'ihr lebt', answer: 'vivís'),
     CourseItem(prompt: 'ich lese (leer)', answer: 'leo'),
     CourseItem(prompt: 'sie schreiben (escribir)', answer: 'escriben'),
+    CourseItem(prompt: 'du trinkst (beber)', answer: 'bebes'),
+    CourseItem(prompt: 'er lernt (aprender)', answer: 'aprende'),
+    CourseItem(prompt: 'ich schreibe (escribir)', answer: 'escribo'),
+    CourseItem(prompt: 'Wir leben in Berlin.', answer: 'Vivimos en Berlín.'),
   ],
 );
 
@@ -83,6 +90,10 @@ final QuizContent deEsA12SerEstar = deEsFill(
     CourseItem(prompt: 'Das Essen ist kalt. (Zustand)', answer: 'La comida está fría.'),
     CourseItem(prompt: 'Er ist Spanier.', answer: 'Es español.'),
     CourseItem(prompt: 'Sie sind (gerade) glücklich.', answer: 'Están contentos.'),
+    CourseItem(prompt: 'Der Kaffee ist heiß. (Zustand)', answer: 'El café está caliente.'),
+    CourseItem(prompt: 'Ich bin zu Hause. (Ort)', answer: 'Estoy en casa.'),
+    CourseItem(prompt: 'Das Auto ist neu. (Eigenschaft)', answer: 'El coche es nuevo.'),
+    CourseItem(prompt: 'Bist du krank? (Zustand)', answer: '¿Estás enfermo?'),
   ],
 );
 
@@ -131,6 +142,11 @@ final QuizContent deEsA12Tener = deEsFill(
     CourseItem(prompt: 'Wie alt bist du?', answer: '¿Cuántos años tienes?'),
     CourseItem(prompt: 'Ich habe Hunger.', answer: 'Tengo hambre.'),
     CourseItem(prompt: 'Ich habe einen Bruder.', answer: 'Tengo un hermano.'),
+    CourseItem(prompt: 'Ich habe Durst.', answer: 'Tengo sed.'),
+    CourseItem(prompt: 'Sie hat zwei Kinder.', answer: 'Tiene dos hijos.'),
+    CourseItem(prompt: 'Wir haben keine Zeit.', answer: 'No tenemos tiempo.'),
+    CourseItem(prompt: 'Hast du ein Auto?', answer: '¿Tienes coche?', accepted: ['¿Tienes un coche?']),
+    CourseItem(prompt: 'Ich habe Angst.', answer: 'Tengo miedo.'),
   ],
 );
 
@@ -158,6 +174,10 @@ final QuizContent deEsA12Gustar = deEsFill(
     CourseItem(prompt: 'Magst du Fußball?', answer: '¿Te gusta el fútbol?'),
     CourseItem(prompt: 'Mir gefällt es nicht.', answer: 'No me gusta.'),
     CourseItem(prompt: 'Mir gefällt es sehr.', answer: 'Me gusta mucho.'),
+    CourseItem(prompt: 'Ich mag Bücher. (Plural)', answer: 'Me gustan los libros.'),
+    CourseItem(prompt: 'Uns gefällt die Stadt.', answer: 'Nos gusta la ciudad.'),
+    CourseItem(prompt: 'Ich tanze gern.', answer: 'Me gusta bailar.'),
+    CourseItem(prompt: 'Ihm gefallen die Filme. (Plural)', answer: 'Le gustan las películas.'),
   ],
 );
 
@@ -240,6 +260,9 @@ final QuizContent deEsA12Comida = deEsFill(
     CourseItem(prompt: 'das Gemüse', answer: 'la verdura'),
     CourseItem(prompt: 'der Käse', answer: 'el queso'),
     CourseItem(prompt: 'das Frühstück', answer: 'el desayuno'),
+    CourseItem(prompt: 'das Mittagessen', answer: 'la comida', accepted: ['el almuerzo']),
+    CourseItem(prompt: 'das Abendessen', answer: 'la cena'),
+    CourseItem(prompt: 'der Saft', answer: 'el zumo', accepted: ['el jugo']),
   ],
 );
 
@@ -270,6 +293,7 @@ final QuizContent deEsA12Hora = deEsFill(
     CourseItem(prompt: 'Samstag', answer: 'sábado'),
     CourseItem(prompt: 'Sonntag', answer: 'domingo'),
     CourseItem(prompt: 'das Wochenende', answer: 'el fin de semana'),
+    CourseItem(prompt: 'Es ist zehn nach sechs.', answer: 'Son las seis y diez.'),
   ],
 );
 
@@ -318,6 +342,11 @@ final QuizContent deEsA12Posesivos = deEsFill(
     CourseItem(prompt: 'unsere Kinder', answer: 'nuestros hijos'),
     CourseItem(prompt: 'euer Auto', answer: 'vuestro coche'),
     CourseItem(prompt: 'ihr Haus (von ihnen)', answer: 'su casa'),
+    CourseItem(prompt: 'unsere Schule (f)', answer: 'nuestra escuela'),
+    CourseItem(prompt: 'eure Bücher', answer: 'vuestros libros'),
+    CourseItem(prompt: 'meine Schwester', answer: 'mi hermana'),
+    CourseItem(prompt: 'dein Hund', answer: 'tu perro'),
+    CourseItem(prompt: 'ihre Autos (von ihnen)', answer: 'sus coches'),
   ],
 );
 
@@ -344,6 +373,11 @@ final QuizContent deEsA12IrA = deEsFill(
     CourseItem(prompt: 'Wir werden nach Madrid reisen.', answer: 'Vamos a viajar a Madrid.'),
     CourseItem(prompt: 'Was wirst du machen?', answer: '¿Qué vas a hacer?'),
     CourseItem(prompt: 'Sie werden essen.', answer: 'Van a comer.'),
+    CourseItem(prompt: 'Ich werde ein Buch lesen.', answer: 'Voy a leer un libro.'),
+    CourseItem(prompt: 'Er wird arbeiten.', answer: 'Va a trabajar.'),
+    CourseItem(prompt: 'Wir werden zu Abend essen.', answer: 'Vamos a cenar.'),
+    CourseItem(prompt: 'Ihr werdet tanzen.', answer: 'Vais a bailar.'),
+    CourseItem(prompt: 'Ich gehe ins Kino.', answer: 'Voy al cine.'),
   ],
 );
 

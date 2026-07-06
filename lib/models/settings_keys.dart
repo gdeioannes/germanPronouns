@@ -119,6 +119,14 @@ class SettingsKeys {
   /// learner-progress snapshot.
   static const String voiceOfflineOnly = 'voice_offline_only';
 
+  /// The learner's last picks in the exercise-worksheet PDF dialog, restored
+  /// as the initial selection the next time it opens: scope and answer
+  /// placement store the enum `name`, size stores the exercise count as an
+  /// `int` with 0 meaning "all".
+  static const String exercisePdfScope = 'exercise_pdf_scope';
+  static const String exercisePdfAnswers = 'exercise_pdf_answers';
+  static const String exercisePdfSize = 'exercise_pdf_size';
+
   /// Per-gender highlight color key (gender is 'm'/'f'/'n').
   static String genderColor(String gender) => 'gender_color_$gender';
 }

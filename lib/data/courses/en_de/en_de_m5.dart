@@ -147,6 +147,13 @@ final QuizContent enDeM5Produce = enDeFill(
     CourseItem(prompt: 'The child plays. (Nom, das Kind)', answer: '**Das** Kind spielt'),
     CourseItem(prompt: 'I give the child a toy. (Dat)', answer: 'Ich gebe **dem** Kind ein Spielzeug'),
     CourseItem(prompt: 'I see the child. (Akk)', answer: 'Ich sehe **das** Kind'),
+    CourseItem(prompt: 'The woman sings. (Nom, die Frau)', answer: '**Die** Frau singt'),
+    CourseItem(prompt: 'I thank the woman. (Dat)', answer: 'Ich danke **der** Frau'),
+    CourseItem(prompt: 'The dog sleeps. (Nom, der Hund)', answer: '**Der** Hund schläft'),
+    CourseItem(prompt: 'I feed the dog. (füttern, Akk)', answer: 'Ich füttere **den** Hund'),
+    CourseItem(prompt: 'The food belongs to the dog. (Dat)', answer: 'Das Futter gehört **dem** Hund'),
+    CourseItem(prompt: 'We give the children chocolate. (Dat, pl)', answer: 'Wir geben **den** Kindern Schokolade'),
+    CourseItem(prompt: 'I buy the book. (Akk, das Buch)', answer: 'Ich kaufe **das** Buch'),
   ],
 );
 
@@ -213,6 +220,16 @@ final QuizContent enDeM5Dictation = enDeDict(
     CourseItem(prompt: 'I help the friend.', answer: 'Ich helfe dem Freund.'),
     CourseItem(prompt: 'The dog belongs to the child.', answer: 'Der Hund gehört dem Kind.'),
     CourseItem(prompt: 'We buy the children an ice cream.', answer: 'Wir kaufen den Kindern ein Eis.'),
+    CourseItem(prompt: 'The teacher asks the pupil.', answer: 'Der Lehrer fragt den Schüler.'),
+    CourseItem(prompt: 'She gives the man the key.', answer: 'Sie gibt dem Mann den Schlüssel.'),
+    CourseItem(prompt: 'The mother buys the son an ice cream.', answer: 'Die Mutter kauft dem Sohn ein Eis.'),
+    CourseItem(prompt: 'I thank the woman.', answer: 'Ich danke der Frau.'),
+    CourseItem(prompt: 'The waiter brings the guest the soup.', answer: 'Der Kellner bringt dem Gast die Suppe.'),
+    CourseItem(prompt: 'The child sees the dog.', answer: 'Das Kind sieht den Hund.'),
+    CourseItem(prompt: 'He shows the tourist the way.', answer: 'Er zeigt dem Touristen den Weg.'),
+    CourseItem(prompt: 'The father cooks the family a dinner.', answer: 'Der Vater kocht der Familie ein Abendessen.'),
+    CourseItem(prompt: 'I write the friend a letter.', answer: 'Ich schreibe dem Freund einen Brief.'),
+    CourseItem(prompt: 'The book pleases the teacher.', answer: 'Das Buch gefällt dem Lehrer.'),
   ],
 );
 

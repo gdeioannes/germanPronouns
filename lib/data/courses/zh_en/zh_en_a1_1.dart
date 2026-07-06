@@ -97,6 +97,8 @@ final QuizContent zhEnA11Pronouns = zhEnVocab(
     MapEntry('我们', 'we'),
     MapEntry('你们', 'you'),
     MapEntry('他们 / 她们', 'they'),
+    MapEntry('它们', 'they'),
+    MapEntry('咱们（包括你）', 'we'),
   ],
 );
 
@@ -125,6 +127,13 @@ final QuizContent zhEnA11Be = zhEnFill(
     CourseItem(prompt: '我们是中国人。', answer: 'We **are** Chinese.'),
     CourseItem(prompt: '他们很忙。', answer: 'They **are** busy.'),
     CourseItem(prompt: '这是一本书。', answer: 'This **is** a book.'),
+    CourseItem(prompt: '你们是学生。', answer: 'You **are** students.'),
+    CourseItem(prompt: '我妈妈是护士。', answer: 'My mother **is** a nurse.'),
+    CourseItem(prompt: '你的书很旧。', answer: 'Your book **is** old.'),
+    CourseItem(prompt: '我今天很累。', answer: 'I **am** tired today.'),
+    CourseItem(prompt: '那些椅子是新的。', answer: 'Those chairs **are** new.'),
+    CourseItem(prompt: '天气很冷。', answer: 'The weather **is** cold.'),
+    CourseItem(prompt: '你和我是好朋友。', answer: 'You and I **are** good friends.'),
   ],
 );
 
@@ -176,6 +185,13 @@ final QuizContent zhEnA11AAn = zhEnFill(
     CourseItem(prompt: '一个小时后', answer: 'in **an** hour'),
     CourseItem(prompt: '一所大学', answer: "It's **a** university."),
     CourseItem(prompt: '一辆车', answer: "It's **a** car."),
+    CourseItem(prompt: '一名工程师', answer: "He's **an** engineer."),
+    CourseItem(prompt: '一只狗', answer: "It's **a** dog."),
+    CourseItem(prompt: '一把伞（umbrella）', answer: "It's **an** umbrella."),
+    CourseItem(prompt: '一个想法（idea）', answer: "It's **an** idea."),
+    CourseItem(prompt: '一位护士', answer: "She's **a** nurse."),
+    CourseItem(prompt: '一个诚实的男孩（honest，h 不发音）', answer: "He's **an** honest boy."),
+    CourseItem(prompt: '一个欧洲国家（European，读 /jʊ/）', answer: "It's **a** European country."),
   ],
 );
 
@@ -199,6 +215,8 @@ final QuizContent zhEnA11Nationalities = zhEnVocab(
     MapEntry('澳大利亚', 'Australia'),
     MapEntry('加拿大', 'Canada'),
     MapEntry('日本', 'Japan'),
+    MapEntry('法国', 'France'),
+    MapEntry('德国', 'Germany'),
   ],
 );
 
@@ -261,6 +279,15 @@ final QuizContent zhEnA11ThisThat = zhEnFill(
     CourseItem(prompt: '那些是他们的书。', answer: '**Those** are their books.'),
     CourseItem(prompt: '这个用英语怎么说？', answer: "What's **this** in English?"),
     CourseItem(prompt: '那是什么？', answer: "What's **that**?"),
+    CourseItem(prompt: '这是一个苹果。', answer: '**This** is an apple.'),
+    CourseItem(prompt: '那些是我们的椅子。', answer: '**Those** are our chairs.'),
+    CourseItem(prompt: '这些书是新的。', answer: '**These** books are new.'),
+    CourseItem(prompt: '那个男孩是我弟弟。', answer: '**That** boy is my little brother.'),
+    CourseItem(prompt: '这些苹果很好吃。', answer: '**These** apples are delicious.'),
+    CourseItem(prompt: '那些人是老师。', answer: '**Those** people are teachers.'),
+    CourseItem(prompt: '这支笔是红色的。', answer: '**This** pen is red.'),
+    CourseItem(prompt: '那辆车是我爸爸的。', answer: "**That** car is my father's."),
+    CourseItem(prompt: '这些是你的钥匙吗？', answer: 'Are **these** your keys?'),
   ],
 );
 
@@ -284,6 +311,8 @@ final QuizContent zhEnA11Jobs = zhEnVocab(
     MapEntry('厨师', 'cook'),
     MapEntry('司机', 'driver'),
     MapEntry('警察', 'police officer'),
+    MapEntry('农民', 'farmer'),
+    MapEntry('服务员', 'waiter'),
   ],
 );
 
@@ -398,6 +427,15 @@ final QuizContent zhEnA11DictName = zhEnDict(
     CourseItem(prompt: '我有两个兄弟。', answer: 'I have two brothers.'),
     CourseItem(prompt: '她是老师。', answer: 'She is a teacher.'),
     CourseItem(prompt: '这是我的书。', answer: 'This is my book.'),
+    CourseItem(prompt: '我二十岁。', answer: 'I am twenty years old.'),
+    CourseItem(prompt: '他是医生。', answer: 'He is a doctor.'),
+    CourseItem(prompt: '我们来自北京。', answer: 'We are from Beijing.'),
+    CourseItem(prompt: '那是一只猫。', answer: 'That is a cat.'),
+    CourseItem(prompt: '我的电话号码是九〇五。', answer: 'My phone number is nine zero five.'),
+    CourseItem(prompt: '她十八岁。', answer: 'She is eighteen years old.'),
+    CourseItem(prompt: '我们是学生。', answer: 'We are students.'),
+    CourseItem(prompt: '他叫汤姆。', answer: 'His name is Tom.'),
+    CourseItem(prompt: '这些是我的朋友。', answer: 'These are my friends.'),
   ],
 );
 
@@ -419,6 +457,15 @@ final QuizContent zhEnA11Wh = zhEnFill(
     CourseItem(prompt: '这是什么？', answer: '**What** is this?'),
     CourseItem(prompt: '你的老师是谁？', answer: '**Who** is your teacher?'),
     CourseItem(prompt: '你的学校在哪里？', answer: '**Where** is your school?'),
+    CourseItem(prompt: '你的书在哪里？', answer: '**Where** is your book?'),
+    CourseItem(prompt: '那个女孩是谁？', answer: '**Who** is that girl?'),
+    CourseItem(prompt: '你最喜欢的颜色是什么？', answer: '**What** is your favourite colour?'),
+    CourseItem(prompt: '你的包里有什么？', answer: '**What** is in your bag?'),
+    CourseItem(prompt: '洗手间在哪里？', answer: '**Where** is the bathroom?'),
+    CourseItem(prompt: '你的英语老师是谁？', answer: '**Who** is your English teacher?'),
+    CourseItem(prompt: '你的工作是什么？', answer: '**What** is your job?'),
+    CourseItem(prompt: '你的父母在哪里？', answer: '**Where** are your parents?'),
+    CourseItem(prompt: '门口的那个男人是谁？', answer: '**Who** is the man at the door?'),
   ],
 );
 

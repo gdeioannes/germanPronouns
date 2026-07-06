@@ -125,6 +125,14 @@ final QuizContent enZhA11Greetings = enZhFill(
     CourseItem(prompt: 'sorry', answer: '对不起', accepted: ['duìbuqǐ'], hint: 'duìbuqǐ'),
     CourseItem(prompt: 'no problem / it doesn\'t matter', answer: '没关系', accepted: ['méi guānxi'], hint: 'méi guānxi'),
     CourseItem(prompt: 'please', answer: '请', accepted: ['qǐng'], hint: 'qǐng'),
+    CourseItem(prompt: 'good morning', answer: '早上好', accepted: ['zǎoshang hǎo'], hint: 'zǎoshang hǎo'),
+    CourseItem(prompt: 'good night', answer: '晚安', accepted: ['wǎn\'ān', 'wan an'], hint: 'wǎn\'ān'),
+    CourseItem(prompt: 'excuse me / may I ask…', answer: '请问', accepted: ['qǐngwèn'], hint: 'qǐngwèn'),
+    CourseItem(prompt: 'good evening', answer: '晚上好', accepted: ['wǎnshang hǎo'], hint: 'wǎnshang hǎo'),
+    CourseItem(prompt: 'see you tomorrow', answer: '明天见', accepted: ['míngtiān jiàn'], hint: 'míngtiān jiàn'),
+    CourseItem(prompt: 'welcome', answer: '欢迎', accepted: ['huānyíng'], hint: 'huānyíng'),
+    CourseItem(prompt: 'no problem / sure', answer: '没问题', accepted: ['méi wèntí'], hint: 'méi wèntí'),
+    CourseItem(prompt: 'no need to thank me', answer: '不用谢', accepted: ['bú yòng xiè', 'bu yong xie'], hint: 'bú yòng xiè'),
   ],
 );
 
@@ -156,6 +164,14 @@ final QuizContent enZhA11Pronouns = enZhFill(
     CourseItem(prompt: 'we / us', answer: '我们', accepted: ['wǒmen'], hint: 'wǒmen'),
     CourseItem(prompt: 'you (plural)', answer: '你们', accepted: ['nǐmen'], hint: 'nǐmen'),
     CourseItem(prompt: 'they / them', answer: '他们', accepted: ['tāmen'], hint: 'tāmen'),
+    CourseItem(prompt: 'you (polite)', answer: '您', accepted: ['nín'], hint: 'nín'),
+    CourseItem(prompt: 'it', answer: '它', accepted: ['tā'], hint: 'tā'),
+    CourseItem(prompt: 'they (all women)', answer: '她们', accepted: ['tāmen'], hint: 'tāmen'),
+    CourseItem(prompt: 'they (things / animals)', answer: '它们', accepted: ['tāmen'], hint: 'tāmen'),
+    CourseItem(prompt: 'everyone / everybody', answer: '大家', accepted: ['dàjiā'], hint: 'dàjiā'),
+    CourseItem(prompt: 'Tom and I (= we)', answer: '我们', accepted: ['wǒmen'], hint: 'wǒmen'),
+    CourseItem(prompt: 'you and your friends (= you all)', answer: '你们', accepted: ['nǐmen'], hint: 'nǐmen'),
+    CourseItem(prompt: 'my mum and my aunt (= they, women)', answer: '她们', accepted: ['tāmen'], hint: 'tāmen'),
   ],
 );
 
@@ -187,6 +203,15 @@ final QuizContent enZhA11Shi = enZhFill(
     CourseItem(prompt: 'I am NOT a teacher.', answer: '我**不是**老师。', accepted: ['bú shì', 'bu shi'], hint: 'wǒ bú shì lǎoshī'),
     CourseItem(prompt: 'This is tea.', answer: '这**是**茶。', accepted: ['shì'], hint: 'zhè shì chá'),
     CourseItem(prompt: 'They are students. (no plural, no "are"!)', answer: '他们**是**学生。', accepted: ['shì'], hint: 'tāmen shì xuésheng'),
+    CourseItem(prompt: 'You are a teacher.', answer: '你**是**老师。', accepted: ['shì'], hint: 'nǐ shì lǎoshī'),
+    CourseItem(prompt: 'We are friends.', answer: '我们**是**朋友。', accepted: ['shì'], hint: 'wǒmen shì péngyou'),
+    CourseItem(prompt: 'That is water.', answer: '那**是**水。', accepted: ['shì'], hint: 'nà shì shuǐ'),
+    CourseItem(prompt: 'He is NOT a student.', answer: '他**不是**学生。', accepted: ['bú shì', 'bu shi'], hint: 'tā bú shì xuésheng'),
+    CourseItem(prompt: 'This is my teacher.', answer: '这**是**我的老师。', accepted: ['shì'], hint: 'zhè shì wǒ de lǎoshī'),
+    CourseItem(prompt: 'That is NOT tea.', answer: '那**不是**茶。', accepted: ['bú shì', 'bu shi'], hint: 'nà bú shì chá'),
+    CourseItem(prompt: 'She is a doctor.', answer: '她**是**医生。', accepted: ['shì'], hint: 'tā shì yīshēng'),
+    CourseItem(prompt: 'I am British.', answer: '我**是**英国人。', accepted: ['shì'], hint: 'wǒ shì Yīngguó rén'),
+    CourseItem(prompt: 'They are NOT teachers.', answer: '他们**不是**老师。', accepted: ['bú shì', 'bu shi'], hint: 'tāmen bú shì lǎoshī'),
   ],
 );
 
@@ -221,6 +246,13 @@ final QuizContent enZhA11Numbers = enZhFill(
     CourseItem(prompt: 'twenty-two (two-ten-two)', answer: '二十二', accepted: ['èr shí èr', 'èrshí\'èr'], hint: 'èr shí èr'),
     CourseItem(prompt: 'thirty-five', answer: '三十五', accepted: ['sān shí wǔ'], hint: 'sān shí wǔ'),
     CourseItem(prompt: 'ninety-nine', answer: '九十九', accepted: ['jiǔ shí jiǔ'], hint: 'jiǔ shí jiǔ'),
+    CourseItem(prompt: 'four', answer: '四', accepted: ['sì'], hint: 'sì'),
+    CourseItem(prompt: 'sixty-eight', answer: '六十八', accepted: ['liù shí bā'], hint: 'liù shí bā'),
+    CourseItem(prompt: 'five', answer: '五', accepted: ['wǔ'], hint: 'wǔ'),
+    CourseItem(prompt: 'eight', answer: '八', accepted: ['bā'], hint: 'bā'),
+    CourseItem(prompt: 'fifteen (ten-five)', answer: '十五', accepted: ['shí wǔ', 'shíwǔ'], hint: 'shí wǔ'),
+    CourseItem(prompt: 'forty (four-ten)', answer: '四十', accepted: ['sì shí', 'sìshí'], hint: 'sì shí'),
+    CourseItem(prompt: 'seventy-three', answer: '七十三', accepted: ['qī shí sān'], hint: 'qī shí sān'),
   ],
 );
 
@@ -275,6 +307,15 @@ final QuizContent enZhA11Ma = enZhFill(
     CourseItem(prompt: 'Are you well?', answer: '你好**吗**？', accepted: ['ma'], hint: 'nǐ hǎo ma'),
     CourseItem(prompt: 'Is she your friend?', answer: '她是你的朋友**吗**？', accepted: ['ma'], hint: 'tā shì nǐ de péngyou ma'),
     CourseItem(prompt: 'And your mum?', answer: '你妈妈**呢**？', accepted: ['ne'], hint: 'nǐ māma ne'),
+    CourseItem(prompt: 'Is he a teacher?', answer: '他是老师**吗**？', accepted: ['ma'], hint: 'tā shì lǎoshī ma'),
+    CourseItem(prompt: 'Are they Chinese?', answer: '他们是中国人**吗**？', accepted: ['ma'], hint: 'tāmen shì Zhōngguó rén ma'),
+    CourseItem(prompt: 'And him?', answer: '他**呢**？', accepted: ['ne'], hint: 'tā ne'),
+    CourseItem(prompt: 'Is this tea?', answer: '这是茶**吗**？', accepted: ['ma'], hint: 'zhè shì chá ma'),
+    CourseItem(prompt: 'Is that your mum?', answer: '那是你妈妈**吗**？', accepted: ['ma'], hint: 'nà shì nǐ māma ma'),
+    CourseItem(prompt: 'And your teacher?', answer: '你的老师**呢**？', accepted: ['ne'], hint: 'nǐ de lǎoshī ne'),
+    CourseItem(prompt: 'Are you all students?', answer: '你们是学生**吗**？', accepted: ['ma'], hint: 'nǐmen shì xuésheng ma'),
+    CourseItem(prompt: 'Is this water?', answer: '这是水**吗**？', accepted: ['ma'], hint: 'zhè shì shuǐ ma'),
+    CourseItem(prompt: 'And them?', answer: '他们**呢**？', accepted: ['ne'], hint: 'tāmen ne'),
   ],
 );
 
@@ -348,6 +389,15 @@ final QuizContent enZhA11Names = enZhFill(
     CourseItem(prompt: 'He is American.', answer: '他是**美国人**。', accepted: ['Měiguó rén', 'meiguoren'], hint: 'tā shì Měiguó rén'),
     CourseItem(prompt: 'She is Chinese.', answer: '她是**中国人**。', accepted: ['Zhōngguó rén', 'zhongguoren'], hint: 'tā shì Zhōngguó rén'),
     CourseItem(prompt: 'I am called Anna.', answer: '我**叫**安娜。', accepted: ['jiào'], hint: 'wǒ jiào Ānnà'),
+    CourseItem(prompt: 'His surname is Li.', answer: '他**姓**李。', accepted: ['xìng'], hint: 'tā xìng Lǐ'),
+    CourseItem(prompt: 'She is called Xiaomei.', answer: '她**叫**小美。', accepted: ['jiào'], hint: 'tā jiào Xiǎoměi'),
+    CourseItem(prompt: 'My teacher is Chinese.', answer: '我的老师是**中国人**。', accepted: ['Zhōngguó rén', 'zhongguoren'], hint: 'wǒ de lǎoshī shì Zhōngguó rén'),
+    CourseItem(prompt: 'Are you American?', answer: '你是**美国人**吗？', accepted: ['Měiguó rén', 'meiguoren'], hint: 'nǐ shì Měiguó rén ma'),
+    CourseItem(prompt: 'What is your surname? (polite: which surname)', answer: '你**姓**什么？', accepted: ['xìng'], hint: 'nǐ xìng shénme'),
+    CourseItem(prompt: 'I am not Chinese.', answer: '我**不是**中国人。', accepted: ['bú shì', 'bu shi', 'búshì'], hint: 'wǒ bú shì Zhōngguó rén'),
+    CourseItem(prompt: 'My friend is British.', answer: '我的朋友是**英国人**。', accepted: ['Yīngguó rén', 'yingguoren'], hint: 'wǒ de péngyou shì Yīngguó rén'),
+    CourseItem(prompt: 'Is your teacher surnamed Wang?', answer: '你的老师**姓**王吗？', accepted: ['xìng'], hint: 'nǐ de lǎoshī xìng Wáng ma'),
+    CourseItem(prompt: 'He is called Dawei; he is Chinese.', answer: '他**叫**大卫，他是中国人。', accepted: ['jiào'], hint: 'tā jiào Dàwèi, tā shì Zhōngguó rén'),
   ],
 );
 
@@ -461,6 +511,13 @@ final QuizContent enZhA11Hanzi = enZhFill(
     CourseItem(prompt: 'tree / wood', answer: '木', accepted: ['mù'], hint: 'mù'),
     CourseItem(prompt: 'woman', answer: '女', accepted: ['nǚ'], hint: 'nǚ'),
     CourseItem(prompt: 'fire', answer: '火', accepted: ['huǒ'], hint: 'huǒ'),
+    CourseItem(prompt: 'earth / soil', answer: '土', accepted: ['tǔ'], hint: 'tǔ'),
+    CourseItem(prompt: 'mountain', answer: '山', accepted: ['shān'], hint: 'shān'),
+    CourseItem(prompt: 'big (a person with arms stretched wide)', answer: '大', accepted: ['dà'], hint: 'dà'),
+    CourseItem(prompt: 'small (three little dots)', answer: '小', accepted: ['xiǎo'], hint: 'xiǎo'),
+    CourseItem(prompt: 'hand', answer: '手', accepted: ['shǒu'], hint: 'shǒu'),
+    CourseItem(prompt: 'heart', answer: '心', accepted: ['xīn'], hint: 'xīn'),
+    CourseItem(prompt: 'rain (drops falling inside a window)', answer: '雨', accepted: ['yǔ'], hint: 'yǔ'),
   ],
 );
 
@@ -493,6 +550,15 @@ final QuizContent enZhA11DictHello = enZhDict(
     CourseItem(prompt: 'Thank you!', answer: '谢谢！'),
     CourseItem(prompt: 'Goodbye!', answer: '再见！'),
     CourseItem(prompt: 'Are you a student?', answer: '你是学生吗？'),
+    CourseItem(prompt: 'I am a student.', answer: '我是学生。'),
+    CourseItem(prompt: 'Who is she?', answer: '她是谁？'),
+    CourseItem(prompt: 'You\'re welcome.', answer: '不客气。'),
+    CourseItem(prompt: 'Sorry!', answer: '对不起！'),
+    CourseItem(prompt: 'Good morning!', answer: '早上好！'),
+    CourseItem(prompt: 'He is my friend.', answer: '他是我的朋友。'),
+    CourseItem(prompt: 'What is this?', answer: '这是什么？'),
+    CourseItem(prompt: 'My teacher is Chinese.', answer: '我的老师是中国人。'),
+    CourseItem(prompt: 'I am not a teacher.', answer: '我不是老师。'),
   ],
 );
 
@@ -524,6 +590,15 @@ final QuizContent enZhA11WhatWho = enZhFill(
     CourseItem(prompt: 'Who is your teacher?', answer: '你的老师是**谁**？', accepted: ['shéi', 'shuí'], hint: 'nǐ de lǎoshī shì shéi'),
     CourseItem(prompt: 'What is that?', answer: '那是**什么**？', accepted: ['shénme'], hint: 'nà shì shénme'),
     CourseItem(prompt: 'Who is he?', answer: '他是**谁**？', accepted: ['shéi', 'shuí'], hint: 'tā shì shéi'),
+    CourseItem(prompt: 'What is his name?', answer: '他叫**什么**名字？', accepted: ['shénme'], hint: 'tā jiào shénme míngzi'),
+    CourseItem(prompt: 'Who is your friend?', answer: '你的朋友是**谁**？', accepted: ['shéi', 'shuí'], hint: 'nǐ de péngyou shì shéi'),
+    CourseItem(prompt: 'What is your teacher\'s name?', answer: '你的老师叫**什么**名字？', accepted: ['shénme'], hint: 'nǐ de lǎoshī jiào shénme míngzi'),
+    CourseItem(prompt: 'Who is his teacher?', answer: '他的老师是**谁**？', accepted: ['shéi', 'shuí'], hint: 'tā de lǎoshī shì shéi'),
+    CourseItem(prompt: 'What do you drink? (answer slot after the verb)', answer: '你喝**什么**？', accepted: ['shénme'], hint: 'nǐ hē shénme'),
+    CourseItem(prompt: 'Who is that person?', answer: '那个人是**谁**？', accepted: ['shéi', 'shuí'], hint: 'nàge rén shì shéi'),
+    CourseItem(prompt: 'What do you study?', answer: '你学习**什么**？', accepted: ['shénme'], hint: 'nǐ xuéxí shénme'),
+    CourseItem(prompt: 'Whose book is this? (this is WHO\'s book)', answer: '这是**谁**的书？', accepted: ['shéi', 'shuí'], hint: 'zhè shì shéi de shū'),
+    CourseItem(prompt: 'What does she eat?', answer: '她吃**什么**？', accepted: ['shénme'], hint: 'tā chī shénme'),
   ],
 );
 

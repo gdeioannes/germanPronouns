@@ -47,6 +47,15 @@ final QuizContent enDeM10Forms = enDeFill(
     CourseItem(prompt: 'gern → more gladly', answer: 'lieber'),
     CourseItem(prompt: 'schnell → fastest (am …)', answer: 'am schnellsten'),
     CourseItem(prompt: 'gut → best (am …)', answer: 'am besten'),
+    CourseItem(prompt: 'warm → warmer', answer: 'wärmer', accepted: ['waermer']),
+    CourseItem(prompt: 'kalt → colder', answer: 'kälter', accepted: ['kaelter']),
+    CourseItem(prompt: 'kurz → shorter', answer: 'kürzer', accepted: ['kuerzer']),
+    CourseItem(prompt: 'lang → longer', answer: 'länger', accepted: ['laenger']),
+    CourseItem(prompt: 'teuer → more expensive', answer: 'teurer'),
+    CourseItem(prompt: 'hoch → higher', answer: 'höher', accepted: ['hoeher']),
+    CourseItem(prompt: 'viel → most (am …)', answer: 'am meisten'),
+    CourseItem(prompt: 'gern → most gladly (am …)', answer: 'am liebsten'),
+    CourseItem(prompt: 'alt → oldest (am …)', answer: 'am ältesten', accepted: ['am aeltesten']),
   ],
 );
 
@@ -61,6 +70,16 @@ final QuizContent enDeM10AlsWie = enDeFill(
     CourseItem(prompt: 'The car is faster than the bike.', answer: 'Das Auto ist schneller **als** das Fahrrad'),
     CourseItem(prompt: 'She is as nice as her sister.', answer: 'Sie ist so nett **wie** ihre Schwester'),
     CourseItem(prompt: 'Today it is colder than yesterday.', answer: 'Heute ist es kälter **als** gestern'),
+    CourseItem(prompt: 'The coffee is as hot as the tea. (so … wie)', answer: 'Der Kaffee ist so heiß **wie** der Tee'),
+    CourseItem(prompt: 'My brother is older than me.', answer: 'Mein Bruder ist älter **als** ich'),
+    CourseItem(prompt: 'The film is as long as the book.', answer: 'Der Film ist so lang **wie** das Buch'),
+    CourseItem(prompt: 'Berlin is bigger than Bonn.', answer: 'Berlin ist größer **als** Bonn'),
+    CourseItem(prompt: 'He runs as fast as his friend.', answer: 'Er läuft so schnell **wie** sein Freund'),
+    CourseItem(prompt: 'The hotel is more expensive than the hostel.', answer: 'Das Hotel ist teurer **als** das Hostel'),
+    CourseItem(prompt: 'She sings as beautifully as her mother.', answer: 'Sie singt so schön **wie** ihre Mutter'),
+    CourseItem(prompt: 'I drink more tea than coffee.', answer: 'Ich trinke mehr Tee **als** Kaffee'),
+    CourseItem(prompt: 'The summer is warmer than the spring.', answer: 'Der Sommer ist wärmer **als** der Frühling'),
+    CourseItem(prompt: 'He eats as much as his brother.', answer: 'Er isst so viel **wie** sein Bruder'),
   ],
 );
 

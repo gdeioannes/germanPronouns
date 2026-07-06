@@ -57,6 +57,13 @@ final QuizContent enDeM1Regular = enDeFill(
     CourseItem(prompt: 'They play often. (spielen)', answer: 'Sie **spielen** oft'),
     CourseItem(prompt: 'He works a lot. (arbeiten)', answer: 'Er **arbeitet** viel'),
     CourseItem(prompt: 'I find the city beautiful. (finden)', answer: 'Ich **finde** die Stadt schön'),
+    CourseItem(prompt: 'She learns quickly. (lernen)', answer: 'Sie **lernt** schnell'),
+    CourseItem(prompt: 'We live in Munich. (wohnen)', answer: 'Wir **wohnen** in München'),
+    CourseItem(prompt: 'You hear music. (hören, du)', answer: 'Du **hörst** Musik'),
+    CourseItem(prompt: 'They buy bread. (kaufen)', answer: 'Sie **kaufen** Brot'),
+    CourseItem(prompt: 'He comes from Austria. (kommen)', answer: 'Er **kommt** aus Österreich'),
+    CourseItem(prompt: 'You all find the film good. (finden, ihr)', answer: 'Ihr **findet** den Film gut'),
+    CourseItem(prompt: 'I go home. (gehen)', answer: 'Ich **gehe** nach Hause'),
   ],
 );
 
@@ -87,6 +94,13 @@ final QuizContent enDeM1SeinHaben = enDeFill(
     CourseItem(prompt: 'I have time. (haben)', answer: 'Ich **habe** Zeit'),
     CourseItem(prompt: 'She has a dog. (haben)', answer: 'Sie **hat** einen Hund'),
     CourseItem(prompt: 'You have a car. (haben, du)', answer: 'Du **hast** ein Auto'),
+    CourseItem(prompt: 'They are happy. (sein)', answer: 'Sie **sind** glücklich'),
+    CourseItem(prompt: 'She is a teacher. (sein)', answer: 'Sie **ist** Lehrerin'),
+    CourseItem(prompt: 'We have a question. (haben)', answer: 'Wir **haben** eine Frage'),
+    CourseItem(prompt: 'You all are lucky. (haben, ihr)', answer: 'Ihr **habt** Glück'),
+    CourseItem(prompt: 'They are hungry. (haben)', answer: 'Sie **haben** Hunger'),
+    CourseItem(prompt: 'It is late. (sein)', answer: 'Es **ist** spät'),
+    CourseItem(prompt: 'The children are loud. (sein)', answer: 'Die Kinder **sind** laut'),
   ],
 );
 
@@ -117,6 +131,15 @@ final QuizContent enDeM1WordOrder = enDeFill(
     CourseItem(prompt: 'On Monday I have time. (haben)', answer: 'Am Montag **habe** ich Zeit'),
     CourseItem(prompt: 'Now he learns German. (lernen)', answer: 'Jetzt **lernt** er Deutsch'),
     CourseItem(prompt: 'In Berlin she works. (arbeiten)', answer: 'In Berlin **arbeitet** sie'),
+    CourseItem(prompt: 'On the weekend we sleep late. (schlafen)', answer: 'Am Wochenende **schlafen** wir lange'),
+    CourseItem(prompt: 'In the evening I drink tea. (trinken)', answer: 'Am Abend **trinke** ich Tee'),
+    CourseItem(prompt: 'Tomorrow she flies to Rome. (fliegen)', answer: 'Morgen **fliegt** sie nach Rom'),
+    CourseItem(prompt: 'Unfortunately he has no time. (haben)', answer: 'Leider **hat** er keine Zeit'),
+    CourseItem(prompt: 'Today the weather is beautiful. (sein)', answer: 'Heute **ist** das Wetter schön'),
+    CourseItem(prompt: 'After work I cook. (kochen)', answer: 'Nach der Arbeit **koche** ich'),
+    CourseItem(prompt: 'Maybe we come tomorrow. (kommen)', answer: 'Vielleicht **kommen** wir morgen'),
+    CourseItem(prompt: 'Here people speak German. (sprechen, man)', answer: 'Hier **spricht** man Deutsch'),
+    CourseItem(prompt: 'On Sunday you all eat cake. (essen, ihr)', answer: 'Am Sonntag **esst** ihr Kuchen'),
   ],
 );
 
@@ -147,6 +170,14 @@ final QuizContent enDeM1Questions = enDeFill(
     CourseItem(prompt: 'When does the film begin?', answer: 'Wann **beginnt** der Film?'),
     CourseItem(prompt: 'Are you a student? (sein)', answer: '**Bist** du Student?'),
     CourseItem(prompt: 'Why are you learning German?', answer: 'Warum **lernst** du Deutsch?'),
+    CourseItem(prompt: 'Who is that? (sein)', answer: 'Wer **ist** das?'),
+    CourseItem(prompt: 'Where does she work? (arbeiten)', answer: 'Wo **arbeitet** sie?'),
+    CourseItem(prompt: 'Are you all coming? (kommen, ihr)', answer: '**Kommt** ihr?'),
+    CourseItem(prompt: 'What are you drinking? (trinken, du)', answer: 'Was **trinkst** du?'),
+    CourseItem(prompt: 'Do they live here? (wohnen)', answer: '**Wohnen** sie hier?'),
+    CourseItem(prompt: 'How is the food? (sein)', answer: 'Wie **ist** das Essen?'),
+    CourseItem(prompt: 'When do we eat? (essen)', answer: 'Wann **essen** wir?'),
+    CourseItem(prompt: 'Why is he tired? (sein)', answer: 'Warum **ist** er müde?'),
   ],
 );
 
@@ -269,6 +300,16 @@ final QuizContent enDeM1Dictation = enDeDict(
     CourseItem(prompt: 'He works in Berlin.', answer: 'Er arbeitet in Berlin.'),
     CourseItem(prompt: 'We learn German.', answer: 'Wir lernen Deutsch.'),
     CourseItem(prompt: 'Do you have time?', answer: 'Hast du Zeit?'),
+    CourseItem(prompt: 'She plays the guitar.', answer: 'Sie spielt Gitarre.'),
+    CourseItem(prompt: 'We are at home.', answer: 'Wir sind zu Hause.'),
+    CourseItem(prompt: 'I drink coffee every morning.', answer: 'Ich trinke jeden Morgen Kaffee.'),
+    CourseItem(prompt: 'Where do you live?', answer: 'Wo wohnst du?'),
+    CourseItem(prompt: 'The film begins at eight.', answer: 'Der Film beginnt um acht Uhr.'),
+    CourseItem(prompt: 'You all are very nice.', answer: 'Ihr seid sehr nett.'),
+    CourseItem(prompt: 'He finds the city beautiful.', answer: 'Er findet die Stadt schön.'),
+    CourseItem(prompt: 'Today I have no time.', answer: 'Heute habe ich keine Zeit.'),
+    CourseItem(prompt: 'They learn German together.', answer: 'Sie lernen zusammen Deutsch.'),
+    CourseItem(prompt: 'Why are you tired?', answer: 'Warum bist du müde?'),
   ],
 );
 

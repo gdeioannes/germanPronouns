@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/content/active_course_content.dart';
 import '../data/exercise_sheet_builder.dart';
@@ -14,6 +15,7 @@ import '../models/course_session.dart';
 import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
+import '../models/settings_keys.dart';
 import '../models/quiz_stats.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
@@ -521,12 +523,28 @@ class _CourseHomePageState extends State<CourseHomePage> {
   }
 
   /// Asks for the worksheet's scope (whole course / completed quizzes /
-  /// weakest knowledge) and size, then builds and shares the exercise PDF with
-  /// its fold-away answer column.
+  /// weakest knowledge), size, and where the answers print (fold-away side
+  /// column / end of each page / end of the document), then builds and shares
+  /// the exercise PDF. The picks are saved and restored as the dialog's
+  /// initial selection the next time.
   Future<void> _exerciseSheetDialog() async {
     final strings = CourseSession.instance.strings;
-    var scope = ExerciseScope.fullCourse;
-    int? count = 40;
+    final prefs = await SharedPreferences.getInstance();
+    if (!mounted) return;
+    var scope = ExerciseScope.values.firstWhere(
+      (s) => s.name == prefs.getString(SettingsKeys.exercisePdfScope),
+      orElse: () => ExerciseScope.fullCourse,
+    );
+    var placement = ExerciseAnswerPlacement.values.firstWhere(
+      (p) => p.name == prefs.getString(SettingsKeys.exercisePdfAnswers),
+      orElse: () => ExerciseAnswerPlacement.side,
+    );
+    final savedSize = prefs.getInt(SettingsKeys.exercisePdfSize);
+    int? count = switch (savedSize) {
+      0 => null, // "all"
+      20 || 40 || 80 => savedSize,
+      _ => 40,
+    };
 
     final confirmed = await showDialog<bool>(
       context: context,
@@ -573,6 +591,37 @@ class _CourseHomePageState extends State<CourseHomePage> {
                   ),
                   const SizedBox(height: 12),
                   Text(
+                    strings.answersColumn,
+                    style: Theme.of(dialogContext).textTheme.labelLarge,
+                  ),
+                  RadioGroup<ExerciseAnswerPlacement>(
+                    groupValue: placement,
+                    onChanged: (v) => setLocal(() => placement = v!),
+                    child: Column(
+                      children: [
+                        RadioListTile<ExerciseAnswerPlacement>(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(strings.exerciseAnswersSide),
+                          value: ExerciseAnswerPlacement.side,
+                        ),
+                        RadioListTile<ExerciseAnswerPlacement>(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(strings.exerciseAnswersPageEnd),
+                          value: ExerciseAnswerPlacement.pageEnd,
+                        ),
+                        RadioListTile<ExerciseAnswerPlacement>(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(strings.exerciseAnswersDocEnd),
+                          value: ExerciseAnswerPlacement.documentEnd,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
                     strings.exerciseCountLabel,
                     style: Theme.of(dialogContext).textTheme.labelLarge,
                   ),
@@ -612,6 +661,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
     );
     if (confirmed != true || !mounted) return;
 
+    await prefs.setString(SettingsKeys.exercisePdfScope, scope.name);
+    await prefs.setString(SettingsKeys.exercisePdfAnswers, placement.name);
+    await prefs.setInt(SettingsKeys.exercisePdfSize, count ?? 0);
+    if (!mounted) return;
+
     setState(() => _generatingExercises = true);
     try {
       final sections = await buildExerciseSheet(
@@ -627,7 +681,12 @@ class _CourseHomePageState extends State<CourseHomePage> {
         }
         return;
       }
-      await exportExerciseSheetPdf(sections, scope: scope, requestedSize: count);
+      await exportExerciseSheetPdf(
+        sections,
+        scope: scope,
+        placement: placement,
+        requestedSize: count,
+      );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(

@@ -50,6 +50,13 @@ final QuizContent enDeM12Weak = enDeFill(
     CourseItem(prompt: 'the small child (Nom)', answer: 'das **kleine** Kind'),
     CourseItem(prompt: 'the nice people (Nom, pl)', answer: 'die **netten** Leute'),
     CourseItem(prompt: 'with the nice people (Dat, pl)', answer: 'den **netten** Leuten'),
+    CourseItem(prompt: 'the fresh bread (Akk)', answer: 'das **frische** Brot'),
+    CourseItem(prompt: 'the strong coffee (Akk)', answer: 'den **starken** Kaffee'),
+    CourseItem(prompt: 'with the small child (Dat)', answer: 'dem **kleinen** Kind'),
+    CourseItem(prompt: 'the young woman (Akk)', answer: 'die **junge** Frau'),
+    CourseItem(prompt: 'the red shoes (Akk, pl)', answer: 'die **roten** Schuhe'),
+    CourseItem(prompt: 'with the old car (Dat)', answer: 'dem **alten** Auto'),
+    CourseItem(prompt: 'the long street (Nom)', answer: 'die **lange** Straße'),
   ],
 );
 
@@ -69,6 +76,13 @@ final QuizContent enDeM12Mixed = enDeFill(
     CourseItem(prompt: 'with a nice woman (Dat)', answer: 'einer **netten** Frau'),
     CourseItem(prompt: 'my small dog (Nom)', answer: 'mein **kleiner** Hund'),
     CourseItem(prompt: 'with my small dog (Dat)', answer: 'meinem **kleinen** Hund'),
+    CourseItem(prompt: 'a strong coffee (Akk)', answer: 'einen **starken** Kaffee'),
+    CourseItem(prompt: 'my new jacket (Nom, f)', answer: 'meine **neue** Jacke'),
+    CourseItem(prompt: 'a big house (Nom, n)', answer: 'ein **großes** Haus'),
+    CourseItem(prompt: 'no good idea (Nom, f)', answer: 'keine **gute** Idee'),
+    CourseItem(prompt: 'a long day (Nom, m)', answer: 'ein **langer** Tag'),
+    CourseItem(prompt: 'with a red car (Dat, n)', answer: 'einem **roten** Auto'),
+    CourseItem(prompt: 'my old friends (Akk, pl)', answer: 'meine **alten** Freunde'),
   ],
 );
 
@@ -121,6 +135,13 @@ final QuizContent enDeM12Strong = enDeFill(
     CourseItem(prompt: 'good friends (Nom, pl)', answer: '**gute** Freunde'),
     CourseItem(prompt: 'big houses (Akk, pl)', answer: '**große** Häuser', accepted: ['grosse Häuser']),
     CourseItem(prompt: 'fresh bread (Nom, n)', answer: '**frisches** Brot'),
+    CourseItem(prompt: 'strong tea (Nom, m)', answer: '**starker** Tee'),
+    CourseItem(prompt: 'warm soup (Akk, f)', answer: '**warme** Suppe'),
+    CourseItem(prompt: 'green salad (Akk, m)', answer: '**grünen** Salat', accepted: ['gruenen Salat']),
+    CourseItem(prompt: 'with fresh milk (Dat, f)', answer: '**frischer** Milch'),
+    CourseItem(prompt: 'young people (Nom, pl)', answer: '**junge** Leute'),
+    CourseItem(prompt: 'with good friends (Dat, pl)', answer: '**guten** Freunden'),
+    CourseItem(prompt: 'red wine (Akk, m)', answer: '**roten** Wein'),
   ],
 );
 
@@ -137,6 +158,15 @@ final QuizContent enDeM12Mixed2 = enDeFill(
     CourseItem(prompt: 'She has a new car. (ein, Akk n)', answer: 'Sie hat ein **neues** Auto'),
     CourseItem(prompt: 'We live in a big house. (ein, Dat n)', answer: 'Wir wohnen in einem **großen** Haus', accepted: ['Wir wohnen in einem grossen Haus']),
     CourseItem(prompt: 'I like fresh bread. (no article, Akk n)', answer: 'Ich mag **frisches** Brot'),
+    CourseItem(prompt: 'The small child sleeps. (der, Nom)', answer: 'Das **kleine** Kind schläft'),
+    CourseItem(prompt: 'He buys a red car. (ein, Akk n)', answer: 'Er kauft ein **rotes** Auto'),
+    CourseItem(prompt: 'She wears the blue jacket. (der, Akk f)', answer: 'Sie trägt die **blaue** Jacke'),
+    CourseItem(prompt: 'We drink cold water. (no article, Akk n)', answer: 'Wir trinken **kaltes** Wasser'),
+    CourseItem(prompt: 'I talk with the nice neighbour. (der, Dat m)', answer: 'Ich spreche mit dem **netten** Nachbarn'),
+    CourseItem(prompt: 'They visit an old castle. (ein, Akk n)', answer: 'Sie besuchen ein **altes** Schloss'),
+    CourseItem(prompt: 'The young woman reads. (der, Nom f)', answer: 'Die **junge** Frau liest'),
+    CourseItem(prompt: 'He eats warm soup. (no article, Akk f)', answer: 'Er isst **warme** Suppe'),
+    CourseItem(prompt: 'I sit in a comfortable chair. (ein, Dat m)', answer: 'Ich sitze in einem **bequemen** Sessel'),
   ],
 );
 
@@ -189,6 +219,16 @@ final QuizContent enDeM12Dictation = enDeDict(
     CourseItem(prompt: 'I drink hot coffee.', answer: 'Ich trinke heißen Kaffee.'),
     CourseItem(prompt: 'a new car', answer: 'ein neues Auto'),
     CourseItem(prompt: 'good friends', answer: 'gute Freunde'),
+    CourseItem(prompt: 'the young woman', answer: 'die junge Frau'),
+    CourseItem(prompt: 'She wears a blue jacket.', answer: 'Sie trägt eine blaue Jacke.'),
+    CourseItem(prompt: 'with the nice people', answer: 'mit den netten Leuten'),
+    CourseItem(prompt: 'We drink cold water.', answer: 'Wir trinken kaltes Wasser.'),
+    CourseItem(prompt: 'my old house', answer: 'mein altes Haus'),
+    CourseItem(prompt: 'He buys fresh bread.', answer: 'Er kauft frisches Brot.'),
+    CourseItem(prompt: 'a long day', answer: 'ein langer Tag'),
+    CourseItem(prompt: 'I help the small child.', answer: 'Ich helfe dem kleinen Kind.'),
+    CourseItem(prompt: 'the red shoes', answer: 'die roten Schuhe'),
+    CourseItem(prompt: 'We live in a big house.', answer: 'Wir wohnen in einem großen Haus.'),
   ],
 );
 

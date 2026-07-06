@@ -288,6 +288,24 @@ final QuizContent questNegationContent = sentenceQuestQuiz(
       english: 'The film is not good.',
       hint: 'Negates an adjective → nicht.',
     ),
+    QuestSentenceItem(
+      sentence: 'Ich esse ____ Fleisch.',
+      answer: 'kein',
+      english: 'I do not eat meat.',
+      hint: 'Fleisch is neuter (das) → kein.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Er kommt heute ____.',
+      answer: 'nicht',
+      english: 'He is not coming today.',
+      hint: 'Negates the verb → nicht.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Wir haben ____ Fragen.',
+      answer: 'keine',
+      english: 'We have no questions.',
+      hint: 'Plural noun (die Fragen) → keine.',
+    ),
   ],
   intro: 'German has two ways to say "not". kein negates a noun (it replaces '
       'ein or the article); nicht negates everything else — verbs, adjectives '
@@ -437,6 +455,9 @@ final QuizContent questUhrzeitContent = sentenceQuestQuiz(
     _time('18:15', 'Viertel nach sechs', []),
     _time('20:45', 'Viertel vor neun', []),
     _time('21:15', 'Viertel nach neun', []),
+    _time('06:30', 'halb sieben', []),
+    _time('17:15', 'Viertel nach fünf', []),
+    _time('19:30', 'halb acht', []),
   ],
   intro: 'Colloquial German clock times use "nach" (past) and "vor" (to). The '
       'word "halb" counts toward the NEXT hour, which trips up English '
@@ -658,6 +679,36 @@ final QuizContent questPraepositionenContent = sentenceQuestQuiz(
       english: 'The car drives into the tree.',
       hint: 'gegen → accusative. der Baum → den Baum.',
     ),
+    QuestSentenceItem(
+      sentence: 'Der Bus fährt durch ____ Dorf.',
+      answer: 'das',
+      english: 'The bus drives through the village.',
+      hint: 'durch → accusative. das Dorf stays das.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Blumen sind für ____ Frau.',
+      answer: 'die',
+      english: 'The flowers are for the woman.',
+      hint: 'für → accusative. die Frau stays die.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Wir spielen gegen ____ Mannschaft.',
+      answer: 'die',
+      english: 'We play against the team.',
+      hint: 'gegen → accusative. die Mannschaft stays die.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Ohne ____ Schlüssel komme ich nicht rein.',
+      answer: 'den',
+      english: 'Without the key I cannot get in.',
+      hint: 'ohne → accusative. der Schlüssel → den Schlüssel.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Wir laufen um ____ See.',
+      answer: 'den',
+      english: 'We run around the lake.',
+      hint: 'um → accusative. der See → den See.',
+    ),
   ],
   intro: 'The prepositions durch, für, gegen, ohne and um always take the '
       'accusative, so the article on the following noun shifts to its '
@@ -749,6 +800,37 @@ final QuizContent questTrennbareContent = sentenceQuestQuiz(
       english: 'We come back on Friday.',
       hint: 'wir form of (zurück)kommen.',
     ),
+    QuestSentenceItem(
+      sentence: 'Der Film ____ um acht Uhr an. (anfangen)',
+      answer: 'fängt',
+      english: 'The film starts at eight.',
+      hint: 'er/es form of (an)fangen — stem-changing a → ä.',
+      accepted: ['faengt'],
+    ),
+    QuestSentenceItem(
+      sentence: 'Ich ____ Brot vom Bäcker mit. (mitbringen)',
+      answer: 'bringe',
+      english: 'I bring bread from the bakery.',
+      hint: 'ich form of (mit)bringen.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Sie ____ heute Abend mit Freunden aus. (ausgehen)',
+      answer: 'geht',
+      english: 'She goes out with friends tonight.',
+      hint: 'sie (she) form of (aus)gehen.',
+    ),
+    QuestSentenceItem(
+      sentence: '____ du bitte das Licht aus? (ausmachen)',
+      answer: 'machst',
+      english: 'Will you turn the light off, please?',
+      hint: 'du form of (aus)machen — the verb starts the yes/no question.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Er ____ die Kinder von der Schule ab. (abholen)',
+      answer: 'holt',
+      english: 'He picks the children up from school.',
+      hint: 'er form of (ab)holen.',
+    ),
   ],
   intro: 'Separable verbs split in a main clause: the prefix jumps to the END '
       'of the sentence while the conjugated stem stays in second position.',
@@ -830,6 +912,42 @@ final QuizContent questPronomenAkkContent = sentenceQuestQuiz(
       sentence: 'Ich verstehe ____ gut, Frau Müller. (you, formal)',
       answer: 'Sie',
       english: 'I understand ____ (you) well, Mrs Müller.',
+    ),
+    QuestSentenceItem(
+      sentence: 'Hörst du ____? Ich spreche mit dir! (me)',
+      answer: 'mich',
+      english: "Do you hear ____? I'm talking to you! (me)",
+      gloss: 'me (hear)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Ich rufe ____ heute Abend an. (you, informal)',
+      answer: 'dich',
+      english: 'I will call ____ tonight. (you, informal)',
+      gloss: 'you (call)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Wo ist der Schlüssel? Ich finde ____ nicht. (it — der Schlüssel)',
+      answer: 'ihn',
+      english: "Where is the key? I can't find ____. (it — der Schlüssel)",
+      gloss: 'it (der → ihn)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Die Musik ist toll. Ich höre ____ gern. (it — die Musik)',
+      answer: 'sie',
+      english: 'The music is great. I like listening to ____. (it — die Musik)',
+      gloss: 'it (die → sie)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Das Fenster ist offen. Bitte mach ____ zu. (it — das Fenster)',
+      answer: 'es',
+      english: 'The window is open. Please close ____. (it — das Fenster)',
+      gloss: 'it (das → es)',
+    ),
+    QuestSentenceItem(
+      sentence: 'Wir gehen ins Kino. Der Film interessiert ____. (us)',
+      answer: 'uns',
+      english: "We're going to the cinema. The film interests ____. (us)",
+      gloss: 'us (object)',
     ),
   ],
   intro: 'When a pronoun is the direct object (the accusative), it changes form: '
@@ -1352,6 +1470,31 @@ final QuizContent questDiktatMeinTagContent = dictationQuestQuiz(
     SpeakPhrase(
       phrase: 'Der Zug fährt um neun Uhr ab.',
       meaning: 'The train leaves at nine.',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich frühstücke um acht Uhr.',
+      meaning: 'I have breakfast at eight.',
+    ),
+    SpeakPhrase(
+      phrase: 'Am Montag kaufe ich ein.',
+      meaning: 'On Monday I go shopping.',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich rufe meine Mutter an.',
+      meaning: 'I call my mother.',
+    ),
+    SpeakPhrase(
+      phrase: 'Das macht vier Euro fünfzig.',
+      meaning: 'That comes to four euros fifty.',
+    ),
+    SpeakPhrase(phrase: 'Ich habe keine Zeit.', meaning: 'I have no time.'),
+    SpeakPhrase(
+      phrase: 'Wir essen um halb sieben.',
+      meaning: 'We eat at half past six.',
+    ),
+    SpeakPhrase(
+      phrase: 'Am Abend lese ich ein Buch.',
+      meaning: 'In the evening I read a book.',
     ),
   ],
 );

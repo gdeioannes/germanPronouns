@@ -47,6 +47,10 @@ class AppStrings {
     required this.exerciseFoldBody,
     required this.answersColumn,
     required this.foldHere,
+    required this.exerciseAnswersSide,
+    required this.exerciseAnswersPageEnd,
+    required this.exerciseAnswersDocEnd,
+    required this.answerKeyTitle,
     required this.nameLabel,
     required this.dateLabel,
     required this.nothingToPrint,
@@ -190,6 +194,10 @@ class AppStrings {
   final String exerciseFoldBody;
   final String answersColumn;
   final String foldHere;
+  final String exerciseAnswersSide;
+  final String exerciseAnswersPageEnd;
+  final String exerciseAnswersDocEnd;
+  final String answerKeyTitle;
   final String nameLabel;
   final String dateLabel;
   final String nothingToPrint;
@@ -410,6 +418,10 @@ const AppStrings _en = AppStrings(
       'to check yourself.',
   answersColumn: 'Answers',
   foldHere: 'fold here',
+  exerciseAnswersSide: 'Beside each exercise (fold away)',
+  exerciseAnswersPageEnd: 'At the end of each page',
+  exerciseAnswersDocEnd: 'At the end of the document',
+  answerKeyTitle: 'Answer key',
   nameLabel: 'Name',
   dateLabel: 'Date',
   nothingToPrint: 'Nothing to print for this selection yet.',
@@ -572,6 +584,10 @@ const AppStrings _es = AppStrings(
       'desdóblala para corregirte.',
   answersColumn: 'Respuestas',
   foldHere: 'dobla aquí',
+  exerciseAnswersSide: 'Junto a cada ejercicio (para doblar)',
+  exerciseAnswersPageEnd: 'Al final de cada página',
+  exerciseAnswersDocEnd: 'Al final del documento',
+  answerKeyTitle: 'Soluciones',
   nameLabel: 'Nombre',
   dateLabel: 'Fecha',
   nothingToPrint: 'Aún no hay nada que imprimir para esta selección.',
@@ -738,6 +754,10 @@ const AppStrings _de = AppStrings(
       'falte es zum Korrigieren wieder auf.',
   answersColumn: 'Antworten',
   foldHere: 'hier falten',
+  exerciseAnswersSide: 'Neben jeder Übung (zum Wegfalten)',
+  exerciseAnswersPageEnd: 'Am Ende jeder Seite',
+  exerciseAnswersDocEnd: 'Am Ende des Dokuments',
+  answerKeyTitle: 'Lösungen',
   nameLabel: 'Name',
   dateLabel: 'Datum',
   nothingToPrint: 'Für diese Auswahl gibt es noch nichts zu drucken.',
@@ -899,6 +919,10 @@ const AppStrings _zh = AppStrings(
   exerciseFoldBody: '右侧栏是每道练习的答案。沿虚线把纸折起来，写答案时就看不到它；写完后展开即可自我批改。',
   answersColumn: '答案',
   foldHere: '沿此折叠',
+  exerciseAnswersSide: '在每道题旁边（可折起来）',
+  exerciseAnswersPageEnd: '在每页末尾',
+  exerciseAnswersDocEnd: '在文档末尾',
+  answerKeyTitle: '参考答案',
   nameLabel: '姓名',
   dateLabel: '日期',
   nothingToPrint: '当前选择还没有可打印的内容。',

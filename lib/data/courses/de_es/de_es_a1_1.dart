@@ -30,6 +30,8 @@ final QuizContent deEsA11Saludos = deEsFill(
     CourseItem(prompt: 'Gut, danke', answer: 'Bien, gracias'),
     CourseItem(prompt: 'Ja', answer: 'Sí'),
     CourseItem(prompt: 'Nein', answer: 'No'),
+    CourseItem(prompt: 'Bis morgen', answer: 'Hasta mañana'),
+    CourseItem(prompt: 'Willkommen', answer: 'Bienvenido', accepted: ['Bienvenida']),
   ],
 );
 
@@ -79,6 +81,12 @@ final QuizContent deEsA11Pronombres = deEsFill(
     CourseItem(prompt: 'sie (Plural)', answer: 'ellos', accepted: ['ellas']),
     CourseItem(prompt: 'Sie (höflich)', answer: 'usted'),
     CourseItem(prompt: 'Sie (höflich, Plural)', answer: 'ustedes'),
+    CourseItem(prompt: 'wir (nur Frauen)', answer: 'nosotras'),
+    CourseItem(prompt: 'sie (Plural, nur Frauen)', answer: 'ellas'),
+    CourseItem(prompt: 'ihr (nur Frauen)', answer: 'vosotras'),
+    CourseItem(prompt: 'Anna und ich (= wir)', answer: 'nosotros', accepted: ['nosotras']),
+    CourseItem(prompt: 'Herr López (höfliche Anrede)', answer: 'usted'),
+    CourseItem(prompt: 'Tom und Anna (= sie)', answer: 'ellos'),
   ],
 );
 
@@ -106,6 +114,10 @@ final QuizContent deEsA11Ser = deEsFill(
     CourseItem(prompt: 'Er ist aus Berlin.', answer: 'Es de Berlín.'),
     CourseItem(prompt: 'Wir sind Deutsche.', answer: 'Somos alemanes.'),
     CourseItem(prompt: 'Es ist wichtig.', answer: 'Es importante.'),
+    CourseItem(prompt: 'Sie sind Lehrer. (Plural)', answer: 'Son profesores.'),
+    CourseItem(prompt: 'Ihr seid nett.', answer: 'Sois simpáticos.'),
+    CourseItem(prompt: 'Sie ist meine Freundin.', answer: 'Es mi amiga.'),
+    CourseItem(prompt: 'Sind Sie Herr García?', answer: '¿Es usted el señor García?'),
   ],
 );
 
@@ -195,6 +207,9 @@ final QuizContent deEsA11Nacionalidades = deEsFill(
     CourseItem(prompt: 'Italien', answer: 'Italia'),
     CourseItem(prompt: 'England', answer: 'Inglaterra'),
     CourseItem(prompt: 'Ich spreche Deutsch.', answer: 'Hablo alemán.'),
+    CourseItem(prompt: 'ein Spanier', answer: 'un español'),
+    CourseItem(prompt: 'eine Spanierin', answer: 'una española'),
+    CourseItem(prompt: 'Mexiko', answer: 'México', accepted: ['Méjico']),
   ],
 );
 
@@ -222,6 +237,10 @@ final QuizContent deEsA11Genero = deEsFill(
     CourseItem(prompt: 'das Wasser', answer: 'el agua'),
     CourseItem(prompt: 'die Blume', answer: 'la flor'),
     CourseItem(prompt: 'die Stadt', answer: 'la ciudad'),
+    CourseItem(prompt: 'ein Auto', answer: 'un coche'),
+    CourseItem(prompt: 'eine Tür', answer: 'una puerta'),
+    CourseItem(prompt: 'der Tag', answer: 'el día'),
+    CourseItem(prompt: 'die Hand', answer: 'la mano'),
   ],
 );
 
@@ -300,6 +319,10 @@ final QuizContent deEsA11Profesiones = deEsFill(
     CourseItem(prompt: 'der Anwalt', answer: 'el abogado'),
     CourseItem(prompt: 'der Koch', answer: 'el cocinero'),
     CourseItem(prompt: 'arbeitslos', answer: 'desempleado', accepted: ['en paro']),
+    CourseItem(prompt: 'der Journalist', answer: 'el periodista'),
+    CourseItem(prompt: 'die Verkäuferin', answer: 'la vendedora'),
+    CourseItem(prompt: 'der Polizist', answer: 'el policía'),
+    CourseItem(prompt: 'Ich bin Ingenieurin.', answer: 'Soy ingeniera.'),
   ],
 );
 
@@ -326,6 +349,10 @@ final QuizContent deEsA11VerbosAr = deEsFill(
     CourseItem(prompt: 'wir reisen (viajar)', answer: 'viajamos'),
     CourseItem(prompt: 'sie kaufen (comprar)', answer: 'compran'),
     CourseItem(prompt: 'Ich spreche Spanisch.', answer: 'Hablo español.'),
+    CourseItem(prompt: 'du tanzt (bailar)', answer: 'bailas'),
+    CourseItem(prompt: 'er hört Musik (escuchar)', answer: 'escucha'),
+    CourseItem(prompt: 'ihr singt (cantar)', answer: 'cantáis'),
+    CourseItem(prompt: 'Wir arbeiten in Madrid.', answer: 'Trabajamos en Madrid.'),
   ],
 );
 

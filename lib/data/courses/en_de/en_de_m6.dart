@@ -55,6 +55,12 @@ final QuizContent enDeM6List = enDeFill(
     CourseItem(prompt: 'under', answer: 'unter'),
     CourseItem(prompt: 'in front of', answer: 'vor'),
     CourseItem(prompt: 'between', answer: 'zwischen'),
+    CourseItem(prompt: 'The picture hangs ___ the wall. (on, vertical)', answer: 'Das Bild hängt **an** der Wand'),
+    CourseItem(prompt: 'The book lies ___ the table. (on top of)', answer: 'Das Buch liegt **auf** dem Tisch'),
+    CourseItem(prompt: 'The garden is ___ the house. (behind)', answer: 'Der Garten ist **hinter** dem Haus'),
+    CourseItem(prompt: 'The lamp hangs ___ the table. (above)', answer: 'Die Lampe hängt **über** dem Tisch'),
+    CourseItem(prompt: 'The dog lies ___ the bed. (under)', answer: 'Der Hund liegt **unter** dem Bett'),
+    CourseItem(prompt: 'The car stands ___ the door. (in front of)', answer: 'Das Auto steht **vor** der Tür'),
   ],
 );
 
@@ -71,6 +77,15 @@ final QuizContent enDeM6Wohin = enDeFill(
     CourseItem(prompt: 'It goes behind the curtain. (hinter, der Vorhang)', answer: 'Sie geht hinter **den** Vorhang'),
     CourseItem(prompt: 'It jumps onto the sofa. (auf, das Sofa)', answer: 'Sie springt auf **das** Sofa'),
     CourseItem(prompt: 'It hides between the boxes. (zwischen, die Kisten, pl)', answer: 'Sie versteckt sich zwischen **die** Kisten'),
+    CourseItem(prompt: 'It climbs onto the wardrobe. (auf, der Schrank)', answer: 'Sie klettert auf **den** Schrank'),
+    CourseItem(prompt: 'It jumps onto the windowsill. (auf, die Fensterbank)', answer: 'Sie springt auf **die** Fensterbank'),
+    CourseItem(prompt: 'It runs in front of the door. (vor, die Tür)', answer: 'Sie läuft vor **die** Tür'),
+    CourseItem(prompt: 'It creeps into the box. (in, der Karton)', answer: 'Sie kriecht in **den** Karton'),
+    CourseItem(prompt: 'It jumps over the fence. (über, der Zaun)', answer: 'Sie springt über **den** Zaun'),
+    CourseItem(prompt: 'It runs next to the man. (neben, der Mann)', answer: 'Sie läuft neben **den** Mann'),
+    CourseItem(prompt: 'I hang the picture on the wall. (an, die Wand)', answer: 'Ich hänge das Bild an **die** Wand'),
+    CourseItem(prompt: 'I put the milk into the fridge. (in, der Kühlschrank)', answer: 'Ich stelle die Milch in **den** Kühlschrank'),
+    CourseItem(prompt: 'It jumps into the garden. (in, der Garten)', answer: 'Sie springt in **den** Garten'),
   ],
 );
 
@@ -119,6 +134,15 @@ final QuizContent enDeM6Wo = enDeFill(
     CourseItem(prompt: 'It is behind the curtain. (hinter, der Vorhang)', answer: 'Sie ist hinter **dem** Vorhang'),
     CourseItem(prompt: 'It sits on the sofa. (auf, das Sofa)', answer: 'Sie sitzt auf **dem** Sofa'),
     CourseItem(prompt: 'It waits between the boxes. (zwischen, die Kisten, pl)', answer: 'Sie wartet zwischen **den** Kisten'),
+    CourseItem(prompt: 'It sits on the wardrobe. (auf, der Schrank)', answer: 'Sie sitzt auf **dem** Schrank'),
+    CourseItem(prompt: 'It sleeps on the windowsill. (auf, die Fensterbank)', answer: 'Sie schläft auf **der** Fensterbank'),
+    CourseItem(prompt: 'It waits in front of the door. (vor, die Tür)', answer: 'Sie wartet vor **der** Tür'),
+    CourseItem(prompt: 'It lies in the box. (in, der Karton)', answer: 'Sie liegt in **dem** Karton'),
+    CourseItem(prompt: 'The picture hangs on the wall. (an, die Wand)', answer: 'Das Bild hängt an **der** Wand'),
+    CourseItem(prompt: 'The milk is in the fridge. (in, der Kühlschrank)', answer: 'Die Milch steht in **dem** Kühlschrank'),
+    CourseItem(prompt: 'It sits next to the man. (neben, der Mann)', answer: 'Sie sitzt neben **dem** Mann'),
+    CourseItem(prompt: 'The lamp hangs above the table. (über, der Tisch)', answer: 'Die Lampe hängt über **dem** Tisch'),
+    CourseItem(prompt: 'It plays in the garden. (in, der Garten)', answer: 'Sie spielt in **dem** Garten'),
   ],
 );
 
@@ -135,6 +159,15 @@ final QuizContent enDeM6Mixed = enDeFill(
     CourseItem(prompt: 'It sleeps under the chair. (unter, der Stuhl)', answer: 'Sie schläft unter **dem** Stuhl'),
     CourseItem(prompt: 'It climbs onto the wardrobe. (auf, der Schrank)', answer: 'Sie klettert auf **den** Schrank'),
     CourseItem(prompt: 'It sits on the wardrobe. (auf, der Schrank)', answer: 'Sie sitzt auf **dem** Schrank'),
+    CourseItem(prompt: 'It jumps into the garden. (in, der Garten)', answer: 'Sie springt in **den** Garten'),
+    CourseItem(prompt: 'It plays in the garden. (in, der Garten)', answer: 'Sie spielt in **dem** Garten'),
+    CourseItem(prompt: 'I hang the picture on the wall. (an, die Wand)', answer: 'Ich hänge das Bild an **die** Wand'),
+    CourseItem(prompt: 'The picture hangs on the wall. (an, die Wand)', answer: 'Das Bild hängt an **der** Wand'),
+    CourseItem(prompt: 'It runs in front of the door. (vor, die Tür)', answer: 'Sie rennt vor **die** Tür'),
+    CourseItem(prompt: 'It waits in front of the door. (vor, die Tür)', answer: 'Sie wartet vor **der** Tür'),
+    CourseItem(prompt: 'I put the milk into the fridge. (in, der Kühlschrank)', answer: 'Ich stelle die Milch in **den** Kühlschrank'),
+    CourseItem(prompt: 'She lays the book onto the table. (auf, der Tisch)', answer: 'Sie legt das Buch auf **den** Tisch'),
+    CourseItem(prompt: 'The book lies on the table. (auf, der Tisch)', answer: 'Das Buch liegt auf **dem** Tisch'),
   ],
 );
 
