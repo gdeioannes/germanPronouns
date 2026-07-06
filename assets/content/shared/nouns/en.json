@@ -1,0 +1,1422 @@
+{
+  "categoryDisplayNames": {
+    "family": "家人 (Family)",
+    "food": "食物 (Food)",
+    "drinks": "饮料 (Drinks)",
+    "animals": "动物 (Animals)",
+    "bodyParts": "身体 (Body)",
+    "clothing": "衣服 (Clothing)",
+    "city": "城市 (City)",
+    "transport": "交通 (Transport)",
+    "school": "学校 (School)",
+    "time": "时间 (Time)",
+    "nature": "自然 (Nature)"
+  },
+  "nouns": [
+    {
+      "noun": "father",
+      "gender": "-",
+      "english": "father",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "父亲 fùqīn"
+      }
+    },
+    {
+      "noun": "mother",
+      "gender": "-",
+      "english": "mother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "母亲 mǔqīn"
+      }
+    },
+    {
+      "noun": "brother",
+      "gender": "-",
+      "english": "brother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "兄弟 xiōngdì"
+      }
+    },
+    {
+      "noun": "sister",
+      "gender": "-",
+      "english": "sister",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "姐妹 jiěmèi"
+      }
+    },
+    {
+      "noun": "son",
+      "gender": "-",
+      "english": "son",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "儿子 érzi"
+      }
+    },
+    {
+      "noun": "daughter",
+      "gender": "-",
+      "english": "daughter",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "女儿 nǚ'ér"
+      }
+    },
+    {
+      "noun": "grandfather",
+      "gender": "-",
+      "english": "grandfather",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "祖父 zǔfù"
+      }
+    },
+    {
+      "noun": "grandmother",
+      "gender": "-",
+      "english": "grandmother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "祖母 zǔmǔ"
+      }
+    },
+    {
+      "noun": "family",
+      "gender": "-",
+      "english": "family",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "家庭 jiātíng"
+      }
+    },
+    {
+      "noun": "friend",
+      "gender": "-",
+      "english": "friend",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "朋友 péngyou"
+      }
+    },
+    {
+      "noun": "child",
+      "gender": "-",
+      "english": "child",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "孩子 háizi"
+      }
+    },
+    {
+      "noun": "parents",
+      "gender": "-",
+      "english": "parents",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "父母 fùmǔ"
+      }
+    },
+    {
+      "noun": "bread",
+      "gender": "-",
+      "english": "bread",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "面包 miànbāo"
+      }
+    },
+    {
+      "noun": "cheese",
+      "gender": "-",
+      "english": "cheese",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "奶酪 nǎilào"
+      }
+    },
+    {
+      "noun": "egg",
+      "gender": "-",
+      "english": "egg",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "鸡蛋 jīdàn"
+      }
+    },
+    {
+      "noun": "meat",
+      "gender": "-",
+      "english": "meat",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "肉 ròu"
+      }
+    },
+    {
+      "noun": "fish",
+      "gender": "-",
+      "english": "fish",
+      "categories": [
+        "food",
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "鱼 yú"
+      }
+    },
+    {
+      "noun": "rice",
+      "gender": "-",
+      "english": "rice",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "米饭 mǐfàn"
+      }
+    },
+    {
+      "noun": "apple",
+      "gender": "-",
+      "english": "apple",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "苹果 píngguǒ"
+      }
+    },
+    {
+      "noun": "banana",
+      "gender": "-",
+      "english": "banana",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "香蕉 xiāngjiāo"
+      }
+    },
+    {
+      "noun": "vegetable",
+      "gender": "-",
+      "english": "vegetable",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "蔬菜 shūcài"
+      }
+    },
+    {
+      "noun": "soup",
+      "gender": "-",
+      "english": "soup",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "汤 tāng"
+      }
+    },
+    {
+      "noun": "cake",
+      "gender": "-",
+      "english": "cake",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "蛋糕 dàngāo"
+      }
+    },
+    {
+      "noun": "salad",
+      "gender": "-",
+      "english": "salad",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "沙拉 shālā"
+      }
+    },
+    {
+      "noun": "water",
+      "gender": "-",
+      "english": "water",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "水 shuǐ"
+      }
+    },
+    {
+      "noun": "coffee",
+      "gender": "-",
+      "english": "coffee",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "咖啡 kāfēi"
+      }
+    },
+    {
+      "noun": "tea",
+      "gender": "-",
+      "english": "tea",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "茶 chá"
+      }
+    },
+    {
+      "noun": "milk",
+      "gender": "-",
+      "english": "milk",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "牛奶 niúnǎi"
+      }
+    },
+    {
+      "noun": "juice",
+      "gender": "-",
+      "english": "juice",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "果汁 guǒzhī"
+      }
+    },
+    {
+      "noun": "beer",
+      "gender": "-",
+      "english": "beer",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "啤酒 píjiǔ"
+      }
+    },
+    {
+      "noun": "wine",
+      "gender": "-",
+      "english": "wine",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "葡萄酒 pútaojiǔ"
+      }
+    },
+    {
+      "noun": "bottle",
+      "gender": "-",
+      "english": "bottle",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "瓶子 píngzi"
+      }
+    },
+    {
+      "noun": "dog",
+      "gender": "-",
+      "english": "dog",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "狗 gǒu"
+      }
+    },
+    {
+      "noun": "cat",
+      "gender": "-",
+      "english": "cat",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "猫 māo"
+      }
+    },
+    {
+      "noun": "horse",
+      "gender": "-",
+      "english": "horse",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "马 mǎ"
+      }
+    },
+    {
+      "noun": "cow",
+      "gender": "-",
+      "english": "cow",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "奶牛 nǎiniú"
+      }
+    },
+    {
+      "noun": "bird",
+      "gender": "-",
+      "english": "bird",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "鸟 niǎo"
+      }
+    },
+    {
+      "noun": "mouse",
+      "gender": "-",
+      "english": "mouse",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "老鼠 lǎoshǔ"
+      }
+    },
+    {
+      "noun": "sheep",
+      "gender": "-",
+      "english": "sheep",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "羊 yáng"
+      }
+    },
+    {
+      "noun": "pig",
+      "gender": "-",
+      "english": "pig",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "猪 zhū"
+      }
+    },
+    {
+      "noun": "head",
+      "gender": "-",
+      "english": "head",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "头 tóu"
+      }
+    },
+    {
+      "noun": "hand",
+      "gender": "-",
+      "english": "hand",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "手 shǒu"
+      }
+    },
+    {
+      "noun": "eye",
+      "gender": "-",
+      "english": "eye",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "眼睛 yǎnjing"
+      }
+    },
+    {
+      "noun": "ear",
+      "gender": "-",
+      "english": "ear",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "耳朵 ěrduo"
+      }
+    },
+    {
+      "noun": "mouth",
+      "gender": "-",
+      "english": "mouth",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "嘴 zuǐ"
+      }
+    },
+    {
+      "noun": "nose",
+      "gender": "-",
+      "english": "nose",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "鼻子 bízi"
+      }
+    },
+    {
+      "noun": "arm",
+      "gender": "-",
+      "english": "arm",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "手臂 shǒubì"
+      }
+    },
+    {
+      "noun": "leg",
+      "gender": "-",
+      "english": "leg",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "腿 tuǐ"
+      }
+    },
+    {
+      "noun": "foot",
+      "gender": "-",
+      "english": "foot",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "脚 jiǎo"
+      }
+    },
+    {
+      "noun": "heart",
+      "gender": "-",
+      "english": "heart",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "心脏 xīnzàng"
+      }
+    },
+    {
+      "noun": "shirt",
+      "gender": "-",
+      "english": "shirt",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "衬衫 chènshān"
+      }
+    },
+    {
+      "noun": "trousers",
+      "gender": "-",
+      "english": "trousers",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "裤子 kùzi"
+      }
+    },
+    {
+      "noun": "skirt",
+      "gender": "-",
+      "english": "skirt",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "裙子 qúnzi"
+      }
+    },
+    {
+      "noun": "dress",
+      "gender": "-",
+      "english": "dress",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "连衣裙 liányīqún"
+      }
+    },
+    {
+      "noun": "shoe",
+      "gender": "-",
+      "english": "shoe",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "鞋 xié"
+      }
+    },
+    {
+      "noun": "coat",
+      "gender": "-",
+      "english": "coat",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "外套 wàitào"
+      }
+    },
+    {
+      "noun": "hat",
+      "gender": "-",
+      "english": "hat",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "帽子 màozi"
+      }
+    },
+    {
+      "noun": "sock",
+      "gender": "-",
+      "english": "sock",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "袜子 wàzi"
+      }
+    },
+    {
+      "noun": "city",
+      "gender": "-",
+      "english": "city",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "城市 chéngshì"
+      }
+    },
+    {
+      "noun": "street",
+      "gender": "-",
+      "english": "street",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "街道 jiēdào"
+      }
+    },
+    {
+      "noun": "house",
+      "gender": "-",
+      "english": "house",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "房子 fángzi"
+      }
+    },
+    {
+      "noun": "shop",
+      "gender": "-",
+      "english": "shop",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "商店 shāngdiàn"
+      }
+    },
+    {
+      "noun": "market",
+      "gender": "-",
+      "english": "market",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "市场 shìchǎng"
+      }
+    },
+    {
+      "noun": "church",
+      "gender": "-",
+      "english": "church",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "教堂 jiàotáng"
+      }
+    },
+    {
+      "noun": "museum",
+      "gender": "-",
+      "english": "museum",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "博物馆 bówùguǎn"
+      }
+    },
+    {
+      "noun": "bank",
+      "gender": "-",
+      "english": "bank",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "银行 yínháng"
+      }
+    },
+    {
+      "noun": "park",
+      "gender": "-",
+      "english": "park",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "公园 gōngyuán"
+      }
+    },
+    {
+      "noun": "hospital",
+      "gender": "-",
+      "english": "hospital",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "医院 yīyuàn"
+      }
+    },
+    {
+      "noun": "car",
+      "gender": "-",
+      "english": "car",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "汽车 qìchē"
+      }
+    },
+    {
+      "noun": "train",
+      "gender": "-",
+      "english": "train",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "火车 huǒchē"
+      }
+    },
+    {
+      "noun": "bus",
+      "gender": "-",
+      "english": "bus",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "公共汽车 gōnggòng qìchē"
+      }
+    },
+    {
+      "noun": "plane",
+      "gender": "-",
+      "english": "plane",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "飞机 fēijī"
+      }
+    },
+    {
+      "noun": "bicycle",
+      "gender": "-",
+      "english": "bicycle",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "自行车 zìxíngchē"
+      }
+    },
+    {
+      "noun": "ship",
+      "gender": "-",
+      "english": "ship",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "船 chuán"
+      }
+    },
+    {
+      "noun": "taxi",
+      "gender": "-",
+      "english": "taxi",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "出租车 chūzūchē"
+      }
+    },
+    {
+      "noun": "ticket",
+      "gender": "-",
+      "english": "ticket",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "票 piào"
+      }
+    },
+    {
+      "noun": "school",
+      "gender": "-",
+      "english": "school",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "学校 xuéxiào"
+      }
+    },
+    {
+      "noun": "book",
+      "gender": "-",
+      "english": "book",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "书 shū"
+      }
+    },
+    {
+      "noun": "notebook",
+      "gender": "-",
+      "english": "notebook",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "笔记本 bǐjìběn"
+      }
+    },
+    {
+      "noun": "pen",
+      "gender": "-",
+      "english": "pen",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "钢笔 gāngbǐ"
+      }
+    },
+    {
+      "noun": "table",
+      "gender": "-",
+      "english": "table",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "桌子 zhuōzi"
+      }
+    },
+    {
+      "noun": "chair",
+      "gender": "-",
+      "english": "chair",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "椅子 yǐzi"
+      }
+    },
+    {
+      "noun": "word",
+      "gender": "-",
+      "english": "word",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "单词 dāncí"
+      }
+    },
+    {
+      "noun": "question",
+      "gender": "-",
+      "english": "question",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "问题 wèntí"
+      }
+    },
+    {
+      "noun": "answer",
+      "gender": "-",
+      "english": "answer",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "答案 dá'àn"
+      }
+    },
+    {
+      "noun": "exam",
+      "gender": "-",
+      "english": "exam",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "考试 kǎoshì"
+      }
+    },
+    {
+      "noun": "teacher",
+      "gender": "-",
+      "english": "teacher",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "老师 lǎoshī"
+      }
+    },
+    {
+      "noun": "student",
+      "gender": "-",
+      "english": "student",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "学生 xuésheng"
+      }
+    },
+    {
+      "noun": "day",
+      "gender": "-",
+      "english": "day",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "天 tiān"
+      }
+    },
+    {
+      "noun": "week",
+      "gender": "-",
+      "english": "week",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "星期 xīngqī"
+      }
+    },
+    {
+      "noun": "month",
+      "gender": "-",
+      "english": "month",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "月 yuè"
+      }
+    },
+    {
+      "noun": "year",
+      "gender": "-",
+      "english": "year",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "年 nián"
+      }
+    },
+    {
+      "noun": "hour",
+      "gender": "-",
+      "english": "hour",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "小时 xiǎoshí"
+      }
+    },
+    {
+      "noun": "minute",
+      "gender": "-",
+      "english": "minute",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "分钟 fēnzhōng"
+      }
+    },
+    {
+      "noun": "morning",
+      "gender": "-",
+      "english": "morning",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "早上 zǎoshang"
+      }
+    },
+    {
+      "noun": "night",
+      "gender": "-",
+      "english": "night",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "夜晚 yèwǎn"
+      }
+    },
+    {
+      "noun": "evening",
+      "gender": "-",
+      "english": "evening",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "晚上 wǎnshang"
+      }
+    },
+    {
+      "noun": "weekend",
+      "gender": "-",
+      "english": "weekend",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "周末 zhōumò"
+      }
+    },
+    {
+      "noun": "sun",
+      "gender": "-",
+      "english": "sun",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "太阳 tàiyáng"
+      }
+    },
+    {
+      "noun": "moon",
+      "gender": "-",
+      "english": "moon",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "月亮 yuèliang"
+      }
+    },
+    {
+      "noun": "sky",
+      "gender": "-",
+      "english": "sky",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "天空 tiānkōng"
+      }
+    },
+    {
+      "noun": "sea",
+      "gender": "-",
+      "english": "sea",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "海 hǎi"
+      }
+    },
+    {
+      "noun": "river",
+      "gender": "-",
+      "english": "river",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "河 hé"
+      }
+    },
+    {
+      "noun": "mountain",
+      "gender": "-",
+      "english": "mountain",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "山 shān"
+      }
+    },
+    {
+      "noun": "tree",
+      "gender": "-",
+      "english": "tree",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "树 shù"
+      }
+    },
+    {
+      "noun": "flower",
+      "gender": "-",
+      "english": "flower",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "花 huā"
+      }
+    },
+    {
+      "noun": "rain",
+      "gender": "-",
+      "english": "rain",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "雨 yǔ"
+      }
+    },
+    {
+      "noun": "snow",
+      "gender": "-",
+      "english": "snow",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "zh": "雪 xuě"
+      }
+    }
+  ]
+}

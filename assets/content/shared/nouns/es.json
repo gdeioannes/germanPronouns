@@ -1,0 +1,1526 @@
+{
+  "categoryDisplayNames": {
+    "family": "Familie (la familia)",
+    "food": "Essen (la comida)",
+    "drinks": "Getränke (las bebidas)",
+    "animals": "Tiere (los animales)",
+    "bodyParts": "Körper (el cuerpo)",
+    "clothing": "Kleidung (la ropa)",
+    "city": "Stadt (la ciudad)",
+    "transport": "Verkehr (el transporte)",
+    "school": "Schule (la escuela)",
+    "time": "Zeit (el tiempo)",
+    "nature": "Natur (la naturaleza)",
+    "professions": "Berufe (las profesiones)"
+  },
+  "nouns": [
+    {
+      "noun": "padre",
+      "gender": "m",
+      "english": "father",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Vater"
+      }
+    },
+    {
+      "noun": "madre",
+      "gender": "f",
+      "english": "mother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Mutter"
+      }
+    },
+    {
+      "noun": "hermano",
+      "gender": "m",
+      "english": "brother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Bruder"
+      }
+    },
+    {
+      "noun": "hermana",
+      "gender": "f",
+      "english": "sister",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Schwester"
+      }
+    },
+    {
+      "noun": "hijo",
+      "gender": "m",
+      "english": "son",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Sohn"
+      }
+    },
+    {
+      "noun": "hija",
+      "gender": "f",
+      "english": "daughter",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Tochter"
+      }
+    },
+    {
+      "noun": "abuelo",
+      "gender": "m",
+      "english": "grandfather",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Großvater"
+      }
+    },
+    {
+      "noun": "abuela",
+      "gender": "f",
+      "english": "grandmother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Großmutter"
+      }
+    },
+    {
+      "noun": "tío",
+      "gender": "m",
+      "english": "uncle",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Onkel"
+      }
+    },
+    {
+      "noun": "tía",
+      "gender": "f",
+      "english": "aunt",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Tante"
+      }
+    },
+    {
+      "noun": "niño",
+      "gender": "m",
+      "english": "child/boy",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Kind / der Junge"
+      }
+    },
+    {
+      "noun": "familia",
+      "gender": "f",
+      "english": "family",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Familie"
+      }
+    },
+    {
+      "noun": "amigo",
+      "gender": "m",
+      "english": "friend",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Freund"
+      }
+    },
+    {
+      "noun": "pan",
+      "gender": "m",
+      "english": "bread",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Brot"
+      }
+    },
+    {
+      "noun": "queso",
+      "gender": "m",
+      "english": "cheese",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Käse"
+      }
+    },
+    {
+      "noun": "huevo",
+      "gender": "m",
+      "english": "egg",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Ei"
+      }
+    },
+    {
+      "noun": "carne",
+      "gender": "f",
+      "english": "meat",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Fleisch"
+      }
+    },
+    {
+      "noun": "pescado",
+      "gender": "m",
+      "english": "fish (as food)",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Fisch (Speise)"
+      }
+    },
+    {
+      "noun": "arroz",
+      "gender": "m",
+      "english": "rice",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Reis"
+      }
+    },
+    {
+      "noun": "manzana",
+      "gender": "f",
+      "english": "apple",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Apfel"
+      }
+    },
+    {
+      "noun": "plátano",
+      "gender": "m",
+      "english": "banana",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Banane"
+      }
+    },
+    {
+      "noun": "tomate",
+      "gender": "m",
+      "english": "tomato",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Tomate"
+      }
+    },
+    {
+      "noun": "patata",
+      "gender": "f",
+      "english": "potato",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Kartoffel"
+      }
+    },
+    {
+      "noun": "ensalada",
+      "gender": "f",
+      "english": "salad",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Salat"
+      }
+    },
+    {
+      "noun": "sopa",
+      "gender": "f",
+      "english": "soup",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Suppe"
+      }
+    },
+    {
+      "noun": "agua",
+      "gender": "f",
+      "english": "water",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Wasser"
+      }
+    },
+    {
+      "noun": "café",
+      "gender": "m",
+      "english": "coffee",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Kaffee"
+      }
+    },
+    {
+      "noun": "té",
+      "gender": "m",
+      "english": "tea",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Tee"
+      }
+    },
+    {
+      "noun": "leche",
+      "gender": "f",
+      "english": "milk",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Milch"
+      }
+    },
+    {
+      "noun": "zumo",
+      "gender": "m",
+      "english": "juice",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Saft"
+      }
+    },
+    {
+      "noun": "vino",
+      "gender": "m",
+      "english": "wine",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Wein"
+      }
+    },
+    {
+      "noun": "cerveza",
+      "gender": "f",
+      "english": "beer",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Bier"
+      }
+    },
+    {
+      "noun": "botella",
+      "gender": "f",
+      "english": "bottle",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Flasche"
+      }
+    },
+    {
+      "noun": "perro",
+      "gender": "m",
+      "english": "dog",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Hund"
+      }
+    },
+    {
+      "noun": "gato",
+      "gender": "m",
+      "english": "cat",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Katze"
+      }
+    },
+    {
+      "noun": "caballo",
+      "gender": "m",
+      "english": "horse",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Pferd"
+      }
+    },
+    {
+      "noun": "vaca",
+      "gender": "f",
+      "english": "cow",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Kuh"
+      }
+    },
+    {
+      "noun": "pájaro",
+      "gender": "m",
+      "english": "bird",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Vogel"
+      }
+    },
+    {
+      "noun": "pez",
+      "gender": "m",
+      "english": "fish",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Fisch"
+      }
+    },
+    {
+      "noun": "ratón",
+      "gender": "m",
+      "english": "mouse",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Maus"
+      }
+    },
+    {
+      "noun": "oveja",
+      "gender": "f",
+      "english": "sheep",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Schaf"
+      }
+    },
+    {
+      "noun": "cabeza",
+      "gender": "f",
+      "english": "head",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Kopf"
+      }
+    },
+    {
+      "noun": "mano",
+      "gender": "f",
+      "english": "hand",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Hand"
+      }
+    },
+    {
+      "noun": "ojo",
+      "gender": "m",
+      "english": "eye",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Auge"
+      }
+    },
+    {
+      "noun": "oreja",
+      "gender": "f",
+      "english": "ear",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Ohr"
+      }
+    },
+    {
+      "noun": "boca",
+      "gender": "f",
+      "english": "mouth",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Mund"
+      }
+    },
+    {
+      "noun": "nariz",
+      "gender": "f",
+      "english": "nose",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Nase"
+      }
+    },
+    {
+      "noun": "brazo",
+      "gender": "m",
+      "english": "arm",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Arm"
+      }
+    },
+    {
+      "noun": "pierna",
+      "gender": "f",
+      "english": "leg",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Bein"
+      }
+    },
+    {
+      "noun": "pie",
+      "gender": "m",
+      "english": "foot",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Fuß"
+      }
+    },
+    {
+      "noun": "corazón",
+      "gender": "m",
+      "english": "heart",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Herz"
+      }
+    },
+    {
+      "noun": "camisa",
+      "gender": "f",
+      "english": "shirt",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Hemd"
+      }
+    },
+    {
+      "noun": "camiseta",
+      "gender": "f",
+      "english": "t-shirt",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das T-Shirt"
+      }
+    },
+    {
+      "noun": "pantalón",
+      "gender": "m",
+      "english": "trousers",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Hose"
+      }
+    },
+    {
+      "noun": "falda",
+      "gender": "f",
+      "english": "skirt",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Rock"
+      }
+    },
+    {
+      "noun": "vestido",
+      "gender": "m",
+      "english": "dress",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Kleid"
+      }
+    },
+    {
+      "noun": "zapato",
+      "gender": "m",
+      "english": "shoe",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Schuh"
+      }
+    },
+    {
+      "noun": "abrigo",
+      "gender": "m",
+      "english": "coat",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Mantel"
+      }
+    },
+    {
+      "noun": "sombrero",
+      "gender": "m",
+      "english": "hat",
+      "categories": [
+        "clothing"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Hut"
+      }
+    },
+    {
+      "noun": "ciudad",
+      "gender": "f",
+      "english": "city",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Stadt"
+      }
+    },
+    {
+      "noun": "calle",
+      "gender": "f",
+      "english": "street",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Straße"
+      }
+    },
+    {
+      "noun": "casa",
+      "gender": "f",
+      "english": "house",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Haus"
+      }
+    },
+    {
+      "noun": "plaza",
+      "gender": "f",
+      "english": "square",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Platz"
+      }
+    },
+    {
+      "noun": "mercado",
+      "gender": "m",
+      "english": "market",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Markt"
+      }
+    },
+    {
+      "noun": "tienda",
+      "gender": "f",
+      "english": "shop",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Laden"
+      }
+    },
+    {
+      "noun": "iglesia",
+      "gender": "f",
+      "english": "church",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Kirche"
+      }
+    },
+    {
+      "noun": "museo",
+      "gender": "m",
+      "english": "museum",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Museum"
+      }
+    },
+    {
+      "noun": "banco",
+      "gender": "m",
+      "english": "bank",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Bank"
+      }
+    },
+    {
+      "noun": "parque",
+      "gender": "m",
+      "english": "park",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Park"
+      }
+    },
+    {
+      "noun": "hospital",
+      "gender": "m",
+      "english": "hospital",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Krankenhaus"
+      }
+    },
+    {
+      "noun": "coche",
+      "gender": "m",
+      "english": "car",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Auto"
+      }
+    },
+    {
+      "noun": "tren",
+      "gender": "m",
+      "english": "train",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Zug"
+      }
+    },
+    {
+      "noun": "autobús",
+      "gender": "m",
+      "english": "bus",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Bus"
+      }
+    },
+    {
+      "noun": "avión",
+      "gender": "m",
+      "english": "airplane",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Flugzeug"
+      }
+    },
+    {
+      "noun": "bicicleta",
+      "gender": "f",
+      "english": "bicycle",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Fahrrad"
+      }
+    },
+    {
+      "noun": "barco",
+      "gender": "m",
+      "english": "ship/boat",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Schiff"
+      }
+    },
+    {
+      "noun": "taxi",
+      "gender": "m",
+      "english": "taxi",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Taxi"
+      }
+    },
+    {
+      "noun": "billete",
+      "gender": "m",
+      "english": "ticket",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Fahrkarte"
+      }
+    },
+    {
+      "noun": "escuela",
+      "gender": "f",
+      "english": "school",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Schule"
+      }
+    },
+    {
+      "noun": "libro",
+      "gender": "m",
+      "english": "book",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Buch"
+      }
+    },
+    {
+      "noun": "cuaderno",
+      "gender": "m",
+      "english": "notebook",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Heft"
+      }
+    },
+    {
+      "noun": "lápiz",
+      "gender": "m",
+      "english": "pencil",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Bleistift"
+      }
+    },
+    {
+      "noun": "mesa",
+      "gender": "f",
+      "english": "table",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Tisch"
+      }
+    },
+    {
+      "noun": "silla",
+      "gender": "f",
+      "english": "chair",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Stuhl"
+      }
+    },
+    {
+      "noun": "palabra",
+      "gender": "f",
+      "english": "word",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Wort"
+      }
+    },
+    {
+      "noun": "pregunta",
+      "gender": "f",
+      "english": "question",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Frage"
+      }
+    },
+    {
+      "noun": "respuesta",
+      "gender": "f",
+      "english": "answer",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Antwort"
+      }
+    },
+    {
+      "noun": "examen",
+      "gender": "m",
+      "english": "exam",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Prüfung"
+      }
+    },
+    {
+      "noun": "día",
+      "gender": "m",
+      "english": "day",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Tag"
+      }
+    },
+    {
+      "noun": "semana",
+      "gender": "f",
+      "english": "week",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Woche"
+      }
+    },
+    {
+      "noun": "mes",
+      "gender": "m",
+      "english": "month",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Monat"
+      }
+    },
+    {
+      "noun": "año",
+      "gender": "m",
+      "english": "year",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Jahr"
+      }
+    },
+    {
+      "noun": "hora",
+      "gender": "f",
+      "english": "hour",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Stunde"
+      }
+    },
+    {
+      "noun": "minuto",
+      "gender": "m",
+      "english": "minute",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Minute"
+      }
+    },
+    {
+      "noun": "mañana",
+      "gender": "f",
+      "english": "morning",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Morgen"
+      }
+    },
+    {
+      "noun": "tarde",
+      "gender": "f",
+      "english": "afternoon/evening",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Nachmittag / der Abend"
+      }
+    },
+    {
+      "noun": "noche",
+      "gender": "f",
+      "english": "night",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Nacht"
+      }
+    },
+    {
+      "noun": "fin de semana",
+      "gender": "m",
+      "english": "weekend",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Wochenende"
+      }
+    },
+    {
+      "noun": "sol",
+      "gender": "m",
+      "english": "sun",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Sonne"
+      }
+    },
+    {
+      "noun": "luna",
+      "gender": "f",
+      "english": "moon",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Mond"
+      }
+    },
+    {
+      "noun": "cielo",
+      "gender": "m",
+      "english": "sky",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Himmel"
+      }
+    },
+    {
+      "noun": "mar",
+      "gender": "m",
+      "english": "sea",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Meer"
+      }
+    },
+    {
+      "noun": "río",
+      "gender": "m",
+      "english": "river",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Fluss"
+      }
+    },
+    {
+      "noun": "montaña",
+      "gender": "f",
+      "english": "mountain",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Berg"
+      }
+    },
+    {
+      "noun": "árbol",
+      "gender": "m",
+      "english": "tree",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Baum"
+      }
+    },
+    {
+      "noun": "flor",
+      "gender": "f",
+      "english": "flower",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Blume"
+      }
+    },
+    {
+      "noun": "playa",
+      "gender": "f",
+      "english": "beach",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Strand"
+      }
+    },
+    {
+      "noun": "isla",
+      "gender": "f",
+      "english": "island",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Insel"
+      }
+    },
+    {
+      "noun": "médico",
+      "gender": "m",
+      "english": "doctor",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Arzt"
+      }
+    },
+    {
+      "noun": "profesor",
+      "gender": "m",
+      "english": "teacher",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Lehrer"
+      }
+    },
+    {
+      "noun": "estudiante",
+      "gender": "m",
+      "english": "student",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Student"
+      }
+    },
+    {
+      "noun": "camarero",
+      "gender": "m",
+      "english": "waiter",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Kellner"
+      }
+    },
+    {
+      "noun": "cocinero",
+      "gender": "m",
+      "english": "cook",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Koch"
+      }
+    },
+    {
+      "noun": "policía",
+      "gender": "m",
+      "english": "police officer",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Polizist"
+      }
+    },
+    {
+      "noun": "vendedor",
+      "gender": "m",
+      "english": "salesperson",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Verkäufer"
+      }
+    },
+    {
+      "noun": "ingeniero",
+      "gender": "m",
+      "english": "engineer",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Ingenieur"
+      }
+    }
+  ]
+}

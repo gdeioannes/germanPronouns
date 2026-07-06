@@ -3,6 +3,7 @@ import 'dart:convert';
 import '../../models/content/catalog.dart';
 import '../../models/content/populated_course.dart';
 import 'noun_collection.dart';
+import 'verb_collection.dart';
 
 /// Read seam for the JSON content collections. The learner UI depends only on
 /// this interface, so the backing store can change (bundled assets now, a remote
@@ -20,6 +21,10 @@ abstract interface class CourseContentProvider {
   /// The shared noun list for a learned-language code (e.g. `de`), used
   /// cross-course; empty when that language has no noun collection.
   Future<NounCollection> nounCollection(String langCode);
+
+  /// The shared verb list (with conjugation tables) for a learned-language
+  /// code; empty when that language has no verb collection.
+  Future<VerbCollection> verbCollection(String langCode);
 }
 
 /// Where raw collection JSON comes from. Splitting this out keeps the caching
@@ -30,6 +35,7 @@ abstract interface class ContentSource {
   Future<String> appConfigJson();
   Future<String> courseJson(String courseId);
   Future<String> sharedNounsJson(String langCode);
+  Future<String> sharedVerbsJson(String langCode);
 }
 
 /// A writable override store for teacher-edited course bundles. When it has a
@@ -59,6 +65,7 @@ class CachingCourseProvider implements CourseContentProvider {
   AppConfig? _appConfig;
   final Map<String, PopulatedCourse> _courses = {};
   final Map<String, NounCollection> _nouns = {};
+  final Map<String, VerbCollection> _verbs = {};
 
   @override
   Future<Catalog> catalog() async => _catalog ??= Catalog.fromJson(
@@ -93,6 +100,21 @@ class CachingCourseProvider implements CourseContentProvider {
     } catch (_) {
       // No shared noun collection for this language — serve an empty one.
       return _nouns[langCode] = const NounCollection();
+    }
+  }
+
+  @override
+  Future<VerbCollection> verbCollection(String langCode) async {
+    final cached = _verbs[langCode];
+    if (cached != null) return cached;
+    try {
+      final json =
+          jsonDecode(await _source.sharedVerbsJson(langCode))
+              as Map<String, dynamic>;
+      return _verbs[langCode] = VerbCollection.fromJson(json);
+    } catch (_) {
+      // No shared verb collection for this language — serve an empty one.
+      return _verbs[langCode] = const VerbCollection();
     }
   }
 

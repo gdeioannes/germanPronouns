@@ -1,4 +1,5 @@
 import 'german_grammar.dart';
+import 'noun_article_content.dart';
 import 'noun_database.dart';
 
 /// Maps an inflected surface form (as it appears in sentences, e.g. a
@@ -53,8 +54,10 @@ const Map<String, String> nounSurfaceForms = {
   'Schülern': 'Schüler',
 };
 
+// Indexes the *enriched* list so a recognized noun carries its per-UI-language
+// meanings (e.g. Spanish for the es_de courses), not just the English gloss.
 final Map<String, GermanNoun> _nounsByName = {
-  for (final n in germanNouns) n.noun: n,
+  for (final n in enrichedGermanNouns) n.noun: n,
 };
 
 /// A noun recognized in some piece of text, together with the definite

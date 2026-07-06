@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 
 import '../data/content/asset_course_provider.dart';
 import '../data/content/noun_collection.dart';
+import '../data/content/verb_collection.dart';
 import '../data/noun_database.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/coin_balance_pill.dart';
+import '../widgets/word_detail_panels.dart';
 
-/// Lets the user enable/disable individual nouns (and bulk-toggle by category or
-/// difficulty) for quizzes that draw from the active course's **shared** noun
-/// list — loaded from `assets/content/shared/nouns/<lang>.json` (the learned
-/// language) rather than compiled in, so multiple courses for the same language
-/// share one list.
+/// The active course's vocabulary reference, in two tabs backed by the shared
+/// per-language collections (`assets/content/shared/{nouns,verbs}/<lang>.json`,
+/// keyed by the learned language so multiple courses share one list):
+///
+///  * **Nouns** — tap any word for its meaning in the course's main (UI)
+///    language (plus article/plural/example + audio); the chip toggle and the
+///    bulk category/difficulty toggles pick which words the Artikel and
+///    Nouns & Articles quizzes draw from.
+///  * **Verbs** — tap any verb for its meaning and its language's five-plus
+///    most useful conjugation tables.
 class WordLibraryPage extends StatefulWidget {
   const WordLibraryPage({super.key});
 
@@ -22,13 +29,21 @@ class WordLibraryPage extends StatefulWidget {
 }
 
 class _WordLibraryPageState extends State<WordLibraryPage> {
-  late final Future<NounCollection> _collectionFuture = _load();
+  late final Future<NounCollection> _collectionFuture = _loadNouns();
+  late final Future<VerbCollection> _verbsFuture = _loadVerbs();
 
-  Future<NounCollection> _load() async {
+  String get _lang =>
+      CourseSession.instance.activeCourse.learnLocale.split('-').first;
+
+  String get _uiLang => CourseSession.instance.activeCourse.uiLang.name;
+
+  Future<NounCollection> _loadNouns() async {
     await NounSettings.instance.load();
-    final lang = CourseSession.instance.activeCourse.learnLocale.split('-').first;
-    return courseContentProvider.nounCollection(lang);
+    return courseContentProvider.nounCollection(_lang);
   }
+
+  Future<VerbCollection> _loadVerbs() =>
+      courseContentProvider.verbCollection(_lang);
 
   List<String> _orderedCategoryKeys(List<GermanNoun> nouns) {
     final seen = <String>{};
@@ -41,14 +56,21 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
     return result;
   }
 
-  String _difficultyLabel(NounDifficulty d) => switch (d) {
-    NounDifficulty.beginner => 'Beginner',
-    NounDifficulty.intermediate => 'Intermediate',
-    NounDifficulty.advanced => 'Advanced',
-  };
+  String _difficultyLabel(NounDifficulty d) {
+    final strings = CourseSession.instance.strings;
+    return switch (d) {
+      NounDifficulty.beginner => strings.difficultyBeginner,
+      NounDifficulty.intermediate => strings.difficultyIntermediate,
+      NounDifficulty.advanced => strings.difficultyAdvanced,
+    };
+  }
 
-  void _toggleNoun(String noun) {
-    setState(() => NounSettings.instance.toggle(noun));
+  void _openNoun(GermanNoun noun) {
+    // Rebuild on close: the panel's include-in-quizzes switch changes the
+    // chips' selected state.
+    showNounDetailPanel(context, noun).whenComplete(() {
+      if (mounted) setState(() {});
+    });
   }
 
   void _toggleGroup(Iterable<GermanNoun> nouns) {
@@ -82,7 +104,7 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
                           NounSettings.instance.showEnglishFor(
                                 NounSettings.wordLibraryPageKey,
                               )
-                              ? '${n.noun} (${n.english})'
+                              ? '${n.noun} (${n.meaningFor(_uiLang)})'
                               : n.noun,
                           style: TextStyle(
                             color: NounSettings.instance.colorForGender(n.gender),
@@ -90,7 +112,7 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
                           ),
                         ),
                         selected: NounSettings.instance.isEnabled(n.noun),
-                        onSelected: (_) => _toggleNoun(n.noun),
+                        onSelected: (_) => _openNoun(n),
                       ),
                     )
                     .toList(),
@@ -105,46 +127,56 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Word Library'),
-        actions: const [CoinBalancePill()],
-      ),
-      drawer: const AppDrawer(currentPage: AppPage.wordLibrary),
-      body: SafeArea(
-        child: FutureBuilder<NounCollection>(
-          future: _collectionFuture,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            final collection = snapshot.data!;
-            if (collection.isEmpty) {
-              return const Center(
-                child: Text('No word list for this course.'),
-              );
-            }
-            return _content(context, collection);
-          },
+    final strings = CourseSession.instance.strings;
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(strings.wordLibrary),
+          actions: const [CoinBalancePill()],
+          bottom: TabBar(
+            tabs: [Tab(text: strings.nouns), Tab(text: strings.verbs)],
+          ),
+        ),
+        drawer: const AppDrawer(currentPage: AppPage.wordLibrary),
+        body: SafeArea(
+          child: TabBarView(children: [_nounsTab(), _verbsTab()]),
         ),
       ),
     );
   }
 
-  Widget _content(BuildContext context, NounCollection collection) {
+  Widget _nounsTab() {
+    final strings = CourseSession.instance.strings;
+    return FutureBuilder<NounCollection>(
+      future: _collectionFuture,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        final collection = snapshot.data!;
+        if (collection.isEmpty) {
+          return Center(child: Text(strings.noWordList));
+        }
+        return _nounsContent(context, collection);
+      },
+    );
+  }
+
+  Widget _nounsContent(BuildContext context, NounCollection collection) {
+    final strings = CourseSession.instance.strings;
     final nouns = collection.nouns;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
         Text(
-          'Enable or disable words used by the Artikel and Nouns & '
-          'Articles quizzes.',
+          strings.wordLibraryIntro,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         const SizedBox(height: 6),
         SwitchListTile(
           contentPadding: EdgeInsets.zero,
-          title: const Text('Show English meanings'),
+          title: Text(strings.showMeanings),
           value: NounSettings.instance.showEnglishFor(
             NounSettings.wordLibraryPageKey,
           ),
@@ -158,13 +190,14 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
           },
         ),
         const SizedBox(height: 6),
-        Text('Difficulty', style: Theme.of(context).textTheme.labelLarge),
+        Text(strings.difficulty, style: Theme.of(context).textTheme.labelLarge),
         const SizedBox(height: 6),
         Wrap(
           spacing: 6,
           runSpacing: 4,
           children: NounDifficulty.values.map((d) {
             final group = nouns.where((n) => n.difficulty == d);
+            if (group.isEmpty) return const SizedBox.shrink();
             final allEnabled =
                 group.every((n) => NounSettings.instance.isEnabled(n.noun));
             return FilterChip(
@@ -175,7 +208,7 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
           }).toList(),
         ),
         const SizedBox(height: 10),
-        Text('Category', style: Theme.of(context).textTheme.labelLarge),
+        Text(strings.category, style: Theme.of(context).textTheme.labelLarge),
         const SizedBox(height: 6),
         Wrap(
           spacing: 6,
@@ -195,6 +228,41 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
         const SizedBox(height: 16),
         ..._buildCategorySections(collection),
       ],
+    );
+  }
+
+  Widget _verbsTab() {
+    final strings = CourseSession.instance.strings;
+    return FutureBuilder<VerbCollection>(
+      future: _verbsFuture,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        final collection = snapshot.data!;
+        if (collection.isEmpty) {
+          return Center(child: Text(strings.noVerbList));
+        }
+        return ListView.builder(
+          padding: const EdgeInsets.all(16),
+          itemCount: collection.verbs.length,
+          itemBuilder: (context, index) {
+            final verb = collection.verbs[index];
+            return Card(
+              margin: const EdgeInsets.only(bottom: 8),
+              child: ListTile(
+                title: Text(
+                  verb.verb,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+                subtitle: Text(verb.meaningFor(_uiLang)),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => showVerbDetailPanel(context, verb),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

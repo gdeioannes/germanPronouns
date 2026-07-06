@@ -2,20 +2,25 @@ import '../models/quiz_content.dart';
 import 'german_grammar.dart';
 import 'noun_article_data.dart';
 import 'noun_database.dart';
+import 'noun_meanings_es.dart';
 import 'noun_plurals.dart';
 import 'noun_sentences.dart';
 
-/// The compiled German noun list enriched with the two reference fields the
-/// noun-article quiz needs beyond the bare list — the plural-form display and
-/// the custom example sentence. This is the *populated* noun reference: a
-/// plain `List<GermanNoun>` that fully describes the quiz, so it can be built
-/// either from here (compiled fallback) or from the shared
+/// The compiled German noun list enriched with the reference fields the
+/// noun-article quiz and Word Library need beyond the bare list — the
+/// plural-form display, the custom example sentence, and the per-UI-language
+/// meanings (Spanish for the `es_de` courses). This is the *populated* noun
+/// reference: a plain `List<GermanNoun>` that fully describes the quiz, so it
+/// can be built either from here (compiled fallback) or from the shared
 /// `nouns/<lang>.json` collection at runtime, via [buildNounArticleContent].
 final List<GermanNoun> enrichedGermanNouns = [
   for (final n in germanNouns)
     n.copyWith(
       plural: pluralEndingDisplay(n.noun),
       sentence: nounSentences[n.noun],
+      meanings: {
+        if (nounMeaningsEs[n.noun] != null) 'es': nounMeaningsEs[n.noun]!,
+      },
     ),
 ];
 

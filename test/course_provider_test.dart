@@ -45,6 +45,9 @@ class _CountingSource implements ContentSource {
 
   @override
   Future<String> sharedNounsJson(String langCode) async => '{"nouns":[]}';
+
+  @override
+  Future<String> sharedVerbsJson(String langCode) async => '{"verbs":[]}';
 }
 
 void main() {

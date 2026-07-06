@@ -1,0 +1,2776 @@
+{
+  "verbs": [
+    {
+      "verb": "být",
+      "english": "to be",
+      "meanings": {
+        "de": "sein"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jsem"
+            },
+            {
+              "person": "ty",
+              "form": "jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "je"
+            },
+            {
+              "person": "my",
+              "form": "jsme"
+            },
+            {
+              "person": "vy",
+              "form": "jste"
+            },
+            {
+              "person": "oni",
+              "form": "jsou"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "byl / byla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "byl / byla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "byl / byla"
+            },
+            {
+              "person": "my",
+              "form": "byli / byly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "byli / byly jste"
+            },
+            {
+              "person": "oni",
+              "form": "byli / byly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu"
+            },
+            {
+              "person": "ty",
+              "form": "budeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude"
+            },
+            {
+              "person": "my",
+              "form": "budeme"
+            },
+            {
+              "person": "vy",
+              "form": "budete"
+            },
+            {
+              "person": "oni",
+              "form": "budou"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "byl bych"
+            },
+            {
+              "person": "ty",
+              "form": "byl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "byl by"
+            },
+            {
+              "person": "my",
+              "form": "byli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "byli byste"
+            },
+            {
+              "person": "oni",
+              "form": "byli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nejsem"
+            },
+            {
+              "person": "ty",
+              "form": "nejsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "není"
+            },
+            {
+              "person": "my",
+              "form": "nejsme"
+            },
+            {
+              "person": "vy",
+              "form": "nejste"
+            },
+            {
+              "person": "oni",
+              "form": "nejsou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "mít",
+      "english": "to have",
+      "meanings": {
+        "de": "haben"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "mám"
+            },
+            {
+              "person": "ty",
+              "form": "máš"
+            },
+            {
+              "person": "on/ona",
+              "form": "má"
+            },
+            {
+              "person": "my",
+              "form": "máme"
+            },
+            {
+              "person": "vy",
+              "form": "máte"
+            },
+            {
+              "person": "oni",
+              "form": "mají"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "měl / měla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "měl / měla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "měl / měla"
+            },
+            {
+              "person": "my",
+              "form": "měli / měly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "měli / měly jste"
+            },
+            {
+              "person": "oni",
+              "form": "měli / měly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu mít"
+            },
+            {
+              "person": "ty",
+              "form": "budeš mít"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude mít"
+            },
+            {
+              "person": "my",
+              "form": "budeme mít"
+            },
+            {
+              "person": "vy",
+              "form": "budete mít"
+            },
+            {
+              "person": "oni",
+              "form": "budou mít"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "měl bych"
+            },
+            {
+              "person": "ty",
+              "form": "měl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "měl by"
+            },
+            {
+              "person": "my",
+              "form": "měli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "měli byste"
+            },
+            {
+              "person": "oni",
+              "form": "měli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nemám"
+            },
+            {
+              "person": "ty",
+              "form": "nemáš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nemá"
+            },
+            {
+              "person": "my",
+              "form": "nemáme"
+            },
+            {
+              "person": "vy",
+              "form": "nemáte"
+            },
+            {
+              "person": "oni",
+              "form": "nemají"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "dělat",
+      "english": "to do, to make",
+      "meanings": {
+        "de": "machen / tun"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "dělám"
+            },
+            {
+              "person": "ty",
+              "form": "děláš"
+            },
+            {
+              "person": "on/ona",
+              "form": "dělá"
+            },
+            {
+              "person": "my",
+              "form": "děláme"
+            },
+            {
+              "person": "vy",
+              "form": "děláte"
+            },
+            {
+              "person": "oni",
+              "form": "dělají"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "dělal / dělala jsem"
+            },
+            {
+              "person": "ty",
+              "form": "dělal / dělala jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "dělal / dělala"
+            },
+            {
+              "person": "my",
+              "form": "dělali / dělaly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "dělali / dělaly jste"
+            },
+            {
+              "person": "oni",
+              "form": "dělali / dělaly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu dělat"
+            },
+            {
+              "person": "ty",
+              "form": "budeš dělat"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude dělat"
+            },
+            {
+              "person": "my",
+              "form": "budeme dělat"
+            },
+            {
+              "person": "vy",
+              "form": "budete dělat"
+            },
+            {
+              "person": "oni",
+              "form": "budou dělat"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "dělal bych"
+            },
+            {
+              "person": "ty",
+              "form": "dělal bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "dělal by"
+            },
+            {
+              "person": "my",
+              "form": "dělali bychom"
+            },
+            {
+              "person": "vy",
+              "form": "dělali byste"
+            },
+            {
+              "person": "oni",
+              "form": "dělali by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nedělám"
+            },
+            {
+              "person": "ty",
+              "form": "neděláš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nedělá"
+            },
+            {
+              "person": "my",
+              "form": "neděláme"
+            },
+            {
+              "person": "vy",
+              "form": "neděláte"
+            },
+            {
+              "person": "oni",
+              "form": "nedělají"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "jít",
+      "english": "to go (on foot)",
+      "meanings": {
+        "de": "gehen (zu Fuß)"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jdu"
+            },
+            {
+              "person": "ty",
+              "form": "jdeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "jde"
+            },
+            {
+              "person": "my",
+              "form": "jdeme"
+            },
+            {
+              "person": "vy",
+              "form": "jdete"
+            },
+            {
+              "person": "oni",
+              "form": "jdou"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "šel / šla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "šel / šla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "šel / šla"
+            },
+            {
+              "person": "my",
+              "form": "šli / šly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "šli / šly jste"
+            },
+            {
+              "person": "oni",
+              "form": "šli / šly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "půjdu"
+            },
+            {
+              "person": "ty",
+              "form": "půjdeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "půjde"
+            },
+            {
+              "person": "my",
+              "form": "půjdeme"
+            },
+            {
+              "person": "vy",
+              "form": "půjdete"
+            },
+            {
+              "person": "oni",
+              "form": "půjdou"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "šel bych"
+            },
+            {
+              "person": "ty",
+              "form": "šel bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "šel by"
+            },
+            {
+              "person": "my",
+              "form": "šli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "šli byste"
+            },
+            {
+              "person": "oni",
+              "form": "šli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nejdu"
+            },
+            {
+              "person": "ty",
+              "form": "nejdeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nejde"
+            },
+            {
+              "person": "my",
+              "form": "nejdeme"
+            },
+            {
+              "person": "vy",
+              "form": "nejdete"
+            },
+            {
+              "person": "oni",
+              "form": "nejdou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "jet",
+      "english": "to go (by vehicle)",
+      "meanings": {
+        "de": "fahren"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jedu"
+            },
+            {
+              "person": "ty",
+              "form": "jedeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "jede"
+            },
+            {
+              "person": "my",
+              "form": "jedeme"
+            },
+            {
+              "person": "vy",
+              "form": "jedete"
+            },
+            {
+              "person": "oni",
+              "form": "jedou"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jel / jela jsem"
+            },
+            {
+              "person": "ty",
+              "form": "jel / jela jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "jel / jela"
+            },
+            {
+              "person": "my",
+              "form": "jeli / jely jsme"
+            },
+            {
+              "person": "vy",
+              "form": "jeli / jely jste"
+            },
+            {
+              "person": "oni",
+              "form": "jeli / jely"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "pojedu"
+            },
+            {
+              "person": "ty",
+              "form": "pojedeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "pojede"
+            },
+            {
+              "person": "my",
+              "form": "pojedeme"
+            },
+            {
+              "person": "vy",
+              "form": "pojedete"
+            },
+            {
+              "person": "oni",
+              "form": "pojedou"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jel bych"
+            },
+            {
+              "person": "ty",
+              "form": "jel bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "jel by"
+            },
+            {
+              "person": "my",
+              "form": "jeli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "jeli byste"
+            },
+            {
+              "person": "oni",
+              "form": "jeli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nejedu"
+            },
+            {
+              "person": "ty",
+              "form": "nejedeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nejede"
+            },
+            {
+              "person": "my",
+              "form": "nejedeme"
+            },
+            {
+              "person": "vy",
+              "form": "nejedete"
+            },
+            {
+              "person": "oni",
+              "form": "nejedou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "vidět",
+      "english": "to see",
+      "meanings": {
+        "de": "sehen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "vidím"
+            },
+            {
+              "person": "ty",
+              "form": "vidíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "vidí"
+            },
+            {
+              "person": "my",
+              "form": "vidíme"
+            },
+            {
+              "person": "vy",
+              "form": "vidíte"
+            },
+            {
+              "person": "oni",
+              "form": "vidí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "viděl / viděla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "viděl / viděla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "viděl / viděla"
+            },
+            {
+              "person": "my",
+              "form": "viděli / viděly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "viděli / viděly jste"
+            },
+            {
+              "person": "oni",
+              "form": "viděli / viděly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu vidět"
+            },
+            {
+              "person": "ty",
+              "form": "budeš vidět"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude vidět"
+            },
+            {
+              "person": "my",
+              "form": "budeme vidět"
+            },
+            {
+              "person": "vy",
+              "form": "budete vidět"
+            },
+            {
+              "person": "oni",
+              "form": "budou vidět"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "viděl bych"
+            },
+            {
+              "person": "ty",
+              "form": "viděl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "viděl by"
+            },
+            {
+              "person": "my",
+              "form": "viděli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "viděli byste"
+            },
+            {
+              "person": "oni",
+              "form": "viděli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nevidím"
+            },
+            {
+              "person": "ty",
+              "form": "nevidíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nevidí"
+            },
+            {
+              "person": "my",
+              "form": "nevidíme"
+            },
+            {
+              "person": "vy",
+              "form": "nevidíte"
+            },
+            {
+              "person": "oni",
+              "form": "nevidí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "vědět",
+      "english": "to know (a fact)",
+      "meanings": {
+        "de": "wissen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "vím"
+            },
+            {
+              "person": "ty",
+              "form": "víš"
+            },
+            {
+              "person": "on/ona",
+              "form": "ví"
+            },
+            {
+              "person": "my",
+              "form": "víme"
+            },
+            {
+              "person": "vy",
+              "form": "víte"
+            },
+            {
+              "person": "oni",
+              "form": "vědí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "věděl / věděla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "věděl / věděla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "věděl / věděla"
+            },
+            {
+              "person": "my",
+              "form": "věděli / věděly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "věděli / věděly jste"
+            },
+            {
+              "person": "oni",
+              "form": "věděli / věděly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu vědět"
+            },
+            {
+              "person": "ty",
+              "form": "budeš vědět"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude vědět"
+            },
+            {
+              "person": "my",
+              "form": "budeme vědět"
+            },
+            {
+              "person": "vy",
+              "form": "budete vědět"
+            },
+            {
+              "person": "oni",
+              "form": "budou vědět"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "věděl bych"
+            },
+            {
+              "person": "ty",
+              "form": "věděl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "věděl by"
+            },
+            {
+              "person": "my",
+              "form": "věděli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "věděli byste"
+            },
+            {
+              "person": "oni",
+              "form": "věděli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nevím"
+            },
+            {
+              "person": "ty",
+              "form": "nevíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "neví"
+            },
+            {
+              "person": "my",
+              "form": "nevíme"
+            },
+            {
+              "person": "vy",
+              "form": "nevíte"
+            },
+            {
+              "person": "oni",
+              "form": "nevědí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "chtít",
+      "english": "to want",
+      "meanings": {
+        "de": "wollen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "chci"
+            },
+            {
+              "person": "ty",
+              "form": "chceš"
+            },
+            {
+              "person": "on/ona",
+              "form": "chce"
+            },
+            {
+              "person": "my",
+              "form": "chceme"
+            },
+            {
+              "person": "vy",
+              "form": "chcete"
+            },
+            {
+              "person": "oni",
+              "form": "chtějí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "chtěl / chtěla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "chtěl / chtěla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "chtěl / chtěla"
+            },
+            {
+              "person": "my",
+              "form": "chtěli / chtěly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "chtěli / chtěly jste"
+            },
+            {
+              "person": "oni",
+              "form": "chtěli / chtěly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu chtít"
+            },
+            {
+              "person": "ty",
+              "form": "budeš chtít"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude chtít"
+            },
+            {
+              "person": "my",
+              "form": "budeme chtít"
+            },
+            {
+              "person": "vy",
+              "form": "budete chtít"
+            },
+            {
+              "person": "oni",
+              "form": "budou chtít"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "chtěl bych"
+            },
+            {
+              "person": "ty",
+              "form": "chtěl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "chtěl by"
+            },
+            {
+              "person": "my",
+              "form": "chtěli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "chtěli byste"
+            },
+            {
+              "person": "oni",
+              "form": "chtěli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nechci"
+            },
+            {
+              "person": "ty",
+              "form": "nechceš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nechce"
+            },
+            {
+              "person": "my",
+              "form": "nechceme"
+            },
+            {
+              "person": "vy",
+              "form": "nechcete"
+            },
+            {
+              "person": "oni",
+              "form": "nechtějí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "moct",
+      "english": "can, to be able to",
+      "meanings": {
+        "de": "können"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "můžu"
+            },
+            {
+              "person": "ty",
+              "form": "můžeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "může"
+            },
+            {
+              "person": "my",
+              "form": "můžeme"
+            },
+            {
+              "person": "vy",
+              "form": "můžete"
+            },
+            {
+              "person": "oni",
+              "form": "můžou"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "mohl / mohla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "mohl / mohla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "mohl / mohla"
+            },
+            {
+              "person": "my",
+              "form": "mohli / mohly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "mohli / mohly jste"
+            },
+            {
+              "person": "oni",
+              "form": "mohli / mohly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu moct"
+            },
+            {
+              "person": "ty",
+              "form": "budeš moct"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude moct"
+            },
+            {
+              "person": "my",
+              "form": "budeme moct"
+            },
+            {
+              "person": "vy",
+              "form": "budete moct"
+            },
+            {
+              "person": "oni",
+              "form": "budou moct"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "mohl bych"
+            },
+            {
+              "person": "ty",
+              "form": "mohl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "mohl by"
+            },
+            {
+              "person": "my",
+              "form": "mohli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "mohli byste"
+            },
+            {
+              "person": "oni",
+              "form": "mohli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nemůžu"
+            },
+            {
+              "person": "ty",
+              "form": "nemůžeš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nemůže"
+            },
+            {
+              "person": "my",
+              "form": "nemůžeme"
+            },
+            {
+              "person": "vy",
+              "form": "nemůžete"
+            },
+            {
+              "person": "oni",
+              "form": "nemůžou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "muset",
+      "english": "must, to have to",
+      "meanings": {
+        "de": "müssen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "musím"
+            },
+            {
+              "person": "ty",
+              "form": "musíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "musí"
+            },
+            {
+              "person": "my",
+              "form": "musíme"
+            },
+            {
+              "person": "vy",
+              "form": "musíte"
+            },
+            {
+              "person": "oni",
+              "form": "musí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "musel / musela jsem"
+            },
+            {
+              "person": "ty",
+              "form": "musel / musela jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "musel / musela"
+            },
+            {
+              "person": "my",
+              "form": "museli / musely jsme"
+            },
+            {
+              "person": "vy",
+              "form": "museli / musely jste"
+            },
+            {
+              "person": "oni",
+              "form": "museli / musely"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu muset"
+            },
+            {
+              "person": "ty",
+              "form": "budeš muset"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude muset"
+            },
+            {
+              "person": "my",
+              "form": "budeme muset"
+            },
+            {
+              "person": "vy",
+              "form": "budete muset"
+            },
+            {
+              "person": "oni",
+              "form": "budou muset"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "musel bych"
+            },
+            {
+              "person": "ty",
+              "form": "musel bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "musel by"
+            },
+            {
+              "person": "my",
+              "form": "museli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "museli byste"
+            },
+            {
+              "person": "oni",
+              "form": "museli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nemusím"
+            },
+            {
+              "person": "ty",
+              "form": "nemusíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nemusí"
+            },
+            {
+              "person": "my",
+              "form": "nemusíme"
+            },
+            {
+              "person": "vy",
+              "form": "nemusíte"
+            },
+            {
+              "person": "oni",
+              "form": "nemusí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "mluvit",
+      "english": "to speak",
+      "meanings": {
+        "de": "sprechen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "mluvím"
+            },
+            {
+              "person": "ty",
+              "form": "mluvíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "mluví"
+            },
+            {
+              "person": "my",
+              "form": "mluvíme"
+            },
+            {
+              "person": "vy",
+              "form": "mluvíte"
+            },
+            {
+              "person": "oni",
+              "form": "mluví"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "mluvil / mluvila jsem"
+            },
+            {
+              "person": "ty",
+              "form": "mluvil / mluvila jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "mluvil / mluvila"
+            },
+            {
+              "person": "my",
+              "form": "mluvili / mluvily jsme"
+            },
+            {
+              "person": "vy",
+              "form": "mluvili / mluvily jste"
+            },
+            {
+              "person": "oni",
+              "form": "mluvili / mluvily"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu mluvit"
+            },
+            {
+              "person": "ty",
+              "form": "budeš mluvit"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude mluvit"
+            },
+            {
+              "person": "my",
+              "form": "budeme mluvit"
+            },
+            {
+              "person": "vy",
+              "form": "budete mluvit"
+            },
+            {
+              "person": "oni",
+              "form": "budou mluvit"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "mluvil bych"
+            },
+            {
+              "person": "ty",
+              "form": "mluvil bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "mluvil by"
+            },
+            {
+              "person": "my",
+              "form": "mluvili bychom"
+            },
+            {
+              "person": "vy",
+              "form": "mluvili byste"
+            },
+            {
+              "person": "oni",
+              "form": "mluvili by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nemluvím"
+            },
+            {
+              "person": "ty",
+              "form": "nemluvíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nemluví"
+            },
+            {
+              "person": "my",
+              "form": "nemluvíme"
+            },
+            {
+              "person": "vy",
+              "form": "nemluvíte"
+            },
+            {
+              "person": "oni",
+              "form": "nemluví"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "rozumět",
+      "english": "to understand",
+      "meanings": {
+        "de": "verstehen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "rozumím"
+            },
+            {
+              "person": "ty",
+              "form": "rozumíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "rozumí"
+            },
+            {
+              "person": "my",
+              "form": "rozumíme"
+            },
+            {
+              "person": "vy",
+              "form": "rozumíte"
+            },
+            {
+              "person": "oni",
+              "form": "rozumějí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "rozuměl / rozuměla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "rozuměl / rozuměla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "rozuměl / rozuměla"
+            },
+            {
+              "person": "my",
+              "form": "rozuměli / rozuměly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "rozuměli / rozuměly jste"
+            },
+            {
+              "person": "oni",
+              "form": "rozuměli / rozuměly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu rozumět"
+            },
+            {
+              "person": "ty",
+              "form": "budeš rozumět"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude rozumět"
+            },
+            {
+              "person": "my",
+              "form": "budeme rozumět"
+            },
+            {
+              "person": "vy",
+              "form": "budete rozumět"
+            },
+            {
+              "person": "oni",
+              "form": "budou rozumět"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "rozuměl bych"
+            },
+            {
+              "person": "ty",
+              "form": "rozuměl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "rozuměl by"
+            },
+            {
+              "person": "my",
+              "form": "rozuměli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "rozuměli byste"
+            },
+            {
+              "person": "oni",
+              "form": "rozuměli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nerozumím"
+            },
+            {
+              "person": "ty",
+              "form": "nerozumíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nerozumí"
+            },
+            {
+              "person": "my",
+              "form": "nerozumíme"
+            },
+            {
+              "person": "vy",
+              "form": "nerozumíte"
+            },
+            {
+              "person": "oni",
+              "form": "nerozumějí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "jíst",
+      "english": "to eat",
+      "meanings": {
+        "de": "essen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jím"
+            },
+            {
+              "person": "ty",
+              "form": "jíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "jí"
+            },
+            {
+              "person": "my",
+              "form": "jíme"
+            },
+            {
+              "person": "vy",
+              "form": "jíte"
+            },
+            {
+              "person": "oni",
+              "form": "jedí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jedl / jedla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "jedl / jedla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "jedl / jedla"
+            },
+            {
+              "person": "my",
+              "form": "jedli / jedly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "jedli / jedly jste"
+            },
+            {
+              "person": "oni",
+              "form": "jedli / jedly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu jíst"
+            },
+            {
+              "person": "ty",
+              "form": "budeš jíst"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude jíst"
+            },
+            {
+              "person": "my",
+              "form": "budeme jíst"
+            },
+            {
+              "person": "vy",
+              "form": "budete jíst"
+            },
+            {
+              "person": "oni",
+              "form": "budou jíst"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jedl bych"
+            },
+            {
+              "person": "ty",
+              "form": "jedl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "jedl by"
+            },
+            {
+              "person": "my",
+              "form": "jedli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "jedli byste"
+            },
+            {
+              "person": "oni",
+              "form": "jedli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nejím"
+            },
+            {
+              "person": "ty",
+              "form": "nejíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nejí"
+            },
+            {
+              "person": "my",
+              "form": "nejíme"
+            },
+            {
+              "person": "vy",
+              "form": "nejíte"
+            },
+            {
+              "person": "oni",
+              "form": "nejedí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "pít",
+      "english": "to drink",
+      "meanings": {
+        "de": "trinken"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "piji"
+            },
+            {
+              "person": "ty",
+              "form": "piješ"
+            },
+            {
+              "person": "on/ona",
+              "form": "pije"
+            },
+            {
+              "person": "my",
+              "form": "pijeme"
+            },
+            {
+              "person": "vy",
+              "form": "pijete"
+            },
+            {
+              "person": "oni",
+              "form": "pijí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "pil / pila jsem"
+            },
+            {
+              "person": "ty",
+              "form": "pil / pila jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "pil / pila"
+            },
+            {
+              "person": "my",
+              "form": "pili / pily jsme"
+            },
+            {
+              "person": "vy",
+              "form": "pili / pily jste"
+            },
+            {
+              "person": "oni",
+              "form": "pili / pily"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu pít"
+            },
+            {
+              "person": "ty",
+              "form": "budeš pít"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude pít"
+            },
+            {
+              "person": "my",
+              "form": "budeme pít"
+            },
+            {
+              "person": "vy",
+              "form": "budete pít"
+            },
+            {
+              "person": "oni",
+              "form": "budou pít"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "pil bych"
+            },
+            {
+              "person": "ty",
+              "form": "pil bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "pil by"
+            },
+            {
+              "person": "my",
+              "form": "pili bychom"
+            },
+            {
+              "person": "vy",
+              "form": "pili byste"
+            },
+            {
+              "person": "oni",
+              "form": "pili by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nepiji"
+            },
+            {
+              "person": "ty",
+              "form": "nepiješ"
+            },
+            {
+              "person": "on/ona",
+              "form": "nepije"
+            },
+            {
+              "person": "my",
+              "form": "nepijeme"
+            },
+            {
+              "person": "vy",
+              "form": "nepijete"
+            },
+            {
+              "person": "oni",
+              "form": "nepijí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "spát",
+      "english": "to sleep",
+      "meanings": {
+        "de": "schlafen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "spím"
+            },
+            {
+              "person": "ty",
+              "form": "spíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "spí"
+            },
+            {
+              "person": "my",
+              "form": "spíme"
+            },
+            {
+              "person": "vy",
+              "form": "spíte"
+            },
+            {
+              "person": "oni",
+              "form": "spí"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "spal / spala jsem"
+            },
+            {
+              "person": "ty",
+              "form": "spal / spala jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "spal / spala"
+            },
+            {
+              "person": "my",
+              "form": "spali / spaly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "spali / spaly jste"
+            },
+            {
+              "person": "oni",
+              "form": "spali / spaly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu spát"
+            },
+            {
+              "person": "ty",
+              "form": "budeš spát"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude spát"
+            },
+            {
+              "person": "my",
+              "form": "budeme spát"
+            },
+            {
+              "person": "vy",
+              "form": "budete spát"
+            },
+            {
+              "person": "oni",
+              "form": "budou spát"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "spal bych"
+            },
+            {
+              "person": "ty",
+              "form": "spal bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "spal by"
+            },
+            {
+              "person": "my",
+              "form": "spali bychom"
+            },
+            {
+              "person": "vy",
+              "form": "spali byste"
+            },
+            {
+              "person": "oni",
+              "form": "spali by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nespím"
+            },
+            {
+              "person": "ty",
+              "form": "nespíš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nespí"
+            },
+            {
+              "person": "my",
+              "form": "nespíme"
+            },
+            {
+              "person": "vy",
+              "form": "nespíte"
+            },
+            {
+              "person": "oni",
+              "form": "nespí"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "kupovat",
+      "english": "to buy",
+      "meanings": {
+        "de": "kaufen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "kupuji"
+            },
+            {
+              "person": "ty",
+              "form": "kupuješ"
+            },
+            {
+              "person": "on/ona",
+              "form": "kupuje"
+            },
+            {
+              "person": "my",
+              "form": "kupujeme"
+            },
+            {
+              "person": "vy",
+              "form": "kupujete"
+            },
+            {
+              "person": "oni",
+              "form": "kupují"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "kupoval / kupovala jsem"
+            },
+            {
+              "person": "ty",
+              "form": "kupoval / kupovala jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "kupoval / kupovala"
+            },
+            {
+              "person": "my",
+              "form": "kupovali / kupovaly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "kupovali / kupovaly jste"
+            },
+            {
+              "person": "oni",
+              "form": "kupovali / kupovaly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu kupovat"
+            },
+            {
+              "person": "ty",
+              "form": "budeš kupovat"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude kupovat"
+            },
+            {
+              "person": "my",
+              "form": "budeme kupovat"
+            },
+            {
+              "person": "vy",
+              "form": "budete kupovat"
+            },
+            {
+              "person": "oni",
+              "form": "budou kupovat"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "kupoval bych"
+            },
+            {
+              "person": "ty",
+              "form": "kupoval bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "kupoval by"
+            },
+            {
+              "person": "my",
+              "form": "kupovali bychom"
+            },
+            {
+              "person": "vy",
+              "form": "kupovali byste"
+            },
+            {
+              "person": "oni",
+              "form": "kupovali by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nekupuji"
+            },
+            {
+              "person": "ty",
+              "form": "nekupuješ"
+            },
+            {
+              "person": "on/ona",
+              "form": "nekupuje"
+            },
+            {
+              "person": "my",
+              "form": "nekupujeme"
+            },
+            {
+              "person": "vy",
+              "form": "nekupujete"
+            },
+            {
+              "person": "oni",
+              "form": "nekupují"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "číst",
+      "english": "to read",
+      "meanings": {
+        "de": "lesen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "čtu"
+            },
+            {
+              "person": "ty",
+              "form": "čteš"
+            },
+            {
+              "person": "on/ona",
+              "form": "čte"
+            },
+            {
+              "person": "my",
+              "form": "čteme"
+            },
+            {
+              "person": "vy",
+              "form": "čtete"
+            },
+            {
+              "person": "oni",
+              "form": "čtou"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "četl / četla jsem"
+            },
+            {
+              "person": "ty",
+              "form": "četl / četla jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "četl / četla"
+            },
+            {
+              "person": "my",
+              "form": "četli / četly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "četli / četly jste"
+            },
+            {
+              "person": "oni",
+              "form": "četli / četly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu číst"
+            },
+            {
+              "person": "ty",
+              "form": "budeš číst"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude číst"
+            },
+            {
+              "person": "my",
+              "form": "budeme číst"
+            },
+            {
+              "person": "vy",
+              "form": "budete číst"
+            },
+            {
+              "person": "oni",
+              "form": "budou číst"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "četl bych"
+            },
+            {
+              "person": "ty",
+              "form": "četl bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "četl by"
+            },
+            {
+              "person": "my",
+              "form": "četli bychom"
+            },
+            {
+              "person": "vy",
+              "form": "četli byste"
+            },
+            {
+              "person": "oni",
+              "form": "četli by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nečtu"
+            },
+            {
+              "person": "ty",
+              "form": "nečteš"
+            },
+            {
+              "person": "on/ona",
+              "form": "nečte"
+            },
+            {
+              "person": "my",
+              "form": "nečteme"
+            },
+            {
+              "person": "vy",
+              "form": "nečtete"
+            },
+            {
+              "person": "oni",
+              "form": "nečtou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "jmenovat",
+      "english": "to name; jmenovat se = to be called",
+      "meanings": {
+        "de": "nennen; jmenovat se = heißen"
+      },
+      "sets": [
+        {
+          "label": "Přítomný čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jmenuji"
+            },
+            {
+              "person": "ty",
+              "form": "jmenuješ"
+            },
+            {
+              "person": "on/ona",
+              "form": "jmenuje"
+            },
+            {
+              "person": "my",
+              "form": "jmenujeme"
+            },
+            {
+              "person": "vy",
+              "form": "jmenujete"
+            },
+            {
+              "person": "oni",
+              "form": "jmenují"
+            }
+          ]
+        },
+        {
+          "label": "Minulý čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jmenoval / jmenovala jsem"
+            },
+            {
+              "person": "ty",
+              "form": "jmenoval / jmenovala jsi"
+            },
+            {
+              "person": "on/ona",
+              "form": "jmenoval / jmenovala"
+            },
+            {
+              "person": "my",
+              "form": "jmenovali / jmenovaly jsme"
+            },
+            {
+              "person": "vy",
+              "form": "jmenovali / jmenovaly jste"
+            },
+            {
+              "person": "oni",
+              "form": "jmenovali / jmenovaly"
+            }
+          ]
+        },
+        {
+          "label": "Budoucí čas",
+          "forms": [
+            {
+              "person": "já",
+              "form": "budu jmenovat"
+            },
+            {
+              "person": "ty",
+              "form": "budeš jmenovat"
+            },
+            {
+              "person": "on/ona",
+              "form": "bude jmenovat"
+            },
+            {
+              "person": "my",
+              "form": "budeme jmenovat"
+            },
+            {
+              "person": "vy",
+              "form": "budete jmenovat"
+            },
+            {
+              "person": "oni",
+              "form": "budou jmenovat"
+            }
+          ]
+        },
+        {
+          "label": "Kondicionál",
+          "forms": [
+            {
+              "person": "já",
+              "form": "jmenoval bych"
+            },
+            {
+              "person": "ty",
+              "form": "jmenoval bys"
+            },
+            {
+              "person": "on/ona",
+              "form": "jmenoval by"
+            },
+            {
+              "person": "my",
+              "form": "jmenovali bychom"
+            },
+            {
+              "person": "vy",
+              "form": "jmenovali byste"
+            },
+            {
+              "person": "oni",
+              "form": "jmenovali by"
+            }
+          ]
+        },
+        {
+          "label": "Zápor (přítomný)",
+          "forms": [
+            {
+              "person": "já",
+              "form": "nejmenuji"
+            },
+            {
+              "person": "ty",
+              "form": "nejmenuješ"
+            },
+            {
+              "person": "on/ona",
+              "form": "nejmenuje"
+            },
+            {
+              "person": "my",
+              "form": "nejmenujeme"
+            },
+            {
+              "person": "vy",
+              "form": "nejmenujete"
+            },
+            {
+              "person": "oni",
+              "form": "nejmenují"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

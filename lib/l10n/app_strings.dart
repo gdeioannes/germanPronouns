@@ -149,6 +149,22 @@ class AppStrings {
     required this.notEnoughCoins,
     required this.gaveAwayItem,
     required this.addedAnotherItem,
+    required this.nouns,
+    required this.verbs,
+    required this.meaning,
+    required this.showMeanings,
+    required this.includeInQuizzes,
+    required this.pluralLabel,
+    required this.exampleLabel,
+    required this.conjugations,
+    required this.wordLibraryIntro,
+    required this.difficulty,
+    required this.category,
+    required this.noWordList,
+    required this.noVerbList,
+    required this.difficultyBeginner,
+    required this.difficultyIntermediate,
+    required this.difficultyAdvanced,
   });
 
   final String chooseCourse;
@@ -370,6 +386,28 @@ class AppStrings {
 
   /// Snackbar after buying another copy. `{item}` is the piece's name.
   final String addedAnotherItem;
+
+  // Word Library: the Nouns/Verbs tabs, the tap-to-see-meaning detail panel
+  // and the verb conjugation panel.
+  final String nouns;
+  final String verbs;
+  final String meaning;
+  final String showMeanings;
+
+  /// Label of the switch in the noun detail panel that enables/disables the
+  /// word for the quizzes drawing from the shared noun list.
+  final String includeInQuizzes;
+  final String pluralLabel;
+  final String exampleLabel;
+  final String conjugations;
+  final String wordLibraryIntro;
+  final String difficulty;
+  final String category;
+  final String noWordList;
+  final String noVerbList;
+  final String difficultyBeginner;
+  final String difficultyIntermediate;
+  final String difficultyAdvanced;
 }
 
 const AppStrings _en = AppStrings(
@@ -536,6 +574,24 @@ const AppStrings _en = AppStrings(
   notEnoughCoins: 'Not enough coins.',
   gaveAwayItem: 'You gave away the {item} 💛  Someone will love it!',
   addedAnotherItem: 'Added another {item}!',
+  nouns: 'Nouns',
+  verbs: 'Verbs',
+  meaning: 'Meaning',
+  showMeanings: 'Show meanings',
+  includeInQuizzes: 'Include in quizzes',
+  pluralLabel: 'Plural',
+  exampleLabel: 'Example',
+  conjugations: 'Conjugations',
+  wordLibraryIntro:
+      'Tap a word to see its meaning. Toggle it to include or exclude it '
+      'from the quizzes.',
+  difficulty: 'Difficulty',
+  category: 'Category',
+  noWordList: 'No word list for this course.',
+  noVerbList: 'No verb list for this course.',
+  difficultyBeginner: 'Beginner',
+  difficultyIntermediate: 'Intermediate',
+  difficultyAdvanced: 'Advanced',
 );
 
 const AppStrings _es = AppStrings(
@@ -706,6 +762,24 @@ const AppStrings _es = AppStrings(
   notEnoughCoins: 'No tienes monedas suficientes.',
   gaveAwayItem: 'Regalaste {item} 💛  ¡Alguien lo va a adorar!',
   addedAnotherItem: '¡Añadiste otro: {item}!',
+  nouns: 'Sustantivos',
+  verbs: 'Verbos',
+  meaning: 'Significado',
+  showMeanings: 'Mostrar significados',
+  includeInQuizzes: 'Incluir en los ejercicios',
+  pluralLabel: 'Plural',
+  exampleLabel: 'Ejemplo',
+  conjugations: 'Conjugaciones',
+  wordLibraryIntro:
+      'Toca una palabra para ver su significado. Actívala o desactívala para '
+      'los ejercicios.',
+  difficulty: 'Dificultad',
+  category: 'Categoría',
+  noWordList: 'No hay lista de palabras para este curso.',
+  noVerbList: 'No hay lista de verbos para este curso.',
+  difficultyBeginner: 'Principiante',
+  difficultyIntermediate: 'Intermedio',
+  difficultyAdvanced: 'Avanzado',
 );
 
 const AppStrings _de = AppStrings(
@@ -876,6 +950,24 @@ const AppStrings _de = AppStrings(
   notEnoughCoins: 'Nicht genug Münzen.',
   gaveAwayItem: 'Du hast {item} verschenkt 💛  Jemand wird es lieben!',
   addedAnotherItem: '{item} noch einmal hinzugefügt!',
+  nouns: 'Nomen',
+  verbs: 'Verben',
+  meaning: 'Bedeutung',
+  showMeanings: 'Bedeutungen anzeigen',
+  includeInQuizzes: 'In Übungen verwenden',
+  pluralLabel: 'Plural',
+  exampleLabel: 'Beispiel',
+  conjugations: 'Konjugationen',
+  wordLibraryIntro:
+      'Tippe auf ein Wort, um seine Bedeutung zu sehen. Schalte es für die '
+      'Übungen ein oder aus.',
+  difficulty: 'Schwierigkeit',
+  category: 'Kategorie',
+  noWordList: 'Für diesen Kurs gibt es keine Wortliste.',
+  noVerbList: 'Für diesen Kurs gibt es keine Verbliste.',
+  difficultyBeginner: 'Anfänger',
+  difficultyIntermediate: 'Mittelstufe',
+  difficultyAdvanced: 'Fortgeschritten',
 );
 
 const AppStrings _zh = AppStrings(
@@ -1025,6 +1117,22 @@ const AppStrings _zh = AppStrings(
   notEnoughCoins: '金币不足。',
   gaveAwayItem: '你把 {item} 送出去了 💛  一定会有人喜欢！',
   addedAnotherItem: '又添加了一个 {item}！',
+  nouns: '名词',
+  verbs: '动词',
+  meaning: '意思',
+  showMeanings: '显示意思',
+  includeInQuizzes: '包含在练习中',
+  pluralLabel: '复数',
+  exampleLabel: '例句',
+  conjugations: '动词变化',
+  wordLibraryIntro: '点击单词查看意思。用开关决定是否在练习中使用它。',
+  difficulty: '难度',
+  category: '类别',
+  noWordList: '本课程没有词汇表。',
+  noVerbList: '本课程没有动词表。',
+  difficultyBeginner: '初级',
+  difficultyIntermediate: '中级',
+  difficultyAdvanced: '高级',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

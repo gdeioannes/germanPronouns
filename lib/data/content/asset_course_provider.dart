@@ -25,6 +25,10 @@ class AssetContentSource implements ContentSource {
   @override
   Future<String> sharedNounsJson(String langCode) =>
       rootBundle.loadString('$_root/shared/nouns/$langCode.json');
+
+  @override
+  Future<String> sharedVerbsJson(String langCode) =>
+      rootBundle.loadString('$_root/shared/verbs/$langCode.json');
 }
 
 /// [CourseBundleStore] backed by the shared content database, so teacher edits

@@ -12,6 +12,7 @@ class GermanNoun {
     required this.declensionSafe,
     this.plural,
     this.sentence,
+    this.meanings = const {},
   });
 
   /// Capitalized German noun, no article (e.g. "Hund").
@@ -43,9 +44,25 @@ class GermanNoun {
   /// Populated only for shared-collection nouns.
   final String? sentence;
 
-  /// A copy with reference fields ([plural]/[sentence]) filled in. Used to
-  /// enrich the compiled list into the shared collection without mutating it.
-  GermanNoun copyWith({String? plural, String? sentence}) => GermanNoun(
+  /// Additional meanings keyed by UI-language code (e.g. `es` → 'el perro',
+  /// `zh` → '狗'), so each course can show the meaning in the language its
+  /// learner speaks. [english] stays the canonical fallback; see [meaningFor].
+  final Map<String, String> meanings;
+
+  /// The meaning shown to a learner whose UI language is [uiLangCode]
+  /// (a [UiLang] name, e.g. 'es'). Falls back to [english] when no
+  /// translation for that language exists.
+  String meaningFor(String uiLangCode) =>
+      uiLangCode == 'en' ? english : (meanings[uiLangCode] ?? english);
+
+  /// A copy with reference fields ([plural]/[sentence]/[meanings]) filled in.
+  /// Used to enrich the compiled list into the shared collection without
+  /// mutating it.
+  GermanNoun copyWith({
+    String? plural,
+    String? sentence,
+    Map<String, String>? meanings,
+  }) => GermanNoun(
     noun: noun,
     gender: gender,
     english: english,
@@ -54,6 +71,7 @@ class GermanNoun {
     declensionSafe: declensionSafe,
     plural: plural ?? this.plural,
     sentence: sentence ?? this.sentence,
+    meanings: meanings ?? this.meanings,
   );
 
   /// Database-ready JSON form of this noun.
@@ -66,6 +84,7 @@ class GermanNoun {
     'declensionSafe': declensionSafe,
     if (plural != null) 'plural': plural,
     if (sentence != null) 'sentence': sentence,
+    if (meanings.isNotEmpty) 'meanings': meanings,
   };
 
   factory GermanNoun.fromJson(Map<String, dynamic> json) => GermanNoun(
@@ -77,6 +96,8 @@ class GermanNoun {
     declensionSafe: json['declensionSafe'] as bool,
     plural: json['plural'] as String?,
     sentence: json['sentence'] as String?,
+    meanings:
+        (json['meanings'] as Map?)?.cast<String, String>() ?? const {},
   );
 }
 

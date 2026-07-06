@@ -1,0 +1,1291 @@
+{
+  "categoryDisplayNames": {
+    "family": "Familie (rodina)",
+    "food": "Essen (jídlo)",
+    "drinks": "Getränke (nápoje)",
+    "animals": "Tiere (zvířata)",
+    "bodyParts": "Körper (tělo)",
+    "city": "Stadt (město)",
+    "transport": "Verkehr (doprava)",
+    "school": "Schule (škola)",
+    "time": "Zeit (čas)",
+    "nature": "Natur (příroda)",
+    "professions": "Berufe (povolání)"
+  },
+  "nouns": [
+    {
+      "noun": "otec",
+      "gender": "m",
+      "english": "father",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Vater"
+      }
+    },
+    {
+      "noun": "matka",
+      "gender": "f",
+      "english": "mother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Mutter"
+      }
+    },
+    {
+      "noun": "bratr",
+      "gender": "m",
+      "english": "brother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Bruder"
+      }
+    },
+    {
+      "noun": "sestra",
+      "gender": "f",
+      "english": "sister",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Schwester"
+      }
+    },
+    {
+      "noun": "syn",
+      "gender": "m",
+      "english": "son",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Sohn"
+      }
+    },
+    {
+      "noun": "dcera",
+      "gender": "f",
+      "english": "daughter",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Tochter"
+      }
+    },
+    {
+      "noun": "dědeček",
+      "gender": "m",
+      "english": "grandfather",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Großvater"
+      }
+    },
+    {
+      "noun": "babička",
+      "gender": "f",
+      "english": "grandmother",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Großmutter"
+      }
+    },
+    {
+      "noun": "rodina",
+      "gender": "f",
+      "english": "family",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Familie"
+      }
+    },
+    {
+      "noun": "dítě",
+      "gender": "n",
+      "english": "child",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Kind"
+      }
+    },
+    {
+      "noun": "kamarád",
+      "gender": "m",
+      "english": "friend",
+      "categories": [
+        "family"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Freund"
+      }
+    },
+    {
+      "noun": "chléb",
+      "gender": "m",
+      "english": "bread",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Brot"
+      }
+    },
+    {
+      "noun": "sýr",
+      "gender": "m",
+      "english": "cheese",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Käse"
+      }
+    },
+    {
+      "noun": "vejce",
+      "gender": "n",
+      "english": "egg",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Ei"
+      }
+    },
+    {
+      "noun": "maso",
+      "gender": "n",
+      "english": "meat",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Fleisch"
+      }
+    },
+    {
+      "noun": "ryba",
+      "gender": "f",
+      "english": "fish",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Fisch"
+      }
+    },
+    {
+      "noun": "rýže",
+      "gender": "f",
+      "english": "rice",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Reis"
+      }
+    },
+    {
+      "noun": "jablko",
+      "gender": "n",
+      "english": "apple",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Apfel"
+      }
+    },
+    {
+      "noun": "polévka",
+      "gender": "f",
+      "english": "soup",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Suppe"
+      }
+    },
+    {
+      "noun": "brambora",
+      "gender": "f",
+      "english": "potato",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Kartoffel"
+      }
+    },
+    {
+      "noun": "salát",
+      "gender": "m",
+      "english": "salad",
+      "categories": [
+        "food"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Salat"
+      }
+    },
+    {
+      "noun": "voda",
+      "gender": "f",
+      "english": "water",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Wasser"
+      }
+    },
+    {
+      "noun": "káva",
+      "gender": "f",
+      "english": "coffee",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Kaffee"
+      }
+    },
+    {
+      "noun": "čaj",
+      "gender": "m",
+      "english": "tea",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Tee"
+      }
+    },
+    {
+      "noun": "mléko",
+      "gender": "n",
+      "english": "milk",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Milch"
+      }
+    },
+    {
+      "noun": "pivo",
+      "gender": "n",
+      "english": "beer",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Bier"
+      }
+    },
+    {
+      "noun": "víno",
+      "gender": "n",
+      "english": "wine",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Wein"
+      }
+    },
+    {
+      "noun": "džus",
+      "gender": "m",
+      "english": "juice",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Saft"
+      }
+    },
+    {
+      "noun": "láhev",
+      "gender": "f",
+      "english": "bottle",
+      "categories": [
+        "drinks"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Flasche"
+      }
+    },
+    {
+      "noun": "pes",
+      "gender": "m",
+      "english": "dog",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Hund"
+      }
+    },
+    {
+      "noun": "kočka",
+      "gender": "f",
+      "english": "cat",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Katze"
+      }
+    },
+    {
+      "noun": "kůň",
+      "gender": "m",
+      "english": "horse",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Pferd"
+      }
+    },
+    {
+      "noun": "kráva",
+      "gender": "f",
+      "english": "cow",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Kuh"
+      }
+    },
+    {
+      "noun": "pták",
+      "gender": "m",
+      "english": "bird",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Vogel"
+      }
+    },
+    {
+      "noun": "myš",
+      "gender": "f",
+      "english": "mouse",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Maus"
+      }
+    },
+    {
+      "noun": "ovce",
+      "gender": "f",
+      "english": "sheep",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Schaf"
+      }
+    },
+    {
+      "noun": "prase",
+      "gender": "n",
+      "english": "pig",
+      "categories": [
+        "animals"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Schwein"
+      }
+    },
+    {
+      "noun": "hlava",
+      "gender": "f",
+      "english": "head",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Kopf"
+      }
+    },
+    {
+      "noun": "ruka",
+      "gender": "f",
+      "english": "hand/arm",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Hand / der Arm"
+      }
+    },
+    {
+      "noun": "oko",
+      "gender": "n",
+      "english": "eye",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Auge"
+      }
+    },
+    {
+      "noun": "ucho",
+      "gender": "n",
+      "english": "ear",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Ohr"
+      }
+    },
+    {
+      "noun": "nos",
+      "gender": "m",
+      "english": "nose",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Nase"
+      }
+    },
+    {
+      "noun": "noha",
+      "gender": "f",
+      "english": "leg/foot",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Bein / der Fuß"
+      }
+    },
+    {
+      "noun": "srdce",
+      "gender": "n",
+      "english": "heart",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Herz"
+      }
+    },
+    {
+      "noun": "zub",
+      "gender": "m",
+      "english": "tooth",
+      "categories": [
+        "bodyParts"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Zahn"
+      }
+    },
+    {
+      "noun": "město",
+      "gender": "n",
+      "english": "city",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Stadt"
+      }
+    },
+    {
+      "noun": "ulice",
+      "gender": "f",
+      "english": "street",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Straße"
+      }
+    },
+    {
+      "noun": "dům",
+      "gender": "m",
+      "english": "house",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Haus"
+      }
+    },
+    {
+      "noun": "náměstí",
+      "gender": "n",
+      "english": "square",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Platz"
+      }
+    },
+    {
+      "noun": "obchod",
+      "gender": "m",
+      "english": "shop",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Laden"
+      }
+    },
+    {
+      "noun": "kostel",
+      "gender": "m",
+      "english": "church",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Kirche"
+      }
+    },
+    {
+      "noun": "muzeum",
+      "gender": "n",
+      "english": "museum",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Museum"
+      }
+    },
+    {
+      "noun": "park",
+      "gender": "m",
+      "english": "park",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Park"
+      }
+    },
+    {
+      "noun": "most",
+      "gender": "m",
+      "english": "bridge",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Brücke"
+      }
+    },
+    {
+      "noun": "nádraží",
+      "gender": "n",
+      "english": "train station",
+      "categories": [
+        "city"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Bahnhof"
+      }
+    },
+    {
+      "noun": "auto",
+      "gender": "n",
+      "english": "car",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Auto"
+      }
+    },
+    {
+      "noun": "vlak",
+      "gender": "m",
+      "english": "train",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Zug"
+      }
+    },
+    {
+      "noun": "autobus",
+      "gender": "m",
+      "english": "bus",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Bus"
+      }
+    },
+    {
+      "noun": "letadlo",
+      "gender": "n",
+      "english": "airplane",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Flugzeug"
+      }
+    },
+    {
+      "noun": "kolo",
+      "gender": "n",
+      "english": "bicycle",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Fahrrad"
+      }
+    },
+    {
+      "noun": "loď",
+      "gender": "f",
+      "english": "ship/boat",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Schiff"
+      }
+    },
+    {
+      "noun": "tramvaj",
+      "gender": "f",
+      "english": "tram",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Straßenbahn"
+      }
+    },
+    {
+      "noun": "jízdenka",
+      "gender": "f",
+      "english": "ticket",
+      "categories": [
+        "transport"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Fahrkarte"
+      }
+    },
+    {
+      "noun": "škola",
+      "gender": "f",
+      "english": "school",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Schule"
+      }
+    },
+    {
+      "noun": "kniha",
+      "gender": "f",
+      "english": "book",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Buch"
+      }
+    },
+    {
+      "noun": "sešit",
+      "gender": "m",
+      "english": "notebook",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Heft"
+      }
+    },
+    {
+      "noun": "tužka",
+      "gender": "f",
+      "english": "pencil",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Bleistift"
+      }
+    },
+    {
+      "noun": "stůl",
+      "gender": "m",
+      "english": "table",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Tisch"
+      }
+    },
+    {
+      "noun": "židle",
+      "gender": "f",
+      "english": "chair",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Stuhl"
+      }
+    },
+    {
+      "noun": "slovo",
+      "gender": "n",
+      "english": "word",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Wort"
+      }
+    },
+    {
+      "noun": "otázka",
+      "gender": "f",
+      "english": "question",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Frage"
+      }
+    },
+    {
+      "noun": "odpověď",
+      "gender": "f",
+      "english": "answer",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Antwort"
+      }
+    },
+    {
+      "noun": "žák",
+      "gender": "m",
+      "english": "pupil",
+      "categories": [
+        "school"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Schüler"
+      }
+    },
+    {
+      "noun": "den",
+      "gender": "m",
+      "english": "day",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Tag"
+      }
+    },
+    {
+      "noun": "týden",
+      "gender": "m",
+      "english": "week",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Woche"
+      }
+    },
+    {
+      "noun": "měsíc",
+      "gender": "m",
+      "english": "month/moon",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Monat / der Mond"
+      }
+    },
+    {
+      "noun": "rok",
+      "gender": "m",
+      "english": "year",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Jahr"
+      }
+    },
+    {
+      "noun": "hodina",
+      "gender": "f",
+      "english": "hour",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Stunde"
+      }
+    },
+    {
+      "noun": "minuta",
+      "gender": "f",
+      "english": "minute",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Minute"
+      }
+    },
+    {
+      "noun": "ráno",
+      "gender": "n",
+      "english": "morning",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Morgen"
+      }
+    },
+    {
+      "noun": "večer",
+      "gender": "m",
+      "english": "evening",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Abend"
+      }
+    },
+    {
+      "noun": "noc",
+      "gender": "f",
+      "english": "night",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Nacht"
+      }
+    },
+    {
+      "noun": "víkend",
+      "gender": "m",
+      "english": "weekend",
+      "categories": [
+        "time"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Wochenende"
+      }
+    },
+    {
+      "noun": "slunce",
+      "gender": "n",
+      "english": "sun",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Sonne"
+      }
+    },
+    {
+      "noun": "nebe",
+      "gender": "n",
+      "english": "sky",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Himmel"
+      }
+    },
+    {
+      "noun": "moře",
+      "gender": "n",
+      "english": "sea",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "das Meer"
+      }
+    },
+    {
+      "noun": "řeka",
+      "gender": "f",
+      "english": "river",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Fluss"
+      }
+    },
+    {
+      "noun": "hora",
+      "gender": "f",
+      "english": "mountain",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Berg"
+      }
+    },
+    {
+      "noun": "strom",
+      "gender": "m",
+      "english": "tree",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Baum"
+      }
+    },
+    {
+      "noun": "květina",
+      "gender": "f",
+      "english": "flower",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Blume"
+      }
+    },
+    {
+      "noun": "les",
+      "gender": "m",
+      "english": "forest",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Wald"
+      }
+    },
+    {
+      "noun": "ostrov",
+      "gender": "m",
+      "english": "island",
+      "categories": [
+        "nature"
+      ],
+      "difficulty": "beginner",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "die Insel"
+      }
+    },
+    {
+      "noun": "lékař",
+      "gender": "m",
+      "english": "doctor",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Arzt"
+      }
+    },
+    {
+      "noun": "učitel",
+      "gender": "m",
+      "english": "teacher",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Lehrer"
+      }
+    },
+    {
+      "noun": "kuchař",
+      "gender": "m",
+      "english": "cook",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Koch"
+      }
+    },
+    {
+      "noun": "číšník",
+      "gender": "m",
+      "english": "waiter",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Kellner"
+      }
+    },
+    {
+      "noun": "prodavač",
+      "gender": "m",
+      "english": "salesperson",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Verkäufer"
+      }
+    },
+    {
+      "noun": "policista",
+      "gender": "m",
+      "english": "police officer",
+      "categories": [
+        "professions"
+      ],
+      "difficulty": "intermediate",
+      "declensionSafe": true,
+      "meanings": {
+        "de": "der Polizist"
+      }
+    }
+  ]
+}

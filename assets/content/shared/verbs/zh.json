@@ -1,0 +1,1804 @@
+{
+  "verbs": [
+    {
+      "verb": "吃",
+      "english": "to eat · chī",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我吃"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我吃了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我吃过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在吃"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要吃"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不吃 / 我没吃"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "喝",
+      "english": "to drink · hē",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我喝"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我喝了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我喝过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在喝"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要喝"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不喝 / 我没喝"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "去",
+      "english": "to go · qù",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我去"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我去了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我去过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在去"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要去"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不去 / 我没去"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "来",
+      "english": "to come · lái",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我来"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我来了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我来过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在来"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要来"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不来 / 我没来"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "看",
+      "english": "to look, to watch · kàn",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我看"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我看了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我看过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在看"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要看"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不看 / 我没看"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "听",
+      "english": "to listen · tīng",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我听"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我听了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我听过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在听"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要听"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不听 / 我没听"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "说",
+      "english": "to speak · shuō",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我说"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我说了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我说过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在说"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要说"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不说 / 我没说"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "读",
+      "english": "to read · dú",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我读"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我读了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我读过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在读"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要读"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不读 / 我没读"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "写",
+      "english": "to write · xiě",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我写"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我写了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我写过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在写"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要写"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不写 / 我没写"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "买",
+      "english": "to buy · mǎi",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我买"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我买了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我买过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在买"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要买"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不买 / 我没买"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "做",
+      "english": "to do, to make · zuò",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我做"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我做了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我做过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在做"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要做"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不做 / 我没做"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "学习",
+      "english": "to study · xuéxí",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我学习"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我学习了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我学习过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在学习"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要学习"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不学习 / 我没学习"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "工作",
+      "english": "to work · gōngzuò",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我工作"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我工作了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我工作过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在工作"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要工作"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不工作 / 我没工作"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "睡觉",
+      "english": "to sleep · shuìjiào",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我睡觉"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我睡觉了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我睡觉过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在睡觉"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要睡觉"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不睡觉 / 我没睡觉"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "玩",
+      "english": "to play · wán",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我玩"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我玩了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我玩过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在玩"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要玩"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不玩 / 我没玩"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "用",
+      "english": "to use · yòng",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我用"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我用了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我用过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在用"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要用"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不用 / 我没用"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "找",
+      "english": "to look for · zhǎo",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我找"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我找了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我找过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在找"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要找"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不找 / 我没找"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "给",
+      "english": "to give · gěi",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我给"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我给了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我给过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在给"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要给"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不给 / 我没给"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "拿",
+      "english": "to take, to hold · ná",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我拿"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我拿了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我拿过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在拿"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要拿"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不拿 / 我没拿"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "开",
+      "english": "to open, to drive · kāi",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我开"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我开了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我开过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在开"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要开"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不开 / 我没开"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "坐",
+      "english": "to sit · zuò",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我坐"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我坐了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我坐过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在坐"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要坐"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不坐 / 我没坐"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "走",
+      "english": "to walk · zǒu",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我走"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我走了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我走过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在走"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要走"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不走 / 我没走"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "跑",
+      "english": "to run · pǎo",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我跑"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我跑了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我跑过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在跑"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要跑"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不跑 / 我没跑"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "唱",
+      "english": "to sing · chàng",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我唱"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我唱了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我唱过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在唱"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要唱"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不唱 / 我没唱"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "跳",
+      "english": "to jump, to dance · tiào",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我跳"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我跳了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我跳过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在跳"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要跳"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不跳 / 我没跳"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "洗",
+      "english": "to wash · xǐ",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我洗"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我洗了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我洗过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在洗"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要洗"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不洗 / 我没洗"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "穿",
+      "english": "to wear · chuān",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我穿"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我穿了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我穿过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在穿"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要穿"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不穿 / 我没穿"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "打",
+      "english": "to hit, to play (sports) · dǎ",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我打"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我打了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我打过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在打"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要打"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不打 / 我没打"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "等",
+      "english": "to wait · děng",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我等"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我等了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我等过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在等"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要等"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不等 / 我没等"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "verb": "问",
+      "english": "to ask · wèn",
+      "sets": [
+        {
+          "label": "Present · plain",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我问"
+            }
+          ]
+        },
+        {
+          "label": "了 · completed action",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我问了"
+            }
+          ]
+        },
+        {
+          "label": "过 · past experience",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我问过"
+            }
+          ]
+        },
+        {
+          "label": "在 · in progress",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我在问"
+            }
+          ]
+        },
+        {
+          "label": "要 · future intention",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我要问"
+            }
+          ]
+        },
+        {
+          "label": "不/没 · negation",
+          "forms": [
+            {
+              "person": "我",
+              "form": "我不问 / 我没问"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import '../data/noun_progression_data.dart';
 import '../data/pronoun_article_sentences.dart';
 import '../data/quest_data.dart';
 import '../data/quiz_stats_store.dart';
+import '../data/verb_lookup.dart';
 import '../models/app_session.dart';
 import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
@@ -33,6 +34,7 @@ import 'help_memory_pdf_export.dart';
 import 'help_memory_tables.dart';
 import 'next_exercise.dart';
 import 'speak_icon_button.dart';
+import 'word_detail_panels.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key, required this.config});
@@ -2077,12 +2079,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
   }
 
-  static final RegExp _wordPattern = RegExp(r'[A-Za-zÄÖÜäöüßẞ]+');
+  // Any run of letters (unicode, so Spanish/Czech accented forms tokenize
+  // whole), not just the German alphabet.
+  static final RegExp _wordPattern = RegExp(r'\p{L}+', unicode: true);
 
   /// Splits [text] into spans, one per recognized noun (from
-  /// [germanNouns]/[nounSurfaceForms]) plus the text between them. Tapping a
-  /// recognized noun shows its article and English translation. When "Color
-  /// nouns by article" is on, recognized nouns are also colored by gender.
+  /// [germanNouns]/[nounSurfaceForms]) or verb form (from the shared verb
+  /// list) plus the text between them. Tapping a recognized noun shows its
+  /// article and translation; tapping a recognized verb opens the conjugation
+  /// panel (translation + the five principal tenses). When "Color nouns by
+  /// article" is on, recognized nouns are also colored by gender.
   List<InlineSpan> _highlightNounSpans(String text, TextStyle? baseStyle) {
     final matches = _wordPattern.allMatches(text).toList();
     if (matches.isEmpty) {
@@ -2099,10 +2105,11 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       }
 
       final word = match.group(0)!;
-      final info = lookupNoun(word);
-      if (info == null) {
-        spans.add(TextSpan(text: word, style: baseStyle));
-      } else {
+      final lang =
+          CourseSession.instance.activeCourse.learnLocale.split('-').first;
+      final info = lang == 'de' ? lookupNoun(word) : null;
+      final verb = info == null ? lookupVerb(word, lang: lang) : null;
+      if (info != null) {
         final style = NounSettings.instance.colorNouns
             ? (baseStyle ?? const TextStyle()).copyWith(
                 color: NounSettings.instance.colorForGender(info.noun.gender),
@@ -2117,6 +2124,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               ..onTap = () => _showNounInfoDialog(info),
           ),
         );
+      } else if (verb != null) {
+        spans.add(
+          TextSpan(
+            text: word,
+            style: baseStyle,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => showVerbDetailPanel(context, verb),
+          ),
+        );
+      } else {
+        spans.add(TextSpan(text: word, style: baseStyle));
       }
 
       start = match.end;
@@ -2213,6 +2231,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   void _showNounInfoDialog(NounInfo info) {
+    final strings = CourseSession.instance.strings;
+    final uiLang = CourseSession.instance.activeCourse.uiLang.name;
     final pluralEnding = pluralEndingNotation(info.noun.noun);
     final headline = pluralEnding != null
         ? '${info.article} ${info.noun.noun} $pluralEnding'
@@ -2232,13 +2252,15 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               ),
             ),
             const SizedBox(height: 4),
-            Text('Translation: ${info.noun.english}'),
+            // The meaning in the course's main (UI) language, like the Word
+            // Library panel.
+            Text('${strings.translation}: ${info.noun.meaningFor(uiLang)}'),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Close'),
+            child: Text(strings.close),
           ),
         ],
       ),

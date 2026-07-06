@@ -32,6 +32,15 @@ import 'package:german_pronouns_articles/data/preposition_content.dart';
 import 'package:german_pronouns_articles/data/pronoun_article_content.dart';
 import 'package:german_pronouns_articles/data/pronoun_content.dart';
 import 'package:german_pronouns_articles/data/quest_data.dart';
+import 'package:german_pronouns_articles/data/shared_nouns/nouns_cs.dart';
+import 'package:german_pronouns_articles/data/shared_nouns/nouns_en.dart';
+import 'package:german_pronouns_articles/data/shared_nouns/nouns_es.dart';
+import 'package:german_pronouns_articles/data/shared_nouns/nouns_zh.dart';
+import 'package:german_pronouns_articles/data/shared_verbs/verbs_cs.dart';
+import 'package:german_pronouns_articles/data/shared_verbs/verbs_de.dart';
+import 'package:german_pronouns_articles/data/shared_verbs/verbs_en.dart';
+import 'package:german_pronouns_articles/data/shared_verbs/verbs_es.dart';
+import 'package:german_pronouns_articles/data/shared_verbs/verbs_zh.dart';
 import 'package:german_pronouns_articles/models/content/catalog.dart';
 import 'package:german_pronouns_articles/models/content/populated_course.dart';
 import 'package:german_pronouns_articles/models/content/quiz.dart';
@@ -116,8 +125,38 @@ void main() {
     ),
   );
 
+  // The other learned languages' noun lists (authored, not enriched from a
+  // compiled quiz) — one file per language a course teaches, so the Word
+  // Library has a clickable list with meanings in each course's main language.
+  final nounCollections = {
+    'es': spanishNounCollection,
+    'cs': czechNounCollection,
+    'zh': mandarinNounCollection,
+    'en': englishNounCollection,
+  };
+  for (final entry in nounCollections.entries) {
+    File('assets/content/shared/nouns/${entry.key}.json')
+        .writeAsStringSync(encoder.convert(entry.value.toJson()));
+  }
+
+  // The shared verb lists (≥5 conjugation tables per verb), keyed by the
+  // learned language — the Word Library's Verbs tab reads these.
+  Directory('assets/content/shared/verbs').createSync(recursive: true);
+  final verbCollections = {
+    'de': germanVerbCollection,
+    'es': spanishVerbCollection,
+    'cs': czechVerbCollection,
+    'en': englishVerbCollection,
+    'zh': mandarinVerbCollection,
+  };
+  for (final entry in verbCollections.entries) {
+    File('assets/content/shared/verbs/${entry.key}.json')
+        .writeAsStringSync(encoder.convert(entry.value.toJson()));
+  }
+
   stdout.writeln(
     'Wrote catalog.json + app.json + ${defaultCourses.length} course bundles '
-    '($quizCount quizzes) under assets/content/.',
+    '($quizCount quizzes) + ${nounCollections.length + 1} noun lists + '
+    '${verbCollections.length} verb lists under assets/content/.',
   );
 }
