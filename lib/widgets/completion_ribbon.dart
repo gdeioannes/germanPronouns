@@ -18,10 +18,19 @@ RibbonTier ribbonTierForLaps(int laps) {
   return RibbonTier.bronze;
 }
 
-/// Tier color for a finished quiz, by streak laps: bronze from the first lap,
-/// silver at 3 laps, gold at 5+.
-Color tierColorForLaps(int laps) {
-  switch (ribbonTierForLaps(laps)) {
+/// The lowest lap count that reaches [tier] — the inverse of
+/// [ribbonTierForLaps]. Lets a quiz without a streak (drawing overlap tiers)
+/// persist an earned tier through the same best-streak stat every ribbon
+/// display already reads.
+int lapsForTier(RibbonTier tier) => switch (tier) {
+      RibbonTier.gold => 5,
+      RibbonTier.silver => 3,
+      RibbonTier.bronze => 1,
+    };
+
+/// The ribbon color of a [tier].
+Color tierColor(RibbonTier tier) {
+  switch (tier) {
     case RibbonTier.gold:
       return const Color(0xFFD7A93A); // gold
     case RibbonTier.silver:
@@ -30,6 +39,10 @@ Color tierColorForLaps(int laps) {
       return const Color(0xFFC07F49); // bronze
   }
 }
+
+/// Tier color for a finished quiz, by streak laps: bronze from the first lap,
+/// silver at 3 laps, gold at 5+.
+Color tierColorForLaps(int laps) => tierColor(ribbonTierForLaps(laps));
 
 /// A simple flat bookmark ribbon: a plain [color] fill with a swallowtail
 /// bottom and one small white star — no gradients or sheen. Used as the

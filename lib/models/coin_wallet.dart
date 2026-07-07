@@ -41,8 +41,12 @@ class CoinWallet extends ChangeNotifier {
   /// A random coin reward for the ribbon tier [laps] reaches — bronze 10–30,
   /// silver 35–70, gold 100–200. Always ≥ 10, so finishing any quiz (every
   /// type: typed, reading, long-text, listening, dictation, speaking) pays out.
-  static int rollRibbonCoins(int laps) {
-    final (lo, hi) = ribbonCoinRange[ribbonTierForLaps(laps)]!;
+  static int rollRibbonCoins(int laps) => rollTierCoins(ribbonTierForLaps(laps));
+
+  /// A random coin reward within [tier]'s band, for callers that earn a tier
+  /// directly (the drawing quiz's overlap score) rather than via streak laps.
+  static int rollTierCoins(RibbonTier tier) {
+    final (lo, hi) = ribbonCoinRange[tier]!;
     return lo + _rng.nextInt(hi - lo + 1);
   }
 
