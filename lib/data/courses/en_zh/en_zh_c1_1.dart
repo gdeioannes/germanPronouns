@@ -382,7 +382,7 @@ final QuizContent enZhC11WordBuilding = enZhFill(
   tips: const [
     HelpMemoryTip(
       kind: 'mnemonic',
-      title: 'Abstract Lego (Z7)',
+      title: 'Abstract building blocks (Z7)',
       text: '全球 globe + 化 = globalization; 可能 possible + 性 = '
           'possibility; 现实 reality + 主义 = realism. Spot the suffix, '
           'decode the stem — free vocabulary at C1 scale.',

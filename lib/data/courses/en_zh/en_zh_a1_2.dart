@@ -285,7 +285,7 @@ final QuizContent enZhA12Things = enZhFill(
   tips: const [
     HelpMemoryTip(
       kind: 'mnemonic',
-      title: 'Compounds are Lego',
+      title: 'Compounds are building blocks',
       text: '电 electric: 电脑 electric-brain = computer, 电视 electric-see = '
           'TV. Decode the parts and half your vocabulary is free.',
     ),

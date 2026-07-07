@@ -114,6 +114,34 @@ const Map<UiLang, String> _goalText = {
   UiLang.zh: '我的目标',
 };
 
+// Non-affiliation notice shown as a footer under the course list: exam bodies
+// (Goethe-Institut, DELE, HSK) are referenced descriptively in course names
+// and levels, and the app awards no official certificates. The full version
+// lives in AppStrings.trademarkDisclaimer (Settings → About & Legal).
+const Map<UiLang, String> _legalText = {
+  UiLang.en:
+      'Independent study app — not affiliated with or endorsed by the '
+      'Goethe-Institut, Instituto Cervantes (DELE), Chinese Testing '
+      'International (HSK) or the Council of Europe. CEFR/HSK levels describe '
+      'content alignment only; no official certificates are awarded.',
+  UiLang.es:
+      'Aplicación de estudio independiente, sin afiliación ni aval del '
+      'Goethe-Institut, el Instituto Cervantes (DELE), Chinese Testing '
+      'International (HSK) o el Consejo de Europa. Los niveles MCER/HSK solo '
+      'indican la orientación del contenido; no se otorgan certificados '
+      'oficiales.',
+  UiLang.de:
+      'Unabhängige Lern-App – nicht verbunden mit oder unterstützt vom '
+      'Goethe-Institut, Instituto Cervantes (DELE), Chinese Testing '
+      'International (HSK) oder dem Europarat. GER-/HSK-Niveaus beschreiben '
+      'nur die inhaltliche Ausrichtung; es werden keine offiziellen '
+      'Zertifikate vergeben.',
+  UiLang.zh:
+      '本应用为独立学习工具，与歌德学院、塞万提斯学院（DELE）、汉考国际（HSK）'
+      '及欧洲委员会均无隶属或授权关系。CEFR/HSK 等级仅表示内容对应程度，'
+      '不颁发官方证书。',
+};
+
 // Short prefixes for the one-line filter dropdowns ("Learn: All ▾").
 const Map<UiLang, String> _speakShortText = {
   UiLang.en: 'Language',
@@ -703,6 +731,18 @@ class _CourseSelectorPageState extends State<CourseSelectorPage> {
                           const SizedBox(height: 12),
                         ],
                     ],
+
+                    // ── Legal footer ─────────────────────────────────────────
+                    const SizedBox(height: 24),
+                    Text(
+                      uiLang == null
+                          ? _legalText[UiLang.en]!
+                          : _legalText[uiLang]!,
+                      textAlign: TextAlign.center,
+                      style: textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                   ],
                 ),
               ),

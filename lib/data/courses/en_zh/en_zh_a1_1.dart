@@ -217,7 +217,7 @@ final QuizContent enZhA11Shi = enZhFill(
 
 final QuizContent enZhA11Numbers = enZhFill(
   id: 'en_zh_a1_1_numbers',
-  title: 'Numbers 0–99: the Lego system',
+  title: 'Numbers 0–99: the building-block system',
   intro:
       'Learn ten characters and you can count to 99: eleven is "ten-one" '
       '(十一), twenty-two is "two-ten-two" (二十二). It\'s arithmetic, not '
@@ -225,7 +225,7 @@ final QuizContent enZhA11Numbers = enZhFill(
   tips: const [
     HelpMemoryTip(
       kind: 'mnemonic',
-      title: 'Lego numbers',
+      title: 'Building-block numbers',
       text: '11 = 十一 (10+1), 20 = 二十 (2×10), 35 = 三十五 (3×10+5). Every '
           'number to 99 is built from 一 to 十 — compare English\'s eleven, '
           'twelve, twenty…',

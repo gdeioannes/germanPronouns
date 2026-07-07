@@ -339,7 +339,7 @@ const Map<String, Map<String, String>> furnitureNames = {
   // Accessories (more)
   'pinwheel': {'en': 'pinwheel', 'de': 'das Windrad', 'es': 'el molinillo', 'cs': 'větrník'},
   'pennant': {'en': 'pennant flag', 'de': 'der Wimpel', 'es': 'el banderín', 'cs': 'vlaječka'},
-  'puzzlecube': {'en': 'puzzle cube', 'de': 'der Zauberwürfel', 'es': 'el cubo mágico', 'cs': 'rubikova kostka'},
+  'puzzlecube': {'en': 'puzzle cube', 'de': 'der Zauberwürfel', 'es': 'el cubo mágico', 'cs': 'hlavolamová kostka'},
   'incense': {'en': 'incense burner', 'de': 'das Räuchergefäß', 'es': 'el incensario', 'cs': 'kadidelnice'},
   'dreamcatcher': {'en': 'dream catcher', 'de': 'der Traumfänger', 'es': 'el atrapasueños', 'cs': 'lapač snů'},
   'kaleidoscope': {'en': 'kaleidoscope', 'de': 'das Kaleidoskop', 'es': 'el caleidoscopio', 'cs': 'kaleidoskop'},

@@ -696,8 +696,8 @@ final List<Course> defaultCourses = [
   ),
   Course(
     id: 'en_zh',
-    name: 'Certification Chinese · HSK',
-    tagline: 'From nǐ hǎo to HSK mastery — tones, characters and all',
+    name: 'Certification Chinese (HSK-aligned)',
+    tagline: 'From nǐ hǎo to HSK-level mastery — tones, characters and all',
     speakFlag: '🇬🇧',
     learnFlag: '🇨🇳',
     uiLang: UiLang.en,

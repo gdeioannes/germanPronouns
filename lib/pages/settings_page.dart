@@ -544,6 +544,30 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const SizedBox(height: 16),
             _settingsPanel(
+              title: CourseSession.instance.strings.legalTitle,
+              children: [
+                Text(
+                  CourseSession.instance.strings.trademarkDisclaimer,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    onPressed: () => showLicensePage(
+                      context: context,
+                      applicationName: 'Quiz · Learn Languages',
+                    ),
+                    icon: const Icon(Icons.description_outlined, size: 18),
+                    label: Text(
+                      CourseSession.instance.strings.openSourceLicenses,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _settingsPanel(
               title: 'Reset',
               children: [
                 Text(

@@ -165,6 +165,9 @@ class AppStrings {
     required this.difficultyBeginner,
     required this.difficultyIntermediate,
     required this.difficultyAdvanced,
+    required this.legalTitle,
+    required this.trademarkDisclaimer,
+    required this.openSourceLicenses,
   });
 
   final String chooseCourse;
@@ -408,6 +411,15 @@ class AppStrings {
   final String difficultyBeginner;
   final String difficultyIntermediate;
   final String difficultyAdvanced;
+
+  // About & Legal (settings panel and course finder footer).
+  final String legalTitle;
+
+  /// Non-affiliation notice: exam bodies (Goethe-Institut, DELE, HSK) and the
+  /// Council of Europe are referenced descriptively only, and the app awards
+  /// no official certificates. Shown in Settings and on the course finder.
+  final String trademarkDisclaimer;
+  final String openSourceLicenses;
 }
 
 const AppStrings _en = AppStrings(
@@ -592,6 +604,14 @@ const AppStrings _en = AppStrings(
   difficultyBeginner: 'Beginner',
   difficultyIntermediate: 'Intermediate',
   difficultyAdvanced: 'Advanced',
+  legalTitle: 'About & Legal',
+  trademarkDisclaimer:
+      'This app is an independent study tool. It is not affiliated with, '
+      'endorsed by, or connected to the Goethe-Institut, Instituto Cervantes '
+      '(DELE), Chinese Testing International (HSK) or the Council of Europe. '
+      'CEFR levels (A1–C2) and HSK bands describe content alignment only; '
+      'the app does not award official certificates.',
+  openSourceLicenses: 'Open-source licenses',
 );
 
 const AppStrings _es = AppStrings(
@@ -780,6 +800,15 @@ const AppStrings _es = AppStrings(
   difficultyBeginner: 'Principiante',
   difficultyIntermediate: 'Intermedio',
   difficultyAdvanced: 'Avanzado',
+  legalTitle: 'Información y avisos legales',
+  trademarkDisclaimer:
+      'Esta aplicación es una herramienta de estudio independiente. No está '
+      'afiliada, avalada ni vinculada al Goethe-Institut, al Instituto '
+      'Cervantes (DELE), a Chinese Testing International (HSK) ni al Consejo '
+      'de Europa. Los niveles MCER (A1–C2) y las bandas HSK solo indican la '
+      'orientación del contenido; la aplicación no otorga certificados '
+      'oficiales.',
+  openSourceLicenses: 'Licencias de código abierto',
 );
 
 const AppStrings _de = AppStrings(
@@ -968,6 +997,15 @@ const AppStrings _de = AppStrings(
   difficultyBeginner: 'Anfänger',
   difficultyIntermediate: 'Mittelstufe',
   difficultyAdvanced: 'Fortgeschritten',
+  legalTitle: 'Info & Rechtliches',
+  trademarkDisclaimer:
+      'Diese App ist ein unabhängiges Lernwerkzeug. Sie ist weder mit dem '
+      'Goethe-Institut, dem Instituto Cervantes (DELE), Chinese Testing '
+      'International (HSK) noch dem Europarat verbunden, noch von ihnen '
+      'unterstützt oder autorisiert. GER-Niveaus (A1–C2) und HSK-Stufen '
+      'beschreiben nur die inhaltliche Ausrichtung; die App vergibt keine '
+      'offiziellen Zertifikate.',
+  openSourceLicenses: 'Open-Source-Lizenzen',
 );
 
 const AppStrings _zh = AppStrings(
@@ -1133,6 +1171,12 @@ const AppStrings _zh = AppStrings(
   difficultyBeginner: '初级',
   difficultyIntermediate: '中级',
   difficultyAdvanced: '高级',
+  legalTitle: '关于与法律信息',
+  trademarkDisclaimer:
+      '本应用是独立的学习工具，与歌德学院、塞万提斯学院（DELE）、汉考国际（HSK）'
+      '及欧洲委员会均无隶属、授权或合作关系。CEFR 等级（A1–C2）和 HSK 级别仅表示'
+      '内容的对应程度；本应用不颁发官方证书。',
+  openSourceLicenses: '开源许可',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {
