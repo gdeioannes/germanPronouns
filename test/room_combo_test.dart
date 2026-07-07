@@ -17,9 +17,23 @@ PlacedPiece _at(String iid, String glyph, double x, [double y = 0]) =>
 void main() {
   group('combo catalog', () {
     test('has a healthy number of combos with unique, stable ids', () {
-      expect(roomCombos.length, greaterThanOrEqualTo(40));
+      expect(roomCombos.length, greaterThanOrEqualTo(120));
       final ids = {for (final c in roomCombos) c.id};
       expect(ids.length, roomCombos.length, reason: 'duplicate combo id');
+    });
+
+    test('the gallery wall knows every famous-art homage', () {
+      // Every art* wall-décor glyph (the homage paintings, not the Art Studio
+      // mannequin) must be part of the gallery_wall combo, so future art waves
+      // can't silently miss the museum.
+      final gallery = comboById['gallery_wall']!;
+      for (final item in shopCatalog) {
+        if (item.glyph.startsWith('art') && item.category == 'Décor') {
+          expect(gallery.a, contains(item.glyph),
+              reason: '${item.glyph} is missing from the gallery wall');
+        }
+      }
+      expect(gallery.a, isNot(contains('artmannequin')));
     });
 
     test('every combo names, describes and illustrates itself', () {
@@ -102,6 +116,16 @@ void main() {
           matches.where((m) => m.combo.id == 'beekeeper').toList();
       expect(beekeeper, hasLength(1));
       expect(beekeeper.single.b.iid, 'b2'); // the nearer hive
+    });
+
+    test('same-glyph symmetric combos need two pieces, then work', () {
+      // stereo_sound is speaker × speaker — one speaker is not a pair.
+      expect(matchCombos([_at('s1', 'speaker', 0)]), isEmpty);
+      expect(
+        matchCombos([_at('s1', 'speaker', 0), _at('s2', 'speaker', 70)])
+            .map((m) => m.combo.id),
+        contains('stereo_sound'),
+      );
     });
 
     test('colourways count — any glyph on a side triggers it', () {
