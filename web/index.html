@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -18,6 +18,9 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://www.googletagmanager.com">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18303467659"></script>
@@ -40,13 +43,18 @@
     gtag('js', new Date());
     gtag('config', 'AW-18303467659');
   </script>
-  <meta name="description" content="Learn languages with quick, focused grammar and vocabulary quizzes.">
+
+  <title>Language Quiz — Free German, Spanish, Chinese &amp; English Courses (A1–C2)</title>
+  <meta name="description" content="Free interactive courses for German, Spanish, Mandarin Chinese and English. Grammar and vocabulary quizzes with audio, CEFR A1–C2 certification prep, HSK hanzi writing — no sign-up needed.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://languagequiz.org/">
+  <meta name="application-name" content="Language Quiz">
   <meta name="theme-color" content="#1F3A5F">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Quiz · Learn Languages">
+  <meta name="apple-mobile-web-app-title" content="Language Quiz">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -54,27 +62,322 @@
   <link rel="alternate icon" type="image/png" href="favicon.png"/>
 
   <!-- Open Graph / social link previews (WhatsApp, iMessage, Slack, Facebook, LinkedIn).
-       og:url and og:image use absolute URLs, as most crawlers require. -->
+       og:url and og:image use absolute URLs, as most crawlers require.
+       The apex domain matches the CNAME served by GitHub Pages. -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.languagequiz.org/">
-  <meta property="og:site_name" content="Quiz · Learn Languages">
-  <meta property="og:title" content="Quiz · Learn Languages">
-  <meta property="og:description" content="Learn languages with quick, focused grammar and vocabulary quizzes.">
-  <meta property="og:image" content="https://www.languagequiz.org/og-image.png">
+  <meta property="og:url" content="https://languagequiz.org/">
+  <meta property="og:site_name" content="Language Quiz">
+  <meta property="og:title" content="Language Quiz — Free German, Spanish, Chinese &amp; English Courses">
+  <meta property="og:description" content="Free interactive grammar and vocabulary quizzes with audio. German, Spanish, Mandarin Chinese and English, CEFR A1–C2 — no sign-up needed.">
+  <meta property="og:image" content="https://languagequiz.org/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Quiz · Learn Languages">
+  <meta property="og:image:alt" content="Language Quiz — free interactive language courses">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="zh_CN">
 
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Quiz · Learn Languages">
-  <meta name="twitter:description" content="Learn languages with quick, focused grammar and vocabulary quizzes.">
-  <meta name="twitter:image" content="https://www.languagequiz.org/og-image.png">
+  <meta name="twitter:title" content="Language Quiz — Free German, Spanish, Chinese &amp; English Courses">
+  <meta name="twitter:description" content="Free interactive grammar and vocabulary quizzes with audio. CEFR A1–C2, no sign-up needed.">
+  <meta name="twitter:image" content="https://languagequiz.org/og-image.png">
+  <meta name="twitter:image:alt" content="Language Quiz — free interactive language courses">
 
-  <title>Quiz · Learn Languages</title>
+  <!-- Structured data: site, publisher and the full course catalog, so search
+       engines can surface courses even though the app itself renders in a
+       canvas. Keep in sync with lib/data/course_catalog.dart. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://languagequiz.org/#org",
+        "name": "Language Quiz",
+        "url": "https://languagequiz.org/",
+        "logo": "https://languagequiz.org/icons/Icon-512.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://languagequiz.org/#website",
+        "url": "https://languagequiz.org/",
+        "name": "Language Quiz",
+        "description": "Free interactive language courses with grammar and vocabulary quizzes: German, Spanish, Mandarin Chinese and English, CEFR A1–C2.",
+        "publisher": { "@id": "https://languagequiz.org/#org" },
+        "inLanguage": ["en", "de", "es", "zh"]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://languagequiz.org/#app",
+        "name": "Language Quiz",
+        "url": "https://languagequiz.org/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "publisher": { "@id": "https://languagequiz.org/#org" }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Language Quiz courses",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Course",
+              "name": "Certification German A1–C2",
+              "description": "Step-by-step German course for English speakers: reading, listening and speaking quizzes from your first words to C2-certificate level, one CEFR sub-level at a time.",
+              "inLanguage": "en",
+              "teaches": "German",
+              "educationalLevel": "CEFR A1–C2",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT40H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Course",
+              "name": "German Grammar in Detail",
+              "description": "Master der, die, das: German articles, pronouns, prepositions and the four cases (Nominativ, Akkusativ, Dativ, Genitiv), explained and drilled across 17 modules, A1–B2.",
+              "inLanguage": "en",
+              "teaches": "German grammar",
+              "educationalLevel": "CEFR A1–B2",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT30H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Course",
+              "name": "Español → Alemán",
+              "description": "Aprende alemán desde español: un viaje rápido a Alemania con ejercicios interactivos de vocabulario y gramática para principiantes (A1).",
+              "inLanguage": "es",
+              "teaches": "German",
+              "educationalLevel": "CEFR A1",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT8H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Course",
+              "name": "German Emotions",
+              "description": "Vocabulario alemán de sentimientos y comunicación en pareja, con ejemplos y audio (A2–C1).",
+              "inLanguage": "es",
+              "teaches": "German vocabulary",
+              "educationalLevel": "CEFR A2–C1",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT8H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Course",
+              "name": "Spanisch-Zertifikat A1–B2",
+              "description": "Spanisch lernen für Deutschsprachige: dein Schritt-für-Schritt-Weg zum Spanisch-Zertifikat mit interaktiven Übungen, Hörverstehen und Sprechtraining.",
+              "inLanguage": "de",
+              "teaches": "Spanish",
+              "educationalLevel": "CEFR A1–B2",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT30H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Course",
+              "name": "Tschechisch entdecken",
+              "description": "Ein tiefer Einstieg ins Tschechische für Sprachliebhaber: Aussprache, Wortschatz und erste Grammatik (A1).",
+              "inLanguage": "de",
+              "teaches": "Czech",
+              "educationalLevel": "CEFR A1",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT8H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "Course",
+              "name": "英语认证 A1–C2",
+              "description": "为中文使用者设计的英语课程：从零基础到精通，通过阅读、听力和口语测验一步步考取英语证书。",
+              "inLanguage": "zh",
+              "teaches": "English",
+              "educationalLevel": "CEFR A1–C2",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT40H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "Course",
+              "name": "Certification Chinese · HSK",
+              "description": "Mandarin Chinese for English speakers: tones, pinyin and characters from nǐ hǎo to HSK mastery, with listening, speaking and reading quizzes (A1–C2).",
+              "inLanguage": "en",
+              "teaches": "Mandarin Chinese",
+              "educationalLevel": "CEFR A1–C2 / HSK",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT40H" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "Course",
+              "name": "Hanzi Writing · 汉字",
+              "description": "Listen, trace and write the 1,000 most common Chinese characters on an interactive drawing canvas (HSK 1–4).",
+              "inLanguage": "en",
+              "teaches": "Chinese characters",
+              "educationalLevel": "HSK 1–4",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://languagequiz.org/#org" },
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "category": "Free" },
+              "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT20H" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="manifest" href="manifest.json">
+
+  <!-- Styles for the static pre-render content below. It shows while the
+       Flutter engine loads (doubling as a branded loading screen) and gives
+       crawlers real HTML text, since the app itself paints into a canvas. -->
+  <style>
+    #static-content {
+      font-family: 'Sora', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #2A2A28;
+      background: #FFFFFF;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+      max-width: 720px;
+      line-height: 1.55;
+    }
+    #static-content h1 { color: #1F3A5F; font-size: 1.7rem; line-height: 1.25; margin: 0.5em 0; }
+    #static-content h2 { color: #1F3A5F; font-size: 1.25rem; margin-top: 1.6em; }
+    #static-content h3 { color: #2A2A28; font-size: 1.05rem; margin-bottom: 0.2em; }
+    #static-content h3 + p { margin-top: 0.2em; color: #6E6458; }
+    #static-content .loading-pill {
+      display: inline-block; font-size: 0.85rem; color: #FFFFFF;
+      background: #C9683B; border-radius: 999px; padding: 4px 14px; margin-top: 8px;
+    }
+    #static-content ul { padding-left: 1.2em; }
+    #static-content li { margin: 0.3em 0; }
+  </style>
 </head>
 <body>
+  <!-- Static, crawlable summary of the app. Removed as soon as Flutter paints
+       its first frame; until then it acts as the loading screen. Keep the
+       course list in sync with lib/data/course_catalog.dart. -->
+  <div id="static-content">
+    <p class="loading-pill">Loading the app …</p>
+    <h1>Learn German, Spanish, Chinese and English with free interactive quizzes</h1>
+    <p>
+      <strong>Language Quiz</strong> is a free language-learning app with quick, focused
+      grammar and vocabulary quizzes. Every sentence has audio, speaking exercises give
+      instant feedback, and courses follow the CEFR levels from A1 to C2 — pass one
+      sub-level to unlock the next. No account, no sign-up: it runs right here in your
+      browser on phone, tablet or desktop.
+    </p>
+
+    <h2>Courses</h2>
+
+    <h3>Certification German A1–C2</h3>
+    <p>Step-by-step German for English speakers: reading, listening and speaking quizzes
+       from your first words to C2-certificate level, one CEFR sub-level at a time.</p>
+
+    <h3>German Grammar in Detail (A1–B2)</h3>
+    <p>Master <em lang="de">der, die, das</em>: German articles, pronouns, prepositions
+       and the four cases — <span lang="de">Nominativ, Akkusativ, Dativ, Genitiv</span> —
+       explained and drilled across 17 modules.</p>
+
+    <h3 lang="es">Español → Alemán (A1)</h3>
+    <p lang="es">Aprende alemán desde español: un viaje rápido a Alemania con ejercicios
+       interactivos de vocabulario y gramática para principiantes.</p>
+
+    <h3>German Emotions (A2–C1)</h3>
+    <p lang="es">Vocabulario alemán de sentimientos y comunicación en pareja, con
+       ejemplos y audio.</p>
+
+    <h3 lang="de">Spanisch-Zertifikat A1–B2</h3>
+    <p lang="de">Spanisch lernen für Deutschsprachige: dein Schritt-für-Schritt-Weg zum
+       Spanisch-Zertifikat mit interaktiven Übungen, Hörverstehen und Sprechtraining.</p>
+
+    <h3 lang="de">Tschechisch entdecken (A1)</h3>
+    <p lang="de">Ein tiefer Einstieg ins Tschechische für Sprachliebhaber: Aussprache,
+       Wortschatz und erste Grammatik.</p>
+
+    <h3 lang="zh">英语认证 A1–C2</h3>
+    <p lang="zh">为中文使用者设计的英语课程：从零基础到精通，通过阅读、听力和口语测验一步步考取英语证书。</p>
+
+    <h3>Certification Chinese · HSK (A1–C2)</h3>
+    <p>Mandarin Chinese for English speakers: tones, pinyin and characters from
+       <em lang="zh-Latn">nǐ hǎo</em> to HSK mastery, with listening, speaking and
+       reading quizzes.</p>
+
+    <h3>Hanzi Writing · 汉字 (HSK 1–4)</h3>
+    <p>Listen, trace and write the 1,000 most common Chinese characters on an
+       interactive drawing canvas.</p>
+
+    <h2>Why learners like it</h2>
+    <ul>
+      <li>Quick, focused quizzes — a few minutes each</li>
+      <li>Audio on every sentence, plus speaking practice with instant feedback</li>
+      <li>Printable PDF worksheets for offline practice</li>
+      <li>Clear progression: pass A1.1 to unlock A1.2, all the way to C2</li>
+      <li>Completely free, no account needed, installable as an app</li>
+    </ul>
+
+    <noscript>
+      <p><strong>Language Quiz needs JavaScript to run the interactive quizzes.</strong>
+         Please enable JavaScript and reload the page.</p>
+    </noscript>
+  </div>
+
+  <script>
+    // Swap the static landing content for the app once Flutter has painted.
+    window.addEventListener('flutter-first-frame', function () {
+      var el = document.getElementById('static-content');
+      if (el) el.remove();
+    });
+  </script>
+
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
