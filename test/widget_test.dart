@@ -10,7 +10,7 @@ void main() {
     await tester.pumpWidget(const MyApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('Continue as learner'), findsOneWidget);
+    expect(find.text('Start learning'), findsOneWidget);
     expect(find.text('Teacher sign in'), findsOneWidget);
   });
 }

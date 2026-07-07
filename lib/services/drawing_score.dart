@@ -8,19 +8,26 @@ import '../widgets/completion_ribbon.dart';
 /// Scores a hand-drawn character against its printed template by rasterizing
 /// both into small square ink masks and measuring how well they overlap.
 ///
-/// The score is two-sided so it can't be gamed:
+/// The score is three-sided so it can't be gamed:
 ///  * **coverage** — the fraction of the template's ink that has learner ink
 ///    nearby (*did you draw all of it?*). Scribbling everywhere maxes this out…
 ///  * **precision** — the fraction of the learner's ink that lies near the
-///    template (*did you stay on it?*). …but tanks this one.
+///    template (*did you stay on it?*). …but tanks this one. And because a
+///    character's strokes sit close together, blanketing the glyph area can
+///    still look "precise" within the tolerance band, so…
+///  * **inkRatio** — how much ink was laid down relative to the character's
+///    own ink. Past [DrawingScorer.inkSlack]× the score scales down: covering
+///    the whole symbol uses several times its ink and can't medal.
 ///
-/// [overlap] (the reward metric) is the lower of the two. "Nearby" is a
-/// tolerance band of [DrawingScorer.tolerance] of the canvas side, because
-/// finger strokes are fat and wobbly while font strokes are thin.
+/// [overlap] (the reward metric) is the lower of coverage/precision, scaled
+/// by the ink economy. "Nearby" is a tolerance band of
+/// [DrawingScorer.tolerance] of the canvas side, because finger strokes are
+/// fat and wobbly while font strokes are thin.
 class DrawingScore {
   const DrawingScore({
     required this.coverage,
     required this.precision,
+    this.inkRatio = 0,
   });
 
   /// Fraction (0..1) of template ink with learner ink within tolerance.
@@ -29,8 +36,19 @@ class DrawingScore {
   /// Fraction (0..1) of learner ink lying within tolerance of the template.
   final double precision;
 
-  /// The combined score (0..1): the weaker of [coverage] and [precision].
-  double get overlap => min(coverage, precision);
+  /// Learner ink area relative to the template's (≈1 for a faithful single
+  /// trace; retracing barely raises it since ink cells are boolean). Values
+  /// well past [DrawingScorer.inkSlack] mean blanketing, not writing.
+  final double inkRatio;
+
+  /// The economy factor: full marks up to [DrawingScorer.inkSlack]× the
+  /// template's ink, then scaling down in proportion to the excess.
+  double get economy =>
+      inkRatio <= DrawingScorer.inkSlack ? 1.0 : DrawingScorer.inkSlack / inkRatio;
+
+  /// The combined score (0..1): the weaker of [coverage] and [precision],
+  /// scaled by [economy].
+  double get overlap => min(coverage, precision) * economy;
 
   /// [overlap] as a whole percentage, for display.
   int get percent => (overlap * 100).round();
@@ -189,7 +207,8 @@ InkMask maskFromStrokes(
 
 /// Compares learner ink against the template: coverage from the template's
 /// side, precision from the ink's side, both within [tolerance] (fraction of
-/// the side). Empty ink scores zero.
+/// the side), plus the ink-amount ratio that guards against blanketing.
+/// Empty ink scores zero.
 DrawingScore scoreMasks(
   InkMask template,
   InkMask ink, {
@@ -215,6 +234,7 @@ DrawingScore scoreMasks(
   return DrawingScore(
     coverage: covered / templateCells,
     precision: onTarget / inkCells,
+    inkRatio: inkCells / templateCells,
   );
 }
 
@@ -271,7 +291,13 @@ class DrawingScorer {
 
   /// How far (as a fraction of the canvas side) learner ink may sit from the
   /// template ink and still count — the wobble allowance.
-  static const double tolerance = 0.05;
+  static const double tolerance = 0.035;
+
+  /// How much more ink than the character's own a drawing may use before the
+  /// economy factor starts scaling the score down (see [DrawingScore.economy]).
+  /// A faithful trace lands near 1×; blanketing the symbol runs several times
+  /// over.
+  static const double inkSlack = 1.5;
 
   /// Rendered template masks, keyed by symbol (the glyph never changes, and a
   /// quiz replays the same characters on every run and restart).

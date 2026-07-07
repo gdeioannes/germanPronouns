@@ -88108,7 +88108,195 @@
         "key": "起",
         "display": "起",
         "english": "qǐ · to rise"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_10": {
+    "id": "en_zh_hanzi_actions_10",
+    "title": "Everyday actions X · 售 销 领 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_10_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
+      {
+        "key": "售",
+        "display": "售",
+        "english": "shòu · to sell"
+      },
+      {
+        "key": "销",
+        "display": "销",
+        "english": "xiāo · to sell, to market"
+      },
+      {
+        "key": "领",
+        "display": "领",
+        "english": "lǐng · to lead; collar"
+      },
+      {
+        "key": "收",
+        "display": "收",
+        "english": "shōu · to receive, to collect"
+      },
+      {
+        "key": "留",
+        "display": "留",
+        "english": "liú · to stay; to keep"
+      },
+      {
+        "key": "装",
+        "display": "装",
+        "english": "zhuāng · to install; clothing"
+      },
+      {
+        "key": "造",
+        "display": "造",
+        "english": "zào · to build, to create"
+      },
+      {
+        "key": "建",
+        "display": "建",
+        "english": "jiàn · to build"
+      },
+      {
+        "key": "发",
+        "display": "发",
+        "english": "fā · to send out"
+      },
+      {
+        "key": "住",
+        "display": "住",
+        "english": "zhù · to live (somewhere)"
+      },
+      {
+        "key": "叫",
+        "display": "叫",
+        "english": "jiào · to call, to be named"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_11": {
+    "id": "en_zh_hanzi_actions_11",
+    "title": "Everyday actions XI · 唱 举 跟 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_11_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
+      {
+        "key": "唱",
+        "display": "唱",
+        "english": "chàng · to sing"
+      },
+      {
+        "key": "举",
+        "display": "举",
+        "english": "jǔ · to raise"
+      },
+      {
+        "key": "跟",
+        "display": "跟",
+        "english": "gēn · with; to follow"
+      },
+      {
+        "key": "倒",
+        "display": "倒",
+        "english": "dào · to fall over; inverted"
+      },
+      {
+        "key": "转",
+        "display": "转",
+        "english": "zhuǎn · to turn"
+      },
+      {
+        "key": "变",
+        "display": "变",
+        "english": "biàn · to change"
+      },
+      {
+        "key": "立",
+        "display": "立",
+        "english": "lì · to stand"
+      },
+      {
+        "key": "失",
+        "display": "失",
+        "english": "shī · to lose"
+      },
+      {
+        "key": "完",
+        "display": "完",
+        "english": "wán · to finish"
+      },
+      {
+        "key": "解",
+        "display": "解",
+        "english": "jiě · to untie; to explain"
+      },
+      {
+        "key": "切",
+        "display": "切",
+        "english": "qiè · to cut; all (一切)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_2": {
+    "id": "en_zh_hanzi_actions_2",
+    "title": "Everyday actions II · 回 进 入 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "回",
         "display": "回",
@@ -88168,16 +88356,11 @@
         "key": "买",
         "display": "买",
         "english": "mǎi · to buy"
-      },
-      {
-        "key": "吃",
-        "display": "吃",
-        "english": "chī · to eat"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "25 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -88191,15 +88374,20 @@
       }
     ]
   },
-  "en_zh_hanzi_actions_2": {
-    "id": "en_zh_hanzi_actions_2",
-    "title": "Everyday actions II · 喝 尝 咬 …",
-    "storageKeyPrefix": "en_zh_hanzi_actions_2_",
+  "en_zh_hanzi_actions_3": {
+    "id": "en_zh_hanzi_actions_3",
+    "title": "Everyday actions III · 吃 喝 尝 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_3_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
     "kind": "draw",
     "subjects": [
+      {
+        "key": "吃",
+        "display": "吃",
+        "english": "chī · to eat"
+      },
       {
         "key": "喝",
         "display": "喝",
@@ -88254,7 +88442,33 @@
         "key": "推",
         "display": "推",
         "english": "tuī · to push"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_4": {
+    "id": "en_zh_hanzi_actions_4",
+    "title": "Everyday actions IV · 抱 抓 扔 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "抱",
         "display": "抱",
@@ -88309,7 +88523,33 @@
         "key": "炒",
         "display": "炒",
         "english": "chǎo · to stir-fry"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_5": {
+    "id": "en_zh_hanzi_actions_5",
+    "title": "Everyday actions V · 吹 呼 吸 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_5_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "吹",
         "display": "吹",
@@ -88324,33 +88564,7 @@
         "key": "吸",
         "display": "吸",
         "english": "xī · to inhale; to absorb"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "25 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_actions_3": {
-    "id": "en_zh_hanzi_actions_3",
-    "title": "Everyday actions III · 闻 摸 碰 …",
-    "storageKeyPrefix": "en_zh_hanzi_actions_3_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "闻",
         "display": "闻",
@@ -88390,7 +88604,33 @@
         "key": "飘",
         "display": "飘",
         "english": "piāo · to float (in air)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_6": {
+    "id": "en_zh_hanzi_actions_6",
+    "title": "Everyday actions VI · 浮 沉 逃 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_6_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "浮",
         "display": "浮",
@@ -88445,7 +88685,33 @@
         "key": "救",
         "display": "救",
         "english": "jiù · to rescue"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_7": {
+    "id": "en_zh_hanzi_actions_7",
+    "title": "Everyday actions VII · 帮 护 陪 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_7_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "帮",
         "display": "帮",
@@ -88475,33 +88741,7 @@
         "key": "托",
         "display": "托",
         "english": "tuō · to entrust; to hold up"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "25 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_actions_4": {
-    "id": "en_zh_hanzi_actions_4",
-    "title": "Everyday actions IV · 靠 挤 堆 …",
-    "storageKeyPrefix": "en_zh_hanzi_actions_4_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "靠",
         "display": "靠",
@@ -88526,7 +88766,33 @@
         "key": "卷",
         "display": "卷",
         "english": "juǎn · to roll up; scroll"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_8": {
+    "id": "en_zh_hanzi_actions_8",
+    "title": "Everyday actions VIII · 停 止 做 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_8_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "停",
         "display": "停",
@@ -88581,7 +88847,33 @@
         "key": "带",
         "display": "带",
         "english": "dài · to bring; belt"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_actions_9": {
+    "id": "en_zh_hanzi_actions_9",
+    "title": "Everyday actions IX · 提 拉 持 …",
+    "storageKeyPrefix": "en_zh_hanzi_actions_9_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "提",
         "display": "提",
@@ -88626,33 +88918,7 @@
         "key": "借",
         "display": "借",
         "english": "jiè · to borrow, to lend"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "25 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_actions_5": {
-    "id": "en_zh_hanzi_actions_5",
-    "title": "Everyday actions V · 租 购 售 …",
-    "storageKeyPrefix": "en_zh_hanzi_actions_5_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "租",
         "display": "租",
@@ -88662,121 +88928,11 @@
         "key": "购",
         "display": "购",
         "english": "gòu · to purchase"
-      },
-      {
-        "key": "售",
-        "display": "售",
-        "english": "shòu · to sell"
-      },
-      {
-        "key": "销",
-        "display": "销",
-        "english": "xiāo · to sell, to market"
-      },
-      {
-        "key": "领",
-        "display": "领",
-        "english": "lǐng · to lead; collar"
-      },
-      {
-        "key": "收",
-        "display": "收",
-        "english": "shōu · to receive, to collect"
-      },
-      {
-        "key": "留",
-        "display": "留",
-        "english": "liú · to stay; to keep"
-      },
-      {
-        "key": "装",
-        "display": "装",
-        "english": "zhuāng · to install; clothing"
-      },
-      {
-        "key": "造",
-        "display": "造",
-        "english": "zào · to build, to create"
-      },
-      {
-        "key": "建",
-        "display": "建",
-        "english": "jiàn · to build"
-      },
-      {
-        "key": "发",
-        "display": "发",
-        "english": "fā · to send out"
-      },
-      {
-        "key": "住",
-        "display": "住",
-        "english": "zhù · to live (somewhere)"
-      },
-      {
-        "key": "叫",
-        "display": "叫",
-        "english": "jiào · to call, to be named"
-      },
-      {
-        "key": "唱",
-        "display": "唱",
-        "english": "chàng · to sing"
-      },
-      {
-        "key": "举",
-        "display": "举",
-        "english": "jǔ · to raise"
-      },
-      {
-        "key": "跟",
-        "display": "跟",
-        "english": "gēn · with; to follow"
-      },
-      {
-        "key": "倒",
-        "display": "倒",
-        "english": "dào · to fall over; inverted"
-      },
-      {
-        "key": "转",
-        "display": "转",
-        "english": "zhuǎn · to turn"
-      },
-      {
-        "key": "变",
-        "display": "变",
-        "english": "biàn · to change"
-      },
-      {
-        "key": "立",
-        "display": "立",
-        "english": "lì · to stand"
-      },
-      {
-        "key": "失",
-        "display": "失",
-        "english": "shī · to lose"
-      },
-      {
-        "key": "完",
-        "display": "完",
-        "english": "wán · to finish"
-      },
-      {
-        "key": "解",
-        "display": "解",
-        "english": "jiě · to untie; to explain"
-      },
-      {
-        "key": "切",
-        "display": "切",
-        "english": "qiè · to cut; all (一切)"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "24 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Everyday actions\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -88843,7 +88999,7 @@
   },
   "en_zh_hanzi_animals_1": {
     "id": "en_zh_hanzi_animals_1",
-    "title": "Animals · 鸟 鱼 牛 …",
+    "title": "Animals I · 鸟 鱼 牛 …",
     "storageKeyPrefix": "en_zh_hanzi_animals_1_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
@@ -88899,7 +89055,33 @@
         "key": "龙",
         "display": "龙",
         "english": "lóng · dragon"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Animals\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_animals_2": {
+    "id": "en_zh_hanzi_animals_2",
+    "title": "Animals II · 熊 鸡 蛇 …",
+    "storageKeyPrefix": "en_zh_hanzi_animals_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "熊",
         "display": "熊",
@@ -88948,7 +89130,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "19 characters from \"Animals\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "9 characters from \"Animals\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -89081,7 +89263,33 @@
         "key": "骨",
         "display": "骨",
         "english": "gǔ · bone"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Body & health\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_body_2": {
+    "id": "en_zh_hanzi_body_2",
+    "title": "Body & health II · 血 背 腰 …",
+    "storageKeyPrefix": "en_zh_hanzi_body_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "血",
         "display": "血",
@@ -89140,7 +89348,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"Body & health\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Body & health\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -89154,10 +89362,10 @@
       }
     ]
   },
-  "en_zh_hanzi_body_2": {
-    "id": "en_zh_hanzi_body_2",
-    "title": "Body & health II · 目 睛 病 …",
-    "storageKeyPrefix": "en_zh_hanzi_body_2_",
+  "en_zh_hanzi_body_3": {
+    "id": "en_zh_hanzi_body_3",
+    "title": "Body & health III · 目 睛 病 …",
+    "storageKeyPrefix": "en_zh_hanzi_body_3_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
@@ -89217,7 +89425,33 @@
         "key": "康",
         "display": "康",
         "english": "kāng · health (健康)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Body & health\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_body_4": {
+    "id": "en_zh_hanzi_body_4",
+    "title": "Body & health IV · 健 锻 炼 …",
+    "storageKeyPrefix": "en_zh_hanzi_body_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "健",
         "display": "健",
@@ -89276,7 +89510,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "22 characters from \"Body & health\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Body & health\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -89409,7 +89643,114 @@
         "key": "也",
         "display": "也",
         "english": "yě · also"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_essentials_10": {
+    "id": "en_zh_hanzi_essentials_10",
+    "title": "Little words X · 但 现 已 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_10_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
+      {
+        "key": "但",
+        "display": "但",
+        "english": "dàn · but"
+      },
+      {
+        "key": "现",
+        "display": "现",
+        "english": "xiàn · present, now"
+      },
+      {
+        "key": "已",
+        "display": "已",
+        "english": "yǐ · already"
+      },
+      {
+        "key": "几",
+        "display": "几",
+        "english": "jǐ · how many, several"
+      },
+      {
+        "key": "才",
+        "display": "才",
+        "english": "cái · only then; talent"
+      },
+      {
+        "key": "便",
+        "display": "便",
+        "english": "biàn · convenient; then"
+      },
+      {
+        "key": "等",
+        "display": "等",
+        "english": "děng · to wait; rank; etc."
+      },
+      {
+        "key": "像",
+        "display": "像",
+        "english": "xiàng · to resemble; image"
+      },
+      {
+        "key": "各",
+        "display": "各",
+        "english": "gè · each"
+      },
+      {
+        "key": "总",
+        "display": "总",
+        "english": "zǒng · always, general"
+      },
+      {
+        "key": "比",
+        "display": "比",
+        "english": "bǐ · to compare; than"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_essentials_2": {
+    "id": "en_zh_hanzi_essentials_2",
+    "title": "Little words II · 得 以 会 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "得",
         "display": "得",
@@ -89473,7 +89814,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "24 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -89487,10 +89828,10 @@
       }
     ]
   },
-  "en_zh_hanzi_essentials_2": {
-    "id": "en_zh_hanzi_essentials_2",
-    "title": "Little words II · 还 用 第 …",
-    "storageKeyPrefix": "en_zh_hanzi_essentials_2_",
+  "en_zh_hanzi_essentials_3": {
+    "id": "en_zh_hanzi_essentials_3",
+    "title": "Little words III · 还 用 第 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_3_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
@@ -89555,7 +89896,33 @@
         "key": "所",
         "display": "所",
         "english": "suǒ · place; that which"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_essentials_4": {
+    "id": "en_zh_hanzi_essentials_4",
+    "title": "Little words IV · 同 又 却 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "同",
         "display": "同",
@@ -89619,7 +89986,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "24 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -89633,10 +90000,10 @@
       }
     ]
   },
-  "en_zh_hanzi_essentials_3": {
-    "id": "en_zh_hanzi_essentials_3",
-    "title": "Little words III · 既 般 况 …",
-    "storageKeyPrefix": "en_zh_hanzi_essentials_3_",
+  "en_zh_hanzi_essentials_5": {
+    "id": "en_zh_hanzi_essentials_5",
+    "title": "Little words V · 既 般 况 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_5_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
@@ -89701,7 +90068,33 @@
         "key": "约",
         "display": "约",
         "english": "yuē · appointment; approximately"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_essentials_6": {
+    "id": "en_zh_hanzi_essentials_6",
+    "title": "Little words VI · 仅 甚 曾 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_6_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "仅",
         "display": "仅",
@@ -89765,7 +90158,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "24 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -89779,10 +90172,10 @@
       }
     ]
   },
-  "en_zh_hanzi_essentials_4": {
-    "id": "en_zh_hanzi_essentials_4",
-    "title": "Little words IV · 何 无 没 …",
-    "storageKeyPrefix": "en_zh_hanzi_essentials_4_",
+  "en_zh_hanzi_essentials_7": {
+    "id": "en_zh_hanzi_essentials_7",
+    "title": "Little words VII · 何 无 没 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_7_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
@@ -89847,7 +90240,33 @@
         "key": "往",
         "display": "往",
         "english": "wǎng · toward; to go"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_essentials_8": {
+    "id": "en_zh_hanzi_essentials_8",
+    "title": "Little words VIII · 相 自 为 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_8_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "相",
         "display": "相",
@@ -89902,11 +90321,16 @@
         "key": "挺",
         "display": "挺",
         "english": "tǐng · quite; to straighten"
+      },
+      {
+        "key": "随",
+        "display": "随",
+        "english": "suí · to follow"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -89920,20 +90344,15 @@
       }
     ]
   },
-  "en_zh_hanzi_essentials_5": {
-    "id": "en_zh_hanzi_essentials_5",
-    "title": "Little words V · 随 似 尽 …",
-    "storageKeyPrefix": "en_zh_hanzi_essentials_5_",
+  "en_zh_hanzi_essentials_9": {
+    "id": "en_zh_hanzi_essentials_9",
+    "title": "Little words IX · 似 尽 竟 …",
+    "storageKeyPrefix": "en_zh_hanzi_essentials_9_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
     "kind": "draw",
     "subjects": [
-      {
-        "key": "随",
-        "display": "随",
-        "english": "suí · to follow"
-      },
       {
         "key": "似",
         "display": "似",
@@ -89988,66 +90407,11 @@
         "key": "当",
         "display": "当",
         "english": "dāng · to serve as; when"
-      },
-      {
-        "key": "但",
-        "display": "但",
-        "english": "dàn · but"
-      },
-      {
-        "key": "现",
-        "display": "现",
-        "english": "xiàn · present, now"
-      },
-      {
-        "key": "已",
-        "display": "已",
-        "english": "yǐ · already"
-      },
-      {
-        "key": "几",
-        "display": "几",
-        "english": "jǐ · how many, several"
-      },
-      {
-        "key": "才",
-        "display": "才",
-        "english": "cái · only then; talent"
-      },
-      {
-        "key": "便",
-        "display": "便",
-        "english": "biàn · convenient; then"
-      },
-      {
-        "key": "等",
-        "display": "等",
-        "english": "děng · to wait; rank; etc."
-      },
-      {
-        "key": "像",
-        "display": "像",
-        "english": "xiàng · to resemble; image"
-      },
-      {
-        "key": "各",
-        "display": "各",
-        "english": "gè · each"
-      },
-      {
-        "key": "总",
-        "display": "总",
-        "english": "zǒng · always, general"
-      },
-      {
-        "key": "比",
-        "display": "比",
-        "english": "bǐ · to compare; than"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Little words\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -90170,7 +90534,33 @@
         "key": "汤",
         "display": "汤",
         "english": "tāng · soup"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Food & kitchen\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_food_2": {
+    "id": "en_zh_hanzi_food_2",
+    "title": "Food & kitchen II · 瓜 豆 麦 …",
+    "storageKeyPrefix": "en_zh_hanzi_food_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "瓜",
         "display": "瓜",
@@ -90195,33 +90585,7 @@
         "key": "米",
         "display": "米",
         "english": "mǐ · rice; metre"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "15 characters from \"Food & kitchen\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_food_2": {
-    "id": "en_zh_hanzi_food_2",
-    "title": "Food & kitchen II · 酒 果 杯 …",
-    "storageKeyPrefix": "en_zh_hanzi_food_2_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "酒",
         "display": "酒",
@@ -90246,7 +90610,33 @@
         "key": "筷",
         "display": "筷",
         "english": "kuài · chopsticks"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Food & kitchen\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_food_3": {
+    "id": "en_zh_hanzi_food_3",
+    "title": "Food & kitchen III · 勺 刀 叉 …",
+    "storageKeyPrefix": "en_zh_hanzi_food_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "勺",
         "display": "勺",
@@ -90295,7 +90685,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "14 characters from \"Food & kitchen\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "9 characters from \"Food & kitchen\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -90418,7 +90808,33 @@
         "key": "箱",
         "display": "箱",
         "english": "xiāng · box, trunk"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Home & belongings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_home_2": {
+    "id": "en_zh_hanzi_home_2",
+    "title": "Home & belongings II · 柜 架 枕 …",
+    "storageKeyPrefix": "en_zh_hanzi_home_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "柜",
         "display": "柜",
@@ -90468,7 +90884,33 @@
         "key": "袜",
         "display": "袜",
         "english": "wà · sock"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Home & belongings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_home_3": {
+    "id": "en_zh_hanzi_home_3",
+    "title": "Home & belongings III · 帽 衫 袋 …",
+    "storageKeyPrefix": "en_zh_hanzi_home_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "帽",
         "display": "帽",
@@ -90493,33 +90935,7 @@
         "key": "袖",
         "display": "袖",
         "english": "xiù · sleeve"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "25 characters from \"Home & belongings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_home_2": {
-    "id": "en_zh_hanzi_home_2",
-    "title": "Home & belongings II · 布 网 屏 …",
-    "storageKeyPrefix": "en_zh_hanzi_home_2_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "布",
         "display": "布",
@@ -90544,7 +90960,33 @@
         "key": "键",
         "display": "键",
         "english": "jiàn · key (keyboard)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Home & belongings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_home_4": {
+    "id": "en_zh_hanzi_home_4",
+    "title": "Home & belongings IV · 盘 机 器 …",
+    "storageKeyPrefix": "en_zh_hanzi_home_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "盘",
         "display": "盘",
@@ -90594,7 +91036,33 @@
         "key": "画",
         "display": "画",
         "english": "huà · to draw; painting"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Home & belongings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_home_5": {
+    "id": "en_zh_hanzi_home_5",
+    "title": "Home & belongings V · 图 玉 珠 …",
+    "storageKeyPrefix": "en_zh_hanzi_home_5_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "图",
         "display": "图",
@@ -90643,7 +91111,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "24 characters from \"Home & belongings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "9 characters from \"Home & belongings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -90776,7 +91244,33 @@
         "key": "恨",
         "display": "恨",
         "english": "hèn · to hate"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_mind_2": {
+    "id": "en_zh_hanzi_mind_2",
+    "title": "Mind, speech & feelings II · 怕 喜 欢 …",
+    "storageKeyPrefix": "en_zh_hanzi_mind_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "怕",
         "display": "怕",
@@ -90821,33 +91315,7 @@
         "key": "疑",
         "display": "疑",
         "english": "yí · to doubt"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_mind_2": {
-    "id": "en_zh_hanzi_mind_2",
-    "title": "Mind, speech & feelings II · 忆 谢 请 …",
-    "storageKeyPrefix": "en_zh_hanzi_mind_2_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "忆",
         "display": "忆",
@@ -90862,7 +91330,33 @@
         "key": "请",
         "display": "请",
         "english": "qǐng · please; to invite"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_mind_3": {
+    "id": "en_zh_hanzi_mind_3",
+    "title": "Mind, speech & feelings III · 问 答 讲 …",
+    "storageKeyPrefix": "en_zh_hanzi_mind_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "问",
         "display": "问",
@@ -90922,7 +91416,33 @@
         "key": "看",
         "display": "看",
         "english": "kàn · to look"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_mind_4": {
+    "id": "en_zh_hanzi_mind_4",
+    "title": "Mind, speech & feelings IV · 见 观 望 …",
+    "storageKeyPrefix": "en_zh_hanzi_mind_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "见",
         "display": "见",
@@ -90952,33 +91472,7 @@
         "key": "吵",
         "display": "吵",
         "english": "chǎo · to quarrel; noisy"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_mind_3": {
-    "id": "en_zh_hanzi_mind_3",
-    "title": "Mind, speech & feelings III · 闹 骂 夸 …",
-    "storageKeyPrefix": "en_zh_hanzi_mind_3_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "闹",
         "display": "闹",
@@ -91008,7 +91502,33 @@
         "key": "诉",
         "display": "诉",
         "english": "sù · to tell (告诉)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_mind_5": {
+    "id": "en_zh_hanzi_mind_5",
+    "title": "Mind, speech & feelings V · 认 识 悲 …",
+    "storageKeyPrefix": "en_zh_hanzi_mind_5_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "认",
         "display": "认",
@@ -91068,7 +91588,33 @@
         "key": "骄",
         "display": "骄",
         "english": "jiāo · proud (骄傲)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_mind_6": {
+    "id": "en_zh_hanzi_mind_6",
+    "title": "Mind, speech & feelings VI · 傲 谦 虚 …",
+    "storageKeyPrefix": "en_zh_hanzi_mind_6_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "傲",
         "display": "傲",
@@ -91083,33 +91629,7 @@
         "key": "虚",
         "display": "虚",
         "english": "xū · empty; humble"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_mind_4": {
-    "id": "en_zh_hanzi_mind_4",
-    "title": "Mind, speech & feelings IV · 诚 善 恶 …",
-    "storageKeyPrefix": "en_zh_hanzi_mind_4_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "诚",
         "display": "诚",
@@ -91154,7 +91674,33 @@
         "key": "苦",
         "display": "苦",
         "english": "kǔ · bitter; hardship"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_mind_7": {
+    "id": "en_zh_hanzi_mind_7",
+    "title": "Mind, speech & feelings VII · 痛 幸 福 …",
+    "storageKeyPrefix": "en_zh_hanzi_mind_7_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "痛",
         "display": "痛",
@@ -91213,7 +91759,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "20 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Mind, speech & feelings\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -91336,7 +91882,33 @@
         "key": "雨",
         "display": "雨",
         "english": "yǔ · rain"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Nature & weather\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_nature_2": {
+    "id": "en_zh_hanzi_nature_2",
+    "title": "Nature & weather II · 雪 冰 雷 …",
+    "storageKeyPrefix": "en_zh_hanzi_nature_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "雪",
         "display": "雪",
@@ -91390,7 +91962,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "20 characters from \"Nature & weather\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "10 characters from \"Nature & weather\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -91404,10 +91976,10 @@
       }
     ]
   },
-  "en_zh_hanzi_nature_2": {
-    "id": "en_zh_hanzi_nature_2",
-    "title": "Nature & weather II · 叶 花 树 …",
-    "storageKeyPrefix": "en_zh_hanzi_nature_2_",
+  "en_zh_hanzi_nature_3": {
+    "id": "en_zh_hanzi_nature_3",
+    "title": "Nature & weather III · 叶 花 树 …",
+    "storageKeyPrefix": "en_zh_hanzi_nature_3_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
@@ -91462,7 +92034,33 @@
         "key": "洋",
         "display": "洋",
         "english": "yáng · ocean"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"Nature & weather\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_nature_4": {
+    "id": "en_zh_hanzi_nature_4",
+    "title": "Nature & weather IV · 波 浪 溪 …",
+    "storageKeyPrefix": "en_zh_hanzi_nature_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "波",
         "display": "波",
@@ -91516,7 +92114,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "20 characters from \"Nature & weather\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "10 characters from \"Nature & weather\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -91649,7 +92247,33 @@
         "key": "万",
         "display": "万",
         "english": "wàn · ten thousand"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_numbers_time_2": {
+    "id": "en_zh_hanzi_numbers_time_2",
+    "title": "Numbers & time II · 亿 零 半 …",
+    "storageKeyPrefix": "en_zh_hanzi_numbers_time_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "亿",
         "display": "亿",
@@ -91684,33 +92308,7 @@
         "key": "岁",
         "display": "岁",
         "english": "suì · years of age"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "19 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_numbers_time_2": {
-    "id": "en_zh_hanzi_numbers_time_2",
-    "title": "Numbers & time II · 年 月 日 …",
-    "storageKeyPrefix": "en_zh_hanzi_numbers_time_2_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "年",
         "display": "年",
@@ -91730,7 +92328,33 @@
         "key": "时",
         "display": "时",
         "english": "shí · time"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_numbers_time_3": {
+    "id": "en_zh_hanzi_numbers_time_3",
+    "title": "Numbers & time III · 分 秒 天 …",
+    "storageKeyPrefix": "en_zh_hanzi_numbers_time_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "分",
         "display": "分",
@@ -91785,7 +92409,33 @@
         "key": "今",
         "display": "今",
         "english": "jīn · now, today"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_numbers_time_4": {
+    "id": "en_zh_hanzi_numbers_time_4",
+    "title": "Numbers & time IV · 春 夏 秋 …",
+    "storageKeyPrefix": "en_zh_hanzi_numbers_time_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "春",
         "display": "春",
@@ -91805,33 +92455,7 @@
         "key": "冬",
         "display": "冬",
         "english": "dōng · winter"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "19 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_numbers_time_3": {
-    "id": "en_zh_hanzi_numbers_time_3",
-    "title": "Numbers & time III · 季 久 常 …",
-    "storageKeyPrefix": "en_zh_hanzi_numbers_time_3_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "季",
         "display": "季",
@@ -91866,7 +92490,33 @@
         "key": "始",
         "display": "始",
         "english": "shǐ · to begin"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_numbers_time_5": {
+    "id": "en_zh_hanzi_numbers_time_5",
+    "title": "Numbers & time V · 终 周 点 …",
+    "storageKeyPrefix": "en_zh_hanzi_numbers_time_5_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "终",
         "display": "终",
@@ -91925,7 +92575,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "18 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Numbers & time\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -92058,7 +92708,33 @@
         "key": "子",
         "display": "子",
         "english": "zǐ · child; noun suffix"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"People & family\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_people_2": {
+    "id": "en_zh_hanzi_people_2",
+    "title": "People & family II · 母 父 妈 …",
+    "storageKeyPrefix": "en_zh_hanzi_people_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "母",
         "display": "母",
@@ -92117,7 +92793,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"People & family\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"People & family\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -92131,10 +92807,10 @@
       }
     ]
   },
-  "en_zh_hanzi_people_2": {
-    "id": "en_zh_hanzi_people_2",
-    "title": "People & family II · 姨 爷 孙 …",
-    "storageKeyPrefix": "en_zh_hanzi_people_2_",
+  "en_zh_hanzi_people_3": {
+    "id": "en_zh_hanzi_people_3",
+    "title": "People & family III · 姨 爷 孙 …",
+    "storageKeyPrefix": "en_zh_hanzi_people_3_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
@@ -92194,7 +92870,33 @@
         "key": "王",
         "display": "王",
         "english": "wáng · king"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"People & family\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_people_4": {
+    "id": "en_zh_hanzi_people_4",
+    "title": "People & family IV · 官 士 员 …",
+    "storageKeyPrefix": "en_zh_hanzi_people_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "官",
         "display": "官",
@@ -92253,7 +92955,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "22 characters from \"People & family\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"People & family\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -92386,7 +93088,33 @@
         "key": "省",
         "display": "省",
         "english": "shěng · province; to save"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_places_2": {
+    "id": "en_zh_hanzi_places_2",
+    "title": "Places & travel II · 郊 区 路 …",
+    "storageKeyPrefix": "en_zh_hanzi_places_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "郊",
         "display": "郊",
@@ -92431,33 +93159,7 @@
         "key": "园",
         "display": "园",
         "english": "yuán · garden, park"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_places_2": {
-    "id": "en_zh_hanzi_places_2",
-    "title": "Places & travel II · 院 楼 房 …",
-    "storageKeyPrefix": "en_zh_hanzi_places_2_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "院",
         "display": "院",
@@ -92472,7 +93174,33 @@
         "key": "房",
         "display": "房",
         "english": "fáng · house, room"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_places_3": {
+    "id": "en_zh_hanzi_places_3",
+    "title": "Places & travel III · 门 窗 墙 …",
+    "storageKeyPrefix": "en_zh_hanzi_places_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "门",
         "display": "门",
@@ -92532,7 +93260,33 @@
         "key": "境",
         "display": "境",
         "english": "jìng · border; situation"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_places_4": {
+    "id": "en_zh_hanzi_places_4",
+    "title": "Places & travel IV · 域 港 湾 …",
+    "storageKeyPrefix": "en_zh_hanzi_places_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "域",
         "display": "域",
@@ -92562,33 +93316,7 @@
         "key": "角",
         "display": "角",
         "english": "jiǎo · corner, horn"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_places_3": {
-    "id": "en_zh_hanzi_places_3",
-    "title": "Places & travel III · 座 层 梯 …",
-    "storageKeyPrefix": "en_zh_hanzi_places_3_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "座",
         "display": "座",
@@ -92618,7 +93346,33 @@
         "key": "卧",
         "display": "卧",
         "english": "wò · to lie down (卧室)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_places_5": {
+    "id": "en_zh_hanzi_places_5",
+    "title": "Places & travel V · 室 东 西 …",
+    "storageKeyPrefix": "en_zh_hanzi_places_5_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "室",
         "display": "室",
@@ -92678,7 +93432,33 @@
         "key": "外",
         "display": "外",
         "english": "wài · outside"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_places_6": {
+    "id": "en_zh_hanzi_places_6",
+    "title": "Places & travel VI · 内 间 面 …",
+    "storageKeyPrefix": "en_zh_hanzi_places_6_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "内",
         "display": "内",
@@ -92693,33 +93473,7 @@
         "key": "面",
         "display": "面",
         "english": "miàn · face, side"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_places_4": {
-    "id": "en_zh_hanzi_places_4",
-    "title": "Places & travel IV · 方 位 道 …",
-    "storageKeyPrefix": "en_zh_hanzi_places_4_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "方",
         "display": "方",
@@ -92764,7 +93518,33 @@
         "key": "轮",
         "display": "轮",
         "english": "lún · wheel; round"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_places_7": {
+    "id": "en_zh_hanzi_places_7",
+    "title": "Places & travel VII · 舱 驶 骑 …",
+    "storageKeyPrefix": "en_zh_hanzi_places_7_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "舱",
         "display": "舱",
@@ -92828,7 +93608,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Places & travel\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -92961,7 +93741,33 @@
         "key": "远",
         "display": "远",
         "english": "yuǎn · far"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_qualities_2": {
+    "id": "en_zh_hanzi_qualities_2",
+    "title": "Describing things II · 近 深 满 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "近",
         "display": "近",
@@ -93006,33 +93812,7 @@
         "key": "轻",
         "display": "轻",
         "english": "qīng · light (weight)"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_qualities_2": {
-    "id": "en_zh_hanzi_qualities_2",
-    "title": "Describing things II · 强 弱 难 …",
-    "storageKeyPrefix": "en_zh_hanzi_qualities_2_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "强",
         "display": "强",
@@ -93047,7 +93827,33 @@
         "key": "难",
         "display": "难",
         "english": "nán · difficult"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_qualities_3": {
+    "id": "en_zh_hanzi_qualities_3",
+    "title": "Describing things III · 易 忙 闲 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "易",
         "display": "易",
@@ -93107,7 +93913,33 @@
         "key": "暖",
         "display": "暖",
         "english": "nuǎn · warm"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_qualities_4": {
+    "id": "en_zh_hanzi_qualities_4",
+    "title": "Describing things IV · 热 凉 湿 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "热",
         "display": "热",
@@ -93137,33 +93969,7 @@
         "key": "亮",
         "display": "亮",
         "english": "liàng · bright"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_qualities_3": {
-    "id": "en_zh_hanzi_qualities_3",
-    "title": "Describing things III · 暗 粗 厚 …",
-    "storageKeyPrefix": "en_zh_hanzi_qualities_3_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "暗",
         "display": "暗",
@@ -93193,7 +93999,33 @@
         "key": "窄",
         "display": "窄",
         "english": "zhǎi · narrow"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_qualities_5": {
+    "id": "en_zh_hanzi_qualities_5",
+    "title": "Describing things V · 尖 硬 软 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_5_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "尖",
         "display": "尖",
@@ -93253,7 +94085,33 @@
         "key": "丑",
         "display": "丑",
         "english": "chǒu · ugly"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_qualities_6": {
+    "id": "en_zh_hanzi_qualities_6",
+    "title": "Describing things VI · 美 胖 瘦 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_6_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "美",
         "display": "美",
@@ -93268,33 +94126,7 @@
         "key": "瘦",
         "display": "瘦",
         "english": "shòu · thin (person)"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_qualities_4": {
-    "id": "en_zh_hanzi_qualities_4",
-    "title": "Describing things IV · 矮 壮 穷 …",
-    "storageKeyPrefix": "en_zh_hanzi_qualities_4_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "矮",
         "display": "矮",
@@ -93334,7 +94166,33 @@
         "key": "红",
         "display": "红",
         "english": "hóng · red"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_qualities_7": {
+    "id": "en_zh_hanzi_qualities_7",
+    "title": "Describing things VII · 白 黑 色 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_7_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "白",
         "display": "白",
@@ -93389,21 +94247,11 @@
         "key": "紧",
         "display": "紧",
         "english": "jǐn · tight"
-      },
-      {
-        "key": "足",
-        "display": "足",
-        "english": "zú · foot; enough"
-      },
-      {
-        "key": "全",
-        "display": "全",
-        "english": "quán · whole, all"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "21 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -93417,15 +94265,25 @@
       }
     ]
   },
-  "en_zh_hanzi_qualities_5": {
-    "id": "en_zh_hanzi_qualities_5",
-    "title": "Describing things V · 整 平 准 …",
-    "storageKeyPrefix": "en_zh_hanzi_qualities_5_",
+  "en_zh_hanzi_qualities_8": {
+    "id": "en_zh_hanzi_qualities_8",
+    "title": "Describing things VIII · 足 全 整 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_8_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
     "kind": "draw",
     "subjects": [
+      {
+        "key": "足",
+        "display": "足",
+        "english": "zú · foot; enough"
+      },
+      {
+        "key": "全",
+        "display": "全",
+        "english": "quán · whole, all"
+      },
       {
         "key": "整",
         "display": "整",
@@ -93470,7 +94328,33 @@
         "key": "剩",
         "display": "剩",
         "english": "shèng · to be left over"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_qualities_9": {
+    "id": "en_zh_hanzi_qualities_9",
+    "title": "Describing things IX · 余 增 减 …",
+    "storageKeyPrefix": "en_zh_hanzi_qualities_9_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "余",
         "display": "余",
@@ -93529,7 +94413,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "20 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Describing things\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -93657,7 +94541,33 @@
         "key": "篇",
         "display": "篇",
         "english": "piān · piece of writing"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_school_2": {
+    "id": "en_zh_hanzi_school_2",
+    "title": "School, words & work II · 页 段 文 …",
+    "storageKeyPrefix": "en_zh_hanzi_school_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "页",
         "display": "页",
@@ -93692,33 +94602,7 @@
         "key": "考",
         "display": "考",
         "english": "kǎo · to test"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "18 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_school_2": {
-    "id": "en_zh_hanzi_school_2",
-    "title": "School, words & work II · 练 习 预 …",
-    "storageKeyPrefix": "en_zh_hanzi_school_2_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "练",
         "display": "练",
@@ -93738,7 +94622,33 @@
         "key": "测",
         "display": "测",
         "english": "cè · to measure, to test"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_school_3": {
+    "id": "en_zh_hanzi_school_3",
+    "title": "School, words & work III · 验 错 教 …",
+    "storageKeyPrefix": "en_zh_hanzi_school_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "验",
         "display": "验",
@@ -93793,7 +94703,33 @@
         "key": "名",
         "display": "名",
         "english": "míng · name"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_school_4": {
+    "id": "en_zh_hanzi_school_4",
+    "title": "School, words & work IV · 工 业 商 …",
+    "storageKeyPrefix": "en_zh_hanzi_school_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "工",
         "display": "工",
@@ -93808,33 +94744,7 @@
         "key": "商",
         "display": "商",
         "english": "shāng · commerce"
-      }
-    ],
-    "categories": [],
-    "sentences": [],
-    "helpMemoryIntro": "18 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
-    "helpMemoryTips": [
-      {
-        "kind": "rule",
-        "title": "Stroke order matters",
-        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
-      {
-        "kind": "mnemonic",
-        "title": "Trace → recall",
-        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
-      }
-    ]
-  },
-  "en_zh_hanzi_school_3": {
-    "id": "en_zh_hanzi_school_3",
-    "title": "School, words & work III · 产 品 价 …",
-    "storageKeyPrefix": "en_zh_hanzi_school_3_",
-    "promptLabel": "Character",
-    "subjectsLabel": "Characters",
-    "subjectColumnLabel": "Hanzi",
-    "kind": "draw",
-    "subjects": [
       {
         "key": "产",
         "display": "产",
@@ -93869,7 +94779,33 @@
         "key": "贸",
         "display": "贸",
         "english": "mào · trade (贸易)"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "10 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_school_5": {
+    "id": "en_zh_hanzi_school_5",
+    "title": "School, words & work V · 支 款 项 …",
+    "storageKeyPrefix": "en_zh_hanzi_school_5_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "支",
         "display": "支",
@@ -93923,7 +94859,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "17 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "10 characters from \"School, words & work\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -94056,7 +94992,114 @@
         "key": "特",
         "display": "特",
         "english": "tè · special"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_society_10": {
+    "id": "en_zh_hanzi_society_10",
+    "title": "Big ideas X · 储 输 获 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_10_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
+      {
+        "key": "储",
+        "display": "储",
+        "english": "chǔ · to store"
+      },
+      {
+        "key": "输",
+        "display": "输",
+        "english": "shū · to transport; to lose"
+      },
+      {
+        "key": "获",
+        "display": "获",
+        "english": "huò · to obtain"
+      },
+      {
+        "key": "引",
+        "display": "引",
+        "english": "yǐn · to draw, to attract"
+      },
+      {
+        "key": "导",
+        "display": "导",
+        "english": "dǎo · to guide"
+      },
+      {
+        "key": "培",
+        "display": "培",
+        "english": "péi · to cultivate (培训)"
+      },
+      {
+        "key": "训",
+        "display": "训",
+        "english": "xùn · to train"
+      },
+      {
+        "key": "授",
+        "display": "授",
+        "english": "shòu · to teach, to award"
+      },
+      {
+        "key": "顿",
+        "display": "顿",
+        "english": "dùn · pause; measure word for meals"
+      },
+      {
+        "key": "延",
+        "display": "延",
+        "english": "yán · to extend, to delay"
+      },
+      {
+        "key": "迟",
+        "display": "迟",
+        "english": "chí · late"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
+      },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_society_2": {
+    "id": "en_zh_hanzi_society_2",
+    "title": "Big ideas II · 实 物 部 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "实",
         "display": "实",
@@ -94111,11 +95154,16 @@
         "key": "报",
         "display": "报",
         "english": "bào · to report; newspaper"
+      },
+      {
+        "key": "张",
+        "display": "张",
+        "english": "zhāng · to open; sheet (measure word)"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -94129,20 +95177,15 @@
       }
     ]
   },
-  "en_zh_hanzi_society_2": {
-    "id": "en_zh_hanzi_society_2",
-    "title": "Big ideas II · 张 告 度 …",
-    "storageKeyPrefix": "en_zh_hanzi_society_2_",
+  "en_zh_hanzi_society_3": {
+    "id": "en_zh_hanzi_society_3",
+    "title": "Big ideas III · 告 度 任 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_3_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
     "kind": "draw",
     "subjects": [
-      {
-        "key": "张",
-        "display": "张",
-        "english": "zhāng · to open; sheet (measure word)"
-      },
       {
         "key": "告",
         "display": "告",
@@ -94202,7 +95245,33 @@
         "key": "流",
         "display": "流",
         "english": "liú · to flow"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "12 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_society_4": {
+    "id": "en_zh_hanzi_society_4",
+    "title": "Big ideas IV · 指 合 反 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_4_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "指",
         "display": "指",
@@ -94252,11 +95321,21 @@
         "key": "管",
         "display": "管",
         "english": "guǎn · to manage; tube"
+      },
+      {
+        "key": "类",
+        "display": "类",
+        "english": "lèi · kind, category"
+      },
+      {
+        "key": "越",
+        "display": "越",
+        "english": "yuè · to exceed; the more…"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "12 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -94270,25 +95349,15 @@
       }
     ]
   },
-  "en_zh_hanzi_society_3": {
-    "id": "en_zh_hanzi_society_3",
-    "title": "Big ideas III · 类 越 落 …",
-    "storageKeyPrefix": "en_zh_hanzi_society_3_",
+  "en_zh_hanzi_society_5": {
+    "id": "en_zh_hanzi_society_5",
+    "title": "Big ideas V · 落 形 影 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_5_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
     "kind": "draw",
     "subjects": [
-      {
-        "key": "类",
-        "display": "类",
-        "english": "lèi · kind, category"
-      },
-      {
-        "key": "越",
-        "display": "越",
-        "english": "yuè · to exceed; the more…"
-      },
       {
         "key": "落",
         "display": "落",
@@ -94343,7 +95412,33 @@
         "key": "照",
         "display": "照",
         "english": "zhào · to shine; photo"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_society_6": {
+    "id": "en_zh_hanzi_society_6",
+    "title": "Big ideas VI · 古 称 节 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_6_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "古",
         "display": "古",
@@ -94393,11 +95488,16 @@
         "key": "绝",
         "display": "绝",
         "english": "jué · absolutely; to cut off"
+      },
+      {
+        "key": "系",
+        "display": "系",
+        "english": "xì · system; to tie"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -94411,20 +95511,15 @@
       }
     ]
   },
-  "en_zh_hanzi_society_4": {
-    "id": "en_zh_hanzi_society_4",
-    "title": "Big ideas IV · 系 伤 示 …",
-    "storageKeyPrefix": "en_zh_hanzi_society_4_",
+  "en_zh_hanzi_society_7": {
+    "id": "en_zh_hanzi_society_7",
+    "title": "Big ideas VII · 伤 示 妇 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_7_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
     "kind": "draw",
     "subjects": [
-      {
-        "key": "系",
-        "display": "系",
-        "english": "xì · system; to tie"
-      },
       {
         "key": "伤",
         "display": "伤",
@@ -94479,7 +95574,33 @@
         "key": "具",
         "display": "具",
         "english": "jù · tool; to possess"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "11 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_society_8": {
+    "id": "en_zh_hanzi_society_8",
+    "title": "Big ideas VIII · 刚 脑 永 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_8_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "刚",
         "display": "刚",
@@ -94538,7 +95659,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "23 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -94552,10 +95673,10 @@
       }
     ]
   },
-  "en_zh_hanzi_society_5": {
-    "id": "en_zh_hanzi_society_5",
-    "title": "Big ideas V · 益 素 质 …",
-    "storageKeyPrefix": "en_zh_hanzi_society_5_",
+  "en_zh_hanzi_society_9": {
+    "id": "en_zh_hanzi_society_9",
+    "title": "Big ideas IX · 益 素 质 …",
+    "storageKeyPrefix": "en_zh_hanzi_society_9_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
     "subjectColumnLabel": "Hanzi",
@@ -94615,66 +95736,11 @@
         "key": "库",
         "display": "库",
         "english": "kù · warehouse, storehouse"
-      },
-      {
-        "key": "储",
-        "display": "储",
-        "english": "chǔ · to store"
-      },
-      {
-        "key": "输",
-        "display": "输",
-        "english": "shū · to transport; to lose"
-      },
-      {
-        "key": "获",
-        "display": "获",
-        "english": "huò · to obtain"
-      },
-      {
-        "key": "引",
-        "display": "引",
-        "english": "yǐn · to draw, to attract"
-      },
-      {
-        "key": "导",
-        "display": "导",
-        "english": "dǎo · to guide"
-      },
-      {
-        "key": "培",
-        "display": "培",
-        "english": "péi · to cultivate (培训)"
-      },
-      {
-        "key": "训",
-        "display": "训",
-        "english": "xùn · to train"
-      },
-      {
-        "key": "授",
-        "display": "授",
-        "english": "shòu · to teach, to award"
-      },
-      {
-        "key": "顿",
-        "display": "顿",
-        "english": "dùn · pause; measure word for meals"
-      },
-      {
-        "key": "延",
-        "display": "延",
-        "english": "yán · to extend, to delay"
-      },
-      {
-        "key": "迟",
-        "display": "迟",
-        "english": "chí · late"
       }
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "22 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "11 characters from \"Big ideas\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",
@@ -94741,7 +95807,7 @@
   },
   "en_zh_hanzi_state_1": {
     "id": "en_zh_hanzi_state_1",
-    "title": "China & the state · 军 战 队 …",
+    "title": "China & the state I · 军 战 队 …",
     "storageKeyPrefix": "en_zh_hanzi_state_1_",
     "promptLabel": "Character",
     "subjectsLabel": "Characters",
@@ -94792,7 +95858,33 @@
         "key": "统",
         "display": "统",
         "english": "tǒng · to unite; system"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "9 characters from \"China & the state\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_state_2": {
+    "id": "en_zh_hanzi_state_2",
+    "title": "China & the state II · 治 制 义 …",
+    "storageKeyPrefix": "en_zh_hanzi_state_2_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "治",
         "display": "治",
@@ -94832,7 +95924,33 @@
         "key": "群",
         "display": "群",
         "english": "qún · crowd, group"
+      }
+    ],
+    "categories": [],
+    "sentences": [],
+    "helpMemoryIntro": "8 characters from \"China & the state\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryTips": [
+      {
+        "kind": "rule",
+        "title": "Stroke order matters",
+        "text": "Top before bottom, left before right, horizontal before vertical crossing it. Following the order builds the muscle memory that makes characters stick."
       },
+      {
+        "kind": "mnemonic",
+        "title": "Trace → recall",
+        "text": "Trace each character a few times, then switch the card to \"From memory\" and draw it from the sound alone — the reveal shows the template under your strokes to compare."
+      }
+    ]
+  },
+  "en_zh_hanzi_state_3": {
+    "id": "en_zh_hanzi_state_3",
+    "title": "China & the state III · 级 证 卫 …",
+    "storageKeyPrefix": "en_zh_hanzi_state_3_",
+    "promptLabel": "Character",
+    "subjectsLabel": "Characters",
+    "subjectColumnLabel": "Hanzi",
+    "kind": "draw",
+    "subjects": [
       {
         "key": "级",
         "display": "级",
@@ -94876,7 +95994,7 @@
     ],
     "categories": [],
     "sentences": [],
-    "helpMemoryIntro": "25 characters from \"China & the state\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
+    "helpMemoryIntro": "8 characters from \"China & the state\". Listen, then draw each one — trace the faint template first; switch to \"From memory\" when you are ready to write from sound alone.",
     "helpMemoryTips": [
       {
         "kind": "rule",

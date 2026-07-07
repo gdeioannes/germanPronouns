@@ -43,6 +43,10 @@ enum PersonSceneKind {
 
   /// Arms up in a shower of confetti — celebrations.
   celebrate,
+
+  /// Four people saying hello in four languages — the login poster's cast.
+  /// Composed for a dark brand field but works on light surfaces too.
+  greeters,
 }
 
 /// The vignette for a course goal key (see `Course.goal`); a friendly wave
@@ -64,9 +68,13 @@ class PersonScene extends StatelessWidget {
   final PersonSceneKind kind;
   final double height;
 
-  /// Width:height. The chat scene needs room for two figures and bubbles.
-  static double aspectOf(PersonSceneKind kind) =>
-      kind == PersonSceneKind.chat ? 1.7 : 1.0;
+  /// Width:height. The chat and greeters scenes need room for several
+  /// figures and their bubbles.
+  static double aspectOf(PersonSceneKind kind) => switch (kind) {
+        PersonSceneKind.chat => 1.7,
+        PersonSceneKind.greeters => 2.7,
+        _ => 1.0,
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +97,12 @@ const Color _bubble = Color(0xFFF3EEE4); // warm paper for speech bubbles
 const Color _ink = Color(0xFF2A2A28);
 
 class _PersonScenePainter extends CustomPainter {
-  _PersonScenePainter(this.kind);
+  // Repaint when system/fallback fonts finish loading: the greeting bubbles
+  // draw real text, and on web the CJK glyphs (你好) arrive via an async
+  // Noto fallback download — without this the first paint's tofu boxes would
+  // stick forever on a static CustomPaint.
+  _PersonScenePainter(this.kind)
+      : super(repaint: PaintingBinding.instance.systemFonts);
 
   final PersonSceneKind kind;
 
@@ -117,6 +130,8 @@ class _PersonScenePainter extends CustomPainter {
         _explore(k);
       case PersonSceneKind.celebrate:
         _celebrate(k);
+      case PersonSceneKind.greeters:
+        _greeters(k);
     }
   }
 
@@ -315,6 +330,86 @@ class _PersonScenePainter extends CustomPainter {
             confetti[i % confetti.length], flat: true);
       }
     }
+  }
+
+  /// A speech bubble sized to its [text] (bold, navy on warm paper), with a
+  /// little tail down to the speaker. The greeting is real text so the cast
+  /// literally says hello in each course language.
+  void _greetingBubble(FlatPaintKit k, double cx, double bottomY, double tailX,
+      double tailY, String text) {
+    final tp = TextPainter(
+      text: TextSpan(
+        text: text,
+        // 'Roboto' resolves on web/Android and falls back to the platform
+        // face elsewhere; it also lets the dev preview register a real font
+        // under this name (flutter_test otherwise draws Ahem boxes).
+        style: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 0.105 * k.u,
+          fontWeight: FontWeight.w800,
+          color: _navy,
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    final w = tp.width / k.u + 0.15;
+    final h = tp.height / k.u + 0.08;
+    final t = bottomY - h;
+    k.poly([
+      Offset(cx - 0.05, bottomY - 0.02),
+      Offset(cx + 0.05, bottomY - 0.02),
+      Offset(tailX, tailY),
+    ], _bubble, flat: true);
+    k.box(cx - w / 2, t, cx + w / 2, bottomY, 0.09, _bubble, flat: true);
+    tp.paint(
+      k.canvas,
+      Offset(cx * k.u - tp.width / 2, (t + bottomY) / 2 * k.u - tp.height / 2),
+    );
+  }
+
+  void _greeters(FlatPaintKit k) {
+    // Four figures, four languages — outfits chosen to pop on the brand navy
+    // (no navy outfit here) while still reading on light surfaces.
+    _greetingBubble(k, 0.40, 0.30, 0.44, 0.40, 'Hallo!');
+    _greetingBubble(k, 1.02, 0.22, 1.06, 0.32, '¡Hola!');
+    _greetingBubble(k, 1.66, 0.30, 1.70, 0.40, '你好');
+    _greetingBubble(k, 2.28, 0.22, 2.32, 0.32, 'Hi!');
+    // 1 · Waving, terracotta.
+    _body(k, 0.40, 0.49, _terracotta);
+    k.head(0.40, 0.385, 0.088,
+        style: 'short', skinTone: kSkinTones[1], hairColor: kHairColors[0]);
+    k.line(0.34, 0.54, 0.31, 0.65, 0.042, _terracotta);
+    k.hand(0.305, 0.66, c: kSkinTones[1]);
+    k.line(0.46, 0.54, 0.55, 0.42, 0.042, _terracotta); // waving arm
+    k.hand(0.555, 0.41, c: kSkinTones[1]);
+    // 2 · Bun and glasses, forest.
+    _body(k, 1.02, 0.49, _forest);
+    k.head(1.02, 0.385, 0.088,
+        glasses: true,
+        style: 'bun',
+        skinTone: kSkinTones[0],
+        hairColor: kHairColors[3]);
+    k.line(0.96, 0.54, 0.90, 0.46, 0.042, _forest); // raised open hand
+    k.hand(0.895, 0.45, c: kSkinTones[0]);
+    k.line(1.08, 0.54, 1.12, 0.65, 0.042, _forest);
+    k.hand(1.125, 0.66, c: kSkinTones[0]);
+    // 3 · Curly, ochre.
+    _body(k, 1.66, 0.49, _ochre);
+    k.head(1.66, 0.385, 0.088,
+        style: 'curly', skinTone: kSkinTones[3], hairColor: kHairColors[2]);
+    k.line(1.60, 0.54, 1.57, 0.65, 0.042, _ochre);
+    k.hand(1.565, 0.66, c: kSkinTones[3]);
+    k.line(1.72, 0.54, 1.81, 0.42, 0.042, _ochre); // waving arm
+    k.hand(1.815, 0.41, c: kSkinTones[3]);
+    // 4 · Long hair, light paper outfit.
+    const paper = Color(0xFFE8E1D2);
+    _body(k, 2.28, 0.49, paper);
+    k.head(2.28, 0.385, 0.088,
+        style: 'long', skinTone: kSkinTones[2], hairColor: kHairColors[1]);
+    k.line(2.22, 0.54, 2.16, 0.46, 0.042, paper); // raised open hand
+    k.hand(2.155, 0.45, c: kSkinTones[2]);
+    k.line(2.34, 0.54, 2.38, 0.65, 0.042, paper);
+    k.hand(2.385, 0.66, c: kSkinTones[2]);
   }
 
   @override

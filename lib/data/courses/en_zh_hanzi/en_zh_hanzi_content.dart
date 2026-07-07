@@ -9,16 +9,18 @@ export 'hanzi_data.dart';
 /// reading** in English — a relaxing page about the theme and the stories
 /// behind its characters — followed by [QuizKind.draw] quizzes of at most
 /// [kHanziBatchSize] characters each.
-const int kHanziBatchSize = 25;
+const int kHanziBatchSize = 12;
 
 /// Roman numerals for the part titles ("Everyday actions II") — friendlier
-/// than rank numbers.
+/// than rank numbers. Sized for the biggest theme (124 characters → 11 parts
+/// at a batch of 12), with headroom.
 const List<String> _roman = [
   'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII',
+  'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI',
 ];
 
 /// Splits [all] into the fewest parts of ≤ [kHanziBatchSize], sized as evenly
-/// as possible (so a 29-character theme becomes 15+14, never 25+4).
+/// as possible (so a 13-character theme becomes 7+6, never 12+1).
 List<List<HanziEntry>> _splitBalanced(List<HanziEntry> all) {
   final parts = (all.length + kHanziBatchSize - 1) ~/ kHanziBatchSize;
   final base = all.length ~/ parts;

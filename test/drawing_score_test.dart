@@ -123,9 +123,35 @@ void main() {
           [Offset(0.05, y), Offset(0.95, y)],
       ]);
       final score = scoreMasks(template, scribble);
-      expect(score.coverage, greaterThan(0.9), reason: 'everything is near ink');
+      expect(score.coverage, greaterThan(0.75), reason: 'most is near some ink');
       expect(score.precision, lessThan(0.35), reason: 'most ink is off target');
       expect(ribbonTierForOverlap(score.overlap), isNull);
+    });
+
+    test('blanketing the symbol area cannot medal', () {
+      // Coverage and precision alone can both look good when the ink is a
+      // solid slab over the glyph (strokes sit close together), so the ink
+      // economy must sink it: several times the character's own ink.
+      final template = maskFromStrokes(cross(0.15, 0.85));
+      final slab = maskFromStrokes([
+        for (var y = 0.15; y <= 0.85; y += 0.03)
+          [Offset(0.15, y), Offset(0.85, y)],
+      ]);
+      final score = scoreMasks(template, slab);
+      expect(score.coverage, greaterThan(0.9), reason: 'the slab covers all');
+      expect(score.inkRatio, greaterThan(3), reason: 'far more ink than the X');
+      expect(ribbonTierForOverlap(score.overlap), isNull,
+          reason: 'painting over the symbol must not earn a tier');
+    });
+
+    test('the economy factor is neutral for honest ink amounts', () {
+      const honest =
+          DrawingScore(coverage: 0.9, precision: 0.9, inkRatio: 1.4);
+      expect(honest.economy, 1.0);
+      expect(honest.overlap, closeTo(0.9, 1e-9));
+      const heavy = DrawingScore(coverage: 1, precision: 1, inkRatio: 3);
+      expect(heavy.economy, closeTo(0.5, 1e-9));
+      expect(heavy.overlap, closeTo(0.5, 1e-9));
     });
 
     test('empty masks score zero', () {
