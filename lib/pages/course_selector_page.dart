@@ -8,6 +8,7 @@ import '../models/course.dart';
 import '../models/course_session.dart';
 import '../widgets/country_flag.dart';
 import '../widgets/course_tile.dart';
+import '../widgets/person_scene.dart';
 
 /// Display metadata for a language, keyed by its ISO code.
 ///
@@ -602,10 +603,14 @@ class _CourseSelectorPageState extends State<CourseSelectorPage> {
                               ),
                             ),
                           ],
+                          // Two little people mid-conversation — what all the
+                          // courses below are really for.
+                          const SizedBox(height: 14),
+                          const PersonScene(PersonSceneKind.chat, height: 104),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: 22),
 
                     // ── Your courses (already started) ───────────────────────
                     // One "jump back in" card for the most recent course; the
@@ -705,12 +710,23 @@ class _CourseSelectorPageState extends State<CourseSelectorPage> {
                           key: ValueKey('no-match-$_filterSig'),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: Text(
-                              _noMatchText[uiLang]!,
-                              textAlign: TextAlign.center,
-                              style: textTheme.bodyMedium?.copyWith(
-                                color: colorScheme.onSurfaceVariant,
-                              ),
+                            child: Column(
+                              children: [
+                                // A searching little character keeps the empty
+                                // result friendly rather than like a dead end.
+                                const PersonScene(
+                                  PersonSceneKind.search,
+                                  height: 96,
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  _noMatchText[uiLang]!,
+                                  textAlign: TextAlign.center,
+                                  style: textTheme.bodyMedium?.copyWith(
+                                    color: colorScheme.onSurfaceVariant,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         )

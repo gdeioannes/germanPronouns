@@ -915,7 +915,8 @@ class _AppDrawerState extends State<AppDrawer> {
       case QuizKind.dictation:
         return NounSettings.instance.isDictationQuizCompleted(item.ref);
       case QuizKind.draw:
-        // Drawing completes on play-through, sharing the speak completion set.
+        // Drawing completes once a run earns a ribbon (most cards scored
+        // bronze or better); the flag shares the speak completion set.
         return NounSettings.instance.isSpeakQuizCompleted(item.ref);
       case QuizKind.fillBlank:
       case null:

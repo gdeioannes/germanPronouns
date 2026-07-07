@@ -15,6 +15,7 @@ import '../services/drawing_score.dart';
 import '../services/tts/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/completion_ribbon.dart';
+import '../widgets/fireworks.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
 import '../widgets/quiz_scaffold.dart';
@@ -67,10 +68,13 @@ enum _DrawMode { trace, recall }
 /// A character-writing quiz ([QuizKind.draw]): TTS reads each character aloud
 /// and the learner **draws** it on a practice grid — traced over a faint
 /// template, or from memory. "Check my drawing" scores the ink against the
-/// printed character (see [DrawingScorer]); each run's average overlap earns
-/// a ribbon tier — gold ≥ 65%, silver ≥ 50%, bronze ≥ 35% — and its coins.
-/// Like listen-&-repeat, the quiz still completes on play-through, so a low
-/// score never blocks progression.
+/// printed character (see [DrawingScorer]) into a tier — gold ≥ 65%, silver
+/// ≥ 50%, bronze ≥ 35% — paying that card's coins on the spot with a
+/// fireworks burst, like a good answer elsewhere (a mixed-in reading card
+/// behaves the same). The run's ribbon is the tier *most* cards earned
+/// ([majorityTier]); a run whose cards were mostly missed earns no ribbon and
+/// does **not** complete the quiz — the next one stays locked until a run
+/// earns at least bronze.
 class DrawQuizPage extends StatefulWidget {
   const DrawQuizPage({
     super.key,
@@ -91,13 +95,26 @@ class DrawQuizPage extends StatefulWidget {
 }
 
 class _DrawQuizPageState extends State<DrawQuizPage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   final TtsService _voice = TtsService.instance;
 
   late final AnimationController _pulse = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 700),
   );
+
+  /// The per-card celebration burst (the shared [FireworksPainter], same as a
+  /// good answer in the fill-in quizzes). Empty particles = nothing showing.
+  late final AnimationController _fireworks = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1600),
+  )..addStatusListener((status) {
+      if (status == AnimationStatus.completed && mounted) {
+        setState(() => _burst = const []);
+      }
+    });
+  List<FireworkParticle> _burst = const [];
+  final Random _rng = Random();
 
   bool _speaking = false;
   int _speakGen = 0;
@@ -131,16 +148,26 @@ class _DrawQuizPageState extends State<DrawQuizPage>
   /// The reading-card choice, once made (null = still open).
   _DrawItem? _chosen;
 
-  /// Per-card results of this run: a drawing card contributes its checked
-  /// overlap (0 when skipped unchecked), a reading card 1 or 0. Their average
-  /// decides the run's ribbon tier.
-  final List<double> _runScores = [];
+  /// The tier every finished card earned this run (null = missed: a drawing
+  /// below 35% or skipped unchecked, a wrong reading pick). The tier that
+  /// appears most decides the run's ribbon (see [majorityTier]).
+  final List<RibbonTier?> _cardTiers = [];
   int _readCorrect = 0;
   int _readTotal = 0;
 
+  /// Coins the current card just paid (shown in its verdict pill).
+  int _cardCoins = 0;
+
+  /// Instant payout per card tier — small change next to the ribbon bands,
+  /// but every good drawing (or reading pick) pays something on the spot.
+  static const Map<RibbonTier, int> _coinsPerCard = {
+    RibbonTier.gold: 5,
+    RibbonTier.silver: 3,
+    RibbonTier.bronze: 1,
+  };
+
   bool _finished = false;
   RibbonTier? _runTier;
-  int _runPercent = 0;
   int _coinsEarned = 0;
   NextExercise? _nextExercise;
 
@@ -248,9 +275,48 @@ class _DrawQuizPageState extends State<DrawQuizPage>
     setState(() => _mode = mode);
   }
 
+  /// A card just earned [tier]: pay its coins on the spot and celebrate with
+  /// a confetti burst — the same beat a good answer gets in the other quizzes,
+  /// bigger the better the tier.
+  Future<void> _reward(RibbonTier tier) async {
+    final coins = _coinsPerCard[tier]!;
+    _cardCoins = coins;
+    await CoinWallet.instance.add(coins);
+    if (!mounted) return;
+    final colorScheme = Theme.of(context).colorScheme;
+    final palette = [
+      tierColor(tier),
+      colorScheme.primary,
+      Colors.amber,
+      Colors.white,
+    ];
+    final count = switch (tier) {
+      RibbonTier.gold => 90,
+      RibbonTier.silver => 60,
+      RibbonTier.bronze => 40,
+    };
+    setState(() {
+      _burst = List.generate(count, (_) {
+        final angle = _rng.nextDouble() * 2 * pi;
+        return FireworkParticle(
+          origin: Offset(
+            0.2 + _rng.nextDouble() * 0.6,
+            0.3 + _rng.nextDouble() * 0.3,
+          ),
+          direction: Offset(cos(angle), sin(angle)),
+          speed: 55 + _rng.nextDouble() * 55,
+          size: 2.0 + _rng.nextDouble() * 2.6,
+          color: palette[_rng.nextInt(palette.length)],
+        );
+      });
+    });
+    _fireworks.forward(from: 0);
+  }
+
   /// Scores the current drawing against the printed character. In recall mode
   /// this also reveals the template (the ink is first fitted onto it, so a
-  /// correct character drawn small or off-center still scores).
+  /// correct character drawn small or off-center still scores). A tier pays
+  /// out immediately.
   Future<void> _check() async {
     if (_checked || _scoring || _strokes.isEmpty) return;
     setState(() => _scoring = true);
@@ -260,30 +326,34 @@ class _DrawQuizPageState extends State<DrawQuizPage>
       alignToTemplate: _recall,
     );
     if (!mounted) return;
-    _runScores.add(score.overlap);
+    final tier = ribbonTierForOverlap(score.overlap);
+    _cardTiers.add(tier);
     setState(() {
       _scoring = false;
       _checked = true;
       _score = score;
     });
+    if (tier != null) await _reward(tier);
   }
 
-  /// Resolves a reading card. One tap counts; the audio then plays as
-  /// reinforcement (it no longer gives anything away).
-  void _choose(_DrawItem option) {
+  /// Resolves a reading card. One tap counts — a correct pick is a full-marks
+  /// (gold) card and pays like one; the audio then plays as reinforcement (it
+  /// no longer gives anything away).
+  Future<void> _choose(_DrawItem option) async {
     if (_chosen != null) return;
     final correct = identical(option, _card.item);
     _readTotal++;
     if (correct) _readCorrect++;
-    _runScores.add(correct ? 1.0 : 0.0);
+    _cardTiers.add(correct ? RibbonTier.gold : null);
     setState(() => _chosen = option);
     _play();
+    if (correct) await _reward(RibbonTier.gold);
   }
 
   Future<void> _next() async {
-    // A drawing card skipped without checking counts as a miss in the run
-    // average (play-through still completes the quiz either way).
-    if (_card is _DrawCard && !_checked) _runScores.add(0);
+    // A drawing card skipped without checking counts as a missed card in the
+    // run's tally.
+    if (_card is _DrawCard && !_checked) _cardTiers.add(null);
     _speakGen++;
     await _voice.stop();
     if (_index >= _cards.length - 1) {
@@ -296,38 +366,33 @@ class _DrawQuizPageState extends State<DrawQuizPage>
       _checked = false;
       _score = null;
       _chosen = null;
+      _cardCoins = 0;
     });
     _autoPlay();
   }
 
   Future<void> _finish() async {
-    final avg = _runScores.isEmpty
-        ? 0.0
-        : _runScores.reduce((a, b) => a + b) / _runScores.length;
-    final tier = ribbonTierForOverlap(avg);
+    // The run's ribbon is the tier most cards earned. Earning one pays the
+    // tier's coin band and completes the quiz (unlocking the next in a gated
+    // chain); a mostly-missed run earns nothing and the quiz stays open.
+    final tier = majorityTier(_cardTiers);
     var coins = 0;
     if (tier != null) {
-      // The run's average overlap earns its tier's coins — every run, like a
-      // streak lap does — and raises the quiz's ribbon if it's the best yet.
       coins = CoinWallet.rollTierCoins(tier);
       await CoinWallet.instance.add(coins);
       await _raiseRibbon(tier);
+      await NounSettings.instance.markSpeakQuizCompleted(widget.content.id);
+      if (widget.questProgressionKey != null) {
+        await NounSettings.instance.markQuestQuizCompleted(
+          widget.questProgressionKey!,
+        );
+      }
     }
     setState(() {
       _finished = true;
       _runTier = tier;
-      _runPercent = (avg * 100).round();
       _coinsEarned = coins;
     });
-    // Play-through completion, sharing the speak set (a drawing quiz, like
-    // listen-&-repeat, never blocks progression on being "right" — a low
-    // overlap just pays nothing).
-    await NounSettings.instance.markSpeakQuizCompleted(widget.content.id);
-    if (widget.questProgressionKey != null) {
-      await NounSettings.instance.markQuestQuizCompleted(
-        widget.questProgressionKey!,
-      );
-    }
   }
 
   /// Persists [tier] as the best-streak stat every ribbon display already
@@ -351,13 +416,14 @@ class _DrawQuizPageState extends State<DrawQuizPage>
       _checked = false;
       _score = null;
       _chosen = null;
-      _runScores.clear();
+      _cardCoins = 0;
+      _cardTiers.clear();
       _readCorrect = 0;
       _readTotal = 0;
       _finished = false;
       _runTier = null;
-      _runPercent = 0;
       _coinsEarned = 0;
+      _burst = const [];
     });
     _autoPlay();
   }
@@ -365,6 +431,7 @@ class _DrawQuizPageState extends State<DrawQuizPage>
   @override
   void dispose() {
     _pulse.dispose();
+    _fireworks.dispose();
     _voice.speaking.removeListener(_onSpeakingChanged);
     _voice.stop();
     super.dispose();
@@ -396,10 +463,30 @@ class _DrawQuizPageState extends State<DrawQuizPage>
                   )
                 else if (_finished)
                   _buildSummary(context)
-                else if (_card case final _ReadCard card)
-                  _buildReadCard(context, card)
                 else
-                  _buildDrawCard(context),
+                  // The confetti burst plays over whichever card just paid.
+                  Stack(
+                    children: [
+                      if (_card case final _ReadCard card)
+                        _buildReadCard(context, card)
+                      else
+                        _buildDrawCard(context),
+                      if (_burst.isNotEmpty)
+                        Positioned.fill(
+                          child: IgnorePointer(
+                            child: AnimatedBuilder(
+                              animation: _fireworks,
+                              builder: (context, _) => CustomPaint(
+                                painter: FireworksPainter(
+                                  progress: _fireworks.value,
+                                  particles: _burst,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
               ],
             ),
           ),
@@ -620,14 +707,12 @@ class _DrawQuizPageState extends State<DrawQuizPage>
         RibbonTier.bronze => 'Bronze',
       };
 
-  /// The per-drawing verdict pill: the overlap percentage and the tier it
-  /// lands in (gold ≥ 65%, silver ≥ 50%, bronze ≥ 35%, below = keep at it).
-  Widget _buildScoreBadge(BuildContext context, DrawingScore score) {
+  /// A card's verdict pill: its tier color/name plus [text] (overlap
+  /// percentage, coins just paid…). A null [tier] is the "missed" look.
+  Widget _buildTierPill(BuildContext context, RibbonTier? tier, String text) {
     final theme = Theme.of(context);
-    final tier = ribbonTierForOverlap(score.overlap);
     final color =
         tier == null ? theme.colorScheme.onSurfaceVariant : tierColor(tier);
-    final label = tier == null ? 'Keep practicing' : _tierLabel(tier);
     return Center(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
@@ -648,7 +733,7 @@ class _DrawQuizPageState extends State<DrawQuizPage>
             ),
             const SizedBox(width: 6),
             Text(
-              '${score.percent}% · $label',
+              text,
               style: theme.textTheme.labelLarge?.copyWith(
                 color: color,
                 fontWeight: FontWeight.w700,
@@ -658,6 +743,16 @@ class _DrawQuizPageState extends State<DrawQuizPage>
         ),
       ),
     );
+  }
+
+  /// The per-drawing verdict: the overlap percentage, the tier it lands in
+  /// (gold ≥ 65%, silver ≥ 50%, bronze ≥ 35%, below = keep at it) and the
+  /// coins that just paid.
+  Widget _buildScoreBadge(BuildContext context, DrawingScore score) {
+    final tier = ribbonTierForOverlap(score.overlap);
+    final label = tier == null ? 'Keep practicing' : _tierLabel(tier);
+    final coins = _cardCoins > 0 ? ' · +$_cardCoins coins' : '';
+    return _buildTierPill(context, tier, '${score.percent}% · $label$coins');
   }
 
   Widget _buildDrawControls(BuildContext context) {
@@ -725,7 +820,15 @@ class _DrawQuizPageState extends State<DrawQuizPage>
           const SizedBox(height: 16),
           for (final option in card.options) _buildReadOption(context, card, option),
           if (_chosen != null) ...[
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
+            _buildTierPill(
+              context,
+              identical(_chosen, card.item) ? RibbonTier.gold : null,
+              identical(_chosen, card.item)
+                  ? 'Correct · +$_cardCoins coins'
+                  : 'Missed',
+            ),
+            const SizedBox(height: 12),
             _buildSoundRow(context),
             const SizedBox(height: 12),
             FilledButton.icon(
@@ -781,18 +884,42 @@ class _DrawQuizPageState extends State<DrawQuizPage>
     );
   }
 
+  /// The run's card tally, e.g. "Gold ×8 · Silver ×3 · Missed ×2" — the
+  /// evidence behind the majority verdict.
+  String _tierTallyLine() {
+    final counts = <RibbonTier?, int>{};
+    for (final t in _cardTiers) {
+      counts[t] = (counts[t] ?? 0) + 1;
+    }
+    return [
+      for (final t in const [
+        RibbonTier.gold,
+        RibbonTier.silver,
+        RibbonTier.bronze,
+      ])
+        if ((counts[t] ?? 0) > 0) '${_tierLabel(t)} ×${counts[t]}',
+      if ((counts[null] ?? 0) > 0) 'Missed ×${counts[null]}',
+    ].join(' · ');
+  }
+
   Widget _buildSummary(BuildContext context) {
     final theme = Theme.of(context);
     final strings = CourseSession.instance.strings;
-    final color = Colors.green.shade700;
     final tier = _runTier;
+    final earned = tier != null;
+    final color =
+        earned ? Colors.green.shade700 : theme.colorScheme.onSurfaceVariant;
     return QuizPanel(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.celebration_rounded, size: 56, color: color),
+            Icon(
+              earned ? Icons.celebration_rounded : Icons.refresh_rounded,
+              size: 56,
+              color: color,
+            ),
             const SizedBox(height: 12),
             Text(
               strings.finished,
@@ -807,8 +934,7 @@ class _DrawQuizPageState extends State<DrawQuizPage>
               style: theme.textTheme.bodyMedium,
             ),
             const SizedBox(height: 12),
-            // The run's verdict: average overlap across every card, and the
-            // ribbon tier (with its coins) that average earned.
+            // The run's verdict: the tier most cards earned is the ribbon.
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -818,8 +944,8 @@ class _DrawQuizPageState extends State<DrawQuizPage>
                 ],
                 Text(
                   tier == null
-                      ? '$_runPercent% average — below 35%, no ribbon this time'
-                      : '$_runPercent% average — ${_tierLabel(tier)} ribbon',
+                      ? 'Mostly missed — no ribbon this time'
+                      : '${_tierLabel(tier)} ribbon — your most-earned tier',
                   style: theme.textTheme.titleSmall?.copyWith(
                     color: tier == null
                         ? theme.colorScheme.onSurfaceVariant
@@ -828,6 +954,14 @@ class _DrawQuizPageState extends State<DrawQuizPage>
                   ),
                 ),
               ],
+            ),
+            const SizedBox(height: 4),
+            Text(
+              _tierTallyLine(),
+              textAlign: TextAlign.center,
+              style: theme.textTheme.labelSmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
             ),
             if (_coinsEarned > 0) ...[
               const SizedBox(height: 4),
@@ -848,6 +982,17 @@ class _DrawQuizPageState extends State<DrawQuizPage>
                 ),
               ),
             ],
+            if (!earned) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Earn a ribbon (most cards bronze or better) to finish this '
+                'quiz and unlock the next one.',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ],
             const SizedBox(height: 20),
             Row(
               children: [
@@ -858,7 +1003,8 @@ class _DrawQuizPageState extends State<DrawQuizPage>
                     label: Text(strings.repeatAgain),
                   ),
                 ),
-                if (_nextExercise != null) ...[
+                // The way forward only opens on an earned ribbon.
+                if (earned && _nextExercise != null) ...[
                   const SizedBox(width: 12),
                   Expanded(
                     child: FilledButton.icon(

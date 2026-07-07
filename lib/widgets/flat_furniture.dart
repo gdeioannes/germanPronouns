@@ -11,6 +11,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../data/shop_catalog.dart';
+import 'people_paint.dart';
 
 /// The size a furniture piece is drawn at in both the room and the shop, so the
 /// same item looks identical in both places.
@@ -136,13 +137,8 @@ class FlatFurniture extends StatelessWidget {
 }
 
 /// Shifts a color's lightness by [amount] (-1..1) to get flat shades from one
-/// base color.
-Color _shade(Color c, double amount) {
-  final hsl = HSLColor.fromColor(c);
-  return hsl
-      .withLightness((hsl.lightness + amount).clamp(0.0, 1.0))
-      .toColor();
-}
+/// base color. (The shared implementation lives in people_paint.dart.)
+Color _shade(Color c, double amount) => shade(c, amount);
 
 // Shared material tones for the "person at an activity" pieces (painter's easel,
 // guitar, gardener's pot/trowel, chef's pot…), so wood, metal and clay read the
@@ -186,84 +182,24 @@ class _FurniturePainter extends CustomPainter {
         0.5 + 0.5 * wv(5))!;
 
     // ── Soft, consistent volume ───────────────────────────────────────────────
-    // The whole set is lit from the top (a hair to the left), so every solid
-    // shape is filled with a gentle gradient along that light instead of a dead
-    // flat colour: a lighter crown, the true [color] through the middle, a soft
-    // shaded foot. It keeps the flat, minimal look but gives each piece a little
-    // body so it reads as sitting in the room rather than a sticker on the wall.
-    Shader vshade(Rect r, Color c, double hi, double lo) => LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [_shade(c, hi), c, _shade(c, -lo)],
-          stops: const [0.0, 0.55, 1.0],
-        ).createShader(r);
-
-    // A box fill. Tall panels get the light gradient; very thin slivers (handles,
-    // keys, ledges) and anything asking to stay [flat] keep a crisp solid fill.
+    // The geometry primitives live in the shared [FlatPaintKit] (also used by
+    // the standalone PersonScene illustrations); these local wrappers keep the
+    // hundreds of case bodies below reading exactly as before. The kit paints
+    // through this painter's own [paint] instance, so the paint-state sequence
+    // is unchanged.
+    final kit = FlatPaintKit(canvas, u, paint);
+    Shader vshade(Rect r, Color c, double hi, double lo) =>
+        kit.vshade(r, c, hi, lo);
     void box(double l, double t, double r, double b, double rad, Color color,
-        {bool flat = false}) {
-      final rect = Rect.fromLTRB(l * u, t * u, r * u, b * u);
-      paint.style = PaintingStyle.fill;
-      if (flat || (b - t) < 0.05) {
-        paint
-          ..shader = null
-          ..color = color;
-      } else {
-        paint.shader = vshade(rect, color, 0.10, 0.12);
-      }
-      canvas.drawRRect(RRect.fromRectAndRadius(rect, Radius.circular(rad * u)),
-          paint);
-      paint.shader = null;
-    }
-
-    // A disc. Bigger discs are shaded as little spheres (the light pooling toward
-    // the top-left); tiny dots (eyes, knobs) stay solid so they read crisp.
-    void circ(double cx, double cy, double rad, Color color, {bool flat = false}) {
-      final center = Offset(cx * u, cy * u);
-      final rr = rad * u;
-      paint.style = PaintingStyle.fill;
-      if (flat || rad < 0.035) {
-        paint
-          ..shader = null
-          ..color = color;
-      } else {
-        paint.shader = RadialGradient(
-          center: const Alignment(-0.4, -0.5),
-          radius: 1.05,
-          colors: [_shade(color, 0.17), color, _shade(color, -0.14)],
-          stops: const [0.0, 0.55, 1.0],
-        ).createShader(Rect.fromCircle(center: center, radius: rr));
-      }
-      canvas.drawCircle(center, rr, paint);
-      paint.shader = null;
-    }
-
-    void poly(List<Offset> pts, Color color, {bool flat = false}) {
-      final path = Path()
-        ..addPolygon([for (final o in pts) Offset(o.dx * u, o.dy * u)], true);
-      paint.style = PaintingStyle.fill;
-      if (flat) {
-        paint
-          ..shader = null
-          ..color = color;
-      } else {
-        paint.shader = vshade(path.getBounds(), color, 0.09, 0.11);
-      }
-      canvas.drawPath(path, paint);
-      paint.shader = null;
-    }
-
-    void line(double x1, double y1, double x2, double y2, double w, Color c) {
-      canvas.drawLine(
-        Offset(x1 * u, y1 * u),
-        Offset(x2 * u, y2 * u),
-        paint
-          ..color = c
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = w * u
-          ..strokeCap = StrokeCap.round,
-      );
-    }
+            {bool flat = false}) =>
+        kit.box(l, t, r, b, rad, color, flat: flat);
+    void circ(double cx, double cy, double rad, Color color,
+            {bool flat = false}) =>
+        kit.circ(cx, cy, rad, color, flat: flat);
+    void poly(List<Offset> pts, Color color, {bool flat = false}) =>
+        kit.poly(pts, color, flat: flat);
+    void line(double x1, double y1, double x2, double y2, double w, Color c) =>
+        kit.line(x1, y1, x2, y2, w, c);
 
     // Two soft wisps of steam rising from [cx],[topY] and fading as they climb —
     // for the hot drinks (kettle, teapot, mug). Only when animated.
@@ -282,191 +218,47 @@ class _FurniturePainter extends CustomPainter {
     }
 
     // A stroked circle outline (for glasses, etc.).
-    void ring(double cx, double cy, double rad, double w, Color color) {
-      canvas.drawCircle(
-        Offset(cx * u, cy * u),
-        rad * u,
-        paint
-          ..color = color
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = w * u,
-      );
-    }
+    void ring(double cx, double cy, double rad, double w, Color color) =>
+        kit.ring(cx, cy, rad, w, color);
 
     // Filled half-discs: [dome] is the top half (mushroom caps, arches), [bowl]
     // the bottom half (basins, fruit bowls). Flat side sits at [cy].
-    void halfDisc(double cx, double cy, double rad, double start, Color color) {
-      final rect =
-          Rect.fromCircle(center: Offset(cx * u, cy * u), radius: rad * u);
-      paint.style = PaintingStyle.fill;
-      if (rad < 0.04) {
-        paint
-          ..shader = null
-          ..color = color;
-      } else {
-        paint.shader = vshade(rect, color, 0.10, 0.12);
-      }
-      canvas.drawArc(rect, start, math.pi, false, paint);
-      paint.shader = null;
-    }
-    void dome(double cx, double cy, double r, Color c) => halfDisc(cx, cy, r, math.pi, c);
-    void bowl(double cx, double cy, double r, Color c) => halfDisc(cx, cy, r, 0, c);
+    void dome(double cx, double cy, double r, Color c) => kit.dome(cx, cy, r, c);
+    void bowl(double cx, double cy, double r, Color c) => kit.bowl(cx, cy, r, c);
 
     // A stroked arc (handles, ripples, water curves).
     void arc(double cx, double cy, double rad, double start, double sweep,
-        double w, Color color) {
-      canvas.drawArc(
-        Rect.fromCircle(center: Offset(cx * u, cy * u), radius: rad * u),
-        start, sweep, false,
-        paint
-          ..color = color
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = w * u
-          ..strokeCap = StrokeCap.round,
-      );
-    }
+            double w, Color color) =>
+        kit.arc(cx, cy, rad, start, sweep, w, color);
 
-    // The People cast's palette. A handful of skin tones and hair colours so the
-    // little characters read as different individuals rather than one cloned
-    // figure — each pose picks a pair (see the per-case [skinTone]/[hairColor]).
-    const skin = Color(0xFFE9B68C);
-    const hair = Color(0xFF4A3B30);
-    const eye = Color(0xFF2E251F);
-    const blush = Color(0x24D77B62); // a faint warm cheek
-    const skinTones = [
-      Color(0xFFF2CDA6), Color(0xFFE9B68C), Color(0xFFCF9468), Color(0xFF9C6B45),
-    ];
-    const hairColors = [
-      Color(0xFF3A2C22), Color(0xFF6E4A2B), Color(0xFF211D19),
-      Color(0xFFB98A3E), Color(0xFF8C8C8C),
-    ];
+    // The People cast's palette — shared with PersonScene via people_paint.dart
+    // so the cast reads as one family wherever it appears.
+    const skinTones = kSkinTones;
+    const hairColors = kHairColors;
 
-    // A little person's head: a neck tucked into the torso, ears, a face under a
-    // chosen hairstyle, two eyes, soft cheeks and a gentle smile. Shared by every
-    // "People" pose so the whole cast reads as one warm, hand-drawn family, while
-    // [skinTone]/[hairColor]/[style] let each be its own person. [sleeping] shuts
-    // the eyes; [glasses] adds round spectacles; [neck]/[ears] can be turned off
-    // when a pose (lying down, a hood) hides them. Hair [style]s: short, side,
-    // bun, pony, long, curly, bald.
+    // The People cast's body parts — the shared [FlatPaintKit.head]/[hand]/
+    // [shoe], wrapped so the pose cases below read unchanged. See the kit for
+    // the full documentation of styles and options.
     void head(double cx, double cy, double r,
-        {bool sleeping = false,
-        bool glasses = false,
-        bool neck = true,
-        bool ears = true,
-        String style = 'short',
-        Color? skinTone,
-        Color? hairColor}) {
-      final sk = skinTone ?? skin;
-      final hc = hairColor ?? hair;
-      final fr = r * 0.92; // face radius
-      final ey = cy + r * 0.04; // eye line (sits a hair below centre)
-      final edx = r * 0.32; // eye spacing from centre
-      // Neck — a short skin column under the chin that sinks into the torso, so
-      // the head rests on the body rather than floating over it.
-      if (neck) {
-        box(cx - r * 0.23, cy + r * 0.52, cx + r * 0.23, cy + r * 1.28,
-            r * 0.16, _shade(sk, -0.07));
-      }
-      // Ears, level with the eyes (drawn first so hair/face frame them).
-      if (ears) {
-        circ(cx - fr, cy + r * 0.08, r * 0.17, sk);
-        circ(cx + fr, cy + r * 0.08, r * 0.17, sk);
-      }
-      // Back hair — a soft mass behind the face; long styles fall past the jaw.
-      if (style == 'long') {
-        box(cx - fr * 1.05, cy - r * 0.05, cx + fr * 1.05, cy + r * 1.08,
-            fr * 0.7, hc);
-      }
-      if (style != 'bald') circ(cx, cy - r * 0.16, fr * 1.12, hc); // crown
-      circ(cx, cy + r * 0.07, fr, sk); // face (low, so the crown shows on top)
-      // Front hairline + style accents, on top of the face.
-      switch (style) {
-        case 'bald':
-          break;
-        case 'curly':
-          for (var i = -2; i <= 2; i++) {
-            circ(cx + i * fr * 0.44, cy - r * 0.48 + i.abs() * r * 0.06,
-                fr * 0.36, hc);
-          }
-        case 'bun':
-          circ(cx, cy - r * 0.7, r * 0.26, hc); // top knot
-          arc(cx, cy + r * 0.05, fr * 0.84, math.pi * 1.16, math.pi * 0.68,
-              r * 0.2, hc);
-        case 'pony':
-          poly([
-            Offset(cx + fr * 0.78, cy - r * 0.34),
-            Offset(cx + fr * 1.32, cy + r * 0.04),
-            Offset(cx + fr * 1.12, cy + r * 0.5),
-            Offset(cx + fr * 0.74, cy + r * 0.08),
-          ], hc); // ponytail off the back
-          arc(cx, cy + r * 0.05, fr * 0.84, math.pi * 1.16, math.pi * 0.68,
-              r * 0.2, hc);
-        case 'side':
-          poly([
-            Offset(cx - fr * 0.95, cy - r * 0.18),
-            Offset(cx + fr * 0.2, cy - r * 0.56),
-            Offset(cx + fr * 0.98, cy - r * 0.12),
-            Offset(cx + fr * 0.1, cy - r * 0.28),
-          ], hc); // a swept fringe
-        default: // short, long
-          arc(cx, cy + r * 0.05, fr * 0.84, math.pi * 1.16, math.pi * 0.68,
-              r * 0.2, hc); // a clean fringe band
-      }
-      // Soft cheeks — a touch of warmth low on the face.
-      circ(cx - r * 0.5, cy + r * 0.34, r * 0.17, blush, flat: true);
-      circ(cx + r * 0.5, cy + r * 0.34, r * 0.17, blush, flat: true);
-      // Eyes — open dots with a tiny catch-light, or content closed curves.
-      if (sleeping) {
-        arc(cx - edx, ey - r * 0.04, r * 0.17, math.pi * 0.18, math.pi * 0.64,
-            0.012, eye);
-        arc(cx + edx, ey - r * 0.04, r * 0.17, math.pi * 0.18, math.pi * 0.64,
-            0.012, eye);
-      } else {
-        circ(cx - edx, ey, r * 0.13, eye);
-        circ(cx + edx, ey, r * 0.13, eye);
-        circ(cx - edx - r * 0.04, ey - r * 0.05, r * 0.04, Colors.white,
-            flat: true); // catch-light
-        circ(cx + edx - r * 0.04, ey - r * 0.05, r * 0.04, Colors.white,
-            flat: true);
-      }
-      if (glasses) {
-        ring(cx - edx, ey, r * 0.24, r * 0.045, eye);
-        ring(cx + edx, ey, r * 0.24, r * 0.045, eye);
-        line(cx - edx + r * 0.22, ey, cx + edx - r * 0.22, ey, 0.008, eye);
-      }
-      // A soft smile: the lower arc of a small circle (concave up).
-      canvas.drawArc(
-        Rect.fromCircle(
-            center: Offset(cx * u, (cy + r * 0.32) * u), radius: r * 0.3 * u),
-        0.2 * math.pi,
-        0.6 * math.pi,
-        false,
-        Paint()
-          ..color = eye
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = r * 0.08 * u
-          ..strokeCap = StrokeCap.round
-          ..isAntiAlias = true,
-      );
-    }
-
-    // Limb terminators, so arms and legs finish in hands and shoes instead of
-    // blunt round stumps. [hand] is a soft skin disc; [shoe] a small rounded
-    // sole pointing toward [dir] (+1 right, −1 left), in the outfit's dark tone.
+            {bool sleeping = false,
+            bool glasses = false,
+            bool neck = true,
+            bool ears = true,
+            String style = 'short',
+            Color? skinTone,
+            Color? hairColor}) =>
+        kit.head(cx, cy, r,
+            sleeping: sleeping,
+            glasses: glasses,
+            neck: neck,
+            ears: ears,
+            style: style,
+            skinTone: skinTone,
+            hairColor: hairColor);
     void hand(double x, double y, {Color? c, double r = 0.026}) =>
-        circ(x, y, r, c ?? skin);
-    void shoe(double x, double y, double dir, Color c) {
-      canvas.drawOval(
-        Rect.fromCenter(
-            center: Offset((x + dir * 0.02) * u, y * u),
-            width: 0.075 * u,
-            height: 0.038 * u),
-        paint
-          ..style = PaintingStyle.fill
-          ..shader = null
-          ..color = c,
-      );
-    }
+        kit.hand(x, y, c: c, r: r);
+    void shoe(double x, double y, double dir, Color c) =>
+        kit.shoe(x, y, dir, c);
 
     // Every floor piece is grounded near y = 0.90 and uses most of the box
     // height, so the items read as a consistent set rather than one tall lamp

@@ -46,6 +46,32 @@ RibbonTier? ribbonTierForOverlap(double overlap) {
   return null;
 }
 
+/// The run's final ribbon: the tier the *most* cards earned (null = a missed
+/// card). Mostly golds → gold, mostly silvers → silver, and so on; when
+/// misses outnumber every tier the run earns nothing. Ties go to the better
+/// outcome, so "missed" only wins outright.
+RibbonTier? majorityTier(Iterable<RibbonTier?> outcomes) {
+  final counts = <RibbonTier?, int>{};
+  for (final o in outcomes) {
+    counts[o] = (counts[o] ?? 0) + 1;
+  }
+  RibbonTier? best;
+  var bestCount = 0;
+  for (final o in const [
+    RibbonTier.gold,
+    RibbonTier.silver,
+    RibbonTier.bronze,
+    null,
+  ]) {
+    final c = counts[o] ?? 0;
+    if (c > bestCount) {
+      best = o;
+      bestCount = c;
+    }
+  }
+  return best;
+}
+
 /// A square boolean raster: `true` cells are ink. The working resolution of
 /// the whole scorer — big enough that stroke shapes survive, small enough
 /// that the distance transform is a couple of ms.

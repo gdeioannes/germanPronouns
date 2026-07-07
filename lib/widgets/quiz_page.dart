@@ -33,6 +33,7 @@ import 'help_memory.dart';
 import 'help_memory_pdf_export.dart';
 import 'help_memory_tables.dart';
 import 'next_exercise.dart';
+import 'person_scene.dart';
 import 'speak_icon_button.dart';
 import 'word_detail_panels.dart';
 
@@ -3778,6 +3779,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
+                                      // One of the little people celebrates
+                                      // along — the unlock is theirs too.
+                                      const PersonScene(
+                                        PersonSceneKind.celebrate,
+                                        height: 96,
+                                      ),
+                                      const SizedBox(height: 8),
                                       Text(
                                         _unlockHeading,
                                         textAlign: TextAlign.center,

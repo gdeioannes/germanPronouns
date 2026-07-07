@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Open Graph / social link-preview card (1200x630): white "GÜIZ" wordmark
-     on brand navy + tagline. Source for web/og-image.png. Derived from
-     assets/icons/QuizLogo-01.svg (bubble inverted to white, letters to navy). -->
+<!-- Open Graph / social link-preview card (1200x630): the white "GÜIZ" bubble
+     wordmark over four of the app's little People characters greeting each
+     other in their own languages, on brand navy. The figures mirror the
+     flat/soft-lit cast painted by lib/widgets/people_paint.dart (same skin
+     tones, hair colours and proportions). Source for web/og-image.png — render
+     with tool/branding/build_web_icons.sh. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#1F3A5F"/>
-  <g transform="translate(315.5,110) scale(5.69)">
+
+  <!-- Wordmark bubble (from assets/icons/QuizLogo-01.svg, inverted). -->
+  <g transform="translate(437,30) scale(3.4)">
     <path fill="#FFFFFF" d="M66.51,46.87l-2.73-8.96c-1.11-1.11-1.11-2.9,0-4l4.96-6.96c1.11-1.11,2.9-1.11,4,0l6.96,6.96c1.11,1.11,1.11,2.9,0,4l-9.2,8.96c-1.11,1.11-2.9,1.11-4,0Z"/>
     <path fill="#FFFFFF" d="M84.47,40.21H10.93c-3.67,0-6.64-2.89-6.64-6.46L8.89,8.77c0-3.57,2.97-6.46,6.64-6.46H89.07c3.67,0,6.64,2.89,6.64,6.46l-4.6,24.98c0,3.57-2.97,6.46-6.64,6.46Z"/>
     <path fill="#1F3A5F" d="M26.05,29.1l-1.27,.02c-2.2,0-3.93-.61-5.2-1.82-1.26-1.21-1.89-2.86-1.89-4.96,0-3.24,1.17-6.06,3.5-8.45,2.33-2.39,5.08-3.58,8.25-3.58,2.21,0,3.94,.59,5.18,1.78s1.87,2.84,1.87,4.95c0,2.65-.79,5.05-2.37,7.19-1.58,2.14-3.66,3.65-6.26,4.52,1.27,.78,2.59,1.37,3.99,1.76s2.84,.59,4.36,.59c.86,0,1.63-.09,2.32-.27-.85,1.02-1.5,1.68-1.96,1.98-.46,.29-1.06,.44-1.79,.44-1.27,0-2.63-.35-4.08-1.05-1.46-.7-3.01-1.74-4.65-3.13Zm-.62-1.17c1.96,0,3.64-1.09,5.03-3.26s2.09-4.79,2.09-7.83c0-1.77-.31-3.09-.93-3.97-.62-.88-1.56-1.32-2.81-1.32-1.98,0-3.67,1.09-5.06,3.26-1.39,2.17-2.09,4.81-2.09,7.92,0,1.73,.32,3.03,.94,3.9s1.57,1.3,2.82,1.3Z"/>
@@ -12,5 +17,151 @@
     <path fill="#1F3A5F" d="M63.33,28.67h-7.62l.22-1.12h.23c.86-.07,1.37-.19,1.54-.37,.17-.18,.39-.85,.65-2.01l2.17-10.9,.27-1.54c0-.47-.5-.74-1.51-.82h-.22s.23-1.14,.23-1.14h7.62l-.23,1.12h-.22c-.87,.08-1.39,.2-1.56,.37-.17,.18-.38,.84-.63,2l-2.18,10.9c-.17,1-.25,1.52-.25,1.56,0,.48,.5,.75,1.5,.81h.23s-.23,1.14-.23,1.14Z"/>
     <path fill="#1F3A5F" d="M65.62,28.67l.19-1.34,12.07-15.38h-4.64c-.85,.05-1.36,.11-1.54,.2-.18,.08-.32,.34-.42,.76-.13,.5-.23,.88-.29,1.14l-.05,.22h-1.79l.7-3.5h12.69l-.24,1.19-12.11,15.38h5.01c1.09,0,1.79-.06,2.09-.19,.31-.12,.51-.43,.62-.91,.14-.53,.22-.86,.24-.99l.06-.22h1.79l-.73,3.65h-13.66Z"/>
   </g>
-  <text x="600" y="500" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="600" letter-spacing="2" fill="#FFFFFF">Learn Languages</text>
+
+  <!-- Greeting bubbles, one per character. -->
+  <g font-family="Arial, 'Segoe UI', sans-serif" font-weight="700" font-size="34" text-anchor="middle">
+    <g>
+      <rect x="95" y="255" width="150" height="62" rx="18" fill="#FFFFFF"/>
+      <path d="M150 315 L170 342 L186 315 Z" fill="#FFFFFF"/>
+      <text x="170" y="297" fill="#1F3A5F">Hallo!</text>
+    </g>
+    <g>
+      <rect x="380" y="240" width="150" height="62" rx="18" fill="#FFFFFF"/>
+      <path d="M435 300 L455 327 L471 300 Z" fill="#FFFFFF"/>
+      <text x="455" y="282" fill="#1F3A5F">¡Hola!</text>
+    </g>
+    <g>
+      <rect x="680" y="255" width="140" height="62" rx="18" fill="#FFFFFF"/>
+      <path d="M730 315 L750 342 L766 315 Z" fill="#FFFFFF"/>
+      <text x="750" y="298" fill="#1F3A5F" font-family="'Microsoft YaHei','Noto Sans SC','PingFang SC',sans-serif">你好</text>
+    </g>
+    <g>
+      <rect x="975" y="240" width="110" height="62" rx="18" fill="#FFFFFF"/>
+      <path d="M1015 300 L1035 327 L1051 300 Z" fill="#FFFFFF"/>
+      <text x="1030" y="282" fill="#1F3A5F">Hi!</text>
+    </g>
+  </g>
+
+  <!-- The four characters. Each group: origin at the face centre, ~175 units
+       tall before the group scale. -->
+
+  <!-- 1 · Waving greeter — terracotta outfit, short dark hair. -->
+  <g transform="translate(170,415) scale(1.32)">
+    <ellipse cx="0" cy="140" rx="42" ry="7" fill="#000000" opacity="0.18"/>
+    <line x1="-8" y1="92" x2="-9" y2="128" stroke="#C9683B" stroke-width="11" stroke-linecap="round"/>
+    <line x1="8" y1="92" x2="9" y2="128" stroke="#C9683B" stroke-width="11" stroke-linecap="round"/>
+    <ellipse cx="-11" cy="131" rx="10" ry="4.5" fill="#8F4626"/>
+    <ellipse cx="11" cy="131" rx="10" ry="4.5" fill="#8F4626"/>
+    <rect x="-22" y="30" width="44" height="62" rx="17" fill="#C9683B"/>
+    <line x1="-18" y1="44" x2="-27" y2="70" stroke="#C9683B" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="-28" cy="74" r="5.5" fill="#E9B68C"/>
+    <line x1="18" y1="44" x2="41" y2="8" stroke="#C9683B" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="43" cy="4" r="5.5" fill="#E9B68C"/>
+    <path d="M50 -6 A 14 14 0 0 1 58 8" stroke="#E8B79B" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M56 -14 A 22 22 0 0 1 68 8" stroke="#E8B79B" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <rect x="-6" y="23" width="12" height="10" rx="4" fill="#DBA477"/>
+    <circle cx="-27" cy="2" r="5" fill="#E9B68C"/>
+    <circle cx="27" cy="2" r="5" fill="#E9B68C"/>
+    <circle cx="0" cy="-6" r="30" fill="#4A3B30"/>
+    <circle cx="0" cy="0" r="27" fill="#E9B68C"/>
+    <path d="M-21 -12 A 25 25 0 0 1 21 -12" stroke="#4A3B30" stroke-width="11" fill="none" stroke-linecap="round"/>
+    <circle cx="-13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="-9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="-10.2" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <circle cx="7.8" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <path d="M-7 13 Q 0 20 7 13" stroke="#2E251F" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- 2 · Bun and glasses — forest outfit, ochre-blonde bun. -->
+  <g transform="translate(455,415) scale(1.32)">
+    <ellipse cx="0" cy="140" rx="42" ry="7" fill="#000000" opacity="0.18"/>
+    <line x1="-8" y1="92" x2="-9" y2="128" stroke="#3F5D45" stroke-width="11" stroke-linecap="round"/>
+    <line x1="8" y1="92" x2="9" y2="128" stroke="#3F5D45" stroke-width="11" stroke-linecap="round"/>
+    <ellipse cx="-11" cy="131" rx="10" ry="4.5" fill="#27392B"/>
+    <ellipse cx="11" cy="131" rx="10" ry="4.5" fill="#27392B"/>
+    <rect x="-22" y="30" width="44" height="62" rx="17" fill="#3F5D45"/>
+    <line x1="-18" y1="44" x2="-30" y2="24" stroke="#3F5D45" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="-32" cy="21" r="5.5" fill="#F2CDA6"/>
+    <line x1="18" y1="44" x2="27" y2="70" stroke="#3F5D45" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="28" cy="74" r="5.5" fill="#F2CDA6"/>
+    <rect x="-6" y="23" width="12" height="10" rx="4" fill="#E3BC93"/>
+    <circle cx="-27" cy="2" r="5" fill="#F2CDA6"/>
+    <circle cx="27" cy="2" r="5" fill="#F2CDA6"/>
+    <circle cx="0" cy="-34" r="10" fill="#B98A3E"/>
+    <circle cx="0" cy="-6" r="30" fill="#B98A3E"/>
+    <circle cx="0" cy="0" r="27" fill="#F2CDA6"/>
+    <path d="M-21 -12 A 25 25 0 0 1 21 -12" stroke="#B98A3E" stroke-width="11" fill="none" stroke-linecap="round"/>
+    <circle cx="-13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="-9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="-10.2" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <circle cx="7.8" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <circle cx="-9" cy="1" r="7" fill="none" stroke="#2E251F" stroke-width="1.6"/>
+    <circle cx="9" cy="1" r="7" fill="none" stroke="#2E251F" stroke-width="1.6"/>
+    <line x1="-2.5" y1="1" x2="2.5" y2="1" stroke="#2E251F" stroke-width="1.4"/>
+    <path d="M-7 13 Q 0 20 7 13" stroke="#2E251F" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- 3 · Curly hair — ochre outfit, deep skin tone. -->
+  <g transform="translate(750,415) scale(1.32)">
+    <ellipse cx="0" cy="140" rx="42" ry="7" fill="#000000" opacity="0.18"/>
+    <line x1="-8" y1="92" x2="-9" y2="128" stroke="#A9802A" stroke-width="11" stroke-linecap="round"/>
+    <line x1="8" y1="92" x2="9" y2="128" stroke="#A9802A" stroke-width="11" stroke-linecap="round"/>
+    <ellipse cx="-11" cy="131" rx="10" ry="4.5" fill="#6E5316"/>
+    <ellipse cx="11" cy="131" rx="10" ry="4.5" fill="#6E5316"/>
+    <rect x="-22" y="30" width="44" height="62" rx="17" fill="#A9802A"/>
+    <line x1="-18" y1="44" x2="-27" y2="70" stroke="#A9802A" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="-28" cy="74" r="5.5" fill="#9C6B45"/>
+    <line x1="18" y1="44" x2="34" y2="26" stroke="#A9802A" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="36" cy="23" r="5.5" fill="#9C6B45"/>
+    <rect x="-6" y="23" width="12" height="10" rx="4" fill="#8D5F3C"/>
+    <circle cx="-27" cy="2" r="5" fill="#9C6B45"/>
+    <circle cx="27" cy="2" r="5" fill="#9C6B45"/>
+    <circle cx="0" cy="-6" r="30" fill="#211D19"/>
+    <circle cx="-17" cy="-19" r="12" fill="#211D19"/>
+    <circle cx="0" cy="-25" r="12" fill="#211D19"/>
+    <circle cx="17" cy="-19" r="12" fill="#211D19"/>
+    <circle cx="0" cy="0" r="27" fill="#9C6B45"/>
+    <path d="M-21 -12 A 25 25 0 0 1 21 -12" stroke="#211D19" stroke-width="11" fill="none" stroke-linecap="round"/>
+    <circle cx="-13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="-9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="-10.2" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <circle cx="7.8" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <path d="M-7 13 Q 0 20 7 13" stroke="#2E251F" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- 4 · Long hair — light paper outfit, warm brown hair. -->
+  <g transform="translate(1030,415) scale(1.32)">
+    <ellipse cx="0" cy="140" rx="42" ry="7" fill="#000000" opacity="0.18"/>
+    <line x1="-8" y1="92" x2="-9" y2="128" stroke="#E8E1D2" stroke-width="11" stroke-linecap="round"/>
+    <line x1="8" y1="92" x2="9" y2="128" stroke="#E8E1D2" stroke-width="11" stroke-linecap="round"/>
+    <ellipse cx="-11" cy="131" rx="10" ry="4.5" fill="#B3A98F"/>
+    <ellipse cx="11" cy="131" rx="10" ry="4.5" fill="#B3A98F"/>
+    <rect x="-22" y="30" width="44" height="62" rx="17" fill="#E8E1D2"/>
+    <line x1="-18" y1="44" x2="-34" y2="30" stroke="#E8E1D2" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="-36" cy="27" r="5.5" fill="#CF9468"/>
+    <line x1="18" y1="44" x2="27" y2="70" stroke="#E8E1D2" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="28" cy="74" r="5.5" fill="#CF9468"/>
+    <rect x="-6" y="23" width="12" height="10" rx="4" fill="#BC8257"/>
+    <rect x="-28" y="-10" width="56" height="42" rx="19" fill="#6E4A2B"/>
+    <circle cx="-27" cy="2" r="5" fill="#CF9468"/>
+    <circle cx="27" cy="2" r="5" fill="#CF9468"/>
+    <circle cx="0" cy="-6" r="30" fill="#6E4A2B"/>
+    <circle cx="0" cy="0" r="27" fill="#CF9468"/>
+    <path d="M-21 -12 A 25 25 0 0 1 21 -12" stroke="#6E4A2B" stroke-width="11" fill="none" stroke-linecap="round"/>
+    <circle cx="-13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="13.5" cy="9" r="4.5" fill="#D77B62" opacity="0.14"/>
+    <circle cx="-9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="9" cy="1" r="3.5" fill="#2E251F"/>
+    <circle cx="-10.2" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <circle cx="7.8" cy="-0.5" r="1.5" fill="#FFFFFF"/>
+    <path d="M-7 13 Q 0 20 7 13" stroke="#2E251F" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <text x="600" y="618" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600" letter-spacing="1.5" fill="#C8D2E0">languagequiz.org — free interactive courses · A1–C2</text>
 </svg>

@@ -35,6 +35,28 @@ void main() {
     });
   });
 
+  group('majorityTier (the run verdict)', () {
+    const g = RibbonTier.gold, s = RibbonTier.silver, b = RibbonTier.bronze;
+
+    test('the most-earned tier wins', () {
+      expect(majorityTier([g, g, g, s, b, null]), g);
+      expect(majorityTier([s, s, s, g, b, null]), s);
+      expect(majorityTier([b, b, b, g, s, null]), b);
+    });
+
+    test('mostly missed cards earn nothing', () {
+      expect(majorityTier([null, null, null, g, s]), isNull);
+      expect(majorityTier([null]), isNull);
+      expect(majorityTier(const []), isNull);
+    });
+
+    test('ties go to the better outcome', () {
+      expect(majorityTier([g, g, s, s]), g);
+      expect(majorityTier([b, b, null, null]), b);
+      expect(majorityTier([g, null]), g);
+    });
+  });
+
   group('maskFromStrokes', () {
     test('stamps ink along the stroke and nowhere else', () {
       final mask = maskFromStrokes(hLine(), size: 64);

@@ -7,6 +7,7 @@ import '../models/noun_settings.dart';
 import '../theme/app_theme.dart';
 import '../widgets/coin_balance_pill.dart';
 import '../widgets/country_flag.dart';
+import '../widgets/person_scene.dart';
 
 /// A friendly, illustrated "what this app is and how to use it" page, localized
 /// per course. Shown automatically the first time a learner opens a course and
@@ -84,12 +85,24 @@ class CourseIntroPage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Text(
-                  s.headline,
-                  style: textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w800,
-                    height: 1.15,
-                  ),
+                // The headline shares its row with a little vignette of the
+                // course's goal — a person at the finish line this course
+                // walks toward (certificate, book, flashcards, horizon).
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        s.headline,
+                        style: textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.w800,
+                          height: 1.15,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    PersonScene(personSceneForGoal(course.goal), height: 104),
+                  ],
                 ),
                 const SizedBox(height: 10),
                 Text(
