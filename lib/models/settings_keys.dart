@@ -63,6 +63,10 @@ class SettingsKeys {
   /// old flat [apartmentFlipped] `StringList` (still read once, to migrate).
   static const String apartmentFlippedRooms = 'apartment_flipped_rooms';
 
+  /// Ids of the room combos the learner has discovered, in discovery order (a
+  /// `StringList`). See `roomCombos` and `Apartment.discoverCombo`.
+  static const String apartmentCombos = 'apartment_combos';
+
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =

@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../data/combo_catalog.dart';
 import '../data/furniture_names.dart';
 import '../data/room_catalog.dart';
 import '../data/shop_catalog.dart';
@@ -18,6 +19,7 @@ import '../services/analytics.dart';
 import '../utils/room_image_export.dart';
 import '../widgets/coin_balance_pill.dart';
 import '../widgets/coin_glyph.dart';
+import '../widgets/fireworks.dart';
 import '../widgets/flat_furniture.dart';
 import '../widgets/room_surfaces.dart';
 
@@ -364,6 +366,8 @@ class _ApartmentPageState extends State<ApartmentPage>
                 apt.setEffects(!apt.effects);
               case 'night':
                 _toggleNight();
+              case 'discoveries':
+                _openDiscoveries();
               case 'give':
                 _openGivingCorner();
               case 'share':
@@ -387,6 +391,11 @@ class _ApartmentPageState extends State<ApartmentPage>
               'night',
               apt.isNight ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
               apt.isNight ? 'Switch to day' : 'Switch to night',
+            ),
+            _overflowItem(
+              'discoveries',
+              Icons.emoji_events_rounded,
+              'Your discoveries',
             ),
             _overflowItem(
               'give',
@@ -432,6 +441,11 @@ class _ApartmentPageState extends State<ApartmentPage>
           color: Colors.white,
         ),
         onPressed: _toggleNight,
+      ),
+      IconButton(
+        tooltip: 'Your discoveries',
+        icon: const Icon(Icons.emoji_events_rounded, color: Colors.white),
+        onPressed: _openDiscoveries,
       ),
       IconButton(
         tooltip: 'Give away furniture',
@@ -482,6 +496,21 @@ class _ApartmentPageState extends State<ApartmentPage>
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       builder: (_) => const _DonationSheet(),
+    );
+  }
+
+  // ── Discoveries (combo achievements) ───────────────────────────────────────
+
+  void _openDiscoveries() {
+    Analytics.track('room_discoveries_open');
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: _pal.panel,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (_) => const _DiscoveriesSheet(),
     );
   }
 
@@ -695,6 +724,71 @@ class _RoomCanvasState extends State<_RoomCanvas>
   // doesn't resume a drag with the other.
   bool _pinchActive = false;
 
+  // ── Combos ─────────────────────────────────────────────────────────────────
+  // Combo ids active last frame — matched with the relaxed radius next frame,
+  // so an effect doesn't flicker while a piece is dragged at the boundary.
+  // Derived state consumed by the next build; updating it never needs setState.
+  Set<String> _activeCombos = {};
+
+  // Combos already sent for discovery this session, so a rebuild between the
+  // discover call and its notify can't celebrate the same combo twice.
+  final Set<String> _announcedCombos = {};
+
+  // First-time discoveries celebrate one at a time; extras wait here.
+  final List<RoomCombo> _celebrationQueue = [];
+  RoomCombo? _celebration;
+
+  /// The piece as the combo matcher sees it: its glyph plus its live centre
+  /// (including mid-drag) and drawn size in room pixels.
+  PlacedPiece _placedPiece(
+    String iid,
+    ShopItem item,
+    Size size,
+    double baseTile,
+  ) {
+    final s = _sizeOf(item, baseTile, size);
+    return PlacedPiece(
+      iid: iid,
+      glyph: item.glyph,
+      center: _centerPx(iid, item, size, s / 2),
+      size: s,
+    );
+  }
+
+  /// Queues a celebration for every combo in [matches] the learner hasn't
+  /// discovered yet. Runs during build, so the persist + setState side effects
+  /// are deferred to after the frame.
+  void _maybeAnnounce(List<ComboMatch> matches) {
+    final fresh = [
+      for (final m in matches)
+        if (!_announcedCombos.contains(m.combo.id) &&
+            !Apartment.instance.isComboDiscovered(m.combo.id))
+          m.combo,
+    ];
+    if (fresh.isEmpty) return;
+    _announcedCombos.addAll([for (final c in fresh) c.id]);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      for (final combo in fresh) {
+        Apartment.instance.discoverCombo(combo.id);
+        Analytics.track('room_combo_discovered', {'combo': combo.id});
+      }
+      setState(() {
+        _celebrationQueue.addAll(fresh);
+        _celebration ??= _celebrationQueue.removeAt(0);
+      });
+    });
+  }
+
+  /// One celebration finished — show the next queued one, if any.
+  void _celebrationDone() {
+    if (!mounted) return;
+    setState(() {
+      _celebration =
+          _celebrationQueue.isEmpty ? null : _celebrationQueue.removeAt(0);
+    });
+  }
+
   void _onPointerDown(PointerDownEvent e) {
     _pointers[e.pointer] = e.localPosition;
     if (_pointers.length >= 2) {
@@ -877,6 +971,21 @@ class _RoomCanvasState extends State<_RoomCanvas>
                               if (_lightFx[p.$2.glyph] case final fx?)
                                 _lightSpec(p.$1, p.$2, fx, size, baseTile),
                         ];
+                        // Pieces placed close together combine (bees visit the
+                        // flowers, the cat dozes by the fire…). Matched from the
+                        // live centres — including mid-drag — so dragging a piece
+                        // toward its partner lights the effect up on contact.
+                        final comboMatches = matchCombos(
+                          [
+                            for (final p in pieces)
+                              _placedPiece(p.$1, p.$2, size, baseTile),
+                          ],
+                          sticky: _activeCombos,
+                        );
+                        _activeCombos = {
+                          for (final m in comboMatches) m.combo.id,
+                        };
+                        _maybeAnnounce(comboMatches);
                         return Stack(
                           children: [
                             Positioned.fill(
@@ -907,6 +1016,31 @@ class _RoomCanvasState extends State<_RoomCanvas>
                                           : null,
                                     ),
                                   ),
+                                ),
+                              ),
+                            // The combos' ambient particles (bees, hearts,
+                            // steam…), above the lighting so they stay visible
+                            // at night.
+                            if (comboMatches.isNotEmpty)
+                              Positioned.fill(
+                                child: IgnorePointer(
+                                  child: CustomPaint(
+                                    painter: _ComboFxPainter(
+                                      matches: comboMatches,
+                                      clock: Apartment.instance.animate
+                                          ? _idle
+                                          : null,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            // First-time discovery: confetti + the combo card.
+                            if (_celebration != null)
+                              Positioned.fill(
+                                child: _ComboCelebration(
+                                  key: ValueKey(_celebration!.id),
+                                  combo: _celebration!,
+                                  onDone: _celebrationDone,
                                 ),
                               ),
                             if (widget.exporting)
@@ -2077,6 +2211,466 @@ class _RoomLightingPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_RoomLightingPainter oldDelegate) => true;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Combos
+// ─────────────────────────────────────────────────────────────────────────
+
+/// Paints the ambient particles of every active combo: a small flock of the
+/// combo's shape (bees, hearts, steam, notes…) moving between/above the two
+/// pieces that triggered it. Purely procedural from the idle [clock] and a
+/// per-particle seed — no per-frame state, so it pauses cleanly when the room's
+/// animation is off ([clock] null → a still sprinkle).
+class _ComboFxPainter extends CustomPainter {
+  _ComboFxPainter({required this.matches, this.clock}) : super(repaint: clock);
+
+  final List<ComboMatch> matches;
+  final Animation<double>? clock;
+
+  static const int _particles = 6;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final t = clock?.value ?? 0.35;
+    for (final m in matches) {
+      _paintMatch(canvas, m, t);
+    }
+  }
+
+  void _paintMatch(Canvas canvas, ComboMatch m, double t) {
+    final fx = m.combo.fx;
+    final mid = m.midpoint;
+    final avg = (m.a.size + m.b.size) / 2;
+    // Half-width of the effect area: spans the pair, never collapses when the
+    // two pieces sit on top of each other.
+    final spanX = math.max(
+      (m.a.center.dx - m.b.center.dx).abs() / 2 + avg * 0.35,
+      avg * 0.55,
+    );
+    final base = (avg * 0.16).clamp(6.0, 13.0);
+
+    for (var i = 0; i < _particles; i++) {
+      // Three stable pseudo-random 0..1 values per particle, from the combo id.
+      final h = (m.combo.id.hashCode ^ (i * 2654435761)) & 0x7FFFFFFF;
+      final f1 = ((h >> 4) & 0xFF) / 255.0;
+      final f2 = ((h >> 12) & 0xFF) / 255.0;
+      final f3 = ((h >> 20) & 0xFF) / 255.0;
+      final color = fx.colors[i % fx.colors.length];
+      // Each particle lives on its own point of the loop, so the flock reads as
+      // a continuous stream rather than a synchronized pulse.
+      final p = (t + i / _particles + f1) % 1.0;
+
+      Offset at;
+      double alpha;
+      var scale = 1.0;
+      var rotation = 0.0;
+      switch (fx.motion) {
+        case ComboMotion.orbit:
+          // A flat figure-8 over the pair — how bees and butterflies patrol.
+          final a = 2 * math.pi * p;
+          at = mid +
+              Offset(
+                math.cos(a) * spanX * 0.8,
+                math.sin(2 * a + f2 * math.pi * 2) * avg * 0.18 - avg * 0.35,
+              );
+          alpha = 0.95;
+        case ComboMotion.rise:
+          at = Offset(
+            mid.dx +
+                (f2 - 0.5) * spanX * 1.3 +
+                math.sin((p * 2 + f3) * math.pi * 2) * base * 0.4,
+            mid.dy + avg * 0.1 - avg * 0.9 * p,
+          );
+          alpha = math.sin(math.pi * p);
+          scale = 0.7 + 0.5 * p;
+        case ComboMotion.twinkle:
+          at = mid +
+              Offset(
+                (f2 - 0.5) * spanX * 1.7,
+                (f3 - 0.5) * avg * 0.8 - avg * 0.2,
+              );
+          final pulse = 0.5 + 0.5 * math.sin(2 * math.pi * p);
+          alpha = 0.25 + 0.75 * pulse;
+          scale = 0.7 + 0.5 * pulse;
+        case ComboMotion.fall:
+          at = Offset(
+            mid.dx +
+                (f2 - 0.5) * spanX * 1.4 +
+                math.sin((p * 2 + f3) * math.pi * 2) * base * 0.3,
+            mid.dy - avg * 0.55 + avg * 0.85 * p,
+          );
+          alpha = math.sin(math.pi * p);
+      }
+      switch (fx.shape) {
+        case ComboShape.petal:
+        case ComboShape.snow:
+        case ComboShape.pixel:
+        case ComboShape.ember:
+          rotation = 2 * math.pi * p * (f3 > 0.5 ? 1 : -1);
+        default:
+          break;
+      }
+
+      canvas.save();
+      canvas.translate(at.dx, at.dy);
+      if (rotation != 0) canvas.rotate(rotation);
+      _paintShape(
+        canvas,
+        fx.shape,
+        base * scale,
+        color.withValues(alpha: color.a * alpha.clamp(0.0, 1.0)),
+        p,
+      );
+      canvas.restore();
+    }
+  }
+
+  /// Draws one particle of [shape] centred on the (translated) origin, [s]
+  /// pixels across-ish. [p] is the particle's 0..1 loop progress, for shapes
+  /// that grow with age (steam puffs, ripples).
+  void _paintShape(Canvas canvas, ComboShape shape, double s, Color color,
+      double p) {
+    final fill = Paint()
+      ..isAntiAlias = true
+      ..color = color;
+    final stroke = Paint()
+      ..isAntiAlias = true
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = math.max(1.0, s * 0.16)
+      ..strokeCap = StrokeCap.round;
+
+    switch (shape) {
+      case ComboShape.bee:
+        canvas.drawOval(
+          Rect.fromCenter(center: Offset.zero, width: s, height: s * 0.7),
+          fill,
+        );
+        canvas.drawLine(
+          Offset(-s * 0.1, -s * 0.32),
+          Offset(-s * 0.1, s * 0.32),
+          stroke..color = const Color(0xCC333333),
+        );
+        canvas.drawCircle(
+          Offset(s * 0.05, -s * 0.42),
+          s * 0.22,
+          fill..color = const Color(0xB3FFFFFF),
+        );
+      case ComboShape.heart:
+        final path = Path()
+          ..moveTo(0, s * 0.35)
+          ..cubicTo(-s * 0.7, -s * 0.15, -s * 0.3, -s * 0.6, 0, -s * 0.2)
+          ..cubicTo(s * 0.3, -s * 0.6, s * 0.7, -s * 0.15, 0, s * 0.35);
+        canvas.drawPath(path, fill);
+      case ComboShape.note:
+        canvas.drawOval(
+          Rect.fromCenter(
+            center: Offset(-s * 0.2, s * 0.32),
+            width: s * 0.55,
+            height: s * 0.42,
+          ),
+          fill,
+        );
+        canvas.drawLine(
+          Offset(s * 0.05, s * 0.3),
+          Offset(s * 0.05, -s * 0.45),
+          stroke,
+        );
+        canvas.drawLine(
+          Offset(s * 0.05, -s * 0.45),
+          Offset(s * 0.4, -s * 0.3),
+          stroke,
+        );
+      case ComboShape.zzz:
+        final z = Path()
+          ..moveTo(-s * 0.35, -s * 0.35)
+          ..lineTo(s * 0.35, -s * 0.35)
+          ..lineTo(-s * 0.35, s * 0.35)
+          ..lineTo(s * 0.35, s * 0.35);
+        canvas.drawPath(z, stroke..style = PaintingStyle.stroke);
+      case ComboShape.sparkle:
+        final path = Path()
+          ..moveTo(0, -s * 0.6)
+          ..quadraticBezierTo(s * 0.1, -s * 0.1, s * 0.6, 0)
+          ..quadraticBezierTo(s * 0.1, s * 0.1, 0, s * 0.6)
+          ..quadraticBezierTo(-s * 0.1, s * 0.1, -s * 0.6, 0)
+          ..quadraticBezierTo(-s * 0.1, -s * 0.1, 0, -s * 0.6);
+        canvas.drawPath(path, fill);
+      case ComboShape.star:
+        final path = Path();
+        for (var k = 0; k < 5; k++) {
+          final outer = -math.pi / 2 + k * 2 * math.pi / 5;
+          final inner = outer + math.pi / 5;
+          final po = Offset(math.cos(outer), math.sin(outer)) * s * 0.55;
+          final pi_ = Offset(math.cos(inner), math.sin(inner)) * s * 0.24;
+          if (k == 0) {
+            path.moveTo(po.dx, po.dy);
+          } else {
+            path.lineTo(po.dx, po.dy);
+          }
+          path.lineTo(pi_.dx, pi_.dy);
+        }
+        path.close();
+        canvas.drawPath(path, fill);
+      case ComboShape.bubble:
+        canvas.drawCircle(Offset.zero, s * 0.45, stroke);
+        canvas.drawCircle(
+          Offset(-s * 0.15, -s * 0.15),
+          s * 0.08,
+          fill,
+        );
+      case ComboShape.steam:
+        // A soft puff that swells as it climbs.
+        final r = s * (0.45 + 0.6 * p);
+        canvas.drawCircle(
+          Offset.zero,
+          r,
+          fill..color = color.withValues(alpha: color.a * 0.55),
+        );
+        canvas.drawCircle(Offset(r * 0.45, -r * 0.4), r * 0.55, fill);
+      case ComboShape.droplet:
+        canvas.drawCircle(Offset(0, s * 0.18), s * 0.4, fill);
+        final tip = Path()
+          ..moveTo(-s * 0.28, s * 0.02)
+          ..lineTo(0, -s * 0.55)
+          ..lineTo(s * 0.28, s * 0.02)
+          ..close();
+        canvas.drawPath(tip, fill);
+      case ComboShape.petal:
+        canvas.drawOval(
+          Rect.fromCenter(center: Offset.zero, width: s * 0.5, height: s),
+          fill,
+        );
+      case ComboShape.snow:
+        for (var k = 0; k < 3; k++) {
+          final a = k * math.pi / 3;
+          final arm = Offset(math.cos(a), math.sin(a)) * s * 0.5;
+          canvas.drawLine(-arm, arm, stroke);
+        }
+      case ComboShape.splat:
+        canvas.drawCircle(Offset.zero, s * 0.4, fill);
+        canvas.drawCircle(Offset(s * 0.42, -s * 0.24), s * 0.16, fill);
+        canvas.drawCircle(Offset(-s * 0.36, s * 0.3), s * 0.12, fill);
+      case ComboShape.butterfly:
+        for (final side in const [-1.0, 1.0]) {
+          canvas.save();
+          canvas.rotate(side * 0.5);
+          canvas.drawOval(
+            Rect.fromCenter(
+              center: Offset(side * s * 0.3, 0),
+              width: s * 0.55,
+              height: s * 0.85,
+            ),
+            fill,
+          );
+          canvas.restore();
+        }
+        canvas.drawLine(
+          Offset(0, -s * 0.35),
+          Offset(0, s * 0.35),
+          stroke..color = const Color(0xCC4A3728),
+        );
+      case ComboShape.ember:
+        final diamond = Path()
+          ..moveTo(0, -s * 0.5)
+          ..lineTo(s * 0.32, 0)
+          ..lineTo(0, s * 0.5)
+          ..lineTo(-s * 0.32, 0)
+          ..close();
+        canvas.drawPath(diamond, fill);
+      case ComboShape.pixel:
+        canvas.drawRect(
+          Rect.fromCenter(center: Offset.zero, width: s * 0.6, height: s * 0.6),
+          fill,
+        );
+      case ComboShape.ripple:
+        // An expanding ring that thins out as it grows.
+        canvas.drawCircle(
+          Offset.zero,
+          s * (0.35 + 1.1 * p),
+          stroke
+            ..color = color.withValues(alpha: color.a * (1 - p))
+            ..strokeWidth = math.max(1.0, s * 0.14 * (1 - p * 0.6)),
+        );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_ComboFxPainter oldDelegate) => true;
+}
+
+/// The first-time-discovery celebration over the room: a confetti burst (the
+/// shared [FireworksPainter]) plus a pop-in card naming the combo. Runs once
+/// (~2.6 s), then calls [onDone]; tapping anywhere skips ahead.
+class _ComboCelebration extends StatefulWidget {
+  const _ComboCelebration({super.key, required this.combo, required this.onDone});
+
+  final RoomCombo combo;
+  final VoidCallback onDone;
+
+  @override
+  State<_ComboCelebration> createState() => _ComboCelebrationState();
+}
+
+class _ComboCelebrationState extends State<_ComboCelebration>
+    with SingleTickerProviderStateMixin {
+  static const _confettiColors = [
+    Color(0xFFF4C430),
+    Color(0xFFE2574C),
+    Color(0xFF4A8FE0),
+    Color(0xFF5BA85A),
+    Color(0xFFE86BA8),
+    Color(0xFF8E68C8),
+  ];
+
+  late final AnimationController _c = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 2600),
+  )
+    ..addStatusListener((s) {
+      if (s == AnimationStatus.completed) widget.onDone();
+    })
+    ..forward();
+
+  late final List<FireworkParticle> _particles = _makeParticles();
+
+  List<FireworkParticle> _makeParticles() {
+    final rng = math.Random(widget.combo.id.hashCode);
+    return [
+      for (var i = 0; i < 32; i++)
+        () {
+          final a = rng.nextDouble() * 2 * math.pi;
+          return FireworkParticle(
+            origin: i.isEven
+                ? const Offset(0.32, 0.38)
+                : const Offset(0.68, 0.34),
+            direction: Offset(math.cos(a), math.sin(a) - 0.35),
+            speed: 60 + rng.nextDouble() * 110,
+            size: 2.5 + rng.nextDouble() * 3,
+            color: _confettiColors[i % _confettiColors.length],
+          );
+        }(),
+    ];
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () {
+        _c.stop();
+        widget.onDone();
+      },
+      child: AnimatedBuilder(
+        animation: _c,
+        builder: (context, _) {
+          final t = _c.value;
+          // Card: pops in over the first 20%, holds, fades over the last 12%.
+          final popIn = Curves.easeOutBack.transform((t / 0.2).clamp(0.0, 1.0));
+          final fadeIn = (t / 0.1).clamp(0.0, 1.0);
+          final fadeOut = ((1 - t) / 0.12).clamp(0.0, 1.0);
+          final cardAlpha = math.min(fadeIn, fadeOut);
+          return Stack(
+            children: [
+              // A light scrim so the card reads over any room.
+              Positioned.fill(
+                child: ColoredBox(
+                  color: Colors.black.withValues(alpha: 0.2 * cardAlpha),
+                ),
+              ),
+              Positioned.fill(
+                child: CustomPaint(
+                  painter: FireworksPainter(
+                    progress: (t / 0.85).clamp(0.0, 1.0),
+                    particles: _particles,
+                  ),
+                ),
+              ),
+              Center(
+                child: Opacity(
+                  opacity: cardAlpha,
+                  child: Transform.scale(
+                    scale: popIn,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Container(
+                          width: 250,
+                          padding: const EdgeInsets.all(18),
+                          decoration: BoxDecoration(
+                            color: _cream,
+                            borderRadius: BorderRadius.circular(24),
+                            border: Border.all(
+                              color: const Color(0xFFFFD54F),
+                              width: 3,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.25),
+                                blurRadius: 18,
+                                offset: const Offset(0, 6),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                widget.combo.emoji,
+                                style: const TextStyle(fontSize: 44),
+                              ),
+                              const SizedBox(height: 6),
+                              const Text(
+                                'New discovery!',
+                                style: TextStyle(
+                                  color: Color(0xFFB08A2E),
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 12,
+                                  letterSpacing: 1.2,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                widget.combo.name,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  color: _cardText,
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 21,
+                                ),
+                              ),
+                              const SizedBox(height: 6),
+                              Text(
+                                widget.combo.description,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: _cocoa.withValues(alpha: 0.85),
+                                  fontSize: 13,
+                                  height: 1.35,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
 }
 
 /// The little zoom cluster over the room (bottom-right): + and −, plus a reset
@@ -3575,6 +4169,179 @@ class _LangLine extends StatelessWidget {
                     fontSize: 17,
                     fontWeight: FontWeight.w900,
                     color: _cardText,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Discoveries sheet
+// ─────────────────────────────────────────────────────────────────────────
+
+/// The learner's combo discoveries: only what they've already found, newest
+/// first, plus a count of how many are still hidden ("7 of 49") — enough to
+/// know there's more to hunt for without spoiling what.
+class _DiscoveriesSheet extends StatelessWidget {
+  const _DiscoveriesSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListenableBuilder(
+      listenable: Apartment.instance,
+      builder: (context, _) {
+        final found = [
+          for (final id in Apartment.instance.discoveredCombos.reversed)
+            ?comboById[id],
+        ];
+        return SafeArea(
+          top: false,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.sizeOf(context).height * 0.82,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 10),
+                Container(
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: _pal.text.withValues(alpha: 0.25),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+                const SizedBox(height: 14),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Text(
+                        '🏆  Discoveries',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: _pal.text,
+                        ),
+                      ),
+                      const Spacer(),
+                      _Chip(
+                        child: Text(
+                          '${found.length} of ${roomCombos.length} discovered',
+                          style: const TextStyle(fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Some pieces do something special when they sit '
+                      'next to the right partner…',
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        color: _pal.textSoft,
+                        height: 1.3,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                if (found.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(24, 24, 24, 40),
+                    child: Text(
+                      '🔍\nNothing discovered yet.\nTry dragging two pieces '
+                      'that belong together\nright next to each other!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: _pal.text.withValues(alpha: 0.85),
+                        fontWeight: FontWeight.w800,
+                        fontSize: 15,
+                        height: 1.5,
+                      ),
+                    ),
+                  )
+                else
+                  Flexible(
+                    child: ListView.separated(
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                      itemCount: found.length,
+                      separatorBuilder: (_, _) => const SizedBox(height: 8),
+                      itemBuilder: (context, i) =>
+                          _DiscoveryRow(combo: found[i]),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// One discovered combo in the list: its emoji badge, name and one-liner.
+class _DiscoveryRow extends StatelessWidget {
+  const _DiscoveryRow({required this.combo});
+
+  final RoomCombo combo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: _pal.card,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: _pal.cardBorder),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: const Color(0xFFFFD54F).withValues(alpha: 0.25),
+              border: Border.all(
+                color: const Color(0xFFFFD54F).withValues(alpha: 0.6),
+              ),
+            ),
+            child: Text(combo.emoji, style: const TextStyle(fontSize: 22)),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  combo.name,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 15,
+                    color: _pal.text,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  combo.description,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: _pal.textSoft,
+                    height: 1.3,
                   ),
                 ),
               ],

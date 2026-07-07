@@ -42,6 +42,7 @@ class Apartment extends ChangeNotifier {
   String _currentRoom = kStarterRoomId;
 
   Set<String> _revealed = {};
+  List<String> _combosFound = [];
   bool _night = false;
   bool _animate = true;
   bool _effects = true;
@@ -138,6 +139,26 @@ class Apartment extends ChangeNotifier {
 
   bool isRevealed(String id) => _revealed.contains(id);
 
+  // ── Combo discoveries ────────────────────────────────────────────────────
+
+  /// Ids of the room combos the learner has discovered, in discovery order.
+  /// Global (not per room) — an achievement, like the shop reveals.
+  List<String> get discoveredCombos => List.unmodifiable(_combosFound);
+
+  bool isComboDiscovered(String id) => _combosFound.contains(id);
+
+  /// Records the combo [id] as discovered. Returns true when it's new (the
+  /// caller celebrates), false when it was already on the list. Persists +
+  /// notifies.
+  Future<bool> discoverCombo(String id) async {
+    if (_combosFound.contains(id)) return false;
+    _combosFound = [..._combosFound, id];
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(SettingsKeys.apartmentCombos, _combosFound);
+    return true;
+  }
+
   /// Whether the room is shown at night — the lighting overlay darkens the room
   /// and light pieces (lamps, candles, fireplace…) cast warm pools.
   bool get isNight => _night;
@@ -208,6 +229,8 @@ class Apartment extends ChangeNotifier {
     _revealed =
         (prefs.getStringList(SettingsKeys.apartmentRevealed) ?? const [])
             .toSet();
+    _combosFound =
+        prefs.getStringList(SettingsKeys.apartmentCombos) ?? const [];
     _night = prefs.getBool(SettingsKeys.apartmentNight) ?? false;
     _animate = prefs.getBool(SettingsKeys.apartmentAnimate) ?? true;
     _effects = prefs.getBool(SettingsKeys.apartmentEffects) ?? true;
@@ -480,6 +503,7 @@ class Apartment extends ChangeNotifier {
     _ownedRooms = [kStarterRoomId];
     _currentRoom = kStarterRoomId;
     _revealed = {};
+    _combosFound = [];
     _night = false;
     _animate = true;
     _effects = true;
