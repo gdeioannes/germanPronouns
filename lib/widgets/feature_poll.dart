@@ -54,10 +54,15 @@ const String kFeaturePollDismissedEvent = 'feature_poll_dismissed';
 /// between come first.
 enum FeaturePollChoice {
   /// Practice mini-games attached to each module.
-  games('games', Icons.sports_esports_rounded),
+  ///
+  /// The icons here deliberately stay in the original Material codepoint block
+  /// (`0xe…`): three of the newer `_rounded` variants (`sports_esports`,
+  /// `cloud_sync`, `notifications_active`) came out blank in the released web
+  /// build, so the option rows showed an empty gap where the glyph should be.
+  games('games', Icons.videogame_asset),
 
   /// An account, so progress is saved and follows the learner across devices.
-  account('account_sync', Icons.cloud_sync_rounded),
+  account('account_sync', Icons.devices),
 
   /// More courses and language pairs.
   courses('more_courses', Icons.library_books_rounded),
@@ -69,7 +74,7 @@ enum FeaturePollChoice {
   speaking('speaking', Icons.mic_rounded),
 
   /// Daily reminders and practice goals.
-  reminders('reminders', Icons.notifications_active_rounded);
+  reminders('reminders', Icons.notifications_active);
 
   const FeaturePollChoice(this.id, this.icon);
 
