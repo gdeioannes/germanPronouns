@@ -1,56 +1,11 @@
 # Germanquiz
 
-A Flutter app for learning German, from single-word grammar drills up to a full
-**A1–C2 certification course**. It pairs quick, repeatable fill-in-the-blank
-quizzes (pronoun case endings, `der`/`die`/`das` articles, noun genders) with
-listening, dictation, reading-comprehension and "speak & repeat" pronunciation
-exercises, all read aloud by a premium cloud voice.
+A Flutter language-learning app running on web, mobile and desktop, built
+around a local content database, a cloud text-to-speech chain with an on-device
+fallback, and a teacher back office for authoring content.
 
-## Features
-
-### Grammar drills
-
-- **Pronoun Quiz** — personal, reflexive, and possessive pronouns across
-  accusative, dative, and genitive case, with a built-in reference ("Help
-  Memory") of pronoun and article ending tables.
-- **Artikel Quiz** — practice choosing `der`/`die`/`das` for German nouns.
-- **Nouns & Articles** — a guided progression through ~30 themed noun
-  categories (kitchen, animals, professions, weather, etc.), unlocked one at
-  a time by reaching a 10-answer streak, finishing with an "All Nouns" final
-  challenge.
-- **Prepositions** and other targeted grammar sets.
-
-### Certification course (A1 → C2)
-
-- A gated CEFR progression covering every sub-level (A1.1 … C2.2). Passing a
-  quiz unlocks the next link in the chain, so learners move through the course
-  in order.
-- **Multiple quiz kinds** (`QuizKind`): `fillBlank`, `reading`
-  (multiple-choice comprehension), `listening`, `dictation` (type what you
-  hear), and `speakRepeat` (listen, then repeat into the mic — uses
-  speech-to-text, never required to advance).
-- Quizzes are **config-driven and data-seeded**: shipped content lives in
-  `assets/seed/quiz_content.json` and is stamped with a version
-  (`kDataVersion`); bumping it auto-reseeds installs on next launch.
-
-### Across the app
-
-- **Sentence context** — questions are presented in example sentences. Tap any
-  recognized noun to see its article, gender-colored display, English
-  translation, and (where applicable) its plural ending in dictionary notation
-  (e.g. `-e`, `¨-er`, `-n`).
-- **Sentence Info panel** — a per-question grammar explanation (case, meaning,
-  and the reasoning behind the correct answer).
-- **Word Library** — browse all nouns by category, with English meanings and
-  gender coloring.
-- **Premium voice** — phrases are spoken by a cloud neural voice (Azure, with
-  Google as fallback), degrading gracefully to the on-device voice offline.
-  See [Cloud TTS & the Wrangler proxy](#cloud-tts--the-wrangler-proxy).
-- **Progress tracking** — score, streak, answer history, and a per-category
-  performance heatmap, persisted locally via `shared_preferences`.
-- **Back office** — a teacher login over a local (sembast) database for
-  authoring quizzes and editing the navigation layout.
-- **PDF export** — export the Help Memory reference tables as a branded PDF.
+**This README is developer documentation** — how to run, test, build and deploy
+the app.
 
 ## Project structure
 
@@ -71,25 +26,160 @@ lib/
 cloudflare-tts-proxy/  # Cloudflare Worker that holds the cloud TTS keys (web)
 ```
 
-## Getting started
+Quizzes are config-driven and data-seeded rather than hand-built pages: each is
+a `QuizContent` of some `QuizKind` (`fillBlank`, `reading`, `listening`,
+`dictation`, `speakRepeat`, `draw`), authored in `lib/data/` and published into
+`assets/content/**` and `assets/seed/quiz_content.json` by the two generators
+below. The seed carries a `kDataVersion` stamp; bumping it reseeds existing
+installs on next launch.
 
-This is a standard Flutter project.
+## Common commands
+
+A standard Flutter project — all commands run from the repo root. Examples use
+`bash`; where Windows PowerShell needs different syntax it is called out.
+
+### Run the app
+
+The everyday command — Chrome on port 8080, with the premium cloud voice served
+by the deployed Wrangler proxy:
 
 ```bash
-flutter pub get
-flutter run
+flutter run -d chrome --web-port=8080 --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev
 ```
 
-With no TTS keys configured the app still runs — the cloud voices self-disable
-and playback falls back to the on-device voice. To check for issues without
-running:
+`--web-port=8080` is not optional: the Worker only answers origins on its
+`ALLOWED_ORIGINS` allowlist, and `http://localhost:8080` is already on it. On
+any other port the proxy CORS-blocks the app and the voice silently falls back
+to the on-device one.
+
+Other targets:
+
+```bash
+flutter pub get              # after cloning, or whenever pubspec changes
+flutter devices              # list the devices you can target
+flutter run                  # default device, debug mode
+flutter run -d chrome        # web, no cloud voice
+flutter run -d windows       # Windows desktop
+flutter run -d <deviceId>    # a specific device from `flutter devices`
+flutter run --release        # without debug overhead (no hot reload)
+```
+
+With no TTS defines the app still runs — the cloud voices self-disable and
+playback falls back to the on-device voice. For the native cloud-voice setup and
+a fully local proxy loop, see [Local development](#local-development).
+
+### Hot reload and hot restart
+
+While `flutter run` is attached, type into that terminal:
+
+| Key | Does |
+| --- | --- |
+| `r` | **Hot reload** — reapplies changed code, keeps app state |
+| `R` | **Hot restart** — rebuilds and restarts, resets all state |
+| `h` | List every available key |
+| `v` | Open DevTools in the browser |
+| `c` | Clear the screen |
+| `q` | Quit and detach |
+
+In VS Code, saving a file hot-reloads automatically; `Ctrl+Shift+F5` hot
+restarts.
+
+> Hot reload does **not** re-run `main()` or rebuild existing state. After
+> changing `main()`, a singleton's initialization (`NounSettings`,
+> `CourseSession`, `CoinWallet`), anything read once in `initState`, `const`
+> data, or `kDataVersion`, press `R` — otherwise you are still looking at the
+> old values. Asset changes (`assets/content/**`, `assets/seed/**`) also need a
+> hot restart, and a new asset *file* needs a full stop and `flutter run`.
+
+### Check without running
 
 ```bash
 flutter analyze
 ```
 
-> Note: `flutter analyze` treats lint **infos** as failures in this project, so
-> keep the analyzer clean.
+> `flutter analyze` treats lint **infos** as failures in this project, so keep
+> the analyzer clean.
+
+### Tests
+
+```bash
+flutter test                                       # the whole suite
+flutter test test/feature_poll_test.dart           # one file
+flutter test test/coin_wallet_test.dart test/course_test.dart
+flutter test --plain-name "pays coins"             # tests whose name contains this
+flutter test --coverage                            # writes coverage/lcov.info
+```
+
+`flutter test` only picks up files ending in `_test.dart`, which is what keeps
+the dev previews below out of the suite.
+
+### Dev previews (render a PNG and look at it)
+
+Files named `test/_*.dart` are **developer previews, not pass/fail tests**: they
+paint a widget and write a PNG through the golden machinery so the artwork can
+be eyeballed. Run one explicitly, then open the image it names.
+
+```bash
+flutter test --update-goldens test/_feature_poll_preview.dart      # the feature poll, phone + desktop
+flutter test --update-goldens test/_furniture_contact_sheet.dart   # every room piece, paged
+flutter test --update-goldens test/_style_preview.dart             # furniture style variants
+flutter test --update-goldens test/_gallery.dart                   # the Plants shelf
+flutter test --update-goldens test/_login_preview.dart             # the login poster
+```
+
+They register real Windows fonts, so text renders as glyphs instead of
+flutter_test's Ahem boxes.
+
+### Refreshing the content goldens
+
+`test/content_fidelity_test.dart` and `test/storage_keys_test.dart` pin the
+content snapshot and the quiz storage-key prefixes. When a content change is
+intentional, refresh them and **review the diff**:
+
+```bash
+UPDATE_GOLDEN=1 flutter test test/content_fidelity_test.dart test/storage_keys_test.dart
+```
+
+PowerShell has no inline env-var prefix, so there it is:
+
+```powershell
+$env:UPDATE_GOLDEN = '1'
+flutter test test/content_fidelity_test.dart test/storage_keys_test.dart
+$env:UPDATE_GOLDEN = $null
+```
+
+### Regenerate content assets
+
+```bash
+dart run tool/generate_content.dart   # → assets/content/** (per-course bundles)
+dart run tool/generate_seed.dart      # → assets/seed/quiz_content.json (DB seed)
+```
+
+These are two different pipelines: the bundles drive the drawer's nav headers,
+the seed drives the quiz tiles and the running quizzes. After changing content,
+bump `kDataVersion` in `lib/data/data_version.dart` so existing installs reseed
+on next launch.
+
+### Build
+
+```bash
+flutter build web --release --base-href "/germanPronouns/" --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev
+flutter build apk --release          # Android APK
+flutter build appbundle --release    # Android, for Play
+flutter build windows --release
+```
+
+### Housekeeping
+
+```bash
+flutter clean && flutter pub get     # when the build goes strange
+flutter pub outdated                 # what could be upgraded
+```
+
+> This project does **not** use `dart format` — the source is hand-wrapped at 80
+> columns and running the formatter would rewrite most of the tree. `flutter
+> analyze` is the gate; keep it clean and match the style of the file you are
+> editing.
 
 ## Local development
 
@@ -119,11 +209,8 @@ On **web** the keys must never be baked into the JS bundle, so the app routes
 TTS through the Cloudflare Worker instead and is pointed at it with the
 `TTS_PROXY_URL` define (a URL, not a secret).
 
-Against the **deployed** Worker:
-
-```bash
-flutter run -d chrome --web-port=8080 --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev
-```
+Against the **deployed** Worker, that is the everyday command in
+[Run the app](#run-the-app).
 
 Against a **local** Worker (full local loop — see the proxy setup below). In one
 terminal start the Worker, in another start Flutter pointed at it:

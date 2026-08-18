@@ -7,6 +7,7 @@ import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../theme/app_theme.dart';
+import '../widgets/feature_poll.dart';
 import '../widgets/multiple_choice_questions.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
@@ -128,6 +129,9 @@ class _ReadingQuizPageState extends State<ReadingQuizPage> {
           widget.questProgressionKey!,
         );
       }
+      // Finishing a quiz is the high point where the feature poll is asked
+      // (self-gating: at most once a week, and only when due).
+      if (mounted) await maybeShowFeaturePollAfterQuiz(context);
     }
   }
 

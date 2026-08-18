@@ -29,6 +29,7 @@ class UserSettings {
     this.showFirstLetterHint = false,
     this.relaxedCorrection = false,
     this.seenRelaxedCorrectionHint = false,
+    this.featurePollLastShownMillis,
   });
 
   /// Nouns excluded from quizzes that draw on the shared noun database.
@@ -91,6 +92,10 @@ class UserSettings {
   /// Whether the one-time relaxed-correction hint panel has been shown.
   final bool seenRelaxedCorrectionHint;
 
+  /// When the "what should we build next?" poll was last shown (answered or
+  /// dismissed), as epoch milliseconds. Null means it never has been.
+  final int? featurePollLastShownMillis;
+
   UserSettings copyWith({
     List<String>? disabledNouns,
     Map<String, bool>? showEnglishByPage,
@@ -113,6 +118,7 @@ class UserSettings {
     bool? showFirstLetterHint,
     bool? relaxedCorrection,
     bool? seenRelaxedCorrectionHint,
+    int? featurePollLastShownMillis,
   }) => UserSettings(
     disabledNouns: disabledNouns ?? this.disabledNouns,
     showEnglishByPage: showEnglishByPage ?? this.showEnglishByPage,
@@ -141,6 +147,8 @@ class UserSettings {
     relaxedCorrection: relaxedCorrection ?? this.relaxedCorrection,
     seenRelaxedCorrectionHint:
         seenRelaxedCorrectionHint ?? this.seenRelaxedCorrectionHint,
+    featurePollLastShownMillis:
+        featurePollLastShownMillis ?? this.featurePollLastShownMillis,
   );
 
   Map<String, dynamic> toJson() => {
@@ -166,6 +174,8 @@ class UserSettings {
     'showFirstLetterHint': showFirstLetterHint,
     'relaxedCorrection': relaxedCorrection,
     'seenRelaxedCorrectionHint': seenRelaxedCorrectionHint,
+    if (featurePollLastShownMillis != null)
+      'featurePollLastShownMillis': featurePollLastShownMillis,
   };
 
   factory UserSettings.fromJson(Map<String, dynamic> json) => UserSettings(
@@ -203,5 +213,6 @@ class UserSettings {
     relaxedCorrection: json['relaxedCorrection'] as bool? ?? false,
     seenRelaxedCorrectionHint:
         json['seenRelaxedCorrectionHint'] as bool? ?? false,
+    featurePollLastShownMillis: json['featurePollLastShownMillis'] as int?,
   );
 }

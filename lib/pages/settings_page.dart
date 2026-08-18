@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:go_router/go_router.dart';
 
+import '../data/build_info.dart';
 import '../data/data_version.dart';
 import '../data/db/content_repository.dart';
 import '../data/debug_unlock.dart';
@@ -10,6 +11,7 @@ import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/coin_balance_pill.dart';
+import '../widgets/feature_poll.dart';
 
 /// App-wide settings, reachable from the drawer on every page.
 class SettingsPage extends StatefulWidget {
@@ -540,6 +542,70 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 8),
+                // Stamped by CI at build time, so this line answers "when was
+                // the site last updated?" without anyone editing a constant.
+                Row(
+                  children: [
+                    Icon(
+                      Icons.new_releases_outlined,
+                      size: 18,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'App version: $buildVersionLabel',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.update_rounded,
+                      size: 18,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Last updated: $buildTimeLabel'
+                        '${kBuildCommit.isEmpty ? '' : '  ·  $kBuildCommit'}',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            // A standing invitation to steer the roadmap: the poll normally
+            // comes to the learner after a quiz, but anyone with an opinion in
+            // between can open it here.
+            _settingsPanel(
+              title: CourseSession.instance.strings.featurePollTitle,
+              children: [
+                Text(
+                  CourseSession.instance.strings.featurePollBody,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: FilledButton.tonalIcon(
+                    onPressed: () => showFeaturePoll(
+                      context,
+                      source: kFeaturePollSourceSettings,
+                    ),
+                    icon: const Icon(Icons.lightbulb_outline_rounded, size: 18),
+                    label: Text(CourseSession.instance.strings.featurePollOpen),
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 16),
@@ -551,6 +617,15 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    // Pushed, so back lands here rather than on the home page.
+                    onPressed: () => context.push('/about-me'),
+                    icon: const Icon(Icons.person_outline, size: 18),
+                    label: Text(CourseSession.instance.strings.aboutMeTitle),
+                  ),
+                ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextButton.icon(

@@ -41,23 +41,96 @@ const List<Color> kHairColors = [
 /// primitive fully sets the fields it draws with, and the shared instance
 /// keeps the paint-state sequence identical wherever the kit is used.
 class FlatPaintKit {
-  FlatPaintKit(this.canvas, this.u, this.paint);
+  FlatPaintKit(this.canvas, this.u, this.paint, {this.style = 0});
 
   final Canvas canvas;
   final double u;
   final Paint paint;
+
+  /// The finish applied to solid shapes: 0 = plain soft top-light (the
+  /// PersonScene posters' look), 1 = warm-light / cool-shade gradients — the
+  /// room furniture's shipped look — 2 = 1 + a thin inked contour (rejected:
+  /// the user doesn't want dark edges; kept only so the restyle preview,
+  /// test/_style_preview.dart, stays comparable) and 3 = 1 + a bright
+  /// rim-light along each shape's lit top edge.
+  final int style;
+
+  // Warm light, cool shade — instead of shifting only lightness, highlights
+  // lean toward a sunlit cream and shadows toward a dusk blue, which is what
+  // gives hand-painted flat art its glow. Alpha is preserved so translucent
+  // overlays (steam, glass) keep their transparency.
+  Color _lit(Color c, double a) {
+    final l = shade(c, a);
+    final tinted = a > 0
+        ? Color.lerp(l, const Color(0xFFFFE3B3), (a * 2.4).clamp(0.0, 0.45))!
+        : Color.lerp(l, const Color(0xFF39456B), (-a * 1.8).clamp(0.0, 0.40))!;
+    return tinted.withValues(alpha: c.a);
+  }
 
   // ── Soft, consistent volume ─────────────────────────────────────────────
   // The whole set is lit from the top (a hair to the left), so every solid
   // shape is filled with a gentle gradient along that light instead of a dead
   // flat colour: a lighter crown, the true color through the middle, a soft
   // shaded foot.
-  Shader vshade(Rect r, Color c, double hi, double lo) => LinearGradient(
+  Shader vshade(Rect r, Color c, double hi, double lo) {
+    if (style == 0) {
+      return LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [shade(c, hi), c, shade(c, -lo)],
         stops: const [0.0, 0.55, 1.0],
       ).createShader(r);
+    }
+    return LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [_lit(c, hi * 1.5), c, _lit(c, -lo * 1.35)],
+      stops: const [0.0, 0.50, 1.0],
+    ).createShader(r);
+  }
+
+  // ── Per-variant finishing touches, applied after a solid shape's fill ────
+  // B: a thin contour in a deep tone of the fill, so every solid reads as a
+  // drawn sticker.
+  void _contour(Path p, Color c) {
+    paint
+      ..shader = null
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 0.011 * u
+      ..strokeJoin = StrokeJoin.round
+      ..color = shade(c, -0.32);
+    canvas.drawPath(p, paint);
+    paint.style = PaintingStyle.fill;
+  }
+
+  // C: a bright rim along the top (lit) edge that fades out by mid-height,
+  // like glaze catching the light.
+  void _rim(Path p, Rect bounds) {
+    paint
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 0.012 * u
+      ..strokeJoin = StrokeJoin.round
+      ..shader = LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.white.withValues(alpha: 0.55),
+          Colors.white.withValues(alpha: 0.0),
+        ],
+        stops: const [0.0, 0.55],
+      ).createShader(bounds);
+    canvas.drawPath(p, paint);
+    paint
+      ..shader = null
+      ..style = PaintingStyle.fill;
+  }
+
+  // Translucent overlays (blush, steam) keep their soft edge in every style.
+  void _finish(Path p, Rect bounds, Color c) {
+    if (c.a < 1.0) return;
+    if (style == 2) _contour(p, c);
+    if (style == 3) _rim(p, bounds);
+  }
 
   /// A box fill. Tall panels get the light gradient; very thin slivers
   /// (handles, keys, ledges) and anything asking to stay [flat] keep a crisp
@@ -65,17 +138,19 @@ class FlatPaintKit {
   void box(double l, double t, double r, double b, double rad, Color color,
       {bool flat = false}) {
     final rect = Rect.fromLTRB(l * u, t * u, r * u, b * u);
+    final rr = RRect.fromRectAndRadius(rect, Radius.circular(rad * u));
+    final solid = !flat && (b - t) >= 0.05;
     paint.style = PaintingStyle.fill;
-    if (flat || (b - t) < 0.05) {
+    if (!solid) {
       paint
         ..shader = null
         ..color = color;
     } else {
       paint.shader = vshade(rect, color, 0.10, 0.12);
     }
-    canvas.drawRRect(RRect.fromRectAndRadius(rect, Radius.circular(rad * u)),
-        paint);
+    canvas.drawRRect(rr, paint);
     paint.shader = null;
+    if (solid && style >= 2) _finish(Path()..addRRect(rr), rect, color);
   }
 
   /// A disc. Bigger discs are shaded as little spheres (the light pooling
@@ -85,21 +160,31 @@ class FlatPaintKit {
       {bool flat = false}) {
     final center = Offset(cx * u, cy * u);
     final rr = rad * u;
+    final rect = Rect.fromCircle(center: center, radius: rr);
+    final solid = !flat && rad >= 0.035;
     paint.style = PaintingStyle.fill;
-    if (flat || rad < 0.035) {
+    if (!solid) {
       paint
         ..shader = null
         ..color = color;
-    } else {
+    } else if (style == 0) {
       paint.shader = RadialGradient(
         center: const Alignment(-0.4, -0.5),
         radius: 1.05,
         colors: [shade(color, 0.17), color, shade(color, -0.14)],
         stops: const [0.0, 0.55, 1.0],
-      ).createShader(Rect.fromCircle(center: center, radius: rr));
+      ).createShader(rect);
+    } else {
+      paint.shader = RadialGradient(
+        center: const Alignment(-0.4, -0.5),
+        radius: 1.05,
+        colors: [_lit(color, 0.22), color, _lit(color, -0.18)],
+        stops: const [0.0, 0.52, 1.0],
+      ).createShader(rect);
     }
     canvas.drawCircle(center, rr, paint);
     paint.shader = null;
+    if (solid && style >= 2) _finish(Path()..addOval(rect), rect, color);
   }
 
   void poly(List<Offset> pts, Color color, {bool flat = false}) {
@@ -115,6 +200,7 @@ class FlatPaintKit {
     }
     canvas.drawPath(path, paint);
     paint.shader = null;
+    if (!flat && style >= 2) _finish(path, path.getBounds(), color);
   }
 
   void line(double x1, double y1, double x2, double y2, double w, Color c) {
@@ -156,6 +242,12 @@ class FlatPaintKit {
     }
     canvas.drawArc(rect, start, math.pi, false, paint);
     paint.shader = null;
+    if (rad >= 0.04 && style >= 2) {
+      final p = Path()
+        ..addArc(rect, start, math.pi)
+        ..close();
+      _finish(p, p.getBounds(), color);
+    }
   }
 
   void dome(double cx, double cy, double r, Color c) =>

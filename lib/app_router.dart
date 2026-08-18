@@ -5,6 +5,7 @@ import 'data/noun_progression_data.dart';
 import 'data/quest_data.dart';
 import 'models/app_session.dart';
 import 'models/course_session.dart';
+import 'pages/about_me_page.dart';
 import 'pages/back_office/back_office_home_page.dart';
 import 'pages/course_intro_page.dart';
 import 'pages/course_selector_page.dart';
@@ -66,6 +67,14 @@ final GoRouter appRouter = GoRouter(
       // course picker when none is chosen yet.
       path: '/home',
       redirect: (context, state) => homeLocation(),
+    ),
+    GoRoute(
+      // Outside the learner shell (and outside the auth gate, see [_guard]) so
+      // it is also reachable from the login screen — a visitor should be able
+      // to read who makes this before signing in. Always pushed, so the back
+      // button returns wherever it was opened from.
+      path: '/about-me',
+      builder: (context, state) => const AboutMePage(),
     ),
     GoRoute(
       path: '/back-office',
@@ -193,6 +202,9 @@ class _LearnerShell extends StatelessWidget {
 String? _guard(BuildContext context, GoRouterState state) {
   final session = AppSession.instance;
   final loc = state.matchedLocation;
+
+  // Public pages, readable signed out and before a course is chosen.
+  if (loc == '/about-me') return null;
 
   if (!session.isSignedIn) {
     return loc == '/login' ? null : '/login';

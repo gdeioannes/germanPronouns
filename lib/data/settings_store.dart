@@ -72,6 +72,8 @@ class SharedPreferencesSettingsStore implements SettingsStore {
           prefs.getBool(SettingsKeys.relaxedCorrection) ?? false,
       seenRelaxedCorrectionHint:
           prefs.getBool(SettingsKeys.seenRelaxedCorrectionHint) ?? false,
+      featurePollLastShownMillis:
+          prefs.getInt(SettingsKeys.featurePollLastShown),
     );
   }
 
@@ -123,6 +125,12 @@ class SharedPreferencesSettingsStore implements SettingsStore {
       SettingsKeys.seenRelaxedCorrectionHint,
       settings.seenRelaxedCorrectionHint,
     );
+    final pollShownAt = settings.featurePollLastShownMillis;
+    if (pollShownAt == null) {
+      await prefs.remove(SettingsKeys.featurePollLastShown);
+    } else {
+      await prefs.setInt(SettingsKeys.featurePollLastShown, pollShownAt);
+    }
   }
 }
 

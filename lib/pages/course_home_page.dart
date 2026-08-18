@@ -25,6 +25,7 @@ import '../widgets/app_drawer.dart';
 import '../widgets/coin_balance_pill.dart';
 import '../widgets/completion_ribbon.dart';
 import '../widgets/country_flag.dart';
+import '../widgets/feature_poll.dart';
 import 'auth_gate.dart';
 
 /// Visual kind of a home-page quiz row, driving its icon and accent color.
@@ -831,6 +832,21 @@ class _CourseHomePageState extends State<CourseHomePage> {
                       ),
                     ),
                     const SizedBox(height: 8),
+                    // Standing entry to the roadmap poll, for learners who have
+                    // an opinion between quizzes. Outlined so it stays
+                    // subordinate to the two study-material actions above.
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton.icon(
+                        onPressed: () => showFeaturePoll(
+                          context,
+                          source: kFeaturePollSourceHome,
+                        ),
+                        icon: const Icon(Icons.lightbulb_outline_rounded),
+                        label: Text(strings.featurePollOpen),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
                     for (final section in sections) ...[
                       _sectionLabel(context, section.title),
                       for (final quiz in section.quizzes) ...[
@@ -842,6 +858,16 @@ class _CourseHomePageState extends State<CourseHomePage> {
                         const SizedBox(height: 8),
                       ],
                     ],
+                    // Quiet footer link: who makes the courses and how to
+                    // reach them. Pushed, so back returns to the course home.
+                    const SizedBox(height: 16),
+                    Center(
+                      child: TextButton.icon(
+                        onPressed: () => context.push('/about-me'),
+                        icon: const Icon(Icons.person_outline, size: 18),
+                        label: Text(strings.aboutMeTitle),
+                      ),
+                    ),
                   ],
                 ),
               ),

@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dart run *)"
+      "Bash(dart run *)",
+      "PowerShell(flutter test test/feature_poll_test.dart 2>&1)"
     ]
   }
 }

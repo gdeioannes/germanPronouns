@@ -620,10 +620,26 @@ class _RoomCanvasState extends State<_RoomCanvas>
       });
 
   // A slow, looping clock that drives the gentle idle float of room pieces.
+  // Painters and motion transforms listen to [_idleAnim], not the controller:
+  // it re-emits the clock quantized to ~24 fps. The idle drifts are far too
+  // slow for the eye to tell 24 from 120 fps, and every skipped notification
+  // skips a whole raster pass over the animated pieces.
   late final AnimationController _idle = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 6),
-  );
+  )..addListener(_onIdleTick);
+  static const int _idleSteps = 6 * 24; // 24 fps over the 6 s loop
+  int _idleStep = -1;
+  final ValueNotifier<double> _idleClock = ValueNotifier(0);
+  late final Animation<double> _idleAnim =
+      Animation.fromValueListenable(_idleClock);
+
+  void _onIdleTick() {
+    final step = (_idle.value * _idleSteps).floor();
+    if (step == _idleStep) return;
+    _idleStep = step;
+    _idleClock.value = _idle.value;
+  }
 
   // ── Zoom & pan ─────────────────────────────────────────────────────────────
   // The room can be zoomed in to inspect or place pieces closely. All view
@@ -864,6 +880,7 @@ class _RoomCanvasState extends State<_RoomCanvas>
   void dispose() {
     _lift.dispose();
     _idle.dispose();
+    _idleClock.dispose();
     _zoom.dispose();
     super.dispose();
   }
@@ -988,13 +1005,17 @@ class _RoomCanvasState extends State<_RoomCanvas>
                         _maybeAnnounce(comboMatches);
                         return Stack(
                           children: [
+                            // Its own layer: the backdrop only repaints when a
+                            // surface changes, never with the idle animation.
                             Positioned.fill(
-                              child: _CosyRoom(
-                                floorGlyph: floor?.glyph ?? theme.floorGlyph,
-                                floorColor: floor?.color ?? theme.floorColor,
-                                wallGlyph: wall?.glyph ?? theme.wallGlyph,
-                                wallColor: wall?.color ?? theme.wallColor,
-                                backdrop: theme.backdrop,
+                              child: RepaintBoundary(
+                                child: _CosyRoom(
+                                  floorGlyph: floor?.glyph ?? theme.floorGlyph,
+                                  floorColor: floor?.color ?? theme.floorColor,
+                                  wallGlyph: wall?.glyph ?? theme.wallGlyph,
+                                  wallColor: wall?.color ?? theme.wallColor,
+                                  backdrop: theme.backdrop,
+                                ),
                               ),
                             ),
                             for (final p in ordered)
@@ -1002,18 +1023,22 @@ class _RoomCanvasState extends State<_RoomCanvas>
                             if (night || lights.isNotEmpty)
                               Positioned.fill(
                                 child: IgnorePointer(
-                                  child: CustomPaint(
-                                    painter: _RoomLightingPainter(
-                                      night: night,
-                                      lights: lights,
-                                      // Only the blurred glows flicker; with effects off
-                                      // there are none, so don't drive a per-frame repaint
-                                      // just to redraw the flat night dimming.
-                                      clock:
-                                          Apartment.instance.animate &&
-                                              Apartment.instance.effects
-                                          ? _idle
-                                          : null,
+                                  // Its own layer, so the flicker repaint stays
+                                  // out of the piece and backdrop layers.
+                                  child: RepaintBoundary(
+                                    child: CustomPaint(
+                                      painter: _RoomLightingPainter(
+                                        night: night,
+                                        lights: lights,
+                                        // Only the blurred glows flicker; with effects off
+                                        // there are none, so don't drive a per-frame repaint
+                                        // just to redraw the flat night dimming.
+                                        clock:
+                                            Apartment.instance.animate &&
+                                                Apartment.instance.effects
+                                            ? _idleAnim
+                                            : null,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -1024,12 +1049,15 @@ class _RoomCanvasState extends State<_RoomCanvas>
                             if (comboMatches.isNotEmpty)
                               Positioned.fill(
                                 child: IgnorePointer(
-                                  child: CustomPaint(
-                                    painter: _ComboFxPainter(
-                                      matches: comboMatches,
-                                      clock: Apartment.instance.animate
-                                          ? _idle
-                                          : null,
+                                  // Its own layer, like the lighting above.
+                                  child: RepaintBoundary(
+                                    child: CustomPaint(
+                                      painter: _ComboFxPainter(
+                                        matches: comboMatches,
+                                        clock: Apartment.instance.animate
+                                            ? _idleAnim
+                                            : null,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -1235,19 +1263,29 @@ class _RoomCanvasState extends State<_RoomCanvas>
     final glyph = item.glyph;
     final phase = (iid.hashCode & 0xFFFF) / 0xFFFF;
 
-    Widget token = _FurnitureToken(
-      item: item,
-      size: itemSize,
-      highlighted: isDragging,
-      flipped: Apartment.instance.isFlipped(iid),
-      animation: animating && furnitureHasIdleAnimation(glyph) ? _idle : null,
-      phase: phase,
+    // Each piece rasterizes into its own layer: an animated painter then
+    // redraws only its own small tile, and every other layer (the backdrop,
+    // the still pieces) is composited from cache instead of the whole room
+    // re-painting on every clock tick.
+    Widget token = RepaintBoundary(
+      child: _FurnitureToken(
+        item: item,
+        size: itemSize,
+        highlighted: isDragging,
+        flipped: Apartment.instance.isFlipped(iid),
+        animation: animating && furnitureHasIdleAnimation(glyph)
+            ? _idleAnim
+            : null,
+        phase: phase,
+      ),
     );
 
     final motion = _motionFor(glyph);
     if (animating && motion != _Motion.none) {
+      // The motion transform sits *outside* the boundary, so a sway/breathe
+      // only re-composites the cached raster — it never re-draws the piece.
       token = _IdleMotion(
-        clock: _idle,
+        clock: _idleAnim,
         seed: iid.hashCode,
         motion: motion,
         child: token,
@@ -1346,29 +1384,16 @@ class _FurnitureToken extends StatelessWidget {
               Positioned(
                 left: 0,
                 right: 0,
-                bottom: size * 0.05,
+                bottom: size * 0.03,
                 child: Center(
-                  // A soft, blurred contact shadow that melts into the floor, so
-                  // the piece sits in the room instead of hovering on a hard grey
-                  // ellipse. The real-time blur is the most GPU-heavy thing here,
-                  // so with effects off we draw the plain ellipse (a touch more
-                  // transparent to soften the hard edge) and skip the blur.
-                  child: _maybeBlur(
-                    blur: Apartment.instance.effects,
-                    sigmaX: size * 0.03,
-                    sigmaY: size * 0.02,
-                    child: Container(
-                      width: size * 0.62,
-                      height: size * 0.12,
-                      decoration: BoxDecoration(
-                        color: Colors.black.withValues(
-                          alpha: Apartment.instance.effects ? 0.18 : 0.12,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.elliptical(size * 0.31, size * 0.06),
-                        ),
-                      ),
-                    ),
+                  // A soft contact shadow that melts into the floor. Painted as
+                  // a radial-gradient ellipse: it reads like the gaussian blur
+                  // it replaces, but with no ImageFilter/saveLayer it costs
+                  // next to nothing — the blur was one GPU filter pass per
+                  // piece per frame, the heaviest thing in the room.
+                  child: CustomPaint(
+                    size: Size(size * 0.72, size * 0.16),
+                    painter: const _ContactShadowPainter(),
                   ),
                 ),
               ),
@@ -1380,21 +1405,34 @@ class _FurnitureToken extends StatelessWidget {
   }
 }
 
-/// Wraps [child] in a gaussian [ui.ImageFilter.blur] when [blur] is true, else
-/// returns it untouched. Real-time blur is the heaviest GPU work in the room, so
-/// the room's "effects" toggle (`Apartment.effects`) routes its blurs through
-/// here to switch them off on weak devices.
-Widget _maybeBlur({
-  required bool blur,
-  required double sigmaX,
-  required double sigmaY,
-  required Widget child,
-}) {
-  if (!blur) return child;
-  return ImageFiltered(
-    imageFilter: ui.ImageFilter.blur(sigmaX: sigmaX, sigmaY: sigmaY),
-    child: child,
-  );
+/// The soft elliptical contact shadow under floor pieces: a unit-circle radial
+/// gradient stretched over the box, so the falloff is elliptical — visually the
+/// blurred blob it replaces, without the per-piece gaussian-filter pass.
+class _ContactShadowPainter extends CustomPainter {
+  const _ContactShadowPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..shader = ui.Gradient.radial(
+        Offset.zero,
+        1,
+        [
+          const Color(0x2E000000),
+          const Color(0x24000000),
+          const Color(0x00000000),
+        ],
+        const [0.0, 0.55, 1.0],
+      );
+    canvas.save();
+    canvas.translate(size.width / 2, size.height / 2);
+    canvas.scale(size.width / 2, size.height / 2);
+    canvas.drawRect(const Rect.fromLTRB(-1, -1, 1, 1), paint);
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(_ContactShadowPainter oldDelegate) => false;
 }
 
 /// A tiny, slow whole-piece idle motion that suits the object: a plant [sway]ing

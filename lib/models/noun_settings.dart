@@ -46,6 +46,8 @@ class NounSettings {
   static const String _relaxedCorrectionKey = SettingsKeys.relaxedCorrection;
   static const String _seenRelaxedCorrectionHintKey =
       SettingsKeys.seenRelaxedCorrectionHint;
+  static const String _featurePollLastShownKey =
+      SettingsKeys.featurePollLastShown;
   static const String _questUnlockLapsKey = SettingsKeys.questUnlockLaps;
   static const String _completedQuestQuizzesKey =
       SettingsKeys.completedQuestQuizzes;
@@ -110,6 +112,7 @@ class NounSettings {
   bool _showFirstLetterHint = false;
   bool _relaxedCorrection = false;
   bool _seenRelaxedCorrectionHint = false;
+  DateTime? _featurePollLastShown;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -164,6 +167,10 @@ class NounSettings {
   /// shown (after the learner's first answer that was wrong only because of an
   /// accent/umlaut). Used to show that panel at most once.
   bool get hasSeenRelaxedCorrectionHint => _seenRelaxedCorrectionHint;
+
+  /// When the feature poll was last shown (answered or dismissed), or null if
+  /// it never has been. See [markFeaturePollShown].
+  DateTime? get featurePollLastShown => _featurePollLastShown;
 
   /// Total correct answers in a row needed to unlock the next entry in the
   /// noun-category progression ([progressionUnlockLaps] streaks of 5
@@ -327,6 +334,10 @@ class NounSettings {
     _relaxedCorrection = prefs.getBool(_relaxedCorrectionKey) ?? false;
     _seenRelaxedCorrectionHint =
         prefs.getBool(_seenRelaxedCorrectionHintKey) ?? false;
+    final pollShownAt = prefs.getInt(_featurePollLastShownKey);
+    _featurePollLastShown = pollShownAt == null
+        ? null
+        : DateTime.fromMillisecondsSinceEpoch(pollShownAt);
     _loaded = true;
   }
 
@@ -541,6 +552,18 @@ class NounSettings {
     await prefs.setBool(_seenRelaxedCorrectionHintKey, true);
   }
 
+  /// Records that the "what should we build next?" poll was just shown, which
+  /// starts its cooldown. Called whether the learner answered or dismissed it.
+  ///
+  /// [at] defaults to now; pass an explicit time to place the last showing in
+  /// the past (tests, and any future "ask me again sooner" affordance).
+  Future<void> markFeaturePollShown([DateTime? at]) async {
+    final when = at ?? DateTime.now();
+    _featurePollLastShown = when;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_featurePollLastShownKey, when.millisecondsSinceEpoch);
+  }
+
   Future<void> _save() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_storageKey, _disabledNouns.toList());
@@ -588,6 +611,7 @@ class NounSettings {
     showFirstLetterHint: _showFirstLetterHint,
     relaxedCorrection: _relaxedCorrection,
     seenRelaxedCorrectionHint: _seenRelaxedCorrectionHint,
+    featurePollLastShownMillis: _featurePollLastShown?.millisecondsSinceEpoch,
   );
 
   Future<void> setGenderColor(String gender, Color color) async {
@@ -619,6 +643,7 @@ class NounSettings {
     _showFirstLetterHint = false;
     _relaxedCorrection = false;
     _seenRelaxedCorrectionHint = false;
+    _featurePollLastShown = null;
     _lastPage = null;
     _lastContentId = null;
     _completedNounCategories = {};

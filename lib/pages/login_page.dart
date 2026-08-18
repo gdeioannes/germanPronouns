@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../models/app_session.dart';
+import '../models/course_session.dart';
 import '../theme/brand_palette.dart';
+import '../widgets/feature_poll.dart';
 import '../widgets/person_scene.dart';
 
 /// The app's front door: a split brand poster. One pane is a navy field with
@@ -116,6 +119,48 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         child: const Text('Start learning'),
+                      ),
+                      const SizedBox(height: 14),
+                      // Who makes this — readable before signing in. Set in
+                      // the display face like the heading above, a size down,
+                      // so it reads as part of the invitation rather than as
+                      // corner chrome.
+                      Center(
+                        child: TextButton(
+                          onPressed: () => context.push('/about-me'),
+                          style: TextButton.styleFrom(
+                            foregroundColor: colorScheme.primary,
+                            textStyle: textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          child: const Text('About me'),
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      // The roadmap poll, offered before signing in: returning
+                      // learners land here every visit, so it is the one place
+                      // everybody passes through. Kept below "About me" in the
+                      // hierarchy, but in the link colour — muted grey read as
+                      // disabled rather than tappable.
+                      Center(
+                        child: TextButton.icon(
+                          onPressed: () => showFeaturePoll(
+                            context,
+                            source: kFeaturePollSourceLogin,
+                          ),
+                          style: TextButton.styleFrom(
+                            foregroundColor: colorScheme.primary,
+                            textStyle: textTheme.bodyLarge,
+                          ),
+                          icon: const Icon(
+                            Icons.lightbulb_outline_rounded,
+                            size: 18,
+                          ),
+                          label: Text(
+                            CourseSession.instance.strings.featurePollOpen,
+                          ),
+                        ),
                       ),
                     ] else ...[
                       Text(

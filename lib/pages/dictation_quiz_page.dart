@@ -9,6 +9,7 @@ import '../models/quiz_content.dart';
 import '../services/tts/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../utils/speech_match.dart';
+import '../widgets/feature_poll.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
 import '../widgets/quiz_scaffold.dart';
@@ -234,6 +235,9 @@ class _DictationQuizPageState extends State<DictationQuizPage>
           widget.questProgressionKey!,
         );
       }
+      // Finishing a quiz is the high point where the feature poll is asked
+      // (self-gating: at most once a week, and only when due).
+      if (mounted) await maybeShowFeaturePollAfterQuiz(context);
     }
   }
 

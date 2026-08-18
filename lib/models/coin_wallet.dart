@@ -27,6 +27,11 @@ class CoinWallet extends ChangeNotifier {
   /// Flat bonus for finishing a quiz (its progression goal unlocked / "done").
   static const int quizFinishedBonus = 5;
 
+  /// Thank-you payout for answering the one-time feature poll. Deliberately
+  /// worth about a silver ribbon: enough that answering feels rewarded (which
+  /// is what lifts the response rate), not so much that it out-earns learning.
+  static const int featurePollBonus = 40;
+
   /// Coin reward range (inclusive) per ribbon tier. Each time a ribbon is earned
   /// or renewed, a random amount in its tier's band is paid out. Every completed
   /// quiz earns at least a bronze ribbon, so a completion is never worth nothing.

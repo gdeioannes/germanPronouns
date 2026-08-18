@@ -53,6 +53,11 @@ void main() {
     await AppSession.instance.load();
     await CourseSession.instance.load();
     await NounSettings.instance.load();
+    // Finishing a quiz schedules the feature poll behind a delay. This file is
+    // about cloze scoring, so put the poll on its cooldown: otherwise its timer
+    // is still pending when the test ends and the binding fails on
+    // '!timersPending'. Poll behaviour itself is covered by feature_poll_test.
+    await NounSettings.instance.markFeaturePollShown();
   });
 
   testWidgets('renders an inline dropdown and a typed field', (tester) async {

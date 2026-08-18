@@ -33,8 +33,27 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      # Version stamp: the marketing version comes from pubspec.yaml, the build
+      # number from the CI run counter and the timestamp/commit from this run,
+      # so every deploy is self-describing without a manual bump.
+      - name: Compute build stamp
+        id: stamp
+        run: |
+          VERSION=$(sed -n 's/^version: *\([^+]*\).*/\1/p' pubspec.yaml | tr -d '[:space:]')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "time=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+          echo "commit=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Build web app
-        run: flutter build web --release --base-href "/" --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev
+        run: |
+          flutter build web --release --base-href "/" \
+            --build-name="${{ steps.stamp.outputs.version }}" \
+            --build-number="${{ github.run_number }}" \
+            --dart-define=TTS_PROXY_URL=https://german-tts-proxy.gdeioannes.workers.dev \
+            --dart-define=BUILD_VERSION="${{ steps.stamp.outputs.version }}" \
+            --dart-define=BUILD_NUMBER="${{ github.run_number }}" \
+            --dart-define=BUILD_TIME="${{ steps.stamp.outputs.time }}" \
+            --dart-define=BUILD_COMMIT="${{ steps.stamp.outputs.commit }}"
 
       # 🌟 CRITICAL STEP: Add this to keep GitHub Pages tied to your custom domain
       - name: Inject CNAME file

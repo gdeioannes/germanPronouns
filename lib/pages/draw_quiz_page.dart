@@ -15,6 +15,7 @@ import '../services/drawing_score.dart';
 import '../services/tts/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/completion_ribbon.dart';
+import '../widgets/feature_poll.dart';
 import '../widgets/fireworks.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
@@ -393,6 +394,9 @@ class _DrawQuizPageState extends State<DrawQuizPage>
       _runTier = tier;
       _coinsEarned = coins;
     });
+    // Earning a ribbon is what counts as finishing here, so only then is the
+    // feature poll asked (self-gating: at most once a week, and only when due).
+    if (tier != null && mounted) await maybeShowFeaturePollAfterQuiz(context);
   }
 
   /// Persists [tier] as the best-streak stat every ribbon display already

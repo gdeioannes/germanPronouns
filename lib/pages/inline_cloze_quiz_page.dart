@@ -9,6 +9,7 @@ import '../models/quiz_content.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
 import '../utils/answer_normalization.dart';
+import '../widgets/feature_poll.dart';
 import '../widgets/next_exercise.dart';
 import '../widgets/quiz_panel.dart';
 import '../widgets/quiz_scaffold.dart';
@@ -191,6 +192,9 @@ class _InlineClozeQuizPageState extends State<InlineClozeQuizPage> {
           widget.questProgressionKey!,
         );
       }
+      // Finishing a quiz is the high point where the feature poll is asked
+      // (self-gating: at most once a week, and only when due).
+      if (mounted) await maybeShowFeaturePollAfterQuiz(context);
     }
   }
 

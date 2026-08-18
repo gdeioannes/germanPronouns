@@ -1,9 +1,10 @@
 /// Minimal vector illustrations of the shop furniture — solid shapes in a small
 /// palette derived from each item's color, no icons. The style stays flat and
-/// clean, but every solid shape is now lit from one consistent direction (top,
-/// a hair left) through a soft gradient, so pieces read with a little volume and
-/// sit in the room's light instead of looking like flat stickers. Used in both
-/// the room and the shop so the whole game looks of a piece.
+/// clean: every solid shape is lit from one consistent direction (top, a hair
+/// left) through a warm-light / cool-shade gradient (see [FlatPaintKit.style];
+/// no outlines — the keyline experiment was rejected), so pieces read with a
+/// soft, hand-painted volume. Used in both the room and the shop so the whole
+/// game looks of a piece.
 library;
 
 import 'dart:math' as math;
@@ -120,6 +121,7 @@ class FlatFurniture extends StatelessWidget {
     required this.size,
     this.animation,
     this.phase = 0,
+    this.style = 1,
   });
 
   final ShopItem item;
@@ -127,11 +129,17 @@ class FlatFurniture extends StatelessWidget {
   final Animation<double>? animation;
   final double phase;
 
+  /// Style-variant knob (see [FlatPaintKit.style]); 1 — luminous, no outline —
+  /// is the shipped furniture look, the other values exist for the restyle
+  /// preview (test/_style_preview.dart).
+  final int style;
+
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
       size: Size.square(size),
-      painter: _FurniturePainter(item, animation: animation, phase: phase),
+      painter: _FurniturePainter(item,
+          animation: animation, phase: phase, style: style),
     );
   }
 }
@@ -148,14 +156,22 @@ const Color _walnut = Color(0xFF6E4A2B); // dark brown wood
 const Color _mustard = Color(0xFFD9A521); // mustard yellow (sun-hat)
 const Color _silver = Color(0xFFC2C7CC); // brushed metal
 const Color _terra = Color(0xFFC56A45); // terracotta clay
+// The cozy-studio redesign's material accents (2026-07): brass hardware, cream
+// china, coffee, deep stem green — shared so hardware and props match across
+// every redrawn piece.
+const Color _brass = Color(0xFFC9A24B);
+const Color _cream = Color(0xFFEFE5CE);
+const Color _coffee = Color(0xFF4A3222);
+const Color _stem = Color(0xFF33691E);
 
 class _FurniturePainter extends CustomPainter {
-  _FurniturePainter(this.item, {this.animation, this.phase = 0})
+  _FurniturePainter(this.item, {this.animation, this.phase = 0, this.style = 1})
       : super(repaint: animation);
 
   final ShopItem item;
   final Animation<double>? animation;
   final double phase;
+  final int style;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -187,7 +203,7 @@ class _FurniturePainter extends CustomPainter {
     // hundreds of case bodies below reading exactly as before. The kit paints
     // through this painter's own [paint] instance, so the paint-state sequence
     // is unchanged.
-    final kit = FlatPaintKit(canvas, u, paint);
+    final kit = FlatPaintKit(canvas, u, paint, style: style);
     Shader vshade(Rect r, Color c, double hi, double lo) =>
         kit.vshade(r, c, hi, lo);
     void box(double l, double t, double r, double b, double rad, Color color,
@@ -230,6 +246,89 @@ class _FurniturePainter extends CustomPainter {
     void arc(double cx, double cy, double rad, double start, double sweep,
             double w, Color color) =>
         kit.arc(cx, cy, rad, start, sweep, w, color);
+
+    // ── Cozy-studio helpers (the 2026-07 redesign language) ─────────────────
+    // Plump custom paths, edge-free glows, rotated accents and splayed wooden
+    // feet, shared by the redrawn cases so the whole set keeps one hand. No
+    // outlines anywhere — separation comes from tone contrast and soft
+    // occlusion shadows (see the no-outlines rule in people_paint.dart).
+    Path pl(List<Offset> pts) => Path()
+      ..addPolygon([for (final o in pts) Offset(o.dx * u, o.dy * u)], true);
+
+    void fillPath(Path pth, Color c, {double hi = 0.10, double lo = 0.12}) {
+      paint
+        ..style = PaintingStyle.fill
+        ..shader = vshade(pth.getBounds(), c, hi, lo);
+      canvas.drawPath(pth, paint);
+      paint.shader = null;
+    }
+
+    Path ovalPath(double cx, double cy, double rx, double ry) => Path()
+      ..addOval(Rect.fromCenter(
+          center: Offset(cx * u, cy * u),
+          width: 2 * rx * u,
+          height: 2 * ry * u));
+
+    void oval(double cx, double cy, double rx, double ry, Color c) =>
+        fillPath(ovalPath(cx, cy, rx, ry), c);
+
+    // A soft pool of light fading to fully transparent — glow without an edge.
+    void haloGlow(
+        double cx, double cy, double rx, double ry, Color c, double a) {
+      final rect = Rect.fromCenter(
+          center: Offset(cx * u, cy * u),
+          width: 2 * rx * u,
+          height: 2 * ry * u);
+      paint
+        ..style = PaintingStyle.fill
+        ..shader = RadialGradient(colors: [
+          c.withValues(alpha: a),
+          c.withValues(alpha: 0.0),
+        ]).createShader(rect);
+      canvas.drawOval(rect, paint);
+      paint.shader = null;
+    }
+
+    // Runs [body] with the canvas rotated by [ang] around (cx, cy), unit
+    // coordinates preserved — for tilted accents (throw pillows, leaning
+    // books) without re-deriving their geometry.
+    void rot(double cx, double cy, double ang, void Function() body) {
+      canvas.save();
+      canvas.translate(cx * u, cy * u);
+      canvas.rotate(ang);
+      canvas.translate(-cx * u, -cy * u);
+      body();
+      canvas.restore();
+    }
+
+    // A broad houseplant leaf: a teardrop with a soft midrib, rotated by
+    // [ang]. Complements [leaf] (the slender almond) for the plump foliage of
+    // the redesigned plants.
+    void bigLeaf(
+        double cx, double cy, double w, double h, double ang, Color c) {
+      rot(cx, cy, ang, () {
+        final pth = Path()
+          ..moveTo(cx * u, (cy - h) * u)
+          ..cubicTo((cx + w) * u, (cy - h * 0.55) * u, (cx + w * 0.9) * u,
+              (cy + h * 0.5) * u, cx * u, (cy + h) * u)
+          ..cubicTo((cx - w * 0.9) * u, (cy + h * 0.5) * u, (cx - w) * u,
+              (cy - h * 0.55) * u, cx * u, (cy - h) * u)
+          ..close();
+        fillPath(pth, c, hi: 0.14);
+        line(cx, cy - h * 0.8, cx, cy + h * 0.8, 0.008, _shade(c, -0.18));
+      });
+    }
+
+    // A splayed walnut foot under upholstered pieces; [dir] leans it outward
+    // (−1 left, +1 right). [top] is where it tucks under the body.
+    void walnutFoot(double x, double top, double dir) => fillPath(
+        pl([
+          Offset(x - 0.030, top),
+          Offset(x + 0.030, top),
+          Offset(x + dir * 0.014 + 0.020, 0.90),
+          Offset(x + dir * 0.014 - 0.020, 0.90),
+        ]),
+        _walnut);
 
     // The People cast's palette — shared with PersonScene via people_paint.dart
     // so the cast reads as one family wherever it appears.
@@ -316,6 +415,18 @@ class _FurniturePainter extends CustomPainter {
         ..shader = vshade(path.getBounds(), c, 0.14, 0.12);
       canvas.drawPath(path, paint);
       paint.shader = null;
+      if (style == 2) {
+        // Keyline variant: leaves get the same inked contour as the kit's
+        // solids, a touch thinner so foliage stays airy.
+        canvas.drawPath(
+            path,
+            paint
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = 0.008 * u
+              ..strokeJoin = StrokeJoin.round
+              ..color = _shade(c, -0.30));
+        paint.style = PaintingStyle.fill;
+      }
       if (vein) {
         canvas.drawLine(
             b, tip,
@@ -372,53 +483,95 @@ class _FurniturePainter extends CustomPainter {
 
     switch (item.glyph) {
       case 'lamp':
-        box(0.355, 0.84, 0.645, 0.90, 0.02, dark); // base
-        box(0.475, 0.34, 0.525, 0.85, 0.0, dark); // pole
-        poly(const [
-          Offset(0.40, 0.12),
-          Offset(0.60, 0.12),
-          Offset(0.70, 0.36),
-          Offset(0.30, 0.36),
-        ], base); // shade
-        line(0.43, 0.20, 0.57, 0.20, 0.012, light); // shade highlight
-      case 'plant': // a leafy bush fanning from a pot, a butterfly visiting
         {
-          final sway = wv(1) * 0.02;
-          const bx = 0.50, by = 0.66;
-          // a fan of broad leaves, outer pair first so inner overlaps cleanly
-          for (var i = 0; i < 5; i++) {
-            final a = -math.pi / 2 + (i - 2) * 0.52;
-            final tx = bx + 0.30 * math.cos(a) + sway * (i - 2);
-            final ty = by + 0.30 * math.sin(a);
-            leaf(bx, by, tx, ty, 0.085, i.isEven ? base : _shade(base, 0.07),
-                curve: (i - 2) * 0.03);
-          }
-          leaf(bx, by, bx - 0.09 + sway, by - 0.34, 0.06, _shade(base, -0.05),
-              vein: false);
-          leaf(bx, by, bx + 0.09 + sway, by - 0.34, 0.06, _shade(base, -0.04),
-              vein: false);
-          pot(0.50, 0.16, 0.115, 0.66, 0.90, const Color(0xFFCE8A52));
+          // a warm halo, a domed walnut base, a brass stem with a collar and
+          // a pleated empire shade with a lit hem + pull chain
+          haloGlow(0.50, 0.30, 0.32, 0.32, const Color(0xFFFFD98F), 0.35);
+          dome(0.50, 0.885, 0.115, _walnut);
+          box(0.40, 0.885, 0.60, 0.905, 0.01, _shade(_walnut, -0.12));
+          line(0.50, 0.875, 0.50, 0.42, 0.020, _brass);
+          circ(0.50, 0.60, 0.022, _shade(_brass, -0.10)); // collar
+          final hem = Path()
+            ..moveTo(0.415 * u, 0.135 * u)
+            ..lineTo(0.585 * u, 0.135 * u)
+            ..cubicTo(0.60 * u, 0.135 * u, 0.665 * u, 0.30 * u, 0.685 * u,
+                0.415 * u)
+            ..quadraticBezierTo(0.50 * u, 0.455 * u, 0.315 * u, 0.415 * u)
+            ..cubicTo(0.335 * u, 0.30 * u, 0.40 * u, 0.135 * u, 0.415 * u,
+                0.135 * u)
+            ..close();
+          fillPath(hem, base, hi: 0.13);
+          line(0.445, 0.16, 0.375, 0.405, 0.006, _shade(base, -0.12)); // pleats
+          line(0.50, 0.165, 0.50, 0.425, 0.006, _shade(base, -0.12));
+          line(0.555, 0.16, 0.625, 0.405, 0.006, _shade(base, -0.12));
+          arc(0.50, 0.405, 0.185, 0.15, math.pi - 0.3, 0.018,
+              const Color(0xFFFFE9A8)); // lit hem
+          line(0.615, 0.43, 0.63, 0.51, 0.007, _shade(_brass, -0.20));
+          circ(0.63, 0.525, 0.016, _brass); // pull-chain bead
+        }
+      case 'plant': // a broad-leafed houseplant in a glazed pot, butterfly visiting
+        {
+          final sway = wv(1) * 0.05;
+          // stems arcing out of the pot, then back row / front row of leaves
+          line(0.50, 0.64, 0.50, 0.40, 0.012, _stem);
+          arc(0.42, 0.58, 0.16, math.pi * 0.9, math.pi * 0.45, 0.012, _stem);
+          arc(0.58, 0.58, 0.16, math.pi * 0.65, math.pi * 0.45, 0.012, _stem);
+          bigLeaf(0.335, 0.335, 0.085, 0.155, -0.55 + sway, _shade(base, -0.10));
+          bigLeaf(0.665, 0.325, 0.085, 0.155, 0.55 + sway, _shade(base, -0.08));
+          bigLeaf(0.50, 0.235, 0.09, 0.165, sway, base);
+          bigLeaf(0.41, 0.44, 0.08, 0.14, -0.95 + sway, _shade(base, 0.09));
+          bigLeaf(0.60, 0.455, 0.08, 0.135, 0.95 + sway, _shade(base, 0.07));
+          bigLeaf(0.655, 0.575, 0.06, 0.105, 2.35 + sway * 0.5,
+              _shade(base, 0.12)); // drooping over the rim
+          // glazed pot: soil, tapered body, overhanging lip, glaze highlight
+          oval(0.50, 0.645, 0.14, 0.032, const Color(0xFF5A4636));
+          fillPath(pl(const [
+            Offset(0.355, 0.655), Offset(0.645, 0.655),
+            Offset(0.60, 0.885), Offset(0.40, 0.885),
+          ]), _terra);
+          box(0.335, 0.632, 0.665, 0.685, 0.022, const Color(0xFFD07B55));
+          circ(0.585, 0.755, 0.018, const Color(0xFFE59A76), flat: true);
           if (on) {
             final d = saw(1);
-            butterfly(0.74 - 0.10 * math.sin(d * 2 * math.pi),
-                0.24 + 0.07 * math.cos(d * 2 * math.pi), 0.10,
+            butterfly(0.76 - 0.10 * math.sin(d * 2 * math.pi),
+                0.22 + 0.07 * math.cos(d * 2 * math.pi), 0.10,
                 const Color(0xFFE8943C), 0.5 + 0.5 * wv(7));
           }
         }
       case 'chair':
-        box(0.34, 0.12, 0.62, 0.56, 0.03, base); // backrest
-        box(0.30, 0.52, 0.70, 0.63, 0.03, dark); // seat
-        box(0.33, 0.63, 0.40, 0.90, 0.014, dark); // leg
-        box(0.60, 0.63, 0.67, 0.90, 0.014, dark); // leg
+        // splayed legs, rail back, a plank seat with a tied cushion
+        fillPath(pl(const [
+          Offset(0.295, 0.60), Offset(0.355, 0.60),
+          Offset(0.33, 0.90), Offset(0.28, 0.90),
+        ]), dark);
+        fillPath(pl(const [
+          Offset(0.645, 0.60), Offset(0.705, 0.60),
+          Offset(0.72, 0.90), Offset(0.67, 0.90),
+        ]), dark);
+        box(0.335, 0.13, 0.385, 0.57, 0.022, base); // back stiles
+        box(0.615, 0.13, 0.665, 0.57, 0.022, base);
+        box(0.345, 0.175, 0.655, 0.255, 0.04, base); // curved top rail
+        box(0.345, 0.315, 0.655, 0.375, 0.03, _shade(base, -0.06)); // mid slat
+        box(0.26, 0.545, 0.74, 0.64, 0.05, base); // overhanging seat
+        box(0.295, 0.50, 0.705, 0.585, 0.045, _shade(base, 0.16)); // cushion
+        line(0.33, 0.517, 0.67, 0.517, 0.008, _shade(base, 0.32)); // piping
       case 'painting': // wall piece — centred, no feet
-        box(0.18, 0.14, 0.82, 0.76, 0.03, dark); // frame
-        box(0.23, 0.19, 0.77, 0.71, 0.02, offWhite); // mat
+        // a gilt-lined frame around a layered dawn landscape
+        box(0.16, 0.12, 0.84, 0.78, 0.035, dark); // frame
+        box(0.195, 0.155, 0.805, 0.745, 0.02, _shade(dark, 0.14)); // gilt lip
+        box(0.215, 0.175, 0.785, 0.725, 0.015, const Color(0xFFF6E7C8)); // sky
+        haloGlow(0.64, 0.33, 0.14, 0.14, const Color(0xFFFFD98F), 0.55);
+        circ(0.64, 0.33, 0.055, const Color(0xFFF4C15E)); // low sun
         poly(const [
-          Offset(0.27, 0.66),
-          Offset(0.47, 0.40),
-          Offset(0.67, 0.66),
-        ], base); // mountain
-        circ(0.64, 0.34, 0.07, light); // sun
+          Offset(0.215, 0.725), Offset(0.215, 0.56),
+          Offset(0.38, 0.38), Offset(0.545, 0.60),
+          Offset(0.545, 0.725),
+        ], _shade(base, -0.10)); // far peak
+        poly(const [
+          Offset(0.30, 0.725), Offset(0.52, 0.46),
+          Offset(0.785, 0.685), Offset(0.785, 0.725),
+        ], base); // near hill
+        box(0.215, 0.665, 0.785, 0.725, 0.01, _shade(base, 0.18)); // meadow
       case 'clock': // wall piece — centred
         {
           circ(0.50, 0.45, 0.33, base);
@@ -434,45 +587,94 @@ class _FurniturePainter extends CustomPainter {
           circ(0.50, 0.45, 0.028, dark);
         }
       case 'bookshelf':
-        box(0.24, 0.10, 0.76, 0.90, 0.02, base);
-        box(0.28, 0.13, 0.72, 0.87, 0.01, light);
-        box(0.32, 0.18, 0.38, 0.42, 0.006, const Color(0xFFE57373));
-        box(0.385, 0.16, 0.445, 0.42, 0.006, const Color(0xFF64B5F6));
-        box(0.45, 0.21, 0.51, 0.42, 0.006, const Color(0xFF81C784));
-        box(0.57, 0.17, 0.63, 0.42, 0.006, const Color(0xFFFFB74D));
-        box(0.28, 0.42, 0.72, 0.45, 0.0, dark); // shelf
-        box(0.33, 0.49, 0.39, 0.84, 0.006, const Color(0xFFBA68C8));
-        box(0.40, 0.53, 0.46, 0.84, 0.006, const Color(0xFF4DB6AC));
-        box(0.54, 0.50, 0.60, 0.84, 0.006, const Color(0xFFFF8A65));
-        box(0.61, 0.55, 0.67, 0.84, 0.006, const Color(0xFF9575CD));
-        box(0.28, 0.84, 0.72, 0.87, 0.0, dark); // shelf
+        // a deep case: varied books, one leaning, a plant and a flat pile
+        box(0.20, 0.08, 0.80, 0.90, 0.035, base); // case
+        box(0.245, 0.125, 0.755, 0.86, 0.02, _shade(base, -0.26)); // interior
+        box(0.27, 0.185, 0.335, 0.435, 0.01, const Color(0xFFC96B5A));
+        box(0.34, 0.16, 0.405, 0.435, 0.01, const Color(0xFF5E8CC7));
+        rot(0.455, 0.33, 0.18, () {
+          box(0.425, 0.225, 0.485, 0.435, 0.01,
+              const Color(0xFF7FA968)); // the leaning one
+        });
+        box(0.52, 0.20, 0.585, 0.435, 0.01, const Color(0xFFD9A64C));
+        box(0.63, 0.375, 0.715, 0.435, 0.012, _terra); // little pot
+        bigLeaf(0.655, 0.325, 0.028, 0.052, -0.35, const Color(0xFF6DA06B));
+        bigLeaf(0.69, 0.32, 0.028, 0.055, 0.3, const Color(0xFF578A55));
+        box(0.245, 0.435, 0.755, 0.468, 0.006, _shade(base, 0.10)); // shelf
+        box(0.275, 0.545, 0.34, 0.86, 0.01, const Color(0xFF9B7BB8));
+        box(0.345, 0.51, 0.41, 0.86, 0.01, const Color(0xFF4DA79B));
+        box(0.415, 0.565, 0.475, 0.86, 0.01, const Color(0xFFCC8B4F));
+        box(0.545, 0.79, 0.72, 0.835, 0.012, const Color(0xFFB8595E)); // pile
+        box(0.56, 0.745, 0.735, 0.79, 0.012, const Color(0xFF6188B8));
+        box(0.575, 0.70, 0.72, 0.745, 0.012, const Color(0xFFD9C08A));
       case 'table':
-        box(0.12, 0.34, 0.88, 0.44, 0.03, base); // tabletop
-        box(0.18, 0.44, 0.82, 0.50, 0.0, dark); // apron
-        box(0.21, 0.50, 0.30, 0.90, 0.014, dark); // leg
-        box(0.70, 0.50, 0.79, 0.90, 0.014, dark); // leg
+        // splayed legs, a thick warm top with grain, a little vase with a sprig
+        fillPath(pl(const [
+          Offset(0.20, 0.46), Offset(0.28, 0.46),
+          Offset(0.255, 0.90), Offset(0.185, 0.90),
+        ]), dark);
+        fillPath(pl(const [
+          Offset(0.72, 0.46), Offset(0.80, 0.46),
+          Offset(0.815, 0.90), Offset(0.745, 0.90),
+        ]), dark);
+        box(0.24, 0.62, 0.76, 0.66, 0.015, dark); // stretcher
+        box(0.10, 0.34, 0.90, 0.435, 0.045, base); // thick rounded top
+        line(0.16, 0.375, 0.60, 0.375, 0.008, _shade(base, 0.18)); // grain
+        line(0.30, 0.405, 0.84, 0.405, 0.006, _shade(base, -0.10));
+        fillPath(pl(const [
+          Offset(0.475, 0.245), Offset(0.525, 0.245),
+          Offset(0.54, 0.34), Offset(0.46, 0.34),
+        ]), const Color(0xFF8FA8B8)); // little vase
+        line(0.50, 0.245, 0.50, 0.165, 0.008, _stem);
+        bigLeaf(0.475, 0.185, 0.02, 0.038, -0.5, const Color(0xFF6DA06B));
+        bigLeaf(0.525, 0.175, 0.02, 0.038, 0.5, const Color(0xFF578A55));
       case 'sofa':
-        box(0.16, 0.30, 0.84, 0.58, 0.06, base); // back
-        box(0.12, 0.46, 0.28, 0.86, 0.06, base); // left arm
-        box(0.72, 0.46, 0.88, 0.86, 0.06, base); // right arm
-        box(0.16, 0.56, 0.84, 0.86, 0.06, dark); // seat base
-        box(0.30, 0.54, 0.49, 0.68, 0.03, light); // cushion
-        box(0.51, 0.54, 0.70, 0.68, 0.03, light); // cushion
-        box(0.18, 0.86, 0.26, 0.90, 0.01, dark); // foot
-        box(0.74, 0.86, 0.82, 0.90, 0.01, dark); // foot
+        // plump rounded back, fat arm rolls, piped cushions, a throw pillow
+        walnutFoot(0.215, 0.80, -1);
+        walnutFoot(0.785, 0.80, 1);
+        box(0.10, 0.58, 0.90, 0.82, 0.07, _shade(base, -0.06)); // base
+        box(0.15, 0.22, 0.85, 0.62, 0.12, base); // rounded back
+        circ(0.165, 0.455, 0.088, _shade(base, 0.05)); // arm rolls
+        box(0.077, 0.455, 0.253, 0.80, 0.075, _shade(base, 0.05));
+        circ(0.835, 0.455, 0.088, _shade(base, 0.05));
+        box(0.747, 0.455, 0.923, 0.80, 0.075, _shade(base, 0.05));
+        box(0.25, 0.645, 0.75, 0.685, 0.02, _shade(base, -0.30),
+            flat: true); // deep shadow under the cushions
+        box(0.255, 0.495, 0.495, 0.665, 0.055, _shade(base, 0.13)); // cushions
+        box(0.505, 0.495, 0.745, 0.665, 0.055, _shade(base, 0.13));
+        line(0.285, 0.513, 0.465, 0.513, 0.009, _shade(base, 0.30)); // piping
+        line(0.535, 0.513, 0.715, 0.513, 0.009, _shade(base, 0.30));
+        rot(0.315, 0.455, -0.16, () {
+          box(0.24, 0.38, 0.39, 0.53, 0.035, _mustard); // throw pillow
+          circ(0.315, 0.455, 0.013, _shade(_mustard, -0.28), flat: true);
+        });
       case 'bed':
-        box(0.10, 0.26, 0.21, 0.86, 0.03, dark); // headboard
-        box(0.16, 0.50, 0.88, 0.72, 0.03, base); // mattress
-        box(0.48, 0.50, 0.88, 0.72, 0.03, dark); // blanket
-        box(0.24, 0.42, 0.44, 0.56, 0.03, offWhite); // pillow
-        box(0.18, 0.72, 0.24, 0.88, 0.012, dark); // leg
-        box(0.80, 0.72, 0.86, 0.88, 0.012, dark); // leg
+        // rounded headboard, plump duvet with a fold-over, stacked pillows
+        walnutFoot(0.20, 0.83, -1);
+        walnutFoot(0.84, 0.83, 1);
+        box(0.08, 0.20, 0.245, 0.84, 0.06, dark); // headboard
+        box(0.105, 0.235, 0.22, 0.56, 0.045, _shade(dark, 0.10)); // panel
+        box(0.12, 0.74, 0.92, 0.84, 0.03, _shade(base, -0.18)); // bed box
+        box(0.14, 0.50, 0.92, 0.76, 0.06, offWhite); // mattress
+        box(0.36, 0.475, 0.92, 0.76, 0.065, base); // duvet
+        box(0.36, 0.475, 0.92, 0.565, 0.05, _shade(base, 0.16)); // fold-over
+        box(0.72, 0.475, 0.92, 0.76, 0.05, _shade(base, -0.20)); // foot throw
+        rot(0.265, 0.46, -0.10, () {
+          box(0.17, 0.385, 0.36, 0.535, 0.05, offWhite); // pillow
+        });
+        rot(0.335, 0.50, -0.06, () {
+          box(0.27, 0.44, 0.40, 0.56, 0.04, _mustard); // accent pillow
+        });
       case 'tv':
-        box(0.14, 0.16, 0.86, 0.62, 0.03, base); // bezel
-        box(0.175, 0.195, 0.825, 0.585, 0.02, screen); // screen
-        line(0.32, 0.24, 0.24, 0.54, 0.018, Colors.white.withValues(alpha: 0.16));
-        box(0.46, 0.62, 0.54, 0.74, 0.006, base); // neck
-        box(0.32, 0.74, 0.68, 0.78, 0.01, base); // foot
+        // a slim modern panel on a rounded pedestal
+        box(0.13, 0.14, 0.87, 0.64, 0.045, dark); // slim bezel
+        box(0.155, 0.165, 0.845, 0.615, 0.03, screen); // screen
+        line(0.34, 0.21, 0.24, 0.56, 0.02,
+            Colors.white.withValues(alpha: 0.14)); // reflection sweep
+        line(0.40, 0.21, 0.33, 0.45, 0.012,
+            Colors.white.withValues(alpha: 0.10));
+        box(0.475, 0.64, 0.525, 0.725, 0.008, dark); // neck
+        oval(0.50, 0.755, 0.17, 0.028, dark); // pedestal
       case 'pet': // a small cat
         line(0.36, 0.78, 0.22, 0.58, 0.05, base); // tail
         box(0.30, 0.52, 0.70, 0.88, 0.18, base); // body
@@ -490,19 +692,47 @@ class _FurniturePainter extends CustomPainter {
         circ(0.69, 0.47, 0.02, dark); // eye
       case 'bathtub':
         {
-          box(0.16, 0.44, 0.84, 0.82, 0.16, base); // tub
-          box(0.205, 0.475, 0.795, 0.79, 0.12, offWhite); // inside
+          // a rolled-rim tub on brass claw feet, a duck bobbing on the water
+          fillPath(pl(const [
+            Offset(0.24, 0.82), Offset(0.30, 0.82),
+            Offset(0.275, 0.90), Offset(0.225, 0.90),
+          ]), _brass);
+          fillPath(pl(const [
+            Offset(0.70, 0.82), Offset(0.76, 0.82),
+            Offset(0.775, 0.90), Offset(0.725, 0.90),
+          ]), _brass);
+          box(0.15, 0.30, 0.20, 0.50, 0.014, _brass); // faucet riser
+          box(0.15, 0.30, 0.31, 0.34, 0.016, _brass); // spout
+          circ(0.175, 0.275, 0.025, _shade(_brass, 0.12)); // tap wheel
+          box(0.14, 0.46, 0.86, 0.84, 0.17, base); // tub
+          box(0.19, 0.505, 0.81, 0.80, 0.13, offWhite); // inside
           final wob = 0.006 * wv(2); // gentle ripple on the surface
-          box(0.26, 0.51 + wob, 0.74, 0.64, 0.06, light); // water
-          box(0.15, 0.32, 0.195, 0.50, 0.01, dark); // faucet riser
-          box(0.15, 0.32, 0.30, 0.355, 0.01, dark); // spout
-          box(0.26, 0.82, 0.33, 0.90, 0.01, dark); // foot
-          box(0.67, 0.82, 0.74, 0.90, 0.01, dark); // foot
+          box(0.225, 0.53 + wob, 0.775, 0.66, 0.07, light); // water
+          box(0.115, 0.44, 0.885, 0.505, 0.035, _shade(base, 0.10)); // rim roll
+          circ(0.34, 0.52 + wob, 0.025, Colors.white.withValues(alpha: 0.5));
+          circ(0.40, 0.50 + wob, 0.017, Colors.white.withValues(alpha: 0.4));
+          const duck = Color(0xFFF2C019);
+          circ(0.62, 0.535 + wob, 0.035, duck); // duck body
+          circ(0.655, 0.50 + wob, 0.022, duck); // head
+          poly([
+            Offset(0.675, 0.495 + wob),
+            Offset(0.70, 0.505 + wob),
+            Offset(0.675, 0.515 + wob),
+          ], const Color(0xFFE8943C)); // beak
         }
       case 'rug': // flat on the floor
-        box(0.08, 0.62, 0.92, 0.90, 0.10, dark);
-        box(0.13, 0.66, 0.87, 0.86, 0.08, base);
-        box(0.24, 0.71, 0.76, 0.81, 0.05, light);
+        // a bordered rug with a centre medallion and end fringe
+        box(0.08, 0.60, 0.92, 0.90, 0.11, dark); // border
+        box(0.125, 0.635, 0.875, 0.865, 0.09, base); // field
+        box(0.20, 0.685, 0.80, 0.815, 0.07, _shade(base, 0.10)); // inner band
+        circ(0.50, 0.75, 0.055, _shade(base, -0.12)); // medallion
+        circ(0.50, 0.75, 0.028, _shade(base, 0.22));
+        for (var i = 0; i < 5; i++) {
+          line(0.055, 0.635 + i * 0.055, 0.075, 0.635 + i * 0.055, 0.010,
+              _shade(dark, 0.18)); // fringe, left end
+          line(0.925, 0.635 + i * 0.055, 0.945, 0.635 + i * 0.055, 0.010,
+              _shade(dark, 0.18)); // fringe, right end
+        }
       case 'cactus': // a ribbed barrel cactus with arms, crowned by a bloom
         {
           final s = wv(1) * 0.01;
@@ -522,17 +752,31 @@ class _FurniturePainter extends CustomPainter {
           pot(0.50, 0.16, 0.115, 0.66, 0.90, const Color(0xFFCE8A52));
         }
       case 'mirror': // wall piece
-        box(0.30, 0.12, 0.70, 0.80, 0.20, base); // frame
-        box(0.355, 0.17, 0.645, 0.75, 0.16, const Color(0xFFD7EAF0)); // glass
-        line(0.43, 0.26, 0.37, 0.44, 0.022, Colors.white.withValues(alpha: 0.55));
+        // an arched mirror with a gilt inner ring and a double sheen
+        box(0.28, 0.10, 0.72, 0.82, 0.22, base); // frame
+        box(0.315, 0.145, 0.685, 0.785, 0.185, _shade(base, 0.16)); // inner ring
+        box(0.345, 0.175, 0.655, 0.755, 0.155, const Color(0xFFD7EAF0)); // glass
+        line(0.44, 0.25, 0.365, 0.47, 0.024,
+            Colors.white.withValues(alpha: 0.55));
+        line(0.50, 0.26, 0.43, 0.46, 0.012,
+            Colors.white.withValues(alpha: 0.38));
       case 'desk':
-        box(0.12, 0.36, 0.88, 0.45, 0.03, base); // top
-        box(0.18, 0.45, 0.82, 0.50, 0.0, dark); // apron
-        box(0.20, 0.50, 0.27, 0.90, 0.012, dark); // leg
-        box(0.60, 0.50, 0.82, 0.90, 0.02, dark); // drawer cabinet
-        line(0.60, 0.66, 0.82, 0.66, 0.012, base); // drawer divider
-        circ(0.71, 0.58, 0.018, light); // knob
-        circ(0.71, 0.78, 0.018, light); // knob
+        // a writing desk: splayed leg, drawer unit, mug and papers on top
+        fillPath(pl(const [
+          Offset(0.17, 0.47), Offset(0.245, 0.47),
+          Offset(0.225, 0.90), Offset(0.155, 0.90),
+        ]), dark);
+        box(0.58, 0.47, 0.84, 0.90, 0.03, _shade(base, -0.08)); // drawer unit
+        box(0.605, 0.505, 0.815, 0.625, 0.02, _shade(base, 0.10)); // drawers
+        box(0.605, 0.665, 0.815, 0.785, 0.02, _shade(base, 0.10));
+        circ(0.71, 0.565, 0.018, _brass);
+        circ(0.71, 0.725, 0.018, _brass);
+        box(0.10, 0.36, 0.90, 0.45, 0.04, base); // thick top
+        line(0.16, 0.39, 0.56, 0.39, 0.007, _shade(base, 0.16)); // grain
+        box(0.28, 0.295, 0.345, 0.36, 0.02, const Color(0xFFB8595E)); // mug
+        arc(0.355, 0.325, 0.02, -math.pi / 2, math.pi, 0.010,
+            const Color(0xFFB8595E)); // its handle
+        box(0.44, 0.325, 0.60, 0.36, 0.008, offWhite); // papers
       case 'vase': // a posy of layered blooms in a coloured vase
         {
           const stem = Color(0xFF4F8F4A);
@@ -563,43 +807,80 @@ class _FurniturePainter extends CustomPainter {
         circ(0.44, 0.64, 0.055, dark); // sound hole
       case 'fireplace':
         {
-          box(0.16, 0.32, 0.84, 0.90, 0.03, base); // body
-          box(0.12, 0.30, 0.88, 0.40, 0.02, dark); // mantel
-          box(0.30, 0.50, 0.70, 0.90, 0.03, const Color(0xFF2B1B16)); // opening
+          // a dressed mantel (frame + bud vase) over an arched, glowing
+          // firebox with stacked logs
+          box(0.14, 0.34, 0.86, 0.90, 0.035, base); // surround
+          box(0.10, 0.28, 0.90, 0.375, 0.025, dark); // mantel shelf
+          box(0.22, 0.175, 0.34, 0.28, 0.012, _walnut); // little frame
+          box(0.245, 0.20, 0.315, 0.255, 0.008, offWhite);
+          fillPath(pl(const [
+            Offset(0.66, 0.215), Offset(0.70, 0.215),
+            Offset(0.71, 0.28), Offset(0.65, 0.28),
+          ]), const Color(0xFF8FA8B8)); // bud vase
+          line(0.68, 0.215, 0.68, 0.16, 0.007, _stem);
+          circ(0.68, 0.148, 0.016, const Color(0xFFEC6F9C)); // bud
+          dome(0.50, 0.60, 0.20, const Color(0xFF2B1B16)); // arched firebox
+          box(0.30, 0.60, 0.70, 0.86, 0.02, const Color(0xFF2B1B16));
+          haloGlow(0.50, 0.76, 0.20, 0.14, const Color(0xFFFFB25E),
+              0.32 + 0.08 * wv(5)); // hearth glow breathing with the flame
+          box(0.36, 0.80, 0.64, 0.845, 0.02, _walnut); // logs
+          box(0.40, 0.765, 0.60, 0.805, 0.018, _shade(_walnut, -0.10));
           final f1 = wv(5); // height flicker
           final f2 = wv(8, 0.4); // lateral lick
           poly([
-            Offset(0.41, 0.86),
-            Offset(0.50 + 0.02 * f2, 0.58 - 0.03 * f1),
-            Offset(0.59, 0.86),
+            Offset(0.42, 0.805),
+            Offset(0.50 + 0.02 * f2, 0.56 - 0.03 * f1),
+            Offset(0.58, 0.805),
           ], const Color(0xFFFF7043)); // flame
           poly([
-            Offset(0.45, 0.86),
-            Offset(0.50 + 0.015 * f2, 0.68 - 0.02 * f1),
-            Offset(0.55, 0.86),
+            Offset(0.455, 0.805),
+            Offset(0.50 + 0.015 * f2, 0.655 - 0.02 * f1),
+            Offset(0.545, 0.805),
           ], const Color(0xFFFFCA28)); // inner flame
+          box(0.14, 0.86, 0.86, 0.90, 0.015, _shade(base, -0.14)); // hearth
         }
       case 'fridge':
-        box(0.28, 0.12, 0.72, 0.90, 0.05, base);
-        box(0.31, 0.15, 0.69, 0.87, 0.03, light);
-        box(0.31, 0.40, 0.69, 0.43, 0.0, base); // freezer split
-        box(0.63, 0.20, 0.665, 0.35, 0.01, dark); // handle
-        box(0.63, 0.48, 0.665, 0.66, 0.01, dark); // handle
+        // a retro rounded fridge with brass handles and a note on the door
+        box(0.26, 0.10, 0.74, 0.90, 0.09, base);
+        box(0.26, 0.10, 0.74, 0.42, 0.09, _shade(base, 0.08)); // freezer door
+        box(0.26, 0.445, 0.74, 0.90, 0.07, _shade(base, 0.04)); // lower door
+        box(0.30, 0.19, 0.328, 0.36, 0.014, _brass); // handles
+        box(0.30, 0.49, 0.328, 0.72, 0.014, _brass);
+        rot(0.60, 0.60, 0.06, () {
+          box(0.545, 0.545, 0.655, 0.665, 0.008, offWhite); // pinned note
+        });
+        circ(0.60, 0.535, 0.013, const Color(0xFFE2574C)); // magnet
       case 'stove':
-        box(0.22, 0.30, 0.78, 0.90, 0.03, base);
-        box(0.22, 0.30, 0.78, 0.43, 0.02, dark); // cooktop
-        circ(0.35, 0.365, 0.05, base); // burner
-        circ(0.65, 0.365, 0.05, base); // burner
-        box(0.27, 0.50, 0.73, 0.84, 0.03, dark); // oven door
-        box(0.31, 0.54, 0.69, 0.58, 0.01, light); // handle
+        // a range cooker: burner top, brass dials, a warm oven window
+        box(0.20, 0.32, 0.80, 0.88, 0.05, base);
+        box(0.18, 0.285, 0.82, 0.345, 0.025, dark); // cooktop slab
+        oval(0.35, 0.315, 0.075, 0.020, _shade(dark, 0.18)); // burners
+        oval(0.65, 0.315, 0.075, 0.020, _shade(dark, 0.18));
+        box(0.24, 0.40, 0.76, 0.445, 0.02, _shade(base, 0.10)); // control strip
+        circ(0.31, 0.4225, 0.014, _brass);
+        circ(0.39, 0.4225, 0.014, _brass);
+        circ(0.61, 0.4225, 0.014, _brass);
+        circ(0.69, 0.4225, 0.014, _brass);
+        box(0.24, 0.50, 0.76, 0.84, 0.035, _shade(base, -0.14)); // oven door
+        box(0.285, 0.545, 0.715, 0.775, 0.025,
+            const Color(0xFF5C4632)); // window
+        haloGlow(0.50, 0.70, 0.16, 0.09, const Color(0xFFFFB25E),
+            0.35); // oven warmth
+        box(0.30, 0.505, 0.70, 0.53, 0.012, _brass); // handle
       case 'wardrobe':
-        box(0.24, 0.12, 0.76, 0.88, 0.03, base);
-        box(0.27, 0.15, 0.72, 0.85, 0.01, light);
-        box(0.495, 0.15, 0.505, 0.85, 0.0, base); // door split
-        circ(0.45, 0.50, 0.02, dark); // knob
-        circ(0.55, 0.50, 0.02, dark); // knob
-        box(0.27, 0.88, 0.34, 0.92, 0.01, dark); // foot
-        box(0.66, 0.88, 0.73, 0.92, 0.01, dark); // foot
+        // arched door panels, brass pulls, a cornice on top
+        walnutFoot(0.32, 0.875, -1);
+        walnutFoot(0.68, 0.875, 1);
+        box(0.22, 0.10, 0.78, 0.885, 0.05, base);
+        box(0.255, 0.135, 0.485, 0.85, 0.035, _shade(base, 0.09)); // doors
+        box(0.515, 0.135, 0.745, 0.85, 0.035, _shade(base, 0.09));
+        box(0.285, 0.19, 0.455, 0.62, 0.09, _shade(base, 0.16)); // arch panels
+        box(0.545, 0.19, 0.715, 0.62, 0.09, _shade(base, 0.16));
+        box(0.285, 0.67, 0.455, 0.80, 0.03, _shade(base, 0.16));
+        box(0.545, 0.67, 0.715, 0.80, 0.03, _shade(base, 0.16));
+        box(0.472, 0.42, 0.49, 0.55, 0.008, _brass); // pulls
+        box(0.51, 0.42, 0.528, 0.55, 0.008, _brass);
+        box(0.20, 0.075, 0.80, 0.115, 0.02, _shade(base, -0.10)); // cornice
       case 'aquarium':
         {
           box(0.16, 0.34, 0.84, 0.86, 0.04, base); // frame
@@ -628,59 +909,116 @@ class _FurniturePainter extends CustomPainter {
         box(0.20, 0.48, 0.80, 0.90, 0.24, base);
         box(0.30, 0.52, 0.70, 0.66, 0.12, light); // top dent
       case 'stool':
-        box(0.30, 0.42, 0.70, 0.56, 0.07, base); // padded seat
-        box(0.33, 0.56, 0.39, 0.88, 0.012, dark); // leg
-        box(0.61, 0.56, 0.67, 0.88, 0.012, dark); // leg
-        box(0.36, 0.70, 0.64, 0.74, 0.01, dark); // stretcher
+        // a round padded top on three splayed legs with a ring stretcher
+        fillPath(pl(const [
+          Offset(0.325, 0.55), Offset(0.385, 0.55),
+          Offset(0.345, 0.90), Offset(0.285, 0.90),
+        ]), dark);
+        fillPath(pl(const [
+          Offset(0.615, 0.55), Offset(0.675, 0.55),
+          Offset(0.715, 0.90), Offset(0.655, 0.90),
+        ]), dark);
+        box(0.475, 0.55, 0.525, 0.885, 0.012, _shade(dark, -0.06)); // mid leg
+        box(0.36, 0.685, 0.64, 0.72, 0.012, dark); // stretcher
+        oval(0.50, 0.52, 0.22, 0.075, base); // seat
+        oval(0.50, 0.485, 0.20, 0.06, _shade(base, 0.14)); // padded top
       case 'armchair':
-        box(0.24, 0.30, 0.76, 0.64, 0.08, base); // back
-        box(0.18, 0.46, 0.34, 0.84, 0.06, base); // left arm
-        box(0.66, 0.46, 0.82, 0.84, 0.06, base); // right arm
-        box(0.26, 0.56, 0.74, 0.84, 0.06, dark); // seat base
-        box(0.32, 0.52, 0.68, 0.66, 0.04, light); // cushion
-        box(0.26, 0.84, 0.34, 0.90, 0.01, dark); // foot
-        box(0.66, 0.84, 0.74, 0.90, 0.01, dark); // foot
+        // a tall egg back with an inner panel, lumbar pillow and arm rolls
+        walnutFoot(0.325, 0.78, -1);
+        walnutFoot(0.675, 0.78, 1);
+        box(0.24, 0.60, 0.76, 0.80, 0.07, _shade(base, -0.07)); // skirt
+        box(0.27, 0.14, 0.73, 0.62, 0.17, base); // tall egg back
+        box(0.335, 0.21, 0.665, 0.50, 0.11, _shade(base, 0.08)); // inner panel
+        rot(0.50, 0.455, 0.05, () {
+          box(0.385, 0.40, 0.615, 0.51, 0.045, _mustard); // lumbar pillow
+        });
+        circ(0.245, 0.53, 0.075, _shade(base, 0.04)); // arm rolls
+        box(0.17, 0.53, 0.32, 0.78, 0.065, _shade(base, 0.04));
+        circ(0.755, 0.53, 0.075, _shade(base, 0.04));
+        box(0.68, 0.53, 0.83, 0.78, 0.065, _shade(base, 0.04));
+        box(0.29, 0.625, 0.71, 0.655, 0.015, _shade(base, -0.28), flat: true);
+        box(0.295, 0.535, 0.705, 0.645, 0.05, _shade(base, 0.14)); // cushion
+        line(0.325, 0.552, 0.675, 0.552, 0.009, _shade(base, 0.30)); // piping
       case 'bench':
-        box(0.16, 0.30, 0.21, 0.62, 0.012, dark); // back post
-        box(0.79, 0.30, 0.84, 0.62, 0.012, dark); // back post
-        box(0.16, 0.32, 0.84, 0.40, 0.02, base); // back slat
-        box(0.14, 0.52, 0.86, 0.62, 0.03, base); // seat
-        box(0.18, 0.62, 0.24, 0.90, 0.012, dark); // leg
-        box(0.76, 0.62, 0.82, 0.90, 0.012, dark); // leg
+        // slatted back, splayed legs, a cushion leaning at one end
+        fillPath(pl(const [
+          Offset(0.20, 0.62), Offset(0.26, 0.62),
+          Offset(0.235, 0.90), Offset(0.175, 0.90),
+        ]), dark);
+        fillPath(pl(const [
+          Offset(0.74, 0.62), Offset(0.80, 0.62),
+          Offset(0.825, 0.90), Offset(0.765, 0.90),
+        ]), dark);
+        box(0.17, 0.28, 0.215, 0.56, 0.02, base); // back posts
+        box(0.785, 0.28, 0.83, 0.56, 0.02, base);
+        box(0.15, 0.295, 0.85, 0.36, 0.03, base); // top back slat
+        box(0.15, 0.40, 0.85, 0.45, 0.025, _shade(base, -0.06)); // lower slat
+        box(0.13, 0.52, 0.87, 0.615, 0.04, base); // seat
+        line(0.20, 0.545, 0.80, 0.545, 0.006, _shade(base, 0.15)); // plank line
+        rot(0.24, 0.47, -0.12, () {
+          box(0.17, 0.40, 0.31, 0.54, 0.03, _mustard); // leaning cushion
+        });
       case 'ottoman':
-        box(0.22, 0.52, 0.78, 0.82, 0.10, base); // body
-        box(0.30, 0.55, 0.70, 0.66, 0.05, light); // top panel
-        box(0.27, 0.82, 0.34, 0.88, 0.01, dark); // foot
-        box(0.66, 0.82, 0.73, 0.88, 0.01, dark); // foot
+        // a plump tufted pouf on splayed walnut feet
+        walnutFoot(0.30, 0.815, -1);
+        walnutFoot(0.70, 0.815, 1);
+        box(0.20, 0.50, 0.80, 0.83, 0.13, base);
+        box(0.20, 0.50, 0.80, 0.665, 0.13, _shade(base, 0.12)); // plump top
+        line(0.26, 0.665, 0.74, 0.665, 0.010, _shade(base, -0.22)); // seam
+        circ(0.385, 0.585, 0.016, _shade(base, -0.20), flat: true); // tufts
+        circ(0.615, 0.585, 0.016, _shade(base, -0.20), flat: true);
       case 'nightstand':
-        box(0.30, 0.40, 0.70, 0.86, 0.03, base); // body
-        box(0.33, 0.45, 0.67, 0.60, 0.01, light); // drawer
-        box(0.33, 0.63, 0.67, 0.78, 0.01, light); // drawer
-        circ(0.50, 0.525, 0.018, dark); // knob
-        circ(0.50, 0.705, 0.018, dark); // knob
-        box(0.31, 0.86, 0.37, 0.90, 0.008, dark); // leg
-        box(0.63, 0.86, 0.69, 0.90, 0.008, dark); // leg
+        // rounded body, brass knobs, a little book resting on top
+        walnutFoot(0.36, 0.855, -1);
+        walnutFoot(0.64, 0.855, 1);
+        box(0.28, 0.38, 0.72, 0.87, 0.05, base);
+        box(0.315, 0.455, 0.685, 0.60, 0.025, _shade(base, 0.10)); // drawers
+        box(0.315, 0.635, 0.685, 0.78, 0.025, _shade(base, 0.10));
+        circ(0.50, 0.5275, 0.02, _brass);
+        circ(0.50, 0.7075, 0.02, _brass);
+        box(0.26, 0.355, 0.74, 0.40, 0.02, _shade(base, 0.06)); // top slab
+        rot(0.42, 0.33, -0.05, () {
+          box(0.33, 0.305, 0.51, 0.355, 0.012, const Color(0xFFB8595E));
+        });
       case 'dresser':
-        box(0.18, 0.34, 0.82, 0.86, 0.03, base); // body
-        box(0.21, 0.38, 0.79, 0.52, 0.01, light); // drawer
-        box(0.21, 0.54, 0.79, 0.68, 0.01, light); // drawer
-        box(0.21, 0.70, 0.79, 0.83, 0.01, light); // drawer
-        circ(0.35, 0.45, 0.016, dark);
-        circ(0.65, 0.45, 0.016, dark);
-        circ(0.35, 0.61, 0.016, dark);
-        circ(0.65, 0.61, 0.016, dark);
-        circ(0.35, 0.765, 0.016, dark);
-        circ(0.65, 0.765, 0.016, dark);
-        box(0.20, 0.86, 0.27, 0.90, 0.008, dark); // foot
-        box(0.73, 0.86, 0.80, 0.90, 0.008, dark); // foot
+        // rounded chest with brass pulls and a trailing plant on top
+        walnutFoot(0.26, 0.855, -1);
+        walnutFoot(0.74, 0.855, 1);
+        box(0.16, 0.32, 0.84, 0.87, 0.05, base);
+        box(0.14, 0.295, 0.86, 0.345, 0.02, _shade(base, 0.06)); // top slab
+        box(0.20, 0.385, 0.80, 0.51, 0.025, _shade(base, 0.10)); // drawers
+        box(0.20, 0.545, 0.80, 0.67, 0.025, _shade(base, 0.10));
+        box(0.20, 0.705, 0.80, 0.83, 0.025, _shade(base, 0.10));
+        circ(0.44, 0.4475, 0.018, _brass);
+        circ(0.56, 0.4475, 0.018, _brass);
+        circ(0.44, 0.6075, 0.018, _brass);
+        circ(0.56, 0.6075, 0.018, _brass);
+        circ(0.44, 0.7675, 0.018, _brass);
+        circ(0.56, 0.7675, 0.018, _brass);
+        box(0.62, 0.235, 0.72, 0.295, 0.015, _terra); // little pot
+        bigLeaf(0.645, 0.20, 0.026, 0.05, -0.4, const Color(0xFF6DA06B));
+        bigLeaf(0.695, 0.195, 0.026, 0.05, 0.35, const Color(0xFF578A55));
+        circ(0.755, 0.36, 0.016, const Color(0xFF6DA06B)); // trailing vine
+        circ(0.77, 0.435, 0.014, const Color(0xFF578A55));
       case 'cabinet':
-        box(0.26, 0.20, 0.74, 0.86, 0.03, base); // body
-        box(0.29, 0.24, 0.495, 0.82, 0.01, light); // left door
-        box(0.505, 0.24, 0.71, 0.82, 0.01, light); // right door
-        circ(0.47, 0.52, 0.016, dark); // knob
-        circ(0.53, 0.52, 0.016, dark); // knob
-        box(0.27, 0.86, 0.34, 0.90, 0.008, dark); // foot
-        box(0.66, 0.86, 0.73, 0.90, 0.008, dark); // foot
+        // a display cabinet: glass upper doors over panelled lower ones
+        walnutFoot(0.34, 0.855, -1);
+        walnutFoot(0.66, 0.855, 1);
+        box(0.24, 0.18, 0.76, 0.87, 0.045, base);
+        box(0.22, 0.155, 0.78, 0.20, 0.02, _shade(base, 0.06)); // top slab
+        box(0.275, 0.235, 0.485, 0.575, 0.03, _shade(base, 0.10)); // door frames
+        box(0.515, 0.235, 0.725, 0.575, 0.03, _shade(base, 0.10));
+        box(0.30, 0.26, 0.46, 0.55, 0.02, const Color(0xFFB9D2CE)); // glass
+        box(0.54, 0.26, 0.70, 0.55, 0.02, const Color(0xFFB9D2CE));
+        line(0.42, 0.29, 0.335, 0.50, 0.014,
+            Colors.white.withValues(alpha: 0.4)); // glass sheen
+        line(0.66, 0.29, 0.575, 0.50, 0.014,
+            Colors.white.withValues(alpha: 0.4));
+        box(0.275, 0.625, 0.725, 0.815, 0.03, _shade(base, 0.10)); // lower doors
+        circ(0.47, 0.40, 0.016, _brass);
+        circ(0.53, 0.40, 0.016, _brass);
+        circ(0.47, 0.72, 0.016, _brass);
+        circ(0.53, 0.72, 0.016, _brass);
       case 'chest':
         box(0.20, 0.50, 0.80, 0.84, 0.04, base); // body
         box(0.18, 0.42, 0.82, 0.54, 0.05, dark); // lid
@@ -705,20 +1043,19 @@ class _FurniturePainter extends CustomPainter {
         line(0.50, 0.30, 0.60, 0.36, 0.02, dark); // hook
         box(0.36, 0.84, 0.64, 0.88, 0.02, dark); // base
       case 'pendant': // wall/ceiling piece — hangs from the top
-        line(0.50, 0.06, 0.50, 0.40, 0.012, dark); // cord
-        poly(const [
-          Offset(0.34, 0.62),
-          Offset(0.66, 0.62),
-          Offset(0.58, 0.40),
-          Offset(0.42, 0.40),
-        ], base); // shade
+        line(0.50, 0.04, 0.50, 0.30, 0.012, dark); // cord
+        haloGlow(0.50, 0.62, 0.26, 0.26, const Color(0xFFFFD98F),
+            0.28 + 0.06 * wv(6)); // breathing warm halo
+        box(0.465, 0.28, 0.535, 0.345, 0.015, _brass); // cap
+        dome(0.50, 0.56, 0.20, base); // dome shade
+        oval(0.50, 0.565, 0.20, 0.045, _shade(base, -0.20)); // open mouth
         circ(
           0.50,
-          0.64,
+          0.60,
           0.05,
           Color.lerp(const Color(0xFFFFE096), const Color(0xFFFFF2BA),
               0.5 + 0.5 * wv(6))!,
-        ); // bulb glow
+        ); // bulb
       case 'lantern':
         {
           box(0.34, 0.28, 0.66, 0.34, 0.02, dark); // top
@@ -733,21 +1070,32 @@ class _FurniturePainter extends CustomPainter {
         }
       case 'candle':
         {
-          box(0.42, 0.44, 0.58, 0.84, 0.02, base); // candle
-          box(0.40, 0.84, 0.60, 0.90, 0.01, dark); // holder
-          line(0.50, 0.40, 0.50, 0.44, 0.01, dark); // wick
+          // a chamberstick: brass dish with a loop handle, a dripping candle
+          // and a warm halo breathing with the flame
           final flick = wv(6); // flame height flicker
+          haloGlow(0.50, 0.36, 0.22, 0.22, const Color(0xFFFFD98F),
+              0.30 + 0.06 * flick);
+          oval(0.50, 0.855, 0.20, 0.038, _brass); // dish
+          oval(0.50, 0.838, 0.16, 0.026, _shade(_brass, 0.12));
+          ring(0.735, 0.82, 0.045, 0.020, _shade(_brass, -0.08)); // handle
+          box(0.42, 0.46, 0.58, 0.845, 0.035, base); // candle
+          oval(0.50, 0.465, 0.08, 0.022, _shade(base, 0.14)); // melted top
+          fillPath(pl(const [
+            Offset(0.435, 0.47), Offset(0.475, 0.47),
+            Offset(0.468, 0.60), Offset(0.44, 0.60),
+          ]), _shade(base, 0.18)); // drip
+          line(0.50, 0.415, 0.50, 0.455, 0.01, dark); // wick
           final sway = wv(9, 0.3); // tip sway
           final w = 0.04 + 0.006 * flick;
           poly([
-            Offset(0.50 - w, 0.44),
+            Offset(0.50 - w, 0.445),
             Offset(0.50 + 0.012 * sway, 0.30 - 0.02 * flick),
-            Offset(0.50 + w, 0.44),
+            Offset(0.50 + w, 0.445),
           ], const Color(0xFFFF9A3D)); // flame
           poly([
-            Offset(0.48, 0.44),
+            Offset(0.48, 0.445),
             Offset(0.50 + 0.008 * sway, 0.36 - 0.012 * flick),
-            Offset(0.52, 0.44),
+            Offset(0.52, 0.445),
           ], const Color(0xFFFFD54F)); // inner flame
         }
       case 'succulent': // an echeveria rosette of fat leaves in a low pot
@@ -898,47 +1246,72 @@ class _FurniturePainter extends CustomPainter {
         box(0.27, 0.86, 0.33, 0.90, 0.0, dark); // leg
         box(0.67, 0.86, 0.73, 0.90, 0.0, dark); // leg
       case 'microwave':
-        box(0.18, 0.40, 0.82, 0.74, 0.03, base); // body
-        box(0.22, 0.44, 0.60, 0.70, 0.02, const Color(0xFF4A6572)); // window
-        box(0.64, 0.44, 0.78, 0.70, 0.01, dark); // panel
-        circ(0.71, 0.50, 0.015, light); // button
-        circ(0.71, 0.56, 0.015, light); // button
+        // rounded body, big window with a sheen, brass dial
+        box(0.26, 0.76, 0.32, 0.80, 0.012, dark); // feet
+        box(0.68, 0.76, 0.74, 0.80, 0.012, dark);
+        box(0.16, 0.38, 0.84, 0.76, 0.06, base);
+        box(0.205, 0.425, 0.585, 0.715, 0.035, const Color(0xFF3F4E58));
+        line(0.32, 0.46, 0.25, 0.67, 0.016,
+            Colors.white.withValues(alpha: 0.18)); // sheen
+        box(0.625, 0.425, 0.795, 0.715, 0.03, _shade(base, 0.08)); // panel
+        circ(0.71, 0.50, 0.020, _brass); // dial
+        box(0.665, 0.575, 0.755, 0.60, 0.01, _shade(base, -0.16)); // buttons
+        box(0.665, 0.635, 0.755, 0.66, 0.01, _shade(base, -0.16));
       case 'kettle':
-        steam(0.30, 0.48); // wisps off the spout
-        poly(const [
-          Offset(0.36, 0.52),
-          Offset(0.64, 0.52),
-          Offset(0.60, 0.82),
-          Offset(0.40, 0.82),
-        ], base); // body
-        box(0.42, 0.46, 0.58, 0.52, 0.02, dark); // lid
-        circ(0.50, 0.44, 0.025, dark); // knob
-        line(0.36, 0.58, 0.26, 0.52, 0.03, base); // spout
-        box(0.60, 0.50, 0.72, 0.55, 0.02, dark); // handle top
-        box(0.68, 0.50, 0.72, 0.70, 0.02, dark); // handle side
-        box(0.36, 0.82, 0.64, 0.86, 0.01, dark); // base
+        // a plump stovetop kettle with an arch handle and brass knob
+        steam(0.28, 0.44); // wisps off the spout
+        arc(0.50, 0.52, 0.225, math.pi * 1.08, math.pi * 0.84, 0.030,
+            dark); // arch handle
+        circ(0.50, 0.645, 0.19, base); // plump body
+        box(0.335, 0.70, 0.665, 0.825, 0.06, base);
+        box(0.35, 0.825, 0.65, 0.855, 0.015, dark); // foot
+        box(0.43, 0.435, 0.57, 0.478, 0.02, dark); // lid
+        circ(0.50, 0.42, 0.026, _brass); // knob
+        line(0.335, 0.56, 0.245, 0.475, 0.036, base); // spout
+        line(0.40, 0.56, 0.40, 0.72, 0.018,
+            Colors.white.withValues(alpha: 0.22)); // gloss
       case 'toaster':
-        box(0.28, 0.48, 0.72, 0.80, 0.06, base); // body
-        box(0.36, 0.40, 0.49, 0.50, 0.01, offWhite); // toast
-        box(0.51, 0.40, 0.64, 0.50, 0.01, offWhite); // toast
-        box(0.70, 0.56, 0.74, 0.66, 0.01, dark); // lever
-        circ(0.36, 0.70, 0.02, dark); // knob
+        // a retro two-tone toaster, golden toast popping at a tilt
+        rot(0.425, 0.42, -0.04, () {
+          box(0.36, 0.355, 0.49, 0.50, 0.025, const Color(0xFFD9A25F));
+        });
+        rot(0.575, 0.415, 0.05, () {
+          box(0.51, 0.345, 0.64, 0.50, 0.025, const Color(0xFFE0B074));
+        });
+        box(0.30, 0.815, 0.36, 0.85, 0.012, dark); // feet
+        box(0.64, 0.815, 0.70, 0.85, 0.012, dark);
+        box(0.24, 0.475, 0.76, 0.815, 0.10, base); // rounded body
+        box(0.24, 0.615, 0.76, 0.815, 0.10, _shade(base, 0.10)); // lower band
+        box(0.30, 0.475, 0.70, 0.505, 0.012, _shade(base, -0.18)); // slot bar
+        box(0.775, 0.545, 0.815, 0.66, 0.018, _brass); // lever
+        circ(0.35, 0.71, 0.026, _brass); // dial
       case 'mug':
-        steam(0.48, 0.44); // wisps off the hot drink
-        box(0.36, 0.46, 0.60, 0.80, 0.05, base); // cup
-        box(0.38, 0.46, 0.58, 0.52, 0.02, light); // drink
-        box(0.60, 0.54, 0.70, 0.58, 0.02, base); // handle
-        box(0.66, 0.54, 0.70, 0.70, 0.02, base); // handle
-        box(0.60, 0.66, 0.70, 0.70, 0.02, base); // handle
+        // a fat mug on a saucer, open rim showing coffee with a cream swirl
+        steam(0.50, 0.42); // wisps off the hot drink
+        oval(0.50, 0.845, 0.24, 0.05, _cream); // saucer
+        oval(0.50, 0.858, 0.16, 0.022, _shade(_cream, -0.16));
+        ring(0.695, 0.615, 0.078, 0.038, _shade(base, -0.06)); // C-handle
+        box(0.325, 0.46, 0.675, 0.80, 0.075, base); // body
+        oval(0.50, 0.465, 0.175, 0.052, _shade(base, -0.30)); // open rim
+        oval(0.50, 0.468, 0.145, 0.040, _coffee);
+        arc(0.50, 0.468, 0.075, 0.4, 4.2, 0.016,
+            const Color(0xFFE8D7B8)); // cream swirl
+        line(0.385, 0.53, 0.385, 0.72, 0.022,
+            Colors.white.withValues(alpha: 0.28)); // gloss
       case 'teapot':
-        steam(0.32, 0.42); // wisps off the lid
-        circ(0.50, 0.62, 0.17, base); // body
-        box(0.42, 0.44, 0.58, 0.50, 0.03, base); // lid
-        circ(0.50, 0.42, 0.025, dark); // knob
-        line(0.34, 0.58, 0.22, 0.52, 0.035, base); // spout
-        box(0.64, 0.54, 0.74, 0.58, 0.02, base); // handle
-        box(0.70, 0.54, 0.74, 0.70, 0.02, base); // handle
-        box(0.64, 0.66, 0.74, 0.70, 0.02, base); // handle
+        // a round-bellied pot with a domed lid and a painted sprig
+        steam(0.32, 0.40); // wisps off the lid
+        circ(0.50, 0.63, 0.185, base); // belly
+        oval(0.50, 0.815, 0.115, 0.024, _shade(base, -0.24)); // foot ring
+        box(0.42, 0.445, 0.58, 0.485, 0.025, _shade(base, -0.08)); // lid rim
+        dome(0.50, 0.445, 0.075, _shade(base, 0.08)); // lid dome
+        circ(0.50, 0.375, 0.024, _brass); // knob
+        line(0.335, 0.585, 0.245, 0.50, 0.038, base); // spout
+        line(0.245, 0.50, 0.225, 0.455, 0.028, base);
+        arc(0.70, 0.60, 0.085, -math.pi * 0.45, math.pi * 0.95, 0.026,
+            _shade(base, -0.10)); // ear handle
+        bigLeaf(0.475, 0.63, 0.018, 0.035, -0.4, _shade(base, -0.28)); // sprig
+        bigLeaf(0.525, 0.625, 0.018, 0.035, 0.4, _shade(base, -0.28));
       case 'pot':
         box(0.30, 0.52, 0.70, 0.82, 0.04, base); // body
         box(0.28, 0.48, 0.72, 0.55, 0.02, dark); // rim
@@ -979,17 +1352,35 @@ class _FurniturePainter extends CustomPainter {
           }
         }
       case 'books':
-        box(0.26, 0.74, 0.74, 0.84, 0.01, base); // bottom book
-        box(0.30, 0.64, 0.78, 0.74, 0.01, dark); // middle book
-        box(0.22, 0.54, 0.66, 0.64, 0.01, light); // top book
-        line(0.30, 0.56, 0.30, 0.62, 0.006, dark); // page hint
+        // a cosy stack, slightly askew, with a bookmark ribbon
+        rot(0.50, 0.815, 0.02, () {
+          box(0.26, 0.765, 0.74, 0.865, 0.018, base);
+          line(0.70, 0.785, 0.70, 0.845, 0.014, _shade(base, 0.28)); // pages
+        });
+        rot(0.51, 0.715, -0.03, () {
+          box(0.29, 0.665, 0.77, 0.765, 0.018, dark);
+          line(0.73, 0.685, 0.73, 0.745, 0.014, _shade(dark, 0.28));
+        });
+        box(0.60, 0.50, 0.635, 0.60, 0.008, const Color(0xFFB8595E)); // ribbon
+        rot(0.47, 0.615, 0.03, () {
+          box(0.24, 0.565, 0.68, 0.665, 0.018, light);
+          line(0.64, 0.585, 0.64, 0.645, 0.014, _shade(light, 0.26));
+        });
       case 'cushion':
-        box(0.26, 0.40, 0.74, 0.80, 0.12, base); // pillow
-        box(0.34, 0.48, 0.66, 0.72, 0.08, light); // inner panel
-        circ(0.28, 0.42, 0.018, dark); // tassel
-        circ(0.72, 0.42, 0.018, dark); // tassel
-        circ(0.28, 0.78, 0.018, dark); // tassel
-        circ(0.72, 0.78, 0.018, dark); // tassel
+        // a plump squircle with a button dimple and corner tassels
+        line(0.265, 0.425, 0.225, 0.385, 0.014, dark);
+        circ(0.215, 0.375, 0.02, dark);
+        line(0.735, 0.425, 0.775, 0.385, 0.014, dark);
+        circ(0.785, 0.375, 0.02, dark);
+        line(0.265, 0.795, 0.225, 0.835, 0.014, dark);
+        circ(0.215, 0.845, 0.02, dark);
+        line(0.735, 0.795, 0.775, 0.835, 0.014, dark);
+        circ(0.785, 0.845, 0.02, dark);
+        box(0.24, 0.38, 0.76, 0.84, 0.16, base);
+        box(0.285, 0.425, 0.715, 0.795, 0.13, _shade(base, 0.10));
+        line(0.34, 0.475, 0.66, 0.475, 0.010, _shade(base, 0.26)); // piping
+        circ(0.50, 0.615, 0.028, _shade(base, -0.18)); // button dimple
+        circ(0.50, 0.61, 0.014, _shade(base, -0.30), flat: true);
       case 'globe':
         circ(0.50, 0.46, 0.22, base); // sphere
         circ(0.43, 0.42, 0.06, light); // land
@@ -1082,17 +1473,38 @@ class _FurniturePainter extends CustomPainter {
       case 'window': // wall piece — classic four-pane
         {
           // Sky tint drifts (mid = the static 0xFFBFE3F2) and the clouds slide
-          // gently across the pane — the view "outside" feels alive.
+          // gently across the pane — the view "outside" feels alive. Dressed
+          // with a rod, tied curtains and a little plant on the sill.
           final sky = Color.lerp(const Color(0xFFB6DEEF),
               const Color(0xFFC8E8F5), 0.5 + 0.5 * wv(1))!;
           final drift = 0.04 * wv(1);
-          box(0.16, 0.14, 0.84, 0.84, 0.04, base); // frame
-          box(0.21, 0.19, 0.79, 0.79, 0.02, sky); // glass
-          circ(0.62 + drift, 0.36, 0.06, Colors.white); // cloud
-          circ(0.69 + drift, 0.40, 0.045, Colors.white); // cloud
-          box(0.47, 0.19, 0.53, 0.79, 0.0, base); // mullion (vertical)
-          box(0.21, 0.46, 0.79, 0.52, 0.0, base); // mullion (horizontal)
-          box(0.13, 0.84, 0.87, 0.90, 0.01, dark); // sill
+          box(0.16, 0.12, 0.84, 0.84, 0.04, base); // frame
+          box(0.205, 0.165, 0.795, 0.795, 0.02, sky); // glass
+          circ(0.62 + drift, 0.34, 0.06, Colors.white); // clouds
+          circ(0.69 + drift, 0.38, 0.045, Colors.white);
+          circ(0.30 - drift * 0.6, 0.56, 0.04,
+              Colors.white.withValues(alpha: 0.8));
+          box(0.475, 0.165, 0.525, 0.795, 0.0, base); // mullions
+          box(0.205, 0.45, 0.795, 0.50, 0.0, base);
+          box(0.13, 0.84, 0.87, 0.895, 0.012, dark); // sill
+          box(0.655, 0.78, 0.72, 0.84, 0.012, _terra); // sill plant
+          bigLeaf(0.67, 0.745, 0.02, 0.04, -0.3, const Color(0xFF6DA06B));
+          bigLeaf(0.70, 0.74, 0.02, 0.042, 0.3, const Color(0xFF578A55));
+          box(0.08, 0.075, 0.92, 0.112, 0.018, _walnut); // curtain rod
+          circ(0.065, 0.093, 0.022, _walnut); // finials
+          circ(0.935, 0.093, 0.022, _walnut);
+          fillPath(pl(const [
+            Offset(0.105, 0.112), Offset(0.235, 0.112),
+            Offset(0.195, 0.50), Offset(0.245, 0.875),
+            Offset(0.105, 0.875),
+          ]), _mustard); // tied curtain, left
+          line(0.16, 0.505, 0.215, 0.505, 0.014, _shade(_mustard, -0.22));
+          fillPath(pl(const [
+            Offset(0.765, 0.112), Offset(0.895, 0.112),
+            Offset(0.895, 0.875), Offset(0.755, 0.875),
+            Offset(0.805, 0.50),
+          ]), _mustard); // tied curtain, right
+          line(0.785, 0.505, 0.84, 0.505, 0.014, _shade(_mustard, -0.22));
         }
       case 'archwindow': // wall piece — arched top
         {
@@ -6203,7 +6615,8 @@ class _FurniturePainter extends CustomPainter {
       oldDelegate.item.id != item.id ||
       oldDelegate.item.color != item.color ||
       oldDelegate.animation != animation ||
-      oldDelegate.phase != phase;
+      oldDelegate.phase != phase ||
+      oldDelegate.style != style;
   // While [animation] is non-null the painter also repaints every tick via
   // `super(repaint: animation)`, without the widget rebuilding.
 }

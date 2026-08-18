@@ -104,6 +104,18 @@ class AppStrings {
     required this.relaxedCorrectionHintBody,
     required this.relaxedCorrectionEnable,
     required this.relaxedCorrectionNotNow,
+    required this.featurePollTitle,
+    required this.featurePollBody,
+    required this.featurePollGames,
+    required this.featurePollAccount,
+    required this.featurePollCourses,
+    required this.featurePollMistakes,
+    required this.featurePollSpeaking,
+    required this.featurePollReminders,
+    required this.featurePollNotNow,
+    required this.featurePollThanks,
+    required this.featurePollThanksAgain,
+    required this.featurePollOpen,
     required this.correctLabel,
     required this.incorrectLabel,
     required this.feedbackTipPrefix,
@@ -168,6 +180,15 @@ class AppStrings {
     required this.legalTitle,
     required this.trademarkDisclaimer,
     required this.openSourceLicenses,
+    required this.aboutMeTitle,
+    required this.aboutMeWhy,
+    required this.aboutMeContent,
+    required this.aboutMeFeedback,
+    required this.aboutMeContact,
+    required this.aboutMeWriteMe,
+    required this.aboutMeShowEmail,
+    required this.aboutMeRobotCheck,
+    required this.aboutMeRobotWrong,
   });
 
   final String chooseCourse;
@@ -304,6 +325,49 @@ class AppStrings {
   /// Label of the hint panel's dismiss button.
   final String relaxedCorrectionNotNow;
 
+  // ── Feature poll ─────────────────────────────────────────────────────────
+  // The one-time "what should we build next?" question shown on the course
+  // home once the learner has finished a few quizzes. One tap, six options,
+  // recorded anonymously as an analytics event. See `FeaturePoll`.
+
+  /// Heading of the one-time feature poll.
+  final String featurePollTitle;
+
+  /// Sub-line explaining that the answer is anonymous and steers what is built.
+  final String featurePollBody;
+
+  /// Poll option: practice mini-games per module.
+  final String featurePollGames;
+
+  /// Poll option: an account that syncs progress across devices.
+  final String featurePollAccount;
+
+  /// Poll option: more courses / language pairs.
+  final String featurePollCourses;
+
+  /// Poll option: drilling the questions they got wrong.
+  final String featurePollMistakes;
+
+  /// Poll option: more speaking and pronunciation practice.
+  final String featurePollSpeaking;
+
+  /// Poll option: daily reminders and practice goals.
+  final String featurePollReminders;
+
+  /// Label of the poll's dismiss button.
+  final String featurePollNotNow;
+
+  /// Thank-you confirmation. `{coins}` is replaced with the coins awarded.
+  final String featurePollThanks;
+
+  /// Thank-you for an answer that earned no coins — the learner opened the poll
+  /// themselves within the cooldown, so their vote counts but the reward
+  /// doesn't repeat.
+  final String featurePollThanksAgain;
+
+  /// Label of the buttons that open the poll on demand (Settings, course home).
+  final String featurePollOpen;
+
   // Typed-answer quiz feedback.
   /// Badge shown over a correct / incorrect answer.
   final String correctLabel;
@@ -420,6 +484,28 @@ class AppStrings {
   /// no official certificates. Shown in Settings and on the course finder.
   final String trademarkDisclaimer;
   final String openSourceLicenses;
+
+  // About me (standalone page linked from the Settings About & Legal panel).
+  final String aboutMeTitle;
+
+  /// Why the app exists: courses tailored to learners who want more options
+  /// and more specific material than the big apps offer.
+  final String aboutMeWhy;
+
+  /// How the content is made: drafted with AI, corrected by people.
+  final String aboutMeContent;
+  final String aboutMeFeedback;
+  final String aboutMeContact;
+  final String aboutMeWriteMe;
+
+  /// Label of the tap that reveals the contact address (it is never rendered
+  /// until then, so scrapers find nothing to harvest).
+  final String aboutMeShowEmail;
+
+  /// Prompt above the "are you a robot?" sum that guards the address, and the
+  /// nudge shown when the answer was wrong.
+  final String aboutMeRobotCheck;
+  final String aboutMeRobotWrong;
 }
 
 const AppStrings _en = AppStrings(
@@ -538,6 +624,20 @@ const AppStrings _en = AppStrings(
       'accents, umlauts or ß. You can change this anytime in Settings.',
   relaxedCorrectionEnable: 'Enable relaxed correction',
   relaxedCorrectionNotNow: 'Not now',
+  featurePollTitle: 'What should we build next?',
+  featurePollBody:
+      'Pick the one you would like most. It is anonymous, and it decides what '
+      'gets built first.',
+  featurePollGames: 'Games to practise each module',
+  featurePollAccount: 'An account that saves my progress across devices',
+  featurePollCourses: 'More courses and language pairs',
+  featurePollMistakes: 'Practice that repeats what I got wrong',
+  featurePollSpeaking: 'More speaking and pronunciation practice',
+  featurePollReminders: 'Daily reminders and practice goals',
+  featurePollNotNow: 'Not now',
+  featurePollThanks: 'Thank you! +{coins} coins',
+  featurePollThanksAgain: 'Thank you — your answer was counted.',
+  featurePollOpen: 'Tell us what to build next',
   correctLabel: 'Correct',
   incorrectLabel: 'Incorrect',
   feedbackTipPrefix: 'Tip: ',
@@ -612,6 +712,26 @@ const AppStrings _en = AppStrings(
       'CEFR levels (A1–C2) and HSK bands describe content alignment only; '
       'the app does not award official certificates.',
   openSourceLicenses: 'Open-source licenses',
+  aboutMeTitle: 'About me',
+  aboutMeWhy:
+      'I build this app for people who want to learn a language and keep '
+      'running into the same wall: the big apps all teach the same handful '
+      'of languages the same way. Here you get more options, and courses cut '
+      'to a specific need — a language pair, a level, a skill — instead of '
+      'one generic path everyone has to walk.',
+  aboutMeContent:
+      'The lessons and exercises are drafted with AI and then corrected by '
+      'people. That combination is what makes it possible for a small '
+      'project to offer this much material without the quality drifting.',
+  aboutMeFeedback:
+      'Your feedback is always useful. If something is wrong, unclear, or '
+      'simply missing — a course you wish existed, a sentence that reads '
+      'oddly to a native speaker — tell me and it gets fixed.',
+  aboutMeContact: 'Get in touch',
+  aboutMeWriteMe: 'Write to me at',
+  aboutMeShowEmail: 'Show email address',
+  aboutMeRobotCheck: 'Quick check — you are not a robot:',
+  aboutMeRobotWrong: 'Not quite. Here is another one.',
 );
 
 const AppStrings _es = AppStrings(
@@ -733,6 +853,21 @@ const AppStrings _es = AppStrings(
       'en Ajustes.',
   relaxedCorrectionEnable: 'Activar corrección flexible',
   relaxedCorrectionNotNow: 'Ahora no',
+  featurePollTitle: '¿Qué deberíamos crear a continuación?',
+  featurePollBody:
+      'Elige lo que más te gustaría. Es anónimo y decide qué se construye '
+      'primero.',
+  featurePollGames: 'Juegos para practicar cada módulo',
+  featurePollAccount: 'Una cuenta que guarde mi progreso en todos mis '
+      'dispositivos',
+  featurePollCourses: 'Más cursos y combinaciones de idiomas',
+  featurePollMistakes: 'Práctica que repita lo que fallé',
+  featurePollSpeaking: 'Más práctica de habla y pronunciación',
+  featurePollReminders: 'Recordatorios diarios y objetivos de práctica',
+  featurePollNotNow: 'Ahora no',
+  featurePollThanks: '¡Gracias! +{coins} monedas',
+  featurePollThanksAgain: 'Gracias, tu respuesta se ha registrado.',
+  featurePollOpen: 'Dinos qué crear a continuación',
   correctLabel: 'Correcto',
   incorrectLabel: 'Incorrecto',
   feedbackTipPrefix: 'Consejo: ',
@@ -809,6 +944,26 @@ const AppStrings _es = AppStrings(
       'orientación del contenido; la aplicación no otorga certificados '
       'oficiales.',
   openSourceLicenses: 'Licencias de código abierto',
+  aboutMeTitle: 'Sobre mí',
+  aboutMeWhy:
+      'Hago esta app para quienes quieren aprender un idioma y chocan '
+      'siempre con lo mismo: las grandes apps enseñan los mismos pocos '
+      'idiomas de la misma manera. Aquí hay más opciones y cursos hechos a '
+      'medida de una necesidad concreta —un par de idiomas, un nivel, una '
+      'destreza— en lugar de un único camino genérico para todos.',
+  aboutMeContent:
+      'Las lecciones y los ejercicios se redactan con IA y luego los '
+      'corrigen personas. Esa combinación es lo que permite que un proyecto '
+      'pequeño ofrezca tanto material sin perder calidad.',
+  aboutMeFeedback:
+      'Tus comentarios siempre sirven. Si algo está mal, no se entiende o '
+      'falta —un curso que te gustaría tener, una frase que a un hablante '
+      'nativo le suena rara— escríbeme y lo corrijo.',
+  aboutMeContact: 'Contacto',
+  aboutMeWriteMe: 'Escríbeme a',
+  aboutMeShowEmail: 'Mostrar el correo',
+  aboutMeRobotCheck: 'Comprobación rápida: no eres un robot.',
+  aboutMeRobotWrong: 'No es correcto. Aquí tienes otra.',
 );
 
 const AppStrings _de = AppStrings(
@@ -930,6 +1085,21 @@ const AppStrings _de = AppStrings(
       'das jederzeit in den Einstellungen ändern.',
   relaxedCorrectionEnable: 'Nachsichtige Korrektur aktivieren',
   relaxedCorrectionNotNow: 'Jetzt nicht',
+  featurePollTitle: 'Was sollen wir als Nächstes bauen?',
+  featurePollBody:
+      'Wähle aus, was dir am meisten bringen würde. Anonym – und es entscheidet '
+      'mit, was zuerst gebaut wird.',
+  featurePollGames: 'Spiele zum Üben jedes Moduls',
+  featurePollAccount: 'Ein Konto, das meinen Fortschritt geräteübergreifend '
+      'speichert',
+  featurePollCourses: 'Mehr Kurse und Sprachkombinationen',
+  featurePollMistakes: 'Übungen, die meine Fehler wiederholen',
+  featurePollSpeaking: 'Mehr Sprech- und Ausspracheübungen',
+  featurePollReminders: 'Tägliche Erinnerungen und Übungsziele',
+  featurePollNotNow: 'Jetzt nicht',
+  featurePollThanks: 'Danke! +{coins} Münzen',
+  featurePollThanksAgain: 'Danke – deine Antwort wurde gezählt.',
+  featurePollOpen: 'Sag uns, was als Nächstes kommen soll',
   correctLabel: 'Richtig',
   incorrectLabel: 'Falsch',
   feedbackTipPrefix: 'Tipp: ',
@@ -1006,6 +1176,29 @@ const AppStrings _de = AppStrings(
       'beschreiben nur die inhaltliche Ausrichtung; die App vergibt keine '
       'offiziellen Zertifikate.',
   openSourceLicenses: 'Open-Source-Lizenzen',
+  aboutMeTitle: 'Über mich',
+  aboutMeWhy:
+      'Ich baue diese App für alle, die eine Sprache lernen wollen und immer '
+      'wieder an dieselbe Grenze stoßen: Die großen Apps unterrichten '
+      'dieselben wenigen Sprachen auf dieselbe Weise. Hier gibt es mehr '
+      'Auswahl und Kurse, die auf einen konkreten Bedarf zugeschnitten sind '
+      '– ein Sprachpaar, ein Niveau, eine Fertigkeit – statt eines '
+      'einzigen Wegs für alle.',
+  aboutMeContent:
+      'Die Lektionen und Übungen werden mit KI entworfen und anschließend '
+      'von Menschen korrigiert. Diese Kombination macht es möglich, dass '
+      'ein kleines Projekt so viel Material anbietet, ohne dass die '
+      'Qualität leidet.',
+  aboutMeFeedback:
+      'Dein Feedback ist immer hilfreich. Wenn etwas falsch, unklar oder '
+      'einfach nicht vorhanden ist – ein Kurs, den du dir wünschst, ein '
+      'Satz, der für Muttersprachler seltsam klingt – schreib mir, und ich '
+      'bessere es aus.',
+  aboutMeContact: 'Kontakt',
+  aboutMeWriteMe: 'Schreib mir an',
+  aboutMeShowEmail: 'E-Mail-Adresse anzeigen',
+  aboutMeRobotCheck: 'Kurze Prüfung – du bist kein Roboter:',
+  aboutMeRobotWrong: 'Leider falsch. Hier ist eine neue Aufgabe.',
 );
 
 const AppStrings _zh = AppStrings(
@@ -1110,6 +1303,18 @@ const AppStrings _zh = AppStrings(
       '可随时在设置中更改。',
   relaxedCorrectionEnable: '开启宽松批改',
   relaxedCorrectionNotNow: '暂时不用',
+  featurePollTitle: '接下来我们该做什么？',
+  featurePollBody: '选择你最想要的一项。匿名提交，你的选择决定我们先做什么。',
+  featurePollGames: '为每个模块设计的练习小游戏',
+  featurePollAccount: '账号登录，跨设备保存学习进度',
+  featurePollCourses: '更多课程和语言组合',
+  featurePollMistakes: '针对做错题目的重复练习',
+  featurePollSpeaking: '更多口语和发音练习',
+  featurePollReminders: '每日提醒和学习目标',
+  featurePollNotNow: '暂时不用',
+  featurePollThanks: '谢谢！+{coins} 金币',
+  featurePollThanksAgain: '谢谢，你的选择已记录。',
+  featurePollOpen: '告诉我们接下来该做什么',
   correctLabel: '正确',
   incorrectLabel: '错误',
   feedbackTipPrefix: '提示：',
@@ -1177,6 +1382,20 @@ const AppStrings _zh = AppStrings(
       '及欧洲委员会均无隶属、授权或合作关系。CEFR 等级（A1–C2）和 HSK 级别仅表示'
       '内容的对应程度；本应用不颁发官方证书。',
   openSourceLicenses: '开源许可',
+  aboutMeTitle: '关于我',
+  aboutMeWhy:
+      '我做这个应用，是为了那些想学语言却总是遇到同样问题的人：大的应用来来去去只教那几门语言，而且方式都一样。'
+      '这里有更多选择，也有针对具体需求量身定制的课程——某个语言组合、某个级别、某项技能——而不是让所有人走同一条通用的路。',
+  aboutMeContent:
+      '课程和练习先由 AI 起草，再由真人校对。正是这种结合，让一个小项目也能提供这么多内容而不牺牲质量。',
+  aboutMeFeedback:
+      '你的反馈永远有用。如果有内容错误、表述不清，或者干脆缺失——你希望有的课程、母语者读起来别扭的句子——'
+      '都请告诉我，我会修正。',
+  aboutMeContact: '联系方式',
+  aboutMeWriteMe: '写信给我：',
+  aboutMeShowEmail: '显示邮箱地址',
+  aboutMeRobotCheck: '简单验证一下，确认你不是机器人：',
+  aboutMeRobotWrong: '不对，再来一题。',
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

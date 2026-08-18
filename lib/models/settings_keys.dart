@@ -86,6 +86,12 @@ class SettingsKeys {
   /// the learner's first answer that was wrong only because of an accent/umlaut.
   static const String seenRelaxedCorrectionHint = 'seen_relaxed_correction_hint';
 
+  /// When the "what should we build next?" poll was last shown, as epoch
+  /// milliseconds (an `int`). Written whether the learner answered or dismissed
+  /// it; the poll stays quiet until `kFeaturePollCooldown` has passed, then a
+  /// returning learner is asked again. Absent means "never asked".
+  static const String featurePollLastShown = 'feature_poll_last_shown';
+
   /// Quest (CEFR A-level) progression keys — the linear streak chain in
   /// `questEntries`, kept separate from the noun-category chain.
   static const String questUnlockLaps = 'quest_unlock_laps';

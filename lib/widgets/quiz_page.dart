@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/gestures.dart';
@@ -28,6 +29,7 @@ import '../utils/shuffle_bag.dart';
 import 'app_drawer.dart';
 import 'coin_balance_pill.dart';
 import 'coin_flight.dart';
+import 'feature_poll.dart';
 import 'fireworks.dart';
 import 'help_memory.dart';
 import 'help_memory_pdf_export.dart';
@@ -1802,6 +1804,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       _awardCoins(coins);
     }
 
+    // Set when this answer is the one that finishes the quiz, so the feature
+    // poll can be asked afterwards (see below).
+    var justFinishedQuiz = false;
     if (widget.config.progressionKey != null) {
       final progressionKey = widget.config.progressionKey!;
       if (widget.config.questProgression) {
@@ -1810,6 +1815,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             !NounSettings.instance.isQuestQuizCompleted(progressionKey)) {
           NounSettings.instance.markQuestQuizCompleted(progressionKey);
           _awardCoins(CoinWallet.quizFinishedBonus);
+          justFinishedQuiz = true;
           final nextName = nextQuestEntryName(progressionKey);
           if (nextName != null) {
             _triggerCategoryUnlockCelebration(
@@ -1823,6 +1829,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           !NounSettings.instance.isNounCategoryCompleted(progressionKey)) {
         NounSettings.instance.markNounCategoryCompleted(progressionKey);
         _awardCoins(CoinWallet.quizFinishedBonus);
+        justFinishedQuiz = true;
         final index = nounProgressionEntries.indexWhere(
           (e) => e.key == progressionKey,
         );
@@ -1835,6 +1842,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     }
 
     _saveStoredStats();
+
+    // Finishing a quiz is the high point where the feature poll is asked
+    // (self-gating: at most once a week, and only when due). Not awaited —
+    // [_submitAnswer] is synchronous — and delayed past the unlock
+    // celebration so the confetti is done before the question appears.
+    if (justFinishedQuiz) {
+      unawaited(maybeShowFeaturePollAfterQuiz(
+        context,
+        delay: kFeaturePollCelebrationDelay,
+      ));
+    }
 
     if (isCorrect) {
       if (acceptedViaRelaxed) {
