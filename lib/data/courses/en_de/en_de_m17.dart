@@ -8,27 +8,31 @@ const List<HelpMemoryTip> _indirectTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'Konjunktiv I for reporting',
-    text: 'Formal/written reporting uses Konjunktiv I (er-form): er **sei**, er '
+    text:
+        'Formal/written reporting uses Konjunktiv I (er-form): er **sei**, er '
         '**habe**, er **gehe**, er **könne**. If it looks like the present, '
         'switch to Konjunktiv II (**würde** + infinitive).',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'Direct → indirect',
-    text: '„Ich **bin** krank." → Er sagt, er **sei** krank. · „Ich **habe** '
+    text:
+        '„Ich **bin** krank." → Er sagt, er **sei** krank. · „Ich **habe** '
         'keine Zeit." → Sie sagt, sie **habe** keine Zeit.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Partizip I vs II',
-    text: '**Partizip I** (-end) = active/ongoing: das schlaf**ende** Kind. '
+    text:
+        '**Partizip I** (-end) = active/ongoing: das schlaf**ende** Kind. '
         '**Partizip II** = passive/finished: das gekoch**te** Essen. Both take '
         'normal adjective endings.',
   ),
   HelpMemoryTip(
     kind: 'tip',
     title: 'Advanced connectors',
-    text: '**deshalb/darum** (therefore) + inversion · **trotzdem** '
+    text:
+        '**deshalb/darum** (therefore) + inversion · **trotzdem** '
         '(nevertheless) + inversion · **obwohl** (although) sends the verb to '
         'the end.',
   ),
@@ -37,7 +41,8 @@ const List<HelpMemoryTip> _indirectTips = [
 final QuizContent enDeM17KonjunktivI = enDeFill(
   id: 'en_de_m17_konjunktiv_i',
   title: 'Konjunktiv I forms',
-  intro: 'The er-forms of Konjunktiv I — the ones you actually use in reported '
+  intro:
+      'The er-forms of Konjunktiv I — the ones you actually use in reported '
       'speech.',
   tips: _indirectTips,
   items: const [
@@ -62,25 +67,71 @@ final QuizContent enDeM17KonjunktivI = enDeFill(
 final QuizContent enDeM17Reported = enDeFill(
   id: 'en_de_m17_reported',
   title: 'Reported speech',
-  intro: 'Turn direct speech into reported speech with Konjunktiv I (or '
+  intro:
+      'Turn direct speech into reported speech with Konjunktiv I (or '
       'Konjunktiv II where KI is ambiguous).',
   tips: _indirectTips,
   items: const [
-    CourseItem(prompt: 'He says he is sick. (sei)', answer: 'Er sagt, er **sei** krank'),
-    CourseItem(prompt: 'She says she has no time. (habe)', answer: 'Sie sagt, sie **habe** keine Zeit'),
-    CourseItem(prompt: 'He claims he knows it. (wisse)', answer: 'Er behauptet, er **wisse** es'),
-    CourseItem(prompt: 'They say they would come. (würden)', answer: 'Sie sagen, sie **würden** kommen'),
-    CourseItem(prompt: 'He says he can help. (könne)', answer: 'Er sagt, er **könne** helfen'),
-    CourseItem(prompt: 'She says she is coming tomorrow. (komme)', answer: 'Sie sagt, sie **komme** morgen'),
-    CourseItem(prompt: 'The minister says the economy is strong. (sei)', answer: 'Der Minister sagt, die Wirtschaft **sei** stark'),
-    CourseItem(prompt: 'He claims he must leave. (müsse)', answer: 'Er behauptet, er **müsse** gehen'),
-    CourseItem(prompt: 'She says there is no problem. (gebe)', answer: 'Sie sagt, es **gebe** kein Problem'),
-    CourseItem(prompt: 'The report says the figures are rising. (seien … or: stiegen)', answer: 'Der Bericht sagt, die Zahlen **seien** gestiegen'),
-    CourseItem(prompt: 'He says he wants to stay. (wolle)', answer: 'Er sagt, er **wolle** bleiben'),
-    CourseItem(prompt: 'She claims she saw nothing. (habe … gesehen)', answer: 'Sie behauptet, sie **habe** nichts gesehen'),
-    CourseItem(prompt: 'The spokesman says the plan will work. (werde)', answer: 'Der Sprecher sagt, der Plan **werde** funktionieren'),
-    CourseItem(prompt: 'He says he is not allowed to comment. (dürfe)', answer: 'Er sagt, er **dürfe** nichts sagen'),
-    CourseItem(prompt: 'They say they know the truth. (wüssten — KII)', answer: 'Sie sagen, sie **wüssten** die Wahrheit'),
+    CourseItem(
+      prompt: 'He says he is sick. (sei)',
+      answer: 'Er sagt, er **sei** krank',
+    ),
+    CourseItem(
+      prompt: 'She says she has no time. (habe)',
+      answer: 'Sie sagt, sie **habe** keine Zeit',
+    ),
+    CourseItem(
+      prompt: 'He claims he knows it. (wisse)',
+      answer: 'Er behauptet, er **wisse** es',
+    ),
+    CourseItem(
+      prompt: 'They say they would come. (würden)',
+      answer: 'Sie sagen, sie **würden** kommen',
+    ),
+    CourseItem(
+      prompt: 'He says he can help. (könne)',
+      answer: 'Er sagt, er **könne** helfen',
+    ),
+    CourseItem(
+      prompt: 'She says she is coming tomorrow. (komme)',
+      answer: 'Sie sagt, sie **komme** morgen',
+    ),
+    CourseItem(
+      prompt: 'The minister says the economy is strong. (sei)',
+      answer: 'Der Minister sagt, die Wirtschaft **sei** stark',
+    ),
+    CourseItem(
+      prompt: 'He claims he must leave. (müsse)',
+      answer: 'Er behauptet, er **müsse** gehen',
+    ),
+    CourseItem(
+      prompt: 'She says there is no problem. (gebe)',
+      answer: 'Sie sagt, es **gebe** kein Problem',
+    ),
+    CourseItem(
+      prompt: 'The report says the figures are rising. (seien … or: stiegen)',
+      answer: 'Der Bericht sagt, die Zahlen **seien** gestiegen',
+    ),
+    CourseItem(
+      prompt: 'He says he wants to stay. (wolle)',
+      answer: 'Er sagt, er **wolle** bleiben',
+    ),
+    CourseItem(
+      prompt: 'She claims she saw nothing. (habe … gesehen)',
+      answer: 'Sie behauptet, sie **habe** nichts gesehen',
+    ),
+    CourseItem(
+      prompt: 'The spokesman says the plan will work. (werde)',
+      answer: 'Der Sprecher sagt, der Plan **werde** funktionieren',
+    ),
+    CourseItem(
+      prompt: 'He says he is not allowed to comment. (dürfe)',
+      answer: 'Er sagt, er **dürfe** nichts sagen',
+    ),
+    CourseItem(
+      prompt: 'They say they know the truth. (wüssten — KII)',
+      answer: 'Sie sagen, sie **wüssten** die Wahrheit',
+    ),
   ],
 );
 
@@ -103,7 +154,11 @@ final QuizContent enDeM17BigTextWarmup = enDeBigText(
     inputBlank('komme', hint: 'kommen → Konjunktiv I (er)'),
     inputBlank('habe', hint: 'haben → Konjunktiv I (er)'),
     inputBlank('sei', hint: 'sein → Konjunktiv I (er)'),
-    inputBlank('könne', accepted: ['koenne'], hint: 'können → Konjunktiv I (er)'),
+    inputBlank(
+      'könne',
+      accepted: ['koenne'],
+      hint: 'können → Konjunktiv I (er)',
+    ),
   ],
   passageTranslation:
       'Have you seen the new guy at the office yet? People are talking about him '
@@ -113,7 +168,8 @@ final QuizContent enDeM17BigTextWarmup = enDeBigText(
       'in love with someone. And Max is absolutely sure that he will soon be '
       'promoted. Honestly, nobody knows anything for certain — but the talking '
       'goes on non-stop anyway!',
-  intro: 'Type the Konjunktiv I er-form used in reported speech: sein → sei, '
+  intro:
+      'Type the Konjunktiv I er-form used in reported speech: sein → sei, '
       'haben → habe, kommen → komme, können → könne.',
   tips: _indirectTips,
 );
@@ -121,50 +177,142 @@ final QuizContent enDeM17BigTextWarmup = enDeBigText(
 final QuizContent enDeM17Participles = enDeFill(
   id: 'en_de_m17_participles',
   title: 'Participles as adjectives',
-  intro: 'Partizip I (-end, ongoing) and Partizip II (finished) can describe a '
+  intro:
+      'Partizip I (-end, ongoing) and Partizip II (finished) can describe a '
       'noun — and then they take normal adjective endings.',
   tips: _indirectTips,
   items: const [
-    CourseItem(prompt: 'the sleeping child (Partizip I: schlafend)', answer: 'das **schlafende** Kind'),
-    CourseItem(prompt: 'the crying baby (weinend)', answer: 'das **weinende** Baby'),
-    CourseItem(prompt: 'the broken window (Partizip II: zerbrochen)', answer: 'das **zerbrochene** Fenster'),
-    CourseItem(prompt: 'the cooked meal (gekocht)', answer: 'das **gekochte** Essen'),
-    CourseItem(prompt: 'the laughing children (lachend)', answer: 'die **lachenden** Kinder'),
-    CourseItem(prompt: 'the barking dog (bellend)', answer: 'der **bellende** Hund'),
-    CourseItem(prompt: 'the freshly baked bread (gebacken)', answer: 'das frisch **gebackene** Brot'),
-    CourseItem(prompt: 'the setting sun (untergehend)', answer: 'die **untergehende** Sonne'),
-    CourseItem(prompt: 'the invited guests (eingeladen)', answer: 'die **eingeladenen** Gäste'),
-    CourseItem(prompt: 'the running engine (laufend)', answer: 'der **laufende** Motor'),
-    CourseItem(prompt: 'the written letter (geschrieben)', answer: 'der **geschriebene** Brief'),
-    CourseItem(prompt: 'the playing children (spielend)', answer: 'die **spielenden** Kinder'),
-    CourseItem(prompt: 'the parked car (geparkt)', answer: 'das **geparkte** Auto'),
-    CourseItem(prompt: 'the singing woman (singend)', answer: 'die **singende** Frau'),
-    CourseItem(prompt: 'the repaired bike (repariert)', answer: 'das **reparierte** Fahrrad'),
+    CourseItem(
+      prompt: 'the sleeping child (Partizip I: schlafend)',
+      answer: 'das **schlafende** Kind',
+    ),
+    CourseItem(
+      prompt: 'the crying baby (weinend)',
+      answer: 'das **weinende** Baby',
+    ),
+    CourseItem(
+      prompt: 'the broken window (Partizip II: zerbrochen)',
+      answer: 'das **zerbrochene** Fenster',
+    ),
+    CourseItem(
+      prompt: 'the cooked meal (gekocht)',
+      answer: 'das **gekochte** Essen',
+    ),
+    CourseItem(
+      prompt: 'the laughing children (lachend)',
+      answer: 'die **lachenden** Kinder',
+    ),
+    CourseItem(
+      prompt: 'the barking dog (bellend)',
+      answer: 'der **bellende** Hund',
+    ),
+    CourseItem(
+      prompt: 'the freshly baked bread (gebacken)',
+      answer: 'das frisch **gebackene** Brot',
+    ),
+    CourseItem(
+      prompt: 'the setting sun (untergehend)',
+      answer: 'die **untergehende** Sonne',
+    ),
+    CourseItem(
+      prompt: 'the invited guests (eingeladen)',
+      answer: 'die **eingeladenen** Gäste',
+    ),
+    CourseItem(
+      prompt: 'the running engine (laufend)',
+      answer: 'der **laufende** Motor',
+    ),
+    CourseItem(
+      prompt: 'the written letter (geschrieben)',
+      answer: 'der **geschriebene** Brief',
+    ),
+    CourseItem(
+      prompt: 'the playing children (spielend)',
+      answer: 'die **spielenden** Kinder',
+    ),
+    CourseItem(
+      prompt: 'the parked car (geparkt)',
+      answer: 'das **geparkte** Auto',
+    ),
+    CourseItem(
+      prompt: 'the singing woman (singend)',
+      answer: 'die **singende** Frau',
+    ),
+    CourseItem(
+      prompt: 'the repaired bike (repariert)',
+      answer: 'das **reparierte** Fahrrad',
+    ),
   ],
 );
 
 final QuizContent enDeM17Connectors = enDeFill(
   id: 'en_de_m17_connectors',
   title: 'Advanced connectors',
-  intro: 'deshalb and trotzdem trigger inversion (verb before subject); obwohl '
+  intro:
+      'deshalb and trotzdem trigger inversion (verb before subject); obwohl '
       'sends the verb to the end of its clause.',
   tips: _indirectTips,
   items: const [
-    CourseItem(prompt: 'It rained, therefore we stayed home. (deshalb)', answer: 'Es regnete, **deshalb** blieben wir zu Hause'),
-    CourseItem(prompt: 'It rained; nevertheless we went out. (trotzdem)', answer: 'Es regnete, **trotzdem** gingen wir raus'),
-    CourseItem(prompt: 'Although it rained, we went out. (obwohl)', answer: '**Obwohl** es regnete, gingen wir raus'),
-    CourseItem(prompt: 'He is rich; nevertheless he is unhappy. (trotzdem)', answer: 'Er ist reich, **trotzdem** ist er unglücklich'),
-    CourseItem(prompt: 'Although she is tired, she works. (obwohl)', answer: '**Obwohl** sie müde ist, arbeitet sie'),
-    CourseItem(prompt: 'He was ill, therefore he stayed home. (deshalb)', answer: 'Er war krank, **deshalb** blieb er zu Hause'),
-    CourseItem(prompt: 'The plan is risky; nevertheless we try it. (trotzdem)', answer: 'Der Plan ist riskant, **trotzdem** versuchen wir es'),
-    CourseItem(prompt: 'Although the food was expensive, it tasted bad. (obwohl)', answer: '**Obwohl** das Essen teuer war, schmeckte es schlecht'),
-    CourseItem(prompt: 'She was tired, therefore she went to bed. (deshalb)', answer: 'Sie war müde, **deshalb** ging sie ins Bett'),
-    CourseItem(prompt: 'It was late; nevertheless we kept talking. (trotzdem)', answer: 'Es war spät, **trotzdem** redeten wir weiter'),
-    CourseItem(prompt: 'Although he has little money, he is generous. (obwohl)', answer: '**Obwohl** er wenig Geld hat, ist er großzügig'),
-    CourseItem(prompt: 'The train was late, therefore we missed the film. (deshalb)', answer: 'Der Zug war spät, **deshalb** verpassten wir den Film'),
-    CourseItem(prompt: 'He trained hard; nevertheless he lost. (trotzdem)', answer: 'Er trainierte hart, **trotzdem** verlor er'),
-    CourseItem(prompt: 'Although it was cold, we swam. (obwohl)', answer: '**Obwohl** es kalt war, schwammen wir'),
-    CourseItem(prompt: 'I had no time, therefore I could not come. (deshalb)', answer: 'Ich hatte keine Zeit, **deshalb** konnte ich nicht kommen'),
+    CourseItem(
+      prompt: 'It rained, therefore we stayed home. (deshalb)',
+      answer: 'Es regnete, **deshalb** blieben wir zu Hause',
+    ),
+    CourseItem(
+      prompt: 'It rained; nevertheless we went out. (trotzdem)',
+      answer: 'Es regnete, **trotzdem** gingen wir raus',
+    ),
+    CourseItem(
+      prompt: 'Although it rained, we went out. (obwohl)',
+      answer: '**Obwohl** es regnete, gingen wir raus',
+    ),
+    CourseItem(
+      prompt: 'He is rich; nevertheless he is unhappy. (trotzdem)',
+      answer: 'Er ist reich, **trotzdem** ist er unglücklich',
+    ),
+    CourseItem(
+      prompt: 'Although she is tired, she works. (obwohl)',
+      answer: '**Obwohl** sie müde ist, arbeitet sie',
+    ),
+    CourseItem(
+      prompt: 'He was ill, therefore he stayed home. (deshalb)',
+      answer: 'Er war krank, **deshalb** blieb er zu Hause',
+    ),
+    CourseItem(
+      prompt: 'The plan is risky; nevertheless we try it. (trotzdem)',
+      answer: 'Der Plan ist riskant, **trotzdem** versuchen wir es',
+    ),
+    CourseItem(
+      prompt: 'Although the food was expensive, it tasted bad. (obwohl)',
+      answer: '**Obwohl** das Essen teuer war, schmeckte es schlecht',
+    ),
+    CourseItem(
+      prompt: 'She was tired, therefore she went to bed. (deshalb)',
+      answer: 'Sie war müde, **deshalb** ging sie ins Bett',
+    ),
+    CourseItem(
+      prompt: 'It was late; nevertheless we kept talking. (trotzdem)',
+      answer: 'Es war spät, **trotzdem** redeten wir weiter',
+    ),
+    CourseItem(
+      prompt: 'Although he has little money, he is generous. (obwohl)',
+      answer: '**Obwohl** er wenig Geld hat, ist er großzügig',
+    ),
+    CourseItem(
+      prompt: 'The train was late, therefore we missed the film. (deshalb)',
+      answer: 'Der Zug war spät, **deshalb** verpassten wir den Film',
+    ),
+    CourseItem(
+      prompt: 'He trained hard; nevertheless he lost. (trotzdem)',
+      answer: 'Er trainierte hart, **trotzdem** verlor er',
+    ),
+    CourseItem(
+      prompt: 'Although it was cold, we swam. (obwohl)',
+      answer: '**Obwohl** es kalt war, schwammen wir',
+    ),
+    CourseItem(
+      prompt: 'I had no time, therefore I could not come. (deshalb)',
+      answer: 'Ich hatte keine Zeit, **deshalb** konnte ich nicht kommen',
+    ),
   ],
 );
 
@@ -182,7 +330,8 @@ final QuizContent enDeM17Reading = enDeRead(
       'new jobs. Experts, however, think that prices will keep rising. The '
       'government has a new plan, the spokesman said. Many citizens, however, '
       'are sceptical.',
-  intro: 'Read the news report, written in indirect speech (sei, gebe, habe), '
+  intro:
+      'Read the news report, written in indirect speech (sei, gebe, habe), '
       'and answer.',
   tips: _indirectTips,
   questions: const [
@@ -221,7 +370,8 @@ final QuizContent enDeM17Listening = enDeListen(
   passageTranslation:
       'The police said the thief had been caught in the morning. He had '
       'returned the money. The judge will decide next week.',
-  intro: 'Listen to the police report in indirect speech (sei, habe, werde) and '
+  intro:
+      'Listen to the police report in indirect speech (sei, habe, werde) and '
       'answer.',
   tips: _indirectTips,
   questions: const [
@@ -233,11 +383,7 @@ final QuizContent enDeM17Listening = enDeListen(
     ),
     ReadingQuestion(
       question: 'Was habe der Dieb gemacht?',
-      options: [
-        'Das Geld zurückgegeben',
-        'Das Geld behalten',
-        'Nichts gesagt',
-      ],
+      options: ['Das Geld zurückgegeben', 'Das Geld behalten', 'Nichts gesagt'],
       correctIndex: 0,
       questionTranslation: 'What had the thief done?',
     ),
@@ -253,15 +399,28 @@ final QuizContent enDeM17Listening = enDeListen(
 final QuizContent enDeM17Speak = enDeSpeak(
   id: 'en_de_m17_speak',
   title: 'Speak: report what was said',
-  intro: 'Report each statement aloud in Konjunktiv I — the register of news '
+  intro:
+      'Report each statement aloud in Konjunktiv I — the register of news '
       'and formal writing.',
   tips: _indirectTips,
   items: const [
     CourseItem(prompt: 'He says he is sick.', answer: 'Er sagt, er sei krank.'),
-    CourseItem(prompt: 'She says she has no time.', answer: 'Sie sagt, sie habe keine Zeit.'),
-    CourseItem(prompt: 'They say they would come tomorrow.', answer: 'Sie sagen, sie würden morgen kommen.'),
-    CourseItem(prompt: 'He claims he knows nothing.', answer: 'Er behauptet, er wisse nichts.'),
-    CourseItem(prompt: 'The minister said the economy is strong.', answer: 'Der Minister sagte, die Wirtschaft sei stark.'),
+    CourseItem(
+      prompt: 'She says she has no time.',
+      answer: 'Sie sagt, sie habe keine Zeit.',
+    ),
+    CourseItem(
+      prompt: 'They say they would come tomorrow.',
+      answer: 'Sie sagen, sie würden morgen kommen.',
+    ),
+    CourseItem(
+      prompt: 'He claims he knows nothing.',
+      answer: 'Er behauptet, er wisse nichts.',
+    ),
+    CourseItem(
+      prompt: 'The minister said the economy is strong.',
+      answer: 'Der Minister sagte, die Wirtschaft sei stark.',
+    ),
   ],
 );
 
@@ -310,21 +469,91 @@ final QuizContent enDeM17BigText = enDeBigText(
       'medal. The operation was life-threatening, so the man is famous '
       'throughout the city today. And the mother? She looked at him with a '
       'beaming smile and thanked him a thousand times.',
-  intro: 'The grand finale: reported speech in Konjunktiv I (sei, habe, werde), '
+  intro:
+      'The grand finale: reported speech in Konjunktiv I (sei, habe, werde), '
       'participles as adjectives (brennend → brennenden, gerettet → gerettete), '
       'and the connectors obwohl / trotzdem / deshalb — all in one news story.',
   tips: _indirectTips,
 );
 
 /// M17 — Indirect Speech & Participles, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM17Speaking = enDeSpeaking(
+  id: 'en_de_m17_speaking',
+  title: 'Report the news',
+  level: 'B2',
+  topic:
+      'News and what other people said: reporting a story, quoting someone, and staying neutral about whether it is true.',
+  practisePoints: [
+    'Konjunktiv I for reported speech: Er sagte, er sei krank.',
+    'Falling back on Konjunktiv II when the form is ambiguous: sie hätten',
+    'Partizip I and II as adjectives: die steigenden Preise, die beschlossene Reform',
+    'Advanced connectors: obwohl, während, sodass, je ... desto',
+  ],
+  targetVocabulary: ['sei', 'habe', 'werde', 'obwohl', 'während', 'laut'],
+  scoringCriteria: [
+    'the Konjunktiv I form',
+    'the fallback to Konjunktiv II',
+    'participles used as adjectives',
+    'the connector and its word order',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv I',
+    'wrong Konjunktiv form',
+    'wrong participle',
+    'wrong word order after a connector',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 6, minExchanges: 9),
+  intro:
+      'Report what other people said, the way the news does. Copy the exercise into your AI assistant and turn on voice mode.',
+  tips: _indirectTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM17SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m17_speaking_check',
+  title: 'Checkpoint: he said that ...',
+  level: 'B2',
+  topic:
+      'Passing on what someone just said: I hear a short statement and report it to a third person.',
+  practisePoints: [
+    'Konjunktiv I: er sei, er habe, er werde',
+    'Falling back on Konjunktiv II when the form looks like the indicative',
+    'Keeping the reported clause neutral',
+  ],
+  targetVocabulary: ['sei', 'habe', 'werde', 'sagte', 'behaupte'],
+  scoringCriteria: [
+    'the Konjunktiv I form',
+    'the fallback to Konjunktiv II',
+    'a neutral report',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv I',
+    'wrong Konjunktiv form',
+  ],
+  mode: SpeakingMode.roleplay,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _indirectTips,
+);
+
 final List<QuizContent> enDeM17 = [
   enDeM17KonjunktivI,
   enDeM17Reported,
   enDeM17BigTextWarmup,
   enDeM17Participles,
   enDeM17Connectors,
+  enDeM17SpeakingCheck,
   enDeM17Reading,
   enDeM17Listening,
   enDeM17Speak,
   enDeM17BigText,
+  enDeM17Speaking,
 ];

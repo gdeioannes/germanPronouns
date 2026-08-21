@@ -179,6 +179,7 @@ _QuizRef _resolveItem(
 ) {
   switch (summary?.kind) {
     case QuizKind.speakRepeat:
+    case QuizKind.speaking:
       return _QuizRef(
         ref,
         summary!.storageKeyPrefix,

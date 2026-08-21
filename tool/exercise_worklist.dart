@@ -52,6 +52,9 @@ void main(List<String> args) {
     for (final quiz in entry.value) {
       final int count;
       switch (quiz.kind) {
+        // Authored as one brief, not a bank of items — nothing to count.
+        case QuizKind.speaking:
+          continue;
         case QuizKind.fillBlank:
           // Template-driven quizzes generate their sentences; only stored
           // banks are authorable.

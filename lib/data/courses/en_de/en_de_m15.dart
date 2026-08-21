@@ -8,27 +8,31 @@ const List<HelpMemoryTip> _konjunktivTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'würde + infinitive',
-    text: 'Most verbs: **würde** + infinitive — Ich **würde** gern kommen. '
+    text:
+        'Most verbs: **würde** + infinitive — Ich **würde** gern kommen. '
         'sein/haben/modals have their own forms: **wäre, hätte, könnte, müsste, '
         'dürfte**.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'Instantly polite',
-    text: '**Könnten** Sie mir helfen? · Ich **hätte** gern einen Kaffee. · Das '
+    text:
+        '**Könnten** Sie mir helfen? · Ich **hätte** gern einen Kaffee. · Das '
         '**wäre** nett. · Ich **möchte** zahlen.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Reflexive: mich vs mir',
-    text: 'Accusative reflexive normally (Ich freue **mich**); switch to dative '
+    text:
+        'Accusative reflexive normally (Ich freue **mich**); switch to dative '
         'when there is already a direct object (Ich wasche **mir** **die '
         'Hände**).',
   ),
   HelpMemoryTip(
     kind: 'tip',
     title: 'möchte = polite mögen',
-    text: '**möchte** ("would like") is simply the Konjunktiv II of mögen — the '
+    text:
+        '**möchte** ("would like") is simply the Konjunktiv II of mögen — the '
         'everyday polite form.',
   ),
 ];
@@ -36,7 +40,8 @@ const List<HelpMemoryTip> _konjunktivTips = [
 final QuizContent enDeM15Forms = enDeFill(
   id: 'en_de_m15_forms',
   title: 'würde / wäre / hätte / könnte',
-  intro: 'Learn the core Konjunktiv II forms. These four cover most polite and '
+  intro:
+      'Learn the core Konjunktiv II forms. These four cover most polite and '
       'hypothetical sentences.',
   tips: _konjunktivTips,
   items: const [
@@ -61,25 +66,71 @@ final QuizContent enDeM15Forms = enDeFill(
 final QuizContent enDeM15Wuerde = enDeFill(
   id: 'en_de_m15_wuerde',
   title: 'würde + infinitive',
-  intro: 'For ordinary verbs, use würde + the infinitive (which goes to the '
+  intro:
+      'For ordinary verbs, use würde + the infinitive (which goes to the '
       'end).',
   tips: _konjunktivTips,
   items: const [
-    CourseItem(prompt: 'I would help you. (würde)', answer: 'Ich **würde** dir helfen'),
-    CourseItem(prompt: 'Would you come? (du)', answer: '**Würdest** du kommen?'),
-    CourseItem(prompt: 'She would buy a car.', answer: 'Sie **würde** ein Auto kaufen'),
-    CourseItem(prompt: 'We would travel to Italy.', answer: 'Wir **würden** nach Italien reisen'),
-    CourseItem(prompt: 'They would stay home.', answer: 'Sie **würden** zu Hause bleiben'),
-    CourseItem(prompt: 'He would never say that.', answer: 'Er **würde** das nie sagen'),
-    CourseItem(prompt: 'Would you all come along? (ihr)', answer: '**Würdet** ihr mitkommen?'),
-    CourseItem(prompt: 'I would gladly eat more.', answer: 'Ich **würde** gern mehr essen'),
-    CourseItem(prompt: 'We would take the train.', answer: 'Wir **würden** den Zug nehmen'),
-    CourseItem(prompt: 'Would you repeat that? (Sie)', answer: '**Würden** Sie das wiederholen?'),
-    CourseItem(prompt: 'She would learn Spanish.', answer: 'Sie **würde** Spanisch lernen'),
-    CourseItem(prompt: 'I would not do that.', answer: 'Ich **würde** das nicht machen'),
-    CourseItem(prompt: 'What would you do? (du)', answer: 'Was **würdest** du tun?'),
-    CourseItem(prompt: 'They would sell the house.', answer: 'Sie **würden** das Haus verkaufen'),
-    CourseItem(prompt: 'In your place I would wait.', answer: 'An deiner Stelle **würde** ich warten'),
+    CourseItem(
+      prompt: 'I would help you. (würde)',
+      answer: 'Ich **würde** dir helfen',
+    ),
+    CourseItem(
+      prompt: 'Would you come? (du)',
+      answer: '**Würdest** du kommen?',
+    ),
+    CourseItem(
+      prompt: 'She would buy a car.',
+      answer: 'Sie **würde** ein Auto kaufen',
+    ),
+    CourseItem(
+      prompt: 'We would travel to Italy.',
+      answer: 'Wir **würden** nach Italien reisen',
+    ),
+    CourseItem(
+      prompt: 'They would stay home.',
+      answer: 'Sie **würden** zu Hause bleiben',
+    ),
+    CourseItem(
+      prompt: 'He would never say that.',
+      answer: 'Er **würde** das nie sagen',
+    ),
+    CourseItem(
+      prompt: 'Would you all come along? (ihr)',
+      answer: '**Würdet** ihr mitkommen?',
+    ),
+    CourseItem(
+      prompt: 'I would gladly eat more.',
+      answer: 'Ich **würde** gern mehr essen',
+    ),
+    CourseItem(
+      prompt: 'We would take the train.',
+      answer: 'Wir **würden** den Zug nehmen',
+    ),
+    CourseItem(
+      prompt: 'Would you repeat that? (Sie)',
+      answer: '**Würden** Sie das wiederholen?',
+    ),
+    CourseItem(
+      prompt: 'She would learn Spanish.',
+      answer: 'Sie **würde** Spanisch lernen',
+    ),
+    CourseItem(
+      prompt: 'I would not do that.',
+      answer: 'Ich **würde** das nicht machen',
+    ),
+    CourseItem(
+      prompt: 'What would you do? (du)',
+      answer: 'Was **würdest** du tun?',
+    ),
+    CourseItem(
+      prompt: 'They would sell the house.',
+      answer: 'Sie **würden** das Haus verkaufen',
+    ),
+    CourseItem(
+      prompt: 'In your place I would wait.',
+      answer: 'An deiner Stelle **würde** ich warten',
+    ),
   ],
 );
 
@@ -101,11 +152,23 @@ final QuizContent enDeM15BigTextWarmup = enDeBigText(
   blanks: [
     inputBlank('würde', hint: 'würde + Infinitiv (ich)'),
     inputBlank('wäre', accepted: ['waere'], hint: 'sein → Konjunktiv II (ich)'),
-    inputBlank('hätte', accepted: ['haette'], hint: 'haben → Konjunktiv II (ich)'),
+    inputBlank(
+      'hätte',
+      accepted: ['haette'],
+      hint: 'haben → Konjunktiv II (ich)',
+    ),
     inputBlank('würde', hint: 'würde + Infinitiv (ich)'),
-    inputBlank('könnte', accepted: ['koennte'], hint: 'können → Konjunktiv II (ich)'),
+    inputBlank(
+      'könnte',
+      accepted: ['koennte'],
+      hint: 'können → Konjunktiv II (ich)',
+    ),
     inputBlank('wäre', accepted: ['waere'], hint: 'sein → Konjunktiv II (das)'),
-    inputBlank('müsste', accepted: ['muesste'], hint: 'müssen → Konjunktiv II (ich)'),
+    inputBlank(
+      'müsste',
+      accepted: ['muesste'],
+      hint: 'müssen → Konjunktiv II (ich)',
+    ),
   ],
   passageTranslation:
       'Just imagine for a moment that I won the lottery — what a dream! Then I '
@@ -115,7 +178,8 @@ final QuizContent enDeM15BigTextWarmup = enDeBigText(
       'travel all around the world. "That really would be the perfect life!" I '
       'often tell myself. But first, of course, I would have to buy a lottery '
       'ticket — and that is exactly what I forget every single week.',
-  intro: 'Type the Konjunktiv II form. Most verbs use würde + infinitive; '
+  intro:
+      'Type the Konjunktiv II form. Most verbs use würde + infinitive; '
       'sein/haben/modals have their own forms: wäre, hätte, könnte, müsste.',
   tips: _konjunktivTips,
 );
@@ -123,73 +187,182 @@ final QuizContent enDeM15BigTextWarmup = enDeBigText(
 final QuizContent enDeM15Polite = enDeFill(
   id: 'en_de_m15_polite',
   title: 'Polite requests & wishes',
-  intro: 'Konjunktiv II makes requests and wishes polite. These are the phrases '
+  intro:
+      'Konjunktiv II makes requests and wishes polite. These are the phrases '
       'you use in a shop, a café or an office.',
   tips: _konjunktivTips,
   items: const [
-    CourseItem(prompt: 'Could you help me? (können)', answer: '**Könnten** Sie mir helfen?'),
-    CourseItem(prompt: 'I would like a coffee. (möchte)', answer: 'Ich **möchte** einen Kaffee'),
-    CourseItem(prompt: 'I wish I had more time. (hätte)', answer: 'Ich wünschte, ich **hätte** mehr Zeit'),
-    CourseItem(prompt: 'That would be nice. (wäre)', answer: 'Das **wäre** schön'),
-    CourseItem(prompt: 'Would you have a minute? (hätte)', answer: '**Hätten** Sie eine Minute?'),
-    CourseItem(prompt: 'Could I have the bill? (können)', answer: '**Könnte** ich die Rechnung haben?'),
-    CourseItem(prompt: 'Would you open the window? (würde)', answer: '**Würden** Sie das Fenster öffnen?'),
-    CourseItem(prompt: 'I would rather stay home. (würde … lieber)', answer: 'Ich **würde** lieber zu Hause bleiben'),
-    CourseItem(prompt: 'I wish I were on holiday. (wäre)', answer: 'Ich wünschte, ich **wäre** im Urlaub'),
-    CourseItem(prompt: 'Could we pay, please? (können)', answer: '**Könnten** wir bitte zahlen?'),
-    CourseItem(prompt: 'Would it be possible? (wäre)', answer: '**Wäre** das möglich?'),
-    CourseItem(prompt: 'I would like two tickets. (möchte)', answer: 'Ich **möchte** zwei Tickets'),
-    CourseItem(prompt: 'Would you have a moment for me? (hätten, du → hättest)', answer: '**Hättest** du einen Moment für mich?'),
-    CourseItem(prompt: 'It would be better to wait. (wäre)', answer: 'Es **wäre** besser zu warten'),
-    CourseItem(prompt: 'Could you speak more slowly? (können)', answer: '**Könnten** Sie langsamer sprechen?'),
+    CourseItem(
+      prompt: 'Could you help me? (können)',
+      answer: '**Könnten** Sie mir helfen?',
+    ),
+    CourseItem(
+      prompt: 'I would like a coffee. (möchte)',
+      answer: 'Ich **möchte** einen Kaffee',
+    ),
+    CourseItem(
+      prompt: 'I wish I had more time. (hätte)',
+      answer: 'Ich wünschte, ich **hätte** mehr Zeit',
+    ),
+    CourseItem(
+      prompt: 'That would be nice. (wäre)',
+      answer: 'Das **wäre** schön',
+    ),
+    CourseItem(
+      prompt: 'Would you have a minute? (hätte)',
+      answer: '**Hätten** Sie eine Minute?',
+    ),
+    CourseItem(
+      prompt: 'Could I have the bill? (können)',
+      answer: '**Könnte** ich die Rechnung haben?',
+    ),
+    CourseItem(
+      prompt: 'Would you open the window? (würde)',
+      answer: '**Würden** Sie das Fenster öffnen?',
+    ),
+    CourseItem(
+      prompt: 'I would rather stay home. (würde … lieber)',
+      answer: 'Ich **würde** lieber zu Hause bleiben',
+    ),
+    CourseItem(
+      prompt: 'I wish I were on holiday. (wäre)',
+      answer: 'Ich wünschte, ich **wäre** im Urlaub',
+    ),
+    CourseItem(
+      prompt: 'Could we pay, please? (können)',
+      answer: '**Könnten** wir bitte zahlen?',
+    ),
+    CourseItem(
+      prompt: 'Would it be possible? (wäre)',
+      answer: '**Wäre** das möglich?',
+    ),
+    CourseItem(
+      prompt: 'I would like two tickets. (möchte)',
+      answer: 'Ich **möchte** zwei Tickets',
+    ),
+    CourseItem(
+      prompt: 'Would you have a moment for me? (hätten, du → hättest)',
+      answer: '**Hättest** du einen Moment für mich?',
+    ),
+    CourseItem(
+      prompt: 'It would be better to wait. (wäre)',
+      answer: 'Es **wäre** besser zu warten',
+    ),
+    CourseItem(
+      prompt: 'Could you speak more slowly? (können)',
+      answer: '**Könnten** Sie langsamer sprechen?',
+    ),
   ],
 );
 
 final QuizContent enDeM15Reflexive = enDeFill(
   id: 'en_de_m15_reflexive',
   title: 'Reflexive verbs (mich vs mir)',
-  intro: 'Reflexive verbs point the action back at the subject. Use the '
+  intro:
+      'Reflexive verbs point the action back at the subject. Use the '
       'accusative reflexive — switch to dative only when a direct object is '
       'already there.',
   tips: _konjunktivTips,
   items: const [
-    CourseItem(prompt: "I'm happy. (sich freuen)", answer: 'Ich freue **mich**'),
-    CourseItem(prompt: 'I wash (myself). (sich waschen)', answer: 'Ich wasche **mich**'),
-    CourseItem(prompt: 'I wash my hands. (… die Hände)', answer: 'Ich wasche **mir** die Hände'),
-    CourseItem(prompt: 'She remembers. (sich erinnern)', answer: 'Sie erinnert **sich**'),
-    CourseItem(prompt: 'We meet (each other). (sich treffen)', answer: 'Wir treffen **uns**'),
-    CourseItem(prompt: 'Imagine that! (sich vorstellen + Dat)', answer: 'Stell **dir** das vor!'),
-    CourseItem(prompt: 'He hurries. (sich beeilen)', answer: 'Er beeilt **sich**'),
-    CourseItem(prompt: 'I brush my teeth. (… die Zähne)', answer: 'Ich putze **mir** die Zähne'),
-    CourseItem(prompt: 'They are interested in art. (sich interessieren)', answer: 'Sie interessieren **sich** für Kunst'),
-    CourseItem(prompt: 'Do you remember? (du, sich erinnern)', answer: 'Erinnerst du **dich**?'),
-    CourseItem(prompt: 'We look forward to the holiday. (sich freuen auf)', answer: 'Wir freuen **uns** auf den Urlaub'),
-    CourseItem(prompt: 'I buy myself a coffee. (… einen Kaffee)', answer: 'Ich kaufe **mir** einen Kaffee'),
-    CourseItem(prompt: 'She gets dressed. (sich anziehen)', answer: 'Sie zieht **sich** an'),
-    CourseItem(prompt: 'Sit down, please! (ihr, sich setzen)', answer: 'Setzt **euch** bitte!'),
-    CourseItem(prompt: 'I can imagine that. (sich vorstellen + Dat)', answer: 'Ich kann **mir** das vorstellen'),
+    CourseItem(
+      prompt: "I'm happy. (sich freuen)",
+      answer: 'Ich freue **mich**',
+    ),
+    CourseItem(
+      prompt: 'I wash (myself). (sich waschen)',
+      answer: 'Ich wasche **mich**',
+    ),
+    CourseItem(
+      prompt: 'I wash my hands. (… die Hände)',
+      answer: 'Ich wasche **mir** die Hände',
+    ),
+    CourseItem(
+      prompt: 'She remembers. (sich erinnern)',
+      answer: 'Sie erinnert **sich**',
+    ),
+    CourseItem(
+      prompt: 'We meet (each other). (sich treffen)',
+      answer: 'Wir treffen **uns**',
+    ),
+    CourseItem(
+      prompt: 'Imagine that! (sich vorstellen + Dat)',
+      answer: 'Stell **dir** das vor!',
+    ),
+    CourseItem(
+      prompt: 'He hurries. (sich beeilen)',
+      answer: 'Er beeilt **sich**',
+    ),
+    CourseItem(
+      prompt: 'I brush my teeth. (… die Zähne)',
+      answer: 'Ich putze **mir** die Zähne',
+    ),
+    CourseItem(
+      prompt: 'They are interested in art. (sich interessieren)',
+      answer: 'Sie interessieren **sich** für Kunst',
+    ),
+    CourseItem(
+      prompt: 'Do you remember? (du, sich erinnern)',
+      answer: 'Erinnerst du **dich**?',
+    ),
+    CourseItem(
+      prompt: 'We look forward to the holiday. (sich freuen auf)',
+      answer: 'Wir freuen **uns** auf den Urlaub',
+    ),
+    CourseItem(
+      prompt: 'I buy myself a coffee. (… einen Kaffee)',
+      answer: 'Ich kaufe **mir** einen Kaffee',
+    ),
+    CourseItem(
+      prompt: 'She gets dressed. (sich anziehen)',
+      answer: 'Sie zieht **sich** an',
+    ),
+    CourseItem(
+      prompt: 'Sit down, please! (ihr, sich setzen)',
+      answer: 'Setzt **euch** bitte!',
+    ),
+    CourseItem(
+      prompt: 'I can imagine that. (sich vorstellen + Dat)',
+      answer: 'Ich kann **mir** das vorstellen',
+    ),
   ],
 );
 
 final QuizContent enDeM15Speak = enDeSpeak(
   id: 'en_de_m15_speak',
   title: 'Speak: wishes & politeness',
-  intro: 'Say these polite lines aloud — they instantly make your German '
+  intro:
+      'Say these polite lines aloud — they instantly make your German '
       'sound friendlier.',
   tips: _konjunktivTips,
   items: const [
-    CourseItem(prompt: 'Could you help me, please?', answer: 'Könnten Sie mir bitte helfen?'),
-    CourseItem(prompt: 'I would like to pay.', answer: 'Ich möchte gern zahlen.'),
-    CourseItem(prompt: 'Could I have the menu?', answer: 'Könnte ich die Karte haben?'),
-    CourseItem(prompt: 'That would be very kind.', answer: 'Das wäre sehr nett.'),
-    CourseItem(prompt: 'I wish I had more time.', answer: 'Ich wünschte, ich hätte mehr Zeit.'),
+    CourseItem(
+      prompt: 'Could you help me, please?',
+      answer: 'Könnten Sie mir bitte helfen?',
+    ),
+    CourseItem(
+      prompt: 'I would like to pay.',
+      answer: 'Ich möchte gern zahlen.',
+    ),
+    CourseItem(
+      prompt: 'Could I have the menu?',
+      answer: 'Könnte ich die Karte haben?',
+    ),
+    CourseItem(
+      prompt: 'That would be very kind.',
+      answer: 'Das wäre sehr nett.',
+    ),
+    CourseItem(
+      prompt: 'I wish I had more time.',
+      answer: 'Ich wünschte, ich hätte mehr Zeit.',
+    ),
   ],
 );
 
 final QuizContent enDeM15Dictation = enDeDict(
   id: 'en_de_m15_dictation',
   title: 'Dictation: the umlaut forms',
-  intro: 'Listen and write. The Konjunktiv II forms carry an umlaut you must '
+  intro:
+      'Listen and write. The Konjunktiv II forms carry an umlaut you must '
       'hear: wäre, hätte, könnte, würde.',
   tips: _konjunktivTips,
   items: const [
@@ -200,13 +373,34 @@ final QuizContent enDeM15Dictation = enDeDict(
     CourseItem(prompt: 'We would come.', answer: 'Wir würden kommen.'),
     CourseItem(prompt: 'I would like a tea.', answer: 'Ich möchte einen Tee.'),
     CourseItem(prompt: 'Would you help me?', answer: 'Würdest du mir helfen?'),
-    CourseItem(prompt: 'I wish I had more time.', answer: 'Ich wünschte, ich hätte mehr Zeit.'),
-    CourseItem(prompt: 'He would rather sleep.', answer: 'Er würde lieber schlafen.'),
-    CourseItem(prompt: 'Could I ask something?', answer: 'Könnte ich etwas fragen?'),
-    CourseItem(prompt: 'We would have to hurry.', answer: 'Wir müssten uns beeilen.'),
-    CourseItem(prompt: 'I look forward to the weekend.', answer: 'Ich freue mich auf das Wochenende.'),
-    CourseItem(prompt: 'She washes her hands.', answer: 'Sie wäscht sich die Hände.'),
-    CourseItem(prompt: 'That would be very kind.', answer: 'Das wäre sehr nett.'),
+    CourseItem(
+      prompt: 'I wish I had more time.',
+      answer: 'Ich wünschte, ich hätte mehr Zeit.',
+    ),
+    CourseItem(
+      prompt: 'He would rather sleep.',
+      answer: 'Er würde lieber schlafen.',
+    ),
+    CourseItem(
+      prompt: 'Could I ask something?',
+      answer: 'Könnte ich etwas fragen?',
+    ),
+    CourseItem(
+      prompt: 'We would have to hurry.',
+      answer: 'Wir müssten uns beeilen.',
+    ),
+    CourseItem(
+      prompt: 'I look forward to the weekend.',
+      answer: 'Ich freue mich auf das Wochenende.',
+    ),
+    CourseItem(
+      prompt: 'She washes her hands.',
+      answer: 'Sie wäscht sich die Hände.',
+    ),
+    CourseItem(
+      prompt: 'That would be very kind.',
+      answer: 'Das wäre sehr nett.',
+    ),
     CourseItem(prompt: 'Imagine that!', answer: 'Stell dir das vor!'),
   ],
 );
@@ -233,12 +427,24 @@ final QuizContent enDeM15BigText = enDeBigText(
     inputBlank('mir', hint: 'sich die Haare waschen → ich wasche …'),
     inputBlank('mir', hint: 'sich das Hemd anziehen → ich ziehe …'),
     inputBlank('mich', hint: 'sich freuen → ich freue …'),
-    inputBlank('Könnten', accepted: ['koennten'], hint: 'können → Konjunktiv II (Sie)'),
-    inputBlank('hätte', accepted: ['haette'], hint: 'haben → Konjunktiv II (ich)'),
+    inputBlank(
+      'Könnten',
+      accepted: ['koennten'],
+      hint: 'können → Konjunktiv II (Sie)',
+    ),
+    inputBlank(
+      'hätte',
+      accepted: ['haette'],
+      hint: 'haben → Konjunktiv II (ich)',
+    ),
     inputBlank('wäre', accepted: ['waere'], hint: 'sein → Konjunktiv II (das)'),
     inputBlank('Würdest', hint: 'würde + Infinitiv (du)'),
     inputBlank('uns', hint: 'sich unterhalten → wir unterhalten …'),
-    inputBlank('wäre', accepted: ['waere'], hint: 'sein → Konjunktiv II (… passiert)'),
+    inputBlank(
+      'wäre',
+      accepted: ['waere'],
+      hint: 'sein → Konjunktiv II (… passiert)',
+    ),
     inputBlank('würde', hint: 'würde + Infinitiv (ich)'),
   ],
   passageTranslation:
@@ -250,20 +456,94 @@ final QuizContent enDeM15BigText = enDeBigText(
       'a good wine?" We chat for hours and laugh a lot. In the end I think: '
       'without a little courage this lovely evening would never have happened. I '
       'would love to dare to do this more often!',
-  intro: 'The whole module in one evening: the reflexive pronoun (mich/mir, uns) '
+  intro:
+      'The whole module in one evening: the reflexive pronoun (mich/mir, uns) '
       'while getting ready, and the Konjunktiv II (würde + infinitive, plus '
       'wäre/hätte/könnten) for the polite, hypothetical lines.',
   tips: _konjunktivTips,
 );
 
 /// M15 — Konjunktiv II & Reflexive Verbs, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM15Speaking = enDeSpeaking(
+  id: 'en_de_m15_speaking',
+  title: 'Be polite, and imagine things',
+  level: 'B1',
+  topic:
+      'Wishes, polite requests and hypotheticals: what I would do, what I would like, and how I ask for something politely.',
+  practisePoints: [
+    'würde + infinitive: Ich würde gern nach Wien fahren.',
+    'wäre, hätte, könnte, müsste',
+    'Polite requests: Könnten Sie mir helfen?',
+    'Reflexive verbs: ich freue mich, ich wasche mir die Hände',
+  ],
+  targetVocabulary: [
+    'würde',
+    'wäre',
+    'hätte',
+    'könnte',
+    'sich freuen',
+    'sich vorstellen',
+  ],
+  scoringCriteria: [
+    'the Konjunktiv II form',
+    'polite phrasing',
+    'mich vs mir with reflexive verbs',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv II',
+    'wrong Konjunktiv form',
+    'mich and mir mixed up',
+  ],
+  session: SpeakingSession(durationMinutes: 5, minExchanges: 8),
+  intro:
+      'Practise the polite, hypothetical German. Copy the exercise into your AI assistant and turn on voice mode.',
+  tips: _konjunktivTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM15SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m15_speaking_check',
+  title: 'Checkpoint: what would you do?',
+  level: 'B1',
+  topic:
+      'Quick hypotheticals: what I would do with more time, more money, another job.',
+  practisePoints: [
+    'würde + infinitive at the end',
+    'wäre, hätte, könnte',
+    'Keeping the whole answer in Konjunktiv II',
+  ],
+  targetVocabulary: ['würde', 'wäre', 'hätte', 'könnte', 'wenn'],
+  scoringCriteria: [
+    'the Konjunktiv II form',
+    'the infinitive at the end',
+    'staying in the hypothetical',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv II',
+    'wrong Konjunktiv form',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _konjunktivTips,
+);
+
 final List<QuizContent> enDeM15 = [
   enDeM15Forms,
   enDeM15Wuerde,
   enDeM15BigTextWarmup,
   enDeM15Polite,
+  enDeM15SpeakingCheck,
   enDeM15Reflexive,
   enDeM15Speak,
   enDeM15Dictation,
   enDeM15BigText,
+  enDeM15Speaking,
 ];

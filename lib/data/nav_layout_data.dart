@@ -46,6 +46,7 @@ IconData quizKindIcon(QuizKind kind) => switch (kind) {
   QuizKind.listening => Icons.hearing_rounded,
   QuizKind.dictation => Icons.spellcheck_rounded,
   QuizKind.draw => Icons.draw_rounded,
+  QuizKind.speaking => Icons.forum_rounded,
   QuizKind.fillBlank => Icons.quiz_rounded,
 };
 
@@ -60,6 +61,7 @@ Color quizKindColor(QuizKind kind) => switch (kind) {
   QuizKind.listening => kSectionAccentColors[3],
   QuizKind.dictation => kSectionAccentColors[1],
   QuizKind.draw => kSectionAccentColors[2],
+  QuizKind.speaking => kSectionAccentColors[3],
   QuizKind.fillBlank => kSectionAccentColors[0],
 };
 

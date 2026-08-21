@@ -9,33 +9,38 @@ const List<HelpMemoryTip> _dativeTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'The dative articles (Wem?)',
-    text: 'm: **dem** · f: **der** · n: **dem** · pl: **den** + an **-n** on the '
+    text:
+        'm: **dem** · f: **der** · n: **dem** · pl: **den** + an **-n** on the '
         'noun (den Kinder**n**). Ask Wem? — to/for whom.',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'der → dem, die → der',
-    text: 'Masculine/neuter become **dem**; feminine becomes **der** — the same '
+    text:
+        'Masculine/neuter become **dem**; feminine becomes **der** — the same '
         'little "der" you knew, now doing a new job.',
   ),
   HelpMemoryTip(
     kind: 'rule',
     title: 'Dative pronouns',
-    text: 'ich → **mir**, du → **dir**, er → **ihm**, sie → **ihr**, es → '
+    text:
+        'ich → **mir**, du → **dir**, er → **ihm**, sie → **ihr**, es → '
         '**ihm**, wir → **uns**, ihr → **euch**, sie → **ihnen**, Sie → '
         '**Ihnen**.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Dative prepositions (always!)',
-    text: '**aus, bei, mit, nach, seit, von, zu** — always dative. Contractions: '
+    text:
+        '**aus, bei, mit, nach, seit, von, zu** — always dative. Contractions: '
         'von+dem = **vom**, zu+dem = **zum**, zu+der = **zur**, bei+dem = '
         '**beim**.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'Dative verbs — no "to" in English',
-    text: '**helfen, danken, gehören, gefallen, antworten, passen, schmecken** '
+    text:
+        '**helfen, danken, gehören, gefallen, antworten, passen, schmecken** '
         'take a dative object: Ich helfe **dem** Mann. Das gehört **der** Frau.',
   ),
 ];
@@ -43,25 +48,71 @@ const List<HelpMemoryTip> _dativeTips = [
 final QuizContent enDeM4Articles = enDeFill(
   id: 'en_de_m4_articles',
   title: 'Dative articles',
-  intro: 'When something is given/done to a receiver, that receiver is dative: '
+  intro:
+      'When something is given/done to a receiver, that receiver is dative: '
       'der → dem, die → der, das → dem, plural die → den (+ -n on the noun).',
   tips: _dativeTips,
   items: const [
-    CourseItem(prompt: 'Oma gives the man a book. (der Mann)', answer: 'Oma gibt **dem** Mann ein Buch'),
-    CourseItem(prompt: 'Oma gives the woman flowers. (die Frau)', answer: 'Oma gibt **der** Frau Blumen'),
-    CourseItem(prompt: 'Oma gives the child sweets. (das Kind)', answer: 'Oma gibt **dem** Kind Süßigkeiten'),
-    CourseItem(prompt: 'Oma gives the children chocolate. (die Kinder, pl)', answer: 'Oma gibt **den** Kindern Schokolade'),
-    CourseItem(prompt: 'I help the teacher. (der Lehrer)', answer: 'Ich helfe **dem** Lehrer'),
-    CourseItem(prompt: 'We give the dog food. (der Hund)', answer: 'Wir geben **dem** Hund Futter'),
-    CourseItem(prompt: 'The book belongs to the woman. (die Frau)', answer: 'Das Buch gehört **der** Frau'),
-    CourseItem(prompt: 'She answers the child. (das Kind)', answer: 'Sie antwortet **dem** Kind'),
-    CourseItem(prompt: 'Oma gives the grandpa a hat. (der Opa)', answer: 'Oma gibt **dem** Opa eine Mütze'),
-    CourseItem(prompt: 'The house belongs to the aunt. (die Tante)', answer: 'Das Haus gehört **der** Tante'),
-    CourseItem(prompt: 'I show the tourists the way. (die Touristen, pl)', answer: 'Ich zeige **den** Touristen den Weg'),
-    CourseItem(prompt: 'He brings the girl a book. (das Mädchen)', answer: 'Er bringt **dem** Mädchen ein Buch'),
-    CourseItem(prompt: 'We thank the neighbour. (die Nachbarin)', answer: 'Wir danken **der** Nachbarin'),
-    CourseItem(prompt: 'The cake tastes good to the guests. (die Gäste, pl)', answer: 'Der Kuchen schmeckt **den** Gästen'),
-    CourseItem(prompt: 'She writes the doctor a letter. (der Arzt)', answer: 'Sie schreibt **dem** Arzt einen Brief'),
+    CourseItem(
+      prompt: 'Oma gives the man a book. (der Mann)',
+      answer: 'Oma gibt **dem** Mann ein Buch',
+    ),
+    CourseItem(
+      prompt: 'Oma gives the woman flowers. (die Frau)',
+      answer: 'Oma gibt **der** Frau Blumen',
+    ),
+    CourseItem(
+      prompt: 'Oma gives the child sweets. (das Kind)',
+      answer: 'Oma gibt **dem** Kind Süßigkeiten',
+    ),
+    CourseItem(
+      prompt: 'Oma gives the children chocolate. (die Kinder, pl)',
+      answer: 'Oma gibt **den** Kindern Schokolade',
+    ),
+    CourseItem(
+      prompt: 'I help the teacher. (der Lehrer)',
+      answer: 'Ich helfe **dem** Lehrer',
+    ),
+    CourseItem(
+      prompt: 'We give the dog food. (der Hund)',
+      answer: 'Wir geben **dem** Hund Futter',
+    ),
+    CourseItem(
+      prompt: 'The book belongs to the woman. (die Frau)',
+      answer: 'Das Buch gehört **der** Frau',
+    ),
+    CourseItem(
+      prompt: 'She answers the child. (das Kind)',
+      answer: 'Sie antwortet **dem** Kind',
+    ),
+    CourseItem(
+      prompt: 'Oma gives the grandpa a hat. (der Opa)',
+      answer: 'Oma gibt **dem** Opa eine Mütze',
+    ),
+    CourseItem(
+      prompt: 'The house belongs to the aunt. (die Tante)',
+      answer: 'Das Haus gehört **der** Tante',
+    ),
+    CourseItem(
+      prompt: 'I show the tourists the way. (die Touristen, pl)',
+      answer: 'Ich zeige **den** Touristen den Weg',
+    ),
+    CourseItem(
+      prompt: 'He brings the girl a book. (das Mädchen)',
+      answer: 'Er bringt **dem** Mädchen ein Buch',
+    ),
+    CourseItem(
+      prompt: 'We thank the neighbour. (die Nachbarin)',
+      answer: 'Wir danken **der** Nachbarin',
+    ),
+    CourseItem(
+      prompt: 'The cake tastes good to the guests. (die Gäste, pl)',
+      answer: 'Der Kuchen schmeckt **den** Gästen',
+    ),
+    CourseItem(
+      prompt: 'She writes the doctor a letter. (der Arzt)',
+      answer: 'Sie schreibt **dem** Arzt einen Brief',
+    ),
   ],
 );
 
@@ -94,7 +145,8 @@ final QuizContent enDeM4BigTextWarmup = enDeBigText(
       'bone! She also gives the nice neighbour from upstairs a jar of jam. And '
       'to the children from the neighbourhood she gives a whole bag of sweets. '
       "In the end Grandpa laughs: \"Oma, the party is for you — not from you!\"",
-  intro: 'Type the dative article for each receiver (Wem? — to/for whom): der → '
+  intro:
+      'Type the dative article for each receiver (Wem? — to/for whom): der → '
       'dem, die → der, das → dem, and plural die → den (the noun also adds -n: '
       'den Kindern).',
   tips: _dativeTips,
@@ -103,13 +155,15 @@ final QuizContent enDeM4BigTextWarmup = enDeBigText(
 final QuizContent enDeM4Pronouns = enDeFill(
   id: 'en_de_m4_pronouns',
   title: 'Dative pronouns',
-  intro: 'The dative pronouns: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen. '
+  intro:
+      'The dative pronouns: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen. '
       'These are the everyday "to me / to you" forms.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'The set',
-      text: 'ich→mir, du→dir, er→ihm, sie→ihr, es→ihm, wir→uns, ihr→euch, '
+      text:
+          'ich→mir, du→dir, er→ihm, sie→ihr, es→ihm, wir→uns, ihr→euch, '
           'sie→ihnen, Sie→Ihnen.',
     ),
     HelpMemoryTip(
@@ -119,54 +173,143 @@ final QuizContent enDeM4Pronouns = enDeFill(
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Oma gives me a present. (ich)', answer: 'Oma gibt **mir** ein Geschenk'),
-    CourseItem(prompt: 'I give you a book. (du)', answer: 'Ich gebe **dir** ein Buch'),
-    CourseItem(prompt: 'She gives him money. (er)', answer: 'Sie gibt **ihm** Geld'),
-    CourseItem(prompt: 'He gives her flowers. (sie)', answer: 'Er gibt **ihr** Blumen'),
-    CourseItem(prompt: 'We give them sweets. (sie, pl)', answer: 'Wir geben **ihnen** Süßigkeiten'),
-    CourseItem(prompt: 'That pleases me. (gefallen)', answer: 'Das gefällt **mir**'),
-    CourseItem(prompt: 'Can I help you? (Sie)', answer: 'Kann ich **Ihnen** helfen?'),
-    CourseItem(prompt: 'The jacket suits you. (du)', answer: 'Die Jacke passt **dir**'),
-    CourseItem(prompt: 'The city pleases us. (wir)', answer: 'Die Stadt gefällt **uns**'),
-    CourseItem(prompt: 'I show you all the photos. (ihr)', answer: 'Ich zeige **euch** die Fotos'),
-    CourseItem(prompt: 'The dog belongs to him. (er)', answer: 'Der Hund gehört **ihm**'),
-    CourseItem(prompt: 'Can you help me? (ich)', answer: 'Kannst du **mir** helfen?'),
-    CourseItem(prompt: 'The soup tastes good to her. (sie)', answer: 'Die Suppe schmeckt **ihr**'),
+    CourseItem(
+      prompt: 'Oma gives me a present. (ich)',
+      answer: 'Oma gibt **mir** ein Geschenk',
+    ),
+    CourseItem(
+      prompt: 'I give you a book. (du)',
+      answer: 'Ich gebe **dir** ein Buch',
+    ),
+    CourseItem(
+      prompt: 'She gives him money. (er)',
+      answer: 'Sie gibt **ihm** Geld',
+    ),
+    CourseItem(
+      prompt: 'He gives her flowers. (sie)',
+      answer: 'Er gibt **ihr** Blumen',
+    ),
+    CourseItem(
+      prompt: 'We give them sweets. (sie, pl)',
+      answer: 'Wir geben **ihnen** Süßigkeiten',
+    ),
+    CourseItem(
+      prompt: 'That pleases me. (gefallen)',
+      answer: 'Das gefällt **mir**',
+    ),
+    CourseItem(
+      prompt: 'Can I help you? (Sie)',
+      answer: 'Kann ich **Ihnen** helfen?',
+    ),
+    CourseItem(
+      prompt: 'The jacket suits you. (du)',
+      answer: 'Die Jacke passt **dir**',
+    ),
+    CourseItem(
+      prompt: 'The city pleases us. (wir)',
+      answer: 'Die Stadt gefällt **uns**',
+    ),
+    CourseItem(
+      prompt: 'I show you all the photos. (ihr)',
+      answer: 'Ich zeige **euch** die Fotos',
+    ),
+    CourseItem(
+      prompt: 'The dog belongs to him. (er)',
+      answer: 'Der Hund gehört **ihm**',
+    ),
+    CourseItem(
+      prompt: 'Can you help me? (ich)',
+      answer: 'Kannst du **mir** helfen?',
+    ),
+    CourseItem(
+      prompt: 'The soup tastes good to her. (sie)',
+      answer: 'Die Suppe schmeckt **ihr**',
+    ),
     CourseItem(prompt: 'I thank you all. (ihr)', answer: 'Ich danke **euch**'),
-    CourseItem(prompt: 'She answers them politely. (sie, pl)', answer: 'Sie antwortet **ihnen** höflich'),
+    CourseItem(
+      prompt: 'She answers them politely. (sie, pl)',
+      answer: 'Sie antwortet **ihnen** höflich',
+    ),
   ],
 );
 
 final QuizContent enDeM4Verbs = enDeFill(
   id: 'en_de_m4_verbs',
   title: 'Dative verbs',
-  intro: 'Some verbs simply take a dative object — there is no logical "to" in '
+  intro:
+      'Some verbs simply take a dative object — there is no logical "to" in '
       'English. Learn them as a list: helfen, danken, gehören, gefallen, '
       'antworten, schmecken, passen.',
   tips: _dativeTips,
   items: const [
-    CourseItem(prompt: 'I help the man. (der Mann)', answer: 'Ich helfe **dem** Mann'),
-    CourseItem(prompt: 'The book belongs to the woman. (die Frau)', answer: 'Das Buch gehört **der** Frau'),
-    CourseItem(prompt: 'The film pleases the children. (die Kinder)', answer: 'Der Film gefällt **den** Kindern'),
-    CourseItem(prompt: 'I thank the man. (der Mann)', answer: 'Ich danke **dem** Mann'),
-    CourseItem(prompt: 'The pizza tastes good to me. (ich)', answer: 'Die Pizza schmeckt **mir**'),
-    CourseItem(prompt: 'She answers the teacher. (der Lehrer)', answer: 'Sie antwortet **dem** Lehrer'),
-    CourseItem(prompt: 'The dress suits her. (sie)', answer: 'Das Kleid passt **ihr**'),
-    CourseItem(prompt: 'We help the neighbours. (die Nachbarn, pl)', answer: 'Wir helfen **den** Nachbarn'),
-    CourseItem(prompt: 'The garden belongs to the grandpa. (der Opa)', answer: 'Der Garten gehört **dem** Opa'),
-    CourseItem(prompt: 'The music pleases the guests. (die Gäste, pl)', answer: 'Die Musik gefällt **den** Gästen'),
-    CourseItem(prompt: 'She thanks the woman. (die Frau)', answer: 'Sie dankt **der** Frau'),
-    CourseItem(prompt: 'The soup tastes good to the child. (das Kind)', answer: 'Die Suppe schmeckt **dem** Kind'),
-    CourseItem(prompt: 'He answers the police officer. (der Polizist)', answer: 'Er antwortet **dem** Polizisten'),
-    CourseItem(prompt: 'The shoes fit the boy. (der Junge)', answer: 'Die Schuhe passen **dem** Jungen'),
-    CourseItem(prompt: 'I congratulate the winner. (gratulieren, der Gewinner)', answer: 'Ich gratuliere **dem** Gewinner'),
+    CourseItem(
+      prompt: 'I help the man. (der Mann)',
+      answer: 'Ich helfe **dem** Mann',
+    ),
+    CourseItem(
+      prompt: 'The book belongs to the woman. (die Frau)',
+      answer: 'Das Buch gehört **der** Frau',
+    ),
+    CourseItem(
+      prompt: 'The film pleases the children. (die Kinder)',
+      answer: 'Der Film gefällt **den** Kindern',
+    ),
+    CourseItem(
+      prompt: 'I thank the man. (der Mann)',
+      answer: 'Ich danke **dem** Mann',
+    ),
+    CourseItem(
+      prompt: 'The pizza tastes good to me. (ich)',
+      answer: 'Die Pizza schmeckt **mir**',
+    ),
+    CourseItem(
+      prompt: 'She answers the teacher. (der Lehrer)',
+      answer: 'Sie antwortet **dem** Lehrer',
+    ),
+    CourseItem(
+      prompt: 'The dress suits her. (sie)',
+      answer: 'Das Kleid passt **ihr**',
+    ),
+    CourseItem(
+      prompt: 'We help the neighbours. (die Nachbarn, pl)',
+      answer: 'Wir helfen **den** Nachbarn',
+    ),
+    CourseItem(
+      prompt: 'The garden belongs to the grandpa. (der Opa)',
+      answer: 'Der Garten gehört **dem** Opa',
+    ),
+    CourseItem(
+      prompt: 'The music pleases the guests. (die Gäste, pl)',
+      answer: 'Die Musik gefällt **den** Gästen',
+    ),
+    CourseItem(
+      prompt: 'She thanks the woman. (die Frau)',
+      answer: 'Sie dankt **der** Frau',
+    ),
+    CourseItem(
+      prompt: 'The soup tastes good to the child. (das Kind)',
+      answer: 'Die Suppe schmeckt **dem** Kind',
+    ),
+    CourseItem(
+      prompt: 'He answers the police officer. (der Polizist)',
+      answer: 'Er antwortet **dem** Polizisten',
+    ),
+    CourseItem(
+      prompt: 'The shoes fit the boy. (der Junge)',
+      answer: 'Die Schuhe passen **dem** Jungen',
+    ),
+    CourseItem(
+      prompt: 'I congratulate the winner. (gratulieren, der Gewinner)',
+      answer: 'Ich gratuliere **dem** Gewinner',
+    ),
   ],
 );
 
 final QuizContent enDeM4Prepositions = enDeFill(
   id: 'en_de_m4_prepositions',
   title: 'Dative prepositions',
-  intro: 'These prepositions always force the dative: aus, bei, mit, nach, '
+  intro:
+      'These prepositions always force the dative: aus, bei, mit, nach, '
       'seit, von, zu. The preposition decides the case, so you never have to '
       'work it out.',
   tips: const [
@@ -178,26 +321,72 @@ final QuizContent enDeM4Prepositions = enDeFill(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Contractions',
-      text: 'von dem → vom, zu dem → zum, zu der → zur, bei dem → beim. You will '
+      text:
+          'von dem → vom, zu dem → zum, zu der → zur, bei dem → beim. You will '
           'meet these everywhere.',
     ),
   ],
   items: const [
-    CourseItem(prompt: 'I come from the city. (aus, die Stadt)', answer: 'Ich komme aus **der** Stadt'),
-    CourseItem(prompt: 'She lives with grandma. (bei, die Oma)', answer: 'Sie wohnt bei **der** Oma'),
-    CourseItem(prompt: 'I travel by train. (mit, der Zug)', answer: 'Ich fahre mit **dem** Zug'),
-    CourseItem(prompt: 'I get a present from grandma. (von, die Oma)', answer: 'Ich bekomme ein Geschenk von **der** Oma'),
-    CourseItem(prompt: 'After the meal I sleep. (nach, das Essen)', answer: 'Nach **dem** Essen schlafe ich'),
-    CourseItem(prompt: 'For a year I have been here. (seit, ein Jahr)', answer: 'Seit **einem** Jahr bin ich hier'),
-    CourseItem(prompt: 'He comes out of the house. (aus, das Haus)', answer: 'Er kommt aus **dem** Haus'),
-    CourseItem(prompt: 'She works at the baker\'s. (bei, der Bäcker)', answer: 'Sie arbeitet bei **dem** Bäcker'),
-    CourseItem(prompt: 'We play with the dog. (mit, der Hund)', answer: 'Wir spielen mit **dem** Hund'),
-    CourseItem(prompt: 'After the film we go home. (nach, der Film)', answer: 'Nach **dem** Film gehen wir nach Hause'),
-    CourseItem(prompt: 'The letter is from the school. (von, die Schule)', answer: 'Der Brief ist von **der** Schule'),
-    CourseItem(prompt: 'I go to the doctor. (zu, der Arzt)', answer: 'Ich gehe zu **dem** Arzt'),
-    CourseItem(prompt: 'Since the winter he lives here. (seit, der Winter)', answer: 'Seit **dem** Winter wohnt er hier'),
-    CourseItem(prompt: 'She drives to work with the bus. (mit, der Bus)', answer: 'Sie fährt mit **dem** Bus zur Arbeit'),
-    CourseItem(prompt: 'The children come out of the school. (aus, die Schule)', answer: 'Die Kinder kommen aus **der** Schule'),
+    CourseItem(
+      prompt: 'I come from the city. (aus, die Stadt)',
+      answer: 'Ich komme aus **der** Stadt',
+    ),
+    CourseItem(
+      prompt: 'She lives with grandma. (bei, die Oma)',
+      answer: 'Sie wohnt bei **der** Oma',
+    ),
+    CourseItem(
+      prompt: 'I travel by train. (mit, der Zug)',
+      answer: 'Ich fahre mit **dem** Zug',
+    ),
+    CourseItem(
+      prompt: 'I get a present from grandma. (von, die Oma)',
+      answer: 'Ich bekomme ein Geschenk von **der** Oma',
+    ),
+    CourseItem(
+      prompt: 'After the meal I sleep. (nach, das Essen)',
+      answer: 'Nach **dem** Essen schlafe ich',
+    ),
+    CourseItem(
+      prompt: 'For a year I have been here. (seit, ein Jahr)',
+      answer: 'Seit **einem** Jahr bin ich hier',
+    ),
+    CourseItem(
+      prompt: 'He comes out of the house. (aus, das Haus)',
+      answer: 'Er kommt aus **dem** Haus',
+    ),
+    CourseItem(
+      prompt: 'She works at the baker\'s. (bei, der Bäcker)',
+      answer: 'Sie arbeitet bei **dem** Bäcker',
+    ),
+    CourseItem(
+      prompt: 'We play with the dog. (mit, der Hund)',
+      answer: 'Wir spielen mit **dem** Hund',
+    ),
+    CourseItem(
+      prompt: 'After the film we go home. (nach, der Film)',
+      answer: 'Nach **dem** Film gehen wir nach Hause',
+    ),
+    CourseItem(
+      prompt: 'The letter is from the school. (von, die Schule)',
+      answer: 'Der Brief ist von **der** Schule',
+    ),
+    CourseItem(
+      prompt: 'I go to the doctor. (zu, der Arzt)',
+      answer: 'Ich gehe zu **dem** Arzt',
+    ),
+    CourseItem(
+      prompt: 'Since the winter he lives here. (seit, der Winter)',
+      answer: 'Seit **dem** Winter wohnt er hier',
+    ),
+    CourseItem(
+      prompt: 'She drives to work with the bus. (mit, der Bus)',
+      answer: 'Sie fährt mit **dem** Bus zur Arbeit',
+    ),
+    CourseItem(
+      prompt: 'The children come out of the school. (aus, die Schule)',
+      answer: 'Die Kinder kommen aus **der** Schule',
+    ),
   ],
 );
 
@@ -238,7 +427,8 @@ final QuizContent enDeM4BigText = enDeBigText(
       'best to everyone. After the meal we sit down together and play cards '
       'until midnight. At the end I hug you and thank you from the bottom of my '
       'heart for this lovely day. Stay healthy and see you very soon! Your Anna',
-  intro: 'Choose the case for each marked phrase. The receivers of Oma\'s gifts '
+  intro:
+      'Choose the case for each marked phrase. The receivers of Oma\'s gifts '
       'are Dativ (Wem?); the doers are Nominativ (Wer?); what she bakes is '
       'Akkusativ (Was?). Note "nach dem Essen" and "danken dir" are dative too.',
   tips: _dativeTips,
@@ -247,7 +437,8 @@ final QuizContent enDeM4BigText = enDeBigText(
 final QuizContent enDeM4Speak = enDeSpeak(
   id: 'en_de_m4_speak',
   title: 'Speak: thanks & giving',
-  intro: 'Say each line aloud. These dative phrases come up every time you give '
+  intro:
+      'Say each line aloud. These dative phrases come up every time you give '
       'something, thank someone, or say you like something.',
   tips: const [
     HelpMemoryTip(
@@ -258,9 +449,15 @@ final QuizContent enDeM4Speak = enDeSpeak(
   ],
   items: const [
     CourseItem(prompt: 'I thank you.', answer: 'Ich danke dir.'),
-    CourseItem(prompt: 'That pleases me. (I like it)', answer: 'Das gefällt mir.'),
+    CourseItem(
+      prompt: 'That pleases me. (I like it)',
+      answer: 'Das gefällt mir.',
+    ),
     CourseItem(prompt: 'Can I help you?', answer: 'Kann ich dir helfen?'),
-    CourseItem(prompt: 'This present is for you.', answer: 'Dieses Geschenk ist für dich.'),
+    CourseItem(
+      prompt: 'This present is for you.',
+      answer: 'Dieses Geschenk ist für dich.',
+    ),
     CourseItem(prompt: 'It belongs to me.', answer: 'Es gehört mir.'),
     CourseItem(prompt: 'Many thanks!', answer: 'Vielen Dank!'),
   ],
@@ -269,43 +466,139 @@ final QuizContent enDeM4Speak = enDeSpeak(
 final QuizContent enDeM4Dictation = enDeDict(
   id: 'en_de_m4_dictation',
   title: 'Dictation: dem / den / der',
-  intro: 'Listen and type each sentence. The hard part is by ear: dem vs den vs '
+  intro:
+      'Listen and type each sentence. The hard part is by ear: dem vs den vs '
       'der — train it here.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'Three look-alikes',
-      text: 'dem (m/n dative), der (f dative), den (plural dative, + -n). Listen '
+      text:
+          'dem (m/n dative), der (f dative), den (plural dative, + -n). Listen '
           'closely to the ending.',
     ),
   ],
   items: const [
-    CourseItem(prompt: 'I give the man the book.', answer: 'Ich gebe dem Mann das Buch.'),
+    CourseItem(
+      prompt: 'I give the man the book.',
+      answer: 'Ich gebe dem Mann das Buch.',
+    ),
     CourseItem(prompt: 'She helps the woman.', answer: 'Sie hilft der Frau.'),
-    CourseItem(prompt: 'We give the children sweets.', answer: 'Wir geben den Kindern Süßigkeiten.'),
-    CourseItem(prompt: 'The book belongs to the child.', answer: 'Das Buch gehört dem Kind.'),
+    CourseItem(
+      prompt: 'We give the children sweets.',
+      answer: 'Wir geben den Kindern Süßigkeiten.',
+    ),
+    CourseItem(
+      prompt: 'The book belongs to the child.',
+      answer: 'Das Buch gehört dem Kind.',
+    ),
     CourseItem(prompt: 'I travel by train.', answer: 'Ich fahre mit dem Zug.'),
-    CourseItem(prompt: 'That pleases me very much.', answer: 'Das gefällt mir sehr.'),
-    CourseItem(prompt: 'He thanks the teacher.', answer: 'Er dankt dem Lehrer.'),
-    CourseItem(prompt: 'She lives with her grandma.', answer: 'Sie wohnt bei der Oma.'),
-    CourseItem(prompt: 'After the meal we play cards.', answer: 'Nach dem Essen spielen wir Karten.'),
+    CourseItem(
+      prompt: 'That pleases me very much.',
+      answer: 'Das gefällt mir sehr.',
+    ),
+    CourseItem(
+      prompt: 'He thanks the teacher.',
+      answer: 'Er dankt dem Lehrer.',
+    ),
+    CourseItem(
+      prompt: 'She lives with her grandma.',
+      answer: 'Sie wohnt bei der Oma.',
+    ),
+    CourseItem(
+      prompt: 'After the meal we play cards.',
+      answer: 'Nach dem Essen spielen wir Karten.',
+    ),
     CourseItem(prompt: 'Can you help me?', answer: 'Kannst du mir helfen?'),
     CourseItem(prompt: 'The jacket suits her.', answer: 'Die Jacke passt ihr.'),
-    CourseItem(prompt: 'I come from the city.', answer: 'Ich komme aus der Stadt.'),
+    CourseItem(
+      prompt: 'I come from the city.',
+      answer: 'Ich komme aus der Stadt.',
+    ),
     CourseItem(prompt: 'He gives her flowers.', answer: 'Er gibt ihr Blumen.'),
     CourseItem(prompt: 'We go to the doctor.', answer: 'Wir gehen zum Arzt.'),
-    CourseItem(prompt: 'The pizza tastes good to us.', answer: 'Die Pizza schmeckt uns.'),
+    CourseItem(
+      prompt: 'The pizza tastes good to us.',
+      answer: 'Die Pizza schmeckt uns.',
+    ),
   ],
 );
 
 /// M4 — The Dative, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM4Speaking = enDeSpeaking(
+  id: 'en_de_m4_speaking',
+  title: 'Who gets which present?',
+  level: 'A2',
+  topic:
+      'Presents and favours, like Oma who gives something to everyone: who I give things to, who helps me, and who I write or say something to.',
+  practisePoints: [
+    'dem/der/dem/den in the dative: Ich gebe dem Vater das Buch.',
+    'Dative verbs: geben, helfen, schenken, danken, gehören',
+    'Dative pronouns: mir, dir, ihm, ihr, uns',
+    'Telling the two objects apart: Wem? before Was?',
+  ],
+  targetVocabulary: ['schenken', 'helfen', 'geben', 'gehören', 'mir', 'ihm'],
+  scoringCriteria: [
+    'the dative article',
+    'dative pronouns',
+    'the order of the two objects',
+  ],
+  priorityErrors: [
+    'accusative instead of dative',
+    'wrong dative article',
+    'wrong pronoun',
+  ],
+  mode: SpeakingMode.roleplay,
+  intro:
+      'A roleplay about giving. Copy the exercise into your own AI assistant, turn on voice mode, and work out who gets what.',
+  tips: _dativeTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM4SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m4_speaking_check',
+  title: 'Checkpoint: who are you giving it to?',
+  level: 'A2',
+  topic:
+      'Short questions about giving and helping: who I give something to and who I help.',
+  practisePoints: [
+    'dem/der/dem/den in the dative',
+    'Dative pronouns: mir, dir, ihm, ihr',
+    'Answering Wem? with a person, not a thing',
+  ],
+  targetVocabulary: ['geben', 'helfen', 'mir', 'ihm', 'dem'],
+  scoringCriteria: [
+    'the dative article',
+    'dative pronouns',
+    'answering Wem? correctly',
+  ],
+  priorityErrors: [
+    'accusative instead of dative',
+    'wrong dative article',
+    'wrong pronoun',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _dativeTips,
+);
+
 final List<QuizContent> enDeM4 = [
   enDeM4Articles,
   enDeM4BigTextWarmup,
   enDeM4Pronouns,
   enDeM4Verbs,
+  enDeM4SpeakingCheck,
   enDeM4Prepositions,
   enDeM4Speak,
   enDeM4Dictation,
   enDeM4BigText,
+  enDeM4Speaking,
 ];

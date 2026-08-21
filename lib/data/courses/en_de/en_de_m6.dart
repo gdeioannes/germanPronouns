@@ -9,32 +9,37 @@ const List<HelpMemoryTip> _zweiwegTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'The nine two-way prepositions',
-    text: '**an, auf, hinter, in, neben, über, unter, vor, zwischen** — '
+    text:
+        '**an, auf, hinter, in, neben, über, unter, vor, zwischen** — '
         'accusative for motion (Wohin?), dative for position (Wo?).',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'Wohin → Akk, Wo → Dat',
-    text: 'Moving to a *new* place = **Akkusativ** (into). Already *being* there '
+    text:
+        'Moving to a *new* place = **Akkusativ** (into). Already *being* there '
         '= **Dativ** (in). Even "Wohi**n**" ends in -n, like de**n**.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'The classic pair',
-    text: 'Die Katze springt auf **den** Tisch (Wohin? → Akk) — und sitzt dann '
+    text:
+        'Die Katze springt auf **den** Tisch (Wohin? → Akk) — und sitzt dann '
         'auf **dem** Tisch (Wo? → Dat).',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Let the verb decide',
-    text: 'Motion verbs (gehen, springen, legen, stellen, sich setzen) → '
+    text:
+        'Motion verbs (gehen, springen, legen, stellen, sich setzen) → '
         '**Akk**. Position verbs (sein, sitzen, liegen, stehen, bleiben) → '
         '**Dat**.',
   ),
   HelpMemoryTip(
     kind: 'tip',
     title: 'Handy contractions',
-    text: 'in+das = **ins**, in+dem = **im**, an+das = **ans**, an+dem = **am**, '
+    text:
+        'in+das = **ins**, in+dem = **im**, an+das = **ans**, an+dem = **am**, '
         'auf+das = **aufs**.',
   ),
 ];
@@ -42,7 +47,8 @@ const List<HelpMemoryTip> _zweiwegTips = [
 final QuizContent enDeM6List = enDeFill(
   id: 'en_de_m6_list',
   title: 'The nine two-way prepositions',
-  intro: 'Meet the nine prepositions that can take either case. Learn the list '
+  intro:
+      'Meet the nine prepositions that can take either case. Learn the list '
       'first; the case comes next.',
   tips: _zweiwegTips,
   items: const [
@@ -55,37 +61,101 @@ final QuizContent enDeM6List = enDeFill(
     CourseItem(prompt: 'under', answer: 'unter'),
     CourseItem(prompt: 'in front of', answer: 'vor'),
     CourseItem(prompt: 'between', answer: 'zwischen'),
-    CourseItem(prompt: 'The picture hangs ___ the wall. (on, vertical)', answer: 'Das Bild hängt **an** der Wand'),
-    CourseItem(prompt: 'The book lies ___ the table. (on top of)', answer: 'Das Buch liegt **auf** dem Tisch'),
-    CourseItem(prompt: 'The garden is ___ the house. (behind)', answer: 'Der Garten ist **hinter** dem Haus'),
-    CourseItem(prompt: 'The lamp hangs ___ the table. (above)', answer: 'Die Lampe hängt **über** dem Tisch'),
-    CourseItem(prompt: 'The dog lies ___ the bed. (under)', answer: 'Der Hund liegt **unter** dem Bett'),
-    CourseItem(prompt: 'The car stands ___ the door. (in front of)', answer: 'Das Auto steht **vor** der Tür'),
+    CourseItem(
+      prompt: 'The picture hangs ___ the wall. (on, vertical)',
+      answer: 'Das Bild hängt **an** der Wand',
+    ),
+    CourseItem(
+      prompt: 'The book lies ___ the table. (on top of)',
+      answer: 'Das Buch liegt **auf** dem Tisch',
+    ),
+    CourseItem(
+      prompt: 'The garden is ___ the house. (behind)',
+      answer: 'Der Garten ist **hinter** dem Haus',
+    ),
+    CourseItem(
+      prompt: 'The lamp hangs ___ the table. (above)',
+      answer: 'Die Lampe hängt **über** dem Tisch',
+    ),
+    CourseItem(
+      prompt: 'The dog lies ___ the bed. (under)',
+      answer: 'Der Hund liegt **unter** dem Bett',
+    ),
+    CourseItem(
+      prompt: 'The car stands ___ the door. (in front of)',
+      answer: 'Das Auto steht **vor** der Tür',
+    ),
   ],
 );
 
 final QuizContent enDeM6Wohin = enDeFill(
   id: 'en_de_m6_wohin',
   title: 'Wohin? → accusative (motion)',
-  intro: 'When the cat moves to a new place, the answer is Wohin? and the case '
+  intro:
+      'When the cat moves to a new place, the answer is Wohin? and the case '
       'is accusative.',
   tips: _zweiwegTips,
   items: const [
-    CourseItem(prompt: 'The cat jumps onto the table. (auf, der Tisch)', answer: 'Die Katze springt auf **den** Tisch'),
-    CourseItem(prompt: 'It runs into the kitchen. (in, die Küche)', answer: 'Sie rennt in **die** Küche'),
-    CourseItem(prompt: 'It climbs under the bed. (unter, das Bett)', answer: 'Sie klettert unter **das** Bett'),
-    CourseItem(prompt: 'It goes behind the curtain. (hinter, der Vorhang)', answer: 'Sie geht hinter **den** Vorhang'),
-    CourseItem(prompt: 'It jumps onto the sofa. (auf, das Sofa)', answer: 'Sie springt auf **das** Sofa'),
-    CourseItem(prompt: 'It hides between the boxes. (zwischen, die Kisten, pl)', answer: 'Sie versteckt sich zwischen **die** Kisten'),
-    CourseItem(prompt: 'It climbs onto the wardrobe. (auf, der Schrank)', answer: 'Sie klettert auf **den** Schrank'),
-    CourseItem(prompt: 'It jumps onto the windowsill. (auf, die Fensterbank)', answer: 'Sie springt auf **die** Fensterbank'),
-    CourseItem(prompt: 'It runs in front of the door. (vor, die Tür)', answer: 'Sie läuft vor **die** Tür'),
-    CourseItem(prompt: 'It creeps into the box. (in, der Karton)', answer: 'Sie kriecht in **den** Karton'),
-    CourseItem(prompt: 'It jumps over the fence. (über, der Zaun)', answer: 'Sie springt über **den** Zaun'),
-    CourseItem(prompt: 'It runs next to the man. (neben, der Mann)', answer: 'Sie läuft neben **den** Mann'),
-    CourseItem(prompt: 'I hang the picture on the wall. (an, die Wand)', answer: 'Ich hänge das Bild an **die** Wand'),
-    CourseItem(prompt: 'I put the milk into the fridge. (in, der Kühlschrank)', answer: 'Ich stelle die Milch in **den** Kühlschrank'),
-    CourseItem(prompt: 'It jumps into the garden. (in, der Garten)', answer: 'Sie springt in **den** Garten'),
+    CourseItem(
+      prompt: 'The cat jumps onto the table. (auf, der Tisch)',
+      answer: 'Die Katze springt auf **den** Tisch',
+    ),
+    CourseItem(
+      prompt: 'It runs into the kitchen. (in, die Küche)',
+      answer: 'Sie rennt in **die** Küche',
+    ),
+    CourseItem(
+      prompt: 'It climbs under the bed. (unter, das Bett)',
+      answer: 'Sie klettert unter **das** Bett',
+    ),
+    CourseItem(
+      prompt: 'It goes behind the curtain. (hinter, der Vorhang)',
+      answer: 'Sie geht hinter **den** Vorhang',
+    ),
+    CourseItem(
+      prompt: 'It jumps onto the sofa. (auf, das Sofa)',
+      answer: 'Sie springt auf **das** Sofa',
+    ),
+    CourseItem(
+      prompt: 'It hides between the boxes. (zwischen, die Kisten, pl)',
+      answer: 'Sie versteckt sich zwischen **die** Kisten',
+    ),
+    CourseItem(
+      prompt: 'It climbs onto the wardrobe. (auf, der Schrank)',
+      answer: 'Sie klettert auf **den** Schrank',
+    ),
+    CourseItem(
+      prompt: 'It jumps onto the windowsill. (auf, die Fensterbank)',
+      answer: 'Sie springt auf **die** Fensterbank',
+    ),
+    CourseItem(
+      prompt: 'It runs in front of the door. (vor, die Tür)',
+      answer: 'Sie läuft vor **die** Tür',
+    ),
+    CourseItem(
+      prompt: 'It creeps into the box. (in, der Karton)',
+      answer: 'Sie kriecht in **den** Karton',
+    ),
+    CourseItem(
+      prompt: 'It jumps over the fence. (über, der Zaun)',
+      answer: 'Sie springt über **den** Zaun',
+    ),
+    CourseItem(
+      prompt: 'It runs next to the man. (neben, der Mann)',
+      answer: 'Sie läuft neben **den** Mann',
+    ),
+    CourseItem(
+      prompt: 'I hang the picture on the wall. (an, die Wand)',
+      answer: 'Ich hänge das Bild an **die** Wand',
+    ),
+    CourseItem(
+      prompt: 'I put the milk into the fridge. (in, der Kühlschrank)',
+      answer: 'Ich stelle die Milch in **den** Kühlschrank',
+    ),
+    CourseItem(
+      prompt: 'It jumps into the garden. (in, der Garten)',
+      answer: 'Sie springt in **den** Garten',
+    ),
   ],
 );
 
@@ -115,7 +185,8 @@ final QuizContent enDeM6BigTextWarmup = enDeBigText(
       'Right after that she runs behind the curtain, hops elegantly onto the '
       'windowsill, and finally disappears into the kitchen. She wants to be '
       'everywhere at once — the one thing she never wants is to sleep!',
-  intro: 'The cat is always on the move, so every phrase answers Wohin? → '
+  intro:
+      'The cat is always on the move, so every phrase answers Wohin? → '
       'accusative. Type the accusative article: der → den (masculine), while die '
       'and das stay the same.',
   tips: _zweiwegTips,
@@ -124,50 +195,142 @@ final QuizContent enDeM6BigTextWarmup = enDeBigText(
 final QuizContent enDeM6Wo = enDeFill(
   id: 'en_de_m6_wo',
   title: 'Wo? → dative (location)',
-  intro: 'When the cat simply is somewhere, the answer is Wo? and the case is '
+  intro:
+      'When the cat simply is somewhere, the answer is Wo? and the case is '
       'dative.',
   tips: _zweiwegTips,
   items: const [
-    CourseItem(prompt: 'The cat sits on the table. (auf, der Tisch)', answer: 'Die Katze sitzt auf **dem** Tisch'),
-    CourseItem(prompt: 'It sleeps in the kitchen. (in, die Küche)', answer: 'Sie schläft in **der** Küche'),
-    CourseItem(prompt: 'It lies under the bed. (unter, das Bett)', answer: 'Sie liegt unter **dem** Bett'),
-    CourseItem(prompt: 'It is behind the curtain. (hinter, der Vorhang)', answer: 'Sie ist hinter **dem** Vorhang'),
-    CourseItem(prompt: 'It sits on the sofa. (auf, das Sofa)', answer: 'Sie sitzt auf **dem** Sofa'),
-    CourseItem(prompt: 'It waits between the boxes. (zwischen, die Kisten, pl)', answer: 'Sie wartet zwischen **den** Kisten'),
-    CourseItem(prompt: 'It sits on the wardrobe. (auf, der Schrank)', answer: 'Sie sitzt auf **dem** Schrank'),
-    CourseItem(prompt: 'It sleeps on the windowsill. (auf, die Fensterbank)', answer: 'Sie schläft auf **der** Fensterbank'),
-    CourseItem(prompt: 'It waits in front of the door. (vor, die Tür)', answer: 'Sie wartet vor **der** Tür'),
-    CourseItem(prompt: 'It lies in the box. (in, der Karton)', answer: 'Sie liegt in **dem** Karton'),
-    CourseItem(prompt: 'The picture hangs on the wall. (an, die Wand)', answer: 'Das Bild hängt an **der** Wand'),
-    CourseItem(prompt: 'The milk is in the fridge. (in, der Kühlschrank)', answer: 'Die Milch steht in **dem** Kühlschrank'),
-    CourseItem(prompt: 'It sits next to the man. (neben, der Mann)', answer: 'Sie sitzt neben **dem** Mann'),
-    CourseItem(prompt: 'The lamp hangs above the table. (über, der Tisch)', answer: 'Die Lampe hängt über **dem** Tisch'),
-    CourseItem(prompt: 'It plays in the garden. (in, der Garten)', answer: 'Sie spielt in **dem** Garten'),
+    CourseItem(
+      prompt: 'The cat sits on the table. (auf, der Tisch)',
+      answer: 'Die Katze sitzt auf **dem** Tisch',
+    ),
+    CourseItem(
+      prompt: 'It sleeps in the kitchen. (in, die Küche)',
+      answer: 'Sie schläft in **der** Küche',
+    ),
+    CourseItem(
+      prompt: 'It lies under the bed. (unter, das Bett)',
+      answer: 'Sie liegt unter **dem** Bett',
+    ),
+    CourseItem(
+      prompt: 'It is behind the curtain. (hinter, der Vorhang)',
+      answer: 'Sie ist hinter **dem** Vorhang',
+    ),
+    CourseItem(
+      prompt: 'It sits on the sofa. (auf, das Sofa)',
+      answer: 'Sie sitzt auf **dem** Sofa',
+    ),
+    CourseItem(
+      prompt: 'It waits between the boxes. (zwischen, die Kisten, pl)',
+      answer: 'Sie wartet zwischen **den** Kisten',
+    ),
+    CourseItem(
+      prompt: 'It sits on the wardrobe. (auf, der Schrank)',
+      answer: 'Sie sitzt auf **dem** Schrank',
+    ),
+    CourseItem(
+      prompt: 'It sleeps on the windowsill. (auf, die Fensterbank)',
+      answer: 'Sie schläft auf **der** Fensterbank',
+    ),
+    CourseItem(
+      prompt: 'It waits in front of the door. (vor, die Tür)',
+      answer: 'Sie wartet vor **der** Tür',
+    ),
+    CourseItem(
+      prompt: 'It lies in the box. (in, der Karton)',
+      answer: 'Sie liegt in **dem** Karton',
+    ),
+    CourseItem(
+      prompt: 'The picture hangs on the wall. (an, die Wand)',
+      answer: 'Das Bild hängt an **der** Wand',
+    ),
+    CourseItem(
+      prompt: 'The milk is in the fridge. (in, der Kühlschrank)',
+      answer: 'Die Milch steht in **dem** Kühlschrank',
+    ),
+    CourseItem(
+      prompt: 'It sits next to the man. (neben, der Mann)',
+      answer: 'Sie sitzt neben **dem** Mann',
+    ),
+    CourseItem(
+      prompt: 'The lamp hangs above the table. (über, der Tisch)',
+      answer: 'Die Lampe hängt über **dem** Tisch',
+    ),
+    CourseItem(
+      prompt: 'It plays in the garden. (in, der Garten)',
+      answer: 'Sie spielt in **dem** Garten',
+    ),
   ],
 );
 
 final QuizContent enDeM6Mixed = enDeFill(
   id: 'en_de_m6_mixed',
   title: 'Mixed: read the verb',
-  intro: 'Now both are mixed. Look at the verb: is the cat moving (Akkusativ) '
+  intro:
+      'Now both are mixed. Look at the verb: is the cat moving (Akkusativ) '
       'or staying (Dativ)? Same preposition, different case.',
   tips: _zweiwegTips,
   items: const [
-    CourseItem(prompt: 'The cat jumps onto the table. (auf, der Tisch)', answer: 'Die Katze springt auf **den** Tisch'),
-    CourseItem(prompt: 'The cat sits on the table. (auf, der Tisch)', answer: 'Die Katze sitzt auf **dem** Tisch'),
-    CourseItem(prompt: 'It runs under the chair. (unter, der Stuhl)', answer: 'Sie rennt unter **den** Stuhl'),
-    CourseItem(prompt: 'It sleeps under the chair. (unter, der Stuhl)', answer: 'Sie schläft unter **dem** Stuhl'),
-    CourseItem(prompt: 'It climbs onto the wardrobe. (auf, der Schrank)', answer: 'Sie klettert auf **den** Schrank'),
-    CourseItem(prompt: 'It sits on the wardrobe. (auf, der Schrank)', answer: 'Sie sitzt auf **dem** Schrank'),
-    CourseItem(prompt: 'It jumps into the garden. (in, der Garten)', answer: 'Sie springt in **den** Garten'),
-    CourseItem(prompt: 'It plays in the garden. (in, der Garten)', answer: 'Sie spielt in **dem** Garten'),
-    CourseItem(prompt: 'I hang the picture on the wall. (an, die Wand)', answer: 'Ich hänge das Bild an **die** Wand'),
-    CourseItem(prompt: 'The picture hangs on the wall. (an, die Wand)', answer: 'Das Bild hängt an **der** Wand'),
-    CourseItem(prompt: 'It runs in front of the door. (vor, die Tür)', answer: 'Sie rennt vor **die** Tür'),
-    CourseItem(prompt: 'It waits in front of the door. (vor, die Tür)', answer: 'Sie wartet vor **der** Tür'),
-    CourseItem(prompt: 'I put the milk into the fridge. (in, der Kühlschrank)', answer: 'Ich stelle die Milch in **den** Kühlschrank'),
-    CourseItem(prompt: 'She lays the book onto the table. (auf, der Tisch)', answer: 'Sie legt das Buch auf **den** Tisch'),
-    CourseItem(prompt: 'The book lies on the table. (auf, der Tisch)', answer: 'Das Buch liegt auf **dem** Tisch'),
+    CourseItem(
+      prompt: 'The cat jumps onto the table. (auf, der Tisch)',
+      answer: 'Die Katze springt auf **den** Tisch',
+    ),
+    CourseItem(
+      prompt: 'The cat sits on the table. (auf, der Tisch)',
+      answer: 'Die Katze sitzt auf **dem** Tisch',
+    ),
+    CourseItem(
+      prompt: 'It runs under the chair. (unter, der Stuhl)',
+      answer: 'Sie rennt unter **den** Stuhl',
+    ),
+    CourseItem(
+      prompt: 'It sleeps under the chair. (unter, der Stuhl)',
+      answer: 'Sie schläft unter **dem** Stuhl',
+    ),
+    CourseItem(
+      prompt: 'It climbs onto the wardrobe. (auf, der Schrank)',
+      answer: 'Sie klettert auf **den** Schrank',
+    ),
+    CourseItem(
+      prompt: 'It sits on the wardrobe. (auf, der Schrank)',
+      answer: 'Sie sitzt auf **dem** Schrank',
+    ),
+    CourseItem(
+      prompt: 'It jumps into the garden. (in, der Garten)',
+      answer: 'Sie springt in **den** Garten',
+    ),
+    CourseItem(
+      prompt: 'It plays in the garden. (in, der Garten)',
+      answer: 'Sie spielt in **dem** Garten',
+    ),
+    CourseItem(
+      prompt: 'I hang the picture on the wall. (an, die Wand)',
+      answer: 'Ich hänge das Bild an **die** Wand',
+    ),
+    CourseItem(
+      prompt: 'The picture hangs on the wall. (an, die Wand)',
+      answer: 'Das Bild hängt an **der** Wand',
+    ),
+    CourseItem(
+      prompt: 'It runs in front of the door. (vor, die Tür)',
+      answer: 'Sie rennt vor **die** Tür',
+    ),
+    CourseItem(
+      prompt: 'It waits in front of the door. (vor, die Tür)',
+      answer: 'Sie wartet vor **der** Tür',
+    ),
+    CourseItem(
+      prompt: 'I put the milk into the fridge. (in, der Kühlschrank)',
+      answer: 'Ich stelle die Milch in **den** Kühlschrank',
+    ),
+    CourseItem(
+      prompt: 'She lays the book onto the table. (auf, der Tisch)',
+      answer: 'Sie legt das Buch auf **den** Tisch',
+    ),
+    CourseItem(
+      prompt: 'The book lies on the table. (auf, der Tisch)',
+      answer: 'Das Buch liegt auf **dem** Tisch',
+    ),
   ],
 );
 
@@ -205,7 +368,8 @@ final QuizContent enDeM6BigText = enDeBigText(
       'fright, jumps lightning-fast onto the wardrobe, and stays trembling up '
       'on the wardrobe until the dog is finally outside again. What an '
       'adventure for such a little cat!',
-  intro: 'For each marked phrase pick the case. Ask: is the cat moving there '
+  intro:
+      'For each marked phrase pick the case. Ask: is the cat moving there '
       '(Wohin? → Akkusativ) or already there (Wo? → Dativ)? Watch the pairs: '
       'sich setzen unter einen Tisch vs sitzen unter dem Tisch.',
   tips: _zweiwegTips,
@@ -223,7 +387,8 @@ final QuizContent enDeM6Listening = enDeListen(
   passageTranslation:
       'The cat jumps onto the table. Then it sits on the table and sleeps. In '
       'the evening it goes into the kitchen and eats.',
-  intro: 'Listen carefully: the only clue to motion vs location is the case you '
+  intro:
+      'Listen carefully: the only clue to motion vs location is the case you '
       'hear — "auf den Tisch" (Akk) vs "auf dem Tisch" (Dat).',
   tips: _zweiwegTips,
   questions: const [
@@ -255,27 +420,108 @@ final QuizContent enDeM6Listening = enDeListen(
 final QuizContent enDeM6Speak = enDeSpeak(
   id: 'en_de_m6_speak',
   title: 'Speak: Wo / Wohin',
-  intro: 'Say the pairs aloud. Hearing "den" vs "dem" back to back trains your '
+  intro:
+      'Say the pairs aloud. Hearing "den" vs "dem" back to back trains your '
       'ear for motion vs location.',
   tips: _zweiwegTips,
   items: const [
-    CourseItem(prompt: 'The cat is on the table.', answer: 'Die Katze ist auf dem Tisch.'),
-    CourseItem(prompt: 'The cat jumps onto the table.', answer: 'Die Katze springt auf den Tisch.'),
-    CourseItem(prompt: 'It sleeps in the kitchen.', answer: 'Sie schläft in der Küche.'),
-    CourseItem(prompt: 'It runs into the kitchen.', answer: 'Sie rennt in die Küche.'),
-    CourseItem(prompt: 'The book lies on the table.', answer: 'Das Buch liegt auf dem Tisch.'),
-    CourseItem(prompt: 'I put the book on the table.', answer: 'Ich lege das Buch auf den Tisch.'),
+    CourseItem(
+      prompt: 'The cat is on the table.',
+      answer: 'Die Katze ist auf dem Tisch.',
+    ),
+    CourseItem(
+      prompt: 'The cat jumps onto the table.',
+      answer: 'Die Katze springt auf den Tisch.',
+    ),
+    CourseItem(
+      prompt: 'It sleeps in the kitchen.',
+      answer: 'Sie schläft in der Küche.',
+    ),
+    CourseItem(
+      prompt: 'It runs into the kitchen.',
+      answer: 'Sie rennt in die Küche.',
+    ),
+    CourseItem(
+      prompt: 'The book lies on the table.',
+      answer: 'Das Buch liegt auf dem Tisch.',
+    ),
+    CourseItem(
+      prompt: 'I put the book on the table.',
+      answer: 'Ich lege das Buch auf den Tisch.',
+    ),
   ],
 );
 
 /// M6 — Two-Way Prepositions, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM6Speaking = enDeSpeaking(
+  id: 'en_de_m6_speaking',
+  title: 'Where is the cat now?',
+  level: 'A2',
+  topic:
+      'A cat that will not stay put, and my own home: where things are and where they are going.',
+  practisePoints: [
+    'Wo? + dative: Die Katze ist auf dem Tisch.',
+    'Wohin? + accusative: Die Katze springt auf den Tisch.',
+    'The nine two-way prepositions: in, an, auf, über, unter, vor, hinter, neben, zwischen',
+  ],
+  targetVocabulary: ['auf', 'unter', 'neben', 'hinter', 'zwischen', 'springen'],
+  scoringCriteria: [
+    'dative for a location',
+    'accusative for movement',
+    'the article after the preposition',
+  ],
+  priorityErrors: [
+    'dative where movement needs accusative',
+    'accusative where a location needs dative',
+    'wrong article',
+  ],
+  mode: SpeakingMode.roleplay,
+  intro:
+      'Say where things are - and where they go. Copy the exercise into your AI assistant, turn on voice mode, and describe the chaos.',
+  tips: _zweiwegTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM6SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m6_speaking_check',
+  title: 'Checkpoint: where is it going?',
+  level: 'A2',
+  topic:
+      'Movement around my home: where things and people are going right now.',
+  practisePoints: [
+    'Wohin? + accusative: Ich gehe in die Küche.',
+    'The nine two-way prepositions by name',
+    'The article after the preposition',
+  ],
+  targetVocabulary: ['in', 'auf', 'unter', 'neben', 'gehen'],
+  scoringCriteria: [
+    'accusative for movement',
+    'the right preposition',
+    'the article after the preposition',
+  ],
+  priorityErrors: ['dative where movement needs accusative', 'wrong article'],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _zweiwegTips,
+);
+
 final List<QuizContent> enDeM6 = [
   enDeM6List,
   enDeM6Wohin,
   enDeM6BigTextWarmup,
   enDeM6Wo,
+  enDeM6SpeakingCheck,
   enDeM6Mixed,
   enDeM6Listening,
   enDeM6Speak,
   enDeM6BigText,
+  enDeM6Speaking,
 ];

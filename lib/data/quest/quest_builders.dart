@@ -1,4 +1,10 @@
 import '../../models/quiz_content.dart';
+import '../../models/speaking_exercise.dart';
+
+// Re-exported so a level's content file can tune a speaking exercise without
+// importing the model directly.
+export '../../models/speaking_exercise.dart'
+    show SpeakingMode, SpeakingSession, SpeakingReport;
 
 /// One explicit-answer item: a German [sentence] with a `____` blank (a clue or
 /// a contextual sentence), the [answer] revealed when wrong, every accepted
@@ -52,14 +58,13 @@ QuestSentenceItem qsi(
   String english,
   String gloss, {
   List<String>? accepted,
-}) =>
-    QuestSentenceItem(
-      sentence: sentence,
-      answer: answer,
-      english: english,
-      gloss: gloss,
-      accepted: accepted,
-    );
+}) => QuestSentenceItem(
+  sentence: sentence,
+  answer: answer,
+  english: english,
+  gloss: gloss,
+  accepted: accepted,
+);
 
 /// Builds a single-category explicit-answer quiz. Each item becomes one subject
 /// (keyed `s0`…, displayed as its English gloss) and one stored sentence, so the
@@ -109,7 +114,8 @@ QuizContent sentenceQuestQuiz({
           english: items[i].english,
           // In the contextual layout the answer cue is hidden from the visible
           // text, so surface it behind the info icon as the English word.
-          hint: items[i].hint ??
+          hint:
+              items[i].hint ??
               (contextualLayout ? 'English: ${_glossFor(items[i])}' : null),
           explanationSections: items[i].explanation == null
               ? const []
@@ -130,11 +136,7 @@ QuizContent sentenceQuestQuiz({
 /// One phrase in a [speakQuestQuiz]: the German [phrase] the learner hears and
 /// repeats, and its English [meaning] shown underneath.
 class SpeakPhrase {
-  const SpeakPhrase({
-    required this.phrase,
-    required this.meaning,
-    this.gender,
-  });
+  const SpeakPhrase({required this.phrase, required this.meaning, this.gender});
   final String phrase;
   final String meaning;
 
@@ -270,13 +272,12 @@ InlineBlank caseBlank(
   String answer, {
   List<String> options = const ['Nominativ', 'Akkusativ', 'Dativ'],
   String? translation,
-}) =>
-    InlineBlank(
-      kind: 'select',
-      answer: answer,
-      options: options,
-      translation: translation,
-    );
+}) => InlineBlank(
+  kind: 'select',
+  answer: answer,
+  options: options,
+  translation: translation,
+);
 
 /// A typed-input blank for the cert "big text" cloze (e.g. an article or verb
 /// form the learner types into the passage). [accepted] lists extra accepted
@@ -374,6 +375,59 @@ QuizContent listeningQuestQuiz({
     readingPassage: passage,
     readingPassageTranslation: passageTranslation,
     readingQuestions: questions,
+    helpMemoryIntro: intro,
+    helpMemoryTips: tips,
+  );
+}
+
+/// A conversation exercise ([QuizKind.speaking]) for the cert chain: the app
+/// renders a prompt the learner copies into their own AI assistant, talks
+/// through there in voice mode, and comes back to enter the score the AI gave.
+/// Nothing is spoken or recorded by the app itself.
+///
+/// [level] is the CEFR sub-level shown to the tutor as the learner's level (the
+/// chain re-stamps [QuizContent.level] with the same value). Keep
+/// [practisePoints] to 3-4: each one costs at least one of the session's
+/// exchanges. See `docs/speaking_quiz_feature.md`.
+QuizContent speakingQuestQuiz({
+  required String id,
+  required String title,
+  required String level,
+  required String topic,
+  required List<String> practisePoints,
+  required List<String> scoringCriteria,
+  List<String> targetVocabulary = const [],
+  List<String> priorityErrors = const [],
+  SpeakingMode mode = SpeakingMode.conversation,
+  SpeakingSession session = const SpeakingSession(),
+  SpeakingReport report = const SpeakingReport(),
+  String? intro,
+  List<HelpMemoryTip> tips = const [],
+}) {
+  return QuizContent(
+    id: id,
+    title: title,
+    kind: QuizKind.speaking,
+    level: level,
+    storageKeyPrefix: '${id}_',
+    // The speaking page reads none of these; they keep the content valid and
+    // give the back-office list something sensible to show.
+    promptLabel: 'Übung',
+    subjectsLabel: 'Übung',
+    subjectColumnLabel: 'Übung',
+    subjects: const [],
+    categories: const [],
+    sentences: const [],
+    speaking: SpeakingExercise(
+      topic: topic,
+      practisePoints: practisePoints,
+      scoringCriteria: scoringCriteria,
+      targetVocabulary: targetVocabulary,
+      priorityErrors: priorityErrors,
+      mode: mode,
+      session: session,
+      report: report,
+    ),
     helpMemoryIntro: intro,
     helpMemoryTips: tips,
   );

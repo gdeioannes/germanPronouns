@@ -85,7 +85,8 @@ final QuizContent questAkkusativContent = QuizContent(
     HelpMemoryTip(
       kind: 'rule',
       title: 'Only masculine changes',
-      text: 'der → den and ein → einen. Feminine (die/eine), neuter (das/ein) '
+      text:
+          'der → den and ein → einen. Feminine (die/eine), neuter (das/ein) '
           'and plural look exactly like the nominative.',
     ),
     HelpMemoryTip(
@@ -185,19 +186,22 @@ final QuizContent questPossessivContent = QuizContent(
     HelpMemoryTip(
       kind: 'rule',
       title: 'Nominative endings',
-      text: 'Bare stem for masculine/neuter (mein Vater, mein Kind); add -e for '
+      text:
+          'Bare stem for masculine/neuter (mein Vater, mein Kind); add -e for '
           'feminine and plural (meine Mutter, meine Eltern).',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'Accusative',
-      text: 'Like the accusative article, only masculine adds -en: '
+      text:
+          'Like the accusative article, only masculine adds -en: '
           'Ich sehe meinen Vater (but meine Mutter, mein Kind).',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'sein vs. ihr',
-      text: 'sein = his/its, ihr = her/their. Choose by the OWNER, then add the '
+      text:
+          'sein = his/its, ihr = her/their. Choose by the OWNER, then add the '
           'ending for the noun.',
     ),
   ],
@@ -261,7 +265,8 @@ final QuizContent questNegationContent = sentenceQuestQuiz(
       answer: 'nicht',
       english: 'She is not tired.',
       hint: 'Negates an adjective → nicht.',
-      explanation: 'nicht negates verbs, adjectives and adverbs. "müde" is an '
+      explanation:
+          'nicht negates verbs, adjectives and adverbs. "müde" is an '
           'adjective, so: nicht müde.',
     ),
     QuestSentenceItem(
@@ -307,26 +312,30 @@ final QuizContent questNegationContent = sentenceQuestQuiz(
       hint: 'Plural noun (die Fragen) → keine.',
     ),
   ],
-  intro: 'German has two ways to say "not". kein negates a noun (it replaces '
+  intro:
+      'German has two ways to say "not". kein negates a noun (it replaces '
       'ein or the article); nicht negates everything else — verbs, adjectives '
       'and adverbs.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'kein for nouns',
-      text: 'Use kein/keine/keinen where English says "no" or "not a": '
+      text:
+          'Use kein/keine/keinen where English says "no" or "not a": '
           'kein Auto, keine Zeit, keinen Hund.',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'nicht for the rest',
-      text: 'Use nicht to negate a verb, adjective or adverb: '
+      text:
+          'Use nicht to negate a verb, adjective or adverb: '
           'Ich verstehe nicht; sie ist nicht müde.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'kein takes ein-endings',
-      text: 'kein declines exactly like ein, so masculine accusative is keinen '
+      text:
+          'kein declines exactly like ein, so masculine accusative is keinen '
           '(Ich habe keinen Hund).',
     ),
   ],
@@ -350,7 +359,9 @@ final QuizContent questModalverbenContent = QuizContent(
   promptLabel: 'Pronomen',
   subjectsLabel: 'Pronomen',
   subjectColumnLabel: 'Pronomen',
-  subjects: [for (final p in _modalPronouns) QuizSubjectData(key: p, display: p)],
+  subjects: [
+    for (final p in _modalPronouns) QuizSubjectData(key: p, display: p),
+  ],
   categories: const [
     QuizCategoryData(
       label: 'können (can)',
@@ -400,18 +411,21 @@ final QuizContent questModalverbenContent = QuizContent(
     HelpMemoryTip(
       kind: 'rule',
       title: 'ich and er are the same',
-      text: 'The ich- and er/sie/es-forms are identical and take NO ending: '
+      text:
+          'The ich- and er/sie/es-forms are identical and take NO ending: '
           'ich kann, er kann; ich muss, sie muss.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Vowel change in the singular',
-      text: 'The singular often changes the stem vowel: können → kann, '
+      text:
+          'The singular often changes the stem vowel: können → kann, '
           'müssen → muss, wollen → will. The plural keeps the infinitive stem.',
     ),
     HelpMemoryTip(
       kind: 'example',
-      text: 'Ich kann gut schwimmen. — the second verb (schwimmen) goes to '
+      text:
+          'Ich kann gut schwimmen. — the second verb (schwimmen) goes to '
           'the end as an infinitive.',
     ),
   ],
@@ -459,7 +473,8 @@ final QuizContent questUhrzeitContent = sentenceQuestQuiz(
     _time('17:15', 'Viertel nach fünf', []),
     _time('19:30', 'halb acht', []),
   ],
-  intro: 'Colloquial German clock times use "nach" (past) and "vor" (to). The '
+  intro:
+      'Colloquial German clock times use "nach" (past) and "vor" (to). The '
       'word "halb" counts toward the NEXT hour, which trips up English '
       'speakers.',
   tips: const [
@@ -476,7 +491,8 @@ final QuizContent questUhrzeitContent = sentenceQuestQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Official time',
-      text: 'Timetables read the digits: 14:30 = vierzehn Uhr dreißig. Always '
+      text:
+          'Timetables read the digits: 14:30 = vierzehn Uhr dreißig. Always '
           'understood, never wrong.',
     ),
   ],
@@ -587,10 +603,12 @@ final QuizContent questDatumContent = sentenceQuestQuiz(
     QuestSentenceItem(
       sentence: 'Der letzte Monat im Jahr (mit Weihnachten) ist ____.',
       answer: 'Dezember',
-      english: 'The last month of the year (with Christmas) is ____ (December).',
+      english:
+          'The last month of the year (with Christmas) is ____ (December).',
     ),
   ],
-  intro: 'All days of the week and months are masculine (der-words) and are '
+  intro:
+      'All days of the week and months are masculine (der-words) and are '
       'always written with a capital letter.',
   tips: const [
     HelpMemoryTip(
@@ -601,7 +619,8 @@ final QuizContent questDatumContent = sentenceQuestQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: '"am" for days, "im" for months',
-      text: 'am Freitag (on Friday), im Mai (in May). Both come from an/in + '
+      text:
+          'am Freitag (on Friday), im Mai (in May). Both come from an/in + '
           'dem (dative).',
     ),
   ],
@@ -622,7 +641,8 @@ final QuizContent questPraepositionenContent = sentenceQuestQuiz(
       answer: 'den',
       english: 'The gift is for the man.',
       hint: 'für → accusative. der Mann → den Mann.',
-      explanation: 'für, durch, gegen, ohne, um always take the accusative. '
+      explanation:
+          'für, durch, gegen, ohne, um always take the accusative. '
           'der → den, die → die, das → das.',
     ),
     QuestSentenceItem(
@@ -710,7 +730,8 @@ final QuizContent questPraepositionenContent = sentenceQuestQuiz(
       hint: 'um → accusative. der See → den See.',
     ),
   ],
-  intro: 'The prepositions durch, für, gegen, ohne and um always take the '
+  intro:
+      'The prepositions durch, für, gegen, ohne and um always take the '
       'accusative, so the article on the following noun shifts to its '
       'accusative form.',
   tips: const [
@@ -722,7 +743,8 @@ final QuizContent questPraepositionenContent = sentenceQuestQuiz(
     HelpMemoryTip(
       kind: 'rule',
       title: 'What actually changes',
-      text: 'Only masculine: der → den (für den Mann). Feminine (die) and '
+      text:
+          'Only masculine: der → den (für den Mann). Feminine (die) and '
           'neuter (das) look the same as the nominative.',
     ),
   ],
@@ -743,7 +765,8 @@ final QuizContent questTrennbareContent = sentenceQuestQuiz(
       answer: 'stehe',
       english: 'I get up at 7.',
       hint: 'Separable verb: the prefix "auf" goes to the end.',
-      explanation: 'Separable verbs split: the prefix moves to the end of the '
+      explanation:
+          'Separable verbs split: the prefix moves to the end of the '
           'clause and the conjugated stem takes the verb position.',
     ),
     QuestSentenceItem(
@@ -832,7 +855,8 @@ final QuizContent questTrennbareContent = sentenceQuestQuiz(
       hint: 'er form of (ab)holen.',
     ),
   ],
-  intro: 'Separable verbs split in a main clause: the prefix jumps to the END '
+  intro:
+      'Separable verbs split in a main clause: the prefix jumps to the END '
       'of the sentence while the conjugated stem stays in second position.',
   tips: const [
     HelpMemoryTip(
@@ -847,7 +871,8 @@ final QuizContent questTrennbareContent = sentenceQuestQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Common separable prefixes',
-      text: 'auf-, ab-, an-, aus-, ein-, mit-, vor-, zu-, zurück- are usually '
+      text:
+          'auf-, ab-, an-, aus-, ein-, mit-, vor-, zu-, zurück- are usually '
           'separable and carry the stress.',
     ),
   ],
@@ -926,7 +951,8 @@ final QuizContent questPronomenAkkContent = sentenceQuestQuiz(
       gloss: 'you (call)',
     ),
     QuestSentenceItem(
-      sentence: 'Wo ist der Schlüssel? Ich finde ____ nicht. (it — der Schlüssel)',
+      sentence:
+          'Wo ist der Schlüssel? Ich finde ____ nicht. (it — der Schlüssel)',
       answer: 'ihn',
       english: "Where is the key? I can't find ____. (it — der Schlüssel)",
       gloss: 'it (der → ihn)',
@@ -950,25 +976,29 @@ final QuizContent questPronomenAkkContent = sentenceQuestQuiz(
       gloss: 'us (object)',
     ),
   ],
-  intro: 'When a pronoun is the direct object (the accusative), it changes form: '
+  intro:
+      'When a pronoun is the direct object (the accusative), it changes form: '
       '"Ich sehe DICH" (I see you). Only ich, du, er change a lot; the others '
       'look like the nominative.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'The ones that change',
-      text: 'ich → mich, du → dich, er → ihn. The rest are the same as the '
+      text:
+          'ich → mich, du → dich, er → ihn. The rest are the same as the '
           'subject form: sie → sie, es → es, wir → uns, ihr → euch.',
     ),
     HelpMemoryTip(
       kind: 'example',
-      text: 'Liebst du mich? — Ja, ich liebe dich. / Kennst du ihn? — Ja, ich '
+      text:
+          'Liebst du mich? — Ja, ich liebe dich. / Kennst du ihn? — Ja, ich '
           'kenne ihn.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: '"sie" again',
-      text: 'sie = her/them and Sie = you (formal) look identical in the '
+      text:
+          'sie = her/them and Sie = you (formal) look identical in the '
           'accusative — context decides.',
     ),
   ],
@@ -1036,20 +1066,23 @@ final QuizContent questReadingCafeContent = readingQuestQuiz(
       explanation: '"… bestellen auch zwei Stück Kuchen."',
     ),
   ],
-  intro: 'Read the café scene once, then answer. Watch the verbs of ordering '
+  intro:
+      'Read the café scene once, then answer. Watch the verbs of ordering '
       '(möchten, nehmen, bestellen, bezahlen) — they come up constantly when '
       'eating out.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Scan for numbers',
-      text: 'Price and quantity questions are easy points: find the digits and '
+      text:
+          'Price and quantity questions are easy points: find the digits and '
           'the Euro amounts in the text.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Who does what',
-      text: 'Underline the names (Anna, Tom, der Kellner) so you can quickly '
+      text:
+          'Underline the names (Anna, Tom, der Kellner) so you can quickly '
           'see who orders, who pays and who serves.',
     ),
   ],
@@ -1063,20 +1096,23 @@ final QuizContent questSpeakAlltagContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Say your daily routine and the time out loud. Listen and repeat each '
+  intro:
+      'Say your daily routine and the time out loud. Listen and repeat each '
       'sentence; if a microphone is available we tell you how it sounded, '
       'otherwise just repeat and continue.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Separable verbs',
-      text: '"Ich stehe um sieben Uhr auf" — say the prefix "auf" at the end '
+      text:
+          '"Ich stehe um sieben Uhr auf" — say the prefix "auf" at the end '
           'clearly; it carries the stress.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'The "ü" in Uhr / um',
-      text: 'Round your lips for "ü". Practise "Wie spät ist es?" until it '
+      text:
+          'Round your lips for "ü". Practise "Wie spät ist es?" until it '
           'flows.',
     ),
   ],
@@ -1100,7 +1136,10 @@ final QuizContent questSpeakAlltagContent = speakQuestQuiz(
       phrase: 'Ich gehe um neun Uhr zur Arbeit.',
       meaning: 'I go to work at nine.',
     ),
-    SpeakPhrase(phrase: 'Am Abend sehe ich fern.', meaning: 'In the evening I watch TV.'),
+    SpeakPhrase(
+      phrase: 'Am Abend sehe ich fern.',
+      meaning: 'In the evening I watch TV.',
+    ),
     SpeakPhrase(phrase: 'Wann stehst du auf?', meaning: 'When do you get up?'),
     SpeakPhrase(
       phrase: 'Ich gehe um elf Uhr ins Bett.',
@@ -1172,19 +1211,22 @@ final QuizContent questReadingReiseContent = readingQuestQuiz(
       explanation: '"Sie besuchen ein Museum und einen großen Park."',
     ),
   ],
-  intro: 'Read the travel story once, then answer. Travel words (Zug, Bahnhof, '
+  intro:
+      'Read the travel story once, then answer. Travel words (Zug, Bahnhof, '
       'Fahrkarte, Hotel) and times/prices are common in the A1 reading exam.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Times and places',
-      text: 'Note the time the train leaves and where they stay — questions '
+      text:
+          'Note the time the train leaves and where they stay — questions '
           'often ask exactly those details.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'mit dem …',
-      text: 'Transport uses "mit dem Zug / Bus / Auto" — a good clue for the '
+      text:
+          'Transport uses "mit dem Zug / Bus / Auto" — a good clue for the '
           '"how do they travel?" question.',
     ),
   ],
@@ -1256,20 +1298,23 @@ final QuizContent questHoerenCafeContent = listeningQuestQuiz(
       explanation: '"Hier sind fünf Euro."',
     ),
   ],
-  intro: 'A guest orders in a café — you only hear the dialogue. Listen for what '
+  intro:
+      'A guest orders in a café — you only hear the dialogue. Listen for what '
       'they order, how they want it, and the price. Replay as often as you like; '
       'the full text is behind "Show text".',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'The ordering verbs',
-      text: 'möchten (would like), nehmen (have/take) and kosten (cost) are the '
+      text:
+          'möchten (would like), nehmen (have/take) and kosten (cost) are the '
           'signposts — they mark what is ordered and the price.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Two speakers',
-      text: 'This is a dialogue. Track who speaks: the server asks, the guest '
+      text:
+          'This is a dialogue. Track who speaks: the server asks, the guest '
           'answers. The price comes from the server at the end.',
     ),
   ],
@@ -1339,29 +1384,28 @@ final QuizContent questHoerenTermineContent = listeningQuestQuiz(
       question: 'Was soll Tom machen?',
       questionTranslation: 'What should Tom do?',
       options: ['eine SMS schreiben', 'Anna anrufen', 'zu Hause bleiben'],
-      optionsTranslation: [
-        'write a text message',
-        'call Anna',
-        'stay at home',
-      ],
+      optionsTranslation: ['write a text message', 'call Anna', 'stay at home'],
       correctIndex: 1,
       explanation: '"Mein Handy ist an – ruf mich bitte an!"',
     ),
   ],
-  intro: 'Anna leaves Tom a voicemail — you only hear it. Catch the day, the '
+  intro:
+      'Anna leaves Tom a voicemail — you only hear it. Catch the day, the '
       'times and the meeting place. Be careful with "halb acht"! Replay as '
       'needed; the text is behind "Show text".',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'halb acht = 7:30',
-      text: 'German counts toward the next hour: "halb acht" is 7:30, NOT 8:30. '
+      text:
+          'German counts toward the next hour: "halb acht" is 7:30, NOT 8:30. '
           'So the film is at 19:30 and the meeting is at 19:00.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Small words, big difference',
-      text: '"vor dem Kino" = in front of the cinema (outside), not "im Kino" '
+      text:
+          '"vor dem Kino" = in front of the cinema (outside), not "im Kino" '
           '(inside). The preposition changes the answer.',
     ),
   ],
@@ -1377,20 +1421,23 @@ final QuizContent questSpeakEinkaufenContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Shopping and ordering out loud. "Ich hätte gern …" is the polite '
+  intro:
+      'Shopping and ordering out loud. "Ich hätte gern …" is the polite '
       'all-purpose opener for any shop or café — bank it. Listen and repeat each '
       'phrase, short to long.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'The polite opener',
-      text: '"Ich hätte gern …" (I\'d like …) works in every shop, bakery and '
+      text:
+          '"Ich hätte gern …" (I\'d like …) works in every shop, bakery and '
           'café — softer and more natural than "Ich will …".',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'The "ö" in möchten / Brötchen',
-      text: 'Round your lips for "ö": "Ich möchte ein Brötchen." Practise it '
+      text:
+          'Round your lips for "ö": "Ich möchte ein Brötchen." Practise it '
           'until it flows.',
     ),
   ],
@@ -1405,9 +1452,18 @@ final QuizContent questSpeakEinkaufenContent = speakQuestQuiz(
       phrase: 'Ich nehme die Bananen.',
       meaning: "I'll take the bananas.",
     ),
-    SpeakPhrase(phrase: 'Haben Sie auch Eier?', meaning: 'Do you also have eggs?'),
-    SpeakPhrase(phrase: 'Ein Brötchen, bitte.', meaning: 'A bread roll, please.'),
-    SpeakPhrase(phrase: 'Das ist alles, danke.', meaning: "That's all, thanks."),
+    SpeakPhrase(
+      phrase: 'Haben Sie auch Eier?',
+      meaning: 'Do you also have eggs?',
+    ),
+    SpeakPhrase(
+      phrase: 'Ein Brötchen, bitte.',
+      meaning: 'A bread roll, please.',
+    ),
+    SpeakPhrase(
+      phrase: 'Das ist alles, danke.',
+      meaning: "That's all, thanks.",
+    ),
     SpeakPhrase(
       phrase: 'Zusammen oder getrennt?',
       meaning: 'Together or separately?',
@@ -1428,14 +1484,16 @@ final QuizContent questDiktatMeinTagContent = dictationQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'A dictation: you HEAR a sentence and TYPE it. These sentences use the '
+  intro:
+      'A dictation: you HEAR a sentence and TYPE it. These sentences use the '
       'daily-routine verbs, the clock and the ordering phrases from this level. '
       'Replay as often as you like, then write what you heard.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Separable verbs split',
-      text: 'Listen for the prefix at the end: "Ich stehe um sieben Uhr auf." '
+      text:
+          'Listen for the prefix at the end: "Ich stehe um sieben Uhr auf." '
           'Write the "auf" where you hear it.',
     ),
     HelpMemoryTip(
@@ -1446,7 +1504,8 @@ final QuizContent questDiktatMeinTagContent = dictationQuestQuiz(
     HelpMemoryTip(
       kind: 'example',
       title: 'Umlauts are lenient',
-      text: '"fährt" may be typed "faehrt" and "Äpfel" as "Aepfel"; just spell '
+      text:
+          '"fährt" may be typed "faehrt" and "Äpfel" as "Aepfel"; just spell '
           'the rest of the word in full.',
     ),
   ],
@@ -1456,9 +1515,18 @@ final QuizContent questDiktatMeinTagContent = dictationQuestQuiz(
       meaning: 'I get up at seven.',
     ),
     SpeakPhrase(phrase: 'Es ist halb acht.', meaning: "It's half past seven."),
-    SpeakPhrase(phrase: 'Ich nehme einen Kaffee.', meaning: "I'll have a coffee."),
-    SpeakPhrase(phrase: 'Was kostet das Brot?', meaning: 'How much is the bread?'),
-    SpeakPhrase(phrase: 'Ich gehe ins Kino.', meaning: "I'm going to the cinema."),
+    SpeakPhrase(
+      phrase: 'Ich nehme einen Kaffee.',
+      meaning: "I'll have a coffee.",
+    ),
+    SpeakPhrase(
+      phrase: 'Was kostet das Brot?',
+      meaning: 'How much is the bread?',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich gehe ins Kino.',
+      meaning: "I'm going to the cinema.",
+    ),
     SpeakPhrase(
       phrase: 'Wir treffen uns am Samstag.',
       meaning: "We're meeting on Saturday.",
@@ -1535,27 +1603,107 @@ final QuizContent questBigTextMeinTagContent = bigTextQuestQuiz(
       'shopping. At the supermarket I buy a loaf of bread, a banana and an '
       'apple. I don\'t have a car, so I take the bus. In the evening I watch TV. '
       'I want to watch a film.',
-  intro: 'Fill the whole day in. It uses everything from A1.2 together: the '
+  intro:
+      'Fill the whole day in. It uses everything from A1.2 together: the '
       'accusative (only masculine changes: der→den, ein→einen), kein, modal '
       'verbs, and separable verbs (the prefix auf/fern is already at the end).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Only masculine moves',
-      text: 'In the accusative, der→den and ein→einen; die/das and eine/ein '
+      text:
+          'In the accusative, der→den and ein→einen; die/das and eine/ein '
           '(f/n) stay the same. So: einen Apfel, but eine Banane, ein Brot.',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'Separable prefix at the end',
-      text: 'aufstehen → "ich stehe … auf", fernsehen → "ich sehe … fern". Type '
+      text:
+          'aufstehen → "ich stehe … auf", fernsehen → "ich sehe … fern". Type '
           'only the conjugated part; the prefix is already waiting at the end.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'kein, not nicht',
-      text: 'A noun that would take ein is negated with kein: "Ich habe kein '
+      text:
+          'A noun that would take ein is negated with kein: "Ich habe kein '
           'Auto." Use nicht only for verbs, adjectives and definite nouns.',
+    ),
+  ],
+);
+
+/// Speaking: the learner runs this conversation in their own AI
+/// assistant and enters the score it gives (see `SpeakingQuizPage`).
+final QuizContent questSpeakingAlltagContent = speakingQuestQuiz(
+  id: 'quest_a1_2_sprechen_dialog',
+  title: 'A1.2 · Gespräch: Mein Alltag',
+  level: 'A1.2',
+  topic:
+      'My everyday life: my daily routine, times and dates, what I buy, and what I can or must do.',
+  practisePoints: [
+    'Accusative objects: Ich kaufe einen Apfel.',
+    'Possessives: mein, meine, meinen',
+    'Modal verbs with the infinitive at the end',
+    'Times and dates: um acht Uhr, am Montag',
+  ],
+  targetVocabulary: ['kaufen', 'brauchen', 'mein', 'um', 'am', 'müssen'],
+  scoringCriteria: [
+    'the accusative article',
+    'the possessive form',
+    'the infinitive at the end after a modal',
+    'time expressions',
+  ],
+  priorityErrors: [
+    'nominative instead of accusative',
+    'wrong possessive ending',
+    'infinitive not at the end',
+  ],
+  intro:
+      'The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say "Los geht\'s" to start. It grades you at the end - bring that score back here.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Let it be a conversation',
+      text:
+          'Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score.',
+    ),
+  ],
+);
+
+/// Mid-level speaking checkpoint: a shorter, question-driven run over the
+/// first half of this sub-level. The closing Gespräch covers the level as
+/// a whole.
+final QuizContent questSpeakingCheckA12Content = speakingQuestQuiz(
+  id: 'quest_a1_2_sprechen_kurzcheck',
+  title: 'A1.2 · Kurzcheck: Akkusativ & Possessiv',
+  level: 'A1.2',
+  topic: 'What I have and what I need today, and whose things they are.',
+  practisePoints: [
+    'Accusative objects after haben and brauchen',
+    'Possessives: mein, meine, meinen',
+    'einen/eine/ein in the accusative',
+  ],
+  targetVocabulary: ['brauchen', 'haben', 'mein', 'meinen', 'einen'],
+  scoringCriteria: [
+    'the accusative article',
+    'the possessive ending',
+    'the object after the verb',
+  ],
+  priorityErrors: [
+    'nominative instead of accusative',
+    'wrong possessive ending',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'A short checkpoint, not an exam',
+      text:
+          'Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end.',
     ),
   ],
 );
@@ -1570,6 +1718,7 @@ final List<QuizContent> questA1_2Content = [
   questModalverbenContent, //       Modalverben                 (knowledge)
   questSpeakAlltagContent, //       Sprechen: Alltag & Uhrzeit  (speaking)
   questUhrzeitContent, //           Uhrzeit                     (knowledge)
+  questSpeakingCheckA12Content, // Kurzcheck mit einer KI (speaking·AI)
   questDatumContent, //             Wochentage & Monate         (knowledge)
   questDiktatMeinTagContent, //     Diktat: Mein Tag            (dictation)
   questHoerenTermineContent, //     Hören: Termine & Uhrzeit    (listening)
@@ -1578,4 +1727,5 @@ final List<QuizContent> questA1_2Content = [
   questTrennbareContent, //         Trennbare Verben            (knowledge)
   questSpeakEinkaufenContent, //    Sprechen: Einkaufen         (speaking)
   questReadingReiseContent, //      Lesen: Eine kleine Reise    (reading)
+  questSpeakingAlltagContent, // Gespräch mit einer KI  (speaking·AI)
 ];

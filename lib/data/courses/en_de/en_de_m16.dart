@@ -9,26 +9,30 @@ const List<HelpMemoryTip> _passiveTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'werden + participle',
-    text: 'Process passive = **werden** (position 2) + past participle at the '
+    text:
+        'Process passive = **werden** (position 2) + past participle at the '
         'end. The doer is unimportant or appears with **von**: Das Brot **wird** '
         '(vom Bäcker) **gebacken**.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'Across the tenses',
-    text: 'Präsens: **wird** gebaut · Präteritum: **wurde** gebaut · Perfekt: '
+    text:
+        'Präsens: **wird** gebaut · Präteritum: **wurde** gebaut · Perfekt: '
         '**ist** gebaut **worden** · Futur/Modal: **muss** gebaut **werden**.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Perfekt uses worden, not geworden',
-    text: 'In the passive Perfekt, werden\'s participle is bare **worden**: Der '
+    text:
+        'In the passive Perfekt, werden\'s participle is bare **worden**: Der '
         'Brief ist geschrieben **worden** (not geworden).',
   ),
   HelpMemoryTip(
     kind: 'tip',
     title: 'Quick alternatives',
-    text: '**man** (Man spricht hier Deutsch), **sein** + participle for a '
+    text:
+        '**man** (Man spricht hier Deutsch), **sein** + participle for a '
         'finished state (Die Tür **ist** geöffnet), **sich lassen** (Das '
         '**lässt sich** machen).',
   ),
@@ -37,50 +41,142 @@ const List<HelpMemoryTip> _passiveTips = [
 final QuizContent enDeM16Present = enDeFill(
   id: 'en_de_m16_present',
   title: 'werden + participle (present)',
-  intro: 'Form the process passive in the present: conjugate werden, put the '
+  intro:
+      'Form the process passive in the present: conjugate werden, put the '
       'participle at the end.',
   tips: _passiveTips,
   items: const [
-    CourseItem(prompt: 'The bread is baked. (werden)', answer: 'Das Brot **wird** gebacken'),
-    CourseItem(prompt: 'The houses are built. (werden)', answer: 'Die Häuser **werden** gebaut'),
-    CourseItem(prompt: 'The letter is written. (werden)', answer: 'Der Brief **wird** geschrieben'),
-    CourseItem(prompt: 'The room is cleaned. (werden)', answer: 'Das Zimmer **wird** geputzt'),
-    CourseItem(prompt: 'The books are read. (werden)', answer: 'Die Bücher **werden** gelesen'),
-    CourseItem(prompt: 'The door is opened. (werden)', answer: 'Die Tür **wird** geöffnet'),
-    CourseItem(prompt: 'The food is served. (werden)', answer: 'Das Essen **wird** serviert'),
-    CourseItem(prompt: 'The bills are paid. (werden)', answer: 'Die Rechnungen **werden** bezahlt'),
-    CourseItem(prompt: 'The song is sung. (werden)', answer: 'Das Lied **wird** gesungen'),
-    CourseItem(prompt: 'The rubbish is collected. (werden)', answer: 'Der Müll **wird** abgeholt'),
-    CourseItem(prompt: 'The cars are repaired. (werden)', answer: 'Die Autos **werden** repariert'),
-    CourseItem(prompt: 'The pizza is delivered. (werden)', answer: 'Die Pizza **wird** geliefert'),
-    CourseItem(prompt: 'The flowers are watered. (werden)', answer: 'Die Blumen **werden** gegossen'),
-    CourseItem(prompt: 'The email is sent. (werden)', answer: 'Die E-Mail **wird** geschickt'),
-    CourseItem(prompt: 'The tickets are checked. (werden)', answer: 'Die Tickets **werden** kontrolliert'),
+    CourseItem(
+      prompt: 'The bread is baked. (werden)',
+      answer: 'Das Brot **wird** gebacken',
+    ),
+    CourseItem(
+      prompt: 'The houses are built. (werden)',
+      answer: 'Die Häuser **werden** gebaut',
+    ),
+    CourseItem(
+      prompt: 'The letter is written. (werden)',
+      answer: 'Der Brief **wird** geschrieben',
+    ),
+    CourseItem(
+      prompt: 'The room is cleaned. (werden)',
+      answer: 'Das Zimmer **wird** geputzt',
+    ),
+    CourseItem(
+      prompt: 'The books are read. (werden)',
+      answer: 'Die Bücher **werden** gelesen',
+    ),
+    CourseItem(
+      prompt: 'The door is opened. (werden)',
+      answer: 'Die Tür **wird** geöffnet',
+    ),
+    CourseItem(
+      prompt: 'The food is served. (werden)',
+      answer: 'Das Essen **wird** serviert',
+    ),
+    CourseItem(
+      prompt: 'The bills are paid. (werden)',
+      answer: 'Die Rechnungen **werden** bezahlt',
+    ),
+    CourseItem(
+      prompt: 'The song is sung. (werden)',
+      answer: 'Das Lied **wird** gesungen',
+    ),
+    CourseItem(
+      prompt: 'The rubbish is collected. (werden)',
+      answer: 'Der Müll **wird** abgeholt',
+    ),
+    CourseItem(
+      prompt: 'The cars are repaired. (werden)',
+      answer: 'Die Autos **werden** repariert',
+    ),
+    CourseItem(
+      prompt: 'The pizza is delivered. (werden)',
+      answer: 'Die Pizza **wird** geliefert',
+    ),
+    CourseItem(
+      prompt: 'The flowers are watered. (werden)',
+      answer: 'Die Blumen **werden** gegossen',
+    ),
+    CourseItem(
+      prompt: 'The email is sent. (werden)',
+      answer: 'Die E-Mail **wird** geschickt',
+    ),
+    CourseItem(
+      prompt: 'The tickets are checked. (werden)',
+      answer: 'Die Tickets **werden** kontrolliert',
+    ),
   ],
 );
 
 final QuizContent enDeM16Tenses = enDeFill(
   id: 'en_de_m16_tenses',
   title: 'Passive in all tenses',
-  intro: 'The tense lives in werden: wird (present), wurde (past), ist … worden '
+  intro:
+      'The tense lives in werden: wird (present), wurde (past), ist … worden '
       '(perfect), wird … werden (future).',
   tips: _passiveTips,
   items: const [
-    CourseItem(prompt: 'The bread was baked. (Präteritum)', answer: 'Das Brot **wurde** gebacken'),
-    CourseItem(prompt: 'The house was built. (Präteritum)', answer: 'Das Haus **wurde** gebaut'),
-    CourseItem(prompt: 'The letter has been written. (Perfekt: ist … worden)', answer: 'Der Brief ist geschrieben **worden**'),
-    CourseItem(prompt: 'The room will be cleaned. (Futur: wird … werden)', answer: 'Das Zimmer wird geputzt **werden**'),
-    CourseItem(prompt: 'The car was repaired. (Präteritum)', answer: 'Das Auto **wurde** repariert'),
-    CourseItem(prompt: 'The letters were sent. (Präteritum, pl)', answer: 'Die Briefe **wurden** geschickt'),
-    CourseItem(prompt: 'The cake has been eaten. (Perfekt: ist … worden)', answer: 'Der Kuchen ist gegessen **worden**'),
-    CourseItem(prompt: 'The song was sung. (Präteritum)', answer: 'Das Lied **wurde** gesungen'),
-    CourseItem(prompt: 'The house will be sold. (Futur: wird … werden)', answer: 'Das Haus wird verkauft **werden**'),
-    CourseItem(prompt: 'The windows were cleaned. (Präteritum, pl)', answer: 'Die Fenster **wurden** geputzt'),
-    CourseItem(prompt: 'The bill has been paid. (Perfekt: ist … worden)', answer: 'Die Rechnung ist bezahlt **worden**'),
-    CourseItem(prompt: 'The bridge was built in 1900. (Präteritum)', answer: 'Die Brücke **wurde** 1900 gebaut'),
-    CourseItem(prompt: 'The problem has been solved. (Perfekt: ist … worden)', answer: 'Das Problem ist gelöst **worden**'),
-    CourseItem(prompt: 'The food will be served. (Futur: wird … werden)', answer: 'Das Essen wird serviert **werden**'),
-    CourseItem(prompt: 'The thief was found. (Präteritum)', answer: 'Der Dieb **wurde** gefunden'),
+    CourseItem(
+      prompt: 'The bread was baked. (Präteritum)',
+      answer: 'Das Brot **wurde** gebacken',
+    ),
+    CourseItem(
+      prompt: 'The house was built. (Präteritum)',
+      answer: 'Das Haus **wurde** gebaut',
+    ),
+    CourseItem(
+      prompt: 'The letter has been written. (Perfekt: ist … worden)',
+      answer: 'Der Brief ist geschrieben **worden**',
+    ),
+    CourseItem(
+      prompt: 'The room will be cleaned. (Futur: wird … werden)',
+      answer: 'Das Zimmer wird geputzt **werden**',
+    ),
+    CourseItem(
+      prompt: 'The car was repaired. (Präteritum)',
+      answer: 'Das Auto **wurde** repariert',
+    ),
+    CourseItem(
+      prompt: 'The letters were sent. (Präteritum, pl)',
+      answer: 'Die Briefe **wurden** geschickt',
+    ),
+    CourseItem(
+      prompt: 'The cake has been eaten. (Perfekt: ist … worden)',
+      answer: 'Der Kuchen ist gegessen **worden**',
+    ),
+    CourseItem(
+      prompt: 'The song was sung. (Präteritum)',
+      answer: 'Das Lied **wurde** gesungen',
+    ),
+    CourseItem(
+      prompt: 'The house will be sold. (Futur: wird … werden)',
+      answer: 'Das Haus wird verkauft **werden**',
+    ),
+    CourseItem(
+      prompt: 'The windows were cleaned. (Präteritum, pl)',
+      answer: 'Die Fenster **wurden** geputzt',
+    ),
+    CourseItem(
+      prompt: 'The bill has been paid. (Perfekt: ist … worden)',
+      answer: 'Die Rechnung ist bezahlt **worden**',
+    ),
+    CourseItem(
+      prompt: 'The bridge was built in 1900. (Präteritum)',
+      answer: 'Die Brücke **wurde** 1900 gebaut',
+    ),
+    CourseItem(
+      prompt: 'The problem has been solved. (Perfekt: ist … worden)',
+      answer: 'Das Problem ist gelöst **worden**',
+    ),
+    CourseItem(
+      prompt: 'The food will be served. (Futur: wird … werden)',
+      answer: 'Das Essen wird serviert **werden**',
+    ),
+    CourseItem(
+      prompt: 'The thief was found. (Präteritum)',
+      answer: 'Der Dieb **wurde** gefunden',
+    ),
   ],
 );
 
@@ -115,7 +211,8 @@ final QuizContent enDeM16BigTextWarmup = enDeBigText(
       'has been broken forever, is finally being repaired. And on Fridays we '
       "traditionally order pizza together. That's how we work here: relaxed, but "
       'surprisingly effective.',
-  intro: 'Type the form of werden that carries the passive: wird (singular), '
+  intro:
+      'Type the form of werden that carries the passive: wird (singular), '
       'werden (plural), or wurde (past). The participle already sits at the end '
       'of each sentence.',
   tips: _passiveTips,
@@ -124,50 +221,142 @@ final QuizContent enDeM16BigTextWarmup = enDeBigText(
 final QuizContent enDeM16Modals = enDeFill(
   id: 'en_de_m16_modals',
   title: 'Passive with modals',
-  intro: 'With a modal, the structure is modal + participle + werden (infinitive '
+  intro:
+      'With a modal, the structure is modal + participle + werden (infinitive '
       'at the end).',
   tips: _passiveTips,
   items: const [
-    CourseItem(prompt: 'The car must be repaired. (… werden)', answer: 'Das Auto muss repariert **werden**'),
-    CourseItem(prompt: 'The work can be done. (… werden)', answer: 'Die Arbeit kann gemacht **werden**'),
-    CourseItem(prompt: 'The window should be opened. (… werden)', answer: 'Das Fenster soll geöffnet **werden**'),
-    CourseItem(prompt: 'The homework must be done. (… werden)', answer: 'Die Hausaufgaben müssen gemacht **werden**'),
-    CourseItem(prompt: 'The bill must be paid. (… werden)', answer: 'Die Rechnung muss bezahlt **werden**'),
-    CourseItem(prompt: 'The rules must be observed. (… werden)', answer: 'Die Regeln müssen beachtet **werden**'),
-    CourseItem(prompt: 'The form can be filled in online. (… werden)', answer: 'Das Formular kann online ausgefüllt **werden**'),
-    CourseItem(prompt: 'The room should be aired. (… werden)', answer: 'Das Zimmer soll gelüftet **werden**'),
-    CourseItem(prompt: 'The mistake can be corrected. (… werden)', answer: 'Der Fehler kann korrigiert **werden**'),
-    CourseItem(prompt: 'The dog may not be fed. (… werden)', answer: 'Der Hund darf nicht gefüttert **werden**'),
-    CourseItem(prompt: 'The tickets must be bought early. (… werden)', answer: 'Die Tickets müssen früh gekauft **werden**'),
-    CourseItem(prompt: 'The letter should be sent today. (… werden)', answer: 'Der Brief soll heute geschickt **werden**'),
-    CourseItem(prompt: 'The door must be closed. (… werden)', answer: 'Die Tür muss geschlossen **werden**'),
-    CourseItem(prompt: 'The plants must be watered. (… werden)', answer: 'Die Pflanzen müssen gegossen **werden**'),
-    CourseItem(prompt: 'The text must be translated. (… werden)', answer: 'Der Text muss übersetzt **werden**'),
+    CourseItem(
+      prompt: 'The car must be repaired. (… werden)',
+      answer: 'Das Auto muss repariert **werden**',
+    ),
+    CourseItem(
+      prompt: 'The work can be done. (… werden)',
+      answer: 'Die Arbeit kann gemacht **werden**',
+    ),
+    CourseItem(
+      prompt: 'The window should be opened. (… werden)',
+      answer: 'Das Fenster soll geöffnet **werden**',
+    ),
+    CourseItem(
+      prompt: 'The homework must be done. (… werden)',
+      answer: 'Die Hausaufgaben müssen gemacht **werden**',
+    ),
+    CourseItem(
+      prompt: 'The bill must be paid. (… werden)',
+      answer: 'Die Rechnung muss bezahlt **werden**',
+    ),
+    CourseItem(
+      prompt: 'The rules must be observed. (… werden)',
+      answer: 'Die Regeln müssen beachtet **werden**',
+    ),
+    CourseItem(
+      prompt: 'The form can be filled in online. (… werden)',
+      answer: 'Das Formular kann online ausgefüllt **werden**',
+    ),
+    CourseItem(
+      prompt: 'The room should be aired. (… werden)',
+      answer: 'Das Zimmer soll gelüftet **werden**',
+    ),
+    CourseItem(
+      prompt: 'The mistake can be corrected. (… werden)',
+      answer: 'Der Fehler kann korrigiert **werden**',
+    ),
+    CourseItem(
+      prompt: 'The dog may not be fed. (… werden)',
+      answer: 'Der Hund darf nicht gefüttert **werden**',
+    ),
+    CourseItem(
+      prompt: 'The tickets must be bought early. (… werden)',
+      answer: 'Die Tickets müssen früh gekauft **werden**',
+    ),
+    CourseItem(
+      prompt: 'The letter should be sent today. (… werden)',
+      answer: 'Der Brief soll heute geschickt **werden**',
+    ),
+    CourseItem(
+      prompt: 'The door must be closed. (… werden)',
+      answer: 'Die Tür muss geschlossen **werden**',
+    ),
+    CourseItem(
+      prompt: 'The plants must be watered. (… werden)',
+      answer: 'Die Pflanzen müssen gegossen **werden**',
+    ),
+    CourseItem(
+      prompt: 'The text must be translated. (… werden)',
+      answer: 'Der Text muss übersetzt **werden**',
+    ),
   ],
 );
 
 final QuizContent enDeM16Alternatives = enDeFill(
   id: 'en_de_m16_alternatives',
   title: 'sein-passive & alternatives',
-  intro: 'A finished state uses sein + participle (Zustandspassiv). Common '
+  intro:
+      'A finished state uses sein + participle (Zustandspassiv). Common '
       'alternatives are man and sich lassen.',
   tips: _passiveTips,
   items: const [
-    CourseItem(prompt: 'The door is open (state). (ist …)', answer: 'Die Tür ist **geöffnet**'),
-    CourseItem(prompt: 'One speaks German here. (man)', answer: '**Man** spricht hier Deutsch'),
-    CourseItem(prompt: 'The shop is closed (state). (ist …)', answer: 'Das Geschäft ist **geschlossen**'),
-    CourseItem(prompt: 'That can be done. (sich lassen)', answer: 'Das **lässt** sich machen'),
-    CourseItem(prompt: 'German is spoken here. (man)', answer: 'Hier spricht **man** Deutsch'),
-    CourseItem(prompt: 'The table is set (state). (ist …)', answer: 'Der Tisch ist **gedeckt**'),
-    CourseItem(prompt: 'One eats a lot of bread in Germany. (man)', answer: 'In Deutschland isst **man** viel Brot'),
-    CourseItem(prompt: 'The window is broken (state). (ist …)', answer: 'Das Fenster ist **kaputt**'),
-    CourseItem(prompt: 'The problem can be solved. (sich lassen)', answer: 'Das Problem **lässt** sich lösen'),
-    CourseItem(prompt: 'The work is done (state). (ist …)', answer: 'Die Arbeit ist **erledigt**'),
-    CourseItem(prompt: 'One does not do that. (man)', answer: 'Das macht **man** nicht'),
-    CourseItem(prompt: 'The door cannot be opened. (sich lassen)', answer: 'Die Tür **lässt** sich nicht öffnen'),
-    CourseItem(prompt: 'The museum is closed (state). (ist …)', answer: 'Das Museum ist **geschlossen**'),
-    CourseItem(prompt: 'One helps each other here. (man)', answer: 'Hier hilft **man** sich'),
-    CourseItem(prompt: 'That can easily be explained. (sich lassen)', answer: 'Das **lässt** sich leicht erklären'),
+    CourseItem(
+      prompt: 'The door is open (state). (ist …)',
+      answer: 'Die Tür ist **geöffnet**',
+    ),
+    CourseItem(
+      prompt: 'One speaks German here. (man)',
+      answer: '**Man** spricht hier Deutsch',
+    ),
+    CourseItem(
+      prompt: 'The shop is closed (state). (ist …)',
+      answer: 'Das Geschäft ist **geschlossen**',
+    ),
+    CourseItem(
+      prompt: 'That can be done. (sich lassen)',
+      answer: 'Das **lässt** sich machen',
+    ),
+    CourseItem(
+      prompt: 'German is spoken here. (man)',
+      answer: 'Hier spricht **man** Deutsch',
+    ),
+    CourseItem(
+      prompt: 'The table is set (state). (ist …)',
+      answer: 'Der Tisch ist **gedeckt**',
+    ),
+    CourseItem(
+      prompt: 'One eats a lot of bread in Germany. (man)',
+      answer: 'In Deutschland isst **man** viel Brot',
+    ),
+    CourseItem(
+      prompt: 'The window is broken (state). (ist …)',
+      answer: 'Das Fenster ist **kaputt**',
+    ),
+    CourseItem(
+      prompt: 'The problem can be solved. (sich lassen)',
+      answer: 'Das Problem **lässt** sich lösen',
+    ),
+    CourseItem(
+      prompt: 'The work is done (state). (ist …)',
+      answer: 'Die Arbeit ist **erledigt**',
+    ),
+    CourseItem(
+      prompt: 'One does not do that. (man)',
+      answer: 'Das macht **man** nicht',
+    ),
+    CourseItem(
+      prompt: 'The door cannot be opened. (sich lassen)',
+      answer: 'Die Tür **lässt** sich nicht öffnen',
+    ),
+    CourseItem(
+      prompt: 'The museum is closed (state). (ist …)',
+      answer: 'Das Museum ist **geschlossen**',
+    ),
+    CourseItem(
+      prompt: 'One helps each other here. (man)',
+      answer: 'Hier hilft **man** sich',
+    ),
+    CourseItem(
+      prompt: 'That can easily be explained. (sich lassen)',
+      answer: 'Das **lässt** sich leicht erklären',
+    ),
   ],
 );
 
@@ -206,7 +395,8 @@ final QuizContent enDeM16BigText = enDeBigText(
       'brown at 220 degrees for about forty minutes. Right at the end the '
       'fragrant bread is taken out of the oven, cooled briefly, and best of all '
       'eaten with butter. Enjoy!',
-  intro: 'The whole text is in the passive (wird … + participle). Type the past '
+  intro:
+      'The whole text is in the passive (wird … + participle). Type the past '
       'participle of each verb (the infinitive is the hint).',
   tips: _passiveTips,
 );
@@ -221,7 +411,8 @@ final QuizContent enDeM16Listening = enDeListen(
   passageTranslation:
       'This is how coffee is made: First the beans are ground. Then hot water '
       'is added. After three minutes the coffee is served.',
-  intro: 'Listen to the process, all in the passive, and answer. Follow the '
+  intro:
+      'Listen to the process, all in the passive, and answer. Follow the '
       'steps: zuerst, dann, nach drei Minuten.',
   tips: _passiveTips,
   questions: const [
@@ -253,36 +444,152 @@ final QuizContent enDeM16Listening = enDeListen(
 final QuizContent enDeM16Dictation = enDeDict(
   id: 'en_de_m16_dictation',
   title: 'Dictation: passive sentences',
-  intro: 'Listen and write each passive sentence. Mind the Perfekt: "ist … '
+  intro:
+      'Listen and write each passive sentence. Mind the Perfekt: "ist … '
       'worden", not "geworden".',
   tips: _passiveTips,
   items: const [
-    CourseItem(prompt: 'The bread is baked.', answer: 'Das Brot wird gebacken.'),
-    CourseItem(prompt: 'The house was built.', answer: 'Das Haus wurde gebaut.'),
-    CourseItem(prompt: 'The car must be repaired.', answer: 'Das Auto muss repariert werden.'),
-    CourseItem(prompt: 'The letter has been written.', answer: 'Der Brief ist geschrieben worden.'),
-    CourseItem(prompt: 'German is spoken here.', answer: 'Hier wird Deutsch gesprochen.'),
-    CourseItem(prompt: 'The food is served at seven.', answer: 'Das Essen wird um sieben serviert.'),
-    CourseItem(prompt: 'The windows were cleaned.', answer: 'Die Fenster wurden geputzt.'),
-    CourseItem(prompt: 'The bill must be paid.', answer: 'Die Rechnung muss bezahlt werden.'),
-    CourseItem(prompt: 'The shop is closed.', answer: 'Das Geschäft ist geschlossen.'),
-    CourseItem(prompt: 'The problem has been solved.', answer: 'Das Problem ist gelöst worden.'),
-    CourseItem(prompt: 'The pizza is delivered.', answer: 'Die Pizza wird geliefert.'),
+    CourseItem(
+      prompt: 'The bread is baked.',
+      answer: 'Das Brot wird gebacken.',
+    ),
+    CourseItem(
+      prompt: 'The house was built.',
+      answer: 'Das Haus wurde gebaut.',
+    ),
+    CourseItem(
+      prompt: 'The car must be repaired.',
+      answer: 'Das Auto muss repariert werden.',
+    ),
+    CourseItem(
+      prompt: 'The letter has been written.',
+      answer: 'Der Brief ist geschrieben worden.',
+    ),
+    CourseItem(
+      prompt: 'German is spoken here.',
+      answer: 'Hier wird Deutsch gesprochen.',
+    ),
+    CourseItem(
+      prompt: 'The food is served at seven.',
+      answer: 'Das Essen wird um sieben serviert.',
+    ),
+    CourseItem(
+      prompt: 'The windows were cleaned.',
+      answer: 'Die Fenster wurden geputzt.',
+    ),
+    CourseItem(
+      prompt: 'The bill must be paid.',
+      answer: 'Die Rechnung muss bezahlt werden.',
+    ),
+    CourseItem(
+      prompt: 'The shop is closed.',
+      answer: 'Das Geschäft ist geschlossen.',
+    ),
+    CourseItem(
+      prompt: 'The problem has been solved.',
+      answer: 'Das Problem ist gelöst worden.',
+    ),
+    CourseItem(
+      prompt: 'The pizza is delivered.',
+      answer: 'Die Pizza wird geliefert.',
+    ),
     CourseItem(prompt: 'One does not do that.', answer: 'Das macht man nicht.'),
-    CourseItem(prompt: 'The song was sung.', answer: 'Das Lied wurde gesungen.'),
+    CourseItem(
+      prompt: 'The song was sung.',
+      answer: 'Das Lied wurde gesungen.',
+    ),
     CourseItem(prompt: 'That can be done.', answer: 'Das lässt sich machen.'),
-    CourseItem(prompt: 'The door should be closed.', answer: 'Die Tür soll geschlossen werden.'),
+    CourseItem(
+      prompt: 'The door should be closed.',
+      answer: 'Die Tür soll geschlossen werden.',
+    ),
   ],
 );
 
 /// M16 — The Passive, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM16Speaking = enDeSpeaking(
+  id: 'en_de_m16_speaking',
+  title: 'Explain how something is made',
+  level: 'B2',
+  topic:
+      'How things are made and how processes work: a product, a dish, a procedure at work - the process, not the people.',
+  practisePoints: [
+    'werden + participle, present and past: wird gebaut, wurde gebaut',
+    'Passive with modals: muss gemacht werden',
+    'The sein-passive for a finished state: Die Tür ist geschlossen.',
+    'Alternatives: man, sich lassen',
+  ],
+  targetVocabulary: [
+    'wird',
+    'wurde',
+    'hergestellt',
+    'verarbeitet',
+    'man',
+    'sich lassen',
+  ],
+  scoringCriteria: [
+    'the form of werden',
+    'the participle',
+    'process vs state passive',
+    'passive with a modal',
+  ],
+  priorityErrors: [
+    'active instead of passive',
+    'wrong form of werden',
+    'sein and werden passive mixed up',
+    'wrong participle',
+  ],
+  session: SpeakingSession(durationMinutes: 6, minExchanges: 9),
+  intro:
+      'Explain a process in the passive. Copy the exercise into your AI assistant and turn on voice mode.',
+  tips: _passiveTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM16SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m16_speaking_check',
+  title: 'Checkpoint: it is being done',
+  level: 'B2',
+  topic:
+      'Short passive statements about things around me: what is made, sold or repaired, now and in the past.',
+  practisePoints: [
+    'Present passive: wird + participle',
+    'Past passive: wurde + participle',
+    'Leaving the doer out, or adding von + dative',
+  ],
+  targetVocabulary: ['wird', 'wurde', 'gebaut', 'verkauft', 'von'],
+  scoringCriteria: [
+    'the form of werden',
+    'the participle',
+    'present vs past passive',
+  ],
+  priorityErrors: [
+    'active instead of passive',
+    'wrong form of werden',
+    'wrong participle',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _passiveTips,
+);
+
 final List<QuizContent> enDeM16 = [
   enDeM16Present,
   enDeM16Tenses,
   enDeM16BigTextWarmup,
   enDeM16Modals,
+  enDeM16SpeakingCheck,
   enDeM16Alternatives,
   enDeM16Listening,
   enDeM16Dictation,
   enDeM16BigText,
+  enDeM16Speaking,
 ];

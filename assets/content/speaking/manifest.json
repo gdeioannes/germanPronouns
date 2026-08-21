@@ -1,0 +1,22 @@
+{
+  "templateVersion": 1,
+  "templates": {
+    "en": "assets/content/speaking/template.en.json",
+    "de": "assets/content/speaking/template.de.json"
+  },
+  "defaults": {
+    "durationMinutes": 4,
+    "minExchanges": 7,
+    "minQuestionsPerPoint": 1,
+    "reportMaxWords": 180,
+    "maxCorrections": 4,
+    "passScore": 50
+  },
+  "triggers": {
+    "de": "Los geht's",
+    "es": "¡Vamos!",
+    "cs": "Jdeme na to",
+    "zh": "开始吧",
+    "en": "Let's go"
+  }
+}

@@ -10,6 +10,7 @@ import '../pages/inline_cloze_quiz_page.dart';
 import '../pages/listening_quiz_page.dart';
 import '../pages/reading_quiz_page.dart';
 import '../pages/speak_repeat_quiz_page.dart';
+import '../pages/speaking_quiz_page.dart';
 import 'quiz_page.dart';
 
 /// Builds the page that renders [content], chosen by its [QuizContent.kind].
@@ -64,6 +65,12 @@ Widget pageForQuizContent(
       );
     case QuizKind.draw:
       return DrawQuizPage(
+        content: content,
+        currentPage: currentPage,
+        questProgressionKey: questProgressionKey,
+      );
+    case QuizKind.speaking:
+      return SpeakingQuizPage(
         content: content,
         currentPage: currentPage,
         questProgressionKey: questProgressionKey,

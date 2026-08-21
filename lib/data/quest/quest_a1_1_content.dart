@@ -75,13 +75,15 @@ final QuizContent questZahlen1Content = vocabQuestQuiz(
     MapEntry('9', 'neun'),
     MapEntry('10', 'zehn'),
   ],
-  intro: 'The numbers 0–10 are the foundation — every larger number is built '
+  intro:
+      'The numbers 0–10 are the foundation — every larger number is built '
       'from them, so learn to say and spell each one by heart.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'Tricky spellings',
-      text: 'Watch zwei, drei, sechs and sieben. Note "eins" when counting, '
+      text:
+          'Watch zwei, drei, sechs and sieben. Note "eins" when counting, '
           'but "ein" before a noun (ein Apfel).',
     ),
   ],
@@ -108,7 +110,8 @@ final QuizContent questZahlen2Content = vocabQuestQuiz(
     MapEntry('19', 'neunzehn'),
     MapEntry('20', 'zwanzig'),
   ],
-  intro: 'The teens (13–19) follow one simple pattern — unit + "zehn" — with a '
+  intro:
+      'The teens (13–19) follow one simple pattern — unit + "zehn" — with a '
       'couple of spellings to watch.',
   tips: const [
     HelpMemoryTip(
@@ -119,7 +122,8 @@ final QuizContent questZahlen2Content = vocabQuestQuiz(
     HelpMemoryTip(
       kind: 'warning',
       title: 'Exceptions',
-      text: '16 = sechzehn (drops the -s), 17 = siebzehn (drops the -en). '
+      text:
+          '16 = sechzehn (drops the -s), 17 = siebzehn (drops the -en). '
           '11 = elf and 12 = zwölf are irregular.',
     ),
   ],
@@ -155,13 +159,15 @@ final QuizContent questZahlen3Content = vocabQuestQuiz(
     MapEntry('99', 'neunundneunzig'),
     MapEntry('100', 'hundert'),
   ],
-  intro: 'From 21 upward, German names the units BEFORE the tens, joined by '
+  intro:
+      'From 21 upward, German names the units BEFORE the tens, joined by '
       '"und" and written as one word.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Units first',
-      text: '21 = ein + und + zwanzig = einundzwanzig. Read it right-to-left: '
+      text:
+          '21 = ein + und + zwanzig = einundzwanzig. Read it right-to-left: '
           'the last digit comes first.',
     ),
     HelpMemoryTip(
@@ -172,7 +178,8 @@ final QuizContent questZahlen3Content = vocabQuestQuiz(
     HelpMemoryTip(
       kind: 'warning',
       title: 'Tens spelling',
-      text: 'zwanzig, dreißig (ß!), vierzig, fünfzig, sechzig, siebzig, '
+      text:
+          'zwanzig, dreißig (ß!), vierzig, fünfzig, sechzig, siebzig, '
           'achtzig, neunzig, (ein)hundert.',
     ),
   ],
@@ -279,20 +286,23 @@ final QuizContent questPronomenContent = sentenceQuestQuiz(
       gloss: 'you (formal question)',
     ),
   ],
-  intro: 'Subject (nominative) pronouns say who does the action. Read the '
+  intro:
+      'Subject (nominative) pronouns say who does the action. Read the '
       'sentence — the verb ending and the English hint tell you which one '
       'fits.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: '"sie" is three things',
-      text: 'sie = she, sie = they, and Sie (always capitalized) = you '
+      text:
+          'sie = she, sie = they, and Sie (always capitalized) = you '
           '(formal). The verb ending and context tell them apart.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'du vs. Sie',
-      text: 'Use du with friends, family and children; Sie with strangers, '
+      text:
+          'Use du with friends, family and children; Sie with strangers, '
           'elders and in formal settings.',
     ),
   ],
@@ -388,7 +398,8 @@ final QuizContent questFarbenContent = sentenceQuestQuiz(
       gloss: 'pink (pigs)',
     ),
   ],
-  intro: 'Read the clue and name the colour. Colours are adjectives: on their '
+  intro:
+      'Read the clue and name the colour. Colours are adjectives: on their '
       'own (after sein) they stay in this base form; before a noun they take an '
       'ending (ein rotes Auto).',
   tips: const [
@@ -511,14 +522,16 @@ final QuizContent questFamilieContent = sentenceQuestQuiz(
       accepted: ['Freundin', 'eine Freundin'],
     ),
   ],
-  intro: 'Read the clue (and its English translation), then write the family '
+  intro:
+      'Read the clue (and its English translation), then write the family '
       'word — with its article der/die/das, since the gender is part of the '
       'word. "die Mutter" or just "Mutter" both count.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Female forms end in -in',
-      text: 'der Freund → die Freundin; der Lehrer → die Lehrerin. Many '
+      text:
+          'der Freund → die Freundin; der Lehrer → die Lehrerin. Many '
           'people-words form the female this way.',
     ),
     HelpMemoryTip(
@@ -547,7 +560,9 @@ final QuizContent questSeinHabenContent = QuizContent(
   promptLabel: 'Pronomen',
   subjectsLabel: 'Pronomen',
   subjectColumnLabel: 'Pronomen',
-  subjects: [for (final p in _conjugationPronouns) QuizSubjectData(key: p, display: p)],
+  subjects: [
+    for (final p in _conjugationPronouns) QuizSubjectData(key: p, display: p),
+  ],
   categories: const [
     QuizCategoryData(
       label: 'sein (to be)',
@@ -573,13 +588,15 @@ final QuizContent questSeinHabenContent = QuizContent(
     HelpMemoryTip(
       kind: 'warning',
       title: 'sein is fully irregular',
-      text: 'bin, bist, ist, sind, seid, sind — there is no pattern, so learn '
+      text:
+          'bin, bist, ist, sind, seid, sind — there is no pattern, so learn '
           'it by heart.',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'haben loses its -b-',
-      text: 'Only du hast and er/sie/es hat drop the -b-; the rest keep it '
+      text:
+          'Only du hast and er/sie/es hat drop the -b-; the rest keep it '
           '(habe, haben, habt, haben).',
     ),
   ],
@@ -601,8 +618,11 @@ const List<String> _regularVerbs = [
   'finden',
 ];
 
-QuizCategoryData _personColumn(String label, String group, List<String> forms) =>
-    QuizCategoryData(label: label, group: group, values: forms);
+QuizCategoryData _personColumn(
+  String label,
+  String group,
+  List<String> forms,
+) => QuizCategoryData(label: label, group: group, values: forms);
 
 final QuizContent questPraesensContent = QuizContent(
   id: 'quest_a1_1_praesens',
@@ -611,31 +631,81 @@ final QuizContent questPraesensContent = QuizContent(
   promptLabel: 'Verb',
   subjectsLabel: 'Verben',
   subjectColumnLabel: 'Verb (Infinitiv)',
-  subjects: [for (final v in _regularVerbs) QuizSubjectData(key: v, display: v)],
+  subjects: [
+    for (final v in _regularVerbs) QuizSubjectData(key: v, display: v),
+  ],
   categories: [
     _personColumn('ich', 'ich', const [
-      'mache', 'wohne', 'spiele', 'lerne', 'kaufe',
-      'komme', 'gehe', 'höre', 'arbeite', 'finde',
+      'mache',
+      'wohne',
+      'spiele',
+      'lerne',
+      'kaufe',
+      'komme',
+      'gehe',
+      'höre',
+      'arbeite',
+      'finde',
     ]),
     _personColumn('du', 'du', const [
-      'machst', 'wohnst', 'spielst', 'lernst', 'kaufst',
-      'kommst', 'gehst', 'hörst', 'arbeitest', 'findest',
+      'machst',
+      'wohnst',
+      'spielst',
+      'lernst',
+      'kaufst',
+      'kommst',
+      'gehst',
+      'hörst',
+      'arbeitest',
+      'findest',
     ]),
     _personColumn('er/sie/es', 'er/sie/es', const [
-      'macht', 'wohnt', 'spielt', 'lernt', 'kauft',
-      'kommt', 'geht', 'hört', 'arbeitet', 'findet',
+      'macht',
+      'wohnt',
+      'spielt',
+      'lernt',
+      'kauft',
+      'kommt',
+      'geht',
+      'hört',
+      'arbeitet',
+      'findet',
     ]),
     _personColumn('wir', 'wir', const [
-      'machen', 'wohnen', 'spielen', 'lernen', 'kaufen',
-      'kommen', 'gehen', 'hören', 'arbeiten', 'finden',
+      'machen',
+      'wohnen',
+      'spielen',
+      'lernen',
+      'kaufen',
+      'kommen',
+      'gehen',
+      'hören',
+      'arbeiten',
+      'finden',
     ]),
     _personColumn('ihr', 'ihr', const [
-      'macht', 'wohnt', 'spielt', 'lernt', 'kauft',
-      'kommt', 'geht', 'hört', 'arbeitet', 'findet',
+      'macht',
+      'wohnt',
+      'spielt',
+      'lernt',
+      'kauft',
+      'kommt',
+      'geht',
+      'hört',
+      'arbeitet',
+      'findet',
     ]),
     _personColumn('sie/Sie', 'sie/Sie', const [
-      'machen', 'wohnen', 'spielen', 'lernen', 'kaufen',
-      'kommen', 'gehen', 'hören', 'arbeiten', 'finden',
+      'machen',
+      'wohnen',
+      'spielen',
+      'lernen',
+      'kaufen',
+      'kommen',
+      'gehen',
+      'hören',
+      'arbeiten',
+      'finden',
     ]),
   ],
   sentences: const [],
@@ -659,7 +729,8 @@ final QuizContent questPraesensContent = QuizContent(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Extra -e- after -t/-d',
-      text: 'If the stem ends in -t or -d, add -e- before -st/-t: '
+      text:
+          'If the stem ends in -t or -d, add -e- before -st/-t: '
           'du arbeitest, er arbeitet, ihr findet.',
     ),
   ],
@@ -692,24 +763,63 @@ final QuizContent questVokalwechselContent = QuizContent(
   ],
   categories: [
     _personColumn('ich', 'ich', const [
-      'fahre', 'schlafe', 'lese', 'sehe', 'spreche', 'esse', 'nehme', 'gebe',
+      'fahre',
+      'schlafe',
+      'lese',
+      'sehe',
+      'spreche',
+      'esse',
+      'nehme',
+      'gebe',
     ]),
     _personColumn('du', 'du', const [
-      'fährst', 'schläfst', 'liest', 'siehst', 'sprichst', 'isst', 'nimmst',
+      'fährst',
+      'schläfst',
+      'liest',
+      'siehst',
+      'sprichst',
+      'isst',
+      'nimmst',
       'gibst',
     ]),
     _personColumn('er/sie/es', 'er/sie/es', const [
-      'fährt', 'schläft', 'liest', 'sieht', 'spricht', 'isst', 'nimmt', 'gibt',
+      'fährt',
+      'schläft',
+      'liest',
+      'sieht',
+      'spricht',
+      'isst',
+      'nimmt',
+      'gibt',
     ]),
     _personColumn('wir', 'wir', const [
-      'fahren', 'schlafen', 'lesen', 'sehen', 'sprechen', 'essen', 'nehmen',
+      'fahren',
+      'schlafen',
+      'lesen',
+      'sehen',
+      'sprechen',
+      'essen',
+      'nehmen',
       'geben',
     ]),
     _personColumn('ihr', 'ihr', const [
-      'fahrt', 'schlaft', 'lest', 'seht', 'sprecht', 'esst', 'nehmt', 'gebt',
+      'fahrt',
+      'schlaft',
+      'lest',
+      'seht',
+      'sprecht',
+      'esst',
+      'nehmt',
+      'gebt',
     ]),
     _personColumn('sie/Sie', 'sie/Sie', const [
-      'fahren', 'schlafen', 'lesen', 'sehen', 'sprechen', 'essen', 'nehmen',
+      'fahren',
+      'schlafen',
+      'lesen',
+      'sehen',
+      'sprechen',
+      'essen',
+      'nehmen',
       'geben',
     ]),
   ],
@@ -731,19 +841,22 @@ final QuizContent questVokalwechselContent = QuizContent(
     HelpMemoryTip(
       kind: 'rule',
       title: 'Only du & er/sie/es change',
-      text: 'ich, wir, ihr and sie/Sie keep the infinitive stem (ich fahre, wir '
+      text:
+          'ich, wir, ihr and sie/Sie keep the infinitive stem (ich fahre, wir '
           'fahren). Only du and er/sie/es shift the vowel (du fährst, er fährt).',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'Three shifts: a→ä, e→i, e→ie',
-      text: 'a→ä: fahren → du fährst. e→i: sprechen → du sprichst, essen → du '
+      text:
+          'a→ä: fahren → du fährst. e→i: sprechen → du sprichst, essen → du '
           'isst. e→ie: lesen → du liest, sehen → du siehst.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'nehmen is extra irregular',
-      text: 'nehmen doubles the m and drops the h: du nimmst, er nimmt. Worth '
+      text:
+          'nehmen doubles the m and drops the h: du nimmst, er nimmt. Worth '
           'learning on its own.',
     ),
   ],
@@ -781,8 +894,16 @@ const List<_ArtikelNoun> _questArtikelNouns = [
   _ArtikelNoun('Brot', 'n', 'bread'),
 ];
 
-const Map<String, String> _definiteNominative = {'m': 'der', 'f': 'die', 'n': 'das'};
-const Map<String, String> _indefiniteNominative = {'m': 'ein', 'f': 'eine', 'n': 'ein'};
+const Map<String, String> _definiteNominative = {
+  'm': 'der',
+  'f': 'die',
+  'n': 'das',
+};
+const Map<String, String> _indefiniteNominative = {
+  'm': 'ein',
+  'f': 'eine',
+  'n': 'ein',
+};
 
 /// 5. Artikel im Nominativ — der/die/das and ein/eine for A1 nouns.
 final QuizContent questArtikelContent = QuizContent(
@@ -805,12 +926,16 @@ final QuizContent questArtikelContent = QuizContent(
     QuizCategoryData(
       label: 'bestimmt (der/die/das)',
       group: 'bestimmt',
-      values: [for (final n in _questArtikelNouns) _definiteNominative[n.gender]!],
+      values: [
+        for (final n in _questArtikelNouns) _definiteNominative[n.gender]!,
+      ],
     ),
     QuizCategoryData(
       label: 'unbestimmt (ein/eine)',
       group: 'unbestimmt',
-      values: [for (final n in _questArtikelNouns) _indefiniteNominative[n.gender]!],
+      values: [
+        for (final n in _questArtikelNouns) _indefiniteNominative[n.gender]!,
+      ],
     ),
   ],
   sentences: const [],
@@ -827,7 +952,8 @@ final QuizContent questArtikelContent = QuizContent(
     HelpMemoryTip(
       kind: 'rule',
       title: 'Indefinite article',
-      text: 'ein for masculine and neuter (der-/das-words), eine for feminine '
+      text:
+          'ein for masculine and neuter (der-/das-words), eine for feminine '
           '(die-words). Plural has no indefinite article.',
     ),
     HelpMemoryTip(
@@ -926,7 +1052,8 @@ final QuizContent questWFragenContent = sentenceQuestQuiz(
       english: 'You ask about a word: ____ is that called in German? (what)',
     ),
   ],
-  intro: 'W-questions start with a question word (almost all begin with "w-") '
+  intro:
+      'W-questions start with a question word (almost all begin with "w-") '
       'followed by the verb in second position: Wo wohnst du? They ask for '
       'specific information, unlike yes/no questions.',
   tips: const [
@@ -938,13 +1065,15 @@ final QuizContent questWFragenContent = sentenceQuestQuiz(
     HelpMemoryTip(
       kind: 'warning',
       title: 'wo / wohin / woher',
-      text: 'wo = where (location), wohin = where to (direction), woher = where '
+      text:
+          'wo = where (location), wohin = where to (direction), woher = where '
           'from (origin). Three different words in German.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'wie in combinations',
-      text: 'wie viel = how much, wie viele = how many, wie alt = how old, '
+      text:
+          'wie viel = how much, wie viele = how many, wie alt = how old, '
           'wie spät = what time.',
     ),
   ],
@@ -957,7 +1086,8 @@ final QuizContent questSpeakBegruessungContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Listen to each phrase in German and repeat it aloud. If your '
+  intro:
+      'Listen to each phrase in German and repeat it aloud. If your '
       'microphone is available we tell you how it sounded; if not, just listen '
       'and repeat at your own pace, then continue. These are the first things '
       'you say when you meet someone.',
@@ -965,13 +1095,15 @@ final QuizContent questSpeakBegruessungContent = speakQuestQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Copy the rhythm',
-      text: 'Do not chase every single sound — imitate the melody and stress of '
+      text:
+          'Do not chase every single sound — imitate the melody and stress of '
           'the whole phrase. It will sound far more natural.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'The "ei" and "ie"',
-      text: '"heiße" sounds like "high-sse"; "Wie" sounds like "vee". German '
+      text:
+          '"heiße" sounds like "high-sse"; "Wie" sounds like "vee". German '
           '"w" is an English "v".',
     ),
   ],
@@ -983,13 +1115,13 @@ final QuizContent questSpeakBegruessungContent = speakQuestQuiz(
     SpeakPhrase(phrase: 'Ich heiße Anna.', meaning: 'My name is Anna.'),
     SpeakPhrase(phrase: 'Wie heißt du?', meaning: "What's your name?"),
     SpeakPhrase(phrase: 'Freut mich.', meaning: 'Nice to meet you.'),
-    SpeakPhrase(phrase: 'Ich komme aus Spanien.', meaning: 'I come from Spain.'),
+    SpeakPhrase(
+      phrase: 'Ich komme aus Spanien.',
+      meaning: 'I come from Spain.',
+    ),
     SpeakPhrase(phrase: 'Woher kommst du?', meaning: 'Where are you from?'),
     SpeakPhrase(phrase: 'Ich wohne in Berlin.', meaning: 'I live in Berlin.'),
-    SpeakPhrase(
-      phrase: 'Wie geht es Ihnen?',
-      meaning: 'How are you? (formal)',
-    ),
+    SpeakPhrase(phrase: 'Wie geht es Ihnen?', meaning: 'How are you? (formal)'),
     SpeakPhrase(
       phrase: 'Ich spreche ein bisschen Deutsch.',
       meaning: 'I speak a little German.',
@@ -1004,19 +1136,22 @@ final QuizContent questSpeakZahlenContent = speakQuestQuiz(
   promptLabel: 'Wort',
   subjectsLabel: 'Wörter',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Say the numbers and prices out loud. Being able to say them helps '
+  intro:
+      'Say the numbers and prices out loud. Being able to say them helps '
       'with prices, platforms and room numbers. Listen and repeat each one.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'The "z" and "ei"',
-      text: '"zwei" sounds like "tsvai" and "zwanzig" like "tsvan-tsig". German '
+      text:
+          '"zwei" sounds like "tsvai" and "zwanzig" like "tsvan-tsig". German '
           '"z" is always "ts".',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Prices',
-      text: '"3,50 €" is said "drei Euro fünfzig": first the euros, then the '
+      text:
+          '"3,50 €" is said "drei Euro fünfzig": first the euros, then the '
           'cents.',
     ),
   ],
@@ -1092,7 +1227,8 @@ final QuizContent questReadingDasBinIchContent = readingQuestQuiz(
       options: ['Kaffee', 'Tee', 'Wasser'],
       optionsTranslation: ['coffee', 'tea', 'water'],
       correctIndex: 1,
-      explanation: '"Am Morgen trinke ich Tee …" — coffee is for the afternoon.',
+      explanation:
+          '"Am Morgen trinke ich Tee …" — coffee is for the afternoon.',
     ),
     ReadingQuestion(
       question: 'Was macht Lena gern am Wochenende?',
@@ -1103,20 +1239,23 @@ final QuizContent questReadingDasBinIchContent = readingQuestQuiz(
       explanation: '"Am Wochenende spiele ich gern Tennis …"',
     ),
   ],
-  intro: 'Read the short text once, then answer the questions. You can re-read '
+  intro:
+      'Read the short text once, then answer the questions. You can re-read '
       'the passage at any time. Read for the gist first — you do not need to '
       'understand every single word.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Find the key word',
-      text: 'Each question has a key word (alt = age, woher = origin, Beruf = '
+      text:
+          'Each question has a key word (alt = age, woher = origin, Beruf = '
           'job). Scan the text for it instead of reading everything again.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Guess from context',
-      text: 'Unknown word? The sentence around it usually tells you enough. '
+      text:
+          'Unknown word? The sentence around it usually tells you enough. '
           'A1 reading is about understanding the main idea.',
     ),
   ],
@@ -1188,11 +1327,7 @@ final QuizContent questHoerenVorstellungContent = listeningQuestQuiz(
     ReadingQuestion(
       question: 'Was macht Max am Wochenende?',
       questionTranslation: 'What does Max do on the weekend?',
-      options: [
-        'Er spielt Fußball.',
-        'Er lernt Englisch.',
-        'Er arbeitet.',
-      ],
+      options: ['Er spielt Fußball.', 'Er lernt Englisch.', 'Er arbeitet.'],
       optionsTranslation: [
         'He plays football.',
         'He studies English.',
@@ -1210,20 +1345,23 @@ final QuizContent questHoerenVorstellungContent = listeningQuestQuiz(
       explanation: '"Mein Hund heißt Rocky."',
     ),
   ],
-  intro: 'You will only HEAR this short text — it is not shown. Press play and '
+  intro:
+      'You will only HEAR this short text — it is not shown. Press play and '
       'listen, then answer the questions. You can replay the audio as often as '
       'you like, and the full text (German + English) is behind "Show text".',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Listen for the W-answers',
-      text: 'Each question answers a W-word: woher (origin), was (job), wie alt '
+      text:
+          'Each question answers a W-word: woher (origin), was (job), wie alt '
           '(age). Wait for that part instead of trying to catch every word.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Replay is free',
-      text: 'Real exams play the audio twice. Use the replay button — listening '
+      text:
+          'Real exams play the audio twice. Use the replay button — listening '
           'again is part of the skill, not cheating.',
     ),
   ],
@@ -1292,20 +1430,23 @@ final QuizContent questHoerenZahlenContent = listeningQuestQuiz(
       explanation: '"Heute sind die Äpfel billig …"',
     ),
   ],
-  intro: 'A market seller calls out today\'s prices — you only hear it. Press '
+  intro:
+      'A market seller calls out today\'s prices — you only hear it. Press '
       'play, listen for the numbers, and match each price to its product. '
       'Replay as needed; the text is behind "Show text".',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Catch the product, then the price',
-      text: 'The price always follows the product name: "Äpfel … zwei Euro". '
+      text:
+          'The price always follows the product name: "Äpfel … zwei Euro". '
           'Hold the pair together in your head.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Saying prices',
-      text: '"2,20 €" is "zwei Euro zwanzig" — euros first, then cents, with no '
+      text:
+          '"2,20 €" is "zwei Euro zwanzig" — euros first, then cents, with no '
           'word for the comma.',
     ),
   ],
@@ -1320,7 +1461,8 @@ final QuizContent questDiktatSteckbriefContent = dictationQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'A dictation: you HEAR a sentence and TYPE it. Press play, listen, then '
+  intro:
+      'A dictation: you HEAR a sentence and TYPE it. Press play, listen, then '
       'write exactly what you heard. You can replay as often as you like. '
       'Capitalisation and umlaut spelling are judged leniently (ä or ae both '
       'count), but spell the words correctly.',
@@ -1328,19 +1470,22 @@ final QuizContent questDiktatSteckbriefContent = dictationQuestQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Listen, then write',
-      text: 'Play the sentence as many times as you need before typing. Hold the '
+      text:
+          'Play the sentence as many times as you need before typing. Hold the '
           'whole sentence in your head, then write it in one go.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'German nouns are capitalised',
-      text: 'Hund, Student, Deutsch — every noun starts with a capital. The '
+      text:
+          'Hund, Student, Deutsch — every noun starts with a capital. The '
           'check is lenient, but build the habit now.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'No ß or ä on your keyboard?',
-      text: 'Type "ss" and "ae": "ich heisse" is accepted for "ich heiße", '
+      text:
+          'Type "ss" and "ae": "ich heisse" is accepted for "ich heiße", '
           '"Fussball" for "Fußball".',
     ),
   ],
@@ -1359,10 +1504,22 @@ final QuizContent questDiktatSteckbriefContent = dictationQuestQuiz(
       meaning: 'I like playing football.',
     ),
     SpeakPhrase(phrase: 'Wie heißt du?', meaning: "What's your name?"),
-    SpeakPhrase(phrase: 'Ich habe eine Schwester.', meaning: 'I have a sister.'),
-    SpeakPhrase(phrase: 'Mein Bruder heißt Tim.', meaning: 'My brother is called Tim.'),
-    SpeakPhrase(phrase: 'Ich arbeite in Hamburg.', meaning: 'I work in Hamburg.'),
-    SpeakPhrase(phrase: 'Ich trinke gern Kaffee.', meaning: 'I like drinking coffee.'),
+    SpeakPhrase(
+      phrase: 'Ich habe eine Schwester.',
+      meaning: 'I have a sister.',
+    ),
+    SpeakPhrase(
+      phrase: 'Mein Bruder heißt Tim.',
+      meaning: 'My brother is called Tim.',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich arbeite in Hamburg.',
+      meaning: 'I work in Hamburg.',
+    ),
+    SpeakPhrase(
+      phrase: 'Ich trinke gern Kaffee.',
+      meaning: 'I like drinking coffee.',
+    ),
     SpeakPhrase(
       phrase: 'Ich bin zwanzig Jahre alt.',
       meaning: 'I am twenty years old.',
@@ -1410,26 +1567,30 @@ final QuizContent questBigTextDasBinIchContent = bigTextQuestQuiz(
       'student and I study German at university. I have a sister and a brother. '
       'My brother is called Marco. We have a dog. The dog is small and brown. I '
       'am twenty-three years old. And who are you?',
-  intro: 'Fill the missing words straight into the text. It uses everything from '
+  intro:
+      'Fill the missing words straight into the text. It uses everything from '
       'A1.1 at once — present-tense verbs (ich -e), sein/haben, and the '
       'nominative articles der/ein/mein. Read it once first, then fill the gaps.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Verb endings (ich / wir)',
-      text: 'ich + verb-stem + -e (ich wohne); wir + infinitive (wir haben). '
+      text:
+          'ich + verb-stem + -e (ich wohne); wir + infinitive (wir haben). '
           'sein is irregular: ich bin.',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'der Hund, mein Bruder',
-      text: 'Both are masculine, so in the nominative they take der and mein '
+      text:
+          'Both are masculine, so in the nominative they take der and mein '
           '(the ein-word with no ending).',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Capital nouns',
-      text: 'Bruder, Hund, Deutsch — nouns keep their capital even mid-sentence.',
+      text:
+          'Bruder, Hund, Deutsch — nouns keep their capital even mid-sentence.',
     ),
   ],
 );
@@ -1439,6 +1600,84 @@ final QuizContent questBigTextDasBinIchContent = bigTextQuestQuiz(
 /// exercises so the learner never faces more than two same-type quizzes in a row
 /// (knowledge → speaking → knowledge → listening → reading …), following the
 /// Goethe A1 progression. All five exercise types appear in this sub-level.
+
+/// Speaking: the learner runs this conversation in their own AI
+/// assistant and enters the score it gives (see `SpeakingQuizPage`).
+final QuizContent questSpeakingVorstellungContent = speakingQuestQuiz(
+  id: 'quest_a1_1_sprechen_dialog',
+  title: 'A1.1 · Gespräch: Das bin ich',
+  level: 'A1.1',
+  topic:
+      'Introducing myself: my name, where I live, where I come from, my family, numbers and colours around me.',
+  practisePoints: [
+    'Present-tense endings: ich heiße, du heißt, er wohnt',
+    'sein and haben: ich bin, ich habe',
+    'Answering W-Fragen: Wie? Wo? Woher? Wie alt?',
+  ],
+  targetVocabulary: [
+    'heißen',
+    'wohnen',
+    'kommen aus',
+    'Jahre alt',
+    'die Familie',
+  ],
+  scoringCriteria: [
+    'the verb ending for the person',
+    'sein/haben forms',
+    'answering the question that was asked',
+  ],
+  priorityErrors: [
+    'wrong verb ending',
+    'wrong form of sein or haben',
+    'answering a different question',
+  ],
+  intro:
+      'The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say "Los geht\'s" to start. It grades you at the end - bring that score back here.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Let it be a conversation',
+      text:
+          'Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score.',
+    ),
+  ],
+);
+
+/// Mid-level speaking checkpoint: a shorter, question-driven run over the
+/// first half of this sub-level. The closing Gespräch covers the level as
+/// a whole.
+final QuizContent questSpeakingCheckA11Content = speakingQuestQuiz(
+  id: 'quest_a1_1_sprechen_kurzcheck',
+  title: 'A1.1 · Kurzcheck: Zahlen & Vorstellung',
+  level: 'A1.1',
+  topic: 'A quick round: my name, where I am from, my age and a few numbers.',
+  practisePoints: [
+    'Numbers 0-100, said and understood',
+    'ich heisse / ich bin / ich komme aus',
+    'Answering W-Fragen with a full sentence',
+  ],
+  targetVocabulary: ['heißen', 'kommen aus', 'Jahre alt', 'die Nummer'],
+  scoringCriteria: [
+    'the number said correctly',
+    'the verb form',
+    'a full sentence as the answer',
+  ],
+  priorityErrors: ['wrong number', 'wrong verb ending', 'one-word answers'],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'A short checkpoint, not an exam',
+      text:
+          'Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end.',
+    ),
+  ],
+);
+
 final List<QuizContent> questA1_1Content = [
   questZahlen1Content, //           Zahlen 0–10               (knowledge)
   questPronomenContent, //          Personalpronomen          (knowledge)
@@ -1449,6 +1688,7 @@ final List<QuizContent> questA1_1Content = [
   questSeinHabenContent, //         sein & haben              (knowledge·verb)
   questWFragenContent, //           W-Fragen                  (knowledge)
   questReadingDasBinIchContent, //  Lesen: Das bin ich        (reading)
+  questSpeakingCheckA11Content, // Kurzcheck mit einer KI (speaking·AI)
   questPraesensContent, //          Regelmäßige Verben        (knowledge·verb)
   questVokalwechselContent, //      Unregelmäßige Verben      (knowledge·verb)
   questBigTextDasBinIchContent, //  Großer Text: Das bin ich  (reading·cloze)
@@ -1458,4 +1698,5 @@ final List<QuizContent> questA1_1Content = [
   questFarbenContent, //            Farben                    (knowledge)
   questSpeakZahlenContent, //       Sprechen: Zahlen          (speaking)
   questFamilieContent, //           Familie & Menschen        (knowledge)
+  questSpeakingVorstellungContent, // Gespräch mit einer KI  (speaking·AI)
 ];

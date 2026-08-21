@@ -8,25 +8,29 @@ const List<HelpMemoryTip> _comparisonTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'Comparative & superlative',
-    text: 'Comparative: adjective + **-er** (+ **als**): schnell**er als**. '
+    text:
+        'Comparative: adjective + **-er** (+ **als**): schnell**er als**. '
         'Superlative: **am** …**-sten**: **am** schnell**sten**.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Short adjectives add an umlaut',
-    text: 'alt → **älter**, groß → **größer**, jung → **jünger**, lang → '
+    text:
+        'alt → **älter**, groß → **größer**, jung → **jünger**, lang → '
         '**länger**, kalt → **kälter**, stark → **stärker**.',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'als vs wie',
-    text: '**…er als** for a difference (größer **als**); **so … wie** for '
+    text:
+        '**…er als** for a difference (größer **als**); **so … wie** for '
         'equality (so groß **wie**).',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'The big irregulars — learn cold',
-    text: 'gut → **besser** → am **besten** · viel → **mehr** → am **meisten** · '
+    text:
+        'gut → **besser** → am **besten** · viel → **mehr** → am **meisten** · '
         'gern → **lieber** → am **liebsten** · hoch → **höher** → am '
         '**höchsten**.',
   ),
@@ -35,27 +39,56 @@ const List<HelpMemoryTip> _comparisonTips = [
 final QuizContent enDeM10Forms = enDeFill(
   id: 'en_de_m10_forms',
   title: 'Comparative & superlative forms',
-  intro: 'Build the forms. Watch for the umlauts and the irregular trio '
+  intro:
+      'Build the forms. Watch for the umlauts and the irregular trio '
       'gut/viel/gern.',
   tips: _comparisonTips,
   items: const [
-    CourseItem(prompt: 'groß → bigger', answer: 'größer', accepted: ['groesser']),
+    CourseItem(
+      prompt: 'groß → bigger',
+      answer: 'größer',
+      accepted: ['groesser'],
+    ),
     CourseItem(prompt: 'alt → older', answer: 'älter', accepted: ['aelter']),
-    CourseItem(prompt: 'jung → younger', answer: 'jünger', accepted: ['juenger']),
+    CourseItem(
+      prompt: 'jung → younger',
+      answer: 'jünger',
+      accepted: ['juenger'],
+    ),
     CourseItem(prompt: 'gut → better', answer: 'besser'),
     CourseItem(prompt: 'viel → more', answer: 'mehr'),
     CourseItem(prompt: 'gern → more gladly', answer: 'lieber'),
     CourseItem(prompt: 'schnell → fastest (am …)', answer: 'am schnellsten'),
     CourseItem(prompt: 'gut → best (am …)', answer: 'am besten'),
-    CourseItem(prompt: 'warm → warmer', answer: 'wärmer', accepted: ['waermer']),
-    CourseItem(prompt: 'kalt → colder', answer: 'kälter', accepted: ['kaelter']),
-    CourseItem(prompt: 'kurz → shorter', answer: 'kürzer', accepted: ['kuerzer']),
-    CourseItem(prompt: 'lang → longer', answer: 'länger', accepted: ['laenger']),
+    CourseItem(
+      prompt: 'warm → warmer',
+      answer: 'wärmer',
+      accepted: ['waermer'],
+    ),
+    CourseItem(
+      prompt: 'kalt → colder',
+      answer: 'kälter',
+      accepted: ['kaelter'],
+    ),
+    CourseItem(
+      prompt: 'kurz → shorter',
+      answer: 'kürzer',
+      accepted: ['kuerzer'],
+    ),
+    CourseItem(
+      prompt: 'lang → longer',
+      answer: 'länger',
+      accepted: ['laenger'],
+    ),
     CourseItem(prompt: 'teuer → more expensive', answer: 'teurer'),
     CourseItem(prompt: 'hoch → higher', answer: 'höher', accepted: ['hoeher']),
     CourseItem(prompt: 'viel → most (am …)', answer: 'am meisten'),
     CourseItem(prompt: 'gern → most gladly (am …)', answer: 'am liebsten'),
-    CourseItem(prompt: 'alt → oldest (am …)', answer: 'am ältesten', accepted: ['am aeltesten']),
+    CourseItem(
+      prompt: 'alt → oldest (am …)',
+      answer: 'am ältesten',
+      accepted: ['am aeltesten'],
+    ),
   ],
 );
 
@@ -65,21 +98,66 @@ final QuizContent enDeM10AlsWie = enDeFill(
   intro: 'Choose the linker: als for a difference, (so …) wie for equality.',
   tips: _comparisonTips,
   items: const [
-    CourseItem(prompt: 'Anna is taller than Tom.', answer: 'Anna ist größer **als** Tom'),
-    CourseItem(prompt: 'Tom is as tall as Mia. (so … wie)', answer: 'Tom ist so groß **wie** Mia'),
-    CourseItem(prompt: 'The car is faster than the bike.', answer: 'Das Auto ist schneller **als** das Fahrrad'),
-    CourseItem(prompt: 'She is as nice as her sister.', answer: 'Sie ist so nett **wie** ihre Schwester'),
-    CourseItem(prompt: 'Today it is colder than yesterday.', answer: 'Heute ist es kälter **als** gestern'),
-    CourseItem(prompt: 'The coffee is as hot as the tea. (so … wie)', answer: 'Der Kaffee ist so heiß **wie** der Tee'),
-    CourseItem(prompt: 'My brother is older than me.', answer: 'Mein Bruder ist älter **als** ich'),
-    CourseItem(prompt: 'The film is as long as the book.', answer: 'Der Film ist so lang **wie** das Buch'),
-    CourseItem(prompt: 'Berlin is bigger than Bonn.', answer: 'Berlin ist größer **als** Bonn'),
-    CourseItem(prompt: 'He runs as fast as his friend.', answer: 'Er läuft so schnell **wie** sein Freund'),
-    CourseItem(prompt: 'The hotel is more expensive than the hostel.', answer: 'Das Hotel ist teurer **als** das Hostel'),
-    CourseItem(prompt: 'She sings as beautifully as her mother.', answer: 'Sie singt so schön **wie** ihre Mutter'),
-    CourseItem(prompt: 'I drink more tea than coffee.', answer: 'Ich trinke mehr Tee **als** Kaffee'),
-    CourseItem(prompt: 'The summer is warmer than the spring.', answer: 'Der Sommer ist wärmer **als** der Frühling'),
-    CourseItem(prompt: 'He eats as much as his brother.', answer: 'Er isst so viel **wie** sein Bruder'),
+    CourseItem(
+      prompt: 'Anna is taller than Tom.',
+      answer: 'Anna ist größer **als** Tom',
+    ),
+    CourseItem(
+      prompt: 'Tom is as tall as Mia. (so … wie)',
+      answer: 'Tom ist so groß **wie** Mia',
+    ),
+    CourseItem(
+      prompt: 'The car is faster than the bike.',
+      answer: 'Das Auto ist schneller **als** das Fahrrad',
+    ),
+    CourseItem(
+      prompt: 'She is as nice as her sister.',
+      answer: 'Sie ist so nett **wie** ihre Schwester',
+    ),
+    CourseItem(
+      prompt: 'Today it is colder than yesterday.',
+      answer: 'Heute ist es kälter **als** gestern',
+    ),
+    CourseItem(
+      prompt: 'The coffee is as hot as the tea. (so … wie)',
+      answer: 'Der Kaffee ist so heiß **wie** der Tee',
+    ),
+    CourseItem(
+      prompt: 'My brother is older than me.',
+      answer: 'Mein Bruder ist älter **als** ich',
+    ),
+    CourseItem(
+      prompt: 'The film is as long as the book.',
+      answer: 'Der Film ist so lang **wie** das Buch',
+    ),
+    CourseItem(
+      prompt: 'Berlin is bigger than Bonn.',
+      answer: 'Berlin ist größer **als** Bonn',
+    ),
+    CourseItem(
+      prompt: 'He runs as fast as his friend.',
+      answer: 'Er läuft so schnell **wie** sein Freund',
+    ),
+    CourseItem(
+      prompt: 'The hotel is more expensive than the hostel.',
+      answer: 'Das Hotel ist teurer **als** das Hostel',
+    ),
+    CourseItem(
+      prompt: 'She sings as beautifully as her mother.',
+      answer: 'Sie singt so schön **wie** ihre Mutter',
+    ),
+    CourseItem(
+      prompt: 'I drink more tea than coffee.',
+      answer: 'Ich trinke mehr Tee **als** Kaffee',
+    ),
+    CourseItem(
+      prompt: 'The summer is warmer than the spring.',
+      answer: 'Der Sommer ist wärmer **als** der Frühling',
+    ),
+    CourseItem(
+      prompt: 'He eats as much as his brother.',
+      answer: 'Er isst so viel **wie** sein Bruder',
+    ),
   ],
 );
 
@@ -112,7 +190,8 @@ final QuizContent enDeM10BigTextWarmup = enDeBigText(
       '"You\'re just not as sporty as I am!" laughs Felix. Max just grins: '
       '"True — but I\'m cleverer than you." In the end they both agree: together '
       'they are unbeatable anyway.',
-  intro: 'Type the comparative (adjective + -er, and watch the umlaut: groß → '
+  intro:
+      'Type the comparative (adjective + -er, and watch the umlaut: groß → '
       'größer) or the right linker — als for a difference, wie for equality '
       '(so … wie).',
   tips: _comparisonTips,
@@ -136,7 +215,8 @@ final QuizContent enDeM10Reading = enDeRead(
       'better, and I have a big garden," he says. Both are happy — but at the '
       'weekend Anna often visits her brother, because in the country you can '
       'relax best.',
-  intro: 'Read the comparison of city and country life, then answer. Look for '
+  intro:
+      'Read the comparison of city and country life, then answer. Look for '
       'the comparative forms (interessanter, schöner, besser).',
   tips: _comparisonTips,
   questions: const [
@@ -172,15 +252,31 @@ final QuizContent enDeM10Reading = enDeRead(
 final QuizContent enDeM10Speak = enDeSpeak(
   id: 'en_de_m10_speak',
   title: 'Speak: comparisons aloud',
-  intro: 'Say each comparison aloud. These patterns let you express '
+  intro:
+      'Say each comparison aloud. These patterns let you express '
       'preferences in any conversation.',
   tips: _comparisonTips,
   items: const [
-    CourseItem(prompt: 'Anna is taller than Tom.', answer: 'Anna ist größer als Tom.'),
-    CourseItem(prompt: 'The train is faster than the bus.', answer: 'Der Zug ist schneller als der Bus.'),
-    CourseItem(prompt: 'Today it is colder than yesterday.', answer: 'Heute ist es kälter als gestern.'),
-    CourseItem(prompt: 'I like tea more than coffee.', answer: 'Ich mag Tee lieber als Kaffee.'),
-    CourseItem(prompt: 'This is the best café in the city.', answer: 'Das ist das beste Café in der Stadt.'),
+    CourseItem(
+      prompt: 'Anna is taller than Tom.',
+      answer: 'Anna ist größer als Tom.',
+    ),
+    CourseItem(
+      prompt: 'The train is faster than the bus.',
+      answer: 'Der Zug ist schneller als der Bus.',
+    ),
+    CourseItem(
+      prompt: 'Today it is colder than yesterday.',
+      answer: 'Heute ist es kälter als gestern.',
+    ),
+    CourseItem(
+      prompt: 'I like tea more than coffee.',
+      answer: 'Ich mag Tee lieber als Kaffee.',
+    ),
+    CourseItem(
+      prompt: 'This is the best café in the city.',
+      answer: 'Das ist das beste Café in der Stadt.',
+    ),
   ],
 );
 
@@ -194,7 +290,8 @@ final QuizContent enDeM10Listening = enDeListen(
   passageTranslation:
       'The train is faster than the car, but the car is more comfortable. The '
       'bike is the cheapest and the healthiest.',
-  intro: 'Listen to the comparison and answer. Catch the comparative (-er als) '
+  intro:
+      'Listen to the comparison and answer. Catch the comparative (-er als) '
       'and superlative (am …-sten) forms.',
   tips: _comparisonTips,
   questions: const [
@@ -247,7 +344,11 @@ final QuizContent enDeM10BigText = enDeBigText(
     inputBlank('wie', hint: 'so musikalisch … ich (als/wie?)'),
     inputBlank('besten', hint: 'gut → am …-sten'),
     inputBlank('lustigsten', hint: 'lustig → am …-sten'),
-    inputBlank('glücklichsten', accepted: ['gluecklichsten'], hint: 'glücklich → am …-sten'),
+    inputBlank(
+      'glücklichsten',
+      accepted: ['gluecklichsten'],
+      hint: 'glücklich → am …-sten',
+    ),
   ],
   passageTranslation:
       'My three siblings and I are completely different — perfect for a little '
@@ -260,19 +361,94 @@ final QuizContent enDeM10BigText = enDeBigText(
       'musical as I am!" she laughs. In the end we still agree: our mother cooks '
       'the best, our father tells jokes the funniest, and together we are simply '
       'the happiest — well, almost always.',
-  intro: 'The whole module in one story: form comparatives (adjective + -er + '
+  intro:
+      'The whole module in one story: form comparatives (adjective + -er + '
       'als, with umlauts), superlatives (am …-sten), the irregulars '
       '(gut/viel/gern), and choose als vs wie.',
   tips: _comparisonTips,
 );
 
 /// M10 — Comparisons, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM10Speaking = enDeSpeaking(
+  id: 'en_de_m10_speaking',
+  title: 'City or country?',
+  level: 'A2',
+  topic:
+      'Comparing things I know: city and country, two cities, two jobs, or two ways of living.',
+  practisePoints: [
+    'Comparative with -er + als: Berlin ist größer als Bonn.',
+    'Superlative: am schönsten, der schönste Ort',
+    'Irregulars: gut/besser/am besten, viel/mehr/am meisten',
+    'so ... wie for equality: so teuer wie',
+  ],
+  targetVocabulary: [
+    'besser',
+    'größer',
+    'am liebsten',
+    'so ... wie',
+    'teurer',
+    'ruhiger',
+  ],
+  scoringCriteria: [
+    'the comparative form',
+    'als vs wie',
+    'the superlative form',
+  ],
+  priorityErrors: [
+    'wrong comparative',
+    'wie instead of als',
+    'wrong superlative',
+    'wrong irregular form',
+  ],
+  intro:
+      'Argue for city or country. Copy the exercise into your AI assistant, turn on voice mode, and compare everything you can.',
+  tips: _comparisonTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM10SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m10_speaking_check',
+  title: 'Checkpoint: bigger, better, best',
+  level: 'A2',
+  topic:
+      'Quick comparisons between two things I know: two cities, two foods, two seasons.',
+  practisePoints: [
+    'Comparative: -er + als',
+    'Superlative: am ...-sten',
+    'The common irregulars: gut, viel, gern, hoch',
+  ],
+  targetVocabulary: ['größer', 'besser', 'am besten', 'als', 'lieber'],
+  scoringCriteria: [
+    'the comparative form',
+    'als after a comparative',
+    'the superlative form',
+  ],
+  priorityErrors: [
+    'wrong comparative',
+    'wie instead of als',
+    'wrong irregular form',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _comparisonTips,
+);
+
 final List<QuizContent> enDeM10 = [
   enDeM10Forms,
   enDeM10AlsWie,
   enDeM10BigTextWarmup,
   enDeM10Reading,
+  enDeM10SpeakingCheck,
   enDeM10Speak,
   enDeM10Listening,
   enDeM10BigText,
+  enDeM10Speaking,
 ];

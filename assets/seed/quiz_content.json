@@ -1,5 +1,5 @@
 {
-  "version": "1.20.0",
+  "version": "1.24.0",
   "quizzes": [
     {
       "id": "pronoun",
@@ -29677,6 +29677,80 @@
       ]
     },
     {
+      "id": "en_de_m1_speaking_check",
+      "title": "Checkpoint: who are you?",
+      "storageKeyPrefix": "en_de_m1_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The six endings",
+          "text": "ich -**e**, du -**st**, er/sie/es -**t**, wir -**en**, ihr -**t**, sie/Sie -**en**. So: ich mach**e**, du mach**st**, er mach**t**, wir mach**en**, ihr mach**t**."
+        },
+        {
+          "kind": "rule",
+          "title": "sein & haben — learn by heart",
+          "text": "sein: ich **bin**, du **bist**, er **ist**, wir **sind**, ihr **seid**, sie **sind**. haben: ich **habe**, du **hast**, er **hat**, wir **haben**, ihr **habt**, sie **haben**."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Verb in position 2 (V2)",
+          "text": "The finite verb is always the second element: *Ich **spiele** heute.* = *Heute **spiele** ich.* Move anything to the front and the verb stays glued in slot 2."
+        },
+        {
+          "kind": "warning",
+          "title": "Stems in -t / -d add -e",
+          "text": "After a stem ending in -t or -d, slip in an extra -e so you can hear it: du arbeit**e**st, er arbeit**e**t, ihr find**e**t."
+        },
+        {
+          "title": "One present, no -ing",
+          "text": "German has a single present tense: **ich spiele** means both \"I play\" and \"I am playing\"."
+        }
+      ],
+      "speaking": {
+        "topic": "A short round of questions about me: my name, where I live, where I work or study, and my age.",
+        "practisePoints": [
+          "Present-tense endings for ich, du and er/sie",
+          "sein and haben: ich bin, ich habe",
+          "Answering in a full sentence, not one word"
+        ],
+        "scoringCriteria": [
+          "the verb ending for the person",
+          "sein/haben forms",
+          "a full sentence as the answer"
+        ],
+        "targetVocabulary": [
+          "heißen",
+          "wohnen",
+          "arbeiten",
+          "sein",
+          "haben"
+        ],
+        "priorityErrors": [
+          "wrong verb ending",
+          "wrong form of sein or haben",
+          "one-word answers"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m1_questions",
       "title": "Questions (yes/no & W-questions)",
       "storageKeyPrefix": "en_de_m1_questions_",
@@ -30182,6 +30256,73 @@
           "text": "machst (du) vs macht (er) vs machen (wir) — the ending is the only difference."
         }
       ]
+    },
+    {
+      "id": "en_de_m1_speaking",
+      "title": "Talk about your everyday life",
+      "storageKeyPrefix": "en_de_m1_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Your first speaking exercise. The app does not run the conversation - copy the exercise into your own AI assistant, turn on its voice mode, and talk. It grades you at the end; bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The six endings",
+          "text": "ich -**e**, du -**st**, er/sie/es -**t**, wir -**en**, ihr -**t**, sie/Sie -**en**. So: ich mach**e**, du mach**st**, er mach**t**, wir mach**en**, ihr mach**t**."
+        },
+        {
+          "kind": "rule",
+          "title": "sein & haben — learn by heart",
+          "text": "sein: ich **bin**, du **bist**, er **ist**, wir **sind**, ihr **seid**, sie **sind**. haben: ich **habe**, du **hast**, er **hat**, wir **haben**, ihr **habt**, sie **haben**."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Verb in position 2 (V2)",
+          "text": "The finite verb is always the second element: *Ich **spiele** heute.* = *Heute **spiele** ich.* Move anything to the front and the verb stays glued in slot 2."
+        },
+        {
+          "kind": "warning",
+          "title": "Stems in -t / -d add -e",
+          "text": "After a stem ending in -t or -d, slip in an extra -e so you can hear it: du arbeit**e**st, er arbeit**e**t, ihr find**e**t."
+        },
+        {
+          "title": "One present, no -ing",
+          "text": "German has a single present tense: **ich spiele** means both \"I play\" and \"I am playing\"."
+        }
+      ],
+      "speaking": {
+        "topic": "Anna's everyday life and mine: where I live, what I do every day, my job or studies, and my free time.",
+        "practisePoints": [
+          "Present-tense endings: ich wohne, du wohnst, er/sie wohnt, wir wohnen",
+          "sein and haben: ich bin, du bist, ich habe, sie hat",
+          "The verb in second position: Am Montag arbeite ich in Berlin.",
+          "Asking me simple questions with Wo, Was, Wie and Wann"
+        ],
+        "scoringCriteria": [
+          "the verb ending for the person",
+          "sein/haben forms",
+          "the verb in second position"
+        ],
+        "targetVocabulary": [
+          "wohnen",
+          "arbeiten",
+          "heißen",
+          "gern",
+          "jeden Tag",
+          "am Wochenende"
+        ],
+        "priorityErrors": [
+          "wrong verb ending",
+          "wrong form of sein or haben",
+          "verb not in second position"
+        ]
+      }
     },
     {
       "id": "en_de_m2_articles",
@@ -31077,6 +31218,79 @@
       ]
     },
     {
+      "id": "en_de_m2_speaking_check",
+      "title": "Checkpoint: der, die or das?",
+      "storageKeyPrefix": "en_de_m2_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Three genders, one habit",
+          "text": "Every noun has a gender: **der** (m), **die** (f), **das** (n). Always learn the noun *with* its article — **der** Tisch, **die** Lampe, **das** Buch."
+        },
+        {
+          "title": "Endings that betray the gender",
+          "text": "→ **die**: -ung, -heit, -keit, -schaft, -ion, and most -e words. → **das**: -chen, -lein, -ment, -um. → **der**: -er (doer/tool), -ig, -ling, -or."
+        },
+        {
+          "kind": "rule",
+          "title": "ein / eine / kein",
+          "text": "Nominative: **ein** (m/n), **eine** (f). Negate a noun with kein: **kein** Hund (m), **keine** Zeit (f), **kein** Auto (n), **keine** Kinder (pl)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "der/die/das = er/sie/es",
+          "text": "In the nominative the article echoes the pronoun: der → **er**, die → **sie**, das → **es**."
+        },
+        {
+          "kind": "warning",
+          "title": "Endings beat meaning",
+          "text": "**das** Mädchen and **das** Kind are neuter because of the noun (-chen, das Kind), not the person. Grammar wins over logic."
+        }
+      ],
+      "speaking": {
+        "topic": "Nouns around me and in my family, and which article each one takes.",
+        "practisePoints": [
+          "der/die/das with everyday nouns",
+          "Gender you can hear from the ending: -ung, -heit, -chen",
+          "Saying the article together with the noun"
+        ],
+        "scoringCriteria": [
+          "the right article for the noun",
+          "using the ending as a clue",
+          "article said with the noun"
+        ],
+        "targetVocabulary": [
+          "der",
+          "die",
+          "das",
+          "die Wohnung",
+          "das Mädchen"
+        ],
+        "priorityErrors": [
+          "wrong gender",
+          "noun said without its article"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m2_pronouns",
       "title": "Personal pronouns (nominative)",
       "storageKeyPrefix": "en_de_m2_pronouns_",
@@ -31595,6 +31809,71 @@
           "hint": "er/sie/es? (die Katze)"
         }
       ]
+    },
+    {
+      "id": "en_de_m2_speaking",
+      "title": "Introduce your family",
+      "storageKeyPrefix": "en_de_m2_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Talk about your family out loud. Copy the exercise into your own AI assistant, turn on voice mode, and describe the people around you.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Three genders, one habit",
+          "text": "Every noun has a gender: **der** (m), **die** (f), **das** (n). Always learn the noun *with* its article — **der** Tisch, **die** Lampe, **das** Buch."
+        },
+        {
+          "title": "Endings that betray the gender",
+          "text": "→ **die**: -ung, -heit, -keit, -schaft, -ion, and most -e words. → **das**: -chen, -lein, -ment, -um. → **der**: -er (doer/tool), -ig, -ling, -or."
+        },
+        {
+          "kind": "rule",
+          "title": "ein / eine / kein",
+          "text": "Nominative: **ein** (m/n), **eine** (f). Negate a noun with kein: **kein** Hund (m), **keine** Zeit (f), **kein** Auto (n), **keine** Kinder (pl)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "der/die/das = er/sie/es",
+          "text": "In the nominative the article echoes the pronoun: der → **er**, die → **sie**, das → **es**."
+        },
+        {
+          "kind": "warning",
+          "title": "Endings beat meaning",
+          "text": "**das** Mädchen and **das** Kind are neuter because of the noun (-chen, das Kind), not the person. Grammar wins over logic."
+        }
+      ],
+      "speaking": {
+        "topic": "My family and the people around me: who they are, what they are like, and what they do.",
+        "practisePoints": [
+          "der/die/das with family nouns: der Vater, die Mutter, das Kind",
+          "ein/eine in the nominative: Das ist ein Bruder, eine Schwester",
+          "Personal pronouns as the subject: er, sie, es, sie (plural)"
+        ],
+        "scoringCriteria": [
+          "the right article for the noun",
+          "ein/eine in the nominative",
+          "the pronoun matching the noun"
+        ],
+        "targetVocabulary": [
+          "der Vater",
+          "die Mutter",
+          "die Schwester",
+          "der Bruder",
+          "die Eltern"
+        ],
+        "priorityErrors": [
+          "wrong gender",
+          "wrong article",
+          "wrong pronoun"
+        ]
+      }
     },
     {
       "id": "en_de_m3_artikel",
@@ -32488,6 +32767,80 @@
       ]
     },
     {
+      "id": "en_de_m3_speaking_check",
+      "title": "Checkpoint: what do you have?",
+      "storageKeyPrefix": "en_de_m3_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Only the masculine moves",
+          "text": "Accusative = the direct object (Wen?/Was?). Only the masculine changes: der → **den**, ein → **einen**. **die** (f), **das** (n) and plural **die** stay identical."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "den for the masculi-n-e",
+          "text": "The extra **-n** marks the masculine accusative: de**n**, eine**n**, ih**n**, kei**n**en."
+        },
+        {
+          "kind": "rule",
+          "title": "Accusative pronouns",
+          "text": "ich → **mich**, du → **dich**, er → **ihn**, sie → **sie**, es → **es**, wir → **uns**, ihr → **euch**, Sie → **Sie**."
+        },
+        {
+          "kind": "example",
+          "title": "See the contrast",
+          "text": "Mio frisst **den** Tisch (m) — but **die** Lampe (f) and **das** Sofa (n) don't change at all."
+        },
+        {
+          "kind": "warning",
+          "title": "These always take accusative",
+          "text": "**durch, für, gegen, ohne, um** force the accusative every time — no motion rule, no exceptions."
+        }
+      ],
+      "speaking": {
+        "topic": "What I have, what I see and what I eat right now - short answers with an object in them.",
+        "practisePoints": [
+          "den/die/das/die after haben, sehen and essen",
+          "The masculine change: der Tisch becomes den Tisch",
+          "einen/eine/ein in the accusative"
+        ],
+        "scoringCriteria": [
+          "the accusative article",
+          "the masculine change der to den",
+          "ein-forms in the accusative"
+        ],
+        "targetVocabulary": [
+          "haben",
+          "sehen",
+          "essen",
+          "einen",
+          "den"
+        ],
+        "priorityErrors": [
+          "nominative instead of accusative",
+          "wrong masculine article"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m3_praepositionen",
       "title": "Accusative prepositions",
       "storageKeyPrefix": "en_de_m3_praepositionen_",
@@ -33019,6 +33372,73 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en_de_m3_speaking",
+      "title": "What does the monster eat?",
+      "storageKeyPrefix": "en_de_m3_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Talk about food and hunger with an AI. Copy the exercise into your own assistant, turn on voice mode, and let it ask you what you eat.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Only the masculine moves",
+          "text": "Accusative = the direct object (Wen?/Was?). Only the masculine changes: der → **den**, ein → **einen**. **die** (f), **das** (n) and plural **die** stay identical."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "den for the masculi-n-e",
+          "text": "The extra **-n** marks the masculine accusative: de**n**, eine**n**, ih**n**, kei**n**en."
+        },
+        {
+          "kind": "rule",
+          "title": "Accusative pronouns",
+          "text": "ich → **mich**, du → **dich**, er → **ihn**, sie → **sie**, es → **es**, wir → **uns**, ihr → **euch**, Sie → **Sie**."
+        },
+        {
+          "kind": "example",
+          "title": "See the contrast",
+          "text": "Mio frisst **den** Tisch (m) — but **die** Lampe (f) and **das** Sofa (n) don't change at all."
+        },
+        {
+          "kind": "warning",
+          "title": "These always take accusative",
+          "text": "**durch, für, gegen, ohne, um** force the accusative every time — no motion rule, no exceptions."
+        }
+      ],
+      "speaking": {
+        "topic": "Mio the hungry monster and my own day: what Mio eats, what I eat and drink, what I see, and what I would like.",
+        "practisePoints": [
+          "den/die/das/die after fressen, essen, sehen, haben",
+          "einen/eine/ein in the accusative",
+          "möchte + accusative object: Ich möchte einen Apfel."
+        ],
+        "scoringCriteria": [
+          "the accusative article",
+          "the masculine change der to den",
+          "the object after the verb"
+        ],
+        "targetVocabulary": [
+          "essen",
+          "trinken",
+          "sehen",
+          "möchte",
+          "einen",
+          "den"
+        ],
+        "priorityErrors": [
+          "nominative instead of accusative",
+          "wrong masculine article",
+          "wrong ein-form"
+        ]
+      }
     },
     {
       "id": "en_de_m4_articles",
@@ -33902,6 +34322,81 @@
       ]
     },
     {
+      "id": "en_de_m4_speaking_check",
+      "title": "Checkpoint: who are you giving it to?",
+      "storageKeyPrefix": "en_de_m4_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The dative articles (Wem?)",
+          "text": "m: **dem** · f: **der** · n: **dem** · pl: **den** + an **-n** on the noun (den Kinder**n**). Ask Wem? — to/for whom."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "der → dem, die → der",
+          "text": "Masculine/neuter become **dem**; feminine becomes **der** — the same little \"der\" you knew, now doing a new job."
+        },
+        {
+          "kind": "rule",
+          "title": "Dative pronouns",
+          "text": "ich → **mir**, du → **dir**, er → **ihm**, sie → **ihr**, es → **ihm**, wir → **uns**, ihr → **euch**, sie → **ihnen**, Sie → **Ihnen**."
+        },
+        {
+          "kind": "warning",
+          "title": "Dative prepositions (always!)",
+          "text": "**aus, bei, mit, nach, seit, von, zu** — always dative. Contractions: von+dem = **vom**, zu+dem = **zum**, zu+der = **zur**, bei+dem = **beim**."
+        },
+        {
+          "kind": "example",
+          "title": "Dative verbs — no \"to\" in English",
+          "text": "**helfen, danken, gehören, gefallen, antworten, passen, schmecken** take a dative object: Ich helfe **dem** Mann. Das gehört **der** Frau."
+        }
+      ],
+      "speaking": {
+        "topic": "Short questions about giving and helping: who I give something to and who I help.",
+        "practisePoints": [
+          "dem/der/dem/den in the dative",
+          "Dative pronouns: mir, dir, ihm, ihr",
+          "Answering Wem? with a person, not a thing"
+        ],
+        "scoringCriteria": [
+          "the dative article",
+          "dative pronouns",
+          "answering Wem? correctly"
+        ],
+        "targetVocabulary": [
+          "geben",
+          "helfen",
+          "mir",
+          "ihm",
+          "dem"
+        ],
+        "priorityErrors": [
+          "accusative instead of dative",
+          "wrong dative article",
+          "wrong pronoun"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m4_prepositions",
       "title": "Dative prepositions",
       "storageKeyPrefix": "en_de_m4_prepositions_",
@@ -34413,6 +34908,75 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en_de_m4_speaking",
+      "title": "Who gets which present?",
+      "storageKeyPrefix": "en_de_m4_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A roleplay about giving. Copy the exercise into your own AI assistant, turn on voice mode, and work out who gets what.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The dative articles (Wem?)",
+          "text": "m: **dem** · f: **der** · n: **dem** · pl: **den** + an **-n** on the noun (den Kinder**n**). Ask Wem? — to/for whom."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "der → dem, die → der",
+          "text": "Masculine/neuter become **dem**; feminine becomes **der** — the same little \"der\" you knew, now doing a new job."
+        },
+        {
+          "kind": "rule",
+          "title": "Dative pronouns",
+          "text": "ich → **mir**, du → **dir**, er → **ihm**, sie → **ihr**, es → **ihm**, wir → **uns**, ihr → **euch**, sie → **ihnen**, Sie → **Ihnen**."
+        },
+        {
+          "kind": "warning",
+          "title": "Dative prepositions (always!)",
+          "text": "**aus, bei, mit, nach, seit, von, zu** — always dative. Contractions: von+dem = **vom**, zu+dem = **zum**, zu+der = **zur**, bei+dem = **beim**."
+        },
+        {
+          "kind": "example",
+          "title": "Dative verbs — no \"to\" in English",
+          "text": "**helfen, danken, gehören, gefallen, antworten, passen, schmecken** take a dative object: Ich helfe **dem** Mann. Das gehört **der** Frau."
+        }
+      ],
+      "speaking": {
+        "topic": "Presents and favours, like Oma who gives something to everyone: who I give things to, who helps me, and who I write or say something to.",
+        "practisePoints": [
+          "dem/der/dem/den in the dative: Ich gebe dem Vater das Buch.",
+          "Dative verbs: geben, helfen, schenken, danken, gehören",
+          "Dative pronouns: mir, dir, ihm, ihr, uns",
+          "Telling the two objects apart: Wem? before Was?"
+        ],
+        "scoringCriteria": [
+          "the dative article",
+          "dative pronouns",
+          "the order of the two objects"
+        ],
+        "targetVocabulary": [
+          "schenken",
+          "helfen",
+          "geben",
+          "gehören",
+          "mir",
+          "ihm"
+        ],
+        "priorityErrors": [
+          "accusative instead of dative",
+          "wrong dative article",
+          "wrong pronoun"
+        ],
+        "mode": "roleplay"
+      }
     },
     {
       "id": "en_de_m5_questions",
@@ -34971,6 +35535,75 @@
       ]
     },
     {
+      "id": "en_de_m5_speaking_check",
+      "title": "Checkpoint: which case is it?",
+      "storageKeyPrefix": "en_de_m5_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Three jobs, three questions",
+          "text": "**Wer?** → the doer → Nominativ. **Wen?/Was?** → the direct object → Akkusativ. **Wem?** → the receiver → Dativ."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Wer – Wen – Wem",
+          "text": "The question word carries the case: We**r** (Nom), We**n** (Akk), We**m** (Dat) — same order as Nom → Akk → Dat."
+        },
+        {
+          "kind": "example",
+          "title": "der masculine across the cases",
+          "text": "**der** Mann (Nom) → **den** Mann (Akk) → **dem** Mann (Dat). The masculine is where all three show up most clearly."
+        },
+        {
+          "kind": "warning",
+          "title": "Same word, different job",
+          "text": "**der** Vater (Wer? → Nom) vs **der** Mutter (Wem? → Dat): identical word \"der\", opposite case. Read the job, not the word."
+        }
+      ],
+      "speaking": {
+        "topic": "Short sentences about an ordinary day, and naming the job each part of the sentence does.",
+        "practisePoints": [
+          "Wer? for the subject, Wen? for the object, Wem? for the receiver",
+          "Naming the case: Nominativ, Akkusativ, Dativ",
+          "Matching the question word to the case"
+        ],
+        "scoringCriteria": [
+          "the right question word",
+          "the right case name",
+          "the reason for the case"
+        ],
+        "targetVocabulary": [
+          "wer",
+          "wen",
+          "wem",
+          "der Nominativ",
+          "der Akkusativ"
+        ],
+        "priorityErrors": [
+          "wrong question word",
+          "wrong case name"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m5_bigtext",
       "title": "Big text: Ein Montagmorgen",
       "storageKeyPrefix": "en_de_m5_bigtext_",
@@ -35245,6 +35878,69 @@
           "questionTranslation": "Whom does Anna help in the kitchen?"
         }
       ]
+    },
+    {
+      "id": "en_de_m5_speaking",
+      "title": "All three cases in one conversation",
+      "storageKeyPrefix": "en_de_m5_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The integration exercise: all three cases while you talk. Copy it into your AI assistant, turn on voice mode, and keep the roles straight.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Three jobs, three questions",
+          "text": "**Wer?** → the doer → Nominativ. **Wen?/Was?** → the direct object → Akkusativ. **Wem?** → the receiver → Dativ."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Wer – Wen – Wem",
+          "text": "The question word carries the case: We**r** (Nom), We**n** (Akk), We**m** (Dat) — same order as Nom → Akk → Dat."
+        },
+        {
+          "kind": "example",
+          "title": "der masculine across the cases",
+          "text": "**der** Mann (Nom) → **den** Mann (Akk) → **dem** Mann (Dat). The masculine is where all three show up most clearly."
+        },
+        {
+          "kind": "warning",
+          "title": "Same word, different job",
+          "text": "**der** Vater (Wer? → Nom) vs **der** Mutter (Wem? → Dat): identical word \"der\", opposite case. Read the job, not the word."
+        }
+      ],
+      "speaking": {
+        "topic": "An ordinary day with people and things in it: who does what, to whom, and with what.",
+        "practisePoints": [
+          "Nominative for the subject (Wer?)",
+          "Accusative for the direct object (Wen? Was?)",
+          "Dative for the receiver (Wem?)",
+          "All three in one sentence: Der Mann gibt dem Kind den Ball."
+        ],
+        "scoringCriteria": [
+          "the case each phrase needs",
+          "the article for that case",
+          "subject and objects in one sentence"
+        ],
+        "targetVocabulary": [
+          "geben",
+          "zeigen",
+          "kaufen",
+          "dem",
+          "den",
+          "der"
+        ],
+        "priorityErrors": [
+          "wrong case",
+          "wrong article for the case",
+          "objects swapped"
+        ]
+      }
     },
     {
       "id": "en_de_m6_list",
@@ -36139,6 +36835,79 @@
       ]
     },
     {
+      "id": "en_de_m6_speaking_check",
+      "title": "Checkpoint: where is it going?",
+      "storageKeyPrefix": "en_de_m6_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The nine two-way prepositions",
+          "text": "**an, auf, hinter, in, neben, über, unter, vor, zwischen** — accusative for motion (Wohin?), dative for position (Wo?)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Wohin → Akk, Wo → Dat",
+          "text": "Moving to a *new* place = **Akkusativ** (into). Already *being* there = **Dativ** (in). Even \"Wohi**n**\" ends in -n, like de**n**."
+        },
+        {
+          "kind": "example",
+          "title": "The classic pair",
+          "text": "Die Katze springt auf **den** Tisch (Wohin? → Akk) — und sitzt dann auf **dem** Tisch (Wo? → Dat)."
+        },
+        {
+          "kind": "warning",
+          "title": "Let the verb decide",
+          "text": "Motion verbs (gehen, springen, legen, stellen, sich setzen) → **Akk**. Position verbs (sein, sitzen, liegen, stehen, bleiben) → **Dat**."
+        },
+        {
+          "title": "Handy contractions",
+          "text": "in+das = **ins**, in+dem = **im**, an+das = **ans**, an+dem = **am**, auf+das = **aufs**."
+        }
+      ],
+      "speaking": {
+        "topic": "Movement around my home: where things and people are going right now.",
+        "practisePoints": [
+          "Wohin? + accusative: Ich gehe in die Küche.",
+          "The nine two-way prepositions by name",
+          "The article after the preposition"
+        ],
+        "scoringCriteria": [
+          "accusative for movement",
+          "the right preposition",
+          "the article after the preposition"
+        ],
+        "targetVocabulary": [
+          "in",
+          "auf",
+          "unter",
+          "neben",
+          "gehen"
+        ],
+        "priorityErrors": [
+          "dative where movement needs accusative",
+          "wrong article"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m6_mixed",
       "title": "Mixed: read the verb",
       "storageKeyPrefix": "en_de_m6_mixed_",
@@ -36647,6 +37416,73 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en_de_m6_speaking",
+      "title": "Where is the cat now?",
+      "storageKeyPrefix": "en_de_m6_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Say where things are - and where they go. Copy the exercise into your AI assistant, turn on voice mode, and describe the chaos.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The nine two-way prepositions",
+          "text": "**an, auf, hinter, in, neben, über, unter, vor, zwischen** — accusative for motion (Wohin?), dative for position (Wo?)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Wohin → Akk, Wo → Dat",
+          "text": "Moving to a *new* place = **Akkusativ** (into). Already *being* there = **Dativ** (in). Even \"Wohi**n**\" ends in -n, like de**n**."
+        },
+        {
+          "kind": "example",
+          "title": "The classic pair",
+          "text": "Die Katze springt auf **den** Tisch (Wohin? → Akk) — und sitzt dann auf **dem** Tisch (Wo? → Dat)."
+        },
+        {
+          "kind": "warning",
+          "title": "Let the verb decide",
+          "text": "Motion verbs (gehen, springen, legen, stellen, sich setzen) → **Akk**. Position verbs (sein, sitzen, liegen, stehen, bleiben) → **Dat**."
+        },
+        {
+          "title": "Handy contractions",
+          "text": "in+das = **ins**, in+dem = **im**, an+das = **ans**, an+dem = **am**, auf+das = **aufs**."
+        }
+      ],
+      "speaking": {
+        "topic": "A cat that will not stay put, and my own home: where things are and where they are going.",
+        "practisePoints": [
+          "Wo? + dative: Die Katze ist auf dem Tisch.",
+          "Wohin? + accusative: Die Katze springt auf den Tisch.",
+          "The nine two-way prepositions: in, an, auf, über, unter, vor, hinter, neben, zwischen"
+        ],
+        "scoringCriteria": [
+          "dative for a location",
+          "accusative for movement",
+          "the article after the preposition"
+        ],
+        "targetVocabulary": [
+          "auf",
+          "unter",
+          "neben",
+          "hinter",
+          "zwischen",
+          "springen"
+        ],
+        "priorityErrors": [
+          "dative where movement needs accusative",
+          "accusative where a location needs dative",
+          "wrong article"
+        ],
+        "mode": "roleplay"
+      }
     },
     {
       "id": "en_de_m7_predicate",
@@ -37531,6 +38367,75 @@
       ]
     },
     {
+      "id": "en_de_m7_speaking_check",
+      "title": "Checkpoint: is it big or is it a big one?",
+      "storageKeyPrefix": "en_de_m7_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Who already shows the gender?",
+          "text": "After **der/die/das** the article shows the case, so the adjective relaxes to weak **-e** (or **-en**). After **ein/kein/mein** the adjective must show it: **-er** (m), **-e** (f), **-es** (n)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "der → -e, ein → -er/-es",
+          "text": "*der nett**e** Mann* (der did the work) vs *ein nett**er** Mann* (ein hides the gender, so the adjective shows -er)."
+        },
+        {
+          "kind": "warning",
+          "title": "After sein/werden/bleiben: nothing",
+          "text": "A predicate adjective never changes: Das Haus ist **alt**. Die Suppe wird **kalt**. Die Kinder bleiben **ruhig**."
+        },
+        {
+          "kind": "example",
+          "title": "Nominative quick table",
+          "text": "der alt**e** Mann · die neu**e** Lampe · das klein**e** Kind — ein alt**er** Mann · eine neu**e** Lampe · ein klein**es** Kind."
+        }
+      ],
+      "speaking": {
+        "topic": "Short descriptions of things near me, first after sein, then in front of the noun.",
+        "practisePoints": [
+          "No ending after sein: Das Auto ist neu.",
+          "Weak endings after der/die/das in the nominative",
+          "Weak endings in the accusative: Ich sehe den alten Mann."
+        ],
+        "scoringCriteria": [
+          "no ending after sein",
+          "the weak ending in the nominative",
+          "the weak ending in the accusative"
+        ],
+        "targetVocabulary": [
+          "alt",
+          "neu",
+          "groß",
+          "der alte",
+          "den alten"
+        ],
+        "priorityErrors": [
+          "an ending after sein",
+          "wrong weak ending"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m7_ein_nom",
       "title": "After ein/mein (nominative)",
       "storageKeyPrefix": "en_de_m7_ein_nom_",
@@ -38060,6 +38965,68 @@
           "hint": "neu (meine … Wohnung)"
         }
       ]
+    },
+    {
+      "id": "en_de_m7_speaking",
+      "title": "Describe things around you",
+      "storageKeyPrefix": "en_de_m7_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Describe your world out loud. Copy the exercise into your AI assistant, turn on voice mode, and let the adjectives do the work.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Who already shows the gender?",
+          "text": "After **der/die/das** the article shows the case, so the adjective relaxes to weak **-e** (or **-en**). After **ein/kein/mein** the adjective must show it: **-er** (m), **-e** (f), **-es** (n)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "der → -e, ein → -er/-es",
+          "text": "*der nett**e** Mann* (der did the work) vs *ein nett**er** Mann* (ein hides the gender, so the adjective shows -er)."
+        },
+        {
+          "kind": "warning",
+          "title": "After sein/werden/bleiben: nothing",
+          "text": "A predicate adjective never changes: Das Haus ist **alt**. Die Suppe wird **kalt**. Die Kinder bleiben **ruhig**."
+        },
+        {
+          "kind": "example",
+          "title": "Nominative quick table",
+          "text": "der alt**e** Mann · die neu**e** Lampe · das klein**e** Kind — ein alt**er** Mann · eine neu**e** Lampe · ein klein**es** Kind."
+        }
+      ],
+      "speaking": {
+        "topic": "The things and people around me: my room, my city, my friends, and what they are like.",
+        "practisePoints": [
+          "No ending after sein: Das Haus ist alt.",
+          "Weak endings after der/die/das: der alte Mann, die neue Wohnung",
+          "Mixed endings after ein/eine: ein alter Mann, eine neue Wohnung"
+        ],
+        "scoringCriteria": [
+          "no ending after sein",
+          "the ending after a der-word",
+          "the ending after an ein-word"
+        ],
+        "targetVocabulary": [
+          "alt",
+          "neu",
+          "groß",
+          "klein",
+          "schön",
+          "teuer"
+        ],
+        "priorityErrors": [
+          "an ending after sein",
+          "wrong weak ending",
+          "wrong mixed ending"
+        ]
+      }
     },
     {
       "id": "en_de_m8_regular",
@@ -38968,6 +39935,80 @@
       ]
     },
     {
+      "id": "en_de_m8_speaking_check",
+      "title": "Checkpoint: build the participle",
+      "storageKeyPrefix": "en_de_m8_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "haben/sein + participle",
+          "text": "Perfekt = **haben** or **sein** (position 2) + the past participle at the very end: Ich **habe** Fußball **gespielt**."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Building participles",
+          "text": "Regular: **ge-** + stem + **-t** (ge·mach·t, ge·spiel·t). Strong: **ge-** + stem + **-en**, often with a vowel change (ge·gess·en, ge·trunk·en, ge·gang·en)."
+        },
+        {
+          "kind": "warning",
+          "title": "sein = movement / change of state",
+          "text": "gehen → ist **gegangen**, fahren → ist **gefahren**, kommen → ist **gekommen**, bleiben → ist **geblieben**, sein → ist **gewesen**. Everything else takes **haben**."
+        },
+        {
+          "kind": "warning",
+          "title": "No ge- with -ieren / be-/ver-/er-",
+          "text": "Verbs in -ieren and inseparable be-/ver-/er- verbs drop ge-: studier**t**, telefonier**t**, **be**·such·t, **ver**·gess·en."
+        },
+        {
+          "kind": "example",
+          "title": "Word order",
+          "text": "Gestern **habe** ich Pizza **gegessen.** — helper second, participle last."
+        }
+      ],
+      "speaking": {
+        "topic": "Single things I did yesterday, one sentence at a time - the focus is the participle itself.",
+        "practisePoints": [
+          "Regular participles: ge- + stem + -t (gemacht, gespielt)",
+          "Strong participles: ge- + stem + -en, often with a vowel change",
+          "The participle at the end of the sentence"
+        ],
+        "scoringCriteria": [
+          "the participle form",
+          "regular vs strong pattern",
+          "the participle at the end"
+        ],
+        "targetVocabulary": [
+          "gemacht",
+          "gespielt",
+          "gegessen",
+          "getrunken",
+          "gesehen"
+        ],
+        "priorityErrors": [
+          "wrong participle",
+          "participle in the wrong position"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m8_word_order",
       "title": "Word order: participle at the end",
       "storageKeyPrefix": "en_de_m8_word_order_",
@@ -39493,6 +40534,76 @@
           "questionTranslation": "What did they do at the end?"
         }
       ]
+    },
+    {
+      "id": "en_de_m8_speaking",
+      "title": "Talk about your weekend (Perfekt)",
+      "storageKeyPrefix": "en_de_m8_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Your first speaking exercise. The app does not run the conversation — copy the exercise into your own AI assistant, turn on its voice mode, and talk. It will grade you at the end; bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "haben/sein + participle",
+          "text": "Perfekt = **haben** or **sein** (position 2) + the past participle at the very end: Ich **habe** Fußball **gespielt**."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Building participles",
+          "text": "Regular: **ge-** + stem + **-t** (ge·mach·t, ge·spiel·t). Strong: **ge-** + stem + **-en**, often with a vowel change (ge·gess·en, ge·trunk·en, ge·gang·en)."
+        },
+        {
+          "kind": "warning",
+          "title": "sein = movement / change of state",
+          "text": "gehen → ist **gegangen**, fahren → ist **gefahren**, kommen → ist **gekommen**, bleiben → ist **geblieben**, sein → ist **gewesen**. Everything else takes **haben**."
+        },
+        {
+          "kind": "warning",
+          "title": "No ge- with -ieren / be-/ver-/er-",
+          "text": "Verbs in -ieren and inseparable be-/ver-/er- verbs drop ge-: studier**t**, telefonier**t**, **be**·such·t, **ver**·gess·en."
+        },
+        {
+          "kind": "example",
+          "title": "Word order",
+          "text": "Gestern **habe** ich Pizza **gegessen.** — helper second, participle last."
+        }
+      ],
+      "speaking": {
+        "topic": "My day and my recent past: daily routine, work or school, free time, and what I did at the weekend.",
+        "practisePoints": [
+          "Perfekt with haben/sein (choosing the right helper)",
+          "Past participles, regular and strong: gemacht, gespielt, gegangen, gefahren, getrunken",
+          "Separable verbs in the Perfekt: aufstehen, einkaufen, fernsehen, anrufen",
+          "Time expressions: gestern, letzte Woche, am Wochenende, heute Morgen, danach"
+        ],
+        "scoringCriteria": [
+          "the right helper (haben or sein)",
+          "the participle form",
+          "the participle at the end of the sentence",
+          "a time expression where it fits"
+        ],
+        "targetVocabulary": [
+          "gestern",
+          "am Wochenende",
+          "danach",
+          "aufgestanden",
+          "eingekauft",
+          "ferngesehen"
+        ],
+        "priorityErrors": [
+          "wrong helper",
+          "wrong participle",
+          "participle in the wrong position",
+          "present tense instead of Perfekt"
+        ]
+      }
     },
     {
       "id": "en_de_m9_modal_forms",
@@ -40399,6 +41510,80 @@
       ]
     },
     {
+      "id": "en_de_m9_speaking_check",
+      "title": "Checkpoint: what must you do today?",
+      "storageKeyPrefix": "en_de_m9_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The modal frame",
+          "text": "The modal is conjugated in position 2; the main verb waits at the end as an **infinitive**: Ich **kann** Deutsch **sprechen**."
+        },
+        {
+          "kind": "warning",
+          "title": "Modals: no -t for er",
+          "text": "The singular changes its vowel and ich = er: ich **kann**, du **kannst**, er **kann** · ich **muss**, er **muss** · ich **will**, er **will**."
+        },
+        {
+          "kind": "rule",
+          "title": "Separable verbs split",
+          "text": "The prefix flies to the end: auf·stehen → Ich stehe um 7 **auf**. ein·kaufen → Ich kaufe **ein**. an·rufen → Ich rufe dich **an**."
+        },
+        {
+          "kind": "example",
+          "title": "Imperative drops the pronoun",
+          "text": "**Komm!** · **Wartet!** · **Öffnen Sie!** (du usually drops -st: du kommst → **Komm!**, but: du gibst → **Gib!**)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The six modals",
+          "text": "**können, müssen, wollen, sollen, dürfen, mögen** — plus the polite **möchte** (would like)."
+        }
+      ],
+      "speaking": {
+        "topic": "Quick questions about today: what I must, can and want to do.",
+        "practisePoints": [
+          "Modal forms: kann, muss, will, darf",
+          "The infinitive at the very end",
+          "Answering with the modal, not just the verb"
+        ],
+        "scoringCriteria": [
+          "the modal form for the person",
+          "the infinitive at the end",
+          "a complete modal sentence"
+        ],
+        "targetVocabulary": [
+          "müssen",
+          "können",
+          "wollen",
+          "dürfen",
+          "heute"
+        ],
+        "priorityErrors": [
+          "wrong modal form",
+          "infinitive not at the end"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m9_imperative",
       "title": "The imperative",
       "storageKeyPrefix": "en_de_m9_imperative_",
@@ -40934,6 +42119,74 @@
           "hint": "gehen → ich …"
         }
       ]
+    },
+    {
+      "id": "en_de_m9_speaking",
+      "title": "Your day, your plans, your rules",
+      "storageKeyPrefix": "en_de_m9_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Talk through your day with an AI. Copy the exercise into your own assistant, turn on voice mode, and say what you must, can and want.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The modal frame",
+          "text": "The modal is conjugated in position 2; the main verb waits at the end as an **infinitive**: Ich **kann** Deutsch **sprechen**."
+        },
+        {
+          "kind": "warning",
+          "title": "Modals: no -t for er",
+          "text": "The singular changes its vowel and ich = er: ich **kann**, du **kannst**, er **kann** · ich **muss**, er **muss** · ich **will**, er **will**."
+        },
+        {
+          "kind": "rule",
+          "title": "Separable verbs split",
+          "text": "The prefix flies to the end: auf·stehen → Ich stehe um 7 **auf**. ein·kaufen → Ich kaufe **ein**. an·rufen → Ich rufe dich **an**."
+        },
+        {
+          "kind": "example",
+          "title": "Imperative drops the pronoun",
+          "text": "**Komm!** · **Wartet!** · **Öffnen Sie!** (du usually drops -st: du kommst → **Komm!**, but: du gibst → **Gib!**)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The six modals",
+          "text": "**können, müssen, wollen, sollen, dürfen, mögen** — plus the polite **möchte** (would like)."
+        }
+      ],
+      "speaking": {
+        "topic": "Mein Tag: what I have to do, what I want to do, what I am allowed to do, and how my day is organised.",
+        "practisePoints": [
+          "Modal + infinitive at the end: Ich muss heute arbeiten.",
+          "The modal forms: kann, muss, will, darf, soll, möchte",
+          "Separable verbs split: Ich stehe um sieben auf.",
+          "Separable verbs after a modal stay whole: Ich muss früh aufstehen."
+        ],
+        "scoringCriteria": [
+          "the modal form for the person",
+          "the infinitive at the end",
+          "the separable prefix at the end"
+        ],
+        "targetVocabulary": [
+          "müssen",
+          "können",
+          "dürfen",
+          "aufstehen",
+          "anfangen",
+          "einkaufen"
+        ],
+        "priorityErrors": [
+          "wrong modal form",
+          "infinitive not at the end",
+          "separable prefix in the wrong place"
+        ]
+      }
     },
     {
       "id": "en_de_m10_forms",
@@ -41665,6 +42918,76 @@
       ]
     },
     {
+      "id": "en_de_m10_speaking_check",
+      "title": "Checkpoint: bigger, better, best",
+      "storageKeyPrefix": "en_de_m10_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Comparative & superlative",
+          "text": "Comparative: adjective + **-er** (+ **als**): schnell**er als**. Superlative: **am** …**-sten**: **am** schnell**sten**."
+        },
+        {
+          "kind": "warning",
+          "title": "Short adjectives add an umlaut",
+          "text": "alt → **älter**, groß → **größer**, jung → **jünger**, lang → **länger**, kalt → **kälter**, stark → **stärker**."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "als vs wie",
+          "text": "**…er als** for a difference (größer **als**); **so … wie** for equality (so groß **wie**)."
+        },
+        {
+          "kind": "example",
+          "title": "The big irregulars — learn cold",
+          "text": "gut → **besser** → am **besten** · viel → **mehr** → am **meisten** · gern → **lieber** → am **liebsten** · hoch → **höher** → am **höchsten**."
+        }
+      ],
+      "speaking": {
+        "topic": "Quick comparisons between two things I know: two cities, two foods, two seasons.",
+        "practisePoints": [
+          "Comparative: -er + als",
+          "Superlative: am ...-sten",
+          "The common irregulars: gut, viel, gern, hoch"
+        ],
+        "scoringCriteria": [
+          "the comparative form",
+          "als after a comparative",
+          "the superlative form"
+        ],
+        "targetVocabulary": [
+          "größer",
+          "besser",
+          "am besten",
+          "als",
+          "lieber"
+        ],
+        "priorityErrors": [
+          "wrong comparative",
+          "wie instead of als",
+          "wrong irregular form"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m10_speak",
       "title": "Speak: comparisons aloud",
       "storageKeyPrefix": "en_de_m10_speak_",
@@ -41901,6 +43224,70 @@
           "hint": "glücklich → am …-sten"
         }
       ]
+    },
+    {
+      "id": "en_de_m10_speaking",
+      "title": "City or country?",
+      "storageKeyPrefix": "en_de_m10_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Argue for city or country. Copy the exercise into your AI assistant, turn on voice mode, and compare everything you can.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Comparative & superlative",
+          "text": "Comparative: adjective + **-er** (+ **als**): schnell**er als**. Superlative: **am** …**-sten**: **am** schnell**sten**."
+        },
+        {
+          "kind": "warning",
+          "title": "Short adjectives add an umlaut",
+          "text": "alt → **älter**, groß → **größer**, jung → **jünger**, lang → **länger**, kalt → **kälter**, stark → **stärker**."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "als vs wie",
+          "text": "**…er als** for a difference (größer **als**); **so … wie** for equality (so groß **wie**)."
+        },
+        {
+          "kind": "example",
+          "title": "The big irregulars — learn cold",
+          "text": "gut → **besser** → am **besten** · viel → **mehr** → am **meisten** · gern → **lieber** → am **liebsten** · hoch → **höher** → am **höchsten**."
+        }
+      ],
+      "speaking": {
+        "topic": "Comparing things I know: city and country, two cities, two jobs, or two ways of living.",
+        "practisePoints": [
+          "Comparative with -er + als: Berlin ist größer als Bonn.",
+          "Superlative: am schönsten, der schönste Ort",
+          "Irregulars: gut/besser/am besten, viel/mehr/am meisten",
+          "so ... wie for equality: so teuer wie"
+        ],
+        "scoringCriteria": [
+          "the comparative form",
+          "als vs wie",
+          "the superlative form"
+        ],
+        "targetVocabulary": [
+          "besser",
+          "größer",
+          "am liebsten",
+          "so ... wie",
+          "teurer",
+          "ruhiger"
+        ],
+        "priorityErrors": [
+          "wrong comparative",
+          "wie instead of als",
+          "wrong superlative",
+          "wrong irregular form"
+        ]
+      }
     },
     {
       "id": "en_de_m11_coordinating",
@@ -42775,6 +44162,74 @@
       ]
     },
     {
+      "id": "en_de_m11_speaking_check",
+      "title": "Checkpoint: and, but, because",
+      "storageKeyPrefix": "en_de_m11_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Two kinds of connector",
+          "text": "**und, aber, oder, denn** keep normal word order. **weil, dass, wenn, obwohl** (subordinating) send the conjugated verb to the **END** of the clause."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "weil kicks, denn does not",
+          "text": "…, **weil** ich müde **bin** (verb at the end) = …, **denn** ich **bin** müde (normal order). Same meaning, different word order."
+        },
+        {
+          "kind": "example",
+          "title": "Front clause → verb, comma, verb",
+          "text": "If the wenn-clause comes first, the main clause starts with its verb: **Wenn** es **regnet**, **bleibe** ich zu Hause."
+        },
+        {
+          "title": "Always a comma",
+          "text": "A subordinate clause is always fenced off with a comma: Ich glaube, **dass** das stimmt."
+        }
+      ],
+      "speaking": {
+        "topic": "Short answers with a reason attached: why I like or do something.",
+        "practisePoints": [
+          "und, aber, oder, denn keep the normal word order",
+          "weil sends the verb to the end",
+          "The comma before weil"
+        ],
+        "scoringCriteria": [
+          "normal order after und/aber/oder/denn",
+          "the verb at the end after weil",
+          "a reason that fits"
+        ],
+        "targetVocabulary": [
+          "und",
+          "aber",
+          "denn",
+          "weil",
+          "gern"
+        ],
+        "priorityErrors": [
+          "verb moved after aber or und",
+          "verb not at the end after weil"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m11_wenn",
       "title": "wenn",
       "storageKeyPrefix": "en_de_m11_wenn_",
@@ -43286,6 +44741,68 @@
           "hint": "weil/dass/wenn/aber/denn"
         }
       ]
+    },
+    {
+      "id": "en_de_m11_speaking",
+      "title": "Say why, and say what you think",
+      "storageKeyPrefix": "en_de_m11_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "A2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Give reasons and opinions out loud. Copy the exercise into your AI assistant, turn on voice mode, and explain yourself.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Two kinds of connector",
+          "text": "**und, aber, oder, denn** keep normal word order. **weil, dass, wenn, obwohl** (subordinating) send the conjugated verb to the **END** of the clause."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "weil kicks, denn does not",
+          "text": "…, **weil** ich müde **bin** (verb at the end) = …, **denn** ich **bin** müde (normal order). Same meaning, different word order."
+        },
+        {
+          "kind": "example",
+          "title": "Front clause → verb, comma, verb",
+          "text": "If the wenn-clause comes first, the main clause starts with its verb: **Wenn** es **regnet**, **bleibe** ich zu Hause."
+        },
+        {
+          "title": "Always a comma",
+          "text": "A subordinate clause is always fenced off with a comma: Ich glaube, **dass** das stimmt."
+        }
+      ],
+      "speaking": {
+        "topic": "My opinions and reasons: why I like or dislike something, what I think, and what I do when something happens.",
+        "practisePoints": [
+          "weil + verb at the end: ..., weil ich keine Zeit habe.",
+          "dass + verb at the end: Ich glaube, dass es gut ist.",
+          "wenn for conditions and things that repeat",
+          "und/aber/oder/denn keep the normal word order"
+        ],
+        "scoringCriteria": [
+          "the verb at the end after weil/dass/wenn",
+          "normal order after und/aber/oder/denn",
+          "the comma before the clause"
+        ],
+        "targetVocabulary": [
+          "weil",
+          "dass",
+          "wenn",
+          "aber",
+          "denn",
+          "deshalb"
+        ],
+        "priorityErrors": [
+          "verb not at the end in a subordinate clause",
+          "verb moved after aber or und",
+          "wrong connector"
+        ]
+      }
     },
     {
       "id": "en_de_m12_weak",
@@ -44172,6 +45689,75 @@
       ]
     },
     {
+      "id": "en_de_m12_speaking_check",
+      "title": "Checkpoint: weak and mixed endings",
+      "storageKeyPrefix": "en_de_m12_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Three patterns",
+          "text": "**Weak** (after der/diese/jede): **-e** or **-en**. **Mixed** (after ein/kein/mein): the adjective shows the gender where ein can't. **Strong** (no article): the adjective takes the article's own ending."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Who shows the case?",
+          "text": "If a der-/ein-word already marks the case, the adjective relaxes (**-e/-en**). If nothing marks it, the adjective must — **strong** endings (-er/-e/-es/-em/-en)."
+        },
+        {
+          "kind": "warning",
+          "title": "Dative & all plurals → -en",
+          "text": "After a der-word, the whole dative and the entire plural is **-en**: **dem** alt**en** Mann, **den** nett**en** Leut**en**."
+        },
+        {
+          "kind": "example",
+          "title": "The masculine trio",
+          "text": "**der** gut**e** Wein · **ein** gut**er** Wein · gut**er** Wein — watch the **-r** jump onto the adjective when the article disappears."
+        }
+      ],
+      "speaking": {
+        "topic": "Describing things with an article in front: my flat, my street, my favourite things.",
+        "practisePoints": [
+          "Weak endings after der-words across the cases",
+          "Mixed endings after ein-words, including ein alter Mann",
+          "The accusative masculine: einen alten Freund"
+        ],
+        "scoringCriteria": [
+          "the ending after a der-word",
+          "the ending after an ein-word",
+          "the accusative masculine ending"
+        ],
+        "targetVocabulary": [
+          "der neue",
+          "ein neuer",
+          "einen alten",
+          "die kleine"
+        ],
+        "priorityErrors": [
+          "wrong weak ending",
+          "wrong mixed ending",
+          "wrong accusative masculine"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m12_sentences",
       "title": "All three, mixed",
       "storageKeyPrefix": "en_de_m12_sentences_",
@@ -44705,6 +46291,72 @@
           "hint": "gemütlich (in ein … Café, Akk n)"
         }
       ]
+    },
+    {
+      "id": "en_de_m12_speaking",
+      "title": "Describe in detail, in every case",
+      "storageKeyPrefix": "en_de_m12_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Describe things properly, with the endings under pressure. Copy the exercise into your AI assistant and turn on voice mode.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Three patterns",
+          "text": "**Weak** (after der/diese/jede): **-e** or **-en**. **Mixed** (after ein/kein/mein): the adjective shows the gender where ein can't. **Strong** (no article): the adjective takes the article's own ending."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Who shows the case?",
+          "text": "If a der-/ein-word already marks the case, the adjective relaxes (**-e/-en**). If nothing marks it, the adjective must — **strong** endings (-er/-e/-es/-em/-en)."
+        },
+        {
+          "kind": "warning",
+          "title": "Dative & all plurals → -en",
+          "text": "After a der-word, the whole dative and the entire plural is **-en**: **dem** alt**en** Mann, **den** nett**en** Leut**en**."
+        },
+        {
+          "kind": "example",
+          "title": "The masculine trio",
+          "text": "**der** gut**e** Wein · **ein** gut**er** Wein · gut**er** Wein — watch the **-r** jump onto the adjective when the article disappears."
+        }
+      ],
+      "speaking": {
+        "topic": "Detailed descriptions: a place I know well, a person, a meal, a plan - with adjectives in every case.",
+        "practisePoints": [
+          "Weak endings after der-words in all four cases",
+          "Mixed endings after ein-words, including the accusative masculine",
+          "Strong endings with no article: guter Kaffee, mit gutem Kaffee",
+          "Adjectives after a preposition: in der neuen Wohnung, für den alten Freund"
+        ],
+        "scoringCriteria": [
+          "the ending for the case and gender",
+          "weak vs mixed vs strong",
+          "endings after prepositions"
+        ],
+        "targetVocabulary": [
+          "schwierig",
+          "gemütlich",
+          "anstrengend",
+          "mit gutem",
+          "in der neuen"
+        ],
+        "priorityErrors": [
+          "wrong adjective ending",
+          "wrong pattern for the article",
+          "wrong case after a preposition"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "id": "en_de_m13_genitive",
@@ -45583,6 +47235,75 @@
       ]
     },
     {
+      "id": "en_de_m13_speaking_check",
+      "title": "Checkpoint: whose is it?",
+      "storageKeyPrefix": "en_de_m13_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The genitive (of / 's)",
+          "text": "m & n → **des** + noun + **-(e)s** (des Mann**es**, des Kind**es**); f & pl → **der**. In speech, **von** + dative often replaces it."
+        },
+        {
+          "kind": "warning",
+          "title": "n-declension",
+          "text": "A few masculine nouns add **-(e)n** in every case but the nominative: der Junge → den **Jungen**, der Student → dem **Studenten**, der Name → des **Namens**."
+        },
+        {
+          "kind": "rule",
+          "title": "Präteritum — the written past",
+          "text": "sein/haben/modals use it even in speech: **war, hatte, konnte, musste, wollte, durfte**."
+        },
+        {
+          "kind": "example",
+          "title": "Strong Präteritum (no -te)",
+          "text": "gehen → **ging**, kommen → **kam**, sehen → **sah**, geben → **gab**, fahren → **fuhr**, finden → **fand**, bleiben → **blieb**."
+        }
+      ],
+      "speaking": {
+        "topic": "Who owns what around me, and the same thing said the everyday way.",
+        "practisePoints": [
+          "Genitive endings: des Mannes, der Frau, des Kindes",
+          "von + dative as the spoken alternative",
+          "Choosing between them by register"
+        ],
+        "scoringCriteria": [
+          "the genitive ending",
+          "von + dative built correctly",
+          "a sensible choice between the two"
+        ],
+        "targetVocabulary": [
+          "des",
+          "der",
+          "von meinem",
+          "gehören"
+        ],
+        "priorityErrors": [
+          "wrong genitive ending",
+          "missing -s on a masculine noun",
+          "genitive and von mixed in one phrase"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m13_praeteritum",
       "title": "Präteritum forms",
       "storageKeyPrefix": "en_de_m13_praeteritum_",
@@ -46142,6 +47863,73 @@
           "hint": "Genitiv: das Mädchen → …"
         }
       ]
+    },
+    {
+      "id": "en_de_m13_speaking",
+      "title": "Tell a story in the past",
+      "storageKeyPrefix": "en_de_m13_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Tell a story out loud, in the written past. Copy the exercise into your AI assistant and turn on voice mode.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "The genitive (of / 's)",
+          "text": "m & n → **des** + noun + **-(e)s** (des Mann**es**, des Kind**es**); f & pl → **der**. In speech, **von** + dative often replaces it."
+        },
+        {
+          "kind": "warning",
+          "title": "n-declension",
+          "text": "A few masculine nouns add **-(e)n** in every case but the nominative: der Junge → den **Jungen**, der Student → dem **Studenten**, der Name → des **Namens**."
+        },
+        {
+          "kind": "rule",
+          "title": "Präteritum — the written past",
+          "text": "sein/haben/modals use it even in speech: **war, hatte, konnte, musste, wollte, durfte**."
+        },
+        {
+          "kind": "example",
+          "title": "Strong Präteritum (no -te)",
+          "text": "gehen → **ging**, kommen → **kam**, sehen → **sah**, geben → **gab**, fahren → **fuhr**, finden → **fand**, bleiben → **blieb**."
+        }
+      ],
+      "speaking": {
+        "topic": "A short story from my life, or a fairy tale I know, told as a story - plus who owns or belongs to what.",
+        "practisePoints": [
+          "Präteritum of the common verbs: war, hatte, ging, kam, sagte",
+          "Genitive for possession: das Haus des Mannes, die Tür der Wohnung",
+          "von + dative in speech: das Haus von meinem Vater",
+          "Keeping a story in one past tense"
+        ],
+        "scoringCriteria": [
+          "the Präteritum form",
+          "the genitive ending",
+          "staying in one tense"
+        ],
+        "targetVocabulary": [
+          "damals",
+          "plötzlich",
+          "des",
+          "der",
+          "wurde",
+          "blieb"
+        ],
+        "priorityErrors": [
+          "wrong Präteritum form",
+          "wrong genitive ending",
+          "switching tense mid-story"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "id": "en_de_m14_forms",
@@ -47011,6 +48799,74 @@
       ]
     },
     {
+      "id": "en_de_m14_speaking_check",
+      "title": "Checkpoint: the one that ...",
+      "storageKeyPrefix": "en_de_m14_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Gender from the noun, case from the job",
+          "text": "The relative pronoun matches the noun's **gender/number**, but takes its **case** from what it does inside its own clause (subject → Nom, object → Akk, receiver → Dat)."
+        },
+        {
+          "kind": "example",
+          "title": "Same noun, three cases",
+          "text": "Der Mann, **der** hier wohnt (Nom) · Der Mann, **den** ich sehe (Akk) · Der Mann, **dem** ich helfe (Dat)."
+        },
+        {
+          "kind": "warning",
+          "title": "Verb to the end + commas",
+          "text": "A relative clause is subordinate: the verb goes to the **end**, and commas fence the clause — Das ist der Mann, der hier **wohnt**."
+        },
+        {
+          "title": "They look like der/die/das",
+          "text": "Relative pronouns *are* the articles — only the dative plural **denen** and the genitive **dessen/deren** look different."
+        }
+      ],
+      "speaking": {
+        "topic": "Naming people and things with a short relative clause attached.",
+        "practisePoints": [
+          "The relative pronoun takes gender and number from the noun",
+          "Nominative and accusative pronouns: der, den, die, das",
+          "The verb at the end of the relative clause"
+        ],
+        "scoringCriteria": [
+          "gender and number of the pronoun",
+          "nominative vs accusative in the clause",
+          "the verb at the end"
+        ],
+        "targetVocabulary": [
+          "der",
+          "den",
+          "die",
+          "das",
+          "kennen"
+        ],
+        "priorityErrors": [
+          "wrong relative pronoun",
+          "verb not at the end"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m14_speak",
       "title": "Speak: definitions",
       "storageKeyPrefix": "en_de_m14_speak_",
@@ -47225,6 +49081,71 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en_de_m14_speaking",
+      "title": "Describe people and things in one long sentence",
+      "storageKeyPrefix": "en_de_m14_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Build long, connected descriptions. Copy the exercise into your AI assistant and turn on voice mode.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Gender from the noun, case from the job",
+          "text": "The relative pronoun matches the noun's **gender/number**, but takes its **case** from what it does inside its own clause (subject → Nom, object → Akk, receiver → Dat)."
+        },
+        {
+          "kind": "example",
+          "title": "Same noun, three cases",
+          "text": "Der Mann, **der** hier wohnt (Nom) · Der Mann, **den** ich sehe (Akk) · Der Mann, **dem** ich helfe (Dat)."
+        },
+        {
+          "kind": "warning",
+          "title": "Verb to the end + commas",
+          "text": "A relative clause is subordinate: the verb goes to the **end**, and commas fence the clause — Das ist der Mann, der hier **wohnt**."
+        },
+        {
+          "title": "They look like der/die/das",
+          "text": "Relative pronouns *are* the articles — only the dative plural **denen** and the genitive **dessen/deren** look different."
+        }
+      ],
+      "speaking": {
+        "topic": "People, places and things I know, described with clauses: the friend who ..., the city where ..., the film that ...",
+        "practisePoints": [
+          "The relative pronoun takes gender and number from the noun",
+          "Its case comes from its job inside the clause: der Mann, den ich kenne",
+          "Verb at the end of the relative clause",
+          "Relative clause after a preposition: die Stadt, in der ich wohne"
+        ],
+        "scoringCriteria": [
+          "gender and number of the pronoun",
+          "the case from its job in the clause",
+          "the verb at the end"
+        ],
+        "targetVocabulary": [
+          "der",
+          "den",
+          "dem",
+          "in dem",
+          "mit dem"
+        ],
+        "priorityErrors": [
+          "wrong relative pronoun",
+          "wrong case in the clause",
+          "verb not at the end"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "id": "en_de_m15_forms",
@@ -48119,6 +50040,74 @@
       ]
     },
     {
+      "id": "en_de_m15_speaking_check",
+      "title": "Checkpoint: what would you do?",
+      "storageKeyPrefix": "en_de_m15_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "würde + infinitive",
+          "text": "Most verbs: **würde** + infinitive — Ich **würde** gern kommen. sein/haben/modals have their own forms: **wäre, hätte, könnte, müsste, dürfte**."
+        },
+        {
+          "kind": "example",
+          "title": "Instantly polite",
+          "text": "**Könnten** Sie mir helfen? · Ich **hätte** gern einen Kaffee. · Das **wäre** nett. · Ich **möchte** zahlen."
+        },
+        {
+          "kind": "warning",
+          "title": "Reflexive: mich vs mir",
+          "text": "Accusative reflexive normally (Ich freue **mich**); switch to dative when there is already a direct object (Ich wasche **mir** **die Hände**)."
+        },
+        {
+          "title": "möchte = polite mögen",
+          "text": "**möchte** (\"would like\") is simply the Konjunktiv II of mögen — the everyday polite form."
+        }
+      ],
+      "speaking": {
+        "topic": "Quick hypotheticals: what I would do with more time, more money, another job.",
+        "practisePoints": [
+          "würde + infinitive at the end",
+          "wäre, hätte, könnte",
+          "Keeping the whole answer in Konjunktiv II"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv II form",
+          "the infinitive at the end",
+          "staying in the hypothetical"
+        ],
+        "targetVocabulary": [
+          "würde",
+          "wäre",
+          "hätte",
+          "könnte",
+          "wenn"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv II",
+          "wrong Konjunktiv form"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m15_reflexive",
       "title": "Reflexive verbs (mich vs mir)",
       "storageKeyPrefix": "en_de_m15_reflexive_",
@@ -48662,6 +50651,72 @@
           "hint": "würde + Infinitiv (ich)"
         }
       ]
+    },
+    {
+      "id": "en_de_m15_speaking",
+      "title": "Be polite, and imagine things",
+      "storageKeyPrefix": "en_de_m15_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Practise the polite, hypothetical German. Copy the exercise into your AI assistant and turn on voice mode.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "würde + infinitive",
+          "text": "Most verbs: **würde** + infinitive — Ich **würde** gern kommen. sein/haben/modals have their own forms: **wäre, hätte, könnte, müsste, dürfte**."
+        },
+        {
+          "kind": "example",
+          "title": "Instantly polite",
+          "text": "**Könnten** Sie mir helfen? · Ich **hätte** gern einen Kaffee. · Das **wäre** nett. · Ich **möchte** zahlen."
+        },
+        {
+          "kind": "warning",
+          "title": "Reflexive: mich vs mir",
+          "text": "Accusative reflexive normally (Ich freue **mich**); switch to dative when there is already a direct object (Ich wasche **mir** **die Hände**)."
+        },
+        {
+          "title": "möchte = polite mögen",
+          "text": "**möchte** (\"would like\") is simply the Konjunktiv II of mögen — the everyday polite form."
+        }
+      ],
+      "speaking": {
+        "topic": "Wishes, polite requests and hypotheticals: what I would do, what I would like, and how I ask for something politely.",
+        "practisePoints": [
+          "würde + infinitive: Ich würde gern nach Wien fahren.",
+          "wäre, hätte, könnte, müsste",
+          "Polite requests: Könnten Sie mir helfen?",
+          "Reflexive verbs: ich freue mich, ich wasche mir die Hände"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv II form",
+          "polite phrasing",
+          "mich vs mir with reflexive verbs"
+        ],
+        "targetVocabulary": [
+          "würde",
+          "wäre",
+          "hätte",
+          "könnte",
+          "sich freuen",
+          "sich vorstellen"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv II",
+          "wrong Konjunktiv form",
+          "mich and mir mixed up"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "id": "en_de_m16_present",
@@ -49541,6 +51596,75 @@
       ]
     },
     {
+      "id": "en_de_m16_speaking_check",
+      "title": "Checkpoint: it is being done",
+      "storageKeyPrefix": "en_de_m16_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "werden + participle",
+          "text": "Process passive = **werden** (position 2) + past participle at the end. The doer is unimportant or appears with **von**: Das Brot **wird** (vom Bäcker) **gebacken**."
+        },
+        {
+          "kind": "example",
+          "title": "Across the tenses",
+          "text": "Präsens: **wird** gebaut · Präteritum: **wurde** gebaut · Perfekt: **ist** gebaut **worden** · Futur/Modal: **muss** gebaut **werden**."
+        },
+        {
+          "kind": "warning",
+          "title": "Perfekt uses worden, not geworden",
+          "text": "In the passive Perfekt, werden's participle is bare **worden**: Der Brief ist geschrieben **worden** (not geworden)."
+        },
+        {
+          "title": "Quick alternatives",
+          "text": "**man** (Man spricht hier Deutsch), **sein** + participle for a finished state (Die Tür **ist** geöffnet), **sich lassen** (Das **lässt sich** machen)."
+        }
+      ],
+      "speaking": {
+        "topic": "Short passive statements about things around me: what is made, sold or repaired, now and in the past.",
+        "practisePoints": [
+          "Present passive: wird + participle",
+          "Past passive: wurde + participle",
+          "Leaving the doer out, or adding von + dative"
+        ],
+        "scoringCriteria": [
+          "the form of werden",
+          "the participle",
+          "present vs past passive"
+        ],
+        "targetVocabulary": [
+          "wird",
+          "wurde",
+          "gebaut",
+          "verkauft",
+          "von"
+        ],
+        "priorityErrors": [
+          "active instead of passive",
+          "wrong form of werden",
+          "wrong participle"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m16_alternatives",
       "title": "sein-passive & alternatives",
       "storageKeyPrefix": "en_de_m16_alternatives_",
@@ -50062,6 +52186,74 @@
           "hint": "essen → Partizip II"
         }
       ]
+    },
+    {
+      "id": "en_de_m16_speaking",
+      "title": "Explain how something is made",
+      "storageKeyPrefix": "en_de_m16_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Explain a process in the passive. Copy the exercise into your AI assistant and turn on voice mode.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "werden + participle",
+          "text": "Process passive = **werden** (position 2) + past participle at the end. The doer is unimportant or appears with **von**: Das Brot **wird** (vom Bäcker) **gebacken**."
+        },
+        {
+          "kind": "example",
+          "title": "Across the tenses",
+          "text": "Präsens: **wird** gebaut · Präteritum: **wurde** gebaut · Perfekt: **ist** gebaut **worden** · Futur/Modal: **muss** gebaut **werden**."
+        },
+        {
+          "kind": "warning",
+          "title": "Perfekt uses worden, not geworden",
+          "text": "In the passive Perfekt, werden's participle is bare **worden**: Der Brief ist geschrieben **worden** (not geworden)."
+        },
+        {
+          "title": "Quick alternatives",
+          "text": "**man** (Man spricht hier Deutsch), **sein** + participle for a finished state (Die Tür **ist** geöffnet), **sich lassen** (Das **lässt sich** machen)."
+        }
+      ],
+      "speaking": {
+        "topic": "How things are made and how processes work: a product, a dish, a procedure at work - the process, not the people.",
+        "practisePoints": [
+          "werden + participle, present and past: wird gebaut, wurde gebaut",
+          "Passive with modals: muss gemacht werden",
+          "The sein-passive for a finished state: Die Tür ist geschlossen.",
+          "Alternatives: man, sich lassen"
+        ],
+        "scoringCriteria": [
+          "the form of werden",
+          "the participle",
+          "process vs state passive",
+          "passive with a modal"
+        ],
+        "targetVocabulary": [
+          "wird",
+          "wurde",
+          "hergestellt",
+          "verarbeitet",
+          "man",
+          "sich lassen"
+        ],
+        "priorityErrors": [
+          "active instead of passive",
+          "wrong form of werden",
+          "sein and werden passive mixed up",
+          "wrong participle"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "en_de_m17_konjunktiv_i",
@@ -51201,6 +53393,74 @@
       ]
     },
     {
+      "id": "en_de_m17_speaking_check",
+      "title": "Checkpoint: he said that ...",
+      "storageKeyPrefix": "en_de_m17_speaking_check_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Konjunktiv I for reporting",
+          "text": "Formal/written reporting uses Konjunktiv I (er-form): er **sei**, er **habe**, er **gehe**, er **könne**. If it looks like the present, switch to Konjunktiv II (**würde** + infinitive)."
+        },
+        {
+          "kind": "example",
+          "title": "Direct → indirect",
+          "text": "„Ich **bin** krank.\" → Er sagt, er **sei** krank. · „Ich **habe** keine Zeit.\" → Sie sagt, sie **habe** keine Zeit."
+        },
+        {
+          "kind": "warning",
+          "title": "Partizip I vs II",
+          "text": "**Partizip I** (-end) = active/ongoing: das schlaf**ende** Kind. **Partizip II** = passive/finished: das gekoch**te** Essen. Both take normal adjective endings."
+        },
+        {
+          "title": "Advanced connectors",
+          "text": "**deshalb/darum** (therefore) + inversion · **trotzdem** (nevertheless) + inversion · **obwohl** (although) sends the verb to the end."
+        }
+      ],
+      "speaking": {
+        "topic": "Passing on what someone just said: I hear a short statement and report it to a third person.",
+        "practisePoints": [
+          "Konjunktiv I: er sei, er habe, er werde",
+          "Falling back on Konjunktiv II when the form looks like the indicative",
+          "Keeping the reported clause neutral"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv I form",
+          "the fallback to Konjunktiv II",
+          "a neutral report"
+        ],
+        "targetVocabulary": [
+          "sei",
+          "habe",
+          "werde",
+          "sagte",
+          "behaupte"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv I",
+          "wrong Konjunktiv form"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "en_de_m17_reading",
       "title": "Reading: In den Nachrichten",
       "storageKeyPrefix": "en_de_m17_reading_",
@@ -51495,6 +53755,75 @@
           "hint": "strahlend (mit einem … Lächeln, Dat n)"
         }
       ]
+    },
+    {
+      "id": "en_de_m17_speaking",
+      "title": "Report the news",
+      "storageKeyPrefix": "en_de_m17_speaking_",
+      "promptLabel": "Exercise",
+      "subjectsLabel": "Exercise",
+      "subjectColumnLabel": "Exercise",
+      "kind": "speaking",
+      "level": "B2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "Report what other people said, the way the news does. Copy the exercise into your AI assistant and turn on voice mode.",
+      "helpMemoryTips": [
+        {
+          "kind": "rule",
+          "title": "Konjunktiv I for reporting",
+          "text": "Formal/written reporting uses Konjunktiv I (er-form): er **sei**, er **habe**, er **gehe**, er **könne**. If it looks like the present, switch to Konjunktiv II (**würde** + infinitive)."
+        },
+        {
+          "kind": "example",
+          "title": "Direct → indirect",
+          "text": "„Ich **bin** krank.\" → Er sagt, er **sei** krank. · „Ich **habe** keine Zeit.\" → Sie sagt, sie **habe** keine Zeit."
+        },
+        {
+          "kind": "warning",
+          "title": "Partizip I vs II",
+          "text": "**Partizip I** (-end) = active/ongoing: das schlaf**ende** Kind. **Partizip II** = passive/finished: das gekoch**te** Essen. Both take normal adjective endings."
+        },
+        {
+          "title": "Advanced connectors",
+          "text": "**deshalb/darum** (therefore) + inversion · **trotzdem** (nevertheless) + inversion · **obwohl** (although) sends the verb to the end."
+        }
+      ],
+      "speaking": {
+        "topic": "News and what other people said: reporting a story, quoting someone, and staying neutral about whether it is true.",
+        "practisePoints": [
+          "Konjunktiv I for reported speech: Er sagte, er sei krank.",
+          "Falling back on Konjunktiv II when the form is ambiguous: sie hätten",
+          "Partizip I and II as adjectives: die steigenden Preise, die beschlossene Reform",
+          "Advanced connectors: obwohl, während, sodass, je ... desto"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv I form",
+          "the fallback to Konjunktiv II",
+          "participles used as adjectives",
+          "the connector and its word order"
+        ],
+        "targetVocabulary": [
+          "sei",
+          "habe",
+          "werde",
+          "obwohl",
+          "während",
+          "laut"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv I",
+          "wrong Konjunktiv form",
+          "wrong participle",
+          "wrong word order after a connector"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "quest_a1_1_zahlen",
@@ -52835,6 +55164,59 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_a1_1_sprechen_kurzcheck",
+      "title": "A1.1 · Kurzcheck: Zahlen & Vorstellung",
+      "storageKeyPrefix": "quest_a1_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "A quick round: my name, where I am from, my age and a few numbers.",
+        "practisePoints": [
+          "Numbers 0-100, said and understood",
+          "ich heisse / ich bin / ich komme aus",
+          "Answering W-Fragen with a full sentence"
+        ],
+        "scoringCriteria": [
+          "the number said correctly",
+          "the verb form",
+          "a full sentence as the answer"
+        ],
+        "targetVocabulary": [
+          "heißen",
+          "kommen aus",
+          "Jahre alt",
+          "die Nummer"
+        ],
+        "priorityErrors": [
+          "wrong number",
+          "wrong verb ending",
+          "one-word answers"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
     },
     {
       "id": "quest_a1_1_praesens",
@@ -54305,6 +56687,51 @@
         }
       ],
       "contextualLayout": true
+    },
+    {
+      "id": "quest_a1_1_sprechen_dialog",
+      "title": "A1.1 · Gespräch: Das bin ich",
+      "storageKeyPrefix": "quest_a1_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Introducing myself: my name, where I live, where I come from, my family, numbers and colours around me.",
+        "practisePoints": [
+          "Present-tense endings: ich heiße, du heißt, er wohnt",
+          "sein and haben: ich bin, ich habe",
+          "Answering W-Fragen: Wie? Wo? Woher? Wie alt?"
+        ],
+        "scoringCriteria": [
+          "the verb ending for the person",
+          "sein/haben forms",
+          "answering the question that was asked"
+        ],
+        "targetVocabulary": [
+          "heißen",
+          "wohnen",
+          "kommen aus",
+          "Jahre alt",
+          "die Familie"
+        ],
+        "priorityErrors": [
+          "wrong verb ending",
+          "wrong form of sein or haben",
+          "answering a different question"
+        ]
+      }
     },
     {
       "id": "quest_a1_2_akkusativ",
@@ -55901,6 +58328,59 @@
       "stripSentenceCue": true
     },
     {
+      "id": "quest_a1_2_sprechen_kurzcheck",
+      "title": "A1.2 · Kurzcheck: Akkusativ & Possessiv",
+      "storageKeyPrefix": "quest_a1_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "What I have and what I need today, and whose things they are.",
+        "practisePoints": [
+          "Accusative objects after haben and brauchen",
+          "Possessives: mein, meine, meinen",
+          "einen/eine/ein in the accusative"
+        ],
+        "scoringCriteria": [
+          "the accusative article",
+          "the possessive ending",
+          "the object after the verb"
+        ],
+        "targetVocabulary": [
+          "brauchen",
+          "haben",
+          "mein",
+          "meinen",
+          "einen"
+        ],
+        "priorityErrors": [
+          "nominative instead of accusative",
+          "wrong possessive ending"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_a1_2_datum",
       "title": "A1.2 · Wochentage & Monate",
       "storageKeyPrefix": "quest_a1_2_datum_",
@@ -57241,6 +59721,54 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_a1_2_sprechen_dialog",
+      "title": "A1.2 · Gespräch: Mein Alltag",
+      "storageKeyPrefix": "quest_a1_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "My everyday life: my daily routine, times and dates, what I buy, and what I can or must do.",
+        "practisePoints": [
+          "Accusative objects: Ich kaufe einen Apfel.",
+          "Possessives: mein, meine, meinen",
+          "Modal verbs with the infinitive at the end",
+          "Times and dates: um acht Uhr, am Montag"
+        ],
+        "scoringCriteria": [
+          "the accusative article",
+          "the possessive form",
+          "the infinitive at the end after a modal",
+          "time expressions"
+        ],
+        "targetVocabulary": [
+          "kaufen",
+          "brauchen",
+          "mein",
+          "um",
+          "am",
+          "müssen"
+        ],
+        "priorityErrors": [
+          "nominative instead of accusative",
+          "wrong possessive ending",
+          "infinitive not at the end"
+        ]
+      }
     },
     {
       "id": "quest_a2_1_perfekt_haben",
@@ -58761,6 +61289,59 @@
       ]
     },
     {
+      "id": "quest_a2_1_sprechen_kurzcheck",
+      "title": "A2.1 · Kurzcheck: Perfekt",
+      "storageKeyPrefix": "quest_a2_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "Single things I did yesterday, one sentence at a time.",
+        "practisePoints": [
+          "Perfekt with haben: the most common past in speech",
+          "Perfekt with sein for movement: gegangen, gefahren, gekommen",
+          "The participle at the end"
+        ],
+        "scoringCriteria": [
+          "the right helper",
+          "the participle form",
+          "the participle at the end"
+        ],
+        "targetVocabulary": [
+          "gemacht",
+          "gegangen",
+          "gefahren",
+          "gestern"
+        ],
+        "priorityErrors": [
+          "wrong helper",
+          "wrong participle",
+          "participle in the wrong position"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_a2_1_war_hatte",
       "title": "A2.1 · war & hatte (Präteritum)",
       "storageKeyPrefix": "quest_a2_1_war_hatte_",
@@ -59981,6 +62562,54 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_a2_1_sprechen_dialog",
+      "title": "A2.1 · Gespräch: Erlebnisse",
+      "storageKeyPrefix": "quest_a2_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Things I did recently: my weekend, a trip, a meal, and who I did it with or for.",
+        "practisePoints": [
+          "Perfekt with haben and sein, participle at the end",
+          "Dative for the receiver: Ich habe meiner Mutter geholfen.",
+          "Time expressions in the past: gestern, letzte Woche, danach"
+        ],
+        "scoringCriteria": [
+          "the right helper (haben or sein)",
+          "the participle form",
+          "the participle at the end",
+          "the dative for the receiver"
+        ],
+        "targetVocabulary": [
+          "gestern",
+          "letzte Woche",
+          "gefahren",
+          "gegessen",
+          "meiner",
+          "geholfen"
+        ],
+        "priorityErrors": [
+          "wrong helper",
+          "wrong participle",
+          "participle in the wrong position",
+          "accusative instead of dative"
+        ]
+      }
     },
     {
       "id": "quest_a2_2_wechsel_wo",
@@ -61447,6 +64076,59 @@
       ]
     },
     {
+      "id": "quest_a2_2_sprechen_kurzcheck",
+      "title": "A2.2 · Kurzcheck: Wo oder wohin?",
+      "storageKeyPrefix": "quest_a2_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "Where things are in the room I am in, and where they are going.",
+        "practisePoints": [
+          "Wo? + dative for a location",
+          "Wohin? + accusative for movement",
+          "The article after the preposition"
+        ],
+        "scoringCriteria": [
+          "dative for a location",
+          "accusative for movement",
+          "the article after the preposition"
+        ],
+        "targetVocabulary": [
+          "auf",
+          "in",
+          "neben",
+          "unter",
+          "stellen"
+        ],
+        "priorityErrors": [
+          "wrong case after a two-way preposition",
+          "wrong article"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_a2_2_gesundheit",
       "title": "A2.2 · Körper & Gesundheit",
       "storageKeyPrefix": "quest_a2_2_gesundheit_",
@@ -62577,6 +65259,52 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_a2_2_sprechen_dialog",
+      "title": "A2.2 · Gespräch: Beschreiben & Planen",
+      "storageKeyPrefix": "quest_a2_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "A2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Describing a place I know and planning something: where things are, where they go, and why I want to do what I plan.",
+        "practisePoints": [
+          "Wo? + dative vs Wohin? + accusative",
+          "weil and dass with the verb at the end",
+          "TeKaMoLo order: time before manner before place"
+        ],
+        "scoringCriteria": [
+          "dative for a location, accusative for movement",
+          "the verb at the end after weil/dass",
+          "the order of time, manner and place"
+        ],
+        "targetVocabulary": [
+          "auf",
+          "in",
+          "neben",
+          "weil",
+          "dass",
+          "deshalb"
+        ],
+        "priorityErrors": [
+          "wrong case after a two-way preposition",
+          "verb not at the end in a subordinate clause",
+          "wrong word order"
+        ]
+      }
     },
     {
       "id": "quest_b1_1_arbeit",
@@ -64173,6 +66901,59 @@
       ]
     },
     {
+      "id": "quest_b1_1_sprechen_kurzcheck",
+      "title": "B1.1 · Kurzcheck: Konjunktiv II",
+      "storageKeyPrefix": "quest_b1_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "Quick hypotheticals and polite requests.",
+        "practisePoints": [
+          "würde + infinitive at the end",
+          "wäre, hätte, könnte",
+          "A polite request instead of a plain order"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv II form",
+          "the infinitive at the end",
+          "politeness that fits the situation"
+        ],
+        "targetVocabulary": [
+          "würde",
+          "wäre",
+          "hätte",
+          "könnte",
+          "gern"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv II",
+          "wrong Konjunktiv form"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_b1_1_futur",
       "title": "B1.1 · Futur I",
       "storageKeyPrefix": "quest_b1_1_futur_",
@@ -65523,6 +68304,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_b1_1_sprechen_dialog",
+      "title": "B1.1 · Gespräch: Meinungen & Wünsche",
+      "storageKeyPrefix": "quest_b1_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "My opinions, wishes and plans: what I would change, what I would like, and what I think about something in the news.",
+        "practisePoints": [
+          "Konjunktiv II: würde, wäre, hätte, könnte",
+          "Adjective endings in the nominative, accusative and dative",
+          "Relative clauses: der Mann, der ...",
+          "Futur I for plans: Ich werde nächstes Jahr umziehen."
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv II form",
+          "the adjective ending",
+          "the relative pronoun and the verb at the end",
+          "a clear opinion with a reason"
+        ],
+        "targetVocabulary": [
+          "würde",
+          "wäre",
+          "hätte",
+          "meiner Meinung nach",
+          "der/die/das",
+          "werden"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv II",
+          "wrong adjective ending",
+          "wrong relative pronoun"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "id": "quest_b1_2_technik",
@@ -67019,6 +69852,59 @@
       ]
     },
     {
+      "id": "quest_b1_2_sprechen_kurzcheck",
+      "title": "B1.2 · Kurzcheck: Präteritum",
+      "storageKeyPrefix": "quest_b1_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "A short piece of narration: what happened, in the written past.",
+        "practisePoints": [
+          "Präteritum of sein, haben and the modals",
+          "Präteritum of common strong verbs: ging, kam, gab, fand",
+          "Staying in one tense across several sentences"
+        ],
+        "scoringCriteria": [
+          "the Präteritum form",
+          "strong verb stems",
+          "staying in one tense"
+        ],
+        "targetVocabulary": [
+          "war",
+          "hatte",
+          "ging",
+          "kam",
+          "damals"
+        ],
+        "priorityErrors": [
+          "wrong Präteritum form",
+          "switching to Perfekt mid-story"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_b1_2_n_deklination",
       "title": "B1.2 · n-Deklination",
       "storageKeyPrefix": "quest_b1_2_n_deklination_",
@@ -68237,6 +71123,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_b1_2_sprechen_dialog",
+      "title": "B1.2 · Gespräch: Erzählen & Begründen",
+      "storageKeyPrefix": "quest_b1_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Telling a story and explaining a process: something that happened to me, and how something is done where I live.",
+        "practisePoints": [
+          "Präteritum for narration: war, hatte, ging, wurde",
+          "werden-Passiv: Das Haus wurde gebaut.",
+          "um ... zu for purpose",
+          "Relative clauses in the dative: die Frau, der ich geholfen habe"
+        ],
+        "scoringCriteria": [
+          "the Präteritum form",
+          "the passive with werden",
+          "um ... zu with the infinitive at the end",
+          "staying in one tense"
+        ],
+        "targetVocabulary": [
+          "damals",
+          "plötzlich",
+          "wurde",
+          "um ... zu",
+          "deswegen"
+        ],
+        "priorityErrors": [
+          "wrong Präteritum form",
+          "active instead of passive",
+          "wrong case in the relative clause",
+          "switching tense mid-story"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "id": "quest_b2_1_gesellschaft",
@@ -69719,6 +72657,59 @@
       ]
     },
     {
+      "id": "quest_b2_1_sprechen_kurzcheck",
+      "title": "B2.1 · Kurzcheck: Konjunktiv I",
+      "storageKeyPrefix": "quest_b2_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "Passing on statements: I hear something short and report it onward.",
+        "practisePoints": [
+          "Konjunktiv I: er sei, er habe, er werde",
+          "The fallback to Konjunktiv II when the form is ambiguous",
+          "Reporting without taking a side"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv I form",
+          "the fallback to Konjunktiv II",
+          "a neutral report"
+        ],
+        "targetVocabulary": [
+          "sei",
+          "habe",
+          "werde",
+          "behaupten",
+          "laut"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv I",
+          "wrong Konjunktiv form"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_b2_1_partizip_adj",
       "title": "B2.1 · Partizip als Adjektiv",
       "storageKeyPrefix": "quest_b2_1_partizip_adj_",
@@ -70937,6 +73928,59 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_b2_1_sprechen_dialog",
+      "title": "B2.1 · Gespräch: Argumentieren",
+      "storageKeyPrefix": "quest_b2_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Arguing a position and reporting what others say: a debate about work, technology or the environment.",
+        "practisePoints": [
+          "Konjunktiv I for reported speech: Er sagt, er sei ...",
+          "Modal passive: Das kann gemacht werden.",
+          "Verbs with fixed prepositions: sich interessieren für, denken an",
+          "da- and wo-compounds: darüber, worauf"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv I form",
+          "the modal passive",
+          "the right preposition after the verb",
+          "a structured argument with a counterpoint"
+        ],
+        "targetVocabulary": [
+          "sei",
+          "behaupten",
+          "darüber",
+          "sich interessieren für",
+          "einerseits",
+          "andererseits"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv I",
+          "wrong preposition",
+          "passive built wrongly",
+          "wrong da-/wo-compound"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "quest_b2_2_umwelt",
@@ -72435,6 +75479,60 @@
       ]
     },
     {
+      "id": "quest_b2_2_sprechen_kurzcheck",
+      "title": "B2.2 · Kurzcheck: Irreale Vergangenheit",
+      "storageKeyPrefix": "quest_b2_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "Looking back at small decisions: what I would have done differently.",
+        "practisePoints": [
+          "hätte / wäre + participle for the irreal past",
+          "wenn-clauses in the irreal past",
+          "Keeping the whole answer in the irreal"
+        ],
+        "scoringCriteria": [
+          "the irreal past form",
+          "the participle",
+          "staying in the irreal"
+        ],
+        "targetVocabulary": [
+          "hätte",
+          "wäre",
+          "gemacht",
+          "wenn",
+          "anders"
+        ],
+        "priorityErrors": [
+          "present Konjunktiv II instead of the past",
+          "wrong participle",
+          "slipping into the indicative"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_b2_2_modalpartikeln",
       "title": "B2.2 · Modalpartikeln",
       "storageKeyPrefix": "quest_b2_2_modalpartikeln_",
@@ -73650,6 +76748,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_b2_2_sprechen_dialog",
+      "title": "B2.2 · Gespräch: Differenzieren",
+      "storageKeyPrefix": "quest_b2_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "B2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Looking back on decisions and weighing options: what I would have done differently, and how I see a complex issue.",
+        "practisePoints": [
+          "Konjunktiv II der Vergangenheit: Ich hätte das anders gemacht.",
+          "Genitive prepositions: trotz, wegen, während, aufgrund",
+          "Funktionsverbgefüge: eine Entscheidung treffen, zur Verfügung stehen",
+          "Modal particles: doch, mal, eigentlich, ja"
+        ],
+        "scoringCriteria": [
+          "the irreal past form",
+          "the case after a genitive preposition",
+          "natural use of a Funktionsverbgefüge",
+          "nuance rather than a flat statement"
+        ],
+        "targetVocabulary": [
+          "hätte",
+          "wäre",
+          "trotz",
+          "wegen",
+          "eigentlich",
+          "allerdings"
+        ],
+        "priorityErrors": [
+          "present Konjunktiv II instead of the past",
+          "wrong case after trotz/wegen/während",
+          "wrong participle in the irreal past"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "quest_c1_1_bildung",
@@ -75147,6 +78297,58 @@
       ]
     },
     {
+      "id": "quest_c1_1_sprechen_kurzcheck",
+      "title": "C1.1 · Kurzcheck: Nominalisierung",
+      "storageKeyPrefix": "quest_c1_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "The same idea said twice: once in a formal, noun-heavy register and once plainly with verbs.",
+        "practisePoints": [
+          "Nominalisation: die Durchführung, die Entwicklung, die Umsetzung",
+          "Verbalising a noun-heavy phrase back into a clause",
+          "The case inside a nominalised phrase"
+        ],
+        "scoringCriteria": [
+          "the nominalised form",
+          "the verbalised form",
+          "the case inside the phrase"
+        ],
+        "targetVocabulary": [
+          "die Durchführung",
+          "die Umsetzung",
+          "hinsichtlich",
+          "erfolgen"
+        ],
+        "priorityErrors": [
+          "wrong case in a nominalised phrase",
+          "register slipping mid-sentence"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_c1_1_konnektoren",
       "title": "C1.1 · Konnektoren (insofern/sofern/zumal)",
       "storageKeyPrefix": "quest_c1_1_konnektoren_",
@@ -76026,6 +79228,57 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_c1_1_sprechen_dialog",
+      "title": "C1.1 · Gespräch: Abstrahieren",
+      "storageKeyPrefix": "quest_c1_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C1.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Discussing an abstract topic - education, work, technology - and switching between a formal and a plain way of saying it.",
+        "practisePoints": [
+          "Nominalisation and back: die Durchführung des Projekts vs das Projekt durchführen",
+          "Passive alternatives: sein + zu, sich lassen, -bar",
+          "Advanced connectors: insofern, sofern, zumal, geschweige denn",
+          "Participial clauses: die vom Bund geförderten Projekte"
+        ],
+        "scoringCriteria": [
+          "the nominalised or verbalised form",
+          "a passive alternative used correctly",
+          "the connector and its word order",
+          "holding a consistent register"
+        ],
+        "targetVocabulary": [
+          "hinsichtlich",
+          "lässt sich",
+          "insofern",
+          "zumal",
+          "die Durchführung"
+        ],
+        "priorityErrors": [
+          "register slipping mid-sentence",
+          "wrong case in a nominalised phrase",
+          "wrong word order after an advanced connector"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "quest_c1_2_kultur",
@@ -77517,6 +80770,59 @@
       ]
     },
     {
+      "id": "quest_c1_2_sprechen_kurzcheck",
+      "title": "C1.2 · Kurzcheck: Subjektive Modalverben",
+      "storageKeyPrefix": "quest_c1_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "How sure am I? Short claims, each hedged to the degree I actually believe it.",
+        "practisePoints": [
+          "Inference: dürfte, müsste, könnte",
+          "Hearsay: soll, will",
+          "Matching the modal to how certain I am"
+        ],
+        "scoringCriteria": [
+          "the subjective modal",
+          "the degree of certainty it signals",
+          "hedging that matches the claim"
+        ],
+        "targetVocabulary": [
+          "dürfte",
+          "soll",
+          "will",
+          "angeblich",
+          "vermutlich"
+        ],
+        "priorityErrors": [
+          "objective modal where a subjective one was meant",
+          "wrong degree of certainty"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_c1_2_redewendungen",
       "title": "C1.2 · Redewendungen",
       "storageKeyPrefix": "quest_c1_2_redewendungen_",
@@ -78398,6 +81704,57 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_c1_2_sprechen_dialog",
+      "title": "C1.2 · Gespräch: Nuancieren",
+      "storageKeyPrefix": "quest_c1_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C1.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "Talking about culture and the media, with judgements hedged: how sure I am, where I heard it, and what I only suspect.",
+        "practisePoints": [
+          "Subjective modals for inference: Er dürfte recht haben.",
+          "Subjective modals for hearsay: Sie will das gesehen haben.",
+          "Word formation: prefixes and suffixes that shift meaning",
+          "Idioms used naturally, not decoratively"
+        ],
+        "scoringCriteria": [
+          "the subjective modal and what it implies",
+          "hedging that matches how sure I am",
+          "idioms used in the right place",
+          "cohesion across turns"
+        ],
+        "targetVocabulary": [
+          "dürfte",
+          "mag sein",
+          "angeblich",
+          "vermutlich",
+          "nach allem, was man hört"
+        ],
+        "priorityErrors": [
+          "objective modal where a subjective one was meant",
+          "wrong degree of certainty",
+          "idiom used wrongly"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "quest_c2_1_wirtschaft",
@@ -79883,6 +83240,58 @@
       ]
     },
     {
+      "id": "quest_c2_1_sprechen_kurzcheck",
+      "title": "C2.1 · Kurzcheck: Register",
+      "storageKeyPrefix": "quest_c2_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "One short message, said twice: once to a committee, once to a friend.",
+        "practisePoints": [
+          "Formal register: full forms, nominal style, hedging",
+          "Colloquial register: particles, ellipsis, short clauses",
+          "Switching cleanly on request, without mixing the two"
+        ],
+        "scoringCriteria": [
+          "the register asked for",
+          "consistency inside one turn",
+          "the switch made cleanly"
+        ],
+        "targetVocabulary": [
+          "gleichwohl",
+          "salopp gesagt",
+          "im Übrigen",
+          "echt jetzt"
+        ],
+        "priorityErrors": [
+          "register slipping",
+          "formal and colloquial mixed in one sentence"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_c2_1_konnotation",
       "title": "C2.1 · Konnotation & Wortwahl",
       "storageKeyPrefix": "quest_c2_1_konnotation_",
@@ -80762,6 +84171,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_c2_1_sprechen_dialog",
+      "title": "C2.1 · Gespräch: Stilsicherheit",
+      "storageKeyPrefix": "quest_c2_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C2.1",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "One subject, two registers: discussing something seriously, then saying the same thing the way you would to a friend.",
+        "practisePoints": [
+          "Switching register on request: formal to colloquial and back",
+          "Strong collocations: eine Entscheidung fällen, Kritik üben",
+          "The journalistic Konjunktiv I in longer reported passages",
+          "Rhetorical devices: understatement, rhetorical questions"
+        ],
+        "scoringCriteria": [
+          "the register asked for",
+          "collocations a native speaker would use",
+          "sustained reported speech",
+          "the effect of the rhetorical choice"
+        ],
+        "targetVocabulary": [
+          "Kritik üben",
+          "in Frage stellen",
+          "gleichwohl",
+          "mitnichten",
+          "salopp gesagt"
+        ],
+        "priorityErrors": [
+          "register slipping",
+          "a collocation that does not exist",
+          "reported speech falling back to the indicative"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "quest_c2_2_philosophie",
@@ -82166,6 +85627,58 @@
       ]
     },
     {
+      "id": "quest_c2_2_sprechen_kurzcheck",
+      "title": "C2.2 · Kurzcheck: Andeutung & Ironie",
+      "storageKeyPrefix": "quest_c2_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+      "helpMemoryTips": [
+        {
+          "title": "A short checkpoint, not an exam",
+          "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+        }
+      ],
+      "speaking": {
+        "topic": "Saying things without saying them: implying, understating, and signalling irony.",
+        "practisePoints": [
+          "Implying rather than stating outright",
+          "Understatement and its markers",
+          "Signalling irony so it lands"
+        ],
+        "scoringCriteria": [
+          "the implication actually landing",
+          "control of the ironic register",
+          "precision of expression"
+        ],
+        "targetVocabulary": [
+          "bezeichnenderweise",
+          "gewissermaßen",
+          "nicht gerade",
+          "man könnte meinen"
+        ],
+        "priorityErrors": [
+          "an implication that does not land",
+          "irony read as a plain statement"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "id": "quest_c2_2_lesen_essay",
       "title": "C2.2 · Lesen: Essay",
       "storageKeyPrefix": "quest_c2_2_lesen_essay_",
@@ -82863,6 +86376,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "quest_c2_2_sprechen_dialog",
+      "title": "C2.2 · Gespräch: Meisterschaft",
+      "storageKeyPrefix": "quest_c2_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "kind": "speaking",
+      "level": "C2.2",
+      "subjects": [],
+      "categories": [],
+      "sentences": [],
+      "helpMemoryIntro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+      "helpMemoryTips": [
+        {
+          "title": "Let it be a conversation",
+          "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+        }
+      ],
+      "speaking": {
+        "topic": "The capstone conversation: an abstract or contested subject, discussed at full speed - including what is implied rather than said.",
+        "practisePoints": [
+          "Implication and allusion rather than plain statement",
+          "Wordplay and irony, and signalling when you mean them",
+          "Dense subordination held together across long turns",
+          "Reacting to a counter-argument without losing the thread"
+        ],
+        "scoringCriteria": [
+          "precision of expression",
+          "handling of implication and irony",
+          "control of long, subordinated sentences",
+          "engaging with the counter-argument"
+        ],
+        "targetVocabulary": [
+          "gleichsam",
+          "bezeichnenderweise",
+          "im Grunde genommen",
+          "nicht zuletzt",
+          "zugegebenermaßen"
+        ],
+        "priorityErrors": [
+          "losing the thread of a long sentence",
+          "an implication that does not land",
+          "a grammatical slip under speed"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "id": "es_de_hablar_basico",
@@ -186045,6 +189610,9 @@
                 "ref": "en_de_m1_word_order"
               },
               {
+                "ref": "en_de_m1_speaking_check"
+              },
+              {
                 "ref": "en_de_m1_questions"
               },
               {
@@ -186055,6 +189623,9 @@
               },
               {
                 "ref": "en_de_m1_dictation"
+              },
+              {
+                "ref": "en_de_m1_speaking"
               }
             ]
           },
@@ -186076,6 +189647,9 @@
                 "ref": "en_de_m2_ein"
               },
               {
+                "ref": "en_de_m2_speaking_check"
+              },
+              {
                 "ref": "en_de_m2_pronouns"
               },
               {
@@ -186086,6 +189660,9 @@
               },
               {
                 "ref": "en_de_m2_bigtext"
+              },
+              {
+                "ref": "en_de_m2_speaking"
               }
             ]
           },
@@ -186107,6 +189684,9 @@
                 "ref": "en_de_m3_pronomen"
               },
               {
+                "ref": "en_de_m3_speaking_check"
+              },
+              {
                 "ref": "en_de_m3_praepositionen"
               },
               {
@@ -186117,6 +189697,9 @@
               },
               {
                 "ref": "en_de_m3_lesen"
+              },
+              {
+                "ref": "en_de_m3_speaking"
               }
             ]
           },
@@ -186138,6 +189721,9 @@
                 "ref": "en_de_m4_verbs"
               },
               {
+                "ref": "en_de_m4_speaking_check"
+              },
+              {
                 "ref": "en_de_m4_prepositions"
               },
               {
@@ -186148,6 +189734,9 @@
               },
               {
                 "ref": "en_de_m4_bigtext"
+              },
+              {
+                "ref": "en_de_m4_speaking"
               }
             ]
           },
@@ -186169,6 +189758,9 @@
                 "ref": "en_de_m5_produce"
               },
               {
+                "ref": "en_de_m5_speaking_check"
+              },
+              {
                 "ref": "en_de_m5_bigtext"
               },
               {
@@ -186176,6 +189768,9 @@
               },
               {
                 "ref": "en_de_m5_listening"
+              },
+              {
+                "ref": "en_de_m5_speaking"
               }
             ]
           },
@@ -186197,6 +189792,9 @@
                 "ref": "en_de_m6_wo"
               },
               {
+                "ref": "en_de_m6_speaking_check"
+              },
+              {
                 "ref": "en_de_m6_mixed"
               },
               {
@@ -186207,6 +189805,9 @@
               },
               {
                 "ref": "en_de_m6_bigtext"
+              },
+              {
+                "ref": "en_de_m6_speaking"
               }
             ]
           },
@@ -186228,6 +189829,9 @@
                 "ref": "en_de_m7_der_akk"
               },
               {
+                "ref": "en_de_m7_speaking_check"
+              },
+              {
                 "ref": "en_de_m7_ein_nom"
               },
               {
@@ -186238,6 +189842,9 @@
               },
               {
                 "ref": "en_de_m7_bigtext"
+              },
+              {
+                "ref": "en_de_m7_speaking"
               }
             ]
           },
@@ -186259,6 +189866,9 @@
                 "ref": "en_de_m8_haben_sein"
               },
               {
+                "ref": "en_de_m8_speaking_check"
+              },
+              {
                 "ref": "en_de_m8_word_order"
               },
               {
@@ -186269,6 +189879,9 @@
               },
               {
                 "ref": "en_de_m8_listening"
+              },
+              {
+                "ref": "en_de_m8_speaking"
               }
             ]
           },
@@ -186290,6 +189903,9 @@
                 "ref": "en_de_m9_separable"
               },
               {
+                "ref": "en_de_m9_speaking_check"
+              },
+              {
                 "ref": "en_de_m9_imperative"
               },
               {
@@ -186300,6 +189916,9 @@
               },
               {
                 "ref": "en_de_m9_bigtext"
+              },
+              {
+                "ref": "en_de_m9_speaking"
               }
             ]
           },
@@ -186321,6 +189940,9 @@
                 "ref": "en_de_m10_reading"
               },
               {
+                "ref": "en_de_m10_speaking_check"
+              },
+              {
                 "ref": "en_de_m10_speak"
               },
               {
@@ -186328,6 +189950,9 @@
               },
               {
                 "ref": "en_de_m10_bigtext"
+              },
+              {
+                "ref": "en_de_m10_speaking"
               }
             ]
           },
@@ -186349,6 +189974,9 @@
                 "ref": "en_de_m11_dass"
               },
               {
+                "ref": "en_de_m11_speaking_check"
+              },
+              {
                 "ref": "en_de_m11_wenn"
               },
               {
@@ -186359,6 +189987,9 @@
               },
               {
                 "ref": "en_de_m11_bigtext"
+              },
+              {
+                "ref": "en_de_m11_speaking"
               }
             ]
           },
@@ -186380,6 +190011,9 @@
                 "ref": "en_de_m12_strong"
               },
               {
+                "ref": "en_de_m12_speaking_check"
+              },
+              {
                 "ref": "en_de_m12_sentences"
               },
               {
@@ -186390,6 +190024,9 @@
               },
               {
                 "ref": "en_de_m12_bigtext"
+              },
+              {
+                "ref": "en_de_m12_speaking"
               }
             ]
           },
@@ -186411,6 +190048,9 @@
                 "ref": "en_de_m13_n_declension"
               },
               {
+                "ref": "en_de_m13_speaking_check"
+              },
+              {
                 "ref": "en_de_m13_praeteritum"
               },
               {
@@ -186421,6 +190061,9 @@
               },
               {
                 "ref": "en_de_m13_bigtext"
+              },
+              {
+                "ref": "en_de_m13_speaking"
               }
             ]
           },
@@ -186442,6 +190085,9 @@
                 "ref": "en_de_m14_preposition"
               },
               {
+                "ref": "en_de_m14_speaking_check"
+              },
+              {
                 "ref": "en_de_m14_speak"
               },
               {
@@ -186449,6 +190095,9 @@
               },
               {
                 "ref": "en_de_m14_bigtext"
+              },
+              {
+                "ref": "en_de_m14_speaking"
               }
             ]
           },
@@ -186470,6 +190119,9 @@
                 "ref": "en_de_m15_polite"
               },
               {
+                "ref": "en_de_m15_speaking_check"
+              },
+              {
                 "ref": "en_de_m15_reflexive"
               },
               {
@@ -186480,6 +190132,9 @@
               },
               {
                 "ref": "en_de_m15_bigtext"
+              },
+              {
+                "ref": "en_de_m15_speaking"
               }
             ]
           },
@@ -186501,6 +190156,9 @@
                 "ref": "en_de_m16_modals"
               },
               {
+                "ref": "en_de_m16_speaking_check"
+              },
+              {
                 "ref": "en_de_m16_alternatives"
               },
               {
@@ -186511,6 +190169,9 @@
               },
               {
                 "ref": "en_de_m16_bigtext"
+              },
+              {
+                "ref": "en_de_m16_speaking"
               }
             ]
           },
@@ -186535,6 +190196,9 @@
                 "ref": "en_de_m17_connectors"
               },
               {
+                "ref": "en_de_m17_speaking_check"
+              },
+              {
                 "ref": "en_de_m17_reading"
               },
               {
@@ -186545,6 +190209,9 @@
               },
               {
                 "ref": "en_de_m17_bigtext"
+              },
+              {
+                "ref": "en_de_m17_speaking"
               }
             ]
           },

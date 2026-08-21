@@ -10,25 +10,29 @@ const List<HelpMemoryTip> _caseTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'Three jobs, three questions',
-    text: '**Wer?** → the doer → Nominativ. **Wen?/Was?** → the direct object → '
+    text:
+        '**Wer?** → the doer → Nominativ. **Wen?/Was?** → the direct object → '
         'Akkusativ. **Wem?** → the receiver → Dativ.',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'Wer – Wen – Wem',
-    text: 'The question word carries the case: We**r** (Nom), We**n** (Akk), '
+    text:
+        'The question word carries the case: We**r** (Nom), We**n** (Akk), '
         'We**m** (Dat) — same order as Nom → Akk → Dat.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'der masculine across the cases',
-    text: '**der** Mann (Nom) → **den** Mann (Akk) → **dem** Mann (Dat). The '
+    text:
+        '**der** Mann (Nom) → **den** Mann (Akk) → **dem** Mann (Dat). The '
         'masculine is where all three show up most clearly.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Same word, different job',
-    text: '**der** Vater (Wer? → Nom) vs **der** Mutter (Wem? → Dat): identical '
+    text:
+        '**der** Vater (Wer? → Nom) vs **der** Mutter (Wem? → Dat): identical '
         'word "der", opposite case. Read the job, not the word.',
   ),
 ];
@@ -59,7 +63,8 @@ final QuizContent enDeM5Questions = enDeBigText(
       'weekend and only answers the teacher after a long, awkward pause. The '
       'other children giggle quietly. Then the (female) teacher comes in and '
       'helps the child in the front row, who has lost their glasses.',
-  intro: 'For each marked phrase, choose the question that finds it: Wer? (the '
+  intro:
+      'For each marked phrase, choose the question that finds it: Wer? (the '
       'doer), Wen? (the direct object), Wem? (the receiver).',
   tips: _caseTips,
 );
@@ -89,7 +94,8 @@ final QuizContent enDeM5Cases = enDeBigText(
       'face and thanks his mother at least three times. But after only two '
       'minutes the ice cream falls splat on the ground — and the little man '
       'cries bitterly.',
-  intro: 'Now name the case of each marked phrase: Nominativ (doer), Akkusativ '
+  intro:
+      'Now name the case of each marked phrase: Nominativ (doer), Akkusativ '
       '(object) or Dativ (receiver). Note "Das Eis" in the last sentence is the '
       'subject — Nominativ.',
   tips: _caseTips,
@@ -120,7 +126,8 @@ final QuizContent enDeM5Both = enDeBigText(
       'good appetite. The guest tries it carefully, smiles contentedly, and at '
       'the end gives the waiter a generous tip. That way the work is fun even '
       'on a long evening.',
-  intro: 'Put it together: pick the question and the case for each marked '
+  intro:
+      'Put it together: pick the question and the case for each marked '
       'phrase.',
   tips: _caseTips,
 );
@@ -135,25 +142,68 @@ const List<String> _wqCase = [
 final QuizContent enDeM5Produce = enDeFill(
   id: 'en_de_m5_produce',
   title: 'Produce the article (all cases)',
-  intro: 'Now you supply the article. Work out the job first (doer / object / '
+  intro:
+      'Now you supply the article. Work out the job first (doer / object / '
       'receiver), then choose der/die/das, den/die/das or dem/der/dem.',
   tips: _caseTips,
   items: const [
-    CourseItem(prompt: 'The man is nice. (Nom, der Mann)', answer: '**Der** Mann ist nett'),
+    CourseItem(
+      prompt: 'The man is nice. (Nom, der Mann)',
+      answer: '**Der** Mann ist nett',
+    ),
     CourseItem(prompt: 'I see the man. (Akk)', answer: 'Ich sehe **den** Mann'),
-    CourseItem(prompt: 'I help the man. (Dat)', answer: 'Ich helfe **dem** Mann'),
-    CourseItem(prompt: 'I see the woman. (Akk, die Frau)', answer: 'Ich sehe **die** Frau'),
-    CourseItem(prompt: 'I give the woman the book. (Dat)', answer: 'Ich gebe **der** Frau das Buch'),
-    CourseItem(prompt: 'The child plays. (Nom, das Kind)', answer: '**Das** Kind spielt'),
-    CourseItem(prompt: 'I give the child a toy. (Dat)', answer: 'Ich gebe **dem** Kind ein Spielzeug'),
-    CourseItem(prompt: 'I see the child. (Akk)', answer: 'Ich sehe **das** Kind'),
-    CourseItem(prompt: 'The woman sings. (Nom, die Frau)', answer: '**Die** Frau singt'),
-    CourseItem(prompt: 'I thank the woman. (Dat)', answer: 'Ich danke **der** Frau'),
-    CourseItem(prompt: 'The dog sleeps. (Nom, der Hund)', answer: '**Der** Hund schläft'),
-    CourseItem(prompt: 'I feed the dog. (füttern, Akk)', answer: 'Ich füttere **den** Hund'),
-    CourseItem(prompt: 'The food belongs to the dog. (Dat)', answer: 'Das Futter gehört **dem** Hund'),
-    CourseItem(prompt: 'We give the children chocolate. (Dat, pl)', answer: 'Wir geben **den** Kindern Schokolade'),
-    CourseItem(prompt: 'I buy the book. (Akk, das Buch)', answer: 'Ich kaufe **das** Buch'),
+    CourseItem(
+      prompt: 'I help the man. (Dat)',
+      answer: 'Ich helfe **dem** Mann',
+    ),
+    CourseItem(
+      prompt: 'I see the woman. (Akk, die Frau)',
+      answer: 'Ich sehe **die** Frau',
+    ),
+    CourseItem(
+      prompt: 'I give the woman the book. (Dat)',
+      answer: 'Ich gebe **der** Frau das Buch',
+    ),
+    CourseItem(
+      prompt: 'The child plays. (Nom, das Kind)',
+      answer: '**Das** Kind spielt',
+    ),
+    CourseItem(
+      prompt: 'I give the child a toy. (Dat)',
+      answer: 'Ich gebe **dem** Kind ein Spielzeug',
+    ),
+    CourseItem(
+      prompt: 'I see the child. (Akk)',
+      answer: 'Ich sehe **das** Kind',
+    ),
+    CourseItem(
+      prompt: 'The woman sings. (Nom, die Frau)',
+      answer: '**Die** Frau singt',
+    ),
+    CourseItem(
+      prompt: 'I thank the woman. (Dat)',
+      answer: 'Ich danke **der** Frau',
+    ),
+    CourseItem(
+      prompt: 'The dog sleeps. (Nom, der Hund)',
+      answer: '**Der** Hund schläft',
+    ),
+    CourseItem(
+      prompt: 'I feed the dog. (füttern, Akk)',
+      answer: 'Ich füttere **den** Hund',
+    ),
+    CourseItem(
+      prompt: 'The food belongs to the dog. (Dat)',
+      answer: 'Das Futter gehört **dem** Hund',
+    ),
+    CourseItem(
+      prompt: 'We give the children chocolate. (Dat, pl)',
+      answer: 'Wir geben **den** Kindern Schokolade',
+    ),
+    CourseItem(
+      prompt: 'I buy the book. (Akk, das Buch)',
+      answer: 'Ich kaufe **das** Buch',
+    ),
   ],
 );
 
@@ -195,7 +245,8 @@ final QuizContent enDeM5BigText = enDeBigText(
       'doing so. The dog is called Bello and wags with his whole body for joy. '
       'In the evening, when everyone comes home tired, the father cooks a big '
       'dinner and gives the mother the first, full plate.',
-  intro: 'Choose the case for each marked phrase — and for the last one, type '
+  intro:
+      'Choose the case for each marked phrase — and for the last one, type '
       'the article. Watch the trick: "der Vater" (Wer? → Nominativ) vs "der '
       'Mutter" (Wem? → Dativ) — same word, different job.',
   tips: _caseTips,
@@ -204,32 +255,73 @@ final QuizContent enDeM5BigText = enDeBigText(
 final QuizContent enDeM5Dictation = enDeDict(
   id: 'en_de_m5_dictation',
   title: 'Dictation: mixed cases',
-  intro: 'Listen and type each sentence. Every article ending counts — catch '
+  intro:
+      'Listen and type each sentence. Every article ending counts — catch '
       'der/die/das, den, and dem.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'Endings carry the case',
-      text: 'den (Akk m) vs dem (Dat m/n) vs der (Nom m / Dat f) — the ending '
+      text:
+          'den (Akk m) vs dem (Dat m/n) vs der (Nom m / Dat f) — the ending '
           'tells you the job. Listen carefully.',
     ),
   ],
   items: const [
-    CourseItem(prompt: 'I give the man the book.', answer: 'Ich gebe dem Mann das Buch.'),
-    CourseItem(prompt: 'The woman sees the child.', answer: 'Die Frau sieht das Kind.'),
+    CourseItem(
+      prompt: 'I give the man the book.',
+      answer: 'Ich gebe dem Mann das Buch.',
+    ),
+    CourseItem(
+      prompt: 'The woman sees the child.',
+      answer: 'Die Frau sieht das Kind.',
+    ),
     CourseItem(prompt: 'I help the friend.', answer: 'Ich helfe dem Freund.'),
-    CourseItem(prompt: 'The dog belongs to the child.', answer: 'Der Hund gehört dem Kind.'),
-    CourseItem(prompt: 'We buy the children an ice cream.', answer: 'Wir kaufen den Kindern ein Eis.'),
-    CourseItem(prompt: 'The teacher asks the pupil.', answer: 'Der Lehrer fragt den Schüler.'),
-    CourseItem(prompt: 'She gives the man the key.', answer: 'Sie gibt dem Mann den Schlüssel.'),
-    CourseItem(prompt: 'The mother buys the son an ice cream.', answer: 'Die Mutter kauft dem Sohn ein Eis.'),
+    CourseItem(
+      prompt: 'The dog belongs to the child.',
+      answer: 'Der Hund gehört dem Kind.',
+    ),
+    CourseItem(
+      prompt: 'We buy the children an ice cream.',
+      answer: 'Wir kaufen den Kindern ein Eis.',
+    ),
+    CourseItem(
+      prompt: 'The teacher asks the pupil.',
+      answer: 'Der Lehrer fragt den Schüler.',
+    ),
+    CourseItem(
+      prompt: 'She gives the man the key.',
+      answer: 'Sie gibt dem Mann den Schlüssel.',
+    ),
+    CourseItem(
+      prompt: 'The mother buys the son an ice cream.',
+      answer: 'Die Mutter kauft dem Sohn ein Eis.',
+    ),
     CourseItem(prompt: 'I thank the woman.', answer: 'Ich danke der Frau.'),
-    CourseItem(prompt: 'The waiter brings the guest the soup.', answer: 'Der Kellner bringt dem Gast die Suppe.'),
-    CourseItem(prompt: 'The child sees the dog.', answer: 'Das Kind sieht den Hund.'),
-    CourseItem(prompt: 'He shows the tourist the way.', answer: 'Er zeigt dem Touristen den Weg.'),
-    CourseItem(prompt: 'The father cooks the family a dinner.', answer: 'Der Vater kocht der Familie ein Abendessen.'),
-    CourseItem(prompt: 'I write the friend a letter.', answer: 'Ich schreibe dem Freund einen Brief.'),
-    CourseItem(prompt: 'The book pleases the teacher.', answer: 'Das Buch gefällt dem Lehrer.'),
+    CourseItem(
+      prompt: 'The waiter brings the guest the soup.',
+      answer: 'Der Kellner bringt dem Gast die Suppe.',
+    ),
+    CourseItem(
+      prompt: 'The child sees the dog.',
+      answer: 'Das Kind sieht den Hund.',
+    ),
+    CourseItem(
+      prompt: 'He shows the tourist the way.',
+      answer: 'Er zeigt dem Touristen den Weg.',
+    ),
+    CourseItem(
+      prompt: 'The father cooks the family a dinner.',
+      answer: 'Der Vater kocht der Familie ein Abendessen.',
+    ),
+    CourseItem(
+      prompt: 'I write the friend a letter.',
+      answer: 'Ich schreibe dem Freund einen Brief.',
+    ),
+    CourseItem(
+      prompt: 'The book pleases the teacher.',
+      answer: 'Das Buch gefällt dem Lehrer.',
+    ),
   ],
 );
 
@@ -243,7 +335,8 @@ final QuizContent enDeM5Listening = enDeListen(
   passageTranslation:
       'Anna gives her brother a present. The brother thanks Anna and gives her '
       'a card. Then Anna helps the mother in the kitchen.',
-  intro: 'Listen to the little story (you will not see the text) and answer. '
+  intro:
+      'Listen to the little story (you will not see the text) and answer. '
       'You have to track who is the doer, the object and the receiver.',
   tips: _caseTips,
   questions: const [
@@ -269,12 +362,74 @@ final QuizContent enDeM5Listening = enDeListen(
 );
 
 /// M5 — Putting the Cases Together, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM5Speaking = enDeSpeaking(
+  id: 'en_de_m5_speaking',
+  title: 'All three cases in one conversation',
+  level: 'A2',
+  topic:
+      'An ordinary day with people and things in it: who does what, to whom, and with what.',
+  practisePoints: [
+    'Nominative for the subject (Wer?)',
+    'Accusative for the direct object (Wen? Was?)',
+    'Dative for the receiver (Wem?)',
+    'All three in one sentence: Der Mann gibt dem Kind den Ball.',
+  ],
+  targetVocabulary: ['geben', 'zeigen', 'kaufen', 'dem', 'den', 'der'],
+  scoringCriteria: [
+    'the case each phrase needs',
+    'the article for that case',
+    'subject and objects in one sentence',
+  ],
+  priorityErrors: [
+    'wrong case',
+    'wrong article for the case',
+    'objects swapped',
+  ],
+  intro:
+      'The integration exercise: all three cases while you talk. Copy it into your AI assistant, turn on voice mode, and keep the roles straight.',
+  tips: _caseTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM5SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m5_speaking_check',
+  title: 'Checkpoint: which case is it?',
+  level: 'A2',
+  topic:
+      'Short sentences about an ordinary day, and naming the job each part of the sentence does.',
+  practisePoints: [
+    'Wer? for the subject, Wen? for the object, Wem? for the receiver',
+    'Naming the case: Nominativ, Akkusativ, Dativ',
+    'Matching the question word to the case',
+  ],
+  targetVocabulary: ['wer', 'wen', 'wem', 'der Nominativ', 'der Akkusativ'],
+  scoringCriteria: [
+    'the right question word',
+    'the right case name',
+    'the reason for the case',
+  ],
+  priorityErrors: ['wrong question word', 'wrong case name'],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _caseTips,
+);
+
 final List<QuizContent> enDeM5 = [
   enDeM5Questions,
   enDeM5Cases,
   enDeM5Both,
   enDeM5Produce,
+  enDeM5SpeakingCheck,
   enDeM5BigText,
   enDeM5Dictation,
   enDeM5Listening,
+  enDeM5Speaking,
 ];

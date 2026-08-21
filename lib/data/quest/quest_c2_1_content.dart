@@ -15,56 +15,117 @@ final QuizContent questC21WirtschaftContent = sentenceQuestQuiz(
   subjectColumnLabel: 'English',
   categoryLabel: 'Fachwortschatz',
   contextualLayout: true,
-  intro: 'Specialist vocabulary from economics and law — the register of '
+  intro:
+      'Specialist vocabulary from economics and law — the register of '
       'broadsheet journalism and GDS texts.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Specialist nouns',
-      text: 'die Konjunktur (economic situation), die Rendite (yield), das '
+      text:
+          'die Konjunktur (economic situation), die Rendite (yield), das '
           'Gesetz (law), die Verordnung (regulation), der Vertrag (contract).',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Precise, not vague',
-      text: 'C2 distinguishes near-synonyms: Gesetz (statute) ≠ Verordnung '
+      text:
+          'C2 distinguishes near-synonyms: Gesetz (statute) ≠ Verordnung '
           '(regulation) ≠ Vertrag (contract).',
     ),
   ],
   items: [
-    qsi('Die ____ hat sich im letzten Quartal erholt. (economy/business cycle)',
-        'Konjunktur', 'The economy recovered in the last quarter.',
-        'business cycle'),
-    qsi('Der Bundestag verabschiedete ein neues ____. (law)', 'Gesetz',
-        'Parliament passed a new law.', 'law'),
-    qsi('Beide Parteien unterzeichneten den ____. (contract)', 'Vertrag',
-        'Both parties signed the contract.', 'contract'),
-    qsi('Die ____ der Anlage lag bei drei Prozent. (yield/return)', 'Rendite',
-        'The yield of the investment was three percent.', 'yield'),
-    qsi('Eine neue ____ regelt den Datenschutz. (regulation)', 'Verordnung',
-        'A new regulation governs data protection.', 'regulation'),
-    qsi('Die ____ stieg auf fünf Prozent. (inflation)', 'Inflation',
-        'Inflation rose to five percent.', 'inflation'),
-    qsi('Das Unternehmen meldete ____ an. (insolvency)', 'Insolvenz',
-        'The company filed for insolvency.', 'insolvency'),
-    qsi('Die ____ verhandeln über höhere Löhne. (unions)', 'Gewerkschaften',
-        'The unions negotiate higher wages.', 'unions'),
-    qsi('Das ____ entscheidet über den Fall. (court)', 'Gericht',
-        'The court decides the case.', 'court'),
-    qsi('Die Aktien notieren an der ____. (stock exchange)', 'Börse',
-        'The shares are listed on the stock exchange.', 'stock exchange',
-        accepted: ['Boerse']),
-    qsi('Der Kläger legte ____ gegen das Urteil ein. (appeal)', 'Berufung',
-        'The plaintiff appealed against the verdict.', 'appeal'),
-    qsi('Die Zentralbank senkte den ____. (interest rate)', 'Zinssatz',
-        'The central bank lowered the interest rate.', 'interest rate'),
-    qsi('Beide Seiten einigten sich auf einen ____. (settlement)', 'Vergleich',
-        'Both sides agreed on a settlement.', 'settlement'),
-    qsi('Das Verhältnis von Angebot und ____ bestimmt den Preis. (demand)',
-        'Nachfrage', 'The relation of supply and demand sets the price.',
-        'demand'),
-    qsi('Die Firma steigerte ihren ____ um zehn Prozent. (turnover)', 'Umsatz',
-        'The company increased its turnover by ten percent.', 'turnover'),
+    qsi(
+      'Die ____ hat sich im letzten Quartal erholt. (economy/business cycle)',
+      'Konjunktur',
+      'The economy recovered in the last quarter.',
+      'business cycle',
+    ),
+    qsi(
+      'Der Bundestag verabschiedete ein neues ____. (law)',
+      'Gesetz',
+      'Parliament passed a new law.',
+      'law',
+    ),
+    qsi(
+      'Beide Parteien unterzeichneten den ____. (contract)',
+      'Vertrag',
+      'Both parties signed the contract.',
+      'contract',
+    ),
+    qsi(
+      'Die ____ der Anlage lag bei drei Prozent. (yield/return)',
+      'Rendite',
+      'The yield of the investment was three percent.',
+      'yield',
+    ),
+    qsi(
+      'Eine neue ____ regelt den Datenschutz. (regulation)',
+      'Verordnung',
+      'A new regulation governs data protection.',
+      'regulation',
+    ),
+    qsi(
+      'Die ____ stieg auf fünf Prozent. (inflation)',
+      'Inflation',
+      'Inflation rose to five percent.',
+      'inflation',
+    ),
+    qsi(
+      'Das Unternehmen meldete ____ an. (insolvency)',
+      'Insolvenz',
+      'The company filed for insolvency.',
+      'insolvency',
+    ),
+    qsi(
+      'Die ____ verhandeln über höhere Löhne. (unions)',
+      'Gewerkschaften',
+      'The unions negotiate higher wages.',
+      'unions',
+    ),
+    qsi(
+      'Das ____ entscheidet über den Fall. (court)',
+      'Gericht',
+      'The court decides the case.',
+      'court',
+    ),
+    qsi(
+      'Die Aktien notieren an der ____. (stock exchange)',
+      'Börse',
+      'The shares are listed on the stock exchange.',
+      'stock exchange',
+      accepted: ['Boerse'],
+    ),
+    qsi(
+      'Der Kläger legte ____ gegen das Urteil ein. (appeal)',
+      'Berufung',
+      'The plaintiff appealed against the verdict.',
+      'appeal',
+    ),
+    qsi(
+      'Die Zentralbank senkte den ____. (interest rate)',
+      'Zinssatz',
+      'The central bank lowered the interest rate.',
+      'interest rate',
+    ),
+    qsi(
+      'Beide Seiten einigten sich auf einen ____. (settlement)',
+      'Vergleich',
+      'Both sides agreed on a settlement.',
+      'settlement',
+    ),
+    qsi(
+      'Das Verhältnis von Angebot und ____ bestimmt den Preis. (demand)',
+      'Nachfrage',
+      'The relation of supply and demand sets the price.',
+      'demand',
+    ),
+    qsi(
+      'Die Firma steigerte ihren ____ um zehn Prozent. (turnover)',
+      'Umsatz',
+      'The company increased its turnover by ten percent.',
+      'turnover',
+    ),
   ],
 );
 
@@ -76,59 +137,122 @@ final QuizContent questC21RegisterContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Umgangssprache → formell',
   categoryLabel: 'formelles Äquivalent',
-  intro: 'A C2 speaker chooses the right register. Replace a colloquial word '
+  intro:
+      'A C2 speaker chooses the right register. Replace a colloquial word '
       'with its formal equivalent: kriegen → erhalten, kaputt → defekt, Kumpel '
       '→ Bekannter.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Colloquial → formal',
-      text: 'kriegen → erhalten/bekommen; klauen → entwenden; Kohle → Geld; '
+      text:
+          'kriegen → erhalten/bekommen; klauen → entwenden; Kohle → Geld; '
           'echt gut → ausgezeichnet.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Match the situation',
-      text: 'A job application needs "erhalten"; a chat with friends can use '
+      text:
+          'A job application needs "erhalten"; a chat with friends can use '
           '"kriegen". Mismatched register stands out.',
     ),
   ],
   items: [
-    qsi('umgangssprachlich „kriegen" → formell „____" (receive)', 'erhalten',
-        'to receive (formal)', 'kriegen → erhalten'),
-    qsi('umgangssprachlich „kaputt" → formell „____" (broken)', 'defekt',
-        'broken/defective (formal)', 'kaputt → defekt'),
-    qsi('umgangssprachlich „klauen" → formell „____" (steal)', 'entwenden',
-        'to steal (formal)', 'klauen → entwenden'),
-    qsi('umgangssprachlich „echt gut" → formell „____" (excellent)',
-        'ausgezeichnet', 'excellent (formal)', 'echt gut → ausgezeichnet'),
-    qsi('umgangssprachlich „Kohle" → formell „____" (money)', 'Geld',
-        'money (formal)', 'Kohle → Geld'),
-    qsi('umgangssprachlich „gucken" → gehoben „____" (look at)', 'betrachten',
-        'to look at (formal)', 'gucken → betrachten'),
-    qsi('umgangssprachlich „anfangen" → gehoben „____" (begin)', 'beginnen',
-        'to begin (elevated)', 'anfangen → beginnen'),
-    qsi('umgangssprachlich „Job" → formell „____" (occupation)', 'Tätigkeit',
-        'occupation (formal)', 'Job → Tätigkeit',
-        accepted: ['Taetigkeit']),
-    qsi('umgangssprachlich „sauer" → formell „____" (annoyed)', 'verärgert',
-        'annoyed (formal)', 'sauer → verärgert',
-        accepted: ['veraergert']),
-    qsi('umgangssprachlich „eine Menge" → formell „____" (numerous)',
-        'zahlreiche', 'numerous (formal)', 'eine Menge → zahlreiche'),
-    qsi('umgangssprachlich „helfen" → gehoben „____" (support)',
-        'unterstützen', 'to support (formal)', 'helfen → unterstützen',
-        accepted: ['unterstuetzen']),
-    qsi('umgangssprachlich „sagen" → formell „____" (inform)', 'mitteilen',
-        'to inform (formal)', 'sagen → mitteilen'),
-    qsi('umgangssprachlich „brauchen" → formell „____" (require)',
-        'benötigen', 'to require (formal)', 'brauchen → benötigen',
-        accepted: ['benoetigen']),
-    qsi('umgangssprachlich „checken" → formell „____" (verify)',
-        'überprüfen', 'to check/verify (formal)', 'checken → überprüfen',
-        accepted: ['ueberpruefen']),
-    qsi('umgangssprachlich „sterben" → gehoben „____" (pass away)',
-        'versterben', 'to pass away (elevated)', 'sterben → versterben'),
+    qsi(
+      'umgangssprachlich „kriegen" → formell „____" (receive)',
+      'erhalten',
+      'to receive (formal)',
+      'kriegen → erhalten',
+    ),
+    qsi(
+      'umgangssprachlich „kaputt" → formell „____" (broken)',
+      'defekt',
+      'broken/defective (formal)',
+      'kaputt → defekt',
+    ),
+    qsi(
+      'umgangssprachlich „klauen" → formell „____" (steal)',
+      'entwenden',
+      'to steal (formal)',
+      'klauen → entwenden',
+    ),
+    qsi(
+      'umgangssprachlich „echt gut" → formell „____" (excellent)',
+      'ausgezeichnet',
+      'excellent (formal)',
+      'echt gut → ausgezeichnet',
+    ),
+    qsi(
+      'umgangssprachlich „Kohle" → formell „____" (money)',
+      'Geld',
+      'money (formal)',
+      'Kohle → Geld',
+    ),
+    qsi(
+      'umgangssprachlich „gucken" → gehoben „____" (look at)',
+      'betrachten',
+      'to look at (formal)',
+      'gucken → betrachten',
+    ),
+    qsi(
+      'umgangssprachlich „anfangen" → gehoben „____" (begin)',
+      'beginnen',
+      'to begin (elevated)',
+      'anfangen → beginnen',
+    ),
+    qsi(
+      'umgangssprachlich „Job" → formell „____" (occupation)',
+      'Tätigkeit',
+      'occupation (formal)',
+      'Job → Tätigkeit',
+      accepted: ['Taetigkeit'],
+    ),
+    qsi(
+      'umgangssprachlich „sauer" → formell „____" (annoyed)',
+      'verärgert',
+      'annoyed (formal)',
+      'sauer → verärgert',
+      accepted: ['veraergert'],
+    ),
+    qsi(
+      'umgangssprachlich „eine Menge" → formell „____" (numerous)',
+      'zahlreiche',
+      'numerous (formal)',
+      'eine Menge → zahlreiche',
+    ),
+    qsi(
+      'umgangssprachlich „helfen" → gehoben „____" (support)',
+      'unterstützen',
+      'to support (formal)',
+      'helfen → unterstützen',
+      accepted: ['unterstuetzen'],
+    ),
+    qsi(
+      'umgangssprachlich „sagen" → formell „____" (inform)',
+      'mitteilen',
+      'to inform (formal)',
+      'sagen → mitteilen',
+    ),
+    qsi(
+      'umgangssprachlich „brauchen" → formell „____" (require)',
+      'benötigen',
+      'to require (formal)',
+      'brauchen → benötigen',
+      accepted: ['benoetigen'],
+    ),
+    qsi(
+      'umgangssprachlich „checken" → formell „____" (verify)',
+      'überprüfen',
+      'to check/verify (formal)',
+      'checken → überprüfen',
+      accepted: ['ueberpruefen'],
+    ),
+    qsi(
+      'umgangssprachlich „sterben" → gehoben „____" (pass away)',
+      'versterben',
+      'to pass away (elevated)',
+      'sterben → versterben',
+    ),
   ],
 );
 
@@ -140,55 +264,121 @@ final QuizContent questC21KollokationenContent = sentenceQuestQuiz(
   subjectsLabel: 'Kollokationen',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Kollokation',
-  intro: 'Native fluency depends on collocations — words that conventionally go '
+  intro:
+      'Native fluency depends on collocations — words that conventionally go '
       'together. You "treffen eine Entscheidung", not "machen". (E20: collocations '
       'rarely match English.)',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Fixed partners',
-      text: 'eine Entscheidung treffen, eine Rolle spielen, Maßnahmen ergreifen, '
+      text:
+          'eine Entscheidung treffen, eine Rolle spielen, Maßnahmen ergreifen, '
           'Kritik üben, einen Antrag stellen.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Don’t translate the verb',
-      text: 'English "make a decision" → German "eine Entscheidung __treffen__" '
+      text:
+          'English "make a decision" → German "eine Entscheidung __treffen__" '
           '(hit), not machen.',
     ),
   ],
   items: [
-    qsi('eine Entscheidung ____ (make)', 'treffen', 'to make a decision',
-        'Entscheidung treffen'),
-    qsi('eine wichtige Rolle ____ (play)', 'spielen', 'to play a role',
-        'Rolle spielen'),
-    qsi('Maßnahmen ____ (take measures)', 'ergreifen', 'to take measures',
-        'Maßnahmen ergreifen'),
-    qsi('einen Antrag ____ (submit)', 'stellen', 'to submit an application',
-        'Antrag stellen'),
-    qsi('großen Wert auf etwas ____ (place value on)', 'legen',
-        'to place great value on something', 'Wert legen auf'),
-    qsi('ein Gespräch ____ (conduct)', 'führen', 'to conduct a conversation',
-        'Gespräch führen', accepted: ['fuehren']),
-    qsi('eine Niederlage ____ (suffer)', 'erleiden', 'to suffer a defeat',
-        'Niederlage erleiden'),
-    qsi('neue Hoffnung ____ (draw hope)', 'schöpfen', 'to draw new hope',
-        'Hoffnung schöpfen', accepted: ['schoepfen']),
-    qsi('ein Risiko ____ (take a risk)', 'eingehen', 'to take a risk',
-        'Risiko eingehen'),
-    qsi('Widerstand ____ (offer resistance)', 'leisten',
-        'to offer resistance', 'Widerstand leisten'),
-    qsi('eine Prüfung ____ (pass an exam)', 'bestehen', 'to pass an exam',
-        'Prüfung bestehen'),
-    qsi('Verantwortung ____ (take on responsibility)', 'übernehmen',
-        'to take on responsibility', 'Verantwortung übernehmen',
-        accepted: ['uebernehmen']),
-    qsi('Dank zum Ausdruck ____ (express)', 'bringen',
-        'to express one’s thanks', 'zum Ausdruck bringen'),
-    qsi('eine Bedingung ____ (fulfil)', 'erfüllen', 'to fulfil a condition',
-        'Bedingung erfüllen', accepted: ['erfuellen']),
-    qsi('Zweifel ____ (harbour doubts)', 'hegen', 'to harbour doubts',
-        'Zweifel hegen'),
+    qsi(
+      'eine Entscheidung ____ (make)',
+      'treffen',
+      'to make a decision',
+      'Entscheidung treffen',
+    ),
+    qsi(
+      'eine wichtige Rolle ____ (play)',
+      'spielen',
+      'to play a role',
+      'Rolle spielen',
+    ),
+    qsi(
+      'Maßnahmen ____ (take measures)',
+      'ergreifen',
+      'to take measures',
+      'Maßnahmen ergreifen',
+    ),
+    qsi(
+      'einen Antrag ____ (submit)',
+      'stellen',
+      'to submit an application',
+      'Antrag stellen',
+    ),
+    qsi(
+      'großen Wert auf etwas ____ (place value on)',
+      'legen',
+      'to place great value on something',
+      'Wert legen auf',
+    ),
+    qsi(
+      'ein Gespräch ____ (conduct)',
+      'führen',
+      'to conduct a conversation',
+      'Gespräch führen',
+      accepted: ['fuehren'],
+    ),
+    qsi(
+      'eine Niederlage ____ (suffer)',
+      'erleiden',
+      'to suffer a defeat',
+      'Niederlage erleiden',
+    ),
+    qsi(
+      'neue Hoffnung ____ (draw hope)',
+      'schöpfen',
+      'to draw new hope',
+      'Hoffnung schöpfen',
+      accepted: ['schoepfen'],
+    ),
+    qsi(
+      'ein Risiko ____ (take a risk)',
+      'eingehen',
+      'to take a risk',
+      'Risiko eingehen',
+    ),
+    qsi(
+      'Widerstand ____ (offer resistance)',
+      'leisten',
+      'to offer resistance',
+      'Widerstand leisten',
+    ),
+    qsi(
+      'eine Prüfung ____ (pass an exam)',
+      'bestehen',
+      'to pass an exam',
+      'Prüfung bestehen',
+    ),
+    qsi(
+      'Verantwortung ____ (take on responsibility)',
+      'übernehmen',
+      'to take on responsibility',
+      'Verantwortung übernehmen',
+      accepted: ['uebernehmen'],
+    ),
+    qsi(
+      'Dank zum Ausdruck ____ (express)',
+      'bringen',
+      'to express one’s thanks',
+      'zum Ausdruck bringen',
+    ),
+    qsi(
+      'eine Bedingung ____ (fulfil)',
+      'erfüllen',
+      'to fulfil a condition',
+      'Bedingung erfüllen',
+      accepted: ['erfuellen'],
+    ),
+    qsi(
+      'Zweifel ____ (harbour doubts)',
+      'hegen',
+      'to harbour doubts',
+      'Zweifel hegen',
+    ),
   ],
 );
 
@@ -199,41 +389,50 @@ final QuizContent questC21SprechenRedeContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Deliver a formal speech with rhetorical flair. Listen and repeat, '
+  intro:
+      'Deliver a formal speech with rhetorical flair. Listen and repeat, '
       'paying attention to rhythm and emphasis.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Rhetorical openers',
-      text: '"Sehr geehrte Damen und Herren," opens; a rhetorical question or a '
+      text:
+          '"Sehr geehrte Damen und Herren," opens; a rhetorical question or a '
           'striking image hooks the audience.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Tricolon',
-      text: 'Lists of three persuade: "Wir wollen Freiheit, Gerechtigkeit und '
+      text:
+          'Lists of three persuade: "Wir wollen Freiheit, Gerechtigkeit und '
           'Solidarität."',
     ),
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Sehr geehrte Damen und Herren,',
-        meaning: 'Ladies and gentlemen,'),
+      phrase: 'Sehr geehrte Damen und Herren,',
+      meaning: 'Ladies and gentlemen,',
+    ),
     SpeakPhrase(
-        phrase: 'Lassen Sie mich mit einer Frage beginnen.',
-        meaning: 'Let me begin with a question.'),
+      phrase: 'Lassen Sie mich mit einer Frage beginnen.',
+      meaning: 'Let me begin with a question.',
+    ),
     SpeakPhrase(
-        phrase: 'Wir wollen Freiheit, Gerechtigkeit und Solidarität.',
-        meaning: 'We want freedom, justice and solidarity.'),
+      phrase: 'Wir wollen Freiheit, Gerechtigkeit und Solidarität.',
+      meaning: 'We want freedom, justice and solidarity.',
+    ),
     SpeakPhrase(
-        phrase: 'Es ist an der Zeit, dass wir handeln.',
-        meaning: 'It is time for us to act.'),
+      phrase: 'Es ist an der Zeit, dass wir handeln.',
+      meaning: 'It is time for us to act.',
+    ),
     SpeakPhrase(
-        phrase: 'Ich appelliere an Ihre Verantwortung.',
-        meaning: 'I appeal to your responsibility.'),
+      phrase: 'Ich appelliere an Ihre Verantwortung.',
+      meaning: 'I appeal to your responsibility.',
+    ),
     SpeakPhrase(
-        phrase: 'Ich danke Ihnen für Ihre Aufmerksamkeit.',
-        meaning: 'I thank you for your attention.'),
+      phrase: 'Ich danke Ihnen für Ihre Aufmerksamkeit.',
+      meaning: 'I thank you for your attention.',
+    ),
   ],
 );
 
@@ -245,60 +444,119 @@ final QuizContent questC21StilmittelContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Beispiel',
   categoryLabel: 'Stilmittel',
-  intro: 'Recognise rhetorical devices: the **Metapher** (image), the '
+  intro:
+      'Recognise rhetorical devices: the **Metapher** (image), the '
       '**rhetorische Frage**, the **Ironie**, the **Übertreibung** (hyperbole). '
       'They shape meaning beyond the literal.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Common devices',
-      text: 'Metapher (a sea of people), rhetorische Frage (who could deny it?), '
+      text:
+          'Metapher (a sea of people), rhetorische Frage (who could deny it?), '
           'Ironie, Untertreibung (Litotes), Anapher (repeated opening).',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Effect, not decoration',
-      text: 'Each device has a purpose: to persuade, to distance, to emphasise. '
+      text:
+          'Each device has a purpose: to persuade, to distance, to emphasise. '
           'Ask why the author chose it.',
     ),
   ],
   items: [
-    qsi('„Ein Meer von Menschen" ist eine ____. (image)', 'Metapher',
-        '"A sea of people" is a metaphor.', 'Metapher'),
-    qsi('„Wer könnte das bestreiten?" ist eine rhetorische ____. (question)',
-        'Frage', 'A rhetorical question.', 'rhetorische Frage'),
-    qsi('„Na, das war ja großartig …" (gemeint: schlecht) ist ____. (irony)',
-        'Ironie', 'That is irony.', 'Ironie'),
-    qsi('„Ich habe es dir tausendmal gesagt!" ist eine ____. (exaggeration)',
-        'Übertreibung', 'An exaggeration / hyperbole.', 'Übertreibung'),
-    qsi('Die Wiederholung am Satzanfang heißt ____. (anaphora)', 'Anapher',
-        'Repetition at the start of clauses is anaphora.', 'Anapher'),
-    qsi('„schnell wie der Blitz" ist ein ____. (simile/comparison)',
-        'Vergleich', '"Fast as lightning" is a simile.', 'Vergleich'),
-    qsi('„Der Wind singt" ist eine ____. (personification)',
-        'Personifikation', '"The wind sings" is a personification.',
-        'Personifikation'),
-    qsi('„Milch macht müde Männer munter" ist eine ____. (alliteration)',
-        'Alliteration', 'That slogan is an alliteration.', 'Alliteration'),
-    qsi('„Nicht schlecht!" (gemeint: sehr gut) ist eine ____. '
-        '(understatement)', 'Untertreibung',
-        '"Not bad!" (meaning: very good) is an understatement.',
-        'Untertreibung'),
-    qsi('„Feuer und Wasser" — Gegensätze nebeneinander: eine ____. '
-        '(antithesis)', 'Antithese',
-        'Opposites side by side form an antithesis.', 'Antithese'),
-    qsi('„beredtes Schweigen" ist ein ____. (oxymoron)', 'Oxymoron',
-        '"Eloquent silence" is an oxymoron.', 'Oxymoron'),
-    qsi('„Er schlief für immer ein" (für: sterben) ist ein ____. (euphemism)',
-        'Euphemismus', 'A softened expression is a euphemism.',
-        'Euphemismus'),
-    qsi('„Die Taube steht für Frieden" — sie ist ein ____. (symbol)', 'Symbol',
-        'The dove stands for peace — it is a symbol.', 'Symbol'),
-    qsi('„Er kam, sah und siegte" steigert sich zur ____. (climax)', 'Klimax',
-        '"He came, saw and conquered" builds to a climax.', 'Klimax'),
-    qsi('„O Zeit, o Sitten!" ist ein rhetorischer ____. (exclamation)',
-        'Ausruf', '"O times, o customs!" is a rhetorical exclamation.',
-        'Ausruf'),
+    qsi(
+      '„Ein Meer von Menschen" ist eine ____. (image)',
+      'Metapher',
+      '"A sea of people" is a metaphor.',
+      'Metapher',
+    ),
+    qsi(
+      '„Wer könnte das bestreiten?" ist eine rhetorische ____. (question)',
+      'Frage',
+      'A rhetorical question.',
+      'rhetorische Frage',
+    ),
+    qsi(
+      '„Na, das war ja großartig …" (gemeint: schlecht) ist ____. (irony)',
+      'Ironie',
+      'That is irony.',
+      'Ironie',
+    ),
+    qsi(
+      '„Ich habe es dir tausendmal gesagt!" ist eine ____. (exaggeration)',
+      'Übertreibung',
+      'An exaggeration / hyperbole.',
+      'Übertreibung',
+    ),
+    qsi(
+      'Die Wiederholung am Satzanfang heißt ____. (anaphora)',
+      'Anapher',
+      'Repetition at the start of clauses is anaphora.',
+      'Anapher',
+    ),
+    qsi(
+      '„schnell wie der Blitz" ist ein ____. (simile/comparison)',
+      'Vergleich',
+      '"Fast as lightning" is a simile.',
+      'Vergleich',
+    ),
+    qsi(
+      '„Der Wind singt" ist eine ____. (personification)',
+      'Personifikation',
+      '"The wind sings" is a personification.',
+      'Personifikation',
+    ),
+    qsi(
+      '„Milch macht müde Männer munter" ist eine ____. (alliteration)',
+      'Alliteration',
+      'That slogan is an alliteration.',
+      'Alliteration',
+    ),
+    qsi(
+      '„Nicht schlecht!" (gemeint: sehr gut) ist eine ____. '
+          '(understatement)',
+      'Untertreibung',
+      '"Not bad!" (meaning: very good) is an understatement.',
+      'Untertreibung',
+    ),
+    qsi(
+      '„Feuer und Wasser" — Gegensätze nebeneinander: eine ____. '
+          '(antithesis)',
+      'Antithese',
+      'Opposites side by side form an antithesis.',
+      'Antithese',
+    ),
+    qsi(
+      '„beredtes Schweigen" ist ein ____. (oxymoron)',
+      'Oxymoron',
+      '"Eloquent silence" is an oxymoron.',
+      'Oxymoron',
+    ),
+    qsi(
+      '„Er schlief für immer ein" (für: sterben) ist ein ____. (euphemism)',
+      'Euphemismus',
+      'A softened expression is a euphemism.',
+      'Euphemismus',
+    ),
+    qsi(
+      '„Die Taube steht für Frieden" — sie ist ein ____. (symbol)',
+      'Symbol',
+      'The dove stands for peace — it is a symbol.',
+      'Symbol',
+    ),
+    qsi(
+      '„Er kam, sah und siegte" steigert sich zur ____. (climax)',
+      'Klimax',
+      '"He came, saw and conquered" builds to a climax.',
+      'Klimax',
+    ),
+    qsi(
+      '„O Zeit, o Sitten!" ist ein rhetorischer ____. (exclamation)',
+      'Ausruf',
+      '"O times, o customs!" is a rhetorical exclamation.',
+      'Ausruf',
+    ),
   ],
 );
 
@@ -330,12 +588,12 @@ final QuizContent questC21HoerenFeatureContent = listeningQuestQuiz(
       options: [
         'dass eine Großstadt nie schläft',
         'dass Städte gefährlich sind',
-        'dass Bäcker früh aufstehen'
+        'dass Bäcker früh aufstehen',
       ],
       optionsTranslation: [
         'that a big city never sleeps',
         'that cities are dangerous',
-        'that bakers get up early'
+        'that bakers get up early',
       ],
       correctIndex: 0,
       explanation: '"Wer glaubt, eine Großstadt schlafe nie, der irrt."',
@@ -346,12 +604,12 @@ final QuizContent questC21HoerenFeatureContent = listeningQuestQuiz(
       options: [
         'kurz vor der Morgendämmerung',
         'um Mitternacht',
-        'am späten Nachmittag'
+        'am späten Nachmittag',
       ],
       optionsTranslation: [
         'just before dawn',
         'at midnight',
-        'in the late afternoon'
+        'in the late afternoon',
       ],
       correctIndex: 0,
       explanation: '"… kurz vor der Morgendämmerung …"',
@@ -362,12 +620,12 @@ final QuizContent questC21HoerenFeatureContent = listeningQuestQuiz(
       options: [
         'verletzlich und auf eigentümliche Weise schön',
         'laut und hektisch',
-        'grau und hässlich'
+        'grau und hässlich',
       ],
       optionsTranslation: [
         'vulnerable and beautiful in a peculiar way',
         'loud and hectic',
-        'grey and ugly'
+        'grey and ugly',
       ],
       correctIndex: 0,
       explanation: '"… verletzlich, leer und auf eigentümliche Weise schön."',
@@ -390,36 +648,33 @@ final QuizContent questC21HoerenFeatureContent = listeningQuestQuiz(
     ),
     ReadingQuestion(
       question: 'Was scheint die Metropole in diesem Moment zu tun?',
-      questionTranslation: 'What does the metropolis seem to do at this moment?',
-      options: [
-        'den Atem anzuhalten',
-        'zu erwachen',
-        'zu explodieren',
-      ],
-      optionsTranslation: [
-        'to hold its breath',
-        'to wake up',
-        'to explode',
-      ],
+      questionTranslation:
+          'What does the metropolis seem to do at this moment?',
+      options: ['den Atem anzuhalten', 'zu erwachen', 'zu explodieren'],
+      optionsTranslation: ['to hold its breath', 'to wake up', 'to explode'],
       correctIndex: 0,
-      explanation: '"… in dem selbst die rastlose Metropole den Atem anzuhalten '
+      explanation:
+          '"… in dem selbst die rastlose Metropole den Atem anzuhalten '
           'scheint."',
     ),
   ],
-  intro: 'A literary radio feature — you only hear it. The language is poetic '
+  intro:
+      'A literary radio feature — you only hear it. The language is poetic '
       '(personification: die Metropole hält den Atem an). Listen for image and '
       'mood. Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Personification',
-      text: 'The city "holds its breath" and "reveals its face" — it’s treated '
+      text:
+          'The city "holds its breath" and "reveals its face" — it’s treated '
           'as a living being. Don’t read it literally.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'so behaupten manche',
-      text: 'This hedges the poetic claim as someone’s view, not fact — typical '
+      text:
+          'This hedges the poetic claim as someone’s view, not fact — typical '
           'feature style.',
     ),
   ],
@@ -433,62 +688,124 @@ final QuizContent questC21Konj1LitContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Konjunktiv I',
-  intro: 'Quality journalism uses the Konjunktiv I consistently for reported '
+  intro:
+      'Quality journalism uses the Konjunktiv I consistently for reported '
       'speech across whole paragraphs, marking everything as someone else’s '
       'claim. Master the less common forms (habe, sei, werde, gehe, könne).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Sustained reported speech',
-      text: 'Once started, the whole report stays in Konjunktiv I: "Er sagte, er '
+      text:
+          'Once started, the whole report stays in Konjunktiv I: "Er sagte, er '
           'sei müde und habe keine Zeit; er werde später kommen."',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Signals distance',
-      text: 'The Konjunktiv I tells the reader: the journalist is quoting, not '
+      text:
+          'The Konjunktiv I tells the reader: the journalist is quoting, not '
           'endorsing.',
     ),
   ],
   items: [
-    qsi('Der Sprecher erklärte, die Lage ____ ernst. (sein → Konj. I)', 'sei',
-        'The spokesman said the situation was serious.', 'sei'),
-    qsi('Sie betonte, man ____ alles versucht. (haben → Konj. I)', 'habe',
-        'She stressed they had tried everything.', 'habe'),
-    qsi('Er fügte hinzu, er ____ bald zurücktreten. (werden → Konj. I)',
-        'werde', 'He added he would soon resign.', 'werde'),
-    qsi('Der Bericht hält fest, die Zahlen ____ gestiegen. (sein → Konj. I, '
-        'Pl.)', 'seien', 'The report states the figures had risen.', 'seien'),
-    qsi('Sie meinte, das ____ nicht ausgeschlossen. (sein → Konj. I)', 'sei',
-        'She said that was not ruled out.', 'sei'),
-    qsi('Die Ministerin versicherte, man ____ an einer Lösung. '
-        '(arbeiten → Konj. I)', 'arbeite',
-        'The minister assured they were working on a solution.', 'arbeite'),
-    qsi('Der Zeuge gab an, er ____ nichts bemerkt. (haben → Konj. I)', 'habe',
-        'The witness stated he had noticed nothing.', 'habe (Zeuge)'),
-    qsi('Die Agentur meldete, der Präsident ____ erkrankt. (sein → Konj. I)',
-        'sei', 'The agency reported the president had fallen ill.',
-        'sei (erkrankt)'),
-    qsi('Der Konzern teilte mit, man ____ die Produktion ausweiten. '
-        '(wollen → Konj. I)', 'wolle',
-        'The corporation announced it wanted to expand production.', 'wolle'),
-    qsi('Die Studie ergab, viele Bürger ____ unzufrieden. '
-        '(sein → Konj. I, Pl.)', 'seien',
-        'The study found many citizens were dissatisfied.', 'seien (Bürger)'),
-    qsi('Die Sprecherin erklärte, es ____ keine Beweise. (geben → Konj. I)',
-        'gebe', 'The spokeswoman explained there was no evidence.', 'gebe'),
-    qsi('Der Trainer sagte, die Mannschaft ____ gut vorbereitet. '
-        '(sein → Konj. I)', 'sei',
-        'The coach said the team was well prepared.', 'sei (Mannschaft)'),
-    qsi('Die Zeitung schrieb, der Minister ____ zurücktreten müssen. '
-        '(werden → Konj. I)', 'werde',
-        'The paper wrote the minister would have to resign.',
-        'werde (Rücktritt)'),
-    qsi('Sie erklärte, sie ____ dem Plan nicht zustimmen. (können → Konj. I)',
-        'könne', 'She explained she could not agree to the plan.', 'könne'),
-    qsi('Der Bericht betont, die Daten ____ geprüft worden. '
-        '(sein → Konj. I, Pl.)', 'seien',
-        'The report stresses the data had been checked.', 'seien (Daten)'),
+    qsi(
+      'Der Sprecher erklärte, die Lage ____ ernst. (sein → Konj. I)',
+      'sei',
+      'The spokesman said the situation was serious.',
+      'sei',
+    ),
+    qsi(
+      'Sie betonte, man ____ alles versucht. (haben → Konj. I)',
+      'habe',
+      'She stressed they had tried everything.',
+      'habe',
+    ),
+    qsi(
+      'Er fügte hinzu, er ____ bald zurücktreten. (werden → Konj. I)',
+      'werde',
+      'He added he would soon resign.',
+      'werde',
+    ),
+    qsi(
+      'Der Bericht hält fest, die Zahlen ____ gestiegen. (sein → Konj. I, '
+          'Pl.)',
+      'seien',
+      'The report states the figures had risen.',
+      'seien',
+    ),
+    qsi(
+      'Sie meinte, das ____ nicht ausgeschlossen. (sein → Konj. I)',
+      'sei',
+      'She said that was not ruled out.',
+      'sei',
+    ),
+    qsi(
+      'Die Ministerin versicherte, man ____ an einer Lösung. '
+          '(arbeiten → Konj. I)',
+      'arbeite',
+      'The minister assured they were working on a solution.',
+      'arbeite',
+    ),
+    qsi(
+      'Der Zeuge gab an, er ____ nichts bemerkt. (haben → Konj. I)',
+      'habe',
+      'The witness stated he had noticed nothing.',
+      'habe (Zeuge)',
+    ),
+    qsi(
+      'Die Agentur meldete, der Präsident ____ erkrankt. (sein → Konj. I)',
+      'sei',
+      'The agency reported the president had fallen ill.',
+      'sei (erkrankt)',
+    ),
+    qsi(
+      'Der Konzern teilte mit, man ____ die Produktion ausweiten. '
+          '(wollen → Konj. I)',
+      'wolle',
+      'The corporation announced it wanted to expand production.',
+      'wolle',
+    ),
+    qsi(
+      'Die Studie ergab, viele Bürger ____ unzufrieden. '
+          '(sein → Konj. I, Pl.)',
+      'seien',
+      'The study found many citizens were dissatisfied.',
+      'seien (Bürger)',
+    ),
+    qsi(
+      'Die Sprecherin erklärte, es ____ keine Beweise. (geben → Konj. I)',
+      'gebe',
+      'The spokeswoman explained there was no evidence.',
+      'gebe',
+    ),
+    qsi(
+      'Der Trainer sagte, die Mannschaft ____ gut vorbereitet. '
+          '(sein → Konj. I)',
+      'sei',
+      'The coach said the team was well prepared.',
+      'sei (Mannschaft)',
+    ),
+    qsi(
+      'Die Zeitung schrieb, der Minister ____ zurücktreten müssen. '
+          '(werden → Konj. I)',
+      'werde',
+      'The paper wrote the minister would have to resign.',
+      'werde (Rücktritt)',
+    ),
+    qsi(
+      'Sie erklärte, sie ____ dem Plan nicht zustimmen. (können → Konj. I)',
+      'könne',
+      'She explained she could not agree to the plan.',
+      'könne',
+    ),
+    qsi(
+      'Der Bericht betont, die Daten ____ geprüft worden. '
+          '(sein → Konj. I, Pl.)',
+      'seien',
+      'The report stresses the data had been checked.',
+      'seien (Daten)',
+    ),
   ],
 );
 
@@ -500,57 +817,119 @@ final QuizContent questC21KonnotationContent = sentenceQuestQuiz(
   subjectsLabel: 'Wortpaare',
   subjectColumnLabel: 'Bewertung',
   categoryLabel: 'Konnotation',
-  intro: 'Near-synonyms carry different connotations. "sparsam" (thrifty, '
+  intro:
+      'Near-synonyms carry different connotations. "sparsam" (thrifty, '
       'positive) vs "geizig" (stingy, negative) describe the same behaviour with '
       'opposite judgement. C2 means choosing the loaded word deliberately.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Positive vs negative pairs',
-      text: 'selbstbewusst (confident) vs arrogant; sparsam vs geizig; '
+      text:
+          'selbstbewusst (confident) vs arrogant; sparsam vs geizig; '
           'eigenwillig vs stur; jung vs unerfahren.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Word choice = stance',
-      text: 'Calling protesters "Aktivisten" vs "Randalierer" reveals the '
+      text:
+          'Calling protesters "Aktivisten" vs "Randalierer" reveals the '
           'writer’s position.',
     ),
   ],
   items: [
-    qsi('positiv: sparsam — negativ: ____ (stingy)', 'geizig',
-        'thrifty (pos.) vs stingy (neg.)', 'sparsam/geizig'),
-    qsi('positiv: selbstbewusst — negativ: ____ (arrogant)', 'arrogant',
-        'confident (pos.) vs arrogant (neg.)', 'selbstbewusst/arrogant'),
-    qsi('positiv: eigenwillig — negativ: ____ (stubborn)', 'stur',
-        'strong-willed (pos.) vs stubborn (neg.)', 'eigenwillig/stur'),
-    qsi('neutral: Demonstranten — abwertend: ____ (rioters)', 'Randalierer',
-        'demonstrators (neutral) vs rioters (pejorative)',
-        'Demonstranten/Randalierer'),
-    qsi('positiv: kostengünstig — negativ: ____ (cheap/inferior)', 'billig',
-        'inexpensive (pos.) vs cheap (neg.)', 'kostengünstig/billig'),
-    qsi('positiv: schlank — negativ: ____ (skinny)', 'dürr',
-        'slim (pos.) vs scrawny (neg.)', 'schlank/dürr',
-        accepted: ['duerr']),
-    qsi('positiv: mutig — negativ: ____ (reckless)', 'leichtsinnig',
-        'brave (pos.) vs reckless (neg.)', 'mutig/leichtsinnig'),
-    qsi('positiv: gründlich — negativ: ____ (pedantic)', 'pedantisch',
-        'thorough (pos.) vs pedantic (neg.)', 'gründlich/pedantisch'),
-    qsi('positiv: spontan — negativ: ____ (impulsive)', 'impulsiv',
-        'spontaneous (pos.) vs impulsive (neg.)', 'spontan/impulsiv'),
-    qsi('positiv: Duft — negativ: ____ (stench)', 'Gestank',
-        'scent (pos.) vs stench (neg.)', 'Duft/Gestank'),
-    qsi('positiv: bescheiden — negativ: ____ (submissive)', 'unterwürfig',
-        'modest (pos.) vs submissive (neg.)', 'bescheiden/unterwürfig',
-        accepted: ['unterwuerfig']),
-    qsi('positiv: wissbegierig — negativ: ____ (nosy)', 'neugierig',
-        'eager to learn (pos.) vs nosy (neg.)', 'wissbegierig/neugierig'),
-    qsi('positiv: hartnäckig — negativ: ____ (obstinate)', 'verbohrt',
-        'persistent (pos.) vs obstinate (neg.)', 'hartnäckig/verbohrt'),
-    qsi('positiv: Herausforderung — negativ: ____ (problem)', 'Problem',
-        'challenge (pos.) vs problem (neg.)', 'Herausforderung/Problem'),
-    qsi('positiv: reif — negativ: ____ (old)', 'alt',
-        'mature (pos.) vs old (neg.)', 'reif/alt'),
+    qsi(
+      'positiv: sparsam — negativ: ____ (stingy)',
+      'geizig',
+      'thrifty (pos.) vs stingy (neg.)',
+      'sparsam/geizig',
+    ),
+    qsi(
+      'positiv: selbstbewusst — negativ: ____ (arrogant)',
+      'arrogant',
+      'confident (pos.) vs arrogant (neg.)',
+      'selbstbewusst/arrogant',
+    ),
+    qsi(
+      'positiv: eigenwillig — negativ: ____ (stubborn)',
+      'stur',
+      'strong-willed (pos.) vs stubborn (neg.)',
+      'eigenwillig/stur',
+    ),
+    qsi(
+      'neutral: Demonstranten — abwertend: ____ (rioters)',
+      'Randalierer',
+      'demonstrators (neutral) vs rioters (pejorative)',
+      'Demonstranten/Randalierer',
+    ),
+    qsi(
+      'positiv: kostengünstig — negativ: ____ (cheap/inferior)',
+      'billig',
+      'inexpensive (pos.) vs cheap (neg.)',
+      'kostengünstig/billig',
+    ),
+    qsi(
+      'positiv: schlank — negativ: ____ (skinny)',
+      'dürr',
+      'slim (pos.) vs scrawny (neg.)',
+      'schlank/dürr',
+      accepted: ['duerr'],
+    ),
+    qsi(
+      'positiv: mutig — negativ: ____ (reckless)',
+      'leichtsinnig',
+      'brave (pos.) vs reckless (neg.)',
+      'mutig/leichtsinnig',
+    ),
+    qsi(
+      'positiv: gründlich — negativ: ____ (pedantic)',
+      'pedantisch',
+      'thorough (pos.) vs pedantic (neg.)',
+      'gründlich/pedantisch',
+    ),
+    qsi(
+      'positiv: spontan — negativ: ____ (impulsive)',
+      'impulsiv',
+      'spontaneous (pos.) vs impulsive (neg.)',
+      'spontan/impulsiv',
+    ),
+    qsi(
+      'positiv: Duft — negativ: ____ (stench)',
+      'Gestank',
+      'scent (pos.) vs stench (neg.)',
+      'Duft/Gestank',
+    ),
+    qsi(
+      'positiv: bescheiden — negativ: ____ (submissive)',
+      'unterwürfig',
+      'modest (pos.) vs submissive (neg.)',
+      'bescheiden/unterwürfig',
+      accepted: ['unterwuerfig'],
+    ),
+    qsi(
+      'positiv: wissbegierig — negativ: ____ (nosy)',
+      'neugierig',
+      'eager to learn (pos.) vs nosy (neg.)',
+      'wissbegierig/neugierig',
+    ),
+    qsi(
+      'positiv: hartnäckig — negativ: ____ (obstinate)',
+      'verbohrt',
+      'persistent (pos.) vs obstinate (neg.)',
+      'hartnäckig/verbohrt',
+    ),
+    qsi(
+      'positiv: Herausforderung — negativ: ____ (problem)',
+      'Problem',
+      'challenge (pos.) vs problem (neg.)',
+      'Herausforderung/Problem',
+    ),
+    qsi(
+      'positiv: reif — negativ: ____ (old)',
+      'alt',
+      'mature (pos.) vs old (neg.)',
+      'reif/alt',
+    ),
   ],
 );
 
@@ -584,28 +963,29 @@ final QuizContent questC21LesenArtikelContent = readingQuestQuiz(
       options: [
         'eine Wiederentdeckung der Langsamkeit',
         'eine Zunahme der Geschwindigkeit',
-        'das Ende des Kochens'
+        'das Ende des Kochens',
       ],
       optionsTranslation: [
         'a rediscovery of slowness',
         'an increase in speed',
-        'the end of cooking'
+        'the end of cooking',
       ],
       correctIndex: 0,
       explanation: '"… entdeckten den Wert der Langsamkeit neu …"',
     ),
     ReadingQuestion(
       question: 'Wie könnte sich dieser Trend laut Autor erweisen?',
-      questionTranslation: 'How could this trend prove to be, according to the author?',
+      questionTranslation:
+          'How could this trend prove to be, according to the author?',
       options: [
         'als nostalgische Marotte',
         'als notwendige Korrektur',
-        'als wirtschaftlicher Schaden'
+        'als wirtschaftlicher Schaden',
       ],
       optionsTranslation: [
         'as a nostalgic quirk',
         'as a necessary correction',
-        'as economic damage'
+        'as economic damage',
       ],
       correctIndex: 1,
       explanation: '"… könnte sich als notwendige Korrektur erweisen."',
@@ -616,30 +996,33 @@ final QuizContent questC21LesenArtikelContent = readingQuestQuiz(
       options: [
         'das Ziel aus den Augen zu verlieren',
         'zu wenig zu arbeiten',
-        'zu langsam zu reisen'
+        'zu langsam zu reisen',
       ],
       optionsTranslation: [
         'losing sight of the goal',
         'working too little',
-        'travelling too slowly'
+        'travelling too slowly',
       ],
       correctIndex: 0,
       explanation: '"… läuft Gefahr, das Ziel aus den Augen zu verlieren …"',
     ),
   ],
-  intro: 'A demanding op-ed with long periodic sentences, reported speech '
+  intro:
+      'A demanding op-ed with long periodic sentences, reported speech '
       '(entdeckten, sei es), and an aphoristic conclusion. GDS-level reading.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Untangle long sentences',
-      text: 'Find the main verb first, then attach the clauses. The thesis is in '
+      text:
+          'Find the main verb first, then attach the clauses. The thesis is in '
           'the main clause.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'The warning at the close',
-      text: 'The final sentence delivers the point: speed can defeat its own '
+      text:
+          'The final sentence delivers the point: speed can defeat its own '
           'purpose.',
     ),
   ],
@@ -653,58 +1036,118 @@ final QuizContent questC21SprichwoerterContent = sentenceQuestQuiz(
   subjectsLabel: 'Sprichwörter',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Sprichwort',
-  intro: 'Proverbs condense cultural wisdom into fixed sayings. A C2 speaker '
+  intro:
+      'Proverbs condense cultural wisdom into fixed sayings. A C2 speaker '
       'recognises and deploys them. Complete the missing word.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Common proverbs',
-      text: '"Morgenstund hat Gold im Mund." "Wer A sagt, muss auch B sagen." '
+      text:
+          '"Morgenstund hat Gold im Mund." "Wer A sagt, muss auch B sagen." '
           '"Übung macht den Meister."',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Fixed and metaphorical',
-      text: 'Proverbs are frozen: the wording doesn’t change and the meaning is '
+      text:
+          'Proverbs are frozen: the wording doesn’t change and the meaning is '
           'figurative.',
     ),
   ],
   items: [
-    qsi('Übung macht den ____. (practice makes perfect)', 'Meister',
-        'Practice makes perfect.', 'Übung macht den Meister'),
-    qsi('Morgenstund hat ____ im Mund. (the early bird …)', 'Gold',
-        'The early bird catches the worm.', 'Morgenstund hat Gold im Mund'),
-    qsi('Der Apfel fällt nicht weit vom ____. (like father, like son)', 'Stamm',
-        'The apple doesn’t fall far from the tree.',
-        'Apfel fällt nicht weit vom Stamm'),
-    qsi('Wer zuletzt lacht, lacht am ____. (he who laughs last …)', 'besten',
-        'He who laughs last laughs longest.', 'Wer zuletzt lacht …'),
-    qsi('Aller Anfang ist ____. (the first step is the hardest)', 'schwer',
-        'Every beginning is hard.', 'Aller Anfang ist schwer'),
-    qsi('Wer A sagt, muss auch ____ sagen. (finish what you start)', 'B',
-        'In for a penny, in for a pound.', 'Wer A sagt …'),
-    qsi('Ohne Fleiß kein ____. (no pain, no gain)', 'Preis',
-        'No pain, no gain.', 'Ohne Fleiß kein Preis'),
-    qsi('Lügen haben kurze ____. (lies don’t travel far)', 'Beine',
-        'Lies have short legs.', 'Lügen haben kurze Beine'),
-    qsi('Was du heute kannst besorgen, das verschiebe nicht auf ____. '
-        '(don’t procrastinate)', 'morgen',
-        'Never put off till tomorrow what you can do today.',
-        'verschiebe nicht auf morgen'),
-    qsi('In der Kürze liegt die ____. (brevity is the soul of wit)', 'Würze',
-        'Brevity is the soul of wit.', 'In der Kürze liegt die Würze',
-        accepted: ['Wuerze']),
-    qsi('Stille Wasser sind ____. (still waters run deep)', 'tief',
-        'Still waters run deep.', 'Stille Wasser sind tief'),
-    qsi('Der Ton macht die ____. (it’s how you say it)', 'Musik',
-        'It’s not what you say but how you say it.', 'Der Ton macht die Musik'),
-    qsi('Reden ist Silber, Schweigen ist ____. (silence is golden)', 'Gold',
-        'Speech is silver, silence is golden.', 'Reden ist Silber …'),
-    qsi('Viele Köche verderben den ____. (too many cooks)', 'Brei',
-        'Too many cooks spoil the broth.', 'Viele Köche verderben den Brei'),
-    qsi('Wer im Glashaus sitzt, soll nicht mit ____ werfen. (glass houses)',
-        'Steinen', 'People in glass houses shouldn’t throw stones.',
-        'Wer im Glashaus sitzt …'),
+    qsi(
+      'Übung macht den ____. (practice makes perfect)',
+      'Meister',
+      'Practice makes perfect.',
+      'Übung macht den Meister',
+    ),
+    qsi(
+      'Morgenstund hat ____ im Mund. (the early bird …)',
+      'Gold',
+      'The early bird catches the worm.',
+      'Morgenstund hat Gold im Mund',
+    ),
+    qsi(
+      'Der Apfel fällt nicht weit vom ____. (like father, like son)',
+      'Stamm',
+      'The apple doesn’t fall far from the tree.',
+      'Apfel fällt nicht weit vom Stamm',
+    ),
+    qsi(
+      'Wer zuletzt lacht, lacht am ____. (he who laughs last …)',
+      'besten',
+      'He who laughs last laughs longest.',
+      'Wer zuletzt lacht …',
+    ),
+    qsi(
+      'Aller Anfang ist ____. (the first step is the hardest)',
+      'schwer',
+      'Every beginning is hard.',
+      'Aller Anfang ist schwer',
+    ),
+    qsi(
+      'Wer A sagt, muss auch ____ sagen. (finish what you start)',
+      'B',
+      'In for a penny, in for a pound.',
+      'Wer A sagt …',
+    ),
+    qsi(
+      'Ohne Fleiß kein ____. (no pain, no gain)',
+      'Preis',
+      'No pain, no gain.',
+      'Ohne Fleiß kein Preis',
+    ),
+    qsi(
+      'Lügen haben kurze ____. (lies don’t travel far)',
+      'Beine',
+      'Lies have short legs.',
+      'Lügen haben kurze Beine',
+    ),
+    qsi(
+      'Was du heute kannst besorgen, das verschiebe nicht auf ____. '
+          '(don’t procrastinate)',
+      'morgen',
+      'Never put off till tomorrow what you can do today.',
+      'verschiebe nicht auf morgen',
+    ),
+    qsi(
+      'In der Kürze liegt die ____. (brevity is the soul of wit)',
+      'Würze',
+      'Brevity is the soul of wit.',
+      'In der Kürze liegt die Würze',
+      accepted: ['Wuerze'],
+    ),
+    qsi(
+      'Stille Wasser sind ____. (still waters run deep)',
+      'tief',
+      'Still waters run deep.',
+      'Stille Wasser sind tief',
+    ),
+    qsi(
+      'Der Ton macht die ____. (it’s how you say it)',
+      'Musik',
+      'It’s not what you say but how you say it.',
+      'Der Ton macht die Musik',
+    ),
+    qsi(
+      'Reden ist Silber, Schweigen ist ____. (silence is golden)',
+      'Gold',
+      'Speech is silver, silence is golden.',
+      'Reden ist Silber …',
+    ),
+    qsi(
+      'Viele Köche verderben den ____. (too many cooks)',
+      'Brei',
+      'Too many cooks spoil the broth.',
+      'Viele Köche verderben den Brei',
+    ),
+    qsi(
+      'Wer im Glashaus sitzt, soll nicht mit ____ werfen. (glass houses)',
+      'Steinen',
+      'People in glass houses shouldn’t throw stones.',
+      'Wer im Glashaus sitzt …',
+    ),
   ],
 );
 
@@ -715,13 +1158,15 @@ final QuizContent questC21DiktatContent = dictationQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'A dictation in elevated, formal German. You HEAR a sentence and TYPE '
+  intro:
+      'A dictation in elevated, formal German. You HEAR a sentence and TYPE '
       'it. Listen for collocations, Konjunktiv I and precise vocabulary.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Formal register',
-      text: 'These sentences avoid colloquialisms; spell the formal words in '
+      text:
+          'These sentences avoid colloquialisms; spell the formal words in '
           'full (erhalten, ausgezeichnet).',
     ),
     HelpMemoryTip(
@@ -732,51 +1177,67 @@ final QuizContent questC21DiktatContent = dictationQuestQuiz(
   ],
   sentences: const [
     SpeakPhrase(
-        phrase: 'Die Regierung erklärte, sie habe alle Optionen geprüft.',
-        meaning: 'The government said it had examined all options.'),
+      phrase: 'Die Regierung erklärte, sie habe alle Optionen geprüft.',
+      meaning: 'The government said it had examined all options.',
+    ),
     SpeakPhrase(
-        phrase: 'Wir müssen umgehend geeignete Maßnahmen ergreifen.',
-        meaning: 'We must take suitable measures immediately.'),
+      phrase: 'Wir müssen umgehend geeignete Maßnahmen ergreifen.',
+      meaning: 'We must take suitable measures immediately.',
+    ),
     SpeakPhrase(
-        phrase: 'Sehr geehrte Damen und Herren, ich danke Ihnen für Ihr '
-            'Erscheinen.',
-        meaning: 'Ladies and gentlemen, thank you for coming.'),
+      phrase:
+          'Sehr geehrte Damen und Herren, ich danke Ihnen für Ihr '
+          'Erscheinen.',
+      meaning: 'Ladies and gentlemen, thank you for coming.',
+    ),
     SpeakPhrase(
-        phrase: 'Das Unternehmen legt großen Wert auf Nachhaltigkeit.',
-        meaning: 'The company places great value on sustainability.'),
+      phrase: 'Das Unternehmen legt großen Wert auf Nachhaltigkeit.',
+      meaning: 'The company places great value on sustainability.',
+    ),
     SpeakPhrase(
-        phrase: 'Es ist an der Zeit, dass wir Verantwortung übernehmen.',
-        meaning: 'It is time for us to take responsibility.'),
+      phrase: 'Es ist an der Zeit, dass wir Verantwortung übernehmen.',
+      meaning: 'It is time for us to take responsibility.',
+    ),
     SpeakPhrase(
-        phrase: 'Aller Anfang ist schwer, doch Übung macht den Meister.',
-        meaning: 'Every beginning is hard, but practice makes perfect.'),
+      phrase: 'Aller Anfang ist schwer, doch Übung macht den Meister.',
+      meaning: 'Every beginning is hard, but practice makes perfect.',
+    ),
     SpeakPhrase(
-        phrase: 'Der Vorstand teilte mit, man werde die Strategie überdenken.',
-        meaning: 'The board announced it would rethink the strategy.'),
+      phrase: 'Der Vorstand teilte mit, man werde die Strategie überdenken.',
+      meaning: 'The board announced it would rethink the strategy.',
+    ),
     SpeakPhrase(
-        phrase: 'Wir bitten Sie, den Termin schriftlich zu bestätigen.',
-        meaning: 'We ask you to confirm the appointment in writing.'),
+      phrase: 'Wir bitten Sie, den Termin schriftlich zu bestätigen.',
+      meaning: 'We ask you to confirm the appointment in writing.',
+    ),
     SpeakPhrase(
-        phrase: 'Lügen haben bekanntlich kurze Beine.',
-        meaning: 'As we all know, lies have short legs.'),
+      phrase: 'Lügen haben bekanntlich kurze Beine.',
+      meaning: 'As we all know, lies have short legs.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Angeklagte beteuerte ihre Unschuld.',
-        meaning: 'The defendant protested her innocence.'),
+      phrase: 'Die Angeklagte beteuerte ihre Unschuld.',
+      meaning: 'The defendant protested her innocence.',
+    ),
     SpeakPhrase(
-        phrase: 'Der Konzern erzielte einen deutlichen Gewinn.',
-        meaning: 'The corporation achieved a clear profit.'),
+      phrase: 'Der Konzern erzielte einen deutlichen Gewinn.',
+      meaning: 'The corporation achieved a clear profit.',
+    ),
     SpeakPhrase(
-        phrase: 'Hiermit kündige ich meinen Vertrag fristgerecht.',
-        meaning: 'I hereby cancel my contract within the notice period.'),
+      phrase: 'Hiermit kündige ich meinen Vertrag fristgerecht.',
+      meaning: 'I hereby cancel my contract within the notice period.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Verhandlungen wurden ergebnislos abgebrochen.',
-        meaning: 'The negotiations were broken off without result.'),
+      phrase: 'Die Verhandlungen wurden ergebnislos abgebrochen.',
+      meaning: 'The negotiations were broken off without result.',
+    ),
     SpeakPhrase(
-        phrase: 'Man einigte sich auf einen tragfähigen Kompromiss.',
-        meaning: 'They agreed on a viable compromise.'),
+      phrase: 'Man einigte sich auf einen tragfähigen Kompromiss.',
+      meaning: 'They agreed on a viable compromise.',
+    ),
     SpeakPhrase(
-        phrase: 'Der Ton macht bekanntlich die Musik.',
-        meaning: 'It is not what you say but how you say it.'),
+      phrase: 'Der Ton macht bekanntlich die Musik.',
+      meaning: 'It is not what you say but how you say it.',
+    ),
   ],
 );
 
@@ -787,41 +1248,50 @@ final QuizContent questC21SprechenModerierenContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Chair a discussion and react spontaneously — fluent, flexible C2 '
+  intro:
+      'Chair a discussion and react spontaneously — fluent, flexible C2 '
       'speech. Listen and repeat these moderation phrases.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Manage the floor',
-      text: '"Darf ich kurz einhaken?", "Lassen Sie ihn bitte ausreden.", '
+      text:
+          '"Darf ich kurz einhaken?", "Lassen Sie ihn bitte ausreden.", '
           '"Kommen wir zum nächsten Punkt."',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Paraphrase & summarise',
-      text: '"Wenn ich Sie richtig verstehe, meinen Sie …" keeps a discussion on '
+      text:
+          '"Wenn ich Sie richtig verstehe, meinen Sie …" keeps a discussion on '
           'track.',
     ),
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Darf ich an dieser Stelle kurz einhaken?',
-        meaning: 'May I cut in briefly at this point?'),
+      phrase: 'Darf ich an dieser Stelle kurz einhaken?',
+      meaning: 'May I cut in briefly at this point?',
+    ),
     SpeakPhrase(
-        phrase: 'Lassen Sie ihn bitte ausreden.',
-        meaning: 'Please let him finish.'),
+      phrase: 'Lassen Sie ihn bitte ausreden.',
+      meaning: 'Please let him finish.',
+    ),
     SpeakPhrase(
-        phrase: 'Wenn ich Sie richtig verstehe, meinen Sie …',
-        meaning: 'If I understand you correctly, you mean …'),
+      phrase: 'Wenn ich Sie richtig verstehe, meinen Sie …',
+      meaning: 'If I understand you correctly, you mean …',
+    ),
     SpeakPhrase(
-        phrase: 'Kommen wir nun zum nächsten Punkt.',
-        meaning: 'Let’s move on to the next point.'),
+      phrase: 'Kommen wir nun zum nächsten Punkt.',
+      meaning: 'Let’s move on to the next point.',
+    ),
     SpeakPhrase(
-        phrase: 'Das bringt mich zu einer interessanten Frage.',
-        meaning: 'That brings me to an interesting question.'),
+      phrase: 'Das bringt mich zu einer interessanten Frage.',
+      meaning: 'That brings me to an interesting question.',
+    ),
     SpeakPhrase(
-        phrase: 'Wir müssen leider zum Schluss kommen.',
-        meaning: 'Unfortunately we have to come to a close.'),
+      phrase: 'Wir müssen leider zum Schluss kommen.',
+      meaning: 'Unfortunately we have to come to a close.',
+    ),
   ],
 );
 
@@ -854,15 +1324,16 @@ final QuizContent questC21HoerenSatireContent = listeningQuestQuiz(
       options: [
         'über scheinheiliges Umweltbewusstsein',
         'über die Mülltrennung an sich',
-        'über das Fahrradfahren'
+        'über das Fahrradfahren',
       ],
       optionsTranslation: [
         'about hypocritical environmental awareness',
         'about waste separation as such',
-        'about cycling'
+        'about cycling',
       ],
       correctIndex: 0,
-      explanation: 'Die Pointe: Er fliegt dreimal im Jahr, predigt aber '
+      explanation:
+          'Die Pointe: Er fliegt dreimal im Jahr, predigt aber '
           'Klimaschutz.',
     ),
     ReadingQuestion(
@@ -871,48 +1342,53 @@ final QuizContent questC21HoerenSatireContent = listeningQuestQuiz(
       options: [
         'Er predigt Klimaschutz, fliegt aber oft in den Urlaub.',
         'Er fährt Fahrrad, hat aber kein Auto.',
-        'Er trennt Müll, kauft aber zu viel.'
+        'Er trennt Müll, kauft aber zu viel.',
       ],
       optionsTranslation: [
         'He preaches climate protection but flies on holiday often.',
         'He cycles but has no car.',
-        'He separates rubbish but buys too much.'
+        'He separates rubbish but buys too much.',
       ],
       correctIndex: 0,
-      explanation: '"Dass er dabei dreimal im Jahr in den Urlaub fliegt, '
+      explanation:
+          '"Dass er dabei dreimal im Jahr in den Urlaub fliegt, '
           'erwähnt er lieber nicht."',
     ),
     ReadingQuestion(
       question: 'Was ist laut Pointe „die Hauptsache"?',
-      questionTranslation: 'What is "the main thing", according to the punchline?',
+      questionTranslation:
+          'What is "the main thing", according to the punchline?',
       options: [
         'dass das Gewissen beruhigt ist',
         'dass die Umwelt gerettet wird',
-        'dass alle es sehen'
+        'dass alle es sehen',
       ],
       optionsTranslation: [
         'that the conscience is at ease',
         'that the environment is saved',
-        'that everyone sees it'
+        'that everyone sees it',
       ],
       correctIndex: 0,
       explanation: '"Hauptsache, das Gewissen ist beruhigt."',
     ),
   ],
-  intro: 'A satirical cabaret piece — you only hear it. The humour is in the '
+  intro:
+      'A satirical cabaret piece — you only hear it. The humour is in the '
       'irony and the exaggeration. Listen for the contradiction the artist '
       'exposes. Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Irony means the opposite',
-      text: '"der perfekte Bürger" is praised in order to mock him. Read the '
+      text:
+          '"der perfekte Bürger" is praised in order to mock him. Read the '
           'tone, not the words.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'The punchline at the end',
-      text: 'Satire saves the sting for last ("Hauptsache, das Gewissen ist '
+      text:
+          'Satire saves the sting for last ("Hauptsache, das Gewissen ist '
           'beruhigt").',
     ),
   ],
@@ -945,12 +1421,12 @@ final QuizContent questC21LesenKurzgeschichteContent = readingQuestQuiz(
       options: [
         'Er gehörte seiner verstorbenen Frau.',
         'Er ist kaputt.',
-        'Er ist zu wertvoll.'
+        'Er ist zu wertvoll.',
       ],
       optionsTranslation: [
         'It belonged to his deceased wife.',
         'It is broken.',
-        'It is too valuable.'
+        'It is too valuable.',
       ],
       correctIndex: 0,
       explanation: 'Der Mann hält den Platz seiner toten Frau frei.',
@@ -961,46 +1437,50 @@ final QuizContent questC21LesenKurzgeschichteContent = readingQuestQuiz(
       options: [
         'er habe den Verstand verloren',
         'er sei sehr reich',
-        'er wolle umziehen'
+        'er wolle umziehen',
       ],
       optionsTranslation: [
         'that he had lost his mind',
         'that he is very rich',
-        'that he wants to move'
+        'that he wants to move',
       ],
       correctIndex: 0,
       explanation: '"… er habe den Verstand verloren."',
     ),
     ReadingQuestion(
       question: 'Wie deutet der Erzähler das Verhalten am Ende?',
-      questionTranslation: 'How does the narrator interpret the behaviour at the end?',
+      questionTranslation:
+          'How does the narrator interpret the behaviour at the end?',
       options: [
         'als das Einzige, was ihm geblieben war',
         'als reine Verrücktheit',
-        'als Wunsch nach Aufmerksamkeit'
+        'als Wunsch nach Aufmerksamkeit',
       ],
       optionsTranslation: [
         'as the only thing left to him',
         'as pure madness',
-        'as a wish for attention'
+        'as a wish for attention',
       ],
       correctIndex: 0,
       explanation: '"… das Einzige, was ihm geblieben war …"',
     ),
   ],
-  intro: 'A literary short story — restrained, melancholic, with reported speech '
+  intro:
+      'A literary short story — restrained, melancholic, with reported speech '
       '(er habe) and an ambiguous, empathetic ending. GDS-level interpretation.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Show, don’t tell',
-      text: 'The grief is shown through the actions (decken für zwei), never '
+      text:
+          'The grief is shown through the actions (decken für zwei), never '
           'named directly.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Vielleicht … Vielleicht aber …',
-      text: 'The narrator weighs two readings without deciding — the empathy is '
+      text:
+          'The narrator weighs two readings without deciding — the empathy is '
           'in the second one.',
     ),
   ],
@@ -1036,7 +1516,8 @@ final QuizContent questC21BigTextVorstandContent = bigTextQuestQuiz(
       'is said, also take the costs into consideration. The company provides the '
       'employees with new software. The spokesperson clearly expresses his '
       'concerns. In future more consideration will be given to the environment.',
-  intro: 'Funktionsverbgefüge are fixed pairings where the noun means everything '
+  intro:
+      'Funktionsverbgefüge are fixed pairings where the noun means everything '
       'and the verb is almost empty: eine Entscheidung TREFFEN, in Kraft TRETEN, '
       'Kritik ÜBEN. The wrong verb sounds instantly foreign — supply the right '
       'one.',
@@ -1044,25 +1525,114 @@ final QuizContent questC21BigTextVorstandContent = bigTextQuestQuiz(
     HelpMemoryTip(
       kind: 'rule',
       title: 'Learn the pair, not the verb',
-      text: 'You cannot guess the verb from English: "make a decision" is eine '
+      text:
+          'You cannot guess the verb from English: "make a decision" is eine '
           'Entscheidung TREFFEN (not machen); "criticise" is Kritik ÜBEN.',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'They lift the register',
-      text: 'in Betracht ziehen = berücksichtigen, zum Ausdruck bringen = '
+      text:
+          'in Betracht ziehen = berücksichtigen, zum Ausdruck bringen = '
           'ausdrücken. The FVG is the formal, official-sounding twin.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Fixed prepositions too',
-      text: 'The preposition is locked in: in Kraft, zur Verfügung, in Betracht. '
+      text:
+          'The preposition is locked in: in Kraft, zur Verfügung, in Betracht. '
           'Change it and the collocation breaks.',
     ),
   ],
 );
 
 /// Every C2.1 quiz, in chain order — all five exercise types, interleaved.
+
+/// Speaking: the learner runs this conversation in their own AI
+/// assistant and enters the score it gives (see `SpeakingQuizPage`).
+final QuizContent questSpeakingStilContent = speakingQuestQuiz(
+  id: 'quest_c2_1_sprechen_dialog',
+  title: 'C2.1 · Gespräch: Stilsicherheit',
+  level: 'C2.1',
+  topic:
+      'One subject, two registers: discussing something seriously, then saying the same thing the way you would to a friend.',
+  practisePoints: [
+    'Switching register on request: formal to colloquial and back',
+    'Strong collocations: eine Entscheidung fällen, Kritik üben',
+    'The journalistic Konjunktiv I in longer reported passages',
+    'Rhetorical devices: understatement, rhetorical questions',
+  ],
+  targetVocabulary: [
+    'Kritik üben',
+    'in Frage stellen',
+    'gleichwohl',
+    'mitnichten',
+    'salopp gesagt',
+  ],
+  scoringCriteria: [
+    'the register asked for',
+    'collocations a native speaker would use',
+    'sustained reported speech',
+    'the effect of the rhetorical choice',
+  ],
+  priorityErrors: [
+    'register slipping',
+    'a collocation that does not exist',
+    'reported speech falling back to the indicative',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 6, minExchanges: 9),
+  intro:
+      'The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say "Los geht\'s" to start. It grades you at the end - bring that score back here.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Let it be a conversation',
+      text:
+          'Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score.',
+    ),
+  ],
+);
+
+/// Mid-level speaking checkpoint: a shorter, question-driven run over the
+/// first half of this sub-level. The closing Gespräch covers the level as
+/// a whole.
+final QuizContent questSpeakingCheckC21Content = speakingQuestQuiz(
+  id: 'quest_c2_1_sprechen_kurzcheck',
+  title: 'C2.1 · Kurzcheck: Register',
+  level: 'C2.1',
+  topic:
+      'One short message, said twice: once to a committee, once to a friend.',
+  practisePoints: [
+    'Formal register: full forms, nominal style, hedging',
+    'Colloquial register: particles, ellipsis, short clauses',
+    'Switching cleanly on request, without mixing the two',
+  ],
+  targetVocabulary: ['gleichwohl', 'salopp gesagt', 'im Übrigen', 'echt jetzt'],
+  scoringCriteria: [
+    'the register asked for',
+    'consistency inside one turn',
+    'the switch made cleanly',
+  ],
+  priorityErrors: [
+    'register slipping',
+    'formal and colloquial mixed in one sentence',
+  ],
+  mode: SpeakingMode.roleplay,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'A short checkpoint, not an exam',
+      text:
+          'Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end.',
+    ),
+  ],
+);
+
 final List<QuizContent> questC2_1Content = [
   questC21WirtschaftContent, //          Wirtschaft & Recht     (knowledge)
   questC21RegisterContent, //            Register               (knowledge)
@@ -1072,6 +1642,7 @@ final List<QuizContent> questC2_1Content = [
   questC21StilmittelContent, //          Stilmittel & Rhetorik  (knowledge)
   questC21HoerenFeatureContent, //       Hören: Feature         (listening)
   questC21Konj1LitContent, //            Konjunktiv I (Presse)  (knowledge·verb)
+  questSpeakingCheckC21Content, // Kurzcheck mit einer KI (speaking·AI)
   questC21KonnotationContent, //         Konnotation            (knowledge)
   questC21LesenArtikelContent, //        Lesen: Zeitungsartikel (reading)
   questC21SprichwoerterContent, //       Sprichwörter           (knowledge)
@@ -1079,4 +1650,5 @@ final List<QuizContent> questC2_1Content = [
   questC21SprechenModerierenContent, //  Sprechen: Moderieren   (speaking)
   questC21HoerenSatireContent, //        Hören: Satire          (listening)
   questC21LesenKurzgeschichteContent, // Lesen: Kurzgeschichte  (reading)
+  questSpeakingStilContent, // Gespräch mit einer KI  (speaking·AI)
 ];

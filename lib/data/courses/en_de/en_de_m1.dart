@@ -9,34 +9,39 @@ const List<HelpMemoryTip> _presentTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'The six endings',
-    text: 'ich -**e**, du -**st**, er/sie/es -**t**, wir -**en**, ihr -**t**, '
+    text:
+        'ich -**e**, du -**st**, er/sie/es -**t**, wir -**en**, ihr -**t**, '
         'sie/Sie -**en**. So: ich mach**e**, du mach**st**, er mach**t**, wir '
         'mach**en**, ihr mach**t**.',
   ),
   HelpMemoryTip(
     kind: 'rule',
     title: 'sein & haben — learn by heart',
-    text: 'sein: ich **bin**, du **bist**, er **ist**, wir **sind**, ihr '
+    text:
+        'sein: ich **bin**, du **bist**, er **ist**, wir **sind**, ihr '
         '**seid**, sie **sind**. haben: ich **habe**, du **hast**, er **hat**, '
         'wir **haben**, ihr **habt**, sie **haben**.',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'Verb in position 2 (V2)',
-    text: 'The finite verb is always the second element: *Ich **spiele** heute.* '
+    text:
+        'The finite verb is always the second element: *Ich **spiele** heute.* '
         '= *Heute **spiele** ich.* Move anything to the front and the verb stays '
         'glued in slot 2.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Stems in -t / -d add -e',
-    text: 'After a stem ending in -t or -d, slip in an extra -e so you can hear '
+    text:
+        'After a stem ending in -t or -d, slip in an extra -e so you can hear '
         'it: du arbeit**e**st, er arbeit**e**t, ihr find**e**t.',
   ),
   HelpMemoryTip(
     kind: 'tip',
     title: 'One present, no -ing',
-    text: 'German has a single present tense: **ich spiele** means both '
+    text:
+        'German has a single present tense: **ich spiele** means both '
         '"I play" and "I am playing".',
   ),
 ];
@@ -44,25 +49,68 @@ const List<HelpMemoryTip> _presentTips = [
 final QuizContent enDeM1Regular = enDeFill(
   id: 'en_de_m1_regular',
   title: 'Present tense: regular verbs',
-  intro: 'Most German verbs are regular: take the stem and add the ending for '
+  intro:
+      'Most German verbs are regular: take the stem and add the ending for '
       'the person. Learn the six endings here and you can use thousands of '
       'verbs.',
   tips: _presentTips,
   items: const [
-    CourseItem(prompt: 'I live in Hamburg. (wohnen)', answer: 'Ich **wohne** in Hamburg'),
-    CourseItem(prompt: 'You play football. (spielen, du)', answer: 'Du **spielst** Fußball'),
-    CourseItem(prompt: 'She makes pizza. (machen)', answer: 'Sie **macht** Pizza'),
-    CourseItem(prompt: 'We learn German. (lernen)', answer: 'Wir **lernen** Deutsch'),
-    CourseItem(prompt: 'You all live here. (wohnen, ihr)', answer: 'Ihr **wohnt** hier'),
-    CourseItem(prompt: 'They play often. (spielen)', answer: 'Sie **spielen** oft'),
-    CourseItem(prompt: 'He works a lot. (arbeiten)', answer: 'Er **arbeitet** viel'),
-    CourseItem(prompt: 'I find the city beautiful. (finden)', answer: 'Ich **finde** die Stadt schön'),
-    CourseItem(prompt: 'She learns quickly. (lernen)', answer: 'Sie **lernt** schnell'),
-    CourseItem(prompt: 'We live in Munich. (wohnen)', answer: 'Wir **wohnen** in München'),
-    CourseItem(prompt: 'You hear music. (hören, du)', answer: 'Du **hörst** Musik'),
-    CourseItem(prompt: 'They buy bread. (kaufen)', answer: 'Sie **kaufen** Brot'),
-    CourseItem(prompt: 'He comes from Austria. (kommen)', answer: 'Er **kommt** aus Österreich'),
-    CourseItem(prompt: 'You all find the film good. (finden, ihr)', answer: 'Ihr **findet** den Film gut'),
+    CourseItem(
+      prompt: 'I live in Hamburg. (wohnen)',
+      answer: 'Ich **wohne** in Hamburg',
+    ),
+    CourseItem(
+      prompt: 'You play football. (spielen, du)',
+      answer: 'Du **spielst** Fußball',
+    ),
+    CourseItem(
+      prompt: 'She makes pizza. (machen)',
+      answer: 'Sie **macht** Pizza',
+    ),
+    CourseItem(
+      prompt: 'We learn German. (lernen)',
+      answer: 'Wir **lernen** Deutsch',
+    ),
+    CourseItem(
+      prompt: 'You all live here. (wohnen, ihr)',
+      answer: 'Ihr **wohnt** hier',
+    ),
+    CourseItem(
+      prompt: 'They play often. (spielen)',
+      answer: 'Sie **spielen** oft',
+    ),
+    CourseItem(
+      prompt: 'He works a lot. (arbeiten)',
+      answer: 'Er **arbeitet** viel',
+    ),
+    CourseItem(
+      prompt: 'I find the city beautiful. (finden)',
+      answer: 'Ich **finde** die Stadt schön',
+    ),
+    CourseItem(
+      prompt: 'She learns quickly. (lernen)',
+      answer: 'Sie **lernt** schnell',
+    ),
+    CourseItem(
+      prompt: 'We live in Munich. (wohnen)',
+      answer: 'Wir **wohnen** in München',
+    ),
+    CourseItem(
+      prompt: 'You hear music. (hören, du)',
+      answer: 'Du **hörst** Musik',
+    ),
+    CourseItem(
+      prompt: 'They buy bread. (kaufen)',
+      answer: 'Sie **kaufen** Brot',
+    ),
+    CourseItem(
+      prompt: 'He comes from Austria. (kommen)',
+      answer: 'Er **kommt** aus Österreich',
+    ),
+    CourseItem(
+      prompt: 'You all find the film good. (finden, ihr)',
+      answer: 'Ihr **findet** den Film gut',
+    ),
     CourseItem(prompt: 'I go home. (gehen)', answer: 'Ich **gehe** nach Hause'),
   ],
 );
@@ -70,18 +118,21 @@ final QuizContent enDeM1Regular = enDeFill(
 final QuizContent enDeM1SeinHaben = enDeFill(
   id: 'en_de_m1_sein_haben',
   title: 'sein & haben',
-  intro: 'The two most important verbs are irregular, so learn them by heart: '
+  intro:
+      'The two most important verbs are irregular, so learn them by heart: '
       'sein (to be) and haben (to have). You will use them constantly.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'sein',
-      text: 'ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind.',
+      text:
+          'ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind.',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'haben',
-      text: 'ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie '
+      text:
+          'ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie '
           'haben.',
     ),
   ],
@@ -89,95 +140,215 @@ final QuizContent enDeM1SeinHaben = enDeFill(
     CourseItem(prompt: 'I am tired. (sein)', answer: 'Ich **bin** müde'),
     CourseItem(prompt: 'You are nice. (sein, du)', answer: 'Du **bist** nett'),
     CourseItem(prompt: 'He is at home. (sein)', answer: 'Er **ist** zu Hause'),
-    CourseItem(prompt: 'We are students. (sein)', answer: 'Wir **sind** Studenten'),
-    CourseItem(prompt: 'You all are funny. (sein, ihr)', answer: 'Ihr **seid** lustig'),
+    CourseItem(
+      prompt: 'We are students. (sein)',
+      answer: 'Wir **sind** Studenten',
+    ),
+    CourseItem(
+      prompt: 'You all are funny. (sein, ihr)',
+      answer: 'Ihr **seid** lustig',
+    ),
     CourseItem(prompt: 'I have time. (haben)', answer: 'Ich **habe** Zeit'),
-    CourseItem(prompt: 'She has a dog. (haben)', answer: 'Sie **hat** einen Hund'),
-    CourseItem(prompt: 'You have a car. (haben, du)', answer: 'Du **hast** ein Auto'),
-    CourseItem(prompt: 'They are happy. (sein)', answer: 'Sie **sind** glücklich'),
-    CourseItem(prompt: 'She is a teacher. (sein)', answer: 'Sie **ist** Lehrerin'),
-    CourseItem(prompt: 'We have a question. (haben)', answer: 'Wir **haben** eine Frage'),
-    CourseItem(prompt: 'You all are lucky. (haben, ihr)', answer: 'Ihr **habt** Glück'),
-    CourseItem(prompt: 'They are hungry. (haben)', answer: 'Sie **haben** Hunger'),
+    CourseItem(
+      prompt: 'She has a dog. (haben)',
+      answer: 'Sie **hat** einen Hund',
+    ),
+    CourseItem(
+      prompt: 'You have a car. (haben, du)',
+      answer: 'Du **hast** ein Auto',
+    ),
+    CourseItem(
+      prompt: 'They are happy. (sein)',
+      answer: 'Sie **sind** glücklich',
+    ),
+    CourseItem(
+      prompt: 'She is a teacher. (sein)',
+      answer: 'Sie **ist** Lehrerin',
+    ),
+    CourseItem(
+      prompt: 'We have a question. (haben)',
+      answer: 'Wir **haben** eine Frage',
+    ),
+    CourseItem(
+      prompt: 'You all are lucky. (haben, ihr)',
+      answer: 'Ihr **habt** Glück',
+    ),
+    CourseItem(
+      prompt: 'They are hungry. (haben)',
+      answer: 'Sie **haben** Hunger',
+    ),
     CourseItem(prompt: 'It is late. (sein)', answer: 'Es **ist** spät'),
-    CourseItem(prompt: 'The children are loud. (sein)', answer: 'Die Kinder **sind** laut'),
+    CourseItem(
+      prompt: 'The children are loud. (sein)',
+      answer: 'Die Kinder **sind** laut',
+    ),
   ],
 );
 
 final QuizContent enDeM1WordOrder = enDeFill(
   id: 'en_de_m1_word_order',
   title: 'The verb-second (V2) rule',
-  intro: 'In a German statement the conjugated verb is always the second '
+  intro:
+      'In a German statement the conjugated verb is always the second '
       'element. Start with a time or place, and the verb still comes right '
       'after it — then the subject.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Verb in position 2',
-      text: 'Whatever comes first (Heute, In Berlin, Am Montag…), the verb is '
+      text:
+          'Whatever comes first (Heute, In Berlin, Am Montag…), the verb is '
           'second and the subject follows it: Heute gehe ich…',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Compare',
-      text: 'Ich gehe heute ins Kino. = Heute gehe ich ins Kino. The verb '
+      text:
+          'Ich gehe heute ins Kino. = Heute gehe ich ins Kino. The verb '
           '"gehe" never moves from slot 2.',
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Today I go to the cinema. (gehen)', answer: 'Heute **gehe** ich ins Kino'),
-    CourseItem(prompt: 'Tomorrow we play football. (spielen)', answer: 'Morgen **spielen** wir Fußball'),
-    CourseItem(prompt: 'At eight the film begins. (beginnen)', answer: 'Um acht Uhr **beginnt** der Film'),
-    CourseItem(prompt: 'On Monday I have time. (haben)', answer: 'Am Montag **habe** ich Zeit'),
-    CourseItem(prompt: 'Now he learns German. (lernen)', answer: 'Jetzt **lernt** er Deutsch'),
-    CourseItem(prompt: 'In Berlin she works. (arbeiten)', answer: 'In Berlin **arbeitet** sie'),
-    CourseItem(prompt: 'On the weekend we sleep late. (schlafen)', answer: 'Am Wochenende **schlafen** wir lange'),
-    CourseItem(prompt: 'In the evening I drink tea. (trinken)', answer: 'Am Abend **trinke** ich Tee'),
-    CourseItem(prompt: 'Tomorrow she flies to Rome. (fliegen)', answer: 'Morgen **fliegt** sie nach Rom'),
-    CourseItem(prompt: 'Unfortunately he has no time. (haben)', answer: 'Leider **hat** er keine Zeit'),
-    CourseItem(prompt: 'Today the weather is beautiful. (sein)', answer: 'Heute **ist** das Wetter schön'),
-    CourseItem(prompt: 'After work I cook. (kochen)', answer: 'Nach der Arbeit **koche** ich'),
-    CourseItem(prompt: 'Maybe we come tomorrow. (kommen)', answer: 'Vielleicht **kommen** wir morgen'),
-    CourseItem(prompt: 'Here people speak German. (sprechen, man)', answer: 'Hier **spricht** man Deutsch'),
-    CourseItem(prompt: 'On Sunday you all eat cake. (essen, ihr)', answer: 'Am Sonntag **esst** ihr Kuchen'),
+    CourseItem(
+      prompt: 'Today I go to the cinema. (gehen)',
+      answer: 'Heute **gehe** ich ins Kino',
+    ),
+    CourseItem(
+      prompt: 'Tomorrow we play football. (spielen)',
+      answer: 'Morgen **spielen** wir Fußball',
+    ),
+    CourseItem(
+      prompt: 'At eight the film begins. (beginnen)',
+      answer: 'Um acht Uhr **beginnt** der Film',
+    ),
+    CourseItem(
+      prompt: 'On Monday I have time. (haben)',
+      answer: 'Am Montag **habe** ich Zeit',
+    ),
+    CourseItem(
+      prompt: 'Now he learns German. (lernen)',
+      answer: 'Jetzt **lernt** er Deutsch',
+    ),
+    CourseItem(
+      prompt: 'In Berlin she works. (arbeiten)',
+      answer: 'In Berlin **arbeitet** sie',
+    ),
+    CourseItem(
+      prompt: 'On the weekend we sleep late. (schlafen)',
+      answer: 'Am Wochenende **schlafen** wir lange',
+    ),
+    CourseItem(
+      prompt: 'In the evening I drink tea. (trinken)',
+      answer: 'Am Abend **trinke** ich Tee',
+    ),
+    CourseItem(
+      prompt: 'Tomorrow she flies to Rome. (fliegen)',
+      answer: 'Morgen **fliegt** sie nach Rom',
+    ),
+    CourseItem(
+      prompt: 'Unfortunately he has no time. (haben)',
+      answer: 'Leider **hat** er keine Zeit',
+    ),
+    CourseItem(
+      prompt: 'Today the weather is beautiful. (sein)',
+      answer: 'Heute **ist** das Wetter schön',
+    ),
+    CourseItem(
+      prompt: 'After work I cook. (kochen)',
+      answer: 'Nach der Arbeit **koche** ich',
+    ),
+    CourseItem(
+      prompt: 'Maybe we come tomorrow. (kommen)',
+      answer: 'Vielleicht **kommen** wir morgen',
+    ),
+    CourseItem(
+      prompt: 'Here people speak German. (sprechen, man)',
+      answer: 'Hier **spricht** man Deutsch',
+    ),
+    CourseItem(
+      prompt: 'On Sunday you all eat cake. (essen, ihr)',
+      answer: 'Am Sonntag **esst** ihr Kuchen',
+    ),
   ],
 );
 
 final QuizContent enDeM1Questions = enDeFill(
   id: 'en_de_m1_questions',
   title: 'Questions (yes/no & W-questions)',
-  intro: 'For a yes/no question, put the verb first. For a W-question, the '
+  intro:
+      'For a yes/no question, put the verb first. For a W-question, the '
       'question word comes first and the verb second.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Two patterns',
-      text: 'Yes/no: Verb + subject? (Wohnst du hier?). W-question: '
+      text:
+          'Yes/no: Verb + subject? (Wohnst du hier?). W-question: '
           'W-word + verb + subject? (Wo wohnst du?).',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'The W-words',
-      text: 'wer (who), was (what), wo (where), wann (when), wie (how), '
+      text:
+          'wer (who), was (what), wo (where), wann (when), wie (how), '
           'warum (why).',
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Do you live here? (wohnen, du)', answer: '**Wohnst** du hier?'),
+    CourseItem(
+      prompt: 'Do you live here? (wohnen, du)',
+      answer: '**Wohnst** du hier?',
+    ),
     CourseItem(prompt: 'Where do you live?', answer: 'Wo **wohnst** du?'),
-    CourseItem(prompt: 'What are you doing? (machen)', answer: 'Was **machst** du?'),
-    CourseItem(prompt: 'Do you have time? (haben)', answer: '**Hast** du Zeit?'),
-    CourseItem(prompt: 'When does the film begin?', answer: 'Wann **beginnt** der Film?'),
-    CourseItem(prompt: 'Are you a student? (sein)', answer: '**Bist** du Student?'),
-    CourseItem(prompt: 'Why are you learning German?', answer: 'Warum **lernst** du Deutsch?'),
+    CourseItem(
+      prompt: 'What are you doing? (machen)',
+      answer: 'Was **machst** du?',
+    ),
+    CourseItem(
+      prompt: 'Do you have time? (haben)',
+      answer: '**Hast** du Zeit?',
+    ),
+    CourseItem(
+      prompt: 'When does the film begin?',
+      answer: 'Wann **beginnt** der Film?',
+    ),
+    CourseItem(
+      prompt: 'Are you a student? (sein)',
+      answer: '**Bist** du Student?',
+    ),
+    CourseItem(
+      prompt: 'Why are you learning German?',
+      answer: 'Warum **lernst** du Deutsch?',
+    ),
     CourseItem(prompt: 'Who is that? (sein)', answer: 'Wer **ist** das?'),
-    CourseItem(prompt: 'Where does she work? (arbeiten)', answer: 'Wo **arbeitet** sie?'),
-    CourseItem(prompt: 'Are you all coming? (kommen, ihr)', answer: '**Kommt** ihr?'),
-    CourseItem(prompt: 'What are you drinking? (trinken, du)', answer: 'Was **trinkst** du?'),
-    CourseItem(prompt: 'Do they live here? (wohnen)', answer: '**Wohnen** sie hier?'),
-    CourseItem(prompt: 'How is the food? (sein)', answer: 'Wie **ist** das Essen?'),
-    CourseItem(prompt: 'When do we eat? (essen)', answer: 'Wann **essen** wir?'),
-    CourseItem(prompt: 'Why is he tired? (sein)', answer: 'Warum **ist** er müde?'),
+    CourseItem(
+      prompt: 'Where does she work? (arbeiten)',
+      answer: 'Wo **arbeitet** sie?',
+    ),
+    CourseItem(
+      prompt: 'Are you all coming? (kommen, ihr)',
+      answer: '**Kommt** ihr?',
+    ),
+    CourseItem(
+      prompt: 'What are you drinking? (trinken, du)',
+      answer: 'Was **trinkst** du?',
+    ),
+    CourseItem(
+      prompt: 'Do they live here? (wohnen)',
+      answer: '**Wohnen** sie hier?',
+    ),
+    CourseItem(
+      prompt: 'How is the food? (sein)',
+      answer: 'Wie **ist** das Essen?',
+    ),
+    CourseItem(
+      prompt: 'When do we eat? (essen)',
+      answer: 'Wann **essen** wir?',
+    ),
+    CourseItem(
+      prompt: 'Why is he tired? (sein)',
+      answer: 'Warum **ist** er müde?',
+    ),
   ],
 );
 
@@ -211,7 +382,8 @@ final QuizContent enDeM1BigTextWarmup = enDeBigText(
       "mornings I'm often tired, but Felix is always in a good mood. Every day "
       'he asks: do you have time? We drink coffee together and make music. '
       "Actually he's quite nice.",
-  intro: 'Type the present-tense form of each verb (the infinitive is the '
+  intro:
+      'Type the present-tense form of each verb (the infinitive is the '
       'hint). A mix of regular verbs and sein/haben — watch the endings: '
       'ich -e/bin/habe, du -st/bist/hast, er -t/ist/hat.',
   tips: _presentTips,
@@ -252,7 +424,8 @@ final QuizContent enDeM1BigText = enDeBigText(
       "honestly I'm pretty bad. My brother Tom lives in Berlin and works there "
       'as a teacher. We phone almost every evening and laugh about old stories. '
       'And you? What do you do in your free time?',
-  intro: 'Type the correct present-tense form of each verb (the infinitive is '
+  intro:
+      'Type the correct present-tense form of each verb (the infinitive is '
       'the hint). Watch the endings: ich -e, du -st, er/sie -t, wir -en.',
   tips: _presentTips,
 );
@@ -260,20 +433,28 @@ final QuizContent enDeM1BigText = enDeBigText(
 final QuizContent enDeM1Speak = enDeSpeak(
   id: 'en_de_m1_speak',
   title: 'Speak: greetings & introductions',
-  intro: 'Say each line aloud. These are the first sentences you need to meet '
+  intro:
+      'Say each line aloud. These are the first sentences you need to meet '
       'someone in German.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Formal vs informal',
-      text: 'Use "Wie heißt du?" with friends, "Wie heißen Sie?" with '
+      text:
+          'Use "Wie heißt du?" with friends, "Wie heißen Sie?" with '
           'strangers and in formal situations.',
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Hello, my name is Anna.', answer: 'Hallo, ich heiße Anna.'),
+    CourseItem(
+      prompt: 'Hello, my name is Anna.',
+      answer: 'Hallo, ich heiße Anna.',
+    ),
     CourseItem(prompt: 'What is your name?', answer: 'Wie heißt du?'),
-    CourseItem(prompt: 'I come from Germany.', answer: 'Ich komme aus Deutschland.'),
+    CourseItem(
+      prompt: 'I come from Germany.',
+      answer: 'Ich komme aus Deutschland.',
+    ),
     CourseItem(prompt: 'I live in Hamburg.', answer: 'Ich wohne in Hamburg.'),
     CourseItem(prompt: 'How are you?', answer: 'Wie geht es dir?'),
     CourseItem(prompt: "I'm fine, thanks.", answer: 'Mir geht es gut, danke.'),
@@ -284,43 +465,136 @@ final QuizContent enDeM1Speak = enDeSpeak(
 final QuizContent enDeM1Dictation = enDeDict(
   id: 'en_de_m1_dictation',
   title: 'Dictation: short present-tense sentences',
-  intro: 'Listen and type each sentence. Catch the verb ending — it tells you '
+  intro:
+      'Listen and type each sentence. Catch the verb ending — it tells you '
       'who is doing the action.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'Listen for the ending',
-      text: 'machst (du) vs macht (er) vs machen (wir) — the ending is the only '
+      text:
+          'machst (du) vs macht (er) vs machen (wir) — the ending is the only '
           'difference.',
     ),
   ],
   items: const [
     CourseItem(prompt: 'I live in Hamburg.', answer: 'Ich wohne in Hamburg.'),
-    CourseItem(prompt: 'What are you doing today?', answer: 'Was machst du heute?'),
+    CourseItem(
+      prompt: 'What are you doing today?',
+      answer: 'Was machst du heute?',
+    ),
     CourseItem(prompt: 'He works in Berlin.', answer: 'Er arbeitet in Berlin.'),
     CourseItem(prompt: 'We learn German.', answer: 'Wir lernen Deutsch.'),
     CourseItem(prompt: 'Do you have time?', answer: 'Hast du Zeit?'),
     CourseItem(prompt: 'She plays the guitar.', answer: 'Sie spielt Gitarre.'),
     CourseItem(prompt: 'We are at home.', answer: 'Wir sind zu Hause.'),
-    CourseItem(prompt: 'I drink coffee every morning.', answer: 'Ich trinke jeden Morgen Kaffee.'),
+    CourseItem(
+      prompt: 'I drink coffee every morning.',
+      answer: 'Ich trinke jeden Morgen Kaffee.',
+    ),
     CourseItem(prompt: 'Where do you live?', answer: 'Wo wohnst du?'),
-    CourseItem(prompt: 'The film begins at eight.', answer: 'Der Film beginnt um acht Uhr.'),
+    CourseItem(
+      prompt: 'The film begins at eight.',
+      answer: 'Der Film beginnt um acht Uhr.',
+    ),
     CourseItem(prompt: 'You all are very nice.', answer: 'Ihr seid sehr nett.'),
-    CourseItem(prompt: 'He finds the city beautiful.', answer: 'Er findet die Stadt schön.'),
-    CourseItem(prompt: 'Today I have no time.', answer: 'Heute habe ich keine Zeit.'),
-    CourseItem(prompt: 'They learn German together.', answer: 'Sie lernen zusammen Deutsch.'),
+    CourseItem(
+      prompt: 'He finds the city beautiful.',
+      answer: 'Er findet die Stadt schön.',
+    ),
+    CourseItem(
+      prompt: 'Today I have no time.',
+      answer: 'Heute habe ich keine Zeit.',
+    ),
+    CourseItem(
+      prompt: 'They learn German together.',
+      answer: 'Sie lernen zusammen Deutsch.',
+    ),
     CourseItem(prompt: 'Why are you tired?', answer: 'Warum bist du müde?'),
   ],
 );
 
 /// M1 — Present Tense & Word Order, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM1Speaking = enDeSpeaking(
+  id: 'en_de_m1_speaking',
+  title: 'Talk about your everyday life',
+  level: 'A1',
+  topic:
+      'Anna\'s everyday life and mine: where I live, what I do every day, my job or studies, and my free time.',
+  practisePoints: [
+    'Present-tense endings: ich wohne, du wohnst, er/sie wohnt, wir wohnen',
+    'sein and haben: ich bin, du bist, ich habe, sie hat',
+    'The verb in second position: Am Montag arbeite ich in Berlin.',
+    'Asking me simple questions with Wo, Was, Wie and Wann',
+  ],
+  targetVocabulary: [
+    'wohnen',
+    'arbeiten',
+    'heißen',
+    'gern',
+    'jeden Tag',
+    'am Wochenende',
+  ],
+  scoringCriteria: [
+    'the verb ending for the person',
+    'sein/haben forms',
+    'the verb in second position',
+  ],
+  priorityErrors: [
+    'wrong verb ending',
+    'wrong form of sein or haben',
+    'verb not in second position',
+  ],
+  intro:
+      'Your first speaking exercise. The app does not run the conversation - copy the exercise into your own AI assistant, turn on its voice mode, and talk. It grades you at the end; bring that score back here.',
+  tips: _presentTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM1SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m1_speaking_check',
+  title: 'Checkpoint: who are you?',
+  level: 'A1',
+  topic:
+      'A short round of questions about me: my name, where I live, where I work or study, and my age.',
+  practisePoints: [
+    'Present-tense endings for ich, du and er/sie',
+    'sein and haben: ich bin, ich habe',
+    'Answering in a full sentence, not one word',
+  ],
+  targetVocabulary: ['heißen', 'wohnen', 'arbeiten', 'sein', 'haben'],
+  scoringCriteria: [
+    'the verb ending for the person',
+    'sein/haben forms',
+    'a full sentence as the answer',
+  ],
+  priorityErrors: [
+    'wrong verb ending',
+    'wrong form of sein or haben',
+    'one-word answers',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _presentTips,
+);
+
 final List<QuizContent> enDeM1 = [
   enDeM1Regular,
   enDeM1SeinHaben,
   enDeM1BigTextWarmup,
   enDeM1WordOrder,
+  enDeM1SpeakingCheck,
   enDeM1Questions,
   enDeM1BigText,
   enDeM1Speak,
   enDeM1Dictation,
+  enDeM1Speaking,
 ];

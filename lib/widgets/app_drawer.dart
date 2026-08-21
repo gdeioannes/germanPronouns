@@ -198,6 +198,7 @@ class _AppDrawerState extends State<AppDrawer> {
     switch (kind) {
       case QuizKind.speakRepeat:
       case QuizKind.draw:
+      case QuizKind.speaking:
         await settings.markSpeakQuizCompleted(ref);
       case QuizKind.reading:
         await settings.markReadingQuizCompleted(ref);
@@ -568,6 +569,7 @@ class _AppDrawerState extends State<AppDrawer> {
       QuizKind.listening => (quizKindIcon(QuizKind.listening), 'Listen & answer'),
       QuizKind.dictation => (quizKindIcon(QuizKind.dictation), 'Listen & write'),
       QuizKind.draw => (quizKindIcon(QuizKind.draw), 'Listen & draw'),
+      QuizKind.speaking => (quizKindIcon(QuizKind.speaking), 'Talk with an AI'),
       // Knowledge quizzes in the quest chain keep the quest flag (a milestone
       // marker) rather than the generic question icon.
       QuizKind.fillBlank => (Icons.flag_rounded, null),
@@ -907,6 +909,7 @@ class _AppDrawerState extends State<AppDrawer> {
     final summary = data.quizzes[item.ref];
     switch (summary?.kind) {
       case QuizKind.speakRepeat:
+      case QuizKind.speaking:
         return NounSettings.instance.isSpeakQuizCompleted(item.ref);
       case QuizKind.reading:
         return NounSettings.instance.isReadingQuizCompleted(item.ref);

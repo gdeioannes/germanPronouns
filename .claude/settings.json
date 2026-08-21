@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(dart run *)",
-      "PowerShell(flutter test test/feature_poll_test.dart 2>&1)"
+      "PowerShell(flutter test test/feature_poll_test.dart 2>&1)",
+      "Bash(python -)",
+      "Bash(dart format *)",
+      "Bash(python \"C:/Users/gdeio/AppData/Local/Temp/claude/c--Projects-german-pronouns-articles/5eb10a87-bf12-45a4-85aa-7602fcafafd4/scratchpad/author_speaking.py\")",
+      "Bash(UPDATE_GOLDEN=1 flutter test test/content_fidelity_test.dart test/storage_keys_test.dart)",
+      "Bash(awk '/en_de_m8_speaking_check/,/en_de_m9/')"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\gdeio\\.claude\\projects\\c--Projects-german-pronouns-articles\\memory"
     ]
   }
 }

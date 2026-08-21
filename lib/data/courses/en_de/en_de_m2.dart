@@ -9,34 +9,39 @@ const List<HelpMemoryTip> _genderTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'Three genders, one habit',
-    text: 'Every noun has a gender: **der** (m), **die** (f), **das** (n). '
+    text:
+        'Every noun has a gender: **der** (m), **die** (f), **das** (n). '
         'Always learn the noun *with* its article — **der** Tisch, **die** '
         'Lampe, **das** Buch.',
   ),
   HelpMemoryTip(
     kind: 'tip',
     title: 'Endings that betray the gender',
-    text: '→ **die**: -ung, -heit, -keit, -schaft, -ion, and most -e words. '
+    text:
+        '→ **die**: -ung, -heit, -keit, -schaft, -ion, and most -e words. '
         '→ **das**: -chen, -lein, -ment, -um. → **der**: -er (doer/tool), -ig, '
         '-ling, -or.',
   ),
   HelpMemoryTip(
     kind: 'rule',
     title: 'ein / eine / kein',
-    text: 'Nominative: **ein** (m/n), **eine** (f). Negate a noun with kein: '
+    text:
+        'Nominative: **ein** (m/n), **eine** (f). Negate a noun with kein: '
         '**kein** Hund (m), **keine** Zeit (f), **kein** Auto (n), **keine** '
         'Kinder (pl).',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'der/die/das = er/sie/es',
-    text: 'In the nominative the article echoes the pronoun: der → **er**, '
+    text:
+        'In the nominative the article echoes the pronoun: der → **er**, '
         'die → **sie**, das → **es**.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Endings beat meaning',
-    text: '**das** Mädchen and **das** Kind are neuter because of the noun '
+    text:
+        '**das** Mädchen and **das** Kind are neuter because of the noun '
         '(-chen, das Kind), not the person. Grammar wins over logic.',
   ),
 ];
@@ -44,7 +49,8 @@ const List<HelpMemoryTip> _genderTips = [
 final QuizContent enDeM2Articles = enDeFill(
   id: 'en_de_m2_articles',
   title: 'der / die / das',
-  intro: 'Give each noun its gender. There is no fool-proof rule, so the goal '
+  intro:
+      'Give each noun its gender. There is no fool-proof rule, so the goal '
       'is to learn the article as part of the word.',
   tips: _genderTips,
   items: const [
@@ -69,23 +75,57 @@ final QuizContent enDeM2Articles = enDeFill(
 final QuizContent enDeM2GenderEndings = enDeFill(
   id: 'en_de_m2_gender_endings',
   title: 'Gender by ending',
-  intro: 'Some endings almost always fix the gender. Learn these patterns and '
+  intro:
+      'Some endings almost always fix the gender. Learn these patterns and '
       'you can guess the article for thousands of nouns.',
   tips: _genderTips,
   items: const [
-    CourseItem(prompt: 'the newspaper (Zeitung → -ung)', answer: '**die** Zeitung'),
-    CourseItem(prompt: 'the apartment (Wohnung → -ung)', answer: '**die** Wohnung'),
-    CourseItem(prompt: 'the freedom (Freiheit → -heit)', answer: '**die** Freiheit'),
-    CourseItem(prompt: 'the friendship (Freundschaft → -schaft)', answer: '**die** Freundschaft'),
+    CourseItem(
+      prompt: 'the newspaper (Zeitung → -ung)',
+      answer: '**die** Zeitung',
+    ),
+    CourseItem(
+      prompt: 'the apartment (Wohnung → -ung)',
+      answer: '**die** Wohnung',
+    ),
+    CourseItem(
+      prompt: 'the freedom (Freiheit → -heit)',
+      answer: '**die** Freiheit',
+    ),
+    CourseItem(
+      prompt: 'the friendship (Freundschaft → -schaft)',
+      answer: '**die** Freundschaft',
+    ),
     CourseItem(prompt: 'the girl (Mädchen → -chen)', answer: '**das** Mädchen'),
-    CourseItem(prompt: 'the little house (Häuschen → -chen)', answer: '**das** Häuschen'),
-    CourseItem(prompt: 'the teacher/m (Lehrer → -er)', answer: '**der** Lehrer'),
+    CourseItem(
+      prompt: 'the little house (Häuschen → -chen)',
+      answer: '**das** Häuschen',
+    ),
+    CourseItem(
+      prompt: 'the teacher/m (Lehrer → -er)',
+      answer: '**der** Lehrer',
+    ),
     CourseItem(prompt: 'the computer (-er)', answer: '**der** Computer'),
-    CourseItem(prompt: 'the information (-tion)', answer: '**die** Information'),
-    CourseItem(prompt: 'the possibility (Möglichkeit → -keit)', answer: '**die** Möglichkeit'),
-    CourseItem(prompt: 'the invitation (Einladung → -ung)', answer: '**die** Einladung'),
-    CourseItem(prompt: 'the illness (Krankheit → -heit)', answer: '**die** Krankheit'),
-    CourseItem(prompt: 'the little dog (Hündchen → -chen)', answer: '**das** Hündchen'),
+    CourseItem(
+      prompt: 'the information (-tion)',
+      answer: '**die** Information',
+    ),
+    CourseItem(
+      prompt: 'the possibility (Möglichkeit → -keit)',
+      answer: '**die** Möglichkeit',
+    ),
+    CourseItem(
+      prompt: 'the invitation (Einladung → -ung)',
+      answer: '**die** Einladung',
+    ),
+    CourseItem(
+      prompt: 'the illness (Krankheit → -heit)',
+      answer: '**die** Krankheit',
+    ),
+    CourseItem(
+      prompt: 'the little dog (Hündchen → -chen)',
+      answer: '**das** Hündchen',
+    ),
     CourseItem(prompt: 'the baker/m (Bäcker → -er)', answer: '**der** Bäcker'),
     CourseItem(prompt: 'the nation (-tion)', answer: '**die** Nation'),
   ],
@@ -94,7 +134,8 @@ final QuizContent enDeM2GenderEndings = enDeFill(
 final QuizContent enDeM2Ein = enDeFill(
   id: 'en_de_m2_ein',
   title: 'ein / eine / kein',
-  intro: 'The indefinite article in the nominative: ein (m/n), eine (f). "kein" '
+  intro:
+      'The indefinite article in the nominative: ein (m/n), eine (f). "kein" '
       '(not a / no) takes the same endings, plus -e for feminine and plural.',
   tips: const [
     HelpMemoryTip(
@@ -105,7 +146,8 @@ final QuizContent enDeM2Ein = enDeFill(
     HelpMemoryTip(
       kind: 'example',
       title: 'kein negates a noun',
-      text: 'Use kein, not nicht, to negate a noun: Das ist kein Hund. Ich habe '
+      text:
+          'Use kein, not nicht, to negate a noun: Das ist kein Hund. Ich habe '
           'keine Zeit.',
     ),
   ],
@@ -114,24 +156,40 @@ final QuizContent enDeM2Ein = enDeFill(
     CourseItem(prompt: 'That is a woman.', answer: 'Das ist **eine** Frau'),
     CourseItem(prompt: 'That is a house.', answer: 'Das ist **ein** Haus'),
     CourseItem(prompt: 'That is no dog. (m)', answer: 'Das ist **kein** Hund'),
-    CourseItem(prompt: 'That is no good idea. (f)', answer: 'Das ist **keine** gute Idee'),
-    CourseItem(prompt: 'That is no problem. (n)', answer: 'Das ist **kein** Problem'),
+    CourseItem(
+      prompt: 'That is no good idea. (f)',
+      answer: 'Das ist **keine** gute Idee',
+    ),
+    CourseItem(
+      prompt: 'That is no problem. (n)',
+      answer: 'Das ist **kein** Problem',
+    ),
     CourseItem(prompt: 'Here is a child.', answer: 'Hier ist **ein** Kind'),
     CourseItem(prompt: 'There is a lamp. (f)', answer: 'Da ist **eine** Lampe'),
     CourseItem(prompt: 'That is a book. (n)', answer: 'Das ist **ein** Buch'),
     CourseItem(prompt: 'There is a table. (m)', answer: 'Da ist **ein** Tisch'),
     CourseItem(prompt: 'That is a cat. (f)', answer: 'Das ist **eine** Katze'),
-    CourseItem(prompt: 'That is no cat. (f)', answer: 'Das ist **keine** Katze'),
-    CourseItem(prompt: 'Here is an apple. (m)', answer: 'Hier ist **ein** Apfel'),
+    CourseItem(
+      prompt: 'That is no cat. (f)',
+      answer: 'Das ist **keine** Katze',
+    ),
+    CourseItem(
+      prompt: 'Here is an apple. (m)',
+      answer: 'Hier ist **ein** Apfel',
+    ),
     CourseItem(prompt: 'That is no car. (n)', answer: 'Das ist **kein** Auto'),
-    CourseItem(prompt: 'There is a school. (f)', answer: 'Da ist **eine** Schule'),
+    CourseItem(
+      prompt: 'There is a school. (f)',
+      answer: 'Da ist **eine** Schule',
+    ),
   ],
 );
 
 final QuizContent enDeM2Pronouns = enDeFill(
   id: 'en_de_m2_pronouns',
   title: 'Personal pronouns (nominative)',
-  intro: 'The subject pronouns. German "sie" does triple duty — she, they, and '
+  intro:
+      'The subject pronouns. German "sie" does triple duty — she, they, and '
       '(capitalised) the formal "you" — so context and the verb tell them '
       'apart.',
   tips: const [
@@ -143,7 +201,8 @@ final QuizContent enDeM2Pronouns = enDeFill(
     HelpMemoryTip(
       kind: 'warning',
       title: 'Three "sie"',
-      text: 'sie = she (sie ist), sie = they (sie sind), Sie = you formal '
+      text:
+          'sie = she (sie ist), sie = they (sie sind), Sie = you formal '
           '(always capitalised).',
     ),
   ],
@@ -158,7 +217,10 @@ final QuizContent enDeM2Pronouns = enDeFill(
     CourseItem(prompt: 'they', answer: 'sie'),
     CourseItem(prompt: 'you (formal)', answer: 'Sie'),
     CourseItem(prompt: 'my brother and I (= we)', answer: 'wir'),
-    CourseItem(prompt: 'Mr Müller, when addressing him politely', answer: 'Sie'),
+    CourseItem(
+      prompt: 'Mr Müller, when addressing him politely',
+      answer: 'Sie',
+    ),
     CourseItem(prompt: 'Anna (= she)', answer: 'sie'),
     CourseItem(prompt: 'the child (= it)', answer: 'es'),
     CourseItem(prompt: 'Tom (= he)', answer: 'er'),
@@ -200,7 +262,8 @@ final QuizContent enDeM2BigTextWarmup = enDeBigText(
       'cat sleeps on it all day long. The window is open, the computer is '
       'humming quietly, and somewhere a phone is beeping. The room is tiny and '
       'a complete mess, but honestly: it is my little kingdom.',
-  intro: 'Type the gender article (der/die/das) for each noun. Everything is a '
+  intro:
+      'Type the gender article (der/die/das) for each noun. Everything is a '
       'subject (nominative), so this is pure gender practice — say each noun '
       'with its article in your head before you type.',
   tips: _genderTips,
@@ -252,7 +315,8 @@ final QuizContent enDeM2BigText = enDeBigText(
       'called Bello, secretly eats the slippers, and is still the king of the '
       'family. Do you have a pet too? By the way, we also have a cat, but she '
       "doesn't like cheeky Bello at all!",
-  intro: 'Now the whole module in one text: type the gender article '
+  intro:
+      'Now the whole module in one text: type the gender article '
       '(der/die/das), the indefinite article (ein/eine), or the right pronoun. '
       'Everything is a subject (nominative) — and watch out for das Mädchen, '
       'neuter even though it means a girl!',
@@ -262,13 +326,15 @@ final QuizContent enDeM2BigText = enDeBigText(
 final QuizContent enDeM2Speak = enDeSpeak(
   id: 'en_de_m2_speak',
   title: 'Speak: article + noun',
-  intro: 'Say each noun together with its article — the best way to lock in the '
+  intro:
+      'Say each noun together with its article — the best way to lock in the '
       'gender is to always hear and speak them as one unit.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Always pair them',
-      text: 'Never learn "Hund" — learn "der Hund". The article is part of the '
+      text:
+          'Never learn "Hund" — learn "der Hund". The article is part of the '
           'word.',
     ),
   ],
@@ -287,13 +353,15 @@ final QuizContent enDeM2Speak = enDeSpeak(
 final QuizContent enDeM2Dictation = enDeDict(
   id: 'en_de_m2_dictation',
   title: 'Dictation: article + noun',
-  intro: 'Listen and write the article and the noun. The article you hear tells '
+  intro:
+      'Listen and write the article and the noun. The article you hear tells '
       'you the gender — including the tricky das Mädchen.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'Hear the article',
-      text: 'der / die / das sound different — let the article you hear decide '
+      text:
+          'der / die / das sound different — let the article you hear decide '
           'the spelling and the gender.',
     ),
   ],
@@ -317,13 +385,75 @@ final QuizContent enDeM2Dictation = enDeDict(
 );
 
 /// M2 — Gender & the Nominative, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM2Speaking = enDeSpeaking(
+  id: 'en_de_m2_speaking',
+  title: 'Introduce your family',
+  level: 'A1',
+  topic:
+      'My family and the people around me: who they are, what they are like, and what they do.',
+  practisePoints: [
+    'der/die/das with family nouns: der Vater, die Mutter, das Kind',
+    'ein/eine in the nominative: Das ist ein Bruder, eine Schwester',
+    'Personal pronouns as the subject: er, sie, es, sie (plural)',
+  ],
+  targetVocabulary: [
+    'der Vater',
+    'die Mutter',
+    'die Schwester',
+    'der Bruder',
+    'die Eltern',
+  ],
+  scoringCriteria: [
+    'the right article for the noun',
+    'ein/eine in the nominative',
+    'the pronoun matching the noun',
+  ],
+  priorityErrors: ['wrong gender', 'wrong article', 'wrong pronoun'],
+  intro:
+      'Talk about your family out loud. Copy the exercise into your own AI assistant, turn on voice mode, and describe the people around you.',
+  tips: _genderTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM2SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m2_speaking_check',
+  title: 'Checkpoint: der, die or das?',
+  level: 'A1',
+  topic: 'Nouns around me and in my family, and which article each one takes.',
+  practisePoints: [
+    'der/die/das with everyday nouns',
+    'Gender you can hear from the ending: -ung, -heit, -chen',
+    'Saying the article together with the noun',
+  ],
+  targetVocabulary: ['der', 'die', 'das', 'die Wohnung', 'das Mädchen'],
+  scoringCriteria: [
+    'the right article for the noun',
+    'using the ending as a clue',
+    'article said with the noun',
+  ],
+  priorityErrors: ['wrong gender', 'noun said without its article'],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _genderTips,
+);
+
 final List<QuizContent> enDeM2 = [
   enDeM2Articles,
   enDeM2GenderEndings,
   enDeM2BigTextWarmup,
   enDeM2Ein,
+  enDeM2SpeakingCheck,
   enDeM2Pronouns,
   enDeM2Speak,
   enDeM2Dictation,
   enDeM2BigText,
+  enDeM2Speaking,
 ];

@@ -338,6 +338,9 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
         quizId: quiz.id,
         title: quiz.title,
       ),
+      // A speaking quiz has no list of elements to edit — its whole payload is
+      // the exercise brief, edited as quiz fields rather than per-item rows.
+      SpeakingQuiz() => null,
       ReadingQuiz() || ListeningQuiz() => CourseReadingQuestionsPage(
         editor: _editor,
         courseId: courseId,
@@ -353,7 +356,7 @@ class _CourseContentEditorPageState extends State<CourseContentEditorPage> {
         title: quiz.title,
       ),
     };
-    _openPage(page);
+    if (page != null) _openPage(page);
   }
 }
 

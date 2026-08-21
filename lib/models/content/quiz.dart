@@ -1,4 +1,5 @@
 import '../quiz_content.dart';
+import '../speaking_exercise.dart';
 import 'help_memory.dart';
 
 /// Type-safe, serializable quiz content — the replacement for the single fat
@@ -34,7 +35,7 @@ sealed class Quiz {
   final String? level;
 
   /// JSON discriminator (`'fillBlank'` | `'reading'` | `'listening'` |
-  /// `'speakRepeat'` | `'dictation'` | `'draw'`).
+  /// `'speakRepeat'` | `'dictation'` | `'draw'` | `'speaking'`).
   String get type;
 
   Map<String, dynamic> toJson();
@@ -50,6 +51,7 @@ sealed class Quiz {
       'speakRepeat' => SpeakRepeatQuiz.fromJson(json),
       'dictation' => DictationQuiz.fromJson(json),
       'draw' => DrawQuiz.fromJson(json),
+      'speaking' => SpeakingQuiz.fromJson(json),
       _ => FillBlankQuiz.fromJson(json),
     };
   }
@@ -60,6 +62,7 @@ sealed class Quiz {
     QuizKind.speakRepeat => SpeakRepeatQuiz.fromContent(c),
     QuizKind.dictation => DictationQuiz.fromContent(c),
     QuizKind.draw => DrawQuiz.fromContent(c),
+    QuizKind.speaking => SpeakingQuiz.fromContent(c),
     QuizKind.fillBlank => FillBlankQuiz.fromContent(c),
   };
 }
@@ -854,4 +857,98 @@ final class DrawQuiz extends Quiz {
   @override
   QuizContent toLegacy() =>
       _spokenToLegacy(this, items, QuizKind.draw, voiceGender: voiceGender);
+}
+
+// ---------------------------------------------------------------------------
+// Speaking (an exercise prompt run in the learner's own AI assistant)
+// ---------------------------------------------------------------------------
+
+/// A conversation exercise the app hands off rather than runs: it holds only the
+/// authored [exercise] (topic, practise points, scoring criteria, session
+/// length), which `SpeakingPromptBuilder` merges with the per-UI-language
+/// template into the text the learner copies. No lines, no questions, no audio.
+final class SpeakingQuiz extends Quiz {
+  const SpeakingQuiz({
+    required super.id,
+    required super.title,
+    required super.storageKeyPrefix,
+    required super.promptLabel,
+    required super.subjectsLabel,
+    required super.subjectColumnLabel,
+    super.help,
+    super.level,
+    required this.exercise,
+  });
+
+  final SpeakingExercise exercise;
+
+  @override
+  String get type => 'speaking';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    ..._baseJson(this),
+    'speaking': exercise.toJson(),
+  };
+
+  factory SpeakingQuiz.fromJson(Map<String, dynamic> json) {
+    final b = _baseFromJson(json);
+    return SpeakingQuiz(
+      id: b.id,
+      title: b.title,
+      storageKeyPrefix: b.storageKeyPrefix,
+      promptLabel: b.promptLabel,
+      subjectsLabel: b.subjectsLabel,
+      subjectColumnLabel: b.subjectColumnLabel,
+      help: b.help,
+      level: b.level,
+      exercise: SpeakingExercise.fromJson(
+        Map<String, dynamic>.from(json['speaking'] as Map? ?? const {}),
+      ),
+    );
+  }
+
+  factory SpeakingQuiz.fromContent(QuizContent c) {
+    final b = _baseFromContent(c);
+    return SpeakingQuiz(
+      id: b.id,
+      title: b.title,
+      storageKeyPrefix: b.storageKeyPrefix,
+      promptLabel: b.promptLabel,
+      subjectsLabel: b.subjectsLabel,
+      subjectColumnLabel: b.subjectColumnLabel,
+      help: b.help,
+      level: b.level,
+      exercise:
+          c.speaking ??
+          const SpeakingExercise(
+            topic: '',
+            practisePoints: [],
+            scoringCriteria: [],
+          ),
+    );
+  }
+
+  @override
+  QuizContent toLegacy() => QuizContent(
+    id: id,
+    title: title,
+    storageKeyPrefix: storageKeyPrefix,
+    promptLabel: promptLabel,
+    subjectsLabel: subjectsLabel,
+    subjectColumnLabel: subjectColumnLabel,
+    kind: QuizKind.speaking,
+    level: level,
+    subjects: const [],
+    categories: const [],
+    sentences: const [],
+    speaking: exercise,
+    helpMemorySubtitle: help.subtitle,
+    helpMemoryIntro: help.intro,
+    helpMemoryTips: help.tips,
+    helpMemoryTables: help.tables,
+    endingPatternTables: help.endingPatternTables,
+    helpMemoryInfoColumns: help.infoColumns,
+    helpMemoryColorByGender: help.colorByGender,
+  );
 }

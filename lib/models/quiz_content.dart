@@ -1,4 +1,5 @@
 import 'quiz_config.dart';
+import 'speaking_exercise.dart';
 import 'voice_gender.dart';
 
 // Re-exported so content files (which import this) can author Help Memory tips
@@ -31,7 +32,21 @@ export 'voice_gender.dart' show VoiceGender;
 /// (each [QuizContent.subjects] entry is a character to draw, with its
 /// pinyin/meaning in `english`) and, like [speakRepeat], completes on
 /// play-through (no scoring — the learner self-checks against the template).
-enum QuizKind { fillBlank, speakRepeat, reading, listening, dictation, draw }
+/// [speaking] is a conversation exercise the app does **not** run: it renders a
+/// ready-made prompt the learner copies into their own AI assistant (voice
+/// mode), talks through there, and comes back to type the score the AI gave
+/// them (rendered by `SpeakingQuizPage`). It carries none of the other kinds'
+/// data — only a [QuizContent.speaking] payload. See
+/// `docs/speaking_quiz_feature.md`.
+enum QuizKind {
+  fillBlank,
+  speakRepeat,
+  reading,
+  listening,
+  dictation,
+  draw,
+  speaking,
+}
 
 /// One multiple-choice question in a [QuizKind.reading] quiz: a [question]
 /// stem, the answer [options], the index of the correct option, and an optional
@@ -377,6 +392,7 @@ class QuizContent {
     this.contextualLayout = false,
     this.stripSentenceCue = false,
     this.voiceGender = VoiceGender.female,
+    this.speaking,
   });
 
   /// Stable identifier (e.g. a database primary key or a slug).
@@ -479,6 +495,11 @@ class QuizContent {
   /// [VoiceGender.female], matching the app's long-standing voices.
   final VoiceGender voiceGender;
 
+  /// For [QuizKind.speaking]: the authored half of the exercise prompt (topic,
+  /// practise points, scoring criteria, session length). Null for every other
+  /// kind.
+  final SpeakingExercise? speaking;
+
   /// Returns a copy with [level] replaced (all other fields preserved). Used to
   /// stamp a quiz with its CEFR sub-level at chain-build time.
   QuizContent copyWith({String? level}) => QuizContent(
@@ -514,6 +535,7 @@ class QuizContent {
     contextualLayout: contextualLayout,
     stripSentenceCue: stripSentenceCue,
     voiceGender: voiceGender,
+    speaking: speaking,
   );
 
   Map<String, dynamic> toJson() => {
@@ -561,6 +583,7 @@ class QuizContent {
     if (contextualLayout) 'contextualLayout': true,
     if (stripSentenceCue) 'stripSentenceCue': true,
     if (voiceGender != VoiceGender.female) 'voiceGender': voiceGender.name,
+    if (speaking != null) 'speaking': speaking!.toJson(),
   };
 
   factory QuizContent.fromJson(Map<String, dynamic> json) => QuizContent(
@@ -634,5 +657,10 @@ class QuizContent {
     contextualLayout: json['contextualLayout'] as bool? ?? false,
     stripSentenceCue: json['stripSentenceCue'] as bool? ?? false,
     voiceGender: VoiceGender.fromName(json['voiceGender'] as String?),
+    speaking: json['speaking'] == null
+        ? null
+        : SpeakingExercise.fromJson(
+            Map<String, dynamic>.from(json['speaking'] as Map),
+          ),
   );
 }

@@ -32,6 +32,7 @@ import 'auth_gate.dart';
 enum _UiKind {
   fillBlank,
   speak,
+  speaking,
   reading,
   listening,
   dictation,
@@ -49,6 +50,7 @@ _UiKind _questUiKind(QuizKind kind) => switch (kind) {
   QuizKind.listening => _UiKind.listening,
   QuizKind.dictation => _UiKind.dictation,
   QuizKind.draw => _UiKind.draw,
+  QuizKind.speaking => _UiKind.speaking,
   QuizKind.fillBlank => _UiKind.quest,
 };
 
@@ -98,6 +100,7 @@ class _HomeQuiz {
   bool get isReading => uiKind == _UiKind.reading;
   bool get isListening => uiKind == _UiKind.listening;
   bool get isDictation => uiKind == _UiKind.dictation;
+  bool get isSpeaking => uiKind == _UiKind.speaking;
   // Speak quizzes have no streak goal, but they're "finished" once played
   // through to the end, so they count toward the overview like the rest.
   bool get finishable => !locked;
@@ -231,6 +234,9 @@ class _CourseHomePageState extends State<CourseHomePage> {
               // the booklet reflects edits, falling back to the compiled entry.
               final content = await resolveQuizContent(e.key) ?? e.content;
               switch (content.kind) {
+                // Nothing printable: the exercise lives in another app.
+                case QuizKind.speaking:
+                  break;
                 case QuizKind.fillBlank:
                   bookletEntries.add(
                     HelpMemoryBookletEntry(
@@ -325,6 +331,19 @@ class _CourseHomePageState extends State<CourseHomePage> {
       return _HomeQuiz(
         title: content.title,
         uiKind: _UiKind.speak,
+        goalLaps: _regularGoalLaps,
+        summary: content.helpMemorySubtitle ?? content.helpMemoryIntro,
+        stats: stats,
+        done: NounSettings.instance.isSpeakQuizCompleted(ref),
+        contentRef: ref,
+      );
+    }
+    // Speaking is "done" once a passing score was entered; it reuses the
+    // speak-quiz completed set, so no new persistence key.
+    if (content.kind == QuizKind.speaking) {
+      return _HomeQuiz(
+        title: content.title,
+        uiKind: _UiKind.speaking,
         goalLaps: _regularGoalLaps,
         summary: content.helpMemorySubtitle ?? content.helpMemoryIntro,
         stats: stats,
@@ -1106,6 +1125,10 @@ class _CourseHomePageState extends State<CourseHomePage> {
         icon: quizKindIcon(QuizKind.reading),
         color: quizKindColor(QuizKind.reading),
       ),
+      _UiKind.speaking => (
+        icon: quizKindIcon(QuizKind.speaking),
+        color: quizKindColor(QuizKind.speaking),
+      ),
       _UiKind.quest => (icon: Icons.flag_rounded, color: kSectionAccentColors[0]),
       _UiKind.noun => (icon: Icons.abc_rounded, color: kSectionAccentColors[2]),
       _UiKind.nounFinal => (
@@ -1262,6 +1285,20 @@ class _CourseHomePageState extends State<CourseHomePage> {
           const SizedBox(width: 4),
           Text(
             strings.listenAndAnswer,
+            style: textTheme.labelSmall?.copyWith(color: muted),
+          ),
+        ],
+      );
+    }
+
+    if (quiz.isSpeaking) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(quizKindIcon(QuizKind.speaking), size: 14, color: muted),
+          const SizedBox(width: 4),
+          Text(
+            strings.speaking.kindLabel,
             style: textTheme.labelSmall?.copyWith(color: muted),
           ),
         ],

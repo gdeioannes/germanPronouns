@@ -15,55 +15,117 @@ final QuizContent questB11ArbeitContent = sentenceQuestQuiz(
   subjectColumnLabel: 'English',
   categoryLabel: 'Arbeit',
   contextualLayout: true,
-  intro: 'The world of work is a core B1 topic. Watch the false friends: "der '
+  intro:
+      'The world of work is a core B1 topic. Watch the false friends: "der '
       'Chef" = boss, "die Rente" = pension, "der Termin" = appointment.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'False friends (E20)',
-      text: 'der Chef ≠ chef (it’s the boss); die Rente ≠ rent (it’s a pension); '
+      text:
+          'der Chef ≠ chef (it’s the boss); die Rente ≠ rent (it’s a pension); '
           'der Termin ≠ terminal (it’s an appointment/deadline).',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Useful work words',
-      text: 'die Stelle/der Job (job), die Bewerbung (application), das '
+      text:
+          'die Stelle/der Job (job), die Bewerbung (application), das '
           'Gehalt (salary), die Kollegin (colleague).',
     ),
   ],
   items: [
-    qsi('Ich suche eine neue ____. (job/position)', 'Stelle',
-        'I’m looking for a new position.', 'position'),
-    qsi('Mein ____ ist sehr nett. (boss)', 'Chef', 'My boss is very nice.',
-        'boss'),
-    qsi('Ich schicke meine ____ an die Firma. (application)', 'Bewerbung',
-        'I send my application to the company.', 'application'),
-    qsi('Das ____ ist nicht sehr hoch. (salary)', 'Gehalt',
-        'The salary is not very high.', 'salary'),
-    qsi('Mit 67 Jahren geht man in ____. (retirement)', 'Rente',
-        'At 67 you retire.', 'retirement/pension'),
-    qsi('Ich habe morgen einen wichtigen ____. (appointment)', 'Termin',
-        'I have an important appointment tomorrow.', 'appointment'),
-    qsi('Meine ____ sind sehr freundlich. (colleagues)', 'Kollegen',
-        'My colleagues are very friendly.', 'colleagues'),
-    qsi('Für die Bewerbung brauche ich einen ____. (CV)', 'Lebenslauf',
-        'For the application I need a CV.', 'CV'),
-    qsi('Um zehn Uhr haben wir eine ____. (meeting)', 'Besprechung',
-        'At ten we have a meeting.', 'meeting'),
-    qsi('Er hat keine Arbeit — er ist ____. (unemployed)', 'arbeitslos',
-        'He has no work — he is unemployed.', 'unemployed'),
-    qsi('Ich unterschreibe heute den ____. (contract)', 'Vertrag',
-        'I sign the contract today.', 'contract'),
-    qsi('Diese Woche mache ich viele ____. (overtime hours)', 'Überstunden',
-        'This week I am doing a lot of overtime.', 'overtime',
-        accepted: ['Ueberstunden']),
-    qsi('Ich arbeite nur ____, zwanzig Stunden pro Woche. (part-time)',
-        'Teilzeit', 'I only work part-time, twenty hours a week.',
-        'part-time'),
-    qsi('Um fünf Uhr mache ich ____. (end of the workday)', 'Feierabend',
-        'At five I finish work for the day.', 'end of workday'),
-    qsi('Die ____ hat zweihundert Mitarbeiter. (company)', 'Firma',
-        'The company has two hundred employees.', 'company'),
+    qsi(
+      'Ich suche eine neue ____. (job/position)',
+      'Stelle',
+      'I’m looking for a new position.',
+      'position',
+    ),
+    qsi(
+      'Mein ____ ist sehr nett. (boss)',
+      'Chef',
+      'My boss is very nice.',
+      'boss',
+    ),
+    qsi(
+      'Ich schicke meine ____ an die Firma. (application)',
+      'Bewerbung',
+      'I send my application to the company.',
+      'application',
+    ),
+    qsi(
+      'Das ____ ist nicht sehr hoch. (salary)',
+      'Gehalt',
+      'The salary is not very high.',
+      'salary',
+    ),
+    qsi(
+      'Mit 67 Jahren geht man in ____. (retirement)',
+      'Rente',
+      'At 67 you retire.',
+      'retirement/pension',
+    ),
+    qsi(
+      'Ich habe morgen einen wichtigen ____. (appointment)',
+      'Termin',
+      'I have an important appointment tomorrow.',
+      'appointment',
+    ),
+    qsi(
+      'Meine ____ sind sehr freundlich. (colleagues)',
+      'Kollegen',
+      'My colleagues are very friendly.',
+      'colleagues',
+    ),
+    qsi(
+      'Für die Bewerbung brauche ich einen ____. (CV)',
+      'Lebenslauf',
+      'For the application I need a CV.',
+      'CV',
+    ),
+    qsi(
+      'Um zehn Uhr haben wir eine ____. (meeting)',
+      'Besprechung',
+      'At ten we have a meeting.',
+      'meeting',
+    ),
+    qsi(
+      'Er hat keine Arbeit — er ist ____. (unemployed)',
+      'arbeitslos',
+      'He has no work — he is unemployed.',
+      'unemployed',
+    ),
+    qsi(
+      'Ich unterschreibe heute den ____. (contract)',
+      'Vertrag',
+      'I sign the contract today.',
+      'contract',
+    ),
+    qsi(
+      'Diese Woche mache ich viele ____. (overtime hours)',
+      'Überstunden',
+      'This week I am doing a lot of overtime.',
+      'overtime',
+      accepted: ['Ueberstunden'],
+    ),
+    qsi(
+      'Ich arbeite nur ____, zwanzig Stunden pro Woche. (part-time)',
+      'Teilzeit',
+      'I only work part-time, twenty hours a week.',
+      'part-time',
+    ),
+    qsi(
+      'Um fünf Uhr mache ich ____. (end of the workday)',
+      'Feierabend',
+      'At five I finish work for the day.',
+      'end of workday',
+    ),
+    qsi(
+      'Die ____ hat zweihundert Mitarbeiter. (company)',
+      'Firma',
+      'The company has two hundred employees.',
+      'company',
+    ),
   ],
 );
 
@@ -75,54 +137,117 @@ final QuizContent questB11AdjBestimmtContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'nach der/die/das',
-  intro: 'When an adjective stands before a noun it needs an ending. After the '
+  intro:
+      'When an adjective stands before a noun it needs an ending. After the '
       'definite article (der/die/das), which already shows the case, the '
       'adjective just takes **-e** or **-en** — the "weak" endings.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'The "one strong signal" rule',
-      text: 'der/die/das already marks the case, so the adjective only needs '
+      text:
+          'der/die/das already marks the case, so the adjective only needs '
           '-e (nom. sing. & fem./neut. acc.) or -en (everywhere else).',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Nominative singular = -e',
-      text: 'der __große__ Mann, die __kleine__ Frau, das __neue__ Auto. '
+      text:
+          'der __große__ Mann, die __kleine__ Frau, das __neue__ Auto. '
           'Accusative masculine flips to -en: den __großen__ Mann.',
     ),
   ],
   items: [
-    qsi('Der ____ Mann liest. (groß, Nom. m)', 'große',
-        'The tall man is reading.', 'der große Mann'),
-    qsi('Ich sehe den ____ Mann. (groß, Akk. m)', 'großen',
-        'I see the tall man.', 'den großen Mann'),
-    qsi('Die ____ Frau singt. (jung, Nom. f)', 'junge',
-        'The young woman is singing.', 'die junge Frau'),
-    qsi('Das ____ Auto ist teuer. (neu, Nom. n)', 'neue',
-        'The new car is expensive.', 'das neue Auto'),
-    qsi('Ich mag die ____ Schuhe. (rot, Akk. Pl.)', 'roten',
-        'I like the red shoes.', 'die roten Schuhe'),
-    qsi('Ich helfe dem ____ Kind. (klein, Dat. n)', 'kleinen',
-        'I help the small child.', 'dem kleinen Kind'),
-    qsi('Die ____ Blumen sind schön. (gelb, Nom. Pl.)', 'gelben',
-        'The yellow flowers are beautiful.', 'die gelben Blumen'),
-    qsi('Der ____ Kaffee schmeckt gut. (schwarz, Nom. m)', 'schwarze',
-        'The black coffee tastes good.', 'der schwarze Kaffee'),
-    qsi('Ich nehme das ____ Brot. (frisch, Akk. n)', 'frische',
-        'I take the fresh bread.', 'das frische Brot'),
-    qsi('Wir besuchen die ____ Stadt. (alt, Akk. f)', 'alte',
-        'We visit the old city.', 'die alte Stadt'),
-    qsi('Er spricht mit der ____ Frau. (nett, Dat. f)', 'netten',
-        'He talks with the nice woman.', 'der netten Frau'),
-    qsi('Ich sehe das ____ Haus. (groß, Akk. n)', 'große',
-        'I see the big house.', 'das große Haus'),
-    qsi('Die ____ Kinder spielen im Garten. (klein, Nom. Pl.)', 'kleinen',
-        'The small children play in the garden.', 'die kleinen Kinder'),
-    qsi('Ich wohne in der ____ Straße. (lang, Dat. f)', 'langen',
-        'I live in the long street.', 'der langen Straße'),
-    qsi('Der ____ Zug fährt nach Bonn. (schnell, Nom. m)', 'schnelle',
-        'The fast train goes to Bonn.', 'der schnelle Zug'),
+    qsi(
+      'Der ____ Mann liest. (groß, Nom. m)',
+      'große',
+      'The tall man is reading.',
+      'der große Mann',
+    ),
+    qsi(
+      'Ich sehe den ____ Mann. (groß, Akk. m)',
+      'großen',
+      'I see the tall man.',
+      'den großen Mann',
+    ),
+    qsi(
+      'Die ____ Frau singt. (jung, Nom. f)',
+      'junge',
+      'The young woman is singing.',
+      'die junge Frau',
+    ),
+    qsi(
+      'Das ____ Auto ist teuer. (neu, Nom. n)',
+      'neue',
+      'The new car is expensive.',
+      'das neue Auto',
+    ),
+    qsi(
+      'Ich mag die ____ Schuhe. (rot, Akk. Pl.)',
+      'roten',
+      'I like the red shoes.',
+      'die roten Schuhe',
+    ),
+    qsi(
+      'Ich helfe dem ____ Kind. (klein, Dat. n)',
+      'kleinen',
+      'I help the small child.',
+      'dem kleinen Kind',
+    ),
+    qsi(
+      'Die ____ Blumen sind schön. (gelb, Nom. Pl.)',
+      'gelben',
+      'The yellow flowers are beautiful.',
+      'die gelben Blumen',
+    ),
+    qsi(
+      'Der ____ Kaffee schmeckt gut. (schwarz, Nom. m)',
+      'schwarze',
+      'The black coffee tastes good.',
+      'der schwarze Kaffee',
+    ),
+    qsi(
+      'Ich nehme das ____ Brot. (frisch, Akk. n)',
+      'frische',
+      'I take the fresh bread.',
+      'das frische Brot',
+    ),
+    qsi(
+      'Wir besuchen die ____ Stadt. (alt, Akk. f)',
+      'alte',
+      'We visit the old city.',
+      'die alte Stadt',
+    ),
+    qsi(
+      'Er spricht mit der ____ Frau. (nett, Dat. f)',
+      'netten',
+      'He talks with the nice woman.',
+      'der netten Frau',
+    ),
+    qsi(
+      'Ich sehe das ____ Haus. (groß, Akk. n)',
+      'große',
+      'I see the big house.',
+      'das große Haus',
+    ),
+    qsi(
+      'Die ____ Kinder spielen im Garten. (klein, Nom. Pl.)',
+      'kleinen',
+      'The small children play in the garden.',
+      'die kleinen Kinder',
+    ),
+    qsi(
+      'Ich wohne in der ____ Straße. (lang, Dat. f)',
+      'langen',
+      'I live in the long street.',
+      'der langen Straße',
+    ),
+    qsi(
+      'Der ____ Zug fährt nach Bonn. (schnell, Nom. m)',
+      'schnelle',
+      'The fast train goes to Bonn.',
+      'der schnelle Zug',
+    ),
   ],
 );
 
@@ -133,42 +258,51 @@ final QuizContent questB11SprechenBittenContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Polite requests use the Konjunktiv II — könnten, würden, hätte gern. '
+  intro:
+      'Polite requests use the Konjunktiv II — könnten, würden, hätte gern. '
       'Listen and repeat; these soften a request the way "could/would" do in '
       'English.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'könnten / würden = could / would',
-      text: '"__Könnten__ Sie mir helfen?" is far more polite than "Helfen Sie '
+      text:
+          '"__Könnten__ Sie mir helfen?" is far more polite than "Helfen Sie '
           'mir!".',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Ich hätte gern / Ich möchte',
-      text: 'In a shop or café: "Ich __hätte gern__ einen Kaffee" / "Ich '
+      text:
+          'In a shop or café: "Ich __hätte gern__ einen Kaffee" / "Ich '
           '__möchte__ bezahlen."',
     ),
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Könnten Sie mir bitte helfen?',
-        meaning: 'Could you please help me?'),
+      phrase: 'Könnten Sie mir bitte helfen?',
+      meaning: 'Could you please help me?',
+    ),
     SpeakPhrase(
-        phrase: 'Würden Sie das Fenster öffnen?',
-        meaning: 'Would you open the window?'),
+      phrase: 'Würden Sie das Fenster öffnen?',
+      meaning: 'Would you open the window?',
+    ),
     SpeakPhrase(
-        phrase: 'Ich hätte gern eine Tasse Tee.',
-        meaning: 'I would like a cup of tea.'),
+      phrase: 'Ich hätte gern eine Tasse Tee.',
+      meaning: 'I would like a cup of tea.',
+    ),
     SpeakPhrase(
-        phrase: 'Dürfte ich Sie etwas fragen?',
-        meaning: 'Might I ask you something?'),
+      phrase: 'Dürfte ich Sie etwas fragen?',
+      meaning: 'Might I ask you something?',
+    ),
     SpeakPhrase(
-        phrase: 'Wäre es möglich, später zu kommen?',
-        meaning: 'Would it be possible to come later?'),
+      phrase: 'Wäre es möglich, später zu kommen?',
+      meaning: 'Would it be possible to come later?',
+    ),
     SpeakPhrase(
-        phrase: 'Vielen Dank, das ist sehr nett.',
-        meaning: 'Thank you, that’s very kind.'),
+      phrase: 'Vielen Dank, das ist sehr nett.',
+      meaning: 'Thank you, that’s very kind.',
+    ),
   ],
 );
 
@@ -180,54 +314,117 @@ final QuizContent questB11AdjUnbestimmtContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'nach ein/eine',
-  intro: 'After ein/eine (which does NOT show the case for masculine nominative '
+  intro:
+      'After ein/eine (which does NOT show the case for masculine nominative '
       'or any neuter), the adjective itself must carry the signal: -er / -e / '
       '-es.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'The adjective shows the case',
-      text: 'ein __großer__ Mann (-er = masc. nom.), eine __kleine__ Frau (-e), '
+      text:
+          'ein __großer__ Mann (-er = masc. nom.), eine __kleine__ Frau (-e), '
           'ein __neues__ Auto (-es = neut.).',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Accusative masculine → -en',
-      text: 'einen __großen__ Mann. As soon as the article shows -en (einen), '
+      text:
+          'einen __großen__ Mann. As soon as the article shows -en (einen), '
           'the adjective follows with -en.',
     ),
   ],
   items: [
-    qsi('Das ist ein ____ Mann. (groß, Nom. m)', 'großer',
-        'That is a tall man.', 'ein großer Mann'),
-    qsi('Ich habe einen ____ Hund. (klein, Akk. m)', 'kleinen',
-        'I have a small dog.', 'einen kleinen Hund'),
-    qsi('Sie trägt eine ____ Jacke. (rot, Akk. f)', 'rote',
-        'She is wearing a red jacket.', 'eine rote Jacke'),
-    qsi('Wir haben ein ____ Haus. (neu, Akk. n)', 'neues',
-        'We have a new house.', 'ein neues Haus'),
-    qsi('Das ist ein ____ Problem. (schwierig, Nom. n)', 'schwieriges',
-        'That is a difficult problem.', 'ein schwieriges Problem'),
-    qsi('Das ist eine ____ Idee. (gut, Nom. f)', 'gute',
-        'That is a good idea.', 'eine gute Idee'),
-    qsi('Ich trinke einen ____ Kaffee. (stark, Akk. m)', 'starken',
-        'I drink a strong coffee.', 'einen starken Kaffee'),
-    qsi('Sie hat ein ____ Kleid gekauft. (schön, Akk. n)', 'schönes',
-        'She bought a beautiful dress.', 'ein schönes Kleid'),
-    qsi('Mein ____ Bruder wohnt in Bern. (groß, Nom. m)', 'großer',
-        'My big brother lives in Bern.', 'mein großer Bruder'),
-    qsi('Wir haben keinen ____ Plan. (besser, Akk. m)', 'besseren',
-        'We have no better plan.', 'keinen besseren Plan'),
-    qsi('Das ist ein ____ Tag. (wunderbar, Nom. m)', 'wunderbarer',
-        'This is a wonderful day.', 'ein wunderbarer Tag'),
-    qsi('Ich suche eine ____ Wohnung. (billig, Akk. f)', 'billige',
-        'I am looking for a cheap flat.', 'eine billige Wohnung'),
-    qsi('Er hat ein ____ Fahrrad. (schnell, Akk. n)', 'schnelles',
-        'He has a fast bike.', 'ein schnelles Fahrrad'),
-    qsi('Meine ____ Schwester studiert. (klein, Nom. f)', 'kleine',
-        'My little sister is at university.', 'meine kleine Schwester'),
-    qsi('Sie erzählt eine ____ Geschichte. (lustig, Akk. f)', 'lustige',
-        'She tells a funny story.', 'eine lustige Geschichte'),
+    qsi(
+      'Das ist ein ____ Mann. (groß, Nom. m)',
+      'großer',
+      'That is a tall man.',
+      'ein großer Mann',
+    ),
+    qsi(
+      'Ich habe einen ____ Hund. (klein, Akk. m)',
+      'kleinen',
+      'I have a small dog.',
+      'einen kleinen Hund',
+    ),
+    qsi(
+      'Sie trägt eine ____ Jacke. (rot, Akk. f)',
+      'rote',
+      'She is wearing a red jacket.',
+      'eine rote Jacke',
+    ),
+    qsi(
+      'Wir haben ein ____ Haus. (neu, Akk. n)',
+      'neues',
+      'We have a new house.',
+      'ein neues Haus',
+    ),
+    qsi(
+      'Das ist ein ____ Problem. (schwierig, Nom. n)',
+      'schwieriges',
+      'That is a difficult problem.',
+      'ein schwieriges Problem',
+    ),
+    qsi(
+      'Das ist eine ____ Idee. (gut, Nom. f)',
+      'gute',
+      'That is a good idea.',
+      'eine gute Idee',
+    ),
+    qsi(
+      'Ich trinke einen ____ Kaffee. (stark, Akk. m)',
+      'starken',
+      'I drink a strong coffee.',
+      'einen starken Kaffee',
+    ),
+    qsi(
+      'Sie hat ein ____ Kleid gekauft. (schön, Akk. n)',
+      'schönes',
+      'She bought a beautiful dress.',
+      'ein schönes Kleid',
+    ),
+    qsi(
+      'Mein ____ Bruder wohnt in Bern. (groß, Nom. m)',
+      'großer',
+      'My big brother lives in Bern.',
+      'mein großer Bruder',
+    ),
+    qsi(
+      'Wir haben keinen ____ Plan. (besser, Akk. m)',
+      'besseren',
+      'We have no better plan.',
+      'keinen besseren Plan',
+    ),
+    qsi(
+      'Das ist ein ____ Tag. (wunderbar, Nom. m)',
+      'wunderbarer',
+      'This is a wonderful day.',
+      'ein wunderbarer Tag',
+    ),
+    qsi(
+      'Ich suche eine ____ Wohnung. (billig, Akk. f)',
+      'billige',
+      'I am looking for a cheap flat.',
+      'eine billige Wohnung',
+    ),
+    qsi(
+      'Er hat ein ____ Fahrrad. (schnell, Akk. n)',
+      'schnelles',
+      'He has a fast bike.',
+      'ein schnelles Fahrrad',
+    ),
+    qsi(
+      'Meine ____ Schwester studiert. (klein, Nom. f)',
+      'kleine',
+      'My little sister is at university.',
+      'meine kleine Schwester',
+    ),
+    qsi(
+      'Sie erzählt eine ____ Geschichte. (lustig, Akk. f)',
+      'lustige',
+      'She tells a funny story.',
+      'eine lustige Geschichte',
+    ),
   ],
 );
 
@@ -239,53 +436,116 @@ final QuizContent questB11Konj2WuerdeContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'würde + Infinitiv',
-  intro: 'The Konjunktiv II expresses wishes, polite requests and hypotheses. '
+  intro:
+      'The Konjunktiv II expresses wishes, polite requests and hypotheses. '
       'The all-purpose form is **würde + infinitive** — your safe default.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'würde forms',
-      text: 'ich würde, du würdest, er würde, wir würden … + infinitive at the '
+      text:
+          'ich würde, du würdest, er würde, wir würden … + infinitive at the '
           'end: "Ich __würde__ gern nach Italien __fahren__."',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'When in doubt, würde',
-      text: 'For most verbs, würde + Infinitiv is correct and natural. Learn '
+      text:
+          'For most verbs, würde + Infinitiv is correct and natural. Learn '
           'hätte/wäre/könnte separately (next quiz).',
     ),
   ],
   items: [
-    qsi('Ich ____ gern mehr reisen. (würde, ich)', 'würde',
-        'I would like to travel more.', 'ich würde'),
-    qsi('____ du mir helfen? (würde, du)', 'Würdest',
-        'Would you help me?', 'du würdest'),
-    qsi('Er ____ nie so etwas sagen. (würde, er)', 'würde',
-        'He would never say such a thing.', 'er würde'),
-    qsi('Wir ____ gern ein Haus kaufen. (würde, wir)', 'würden',
-        'We would like to buy a house.', 'wir würden'),
-    qsi('An deiner Stelle ____ ich das nicht machen. (würde, ich)', 'würde',
-        "In your place I wouldn't do that.", 'ich würde'),
-    qsi('____ Sie mir bitte das Salz reichen? (würde, Sie)', 'Würden',
-        'Would you please pass me the salt?', 'Sie würden'),
-    qsi('Sie ____ das Angebot annehmen. (würde, sie Sg.)', 'würde',
-        'She would accept the offer.', 'sie würde'),
-    qsi('____ ihr mitkommen? (würde, ihr)', 'Würdet',
-        'Would you (all) come along?', 'ihr würdet'),
-    qsi('Ich ____ das Auto nicht kaufen. (würde, ich)', 'würde',
-        'I would not buy the car.', 'ich würde (kaufen)'),
-    qsi('Die Kinder ____ gern länger bleiben. (würde, sie Pl.)', 'würden',
-        'The children would like to stay longer.', 'sie würden'),
-    qsi('Was ____ du an meiner Stelle tun? (würde, du)', 'würdest',
-        'What would you do in my place?', 'du würdest (tun)'),
-    qsi('Wir ____ lieber zu Hause bleiben. (würde, wir)', 'würden',
-        'We would rather stay at home.', 'wir würden (bleiben)'),
-    qsi('Er ____ gern weniger arbeiten. (würde, er)', 'würde',
-        'He would like to work less.', 'er würde (arbeiten)'),
-    qsi('____ du das bitte wiederholen? (würde, du)', 'Würdest',
-        'Would you repeat that, please?', 'du würdest (Frage)'),
-    qsi('Ohne dich ____ ich nicht gehen. (würde, ich)', 'würde',
-        'Without you I would not go.', 'ich würde (ohne dich)'),
+    qsi(
+      'Ich ____ gern mehr reisen. (würde, ich)',
+      'würde',
+      'I would like to travel more.',
+      'ich würde',
+    ),
+    qsi(
+      '____ du mir helfen? (würde, du)',
+      'Würdest',
+      'Would you help me?',
+      'du würdest',
+    ),
+    qsi(
+      'Er ____ nie so etwas sagen. (würde, er)',
+      'würde',
+      'He would never say such a thing.',
+      'er würde',
+    ),
+    qsi(
+      'Wir ____ gern ein Haus kaufen. (würde, wir)',
+      'würden',
+      'We would like to buy a house.',
+      'wir würden',
+    ),
+    qsi(
+      'An deiner Stelle ____ ich das nicht machen. (würde, ich)',
+      'würde',
+      "In your place I wouldn't do that.",
+      'ich würde',
+    ),
+    qsi(
+      '____ Sie mir bitte das Salz reichen? (würde, Sie)',
+      'Würden',
+      'Would you please pass me the salt?',
+      'Sie würden',
+    ),
+    qsi(
+      'Sie ____ das Angebot annehmen. (würde, sie Sg.)',
+      'würde',
+      'She would accept the offer.',
+      'sie würde',
+    ),
+    qsi(
+      '____ ihr mitkommen? (würde, ihr)',
+      'Würdet',
+      'Would you (all) come along?',
+      'ihr würdet',
+    ),
+    qsi(
+      'Ich ____ das Auto nicht kaufen. (würde, ich)',
+      'würde',
+      'I would not buy the car.',
+      'ich würde (kaufen)',
+    ),
+    qsi(
+      'Die Kinder ____ gern länger bleiben. (würde, sie Pl.)',
+      'würden',
+      'The children would like to stay longer.',
+      'sie würden',
+    ),
+    qsi(
+      'Was ____ du an meiner Stelle tun? (würde, du)',
+      'würdest',
+      'What would you do in my place?',
+      'du würdest (tun)',
+    ),
+    qsi(
+      'Wir ____ lieber zu Hause bleiben. (würde, wir)',
+      'würden',
+      'We would rather stay at home.',
+      'wir würden (bleiben)',
+    ),
+    qsi(
+      'Er ____ gern weniger arbeiten. (würde, er)',
+      'würde',
+      'He would like to work less.',
+      'er würde (arbeiten)',
+    ),
+    qsi(
+      '____ du das bitte wiederholen? (würde, du)',
+      'Würdest',
+      'Would you repeat that, please?',
+      'du würdest (Frage)',
+    ),
+    qsi(
+      'Ohne dich ____ ich nicht gehen. (würde, ich)',
+      'würde',
+      'Without you I would not go.',
+      'ich würde (ohne dich)',
+    ),
   ],
 );
 
@@ -314,12 +574,12 @@ final QuizContent questB11HoerenInterviewContent = listeningQuestQuiz(
       options: [
         'Sie hat im Büro gearbeitet.',
         'Sie hat als Verkäuferin gearbeitet.',
-        'Sie war Lehrerin.'
+        'Sie war Lehrerin.',
       ],
       optionsTranslation: [
         'She worked in an office.',
         'She worked as a salesperson.',
-        'She was a teacher.'
+        'She was a teacher.',
       ],
       correctIndex: 1,
       explanation: '"Ich habe drei Jahre als Verkäuferin gearbeitet …"',
@@ -330,12 +590,12 @@ final QuizContent questB11HoerenInterviewContent = listeningQuestQuiz(
       options: [
         'weil sie gut organisieren kann',
         'weil es mehr Geld gibt',
-        'weil es näher ist'
+        'weil es näher ist',
       ],
       optionsTranslation: [
         'because she’s good at organising',
         'because it pays more',
-        'because it’s closer'
+        'because it’s closer',
       ],
       correctIndex: 0,
       explanation: '"… weil ich gut organisieren kann."',
@@ -373,19 +633,22 @@ final QuizContent questB11HoerenInterviewContent = listeningQuestQuiz(
       explanation: '"Ich spreche Deutsch und Englisch."',
     ),
   ],
-  intro: 'A job interview — you only hear it. Listen for the past job, the '
+  intro:
+      'A job interview — you only hear it. Listen for the past job, the '
       'reason (weil …) and the question she asks. Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Polite Konjunktiv',
-      text: '"Ich würde gern …", "Könnten Sie …?" mark wishes and polite '
+      text:
+          '"Ich würde gern …", "Könnten Sie …?" mark wishes and polite '
           'questions in an interview.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Listen for the job',
-      text: '"als Verkäuferin gearbeitet" tells you her previous role — a likely '
+      text:
+          '"als Verkäuferin gearbeitet" tells you her previous role — a likely '
           'question.',
     ),
   ],
@@ -399,54 +662,117 @@ final QuizContent questB11Konj2HaetteContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'hätte/wäre/könnte',
-  intro: 'A few very common verbs use their own one-word Konjunktiv II instead '
+  intro:
+      'A few very common verbs use their own one-word Konjunktiv II instead '
       'of würde: **hätte** (would have), **wäre** (would be), **könnte** (could), '
       'plus möchte and the modals.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Learn these by heart',
-      text: 'sein → wäre, haben → hätte, können → könnte, müssen → müsste, '
+      text:
+          'sein → wäre, haben → hätte, können → könnte, müssen → müsste, '
           'werden → würde.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Wishes with the past',
-      text: '"Ich __hätte__ gern mehr Zeit." "Es __wäre__ schön, wenn …" "Du '
+      text:
+          '"Ich __hätte__ gern mehr Zeit." "Es __wäre__ schön, wenn …" "Du '
           '__könntest__ recht haben."',
     ),
   ],
   items: [
-    qsi('Ich ____ gern mehr Zeit. (haben)', 'hätte',
-        'I would like to have more time.', 'ich hätte'),
-    qsi('Das ____ wirklich schön. (sein)', 'wäre',
-        'That would be really nice.', 'es wäre'),
-    qsi('____ du mir kurz helfen? (können)', 'Könntest',
-        'Could you help me for a moment?', 'du könntest'),
-    qsi('Wir ____ jetzt eigentlich gehen. (müssen)', 'müssten',
-        'We really ought to go now.', 'wir müssten'),
-    qsi('An deiner Stelle ____ ich froh. (sein)', 'wäre',
-        'In your place I would be glad.', 'ich wäre'),
-    qsi('Wenn ich reich ____, würde ich reisen. (sein)', 'wäre',
-        'If I were rich, I would travel.', 'ich wäre'),
-    qsi('____ ihr uns morgen besuchen? (können)', 'Könntet',
-        'Could you visit us tomorrow?', 'ihr könntet'),
-    qsi('Ich ____ gern einen Kaffee. (mögen)', 'möchte',
-        'I would like a coffee.', 'ich möchte'),
-    qsi('Wir ____ gern ein größeres Auto. (haben)', 'hätten',
-        'We would like a bigger car.', 'wir hätten'),
-    qsi('Er ____ gern ein eigenes Zimmer. (haben)', 'hätte',
-        'He would like a room of his own.', 'er hätte'),
-    qsi('____ Sie einen Moment Zeit? (haben, Sie)', 'Hätten',
-        'Would you have a moment?', 'Sie hätten'),
-    qsi('Es ____ besser, früh zu gehen. (sein)', 'wäre',
-        'It would be better to leave early.', 'es wäre (besser)'),
-    qsi('Ich ____ jetzt gern Urlaub. (haben)', 'hätte',
-        'I would love a holiday right now.', 'ich hätte (Urlaub)'),
-    qsi('Ohne die Karte ____ wir uns verlaufen. (werden → würden)', 'würden',
-        'Without the map we would get lost.', 'wir würden'),
-    qsi('____ das morgen möglich? (sein, es)', 'Wäre',
-        'Would that be possible tomorrow?', 'es wäre (Frage)'),
+    qsi(
+      'Ich ____ gern mehr Zeit. (haben)',
+      'hätte',
+      'I would like to have more time.',
+      'ich hätte',
+    ),
+    qsi(
+      'Das ____ wirklich schön. (sein)',
+      'wäre',
+      'That would be really nice.',
+      'es wäre',
+    ),
+    qsi(
+      '____ du mir kurz helfen? (können)',
+      'Könntest',
+      'Could you help me for a moment?',
+      'du könntest',
+    ),
+    qsi(
+      'Wir ____ jetzt eigentlich gehen. (müssen)',
+      'müssten',
+      'We really ought to go now.',
+      'wir müssten',
+    ),
+    qsi(
+      'An deiner Stelle ____ ich froh. (sein)',
+      'wäre',
+      'In your place I would be glad.',
+      'ich wäre',
+    ),
+    qsi(
+      'Wenn ich reich ____, würde ich reisen. (sein)',
+      'wäre',
+      'If I were rich, I would travel.',
+      'ich wäre',
+    ),
+    qsi(
+      '____ ihr uns morgen besuchen? (können)',
+      'Könntet',
+      'Could you visit us tomorrow?',
+      'ihr könntet',
+    ),
+    qsi(
+      'Ich ____ gern einen Kaffee. (mögen)',
+      'möchte',
+      'I would like a coffee.',
+      'ich möchte',
+    ),
+    qsi(
+      'Wir ____ gern ein größeres Auto. (haben)',
+      'hätten',
+      'We would like a bigger car.',
+      'wir hätten',
+    ),
+    qsi(
+      'Er ____ gern ein eigenes Zimmer. (haben)',
+      'hätte',
+      'He would like a room of his own.',
+      'er hätte',
+    ),
+    qsi(
+      '____ Sie einen Moment Zeit? (haben, Sie)',
+      'Hätten',
+      'Would you have a moment?',
+      'Sie hätten',
+    ),
+    qsi(
+      'Es ____ besser, früh zu gehen. (sein)',
+      'wäre',
+      'It would be better to leave early.',
+      'es wäre (besser)',
+    ),
+    qsi(
+      'Ich ____ jetzt gern Urlaub. (haben)',
+      'hätte',
+      'I would love a holiday right now.',
+      'ich hätte (Urlaub)',
+    ),
+    qsi(
+      'Ohne die Karte ____ wir uns verlaufen. (werden → würden)',
+      'würden',
+      'Without the map we would get lost.',
+      'wir würden',
+    ),
+    qsi(
+      '____ das morgen möglich? (sein, es)',
+      'Wäre',
+      'Would that be possible tomorrow?',
+      'es wäre (Frage)',
+    ),
   ],
 );
 
@@ -477,12 +803,12 @@ final QuizContent questB11LesenArbeitContent = readingQuestQuiz(
       options: [
         'weil das Gehalt höher ist',
         'weil sie keine Zeit für den Weg verlieren',
-        'weil das Büro zu klein ist'
+        'weil das Büro zu klein ist',
       ],
       optionsTranslation: [
         'because the salary is higher',
         'because they don’t lose time commuting',
-        'because the office is too small'
+        'because the office is too small',
       ],
       correctIndex: 1,
       explanation: '"… weil sie keine Zeit für den Weg zur Arbeit verlieren."',
@@ -493,12 +819,12 @@ final QuizContent questB11LesenArbeitContent = readingQuestQuiz(
       options: [
         'weil sie ihre Mitarbeiter nicht sehen',
         'weil es teurer ist',
-        'weil die Technik fehlt'
+        'weil die Technik fehlt',
       ],
       optionsTranslation: [
         'because they can’t see their staff',
         'because it’s more expensive',
-        'because the technology is missing'
+        'because the technology is missing',
       ],
       correctIndex: 0,
       explanation: '"… weil sie ihre Mitarbeiter nicht sehen."',
@@ -509,15 +835,16 @@ final QuizContent questB11LesenArbeitContent = readingQuestQuiz(
       options: [
         'Alle werden nur zu Hause arbeiten.',
         'Niemand wird mehr ins Büro fahren.',
-        'Viele fahren nur ein paar Tage pro Woche ins Büro.'
+        'Viele fahren nur ein paar Tage pro Woche ins Büro.',
       ],
       optionsTranslation: [
         'Everyone will work only at home.',
         'No one will go to the office anymore.',
-        'Many will go to the office only a few days a week.'
+        'Many will go to the office only a few days a week.',
       ],
       correctIndex: 2,
-      explanation: '"… nur noch ein paar Tage pro Woche ins Büro fahren werden."',
+      explanation:
+          '"… nur noch ein paar Tage pro Woche ins Büro fahren werden."',
     ),
     ReadingQuestion(
       question: 'Wie nennt man das Arbeiten von zu Hause?',
@@ -541,22 +868,26 @@ final QuizContent questB11LesenArbeitContent = readingQuestQuiz(
         'demand a higher salary',
       ],
       correctIndex: 0,
-      explanation: '"Sie könnten morgens länger schlafen und flexibler arbeiten."',
+      explanation:
+          '"Sie könnten morgens länger schlafen und flexibler arbeiten."',
     ),
   ],
-  intro: 'An opinion text about home office. It uses weil, Konjunktiv II '
+  intro:
+      'An opinion text about home office. It uses weil, Konjunktiv II '
       '(könnten) and the future (werden) — a realistic B1 reading.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Pro and contra',
-      text: 'The text gives advantages (praktisch) and a doubt (skeptisch). '
+      text:
+          'The text gives advantages (praktisch) and a doubt (skeptisch). '
           'Sort the arguments to answer the questions.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Future = werden + Infinitiv',
-      text: '"… fahren werden" is Futur I: the infinitive goes last, werden is '
+      text:
+          '"… fahren werden" is Futur I: the infinitive goes last, werden is '
           'conjugated.',
     ),
   ],
@@ -570,54 +901,117 @@ final QuizContent questB11FuturContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Futur I',
-  intro: 'The future tense uses **werden + infinitive**. It often expresses a '
+  intro:
+      'The future tense uses **werden + infinitive**. It often expresses a '
       'prediction or a firm intention (everyday plans usually just use the '
       'present + a time word).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'werden conjugated, infinitive last',
-      text: 'ich werde, du wirst, er wird, wir werden … "Morgen __wird__ es '
+      text:
+          'ich werde, du wirst, er wird, wir werden … "Morgen __wird__ es '
           '__regnen__."',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Prediction',
-      text: 'Use Futur I for predictions: "Das __wird__ schwierig __werden__." '
+      text:
+          'Use Futur I for predictions: "Das __wird__ schwierig __werden__." '
           'For plans, present + morgen is more natural.',
     ),
   ],
   items: [
-    qsi('Morgen ____ es regnen. (werden, es)', 'wird',
-        'Tomorrow it will rain.', 'es wird'),
-    qsi('Ich ____ dich nie vergessen. (werden, ich)', 'werde',
-        'I will never forget you.', 'ich werde'),
-    qsi('____ du zur Party kommen? (werden, du)', 'Wirst',
-        'Will you come to the party?', 'du wirst'),
-    qsi('Wir ____ bald umziehen. (werden, wir)', 'werden',
-        'We will move soon.', 'wir werden'),
-    qsi('Das ____ bestimmt teuer. (werden, es)', 'wird',
-        'That will certainly be expensive.', 'es wird'),
-    qsi('Sie ____ nächstes Jahr heiraten. (werden, sie Sg.)', 'wird',
-        'She will get married next year.', 'sie wird'),
-    qsi('____ ihr uns im Sommer besuchen? (werden, ihr)', 'Werdet',
-        'Will you (all) visit us in the summer?', 'ihr werdet'),
-    qsi('Die Kinder ____ bald in die Schule kommen. (werden, sie Pl.)',
-        'werden', 'The children will start school soon.', 'sie werden'),
-    qsi('Ich ____ morgen früh aufstehen. (werden, ich)', 'werde',
-        'I will get up early tomorrow.', 'ich werde (aufstehen)'),
-    qsi('Er ____ einen neuen Job suchen. (werden, er)', 'wird',
-        'He will look for a new job.', 'er wird'),
-    qsi('Wir ____ euch nie vergessen. (werden, wir)', 'werden',
-        'We will never forget you.', 'wir werden (vergessen)'),
-    qsi('____ Sie morgen im Büro sein? (werden, Sie)', 'Werden',
-        'Will you be in the office tomorrow?', 'Sie werden'),
-    qsi('Das Wetter ____ am Wochenende besser. (werden, es)', 'wird',
-        'The weather will get better at the weekend.', 'es wird (Wetter)'),
-    qsi('Du ____ es schaffen! (werden, du)', 'wirst',
-        'You will manage it!', 'du wirst'),
-    qsi('Bald ____ alles einfacher sein. (werden, es)', 'wird',
-        'Soon everything will be easier.', 'es wird (bald)'),
+    qsi(
+      'Morgen ____ es regnen. (werden, es)',
+      'wird',
+      'Tomorrow it will rain.',
+      'es wird',
+    ),
+    qsi(
+      'Ich ____ dich nie vergessen. (werden, ich)',
+      'werde',
+      'I will never forget you.',
+      'ich werde',
+    ),
+    qsi(
+      '____ du zur Party kommen? (werden, du)',
+      'Wirst',
+      'Will you come to the party?',
+      'du wirst',
+    ),
+    qsi(
+      'Wir ____ bald umziehen. (werden, wir)',
+      'werden',
+      'We will move soon.',
+      'wir werden',
+    ),
+    qsi(
+      'Das ____ bestimmt teuer. (werden, es)',
+      'wird',
+      'That will certainly be expensive.',
+      'es wird',
+    ),
+    qsi(
+      'Sie ____ nächstes Jahr heiraten. (werden, sie Sg.)',
+      'wird',
+      'She will get married next year.',
+      'sie wird',
+    ),
+    qsi(
+      '____ ihr uns im Sommer besuchen? (werden, ihr)',
+      'Werdet',
+      'Will you (all) visit us in the summer?',
+      'ihr werdet',
+    ),
+    qsi(
+      'Die Kinder ____ bald in die Schule kommen. (werden, sie Pl.)',
+      'werden',
+      'The children will start school soon.',
+      'sie werden',
+    ),
+    qsi(
+      'Ich ____ morgen früh aufstehen. (werden, ich)',
+      'werde',
+      'I will get up early tomorrow.',
+      'ich werde (aufstehen)',
+    ),
+    qsi(
+      'Er ____ einen neuen Job suchen. (werden, er)',
+      'wird',
+      'He will look for a new job.',
+      'er wird',
+    ),
+    qsi(
+      'Wir ____ euch nie vergessen. (werden, wir)',
+      'werden',
+      'We will never forget you.',
+      'wir werden (vergessen)',
+    ),
+    qsi(
+      '____ Sie morgen im Büro sein? (werden, Sie)',
+      'Werden',
+      'Will you be in the office tomorrow?',
+      'Sie werden',
+    ),
+    qsi(
+      'Das Wetter ____ am Wochenende besser. (werden, es)',
+      'wird',
+      'The weather will get better at the weekend.',
+      'es wird (Wetter)',
+    ),
+    qsi(
+      'Du ____ es schaffen! (werden, du)',
+      'wirst',
+      'You will manage it!',
+      'du wirst',
+    ),
+    qsi(
+      'Bald ____ alles einfacher sein. (werden, es)',
+      'wird',
+      'Soon everything will be easier.',
+      'es wird (bald)',
+    ),
   ],
 );
 
@@ -629,54 +1023,117 @@ final QuizContent questB11RelativContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Relativpronomen',
-  intro: 'A relative clause adds information about a noun. The relative pronoun '
+  intro:
+      'A relative clause adds information about a noun. The relative pronoun '
       '(der/die/das…) matches the noun’s **gender/number**, but its **case** '
       'comes from its role inside the relative clause. The verb goes to the end.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Gender from the noun, case from the clause',
-      text: 'der Mann, __der__ dort steht (subject → Nom.); der Mann, __den__ '
+      text:
+          'der Mann, __der__ dort steht (subject → Nom.); der Mann, __den__ '
           'ich kenne (object → Akk.).',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Verb last',
-      text: 'The relative clause is a subordinate clause: "…, das ich gekauft '
+      text:
+          'The relative clause is a subordinate clause: "…, das ich gekauft '
           '__habe__." Comma before, verb at the end.',
     ),
   ],
   items: [
-    qsi('Das ist der Mann, ____ dort steht. (Nom. m)', 'der',
-        'That is the man who is standing there.', 'der (Nom.)'),
-    qsi('Das ist der Mann, ____ ich gut kenne. (Akk. m)', 'den',
-        'That is the man whom I know well.', 'den (Akk.)'),
-    qsi('Die Frau, ____ Deutsch spricht, ist nett. (Nom. f)', 'die',
-        'The woman who speaks German is nice.', 'die (Nom.)'),
-    qsi('Das Buch, ____ ich lese, ist spannend. (Akk. n)', 'das',
-        'The book I’m reading is exciting.', 'das (Akk.)'),
-    qsi('Die Leute, ____ hier wohnen, sind laut. (Nom. Pl.)', 'die',
-        'The people who live here are loud.', 'die (Pl.)'),
-    qsi('Die Pizza, ____ ich bestellt habe, kommt gleich. (Akk. f)', 'die',
-        'The pizza I ordered is coming soon.', 'die (Akk. f)'),
-    qsi('Der Film, ____ wir gesehen haben, war toll. (Akk. m)', 'den',
-        'The film we saw was great.', 'den (Akk. Film)'),
-    qsi('Das Kind, ____ dort spielt, ist mein Sohn. (Nom. n)', 'das',
-        'The child playing there is my son.', 'das (Nom.)'),
-    qsi('Die Nachbarn, ____ ich jeden Tag grüße, sind nett. (Akk. Pl.)', 'die',
-        'The neighbours I greet every day are nice.', 'die (Akk. Pl.)'),
-    qsi('Der Zug, ____ nach Berlin fährt, ist voll. (Nom. m)', 'der',
-        'The train that goes to Berlin is full.', 'der (Nom. Zug)'),
-    qsi('Die Stadt, ____ wir besuchen, ist sehr alt. (Akk. f)', 'die',
-        'The city we are visiting is very old.', 'die (Akk. Stadt)'),
-    qsi('Das Handy, ____ auf dem Tisch liegt, ist meins. (Nom. n)', 'das',
-        'The phone lying on the table is mine.', 'das (Nom. Handy)'),
-    qsi('Der Kuchen, ____ du gebacken hast, schmeckt super. (Akk. m)', 'den',
-        'The cake you baked tastes great.', 'den (Akk. Kuchen)'),
-    qsi('Die Bücher, ____ im Regal stehen, sind alt. (Nom. Pl.)', 'die',
-        'The books standing on the shelf are old.', 'die (Nom. Pl.)'),
-    qsi('Die Frau, ____ ich jeden Tag sehe, wohnt hier. (Akk. f)', 'die',
-        'The woman I see every day lives here.', 'die (Akk. sehen)'),
+    qsi(
+      'Das ist der Mann, ____ dort steht. (Nom. m)',
+      'der',
+      'That is the man who is standing there.',
+      'der (Nom.)',
+    ),
+    qsi(
+      'Das ist der Mann, ____ ich gut kenne. (Akk. m)',
+      'den',
+      'That is the man whom I know well.',
+      'den (Akk.)',
+    ),
+    qsi(
+      'Die Frau, ____ Deutsch spricht, ist nett. (Nom. f)',
+      'die',
+      'The woman who speaks German is nice.',
+      'die (Nom.)',
+    ),
+    qsi(
+      'Das Buch, ____ ich lese, ist spannend. (Akk. n)',
+      'das',
+      'The book I’m reading is exciting.',
+      'das (Akk.)',
+    ),
+    qsi(
+      'Die Leute, ____ hier wohnen, sind laut. (Nom. Pl.)',
+      'die',
+      'The people who live here are loud.',
+      'die (Pl.)',
+    ),
+    qsi(
+      'Die Pizza, ____ ich bestellt habe, kommt gleich. (Akk. f)',
+      'die',
+      'The pizza I ordered is coming soon.',
+      'die (Akk. f)',
+    ),
+    qsi(
+      'Der Film, ____ wir gesehen haben, war toll. (Akk. m)',
+      'den',
+      'The film we saw was great.',
+      'den (Akk. Film)',
+    ),
+    qsi(
+      'Das Kind, ____ dort spielt, ist mein Sohn. (Nom. n)',
+      'das',
+      'The child playing there is my son.',
+      'das (Nom.)',
+    ),
+    qsi(
+      'Die Nachbarn, ____ ich jeden Tag grüße, sind nett. (Akk. Pl.)',
+      'die',
+      'The neighbours I greet every day are nice.',
+      'die (Akk. Pl.)',
+    ),
+    qsi(
+      'Der Zug, ____ nach Berlin fährt, ist voll. (Nom. m)',
+      'der',
+      'The train that goes to Berlin is full.',
+      'der (Nom. Zug)',
+    ),
+    qsi(
+      'Die Stadt, ____ wir besuchen, ist sehr alt. (Akk. f)',
+      'die',
+      'The city we are visiting is very old.',
+      'die (Akk. Stadt)',
+    ),
+    qsi(
+      'Das Handy, ____ auf dem Tisch liegt, ist meins. (Nom. n)',
+      'das',
+      'The phone lying on the table is mine.',
+      'das (Nom. Handy)',
+    ),
+    qsi(
+      'Der Kuchen, ____ du gebacken hast, schmeckt super. (Akk. m)',
+      'den',
+      'The cake you baked tastes great.',
+      'den (Akk. Kuchen)',
+    ),
+    qsi(
+      'Die Bücher, ____ im Regal stehen, sind alt. (Nom. Pl.)',
+      'die',
+      'The books standing on the shelf are old.',
+      'die (Nom. Pl.)',
+    ),
+    qsi(
+      'Die Frau, ____ ich jeden Tag sehe, wohnt hier. (Akk. f)',
+      'die',
+      'The woman I see every day lives here.',
+      'die (Akk. sehen)',
+    ),
   ],
 );
 
@@ -688,54 +1145,117 @@ final QuizContent questB11GenitivContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Genitiv',
-  intro: 'The **Genitiv** shows possession and relationships (English "of" / '
+  intro:
+      'The **Genitiv** shows possession and relationships (English "of" / '
       '’s). The articles are des/der/des/der and masculine & neuter nouns '
       'add **-s** (des Mannes).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'des/der + -s on m/n nouns',
-      text: 'der → des (+ Noun-s), die → der, das → des (+ Noun-s), Plural → '
+      text:
+          'der → des (+ Noun-s), die → der, das → des (+ Noun-s), Plural → '
           'der. "das Auto __des Mannes__".',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'Ask "wessen?"',
-      text: 'The Genitiv answers **wessen?** (whose?). Spoken German often uses '
+      text:
+          'The Genitiv answers **wessen?** (whose?). Spoken German often uses '
           '"von + Dativ" instead (das Auto von dem Mann).',
     ),
   ],
   items: [
-    qsi('Das ist das Auto ____ Mannes. (der → des)', 'des',
-        'That is the man’s car.', 'des Mannes'),
-    qsi('Die Farbe ____ Hauses ist blau. (das → des)', 'des',
-        'The colour of the house is blue.', 'des Hauses'),
-    qsi('Das ist die Tasche ____ Frau. (die → der)', 'der',
-        'That is the woman’s bag.', 'der Frau'),
-    qsi('Die Meinung ____ Leute ist wichtig. (Plural → der)', 'der',
-        'The opinion of the people is important.', 'der Leute'),
-    qsi('Am Ende ____ Films weinte ich. (der → des)', 'des',
-        'At the end of the film I cried.', 'des Films'),
-    qsi('Der Titel ____ Buches ist sehr lang. (das → des)', 'des',
-        'The title of the book is very long.', 'des Buches'),
-    qsi('Die Tür ____ Autos ist offen. (das → des)', 'des',
-        'The door of the car is open.', 'des Autos'),
-    qsi('Der Name ____ Straße ist neu. (die → der)', 'der',
-        'The name of the street is new.', 'der Straße'),
-    qsi('Die Eltern ____ Kinder warten draußen. (Plural → der)', 'der',
-        'The parents of the children wait outside.', 'der Kinder'),
-    qsi('Das Haus ____ Lehrers ist groß. (der → des)', 'des',
-        "The teacher's house is big.", 'des Lehrers'),
-    qsi('Die Fenster ____ Wohnung sind klein. (die → der)', 'der',
-        'The windows of the flat are small.', 'der Wohnung'),
-    qsi('Der Anfang ____ Konzerts war laut. (das → des)', 'des',
-        'The beginning of the concert was loud.', 'des Konzerts'),
-    qsi('Die Stimme ____ Sängerin ist schön. (die → der)', 'der',
-        "The singer's voice is beautiful.", 'der Sängerin'),
-    qsi('Am Ende ____ Jahres feiern wir. (das → des)', 'des',
-        'At the end of the year we celebrate.', 'des Jahres'),
-    qsi('Die Räder ____ Fahrrads sind neu. (das → des)', 'des',
-        'The wheels of the bike are new.', 'des Fahrrads'),
+    qsi(
+      'Das ist das Auto ____ Mannes. (der → des)',
+      'des',
+      'That is the man’s car.',
+      'des Mannes',
+    ),
+    qsi(
+      'Die Farbe ____ Hauses ist blau. (das → des)',
+      'des',
+      'The colour of the house is blue.',
+      'des Hauses',
+    ),
+    qsi(
+      'Das ist die Tasche ____ Frau. (die → der)',
+      'der',
+      'That is the woman’s bag.',
+      'der Frau',
+    ),
+    qsi(
+      'Die Meinung ____ Leute ist wichtig. (Plural → der)',
+      'der',
+      'The opinion of the people is important.',
+      'der Leute',
+    ),
+    qsi(
+      'Am Ende ____ Films weinte ich. (der → des)',
+      'des',
+      'At the end of the film I cried.',
+      'des Films',
+    ),
+    qsi(
+      'Der Titel ____ Buches ist sehr lang. (das → des)',
+      'des',
+      'The title of the book is very long.',
+      'des Buches',
+    ),
+    qsi(
+      'Die Tür ____ Autos ist offen. (das → des)',
+      'des',
+      'The door of the car is open.',
+      'des Autos',
+    ),
+    qsi(
+      'Der Name ____ Straße ist neu. (die → der)',
+      'der',
+      'The name of the street is new.',
+      'der Straße',
+    ),
+    qsi(
+      'Die Eltern ____ Kinder warten draußen. (Plural → der)',
+      'der',
+      'The parents of the children wait outside.',
+      'der Kinder',
+    ),
+    qsi(
+      'Das Haus ____ Lehrers ist groß. (der → des)',
+      'des',
+      "The teacher's house is big.",
+      'des Lehrers',
+    ),
+    qsi(
+      'Die Fenster ____ Wohnung sind klein. (die → der)',
+      'der',
+      'The windows of the flat are small.',
+      'der Wohnung',
+    ),
+    qsi(
+      'Der Anfang ____ Konzerts war laut. (das → des)',
+      'des',
+      'The beginning of the concert was loud.',
+      'des Konzerts',
+    ),
+    qsi(
+      'Die Stimme ____ Sängerin ist schön. (die → der)',
+      'der',
+      "The singer's voice is beautiful.",
+      'der Sängerin',
+    ),
+    qsi(
+      'Am Ende ____ Jahres feiern wir. (das → des)',
+      'des',
+      'At the end of the year we celebrate.',
+      'des Jahres',
+    ),
+    qsi(
+      'Die Räder ____ Fahrrads sind neu. (das → des)',
+      'des',
+      'The wheels of the bike are new.',
+      'des Fahrrads',
+    ),
   ],
 );
 
@@ -746,68 +1266,86 @@ final QuizContent questB11DiktatContent = dictationQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'A dictation with the Konjunktiv II. You HEAR a sentence and TYPE it. '
+  intro:
+      'A dictation with the Konjunktiv II. You HEAR a sentence and TYPE it. '
       'Listen for würde/hätte/wäre/könnte and the infinitive at the end.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Polite forms',
-      text: 'könnten/würden + infinitive make a request polite. Write the '
+      text:
+          'könnten/würden + infinitive make a request polite. Write the '
           'infinitive at the end.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'wäre vs ware',
-      text: 'wäre has an umlaut (ä). Type "waere" if you can’t make the umlaut — '
+      text:
+          'wäre has an umlaut (ä). Type "waere" if you can’t make the umlaut — '
           'it’s accepted.',
     ),
   ],
   sentences: const [
     SpeakPhrase(
-        phrase: 'Ich würde gern nach Spanien fahren.',
-        meaning: 'I would like to go to Spain.'),
+      phrase: 'Ich würde gern nach Spanien fahren.',
+      meaning: 'I would like to go to Spain.',
+    ),
     SpeakPhrase(
-        phrase: 'Könnten Sie mir bitte helfen?',
-        meaning: 'Could you please help me?'),
+      phrase: 'Könnten Sie mir bitte helfen?',
+      meaning: 'Could you please help me?',
+    ),
     SpeakPhrase(
-        phrase: 'Ich hätte gern einen Termin.',
-        meaning: 'I would like an appointment.'),
+      phrase: 'Ich hätte gern einen Termin.',
+      meaning: 'I would like an appointment.',
+    ),
     SpeakPhrase(
-        phrase: 'Es wäre schön, wenn du kommen würdest.',
-        meaning: 'It would be nice if you came.'),
+      phrase: 'Es wäre schön, wenn du kommen würdest.',
+      meaning: 'It would be nice if you came.',
+    ),
     SpeakPhrase(
-        phrase: 'An deiner Stelle würde ich das nicht machen.',
-        meaning: "In your place I wouldn't do that."),
+      phrase: 'An deiner Stelle würde ich das nicht machen.',
+      meaning: "In your place I wouldn't do that.",
+    ),
     SpeakPhrase(
-        phrase: 'Wir müssten eigentlich gehen.',
-        meaning: 'We really ought to go.'),
+      phrase: 'Wir müssten eigentlich gehen.',
+      meaning: 'We really ought to go.',
+    ),
     SpeakPhrase(
-        phrase: 'Würdest du mir bitte helfen?',
-        meaning: 'Would you please help me?'),
+      phrase: 'Würdest du mir bitte helfen?',
+      meaning: 'Would you please help me?',
+    ),
     SpeakPhrase(
-        phrase: 'Ich hätte gern ein Glas Wasser.',
-        meaning: 'I would like a glass of water.'),
+      phrase: 'Ich hätte gern ein Glas Wasser.',
+      meaning: 'I would like a glass of water.',
+    ),
     SpeakPhrase(
-        phrase: 'Wir könnten morgen ins Kino gehen.',
-        meaning: 'We could go to the cinema tomorrow.'),
+      phrase: 'Wir könnten morgen ins Kino gehen.',
+      meaning: 'We could go to the cinema tomorrow.',
+    ),
     SpeakPhrase(
-        phrase: 'Das wäre eine gute Idee.',
-        meaning: 'That would be a good idea.'),
+      phrase: 'Das wäre eine gute Idee.',
+      meaning: 'That would be a good idea.',
+    ),
     SpeakPhrase(
-        phrase: 'Ich würde lieber zu Hause bleiben.',
-        meaning: 'I would rather stay at home.'),
+      phrase: 'Ich würde lieber zu Hause bleiben.',
+      meaning: 'I would rather stay at home.',
+    ),
     SpeakPhrase(
-        phrase: 'Hätten Sie einen Moment Zeit?',
-        meaning: 'Would you have a moment?'),
+      phrase: 'Hätten Sie einen Moment Zeit?',
+      meaning: 'Would you have a moment?',
+    ),
     SpeakPhrase(
-        phrase: 'Wenn ich Zeit hätte, würde ich kommen.',
-        meaning: 'If I had time, I would come.'),
+      phrase: 'Wenn ich Zeit hätte, würde ich kommen.',
+      meaning: 'If I had time, I would come.',
+    ),
     SpeakPhrase(
-        phrase: 'Könntet ihr etwas leiser sein?',
-        meaning: 'Could you (all) be a bit quieter?'),
+      phrase: 'Könntet ihr etwas leiser sein?',
+      meaning: 'Could you (all) be a bit quieter?',
+    ),
     SpeakPhrase(
-        phrase: 'Es wäre schön, dich zu sehen.',
-        meaning: 'It would be nice to see you.'),
+      phrase: 'Es wäre schön, dich zu sehen.',
+      meaning: 'It would be nice to see you.',
+    ),
   ],
 );
 
@@ -818,40 +1356,47 @@ final QuizContent questB11SprechenMeinungContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Express and justify an opinion — a core B1 speaking skill. Listen and '
+  intro:
+      'Express and justify an opinion — a core B1 speaking skill. Listen and '
       'repeat these opener phrases.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Opinion openers',
-      text: '"Meiner Meinung nach …", "Ich finde, dass …", "Ich bin der '
+      text:
+          '"Meiner Meinung nach …", "Ich finde, dass …", "Ich bin der '
           'Meinung, dass …".',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Agree / disagree',
-      text: '"Da stimme ich zu." (I agree.) "Das sehe ich anders." (I see it '
+      text:
+          '"Da stimme ich zu." (I agree.) "Das sehe ich anders." (I see it '
           'differently.)',
     ),
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Meiner Meinung nach ist das richtig.',
-        meaning: 'In my opinion that is right.'),
+      phrase: 'Meiner Meinung nach ist das richtig.',
+      meaning: 'In my opinion that is right.',
+    ),
     SpeakPhrase(
-        phrase: 'Ich finde, dass das eine gute Idee ist.',
-        meaning: 'I think that is a good idea.'),
+      phrase: 'Ich finde, dass das eine gute Idee ist.',
+      meaning: 'I think that is a good idea.',
+    ),
     SpeakPhrase(
-        phrase: 'Einerseits ja, andererseits nein.',
-        meaning: 'On the one hand yes, on the other no.'),
+      phrase: 'Einerseits ja, andererseits nein.',
+      meaning: 'On the one hand yes, on the other no.',
+    ),
+    SpeakPhrase(phrase: 'Da stimme ich dir zu.', meaning: 'I agree with you.'),
     SpeakPhrase(
-        phrase: 'Da stimme ich dir zu.', meaning: 'I agree with you.'),
+      phrase: 'Das sehe ich leider anders.',
+      meaning: 'Unfortunately I see it differently.',
+    ),
     SpeakPhrase(
-        phrase: 'Das sehe ich leider anders.',
-        meaning: 'Unfortunately I see it differently.'),
-    SpeakPhrase(
-        phrase: 'Was meinst du dazu?',
-        meaning: 'What do you think about it?'),
+      phrase: 'Was meinst du dazu?',
+      meaning: 'What do you think about it?',
+    ),
   ],
 );
 
@@ -863,55 +1408,117 @@ final QuizContent questB11KonjunktionenContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Konjunktion',
-  intro: 'These subordinating conjunctions all send the verb to the end: **wenn** '
+  intro:
+      'These subordinating conjunctions all send the verb to the end: **wenn** '
       '(if/whenever), **als** (when, single past event), **obwohl** (although).',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'wenn vs als',
-      text: '**als** for a single event in the past (Als ich klein war …); '
+      text:
+          '**als** for a single event in the past (Als ich klein war …); '
           '**wenn** for repeated or present/future (Immer wenn …, Wenn ich Zeit '
           'habe …).',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'obwohl = although',
-      text: '"Ich gehe joggen, __obwohl__ es regnet." Concession — verb at the '
+      text:
+          '"Ich gehe joggen, __obwohl__ es regnet." Concession — verb at the '
           'end as always.',
     ),
   ],
   items: [
-    qsi('____ ich Zeit habe, lese ich. (whenever/if)', 'Wenn',
-        'Whenever I have time, I read.', 'wenn'),
-    qsi('____ ich ein Kind war, wohnten wir in Köln. (when, past)', 'Als',
-        'When I was a child, we lived in Cologne.', 'als'),
-    qsi('Wir gehen spazieren, ____ es kalt ist. (although)', 'obwohl',
-        'We go for a walk although it is cold.', 'obwohl'),
-    qsi('____ du anrufst, bin ich zu Hause. (if/when)', 'Wenn',
-        'If you call, I’m at home.', 'wenn'),
-    qsi('____ der Film begann, kamen wir zu spät. (when, past)', 'Als',
-        'When the film began, we arrived too late.', 'als'),
-    qsi('____ es regnet, bleiben wir drinnen. (if/when)', 'Wenn',
-        'When it rains, we stay inside.', 'wenn (Regen)'),
-    qsi('____ wir in Rom waren, war es sehr heiß. (when, past)', 'Als',
-        'When we were in Rome, it was very hot.', 'als (Rom)'),
-    qsi('Er arbeitet weiter, ____ er müde ist. (although)', 'obwohl',
-        'He keeps working although he is tired.', 'obwohl (müde)'),
-    qsi('____ ich achtzehn wurde, machte ich den Führerschein. (when, past)',
-        'Als', 'When I turned eighteen, I got my driving licence.',
-        'als (achtzehn)'),
-    qsi('Sie lacht, ____ sie traurig ist. (although)', 'obwohl',
-        'She laughs although she is sad.', 'obwohl (traurig)'),
-    qsi('____ du fertig bist, ruf mich an. (when/if)', 'Wenn',
-        'When you are done, call me.', 'wenn (fertig)'),
-    qsi('____ ich klein war, hatte ich einen Hund. (when, past)', 'Als',
-        'When I was little, I had a dog.', 'als (klein)'),
-    qsi('Wir kaufen das Sofa, ____ es teuer ist. (although)', 'obwohl',
-        'We buy the sofa although it is expensive.', 'obwohl (teuer)'),
-    qsi('____ der Sommer kommt, fahren wir ans Meer. (whenever)', 'Wenn',
-        'When summer comes, we go to the sea.', 'wenn (Sommer)'),
-    qsi('____ sie das Abitur machte, zog sie nach Berlin. (when, past)', 'Als',
-        'When she finished school, she moved to Berlin.', 'als (Abitur)'),
+    qsi(
+      '____ ich Zeit habe, lese ich. (whenever/if)',
+      'Wenn',
+      'Whenever I have time, I read.',
+      'wenn',
+    ),
+    qsi(
+      '____ ich ein Kind war, wohnten wir in Köln. (when, past)',
+      'Als',
+      'When I was a child, we lived in Cologne.',
+      'als',
+    ),
+    qsi(
+      'Wir gehen spazieren, ____ es kalt ist. (although)',
+      'obwohl',
+      'We go for a walk although it is cold.',
+      'obwohl',
+    ),
+    qsi(
+      '____ du anrufst, bin ich zu Hause. (if/when)',
+      'Wenn',
+      'If you call, I’m at home.',
+      'wenn',
+    ),
+    qsi(
+      '____ der Film begann, kamen wir zu spät. (when, past)',
+      'Als',
+      'When the film began, we arrived too late.',
+      'als',
+    ),
+    qsi(
+      '____ es regnet, bleiben wir drinnen. (if/when)',
+      'Wenn',
+      'When it rains, we stay inside.',
+      'wenn (Regen)',
+    ),
+    qsi(
+      '____ wir in Rom waren, war es sehr heiß. (when, past)',
+      'Als',
+      'When we were in Rome, it was very hot.',
+      'als (Rom)',
+    ),
+    qsi(
+      'Er arbeitet weiter, ____ er müde ist. (although)',
+      'obwohl',
+      'He keeps working although he is tired.',
+      'obwohl (müde)',
+    ),
+    qsi(
+      '____ ich achtzehn wurde, machte ich den Führerschein. (when, past)',
+      'Als',
+      'When I turned eighteen, I got my driving licence.',
+      'als (achtzehn)',
+    ),
+    qsi(
+      'Sie lacht, ____ sie traurig ist. (although)',
+      'obwohl',
+      'She laughs although she is sad.',
+      'obwohl (traurig)',
+    ),
+    qsi(
+      '____ du fertig bist, ruf mich an. (when/if)',
+      'Wenn',
+      'When you are done, call me.',
+      'wenn (fertig)',
+    ),
+    qsi(
+      '____ ich klein war, hatte ich einen Hund. (when, past)',
+      'Als',
+      'When I was little, I had a dog.',
+      'als (klein)',
+    ),
+    qsi(
+      'Wir kaufen das Sofa, ____ es teuer ist. (although)',
+      'obwohl',
+      'We buy the sofa although it is expensive.',
+      'obwohl (teuer)',
+    ),
+    qsi(
+      '____ der Sommer kommt, fahren wir ans Meer. (whenever)',
+      'Wenn',
+      'When summer comes, we go to the sea.',
+      'wenn (Sommer)',
+    ),
+    qsi(
+      '____ sie das Abitur machte, zog sie nach Berlin. (when, past)',
+      'Als',
+      'When she finished school, she moved to Berlin.',
+      'als (Abitur)',
+    ),
   ],
 );
 
@@ -956,12 +1563,12 @@ final QuizContent questB11HoerenUmfrageContent = listeningQuestQuiz(
       options: [
         'allein zu Hause bleiben',
         'Freunde treffen und Gitarre spielen',
-        'ins Kino gehen'
+        'ins Kino gehen',
       ],
       optionsTranslation: [
         'stay home alone',
         'meet friends and play guitar',
-        'go to the cinema'
+        'go to the cinema',
       ],
       correctIndex: 1,
       explanation: '"… treffe ich Freunde und spiele Gitarre."',
@@ -991,19 +1598,22 @@ final QuizContent questB11HoerenUmfrageContent = listeningQuestQuiz(
       explanation: 'A young woman, an older man and a student — three answers.',
     ),
   ],
-  intro: 'A street survey with three speakers — you only hear it. Keep each '
+  intro:
+      'A street survey with three speakers — you only hear it. Keep each '
       'person’s answer separate. Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Three voices',
-      text: 'junge Frau / älterer Mann / Student. Tag each fact to the right '
+      text:
+          'junge Frau / älterer Mann / Student. Tag each fact to the right '
           'person.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'würde gern = would like to',
-      text: 'The man’s wish is marked by "Ich würde gern …" — a clue for his '
+      text:
+          'The man’s wish is marked by "Ich würde gern …" — a clue for his '
           'answer.',
     ),
   ],
@@ -1036,12 +1646,12 @@ final QuizContent questB11LesenStudiumContent = readingQuestQuiz(
       options: [
         'Man verdient viel Geld.',
         'Man wird selbstständiger.',
-        'Man hat keine Prüfungen.'
+        'Man hat keine Prüfungen.',
       ],
       optionsTranslation: [
         'You earn a lot of money.',
         'You become more independent.',
-        'You have no exams.'
+        'You have no exams.',
       ],
       correctIndex: 1,
       explanation: '"… und wird selbstständiger."',
@@ -1060,12 +1670,12 @@ final QuizContent questB11LesenStudiumContent = readingQuestQuiz(
       options: [
         'Es war zu teuer.',
         'Es war die beste Entscheidung ihres Lebens.',
-        'Sie würden es nicht wieder machen.'
+        'Sie würden es nicht wieder machen.',
       ],
       optionsTranslation: [
         'It was too expensive.',
         'It was the best decision of their lives.',
-        'They wouldn’t do it again.'
+        'They wouldn’t do it again.',
       ],
       correctIndex: 1,
       explanation: '"… die beste Entscheidung ihres Lebens war."',
@@ -1084,7 +1694,8 @@ final QuizContent questB11LesenStudiumContent = readingQuestQuiz(
         'never move',
       ],
       correctIndex: 0,
-      explanation: '"Viele Studenten möchten ein Semester im Ausland verbringen."',
+      explanation:
+          '"Viele Studenten möchten ein Semester im Ausland verbringen."',
     ),
     ReadingQuestion(
       question: 'Welche Schwierigkeit nennt der Text?',
@@ -1100,22 +1711,26 @@ final QuizContent questB11LesenStudiumContent = readingQuestQuiz(
         'There are no language courses.',
       ],
       correctIndex: 0,
-      explanation: '"Am Anfang fühlt man sich oft allein, und alles ist fremd."',
+      explanation:
+          '"Am Anfang fühlt man sich oft allein, und alles ist fremd."',
     ),
   ],
-  intro: 'A text about studying abroad, with the Genitiv (die Entscheidung '
+  intro:
+      'A text about studying abroad, with the Genitiv (die Entscheidung '
       'ihres Lebens) and dass-clauses. A nice review of B1.1.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Advantages & difficulties',
-      text: 'Vorteile (advantages) vs Schwierigkeiten (difficulties) organise '
+      text:
+          'Vorteile (advantages) vs Schwierigkeiten (difficulties) organise '
           'the text. Find the one the question asks about.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'man = one/you',
-      text: '"man" is the impersonal subject (one/you in general). It takes the '
+      text:
+          '"man" is the impersonal subject (one/you in general). It takes the '
           'er/sie/es verb form.',
     ),
   ],
@@ -1143,41 +1758,133 @@ final QuizContent questB11BigTextWohnungContent = bigTextQuestQuiz(
     inputBlank('bequemen', hint: 'bequem · auf dem … Sofa (Dat, n)'),
     inputBlank('alter', hint: 'alt · ein … Baum (Nom, m)'),
     inputBlank('nette', hint: 'nett · … Nachbarn (Akk, Plural, kein Artikel)'),
-    inputBlank('heißen', accepted: const ['heissen'],
-        hint: 'heiß · einen … Tee (Akk, m)'),
+    inputBlank(
+      'heißen',
+      accepted: const ['heissen'],
+      hint: 'heiß · einen … Tee (Akk, m)',
+    ),
   ],
   passageTranslation:
       'I have found a new flat. The big room has a big window. A beautiful '
       'picture hangs on the wall. I like sitting on the comfortable sofa. In '
       'front of the house stands an old tree. I have nice neighbours. In the '
       'evening I drink a hot tea.',
-  intro: 'Type each adjective with its ending. The ending depends on three '
+  intro:
+      'Type each adjective with its ending. The ending depends on three '
       'things at once: the article type (der-word / ein-word / none), the '
       'gender, and the case. Read the noun phrase, decide, then write it.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'One strong signal',
-      text: 'If the article already shows the case (das, dem, den …), the '
+      text:
+          'If the article already shows the case (das, dem, den …), the '
           'adjective just takes -e or -en. With ein/eine or no article, the '
           'adjective itself carries the strong ending (-er/-es/-e).',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'Dative & plural → -en',
-      text: 'After a dative (dem/der) and in almost every plural, the ending is '
+      text:
+          'After a dative (dem/der) and in almost every plural, the ending is '
           '-en: auf dem bequemen Sofa, mit den netten Nachbarn.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'ein has no ending — so the adjective shows the gender',
-      text: 'ein __alter__ Baum (m), ein __schönes__ Bild (n): because ein looks '
+      text:
+          'ein __alter__ Baum (m), ein __schönes__ Bild (n): because ein looks '
           'the same, the adjective must reveal masculine (-er) vs neuter (-es).',
     ),
   ],
 );
 
 /// Every B1.1 quiz, in chain order — all five exercise types, interleaved.
+
+/// Speaking: the learner runs this conversation in their own AI
+/// assistant and enters the score it gives (see `SpeakingQuizPage`).
+final QuizContent questSpeakingMeinungenContent = speakingQuestQuiz(
+  id: 'quest_b1_1_sprechen_dialog',
+  title: 'B1.1 · Gespräch: Meinungen & Wünsche',
+  level: 'B1.1',
+  topic:
+      'My opinions, wishes and plans: what I would change, what I would like, and what I think about something in the news.',
+  practisePoints: [
+    'Konjunktiv II: würde, wäre, hätte, könnte',
+    'Adjective endings in the nominative, accusative and dative',
+    'Relative clauses: der Mann, der ...',
+    'Futur I for plans: Ich werde nächstes Jahr umziehen.',
+  ],
+  targetVocabulary: [
+    'würde',
+    'wäre',
+    'hätte',
+    'meiner Meinung nach',
+    'der/die/das',
+    'werden',
+  ],
+  scoringCriteria: [
+    'the Konjunktiv II form',
+    'the adjective ending',
+    'the relative pronoun and the verb at the end',
+    'a clear opinion with a reason',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv II',
+    'wrong adjective ending',
+    'wrong relative pronoun',
+  ],
+  session: SpeakingSession(durationMinutes: 5, minExchanges: 8),
+  intro:
+      'The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say "Los geht\'s" to start. It grades you at the end - bring that score back here.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Let it be a conversation',
+      text:
+          'Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score.',
+    ),
+  ],
+);
+
+/// Mid-level speaking checkpoint: a shorter, question-driven run over the
+/// first half of this sub-level. The closing Gespräch covers the level as
+/// a whole.
+final QuizContent questSpeakingCheckB11Content = speakingQuestQuiz(
+  id: 'quest_b1_1_sprechen_kurzcheck',
+  title: 'B1.1 · Kurzcheck: Konjunktiv II',
+  level: 'B1.1',
+  topic: 'Quick hypotheticals and polite requests.',
+  practisePoints: [
+    'würde + infinitive at the end',
+    'wäre, hätte, könnte',
+    'A polite request instead of a plain order',
+  ],
+  targetVocabulary: ['würde', 'wäre', 'hätte', 'könnte', 'gern'],
+  scoringCriteria: [
+    'the Konjunktiv II form',
+    'the infinitive at the end',
+    'politeness that fits the situation',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv II',
+    'wrong Konjunktiv form',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'A short checkpoint, not an exam',
+      text:
+          'Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end.',
+    ),
+  ],
+);
+
 final List<QuizContent> questB1_1Content = [
   questB11ArbeitContent, //          Die Welt der Arbeit    (knowledge)
   questB11AdjBestimmtContent, //     Adj.: bestimmt         (knowledge)
@@ -1188,6 +1895,7 @@ final List<QuizContent> questB1_1Content = [
   questB11HoerenInterviewContent, // Hören: Interview       (listening)
   questB11Konj2HaetteContent, //     Konj. II: hätte/wäre   (knowledge·verb)
   questB11LesenArbeitContent, //     Lesen: Zukunft Arbeit  (reading)
+  questSpeakingCheckB11Content, // Kurzcheck mit einer KI (speaking·AI)
   questB11FuturContent, //           Futur I                (knowledge·verb)
   questB11RelativContent, //         Relativsätze           (knowledge)
   questB11DiktatContent, //          Diktat: Wünsche        (dictation)
@@ -1196,4 +1904,5 @@ final List<QuizContent> questB1_1Content = [
   questB11KonjunktionenContent, //   wenn/als/obwohl        (knowledge)
   questB11HoerenUmfrageContent, //   Hören: Umfrage         (listening)
   questB11LesenStudiumContent, //    Lesen: Ausland         (reading)
+  questSpeakingMeinungenContent, // Gespräch mit einer KI  (speaking·AI)
 ];

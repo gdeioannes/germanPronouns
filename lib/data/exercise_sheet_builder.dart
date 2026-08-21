@@ -246,7 +246,10 @@ Future<List<_ExerciseSource>> _courseExerciseSources(Course course) async {
 /// listening, dictation) can't be answered on a printed sheet.
 bool _printable(QuizContent content) => switch (content.kind) {
   QuizKind.fillBlank || QuizKind.reading || QuizKind.draw => true,
-  QuizKind.speakRepeat || QuizKind.listening || QuizKind.dictation => false,
+  QuizKind.speakRepeat ||
+  QuizKind.listening ||
+  QuizKind.dictation ||
+  QuizKind.speaking => false,
 };
 
 /// Done state of a plain nav quiz, mirroring the course home's rules for the
@@ -256,6 +259,7 @@ Future<bool> _regularQuizDone(String ref, QuizContent content) async {
     case QuizKind.reading:
       return NounSettings.instance.isReadingQuizCompleted(ref);
     case QuizKind.draw:
+    case QuizKind.speaking:
       return NounSettings.instance.isSpeakQuizCompleted(ref);
     case QuizKind.fillBlank:
     case QuizKind.speakRepeat:
@@ -275,6 +279,9 @@ Future<bool> _regularQuizDone(String ref, QuizContent content) async {
 ExerciseSection? _sectionFor(_ExerciseSource source, Random rng) {
   final content = source.content;
   switch (content.kind) {
+    // A speaking exercise has no paper form: it is a prompt to run elsewhere.
+    case QuizKind.speaking:
+      return null;
     case QuizKind.draw:
       return _writingSection(source);
     case QuizKind.reading:
@@ -317,7 +324,8 @@ double _weakness(_ExerciseSource source, String? categoryLabel) {
 ExerciseSection _sentenceClozeSection(_ExerciseSource source) {
   final content = source.content;
   final subjectIndexByKey = {
-    for (var i = 0; i < content.subjects.length; i++) content.subjects[i].key: i,
+    for (var i = 0; i < content.subjects.length; i++)
+      content.subjects[i].key: i,
   };
   final categoryByLabel = {for (final c in content.categories) c.label: c};
 

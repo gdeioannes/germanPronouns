@@ -1,4 +1,5 @@
 import '../../../models/quiz_content.dart';
+import '../../../models/speaking_exercise.dart';
 import '../es_de/es_de_builder.dart';
 
 /// Builders for the "German Grammar in Detail" course (English speakers learning
@@ -8,6 +9,10 @@ import '../es_de/es_de_builder.dart';
 /// English. A `**…**` marker inside the German answer isolates the single word
 /// (e.g. the article) to blank — see [sentenceCourseQuiz].
 export '../es_de/es_de_builder.dart' show CourseItem;
+// Re-exported so a module file can tune a speaking exercise (mode, session or
+// report length) without importing the model directly.
+export '../../../models/speaking_exercise.dart'
+    show SpeakingMode, SpeakingSession, SpeakingReport;
 
 /// Fill-in quiz: English cue → German answer. Mark the quizzed word in the
 /// German with `**…**` so just that word becomes the blank.
@@ -125,7 +130,8 @@ InlineBlank inputBlank(
   String answer, {
   List<String> accepted = const [],
   String? hint,
-}) => InlineBlank(kind: 'input', answer: answer, accepted: accepted, hint: hint);
+}) =>
+    InlineBlank(kind: 'input', answer: answer, accepted: accepted, hint: hint);
 
 final RegExp _inlinePlaceholder = RegExp(r'\{\{(\d+)\}\}');
 
@@ -214,3 +220,54 @@ QuizContent enDeDict({
     helpMemoryTips: tips,
   );
 }
+
+/// Speaking ([QuizKind.speaking]): a conversation exercise the learner runs in
+/// their own AI assistant. The app only renders the prompt (topic + practise
+/// points + scoring criteria, merged with the shared per-UI-language template)
+/// and takes back the score the AI gave.
+///
+/// Keep [practisePoints] to 3–4: every point costs at least
+/// `minQuestionsPerPoint` of the session's exchanges, and the default session is
+/// a 4-minute, 7-exchange conversation. The gate test enforces
+/// `practisePoints.length * minQuestionsPerPoint <= minExchanges`.
+QuizContent enDeSpeaking({
+  required String id,
+  required String title,
+  required String level,
+  required String topic,
+  required List<String> practisePoints,
+  required List<String> scoringCriteria,
+  required String intro,
+  List<String> targetVocabulary = const [],
+  List<String> priorityErrors = const [],
+  SpeakingMode mode = SpeakingMode.conversation,
+  SpeakingSession session = const SpeakingSession(),
+  SpeakingReport report = const SpeakingReport(),
+  int? passScore,
+  List<HelpMemoryTip> tips = const [],
+}) => QuizContent(
+  id: id,
+  title: title,
+  kind: QuizKind.speaking,
+  level: level,
+  storageKeyPrefix: '${id}_',
+  promptLabel: 'Exercise',
+  subjectsLabel: 'Exercise',
+  subjectColumnLabel: 'Exercise',
+  subjects: const [],
+  categories: const [],
+  sentences: const [],
+  speaking: SpeakingExercise(
+    topic: topic,
+    practisePoints: practisePoints,
+    scoringCriteria: scoringCriteria,
+    targetVocabulary: targetVocabulary,
+    priorityErrors: priorityErrors,
+    mode: mode,
+    session: session,
+    report: report,
+    passScore: passScore,
+  ),
+  helpMemoryIntro: intro,
+  helpMemoryTips: tips,
+);

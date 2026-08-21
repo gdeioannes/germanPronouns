@@ -1,4 +1,5 @@
 import '../models/course.dart';
+import 'speaking_strings.dart';
 
 /// Localized strings for the learner-facing chrome. English values are exactly
 /// the app's previous literals (so the English course is unchanged); Spanish
@@ -189,6 +190,7 @@ class AppStrings {
     required this.aboutMeShowEmail,
     required this.aboutMeRobotCheck,
     required this.aboutMeRobotWrong,
+    required this.speaking,
   });
 
   final String chooseCourse;
@@ -506,6 +508,11 @@ class AppStrings {
   /// nudge shown when the answer was wrong.
   final String aboutMeRobotCheck;
   final String aboutMeRobotWrong;
+
+  /// Chrome for the speaking quiz — the copy-and-run steps, the score entry,
+  /// and the first-run explainer. Grouped so a new speaking string costs one
+  /// entry per language instead of one field per language.
+  final SpeakingStrings speaking;
 }
 
 const AppStrings _en = AppStrings(
@@ -732,6 +739,7 @@ const AppStrings _en = AppStrings(
   aboutMeShowEmail: 'Show email address',
   aboutMeRobotCheck: 'Quick check — you are not a robot:',
   aboutMeRobotWrong: 'Not quite. Here is another one.',
+  speaking: kSpeakingStringsEn,
 );
 
 const AppStrings _es = AppStrings(
@@ -964,6 +972,7 @@ const AppStrings _es = AppStrings(
   aboutMeShowEmail: 'Mostrar el correo',
   aboutMeRobotCheck: 'Comprobación rápida: no eres un robot.',
   aboutMeRobotWrong: 'No es correcto. Aquí tienes otra.',
+  speaking: kSpeakingStringsEs,
 );
 
 const AppStrings _de = AppStrings(
@@ -1199,6 +1208,7 @@ const AppStrings _de = AppStrings(
   aboutMeShowEmail: 'E-Mail-Adresse anzeigen',
   aboutMeRobotCheck: 'Kurze Prüfung – du bist kein Roboter:',
   aboutMeRobotWrong: 'Leider falsch. Hier ist eine neue Aufgabe.',
+  speaking: kSpeakingStringsDe,
 );
 
 const AppStrings _zh = AppStrings(
@@ -1396,6 +1406,7 @@ const AppStrings _zh = AppStrings(
   aboutMeShowEmail: '显示邮箱地址',
   aboutMeRobotCheck: '简单验证一下，确认你不是机器人：',
   aboutMeRobotWrong: '不对，再来一题。',
+  speaking: kSpeakingStringsZh,
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {

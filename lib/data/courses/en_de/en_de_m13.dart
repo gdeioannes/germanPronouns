@@ -8,26 +8,30 @@ const List<HelpMemoryTip> _genitiveTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'The genitive (of / \'s)',
-    text: 'm & n → **des** + noun + **-(e)s** (des Mann**es**, des Kind**es**); '
+    text:
+        'm & n → **des** + noun + **-(e)s** (des Mann**es**, des Kind**es**); '
         'f & pl → **der**. In speech, **von** + dative often replaces it.',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'n-declension',
-    text: 'A few masculine nouns add **-(e)n** in every case but the nominative: '
+    text:
+        'A few masculine nouns add **-(e)n** in every case but the nominative: '
         'der Junge → den **Jungen**, der Student → dem **Studenten**, der Name → '
         'des **Namens**.',
   ),
   HelpMemoryTip(
     kind: 'rule',
     title: 'Präteritum — the written past',
-    text: 'sein/haben/modals use it even in speech: **war, hatte, konnte, '
+    text:
+        'sein/haben/modals use it even in speech: **war, hatte, konnte, '
         'musste, wollte, durfte**.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'Strong Präteritum (no -te)',
-    text: 'gehen → **ging**, kommen → **kam**, sehen → **sah**, geben → **gab**, '
+    text:
+        'gehen → **ging**, kommen → **kam**, sehen → **sah**, geben → **gab**, '
         'fahren → **fuhr**, finden → **fand**, bleiben → **blieb**.',
   ),
 ];
@@ -35,50 +39,136 @@ const List<HelpMemoryTip> _genitiveTips = [
 final QuizContent enDeM13Genitive = enDeFill(
   id: 'en_de_m13_genitive',
   title: 'The genitive (des/der)',
-  intro: 'Build the genitive: des + -(e)s for masculine/neuter, der for '
+  intro:
+      'Build the genitive: des + -(e)s for masculine/neuter, der for '
       'feminine and plural.',
   tips: _genitiveTips,
   items: const [
-    CourseItem(prompt: "the man's car (Auto … Mann)", answer: 'das Auto **des** Mannes'),
+    CourseItem(
+      prompt: "the man's car (Auto … Mann)",
+      answer: 'das Auto **des** Mannes',
+    ),
     CourseItem(prompt: "the woman's house", answer: 'das Haus **der** Frau'),
-    CourseItem(prompt: "the child's toy", answer: 'das Spielzeug **des** Kindes'),
-    CourseItem(prompt: 'the title of the book', answer: 'der Titel **des** Buches'),
-    CourseItem(prompt: 'the colour of the car', answer: 'die Farbe **des** Autos'),
+    CourseItem(
+      prompt: "the child's toy",
+      answer: 'das Spielzeug **des** Kindes',
+    ),
+    CourseItem(
+      prompt: 'the title of the book',
+      answer: 'der Titel **des** Buches',
+    ),
+    CourseItem(
+      prompt: 'the colour of the car',
+      answer: 'die Farbe **des** Autos',
+    ),
     CourseItem(prompt: 'the end of the film', answer: 'das Ende **des** Films'),
-    CourseItem(prompt: "the teacher's book (der Lehrer)", answer: 'das Buch **des** Lehrers'),
-    CourseItem(prompt: 'the name of the street (die Straße)', answer: 'der Name **der** Straße'),
-    CourseItem(prompt: 'the windows of the flat (die Wohnung)', answer: 'die Fenster **der** Wohnung'),
-    CourseItem(prompt: 'the parents of the children (pl)', answer: 'die Eltern **der** Kinder'),
-    CourseItem(prompt: 'the beginning of the year (das Jahr)', answer: 'der Anfang **des** Jahres'),
-    CourseItem(prompt: "the dog's food (der Hund)", answer: 'das Futter **des** Hundes'),
-    CourseItem(prompt: 'the voice of the singer (die Sängerin)', answer: 'die Stimme **der** Sängerin'),
-    CourseItem(prompt: 'the wheels of the bike (das Fahrrad)', answer: 'die Räder **des** Fahrrads'),
-    CourseItem(prompt: 'the capital of the country (das Land)', answer: 'die Hauptstadt **des** Landes'),
+    CourseItem(
+      prompt: "the teacher's book (der Lehrer)",
+      answer: 'das Buch **des** Lehrers',
+    ),
+    CourseItem(
+      prompt: 'the name of the street (die Straße)',
+      answer: 'der Name **der** Straße',
+    ),
+    CourseItem(
+      prompt: 'the windows of the flat (die Wohnung)',
+      answer: 'die Fenster **der** Wohnung',
+    ),
+    CourseItem(
+      prompt: 'the parents of the children (pl)',
+      answer: 'die Eltern **der** Kinder',
+    ),
+    CourseItem(
+      prompt: 'the beginning of the year (das Jahr)',
+      answer: 'der Anfang **des** Jahres',
+    ),
+    CourseItem(
+      prompt: "the dog's food (der Hund)",
+      answer: 'das Futter **des** Hundes',
+    ),
+    CourseItem(
+      prompt: 'the voice of the singer (die Sängerin)',
+      answer: 'die Stimme **der** Sängerin',
+    ),
+    CourseItem(
+      prompt: 'the wheels of the bike (das Fahrrad)',
+      answer: 'die Räder **des** Fahrrads',
+    ),
+    CourseItem(
+      prompt: 'the capital of the country (das Land)',
+      answer: 'die Hauptstadt **des** Landes',
+    ),
   ],
 );
 
 final QuizContent enDeM13GenitiveVon = enDeFill(
   id: 'en_de_m13_genitive_von',
   title: 'Genitive vs von + dative',
-  intro: 'Everyday speech often replaces the genitive with von + dative. '
+  intro:
+      'Everyday speech often replaces the genitive with von + dative. '
       'Practise both.',
   tips: _genitiveTips,
   items: const [
-    CourseItem(prompt: 'a friend of my father (von + Dat)', answer: 'ein Freund von **meinem** Vater'),
-    CourseItem(prompt: 'the roof of the house (Genitiv)', answer: 'das Dach **des** Hauses'),
-    CourseItem(prompt: 'the mother of the children (von + Dat)', answer: 'die Mutter von **den** Kindern'),
-    CourseItem(prompt: 'the door of the car (Genitiv)', answer: 'die Tür **des** Autos'),
-    CourseItem(prompt: 'a photo of my sister (von + Dat)', answer: 'ein Foto von **meiner** Schwester'),
-    CourseItem(prompt: 'the key of the house (Genitiv)', answer: 'der Schlüssel **des** Hauses'),
-    CourseItem(prompt: 'a friend of my brother (von + Dat)', answer: 'ein Freund von **meinem** Bruder'),
-    CourseItem(prompt: 'the title of the song (Genitiv)', answer: 'der Titel **des** Liedes'),
-    CourseItem(prompt: 'the boss of the company (von + Dat, die Firma)', answer: 'der Chef von **der** Firma'),
-    CourseItem(prompt: 'the colour of the flowers (Genitiv, pl)', answer: 'die Farbe **der** Blumen'),
-    CourseItem(prompt: 'a picture of the city (von + Dat)', answer: 'ein Bild von **der** Stadt'),
-    CourseItem(prompt: 'the end of the story (Genitiv, die Geschichte)', answer: 'das Ende **der** Geschichte'),
-    CourseItem(prompt: 'the car of my parents (von + Dat, pl)', answer: 'das Auto von **meinen** Eltern'),
-    CourseItem(prompt: 'the price of the ticket (Genitiv, das Ticket)', answer: 'der Preis **des** Tickets'),
-    CourseItem(prompt: 'a colleague of my husband (von + Dat)', answer: 'ein Kollege von **meinem** Mann'),
+    CourseItem(
+      prompt: 'a friend of my father (von + Dat)',
+      answer: 'ein Freund von **meinem** Vater',
+    ),
+    CourseItem(
+      prompt: 'the roof of the house (Genitiv)',
+      answer: 'das Dach **des** Hauses',
+    ),
+    CourseItem(
+      prompt: 'the mother of the children (von + Dat)',
+      answer: 'die Mutter von **den** Kindern',
+    ),
+    CourseItem(
+      prompt: 'the door of the car (Genitiv)',
+      answer: 'die Tür **des** Autos',
+    ),
+    CourseItem(
+      prompt: 'a photo of my sister (von + Dat)',
+      answer: 'ein Foto von **meiner** Schwester',
+    ),
+    CourseItem(
+      prompt: 'the key of the house (Genitiv)',
+      answer: 'der Schlüssel **des** Hauses',
+    ),
+    CourseItem(
+      prompt: 'a friend of my brother (von + Dat)',
+      answer: 'ein Freund von **meinem** Bruder',
+    ),
+    CourseItem(
+      prompt: 'the title of the song (Genitiv)',
+      answer: 'der Titel **des** Liedes',
+    ),
+    CourseItem(
+      prompt: 'the boss of the company (von + Dat, die Firma)',
+      answer: 'der Chef von **der** Firma',
+    ),
+    CourseItem(
+      prompt: 'the colour of the flowers (Genitiv, pl)',
+      answer: 'die Farbe **der** Blumen',
+    ),
+    CourseItem(
+      prompt: 'a picture of the city (von + Dat)',
+      answer: 'ein Bild von **der** Stadt',
+    ),
+    CourseItem(
+      prompt: 'the end of the story (Genitiv, die Geschichte)',
+      answer: 'das Ende **der** Geschichte',
+    ),
+    CourseItem(
+      prompt: 'the car of my parents (von + Dat, pl)',
+      answer: 'das Auto von **meinen** Eltern',
+    ),
+    CourseItem(
+      prompt: 'the price of the ticket (Genitiv, das Ticket)',
+      answer: 'der Preis **des** Tickets',
+    ),
+    CourseItem(
+      prompt: 'a colleague of my husband (von + Dat)',
+      answer: 'ein Kollege von **meinem** Mann',
+    ),
   ],
 );
 
@@ -108,7 +198,8 @@ final QuizContent enDeM13BigTextWarmup = enDeBigText(
       "floor he finds the car's key and the child's torn photo. \"Aha!\" he "
       "suddenly shouts, \"that is clearly the murderer's handwriting!\" Only the "
       'motive of the deed remains, for now, a great mystery.',
-  intro: 'Type the genitive article (the "of/\'s" case): des for masculine and '
+  intro:
+      'Type the genitive article (the "of/\'s" case): des for masculine and '
       'neuter (the noun also adds -s), der for feminine and plural.',
   tips: _genitiveTips,
 );
@@ -116,32 +207,79 @@ final QuizContent enDeM13BigTextWarmup = enDeBigText(
 final QuizContent enDeM13NDeclension = enDeFill(
   id: 'en_de_m13_n_declension',
   title: 'n-declension',
-  intro: 'A small group of masculine nouns adds -(e)n in every case except the '
+  intro:
+      'A small group of masculine nouns adds -(e)n in every case except the '
       'nominative singular. Learn the frequent ones.',
   tips: _genitiveTips,
   items: const [
-    CourseItem(prompt: 'I see the boy. (der Junge)', answer: 'Ich sehe den **Jungen**'),
-    CourseItem(prompt: 'I help the colleague. (der Kollege)', answer: 'Ich helfe dem **Kollegen**'),
-    CourseItem(prompt: 'I know the name. (der Name)', answer: 'Ich kenne den **Namen**'),
-    CourseItem(prompt: 'with the student (der Student)', answer: 'mit dem **Studenten**'),
-    CourseItem(prompt: 'I ask the neighbour. (der Nachbar)', answer: 'Ich frage den **Nachbarn**'),
-    CourseItem(prompt: 'I see the customer. (der Kunde)', answer: 'Ich sehe den **Kunden**'),
-    CourseItem(prompt: 'I thank the gentleman. (der Herr)', answer: 'Ich danke dem **Herrn**'),
-    CourseItem(prompt: 'with the president (der Präsident)', answer: 'mit dem **Präsidenten**'),
-    CourseItem(prompt: 'I see a person. (der Mensch)', answer: 'Ich sehe einen **Menschen**'),
-    CourseItem(prompt: 'I ask the police officer. (der Polizist)', answer: 'Ich frage den **Polizisten**'),
-    CourseItem(prompt: 'with the tourist (der Tourist)', answer: 'mit dem **Touristen**'),
-    CourseItem(prompt: 'I photograph the elephant. (der Elefant)', answer: 'Ich fotografiere den **Elefanten**'),
-    CourseItem(prompt: 'I help the patient. (der Patient)', answer: 'Ich helfe dem **Patienten**'),
-    CourseItem(prompt: 'I visit the expert. (der Experte)', answer: 'Ich besuche den **Experten**'),
-    CourseItem(prompt: 'with the boy (der Junge)', answer: 'mit dem **Jungen**'),
+    CourseItem(
+      prompt: 'I see the boy. (der Junge)',
+      answer: 'Ich sehe den **Jungen**',
+    ),
+    CourseItem(
+      prompt: 'I help the colleague. (der Kollege)',
+      answer: 'Ich helfe dem **Kollegen**',
+    ),
+    CourseItem(
+      prompt: 'I know the name. (der Name)',
+      answer: 'Ich kenne den **Namen**',
+    ),
+    CourseItem(
+      prompt: 'with the student (der Student)',
+      answer: 'mit dem **Studenten**',
+    ),
+    CourseItem(
+      prompt: 'I ask the neighbour. (der Nachbar)',
+      answer: 'Ich frage den **Nachbarn**',
+    ),
+    CourseItem(
+      prompt: 'I see the customer. (der Kunde)',
+      answer: 'Ich sehe den **Kunden**',
+    ),
+    CourseItem(
+      prompt: 'I thank the gentleman. (der Herr)',
+      answer: 'Ich danke dem **Herrn**',
+    ),
+    CourseItem(
+      prompt: 'with the president (der Präsident)',
+      answer: 'mit dem **Präsidenten**',
+    ),
+    CourseItem(
+      prompt: 'I see a person. (der Mensch)',
+      answer: 'Ich sehe einen **Menschen**',
+    ),
+    CourseItem(
+      prompt: 'I ask the police officer. (der Polizist)',
+      answer: 'Ich frage den **Polizisten**',
+    ),
+    CourseItem(
+      prompt: 'with the tourist (der Tourist)',
+      answer: 'mit dem **Touristen**',
+    ),
+    CourseItem(
+      prompt: 'I photograph the elephant. (der Elefant)',
+      answer: 'Ich fotografiere den **Elefanten**',
+    ),
+    CourseItem(
+      prompt: 'I help the patient. (der Patient)',
+      answer: 'Ich helfe dem **Patienten**',
+    ),
+    CourseItem(
+      prompt: 'I visit the expert. (der Experte)',
+      answer: 'Ich besuche den **Experten**',
+    ),
+    CourseItem(
+      prompt: 'with the boy (der Junge)',
+      answer: 'mit dem **Jungen**',
+    ),
   ],
 );
 
 final QuizContent enDeM13Praeteritum = enDeFill(
   id: 'en_de_m13_praeteritum',
   title: 'Präteritum forms',
-  intro: 'The simple past. Learn sein/haben/modals (used in speech) and the '
+  intro:
+      'The simple past. Learn sein/haben/modals (used in speech) and the '
       'high-frequency strong verbs.',
   tips: _genitiveTips,
   items: const [
@@ -175,7 +313,8 @@ final QuizContent enDeM13Listening = enDeListen(
       'Once upon a time there was a princess. She lived in a big castle. One '
       'day she went into the forest and saw a frog. The frog talked with her '
       'and in the end became a prince.',
-  intro: 'Listen to the fairy tale, told in the Präteritum (war, wohnte, ging, '
+  intro:
+      'Listen to the fairy tale, told in the Präteritum (war, wohnte, ging, '
       'sah), and answer.',
   tips: _genitiveTips,
   questions: const [
@@ -203,25 +342,59 @@ final QuizContent enDeM13Listening = enDeListen(
 final QuizContent enDeM13Dictation = enDeDict(
   id: 'en_de_m13_dictation',
   title: 'Dictation: Präteritum',
-  intro: 'Listen and write each past-tense sentence. The strong forms (ging, '
+  intro:
+      'Listen and write each past-tense sentence. The strong forms (ging, '
       'kam, sah) have no -te ending.',
   tips: _genitiveTips,
   items: const [
     CourseItem(prompt: 'I was at home.', answer: 'Ich war zu Hause.'),
     CourseItem(prompt: 'She had a dog.', answer: 'Sie hatte einen Hund.'),
-    CourseItem(prompt: 'We went into the forest.', answer: 'Wir gingen in den Wald.'),
+    CourseItem(
+      prompt: 'We went into the forest.',
+      answer: 'Wir gingen in den Wald.',
+    ),
     CourseItem(prompt: 'He came late.', answer: 'Er kam spät.'),
     CourseItem(prompt: 'I saw the king.', answer: 'Ich sah den König.'),
-    CourseItem(prompt: 'The princess lived in a castle.', answer: 'Die Prinzessin wohnte in einem Schloss.'),
-    CourseItem(prompt: 'One day everything changed.', answer: 'Eines Tages änderte sich alles.'),
-    CourseItem(prompt: 'He gave her the key.', answer: 'Er gab ihr den Schlüssel.'),
-    CourseItem(prompt: 'We could not sleep.', answer: 'Wir konnten nicht schlafen.'),
-    CourseItem(prompt: 'She took the old book.', answer: 'Sie nahm das alte Buch.'),
-    CourseItem(prompt: 'Nobody knew the answer.', answer: 'Niemand wusste die Antwort.'),
-    CourseItem(prompt: 'They found the treasure.', answer: 'Sie fanden den Schatz.'),
-    CourseItem(prompt: 'I wanted to go home.', answer: 'Ich wollte nach Hause gehen.'),
-    CourseItem(prompt: 'The end of the story was beautiful.', answer: 'Das Ende der Geschichte war schön.'),
-    CourseItem(prompt: 'He wrote her a letter.', answer: 'Er schrieb ihr einen Brief.'),
+    CourseItem(
+      prompt: 'The princess lived in a castle.',
+      answer: 'Die Prinzessin wohnte in einem Schloss.',
+    ),
+    CourseItem(
+      prompt: 'One day everything changed.',
+      answer: 'Eines Tages änderte sich alles.',
+    ),
+    CourseItem(
+      prompt: 'He gave her the key.',
+      answer: 'Er gab ihr den Schlüssel.',
+    ),
+    CourseItem(
+      prompt: 'We could not sleep.',
+      answer: 'Wir konnten nicht schlafen.',
+    ),
+    CourseItem(
+      prompt: 'She took the old book.',
+      answer: 'Sie nahm das alte Buch.',
+    ),
+    CourseItem(
+      prompt: 'Nobody knew the answer.',
+      answer: 'Niemand wusste die Antwort.',
+    ),
+    CourseItem(
+      prompt: 'They found the treasure.',
+      answer: 'Sie fanden den Schatz.',
+    ),
+    CourseItem(
+      prompt: 'I wanted to go home.',
+      answer: 'Ich wollte nach Hause gehen.',
+    ),
+    CourseItem(
+      prompt: 'The end of the story was beautiful.',
+      answer: 'Das Ende der Geschichte war schön.',
+    ),
+    CourseItem(
+      prompt: 'He wrote her a letter.',
+      answer: 'Er schrieb ihr einen Brief.',
+    ),
   ],
 );
 
@@ -252,7 +425,11 @@ final QuizContent enDeM13BigText = enDeBigText(
     inputBlank('des', hint: 'Genitiv: der Ritter → …'),
     inputBlank('ritt', hint: 'reiten → Präteritum (er)'),
     inputBlank('des', hint: 'Genitiv (n-Dekl.): der Drache → … Drachen'),
-    inputBlank('kämpfte', accepted: ['kaempfte'], hint: 'kämpfen → Präteritum (er)'),
+    inputBlank(
+      'kämpfte',
+      accepted: ['kaempfte'],
+      hint: 'kämpfen → Präteritum (er)',
+    ),
     inputBlank('gewann', hint: 'gewinnen → Präteritum (er)'),
     inputBlank('des', hint: 'Genitiv: das Mädchen → …'),
   ],
@@ -265,20 +442,87 @@ final QuizContent enDeM13BigText = enDeBigText(
       "nights until he finally found the dragon's cave. There he fought long and "
       'bravely and in the end won the terrible battle. The princess was free, '
       "and the girl's smile was the finest reward in the world for him.",
-  intro: 'The whole module in one fairy tale: put each verb into the Präteritum '
+  intro:
+      'The whole module in one fairy tale: put each verb into the Präteritum '
       '(the narrative past — war, hatte, ging…) and form the genitive (des/der, '
       'and des Drachen with the n-declension).',
   tips: _genitiveTips,
 );
 
 /// M13 — Genitive & Präteritum, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM13Speaking = enDeSpeaking(
+  id: 'en_de_m13_speaking',
+  title: 'Tell a story in the past',
+  level: 'B1',
+  topic:
+      'A short story from my life, or a fairy tale I know, told as a story - plus who owns or belongs to what.',
+  practisePoints: [
+    'Präteritum of the common verbs: war, hatte, ging, kam, sagte',
+    'Genitive for possession: das Haus des Mannes, die Tür der Wohnung',
+    'von + dative in speech: das Haus von meinem Vater',
+    'Keeping a story in one past tense',
+  ],
+  targetVocabulary: ['damals', 'plötzlich', 'des', 'der', 'wurde', 'blieb'],
+  scoringCriteria: [
+    'the Präteritum form',
+    'the genitive ending',
+    'staying in one tense',
+  ],
+  priorityErrors: [
+    'wrong Präteritum form',
+    'wrong genitive ending',
+    'switching tense mid-story',
+  ],
+  session: SpeakingSession(durationMinutes: 5, minExchanges: 8),
+  intro:
+      'Tell a story out loud, in the written past. Copy the exercise into your AI assistant and turn on voice mode.',
+  tips: _genitiveTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM13SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m13_speaking_check',
+  title: 'Checkpoint: whose is it?',
+  level: 'B1',
+  topic: 'Who owns what around me, and the same thing said the everyday way.',
+  practisePoints: [
+    'Genitive endings: des Mannes, der Frau, des Kindes',
+    'von + dative as the spoken alternative',
+    'Choosing between them by register',
+  ],
+  targetVocabulary: ['des', 'der', 'von meinem', 'gehören'],
+  scoringCriteria: [
+    'the genitive ending',
+    'von + dative built correctly',
+    'a sensible choice between the two',
+  ],
+  priorityErrors: [
+    'wrong genitive ending',
+    'missing -s on a masculine noun',
+    'genitive and von mixed in one phrase',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _genitiveTips,
+);
+
 final List<QuizContent> enDeM13 = [
   enDeM13Genitive,
   enDeM13GenitiveVon,
   enDeM13BigTextWarmup,
   enDeM13NDeclension,
+  enDeM13SpeakingCheck,
   enDeM13Praeteritum,
   enDeM13Listening,
   enDeM13Dictation,
   enDeM13BigText,
+  enDeM13Speaking,
 ];

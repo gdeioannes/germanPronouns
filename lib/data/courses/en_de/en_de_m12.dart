@@ -9,27 +9,31 @@ const List<HelpMemoryTip> _declTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'Three patterns',
-    text: '**Weak** (after der/diese/jede): **-e** or **-en**. **Mixed** (after '
+    text:
+        '**Weak** (after der/diese/jede): **-e** or **-en**. **Mixed** (after '
         'ein/kein/mein): the adjective shows the gender where ein can\'t. '
         '**Strong** (no article): the adjective takes the article\'s own ending.',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'Who shows the case?',
-    text: 'If a der-/ein-word already marks the case, the adjective relaxes '
+    text:
+        'If a der-/ein-word already marks the case, the adjective relaxes '
         '(**-e/-en**). If nothing marks it, the adjective must — **strong** '
         'endings (-er/-e/-es/-em/-en).',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Dative & all plurals → -en',
-    text: 'After a der-word, the whole dative and the entire plural is **-en**: '
+    text:
+        'After a der-word, the whole dative and the entire plural is **-en**: '
         '**dem** alt**en** Mann, **den** nett**en** Leut**en**.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'The masculine trio',
-    text: '**der** gut**e** Wein · **ein** gut**er** Wein · gut**er** Wein — '
+    text:
+        '**der** gut**e** Wein · **ein** gut**er** Wein · gut**er** Wein — '
         'watch the **-r** jump onto the adjective when the article disappears.',
   ),
 ];
@@ -37,7 +41,8 @@ const List<HelpMemoryTip> _declTips = [
 final QuizContent enDeM12Weak = enDeFill(
   id: 'en_de_m12_weak',
   title: 'Weak (after der-words)',
-  intro: 'After der/die/das the case is already shown, so the adjective is '
+  intro:
+      'After der/die/das the case is already shown, so the adjective is '
       'weak: -e in the nominative singular and accusative f/n, -en everywhere '
       'else.',
   tips: _declTips,
@@ -46,15 +51,33 @@ final QuizContent enDeM12Weak = enDeFill(
     CourseItem(prompt: 'the old man (Akk)', answer: 'den **alten** Mann'),
     CourseItem(prompt: 'with the old man (Dat)', answer: 'dem **alten** Mann'),
     CourseItem(prompt: 'the new lamp (Nom)', answer: 'die **neue** Lampe'),
-    CourseItem(prompt: 'with the new lamp (Dat)', answer: 'der **neuen** Lampe'),
+    CourseItem(
+      prompt: 'with the new lamp (Dat)',
+      answer: 'der **neuen** Lampe',
+    ),
     CourseItem(prompt: 'the small child (Nom)', answer: 'das **kleine** Kind'),
-    CourseItem(prompt: 'the nice people (Nom, pl)', answer: 'die **netten** Leute'),
-    CourseItem(prompt: 'with the nice people (Dat, pl)', answer: 'den **netten** Leuten'),
+    CourseItem(
+      prompt: 'the nice people (Nom, pl)',
+      answer: 'die **netten** Leute',
+    ),
+    CourseItem(
+      prompt: 'with the nice people (Dat, pl)',
+      answer: 'den **netten** Leuten',
+    ),
     CourseItem(prompt: 'the fresh bread (Akk)', answer: 'das **frische** Brot'),
-    CourseItem(prompt: 'the strong coffee (Akk)', answer: 'den **starken** Kaffee'),
-    CourseItem(prompt: 'with the small child (Dat)', answer: 'dem **kleinen** Kind'),
+    CourseItem(
+      prompt: 'the strong coffee (Akk)',
+      answer: 'den **starken** Kaffee',
+    ),
+    CourseItem(
+      prompt: 'with the small child (Dat)',
+      answer: 'dem **kleinen** Kind',
+    ),
     CourseItem(prompt: 'the young woman (Akk)', answer: 'die **junge** Frau'),
-    CourseItem(prompt: 'the red shoes (Akk, pl)', answer: 'die **roten** Schuhe'),
+    CourseItem(
+      prompt: 'the red shoes (Akk, pl)',
+      answer: 'die **roten** Schuhe',
+    ),
     CourseItem(prompt: 'with the old car (Dat)', answer: 'dem **alten** Auto'),
     CourseItem(prompt: 'the long street (Nom)', answer: 'die **lange** Straße'),
   ],
@@ -63,7 +86,8 @@ final QuizContent enDeM12Weak = enDeFill(
 final QuizContent enDeM12Mixed = enDeFill(
   id: 'en_de_m12_mixed',
   title: 'Mixed (after ein-words)',
-  intro: 'After ein/kein/mein the adjective shows the gender in the three spots '
+  intro:
+      'After ein/kein/mein the adjective shows the gender in the three spots '
       'where ein has no ending: nominative m (-er) and nominative/accusative n '
       '(-es).',
   tips: _declTips,
@@ -73,16 +97,34 @@ final QuizContent enDeM12Mixed = enDeFill(
     CourseItem(prompt: 'a new car (Nom)', answer: 'ein **neues** Auto'),
     CourseItem(prompt: 'a new car (Akk)', answer: 'ein **neues** Auto'),
     CourseItem(prompt: 'a nice woman (Nom)', answer: 'eine **nette** Frau'),
-    CourseItem(prompt: 'with a nice woman (Dat)', answer: 'einer **netten** Frau'),
+    CourseItem(
+      prompt: 'with a nice woman (Dat)',
+      answer: 'einer **netten** Frau',
+    ),
     CourseItem(prompt: 'my small dog (Nom)', answer: 'mein **kleiner** Hund'),
-    CourseItem(prompt: 'with my small dog (Dat)', answer: 'meinem **kleinen** Hund'),
-    CourseItem(prompt: 'a strong coffee (Akk)', answer: 'einen **starken** Kaffee'),
-    CourseItem(prompt: 'my new jacket (Nom, f)', answer: 'meine **neue** Jacke'),
+    CourseItem(
+      prompt: 'with my small dog (Dat)',
+      answer: 'meinem **kleinen** Hund',
+    ),
+    CourseItem(
+      prompt: 'a strong coffee (Akk)',
+      answer: 'einen **starken** Kaffee',
+    ),
+    CourseItem(
+      prompt: 'my new jacket (Nom, f)',
+      answer: 'meine **neue** Jacke',
+    ),
     CourseItem(prompt: 'a big house (Nom, n)', answer: 'ein **großes** Haus'),
     CourseItem(prompt: 'no good idea (Nom, f)', answer: 'keine **gute** Idee'),
     CourseItem(prompt: 'a long day (Nom, m)', answer: 'ein **langer** Tag'),
-    CourseItem(prompt: 'with a red car (Dat, n)', answer: 'einem **roten** Auto'),
-    CourseItem(prompt: 'my old friends (Akk, pl)', answer: 'meine **alten** Freunde'),
+    CourseItem(
+      prompt: 'with a red car (Dat, n)',
+      answer: 'einem **roten** Auto',
+    ),
+    CourseItem(
+      prompt: 'my old friends (Akk, pl)',
+      answer: 'meine **alten** Freunde',
+    ),
   ],
 );
 
@@ -114,7 +156,8 @@ final QuizContent enDeM12BigTextWarmup = enDeBigText(
       'empty coffee cups. Today Tom is wearing the red T-shirt of his favourite '
       'band and a blue jacket. Honestly, Tom is a nice person — a bit chaotic, '
       'but always there for me.',
-  intro: 'Type the adjective with its ending. After der/die/das it is weak '
+  intro:
+      'Type the adjective with its ending. After der/die/das it is weak '
       '(-e/-en); after ein/mein it must show the gender (-er for Nom-m, -es for '
       'Nom/Akk-n). Use the hint in brackets.',
   tips: _declTips,
@@ -123,24 +166,43 @@ final QuizContent enDeM12BigTextWarmup = enDeBigText(
 final QuizContent enDeM12Strong = enDeFill(
   id: 'en_de_m12_strong',
   title: 'Strong (no article)',
-  intro: 'With no article, the adjective must carry the case ending itself — it '
+  intro:
+      'With no article, the adjective must carry the case ending itself — it '
       'takes (almost) the der/die/das endings.',
   tips: _declTips,
   items: const [
-    CourseItem(prompt: 'hot coffee (Nom, m)', answer: '**heißer** Kaffee', accepted: ['heisser Kaffee']),
+    CourseItem(
+      prompt: 'hot coffee (Nom, m)',
+      answer: '**heißer** Kaffee',
+      accepted: ['heisser Kaffee'],
+    ),
     CourseItem(prompt: 'cold water (Nom, n)', answer: '**kaltes** Wasser'),
     CourseItem(prompt: 'fresh milk (Akk, f)', answer: '**frische** Milch'),
     CourseItem(prompt: 'good wine (Akk, m)', answer: '**guten** Wein'),
     CourseItem(prompt: 'with cold water (Dat, n)', answer: '**kaltem** Wasser'),
     CourseItem(prompt: 'good friends (Nom, pl)', answer: '**gute** Freunde'),
-    CourseItem(prompt: 'big houses (Akk, pl)', answer: '**große** Häuser', accepted: ['grosse Häuser']),
+    CourseItem(
+      prompt: 'big houses (Akk, pl)',
+      answer: '**große** Häuser',
+      accepted: ['grosse Häuser'],
+    ),
     CourseItem(prompt: 'fresh bread (Nom, n)', answer: '**frisches** Brot'),
     CourseItem(prompt: 'strong tea (Nom, m)', answer: '**starker** Tee'),
     CourseItem(prompt: 'warm soup (Akk, f)', answer: '**warme** Suppe'),
-    CourseItem(prompt: 'green salad (Akk, m)', answer: '**grünen** Salat', accepted: ['gruenen Salat']),
-    CourseItem(prompt: 'with fresh milk (Dat, f)', answer: '**frischer** Milch'),
+    CourseItem(
+      prompt: 'green salad (Akk, m)',
+      answer: '**grünen** Salat',
+      accepted: ['gruenen Salat'],
+    ),
+    CourseItem(
+      prompt: 'with fresh milk (Dat, f)',
+      answer: '**frischer** Milch',
+    ),
     CourseItem(prompt: 'young people (Nom, pl)', answer: '**junge** Leute'),
-    CourseItem(prompt: 'with good friends (Dat, pl)', answer: '**guten** Freunden'),
+    CourseItem(
+      prompt: 'with good friends (Dat, pl)',
+      answer: '**guten** Freunden',
+    ),
     CourseItem(prompt: 'red wine (Akk, m)', answer: '**roten** Wein'),
   ],
 );
@@ -148,25 +210,73 @@ final QuizContent enDeM12Strong = enDeFill(
 final QuizContent enDeM12Mixed2 = enDeFill(
   id: 'en_de_m12_sentences',
   title: 'All three, mixed',
-  intro: 'Now mixed across patterns and cases. Decide: der-word, ein-word, or '
+  intro:
+      'Now mixed across patterns and cases. Decide: der-word, ein-word, or '
       'no article? Then the case.',
   tips: _declTips,
   items: const [
-    CourseItem(prompt: 'I drink hot coffee. (no article, Akk m)', answer: 'Ich trinke **heißen** Kaffee', accepted: ['Ich trinke heissen Kaffee']),
-    CourseItem(prompt: 'I see the old man. (der, Akk)', answer: 'Ich sehe den **alten** Mann'),
-    CourseItem(prompt: 'I help a nice woman. (ein, Dat)', answer: 'Ich helfe einer **netten** Frau'),
-    CourseItem(prompt: 'She has a new car. (ein, Akk n)', answer: 'Sie hat ein **neues** Auto'),
-    CourseItem(prompt: 'We live in a big house. (ein, Dat n)', answer: 'Wir wohnen in einem **großen** Haus', accepted: ['Wir wohnen in einem grossen Haus']),
-    CourseItem(prompt: 'I like fresh bread. (no article, Akk n)', answer: 'Ich mag **frisches** Brot'),
-    CourseItem(prompt: 'The small child sleeps. (der, Nom)', answer: 'Das **kleine** Kind schläft'),
-    CourseItem(prompt: 'He buys a red car. (ein, Akk n)', answer: 'Er kauft ein **rotes** Auto'),
-    CourseItem(prompt: 'She wears the blue jacket. (der, Akk f)', answer: 'Sie trägt die **blaue** Jacke'),
-    CourseItem(prompt: 'We drink cold water. (no article, Akk n)', answer: 'Wir trinken **kaltes** Wasser'),
-    CourseItem(prompt: 'I talk with the nice neighbour. (der, Dat m)', answer: 'Ich spreche mit dem **netten** Nachbarn'),
-    CourseItem(prompt: 'They visit an old castle. (ein, Akk n)', answer: 'Sie besuchen ein **altes** Schloss'),
-    CourseItem(prompt: 'The young woman reads. (der, Nom f)', answer: 'Die **junge** Frau liest'),
-    CourseItem(prompt: 'He eats warm soup. (no article, Akk f)', answer: 'Er isst **warme** Suppe'),
-    CourseItem(prompt: 'I sit in a comfortable chair. (ein, Dat m)', answer: 'Ich sitze in einem **bequemen** Sessel'),
+    CourseItem(
+      prompt: 'I drink hot coffee. (no article, Akk m)',
+      answer: 'Ich trinke **heißen** Kaffee',
+      accepted: ['Ich trinke heissen Kaffee'],
+    ),
+    CourseItem(
+      prompt: 'I see the old man. (der, Akk)',
+      answer: 'Ich sehe den **alten** Mann',
+    ),
+    CourseItem(
+      prompt: 'I help a nice woman. (ein, Dat)',
+      answer: 'Ich helfe einer **netten** Frau',
+    ),
+    CourseItem(
+      prompt: 'She has a new car. (ein, Akk n)',
+      answer: 'Sie hat ein **neues** Auto',
+    ),
+    CourseItem(
+      prompt: 'We live in a big house. (ein, Dat n)',
+      answer: 'Wir wohnen in einem **großen** Haus',
+      accepted: ['Wir wohnen in einem grossen Haus'],
+    ),
+    CourseItem(
+      prompt: 'I like fresh bread. (no article, Akk n)',
+      answer: 'Ich mag **frisches** Brot',
+    ),
+    CourseItem(
+      prompt: 'The small child sleeps. (der, Nom)',
+      answer: 'Das **kleine** Kind schläft',
+    ),
+    CourseItem(
+      prompt: 'He buys a red car. (ein, Akk n)',
+      answer: 'Er kauft ein **rotes** Auto',
+    ),
+    CourseItem(
+      prompt: 'She wears the blue jacket. (der, Akk f)',
+      answer: 'Sie trägt die **blaue** Jacke',
+    ),
+    CourseItem(
+      prompt: 'We drink cold water. (no article, Akk n)',
+      answer: 'Wir trinken **kaltes** Wasser',
+    ),
+    CourseItem(
+      prompt: 'I talk with the nice neighbour. (der, Dat m)',
+      answer: 'Ich spreche mit dem **netten** Nachbarn',
+    ),
+    CourseItem(
+      prompt: 'They visit an old castle. (ein, Akk n)',
+      answer: 'Sie besuchen ein **altes** Schloss',
+    ),
+    CourseItem(
+      prompt: 'The young woman reads. (der, Nom f)',
+      answer: 'Die **junge** Frau liest',
+    ),
+    CourseItem(
+      prompt: 'He eats warm soup. (no article, Akk f)',
+      answer: 'Er isst **warme** Suppe',
+    ),
+    CourseItem(
+      prompt: 'I sit in a comfortable chair. (ein, Dat m)',
+      answer: 'Ich sitze in einem **bequemen** Sessel',
+    ),
   ],
 );
 
@@ -191,8 +301,16 @@ final QuizContent enDeM12BigText = enDeBigText(
     inputBlank('nette', hint: 'nett (eine … Frau, Nom f)'),
     inputBlank('kleinen', hint: 'klein (einem … Hund, Dat m)'),
     inputBlank('roten', hint: 'rot (einen … Mantel, Akk m)'),
-    inputBlank('heißen', accepted: ['heissen'], hint: 'heiß (einem … Kaffee, Dat m)'),
-    inputBlank('gemütliches', accepted: ['gemuetliches'], hint: 'gemütlich (in ein … Café, Akk n)'),
+    inputBlank(
+      'heißen',
+      accepted: ['heissen'],
+      hint: 'heiß (einem … Kaffee, Dat m)',
+    ),
+    inputBlank(
+      'gemütliches',
+      accepted: ['gemuetliches'],
+      hint: 'gemütlich (in ein … Café, Akk n)',
+    ),
   ],
   passageTranslation:
       'Saturday morning at the market — my favourite place! Everywhere there is '
@@ -202,7 +320,8 @@ final QuizContent enDeM12BigText = enDeBigText(
       'every customer in a friendly way. She is wearing a red coat and a far '
       'too big hat. Finally I sit down with a hot coffee in a cosy café on the '
       'corner and just watch the colourful bustle. A morning can be so lovely!',
-  intro: 'Type the full adjective with its ending. Work out the pattern (der-/'
+  intro:
+      'Type the full adjective with its ending. Work out the pattern (der-/'
       'ein-/no article) and the case from the hint in brackets.',
   tips: _declTips,
 );
@@ -210,52 +329,154 @@ final QuizContent enDeM12BigText = enDeBigText(
 final QuizContent enDeM12Dictation = enDeDict(
   id: 'en_de_m12_dictation',
   title: 'Dictation: the endings',
-  intro: 'Listen and write each phrase. The unstressed ending carries the whole '
+  intro:
+      'Listen and write each phrase. The unstressed ending carries the whole '
       'grammar — catch it.',
   tips: _declTips,
   items: const [
-    CourseItem(prompt: 'I see the old man.', answer: 'Ich sehe den alten Mann.'),
+    CourseItem(
+      prompt: 'I see the old man.',
+      answer: 'Ich sehe den alten Mann.',
+    ),
     CourseItem(prompt: 'with a small dog', answer: 'mit einem kleinen Hund'),
-    CourseItem(prompt: 'I drink hot coffee.', answer: 'Ich trinke heißen Kaffee.'),
+    CourseItem(
+      prompt: 'I drink hot coffee.',
+      answer: 'Ich trinke heißen Kaffee.',
+    ),
     CourseItem(prompt: 'a new car', answer: 'ein neues Auto'),
     CourseItem(prompt: 'good friends', answer: 'gute Freunde'),
     CourseItem(prompt: 'the young woman', answer: 'die junge Frau'),
-    CourseItem(prompt: 'She wears a blue jacket.', answer: 'Sie trägt eine blaue Jacke.'),
+    CourseItem(
+      prompt: 'She wears a blue jacket.',
+      answer: 'Sie trägt eine blaue Jacke.',
+    ),
     CourseItem(prompt: 'with the nice people', answer: 'mit den netten Leuten'),
-    CourseItem(prompt: 'We drink cold water.', answer: 'Wir trinken kaltes Wasser.'),
+    CourseItem(
+      prompt: 'We drink cold water.',
+      answer: 'Wir trinken kaltes Wasser.',
+    ),
     CourseItem(prompt: 'my old house', answer: 'mein altes Haus'),
-    CourseItem(prompt: 'He buys fresh bread.', answer: 'Er kauft frisches Brot.'),
+    CourseItem(
+      prompt: 'He buys fresh bread.',
+      answer: 'Er kauft frisches Brot.',
+    ),
     CourseItem(prompt: 'a long day', answer: 'ein langer Tag'),
-    CourseItem(prompt: 'I help the small child.', answer: 'Ich helfe dem kleinen Kind.'),
+    CourseItem(
+      prompt: 'I help the small child.',
+      answer: 'Ich helfe dem kleinen Kind.',
+    ),
     CourseItem(prompt: 'the red shoes', answer: 'die roten Schuhe'),
-    CourseItem(prompt: 'We live in a big house.', answer: 'Wir wohnen in einem großen Haus.'),
+    CourseItem(
+      prompt: 'We live in a big house.',
+      answer: 'Wir wohnen in einem großen Haus.',
+    ),
   ],
 );
 
 final QuizContent enDeM12Speak = enDeSpeak(
   id: 'en_de_m12_speak',
   title: 'Speak: declined phrases',
-  intro: 'Say each phrase aloud across the cases. Hearing der/ein/no-article in '
+  intro:
+      'Say each phrase aloud across the cases. Hearing der/ein/no-article in '
       'a row builds an instinct for the endings.',
   tips: _declTips,
   items: const [
     CourseItem(prompt: 'the old man', answer: 'der alte Mann'),
-    CourseItem(prompt: 'I see the old man.', answer: 'Ich sehe den alten Mann.'),
+    CourseItem(
+      prompt: 'I see the old man.',
+      answer: 'Ich sehe den alten Mann.',
+    ),
     CourseItem(prompt: 'with the old man', answer: 'mit dem alten Mann'),
     CourseItem(prompt: 'a hot coffee', answer: 'ein heißer Kaffee'),
-    CourseItem(prompt: 'I drink hot coffee.', answer: 'Ich trinke heißen Kaffee.'),
+    CourseItem(
+      prompt: 'I drink hot coffee.',
+      answer: 'Ich trinke heißen Kaffee.',
+    ),
     CourseItem(prompt: 'cold water', answer: 'kaltes Wasser'),
   ],
 );
 
 /// M12 — Full Adjective Declension, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM12Speaking = enDeSpeaking(
+  id: 'en_de_m12_speaking',
+  title: 'Describe in detail, in every case',
+  level: 'B1',
+  topic:
+      'Detailed descriptions: a place I know well, a person, a meal, a plan - with adjectives in every case.',
+  practisePoints: [
+    'Weak endings after der-words in all four cases',
+    'Mixed endings after ein-words, including the accusative masculine',
+    'Strong endings with no article: guter Kaffee, mit gutem Kaffee',
+    'Adjectives after a preposition: in der neuen Wohnung, für den alten Freund',
+  ],
+  targetVocabulary: [
+    'schwierig',
+    'gemütlich',
+    'anstrengend',
+    'mit gutem',
+    'in der neuen',
+  ],
+  scoringCriteria: [
+    'the ending for the case and gender',
+    'weak vs mixed vs strong',
+    'endings after prepositions',
+  ],
+  priorityErrors: [
+    'wrong adjective ending',
+    'wrong pattern for the article',
+    'wrong case after a preposition',
+  ],
+  session: SpeakingSession(durationMinutes: 5, minExchanges: 8),
+  intro:
+      'Describe things properly, with the endings under pressure. Copy the exercise into your AI assistant and turn on voice mode.',
+  tips: _declTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM12SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m12_speaking_check',
+  title: 'Checkpoint: weak and mixed endings',
+  level: 'B1',
+  topic:
+      'Describing things with an article in front: my flat, my street, my favourite things.',
+  practisePoints: [
+    'Weak endings after der-words across the cases',
+    'Mixed endings after ein-words, including ein alter Mann',
+    'The accusative masculine: einen alten Freund',
+  ],
+  targetVocabulary: ['der neue', 'ein neuer', 'einen alten', 'die kleine'],
+  scoringCriteria: [
+    'the ending after a der-word',
+    'the ending after an ein-word',
+    'the accusative masculine ending',
+  ],
+  priorityErrors: [
+    'wrong weak ending',
+    'wrong mixed ending',
+    'wrong accusative masculine',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _declTips,
+);
+
 final List<QuizContent> enDeM12 = [
   enDeM12Weak,
   enDeM12Mixed,
   enDeM12BigTextWarmup,
   enDeM12Strong,
+  enDeM12SpeakingCheck,
   enDeM12Mixed2,
   enDeM12Dictation,
   enDeM12Speak,
   enDeM12BigText,
+  enDeM12Speaking,
 ];

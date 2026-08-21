@@ -12,32 +12,37 @@ const List<HelpMemoryTip> _accusativeTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'Only the masculine moves',
-    text: 'Accusative = the direct object (Wen?/Was?). Only the masculine '
+    text:
+        'Accusative = the direct object (Wen?/Was?). Only the masculine '
         'changes: der → **den**, ein → **einen**. **die** (f), **das** (n) and '
         'plural **die** stay identical.',
   ),
   HelpMemoryTip(
     kind: 'mnemonic',
     title: 'den for the masculi-n-e',
-    text: 'The extra **-n** marks the masculine accusative: de**n**, eine**n**, '
+    text:
+        'The extra **-n** marks the masculine accusative: de**n**, eine**n**, '
         'ih**n**, kei**n**en.',
   ),
   HelpMemoryTip(
     kind: 'rule',
     title: 'Accusative pronouns',
-    text: 'ich → **mich**, du → **dich**, er → **ihn**, sie → **sie**, es → '
+    text:
+        'ich → **mich**, du → **dich**, er → **ihn**, sie → **sie**, es → '
         '**es**, wir → **uns**, ihr → **euch**, Sie → **Sie**.',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'See the contrast',
-    text: 'Mio frisst **den** Tisch (m) — but **die** Lampe (f) and **das** Sofa '
+    text:
+        'Mio frisst **den** Tisch (m) — but **die** Lampe (f) and **das** Sofa '
         "(n) don't change at all.",
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'These always take accusative',
-    text: '**durch, für, gegen, ohne, um** force the accusative every time — no '
+    text:
+        '**durch, für, gegen, ohne, um** force the accusative every time — no '
         'motion rule, no exceptions.',
   ),
 ];
@@ -47,26 +52,72 @@ const List<HelpMemoryTip> _accusativeTips = [
 final QuizContent enDeM3Artikel = enDeFill(
   id: 'en_de_m3_artikel',
   title: 'Accusative articles',
-  intro: 'The accusative is the direct object — the thing the action happens '
+  intro:
+      'The accusative is the direct object — the thing the action happens '
       'to (ask Wen? / Was?). Only the masculine article changes: der → den. '
       "Watch how die and das don't move.",
   tips: _accusativeTips,
   items: const [
-    CourseItem(prompt: 'Mio eats the table. (der Tisch)', answer: 'Mio frisst **den** Tisch'),
-    CourseItem(prompt: 'Mio eats the chair. (der Stuhl)', answer: 'Mio frisst **den** Stuhl'),
-    CourseItem(prompt: 'Mio eats the lamp. (die Lampe)', answer: 'Mio frisst **die** Lampe'),
-    CourseItem(prompt: 'Mio eats the banana. (die Banane)', answer: 'Mio frisst **die** Banane'),
-    CourseItem(prompt: 'Mio eats the sofa. (das Sofa)', answer: 'Mio frisst **das** Sofa'),
-    CourseItem(prompt: 'Mio eats the bed. (das Bett)', answer: 'Mio frisst **das** Bett'),
-    CourseItem(prompt: 'Mio eats the shoes. (die Schuhe, pl)', answer: 'Mio frisst **die** Schuhe'),
-    CourseItem(prompt: 'Mio eats the homework. (die Hausaufgaben, pl)', answer: 'Mio frisst **die** Hausaufgaben'),
-    CourseItem(prompt: 'Mio eats the ball. (der Ball)', answer: 'Mio frisst **den** Ball'),
-    CourseItem(prompt: 'Mio eats the flower. (die Blume)', answer: 'Mio frisst **die** Blume'),
-    CourseItem(prompt: 'Mio eats the book. (das Buch)', answer: 'Mio frisst **das** Buch'),
-    CourseItem(prompt: 'Mio eats the carpet. (der Teppich)', answer: 'Mio frisst **den** Teppich'),
-    CourseItem(prompt: 'Mio eats the newspaper. (die Zeitung)', answer: 'Mio frisst **die** Zeitung'),
-    CourseItem(prompt: 'Mio eats the pillow. (das Kissen)', answer: 'Mio frisst **das** Kissen'),
-    CourseItem(prompt: 'Mio eats the plants. (die Pflanzen, pl)', answer: 'Mio frisst **die** Pflanzen'),
+    CourseItem(
+      prompt: 'Mio eats the table. (der Tisch)',
+      answer: 'Mio frisst **den** Tisch',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the chair. (der Stuhl)',
+      answer: 'Mio frisst **den** Stuhl',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the lamp. (die Lampe)',
+      answer: 'Mio frisst **die** Lampe',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the banana. (die Banane)',
+      answer: 'Mio frisst **die** Banane',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the sofa. (das Sofa)',
+      answer: 'Mio frisst **das** Sofa',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the bed. (das Bett)',
+      answer: 'Mio frisst **das** Bett',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the shoes. (die Schuhe, pl)',
+      answer: 'Mio frisst **die** Schuhe',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the homework. (die Hausaufgaben, pl)',
+      answer: 'Mio frisst **die** Hausaufgaben',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the ball. (der Ball)',
+      answer: 'Mio frisst **den** Ball',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the flower. (die Blume)',
+      answer: 'Mio frisst **die** Blume',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the book. (das Buch)',
+      answer: 'Mio frisst **das** Buch',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the carpet. (der Teppich)',
+      answer: 'Mio frisst **den** Teppich',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the newspaper. (die Zeitung)',
+      answer: 'Mio frisst **die** Zeitung',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the pillow. (das Kissen)',
+      answer: 'Mio frisst **das** Kissen',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the plants. (die Pflanzen, pl)',
+      answer: 'Mio frisst **die** Pflanzen',
+    ),
   ],
 );
 
@@ -74,26 +125,72 @@ final QuizContent enDeM3Artikel = enDeFill(
 final QuizContent enDeM3Haben = enDeFill(
   id: 'en_de_m3_haben',
   title: 'haben & möchte + accusative',
-  intro: 'Verbs like haben, möchte, essen and kaufen take a direct object, so '
+  intro:
+      'Verbs like haben, möchte, essen and kaufen take a direct object, so '
       'their object is accusative. The indefinite article changes the same way: '
       'ein → einen (only the masculine).',
   tips: _accusativeTips,
   items: const [
-    CourseItem(prompt: 'Mio is so hungry. (der Hunger)', answer: 'Mio hat **einen** Hunger'),
-    CourseItem(prompt: 'Mio wants a pizza. (die Pizza)', answer: 'Mio möchte **eine** Pizza'),
-    CourseItem(prompt: 'Mio eats the chair. (der Stuhl)', answer: 'Mio frisst **den** Stuhl'),
-    CourseItem(prompt: 'Mio eats the bread. (das Brot)', answer: 'Mio isst **das** Brot'),
-    CourseItem(prompt: 'Mio buys an apple. (der Apfel)', answer: 'Mio kauft **einen** Apfel'),
-    CourseItem(prompt: 'Mio sees the cake. (der Kuchen)', answer: 'Mio sieht **den** Kuchen'),
-    CourseItem(prompt: 'Mio has a plan. (der Plan)', answer: 'Mio hat **einen** Plan'),
-    CourseItem(prompt: 'Mio would like a sausage. (die Wurst)', answer: 'Mio möchte **eine** Wurst'),
-    CourseItem(prompt: 'Mio has an idea. (die Idee)', answer: 'Mio hat **eine** Idee'),
-    CourseItem(prompt: 'Mio would like an egg. (das Ei)', answer: 'Mio möchte **ein** Ei'),
-    CourseItem(prompt: 'Mio buys a cake. (der Kuchen)', answer: 'Mio kauft **einen** Kuchen'),
-    CourseItem(prompt: 'Mio drinks a juice. (der Saft)', answer: 'Mio trinkt **einen** Saft'),
-    CourseItem(prompt: 'Mio takes the banana. (die Banane)', answer: 'Mio nimmt **die** Banane'),
-    CourseItem(prompt: 'Mio would like a salad. (der Salat)', answer: 'Mio möchte **einen** Salat'),
-    CourseItem(prompt: 'Mio finds a biscuit. (der Keks)', answer: 'Mio findet **einen** Keks'),
+    CourseItem(
+      prompt: 'Mio is so hungry. (der Hunger)',
+      answer: 'Mio hat **einen** Hunger',
+    ),
+    CourseItem(
+      prompt: 'Mio wants a pizza. (die Pizza)',
+      answer: 'Mio möchte **eine** Pizza',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the chair. (der Stuhl)',
+      answer: 'Mio frisst **den** Stuhl',
+    ),
+    CourseItem(
+      prompt: 'Mio eats the bread. (das Brot)',
+      answer: 'Mio isst **das** Brot',
+    ),
+    CourseItem(
+      prompt: 'Mio buys an apple. (der Apfel)',
+      answer: 'Mio kauft **einen** Apfel',
+    ),
+    CourseItem(
+      prompt: 'Mio sees the cake. (der Kuchen)',
+      answer: 'Mio sieht **den** Kuchen',
+    ),
+    CourseItem(
+      prompt: 'Mio has a plan. (der Plan)',
+      answer: 'Mio hat **einen** Plan',
+    ),
+    CourseItem(
+      prompt: 'Mio would like a sausage. (die Wurst)',
+      answer: 'Mio möchte **eine** Wurst',
+    ),
+    CourseItem(
+      prompt: 'Mio has an idea. (die Idee)',
+      answer: 'Mio hat **eine** Idee',
+    ),
+    CourseItem(
+      prompt: 'Mio would like an egg. (das Ei)',
+      answer: 'Mio möchte **ein** Ei',
+    ),
+    CourseItem(
+      prompt: 'Mio buys a cake. (der Kuchen)',
+      answer: 'Mio kauft **einen** Kuchen',
+    ),
+    CourseItem(
+      prompt: 'Mio drinks a juice. (der Saft)',
+      answer: 'Mio trinkt **einen** Saft',
+    ),
+    CourseItem(
+      prompt: 'Mio takes the banana. (die Banane)',
+      answer: 'Mio nimmt **die** Banane',
+    ),
+    CourseItem(
+      prompt: 'Mio would like a salad. (der Salat)',
+      answer: 'Mio möchte **einen** Salat',
+    ),
+    CourseItem(
+      prompt: 'Mio finds a biscuit. (der Keks)',
+      answer: 'Mio findet **einen** Keks',
+    ),
   ],
 );
 
@@ -124,7 +221,8 @@ final QuizContent enDeM3BigTextWarmup = enDeBigText(
       "grabs the chair from the kitchen, Tom's banana, and finally the bread. "
       'Only the apple on the windowsill is left over — but only because Mio '
       "hasn't spotted it yet.",
-  intro: 'Type the accusative article for each thing Mio devours. Remember: only '
+  intro:
+      'Type the accusative article for each thing Mio devours. Remember: only '
       'the masculine changes (der → den); die and das stay exactly the same.',
   tips: _accusativeTips,
 );
@@ -133,13 +231,15 @@ final QuizContent enDeM3BigTextWarmup = enDeBigText(
 final QuizContent enDeM3Pronomen = enDeFill(
   id: 'en_de_m3_pronomen',
   title: 'Accusative pronouns',
-  intro: 'Pronouns take accusative forms when they are the object. The big one '
+  intro:
+      'Pronouns take accusative forms when they are the object. The big one '
       'to remember is er → ihn (just like der → den, the masculine grows an -n).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'The accusative pronouns',
-      text: 'ich→mich, du→dich, er→ihn, sie→sie, es→es, wir→uns, ihr→euch, '
+      text:
+          'ich→mich, du→dich, er→ihn, sie→sie, es→es, wir→uns, ihr→euch, '
           'Sie→Sie.',
     ),
     HelpMemoryTip(
@@ -154,21 +254,54 @@ final QuizContent enDeM3Pronomen = enDeFill(
     ),
   ],
   items: const [
-    CourseItem(prompt: 'The monster sees me. (ich)', answer: 'Das Monster sieht **mich**'),
-    CourseItem(prompt: 'The monster sees you. (du)', answer: 'Das Monster sieht **dich**'),
-    CourseItem(prompt: 'The monster sees him. (er)', answer: 'Das Monster sieht **ihn**'),
-    CourseItem(prompt: 'The monster sees her. (sie)', answer: 'Das Monster sieht **sie**'),
-    CourseItem(prompt: 'The monster sees it. (es)', answer: 'Das Monster sieht **es**'),
-    CourseItem(prompt: 'The monster sees us. (wir)', answer: 'Das Monster sieht **uns**'),
-    CourseItem(prompt: 'The monster sees you all. (ihr)', answer: 'Das Monster sieht **euch**'),
-    CourseItem(prompt: 'The monster sees you. (formal, Sie)', answer: 'Das Monster sieht **Sie**'),
+    CourseItem(
+      prompt: 'The monster sees me. (ich)',
+      answer: 'Das Monster sieht **mich**',
+    ),
+    CourseItem(
+      prompt: 'The monster sees you. (du)',
+      answer: 'Das Monster sieht **dich**',
+    ),
+    CourseItem(
+      prompt: 'The monster sees him. (er)',
+      answer: 'Das Monster sieht **ihn**',
+    ),
+    CourseItem(
+      prompt: 'The monster sees her. (sie)',
+      answer: 'Das Monster sieht **sie**',
+    ),
+    CourseItem(
+      prompt: 'The monster sees it. (es)',
+      answer: 'Das Monster sieht **es**',
+    ),
+    CourseItem(
+      prompt: 'The monster sees us. (wir)',
+      answer: 'Das Monster sieht **uns**',
+    ),
+    CourseItem(
+      prompt: 'The monster sees you all. (ihr)',
+      answer: 'Das Monster sieht **euch**',
+    ),
+    CourseItem(
+      prompt: 'The monster sees you. (formal, Sie)',
+      answer: 'Das Monster sieht **Sie**',
+    ),
     CourseItem(prompt: 'Anna hears me. (ich)', answer: 'Anna hört **mich**'),
     CourseItem(prompt: 'We visit him. (er)', answer: 'Wir besuchen **ihn**'),
     CourseItem(prompt: 'I know her. (sie)', answer: 'Ich kenne **sie**'),
-    CourseItem(prompt: 'Mio eats it. (es — das Brot)', answer: 'Mio frisst **es**'),
-    CourseItem(prompt: 'They invite us. (wir)', answer: 'Sie laden **uns** ein'),
+    CourseItem(
+      prompt: 'Mio eats it. (es — das Brot)',
+      answer: 'Mio frisst **es**',
+    ),
+    CourseItem(
+      prompt: 'They invite us. (wir)',
+      answer: 'Sie laden **uns** ein',
+    ),
     CourseItem(prompt: 'Tom asks you all. (ihr)', answer: 'Tom fragt **euch**'),
-    CourseItem(prompt: 'I understand you. (formal, Sie)', answer: 'Ich verstehe **Sie**'),
+    CourseItem(
+      prompt: 'I understand you. (formal, Sie)',
+      answer: 'Ich verstehe **Sie**',
+    ),
   ],
 );
 
@@ -176,7 +309,8 @@ final QuizContent enDeM3Pronomen = enDeFill(
 final QuizContent enDeM3Praepositionen = enDeFill(
   id: 'en_de_m3_praepositionen',
   title: 'Accusative prepositions',
-  intro: 'Five prepositions always force the accusative: durch, für, gegen, '
+  intro:
+      'Five prepositions always force the accusative: durch, für, gegen, '
       'ohne, um. The preposition decides the case — no thinking required.',
   tips: const [
     HelpMemoryTip(
@@ -192,26 +326,72 @@ final QuizContent enDeM3Praepositionen = enDeFill(
     HelpMemoryTip(
       kind: 'warning',
       title: 'Even without motion',
-      text: 'These five are accusative no matter what — unlike the two-way '
+      text:
+          'These five are accusative no matter what — unlike the two-way '
           'prepositions you meet later.',
     ),
   ],
   items: const [
-    CourseItem(prompt: 'Mio runs through the garden. (der Garten)', answer: 'Mio rennt durch **den** Garten'),
-    CourseItem(prompt: 'Mio runs into the tree. (der Baum)', answer: 'Mio läuft gegen **den** Baum'),
-    CourseItem(prompt: 'Mio dances around the table. (der Tisch)', answer: 'Mio tanzt um **den** Tisch'),
-    CourseItem(prompt: 'Mio never eats without the spoon. (der Löffel)', answer: 'Mio frisst nie ohne **den** Löffel'),
-    CourseItem(prompt: 'Mio cooks a soup for the cat. (die Katze)', answer: 'Mio kocht eine Suppe für **die** Katze'),
-    CourseItem(prompt: 'Mio jumps through the window. (das Fenster)', answer: 'Mio springt durch **das** Fenster'),
-    CourseItem(prompt: 'The gift is for the monster. (das Monster)', answer: 'Das Geschenk ist für **das** Monster'),
-    CourseItem(prompt: 'Mio is against the plan. (der Plan)', answer: 'Mio ist gegen **den** Plan'),
-    CourseItem(prompt: 'Mio walks around the house. (das Haus)', answer: 'Mio läuft um **das** Haus'),
-    CourseItem(prompt: 'Without the cat Mio is sad. (die Katze)', answer: 'Ohne **die** Katze ist Mio traurig'),
-    CourseItem(prompt: 'Mio runs through the kitchen. (die Küche)', answer: 'Mio rennt durch **die** Küche'),
-    CourseItem(prompt: 'The cake is for the child. (das Kind)', answer: 'Der Kuchen ist für **das** Kind'),
-    CourseItem(prompt: 'Mio swims through the river. (der Fluss)', answer: 'Mio schwimmt durch **den** Fluss'),
-    CourseItem(prompt: 'Mio dances around the lamp. (die Lampe)', answer: 'Mio tanzt um **die** Lampe'),
-    CourseItem(prompt: 'Mio never sleeps without the teddy. (der Teddy)', answer: 'Mio schläft nie ohne **den** Teddy'),
+    CourseItem(
+      prompt: 'Mio runs through the garden. (der Garten)',
+      answer: 'Mio rennt durch **den** Garten',
+    ),
+    CourseItem(
+      prompt: 'Mio runs into the tree. (der Baum)',
+      answer: 'Mio läuft gegen **den** Baum',
+    ),
+    CourseItem(
+      prompt: 'Mio dances around the table. (der Tisch)',
+      answer: 'Mio tanzt um **den** Tisch',
+    ),
+    CourseItem(
+      prompt: 'Mio never eats without the spoon. (der Löffel)',
+      answer: 'Mio frisst nie ohne **den** Löffel',
+    ),
+    CourseItem(
+      prompt: 'Mio cooks a soup for the cat. (die Katze)',
+      answer: 'Mio kocht eine Suppe für **die** Katze',
+    ),
+    CourseItem(
+      prompt: 'Mio jumps through the window. (das Fenster)',
+      answer: 'Mio springt durch **das** Fenster',
+    ),
+    CourseItem(
+      prompt: 'The gift is for the monster. (das Monster)',
+      answer: 'Das Geschenk ist für **das** Monster',
+    ),
+    CourseItem(
+      prompt: 'Mio is against the plan. (der Plan)',
+      answer: 'Mio ist gegen **den** Plan',
+    ),
+    CourseItem(
+      prompt: 'Mio walks around the house. (das Haus)',
+      answer: 'Mio läuft um **das** Haus',
+    ),
+    CourseItem(
+      prompt: 'Without the cat Mio is sad. (die Katze)',
+      answer: 'Ohne **die** Katze ist Mio traurig',
+    ),
+    CourseItem(
+      prompt: 'Mio runs through the kitchen. (die Küche)',
+      answer: 'Mio rennt durch **die** Küche',
+    ),
+    CourseItem(
+      prompt: 'The cake is for the child. (das Kind)',
+      answer: 'Der Kuchen ist für **das** Kind',
+    ),
+    CourseItem(
+      prompt: 'Mio swims through the river. (der Fluss)',
+      answer: 'Mio schwimmt durch **den** Fluss',
+    ),
+    CourseItem(
+      prompt: 'Mio dances around the lamp. (die Lampe)',
+      answer: 'Mio tanzt um **die** Lampe',
+    ),
+    CourseItem(
+      prompt: 'Mio never sleeps without the teddy. (der Teddy)',
+      answer: 'Mio schläft nie ohne **den** Teddy',
+    ),
   ],
 );
 
@@ -263,7 +443,8 @@ final QuizContent enDeM3Lesen = enDeBigText(
       'briefly, runs through the garden, jumps over the fence, and is already '
       'looking for the next house. The poor neighbours have no idea how lucky '
       "they've been so far.",
-  intro: 'Read the story and choose the case for each marked phrase. Only some '
+  intro:
+      'Read the story and choose the case for each marked phrase. Only some '
       'phrases are marked. The doers (Tom, er) are Nominativ; everything Mio '
       'devours — and den Garten after durch — is Akkusativ.',
   tips: _accusativeTips,
@@ -273,13 +454,15 @@ final QuizContent enDeM3Lesen = enDeBigText(
 final QuizContent enDeM3Sprechen = enDeSpeak(
   id: 'en_de_m3_sprechen',
   title: 'Speak: Mio im Restaurant',
-  intro: 'Say each line aloud. Notice every order Mio places is an accusative '
+  intro:
+      'Say each line aloud. Notice every order Mio places is an accusative '
       'object: einen Tisch, die Pizza, das Brot, einen Kuchen.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Listen for the -n',
-      text: 'einen Tisch / einen Kuchen — the masculine -n is the sound that '
+      text:
+          'einen Tisch / einen Kuchen — the masculine -n is the sound that '
           'marks the accusative.',
     ),
     HelpMemoryTip(
@@ -289,11 +472,26 @@ final QuizContent enDeM3Sprechen = enDeSpeak(
     ),
   ],
   items: const [
-    CourseItem(prompt: "Hello! I'd like a table.", answer: 'Guten Tag! Ich möchte einen Tisch.'),
-    CourseItem(prompt: 'No, not to sit at — to eat!', answer: 'Nein, nicht zum Sitzen — zum Essen!'),
-    CourseItem(prompt: "I'll take the pizza and the bread.", answer: 'Ich nehme die Pizza und das Brot.'),
-    CourseItem(prompt: 'Do you have a cake?', answer: 'Haben Sie einen Kuchen?'),
-    CourseItem(prompt: 'Thanks! I eat everything.', answer: 'Danke! Ich esse alles.'),
+    CourseItem(
+      prompt: "Hello! I'd like a table.",
+      answer: 'Guten Tag! Ich möchte einen Tisch.',
+    ),
+    CourseItem(
+      prompt: 'No, not to sit at — to eat!',
+      answer: 'Nein, nicht zum Sitzen — zum Essen!',
+    ),
+    CourseItem(
+      prompt: "I'll take the pizza and the bread.",
+      answer: 'Ich nehme die Pizza und das Brot.',
+    ),
+    CourseItem(
+      prompt: 'Do you have a cake?',
+      answer: 'Haben Sie einen Kuchen?',
+    ),
+    CourseItem(
+      prompt: 'Thanks! I eat everything.',
+      answer: 'Danke! Ich esse alles.',
+    ),
   ],
 );
 
@@ -301,19 +499,22 @@ final QuizContent enDeM3Sprechen = enDeSpeak(
 final QuizContent enDeM3Diktat = enDeDict(
   id: 'en_de_m3_diktat',
   title: 'Dictation: der vs den by ear',
-  intro: 'Listen and type each line. The masculine accusative -n (den, einen) '
+  intro:
+      'Listen and type each line. The masculine accusative -n (den, einen) '
       'is easy to miss by ear — train it here, next to the unchanging die/das.',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'Catch the -n',
-      text: 'den (m) vs die/das — the only audible difference is that final -n. '
+      text:
+          'den (m) vs die/das — the only audible difference is that final -n. '
           'Listen for it.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Same world',
-      text: 'These are the lines from Mio\'s hungry day — you have seen them '
+      text:
+          'These are the lines from Mio\'s hungry day — you have seen them '
           'written; now write what you hear.',
     ),
   ],
@@ -321,30 +522,118 @@ final QuizContent enDeM3Diktat = enDeDict(
     CourseItem(prompt: 'Mio eats the table.', answer: 'Mio frisst den Tisch.'),
     CourseItem(prompt: 'Mio eats the lamp.', answer: 'Mio frisst die Lampe.'),
     CourseItem(prompt: 'Mio eats the sofa.', answer: 'Mio frisst das Sofa.'),
-    CourseItem(prompt: 'Tom sees the monster.', answer: 'Tom sieht das Monster.'),
-    CourseItem(prompt: 'Mio looks for an apple.', answer: 'Mio sucht einen Apfel.'),
+    CourseItem(
+      prompt: 'Tom sees the monster.',
+      answer: 'Tom sieht das Monster.',
+    ),
+    CourseItem(
+      prompt: 'Mio looks for an apple.',
+      answer: 'Mio sucht einen Apfel.',
+    ),
     CourseItem(prompt: 'Mio has a plan.', answer: 'Mio hat einen Plan.'),
-    CourseItem(prompt: 'The monster sees me.', answer: 'Das Monster sieht mich.'),
+    CourseItem(
+      prompt: 'The monster sees me.',
+      answer: 'Das Monster sieht mich.',
+    ),
     CourseItem(prompt: 'Mio buys a cake.', answer: 'Mio kauft einen Kuchen.'),
-    CourseItem(prompt: 'Mio runs through the garden.', answer: 'Mio rennt durch den Garten.'),
-    CourseItem(prompt: 'The soup is for the cat.', answer: 'Die Suppe ist für die Katze.'),
+    CourseItem(
+      prompt: 'Mio runs through the garden.',
+      answer: 'Mio rennt durch den Garten.',
+    ),
+    CourseItem(
+      prompt: 'The soup is for the cat.',
+      answer: 'Die Suppe ist für die Katze.',
+    ),
     CourseItem(prompt: 'Mio eats the bread.', answer: 'Mio isst das Brot.'),
     CourseItem(prompt: 'I know him well.', answer: 'Ich kenne ihn gut.'),
-    CourseItem(prompt: 'Mio dances around the table.', answer: 'Mio tanzt um den Tisch.'),
-    CourseItem(prompt: 'Without the spoon Mio does not eat.', answer: 'Ohne den Löffel frisst Mio nicht.'),
-    CourseItem(prompt: 'Do you see the monster?', answer: 'Siehst du das Monster?'),
+    CourseItem(
+      prompt: 'Mio dances around the table.',
+      answer: 'Mio tanzt um den Tisch.',
+    ),
+    CourseItem(
+      prompt: 'Without the spoon Mio does not eat.',
+      answer: 'Ohne den Löffel frisst Mio nicht.',
+    ),
+    CourseItem(
+      prompt: 'Do you see the monster?',
+      answer: 'Siehst du das Monster?',
+    ),
   ],
 );
 
 /// M3 — The Accusative, in module order (forms → sentences → pronouns →
 /// prepositions → reading → speaking → dictation).
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM3Speaking = enDeSpeaking(
+  id: 'en_de_m3_speaking',
+  title: 'What does the monster eat?',
+  level: 'A1',
+  topic:
+      'Mio the hungry monster and my own day: what Mio eats, what I eat and drink, what I see, and what I would like.',
+  practisePoints: [
+    'den/die/das/die after fressen, essen, sehen, haben',
+    'einen/eine/ein in the accusative',
+    'möchte + accusative object: Ich möchte einen Apfel.',
+  ],
+  targetVocabulary: ['essen', 'trinken', 'sehen', 'möchte', 'einen', 'den'],
+  scoringCriteria: [
+    'the accusative article',
+    'the masculine change der to den',
+    'the object after the verb',
+  ],
+  priorityErrors: [
+    'nominative instead of accusative',
+    'wrong masculine article',
+    'wrong ein-form',
+  ],
+  intro:
+      'Talk about food and hunger with an AI. Copy the exercise into your own assistant, turn on voice mode, and let it ask you what you eat.',
+  tips: _accusativeTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM3SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m3_speaking_check',
+  title: 'Checkpoint: what do you have?',
+  level: 'A1',
+  topic:
+      'What I have, what I see and what I eat right now - short answers with an object in them.',
+  practisePoints: [
+    'den/die/das/die after haben, sehen and essen',
+    'The masculine change: der Tisch becomes den Tisch',
+    'einen/eine/ein in the accusative',
+  ],
+  targetVocabulary: ['haben', 'sehen', 'essen', 'einen', 'den'],
+  scoringCriteria: [
+    'the accusative article',
+    'the masculine change der to den',
+    'ein-forms in the accusative',
+  ],
+  priorityErrors: [
+    'nominative instead of accusative',
+    'wrong masculine article',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _accusativeTips,
+);
+
 final List<QuizContent> enDeM3 = [
   enDeM3Artikel,
   enDeM3Haben,
   enDeM3BigTextWarmup,
   enDeM3Pronomen,
+  enDeM3SpeakingCheck,
   enDeM3Praepositionen,
   enDeM3Sprechen,
   enDeM3Diktat,
   enDeM3Lesen,
+  enDeM3Speaking,
 ];

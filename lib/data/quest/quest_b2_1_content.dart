@@ -15,54 +15,116 @@ final QuizContent questB21GesellschaftContent = sentenceQuestQuiz(
   subjectColumnLabel: 'English',
   categoryLabel: 'Gesellschaft',
   contextualLayout: true,
-  intro: 'Abstract vocabulary for debate and current affairs — the register of '
+  intro:
+      'Abstract vocabulary for debate and current affairs — the register of '
       'the B2 exam.',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Debate nouns',
-      text: 'die Gesellschaft (society), die Regierung (government), die '
+      text:
+          'die Gesellschaft (society), die Regierung (government), die '
           'Mehrheit (majority), die Entwicklung (development).',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Nominal style',
-      text: 'B2 texts prefer nouns: "die Förderung" (the promotion of), "die '
+      text:
+          'B2 texts prefer nouns: "die Förderung" (the promotion of), "die '
           'Auswirkung" (the effect). Recognise them.',
     ),
   ],
   items: [
-    qsi('Die ____ hat ein neues Gesetz beschlossen. (government)',
-        'Regierung', 'The government passed a new law.', 'government'),
-    qsi('Die ____ der Bürger ist dagegen. (majority)', 'Mehrheit',
-        'The majority of citizens are against it.', 'majority'),
-    qsi('Die wirtschaftliche ____ ist positiv. (development)', 'Entwicklung',
-        'The economic development is positive.', 'development'),
-    qsi('Wir leben in einer modernen ____. (society)', 'Gesellschaft',
-        'We live in a modern society.', 'society'),
-    qsi('Klimaschutz ist eine große ____. (challenge)', 'Herausforderung',
-        'Climate protection is a big challenge.', 'challenge'),
-    qsi('Die Bürger gehen am Sonntag zur ____. (election)', 'Wahl',
-        'The citizens go to the polls on Sunday.', 'election'),
-    qsi('Jeder hat das Recht auf seine eigene ____. (opinion)', 'Meinung',
-        'Everyone has the right to their own opinion.', 'opinion'),
-    qsi('Die ____ berichten über den Skandal. (media)', 'Medien',
-        'The media report on the scandal.', 'media'),
-    qsi('Die ____ ist dieses Jahr gesunken. (unemployment)',
-        'Arbeitslosigkeit', 'Unemployment has fallen this year.',
-        'unemployment'),
-    qsi('Alle Menschen haben die gleichen ____. (rights)', 'Rechte',
-        'All people have the same rights.', 'rights'),
-    qsi('Der Staat will die ____ senken. (taxes)', 'Steuern',
-        'The state wants to lower taxes.', 'taxes'),
-    qsi('Die Partei gewinnt viele ____. (votes)', 'Stimmen',
-        'The party wins many votes.', 'votes'),
-    qsi('In einer ____ entscheidet das Volk. (democracy)', 'Demokratie',
-        'In a democracy the people decide.', 'democracy'),
-    qsi('Die Politiker diskutieren im ____. (parliament)', 'Parlament',
-        'The politicians debate in parliament.', 'parliament'),
-    qsi('Die ____ zwischen Arm und Reich wächst. (gap)', 'Kluft',
-        'The gap between rich and poor is growing.', 'gap'),
+    qsi(
+      'Die ____ hat ein neues Gesetz beschlossen. (government)',
+      'Regierung',
+      'The government passed a new law.',
+      'government',
+    ),
+    qsi(
+      'Die ____ der Bürger ist dagegen. (majority)',
+      'Mehrheit',
+      'The majority of citizens are against it.',
+      'majority',
+    ),
+    qsi(
+      'Die wirtschaftliche ____ ist positiv. (development)',
+      'Entwicklung',
+      'The economic development is positive.',
+      'development',
+    ),
+    qsi(
+      'Wir leben in einer modernen ____. (society)',
+      'Gesellschaft',
+      'We live in a modern society.',
+      'society',
+    ),
+    qsi(
+      'Klimaschutz ist eine große ____. (challenge)',
+      'Herausforderung',
+      'Climate protection is a big challenge.',
+      'challenge',
+    ),
+    qsi(
+      'Die Bürger gehen am Sonntag zur ____. (election)',
+      'Wahl',
+      'The citizens go to the polls on Sunday.',
+      'election',
+    ),
+    qsi(
+      'Jeder hat das Recht auf seine eigene ____. (opinion)',
+      'Meinung',
+      'Everyone has the right to their own opinion.',
+      'opinion',
+    ),
+    qsi(
+      'Die ____ berichten über den Skandal. (media)',
+      'Medien',
+      'The media report on the scandal.',
+      'media',
+    ),
+    qsi(
+      'Die ____ ist dieses Jahr gesunken. (unemployment)',
+      'Arbeitslosigkeit',
+      'Unemployment has fallen this year.',
+      'unemployment',
+    ),
+    qsi(
+      'Alle Menschen haben die gleichen ____. (rights)',
+      'Rechte',
+      'All people have the same rights.',
+      'rights',
+    ),
+    qsi(
+      'Der Staat will die ____ senken. (taxes)',
+      'Steuern',
+      'The state wants to lower taxes.',
+      'taxes',
+    ),
+    qsi(
+      'Die Partei gewinnt viele ____. (votes)',
+      'Stimmen',
+      'The party wins many votes.',
+      'votes',
+    ),
+    qsi(
+      'In einer ____ entscheidet das Volk. (democracy)',
+      'Demokratie',
+      'In a democracy the people decide.',
+      'democracy',
+    ),
+    qsi(
+      'Die Politiker diskutieren im ____. (parliament)',
+      'Parlament',
+      'The politicians debate in parliament.',
+      'parliament',
+    ),
+    qsi(
+      'Die ____ zwischen Arm und Reich wächst. (gap)',
+      'Kluft',
+      'The gap between rich and poor is growing.',
+      'gap',
+    ),
   ],
 );
 
@@ -74,56 +136,118 @@ final QuizContent questB21Konj1Content = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Konjunktiv I',
-  intro: 'In formal reported speech (news, reports), German uses the **Konjunktiv '
+  intro:
+      'In formal reported speech (news, reports), German uses the **Konjunktiv '
       'I** to show that someone else said it: "Er sagt, er __sei__ krank." It '
       'signals distance from the claim.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Common Konjunktiv I forms',
-      text: 'sein → sei/seien, haben → habe, können → könne, werden → werde; '
+      text:
+          'sein → sei/seien, haben → habe, können → könne, werden → werde; '
           'most verbs: stem + -e (er gehe, er komme).',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Switch to Konjunktiv II if identical',
-      text: 'If the Konj. I looks like the present (sie haben → sie haben), use '
+      text:
+          'If the Konj. I looks like the present (sie haben → sie haben), use '
           'Konj. II instead (sie hätten).',
     ),
   ],
   items: [
-    qsi('Er sagt, er ____ krank. (sein → Konj. I)', 'sei',
-        'He says he is ill.', 'er sei'),
-    qsi('Sie meint, sie ____ keine Zeit. (haben → Konj. I)', 'habe',
-        'She says she has no time.', 'sie habe'),
-    qsi('Der Minister sagt, er ____ bald zurücktreten. (werden → Konj. I)',
-        'werde', 'The minister says he will soon resign.', 'er werde'),
-    qsi('Man sagt, er ____ sehr reich. (sein → Konj. I)', 'sei',
-        'They say he is very rich.', 'er sei'),
-    qsi('Sie behauptet, sie ____ nichts davon gewusst. (haben → Konj. I)',
-        'habe', 'She claims she knew nothing about it.', 'sie habe'),
-    qsi('Der Sprecher erklärt, die Lage ____ ruhig. (sein → Konj. I)', 'sei',
-        'The spokesman explains the situation is calm.', 'die Lage sei'),
-    qsi('Er sagt, er ____ jeden Tag Sport. (machen → Konj. I)', 'mache',
-        'He says he does sport every day.', 'er mache'),
-    qsi('Sie meint, das ____ nicht stimmen. (können → Konj. I)', 'könne',
-        'She says that cannot be right.', 'es könne'),
-    qsi('Die Zeitung schreibt, der Präsident ____ morgen. (kommen → Konj. I)',
-        'komme', 'The paper writes the president is coming tomorrow.',
-        'er komme'),
-    qsi('Er behauptet, er ____ nichts gesehen. (haben → Konj. I)', 'habe',
-        'He claims he saw nothing.', 'er habe (gesehen)'),
-    qsi('Man sagt, sie ____ im Ausland. (leben → Konj. I)', 'lebe',
-        'They say she lives abroad.', 'sie lebe'),
-    qsi('Der Minister erklärt, es ____ keine neuen Steuern geben. '
-        '(werden → Konj. I)', 'werde',
-        'The minister declares there will be no new taxes.', 'es werde'),
-    qsi('Die Polizei berichtet, der Täter ____ geflohen. (sein → Konj. I)',
-        'sei', 'The police report the culprit has fled.', 'der Täter sei'),
-    qsi('Er sagt, er ____ uns später anrufen. (wollen → Konj. I)', 'wolle',
-        'He says he wants to call us later.', 'er wolle'),
-    qsi('Sie erklärt, sie ____ dazu nichts sagen. (dürfen → Konj. I)', 'dürfe',
-        'She explains she is not allowed to comment.', 'sie dürfe'),
+    qsi(
+      'Er sagt, er ____ krank. (sein → Konj. I)',
+      'sei',
+      'He says he is ill.',
+      'er sei',
+    ),
+    qsi(
+      'Sie meint, sie ____ keine Zeit. (haben → Konj. I)',
+      'habe',
+      'She says she has no time.',
+      'sie habe',
+    ),
+    qsi(
+      'Der Minister sagt, er ____ bald zurücktreten. (werden → Konj. I)',
+      'werde',
+      'The minister says he will soon resign.',
+      'er werde',
+    ),
+    qsi(
+      'Man sagt, er ____ sehr reich. (sein → Konj. I)',
+      'sei',
+      'They say he is very rich.',
+      'er sei',
+    ),
+    qsi(
+      'Sie behauptet, sie ____ nichts davon gewusst. (haben → Konj. I)',
+      'habe',
+      'She claims she knew nothing about it.',
+      'sie habe',
+    ),
+    qsi(
+      'Der Sprecher erklärt, die Lage ____ ruhig. (sein → Konj. I)',
+      'sei',
+      'The spokesman explains the situation is calm.',
+      'die Lage sei',
+    ),
+    qsi(
+      'Er sagt, er ____ jeden Tag Sport. (machen → Konj. I)',
+      'mache',
+      'He says he does sport every day.',
+      'er mache',
+    ),
+    qsi(
+      'Sie meint, das ____ nicht stimmen. (können → Konj. I)',
+      'könne',
+      'She says that cannot be right.',
+      'es könne',
+    ),
+    qsi(
+      'Die Zeitung schreibt, der Präsident ____ morgen. (kommen → Konj. I)',
+      'komme',
+      'The paper writes the president is coming tomorrow.',
+      'er komme',
+    ),
+    qsi(
+      'Er behauptet, er ____ nichts gesehen. (haben → Konj. I)',
+      'habe',
+      'He claims he saw nothing.',
+      'er habe (gesehen)',
+    ),
+    qsi(
+      'Man sagt, sie ____ im Ausland. (leben → Konj. I)',
+      'lebe',
+      'They say she lives abroad.',
+      'sie lebe',
+    ),
+    qsi(
+      'Der Minister erklärt, es ____ keine neuen Steuern geben. '
+          '(werden → Konj. I)',
+      'werde',
+      'The minister declares there will be no new taxes.',
+      'es werde',
+    ),
+    qsi(
+      'Die Polizei berichtet, der Täter ____ geflohen. (sein → Konj. I)',
+      'sei',
+      'The police report the culprit has fled.',
+      'der Täter sei',
+    ),
+    qsi(
+      'Er sagt, er ____ uns später anrufen. (wollen → Konj. I)',
+      'wolle',
+      'He says he wants to call us later.',
+      'er wolle',
+    ),
+    qsi(
+      'Sie erklärt, sie ____ dazu nichts sagen. (dürfen → Konj. I)',
+      'dürfe',
+      'She explains she is not allowed to comment.',
+      'sie dürfe',
+    ),
   ],
 );
 
@@ -135,13 +259,15 @@ final QuizContent questB21IndirektContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'indirekte Frage',
-  intro: 'Reported questions become subordinate clauses (verb to the end). '
+  intro:
+      'Reported questions become subordinate clauses (verb to the end). '
       'W-questions keep their W-word; yes/no questions use **ob** (whether).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'ob = whether',
-      text: '"Kommst du?" → "Er fragt, __ob__ ich __komme__." Verb at the end, '
+      text:
+          '"Kommst du?" → "Er fragt, __ob__ ich __komme__." Verb at the end, '
           'no question mark inside.',
     ),
     HelpMemoryTip(
@@ -151,36 +277,96 @@ final QuizContent questB21IndirektContent = sentenceQuestQuiz(
     ),
   ],
   items: [
-    qsi('Er fragt, ____ ich morgen komme. (whether)', 'ob',
-        'He asks whether I’m coming tomorrow.', 'ob'),
-    qsi('Sie möchte wissen, ____ ich wohne. (where)', 'wo',
-        'She wants to know where I live.', 'wo'),
-    qsi('Ich frage mich, ____ das wahr ist. (whether)', 'ob',
-        'I wonder whether that is true.', 'ob'),
-    qsi('Er fragt, ____ viel das kostet. (how much → wie)', 'wie',
-        'He asks how much it costs.', 'wie'),
-    qsi('Wissen Sie, ____ der Zug fährt? (when → wann)', 'wann',
-        'Do you know when the train leaves?', 'wann'),
-    qsi('Sie fragt, ____ er verheiratet ist. (whether)', 'ob',
-        'She asks whether he is married.', 'ob (verheiratet)'),
-    qsi('Er möchte wissen, ____ das Auto gehört. (to whom → wem)', 'wem',
-        'He wants to know whose car it is.', 'wem'),
-    qsi('Können Sie mir sagen, ____ der Bahnhof ist? (where)', 'wo',
-        'Can you tell me where the station is?', 'wo (Bahnhof)'),
-    qsi('Sie fragt, ____ wir das Problem lösen wollen. (how)', 'wie',
-        'She asks how we want to solve the problem.', 'wie (lösen)'),
-    qsi('Ich frage mich, ____ er das gesagt hat. (why)', 'warum',
-        'I wonder why he said that.', 'warum'),
-    qsi('Er fragt, ____ ich Hilfe brauche. (whether)', 'ob',
-        'He asks whether I need help.', 'ob (Hilfe)'),
-    qsi('Weißt du, ____ zur Party kommt? (who)', 'wer',
-        'Do you know who is coming to the party?', 'wer'),
-    qsi('Sie möchte wissen, ____ der Film beginnt. (when)', 'wann',
-        'She wants to know when the film starts.', 'wann (Film)'),
-    qsi('Ich weiß nicht, ____ er wirklich meint. (what)', 'was',
-        'I do not know what he really means.', 'was'),
-    qsi('Er will wissen, ____ wir uns treffen. (where)', 'wo',
-        'He wants to know where we are meeting.', 'wo (treffen)'),
+    qsi(
+      'Er fragt, ____ ich morgen komme. (whether)',
+      'ob',
+      'He asks whether I’m coming tomorrow.',
+      'ob',
+    ),
+    qsi(
+      'Sie möchte wissen, ____ ich wohne. (where)',
+      'wo',
+      'She wants to know where I live.',
+      'wo',
+    ),
+    qsi(
+      'Ich frage mich, ____ das wahr ist. (whether)',
+      'ob',
+      'I wonder whether that is true.',
+      'ob',
+    ),
+    qsi(
+      'Er fragt, ____ viel das kostet. (how much → wie)',
+      'wie',
+      'He asks how much it costs.',
+      'wie',
+    ),
+    qsi(
+      'Wissen Sie, ____ der Zug fährt? (when → wann)',
+      'wann',
+      'Do you know when the train leaves?',
+      'wann',
+    ),
+    qsi(
+      'Sie fragt, ____ er verheiratet ist. (whether)',
+      'ob',
+      'She asks whether he is married.',
+      'ob (verheiratet)',
+    ),
+    qsi(
+      'Er möchte wissen, ____ das Auto gehört. (to whom → wem)',
+      'wem',
+      'He wants to know whose car it is.',
+      'wem',
+    ),
+    qsi(
+      'Können Sie mir sagen, ____ der Bahnhof ist? (where)',
+      'wo',
+      'Can you tell me where the station is?',
+      'wo (Bahnhof)',
+    ),
+    qsi(
+      'Sie fragt, ____ wir das Problem lösen wollen. (how)',
+      'wie',
+      'She asks how we want to solve the problem.',
+      'wie (lösen)',
+    ),
+    qsi(
+      'Ich frage mich, ____ er das gesagt hat. (why)',
+      'warum',
+      'I wonder why he said that.',
+      'warum',
+    ),
+    qsi(
+      'Er fragt, ____ ich Hilfe brauche. (whether)',
+      'ob',
+      'He asks whether I need help.',
+      'ob (Hilfe)',
+    ),
+    qsi(
+      'Weißt du, ____ zur Party kommt? (who)',
+      'wer',
+      'Do you know who is coming to the party?',
+      'wer',
+    ),
+    qsi(
+      'Sie möchte wissen, ____ der Film beginnt. (when)',
+      'wann',
+      'She wants to know when the film starts.',
+      'wann (Film)',
+    ),
+    qsi(
+      'Ich weiß nicht, ____ er wirklich meint. (what)',
+      'was',
+      'I do not know what he really means.',
+      'was',
+    ),
+    qsi(
+      'Er will wissen, ____ wir uns treffen. (where)',
+      'wo',
+      'He wants to know where we are meeting.',
+      'wo (treffen)',
+    ),
   ],
 );
 
@@ -191,13 +377,15 @@ final QuizContent questB21SprechenVerteidigenContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Defend a position and respond to counter-arguments — a core B2 '
+  intro:
+      'Defend a position and respond to counter-arguments — a core B2 '
       'speaking skill. Listen and repeat these discourse phrases.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Concede, then counter',
-      text: '"Das mag stimmen, aber …", "Zwar …, trotzdem …" let you accept a '
+      text:
+          '"Das mag stimmen, aber …", "Zwar …, trotzdem …" let you accept a '
           'point and still disagree.',
     ),
     HelpMemoryTip(
@@ -208,23 +396,29 @@ final QuizContent questB21SprechenVerteidigenContent = speakQuestQuiz(
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Ich bin davon überzeugt, dass …',
-        meaning: 'I am convinced that …'),
+      phrase: 'Ich bin davon überzeugt, dass …',
+      meaning: 'I am convinced that …',
+    ),
     SpeakPhrase(
-        phrase: 'Das mag stimmen, aber man muss bedenken, dass …',
-        meaning: 'That may be true, but one must consider that …'),
+      phrase: 'Das mag stimmen, aber man muss bedenken, dass …',
+      meaning: 'That may be true, but one must consider that …',
+    ),
     SpeakPhrase(
-        phrase: 'Ein wichtiges Argument dafür ist …',
-        meaning: 'An important argument for it is …'),
+      phrase: 'Ein wichtiges Argument dafür ist …',
+      meaning: 'An important argument for it is …',
+    ),
     SpeakPhrase(
-        phrase: 'Dem kann ich nicht zustimmen.',
-        meaning: 'I can’t agree with that.'),
+      phrase: 'Dem kann ich nicht zustimmen.',
+      meaning: 'I can’t agree with that.',
+    ),
     SpeakPhrase(
-        phrase: 'Lassen Sie mich das erklären.',
-        meaning: 'Let me explain that.'),
+      phrase: 'Lassen Sie mich das erklären.',
+      meaning: 'Let me explain that.',
+    ),
     SpeakPhrase(
-        phrase: 'Zusammenfassend lässt sich sagen, dass …',
-        meaning: 'In summary, one can say that …'),
+      phrase: 'Zusammenfassend lässt sich sagen, dass …',
+      meaning: 'In summary, one can say that …',
+    ),
   ],
 );
 
@@ -236,13 +430,15 @@ final QuizContent questB21ModalpassivContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Modalpassiv',
-  intro: 'A modal + passive expresses what can/must be done: **Modal + Partizip '
+  intro:
+      'A modal + passive expresses what can/must be done: **Modal + Partizip '
       'II + werden** (infinitive). "Das __kann gemacht werden__."',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'modal … Partizip + werden',
-      text: '"Das Problem __muss gelöst werden__." The modal is conjugated; '
+      text:
+          '"Das Problem __muss gelöst werden__." The modal is conjugated; '
           '"Partizip + werden" goes to the end.',
     ),
     HelpMemoryTip(
@@ -252,36 +448,96 @@ final QuizContent questB21ModalpassivContent = sentenceQuestQuiz(
     ),
   ],
   items: [
-    qsi('Das Problem muss schnell gelöst ____. (werden)', 'werden',
-        'The problem must be solved quickly.', 'muss gelöst werden'),
-    qsi('Hier darf nicht geraucht ____. (werden)', 'werden',
-        'Smoking is not allowed here.', 'darf … werden'),
-    qsi('Die Aufgabe kann leicht gemacht ____. (werden)', 'werden',
-        'The task can be done easily.', 'kann gemacht werden'),
-    qsi('Das Formular muss unterschrieben ____. (werden)', 'werden',
-        'The form must be signed.', 'muss unterschrieben werden'),
-    qsi('Der Termin sollte verschoben ____. (werden)', 'werden',
-        'The appointment should be postponed.', 'sollte verschoben werden'),
-    qsi('Die Regeln müssen beachtet ____. (werden)', 'werden',
-        'The rules must be observed.', 'müssen beachtet werden'),
-    qsi('Das Fenster kann nicht geöffnet ____. (werden)', 'werden',
-        'The window cannot be opened.', 'kann geöffnet werden'),
-    qsi('Die Rechnung muss bis Freitag bezahlt ____. (werden)', 'werden',
-        'The bill must be paid by Friday.', 'muss bezahlt werden'),
-    qsi('Das Zimmer soll täglich gelüftet ____. (werden)', 'werden',
-        'The room should be aired daily.', 'soll gelüftet werden'),
-    qsi('Der Fehler kann noch korrigiert ____. (werden)', 'werden',
-        'The mistake can still be corrected.', 'kann korrigiert werden'),
-    qsi('Handys dürfen im Unterricht nicht benutzt ____. (werden)', 'werden',
-        'Phones may not be used in class.', 'dürfen benutzt werden'),
-    qsi('Der Antrag muss online gestellt ____. (werden)', 'werden',
-        'The application must be submitted online.', 'muss gestellt werden'),
-    qsi('Die Karten können an der Kasse gekauft ____. (werden)', 'werden',
-        'The tickets can be bought at the box office.', 'können gekauft werden'),
-    qsi('Das Licht ____ ausgeschaltet werden. (müssen)', 'muss',
-        'The light must be switched off.', 'muss … werden'),
-    qsi('Die Bewerbung ____ bis Montag geschickt werden. (sollen)', 'soll',
-        'The application should be sent by Monday.', 'soll … werden'),
+    qsi(
+      'Das Problem muss schnell gelöst ____. (werden)',
+      'werden',
+      'The problem must be solved quickly.',
+      'muss gelöst werden',
+    ),
+    qsi(
+      'Hier darf nicht geraucht ____. (werden)',
+      'werden',
+      'Smoking is not allowed here.',
+      'darf … werden',
+    ),
+    qsi(
+      'Die Aufgabe kann leicht gemacht ____. (werden)',
+      'werden',
+      'The task can be done easily.',
+      'kann gemacht werden',
+    ),
+    qsi(
+      'Das Formular muss unterschrieben ____. (werden)',
+      'werden',
+      'The form must be signed.',
+      'muss unterschrieben werden',
+    ),
+    qsi(
+      'Der Termin sollte verschoben ____. (werden)',
+      'werden',
+      'The appointment should be postponed.',
+      'sollte verschoben werden',
+    ),
+    qsi(
+      'Die Regeln müssen beachtet ____. (werden)',
+      'werden',
+      'The rules must be observed.',
+      'müssen beachtet werden',
+    ),
+    qsi(
+      'Das Fenster kann nicht geöffnet ____. (werden)',
+      'werden',
+      'The window cannot be opened.',
+      'kann geöffnet werden',
+    ),
+    qsi(
+      'Die Rechnung muss bis Freitag bezahlt ____. (werden)',
+      'werden',
+      'The bill must be paid by Friday.',
+      'muss bezahlt werden',
+    ),
+    qsi(
+      'Das Zimmer soll täglich gelüftet ____. (werden)',
+      'werden',
+      'The room should be aired daily.',
+      'soll gelüftet werden',
+    ),
+    qsi(
+      'Der Fehler kann noch korrigiert ____. (werden)',
+      'werden',
+      'The mistake can still be corrected.',
+      'kann korrigiert werden',
+    ),
+    qsi(
+      'Handys dürfen im Unterricht nicht benutzt ____. (werden)',
+      'werden',
+      'Phones may not be used in class.',
+      'dürfen benutzt werden',
+    ),
+    qsi(
+      'Der Antrag muss online gestellt ____. (werden)',
+      'werden',
+      'The application must be submitted online.',
+      'muss gestellt werden',
+    ),
+    qsi(
+      'Die Karten können an der Kasse gekauft ____. (werden)',
+      'werden',
+      'The tickets can be bought at the box office.',
+      'können gekauft werden',
+    ),
+    qsi(
+      'Das Licht ____ ausgeschaltet werden. (müssen)',
+      'muss',
+      'The light must be switched off.',
+      'muss … werden',
+    ),
+    qsi(
+      'Die Bewerbung ____ bis Montag geschickt werden. (sollen)',
+      'soll',
+      'The application should be sent by Monday.',
+      'soll … werden',
+    ),
   ],
 );
 
@@ -311,12 +567,12 @@ final QuizContent questB21HoerenDebatteContent = listeningQuestQuiz(
       options: [
         'um höhere Steuern',
         'um autofreie Innenstädte',
-        'um mehr Parkplätze'
+        'um mehr Parkplätze',
       ],
       optionsTranslation: [
         'about higher taxes',
         'about car-free city centres',
-        'about more parking'
+        'about more parking',
       ],
       correctIndex: 1,
       explanation: '"… geht es um autofreie Innenstädte."',
@@ -327,12 +583,12 @@ final QuizContent questB21HoerenDebatteContent = listeningQuestQuiz(
       options: [
         'dass Geschäfte Kunden verlieren',
         'dass die Luft schlechter wird',
-        'dass es teurer wird'
+        'dass es teurer wird',
       ],
       optionsTranslation: [
         'that shops lose customers',
         'that the air gets worse',
-        'that it gets more expensive'
+        'that it gets more expensive',
       ],
       correctIndex: 0,
       explanation: '"… dass viele Geschäfte Kunden verlieren könnten."',
@@ -343,12 +599,12 @@ final QuizContent questB21HoerenDebatteContent = listeningQuestQuiz(
       options: [
         'dass eine Lösung gefunden werden muss',
         'dass nichts geändert wird',
-        'dass die Gegner recht haben'
+        'dass die Gegner recht haben',
       ],
       optionsTranslation: [
         'that a solution must be found',
         'that nothing will change',
-        'that the opponents are right'
+        'that the opponents are right',
       ],
       correctIndex: 0,
       explanation: '"… dass eine Lösung gefunden werden muss."',
@@ -367,7 +623,8 @@ final QuizContent questB21HoerenDebatteContent = listeningQuestQuiz(
         'the city would get richer',
       ],
       correctIndex: 0,
-      explanation: '"… die Luft sauberer werde und die Straßen sicherer seien."',
+      explanation:
+          '"… die Luft sauberer werde und die Straßen sicherer seien."',
     ),
     ReadingQuestion(
       question: 'Was fordert die Sprecherin zuerst?',
@@ -386,19 +643,22 @@ final QuizContent questB21HoerenDebatteContent = listeningQuestQuiz(
       explanation: '"… man müsse den öffentlichen Verkehr zuerst verbessern."',
     ),
   ],
-  intro: 'A debate — you only hear it. Keep the two sides apart: Befürworter '
+  intro:
+      'A debate — you only hear it. Keep the two sides apart: Befürworter '
       '(supporters) vs Gegner (opponents). Note the Konjunktiv I (werde, seien). '
       'Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Pro vs contra',
-      text: 'Befürworter argue for, Gegner against. Sort each claim to its side.',
+      text:
+          'Befürworter argue for, Gegner against. Sort each claim to its side.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Reported speech',
-      text: '"… argumentieren, dass die Luft sauberer __werde__" is Konjunktiv '
+      text:
+          '"… argumentieren, dass die Luft sauberer __werde__" is Konjunktiv '
           'I — a reported claim, not a fact.',
     ),
   ],
@@ -412,57 +672,120 @@ final QuizContent questB21VerbenPraepContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Verb',
   categoryLabel: 'Verb + Präposition',
-  intro: 'Many verbs take a fixed preposition you must learn together: warten '
+  intro:
+      'Many verbs take a fixed preposition you must learn together: warten '
       '**auf**, sich freuen **auf/über**, denken **an**, sich interessieren '
       '**für**. For things, use da-/wo-compounds (darauf, worauf).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'da-/wo-compounds',
-      text: 'For things: "Ich warte __darauf__." Question: "__Worauf__ wartest '
+      text:
+          'For things: "Ich warte __darauf__." Question: "__Worauf__ wartest '
           'du?" For people, keep the preposition: auf wen?',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Learn verb + preposition as a unit',
-      text: 'warten auf (+Akk), denken an (+Akk), sich freuen über (+Akk), '
+      text:
+          'warten auf (+Akk), denken an (+Akk), sich freuen über (+Akk), '
           'teilnehmen an (+Dat).',
     ),
   ],
   items: [
-    qsi('Ich warte ____ den Bus. (warten + …)', 'auf',
-        'I’m waiting for the bus.', 'warten auf'),
-    qsi('Sie interessiert sich ____ Kunst. (sich interessieren + …)', 'für',
-        'She is interested in art.', 'sich interessieren für'),
-    qsi('Wir denken oft ____ dich. (denken + …)', 'an',
-        'We often think of you.', 'denken an'),
-    qsi('Er freut sich ____ das Geschenk. (sich freuen + …, Akk.)', 'über',
-        'He is happy about the gift.', 'sich freuen über'),
-    qsi('Viele Menschen nehmen ____ der Demonstration teil. (teilnehmen + …)',
-        'an', 'Many people take part in the demonstration.', 'teilnehmen an'),
-    qsi('Er ärgert sich ____ den Lärm. (sich ärgern + …, Akk.)', 'über',
-        'He is annoyed about the noise.', 'sich ärgern über',
-        accepted: ['ueber']),
-    qsi('Ich träume ____ einem langen Urlaub. (träumen + …, Dat.)', 'von',
-        'I dream of a long holiday.', 'träumen von'),
-    qsi('Sie wartet ____ eine Antwort. (warten + …, Akk.)', 'auf',
-        'She is waiting for an answer.', 'warten auf (Antwort)'),
-    qsi('Wir sprechen ____ das neue Projekt. (sprechen + …, Akk.)', 'über',
-        'We talk about the new project.', 'sprechen über',
-        accepted: ['ueber']),
-    qsi('Er entschuldigt sich ____ den Fehler. (sich entschuldigen + …)',
-        'für', 'He apologises for the mistake.', 'sich entschuldigen für',
-        accepted: ['fuer']),
-    qsi('Das hängt ____ dem Wetter ab. (abhängen + …, Dat.)', 'von',
-        'That depends on the weather.', 'abhängen von'),
-    qsi('Sie erinnert sich gern ____ ihre Kindheit. (sich erinnern + …)',
-        'an', 'She likes remembering her childhood.', 'sich erinnern an'),
-    qsi('Ich bedanke mich ____ Ihnen für die Hilfe. (sich bedanken + …)',
-        'bei', 'I thank you for the help.', 'sich bedanken bei'),
-    qsi('Er beschäftigt sich ____ Geschichte. (sich beschäftigen + …)', 'mit',
-        'He occupies himself with history.', 'sich beschäftigen mit'),
-    qsi('Wir freuen uns ____ den Sommer. (sich freuen + …, Zukunft)', 'auf',
-        'We are looking forward to the summer.', 'sich freuen auf'),
+    qsi(
+      'Ich warte ____ den Bus. (warten + …)',
+      'auf',
+      'I’m waiting for the bus.',
+      'warten auf',
+    ),
+    qsi(
+      'Sie interessiert sich ____ Kunst. (sich interessieren + …)',
+      'für',
+      'She is interested in art.',
+      'sich interessieren für',
+    ),
+    qsi(
+      'Wir denken oft ____ dich. (denken + …)',
+      'an',
+      'We often think of you.',
+      'denken an',
+    ),
+    qsi(
+      'Er freut sich ____ das Geschenk. (sich freuen + …, Akk.)',
+      'über',
+      'He is happy about the gift.',
+      'sich freuen über',
+    ),
+    qsi(
+      'Viele Menschen nehmen ____ der Demonstration teil. (teilnehmen + …)',
+      'an',
+      'Many people take part in the demonstration.',
+      'teilnehmen an',
+    ),
+    qsi(
+      'Er ärgert sich ____ den Lärm. (sich ärgern + …, Akk.)',
+      'über',
+      'He is annoyed about the noise.',
+      'sich ärgern über',
+      accepted: ['ueber'],
+    ),
+    qsi(
+      'Ich träume ____ einem langen Urlaub. (träumen + …, Dat.)',
+      'von',
+      'I dream of a long holiday.',
+      'träumen von',
+    ),
+    qsi(
+      'Sie wartet ____ eine Antwort. (warten + …, Akk.)',
+      'auf',
+      'She is waiting for an answer.',
+      'warten auf (Antwort)',
+    ),
+    qsi(
+      'Wir sprechen ____ das neue Projekt. (sprechen + …, Akk.)',
+      'über',
+      'We talk about the new project.',
+      'sprechen über',
+      accepted: ['ueber'],
+    ),
+    qsi(
+      'Er entschuldigt sich ____ den Fehler. (sich entschuldigen + …)',
+      'für',
+      'He apologises for the mistake.',
+      'sich entschuldigen für',
+      accepted: ['fuer'],
+    ),
+    qsi(
+      'Das hängt ____ dem Wetter ab. (abhängen + …, Dat.)',
+      'von',
+      'That depends on the weather.',
+      'abhängen von',
+    ),
+    qsi(
+      'Sie erinnert sich gern ____ ihre Kindheit. (sich erinnern + …)',
+      'an',
+      'She likes remembering her childhood.',
+      'sich erinnern an',
+    ),
+    qsi(
+      'Ich bedanke mich ____ Ihnen für die Hilfe. (sich bedanken + …)',
+      'bei',
+      'I thank you for the help.',
+      'sich bedanken bei',
+    ),
+    qsi(
+      'Er beschäftigt sich ____ Geschichte. (sich beschäftigen + …)',
+      'mit',
+      'He occupies himself with history.',
+      'sich beschäftigen mit',
+    ),
+    qsi(
+      'Wir freuen uns ____ den Sommer. (sich freuen + …, Zukunft)',
+      'auf',
+      'We are looking forward to the summer.',
+      'sich freuen auf',
+    ),
   ],
 );
 
@@ -474,59 +797,117 @@ final QuizContent questB21PartizipAdjContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Partizip-Adjektiv',
-  intro: 'Participles can work as adjectives (with endings). **Partizip I** '
+  intro:
+      'Participles can work as adjectives (with endings). **Partizip I** '
       '(-end) is active/ongoing: "das __spielende__ Kind". **Partizip II** is '
       'passive/finished: "das __gekochte__ Ei".',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Partizip I = Infinitiv + -d',
-      text: 'lachen → lachend → das __lachende__ Kind (the laughing child). '
+      text:
+          'lachen → lachend → das __lachende__ Kind (the laughing child). '
           'Active, happening now.',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'Partizip II = passive/finished',
-      text: 'kochen → gekocht → das __gekochte__ Ei (the boiled egg). The action '
+      text:
+          'kochen → gekocht → das __gekochte__ Ei (the boiled egg). The action '
           'is done to the noun.',
     ),
   ],
   items: [
-    qsi('Das ____ Kind ist süß. (lachen → Partizip I)', 'lachende',
-        'The laughing child is sweet.', 'das lachende Kind'),
-    qsi('Die ____ Sonne ist wunderschön. (untergehen → Partizip I)',
-        'untergehende', 'The setting sun is beautiful.',
-        'die untergehende Sonne'),
-    qsi('Ich esse ein ____ Ei. (kochen → Partizip II)', 'gekochtes',
-        'I eat a boiled egg.', 'ein gekochtes Ei'),
-    qsi('Das ist ein gut ____ Buch. (schreiben → Partizip II)', 'geschriebenes',
-        'That is a well-written book.', 'ein geschriebenes Buch'),
-    qsi('Die ____ Blumen sind schön. (blühen → Partizip I)', 'blühenden',
-        'The blooming flowers are beautiful.', 'die blühenden Blumen'),
-    qsi('Der ____ Zug hatte Verspätung. (ankommen → Partizip I)', 'ankommende',
-        'The arriving train was late.', 'der ankommende Zug'),
-    qsi('Ich trage ein frisch ____ Hemd. (bügeln → Partizip II)', 'gebügeltes',
-        'I wear a freshly ironed shirt.', 'ein gebügeltes Hemd'),
-    qsi('Die ____ Kinder waren laut. (spielen → Partizip I)', 'spielenden',
-        'The playing children were loud.', 'die spielenden Kinder'),
-    qsi('Der ____ Hund wartet vor der Tür. (bellen → Partizip I)', 'bellende',
-        'The barking dog waits at the door.', 'der bellende Hund'),
-    qsi('Ich kaufe nur frisch ____ Brot. (backen → Partizip II)',
-        'gebackenes', 'I only buy freshly baked bread.', 'gebackenes Brot'),
-    qsi('Das ____ Fenster muss repariert werden. (zerbrechen → Partizip II)',
-        'zerbrochene', 'The broken window must be repaired.',
-        'das zerbrochene Fenster'),
-    qsi('Die ____ Gäste warten am Eingang. (einladen → Partizip II)',
-        'eingeladenen', 'The invited guests wait at the entrance.',
-        'die eingeladenen Gäste'),
-    qsi('Vorsicht mit dem ____ Wasser! (kochen → Partizip I)', 'kochenden',
-        'Careful with the boiling water!', 'das kochende Wasser'),
-    qsi('Der frisch ____ Kaffee duftet herrlich. (brühen → Partizip II)',
-        'gebrühte', 'The freshly brewed coffee smells wonderful.',
-        'der gebrühte Kaffee'),
-    qsi('Das ____ Auto stand am Straßenrand. (parken → Partizip II)',
-        'geparkte', 'The parked car stood at the roadside.',
-        'das geparkte Auto'),
+    qsi(
+      'Das ____ Kind ist süß. (lachen → Partizip I)',
+      'lachende',
+      'The laughing child is sweet.',
+      'das lachende Kind',
+    ),
+    qsi(
+      'Die ____ Sonne ist wunderschön. (untergehen → Partizip I)',
+      'untergehende',
+      'The setting sun is beautiful.',
+      'die untergehende Sonne',
+    ),
+    qsi(
+      'Ich esse ein ____ Ei. (kochen → Partizip II)',
+      'gekochtes',
+      'I eat a boiled egg.',
+      'ein gekochtes Ei',
+    ),
+    qsi(
+      'Das ist ein gut ____ Buch. (schreiben → Partizip II)',
+      'geschriebenes',
+      'That is a well-written book.',
+      'ein geschriebenes Buch',
+    ),
+    qsi(
+      'Die ____ Blumen sind schön. (blühen → Partizip I)',
+      'blühenden',
+      'The blooming flowers are beautiful.',
+      'die blühenden Blumen',
+    ),
+    qsi(
+      'Der ____ Zug hatte Verspätung. (ankommen → Partizip I)',
+      'ankommende',
+      'The arriving train was late.',
+      'der ankommende Zug',
+    ),
+    qsi(
+      'Ich trage ein frisch ____ Hemd. (bügeln → Partizip II)',
+      'gebügeltes',
+      'I wear a freshly ironed shirt.',
+      'ein gebügeltes Hemd',
+    ),
+    qsi(
+      'Die ____ Kinder waren laut. (spielen → Partizip I)',
+      'spielenden',
+      'The playing children were loud.',
+      'die spielenden Kinder',
+    ),
+    qsi(
+      'Der ____ Hund wartet vor der Tür. (bellen → Partizip I)',
+      'bellende',
+      'The barking dog waits at the door.',
+      'der bellende Hund',
+    ),
+    qsi(
+      'Ich kaufe nur frisch ____ Brot. (backen → Partizip II)',
+      'gebackenes',
+      'I only buy freshly baked bread.',
+      'gebackenes Brot',
+    ),
+    qsi(
+      'Das ____ Fenster muss repariert werden. (zerbrechen → Partizip II)',
+      'zerbrochene',
+      'The broken window must be repaired.',
+      'das zerbrochene Fenster',
+    ),
+    qsi(
+      'Die ____ Gäste warten am Eingang. (einladen → Partizip II)',
+      'eingeladenen',
+      'The invited guests wait at the entrance.',
+      'die eingeladenen Gäste',
+    ),
+    qsi(
+      'Vorsicht mit dem ____ Wasser! (kochen → Partizip I)',
+      'kochenden',
+      'Careful with the boiling water!',
+      'das kochende Wasser',
+    ),
+    qsi(
+      'Der frisch ____ Kaffee duftet herrlich. (brühen → Partizip II)',
+      'gebrühte',
+      'The freshly brewed coffee smells wonderful.',
+      'der gebrühte Kaffee',
+    ),
+    qsi(
+      'Das ____ Auto stand am Straßenrand. (parken → Partizip II)',
+      'geparkte',
+      'The parked car stood at the roadside.',
+      'das geparkte Auto',
+    ),
   ],
 );
 
@@ -557,12 +938,12 @@ final QuizContent questB21LesenHomeofficeContent = readingQuestQuiz(
       options: [
         'mehr Gehalt',
         'mehr Flexibilität',
-        'einen kürzeren Arbeitstag'
+        'einen kürzeren Arbeitstag',
       ],
       optionsTranslation: [
         'more salary',
         'more flexibility',
-        'a shorter working day'
+        'a shorter working day',
       ],
       correctIndex: 1,
       explanation: '"Befürworter betonen die gewonnene Flexibilität …"',
@@ -573,15 +954,16 @@ final QuizContent questB21LesenHomeofficeContent = readingQuestQuiz(
       options: [
         'dass man weniger verdient',
         'dass die Grenze zwischen Arbeit und Freizeit verschwimmt',
-        'dass die Technik fehlt'
+        'dass die Technik fehlt',
       ],
       optionsTranslation: [
         'that you earn less',
         'that the line between work and free time blurs',
-        'that the technology is missing'
+        'that the technology is missing',
       ],
       correctIndex: 1,
-      explanation: '"… dass die Grenze zwischen Arbeit und Freizeit verschwimme."',
+      explanation:
+          '"… dass die Grenze zwischen Arbeit und Freizeit verschwimme."',
     ),
     ReadingQuestion(
       question: 'Was ist laut Text entscheidend?',
@@ -589,12 +971,12 @@ final QuizContent questB21LesenHomeofficeContent = readingQuestQuiz(
       options: [
         'der Arbeitsort',
         'eine klare Regelung der Arbeitszeiten',
-        'ein guter Computer'
+        'ein guter Computer',
       ],
       optionsTranslation: [
         'the workplace',
         'a clear arrangement of working hours',
-        'a good computer'
+        'a good computer',
       ],
       correctIndex: 1,
       explanation: '"… nicht der Ort, sondern eine klare Regelung …"',
@@ -602,23 +984,21 @@ final QuizContent questB21LesenHomeofficeContent = readingQuestQuiz(
     ReadingQuestion(
       question: 'Wie wird Homeoffice oft dargestellt?',
       questionTranslation: 'How is home office often presented?',
-      options: [
-        'als ideale Lösung',
-        'als teurer Fehler',
-        'als altmodisch',
-      ],
+      options: ['als ideale Lösung', 'als teurer Fehler', 'als altmodisch'],
       optionsTranslation: [
         'as the ideal solution',
         'as an expensive mistake',
         'as old-fashioned',
       ],
       correctIndex: 0,
-      explanation: '"Das Arbeiten von zu Hause wird oft als ideale Lösung '
+      explanation:
+          '"Das Arbeiten von zu Hause wird oft als ideale Lösung '
           'dargestellt."',
     ),
     ReadingQuestion(
       question: 'Was passiert mit Menschen, die ständig erreichbar sind?',
-      questionTranslation: 'What happens to people who are constantly reachable?',
+      questionTranslation:
+          'What happens to people who are constantly reachable?',
       options: [
         'Sie arbeiten am Ende mehr.',
         'Sie verdienen mehr Geld.',
@@ -630,23 +1010,27 @@ final QuizContent questB21LesenHomeofficeContent = readingQuestQuiz(
         'They have more free time.',
       ],
       correctIndex: 0,
-      explanation: '"Wer ständig erreichbar sei, arbeite am Ende mehr, nicht '
+      explanation:
+          '"Wer ständig erreichbar sei, arbeite am Ende mehr, nicht '
           'weniger."',
     ),
   ],
-  intro: 'An argumentative text with reported speech (verschwimme, sei, arbeite) '
+  intro:
+      'An argumentative text with reported speech (verschwimme, sei, arbeite) '
       'and a "nicht …, sondern …" conclusion. Typical B2 reading.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Find the thesis',
-      text: 'The conclusion ("Entscheidend ist …") states the author’s view — a '
+      text:
+          'The conclusion ("Entscheidend ist …") states the author’s view — a '
           'common question target.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Reported = Konjunktiv I',
-      text: 'verschwimme, sei, arbeite mark the critics’ reported claims, not '
+      text:
+          'verschwimme, sei, arbeite mark the critics’ reported claims, not '
           'the author’s facts.',
     ),
   ],
@@ -660,62 +1044,117 @@ final QuizContent questB21KonnektorenContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Konnektor',
-  intro: 'Adverbial connectors link sentences and take **position 1 + verb '
+  intro:
+      'Adverbial connectors link sentences and take **position 1 + verb '
       'second**: trotzdem (nevertheless), deshalb/folglich (therefore), '
       'außerdem (moreover).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Connector + verb second',
-      text: '"Es regnete. __Trotzdem__ __gingen__ wir spazieren." The verb '
+      text:
+          '"Es regnete. __Trotzdem__ __gingen__ wir spazieren." The verb '
           'follows the connector directly.',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Meaning groups',
-      text: 'Concession: trotzdem/dennoch. Result: deshalb/folglich/daher. '
+      text:
+          'Concession: trotzdem/dennoch. Result: deshalb/folglich/daher. '
           'Addition: außerdem/zudem.',
     ),
   ],
   items: [
-    qsi('Es war teuer. ____ haben wir es gekauft. (nevertheless)', 'Trotzdem',
-        'It was expensive. Nevertheless we bought it.', 'trotzdem'),
-    qsi('Er hat viel gelernt. ____ bestand er die Prüfung. (therefore)',
-        'Folglich', 'He studied a lot. Therefore he passed the exam.',
-        'folglich'),
-    qsi('Das Hotel war gut. ____ war es zentral gelegen. (moreover)',
-        'Außerdem', 'The hotel was good. Moreover it was centrally located.',
-        'außerdem'),
-    qsi('Sie war krank. ____ ging sie zur Arbeit. (nevertheless)', 'Dennoch',
-        'She was ill. Nevertheless she went to work.', 'dennoch'),
-    qsi('Es ist spät. ____ müssen wir gehen. (therefore)', 'Deshalb',
-        'It is late. Therefore we have to go.', 'deshalb'),
-    qsi('Der Plan ist gut. ____ gibt es ein Problem. (however)', 'Allerdings',
-        'The plan is good. However, there is a problem.', 'allerdings'),
-    qsi('Es regnete stark. ____ blieben wir zu Hause. (that is why)', 'Daher',
-        'It rained heavily. That is why we stayed at home.', 'daher'),
-    qsi('Das Essen war lecker. ____ war der Service freundlich. (in addition)',
-        'Zudem', 'The food was tasty. In addition, the service was friendly.',
-        'zudem'),
-    qsi('Beeil dich! ____ verpassen wir den Zug. (otherwise)', 'Sonst',
-        'Hurry up! Otherwise we will miss the train.', 'sonst'),
-    qsi('Er kaufte kein Auto. ____ nahm er das Fahrrad. (instead)',
-        'Stattdessen', 'He did not buy a car. Instead he took the bike.',
-        'stattdessen'),
-    qsi('Ich mag Tee. Mein Bruder ____ trinkt nur Kaffee. (by contrast)',
-        'dagegen', 'I like tea. My brother, by contrast, only drinks coffee.',
-        'dagegen'),
-    qsi('Sie hatte Kopfschmerzen. ____ nahm sie eine Tablette. (that is why)',
-        'Deswegen', 'She had a headache. That is why she took a pill.',
-        'deswegen'),
-    qsi('Der Film war lang. ____ war er nie langweilig. (however)', 'Jedoch',
-        'The film was long. However, it was never boring.', 'jedoch'),
-    qsi('Er trainiert jeden Tag. ____ wurde er immer besser. (as a result)',
-        'Dadurch', 'He trains every day. As a result he kept improving.',
-        'dadurch'),
-    qsi('Wir haben wenig Zeit. ____ schaffen wir es. (nevertheless)',
-        'Trotzdem', 'We have little time. Nevertheless we will manage.',
-        'trotzdem (Zeit)'),
+    qsi(
+      'Es war teuer. ____ haben wir es gekauft. (nevertheless)',
+      'Trotzdem',
+      'It was expensive. Nevertheless we bought it.',
+      'trotzdem',
+    ),
+    qsi(
+      'Er hat viel gelernt. ____ bestand er die Prüfung. (therefore)',
+      'Folglich',
+      'He studied a lot. Therefore he passed the exam.',
+      'folglich',
+    ),
+    qsi(
+      'Das Hotel war gut. ____ war es zentral gelegen. (moreover)',
+      'Außerdem',
+      'The hotel was good. Moreover it was centrally located.',
+      'außerdem',
+    ),
+    qsi(
+      'Sie war krank. ____ ging sie zur Arbeit. (nevertheless)',
+      'Dennoch',
+      'She was ill. Nevertheless she went to work.',
+      'dennoch',
+    ),
+    qsi(
+      'Es ist spät. ____ müssen wir gehen. (therefore)',
+      'Deshalb',
+      'It is late. Therefore we have to go.',
+      'deshalb',
+    ),
+    qsi(
+      'Der Plan ist gut. ____ gibt es ein Problem. (however)',
+      'Allerdings',
+      'The plan is good. However, there is a problem.',
+      'allerdings',
+    ),
+    qsi(
+      'Es regnete stark. ____ blieben wir zu Hause. (that is why)',
+      'Daher',
+      'It rained heavily. That is why we stayed at home.',
+      'daher',
+    ),
+    qsi(
+      'Das Essen war lecker. ____ war der Service freundlich. (in addition)',
+      'Zudem',
+      'The food was tasty. In addition, the service was friendly.',
+      'zudem',
+    ),
+    qsi(
+      'Beeil dich! ____ verpassen wir den Zug. (otherwise)',
+      'Sonst',
+      'Hurry up! Otherwise we will miss the train.',
+      'sonst',
+    ),
+    qsi(
+      'Er kaufte kein Auto. ____ nahm er das Fahrrad. (instead)',
+      'Stattdessen',
+      'He did not buy a car. Instead he took the bike.',
+      'stattdessen',
+    ),
+    qsi(
+      'Ich mag Tee. Mein Bruder ____ trinkt nur Kaffee. (by contrast)',
+      'dagegen',
+      'I like tea. My brother, by contrast, only drinks coffee.',
+      'dagegen',
+    ),
+    qsi(
+      'Sie hatte Kopfschmerzen. ____ nahm sie eine Tablette. (that is why)',
+      'Deswegen',
+      'She had a headache. That is why she took a pill.',
+      'deswegen',
+    ),
+    qsi(
+      'Der Film war lang. ____ war er nie langweilig. (however)',
+      'Jedoch',
+      'The film was long. However, it was never boring.',
+      'jedoch',
+    ),
+    qsi(
+      'Er trainiert jeden Tag. ____ wurde er immer besser. (as a result)',
+      'Dadurch',
+      'He trains every day. As a result he kept improving.',
+      'dadurch',
+    ),
+    qsi(
+      'Wir haben wenig Zeit. ____ schaffen wir es. (nevertheless)',
+      'Trotzdem',
+      'We have little time. Nevertheless we will manage.',
+      'trotzdem (Zeit)',
+    ),
   ],
 );
 
@@ -726,69 +1165,87 @@ final QuizContent questB21DiktatContent = dictationQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'A dictation with argumentative language and the modal passive. You '
+  intro:
+      'A dictation with argumentative language and the modal passive. You '
       'HEAR a sentence and TYPE it. Listen for connectors and "werden" at the '
       'end of passive phrases.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Position-1 connectors',
-      text: 'After Trotzdem/Deshalb the verb comes next. Keep that order when '
+      text:
+          'After Trotzdem/Deshalb the verb comes next. Keep that order when '
           'you write.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Long compound nouns',
-      text: 'B2 nouns can be long (Arbeitszeiten, Herausforderung). Write them '
+      text:
+          'B2 nouns can be long (Arbeitszeiten, Herausforderung). Write them '
           'as one word.',
     ),
   ],
   sentences: const [
     SpeakPhrase(
-        phrase: 'Meiner Meinung nach ist das ein wichtiges Thema.',
-        meaning: 'In my opinion this is an important topic.'),
+      phrase: 'Meiner Meinung nach ist das ein wichtiges Thema.',
+      meaning: 'In my opinion this is an important topic.',
+    ),
     SpeakPhrase(
-        phrase: 'Das Problem muss schnell gelöst werden.',
-        meaning: 'The problem must be solved quickly.'),
+      phrase: 'Das Problem muss schnell gelöst werden.',
+      meaning: 'The problem must be solved quickly.',
+    ),
     SpeakPhrase(
-        phrase: 'Es war spät, trotzdem haben wir weiterdiskutiert.',
-        meaning: 'It was late, nevertheless we kept discussing.'),
+      phrase: 'Es war spät, trotzdem haben wir weiterdiskutiert.',
+      meaning: 'It was late, nevertheless we kept discussing.',
+    ),
     SpeakPhrase(
-        phrase: 'Einerseits ist es teuer, andererseits sehr praktisch.',
-        meaning: 'On the one hand it’s expensive, on the other very practical.'),
+      phrase: 'Einerseits ist es teuer, andererseits sehr praktisch.',
+      meaning: 'On the one hand it’s expensive, on the other very practical.',
+    ),
     SpeakPhrase(
-        phrase: 'Viele Menschen nehmen an der Diskussion teil.',
-        meaning: 'Many people take part in the discussion.'),
+      phrase: 'Viele Menschen nehmen an der Diskussion teil.',
+      meaning: 'Many people take part in the discussion.',
+    ),
     SpeakPhrase(
-        phrase: 'Zusammenfassend lässt sich sagen, dass beide recht haben.',
-        meaning: 'In summary, both are right.'),
+      phrase: 'Zusammenfassend lässt sich sagen, dass beide recht haben.',
+      meaning: 'In summary, both are right.',
+    ),
     SpeakPhrase(
-        phrase: 'Ich bin davon überzeugt, dass das stimmt.',
-        meaning: 'I am convinced that this is true.'),
+      phrase: 'Ich bin davon überzeugt, dass das stimmt.',
+      meaning: 'I am convinced that this is true.',
+    ),
     SpeakPhrase(
-        phrase: 'Dagegen spricht, dass es viel kostet.',
-        meaning: 'Against it is the fact that it costs a lot.'),
+      phrase: 'Dagegen spricht, dass es viel kostet.',
+      meaning: 'Against it is the fact that it costs a lot.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Vorteile überwiegen die Nachteile.',
-        meaning: 'The advantages outweigh the disadvantages.'),
+      phrase: 'Die Vorteile überwiegen die Nachteile.',
+      meaning: 'The advantages outweigh the disadvantages.',
+    ),
     SpeakPhrase(
-        phrase: 'Es kommt darauf an, was man erreichen will.',
-        meaning: 'It depends on what you want to achieve.'),
+      phrase: 'Es kommt darauf an, was man erreichen will.',
+      meaning: 'It depends on what you want to achieve.',
+    ),
     SpeakPhrase(
-        phrase: 'Daher sollten wir die Entscheidung verschieben.',
-        meaning: 'Therefore we should postpone the decision.'),
+      phrase: 'Daher sollten wir die Entscheidung verschieben.',
+      meaning: 'Therefore we should postpone the decision.',
+    ),
     SpeakPhrase(
-        phrase: 'Ein wichtiges Argument ist der Umweltschutz.',
-        meaning: 'An important argument is environmental protection.'),
+      phrase: 'Ein wichtiges Argument ist der Umweltschutz.',
+      meaning: 'An important argument is environmental protection.',
+    ),
     SpeakPhrase(
-        phrase: 'Im Gegensatz dazu ist die zweite Lösung billiger.',
-        meaning: 'In contrast, the second solution is cheaper.'),
+      phrase: 'Im Gegensatz dazu ist die zweite Lösung billiger.',
+      meaning: 'In contrast, the second solution is cheaper.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Studie ist letztes Jahr veröffentlicht worden.',
-        meaning: 'The study was published last year.'),
+      phrase: 'Die Studie ist letztes Jahr veröffentlicht worden.',
+      meaning: 'The study was published last year.',
+    ),
     SpeakPhrase(
-        phrase: 'Außerdem muss die Politik schneller handeln.',
-        meaning: 'Moreover, politics must act faster.'),
+      phrase: 'Außerdem muss die Politik schneller handeln.',
+      meaning: 'Moreover, politics must act faster.',
+    ),
   ],
 );
 
@@ -800,55 +1257,116 @@ final QuizContent questB21PassivPerfektContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Passiv Perfekt',
-  intro: 'The perfect passive uses **sein + Partizip II + worden** (note: '
+  intro:
+      'The perfect passive uses **sein + Partizip II + worden** (note: '
       'worden, not geworden, in the passive): "Das Haus __ist gebaut worden__."',
   tips: const [
     HelpMemoryTip(
       kind: 'warning',
       title: 'worden, not geworden',
-      text: 'In the passive perfect the auxiliary participle is __worden__: "Es '
+      text:
+          'In the passive perfect the auxiliary participle is __worden__: "Es '
           'ist gemacht __worden__." (geworden only when werden = to become.)',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'sein + Partizip + worden',
-      text: '"Die Briefe __sind__ gestern __geschrieben worden__." sein agrees '
+      text:
+          '"Die Briefe __sind__ gestern __geschrieben worden__." sein agrees '
           'with the subject.',
     ),
   ],
   items: [
-    qsi('Das Haus ist 1990 gebaut ____. (worden)', 'worden',
-        'The house was built in 1990.', 'ist gebaut worden'),
-    qsi('Die Briefe sind schon geschrieben ____. (worden)', 'worden',
-        'The letters have already been written.', 'sind geschrieben worden'),
-    qsi('Der Dieb ist gestern gefunden ____. (worden)', 'worden',
-        'The thief was found yesterday.', 'ist gefunden worden'),
-    qsi('Das Konzert ist leider abgesagt ____. (worden)', 'worden',
-        'The concert was unfortunately cancelled.', 'ist abgesagt worden'),
-    qsi('Mir ist nichts gesagt ____. (worden)', 'worden',
-        'I wasn’t told anything.', 'ist gesagt worden'),
-    qsi('Die Rechnung ____ schon bezahlt worden. (sein)', 'ist',
-        'The bill has already been paid.', 'ist … worden (Rechnung)'),
-    qsi('Die Fenster ____ gestern geputzt worden. (sein, Pl.)', 'sind',
-        'The windows were cleaned yesterday.', 'sind … worden'),
-    qsi('Das Paket ist gestern geliefert ____. (worden)', 'worden',
-        'The parcel was delivered yesterday.', 'ist geliefert worden'),
-    qsi('Die Gäste sind rechtzeitig informiert ____. (worden)', 'worden',
-        'The guests were informed in time.', 'sind informiert worden'),
-    qsi('Der Vertrag ____ noch nicht unterschrieben worden. (sein)', 'ist',
-        'The contract has not been signed yet.', 'ist … worden (Vertrag)'),
-    qsi('Das Museum ist komplett renoviert ____. (worden)', 'worden',
-        'The museum has been completely renovated.', 'ist renoviert worden'),
-    qsi('Die Fehler ____ alle korrigiert worden. (sein, Pl.)', 'sind',
-        'The mistakes have all been corrected.', 'sind … worden (Fehler)'),
-    qsi('Das Auto ist in Japan gebaut ____. (worden)', 'worden',
-        'The car was built in Japan.', 'ist gebaut worden (Auto)'),
-    qsi('Die Einladungen sind letzte Woche verschickt ____. (worden)',
-        'worden', 'The invitations were sent last week.',
-        'sind verschickt worden'),
-    qsi('Der Flug ____ wegen des Sturms gestrichen worden. (sein)', 'ist',
-        'The flight was cancelled because of the storm.',
-        'ist … worden (Flug)'),
+    qsi(
+      'Das Haus ist 1990 gebaut ____. (worden)',
+      'worden',
+      'The house was built in 1990.',
+      'ist gebaut worden',
+    ),
+    qsi(
+      'Die Briefe sind schon geschrieben ____. (worden)',
+      'worden',
+      'The letters have already been written.',
+      'sind geschrieben worden',
+    ),
+    qsi(
+      'Der Dieb ist gestern gefunden ____. (worden)',
+      'worden',
+      'The thief was found yesterday.',
+      'ist gefunden worden',
+    ),
+    qsi(
+      'Das Konzert ist leider abgesagt ____. (worden)',
+      'worden',
+      'The concert was unfortunately cancelled.',
+      'ist abgesagt worden',
+    ),
+    qsi(
+      'Mir ist nichts gesagt ____. (worden)',
+      'worden',
+      'I wasn’t told anything.',
+      'ist gesagt worden',
+    ),
+    qsi(
+      'Die Rechnung ____ schon bezahlt worden. (sein)',
+      'ist',
+      'The bill has already been paid.',
+      'ist … worden (Rechnung)',
+    ),
+    qsi(
+      'Die Fenster ____ gestern geputzt worden. (sein, Pl.)',
+      'sind',
+      'The windows were cleaned yesterday.',
+      'sind … worden',
+    ),
+    qsi(
+      'Das Paket ist gestern geliefert ____. (worden)',
+      'worden',
+      'The parcel was delivered yesterday.',
+      'ist geliefert worden',
+    ),
+    qsi(
+      'Die Gäste sind rechtzeitig informiert ____. (worden)',
+      'worden',
+      'The guests were informed in time.',
+      'sind informiert worden',
+    ),
+    qsi(
+      'Der Vertrag ____ noch nicht unterschrieben worden. (sein)',
+      'ist',
+      'The contract has not been signed yet.',
+      'ist … worden (Vertrag)',
+    ),
+    qsi(
+      'Das Museum ist komplett renoviert ____. (worden)',
+      'worden',
+      'The museum has been completely renovated.',
+      'ist renoviert worden',
+    ),
+    qsi(
+      'Die Fehler ____ alle korrigiert worden. (sein, Pl.)',
+      'sind',
+      'The mistakes have all been corrected.',
+      'sind … worden (Fehler)',
+    ),
+    qsi(
+      'Das Auto ist in Japan gebaut ____. (worden)',
+      'worden',
+      'The car was built in Japan.',
+      'ist gebaut worden (Auto)',
+    ),
+    qsi(
+      'Die Einladungen sind letzte Woche verschickt ____. (worden)',
+      'worden',
+      'The invitations were sent last week.',
+      'sind verschickt worden',
+    ),
+    qsi(
+      'Der Flug ____ wegen des Sturms gestrichen worden. (sein)',
+      'ist',
+      'The flight was cancelled because of the storm.',
+      'ist … worden (Flug)',
+    ),
   ],
 );
 
@@ -877,7 +1395,11 @@ final QuizContent questB21HoerenNachrichtenContent = listeningQuestQuiz(
     ReadingQuestion(
       question: 'Was hat die Regierung vorgestellt?',
       questionTranslation: 'What did the government present?',
-      options: ['ein neues Klimagesetz', 'einen neuen Bahnhof', 'ein neues Auto'],
+      options: [
+        'ein neues Klimagesetz',
+        'einen neuen Bahnhof',
+        'ein neues Auto',
+      ],
       optionsTranslation: ['a new climate law', 'a new station', 'a new car'],
       correctIndex: 0,
       explanation: '"… ein neues Klimagesetz vorgestellt."',
@@ -894,13 +1416,18 @@ final QuizContent questB21HoerenNachrichtenContent = listeningQuestQuiz(
       question: 'Wer warnt vor höheren Kosten?',
       questionTranslation: 'Who warns of higher costs?',
       options: ['die Umweltverbände', 'die Wirtschaft', 'die Schüler'],
-      optionsTranslation: ['the environmental groups', 'the business sector', 'the pupils'],
+      optionsTranslation: [
+        'the environmental groups',
+        'the business sector',
+        'the pupils',
+      ],
       correctIndex: 1,
       explanation: '"… doch die Wirtschaft warnt vor höheren Kosten …"',
     ),
     ReadingQuestion(
       question: 'Was ist laut Sprecher das Ziel des Gesetzes?',
-      questionTranslation: 'What, according to the spokesperson, is the goal of the law?',
+      questionTranslation:
+          'What, according to the spokesperson, is the goal of the law?',
       options: [
         'weniger Autos in den Städten',
         'mehr Parkplätze bauen',
@@ -931,19 +1458,22 @@ final QuizContent questB21HoerenNachrichtenContent = listeningQuestQuiz(
       explanation: '"Umweltverbände begrüßen den Plan …"',
     ),
   ],
-  intro: 'A news bulletin — you only hear it. Reported speech (werde, sei) marks '
+  intro:
+      'A news bulletin — you only hear it. Reported speech (werde, sei) marks '
       'official claims. Track who supports and who warns. Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Two reactions',
-      text: 'Umweltverbände begrüßen (welcome) vs Wirtschaft warnt (warns). Note '
+      text:
+          'Umweltverbände begrüßen (welcome) vs Wirtschaft warnt (warns). Note '
           'each side.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'während = while/whereas',
-      text: '"… während der öffentliche Verkehr günstiger werde" contrasts two '
+      text:
+          '"… während der öffentliche Verkehr günstiger werde" contrasts two '
           'changes.',
     ),
   ],
@@ -956,41 +1486,50 @@ final QuizContent questB21SprechenArgumentContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Structure a short argument: introduce, give examples, conclude. Listen '
+  intro:
+      'Structure a short argument: introduce, give examples, conclude. Listen '
       'and repeat these signposting phrases.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Signposting',
-      text: 'Erstens … zweitens … (firstly … secondly …); zum Beispiel (for '
+      text:
+          'Erstens … zweitens … (firstly … secondly …); zum Beispiel (for '
           'example); abschließend (finally).',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Introduce a point',
-      text: '"Ich möchte auf einen wichtigen Punkt eingehen." opens a structured '
+      text:
+          '"Ich möchte auf einen wichtigen Punkt eingehen." opens a structured '
           'argument.',
     ),
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Ich möchte auf einen wichtigen Punkt eingehen.',
-        meaning: 'I’d like to address an important point.'),
+      phrase: 'Ich möchte auf einen wichtigen Punkt eingehen.',
+      meaning: 'I’d like to address an important point.',
+    ),
     SpeakPhrase(
-        phrase: 'Erstens spart man Zeit, zweitens spart man Geld.',
-        meaning: 'Firstly you save time, secondly you save money.'),
+      phrase: 'Erstens spart man Zeit, zweitens spart man Geld.',
+      meaning: 'Firstly you save time, secondly you save money.',
+    ),
     SpeakPhrase(
-        phrase: 'Ein gutes Beispiel dafür ist …',
-        meaning: 'A good example of this is …'),
+      phrase: 'Ein gutes Beispiel dafür ist …',
+      meaning: 'A good example of this is …',
+    ),
     SpeakPhrase(
-        phrase: 'Das zeigt deutlich, dass …',
-        meaning: 'This clearly shows that …'),
+      phrase: 'Das zeigt deutlich, dass …',
+      meaning: 'This clearly shows that …',
+    ),
     SpeakPhrase(
-        phrase: 'Abschließend möchte ich betonen, dass …',
-        meaning: 'Finally I would like to stress that …'),
+      phrase: 'Abschließend möchte ich betonen, dass …',
+      meaning: 'Finally I would like to stress that …',
+    ),
     SpeakPhrase(
-        phrase: 'Vielen Dank für Ihre Aufmerksamkeit.',
-        meaning: 'Thank you for your attention.'),
+      phrase: 'Vielen Dank für Ihre Aufmerksamkeit.',
+      meaning: 'Thank you for your attention.',
+    ),
   ],
 );
 
@@ -1022,12 +1561,12 @@ final QuizContent questB21LesenLeserbriefContent = readingQuestQuiz(
       options: [
         'auf einen Artikel über Stadtplanung',
         'auf eine Werbung',
-        'auf einen anderen Leserbrief'
+        'auf einen anderen Leserbrief',
       ],
       optionsTranslation: [
         'an article about urban planning',
         'an advertisement',
-        'another reader’s letter'
+        'another reader’s letter',
       ],
       correctIndex: 0,
       explanation: '"… Ihren Artikel über die Stadtplanung gelesen."',
@@ -1035,15 +1574,11 @@ final QuizContent questB21LesenLeserbriefContent = readingQuestQuiz(
     ReadingQuestion(
       question: 'Was kritisiert der Autor?',
       questionTranslation: 'What does the author criticise?',
-      options: [
-        'zu viele Autos',
-        'fehlende Grünflächen',
-        'zu hohe Mieten'
-      ],
+      options: ['zu viele Autos', 'fehlende Grünflächen', 'zu hohe Mieten'],
       optionsTranslation: [
         'too many cars',
         'a lack of green spaces',
-        'rents that are too high'
+        'rents that are too high',
       ],
       correctIndex: 1,
       explanation: '"… fehlt es eindeutig an Grünflächen."',
@@ -1054,12 +1589,12 @@ final QuizContent questB21LesenLeserbriefContent = readingQuestQuiz(
       options: [
         'mehr an die Bewohner zu denken',
         'das Parkhaus abzureißen',
-        'die Mieten zu senken'
+        'die Mieten zu senken',
       ],
       optionsTranslation: [
         'to think more about the residents',
         'to demolish the car park',
-        'to lower the rents'
+        'to lower the rents',
       ],
       correctIndex: 0,
       explanation: '"… mehr an die Bewohner zu denken."',
@@ -1068,7 +1603,11 @@ final QuizContent questB21LesenLeserbriefContent = readingQuestQuiz(
       question: 'Was ist dort gebaut worden, wo früher ein Park war?',
       questionTranslation: 'What has been built where a park used to be?',
       options: ['ein Parkhaus', 'ein Spielplatz', 'ein Krankenhaus'],
-      optionsTranslation: ['a multi-storey car park', 'a playground', 'a hospital'],
+      optionsTranslation: [
+        'a multi-storey car park',
+        'a playground',
+        'a hospital',
+      ],
       correctIndex: 0,
       explanation: '"Wo früher ein Park war, ist ein Parkhaus gebaut worden."',
     ),
@@ -1080,28 +1619,28 @@ final QuizContent questB21LesenLeserbriefContent = readingQuestQuiz(
         'der Bürgermeister',
         'ein Journalist',
       ],
-      optionsTranslation: [
-        'a long-time resident',
-        'the mayor',
-        'a journalist',
-      ],
+      optionsTranslation: ['a long-time resident', 'the mayor', 'a journalist'],
       correctIndex: 0,
-      explanation: '"Als langjähriger Bewohner möchte ich … einen Punkt ergänzen …"',
+      explanation:
+          '"Als langjähriger Bewohner möchte ich … einen Punkt ergänzen …"',
     ),
   ],
-  intro: 'A formal reader’s letter — a B2 text type. It uses the perfect passive '
+  intro:
+      'A formal reader’s letter — a B2 text type. It uses the perfect passive '
       '(ist gebaut worden), um…zu, and a polite demand (Ich fordere … auf).',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Letter conventions',
-      text: '"Sehr geehrte Redaktion" opens, "Mit freundlichen Grüßen" closes — '
+      text:
+          '"Sehr geehrte Redaktion" opens, "Mit freundlichen Grüßen" closes — '
           'the formal register.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'The demand at the end',
-      text: 'Leserbriefe usually end with a request/demand ("Ich fordere …"). '
+      text:
+          'Leserbriefe usually end with a request/demand ("Ich fordere …"). '
           'That’s the writer’s goal.',
     ),
   ],
@@ -1139,32 +1678,122 @@ final QuizContent questB21BigTextPresseContent = bigTextQuestQuiz(
       'there was no quick solution. The minister (she) said she would speak with '
       'the citizens. She said everyone could help. In the end she said she was '
       'optimistic.',
-  intro: 'Report what was said. In indirect speech German shifts the verb to the '
+  intro:
+      'Report what was said. In indirect speech German shifts the verb to the '
       'Konjunktiv I: ist→sei, hat→habe, muss→müsse, wird→werde, gibt→gebe, '
       'kann→könne. It keeps the reporter neutral about whether it is true.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'The Konjunktiv I endings',
-      text: 'Take the infinitive stem + -e/-est/-e/-en… : er sei, er habe, er '
+      text:
+          'Take the infinitive stem + -e/-est/-e/-en… : er sei, er habe, er '
           'müsse, er werde, er könne. sein is the odd one: ich sei, er sei.',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'German backshifts the mood, not the tense',
-      text: 'English shifts tense ("he said he WAS…"); German keeps the tense but '
+      text:
+          'English shifts tense ("he said he WAS…"); German keeps the tense but '
           'switches to Konjunktiv I ("er sagte, er SEI…").',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'When Konj. I looks like the present, use Konj. II',
-      text: 'In the plural (sie haben → sie hätten) the Konjunktiv I would look '
+      text:
+          'In the plural (sie haben → sie hätten) the Konjunktiv I would look '
           'like the indicative, so German substitutes the Konjunktiv II.',
     ),
   ],
 );
 
 /// Every B2.1 quiz, in chain order — all five exercise types, interleaved.
+
+/// Speaking: the learner runs this conversation in their own AI
+/// assistant and enters the score it gives (see `SpeakingQuizPage`).
+final QuizContent questSpeakingArgumentierenContent = speakingQuestQuiz(
+  id: 'quest_b2_1_sprechen_dialog',
+  title: 'B2.1 · Gespräch: Argumentieren',
+  level: 'B2.1',
+  topic:
+      'Arguing a position and reporting what others say: a debate about work, technology or the environment.',
+  practisePoints: [
+    'Konjunktiv I for reported speech: Er sagt, er sei ...',
+    'Modal passive: Das kann gemacht werden.',
+    'Verbs with fixed prepositions: sich interessieren für, denken an',
+    'da- and wo-compounds: darüber, worauf',
+  ],
+  targetVocabulary: [
+    'sei',
+    'behaupten',
+    'darüber',
+    'sich interessieren für',
+    'einerseits',
+    'andererseits',
+  ],
+  scoringCriteria: [
+    'the Konjunktiv I form',
+    'the modal passive',
+    'the right preposition after the verb',
+    'a structured argument with a counterpoint',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv I',
+    'wrong preposition',
+    'passive built wrongly',
+    'wrong da-/wo-compound',
+  ],
+  session: SpeakingSession(durationMinutes: 6, minExchanges: 9),
+  intro:
+      'The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say "Los geht\'s" to start. It grades you at the end - bring that score back here.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Let it be a conversation',
+      text:
+          'Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score.',
+    ),
+  ],
+);
+
+/// Mid-level speaking checkpoint: a shorter, question-driven run over the
+/// first half of this sub-level. The closing Gespräch covers the level as
+/// a whole.
+final QuizContent questSpeakingCheckB21Content = speakingQuestQuiz(
+  id: 'quest_b2_1_sprechen_kurzcheck',
+  title: 'B2.1 · Kurzcheck: Konjunktiv I',
+  level: 'B2.1',
+  topic: 'Passing on statements: I hear something short and report it onward.',
+  practisePoints: [
+    'Konjunktiv I: er sei, er habe, er werde',
+    'The fallback to Konjunktiv II when the form is ambiguous',
+    'Reporting without taking a side',
+  ],
+  targetVocabulary: ['sei', 'habe', 'werde', 'behaupten', 'laut'],
+  scoringCriteria: [
+    'the Konjunktiv I form',
+    'the fallback to Konjunktiv II',
+    'a neutral report',
+  ],
+  priorityErrors: [
+    'indicative instead of Konjunktiv I',
+    'wrong Konjunktiv form',
+  ],
+  mode: SpeakingMode.roleplay,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'A short checkpoint, not an exam',
+      text:
+          'Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end.',
+    ),
+  ],
+);
+
 final List<QuizContent> questB2_1Content = [
   questB21GesellschaftContent, //       Gesellschaft & Politik  (knowledge)
   questB21Konj1Content, //              Konjunktiv I            (knowledge·verb)
@@ -1174,6 +1803,7 @@ final List<QuizContent> questB2_1Content = [
   questB21ModalpassivContent, //        Modalpassiv             (knowledge·verb)
   questB21HoerenDebatteContent, //      Hören: Debatte          (listening)
   questB21VerbenPraepContent, //        Verben + Präposition    (knowledge)
+  questSpeakingCheckB21Content, // Kurzcheck mit einer KI (speaking·AI)
   questB21PartizipAdjContent, //        Partizip als Adjektiv   (knowledge)
   questB21LesenHomeofficeContent, //    Lesen: Homeoffice       (reading)
   questB21KonnektorenContent, //        Konnektoren             (knowledge)
@@ -1182,4 +1812,5 @@ final List<QuizContent> questB2_1Content = [
   questB21HoerenNachrichtenContent, //  Hören: Nachrichten      (listening)
   questB21SprechenArgumentContent, //   Sprechen: Argument      (speaking)
   questB21LesenLeserbriefContent, //    Lesen: Leserbrief       (reading)
+  questSpeakingArgumentierenContent, // Gespräch mit einer KI  (speaking·AI)
 ];

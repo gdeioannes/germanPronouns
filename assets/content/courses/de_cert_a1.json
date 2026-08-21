@@ -107,7 +107,7 @@
       }
     ]
   },
-  "version": "1.20.0",
+  "version": "1.24.0",
   "quizzes": [
     {
       "type": "fillBlank",
@@ -1464,6 +1464,58 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_a1_1_sprechen_kurzcheck",
+      "title": "A1.1 · Kurzcheck: Zahlen & Vorstellung",
+      "storageKeyPrefix": "quest_a1_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A1.1",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A quick round: my name, where I am from, my age and a few numbers.",
+        "practisePoints": [
+          "Numbers 0-100, said and understood",
+          "ich heisse / ich bin / ich komme aus",
+          "Answering W-Fragen with a full sentence"
+        ],
+        "scoringCriteria": [
+          "the number said correctly",
+          "the verb form",
+          "a full sentence as the answer"
+        ],
+        "targetVocabulary": [
+          "heißen",
+          "kommen aus",
+          "Jahre alt",
+          "die Nummer"
+        ],
+        "priorityErrors": [
+          "wrong number",
+          "wrong verb ending",
+          "one-word answers"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -2947,6 +2999,50 @@
         }
       ],
       "contextualLayout": true
+    },
+    {
+      "type": "speaking",
+      "id": "quest_a1_1_sprechen_dialog",
+      "title": "A1.1 · Gespräch: Das bin ich",
+      "storageKeyPrefix": "quest_a1_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A1.1",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Introducing myself: my name, where I live, where I come from, my family, numbers and colours around me.",
+        "practisePoints": [
+          "Present-tense endings: ich heiße, du heißt, er wohnt",
+          "sein and haben: ich bin, ich habe",
+          "Answering W-Fragen: Wie? Wo? Woher? Wie alt?"
+        ],
+        "scoringCriteria": [
+          "the verb ending for the person",
+          "sein/haben forms",
+          "answering the question that was asked"
+        ],
+        "targetVocabulary": [
+          "heißen",
+          "wohnen",
+          "kommen aus",
+          "Jahre alt",
+          "die Familie"
+        ],
+        "priorityErrors": [
+          "wrong verb ending",
+          "wrong form of sein or haben",
+          "answering a different question"
+        ]
+      }
     },
     {
       "type": "fillBlank",
@@ -4559,6 +4655,58 @@
       "stripSentenceCue": true
     },
     {
+      "type": "speaking",
+      "id": "quest_a1_2_sprechen_kurzcheck",
+      "title": "A1.2 · Kurzcheck: Akkusativ & Possessiv",
+      "storageKeyPrefix": "quest_a1_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A1.2",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "What I have and what I need today, and whose things they are.",
+        "practisePoints": [
+          "Accusative objects after haben and brauchen",
+          "Possessives: mein, meine, meinen",
+          "einen/eine/ein in the accusative"
+        ],
+        "scoringCriteria": [
+          "the accusative article",
+          "the possessive ending",
+          "the object after the verb"
+        ],
+        "targetVocabulary": [
+          "brauchen",
+          "haben",
+          "mein",
+          "meinen",
+          "einen"
+        ],
+        "priorityErrors": [
+          "nominative instead of accusative",
+          "wrong possessive ending"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_a1_2_datum",
       "title": "A1.2 · Wochentage & Monate",
@@ -5905,6 +6053,53 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_a1_2_sprechen_dialog",
+      "title": "A1.2 · Gespräch: Mein Alltag",
+      "storageKeyPrefix": "quest_a1_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A1.2",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "My everyday life: my daily routine, times and dates, what I buy, and what I can or must do.",
+        "practisePoints": [
+          "Accusative objects: Ich kaufe einen Apfel.",
+          "Possessives: mein, meine, meinen",
+          "Modal verbs with the infinitive at the end",
+          "Times and dates: um acht Uhr, am Montag"
+        ],
+        "scoringCriteria": [
+          "the accusative article",
+          "the possessive form",
+          "the infinitive at the end after a modal",
+          "time expressions"
+        ],
+        "targetVocabulary": [
+          "kaufen",
+          "brauchen",
+          "mein",
+          "um",
+          "am",
+          "müssen"
+        ],
+        "priorityErrors": [
+          "nominative instead of accusative",
+          "wrong possessive ending",
+          "infinitive not at the end"
+        ]
+      }
     },
     {
       "type": "fillBlank",
@@ -7438,6 +7633,58 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_a2_1_sprechen_kurzcheck",
+      "title": "A2.1 · Kurzcheck: Perfekt",
+      "storageKeyPrefix": "quest_a2_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A2.1",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Single things I did yesterday, one sentence at a time.",
+        "practisePoints": [
+          "Perfekt with haben: the most common past in speech",
+          "Perfekt with sein for movement: gegangen, gefahren, gekommen",
+          "The participle at the end"
+        ],
+        "scoringCriteria": [
+          "the right helper",
+          "the participle form",
+          "the participle at the end"
+        ],
+        "targetVocabulary": [
+          "gemacht",
+          "gegangen",
+          "gefahren",
+          "gestern"
+        ],
+        "priorityErrors": [
+          "wrong helper",
+          "wrong participle",
+          "participle in the wrong position"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_a2_1_war_hatte",
       "title": "A2.1 · war & hatte (Präteritum)",
@@ -8664,6 +8911,53 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_a2_1_sprechen_dialog",
+      "title": "A2.1 · Gespräch: Erlebnisse",
+      "storageKeyPrefix": "quest_a2_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A2.1",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Things I did recently: my weekend, a trip, a meal, and who I did it with or for.",
+        "practisePoints": [
+          "Perfekt with haben and sein, participle at the end",
+          "Dative for the receiver: Ich habe meiner Mutter geholfen.",
+          "Time expressions in the past: gestern, letzte Woche, danach"
+        ],
+        "scoringCriteria": [
+          "the right helper (haben or sein)",
+          "the participle form",
+          "the participle at the end",
+          "the dative for the receiver"
+        ],
+        "targetVocabulary": [
+          "gestern",
+          "letzte Woche",
+          "gefahren",
+          "gegessen",
+          "meiner",
+          "geholfen"
+        ],
+        "priorityErrors": [
+          "wrong helper",
+          "wrong participle",
+          "participle in the wrong position",
+          "accusative instead of dative"
+        ]
+      }
     },
     {
       "type": "fillBlank",
@@ -10143,6 +10437,58 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_a2_2_sprechen_kurzcheck",
+      "title": "A2.2 · Kurzcheck: Wo oder wohin?",
+      "storageKeyPrefix": "quest_a2_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A2.2",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Where things are in the room I am in, and where they are going.",
+        "practisePoints": [
+          "Wo? + dative for a location",
+          "Wohin? + accusative for movement",
+          "The article after the preposition"
+        ],
+        "scoringCriteria": [
+          "dative for a location",
+          "accusative for movement",
+          "the article after the preposition"
+        ],
+        "targetVocabulary": [
+          "auf",
+          "in",
+          "neben",
+          "unter",
+          "stellen"
+        ],
+        "priorityErrors": [
+          "wrong case after a two-way preposition",
+          "wrong article"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_a2_2_gesundheit",
       "title": "A2.2 · Körper & Gesundheit",
@@ -11280,6 +11626,51 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_a2_2_sprechen_dialog",
+      "title": "A2.2 · Gespräch: Beschreiben & Planen",
+      "storageKeyPrefix": "quest_a2_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "A2.2",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Describing a place I know and planning something: where things are, where they go, and why I want to do what I plan.",
+        "practisePoints": [
+          "Wo? + dative vs Wohin? + accusative",
+          "weil and dass with the verb at the end",
+          "TeKaMoLo order: time before manner before place"
+        ],
+        "scoringCriteria": [
+          "dative for a location, accusative for movement",
+          "the verb at the end after weil/dass",
+          "the order of time, manner and place"
+        ],
+        "targetVocabulary": [
+          "auf",
+          "in",
+          "neben",
+          "weil",
+          "dass",
+          "deshalb"
+        ],
+        "priorityErrors": [
+          "wrong case after a two-way preposition",
+          "verb not at the end in a subordinate clause",
+          "wrong word order"
+        ]
+      }
     },
     {
       "type": "fillBlank",
@@ -12888,6 +13279,58 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_b1_1_sprechen_kurzcheck",
+      "title": "B1.1 · Kurzcheck: Konjunktiv II",
+      "storageKeyPrefix": "quest_b1_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B1.1",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Quick hypotheticals and polite requests.",
+        "practisePoints": [
+          "würde + infinitive at the end",
+          "wäre, hätte, könnte",
+          "A polite request instead of a plain order"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv II form",
+          "the infinitive at the end",
+          "politeness that fits the situation"
+        ],
+        "targetVocabulary": [
+          "würde",
+          "wäre",
+          "hätte",
+          "könnte",
+          "gern"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv II",
+          "wrong Konjunktiv form"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_b1_1_futur",
       "title": "B1.1 · Futur I",
@@ -14248,6 +14691,57 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_b1_1_sprechen_dialog",
+      "title": "B1.1 · Gespräch: Meinungen & Wünsche",
+      "storageKeyPrefix": "quest_b1_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B1.1",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "My opinions, wishes and plans: what I would change, what I would like, and what I think about something in the news.",
+        "practisePoints": [
+          "Konjunktiv II: würde, wäre, hätte, könnte",
+          "Adjective endings in the nominative, accusative and dative",
+          "Relative clauses: der Mann, der ...",
+          "Futur I for plans: Ich werde nächstes Jahr umziehen."
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv II form",
+          "the adjective ending",
+          "the relative pronoun and the verb at the end",
+          "a clear opinion with a reason"
+        ],
+        "targetVocabulary": [
+          "würde",
+          "wäre",
+          "hätte",
+          "meiner Meinung nach",
+          "der/die/das",
+          "werden"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv II",
+          "wrong adjective ending",
+          "wrong relative pronoun"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -15757,6 +16251,58 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_b1_2_sprechen_kurzcheck",
+      "title": "B1.2 · Kurzcheck: Präteritum",
+      "storageKeyPrefix": "quest_b1_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B1.2",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A short piece of narration: what happened, in the written past.",
+        "practisePoints": [
+          "Präteritum of sein, haben and the modals",
+          "Präteritum of common strong verbs: ging, kam, gab, fand",
+          "Staying in one tense across several sentences"
+        ],
+        "scoringCriteria": [
+          "the Präteritum form",
+          "strong verb stems",
+          "staying in one tense"
+        ],
+        "targetVocabulary": [
+          "war",
+          "hatte",
+          "ging",
+          "kam",
+          "damals"
+        ],
+        "priorityErrors": [
+          "wrong Präteritum form",
+          "switching to Perfekt mid-story"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_b1_2_n_deklination",
       "title": "B1.2 · n-Deklination",
@@ -16981,6 +17527,57 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_b1_2_sprechen_dialog",
+      "title": "B1.2 · Gespräch: Erzählen & Begründen",
+      "storageKeyPrefix": "quest_b1_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B1.2",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Telling a story and explaining a process: something that happened to me, and how something is done where I live.",
+        "practisePoints": [
+          "Präteritum for narration: war, hatte, ging, wurde",
+          "werden-Passiv: Das Haus wurde gebaut.",
+          "um ... zu for purpose",
+          "Relative clauses in the dative: die Frau, der ich geholfen habe"
+        ],
+        "scoringCriteria": [
+          "the Präteritum form",
+          "the passive with werden",
+          "um ... zu with the infinitive at the end",
+          "staying in one tense"
+        ],
+        "targetVocabulary": [
+          "damals",
+          "plötzlich",
+          "wurde",
+          "um ... zu",
+          "deswegen"
+        ],
+        "priorityErrors": [
+          "wrong Präteritum form",
+          "active instead of passive",
+          "wrong case in the relative clause",
+          "switching tense mid-story"
+        ],
+        "session": {
+          "durationMinutes": 5,
+          "minExchanges": 8
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -18476,6 +19073,58 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_b2_1_sprechen_kurzcheck",
+      "title": "B2.1 · Kurzcheck: Konjunktiv I",
+      "storageKeyPrefix": "quest_b2_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B2.1",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Passing on statements: I hear something short and report it onward.",
+        "practisePoints": [
+          "Konjunktiv I: er sei, er habe, er werde",
+          "The fallback to Konjunktiv II when the form is ambiguous",
+          "Reporting without taking a side"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv I form",
+          "the fallback to Konjunktiv II",
+          "a neutral report"
+        ],
+        "targetVocabulary": [
+          "sei",
+          "habe",
+          "werde",
+          "behaupten",
+          "laut"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv I",
+          "wrong Konjunktiv form"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_b2_1_partizip_adj",
       "title": "B2.1 · Partizip als Adjektiv",
@@ -19700,6 +20349,58 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_b2_1_sprechen_dialog",
+      "title": "B2.1 · Gespräch: Argumentieren",
+      "storageKeyPrefix": "quest_b2_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B2.1",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Arguing a position and reporting what others say: a debate about work, technology or the environment.",
+        "practisePoints": [
+          "Konjunktiv I for reported speech: Er sagt, er sei ...",
+          "Modal passive: Das kann gemacht werden.",
+          "Verbs with fixed prepositions: sich interessieren für, denken an",
+          "da- and wo-compounds: darüber, worauf"
+        ],
+        "scoringCriteria": [
+          "the Konjunktiv I form",
+          "the modal passive",
+          "the right preposition after the verb",
+          "a structured argument with a counterpoint"
+        ],
+        "targetVocabulary": [
+          "sei",
+          "behaupten",
+          "darüber",
+          "sich interessieren für",
+          "einerseits",
+          "andererseits"
+        ],
+        "priorityErrors": [
+          "indicative instead of Konjunktiv I",
+          "wrong preposition",
+          "passive built wrongly",
+          "wrong da-/wo-compound"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -21211,6 +21912,59 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_b2_2_sprechen_kurzcheck",
+      "title": "B2.2 · Kurzcheck: Irreale Vergangenheit",
+      "storageKeyPrefix": "quest_b2_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B2.2",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Looking back at small decisions: what I would have done differently.",
+        "practisePoints": [
+          "hätte / wäre + participle for the irreal past",
+          "wenn-clauses in the irreal past",
+          "Keeping the whole answer in the irreal"
+        ],
+        "scoringCriteria": [
+          "the irreal past form",
+          "the participle",
+          "staying in the irreal"
+        ],
+        "targetVocabulary": [
+          "hätte",
+          "wäre",
+          "gemacht",
+          "wenn",
+          "anders"
+        ],
+        "priorityErrors": [
+          "present Konjunktiv II instead of the past",
+          "wrong participle",
+          "slipping into the indicative"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_b2_2_modalpartikeln",
       "title": "B2.2 · Modalpartikeln",
@@ -22432,6 +23186,57 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_b2_2_sprechen_dialog",
+      "title": "B2.2 · Gespräch: Differenzieren",
+      "storageKeyPrefix": "quest_b2_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "B2.2",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Looking back on decisions and weighing options: what I would have done differently, and how I see a complex issue.",
+        "practisePoints": [
+          "Konjunktiv II der Vergangenheit: Ich hätte das anders gemacht.",
+          "Genitive prepositions: trotz, wegen, während, aufgrund",
+          "Funktionsverbgefüge: eine Entscheidung treffen, zur Verfügung stehen",
+          "Modal particles: doch, mal, eigentlich, ja"
+        ],
+        "scoringCriteria": [
+          "the irreal past form",
+          "the case after a genitive preposition",
+          "natural use of a Funktionsverbgefüge",
+          "nuance rather than a flat statement"
+        ],
+        "targetVocabulary": [
+          "hätte",
+          "wäre",
+          "trotz",
+          "wegen",
+          "eigentlich",
+          "allerdings"
+        ],
+        "priorityErrors": [
+          "present Konjunktiv II instead of the past",
+          "wrong case after trotz/wegen/während",
+          "wrong participle in the irreal past"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -23942,6 +24747,57 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_c1_1_sprechen_kurzcheck",
+      "title": "C1.1 · Kurzcheck: Nominalisierung",
+      "storageKeyPrefix": "quest_c1_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C1.1",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "The same idea said twice: once in a formal, noun-heavy register and once plainly with verbs.",
+        "practisePoints": [
+          "Nominalisation: die Durchführung, die Entwicklung, die Umsetzung",
+          "Verbalising a noun-heavy phrase back into a clause",
+          "The case inside a nominalised phrase"
+        ],
+        "scoringCriteria": [
+          "the nominalised form",
+          "the verbalised form",
+          "the case inside the phrase"
+        ],
+        "targetVocabulary": [
+          "die Durchführung",
+          "die Umsetzung",
+          "hinsichtlich",
+          "erfolgen"
+        ],
+        "priorityErrors": [
+          "wrong case in a nominalised phrase",
+          "register slipping mid-sentence"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_c1_1_konnektoren",
       "title": "C1.1 · Konnektoren (insofern/sofern/zumal)",
@@ -24824,6 +25680,56 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_c1_1_sprechen_dialog",
+      "title": "C1.1 · Gespräch: Abstrahieren",
+      "storageKeyPrefix": "quest_c1_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C1.1",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Discussing an abstract topic - education, work, technology - and switching between a formal and a plain way of saying it.",
+        "practisePoints": [
+          "Nominalisation and back: die Durchführung des Projekts vs das Projekt durchführen",
+          "Passive alternatives: sein + zu, sich lassen, -bar",
+          "Advanced connectors: insofern, sofern, zumal, geschweige denn",
+          "Participial clauses: die vom Bund geförderten Projekte"
+        ],
+        "scoringCriteria": [
+          "the nominalised or verbalised form",
+          "a passive alternative used correctly",
+          "the connector and its word order",
+          "holding a consistent register"
+        ],
+        "targetVocabulary": [
+          "hinsichtlich",
+          "lässt sich",
+          "insofern",
+          "zumal",
+          "die Durchführung"
+        ],
+        "priorityErrors": [
+          "register slipping mid-sentence",
+          "wrong case in a nominalised phrase",
+          "wrong word order after an advanced connector"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -26328,6 +27234,58 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_c1_2_sprechen_kurzcheck",
+      "title": "C1.2 · Kurzcheck: Subjektive Modalverben",
+      "storageKeyPrefix": "quest_c1_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C1.2",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "How sure am I? Short claims, each hedged to the degree I actually believe it.",
+        "practisePoints": [
+          "Inference: dürfte, müsste, könnte",
+          "Hearsay: soll, will",
+          "Matching the modal to how certain I am"
+        ],
+        "scoringCriteria": [
+          "the subjective modal",
+          "the degree of certainty it signals",
+          "hedging that matches the claim"
+        ],
+        "targetVocabulary": [
+          "dürfte",
+          "soll",
+          "will",
+          "angeblich",
+          "vermutlich"
+        ],
+        "priorityErrors": [
+          "objective modal where a subjective one was meant",
+          "wrong degree of certainty"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_c1_2_redewendungen",
       "title": "C1.2 · Redewendungen",
@@ -27212,6 +28170,56 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_c1_2_sprechen_dialog",
+      "title": "C1.2 · Gespräch: Nuancieren",
+      "storageKeyPrefix": "quest_c1_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C1.2",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Talking about culture and the media, with judgements hedged: how sure I am, where I heard it, and what I only suspect.",
+        "practisePoints": [
+          "Subjective modals for inference: Er dürfte recht haben.",
+          "Subjective modals for hearsay: Sie will das gesehen haben.",
+          "Word formation: prefixes and suffixes that shift meaning",
+          "Idioms used naturally, not decoratively"
+        ],
+        "scoringCriteria": [
+          "the subjective modal and what it implies",
+          "hedging that matches how sure I am",
+          "idioms used in the right place",
+          "cohesion across turns"
+        ],
+        "targetVocabulary": [
+          "dürfte",
+          "mag sein",
+          "angeblich",
+          "vermutlich",
+          "nach allem, was man hört"
+        ],
+        "priorityErrors": [
+          "objective modal where a subjective one was meant",
+          "wrong degree of certainty",
+          "idiom used wrongly"
+        ],
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -28710,6 +29718,57 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_c2_1_sprechen_kurzcheck",
+      "title": "C2.1 · Kurzcheck: Register",
+      "storageKeyPrefix": "quest_c2_1_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C2.1",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "One short message, said twice: once to a committee, once to a friend.",
+        "practisePoints": [
+          "Formal register: full forms, nominal style, hedging",
+          "Colloquial register: particles, ellipsis, short clauses",
+          "Switching cleanly on request, without mixing the two"
+        ],
+        "scoringCriteria": [
+          "the register asked for",
+          "consistency inside one turn",
+          "the switch made cleanly"
+        ],
+        "targetVocabulary": [
+          "gleichwohl",
+          "salopp gesagt",
+          "im Übrigen",
+          "echt jetzt"
+        ],
+        "priorityErrors": [
+          "register slipping",
+          "formal and colloquial mixed in one sentence"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "quest_c2_1_konnotation",
       "title": "C2.1 · Konnotation & Wortwahl",
@@ -29592,6 +30651,57 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_c2_1_sprechen_dialog",
+      "title": "C2.1 · Gespräch: Stilsicherheit",
+      "storageKeyPrefix": "quest_c2_1_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C2.1",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "One subject, two registers: discussing something seriously, then saying the same thing the way you would to a friend.",
+        "practisePoints": [
+          "Switching register on request: formal to colloquial and back",
+          "Strong collocations: eine Entscheidung fällen, Kritik üben",
+          "The journalistic Konjunktiv I in longer reported passages",
+          "Rhetorical devices: understatement, rhetorical questions"
+        ],
+        "scoringCriteria": [
+          "the register asked for",
+          "collocations a native speaker would use",
+          "sustained reported speech",
+          "the effect of the rhetorical choice"
+        ],
+        "targetVocabulary": [
+          "Kritik üben",
+          "in Frage stellen",
+          "gleichwohl",
+          "mitnichten",
+          "salopp gesagt"
+        ],
+        "priorityErrors": [
+          "register slipping",
+          "a collocation that does not exist",
+          "reported speech falling back to the indicative"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     },
     {
       "type": "fillBlank",
@@ -31010,6 +32120,57 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "quest_c2_2_sprechen_kurzcheck",
+      "title": "C2.2 · Kurzcheck: Andeutung & Ironie",
+      "storageKeyPrefix": "quest_c2_2_sprechen_kurzcheck_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C2.2",
+      "help": {
+        "intro": "A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.",
+        "tips": [
+          {
+            "title": "A short checkpoint, not an exam",
+            "text": "Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Saying things without saying them: implying, understating, and signalling irony.",
+        "practisePoints": [
+          "Implying rather than stating outright",
+          "Understatement and its markers",
+          "Signalling irony so it lands"
+        ],
+        "scoringCriteria": [
+          "the implication actually landing",
+          "control of the ironic register",
+          "precision of expression"
+        ],
+        "targetVocabulary": [
+          "bezeichnenderweise",
+          "gewissermaßen",
+          "nicht gerade",
+          "man könnte meinen"
+        ],
+        "priorityErrors": [
+          "an implication that does not land",
+          "irony read as a plain statement"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6
+        },
+        "report": {
+          "maxWords": 150,
+          "maxCorrections": 3
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "quest_c2_2_lesen_essay",
       "title": "C2.2 · Lesen: Essay",
@@ -31705,6 +32866,57 @@
           ]
         }
       ]
+    },
+    {
+      "type": "speaking",
+      "id": "quest_c2_2_sprechen_dialog",
+      "title": "C2.2 · Gespräch: Meisterschaft",
+      "storageKeyPrefix": "quest_c2_2_sprechen_dialog_",
+      "promptLabel": "Übung",
+      "subjectsLabel": "Übung",
+      "subjectColumnLabel": "Übung",
+      "level": "C2.2",
+      "help": {
+        "intro": "The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say \"Los geht's\" to start. It grades you at the end - bring that score back here.",
+        "tips": [
+          {
+            "title": "Let it be a conversation",
+            "text": "Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score."
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "The capstone conversation: an abstract or contested subject, discussed at full speed - including what is implied rather than said.",
+        "practisePoints": [
+          "Implication and allusion rather than plain statement",
+          "Wordplay and irony, and signalling when you mean them",
+          "Dense subordination held together across long turns",
+          "Reacting to a counter-argument without losing the thread"
+        ],
+        "scoringCriteria": [
+          "precision of expression",
+          "handling of implication and irony",
+          "control of long, subordinated sentences",
+          "engaging with the counter-argument"
+        ],
+        "targetVocabulary": [
+          "gleichsam",
+          "bezeichnenderweise",
+          "im Grunde genommen",
+          "nicht zuletzt",
+          "zugegebenermaßen"
+        ],
+        "priorityErrors": [
+          "losing the thread of a long sentence",
+          "an implication that does not land",
+          "a grammatical slip under speed"
+        ],
+        "mode": "interview",
+        "session": {
+          "durationMinutes": 6,
+          "minExchanges": 9
+        }
+      }
     }
   ]
 }

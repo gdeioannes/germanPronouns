@@ -8,26 +8,30 @@ const List<HelpMemoryTip> _relativeTips = [
   HelpMemoryTip(
     kind: 'rule',
     title: 'Gender from the noun, case from the job',
-    text: 'The relative pronoun matches the noun\'s **gender/number**, but takes '
+    text:
+        'The relative pronoun matches the noun\'s **gender/number**, but takes '
         'its **case** from what it does inside its own clause (subject → Nom, '
         'object → Akk, receiver → Dat).',
   ),
   HelpMemoryTip(
     kind: 'example',
     title: 'Same noun, three cases',
-    text: 'Der Mann, **der** hier wohnt (Nom) · Der Mann, **den** ich sehe (Akk) '
+    text:
+        'Der Mann, **der** hier wohnt (Nom) · Der Mann, **den** ich sehe (Akk) '
         '· Der Mann, **dem** ich helfe (Dat).',
   ),
   HelpMemoryTip(
     kind: 'warning',
     title: 'Verb to the end + commas',
-    text: 'A relative clause is subordinate: the verb goes to the **end**, and '
+    text:
+        'A relative clause is subordinate: the verb goes to the **end**, and '
         'commas fence the clause — Das ist der Mann, der hier **wohnt**.',
   ),
   HelpMemoryTip(
     kind: 'tip',
     title: 'They look like der/die/das',
-    text: 'Relative pronouns *are* the articles — only the dative plural '
+    text:
+        'Relative pronouns *are* the articles — only the dative plural '
         '**denen** and the genitive **dessen/deren** look different.',
   ),
 ];
@@ -35,7 +39,8 @@ const List<HelpMemoryTip> _relativeTips = [
 final QuizContent enDeM14Forms = enDeFill(
   id: 'en_de_m14_forms',
   title: 'Relative pronoun forms',
-  intro: 'The full set. They match der/die/das almost everywhere — note denen '
+  intro:
+      'The full set. They match der/die/das almost everywhere — note denen '
       '(dative plural) and dessen/deren (genitive).',
   tips: _relativeTips,
   items: const [
@@ -63,21 +68,66 @@ final QuizContent enDeM14Case = enDeFill(
   intro: 'Read the verb inside the clause to choose the case of the pronoun.',
   tips: _relativeTips,
   items: const [
-    CourseItem(prompt: 'The man who lives here. (Nom)', answer: 'Der Mann, **der** hier wohnt'),
-    CourseItem(prompt: 'The man whom I see. (Akk)', answer: 'Der Mann, **den** ich sehe'),
-    CourseItem(prompt: 'The man whom I help. (Dat)', answer: 'Der Mann, **dem** ich helfe'),
-    CourseItem(prompt: 'The woman who works here. (Nom)', answer: 'Die Frau, **die** hier arbeitet'),
-    CourseItem(prompt: 'The book that I read. (Akk, n)', answer: 'Das Buch, **das** ich lese'),
-    CourseItem(prompt: 'The children who play. (Nom, pl)', answer: 'Die Kinder, **die** spielen'),
-    CourseItem(prompt: 'The film that we saw. (Akk, m)', answer: 'Der Film, **den** wir gesehen haben'),
-    CourseItem(prompt: 'The woman whom I thank. (Dat)', answer: 'Die Frau, **der** ich danke'),
-    CourseItem(prompt: 'The dog that barks. (Nom, m)', answer: 'Der Hund, **der** bellt'),
-    CourseItem(prompt: 'The people whom I trust. (Dat, pl)', answer: 'Die Leute, **denen** ich vertraue'),
-    CourseItem(prompt: 'The city that we visit. (Akk, f)', answer: 'Die Stadt, **die** wir besuchen'),
-    CourseItem(prompt: 'The child to whom I give the ball. (Dat, n)', answer: 'Das Kind, **dem** ich den Ball gebe'),
-    CourseItem(prompt: 'The cake that tastes good. (Nom, m)', answer: 'Der Kuchen, **der** gut schmeckt'),
-    CourseItem(prompt: 'The song that she sings. (Akk, n — das Lied)', answer: 'Das Lied, **das** sie singt'),
-    CourseItem(prompt: 'The neighbours who are loud. (Nom, pl)', answer: 'Die Nachbarn, **die** laut sind'),
+    CourseItem(
+      prompt: 'The man who lives here. (Nom)',
+      answer: 'Der Mann, **der** hier wohnt',
+    ),
+    CourseItem(
+      prompt: 'The man whom I see. (Akk)',
+      answer: 'Der Mann, **den** ich sehe',
+    ),
+    CourseItem(
+      prompt: 'The man whom I help. (Dat)',
+      answer: 'Der Mann, **dem** ich helfe',
+    ),
+    CourseItem(
+      prompt: 'The woman who works here. (Nom)',
+      answer: 'Die Frau, **die** hier arbeitet',
+    ),
+    CourseItem(
+      prompt: 'The book that I read. (Akk, n)',
+      answer: 'Das Buch, **das** ich lese',
+    ),
+    CourseItem(
+      prompt: 'The children who play. (Nom, pl)',
+      answer: 'Die Kinder, **die** spielen',
+    ),
+    CourseItem(
+      prompt: 'The film that we saw. (Akk, m)',
+      answer: 'Der Film, **den** wir gesehen haben',
+    ),
+    CourseItem(
+      prompt: 'The woman whom I thank. (Dat)',
+      answer: 'Die Frau, **der** ich danke',
+    ),
+    CourseItem(
+      prompt: 'The dog that barks. (Nom, m)',
+      answer: 'Der Hund, **der** bellt',
+    ),
+    CourseItem(
+      prompt: 'The people whom I trust. (Dat, pl)',
+      answer: 'Die Leute, **denen** ich vertraue',
+    ),
+    CourseItem(
+      prompt: 'The city that we visit. (Akk, f)',
+      answer: 'Die Stadt, **die** wir besuchen',
+    ),
+    CourseItem(
+      prompt: 'The child to whom I give the ball. (Dat, n)',
+      answer: 'Das Kind, **dem** ich den Ball gebe',
+    ),
+    CourseItem(
+      prompt: 'The cake that tastes good. (Nom, m)',
+      answer: 'Der Kuchen, **der** gut schmeckt',
+    ),
+    CourseItem(
+      prompt: 'The song that she sings. (Akk, n — das Lied)',
+      answer: 'Das Lied, **das** sie singt',
+    ),
+    CourseItem(
+      prompt: 'The neighbours who are loud. (Nom, pl)',
+      answer: 'Die Nachbarn, **die** laut sind',
+    ),
   ],
 );
 
@@ -110,7 +160,8 @@ final QuizContent enDeM14BigTextWarmup = enDeBigText(
       'gentleman whom I sometimes help with the shopping. Right at the top live '
       'two students who unfortunately throw loud parties every weekend. It is '
       'certainly never boring here!',
-  intro: 'Type the relative pronoun. It takes its gender/number from the noun, '
+  intro:
+      'Type the relative pronoun. It takes its gender/number from the noun, '
       'but its case from its job in the clause: subject → der/die/das, object → '
       'den, receiver → dem.',
   tips: _relativeTips,
@@ -119,25 +170,71 @@ final QuizContent enDeM14BigTextWarmup = enDeBigText(
 final QuizContent enDeM14Preposition = enDeFill(
   id: 'en_de_m14_preposition',
   title: 'Preposition + relative pronoun',
-  intro: 'When a preposition belongs to the clause, it stands before the '
+  intro:
+      'When a preposition belongs to the clause, it stands before the '
       'pronoun and decides the case.',
   tips: _relativeTips,
   items: const [
-    CourseItem(prompt: 'The house in which I live. (in + Dat)', answer: 'Das Haus, in **dem** ich wohne'),
-    CourseItem(prompt: 'The woman with whom I speak. (mit + Dat)', answer: 'Die Frau, mit **der** ich spreche'),
-    CourseItem(prompt: 'The friend for whom I cook. (für + Akk)', answer: 'Der Freund, für **den** ich koche'),
-    CourseItem(prompt: 'The city in which she lives. (in + Dat)', answer: 'Die Stadt, in **der** sie wohnt'),
-    CourseItem(prompt: 'The table at which we eat. (an + Dat)', answer: 'Der Tisch, an **dem** wir essen'),
-    CourseItem(prompt: 'The friends with whom I travel. (mit + Dat, pl)', answer: 'Die Freunde, mit **denen** ich reise'),
-    CourseItem(prompt: 'The bag in which the keys are. (in + Dat, f)', answer: 'Die Tasche, in **der** die Schlüssel sind'),
-    CourseItem(prompt: 'The man about whom we talk. (über + Akk)', answer: 'Der Mann, über **den** wir sprechen'),
-    CourseItem(prompt: 'The village from which he comes. (aus + Dat, n)', answer: 'Das Dorf, aus **dem** er kommt'),
-    CourseItem(prompt: 'The party to which I invite you. (zu + Dat, f)', answer: 'Die Party, zu **der** ich dich einlade'),
-    CourseItem(prompt: 'The chair on which she sits. (auf + Dat, m)', answer: 'Der Stuhl, auf **dem** sie sitzt'),
-    CourseItem(prompt: 'The music to which we dance. (zu + Dat, f)', answer: 'Die Musik, zu **der** wir tanzen'),
-    CourseItem(prompt: 'The bridge over which we drive. (über + Akk, f)', answer: 'Die Brücke, über **die** wir fahren'),
-    CourseItem(prompt: 'The friend on whom I wait. (auf + Akk)', answer: 'Der Freund, auf **den** ich warte'),
-    CourseItem(prompt: 'The garden in which the children play. (in + Dat, m)', answer: 'Der Garten, in **dem** die Kinder spielen'),
+    CourseItem(
+      prompt: 'The house in which I live. (in + Dat)',
+      answer: 'Das Haus, in **dem** ich wohne',
+    ),
+    CourseItem(
+      prompt: 'The woman with whom I speak. (mit + Dat)',
+      answer: 'Die Frau, mit **der** ich spreche',
+    ),
+    CourseItem(
+      prompt: 'The friend for whom I cook. (für + Akk)',
+      answer: 'Der Freund, für **den** ich koche',
+    ),
+    CourseItem(
+      prompt: 'The city in which she lives. (in + Dat)',
+      answer: 'Die Stadt, in **der** sie wohnt',
+    ),
+    CourseItem(
+      prompt: 'The table at which we eat. (an + Dat)',
+      answer: 'Der Tisch, an **dem** wir essen',
+    ),
+    CourseItem(
+      prompt: 'The friends with whom I travel. (mit + Dat, pl)',
+      answer: 'Die Freunde, mit **denen** ich reise',
+    ),
+    CourseItem(
+      prompt: 'The bag in which the keys are. (in + Dat, f)',
+      answer: 'Die Tasche, in **der** die Schlüssel sind',
+    ),
+    CourseItem(
+      prompt: 'The man about whom we talk. (über + Akk)',
+      answer: 'Der Mann, über **den** wir sprechen',
+    ),
+    CourseItem(
+      prompt: 'The village from which he comes. (aus + Dat, n)',
+      answer: 'Das Dorf, aus **dem** er kommt',
+    ),
+    CourseItem(
+      prompt: 'The party to which I invite you. (zu + Dat, f)',
+      answer: 'Die Party, zu **der** ich dich einlade',
+    ),
+    CourseItem(
+      prompt: 'The chair on which she sits. (auf + Dat, m)',
+      answer: 'Der Stuhl, auf **dem** sie sitzt',
+    ),
+    CourseItem(
+      prompt: 'The music to which we dance. (zu + Dat, f)',
+      answer: 'Die Musik, zu **der** wir tanzen',
+    ),
+    CourseItem(
+      prompt: 'The bridge over which we drive. (über + Akk, f)',
+      answer: 'Die Brücke, über **die** wir fahren',
+    ),
+    CourseItem(
+      prompt: 'The friend on whom I wait. (auf + Akk)',
+      answer: 'Der Freund, auf **den** ich warte',
+    ),
+    CourseItem(
+      prompt: 'The garden in which the children play. (in + Dat, m)',
+      answer: 'Der Garten, in **dem** die Kinder spielen',
+    ),
   ],
 );
 
@@ -170,7 +267,8 @@ final QuizContent enDeM14BigText = enDeBigText(
       'I helped at the station the other day was, by the way, his father; it is '
       'a small world! And the quiet town by the sea, in which the whole family '
       'goes on holiday every summer, I would like to visit one day too.',
-  intro: 'Choose the case of each marked relative pronoun. Look at its job in '
+  intro:
+      'Choose the case of each marked relative pronoun. Look at its job in '
       'the clause: subject (Nom), object (Akk), receiver/after a dative prep '
       '(Dat).',
   tips: _relativeTips,
@@ -179,15 +277,31 @@ final QuizContent enDeM14BigText = enDeBigText(
 final QuizContent enDeM14Speak = enDeSpeak(
   id: 'en_de_m14_speak',
   title: 'Speak: definitions',
-  intro: 'Define jobs with a relative clause: "… ist jemand, der …". Say each '
+  intro:
+      'Define jobs with a relative clause: "… ist jemand, der …". Say each '
       'one aloud.',
   tips: _relativeTips,
   items: const [
-    CourseItem(prompt: 'A doctor is someone who helps sick people.', answer: 'Ein Arzt ist jemand, der kranken Menschen hilft.'),
-    CourseItem(prompt: 'A teacher is someone who teaches children.', answer: 'Ein Lehrer ist jemand, der Kinder unterrichtet.'),
-    CourseItem(prompt: 'A cook is someone who makes food.', answer: 'Ein Koch ist jemand, der Essen macht.'),
-    CourseItem(prompt: 'A pilot is someone who flies a plane.', answer: 'Ein Pilot ist jemand, der ein Flugzeug fliegt.'),
-    CourseItem(prompt: 'A friend is someone you can trust.', answer: 'Ein Freund ist jemand, dem man vertrauen kann.'),
+    CourseItem(
+      prompt: 'A doctor is someone who helps sick people.',
+      answer: 'Ein Arzt ist jemand, der kranken Menschen hilft.',
+    ),
+    CourseItem(
+      prompt: 'A teacher is someone who teaches children.',
+      answer: 'Ein Lehrer ist jemand, der Kinder unterrichtet.',
+    ),
+    CourseItem(
+      prompt: 'A cook is someone who makes food.',
+      answer: 'Ein Koch ist jemand, der Essen macht.',
+    ),
+    CourseItem(
+      prompt: 'A pilot is someone who flies a plane.',
+      answer: 'Ein Pilot ist jemand, der ein Flugzeug fliegt.',
+    ),
+    CourseItem(
+      prompt: 'A friend is someone you can trust.',
+      answer: 'Ein Freund ist jemand, dem man vertrauen kann.',
+    ),
   ],
 );
 
@@ -203,7 +317,8 @@ final QuizContent enDeM14Listening = enDeListen(
       'This is Mr Schmidt. The man who drives the blue car is my neighbour. He '
       'has a dog that is very friendly. The woman who lives next to him is his '
       'sister.',
-  intro: 'Listen to the profile. Each relative clause adds a detail — track who '
+  intro:
+      'Listen to the profile. Each relative clause adds a detail — track who '
       'is who.',
   tips: _relativeTips,
   questions: const [
@@ -229,12 +344,74 @@ final QuizContent enDeM14Listening = enDeListen(
 );
 
 /// M14 — Relative Clauses, in module order.
+
+/// Speaking: run this conversation in your own AI assistant and bring the
+/// score back (see `SpeakingQuizPage`).
+final QuizContent enDeM14Speaking = enDeSpeaking(
+  id: 'en_de_m14_speaking',
+  title: 'Describe people and things in one long sentence',
+  level: 'B1',
+  topic:
+      'People, places and things I know, described with clauses: the friend who ..., the city where ..., the film that ...',
+  practisePoints: [
+    'The relative pronoun takes gender and number from the noun',
+    'Its case comes from its job inside the clause: der Mann, den ich kenne',
+    'Verb at the end of the relative clause',
+    'Relative clause after a preposition: die Stadt, in der ich wohne',
+  ],
+  targetVocabulary: ['der', 'den', 'dem', 'in dem', 'mit dem'],
+  scoringCriteria: [
+    'gender and number of the pronoun',
+    'the case from its job in the clause',
+    'the verb at the end',
+  ],
+  priorityErrors: [
+    'wrong relative pronoun',
+    'wrong case in the clause',
+    'verb not at the end',
+  ],
+  session: SpeakingSession(durationMinutes: 5, minExchanges: 8),
+  intro:
+      'Build long, connected descriptions. Copy the exercise into your AI assistant and turn on voice mode.',
+  tips: _relativeTips,
+);
+
+/// Mid-module speaking checkpoint: a shorter, question-driven run over
+/// what the module has taught up to this point, before the second half
+/// adds the rest. The closing exercise covers the module as a whole.
+final QuizContent enDeM14SpeakingCheck = enDeSpeaking(
+  id: 'en_de_m14_speaking_check',
+  title: 'Checkpoint: the one that ...',
+  level: 'B1',
+  topic: 'Naming people and things with a short relative clause attached.',
+  practisePoints: [
+    'The relative pronoun takes gender and number from the noun',
+    'Nominative and accusative pronouns: der, den, die, das',
+    'The verb at the end of the relative clause',
+  ],
+  targetVocabulary: ['der', 'den', 'die', 'das', 'kennen'],
+  scoringCriteria: [
+    'gender and number of the pronoun',
+    'nominative vs accusative in the clause',
+    'the verb at the end',
+  ],
+  priorityErrors: ['wrong relative pronoun', 'verb not at the end'],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on what this module has covered so far. Copy it into your AI assistant, turn on voice mode, and answer its questions - three minutes is enough.',
+  tips: _relativeTips,
+);
+
 final List<QuizContent> enDeM14 = [
   enDeM14Forms,
   enDeM14Case,
   enDeM14BigTextWarmup,
   enDeM14Preposition,
+  enDeM14SpeakingCheck,
   enDeM14Speak,
   enDeM14Listening,
   enDeM14BigText,
+  enDeM14Speaking,
 ];

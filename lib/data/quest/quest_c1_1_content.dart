@@ -20,53 +20,109 @@ final QuizContent questC11BildungContent = sentenceQuestQuiz(
     HelpMemoryTip(
       kind: 'example',
       title: 'Academic nouns',
-      text: 'die Erkenntnis (insight), die Voraussetzung (precondition), die '
+      text:
+          'die Erkenntnis (insight), die Voraussetzung (precondition), die '
           'Annahme (assumption), die Schlussfolgerung (conclusion).',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Nominal register',
-      text: 'C1 prefers nouns over verbs: "die Durchführung der Untersuchung" '
+      text:
+          'C1 prefers nouns over verbs: "die Durchführung der Untersuchung" '
           'instead of "die Untersuchung durchführen".',
     ),
   ],
   items: [
-    qsi('Die Studie führte zu einer wichtigen ____. (insight)', 'Erkenntnis',
-        'The study led to an important insight.', 'insight'),
-    qsi('Eine gute Ausbildung ist eine ____ für Erfolg. (precondition)',
-        'Voraussetzung', 'A good education is a precondition for success.',
-        'precondition'),
-    qsi('Diese ____ muss noch bewiesen werden. (assumption)', 'Annahme',
-        'This assumption still has to be proven.', 'assumption'),
-    qsi('Am Ende zog der Autor eine klare ____. (conclusion)',
-        'Schlussfolgerung', 'In the end the author drew a clear conclusion.',
-        'conclusion'),
-    qsi('Die ____ der Studie dauerte zwei Jahre. (carrying out)',
-        'Durchführung', 'Carrying out the study took two years.',
-        'execution/carrying out'),
-    qsi('Die ____ der Ergebnisse steht noch aus. (evaluation)', 'Auswertung',
-        'The evaluation of the results is still pending.', 'evaluation'),
-    qsi('Sie schreibt ihre ____ über Klimapolitik. (final thesis)',
-        'Abschlussarbeit', 'She is writing her thesis on climate policy.',
-        'thesis'),
-    qsi('Die Universität fördert die ____. (research)', 'Forschung',
-        'The university promotes research.', 'research'),
-    qsi('Der ____ hält heute eine Vorlesung. (professor)', 'Professor',
-        'The professor gives a lecture today.', 'professor'),
-    qsi('Die These beruht auf einem klaren ____. (proof)', 'Beweis',
-        'The thesis rests on clear proof.', 'proof'),
-    qsi('Sie bekommt ein ____ für ihr Studium. (scholarship)', 'Stipendium',
-        'She receives a scholarship for her studies.', 'scholarship'),
-    qsi('Die ____ zwischen den Universitäten wächst. (collaboration)',
-        'Zusammenarbeit', 'Collaboration between the universities is growing.',
-        'collaboration'),
-    qsi('Der Artikel wurde in einer ____ veröffentlicht. (academic journal)',
-        'Fachzeitschrift', 'The article was published in an academic journal.',
-        'journal'),
-    qsi('Das ____ des Experiments war eindeutig. (result)', 'Ergebnis',
-        'The result of the experiment was unambiguous.', 'result'),
-    qsi('Seine ____ widerspricht der alten Theorie. (hypothesis)', 'Hypothese',
-        'His hypothesis contradicts the old theory.', 'hypothesis'),
+    qsi(
+      'Die Studie führte zu einer wichtigen ____. (insight)',
+      'Erkenntnis',
+      'The study led to an important insight.',
+      'insight',
+    ),
+    qsi(
+      'Eine gute Ausbildung ist eine ____ für Erfolg. (precondition)',
+      'Voraussetzung',
+      'A good education is a precondition for success.',
+      'precondition',
+    ),
+    qsi(
+      'Diese ____ muss noch bewiesen werden. (assumption)',
+      'Annahme',
+      'This assumption still has to be proven.',
+      'assumption',
+    ),
+    qsi(
+      'Am Ende zog der Autor eine klare ____. (conclusion)',
+      'Schlussfolgerung',
+      'In the end the author drew a clear conclusion.',
+      'conclusion',
+    ),
+    qsi(
+      'Die ____ der Studie dauerte zwei Jahre. (carrying out)',
+      'Durchführung',
+      'Carrying out the study took two years.',
+      'execution/carrying out',
+    ),
+    qsi(
+      'Die ____ der Ergebnisse steht noch aus. (evaluation)',
+      'Auswertung',
+      'The evaluation of the results is still pending.',
+      'evaluation',
+    ),
+    qsi(
+      'Sie schreibt ihre ____ über Klimapolitik. (final thesis)',
+      'Abschlussarbeit',
+      'She is writing her thesis on climate policy.',
+      'thesis',
+    ),
+    qsi(
+      'Die Universität fördert die ____. (research)',
+      'Forschung',
+      'The university promotes research.',
+      'research',
+    ),
+    qsi(
+      'Der ____ hält heute eine Vorlesung. (professor)',
+      'Professor',
+      'The professor gives a lecture today.',
+      'professor',
+    ),
+    qsi(
+      'Die These beruht auf einem klaren ____. (proof)',
+      'Beweis',
+      'The thesis rests on clear proof.',
+      'proof',
+    ),
+    qsi(
+      'Sie bekommt ein ____ für ihr Studium. (scholarship)',
+      'Stipendium',
+      'She receives a scholarship for her studies.',
+      'scholarship',
+    ),
+    qsi(
+      'Die ____ zwischen den Universitäten wächst. (collaboration)',
+      'Zusammenarbeit',
+      'Collaboration between the universities is growing.',
+      'collaboration',
+    ),
+    qsi(
+      'Der Artikel wurde in einer ____ veröffentlicht. (academic journal)',
+      'Fachzeitschrift',
+      'The article was published in an academic journal.',
+      'journal',
+    ),
+    qsi(
+      'Das ____ des Experiments war eindeutig. (result)',
+      'Ergebnis',
+      'The result of the experiment was unambiguous.',
+      'result',
+    ),
+    qsi(
+      'Seine ____ widerspricht der alten Theorie. (hypothesis)',
+      'Hypothese',
+      'His hypothesis contradicts the old theory.',
+      'hypothesis',
+    ),
   ],
 );
 
@@ -78,49 +134,94 @@ final QuizContent questC11NominalisierungContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Verb → Nomen',
   categoryLabel: 'Nominalisierung',
-  intro: 'Academic German turns verbs and clauses into nouns. Recognise and form '
+  intro:
+      'Academic German turns verbs and clauses into nouns. Recognise and form '
       'the noun from the verb: ankommen → die Ankunft, entscheiden → die '
       'Entscheidung.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Productive endings',
-      text: '-ung (die Lösung), -tion (die Information), nominalised infinitive '
+      text:
+          '-ung (die Lösung), -tion (die Information), nominalised infinitive '
           '(das Lesen), -nis (das Ergebnis).',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Clause → noun phrase',
-      text: '"Nachdem er angekommen war …" → "Nach seiner Ankunft …". Same '
+      text:
+          '"Nachdem er angekommen war …" → "Nach seiner Ankunft …". Same '
           'meaning, denser style.',
     ),
   ],
   items: [
-    qsi('entscheiden → die ____ (decision)', 'Entscheidung',
-        'the decision', 'Entscheidung'),
+    qsi(
+      'entscheiden → die ____ (decision)',
+      'Entscheidung',
+      'the decision',
+      'Entscheidung',
+    ),
     qsi('lösen → die ____ (solution)', 'Lösung', 'the solution', 'Lösung'),
     qsi('ankommen → die ____ (arrival)', 'Ankunft', 'the arrival', 'Ankunft'),
-    qsi('entwickeln → die ____ (development)', 'Entwicklung',
-        'the development', 'Entwicklung'),
-    qsi('untersuchen → die ____ (investigation)', 'Untersuchung',
-        'the investigation', 'Untersuchung'),
-    qsi('prüfen → die ____ (examination)', 'Prüfung', 'the examination',
-        'Prüfung'),
-    qsi('erklären → die ____ (explanation)', 'Erklärung', 'the explanation',
-        'Erklärung', accepted: ['Erklaerung']),
+    qsi(
+      'entwickeln → die ____ (development)',
+      'Entwicklung',
+      'the development',
+      'Entwicklung',
+    ),
+    qsi(
+      'untersuchen → die ____ (investigation)',
+      'Untersuchung',
+      'the investigation',
+      'Untersuchung',
+    ),
+    qsi(
+      'prüfen → die ____ (examination)',
+      'Prüfung',
+      'the examination',
+      'Prüfung',
+    ),
+    qsi(
+      'erklären → die ____ (explanation)',
+      'Erklärung',
+      'the explanation',
+      'Erklärung',
+      accepted: ['Erklaerung'],
+    ),
     qsi('ergeben → das ____ (result)', 'Ergebnis', 'the result', 'Ergebnis'),
-    qsi('erkennen → die ____ (insight)', 'Erkenntnis', 'the insight',
-        'Erkenntnis'),
-    qsi('ändern → die ____ (change)', 'Änderung', 'the change', 'Änderung',
-        accepted: ['Aenderung']),
-    qsi('abfahren → die ____ (departure)', 'Abfahrt', 'the departure',
-        'Abfahrt'),
+    qsi(
+      'erkennen → die ____ (insight)',
+      'Erkenntnis',
+      'the insight',
+      'Erkenntnis',
+    ),
+    qsi(
+      'ändern → die ____ (change)',
+      'Änderung',
+      'the change',
+      'Änderung',
+      accepted: ['Aenderung'],
+    ),
+    qsi(
+      'abfahren → die ____ (departure)',
+      'Abfahrt',
+      'the departure',
+      'Abfahrt',
+    ),
     qsi('verlieren → der ____ (loss)', 'Verlust', 'the loss', 'Verlust'),
     qsi('wachsen → das ____ (growth)', 'Wachstum', 'the growth', 'Wachstum'),
-    qsi('vorschlagen → der ____ (suggestion)', 'Vorschlag', 'the suggestion',
-        'Vorschlag'),
-    qsi('informieren → die ____ (information)', 'Information',
-        'the information', 'Information'),
+    qsi(
+      'vorschlagen → der ____ (suggestion)',
+      'Vorschlag',
+      'the suggestion',
+      'Vorschlag',
+    ),
+    qsi(
+      'informieren → die ____ (information)',
+      'Information',
+      'the information',
+      'Information',
+    ),
   ],
 );
 
@@ -132,55 +233,118 @@ final QuizContent questC11VerbalisierungContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Nomen → Verb',
   categoryLabel: 'Verbalisierung',
-  intro: 'The reverse skill: unpack a dense noun phrase into a clearer verbal '
+  intro:
+      'The reverse skill: unpack a dense noun phrase into a clearer verbal '
       'clause. "Nach der Prüfung der Daten …" → "Nachdem man die Daten geprüft '
       'hat …".',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Preposition → conjunction',
-      text: 'nach → nachdem, vor → bevor, wegen → weil, trotz → obwohl, durch → '
+      text:
+          'nach → nachdem, vor → bevor, wegen → weil, trotz → obwohl, durch → '
           'indem.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Why verbalise?',
-      text: 'Spoken and clearer writing prefer verbs; turning nouns back into '
+      text:
+          'Spoken and clearer writing prefer verbs; turning nouns back into '
           'verbs makes a dense text easier to follow.',
     ),
   ],
   items: [
-    qsi('Wegen des Regens … → ____ es regnete, … (because)', 'weil',
-        'because it rained', 'wegen → weil'),
-    qsi('Nach dem Essen … → ____ wir gegessen hatten, … (after)', 'nachdem',
-        'after we had eaten', 'nach → nachdem'),
-    qsi('Trotz der Kälte … → ____ es kalt war, … (although)', 'obwohl',
-        'although it was cold', 'trotz → obwohl'),
-    qsi('Vor der Abreise … → ____ wir abreisten, … (before)', 'bevor',
-        'before we departed', 'vor → bevor'),
-    qsi('Durch hartes Training … → ____ er hart trainierte, … (by …-ing)',
-        'indem', 'by training hard', 'durch → indem'),
-    qsi('Bei der Ankunft … → ____ wir ankamen, … (when, past)', 'als',
-        'when we arrived', 'bei → als'),
-    qsi('Seit seinem Umzug … → ____ er umgezogen ist, … (since then)',
-        'seitdem', 'since he moved', 'seit → seitdem'),
-    qsi('Im Falle eines Fehlers … → ____ ein Fehler passiert, … (if)', 'falls',
-        'if a mistake happens', 'im Falle → falls'),
-    qsi('Trotz der Warnung … → ____ man ihn warnte, … (although)', 'obwohl',
-        'although he was warned', 'trotz → obwohl (Warnung)'),
-    qsi('Wegen der Verspätung … → ____ der Zug Verspätung hatte, … (because)',
-        'weil', 'because the train was delayed', 'wegen → weil (Verspätung)'),
-    qsi('Nach der Landung … → ____ das Flugzeug gelandet war, … (after)',
-        'nachdem', 'after the plane had landed', 'nach → nachdem (Landung)'),
-    qsi('Zur Verbesserung der Qualität … → ____ die Qualität zu verbessern '
-        '(in order to)', 'um', 'in order to improve the quality',
-        'zur → um … zu'),
-    qsi('Ohne Vorbereitung … → ____ sich vorzubereiten, … (without …-ing)',
-        'ohne', 'without preparing', 'ohne → ohne … zu'),
-    qsi('Vor dem Abflug … → ____ wir abflogen, … (before)', 'bevor',
-        'before we took off', 'vor → bevor (Abflug)'),
-    qsi('Bei Regen … → ____ es regnet, … (if/when)', 'wenn',
-        'if it rains', 'bei → wenn'),
+    qsi(
+      'Wegen des Regens … → ____ es regnete, … (because)',
+      'weil',
+      'because it rained',
+      'wegen → weil',
+    ),
+    qsi(
+      'Nach dem Essen … → ____ wir gegessen hatten, … (after)',
+      'nachdem',
+      'after we had eaten',
+      'nach → nachdem',
+    ),
+    qsi(
+      'Trotz der Kälte … → ____ es kalt war, … (although)',
+      'obwohl',
+      'although it was cold',
+      'trotz → obwohl',
+    ),
+    qsi(
+      'Vor der Abreise … → ____ wir abreisten, … (before)',
+      'bevor',
+      'before we departed',
+      'vor → bevor',
+    ),
+    qsi(
+      'Durch hartes Training … → ____ er hart trainierte, … (by …-ing)',
+      'indem',
+      'by training hard',
+      'durch → indem',
+    ),
+    qsi(
+      'Bei der Ankunft … → ____ wir ankamen, … (when, past)',
+      'als',
+      'when we arrived',
+      'bei → als',
+    ),
+    qsi(
+      'Seit seinem Umzug … → ____ er umgezogen ist, … (since then)',
+      'seitdem',
+      'since he moved',
+      'seit → seitdem',
+    ),
+    qsi(
+      'Im Falle eines Fehlers … → ____ ein Fehler passiert, … (if)',
+      'falls',
+      'if a mistake happens',
+      'im Falle → falls',
+    ),
+    qsi(
+      'Trotz der Warnung … → ____ man ihn warnte, … (although)',
+      'obwohl',
+      'although he was warned',
+      'trotz → obwohl (Warnung)',
+    ),
+    qsi(
+      'Wegen der Verspätung … → ____ der Zug Verspätung hatte, … (because)',
+      'weil',
+      'because the train was delayed',
+      'wegen → weil (Verspätung)',
+    ),
+    qsi(
+      'Nach der Landung … → ____ das Flugzeug gelandet war, … (after)',
+      'nachdem',
+      'after the plane had landed',
+      'nach → nachdem (Landung)',
+    ),
+    qsi(
+      'Zur Verbesserung der Qualität … → ____ die Qualität zu verbessern '
+          '(in order to)',
+      'um',
+      'in order to improve the quality',
+      'zur → um … zu',
+    ),
+    qsi(
+      'Ohne Vorbereitung … → ____ sich vorzubereiten, … (without …-ing)',
+      'ohne',
+      'without preparing',
+      'ohne → ohne … zu',
+    ),
+    qsi(
+      'Vor dem Abflug … → ____ wir abflogen, … (before)',
+      'bevor',
+      'before we took off',
+      'vor → bevor (Abflug)',
+    ),
+    qsi(
+      'Bei Regen … → ____ es regnet, … (if/when)',
+      'wenn',
+      'if it rains',
+      'bei → wenn',
+    ),
   ],
 );
 
@@ -191,13 +355,15 @@ final QuizContent questC11SprechenDarstellenContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Present a topic clearly and academically. Listen and repeat these '
+  intro:
+      'Present a topic clearly and academically. Listen and repeat these '
       'structuring phrases for a C1 presentation.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Frame the talk',
-      text: '"Zunächst möchte ich … , anschließend … , abschließend …" guides '
+      text:
+          '"Zunächst möchte ich … , anschließend … , abschließend …" guides '
           'the listener.',
     ),
     HelpMemoryTip(
@@ -208,23 +374,29 @@ final QuizContent questC11SprechenDarstellenContent = speakQuestQuiz(
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Im Folgenden möchte ich auf drei Aspekte eingehen.',
-        meaning: 'In the following I would like to address three aspects.'),
+      phrase: 'Im Folgenden möchte ich auf drei Aspekte eingehen.',
+      meaning: 'In the following I would like to address three aspects.',
+    ),
     SpeakPhrase(
-        phrase: 'Zunächst ist festzuhalten, dass …',
-        meaning: 'First it should be noted that …'),
+      phrase: 'Zunächst ist festzuhalten, dass …',
+      meaning: 'First it should be noted that …',
+    ),
     SpeakPhrase(
-        phrase: 'Laut einer aktuellen Studie …',
-        meaning: 'According to a recent study …'),
+      phrase: 'Laut einer aktuellen Studie …',
+      meaning: 'According to a recent study …',
+    ),
     SpeakPhrase(
-        phrase: 'Daraus lässt sich schließen, dass …',
-        meaning: 'From this one can conclude that …'),
+      phrase: 'Daraus lässt sich schließen, dass …',
+      meaning: 'From this one can conclude that …',
+    ),
     SpeakPhrase(
-        phrase: 'Abschließend lässt sich festhalten, dass …',
-        meaning: 'In conclusion it can be stated that …'),
+      phrase: 'Abschließend lässt sich festhalten, dass …',
+      meaning: 'In conclusion it can be stated that …',
+    ),
     SpeakPhrase(
-        phrase: 'Vielen Dank, ich freue mich auf Ihre Fragen.',
-        meaning: 'Thank you, I look forward to your questions.'),
+      phrase: 'Vielen Dank, ich freue mich auf Ihre Fragen.',
+      meaning: 'Thank you, I look forward to your questions.',
+    ),
   ],
 );
 
@@ -236,56 +408,117 @@ final QuizContent questC11PassiversatzContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Passiversatz',
-  intro: 'C1 German often replaces the passive with **sein + zu + Infinitiv** '
+  intro:
+      'C1 German often replaces the passive with **sein + zu + Infinitiv** '
       '(must/can be done) or **sich lassen + Infinitiv** (can be done). Both '
       'sound more elegant than "kann/muss … werden".',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'sein + zu = must/can be',
-      text: '"Das Formular ist auszufüllen" = must be filled in. "Der Text ist '
+      text:
+          '"Das Formular ist auszufüllen" = must be filled in. "Der Text ist '
           'leicht zu verstehen" = can be understood.',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'sich lassen = can be',
-      text: '"Das Problem __lässt sich__ lösen" = can be solved (= kann gelöst '
+      text:
+          '"Das Problem __lässt sich__ lösen" = can be solved (= kann gelöst '
           'werden).',
     ),
   ],
   items: [
-    qsi('Das Formular ist bis Freitag auszu____. (füllen)', 'füllen',
-        'The form must be filled in by Friday.', 'ist auszufüllen'),
-    qsi('Der Text ist leicht zu ____. (verstehen)', 'verstehen',
-        'The text is easy to understand.', 'ist zu verstehen'),
-    qsi('Das Problem lässt ____ leicht lösen. (sich)', 'sich',
-        'The problem can be solved easily.', 'lässt sich lösen'),
-    qsi('Die Tür lässt sich nicht ____. (öffnen)', 'öffnen',
-        'The door cannot be opened.', 'lässt sich öffnen'),
-    qsi('Diese Frage ist nicht leicht zu ____. (beantworten)', 'beantworten',
-        'This question is not easy to answer.', 'ist zu beantworten'),
-    qsi('Der Antrag ist bis Montag einzu____. (reichen)', 'reichen',
-        'The application must be submitted by Monday.', 'ist einzureichen'),
-    qsi('Das Gerät lässt sich leicht ____. (bedienen)', 'bedienen',
-        'The device is easy to operate.', 'lässt sich bedienen'),
-    qsi('Solche Fehler sind unbedingt zu ____. (vermeiden)', 'vermeiden',
-        'Such mistakes are to be avoided at all costs.', 'sind zu vermeiden'),
-    qsi('Diese Aufgabe lässt ____ in einer Stunde erledigen. (sich)', 'sich',
-        'This task can be done in an hour.', 'lässt sich erledigen'),
-    qsi('Die Regeln sind streng zu ____. (beachten)', 'beachten',
-        'The rules must be strictly observed.', 'sind zu beachten'),
-    qsi('Das Ziel ist mit Geduld zu ____. (erreichen)', 'erreichen',
-        'The goal can be reached with patience.', 'ist zu erreichen'),
-    qsi('Die Frage lässt sich mit Ja ____. (beantworten)', 'beantworten',
-        'The question can be answered with yes.', 'lässt sich beantworten'),
-    qsi('Die Rechnung ist innerhalb von 14 Tagen zu ____. (bezahlen)',
-        'bezahlen', 'The bill is to be paid within 14 days.',
-        'ist zu bezahlen'),
-    qsi('Der Lärm war kaum zu ____. (ertragen)', 'ertragen',
-        'The noise was hardly bearable.', 'ist zu ertragen'),
-    qsi('Solche Tippfehler lassen sich leicht ____. (korrigieren)',
-        'korrigieren', 'Such typos are easy to correct.',
-        'lassen sich korrigieren'),
+    qsi(
+      'Das Formular ist bis Freitag auszu____. (füllen)',
+      'füllen',
+      'The form must be filled in by Friday.',
+      'ist auszufüllen',
+    ),
+    qsi(
+      'Der Text ist leicht zu ____. (verstehen)',
+      'verstehen',
+      'The text is easy to understand.',
+      'ist zu verstehen',
+    ),
+    qsi(
+      'Das Problem lässt ____ leicht lösen. (sich)',
+      'sich',
+      'The problem can be solved easily.',
+      'lässt sich lösen',
+    ),
+    qsi(
+      'Die Tür lässt sich nicht ____. (öffnen)',
+      'öffnen',
+      'The door cannot be opened.',
+      'lässt sich öffnen',
+    ),
+    qsi(
+      'Diese Frage ist nicht leicht zu ____. (beantworten)',
+      'beantworten',
+      'This question is not easy to answer.',
+      'ist zu beantworten',
+    ),
+    qsi(
+      'Der Antrag ist bis Montag einzu____. (reichen)',
+      'reichen',
+      'The application must be submitted by Monday.',
+      'ist einzureichen',
+    ),
+    qsi(
+      'Das Gerät lässt sich leicht ____. (bedienen)',
+      'bedienen',
+      'The device is easy to operate.',
+      'lässt sich bedienen',
+    ),
+    qsi(
+      'Solche Fehler sind unbedingt zu ____. (vermeiden)',
+      'vermeiden',
+      'Such mistakes are to be avoided at all costs.',
+      'sind zu vermeiden',
+    ),
+    qsi(
+      'Diese Aufgabe lässt ____ in einer Stunde erledigen. (sich)',
+      'sich',
+      'This task can be done in an hour.',
+      'lässt sich erledigen',
+    ),
+    qsi(
+      'Die Regeln sind streng zu ____. (beachten)',
+      'beachten',
+      'The rules must be strictly observed.',
+      'sind zu beachten',
+    ),
+    qsi(
+      'Das Ziel ist mit Geduld zu ____. (erreichen)',
+      'erreichen',
+      'The goal can be reached with patience.',
+      'ist zu erreichen',
+    ),
+    qsi(
+      'Die Frage lässt sich mit Ja ____. (beantworten)',
+      'beantworten',
+      'The question can be answered with yes.',
+      'lässt sich beantworten',
+    ),
+    qsi(
+      'Die Rechnung ist innerhalb von 14 Tagen zu ____. (bezahlen)',
+      'bezahlen',
+      'The bill is to be paid within 14 days.',
+      'ist zu bezahlen',
+    ),
+    qsi(
+      'Der Lärm war kaum zu ____. (ertragen)',
+      'ertragen',
+      'The noise was hardly bearable.',
+      'ist zu ertragen',
+    ),
+    qsi(
+      'Solche Tippfehler lassen sich leicht ____. (korrigieren)',
+      'korrigieren',
+      'Such typos are easy to correct.',
+      'lassen sich korrigieren',
+    ),
   ],
 );
 
@@ -297,56 +530,119 @@ final QuizContent questC11BarLichContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Verb → Adjektiv',
   categoryLabel: '-bar / -lich',
-  intro: 'Another passive alternative: the suffix **-bar** (and sometimes '
+  intro:
+      'Another passive alternative: the suffix **-bar** (and sometimes '
       '**-lich**) turns a verb into "able to be …": lösen → lösbar (solvable).',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'verb + -bar = can be …-ed',
-      text: 'machen → machbar (doable), essen → essbar (edible), lesen → lesbar '
+      text:
+          'machen → machbar (doable), essen → essbar (edible), lesen → lesbar '
           '(legible).',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: '-lich variants',
-      text: 'verstehen → verständlich (understandable), erklären → erklärlich. '
+      text:
+          'verstehen → verständlich (understandable), erklären → erklärlich. '
           'Often with a stem change.',
     ),
   ],
   items: [
-    qsi('Das Problem ist ____. (lösen → -bar)', 'lösbar',
-        'The problem is solvable.', 'lösbar'),
-    qsi('Der Plan ist durchaus ____. (machen → -bar)', 'machbar',
-        'The plan is quite doable.', 'machbar'),
-    qsi('Diese Pilze sind nicht ____. (essen → -bar)', 'essbar',
-        'These mushrooms are not edible.', 'essbar'),
-    qsi('Seine Schrift ist kaum ____. (lesen → -bar)', 'lesbar',
-        'His handwriting is barely legible.', 'lesbar'),
-    qsi('Die Erklärung war gut ____. (verstehen → -lich)', 'verständlich',
-        'The explanation was easy to understand.', 'verständlich'),
-    qsi('Das Leitungswasser ist hier ____. (trinken → -bar)', 'trinkbar',
-        'The tap water here is drinkable.', 'trinkbar'),
-    qsi('Der Gipfel ist zu Fuß ____. (erreichen → -bar)', 'erreichbar',
-        'The summit can be reached on foot.', 'erreichbar'),
-    qsi('Der Schaden ist zum Glück ____. (reparieren → -bar)', 'reparierbar',
-        'Luckily the damage is repairable.', 'reparierbar'),
-    qsi('Diese Summe ist kaum ____. (vorstellen → -bar)', 'vorstellbar',
-        'This sum is hardly imaginable.', 'vorstellbar'),
-    qsi('Der Termin ist notfalls ____. (verschieben → -bar)', 'verschiebbar',
-        'If necessary, the appointment can be moved.', 'verschiebbar'),
-    qsi('Seine Reaktion war durchaus ____. (erklären → -lich)', 'erklärlich',
-        'His reaction was quite explicable.', 'erklärlich',
-        accepted: ['erklaerlich']),
-    qsi('Das Medikament ist gut ____. (vertragen → -lich)', 'verträglich',
-        'The medicine is well tolerated.', 'verträglich',
-        accepted: ['vertraeglich']),
-    qsi('Das Risiko ist ____. (überschauen → -bar)', 'überschaubar',
-        'The risk is manageable.', 'überschaubar',
-        accepted: ['ueberschaubar']),
-    qsi('Dieser kleine Fehler ist ____. (verzeihen → -lich)', 'verzeihlich',
-        'This small mistake is forgivable.', 'verzeihlich'),
-    qsi('Die Daten sind jederzeit ____. (abrufen → -bar)', 'abrufbar',
-        'The data can be accessed at any time.', 'abrufbar'),
+    qsi(
+      'Das Problem ist ____. (lösen → -bar)',
+      'lösbar',
+      'The problem is solvable.',
+      'lösbar',
+    ),
+    qsi(
+      'Der Plan ist durchaus ____. (machen → -bar)',
+      'machbar',
+      'The plan is quite doable.',
+      'machbar',
+    ),
+    qsi(
+      'Diese Pilze sind nicht ____. (essen → -bar)',
+      'essbar',
+      'These mushrooms are not edible.',
+      'essbar',
+    ),
+    qsi(
+      'Seine Schrift ist kaum ____. (lesen → -bar)',
+      'lesbar',
+      'His handwriting is barely legible.',
+      'lesbar',
+    ),
+    qsi(
+      'Die Erklärung war gut ____. (verstehen → -lich)',
+      'verständlich',
+      'The explanation was easy to understand.',
+      'verständlich',
+    ),
+    qsi(
+      'Das Leitungswasser ist hier ____. (trinken → -bar)',
+      'trinkbar',
+      'The tap water here is drinkable.',
+      'trinkbar',
+    ),
+    qsi(
+      'Der Gipfel ist zu Fuß ____. (erreichen → -bar)',
+      'erreichbar',
+      'The summit can be reached on foot.',
+      'erreichbar',
+    ),
+    qsi(
+      'Der Schaden ist zum Glück ____. (reparieren → -bar)',
+      'reparierbar',
+      'Luckily the damage is repairable.',
+      'reparierbar',
+    ),
+    qsi(
+      'Diese Summe ist kaum ____. (vorstellen → -bar)',
+      'vorstellbar',
+      'This sum is hardly imaginable.',
+      'vorstellbar',
+    ),
+    qsi(
+      'Der Termin ist notfalls ____. (verschieben → -bar)',
+      'verschiebbar',
+      'If necessary, the appointment can be moved.',
+      'verschiebbar',
+    ),
+    qsi(
+      'Seine Reaktion war durchaus ____. (erklären → -lich)',
+      'erklärlich',
+      'His reaction was quite explicable.',
+      'erklärlich',
+      accepted: ['erklaerlich'],
+    ),
+    qsi(
+      'Das Medikament ist gut ____. (vertragen → -lich)',
+      'verträglich',
+      'The medicine is well tolerated.',
+      'verträglich',
+      accepted: ['vertraeglich'],
+    ),
+    qsi(
+      'Das Risiko ist ____. (überschauen → -bar)',
+      'überschaubar',
+      'The risk is manageable.',
+      'überschaubar',
+      accepted: ['ueberschaubar'],
+    ),
+    qsi(
+      'Dieser kleine Fehler ist ____. (verzeihen → -lich)',
+      'verzeihlich',
+      'This small mistake is forgivable.',
+      'verzeihlich',
+    ),
+    qsi(
+      'Die Daten sind jederzeit ____. (abrufen → -bar)',
+      'abrufbar',
+      'The data can be accessed at any time.',
+      'abrufbar',
+    ),
   ],
 );
 
@@ -381,12 +677,12 @@ final QuizContent questC11HoerenVorlesungContent = listeningQuestQuiz(
       options: [
         'ob Sprache das Denken beeinflusst',
         'wie man eine Sprache lernt',
-        'wann Sprache entstand'
+        'wann Sprache entstand',
       ],
       optionsTranslation: [
         'whether language influences thinking',
         'how to learn a language',
-        'when language arose'
+        'when language arose',
       ],
       correctIndex: 0,
       explanation: '"… inwiefern unsere Sprache unser Denken beeinflusst."',
@@ -397,12 +693,12 @@ final QuizContent questC11HoerenVorlesungContent = listeningQuestQuiz(
       options: [
         'Sprache sei nur ein Werkzeug.',
         'Sprache habe keinen Einfluss.',
-        'Denken sei unmöglich ohne Sprache.'
+        'Denken sei unmöglich ohne Sprache.',
       ],
       optionsTranslation: [
         'that language is merely a tool',
         'that language has no influence',
-        'that thinking is impossible without language'
+        'that thinking is impossible without language',
       ],
       correctIndex: 0,
       explanation: '"… Sprache sei lediglich ein Werkzeug …"',
@@ -413,15 +709,16 @@ final QuizContent questC11HoerenVorlesungContent = listeningQuestQuiz(
       options: [
         'als eindeutig bewiesen',
         'als schwer zu messen und umstritten',
-        'als völlig unwichtig'
+        'als völlig unwichtig',
       ],
       optionsTranslation: [
         'as clearly proven',
         'as hard to measure and controversial',
-        'as completely unimportant'
+        'as completely unimportant',
       ],
       correctIndex: 1,
-      explanation: '"… ist dieser Einfluss schwer zu messen und bleibt '
+      explanation:
+          '"… ist dieser Einfluss schwer zu messen und bleibt '
           'umstritten."',
     ),
     ReadingQuestion(
@@ -438,40 +735,38 @@ final QuizContent questC11HoerenVorlesungContent = listeningQuestQuiz(
         'that all languages are the same',
       ],
       correctIndex: 0,
-      explanation: '"… dass die Struktur einer Sprache durchaus prägt, wie wir '
+      explanation:
+          '"… dass die Struktur einer Sprache durchaus prägt, wie wir '
           'die Welt wahrnehmen."',
     ),
     ReadingQuestion(
       question: 'Was kündigt der Redner für den zweiten Teil an?',
-      questionTranslation: 'What does the speaker announce for the second part?',
-      options: [
-        'konkrete Beispiele',
-        'eine Prüfung',
-        'eine Pause',
-      ],
-      optionsTranslation: [
-        'concrete examples',
-        'an exam',
-        'a break',
-      ],
+      questionTranslation:
+          'What does the speaker announce for the second part?',
+      options: ['konkrete Beispiele', 'eine Prüfung', 'eine Pause'],
+      optionsTranslation: ['concrete examples', 'an exam', 'a break'],
       correctIndex: 0,
-      explanation: '"Im zweiten Teil werden wir konkrete Beispiele betrachten."',
+      explanation:
+          '"Im zweiten Teil werden wir konkrete Beispiele betrachten."',
     ),
   ],
-  intro: 'An academic lecture — you only hear it. Listen for the central '
+  intro:
+      'An academic lecture — you only hear it. Listen for the central '
       'question, the old assumption (Konjunktiv I: sei) and the speaker’s '
       'caveat. Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'inwiefern = to what extent',
-      text: 'Academic questions often start "inwiefern …" — note what is being '
+      text:
+          'Academic questions often start "inwiefern …" — note what is being '
           'asked.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Hedging',
-      text: '"legen nahe" (suggest), "allerdings" (however), "umstritten" '
+      text:
+          '"legen nahe" (suggest), "allerdings" (however), "umstritten" '
           '(controversial) signal caution — important for the assessment '
           'question.',
     ),
@@ -486,62 +781,118 @@ final QuizContent questC11KonnektorenContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Konnektor',
-  intro: 'Sophisticated connectors give precise logical relations: **sofern** '
+  intro:
+      'Sophisticated connectors give precise logical relations: **sofern** '
       '(provided that), **insofern** (in that respect), **zumal** (especially '
       'since), **indem** (by …-ing).',
   tips: const [
     HelpMemoryTip(
       kind: 'example',
       title: 'Precise links',
-      text: 'sofern = if/provided that; zumal = all the more so because; indem = '
+      text:
+          'sofern = if/provided that; zumal = all the more so because; indem = '
           'by means of (manner).',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Verb position',
-      text: 'sofern/zumal/indem are subordinating → verb to the end. insofern as '
+      text:
+          'sofern/zumal/indem are subordinating → verb to the end. insofern as '
           'an adverb → verb second.',
     ),
   ],
   items: [
-    qsi('Ich helfe dir, ____ ich Zeit habe. (provided that)', 'sofern',
-        'I’ll help you, provided I have time.', 'sofern'),
-    qsi('Er kam pünktlich, ____ er sonst immer zu spät ist. (especially since)',
-        'zumal', 'He came on time, especially since he’s usually late.',
-        'zumal'),
-    qsi('Man lernt eine Sprache, ____ man sie benutzt. (by …-ing)', 'indem',
-        'You learn a language by using it.', 'indem'),
-    qsi('Der Plan ist gut, ____ er auch Kosten spart. (especially since)',
-        'zumal', 'The plan is good, all the more so as it also saves costs.',
-        'zumal'),
-    qsi('Wir fahren, ____ das Wetter es zulässt. (provided that)', 'sofern',
-        'We’ll go, provided the weather allows it.', 'sofern'),
-    qsi('Das Ergebnis ist ____ interessant, als es neu ist. (in that … als)',
-        'insofern', 'The result is interesting in that it is new.',
-        'insofern … als'),
-    qsi('Du darfst mitkommen, ____ du dich beeilst. (provided that)', 'sofern',
-        'You may come along, provided you hurry.', 'sofern (beeilen)'),
-    qsi('Er spart Energie, ____ er das Licht ausschaltet. (by …-ing)', 'indem',
-        'He saves energy by switching off the light.', 'indem (Licht)'),
-    qsi('Das Angebot lohnt sich, ____ es auch günstig ist. (especially since)',
-        'zumal', 'The offer is worthwhile, especially since it is also cheap.',
-        'zumal (günstig)'),
-    qsi('Wir verbessern den Text, ____ wir ihn kürzen. (by …-ing)', 'indem',
-        'We improve the text by shortening it.', 'indem (kürzen)'),
-    qsi('____ ich weiß, kommt er morgen. (as far as)', 'Soweit',
-        'As far as I know, he is coming tomorrow.', 'soweit'),
-    qsi('Die Kritik ist berechtigt, ____ sie sich auf Fakten stützt. '
-        '(provided that)', 'sofern',
-        'The criticism is justified, provided it rests on facts.',
-        'sofern (Fakten)'),
-    qsi('Er verdient Respekt, ____ er nie aufgegeben hat. (especially since)',
-        'zumal', 'He deserves respect, especially since he never gave up.',
-        'zumal (aufgegeben)'),
-    qsi('Man gewinnt Vertrauen, ____ man ehrlich bleibt. (by …-ing)', 'indem',
-        'You gain trust by staying honest.', 'indem (ehrlich)'),
-    qsi('____ nichts dazwischenkommt, starten wir am Montag. (provided that)',
-        'Sofern', 'Provided nothing comes up, we start on Monday.',
-        'sofern (Start)'),
+    qsi(
+      'Ich helfe dir, ____ ich Zeit habe. (provided that)',
+      'sofern',
+      'I’ll help you, provided I have time.',
+      'sofern',
+    ),
+    qsi(
+      'Er kam pünktlich, ____ er sonst immer zu spät ist. (especially since)',
+      'zumal',
+      'He came on time, especially since he’s usually late.',
+      'zumal',
+    ),
+    qsi(
+      'Man lernt eine Sprache, ____ man sie benutzt. (by …-ing)',
+      'indem',
+      'You learn a language by using it.',
+      'indem',
+    ),
+    qsi(
+      'Der Plan ist gut, ____ er auch Kosten spart. (especially since)',
+      'zumal',
+      'The plan is good, all the more so as it also saves costs.',
+      'zumal',
+    ),
+    qsi(
+      'Wir fahren, ____ das Wetter es zulässt. (provided that)',
+      'sofern',
+      'We’ll go, provided the weather allows it.',
+      'sofern',
+    ),
+    qsi(
+      'Das Ergebnis ist ____ interessant, als es neu ist. (in that … als)',
+      'insofern',
+      'The result is interesting in that it is new.',
+      'insofern … als',
+    ),
+    qsi(
+      'Du darfst mitkommen, ____ du dich beeilst. (provided that)',
+      'sofern',
+      'You may come along, provided you hurry.',
+      'sofern (beeilen)',
+    ),
+    qsi(
+      'Er spart Energie, ____ er das Licht ausschaltet. (by …-ing)',
+      'indem',
+      'He saves energy by switching off the light.',
+      'indem (Licht)',
+    ),
+    qsi(
+      'Das Angebot lohnt sich, ____ es auch günstig ist. (especially since)',
+      'zumal',
+      'The offer is worthwhile, especially since it is also cheap.',
+      'zumal (günstig)',
+    ),
+    qsi(
+      'Wir verbessern den Text, ____ wir ihn kürzen. (by …-ing)',
+      'indem',
+      'We improve the text by shortening it.',
+      'indem (kürzen)',
+    ),
+    qsi(
+      '____ ich weiß, kommt er morgen. (as far as)',
+      'Soweit',
+      'As far as I know, he is coming tomorrow.',
+      'soweit',
+    ),
+    qsi(
+      'Die Kritik ist berechtigt, ____ sie sich auf Fakten stützt. '
+          '(provided that)',
+      'sofern',
+      'The criticism is justified, provided it rests on facts.',
+      'sofern (Fakten)',
+    ),
+    qsi(
+      'Er verdient Respekt, ____ er nie aufgegeben hat. (especially since)',
+      'zumal',
+      'He deserves respect, especially since he never gave up.',
+      'zumal (aufgegeben)',
+    ),
+    qsi(
+      'Man gewinnt Vertrauen, ____ man ehrlich bleibt. (by …-ing)',
+      'indem',
+      'You gain trust by staying honest.',
+      'indem (ehrlich)',
+    ),
+    qsi(
+      '____ nichts dazwischenkommt, starten wir am Montag. (provided that)',
+      'Sofern',
+      'Provided nothing comes up, we start on Monday.',
+      'sofern (Start)',
+    ),
   ],
 );
 
@@ -575,15 +926,16 @@ final QuizContent questC11LesenWissenschaftContent = readingQuestQuiz(
       options: [
         'Sie aktiviert mehrere Hirnbereiche gleichzeitig.',
         'Sie schadet dem Gehirn.',
-        'Sie wirkt nur auf Kinder.'
+        'Sie wirkt nur auf Kinder.',
       ],
       optionsTranslation: [
         'It activates several brain areas at once.',
         'It harms the brain.',
-        'It only affects children.'
+        'It only affects children.',
       ],
       correctIndex: 0,
-      explanation: '"… Musik verschiedene Bereiche des Gehirns gleichzeitig '
+      explanation:
+          '"… Musik verschiedene Bereiche des Gehirns gleichzeitig '
           'aktiviert …"',
     ),
     ReadingQuestion(
@@ -600,18 +952,19 @@ final QuizContent questC11LesenWissenschaftContent = readingQuestQuiz(
       options: [
         'Sie ist abgeschlossen.',
         'Sie steht erst am Anfang.',
-        'Sie wurde gestoppt.'
+        'Sie wurde gestoppt.',
       ],
       optionsTranslation: [
         'It is complete.',
         'It is only at the beginning.',
-        'It has been stopped.'
+        'It has been stopped.',
       ],
       correctIndex: 1,
       explanation: '"Die Forschung steht hier allerdings erst am Anfang."',
     ),
   ],
-  intro: 'A popular-science article with passive alternatives (eingesetzt werden '
+  intro:
+      'A popular-science article with passive alternatives (eingesetzt werden '
       'kann) and nominal style. C1-level density.',
   tips: const [
     HelpMemoryTip(
@@ -622,7 +975,8 @@ final QuizContent questC11LesenWissenschaftContent = readingQuestQuiz(
     HelpMemoryTip(
       kind: 'tip',
       title: 'Hedge at the end',
-      text: '"allerdings erst am Anfang" qualifies the claims — note the caution.',
+      text:
+          '"allerdings erst am Anfang" qualifies the claims — note the caution.',
     ),
   ],
 );
@@ -635,62 +989,119 @@ final QuizContent questC11PartizipialsatzContent = sentenceQuestQuiz(
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Bedeutung',
   categoryLabel: 'Partizipialsatz',
-  intro: 'A participial clause shortens a subordinate clause to a participle '
+  intro:
+      'A participial clause shortens a subordinate clause to a participle '
       'phrase: "In Berlin __angekommen__, suchte er ein Hotel" = Having arrived '
       'in Berlin, he looked for a hotel.',
   tips: const [
     HelpMemoryTip(
       kind: 'rule',
       title: 'Partizip II = completed',
-      text: '"Angekommen, …" / "Erschöpft, …" — the action is finished before '
+      text:
+          '"Angekommen, …" / "Erschöpft, …" — the action is finished before '
           'the main clause.',
     ),
     HelpMemoryTip(
       kind: 'rule',
       title: 'Partizip I = simultaneous',
-      text: '"Lächelnd verließ sie den Raum" = Smiling, she left the room. Both '
+      text:
+          '"Lächelnd verließ sie den Raum" = Smiling, she left the room. Both '
           'happen at once.',
     ),
   ],
   items: [
-    qsi('In Berlin ____, suchte er ein Hotel. (ankommen → Partizip II)',
-        'angekommen', 'Having arrived in Berlin, he looked for a hotel.',
-        'angekommen'),
-    qsi('____ verließ sie den Raum. (lächeln → Partizip I)', 'Lächelnd',
-        'Smiling, she left the room.', 'lächelnd'),
-    qsi('Von der Reise ____, ging er sofort ins Bett. (erschöpfen → Partizip '
-        'II)', 'erschöpft', 'Exhausted from the trip, he went straight to bed.',
-        'erschöpft'),
-    qsi('____ blieb er den ganzen Abend. (schweigen → Partizip I)', 'Schweigend',
-        'Silent, he stayed the whole evening.', 'schweigend'),
-    qsi('Tief ____, sagte er nichts mehr. (beeindrucken → Partizip II)',
-        'beeindruckt', 'Deeply impressed, he said nothing more.',
-        'beeindruckt'),
-    qsi('Laut ____, verließ sie das Zimmer. (lachen → Partizip I)', 'lachend',
-        'Laughing loudly, she left the room.', 'lachend'),
-    qsi('Vom Erfolg ____, plante er weiter. (ermutigen → Partizip II)',
-        'ermutigt', 'Encouraged by the success, he kept planning.',
-        'ermutigt'),
-    qsi('____ sah er aus dem Fenster. (nachdenken → Partizip I)',
-        'Nachdenkend', 'Pondering, he looked out of the window.',
-        'nachdenkend'),
-    qsi('Gut ____, begann sie die Prüfung. (vorbereiten → Partizip II)',
-        'vorbereitet', 'Well prepared, she began the exam.', 'vorbereitet'),
-    qsi('____ erzählte er von seiner Reise. (strahlen → Partizip I)',
-        'Strahlend', 'Beaming, he told of his trip.', 'strahlend'),
-    qsi('Von allen ____, saß er allein da. (verlassen → Partizip II)',
-        'verlassen', 'Abandoned by everyone, he sat there alone.',
-        'verlassen (Partizip)'),
-    qsi('____ überquerte sie die Straße. (zögern → Partizip I)', 'Zögernd',
-        'Hesitating, she crossed the street.', 'zögernd',
-        accepted: ['Zoegernd']),
-    qsi('Frisch ____, glänzte das Auto. (waschen → Partizip II)', 'gewaschen',
-        'Freshly washed, the car gleamed.', 'gewaschen'),
-    qsi('Laut ____, lief der Hund durch den Garten. (bellen → Partizip I)',
-        'bellend', 'Barking loudly, the dog ran through the garden.',
-        'bellend'),
-    qsi('Schwer ____, kam er die Treppe hinauf. (beladen → Partizip II)',
-        'beladen', 'Heavily loaded, he came up the stairs.', 'beladen'),
+    qsi(
+      'In Berlin ____, suchte er ein Hotel. (ankommen → Partizip II)',
+      'angekommen',
+      'Having arrived in Berlin, he looked for a hotel.',
+      'angekommen',
+    ),
+    qsi(
+      '____ verließ sie den Raum. (lächeln → Partizip I)',
+      'Lächelnd',
+      'Smiling, she left the room.',
+      'lächelnd',
+    ),
+    qsi(
+      'Von der Reise ____, ging er sofort ins Bett. (erschöpfen → Partizip '
+          'II)',
+      'erschöpft',
+      'Exhausted from the trip, he went straight to bed.',
+      'erschöpft',
+    ),
+    qsi(
+      '____ blieb er den ganzen Abend. (schweigen → Partizip I)',
+      'Schweigend',
+      'Silent, he stayed the whole evening.',
+      'schweigend',
+    ),
+    qsi(
+      'Tief ____, sagte er nichts mehr. (beeindrucken → Partizip II)',
+      'beeindruckt',
+      'Deeply impressed, he said nothing more.',
+      'beeindruckt',
+    ),
+    qsi(
+      'Laut ____, verließ sie das Zimmer. (lachen → Partizip I)',
+      'lachend',
+      'Laughing loudly, she left the room.',
+      'lachend',
+    ),
+    qsi(
+      'Vom Erfolg ____, plante er weiter. (ermutigen → Partizip II)',
+      'ermutigt',
+      'Encouraged by the success, he kept planning.',
+      'ermutigt',
+    ),
+    qsi(
+      '____ sah er aus dem Fenster. (nachdenken → Partizip I)',
+      'Nachdenkend',
+      'Pondering, he looked out of the window.',
+      'nachdenkend',
+    ),
+    qsi(
+      'Gut ____, begann sie die Prüfung. (vorbereiten → Partizip II)',
+      'vorbereitet',
+      'Well prepared, she began the exam.',
+      'vorbereitet',
+    ),
+    qsi(
+      '____ erzählte er von seiner Reise. (strahlen → Partizip I)',
+      'Strahlend',
+      'Beaming, he told of his trip.',
+      'strahlend',
+    ),
+    qsi(
+      'Von allen ____, saß er allein da. (verlassen → Partizip II)',
+      'verlassen',
+      'Abandoned by everyone, he sat there alone.',
+      'verlassen (Partizip)',
+    ),
+    qsi(
+      '____ überquerte sie die Straße. (zögern → Partizip I)',
+      'Zögernd',
+      'Hesitating, she crossed the street.',
+      'zögernd',
+      accepted: ['Zoegernd'],
+    ),
+    qsi(
+      'Frisch ____, glänzte das Auto. (waschen → Partizip II)',
+      'gewaschen',
+      'Freshly washed, the car gleamed.',
+      'gewaschen',
+    ),
+    qsi(
+      'Laut ____, lief der Hund durch den Garten. (bellen → Partizip I)',
+      'bellend',
+      'Barking loudly, the dog ran through the garden.',
+      'bellend',
+    ),
+    qsi(
+      'Schwer ____, kam er die Treppe hinauf. (beladen → Partizip II)',
+      'beladen',
+      'Heavily loaded, he came up the stairs.',
+      'beladen',
+    ),
   ],
 );
 
@@ -701,69 +1112,87 @@ final QuizContent questC11DiktatContent = dictationQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'A dictation in academic register. You HEAR a sentence and TYPE it. '
+  intro:
+      'A dictation in academic register. You HEAR a sentence and TYPE it. '
       'Listen for nominal phrases, passive alternatives (lässt sich, ist zu) and '
       'precise connectors.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Long nominal phrases',
-      text: 'Hold the whole noun phrase ("die Durchführung der Untersuchung") '
+      text:
+          'Hold the whole noun phrase ("die Durchführung der Untersuchung") '
           'before you write.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: 'Spell the compounds',
-      text: 'Academic compounds (Schlussfolgerung, Voraussetzung) are written as '
+      text:
+          'Academic compounds (Schlussfolgerung, Voraussetzung) are written as '
           'one word.',
     ),
   ],
   sentences: const [
     SpeakPhrase(
-        phrase: 'Die Durchführung der Untersuchung dauerte mehrere Jahre.',
-        meaning: 'Carrying out the investigation took several years.'),
+      phrase: 'Die Durchführung der Untersuchung dauerte mehrere Jahre.',
+      meaning: 'Carrying out the investigation took several years.',
+    ),
     SpeakPhrase(
-        phrase: 'Das Problem lässt sich nicht einfach lösen.',
-        meaning: 'The problem cannot be solved easily.'),
+      phrase: 'Das Problem lässt sich nicht einfach lösen.',
+      meaning: 'The problem cannot be solved easily.',
+    ),
     SpeakPhrase(
-        phrase: 'Daraus lässt sich eine wichtige Schlussfolgerung ziehen.',
-        meaning: 'From this an important conclusion can be drawn.'),
+      phrase: 'Daraus lässt sich eine wichtige Schlussfolgerung ziehen.',
+      meaning: 'From this an important conclusion can be drawn.',
+    ),
     SpeakPhrase(
-        phrase: 'Der Text ist ohne Vorwissen kaum zu verstehen.',
-        meaning: 'The text is hard to understand without prior knowledge.'),
+      phrase: 'Der Text ist ohne Vorwissen kaum zu verstehen.',
+      meaning: 'The text is hard to understand without prior knowledge.',
+    ),
     SpeakPhrase(
-        phrase: 'Eine gute Ausbildung ist die Voraussetzung für Erfolg.',
-        meaning: 'A good education is the precondition for success.'),
+      phrase: 'Eine gute Ausbildung ist die Voraussetzung für Erfolg.',
+      meaning: 'A good education is the precondition for success.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Ergebnisse sind insofern überraschend, als sie neu sind.',
-        meaning: 'The results are surprising in that they are new.'),
+      phrase: 'Die Ergebnisse sind insofern überraschend, als sie neu sind.',
+      meaning: 'The results are surprising in that they are new.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Auswertung der Daten erfolgt im nächsten Schritt.',
-        meaning: 'The evaluation of the data takes place in the next step.'),
+      phrase: 'Die Auswertung der Daten erfolgt im nächsten Schritt.',
+      meaning: 'The evaluation of the data takes place in the next step.',
+    ),
     SpeakPhrase(
-        phrase: 'Diese Annahme ist wissenschaftlich nicht haltbar.',
-        meaning: 'This assumption is not scientifically tenable.'),
+      phrase: 'Diese Annahme ist wissenschaftlich nicht haltbar.',
+      meaning: 'This assumption is not scientifically tenable.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Fehler sind unbedingt zu vermeiden.',
-        meaning: 'The mistakes are to be avoided at all costs.'),
+      phrase: 'Die Fehler sind unbedingt zu vermeiden.',
+      meaning: 'The mistakes are to be avoided at all costs.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Entwicklung lässt sich kaum vorhersagen.',
-        meaning: 'The development can hardly be predicted.'),
+      phrase: 'Die Entwicklung lässt sich kaum vorhersagen.',
+      meaning: 'The development can hardly be predicted.',
+    ),
     SpeakPhrase(
-        phrase: 'Nach Abschluss der Untersuchung folgt der Bericht.',
-        meaning: 'After completion of the investigation the report follows.'),
+      phrase: 'Nach Abschluss der Untersuchung folgt der Bericht.',
+      meaning: 'After completion of the investigation the report follows.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Teilnahme an der Studie ist freiwillig.',
-        meaning: 'Participation in the study is voluntary.'),
+      phrase: 'Die Teilnahme an der Studie ist freiwillig.',
+      meaning: 'Participation in the study is voluntary.',
+    ),
     SpeakPhrase(
-        phrase: 'Unter diesen Bedingungen ist das Experiment durchführbar.',
-        meaning: 'Under these conditions the experiment is feasible.'),
+      phrase: 'Unter diesen Bedingungen ist das Experiment durchführbar.',
+      meaning: 'Under these conditions the experiment is feasible.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Hypothese wurde durch Messungen bestätigt.',
-        meaning: 'The hypothesis was confirmed by measurements.'),
+      phrase: 'Die Hypothese wurde durch Messungen bestätigt.',
+      meaning: 'The hypothesis was confirmed by measurements.',
+    ),
     SpeakPhrase(
-        phrase: 'Zur Verbesserung der Qualität sind Änderungen nötig.',
-        meaning: 'To improve quality, changes are necessary.'),
+      phrase: 'Zur Verbesserung der Qualität sind Änderungen nötig.',
+      meaning: 'To improve quality, changes are necessary.',
+    ),
   ],
 );
 
@@ -774,40 +1203,49 @@ final QuizContent questC11SprechenGrafikContent = speakQuestQuiz(
   promptLabel: 'Satz',
   subjectsLabel: 'Sätze',
   subjectColumnLabel: 'Deutsch',
-  intro: 'Describe and interpret a chart — a frequent C1 exam task. Listen and '
+  intro:
+      'Describe and interpret a chart — a frequent C1 exam task. Listen and '
       'repeat these phrases for trends and figures.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'Trend verbs',
-      text: 'steigen (rise), sinken (fall), gleich bleiben (stay the same), '
+      text:
+          'steigen (rise), sinken (fall), gleich bleiben (stay the same), '
           'sich verdoppeln (double).',
     ),
     HelpMemoryTip(
       kind: 'example',
       title: 'Refer to the data',
-      text: '"Die Grafik zeigt …", "Auffällig ist, dass …", "im Vergleich zu …".',
+      text:
+          '"Die Grafik zeigt …", "Auffällig ist, dass …", "im Vergleich zu …".',
     ),
   ],
   phrases: const [
     SpeakPhrase(
-        phrase: 'Die Grafik zeigt die Entwicklung der Preise.',
-        meaning: 'The chart shows the development of prices.'),
+      phrase: 'Die Grafik zeigt die Entwicklung der Preise.',
+      meaning: 'The chart shows the development of prices.',
+    ),
     SpeakPhrase(
-        phrase: 'Die Zahlen sind deutlich gestiegen.',
-        meaning: 'The figures have risen significantly.'),
+      phrase: 'Die Zahlen sind deutlich gestiegen.',
+      meaning: 'The figures have risen significantly.',
+    ),
     SpeakPhrase(
-        phrase: 'Im Vergleich zum Vorjahr sank der Wert.',
-        meaning: 'Compared with the previous year the value fell.'),
+      phrase: 'Im Vergleich zum Vorjahr sank der Wert.',
+      meaning: 'Compared with the previous year the value fell.',
+    ),
     SpeakPhrase(
-        phrase: 'Auffällig ist, dass der Anteil gleich blieb.',
-        meaning: 'Notably, the share stayed the same.'),
+      phrase: 'Auffällig ist, dass der Anteil gleich blieb.',
+      meaning: 'Notably, the share stayed the same.',
+    ),
     SpeakPhrase(
-        phrase: 'Daraus lässt sich schließen, dass …',
-        meaning: 'From this one can conclude that …'),
+      phrase: 'Daraus lässt sich schließen, dass …',
+      meaning: 'From this one can conclude that …',
+    ),
     SpeakPhrase(
-        phrase: 'Zusammenfassend zeigt die Grafik einen klaren Trend.',
-        meaning: 'In summary the chart shows a clear trend.'),
+      phrase: 'Zusammenfassend zeigt die Grafik einen klaren Trend.',
+      meaning: 'In summary the chart shows a clear trend.',
+    ),
   ],
 );
 
@@ -839,12 +1277,12 @@ final QuizContent questC11HoerenPodiumContent = listeningQuestQuiz(
       options: [
         'Tablets könnten den Unterricht bereichern.',
         'Tablets sind reine Geldverschwendung.',
-        'Schulen brauchen keine Technik.'
+        'Schulen brauchen keine Technik.',
       ],
       optionsTranslation: [
         'Tablets could enrich teaching.',
         'Tablets are a waste of money.',
-        'Schools need no technology.'
+        'Schools need no technology.',
       ],
       correctIndex: 0,
       explanation: '"… Tablets könnten den Unterricht bereichern …"',
@@ -855,15 +1293,16 @@ final QuizContent questC11HoerenPodiumContent = listeningQuestQuiz(
       options: [
         'die Kosten',
         'die Ablenkung der Schüler',
-        'die Ausbildung der Lehrer'
+        'die Ausbildung der Lehrer',
       ],
       optionsTranslation: [
         'the cost',
         'the distraction of pupils',
-        'the training of teachers'
+        'the training of teachers',
       ],
       correctIndex: 1,
-      explanation: '"… die Konzentration der Schüler leide unter ständiger '
+      explanation:
+          '"… die Konzentration der Schüler leide unter ständiger '
           'Ablenkung."',
     ),
     ReadingQuestion(
@@ -872,31 +1311,34 @@ final QuizContent questC11HoerenPodiumContent = listeningQuestQuiz(
       options: [
         'dass Technik allein keinen guten Unterricht garantiert',
         'dass Tablets verboten werden sollten',
-        'dass nichts geändert werden muss'
+        'dass nichts geändert werden muss',
       ],
       optionsTranslation: [
         'that technology alone does not guarantee good teaching',
         'that tablets should be banned',
-        'that nothing needs to change'
+        'that nothing needs to change',
       ],
       correctIndex: 0,
       explanation: '"… die Technik allein keinen guten Unterricht garantiere."',
     ),
   ],
-  intro: 'A panel discussion — you only hear it. Track the two positions and '
+  intro:
+      'A panel discussion — you only hear it. Track the two positions and '
       'their common ground, in reported speech (könnten, leide, garantiere). '
       'Replay as needed.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'argues vs counters',
-      text: '"argumentiert" (Lang) vs "hält dagegen" (Roth) — opposite sides. '
+      text:
+          '"argumentiert" (Lang) vs "hält dagegen" (Roth) — opposite sides. '
           'Then "einig" marks agreement.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'sofern = provided that',
-      text: 'Lang’s support is conditional: "… sofern die Lehrkräfte gut '
+      text:
+          'Lang’s support is conditional: "… sofern die Lehrkräfte gut '
           'geschult seien."',
     ),
   ],
@@ -931,12 +1373,12 @@ final QuizContent questC11LesenEssayContent = readingQuestQuiz(
       options: [
         'als etwas, das man vermeiden sollte',
         'als angenehm',
-        'als notwendig'
+        'als notwendig',
       ],
       optionsTranslation: [
         'as something to be avoided',
         'as pleasant',
-        'as necessary'
+        'as necessary',
       ],
       correctIndex: 0,
       explanation: '"… etwas, das es um jeden Preis zu vermeiden gilt."',
@@ -947,15 +1389,16 @@ final QuizContent questC11LesenEssayContent = readingQuestQuiz(
       options: [
         'Sie schafft Raum für Kreativität.',
         'Sie macht krank.',
-        'Sie ist reine Zeitverschwendung.'
+        'Sie ist reine Zeitverschwendung.',
       ],
       optionsTranslation: [
         'It creates space for creativity.',
         'It makes you ill.',
-        'It is pure waste of time.'
+        'It is pure waste of time.',
       ],
       correctIndex: 0,
-      explanation: '"Sie schafft Raum für eigene Gedanken und für Kreativität."',
+      explanation:
+          '"Sie schafft Raum für eigene Gedanken und für Kreativität."',
     ),
     ReadingQuestion(
       question: 'Was schlägt der Autor am Ende vor?',
@@ -963,32 +1406,36 @@ final QuizContent questC11LesenEssayContent = readingQuestQuiz(
       options: [
         'Langeweile als Quelle zu begreifen',
         'Langeweile ganz zu verbieten',
-        'mehr Smartphones zu nutzen'
+        'mehr Smartphones zu nutzen',
       ],
       optionsTranslation: [
         'to understand boredom as a source',
         'to ban boredom entirely',
-        'to use more smartphones'
+        'to use more smartphones',
       ],
       correctIndex: 0,
-      explanation: '"… die Langeweile nicht als Feind, sondern als Quelle zu '
+      explanation:
+          '"… die Langeweile nicht als Feind, sondern als Quelle zu '
           'begreifen."',
     ),
   ],
-  intro: 'An essay extract — abstract and reflective, with passive alternatives '
+  intro:
+      'An essay extract — abstract and reflective, with passive alternatives '
       '(zu vermeiden gilt) and a Konjunktiv II suggestion (wäre … klug). A '
       'demanding C1 read.',
   tips: const [
     HelpMemoryTip(
       kind: 'tip',
       title: 'The author’s thesis',
-      text: 'Essays defend a view. Here: boredom is valuable. The "nicht … '
+      text:
+          'Essays defend a view. Here: boredom is valuable. The "nicht … '
           'sondern" ending states it.',
     ),
     HelpMemoryTip(
       kind: 'tip',
       title: 'Dabei wird übersehen',
-      text: 'This phrase signals the author is about to correct the common view.',
+      text:
+          'This phrase signals the author is about to correct the common view.',
     ),
   ],
 );
@@ -1009,18 +1456,30 @@ final QuizContent questC11BigTextHinweiseContent = bigTextQuestQuiz(
       'sich nicht mehr verwenden. Diese Regeln {{5}} von allen beachtet werden. '
       'Fehler sind unbedingt zu {{6}}. Wir danken für Ihr {{7}}.',
   blanks: [
-    inputBlank('lässt', accepted: const ['laesst'],
-        hint: 'sich lassen = kann … werden'),
+    inputBlank(
+      'lässt',
+      accepted: const ['laesst'],
+      hint: 'sich lassen = kann … werden',
+    ),
     inputBlank('finden', hint: 'sein + zu … (= muss gefunden werden)'),
     inputBlank('melden', hint: 'sein + zu … (= müssen gemeldet werden)'),
-    inputBlank('änderbar', accepted: const ['aenderbar'],
-        hint: '-bar = kann geändert werden (ändern)'),
-    inputBlank('lässt', accepted: const ['laesst'],
-        hint: 'sich lassen = kann … werden'),
+    inputBlank(
+      'änderbar',
+      accepted: const ['aenderbar'],
+      hint: '-bar = kann geändert werden (ändern)',
+    ),
+    inputBlank(
+      'lässt',
+      accepted: const ['laesst'],
+      hint: 'sich lassen = kann … werden',
+    ),
     inputBlank('müssen', hint: 'Modalpassiv: … beachtet werden'),
     inputBlank('vermeiden', hint: 'sein + zu … (= müssen vermieden werden)'),
-    inputBlank('Verständnis', accepted: const ['Verstaendnis'],
-        hint: 'Nomen: danken für Ihr …'),
+    inputBlank(
+      'Verständnis',
+      accepted: const ['Verstaendnis'],
+      hint: 'Nomen: danken für Ihr …',
+    ),
   ],
   passageTranslation:
       'Dear colleagues, here are some notes on the new system. The programme can '
@@ -1029,7 +1488,8 @@ final QuizContent questC11BigTextHinweiseContent = bigTextQuestQuiz(
       'The password can be changed at any time. The old system can no longer be '
       'used. These rules must be observed by everyone. Errors are absolutely to '
       'be avoided. Thank you for your understanding.',
-  intro: 'Formal German rarely leaves a plain "werden" passive standing. It '
+  intro:
+      'Formal German rarely leaves a plain "werden" passive standing. It '
       'prefers substitutes: sich lassen (lässt sich …), sein + zu + Infinitiv '
       '(ist zu …), and the -bar adjective (änderbar). Fill each with the right '
       'form.',
@@ -1037,25 +1497,118 @@ final QuizContent questC11BigTextHinweiseContent = bigTextQuestQuiz(
     HelpMemoryTip(
       kind: 'rule',
       title: 'Three ways to say "can be done"',
-      text: 'kann installiert werden = lässt sich installieren = ist installierbar. '
+      text:
+          'kann installiert werden = lässt sich installieren = ist installierbar. '
           'All three mean the same; the notice mixes them for style.',
     ),
     HelpMemoryTip(
       kind: 'mnemonic',
       title: 'sein + zu = müssen/können + Passiv',
-      text: '"ist zu melden" = muss gemeldet werden (obligation); "ist zu finden" '
+      text:
+          '"ist zu melden" = muss gemeldet werden (obligation); "ist zu finden" '
           '= kann gefunden werden (possibility). Context tells you which.',
     ),
     HelpMemoryTip(
       kind: 'warning',
       title: '-bar means "-able"',
-      text: 'machbar (doable), lesbar (legible), änderbar (changeable): the -bar '
+      text:
+          'machbar (doable), lesbar (legible), änderbar (changeable): the -bar '
           'adjective packs a whole "can be …ed" passive into one word.',
     ),
   ],
 );
 
 /// Every C1.1 quiz, in chain order — all five exercise types, interleaved.
+
+/// Speaking: the learner runs this conversation in their own AI
+/// assistant and enters the score it gives (see `SpeakingQuizPage`).
+final QuizContent questSpeakingAbstrahierenContent = speakingQuestQuiz(
+  id: 'quest_c1_1_sprechen_dialog',
+  title: 'C1.1 · Gespräch: Abstrahieren',
+  level: 'C1.1',
+  topic:
+      'Discussing an abstract topic - education, work, technology - and switching between a formal and a plain way of saying it.',
+  practisePoints: [
+    'Nominalisation and back: die Durchführung des Projekts vs das Projekt durchführen',
+    'Passive alternatives: sein + zu, sich lassen, -bar',
+    'Advanced connectors: insofern, sofern, zumal, geschweige denn',
+    'Participial clauses: die vom Bund geförderten Projekte',
+  ],
+  targetVocabulary: [
+    'hinsichtlich',
+    'lässt sich',
+    'insofern',
+    'zumal',
+    'die Durchführung',
+  ],
+  scoringCriteria: [
+    'the nominalised or verbalised form',
+    'a passive alternative used correctly',
+    'the connector and its word order',
+    'holding a consistent register',
+  ],
+  priorityErrors: [
+    'register slipping mid-sentence',
+    'wrong case in a nominalised phrase',
+    'wrong word order after an advanced connector',
+  ],
+  session: SpeakingSession(durationMinutes: 6, minExchanges: 9),
+  intro:
+      'The app does not run this conversation. Copy the exercise, paste it into your own AI assistant, turn on its voice mode, and say "Los geht\'s" to start. It grades you at the end - bring that score back here.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'Let it be a conversation',
+      text:
+          'Answer in full sentences and let the tutor react. It will not correct you while you talk - every correction comes at the end, with your score.',
+    ),
+  ],
+);
+
+/// Mid-level speaking checkpoint: a shorter, question-driven run over the
+/// first half of this sub-level. The closing Gespräch covers the level as
+/// a whole.
+final QuizContent questSpeakingCheckC11Content = speakingQuestQuiz(
+  id: 'quest_c1_1_sprechen_kurzcheck',
+  title: 'C1.1 · Kurzcheck: Nominalisierung',
+  level: 'C1.1',
+  topic:
+      'The same idea said twice: once in a formal, noun-heavy register and once plainly with verbs.',
+  practisePoints: [
+    'Nominalisation: die Durchführung, die Entwicklung, die Umsetzung',
+    'Verbalising a noun-heavy phrase back into a clause',
+    'The case inside a nominalised phrase',
+  ],
+  targetVocabulary: [
+    'die Durchführung',
+    'die Umsetzung',
+    'hinsichtlich',
+    'erfolgen',
+  ],
+  scoringCriteria: [
+    'the nominalised form',
+    'the verbalised form',
+    'the case inside the phrase',
+  ],
+  priorityErrors: [
+    'wrong case in a nominalised phrase',
+    'register slipping mid-sentence',
+  ],
+  mode: SpeakingMode.interview,
+  session: SpeakingSession(durationMinutes: 3, minExchanges: 6),
+  report: SpeakingReport(maxWords: 150, maxCorrections: 3),
+  intro:
+      'A short checkpoint on the first half of this level. Copy it into your own AI assistant, turn on voice mode, and answer - about three minutes.',
+  tips: const [
+    HelpMemoryTip(
+      kind: 'tip',
+      title: 'A short checkpoint, not an exam',
+      text:
+          'Three minutes is enough. Answer in full sentences and let the tutor move on - it saves every correction for the report at the end.',
+    ),
+  ],
+);
+
 final List<QuizContent> questC1_1Content = [
   questC11BildungContent, //            Bildung & Wissenschaft  (knowledge)
   questC11NominalisierungContent, //    Nominalisierung         (knowledge)
@@ -1065,6 +1618,7 @@ final List<QuizContent> questC1_1Content = [
   questC11BigTextHinweiseContent, //    Großer Text: Hinweise   (reading·cloze)
   questC11HoerenVorlesungContent, //    Hören: Vorlesung        (listening)
   questC11BarLichContent, //            Adjektive -bar/-lich    (knowledge)
+  questSpeakingCheckC11Content, // Kurzcheck mit einer KI (speaking·AI)
   questC11KonnektorenContent, //        Konnektoren             (knowledge)
   questC11LesenWissenschaftContent, //  Lesen: Wissenschaft     (reading)
   questC11PartizipialsatzContent, //    Partizipialsätze        (knowledge)
@@ -1072,4 +1626,5 @@ final List<QuizContent> questC1_1Content = [
   questC11SprechenGrafikContent, //     Sprechen: Grafik        (speaking)
   questC11HoerenPodiumContent, //       Hören: Podium           (listening)
   questC11LesenEssayContent, //         Lesen: Essay            (reading)
+  questSpeakingAbstrahierenContent, // Gespräch mit einer KI  (speaking·AI)
 ];
