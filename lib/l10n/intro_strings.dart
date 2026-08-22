@@ -2,7 +2,9 @@ import '../models/course.dart';
 
 /// Localized copy for the course introduction page (see
 /// `pages/course_intro_page.dart`). Kept separate from [AppStrings] because the
-/// intro is long-form marketing/teaching copy rather than short UI chrome.
+/// intro is long-form teaching copy rather than short UI chrome. The copy is
+/// deliberately language-neutral about the *target* language — the page itself
+/// injects course-specific examples (see `_LangSample` in the page).
 ///
 /// Access the active set with `introStringsFor(course.uiLang)`.
 class IntroStrings {
@@ -12,20 +14,14 @@ class IntroStrings {
     required this.intro,
     required this.companionTitle,
     required this.companionBody,
-    required this.featuresHeader,
     required this.quizTitle,
     required this.quizBody,
-    required this.streakTitle,
-    required this.streakBody,
+    required this.pathTitle,
+    required this.pathBody,
     required this.helpTitle,
     required this.helpBody,
-    required this.tipsTitle,
-    required this.tipsBody,
-    required this.pdfTitle,
-    required this.pdfBody,
-    required this.analyticsTitle,
-    required this.analyticsBody,
-    required this.closing,
+    required this.streakTitle,
+    required this.streakBody,
     required this.startButton,
   });
 
@@ -35,20 +31,16 @@ class IntroStrings {
   final String intro;
   final String companionTitle;
   final String companionBody;
-  final String featuresHeader;
   final String quizTitle;
   final String quizBody;
-  final String streakTitle;
-  final String streakBody;
+
+  /// The pass-to-unlock level chain card (only shown for gated courses).
+  final String pathTitle;
+  final String pathBody;
   final String helpTitle;
   final String helpBody;
-  final String tipsTitle;
-  final String tipsBody;
-  final String pdfTitle;
-  final String pdfBody;
-  final String analyticsTitle;
-  final String analyticsBody;
-  final String closing;
+  final String streakTitle;
+  final String streakBody;
   final String startButton;
 }
 
@@ -56,162 +48,112 @@ const IntroStrings _en = IntroStrings(
   menuTitle: 'How it works',
   headline: 'Practice the parts that actually trip you up',
   intro:
-      'This is a focused practice tool — short, sharp quizzes for the specifics '
-      'that are easy to get wrong. Use it next to whatever you already learn '
-      'with.',
+      'Short, sharp quizzes for the specifics that are easy to get wrong — '
+      'with audio on every sentence and instant feedback.',
   companionTitle: 'A companion, not a replacement',
   companionBody:
-      'Big apps and courses like Duolingo move forward fast and leave gaps — '
-      'when to use der, die or das, the right pronoun, the case after a '
-      'preposition. This app zooms in on exactly those, so they stop being '
-      'guesswork and become second nature.',
-  featuresHeader: "WHAT'S INSIDE",
+      'Big apps move fast and leave gaps — the small rules you keep '
+      'second-guessing. This app zooms in on exactly those until they become '
+      'second nature.',
   quizTitle: 'Quick, focused quizzes',
   quizBody:
       'Read the sentence, fill the blank or pick the answer, and get instant '
       'feedback. Rounds are short, so you can practice anywhere.',
-  streakTitle: 'Streaks that build momentum',
-  streakBody:
-      'Every correct answer extends your streak and fills the bar. Chase your '
-      'best run — it turns practice into a habit.',
-  helpTitle: 'Help Memory cheat-sheet',
+  pathTitle: 'A clear path, level by level',
+  pathBody:
+      'Finish a level to unlock the next — from your first words to mastery. '
+      'Already know some? Take the placement test and start at your level.',
+  helpTitle: 'A cheat-sheet on every quiz',
   helpBody:
-      'Each quiz comes with a color-coded reference — der is blue, die is red, '
-      'das is green — with the rules and tables you need, right where you '
-      'practice.',
-  tipsTitle: 'Tips & explanations',
-  tipsBody:
-      'When something is tricky, a short tip explains the why — so you learn '
-      'the rule, not just the right answer.',
-  pdfTitle: 'Take it with you (PDF)',
-  pdfBody:
-      'Save any Help Memory as a clean, branded PDF and review it offline '
-      'whenever a question trips you up.',
-  analyticsTitle: 'See your progress',
-  analyticsBody:
-      'History and analytics show your accuracy and your weak spots, so you '
-      'always know what to practice next.',
-  closing: "That's it. Pick a quiz and start whenever you're ready.",
-  startButton: 'Start practicing',
+      'Each quiz carries a color-coded reference with the rules, tables and '
+      'tips you need — right where you practice, saveable as a PDF.',
+  streakTitle: 'Streaks and coins',
+  streakBody:
+      'Correct answers build your streak and earn coins to furnish your own '
+      'room. Practice becomes a habit — and a home.',
+  startButton: 'Start the course',
 );
 
 const IntroStrings _es = IntroStrings(
   menuTitle: 'Cómo funciona',
   headline: 'Practica justo lo que se te resiste',
   intro:
-      'Esta es una herramienta de práctica enfocada — quizzes cortos y directos '
-      'para los detalles que es fácil confundir. Úsala junto a lo que ya uses '
-      'para aprender.',
+      'Quizzes cortos y directos para los detalles que es fácil confundir — '
+      'con audio en cada frase y corrección al instante.',
   companionTitle: 'Un complemento, no un reemplazo',
   companionBody:
-      'Las apps y los cursos como Duolingo avanzan rápido y dejan huecos — '
-      'cuándo usar der, die o das, el pronombre correcto, el caso después de '
-      'una preposición. Esta app se centra justo en eso, para que dejes de '
-      'adivinar y te salga solo.',
-  featuresHeader: 'QUÉ INCLUYE',
+      'Las apps grandes avanzan rápido y dejan huecos: las pequeñas reglas '
+      'que siempre te hacen dudar. Esta app se centra justo en ellas hasta '
+      'que te salgan solas.',
   quizTitle: 'Quizzes rápidos y enfocados',
   quizBody:
-      'Lee la frase, completa el hueco o elige la respuesta y recibe corrección '
-      'al instante. Las rondas son cortas, para practicar en cualquier momento.',
-  streakTitle: 'Rachas que dan impulso',
-  streakBody:
-      'Cada acierto alarga tu racha y llena la barra. Supera tu mejor marca — '
-      'convierte la práctica en un hábito.',
-  helpTitle: 'Guía rápida (Help Memory)',
+      'Lee la frase, completa el hueco o elige la respuesta y recibe '
+      'corrección al instante. Las rondas son cortas: practica donde sea.',
+  pathTitle: 'Un camino claro, nivel a nivel',
+  pathBody:
+      'Termina un nivel para desbloquear el siguiente, desde tus primeras '
+      'palabras hasta el dominio. ¿Ya sabes algo? Haz la prueba de nivel y '
+      'empieza donde te toca.',
+  helpTitle: 'Una guía rápida en cada quiz',
   helpBody:
-      'Cada quiz trae una referencia con colores — der en azul, die en rojo, '
-      'das en verde — con las reglas y tablas que necesitas, justo donde '
-      'practicas.',
-  tipsTitle: 'Consejos y explicaciones',
-  tipsBody:
-      'Cuando algo es complicado, un consejo corto explica el porqué — para que '
-      'aprendas la regla, no solo la respuesta correcta.',
-  pdfTitle: 'Llévatela contigo (PDF)',
-  pdfBody:
-      'Guarda cualquier guía rápida como un PDF con un diseño cuidado y repásala '
-      'sin conexión cuando una pregunta se te resista.',
-  analyticsTitle: 'Mira tu progreso',
-  analyticsBody:
-      'El historial y las estadísticas muestran tu precisión y tus puntos '
-      'débiles, para que siempre sepas qué practicar después.',
-  closing: 'Eso es todo. Elige un quiz y empieza cuando quieras.',
-  startButton: 'Empezar a practicar',
+      'Cada quiz trae una referencia con colores: las reglas, tablas y '
+      'consejos que necesitas, justo donde practicas, y descargable en PDF.',
+  streakTitle: 'Rachas y monedas',
+  streakBody:
+      'Cada acierto alarga tu racha y gana monedas para amueblar tu propia '
+      'habitación. La práctica se vuelve hábito… y hogar.',
+  startButton: 'Empezar el curso',
 );
 
 const IntroStrings _de = IntroStrings(
   menuTitle: 'So funktioniert es',
   headline: 'Übe genau das, was dir Probleme macht',
   intro:
-      'Dies ist ein gezieltes Übungstool — kurze, knackige Quizze für die '
-      'Feinheiten, die man leicht falsch macht. Nutze es ergänzend zu dem, '
-      'womit du schon lernst.',
+      'Kurze, knackige Quizze für die Feinheiten, die man leicht falsch '
+      'macht — mit Audio zu jedem Satz und sofortigem Feedback.',
   companionTitle: 'Eine Ergänzung, kein Ersatz',
   companionBody:
-      'Große Apps und Kurse gehen schnell voran und lassen Lücken — ser oder '
-      'estar, das richtige Pronomen, der Subjuntivo. Diese App zoomt genau '
-      'darauf, damit es kein Ratespiel mehr ist, sondern in Fleisch und Blut '
-      'übergeht.',
-  featuresHeader: 'WAS DRIN IST',
+      'Große Apps gehen schnell voran und lassen Lücken — die kleinen Regeln, '
+      'bei denen du immer wieder zögerst. Diese App zoomt genau darauf, bis '
+      'sie in Fleisch und Blut übergehen.',
   quizTitle: 'Kurze, gezielte Quizze',
   quizBody:
-      'Lies den Satz, fülle die Lücke oder wähle die Antwort und bekomme sofort '
-      'Feedback. Die Runden sind kurz — übe überall.',
-  streakTitle: 'Serien, die Schwung geben',
-  streakBody:
-      'Jede richtige Antwort verlängert deine Serie und füllt den Balken. Jage '
-      'deinen Rekord — so wird Übung zur Gewohnheit.',
-  helpTitle: 'Schnellhilfe-Spickzettel',
+      'Lies den Satz, fülle die Lücke oder wähle die Antwort und bekomme '
+      'sofort Feedback. Die Runden sind kurz — übe überall.',
+  pathTitle: 'Ein klarer Weg, Stufe für Stufe',
+  pathBody:
+      'Schließe eine Stufe ab, um die nächste freizuschalten — von den ersten '
+      'Wörtern bis zur Meisterschaft. Schon Vorkenntnisse? Mach den '
+      'Einstufungstest und starte auf deinem Niveau.',
+  helpTitle: 'Ein Spickzettel bei jedem Quiz',
   helpBody:
-      'Jedes Quiz hat eine farbcodierte Referenz mit den Regeln und Tabellen, '
-      'die du brauchst — direkt dort, wo du übst.',
-  tipsTitle: 'Tipps & Erklärungen',
-  tipsBody:
-      'Wenn etwas knifflig ist, erklärt ein kurzer Tipp das Warum — damit du '
-      'die Regel lernst, nicht nur die richtige Antwort.',
-  pdfTitle: 'Nimm es mit (PDF)',
-  pdfBody:
-      'Speichere jede Schnellhilfe als sauberes PDF und schau sie offline an, '
-      'wann immer eine Frage dich ins Stolpern bringt.',
-  analyticsTitle: 'Sieh deinen Fortschritt',
-  analyticsBody:
-      'Verlauf und Statistiken zeigen deine Genauigkeit und deine Schwachstellen, '
-      'damit du immer weißt, was als Nächstes dran ist.',
-  closing: 'Das war\'s. Wähle ein Quiz und leg los, wann du bereit bist.',
-  startButton: 'Üben starten',
+      'Jedes Quiz hat eine farbcodierte Referenz mit den Regeln, Tabellen und '
+      'Tipps, die du brauchst — direkt beim Üben, als PDF speicherbar.',
+  streakTitle: 'Serien und Münzen',
+  streakBody:
+      'Richtige Antworten verlängern deine Serie und bringen Münzen, mit '
+      'denen du dein eigenes Zimmer einrichtest. Üben wird zur Gewohnheit — '
+      'und zum Zuhause.',
+  startButton: 'Kurs starten',
 );
 
 const IntroStrings _zh = IntroStrings(
   menuTitle: '使用说明',
   headline: '专攻真正让你卡壳的地方',
-  intro:
-      '这是一个专注的练习工具——针对容易出错的细节，做简短而精准的小测验。'
-      '把它当作你现有学习方式的补充。',
+  intro: '针对容易出错的细节，做简短而精准的小测验——每句都有语音，回答立刻有反馈。',
   companionTitle: '是补充，不是替代',
   companionBody:
-      '像 Duolingo 这样的大型课程推进很快，会留下缝隙——什么时候用 a、an 还是 the，'
-      '动词第三人称要不要加 -s，时态怎么变。这个应用正是聚焦这些，'
-      '让它们不再靠猜，而变成本能。',
-  featuresHeader: '内容包含',
+      '大型课程推进很快，会留下缝隙——那些总让你犹豫的小规则。'
+      '这个应用正是聚焦它们，直到变成本能。',
   quizTitle: '简短、专注的练习',
-  quizBody:
-      '读句子，填空或选答案，立刻得到反馈。每轮都很短，随时随地都能练。',
-  streakTitle: '连击带来动力',
-  streakBody:
-      '每答对一题都会延长你的连击并填满进度条。挑战你的最佳纪录——让练习成为习惯。',
-  helpTitle: '记忆助手小抄',
-  helpBody:
-      '每个练习都配有一份参考卡，附上你需要的规则和表格，就在你练习的地方。',
-  tipsTitle: '技巧与讲解',
-  tipsBody:
-      '遇到难点时，一条简短的提示会解释"为什么"——让你学到规则，而不只是正确答案。',
-  pdfTitle: '随身携带（PDF）',
-  pdfBody:
-      '把任意记忆助手保存为简洁的 PDF，离线随时复习。',
-  analyticsTitle: '看见你的进步',
-  analyticsBody:
-      '历史和分析显示你的正确率和薄弱环节，让你随时知道接下来该练什么。',
-  closing: '就这些。准备好了就挑一个练习开始吧。',
-  startButton: '开始练习',
+  quizBody: '读句子，填空或选答案，立刻得到反馈。每轮都很短，随时随地都能练。',
+  pathTitle: '一条清晰的路，一级一级走',
+  pathBody: '完成一级解锁下一级——从第一句话到精通。已经有基础？做一次分级测试，从你的水平开始。',
+  helpTitle: '每个练习都有小抄',
+  helpBody: '每个练习都配有彩色标注的参考卡：你需要的规则、表格和提示，就在练习的地方，还能存成 PDF。',
+  streakTitle: '连击与金币',
+  streakBody: '答对延长连击、赚取金币，用来布置你自己的房间。练习变成习惯——也变成一个家。',
+  startButton: '开始课程',
 );
 
 IntroStrings introStringsFor(UiLang lang) => switch (lang) {
