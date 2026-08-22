@@ -20,9 +20,11 @@ import 'package:german_pronouns_articles/data/course_catalog.dart';
 import 'package:german_pronouns_articles/data/courses/de_cs/de_cs_content.dart';
 import 'package:german_pronouns_articles/data/courses/de_es/de_es_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_de/en_de_content.dart';
+import 'package:german_pronouns_articles/data/courses/en_es/en_es_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_zh/en_zh_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_zh_hanzi/en_zh_hanzi_content.dart';
 import 'package:german_pronouns_articles/data/courses/es_de/es_de_content.dart';
+import 'package:german_pronouns_articles/data/courses/es_en/es_en_content.dart';
 import 'package:german_pronouns_articles/data/courses/zh_en/zh_en_content.dart';
 import 'package:german_pronouns_articles/data/data_version.dart';
 import 'package:german_pronouns_articles/data/noun_article_content.dart';
@@ -65,6 +67,8 @@ Map<String, List<QuizContent>> _contentByCourse() => {
   'es_de_emotions': [...esDeEmocionesContent],
   'de_es': [...deEsContent],
   'de_cs': [...deCsContent],
+  'es_en': [...esEnContent],
+  'en_es': [...enEsContent],
   'zh_en': [...zhEnContent],
   'en_zh': [...enZhContent],
   'en_zh_hanzi': [...enZhHanziContent],

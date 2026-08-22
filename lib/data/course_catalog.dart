@@ -6,7 +6,9 @@ import 'courses/de_es/de_es_content.dart';
 import 'courses/en_de/en_de_content.dart';
 import 'courses/en_zh_hanzi/en_zh_hanzi_content.dart';
 import 'courses/en_zh/en_zh_content.dart';
+import 'courses/en_es/en_es_content.dart';
 import 'courses/es_de/es_de_content.dart';
+import 'courses/es_en/es_en_content.dart';
 import 'courses/zh_en/zh_en_content.dart';
 
 /// Navigation links shared by the English courses (word reference, settings,
@@ -476,6 +478,212 @@ final NavLayout _zhEnCertNav = NavLayout(
   ],
 );
 
+/// The "Certificación de Inglés A1–C2" drawer (Spanish → English): the
+/// twelve CEFR sub-level groups in chain order, plus links. Each level group
+/// is [NavGroup.gated], so the whole sequence is one continuous
+/// pass-to-unlock chain. See `docs/es_en_certification_plan.md`.
+final NavLayout _esEnCertNav = NavLayout(
+  groups: [
+    NavGroup(
+      id: 'a1_1',
+      title: 'A1.1 · PRIMER CONTACTO',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnA1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a1_2',
+      title: 'A1.2 · LA VIDA DIARIA',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnA1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_1',
+      title: 'A2.1 · EL PASADO',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnA2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_2',
+      title: 'A2.2 · PLANES Y COMPARACIONES',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnA2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_1',
+      title: 'B1.1 · OPINIONES Y EXPERIENCIAS',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnB1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_2',
+      title: 'B1.2 · HISTORIAS Y CONDICIONES',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnB1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_1',
+      title: 'B2.1 · ARGUMENTOS E HIPÓTESIS',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnB2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_2',
+      title: 'B2.2 · MATICES Y REFORMULACIÓN',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnB2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_1',
+      title: 'C1.1 · ABSTRACCIÓN Y PRECISIÓN',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnC1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_2',
+      title: 'C1.2 · REGISTRO Y RETÓRICA',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnC1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_1',
+      title: 'C2.1 · ESTILO E IDIOMATISMO',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnC2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_2',
+      title: 'C2.2 · MAESTRÍA',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in esEnC2_2) NavItem(ref: c.id)],
+    ),
+    const NavGroup(
+      id: 'more',
+      title: 'MÁS',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
+/// The "Certification Spanish A1–C2" drawer (English → Spanish): the twelve
+/// CEFR sub-level groups in chain order, plus links. Each level group is
+/// [NavGroup.gated], so the whole sequence is one continuous pass-to-unlock
+/// chain. See `docs/en_es_certification_plan.md`.
+final NavLayout _enEsCertNav = NavLayout(
+  groups: [
+    NavGroup(
+      id: 'a1_1',
+      title: 'A1.1 · FIRST SOUNDS & SELVES',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsA1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a1_2',
+      title: 'A1.2 · DAILY LIFE',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsA1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_1',
+      title: 'A2.1 · THE PAST, TWICE',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsA2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'a2_2',
+      title: 'A2.2 · PLANS & CITY LIFE',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsA2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_1',
+      title: 'B1.1 · OPINIONS & FEELINGS',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsB1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b1_2',
+      title: 'B1.2 · STORIES & CONDITIONS',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsB1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_1',
+      title: 'B2.1 · HYPOTHESIS & ARGUMENT',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsB2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'b2_2',
+      title: 'B2.2 · NUANCE & REPORTING',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsB2_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_1',
+      title: 'C1.1 · ABSTRACTION & PRECISION',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsC1_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c1_2',
+      title: 'C1.2 · REGISTER & RHETORIC',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsC1_2) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_1',
+      title: 'C2.1 · STYLE & IDIOM',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsC2_1) NavItem(ref: c.id)],
+    ),
+    NavGroup(
+      id: 'c2_2',
+      title: 'C2.2 · MASTERY',
+      type: NavGroupType.quizzes,
+      gated: true,
+      items: [for (final c in enEsC2_2) NavItem(ref: c.id)],
+    ),
+    const NavGroup(
+      id: 'more',
+      title: 'MORE',
+      type: NavGroupType.links,
+      items: [
+        NavItem(ref: kSettingsRef),
+        NavItem(ref: kHowItWorksRef),
+        NavItem(ref: kCoursesRef),
+      ],
+    ),
+  ],
+);
+
 /// The "Certification Chinese · HSK" drawer (English → Mandarin): the twelve
 /// CEFR sub-level groups (A1.1 … C2.2) in chain order, each mapped to its HSK
 /// band, plus links. Each level group is [NavGroup.gated], so the whole
@@ -693,6 +901,30 @@ final List<Course> defaultCourses = [
     goal: 'certification',
     level: 'A1–C2',
     nav: _zhEnCertNav,
+  ),
+  Course(
+    id: 'es_en',
+    name: 'Certificación de Inglés A1–C2',
+    tagline: 'Tu camino paso a paso hasta el certificado de inglés',
+    speakFlag: '🇪🇸',
+    learnFlag: '🇬🇧',
+    uiLang: UiLang.es,
+    learnLocale: 'en-GB',
+    goal: 'certification',
+    level: 'A1–C2',
+    nav: _esEnCertNav,
+  ),
+  Course(
+    id: 'en_es',
+    name: 'Certification Spanish A1–C2',
+    tagline: 'From hola to C2 mastery — one world language, step by step',
+    speakFlag: '🇬🇧',
+    learnFlag: '🇪🇸',
+    uiLang: UiLang.en,
+    learnLocale: 'es-ES',
+    goal: 'certification',
+    level: 'A1–C2',
+    nav: _enEsCertNav,
   ),
   Course(
     id: 'en_zh',

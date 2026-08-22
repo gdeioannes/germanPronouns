@@ -16,6 +16,82 @@ List<ConjugationForm> _zip(List<String> forms) => [
     ConjugationForm(person: _p[i], form: forms[i]),
 ];
 
+/// Spanish meanings for the `es_en` course (Spanish speakers learning
+/// English).
+const Map<String, String> _es = {
+  'be': 'ser / estar',
+  'have': 'tener',
+  'do': 'hacer',
+  'say': 'decir',
+  'go': 'ir',
+  'get': 'conseguir / recibir',
+  'make': 'hacer / fabricar',
+  'know': 'saber / conocer',
+  'think': 'pensar / creer',
+  'take': 'tomar / llevar',
+  'see': 'ver',
+  'come': 'venir',
+  'want': 'querer',
+  'look': 'mirar',
+  'use': 'usar',
+  'find': 'encontrar',
+  'give': 'dar',
+  'tell': 'contar / decir',
+  'work': 'trabajar',
+  'call': 'llamar',
+  'try': 'intentar',
+  'ask': 'preguntar / pedir',
+  'need': 'necesitar',
+  'feel': 'sentir(se)',
+  'leave': 'salir / dejar',
+  'put': 'poner',
+  'mean': 'significar',
+  'read': 'leer',
+  'eat': 'comer',
+  'drink': 'beber',
+  'agree': 'estar de acuerdo',
+  'answer': 'responder',
+  'arrive': 'llegar',
+  'become': 'convertirse en',
+  'believe': 'creer',
+  'break': 'romper',
+  'buy': 'comprar',
+  'catch': 'atrapar / coger',
+  'change': 'cambiar',
+  'cost': 'costar',
+  'decide': 'decidir',
+  'drive': 'conducir / manejar',
+  'fail': 'fracasar / suspender',
+  'finish': 'terminar',
+  'help': 'ayudar',
+  'hope': 'esperar (desear)',
+  'learn': 'aprender',
+  'like': 'gustar',
+  'live': 'vivir',
+  'lose': 'perder',
+  'meet': 'conocer / encontrarse con',
+  'miss': 'perder / echar de menos',
+  'move': 'mover(se) / mudarse',
+  'open': 'abrir',
+  'plan': 'planear',
+  'play': 'jugar / tocar',
+  'promise': 'prometer',
+  'rain': 'llover',
+  'sleep': 'dormir',
+  'speak': 'hablar',
+  'start': 'empezar',
+  'stay': 'quedarse',
+  'study': 'estudiar',
+  'travel': 'viajar',
+  'turn': 'girar',
+  'understand': 'entender',
+  'visit': 'visitar',
+  'wait': 'esperar',
+  'watch': 'ver / mirar',
+  'wish': 'desear',
+  'write': 'escribir',
+};
+
 VerbEntry _v(
   String base,
   String third,
@@ -26,7 +102,7 @@ VerbEntry _v(
 ) => VerbEntry(
   verb: base,
   english: base,
-  meanings: {'zh': zh},
+  meanings: {'zh': zh, 'es': _es[base]!},
   sets: [
     ConjugationSet(
       label: 'Present simple',
@@ -57,7 +133,7 @@ final VerbCollection englishVerbCollection = VerbCollection(
     VerbEntry(
       verb: 'be',
       english: 'be',
-      meanings: const {'zh': '是 shì'},
+      meanings: const {'zh': '是 shì', 'es': 'ser / estar'},
       sets: [
         ConjugationSet(label: 'Present simple', forms: _zip(_be)),
         ConjugationSet(
@@ -180,10 +256,16 @@ VerbEntry _modal(
       ConjugationSet(label: label, forms: [
         ConjugationForm(person: 'all persons', form: form),
       ]);
+  const esModal = {
+    'can': 'poder',
+    'must': 'deber / tener que',
+    'should': 'deber (condicional)',
+    'may': 'poder (permiso / posibilidad)',
+  };
   return VerbEntry(
     verb: base,
     english: base,
-    meanings: {'zh': zh},
+    meanings: {'zh': zh, 'es': esModal[base]!},
     sets: [
       one('Present', base),
       one('Past / substitute', past),

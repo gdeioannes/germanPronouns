@@ -1,5 +1,5 @@
 {
-  "version": "1.24.0",
+  "version": "1.25.0",
   "defaultCourseId": "en_de",
   "courses": [
     {
@@ -12,7 +12,7 @@
       "learnLocale": "de-DE",
       "goal": "certification",
       "level": "A1–C2",
-      "version": "1.24.0"
+      "version": "1.25.0"
     },
     {
       "id": "en_de",
@@ -24,7 +24,7 @@
       "learnLocale": "de-DE",
       "goal": "grammar",
       "level": "A1–B2",
-      "version": "1.24.0"
+      "version": "1.25.0"
     },
     {
       "id": "es_de",
@@ -36,7 +36,7 @@
       "learnLocale": "de-DE",
       "goal": "discover",
       "level": "A1",
-      "version": "1.24.0"
+      "version": "1.25.0"
     },
     {
       "id": "es_de_emotions",
@@ -48,7 +48,7 @@
       "learnLocale": "de-DE",
       "goal": "vocabulary",
       "level": "A2–C1",
-      "version": "1.24.0"
+      "version": "1.25.0"
     },
     {
       "id": "de_es",
@@ -60,7 +60,7 @@
       "learnLocale": "es-ES",
       "goal": "certification",
       "level": "A1–B2",
-      "version": "1.24.0"
+      "version": "1.25.0"
     },
     {
       "id": "de_cs",
@@ -72,7 +72,7 @@
       "learnLocale": "cs-CZ",
       "goal": "discover",
       "level": "A1",
-      "version": "1.24.0"
+      "version": "1.25.0"
     },
     {
       "id": "zh_en",
@@ -84,7 +84,31 @@
       "learnLocale": "en-GB",
       "goal": "certification",
       "level": "A1–C2",
-      "version": "1.24.0"
+      "version": "1.25.0"
+    },
+    {
+      "id": "es_en",
+      "name": "Certificación de Inglés A1–C2",
+      "tagline": "Tu camino paso a paso hasta el certificado de inglés",
+      "speakFlag": "🇪🇸",
+      "learnFlag": "🇬🇧",
+      "uiLang": "es",
+      "learnLocale": "en-GB",
+      "goal": "certification",
+      "level": "A1–C2",
+      "version": "1.25.0"
+    },
+    {
+      "id": "en_es",
+      "name": "Certification Spanish A1–C2",
+      "tagline": "From hola to C2 mastery — one world language, step by step",
+      "speakFlag": "🇬🇧",
+      "learnFlag": "🇪🇸",
+      "uiLang": "en",
+      "learnLocale": "es-ES",
+      "goal": "certification",
+      "level": "A1–C2",
+      "version": "1.25.0"
     },
     {
       "id": "en_zh",
@@ -96,7 +120,7 @@
       "learnLocale": "zh-CN",
       "goal": "certification",
       "level": "A1–C2",
-      "version": "1.24.0"
+      "version": "1.25.0"
     },
     {
       "id": "en_zh_hanzi",
@@ -108,7 +132,7 @@
       "learnLocale": "zh-CN",
       "goal": "vocabulary",
       "level": "HSK 1–4",
-      "version": "1.24.0"
+      "version": "1.25.0"
     }
   ]
 }

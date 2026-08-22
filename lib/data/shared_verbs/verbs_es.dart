@@ -52,7 +52,7 @@ VerbEntry _v(
 }) => VerbEntry(
   verb: infinitive,
   english: english,
-  meanings: {'de': de},
+  meanings: {'de': de, 'en': english},
   sets: [
     ConjugationSet(label: 'Presente', forms: _zip(presente)),
     ConjugationSet(label: 'Pretérito indefinido', forms: _zip(indefinido)),

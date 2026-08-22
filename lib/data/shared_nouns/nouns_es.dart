@@ -20,7 +20,7 @@ GermanNoun _n(
   categories: categories,
   difficulty: difficulty,
   declensionSafe: true,
-  meanings: {'de': de},
+  meanings: {'de': de, 'en': english},
 );
 
 final NounCollection spanishNounCollection = NounCollection(
