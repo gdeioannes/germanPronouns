@@ -125,6 +125,60 @@ void main() {
     expect(RegExp(r'\{\w+\}').firstMatch(copied!), isNull);
   });
 
+  testWidgets('the AI hand-off buttons appear only once the prompt is copied',
+      (tester) async {
+    // The hand-off only unlocks once the clipboard write succeeds, so this test
+    // needs a working clipboard as well as a working launcher.
+    tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+      SystemChannels.platform,
+      (call) async => null,
+    );
+    final launched = <String>[];
+    tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+      const MethodChannel('plugins.flutter.io/url_launcher'),
+      (call) async {
+        if (call.method == 'launch') {
+          launched.add((call.arguments as Map)['url'] as String);
+        }
+        return true;
+      },
+    );
+    addTearDown(() {
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        null,
+      );
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        const MethodChannel('plugins.flutter.io/url_launcher'),
+        null,
+      );
+    });
+
+    await _pumpPage(tester, 'speaking_handoff');
+    final s = CourseSession.instance.strings.speaking;
+    final gemini = s.openAssistant.replaceAll('{ai}', 'Gemini');
+
+    // Opening the assistant before copying would land the learner in an empty
+    // chat with nothing to paste, so there is nothing to tap yet.
+    expect(find.text(gemini), findsNothing);
+
+    await tester.tap(find.text(s.copyExercise));
+    await tester.pumpAndSettle();
+
+    expect(find.text(s.openTitle), findsOneWidget);
+    expect(find.text(gemini), findsOneWidget);
+    expect(find.text(s.openAssistant.replaceAll('{ai}', 'ChatGPT')),
+        findsOneWidget);
+
+    await tester.tap(find.text(gemini));
+    await tester.pumpAndSettle();
+
+    expect(launched, ['https://gemini.google.com/app']);
+    // The choice sticks, so the next visit offers it first.
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.getString('speaking_preferred_ai'), 'gemini');
+  });
+
   testWidgets('a passing score saves, completes the quiz and pays coins',
       (tester) async {
     await _pumpPage(tester, 'speaking_pass');

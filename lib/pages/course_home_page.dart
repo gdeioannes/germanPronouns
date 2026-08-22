@@ -7,6 +7,7 @@ import '../data/exercise_sheet_builder.dart';
 import '../data/nav_layout_data.dart';
 import '../data/noun_article_data.dart';
 import '../data/noun_progression_data.dart';
+import '../data/placement/placement_modules.dart';
 import '../data/quest_data.dart';
 import '../data/quiz_content_adapter.dart';
 import '../data/quiz_stats_store.dart';
@@ -26,6 +27,7 @@ import '../widgets/coin_balance_pill.dart';
 import '../widgets/completion_ribbon.dart';
 import '../widgets/country_flag.dart';
 import '../widgets/feature_poll.dart';
+import '../widgets/placement_start_sheet.dart';
 import 'auth_gate.dart';
 
 /// Visual kind of a home-page quiz row, driving its icon and accent color.
@@ -108,6 +110,30 @@ class _HomeQuiz {
       (stats?.bestStreakAbsolute ?? 0) ~/ NounSettings.streakLapSize;
 }
 
+/// How much weight a course-level action carries, and so which button style it
+/// gets: the reference PDF is the page's main offer, the worksheet its
+/// companion, and the rest are quiet outlined options.
+enum _ActionEmphasis { primary, secondary, quiet }
+
+/// One button in the course-home action grid.
+class _ActionSpec {
+  const _ActionSpec({
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+    this.emphasis = _ActionEmphasis.quiet,
+    this.busy = false,
+  });
+
+  final IconData icon;
+  final String label;
+  final VoidCallback? onPressed;
+  final _ActionEmphasis emphasis;
+
+  /// Swaps the icon for a spinner while the action's PDF is being built.
+  final bool busy;
+}
+
 /// A titled group of quiz rows (mirrors a navigation group).
 ///
 /// [total]/[finished] describe the *whole* group for the overview ring — for a
@@ -159,6 +185,102 @@ class _CourseHomePageState extends State<CourseHomePage> {
   void initState() {
     super.initState();
     _sectionsFuture = _load();
+    // The page outlives the quizzes opened from it, so a ribbon earned (or a
+    // gate opened) while it sits under the quiz route has to reach it here.
+    progressRevision.addListener(_onProgressChanged);
+  }
+
+  @override
+  void dispose() {
+    progressRevision.removeListener(_onProgressChanged);
+    super.dispose();
+  }
+
+  void _onProgressChanged() {
+    if (!mounted) return;
+    // A block body, not `setState(() => _sectionsFuture = _load())`: an arrow
+    // closure returns the Future, which setState rejects — the rebuild is
+    // skipped and the page keeps its old lock state until it's reopened.
+    setState(() {
+      _sectionsFuture = _load();
+    });
+  }
+
+  /// Lays the course-level actions out two to a row, so four of them cost two
+  /// rows instead of four. An odd one out spans the full width rather than
+  /// leaving a hole, and a very narrow window falls back to a single column
+  /// (German labels need the room).
+  Widget _actionGrid(List<_ActionSpec> actions) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final perRow = constraints.maxWidth >= 320 ? 2 : 1;
+        final rows = <Widget>[];
+        for (var i = 0; i < actions.length; i += perRow) {
+          final pair = actions.skip(i).take(perRow).toList();
+          if (rows.isNotEmpty) rows.add(const SizedBox(height: 8));
+          rows.add(
+            // Stretched inside an IntrinsicHeight so a one-line button matches
+            // the two-line one beside it instead of floating in its middle.
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var j = 0; j < pair.length; j++) ...[
+                    if (j > 0) const SizedBox(width: 8),
+                    Expanded(child: _actionButton(context, pair[j])),
+                  ],
+                ],
+              ),
+            ),
+          );
+        }
+        return Column(children: rows);
+      },
+    );
+  }
+
+  Widget _actionButton(BuildContext context, _ActionSpec action) {
+    final icon = action.busy
+        ? const SizedBox(
+            width: 18,
+            height: 18,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          )
+        : Icon(action.icon, size: 20);
+    // Two to a row leaves roughly half the width, so the label is allowed to
+    // wrap onto a second line instead of being clipped.
+    final label = Text(action.label, maxLines: 2, textAlign: TextAlign.center);
+    final style = ButtonStyle(
+      padding: WidgetStateProperty.all(
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      ),
+      // The text style goes through ButtonStyle, not onto the Text: a
+      // textTheme style carries its own (dark) color, which would win over the
+      // button's foreground and leave ink-on-navy in the filled button.
+      textStyle: WidgetStateProperty.all(
+        Theme.of(context).textTheme.labelLarge,
+      ),
+    );
+    return switch (action.emphasis) {
+      _ActionEmphasis.primary => FilledButton.icon(
+        onPressed: action.onPressed,
+        style: style,
+        icon: icon,
+        label: label,
+      ),
+      _ActionEmphasis.secondary => FilledButton.tonalIcon(
+        onPressed: action.onPressed,
+        style: style,
+        icon: icon,
+        label: label,
+      ),
+      _ActionEmphasis.quiet => OutlinedButton.icon(
+        onPressed: action.onPressed,
+        style: style,
+        icon: icon,
+        label: label,
+      ),
+    };
   }
 
   Future<List<_HomeSection>> _load() async {
@@ -203,8 +325,14 @@ class _CourseHomePageState extends State<CourseHomePage> {
             } else {
               rows.add(row);
               // The first unfinished quiz in a gated chain closes the frontier:
-              // everything after it stays locked until it's completed.
-              if (group.gated && !row.done) gatedFrontierClosed = true;
+              // everything after it stays locked until it's completed. A
+              // placement-opened quiz clears the gate without being finished,
+              // so it doesn't close the frontier — but it keeps `done: false`,
+              // which is what keeps the ring and the ribbons honest.
+              if (group.gated &&
+                  !NounSettings.instance.clearsGate(item.ref, done: row.done)) {
+                gatedFrontierClosed = true;
+              }
             }
           }
           if (rows.isNotEmpty) {
@@ -410,7 +538,9 @@ class _CourseHomePageState extends State<CourseHomePage> {
   Future<({List<_HomeQuiz> rows, int moreCount})> _questRows({
     String? level,
   }) async {
-    final completed = NounSettings.instance.completedQuestQuizzes;
+    // Gating uses the placement-aware set; "done" below still asks the
+    // completion set, so a placed learner gets open quizzes and no ribbons.
+    final completed = NounSettings.instance.questGateCleared;
     final unlocked = firstLockedQuestIndex(completed);
     final goalLaps =
         NounSettings.instance.questUnlockStreak ~/ NounSettings.streakLapSize;
@@ -525,6 +655,13 @@ class _CourseHomePageState extends State<CourseHomePage> {
       NounSettings.instance.setLastContentId(quiz.contentRef!);
       context.go('/quiz/${quiz.contentRef!}');
     }
+  }
+
+  /// Runs the starting-point flow. Applying it writes through [NounSettings],
+  /// which bumps [progressRevision] and reloads the rows — the lock state of
+  /// every row below has just changed.
+  Future<void> _openPlacement() async {
+    await showPlacementStartSheet(context);
   }
 
   Future<void> _generateBooklet(List<BookletEntry> entries) async {
@@ -814,57 +951,54 @@ class _CourseHomePageState extends State<CourseHomePage> {
                       total: total,
                     ),
                     const SizedBox(height: 10),
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton.icon(
+                    // The four course-level actions, paired two to a row: they
+                    // sit between the overview and the quizzes, and stacked
+                    // full-width they pushed the first quiz off the screen.
+                    _actionGrid([
+                      _ActionSpec(
+                        icon: Icons.picture_as_pdf_rounded,
+                        label: strings.generateAllPdf,
+                        emphasis: _ActionEmphasis.primary,
+                        busy: _generatingPdf,
                         onPressed: (!hasPdf || _generatingPdf)
                             ? null
                             : () => _generateBooklet(_bookletEntries),
-                        icon: _generatingPdf
-                            ? const SizedBox(
-                                width: 18,
-                                height: 18,
-                                child: CircularProgressIndicator(strokeWidth: 2),
-                              )
-                            : const Icon(Icons.picture_as_pdf_rounded),
-                        label: Text(strings.generateAllPdf),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    // Printable worksheet with a fold-away answer column,
-                    // built from the same quizzes (scope + size chosen in a
-                    // dialog).
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton.tonalIcon(
+                      // Printable worksheet with a fold-away answer column,
+                      // built from the same quizzes (scope + size chosen in a
+                      // dialog).
+                      _ActionSpec(
+                        icon: Icons.edit_note_rounded,
+                        label: strings.exercisePdf,
+                        emphasis: _ActionEmphasis.secondary,
+                        busy: _generatingExercises,
                         onPressed: _generatingExercises
                             ? null
                             : _exerciseSheetDialog,
-                        icon: _generatingExercises
-                            ? const SizedBox(
-                                width: 18,
-                                height: 18,
-                                child: CircularProgressIndicator(strokeWidth: 2),
-                              )
-                            : const Icon(Icons.edit_note_rounded),
-                        label: Text(strings.exercisePdf),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    // Standing entry to the roadmap poll, for learners who have
-                    // an opinion between quizzes. Outlined so it stays
-                    // subordinate to the two study-material actions above.
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton.icon(
+                      // Always available, on every course with locked content:
+                      // take the placement test, declare a level, or start
+                      // over. A learner's sense of their own level changes, and
+                      // so does their mind about restarting, so this is never
+                      // hidden behind "only before you begin".
+                      if (supportsPlacement(course))
+                        _ActionSpec(
+                          icon: Icons.flag_circle_outlined,
+                          label: strings.placement.entryButton,
+                          onPressed: _openPlacement,
+                        ),
+                      // Standing entry to the roadmap poll, for learners who
+                      // have an opinion between quizzes. Outlined so it stays
+                      // subordinate to the two study-material actions.
+                      _ActionSpec(
+                        icon: Icons.lightbulb_outline_rounded,
+                        label: strings.featurePollOpen,
                         onPressed: () => showFeaturePoll(
                           context,
                           source: kFeaturePollSourceHome,
                         ),
-                        icon: const Icon(Icons.lightbulb_outline_rounded),
-                        label: Text(strings.featurePollOpen),
                       ),
-                    ),
+                    ]),
                     const SizedBox(height: 8),
                     for (final section in sections) ...[
                       _sectionLabel(context, section.title),

@@ -9,9 +9,11 @@ import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../models/speaking_exercise.dart';
+import '../services/ai_assistant.dart';
 import '../services/analytics.dart';
 import '../services/speaking_prompt.dart';
 import '../theme/app_theme.dart';
+import '../widgets/ai_assistant_button.dart';
 import '../widgets/completion_ribbon.dart';
 import '../widgets/feature_poll.dart';
 import '../widgets/next_exercise.dart';
@@ -55,6 +57,10 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
   SpeakingTemplate? _template;
   String? _prompt;
   bool _copied = false;
+
+  /// The assistant the learner opened last time, shown first and highlighted.
+  /// Null until the first hand-off, and on the first run of a fresh install.
+  AiAssistant? _preferredAi;
 
   /// The best score saved for this quiz, or null if it was never run.
   int? _best;
@@ -110,11 +116,13 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
     } catch (_) {
       // Best-effort: a storage failure must not block the exercise.
     }
+    final preferredAi = await AiAssistant.lastUsed();
     if (!mounted) return;
     setState(() {
       _template = template;
       _prompt = prompt;
       _best = best;
+      _preferredAi = preferredAi;
     });
     if (!explainerSeen && mounted) _showExplainer(markSeen: true);
   }
@@ -132,6 +140,22 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
     Analytics.track('speaking_copy', {'quiz': widget.content.id});
     if (!mounted) return;
     setState(() => _copied = true);
+  }
+
+  /// Hand off to the learner's assistant. Only reachable after [_copy], so the
+  /// prompt is always on the clipboard by the time we get here — which is what
+  /// makes an assistant with no prompt parameter (Gemini) usable at all.
+  Future<void> _openAi(AiAssistant assistant) async {
+    final prompt = _prompt;
+    if (prompt == null) return;
+    Analytics.track('speaking_open_ai', {
+      'quiz': widget.content.id,
+      'ai': assistant.name,
+      'prefilled': assistant.prefills(prompt),
+    });
+    await assistant.remember();
+    if (mounted) setState(() => _preferredAi = assistant);
+    await assistant.open(prompt);
   }
 
   /// The ribbon tier a speaking medal pays out as — the seam between the
@@ -391,6 +415,17 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
               label: Text(_copied ? _s.copied : _s.copyExercise),
             ),
           ),
+          // The hand-off appears only once the exercise is on the clipboard:
+          // opening the assistant first would land the learner in an empty
+          // chat with nothing to paste.
+          AnimatedSize(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeOut,
+            alignment: Alignment.topCenter,
+            child: _copied
+                ? _openAiSection(context)
+                : const SizedBox(width: double.infinity),
+          ),
           const SizedBox(height: 16),
           Text(
             _s.sayOutLoud,
@@ -418,6 +453,57 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
           // dismissible, because the first-run sheet is read once and forgotten.
           Text(
             _s.disclaimerShort,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// The hand-off: one button per assistant, the last-used one first.
+  ///
+  /// Neither button can carry the exercise — it renders to ~3,000 characters,
+  /// far past what any URL will hold — so both are "open the app, paste what
+  /// you just copied". They exist to save the learner hunting for the app, not
+  /// to save the paste.
+  Widget _openAiSection(BuildContext context) {
+    final theme = Theme.of(context);
+    final assistants = [
+      ?_preferredAi,
+      ...AiAssistant.values.where((a) => a != _preferredAi),
+    ];
+    return Padding(
+      padding: const EdgeInsets.only(top: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            _s.openTitle,
+            style: theme.textTheme.labelMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              for (final assistant in assistants) ...[
+                if (assistant != assistants.first) const SizedBox(width: 8),
+                Expanded(
+                  child: AiAssistantButton(
+                    assistant: assistant,
+                    label: _s.openAssistant.replaceAll('{ai}', assistant.label),
+                    highlighted: assistant == _preferredAi,
+                    onPressed: () => _openAi(assistant),
+                  ),
+                ),
+              ],
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            _s.openPasteHint,
             style: theme.textTheme.bodySmall?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),

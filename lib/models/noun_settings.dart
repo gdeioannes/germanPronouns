@@ -17,6 +17,17 @@ enum AnswerRevealMode {
   slow,
 }
 
+/// Bumped whenever a write changes what counts as finished or unlocked (a quiz
+/// completed, a placement applied, a course's progress wiped).
+///
+/// [NounSettings] is a plain singleton read straight from `build`, so nothing
+/// tells long-lived widgets that the lock state under them moved. Widgets that
+/// cache lock state — the drawer above all, which pages hand out as a `const`
+/// child and therefore never rebuild on their own — listen to this and reload.
+final ValueNotifier<int> progressRevision = ValueNotifier<int>(0);
+
+void _bumpProgress() => progressRevision.value++;
+
 /// Global, app-wide set of nouns excluded from quizzes that draw from the
 /// shared noun database (Artikel and Nouns & Articles). Managed from the
 /// Word Library page and shared across all quizzes that use it.
@@ -60,6 +71,8 @@ class NounSettings {
       SettingsKeys.completedListeningQuizzes;
   static const String _completedDictationQuizzesKey =
       SettingsKeys.completedDictationQuizzes;
+  static const String _placementUnlockedKey =
+      SettingsKeys.placementUnlockedQuizzes;
   static const String _seenHelpMemoryKey = SettingsKeys.seenHelpMemory;
 
   /// Size of one "streak" — a run of this many correct answers in a row.
@@ -108,6 +121,7 @@ class NounSettings {
   Set<String> _completedReadingQuizzes = {};
   Set<String> _completedListeningQuizzes = {};
   Set<String> _completedDictationQuizzes = {};
+  Set<String> _placementUnlocked = {};
   Set<String> _seenHelpMemory = {};
   bool _showFirstLetterHint = false;
   bool _relaxedCorrection = false;
@@ -193,6 +207,45 @@ class NounSettings {
   Set<String> get completedQuestQuizzes => _completedQuestQuizzes;
 
   bool isQuestQuizCompleted(String key) => _completedQuestQuizzes.contains(key);
+
+  /// Quiz ids / chain keys opened by a placement result or a self-declared
+  /// level, rather than earned.
+  ///
+  /// These count only towards the pass-to-unlock frontier — never towards
+  /// "done". A placed learner's ring, ribbons and coins all stay untouched, so
+  /// the progress they see is progress they made.
+  Set<String> get placementUnlockedQuizzes => _placementUnlocked;
+
+  bool isPlacementUnlocked(String ref) => _placementUnlocked.contains(ref);
+
+  /// The Quest keys that count as cleared when walking the Quest chain's
+  /// unlock frontier — finished *or* opened by a placement.
+  ///
+  /// Pass this to `firstLockedQuestIndex` / `isQuestLevelUnlocked`, and
+  /// [completedQuestQuizzes] wherever the question is "did they finish it?"
+  /// (ribbons, the progress ring, the section counters).
+  Set<String> get questGateCleared =>
+      _completedQuestQuizzes.union(_placementUnlocked);
+
+  /// Whether [ref] should be treated as cleared when walking a gated chain:
+  /// either genuinely finished, or opened by a placement.
+  bool clearsGate(String ref, {required bool done}) =>
+      done || _placementUnlocked.contains(ref);
+
+  /// Replaces the placement-opened set for one course's quizzes: drops every
+  /// ref in [courseRefs], then opens [unlocked]. Scoping the removal to the
+  /// course's own quizzes leaves other courses' placements alone, which matters
+  /// because both German courses share the Quest chain.
+  Future<void> setPlacementUnlocked({
+    required Iterable<String> courseRefs,
+    required Iterable<String> unlocked,
+  }) async {
+    _placementUnlocked = _placementUnlocked.difference(courseRefs.toSet())
+      ..addAll(unlocked);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_placementUnlockedKey, _placementUnlocked.toList());
+    _bumpProgress();
+  }
 
   /// `QuizContent.id`s of listen-&-repeat (audio) quizzes the learner has
   /// played through to the end at least once. Such quizzes have no streak, so
@@ -318,6 +371,8 @@ class NounSettings {
     _completedQuestQuizzes =
         (prefs.getStringList(_completedQuestQuizzesKey) ?? const []).toSet();
     _lastQuestQuizKey = prefs.getString(_lastQuestQuizKeyPref);
+    _placementUnlocked =
+        (prefs.getStringList(_placementUnlockedKey) ?? const []).toSet();
     _completedSpeakQuizzes =
         (prefs.getStringList(_completedSpeakQuizzesKey) ?? const []).toSet();
     _completedReadingQuizzes =
@@ -370,6 +425,7 @@ class NounSettings {
       _completedNounCategoriesKey,
       _completedNounCategories.toList(),
     );
+    _bumpProgress();
   }
 
   Future<void> setLastNounProgressionKey(String key) async {
@@ -423,6 +479,7 @@ class NounSettings {
       _completedQuestQuizzesKey,
       _completedQuestQuizzes.toList(),
     );
+    _bumpProgress();
   }
 
   Future<void> setLastQuestQuizKey(String key) async {
@@ -442,6 +499,7 @@ class NounSettings {
       _completedSpeakQuizzesKey,
       _completedSpeakQuizzes.toList(),
     );
+    _bumpProgress();
   }
 
   /// Marks reading-comprehension quiz [contentId] as passed, permanently
@@ -455,6 +513,7 @@ class NounSettings {
       _completedReadingQuizzesKey,
       _completedReadingQuizzes.toList(),
     );
+    _bumpProgress();
   }
 
   /// Marks listening-comprehension (Hörverstehen) quiz [contentId] as passed,
@@ -468,6 +527,7 @@ class NounSettings {
       _completedListeningQuizzesKey,
       _completedListeningQuizzes.toList(),
     );
+    _bumpProgress();
   }
 
   /// Marks dictation (Diktat) quiz [contentId] as passed, permanently flagging
@@ -481,15 +541,21 @@ class NounSettings {
       _completedDictationQuizzesKey,
       _completedDictationQuizzes.toList(),
     );
+    _bumpProgress();
   }
 
   /// Removes [ids] (content ids / chain keys) from *every* completion set, so
   /// the quizzes behind them read as not-done again. Used when a course's
   /// progress is deleted (My Courses → Delete); ids are globally unique across
   /// the sets, so sweeping all six at once is safe.
+  ///
+  /// Placement-opened refs go too: deleting a course's progress has to close
+  /// the gates a placement opened, or "start from zero" would leave the whole
+  /// course unlocked.
   Future<void> unmarkCompletions(Iterable<String> ids) async {
     final drop = ids.toSet();
     _completedNounCategories = _completedNounCategories.difference(drop);
+    _placementUnlocked = _placementUnlocked.difference(drop);
     _completedQuestQuizzes = _completedQuestQuizzes.difference(drop);
     _completedSpeakQuizzes = _completedSpeakQuizzes.difference(drop);
     _completedReadingQuizzes = _completedReadingQuizzes.difference(drop);
@@ -520,6 +586,11 @@ class NounSettings {
       _completedDictationQuizzesKey,
       _completedDictationQuizzes.toList(),
     );
+    await prefs.setStringList(
+      _placementUnlockedKey,
+      _placementUnlocked.toList(),
+    );
+    _bumpProgress();
   }
 
   /// Marks the Help Memory panel for [storageKeyPrefix] as seen, so it won't
@@ -653,11 +724,13 @@ class NounSettings {
     _questUnlockLapsOverride = null;
     _completedQuestQuizzes = {};
     _lastQuestQuizKey = null;
+    _placementUnlocked = {};
     _completedSpeakQuizzes = {};
     _completedReadingQuizzes = {};
     _completedListeningQuizzes = {};
     _completedDictationQuizzes = {};
     _seenHelpMemory = {};
+    _bumpProgress();
   }
 
   Future<void> toggle(String noun) async {

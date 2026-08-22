@@ -119,6 +119,15 @@ class SettingsKeys {
   /// this marks them "done" (ribbon).
   static const String completedDictationQuizzes = 'dictation_completed_quizzes';
 
+  /// Quiz ids / chain keys a placement (or a self-declared level) has opened
+  /// without the learner having done them.
+  ///
+  /// Deliberately separate from the completion sets: these quizzes are
+  /// unlocked, not finished. Keeping them apart is what lets a placed learner
+  /// see an honest 0% ring and no medals, while the pass-to-unlock frontier
+  /// still steps over them.
+  static const String placementUnlockedQuizzes = 'placement_unlocked_quizzes';
+
   /// Quiz storage-key prefixes whose Help Memory panel the learner has already
   /// seen auto-opened (so it only auto-opens once per quiz).
   static const String seenHelpMemory = 'seen_help_memory';

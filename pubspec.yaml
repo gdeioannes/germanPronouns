@@ -58,6 +58,10 @@ dependencies:
   audioplayers: ^6.0.0
   # URL-based navigation (browser back/forward, deep links). See app_router.dart.
   go_router: ^17.3.0
+  # Hands the learner off to their own AI assistant for the speaking exercise
+  # (opens the app on mobile via its universal link, a tab on web). See
+  # lib/services/ai_assistant.dart.
+  url_launcher: ^6.3.1
   # Browser bindings used by the room's "save / copy image" export on web
   # (download a PNG, write it to the clipboard). Desktop/mobile use dart:io
   # instead — see lib/utils/room_image_export.dart.

@@ -13,6 +13,9 @@ class SpeakingStrings {
     required this.step4,
     required this.copyExercise,
     required this.copied,
+    required this.openTitle,
+    required this.openAssistant,
+    required this.openPasteHint,
     required this.sayOutLoud,
     required this.duration,
     required this.disclaimerShort,
@@ -44,6 +47,18 @@ class SpeakingStrings {
   final String step4;
   final String copyExercise;
   final String copied;
+
+  /// Heading over the hand-off buttons, which only appear once the prompt is
+  /// on the clipboard.
+  final String openTitle;
+
+  /// '{ai}' is replaced with the assistant's own (untranslated) name, e.g.
+  /// "Open ChatGPT".
+  final String openAssistant;
+
+  /// Under the buttons: the prompt is copied, so paste it once you're there.
+  final String openPasteHint;
+
   final String sayOutLoud;
 
   /// '{n}' is replaced with the exercise's expected minutes.
@@ -85,6 +100,11 @@ const SpeakingStrings kSpeakingStringsEn = SpeakingStrings(
       'the end, come back and enter it here.',
   copyExercise: 'Copy exercise',
   copied: 'Copied',
+  openTitle: 'Now open your AI',
+  openAssistant: 'Open {ai}',
+  openPasteHint:
+      'The exercise is on your clipboard — paste it there, then switch on '
+      'voice mode.',
   sayOutLoud: 'Say this out loud to start',
   duration: 'About {n} minutes',
   disclaimerShort:
@@ -144,6 +164,11 @@ const SpeakingStrings kSpeakingStringsDe = SpeakingStrings(
       'Punktzahl bekommst, komm zurück und trag sie hier ein.',
   copyExercise: 'Übung kopieren',
   copied: 'Kopiert',
+  openTitle: 'Jetzt deine KI öffnen',
+  openAssistant: '{ai} öffnen',
+  openPasteHint:
+      'Die Übung ist in der Zwischenablage — füge sie dort ein und schalte dann '
+      'den Sprachmodus ein.',
   sayOutLoud: 'Sag das laut, um zu starten',
   duration: 'Etwa {n} Minuten',
   disclaimerShort:
@@ -208,6 +233,11 @@ const SpeakingStrings kSpeakingStringsEs = SpeakingStrings(
       'puntuación al final, vuelve y anótala aquí.',
   copyExercise: 'Copiar ejercicio',
   copied: 'Copiado',
+  openTitle: 'Ahora abre tu IA',
+  openAssistant: 'Abrir {ai}',
+  openPasteHint:
+      'El ejercicio está en el portapapeles — pégalo ahí y activa el modo de '
+      'voz.',
   sayOutLoud: 'Di esto en voz alta para empezar',
   duration: 'Unos {n} minutos',
   disclaimerShort:
@@ -268,6 +298,9 @@ const SpeakingStrings kSpeakingStringsZh = SpeakingStrings(
   step4: '大声说出下面这句话开始。结束时它会给你分数，回到这里填进去。',
   copyExercise: '复制练习',
   copied: '已复制',
+  openTitle: '现在打开你的 AI',
+  openAssistant: '打开 {ai}',
+  openPasteHint: '练习已复制到剪贴板——到那边粘贴，然后打开语音模式。',
   sayOutLoud: '大声说这句话开始',
   duration: '大约 {n} 分钟',
   disclaimerShort: '质量取决于你用的 AI——我们用 Gemini 免费版测试。不同的 AI 打分不同，'

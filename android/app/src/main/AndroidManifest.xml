@@ -51,5 +51,14 @@
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE"/>
         </intent>
+        <!-- Visibility of whatever handles https links, so url_launcher can
+             hand the speaking exercise off to the learner's AI assistant.
+             Without this, Android 11+ reports every https URL as unlaunchable
+             and the hand-off silently does nothing. -->
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
     </queries>
 </manifest>

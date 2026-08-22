@@ -146,7 +146,31 @@ class _AppDrawerState extends State<AppDrawer> {
   String? _openGroupId;
   bool _userToggledGroup = false;
 
-  late final Future<_DrawerData> _drawerDataFuture = _loadDrawerData();
+  Future<_DrawerData> _drawerDataFuture = _loadDrawerData();
+
+  @override
+  void initState() {
+    super.initState();
+    // Pages hand the drawer out as a `const` child, so a page rebuilding after
+    // a placement or a finished quiz doesn't reach it — without this the lock
+    // icons stay as they were when the page was first opened.
+    progressRevision.addListener(_onProgressChanged);
+  }
+
+  @override
+  void dispose() {
+    progressRevision.removeListener(_onProgressChanged);
+    super.dispose();
+  }
+
+  void _onProgressChanged() {
+    if (!mounted) return;
+    // Block body on purpose: an arrow closure would hand setState a Future,
+    // which it rejects, and the drawer would never rebuild.
+    setState(() {
+      _drawerDataFuture = _loadDrawerData();
+    });
+  }
 
   void _navigateTo(BuildContext context, AppPage page) {
     Navigator.pop(context);
@@ -759,7 +783,7 @@ class _AppDrawerState extends State<AppDrawer> {
     SharedPreferences? prefs, {
     String? level,
   }) {
-    final completed = NounSettings.instance.completedQuestQuizzes;
+    final completed = NounSettings.instance.questGateCleared;
     final unlockedCount = firstLockedQuestIndex(completed);
 
     // A level-scoped group (e.g. 'A1.1') lists just that level's quizzes with
@@ -831,7 +855,7 @@ class _AppDrawerState extends State<AppDrawer> {
   ) {
     // The whole sub-level is gated behind finishing the previous one — show a
     // single locked tile until then.
-    final completed = NounSettings.instance.completedQuestQuizzes;
+    final completed = NounSettings.instance.questGateCleared;
     if (!isQuestLevelUnlocked(level, completed)) {
       return [
         _lockedQuestLevelTile(
@@ -950,7 +974,14 @@ class _AppDrawerState extends State<AppDrawer> {
         if (item.hidden) continue;
         if (!sawIncomplete) {
           locks[item.ref] = _QuizLock.unlocked;
-          if (!_isQuizItemDone(item, data)) sawIncomplete = true;
+          // A placement-opened quiz clears the gate without being finished, so
+          // the frontier steps over it and lands the learner at their level.
+          if (!NounSettings.instance.clearsGate(
+            item.ref,
+            done: _isQuizItemDone(item, data),
+          )) {
+            sawIncomplete = true;
+          }
         } else if (!markedNext) {
           locks[item.ref] = _QuizLock.next;
           markedNext = true;

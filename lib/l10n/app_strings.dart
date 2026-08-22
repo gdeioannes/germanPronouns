@@ -1,4 +1,5 @@
 import '../models/course.dart';
+import 'placement_strings.dart';
 import 'speaking_strings.dart';
 
 /// Localized strings for the learner-facing chrome. English values are exactly
@@ -191,6 +192,7 @@ class AppStrings {
     required this.aboutMeRobotCheck,
     required this.aboutMeRobotWrong,
     required this.speaking,
+    required this.placement,
   });
 
   final String chooseCourse;
@@ -513,6 +515,10 @@ class AppStrings {
   /// and the first-run explainer. Grouped so a new speaking string costs one
   /// entry per language instead of one field per language.
   final SpeakingStrings speaking;
+
+  /// Chrome for the placement flow (course-home starting-point sheet, the
+  /// placement test, the manual level picker).
+  final PlacementStrings placement;
 }
 
 const AppStrings _en = AppStrings(
@@ -740,6 +746,7 @@ const AppStrings _en = AppStrings(
   aboutMeRobotCheck: 'Quick check — you are not a robot:',
   aboutMeRobotWrong: 'Not quite. Here is another one.',
   speaking: kSpeakingStringsEn,
+  placement: kPlacementStringsEn,
 );
 
 const AppStrings _es = AppStrings(
@@ -973,6 +980,7 @@ const AppStrings _es = AppStrings(
   aboutMeRobotCheck: 'Comprobación rápida: no eres un robot.',
   aboutMeRobotWrong: 'No es correcto. Aquí tienes otra.',
   speaking: kSpeakingStringsEs,
+  placement: kPlacementStringsEs,
 );
 
 const AppStrings _de = AppStrings(
@@ -1209,6 +1217,7 @@ const AppStrings _de = AppStrings(
   aboutMeRobotCheck: 'Kurze Prüfung – du bist kein Roboter:',
   aboutMeRobotWrong: 'Leider falsch. Hier ist eine neue Aufgabe.',
   speaking: kSpeakingStringsDe,
+  placement: kPlacementStringsDe,
 );
 
 const AppStrings _zh = AppStrings(
@@ -1407,6 +1416,7 @@ const AppStrings _zh = AppStrings(
   aboutMeRobotCheck: '简单验证一下，确认你不是机器人：',
   aboutMeRobotWrong: '不对，再来一题。',
   speaking: kSpeakingStringsZh,
+  placement: kPlacementStringsZh,
 );
 
 AppStrings stringsFor(UiLang lang) => switch (lang) {
