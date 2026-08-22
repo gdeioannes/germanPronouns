@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_a.dart';
 
 /// A1.1 — First Contact · 初次接触. Mandarin → English.
 ///
@@ -480,6 +481,7 @@ final List<QuizContent> zhEnA1_1 = [
   zhEnA11AAn,
   zhEnA11Nationalities,
   zhEnA11ListenMeet,
+  zhEnA11SpeakingMid,
   zhEnA11ThisThat,
   zhEnA11Jobs,
   zhEnA11ReadFamily,
@@ -487,4 +489,6 @@ final List<QuizContent> zhEnA1_1 = [
   zhEnA11SpeakThV,
   zhEnA11DictName,
   zhEnA11Wh,
+  zhEnA11BigText,
+  zhEnA11SpeakingClose,
 ];

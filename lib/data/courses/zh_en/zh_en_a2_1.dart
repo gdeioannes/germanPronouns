@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_a.dart';
 
 /// A2.1 — Past & Experiences · 过去与经历. Mandarin → English.
 ///
@@ -500,6 +501,7 @@ final List<QuizContent> zhEnA2_1 = [
   zhEnA21ListenWeekend,
   zhEnA21TimeOrder,
   zhEnA21SpeakTrip,
+  zhEnA21SpeakingMid,
   zhEnA21ReadShanghai,
   zhEnA21Transport,
   zhEnA21Weather,
@@ -507,4 +509,6 @@ final List<QuizContent> zhEnA2_1 = [
   zhEnA21ListenTrip,
   zhEnA21DictWeekend,
   zhEnA21ReadAbroad,
+  zhEnA21BigText,
+  zhEnA21SpeakingClose,
 ];

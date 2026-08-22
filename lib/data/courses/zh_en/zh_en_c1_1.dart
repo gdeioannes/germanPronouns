@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_c.dart';
 
 /// C1.1 — Abstraction & Precision · 抽象与精确. Mandarin → English.
 ///
@@ -555,6 +556,7 @@ final List<QuizContent> zhEnC1_1 = [
   zhEnC11Cohesion,
   zhEnC11ListenLecture,
   zhEnC11ArticlesAbstract,
+  zhEnC11SpeakingMid,
   zhEnC11ReadEthics,
   zhEnC11Cleft,
   zhEnC11TheThe,
@@ -563,4 +565,6 @@ final List<QuizContent> zhEnC1_1 = [
   zhEnC11ListenPanel,
   zhEnC11DictAcademic,
   zhEnC11ReadEssay,
+  zhEnC11BigText,
+  zhEnC11SpeakingClose,
 ];

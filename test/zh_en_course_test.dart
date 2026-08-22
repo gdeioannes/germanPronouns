@@ -56,7 +56,9 @@ void main() {
 
   group('reading & listening quizzes have answerable questions', () {
     final passages = zhEnContent.where(
-      (q) => q.kind == QuizKind.reading || q.kind == QuizKind.listening,
+      (q) =>
+          (q.kind == QuizKind.reading || q.kind == QuizKind.listening) &&
+          q.inlineBlanks.isEmpty,
     );
     test('the course contains reading and listening quizzes', () {
       expect(passages.any((q) => q.kind == QuizKind.reading), isTrue);
@@ -99,6 +101,45 @@ void main() {
     for (final q in fills) {
       expect(q.subjects, isNotEmpty, reason: '${q.id} has no subjects');
       expect(q.categories, isNotEmpty, reason: '${q.id} has no answer category');
+    }
+  });
+
+  group('inline big-text quizzes are internally consistent', () {
+    final bigTexts = zhEnContent.where((q) => q.inlineBlanks.isNotEmpty);
+    test('every module ships one big text', () {
+      expect(bigTexts, hasLength(12));
+    });
+    for (final q in bigTexts) {
+      test('${q.id}: placeholders match blanks', () {
+        final template = q.inlineTemplate!;
+        for (var i = 0; i < q.inlineBlanks.length; i++) {
+          expect(template.contains('{{$i}}'), isTrue,
+              reason: '${q.id}: missing placeholder {{$i}}');
+        }
+        expect(q.readingPassage!.contains('{{'), isFalse,
+            reason: '${q.id}: clean passage still has placeholders');
+      });
+    }
+  });
+
+  group('speaking exercises are well-formed', () {
+    final speakings =
+        zhEnContent.where((q) => q.kind == QuizKind.speaking).toList();
+    test('every module ships two speaking exercises', () {
+      expect(speakings, hasLength(24));
+    });
+    for (final q in speakings) {
+      test('${q.id}: session maths and content hold', () {
+        final ex = q.speaking!;
+        expect(ex.practisePoints.length, inInclusiveRange(3, 4));
+        expect(
+          ex.practisePoints.length * (ex.session.minQuestionsPerPoint ?? 1),
+          lessThanOrEqualTo(ex.session.minExchanges ?? 7),
+          reason: '${q.id}: more required questions than exchanges',
+        );
+        expect(ex.scoringCriteria, isNotEmpty);
+        expect(q.level, isNotNull);
+      });
     }
   });
 }

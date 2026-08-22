@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_c.dart';
 
 /// C2.2 — Mastery · 精通 (capstone). Mandarin → English.
 ///
@@ -568,6 +569,7 @@ final List<QuizContent> zhEnC2_2 = [
   zhEnC22Tone,
   zhEnC22ListenDebate,
   zhEnC22ReadAnalysis,
+  zhEnC22SpeakingMid,
   zhEnC22ComplexPassive,
   zhEnC22Concision,
   zhEnC22SpeakRebuttal,
@@ -576,4 +578,6 @@ final List<QuizContent> zhEnC2_2 = [
   zhEnC22ReadStory,
   zhEnC22ReadCapstone,
   zhEnC22SpeakCapstone,
+  zhEnC22BigText,
+  zhEnC22SpeakingClose,
 ];

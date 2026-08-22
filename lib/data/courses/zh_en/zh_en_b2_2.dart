@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_b.dart';
 
 /// B2.2 — Reporting & Nuance · 转述与细节. Mandarin → English.
 ///
@@ -546,6 +547,7 @@ final List<QuizContent> zhEnB2_2 = [
   zhEnB22DeductionPast,
   zhEnB22ListenNews,
   zhEnB22Nondefining,
+  zhEnB22SpeakingMid,
   zhEnB22ReadCulture,
   zhEnB22Phrasal,
   zhEnB22Causative,
@@ -554,4 +556,6 @@ final List<QuizContent> zhEnB2_2 = [
   zhEnB22DictNews,
   zhEnB22Intensifiers,
   zhEnB22ReadHeadline,
+  zhEnB22BigText,
+  zhEnB22SpeakingClose,
 ];

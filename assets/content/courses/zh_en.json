@@ -44,6 +44,9 @@
             "ref": "zh_en_a1_1_listen_meet"
           },
           {
+            "ref": "zh_en_a1_1_speaking_mid"
+          },
+          {
             "ref": "zh_en_a1_1_this_that"
           },
           {
@@ -63,6 +66,12 @@
           },
           {
             "ref": "zh_en_a1_1_wh"
+          },
+          {
+            "ref": "zh_en_a1_1_bigtext"
+          },
+          {
+            "ref": "zh_en_a1_1_speaking_close"
           }
         ],
         "gated": true
@@ -97,6 +106,9 @@
             "ref": "zh_en_a1_2_plurals"
           },
           {
+            "ref": "zh_en_a1_2_speaking_mid"
+          },
+          {
             "ref": "zh_en_a1_2_there_it"
           },
           {
@@ -119,6 +131,12 @@
           },
           {
             "ref": "zh_en_a1_2_read_cafe"
+          },
+          {
+            "ref": "zh_en_a1_2_bigtext"
+          },
+          {
+            "ref": "zh_en_a1_2_speaking_close"
           }
         ],
         "gated": true
@@ -153,6 +171,9 @@
             "ref": "zh_en_a2_1_speak_trip"
           },
           {
+            "ref": "zh_en_a2_1_speaking_mid"
+          },
+          {
             "ref": "zh_en_a2_1_read_shanghai"
           },
           {
@@ -172,6 +193,12 @@
           },
           {
             "ref": "zh_en_a2_1_read_abroad"
+          },
+          {
+            "ref": "zh_en_a2_1_bigtext"
+          },
+          {
+            "ref": "zh_en_a2_1_speaking_close"
           }
         ],
         "gated": true
@@ -206,6 +233,9 @@
             "ref": "zh_en_a2_2_count_uncount"
           },
           {
+            "ref": "zh_en_a2_2_speaking_mid"
+          },
+          {
             "ref": "zh_en_a2_2_quantifiers"
           },
           {
@@ -228,6 +258,12 @@
           },
           {
             "ref": "zh_en_a2_2_read_city"
+          },
+          {
+            "ref": "zh_en_a2_2_bigtext"
+          },
+          {
+            "ref": "zh_en_a2_2_speaking_close"
           }
         ],
         "gated": true
@@ -262,6 +298,9 @@
             "ref": "zh_en_b1_1_used_to"
           },
           {
+            "ref": "zh_en_b1_1_speaking_mid"
+          },
+          {
             "ref": "zh_en_b1_1_read_work"
           },
           {
@@ -284,6 +323,12 @@
           },
           {
             "ref": "zh_en_b1_1_read_study"
+          },
+          {
+            "ref": "zh_en_b1_1_bigtext"
+          },
+          {
+            "ref": "zh_en_b1_1_speaking_close"
           }
         ],
         "gated": true
@@ -318,6 +363,9 @@
             "ref": "zh_en_b1_2_relative2"
           },
           {
+            "ref": "zh_en_b1_2_speaking_mid"
+          },
+          {
             "ref": "zh_en_b1_2_read_anecdote"
           },
           {
@@ -340,6 +388,12 @@
           },
           {
             "ref": "zh_en_b1_2_read_city"
+          },
+          {
+            "ref": "zh_en_b1_2_bigtext"
+          },
+          {
+            "ref": "zh_en_b1_2_speaking_close"
           }
         ],
         "gated": true
@@ -374,6 +428,9 @@
             "ref": "zh_en_b2_1_listen_debate"
           },
           {
+            "ref": "zh_en_b2_1_speaking_mid"
+          },
+          {
             "ref": "zh_en_b2_1_read_ai"
           },
           {
@@ -396,6 +453,12 @@
           },
           {
             "ref": "zh_en_b2_1_read_remote"
+          },
+          {
+            "ref": "zh_en_b2_1_bigtext"
+          },
+          {
+            "ref": "zh_en_b2_1_speaking_close"
           }
         ],
         "gated": true
@@ -430,6 +493,9 @@
             "ref": "zh_en_b2_2_nondefining"
           },
           {
+            "ref": "zh_en_b2_2_speaking_mid"
+          },
+          {
             "ref": "zh_en_b2_2_read_culture"
           },
           {
@@ -452,6 +518,12 @@
           },
           {
             "ref": "zh_en_b2_2_read_headline"
+          },
+          {
+            "ref": "zh_en_b2_2_bigtext"
+          },
+          {
+            "ref": "zh_en_b2_2_speaking_close"
           }
         ],
         "gated": true
@@ -486,6 +558,9 @@
             "ref": "zh_en_c1_1_articles_abstract"
           },
           {
+            "ref": "zh_en_c1_1_speaking_mid"
+          },
+          {
             "ref": "zh_en_c1_1_read_ethics"
           },
           {
@@ -508,6 +583,12 @@
           },
           {
             "ref": "zh_en_c1_1_read_essay"
+          },
+          {
+            "ref": "zh_en_c1_1_bigtext"
+          },
+          {
+            "ref": "zh_en_c1_1_speaking_close"
           }
         ],
         "gated": true
@@ -542,6 +623,9 @@
             "ref": "zh_en_c1_2_discourse"
           },
           {
+            "ref": "zh_en_c1_2_speaking_mid"
+          },
+          {
             "ref": "zh_en_c1_2_read_column"
           },
           {
@@ -564,6 +648,12 @@
           },
           {
             "ref": "zh_en_c1_2_read_reviews"
+          },
+          {
+            "ref": "zh_en_c1_2_bigtext"
+          },
+          {
+            "ref": "zh_en_c1_2_speaking_close"
           }
         ],
         "gated": true
@@ -598,6 +688,9 @@
             "ref": "zh_en_c2_1_marked"
           },
           {
+            "ref": "zh_en_c2_1_speaking_mid"
+          },
+          {
             "ref": "zh_en_c2_1_read_satire"
           },
           {
@@ -620,6 +713,12 @@
           },
           {
             "ref": "zh_en_c2_1_read_review"
+          },
+          {
+            "ref": "zh_en_c2_1_bigtext"
+          },
+          {
+            "ref": "zh_en_c2_1_speaking_close"
           }
         ],
         "gated": true
@@ -654,6 +753,9 @@
             "ref": "zh_en_c2_2_read_analysis"
           },
           {
+            "ref": "zh_en_c2_2_speaking_mid"
+          },
+          {
             "ref": "zh_en_c2_2_complex_passive"
           },
           {
@@ -676,6 +778,12 @@
           },
           {
             "ref": "zh_en_c2_2_speak_capstone"
+          },
+          {
+            "ref": "zh_en_c2_2_bigtext"
+          },
+          {
+            "ref": "zh_en_c2_2_speaking_close"
           }
         ],
         "gated": true
@@ -698,7 +806,7 @@
       }
     ]
   },
-  "version": "1.25.0",
+  "version": "1.26.0",
   "quizzes": [
     {
       "type": "speakRepeat",
@@ -1713,6 +1821,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_a1_1_speaking_mid",
+      "title": "对话：第一次打招呼",
+      "storageKeyPrefix": "zh_en_a1_1_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A1.1",
+      "help": {
+        "intro": "模块中段检查点：在你自己的 AI 助手里进行一次最简单的英语见面对话。复制提示词，打开语音模式，说完后把分数输回这里。",
+        "tips": [
+          {
+            "title": "慢慢说，带上主语",
+            "text": "每句话都要有主语和 be：I am…, She is…（⚑Z12/Z20）。说得慢而完整，胜过说得快而缺词。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A very simple first meeting: greet me, ask my name, where I am from and what I do. Speak very slowly and use only basic words.",
+        "practisePoints": [
+          "Greetings: hello, how are you, nice to meet you",
+          "Saying who I am with be: I am… / I'm from…",
+          "Saying my job with a/an: I'm a student"
+        ],
+        "scoringCriteria": [
+          "Uses am/is/are correctly",
+          "Never drops the subject pronoun (I, you, he…)",
+          "Uses a/an before jobs"
+        ],
+        "priorityErrors": [
+          "missing be before adjectives (\"he tall\")",
+          "missing a/an before professions",
+          "he/she mixed up"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "zh_en_a1_1_this_that",
       "title": "指示词 this / that / these / those",
@@ -2600,6 +2750,131 @@
           "referenceExample": "**Who** is the man at the door?"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_a1_1_bigtext",
+      "title": "整段填空：A new friend in class",
+      "storageKeyPrefix": "zh_en_a1_1_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "一段带空格的短文：在每个空里填上缺少的 be 动词、冠词或代词。先把全文读一遍。",
+        "tips": [
+          {
+            "title": "本模块大合体",
+            "text": "be（am/is/are）、a/an 和必须写出的主语（⚑Z11、⚑Z12）：这段文字把模块的重点全部混在一起。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "A new friend",
+      "passage": "Hello! My name is Li Ming and I am from Chengdu. I am a student in London. This is my classroom and that is my teacher, Mrs. Park. She is very kind. My friend Tom is an engineer from Leeds. We are good friends. Our school is small, but it is nice.",
+      "passageTranslation": "你好！我叫李明，来自成都。我是伦敦的一名学生。这是我的教室，那位是我的老师——帕克太太。她非常和蔼。我的朋友 Tom 是一位来自利兹的工程师。我们是好朋友。我们的学校很小，但它很不错。",
+      "inlineTemplate": "Hello! My name {{0}} Li Ming and I {{1}} from Chengdu. I am {{2}} student in London. This {{3}} my classroom and that {{4}} my teacher, Mrs. Park. {{5}} is very kind. My friend Tom is {{6}} engineer from Leeds. We {{7}} good friends. Our school {{8}} small, but {{9}} is nice.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "is"
+        },
+        {
+          "kind": "input",
+          "answer": "am",
+          "accepted": [
+            "'m"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "a"
+        },
+        {
+          "kind": "input",
+          "answer": "is"
+        },
+        {
+          "kind": "input",
+          "answer": "is"
+        },
+        {
+          "kind": "input",
+          "answer": "She",
+          "accepted": [
+            "she"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "an"
+        },
+        {
+          "kind": "input",
+          "answer": "are",
+          "accepted": [
+            "'re"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "is"
+        },
+        {
+          "kind": "input",
+          "answer": "it"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_a1_1_speaking_close",
+      "title": "结业对话：我是谁",
+      "storageKeyPrefix": "zh_en_a1_1_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A1.1",
+      "help": {
+        "intro": "A1.1 模块的结业对话：一次关于你自己的简单采访。把提示词复制到带语音的 AI 助手里，开口说，然后把分数带回来。",
+        "tips": [
+          {
+            "title": "年龄用 be",
+            "text": "I am twenty years old——英语里年龄是\"是\"出来的，不是\"有\"出来的。"
+          },
+          {
+            "title": "大胆请对方重复",
+            "text": "\"Can you repeat, please?\" 是完全符合 A1 水平的句子，而且非常有用。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A friendly get-to-know-you interview: my name, my age, where I am from, my job, my family and my favourite colour. Very slow, very simple.",
+        "practisePoints": [
+          "Introducing myself with be: name, age, origin",
+          "My job and my family members with a/an",
+          "Simple questions back: What's your name? Where are you from?",
+          "this/that to point at things around me"
+        ],
+        "scoringCriteria": [
+          "Correct am/is/are for each subject",
+          "Subject pronouns always present",
+          "a/an used before jobs and singular nouns"
+        ],
+        "targetVocabulary": [
+          "student",
+          "teacher",
+          "family",
+          "brother",
+          "sister",
+          "favourite"
+        ],
+        "priorityErrors": [
+          "dropped be (\"I student\")",
+          "missing a/an",
+          "\"has X years\" instead of \"is X years old\""
+        ],
+        "mode": "interview"
+      }
     },
     {
       "type": "fillBlank",
@@ -4254,6 +4529,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_a1_2_speaking_mid",
+      "title": "对话：我的一天",
+      "storageKeyPrefix": "zh_en_a1_2_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A1.2",
+      "help": {
+        "intro": "中段检查点：用英语向 AI 助手讲讲你的一天。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "短句 + 完整",
+            "text": "I get up at seven. I have breakfast. 主语 + 动词 + 时间，这个水平要的就是这三样（⚑Z13）。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A slow, simple chat about my daily routine: when I get up, what I eat, my work or studies, and my week days.",
+        "practisePoints": [
+          "Present simple in first person: I get up, I work, I have lunch",
+          "Times and days with at/on/in",
+          "Third person -s when I talk about my family"
+        ],
+        "scoringCriteria": [
+          "Correct present simple forms, especially the 3rd-person -s",
+          "at/on/in used correctly with times and days",
+          "Subject pronouns always present"
+        ],
+        "priorityErrors": [
+          "missing 3rd-person -s",
+          "missing do/does in questions",
+          "wrong time prepositions"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "zh_en_a1_2_there_it",
       "title": "存在句 there is/are 与虚主语 it",
@@ -5538,6 +5855,124 @@
           "questionTranslation": "咖啡多少钱？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_a1_2_bigtext",
+      "title": "整段填空：A normal Tuesday",
+      "storageKeyPrefix": "zh_en_a1_2_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "完成短文：一般现在时（别忘了 -s！）、do/does 和时间介词。",
+        "tips": [
+          {
+            "title": "先看主语再动笔",
+            "text": "主语是 he/she 时动词要加 -s；是 I/we/they 时不加（⚑Z13）。钟点前面用 at。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "A normal Tuesday",
+      "passage": "Li Ming gets up at seven every day. He has a quick breakfast and goes to work at eight. He works in an office in the centre. His sister Xiaomei works in a hospital, so she always gets up very early. On Tuesdays they have lunch together. Li Ming doesn't like coffee, so he drinks tea. In the evening they watch TV or read.",
+      "passageTranslation": "李明每天七点起床。他匆匆吃过早饭，八点去上班。他在市中心的一间办公室工作。他妹妹小美在医院工作，所以总是起得很早。每逢周二他们一起吃午饭。李明不喜欢咖啡，所以他喝茶。晚上他们看电视或看书。",
+      "inlineTemplate": "Li Ming {{0}} up at seven every day. He {{1}} a quick breakfast and goes to work {{2}} eight. He {{3}} in an office in the centre. His sister Xiaomei {{4}} in a hospital, so she always {{5}} up very early. {{6}} Tuesdays they have lunch together. Li Ming {{7}} like coffee, so he {{8}} tea. In the evening they {{9}} TV or read.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "gets"
+        },
+        {
+          "kind": "input",
+          "answer": "has"
+        },
+        {
+          "kind": "input",
+          "answer": "at"
+        },
+        {
+          "kind": "input",
+          "answer": "works"
+        },
+        {
+          "kind": "input",
+          "answer": "works"
+        },
+        {
+          "kind": "input",
+          "answer": "gets"
+        },
+        {
+          "kind": "input",
+          "answer": "On",
+          "accepted": [
+            "on"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "doesn't",
+          "accepted": [
+            "does not"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "drinks"
+        },
+        {
+          "kind": "input",
+          "answer": "watch"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_a1_2_speaking_close",
+      "title": "结业对话：我的一周",
+      "storageKeyPrefix": "zh_en_a1_2_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A1.2",
+      "help": {
+        "intro": "A1.2 模块的结业对话：关于你一周生活的采访。复制、开口、把分数带回来。",
+        "tips": [
+          {
+            "title": "把测验里的句子搬来用",
+            "text": "I usually get up at seven. I never work on Sundays. 模块里练过的句子正是这里需要的。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "An interview about my typical week: my routine from Monday to Sunday, my work or studies, my family's routines, and what I can do (languages, sports, cooking).",
+        "practisePoints": [
+          "Present simple with correct 3rd-person -s",
+          "Days, times and at/on/in",
+          "Frequency adverbs: always, usually, sometimes, never",
+          "can/can't for abilities"
+        ],
+        "scoringCriteria": [
+          "Present simple accuracy including questions with do/does",
+          "Time expressions with the right preposition",
+          "Frequency adverbs in the right position"
+        ],
+        "targetVocabulary": [
+          "get up",
+          "have breakfast",
+          "work",
+          "usually",
+          "never",
+          "can"
+        ],
+        "priorityErrors": [
+          "missing 3rd-person -s",
+          "questions without do/does",
+          "dropped subject pronouns"
+        ],
+        "mode": "interview"
+      }
     },
     {
       "type": "fillBlank",
@@ -6976,6 +7411,49 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_a2_1_speaking_mid",
+      "title": "对话：昨天",
+      "storageKeyPrefix": "zh_en_a2_1_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A2.1",
+      "help": {
+        "intro": "中段检查点：把你的昨天讲给 AI 助手听。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "kind": "warning",
+            "title": "⚑Z14 动词必须变形",
+            "text": "中文说\"昨天我去\"，动词不变；英语必须 went。先备好三句锚点：Yesterday I went to… I had lunch with… I watched…"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A simple chat about what I did yesterday and last weekend: where I went, what I ate, who I saw.",
+        "practisePoints": [
+          "Past simple of regular verbs with a clear -ed",
+          "Key irregulars: went, had, saw, ate, came",
+          "Time expressions: yesterday, last week, two days ago"
+        ],
+        "scoringCriteria": [
+          "Correct past forms, regular and irregular",
+          "did used correctly in questions and negatives",
+          "Time expressions placed correctly (ago after the period)"
+        ],
+        "priorityErrors": [
+          "present used instead of past (Chinese verbs don't change — English ones must)",
+          "\"Did you went\" — double past marking",
+          "dropped -ed endings"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_a2_1_read_shanghai",
       "title": "阅读：A weekend in Shanghai",
@@ -7661,6 +8139,132 @@
           "questionTranslation": "是什么让情况好转的？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_a2_1_bigtext",
+      "title": "整段填空：A strange Monday",
+      "storageKeyPrefix": "zh_en_a2_1_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "用缺掉的过去式补全这个故事：规则动词、不规则动词、was/were 和 did。",
+        "tips": [
+          {
+            "title": "先通读再填",
+            "text": "整个故事先读一遍，再逐个决定：规则（-ed）？不规则？还是 was/were？"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "A strange Monday",
+      "passage": "Last Monday was a strange day. I got up late because my alarm did not work. I had breakfast in two minutes and ran to the bus stop, but the bus left early — I missed it. So I walked to work and arrived at ten. My boss was not angry; the office was empty! Then I remembered: it was a holiday. I went home, made a big coffee and watched films all day.",
+      "passageTranslation": "上周一是奇怪的一天。闹钟没响，我起晚了。我两分钟吃完早饭，跑向公交站，可公交车提前走了——我没赶上。于是我步行去上班，十点才到。老板没有生气；办公室是空的！这时我才想起来：今天放假。我回到家，给自己冲了一大杯咖啡，看了一整天电影。",
+      "inlineTemplate": "Last Monday {{0}} a strange day. I {{1}} up late because my alarm {{2}} not work. I {{3}} breakfast in two minutes and ran to the bus stop, but the bus {{4}} early — I {{5}} it. So I walked to work and {{6}} at ten. My boss {{7}} not angry; the office was empty! Then I remembered: it was a holiday. I {{8}} home, {{9}} a big coffee and watched films all day.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "was"
+        },
+        {
+          "kind": "input",
+          "answer": "got"
+        },
+        {
+          "kind": "input",
+          "answer": "did"
+        },
+        {
+          "kind": "input",
+          "answer": "had",
+          "accepted": [
+            "ate"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "left",
+          "accepted": [
+            "came",
+            "was"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "missed"
+        },
+        {
+          "kind": "input",
+          "answer": "arrived"
+        },
+        {
+          "kind": "input",
+          "answer": "was"
+        },
+        {
+          "kind": "input",
+          "answer": "went",
+          "accepted": [
+            "walked",
+            "came"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "made",
+          "accepted": [
+            "had"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_a2_1_speaking_close",
+      "title": "结业对话：我的故事",
+      "storageKeyPrefix": "zh_en_a2_1_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A2.1",
+      "help": {
+        "intro": "A2.1 模块的结业对话：一次关于你过去的采访。复制、开口、把分数带回来。",
+        "tips": [
+          {
+            "title": "一个故事三步走",
+            "text": "定场（When I was…）→ 讲事（I went, I saw）→ 收尾（In the end…）。任何往事都能套这个结构。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Tell me about your past: your childhood, your school, a trip you loved, and what you did last weekend. I will ask follow-up questions.",
+        "practisePoints": [
+          "Past simple, regular and irregular, in connected sentences",
+          "was/were and there was/were for descriptions",
+          "Time expressions: when I was…, ago, last…",
+          "Questions with did answered naturally"
+        ],
+        "scoringCriteria": [
+          "Past forms accuracy",
+          "Story order with then, afterwards, in the end",
+          "Understandable -ed pronunciation"
+        ],
+        "targetVocabulary": [
+          "went",
+          "was born",
+          "moved",
+          "met",
+          "ago",
+          "suddenly"
+        ],
+        "priorityErrors": [
+          "present instead of past",
+          "double past after did/didn't",
+          "dropped final consonants on -ed"
+        ],
+        "mode": "interview"
+      }
     },
     {
       "type": "fillBlank",
@@ -9300,6 +9904,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_a2_2_speaking_mid",
+      "title": "对话：我的计划",
+      "storageKeyPrefix": "zh_en_a2_2_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A2.2",
+      "help": {
+        "intro": "中段检查点：把你的计划讲给 AI 助手听。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "一个计划一句话",
+            "text": "This weekend I'm going to visit my parents. Next month I'm going to start a course. 计划 + going to，直接说。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A chat about my plans: what I am doing this week, what I am going to do next weekend, and my plans for the summer.",
+        "practisePoints": [
+          "Present continuous for what is happening now / this week",
+          "going to for decided plans",
+          "will for spontaneous promises and predictions"
+        ],
+        "scoringCriteria": [
+          "be + -ing formed correctly",
+          "going to vs will chosen sensibly",
+          "Time expressions: tomorrow, next week, this summer"
+        ],
+        "priorityErrors": [
+          "present simple used for right-now actions",
+          "missing be before going to",
+          "dropped subject pronouns"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "zh_en_a2_2_quantifiers",
       "title": "much / many / some / any",
@@ -10403,6 +11049,125 @@
           "questionTranslation": "作者怎么看？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_a2_2_bigtext",
+      "title": "整段填空：Moving day plans",
+      "storageKeyPrefix": "zh_en_a2_2_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "完成短文：进行时、going to、will、比较级和 some/any。",
+        "tips": [
+          {
+            "title": "每个空问自己一句",
+            "text": "正在发生（-ing）？已定计划（going to）？当场承诺（will）？还是比较（-er / most）？"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "Moving day plans",
+      "passage": "Tom is packing his boxes right now because he is going to move to Manchester next week. His new flat is bigger than his old one, and the rent is cheaper. \"I will visit you in the summer,\" says Emma. \"Great! It is the best city for music in the country,\" Tom says. He still needs some boxes for his books — he has too many of them. Tomorrow his friends will help him with the van, and then they are going to eat pizza together. \"Don't worry,\" says Li Ming, \"moving day will be fun.\"",
+      "passageTranslation": "Tom 此刻正在打包箱子，因为下周他要搬去曼彻斯特。新公寓比旧的大，房租也更便宜。\"夏天我会去看你的，\"Emma 说。\"太好了！那是全国音乐最棒的城市，\"Tom 说。他还需要一些装书的箱子——书实在太多了。明天朋友们会开面包车来帮忙，然后他们要一起吃披萨。\"别担心，\"李明说，\"搬家那天会很有意思的。\"",
+      "inlineTemplate": "Tom is {{0}} his boxes right now because he is {{1}} to move to Manchester next week. His new flat is {{2}} than his old one, and the rent is cheaper. \"I {{3}} visit you in the summer,\" says Emma. \"Great! It is the {{4}} city for music in the country,\" Tom says. He still needs {{5}} boxes for his books — he has too {{6}} of them. Tomorrow his friends {{7}} help him with the van, and then they are going to {{8}} pizza together. \"Don't worry,\" says Li Ming, \"moving day {{9}} be fun.\"",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "packing"
+        },
+        {
+          "kind": "input",
+          "answer": "going"
+        },
+        {
+          "kind": "input",
+          "answer": "bigger"
+        },
+        {
+          "kind": "input",
+          "answer": "will",
+          "accepted": [
+            "'ll"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "best"
+        },
+        {
+          "kind": "input",
+          "answer": "some"
+        },
+        {
+          "kind": "input",
+          "answer": "many"
+        },
+        {
+          "kind": "input",
+          "answer": "will"
+        },
+        {
+          "kind": "input",
+          "answer": "eat",
+          "accepted": [
+            "have",
+            "order"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "will"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_a2_2_speaking_close",
+      "title": "结业对话：我的未来",
+      "storageKeyPrefix": "zh_en_a2_2_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "A2.2",
+      "help": {
+        "intro": "A2.2 模块——也是 A 级——的结业对话：你的现在与未来。复制、开口、把分数带回来。",
+        "tips": [
+          {
+            "title": "比较你的城市",
+            "text": "My city is smaller than…, but the food is better. 比较两座城市是展示本模块最自然的方式。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "An interview about my life now and my future: what I am doing these days, my plans for next year, and comparisons between my city and another city I like.",
+        "practisePoints": [
+          "Present continuous for these days",
+          "going to and will for plans and promises",
+          "Comparatives and superlatives about places",
+          "some/any with shopping and food"
+        ],
+        "scoringCriteria": [
+          "The three futures used sensibly",
+          "Comparative forms correct (no \"more better\")",
+          "Continuous formed with be + -ing"
+        ],
+        "targetVocabulary": [
+          "going to",
+          "bigger",
+          "the best",
+          "expensive",
+          "move",
+          "plan"
+        ],
+        "priorityErrors": [
+          "present simple for right-now actions",
+          "double comparatives",
+          "missing be in continuous or going to"
+        ],
+        "mode": "interview"
+      }
     },
     {
       "type": "fillBlank",
@@ -12041,6 +12806,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_b1_1_speaking_mid",
+      "title": "对话：我的经历",
+      "storageKeyPrefix": "zh_en_b1_1_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B1.1",
+      "help": {
+        "intro": "中段检查点：和 AI 助手聊聊你的人生经历。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "完成时-过去时二重奏",
+            "text": "用 perfect 报幕（I have been to Xi'an），用过去时讲细节（I went in 2022）。这一来一回正是地道的 B1。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A chat about my life experiences: places I have visited, foods I have tried, things I have never done but want to do.",
+        "practisePoints": [
+          "Have you ever…? questions and natural answers",
+          "Present perfect for experience, past simple for the details",
+          "for/since with how long questions"
+        ],
+        "scoringCriteria": [
+          "Perfect vs past chosen correctly",
+          "Irregular participles (been, seen, eaten) correct",
+          "for/since used correctly"
+        ],
+        "priorityErrors": [
+          "perfect used with finished-time expressions",
+          "\"I am here since\" instead of \"I have been here for/since\"",
+          "aspect particles translated word for word (⚑Z aspect bridge)"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_b1_1_read_work",
       "title": "阅读：The future of work",
@@ -13114,6 +13921,132 @@
           "questionTranslation": "专家建议什么？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_b1_1_bigtext",
+      "title": "整段填空：Ten years in London",
+      "storageKeyPrefix": "zh_en_b1_1_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "完成短文：现在完成时还是过去时、for/since，以及动词后接 -ing 还是 to。",
+        "tips": [
+          {
+            "title": "日期已封口，还是人生仍打开？",
+            "text": "in 2016、two months later → 过去时。for/since、ever、yet → 完成时。一空一判断。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "Ten years in London",
+      "passage": "Mrs. Park has lived in London for ten years. She moved here in 2016, when she found a job at a language school. Since then she has taught hundreds of students. \"I enjoy watching people grow,\" she says. She has never thought of changing jobs, but last year she decided to try something new: she signed up for a pottery class. \"I have made fifty cups since September — and I have given most of them away to my students.\"",
+      "passageTranslation": "帕克太太在伦敦已经住了十年。她 2016 年搬来这里，当时在一所语言学校找到了工作。从那以后她教过几百名学生。\"我喜欢看着人成长，\"她说。她从没想过换工作，不过去年她决定尝试点新东西：报名了一门陶艺课。\"从九月到现在我做了五十个杯子——大部分都送给了我的学生。\"",
+      "inlineTemplate": "Mrs. Park {{0}} lived in London {{1}} ten years. She moved here in 2016, when she {{2}} a job at a language school. Since then she {{3}} taught hundreds of students. \"I enjoy {{4}} people grow,\" she says. She has never {{5}} of changing jobs, but last year she decided {{6}} something new: she signed {{7}} for a pottery class. \"I {{8}} made fifty cups since September — and I have given most of them {{9}} to my students.\"",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "has"
+        },
+        {
+          "kind": "input",
+          "answer": "for"
+        },
+        {
+          "kind": "input",
+          "answer": "found",
+          "accepted": [
+            "got",
+            "took"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "has"
+        },
+        {
+          "kind": "input",
+          "answer": "watching",
+          "accepted": [
+            "seeing",
+            "helping"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "thought"
+        },
+        {
+          "kind": "input",
+          "answer": "to try",
+          "accepted": [
+            "to do",
+            "to learn"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "up"
+        },
+        {
+          "kind": "input",
+          "answer": "have",
+          "accepted": [
+            "'ve"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "away"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_b1_1_speaking_close",
+      "title": "结业对话：我的轨迹",
+      "storageKeyPrefix": "zh_en_b1_1_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B1.1",
+      "help": {
+        "intro": "B1.1 模块的结业对话：一次关于你人生轨迹的采访。复制、开口、把分数带回来。",
+        "tips": [
+          {
+            "title": "你的招牌句",
+            "text": "I've worked as a … for … years——这样自我介绍，半个模块的要点就已经展示完了。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "An interview about my life so far: how long I have done my job or studies, places I have lived, habits I used to have, and my opinions about learning English.",
+        "practisePoints": [
+          "Present perfect + for/since for my current situation",
+          "Perfect for experience, past for the story details",
+          "used to for old habits",
+          "Giving opinions: I think, I agree, in my opinion"
+        ],
+        "scoringCriteria": [
+          "Perfect vs past accuracy",
+          "for/since correct",
+          "Opinions expressed with correct verb patterns"
+        ],
+        "targetVocabulary": [
+          "have been",
+          "since",
+          "for",
+          "used to",
+          "in my opinion"
+        ],
+        "priorityErrors": [
+          "\"I am agree\"",
+          "perfect with yesterday/ago",
+          "used to confused with be used to"
+        ],
+        "mode": "interview"
+      }
     },
     {
       "type": "fillBlank",
@@ -14752,6 +15685,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_b1_2_speaking_mid",
+      "title": "对话：给我讲个故事",
+      "storageKeyPrefix": "zh_en_b1_2_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B1.2",
+      "help": {
+        "intro": "中段检查点：给 AI 助手讲一件你亲身经历的事。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "先把开场排练好",
+            "text": "It was…, I was -ing…, when… 把第一句练熟，后面自然会滚动起来。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Tell me a real story from your life: something funny, scary or surprising that happened to you. I will ask about the details.",
+        "practisePoints": [
+          "Setting the scene with was/were + -ing",
+          "Telling the events in past simple",
+          "Connectors: suddenly, while, in the end"
+        ],
+        "scoringCriteria": [
+          "Past continuous vs past simple used correctly",
+          "The story has a beginning, middle and end",
+          "Connectors used naturally"
+        ],
+        "priorityErrors": [
+          "past simple used for background scenes",
+          "missing was/were before -ing",
+          "story told entirely in present"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_b1_2_read_anecdote",
       "title": "阅读：A true anecdote",
@@ -15825,6 +16800,128 @@
           "questionTranslation": "结果如何？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_b1_2_bigtext",
+      "title": "整段填空：The night the lights went out",
+      "storageKeyPrefix": "zh_en_b1_2_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "完成故事：过去进行时、used to、关系从句和一个条件句。",
+        "tips": [
+          {
+            "title": "背景 -ing，事件简单过去",
+            "text": "用 was/were + -ing 铺背景，用过去式点事件。这段文字会毫无预告地在两者之间切换。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "The night the lights went out",
+      "passage": "It was a windy night and I was watching an old film at home. My street, which is usually noisy, was completely quiet. Suddenly the lights went out. While I was looking for a candle, someone knocked on the door. It was my neighbour, Mrs. Wang, who used to be an electrician. \"If you lend me your torch, I will check the fuse box,\" she said. Ten minutes later the lights came back. Now, if the lights go out again, I know exactly who to call — the neighbour who saved my Friday night.",
+      "passageTranslation": "那是一个刮风的夜晚，我正在家看一部老电影。我住的那条平时很吵的街道完全安静了下来。突然停电了。我正找蜡烛时，有人敲门。是邻居王太太——她以前是电工。\"你把手电借我，我去看看保险盒，\"她说。十分钟后灯亮了。现在，如果再停电，我很清楚该找谁——那位拯救了我周五晚上的邻居。",
+      "inlineTemplate": "It was a windy night and I {{0}} watching an old film at home. My street, {{1}} is usually noisy, was completely quiet. Suddenly the lights {{2}} out. While I {{3}} looking for a candle, someone knocked on the door. It was my neighbour, Mrs. Wang, {{4}} used {{5}} be an electrician. \"If you {{6}} me your torch, I will check the fuse box,\" she said. Ten minutes later the lights came back. Now, if the lights {{7}} out again, I {{8}} exactly who to call — the neighbour {{9}} saved my Friday night.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "was"
+        },
+        {
+          "kind": "input",
+          "answer": "which"
+        },
+        {
+          "kind": "input",
+          "answer": "went"
+        },
+        {
+          "kind": "input",
+          "answer": "was"
+        },
+        {
+          "kind": "input",
+          "answer": "who"
+        },
+        {
+          "kind": "input",
+          "answer": "to"
+        },
+        {
+          "kind": "input",
+          "answer": "lend",
+          "accepted": [
+            "give",
+            "bring"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "go"
+        },
+        {
+          "kind": "input",
+          "answer": "know",
+          "accepted": [
+            "will know"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "who",
+          "accepted": [
+            "that"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_b1_2_speaking_close",
+      "title": "结业对话：从前与现在",
+      "storageKeyPrefix": "zh_en_b1_2_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B1.2",
+      "help": {
+        "intro": "B1.2 模块的结业对话：你的从前、一个故事和一个条件。复制、开口、把分数带回来。",
+        "tips": [
+          {
+            "title": "三幕剧",
+            "text": "从前（used to）→ 故事（was -ing… when…）→ 展望（If…, I will…）。按这个剧本走，每个要点都会覆盖到。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A conversation about how my life has changed: what I used to do as a child, a memorable story from those years, and what I will do if things go well next year.",
+        "practisePoints": [
+          "used to for old habits",
+          "Past continuous + past simple in one story",
+          "First conditional: if …, I will…",
+          "Relative clauses to describe people and places"
+        ],
+        "scoringCriteria": [
+          "used to formed correctly",
+          "Scene vs event tenses correct",
+          "if-clause in present, main clause with will"
+        ],
+        "targetVocabulary": [
+          "used to",
+          "while",
+          "suddenly",
+          "if",
+          "who",
+          "where"
+        ],
+        "priorityErrors": [
+          "will inside the if-clause",
+          "story with no connectors",
+          "missing was/were in the continuous"
+        ],
+        "mode": "interview"
+      }
     },
     {
       "type": "fillBlank",
@@ -17463,6 +18560,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_b2_1_speaking_mid",
+      "title": "对话：如果当初……",
+      "storageKeyPrefix": "zh_en_b2_1_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B2.1",
+      "help": {
+        "intro": "中段检查点：和 AI 助手聊聊人生的假设。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "你的黄金句",
+            "text": "If I hadn't …, I would never have … ——开口前先准备两个自己人生里的真实例子。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A conversation about decisions and their consequences: a decision that changed my life, what would have happened if I had chosen differently, and a wish I have about the present.",
+        "practisePoints": [
+          "Second and third conditionals about my own life",
+          "wish + past / had + participle",
+          "Argument connectors: although, however, therefore"
+        ],
+        "scoringCriteria": [
+          "Conditional structures correct",
+          "wish followed by the right tense",
+          "Ideas connected with linkers, not just \"and\""
+        ],
+        "priorityErrors": [
+          "\"would have\" inside the if-clause",
+          "wish + present tense",
+          "linkers with the wrong grammar"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_b2_1_read_ai",
       "title": "阅读：Should we trust AI?",
@@ -18535,6 +19674,126 @@
           "questionTranslation": "「混合」模式是什么？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_b2_1_bigtext",
+      "title": "整段填空：The mystery of the empty office",
+      "storageKeyPrefix": "zh_en_b2_1_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "完成短文：被动语态、情态推测和第三条件句。",
+        "tips": [
+          {
+            "title": "语法侦探",
+            "text": "动作的执行者不重要 → 被动。这是推测 → must/might have。想象中的过去 → had + 过去分词。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "The mystery of the empty office",
+      "passage": "When Xiaomei arrived on Monday, the office was empty. The lights had been left on all weekend and a window was open. \"Someone must have been here,\" she thought. Her laptop was still on the desk, so it can't have been a thief — a thief would have taken it. Then she saw a note: \"The pipes burst on Saturday. Everyone was told to work from home. The message was sent to all staff by email.\" Xiaomei sighed. If she had checked her inbox, she would have stayed in bed. Although the walk had woken her up, she would rather have spent it on a beach.",
+      "passageTranslation": "周一小美到公司时，办公室空无一人。灯亮了整个周末，一扇窗开着。\"肯定有人来过，\"她想。她的笔记本电脑还在桌上，所以不可能是小偷——小偷早拿走了。然后她看见一张字条：\"周六水管爆了。所有人改为在家办公。通知已通过邮件发给全体员工。\"小美叹了口气。要是查过收件箱，她本可以继续睡觉。虽然这一路走来让她清醒了，她还是宁愿把这段路花在海滩上。",
+      "inlineTemplate": "When Xiaomei arrived on Monday, the office was empty. The lights had been {{0}} on all weekend and a window {{1}} open. \"Someone {{2}} have been here,\" she thought. Her laptop was still on the desk, so it {{3}} have been a thief — a thief would have {{4}} it. Then she saw a note: \"The pipes burst on Saturday. Everyone was {{5}} to work from home. The message was {{6}} to all staff by email.\" Xiaomei sighed. If she {{7}} checked her inbox, she {{8}} have stayed in bed. Although the walk had woken her up, she would rather have {{9}} it on a beach.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "left"
+        },
+        {
+          "kind": "input",
+          "answer": "was"
+        },
+        {
+          "kind": "input",
+          "answer": "must"
+        },
+        {
+          "kind": "input",
+          "answer": "can't",
+          "accepted": [
+            "cannot",
+            "couldn't"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "taken",
+          "accepted": [
+            "stolen"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "told",
+          "accepted": [
+            "asked"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "sent"
+        },
+        {
+          "kind": "input",
+          "answer": "had"
+        },
+        {
+          "kind": "input",
+          "answer": "would"
+        },
+        {
+          "kind": "input",
+          "answer": "spent"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_b2_1_speaking_close",
+      "title": "结业对话：辩论场",
+      "storageKeyPrefix": "zh_en_b2_1_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B2.1",
+      "help": {
+        "intro": "B2.1 模块的结业对话：一场真正的辩论。复制、亮出立场、把分数带回来。",
+        "tips": [
+          {
+            "title": "先让一步，再转身",
+            "text": "I see your point; however… ——先承认再反驳，正是让分歧听起来像 B2 的方法。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A friendly debate: choose a topic like remote work, cars in city centres or social media, defend your position and answer my counter-arguments.",
+        "practisePoints": [
+          "Building an argument with although/however/therefore",
+          "The passive for general claims: it is said, it has been shown",
+          "Hypotheses: conditionals 2 and 3",
+          "Polite disagreement: I see your point, but…"
+        ],
+        "scoringCriteria": [
+          "Arguments connected logically",
+          "Passive and conditional structures correct",
+          "Counter-arguments answered, not ignored"
+        ],
+        "targetVocabulary": [
+          "although",
+          "however",
+          "therefore",
+          "in my view",
+          "on the other hand"
+        ],
+        "priorityErrors": [
+          "linkers with the wrong grammar (despite + clause)",
+          "conditional halves mixed up",
+          "bare opinions with no support"
+        ]
+      }
     },
     {
       "type": "fillBlank",
@@ -20173,6 +21432,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_b2_2_speaking_mid",
+      "title": "对话：他们告诉我……",
+      "storageKeyPrefix": "zh_en_b2_2_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B2.2",
+      "help": {
+        "intro": "中段检查点：把别人对你说过的话转述给 AI 助手。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "备好弹药",
+            "text": "My grandmother always told me that… / A friend said he would… 开始前先想好三段回忆。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Gossip and messages: tell me about advice people have given you, things your family used to tell you, and a piece of news someone told you recently — all in reported speech.",
+        "practisePoints": [
+          "Reported statements with backshift: she said she was…",
+          "Reported questions and requests: he asked me if… / to…",
+          "say vs tell used correctly"
+        ],
+        "scoringCriteria": [
+          "Backshift applied consistently",
+          "tell + person, say without person",
+          "Natural connectors between reported items"
+        ],
+        "priorityErrors": [
+          "\"she said me\"",
+          "no backshift after said/told",
+          "word order in reported questions"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_b2_2_read_culture",
       "title": "阅读：A cultural misunderstanding",
@@ -21246,6 +22547,121 @@
           "questionTranslation": "专家建议什么？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_b2_2_bigtext",
+      "title": "整段填空：The message chain",
+      "storageKeyPrefix": "zh_en_b2_2_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "完成短文：间接引语、say/tell、附加疑问和 phrasal verbs。",
+        "tips": [
+          {
+            "title": "顺着链条走",
+            "text": "每个人都在转述上一个人的话：注意每一环的时态后移。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "The message chain",
+      "passage": "On Monday Emma told her team that the client wanted changes. Tom understood that the client was unhappy, so he told Daniel that they would have to redo the design. Daniel said that it was impossible — they had run out of time. \"You spoke to the client yourself, didn't you?\" he asked Emma. \"Well, no. Her assistant told me she had seen the drafts,\" Emma admitted. In the end, the client loved the design and had only asked them to change one colour. \"I wish people would check the original message,\" Daniel sighed, \"before a small comment turns into a crisis.\"",
+      "passageTranslation": "周一，Emma 告诉团队客户想要修改。Tom 理解成客户不满意，于是告诉 Daniel 他们得重做设计。Daniel 说这不可能——时间已经用完了。\"你亲自跟客户谈过，对吧？\"他问 Emma。\"呃，没有。她的助理告诉我客户看过草稿了，\"Emma 承认。最后，客户其实很喜欢这个设计，只是请他们改一个颜色。\"真希望大家都去核对原始信息，\"Daniel 叹气说，\"别让一句小评论演变成一场危机。\"",
+      "inlineTemplate": "On Monday Emma {{0}} her team that the client wanted changes. Tom understood that the client {{1}} unhappy, so he told Daniel that they {{2}} have to redo the design. Daniel {{3}} that it was impossible — they had run {{4}} of time. \"You spoke to the client yourself, {{5}} you?\" he asked Emma. \"Well, no. Her assistant told me she {{6}} seen the drafts,\" Emma admitted. In the end, the client loved the design and had only asked them {{7}} change one colour. \"I wish people {{8}} check the original message,\" Daniel sighed, \"before a small comment {{9}} into a crisis.\"",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "told"
+        },
+        {
+          "kind": "input",
+          "answer": "was"
+        },
+        {
+          "kind": "input",
+          "answer": "would"
+        },
+        {
+          "kind": "input",
+          "answer": "said"
+        },
+        {
+          "kind": "input",
+          "answer": "out"
+        },
+        {
+          "kind": "input",
+          "answer": "didn't"
+        },
+        {
+          "kind": "input",
+          "answer": "had"
+        },
+        {
+          "kind": "input",
+          "answer": "to"
+        },
+        {
+          "kind": "input",
+          "answer": "would"
+        },
+        {
+          "kind": "input",
+          "answer": "turns",
+          "accepted": [
+            "grows"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_b2_2_speaking_close",
+      "title": "结业对话：转述与揣测",
+      "storageKeyPrefix": "zh_en_b2_2_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "B2.2",
+      "help": {
+        "intro": "B2.2 模块——也是 B 级——的结业对话：转述、揣测、把话说圆。复制、开口、把分数带回来。",
+        "tips": [
+          {
+            "title": "附加疑问的妙用",
+            "text": "偶尔用 tag 收尾（…, wasn't it?）——既拉住对方，又非常地道。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A long conversation where you retell things: a conversation you had recently, advice you were given as a child, and a misunderstanding that turned out fine — plus deductions about why people acted as they did (must have, might have).",
+        "practisePoints": [
+          "Reported speech with clean backshift",
+          "Deductions about the past: must/might/can't have",
+          "Question tags to keep the conversation alive",
+          "Reporting verbs beyond say/tell: admit, promise, suggest"
+        ],
+        "scoringCriteria": [
+          "Reported structures accurate",
+          "Deduction modals with the right certainty",
+          "Conversation flows with tags and softeners"
+        ],
+        "targetVocabulary": [
+          "told",
+          "would",
+          "must have",
+          "suggest",
+          "turn out",
+          "sort out"
+        ],
+        "priorityErrors": [
+          "said/told confusion",
+          "no backshift",
+          "tags with the wrong auxiliary"
+        ],
+        "mode": "interview"
+      }
     },
     {
       "type": "fillBlank",
@@ -22884,6 +24300,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_c1_1_speaking_mid",
+      "title": "对话：分析一个趋势",
+      "storageKeyPrefix": "zh_en_c1_1_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C1.1",
+      "help": {
+        "intro": "中段检查点：像向委员会汇报一样，和 AI 助手分析一个趋势。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "按栏思考",
+            "text": "原因 / 影响 / 限定语，各说一分钟——比十个零散观点更能体现 C1。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "An analytical discussion: pick a trend you know well (in your city, your industry or your generation), explain its causes and effects, and qualify your claims like an analyst.",
+        "practisePoints": [
+          "Hedged claims: tend to, appear to, arguably",
+          "Cause and effect with nominalisations: the growth of…, the loss of…",
+          "One inversion for emphasis: Not only… but also…"
+        ],
+        "scoringCriteria": [
+          "Claims are qualified, not absolute",
+          "Formal vocabulary and collocations",
+          "Inversion used correctly at least once"
+        ],
+        "priorityErrors": [
+          "absolute claims where hedging is needed",
+          "collocations translated literally from Chinese",
+          "inversion without auxiliary-subject order"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_c1_1_read_ethics",
       "title": "阅读：The ethics of technology",
@@ -23957,6 +25415,129 @@
           "questionTranslation": "作者的观点是什么？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_c1_1_bigtext",
+      "title": "整段填空：The report",
+      "storageKeyPrefix": "zh_en_c1_1_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "补全一份正式报告：名词化、模糊限定、被动与倒装。",
+        "tips": [
+          {
+            "title": "报告腔",
+            "text": "这里不说 I think：当家的是 it appears、the data suggest 和抽象名词。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "The quarterly report",
+      "passage": "The decline of sales in the northern region appears to be linked to three factors. First, the late launch: the product was launched two months after our competitors'. Second, prices tend to be higher than the market average, a gap that has widened since January. Third, and arguably most damaging, the loss of two key partners in March. It could be argued that the region was under-resourced from the start. Not only did the team lack local knowledge — they also received the new materials late. Only in June did the situation begin to improve, and early figures suggest the recovery will make sense of the investment.",
+      "passageTranslation": "北部地区销售额的下滑似乎与三个因素有关。第一，上市过晚：产品比竞争对手晚了两个月。第二，价格往往高于市场均价，且差距自一月以来持续扩大。第三，也可能是伤害最大的一点：三月失去了两家关键合作伙伴。可以说，该地区从一开始就资源不足。团队不仅缺乏本地经验，新物料也拿得太晚。直到六月局面才开始好转，而初步数据显示，这轮复苏将让投入物有所值。",
+      "inlineTemplate": "The {{0}} of sales in the northern region appears {{1}} be linked to three factors. First, the late launch: the product was {{2}} two months after our competitors'. Second, prices {{3}} to be higher than the market average, a gap that has widened since January. Third, and {{4}} most damaging, the loss {{5}} two key partners in March. It could be {{6}} that the region was under-resourced from the start. Not only {{7}} the team lack local knowledge — they also received the new materials late. Only in June {{8}} the situation begin to improve, and early figures suggest the recovery will {{9}} sense of the investment.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "decline",
+          "accepted": [
+            "fall",
+            "drop",
+            "loss"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "to"
+        },
+        {
+          "kind": "input",
+          "answer": "launched",
+          "accepted": [
+            "released"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "tend",
+          "accepted": [
+            "appear",
+            "seem"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "arguably"
+        },
+        {
+          "kind": "input",
+          "answer": "of"
+        },
+        {
+          "kind": "input",
+          "answer": "argued"
+        },
+        {
+          "kind": "input",
+          "answer": "did"
+        },
+        {
+          "kind": "input",
+          "answer": "did"
+        },
+        {
+          "kind": "input",
+          "answer": "make"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_c1_1_speaking_close",
+      "title": "结业对话：正式陈述",
+      "storageKeyPrefix": "zh_en_c1_1_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C1.1",
+      "help": {
+        "intro": "C1.1 模块的结业对话：一场带\"善意刁难\"提问的正式陈述。复制、陈述、把分数带回来。",
+        "tips": [
+          {
+            "title": "优雅的让步",
+            "text": "That may be true to some extent; however… ——让出一厘米，赢回一米。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Present a topic you know deeply for several minutes, as if to an expert audience, then take challenging questions: defend your analysis with qualified, precise language.",
+        "practisePoints": [
+          "A structured argument: causes, effects, qualifications",
+          "Formal register: nominalisations and collocations",
+          "Hedging under pressure: that may be true to some extent, but…",
+          "Emphasis with inversion where it counts"
+        ],
+        "scoringCriteria": [
+          "Register consistently formal",
+          "Claims properly qualified and defended",
+          "Grammar of inversion and nominalisation correct"
+        ],
+        "targetVocabulary": [
+          "arguably",
+          "tend to",
+          "raise a question",
+          "play a role",
+          "assumption"
+        ],
+        "priorityErrors": [
+          "register drops to casual speech",
+          "literal Chinese collocations",
+          "unqualified absolute claims"
+        ],
+        "mode": "roleplay"
+      }
     },
     {
       "type": "fillBlank",
@@ -25595,6 +27176,49 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_c1_2_speaking_mid",
+      "title": "对话：两副语体",
+      "storageKeyPrefix": "zh_en_c1_2_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C1.2",
+      "help": {
+        "intro": "中段检查点：同一件事，先穿便装讲，再穿西装讲。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "换动词就是换衣服",
+            "text": "find out → discover，ask for → request，sort out → resolve。十个动词换装，整个语体就转了。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "One story, two audiences: first tell me about a problem at work or in your studies as you would tell a friend; then re-tell exactly the same events as if reporting formally to a director.",
+        "practisePoints": [
+          "The informal version: phrasal verbs, contractions, casual markers",
+          "The formal version: latinate verbs, nominalisations, passives",
+          "Keeping the facts identical while the register changes"
+        ],
+        "scoringCriteria": [
+          "Clear register contrast between the two versions",
+          "Formal vocabulary accurate (request, discover, require)",
+          "No register mixing within a version"
+        ],
+        "priorityErrors": [
+          "formal words in the casual version and vice versa",
+          "phrasal verbs in the formal report",
+          "identical wording in both versions"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_c1_2_read_column",
       "title": "阅读：An opinion column",
@@ -26667,6 +28291,125 @@
           "questionTranslation": "「真正流利的标志」是什么？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_c1_2_bigtext",
+      "title": "整段填空：The formal complaint",
+      "storageKeyPrefix": "zh_en_c1_2_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "补全一封正式投诉信：高语体、分词结构、被动与语篇标记。",
+        "tips": [
+          {
+            "title": "西装革履",
+            "text": "每个空都要选正式的那一个：request 而非 ask for；received 而非 got。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "The formal complaint",
+      "passage": "Dear Ms. Serrano, I am writing with regard to the delays affecting the Line 4 service. Having used this line daily for six years, I have never experienced disruption on the current scale. Trains are frequently cancelled without notice; moreover, passengers are rarely informed of alternatives. It was only through a fellow passenger that I learned of last week's timetable change. I must therefore request that a revised timetable be published and that refunds be issued for season-ticket holders. Admittedly, the service has improved slightly since March; that said, the current situation remains unacceptable. What passengers ultimately need is reliability, not apologies. I look forward to receiving your response. Yours sincerely, Wang Lei.",
+      "passageTranslation": "尊敬的 Serrano 女士：兹就影响 4 号线服务的延误问题致函于您。六年来我每天乘坐这条线路，从未经历过如今这种规模的中断。列车常常不加通知就被取消；此外，乘客几乎得不到替代方案的信息。上周的时刻表调整，我还是从另一位乘客那里才得知的。因此我必须要求：公布修订后的时刻表，并向持季票乘客发放退款。诚然，三月以来服务略有改善；话虽如此，目前的状况仍不可接受。乘客最终需要的是可靠，而不是道歉。盼复。王磊 谨上。",
+      "inlineTemplate": "Dear Ms. Serrano, I am writing with {{0}} to the delays affecting the Line 4 service. {{1}} used this line daily for six years, I have never experienced disruption on the current scale. Trains are frequently cancelled without notice; {{2}}, passengers are rarely informed of alternatives. It was only through a fellow passenger {{3}} I learned of last week's timetable change. I must therefore {{4}} that a revised timetable be published and that refunds {{5}} issued for season-ticket holders. {{6}}, the service has improved slightly since March; {{7}} said, the current situation remains unacceptable. What passengers ultimately {{8}} is reliability, not apologies. I look forward to {{9}} your response. Yours sincerely, Wang Lei.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "regard"
+        },
+        {
+          "kind": "input",
+          "answer": "Having"
+        },
+        {
+          "kind": "input",
+          "answer": "moreover",
+          "accepted": [
+            "furthermore",
+            "in addition"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "that"
+        },
+        {
+          "kind": "input",
+          "answer": "request"
+        },
+        {
+          "kind": "input",
+          "answer": "be"
+        },
+        {
+          "kind": "input",
+          "answer": "Admittedly"
+        },
+        {
+          "kind": "input",
+          "answer": "that"
+        },
+        {
+          "kind": "input",
+          "answer": "need",
+          "accepted": [
+            "want",
+            "require"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "receiving"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_c1_2_speaking_close",
+      "title": "结业对话：正式会谈",
+      "storageKeyPrefix": "zh_en_c1_2_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C1.2",
+      "help": {
+        "intro": "C1.2 模块的结业对话：一场从头到尾的正式会谈。复制、谈判、把分数带回来。",
+        "tips": [
+          {
+            "title": "用模板开场",
+            "text": "Thank you for seeing me. I'd like to raise the issue of… ——这样的开场定下整场会谈的基调。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A formal meeting roleplay: you present a complaint or proposal to a director (me), negotiate the details, and close with agreed next steps — all in high register.",
+        "practisePoints": [
+          "Formal openings and closings: I am writing/calling with regard to…",
+          "Requests with formality: I must request that…, Would it be possible…",
+          "Cleft sentences to focus the key point",
+          "Discourse markers to structure the negotiation"
+        ],
+        "scoringCriteria": [
+          "Register formal and consistent",
+          "Requests softened yet precise",
+          "Clear structure with discourse markers"
+        ],
+        "targetVocabulary": [
+          "with regard to",
+          "request",
+          "nevertheless",
+          "that said",
+          "ultimately"
+        ],
+        "priorityErrors": [
+          "casual phrasal verbs in the formal meeting",
+          "demands without softening",
+          "missing structure markers"
+        ],
+        "mode": "roleplay"
+      }
     },
     {
       "type": "fillBlank",
@@ -28306,6 +30049,48 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_c2_1_speaking_mid",
+      "title": "对话：听懂弦外之音",
+      "storageKeyPrefix": "zh_en_c2_1_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C2.1",
+      "help": {
+        "intro": "中段检查点：一场话里有话的闲聊。复制、对话、把分数输回来。",
+        "tips": [
+          {
+            "title": "每场两个习语",
+            "text": "放在真正合适的位置，然后收手。三个自然的习语胜过十个硬塞的。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "A conversation full of understatement and idioms: we chat about work, houses and plans; I will underplay everything and you must respond to what I mean, not what I say — and use idioms naturally yourself.",
+        "practisePoints": [
+          "Decoding understatement and responding to the real meaning",
+          "Using three or four idioms naturally, not forced",
+          "Fine modality: may well, might as well, needn't have"
+        ],
+        "scoringCriteria": [
+          "Idioms used accurately and in context",
+          "Responses match the implied meaning",
+          "Modal nuances correct"
+        ],
+        "priorityErrors": [
+          "idioms slightly wrong in wording",
+          "literal responses to understatement",
+          "over-formal register in casual chat"
+        ],
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "reading",
       "id": "zh_en_c2_1_read_satire",
       "title": "阅读：A satirical article",
@@ -29378,6 +31163,117 @@
           "questionTranslation": "评论者读完这本书了吗？"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_c2_1_bigtext",
+      "title": "整段填空：The review",
+      "storageKeyPrefix": "zh_en_c2_1_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "补全一篇带英式反讽的餐厅评论：习语、轻描淡写和精细情态。",
+        "tips": [
+          {
+            "title": "先读出语气",
+            "text": "这篇评论踩着刹车夸、带着微笑批。每个空都要维持这个温度。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "Restaurant review: The Golden Fork",
+      "passage": "The Golden Fork is not exactly cheap — dinner for two cost an arm and a leg — but the cooking is not bad at all. The famous fish pie may well be the best in the city, though the waiter who described it for six full minutes was, shall we say, none too brief. Service is a bit of a problem: our starters arrived before the menus, and the wine never arrived at all. \"It slipped my mind,\" the waiter admitted, which at least had the charm of honesty. Would I go back? I think so. The chef clearly knows his craft, and at the end of the day, one forgives a great deal for pastry like that. But I might as well book somewhere quieter for the conversation.",
+      "passageTranslation": "\"金叉子\"确实算不上便宜——两人晚餐花了大价钱——但菜做得着实不坏。招牌鱼派很可能是全城最好的，只是那位足足介绍了六分钟的服务员，怎么说呢，不太\"简短\"。服务有点小状况：前菜比菜单先上，酒则始终没来。\"我完全忘了，\"服务员承认——至少这份诚实还算可爱。会再去吗？我想会的。主厨的手艺明摆着，说到底，为那样的酥皮可以原谅很多。不过想好好聊天的话，我还是不如订个安静点的地方。",
+      "inlineTemplate": "The Golden Fork is not exactly {{0}} — dinner for two cost an arm and a {{1}} — but the cooking is not bad at {{2}}. The famous fish pie may {{3}} be the best in the city, though the waiter who described it for six full minutes was, shall we say, none too {{4}}. Service is a bit of a {{5}}: our starters arrived before the menus, and the wine never arrived at all. \"It slipped my {{6}},\" the waiter admitted, which at least had the charm of honesty. Would I go back? I think {{7}}. The chef clearly knows his craft, and at the end of the {{8}}, one forgives a great deal for pastry like that. But I might as {{9}} book somewhere quieter for the conversation.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "cheap"
+        },
+        {
+          "kind": "input",
+          "answer": "leg"
+        },
+        {
+          "kind": "input",
+          "answer": "all"
+        },
+        {
+          "kind": "input",
+          "answer": "well"
+        },
+        {
+          "kind": "input",
+          "answer": "brief",
+          "accepted": [
+            "quick",
+            "short"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "problem",
+          "accepted": [
+            "mess",
+            "lottery"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "mind"
+        },
+        {
+          "kind": "input",
+          "answer": "so"
+        },
+        {
+          "kind": "input",
+          "answer": "day"
+        },
+        {
+          "kind": "input",
+          "answer": "well"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_c2_1_speaking_close",
+      "title": "结业对话：幽默与分寸",
+      "storageKeyPrefix": "zh_en_c2_1_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C2.1",
+      "help": {
+        "intro": "C2.1 模块的结业对话：用英式的从容讲一场\"灾难\"。复制、开口、把分数带回来。",
+        "tips": [
+          {
+            "title": "给形容词踩刹车",
+            "text": "想说 terrible 的地方，说 \"not ideal\"。C2 的听众听得出刹车，也就听得出事情的分量。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "Tell me about a disaster that turned out fine — a trip, a meal, a project — told with irony and understatement, British style. Then we review a plan together and you push back with softened but firm disagreement.",
+        "practisePoints": [
+          "A story told with understatement and irony",
+          "Idioms placed naturally at key moments",
+          "Ellipsis in the back-and-forth: so do I, I hope not, neither did we",
+          "Firm but soft disagreement"
+        ],
+        "scoringCriteria": [
+          "Humour lands through language, not volume",
+          "Idioms and litotes accurate",
+          "Natural short responses with ellipsis"
+        ],
+        "priorityErrors": [
+          "idioms misquoted",
+          "irony explained instead of performed",
+          "full sentences where a native would use two words"
+        ]
+      }
     },
     {
       "type": "fillBlank",
@@ -30815,6 +32711,49 @@
       ]
     },
     {
+      "type": "speaking",
+      "id": "zh_en_c2_2_speaking_mid",
+      "title": "对话：当编辑",
+      "storageKeyPrefix": "zh_en_c2_2_speaking_mid_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C2.2",
+      "help": {
+        "intro": "中段检查点：这次你来当编辑，把臃肿的句子当场改好。复制、开口、把分数输回来。",
+        "tips": [
+          {
+            "title": "先找动词",
+            "text": "几乎每个臃肿的句子里都埋着一个被名词困住的动词。把它挖出来，句子自己就好了。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "You are the editor: I will say bloated, clumsy or ambiguous sentences and you re-say each one better — tighter, clearer, in the right register — explaining your choice in one line.",
+        "practisePoints": [
+          "Rewriting wordy sentences concisely on the spot",
+          "Choosing register deliberately and saying why",
+          "Precision vocabulary over general words"
+        ],
+        "scoringCriteria": [
+          "Rewrites genuinely improve the original",
+          "Explanations are precise and brief",
+          "No meaning lost in the compression"
+        ],
+        "priorityErrors": [
+          "rewrites that only shuffle words",
+          "register mismatches",
+          "over-explanation"
+        ],
+        "mode": "roleplay",
+        "session": {
+          "durationMinutes": 3,
+          "minExchanges": 6,
+          "minQuestionsPerPoint": 1
+        }
+      }
+    },
+    {
       "type": "fillBlank",
       "id": "zh_en_c2_2_complex_passive",
       "title": "复杂被动与非人称结构",
@@ -31676,6 +33615,126 @@
           "translation": "归根结底，这关乎我们想成为怎样的社会。"
         }
       ]
+    },
+    {
+      "type": "reading",
+      "id": "zh_en_c2_2_bigtext",
+      "title": "整段填空：The graduation address",
+      "storageKeyPrefix": "zh_en_c2_2_bigtext_",
+      "promptLabel": "句子",
+      "subjectsLabel": "句子",
+      "subjectColumnLabel": "English",
+      "help": {
+        "intro": "最后一篇整段填空：修辞、倒装、语体与最终的细节陷阱——整门课浓缩在一页里。",
+        "tips": [
+          {
+            "title": "课程收官",
+            "text": "每个空都是你已经掌握的一个模块。通读、享受、收尾。"
+          }
+        ]
+      },
+      "category": "阅读",
+      "passageTitle": "The graduation address",
+      "passage": "Friends, we gather to celebrate not an ending but a beginning. Never has this room held so much hard-won knowledge. You arrived unable to order a coffee; you leave able to argue, to joke, to switch between registers as easily as you change shoes. Life is short, and people are generous with their patience — so speak, and speak badly when you must, because it was the mistakes that taught you the most. Having climbed this far, you may well wonder what comes next. In other words, everything. Eventually every learner realises the secret: nobody is finished. Not the teachers, not the natives, not even the poets. What we call mastery is simply curiosity that refused to give up. Congratulations — now go and use it.",
+      "passageTranslation": "朋友们，我们相聚于此，庆祝的不是终点，而是起点。这间屋子从未装下过这么多来之不易的学识。你们来时连一杯咖啡都点不了；离开时已能辩论、能开玩笑、能像换鞋一样在语体之间切换。人生苦短，而人们对耐心却慷慨——所以去说吧，必要时就说得磕磕绊绊，因为教你最多的恰恰是那些错误。爬到这里，你们大概会想：接下来是什么？换句话说：是一切。终有一天，每个学习者都会明白这个秘密：没有人是\"学完了\"的。老师没有，母语者没有，连诗人也没有。我们所谓的精通，不过是不肯认输的好奇心。祝贺你们——现在，去用它吧。",
+      "inlineTemplate": "Friends, we gather to celebrate not an ending {{0}} a beginning. Never {{1}} this room held so much hard-won knowledge. You arrived unable to order a coffee; you leave able to argue, to joke, to {{2}} between registers as easily as you change shoes. {{3}} is short, and people {{4}} generous with their patience — so speak, and speak badly when you must, because it was the mistakes {{5}} taught you the most. Having climbed this far, you may {{6}} wonder what comes next. In other {{7}}, everything. Eventually every learner realises the secret: nobody is finished. Not the teachers, not the natives, not even the poets. What we call mastery is simply curiosity {{8}} refused to give {{9}}. Congratulations — now go and use it.",
+      "inlineBlanks": [
+        {
+          "kind": "input",
+          "answer": "but"
+        },
+        {
+          "kind": "input",
+          "answer": "has"
+        },
+        {
+          "kind": "input",
+          "answer": "switch",
+          "accepted": [
+            "move",
+            "shift"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "Life"
+        },
+        {
+          "kind": "input",
+          "answer": "are"
+        },
+        {
+          "kind": "input",
+          "answer": "that",
+          "accepted": [
+            "which"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "well"
+        },
+        {
+          "kind": "input",
+          "answer": "words"
+        },
+        {
+          "kind": "input",
+          "answer": "that",
+          "accepted": [
+            "which"
+          ]
+        },
+        {
+          "kind": "input",
+          "answer": "up"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "id": "zh_en_c2_2_speaking_close",
+      "title": "结业对话：精通",
+      "storageKeyPrefix": "zh_en_c2_2_speaking_close_",
+      "promptLabel": "练习",
+      "subjectsLabel": "练习",
+      "subjectColumnLabel": "练习",
+      "level": "C2.2",
+      "help": {
+        "intro": "整门课的最后一场对话。你构建的一切，在一次谈话里。复制、开口、带回你的最后一个分数。",
+        "tips": [
+          {
+            "title": "最后的建议",
+            "text": "不要展示语言，去使用它。当你不再想着精通时，精通才显形。"
+          }
+        ]
+      },
+      "speaking": {
+        "topic": "The final conversation: a wide-ranging, natural discussion moving between registers — small talk, a debate, a story with irony, and a formal summing-up — as one continuous conversation. Show everything.",
+        "practisePoints": [
+          "Register switching on demand, mid-conversation",
+          "Rhetorical structure in the summing-up",
+          "Idiom, understatement and precise modality",
+          "The near-native details: articles, third-person -s, final consonants"
+        ],
+        "scoringCriteria": [
+          "Range: every register visited convincingly",
+          "Accuracy at the near-native level",
+          "The conversation feels effortless, not performed"
+        ],
+        "targetVocabulary": [
+          "eventually",
+          "that said",
+          "may well",
+          "what matters is",
+          "in short"
+        ],
+        "priorityErrors": [
+          "register bleed between sections",
+          "the classic survivors: dropped articles and -s endings",
+          "idioms misquoted"
+        ]
+      }
     }
   ]
 }

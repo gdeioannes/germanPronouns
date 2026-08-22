@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_b.dart';
 
 /// B1.2 — Narratives & Conditions · 叙述与条件. Mandarin → English.
 ///
@@ -542,6 +543,7 @@ final List<QuizContent> zhEnB1_2 = [
   zhEnB12ListenAnnounce,
   zhEnB12Relative,
   zhEnB12Relative2,
+  zhEnB12SpeakingMid,
   zhEnB12ReadAnecdote,
   zhEnB12Gerund,
   zhEnB12Infinitive,
@@ -550,4 +552,6 @@ final List<QuizContent> zhEnB1_2 = [
   zhEnB12ListenStory,
   zhEnB12DictChildhood,
   zhEnB12ReadCity,
+  zhEnB12BigText,
+  zhEnB12SpeakingClose,
 ];

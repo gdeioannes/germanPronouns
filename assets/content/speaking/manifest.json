@@ -3,7 +3,8 @@
   "templates": {
     "en": "assets/content/speaking/template.en.json",
     "de": "assets/content/speaking/template.de.json",
-    "es": "assets/content/speaking/template.es.json"
+    "es": "assets/content/speaking/template.es.json",
+    "zh": "assets/content/speaking/template.zh.json"
   },
   "defaults": {
     "durationMinutes": 4,

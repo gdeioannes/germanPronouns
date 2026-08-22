@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_c.dart';
 
 /// C1.2 — Register & Rhetoric · 语体与修辞. Mandarin → English.
 ///
@@ -552,6 +553,7 @@ final List<QuizContent> zhEnC1_2 = [
   zhEnC12Impersonal,
   zhEnC12ListenInterview,
   zhEnC12Discourse,
+  zhEnC12SpeakingMid,
   zhEnC12ReadColumn,
   zhEnC12Concession,
   zhEnC12Idioms,
@@ -560,4 +562,6 @@ final List<QuizContent> zhEnC1_2 = [
   zhEnC12ListenNegotiation,
   zhEnC12DictEmail,
   zhEnC12ReadReviews,
+  zhEnC12BigText,
+  zhEnC12SpeakingClose,
 ];

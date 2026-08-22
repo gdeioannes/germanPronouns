@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_b.dart';
 
 /// B1.1 — Experiences & Connections · 经历与联系. Mandarin → English.
 ///
@@ -546,6 +547,7 @@ final List<QuizContent> zhEnB1_1 = [
   zhEnB11ListenChange,
   zhEnB11BeenGone,
   zhEnB11UsedTo,
+  zhEnB11SpeakingMid,
   zhEnB11ReadWork,
   zhEnB11ArticlesDeep,
   zhEnB11Pairs,
@@ -554,4 +556,6 @@ final List<QuizContent> zhEnB1_1 = [
   zhEnB11ListenPodcast,
   zhEnB11DictYear,
   zhEnB11ReadStudy,
+  zhEnB11BigText,
+  zhEnB11SpeakingClose,
 ];

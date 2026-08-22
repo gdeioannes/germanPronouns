@@ -185,19 +185,23 @@ class ContentRepository {
     List<QuizContent> contents,
     String version,
   ) async {
+    final quizIds = <String>[];
+    final quizValues = <Map<String, Object?>>[];
+    final sentenceValues = <Map<String, Object?>>[];
     for (final content in contents) {
       final json = content.toJson();
       final sentences = (json.remove('sentences') as List?) ?? const [];
-      await _quizzes
-          .record(content.id)
-          .put(client, Map<String, Object?>.from(json));
+      quizIds.add(content.id);
+      quizValues.add(Map<String, Object?>.from(json));
       for (final sentence in sentences) {
-        await _sentences.add(client, {
-          'quizId': content.id,
-          ...(sentence as Map),
-        });
+        sentenceValues.add({'quizId': content.id, ...(sentence as Map)});
       }
     }
+    // Batched writes: one call per store instead of one await per record —
+    // seeding ~1500 quizzes plus their sentences record-by-record was tens of
+    // thousands of sequential awaits.
+    await _quizzes.records(quizIds).put(client, quizValues);
+    await _sentences.addAll(client, sentenceValues);
     await _meta.record('seed').put(client, {'dataVersion': version});
   }
 
@@ -375,12 +379,21 @@ Future<PublishedContent> loadPublishedContent() async {
 Future<ContentRepository> openContentRepository() async {
   final db = await openContentDatabase();
   final repository = ContentRepository(db);
-  final published = await loadPublishedContent();
-  await repository.seedOrUpgrade(
-    published.quizzes,
-    courses: published.courses,
-    version: published.version,
-  );
+  // Only read + parse the multi-MB seed asset when a (re-)seed is actually
+  // needed: first run, a self-heal after an interrupted seed, or a
+  // kDataVersion bump. The seed generator stamps the asset with kDataVersion,
+  // so comparing the stored version against kDataVersion is equivalent to
+  // comparing against the asset's own version — without paying the asset
+  // decode on every launch.
+  final isEmpty = await repository._quizzes.count(db) == 0;
+  if (isEmpty || await repository.seededDataVersion() != kDataVersion) {
+    final published = await loadPublishedContent();
+    await repository.seedOrUpgrade(
+      published.quizzes,
+      courses: published.courses,
+      version: published.version,
+    );
+  }
   return repository;
 }
 

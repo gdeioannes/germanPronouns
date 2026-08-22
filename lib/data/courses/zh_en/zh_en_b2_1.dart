@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_b.dart';
 
 /// B2.1 — Opinions & Hypotheses · 观点与假设. Mandarin → English.
 ///
@@ -548,6 +549,7 @@ final List<QuizContent> zhEnB2_1 = [
   zhEnB21Passive,
   zhEnB21Passive2,
   zhEnB21ListenDebate,
+  zhEnB21SpeakingMid,
   zhEnB21ReadAi,
   zhEnB21Modals,
   zhEnB21SpeakOpinion,
@@ -556,4 +558,6 @@ final List<QuizContent> zhEnB2_1 = [
   zhEnB21DictOpinion,
   zhEnB21ArgConnectors,
   zhEnB21ReadRemote,
+  zhEnB21BigText,
+  zhEnB21SpeakingClose,
 ];

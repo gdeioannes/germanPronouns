@@ -175,12 +175,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
   bool _generatingPdf = false;
   bool _generatingExercises = false;
 
-  /// Reference-PDF sections for *every* quiz in the active course (regular,
-  /// Quest and Noun — including still-locked ones), gathered in [_load]. Drives
-  /// the always-available "Reference PDF (all quizzes)" study booklet (Help-Memory
-  /// tables for fill-in quizzes, passage + translation + questions for reading).
-  List<BookletEntry> _bookletEntries = const [];
-
   @override
   void initState() {
     super.initState();
@@ -292,9 +286,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
     applyQuestOrderFromLayout(course.nav);
 
     final sections = <_HomeSection>[];
-    // Every quiz's reference section for the always-on study booklet —
-    // independent of lock state and of how many rows the home actually lists.
-    final bookletEntries = <BookletEntry>[];
 
     // Tracks the pass-to-unlock frontier of the course's gated quiz chain as it
     // runs continuously across the [NavGroup.gated] groups (in layout order):
@@ -309,10 +300,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
             if (item.hidden) continue;
             final row = await _regularQuiz(item.ref);
             if (row == null) continue;
-            // Every quiz contributes its reference section to the study booklet,
-            // whether or not it's still locked.
-            final entry = row.bookletEntry;
-            if (entry != null) bookletEntries.add(entry);
             if (group.gated && gatedFrontierClosed) {
               // Past the frontier — show it locked and non-tappable.
               rows.add(_HomeQuiz(
@@ -354,41 +341,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final levelEntries = level == null
                 ? questEntries
                 : [for (final e in questEntries) if (e.levelLabel == level) e];
-            // Fill-in quizzes contribute their Help-Memory tables; reading
-            // quizzes contribute their passage + translation + questions;
-            // speaking quizzes have nothing to put in the study booklet.
-            for (final e in levelEntries) {
-              // Source the printable content from the course bundle (JSON) so
-              // the booklet reflects edits, falling back to the compiled entry.
-              final content = await resolveQuizContent(e.key) ?? e.content;
-              switch (content.kind) {
-                // Nothing printable: the exercise lives in another app.
-                case QuizKind.speaking:
-                  break;
-                case QuizKind.fillBlank:
-                  bookletEntries.add(
-                    HelpMemoryBookletEntry(
-                      buildQuizConfigFromContent(
-                        content,
-                        currentPage: AppPage.quest,
-                        progressionKey: e.key,
-                        questProgression: true,
-                      ),
-                    ),
-                  );
-                case QuizKind.reading:
-                case QuizKind.listening:
-                  // Listening reuses the reading fields, so its hidden script +
-                  // translation + questions print like a reading section.
-                  bookletEntries.add(ReadingBookletEntry(content));
-                case QuizKind.speakRepeat:
-                case QuizKind.dictation:
-                case QuizKind.draw:
-                  // Spoken / dictated / drawn sets have nothing to add to the
-                  // printable study booklet.
-                  break;
-              }
-            }
             sections.add(_HomeSection(
               group.title,
               quest.rows,
@@ -403,30 +355,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
         case NavGroupType.nounChain:
           final rows = await _nounRows();
           if (rows.isNotEmpty) {
-            // Source the "All Nouns" content from the shared noun collection
-            // (JSON) and derive each category's reference from it, matching the
-            // live quiz; fall back to the compiled per-category configs if it
-            // isn't available.
-            final allNouns = await resolveNounArticleContent();
-            if (allNouns != null) {
-              for (final e in nounProgressionEntries) {
-                bookletEntries.add(
-                  HelpMemoryBookletEntry(
-                    buildQuizConfigFromContent(
-                      nounProgressionContent(allNouns, e.key),
-                      currentPage: AppPage.nounsArticles,
-                      progressionKey: e.key,
-                      explanationOverride: buildNounArticleExplanation,
-                    ),
-                  ),
-                );
-              }
-            } else {
-              bookletEntries.addAll(
-                nounProgressionEntries
-                    .map((e) => HelpMemoryBookletEntry(e.config)),
-              );
-            }
             sections.add(_HomeSection(
               group.title,
               rows,
@@ -441,8 +369,108 @@ class _CourseHomePageState extends State<CourseHomePage> {
           break;
       }
     }
-    _bookletEntries = bookletEntries;
     return sections;
+  }
+
+  /// Reference-PDF sections for *every* quiz in the active course (regular,
+  /// Quest and Noun — including still-locked ones): Help-Memory tables for
+  /// fill-in quizzes, passage + translation + questions for reading/listening.
+  /// Gathered lazily on the PDF button tap — it resolves the content of every
+  /// quiz in the course (one lookup each), which is far too expensive to pay on
+  /// every page load for a button most visits never press.
+  Future<List<BookletEntry>> _gatherBookletEntries() async {
+    final course = CourseSession.instance.activeCourse;
+    final bookletEntries = <BookletEntry>[];
+    for (final group in course.nav.groups) {
+      switch (group.type) {
+        case NavGroupType.quizzes:
+          for (final item in group.items) {
+            if (item.hidden) continue;
+            final content = await resolveQuizContent(item.ref);
+            if (content == null) continue;
+            switch (content.kind) {
+              case QuizKind.speaking:
+              case QuizKind.speakRepeat:
+              case QuizKind.dictation:
+              case QuizKind.draw:
+                // Spoken / dictated / drawn sets have nothing printable.
+                break;
+              case QuizKind.reading:
+              case QuizKind.listening:
+                bookletEntries.add(ReadingBookletEntry(content));
+              case QuizKind.fillBlank:
+                bookletEntries.add(
+                  HelpMemoryBookletEntry(
+                    buildQuizConfigFromContent(
+                      content,
+                      currentPage: AppPage.articles,
+                    ),
+                  ),
+                );
+            }
+          }
+        case NavGroupType.questChain:
+          final level = group.level;
+          final levelEntries = level == null
+              ? questEntries
+              : [for (final e in questEntries) if (e.levelLabel == level) e];
+          for (final e in levelEntries) {
+            // Source the printable content from the course bundle (JSON) so
+            // the booklet reflects edits, falling back to the compiled entry.
+            final content = await resolveQuizContent(e.key) ?? e.content;
+            switch (content.kind) {
+              case QuizKind.speaking:
+              case QuizKind.speakRepeat:
+              case QuizKind.dictation:
+              case QuizKind.draw:
+                break;
+              case QuizKind.fillBlank:
+                bookletEntries.add(
+                  HelpMemoryBookletEntry(
+                    buildQuizConfigFromContent(
+                      content,
+                      currentPage: AppPage.quest,
+                      progressionKey: e.key,
+                      questProgression: true,
+                    ),
+                  ),
+                );
+              case QuizKind.reading:
+              case QuizKind.listening:
+                // Listening reuses the reading fields, so its hidden script +
+                // translation + questions print like a reading section.
+                bookletEntries.add(ReadingBookletEntry(content));
+            }
+          }
+        case NavGroupType.nounChain:
+          // Source the "All Nouns" content from the shared noun collection
+          // (JSON) and derive each category's reference from it, matching the
+          // live quiz; fall back to the compiled per-category configs if it
+          // isn't available.
+          final allNouns = await resolveNounArticleContent();
+          if (allNouns != null) {
+            for (final e in nounProgressionEntries) {
+              bookletEntries.add(
+                HelpMemoryBookletEntry(
+                  buildQuizConfigFromContent(
+                    nounProgressionContent(allNouns, e.key),
+                    currentPage: AppPage.nounsArticles,
+                    progressionKey: e.key,
+                    explanationOverride: buildNounArticleExplanation,
+                  ),
+                ),
+              );
+            }
+          } else {
+            bookletEntries.addAll(
+              nounProgressionEntries.map((e) => HelpMemoryBookletEntry(e.config)),
+            );
+          }
+        case NavGroupType.links:
+          break;
+      }
+    }
+    return bookletEntries;
   }
 
   int get _regularGoalLaps =>
@@ -664,10 +692,11 @@ class _CourseHomePageState extends State<CourseHomePage> {
     await showPlacementStartSheet(context);
   }
 
-  Future<void> _generateBooklet(List<BookletEntry> entries) async {
-    if (entries.isEmpty) return;
+  Future<void> _generateBooklet() async {
     setState(() => _generatingPdf = true);
     try {
+      final entries = await _gatherBookletEntries();
+      if (entries.isEmpty) return;
       await exportQuizzesBookletPdf(entries);
     } catch (e) {
       if (!mounted) return;
@@ -937,24 +966,23 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final finished =
                 sections.fold<int>(0, (s, sec) => s + sec.finished);
             final total = sections.fold<int>(0, (s, sec) => s + sec.total);
-            final hasPdf = _bookletEntries.isNotEmpty;
-            return Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 720),
-                child: ListView(
-                  padding: const EdgeInsets.all(16),
-                  children: [
-                    _overviewCard(
-                      context,
-                      all,
-                      finished: finished,
-                      total: total,
-                    ),
-                    const SizedBox(height: 10),
-                    // The four course-level actions, paired two to a row: they
-                    // sit between the overview and the quizzes, and stacked
-                    // full-width they pushed the first quiz off the screen.
-                    _actionGrid([
+            final hasPdf = all.isNotEmpty;
+            // Lazy list items: with a large course, building every quiz row up
+            // front made the frame right after the spinner visibly jank. Each
+            // entry is a builder closure so ListView.builder only constructs
+            // the rows that are actually on screen.
+            final items = <Widget Function(BuildContext)>[
+              (context) => _overviewCard(
+                    context,
+                    all,
+                    finished: finished,
+                    total: total,
+                  ),
+              (_) => const SizedBox(height: 10),
+              // The four course-level actions, paired two to a row: they
+              // sit between the overview and the quizzes, and stacked
+              // full-width they pushed the first quiz off the screen.
+              (context) => _actionGrid([
                       _ActionSpec(
                         icon: Icons.picture_as_pdf_rounded,
                         label: strings.generateAllPdf,
@@ -962,7 +990,7 @@ class _CourseHomePageState extends State<CourseHomePage> {
                         busy: _generatingPdf,
                         onPressed: (!hasPdf || _generatingPdf)
                             ? null
-                            : () => _generateBooklet(_bookletEntries),
+                            : _generateBooklet,
                       ),
                       // Printable worksheet with a fold-away answer column,
                       // built from the same quizzes (scope + size chosen in a
@@ -998,30 +1026,41 @@ class _CourseHomePageState extends State<CourseHomePage> {
                           source: kFeaturePollSourceHome,
                         ),
                       ),
-                    ]),
-                    const SizedBox(height: 8),
-                    for (final section in sections) ...[
-                      _sectionLabel(context, section.title),
-                      for (final quiz in section.quizzes) ...[
-                        _quizRow(context, quiz),
-                        const SizedBox(height: 8),
-                      ],
-                      if (section.moreCount > 0) ...[
-                        _moreRow(context, section.moreCount),
-                        const SizedBox(height: 8),
-                      ],
-                    ],
-                    // Quiet footer link: who makes the courses and how to
-                    // reach them. Pushed, so back returns to the course home.
-                    const SizedBox(height: 16),
-                    Center(
+                  ]),
+              (_) => const SizedBox(height: 8),
+              for (final section in sections) ...[
+                (context) => _sectionLabel(context, section.title),
+                for (final quiz in section.quizzes)
+                  (context) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: _quizRow(context, quiz),
+                      ),
+                if (section.moreCount > 0)
+                  (context) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: _moreRow(context, section.moreCount),
+                      ),
+              ],
+              // Quiet footer link: who makes the courses and how to
+              // reach them. Pushed, so back returns to the course home.
+              (context) => Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: Center(
                       child: TextButton.icon(
                         onPressed: () => context.push('/about-me'),
                         icon: const Icon(Icons.person_outline, size: 18),
                         label: Text(strings.aboutMeTitle),
                       ),
                     ),
-                  ],
+                  ),
+            ];
+            return Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 720),
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: items.length,
+                  itemBuilder: (context, i) => items[i](context),
                 ),
               ),
             );

@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_c.dart';
 
 /// C2.1 — Stylistic Command · 风格驾驭. Mandarin → English.
 ///
@@ -552,6 +553,7 @@ final List<QuizContent> zhEnC2_1 = [
   zhEnC21Connotation,
   zhEnC21ListenIrony,
   zhEnC21Marked,
+  zhEnC21SpeakingMid,
   zhEnC21ReadSatire,
   zhEnC21PvNetworks,
   zhEnC21RegisterShift,
@@ -560,4 +562,6 @@ final List<QuizContent> zhEnC2_1 = [
   zhEnC21ListenLiterary,
   zhEnC21DictNuance,
   zhEnC21ReadReview,
+  zhEnC21BigText,
+  zhEnC21SpeakingClose,
 ];

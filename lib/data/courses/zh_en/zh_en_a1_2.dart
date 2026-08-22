@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_a.dart';
 
 /// A1.2 — Everyday Life · 日常生活. Mandarin → English.
 ///
@@ -536,6 +537,7 @@ final List<QuizContent> zhEnA1_2 = [
   zhEnA12SpeakRoutine,
   zhEnA12Frequency,
   zhEnA12Plurals,
+  zhEnA12SpeakingMid,
   zhEnA12ThereIt,
   zhEnA12ReadLin,
   zhEnA12PrepTime,
@@ -544,4 +546,6 @@ final List<QuizContent> zhEnA1_2 = [
   zhEnA12TimePrices,
   zhEnA12DictRoutine,
   zhEnA12ReadCafe,
+  zhEnA12BigText,
+  zhEnA12SpeakingClose,
 ];

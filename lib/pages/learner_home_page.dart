@@ -61,5 +61,8 @@ class _LearnerHomePageState extends State<LearnerHomePage> {
 
   @override
   Widget build(BuildContext context) =>
-      _home ?? const Scaffold(body: SizedBox.shrink());
+      // Real chrome while loading, not a blank screen: the app feels started
+      // immediately even when the first course load takes a moment.
+      _home ??
+      const Scaffold(body: Center(child: CircularProgressIndicator()));
 }

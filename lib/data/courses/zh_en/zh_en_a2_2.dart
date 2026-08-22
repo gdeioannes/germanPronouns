@@ -1,5 +1,6 @@
 import '../../../models/quiz_content.dart';
 import 'zh_en_builder.dart';
+import 'zh_en_extra_a.dart';
 
 /// A2.2 — Plans, Descriptions & Quantities · 计划与数量. Mandarin → English.
 ///
@@ -517,6 +518,7 @@ final List<QuizContent> zhEnA2_2 = [
   zhEnA22Superlatives,
   zhEnA22ListenPlans,
   zhEnA22CountUncount,
+  zhEnA22SpeakingMid,
   zhEnA22Quantifiers,
   zhEnA22Partitives,
   zhEnA22ReadMarket,
@@ -525,4 +527,6 @@ final List<QuizContent> zhEnA2_2 = [
   zhEnA22Describing,
   zhEnA22DictShopping,
   zhEnA22ReadCity,
+  zhEnA22BigText,
+  zhEnA22SpeakingClose,
 ];

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,10 +26,11 @@ Future<void> main() async {
     Apartment.instance.load(),
   ]);
   // Cookieless, privacy-first usage analytics. init() is a no-op when no key is
-  // configured; attachRouter records a pageview per navigation. Both must run
-  // before runApp so the very first screen is counted. See services/analytics.dart.
-  await Analytics.init();
-  Analytics.attachRouter(appRouter);
+  // configured; attachRouter records a pageview per navigation. Deliberately not
+  // awaited: a plugin init must never gate the first frame. attachRouter reports
+  // the router's current route the moment it attaches, so the very first screen
+  // is still counted even though init resolves after runApp.
+  unawaited(Analytics.init().then((_) => Analytics.attachRouter(appRouter)));
   runApp(const MyApp());
 }
 
@@ -72,10 +75,12 @@ class _MyAppState extends State<MyApp> {
   /// unlocks the whole app, "coincoin" grants debug coins. Always returns false
   /// so it never swallows a key from the focused widget (e.g. a quiz answer
   /// field).
+  static final RegExp _singleLetter = RegExp(r'^[a-z]$');
+
   bool _handleGlobalKey(KeyEvent event) {
     if (event is! KeyDownEvent) return false;
     final ch = event.character?.toLowerCase();
-    if (ch == null || !RegExp(r'^[a-z]$').hasMatch(ch)) return false;
+    if (ch == null || !_singleLetter.hasMatch(ch)) return false;
     _typedBuffer = '$_typedBuffer$ch';
     if (_typedBuffer.length > _maxTriggerLen) {
       _typedBuffer = _typedBuffer.substring(
