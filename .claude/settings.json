@@ -8,7 +8,14 @@
       "Bash(python \"C:/Users/gdeio/AppData/Local/Temp/claude/c--Projects-german-pronouns-articles/5eb10a87-bf12-45a4-85aa-7602fcafafd4/scratchpad/author_speaking.py\")",
       "Bash(UPDATE_GOLDEN=1 flutter test test/content_fidelity_test.dart test/storage_keys_test.dart)",
       "Bash(awk '/en_de_m8_speaking_check/,/en_de_m9/')",
-      "PowerShell(flutter analyze 2>$null)"
+      "PowerShell(flutter analyze 2>$null)",
+      "PowerShell(flutter test)",
+      "PowerShell(Get-ChildItem lib\\\\data -Recurse -File | Sort Length -Descending | Select -First 25 @{n='KB';e={[math]::Round\\($_.Length/1KB\\)}},FullName; \"courses total KB:\"; [math]::Round\\(\\(Get-ChildItem lib\\\\data\\\\courses -Recurse -File | Measure Length -Sum\\).Sum/1KB\\); \"quest total KB:\"; [math]::Round\\(\\(Get-ChildItem lib\\\\data\\\\quest -Recurse -File | Measure Length -Sum\\).Sum/1KB\\))",
+      "PowerShell(dart run tool/generate_nav_refs.dart)",
+      "PowerShell(flutter build web --release)",
+      "Bash(grep -ohE \"'[A-Za-z ,.!?]{25,60}'\" lib/data/quest/quest_a1_1_content.dart)",
+      "Bash(grep -ohE \"'[A-Za-z ,.!?]{20,50}'\" lib/data/shop_catalog.dart)",
+      "Bash(grep -ohE \"'[A-Za-z ,.!?]{20,50}'\" lib/data/combo_catalog.dart)"
     ],
     "additionalDirectories": [
       "c:\\Users\\gdeio\\.claude\\projects\\c--Projects-german-pronouns-articles\\memory"

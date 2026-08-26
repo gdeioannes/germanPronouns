@@ -30,7 +30,13 @@ import 'widgets/room_panel.dart';
 /// stack the app always had) while overlays that should return to where they
 /// were opened (the course intro, the in-quiz word library) use
 /// `context.push(...)`.
+/// The router's root navigator — flows that outlive the page that started them
+/// (the landing page's quick start pushes the placement test while the router
+/// swaps the page underneath) push here instead of through a dying context.
+final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
+
 final GoRouter appRouter = GoRouter(
+  navigatorKey: rootNavigatorKey,
   initialLocation: '/home',
   // Re-run [_guard] whenever sign-in or the chosen course changes, so signing
   // in/out or picking a course redirects without any manual navigation.

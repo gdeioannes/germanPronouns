@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../app_router.dart';
+import '../data/placement/quick_start.dart';
 import '../models/app_session.dart';
+import '../models/course.dart';
 import '../models/course_session.dart';
+import '../services/site_lang.dart';
 import '../theme/brand_palette.dart';
 import '../widgets/feature_poll.dart';
+import '../widgets/featured_course_card.dart';
 import '../widgets/person_scene.dart';
 
 /// The app's front door: a split brand poster. One pane is a navy field with
-/// the wordmark and the People cast greeting in four languages; the other
-/// carries a single "start learning" action. Wide screens show them side by
-/// side, narrow ones stack the poster above the actions.
+/// the wordmark and the People cast greeting in four languages; the other IS
+/// the offer — three featured courses a visitor can start with a single tap
+/// (quick placement test, then straight into the first quiz). Which courses,
+/// and in which language, comes from the URL's `?lang=` parameter (so shared
+/// links can lead with specific courses) or the browser language.
 ///
 /// Learners enter directly (no account); teachers unlock the back office with
-/// the local passcode behind a quiet footer link.
+/// the local passcode behind a quiet footer link. The full course finder stays
+/// one tap away behind "More courses".
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, this.startInTeacherMode = false});
 
@@ -29,6 +37,52 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passcodeController = TextEditingController();
   late bool _teacherMode = widget.startInTeacherMode;
   String? _error;
+
+  /// Site language(s) from the URL's `?lang=` parameter or the browser,
+  /// resolved once — they pick the landing copy and the featured courses.
+  late final List<UiLang> _langs = siteLangs();
+
+  /// Guards against a second card tap while the quick start is preparing.
+  bool _starting = false;
+
+  // Landing copy in the primary site language (this screen renders before any
+  // course — and thus any AppStrings bundle — is chosen).
+  static const Map<UiLang, String> _titleText = {
+    UiLang.en: 'Pick a course, start right away',
+    UiLang.de: 'Wähle einen Kurs und leg direkt los',
+    UiLang.es: 'Elige un curso y empieza ya',
+    UiLang.zh: '选择课程，马上开始',
+  };
+  static const Map<UiLang, String> _subtitleText = {
+    UiLang.en:
+        'One tap: a short placement, then your first quiz. '
+        'Free, no account needed.',
+    UiLang.de:
+        'Ein Tipp: kurze Einstufung, dann dein erstes Quiz. '
+        'Kostenlos, ohne Konto.',
+    UiLang.es:
+        'Un toque: una breve prueba de nivel y tu primer quiz. '
+        'Gratis, sin cuenta.',
+    UiLang.zh: '轻点一下：快速定级，然后开始第一个测验。免费，无需注册。',
+  };
+  static const Map<UiLang, String> _moreCoursesText = {
+    UiLang.en: 'More courses',
+    UiLang.de: 'Alle Kurse ansehen',
+    UiLang.es: 'Ver todos los cursos',
+    UiLang.zh: '查看全部课程',
+  };
+
+  Future<void> _startCourse(Course course) async {
+    if (_starting) return;
+    setState(() => _starting = true);
+    try {
+      await quickStartCourse(course);
+    } finally {
+      // Normally this page is gone by now (signing in re-routes); if the flow
+      // bailed early, re-arm the cards.
+      if (mounted) setState(() => _starting = false);
+    }
+  }
 
   @override
   void dispose() {
@@ -86,14 +140,14 @@ class _LoginPageState extends State<LoginPage> {
             child: SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(32, 32, 32, 56),
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 360),
+                constraints: const BoxConstraints(maxWidth: 440),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     if (!_teacherMode) ...[
                       Text(
-                        'Start learning today',
+                        _titleText[_langs.first] ?? _titleText[UiLang.en]!,
                         textAlign: TextAlign.center,
                         style: textTheme.headlineMedium?.copyWith(
                           fontWeight: FontWeight.w700,
@@ -101,26 +155,53 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Quick, focused quizzes with audio on every '
-                        'sentence. Free, no account needed.',
+                        _subtitleText[_langs.first] ??
+                            _subtitleText[UiLang.en]!,
                         textAlign: TextAlign.center,
                         style: textTheme.bodyMedium?.copyWith(
                           color: colorScheme.onSurfaceVariant,
                           height: 1.45,
                         ),
                       ),
-                      const SizedBox(height: 28),
-                      FilledButton(
-                        onPressed: AppSession.instance.signInAsLearner,
-                        style: FilledButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 18),
+                      const SizedBox(height: 20),
+                      // The offer itself: one tap on a card starts the course.
+                      for (final course in featuredCourses(
+                        _langs,
+                        CourseSession.instance.courses,
+                      )) ...[
+                        FeaturedCourseCard(
+                          course: course,
+                          onTap: _starting
+                              ? null
+                              : () => _startCourse(course),
+                        ),
+                        const SizedBox(height: 4),
+                      ],
+                      const SizedBox(height: 6),
+                      // Everything else (the full finder) stays one tap away.
+                      TextButton.icon(
+                        onPressed: _starting
+                            ? null
+                            : () {
+                                AppSession.instance.signInAsLearner();
+                                // An earlier visitor may already have a course
+                                // (the guard would resume it) — this button
+                                // explicitly promises the finder.
+                                appRouter.go('/courses');
+                              },
+                        icon: const Icon(Icons.search_rounded, size: 18),
+                        label: Text(
+                          _moreCoursesText[_langs.first] ??
+                              _moreCoursesText[UiLang.en]!,
+                        ),
+                        style: TextButton.styleFrom(
+                          foregroundColor: colorScheme.primary,
                           textStyle: textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        child: const Text('Start learning'),
                       ),
-                      const SizedBox(height: 14),
+                      const SizedBox(height: 8),
                       // Who makes this — readable before signing in. Set in
                       // the display face like the heading above, a size down,
                       // so it reads as part of the invitation rather than as
@@ -213,8 +294,17 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
+          // Immediate response to a card tap: dim the landing and spin while
+          // the placement test is prepared (the test replaces this page).
+          if (_starting)
+            Positioned.fill(
+              child: ColoredBox(
+                color: colorScheme.surface.withValues(alpha: 0.7),
+                child: const Center(child: CircularProgressIndicator()),
+              ),
+            ),
           // The staff door: present but quiet, out of the learner's way.
-          if (!_teacherMode)
+          if (!_teacherMode && !_starting)
             Positioned(
               right: 8,
               bottom: 4,

@@ -8,7 +8,6 @@ import '../../models/nav_layout.dart';
 import '../../models/quiz_content.dart';
 import '../course_catalog.dart';
 import '../data_version.dart';
-import '../quiz_content_library.dart';
 import 'content_database_factory.dart';
 
 /// Asset holding the published content the database is seeded from. Regenerate
@@ -362,13 +361,18 @@ Future<PublishedContent> loadPublishedContent() async {
 
     return PublishedContent(
       version: version,
-      quizzes: quizzes.isEmpty ? allQuizContent : quizzes,
+      quizzes: quizzes,
       courses: courses.isEmpty ? defaultCourses : courses,
     );
   } catch (_) {
+    // The seed asset is missing or corrupt (a build problem, not a runtime
+    // state). Seeding nothing leaves the quiz store empty, so the self-heal
+    // in [seedOrUpgrade] retries on the next launch. The compiled-in content
+    // is no longer a fallback — keeping it reachable forced megabytes of
+    // quiz data into the app bundle.
     return PublishedContent(
       version: kDataVersion,
-      quizzes: allQuizContent,
+      quizzes: const [],
       courses: defaultCourses,
     );
   }

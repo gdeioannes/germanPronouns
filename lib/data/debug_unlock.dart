@@ -4,9 +4,9 @@ import '../models/coin_wallet.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../widgets/completion_ribbon.dart';
+import 'db/content_repository.dart';
 import 'noun_progression_data.dart';
 import 'quest_data.dart';
-import 'quiz_content_library.dart';
 import 'quiz_stats_store.dart';
 
 /// Debug helper: marks every quiz "done" and unlocks every chain, so the whole
@@ -26,8 +26,11 @@ Future<void> unlockEverything() async {
     await NounSettings.instance.markNounCategoryCompleted(entry.key);
   }
   // The best streak a plain fill-in quiz must reach to count as "done".
+  // Every quiz lives in the content database (the compiled list is gone),
+  // so unlock whatever is seeded there.
   final goalStreak = NounSettings.instance.quizGoalStreak;
-  for (final content in allQuizContent) {
+  final quizzes = await (await contentRepository()).listQuizzes();
+  for (final content in quizzes) {
     switch (content.kind) {
       case QuizKind.speakRepeat:
         await NounSettings.instance.markSpeakQuizCompleted(content.id);

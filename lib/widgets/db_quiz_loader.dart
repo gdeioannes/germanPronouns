@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../data/content/active_course_content.dart';
-import '../data/quiz_content_library.dart';
 import '../data/quiz_explanation_overrides.dart';
 import '../models/app_page.dart';
 import '../models/quiz_config.dart';
@@ -9,10 +8,10 @@ import '../models/quiz_content.dart';
 import 'quiz_page.dart';
 import 'quiz_page_dispatch.dart';
 
-/// Loads a quiz's content (active course bundle → database → compiled) and
-/// renders it with the page chosen by [QuizContent.kind] (see
-/// [pageForQuizContent]). If nothing is found, it falls back to the compiled
-/// content / the [fallback] config so the learner experience never breaks.
+/// Loads a quiz's content (active course bundle → database) and renders it
+/// with the page chosen by [QuizContent.kind] (see [pageForQuizContent]). If
+/// nothing is found, it falls back to the [fallback] config so the learner
+/// experience never breaks.
 class DbQuizLoader extends StatefulWidget {
   const DbQuizLoader({
     super.key,
@@ -40,22 +39,12 @@ class DbQuizLoader extends StatefulWidget {
 class _DbQuizLoaderState extends State<DbQuizLoader> {
   late final Future<Widget> _pageFuture = _loadPage();
 
-  /// The compiled-in content for this quiz id, used as a last-resort source for
-  /// the page-kind decision when both the bundle and database are unavailable.
-  QuizContent? get _compiledContent {
-    for (final c in allQuizContent) {
-      if (c.id == widget.quizId) return c;
-    }
-    return null;
-  }
-
   Future<Widget> _loadPage() async {
     final content = await resolveQuizContent(widget.quizId);
-    final effective = content ?? _compiledContent;
 
-    // Audio/reading kinds render from the resolved (or compiled) content.
-    if (effective != null && effective.kind != QuizKind.fillBlank) {
-      return pageForQuizContent(effective, currentPage: widget.currentPage);
+    // Audio/reading kinds render from the resolved content.
+    if (content != null && content.kind != QuizKind.fillBlank) {
+      return pageForQuizContent(content, currentPage: widget.currentPage);
     }
     // Fill-in-the-blank: build from resolved content, else the fallback config.
     if (content != null) {
