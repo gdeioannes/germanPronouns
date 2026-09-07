@@ -15,7 +15,9 @@
       "PowerShell(flutter build web --release)",
       "Bash(grep -ohE \"'[A-Za-z ,.!?]{25,60}'\" lib/data/quest/quest_a1_1_content.dart)",
       "Bash(grep -ohE \"'[A-Za-z ,.!?]{20,50}'\" lib/data/shop_catalog.dart)",
-      "Bash(grep -ohE \"'[A-Za-z ,.!?]{20,50}'\" lib/data/combo_catalog.dart)"
+      "Bash(grep -ohE \"'[A-Za-z ,.!?]{20,50}'\" lib/data/combo_catalog.dart)",
+      "PowerShell(flutter test --update-goldens test/_login_preview.dart)",
+      "PowerShell(flutter test test/widget_test.dart test/site_lang_test.dart)"
     ],
     "additionalDirectories": [
       "c:\\Users\\gdeio\\.claude\\projects\\c--Projects-german-pronouns-articles\\memory"

@@ -42,15 +42,17 @@ void main() {
   });
 
   group('featuredCourses', () {
-    test('offers up to 3 per language, languages in the given order', () {
+    test('offers 3 in total, filled from the languages in order', () {
       final featured = featuredCourses(
         const [UiLang.de, UiLang.en],
         defaultCourses,
       );
+      expect(featured, hasLength(3));
       final deCount = defaultCourses
           .where((c) => c.uiLang == UiLang.de)
-          .length;
-      // Every German-UI course (there are fewer than 3) precedes the English.
+          .length
+          .clamp(0, 3);
+      // German-UI courses fill the first slots, English tops up the rest.
       expect(
         featured.take(deCount).every((c) => c.uiLang == UiLang.de),
         isTrue,
@@ -59,7 +61,6 @@ void main() {
         featured.skip(deCount).every((c) => c.uiLang == UiLang.en),
         isTrue,
       );
-      expect(featured.skip(deCount).length, 3);
     });
 
     test('certification courses lead within a language', () {

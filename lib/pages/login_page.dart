@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
             child: SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(32, 32, 32, 56),
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 440),
+                constraints: const BoxConstraints(maxWidth: 520),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -163,21 +163,24 @@ class _LoginPageState extends State<LoginPage> {
                           height: 1.45,
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      // The offer itself: one tap on a card starts the course.
-                      for (final course in featuredCourses(
-                        _langs,
-                        CourseSession.instance.courses,
-                      )) ...[
-                        FeaturedCourseCard(
-                          course: course,
-                          onTap: _starting
-                              ? null
-                              : () => _startCourse(course),
-                        ),
-                        const SizedBox(height: 4),
-                      ],
-                      const SizedBox(height: 6),
+                      const SizedBox(height: 24),
+                      // The offer itself: three courses in one showcase frame,
+                      // a tap on any row starting that course.
+                      FeaturedCourseShowcase(
+                        children: [
+                          for (final course in featuredCourses(
+                            _langs,
+                            CourseSession.instance.courses,
+                          ))
+                            FeaturedCourseCard(
+                              course: course,
+                              onTap: _starting
+                                  ? null
+                                  : () => _startCourse(course),
+                            ),
+                        ],
+                      ),
+                      const SizedBox(height: 14),
                       // Everything else (the full finder) stays one tap away.
                       TextButton.icon(
                         onPressed: _starting

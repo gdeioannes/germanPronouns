@@ -48,9 +48,10 @@ UiLang? _uiLangFromCode(String code) {
   return null;
 }
 
-/// The courses the landing page offers: up to [perLang] per language in
-/// [langs], keeping the languages' order — so `?lang=de,en` lists the German
-/// cards first, then the English ones.
+/// The courses the landing page offers: at most [max] in total, drawn from
+/// the languages in [langs] in order — so `?lang=de,en` fills the slots with
+/// German courses first and tops up with English ones. A hard total keeps the
+/// landing a showcase, not a scrolling catalog (the finder is one tap away).
 ///
 /// Within one language, certification courses lead (they're the broadest offer
 /// and support the placement fast path), then grammar, vocabulary, discover.
@@ -58,17 +59,21 @@ UiLang? _uiLangFromCode(String code) {
 List<Course> featuredCourses(
   List<UiLang> langs,
   List<Course> courses, {
-  int perLang = 3,
+  int max = 3,
 }) {
-  List<Course> pick(UiLang lang) {
-    final matches = [for (final c in courses) if (c.uiLang == lang) c]
-      ..sort((a, b) => _goalRank(a.goal).compareTo(_goalRank(b.goal)));
-    return matches.take(perLang).toList();
-  }
+  List<Course> pick(UiLang lang) =>
+      [for (final c in courses) if (c.uiLang == lang) c]
+        ..sort((a, b) => _goalRank(a.goal).compareTo(_goalRank(b.goal)));
 
-  final featured = <Course>[for (final lang in langs) ...pick(lang)];
+  final featured = <Course>[];
+  for (final lang in langs) {
+    for (final course in pick(lang)) {
+      if (featured.length >= max) return featured;
+      featured.add(course);
+    }
+  }
   if (featured.isNotEmpty) return featured;
-  return pick(UiLang.en);
+  return pick(UiLang.en).take(max).toList();
 }
 
 int _goalRank(String? goal) => switch (goal) {
