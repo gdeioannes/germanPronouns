@@ -18,7 +18,8 @@
       "Bash(grep -ohE \"'[A-Za-z ,.!?]{20,50}'\" lib/data/combo_catalog.dart)",
       "PowerShell(flutter test --update-goldens test/_login_preview.dart)",
       "PowerShell(flutter test test/widget_test.dart test/site_lang_test.dart)",
-      "PowerShell(flutter analyze lib/data/courses/en_de_ai 2>$null)"
+      "PowerShell(flutter analyze lib/data/courses/en_de_ai 2>$null)",
+      "PowerShell(flutter test --reporter compact 2>$null)"
     ],
     "additionalDirectories": [
       "c:\\Users\\gdeio\\.claude\\projects\\c--Projects-german-pronouns-articles\\memory"

@@ -9,6 +9,7 @@ import 'pages/about_me_page.dart';
 import 'pages/back_office/back_office_home_page.dart';
 import 'pages/course_intro_page.dart';
 import 'pages/course_selector_page.dart';
+import 'pages/course_start_page.dart';
 import 'pages/learner_home_page.dart';
 import 'pages/my_courses_page.dart';
 import 'pages/login_page.dart';
@@ -62,6 +63,19 @@ final GoRouter appRouter = GoRouter(
       // from the finder's "All my courses" link.
       path: '/my-courses',
       builder: (context, state) => const MyCoursesPage(),
+    ),
+    GoRoute(
+      // Shareable deep link straight into a course — no landing page. Public
+      // (see [_guard]): a signed-out visitor is signed in as a learner and the
+      // course is activated, then this redirects on to `/course/:courseId`.
+      path: '/start/:courseId',
+      pageBuilder: (context, state) {
+        final courseId = state.pathParameters['courseId']!;
+        return MaterialPage(
+          key: ValueKey('start-$courseId'),
+          child: CourseStartPage(courseId: courseId),
+        );
+      },
     ),
     GoRoute(
       path: '/intro',
@@ -211,6 +225,9 @@ String? _guard(BuildContext context, GoRouterState state) {
 
   // Public pages, readable signed out and before a course is chosen.
   if (loc == '/about-me') return null;
+  // Course deep links do their own sign-in/course setup, so the guard must let
+  // them through both signed out and before any course is chosen.
+  if (loc.startsWith('/start/')) return null;
 
   if (!session.isSignedIn) {
     return loc == '/login' ? null : '/login';
