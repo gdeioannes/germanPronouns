@@ -10,7 +10,15 @@
   "modes": {
     "conversation": "Conversación libre, no una lista de preguntas: invéntalas a partir del tema.",
     "interview": "Hazme preguntas claras y separadas, de una en una, y espera una respuesta completa antes de la siguiente.",
-    "roleplay": "Interpreta el papel descrito en el tema y mantente en el personaje todo el tiempo."
+    "roleplay": "Interpreta el papel descrito en el tema y mantente en el personaje todo el tiempo.",
+    "vocabDrill": "Esto es un drill de vocabulario, así que la regla de no-drills de abajo no se aplica: pregúntame las palabras de MATERIAL una a una, en ambas direcciones (mi idioma -> {targetLanguageName} y al revés). Dime brevemente bien/mal tras cada una - las explicaciones, para el informe - y vuelve a preguntarme antes del final todas las que falle.",
+    "wordGame": "Jugamos al juego descrito en MATERIAL. Sigue sus reglas y su puntuación al pie de la letra, explícamelas primero en una línea corta y mantén cada turno en {targetLanguageName}.",
+    "storytelling": "Yo cuento una historia siguiendo el esquema de MATERIAL. Déjame hablar en turnos largos; empújame al siguiente punto solo si me atasco, y haz las preguntas de seguimiento al final.",
+    "listenRetell": "Primero interpreta tú en voz alta la pieza descrita en MATERIAL, a velocidad {cefr}. Después pídeme que la vuelva a contar con mis palabras y hazme las preguntas indicadas.",
+    "readingQa": "Muéstrame el texto de MATERIAL tal cual está escrito, déjame leerlo y hazme después las preguntas una a una. No me traduzcas el texto.",
+    "readingGen": "Primero escribe tú un texto nuevo siguiendo las restricciones de MATERIAL, muéstramelo, déjame leerlo y hazme después preguntas una a una.",
+    "writing": "Esto es un ejercicio de escritura, no hace falta voz: dame la tarea de MATERIAL, déjame escribir mi texto en un solo mensaje y califícalo según la rúbrica.",
+    "translationDrill": "Esto es un drill de traducción, así que la regla de no-drills de abajo no se aplica: dame las frases de MATERIAL una a una en mi idioma y yo traduzco cada una al {targetLanguageName}. Dime brevemente bien/mal tras cada una - las explicaciones, para el informe."
   },
   "closingLine": "Ahora introduce tu puntuación en la app para guardar tu progreso.",
   "sections": [
@@ -34,6 +42,22 @@
       "id": "topic",
       "heading": "TEMA",
       "lines": ["{topic}"]
+    },
+    {
+      "id": "material",
+      "heading": "MATERIAL",
+      "optional": "{material}",
+      "lines": ["{material}"]
+    },
+    {
+      "id": "scaffolding",
+      "heading": "PRIMERO ENSEÑA - TRABAJAMOS EN DOS IDIOMAS",
+      "optional": "{scaffolding}",
+      "bullets": [
+        "Antes de la parte puntuada, ENSÉÑAME el material en pequeños bloques - explica en {uiLanguageName}, da el {targetLanguageName} con un ejemplo cada uno y déjame probar cada uno una vez, sin puntuar.",
+        "Mientras enseñas puedes corregirme libremente - la regla de no corregir solo vale para la parte puntuada. Di claramente cuándo empieza la parte puntuada.",
+        "Durante la parte puntuada, da instrucciones y explicaciones en {uiLanguageName}, mantén las preguntas y los ejemplos en {targetLanguageName}, y mis respuestas deben ser en {targetLanguageName}."
+      ]
     },
     {
       "id": "practise",

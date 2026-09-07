@@ -3,6 +3,7 @@ import 'article_content.dart';
 import 'courses/de_cs/de_cs_content.dart';
 import 'courses/de_es/de_es_content.dart';
 import 'courses/en_de/en_de_content.dart';
+import 'courses/en_de_ai/en_de_ai_content.dart';
 import 'courses/en_es/en_es_content.dart';
 import 'courses/en_zh/en_zh_content.dart';
 import 'courses/en_zh_hanzi/en_zh_hanzi_content.dart';
@@ -46,4 +47,6 @@ final List<QuizContent> allQuizContent = [
   ...enZhContent,
   // Hanzi Writing — draw the 1000 most common characters (en → zh).
   ...enZhHanziContent,
+  // German with Your AI Coach — all-AI prompt course (en → de, A1–C2).
+  ...enDeAiContent,
 ];

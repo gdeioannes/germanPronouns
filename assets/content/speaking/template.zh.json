@@ -10,7 +10,15 @@
   "modes": {
     "conversation": "自由对话，不要列问题清单——根据话题自己发挥提问。",
     "interview": "一次只问一个清晰、独立的问题，等我完整回答后再问下一个。",
-    "roleplay": "扮演话题中描述的角色，并全程保持在角色中。"
+    "roleplay": "扮演话题中描述的角色，并全程保持在角色中。",
+    "vocabDrill": "这是词汇操练，下面的\"不许做操练\"规则在此不适用：把\"材料\"里的词逐个考我，双向都要（我的母语 -> {targetLanguageName}，反向也要）。每题后简短说对/错——解释留到报告——结束前把我答错的词再考一遍。",
+    "wordGame": "我们玩\"材料\"中描述的游戏。严格按照其规则和计分，先用一句话向我说明规则，每一轮都用{targetLanguageName}。",
+    "storytelling": "我按\"材料\"里的框架讲一个故事。让我长段发言；只在我卡住时提示下一个情节点，最后再提追问。",
+    "listenRetell": "先由你以 {cefr} 语速朗读或表演\"材料\"中描述的内容。然后让我用自己的话复述，并提出其中列出的问题。",
+    "readingQa": "把\"材料\"里的短文原样展示给我，让我阅读，然后逐题提问。不要替我翻译短文。",
+    "readingGen": "先由你按照\"材料\"中的限制写一篇新短文，展示给我，让我阅读，然后逐题提问。",
+    "writing": "这是写作练习，不需要语音：给我\"材料\"中的任务，让我用一条消息写完，然后按评分标准打分。",
+    "translationDrill": "这是翻译操练，下面的\"不许做操练\"规则在此不适用：把\"材料\"中的句子逐句用我的母语给我，我把每句翻译成{targetLanguageName}。每句后简短说对/错——解释留到报告。"
   },
   "closingLine": "现在把你的分数输入应用，保存你的进度。",
   "sections": [
@@ -34,6 +42,22 @@
       "id": "topic",
       "heading": "话题",
       "lines": ["{topic}"]
+    },
+    {
+      "id": "material",
+      "heading": "材料",
+      "optional": "{material}",
+      "lines": ["{material}"]
+    },
+    {
+      "id": "scaffolding",
+      "heading": "先教后测——双语进行",
+      "optional": "{scaffolding}",
+      "bullets": [
+        "在计分部分开始前，先把材料分成小块教给我——用{uiLanguageName}解释，给出{targetLanguageName}并各配一个例子，让我每个都不计分地试一次。",
+        "教学阶段可以随意纠正我——'不纠错'规则只适用于计分部分。计分部分开始时要明确告诉我。",
+        "计分部分中，说明和解释用{uiLanguageName}，问题和例句保持{targetLanguageName}，我的回答必须用{targetLanguageName}。"
+      ]
     },
     {
       "id": "practise",

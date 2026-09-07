@@ -137,7 +137,9 @@ class SpeakingPromptBuilder {
 
   /// The phrase the learner says out loud to start, in [learnLang].
   String triggerFor(String learnLang) =>
-      template.triggers[_base(learnLang)] ?? template.triggers['en'] ?? "Let's go";
+      template.triggers[_base(learnLang)] ??
+      template.triggers['en'] ??
+      "Let's go";
 
   /// Renders the full clipboard text for [exercise].
   ///
@@ -170,7 +172,9 @@ class SpeakingPromptBuilder {
       ].where((l) => l.trim().isNotEmpty).toList();
       if (body.isEmpty) continue;
 
-      blocks.add([if (section.heading != null) section.heading!, ...body].join('\n'));
+      blocks.add(
+        [if (section.heading != null) section.heading!, ...body].join('\n'),
+      );
     }
     return blocks.join('\n\n');
   }
@@ -203,17 +207,20 @@ class SpeakingPromptBuilder {
       ..['practisePoints'] = e.practisePoints
       ..['targetVocabulary'] = e.targetVocabulary;
 
-    return {
+    final values = {
       'targetLanguageName': template.languageNames[learn] ?? learn,
       'uiLanguageName': template.languageNames[ui] ?? ui,
       'triggerPhrase': triggerFor(learn),
       'cefr': cefr,
       'topic': e.topic,
+      'material': e.material,
+      // Non-empty switches the optional scaffolding section on; the value
+      // itself is never rendered.
+      'scaffolding': e.scaffolded ? 'yes' : '',
       'practisePoints': e.practisePoints.join(', '),
       'targetVocabulary': e.targetVocabulary.join(', '),
       'scoringCriteria': e.scoringCriteria.join(', '),
       'priorityErrors': e.priorityErrors.join(', '),
-      'modeInstruction': template.modes[e.mode.name] ?? '',
       'closingLine': template.closingLine,
       'durationMinutes':
           '${session.durationMinutes ?? template.defaultFor('durationMinutes')}',
@@ -226,12 +233,23 @@ class SpeakingPromptBuilder {
       'maxCorrections':
           '${report.maxCorrections ?? template.defaultFor('maxCorrections')}',
     };
+    // The mode instruction is itself template text and may carry placeholders
+    // ({targetLanguageName}, {cefr}); fill it before it is spliced into a
+    // section, since _fill makes a single pass over each line.
+    values['modeInstruction'] = _fill(
+      template.modes[e.mode.name] ?? '',
+      values,
+    );
+    return values;
   }
 
   static final RegExp _placeholder = RegExp(r'\{(\w+)\}');
 
   String _fill(String text, Map<String, String> values) =>
-      text.replaceAllMapped(_placeholder, (m) => values[m.group(1)!] ?? m.group(0)!);
+      text.replaceAllMapped(
+        _placeholder,
+        (m) => values[m.group(1)!] ?? m.group(0)!,
+      );
 
   /// 'de-DE' → 'de'; leaves a bare code untouched.
   static String _base(String locale) =>
@@ -241,7 +259,12 @@ class SpeakingPromptBuilder {
 /// The session values a quiz actually runs with, after defaults are applied —
 /// used by the UI (to show the expected minutes) and the gate test (to check the
 /// questions-fit-in-exchanges rule) without re-deriving the fallbacks.
-({int durationMinutes, int minExchanges, int minQuestionsPerPoint, int passScore})
+({
+  int durationMinutes,
+  int minExchanges,
+  int minQuestionsPerPoint,
+  int passScore,
+})
 resolvedSpeakingSession(SpeakingExercise e, SpeakingTemplate t) => (
   durationMinutes: e.session.durationMinutes ?? t.defaultFor('durationMinutes'),
   minExchanges: e.session.minExchanges ?? t.defaultFor('minExchanges'),

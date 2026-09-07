@@ -14,6 +14,7 @@ import 'dart:io';
 import 'package:german_pronouns_articles/data/courses/de_cs/de_cs_content.dart';
 import 'package:german_pronouns_articles/data/courses/de_es/de_es_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_de/en_de_content.dart';
+import 'package:german_pronouns_articles/data/courses/en_de_ai/en_de_ai_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_es/en_es_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_zh/en_zh_content.dart';
 import 'package:german_pronouns_articles/data/courses/en_zh_hanzi/en_zh_hanzi_content.dart';
@@ -57,6 +58,19 @@ void main() {
   refs('enDeM15Refs', enDeM15);
   refs('enDeM16Refs', enDeM16);
   refs('enDeM17Refs', enDeM17);
+
+  refs('enDeAiM1Refs', enDeAiM1Quizzes);
+  refs('enDeAiM2Refs', enDeAiM2Quizzes);
+  refs('enDeAiM3Refs', enDeAiM3Quizzes);
+  refs('enDeAiM4Refs', enDeAiM4Quizzes);
+  refs('enDeAiM5Refs', enDeAiM5Quizzes);
+  refs('enDeAiM6Refs', enDeAiM6Quizzes);
+  refs('enDeAiM7Refs', enDeAiM7Quizzes);
+  refs('enDeAiM8Refs', enDeAiM8Quizzes);
+  refs('enDeAiM9Refs', enDeAiM9Quizzes);
+  refs('enDeAiM10Refs', enDeAiM10Quizzes);
+  refs('enDeAiM11Refs', enDeAiM11Quizzes);
+  refs('enDeAiM12Refs', enDeAiM12Quizzes);
 
   refs('esDeNivel1Refs', esDeNivel1);
   refs('esDeNivel2Refs', esDeNivel2);

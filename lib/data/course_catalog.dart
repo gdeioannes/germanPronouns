@@ -157,6 +157,42 @@ final NavLayout _grammarNav = NavLayout(
   ],
 );
 
+/// One gated sub-level group of the all-AI course.
+NavGroup _enDeAiLevel(String id, String title, List<String> refs) => NavGroup(
+  id: id,
+  title: title,
+  type: NavGroupType.quizzes,
+  gated: true,
+  items: [for (final ref in refs) NavItem(ref: ref)],
+);
+
+/// The "German with Your AI Coach" drawer (English → German, all-AI): twelve
+/// gated CEFR sub-level groups A1.1 → C2.2 forming one continuous
+/// pass-to-unlock chain, plus links. Every quiz is a prompt run in the
+/// learner's own AI assistant (`docs/en_de_ai_course_plan.md`).
+final NavLayout _enDeAiNav = NavLayout(
+  groups: [
+    _enDeAiLevel('m1', 'A1.1 · FIRST STEPS', enDeAiM1Refs),
+    _enDeAiLevel('m2', 'A1.2 · EVERYDAY LIFE', enDeAiM2Refs),
+    _enDeAiLevel('m3', 'A2.1 · EXPERIENCES', enDeAiM3Refs),
+    _enDeAiLevel('m4', 'A2.2 · DESCRIBE & PLAN', enDeAiM4Refs),
+    _enDeAiLevel('m5', 'B1.1 · OPINIONS & WISHES', enDeAiM5Refs),
+    _enDeAiLevel('m6', 'B1.2 · NARRATE & JUSTIFY', enDeAiM6Refs),
+    _enDeAiLevel('m7', 'B2.1 · ARGUE', enDeAiM7Refs),
+    _enDeAiLevel('m8', 'B2.2 · DIFFERENTIATE', enDeAiM8Refs),
+    _enDeAiLevel('m9', 'C1.1 · ABSTRACT', enDeAiM9Refs),
+    _enDeAiLevel('m10', 'C1.2 · NUANCE', enDeAiM10Refs),
+    _enDeAiLevel('m11', 'C2.1 · STYLISTIC COMMAND', enDeAiM11Refs),
+    _enDeAiLevel('m12', 'C2.2 · MASTERY', enDeAiM12Refs),
+    const NavGroup(
+      id: 'more',
+      title: 'MORE',
+      type: NavGroupType.links,
+      items: _enMoreLinks,
+    ),
+  ],
+);
+
 /// The Español → Alemán drawer: three open Niveles plus a links group.
 final NavLayout _esDeNav = NavLayout(
   groups: [
@@ -916,6 +952,18 @@ final List<Course> defaultCourses = [
     goal: 'certification',
     level: 'A1–C2',
     nav: _enEsCertNav,
+  ),
+  Course(
+    id: 'en_de_ai',
+    name: 'German with Your AI Coach',
+    tagline:
+        'The full course runs in your AI — we bring the prompts and keep score',
+    speakFlag: '🇬🇧',
+    learnFlag: '🇩🇪',
+    uiLang: UiLang.en,
+    goal: 'discover',
+    level: 'A1–C2',
+    nav: _enDeAiNav,
   ),
   Course(
     id: 'en_zh',

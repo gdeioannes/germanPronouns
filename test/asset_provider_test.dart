@@ -12,7 +12,7 @@ void main() {
     final provider = CachingCourseProvider(const AssetContentSource());
 
     final catalog = await provider.catalog();
-    expect(catalog.courses, hasLength(11));
+    expect(catalog.courses, hasLength(12));
 
     for (final card in catalog.courses) {
       final populated = await provider.populated(card.id);

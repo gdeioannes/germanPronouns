@@ -10,7 +10,15 @@
   "modes": {
     "conversation": "Freies Gespräch, keine Liste von Fragen - denk sie dir aus dem Thema aus.",
     "interview": "Stell mir klare einzelne Fragen, eine nach der anderen, und warte auf eine vollständige Antwort.",
-    "roleplay": "Spiel die im Thema beschriebene Rolle und bleib die ganze Zeit in der Rolle."
+    "roleplay": "Spiel die im Thema beschriebene Rolle und bleib die ganze Zeit in der Rolle.",
+    "vocabDrill": "Das ist ein Vokabeldrill, die Keine-Drills-Regel unten gilt hier nicht: Frag mich die Wörter aus MATERIAL einzeln ab, in beide Richtungen (meine Sprache -> {targetLanguageName} und zurück). Sag mir nach jedem Wort kurz richtig/falsch - Erklärungen erst im Bericht - und frag vor dem Ende alle Fehler noch einmal ab.",
+    "wordGame": "Wir spielen das in MATERIAL beschriebene Spiel. Halte dich genau an Regeln und Punktevergabe, erklär sie mir zuerst in einer kurzen Zeile, und bleib in jedem Zug bei {targetLanguageName}.",
+    "storytelling": "Ich erzähle eine Geschichte nach dem Gerüst in MATERIAL. Lass mich lange am Stück reden; stups mich nur zum nächsten Punkt, wenn ich stocke, und stell die Nachfragen am Ende.",
+    "listenRetell": "Trag zuerst selbst das in MATERIAL beschriebene Stück laut vor, im {cefr}-Tempo. Lass es mich dann mit eigenen Worten nacherzählen und stell die dort aufgeführten Fragen.",
+    "readingQa": "Zeig mir den Text aus MATERIAL genau so, wie er dasteht, lass mich lesen, und stell mir dann die Fragen dazu einzeln. Übersetze den Text nicht für mich.",
+    "readingGen": "Schreib zuerst selbst einen neuen Text nach den Vorgaben in MATERIAL, zeig ihn mir, lass mich lesen, und stell mir dann einzeln Fragen dazu.",
+    "writing": "Das ist eine Schreibübung, Stimme ist nicht nötig: Gib mir die Aufgabe aus MATERIAL, lass mich meinen Text in einer Nachricht schreiben, und bewerte ihn nach der Rubrik.",
+    "translationDrill": "Das ist ein Übersetzungsdrill, die Keine-Drills-Regel unten gilt hier nicht: Gib mir die Sätze aus MATERIAL einzeln in meiner Sprache, ich übersetze jeden in {targetLanguageName}. Sag mir nach jedem kurz richtig/falsch - Erklärungen erst im Bericht."
   },
   "closingLine": "Trag deine Punktzahl jetzt in der App ein, um deinen Fortschritt zu speichern.",
   "sections": [
@@ -34,6 +42,22 @@
       "id": "topic",
       "heading": "THEMA",
       "lines": ["{topic}"]
+    },
+    {
+      "id": "material",
+      "heading": "MATERIAL",
+      "optional": "{material}",
+      "lines": ["{material}"]
+    },
+    {
+      "id": "scaffolding",
+      "heading": "ERST BEIBRINGEN - WIR ARBEITEN ZWEISPRACHIG",
+      "optional": "{scaffolding}",
+      "bullets": [
+        "Bring mir das Material vor dem bewerteten Teil in kleinen Häppchen bei - erklär auf {uiLanguageName}, gib das {targetLanguageName} mit je einem Beispiel, und lass mich jedes einmal unbewertet ausprobieren.",
+        "Beim Beibringen darfst du mich frei korrigieren - die Keine-Korrekturen-Regel gilt nur für den bewerteten Teil. Sag klar, wann der bewertete Teil beginnt.",
+        "Im bewerteten Teil: Anweisungen und Erklärungen auf {uiLanguageName}, Fragen und Beispiele auf {targetLanguageName}, meine Antworten auf {targetLanguageName}."
+      ]
     },
     {
       "id": "practise",

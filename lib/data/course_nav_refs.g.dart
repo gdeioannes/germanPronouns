@@ -223,6 +223,162 @@ const List<String> enDeM17Refs = [
   'en_de_m17_speaking',
 ];
 
+const List<String> enDeAiM1Refs = [
+  'en_de_ai_m1_words_hello',
+  'en_de_ai_m1_first_contact',
+  'en_de_ai_m1_translate_v2',
+  'en_de_ai_m1_gender_casino',
+  'en_de_ai_m1_words_numbers',
+  'en_de_ai_m1_read_dasbinich',
+  'en_de_ai_m1_story_family_photo',
+  'en_de_ai_m1_cafe_roleplay',
+  'en_de_ai_m1_write_tandem',
+  'en_de_ai_m1_gate_interview',
+];
+
+const List<String> enDeAiM2Refs = [
+  'en_de_ai_m2_words_routine',
+  'en_de_ai_m2_translate_akk',
+  'en_de_ai_m2_read_imcafe',
+  'en_de_ai_m2_typical_tuesday',
+  'en_de_ai_m2_einkaufs_taboo',
+  'en_de_ai_m2_words_kein',
+  'en_de_ai_m2_market_roleplay',
+  'en_de_ai_m2_story_morgen',
+  'en_de_ai_m2_write_wg_note',
+  'en_de_ai_m2_gate_interview',
+];
+
+const List<String> enDeAiM3Refs = [
+  'en_de_ai_m3_words_partizip',
+  'en_de_ai_m3_weekend_talk',
+  'en_de_ai_m3_translate_dativ',
+  'en_de_ai_m3_wo_bin_ich',
+  'en_de_ai_m3_read_postkarte',
+  'en_de_ai_m3_lost_in_munich',
+  'en_de_ai_m3_story_beste_reise',
+  'en_de_ai_m3_listen_anekdote',
+  'en_de_ai_m3_write_danke',
+  'en_de_ai_m3_gate_interview',
+];
+
+const List<String> enDeAiM4Refs = [
+  'en_de_ai_m4_words_moebel',
+  'en_de_ai_m4_zimmer_memory',
+  'en_de_ai_m4_translate_weil',
+  'en_de_ai_m4_weekend_plans',
+  'en_de_ai_m4_read_wohnung',
+  'en_de_ai_m4_doctor_roleplay',
+  'en_de_ai_m4_words_komparativ',
+  'en_de_ai_m4_story_als_ich_klein_war',
+  'en_de_ai_m4_write_traumzimmer',
+  'en_de_ai_m4_gate_interview',
+];
+
+const List<String> enDeAiM5Refs = [
+  'en_de_ai_m5_adj_endings',
+  'en_de_ai_m5_wg_conflict',
+  'en_de_ai_m5_wish_machine',
+  'en_de_ai_m5_advocatus',
+  'en_de_ai_m5_job_ads',
+  'en_de_ai_m5_landlord_mail',
+  'en_de_ai_m5_verb_preps',
+  'en_de_ai_m5_dream_job',
+  'en_de_ai_m5_job_interview',
+  'en_de_ai_m5_gate_roundtable',
+];
+
+const List<String> enDeAiM6Refs = [
+  'en_de_ai_m6_praet_ladder',
+  'en_de_ai_m6_fairy_tale',
+  'en_de_ai_m6_passive_shift',
+  'en_de_ai_m6_news_item',
+  'en_de_ai_m6_passiv_game',
+  'en_de_ai_m6_big_decision',
+  'en_de_ai_m6_radio_news',
+  'en_de_ai_m6_accident_report',
+  'en_de_ai_m6_witness',
+  'en_de_ai_m6_gate_narrate',
+];
+
+const List<String> enDeAiM7Refs = [
+  'en_de_ai_m7_scaffolds',
+  'en_de_ai_m7_editorial',
+  'en_de_ai_m7_reported',
+  'en_de_ai_m7_debate',
+  'en_de_ai_m7_headline_poker',
+  'en_de_ai_m7_leserbrief',
+  'en_de_ai_m7_panel_retell',
+  'en_de_ai_m7_statistics',
+  'en_de_ai_m7_talkshow',
+  'en_de_ai_m7_gate_switch',
+];
+
+const List<String> enDeAiM8Refs = [
+  'en_de_ai_m8_words_genitiv',
+  'en_de_ai_m8_irreal_past',
+  'en_de_ai_m8_translate_partizip',
+  'en_de_ai_m8_read_contract',
+  'en_de_ai_m8_partikel_game',
+  'en_de_ai_m8_write_application',
+  'en_de_ai_m8_story_nearmiss',
+  'en_de_ai_m8_salary_talk',
+  'en_de_ai_m8_voicemails',
+  'en_de_ai_m8_gate_interview',
+];
+
+const List<String> enDeAiM9Refs = [
+  'en_de_ai_m9_words_pairs',
+  'en_de_ai_m9_translate_style',
+  'en_de_ai_m9_read_science',
+  'en_de_ai_m9_townhall',
+  'en_de_ai_m9_buerokratie_duell',
+  'en_de_ai_m9_write_abstract',
+  'en_de_ai_m9_lecture_retell',
+  'en_de_ai_m9_story_city2055',
+  'en_de_ai_m9_expert_panel',
+  'en_de_ai_m9_gate_interview',
+];
+
+const List<String> enDeAiM10Refs = [
+  'en_de_ai_m10_words_idioms',
+  'en_de_ai_m10_film_club',
+  'en_de_ai_m10_word_lab',
+  'en_de_ai_m10_read_literary',
+  'en_de_ai_m10_translate_hedge',
+  'en_de_ai_m10_irony_monologue',
+  'en_de_ai_m10_story_twice',
+  'en_de_ai_m10_write_review',
+  'en_de_ai_m10_dinner_party',
+  'en_de_ai_m10_gate_interview',
+];
+
+const List<String> enDeAiM11Refs = [
+  'en_de_ai_m11_fvg_drill',
+  'en_de_ai_m11_register_slider',
+  'en_de_ai_m11_collocations',
+  'en_de_ai_m11_oped_reading',
+  'en_de_ai_m11_persuade_mayor',
+  'en_de_ai_m11_position_paper',
+  'en_de_ai_m11_two_papers',
+  'en_de_ai_m11_statement_relay',
+  'en_de_ai_m11_press_conference',
+  'en_de_ai_m11_gate_style_exam',
+];
+
+const List<String> enDeAiM12Refs = [
+  'en_de_ai_m12_untranslatables',
+  'en_de_ai_m12_free_talk',
+  'en_de_ai_m12_absurde_these',
+  'en_de_ai_m12_two_voices',
+  'en_de_ai_m12_two_texts',
+  'en_de_ai_m12_flatmate_mediation',
+  'en_de_ai_m12_plant_eulogy',
+  'en_de_ai_m12_chain_story',
+  'en_de_ai_m12_capstone_interview',
+  'en_de_ai_m12_gate_salon',
+];
+
 const List<String> esDeNivel1Refs = [
   'es_de_hablar_basico',
   'es_de_saludos',

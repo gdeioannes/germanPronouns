@@ -1,4 +1,8 @@
 /// How the AI should run a [QuizKind.speaking] exercise.
+///
+/// The first three are the original spoken-conversation modes; the rest were
+/// added for the all-AI course (en_de_ai) and cover text-first exercises too.
+/// Unknown names parse as [conversation], so adding values stays seed-safe.
 enum SpeakingMode {
   /// Free back-and-forth: the AI invents questions from the topic and reacts.
   conversation,
@@ -7,7 +11,33 @@ enum SpeakingMode {
   interview,
 
   /// The AI plays the role described in the topic and stays in character.
-  roleplay;
+  roleplay,
+
+  /// Direct vocabulary questioning over the exercise's word list, both
+  /// directions, with missed items re-asked before the end.
+  vocabDrill,
+
+  /// A little language game with explicit rules and scoring in the material.
+  wordGame,
+
+  /// The learner tells a story from the skeleton in the material.
+  storytelling,
+
+  /// The AI performs something aloud (voice) and the learner retells it.
+  listenRetell,
+
+  /// The AI presents the passage in the material and asks about it.
+  readingQa,
+
+  /// The AI writes a fresh passage under the material's constraints, then
+  /// asks about it.
+  readingGen,
+
+  /// A writing task: the learner types a short text, graded against a rubric.
+  writing,
+
+  /// Sentence-by-sentence translation into the target language.
+  translationDrill;
 
   static SpeakingMode fromName(String? name) => SpeakingMode.values.firstWhere(
     (m) => m.name == name,
@@ -84,6 +114,8 @@ class SpeakingExercise {
     required this.scoringCriteria,
     this.targetVocabulary = const [],
     this.priorityErrors = const [],
+    this.material = '',
+    this.scaffolded = false,
     this.mode = SpeakingMode.conversation,
     this.session = const SpeakingSession(),
     this.report = const SpeakingReport(),
@@ -109,6 +141,18 @@ class SpeakingExercise {
   /// out of the feedback so a short report stays useful.
   final List<String> priorityErrors;
 
+  /// Pre-formatted material the exercise runs on — a word list with meanings
+  /// (drill/game modes), an embedded reading passage, a story skeleton, game
+  /// rules, or generation constraints. Rendered verbatim in its own prompt
+  /// section; empty drops the section.
+  final String material;
+
+  /// Beginner scaffolding: the AI teaches the material first (UI-language
+  /// explanations, target-language examples, unscored try-outs) and keeps
+  /// instructions bilingual during the scored part. Answers still count only
+  /// in the target language. Off = full immersion (B1+).
+  final bool scaffolded;
+
   final SpeakingMode mode;
   final SpeakingSession session;
   final SpeakingReport report;
@@ -122,6 +166,8 @@ class SpeakingExercise {
     'scoringCriteria': scoringCriteria,
     if (targetVocabulary.isNotEmpty) 'targetVocabulary': targetVocabulary,
     if (priorityErrors.isNotEmpty) 'priorityErrors': priorityErrors,
+    if (material.isNotEmpty) 'material': material,
+    if (scaffolded) 'scaffolded': true,
     if (mode != SpeakingMode.conversation) 'mode': mode.name,
     if (!session.isEmpty) 'session': session.toJson(),
     if (!report.isEmpty) 'report': report.toJson(),
@@ -139,6 +185,8 @@ class SpeakingExercise {
             (json['targetVocabulary'] as List?)?.cast<String>() ?? const [],
         priorityErrors:
             (json['priorityErrors'] as List?)?.cast<String>() ?? const [],
+        material: json['material'] as String? ?? '',
+        scaffolded: json['scaffolded'] as bool? ?? false,
         mode: SpeakingMode.fromName(json['mode'] as String?),
         session: json['session'] == null
             ? const SpeakingSession()
@@ -182,7 +230,10 @@ SpeakingMedal? speakingMedal(int score) {
   return null;
 }
 
-final RegExp _scoreLine = RegExp(r'SCORE\s*=\s*(\d{1,3})', caseSensitive: false);
+final RegExp _scoreLine = RegExp(
+  r'SCORE\s*=\s*(\d{1,3})',
+  caseSensitive: false,
+);
 
 /// Reads the score out of what the learner typed or pasted into the score field:
 /// the AI's exact `SCORE=84` last line when the whole report was pasted, else a

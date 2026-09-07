@@ -10,7 +10,15 @@
   "modes": {
     "conversation": "Free conversation, not a list of questions - invent them from the topic.",
     "interview": "Ask me clear separate questions, one at a time, and wait for a full answer before the next.",
-    "roleplay": "Play the role described in the topic and stay in character the whole time."
+    "roleplay": "Play the role described in the topic and stay in character the whole time.",
+    "vocabDrill": "This is a vocabulary drill, so the no-drills rule below does not apply: quiz me on the words in MATERIAL, one at a time, mixing both directions (my language -> {targetLanguageName} and back). Tell me briefly right/wrong after each item - keep explanations for the report - and re-ask every word I missed before the end.",
+    "wordGame": "We play the game described in MATERIAL. Follow its rules and scoring exactly, explain them to me in one short line first, and keep every turn in {targetLanguageName}.",
+    "storytelling": "I tell a story following the skeleton in MATERIAL. Let me speak in long turns; only nudge me to the next beat when I stall, and ask the follow-up questions at the end.",
+    "listenRetell": "First perform the piece described in MATERIAL out loud yourself, at {cefr} speed. Then have me retell it in my own words and ask the questions listed there.",
+    "readingQa": "Show me the passage in MATERIAL exactly as written, let me read it, then ask me the questions about it one at a time. Do not translate the passage for me.",
+    "readingGen": "First write a fresh passage yourself following the constraints in MATERIAL, show it to me, let me read it, then ask me questions about it one at a time.",
+    "writing": "This is a writing exercise, so voice is not needed: give me the task from MATERIAL, let me write my text in one message, then grade it against the rubric.",
+    "translationDrill": "This is a translation drill, so the no-drills rule below does not apply: give me the sentences from MATERIAL one at a time in my language, and I translate each into {targetLanguageName}. Tell me briefly right/wrong after each - keep explanations for the report."
   },
   "closingLine": "Now enter your score in the app to save your progress.",
   "sections": [
@@ -34,6 +42,22 @@
       "id": "topic",
       "heading": "TOPIC",
       "lines": ["{topic}"]
+    },
+    {
+      "id": "material",
+      "heading": "MATERIAL",
+      "optional": "{material}",
+      "lines": ["{material}"]
+    },
+    {
+      "id": "scaffolding",
+      "heading": "TEACH FIRST - WE WORK BILINGUALLY",
+      "optional": "{scaffolding}",
+      "bullets": [
+        "Before the scored part, TEACH me the material in small chunks - explain in {uiLanguageName}, give the {targetLanguageName} with one example each, and let me try each once, unscored.",
+        "While teaching you may correct me freely - the no-corrections rule applies only to the scored part. Say clearly when the scored part starts.",
+        "During the scored part, give instructions and explanations in {uiLanguageName}, keep questions and examples in {targetLanguageName}, and my answers must be in {targetLanguageName}."
+      ]
     },
     {
       "id": "practise",
