@@ -118,6 +118,7 @@ class AppStrings {
     required this.featurePollThanks,
     required this.featurePollThanksAgain,
     required this.featurePollOpen,
+    required this.trainMistakes,
     required this.correctLabel,
     required this.incorrectLabel,
     required this.feedbackTipPrefix,
@@ -371,6 +372,10 @@ class AppStrings {
 
   /// Label of the buttons that open the poll on demand (Settings, course home).
   final String featurePollOpen;
+
+  /// Course-home action opening the exercise built from the learner's own
+  /// recorded speaking mistakes.
+  final String trainMistakes;
 
   // Typed-answer quiz feedback.
   /// Badge shown over a correct / incorrect answer.
@@ -651,6 +656,7 @@ const AppStrings _en = AppStrings(
   featurePollThanks: 'Thank you! +{coins} coins',
   featurePollThanksAgain: 'Thank you — your answer was counted.',
   featurePollOpen: 'Tell us what to build next',
+  trainMistakes: 'Train your mistakes',
   correctLabel: 'Correct',
   incorrectLabel: 'Incorrect',
   feedbackTipPrefix: 'Tip: ',
@@ -883,6 +889,7 @@ const AppStrings _es = AppStrings(
   featurePollThanks: '¡Gracias! +{coins} monedas',
   featurePollThanksAgain: 'Gracias, tu respuesta se ha registrado.',
   featurePollOpen: 'Dinos qué crear a continuación',
+  trainMistakes: 'Entrena tus errores',
   correctLabel: 'Correcto',
   incorrectLabel: 'Incorrecto',
   feedbackTipPrefix: 'Consejo: ',
@@ -1117,6 +1124,7 @@ const AppStrings _de = AppStrings(
   featurePollThanks: 'Danke! +{coins} Münzen',
   featurePollThanksAgain: 'Danke – deine Antwort wurde gezählt.',
   featurePollOpen: 'Sag uns, was als Nächstes kommen soll',
+  trainMistakes: 'Deine Fehler trainieren',
   correctLabel: 'Richtig',
   incorrectLabel: 'Falsch',
   feedbackTipPrefix: 'Tipp: ',
@@ -1334,6 +1342,7 @@ const AppStrings _zh = AppStrings(
   featurePollThanks: '谢谢！+{coins} 金币',
   featurePollThanksAgain: '谢谢，你的选择已记录。',
   featurePollOpen: '告诉我们接下来该做什么',
+  trainMistakes: '练习你的错题',
   correctLabel: '正确',
   incorrectLabel: '错误',
   feedbackTipPrefix: '提示：',

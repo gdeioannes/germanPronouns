@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../app_router.dart';
 import '../../models/app_session.dart';
@@ -24,11 +23,6 @@ import 'placement_test.dart';
 /// questions) skip the test and open the course's first quiz directly. Backing
 /// out of the test leaves the learner on the course home — nothing is written.
 Future<void> quickStartCourse(Course course) async {
-  final prefs = await SharedPreferences.getInstance();
-  // The auto-pushed course intro would be one more screen between the tap and
-  // the quiz — mark it seen (it stays reachable from the course menu).
-  await prefs.setBool('course_intro_seen_${course.id}', true);
-
   await CourseSession.instance.setActiveCourse(course.id);
   await CourseSession.instance.ensureActiveNavLoaded();
   await NounSettings.instance.load();

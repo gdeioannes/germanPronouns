@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/quest_data.dart';
 import '../models/course_session.dart';
@@ -43,20 +41,10 @@ class _LearnerHomePageState extends State<LearnerHomePage> {
     final course = CourseSession.instance.activeCourse;
     // Apply this course's Quest chain order before any quiz can unlock the next.
     applyQuestOrderFromLayout(course.nav);
+    // Start (or continue) the course-time clock that gates the feature poll.
+    await NounSettings.instance.markCourseUsage();
     if (!mounted) return;
     setState(() => _home = const CourseHomePage());
-    await _maybeShowIntro(course.id);
-  }
-
-  /// Shows the course intro page the first time this course is opened, then
-  /// remembers it so it isn't shown again (it stays reachable from the menu).
-  Future<void> _maybeShowIntro(String courseId) async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'course_intro_seen_$courseId';
-    if (prefs.getBool(key) ?? false) return;
-    await prefs.setBool(key, true);
-    if (!mounted) return;
-    await context.push('/intro');
   }
 
   @override

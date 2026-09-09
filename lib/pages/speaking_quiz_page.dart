@@ -13,10 +13,13 @@ import '../services/ai_assistant.dart';
 import '../services/analytics.dart';
 import '../services/speaking_prompt.dart';
 import '../theme/app_theme.dart';
+import '../theme/help_memory_pdf.dart' show kCourseWorkflowTipTitle;
 import '../widgets/ai_assistant_button.dart';
 import '../widgets/completion_ribbon.dart';
 import '../widgets/feature_poll.dart';
 import '../widgets/next_exercise.dart';
+import '../widgets/help_memory_pdf_export.dart';
+import '../widgets/quiz_help_sheet.dart';
 import '../widgets/quiz_scaffold.dart';
 import '../widgets/speak_icon_button.dart';
 
@@ -100,11 +103,21 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
   Future<void> _load() async {
     final course = CourseSession.instance.activeCourse;
     final template = await SpeakingPromptBuilder.load(course.uiLang.name);
+    // The learner's recent corrections ride along as the PERSONAL FOCUS
+    // section — the AI weaves one or two back in and reports on improvement.
+    // The mistake trainer skips it: its whole MATERIAL already is the log.
+    final fixes = widget.content.id.startsWith('mistake_trainer_')
+        ? const <SpeakingFix>[]
+        : await NounSettings.instance.speakingFixLog(course.id);
     final prompt = SpeakingPromptBuilder(template).render(
       _exercise,
       learnLang: course.learnLocale,
       uiLang: course.uiLang.name,
       cefr: widget.content.level ?? 'A1',
+      personalFocus: [
+        for (final f in fixes.take(3)) '"${f.said}" -> "${f.correct}"',
+      ],
+      referenceNotes: _referenceNotes(),
     );
 
     int? best;
@@ -125,6 +138,23 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
       _preferredAi = preferredAi;
     });
     if (!explainerSeen && mounted) _showExplainer(markSeen: true);
+  }
+
+  /// The quiz's Help Memory (intro + tip cards — the same content its PDF is
+  /// built from) flattened to plain text for the prompt's COURSE NOTES
+  /// section, so the AI teaches and grades by the course's own rules.
+  String _referenceNotes() {
+    final parts = <String>[];
+    final intro = widget.content.helpMemoryIntro?.trim();
+    if (intro != null && intro.isNotEmpty) parts.add(intro);
+    for (final tip in widget.content.helpMemoryTips) {
+      // The "copy this into your AI" workflow card explains the app to the
+      // learner — noise for the AI running the exercise.
+      if (tip.title == kCourseWorkflowTipTitle) continue;
+      final title = tip.title;
+      parts.add(title == null ? '- ${tip.text}' : '- $title: ${tip.text}');
+    }
+    return parts.join('\n');
   }
 
   @override
@@ -175,6 +205,17 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
     final passed = score >= session.passScore;
     final medal = speakingMedal(score);
 
+    // A pasted report carries more than the score: its FIX: lines are the
+    // learner's actual mistakes. Bank them for the personal-focus loop and
+    // the mistake trainer.
+    final fixes = parseSpeakingFixes(_scoreController.text);
+    if (fixes.isNotEmpty) {
+      await NounSettings.instance.addSpeakingFixes(
+        CourseSession.instance.activeCourse.id,
+        fixes,
+      );
+    }
+
     if (_best == null || score > _best!) {
       _best = score;
       try {
@@ -189,6 +230,9 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
       'score': score,
       'grade': speakingGrade(score),
       'template': template.version,
+      // Whether the learner pasted the full report (fixes found) or typed a
+      // bare number — measures adoption of the report-capture loop.
+      'fixes': fixes.length,
     });
 
     if (passed) {
@@ -319,6 +363,11 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
                           ),
                         ),
                       ],
+                      if (widget.content.helpMemoryIntro != null ||
+                          widget.content.helpMemoryTips.isNotEmpty) ...[
+                        const SizedBox(height: 20),
+                        _helpMemoryCard(context),
+                      ],
                     ],
                   ),
                 ),
@@ -328,6 +377,47 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
   }
 
   // -------------------------------------------------------------------------
+
+  /// The Help Memory accordion — the same card every other quiz page carries,
+  /// with the save-as-PDF action in its header: what this exercise teaches
+  /// (intro + tip cards), expandable in place.
+  Widget _helpMemoryCard(BuildContext context) {
+    final strings = CourseSession.instance.strings;
+    final intro = widget.content.helpMemoryIntro;
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      child: ExpansionTile(
+        title: Row(
+          children: [
+            Expanded(
+              child: Text(
+                strings.helpMemory,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+            IconButton(
+              tooltip: strings.saveAsPdf,
+              icon: const Icon(Icons.picture_as_pdf_rounded),
+              onPressed: () => exportQuizHelpPdf(widget.content),
+            ),
+          ],
+        ),
+        subtitle: intro == null
+            ? null
+            : Text(intro, maxLines: 2, overflow: TextOverflow.ellipsis),
+        leading: IconBadge(
+          icon: Icons.menu_book_rounded,
+          color: kSectionAccentColors[0],
+        ),
+        childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+        // The full study content — intro, tips, MATERIAL, practise points,
+        // vocabulary — shared with the Help sheet so both show everything.
+        children: buildQuizStudyContent(context, widget.content),
+      ),
+    );
+  }
 
   /// The four steps. Always on screen, not only on first run: learners forget
   /// the sequence between sessions, and the first-run sheet is read once.
@@ -535,6 +625,13 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
             minLines: 1,
             decoration: InputDecoration(
               labelText: _s.scoreField,
+              // A worked example of what belongs here: the pasted report, or
+              // a number in either accepted shape.
+              hintText: _s.scorePlaceholder,
+              hintMaxLines: 2,
+              // Keep the label pinned above the field so the placeholder is
+              // visible before the first tap, not hidden under the label.
+              floatingLabelBehavior: FloatingLabelBehavior.always,
               border: const OutlineInputBorder(),
             ),
             onChanged: (_) => setState(() {}),

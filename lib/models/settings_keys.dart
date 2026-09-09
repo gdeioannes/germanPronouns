@@ -92,6 +92,18 @@ class SettingsKeys {
   /// returning learner is asked again. Absent means "never asked".
   static const String featurePollLastShown = 'feature_poll_last_shown';
 
+  /// Accumulated time spent in the learner area, as milliseconds (an `int`).
+  /// The feature poll's automatic ask waits until this reaches
+  /// `kFeaturePollMinUsage` — a brand-new learner shouldn't be polled about a
+  /// product they've barely used. See `NounSettings.markCourseUsage`.
+  static const String courseUsageMs = 'course_usage_ms';
+
+  /// Prefix of the per-course speaking fix log (`<prefix><courseId>`): the
+  /// learner's recent `FIX:` corrections parsed out of pasted AI reports, as a
+  /// JSON list, newest first, capped. Feeds the prompt's PERSONAL FOCUS
+  /// section and the "train your mistakes" exercise.
+  static const String speakingFixLogPrefix = 'speaking_fix_log_';
+
   /// Quest (CEFR A-level) progression keys — the linear streak chain in
   /// `questEntries`, kept separate from the noun-category chain.
   static const String questUnlockLaps = 'quest_unlock_laps';

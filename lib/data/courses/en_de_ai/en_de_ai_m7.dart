@@ -10,7 +10,7 @@ import 'en_de_ai_builder.dart';
 /// consecutive connectors (dennoch, folglich, je…desto).
 ///
 /// B2 session shape: ~5 minutes, 8 exchanges, pass 60. From B2.1 on the
-/// closing report is requested in German via the topic text.
+/// builder switches the closing report to German automatically.
 const _b2Session = SpeakingSession(durationMinutes: 5, minExchanges: 8);
 
 const _copyTip = HelpMemoryTip(
@@ -33,8 +33,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
     topic:
         'Argumentation scaffolds drilled as whole chunks: you state a bare '
         'claim, then assign me one scaffold, and I must re-express the '
-        'claim through it — grammar intact, meaning preserved. '
-        'Write the final report in German.',
+        'claim through it — grammar intact, meaning preserved.',
     material:
         'Scaffolds to drill (chunk = meaning):\n'
         'einerseits … andererseits = on the one hand … on the other · '
@@ -93,8 +92,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'A newspaper editorial on e-scooters, locked at B2 — do not '
         'simplify or reword it. The questions target the author\'s stance '
         'between the lines, and one asks me to transform a quote into '
-        'reported speech with Konjunktiv I. '
-        'Write the final report in German.',
+        'reported speech with Konjunktiv I.',
     material:
         'Passage (show it to me exactly like this):\n'
         'Stolperfallen auf Rädern\n'
@@ -163,7 +161,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'Ten English reported-speech sentences into German indirekte Rede '
         'with Konjunktiv I — falling back to Konjunktiv II exactly where '
         'K I matches the indicative. Serve one at a time; explain every '
-        'fallback I miss. Write the final report in German.',
+        'fallback I miss.',
     material:
         'Sentences to serve one at a time (Konjunktiv I required, '
         'K II only as the correct fallback):\n'
@@ -221,7 +219,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'real view. Two full rounds: I argue, you rebut, I counter your '
         'rebuttal. Somewhere in the debate I must land at least one '
         'correct je…desto sentence — remind me at the end if it never '
-        'came. Write the final report in German.',
+        'came.',
     practisePoints: [
       'Building a pro/contra argument in rounds',
       'Concessive moves: zwar…, dennoch…; ich gebe zu, dass…',
@@ -269,8 +267,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
     passScore: 60,
     topic:
         'A fake-news poker game. You deal headlines, I interrogate you in '
-        'reported speech, then bet fake or real — with a justification. '
-        'Write the final report in German.',
+        'reported speech, then bet fake or real — with a justification.',
     material:
         'Game rules:\n'
         '- You invent 6 plausible German news headlines; make 2–3 of them '
@@ -327,7 +324,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'A letter to the editor responding to the e-scooter editorial '
         '"Stolperfallen auf Rädern" (feste Abstellzonen, weniger '
         'Lizenzen, kein Verbot). Grade my letter against the rubric, '
-        'paragraph by paragraph. Write the final report in German.',
+        'paragraph by paragraph.',
     material:
         'Writing task:\n'
         '- Write a Leserbrief of about 120 words reacting to the '
@@ -386,8 +383,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'You deliver a 2-minute panel statement aloud (voice mode), in '
         'character as an expert. Afterwards I report the whole statement '
         'to an absent "colleague" — entirely in reported speech, '
-        'Konjunktiv I with correct fallbacks, never quoting directly. '
-        'Write the final report in German.',
+        'Konjunktiv I with correct fallbacks, never quoting directly.',
     material:
         'The piece to deliver aloud (write your own, but it must '
         'be):\n'
@@ -446,7 +442,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'Statistics language, both directions: you give numbers and I '
         'verbalize the trend; then you describe a trend in words and I '
         'reconstruct the numbers. Push for variety — no verb twice in a '
-        'row. Write the final report in German.',
+        'row.',
     material:
         'Chunks to drill (chunk = meaning):\n'
         'der Anteil = the share, proportion · die Mehrheit = the majority · '
@@ -507,7 +503,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'summarize your points in reported speech, challenge the weak '
         'ones, and keep order politely but firmly — with dennoch and '
         'folglich doing the steering. Escalate twice; never break '
-        'character. Write the final report in German.',
+        'character.',
     practisePoints: [
       'Summarizing live speech: Sie sagen also, es gebe…',
       'Firm-but-polite moderation (Moment bitte, dennoch…)',
@@ -558,8 +554,7 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'assign me a side at random. I defend it for four full exchanges '
         'with structured arguments — then, on your command "Seitenwechsel!", '
         'I must argue the opposite side just as convincingly, reporting my '
-        'own earlier arguments in Konjunktiv I before dismantling them. '
-        'Write the final report in German.',
+        'own earlier arguments in Konjunktiv I before dismantling them.',
     practisePoints: [
       'Structured argument under an assigned position',
       'Reporting earlier arguments in Konjunktiv I',

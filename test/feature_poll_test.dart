@@ -218,8 +218,21 @@ void main() {
     expect(find.text(strings.featurePollTitle), findsNothing);
   });
 
+  /// Puts [minutes] of course time on the clock, so the after-quiz ask's
+  /// usage gate (kFeaturePollMinUsage) is satisfied — or not.
+  /// Anchored to the real clock: the entry point ticks the clock itself with
+  /// DateTime.now(), so a marker left in the fake past would be counted as a
+  /// (capped) extra half-hour segment.
+  Future<void> spendOnCourse(int minutes) async {
+    final now = DateTime.now();
+    await NounSettings.instance
+        .markCourseUsage(now.subtract(Duration(minutes: minutes)));
+    await NounSettings.instance.markCourseUsage(now);
+  }
+
   testWidgets('the after-quiz entry point waits, then asks when due',
       (tester) async {
+    await spendOnCourse(20);
     _useScreen(tester, const Size(900, 1200));
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
@@ -248,8 +261,48 @@ void main() {
     expect(CoinWallet.instance.balance, CoinWallet.featurePollBonus);
   });
 
+  testWidgets(
+      'the after-quiz entry point stays silent before 20 minutes on the course',
+      (tester) async {
+    await spendOnCourse(15); // not enough yet
+    expect(isFeaturePollDue(), isTrue); // never shown — only usage blocks it
+    _useScreen(tester, const Size(900, 1200));
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(
+        body: Builder(
+          builder: (context) => TextButton(
+            onPressed: () => maybeShowFeaturePollAfterQuiz(context),
+            child: const Text('finish'),
+          ),
+        ),
+      ),
+    ));
+
+    await tester.tap(find.text('finish'));
+    await tester.pump(kFeaturePollDelay);
+    await tester.pumpAndSettle();
+
+    expect(find.text(stringsFor(UiLang.en).featurePollTitle), findsNothing);
+    expect(CoinWallet.instance.balance, 0);
+  });
+
+  test('course time accumulates across segments but a single one is capped',
+      () async {
+    final t0 = DateTime(2026, 8, 1, 9);
+    await NounSettings.instance.markCourseUsage(t0);
+    // An overnight-open tab: only 30 minutes of this segment count.
+    await NounSettings.instance.markCourseUsage(t0.add(const Duration(hours: 9)));
+    expect(NounSettings.instance.courseUsage(t0.add(const Duration(hours: 9))),
+        const Duration(minutes: 30));
+    // …and the total persists.
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.getInt(SettingsKeys.courseUsageMs),
+        const Duration(minutes: 30).inMilliseconds);
+  });
+
   testWidgets('the after-quiz entry point stays silent during the cooldown',
       (tester) async {
+    await spendOnCourse(20);
     await NounSettings.instance.markFeaturePollShown();
     _useScreen(tester, const Size(900, 1200));
     await tester.pumpWidget(MaterialApp(

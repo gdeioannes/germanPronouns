@@ -14,6 +14,10 @@ const String kSpeakingManifestAsset = 'assets/content/speaking/manifest.json';
 /// A section with [optionalOn] set is dropped entirely — heading included —
 /// when that placeholder resolves empty, so a quiz with no target vocabulary
 /// simply has no vocabulary block rather than an empty one.
+///
+/// A section with [families] set renders only for exercises whose mode belongs
+/// to one of those [SpeakingFamily]s — the mechanism that keeps a drill prompt
+/// free of conversation rules and vice versa. No list = shared by all modes.
 class SpeakingSection {
   const SpeakingSection({
     required this.id,
@@ -22,6 +26,7 @@ class SpeakingSection {
     this.bullets = const [],
     this.list,
     this.optionalOn,
+    this.families,
   });
 
   final String id;
@@ -30,6 +35,7 @@ class SpeakingSection {
   final List<String> bullets;
   final String? list;
   final String? optionalOn;
+  final List<String>? families;
 
   factory SpeakingSection.fromJson(Map<String, dynamic> json) =>
       SpeakingSection(
@@ -39,6 +45,7 @@ class SpeakingSection {
         bullets: (json['bullets'] as List?)?.cast<String>() ?? const [],
         list: json['list'] as String?,
         optionalOn: json['optional'] as String?,
+        families: (json['families'] as List?)?.cast<String>(),
       );
 }
 
@@ -145,21 +152,34 @@ class SpeakingPromptBuilder {
   ///
   /// [learnLang] and [uiLang] are language codes or locales ('de', 'de-DE');
   /// [cefr] is the quiz's level, shown to the AI as the learner's level.
+  /// [personalFocus] are the learner's recent stored corrections ("what I
+  /// said -> correct form"); non-empty renders the PERSONAL FOCUS section.
+  /// [referenceNotes] is the quiz's Help Memory content (intro + tips, the
+  /// same text its PDF is built from) — non-empty renders the COURSE NOTES
+  /// section, so the AI teaches and corrects with the course's own rules.
   String render(
     SpeakingExercise exercise, {
     required String learnLang,
     required String uiLang,
     required String cefr,
+    List<String> personalFocus = const [],
+    String referenceNotes = '',
   }) {
     final values = _values(
       exercise,
       learnLang: learnLang,
       uiLang: uiLang,
       cefr: cefr,
+      personalFocus: personalFocus,
+      referenceNotes: referenceNotes,
     );
 
+    final family = exercise.mode.family.name;
     final blocks = <String>[];
     for (final section in template.sections) {
+      // Family-gated rules render only for the exercise's mode family.
+      final families = section.families;
+      if (families != null && !families.contains(family)) continue;
       final gate = section.optionalOn;
       // An optional section whose placeholder is empty is dropped whole, so no
       // stray heading is left over its missing body.
@@ -196,27 +216,37 @@ class SpeakingPromptBuilder {
     required String learnLang,
     required String uiLang,
     required String cefr,
+    List<String> personalFocus = const [],
+    String referenceNotes = '',
   }) {
     final learn = _base(learnLang);
     final ui = _base(uiLang);
     final session = e.session;
     final report = e.report;
+    final reportLang = _base(e.reportLanguage ?? ui);
 
     _lists
       ..clear()
       ..['practisePoints'] = e.practisePoints
-      ..['targetVocabulary'] = e.targetVocabulary;
+      ..['targetVocabulary'] = e.targetVocabulary
+      ..['personalFocus'] = personalFocus;
 
     final values = {
       'targetLanguageName': template.languageNames[learn] ?? learn,
       'uiLanguageName': template.languageNames[ui] ?? ui,
+      'reportLanguageName': template.languageNames[reportLang] ?? reportLang,
       'triggerPhrase': triggerFor(learn),
       'cefr': cefr,
       'topic': e.topic,
       'material': e.material,
-      // Non-empty switches the optional scaffolding section on; the value
-      // itself is never rendered.
+      'reportStartMarker': kSpeakingReportStart,
+      'reportEndMarker': kSpeakingReportEnd,
+      // Non-empty switches the optional scaffolding section on (and its
+      // inverse the immersion variant); the values are never rendered.
       'scaffolding': e.scaffolded ? 'yes' : '',
+      'noScaffolding': e.scaffolded ? '' : 'yes',
+      'personalFocus': personalFocus.join(', '),
+      'referenceNotes': referenceNotes,
       'practisePoints': e.practisePoints.join(', '),
       'targetVocabulary': e.targetVocabulary.join(', '),
       'scoringCriteria': e.scoringCriteria.join(', '),

@@ -34,7 +34,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'Idiom decoder in three steps per idiom: I describe the literal '
         'image, then give the actual meaning, then use it in a small '
         'situation you propose. Missed idioms return later in the drill '
-        'until I land them. Write the final report in German.',
+        'until I land them.',
     material:
         'Idioms to drill (idiom = meaning):\n'
         'jmdm. die Daumen drücken = to keep one\'s fingers crossed · '
@@ -107,7 +107,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'must infer motives with subjective modals: er dürfte eifersüchtig '
         'gewesen sein, sie soll früher … gewesen sein, er will nichts '
         'gewusst haben. Challenge my inferences and make me grade my own '
-        'certainty. Write the final report in German.',
+        'certainty.',
     practisePoints: [
       'Subjective modals with past infinitive (dürfte … gewesen sein)',
       'Grading certainty: muss > dürfte > könnte',
@@ -164,7 +164,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
     topic:
         'A morphology game about German word formation. Be strict about '
         'what actually exists — and explain the morphology behind every '
-        'catch. Write the final report in German.',
+        'catch.',
     material:
         'Game rules:\n'
         '- 6 rounds. Each round you give me one root: binden, die Kraft, '
@@ -231,7 +231,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
     topic:
         'A short literary excerpt to read for tone rather than facts. Ask '
         'the questions in German, one at a time; question 4 demands a '
-        'litotes paraphrase. Write the final report in German.',
+        'litotes paraphrase.',
     material:
         'Passage (show it to me exactly like this):\n'
         'Herr Brenner war kein unbeliebter Mann. Jeden Morgen um sieben '
@@ -311,8 +311,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'apparently, supposedly, claims to. Each must land in German as '
         'angeblich, offenbar, soll … haben, will … haben or dürfte — the '
         'wrong hedge counts as a wrong answer even if the grammar holds. '
-        'Serve one at a time and correct immediately. '
-        'Write the final report in German.',
+        'Serve one at a time and correct immediately.',
     material:
         'Sentences to serve one at a time (grade the hedge choice '
         'strictly):\n'
@@ -377,8 +376,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
     passScore: 70,
     topic:
         'An irony-detection listening: you perform a monologue dripping '
-        'with irony, and I separate what was said from what was meant. '
-        'Write the final report in German.',
+        'with irony, and I separate what was said from what was meant.',
     material:
         'The piece (perform aloud as a fluent ~90-second monologue, '
         'clearly ironic in intent but never breaking character; repeat '
@@ -452,8 +450,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
         '"Erzähl es zweimal": the same four-beat anecdote told straight, '
         'then retold dripping with irony. Grade above all the CONTRAST '
         'between the two tellings — a good version 2 must be recognizably '
-        'the same story wearing a smirk. '
-        'Write the final report in German.',
+        'the same story wearing a smirk.',
     material:
         'Story skeleton:\n'
         '- The anecdote (invent details): I organize a perfect birthday '
@@ -519,7 +516,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'A review of a film or book of my choice (real or invented), '
         'about 130 words, graded against the rubric. Afterwards, mark '
         'every idiom and subjective modal I used and judge each one\'s '
-        'fit individually. Write the final report in German.',
+        'fit individually.',
     material:
         'Writing task:\n'
         '- I write a review (film or book, my choice) of about 130 words '
@@ -593,7 +590,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'I must deflect with humor and hedged disagreement — never a '
         'flat "Das ist falsch", never surrender either. Escalate gently '
         'if my deflections work too well, and keep the evening pleasant '
-        'on the surface throughout. Write the final report in German.',
+        'on the surface throughout.',
     practisePoints: [
       'Hedged disagreement: Da wäre ich mir nicht so sicher…',
       'Humor and light irony as social tools',
@@ -656,7 +653,7 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'naturally or mirror it, and answer the irony on its meant level, '
         'not its literal one. Reveal at the end which I caught and which '
         'slipped past. Also demand at least 2 subjective-modal inferences '
-        'from me along the way. Write the final report in German.',
+        'from me along the way.',
     practisePoints: [
       'Catching idioms and irony live in flowing conversation',
       'Answering irony on the meant level without flagging it',

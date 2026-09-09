@@ -132,14 +132,21 @@ void main() {
   });
 
   test('reports switch to German from B2.1 (m7) on', () {
+    // Carried by the first-class reportLanguage field (the builder derives it
+    // from the level), never as topic text — a free-text request would lose
+    // to the template's own report-language line.
     modules.forEach((key, quizzes) {
       final n = int.parse(key.substring(1));
-      if (n < 7) return;
       for (final quiz in quizzes) {
         expect(
-          quiz.speaking!.topic,
-          contains('Write the final report in German.'),
+          quiz.speaking!.reportLanguage,
+          n >= 7 ? 'de' : isNull,
           reason: '${quiz.id}: reading your own feedback is the exercise',
+        );
+        expect(
+          quiz.speaking!.topic,
+          isNot(contains('report in German')),
+          reason: '${quiz.id}: report language must not live in topic text',
         );
       }
     });

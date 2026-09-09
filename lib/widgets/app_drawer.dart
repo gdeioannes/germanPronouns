@@ -1121,14 +1121,6 @@ class _AppDrawerState extends State<AppDrawer> {
       tooltip = item.titleOverride ?? strings.switchCourse;
       selected = false;
       onTap = () => _openCourseFinder(context);
-    } else if (item.ref == kHowItWorksRef) {
-      icon = navIconFor(item.iconKey, Icons.help_outline_rounded);
-      tooltip = item.titleOverride ?? strings.howItWorks;
-      selected = false;
-      onTap = () {
-        Navigator.pop(context);
-        context.push('/intro');
-      };
     } else if (item.ref == kWordLibraryRef) {
       icon = navIconFor(item.iconKey, Icons.library_books_rounded);
       tooltip = item.titleOverride ?? strings.wordLibrary;

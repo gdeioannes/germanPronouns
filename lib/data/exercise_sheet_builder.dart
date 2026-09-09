@@ -5,6 +5,7 @@ import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../models/quiz_stats.dart';
+import '../models/speaking_exercise.dart';
 import 'content/active_course_content.dart';
 import 'noun_progression_data.dart';
 import 'quest_data.dart';
@@ -243,13 +244,14 @@ Future<List<_ExerciseSource>> _courseExerciseSources(Course course) async {
 }
 
 /// Whether [content] has a paper form: audio-only kinds (listen-&-repeat,
-/// listening, dictation) can't be answered on a printed sheet.
+/// listening, dictation) can't be answered on a printed sheet. A speaking
+/// exercise prints when its MATERIAL carries `item = meaning` pairs (drill
+/// word lists, chunk lists) — the conversation itself has no paper form, but
+/// its curriculum payload does.
 bool _printable(QuizContent content) => switch (content.kind) {
   QuizKind.fillBlank || QuizKind.reading || QuizKind.draw => true,
-  QuizKind.speakRepeat ||
-  QuizKind.listening ||
-  QuizKind.dictation ||
-  QuizKind.speaking => false,
+  QuizKind.speaking => speakingMaterialPairs(content).isNotEmpty,
+  QuizKind.speakRepeat || QuizKind.listening || QuizKind.dictation => false,
 };
 
 /// Done state of a plain nav quiz, mirroring the course home's rules for the
@@ -279,9 +281,10 @@ Future<bool> _regularQuizDone(String ref, QuizContent content) async {
 ExerciseSection? _sectionFor(_ExerciseSource source, Random rng) {
   final content = source.content;
   switch (content.kind) {
-    // A speaking exercise has no paper form: it is a prompt to run elsewhere.
+    // A speaking exercise prints its MATERIAL word/chunk pairs; the
+    // conversation itself runs elsewhere.
     case QuizKind.speaking:
-      return null;
+      return _speakingVocabSection(source);
     case QuizKind.draw:
       return _writingSection(source);
     case QuizKind.reading:
@@ -441,6 +444,29 @@ ExerciseSection _inlineClozeSection(_ExerciseSource source) {
           options: b.options,
           weakness: weakness,
         ),
+    ],
+  );
+}
+
+/// The `item = meaning` pairs in a speaking exercise's MATERIAL (see
+/// `speakingMaterialPairsOf` in the model, shared with the Help Memory PDF).
+List<(String, String)> speakingMaterialPairs(QuizContent content) =>
+    speakingMaterialPairsOf(content.speaking?.material ?? '');
+
+/// A speaking exercise's printable form: its MATERIAL pairs as a vocabulary
+/// sheet — the target-language chunk on the left, its meaning in the fold-away
+/// answer column.
+ExerciseSection? _speakingVocabSection(_ExerciseSource source) {
+  final content = source.content;
+  final pairs = speakingMaterialPairs(content);
+  if (pairs.isEmpty) return null;
+  final weakness = _weakness(source, null);
+  return ExerciseSection(
+    quizTitle: content.title,
+    kind: ExerciseSectionKind.cloze,
+    items: [
+      for (final (chunk, meaning) in pairs)
+        ExerciseItem(prompt: chunk, answer: meaning, weakness: weakness),
     ],
   );
 }

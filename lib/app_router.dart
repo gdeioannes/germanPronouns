@@ -7,7 +7,6 @@ import 'models/app_session.dart';
 import 'models/course_session.dart';
 import 'pages/about_me_page.dart';
 import 'pages/back_office/back_office_home_page.dart';
-import 'pages/course_intro_page.dart';
 import 'pages/course_selector_page.dart';
 import 'pages/course_start_page.dart';
 import 'pages/learner_home_page.dart';
@@ -76,10 +75,6 @@ final GoRouter appRouter = GoRouter(
           child: CourseStartPage(courseId: courseId),
         );
       },
-    ),
-    GoRoute(
-      path: '/intro',
-      builder: (context, state) => const CourseIntroPage(),
     ),
     GoRoute(
       // Stable alias used throughout the app (drawer home tile, post-login,

@@ -32,8 +32,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
     topic:
         'Abstraction pairs: drill the 20 noun–verb partners in the '
         'material in both directions, and after every third pair demand a '
-        'full sentence embedding whichever form you name. '
-        'Write the final report in German.',
+        'full sentence embedding whichever form you name.',
     material:
         'Pairs to drill (noun ↔ verb = meaning):\n'
         'die Entwicklung ↔ entwickeln = development / to develop · '
@@ -105,8 +104,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'Style transformation in two rounds: I turn 8 verbal German '
         'sentences into nominal style, then unpack 4 nominal monsters into '
         'clean verbal German. Serve one at a time, correct immediately, '
-        'and rate elegance as well as accuracy. '
-        'Write the final report in German.',
+        'and rate elegance as well as accuracy.',
     material:
         'Round 1 — verbal → nominal (serve one at a time):\n'
         '1. Nachdem das Projekt abgeschlossen wurde, feierte das Team.\n'
@@ -179,8 +177,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
     topic:
         'A popular-science passage on sleep research to read and answer '
         'questions about. Ask in German, one at a time; question 4 demands '
-        'a paraphrase of a sein + zu construction. '
-        'Write the final report in German.',
+        'a paraphrase of a sein + zu construction.',
     material:
         'Passage (show it to me exactly like this):\n'
         'Schlaf galt lange als passiver Zustand, in dem das Gehirn '
@@ -263,7 +260,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'position, respond to both, and must produce at least 2 '
         'Passiversatz forms (sich lassen / sein + zu / -bar) and one '
         'sentence with zumal. Track those requirements and tell me at the '
-        'end whether I met them. Write the final report in German.',
+        'end whether I met them.',
     practisePoints: [
       'Arguing an abstract societal question in extended turns',
       'Passiversatz in free speech (Das lässt sich finanzieren…)',
@@ -320,8 +317,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
     passScore: 70,
     topic:
         'A style-inflation duel. Keep it fast and funny, but grade the '
-        'grammar of every transformation seriously. '
-        'Write the final report in German.',
+        'grammar of every transformation seriously.',
     material:
         'Game rules:\n'
         '- Round 1, inflation (5 rounds): you state a simple everyday fact '
@@ -388,7 +384,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'passage: first a 100-word abstract in nominal style, then a '
         '3-sentence plain-language version of the same content. Grade '
         'against the rubric, then show me one sentence of mine rewritten '
-        'even better in each register. Write the final report in German.',
+        'even better in each register.',
     material:
         'Writing task:\n'
         '- Source: the sleep-research passage from this module\'s reading '
@@ -456,7 +452,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
     topic:
         'A mini-lecture to reconstruct: you lecture for about 2 minutes on '
         'an invented study, then I rebuild it along '
-        'method–result–implication. Write the final report in German.',
+        'method–result–implication.',
     material:
         'The piece (deliver as a fluent ~2-minute spoken lecture, '
         'C1 register with nominal phrases and one sein + zu form; repeat '
@@ -529,8 +525,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
     topic:
         '"Die Stadt in 30 Jahren": a structured speculation about my city '
         'in three decades, told along the beats in the material — with '
-        'subjectless passives as the required backbone. '
-        'Write the final report in German.',
+        'subjectless passives as the required backbone.',
     material:
         'Story skeleton:\n'
         '- Beat 1, Ankunft: I arrive in my city in 30 years and describe '
@@ -599,8 +594,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
         '(ask me first), you are a skeptical lay host. Whenever I use '
         'jargon or nominal style, pounce: "Was heißt das konkret?" — and '
         'I must unpack it into plain German on the spot, then return to '
-        'expert register. Do this at least four times. '
-        'Write the final report in German.',
+        'expert register. Do this at least four times.',
     practisePoints: [
       'Holding expert register: nominal style, hedged claims',
       'Instant downshifts to plain language on demand',
@@ -661,8 +655,7 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'argument, demand one live style transformation in each direction '
         '(a sentence of mine into nominal style, one of yours into plain '
         'German), and at one point order a full register shift: "Erklären '
-        'Sie das jetzt einem Kind." Judge the shift itself. '
-        'Write the final report in German.',
+        'Sie das jetzt einem Kind." Judge the shift itself.',
     practisePoints: [
       'Sustained abstract argumentation at C1 length',
       'Live Nominalstil ↔ Verbalstil transformations',

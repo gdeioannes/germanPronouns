@@ -43,7 +43,24 @@ enum SpeakingMode {
     (m) => m.name == name,
     orElse: () => SpeakingMode.conversation,
   );
+
+  /// The rule family this mode renders with (see [SpeakingFamily]): the
+  /// template carries one rule/scoring set per family, and only the matching
+  /// one is rendered — a drill prompt never contains the no-drills rule, a
+  /// writing prompt never mentions voice.
+  SpeakingFamily get family => switch (this) {
+    conversation || interview || roleplay || storytelling =>
+      SpeakingFamily.conversation,
+    vocabDrill || translationDrill || wordGame => SpeakingFamily.drill,
+    listenRetell || readingQa || readingGen => SpeakingFamily.presentation,
+    writing => SpeakingFamily.writing,
+  };
 }
+
+/// The four rule families that cover all [SpeakingMode]s. Template sections
+/// carry a `families:` list naming which of these they render for; a section
+/// without one is shared by all.
+enum SpeakingFamily { conversation, drill, presentation, writing }
 
 /// Session-length overrides. Anything null falls back to the manifest defaults.
 ///
@@ -120,6 +137,7 @@ class SpeakingExercise {
     this.session = const SpeakingSession(),
     this.report = const SpeakingReport(),
     this.passScore,
+    this.reportLanguage,
   });
 
   /// What the conversation is about, one or two sentences.
@@ -160,6 +178,12 @@ class SpeakingExercise {
   /// Score (0–100) needed to complete the quiz. Null uses the manifest default.
   final int? passScore;
 
+  /// Language code the AI writes the closing report in. Null = the learner's
+  /// UI language. First-class here so it can never lose an argument with the
+  /// template (it used to be a free-text sentence in the topic, which the
+  /// template's own report-language line overrode).
+  final String? reportLanguage;
+
   Map<String, dynamic> toJson() => {
     'topic': topic,
     'practisePoints': practisePoints,
@@ -172,6 +196,7 @@ class SpeakingExercise {
     if (!session.isEmpty) 'session': session.toJson(),
     if (!report.isEmpty) 'report': report.toJson(),
     if (passScore != null) 'passScore': passScore,
+    if (reportLanguage != null) 'reportLanguage': reportLanguage,
   };
 
   factory SpeakingExercise.fromJson(Map<String, dynamic> json) =>
@@ -199,6 +224,7 @@ class SpeakingExercise {
                 Map<String, dynamic>.from(json['report'] as Map),
               ),
         passScore: json['passScore'] as int?,
+        reportLanguage: json['reportLanguage'] as String?,
       );
 }
 
@@ -242,6 +268,83 @@ final RegExp _scoreLine = RegExp(
 ///
 /// The `SCORE=` line wins over a bare number so pasting a report that also
 /// contains "FINAL SCORE: 84 / 100" can't pick up the 100.
+/// The `item = meaning` pairs in a speaking exercise's [SpeakingExercise.material]
+/// — the word and chunk lists of drill/vocab exercises, authored as
+/// `·`-separated segments (or one pair per line) of the form
+/// `german chunk = english meaning`. Label lines ("Words to drill (word =
+/// meaning):"), passages and drill instructions contribute nothing.
+List<(String, String)> speakingMaterialPairsOf(String material) {
+  if (material.isEmpty) return const [];
+  final pairs = <(String, String)>[];
+  for (final line in material.split('\n')) {
+    for (final segment in line.split(' · ')) {
+      // A trailing colon marks a label line, not a vocabulary entry.
+      if (segment.trim().endsWith(':')) continue;
+      final eq = segment.indexOf(' = ');
+      if (eq <= 0) continue;
+      final left = segment.substring(0, eq).trim();
+      final right = segment.substring(eq + 3).trim();
+      if (left.isEmpty || right.isEmpty || left.contains(':')) continue;
+      pairs.add((left, right));
+    }
+  }
+  return pairs;
+}
+
+// ---------------------------------------------------------------------------
+// The delimited report
+// ---------------------------------------------------------------------------
+
+/// The marker lines bounding the AI's report. The template asks for them
+/// verbatim in every UI language (they are protocol, not prose), so the
+/// learner can see exactly what to copy and the app can cut the report out of
+/// any paste. Never localize or reword: stored results reference them.
+const String kSpeakingReportStart = '===== REPORT START =====';
+const String kSpeakingReportEnd = '===== REPORT END =====';
+
+/// The report block inside [input] — between the marker lines when both are
+/// present (either marker alone anchors the matching side), else the whole
+/// trimmed input. Never null so a paste without markers still stores what the
+/// learner gave us.
+String extractSpeakingReport(String input) {
+  var text = input.trim();
+  final start = text.indexOf(kSpeakingReportStart);
+  if (start >= 0) text = text.substring(start + kSpeakingReportStart.length);
+  final end = text.indexOf(kSpeakingReportEnd);
+  if (end >= 0) text = text.substring(0, end);
+  return text.trim();
+}
+
+final RegExp _fixLine = RegExp(
+  r'^\s*(?:-\s*)?FIX\s*:\s*(.+?)\s*(?:->|→)\s*(.+?)\s*$',
+  multiLine: true,
+);
+
+/// One correction from the report's `FIX: <what I said> -> <correct form>`
+/// lines — the learner's actual mistake in their actual words, the raw
+/// material of the personal-focus loop and the mistake trainer.
+class SpeakingFix {
+  const SpeakingFix({required this.said, required this.correct});
+
+  final String said;
+  final String correct;
+
+  Map<String, dynamic> toJson() => {'said': said, 'correct': correct};
+
+  factory SpeakingFix.fromJson(Map<String, dynamic> json) => SpeakingFix(
+    said: json['said'] as String? ?? '',
+    correct: json['correct'] as String? ?? '',
+  );
+}
+
+/// All `FIX:` corrections found in [input] (a pasted report or any part of
+/// one). Tolerates a leading list dash and either arrow form; junk-free by
+/// construction — a line without both sides simply doesn't match.
+List<SpeakingFix> parseSpeakingFixes(String input) => [
+  for (final m in _fixLine.allMatches(input))
+    SpeakingFix(said: m.group(1)!, correct: m.group(2)!),
+];
+
 int? parseSpeakingScore(String input) {
   final text = input.trim();
   if (text.isEmpty) return null;

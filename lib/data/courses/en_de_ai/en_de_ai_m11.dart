@@ -9,7 +9,7 @@ import 'en_de_ai_builder.dart';
 /// colloquial triplets); advanced word order for emphasis (Vorfeld
 /// manipulation, Ausklammerung); precision collocations.
 ///
-/// C2 session shape: ~6 minutes, 10 exchanges, pass 70; report in German.
+/// C2 session shape: ~6 minutes, 10 exchanges, pass 70; the builder switches the report to German at this level.
 const _c2Session = SpeakingSession(durationMinutes: 6, minExchanges: 10);
 
 const _copyTip = HelpMemoryTip(
@@ -32,8 +32,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
     topic:
         'Drill Funktionsverbgefüge against their simple-verb equivalents, '
         'both directions, with a one-line register comment on each: when the '
-        'FVG lifts the sentence and when it just stiffens it. Write the '
-        'final report in German.',
+        'FVG lifts the sentence and when it just stiffens it.',
     material:
         'FVG = simple verb (drill both directions):\n'
         'in Erwägung ziehen = erwägen · zur Verfügung stellen = bereitstellen '
@@ -98,8 +97,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
     passScore: 70,
     topic:
         'The register slider: one message, three audiences. You name a '
-        'random audience, I re-voice the same content for it on the spot. '
-        'Write the final report in German.',
+        'random audience, I re-voice the same content for it on the spot.',
     material:
         'Game rules:\n'
         '- Each round you give me one piece of content (e.g. "the meeting '
@@ -158,7 +156,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
     topic:
         'Ten English sentences where the obvious German verb is wrong — '
         'each needs its fixed collocation partner. Reveal the collocation '
-        'only after my attempt. Write the final report in German.',
+        'only after my attempt.',
     material:
         'Sentences to serve one at a time (target collocation in '
         'brackets — reveal it after my attempt, never before):\n'
@@ -224,8 +222,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
     topic:
         'A dense opinion piece to dissect: the questions target rhetorical '
         'structure — where the concession lives, what the Vorfeld fronts, '
-        'how the author disarms objections. Write the final report in '
-        'German.',
+        'how the author disarms objections.',
     material:
         'Passage (show it to me exactly like this):\n'
         'Dass die Innenstädte veröden, gilt inzwischen als ausgemachte '
@@ -308,7 +305,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'project of my choosing. Object realistically and yield only to '
         'well-built arguments. I must use at least three Funktionsverbgefüge '
         'and one deliberate emphasis fronting — track them and name them in '
-        'the feedback. Write the final report in German.',
+        'the feedback.',
     practisePoints: [
       'Concession-then-rebuttal argument structure',
       'Funktionsverbgefüge deployed naturally under pressure',
@@ -364,8 +361,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
     passScore: 70,
     topic:
         'A 150-word position paper plus its 40-word executive summary, '
-        'graded above all on Funktionsverbgefüge density without stiffness. '
-        'Write the final report in German.',
+        'graded above all on Funktionsverbgefüge density without stiffness.',
     material:
         'Writing task:\n'
         '- Pick one workplace or civic issue (I may propose one if you '
@@ -428,7 +424,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
     topic:
         'One story, two publications: I narrate the same event first as a '
         'tabloid would, then as a broadsheet. Grade register purity per '
-        'version, sentence by sentence. Write the final report in German.',
+        'version, sentence by sentence.',
     material:
         'Story skeleton:\n'
         '- The event: a small-town swimming pool closes for the summer '
@@ -491,7 +487,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
     topic:
         'You read me a formal written statement aloud; I render it for a '
         'colleague in relaxed but still professional spoken German — same '
-        'content, one register down. Write the final report in German.',
+        'content, one register down.',
     material:
         'The piece (read it to me aloud, twice if I ask):\n'
         '"Sehr geehrte Mitarbeiterinnen und Mitarbeiter, die '
@@ -558,8 +554,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'A press conference. I am the spokesperson defending an unpopular '
         'decision my organisation has made; you play several journalists '
         'who interrupt, bait me with loaded questions, and misquote what I '
-        'just said. Stay hostile but realistic. Write the final report in '
-        'German.',
+        'just said. Stay hostile but realistic.',
     practisePoints: [
       'Correcting a misquote calmly and precisely',
       'Bridging from a loaded question back to the message',
@@ -617,7 +612,7 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'topics, but hold the content constant and switch the register on '
         'your command MID-ANSWER: call "formell!", "neutral!" or "salopp!" '
         'and I must re-voice the running answer instantly. Do this at least '
-        'four times across the interview. Write the final report in German.',
+        'four times across the interview.',
     practisePoints: [
       'Instant register switches without losing the thread',
       'FVG and exact collocations on demand in formal mode',

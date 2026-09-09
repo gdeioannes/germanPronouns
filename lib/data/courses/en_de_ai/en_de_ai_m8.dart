@@ -34,8 +34,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
     topic:
         'Formal frames with genitive prepositions: drill the 15 frames in '
         'the material, then push me into free production — I must build my '
-        'own sentence for each preposition, work context preferred. '
-        'Write the final report in German.',
+        'own sentence for each preposition, work context preferred.',
     material:
         'Frames to drill (frame = meaning):\n'
         'trotz des schlechten Wetters = despite the bad weather · '
@@ -102,7 +101,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
         'by email, a neighbour who sold his flat below value. After each, I '
         'evaluate the decision in the irreal past: what the person should, '
         'could or would have done. Push back once per story so I have to '
-        'defend my judgement. Write the final report in German.',
+        'defend my judgement.',
     practisePoints: [
       'hätte + Partizip II for irreal past (hätte gefragt)',
       'Irreal past with modals: hätte fragen sollen / können / müssen',
@@ -161,8 +160,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
         'Participle workshop in two directions: I turn 8 English '
         'relative-clause sentences into German Partizipialattribute, then '
         'you give me my German versions back and I unpack them into '
-        'relative clauses. Serve one at a time and correct immediately. '
-        'Write the final report in German.',
+        'relative clauses. Serve one at a time and correct immediately.',
     material:
         'Sentences to serve one at a time (target: a participial '
         'attribute, e.g. "der von der Firma entwickelte Plan"):\n'
@@ -225,8 +223,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
     topic:
         'A simplified rental-contract excerpt plus a short cover letter to '
         'read and answer questions about. Ask the questions in German, one '
-        'at a time; question 5 demands a trotz/aufgrund paraphrase. '
-        'Write the final report in German.',
+        'at a time; question 5 demands a trotz/aufgrund paraphrase.',
     material:
         'Passage (show it to me exactly like this):\n'
         'Auszug aus dem Mietvertrag, § 4 und § 7:\n'
@@ -302,7 +299,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
     topic:
         'A mood-guessing game about modal particles (doch, ja, eben, halt, '
         'mal, schon). Keep it playful and always explain the flavour a '
-        'particle adds. Write the final report in German.',
+        'particle adds.',
     material:
         'Game rules:\n'
         '- Round 1 (6 rounds, you serve): say the SAME base sentence with '
@@ -367,8 +364,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
     topic:
         'A formal application email for the fictional dream job from '
         'module 5. Grade it against the rubric in the material, then walk '
-        'me through the two weakest sentences. '
-        'Write the final report in German.',
+        'me through the two weakest sentences.',
     material:
         'Writing task:\n'
         '- Invent a job ad for my dream job (2 lines) and show it to me.\n'
@@ -435,8 +431,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
     topic:
         '"Beinahe-Katastrophe": I tell a near-miss story twice — first what '
         'actually happened, then the replay of what WOULD have happened if '
-        'things had gone wrong. Interrupt only between the two versions. '
-        'Write the final report in German.',
+        'things had gone wrong. Interrupt only between the two versions.',
     material:
         'Story skeleton:\n'
         '- I invent (or remember) a near-miss: almost missed flight, '
@@ -501,8 +496,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
         'Marktlage", "vielleicht nächstes Jahr"), I ask for a raise. I use '
         'concessions and Konjunktiv II courtesy, but I am not allowed to '
         'fold more than twice — if I give in a third time, say so and end '
-        'the scene. Make me earn every euro. '
-        'Write the final report in German.',
+        'the scene. Make me earn every euro.',
     practisePoints: [
       'Konjunktiv II courtesy: Ich hätte gern…, Wäre es möglich…',
       'Concessions that hold ground: Ich verstehe das, dennoch…',
@@ -560,8 +554,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
     topic:
         'A voicemail chain to untangle: you speak three short voicemails '
         'aloud, then I summarize the whole situation and say what should '
-        'have been done at each step — irreal past required. '
-        'Write the final report in German.',
+        'have been done at each step — irreal past required.',
     material:
         'The piece (perform each voicemail aloud, natural pace, '
         'clearly separated; repeat once on request):\n'
@@ -633,8 +626,7 @@ final List<QuizContent> enDeAiM8Quizzes = [
         '(what went wrong, what should have been done), a formal '
         'clarification call, and a short contract clause I must explain in '
         'my own words. Switch scenarios without warning; stay strictly '
-        'formal except one deliberately casual aside I must handle. '
-        'Write the final report in German.',
+        'formal except one deliberately casual aside I must handle.',
     practisePoints: [
       'Irreal past with modals under pressure',
       'Genitive prepositions and forms in formal speech',

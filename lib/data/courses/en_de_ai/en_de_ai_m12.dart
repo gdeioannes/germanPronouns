@@ -9,7 +9,7 @@ import 'en_de_ai_builder.dart';
 /// awareness (receptive); discourse management (turn-taking, repair);
 /// prosody & emphasis in speech.
 ///
-/// C2 session shape: ~6 minutes, 10 exchanges, pass 70; report in German.
+/// C2 session shape: ~6 minutes, 10 exchanges, pass 70; the builder switches the report to German at this level.
 const _c2Session = SpeakingSession(durationMinutes: 6, minExchanges: 10);
 
 const _copyTip = HelpMemoryTip(
@@ -32,8 +32,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
     topic:
         'Untranslatables and colloquialisms, served inside mini-dialogues: '
         'I translate the EFFECT of the marked word (not the word), then '
-        'answer the dialogue line in matching register. Write the final '
-        'report in German.',
+        'answer the dialogue line in matching register.',
     material:
         'Serve each mini-dialogue, mark the target word, ask me for '
         'its effect, then for my in-register reply:\n'
@@ -104,7 +103,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'of escalating abstraction (an object, a social question, a '
         'philosophical one) and change topic MID-SENTENCE at least twice. '
         'Weight the grading towards flexibility and repair strategies, not '
-        'polish. Write the final report in German.',
+        'polish.',
     practisePoints: [
       'Following an abrupt topic cut without stalling',
       'Repair phrases: wo waren wir, wie soll ich sagen, Moment',
@@ -160,7 +159,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
     topic:
         'The Absurde These game: I draw an absurd thesis and defend it '
         'against your genuine cross-examination. Argue back hard — treat '
-        'my thesis as if it mattered. Write the final report in German.',
+        'my thesis as if it mattered.',
     material:
         'Game rules:\n'
         '- Offer me three absurd theses to draw from, e.g.: "Socken '
@@ -224,7 +223,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
     topic:
         'You speak the same short scene twice — once in neutral standard '
         'German, once colloquial and lightly dialect-tinged — and I map '
-        'one version onto the other. Write the final report in German.',
+        'one version onto the other.',
     material:
         'The piece (perform BOTH versions aloud, colloquial one '
         'noticeably faster):\n'
@@ -293,7 +292,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
     topic:
         'Two texts about the same event — a satirical column and a sober '
         'report. The questions force me to mediate between their claims '
-        'rather than summarise either. Write the final report in German.',
+        'rather than summarise either.',
     material:
         'Text A, satirical column (show it exactly like this):\n'
         '"Es ist vollbracht: Unsere Stadt hat eine Fahrradstraße. Ganze '
@@ -375,8 +374,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'icy, precise) — at war over noise, cleaning and a broken lamp. I '
         'broker a compromise and, at the end, dictate it as a short '
         'written agreement both explicitly accept. Do not let either '
-        'accept it until it addresses their core grievance. Write the '
-        'final report in German.',
+        'accept it until it addresses their core grievance.',
     practisePoints: [
       'Mirroring each party in their own register',
       'Mediation language: beide Seiten, der Kompromiss läge darin',
@@ -430,7 +428,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
     topic:
         'The hardest brief in the course: a eulogy for a deceased '
         'houseplant, in genuine, dignified eulogy register — graded on the '
-        'tone tightrope, never on jokes. Write the final report in German.',
+        'tone tightrope, never on jokes.',
     material:
         'Writing task:\n'
         '- Write a eulogy (120–150 words) for Ficus "Herbert", who stood '
@@ -498,7 +496,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'An improvised chain story: we alternate sentences, and you inject '
         'genre shifts by announcing the new genre before your sentence. My '
         'next sentence must land the new register instantly while keeping '
-        'the story coherent. Write the final report in German.',
+        'the story coherent.',
     material:
         'Story skeleton and rules:\n'
         '- Seed: "Als Frau Berger am Montag ihren Briefkasten öffnete, '
@@ -569,8 +567,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'which A1 topics demand C2 answers. Ask beginner questions — '
         'family, hobbies, my town, food, weekend — and require essayist '
         'depth: nuance, structure, imagery, register control ("Erzählen '
-        'Sie von Ihrer Familie — als Essayist"). Write the final report '
-        'in German.',
+        'Sie von Ihrer Familie — als Essayist").',
     practisePoints: [
       'Elevating trivial topics to essayistic depth',
       'Full grammar range recycled: Konjunktiv, passive, FVG',
@@ -625,8 +622,7 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'contractions (isses, haste, \'nen). Rotate them, let them talk '
         'over each other, and make me host all three for the full twelve '
         'exchanges: soothe the pedant, parry the provocateur, decode the '
-        'mumbler, and keep one conversation alive between them. Write the '
-        'final report in German.',
+        'mumbler, and keep one conversation alive between them.',
     practisePoints: [
       'Register agility across three simultaneous voices',
       'Discourse management: turn-taking, soothing, redirecting',

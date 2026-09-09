@@ -22,6 +22,12 @@ class SpeakingStrings {
     required this.scoreSectionTitle,
     required this.scoreHint,
     required this.scoreField,
+    required this.scorePlaceholder,
+    required this.helpMaterialTitle,
+    required this.helpPractiseTitle,
+    required this.helpVocabularyTitle,
+    required this.helpWordColumn,
+    required this.helpMeaningColumn,
     required this.saveScore,
     required this.savedTitle,
     required this.bestScore,
@@ -71,6 +77,20 @@ class SpeakingStrings {
   final String scoreSectionTitle;
   final String scoreHint;
   final String scoreField;
+
+  /// In-field placeholder showing exactly what a valid paste looks like.
+  /// `SCORE=72` and the ===== markers are protocol and stay untranslated.
+  final String scorePlaceholder;
+
+  /// Help Memory section headings for the exercise's study content: the
+  /// MATERIAL payload, the practise points, and the target vocabulary.
+  final String helpMaterialTitle;
+  final String helpPractiseTitle;
+  final String helpVocabularyTitle;
+
+  /// Column headers of the word/meaning table the material pairs render as.
+  final String helpWordColumn;
+  final String helpMeaningColumn;
   final String saveScore;
   final String savedTitle;
   final String bestScore;
@@ -113,8 +133,16 @@ const SpeakingStrings kSpeakingStringsEn = SpeakingStrings(
       'comparable.',
   scoreSectionTitle: 'Enter your score',
   scoreHint:
-      'Type the number, or just paste the whole report — we\'ll find the score.',
+      'Best: paste the AI\'s whole report (everything between the ===== '
+      'lines) — we\'ll read the score and remember your corrections. A bare '
+      'number works too.',
   scoreField: 'Score out of 100',
+  scorePlaceholder: 'Paste the report here, or type e.g. 72 or SCORE=72',
+  helpMaterialTitle: 'Exercise material',
+  helpPractiseTitle: 'What you practise',
+  helpVocabularyTitle: 'Words to use',
+  helpWordColumn: 'Word / phrase',
+  helpMeaningColumn: 'Meaning',
   saveScore: 'Save score',
   savedTitle: 'Score saved',
   bestScore: 'Best',
@@ -177,9 +205,16 @@ const SpeakingStrings kSpeakingStringsDe = SpeakingStrings(
       'einer, damit deine Punktzahlen vergleichbar bleiben.',
   scoreSectionTitle: 'Punktzahl eintragen',
   scoreHint:
-      'Tipp die Zahl ein oder füge einfach den ganzen Bericht ein — wir finden '
-      'die Punktzahl.',
+      'Am besten: füge den ganzen Bericht der KI ein (alles zwischen den '
+      '=====-Zeilen) — wir lesen die Punktzahl und merken uns deine '
+      'Korrekturen. Eine bloße Zahl geht auch.',
   scoreField: 'Punktzahl von 100',
+  scorePlaceholder: 'Bericht hier einfügen, oder z. B. 72 oder SCORE=72',
+  helpMaterialTitle: 'Übungsmaterial',
+  helpPractiseTitle: 'Was du übst',
+  helpVocabularyTitle: 'Wörter zum Verwenden',
+  helpWordColumn: 'Wort / Wendung',
+  helpMeaningColumn: 'Bedeutung',
   saveScore: 'Punktzahl speichern',
   savedTitle: 'Punktzahl gespeichert',
   bestScore: 'Bestwert',
@@ -246,9 +281,16 @@ const SpeakingStrings kSpeakingStringsEs = SpeakingStrings(
       'tus puntuaciones sean comparables.',
   scoreSectionTitle: 'Anota tu puntuación',
   scoreHint:
-      'Escribe el número, o pega el informe entero — nosotros encontramos la '
-      'puntuación.',
+      'Lo mejor: pega el informe completo de la IA (todo lo que hay entre las '
+      'líneas =====) — leemos la puntuación y recordamos tus correcciones. '
+      'Un número solo también vale.',
   scoreField: 'Puntuación sobre 100',
+  scorePlaceholder: 'Pega aquí el informe, o escribe p. ej. 72 o SCORE=72',
+  helpMaterialTitle: 'Material del ejercicio',
+  helpPractiseTitle: 'Qué practicas',
+  helpVocabularyTitle: 'Palabras para usar',
+  helpWordColumn: 'Palabra / expresión',
+  helpMeaningColumn: 'Significado',
   saveScore: 'Guardar puntuación',
   savedTitle: 'Puntuación guardada',
   bestScore: 'Mejor',
@@ -307,7 +349,13 @@ const SpeakingStrings kSpeakingStringsZh = SpeakingStrings(
       '固定用一个，分数才有可比性。',
   scoreSectionTitle: '填写分数',
   scoreField: '分数（满分 100）',
-  scoreHint: '输入数字，或直接粘贴整份报告——我们会找出分数。',
+  scoreHint: '最好：把 AI 的整份报告（===== 行之间的全部内容）粘贴进来——我们会读出分数并记住你的更正。也可以只填数字。',
+  scorePlaceholder: '在此粘贴报告，或输入如 72 或 SCORE=72',
+  helpMaterialTitle: '练习材料',
+  helpPractiseTitle: '练习内容',
+  helpVocabularyTitle: '要用到的词',
+  helpWordColumn: '词语 / 短语',
+  helpMeaningColumn: '意思',
   saveScore: '保存分数',
   savedTitle: '分数已保存',
   bestScore: '最好成绩',

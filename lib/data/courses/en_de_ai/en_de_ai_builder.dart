@@ -21,7 +21,9 @@ export '../../../models/speaking_exercise.dart'
 ///   `practisePoints.length * minQuestionsPerPoint <= minExchanges`.
 /// - Session length and passScore rise with the level (A1 3 min/6 exchanges
 ///   pass 50 → C1+ 5–6 min/10 exchanges pass 70); pass them explicitly.
-/// - From B2.1 on, ask for the report in German via the topic/material text.
+/// - From B2.1 on the closing report is written in German (course policy,
+///   applied below via [reportLanguage] — never as topic text, which the
+///   template's own report-language line would override).
 QuizContent enDeAiEx({
   required String id,
   required String title,
@@ -38,6 +40,7 @@ QuizContent enDeAiEx({
   SpeakingReport report = const SpeakingReport(),
   int? passScore,
   bool? scaffolded,
+  String? reportLanguage,
   List<HelpMemoryTip> tips = const [],
 }) => QuizContent(
   id: id,
@@ -67,6 +70,9 @@ QuizContent enDeAiEx({
     session: session,
     report: report,
     passScore: passScore,
+    reportLanguage:
+        reportLanguage ??
+        (level.startsWith('B2') || level.startsWith('C') ? 'de' : null),
   ),
   helpMemoryIntro: intro,
   helpMemoryTips: tips,

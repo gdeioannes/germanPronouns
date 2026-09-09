@@ -491,7 +491,7 @@
       }
     ]
   },
-  "version": "1.27.0",
+  "version": "1.28.0",
   "quizzes": [
     {
       "type": "speaking",
@@ -3545,7 +3545,7 @@
         ]
       },
       "speaking": {
-        "topic": "Argumentation scaffolds drilled as whole chunks: you state a bare claim, then assign me one scaffold, and I must re-express the claim through it — grammar intact, meaning preserved. Write the final report in German.",
+        "topic": "Argumentation scaffolds drilled as whole chunks: you state a bare claim, then assign me one scaffold, and I must re-express the claim through it — grammar intact, meaning preserved.",
         "practisePoints": [
           "Scaffold chunks recalled verbatim",
           "dass-clauses and ob-clauses with verb-final order",
@@ -3567,7 +3567,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3594,7 +3595,7 @@
         ]
       },
       "speaking": {
-        "topic": "A newspaper editorial on e-scooters, locked at B2 — do not simplify or reword it. The questions target the author's stance between the lines, and one asks me to transform a quote into reported speech with Konjunktiv I. Write the final report in German.",
+        "topic": "A newspaper editorial on e-scooters, locked at B2 — do not simplify or reword it. The questions target the author's stance between the lines, and one asks me to transform a quote into reported speech with Konjunktiv I.",
         "practisePoints": [
           "Reading for stance, not just facts",
           "Decoding je…desto and dennoch/folglich logic",
@@ -3616,7 +3617,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3644,7 +3646,7 @@
         ]
       },
       "speaking": {
-        "topic": "Ten English reported-speech sentences into German indirekte Rede with Konjunktiv I — falling back to Konjunktiv II exactly where K I matches the indicative. Serve one at a time; explain every fallback I miss. Write the final report in German.",
+        "topic": "Ten English reported-speech sentences into German indirekte Rede with Konjunktiv I — falling back to Konjunktiv II exactly where K I matches the indicative. Serve one at a time; explain every fallback I miss.",
         "practisePoints": [
           "Konjunktiv I forms: er sei, er habe, er wisse, er komme",
           "K II fallback when K I equals the indicative (sie kämen, sie hätten)",
@@ -3666,7 +3668,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3694,7 +3697,7 @@
         ]
       },
       "speaking": {
-        "topic": "A structured debate on \"Autos raus aus den Innenstädten\" — and I have drawn the ANTI position (against banning cars), whatever my real view. Two full rounds: I argue, you rebut, I counter your rebuttal. Somewhere in the debate I must land at least one correct je…desto sentence — remind me at the end if it never came. Write the final report in German.",
+        "topic": "A structured debate on \"Autos raus aus den Innenstädten\" — and I have drawn the ANTI position (against banning cars), whatever my real view. Two full rounds: I argue, you rebut, I counter your rebuttal. Somewhere in the debate I must land at least one correct je…desto sentence — remind me at the end if it never came.",
         "practisePoints": [
           "Building a pro/contra argument in rounds",
           "Concessive moves: zwar…, dennoch…; ich gebe zu, dass…",
@@ -3722,7 +3725,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3750,7 +3754,7 @@
         ]
       },
       "speaking": {
-        "topic": "A fake-news poker game. You deal headlines, I interrogate you in reported speech, then bet fake or real — with a justification. Write the final report in German.",
+        "topic": "A fake-news poker game. You deal headlines, I interrogate you in reported speech, then bet fake or real — with a justification.",
         "practisePoints": [
           "Reported speech under game pressure (schreibe, behaupte, sei)",
           "Probing questions about sources and numbers",
@@ -3772,7 +3776,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3799,7 +3804,7 @@
         ]
       },
       "speaking": {
-        "topic": "A letter to the editor responding to the e-scooter editorial \"Stolperfallen auf Rädern\" (feste Abstellzonen, weniger Lizenzen, kein Verbot). Grade my letter against the rubric, paragraph by paragraph. Write the final report in German.",
+        "topic": "A letter to the editor responding to the e-scooter editorial \"Stolperfallen auf Rädern\" (feste Abstellzonen, weniger Lizenzen, kein Verbot). Grade my letter against the rubric, paragraph by paragraph.",
         "practisePoints": [
           "Thesis–argument–concession architecture",
           "Reported reference to a source text",
@@ -3821,7 +3826,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3848,7 +3854,7 @@
         ]
       },
       "speaking": {
-        "topic": "You deliver a 2-minute panel statement aloud (voice mode), in character as an expert. Afterwards I report the whole statement to an absent \"colleague\" — entirely in reported speech, Konjunktiv I with correct fallbacks, never quoting directly. Write the final report in German.",
+        "topic": "You deliver a 2-minute panel statement aloud (voice mode), in character as an expert. Afterwards I report the whole statement to an absent \"colleague\" — entirely in reported speech, Konjunktiv I with correct fallbacks, never quoting directly.",
         "practisePoints": [
           "Holding a 2-minute spoken argument in memory",
           "Sustained Konjunktiv I across a long report",
@@ -3870,7 +3876,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3898,7 +3905,7 @@
         ]
       },
       "speaking": {
-        "topic": "Statistics language, both directions: you give numbers and I verbalize the trend; then you describe a trend in words and I reconstruct the numbers. Push for variety — no verb twice in a row. Write the final report in German.",
+        "topic": "Statistics language, both directions: you give numbers and I verbalize the trend; then you describe a trend in words and I reconstruct the numbers. Push for variety — no verb twice in a row.",
         "practisePoints": [
           "steigen/sinken auf (endpoint) vs um (difference)",
           "Approximation words: knapp, gut, rund",
@@ -3920,7 +3927,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -3948,7 +3956,7 @@
         ]
       },
       "speaking": {
-        "topic": "A live talk-show: you are a provocative, interrupting guest with strong opinions on city traffic; I am the moderator. My job: summarize your points in reported speech, challenge the weak ones, and keep order politely but firmly — with dennoch and folglich doing the steering. Escalate twice; never break character. Write the final report in German.",
+        "topic": "A live talk-show: you are a provocative, interrupting guest with strong opinions on city traffic; I am the moderator. My job: summarize your points in reported speech, challenge the weak ones, and keep order politely but firmly — with dennoch and folglich doing the steering. Escalate twice; never break character.",
         "practisePoints": [
           "Summarizing live speech: Sie sagen also, es gebe…",
           "Firm-but-polite moderation (Moment bitte, dennoch…)",
@@ -3977,7 +3985,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4004,7 +4013,7 @@
         ]
       },
       "speaking": {
-        "topic": "The closing exam of the module: you draw a debatable thesis and assign me a side at random. I defend it for four full exchanges with structured arguments — then, on your command \"Seitenwechsel!\", I must argue the opposite side just as convincingly, reporting my own earlier arguments in Konjunktiv I before dismantling them. Write the final report in German.",
+        "topic": "The closing exam of the module: you draw a debatable thesis and assign me a side at random. I defend it for four full exchanges with structured arguments — then, on your command \"Seitenwechsel!\", I must argue the opposite side just as convincingly, reporting my own earlier arguments in Konjunktiv I before dismantling them.",
         "practisePoints": [
           "Structured argument under an assigned position",
           "Reporting earlier arguments in Konjunktiv I",
@@ -4028,7 +4037,8 @@
           "durationMinutes": 6,
           "minExchanges": 9
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4061,7 +4071,7 @@
         ]
       },
       "speaking": {
-        "topic": "Formal frames with genitive prepositions: drill the 15 frames in the material, then push me into free production — I must build my own sentence for each preposition, work context preferred. Write the final report in German.",
+        "topic": "Formal frames with genitive prepositions: drill the 15 frames in the material, then push me into free production — I must build my own sentence for each preposition, work context preferred.",
         "practisePoints": [
           "Genitive endings: des -(e)s for masculine/neuter, der for feminine",
           "Choosing the right preposition for cause, time and concession",
@@ -4083,7 +4093,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4116,7 +4127,7 @@
         ]
       },
       "speaking": {
-        "topic": "\"Das hätte ich anders gemacht\": tell me 4 short decision stories, one at a time — a colleague who quit by text message, a friend who bought a car without a test drive, a boss who cancelled a project by email, a neighbour who sold his flat below value. After each, I evaluate the decision in the irreal past: what the person should, could or would have done. Push back once per story so I have to defend my judgement. Write the final report in German.",
+        "topic": "\"Das hätte ich anders gemacht\": tell me 4 short decision stories, one at a time — a colleague who quit by text message, a friend who bought a car without a test drive, a boss who cancelled a project by email, a neighbour who sold his flat below value. After each, I evaluate the decision in the irreal past: what the person should, could or would have done. Push back once per story so I have to defend my judgement.",
         "practisePoints": [
           "hätte + Partizip II for irreal past (hätte gefragt)",
           "Irreal past with modals: hätte fragen sollen / können / müssen",
@@ -4145,7 +4156,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4178,7 +4190,7 @@
         ]
       },
       "speaking": {
-        "topic": "Participle workshop in two directions: I turn 8 English relative-clause sentences into German Partizipialattribute, then you give me my German versions back and I unpack them into relative clauses. Serve one at a time and correct immediately. Write the final report in German.",
+        "topic": "Participle workshop in two directions: I turn 8 English relative-clause sentences into German Partizipialattribute, then you give me my German versions back and I unpack them into relative clauses. Serve one at a time and correct immediately.",
         "practisePoints": [
           "Partizip II attributes for passive meaning (der entwickelte Plan)",
           "Partizip I attributes for ongoing meaning (die steigenden Preise)",
@@ -4201,7 +4213,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4233,7 +4246,7 @@
         ]
       },
       "speaking": {
-        "topic": "A simplified rental-contract excerpt plus a short cover letter to read and answer questions about. Ask the questions in German, one at a time; question 5 demands a trotz/aufgrund paraphrase. Write the final report in German.",
+        "topic": "A simplified rental-contract excerpt plus a short cover letter to read and answer questions about. Ask the questions in German, one at a time; question 5 demands a trotz/aufgrund paraphrase.",
         "practisePoints": [
           "Decoding contract prose: ist zu zahlen, bedarf + Genitiv",
           "Participial attributes inside legal sentences",
@@ -4255,7 +4268,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4287,7 +4301,7 @@
         ]
       },
       "speaking": {
-        "topic": "A mood-guessing game about modal particles (doch, ja, eben, halt, mal, schon). Keep it playful and always explain the flavour a particle adds. Write the final report in German.",
+        "topic": "A mood-guessing game about modal particles (doch, ja, eben, halt, mal, schon). Keep it playful and always explain the flavour a particle adds.",
         "practisePoints": [
           "Hearing the mood a particle adds to an identical sentence",
           "Producing doch, ja, eben, halt in fitting situations",
@@ -4309,7 +4323,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4342,7 +4357,7 @@
         ]
       },
       "speaking": {
-        "topic": "A formal application email for the fictional dream job from module 5. Grade it against the rubric in the material, then walk me through the two weakest sentences. Write the final report in German.",
+        "topic": "A formal application email for the fictional dream job from module 5. Grade it against the rubric in the material, then walk me through the two weakest sentences.",
         "practisePoints": [
           "Formal correspondence formulas (Sehr geehrte…, Mit freundlichen Grüßen)",
           "Nominal-style phrases in application prose",
@@ -4364,7 +4379,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4397,7 +4413,7 @@
         ]
       },
       "speaking": {
-        "topic": "\"Beinahe-Katastrophe\": I tell a near-miss story twice — first what actually happened, then the replay of what WOULD have happened if things had gone wrong. Interrupt only between the two versions. Write the final report in German.",
+        "topic": "\"Beinahe-Katastrophe\": I tell a near-miss story twice — first what actually happened, then the replay of what WOULD have happened if things had gone wrong. Interrupt only between the two versions.",
         "practisePoints": [
           "Perfekt/Präteritum for the real version",
           "hätte/wäre + participle for the replay, incl. modals",
@@ -4419,7 +4435,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4451,7 +4468,7 @@
         ]
       },
       "speaking": {
-        "topic": "Salary negotiation: you are my budget-shy boss (\"schwierige Marktlage\", \"vielleicht nächstes Jahr\"), I ask for a raise. I use concessions and Konjunktiv II courtesy, but I am not allowed to fold more than twice — if I give in a third time, say so and end the scene. Make me earn every euro. Write the final report in German.",
+        "topic": "Salary negotiation: you are my budget-shy boss (\"schwierige Marktlage\", \"vielleicht nächstes Jahr\"), I ask for a raise. I use concessions and Konjunktiv II courtesy, but I am not allowed to fold more than twice — if I give in a third time, say so and end the scene. Make me earn every euro.",
         "practisePoints": [
           "Konjunktiv II courtesy: Ich hätte gern…, Wäre es möglich…",
           "Concessions that hold ground: Ich verstehe das, dennoch…",
@@ -4481,7 +4498,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4513,7 +4531,7 @@
         ]
       },
       "speaking": {
-        "topic": "A voicemail chain to untangle: you speak three short voicemails aloud, then I summarize the whole situation and say what should have been done at each step — irreal past required. Write the final report in German.",
+        "topic": "A voicemail chain to untangle: you speak three short voicemails aloud, then I summarize the whole situation and say what should have been done at each step — irreal past required.",
         "practisePoints": [
           "Catching who wants what from spoken messages",
           "Ordering events with connectors (daraufhin, schließlich)",
@@ -4535,7 +4553,8 @@
           "durationMinutes": 5,
           "minExchanges": 8
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4567,7 +4586,7 @@
         ]
       },
       "speaking": {
-        "topic": "The closing interview for module 8: a professional scenario mix. Walk me through a job-interview question, a project post-mortem (what went wrong, what should have been done), a formal clarification call, and a short contract clause I must explain in my own words. Switch scenarios without warning; stay strictly formal except one deliberately casual aside I must handle. Write the final report in German.",
+        "topic": "The closing interview for module 8: a professional scenario mix. Walk me through a job-interview question, a project post-mortem (what went wrong, what should have been done), a formal clarification call, and a short contract clause I must explain in my own words. Switch scenarios without warning; stay strictly formal except one deliberately casual aside I must handle.",
         "practisePoints": [
           "Irreal past with modals under pressure",
           "Genitive prepositions and forms in formal speech",
@@ -4590,7 +4609,8 @@
           "durationMinutes": 6,
           "minExchanges": 9
         },
-        "passScore": 60
+        "passScore": 60,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4623,7 +4643,7 @@
         ]
       },
       "speaking": {
-        "topic": "Abstraction pairs: drill the 20 noun–verb partners in the material in both directions, and after every third pair demand a full sentence embedding whichever form you name. Write the final report in German.",
+        "topic": "Abstraction pairs: drill the 20 noun–verb partners in the material in both directions, and after every third pair demand a full sentence embedding whichever form you name.",
         "practisePoints": [
           "Both directions instantly: noun named → verb, verb → noun",
           "Gender and plural of each abstract noun",
@@ -4645,7 +4665,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4678,7 +4699,7 @@
         ]
       },
       "speaking": {
-        "topic": "Style transformation in two rounds: I turn 8 verbal German sentences into nominal style, then unpack 4 nominal monsters into clean verbal German. Serve one at a time, correct immediately, and rate elegance as well as accuracy. Write the final report in German.",
+        "topic": "Style transformation in two rounds: I turn 8 verbal German sentences into nominal style, then unpack 4 nominal monsters into clean verbal German. Serve one at a time, correct immediately, and rate elegance as well as accuracy.",
         "practisePoints": [
           "Clause → prepositional noun phrase (nachdem → nach + Genitiv)",
           "The matching abstract noun for each verb",
@@ -4700,7 +4721,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4732,7 +4754,7 @@
         ]
       },
       "speaking": {
-        "topic": "A popular-science passage on sleep research to read and answer questions about. Ask in German, one at a time; question 4 demands a paraphrase of a sein + zu construction. Write the final report in German.",
+        "topic": "A popular-science passage on sleep research to read and answer questions about. Ask in German, one at a time; question 4 demands a paraphrase of a sein + zu construction.",
         "practisePoints": [
           "Extended participial constructions (die diesem Prozess zugrunde liegenden Mechanismen)",
           "Passiversatz reading: sich lassen, sein + zu, -bar",
@@ -4754,7 +4776,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4787,7 +4810,7 @@
         ]
       },
       "speaking": {
-        "topic": "A town-hall discussion on introducing the four-day week. You moderate and play two citizens with opposing views; I argue my position, respond to both, and must produce at least 2 Passiversatz forms (sich lassen / sein + zu / -bar) and one sentence with zumal. Track those requirements and tell me at the end whether I met them. Write the final report in German.",
+        "topic": "A town-hall discussion on introducing the four-day week. You moderate and play two citizens with opposing views; I argue my position, respond to both, and must produce at least 2 Passiversatz forms (sich lassen / sein + zu / -bar) and one sentence with zumal. Track those requirements and tell me at the end whether I met them.",
         "practisePoints": [
           "Arguing an abstract societal question in extended turns",
           "Passiversatz in free speech (Das lässt sich finanzieren…)",
@@ -4816,7 +4839,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4848,7 +4872,7 @@
         ]
       },
       "speaking": {
-        "topic": "A style-inflation duel. Keep it fast and funny, but grade the grammar of every transformation seriously. Write the final report in German.",
+        "topic": "A style-inflation duel. Keep it fast and funny, but grade the grammar of every transformation seriously.",
         "practisePoints": [
           "Inflating: verb → abstract noun, agent deleted, genitive chained",
           "Deflating: finding the hidden subject and verb again",
@@ -4870,7 +4894,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4902,7 +4927,7 @@
         ]
       },
       "speaking": {
-        "topic": "A two-register writing task on this module's sleep-research passage: first a 100-word abstract in nominal style, then a 3-sentence plain-language version of the same content. Grade against the rubric, then show me one sentence of mine rewritten even better in each register. Write the final report in German.",
+        "topic": "A two-register writing task on this module's sleep-research passage: first a 100-word abstract in nominal style, then a 3-sentence plain-language version of the same content. Grade against the rubric, then show me one sentence of mine rewritten even better in each register.",
         "practisePoints": [
           "Sustained nominal style over a whole paragraph",
           "Radical simplification without losing the findings",
@@ -4924,7 +4949,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -4956,7 +4982,7 @@
         ]
       },
       "speaking": {
-        "topic": "A mini-lecture to reconstruct: you lecture for about 2 minutes on an invented study, then I rebuild it along method–result–implication. Write the final report in German.",
+        "topic": "A mini-lecture to reconstruct: you lecture for about 2 minutes on an invented study, then I rebuild it along method–result–implication.",
         "practisePoints": [
           "Tracking a long spoken structure: question, method, result, implication",
           "Retelling with abstract nouns instead of und-dann chains",
@@ -4978,7 +5004,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5011,7 +5038,7 @@
         ]
       },
       "speaking": {
-        "topic": "\"Die Stadt in 30 Jahren\": a structured speculation about my city in three decades, told along the beats in the material — with subjectless passives as the required backbone. Write the final report in German.",
+        "topic": "\"Die Stadt in 30 Jahren\": a structured speculation about my city in three decades, told along the beats in the material — with subjectless passives as the required backbone.",
         "practisePoints": [
           "Subjectless passive across tenses (es wird / wurde / ist … worden)",
           "Passive future (es wird gebaut werden)",
@@ -5033,7 +5060,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5065,7 +5093,7 @@
         ]
       },
       "speaking": {
-        "topic": "An expert panel: I am the invited expert on a topic I choose (ask me first), you are a skeptical lay host. Whenever I use jargon or nominal style, pounce: \"Was heißt das konkret?\" — and I must unpack it into plain German on the spot, then return to expert register. Do this at least four times. Write the final report in German.",
+        "topic": "An expert panel: I am the invited expert on a topic I choose (ask me first), you are a skeptical lay host. Whenever I use jargon or nominal style, pounce: \"Was heißt das konkret?\" — and I must unpack it into plain German on the spot, then return to expert register. Do this at least four times.",
         "practisePoints": [
           "Holding expert register: nominal style, hedged claims",
           "Instant downshifts to plain language on demand",
@@ -5095,7 +5123,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5127,7 +5156,7 @@
         ]
       },
       "speaking": {
-        "topic": "The closing examination for module 9: an abstract-topic interview (pick a societal question I have not prepared). Probe my argument, demand one live style transformation in each direction (a sentence of mine into nominal style, one of yours into plain German), and at one point order a full register shift: \"Erklären Sie das jetzt einem Kind.\" Judge the shift itself. Write the final report in German.",
+        "topic": "The closing examination for module 9: an abstract-topic interview (pick a societal question I have not prepared). Probe my argument, demand one live style transformation in each direction (a sentence of mine into nominal style, one of yours into plain German), and at one point order a full register shift: \"Erklären Sie das jetzt einem Kind.\" Judge the shift itself.",
         "practisePoints": [
           "Sustained abstract argumentation at C1 length",
           "Live Nominalstil ↔ Verbalstil transformations",
@@ -5150,7 +5179,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5183,7 +5213,7 @@
         ]
       },
       "speaking": {
-        "topic": "Idiom decoder in three steps per idiom: I describe the literal image, then give the actual meaning, then use it in a small situation you propose. Missed idioms return later in the drill until I land them. Write the final report in German.",
+        "topic": "Idiom decoder in three steps per idiom: I describe the literal image, then give the actual meaning, then use it in a small situation you propose. Missed idioms return later in the drill until I land them.",
         "practisePoints": [
           "Image → meaning → situated use, all three steps per idiom",
           "The idiom's fixed grammar (case, reflexive, preposition)",
@@ -5205,7 +5235,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5238,7 +5269,7 @@
         ]
       },
       "speaking": {
-        "topic": "Film club: invent a film we have both \"watched\" and share its plot with me first — a drama with at least one ambiguous character and one unexplained event. Then we discuss it, and I must infer motives with subjective modals: er dürfte eifersüchtig gewesen sein, sie soll früher … gewesen sein, er will nichts gewusst haben. Challenge my inferences and make me grade my own certainty. Write the final report in German.",
+        "topic": "Film club: invent a film we have both \"watched\" and share its plot with me first — a drama with at least one ambiguous character and one unexplained event. Then we discuss it, and I must infer motives with subjective modals: er dürfte eifersüchtig gewesen sein, sie soll früher … gewesen sein, er will nichts gewusst haben. Challenge my inferences and make me grade my own certainty.",
         "practisePoints": [
           "Subjective modals with past infinitive (dürfte … gewesen sein)",
           "Grading certainty: muss > dürfte > könnte",
@@ -5266,7 +5297,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5299,7 +5331,7 @@
         ]
       },
       "speaking": {
-        "topic": "A morphology game about German word formation. Be strict about what actually exists — and explain the morphology behind every catch. Write the final report in German.",
+        "topic": "A morphology game about German word formation. Be strict about what actually exists — and explain the morphology behind every catch.",
         "practisePoints": [
           "Productive prefixes: Ver- (change), Ent- (removal), Zer- (apart)",
           "Noun suffixes: -ung, -heit, -keit and which stems take which",
@@ -5321,7 +5353,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5353,7 +5386,7 @@
         ]
       },
       "speaking": {
-        "topic": "A short literary excerpt to read for tone rather than facts. Ask the questions in German, one at a time; question 4 demands a litotes paraphrase. Write the final report in German.",
+        "topic": "A short literary excerpt to read for tone rather than facts. Ask the questions in German, one at a time; question 4 demands a litotes paraphrase.",
         "practisePoints": [
           "Reading tone: what the narrator shows vs what he says",
           "Litotes decoded and paraphrased (kein unbeliebter Mann)",
@@ -5375,7 +5408,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5408,7 +5442,7 @@
         ]
       },
       "speaking": {
-        "topic": "Ten English sentences whose whole point is the hedge: allegedly, apparently, supposedly, claims to. Each must land in German as angeblich, offenbar, soll … haben, will … haben or dürfte — the wrong hedge counts as a wrong answer even if the grammar holds. Serve one at a time and correct immediately. Write the final report in German.",
+        "topic": "Ten English sentences whose whole point is the hedge: allegedly, apparently, supposedly, claims to. Each must land in German as angeblich, offenbar, soll … haben, will … haben or dürfte — the wrong hedge counts as a wrong answer even if the grammar holds. Serve one at a time and correct immediately.",
         "practisePoints": [
           "soll … getan haben for hearsay, will … getan haben for self-claims",
           "angeblich vs offenbar: doubted rumor vs visible evidence",
@@ -5430,7 +5464,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5463,7 +5498,7 @@
         ]
       },
       "speaking": {
-        "topic": "An irony-detection listening: you perform a monologue dripping with irony, and I separate what was said from what was meant. Write the final report in German.",
+        "topic": "An irony-detection listening: you perform a monologue dripping with irony, and I separate what was said from what was meant.",
         "practisePoints": [
           "Separating literal content from intended meaning",
           "Naming irony markers: litotes, particles, hyperbolic praise",
@@ -5485,7 +5520,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5517,7 +5553,7 @@
         ]
       },
       "speaking": {
-        "topic": "\"Erzähl es zweimal\": the same four-beat anecdote told straight, then retold dripping with irony. Grade above all the CONTRAST between the two tellings — a good version 2 must be recognizably the same story wearing a smirk. Write the final report in German.",
+        "topic": "\"Erzähl es zweimal\": the same four-beat anecdote told straight, then retold dripping with irony. Grade above all the CONTRAST between the two tellings — a good version 2 must be recognizably the same story wearing a smirk.",
         "practisePoints": [
           "Holding an identical event structure across two tones",
           "Ironic devices on demand: litotes, particles, hyperbole",
@@ -5539,7 +5575,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5571,7 +5608,7 @@
         ]
       },
       "speaking": {
-        "topic": "A review of a film or book of my choice (real or invented), about 130 words, graded against the rubric. Afterwards, mark every idiom and subjective modal I used and judge each one's fit individually. Write the final report in German.",
+        "topic": "A review of a film or book of my choice (real or invented), about 130 words, graded against the rubric. Afterwards, mark every idiom and subjective modal I used and judge each one's fit individually.",
         "practisePoints": [
           "Idioms integrated invisibly into evaluative prose",
           "Subjective modals for inferences about intent and reception",
@@ -5593,7 +5630,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5626,7 +5664,7 @@
         ]
       },
       "speaking": {
-        "topic": "Dinner-party diplomacy: you are a guest at my table who keeps making confidently awkward claims (\"Klassische Musik ist doch nur Lärm mit Regeln\", \"Wer Fahrrad fährt, hasst einfach Autos\"). I must deflect with humor and hedged disagreement — never a flat \"Das ist falsch\", never surrender either. Escalate gently if my deflections work too well, and keep the evening pleasant on the surface throughout. Write the final report in German.",
+        "topic": "Dinner-party diplomacy: you are a guest at my table who keeps making confidently awkward claims (\"Klassische Musik ist doch nur Lärm mit Regeln\", \"Wer Fahrrad fährt, hasst einfach Autos\"). I must deflect with humor and hedged disagreement — never a flat \"Das ist falsch\", never surrender either. Escalate gently if my deflections work too well, and keep the evening pleasant on the surface throughout.",
         "practisePoints": [
           "Hedged disagreement: Da wäre ich mir nicht so sicher…",
           "Humor and light irony as social tools",
@@ -5656,7 +5694,8 @@
           "durationMinutes": 5,
           "minExchanges": 9
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5688,7 +5727,7 @@
         ]
       },
       "speaking": {
-        "topic": "The closing examination for module 10: a culture conversation (film, books, music — follow my lead). Hidden test: plant 3 idioms and 2 clearly ironic statements in YOUR turns during the conversation. I must catch each one — react to the idiom naturally or mirror it, and answer the irony on its meant level, not its literal one. Reveal at the end which I caught and which slipped past. Also demand at least 2 subjective-modal inferences from me along the way. Write the final report in German.",
+        "topic": "The closing examination for module 10: a culture conversation (film, books, music — follow my lead). Hidden test: plant 3 idioms and 2 clearly ironic statements in YOUR turns during the conversation. I must catch each one — react to the idiom naturally or mirror it, and answer the irony on its meant level, not its literal one. Reveal at the end which I caught and which slipped past. Also demand at least 2 subjective-modal inferences from me along the way.",
         "practisePoints": [
           "Catching idioms and irony live in flowing conversation",
           "Answering irony on the meant level without flagging it",
@@ -5711,7 +5750,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5744,7 +5784,7 @@
         ]
       },
       "speaking": {
-        "topic": "Drill Funktionsverbgefüge against their simple-verb equivalents, both directions, with a one-line register comment on each: when the FVG lifts the sentence and when it just stiffens it. Write the final report in German.",
+        "topic": "Drill Funktionsverbgefüge against their simple-verb equivalents, both directions, with a one-line register comment on each: when the FVG lifts the sentence and when it just stiffens it.",
         "practisePoints": [
           "FVG → simple verb and back, instantly",
           "Choosing the right rung of a register triplet",
@@ -5766,7 +5806,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5798,7 +5839,7 @@
         ]
       },
       "speaking": {
-        "topic": "The register slider: one message, three audiences. You name a random audience, I re-voice the same content for it on the spot. Write the final report in German.",
+        "topic": "The register slider: one message, three audiences. You name a random audience, I re-voice the same content for it on the spot.",
         "practisePoints": [
           "Formal register: FVG, erhalten, distance, no particles",
           "Colloquial register: kriegen, halt, mal, contractions",
@@ -5820,7 +5861,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5853,7 +5895,7 @@
         ]
       },
       "speaking": {
-        "topic": "Ten English sentences where the obvious German verb is wrong — each needs its fixed collocation partner. Reveal the collocation only after my attempt. Write the final report in German.",
+        "topic": "Ten English sentences where the obvious German verb is wrong — each needs its fixed collocation partner. Reveal the collocation only after my attempt.",
         "practisePoints": [
           "Fixed verb-noun partnerships instead of literal translation",
           "The case or preposition each collocation governs",
@@ -5875,7 +5917,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5907,7 +5950,7 @@
         ]
       },
       "speaking": {
-        "topic": "A dense opinion piece to dissect: the questions target rhetorical structure — where the concession lives, what the Vorfeld fronts, how the author disarms objections. Write the final report in German.",
+        "topic": "A dense opinion piece to dissect: the questions target rhetorical structure — where the concession lives, what the Vorfeld fronts, how the author disarms objections.",
         "practisePoints": [
           "Locating concession and counter-move in an argument",
           "Reading Vorfeld emphasis and cleft-like fronting",
@@ -5929,7 +5972,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -5961,7 +6005,7 @@
         ]
       },
       "speaking": {
-        "topic": "You are a stubborn, budget-obsessed mayor; I lobby you to fund a project of my choosing. Object realistically and yield only to well-built arguments. I must use at least three Funktionsverbgefüge and one deliberate emphasis fronting — track them and name them in the feedback. Write the final report in German.",
+        "topic": "You are a stubborn, budget-obsessed mayor; I lobby you to fund a project of my choosing. Object realistically and yield only to well-built arguments. I must use at least three Funktionsverbgefüge and one deliberate emphasis fronting — track them and name them in the feedback.",
         "practisePoints": [
           "Concession-then-rebuttal argument structure",
           "Funktionsverbgefüge deployed naturally under pressure",
@@ -5989,7 +6033,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6021,7 +6066,7 @@
         ]
       },
       "speaking": {
-        "topic": "A 150-word position paper plus its 40-word executive summary, graded above all on Funktionsverbgefüge density without stiffness. Write the final report in German.",
+        "topic": "A 150-word position paper plus its 40-word executive summary, graded above all on Funktionsverbgefüge density without stiffness.",
         "practisePoints": [
           "FVG density that elevates rather than inflates",
           "Compression: 150 words to 40 without losing the demand",
@@ -6043,7 +6088,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6075,7 +6121,7 @@
         ]
       },
       "speaking": {
-        "topic": "One story, two publications: I narrate the same event first as a tabloid would, then as a broadsheet. Grade register purity per version, sentence by sentence. Write the final report in German.",
+        "topic": "One story, two publications: I narrate the same event first as a tabloid would, then as a broadsheet. Grade register purity per version, sentence by sentence.",
         "practisePoints": [
           "Tabloid register: punch, outrage, colloquial verbs",
           "Broadsheet register: FVG, attribution, measured syntax",
@@ -6097,7 +6143,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6129,7 +6176,7 @@
         ]
       },
       "speaking": {
-        "topic": "You read me a formal written statement aloud; I render it for a colleague in relaxed but still professional spoken German — same content, one register down. Write the final report in German.",
+        "topic": "You read me a formal written statement aloud; I render it for a colleague in relaxed but still professional spoken German — same content, one register down.",
         "practisePoints": [
           "Decoding FVG-heavy formal prose by ear",
           "Down-shifting register without losing precision",
@@ -6151,7 +6198,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6183,7 +6231,7 @@
         ]
       },
       "speaking": {
-        "topic": "A press conference. I am the spokesperson defending an unpopular decision my organisation has made; you play several journalists who interrupt, bait me with loaded questions, and misquote what I just said. Stay hostile but realistic. Write the final report in German.",
+        "topic": "A press conference. I am the spokesperson defending an unpopular decision my organisation has made; you play several journalists who interrupt, bait me with loaded questions, and misquote what I just said. Stay hostile but realistic.",
         "practisePoints": [
           "Correcting a misquote calmly and precisely",
           "Bridging from a loaded question back to the message",
@@ -6211,7 +6259,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6244,7 +6293,7 @@
         ]
       },
       "speaking": {
-        "topic": "The style-command exam. Interview me on everyday and professional topics, but hold the content constant and switch the register on your command MID-ANSWER: call \"formell!\", \"neutral!\" or \"salopp!\" and I must re-voice the running answer instantly. Do this at least four times across the interview. Write the final report in German.",
+        "topic": "The style-command exam. Interview me on everyday and professional topics, but hold the content constant and switch the register on your command MID-ANSWER: call \"formell!\", \"neutral!\" or \"salopp!\" and I must re-voice the running answer instantly. Do this at least four times across the interview.",
         "practisePoints": [
           "Instant register switches without losing the thread",
           "FVG and exact collocations on demand in formal mode",
@@ -6267,7 +6316,8 @@
           "durationMinutes": 6,
           "minExchanges": 12
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6300,7 +6350,7 @@
         ]
       },
       "speaking": {
-        "topic": "Untranslatables and colloquialisms, served inside mini-dialogues: I translate the EFFECT of the marked word (not the word), then answer the dialogue line in matching register. Write the final report in German.",
+        "topic": "Untranslatables and colloquialisms, served inside mini-dialogues: I translate the EFFECT of the marked word (not the word), then answer the dialogue line in matching register.",
         "practisePoints": [
           "Explaining the pragmatic effect, not a dictionary gloss",
           "doch in both jobs: pressure particle and yes-I-do",
@@ -6322,7 +6372,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6354,7 +6405,7 @@
         ]
       },
       "speaking": {
-        "topic": "Free conversation without a safety net: pick three random topics of escalating abstraction (an object, a social question, a philosophical one) and change topic MID-SENTENCE at least twice. Weight the grading towards flexibility and repair strategies, not polish. Write the final report in German.",
+        "topic": "Free conversation without a safety net: pick three random topics of escalating abstraction (an object, a social question, a philosophical one) and change topic MID-SENTENCE at least twice. Weight the grading towards flexibility and repair strategies, not polish.",
         "practisePoints": [
           "Following an abrupt topic cut without stalling",
           "Repair phrases: wo waren wir, wie soll ich sagen, Moment",
@@ -6381,7 +6432,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6413,7 +6465,7 @@
         ]
       },
       "speaking": {
-        "topic": "The Absurde These game: I draw an absurd thesis and defend it against your genuine cross-examination. Argue back hard — treat my thesis as if it mattered. Write the final report in German.",
+        "topic": "The Absurde These game: I draw an absurd thesis and defend it against your genuine cross-examination. Argue back hard — treat my thesis as if it mattered.",
         "practisePoints": [
           "Building arguments for a position I do not hold",
           "Answering hostile questions instead of dodging",
@@ -6435,7 +6487,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6468,7 +6521,7 @@
         ]
       },
       "speaking": {
-        "topic": "You speak the same short scene twice — once in neutral standard German, once colloquial and lightly dialect-tinged — and I map one version onto the other. Write the final report in German.",
+        "topic": "You speak the same short scene twice — once in neutral standard German, once colloquial and lightly dialect-tinged — and I map one version onto the other.",
         "practisePoints": [
           "Decoding contractions at speed (isses, haste, 'nen)",
           "Mapping colloquial onto standard forms precisely",
@@ -6490,7 +6543,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6522,7 +6576,7 @@
         ]
       },
       "speaking": {
-        "topic": "Two texts about the same event — a satirical column and a sober report. The questions force me to mediate between their claims rather than summarise either. Write the final report in German.",
+        "topic": "Two texts about the same event — a satirical column and a sober report. The questions force me to mediate between their claims rather than summarise either.",
         "practisePoints": [
           "Extracting the shared factual core of opposed texts",
           "Naming how satire transforms a fact",
@@ -6544,7 +6598,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6576,7 +6631,7 @@
         ]
       },
       "speaking": {
-        "topic": "Mediation: you play BOTH flatmates in clearly different voices — Jonas (colloquial, hurt, interrupts) and Frau Petrova (formal, icy, precise) — at war over noise, cleaning and a broken lamp. I broker a compromise and, at the end, dictate it as a short written agreement both explicitly accept. Do not let either accept it until it addresses their core grievance. Write the final report in German.",
+        "topic": "Mediation: you play BOTH flatmates in clearly different voices — Jonas (colloquial, hurt, interrupts) and Frau Petrova (formal, icy, precise) — at war over noise, cleaning and a broken lamp. I broker a compromise and, at the end, dictate it as a short written agreement both explicitly accept. Do not let either accept it until it addresses their core grievance.",
         "practisePoints": [
           "Mirroring each party in their own register",
           "Mediation language: beide Seiten, der Kompromiss läge darin",
@@ -6604,7 +6659,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6637,7 +6693,7 @@
         ]
       },
       "speaking": {
-        "topic": "The hardest brief in the course: a eulogy for a deceased houseplant, in genuine, dignified eulogy register — graded on the tone tightrope, never on jokes. Write the final report in German.",
+        "topic": "The hardest brief in the course: a eulogy for a deceased houseplant, in genuine, dignified eulogy register — graded on the tone tightrope, never on jokes.",
         "practisePoints": [
           "Holding a dignified register over an absurd subject",
           "Eulogy conventions: address, virtue, memory, farewell",
@@ -6659,7 +6715,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6691,7 +6748,7 @@
         ]
       },
       "speaking": {
-        "topic": "An improvised chain story: we alternate sentences, and you inject genre shifts by announcing the new genre before your sentence. My next sentence must land the new register instantly while keeping the story coherent. Write the final report in German.",
+        "topic": "An improvised chain story: we alternate sentences, and you inject genre shifts by announcing the new genre before your sentence. My next sentence must land the new register instantly while keeping the story coherent.",
         "practisePoints": [
           "Instant register hits on an announced genre",
           "Keeping story continuity through every shift",
@@ -6713,7 +6770,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6745,7 +6803,7 @@
         ]
       },
       "speaking": {
-        "topic": "The capstone rehearsal: a ten-question full-range interview in which A1 topics demand C2 answers. Ask beginner questions — family, hobbies, my town, food, weekend — and require essayist depth: nuance, structure, imagery, register control (\"Erzählen Sie von Ihrer Familie — als Essayist\"). Write the final report in German.",
+        "topic": "The capstone rehearsal: a ten-question full-range interview in which A1 topics demand C2 answers. Ask beginner questions — family, hobbies, my town, food, weekend — and require essayist depth: nuance, structure, imagery, register control (\"Erzählen Sie von Ihrer Familie — als Essayist\").",
         "practisePoints": [
           "Elevating trivial topics to essayistic depth",
           "Full grammar range recycled: Konjunktiv, passive, FVG",
@@ -6766,7 +6824,8 @@
           "durationMinutes": 6,
           "minExchanges": 10
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     },
     {
@@ -6798,7 +6857,7 @@
         ]
       },
       "speaking": {
-        "topic": "The finale: \"Der Salon\". I host a dinner party; you play THREE guests in distinct voices: a pedant who corrects everything (formal, precise), a provocateur who drops outrageous theses (sharp, baiting), and a mumbler who speaks in fast colloquial contractions (isses, haste, 'nen). Rotate them, let them talk over each other, and make me host all three for the full twelve exchanges: soothe the pedant, parry the provocateur, decode the mumbler, and keep one conversation alive between them. Write the final report in German.",
+        "topic": "The finale: \"Der Salon\". I host a dinner party; you play THREE guests in distinct voices: a pedant who corrects everything (formal, precise), a provocateur who drops outrageous theses (sharp, baiting), and a mumbler who speaks in fast colloquial contractions (isses, haste, 'nen). Rotate them, let them talk over each other, and make me host all three for the full twelve exchanges: soothe the pedant, parry the provocateur, decode the mumbler, and keep one conversation alive between them.",
         "practisePoints": [
           "Register agility across three simultaneous voices",
           "Discourse management: turn-taking, soothing, redirecting",
@@ -6821,7 +6880,8 @@
           "durationMinutes": 6,
           "minExchanges": 12
         },
-        "passScore": 70
+        "passScore": 70,
+        "reportLanguage": "de"
       }
     }
   ]

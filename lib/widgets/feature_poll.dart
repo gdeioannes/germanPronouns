@@ -27,6 +27,13 @@ import '../services/analytics.dart';
 /// and priorities can be tracked as they shift.
 const Duration kFeaturePollCooldown = Duration(days: 7);
 
+/// How much time a learner must have spent in the app before the automatic
+/// after-quiz ask fires at all. Someone twenty minutes in has seen enough to
+/// have an opinion; polling earlier interrupts the very first session. The
+/// manual Settings / course-home entry points ignore this — asking to be
+/// asked always works.
+const Duration kFeaturePollMinUsage = Duration(minutes: 20);
+
 /// How long to wait after a quiz is finished before asking, so the score, the
 /// ribbon and the coin payout land first and the poll reads as a reward rather
 /// than an interruption.
@@ -114,6 +121,11 @@ Future<void> maybeShowFeaturePollAfterQuiz(
   BuildContext context, {
   Duration delay = kFeaturePollDelay,
 }) async {
+  // Tick the course-time clock first (a quiz was just finished, so the
+  // learner is demonstrably here), then stay silent until they have spent
+  // [kFeaturePollMinUsage] in the app.
+  await NounSettings.instance.markCourseUsage();
+  if (NounSettings.instance.courseUsage() < kFeaturePollMinUsage) return;
   if (!isFeaturePollDue()) return;
   await Future<void>.delayed(delay);
   if (!context.mounted) return;

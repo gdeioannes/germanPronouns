@@ -8,6 +8,7 @@ import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../models/quiz_content.dart';
+import '../models/speaking_exercise.dart';
 import '../services/analytics.dart';
 import 'pdf_theme.dart';
 
@@ -59,6 +60,16 @@ List<pw.Widget> buildHelpMemoryPdfBody(QuizPdfTheme pdf, QuizConfig config) {
       config.categories.isNotEmpty &&
       config.subjectGenders != null) {
     return _buildNounReferenceBody(pdf, config, helpIntro, pdfTips);
+  }
+
+  // Text-only quizzes (the speaking prompts): no reference table to draw —
+  // the page is the intro plus the tip cards.
+  if (config.categories.isEmpty && config.helpMemoryTables == null) {
+    return [
+      pdf.brandHeader(config.title, subtitle: strings.helpMemory),
+      if (helpIntro != null) pdf.intro(helpIntro),
+      ...pdfTips,
+    ];
   }
 
   // Focused-table layout: one table per [HelpMemoryTable], plus any ending
@@ -469,11 +480,90 @@ List<pw.Widget> buildReadingPdfBody(QuizPdfTheme pdf, QuizContent content) {
   return widgets;
 }
 
+/// The title of the "copy this into your AI" workflow tip the en_de_ai course
+/// repeats on every exercise. App usage instructions, not study content — the
+/// prompt builder and the PDFs both leave it out.
+const String kCourseWorkflowTipTitle = 'How this course works';
+
+/// The full study page of a speaking quiz: intro, the teaching tips, and the
+/// exercise's payload — the material's word/meaning pairs as a proper
+/// reference table (like every other quiz's Help Memory PDF), its prose lines
+/// (passages, story beats) as text, and the practise points and vocabulary.
+List<pw.Widget> buildSpeakingHelpPdfBody(QuizPdfTheme pdf, QuizContent content) {
+  final strings = CourseSession.instance.strings;
+  final s = strings.speaking;
+  final speaking = content.speaking;
+  // Real teaching tips only — the app-workflow card explains the copy/paste
+  // loop and has no business on paper.
+  final tips = [
+    for (final t in content.helpMemoryTips)
+      if (t.title != kCourseWorkflowTipTitle) t,
+  ];
+  final pairs = speakingMaterialPairsOf(speaking?.material ?? '');
+  // Prose lines of the material (passages, questions, story skeletons): every
+  // line that carries no `x = y` pair — pair lines and their label lines are
+  // fully represented by the table.
+  final proseLines = [
+    for (final line in (speaking?.material ?? '').split('\n'))
+      if (line.trim().isNotEmpty && !line.contains(' = ')) line.trim(),
+  ];
+  return [
+    pdf.brandHeader(content.title, subtitle: strings.helpMemory),
+    if (content.helpMemoryIntro != null) pdf.intro(content.helpMemoryIntro!),
+    if (tips.isNotEmpty) ...[
+      pw.SizedBox(height: 6),
+      pdf.section(strings.tipsAndRules),
+      for (final t in tips) pdf.tip(kind: t.kind, title: t.title, text: t.text),
+    ],
+    if (speaking != null) ...[
+      if (pairs.isNotEmpty || proseLines.isNotEmpty) ...[
+        pw.SizedBox(height: 6),
+        pdf.section(s.helpMaterialTitle),
+        for (final line in proseLines)
+          pw.Padding(
+            padding: const pw.EdgeInsets.only(bottom: 3),
+            child: pw.Text(line, style: pdf.bulletStyle()),
+          ),
+        if (pairs.isNotEmpty) ...[
+          if (proseLines.isNotEmpty) pw.SizedBox(height: 6),
+          pdf.table(
+            headers: [s.helpWordColumn, s.helpMeaningColumn],
+            data: [
+              for (final (word, meaning) in pairs) [word, meaning],
+            ],
+          ),
+        ],
+      ],
+      if (speaking.practisePoints.isNotEmpty) ...[
+        pw.SizedBox(height: 10),
+        pdf.section(s.helpPractiseTitle),
+        for (final point in speaking.practisePoints)
+          pw.Bullet(text: point, style: pdf.bulletStyle()),
+      ],
+      if (speaking.targetVocabulary.isNotEmpty) ...[
+        pw.SizedBox(height: 10),
+        pdf.section(s.helpVocabularyTitle),
+        pw.Text(
+          speaking.targetVocabulary.join(' · '),
+          style: pdf.bulletStyle(),
+        ),
+      ],
+    ],
+  ];
+}
+
 /// One section of the all-quizzes reference booklet ([exportQuizzesBookletPdf]):
-/// either a Help-Memory quiz (reference tables, intro and tips) or a reading
-/// quiz (German passage, its translation and the questions).
+/// either a Help-Memory quiz (reference tables, intro and tips), a speaking
+/// quiz's study page, or a reading quiz (German passage, its translation and
+/// the questions).
 sealed class BookletEntry {
   const BookletEntry();
+}
+
+/// A speaking quiz's study page in the booklet ([buildSpeakingHelpPdfBody]).
+class SpeakingBookletEntry extends BookletEntry {
+  const SpeakingBookletEntry(this.content);
+  final QuizContent content;
 }
 
 /// A Help-Memory quiz section of the booklet.
@@ -508,6 +598,15 @@ Future<void> exportQuizzesBookletPdf(List<BookletEntry> entries) async {
             margin: const pw.EdgeInsets.all(28),
             footer: pdf.footer,
             build: (context) => buildHelpMemoryPdfBody(pdf, config),
+          ),
+        );
+      case SpeakingBookletEntry(:final content):
+        doc.addPage(
+          pw.MultiPage(
+            pageFormat: PdfPageFormat.a4,
+            margin: const pw.EdgeInsets.all(28),
+            footer: pdf.footer,
+            build: (context) => buildSpeakingHelpPdfBody(pdf, content),
           ),
         );
       case ReadingBookletEntry(:final content):

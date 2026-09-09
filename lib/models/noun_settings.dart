@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'settings_keys.dart';
+import 'speaking_exercise.dart';
 import 'user_settings.dart';
 
 /// How long the correct answer (typed out letter by letter) stays on screen
@@ -59,6 +62,7 @@ class NounSettings {
       SettingsKeys.seenRelaxedCorrectionHint;
   static const String _featurePollLastShownKey =
       SettingsKeys.featurePollLastShown;
+  static const String _courseUsageMsKey = SettingsKeys.courseUsageMs;
   static const String _questUnlockLapsKey = SettingsKeys.questUnlockLaps;
   static const String _completedQuestQuizzesKey =
       SettingsKeys.completedQuestQuizzes;
@@ -127,6 +131,10 @@ class NounSettings {
   bool _relaxedCorrection = false;
   bool _seenRelaxedCorrectionHint = false;
   DateTime? _featurePollLastShown;
+  int _courseUsageMs = 0;
+  // In-memory only: the wall-clock point the current usage segment runs from
+  // (set on course open / the last flush). Null until the learner area opens.
+  DateTime? _courseUsageMarker;
   bool _loaded = false;
 
   bool isEnabled(String noun) => !_disabledNouns.contains(noun);
@@ -393,6 +401,7 @@ class NounSettings {
     _featurePollLastShown = pollShownAt == null
         ? null
         : DateTime.fromMillisecondsSinceEpoch(pollShownAt);
+    _courseUsageMs = prefs.getInt(_courseUsageMsKey) ?? 0;
     _loaded = true;
   }
 
@@ -635,6 +644,94 @@ class NounSettings {
     await prefs.setInt(_featurePollLastShownKey, when.millisecondsSinceEpoch);
   }
 
+  /// How many `FIX:` corrections the per-course speaking fix log keeps.
+  /// Enough for the mistake trainer to have material, small enough that a
+  /// months-old mistake eventually falls off the end.
+  static const int speakingFixLogCap = 30;
+
+  static String _fixLogKey(String courseId) =>
+      '${SettingsKeys.speakingFixLogPrefix}$courseId';
+
+  /// The learner's recent speaking corrections for [courseId], newest first —
+  /// parsed out of pasted AI reports (see [addSpeakingFixes]). Read straight
+  /// from prefs: the log is per-course and only needed on speaking screens.
+  Future<List<SpeakingFix>> speakingFixLog(String courseId) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final raw = prefs.getString(_fixLogKey(courseId));
+      if (raw == null || raw.isEmpty) return const [];
+      return [
+        for (final e in jsonDecode(raw) as List)
+          SpeakingFix.fromJson(Map<String, dynamic>.from(e as Map)),
+      ];
+    } catch (_) {
+      return const []; // A corrupt log must never block an exercise.
+    }
+  }
+
+  /// Prepends [fixes] to [courseId]'s log, dropping duplicates (same said +
+  /// correct pair) and capping at [speakingFixLogCap].
+  Future<void> addSpeakingFixes(
+    String courseId,
+    List<SpeakingFix> fixes,
+  ) async {
+    if (fixes.isEmpty) return;
+    final existing = await speakingFixLog(courseId);
+    final seen = <String>{};
+    final merged = <SpeakingFix>[
+      for (final f in [...fixes, ...existing])
+        if (f.said.trim().isNotEmpty &&
+            f.correct.trim().isNotEmpty &&
+            seen.add('${f.said} ${f.correct}'))
+          f,
+    ];
+    final capped = merged.take(speakingFixLogCap).toList();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+      _fixLogKey(courseId),
+      jsonEncode([for (final f in capped) f.toJson()]),
+    );
+  }
+
+  /// A single usage segment can't credit more than this, so a tab left open
+  /// overnight doesn't count as hours "on the course".
+  static const Duration _courseUsageSegmentCap = Duration(minutes: 30);
+
+  /// Total time spent in the learner area so far, including the still-open
+  /// segment since the last [markCourseUsage]. Gates the feature poll's
+  /// automatic ask (see `kFeaturePollMinUsage`).
+  Duration courseUsage([DateTime? now]) {
+    var total = Duration(milliseconds: _courseUsageMs);
+    final marker = _courseUsageMarker;
+    if (marker != null) {
+      final pending = (now ?? DateTime.now()).difference(marker);
+      if (pending > Duration.zero) {
+        total += pending > _courseUsageSegmentCap
+            ? _courseUsageSegmentCap
+            : pending;
+      }
+    }
+    return total;
+  }
+
+  /// Ticks the course-time clock: folds the segment since the previous call
+  /// into the persisted total (capped at [_courseUsageSegmentCap]) and starts
+  /// a new segment. Called when a course home opens and on every quiz
+  /// completion, so the total grows while the learner is actually here.
+  Future<void> markCourseUsage([DateTime? now]) async {
+    final when = now ?? DateTime.now();
+    final marker = _courseUsageMarker;
+    _courseUsageMarker = when;
+    if (marker == null) return;
+    final pending = when.difference(marker);
+    if (pending <= Duration.zero) return;
+    final capped =
+        pending > _courseUsageSegmentCap ? _courseUsageSegmentCap : pending;
+    _courseUsageMs += capped.inMilliseconds;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_courseUsageMsKey, _courseUsageMs);
+  }
+
   Future<void> _save() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_storageKey, _disabledNouns.toList());
@@ -715,6 +812,8 @@ class NounSettings {
     _relaxedCorrection = false;
     _seenRelaxedCorrectionHint = false;
     _featurePollLastShown = null;
+    _courseUsageMs = 0;
+    _courseUsageMarker = null;
     _lastPage = null;
     _lastContentId = null;
     _completedNounCategories = {};

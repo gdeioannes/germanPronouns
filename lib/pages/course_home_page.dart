@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/content/active_course_content.dart';
 import '../data/exercise_sheet_builder.dart';
+import '../data/mistake_trainer.dart';
 import '../data/nav_layout_data.dart';
 import '../data/noun_article_data.dart';
 import '../data/noun_progression_data.dart';
@@ -17,6 +18,7 @@ import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../models/settings_keys.dart';
+import '../models/speaking_exercise.dart';
 import '../models/quiz_stats.dart';
 import '../theme/app_theme.dart';
 import '../theme/brand_palette.dart';
@@ -29,6 +31,7 @@ import '../widgets/country_flag.dart';
 import '../widgets/feature_poll.dart';
 import '../widgets/placement_start_sheet.dart';
 import 'auth_gate.dart';
+import 'speaking_quiz_page.dart';
 
 /// Visual kind of a home-page quiz row, driving its icon and accent color.
 enum _UiKind {
@@ -175,10 +178,15 @@ class _CourseHomePageState extends State<CourseHomePage> {
   bool _generatingPdf = false;
   bool _generatingExercises = false;
 
+  /// The learner's stored speaking corrections for this course — enough of
+  /// them unlocks the "train your mistakes" action.
+  List<SpeakingFix> _speakingFixes = const [];
+
   @override
   void initState() {
     super.initState();
     _sectionsFuture = _load();
+    _loadSpeakingFixes();
     // The page outlives the quizzes opened from it, so a ribbon earned (or a
     // gate opened) while it sits under the quiz route has to reach it here.
     progressRevision.addListener(_onProgressChanged);
@@ -190,8 +198,34 @@ class _CourseHomePageState extends State<CourseHomePage> {
     super.dispose();
   }
 
+  Future<void> _loadSpeakingFixes() async {
+    final fixes = await NounSettings.instance.speakingFixLog(
+      CourseSession.instance.activeCourse.id,
+    );
+    if (mounted && fixes.length != _speakingFixes.length) {
+      setState(() => _speakingFixes = fixes);
+    }
+  }
+
+  /// Opens the synthetic exercise built from the learner's own fix log, on the
+  /// root navigator (it has no route of its own — back returns here).
+  void _openMistakeTrainer() {
+    final course = CourseSession.instance.activeCourse;
+    final content = mistakeTrainerContent(course, _speakingFixes);
+    Navigator.of(context, rootNavigator: true).push(
+      MaterialPageRoute<void>(
+        builder: (_) => SpeakingQuizPage(
+          content: content,
+          currentPage: AppPage.articles,
+        ),
+      ),
+    );
+  }
+
   void _onProgressChanged() {
     if (!mounted) return;
+    // The quiz that just finished may have banked new FIX corrections.
+    _loadSpeakingFixes();
     // A block body, not `setState(() => _sectionsFuture = _load())`: an arrow
     // closure returns the Future, which setState rejects — the rebuild is
     // skipped and the page keeps its old lock state until it's reopened.
@@ -389,12 +423,16 @@ class _CourseHomePageState extends State<CourseHomePage> {
             final content = await resolveQuizContent(item.ref);
             if (content == null) continue;
             switch (content.kind) {
-              case QuizKind.speaking:
               case QuizKind.speakRepeat:
               case QuizKind.dictation:
               case QuizKind.draw:
                 // Spoken / dictated / drawn sets have nothing printable.
                 break;
+              case QuizKind.speaking:
+                // The exercise runs elsewhere, but its study page (intro,
+                // tips, MATERIAL, practise points, vocabulary) prints like
+                // any reference section.
+                bookletEntries.add(SpeakingBookletEntry(content));
               case QuizKind.reading:
               case QuizKind.listening:
                 bookletEntries.add(ReadingBookletEntry(content));
@@ -419,11 +457,12 @@ class _CourseHomePageState extends State<CourseHomePage> {
             // the booklet reflects edits, falling back to the compiled entry.
             final content = await resolveQuizContent(e.key) ?? e.content;
             switch (content.kind) {
-              case QuizKind.speaking:
               case QuizKind.speakRepeat:
               case QuizKind.dictation:
               case QuizKind.draw:
                 break;
+              case QuizKind.speaking:
+                bookletEntries.add(SpeakingBookletEntry(content));
               case QuizKind.fillBlank:
                 bookletEntries.add(
                   HelpMemoryBookletEntry(
@@ -1014,6 +1053,15 @@ class _CourseHomePageState extends State<CourseHomePage> {
                           icon: Icons.flag_circle_outlined,
                           label: strings.placement.entryButton,
                           onPressed: _openPlacement,
+                        ),
+                      // A drill built from the learner's own recorded
+                      // mistakes — appears once enough FIX corrections have
+                      // been banked from pasted speaking reports.
+                      if (_speakingFixes.length >= kMistakeTrainerMinFixes)
+                        _ActionSpec(
+                          icon: Icons.healing_rounded,
+                          label: strings.trainMistakes,
+                          onPressed: _openMistakeTrainer,
                         ),
                       // Standing entry to the roadmap poll, for learners who
                       // have an opinion between quizzes. Outlined so it stays
