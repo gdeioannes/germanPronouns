@@ -291,3 +291,74 @@ the same local store as everything else.
 
 Each phase ships alone and improves the feature on its own; §5 is the one
 that changes what the product *is*.
+
+---
+
+# Part 3 — Help Memory & PDFs: en_de_ai vs the normal en_de course (review, 2026-09-11)
+
+Compared exercise by exercise against en_de (the fill-in grammar course),
+whose Help Memory is the standard: rich tip stacks with the actual paradigms
+in them, teaching intros, and printable reference pages.
+
+## What's wrong today
+
+1. **One real tip per exercise (avg ~1.4) vs ~5 in en_de.** en_de M1 ships
+   five tips that *contain the grammar*: the six endings with bold forms,
+   full sein/haben conjugations, the V2 rule with contrasting examples, the
+   -t/-d trap, the no-progressive note. en_de_ai's typical exercise has the
+   workflow card (same text, 120 times) plus one short tip that often talks
+   *about the drill* ("this drill insists on articles") instead of teaching.
+2. **Intros describe the app, not the German.** "Your first exercise: a
+   straight vocabulary drill your AI runs for you…" — mechanics the steps
+   card already explains. en_de intros teach: "Most German verbs are
+   regular: take the stem and add the ending…".
+3. **Translation-drill material carries no answers.** "1. I am tired." with
+   no *Ich bin müde* anywhere — as study material it teaches nothing, and
+   the printed page is a list of English sentences. A normal quiz's PDF
+   always shows prompt *and* answer.
+4. **Conversation exercises have no material at all.** Their whole Help
+   Memory is one intro + one tip. No model phrases, nothing to prepare from
+   before talking to the AI.
+5. **targetVocabulary prints as bare words** ("heißen · kommen aus · der
+   Beruf") — no meanings on the study page.
+6. **No paradigm tables.** en_de fill quizzes print real reference tables;
+   en_de_ai exercises about sein/haben/V2 have no table of forms anywhere.
+7. Cosmetic bug, course-wide: `HelpTipCard` renders `**bold**` markup as
+   literal asterisks on screen (the PDF renders it properly).
+
+## The plan (in order)
+
+**A. Content — the bulk (12 module files, shared-tip pattern like en_de):**
+1. Per module, author a shared const tip stack (3–4 real teaching tips:
+   the paradigm with **bold** forms, the word-order/usage rule, a
+   "warning" trap, one spoken "example") and attach it to the module's
+   exercises — en_de's exact pattern, so ~12 stacks instead of 120.
+2. Rewrite intros to teach the point in 1–2 sentences; delete the
+   per-exercise workflow tip entirely (the steps card + explainer already
+   cover it, and the PDF/prompt already filter it).
+3. Give translation drills their answers in MATERIAL as
+   `1. I am tired. = Ich bin müde.` — with one AI instruction line "serve
+   the English half; the German is the reference answer". The AI grades
+   against the intended answer, and the study page/PDF gains a real
+   prompt→answer table.
+4. Give conversation/roleplay exercises a short Redemittel block in
+   MATERIAL (`ich heiße … = my name is …`), so the learner can prepare,
+   the pairs table renders automatically, and the AI gets model phrases.
+5. Author vocabulary meanings wherever a bare list appears.
+
+**B. Presentation — small code changes:**
+6. Render `**bold**` in HelpTipCard via the existing boldMarkupSpans.
+7. Render numbered `n. prompt = answer` material lines as a two-column
+   prompt/answer table on screen and in the PDF (the pairs table already
+   handles unnumbered `x = y`).
+
+**C. Gates — so it can't regress:**
+8. Extend test/en_de_ai_course_test.dart: every exercise ≥2 teaching tips
+   (workflow tip forbidden), intro free of workflow phrases ("copy",
+   "paste the score"), every drill's material carries answers, every
+   conversation exercise has material or vocabulary.
+9. Regen both generators, refresh goldens, bump kDataVersion.
+
+Side benefit: everything authored in A flows straight into the copied
+prompt (MATERIAL + COURSE NOTES), so the AI teaches from the same paradigms
+the student just studied — the study page and the session finally agree.

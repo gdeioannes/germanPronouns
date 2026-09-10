@@ -12,14 +12,171 @@ import 'en_de_ai_builder.dart';
 /// C1.1 session shape: 5 minutes, 9 exchanges, pass 70; reports in German.
 const _c11Session = SpeakingSession(durationMinutes: 5, minExchanges: 9);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+/// Noun–verb partners and their grammar (exercise 1).
+const List<HelpMemoryTip> _nounVerbTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: '-ung is always die',
+    text:
+        'Every **-ung** noun is feminine and pluralizes with -en: **die** '
+        'Entwicklung, **die** Entwicklungen; **die** Untersuchung, **die** '
+        'Untersuchungen. Half of this list is free gender points.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Watch the preposition partners',
+    text:
+        'Some verbs drag prepositions along: sich auswirken **auf + Akk.**, '
+        'zusammenhängen **mit + Dat.**, einer Sache **zugrunde liegen** '
+        '(Dativ!). The pair is only learned when its preposition comes too.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'The verb hides inside the noun',
+    text:
+        'Strip the article and the -ung and the verb reappears: die '
+        'Unter**such**ung ↔ unter**suchen**, die Ent**scheid**ung ↔ '
+        'ent**scheiden**. Learn one form and you own both directions.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'A thorough investigation underlies the decision',
+    text:
+        'Der Entscheidung **liegt** eine gründliche Untersuchung '
+        '**zugrunde**.',
+  ),
+];
+
+/// Nominalstil ↔ Verbalstil (exercises 2, 5, 6).
+const List<HelpMemoryTip> _nominalTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The conjunction map',
+    text:
+        'nachdem → **nach**, weil → **aufgrund/wegen**, obwohl → **trotz**, '
+        'bevor → **vor**, während → **während**, damit → **zur/zum** + noun. '
+        'Swap the connector, nominalize the verb, chain the rest in the '
+        'genitive.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'The inflation pump',
+    text:
+        'Three strokes inflate any sentence: 1) verb becomes **-ung/-en** '
+        'noun, 2) the doer disappears, 3) everything else hangs on in the '
+        'genitive. „Wir prüfen den Antrag" → „**Die Prüfung des Antrags** '
+        'erfolgt…".',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Never keep the conjunction',
+    text:
+        'The preposition replaces the conjunction — it never joins it: '
+        '*nachdem der Abschluss des Projekts* is wrong. **Nach** Abschluss '
+        'des Projekts does the whole job alone.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'After the project was completed, the team celebrated',
+    text: 'Nach **Abschluss des Projekts** feierte das Team.',
+  ),
+];
+
+/// The three Passiversatzformen (exercises 3, 4, 10).
+const List<HelpMemoryTip> _passiversatzTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Know your three Ersatzformen',
+    text:
+        '**sein + zu** = must/can be done (die Frage **ist zu klären**), '
+        '**sich lassen** = can be done (das **lässt sich klären**), '
+        '**-bar** = doable as a property (eine **klärbare** Frage). C1 '
+        'tests whether you pick the right one, not just produce one.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'sich lassen needs the bare infinitive',
+    text:
+        'Always das lässt sich **machen** — never *lässt sich gemacht*. And '
+        'sein + zu takes zu + infinitive: die Frage ist zu **klären**, not '
+        '*zu geklärt*.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Same passive, three costumes',
+    text:
+        '„ist nicht zu unterschätzen" = kann nicht unterschätzt werden. '
+        '„ließen sich nachweisen" = konnten nachgewiesen werden. '
+        '„messbar" = kann gemessen werden. One passive meaning, three '
+        'costumes to wear it in.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The costs can hardly be avoided',
+    text: 'Die Kosten **sind** kaum **zu vermeiden**.',
+  ),
+];
+
+/// Advanced connectors: zumal, gleichwohl, insofern (exercises 4, 7, 10).
+const List<HelpMemoryTip> _connectorTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Three C1 connectors',
+    text:
+        '**zumal** = especially since (subclause, verb last), '
+        '**gleichwohl** = nevertheless (an adverb that fills position 1, '
+        'verb right after), **insofern** = in that respect. Each carries '
+        'its own logic — decoration is not enough.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'zumal sends the verb to the end',
+    text:
+        'zumal introduces a strengthening subclause: „…, **zumal** viele '
+        'Beschäftigte ohnehin erschöpft **sind**." Verb last, and it never '
+        'starts a standalone sentence.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'Nevertheless the plan was rejected',
+    text:
+        'Der Plan wurde **gleichwohl** abgelehnt, **zumal** die Kosten '
+        'erneut gestiegen waren.',
+  ),
+];
+
+/// The subjectless passive across tenses (exercise 8).
+const List<HelpMemoryTip> _passivTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'One passive, four tenses',
+    text:
+        'Präsens **es wird gebaut**, Präteritum **es wurde gebaut**, '
+        'Perfekt **es ist gebaut worden**, Futur **es wird gebaut werden**. '
+        'No subject needed — the action itself is the news.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'es is a placeholder, not a subject',
+    text:
+        '„Es wird gebaut" — but front anything and es vanishes: „Überall '
+        '**wird gebaut**", never *Überall wird es gebaut*. The es only '
+        'holds the first seat until something else takes it.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'worden, not geworden',
+    text:
+        'In the passive Perfekt the participle shrinks: es ist gebaut '
+        '**worden**. The full form geworden belongs to werden as a main '
+        'verb (er ist Lehrer geworden).',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'A lot will be built here in the coming years',
+    text: 'In den nächsten Jahren **wird** hier viel **gebaut werden**.',
+  ),
+];
 
 final List<QuizContent> enDeAiM9Quizzes = [
   enDeAiEx(
@@ -70,28 +227,11 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'zugrunde liegen used with the wrong case',
     ],
     intro:
-        'C1 begins with the machinery of abstraction: twenty noun–verb '
-        'pairs that let you compress and unpack ideas at will. Drill them '
-        'until switching direction costs nothing.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: '-ung is always die',
-        text:
-            'Every -ung noun is feminine and pluralizes with -en: die '
-            'Entwicklung, die Entwicklungen. Half of this list is free '
-            'gender points.',
-      ),
-      HelpMemoryTip(
-        kind: 'warning',
-        title: 'Watch the preposition partners',
-        text:
-            'Some verbs drag prepositions along: sich auswirken AUF + Akk., '
-            'zusammenhängen MIT, einer Sache zugrunde liegen (Dativ!). The '
-            'pair is only learned when its preposition comes too.',
-      ),
-    ],
+        'German builds its abstract register from noun–verb pairs: every '
+        '-ung noun is feminine (die Entwicklung ↔ entwickeln), and knowing '
+        'both partners lets you compress a whole clause into a single '
+        'noun — or unpack it again.',
+    tips: _nounVerbTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m9_translate_style',
@@ -106,28 +246,45 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'clean verbal German. Serve one at a time, correct immediately, '
         'and rate elegance as well as accuracy.',
     material:
-        'Round 1 — verbal → nominal (serve one at a time):\n'
-        '1. Nachdem das Projekt abgeschlossen wurde, feierte das Team.\n'
-        '2. Weil die Kosten gestiegen sind, wurde das Budget gekürzt.\n'
-        '3. Bevor das Gesetz eingeführt wurde, gab es lange Debatten.\n'
+        'Serve only the sentence before the „=" sign, one at a time. The '
+        'German after the „=" is my reference answer — other correct '
+        'German that keeps the meaning also counts.\n'
+        'Round 1 — verbal → nominal:\n'
+        '1. Nachdem das Projekt abgeschlossen wurde, feierte das Team. '
+        '= Nach Abschluss des Projekts feierte das Team.\n'
+        '2. Weil die Kosten gestiegen sind, wurde das Budget gekürzt. '
+        '= Aufgrund des Kostenanstiegs wurde das Budget gekürzt.\n'
+        '3. Bevor das Gesetz eingeführt wurde, gab es lange Debatten. '
+        '= Vor Einführung des Gesetzes gab es lange Debatten.\n'
         '4. Als die Ergebnisse veröffentlicht wurden, reagierte die '
-        'Presse sofort.\n'
-        '5. Damit die Qualität verbessert wird, braucht man klare Regeln.\n'
-        '6. Obwohl viele zugestimmt haben, wurde der Plan abgelehnt.\n'
-        '7. Wenn man die Daten untersucht, erkennt man ein Muster.\n'
-        '8. Während die Stadt wuchs, verschwanden die Grünflächen.\n'
-        '(Target style: Nach Abschluss des Projekts…, aufgrund des '
-        'Kostenanstiegs…, trotz der Zustimmung vieler…)\n'
+        'Presse sofort. '
+        '= Bei Veröffentlichung der Ergebnisse reagierte die Presse '
+        'sofort.\n'
+        '5. Damit die Qualität verbessert wird, braucht man klare Regeln. '
+        '= Zur Verbesserung der Qualität braucht man klare Regeln.\n'
+        '6. Obwohl viele zugestimmt haben, wurde der Plan abgelehnt. '
+        '= Trotz der Zustimmung vieler wurde der Plan abgelehnt.\n'
+        '7. Wenn man die Daten untersucht, erkennt man ein Muster. '
+        '= Bei der Untersuchung der Daten erkennt man ein Muster.\n'
+        '8. Während die Stadt wuchs, verschwanden die Grünflächen. '
+        '= Während des Wachstums der Stadt verschwanden die Grünflächen.\n'
         '\n'
-        'Round 2 — nominal → verbal (serve one at a time):\n'
+        'Round 2 — nominal → verbal:\n'
         '9. Die Durchführung der Untersuchung erfolgte unter Ausschluss '
-        'der Öffentlichkeit.\n'
+        'der Öffentlichkeit. '
+        '= Die Untersuchung wurde durchgeführt, ohne dass die '
+        'Öffentlichkeit zusehen durfte.\n'
         '10. Bei Nichtbeachtung der Vorschriften droht die Kündigung des '
-        'Vertrags.\n'
+        'Vertrags. '
+        '= Wer die Vorschriften nicht beachtet, dem kann der Vertrag '
+        'gekündigt werden.\n'
         '11. Die Verbesserung der Lage ist nur durch eine Erhöhung der '
-        'Investitionen möglich.\n'
+        'Investitionen möglich. '
+        '= Die Lage kann sich nur verbessern, wenn mehr investiert wird.\n'
         '12. Nach Bekanntgabe der Entscheidung kam es zu einem Rückgang '
-        'der Bewerbungen.',
+        'der Bewerbungen. '
+        '= Nachdem die Entscheidung bekannt gegeben worden war, bewarben '
+        'sich weniger Menschen.',
     practisePoints: [
       'Clause → prepositional noun phrase (nachdem → nach + Genitiv)',
       'The matching abstract noun for each verb',
@@ -143,29 +300,11 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'nominal versions that keep the conjunction (nachdem der Abschluss…)',
     ],
     intro:
-        'One meaning, two costumes: bureaucratic-nominal and human-verbal. '
-        'This drill makes you fluent in changing the costume on command — '
-        'the core C1 writing skill.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'The conjunction map',
-        text:
-            'nachdem → nach, weil → aufgrund/wegen, obwohl → trotz, '
-            'bevor → vor, während → während, damit → zur/zum + noun. Swap '
-            'the connector, nominalize the verb, chain the rest in the '
-            'genitive.',
-      ),
-      HelpMemoryTip(
-        kind: 'example',
-        title: 'Sentence 1, transformed',
-        text:
-            '"Nachdem das Projekt abgeschlossen wurde" → "Nach Abschluss '
-            'des Projekts". Four words fewer, one register higher — that '
-            'trade is the whole game.',
-      ),
-    ],
+        'Nominal style replaces a whole subclause with preposition + '
+        'abstract noun: „nachdem das Projekt abgeschlossen wurde" becomes '
+        '„nach Abschluss des Projekts". Verbal style reverses the move — '
+        'C1 German switches between the two on demand.',
+    tips: _nominalTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m9_read_science',
@@ -223,25 +362,17 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'participial constructions skipped rather than decoded',
     ],
     intro:
-        'A dense science passage in real C1 clothing: participial '
-        'constructions, sich lassen, sein + zu. Read it like the educated '
-        'lay reader it was written for.',
+        'Academic German hides its passives — „ist nicht zu '
+        'unterschätzen", „ließen sich nachweisen" and „messbar" all mean '
+        '„kann … werden" — and it stacks whole relative clauses in front '
+        'of a noun (die diesem Prozess zugrunde liegenden Mechanismen).',
     tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Three passives in disguise',
-        text:
-            '"ist nicht zu unterschätzen" = kann/darf nicht unterschätzt '
-            'werden. "ließen sich nachweisen" = konnten nachgewiesen '
-            'werden. "messbar" = kann gemessen werden. Same passive, three '
-            'costumes.',
-      ),
+      ..._passiversatzTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Find the noun, then rewind',
         text:
-            'In "die diesem Prozess zugrunde liegenden Mechanismen", jump '
+            'In „die diesem Prozess zugrunde liegenden Mechanismen", jump '
             'to the noun (Mechanismen), then read the middle as its '
             'relative clause: die dem Prozess zugrunde liegen.',
       ),
@@ -261,6 +392,19 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'Passiversatz forms (sich lassen / sein + zu / -bar) and one '
         'sentence with zumal. Track those requirements and tell me at the '
         'end whether I met them.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'das lässt sich finanzieren = that can be financed · '
+        'das ist kaum umsetzbar = that is hardly feasible · '
+        'die Folgen sind nicht zu unterschätzen = the consequences are '
+        'not to be underestimated · '
+        'die Produktivität steigt nachweislich = productivity demonstrably '
+        'rises · '
+        'zumal viele Beschäftigte erschöpft sind = especially since many '
+        'employees are exhausted · '
+        'die Betreuung muss neu geregelt werden = childcare has to be '
+        'reorganized',
     practisePoints: [
       'Arguing an abstract societal question in extended turns',
       'Passiversatz in free speech (Das lässt sich finanzieren…)',
@@ -285,26 +429,20 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'zumal used as a main-clause starter',
     ],
     intro:
-        'A civic debate with quotas: somewhere in your argument, two '
-        'passive alternatives and one zumal must appear — naturally. Your '
-        'AI keeps count while playing the whole town hall.',
+        'Passiversatz forms keep a policy debate impersonal and polished — '
+        '„Das lässt sich finanzieren", „Die Kosten sind kaum zu '
+        'vermeiden" — while zumal adds a strengthening reason in a '
+        'verb-final subclause.',
     tips: [
-      _copyTip,
+      ..._passiversatzTips,
+      ..._connectorTips,
       HelpMemoryTip(
-        kind: 'example',
+        kind: 'tip',
         title: 'Passiversatz, debate-ready',
         text:
-            '"Das lässt sich in kleinen Betrieben schwer umsetzen" and '
-            '"Die Kosten sind kaum zu vermeiden" — drop these frames into '
+            '„Das lässt sich in kleinen Betrieben schwer umsetzen" and '
+            '„Die Kosten sind kaum zu vermeiden" — drop these frames into '
             'any policy debate and the quota fills itself.',
-      ),
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'zumal sends the verb to the end',
-        text:
-            'zumal introduces a strengthening subclause: "…, zumal viele '
-            'Beschäftigte ohnehin erschöpft sind." Verb last, and it never '
-            'starts a standalone sentence.',
       ),
     ],
   ),
@@ -348,20 +486,12 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'deflations that drop information',
     ],
     intro:
-        'A duel of registers: pump plain sentences full of Amtsdeutsch, '
-        'then puncture real bureaucratic monsters. Ten rounds, points for '
-        'precision — and a bonus for elegance.',
+        'Amtsdeutsch inflates in three strokes: the verb becomes an -ung '
+        'noun, the doer disappears, and the rest hangs on in genitive '
+        'chains — „Wir prüfen den Antrag" turns into „Die Prüfung des '
+        'Antrags erfolgt". Deflation reverses all three.',
     tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'The inflation pump',
-        text:
-            'Three strokes inflate any sentence: 1) verb becomes -ung/-en '
-            'noun, 2) the doer disappears, 3) everything else hangs on in '
-            'the genitive. "Wir prüfen den Antrag" → "Die Prüfung des '
-            'Antrags erfolgt…".',
-      ),
+      ..._nominalTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Deflate by asking: who does what?',
@@ -418,11 +548,12 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'abstract nouns leaking into the plain version',
     ],
     intro:
-        'Write the same science twice: once for a journal, once for a '
-        'poster in the U-Bahn. The distance between your two versions is '
-        'exactly what this module trained.',
+        'An academic abstract runs on nominal style and hides its author — '
+        '„Die Untersuchung zeigt…", „Es lässt sich nachweisen, dass…" — '
+        'while plain German does the opposite: active verbs, named doers, '
+        'short sentences.',
     tips: [
-      _copyTip,
+      ..._nominalTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Write the plain version first',
@@ -436,9 +567,9 @@ final List<QuizContent> enDeAiM9Quizzes = [
         kind: 'rule',
         title: 'An abstract has no ich',
         text:
-            'Academic German hides the author: "Die Untersuchung zeigt…", '
-            '"Es lässt sich nachweisen, dass…". If ich appears in Part 1, '
-            'the register has already broken.',
+            'Academic German hides the author: „**Die Untersuchung** '
+            'zeigt…", „**Es lässt sich** nachweisen, dass…". If ich '
+            'appears in Part 1, the register has already broken.',
       ),
     ],
   ),
@@ -492,26 +623,27 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'numbers or findings invented beyond the lecture',
     ],
     intro:
-        'Your AI turns professor for two minutes; you turn it back into '
-        'structure. Method, result, implication — plus one polite doubt in '
-        'proper C1 packaging.',
+        'Academic lectures run on the frame Ausgangsfrage – Methode – '
+        'Ergebnis – Implikation, signalled by joints like „Zunächst…", '
+        '„Dabei zeigte sich…", „Daraus folgt…". Retelling one means '
+        'rebuilding that frame with abstract nouns instead of und-dann '
+        'chains.',
     tips: [
-      _copyTip,
+      ..._connectorTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Listen for the joints',
         text:
-            'Lectures signal their skeleton: "Zunächst…", "Dabei zeigte '
-            'sich…", "Daraus folgt…". Catch the joints and the two minutes '
+            'Lectures signal their skeleton: „Zunächst…", „Dabei zeigte '
+            'sich…", „Daraus folgt…". Catch the joints and the two minutes '
             'hang themselves on three hooks.',
       ),
       HelpMemoryTip(
         kind: 'example',
-        title: 'The elegant doubt',
+        title: 'One limitation — Passiversatz and zumal in one sentence',
         text:
-            '"Die Ergebnisse lassen sich kaum auf andere Branchen '
-            'übertragen, zumal nur ein Unternehmen untersucht wurde." — '
-            'limitation, Passiversatz and zumal in one C1 sentence.',
+            'Die Ergebnisse **lassen sich** kaum auf andere Branchen '
+            '**übertragen**, zumal nur ein Unternehmen untersucht wurde.',
       ),
     ],
   ),
@@ -542,7 +674,20 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'hier wird… / überall wird…), at least 1 passive future (es wird '
         'gebaut werden), 1 sein + zu form, 1 advanced connector.\n'
         '- You interject once per beat as a curious local; I incorporate '
-        'the interjection and go on.',
+        'the interjection and go on.\n'
+        '\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'überall wird gebaut = building is going on everywhere · '
+        'vieles ist umgebaut worden = a lot has been rebuilt · '
+        'die Innenstadt ist kaum wiederzuerkennen = the city centre is '
+        'hardly recognizable · '
+        'es wird mehr von zu Hause gearbeitet werden = more work will be '
+        'done from home · '
+        'gleichwohl bleibt vieles vertraut = nevertheless much remains '
+        'familiar · '
+        'insofern fällt meine Bilanz gemischt aus = in that respect my '
+        'verdict is mixed',
     practisePoints: [
       'Subjectless passive across tenses (es wird / wurde / ist … worden)',
       'Passive future (es wird gebaut werden)',
@@ -559,28 +704,11 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'future passive word order scrambled',
     ],
     intro:
-        'Speculative city-telling with a grammatical spine: what is being '
-        'done, what has been done, what will be done — the subjectless '
-        'passive in every tense it owns.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'es is a placeholder, not a subject',
-        text:
-            '"Es wird gebaut" — but front anything and es vanishes: '
-            '"Überall wird gebaut", never "Überall wird es gebaut". The '
-            'es only holds the first seat until something else takes it.',
-      ),
-      HelpMemoryTip(
-        kind: 'example',
-        title: 'One future, fully passive',
-        text:
-            '"In den nächsten Jahren wird hier viel gebaut werden." — '
-            'wird second, gebaut werden parked at the end. Say it slowly '
-            'once, then own it.',
-      ),
-    ],
+        'The subjectless passive describes what happens without naming '
+        'who does it — es wird gebaut, es wurde gebaut, es ist gebaut '
+        'worden, es wird gebaut werden — and the es vanishes as soon as '
+        'anything else takes first position.',
+    tips: _passivTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m9_expert_panel',
@@ -595,6 +723,16 @@ final List<QuizContent> enDeAiM9Quizzes = [
         'jargon or nominal style, pounce: "Was heißt das konkret?" — and '
         'I must unpack it into plain German on the spot, then return to '
         'expert register. Do this at least four times.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'vereinfacht gesagt = put simply · '
+        'das bedeutet konkret = concretely, that means · '
+        'die Studienlage deutet darauf hin = the research suggests · '
+        'das lässt sich belegen = that can be substantiated · '
+        'das lässt sich nicht pauschal beantworten = there is no blanket '
+        'answer to that · '
+        'um auf den Punkt zurückzukommen = to come back to the point',
     practisePoints: [
       'Holding expert register: nominal style, hedged claims',
       'Instant downshifts to plain language on demand',
@@ -619,26 +757,42 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'losing the argument thread after downshifts',
     ],
     intro:
-        'You are the expert; your AI is the host who refuses to nod along. '
-        'Every piece of jargon gets challenged — translating yourself '
-        'live is the C1 party trick this trains.',
+        'Expert German lives in nominal style and hedged claims („die '
+        'Studienlage deutet darauf hin"), and unpacks itself on demand '
+        'with markers like „vereinfacht gesagt" and „das bedeutet '
+        'konkret" — switching register mid-argument is the C1 skill this '
+        'trains.',
     tips: [
-      _copyTip,
       HelpMemoryTip(
-        kind: 'example',
-        title: 'The downshift formula',
+        kind: 'rule',
+        title: 'The downshift markers',
         text:
-            '"Vereinfacht gesagt: …" then one sentence a neighbour would '
-            'follow, then "Um auf den Punkt zurückzukommen: …" and you are '
-            'back in expert mode. Three moves, every time.',
+            'Signal the register change before you make it: **vereinfacht '
+            'gesagt**, **das bedeutet konkret**, **mit anderen Worten** — '
+            'and climb back up with **um auf den Punkt zurückzukommen**.',
       ),
       HelpMemoryTip(
         kind: 'tip',
+        title: 'The downshift formula',
+        text:
+            '„Vereinfacht gesagt: …" then one sentence a neighbour would '
+            'follow, then „Um auf den Punkt zurückzukommen: …" and you are '
+            'back in expert mode. Three moves, every time.',
+      ),
+      HelpMemoryTip(
+        kind: 'warning',
         title: 'Hedge like a pro',
         text:
-            'Experts rarely say "immer". They say "in der Regel", "die '
-            'Studienlage deutet darauf hin", "das lässt sich nicht '
+            'Experts rarely say „immer". They say „in der Regel", „die '
+            'Studienlage deutet darauf hin", „das lässt sich nicht '
             'pauschal beantworten". Hedging is credibility, not weakness.',
+      ),
+      HelpMemoryTip(
+        kind: 'example',
+        title: 'Put simply: the brain sorts our memories at night',
+        text:
+            '**Vereinfacht gesagt**: Das Gehirn sortiert nachts unsere '
+            'Erinnerungen.',
       ),
     ],
   ),
@@ -656,6 +810,19 @@ final List<QuizContent> enDeAiM9Quizzes = [
         '(a sentence of mine into nominal style, one of yours into plain '
         'German), and at one point order a full register shift: "Erklären '
         'Sie das jetzt einem Kind." Judge the shift itself.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'die Frage ist differenziert zu betrachten = the question must be '
+        'looked at in a nuanced way · '
+        'das lässt sich kaum bestreiten = that can hardly be disputed · '
+        'gleichwohl gibt es berechtigte Einwände = nevertheless there are '
+        'legitimate objections · '
+        'insofern stimme ich nur teilweise zu = in that respect I only '
+        'partly agree · '
+        'zumal die Studienlage uneindeutig ist = especially since the '
+        'research is inconclusive · '
+        'das ist kaum messbar = that is hardly measurable',
     practisePoints: [
       'Sustained abstract argumentation at C1 length',
       'Live Nominalstil ↔ Verbalstil transformations',
@@ -674,20 +841,14 @@ final List<QuizContent> enDeAiM9Quizzes = [
       'connectors used as decoration without their logic',
     ],
     intro:
-        'The module gate: an abstract-topic examination with a forced '
-        'register shift in the middle. Pass it and C1.2 unlocks. Retake '
-        'it as often as you like — your best score counts.',
+        'The C1.1 gate bundles the whole module: Nominalstil ↔ Verbalstil '
+        'transformations on demand, the three Passiversatz forms (sein + '
+        'zu, sich lassen, -bar) chosen for the right meaning, and '
+        'connectors like insofern, gleichwohl and zumal placed with their '
+        'exact logic.',
     tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Know your three Ersatzformen',
-        text:
-            'sein + zu = must/can be done (die Frage ist zu klären), sich '
-            'lassen = can be done (das lässt sich klären), -bar = doable '
-            'as a property (eine klärbare Frage). The examiner tests '
-            'whether you pick, not just produce.',
-      ),
+      ..._passiversatzTips,
+      ..._connectorTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'The child test is a register test',

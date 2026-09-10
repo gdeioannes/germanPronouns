@@ -1,4 +1,5 @@
 import '../models/course.dart';
+import 'gacha_strings.dart';
 import 'placement_strings.dart';
 import 'speaking_strings.dart';
 
@@ -193,6 +194,7 @@ class AppStrings {
     required this.aboutMeRobotCheck,
     required this.aboutMeRobotWrong,
     required this.speaking,
+    required this.gacha,
     required this.placement,
   });
 
@@ -524,6 +526,10 @@ class AppStrings {
   /// Chrome for the placement flow (course-home starting-point sheet, the
   /// placement test, the manual level picker).
   final PlacementStrings placement;
+
+  /// Chrome for the claw machine — the gacha the furniture is won from, and
+  /// its collection album.
+  final GachaStrings gacha;
 }
 
 const AppStrings _en = AppStrings(
@@ -752,6 +758,7 @@ const AppStrings _en = AppStrings(
   aboutMeRobotCheck: 'Quick check — you are not a robot:',
   aboutMeRobotWrong: 'Not quite. Here is another one.',
   speaking: kSpeakingStringsEn,
+  gacha: kGachaStringsEn,
   placement: kPlacementStringsEn,
 );
 
@@ -987,6 +994,7 @@ const AppStrings _es = AppStrings(
   aboutMeRobotCheck: 'Comprobación rápida: no eres un robot.',
   aboutMeRobotWrong: 'No es correcto. Aquí tienes otra.',
   speaking: kSpeakingStringsEs,
+  gacha: kGachaStringsEs,
   placement: kPlacementStringsEs,
 );
 
@@ -1225,6 +1233,7 @@ const AppStrings _de = AppStrings(
   aboutMeRobotCheck: 'Kurze Prüfung – du bist kein Roboter:',
   aboutMeRobotWrong: 'Leider falsch. Hier ist eine neue Aufgabe.',
   speaking: kSpeakingStringsDe,
+  gacha: kGachaStringsDe,
   placement: kPlacementStringsDe,
 );
 
@@ -1425,6 +1434,7 @@ const AppStrings _zh = AppStrings(
   aboutMeRobotCheck: '简单验证一下，确认你不是机器人：',
   aboutMeRobotWrong: '不对，再来一题。',
   speaking: kSpeakingStringsZh,
+  gacha: kGachaStringsZh,
   placement: kPlacementStringsZh,
 );
 

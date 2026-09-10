@@ -12,14 +12,166 @@ import 'en_de_ai_builder.dart';
 /// C2 session shape: ~6 minutes, 10 exchanges, pass 70; the builder switches the report to German at this level.
 const _c2Session = SpeakingSession(durationMinutes: 6, minExchanges: 10);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+const List<HelpMemoryTip> _fvgTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Anatomy of an FVG',
+    text:
+        'Noun carries the meaning, verb is only a carrier: in Erwägung '
+        '**ziehen**, zur Verfügung **stellen**, in Anspruch **nehmen**, zum '
+        'Ausdruck **bringen**, in Kraft **treten**, unter Beweis **stellen**. '
+        'Learn noun + preposition + verb as one frozen unit.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The article is welded in',
+    text:
+        '**zur** (= zu der) Verfügung stellen, **zur** Sprache bringen, '
+        '**zur** Kenntnis nehmen, **zum** (= zu dem) Ausdruck bringen — but '
+        'bare **in** Erwägung ziehen, **in** Anspruch nehmen, **in** Kauf '
+        'nehmen. The contraction or its absence is part of the phrase.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Light verb, heavy noun',
+    text:
+        'Think of ziehen/stellen/nehmen/bringen as forklifts: they only '
+        'lift the noun into place. To decode any FVG, drop the forklift and '
+        'verb the noun: Erwägung → erwägen, Kritik → kritisieren.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Formal tool, formal context',
+    text:
+        'An FVG belongs in reports, statements and letters. In casual '
+        'speech the simple verb wins: say „ich überlege" to a friend, keep '
+        '„ich ziehe in Erwägung" for the Vorstand.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'We are considering closing the branch.',
+    text: 'Wir ziehen in **Erwägung**, die Filiale zum Jahresende zu schließen.',
+  ),
+];
+
+const List<HelpMemoryTip> _registerTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The register triplets',
+    text:
+        'Many core verbs come in three rungs — colloquial · neutral · '
+        'formal: **kriegen** · bekommen · **erhalten**; **kapieren** · '
+        'verstehen · **nachvollziehen**; **anfangen** · beginnen · **in '
+        'Angriff nehmen**; **dichtmachen** · schließen · **zum Abschluss '
+        'bringen**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Markers beyond the verb',
+    text:
+        'Formal: FVG, Passiv, no particles, full forms (**es ist**). '
+        'Colloquial: particles (**halt**, **mal**, **echt**), contractions '
+        '(**is’**, **’ne**), exclamations. Neutral sits between: plain '
+        'verbs, complete sentences, no drama.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'One word breaks the spell',
+    text:
+        'Register is judged by its weakest word: a single „kriegen" in a '
+        'formal letter, one „erhalten" in a WhatsApp message, and the whole '
+        'text sounds off. Sweep every sentence for the odd one out.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Three gears, shift the verb first',
+    text:
+        'Treat kriegen — bekommen — erhalten as a gearbox. When the '
+        'audience changes, shift the verb first; the particles, sentence '
+        'length and address forms engage behind it.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'You will receive the documents by Friday. (formal)',
+    text: 'Sie **erhalten** die Unterlagen bis Freitag.',
+  ),
+];
+
+const List<HelpMemoryTip> _collocationTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The noun chooses its verb',
+    text:
+        'Kritik **üben** (an + Dat), Maßnahmen **ergreifen**, einen Fehler '
+        '**begehen**, eine Entscheidung **treffen**, Verluste **erleiden**, '
+        'eine Rede **halten**, einen Rekord **aufstellen**, Zweifel '
+        '**wecken**, Konsequenzen **ziehen**, eine Aussage **machen**.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'machen and geben are traps',
+    text:
+        'English „make/give" tempts you into machen/geben, but German says '
+        'einen Fehler **begehen**, eine Rede **halten**, eine Entscheidung '
+        '**treffen**. Of the common pairs, only eine Aussage machen keeps '
+        'machen.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'One loyal verb per noun',
+    text:
+        'Store each collocation from the noun side: „Kritik? — üben. '
+        'Maßnahmen? — ergreifen." Recalling the noun’s one loyal partner '
+        'beats translating the English verb every time.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The opposition sharply criticised the draft law.',
+    text: 'Die Opposition **übte** scharfe Kritik **an** dem Gesetzentwurf.',
+  ),
+];
+
+const List<HelpMemoryTip> _emphasisTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The Vorfeld is a spotlight',
+    text:
+        'Exactly one element stands before the finite verb, and whatever '
+        'stands there is stressed: *Ich habe das gesagt* → **Gesagt** habe '
+        'ich das · **Gerade jetzt** müssen wir handeln · **Verschieben** '
+        'können wir das immer noch.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Cleft-like emphasis with „es ist … , die/der"',
+    text:
+        '„**Gerade die Bequemlichkeit** ist es, die uns teuer zu stehen '
+        'kommt." — fronting plus the es-ist frame doubles the stress. '
+        'Neutral version: Die Bequemlichkeit kommt uns teuer zu stehen.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Ausklammerung: unload after the bracket',
+    text:
+        'A heavy phrase may move behind the verb bracket for rhythm and '
+        'late stress: Wir müssen Maßnahmen ergreifen, die hinausgehen '
+        '**über Blumenkübel und Leuchtreklame** — instead of squeezing it '
+        'all before „hinausgehen".',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'The verb never leaves slot 2',
+    text:
+        'Fronting moves content, not the verb: **Gesagt habe ich**, dass … '
+        '— never „Gesagt ich habe". If your emphasis breaks V2, it reads '
+        'as an error, not as rhetoric.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'What I said was that the costs are rising.',
+    text: '**Gesagt** habe ich, dass die Kosten steigen.',
+  ),
+];
 
 final List<QuizContent> enDeAiM11Quizzes = [
   enDeAiEx(
@@ -65,11 +217,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'FVG used where the simple verb is natural',
     ],
     intro:
-        'C2 begins with the machinery of formal German: function-verb '
-        'phrases. You drill each pair both ways and, more importantly, '
-        'argue about when each version belongs.',
+        'Formal German swaps many simple verbs for a noun plus a light '
+        'verb: erwägen becomes in Erwägung ziehen, bereitstellen becomes '
+        'zur Verfügung stellen. The noun carries the meaning; verb, '
+        'preposition and article are frozen around it.',
     tips: [
-      _copyTip,
+      ..._fvgTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'The preposition is part of the phrase',
@@ -123,11 +276,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
     ],
     priorityErrors: ['register bleed', 'content dropped in translation'],
     intro:
-        'A game with one skill at its heart: saying the same thing three '
-        'ways. The AI calls the audience, you find the voice — six rounds, '
-        'no warm-up.',
+        'German runs on three registers, and many core verbs come in '
+        'triplets: kriegen (colloquial), bekommen (neutral), erhalten '
+        '(formal). The skill here is picking the right rung and holding it '
+        'for the whole sentence.',
     tips: [
-      _copyTip,
+      ..._registerTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'One marker word per register',
@@ -158,20 +312,25 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'each needs its fixed collocation partner. Reveal the collocation '
         'only after my attempt.',
     material:
-        'Sentences to serve one at a time (target collocation in '
-        'brackets — reveal it after my attempt, never before):\n'
-        '1. The opposition criticised the new law sharply. '
-        '(Kritik üben an + Dat)\n'
-        '2. The city took drastic measures. (Maßnahmen ergreifen)\n'
-        '3. He made a serious mistake. (einen Fehler begehen)\n'
-        '4. She reached an important decision. '
-        '(eine Entscheidung treffen)\n'
-        '5. The company suffered heavy losses. (Verluste erleiden)\n'
-        '6. The minister gave a speech. (eine Rede halten)\n'
-        '7. They set a new record. (einen Rekord aufstellen)\n'
-        '8. The report raises serious doubts. (Zweifel wecken)\n'
-        '9. We have to draw the consequences. (Konsequenzen ziehen)\n'
-        '10. The witness gave a statement. (eine Aussage machen)\n'
+        'Serve me only the English half of each line, one at a time; the '
+        'German after „=" is your reference answer — accept any other '
+        'correct German too, but insist on the fixed collocation verb:\n'
+        '1. The opposition criticised the new law sharply. = Die Opposition '
+        'übte scharfe Kritik an dem neuen Gesetz.\n'
+        '2. The city took drastic measures. = Die Stadt ergriff drastische '
+        'Maßnahmen.\n'
+        '3. He made a serious mistake. = Er beging einen schweren Fehler.\n'
+        '4. She reached an important decision. = Sie traf eine wichtige '
+        'Entscheidung.\n'
+        '5. The company suffered heavy losses. = Das Unternehmen erlitt '
+        'schwere Verluste.\n'
+        '6. The minister gave a speech. = Der Minister hielt eine Rede.\n'
+        '7. They set a new record. = Sie stellten einen neuen Rekord auf.\n'
+        '8. The report raises serious doubts. = Der Bericht weckt ernste '
+        'Zweifel.\n'
+        '9. We have to draw the consequences. = Wir müssen die Konsequenzen '
+        'ziehen.\n'
+        '10. The witness gave a statement. = Der Zeuge machte eine Aussage.\n'
         'For each miss, contrast the wrong literal verb with the fixed '
         'partner and re-serve the sentence later in the round.',
     practisePoints: [
@@ -189,11 +348,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'wrong case after üben an / Kritik an',
     ],
     intro:
-        'Ten sentences designed to punish the obvious verb. In German you '
-        'do not "make" criticism — you practise it (Kritik üben). Your AI '
-        'reveals each fixed partner only after you have committed.',
+        'German nouns choose their verbs: Kritik wird geübt, Maßnahmen '
+        'werden ergriffen, eine Rede wird gehalten. Translating the English '
+        'verb literally usually lands on machen — and machen is usually '
+        'wrong.',
     tips: [
-      _copyTip,
+      ..._collocationTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'The noun chooses the verb',
@@ -270,11 +430,13 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'missing the concession-rebuttal pivot',
     ],
     intro:
-        'You have read hard texts before; now you take one apart. Every '
-        'question asks how the piece persuades, not what it says — the '
-        'skills you dissect here are the ones you deploy next.',
+        'German argumentative prose signals its moves grammatically: the '
+        'concession opens with zugegeben or zwar, the pivot arrives with '
+        'doch, and emphasis is built by fronting an element into the '
+        'Vorfeld. This op-ed uses all three — your job is to name the '
+        'machinery.',
     tips: [
-      _copyTip,
+      ..._emphasisTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Zugegeben … doch …',
@@ -306,6 +468,15 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'well-built arguments. I must use at least three Funktionsverbgefüge '
         'and one deliberate emphasis fronting — track them and name them in '
         'the feedback.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'in Erwägung ziehen = to consider · zur Verfügung stellen = to make '
+        'available · Maßnahmen ergreifen = to take measures · in Kauf '
+        'nehmen = to accept as the price · zugegeben, das kostet Geld = '
+        'admittedly, that costs money · gleichwohl überwiegt der Nutzen = '
+        'nevertheless the benefit outweighs it · gerade jetzt müssen wir '
+        'handeln = right now is when we must act',
     practisePoints: [
       'Concession-then-rebuttal argument structure',
       'Funktionsverbgefüge deployed naturally under pressure',
@@ -329,11 +500,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'assertion without concession',
     ],
     intro:
-        'Time to use the toolbox on a live target. The AI plays a mayor '
-        'who has heard every pitch — you win funding with structure, not '
-        'volume, and you must smuggle in three FVG along the way.',
+        'Persuasive German concedes before it attacks — zugegeben … '
+        'gleichwohl … — and stresses its key point by fronting it into the '
+        'Vorfeld. You lobby a stubborn mayor with exactly that structure, '
+        'three Funktionsverbgefüge woven in.',
     tips: [
-      _copyTip,
+      ..._fvgTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Concede first, then take the point',
@@ -391,11 +563,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'summary that drops the demand',
     ],
     intro:
-        'The hardest part of formal writing is restraint. You write the '
-        'long version, then the ruthless short one — and the AI grades '
-        'whether each function-verb phrase earned its seat.',
+        'Formal written German gains its weight from Funktionsverbgefüge '
+        'and exact collocations — but only in measured doses, because too '
+        'many stiffen the prose. You write the long version, then a '
+        'ruthless summary where every phrase must earn its seat.',
     tips: [
-      _copyTip,
+      ..._fvgTips,
       HelpMemoryTip(
         kind: 'warning',
         title: 'Density is a dial, not a goal',
@@ -438,7 +611,14 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'attributed official statement, no exclamation marks.\n'
         '- Same facts in both — invent nothing new for version two.\n'
         '- After both, name one sentence from each version that would be '
-        'impossible in the other, and say why.',
+        'impossible in the other, and say why.\n'
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'dichtmachen = to shut down (colloquial) · Kritik üben an = to '
+        'criticise (formal) · Maßnahmen ergreifen = to take measures · '
+        'einräumen = to concede, to admit · in Kauf nehmen = to knowingly '
+        'accept · Kenntnis haben von = to have knowledge of (formal) · '
+        'voll ärgerlich = really annoying (colloquial)',
     practisePoints: [
       'Tabloid register: punch, outrage, colloquial verbs',
       'Broadsheet register: FVG, attribution, measured syntax',
@@ -454,11 +634,11 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'facts drifting between versions',
     ],
     intro:
-        'Same pool, same burst pipe, two newspapers that could not sound '
-        'less alike. You write the front page twice, and the AI hunts for '
-        'the one word that betrays the wrong paper.',
+        'Register lives in every choice: dichtmachen or zum Abschluss '
+        'bringen, a six-word outburst or a twenty-word period. You tell '
+        'one story in both newspaper voices and keep the facts identical.',
     tips: [
-      _copyTip,
+      ..._registerTips,
       HelpMemoryTip(
         kind: 'example',
         title: 'The same fact, two voices',
@@ -520,11 +700,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'a fact dropped or distorted',
     ],
     intro:
-        'The daily C2 task nobody teaches: hearing management prose and '
-        'saying what it means. You catch a formal statement by ear and '
-        'hand it on in human German — nothing lost, nothing stiff.',
+        'Formal announcements pack their meaning into Funktionsverbgefüge: '
+        'eine Entscheidung treffen, zur Verfügung stellen, in Kauf nehmen. '
+        'Retelling them casually means unpacking each one into its simple '
+        'verb — beenden, hingehen, hinnehmen — without dropping a fact.',
     tips: [
-      _copyTip,
+      ..._registerTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Translate the FVG down',
@@ -555,6 +736,15 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'decision my organisation has made; you play several journalists '
         'who interrupt, bait me with loaded questions, and misquote what I '
         'just said. Stay hostile but realistic.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'Das habe ich so nicht gesagt. = That is not what I said. · Lassen '
+        'Sie mich das richtigstellen. = Let me set the record straight. · '
+        'in aller Deutlichkeit = in all clarity · Ich komme darauf zurück. '
+        '= I will come back to that. · Gesagt habe ich, dass … = What I '
+        'said was that … · gleichwohl stehen wir zu der Entscheidung = '
+        'nevertheless we stand by the decision',
     practisePoints: [
       'Correcting a misquote calmly and precisely',
       'Bridging from a loaded question back to the message',
@@ -577,11 +767,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'register collapse when interrupted',
     ],
     intro:
-        'The stress test before the exam: journalists who twist your '
-        'words in real time. Your job is not to win the room — it is to '
-        'stay precise, stay formal, and correct the record every time.',
+        'Emphasis fronting is a weapon under pressure: „Gesagt habe ich, '
+        'dass …" puts your correction in the spotlight slot while the verb '
+        'stays in position 2. You defend a decision in formal register '
+        'while journalists try to make it crack.',
     tips: [
-      _copyTip,
+      ..._emphasisTips,
       HelpMemoryTip(
         kind: 'example',
         title: 'The correction formula',
@@ -613,6 +804,14 @@ final List<QuizContent> enDeAiM11Quizzes = [
         'your command MID-ANSWER: call "formell!", "neutral!" or "salopp!" '
         'and I must re-voice the running answer instantly. Do this at least '
         'four times across the interview.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'kriegen = to get (colloquial) · bekommen = to get (neutral) · '
+        'erhalten = to receive (formal) · in Angriff nehmen = to tackle '
+        '(formal) · zum Ausdruck bringen = to express (formal) · halt so = '
+        'just the way it is (colloquial filler) · gleichwohl = nevertheless '
+        '(formal)',
     practisePoints: [
       'Instant register switches without losing the thread',
       'FVG and exact collocations on demand in formal mode',
@@ -630,11 +829,12 @@ final List<QuizContent> enDeAiM11Quizzes = [
       'FVG with broken preposition or article',
     ],
     intro:
-        'The M11 gate: an interview where the AI yanks the register lever '
-        'mid-sentence. Same content, new voice, no pause. Pass it and the '
-        'final module unlocks — your best score counts.',
+        'The whole module in one interview: register triplets (kriegen — '
+        'bekommen — erhalten), Funktionsverbgefüge on demand in formal '
+        'mode, and at least one deliberate Vorfeld fronting — all switched '
+        'mid-answer on command.',
     tips: [
-      _copyTip,
+      ..._registerTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Finish the thought, not the sentence',

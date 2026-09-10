@@ -13,14 +13,168 @@ import 'en_de_ai_builder.dart';
 /// builder switches the closing report to German automatically.
 const _b2Session = SpeakingSession(durationMinutes: 5, minExchanges: 8);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+/// Konjunktiv I / reported speech — the module's core grammar.
+const List<HelpMemoryTip> _konjunktivTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Konjunktiv I: stem + e',
+    text:
+        'Take the infinitive stem and add -**e**: er sag**e**, er hab**e**, '
+        'er wiss**e**, er komm**e**, er müss**e**. The two anchors to '
+        'memorize whole: **sein** → er **sei**, sie **seien**; and du/ihr '
+        'forms (du sei**e**st, ihr sei**e**t) are rare in real reporting.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Fall back only on a collision',
+    text:
+        'When K I looks identical to the indicative — almost always in the '
+        'plural: sie kommen, sie haben — switch to Konjunktiv II: sie '
+        '**kämen**, sie **hätten**. If even K II matches the Präteritum '
+        '(sie stiegen), use **würden** + infinitive: sie **würden steigen**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Past and future in reported speech',
+    text:
+        'All past tenses collapse into one: er **habe** gesehen / sie '
+        '**sei** gewesen. Future and "would" both become **werde** + '
+        'infinitive: er **werde** anrufen. Modals keep their stem: das '
+        'Problem **müsse** gelöst werden.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'The indicative slip',
+    text:
+        'The classic error is sliding back mid-report: „Er sagte, er habe '
+        'keine Zeit und *ist* müde." Every verb inside the report stays '
+        'Konjunktiv: … und **sei** müde. Re-launch with a verb of saying '
+        '(er habe betont, er habe gefordert) to reset yourself.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The minister said the plan was working',
+    text: 'Der Minister sagte, der Plan **funktioniere** und die Zahlen '
+        '**seien** besser als erwartet.',
+  ),
+];
+
+/// Concessive & consecutive connectors + je…desto — argument logic.
+const List<HelpMemoryTip> _connectorTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'dennoch vs folglich',
+    text:
+        '**dennoch** = nevertheless (contrast against expectation), '
+        '**folglich** = consequently (logical result). Both are adverbs in '
+        'position 1, so the verb comes right after: Dennoch **fahren** '
+        'viele Auto. Folglich **braucht** die Stadt Regeln.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'je…desto is a double comparative',
+    text:
+        '**Je** + comparative + verb-final clause, **desto** + comparative '
+        '+ verb in position 2: Je **mehr** Autos fahren, desto '
+        '**schlechter** wird die Luft. Two comparatives, two word orders — '
+        'miss one piece and the scaffold collapses.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Concede, then strike: zwar … dennoch',
+    text:
+        'Think of **zwar** as opening a door you slam with **dennoch**: '
+        'admit the strongest counter-point first, then land your own. One '
+        'honest zwar…dennoch per argument is the sound of B2.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Verb-final after dass and ob',
+    text:
+        'Most scaffolds end in dass or ob, and the verb must go to the '
+        'end: Man muss bedenken, dass viele Menschen auf das Auto '
+        'angewiesen **sind**. Es kommt darauf an, ob die Regeln '
+        'funktionieren **werden**.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'I admit that…, nevertheless…',
+    text: 'Ich gebe zu, dass die Luft ein Problem ist, **dennoch** sind '
+        'viele Menschen auf das Auto angewiesen.',
+  ),
+];
+
+/// Statistics language: trend verbs and auf/um.
+const List<HelpMemoryTip> _statsTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'auf lands, um travels',
+    text:
+        'steigen/sinken **auf** = the endpoint, steigen/sinken **um** = '
+        'the distance: Der Anteil stieg **auf** 35 Prozent (where it '
+        'landed) / stieg **um** 15 Prozentpunkte (how far it moved). Same '
+        'climb, two prepositions.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Approximation in one syllable',
+    text:
+        '**knapp** 50 = just under 50, **gut** 50 = just over 50, **rund** '
+        '50 = around 50. And ratios read as ordinals: **jeder Dritte** = '
+        'one in three, **die Mehrheit** / **die Minderheit** for the two '
+        'halves of any split.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Reflexive doubling and halving',
+    text:
+        'verdoppeln and halbieren need **sich**: Die Zahl hat **sich** '
+        'verdoppelt. Drop the reflexive and you claim somebody actively '
+        'doubled the number.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The share rose from 20 to 35 percent',
+    text: 'Der Anteil stieg von 20 **auf** 35 Prozent — er hat sich also '
+        'fast verdoppelt.',
+  ),
+];
+
+/// Passive in all tenses and with modals — the exam's second pillar.
+const List<HelpMemoryTip> _passiveTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Passive through the tenses',
+    text:
+        'werden + Partizip II, conjugated through time: Präsens es **wird** '
+        'geregelt, Präteritum es **wurde** geregelt, Perfekt es **ist** '
+        'geregelt **worden** (worden, not geworden!), Futur es **wird** '
+        'geregelt **werden**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Passive with modals',
+    text:
+        'Modal + Partizip II + **werden** at the very end: Das **muss** '
+        'geregelt **werden**. Die Zonen **sollten** eingerichtet '
+        '**werden**. In reported speech the modal takes K I: das **müsse** '
+        'geregelt werden.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'worden, not geworden',
+    text:
+        'In the Perfekt passive the participle of werden loses its ge-: '
+        'Die Regeln sind verschärft **worden**. „geworden" belongs only to '
+        'werden as a full verb (Er ist Lehrer geworden).',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The sprawl must be brought to order',
+    text: 'Der Wildwuchs **muss** endlich geordnet **werden** — feste '
+        'Zonen **sollten** schon längst eingerichtet worden sein.',
+  ),
+];
 
 final List<QuizContent> enDeAiM7Quizzes = [
   enDeAiEx(
@@ -66,18 +220,21 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'je…desto without comparatives',
     ],
     intro:
-        'B2 argument runs on prefabricated steel: a dozen scaffolds that '
-        'hold any opinion upright. Drill them as chunks until each one '
-        'assembles itself.',
+        'German arguments are built from fixed scaffolds — einerseits … '
+        'andererseits, daraus folgt, dass …, je mehr …, desto … — and most '
+        'of them end in a dass- or ob-clause that sends the verb to the end. '
+        'Learn each scaffold as one unbreakable chunk with its word order '
+        'built in.',
     tips: [
-      _copyTip,
+      ..._connectorTips,
       HelpMemoryTip(
-        kind: 'rule',
-        title: 'je…desto is a double comparative',
+        kind: 'tip',
+        title: 'Rebuild, do not decorate',
         text:
-            '"Je mehr Autos fahren, desto schlechter wird die Luft." — '
-            'comparative on both sides, verb final after je, verb second '
-            'after desto. Miss one piece and the scaffold collapses.',
+            'A scaffold is not a sticker on the front of your sentence: '
+            '„dagegen spricht, dass…" forces the claim itself into a '
+            'verb-final dass-clause. Say the whole chunk, then let the '
+            'claim fall into its slot.',
       ),
     ],
   ),
@@ -135,11 +292,13 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'stance question answered with surface facts only',
     ],
     intro:
-        'Your first editorial: the author never says "I think", yet takes '
-        'a clear side. Read between the lines, then bend one quote into '
-        'proper reported speech.',
+        'Editorials argue without ever saying „ich finde": the stance lives '
+        'in connectors like gewiss … dennoch and folglich, and claims are '
+        'held at a distance with Konjunktiv I (ihre Fahrzeuge seien …). '
+        'Read for where each „but" lands, then reproduce that distance '
+        'yourself.',
     tips: [
-      _copyTip,
+      ..._konjunktivTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Stance hides in connectors',
@@ -163,18 +322,28 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'K I matches the indicative. Serve one at a time; explain every '
         'fallback I miss.',
     material:
-        'Sentences to serve one at a time (Konjunktiv I required, '
-        'K II only as the correct fallback):\n'
-        '1. She said that she was tired.\n'
-        '2. He said that he had no time.\n'
-        '3. The minister said that the plan was working.\n'
-        '4. She said that they were coming tomorrow. (fallback!)\n'
-        '5. He claimed that he knew nothing about it.\n'
-        '6. The newspaper wrote that prices were rising.\n'
-        '7. She said that she had seen the film.\n'
-        '8. They said that they had (i.e. hätten) no money. (fallback!)\n'
-        '9. He said that he would call later.\n'
-        '10. The spokesperson said that the problem must be solved.',
+        'Sentences to serve one at a time — read me only the English half; '
+        'the German after the = is the reference answer (other correct '
+        'German is acceptable). Konjunktiv I required, K II only as the '
+        'correct fallback:\n'
+        '1. She said that she was tired. = Sie sagte, sie sei müde.\n'
+        '2. He said that he had no time. = Er sagte, er habe keine Zeit.\n'
+        '3. The minister said that the plan was working. = Der Minister '
+        'sagte, der Plan funktioniere.\n'
+        '4. She said that they were coming tomorrow. (fallback!) = Sie '
+        'sagte, sie kämen morgen.\n'
+        '5. He claimed that he knew nothing about it. = Er behauptete, er '
+        'wisse nichts davon.\n'
+        '6. The newspaper wrote that prices were rising. (fallback!) = Die '
+        'Zeitung schrieb, die Preise würden steigen.\n'
+        '7. She said that she had seen the film. = Sie sagte, sie habe den '
+        'Film gesehen.\n'
+        '8. They said that they had no money. (fallback!) = Sie sagten, '
+        'sie hätten kein Geld.\n'
+        '9. He said that he would call later. = Er sagte, er werde später '
+        'anrufen.\n'
+        '10. The spokesperson said that the problem must be solved. = Der '
+        'Sprecher sagte, das Problem müsse gelöst werden.',
     practisePoints: [
       'Konjunktiv I forms: er sei, er habe, er wisse, er komme',
       'K II fallback when K I equals the indicative (sie kämen, sie '
@@ -191,18 +360,19 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'K II used where K I is distinct and required',
     ],
     intro:
-        'The journalist\'s tense: what others said, held at arm\'s length. '
-        'Ten sentences, and two of them secretly test whether you know '
-        'when Konjunktiv I must give way to Konjunktiv II.',
+        'Reported speech takes Konjunktiv I — stem + e (er sage, er habe, '
+        'er wisse) plus the anchor sei — and falls back to Konjunktiv II '
+        '(sie kämen, sie hätten) exactly where K I would look like the '
+        'plain indicative. Three of these ten sentences test that fallback.',
     tips: [
-      _copyTip,
+      ..._konjunktivTips,
       HelpMemoryTip(
-        kind: 'rule',
-        title: 'Fall back only on a collision',
+        kind: 'tip',
+        title: 'dass is optional, Konjunktiv is not',
         text:
-            'Use K I first: er sei, er habe, er komme. Only when the K I '
-            'form looks identical to the indicative (sie kommen, sie '
-            'haben) do you switch to K II: sie kämen, sie hätten.',
+            'Both are correct: „Sie sagte, dass sie müde **sei**" and '
+            '„Sie sagte, sie **sei** müde." Dropping dass moves the verb '
+            'to position 2 but never lets you drop the Konjunktiv.',
       ),
     ],
   ),
@@ -220,6 +390,17 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'rebuttal. Somewhere in the debate I must land at least one '
         'correct je…desto sentence — remind me at the end if it never '
         'came.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'auf etwas angewiesen sein = to depend on something · '
+        'ich gebe zu, dass … = I admit that · '
+        'zwar …, dennoch … = admittedly …, nevertheless · '
+        'dagegen spricht, dass … = against it speaks the fact that · '
+        'der Lieferverkehr = delivery traffic · '
+        'die Einschränkung = the restriction · '
+        'je mehr …, desto … = the more …, the more · '
+        'daraus folgt, dass … = it follows that',
     practisePoints: [
       'Building a pro/contra argument in rounds',
       'Concessive moves: zwar…, dennoch…; ich gebe zu, dass…',
@@ -243,11 +424,12 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'je…desto malformed or missing',
     ],
     intro:
-        'You don\'t get to pick your side — the anti position is yours, '
-        'defend it. Two rounds of argument and rebuttal, with one je…desto '
-        'sentence as the price of admission.',
+        'A B2 argument concedes before it counters: zwar / ich gebe zu, '
+        'dass … opens the door, dennoch slams it, and folglich or je…desto '
+        'draws the consequence. Defend the assigned anti position with '
+        'that machinery, not with bare assertions.',
     tips: [
-      _copyTip,
+      ..._connectorTips,
       HelpMemoryTip(
         kind: 'example',
         title: 'Concede, then strike',
@@ -298,11 +480,12 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'calls made without any justification',
     ],
     intro:
-        'Six headlines on the table, some of them bluffing. Interrogate '
-        'the dealer in reported speech — distance is the whole game — then '
-        'call the bluff and say why.',
+        'Konjunktiv I is the grammar of not vouching: „Die Zeitung '
+        'schreibe, die Zahl sei gestiegen" reports a claim without '
+        'endorsing it. Interrogate every headline at that distance, then '
+        'call the bluff with a folglich- or dennoch-sentence.',
     tips: [
-      _copyTip,
+      ..._konjunktivTips,
       HelpMemoryTip(
         kind: 'mnemonic',
         title: 'Konjunktiv I = raised eyebrow',
@@ -357,11 +540,12 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'indicative in the reference to the editorial',
     ],
     intro:
-        'Answer the editorial in its own arena: 120 words to the editor. '
-        'A thesis, two arguments, one gracious concession — and the '
-        'author\'s claims quoted at Konjunktiv distance.',
+        'A Leserbrief is argument in miniature: thesis, two supported '
+        'arguments, one concession (zwar …, dennoch …) — and every '
+        'reference to the source text in Konjunktiv I: Die Autorin '
+        'schreibe, der Wildwuchs müsse geordnet werden.',
     tips: [
-      _copyTip,
+      ..._connectorTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'The concession is the crown',
@@ -416,11 +600,12 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'the statistic or demand dropped from the report',
     ],
     intro:
-        'Two minutes of expert opinion, then your colleague asks what was '
-        'said — and you must retell all of it at reported-speech distance. '
-        'The Konjunktiv marathon of this module.',
+        'Sustained reported speech means every verb of a long retelling '
+        'stays in Konjunktiv I — er habe gesagt, der Anteil sei gestiegen, '
+        'die Dächer müssten gebaut werden — including modals and passives, '
+        'with never a direct quote in the indicative.',
     tips: [
-      _copyTip,
+      ..._passiveTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Anchor on the verbs of saying',
@@ -475,18 +660,20 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'the same trend verb recycled every item',
     ],
     intro:
-        'Numbers you can talk about: rises, falls, shares and majorities, '
-        'drilled in both directions. The trap the whole drill circles is '
-        'tiny — auf or um.',
+        'German trend language pairs a small set of verbs (steigen, '
+        'sinken, sich verdoppeln, stagnieren) with two prepositions: auf '
+        'names the endpoint, um the difference. Add knapp / gut / rund for '
+        'approximation and you can narrate any chart.',
     tips: [
-      _copyTip,
+      ..._statsTips,
       HelpMemoryTip(
-        kind: 'rule',
-        title: 'auf lands, um travels',
+        kind: 'tip',
+        title: 'Interpret, do not just read',
         text:
-            'stieg AUF 35 Prozent = where it landed; stieg UM 15 '
-            'Prozentpunkte = how far it travelled. Same climb, two '
-            'prepositions — pick by what your number describes.',
+            'B2 wants the number plus its consequence: „Der Anteil hat '
+            'sich verdoppelt — **folglich** braucht die Stadt mehr '
+            'Abstellzonen." Every third item, bolt an interpretation onto '
+            'the figure.',
       ),
     ],
   ),
@@ -504,6 +691,18 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'ones, and keep order politely but firmly — with dennoch and '
         'folglich doing the steering. Escalate twice; never break '
         'character.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'Sie sagen also, es gebe … = so you are saying there is … · '
+        'Moment bitte, lassen Sie mich ausreden = one moment, let me '
+        'finish · '
+        'zusammenfassen = to summarize · '
+        'der Standpunkt = the point of view · '
+        'übertreiben = to exaggerate · '
+        'sachlich bleiben = to stay objective · '
+        'das Argument entkräften = to refute the argument · '
+        'Wie erklären Sie das? = how do you explain that?',
     practisePoints: [
       'Summarizing live speech: Sie sagen also, es gebe…',
       'Firm-but-polite moderation (Moment bitte, dennoch…)',
@@ -527,11 +726,12 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'losing the moderator role under provocation',
     ],
     intro:
-        'Tonight you hold the microphone — and your guest is a handful. '
-        'Summarize, challenge, keep control: the moderator\'s Konjunktiv '
-        'keeps you neutral while dennoch keeps you in charge.',
+        'A moderator stays neutral by summarizing in Konjunktiv I — „Sie '
+        'sagen also, die Regeln seien überflüssig" — and steers with '
+        'dennoch and folglich instead of taking sides. Summarize, '
+        'challenge, keep order: grammar is your gavel.',
     tips: [
-      _copyTip,
+      ..._konjunktivTips,
       HelpMemoryTip(
         kind: 'example',
         title: 'The moderator\'s move',
@@ -555,6 +755,18 @@ final List<QuizContent> enDeAiM7Quizzes = [
         'with structured arguments — then, on your command "Seitenwechsel!", '
         'I must argue the opposite side just as convincingly, reporting my '
         'own earlier arguments in Konjunktiv I before dismantling them.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'vorhin habe ich gesagt, … sei … = earlier I said that … was … · '
+        'dieses Argument greift zu kurz = this argument falls short · '
+        'das müsse geregelt werden = that would have to be regulated '
+        '(reported) · '
+        'zwar …, dennoch … = admittedly …, nevertheless · '
+        'daraus folgt, dass … = it follows that · '
+        'je mehr …, desto … = the more …, the more · '
+        'zusammenfassend lässt sich sagen, dass … = in summary one can '
+        'say that',
     practisePoints: [
       'Structured argument under an assigned position',
       'Reporting earlier arguments in Konjunktiv I',
@@ -573,11 +785,12 @@ final List<QuizContent> enDeAiM7Quizzes = [
       'connectors with reversed logic (folglich for contrast)',
     ],
     intro:
-        'The module gate, with a twist: defend your drawn side for four '
-        'exchanges, then switch sides on command and beat your own '
-        'arguments. Pass it and B2.2 unlocks; your best score counts.',
+        'The module gate bundles everything: structured arguments with '
+        'dennoch / folglich / je…desto, passive with modals (das müsse '
+        'geregelt werden), and Konjunktiv I to report your own first-half '
+        'arguments before you dismantle them. Pass it and B2.2 unlocks.',
     tips: [
-      _copyTip,
+      ..._passiveTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Turn the switch into a weapon',

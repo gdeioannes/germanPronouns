@@ -17,6 +17,7 @@ import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
 import '../services/analytics.dart';
 import '../utils/room_image_export.dart';
+import '../widgets/claw_machine.dart';
 import '../widgets/coin_balance_pill.dart';
 import '../widgets/coin_glyph.dart';
 import '../widgets/fireworks.dart';
@@ -2924,11 +2925,6 @@ class _Shop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final forSale = [
-      for (final item in shopCatalog)
-        if (Apartment.instance.isRevealed(item.id)) item,
-    ];
-
     // A distinct, slightly darker panel surface (rounded top + soft shadow) so
     // the store lifts off the room background instead of blending into it.
     return Container(
@@ -2978,13 +2974,13 @@ class _Shop extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
-                        Icons.storefront_rounded,
+                        Icons.videogame_asset_rounded,
                         size: 18,
                         color: _pal.text.withValues(alpha: 0.85),
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'Furniture Shop',
+                        CourseSession.instance.strings.gacha.title,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w800,
@@ -3003,25 +2999,23 @@ class _Shop extends StatelessWidget {
               ),
             )
           else
-            Expanded(child: _shopStore(forSale)),
+            Expanded(child: _shopStore()),
         ],
       ),
     );
   }
 
-  Widget _shopStore(List<ShopItem> forSale) {
+  Widget _shopStore() {
+    final s = CourseSession.instance.strings.gacha;
+    final pal = _clawPalette;
     return DefaultTabController(
-      length: shopCategories.length + 1, // "All" + one tab per category
+      length: 2,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Not const — these read the night-aware palette and must rebuild
-          // when night flips.
-          _ShopHeader(),
-          // A darker strip the category tabs sit on. Folder-style tabs: the
-          // active one is the content colour at full height (merging into the
-          // grid); inactive ones are a touch shorter and darker (recessed). We
-          // draw the caps ourselves so each tab can be styled.
+          // A darker strip the tabs sit on. Folder-style tabs: the active one
+          // is the content colour at full height (merging into the panel);
+          // inactive ones are a touch shorter and darker (recessed).
           Container(
             color: _pal.tabStrip,
             padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
@@ -3038,14 +3032,13 @@ class _Shop extends StatelessWidget {
                     labelPadding: const EdgeInsets.symmetric(horizontal: 3),
                     tabs: [
                       _CategoryTab(
-                        label: 'All',
+                        label: s.machineTab,
                         selected: controller.index == 0,
                       ),
-                      for (var i = 0; i < shopCategories.length; i++)
-                        _CategoryTab(
-                          label: shopCategories[i],
-                          selected: controller.index == i + 1,
-                        ),
+                      _CategoryTab(
+                        label: s.collectionTab,
+                        selected: controller.index == 1,
+                      ),
                     ],
                   ),
                 );
@@ -3055,21 +3048,8 @@ class _Shop extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: [
-                // The All tab (null items → resolves to the full live list).
-                _ShopGrid(
-                  items: null,
-                  emptyHint:
-                      '🪙\nEarn coins in quizzes to\n'
-                      'unlock your first furniture!',
-                ),
-                for (final c in shopCategories)
-                  _ShopGrid(
-                    items: [
-                      for (final i in forSale)
-                        if (i.category == c) i,
-                    ],
-                    emptyHint: 'Nothing here yet —\nkeep earning coins!',
-                  ),
+                ClawMachineView(pal: pal),
+                CollectionAlbum(pal: pal),
               ],
             ),
           ),
@@ -3078,6 +3058,16 @@ class _Shop extends StatelessWidget {
     );
   }
 }
+
+/// The room palette, handed to the claw machine so the cabinet and the album
+/// flip to the dark look with the rest of the room at night.
+ClawPalette get _clawPalette => ClawPalette(
+  panel: _pal.panel,
+  card: _pal.card,
+  text: _pal.text,
+  textSoft: _pal.textSoft,
+  night: Apartment.instance.isNight,
+);
 
 /// The room selector: one full-width button showing the current room. Tap it to
 /// open the room picker — switch between owned rooms or buy a new one — which is

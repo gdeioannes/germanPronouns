@@ -62,18 +62,78 @@ void main() {
     });
   });
 
-  test('every exercise carries Help Memory intro and tips', () {
+  test('every exercise carries a teaching Help Memory (intro + real tips)', () {
     for (final quiz in enDeAiContent) {
+      final intro = quiz.helpMemoryIntro?.trim() ?? '';
+      expect(intro, isNotEmpty, reason: '${quiz.id}: missing intro');
+      // Intros teach the grammar point; the app workflow lives in the steps
+      // card and the first-run explainer, never here.
       expect(
-        quiz.helpMemoryIntro?.trim() ?? '',
-        isNotEmpty,
-        reason: '${quiz.id}: missing intro',
+        intro.toLowerCase(),
+        isNot(contains('paste')),
+        reason: '${quiz.id}: intro is app-workflow copy, not teaching',
       );
       expect(
         quiz.helpMemoryTips.length,
         greaterThanOrEqualTo(2),
-        reason: '${quiz.id}: needs the how-it-works tip plus a content tip',
+        reason: '${quiz.id}: needs at least two teaching tips',
       );
+      for (final tip in quiz.helpMemoryTips) {
+        expect(
+          tip.title,
+          isNot('How this course works'),
+          reason:
+              '${quiz.id}: the workflow card is banned from Help Memory — '
+              'the steps card already explains the app',
+        );
+      }
+    }
+  });
+
+  test('drills carry their answers and conversations carry model phrases', () {
+    for (final quiz in enDeAiContent) {
+      final e = quiz.speaking!;
+      final pairs = speakingMaterialPairsOf(e.material);
+      switch (e.mode) {
+        // Word/sentence drills are study material: every served item must
+        // have its answer in the material (`prompt = answer`), so the Help
+        // Memory, the PDFs and the worksheet can show both sides.
+        case SpeakingMode.vocabDrill:
+          expect(
+            pairs.length,
+            greaterThanOrEqualTo(5),
+            reason: '${quiz.id}: a vocab drill needs its word = meaning list',
+          );
+        case SpeakingMode.translationDrill:
+          expect(
+            pairs.length,
+            greaterThanOrEqualTo(5),
+            reason:
+                '${quiz.id}: translation drills must carry the German '
+                'answers (n. english = german)',
+          );
+        // Conversation-family exercises need something to prepare from: a
+        // Redemittel block (`phrase = meaning`) in the material.
+        case SpeakingMode.conversation:
+        case SpeakingMode.interview:
+        case SpeakingMode.roleplay:
+        case SpeakingMode.storytelling:
+          expect(
+            pairs.length,
+            greaterThanOrEqualTo(3),
+            reason:
+                '${quiz.id}: conversation exercises need a phrase = meaning '
+                'preparation block in MATERIAL',
+          );
+        // Presentation/game/writing material is a passage, rules or a task —
+        // pairs are welcome but not required.
+        case SpeakingMode.wordGame:
+        case SpeakingMode.listenRetell:
+        case SpeakingMode.readingQa:
+        case SpeakingMode.readingGen:
+        case SpeakingMode.writing:
+          break;
+      }
     }
   });
 

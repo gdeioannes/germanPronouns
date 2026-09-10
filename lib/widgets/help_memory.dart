@@ -181,7 +181,20 @@ class HelpTipCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                 ],
-                Text(tip.text, style: textTheme.bodyMedium),
+                // Tips mark the taught form with `**…**` (en_de authors its
+                // whole paradigms that way) — render it bold like the PDF
+                // does instead of showing literal asterisks.
+                Text.rich(
+                  TextSpan(
+                    children: boldMarkupSpans(
+                      tip.text,
+                      baseStyle: textTheme.bodyMedium,
+                      boldStyle: textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

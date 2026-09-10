@@ -12,14 +12,206 @@ import 'en_de_ai_builder.dart';
 /// C2 session shape: ~6 minutes, 10 exchanges, pass 70; the builder switches the report to German at this level.
 const _c2Session = SpeakingSession(durationMinutes: 6, minExchanges: 10);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+const List<HelpMemoryTip> _particleTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The particle palette',
+    text:
+        '**doch** pre-empts contradiction or overturns a negative, **mal** '
+        'softens a command, **halt**/**eben** mean resigned „that is just how '
+        'it is", **ja** appeals to shared knowledge, **schon** concedes '
+        'grudgingly. They sit unstressed after the verb and the pronouns.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Never translate a particle',
+    text:
+        'A dictionary gloss kills the effect: *doch* is not „but", *mal* is '
+        'not „once". Describe what the word DOES to the sentence — pressure, '
+        'softening, resignation — and match the register when you reply.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Particles are tone of voice in print',
+    text:
+        'Whatever an English speaker does with intonation and a raised '
+        'eyebrow, German does with a one-syllable particle. Hear each one as '
+        'a facial expression, not a word.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„Do come by — it is just around the corner."',
+    text: 'Komm **doch mal** kurz vorbei — ist **ja** gleich um die Ecke.',
+  ),
+];
+
+const List<HelpMemoryTip> _discourseTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The repair kit',
+    text:
+        '**wie soll ich sagen …** buys thinking time, **anders gesagt** '
+        'restarts a failed sentence, **Wo war ich stehen geblieben?** '
+        'recovers the thread, **wie dem auch sei** closes a topic and opens '
+        'the next. Fillers keep the floor; silence loses it.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Name the swerve',
+    text:
+        'When the topic jumps, say so out loud: „Wie dem auch sei — zum '
+        'neuen Thema." Announcing the turn IS discourse management, and it '
+        'buys your brain the second it needs.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Ease shrinks range',
+    text:
+        'Under surprise or on comfortable topics your grammar quietly '
+        'retreats to A2. Plant one **Konjunktiv II**, one **Passiv** and one '
+        'Funktionsverbgefüge per answer on purpose until the range comes '
+        'uninvited.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„Be that as it may — essentially this is about trust."',
+    text:
+        '**Wie dem auch sei** — **im Grunde genommen** geht es hier doch um '
+        'Vertrauen.',
+  ),
+];
+
+const List<HelpMemoryTip> _rhetoricTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Concession + counter',
+    text:
+        'The C2 debate move: **Zugegeben, …** admits the fact, **doch '
+        'gerade das …** turns it into support. Reframe hostile questions '
+        'with **Die Frage ist doch eher, ob …** — answered, not dodged.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Fronting is a spotlight',
+    text:
+        'Move the contested word to position 1 and the verb stays second: '
+        '„GERADE deshalb stimmt es." Fronting plus a particle (doch, eben, '
+        'ja) is the rhetorical one-two of spoken German.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„Granted, that sounds absurd — but exactly that supports it."',
+    text:
+        '**Zugegeben**, das klingt absurd — **doch gerade das** spricht '
+        'dafür.',
+  ),
+];
+
+const List<HelpMemoryTip> _colloquialTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The contraction map',
+    text:
+        'Each spoken form expands to exactly one standard form: **isses** = '
+        'ist es, **haste** = hast du, **’nen** = einen, **heut** = heute, '
+        '**wär** = wäre, **’n Abend** = guten Abend. Decode them like '
+        'vocabulary — you rarely need to produce them.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'A contraction can change politeness',
+    text:
+        '**haste** is not just fast speech — it is „hast du". The speaker '
+        'switched to du without asking. Hearing the social move inside the '
+        'contraction is the real C2 listening skill.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Swallowed endings, kept skeleton',
+    text:
+        'Colloquial German drops unstressed vowels and fuses verb + pronoun '
+        '(hast du → haste, ist es → isses) but never touches word order. '
+        'Find the verb, rebuild the pronoun, and the sentence reappears.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„Is it still far? No idea if one still runs today."',
+    text:
+        '**Isses** noch weit? Hab keine Ahnung, ob **heut** überhaupt noch '
+        'einer fährt.',
+  ),
+];
+
+const List<HelpMemoryTip> _registerTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Every genre is a grammar package',
+    text:
+        'Märchen: **Es war einmal** + archaic inversion. Nachrichten: '
+        '**Passiv** + attribution (**laut**, **wie verlautete**). '
+        'Amtsdeutsch: Nominalstil, **hiermit**, **fristgerecht**. '
+        'Werbespot: imperatives, superlatives, direct address. Krimi: terse '
+        '**Präteritum**.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'The first four words buy the register',
+    text:
+        'Open with the genre’s loudest signal — „Es war einmal …", „Wie '
+        'soeben bekannt wurde …", „Hiermit wird …" — and the listener’s ear '
+        'grants you the whole style on credit.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Register slips show in the small words',
+    text:
+        'One chatty **halt** ruins an Amtsdeutsch sentence; one **hiermit** '
+        'ruins a Märchen. Elevated register lives in lexis AND particles — '
+        'police both.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„Collection of the key is hereby confirmed as within deadline."',
+    text:
+        '**Hiermit wird** die fristgerechte Abholung des Schlüssels '
+        'bestätigt.',
+  ),
+];
+
+const List<HelpMemoryTip> _mediationTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Mediation runs on Konjunktiv II',
+    text:
+        '**Der Kompromiss läge darin, dass …** proposes without imposing; '
+        '**Wenn ich Sie richtig verstehe …** mirrors before solving; '
+        '**Können wir festhalten, dass …?** locks in agreement; **im '
+        'Gegenzug** balances the deal.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: '„ihr müsst" loses the room',
+    text:
+        'Indicative commands (**müssen**, **sollen**) read as taking sides. '
+        'Offer with **läge**, **könnte**, **wäre** — the subjunctive keeps '
+        'both parties owners of the solution.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Mirror before you mediate',
+    text:
+        'Restate each grievance in its owner’s register before proposing '
+        'anything — du-register for the informal party, Sie-register for '
+        'the formal one. Only a heard party negotiates.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„The compromise would be that both sides give a little."',
+    text:
+        'Der Kompromiss **läge** darin, dass beide Seiten ein wenig '
+        'nachgeben — **im Gegenzug** bleibt es abends ruhig.',
+  ),
+];
 
 final List<QuizContent> enDeAiM12Quizzes = [
   enDeAiEx(
@@ -52,7 +244,13 @@ final List<QuizContent> enDeAiM12Quizzes = [
         '(eben = precisely-that, confirming a limit)\n'
         '10. "*Na ja*, war schon okay." (na ja = lukewarm concession)\n'
         'For each: half the points for naming the effect precisely, half '
-        'for a reply whose register matches the dialogue.',
+        'for a reply whose register matches the dialogue.\n'
+        'Particle cheat sheet (word = effect):\n'
+        'doch = contradiction pre-empted, or yes-I-do after a negative · '
+        'mal = softener on a command · halt = resigned that’s-just-how-it-is '
+        '· eben = precisely so, confirming a limit · jein = yes-and-no, '
+        'hedged · Feierabend = the sacred end of the working day · '
+        'na ja = lukewarm concession',
     practisePoints: [
       'Explaining the pragmatic effect, not a dictionary gloss',
       'doch in both jobs: pressure particle and yes-I-do',
@@ -68,11 +266,12 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'formal replies to colloquial lines',
     ],
     intro:
-        'The words no dictionary can hand you: jein, Feierabend, the many '
-        'lives of doch. Your AI serves them in tiny dialogues and grades '
-        'whether you feel what they do, not what they "mean".',
+        'German modal particles carry attitude, not meaning: doch pre-empts '
+        'contradiction (or overturns a negative), mal softens a command, '
+        'halt and eben signal resigned „that is just how it is". Learn the '
+        'EFFECT and the register — no dictionary gloss survives translation.',
     tips: [
-      _copyTip,
+      ..._particleTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'doch has two day jobs',
@@ -104,6 +303,14 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'philosophical one) and change topic MID-SENTENCE at least twice. '
         'Weight the grading towards flexibility and repair strategies, not '
         'polish.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'Wo war ich stehen geblieben? = where was I? · anders gesagt = to '
+        'put it another way · Das bringt mich zu … = that brings me to … · '
+        'im Grunde genommen = essentially · wie dem auch sei = be that as '
+        'it may · wie soll ich sagen … = how shall I put it … · '
+        'Moment, ich fange anders an = hold on, let me start again',
     practisePoints: [
       'Following an abrupt topic cut without stalling',
       'Repair phrases: wo waren wir, wie soll ich sagen, Moment',
@@ -126,11 +333,12 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'retreating to B-level simplicity when surprised',
     ],
     intro:
-        'No material, no preparation, no mercy: three topics you did not '
-        'pick, cut mid-sentence. The score rewards how gracefully you '
-        'wobble — repair is the skill, not perfection.',
+        'C2 fluency is repair, not perfection: „wie soll ich sagen", '
+        '„anders gesagt" and „wo war ich stehen geblieben?" hold the floor '
+        'while your brain catches up. Naming a topic change out loud — '
+        '„wie dem auch sei" — is itself discourse management.',
     tips: [
-      _copyTip,
+      ..._discourseTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Name the cut',
@@ -190,11 +398,13 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'humour used as a substitute for argument',
     ],
     intro:
-        'Defend the sock conspiracy like your career depends on it. The '
-        'joke is the frame; the graded content is pure argumentation '
-        'under cross-examination — dodging costs more than losing.',
+        'German debate runs on concession plus counter: „Zugegeben, … — '
+        'doch gerade das …" admits the fact and keeps the thesis alive, and '
+        '„Die Frage ist doch eher, ob …" reframes a hostile question '
+        'without dodging it. Fronting plus a particle is the spoken '
+        'rhetoric bonus.',
     tips: [
-      _copyTip,
+      ..._rhetoricTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Concede the fact, keep the thesis',
@@ -259,11 +469,12 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'missing the politeness shift in haste',
     ],
     intro:
-        'The listening skill C2 actually demands: real people mumble, '
-        'contract and drop syllables. You hear the polished and the '
-        'street version of one scene and prove you can map between them.',
+        'Spoken German contracts systematically: ist es → isses, hast du → '
+        'haste, einen → ’nen, heute → heut. Each shrinks to exactly one '
+        'standard form — and haste even smuggles in du, so a contraction '
+        'can shift politeness, not just sound.',
     tips: [
-      _copyTip,
+      ..._colloquialTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Contractions are receptive vocabulary',
@@ -338,11 +549,11 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'summary that averages instead of mediates',
     ],
     intro:
-        'One bike lane, two truths. The satirist and the reporter agree '
-        'on more than they seem to — your job is to find exactly where, '
-        'and to write the one summary both could sign.',
+        'Satire exaggerates around a true core, while administrative German '
+        'hides inaction in the passive: „wird geprüft" and „liegt noch '
+        'nicht vor" report that nothing has happened yet. Mediating between '
+        'two texts means separating the checkable facts from each framing.',
     tips: [
-      _copyTip,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Satire exaggerates around a true bone',
@@ -358,6 +569,22 @@ final List<QuizContent> enDeAiM12Quizzes = [
             'Administrative passive ("wird geprüft", "liegt noch nicht '
             'vor") reports inaction in the costume of action. Reading '
             'that costume is C2 comprehension of the sober text too.',
+      ),
+      HelpMemoryTip(
+        kind: 'mnemonic',
+        title: 'Mediate, don’t average',
+        text:
+            'A fair summary takes one verified element from EACH text — '
+            'the opened 300 metres from the report, the still-unguarded '
+            'crossing the satire points at — never the midpoint of their '
+            'moods.',
+      ),
+      HelpMemoryTip(
+        kind: 'example',
+        title: '„The section is open; a link to the crossing is pending."',
+        text:
+            'Der Abschnitt **ist eröffnet** — die Anbindung an die Kreuzung '
+            '**steht** allerdings **noch aus**.',
       ),
     ],
   ),
@@ -375,6 +602,14 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'broker a compromise and, at the end, dictate it as a short '
         'written agreement both explicitly accept. Do not let either '
         'accept it until it addresses their core grievance.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'Wenn ich Sie richtig verstehe … = if I understand you correctly … '
+        '· beide Seiten = both sides · Der Kompromiss läge darin, dass … = '
+        'the compromise would be that … · Können wir festhalten, dass …? = '
+        'can we agree on record that …? · im Gegenzug = in return · Was '
+        'bräuchten Sie, damit …? = what would you need so that …?',
     practisePoints: [
       'Mirroring each party in their own register',
       'Mediation language: beide Seiten, der Kompromiss läge darin',
@@ -394,11 +629,13 @@ final List<QuizContent> enDeAiM12Quizzes = [
     ],
     priorityErrors: ['taking sides', 'one register used for both parties'],
     intro:
-        'Two furious flatmates, one of you. You must speak Jonas\'s '
-        'language AND Frau Petrova\'s, find what each actually needs, '
-        'and leave the room with a written deal both say yes to.',
+        'Mediation German runs on Konjunktiv II: „Der Kompromiss läge '
+        'darin, dass …" proposes without imposing, and „Wenn ich Sie '
+        'richtig verstehe …" mirrors a grievance before solving it. Address '
+        'each party in their own register — du for Jonas, Sie for Frau '
+        'Petrova.',
     tips: [
-      _copyTip,
+      ..._mediationTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Mirror before you mediate',
@@ -462,11 +699,12 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'pathos the subject cannot carry',
     ],
     intro:
-        'A eulogy for a ficus, written completely straight. If it makes '
-        'the reader smile, the smile must come from the situation — the '
-        'moment your language winks, you have fallen off the rope.',
+        'The German Trauerrede has fixed conventions: an address to the '
+        'mourners, a remembered virtue, a shared memory, a farewell formula '
+        '— all in elevated, measured lexis with Konjunktiv. Holding that '
+        'register over an absurd subject is pure tone control.',
     tips: [
-      _copyTip,
+      ..._registerTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Play it straight or not at all',
@@ -514,7 +752,14 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'previous sentence must survive every shift.\n'
         '- Score each of my sentences for register accuracy AND story '
         'continuity; a perfect register that breaks the story earns '
-        'half.',
+        'half.\n'
+        'Genre openers I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'Es war einmal … = once upon a time … · Wie soeben bekannt wurde … '
+        '= as has just been reported … · Hiermit wird bestätigt, dass … = '
+        'it is hereby confirmed that … · fristgerecht = within the '
+        'deadline · Greifen Sie jetzt zu! = grab yours now! · Es war eine '
+        'mondlose Nacht = it was a moonless night',
     practisePoints: [
       'Instant register hits on an announced genre',
       'Keeping story continuity through every shift',
@@ -531,11 +776,13 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'story reset instead of continued',
     ],
     intro:
-        'One story, five voices, no time to think. The AI calls "Märchen!" '
-        'and your very next sentence must sound centuries old — while '
-        'Frau Berger and her key march on unbroken.',
+        'Every German genre is a grammar package: Märchen opens with „Es '
+        'war einmal" and archaic inversion, news runs on passive plus '
+        'attribution, Amtsdeutsch on Nominalstil and „hiermit", ads on '
+        'imperatives and superlatives. The first four words of a sentence '
+        'buy the whole register.',
     tips: [
-      _copyTip,
+      ..._registerTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Lead with the marker',
@@ -568,6 +815,14 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'family, hobbies, my town, food, weekend — and require essayist '
         'depth: nuance, structure, imagery, register control ("Erzählen '
         'Sie von Ihrer Familie — als Essayist").',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'im Grunde genommen = essentially · Es ließe sich sagen, dass … = '
+        'one could say that … · wobei = although, come to think of it · '
+        'nicht zuletzt = not least · gewissermaßen = in a sense · streng '
+        'genommen = strictly speaking · eine Rolle spielen = to play a '
+        'part',
     practisePoints: [
       'Elevating trivial topics to essayistic depth',
       'Full grammar range recycled: Konjunktiv, passive, FVG',
@@ -583,11 +838,13 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'grammar range narrowing under ease',
     ],
     intro:
-        'Not the gate — the dress rehearsal. Easy questions are the '
-        'trap: "Was machst du am Wochenende?" now demands an essayist\'s '
-        'answer. Prove the whole staircase lives in one voice.',
+        'Simple topics deserve full grammar: answer the fact, then the '
+        'meaning — planting Konjunktiv II, a passive and a '
+        'Funktionsverbgefüge on purpose until the range comes uninvited. '
+        'Essayistic depth means structure and imagery even about your '
+        'weekend.',
     tips: [
-      _copyTip,
+      ..._discourseTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Simple question, layered answer',
@@ -596,14 +853,6 @@ final List<QuizContent> enDeAiM12Quizzes = [
             'ich — wobei Kochen für mich weniger Ernährung ist als die '
             'einzige Stunde, in der niemand etwas von mir will." Fact, '
             'then essay.',
-      ),
-      HelpMemoryTip(
-        kind: 'warning',
-        title: 'Ease shrinks range',
-        text:
-            'On comfortable topics your grammar quietly retreats to '
-            'A2. Plant one Konjunktiv, one passive and one FVG per '
-            'answer on purpose until the range comes uninvited.',
       ),
     ],
   ),
@@ -623,6 +872,15 @@ final List<QuizContent> enDeAiM12Quizzes = [
         'over each other, and make me host all three for the full twelve '
         'exchanges: soothe the pedant, parry the provocateur, decode the '
         'mumbler, and keep one conversation alive between them.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'Was sagen Sie denn dazu? = and what do YOU say to that? · Da muss '
+        'ich kurz einhaken = let me jump in there · Wie meinst du das '
+        'genau? = what exactly do you mean? · Darauf kommen wir gleich '
+        'zurück = we will come back to that in a moment · eins nach dem '
+        'anderen = one thing at a time · Da ist was dran, und doch … = '
+        'there is something to that, and yet …',
     practisePoints: [
       'Register agility across three simultaneous voices',
       'Discourse management: turn-taking, soothing, redirecting',
@@ -640,11 +898,14 @@ final List<QuizContent> enDeAiM12Quizzes = [
       'everything — this is the finale',
     ],
     intro:
-        'The last door of the course: one dinner party, three impossible '
-        'guests, twelve exchanges. Everything you have built — registers, '
-        'repair, mediation, particles — sits at this table. Host it.',
+        'Hosting a table takes register agility plus discourse management: '
+        'full formal for the pedant, cool concession-and-counter for the '
+        'provocateur, relaxed du and live decoding (isses, haste, ’nen) '
+        'for the mumbler. Relaying — „Was sagen Sie denn dazu?" — keeps '
+        'one conversation alive between them.',
     tips: [
-      _copyTip,
+      ..._mediationTips,
+      ..._colloquialTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Be the table\'s conductor',

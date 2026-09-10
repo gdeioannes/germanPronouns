@@ -12,14 +12,132 @@ import 'en_de_ai_builder.dart';
 /// A2 session shape: ~4 minutes, 7 exchanges, pass 50 (the manifest default).
 const _a2Session = SpeakingSession(durationMinutes: 4, minExchanges: 7);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+/// The Perfekt: haben/sein + participle at the end.
+const List<HelpMemoryTip> _perfektTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The Perfekt bracket',
+    text:
+        'Auxiliary in position 2, participle at the very end: ich **habe** '
+        'gestern Pizza **gegessen**. Regular participles are ge- + stem + '
+        '-t: **gemacht**, **gekauft**, **gespielt**. Irregular ones keep '
+        'ge-…-en, often with a vowel change: **gegessen**, **getrunken**, '
+        '**geschrieben**, **gefahren**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'haben or sein?',
+    text:
+        'Movement or change of state takes sein: **ist gegangen**, **ist '
+        'gefahren**, **ist geflogen**, **ist gekommen**, **ist '
+        'aufgestanden** — plus the two cheats **ist geblieben** and **ist '
+        'passiert**. Everything you do to something takes haben: **hat '
+        'gemacht**, **hat gesehen**, **hat geholfen**.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'No ge- for -ieren and be-/ver-',
+    text:
+        'Verbs in -ieren and inseparable prefixes (be-, ver-, er-) refuse '
+        'ge-: hat **passiert** is wrong — es **ist passiert**; hat '
+        '**besucht**, hat **verloren**, hat **telefoniert**. Separable '
+        'verbs trap the ge- in the middle: **aufgestanden**, '
+        '**eingekauft**.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'sein moves, haben holds',
+    text:
+        'If the subject travels or transforms, it is **sein**; if it just '
+        'does something, **haben**. Picture the sein-verbs as a train: '
+        'gehen, fahren, fliegen, kommen, bleiben all ride it.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'Yesterday I got up late and did nothing.',
+    text:
+        'Gestern **bin** ich spät **aufgestanden** und **habe** den ganzen '
+        'Tag nichts **gemacht**.',
+  ),
+];
+
+/// The dative: articles, pronouns, the six prepositions, the three verbs.
+const List<HelpMemoryTip> _dativTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Dative articles',
+    text:
+        'der → **dem**, die → **der**, das → **dem**, plural die → **den** '
+        '(+ -n on the noun: mit den Kinder**n**). Same pattern for ein: '
+        '**einem**, **einer**, **einem**; and mein: **meinem**, '
+        '**meiner**, **meinem**, **meinen**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Dative pronouns',
+    text:
+        'ich → **mir**, du → **dir**, er → **ihm**, sie → **ihr**, es → '
+        '**ihm**, wir → **uns**, ihr → **euch**, sie/Sie → '
+        '**ihnen/Ihnen**. So: Hilfst du **mir**? Das Buch gehört **ihm**.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Six words, always dative',
+    text:
+        '**mit, nach, bei, von, zu, aus** — chant them once a day. After '
+        'any of the six the article is dem/der/dem, no exceptions: mit '
+        '**dem** Bus, bei **der** Arbeit, zu **dem** (= **zum**) Arzt, zu '
+        '**der** (= **zur**) Schule.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'helfen, gefallen, gehören want the dative',
+    text:
+        'These verbs take a dative object where English uses a direct one: '
+        'Ich helfe **dir** (never dich). Berlin gefällt **mir**. Die Jacke '
+        'gehört **der** Frau. danken joins them: Ich danke **euch**.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The coat belongs to my sister.',
+    text: 'Der Mantel gehört **meiner Schwester**.',
+  ),
+];
+
+/// Directions: the imperative and zu + dative.
+const List<HelpMemoryTip> _wegTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The Sie-imperative',
+    text:
+        'Verb first, Sie right behind it: **Gehen Sie** geradeaus, '
+        '**Nehmen Sie** die U-Bahn, **Biegen Sie** links ab. It is the '
+        'infinitive + Sie, so there is nothing new to conjugate.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The du-imperative',
+    text:
+        'Drop du and the -st ending: du gehst → **Geh!**, du nimmst → '
+        '**Nimm!**, du fährst → **Fahr!** (the umlaut leaves too). '
+        'Stem-changers e→i keep the change: **Nimm** den Bus!',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'zu melts into zum / zur',
+    text:
+        'zu + dem = **zum**, zu + der = **zur**: **zum** Bahnhof, **zum** '
+        'Rathaus, **zur** Apotheke. Saying „zu dem Bahnhof" sounds like '
+        'pointing at one specific station — use **zum**.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'Go straight ahead, then left at the crossing.',
+    text:
+        '**Gehen Sie** geradeaus und **biegen Sie** an der Kreuzung links '
+        'ab — der Bahnhof ist auf der rechten Seite.',
+  ),
+];
 
 final List<QuizContent> enDeAiM3Quizzes = [
   enDeAiEx(
@@ -57,20 +175,11 @@ final List<QuizContent> enDeAiM3Quizzes = [
       'invented regular participles (gegeht)',
     ],
     intro:
-        'Welcome to the past tense. This drill welds each verb to its '
-        'Perfekt form AND its auxiliary — learn them as one piece and the '
-        'rest of the module gets easy.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'sein moves, haben holds',
-        text:
-            'Verbs of movement or change take sein: ist gegangen, ist '
-            'gefahren, ist aufgestanden. Everything you do to something '
-            'takes haben. bleiben cheats — no movement, still sein.',
-      ),
-    ],
+        'German talks about the past in the Perfekt: haben or sein plus a '
+        'participle at the end of the sentence. Learn each verb, its '
+        'participle and its auxiliary as one welded piece — ist gegangen, '
+        'hat gemacht — and the whole module gets easy.',
+    tips: _perfektTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m3_weekend_talk',
@@ -83,6 +192,16 @@ final List<QuizContent> enDeAiM3Quizzes = [
         'Wochenende?" and then follow up ONLY on things I have already '
         'mentioned — dig deeper instead of changing topic. Correct me only '
         'in the report, but count every present-tense escape.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich habe ausgeschlafen = I slept in · '
+        'ich habe Freunde getroffen = I met friends · '
+        'wir sind ins Kino gegangen = we went to the cinema · '
+        'zuerst habe ich eingekauft = first I did the shopping · '
+        'danach bin ich nach Hause gefahren = after that I went home · '
+        'am Sonntag habe ich nichts gemacht = on Sunday I did nothing · '
+        'es hat viel Spaß gemacht = it was a lot of fun',
     practisePoints: [
       'Perfekt in free conversation, not just drills',
       'Auxiliary choice under pressure',
@@ -104,11 +223,11 @@ final List<QuizContent> enDeAiM3Quizzes = [
     ],
     priorityErrors: ['sliding back into the present tense', 'wrong auxiliary'],
     intro:
-        'The most useful German conversation there is: what you did on the '
-        'weekend. The AI follows your threads, and the one rule is: '
-        'everything happened, nothing happens.',
+        'Everything on the weekend happened, so every sentence needs the '
+        'Perfekt: Ich habe geschlafen, ich bin gefahren. String the events '
+        'with zuerst, dann and danach and a list of facts becomes a story.',
     tips: [
-      _copyTip,
+      ..._perfektTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Build the bracket first',
@@ -130,19 +249,28 @@ final List<QuizContent> enDeAiM3Quizzes = [
         'verbs. Serve one at a time; the endings dem/der/einem/meiner are '
         'what you grade hardest.',
     material:
-        'Sentences to serve one at a time (accept any correct German):\n'
-        '1. She helps her brother.\n'
-        '2. The gift is from my aunt.\n'
-        '3. I\'m going to the doctor tomorrow.\n'
-        '4. He lives with his parents.\n'
-        '5. We ride to work with the bus.\n'
-        '6. The jacket belongs to the woman.\n'
-        '7. Berlin pleases me a lot. (gefallen!)\n'
-        '8. After work I go home.\n'
-        '9. She comes from Switzerland.\n'
-        '10. Can you help me, please?\n'
-        '11. I got the book from a friend.\n'
-        '12. The keys belong to him.',
+        'Sentences to serve one at a time — read me only the English '
+        'half; the German after "=" is the reference answer, and any '
+        'other correct German is acceptable:\n'
+        '1. She helps her brother. = Sie hilft ihrem Bruder.\n'
+        '2. The gift is from my aunt. = Das Geschenk ist von meiner '
+        'Tante.\n'
+        '3. I\'m going to the doctor tomorrow. = Ich gehe morgen zum '
+        'Arzt.\n'
+        '4. He lives with his parents. = Er wohnt bei seinen Eltern.\n'
+        '5. We ride to work with the bus. = Wir fahren mit dem Bus zur '
+        'Arbeit.\n'
+        '6. The jacket belongs to the woman. = Die Jacke gehört der '
+        'Frau.\n'
+        '7. Berlin pleases me a lot. (gefallen!) = Berlin gefällt mir '
+        'sehr.\n'
+        '8. After work I go home. = Nach der Arbeit gehe ich nach '
+        'Hause.\n'
+        '9. She comes from Switzerland. = Sie kommt aus der Schweiz.\n'
+        '10. Can you help me, please? = Kannst du mir bitte helfen?\n'
+        '11. I got the book from a friend. = Ich habe das Buch von einem '
+        'Freund bekommen.\n'
+        '12. The keys belong to him. = Die Schlüssel gehören ihm.',
     practisePoints: [
       'mit/nach/bei/von/zu/aus always take the dative',
       'Dative verbs: helfen, gefallen, gehören + dative object',
@@ -158,19 +286,11 @@ final List<QuizContent> enDeAiM3Quizzes = [
       'gefallen/helfen built with an accusative object',
     ],
     intro:
-        'Twelve sentences where English gives you no hint that a dative is '
-        'coming. The prepositions and three special verbs demand it — your '
-        'AI checks every ending.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'Six words, always dative',
-        text:
-            'mit, nach, bei, von, zu, aus — chant them once a day. After '
-            'any of the six: dem, der, dem. No exceptions, no mercy.',
-      ),
-    ],
+        'Six little prepositions — mit, nach, bei, von, zu, aus — and '
+        'three verbs — helfen, gefallen, gehören — always force the '
+        'dative: dem, der, einem, meiner, mir, ihm. English never warns '
+        'you it is coming, so this drill makes the reflex automatic.',
+    tips: _dativTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m3_wo_bin_ich',
@@ -192,7 +312,16 @@ final List<QuizContent> enDeAiM3Quizzes = [
         '- Scoring: each correct guess of mine = 10 points. Each of my '
         'descriptions = up to 15 points (5 per correct dative phrase, '
         'max 3 counted). Wrong dative endings score 0 for that phrase.\n'
-        '- 8 rounds total, then convert my points to the final score.',
+        '- 8 rounds total, then convert my points to the final score.\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich fahre mit dem Zug = I go by train · '
+        'ich warte bei der Haltestelle = I wait at the stop · '
+        'ich gehe zur Kasse = I go to the checkout · '
+        'ich komme aus dem Wasser = I come out of the water · '
+        'viele Leute stehen bei den Gleisen = many people stand by the '
+        'tracks · '
+        'ich kaufe Brot von der Bäckerin = I buy bread from the baker',
     practisePoints: [
       'City-place vocabulary: der Bahnhof, die Apotheke, das Rathaus',
       'Dative phrases with mit/bei/von/zu in descriptions',
@@ -205,13 +334,14 @@ final List<QuizContent> enDeAiM3Quizzes = [
     ],
     priorityErrors: ['dative endings dropped', 'English guesses'],
     intro:
-        'Hide-and-seek across a German city: your AI hides in a place and '
-        'describes it in dative clues, then you hide. Every clue is a '
-        'little grammar test wearing a costume.',
+        'Every clue in this game is a dative phrase in costume: mit dem '
+        'Zug, bei der Apotheke, zur Kasse. Describe a place through what '
+        'you do there with mit, bei, von and zu — the endings dem and der '
+        'are what score.',
     tips: [
-      _copyTip,
+      ..._dativTips,
       HelpMemoryTip(
-        kind: 'example',
+        kind: 'tip',
         title: 'A clue that scores full',
         text:
             '"Ich fahre mit dem Zug. Viele Leute stehen bei den Gleisen." '
@@ -265,11 +395,12 @@ final List<QuizContent> enDeAiM3Quizzes = [
       'question 5 answered off the text',
     ],
     intro:
-        'A postcard where the trip stumbles and recovers. Four questions '
-        'check you followed it; the fifth asks why Marie is happy anyway — '
-        'the text never says it outright.',
+        'A postcard is the Perfekt in its natural habitat: everything '
+        'already happened. Answer about Marie in the third person — sie '
+        'hat gegessen, sie ist gefahren — and note how am ersten Tag and '
+        'am zweiten Tag order the story.',
     tips: [
-      _copyTip,
+      ..._perfektTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Inference is allowed to be simple',
@@ -291,6 +422,17 @@ final List<QuizContent> enDeAiM3Quizzes = [
         'for directions to three places one after another (the station, a '
         'pharmacy, the Marienplatz). You answer in the imperative — and I '
         'must confirm each route back in my own words before moving on.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'Entschuldigung, wie komme ich zum Bahnhof? = excuse me, how do I '
+        'get to the station? · '
+        'gehen Sie geradeaus = go straight ahead · '
+        'biegen Sie links ab = turn left · '
+        'an der Kreuzung rechts = right at the crossing · '
+        'nehmen Sie die zweite Straße = take the second street · '
+        'ist es weit von hier? = is it far from here? · '
+        'also, zuerst gehe ich geradeaus = so, first I go straight ahead',
     targetVocabulary: [
       'Entschuldigung, wie komme ich zu…?',
       'gehen Sie',
@@ -315,18 +457,19 @@ final List<QuizContent> enDeAiM3Quizzes = [
       'wrong case after zu',
     ],
     intro:
-        'Lost, on purpose. Ask your way to three places and — the real '
-        'exercise — say each route back before you follow it. Confirming '
-        'is how you survive real German directions.',
+        'Directions run on two gears: you ask with zu + dative — Wie '
+        'komme ich zum Bahnhof? — and the answer comes back in the '
+        'Sie-imperative: Gehen Sie geradeaus, biegen Sie links ab. Saying '
+        'the route back in your own words is how you survive it.',
     tips: [
-      _copyTip,
+      ..._wegTips,
       HelpMemoryTip(
-        kind: 'example',
+        kind: 'tip',
         title: 'The confirmation formula',
         text:
+            'Repeat, compress, and end with Richtig? — locals love it: '
             '"Also: zuerst geradeaus, an der Kreuzung links, und der '
-            'Bahnhof ist rechts. Richtig?" Repeat, compress, and end with '
-            'Richtig? — locals love it.',
+            'Bahnhof ist rechts. Richtig?"',
       ),
     ],
   ),
@@ -348,7 +491,17 @@ final List<QuizContent> enDeAiM3Quizzes = [
         '- Beat 4: return and what I brought back (a thing or a memory).\n'
         '- Required: at least 6 different Perfekt verbs, 2 of them with '
         'sein (ist gefahren / ist geblieben…), and 3 dative-preposition '
-        'phrases (mit dem Zug, bei meiner Tante, nach einem Tag…).',
+        'phrases (mit dem Zug, bei meiner Tante, nach einem Tag…).\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'wir sind mit dem Zug gefahren = we went by train · '
+        'ich bin bei meiner Tante geblieben = I stayed at my aunt’s · '
+        'wir sind spät angekommen = we arrived late · '
+        'das Beste ist am letzten Tag passiert = the best thing happened '
+        'on the last day · '
+        'ich habe ein Souvenir gekauft = I bought a souvenir · '
+        'nach einer Woche sind wir zurückgefahren = after a week we went '
+        'back',
     practisePoints: [
       'Sustained Perfekt narration across four beats',
       'sein-auxiliary verbs woven in naturally',
@@ -361,11 +514,12 @@ final List<QuizContent> enDeAiM3Quizzes = [
     ],
     priorityErrors: ['present tense creeping in', 'auxiliaries chosen wrongly'],
     intro:
-        'Your best trip, told properly: four beats, past tense all the '
-        'way, and travel\'s little words — mit, zu, bei — holding it '
-        'together. Invent freely; grammar is the passport.',
+        'Travel stories are built from sein-verbs — bin gefahren, bin '
+        'angekommen, bin geblieben — glued together by mit, zu, bei and '
+        'nach. Move the plot with those and the whole story stays in the '
+        'Perfekt by itself.',
     tips: [
-      _copyTip,
+      ..._perfektTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'sein-verbs are your movers',
@@ -414,11 +568,12 @@ final List<QuizContent> enDeAiM3Quizzes = [
       'retelling in the present tense',
     ],
     intro:
-        'Ears only: the AI performs a little story and you hand it back — '
-        'same events, your words, past tense. One repeat is allowed, so '
-        'listen like it counts.',
+        'A spoken story hangs on its participles: gefunden, gefahren, '
+        'passiert. Catch the verbs as you listen, then rebuild the events '
+        'in the Perfekt — er hat gesucht, er ist gefahren — in your own '
+        'words.',
     tips: [
-      _copyTip,
+      ..._perfektTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Catch verbs, not words',
@@ -452,7 +607,15 @@ final List<QuizContent> enDeAiM3Quizzes = [
         'dative object (euch, Ihnen, deiner Mutter…).\n'
         '- At least two Perfekt sentences with correct auxiliaries.\n'
         '- A friendly opening and closing line.\n'
-        '- Word order verb-second throughout.',
+        '- Word order verb-second throughout.\n'
+        'Useful phrases I have studied (phrase = meaning):\n'
+        'ich danke euch für alles = thank you all for everything · '
+        'das Essen hat mir sehr gefallen = I really liked the food · '
+        'ihr habt mir mit dem Deutsch geholfen = you helped me with my '
+        'German · '
+        'die Woche bei euch war wunderbar = the week with you was '
+        'wonderful · '
+        'besucht mich bald! = visit me soon!',
     practisePoints: [
       'The three dative verbs in warm, real sentences',
       'Dative pronouns: euch, Ihnen, dir',
@@ -468,18 +631,19 @@ final List<QuizContent> enDeAiM3Quizzes = [
       'auxiliary mistakes in the memories',
     ],
     intro:
-        'Gratitude runs on the dative: danken, gefallen and helfen all '
-        'take it. Write the thank-you note every host family hopes for '
-        'and let those three verbs carry it.',
+        'Gratitude runs on the dative: German thanks, pleases and helps '
+        'TO people — Ich danke euch, das Essen hat mir gefallen, ihr habt '
+        'mir geholfen. Build the note around those three verbs and one '
+        'Perfekt memory.',
     tips: [
-      _copyTip,
+      ..._dativTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Thank TO someone',
         text:
-            'German thanks, pleases and helps TO people: Ich danke euch. '
-            'Das Essen hat mir gefallen. Ihr habt mir geholfen. Never '
-            'mich after these three.',
+            'German thanks, pleases and helps TO people: Ich danke '
+            '**euch**. Das Essen hat **mir** gefallen. Ihr habt **mir** '
+            'geholfen. Never mich after these three.',
       ),
     ],
   ),
@@ -495,6 +659,18 @@ final List<QuizContent> enDeAiM3Quizzes = [
         '(strictly Perfekt), then switch roles mid-way — describe where '
         'you "are" in a city and have me direct you to two places, '
         'imperatives and all.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'am Samstag habe ich lange geschlafen = on Saturday I slept in · '
+        'wir sind mit dem Zug nach Berlin gefahren = we took the train to '
+        'Berlin · '
+        'die Stadt hat mir sehr gefallen = I liked the city a lot · '
+        'am ersten Tag hat es geregnet = on the first day it rained · '
+        'gehen Sie geradeaus und dann links = go straight ahead and then '
+        'left · '
+        'nehmen Sie die zweite Straße rechts = take the second street on '
+        'the right',
     practisePoints: [
       'Perfekt narration with correct auxiliaries',
       'Dative endings after prepositions and dative verbs',
@@ -512,11 +688,13 @@ final List<QuizContent> enDeAiM3Quizzes = [
       'dative endings wrong or missing',
     ],
     intro:
-        'The module gate has two faces: tell your past in the Perfekt, '
-        'then guide a lost AI through a city. Pass it and A2.2 unlocks — '
-        'retake freely, your best score counts.',
+        'Two gears, one exam: tell your past in the Perfekt — habe '
+        'gemacht, bin gefahren, am ersten Tag — then flip into command '
+        'mode and guide with the imperative: Gehen Sie geradeaus, nehmen '
+        'Sie die U-Bahn. Dative endings count in both halves.',
     tips: [
-      _copyTip,
+      ..._perfektTips,
+      ..._wegTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Two halves, two gears',

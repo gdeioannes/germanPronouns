@@ -11,14 +11,174 @@ import 'en_de_ai_builder.dart';
 /// A1 session shape: ~3 minutes, 6 exchanges, pass 50 (the manifest default).
 const _a1Session = SpeakingSession(durationMinutes: 3, minExchanges: 6);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+/// sein, haben, verb-second and W-questions — the backbone of every
+/// introduction in this module.
+const List<HelpMemoryTip> _introTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'sein and haben — the full present',
+    text:
+        'sein: ich **bin**, du **bist**, er/sie/es **ist**, wir **sind**, '
+        'ihr **seid**, sie/Sie **sind**. haben: ich **habe**, du **hast**, '
+        'er/sie/es **hat**, wir **haben**, ihr **habt**, sie/Sie **haben**. '
+        'These two carry half of A1 — know them cold.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The verb sits in position 2',
+    text:
+        'Whatever comes first, the finite verb is the second element: '
+        '*Ich **wohne** in Berlin.* = *Jetzt **wohne** ich in Berlin.* '
+        'Front a time word and the subject slides behind the verb — '
+        'never *Jetzt ich wohne…*.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'W-questions: W-word, verb, subject',
+    text:
+        '**Wer** bist du? · **Was** machst du? · **Wo** wohnst du? · '
+        '**Woher** kommst du? · **Wie** heißt du? The W-word takes slot 1, '
+        'the verb stays glued in slot 2, the subject follows.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'No -ing, no am/is doing',
+    text:
+        'German has one present tense: *ich arbeite* covers both "I work" '
+        'and "I am working". Never build *ich bin arbeiten* — drop the '
+        'English -ing reflex at the door.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„I come from Spain and live in Berlin now."',
+    text: 'Ich **komme** aus Spanien und **wohne** jetzt in Berlin.',
+  ),
+];
+
+/// der/die/das, ein/eine and the gender patterns behind them.
+const List<HelpMemoryTip> _articleTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Three genders, three articles',
+    text:
+        'Every noun is masculine (**der** Vater), feminine (**die** Mutter) '
+        'or neuter (**das** Kind). Indefinite: **ein** Vater, **eine** '
+        'Mutter, **ein** Kind — only the feminine gets its own form -e.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Learn the article as part of the word',
+    text:
+        'Never learn *Mutter*, always **die Mutter** — say the article '
+        'every single time, and picture the word in a color if it helps '
+        '(blue der, red die, green das).',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Endings that betray the gender',
+    text:
+        '-**e** is usually die (die Familie, die Sprache), -**chen** is '
+        'always das (das Mädchen), -**ung** is always die (die Zeitung), '
+        'male persons and many -**er** words are der (der Bruder, der '
+        'Lehrer).',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Plural flips to die',
+    text:
+        'In the plural, every gender takes **die**: der Bruder → die '
+        '**Brüder**, das Kind → die **Kinder**, die Schwester → die '
+        '**Schwestern**. Die in the plural says nothing about the '
+        'singular gender.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„The child has a brother and a sister."',
+    text: '**Das** Kind hat **einen** Bruder und **eine** Schwester.',
+  ),
+];
+
+/// Numbers 0–100, the und-swap and price talk.
+const List<HelpMemoryTip> _numberTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The building blocks',
+    text:
+        '0–12 are one-offs: null, eins, zwei, drei, vier, fünf, sechs, '
+        'sieben, acht, neun, zehn, elf, zwölf. 13–19 add -**zehn** '
+        '(dreizehn, vierzehn…), the tens end in -**zig**: zwanzig, '
+        'dreißig, vierzig … neunzig, then **hundert**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The und-swap: ones first',
+    text:
+        '21–99 say the small digit first: 21 = **ein**undzwanzig '
+        '("one-and-twenty"), 45 = **fünf**undvierzig, 99 = '
+        '**neun**undneunzig. Hear the *und*? The ones already went by.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Watch the irregular corners',
+    text:
+        '16 is **sechzehn** (no -s), 17 is **siebzehn** (no -en), 60 is '
+        '**sechzig**, 70 is **siebzig**, and 30 is **dreißig** with ß, '
+        'not -zig. And 21 starts with **ein**-, never *eins*-.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Prices read comma as Euro',
+    text:
+        '2,50 € is spoken „zwei Euro **fünfzig**" — the comma becomes '
+        '*Euro*, the cents just follow. Ask with *Was kostet das?*, '
+        'answer with *Das kostet…*.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„That costs twenty-four euros ninety."',
+    text: 'Das kostet **vierundzwanzig** Euro **neunzig**.',
+  ),
+];
+
+/// Regular present endings and the jump from ich to er/sie/es.
+const List<HelpMemoryTip> _thirdPersonTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The six regular endings',
+    text:
+        'ich -**e**, du -**st**, er/sie/es -**t**, wir -**en**, ihr -**t**, '
+        'sie/Sie -**en**. So: ich wohn**e**, du wohn**st**, sie wohn**t**, '
+        'wir wohn**en**, ihr wohn**t**, sie wohn**en**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'From ich to er/sie: swap -e for -t',
+    text:
+        'Retelling someone else, every ich-form shifts: ich heiße → sie '
+        'heiß**t**, ich komme → er komm**t**, ich habe → sie **hat**, '
+        'ich bin → er **ist**. That little -t is the whole trick.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Stems in -t / -d add an extra -e',
+    text:
+        'After a stem ending in -t or -d you slip in an -e so the ending '
+        'is audible: du arbeit**e**st, er arbeit**e**t, ihr find**e**t.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Das ist… / Das sind…',
+    text:
+        'Pointing at people: one person **Das ist** mein Bruder, several '
+        '**Das sind** meine Eltern. The photo-pointing phrase carries any '
+        'family description.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: '„She lives in Hamburg and works in a café."',
+    text: 'Sie **wohnt** in Hamburg und **arbeitet** in einem Café.',
+  ),
+];
 
 final List<QuizContent> enDeAiM1Quizzes = [
   enDeAiEx(
@@ -33,12 +193,14 @@ final List<QuizContent> enDeAiM1Quizzes = [
     material:
         'Words to drill (word = meaning):\n'
         'Hallo = hello · Tschüss = bye · Guten Morgen = good morning · '
-        'Guten Abend = good evening · bitte = please · danke = thank you · '
+        'Guten Tag = good day · Guten Abend = good evening · '
+        'Gute Nacht = good night · bitte = please · danke = thank you · '
         'Entschuldigung = excuse me · ja = yes · nein = no\n'
         'die Mutter = mother · der Vater = father · die Eltern = parents · '
         'der Bruder = brother · die Schwester = sister · das Kind = child · '
         'die Familie = family · der Freund = friend (m) · '
-        'die Freundin = friend (f) · der Name = name',
+        'die Freundin = friend (f) · der Name = name · '
+        'die Großmutter = grandmother · der Großvater = grandfather',
     practisePoints: [
       'Recalling the word in both directions (English → German and back)',
       'The article der/die/das together with every noun',
@@ -51,18 +213,10 @@ final List<QuizContent> enDeAiM1Quizzes = [
     ],
     priorityErrors: ['wrong or missing article', 'mixed-up family words'],
     intro:
-        'Your first exercise: a straight vocabulary drill your AI runs for '
-        'you. It will ask each word both ways and repeat the ones you miss.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'Learn the article as part of the word',
-        text:
-            'Never learn "Mutter", always "die Mutter" — German words come '
-            'with their gender attached, and this drill insists on it.',
-      ),
-    ],
+        'Every German noun carries a gender — der, die or das — and the '
+        'article is part of the word, not decoration. Drill your first '
+        'greetings and family words with the article welded on from day one.',
+    tips: _articleTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m1_first_contact',
@@ -74,6 +228,20 @@ final List<QuizContent> enDeAiM1Quizzes = [
         'You and I are strangers at a Berlin language café. We introduce '
         'ourselves: name, origin, languages, job or studies. After answering, '
         'I also ask YOU at least three W-questions back — insist on it.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich heiße ... = my name is ... · '
+        'ich komme aus ... = I come from ... · '
+        'ich wohne in ... = I live in ... · '
+        'ich spreche Englisch und ein bisschen Deutsch = '
+        'I speak English and a little German · '
+        'ich arbeite als ... = I work as a ... · '
+        'wie heißt du? = what is your name? · '
+        'woher kommst du? = where are you from? · '
+        'wo wohnst du? = where do you live? · '
+        'was machst du beruflich? = what do you do for a living? · '
+        'freut mich! = nice to meet you!',
     practisePoints: [
       'ich bin / ich habe / ich heiße / ich komme aus',
       'W-questions: wer, was, wo, woher, wie',
@@ -97,20 +265,11 @@ final List<QuizContent> enDeAiM1Quizzes = [
       'wrong form of sein or haben',
     ],
     intro:
-        'Your first conversation. The AI plays a friendly stranger — '
-        'introduce yourself and make sure you ask questions back; asking is '
-        'half the score.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Verb in second position',
-        text:
-            'German main clauses put the verb second, whatever comes first: '
-            '"Ich heiße Anna." / "Aus Spanien komme ich." Both are fine — '
-            '"Ich aus Spanien komme" is not.',
-      ),
-    ],
+        'A German introduction runs on three verbs — heißen, kommen, wohnen '
+        '— plus sein and haben, with the verb always in second position. '
+        'W-questions (wer, wo, woher, wie) put the question word first and '
+        'keep the verb right behind it.',
+    tips: _introTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m1_translate_v2',
@@ -122,17 +281,19 @@ final List<QuizContent> enDeAiM1Quizzes = [
         'Ten short English sentences that all live or die on verb-second '
         'word order and the forms of sein and haben.',
     material:
-        'Sentences to serve one at a time (accept any correct German):\n'
-        '1. I am tired.\n'
-        '2. My brother has a dog.\n'
-        '3. Today I am in Berlin.\n'
-        '4. Are you from Spain?\n'
-        '5. She is a teacher.\n'
-        '6. We have two children.\n'
-        '7. My name is Tom.\n'
-        '8. Where do you live?\n'
-        '9. The child is three years old.\n'
-        '10. On Monday I have time.',
+        'Sentences to serve one at a time — read me only the English half; '
+        'the German after „=" is the reference answer, and any other '
+        'correct German is acceptable:\n'
+        '1. I am tired. = Ich bin müde.\n'
+        '2. My brother has a dog. = Mein Bruder hat einen Hund.\n'
+        '3. Today I am in Berlin. = Heute bin ich in Berlin.\n'
+        '4. Are you from Spain? = Kommst du aus Spanien?\n'
+        '5. She is a teacher. = Sie ist Lehrerin.\n'
+        '6. We have two children. = Wir haben zwei Kinder.\n'
+        '7. My name is Tom. = Ich heiße Tom.\n'
+        '8. Where do you live? = Wo wohnst du?\n'
+        '9. The child is three years old. = Das Kind ist drei Jahre alt.\n'
+        '10. On Monday I have time. = Am Montag habe ich Zeit.',
     practisePoints: [
       'sein and haben in all singular forms',
       'Verb-second after a fronted time word (Heute bin ich…)',
@@ -145,17 +306,18 @@ final List<QuizContent> enDeAiM1Quizzes = [
     ],
     priorityErrors: ['verb pushed to third position', 'wrong auxiliary form'],
     intro:
-        'A translation drill: your AI serves each English sentence, you say '
-        'or type the German. It tells you right or wrong immediately and '
-        're-serves your misses.',
+        'sein (ich bin, du bist, er ist…) and haben (ich habe, du hast, er '
+        'hat…) are irregular and everywhere; and whenever a time word like '
+        '„heute" opens the sentence, the verb still comes second, so the '
+        'subject slides behind it: Heute bin ich…',
     tips: [
-      _copyTip,
+      ..._introTips,
       HelpMemoryTip(
         kind: 'warning',
         title: 'The trap in sentence 3 and 10',
         text:
-            'Starting with "Heute" or "Am Montag" pushes the subject AFTER '
-            'the verb: "Heute bin ich…", never "Heute ich bin…".',
+            'Starting with **Heute** or **Am Montag** pushes the subject '
+            'AFTER the verb: *Heute **bin ich**…*, never *Heute ich bin…*.',
       ),
     ],
   ),
@@ -185,19 +347,11 @@ final List<QuizContent> enDeAiM1Quizzes = [
     scoringCriteria: ['correct gender calls', 'using patterns, not luck'],
     priorityErrors: ['systematically wrong endings-based guesses'],
     intro:
-        'A game: bet on the gender of nouns against your AI. Losing a round '
-        'is fine — the croupier explains the pattern, and that explanation '
-        'is the real prize.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'Three patterns pay out',
-        text:
-            'Ends in -e? Usually die. Ends in -chen? Always das. Male person '
-            'or -er tool? Usually der. That covers most of tonight\'s table.',
-      ),
-    ],
+        'Noun gender is not random: the ending often gives it away. Words '
+        'in -e are mostly die, -chen is always das, -ung is always die, '
+        'and male persons and -er tools lean der — bet on the pattern, '
+        'not on luck.',
+    tips: _articleTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m1_words_numbers',
@@ -210,11 +364,17 @@ final List<QuizContent> enDeAiM1Quizzes = [
         '"Das kostet … Euro". Mix directions: sometimes say the digit, '
         'sometimes I do.',
     material:
+        'Numbers to master (number = German):\n'
+        'null = 0 · eins = 1 · zwei = 2 · drei = 3 · vier = 4 · fünf = 5 · '
+        'sechs = 6 · sieben = 7 · acht = 8 · neun = 9 · zehn = 10 · '
+        'elf = 11 · zwölf = 12\n'
+        'dreizehn = 13 · sechzehn = 16 · siebzehn = 17 · zwanzig = 20 · '
+        'dreißig = 30 · vierzig = 40 · sechzig = 60 · siebzig = 70 · '
+        'hundert = 100\n'
+        'einundzwanzig = 21 · fünfundvierzig = 45 · neunundneunzig = 99\n'
         'Drill sets:\n'
-        '- Core numbers: 0–12 individually, then 13–19 (-zehn), then the '
-        'tens (zwanzig, dreißig … hundert).\n'
-        '- The swap rule: 21 = einundzwanzig (one-and-twenty), 45 = '
-        'fünfundvierzig, 99 = neunundneunzig.\n'
+        '- Core numbers 0–12, then 13–19 (-zehn), then the tens up to '
+        'hundert; the und-swap for 21–99 (einundzwanzig, one-and-twenty).\n'
         '- Prices to ask with "Was kostet das?": 2,50 € · 7 € · 19,90 € · '
         '64 € · 99 Cent.',
     practisePoints: [
@@ -229,18 +389,10 @@ final List<QuizContent> enDeAiM1Quizzes = [
     ],
     priorityErrors: ['English digit order in 21–99'],
     intro:
-        'Numbers are pure drill material — perfect for your AI. It quizzes '
-        '0–100 both ways and finishes with a round of prices.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Say the ones first',
-        text:
-            'German swaps two-digit numbers: 34 is vierunddreißig — '
-            '"four-and-thirty". Hear the und? The small digit came first.',
-      ),
-    ],
+        'German two-digit numbers run backwards: 34 is vierunddreißig, '
+        '„four-and-thirty" — the ones come first, joined by und. Prices '
+        'speak the comma as Euro: 2,50 € is „zwei Euro fünfzig".',
+    tips: _numberTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m1_read_dasbinich',
@@ -277,18 +429,10 @@ final List<QuizContent> enDeAiM1Quizzes = [
     ],
     priorityErrors: ['ich-form used for Lena', 'answers off the text'],
     intro:
-        'Your first reading. The AI shows you a short text, then asks about '
-        'it — question 5 needs a little thinking, not just finding a word.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'tip',
-        title: 'Answer about HER',
-        text:
-            'The text says "ich", but you answer about Lena: ich heiße → '
-            'sie heißt, ich habe → sie hat. That -t is the whole exercise.',
-      ),
-    ],
+        'The text speaks as „ich", but your answers talk ABOUT Lena — so '
+        'every verb shifts to the er/sie form: ich heiße → sie heißt, ich '
+        'habe → sie hat, ich bin → sie ist.',
+    tips: _thirdPersonTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m1_story_family_photo',
@@ -307,7 +451,18 @@ final List<QuizContent> enDeAiM1Quizzes = [
         '- Beat 2: I say one thing about each person (Er ist… / Sie hat…).\n'
         '- Beat 3: I say which person I like and why, very simply.\n'
         '- Required: sein in er/sie/wir forms, at least 4 family words with '
-        'the right article.',
+        'the right article.\n'
+        '\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'das ist meine Mutter = this is my mother · '
+        'das sind meine Eltern = these are my parents · '
+        'er ist dreißig Jahre alt = he is thirty years old · '
+        'sie hat braune Haare = she has brown hair · '
+        'er arbeitet als Lehrer = he works as a teacher · '
+        'sie ist sehr nett = she is very nice · '
+        'ich mag meinen Bruder = I like my brother · '
+        'links steht mein Vater = my father is standing on the left',
     practisePoints: [
       'Das ist / Das sind for pointing people out',
       'er/sie/wir forms of sein and haben',
@@ -320,19 +475,10 @@ final List<QuizContent> enDeAiM1Quizzes = [
     ],
     priorityErrors: ['er/sie mixed up', 'missing articles'],
     intro:
-        'A memory-and-retell exercise: the AI paints a family photo in '
-        'words, and you bring it back to life. It checks you covered '
-        'everyone.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'tip',
-        title: 'Das ist… / Das sind…',
-        text:
-            'One person: "Das ist mein Bruder." Several: "Das sind meine '
-            'Eltern." The photo-pointing phrase carries the whole story.',
-      ),
-    ],
+        'Describing people runs on two frames: „Das ist…" for one person, '
+        '„Das sind…" for several, then er/sie-forms of sein and haben for '
+        'the details — er ist alt, sie hat einen Hund.',
+    tips: _thirdPersonTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m1_cafe_roleplay',
@@ -345,6 +491,18 @@ final List<QuizContent> enDeAiM1Quizzes = [
         'order a drink and something to eat, ask the price, and pay. '
         'Twist: you are OUT of the first two things I order — I must react '
         'and choose something else, politely.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich möchte einen Kaffee = I would like a coffee · '
+        'ich nehme ein Wasser = I will take a water · '
+        'was kostet der Kuchen? = how much is the cake? · '
+        'die Rechnung, bitte = the bill, please · '
+        'schade! dann nehme ich einen Tee = '
+        'what a pity! then I will take a tea · '
+        'haben Sie auch Kuchen? = do you also have cake? · '
+        'das macht zusammen ... = that comes to ... altogether · '
+        'stimmt so = keep the change',
     targetVocabulary: [
       'Ich möchte…',
       'der Kaffee',
@@ -365,17 +523,16 @@ final List<QuizContent> enDeAiM1Quizzes = [
     ],
     priorityErrors: ['dropping into English under pressure', 'word order'],
     intro:
-        'Mid-module checkpoint, as a scene: order at a café where nothing '
-        'you want is available. Staying in German when plans collapse is '
-        'exactly the skill.',
+        'Ordering runs on two polite frames — „Ich möchte…" and „Ich '
+        'nehme…" — plus „Was kostet…?" for the price; when your first '
+        'choice is gone, „Schade! Dann nehme ich…" pivots you to a new '
+        'order without leaving German.',
     tips: [
-      _copyTip,
+      ..._numberTips,
       HelpMemoryTip(
         kind: 'example',
-        title: 'The rescue phrase',
-        text:
-            '"Schade! Dann nehme ich einen Tee." — disappointment, pivot, '
-            'new order, all in five words. Keep it ready.',
+        title: '„What a pity! Then I will take a tea." — the rescue phrase',
+        text: 'Schade! Dann **nehme ich** einen Tee.',
       ),
     ],
   ),
@@ -410,15 +567,17 @@ final List<QuizContent> enDeAiM1Quizzes = [
     ],
     priorityErrors: ['verb-second slips', 'missing question at the end'],
     intro:
-        'Your first written German: five sentences and a question. Writing '
-        'gives you time to check the verb is second — use it.',
+        'The same verb-second rule that governs your speaking governs your '
+        'writing — but on paper you can check it: find the verb in every '
+        'sentence and make sure it is the second idea, with sein and haben '
+        'in their correct irregular forms.',
     tips: [
-      _copyTip,
+      ..._introTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Check every sentence twice',
         text:
-            'Read each sentence and point at the verb. Is it the second '
+            'Read each sentence and point at the verb. Is it the **second** '
             'idea in the sentence? Then send. This one check catches most '
             'A1 writing mistakes.',
       ),
@@ -435,6 +594,18 @@ final List<QuizContent> enDeAiM1Quizzes = [
         'everything: introduction, family, numbers and prices, my daily '
         'basics, and one question where you point at an imaginary object '
         'and ask what it is (article required!).',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich heiße ... und komme aus ... = my name is ... and I come '
+        'from ... · '
+        'ich bin ... Jahre alt = I am ... years old · '
+        'ich habe zwei Geschwister = I have two siblings · '
+        'ich spreche Englisch und Deutsch = I speak English and German · '
+        'das ist ein Tisch = that is a table · '
+        'das kostet zwanzig Euro = that costs twenty euros · '
+        'ich arbeite als ... = I work as a ... · '
+        'am Sonntag koche ich = on Sunday I cook',
     practisePoints: [
       'sein/haben and regular present endings',
       'W-questions understood and answered fully',
@@ -452,17 +623,20 @@ final List<QuizContent> enDeAiM1Quizzes = [
       'wrong sein/haben form',
     ],
     intro:
-        'The module gate: an eight-question interview over everything in '
-        'M1. Pass it and A1.2 unlocks. Retake it as often as you like — '
-        'your best score counts.',
+        'The module gate bundles everything from M1: sein/haben and the '
+        'regular endings, verb-second word order, W-questions, numbers and '
+        'prices, and nouns with their articles — answered in full '
+        'sentences, because „Ich komme aus Italien." scores where „Aus '
+        'Italien." does not.',
     tips: [
-      _copyTip,
+      ..._introTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Full sentences win',
         text:
-            '"Aus Italien." scores half; "Ich komme aus Italien." scores '
-            'full. In the exam interview, always spend the whole sentence.',
+            '*Aus Italien.* scores half; *Ich **komme** aus Italien.* '
+            'scores full. In the exam interview, always spend the whole '
+            'sentence.',
       ),
     ],
   ),

@@ -12,14 +12,215 @@ import 'en_de_ai_builder.dart';
 /// B1 session shape: ~4 minutes, 8 exchanges, pass 60.
 const _b1Session = SpeakingSession(durationMinutes: 4, minExchanges: 8);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+const List<HelpMemoryTip> _praeteritumTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The Präteritum backbone',
+    text:
+        'Six verbs carry every past story: sein → **war**, haben → '
+        '**hatte**, werden → **wurde**, können → **konnte**, müssen → '
+        '**musste**, wollen → **wollte**. Endings: ich/er **–** (no '
+        'ending!), du **-st**, wir/sie **-en**, ihr **-t**: ich war, du '
+        'warst, er war, wir waren.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Strong verbs change the vowel',
+    text:
+        'Strong verbs build the Präteritum with a vowel change and no '
+        '-te: gehen → **ging**, kommen → **kam**, sehen → **sah**, geben '
+        '→ **gab**, nehmen → **nahm**, finden → **fand**, fahren → '
+        '**fuhr**, schreiben → **schrieb**, bleiben → **blieb**.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Sing the vowel families',
+    text:
+        'Strong verbs move in choirs: **ei → ie** (schreiben/schrieb, '
+        'bleiben/blieb), **i/e → a** (finden/fand, sprechen/sprach, '
+        'trinken/trank). Learn one family member and you get its '
+        'siblings for free.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'No weak -te on strong verbs',
+    text:
+        'Never bolt a weak ending onto a strong verb: *gehte* and '
+        '*kommte* do not exist — only **ging** and **kam**. And ich/er '
+        'take no ending at all: ich **ging**, er **kam**, never *ich '
+        'ginge* (that is a different mood entirely).',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'When she opened the door, she saw an old suitcase.',
+    text: 'Als sie die Tür **öffnete**, **sah** sie einen alten Koffer.',
+  ),
+];
+
+const List<HelpMemoryTip> _passiveTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'werden is the engine',
+    text:
+        'German passive always runs on werden + Partizip II. Present: '
+        '„Das Brot **wird gebacken**" (is baked). Past: „Die Brücke '
+        '**wurde gebaut**" (was built). Plural: „Die Briefe **wurden '
+        'eingepackt**". The Partizip waits at the very end of the '
+        'clause.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Name the doer with von + Dativ',
+    text:
+        'If the English names the doer, German attaches it with **von** '
+        '+ Dativ: „Das Lied wurde **von den Kindern** gesungen" — the '
+        'song was sung by the children. No doer named? Just leave it '
+        'out: „Mein Fahrrad wurde gestohlen."',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'wird, not ist',
+    text:
+        'English *is baked* tempts you into *ist gebacken* — wrong verb. '
+        'The process passive needs **wird**/**wurde**: „Das Brot **wird** '
+        'jeden Morgen gebacken." ist + Partizip describes a finished '
+        'state, not the action.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'The doer disappears',
+    text:
+        'Flip the sentence like a pancake: the old object becomes the '
+        'new subject, the doer slides into a von-phrase or vanishes, and '
+        'werden takes the verb slot. Object up, doer down, **werden** in '
+        'the middle.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The museum was opened in May.',
+    text: 'Das Museum **wurde** im Mai **eröffnet**.',
+  ),
+];
+
+const List<HelpMemoryTip> _relativeTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The relative pronouns',
+    text:
+        'They look like der/die/das with two extras: Nominativ **der / '
+        'die / das / die**, Akkusativ **den / die / das / die**, Dativ '
+        '**dem / der / dem / denen**. Gender and number come from the '
+        'noun in front; the verb goes to the end of the clause.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The case is local',
+    text:
+        'The relative pronoun takes its case from its OWN clause: „der '
+        'Mann, **den** ich sah" (I saw him — accusative), „der Mann, '
+        '**dem** ich half" (helfen takes dative). The main clause has no '
+        'vote.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'n-declension nouns',
+    text:
+        'A small club of masculine nouns adds **-n/-en** in every case '
+        'except nominative: der Junge → den **Jungen**, mit dem '
+        '**Jungen**; also der Zeuge, der Kollege, der Herr, der Student. '
+        '*mit der Junge* is a double error.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Ask the mini-question',
+    text:
+        'Before choosing the pronoun, ask inside the clause: wer? → '
+        '**der/die/das**, wen? → **den**, wem? → **dem/denen**. „…, '
+        '(wem half ich?) **dem** ich half."',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The man whom I helped rode a red bicycle.',
+    text: 'Der Mann, **dem** ich half, fuhr ein rotes Fahrrad.',
+  ),
+];
+
+const List<HelpMemoryTip> _justifyTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'deshalb flips, nämlich hides',
+    text:
+        '**deshalb**/**daher** take position one and pull the verb next: '
+        '„Deshalb **zog** ich um." **nämlich** never starts a clause — '
+        'it tucks in after the verb: „Ich zog um, ich hatte **nämlich** '
+        'einen neuen Job."',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'als vs wenn in the past',
+    text:
+        'One single completed moment takes **als**: „**Als** ich '
+        'achtzehn war, …". Repeated past events take **wenn** (= '
+        'whenever): „Immer **wenn** ich Zeit hatte, las ich." Once upon '
+        'a time = als; every time = wenn.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'deshalb + subject is the classic slip',
+    text:
+        'English *therefore I moved* invites „deshalb ich zog um" — '
+        'wrong. deshalb fills slot one, so the verb must come second: '
+        '„deshalb **zog** ich um." Subject third, always.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'I had no time — that is why I stayed at home.',
+    text: 'Ich hatte keine Zeit, **deshalb** blieb ich zu Hause.',
+  ),
+];
+
+const List<HelpMemoryTip> _plusquamTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The past of the past',
+    text:
+        'Plusquamperfekt = **hatte/war** + Partizip II, for what had '
+        'happened BEFORE the story: „Es **hatte geregnet**", „Ich **war '
+        'gefahren**". Same haben/sein split as the Perfekt — movement '
+        'and change take war.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'nachdem loves Plusquamperfekt',
+    text:
+        '„**Nachdem** es geregnet **hatte**, war die Straße nass." The '
+        'nachdem-clause sits one tense further back than the main '
+        'clause: Plusquamperfekt there, Präteritum in the main clause.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Not just another Perfekt',
+    text:
+        '„Ich habe das Fenster geöffnet" is Perfekt — the ordinary past. '
+        'Background that came BEFORE the accident needs **hatte**: „Ich '
+        '**hatte** das Fenster **geöffnet**, dann kam der Sturm."',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Three layers, three tenses',
+    text:
+        'A report stacks like a cake: bottom layer background '
+        '(**Plusquamperfekt**), middle layer event (**Präteritum**), top '
+        'layer damage (**Passiv**: wurde + Partizip II). Bake all three.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'It had rained, so the street was wet.',
+    text:
+        'Es **hatte geregnet**, deshalb war die Straße nass, und dann '
+        'passierte es.',
+  ),
+];
 
 final List<QuizContent> enDeAiM6Quizzes = [
   enDeAiEx(
@@ -61,20 +262,10 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'Perfekt used where Präteritum was asked',
     ],
     intro:
-        'The narrative tense begins here: twenty strong verbs plus the '
-        'backbone six, drilled until ging, kam and sah come out without '
-        'thinking.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'Sing the vowel families',
-        text:
-            'Strong verbs move in choirs: ei → ie (schreiben/schrieb, '
-            'bleiben/blieb), i/e → a (finden/fand, sprechen/sprach). Learn '
-            'one family member and you get its siblings for free.',
-      ),
-    ],
+        'Written and told stories in German run on the Präteritum, and '
+        'the strong verbs form it by changing their vowel — gehen → ging, '
+        'kommen → kam — with no ending on ich and er/sie/es.',
+    tips: _praeteritumTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m6_fairy_tale',
@@ -101,7 +292,14 @@ final List<QuizContent> enDeAiM6Quizzes = [
         '- At least 2 relative clauses (die Frau, die…; der Automat, '
         'den…).\n'
         '- One als-clause for a single past moment (Als sie den Keller '
-        'öffnete, …).',
+        'öffnete, …).\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'es war einmal = once upon a time · eines Tages = one day · '
+        'plötzlich = suddenly · als sie die Tür öffnete = when she opened '
+        'the door · der Automat, der sprechen konnte = the machine that '
+        'could talk · am Ende = in the end · sie lebten glücklich = they '
+        'lived happily',
     practisePoints: [
       'Sustained Präteritum narration',
       'Relative clauses to introduce characters',
@@ -117,18 +315,18 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'wenn used where als belongs',
     ],
     intro:
-        'Es war einmal… a programmer, a talking coffee machine and a '
-        'thankless boss. Untangle the skeleton and tell it like the '
-        'Brothers Grimm would — in clean Präteritum.',
+        'Fairy tales are told in pure Präteritum — Es war einmal…, sie '
+        'ging, sie fand — with als marking each single past moment and '
+        'relative clauses introducing every character.',
     tips: [
-      _copyTip,
+      ..._praeteritumTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'als, not wenn',
         text:
-            'A single completed moment in the past takes als: "Als sie den '
-            'Keller öffnete…". wenn in the past means "whenever" — every '
-            'time, not once upon a time.',
+            'A single completed moment in the past takes **als**: „**Als** '
+            'sie den Keller öffnete…". wenn in the past means „whenever" '
+            '— every time, not once upon a time.',
       ),
     ],
   ),
@@ -144,17 +342,26 @@ final List<QuizContent> enDeAiM6Quizzes = [
         'passive — werden + Partizip II in the present, wurde + Partizip '
         'II in the past. Serve one at a time; re-serve my misses.',
     material:
-        'Sentences to serve one at a time (German passive required):\n'
-        '1. The bridge was built in 1900.\n'
-        '2. German is spoken here.\n'
-        '3. The letter is being written right now.\n'
-        '4. The window was broken yesterday.\n'
-        '5. The bread is baked every morning.\n'
-        '6. My bike was stolen last week.\n'
-        '7. The house is being renovated.\n'
-        '8. The song was sung by all the children.\n'
-        '9. Dinner is served at seven.\n'
-        '10. The museum was opened in May.',
+        'Sentences to serve one at a time (read me only the English half; '
+        'the German after = is the reference answer, other correct German '
+        'passives are acceptable):\n'
+        '1. The bridge was built in 1900. = Die Brücke wurde 1900 gebaut.\n'
+        '2. German is spoken here. = Hier wird Deutsch gesprochen.\n'
+        '3. The letter is being written right now. = Der Brief wird '
+        'gerade geschrieben.\n'
+        '4. The window was broken yesterday. = Das Fenster wurde gestern '
+        'zerbrochen.\n'
+        '5. The bread is baked every morning. = Das Brot wird jeden '
+        'Morgen gebacken.\n'
+        '6. My bike was stolen last week. = Mein Fahrrad wurde letzte '
+        'Woche gestohlen.\n'
+        '7. The house is being renovated. = Das Haus wird renoviert.\n'
+        '8. The song was sung by all the children. = Das Lied wurde von '
+        'allen Kindern gesungen.\n'
+        '9. Dinner is served at seven. = Das Abendessen wird um sieben '
+        'serviert.\n'
+        '10. The museum was opened in May. = Das Museum wurde im Mai '
+        'eröffnet.',
     practisePoints: [
       'Present passive: wird + Partizip II',
       'Past passive: wurde + Partizip II',
@@ -170,20 +377,10 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'Partizip II not clause-final',
     ],
     intro:
-        'Flip the sentences: the doer disappears, werden takes over. Ten '
-        'English actives in, ten German passives out — your AI grades each '
-        'on the spot.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'werden is the engine',
-        text:
-            'German passive always runs on werden: "Das Brot wird gebacken" '
-            '(is baked), "Die Brücke wurde gebaut" (was built). The '
-            'Partizip waits at the end of the clause.',
-      ),
-    ],
+        'The German passive is built with werden + Partizip II — wird '
+        'gebaut for the present, wurde gebaut for the past — and the '
+        'participle always waits at the end of the clause.',
+    tips: _passiveTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m6_news_item',
@@ -231,18 +428,20 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'keeping wurde in the "active" version',
     ],
     intro:
-        'A tiny local-news mystery: a suitcase, old letters, a happy '
-        'ending. Read it, answer about it, and for the finale, flip one of '
-        'its passive sentences back to active.',
+        'Newspaper German narrates in Präteritum and reports actions in '
+        'the passive — wurde eingepackt, wurde gefunden. To turn a '
+        'passive back to active, promote the von-phrase to subject and '
+        'give the verb its normal form.',
     tips: [
-      _copyTip,
+      ..._passiveTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Passive radar',
         text:
-            'Scan for wurde(n) + a participle at the end — that\'s your '
-            'passive. To re-activate it, promote the von-phrase (or invent '
-            'a doer) to subject: "Zwei Beamte packten die Briefe ein."',
+            'Scan for **wurde(n)** + a participle at the end — that is '
+            'your passive. To re-activate it, promote the von-phrase (or '
+            'invent a doer) to subject: „Zwei Beamte **packten** die '
+            'Briefe **ein**."',
       ),
     ],
   ),
@@ -285,18 +484,18 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'wrong Partizip II forms',
     ],
     intro:
-        'Charades, but the costume is grammar: professions described only '
-        'through what gets done. Guess your AI\'s, then make yours '
-        'guessable — in flawless passive.',
+        'The present passive — wird/werden + Partizip II — is how German '
+        'describes what gets done somewhere: Hier werden Haare '
+        'geschnitten. Singular takes wird, plural werden, and the '
+        'participle closes the sentence.',
     tips: [
-      _copyTip,
+      ..._passiveTips,
       HelpMemoryTip(
         kind: 'example',
-        title: 'A clue that works',
+        title: 'Here bread is baked — an obvious baker.',
         text:
-            '"Hier wird Brot gebacken. Der Teig wird sehr früh am Morgen '
-            'gemacht." Two clean passives, one obvious Bäcker — that\'s a '
-            'full-points round.',
+            'Hier **wird** Brot **gebacken**. Der Teig **wird** sehr früh '
+            'am Morgen **gemacht**.',
       ),
     ],
   ),
@@ -313,6 +512,15 @@ final List<QuizContent> enDeAiM6Quizzes = [
         'justify it with deshalb, daher and nämlich. You listen like a '
         'curious friend, then challenge exactly one of my justifications '
         'and make me defend it.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich entschied mich für … = I decided on … · deshalb zog ich um '
+        '= that is why I moved · ich hatte nämlich keine Wahl = you see, '
+        'I had no choice · vorher hatte ich … = before that I had … · '
+        'ich bereue es nicht = I do not regret it · der wichtigste Grund '
+        'war … = the most important reason was … · danach änderte sich '
+        'alles = after that everything changed',
     practisePoints: [
       'Connected past narration (Präteritum and Perfekt mixed naturally)',
       'Justifying with deshalb/daher (verb right after) and nämlich',
@@ -336,21 +544,10 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'nämlich placed at the start of its clause',
     ],
     intro:
-        'Everyone has one decision that split life into before and after. '
-        'Tell yours — or invent one — and be ready: your AI will pick one '
-        'of your reasons and push back.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'deshalb flips, nämlich hides',
-        text:
-            'deshalb takes position one and pulls the verb next: "Deshalb '
-            'zog ich um." nämlich never starts a clause — it tucks in '
-            'after the verb: "Ich zog um, ich hatte nämlich einen neuen '
-            'Job."',
-      ),
-    ],
+        'To justify in German, deshalb and daher open the clause and pull '
+        'the verb into second position, while nämlich hides inside the '
+        'clause after the verb — it can never stand first.',
+    tips: _justifyTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m6_radio_news',
@@ -394,18 +591,43 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'inventing details not in the piece',
     ],
     intro:
-        'Ears only: your AI becomes a radio newsreader for 90 seconds. '
-        'Then the microphone is yours — retell the story, survive three '
-        'detail questions.',
+        'Radio news narrates in Präteritum and reports results in the '
+        'passive — wurde gerettet, wurde eröffnet. Retelling means '
+        'rebuilding the story in your own past-tense sentences, not '
+        'echoing the original.',
     tips: [
-      _copyTip,
+      HelpMemoryTip(
+        kind: 'rule',
+        title: 'Retell in the narrative tenses',
+        text:
+            'A retelling stays in the past: backbone verbs in Präteritum '
+            '(**war**, **hatte**, **kam**, **fand**), everyday actions '
+            'happily in Perfekt („dann **hat** sie die Polizei '
+            '**gerufen**"). Present tense breaks the news spell.',
+      ),
       HelpMemoryTip(
         kind: 'tip',
         title: 'Listen for anchors, not words',
         text:
-            'Grab the five anchors — wer, was, wo, wann, Ergebnis — and let '
-            'the rest go. A retelling built on five anchors beats a broken '
-            'word-for-word echo every time.',
+            'Grab the five anchors — **wer, was, wo, wann, Ergebnis** — '
+            'and let the rest go. A retelling built on five anchors beats '
+            'a broken word-for-word echo every time.',
+      ),
+      HelpMemoryTip(
+        kind: 'warning',
+        title: 'Passives you will hear',
+        text:
+            'News loves the past passive: **wurde gerettet** (was '
+            'rescued), **wurde eröffnet** (was opened), **wurde '
+            'gefunden** (was found). Hearing wurde + participle? Someone '
+            'did something — you can retell it actively.',
+      ),
+      HelpMemoryTip(
+        kind: 'example',
+        title: 'On Tuesday a small dog was rescued from the river.',
+        text:
+            'Am Dienstag **wurde** ein kleiner Hund aus dem Fluss '
+            '**gerettet**.',
       ),
     ],
   ),
@@ -451,20 +673,10 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'active sentences in the damage layer',
     ],
     intro:
-        'Bureaucratic German, the fun way: one silly accident, three tense '
-        'layers. Before, during, damage — each layer has its own grammar, '
-        'and the rubric checks all three.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'One step further back',
-        text:
-            'Plusquamperfekt is the past of the past: hatte/war + Partizip '
-            'II. "Es hatte geregnet, deshalb war die Straße nass, und dann '
-            'passierte es." Three layers, three tenses.',
-      ),
-    ],
+        'The Plusquamperfekt — hatte/war + Partizip II — reaches one step '
+        'further back than the story itself: first what had happened, '
+        'then the event in Präteritum, then the damage in the passive.',
+    tips: _plusquamTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m6_witness',
@@ -479,6 +691,15 @@ final List<QuizContent> enDeAiM6Quizzes = [
         'statement: what happened, in what order, and exactly WHO was '
         'involved — push me to identify every person with a relative '
         'clause (der Mann, der…; die Frau, die…; der Junge, den…).',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich habe alles beobachtet = I saw everything · der Mann, der '
+        'telefonierte = the man who was on the phone · die Frau, die ich '
+        'sah = the woman I saw · der Junge, dem ich half = the boy I '
+        'helped · sie stießen zusammen = they collided · zuerst … danach '
+        '… = first … after that … · es passierte gegen zehn Uhr = it '
+        'happened around ten o’clock',
     practisePoints: [
       'Relative clauses in nominative, accusative and dative',
       'Ordered past narration under questioning',
@@ -502,20 +723,10 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'der Junge left undeclined (mit der Junge)',
     ],
     intro:
-        'You saw everything, officer — now say it precisely. Every person '
-        'in your statement needs a relative clause, and the officer will '
-        'keep asking "Welcher Mann genau?" until they get one.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'The clause case is local',
-        text:
-            'The relative pronoun takes its case from its OWN clause: "der '
-            'Mann, DEN ich sah" (I saw him — accusative), "der Mann, DEM '
-            'ich half" (I helped him — dative). Ignore the main clause.',
-      ),
-    ],
+        'Relative clauses pin people down precisely — der Mann, der '
+        'telefonierte; die Frau, die ich sah — and the pronoun takes its '
+        'case from its own clause, not from the main sentence.',
+    tips: _relativeTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m6_gate_narrate',
@@ -530,6 +741,15 @@ final List<QuizContent> enDeAiM6Quizzes = [
         'how something is made in the passive, identify people with '
         'relative clauses, and justify two decisions with deshalb and '
         'nämlich. Mix the topics; keep me moving.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'es war einmal = once upon a time · als ich jung war = when I '
+        'was young · hier wird Brot gebacken = bread is baked here · das '
+        'Fenster wurde zerbrochen = the window was broken · der Mann, '
+        'den ich sah = the man I saw · deshalb blieb ich zu Hause = that '
+        'is why I stayed home · ich hatte nämlich keine Zeit = you see, '
+        'I had no time · nachdem es geregnet hatte = after it had rained',
     practisePoints: [
       'Präteritum narration on demand',
       'Passive descriptions (wird/wurde + Partizip II)',
@@ -548,18 +768,43 @@ final List<QuizContent> enDeAiM6Quizzes = [
       'relative pronoun in the wrong case',
     ],
     intro:
-        'The module gate: one session, every M6 skill — narrating, '
-        'describing processes, pointing people out, justifying. Pass it '
-        'and B2.1 unlocks; your best score counts.',
+        'Everything M6 taught in one sitting: strong-verb Präteritum for '
+        'stories, werden-passive for processes, case-correct relative '
+        'clauses for people, and deshalb/nämlich with their strict word '
+        'order for reasons.',
     tips: [
-      _copyTip,
       HelpMemoryTip(
-        kind: 'tip',
-        title: 'Change gears audibly',
+        kind: 'rule',
+        title: 'The four gears of M6',
         text:
-            'Each task wants its own grammar: stories run on Präteritum, '
-            'processes on wird…gemacht, people on der/die/den clauses. '
-            'Hear the task type, shift the gear first, then speak.',
+            'Stories run on **Präteritum** (ging, kam, war), processes on '
+            '**wird/wurde + Partizip II**, people on **der/die/den/dem** '
+            'clauses, reasons on **deshalb** (verb next!) and **nämlich** '
+            '(after the verb). Hear the task, pick the gear.',
+      ),
+      HelpMemoryTip(
+        kind: 'warning',
+        title: 'The three classic exam slips',
+        text:
+            'Weak endings on strong verbs (*gehte* → **ging**), ist '
+            'instead of **wurde** in the passive, and „deshalb ich…" '
+            'instead of „deshalb **blieb** ich…". Fix these three and '
+            'your score jumps.',
+      ),
+      HelpMemoryTip(
+        kind: 'mnemonic',
+        title: 'Shift before you speak',
+        text:
+            'Each task wants its own grammar — hear the task type, shift '
+            'the gear FIRST, then speak. One silent second of gear choice '
+            'saves ten seconds of self-repair.',
+      ),
+      HelpMemoryTip(
+        kind: 'example',
+        title: 'When I saw the man who was shouting, I called the police.',
+        text:
+            '**Als** ich den Mann sah, **der** laut rief, rief ich sofort '
+            'die Polizei.',
       ),
     ],
   ),

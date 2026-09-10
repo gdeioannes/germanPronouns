@@ -13,14 +13,158 @@ import 'en_de_ai_builder.dart';
 /// C1.2 session shape: 5 minutes, 9 exchanges, pass 70; reports in German.
 const _c12Session = SpeakingSession(durationMinutes: 5, minExchanges: 9);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+const List<HelpMemoryTip> _idiomTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'An idiom is one frozen unit',
+    text:
+        'Case, preposition and reflexive are baked in: jmdm. (Dativ) **die '
+        'Daumen drücken**, jmdn. (Akkusativ) **auf die Palme bringen**, '
+        '**sich** etwas **hinter die Ohren schreiben**. Learn the whole '
+        'chunk, never just the nouns.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Never translate word for word',
+    text:
+        'German presses thumbs where English crosses fingers, and „to keep '
+        'things in proportion" becomes **die Kirche im Dorf lassen**. Match '
+        'idiom to idiom, not word to word — a literal transfer sounds '
+        'absurd in both directions.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'to hit the nail on the head',
+    text:
+        'Mit dieser Bemerkung hast du **den Nagel auf den Kopf getroffen**.',
+  ),
+];
+
+const List<HelpMemoryTip> _modalTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Five modals, five stances',
+    text:
+        'er **muss** es getan haben (I am sure) · er **dürfte** (probably) '
+        '· er **könnte** (maybe) · er **soll** (people say) · er **will** '
+        '(he himself claims). One paradigm covers every degree of '
+        'certainty and every source of knowledge.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The past infinitive parks at the end',
+    text:
+        'Modal in position 2, the whole past at the sentence end as '
+        'participle + haben/sein: Sie dürfte Bescheid **gewusst haben**, '
+        'der Minister soll **zurückgetreten sein**. Never split it, never '
+        'reorder it.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'soll points out, will points in',
+    text:
+        '**soll** reports what OTHERS say about the subject; **will** '
+        'reports what the subject claims about HIMSELF (and you doubt it). '
+        'Er **soll** reich sein — so people say. Er **will** reich sein — '
+        'so he claims.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'will is not wollte',
+    text:
+        'The claim modal stays present tense: er **will** nichts gewusst '
+        'haben (= he claims to have known nothing). „Er wollte nichts '
+        'gewusst haben" reads as plain past „wanted" and kills the '
+        'hearsay meaning.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'She probably knew from the start',
+    text: 'Sie **dürfte** von Anfang an Bescheid **gewusst haben**.',
+  ),
+];
+
+const List<HelpMemoryTip> _ironyTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Litotes: deny the opposite',
+    text:
+        'German understates by negating the opposite: **kein unbeliebter '
+        'Mann** (well liked), **nicht wenig beeindruckend** (very '
+        'impressive), **nicht ganz unumstritten** (highly disputed). The '
+        'double negative delivers the point while keeping a straight '
+        'face.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Particles do ironic work',
+    text:
+        '**ja**, **eben** and **natürlich** flag „shared knowledge" — and '
+        'turn ironic the moment that knowledge is absurd: „Das war **ja** '
+        'klar", „Der Kuchen war **eben** experimentell". Small words, '
+        'heavy lifting.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Never announce the irony',
+    text:
+        'Saying „das meine ich ironisch" ruins the device. Irony is '
+        'performed, not labeled: keep the words proud while the facts '
+        'burn, and answer other people\'s irony on its meant level, not '
+        'its literal one.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'You certainly cannot call it boring (litotes)',
+    text:
+        'Man kann wirklich **nicht behaupten**, dass es langweilig wird.',
+  ),
+];
+
+const List<HelpMemoryTip> _wortbildungTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Prefixes carry meaning',
+    text:
+        '**Ver-** transforms or spoils (verbinden, sich verlaufen), '
+        '**Ent-** removes or undoes (entkräften, entbinden), **Zer-** '
+        'breaks apart (zerreden, zerreißen), **Miss-** goes wrong '
+        '(missverstehen). Guess an unknown verb from its prefix before '
+        'reaching for a dictionary.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Nouns from -ung, -heit, -keit',
+    text:
+        'Verb → **-ung** noun (binden → die Bind**ung**, entscheiden → '
+        'die Entscheid**ung**); adjective → **-heit**/**-keit** noun '
+        '(klar → die Klar**heit**, heiter → die Heiter**keit**). All '
+        'three suffixes are always feminine.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: '-keit follows -ig, -lich, -bar',
+    text:
+        'Adjectives in -ig/-lich/-bar take **-keit** (Brauchbar**keit**, '
+        'Fröhlich**keit**); most others take **-heit** (Klar**heit**, '
+        'Kühn**heit**). A fake like „Klarkeit" fails exactly this rule.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Not every combination exists',
+    text:
+        '**-bar** means „can be Xed" (denk**bar**, brauch**bar**), '
+        '**-los** means „without X" (mut**los**, kraft**los**) — but '
+        'German licenses only some combinations: „denklos" and „Klarkeit" '
+        'sound plausible and are fake. Check the pattern, then check '
+        'reality.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'This argument is easy to refute',
+    text: 'Dieses Argument lässt sich mühelos **entkräften**.',
+  ),
+];
 
 final List<QuizContent> enDeAiM10Quizzes = [
   enDeAiEx(
@@ -70,11 +214,12 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'wrong case after the idiom (jmdm. vs jmdn.)',
     ],
     intro:
-        'Fifteen idioms every German speaker carries around. Your AI runs '
-        'the decoder: picture, meaning, then a live situation — and the '
-        'ones you fumble come back for revenge.',
+        'German idioms are frozen chunks — case, preposition and reflexive '
+        'travel with the phrase: jmdm. die Daumen drücken, but jmdn. auf '
+        'die Palme bringen. Learn each one as image + meaning + fixed '
+        'grammar, and it becomes usable, not just recognizable.',
     tips: [
-      _copyTip,
+      ..._idiomTips,
       HelpMemoryTip(
         kind: 'mnemonic',
         title: 'Keep the image, keep the idiom',
@@ -108,6 +253,18 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'gewesen sein, sie soll früher … gewesen sein, er will nichts '
         'gewusst haben. Challenge my inferences and make me grade my own '
         'certainty.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'er dürfte eifersüchtig gewesen sein = he was probably jealous · '
+        'sie soll früher beim Theater gewesen sein = she is said to have '
+        'worked in theatre · '
+        'er will nichts gewusst haben = he claims to have known nothing · '
+        'das Motiv dürfte Geld gewesen sein = the motive was probably '
+        'money · '
+        'sie muss es geplant haben = she must have planned it · '
+        'die Schlüsselszene = the key scene · '
+        'die Andeutung = the hint, the insinuation',
     practisePoints: [
       'Subjective modals with past infinitive (dürfte … gewesen sein)',
       'Grading certainty: muss > dürfte > könnte',
@@ -131,11 +288,13 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'gewesen sein order scrambled',
     ],
     intro:
-        'Your AI invents a film; you both pretend you saw it last night. '
-        'Now gossip about the characters — every guess about their motives '
-        'needs the right subjective modal.',
+        'German grades every guess with a modal: er muss/dürfte/könnte es '
+        'getan haben for your own certainty, er soll for rumor, er will '
+        'for the character\'s own claim — always modal + participle + '
+        'haben/sein. Gossip about an invented film and pick the modal '
+        'that matches how sure you are.',
     tips: [
-      _copyTip,
+      ..._modalTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'The certainty ladder',
@@ -196,30 +355,11 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'meanings guessed from English instead of the prefix logic',
     ],
     intro:
-        'A laboratory game: grow real words from six roots and smuggle in '
-        'one convincing fake per round. Fooling your AI takes exactly the '
-        'morphological feeling this module is after.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Prefixes carry meaning',
-        text:
-            'Ver- transforms or spoils (verbinden, sich verlaufen), Ent- '
-            'removes or undoes (entbinden, entkräften), Zer- breaks apart '
-            '(zerdenken, zerreden). Guess an unknown verb from its prefix '
-            'before reaching for a dictionary.',
-      ),
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: '-keit follows -ig, -lich, -bar',
-        text:
-            'Adjectives in -ig/-lich/-bar take -keit (Heiterkeit, '
-            'Brauchbarkeit); most others take -heit (Klarheit, Kühnheit). '
-            'A fake like "Klarkeit" is exactly the kind your AI will '
-            'pounce on.',
-      ),
-    ],
+        'German builds words like Lego: Ver-/Ent-/Zer- reshape a verb\'s '
+        'meaning, and -ung/-heit/-keit/-bar/-los turn stems into nouns '
+        'and adjectives — but only some combinations really exist. Grow '
+        'real derivatives from six roots and learn to smell the fakes.',
+    tips: _wortbildungTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m10_read_literary',
@@ -276,11 +416,13 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'irony explained by retelling instead of analyzing',
     ],
     intro:
-        'A little story that says almost nothing directly and means '
-        'everything sideways. Read it twice, then answer questions about '
-        'what is written between the lines.',
+        'Literary German loves saying things sideways: litotes states '
+        'praise by denying its opposite (kein unbeliebter Mann), and '
+        'irony hides in suspicious precision. Read a little story that '
+        'means everything between the lines — and name exactly how it '
+        'does it.',
     tips: [
-      _copyTip,
+      ..._ironyTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Litotes: denied opposite, raised eyebrow',
@@ -313,18 +455,30 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'wrong hedge counts as a wrong answer even if the grammar holds. '
         'Serve one at a time and correct immediately.',
     material:
-        'Sentences to serve one at a time (grade the hedge choice '
-        'strictly):\n'
-        '1. He allegedly stole the documents.\n'
-        '2. Apparently, the meeting has been cancelled.\n'
-        '3. She claims to have known nothing about it.\n'
-        '4. The minister is said to have resigned last night.\n'
-        '5. Supposedly, the building was never inspected.\n'
-        '6. He must have forgotten our appointment.\n'
-        '7. The company reportedly paid no taxes for years.\n'
-        '8. She is probably still at the office. (dürfte)\n'
-        '9. He says he paid the bill, but nobody believes him.\n'
-        '10. By all appearances, the plan has failed.\n'
+        'Sentences to serve one at a time — read me only the English '
+        'half; the German after „=" is the reference answer, and other '
+        'correct German with the right hedge is acceptable (grade the '
+        'hedge choice strictly):\n'
+        '1. He allegedly stole the documents. = Er soll die Dokumente '
+        'gestohlen haben.\n'
+        '2. Apparently, the meeting has been cancelled. = Die Besprechung '
+        'ist offenbar abgesagt worden.\n'
+        '3. She claims to have known nothing about it. = Sie will nichts '
+        'davon gewusst haben.\n'
+        '4. The minister is said to have resigned last night. = Der '
+        'Minister soll gestern Abend zurückgetreten sein.\n'
+        '5. Supposedly, the building was never inspected. = Das Gebäude '
+        'ist angeblich nie überprüft worden.\n'
+        '6. He must have forgotten our appointment. = Er muss unseren '
+        'Termin vergessen haben.\n'
+        '7. The company reportedly paid no taxes for years. = Die Firma '
+        'soll jahrelang keine Steuern gezahlt haben.\n'
+        '8. She is probably still at the office. (dürfte) = Sie dürfte '
+        'noch im Büro sein.\n'
+        '9. He says he paid the bill, but nobody believes him. = Er will '
+        'die Rechnung bezahlt haben, aber niemand glaubt ihm.\n'
+        '10. By all appearances, the plan has failed. = Offenbar ist der '
+        'Plan gescheitert.\n'
         'Round 2: pick 3 of my German sentences and ask who is the source '
         'of the claim in each (the speaker? rumor? the subject himself?) — '
         'I must justify my hedge choice.',
@@ -344,11 +498,13 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'soll and will confused for claims',
     ],
     intro:
-        'Ten sentences where the grammar is easy and the attitude is '
-        'everything. Who says so — rumor, evidence, or the man himself? '
-        'German has a different word for each answer.',
+        'English hedges with adverbs — allegedly, apparently, supposedly; '
+        'German prefers modals: soll … getan haben for hearsay, will … '
+        'getan haben for self-claims, dürfte/muss for inference, plus '
+        'angeblich (doubted rumor) and offenbar (visible evidence). '
+        'Choosing the right hedge is the whole exercise.',
     tips: [
-      _copyTip,
+      ..._modalTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Follow the source',
@@ -415,11 +571,12 @@ final List<QuizContent> enDeAiM10Quizzes = [
           'device',
     ],
     intro:
-        'Your AI performs a rave review that is actually a demolition. '
-        'Your job: report the surface, then the truth underneath, then '
-        'point at exactly where the irony leaks through.',
+        'Spoken irony signals itself through concrete devices: litotes, '
+        'modal particles (ja, eben) and hyperbolic praise that clashes '
+        'with the facts. Listen to a rave review that is really a '
+        'demolition, and separate what is said from what is meant.',
     tips: [
-      _copyTip,
+      ..._ironyTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Irony = praise + mismatch',
@@ -465,7 +622,18 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'natürlich), 1 ironic idiom from this module, and one "gerade '
         'dabei sein zu…" at the moment of collapse.\n'
         '- After both versions, tell me which single line carried the '
-        'most contrast and why.',
+        'most contrast and why.\n'
+        '\n'
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'nicht ganz nach Plan = not quite according to plan · '
+        'ich war gerade dabei, die Kerzen anzuzünden = I was just about '
+        'to light the candles · '
+        'das war ja klar = well, that figures · '
+        'der Kuchen war eben experimentell = the cake was, well, '
+        'experimental · '
+        'das Handtuch werfen = to throw in the towel · '
+        'aus allen Wolken fallen = to be flabbergasted',
     practisePoints: [
       'Holding an identical event structure across two tones',
       'Ironic devices on demand: litotes, particles, hyperbole',
@@ -481,11 +649,13 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'irony signaled by saying "ironisch" instead of performing it',
     ],
     intro:
-        'One dinner-party disaster, two performances: the honest version '
-        'and the version for friends who appreciate a good smirk. The '
-        'grade lives in the distance between them.',
+        'The same events can be told sincerely or with a smirk — the tone '
+        'lives in devices: litotes (nicht ganz nach Plan), ironic '
+        'particles (ja, eben, natürlich) and gerade dabei sein zu … for '
+        'the frozen moment before disaster. Tell one anecdote twice and '
+        'make the contrast audible.',
     tips: [
-      _copyTip,
+      ..._ironyTips,
       HelpMemoryTip(
         kind: 'example',
         title: 'The frozen moment',
@@ -551,11 +721,12 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'register wobbling between academic and colloquial',
     ],
     intro:
-        'Write like the culture pages: opinionated, fluent, and quietly '
-        'showing off. Three idioms and two educated guesses about the '
-        'maker — all of it wearing the same voice.',
+        'Review German weaves idioms invisibly into evaluation and uses '
+        'subjective modals for educated guesses about the maker: der '
+        'Regisseur dürfte sich an … orientiert haben. Write 130 words '
+        'that earn their verdict in one consistent blog register.',
     tips: [
-      _copyTip,
+      ..._idiomTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Hide the homework',
@@ -591,6 +762,17 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'flat "Das ist falsch", never surrender either. Escalate gently '
         'if my deflections work too well, and keep the evening pleasant '
         'on the surface throughout.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'Da ist was dran, aber … = there is something to that, but … · '
+        'Da wäre ich mir nicht so sicher = I would not be so sure · '
+        'sagen wir mal so = let us put it this way · '
+        'das ist nicht ganz unumstritten = that is not entirely '
+        'undisputed · '
+        'ein gewagter Vergleich = a daring comparison · '
+        'die Kirche im Dorf lassen = to keep things in proportion · '
+        'erzählen Sie doch mal … = do tell me more about …',
     practisePoints: [
       'Hedged disagreement: Da wäre ich mir nicht so sicher…',
       'Humor and light irony as social tools',
@@ -615,11 +797,13 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'agreeing outright just to escape the topic',
     ],
     intro:
-        'The hardest register there is: disagreeing charmingly. Your AI '
-        'plays the guest with strong opinions; you keep the dinner warm '
-        'without swallowing a single one of them.',
+        'German disagrees politely with Konjunktiv II and litotes: Da '
+        'wäre ich mir nicht so sicher, das ist nicht ganz unumstritten. '
+        'Both push back completely while sounding like small talk — '
+        'practise deflecting confident nonsense without ever saying „Das '
+        'ist falsch".',
     tips: [
-      _copyTip,
+      ..._ironyTips,
       HelpMemoryTip(
         kind: 'example',
         title: 'The three-step deflection',
@@ -654,6 +838,18 @@ final List<QuizContent> enDeAiM10Quizzes = [
         'not its literal one. Reveal at the end which I caught and which '
         'slipped past. Also demand at least 2 subjective-modal inferences '
         'from me along the way.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'den Nagel auf den Kopf treffen = to hit the nail on the head · '
+        'das Handtuch werfen = to throw in the towel · '
+        'da ist was dran = there is something to that · '
+        'der Regisseur dürfte daran gedacht haben = the director '
+        'probably had that in mind · '
+        'das Buch soll verfilmt werden = the book is said to be getting '
+        'a film adaptation · '
+        'er will es selbst erlebt haben = he claims to have experienced '
+        'it himself',
     practisePoints: [
       'Catching idioms and irony live in flowing conversation',
       'Answering irony on the meant level without flagging it',
@@ -671,11 +867,12 @@ final List<QuizContent> enDeAiM10Quizzes = [
       'idioms noticed but responded to woodenly',
     ],
     intro:
-        'The module gate — and the course\'s slyest exam: a culture chat '
-        'with five traps hidden in it. Pass it and C2 territory unlocks. '
-        'Retake it as often as you like — your best score counts.',
+        'The C1.2 gate bundles the whole module: catch idioms and irony '
+        'live and answer them on the meant level, while building your '
+        'own inferences with dürfte/soll/will + past infinitive. Pass it '
+        'and C2 territory unlocks — retake it as often as you like.',
     tips: [
-      _copyTip,
+      ..._modalTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'Answer the meaning, not the words',

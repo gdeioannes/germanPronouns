@@ -12,14 +12,262 @@ import 'en_de_ai_builder.dart';
 /// A2 session shape: ~4 minutes, 7 exchanges, pass 50 (the manifest default).
 const _a2Session = SpeakingSession(durationMinutes: 4, minExchanges: 7);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+const List<HelpMemoryTip> _wechselTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The nine two-way prepositions',
+    text:
+        '**an, auf, hinter, in, neben, über, unter, vor, zwischen** take '
+        'either case. Question **wo?** (position) → dative; question '
+        '**wohin?** (direction) → accusative. Same preposition, two jobs.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The article flip',
+    text:
+        'Dative: auf **dem** Tisch (m/n), an **der** Wand (f), in **den** '
+        'Ecken (pl, +n on the noun). Accusative: auf **den** Tisch, an '
+        '**die** Wand, in **das** Regal. Only masculine and the plural '
+        'change loudly — listen for dem/den.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Wo = rest, wohin = motion',
+    text:
+        'Ask yourself: is anything moving somewhere? No → dative '
+        '(auf dem Tisch). Yes → accusative (auf den Tisch). The '
+        'question word tells you before you answer.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Two verb families',
+    text:
+        'Still verbs go with the dative: **stehen, liegen, hängen, sein**. '
+        'Moving verbs go with the accusative: **stellen, legen, hängen '
+        '(etwas irgendwohin), setzen**. „Ich stelle die Lampe auf den '
+        'Tisch" → „Die Lampe steht auf dem Tisch."',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'I hang the picture on the wall — now it hangs on the wall.',
+    text:
+        'Ich hänge das Bild **an die Wand**, und jetzt hängt es '
+        '**an der Wand**.',
+  ),
+];
+
+const List<HelpMemoryTip> _nebensatzTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'weil, dass, wenn send the verb to the end',
+    text:
+        'After these connectors the conjugated verb closes the clause: Ich '
+        'bleibe zu Hause, weil es **regnet**. · Sie sagt, dass sie keine '
+        'Zeit **hat**. · Wenn das Wetter gut **ist**, gehen wir raus.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'wenn first: verb, verb',
+    text:
+        'A fronted wenn-clause counts as position 1, so the main verb '
+        'follows right after the comma: Wenn ich Zeit **habe**, **rufe** '
+        'ich dich an. Two verbs meet in the middle, separated only by the '
+        'comma.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Perfekt pile-up: the helper goes dead last',
+    text:
+        'With Perfekt in a weil/dass-clause the participle comes first, '
+        'then the helper: …, weil ich schlecht **geschlafen habe** — never '
+        '„weil ich habe schlecht geschlafen".',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'The comma is a door',
+    text:
+        'When weil, dass or wenn opens a clause, imagine the comma as a '
+        'door and the verb as the last one out — it always switches off '
+        'the light at the end.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'She is learning German because she wants to work in Berlin.',
+    text:
+        'Sie lernt Deutsch, weil sie in Berlin arbeiten **will**.',
+  ),
+];
+
+const List<HelpMemoryTip> _komparativTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Climb with -er and am -sten',
+    text:
+        'schnell → schnell**er** → am schnell**sten**; klein → klein**er** '
+        '→ am klein**sten**. One-syllable adjectives with a/o/u usually '
+        'add an umlaut: alt → **ä**lter, groß → gr**ö**ßer, warm → '
+        'w**ä**rmer.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The five irregular ladders',
+    text:
+        'gut → **besser** → am **besten** · viel → **mehr** → am '
+        '**meisten** · gern → **lieber** → am **liebsten** · hoch → '
+        '**höher** → am **höchsten** · nah → **näher** → am **nächsten**. '
+        'Learn them as tunes, not rules.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Never „mehr" + adjective, never „wie" after -er',
+    text:
+        'English says „more expensive" — German says **teurer**, however '
+        'long the adjective. And a comparison after the -er form takes '
+        '**als**, not wie: schneller **als** ich (wie only for equality: '
+        'so schnell **wie** ich).',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'Coffee tastes better to me than tea.',
+    text: 'Kaffee schmeckt mir **besser als** Tee.',
+  ),
+];
+
+const List<HelpMemoryTip> _planTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Futur with werden',
+    text:
+        'werden is conjugated in position 2, the main verb waits at the '
+        'end as an infinitive: ich **werde**, du **wirst**, er **wird**, '
+        'wir **werden**. „Wir **werden** am Sonntag ins Museum '
+        '**gehen**."',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Suggesting and agreeing',
+    text:
+        '„**Wollen wir** ins Kino gehen?" · „**Wie wäre es mit** Sonntag?" '
+        '(mit + dative!) · „Das **passt** mir gut." · „Da **kann** ich '
+        'leider nicht." Suggest, reject politely, counter-suggest.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'wenn-clauses stay verb-final',
+    text:
+        'Even mid-negotiation the rule holds: „Wenn du am Samstag '
+        '**arbeitest**, gehen wir am Sonntag" — never „wenn du arbeitest '
+        'am Samstag".',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'If the museum is closed, we will go to the cinema instead.',
+    text:
+        'Wenn das Museum geschlossen ist, **werden** wir stattdessen ins '
+        'Kino **gehen**.',
+  ),
+];
+
+const List<HelpMemoryTip> _wehtunTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Pain arrives in the dative',
+    text:
+        'German pain happens TO you: „**Mir** tut der Kopf weh." The body '
+        'part is the subject, the sufferer is dative: **mir, dir, ihm, '
+        'ihr, uns, euch, ihnen**. Plural aches flip the verb: „Mir '
+        '**tun** die Ohren weh."',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The -schmerzen shortcut',
+    text:
+        'Every ache also works as ich habe + **-schmerzen**: '
+        '**Kopfschmerzen, Halsschmerzen, Rückenschmerzen, '
+        'Bauchschmerzen**. „Ich habe seit drei Tagen Halsschmerzen."',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Never „ich tue weh"',
+    text:
+        'The English pattern „I hurt" does not translate: not „ich tue '
+        'weh", not „mein Kopf tut mir weh" with ich as subject — say '
+        '„**Mir tut der Kopf weh**" or „Ich **habe** Kopfschmerzen."',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'My throat hurts and I have had a fever since yesterday.',
+    text:
+        '**Mir tut der Hals weh**, und ich habe seit gestern Fieber.',
+  ),
+];
+
+const List<HelpMemoryTip> _alsWennTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'als once, wenn whenever',
+    text:
+        'A single period or moment in the past takes **als**: „Als ich '
+        'klein war". Repeated events and future/possible events take '
+        '**wenn**: „Wenn ich Zeit habe". Childhood happened once — als '
+        'it is.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'als wears two hats',
+    text:
+        'als is also the „than" of comparisons: größer **als** ich. In a '
+        'then-vs-now story you will need both — „**Als** ich klein war, '
+        'war alles langsamer **als** heute."',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'One photo vs a flip-book',
+    text:
+        'als = one photo from the past; wenn = a flip-book of repeats. If '
+        'you could say „every time", it is wenn; if it happened in one '
+        'stretch, it is als.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'When I was little, we lived in the countryside.',
+    text: '**Als ich klein war**, wohnten wir auf dem Land.',
+  ),
+];
+
+const List<HelpMemoryTip> _gateTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Describe: pick the case first',
+    text:
+        'Positions are still photos → dative: „Das Sofa steht **an der '
+        'Wand**, das Bild hängt **über dem Bett**." Only if something '
+        'moves somewhere does the accusative appear.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Compare: -er + als, irregulars from memory',
+    text:
+        'Berlin ist **größer als** Bonn; im Sommer ist es **wärmer**; am '
+        '**liebsten** koche ich. No „mehr + adjective", no „wie" after an '
+        '-er form.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Plan: werden in slot 2, verb-final after weil/wenn',
+    text:
+        '„Ich **werde** nächstes Jahr nach Deutschland **reisen**, weil '
+        'ich mein Deutsch verbessern **will**." werden second, infinitive '
+        'last, subordinate verb dead last.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'If the weather is good, we will hike, because I love mountains.',
+    text:
+        'Wenn das Wetter gut ist, **werden** wir wandern, weil ich Berge '
+        '**liebe**.',
+  ),
+];
 
 final List<QuizContent> enDeAiM4Quizzes = [
   enDeAiEx(
@@ -58,20 +306,11 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'wrong gender making the case invisible',
     ],
     intro:
-        'One word list, two grammar worlds: where things ARE takes the '
-        'dative, where things GO takes the accusative. Your AI keeps '
-        'flipping the question until the flip feels automatic.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'Wo = rest, wohin = motion',
-        text:
-            'Ask yourself: is anything moving somewhere? No → dative '
-            '(auf dem Tisch). Yes → accusative (auf den Tisch). The '
-            'question word tells you before you answer.',
-      ),
-    ],
+        'Nine prepositions — an, auf, hinter, in, neben, über, unter, vor, '
+        'zwischen — take the dative when something IS somewhere (wo?) and '
+        'the accusative when something GOES somewhere (wohin?). Same '
+        'furniture, two cases: auf dem Tisch vs auf den Tisch.',
+    tips: _wechselTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m4_zimmer_memory',
@@ -111,18 +350,19 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'positions invented instead of remembered',
     ],
     intro:
-        'A memory duel played with furniture: hold the AI\'s room in your '
-        'head, rebuild it, then furnish your own. Every sentence is a '
-        'little case exam with points on the table.',
+        'Room descriptions are still photos, so every position takes the '
+        'dative after a two-way preposition — and German matches the verb '
+        'to the object\'s posture: upright things stehen, flat things '
+        'liegen, wall things hängen.',
     tips: [
-      _copyTip,
+      ..._wechselTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Things stand, lie or hang',
         text:
-            'German furniture is picky: der Schrank steht, der Teppich '
-            'liegt, das Bild hängt. Match the verb to the object\'s '
-            'posture and collect the bonus.',
+            'German furniture is picky: der Schrank **steht**, der Teppich '
+            '**liegt**, das Bild **hängt**. Match the verb to the '
+            'object\'s posture and collect the bonus.',
       ),
     ],
   ),
@@ -138,19 +378,33 @@ final List<QuizContent> enDeAiM4Quizzes = [
         'end of their clause. Serve one at a time and grade the verb '
         'position above everything else.',
     material:
-        'Sentences to serve one at a time (accept any correct German):\n'
-        '1. I\'m tired because I slept badly.\n'
-        '2. She says that she has no time.\n'
-        '3. We\'re staying home because it\'s raining.\n'
-        '4. I think that the film is boring.\n'
-        '5. If the weather is good, we\'ll go to the park.\n'
-        '6. He\'s happy because his team won.\n'
-        '7. I know that you can\'t come.\n'
-        '8. She\'s learning German because she wants to work in Berlin.\n'
-        '9. If I have time, I\'ll call you.\n'
-        '10. I hope that the test isn\'t hard.\n'
-        '11. We\'re eating early because the restaurant closes at nine.\n'
-        '12. He says that he got up at six. (Perfekt — watch the pile-up!)',
+        'Sentences to serve one at a time — read me only the English half; '
+        'the German after „=" is the reference answer, and other correct '
+        'German is acceptable:\n'
+        '1. I\'m tired because I slept badly. = Ich bin müde, weil ich '
+        'schlecht geschlafen habe.\n'
+        '2. She says that she has no time. = Sie sagt, dass sie keine '
+        'Zeit hat.\n'
+        '3. We\'re staying home because it\'s raining. = Wir bleiben zu '
+        'Hause, weil es regnet.\n'
+        '4. I think that the film is boring. = Ich denke, dass der Film '
+        'langweilig ist.\n'
+        '5. If the weather is good, we\'ll go to the park. = Wenn das '
+        'Wetter gut ist, gehen wir in den Park.\n'
+        '6. He\'s happy because his team won. = Er ist glücklich, weil '
+        'sein Team gewonnen hat.\n'
+        '7. I know that you can\'t come. = Ich weiß, dass du nicht kommen '
+        'kannst.\n'
+        '8. She\'s learning German because she wants to work in Berlin. '
+        '= Sie lernt Deutsch, weil sie in Berlin arbeiten will.\n'
+        '9. If I have time, I\'ll call you. = Wenn ich Zeit habe, rufe '
+        'ich dich an.\n'
+        '10. I hope that the test isn\'t hard. = Ich hoffe, dass der '
+        'Test nicht schwer ist.\n'
+        '11. We\'re eating early because the restaurant closes at nine. '
+        '= Wir essen früh, weil das Restaurant um neun schließt.\n'
+        '12. He says that he got up at six. (Perfekt — watch the '
+        'pile-up!) = Er sagt, dass er um sechs aufgestanden ist.',
     practisePoints: [
       'weil/dass/wenn push the verb to the end of the clause',
       'The comma between main and subordinate clause',
@@ -166,20 +420,11 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'verb-second in the wenn-clause',
     ],
     intro:
-        'Here English stops helping: after weil, dass and wenn, the verb '
-        'walks to the end of the line. Twelve sentences to break the old '
-        'order until the new one feels natural.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'weil sends the verb to the end',
-        text:
-            '"Ich bin müde, weil ich schlecht geschlafen habe." Everything '
-            'after weil queues up, and the verb closes the door. In '
-            'sentence 12, habe comes dead last — after the participle.',
-      ),
-    ],
+        'weil (because), dass (that) and wenn (if/when) open subordinate '
+        'clauses, and in a German subordinate clause the conjugated verb '
+        'moves to the very end: Ich bin müde, weil ich schlecht '
+        'geschlafen habe.',
+    tips: _nebensatzTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m4_weekend_plans',
@@ -194,6 +439,16 @@ final List<QuizContent> enDeAiM4Quizzes = [
         'wenn-clauses ("Wenn du am Samstag arbeitest, gehen wir am '
         'Sonntag."). Push for at least one werden-future sentence about '
         'the final plan.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'Wollen wir am Samstag ins Kino gehen? = shall we go to the '
+        'cinema on Saturday? · Wie wäre es mit Sonntag? = how about '
+        'Sunday? · Da habe ich leider keine Zeit = unfortunately I have '
+        'no time then · den Termin verschieben = to postpone the '
+        'appointment · stattdessen = instead · zuerst = first of all · '
+        'Das passt mir gut = that works well for me · Wir werden zuerst '
+        'frühstücken = we will have breakfast first',
     practisePoints: [
       'wenn-clauses to handle conflicts and conditions',
       'Suggesting and agreeing: Wollen wir…? Wie wäre es mit…?',
@@ -217,20 +472,11 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'conflicts ignored instead of resolved',
     ],
     intro:
-        'Planning is negotiation, and your AI will not make it easy: two '
-        'conflicts stand between you and the weekend. Solve them with '
-        'wenn-sentences and seal the plan with werden.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'example',
-        title: 'The plan-saving sentence',
-        text:
-            '"Wenn das Museum am Sonntag geschlossen ist, gehen wir '
-            'stattdessen ins Kino." Condition first, comma, then the '
-            'rescue — verb right after the comma.',
-      ),
-    ],
+        'German plans lean on two structures: wenn-clauses for conditions '
+        '(Wenn du arbeitest, gehen wir am Sonntag — verb at the end of '
+        'the wenn-part) and the werden-future for the settled plan '
+        '(Wir werden um zehn frühstücken — infinitive at the end).',
+    tips: _planTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m4_read_wohnung',
@@ -279,11 +525,12 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'weil-clause with verb-second',
     ],
     intro:
-        'Real-life reading: an ad says one thing, an email wants another. '
-        'Four questions warm you up; the fifth makes you the judge — and '
-        'every verdict needs a weil.',
+        'Flat-hunting German in the wild: kalt means rent without '
+        'heating, Besichtigung is the viewing, and every judgment you '
+        'give needs a weil-clause with the verb at the end — Die Wohnung '
+        'passt nicht, weil Haustiere verboten sind.',
     tips: [
-      _copyTip,
+      ..._nebensatzTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Make a match table in your head',
@@ -306,6 +553,15 @@ final List<QuizContent> enDeAiM4Quizzes = [
         'give simple advice I must show I understood, and at the end we '
         'negotiate a follow-up appointment — you reject my first '
         'suggested date so I must propose another.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'Mir tut der Kopf weh = my head hurts · Mir tun die Beine weh '
+        '= my legs hurt · Ich habe Halsschmerzen = I have a sore throat '
+        '· seit drei Tagen = for three days · Ich fühle mich schwach '
+        '= I feel weak · Wie oft nehme ich das Medikament? = how often '
+        'do I take the medicine? · Geht es am Donnerstag um zehn? '
+        '= does Thursday at ten work? · Gute Besserung! = get well soon!',
     targetVocabulary: [
       'wehtun',
       'der Kopf',
@@ -331,20 +587,10 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'advice nodded through without confirming',
     ],
     intro:
-        'The appointment everyone dreads in a foreign language, made '
-        'safe: describe what hurts, prove you understood the advice, and '
-        'haggle a follow-up date. wehtun works backwards — TO you.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Pain arrives in the dative',
-        text:
-            'German pain happens TO you: "Mir tut der Kopf weh." The head '
-            'is the subject, you are the dative. Plural aches flip the '
-            'verb: "Mir tun die Ohren weh."',
-      ),
-    ],
+        'wehtun works backwards: the body part is the subject and the '
+        'sufferer takes the dative — Mir tut der Kopf weh, and with '
+        'plural aches the verb goes plural too: Mir tun die Beine weh.',
+    tips: _wehtunTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m4_words_komparativ',
@@ -384,20 +630,11 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'wie used where als belongs',
     ],
     intro:
-        'Fifteen adjective pairs and their ladders. German never says '
-        '"more cheap" — it bolts -er onto the word and often adds an '
-        'umlaut. Then you put the forms to work comparing real things.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'warning',
-        title: 'No "mehr" before adjectives',
-        text:
-            'English says "more expensive"; German never does. It is '
-            'teurer, not "mehr teuer" — every adjective climbs with -er, '
-            'however long it is.',
-      ),
-    ],
+        'German comparatives always bolt -er onto the adjective (never '
+        '„mehr" + adjective), often add an umlaut (alt → älter), and '
+        'compare with als; the superlative is am + -sten: alt, älter, '
+        'am ältesten.',
+    tips: _komparativTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m4_story_als_ich_klein_war',
@@ -420,7 +657,14 @@ final List<QuizContent> enDeAiM4Quizzes = [
         'better then, with a weil for each.\n'
         '- Required: 3+ comparatives with als, 2+ weil-clauses '
         '(verb-final), and the opener "Als ich klein war" used at least '
-        'once. Invented childhoods welcome.',
+        'once. Invented childhoods welcome.\n'
+        'Useful phrases I have studied (phrase = meaning) — steer me to '
+        'use them:\n'
+        'Als ich klein war = when I was little · auf dem Land = in the '
+        'countryside · Früher hatte ich mehr Zeit = I used to have more '
+        'time · Heute ist alles anders = today everything is different · '
+        'besser als früher = better than before · am liebsten = most of '
+        'all · Das vermisse ich = I miss that',
     practisePoints: [
       'Als for one-time past periods: Als ich klein war…',
       'Comparatives carrying the then/now contrast',
@@ -436,20 +680,10 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'weil-clauses with verb-second',
     ],
     intro:
-        'A story built on a hinge: then and now. Comparatives measure the '
-        'distance, weil explains it, and "Als ich klein war" opens the '
-        'door. True stories and invented ones score the same.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'als once, wenn whenever',
-        text:
-            'A single period or moment in the past takes als: "Als ich '
-            'klein war". Repeated or future events take wenn. Childhood '
-            'happened once — als it is.',
-      ),
-    ],
+        'One-time past periods take als (Als ich klein war…), repeated '
+        'events take wenn — and a then-vs-now story runs on comparatives '
+        'with als plus weil-clauses that explain the change.',
+    tips: _alsWennTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m4_write_traumzimmer',
@@ -489,18 +723,19 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'mehr + adjective comparatives',
     ],
     intro:
-        'Interior design as grammar practice: furnish a dream room in '
-        'writing. Six position phrases hang the furniture, three '
-        'comparatives explain why it beats the room you have.',
+        'A written room description is a still photo, so every position '
+        'phrase takes the dative (an der Wand, über dem Bett) — and the '
+        'dream beats reality through comparatives with als, never with '
+        '„mehr" + adjective.',
     tips: [
-      _copyTip,
+      ..._wechselTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Describe standing still',
         text:
             'A description is a photo, not a removal van — nothing moves, '
-            'so every position phrase takes the dative: über dem Bett, '
-            'neben dem Fenster, an der Wand.',
+            'so every position phrase takes the dative: **über dem '
+            'Bett**, **neben dem Fenster**, **an der Wand**.',
       ),
     ],
   ),
@@ -517,6 +752,16 @@ final List<QuizContent> enDeAiM4Quizzes = [
         'then PLAN — next weekend and one bigger future plan with '
         'werden. Weave in one health question (wehtun) and demand at '
         'least two weil- or wenn-clauses along the way.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'an der Wand hängt … = on the wall hangs … · '
+        'neben dem Fenster steht … = next to the window stands … · '
+        'X ist größer als Y = X is bigger than Y · '
+        'am liebsten mag ich … = I like … best of all · '
+        'am Wochenende werde ich … = at the weekend I am going to … · '
+        'ich habe vor, … zu … = I plan to … · '
+        'mir tut der Kopf weh = my head hurts',
     practisePoints: [
       'Two-way prepositions with the right case',
       'Comparatives and superlatives in free speech',
@@ -534,17 +779,18 @@ final List<QuizContent> enDeAiM4Quizzes = [
       'mehr + adjective comparatives',
     ],
     intro:
-        'The module gate spans everything A2.2 taught you: describe with '
-        'the right case, compare with real forms, plan with werden. Pass '
-        'it and B1.1 unlocks — retake freely, your best score counts.',
+        'The A2.2 gate bundles the module\'s grammar into free speech: '
+        'dative positions after two-way prepositions, comparatives with '
+        'als, verb-final weil/dass/wenn-clauses and plans built with '
+        'werden + infinitive.',
     tips: [
-      _copyTip,
+      ..._gateTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Three movements, three checks',
         text:
             'Describing? Check the case after the preposition. Comparing? '
-            'Check for als and the -er form. Planning? Check the verb '
+            'Check for **als** and the -er form. Planning? Check the verb '
             'lands last after weil and wenn. One check per movement.',
       ),
     ],

@@ -14,14 +14,219 @@ import 'en_de_ai_builder.dart';
 /// in German from B2.1 on.
 const _b22Session = SpeakingSession(durationMinutes: 5, minExchanges: 8);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+/// Genitive case + genitive prepositions.
+const List<HelpMemoryTip> _genitivTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The genitive endings',
+    text:
+        'Masculine and neuter: **des** + noun with **-(e)s** — trotz **des '
+        'Wetters**, während **des Praktikums**. Feminine and plural: **der** '
+        'with no ending on the noun — aufgrund **der** Verspätung, trotz '
+        '**der** Probleme. Adjectives in between take **-en**: trotz des '
+        'schlecht**en** Wetters.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The formal preposition set',
+    text:
+        'All of these govern the genitive: **trotz** (despite), **während** '
+        '(during), **wegen/aufgrund** (because of), **infolge** (as a result '
+        'of), **innerhalb/außerhalb** (inside/outside of), **angesichts** '
+        '(in view of), **anlässlich** (on the occasion of), **anstelle** '
+        '(instead of), **mithilfe** (with the help of).',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Spoken German cheats — you don\'t',
+    text:
+        'On the street you\'ll hear „wegen dem Wetter" with the dative. In '
+        'formal writing, in exams and in this module the genitive is the '
+        'only right answer: wegen **des** Wetter**s**.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'des needs its -s',
+    text:
+        'Whenever you say **des**, an **-s** must land on the noun — des '
+        'Preise**s**, des Streik**s**. Hear a des without an -s and an alarm '
+        'should ring.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'Despite the bad weather, the trade fair took place.',
+    text: 'Trotz **des schlechten Wetters** fand die Messe statt.',
+  ),
+];
+
+/// Konjunktiv II Vergangenheit (irreal past), incl. modals.
+const List<HelpMemoryTip> _konjPastTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'hätte / wäre + Partizip II',
+    text:
+        'The irreal past is Konjunktiv II of haben/sein plus the participle: '
+        'ich **hätte gefragt** (I would have asked), er **wäre gegangen** '
+        '(he would have gone). The auxiliary follows the Perfekt rule: '
+        'movement and change verbs take **wäre**, everything else **hätte**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Modals: the modal goes last',
+    text:
+        'With a modal the participle becomes an infinitive and the modal '
+        'closes the sentence as an infinitive too: „Er hätte vorher **fragen '
+        'sollen**." Never „hätte gefragt sollen", never „hätte gesollt". '
+        'Same with können and müssen: hätte anrufen **können**, hätte zahlen '
+        '**müssen**.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Verb first = no wenn needed',
+    text:
+        'Start with the auxiliary and you can drop wenn entirely: „**Hätte** '
+        'ich das gewusst, hätte ich anders entschieden." More dramatic, '
+        'very German, and one comma cheaper.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Don\'t let würde sneak in',
+    text:
+        'For the PAST there is no würde-form: not „ich würde gefragt haben" '
+        'in everyday German — say „ich **hätte** gefragt". würde + '
+        'infinitive is for irreal present and future only.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'In his place I would first have spoken to the boss.',
+    text: 'An seiner Stelle **hätte** ich zuerst mit dem Chef **gesprochen**.',
+  ),
+];
+
+/// Participial attributes (Partizip I / II, zu + Partizip I).
+const List<HelpMemoryTip> _partizipTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Done = Partizip II, happening = Partizip I',
+    text:
+        'Passive/completed meaning takes Partizip II: der **entwickelte** '
+        'Plan (the plan that was developed). Active/ongoing meaning takes '
+        'Partizip I (infinitive + **-d**): die **steigenden** Preise (the '
+        'prices that are rising). Decide the time first, the ending second.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'zu + Partizip I = still to be done',
+    text:
+        'Necessity packs into **zu** + Partizip I: die noch **zu '
+        'prüfenden** Dokumente = the documents that still have to be '
+        'checked. It always carries a passive-obligation flavour.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The participle declines like an adjective',
+    text:
+        'Whatever ending the adjective would take, the participle takes: '
+        '**der** entwickelt**e** Plan, **ein** entwickelt**er** Plan, mit '
+        '**dem** entwickelt**en** Plan. Wrong ending = wrong attribute.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Everything between article and noun',
+    text:
+        'Agent, time, place — the whole relative clause squeezes between '
+        'article and noun: der **von der Firma im letzten Jahr** '
+        'entwickelte Plan. Read from the article, jump to the noun, then '
+        'unpack the middle.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'The software developed by the company is sold worldwide.',
+    text:
+        'Die **von der Firma entwickelte** Software wird weltweit verkauft.',
+  ),
+];
+
+/// Formal register: sein + zu, Nominalstil, correspondence formulas.
+const List<HelpMemoryTip> _formalTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'sein + zu + infinitive = obligation',
+    text:
+        'Contract prose compresses „muss/kann … werden" into sein + zu: '
+        '„Die Miete **ist** bis zum dritten Werktag **zu zahlen**" — the '
+        'rent MUST be paid. Related formal verbs: **bedarf** + Genitiv '
+        '(requires), sich **verpflichten** zu (to commit to).',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Nominalstil: verbs become nouns',
+    text:
+        'Formal German trades clauses for noun phrases: „nachdem ich mein '
+        'Studium abgeschlossen habe" → „**nach Abschluss** meines Studiums"; '
+        '„falls Sie interessiert sind" → „**bei Interesse**". Shorter, '
+        'colder, more professional.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Register slips cost most',
+    text:
+        'One **du**, one „na ja" or „mega" and the formal effect collapses. '
+        'And after „Sehr geehrte Frau Weber," the next line starts LOWER '
+        'case unless it opens with a noun or Sie: „…Weber, **m**it großem '
+        'Interesse habe ich…".',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'Due to the increased costs we ask for your understanding.',
+    text:
+        '**Aufgrund der gestiegenen Kosten** bitten wir um Ihr Verständnis.',
+  ),
+];
+
+/// Modal particles: doch, ja, eben, halt, mal, schon.
+const List<HelpMemoryTip> _partikelTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The flavour chart',
+    text:
+        '**doch** = friendly urging or contradiction · **ja** = shared '
+        'knowledge („as we both know") · **eben/halt** = resigned „that\'s '
+        'just how it is" · **mal** = casual softener · **schon** = '
+        'reassuring or impatient, context decides. Same sentence, different '
+        'feeling.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Where particles live',
+    text:
+        'Modal particles sit in the middle field, right after the finite '
+        'verb and any pronouns: „Das ist **ja** interessant", „Komm **doch** '
+        'morgen vorbei". Never in first position, never at the end.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'doch pushes, halt shrugs',
+    text:
+        '„Komm **doch**!" leans toward you — do come! „Komm **halt**!" '
+        'shrugs — come if you must. One word flips the whole invitation.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Particles are whispered',
+    text:
+        'A real modal particle is never stressed. If you can shout the word '
+        '(„Das ist JA falsch!"), it has become a normal adverb and means '
+        'something else.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'You know I can\'t come today — that\'s just how it is.',
+    text:
+        'Du weißt **ja**, dass ich heute nicht kommen kann — das ist '
+        '**eben** so.',
+  ),
+];
 
 final List<QuizContent> enDeAiM8Quizzes = [
   enDeAiEx(
@@ -64,28 +269,11 @@ final List<QuizContent> enDeAiM8Quizzes = [
     ],
     priorityErrors: ['dative after trotz/wegen', 'missing -s on masc./neut.'],
     intro:
-        'B2.2 opens with the genitive in its natural habitat: formal '
-        'frames. Drill fifteen of them, then build your own — this is the '
+        'Formal German marks cause, time and concession with genitive '
+        'prepositions — trotz, während, wegen, aufgrund — followed by des '
+        '+ noun-s (masculine/neuter) or der (feminine/plural). This is the '
         'register of emails and contracts.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'des + -s, der without',
-        text:
-            'Masculine and neuter genitive add -s to the noun: trotz des '
-            'Wetters, während des Praktikums. Feminine and plural take der: '
-            'aufgrund der Verspätung — no ending on the noun.',
-      ),
-      HelpMemoryTip(
-        kind: 'warning',
-        title: 'Spoken German cheats — you don\'t',
-        text:
-            'On the street you\'ll hear "wegen dem Wetter". In formal '
-            'writing and in this drill, the genitive is the only right '
-            'answer.',
-      ),
-    ],
+    tips: _genitivTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m8_irreal_past',
@@ -102,6 +290,16 @@ final List<QuizContent> enDeAiM8Quizzes = [
         'evaluate the decision in the irreal past: what the person should, '
         'could or would have done. Push back once per story so I have to '
         'defend my judgement.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'an seiner Stelle hätte ich = in his place I would have · '
+        'er hätte vorher fragen sollen = he should have asked first · '
+        'das wäre besser gewesen = that would have been better · '
+        'sie hätte sich beraten lassen können = she could have sought advice · '
+        'das war ziemlich voreilig = that was rather rash · '
+        'ich hätte anders entschieden = I would have decided differently · '
+        'so etwas hätte man vermeiden können = that could have been avoided',
     practisePoints: [
       'hätte + Partizip II for irreal past (hätte gefragt)',
       'Irreal past with modals: hätte fragen sollen / können / müssen',
@@ -126,24 +324,17 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'haben/sein auxiliary mixed up',
     ],
     intro:
-        'The AI tells you four questionable decisions; you say what should '
-        'have happened instead. Judging the past politely is what the '
-        'irreal past is for.',
+        'German judges the past with hätte/wäre + Partizip II: „Er hätte '
+        'vorher fragen sollen" — he should have asked first, with the modal '
+        'as an infinitive at the very end. That construction is what polite '
+        'criticism of past decisions is made of.',
     tips: [
-      _copyTip,
+      ..._konjPastTips,
       HelpMemoryTip(
-        kind: 'rule',
-        title: 'Modal at the very end',
+        kind: 'tip',
+        title: 'The judge\'s template',
         text:
-            'With a modal, the participle becomes an infinitive and the '
-            'modal goes last: "Er hätte vorher fragen sollen." Never "hätte '
-            'gefragt sollen".',
-      ),
-      HelpMemoryTip(
-        kind: 'example',
-        title: 'The judge\'s opening line',
-        text:
-            '"An seiner Stelle hätte ich zuerst mit dem Chef gesprochen." — '
+            '„An seiner Stelle hätte ich zuerst mit dem Chef gesprochen." — '
             'position, hätte, action, participle. One template carries all '
             'four stories.',
       ),
@@ -162,16 +353,25 @@ final List<QuizContent> enDeAiM8Quizzes = [
         'you give me my German versions back and I unpack them into '
         'relative clauses. Serve one at a time and correct immediately.',
     material:
-        'Sentences to serve one at a time (target: a participial '
-        'attribute, e.g. "der von der Firma entwickelte Plan"):\n'
-        '1. The plan that was developed by the company failed.\n'
-        '2. The email that was sent yesterday contains an error.\n'
-        '3. The colleague who was hired last month is already leaving.\n'
-        '4. The contract that was signed by both sides is valid.\n'
-        '5. The questions that were discussed in the meeting remain open.\n'
-        '6. The rising prices worry the customers.\n'
-        '7. The documents that are still to be checked are on my desk.\n'
-        '8. The offer that was rejected by the boss was actually good.\n'
+        'Sentences to serve one at a time — read me only the English half; '
+        'the German after "=" is the reference answer (other correct German '
+        'is acceptable, but the target is a participial attribute):\n'
+        '1. The plan that was developed by the company failed. = Der von '
+        'der Firma entwickelte Plan ist gescheitert.\n'
+        '2. The email that was sent yesterday contains an error. = Die '
+        'gestern geschickte E-Mail enthält einen Fehler.\n'
+        '3. The colleague who was hired last month is already leaving. = '
+        'Der letzten Monat eingestellte Kollege geht schon wieder.\n'
+        '4. The contract that was signed by both sides is valid. = Der von '
+        'beiden Seiten unterschriebene Vertrag ist gültig.\n'
+        '5. The questions that were discussed in the meeting remain open. = '
+        'Die in der Besprechung diskutierten Fragen bleiben offen.\n'
+        '6. The rising prices worry the customers. = Die steigenden Preise '
+        'beunruhigen die Kunden.\n'
+        '7. The documents that are still to be checked are on my desk. = '
+        'Die noch zu prüfenden Dokumente liegen auf meinem Schreibtisch.\n'
+        '8. The offer that was rejected by the boss was actually good. = '
+        'Das vom Chef abgelehnte Angebot war eigentlich gut.\n'
         'Round 2: read my German attributes back to me; I unpack each into '
         'a relative clause (der Plan, der von der Firma entwickelt wurde).',
     practisePoints: [
@@ -190,26 +390,19 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'Partizip I where the meaning is passive',
     ],
     intro:
-        'German loves folding a whole relative clause into an adjective '
-        'slot. This drill teaches both moves: packing English clauses in, '
-        'and unpacking the German monsters again.',
+        'German folds whole relative clauses into the adjective slot: „der '
+        'Plan, der entwickelt wurde" becomes „der entwickelte Plan", '
+        'complete with adjective endings. This drill teaches both moves — '
+        'packing clauses in and unpacking the German monsters again.',
     tips: [
-      _copyTip,
+      ..._partizipTips,
       HelpMemoryTip(
-        kind: 'rule',
-        title: 'Done = Partizip II, happening = Partizip I',
+        kind: 'tip',
+        title: 'Unpacking, mechanically',
         text:
-            'Was developed → der entwickelte Plan (Partizip II). Is rising '
-            '→ die steigenden Preise (Partizip I). Decide the time first, '
-            'the ending second.',
-      ),
-      HelpMemoryTip(
-        kind: 'example',
-        title: 'The full stack',
-        text:
-            '"der von der Firma im letzten Jahr entwickelte Plan" — agent, '
-            'time, participle, noun. Everything between article and noun '
-            'belongs to the participle.',
+            'Attribute → relative clause: article + noun first, then der/die/'
+            'das + the middle as a clause with the participle as full verb: '
+            'der entwickelte Plan → der Plan, der entwickelt wurde.',
       ),
     ],
   ),
@@ -266,26 +459,19 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'genitive errors in the paraphrase',
     ],
     intro:
-        'Contract German is its own dialect: ist zu zahlen, bedarf der '
-        'Zustimmung. Read a rental excerpt like a tenant who can\'t afford '
-        'to misunderstand it.',
+        'Contract German compresses obligation into sein + zu + infinitive '
+        '(„ist zu zahlen" = must be paid) and demands the genitive („bedarf '
+        'der Zustimmung"). Read a rental excerpt like a tenant who can\'t '
+        'afford to misunderstand it.',
     tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'ist zu zahlen = must be paid',
-        text:
-            'sein + zu + infinitive in contracts means obligation: "Die '
-            'Miete ist zu zahlen" — the tenant MUST pay. It is never a '
-            'suggestion.',
-      ),
+      ..._formalTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Swap the preposition, keep the meaning',
         text:
-            'trotz + noun phrase and obwohl + full clause say the same '
-            'thing: "trotz mehrfacher Aufforderung" = "obwohl er mehrfach '
-            'aufgefordert wurde".',
+            '**trotz** + noun phrase and **obwohl** + full clause say the '
+            'same thing: „trotz mehrfacher Aufforderung" = „obwohl er '
+            'mehrfach aufgefordert wurde".',
       ),
     ],
   ),
@@ -332,27 +518,10 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'eben/halt used for urging instead of resignation',
     ],
     intro:
-        'Modal particles are the seasoning of spoken German — the same '
-        'sentence, a different feeling. Play twelve rounds of guessing and '
-        'producing that feeling.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'doch pushes, halt shrugs',
-        text:
-            '"Komm doch!" leans toward you — do come! "Komm halt!" shrugs — '
-            'come if you must. One word flips the whole invitation.',
-      ),
-      HelpMemoryTip(
-        kind: 'tip',
-        title: 'Particles are whispered',
-        text:
-            'A real modal particle is never stressed. If you can shout the '
-            'word ("Das ist JA falsch!"), it has become a normal adverb and '
-            'means something else.',
-      ),
-    ],
+        'Modal particles like doch, ja, eben and halt change the feeling of '
+        'a sentence, not its facts: „Komm doch!" urges, „Komm halt!" '
+        'shrugs. They sit after verb and pronouns and are never stressed.',
+    tips: _partikelTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m8_write_application',
@@ -381,7 +550,18 @@ final List<QuizContent> enDeAiM8Quizzes = [
         '- Register: consistently formal, correct salutation and closing.\n'
         '- Structure: subject, opening, body, availability, closing.\n'
         '- The required forms are present and correct.\n'
-        '- Accuracy: case endings, verb position in subclauses.',
+        '- Accuracy: case endings, verb position in subclauses.\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'Sehr geehrte Damen und Herren = Dear Sir or Madam · '
+        'mit großem Interesse habe ich Ihre Anzeige gelesen = I read your '
+        'ad with great interest · '
+        'nach Abschluss meines Studiums = after completing my degree · '
+        'die in der Anzeige genannten Anforderungen = the requirements '
+        'named in the ad · '
+        'ich stehe ab dem 1. März zur Verfügung = I am available from '
+        '1 March · '
+        'mit freundlichen Grüßen = kind regards',
     practisePoints: [
       'Formal correspondence formulas (Sehr geehrte…, Mit freundlichen '
           'Grüßen)',
@@ -398,26 +578,18 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'nominal phrases with wrong case',
     ],
     intro:
-        'The classic B2 writing task: a job application. Your AI invents '
-        'the ad, you write the email — formal from subject line to '
-        'signature.',
+        'Formal German letters compress clauses into noun phrases — „nach '
+        'Abschluss meines Studiums" instead of a whole nachdem-clause — and '
+        'keep Sie from salutation to closing. The classic B2 test of that '
+        'register is the job application.',
     tips: [
-      _copyTip,
+      ..._formalTips,
       HelpMemoryTip(
         kind: 'example',
-        title: 'Nominal style, ready to use',
+        title: 'After completing my degree I led two projects.',
         text:
-            '"Nach Abschluss meines Studiums" beats "Nachdem ich mein '
-            'Studium abgeschlossen habe" in a letter — shorter, colder, '
-            'more professional. Two of these lift the whole email.',
-      ),
-      HelpMemoryTip(
-        kind: 'warning',
-        title: 'No comma-Sie traps',
-        text:
-            'After "Sehr geehrte Frau Weber," the next line starts LOWER '
-            'case unless it opens with a noun or Sie: "…Weber, mit großem '
-            'Interesse habe ich…".',
+            '**Nach Abschluss meines Studiums** habe ich zwei Projekte '
+            'geleitet.',
       ),
     ],
   ),
@@ -445,7 +617,16 @@ final List<QuizContent> enDeAiM8Quizzes = [
         '- Closing beat: one lesson drawn, with a genitive preposition '
         '(aufgrund dieser Erfahrung…).\n'
         '- Required: clear tense contrast between the versions; wenn-clause '
-        'or verb-first conditional (Hätte ich nicht…, dann…).',
+        'or verb-first conditional (Hätte ich nicht…, dann…).\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'beinahe wäre alles schiefgegangen = everything almost went wrong · '
+        'Hätte ich nicht aufgepasst = had I not paid attention · '
+        'ich hätte den Flug verpasst = I would have missed the flight · '
+        'wir hätten viel Geld zahlen müssen = we would have had to pay a '
+        'lot of money · '
+        'zum Glück ist nichts passiert = luckily nothing happened · '
+        'aufgrund dieser Erfahrung = because of this experience',
     practisePoints: [
       'Perfekt/Präteritum for the real version',
       'hätte/wäre + participle for the replay, incl. modals',
@@ -461,26 +642,19 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'wrong auxiliary in wäre/hätte',
     ],
     intro:
-        'Tell the same story twice: once as it happened, once as the '
-        'disaster it nearly was. The grammar of relief is the irreal '
-        'past — enjoy it.',
+        'The real events take Perfekt; the disaster that never happened '
+        'takes the irreal past — hätte/wäre + Partizip II, with verb-first '
+        'conditionals like „Hätte ich nicht aufgepasst, …". Telling the '
+        'same story twice makes the contrast audible.',
     tips: [
-      _copyTip,
+      ..._konjPastTips,
       HelpMemoryTip(
-        kind: 'example',
+        kind: 'tip',
         title: 'The pivot sentence',
         text:
-            '"Und jetzt stellt euch vor, was passiert wäre…" — this line '
+            '„Und jetzt stellt euch vor, was passiert wäre…" — this line '
             'switches the whole story from Perfekt into hätte/wäre land. '
             'Say it, then stay there.',
-      ),
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Hätte first = no wenn needed',
-        text:
-            '"Hätte ich das Handy nicht gehört, hätte ich den Flug '
-            'verpasst." Verb-first replaces wenn and sounds more dramatic — '
-            'perfect for a near-catastrophe.',
       ),
     ],
   ),
@@ -497,6 +671,18 @@ final List<QuizContent> enDeAiM8Quizzes = [
         'concessions and Konjunktiv II courtesy, but I am not allowed to '
         'fold more than twice — if I give in a third time, say so and end '
         'the scene. Make me earn every euro.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich hätte gern über mein Gehalt gesprochen = I would like to talk '
+        'about my salary · '
+        'wäre es möglich, darüber zu sprechen? = would it be possible to '
+        'talk about it? · '
+        'ich verstehe das, dennoch = I understand that, and yet · '
+        'angesichts meiner Leistungen = in view of my achievements · '
+        'ich habe zusätzliche Verantwortung übernommen = I have taken on '
+        'additional responsibility · '
+        'ein Entgegenkommen Ihrerseits = a concession on your side',
     practisePoints: [
       'Konjunktiv II courtesy: Ich hätte gern…, Wäre es möglich…',
       'Concessions that hold ground: Ich verstehe das, dennoch…',
@@ -521,26 +707,41 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'würde + infinitive where hätte/wäre fits better',
     ],
     intro:
-        'Negotiate a raise against a boss who says nice things and offers '
-        'nothing. Politeness and firmness at the same time — that\'s the '
-        'B2.2 skill.',
+        'Konjunktiv II is the grammar of polite firmness: „Ich hätte '
+        'gern…", „Wäre es möglich…". You can concede a point with „Ich '
+        'verstehe das, dennoch…" and still hold your position — that\'s the '
+        'B2.2 negotiation skill.',
     tips: [
-      _copyTip,
       HelpMemoryTip(
-        kind: 'example',
-        title: 'Concede AND advance',
-        text:
-            '"Ich verstehe die schwierige Lage. Dennoch habe ich im letzten '
-            'Jahr zwei Projekte geleitet." — one breath of understanding, '
-            'then straight back to your case.',
-      ),
-      HelpMemoryTip(
-        kind: 'tip',
+        kind: 'rule',
         title: 'Courtesy is Konjunktiv',
         text:
-            '"Ich will mehr Geld" gets you shown the door. "Ich hätte gern '
-            'über mein Gehalt gesprochen" gets you a meeting. Same wish, '
-            'different mood.',
+            '„Ich will mehr Geld" gets you shown the door. „Ich **hätte '
+            'gern** über mein Gehalt gesprochen" or „**Wäre** es möglich…" '
+            'gets you a meeting. Same wish, different mood.',
+      ),
+      HelpMemoryTip(
+        kind: 'rule',
+        title: 'Concede AND advance',
+        text:
+            'The two-step: one breath of understanding, then straight back '
+            'to your case with **dennoch/trotzdem**: „Ich verstehe die '
+            'Lage. **Dennoch** habe ich zwei Projekte geleitet."',
+      ),
+      HelpMemoryTip(
+        kind: 'warning',
+        title: 'Two concessions, then stop',
+        text:
+            'Polite German is not endless yielding. After the second „Ich '
+            'verstehe…" the next sentence must be a demand or a concrete '
+            'proposal — or you have lost the negotiation.',
+      ),
+      HelpMemoryTip(
+        kind: 'example',
+        title: 'In view of my achievements a raise would be appropriate.',
+        text:
+            '**Angesichts meiner Leistungen wäre** eine Gehaltserhöhung '
+            'angemessen.',
       ),
     ],
   ),
@@ -590,11 +791,12 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'modal missing from the hindsight forms',
     ],
     intro:
-        'Three voicemails, one brewing disaster. Listen, reconstruct the '
-        'chain, and say — in clean irreal past — where it should have been '
-        'stopped.',
+        'Hindsight, step by step, uses hätte + infinitive + modal: „Ich '
+        'hätte sofort anrufen sollen." Connectors like zuerst, daraufhin '
+        'and schließlich keep the chain of events in order while you judge '
+        'it.',
     tips: [
-      _copyTip,
+      ..._konjPastTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Note who, what, when',
@@ -602,14 +804,6 @@ final List<QuizContent> enDeAiM8Quizzes = [
             'Three messages overload memory fast. Jot one line per '
             'voicemail — sender, request, deadline — and the retell builds '
             'itself.',
-      ),
-      HelpMemoryTip(
-        kind: 'example',
-        title: 'Hindsight, step by step',
-        text:
-            '"Am Montag hätte ich sofort den Lieferanten anrufen sollen." '
-            'Day, hätte, action, modal at the end — repeat the template '
-            'for each step.',
       ),
     ],
   ),
@@ -627,6 +821,17 @@ final List<QuizContent> enDeAiM8Quizzes = [
         'clarification call, and a short contract clause I must explain in '
         'my own words. Switch scenarios without warning; stay strictly '
         'formal except one deliberately casual aside I must handle.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'das hätte man vermeiden können = that could have been avoided · '
+        'wir hätten früher reagieren müssen = we should have reacted '
+        'earlier · '
+        'aufgrund eines Missverständnisses = due to a misunderstanding · '
+        'die in der Anzeige genannten Anforderungen = the requirements '
+        'named in the ad · '
+        'das ist eine berechtigte Frage = that is a fair question · '
+        'lassen Sie mich kurz überlegen = let me think for a moment',
     practisePoints: [
       'Irreal past with modals under pressure',
       'Genitive prepositions and forms in formal speech',
@@ -644,26 +849,26 @@ final List<QuizContent> enDeAiM8Quizzes = [
       'register slips in formal passages',
     ],
     intro:
-        'The module gate: a professional-scenario interview across '
-        'everything in M8. Pass it and C1 territory unlocks. Retake it as '
-        'often as you like — your best score counts.',
+        'The module gate bundles everything in M8: irreal past with modals '
+        '(hätte … machen sollen), genitive after trotz/aufgrund, '
+        'participial attributes and strict formal register — all inside one '
+        'professional-scenario interview.',
     tips: [
-      _copyTip,
+      ..._formalTips,
       HelpMemoryTip(
         kind: 'rule',
         title: 'The three B2.2 flags',
         text:
-            'The examiner listens hardest for: hätte … machen sollen with '
-            'the modal last, genitive after trotz/aufgrund, and zero du in '
-            'formal passages. Guard those three.',
+            'The examiner listens hardest for: **hätte … machen sollen** '
+            'with the modal last, genitive after **trotz/aufgrund**, and '
+            'zero du in formal passages. Guard those three.',
       ),
       HelpMemoryTip(
-        kind: 'tip',
-        title: 'Buy time formally',
+        kind: 'example',
+        title: 'That is a fair question — let me think for a moment.',
         text:
-            '"Das ist eine berechtigte Frage — lassen Sie mich kurz '
-            'überlegen." Formal filler keeps the register while your brain '
-            'builds the sentence.',
+            'Das ist eine berechtigte Frage — **lassen Sie mich** kurz '
+            '**überlegen**.',
       ),
     ],
   ),

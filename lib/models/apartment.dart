@@ -123,6 +123,17 @@ class Apartment extends ChangeNotifier {
   /// Whether at least one [catalogId] is placed in this room.
   bool owns(String catalogId) => pieces.values.contains(catalogId);
 
+  /// Whether at least one [catalogId] is placed in *any* room — the claw
+  /// machine's duplicate test. A piece parked in another room still counts as
+  /// collected, so pulling it again refunds coins instead of adding a copy.
+  bool ownsAnywhere(String catalogId) =>
+      _pieces.values.any((room) => room.values.contains(catalogId));
+
+  /// Every catalogue id placed in any room — the collection album's "owned" set.
+  Set<String> get collectedIds => {
+    for (final room in _pieces.values) ...room.values,
+  };
+
   /// The catalogue id of the floor / wall currently shown in this room — the
   /// most recently bought surface of that kind (insertion = stacking order), or
   /// null to fall back to the room theme's default look.

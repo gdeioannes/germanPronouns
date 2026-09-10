@@ -67,6 +67,15 @@ class SettingsKeys {
   /// `StringList`). See `roomCombos` and `Apartment.discoverCombo`.
   static const String apartmentCombos = 'apartment_combos';
 
+  /// Claw-machine pity counter: how many pulls in a row have come up without an
+  /// epic-or-better piece (an `int`). Once it reaches `Gacha.pityLimit - 1` the
+  /// next pull is guaranteed epic. See `Gacha`.
+  static const String gachaPity = 'gacha_pity';
+
+  /// How many claw-machine pulls the learner has played in total (an `int`).
+  /// Shown on the machine and used for the "first pull is free" welcome.
+  static const String gachaPulls = 'gacha_pulls';
+
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =

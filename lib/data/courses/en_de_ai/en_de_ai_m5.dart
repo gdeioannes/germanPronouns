@@ -13,14 +13,174 @@ import 'en_de_ai_builder.dart';
 /// B1 session shape: ~4 minutes, 8 exchanges, pass 60.
 const _b1Session = SpeakingSession(durationMinutes: 4, minExchanges: 8);
 
-const _copyTip = HelpMemoryTip(
-  kind: 'rule',
-  title: 'How this course works',
-  text:
-      'Copy the exercise into your AI assistant (voice mode is best), do the '
-      'exercise there, and paste the score it gives you back here. Stay with '
-      'one assistant so your scores stay comparable.',
-);
+/// Adjective declension: the three patterns.
+const List<HelpMemoryTip> _adjTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Weak endings after der/die/das',
+    text:
+        'After the definite article the adjective relaxes to just -e or -en: '
+        'der nett**e** Nachbar, den nett**en** Nachbarn, mit dem nett**en** '
+        'Nachbarn, die nett**en** Kollegen. Only nominative singular (and '
+        'feminine/neuter accusative) get -**e**; everything else is -**en**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Mixed endings after ein/kein/mein',
+    text:
+        'Where ein shows nothing, the adjective shows the gender itself: ein '
+        'nett**er** Kollege, ein nett**es** Team, eine nett**e** Chefin. In '
+        'all other slots it falls back to -en: mit einem nett**en** Menschen, '
+        'ohne den nett**en** Mitbewohner.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Strong endings with no article',
+    text:
+        'No article at all? The adjective wears the der-word ending itself: '
+        'nett**e** Freunde, mit nett**en** Freunden, frisch**es** Brot, '
+        'gut**er** Kaffee. The case marker has to live somewhere.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Someone must show the case',
+    text:
+        'One rule behind all three tables: exactly one word in the phrase '
+        'carries the strong case signal. If the article shows it (d**er**, '
+        'd**em**, ein**em**), the adjective relaxes; if the article is silent '
+        'or missing, the adjective steps up. And the whole plural after an '
+        'article, plus every dative and genitive, is safe -**en**.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'A reliable colleague helps me with the difficult task',
+    text: 'Ein zuverlässig**er** Kollege hilft mir mit der schwierig**en** Aufgabe.',
+  ),
+];
+
+/// Konjunktiv II present: würde, hätte, wäre, könnte.
+const List<HelpMemoryTip> _konjTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'würde + infinitive is the default',
+    text:
+        'ich würd**e**, du würd**est**, er/sie/es würd**e**, wir würd**en**, '
+        'ihr würd**et**, sie/Sie würd**en** — plus the infinitive at the very '
+        'end: Ich **würde** nach Japan **reisen**. Heute **würde** ich zu '
+        'Hause **bleiben**.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Four verbs refuse würde',
+    text:
+        'haben, sein and the modals keep their own Konjunktiv forms: '
+        '**hätte**, **wäre**, **könnte**, **müsste** (likewise dürfte, '
+        'sollte). Ich **hätte** gern mehr Zeit. Das **wäre** schön. '
+        '**Könntest** du mir helfen?',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Never „würde sein" or „würde haben"',
+    text:
+        'The classic B1 giveaway. It is always **wäre** (not würde sein) and '
+        '**hätte** (not würde haben). In a wenn-clause the verb also goes to '
+        'the very end: …, wenn ich mehr Geld **hätte**.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'Umlaut = unreal',
+    text:
+        'The two little dots are the unreality signal: h**ä**tte, w**ä**re, '
+        'k**ö**nnte, m**ü**sste. Hear an umlaut on one of these verbs and '
+        'you know the sentence is a wish, not a fact.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'If I had time, I would learn the guitar',
+    text: 'Wenn ich Zeit **hätte**, **würde** ich Gitarre lernen.',
+  ),
+];
+
+/// Reflexive verbs and verbs welded to a preposition.
+const List<HelpMemoryTip> _prepTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'Learn verb + preposition + case as one word',
+    text:
+        'sich freuen **auf** + Akk, warten **auf** + Akk, sich ärgern '
+        '**über** + Akk, sich interessieren **für** + Akk, denken **an** + '
+        'Akk, träumen **von** + Dat, Angst haben **vor** + Dat, teilnehmen '
+        '**an** + Dat. The preposition is not logical — it is part of the '
+        'verb, so memorise the trio together.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'The reflexive pronoun set',
+    text:
+        'ich freue **mich**, du freust **dich**, er/sie freut **sich**, wir '
+        'freuen **uns**, ihr freut **euch**, sie freuen **sich**. The '
+        'pronoun is obligatory — „ich ärgere über…" without **mich** is '
+        'simply broken.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'auf and über take Akkusativ here',
+    text:
+        'In these fixed pairings auf and über always govern the '
+        '**Akkusativ**: ich warte auf **den** Bus, ich ärgere mich über '
+        '**die** E-Mail. Only the verbs listed with Dat (träumen von, Angst '
+        'haben vor, teilnehmen an) take the dative.',
+  ),
+  HelpMemoryTip(
+    kind: 'mnemonic',
+    title: 'auf = not here yet',
+    text:
+        'Ich freue mich **auf** das Wochenende (it is still coming), ich '
+        'freue mich **über** das Geschenk (it is already here). **auf** '
+        'points forward, **über** looks at what you already have.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'I am looking forward to the weekend',
+    text: 'Ich freue **mich auf** das Wochenende.',
+  ),
+];
+
+/// Subordinate clauses: obwohl, damit, um…zu.
+const List<HelpMemoryTip> _nebenTips = [
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'obwohl and damit kick the verb to the end',
+    text:
+        'Like weil and dass, they open a Nebensatz with the finite verb '
+        'last: **Obwohl** es **regnet**, gehe ich raus. Ich spreche langsam, '
+        '**damit** du mich **verstehst**. After a fronted Nebensatz the main '
+        'clause starts with its verb.',
+  ),
+  HelpMemoryTip(
+    kind: 'rule',
+    title: 'um…zu or damit?',
+    text:
+        'Same subject in both halves → **um … zu** + infinitive: Ich lerne '
+        'Deutsch, **um** in Berlin **zu arbeiten**. Different subjects → '
+        '**damit** + full clause: Ich koche heute, **damit** du dich '
+        '**ausruhen kannst**.',
+  ),
+  HelpMemoryTip(
+    kind: 'warning',
+    title: 'Verb-final means truly final',
+    text:
+        'Everything else comes first, the conjugated verb closes the door: '
+        'obwohl ich seit einer Woche jeden Tag im kalten Büro **sitze**. '
+        'Slipping the verb into second position after obwohl is the error '
+        'graders hear first.',
+  ),
+  HelpMemoryTip(
+    kind: 'example',
+    title: 'Although I am tired, I am still going jogging today',
+    text: '**Obwohl** ich müde **bin**, gehe ich heute noch joggen.',
+  ),
+];
 
 final List<QuizContent> enDeAiM5Quizzes = [
   enDeAiEx(
@@ -58,21 +218,11 @@ final List<QuizContent> enDeAiM5Quizzes = [
     ],
     priorityErrors: ['bare adjectives without endings', '-e vs -en mixed up'],
     intro:
-        'B1 starts with the endings everyone fears. Your AI serves noun '
-        'frames; you drop in character adjectives with the right ending — '
-        'over and over until the patterns stick.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Someone must show the case',
-        text:
-            'If the article shows the case (der, dem), the adjective relaxes '
-            'to -e/-en. If the article is weak or missing (ein, kein words '
-            'in some slots, no article), the adjective carries the strong '
-            'ending itself.',
-      ),
-    ],
+        'Any adjective standing before a noun must carry an ending, and the '
+        'ending depends on what the article already shows: der nette '
+        'Nachbar, ein netter Kollege, nette Freunde. Three patterns — weak, '
+        'mixed, strong — cover every case.',
+    tips: _adjTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m5_wg_conflict',
@@ -87,6 +237,15 @@ final List<QuizContent> enDeAiM5Quizzes = [
         'slightly defensive flatmate. I express my annoyance politely with '
         'Konjunktiv II (Könntest du…? Ich hätte gern…, Es wäre schön, '
         'wenn…) and we negotiate a new rota that both of us accept.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to use '
+        'them:\n'
+        'könntest du bitte abwaschen? = could you please do the dishes? · '
+        'ich ärgere mich über die volle Spüle = I am annoyed about the full '
+        'sink · es wäre schön, wenn … = it would be nice if … · '
+        'ich hätte einen Vorschlag = I would have a suggestion · '
+        'wir sollten uns auf einen Putzplan einigen = we should agree on a '
+        'cleaning rota · der Abwasch = the washing-up',
     practisePoints: [
       'Polite requests in Konjunktiv II: könntest, würdest, wärst',
       'Naming feelings without attacking: Ich ärgere mich, wenn…',
@@ -110,18 +269,18 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'missing reflexive pronoun (ich ärgere über)',
     ],
     intro:
-        'A flat-share classic: dirty dishes, four days old. Complain like a '
-        'diplomat — Konjunktiv II keeps it polite while you push for a real '
-        'agreement.',
+        'Konjunktiv II is German diplomacy: „Könntest du…?" and „Es wäre '
+        'schön, wenn…" turn a demand into a polite request. State the facts '
+        'hard, make the requests soft — that is how a flat-share conflict '
+        'ends in a rota instead of a feud.',
     tips: [
-      _copyTip,
+      ..._konjTips,
       HelpMemoryTip(
         kind: 'example',
-        title: 'Soften it, then land it',
+        title: 'Could you please do the dishes today? (soften it, then land it)',
         text:
-            '"Könntest du bitte heute abwaschen? Es wäre wirklich schön, '
-            'wenn wir uns auf einen Plan einigen könnten." Two Konjunktiv '
-            'forms, zero aggression, full pressure.',
+            '**Könntest** du bitte heute abwaschen? Es **wäre** wirklich '
+            'schön, wenn wir uns auf einen Putzplan einigen **könnten**.',
       ),
     ],
   ),
@@ -137,19 +296,27 @@ final List<QuizContent> enDeAiM5Quizzes = [
         'Konjunktiv II — würde, hätte, wäre, könnte. Serve one at a time, '
         're-serve my misses at the end.',
     material:
-        'Sentences to serve one at a time (accept any correct German):\n'
-        '1. I would like to have more free time.\n'
-        '2. If only I were rich!\n'
-        '3. Could you help me, please?\n'
-        '4. I would travel to Japan.\n'
-        '5. We would have a bigger flat if we had more money.\n'
-        '6. That would be wonderful!\n'
-        '7. I wish I could speak better German.\n'
-        '8. Would you come with me?\n'
-        '9. If I had time, I would learn the guitar.\n'
-        '10. She would never say that.\n'
-        '11. It would be better if you asked him.\n'
-        '12. I would rather stay at home.',
+        'Sentences to serve one at a time (read me only the English half; '
+        'the German after „=" is the reference answer — accept any other '
+        'correct German too):\n'
+        '1. I would like to have more free time. = Ich hätte gern mehr '
+        'Freizeit.\n'
+        '2. If only I were rich! = Wenn ich doch reich wäre!\n'
+        '3. Could you help me, please? = Könntest du mir bitte helfen?\n'
+        '4. I would travel to Japan. = Ich würde nach Japan reisen.\n'
+        '5. We would have a bigger flat if we had more money. = Wir hätten '
+        'eine größere Wohnung, wenn wir mehr Geld hätten.\n'
+        '6. That would be wonderful! = Das wäre wunderbar!\n'
+        '7. I wish I could speak better German. = Ich wünschte, ich könnte '
+        'besser Deutsch sprechen.\n'
+        '8. Would you come with me? = Würdest du mitkommen?\n'
+        '9. If I had time, I would learn the guitar. = Wenn ich Zeit hätte, '
+        'würde ich Gitarre lernen.\n'
+        '10. She would never say that. = Das würde sie nie sagen.\n'
+        '11. It would be better if you asked him. = Es wäre besser, wenn du '
+        'ihn fragen würdest.\n'
+        '12. I would rather stay at home. = Ich würde lieber zu Hause '
+        'bleiben.',
     practisePoints: [
       'würde + infinitive as the default Konjunktiv II',
       'hätte/wäre/könnte instead of würde-forms',
@@ -165,20 +332,11 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'verb not final in the wenn-clause',
     ],
     intro:
-        'A drill for the subjunctive machine: twelve English wishes go in, '
-        'twelve German Konjunktiv II sentences come out. Your AI checks each '
-        'one on the spot.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'rule',
-        title: 'Four verbs refuse würde',
-        text:
-            'haben, sein and the modals keep their own forms: hätte, wäre, '
-            'könnte, müsste. Everything else is happy with würde + '
-            'infinitive.',
-      ),
-    ],
+        'Almost every German verb builds its hypothetical with würde + '
+        'infinitive; only haben, sein and the modals keep their own forms — '
+        'hätte, wäre, könnte, müsste. Twelve English wishes go in, twelve '
+        'Konjunktiv II sentences come out.',
+    tips: _konjTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m5_advocatus',
@@ -219,19 +377,20 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'adjective phrase missing or unmarked',
     ],
     intro:
-        'Play the devil\'s advocate: whatever your AI claims, you argue the '
-        'opposite. Every turn needs a subordinate clause and a properly '
-        'dressed adjective — that\'s where the points are.',
+        'obwohl concedes a point, damit and um…zu give a purpose — and all '
+        'of them push the verb to the end of the clause. In this game every '
+        'counter-argument must carry one such clause plus one properly '
+        'inflected adjective phrase.',
     tips: [
-      _copyTip,
+      ..._nebenTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Build the turn backwards',
         text:
-            'Pick your adjective phrase first (ein treuer Hund), then wrap '
-            'the connector around it: "Obwohl Katzen unabhängig sind, ist '
-            'ein treuer Hund der bessere Freund." Both requirements, one '
-            'breath.',
+            'Pick your adjective phrase first (ein treu**er** Hund), then '
+            'wrap the connector around it: „**Obwohl** Katzen unabhängig '
+            '**sind**, ist ein treuer Hund der bessere Freund." Both '
+            'requirements, one breath.',
       ),
     ],
   ),
@@ -283,18 +442,18 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'details of the two ads mixed up',
     ],
     intro:
-        'Read like a recruiter: two jobs, one candidate. The first four '
-        'questions check the facts; the fifth asks for your professional '
-        'opinion — in proper B1 German.',
+        'A recommendation needs two tools: Konjunktiv II for the judgment '
+        '(würde passen, wäre besser) and weil for the reason — with the '
+        'verb at the very end of the weil-clause. Read the two ads and the '
+        'profile like a recruiter, then commit to a verdict.',
     tips: [
-      _copyTip,
+      ..._konjTips,
       HelpMemoryTip(
         kind: 'example',
-        title: 'The shape of question 5',
+        title: 'The shape of question 5 (judgment + würde + weil)',
         text:
-            '"Der Bürojob würde besser passen, weil Sara feste '
-            'Arbeitszeiten liebt und am Wochenende frei haben möchte." '
-            'Judgment, würde, weil — all three boxes ticked.',
+            'Der Bürojob **würde** besser zu Sara passen, **weil** sie feste '
+            'Arbeitszeiten liebt und am Wochenende frei haben **möchte**.',
       ),
     ],
   ),
@@ -322,7 +481,13 @@ final List<QuizContent> enDeAiM5Quizzes = [
         '- Both requests in correct Konjunktiv II (biggest weight).\n'
         '- At least 5 correct adjective endings.\n'
         '- Polite register throughout (Sie-form, greeting and closing).\n'
-        '- One subordinate clause with weil, obwohl or damit.',
+        '- One subordinate clause with weil, obwohl or damit.\n'
+        'Building blocks I have studied (phrase = meaning):\n'
+        'Sehr geehrter Herr … = Dear Mr … · die Heizung ist seit einer '
+        'Woche kaputt = the heating has been broken for a week · Könnten '
+        'Sie bitte einen Techniker schicken? = could you please send a '
+        'technician? · es wäre schön, wenn … = it would be nice if … · '
+        'Mit freundlichen Grüßen = kind regards',
     practisePoints: [
       'Konjunktiv II requests in formal writing',
       'Adjective endings checked at writing speed',
@@ -338,18 +503,19 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'adjectives left without endings',
     ],
     intro:
-        'Time to complain in writing — politely. A cold flat, a silent '
-        'landlord, and a rubric that rewards Konjunktiv II and dressed-up '
-        'adjectives.',
+        'A formal German complaint states the facts in the indicative (Die '
+        'Heizung ist seit einer Woche kaputt) and makes its requests in '
+        'Konjunktiv II with the Sie-form (Könnten Sie…?). Frame it with '
+        '„Sehr geehrte…" and „Mit freundlichen Grüßen" and it lands.',
     tips: [
-      _copyTip,
+      ..._konjTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'Firm content, soft grammar',
         text:
             'The trick of German complaint mail: state facts hard (Die '
-            'Heizung ist seit einer Woche kaputt), then request soft '
-            '(Könnten Sie bitte…). The Konjunktiv is the velvet glove.',
+            'Heizung **ist** seit einer Woche kaputt), then request soft '
+            '(**Könnten** Sie bitte…). The Konjunktiv is the velvet glove.',
       ),
     ],
   ),
@@ -395,20 +561,11 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'Dativ after auf or über in these pairs',
     ],
     intro:
-        'These verbs never travel alone — each drags its own preposition '
-        'and case. Drill the pairs cold, then prove it with sentences about '
-        'your real life.',
-    tips: [
-      _copyTip,
-      HelpMemoryTip(
-        kind: 'mnemonic',
-        title: 'auf = not here yet',
-        text:
-            'Ich freue mich AUF das Wochenende (it\'s coming), ich freue '
-            'mich ÜBER das Geschenk (it\'s here). auf points forward, über '
-            'looks at what you already have.',
-      ),
-    ],
+        'Many German verbs come welded to one fixed preposition and its '
+        'case: warten auf + Akkusativ, träumen von + Dativ. The preposition '
+        'is not guessable from English, so learn verb, preposition and case '
+        'as a single vocabulary item.',
+    tips: _prepTips,
   ),
   enDeAiEx(
     id: 'en_de_ai_m5_dream_job',
@@ -433,7 +590,15 @@ final List<QuizContent> enDeAiM5Quizzes = [
         '- Beat 4: the evening — why this job would make me happy '
         '(one damit or um…zu clause).\n'
         '- Required forms: würde + infinitive at least 5 times, hätte and '
-        'wäre at least once each, one damit or um…zu clause.',
+        'wäre at least once each, one damit or um…zu clause.\n'
+        'Useful phrases I have studied (phrase = meaning) - steer me to '
+        'use them:\n'
+        'ich würde von zu Hause arbeiten = I would work from home · '
+        'ich müsste nicht früh aufstehen = I would not have to get up '
+        'early · ich hätte nette Kollegen = I would have nice colleagues · '
+        'ich wäre mein eigener Chef = I would be my own boss · '
+        'damit ich mehr Zeit für meine Familie hätte = so that I would '
+        'have more time for my family',
     practisePoints: [
       'Sustaining Konjunktiv II across a whole narrative',
       'hätte/wäre woven in among würde-forms',
@@ -449,18 +614,19 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'werde/würde confusion',
     ],
     intro:
-        'Dream out loud: one whole imaginary workday, and not a single '
-        'indicative verb allowed. The longer you hold the Konjunktiv, the '
-        'higher the score.',
+        'A hypothetical story lives or dies on consistency: every main verb '
+        'stays in Konjunktiv II — würde + infinitive for most verbs, hätte '
+        'and wäre for haben and sein. One plain present verb and the dream '
+        'collapses back into reality.',
     tips: [
-      _copyTip,
+      ..._konjTips,
       HelpMemoryTip(
         kind: 'warning',
         title: 'The third-sentence slide',
         text:
-            'Most learners start with "Ich würde…" and slide into "Ich '
+            'Most learners start with „Ich **würde**…" and slide into „Ich '
             'arbeite…" by sentence three. Hear yourself say a plain present '
-            'verb? Stop, smile, redo it with würde.',
+            'verb? Stop, smile, redo it with **würde**.',
       ),
     ],
   ),
@@ -476,6 +642,16 @@ final List<QuizContent> enDeAiM5Quizzes = [
         'to join; I am the candidate. Ask about my strengths, my '
         'weaknesses, and what I would wish for in the job. Probe at least '
         'twice with a simple "Warum?" and make me go deeper.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to use '
+        'them:\n'
+        'meine größte Stärke ist … = my greatest strength is … · '
+        'ich bin manchmal zu ungeduldig = I am sometimes too impatient · '
+        'ich würde mir wünschen, dass … = I would wish that … · '
+        'ich habe mich um die Stelle beworben = I have applied for the '
+        'position · ich interessiere mich für Teamarbeit = I am interested '
+        'in teamwork · ich habe zwei Jahre Erfahrung = I have two years of '
+        'experience',
     practisePoints: [
       'Strengths and weaknesses with character adjectives',
       'Wishes in Konjunktiv II (Ich würde mir wünschen…)',
@@ -499,18 +675,16 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'wishes in plain indicative',
     ],
     intro:
-        'A job interview with the nicest interviewer alive — which means '
-        'no hiding. Twice it will simply ask "Warum?", and that little word '
-        'is where the real German happens.',
+        'Interview German runs on three gears: character adjectives with '
+        'endings for who you are, Konjunktiv II for what you would wish '
+        '(Ich würde mir wünschen…), and weil-clauses — verb at the end — '
+        'for every „Warum?" that follows.',
     tips: [
-      _copyTip,
+      ..._konjTips,
       HelpMemoryTip(
         kind: 'example',
-        title: 'A weakness that wins',
-        text:
-            '"Ich bin manchmal zu ungeduldig, obwohl ich daran arbeite." — '
-            'an honest adjective plus an obwohl-clause turns a weakness '
-            'into a grammar showcase.',
+        title: 'A weakness that wins (honest adjective + obwohl-clause)',
+        text: 'Ich bin manchmal zu **ungeduldig**, obwohl ich daran **arbeite**.',
       ),
     ],
   ),
@@ -528,6 +702,15 @@ final List<QuizContent> enDeAiM5Quizzes = [
         'sollte mit Freunden nie zusammenwohnen". For each thesis I state '
         'my opinion, defend it against your pushback, and add one wish or '
         'hypothetical in Konjunktiv II.',
+    material:
+        'Useful phrases I have studied (phrase = meaning) - steer me to use '
+        'them:\n'
+        'meiner Meinung nach = in my opinion · '
+        'ich finde, dass … = I think that … · '
+        'da bin ich anderer Meinung = I disagree there · '
+        'es wäre besser, wenn … = it would be better if … · '
+        'obwohl das stimmt = although that is true · '
+        'einerseits … andererseits = on the one hand … on the other hand',
     practisePoints: [
       'Opinion phrases: meiner Meinung nach, ich finde, dass…',
       'Konjunktiv II wishes and hypotheticals',
@@ -545,18 +728,19 @@ final List<QuizContent> enDeAiM5Quizzes = [
       'verb not final in subordinate clauses',
     ],
     intro:
-        'The module gate: three theses, three rounds of opinion, pushback '
-        'and wishes. Pass it and B1.2 unlocks — retake it as often as you '
-        'like, your best score counts.',
+        'Everything from the module in one arena: open with an opinion '
+        'frame (meiner Meinung nach, ich finde, dass…), defend it in a '
+        'verb-final weil- or obwohl-clause, and finish each round with a '
+        'wish in Konjunktiv II. Pass it and B1.2 unlocks.',
     tips: [
-      _copyTip,
+      ..._nebenTips,
       HelpMemoryTip(
         kind: 'tip',
         title: 'One frame per round',
         text:
-            'Open every round the same way: "Meiner Meinung nach…, weil…. '
-            'Trotzdem wäre es schön, wenn…". Opinion, reason, wish — the '
-            'whole module in three moves.',
+            'Open every round the same way: „Meiner Meinung nach…, '
+            '**weil**…. Trotzdem **wäre** es schön, **wenn**…". Opinion, '
+            'reason, wish — the whole module in three moves.',
       ),
     ],
   ),
