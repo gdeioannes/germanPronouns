@@ -1,6 +1,9 @@
 <script lang="ts">
 	// A quiz's Help Memory: the intro plus its tip cards. Every quiz has one
 	// (the Dart gate test enforces it), and it auto-opens on first visit.
+	import Icon from '$lib/icons/Icon.svelte';
+	import { rise } from '$lib/motion';
+	import { slide } from 'svelte/transition';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { storage } from '$lib/services/storage';
 	import type { QuizHelp } from '$lib/content/types';
@@ -29,17 +32,20 @@
 {#if help?.intro || help?.tips?.length}
 	<section class="help">
 		<button class="toggle" onclick={() => (open = !open)} aria-expanded={open}>
+			<Icon name="help" size="1.05em" />
 			<span>How this works</span>
-			<span class="chevron" class:open aria-hidden="true">›</span>
+			<span class="chevron" class:open><Icon name="chevronDown" size="1em" /></span>
 		</button>
 
 		{#if open}
-			<div class="body">
+			<div class="body" transition:slide={{ duration: 220 }}>
 				{#if help.intro}
 					<p class="intro">{help.intro}</p>
 				{/if}
-				{#each help.tips ?? [] as tip (tip.text)}
-					<div class="tip">
+				{#each help.tips ?? [] as tip, i (tip.text)}
+					<!-- Tips stagger in, so the panel reads as a short list rather
+					     than a wall that appears all at once. -->
+					<div class="tip" in:rise={{ delay: 60 + i * 45 }}>
 						{#if tip.title}<h4>{tip.title}</h4>{/if}
 						<p>{tip.text}</p>
 					</div>
@@ -62,7 +68,7 @@
 		display: flex;
 		width: 100%;
 		align-items: center;
-		justify-content: space-between;
+		gap: 0.55rem;
 		padding: 0.85rem 1rem;
 		border: 0;
 		background: none;
@@ -70,16 +76,22 @@
 		font-weight: 700;
 		color: var(--ink);
 		cursor: pointer;
+		transition: color var(--fast) var(--ease-out);
+	}
+
+	.toggle:hover {
+		color: var(--accent);
 	}
 
 	.chevron {
-		transition: transform 0.15s;
-		font-size: 1.2rem;
-		color: var(--muted);
+		display: inline-flex;
+		margin-left: auto;
+		color: var(--ink-muted);
+		transition: transform var(--medium) var(--ease-out);
 	}
 
 	.chevron.open {
-		transform: rotate(90deg);
+		transform: rotate(180deg);
 	}
 
 	.body {
@@ -88,7 +100,7 @@
 
 	.intro {
 		margin: 0 0 1rem;
-		color: var(--ink-soft);
+		color: var(--ink-muted);
 	}
 
 	.tip {
@@ -101,13 +113,13 @@
 
 	.tip h4 {
 		margin: 0 0 0.25rem;
-		font-size: 0.9rem;
-		color: var(--ink);
+		font-size: var(--step-0);
+		color: var(--heading);
 	}
 
 	.tip p {
 		margin: 0;
-		font-size: 0.92rem;
-		color: var(--ink-soft);
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 </style>

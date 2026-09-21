@@ -3,6 +3,8 @@
 	// gender colouring and the conjugation tables. Reads the same
 	// assets/content/shared/** files the Flutter app shipped.
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
+	import { slide } from 'svelte/transition';
 	import nounData from '$content/shared/nouns/de.json';
 	import verbData from '$content/shared/verbs/de.json';
 
@@ -73,7 +75,7 @@
 </svelte:head>
 
 <main class="page-wide">
-	<a class="back-link" href="/">← Home</a>
+	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
 	<h1>Word Library</h1>
 
 	<div class="tabs" role="tablist">
@@ -85,7 +87,10 @@
 		</button>
 	</div>
 
-	<input class="search" bind:value={search} placeholder="Search…" type="search" />
+	<div class="search">
+		<Icon name="search" size="1.05em" />
+		<input bind:value={search} placeholder="Search nouns and verbs…" type="search" />
+	</div>
 
 	{#if tab === 'nouns'}
 		<ul class="grid">
@@ -99,7 +104,7 @@
 						<span class="gloss">{noun.english}</span>
 					</button>
 					{#if openWord === noun.noun}
-						<div class="detail">
+						<div class="detail" transition:slide={{ duration: 180 }}>
 							<p>
 								<strong style="color:{GENDER_COLORS[noun.gender]}">
 									{ARTICLES[noun.gender]} {noun.noun}
@@ -124,7 +129,7 @@
 						<span class="gloss">{verb.english}</span>
 					</button>
 					{#if openWord === verb.verb}
-						<div class="detail">
+						<div class="detail" transition:slide={{ duration: 180 }}>
 							<p>
 								<strong>{verb.verb}</strong>
 								<SpeakButton text={verb.verb} locale={LOCALE} />
@@ -162,29 +167,59 @@
 	}
 
 	.tabs button {
-		padding: 0.45rem 1rem;
-		border: 1px solid var(--line);
+		padding: 0.45rem 1.1rem;
+		border: 1px solid var(--line-strong);
 		border-radius: 999px;
 		background: var(--surface);
+		color: var(--ink);
 		font: inherit;
 		font-weight: 600;
+		font-size: var(--step--1);
 		cursor: pointer;
+		transition:
+			background var(--fast) var(--ease-out),
+			border-color var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out);
 	}
 
 	.tabs button[aria-selected='true'] {
-		background: var(--ink);
-		border-color: var(--ink);
+		background: var(--navy);
+		border-color: var(--navy);
 		color: #fff;
 	}
 
 	.search {
-		width: 100%;
-		padding: 0.6rem 0.85rem;
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		padding: 0.15rem 0.9rem;
 		margin-bottom: 1.25rem;
-		border: 1px solid var(--line);
-		border-radius: 10px;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
 		background: var(--surface);
+		color: var(--ink-muted);
+		transition:
+			border-color var(--fast) var(--ease-out),
+			box-shadow var(--fast) var(--ease-out);
+	}
+
+	.search:focus-within {
+		border-color: var(--accent);
+		box-shadow: 0 0 0 3px var(--accent-soft);
+	}
+
+	.search input {
+		flex: 1;
+		min-width: 0;
+		padding: 0.55rem 0;
+		border: 0;
+		background: none;
 		font: inherit;
+		color: var(--ink);
+	}
+
+	.search input:focus {
+		outline: none;
 	}
 
 	.grid {
@@ -200,19 +235,23 @@
 	.word {
 		display: flex;
 		align-items: baseline;
-		gap: 0.4rem;
+		gap: 0.45rem;
 		width: 100%;
-		padding: 0.5rem 0.7rem;
+		padding: 0.55rem 0.8rem;
 		border: 1px solid var(--line);
-		border-radius: 10px;
+		border-radius: var(--radius-sm);
 		background: var(--surface);
 		font: inherit;
 		text-align: left;
 		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
 	}
 
 	.word:hover {
 		border-color: var(--accent);
+		transform: translateY(-1px);
 	}
 
 	.article {
@@ -220,21 +259,25 @@
 		font-size: 0.85rem;
 	}
 
+	/* The German word is the content; its gloss is interface. */
 	.term {
-		font-weight: 600;
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-0);
+		font-weight: 700;
+		color: var(--ink);
 	}
 
 	.gloss {
 		margin-left: auto;
-		font-size: 0.82rem;
-		color: var(--muted);
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.detail {
-		padding: 0.75rem 0.9rem;
+		padding: 0.8rem 0.95rem;
 		border: 1px solid var(--line);
 		border-top: 0;
-		border-radius: 0 0 10px 10px;
+		border-radius: 0 0 var(--radius-sm) var(--radius-sm);
 		background: var(--surface-alt);
 	}
 
@@ -244,7 +287,7 @@
 
 	.meta {
 		font-size: 0.85rem;
-		color: var(--muted);
+		color: var(--ink-muted);
 	}
 
 	table {
@@ -256,15 +299,18 @@
 
 	caption {
 		text-align: left;
-		font-weight: 700;
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 		color: var(--accent);
-		padding-bottom: 0.2rem;
+		padding-bottom: 0.25rem;
 	}
 
 	th {
 		text-align: left;
 		font-weight: 500;
-		color: var(--muted);
+		color: var(--ink-muted);
 		padding: 0.15rem 0.5rem 0.15rem 0;
 		white-space: nowrap;
 	}

@@ -5,7 +5,11 @@
 	// type of their own — they are told apart by carrying `inlineBlanks` and an
 	// `inlineTemplate` instead of `questions`. That's inherited from the Dart
 	// app, where the same trick avoided adding a QuizKind.
+	import Burst from '../Burst.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import { pop } from '$lib/motion';
+	import { slide } from 'svelte/transition';
 	import { isAcceptedAnswer } from '$lib/domain/answers';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { InlineBlank, InlineClozeQuiz } from '$lib/content/types';
@@ -114,23 +118,32 @@
 </article>
 
 {#if quiz.passageTranslation}
-	<button class="link" onclick={() => (showTranslation = !showTranslation)}>
+	<button class="btn-quiet" onclick={() => (showTranslation = !showTranslation)}>
 		{showTranslation ? 'Hide' : 'Show'} translation
 	</button>
 	{#if showTranslation}
-		<p class="translation">{quiz.passageTranslation}</p>
+		<p class="translation" transition:slide={{ duration: 200 }}>
+			{quiz.passageTranslation}
+		</p>
 	{/if}
 {/if}
 
 <footer class="actions">
 	{#if checked}
-		<p class="verdict" class:pass={passed}>
-			{correctCount} of {total} correct — {passed ? 'passed' : 'not quite yet'}
+		<Burst trigger={passed ? 1 : 0} count={26} />
+		<p class="verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
+			<Icon name={passed ? 'trophy' : 'close'} size="1.1em" />
+			<span class="tnum">{correctCount} of {total} correct</span>
+			— {passed ? 'passed' : 'not quite yet'}
 		</p>
-		{#if !passed}<button class="primary" onclick={retry}>Try again</button>{/if}
+		{#if !passed}
+			<button class="btn" onclick={retry}>
+				<Icon name="repeat" size="1em" /> Try again
+			</button>
+		{/if}
 	{:else}
-		<button class="primary" onclick={check} disabled={!allFilled}>
-			Check the text
+		<button class="btn" onclick={check} disabled={!allFilled}>
+			<Icon name="check" size="1em" /> Check the text
 		</button>
 	{/if}
 </footer>
@@ -152,14 +165,20 @@
 
 	.passage h2 {
 		margin: 0;
-		font-size: 1.15rem;
+		font-size: var(--step-1);
 	}
 
+	/* The cloze is a reading passage with holes in it: serif, and leaded wide
+	   enough that the inputs and their hints don't collide between lines. */
 	.cloze {
 		margin: 0;
-		font-size: 1.08rem;
-		line-height: 2.4;
+		max-width: var(--measure);
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-1);
+		font-variation-settings: 'opsz' 16;
+		line-height: 2.6;
 		white-space: pre-wrap;
+		color: var(--ink);
 	}
 
 	.slot {
@@ -169,14 +188,17 @@
 	}
 
 	.slot input {
-		padding: 0.1rem 0.35rem;
+		padding: 0.1rem 0.4rem;
 		border: 0;
 		border-bottom: 2px solid var(--accent);
 		border-radius: 4px 4px 0 0;
 		background: var(--surface-alt);
 		font: inherit;
-		font-size: 1rem;
+		font-size: 0.94em;
 		text-align: center;
+		transition:
+			background var(--fast) var(--ease-out),
+			border-color var(--fast) var(--ease-out);
 	}
 
 	.slot input:focus {
@@ -185,13 +207,13 @@
 	}
 
 	.slot input.right {
-		border-bottom-color: #3f7d4e;
-		background: #eaf4ec;
+		border-bottom-color: var(--right);
+		background: var(--right-bg);
 	}
 
 	.slot input.wrong {
-		border-bottom-color: #b4452f;
-		background: #f9ebe7;
+		border-bottom-color: var(--wrong);
+		background: var(--wrong-bg);
 	}
 
 	.fix,
@@ -207,61 +229,47 @@
 	.fix {
 		top: 100%;
 		font-weight: 700;
-		color: #3f7d4e;
+		font-family: 'Inter', sans-serif;
+		color: var(--right);
+		animation: reveal 260ms var(--ease-out) both;
+	}
+
+	@keyframes reveal {
+		from { opacity: 0; transform: translate(-50%, -4px); }
+		to { opacity: 1; transform: translate(-50%, 0); }
 	}
 
 	.hint {
 		bottom: 100%;
-		color: var(--muted);
-	}
-
-	.link {
-		margin-top: 1rem;
-		padding: 0;
-		border: 0;
-		background: none;
-		color: var(--accent);
-		font: inherit;
-		font-size: 0.88rem;
-		cursor: pointer;
-		text-decoration: underline;
+		font-family: 'Inter', sans-serif;
+		color: var(--ink-muted);
 	}
 
 	.translation {
-		color: var(--muted);
-		font-size: 0.9rem;
+		max-width: var(--measure);
+		color: var(--ink-muted);
+		font-size: var(--step--1);
 	}
 
 	.actions {
-		margin-top: 1.5rem;
+		position: relative;
+		margin-top: 1.75rem;
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		flex-wrap: wrap;
 	}
 
 	.verdict {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
 		margin: 0;
 		font-weight: 700;
-		color: #b4452f;
+		color: var(--wrong);
 	}
 
 	.verdict.pass {
-		color: #3f7d4e;
-	}
-
-	.primary {
-		padding: 0.6rem 1.25rem;
-		border: 0;
-		border-radius: 999px;
-		background: var(--ink);
-		color: #fff;
-		font: inherit;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.primary:disabled {
-		opacity: 0.45;
-		cursor: default;
+		color: var(--right);
 	}
 </style>

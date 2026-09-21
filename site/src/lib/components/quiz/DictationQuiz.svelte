@@ -1,7 +1,10 @@
 <script lang="ts">
 	// Dictation: hear a line, type what you heard. The text is never shown
 	// until the line is answered or given up on — that is the whole exercise.
+	import Burst from '../Burst.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import { pop, rise } from '$lib/motion';
 	import { isAcceptedAnswer } from '$lib/domain/answers';
 	import { progress } from '$lib/state/progress.svelte';
 	import { tts } from '$lib/services/speech';
@@ -22,6 +25,7 @@
 	let verdict = $state<'none' | 'right' | 'wrong'>('none');
 	let correctCount = $state(0);
 	let done = $state(false);
+	let burst = $state(0);
 
 	const item = $derived(quiz.items[index]);
 	const total = $derived(quiz.items.length);
@@ -48,7 +52,10 @@
 		if (!item || verdict !== 'none' || !answer.trim()) return;
 		const right = isAcceptedAnswer(answer, [item.text], progress.relaxedCorrection);
 		verdict = right ? 'right' : 'wrong';
-		if (right) correctCount += 1;
+		if (right) {
+			correctCount += 1;
+			burst += 1;
+		}
 	}
 
 	function next() {
@@ -78,19 +85,29 @@
 </script>
 
 {#if done}
-	<section class="card done">
+	<section class="card done" in:pop>
+		<Burst trigger={passed ? 1 : 0} count={28} />
 		<p class="verdict" class:pass={passed}>
 			{correctCount} of {total} correct — {passed ? 'passed' : 'not quite yet'}
 		</p>
-		<button class="primary" onclick={restart}>Run it again</button>
+		<button class="btn" onclick={restart}>
+			<Icon name="repeat" size="1em" /> Run it again
+		</button>
 	</section>
 {:else if item}
 	<section class="card">
-		<p class="counter">Line {index + 1} of {total}</p>
+		<p class="eyebrow counter">
+			<span class="tnum">Line {index + 1} of {total}</span>
+		</p>
 
 		<div class="controls">
-			<button class="play" onclick={() => play()}>▶ Play</button>
-			<button class="play slow" onclick={() => play(0.6)}>🐢 Slower</button>
+			<Burst trigger={burst} count={12} />
+			<button class="btn-ghost chip" onclick={() => play()}>
+				<Icon name="play" size="0.95em" /> Play
+			</button>
+			<button class="btn-ghost chip" onclick={() => play(0.6)}>
+				<Icon name="slow" size="0.95em" /> Slower
+			</button>
 		</div>
 
 		<input
@@ -105,20 +122,24 @@
 		/>
 
 		{#if verdict === 'none'}
-			<button class="primary" onclick={check} disabled={!answer.trim()}>Check</button>
+			<button class="btn" onclick={check} disabled={!answer.trim()}>
+				<Icon name="check" size="1em" /> Check
+			</button>
 		{:else}
-			<p class="feedback" class:right={verdict === 'right'}>
+			<p class="feedback" class:right={verdict === 'right'} in:pop={{ from: 0.88 }}>
+				<Icon name={verdict === 'right' ? 'check' : 'close'} size="1.05em" />
 				{verdict === 'right' ? 'Correct' : 'Not quite'}
 			</p>
-			<p class="reveal" lang={locale}>
+			<p class="reveal" lang={locale} in:rise>
 				{item.text}
 				<SpeakButton text={item.text} {locale} />
 			</p>
 			{#if item.translation}
 				<p class="translation">{item.translation}</p>
 			{/if}
-			<button class="primary" onclick={next}>
+			<button class="btn" onclick={next}>
 				{index + 1 >= total ? 'Finish' : 'Next line'}
+				<Icon name="arrowRight" size="1em" />
 			</button>
 		{/if}
 	</section>
@@ -126,96 +147,108 @@
 
 <style>
 	.card {
-		padding: 1.5rem;
+		position: relative;
+		padding: 1.75rem;
 		border: 1px solid var(--line);
-		border-radius: 14px;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 
 	.counter {
-		margin: 0 0 1rem;
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--muted);
+		margin: 0 0 1.1rem;
 	}
 
 	.controls {
+		position: relative;
 		display: flex;
 		gap: 0.6rem;
-		margin-bottom: 1rem;
+		margin-bottom: 1.1rem;
 	}
 
-	.play {
-		padding: 0.55rem 1rem;
-		border: 1px solid var(--line);
+	/* A compact pill for the transport controls, sized off the button base. */
+	.chip {
+		padding: 0.48rem 0.95rem;
 		border-radius: 999px;
-		background: var(--surface-alt);
+		border: 1px solid var(--line-strong);
+		background: var(--surface);
+		color: var(--ink);
 		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 600;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
 		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
 	}
 
-	.play:hover {
+	.chip:hover {
 		border-color: var(--accent);
+		color: var(--accent);
+		transform: translateY(-1px);
 	}
 
 	input {
 		width: 100%;
-		box-sizing: border-box;
-		padding: 0.65rem 0.85rem;
-		margin-bottom: 1rem;
-		border: 1px solid var(--line);
-		border-radius: 10px;
+		padding: 0.68rem 0.9rem;
+		margin-bottom: 1.1rem;
+		border: 1px solid var(--line-strong);
+		border-radius: var(--radius-sm);
 		background: var(--bg);
 		font: inherit;
-		font-size: 1.05rem;
+		font-size: var(--step-1);
+		transition:
+			border-color var(--fast) var(--ease-out),
+			box-shadow var(--fast) var(--ease-out);
+	}
+
+	input:focus {
+		outline: none;
+		border-color: var(--accent);
+		box-shadow: 0 0 0 3px var(--accent-soft);
 	}
 
 	.feedback {
-		margin: 0 0 0.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.42rem;
+		margin: 0 0 0.6rem;
 		font-weight: 700;
-		color: #b4452f;
+		color: var(--wrong);
 	}
 
 	.feedback.right {
-		color: #3f7d4e;
+		color: var(--right);
 	}
 
+	/* The revealed line is the answer key — set in the serif, like the prompts. */
 	.reveal {
-		margin: 0 0 0.25rem;
-		font-size: 1.15rem;
+		margin: 0 0 0.3rem;
+		max-width: none;
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-1);
+		font-weight: 600;
 		color: var(--ink);
 	}
 
 	.translation {
-		margin: 0 0 1rem;
-		color: var(--muted);
+		margin: 0 0 1.1rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.verdict {
-		margin: 0 0 1rem;
+		margin: 0 0 1.1rem;
+		font-size: var(--step-1);
 		font-weight: 700;
-		color: #b4452f;
+		color: var(--wrong);
+		font-variant-numeric: tabular-nums;
 	}
 
 	.verdict.pass {
-		color: #3f7d4e;
-	}
-
-	.primary {
-		padding: 0.6rem 1.25rem;
-		border: 0;
-		border-radius: 999px;
-		background: var(--ink);
-		color: #fff;
-		font: inherit;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.primary:disabled {
-		opacity: 0.45;
-		cursor: default;
+		color: var(--right);
 	}
 </style>

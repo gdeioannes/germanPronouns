@@ -3,6 +3,11 @@
 	// "continue where you left off" jump. Locks are computed from the same rule
 	// as the Dart app — a sub-level opens only once every earlier quiz is done.
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
+	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
+	import { rise } from '$lib/motion';
+	import { Tween } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
 	import { buildLadder, courseProgress, nextQuiz } from '$lib/domain/ladder';
 	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { progress } from '$lib/state/progress.svelte';
@@ -32,6 +37,13 @@
 	const percent = $derived(
 		totals.total === 0 ? 0 : Math.round((totals.done / totals.total) * 100)
 	);
+
+	// The ring sweeps to its value rather than snapping, so returning to the
+	// page after finishing an exercise shows the gain rather than just stating it.
+	const sweep = new Tween(0, { duration: 900, easing: cubicOut });
+	$effect(() => {
+		sweep.target = percent;
+	});
 </script>
 
 <svelte:head>
@@ -40,7 +52,7 @@
 </svelte:head>
 
 <main class="page-wide">
-	<a class="back-link" href="/">← All courses</a>
+	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> All courses</a>
 
 	<header class="head">
 		<div>
@@ -49,22 +61,30 @@
 			<p class="lede">{course.tagline}</p>
 		</div>
 
-		<div class="ring" style="--pct:{percent}">
-			<span class="pct">{percent}%</span>
-			<span class="count">{totals.done} / {totals.total}</span>
+		<div class="ring" style="--pct:{sweep.current}" role="img"
+			aria-label="{percent}% complete, {totals.done} of {totals.total} exercises">
+			<span class="pct tnum">{percent}<span class="sign">%</span></span>
+			<span class="count tnum">{totals.done} / {totals.total}</span>
 		</div>
 	</header>
 
 	{#if resume}
-		<a class="resume" href="/course/{course.id}/quiz/{resume.id}">
-			<span class="resume-label"
-				>{totals.done === 0 ? 'Start here' : 'Continue'}</span
-			>
-			<span class="resume-title">{resume.title}</span>
-			<span class="resume-meta">{resume.level} · {resume.type}</span>
+		<a class="resume" href="/course/{course.id}/quiz/{resume.id}" in:rise>
+			<span class="resume-icon"><Icon name={QUIZ_TYPE_ICONS[resume.type]} size="1.35em" /></span>
+			<span class="resume-body">
+				<span class="resume-label">
+					{totals.done === 0 ? 'Start here' : 'Continue'}
+				</span>
+				<span class="resume-title">{resume.title}</span>
+				<span class="resume-meta">{resume.level} · {resume.type}</span>
+			</span>
+			<Icon name="arrowRight" size="1.2em" class="resume-go" />
 		</a>
 	{:else}
-		<p class="finished">Every exercise in this course is complete. 🎉</p>
+		<p class="finished">
+			<Icon name="trophy" size="1.2em" />
+			Every exercise in this course is complete.
+		</p>
 	{/if}
 
 	<h2>The ladder</h2>
@@ -75,9 +95,10 @@
 					<h3>{level.title}</h3>
 					<span class="level-meta">
 						{#if !level.unlocked}
-							🔒 Locked
+							<Icon name="lock" size="1em" /> Locked
 						{:else}
-							{level.doneCount} / {level.quizzes.length}
+							<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
+							{#if level.complete}<Icon name="check" size="1em" />{/if}
 						{/if}
 					</span>
 				</header>
@@ -90,9 +111,11 @@
 								: null}
 							<li>
 								<a href="/course/{course.id}/quiz/{quiz.id}">
-									<span class="kind" data-kind={quiz.type}>{quiz.type}</span>
+									<span class="kind" data-kind={quiz.type} title={quiz.type}>
+										<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" />
+									</span>
 									<span class="title">{quiz.title}</span>
-									{#if ribbon}<RibbonBadge tier={ribbon} width={14} />{/if}
+									{#if ribbon}<RibbonBadge tier={ribbon} width={13} />{/if}
 								</a>
 							</li>
 						{/each}
@@ -119,42 +142,42 @@
 
 	.pair {
 		margin: 0;
-		font-size: 0.85rem;
+		font-size: var(--step--1);
 		font-weight: 700;
-		color: var(--muted);
+		letter-spacing: 0.05em;
+		color: var(--ink-muted);
 	}
 
 	h1 {
-		margin: 0.3rem 0;
-		font-size: clamp(1.8rem, 4vw, 2.5rem);
-		line-height: 1.15;
+		margin: 0.35rem 0 0.5rem;
 	}
 
 	.lede {
 		margin: 0;
-		max-width: 34rem;
-		color: var(--ink-soft);
+		color: var(--ink-muted);
 	}
 
+	/* A conic-gradient ring with the page colour punched out of the middle —
+	   no SVG, and the sweep animates by tweening one custom property. */
 	.ring {
 		flex: none;
-		width: 7rem;
-		height: 7rem;
+		position: relative;
+		width: 7.5rem;
+		height: 7.5rem;
 		display: grid;
 		place-content: center;
 		text-align: center;
 		border-radius: 50%;
 		background: conic-gradient(
 			var(--accent) calc(var(--pct) * 1%),
-			var(--line) 0
+			var(--paper-high) 0
 		);
-		position: relative;
 	}
 
 	.ring::before {
 		content: '';
 		position: absolute;
-		inset: 0.6rem;
+		inset: 0.62rem;
 		border-radius: 50%;
 		background: var(--bg);
 	}
@@ -163,66 +186,112 @@
 	.count {
 		position: relative;
 		display: block;
+		line-height: 1.1;
 	}
 
 	.pct {
-		font-size: 1.4rem;
-		font-weight: 800;
-		color: var(--ink);
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-2);
+		font-weight: 700;
+		color: var(--heading);
+	}
+
+	.sign {
+		font-size: 0.55em;
+		color: var(--ink-muted);
 	}
 
 	.count {
-		font-size: 0.75rem;
-		color: var(--muted);
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.resume {
-		display: block;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
 		margin: 2rem 0 0;
-		padding: 1.1rem 1.25rem;
+		padding: 1.15rem 1.3rem;
 		border: 1px solid var(--accent);
-		border-radius: 14px;
+		border-radius: var(--radius);
 		background: var(--accent-soft);
 		text-decoration: none;
 		color: inherit;
+		transition:
+			transform var(--medium) var(--ease-out),
+			box-shadow var(--medium) var(--ease-out);
 	}
 
 	.resume:hover {
-		filter: brightness(0.98);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px -10px rgba(31, 58, 95, 0.45);
+	}
+
+	.resume-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.6rem;
+		height: 2.6rem;
+		flex: none;
+		border-radius: 50%;
+		background: var(--surface);
+		color: var(--accent);
+	}
+
+	.resume-body {
+		flex: 1;
+		min-width: 0;
 	}
 
 	.resume-label {
 		display: block;
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		font-weight: 800;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: var(--accent);
 	}
 
 	.resume-title {
 		display: block;
-		font-size: 1.15rem;
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-1);
 		font-weight: 700;
-		color: var(--ink);
+		color: var(--heading);
 	}
 
 	.resume-meta {
-		font-size: 0.82rem;
-		color: var(--muted);
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	/* The arrow nudges on hover — a small affordance that the card is a link. */
+	.resume :global(.resume-go) {
+		color: var(--accent);
+		transition: transform var(--medium) var(--ease-out);
+	}
+
+	.resume:hover :global(.resume-go) {
+		transform: translateX(4px);
 	}
 
 	.finished {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 		margin: 2rem 0 0;
-		padding: 1rem 1.25rem;
-		border-radius: 14px;
-		background: #eaf4ec;
-		border: 1px solid #a9cfb3;
+		padding: 1.1rem 1.3rem;
+		border-radius: var(--radius);
+		background: var(--right-bg);
+		border: 1px solid var(--right);
+		color: var(--right);
+		font-weight: 700;
 	}
 
 	h2 {
-		margin: 2.5rem 0 0.5rem;
-		font-size: 1.2rem;
+		margin: 2.75rem 0 0.5rem;
+		font-size: var(--step-1);
 	}
 
 	.levels {
@@ -234,10 +303,11 @@
 	.levels > li {
 		padding: 1rem 0;
 		border-top: 1px solid var(--line);
+		transition: opacity var(--medium) var(--ease-out);
 	}
 
 	.levels > li.locked {
-		opacity: 0.55;
+		opacity: 0.5;
 	}
 
 	.level-head {
@@ -249,79 +319,89 @@
 
 	.level-head h3 {
 		margin: 0;
-		font-size: 1rem;
+		font-size: var(--step-0);
+		letter-spacing: 0.01em;
 	}
 
 	.level-meta {
-		font-size: 0.8rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: var(--step--1);
 		font-weight: 700;
-		color: var(--muted);
+		color: var(--ink-muted);
 	}
 
 	.levels > li.complete .level-meta {
-		color: #3f7d4e;
+		color: var(--right);
 	}
 
 	.locked-note {
-		margin: 0.4rem 0 0;
-		font-size: 0.88rem;
-		color: var(--muted);
+		margin: 0.45rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.quizzes {
-		margin: 0.6rem 0 0;
+		margin: 0.7rem 0 0;
 		padding: 0;
 		list-style: none;
 		display: grid;
-		gap: 0.3rem;
+		gap: 0.2rem;
 	}
 
 	.quizzes a {
 		display: flex;
 		align-items: center;
-		gap: 0.6rem;
+		gap: 0.7rem;
 		padding: 0.5rem 0.7rem;
-		border-radius: 8px;
+		border-radius: var(--radius-sm);
 		color: inherit;
 		text-decoration: none;
+		transition:
+			background var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
 	}
 
 	.quizzes a:hover {
 		background: var(--surface-alt);
+		transform: translateX(3px);
 	}
 
 	.title {
 		flex: 1;
-		font-size: 0.93rem;
+		font-size: var(--step--1);
 	}
 
+	/* One tinted disc per quiz kind, carrying that kind's icon — the same
+	   pairing the quiz header uses, so the two views agree. */
 	.kind {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.9rem;
+		height: 1.9rem;
 		flex: none;
-		min-width: 5.5rem;
-		padding: 0.1rem 0.45rem;
-		border-radius: 999px;
+		border-radius: 50%;
 		background: var(--surface-alt);
-		font-size: 0.7rem;
-		font-weight: 700;
-		text-align: center;
-		color: var(--muted);
+		color: var(--ink-muted);
 	}
 
 	.kind[data-kind='reading'] {
-		background: #e3ecf6;
-		color: #29537f;
+		background: #e6ecf3;
+		color: var(--navy);
 	}
 	.kind[data-kind='speaking'],
 	.kind[data-kind='speakRepeat'] {
-		background: #f7e6dd;
-		color: #a9502a;
+		background: var(--accent-soft);
+		color: var(--accent);
 	}
 	.kind[data-kind='listening'] {
-		background: #e6f0e7;
-		color: #3f5d45;
+		background: #e8efe9;
+		color: var(--forest);
 	}
 	.kind[data-kind='dictation'] {
-		background: #f2ecf6;
-		color: #5e4478;
+		background: #f4eddc;
+		color: var(--ochre);
 	}
 </style>

@@ -5,6 +5,8 @@
 	// levels but awards no medals, and it writes to a SEPARATE unlocked set
 	// rather than the completion sets — so the progress ring stays honest about
 	// what was actually earned.
+	import Icon from '$lib/icons/Icon.svelte';
+	import { rise } from '$lib/motion';
 	import { catalog } from '$lib/content';
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
@@ -51,11 +53,14 @@
 </svelte:head>
 
 <main class="page">
-	<a class="back-link" href="/">← Home</a>
+	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
 	<h1>Settings</h1>
 
 	{#if message}
-		<p class="message">{message}</p>
+		<p class="message" in:rise>
+			<Icon name="info" size="1.05em" />
+			<span>{message}</span>
+		</p>
 	{/if}
 
 	<section class="card">
@@ -113,12 +118,12 @@
 		</p>
 		{#if confirmingReset}
 			<button class="danger-btn" onclick={resetEverything}>
-				Yes, delete my progress
+				<Icon name="trash" size="1em" /> Yes, delete my progress
 			</button>
-			<button class="link" onclick={() => (confirmingReset = false)}>Cancel</button>
+			<button class="btn-quiet" onclick={() => (confirmingReset = false)}>Cancel</button>
 		{:else}
 			<button class="danger-btn" onclick={() => (confirmingReset = true)}>
-				Delete all progress
+				<Icon name="trash" size="1em" /> Delete all progress
 			</button>
 		{/if}
 	</section>
@@ -135,29 +140,34 @@
 	}
 
 	.card {
-		padding: 1.25rem 1.5rem;
+		padding: 1.35rem 1.6rem;
 		margin-bottom: 1rem;
 		border: 1px solid var(--line);
-		border-radius: 14px;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 
 	.card.danger {
-		border-color: #e2b4a6;
+		border-color: var(--wrong);
 	}
 
 	.lede {
 		margin: 0 0 1rem;
-		font-size: 0.92rem;
-		color: var(--ink-soft);
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.message {
-		padding: 0.8rem 1rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+		max-width: none;
+		padding: 0.85rem 1.05rem;
 		margin-bottom: 1rem;
-		border: 1px solid #a9cfb3;
-		border-radius: 10px;
-		background: #eaf4ec;
+		border: 1px solid var(--right);
+		border-radius: var(--radius-sm);
+		background: var(--right-bg);
+		color: var(--right);
 	}
 
 	.row {
@@ -174,8 +184,9 @@
 
 	.row small {
 		display: block;
-		color: var(--muted);
-		font-size: 0.85rem;
+		margin-top: 0.1rem;
+		color: var(--ink-muted);
+		font-size: var(--step--1);
 	}
 
 	.levels {
@@ -191,18 +202,23 @@
 		gap: 1rem;
 		padding: 0.45rem 0;
 		border-top: 1px solid var(--line);
-		font-size: 0.92rem;
+		font-size: var(--step--1);
 	}
 
 	.levels button {
 		flex: none;
-		padding: 0.3rem 0.8rem;
-		border: 1px solid var(--line);
+		padding: 0.32rem 0.9rem;
+		border: 1px solid var(--line-strong);
 		border-radius: 999px;
 		background: var(--surface);
+		color: var(--ink);
 		font: inherit;
-		font-size: 0.82rem;
+		font-size: var(--step--1);
+		font-weight: 600;
 		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out);
 	}
 
 	.levels button:hover {
@@ -211,23 +227,21 @@
 	}
 
 	.danger-btn {
-		padding: 0.55rem 1.1rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.58rem 1.2rem;
 		border: 0;
 		border-radius: 999px;
-		background: #b4452f;
+		background: var(--wrong);
 		color: #fff;
 		font: inherit;
 		font-weight: 600;
 		cursor: pointer;
+		transition: transform var(--fast) var(--ease-out);
 	}
 
-	.link {
-		margin-left: 0.5rem;
-		border: 0;
-		background: none;
-		color: var(--muted);
-		font: inherit;
-		cursor: pointer;
-		text-decoration: underline;
+	.danger-btn:hover {
+		transform: translateY(-1px);
 	}
 </style>

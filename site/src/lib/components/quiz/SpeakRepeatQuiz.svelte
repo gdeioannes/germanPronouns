@@ -4,7 +4,10 @@
 	// quiz completes on play-through and never blocks on a microphone. That
 	// rule is inherited from the Dart page and matters — it is why this quiz
 	// can sit in a gated chain without trapping anyone.
+	import Burst from '../Burst.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import { pop, rise } from '$lib/motion';
 	import { matchesSpoken } from '$lib/domain/answers';
 	import { stt, tts } from '$lib/services/speech';
 	import type { SpeakRepeatQuiz } from '$lib/content/types';
@@ -87,12 +90,17 @@
 
 {#if done}
 	<section class="card">
-		<p class="verdict pass">All {total} phrases practised.</p>
-		<button class="primary" onclick={restart}>Go again</button>
+		<Burst trigger={1} count={30} />
+		<p class="verdict pass">
+			<Icon name="trophy" size="1.1em" /> All {total} phrases practised.
+		</p>
+		<button class="btn" onclick={restart}>
+			<Icon name="repeat" size="1em" /> Go again
+		</button>
 	</section>
 {:else if phrase}
 	<section class="card">
-		<p class="counter">Phrase {index + 1} of {total}</p>
+		<p class="eyebrow counter tnum">Phrase {index + 1} of {total}</p>
 
 		<p class="phrase" lang={locale}>
 			{phrase.text}
@@ -103,24 +111,29 @@
 		{/if}
 
 		<div class="controls">
-			<button class="play" onclick={() => tts.speak(phrase.text, { locale })}>
-				▶ Hear it
+			<button class="chip" onclick={() => tts.speak(phrase.text, { locale })}>
+				<Icon name="play" size="0.95em" /> Hear it
 			</button>
-			<button class="play" onclick={() => tts.speak(phrase.text, { locale, rate: 0.6 })}>
-				🐢 Slower
+			<button class="chip" onclick={() => tts.speak(phrase.text, { locale, rate: 0.6 })}>
+				<Icon name="slow" size="0.95em" /> Slower
 			</button>
 			{#if micAvailable}
-				<button class="play mic" class:listening onclick={listen} disabled={listening}>
-					{listening ? '● Listening…' : '🎤 Say it'}
+				<button class="chip mic" class:listening onclick={listen} disabled={listening}>
+					<Icon name="mic" size="0.95em" />
+					{listening ? 'Listening…' : 'Say it'}
 				</button>
 			{/if}
 		</div>
 
 		{#if heard}
-			<p class="heard">
-				Heard: <em>{heard}</em>
-				{#if matched === true}<span class="ok">✓ close enough</span>
-				{:else if matched === false}<span class="off">try once more</span>{/if}
+			<p class="heard" in:rise>
+				<span class="eyebrow">Heard</span>
+				<em>{heard}</em>
+				{#if matched === true}
+					<span class="ok"><Icon name="check" size="0.95em" /> close enough</span>
+				{:else if matched === false}
+					<span class="off"><Icon name="close" size="0.95em" /> try once more</span>
+				{/if}
 			</p>
 		{:else if !micAvailable}
 			<p class="no-mic">
@@ -129,106 +142,137 @@
 			</p>
 		{/if}
 
-		<button class="primary" onclick={next}>
+		<button class="btn" onclick={next}>
 			{index + 1 >= total ? 'Finish' : 'Next phrase'}
+			<Icon name="arrowRight" size="1em" />
 		</button>
 	</section>
 {/if}
 
 <style>
 	.card {
-		padding: 1.5rem;
+		position: relative;
+		padding: 1.75rem;
 		border: 1px solid var(--line);
-		border-radius: 14px;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 
 	.counter {
-		margin: 0 0 1rem;
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--muted);
+		margin: 0 0 1.1rem;
 	}
 
+	/* The phrase is the whole exercise — set it large, in the serif. */
 	.phrase {
 		margin: 0;
-		font-size: 1.5rem;
-		line-height: 1.4;
-		color: var(--ink);
+		max-width: none;
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-3);
+		font-variation-settings: 'opsz' 32;
+		font-weight: 600;
+		line-height: 1.3;
+		letter-spacing: -0.012em;
+		color: var(--heading);
 	}
 
 	.translation {
-		margin: 0.3rem 0 0;
-		color: var(--muted);
+		margin: 0.35rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.controls {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.6rem;
-		margin: 1.25rem 0 1rem;
+		margin: 1.4rem 0 1.1rem;
 	}
 
-	.play {
-		padding: 0.55rem 1rem;
-		border: 1px solid var(--line);
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.48rem 0.95rem;
+		border: 1px solid var(--line-strong);
 		border-radius: 999px;
-		background: var(--surface-alt);
+		background: var(--surface);
+		color: var(--ink);
 		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 600;
 		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
 	}
 
-	.play:hover:not(:disabled) {
+	.chip:hover:not(:disabled) {
 		border-color: var(--accent);
+		color: var(--accent);
+		transform: translateY(-1px);
 	}
 
+	/* While listening the mic pulses, so the live state is obvious without a
+	   separate indicator. */
 	.mic.listening {
-		border-color: #b4452f;
-		color: #b4452f;
+		border-color: var(--wrong);
+		color: var(--wrong);
+		animation: listening 1.3s var(--ease-out) infinite;
+	}
+
+	@keyframes listening {
+		0%, 100% { box-shadow: 0 0 0 0 rgba(180, 69, 47, 0.32); }
+		70% { box-shadow: 0 0 0 7px rgba(180, 69, 47, 0); }
 	}
 
 	.heard {
-		margin: 0 0 1rem;
-		color: var(--ink-soft);
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 0 0 1.1rem;
+		color: var(--ink-muted);
+	}
+
+	.heard em {
+		font-style: normal;
+		color: var(--ink);
+	}
+
+	.ok,
+	.off {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.28rem;
+		font-weight: 700;
+		font-size: var(--step--1);
 	}
 
 	.ok {
-		margin-left: 0.5rem;
-		font-weight: 700;
-		color: #3f7d4e;
+		color: var(--right);
 	}
 
 	.off {
-		margin-left: 0.5rem;
-		font-weight: 700;
-		color: #b4452f;
+		color: var(--wrong);
 	}
 
 	.no-mic {
-		margin: 0 0 1rem;
-		font-size: 0.9rem;
-		color: var(--muted);
+		margin: 0 0 1.1rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.verdict {
-		margin: 0 0 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin: 0 0 1.1rem;
+		font-size: var(--step-1);
 		font-weight: 700;
 	}
 
 	.verdict.pass {
-		color: #3f7d4e;
-	}
-
-	.primary {
-		padding: 0.6rem 1.25rem;
-		border: 0;
-		border-radius: 999px;
-		background: var(--ink);
-		color: #fff;
-		font: inherit;
-		font-weight: 600;
-		cursor: pointer;
+		color: var(--right);
 	}
 </style>

@@ -2,6 +2,9 @@
 	// The AI-handoff speaking exercise: render a prompt, the learner runs it in
 	// their own assistant in voice mode, then pastes the report back. The app
 	// reads the SCORE= line, awards the medal and banks the FIX: corrections.
+	import Burst from '../Burst.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
+	import { pop } from '$lib/motion';
 	import manifest from '$content/speaking/manifest.json';
 	import template from '$content/speaking/template.en.json';
 	import {
@@ -98,32 +101,35 @@
 </script>
 
 <section class="card">
-	<h3>1 · Copy the exercise</h3>
+	<h3><span class="step tnum">1</span> Copy the exercise</h3>
 	<p class="lede">
 		This exercise runs in your own AI assistant, in voice mode — about
 		{session.durationMinutes} minutes. Copy the prompt, paste it there, and
 		follow its instructions.
 	</p>
 	<pre class="prompt">{prompt}</pre>
-	<button class="primary" onclick={copy}>
-		{copied ? '✓ Copied' : 'Copy the prompt'}
+	<button class="btn" onclick={copy}>
+		<Icon name={copied ? 'check' : 'copy'} size="1em" />
+		{copied ? 'Copied' : 'Copy the prompt'}
 	</button>
 </section>
 
 {#if copied}
-	<section class="card">
-		<h3>2 · Open your assistant</h3>
+	<section class="card" in:pop={{ from: 0.94 }}>
+			<h3><span class="step tnum">2</span> Open your assistant</h3>
 		<div class="ai-links">
-			<a href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
-			<a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
-			<a href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a>
+			{#each [['Claude', 'https://claude.ai/new'], ['ChatGPT', 'https://chatgpt.com/'], ['Gemini', 'https://gemini.google.com/app']] as [name, url] (name)}
+				<a href={url} target="_blank" rel="noopener">
+					{name}<Icon name="external" size="0.9em" />
+				</a>
+			{/each}
 		</div>
 		<p class="note">The prompt is already on your clipboard — just paste it.</p>
 	</section>
 {/if}
 
 <section class="card">
-	<h3>3 · Bring the score back</h3>
+	<h3><span class="step tnum">3</span> Bring the score back</h3>
 	<p class="lede">
 		Paste the whole report the AI gives you (or just the number). The
 		<code>SCORE=</code> line is read automatically.
@@ -135,14 +141,21 @@
 	></textarea>
 
 	{#if saved === null}
-		<button class="primary" onclick={save} disabled={score === null}>
+		<button class="btn" onclick={save} disabled={score === null}>
+			<Icon name="check" size="1em" />
 			{score === null ? 'Enter a score to save' : `Save ${score} / 100`}
 		</button>
 	{:else}
-		<div class="result" class:pass={saved >= session.passScore}>
-			<p class="score">{saved} / 100 · grade {speakingGrade(saved)}</p>
+		<div class="result" class:pass={saved >= session.passScore} in:pop>
+			<Burst trigger={medal ? 1 : 0} count={30} />
+			<p class="score tnum">
+				{saved} <span class="of">/ 100</span>
+				<span class="grade">grade {speakingGrade(saved)}</span>
+			</p>
 			{#if medal}
-				<p class="medal">{medal} medal</p>
+				<p class="medal">
+					<Icon name="trophy" size="1.05em" /> {medal} medal
+				</p>
 			{:else}
 				<p class="medal">No medal yet — run it again when you're ready.</p>
 			{/if}
@@ -152,37 +165,59 @@
 
 <style>
 	.card {
-		padding: 1.25rem 1.5rem;
+		padding: 1.4rem 1.6rem;
 		margin-bottom: 1rem;
 		border: 1px solid var(--line);
-		border-radius: 14px;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 
 	h3 {
-		margin: 0 0 0.4rem;
-		font-size: 1rem;
-		color: var(--ink);
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin: 0 0 0.45rem;
+		font-size: var(--step-1);
+	}
+
+	/* A numbered step badge, so the three stages read as a sequence. */
+	.step {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.6em;
+		height: 1.6em;
+		flex: none;
+		border-radius: 50%;
+		background: var(--navy);
+		color: #fff;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.62em;
+		font-weight: 800;
 	}
 
 	.lede {
-		margin: 0 0 1rem;
-		color: var(--ink-soft);
-		font-size: 0.93rem;
+		margin: 0 0 1.1rem;
+		max-width: var(--measure);
+		color: var(--ink-muted);
+		font-size: var(--step--1);
 	}
 
+	/* The prompt is machine text the learner copies, never reads closely —
+	   so it is set small, monospaced and scroll-capped. */
 	.prompt {
-		max-height: 16rem;
+		max-height: 15rem;
 		overflow: auto;
-		padding: 0.9rem;
-		margin: 0 0 1rem;
+		padding: 0.95rem 1.05rem;
+		margin: 0 0 1.1rem;
 		border: 1px solid var(--line);
-		border-radius: 10px;
+		border-radius: var(--radius-sm);
 		background: var(--surface-alt);
-		font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
-		font-size: 0.8rem;
-		line-height: 1.5;
+		font-family: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace;
+		font-size: 0.78rem;
+		line-height: 1.6;
 		white-space: pre-wrap;
+		color: var(--ink-muted);
 	}
 
 	.ai-links {
@@ -192,76 +227,103 @@
 	}
 
 	.ai-links a {
-		padding: 0.5rem 1rem;
-		border: 1px solid var(--line);
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.5rem 1.05rem;
+		border: 1px solid var(--line-strong);
 		border-radius: 999px;
 		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;
-		font-size: 0.9rem;
+		font-size: var(--step--1);
+		transition:
+			border-color var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
 	}
 
 	.ai-links a:hover {
 		border-color: var(--accent);
+		color: var(--accent);
+		transform: translateY(-1px);
 	}
 
 	.note {
-		margin: 0.75rem 0 0;
-		font-size: 0.85rem;
-		color: var(--muted);
+		margin: 0.8rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	textarea {
 		width: 100%;
-		box-sizing: border-box;
-		padding: 0.7rem 0.85rem;
-		margin-bottom: 1rem;
-		border: 1px solid var(--line);
-		border-radius: 10px;
+		padding: 0.72rem 0.9rem;
+		margin-bottom: 1.1rem;
+		border: 1px solid var(--line-strong);
+		border-radius: var(--radius-sm);
 		background: var(--bg);
 		font: inherit;
-		font-size: 0.95rem;
+		font-size: var(--step--1);
 		resize: vertical;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			box-shadow var(--fast) var(--ease-out);
+	}
+
+	textarea:focus {
+		outline: none;
+		border-color: var(--accent);
+		box-shadow: 0 0 0 3px var(--accent-soft);
 	}
 
 	.result {
-		padding: 0.9rem 1rem;
-		border-radius: 10px;
-		background: #f9ebe7;
-		border: 1px solid #e2b4a6;
+		position: relative;
+		padding: 1rem 1.15rem;
+		border-radius: var(--radius-sm);
+		background: var(--wrong-bg);
+		border: 1px solid var(--wrong);
 	}
 
 	.result.pass {
-		background: #eaf4ec;
-		border-color: #a9cfb3;
+		background: var(--right-bg);
+		border-color: var(--right);
 	}
 
 	.score {
+		display: flex;
+		align-items: baseline;
+		gap: 0.45rem;
 		margin: 0;
-		font-size: 1.2rem;
-		font-weight: 800;
-		color: var(--ink);
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-3);
+		font-weight: 700;
+		line-height: 1;
+		color: var(--heading);
+	}
+
+	.of {
+		font-size: 0.5em;
+		font-weight: 600;
+		color: var(--ink-muted);
+	}
+
+	.grade {
+		margin-left: auto;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.34em;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
 	}
 
 	.medal {
-		margin: 0.2rem 0 0;
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin: 0.45rem 0 0;
+		font-size: var(--step--1);
 		text-transform: capitalize;
-		color: var(--ink-soft);
-	}
-
-	.primary {
-		padding: 0.6rem 1.25rem;
-		border: 0;
-		border-radius: 999px;
-		background: var(--ink);
-		color: #fff;
-		font: inherit;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.primary:disabled {
-		opacity: 0.45;
-		cursor: default;
+		color: var(--ink-muted);
 	}
 </style>

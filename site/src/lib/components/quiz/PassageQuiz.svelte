@@ -3,7 +3,11 @@
 	// questions. The only difference is whether the passage is shown or heard —
 	// so one component takes a `mode`, mirroring how the Dart pages differed
 	// only in presentation.
+	import Burst from '../Burst.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import { pop, rise } from '$lib/motion';
+	import { slide } from 'svelte/transition';
 	import type { ListeningQuiz, ReadingQuiz } from '$lib/content/types';
 
 	let {
@@ -69,11 +73,13 @@
 	{#if revealTranscript}
 		<p class="text" lang={locale}>{quiz.passage}</p>
 		{#if quiz.passageTranslation}
-			<button class="link" onclick={() => (showTranslation = !showTranslation)}>
+			<button class="btn-quiet" onclick={() => (showTranslation = !showTranslation)}>
 				{showTranslation ? 'Hide' : 'Show'} translation
 			</button>
 			{#if showTranslation}
-				<p class="translation">{quiz.passageTranslation}</p>
+				<p class="translation" transition:slide={{ duration: 200 }}>
+					{quiz.passageTranslation}
+				</p>
 			{/if}
 		{/if}
 	{:else}
@@ -108,16 +114,30 @@
 						disabled={checked}
 						onclick={() => choose(qi, oi)}
 					>
-						<span lang={locale}>{option}</span>
-						{#if question.optionsTranslation?.[oi]}
-							<small>{question.optionsTranslation[oi]}</small>
-						{/if}
+						<span class="marker" aria-hidden="true">
+							{#if checked && isCorrect}
+								<Icon name="check" size="0.95em" />
+							{:else if checked && isChosen}
+								<Icon name="close" size="0.95em" />
+							{:else}
+								{String.fromCharCode(65 + oi)}
+							{/if}
+						</span>
+						<span class="option-text">
+							<span lang={locale}>{option}</span>
+							{#if question.optionsTranslation?.[oi]}
+								<small>{question.optionsTranslation[oi]}</small>
+							{/if}
+						</span>
 					</button>
 				{/each}
 			</div>
 
 			{#if checked && question.explanation}
-				<p class="explanation">{question.explanation}</p>
+				<p class="explanation" in:rise={{ delay: 80 }}>
+					<Icon name="info" size="1em" />
+					<span>{question.explanation}</span>
+				</p>
 			{/if}
 		</li>
 	{/each}
@@ -125,25 +145,29 @@
 
 <footer class="actions">
 	{#if checked}
-		<p class="verdict" class:pass={passed}>
-			{correctCount} of {quiz.questions.length} correct —
-			{passed ? 'passed' : 'not quite yet'}
+		<Burst trigger={passed ? 1 : 0} count={26} />
+		<p class="verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
+			<Icon name={passed ? 'trophy' : 'close'} size="1.1em" />
+			<span class="tnum">{correctCount} of {quiz.questions.length} correct</span>
+			— {passed ? 'passed' : 'not quite yet'}
 		</p>
 		{#if !passed}
-			<button class="primary" onclick={retry}>Try again</button>
+			<button class="btn" onclick={retry}>
+				<Icon name="repeat" size="1em" /> Try again
+			</button>
 		{/if}
 	{:else}
-		<button class="primary" disabled={!answered} onclick={check}>
-			Check answers
+		<button class="btn" disabled={!answered} onclick={check}>
+			<Icon name="check" size="1em" /> Check answers
 		</button>
 	{/if}
 </footer>
 
 <style>
 	.passage {
-		padding: 1.25rem;
+		padding: 1.5rem 1.75rem;
 		border: 1px solid var(--line);
-		border-radius: 14px;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 
@@ -151,56 +175,56 @@
 		display: flex;
 		align-items: center;
 		gap: 0.6rem;
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.85rem;
 	}
 
 	.passage h2 {
 		margin: 0;
-		font-size: 1.15rem;
-		color: var(--ink);
+		font-size: var(--step-1);
 	}
 
+	/* A reading passage is long-form: serif, generous leading, and a measure
+	   capped so the eye can find the next line. */
 	.text {
 		margin: 0;
-		font-size: 1.05rem;
-		line-height: 1.7;
+		max-width: var(--measure);
+		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-1);
+		font-variation-settings: 'opsz' 16;
+		line-height: 1.75;
+		color: var(--ink);
 		white-space: pre-wrap;
 	}
 
 	.hidden-note,
-	.translation,
-	.q-translation {
-		color: var(--muted);
-		font-size: 0.9rem;
+	.translation {
+		max-width: var(--measure);
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
-	.link {
-		margin-top: 0.75rem;
-		padding: 0;
-		border: 0;
-		background: none;
-		color: var(--accent);
-		font: inherit;
-		font-size: 0.88rem;
-		cursor: pointer;
-		text-decoration: underline;
+	.q-translation {
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.questions {
-		margin: 1.5rem 0 0;
+		margin: 1.75rem 0 0;
 		padding: 0;
 		list-style: none;
 		display: grid;
-		gap: 1.25rem;
+		gap: 1.5rem;
 	}
 
 	.q {
 		margin: 0 0 0.15rem;
+		max-width: none;
+		font-size: var(--step-0);
 		font-weight: 600;
 	}
 
 	.q-translation {
-		margin: 0 0 0.6rem;
+		margin: 0 0 0.65rem;
 	}
 
 	.options {
@@ -210,83 +234,113 @@
 
 	.option {
 		display: flex;
-		flex-direction: column;
 		align-items: flex-start;
-		gap: 0.1rem;
-		padding: 0.6rem 0.85rem;
+		gap: 0.7rem;
+		padding: 0.65rem 0.9rem;
 		border: 1px solid var(--line);
-		border-radius: 10px;
+		border-radius: var(--radius-sm);
 		background: var(--surface);
 		font: inherit;
 		text-align: left;
 		cursor: pointer;
 		transition:
-			border-color 0.12s,
-			background 0.12s;
+			border-color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
 	}
 
 	.option:hover:not(:disabled) {
 		border-color: var(--accent);
+		transform: translateX(2px);
+	}
+
+	/* A/B/C in a circle, swapped for a tick or cross once checked — so the
+	   verdict lands where the eye already is. */
+	.marker {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.55em;
+		height: 1.55em;
+		flex: none;
+		border-radius: 50%;
+		background: var(--surface-alt);
+		color: var(--ink-muted);
+		font-size: var(--step--1);
+		font-weight: 700;
+	}
+
+	.option-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.08rem;
 	}
 
 	.option.chosen {
-		border-color: var(--ink);
+		border-color: var(--navy);
 		background: var(--surface-alt);
 	}
 
+	.option.chosen .marker {
+		background: var(--navy);
+		color: #fff;
+	}
+
 	.option.correct {
-		border-color: #3f7d4e;
-		background: #eaf4ec;
+		border-color: var(--right);
+		background: var(--right-bg);
+	}
+
+	.option.correct .marker {
+		background: var(--right);
+		color: #fff;
 	}
 
 	.option.wrong {
-		border-color: #b4452f;
-		background: #f9ebe7;
+		border-color: var(--wrong);
+		background: var(--wrong-bg);
+	}
+
+	.option.wrong .marker {
+		background: var(--wrong);
+		color: #fff;
 	}
 
 	.option small {
-		color: var(--muted);
-		font-size: 0.8rem;
+		color: var(--ink-muted);
+		font-size: var(--step--1);
 	}
 
 	.explanation {
-		margin: 0.5rem 0 0;
-		padding-left: 0.75rem;
-		border-left: 3px solid var(--line);
-		color: var(--ink-soft);
-		font-size: 0.9rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.45rem;
+		margin: 0.6rem 0 0;
+		padding-left: 0.2rem;
+		max-width: var(--measure);
+		color: var(--ink-muted);
+		font-size: var(--step--1);
 	}
 
 	.actions {
-		margin-top: 1.75rem;
+		position: relative;
+		margin-top: 1.9rem;
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		flex-wrap: wrap;
 	}
 
 	.verdict {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
 		margin: 0;
 		font-weight: 700;
-		color: #b4452f;
+		color: var(--wrong);
 	}
 
 	.verdict.pass {
-		color: #3f7d4e;
-	}
-
-	.primary {
-		padding: 0.6rem 1.25rem;
-		border: 0;
-		border-radius: 999px;
-		background: var(--ink);
-		color: #fff;
-		font: inherit;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.primary:disabled {
-		opacity: 0.45;
-		cursor: default;
+		color: var(--right);
 	}
 </style>
