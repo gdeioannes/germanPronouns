@@ -6,7 +6,6 @@ import { describe, expect, it } from 'vitest';
 
 import {
 	isAcceptedAnswer,
-	acceptedViaRelaxedOnly,
 	levenshtein,
 	matchesSpoken,
 	normalizeAnswer,
@@ -82,12 +81,25 @@ describe('answer normalization', () => {
 		expect(isAcceptedAnswer('schön', ['schön'], true)).toBe(true);
 	});
 
-	it('flags the near-miss that should offer relaxed correction', () => {
-		expect(acceptedViaRelaxedOnly('schon', ['schön'])).toBe(true);
-		// A genuinely wrong answer must not trigger the offer...
-		expect(acceptedViaRelaxedOnly('blau', ['schön'])).toBe(false);
-		// ...nor one that was already right.
-		expect(acceptedViaRelaxedOnly('schön', ['schön'])).toBe(false);
+	it('ignores punctuation in relaxed mode, including a missing full stop', () => {
+		expect(isAcceptedAnswer('Ich heisse Anna', ['Ich heiße Anna.'], true)).toBe(true);
+		expect(isAcceptedAnswer('wie gehts', ["wie geht's"], true)).toBe(true);
+		expect(isAcceptedAnswer('Guten Tag', ['Guten Tag!'], true)).toBe(true);
+		// A smart apostrophe typed where the answer has a straight one, and back.
+		expect(isAcceptedAnswer('wie geht’s', ["wie geht's"], true)).toBe(true);
+		// Strict mode still marks every one of those wrong.
+		expect(isAcceptedAnswer('Ich heisse Anna', ['Ich heiße Anna.'], false)).toBe(false);
+		expect(isAcceptedAnswer('Guten Tag', ['Guten Tag!'], false)).toBe(false);
+	});
+
+	it('collapses stray spacing rather than failing on it', () => {
+		expect(isAcceptedAnswer('  ich   bin  da ', ['Ich bin da.'], true)).toBe(true);
+	});
+
+	it('still rejects a genuinely wrong answer in relaxed mode', () => {
+		expect(isAcceptedAnswer('Ich heisse Peter', ['Ich heiße Anna.'], true)).toBe(false);
+		// Relaxed forgives the marks, never a missing or extra word.
+		expect(isAcceptedAnswer('heisse Anna', ['Ich heiße Anna.'], true)).toBe(false);
 	});
 
 	it('never accepts an empty answer', () => {

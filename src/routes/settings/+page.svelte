@@ -74,8 +74,11 @@
 			<span>
 				<strong>Relaxed correction</strong>
 				<small>
-					Accept answers missing an umlaut or accent — useful when your keyboard
-					can't reach ä, ö, ü or ß.
+					On by default: an answer still counts when it's only missing an
+					umlaut, an accent, or punctuation like a full stop or apostrophe —
+					your keyboard shouldn't decide whether you know the German. The
+					correct spelling is still written into the gap afterwards. Turn this
+					off to be marked on the exact spelling.
 				</small>
 			</span>
 		</label>

@@ -38,17 +38,27 @@ export function stripDiacritics(input: string): string {
 	return out;
 }
 
-const RELAXED_PUNCTUATION = /[?!¿¡]/g;
+/**
+ * Everything relaxed mode ignores: punctuation and the typographic marks a
+ * learner has no easy way to type — the full stop and comma the eye skips,
+ * apostrophes and quotes their keyboard may smarten, dashes, brackets. What
+ * survives is letters, digits and the spaces between words, because those are
+ * what the exercise is actually testing.
+ */
+const RELAXED_IGNORED = /[^\p{L}\p{N}\s]/gu;
 
 /**
  * Normalizes an answer for comparison: trimmed and lower-cased, and in
- * `relaxed` mode also diacritic-folded with ?/!/¿/¡ dropped — so a learner
- * whose keyboard can't reach umlauts isn't marked wrong for it.
+ * `relaxed` mode also diacritic-folded (ä→a, ß→ss, é→e) with punctuation
+ * dropped and runs of whitespace collapsed — so a missing umlaut, a missing
+ * full stop or a straight apostrophe is not what fails an otherwise correct
+ * answer. The correct spelling is still written back into the field, so the
+ * learner sees what they missed.
  */
 export function normalizeAnswer(answer: string, relaxed: boolean): string {
 	const base = answer.trim().toLowerCase();
 	if (!relaxed) return base;
-	return stripDiacritics(base).replace(RELAXED_PUNCTUATION, '').trim();
+	return stripDiacritics(base).replace(RELAXED_IGNORED, '').replace(/\s+/g, ' ').trim();
 }
 
 /** Whether `answer` matches any of `accepted`, under the current strictness. */
@@ -60,19 +70,6 @@ export function isAcceptedAnswer(
 	const normalized = normalizeAnswer(answer, relaxed);
 	if (!normalized) return false;
 	return accepted.some((a) => normalizeAnswer(a, relaxed) === normalized);
-}
-
-/**
- * Whether an answer would have been accepted only thanks to relaxed mode —
- * i.e. it is wrong strictly, right relaxed. Drives the one-time hint offering
- * to turn relaxed correction on.
- */
-export function acceptedViaRelaxedOnly(
-	answer: string,
-	accepted: readonly string[]
-): boolean {
-	return !isAcceptedAnswer(answer, accepted, false) &&
-		isAcceptedAnswer(answer, accepted, true);
 }
 
 // ---------------------------------------------------------------------------

@@ -17,7 +17,6 @@ export const SettingsKeys = {
 	progressionUnlockLaps: 'progression_unlock_laps',
 	showFirstLetterHint: 'show_first_letter_hint',
 	relaxedCorrection: 'relaxed_correction',
-	seenRelaxedCorrectionHint: 'seen_relaxed_correction_hint',
 	speakingFixLogPrefix: 'speaking_fix_log_',
 	questUnlockLaps: 'quest_unlock_laps',
 	completedQuestQuizzes: 'quest_completed_quizzes',

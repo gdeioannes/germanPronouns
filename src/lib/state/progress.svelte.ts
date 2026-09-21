@@ -78,7 +78,12 @@ class ProgressStore {
 	private placementUnlocked = $state<string[]>([]);
 
 	gating = $state<Gating>(DEFAULT_GATING);
-	relaxedCorrection = $state(false);
+	/**
+	 * On by default: a missing umlaut or full stop is a keyboard problem, not a
+	 * German one, and marking it wrong teaches nothing. Only an explicit "false"
+	 * in storage turns it off, so a learner who opted out keeps their choice.
+	 */
+	relaxedCorrection = $state(true);
 	showFirstLetterHint = $state(false);
 	/** Skip the cloud neural voice and use the on-device one only. */
 	voiceOfflineOnly = $state(false);
@@ -99,7 +104,7 @@ class ProgressStore {
 		for (const key of sets) loaded[key] = await this.readList(key);
 		this.completed = loaded;
 		this.placementUnlocked = await this.readList(SettingsKeys.placementUnlockedQuizzes);
-		this.relaxedCorrection = (await storage.get(SettingsKeys.relaxedCorrection)) === 'true';
+		this.relaxedCorrection = (await storage.get(SettingsKeys.relaxedCorrection)) !== 'false';
 		this.showFirstLetterHint =
 			(await storage.get(SettingsKeys.showFirstLetterHint)) === 'true';
 		this.voiceOfflineOnly = (await storage.get(SettingsKeys.voiceOfflineOnly)) === 'true';

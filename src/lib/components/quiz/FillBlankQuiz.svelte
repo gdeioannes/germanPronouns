@@ -18,11 +18,7 @@
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
-	import {
-		acceptedViaRelaxedOnly,
-		isAcceptedAnswer,
-		normalizeAnswer
-	} from '$lib/domain/answers';
+	import { isAcceptedAnswer, normalizeAnswer } from '$lib/domain/answers';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
 	import { REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
@@ -78,7 +74,6 @@
 	let verdict = $state<'right' | 'wrong' | null>(null);
 	let streak = $state(0);
 	let best = $state(0);
-	let showRelaxedHint = $state(false);
 	let inputEl = $state<HTMLInputElement | null>(null);
 	let burst = $state(0);
 	let burstSize = $state(12);
@@ -180,12 +175,6 @@
 		const accepted = current.acceptedAnswers;
 		const typed = answer;
 		const correct = isAcceptedAnswer(typed, accepted, progress.relaxedCorrection);
-
-		// A near miss that only an umlaut separated: offer the setting once,
-		// rather than letting the learner think they were simply wrong.
-		if (!correct && !progress.relaxedCorrection && acceptedViaRelaxedOnly(typed, accepted)) {
-			showRelaxedHint = true;
-		}
 
 		verdict = correct ? 'right' : 'wrong';
 
@@ -297,28 +286,6 @@
 		</p>
 	</section>
 
-	{#if showRelaxedHint}
-		<aside class="relaxed">
-			<p>
-				That was right apart from an accent or umlaut. Turn on
-				<strong>relaxed correction</strong> and answers like that will count.
-			</p>
-			<div>
-				<button
-					class="btn"
-					onclick={async () => {
-						await progress.setRelaxedCorrection(true);
-						showRelaxedHint = false;
-					}}
-				>
-					Turn it on
-				</button>
-				<button class="btn-quiet" onclick={() => (showRelaxedHint = false)}>
-					No thanks
-				</button>
-			</div>
-		</aside>
-	{/if}
 {:else}
 	<p class="empty">This quiz has no questions yet.</p>
 {/if}
@@ -512,18 +479,6 @@
 
 	.status.wrong {
 		color: var(--wrong);
-	}
-
-	.relaxed {
-		margin-top: 1rem;
-		padding: 1.1rem 1.25rem;
-		border: 1px solid var(--accent);
-		border-radius: var(--radius);
-		background: var(--accent-soft);
-	}
-
-	.relaxed p {
-		margin: 0 0 0.85rem;
 	}
 
 	.empty {
