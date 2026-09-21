@@ -12,7 +12,7 @@ import 'package:german_pronouns_articles/pages/back_office/course_spoken_lines_p
 import 'support/in_memory_content.dart';
 
 void main() {
-  final course = defaultCourses.firstWhere((c) => c.id == 'en_de');
+  final course = defaultCourses.firstWhere((c) => c.id == 'de_cert_a1');
   const quiz = SpeakRepeatQuiz(
     id: 'sp1',
     title: 'SP1',
@@ -43,7 +43,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: CourseSpokenLinesPage(
         editor: editor,
-        courseId: 'en_de',
+        courseId: 'de_cert_a1',
         quizId: 'sp1',
         title: 'SP1',
       ),
@@ -57,7 +57,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Guten Tag'), findsNothing);
-    final saved = (await editor.course('en_de')).quizById('sp1')!;
+    final saved = (await editor.course('de_cert_a1')).quizById('sp1')!;
     expect(linesOf(saved).length, 1);
     expect(linesOf(saved).first.text, 'Danke');
   });

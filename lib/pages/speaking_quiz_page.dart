@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n/speaking_strings.dart';
 import '../models/app_page.dart';
-import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
@@ -29,7 +28,7 @@ const String kSpeakingExplainerSeenKey = 'speaking_explainer_seen';
 /// A speaking quiz ([QuizKind.speaking]): the app does **not** run the
 /// conversation. It renders a ready-made exercise prompt the learner copies into
 /// their own AI assistant, talks through there in voice mode, and comes back to
-/// enter the score the AI gave them — which earns the usual medal, coins and
+/// enter the score the AI gave them — which earns the usual medal and
 /// chain progression.
 ///
 /// The trade this makes is deliberate: live conversational AI is the one thing
@@ -189,7 +188,7 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
   }
 
   /// The ribbon tier a speaking medal pays out as — the seam between the
-  /// Flutter-free scoring model and the shared ribbon/coin tiers.
+  /// Flutter-free scoring model and the shared ribbon tiers.
   static RibbonTier _tier(SpeakingMedal medal) => switch (medal) {
     SpeakingMedal.gold => RibbonTier.gold,
     SpeakingMedal.silver => RibbonTier.silver,
@@ -203,7 +202,6 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
 
     final session = resolvedSpeakingSession(_exercise, template);
     final passed = score >= session.passScore;
-    final medal = speakingMedal(score);
 
     // A pasted report carries more than the score: its FIX: lines are the
     // learner's actual mistakes. Bank them for the personal-focus loop and
@@ -236,15 +234,7 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
     });
 
     if (passed) {
-      final newlyDone = !NounSettings.instance.isSpeakQuizCompleted(
-        widget.content.id,
-      );
       await NounSettings.instance.markSpeakQuizCompleted(widget.content.id);
-      // Coins pay once, on the first completion, in the medal's band — the same
-      // ribbon tiers every other quiz pays out on.
-      if (newlyDone && medal != null) {
-        await CoinWallet.instance.add(CoinWallet.rollTierCoins(_tier(medal)));
-      }
       if (widget.questProgressionKey != null) {
         await NounSettings.instance.markQuestQuizCompleted(
           widget.questProgressionKey!,
@@ -662,8 +652,8 @@ class _SpeakingQuizPageState extends State<SpeakingQuizPage> {
 
   Widget _resultCard(BuildContext context, int score) {
     final theme = Theme.of(context);
-    final medal = speakingMedal(score);
     final grade = speakingGrade(score);
+    final medal = speakingMedal(score);
     final label = switch (medal) {
       SpeakingMedal.gold => _s.gold,
       SpeakingMedal.silver => _s.silver,

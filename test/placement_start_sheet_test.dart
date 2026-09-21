@@ -39,9 +39,8 @@ void main() {
     await (await SharedPreferences.getInstance()).reload();
     await NounSettings.instance.load();
     await CourseSession.instance.loadCourses();
-    // Deutsch → Tschechisch: three gated modules, the smallest real course
-    // with a locked progression.
-    await CourseSession.instance.setActiveCourse('de_cs');
+    // The German certification track: twelve gated CEFR quest modules.
+    await CourseSession.instance.setActiveCourse('de_cert_a1');
     await CourseSession.instance.ensureActiveNavLoaded();
   });
 
@@ -67,7 +66,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(s.pickTitle), findsOneWidget);
-    for (final module in ['ERSTE KLÄNGE', 'ICH & DIE ANDEREN', 'ASPEKT']) {
+    for (final module in ['ERSTE SCHRITTE', 'IM ALLTAG', 'ERLEBNISSE']) {
       expect(
         find.textContaining(module, findRichText: true),
         findsOneWidget,

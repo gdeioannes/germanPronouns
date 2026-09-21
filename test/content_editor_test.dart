@@ -16,10 +16,10 @@ Quiz _edited(Quiz q, String key, Object? value) =>
     Quiz.fromJson(q.toJson()..[key] = value);
 
 void main() {
-  final course = defaultCourses.firstWhere((c) => c.id == 'en_de');
+  final course = defaultCourses.firstWhere((c) => c.id == 'de_cert_a1');
   final seedQuizzes = [
     for (final c in allQuizContent)
-      if (c.id == 'article' || c.id == 'pronoun') Quiz.fromLegacy(c),
+      if (c.id == 'quest_a1_1_zahlen' || c.id == 'quest_a1_1_pronomen') Quiz.fromLegacy(c),
   ];
   final courseStr = jsonEncode(
     PopulatedCourse(course: course, version: 't', quizzes: seedQuizzes).toJson(),
@@ -44,57 +44,57 @@ void main() {
 
   test('editing a quiz persists and is served to the learner', () async {
     final t = build();
-    final original = (await t.editor.course('en_de')).quizById('article')!;
+    final original = (await t.editor.course('de_cert_a1')).quizById('quest_a1_1_zahlen')!;
 
-    await t.editor.saveQuiz('en_de', _edited(original, 'title', 'Edited Title'));
+    await t.editor.saveQuiz('de_cert_a1', _edited(original, 'title', 'Edited Title'));
 
-    final reloaded = (await t.editor.course('en_de')).quizById('article')!;
+    final reloaded = (await t.editor.course('de_cert_a1')).quizById('quest_a1_1_zahlen')!;
     expect(reloaded.title, 'Edited Title');
-    expect(t.store.data['en_de'], isNotNull, reason: 'edit persisted to store');
+    expect(t.store.data['de_cert_a1'], isNotNull, reason: 'edit persisted to store');
   });
 
   test('adding a new quiz appends it to the course', () async {
     final t = build();
-    final base = (await t.editor.course('en_de')).quizById('pronoun')!;
+    final base = (await t.editor.course('de_cert_a1')).quizById('quest_a1_1_pronomen')!;
     final added = _edited(
       _edited(base, 'id', 'new_quiz'),
       'storageKeyPrefix',
       'new_quiz_',
     );
 
-    await t.editor.saveQuiz('en_de', added);
+    await t.editor.saveQuiz('de_cert_a1', added);
 
-    expect((await t.editor.course('en_de')).quizById('new_quiz'), isNotNull);
+    expect((await t.editor.course('de_cert_a1')).quizById('new_quiz'), isNotNull);
   });
 
   test('deleting a quiz removes it', () async {
     final t = build();
-    await t.editor.deleteQuiz('en_de', 'article');
-    expect((await t.editor.course('en_de')).quizById('article'), isNull);
-    expect((await t.editor.course('en_de')).quizById('pronoun'), isNotNull);
+    await t.editor.deleteQuiz('de_cert_a1', 'quest_a1_1_zahlen');
+    expect((await t.editor.course('de_cert_a1')).quizById('quest_a1_1_zahlen'), isNull);
+    expect((await t.editor.course('de_cert_a1')).quizById('quest_a1_1_pronomen'), isNotNull);
   });
 
   test('reorderQuizzes persists the new order', () async {
     final t = build();
     final before =
-        (await t.editor.course('en_de')).quizzes.map((q) => q.id).toList();
+        (await t.editor.course('de_cert_a1')).quizzes.map((q) => q.id).toList();
     expect(before.length, 2);
 
     await t.editor.reorderQuizzes(
-      'en_de',
-      (await t.editor.course('en_de')).quizzes.reversed.toList(),
+      'de_cert_a1',
+      (await t.editor.course('de_cert_a1')).quizzes.reversed.toList(),
     );
 
     final after =
-        (await t.editor.course('en_de')).quizzes.map((q) => q.id).toList();
+        (await t.editor.course('de_cert_a1')).quizzes.map((q) => q.id).toList();
     expect(after, before.reversed.toList());
   });
 
   test('reorderQuizzes rejects adding/dropping a quiz', () async {
     final t = build();
-    final quizzes = (await t.editor.course('en_de')).quizzes;
+    final quizzes = (await t.editor.course('de_cert_a1')).quizzes;
     expect(
-      () => t.editor.reorderQuizzes('en_de', [quizzes.first]),
+      () => t.editor.reorderQuizzes('de_cert_a1', [quizzes.first]),
       throwsArgumentError,
     );
   });
@@ -103,7 +103,7 @@ void main() {
     final t = build();
 
     final created = await t.editor.createQuiz(
-      'en_de',
+      'de_cert_a1',
       type: 'reading',
       id: 'r1',
       title: 'New Reading',
@@ -111,7 +111,7 @@ void main() {
     );
     expect(created, isA<ReadingQuiz>());
 
-    final reloaded = (await t.editor.course('en_de')).quizById('r1');
+    final reloaded = (await t.editor.course('de_cert_a1')).quizById('r1');
     expect(reloaded, isA<ReadingQuiz>());
     expect(reloaded!.title, 'New Reading');
     expect(reloaded.storageKeyPrefix, 'r1_');
@@ -119,10 +119,10 @@ void main() {
 
   test('createQuiz rejects a duplicate storageKeyPrefix', () async {
     final t = build();
-    final existing = (await t.editor.course('en_de')).quizById('article')!;
+    final existing = (await t.editor.course('de_cert_a1')).quizById('quest_a1_1_zahlen')!;
     expect(
       () => t.editor.createQuiz(
-        'en_de',
+        'de_cert_a1',
         type: 'fillBlank',
         id: 'dup',
         title: 'Dup',
@@ -167,24 +167,24 @@ void main() {
 
   test('resetCourse drops edits and reverts to the shipped bundle', () async {
     final t = build();
-    final original = (await t.editor.course('en_de')).quizById('article')!;
-    await t.editor.saveQuiz('en_de', _edited(original, 'title', 'X'));
+    final original = (await t.editor.course('de_cert_a1')).quizById('quest_a1_1_zahlen')!;
+    await t.editor.saveQuiz('de_cert_a1', _edited(original, 'title', 'X'));
 
-    await t.editor.resetCourse('en_de');
+    await t.editor.resetCourse('de_cert_a1');
 
-    expect((await t.editor.course('en_de')).quizById('article')!.title,
+    expect((await t.editor.course('de_cert_a1')).quizById('quest_a1_1_zahlen')!.title,
         original.title);
-    expect(t.store.data['en_de'], isNull);
+    expect(t.store.data['de_cert_a1'], isNull);
   });
 
   test('changing a storageKeyPrefix is rejected (it keys saved progress)',
       () async {
     final t = build();
-    final original = (await t.editor.course('en_de')).quizById('article')!;
+    final original = (await t.editor.course('de_cert_a1')).quizById('quest_a1_1_zahlen')!;
     final moved = _edited(original, 'storageKeyPrefix', 'moved_');
 
     expect(
-      () => t.editor.saveQuiz('en_de', moved),
+      () => t.editor.saveQuiz('de_cert_a1', moved),
       throwsArgumentError,
     );
   });

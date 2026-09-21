@@ -25,7 +25,6 @@ import '../theme/brand_palette.dart';
 import '../theme/exercise_sheet_pdf.dart';
 import '../theme/help_memory_pdf.dart';
 import '../widgets/app_drawer.dart';
-import '../widgets/coin_balance_pill.dart';
 import '../widgets/completion_ribbon.dart';
 import '../widgets/country_flag.dart';
 import '../widgets/feature_poll.dart';
@@ -967,7 +966,6 @@ class _CourseHomePageState extends State<CourseHomePage> {
           ),
         ),
         actions: [
-          const CoinBalancePill(),
           if (AppSession.instance.role == UserRole.learner)
             IconButton(
               tooltip: strings.logOut,

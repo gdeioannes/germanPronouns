@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/app_page.dart';
-import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
@@ -70,8 +69,8 @@ enum _DrawMode { trace, recall }
 /// and the learner **draws** it on a practice grid — traced over a faint
 /// template, or from memory. "Check my drawing" scores the ink against the
 /// printed character (see [DrawingScorer]) into a tier — gold ≥ 65%, silver
-/// ≥ 50%, bronze ≥ 35% — paying that card's coins on the spot with a
-/// fireworks burst, like a good answer elsewhere (a mixed-in reading card
+/// ≥ 50%, bronze ≥ 35% — celebrated on the spot with a fireworks
+/// burst, like a good answer elsewhere (a mixed-in reading card
 /// behaves the same). The run's ribbon is the tier *most* cards earned
 /// ([majorityTier]); a run whose cards were mostly missed earns no ribbon and
 /// does **not** complete the quiz — the next one stays locked until a run
@@ -156,20 +155,8 @@ class _DrawQuizPageState extends State<DrawQuizPage>
   int _readCorrect = 0;
   int _readTotal = 0;
 
-  /// Coins the current card just paid (shown in its verdict pill).
-  int _cardCoins = 0;
-
-  /// Instant payout per card tier — small change next to the ribbon bands,
-  /// but every good drawing (or reading pick) pays something on the spot.
-  static const Map<RibbonTier, int> _coinsPerCard = {
-    RibbonTier.gold: 5,
-    RibbonTier.silver: 3,
-    RibbonTier.bronze: 1,
-  };
-
   bool _finished = false;
   RibbonTier? _runTier;
-  int _coinsEarned = 0;
   NextExercise? _nextExercise;
 
   _Card get _card => _cards[_index];
@@ -276,13 +263,9 @@ class _DrawQuizPageState extends State<DrawQuizPage>
     setState(() => _mode = mode);
   }
 
-  /// A card just earned [tier]: pay its coins on the spot and celebrate with
-  /// a confetti burst — the same beat a good answer gets in the other quizzes,
-  /// bigger the better the tier.
+  /// A card just earned [tier]: celebrate with a confetti burst — the same
+  /// beat a good answer gets in the other quizzes, bigger the better the tier.
   Future<void> _reward(RibbonTier tier) async {
-    final coins = _coinsPerCard[tier]!;
-    _cardCoins = coins;
-    await CoinWallet.instance.add(coins);
     if (!mounted) return;
     final colorScheme = Theme.of(context).colorScheme;
     final palette = [
@@ -367,20 +350,16 @@ class _DrawQuizPageState extends State<DrawQuizPage>
       _checked = false;
       _score = null;
       _chosen = null;
-      _cardCoins = 0;
     });
     _autoPlay();
   }
 
   Future<void> _finish() async {
-    // The run's ribbon is the tier most cards earned. Earning one pays the
-    // tier's coin band and completes the quiz (unlocking the next in a gated
-    // chain); a mostly-missed run earns nothing and the quiz stays open.
+    // The run's ribbon is the tier most cards earned. Earning one completes
+    // the quiz (unlocking the next in a gated chain); a mostly-missed run
+    // earns nothing and the quiz stays open.
     final tier = majorityTier(_cardTiers);
-    var coins = 0;
     if (tier != null) {
-      coins = CoinWallet.rollTierCoins(tier);
-      await CoinWallet.instance.add(coins);
       await _raiseRibbon(tier);
       await NounSettings.instance.markSpeakQuizCompleted(widget.content.id);
       if (widget.questProgressionKey != null) {
@@ -392,7 +371,6 @@ class _DrawQuizPageState extends State<DrawQuizPage>
     setState(() {
       _finished = true;
       _runTier = tier;
-      _coinsEarned = coins;
     });
     // Earning a ribbon is what counts as finishing here, so only then is the
     // feature poll asked (self-gating: at most once a week, and only when due).
@@ -420,13 +398,11 @@ class _DrawQuizPageState extends State<DrawQuizPage>
       _checked = false;
       _score = null;
       _chosen = null;
-      _cardCoins = 0;
       _cardTiers.clear();
       _readCorrect = 0;
       _readTotal = 0;
       _finished = false;
       _runTier = null;
-      _coinsEarned = 0;
       _burst = const [];
     });
     _autoPlay();
@@ -712,7 +688,7 @@ class _DrawQuizPageState extends State<DrawQuizPage>
       };
 
   /// A card's verdict pill: its tier color/name plus [text] (overlap
-  /// percentage, coins just paid…). A null [tier] is the "missed" look.
+  /// percentage, the tier label…). A null [tier] is the "missed" look.
   Widget _buildTierPill(BuildContext context, RibbonTier? tier, String text) {
     final theme = Theme.of(context);
     final color =
@@ -749,14 +725,12 @@ class _DrawQuizPageState extends State<DrawQuizPage>
     );
   }
 
-  /// The per-drawing verdict: the overlap percentage, the tier it lands in
-  /// (gold ≥ 65%, silver ≥ 50%, bronze ≥ 35%, below = keep at it) and the
-  /// coins that just paid.
+  /// The per-drawing verdict: the overlap percentage and the tier it lands in
+  /// (gold ≥ 65%, silver ≥ 50%, bronze ≥ 35%, below = keep at it).
   Widget _buildScoreBadge(BuildContext context, DrawingScore score) {
     final tier = ribbonTierForOverlap(score.overlap);
     final label = tier == null ? 'Keep practicing' : _tierLabel(tier);
-    final coins = _cardCoins > 0 ? ' · +$_cardCoins coins' : '';
-    return _buildTierPill(context, tier, '${score.percent}% · $label$coins');
+    return _buildTierPill(context, tier, '${score.percent}% · $label');
   }
 
   Widget _buildDrawControls(BuildContext context) {
@@ -828,9 +802,7 @@ class _DrawQuizPageState extends State<DrawQuizPage>
             _buildTierPill(
               context,
               identical(_chosen, card.item) ? RibbonTier.gold : null,
-              identical(_chosen, card.item)
-                  ? 'Correct · +$_cardCoins coins'
-                  : 'Missed',
+              identical(_chosen, card.item) ? 'Correct' : 'Missed',
             ),
             const SizedBox(height: 12),
             _buildSoundRow(context),
@@ -967,16 +939,6 @@ class _DrawQuizPageState extends State<DrawQuizPage>
                 color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
-            if (_coinsEarned > 0) ...[
-              const SizedBox(height: 4),
-              Text(
-                '+$_coinsEarned coins',
-                style: theme.textTheme.labelLarge?.copyWith(
-                  color: theme.colorScheme.primary,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
             if (_readTotal > 0) ...[
               const SizedBox(height: 4),
               Text(

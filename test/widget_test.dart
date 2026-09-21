@@ -13,8 +13,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Pick a course, start right away'), findsOneWidget);
-    // Three one-tap featured course cards (English site language in tests).
-    expect(find.text('Start now'), findsNWidgets(3));
+    // One-tap featured course card per course (one course today).
+    expect(find.text('Start now'), findsOneWidget);
     expect(find.text('More courses'), findsOneWidget);
     expect(find.text('Teacher sign in'), findsOneWidget);
   });

@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import '../data/db/content_repository.dart';
 import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
-import '../data/section_catalog.dart';
 import '../models/course_session.dart';
 import '../models/nav_layout.dart';
 import '../models/noun_settings.dart';
@@ -130,5 +129,5 @@ Future<String> _navQuizTitle(String ref) async {
   } catch (_) {
     // Database unavailable — fall back to the compiled section title.
   }
-  return sectionForContentId(ref)?.title ?? ref;
+  return ref;
 }

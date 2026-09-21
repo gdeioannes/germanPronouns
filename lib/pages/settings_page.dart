@@ -10,7 +10,6 @@ import '../data/debug_unlock.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../widgets/app_drawer.dart';
-import '../widgets/coin_balance_pill.dart';
 import '../widgets/feature_poll.dart';
 
 /// App-wide settings, reachable from the drawer on every page.
@@ -297,7 +296,6 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(CourseSession.instance.strings.settings),
-        actions: const [CoinBalancePill()],
       ),
       drawer: const AppDrawer(currentPage: AppPage.settings),
       body: SafeArea(
@@ -689,9 +687,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     'Ribbon debug: while on, tapping a quiz in the menu '
                     'completes it instead of opening it — the first touch '
                     'earns its ribbon and unlocks the next quiz, further '
-                    'touches raise the tier (silver, then gold) — and every '
-                    'touch pays the tier\'s coins. Also toggled by typing '
-                    '"$debugRibbonTrigger" anywhere in the app.',
+                    'touches raise the tier (silver, then gold). Also toggled '
+                    'by typing "$debugRibbonTrigger" anywhere in the app.',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   ValueListenableBuilder<bool>(

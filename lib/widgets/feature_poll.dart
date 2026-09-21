@@ -5,7 +5,7 @@
 /// The whole point is response rate, so it is deliberately *not* a form: no
 /// free text, no account, no second screen. The choice is recorded as an
 /// anonymous Aptabase event (see [Analytics]) — there is no database behind
-/// this and no personal data is stored — and answering pays coins.
+/// this and no personal data is stored.
 ///
 /// It is asked at a high point — right after a quiz is finished — and then not
 /// again for [kFeaturePollCooldown], whether it was answered or dismissed. A
@@ -17,7 +17,6 @@ library;
 import 'package:flutter/material.dart';
 
 import '../l10n/app_strings.dart';
-import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../services/analytics.dart';
@@ -35,7 +34,7 @@ const Duration kFeaturePollCooldown = Duration(days: 7);
 const Duration kFeaturePollMinUsage = Duration(minutes: 20);
 
 /// How long to wait after a quiz is finished before asking, so the score, the
-/// ribbon and the coin payout land first and the poll reads as a reward rather
+/// ribbon lands first and the poll reads as a reward rather
 /// than an interruption.
 const Duration kFeaturePollDelay = Duration(milliseconds: 1400);
 
@@ -143,26 +142,21 @@ const String kFeaturePollSourceLogin = 'login';
 ///
 /// Adaptive like the app's other panels: a dialog on wide screens, a bottom
 /// sheet on phones. The sheet rides the root navigator because the learner
-/// shell stacks the room door tab over the shell navigator.
+/// shell stacks its overlays over the shell navigator.
 ///
 /// Always shows — the due check lives in [maybeShowFeaturePollAfterQuiz], so
 /// the Settings and course-home buttons can open it whenever the learner asks.
-/// Either outcome restarts the cooldown. Coins are only paid when the poll was
-/// actually due, so the manual entry points can't be farmed for currency.
+/// Either outcome restarts the cooldown.
 Future<void> showFeaturePoll(
   BuildContext context, {
   String source = kFeaturePollSourceAfterQuiz,
 }) async {
   // The poll can be opened before the learner shell has booted — the login
-  // page offers it — so load the state it reads and writes first. Both loads
-  // are idempotent and cheap. This is not optional for the wallet: `add()`
-  // increments from its in-memory balance, so adding to an unloaded wallet
-  // would start from a stale zero and persist that, wiping the learner's coins.
+  // page offers it — so load the state it reads and writes first. The load is
+  // idempotent and cheap.
   await NounSettings.instance.load();
-  await CoinWallet.instance.load();
   if (!context.mounted) return;
 
-  final rewarded = isFeaturePollDue();
   final screen = MediaQuery.sizeOf(context);
   final choice = screen.width >= 600
       ? await showDialog<FeaturePollChoice>(
@@ -216,19 +210,11 @@ Future<void> showFeaturePoll(
     'course': courseId,
     'source': source,
   });
-  if (rewarded) await CoinWallet.instance.add(CoinWallet.featurePollBonus);
-
   if (!context.mounted) return;
   final strings = CourseSession.instance.strings;
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      // Only promise coins when coins were actually paid.
-      content: Text(
-        rewarded
-            ? strings.featurePollThanks
-                .replaceAll('{coins}', '${CoinWallet.featurePollBonus}')
-            : strings.featurePollThanksAgain,
-      ),
+      content: Text(strings.featurePollThanksAgain),
       behavior: SnackBarBehavior.floating,
     ),
   );

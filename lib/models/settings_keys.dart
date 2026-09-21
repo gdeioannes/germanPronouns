@@ -16,66 +16,6 @@ class SettingsKeys {
   static const String colorNouns = 'color_nouns';
   static const String lastPage = 'last_page';
 
-  /// The learner's global coin balance (the coin "wallet"). One app-wide value,
-  /// not per-quiz: every quiz adds to and shows the same total. See [CoinWallet].
-  static const String coinBalance = 'coin_balance';
-
-  /// Ids of the furniture the learner has bought for the apartment mini-game
-  /// (a `StringList`). See `Apartment` and `shopCatalog`.
-  static const String apartmentItems = 'apartment_items';
-
-  /// Where each owned item sits in the room, as a JSON map of `id -> [x, y]`
-  /// with x/y normalized to 0..1 (so positions survive across different screen
-  /// sizes). See `Apartment`.
-  static const String apartmentLayout = 'apartment_layout';
-
-  /// Ids of the furniture that has been *revealed* (became affordable at least
-  /// once, so it appears in the shop and stays). A `StringList`. See
-  /// `Apartment` and `shopCatalog`.
-  static const String apartmentRevealed = 'apartment_revealed';
-
-  /// Whether the room is shown at night (lights cast warm pools) vs day. A
-  /// `bool`. See `Apartment.isNight`.
-  static const String apartmentNight = 'apartment_night';
-
-  /// Instance ids of placed pieces that are mirrored horizontally. A
-  /// `StringList`. See `Apartment.isFlipped`.
-  static const String apartmentFlipped = 'apartment_flipped';
-
-  /// Whether the gentle idle animation of room pieces is on. A `bool` (default
-  /// true). See `Apartment.animate`.
-  static const String apartmentAnimate = 'apartment_animate';
-
-  /// Whether the GPU-heavy visual effects — the blurred contact shadows under
-  /// pieces and the blurred light glows — are on. A `bool` (default true).
-  /// Turning it off trades the soft look for much lower GPU load on weak
-  /// devices. See `Apartment.effects`.
-  static const String apartmentEffects = 'apartment_effects';
-
-  /// Ids of the rooms the learner owns (the starter plus any bought). A
-  /// `StringList`. See `Apartment` and `roomCatalog`.
-  static const String apartmentRooms = 'apartment_rooms';
-
-  /// Id of the room currently being viewed/edited. A `String`. See `Apartment`.
-  static const String apartmentCurrentRoom = 'apartment_current_room';
-
-  /// Per-room mirrored pieces, as JSON `{roomId: [instanceId, …]}`. Replaces the
-  /// old flat [apartmentFlipped] `StringList` (still read once, to migrate).
-  static const String apartmentFlippedRooms = 'apartment_flipped_rooms';
-
-  /// Ids of the room combos the learner has discovered, in discovery order (a
-  /// `StringList`). See `roomCombos` and `Apartment.discoverCombo`.
-  static const String apartmentCombos = 'apartment_combos';
-
-  /// Claw-machine pity counter: how many pulls in a row have come up without an
-  /// epic-or-better piece (an `int`). Once it reaches `Gacha.pityLimit - 1` the
-  /// next pull is guaranteed epic. See `Gacha`.
-  static const String gachaPity = 'gacha_pity';
-
-  /// How many claw-machine pulls the learner has played in total (an `int`).
-  /// Shown on the machine and used for the "first pull is free" welcome.
-  static const String gachaPulls = 'gacha_pulls';
-
   /// `QuizContent.id` of the last data-driven nav quiz opened, for resume.
   static const String lastContentId = 'last_content_id';
   static const String completedNounCategories =

@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 
-import '../models/coin_wallet.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_content.dart';
 import '../widgets/completion_ribbon.dart';
@@ -63,24 +62,11 @@ Future<void> unlockEverything() async {
 /// The word that, typed twice in a row from any screen, unlocks the whole app.
 const String debugUnlockTrigger = 'debugdebug';
 
-/// Typed from any screen, grants [debugCoinAmount] coins — a debug shortcut to
-/// fill the wallet for testing the apartment shop. See the global key handler
-/// in `main.dart`.
-const String debugCoinTrigger = 'coincoin';
-
-/// How many coins [debugCoinTrigger] grants each time it's typed.
-const int debugCoinAmount = 100000;
-
-/// Typed from any screen, reveals every element in the room shop at once
-/// (bypassing the earn-as-you-go reveal gate). See the global key handler in
-/// `main.dart`.
-const String debugRevealAllTrigger = 'roomroom';
-
 /// Typed from any screen, toggles ribbon debug mode on/off: while active,
 /// tapping a quiz in the navigation drawer completes it instead of opening it.
 /// The first touch finishes the quiz (bronze ribbon, unlocking the next quiz
 /// in its gated chain); each further touch raises the ribbon a tier — silver,
-/// then gold — and every touch pays the coin roll of the tier reached. A
+/// then gold. A
 /// warning bar shows while the mode is on (see `main.dart`); it can also be
 /// switched from the hidden Debug section of the Settings page (the typed
 /// trigger needs a hardware keyboard).
@@ -96,10 +82,9 @@ final ValueNotifier<bool> debugRibbonModeActive = ValueNotifier<bool>(false);
 /// completion set (play-through / passed; fill-in quizzes have none and are
 /// covered by the streak-goal bump below), which shows its ribbon and unlocks
 /// the next quiz in a gated chain. A quiz that's already done jumps its best
-/// streak to the next ribbon-tier boundary instead. Every step pays the coin
-/// roll of the tier reached. Returns (coins granted, tier reached), or null
-/// when the quiz already has the gold ribbon.
-Future<(int, RibbonTier)?> debugAdvanceRibbon({
+/// streak to the next ribbon-tier boundary instead. Returns the tier reached,
+/// or null when the quiz already has the gold ribbon.
+Future<RibbonTier?> debugAdvanceRibbon({
   required String storageKeyPrefix,
   required bool isDone,
   required Future<void> Function() markDone,
@@ -129,7 +114,5 @@ Future<(int, RibbonTier)?> debugAdvanceRibbon({
     );
   }
   final newLaps = newBest ~/ NounSettings.streakLapSize;
-  final coins = CoinWallet.rollRibbonCoins(newLaps);
-  await CoinWallet.instance.add(coins);
-  return (coins, ribbonTierForLaps(newLaps));
+  return ribbonTierForLaps(newLaps);
 }

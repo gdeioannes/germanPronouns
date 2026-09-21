@@ -7,7 +7,7 @@ the app hosting any voice or LLM service. The app generates a complete,
 self-contained **exercise prompt**; the learner copies it into a third-party AI
 assistant with voice mode (built and tested against Gemini's free tier), talks
 through the exercise there, receives a graded report at the end, and returns to
-the app to record the score. The app awards a medal, coins and progression from
+the app to record the score. The app awards a medal and progression from
 that score.
 
 The app never sends, receives or stores conversation data. It produces text and
@@ -44,7 +44,7 @@ Outsourcing the conversation also means outsourcing the quality: see §7.
    line, `SCORE=84`.
 8. Learner returns to the app and either types the number or pastes the whole
    report into the score field.
-9. The app saves the score, converts it to a grade, awards a medal and coins,
+9. The app saves the score, converts it to a grade, awards a medal,
    and completes the quiz if the score meets the pass threshold.
 
 ## 4. The exercise prompt

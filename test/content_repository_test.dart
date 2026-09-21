@@ -5,9 +5,13 @@ import 'package:sembast/sembast_memory.dart';
 
 import 'package:german_pronouns_articles/data/db/content_repository.dart';
 import 'package:german_pronouns_articles/models/nav_layout.dart';
-import 'package:german_pronouns_articles/data/preposition_content.dart';
+import 'package:german_pronouns_articles/data/quest_data.dart';
 import 'package:german_pronouns_articles/data/quiz_content_library.dart';
 import 'package:german_pronouns_articles/models/quiz_content.dart';
+
+/// A representative seeded quiz with an authored sentence bank.
+const kSeedQuizId = 'quest_a1_1_pronomen';
+final _seedQuiz = questQuizContent.firstWhere((q) => q.id == kSeedQuizId);
 
 void main() {
   var counter = 0;
@@ -27,23 +31,23 @@ void main() {
     final quizzes = await repo.listQuizzes();
     expect(quizzes.length, allQuizContent.length);
     expect(
-      quizzes.firstWhere((q) => q.id == 'preposition').sentenceCount,
-      prepositionQuizContent.sentences.length,
+      quizzes.firstWhere((q) => q.id == kSeedQuizId).sentenceCount,
+      _seedQuiz.sentences.length,
     );
   });
 
   test('reconstructs a quiz identical to its seed', () async {
     final repo = await openSeeded();
-    final restored = await repo.quizContent('preposition');
-    expect(restored!.toJson(), prepositionQuizContent.toJson());
+    final restored = await repo.quizContent(kSeedQuizId);
+    expect(restored!.toJson(), _seedQuiz.toJson());
   });
 
   test('adds then deletes a sentence', () async {
     final repo = await openSeeded();
-    final before = (await repo.sentencesFor('preposition')).length;
+    final before = (await repo.sentencesFor(kSeedQuizId)).length;
 
     final key = await repo.addSentence(
-      'preposition',
+      kSeedQuizId,
       const QuizSentenceData(
         subjectKey: 'durch',
         categoryLabel: 'Präposition',
@@ -51,18 +55,18 @@ void main() {
         acceptedAnswers: ['durch'],
       ),
     );
-    expect((await repo.sentencesFor('preposition')).length, before + 1);
+    expect((await repo.sentencesFor(kSeedQuizId)).length, before + 1);
 
     await repo.deleteSentence(key);
-    expect((await repo.sentencesFor('preposition')).length, before);
+    expect((await repo.sentencesFor(kSeedQuizId)).length, before);
   });
 
   test('updates a sentence in place', () async {
     final repo = await openSeeded();
-    final first = (await repo.sentencesFor('preposition')).first;
+    final first = (await repo.sentencesFor(kSeedQuizId)).first;
 
     await repo.updateSentence(
-      'preposition',
+      kSeedQuizId,
       first.key,
       QuizSentenceData(
         subjectKey: first.data.subjectKey,
@@ -73,7 +77,7 @@ void main() {
     );
 
     final reloaded =
-        (await repo.sentencesFor('preposition')).firstWhere((s) => s.key == first.key);
+        (await repo.sentencesFor(kSeedQuizId)).firstWhere((s) => s.key == first.key);
     expect(reloaded.data.sentence, 'EDITED ____ sentence.');
   });
 
@@ -112,9 +116,9 @@ void main() {
     test('keeps local edits when the version is unchanged', () async {
       final repo = ContentRepository(await openDb());
       await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
-      final before = (await repo.sentencesFor('preposition')).length;
+      final before = (await repo.sentencesFor(kSeedQuizId)).length;
       await repo.addSentence(
-        'preposition',
+        kSeedQuizId,
         const QuizSentenceData(
           subjectKey: 'durch',
           categoryLabel: 'Präposition',
@@ -124,7 +128,7 @@ void main() {
       );
       // Same version → no reseed, the local edit survives.
       await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
-      expect((await repo.sentencesFor('preposition')).length, before + 1);
+      expect((await repo.sentencesFor(kSeedQuizId)).length, before + 1);
     });
 
     test('re-seeds an install with a different content version', () async {
@@ -132,7 +136,7 @@ void main() {
       await repo.seedOrUpgrade(allQuizContent, version: '1.0.0');
       // A local edit on top of the seeded content.
       await repo.addSentence(
-        'preposition',
+        kSeedQuizId,
         const QuizSentenceData(
           subjectKey: 'durch',
           categoryLabel: 'Präposition',
@@ -141,11 +145,11 @@ void main() {
         ),
       );
 
-      final canonical = (await repo.sentencesFor('preposition')).length - 1;
+      final canonical = (await repo.sentencesFor(kSeedQuizId)).length - 1;
       // A newer published version → reseed, dropping the local edit.
       await repo.seedOrUpgrade(allQuizContent, version: '1.1.0');
 
-      expect((await repo.sentencesFor('preposition')).length, canonical);
+      expect((await repo.sentencesFor(kSeedQuizId)).length, canonical);
       expect(await repo.seededDataVersion(), '1.1.0');
     });
 

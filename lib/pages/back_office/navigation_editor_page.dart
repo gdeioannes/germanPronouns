@@ -4,7 +4,6 @@ import '../../data/course_catalog.dart';
 import '../../data/db/content_repository.dart';
 import '../../data/nav_layout_data.dart';
 import '../../data/quest_data.dart';
-import '../../data/section_catalog.dart';
 import '../../models/course.dart';
 import '../../models/nav_layout.dart';
 import '../../theme/app_theme.dart';
@@ -79,9 +78,7 @@ class _NavigationEditorPageState extends State<NavigationEditorPage> {
   }
 
   String _quizTitle(String contentId) =>
-      _quizzes[contentId]?.title ??
-      sectionForContentId(contentId)?.title ??
-      contentId;
+      _quizzes[contentId]?.title ?? contentId;
 
   String _linkTitle(String ref) => switch (ref) {
     kWordLibraryRef => 'Word Library',
@@ -529,18 +526,17 @@ class _NavigationEditorPageState extends State<NavigationEditorPage> {
     final item = group.items[i];
     final isQuest = group.type == NavGroupType.questChain;
     final questEntry = isQuest ? questEntryByKey(item.ref) : null;
-    final section = sectionForContentId(item.ref);
     final icon = navIconFor(
       item.iconKey,
       isQuest
           ? Icons.flag_rounded
           : group.type == NavGroupType.links
           ? Icons.link_rounded
-          : (section?.icon ?? Icons.menu_book_rounded),
+          : Icons.menu_book_rounded,
     );
     final color = navColorFor(
       item.colorIndex,
-      section?.accent ?? kSectionAccentColors[0],
+      kSectionAccentColors[0],
     );
     final title = isQuest
         ? (questEntry == null

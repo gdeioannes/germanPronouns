@@ -13,7 +13,7 @@ import 'package:german_pronouns_articles/pages/back_office/course_quiz_sentences
 import 'support/in_memory_content.dart';
 
 void main() {
-  final course = defaultCourses.firstWhere((c) => c.id == 'en_de');
+  final course = defaultCourses.firstWhere((c) => c.id == 'de_cert_a1');
   const quiz = FillBlankQuiz(
     id: 'q1',
     title: 'Q1',
@@ -57,7 +57,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: CourseQuizSentencesPage(
         editor: editor,
-        courseId: 'en_de',
+        courseId: 'de_cert_a1',
         quizId: 'q1',
         title: 'Q1',
       ),
@@ -72,7 +72,7 @@ void main() {
 
     expect(find.text('Das ist ____ Buch.'), findsNothing);
     final saved =
-        (await editor.course('en_de')).quizById('q1')! as FillBlankQuiz;
+        (await editor.course('de_cert_a1')).quizById('q1')! as FillBlankQuiz;
     expect(saved.sentences.length, 1);
     expect(saved.sentences.first.sentence, 'Hier ist ____ Auto.');
   });

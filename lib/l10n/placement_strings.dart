@@ -132,8 +132,8 @@ const PlacementStrings kPlacementStringsEn = PlacementStrings(
   resultScoreLine: '{correct} of {asked} correct',
   startHere: 'Start here',
   noRewardsNote:
-      'Placing only opens the levels. It gives no medals and no coins — those '
-      'are still there for you to earn.',
+      'Placing only opens the levels. It gives no medals — those are still '
+      'there for you to earn.',
   wipeTitle: 'This deletes your progress',
   wipeBody:
       "You've finished {n} quizzes in this course. Starting again at {level} "
@@ -181,7 +181,7 @@ const PlacementStrings kPlacementStringsDe = PlacementStrings(
   startHere: 'Hier einsteigen',
   noRewardsNote:
       'Die Einstufung schaltet nur die Stufen frei. Es gibt dafür keine '
-      'Medaillen und keine Münzen — die kannst du dir weiterhin verdienen.',
+      'Medaillen — die kannst du dir weiterhin verdienen.',
   wipeTitle: 'Das löscht deinen Fortschritt',
   wipeBody:
       'Du hast in diesem Kurs {n} Übungen abgeschlossen. Ein Neustart bei '
@@ -227,8 +227,8 @@ const PlacementStrings kPlacementStringsEs = PlacementStrings(
   resultScoreLine: '{correct} de {asked} correctas',
   startHere: 'Empezar aquí',
   noRewardsNote:
-      'Situarte solo abre los niveles. No da medallas ni monedas: esas siguen '
-      'ahí para que las ganes.',
+      'Situarte solo abre los niveles. No da medallas: esas siguen ahí para '
+      'que las ganes.',
   wipeTitle: 'Esto borra tu progreso',
   wipeBody:
       'Has terminado {n} ejercicios en este curso. Volver a empezar en {level} '
@@ -261,7 +261,7 @@ const PlacementStrings kPlacementStringsZh = PlacementStrings(
   resultCleared: '测试里的每一级你都通过了，所以放在最后一级。',
   resultScoreLine: '答对 {correct} / {asked}',
   startHere: '从这里开始',
-  noRewardsNote: '分级只负责解锁等级，不给奖牌也不给金币——那些还等着你去挣。',
+  noRewardsNote: '分级只负责解锁等级，不给奖牌——那些还等着你去挣。',
   wipeTitle: '这会删除你的进度',
   wipeBody: '你在这门课已完成 {n} 个练习。从 {level} 重新开始会清空全部——分数、连击和奖牌——且无法撤销。',
   wipeConfirm: '删除并从那里开始',

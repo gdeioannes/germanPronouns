@@ -17,7 +17,6 @@ import 'pages/word_library_page.dart';
 import 'widgets/app_drawer.dart';
 import 'widgets/noun_progression_quiz_loader.dart';
 import 'widgets/quest_quiz_loader.dart';
-import 'widgets/room_panel.dart';
 
 /// The app's single source of navigation truth.
 ///
@@ -95,80 +94,71 @@ final GoRouter appRouter = GoRouter(
       path: '/back-office',
       builder: (context, state) => const BackOfficeHomePage(),
     ),
-    // Every learner content screen sits inside this shell, which docks the room
-    // panel ("My Room") at the bottom — peeking, and sliding up on tap/drag — so
-    // the room is always there. Sign-in / onboarding and the back office stay
-    // outside it.
-    ShellRoute(
-      builder: (context, state, child) => _LearnerShell(child: child),
-      routes: [
-        GoRoute(
-          // Each course has its own addressable home, so switching course is a
-          // real navigation (distinct URL) and browser back/forward move between
-          // course homes — no hidden "which course am I on?" state.
-          path: '/course/:courseId',
-          redirect: (context, state) =>
-              courseExists(state.pathParameters['courseId']!)
-              ? null
-              : homeLocation(),
-          // Keyed by the course id: `/course/A` and `/course/B` match the same
-          // route template, so without a param-derived key go_router reuses the
-          // page (and its State) and the home never reloads on switch.
-          pageBuilder: (context, state) {
-            final courseId = state.pathParameters['courseId']!;
-            return MaterialPage(
-              key: ValueKey('course-$courseId'),
-              child: LearnerHomePage(courseId: courseId),
-            );
-          },
-        ),
-        GoRoute(
-          path: '/library',
-          builder: (context, state) => const WordLibraryPage(),
-        ),
-        GoRoute(
-          path: '/settings',
-          builder: (context, state) => const SettingsPage(),
-        ),
-        GoRoute(
-          path: '/quiz/:id',
-          builder: (context, state) =>
-              buildQuizPageForContent(state.pathParameters['id']!),
-        ),
-        GoRoute(
-          path: '/quest/:key',
-          // A stale link to a removed/renamed quiz falls back home rather than
-          // throwing on the null entry.
-          redirect: (context, state) =>
-              questEntryByKey(state.pathParameters['key']!) == null
-              ? '/home'
-              : null,
-          // Keyed by the quest key: every `/quest/:key` shares one page key (the
-          // route template), so without a param key go_router reuses the loader's
-          // State and its already-resolved quiz when switching quests.
-          builder: (context, state) {
-            final key = state.pathParameters['key']!;
-            return QuestQuizLoader(
-              key: ValueKey('quest-$key'),
-              entry: questEntryByKey(key)!,
-            );
-          },
-        ),
-        GoRoute(
-          path: '/noun/:key',
-          redirect: (context, state) =>
-              nounEntryByKey(state.pathParameters['key']!) == null
-              ? '/home'
-              : null,
-          builder: (context, state) {
-            final key = state.pathParameters['key']!;
-            return NounProgressionQuizLoader(
-              key: ValueKey('noun-$key'),
-              entry: nounEntryByKey(key)!,
-            );
-          },
-        ),
-      ],
+    GoRoute(
+      // Each course has its own addressable home, so switching course is a
+      // real navigation (distinct URL) and browser back/forward move between
+      // course homes — no hidden "which course am I on?" state.
+      path: '/course/:courseId',
+      redirect: (context, state) =>
+          courseExists(state.pathParameters['courseId']!)
+          ? null
+          : homeLocation(),
+      // Keyed by the course id: `/course/A` and `/course/B` match the same
+      // route template, so without a param-derived key go_router reuses the
+      // page (and its State) and the home never reloads on switch.
+      pageBuilder: (context, state) {
+        final courseId = state.pathParameters['courseId']!;
+        return MaterialPage(
+          key: ValueKey('course-$courseId'),
+          child: LearnerHomePage(courseId: courseId),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/library',
+      builder: (context, state) => const WordLibraryPage(),
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsPage(),
+    ),
+    GoRoute(
+      path: '/quiz/:id',
+      builder: (context, state) =>
+          buildQuizPageForContent(state.pathParameters['id']!),
+    ),
+    GoRoute(
+      path: '/quest/:key',
+      // A stale link to a removed/renamed quiz falls back home rather than
+      // throwing on the null entry.
+      redirect: (context, state) =>
+          questEntryByKey(state.pathParameters['key']!) == null
+          ? '/home'
+          : null,
+      // Keyed by the quest key: every `/quest/:key` shares one page key (the
+      // route template), so without a param key go_router reuses the loader's
+      // State and its already-resolved quiz when switching quests.
+      builder: (context, state) {
+        final key = state.pathParameters['key']!;
+        return QuestQuizLoader(
+          key: ValueKey('quest-$key'),
+          entry: questEntryByKey(key)!,
+        );
+      },
+    ),
+    GoRoute(
+      path: '/noun/:key',
+      redirect: (context, state) =>
+          nounEntryByKey(state.pathParameters['key']!) == null
+          ? '/home'
+          : null,
+      builder: (context, state) {
+        final key = state.pathParameters['key']!;
+        return NounProgressionQuizLoader(
+          key: ValueKey('noun-$key'),
+          entry: nounEntryByKey(key)!,
+        );
+      },
     ),
   ],
   errorBuilder: (context, state) => Scaffold(
@@ -187,25 +177,6 @@ final GoRouter appRouter = GoRouter(
     ),
   ),
 );
-
-/// The persistent shell around every learner content screen: the page fills the
-/// space, with the room [RoomPanel] docked at the bottom (peeking, and sliding
-/// up over the page on tap/drag). One shared panel for the whole learner area.
-class _LearnerShell extends StatelessWidget {
-  const _LearnerShell({required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned.fill(child: child),
-        const RoomPanel(),
-      ],
-    );
-  }
-}
 
 /// The auth/onboarding gate, expressed as redirects (this is what the old
 /// [AuthGate] widget did imperatively):

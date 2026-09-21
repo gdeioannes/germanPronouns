@@ -10,16 +10,6 @@
 // not bank-sized, so they're skipped too.
 import 'dart:io';
 
-import 'package:german_pronouns_articles/data/article_content.dart';
-import 'package:german_pronouns_articles/data/courses/de_cs/de_cs_content.dart';
-import 'package:german_pronouns_articles/data/courses/de_es/de_es_content.dart';
-import 'package:german_pronouns_articles/data/courses/en_de/en_de_content.dart';
-import 'package:german_pronouns_articles/data/courses/en_zh/en_zh_content.dart';
-import 'package:german_pronouns_articles/data/courses/es_de/es_de_content.dart';
-import 'package:german_pronouns_articles/data/courses/zh_en/zh_en_content.dart';
-import 'package:german_pronouns_articles/data/preposition_content.dart';
-import 'package:german_pronouns_articles/data/pronoun_article_content.dart';
-import 'package:german_pronouns_articles/data/pronoun_content.dart';
 import 'package:german_pronouns_articles/data/quest_data.dart';
 import 'package:german_pronouns_articles/models/quiz_content.dart';
 
@@ -27,19 +17,6 @@ import 'package:german_pronouns_articles/models/quiz_content.dart';
 /// authored banks (the hanzi course is generated from the character list).
 Map<String, List<QuizContent>> _contentByCourse() => {
   'de_cert_a1': [...questQuizContent],
-  'en_de': [
-    pronounQuizContent,
-    articleQuizContent,
-    pronounArticleQuizContent,
-    prepositionQuizContent,
-    ...enDeGrammarContent,
-  ],
-  'es_de': [...esDeContent],
-  'es_de_emotions': [...esDeEmocionesContent],
-  'de_es': [...deEsContent],
-  'de_cs': [...deCsContent],
-  'zh_en': [...zhEnContent],
-  'en_zh': [...enZhContent],
 };
 
 void main(List<String> args) {

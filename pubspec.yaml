@@ -34,9 +34,6 @@ dependencies:
   google_fonts: ^6.3.1
   flutter_colorpicker: ^1.1.0
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
   pdf: ^3.12.0
   printing: ^5.14.3
   flutter_svg: ^2.3.0
@@ -62,10 +59,6 @@ dependencies:
   # (opens the app on mobile via its universal link, a tab on web). See
   # lib/services/ai_assistant.dart.
   url_launcher: ^6.3.1
-  # Browser bindings used by the room's "save / copy image" export on web
-  # (download a PNG, write it to the clipboard). Desktop/mobile use dart:io
-  # instead — see lib/utils/room_image_export.dart.
-  web: ^1.1.0
   # Privacy-first, cookieless usage analytics (web + mobile + desktop in one
   # SDK). No cookies, no persistent identifiers, no personal data, so it needs
   # no consent banner. Disabled unless an app key is supplied via

@@ -77,21 +77,10 @@ void main() {
   });
 
   test('the lookup is per learned language', () {
-    expect(lookupVerb('pregunto', lang: 'es')?.verb, 'preguntar');
-    expect(lookupVerb('sea', lang: 'es')?.verb, 'ser');
-    expect(lookupVerb('gustaría', lang: 'es')?.verb, 'gustar');
-    // German forms don't leak into the Spanish index and vice versa.
+    // German is the only learned language today; any other code must resolve
+    // to nothing rather than falling back to the German index.
+    expect(lookupVerb('fragte', lang: 'de')?.verb, 'fragen');
     expect(lookupVerb('fragte', lang: 'es'), isNull);
-    expect(lookupVerb('pregunto', lang: 'de'), isNull);
-    // Czech: feminine participles and the perfective/colloquial aliases.
-    expect(lookupVerb('jela', lang: 'cs')?.verb, 'jet');
-    expect(lookupVerb('šla', lang: 'cs')?.verb, 'jít');
-    expect(lookupVerb('koupím', lang: 'cs')?.verb, 'kupovat');
-    expect(lookupVerb('čtu', lang: 'cs')?.verb, 'číst');
-    // English: irregulars and modals.
-    expect(lookupVerb('bought', lang: 'en')?.verb, 'buy');
-    expect(lookupVerb('could', lang: 'en')?.verb, 'can');
-    expect(lookupVerb('understood', lang: 'en')?.verb, 'understand');
     // Unknown language: never crashes, never matches.
     expect(lookupVerb('ist', lang: 'zz'), isNull);
   });

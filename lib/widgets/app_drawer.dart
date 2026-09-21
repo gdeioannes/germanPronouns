@@ -10,7 +10,6 @@ import '../data/debug_unlock.dart';
 import '../data/nav_layout_data.dart';
 import '../data/noun_progression_data.dart';
 import '../data/quest_data.dart';
-import '../data/section_catalog.dart';
 import '../models/app_page.dart';
 import '../models/course_session.dart';
 import '../models/nav_layout.dart';
@@ -36,19 +35,8 @@ export '../models/app_page.dart';
 enum _QuizLock { unlocked, next, locked }
 
 /// Builds the page widget for [page], used both by the drawer's navigation
-/// and to reopen the app on the last-visited page. Quiz sections are resolved
-/// from the [quizSections] catalog so adding a section requires no change here.
+/// and to reopen the app on the last-visited page.
 Widget buildAppPage(AppPage page) {
-  final section = sectionForPage(page);
-  if (section != null) {
-    // Run the quiz from the editable database, falling back to the compiled
-    // config if the database is unavailable.
-    return DbQuizLoader(
-      quizId: section.contentId,
-      currentPage: section.page,
-      fallback: section.primaryQuiz,
-    );
-  }
   return switch (page) {
     AppPage.nounsArticles => const NounArticleQuizPage(),
     AppPage.quest => const QuestQuizPage(),
@@ -62,7 +50,6 @@ Widget buildAppPage(AppPage page) {
 /// Builds the learner page for a data-driven nav item that opens the quiz
 /// stored under [contentId] (from the editable navigation layout).
 Widget buildQuizPageForContent(String contentId) {
-  final section = sectionForContentId(contentId);
   return DbQuizLoader(
     // Keyed by the quiz id: `/quiz/article` and `/quiz/pronoun` match the same
     // route template, so go_router gives them the same page key and would reuse
@@ -70,8 +57,7 @@ Widget buildQuizPageForContent(String contentId) {
     // forces a fresh State — and a fresh load — for each quiz.
     key: ValueKey('quiz-$contentId'),
     quizId: contentId,
-    currentPage: section?.page ?? AppPage.articles,
-    fallback: section?.primaryQuiz,
+    currentPage: AppPage.quest,
   );
 }
 
@@ -181,7 +167,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
   /// Ribbon debug mode (see [debugRibbonTrigger]): a tap on a quiz tile lands
   /// here instead of navigating. Advances the quiz one ribbon step (done →
-  /// silver → gold, paying the tier's coins), then rebuilds so ribbons, locks
+  /// silver → gold), then rebuilds so ribbons, locks
   /// and progress chips reflect the new state. The drawer deliberately stays
   /// open so the newly unlocked quiz can be tapped straight away.
   Future<void> _debugRibbonTap(
@@ -207,8 +193,7 @@ class _AppDrawerState extends State<AppDrawer> {
           content: Text(
             result == null
                 ? "'$title' already has the gold ribbon."
-                : "'$title' → ${result.$2.name} ribbon, "
-                      '+${result.$1} coins (debug).',
+                : "'$title' → ${result.name} ribbon (debug).",
           ),
         ),
       );
@@ -947,10 +932,7 @@ class _AppDrawerState extends State<AppDrawer> {
         return NounSettings.instance.isSpeakQuizCompleted(item.ref);
       case QuizKind.fillBlank:
       case null:
-        final prefix =
-            summary?.storageKeyPrefix ??
-            sectionForContentId(item.ref)?.primaryQuiz.storageKeyPrefix ??
-            '${item.ref}_';
+        final prefix = summary?.storageKeyPrefix ?? '${item.ref}_';
         final best =
             data.prefs?.getInt(QuizStatsKeys(prefix).bestStreakAbsolute) ?? 0;
         return NounSettings.instance.isQuizDone(bestStreakAbsolute: best);
@@ -1031,10 +1013,8 @@ class _AppDrawerState extends State<AppDrawer> {
     required _DrawerData data,
     _QuizLock? lock,
   }) {
-    final section = sectionForContentId(item.ref);
     final summary = data.quizzes[item.ref];
-    final title =
-        item.titleOverride ?? summary?.title ?? section?.title ?? item.ref;
+    final title = item.titleOverride ?? summary?.title ?? item.ref;
 
     if (lock == _QuizLock.next || lock == _QuizLock.locked) {
       return _lockedQuizItemTile(
@@ -1045,26 +1025,22 @@ class _AppDrawerState extends State<AppDrawer> {
     }
     // Default icon per quiz kind via the shared [quizKindIcon] map, so the
     // drawer and the course home stay in sync: reading → book, fill-in
-    // "question" quizzes → quiz card, speak → voice. A known grammar section
-    // icon still wins for fill-in; an explicit per-item iconKey wins over all.
+    // "question" quizzes → quiz card, speak → voice. An explicit per-item
+    // iconKey wins over all.
     final kind = summary?.kind;
     final defaultIcon = switch (kind) {
-      null => section?.icon ?? Icons.menu_book_rounded,
-      QuizKind.fillBlank => section?.icon ?? quizKindIcon(QuizKind.fillBlank),
+      null => Icons.menu_book_rounded,
       final k => quizKindIcon(k),
     };
     final icon = navIconFor(item.iconKey, defaultIcon);
-    // Badge color mirrors the icon: explicit per-item colorIndex wins, then a
-    // grammar section accent, else the shared per-kind accent so the drawer
-    // tints each kind the same as the home.
+    // Badge color mirrors the icon: explicit per-item colorIndex wins, else
+    // the shared per-kind accent so the drawer tints each kind the same as
+    // the home.
     final color = navColorFor(
       item.colorIndex,
-      section?.accent ??
-          (kind == null ? kSectionAccentColors[0] : quizKindColor(kind)),
+      kind == null ? kSectionAccentColors[0] : quizKindColor(kind),
     );
-    final prefix = summary?.storageKeyPrefix ??
-        section?.primaryQuiz.storageKeyPrefix ??
-        '${item.ref}_';
+    final prefix = summary?.storageKeyPrefix ?? '${item.ref}_';
     final keys = QuizStatsKeys(prefix);
     final prefs = data.prefs;
     final bestStreakAbsolute = prefs?.getInt(keys.bestStreakAbsolute) ?? 0;

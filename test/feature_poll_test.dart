@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:german_pronouns_articles/l10n/app_strings.dart';
-import 'package:german_pronouns_articles/models/coin_wallet.dart';
 import 'package:german_pronouns_articles/models/course.dart';
 import 'package:german_pronouns_articles/models/noun_settings.dart';
 import 'package:german_pronouns_articles/models/settings_keys.dart';
@@ -43,7 +42,6 @@ void main() {
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
-    CoinWallet.instance.resetForTest();
     // NounSettings is a singleton whose load() is guarded by a _loaded flag, so
     // a second load() is a no-op and flags would leak between tests. resetAll()
     // is the reset that actually puts every field back to its default.
@@ -139,12 +137,7 @@ void main() {
         expect(strings.featurePollNotNow.trim(), isNotEmpty, reason: '$lang');
         // Label of the Settings / course-home buttons that open it on demand.
         expect(strings.featurePollOpen.trim(), isNotEmpty, reason: '$lang');
-        // The thanks line must keep its placeholder, or the payout goes unsaid.
-        expect(strings.featurePollThanks, contains('{coins}'), reason: '$lang');
-        // The no-coins thanks must NOT promise a payout.
         expect(strings.featurePollThanksAgain.trim(), isNotEmpty,
-            reason: '$lang');
-        expect(strings.featurePollThanksAgain, isNot(contains('{coins}')),
             reason: '$lang');
         final labels = <String>[];
         for (final choice in FeaturePollChoice.values) {
@@ -158,7 +151,7 @@ void main() {
     });
   });
 
-  testWidgets('tapping an option answers, pays coins and never asks again',
+  testWidgets('tapping an option answers and never asks again',
       (tester) async {
     _useScreen(tester, const Size(900, 1200)); // wide: the dialog branch
     await _openPoll(tester);
@@ -173,12 +166,11 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(strings.featurePollTitle), findsNothing);
-    expect(CoinWallet.instance.balance, CoinWallet.featurePollBonus);
     expect(NounSettings.instance.featurePollLastShown, isNotNull);
     expect(isFeaturePollDue(), isFalse); // the cooldown has started
   });
 
-  testWidgets('dismissing still counts as asked, and pays nothing',
+  testWidgets('dismissing still counts as asked',
       (tester) async {
     _useScreen(tester, const Size(900, 1200));
     await _openPoll(tester);
@@ -189,7 +181,6 @@ void main() {
 
     // The poll really closed — so the assertions below can't pass vacuously.
     expect(find.text(strings.featurePollTitle), findsNothing);
-    expect(CoinWallet.instance.balance, 0);
     expect(NounSettings.instance.featurePollLastShown, isNotNull);
     expect(isFeaturePollDue(), isFalse); // the cooldown has started
   });
@@ -258,7 +249,6 @@ void main() {
 
     await tester.tap(find.text(strings.featurePollGames));
     await tester.pumpAndSettle();
-    expect(CoinWallet.instance.balance, CoinWallet.featurePollBonus);
   });
 
   testWidgets(
@@ -283,7 +273,6 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(stringsFor(UiLang.en).featurePollTitle), findsNothing);
-    expect(CoinWallet.instance.balance, 0);
   });
 
   test('course time accumulates across segments but a single one is capped',
@@ -321,7 +310,6 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(stringsFor(UiLang.en).featurePollTitle), findsNothing);
-    expect(CoinWallet.instance.balance, 0);
   });
 
   group('opened on demand from Settings / the course home', () {
@@ -338,7 +326,7 @@ void main() {
           find.text(stringsFor(UiLang.en).featurePollTitle), findsOneWidget);
     });
 
-    testWidgets('pays no coins for a second answer inside the same week',
+    testWidgets('still records a second answer inside the same week',
         (tester) async {
       await NounSettings.instance.markFeaturePollShown();
       _useScreen(tester, const Size(900, 1200));
@@ -348,34 +336,10 @@ void main() {
       await tester.tap(find.text(strings.featurePollGames));
       await tester.pumpAndSettle();
 
-      // The vote still counts; the reward does not repeat, so the manual
-      // buttons can't be farmed for coins.
-      expect(CoinWallet.instance.balance, 0);
       expect(find.text(strings.featurePollThanksAgain), findsOneWidget);
     });
 
-    testWidgets('adds to the existing balance when opened before the wallet '
-        'has loaded', (tester) async {
-      // The login page offers the poll before the learner shell boots, so the
-      // wallet may still be unloaded. CoinWallet.add() increments its
-      // in-memory balance, so answering without loading first would start from
-      // a stale zero and persist 40 over the learner's real coins.
-      SharedPreferences.setMockInitialValues({SettingsKeys.coinBalance: 500});
-      CoinWallet.instance.resetForTest(); // simulates "not loaded yet"
-      expect(CoinWallet.instance.balance, 0);
-
-      _useScreen(tester, const Size(900, 1200));
-      await _openPoll(tester);
-      await tester.tap(find.text(stringsFor(UiLang.en).featurePollGames));
-      await tester.pumpAndSettle();
-
-      expect(CoinWallet.instance.balance, 500 + CoinWallet.featurePollBonus);
-      final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getInt(SettingsKeys.coinBalance),
-          500 + CoinWallet.featurePollBonus);
-    });
-
-    testWidgets('still pays when the learner opens it while it is due',
+    testWidgets('records the answer when the learner opens it while it is due',
         (tester) async {
       expect(isFeaturePollDue(), isTrue);
       _useScreen(tester, const Size(900, 1200));
@@ -384,7 +348,7 @@ void main() {
       await tester.tap(find.text(stringsFor(UiLang.en).featurePollGames));
       await tester.pumpAndSettle();
 
-      expect(CoinWallet.instance.balance, CoinWallet.featurePollBonus);
+      expect(find.text(stringsFor(UiLang.en).featurePollTitle), findsNothing);
     });
   });
 
@@ -401,6 +365,5 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(strings.featurePollTitle), findsNothing);
-    expect(CoinWallet.instance.balance, CoinWallet.featurePollBonus);
   });
 }

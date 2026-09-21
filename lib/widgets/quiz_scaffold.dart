@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/course_session.dart';
 import '../models/quiz_content.dart';
 import 'app_drawer.dart';
-import 'coin_balance_pill.dart';
 import 'quiz_help_sheet.dart';
 
 /// The shared shell for the reading / listening / dictation / speak quiz pages:
@@ -39,7 +38,6 @@ class QuizScaffold extends StatelessWidget {
           child: Text(content.title),
         ),
         actions: [
-          const CoinBalancePill(),
           IconButton(
             tooltip: CourseSession.instance.strings.help,
             icon: const Icon(Icons.help_outline_rounded),

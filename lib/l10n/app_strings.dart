@@ -1,5 +1,4 @@
 import '../models/course.dart';
-import 'gacha_strings.dart';
 import 'placement_strings.dart';
 import 'speaking_strings.dart';
 
@@ -116,7 +115,6 @@ class AppStrings {
     required this.featurePollSpeaking,
     required this.featurePollReminders,
     required this.featurePollNotNow,
-    required this.featurePollThanks,
     required this.featurePollThanksAgain,
     required this.featurePollOpen,
     required this.trainMistakes,
@@ -157,14 +155,6 @@ class AppStrings {
     required this.tipExample,
     required this.tipMemoryAid,
     required this.tipGeneric,
-    required this.whatIsThisCalled,
-    required this.flip,
-    required this.unflip,
-    required this.giveAway,
-    required this.shopAnother,
-    required this.notEnoughCoins,
-    required this.gaveAwayItem,
-    required this.addedAnotherItem,
     required this.nouns,
     required this.verbs,
     required this.meaning,
@@ -194,7 +184,6 @@ class AppStrings {
     required this.aboutMeRobotCheck,
     required this.aboutMeRobotWrong,
     required this.speaking,
-    required this.gacha,
     required this.placement,
   });
 
@@ -364,12 +353,7 @@ class AppStrings {
   /// Label of the poll's dismiss button.
   final String featurePollNotNow;
 
-  /// Thank-you confirmation. `{coins}` is replaced with the coins awarded.
-  final String featurePollThanks;
-
-  /// Thank-you for an answer that earned no coins — the learner opened the poll
-  /// themselves within the cooldown, so their vote counts but the reward
-  /// doesn't repeat.
+  /// Thank-you confirmation shown once an answer is recorded.
   final String featurePollThanksAgain;
 
   /// Label of the buttons that open the poll on demand (Settings, course home).
@@ -450,21 +434,6 @@ class AppStrings {
   final String tipMemoryAid;
   final String tipGeneric;
 
-  // Room item info card.
-  /// Prompt under the piece's picture ("What is this called?").
-  final String whatIsThisCalled;
-  final String flip;
-  final String unflip;
-  final String giveAway;
-  final String shopAnother;
-  final String notEnoughCoins;
-
-  /// Snackbar after donating a piece. `{item}` is the piece's name.
-  final String gaveAwayItem;
-
-  /// Snackbar after buying another copy. `{item}` is the piece's name.
-  final String addedAnotherItem;
-
   // Word Library: the Nouns/Verbs tabs, the tap-to-see-meaning detail panel
   // and the verb conjugation panel.
   final String nouns;
@@ -527,9 +496,6 @@ class AppStrings {
   /// placement test, the manual level picker).
   final PlacementStrings placement;
 
-  /// Chrome for the claw machine — the gacha the furniture is won from, and
-  /// its collection album.
-  final GachaStrings gacha;
 }
 
 const AppStrings _en = AppStrings(
@@ -659,7 +625,6 @@ const AppStrings _en = AppStrings(
   featurePollSpeaking: 'More speaking and pronunciation practice',
   featurePollReminders: 'Daily reminders and practice goals',
   featurePollNotNow: 'Not now',
-  featurePollThanks: 'Thank you! +{coins} coins',
   featurePollThanksAgain: 'Thank you — your answer was counted.',
   featurePollOpen: 'Tell us what to build next',
   trainMistakes: 'Train your mistakes',
@@ -703,14 +668,6 @@ const AppStrings _en = AppStrings(
   tipExample: 'Example',
   tipMemoryAid: 'Memory aid',
   tipGeneric: 'Tip',
-  whatIsThisCalled: 'What is this called?',
-  flip: 'Flip',
-  unflip: 'Unflip',
-  giveAway: 'Give away',
-  shopAnother: 'Shop another',
-  notEnoughCoins: 'Not enough coins.',
-  gaveAwayItem: 'You gave away the {item} 💛  Someone will love it!',
-  addedAnotherItem: 'Added another {item}!',
   nouns: 'Nouns',
   verbs: 'Verbs',
   meaning: 'Meaning',
@@ -758,7 +715,6 @@ const AppStrings _en = AppStrings(
   aboutMeRobotCheck: 'Quick check — you are not a robot:',
   aboutMeRobotWrong: 'Not quite. Here is another one.',
   speaking: kSpeakingStringsEn,
-  gacha: kGachaStringsEn,
   placement: kPlacementStringsEn,
 );
 
@@ -893,7 +849,6 @@ const AppStrings _es = AppStrings(
   featurePollSpeaking: 'Más práctica de habla y pronunciación',
   featurePollReminders: 'Recordatorios diarios y objetivos de práctica',
   featurePollNotNow: 'Ahora no',
-  featurePollThanks: '¡Gracias! +{coins} monedas',
   featurePollThanksAgain: 'Gracias, tu respuesta se ha registrado.',
   featurePollOpen: 'Dinos qué crear a continuación',
   trainMistakes: 'Entrena tus errores',
@@ -938,14 +893,6 @@ const AppStrings _es = AppStrings(
   tipExample: 'Ejemplo',
   tipMemoryAid: 'Regla mnemotécnica',
   tipGeneric: 'Consejo',
-  whatIsThisCalled: '¿Cómo se llama esto?',
-  flip: 'Girar',
-  unflip: 'Deshacer giro',
-  giveAway: 'Regalar',
-  shopAnother: 'Comprar otro',
-  notEnoughCoins: 'No tienes monedas suficientes.',
-  gaveAwayItem: 'Regalaste {item} 💛  ¡Alguien lo va a adorar!',
-  addedAnotherItem: '¡Añadiste otro: {item}!',
   nouns: 'Sustantivos',
   verbs: 'Verbos',
   meaning: 'Significado',
@@ -994,7 +941,6 @@ const AppStrings _es = AppStrings(
   aboutMeRobotCheck: 'Comprobación rápida: no eres un robot.',
   aboutMeRobotWrong: 'No es correcto. Aquí tienes otra.',
   speaking: kSpeakingStringsEs,
-  gacha: kGachaStringsEs,
   placement: kPlacementStringsEs,
 );
 
@@ -1129,7 +1075,6 @@ const AppStrings _de = AppStrings(
   featurePollSpeaking: 'Mehr Sprech- und Ausspracheübungen',
   featurePollReminders: 'Tägliche Erinnerungen und Übungsziele',
   featurePollNotNow: 'Jetzt nicht',
-  featurePollThanks: 'Danke! +{coins} Münzen',
   featurePollThanksAgain: 'Danke – deine Antwort wurde gezählt.',
   featurePollOpen: 'Sag uns, was als Nächstes kommen soll',
   trainMistakes: 'Deine Fehler trainieren',
@@ -1174,14 +1119,6 @@ const AppStrings _de = AppStrings(
   tipExample: 'Beispiel',
   tipMemoryAid: 'Eselsbrücke',
   tipGeneric: 'Tipp',
-  whatIsThisCalled: 'Wie heißt das?',
-  flip: 'Umdrehen',
-  unflip: 'Zurückdrehen',
-  giveAway: 'Verschenken',
-  shopAnother: 'Noch eins kaufen',
-  notEnoughCoins: 'Nicht genug Münzen.',
-  gaveAwayItem: 'Du hast {item} verschenkt 💛  Jemand wird es lieben!',
-  addedAnotherItem: '{item} noch einmal hinzugefügt!',
   nouns: 'Nomen',
   verbs: 'Verben',
   meaning: 'Bedeutung',
@@ -1233,7 +1170,6 @@ const AppStrings _de = AppStrings(
   aboutMeRobotCheck: 'Kurze Prüfung – du bist kein Roboter:',
   aboutMeRobotWrong: 'Leider falsch. Hier ist eine neue Aufgabe.',
   speaking: kSpeakingStringsDe,
-  gacha: kGachaStringsDe,
   placement: kPlacementStringsDe,
 );
 
@@ -1348,7 +1284,6 @@ const AppStrings _zh = AppStrings(
   featurePollSpeaking: '更多口语和发音练习',
   featurePollReminders: '每日提醒和学习目标',
   featurePollNotNow: '暂时不用',
-  featurePollThanks: '谢谢！+{coins} 金币',
   featurePollThanksAgain: '谢谢，你的选择已记录。',
   featurePollOpen: '告诉我们接下来该做什么',
   trainMistakes: '练习你的错题',
@@ -1389,14 +1324,6 @@ const AppStrings _zh = AppStrings(
   tipExample: '例子',
   tipMemoryAid: '记忆法',
   tipGeneric: '提示',
-  whatIsThisCalled: '这个叫什么？',
-  flip: '翻转',
-  unflip: '翻回',
-  giveAway: '赠送',
-  shopAnother: '再买一个',
-  notEnoughCoins: '金币不足。',
-  gaveAwayItem: '你把 {item} 送出去了 💛  一定会有人喜欢！',
-  addedAnotherItem: '又添加了一个 {item}！',
   nouns: '名词',
   verbs: '动词',
   meaning: '意思',
@@ -1434,7 +1361,6 @@ const AppStrings _zh = AppStrings(
   aboutMeRobotCheck: '简单验证一下，确认你不是机器人：',
   aboutMeRobotWrong: '不对，再来一题。',
   speaking: kSpeakingStringsZh,
-  gacha: kGachaStringsZh,
   placement: kPlacementStringsZh,
 );
 

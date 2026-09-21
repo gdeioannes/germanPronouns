@@ -7,6 +7,12 @@ legal advice.*
 
 ## Summary
 
+> **Note (2026-09-21):** this audit predates two cuts — the app is now a single
+> course (`de_cert_a1`) and the room / furniture / claw-machine mini-game and
+> the coin system were removed. Findings about the Chinese, Spanish, Czech and
+> grammar courses, and about `furniture_names.dart` / `flat_furniture.dart`,
+> refer to code that no longer exists.
+
 No copied copyrighted text, artwork, audio, or code was found. All reading /
 listening passages appear originally authored, all room/furniture art is drawn
 programmatically in code, fonts and packages are permissively licensed, and no

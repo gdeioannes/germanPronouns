@@ -1,9 +1,5 @@
 import 'content/verb_collection.dart';
-import 'shared_verbs/verbs_cs.dart';
 import 'shared_verbs/verbs_de.dart';
-import 'shared_verbs/verbs_en.dart';
-import 'shared_verbs/verbs_es.dart';
-import 'shared_verbs/verbs_zh.dart';
 
 /// Maps verb surface forms (as they appear in sentences — "ist", "ging",
 /// "gemacht", "pregunto", …) back to their dictionary verb, per learned
@@ -12,10 +8,6 @@ import 'shared_verbs/verbs_zh.dart';
 /// never drift from the shared verb lists.
 final Map<String, VerbCollection> _collectionsByLang = {
   'de': germanVerbCollection,
-  'es': spanishVerbCollection,
-  'cs': czechVerbCollection,
-  'en': englishVerbCollection,
-  'zh': mandarinVerbCollection,
 };
 
 final Map<String, Map<String, VerbEntry>> _indexByLang = {};

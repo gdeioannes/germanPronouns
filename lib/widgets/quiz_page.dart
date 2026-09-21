@@ -11,12 +11,10 @@ import '../data/gender_reference.dart';
 import '../data/noun_lookup.dart';
 import '../data/noun_plurals.dart';
 import '../data/noun_progression_data.dart';
-import '../data/pronoun_article_sentences.dart';
 import '../data/quest_data.dart';
 import '../data/quiz_stats_store.dart';
 import '../data/verb_lookup.dart';
 import '../models/app_session.dart';
-import '../models/coin_wallet.dart';
 import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
@@ -27,8 +25,6 @@ import '../theme/brand_palette.dart';
 import '../utils/answer_normalization.dart';
 import '../utils/shuffle_bag.dart';
 import 'app_drawer.dart';
-import 'coin_balance_pill.dart';
-import 'coin_flight.dart';
 import 'feature_poll.dart';
 import 'fireworks.dart';
 import 'help_memory.dart';
@@ -54,16 +50,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   final ScrollController _tableScrollController = ScrollController();
   final Random _random = Random();
 
-  /// The coin-holder badge (formerly the point counter): earned coins fly into
-  /// it and it ticks up to the global [CoinWallet] balance.
-  final GlobalKey _coinHolderKey = GlobalKey();
-
-  /// Where earned coins launch from — the streak tracker, so a completed streak
-  /// visibly pours coins across into the holder.
-  final GlobalKey _coinSourceKey = GlobalKey();
-
-  /// Drives a brief scale "pop" on the coin holder when coins land in it.
-  late final AnimationController _coinBumpController;
   late List<TextEditingController> _multiBlankControllers = [];
   late List<FocusNode> _multiBlankFocusNodes = [];
 
@@ -200,10 +186,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             });
           }
         });
-    _coinBumpController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 360),
-    );
     _nextQuestion();
     _loadStoredStats();
     _requestAnswerFocus();
@@ -238,7 +220,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _tableScrollController.dispose();
     _fireworksController.dispose();
     _categoryUnlockController.dispose();
-    _coinBumpController.dispose();
     super.dispose();
   }
 
@@ -329,44 +310,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         _answerFocusNode.requestFocus();
       }
     });
-  }
-
-  /// Credits [count] coins to the global [CoinWallet] and flies them, with a
-  /// little burst animation, into the coin holder (which then ticks up to the
-  /// new balance). A non-positive [count] is a no-op — coins are only given,
-  /// never taken, so callers can pass a computed reward unguarded.
-  void _awardCoins(int count) {
-    if (count <= 0) return;
-    // Persist immediately so the balance is safe even if the page is left
-    // mid-flight; the flight and the holder's tick-up are pure presentation.
-    CoinWallet.instance.add(count);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      final from = _coinFlightSource();
-      if (from == null) return;
-      playCoinFlight(context, from: from, targetKey: _coinHolderKey, count: count);
-      // Pop the holder roughly as the coins arrive.
-      Future.delayed(const Duration(milliseconds: 480), () {
-        if (mounted) _coinBumpController.forward(from: 0);
-      });
-    });
-  }
-
-  /// Global launch point for a coin burst: the streak tracker's centre, or, if
-  /// it isn't laid out, just below the holder so coins still rise into it.
-  Offset? _coinFlightSource() {
-    final sourceBox =
-        _coinSourceKey.currentContext?.findRenderObject() as RenderBox?;
-    if (sourceBox != null && sourceBox.hasSize) {
-      return sourceBox.localToGlobal(sourceBox.size.center(Offset.zero));
-    }
-    final holderBox =
-        _coinHolderKey.currentContext?.findRenderObject() as RenderBox?;
-    if (holderBox != null && holderBox.hasSize) {
-      return holderBox.localToGlobal(holderBox.size.center(Offset.zero)) +
-          const Offset(0, 180);
-    }
-    return null;
   }
 
   Future<void> _loadStoredStats() async {
@@ -1727,33 +1670,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       } else {
         if (_streakLap > _bestStreakLap) _bestStreakLap = _streakLap;
         _streakAbsolute = 0;
-        // A wrong answer breaks the streak but never costs coins — coins are
-        // only ever given, never taken.
         _feedbackHint = reminderHint;
         _lastAnswerCorrect = false;
 
-        // For multiple blanks, get the full answer from sentence data
-        if (_multiBlankControllers.isNotEmpty) {
-          try {
-            final sentenceData = pronounArticleSentences.firstWhere(
-              (s) => s.answerSentence == _currentReferenceSentence,
-              orElse: () => const PronounArticlePair(
-                case_: '',
-                nominative: '',
-                question: '',
-                answerSentence: '',
-                blanks: [],
-                answer: '',
-                pattern: '',
-              ),
-            );
-            _feedback = sentenceData.answer.isNotEmpty ? sentenceData.answer : correctAnswer;
-          } catch (e) {
-            _feedback = correctAnswer;
-          }
-        } else {
-          _feedback = correctAnswer;
-        }
+        _feedback = correctAnswer;
 
         _mistakesByCase[caseLabel] = (_mistakesByCase[caseLabel] ?? 0) + 1;
       }
@@ -1797,11 +1717,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         lapCompleted: lapCompleted,
         streakLap: streakLapAtSubmit,
       );
-      // Every correct answer has a chance to drop a coin; completing a streak
-      // lap always pays out coins for the ribbon tier it earns/renews.
-      var coins = _random.nextDouble() < CoinWallet.coinChancePerAnswer ? 1 : 0;
-      if (lapCompleted) coins += CoinWallet.rollRibbonCoins(streakLapAtSubmit);
-      _awardCoins(coins);
     }
 
     // Set when this answer is the one that finishes the quiz, so the feature
@@ -1814,7 +1729,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         if (_streakAbsolute >= NounSettings.instance.questUnlockStreak &&
             !NounSettings.instance.isQuestQuizCompleted(progressionKey)) {
           NounSettings.instance.markQuestQuizCompleted(progressionKey);
-          _awardCoins(CoinWallet.quizFinishedBonus);
           justFinishedQuiz = true;
           final nextName = nextQuestEntryName(progressionKey);
           if (nextName != null) {
@@ -1828,7 +1742,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               NounSettings.instance.progressionUnlockStreak &&
           !NounSettings.instance.isNounCategoryCompleted(progressionKey)) {
         NounSettings.instance.markNounCategoryCompleted(progressionKey);
-        _awardCoins(CoinWallet.quizFinishedBonus);
         justFinishedQuiz = true;
         final index = nounProgressionEntries.indexWhere(
           (e) => e.key == progressionKey,
@@ -1926,27 +1839,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }) async {
     // Handle multiple blanks separately
     if (_multiBlankControllers.isNotEmpty) {
-      // For multiple blanks, get the full answer from sentence data
-      String fullAnswer = correctAnswer;
-      try {
-        final sentenceData = pronounArticleSentences.firstWhere(
-          (s) => s.answerSentence == _currentReferenceSentence,
-          orElse: () => const PronounArticlePair(
-            case_: '',
-            nominative: '',
-            question: '',
-            answerSentence: '',
-            blanks: [],
-            answer: '',
-            pattern: '',
-          ),
-        );
-        if (sentenceData.answer.isNotEmpty) {
-          fullAnswer = sentenceData.answer;
-        }
-      } catch (e) {
-        // If lookup fails, use the provided correctAnswer
-      }
+      final String fullAnswer = correctAnswer;
 
       final answerParts = fullAnswer.split(' ');
       // Fill each blank sequentially
@@ -2158,50 +2051,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
       start = match.end;
     }
-    if (start < text.length) {
-      spans.add(TextSpan(text: text.substring(start), style: baseStyle));
-    }
-    return spans;
-  }
-
-  /// Highlight pronouns in the Pronouns & Articles quiz feedback.
-  List<InlineSpan> _highlightPronounSpans(String text, TextStyle? baseStyle) {
-    final pronounList = [
-      'ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr',  // nominative
-      'mich', 'dich', 'ihn', 'uns', 'euch',  // accusative
-      'mir', 'dir', 'ihm', 'ihr', 'ihnen',   // dative
-      'Sie', 'Ihnen',  // formal
-    ];
-    final pattern = RegExp('(${pronounList.join('|')})', caseSensitive: false);
-    final matches = pattern.allMatches(text).toList();
-
-    if (matches.isEmpty) {
-      return [TextSpan(text: text, style: baseStyle)];
-    }
-
-    final spans = <InlineSpan>[];
-    var start = 0;
-    final colorScheme = Theme.of(context).colorScheme;
-
-    for (final match in matches) {
-      if (match.start > start) {
-        spans.add(
-          TextSpan(text: text.substring(start, match.start), style: baseStyle),
-        );
-      }
-
-      final word = match.group(0)!;
-      final highlightStyle = (baseStyle ?? const TextStyle()).copyWith(
-        color: colorScheme.primary,
-        fontWeight: FontWeight.w800,
-      );
-      spans.add(
-        TextSpan(text: word, style: highlightStyle),
-      );
-
-      start = match.end;
-    }
-
     if (start < text.length) {
       spans.add(TextSpan(text: text.substring(start), style: baseStyle));
     }
@@ -2645,13 +2494,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           )
         : null;
 
-    // Customize display for Pronouns & Articles quiz
-    final isPronounArticlesQuiz = widget.config.currentPage == AppPage.pronounsAndArticles;
     // Contextual ("light quiz") layout: show the German sentence as the question
     // and its English translation in the second slot, instead of the default
     // subject-value + category-label summary.
-    final useContextual =
-        widget.config.contextualLayout && !isPronounArticlesQuiz;
+    final useContextual = widget.config.contextualLayout;
     // In the contextual layout, the visible text must never reveal the answer:
     // strip a trailing "(…)" cue (e.g. "(the mother)") from the displayed
     // sentence/translation. The full text is still used as the answer key, and
@@ -2703,49 +2549,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 : stripCue(english).replaceAll(RegExp(r'_{4,}'), '…');
           })()
         : null;
-    final displayLabel = isPronounArticlesQuiz
-        ? 'Pronouns & Articles'
-        : widget.config.promptLabel;
-    final displayPronounValue = isPronounArticlesQuiz
-        ? 'Accusative or Dative'
-        : useContextual
+    final displayLabel = widget.config.promptLabel;
+    final displayPronounValue = useContextual
         // Show the English meaning; fall back to the German sentence only when
         // no translation is available.
         ? (contextualEnglish ??
               displaySentence.replaceAll(RegExp(r'_{4,}'), '…'))
         : currentPronoun;
-    final displayCaseLabel = isPronounArticlesQuiz
-        ? 'Question'
-        : useContextual
-        ? 'English'
-        : 'Case';
+    final displayCaseLabel = useContextual ? 'English' : 'Case';
 
-    // Get the actual question from sentence data for Pronouns & Articles quiz
-    String getQuestionForSentence(String answerSentence) {
-      try {
-        // Try exact match first
-        PronounArticlePair? sentenceData;
-        try {
-          sentenceData = pronounArticleSentences.firstWhere(
-            (s) => s.answerSentence == answerSentence,
-          );
-        } catch (e) {
-          // If exact match fails, try trimmed match
-          sentenceData = pronounArticleSentences.firstWhere(
-            (s) => s.answerSentence.trim() == answerSentence.trim(),
-          );
-        }
-
-        return sentenceData.question.isNotEmpty ? sentenceData.question : answerSentence;
-      } catch (e) {
-        // Fallback: return answerSentence if no match found
-        return answerSentence;
-      }
-    }
-
-    final displayCaseValue = isPronounArticlesQuiz
-        ? getQuestionForSentence(_currentReferenceSentence)
-        : currentCase;
+    final displayCaseValue = currentCase;
     final blankMatches = RegExp(r'_{4,}').allMatches(displaySentence).toList();
     final blankMatch = blankMatches.isNotEmpty ? blankMatches.first : null;
     final hasMultipleBlanks = blankMatches.length > 1;
@@ -2819,9 +2632,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           child: _appBarTitle(widget.config.title),
         ),
         actions: [
-          // The wallet stays pinned here: the in-card coin holder below scrolls
-          // away with the page, so this keeps the balance always on screen.
-          const CoinBalancePill(),
           // Learners can log out from here (where the per-quiz reset used to
           // be); the reset itself now lives in the Settings panel below.
           if (AppSession.instance.role == UserRole.learner)
@@ -2904,227 +2714,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                   Expanded(
                                     child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: KeyedSubtree(
-                                        key: _coinSourceKey,
-                                        child: _buildStreakTracker(colorScheme),
-                                      ),
+                                      child: _buildStreakTracker(colorScheme),
                                     ),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        key: _coinHolderKey,
-                                        padding: isCompact
-                                            ? const EdgeInsets.fromLTRB(
-                                                8,
-                                                6,
-                                                10,
-                                                6,
-                                              )
-                                            : const EdgeInsets.fromLTRB(
-                                                10,
-                                                8,
-                                                12,
-                                                8,
-                                              ),
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            isCompact ? 12 : 14,
-                                          ),
-                                          color: _streakLap > 0
-                                              ? _rainbowColors[_streakLap %
-                                                        _rainbowColors.length]
-                                                    .withValues(alpha: 0.18)
-                                              : colorScheme.primaryContainer,
-                                          border: Border.all(
-                                            color: _streakLap > 0
-                                                ? _rainbowColors[_streakLap %
-                                                      _rainbowColors.length]
-                                                : colorScheme.primary
-                                                      .withValues(alpha: 0.45),
-                                          ),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color:
-                                                  (_streakLap > 0
-                                                          ? _rainbowColors[_streakLap %
-                                                                _rainbowColors
-                                                                    .length]
-                                                          : colorScheme.primary)
-                                                      .withValues(alpha: 0.18),
-                                              blurRadius: 12,
-                                              offset: const Offset(0, 4),
-                                            ),
-                                          ],
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            AnimatedBuilder(
-                                              animation: _coinBumpController,
-                                              builder: (context, child) {
-                                                // 1 -> ~1.35 -> 1 pop as coins
-                                                // land in the holder.
-                                                final pulse = 1 +
-                                                    0.35 *
-                                                        sin(
-                                                          pi *
-                                                              _coinBumpController
-                                                                  .value,
-                                                        );
-                                                return Transform.scale(
-                                                  scale: pulse,
-                                                  child: child,
-                                                );
-                                              },
-                                              child: Container(
-                                                width: isCompact ? 22 : 26,
-                                                height: isCompact ? 22 : 26,
-                                                decoration: const BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  gradient: RadialGradient(
-                                                    center: Alignment(-0.3, -0.4),
-                                                    radius: 0.95,
-                                                    colors: [
-                                                      Color(0xFFFFF1A8),
-                                                      Color(0xFFF6C543),
-                                                      Color(0xFFC8870F),
-                                                    ],
-                                                    stops: [0.0, 0.55, 1.0],
-                                                  ),
-                                                  border: Border.fromBorderSide(
-                                                    BorderSide(
-                                                      color: Color(0xFFB5750A),
-                                                      width: 1.3,
-                                                    ),
-                                                  ),
-                                                ),
-                                                alignment: Alignment.center,
-                                                child: Icon(
-                                                  Icons.star_rounded,
-                                                  size: isCompact ? 13 : 15,
-                                                  color: const Color(0xFFFFF6CC),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(width: isCompact ? 6 : 8),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                ListenableBuilder(
-                                                  listenable:
-                                                      CoinWallet.instance,
-                                                  builder: (context, _) {
-                                                    // Tick the number up to the
-                                                    // new balance as the coins
-                                                    // fly in.
-                                                    return TweenAnimationBuilder<
-                                                      double
-                                                    >(
-                                                      tween: Tween<double>(
-                                                        end: CoinWallet
-                                                            .instance
-                                                            .balance
-                                                            .toDouble(),
-                                                      ),
-                                                      duration: const Duration(
-                                                        milliseconds: 600,
-                                                      ),
-                                                      curve: Curves.easeOut,
-                                                      builder: (context, value, _) =>
-                                                          Text(
-                                                            '${value.round()}',
-                                                            style:
-                                                                (isCompact
-                                                                        ? quizTextTheme
-                                                                              .titleSmall
-                                                                        : scaledQuizTextTheme
-                                                                              .titleMedium)
-                                                                    ?.copyWith(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w900,
-                                                                      color: colorScheme
-                                                                          .onSurface,
-                                                                    ),
-                                                          ),
-                                                    );
-                                                  },
-                                                ),
-                                                if (_streakLap > 0)
-                                                  Text(
-                                                    '×$_streakLap',
-                                                    style:
-                                                        (isCompact
-                                                                ? quizTextTheme
-                                                                      .labelSmall
-                                                                : scaledQuizTextTheme
-                                                                      .labelSmall)
-                                                            ?.copyWith(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w800,
-                                                              color:
-                                                                  _rainbowColors[_streakLap %
-                                                                      _rainbowColors
-                                                                          .length],
-                                                            ),
-                                                  ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      if (_bestStreakLap > 0) ...[
-                                        const SizedBox(height: 4),
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 8,
-                                            vertical: 3,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(
-                                              10,
-                                            ),
-                                            color: colorScheme
-                                                .surfaceContainerHighest
-                                                .withValues(alpha: 0.7),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Icon(
-                                                Icons.emoji_events_rounded,
-                                                size: isCompact ? 12 : 14,
-                                                color: Colors.amber.shade700,
-                                              ),
-                                              const SizedBox(width: 4),
-                                              Text(
-                                                '${CourseSession.instance.strings.best} ×$_bestStreakLap',
-                                                style:
-                                                    (isCompact
-                                                            ? quizTextTheme
-                                                                  .labelSmall
-                                                            : scaledQuizTextTheme
-                                                                  .labelSmall)
-                                                        ?.copyWith(
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                      color: colorScheme
-                                                          .onSurfaceVariant,
-                                                    ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ],
                                   ),
                                 ],
                               ),
@@ -3218,26 +2809,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           ),
                                     ),
                                     const SizedBox(height: 3),
-                                    if (isPronounArticlesQuiz)
-                                      Text.rich(
-                                        TextSpan(
-                                          children: _highlightNounSpans(
-                                            displayCaseValue,
-                                            scaledQuizTextTheme.headlineSmall
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize:
-                                                      (scaledQuizTextTheme
-                                                              .headlineSmall
-                                                              ?.fontSize ??
-                                                          24) *
-                                                          0.8,
-                                                ),
-                                          ),
-                                        ),
-                                      )
-                                    else
-                                      Text(
+                                    Text(
                                         displayCaseValue,
                                         style: scaledQuizTextTheme.headlineSmall
                                             ?.copyWith(
@@ -3670,21 +3242,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                           Expanded(
                                             child: Text.rich(
                                               TextSpan(
-                                                children: isPronounArticlesQuiz
-                                                    ? _highlightPronounSpans(
-                                                        _feedback,
-                                                        Theme.of(context)
-                                                            .textTheme
-                                                            .bodyMedium
-                                                            ?.copyWith(
-                                                              color: colorScheme
-                                                                  .onSurface,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700,
-                                                            ),
-                                                      )
-                                                    : _highlightNounSpans(
+                                                children: _highlightNounSpans(
                                                         _feedback,
                                                         Theme.of(context)
                                                             .textTheme

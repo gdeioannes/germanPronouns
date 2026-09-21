@@ -12,7 +12,7 @@ import 'support/in_memory_content.dart';
 
 void main() {
   const ai = TemplateAiAuthoringService();
-  final course = defaultCourses.firstWhere((c) => c.id == 'en_de');
+  final course = defaultCourses.firstWhere((c) => c.id == 'de_cert_a1');
   final courseStr = jsonEncode(
     PopulatedCourse(course: course, version: 't', quizzes: const []).toJson(),
   );
@@ -51,9 +51,9 @@ void main() {
 
       // Flows through the same validated editor save path into the course.
       final editor = newEditor();
-      await editor.saveQuiz('en_de', draft);
+      await editor.saveQuiz('de_cert_a1', draft);
       expect(
-        (await editor.course('en_de')).quizById('ai_${type.name}'),
+        (await editor.course('de_cert_a1')).quizById('ai_${type.name}'),
         isNotNull,
       );
     });
@@ -66,7 +66,7 @@ void main() {
       id: 'a',
       topic: 'A',
     );
-    await editor.saveQuiz('en_de', first);
+    await editor.saveQuiz('de_cert_a1', first);
 
     // Different id, but reusing the first quiz's prefix — the editor rejects it.
     final clash = Quiz.fromJson(
@@ -74,6 +74,6 @@ void main() {
           .toJson()
         ..['storageKeyPrefix'] = 'a_',
     );
-    expect(() => editor.saveQuiz('en_de', clash), throwsArgumentError);
+    expect(() => editor.saveQuiz('de_cert_a1', clash), throwsArgumentError);
   });
 }

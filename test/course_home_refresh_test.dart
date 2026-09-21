@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:german_pronouns_articles/data/placement/placement_modules.dart';
 import 'package:german_pronouns_articles/models/course_session.dart';
 import 'package:german_pronouns_articles/models/noun_settings.dart';
 import 'package:german_pronouns_articles/pages/course_home_page.dart';
@@ -39,7 +40,7 @@ void main() {
     await (await SharedPreferences.getInstance()).reload();
     await NounSettings.instance.load();
     await CourseSession.instance.loadCourses();
-    await CourseSession.instance.setActiveCourse('de_cs');
+    await CourseSession.instance.setActiveCourse('de_cert_a1');
     await CourseSession.instance.ensureActiveNavLoaded();
   });
 
@@ -59,8 +60,8 @@ void main() {
     // The write a placement makes, without driving the sheet: the page must
     // notice it on its own.
     final refs = [
-      for (final g in CourseSession.instance.activeCourse.nav.groups)
-        for (final i in g.items) i.ref,
+      for (final m in placementModules(CourseSession.instance.activeCourse))
+        ...m.quizRefs,
     ];
     await NounSettings.instance.setPlacementUnlocked(
       courseRefs: refs,

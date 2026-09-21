@@ -10,7 +10,6 @@ import '../models/quiz_stats_keys.dart';
 import 'db/content_repository.dart';
 import 'noun_progression_data.dart';
 import 'quest_data.dart';
-import 'section_catalog.dart';
 
 /// A lightweight per-course learning summary for the course finder's "your
 /// courses" cards: the share of quizzes finished plus the score/accuracy
@@ -212,10 +211,7 @@ _QuizRef _resolveItem(
       );
     case QuizKind.fillBlank:
     case null:
-      final prefix =
-          summary?.storageKeyPrefix ??
-          sectionForContentId(ref)?.primaryQuiz.storageKeyPrefix ??
-          '${ref}_';
+      final prefix = summary?.storageKeyPrefix ?? '${ref}_';
       final best = prefs.getInt(QuizStatsKeys(prefix).bestStreakAbsolute) ?? 0;
       return _QuizRef(
         ref,

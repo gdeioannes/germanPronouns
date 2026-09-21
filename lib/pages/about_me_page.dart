@@ -7,7 +7,6 @@ import '../l10n/app_strings.dart';
 import '../models/app_session.dart';
 import '../models/course_session.dart';
 import '../widgets/app_drawer.dart';
-import '../widgets/coin_balance_pill.dart';
 import '../widgets/person_scene.dart';
 
 // The contact address, kept out of the source (and out of the shipped
@@ -37,14 +36,13 @@ class AboutMePage extends StatelessWidget {
     final strings = CourseSession.instance.strings;
     final theme = Theme.of(context);
     // Also reachable from the login screen, where there is no learner session:
-    // the drawer and the coin balance only make sense once there is one.
+    // the drawer only makes sense once there is one.
     final inSession =
         AppSession.instance.isSignedIn && CourseSession.instance.hasChosenCourse;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(strings.aboutMeTitle),
-        actions: [if (inSession) const CoinBalancePill()],
       ),
       drawer: inSession
           ? const AppDrawer(currentPage: AppPage.settings)

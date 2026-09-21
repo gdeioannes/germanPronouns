@@ -13,7 +13,7 @@ import 'package:german_pronouns_articles/pages/back_office/course_reading_questi
 import 'support/in_memory_content.dart';
 
 void main() {
-  final course = defaultCourses.firstWhere((c) => c.id == 'en_de');
+  final course = defaultCourses.firstWhere((c) => c.id == 'de_cert_a1');
   const quiz = ReadingQuiz(
     id: 'r1',
     title: 'R1',
@@ -46,7 +46,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: CourseReadingQuestionsPage(
         editor: editor,
-        courseId: 'en_de',
+        courseId: 'de_cert_a1',
         quizId: 'r1',
         title: 'R1',
       ),
@@ -60,7 +60,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Was?'), findsNothing);
-    final saved = (await editor.course('en_de')).quizById('r1')!;
+    final saved = (await editor.course('de_cert_a1')).quizById('r1')!;
     expect(questionsOf(saved).length, 1);
     expect(questionsOf(saved).first.question, 'Wer?');
   });

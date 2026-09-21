@@ -14,36 +14,14 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:german_pronouns_articles/data/article_content.dart';
 import 'package:german_pronouns_articles/data/content/noun_collection.dart';
 import 'package:german_pronouns_articles/data/course_catalog.dart';
-import 'package:german_pronouns_articles/data/courses/de_cs/de_cs_content.dart';
-import 'package:german_pronouns_articles/data/courses/de_es/de_es_content.dart';
-import 'package:german_pronouns_articles/data/courses/en_de/en_de_content.dart';
-import 'package:german_pronouns_articles/data/courses/en_de_ai/en_de_ai_content.dart';
-import 'package:german_pronouns_articles/data/courses/en_es/en_es_content.dart';
-import 'package:german_pronouns_articles/data/courses/en_zh/en_zh_content.dart';
-import 'package:german_pronouns_articles/data/courses/en_zh_hanzi/en_zh_hanzi_content.dart';
-import 'package:german_pronouns_articles/data/courses/es_de/es_de_content.dart';
-import 'package:german_pronouns_articles/data/courses/es_en/es_en_content.dart';
-import 'package:german_pronouns_articles/data/courses/zh_en/zh_en_content.dart';
 import 'package:german_pronouns_articles/data/data_version.dart';
 import 'package:german_pronouns_articles/data/noun_article_content.dart';
 import 'package:german_pronouns_articles/data/noun_database.dart';
 import 'package:german_pronouns_articles/data/noun_progression_data.dart';
-import 'package:german_pronouns_articles/data/preposition_content.dart';
-import 'package:german_pronouns_articles/data/pronoun_article_content.dart';
-import 'package:german_pronouns_articles/data/pronoun_content.dart';
 import 'package:german_pronouns_articles/data/quest_data.dart';
-import 'package:german_pronouns_articles/data/shared_nouns/nouns_cs.dart';
-import 'package:german_pronouns_articles/data/shared_nouns/nouns_en.dart';
-import 'package:german_pronouns_articles/data/shared_nouns/nouns_es.dart';
-import 'package:german_pronouns_articles/data/shared_nouns/nouns_zh.dart';
-import 'package:german_pronouns_articles/data/shared_verbs/verbs_cs.dart';
 import 'package:german_pronouns_articles/data/shared_verbs/verbs_de.dart';
-import 'package:german_pronouns_articles/data/shared_verbs/verbs_en.dart';
-import 'package:german_pronouns_articles/data/shared_verbs/verbs_es.dart';
-import 'package:german_pronouns_articles/data/shared_verbs/verbs_zh.dart';
 import 'package:german_pronouns_articles/models/content/catalog.dart';
 import 'package:german_pronouns_articles/models/content/populated_course.dart';
 import 'package:german_pronouns_articles/models/content/quiz.dart';
@@ -54,26 +32,7 @@ import 'package:german_pronouns_articles/models/quiz_content.dart';
 Map<String, List<QuizContent>> _contentByCourse() => {
   'de_cert_a1': [...questQuizContent],
   // noun_article is intentionally absent: it's derived at runtime from the
-  // shared `nouns/de.json` collection (below), not baked into the bundle, so
-  // every German course can share one noun list.
-  'en_de': [
-    pronounQuizContent,
-    articleQuizContent,
-    pronounArticleQuizContent,
-    prepositionQuizContent,
-    // Step-by-step grammar modules (M3 — The Accusative, …).
-    ...enDeGrammarContent,
-  ],
-  'es_de': [...esDeContent],
-  'es_de_emotions': [...esDeEmocionesContent],
-  'de_es': [...deEsContent],
-  'de_cs': [...deCsContent],
-  'es_en': [...esEnContent],
-  'en_es': [...enEsContent],
-  'zh_en': [...zhEnContent],
-  'en_zh': [...enZhContent],
-  'en_zh_hanzi': [...enZhHanziContent],
-  'en_de_ai': [...enDeAiContent],
+  // shared `nouns/de.json` collection (below), not baked into the bundle.
 };
 
 void main() {
@@ -131,38 +90,15 @@ void main() {
     ),
   );
 
-  // The other learned languages' noun lists (authored, not enriched from a
-  // compiled quiz) — one file per language a course teaches, so the Word
-  // Library has a clickable list with meanings in each course's main language.
-  final nounCollections = {
-    'es': spanishNounCollection,
-    'cs': czechNounCollection,
-    'zh': mandarinNounCollection,
-    'en': englishNounCollection,
-  };
-  for (final entry in nounCollections.entries) {
-    File('assets/content/shared/nouns/${entry.key}.json')
-        .writeAsStringSync(encoder.convert(entry.value.toJson()));
-  }
-
   // The shared verb lists (≥5 conjugation tables per verb), keyed by the
   // learned language — the Word Library's Verbs tab reads these.
   Directory('assets/content/shared/verbs').createSync(recursive: true);
-  final verbCollections = {
-    'de': germanVerbCollection,
-    'es': spanishVerbCollection,
-    'cs': czechVerbCollection,
-    'en': englishVerbCollection,
-    'zh': mandarinVerbCollection,
-  };
-  for (final entry in verbCollections.entries) {
-    File('assets/content/shared/verbs/${entry.key}.json')
-        .writeAsStringSync(encoder.convert(entry.value.toJson()));
-  }
+  File('assets/content/shared/verbs/de.json')
+      .writeAsStringSync(encoder.convert(germanVerbCollection.toJson()));
 
   stdout.writeln(
     'Wrote catalog.json + app.json + ${defaultCourses.length} course bundles '
-    '($quizCount quizzes) + ${nounCollections.length + 1} noun lists + '
-    '${verbCollections.length} verb lists under assets/content/.',
+    '($quizCount quizzes) + the German noun and verb lists under '
+    'assets/content/.',
   );
 }

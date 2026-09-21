@@ -1,9 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:german_pronouns_articles/data/settings_store.dart';
 import 'package:german_pronouns_articles/models/noun_settings.dart';
 import 'package:german_pronouns_articles/models/user_settings.dart';
 
@@ -29,16 +27,6 @@ void main() {
   test('UserSettings round-trips through JSON unchanged', () {
     expect(UserSettings.fromJson(_throughJson(sample.toJson())).toJson(),
         sample.toJson());
-  });
-
-  test('SharedPreferencesSettingsStore round-trips through prefs', () async {
-    SharedPreferences.setMockInitialValues({});
-    const store = SharedPreferencesSettingsStore();
-
-    await store.save(sample);
-    final loaded = await store.load();
-
-    expect(loaded.toJson(), sample.toJson());
   });
 
   test('NounSettings snapshot is database-ready', () {

@@ -2,14 +2,10 @@
 /// highlight it and the app can reopen on the last-visited page.
 ///
 /// Lives in models/ (not the widget layer) so data configs can set
-/// `QuizConfig.currentPage` without depending on widgets — this keeps the
-/// section catalog free of a catalog → drawer → catalog import cycle.
+/// `QuizConfig.currentPage` without depending on widgets.
 enum AppPage {
-  pronouns,
   articles,
   nounsArticles,
-  pronounsAndArticles,
-  prepositions,
   quest,
   wordLibrary,
   settings,

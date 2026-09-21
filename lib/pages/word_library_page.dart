@@ -8,7 +8,6 @@ import '../models/course_session.dart';
 import '../models/noun_settings.dart';
 import '../models/quiz_config.dart';
 import '../widgets/app_drawer.dart';
-import '../widgets/coin_balance_pill.dart';
 import '../widgets/word_detail_panels.dart';
 
 /// The active course's vocabulary reference, in two tabs backed by the shared
@@ -133,7 +132,6 @@ class _WordLibraryPageState extends State<WordLibraryPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(strings.wordLibrary),
-          actions: const [CoinBalancePill()],
           bottom: TabBar(
             tabs: [Tab(text: strings.nouns), Tab(text: strings.verbs)],
           ),

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:german_pronouns_articles/models/app_page.dart';
 import 'package:german_pronouns_articles/models/app_session.dart';
-import 'package:german_pronouns_articles/models/coin_wallet.dart';
 import 'package:german_pronouns_articles/models/course_session.dart';
 import 'package:german_pronouns_articles/models/noun_settings.dart';
 import 'package:german_pronouns_articles/models/quiz_content.dart';
@@ -75,7 +74,6 @@ void main() {
     await AppSession.instance.load();
     await CourseSession.instance.load();
     await NounSettings.instance.load();
-    await CoinWallet.instance.load();
     // Saving a score finishes the quiz, which schedules the feature poll behind
     // a delay; put it on cooldown or the binding fails on '!timersPending'.
     await NounSettings.instance.markFeaturePollShown();
@@ -184,7 +182,6 @@ void main() {
     await _pumpPage(tester, 'speaking_pass');
 
     final s = CourseSession.instance.strings.speaking;
-    final before = CoinWallet.instance.balance;
 
     // Paste the AI's whole report: the score is read off its SCORE= line.
     await tester.enterText(find.byType(TextField), 'FINAL SCORE: 84 / 100\nSCORE=84');
@@ -195,7 +192,6 @@ void main() {
     expect(find.text(s.silver), findsOneWidget);
     expect(find.textContaining('84 / 100'), findsOneWidget);
     expect(NounSettings.instance.isSpeakQuizCompleted('speaking_pass'), isTrue);
-    expect(CoinWallet.instance.balance, greaterThan(before));
 
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.getInt('speaking_pass_speaking_best'), 84);
