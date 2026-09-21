@@ -1,0 +1,42 @@
+{
+  "name": "Language Quiz: Learn German",
+  "short_name": "LanguageQuiz",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#1F3A5F",
+  "theme_color": "#1F3A5F",
+  "description": "Free interactive German course for English speakers: grammar, vocabulary, reading, listening and speaking exercises with audio, from CEFR A1 upwards, with no sign-up needed.",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "education"
+  ],
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

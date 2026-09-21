@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /settings
+# The worksheet builder is a tool, not a page worth indexing.
+Disallow: /course/*/worksheet
+
+Sitemap: https://languagequiz.org/sitemap.xml
