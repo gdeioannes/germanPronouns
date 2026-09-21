@@ -1,0 +1,73 @@
+# Builds and checks the SvelteKit site in `site/`.
+#
+# Deliberately does NOT deploy yet: `deploy-pages.yml` still owns the live
+# GitHub Pages site while the Flutter app is being replaced (the strangler
+# plan). When the Svelte app reaches parity, delete that workflow and
+# uncomment the Pages steps at the bottom of this one.
+name: Build Svelte site
+
+on:
+  push:
+    branches: ["main", "Main"]
+  pull_request:
+    branches: ["main", "Main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run check
+
+      - name: Unit tests
+        run: npm test
+
+      # Prerenders every route, including one page per quiz. A content bundle
+      # that a renderer can't handle fails the build here rather than shipping
+      # a blank page — that is how the big-text cloze gap was caught.
+      - name: Build
+        run: npm run build
+
+      - name: Report bundle size
+        run: |
+          echo "### Static output" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- pages: $(find build -name '*.html' | wc -l)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- total: $(du -sh build | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
+
+      # --- Enable when the Svelte app takes over the live site ---------------
+      # - name: Inject CNAME
+      #   run: echo "languagequiz.org" > build/CNAME
+      #
+      # - name: Setup Pages
+      #   if: github.event_name != 'pull_request'
+      #   uses: actions/configure-pages@v5
+      #
+      # - name: Upload Pages artifact
+      #   if: github.event_name != 'pull_request'
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: site/build
