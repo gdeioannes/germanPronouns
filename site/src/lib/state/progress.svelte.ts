@@ -18,6 +18,20 @@ import {
 import { storage } from '$lib/services/storage';
 import type { QuizType } from '$lib/content/types';
 
+/**
+ * How long a revealed answer stays on screen before the next question.
+ * Values match the Dart `AnswerRevealMode` enum, and are persisted under the
+ * same key, so the setting carries over.
+ */
+export type AnswerRevealMode = 'quick' | 'normal' | 'slow';
+
+/** The pause, in ms, for each mode — the Dart durations verbatim. */
+export const REVEAL_PAUSE: Record<AnswerRevealMode, number> = {
+	quick: 500,
+	normal: 1500,
+	slow: 3000
+};
+
 export interface QuizStats {
 	score: number;
 	streak: number;
@@ -62,6 +76,8 @@ class ProgressStore {
 	gating = $state<Gating>(DEFAULT_GATING);
 	relaxedCorrection = $state(false);
 	showFirstLetterHint = $state(false);
+	/** How long the answer stays revealed before the next question. */
+	answerRevealMode = $state<AnswerRevealMode>('normal');
 	loaded = $state(false);
 
 	async load(gating: Gating = DEFAULT_GATING): Promise<void> {
@@ -80,6 +96,10 @@ class ProgressStore {
 		this.relaxedCorrection = (await storage.get(SettingsKeys.relaxedCorrection)) === 'true';
 		this.showFirstLetterHint =
 			(await storage.get(SettingsKeys.showFirstLetterHint)) === 'true';
+		const mode = await storage.get(SettingsKeys.answerRevealMode);
+		if (mode === 'quick' || mode === 'normal' || mode === 'slow') {
+			this.answerRevealMode = mode;
+		}
 		this.loaded = true;
 	}
 
@@ -206,6 +226,11 @@ class ProgressStore {
 	async setShowFirstLetterHint(value: boolean): Promise<void> {
 		this.showFirstLetterHint = value;
 		await storage.set(SettingsKeys.showFirstLetterHint, String(value));
+	}
+
+	async setAnswerRevealMode(value: AnswerRevealMode): Promise<void> {
+		this.answerRevealMode = value;
+		await storage.set(SettingsKeys.answerRevealMode, value);
 	}
 
 	/** Wipes every trace of progress — the "start over" path. */

@@ -11,7 +11,7 @@
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
 	import { DEFAULT_GATING } from '$lib/domain/progress';
-	import { progress } from '$lib/state/progress.svelte';
+	import { progress, type AnswerRevealMode } from '$lib/state/progress.svelte';
 	import type { PopulatedCourse } from '$lib/content/types';
 
 	let course = $state<PopulatedCourse | null>(null);
@@ -88,9 +88,29 @@
 			/>
 			<span>
 				<strong>Show the first letter</strong>
-				<small>A nudge on every fill-in question.</small>
+				<small>Starts every fill-in answer off for you.</small>
 			</span>
 		</label>
+	</section>
+
+	<section class="card">
+		<h2>Answer reveal</h2>
+		<p class="lede">
+			After you answer, the correct spelling is written into the gap — green
+			when you had it, red when you didn't. This is how long it stays before
+			the next question.
+		</p>
+		<div class="segmented" role="radiogroup" aria-label="Answer reveal speed">
+			{#each [['quick', 'Quick'], ['normal', 'Normal'], ['slow', 'Slow']] as [mode, label] (mode)}
+				<button
+					role="radio"
+					aria-checked={progress.answerRevealMode === mode}
+					onclick={() => progress.setAnswerRevealMode(mode as AnswerRevealMode)}
+				>
+					{label}
+				</button>
+			{/each}
+		</div>
 	</section>
 
 	<section class="card">
@@ -187,6 +207,35 @@
 		margin-top: 0.1rem;
 		color: var(--ink-muted);
 		font-size: var(--step--1);
+	}
+
+	.segmented {
+		display: inline-flex;
+		padding: 0.2rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		background: var(--surface-alt);
+	}
+
+	.segmented button {
+		padding: 0.35rem 1.1rem;
+		border: 0;
+		border-radius: 999px;
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 600;
+		cursor: pointer;
+		transition:
+			background var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out);
+	}
+
+	.segmented button[aria-checked='true'] {
+		background: var(--surface);
+		color: var(--ink);
+		box-shadow: 0 1px 3px rgba(42, 42, 40, 0.12);
 	}
 
 	.levels {
