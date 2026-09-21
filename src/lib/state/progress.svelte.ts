@@ -260,10 +260,27 @@ class ProgressStore {
 	isCompleted(type: QuizType, id: string, prefix: string): boolean {
 		const key = completionKeyFor(type);
 		if (key === null) {
-			// Fill-in: the goal streak is completion.
-			return isQuizDone(this.peekStats(prefix).bestStreakAbsolute, this.gating);
+			// Fill-in has no set of its own: the goal streak is completion. But the
+			// streak lives in per-quiz stats that load lazily, so a page that hasn't
+			// called `hydrateStats` would read every fill-in as unfinished and lock
+			// the rest of the ladder. The quest set is written for every kind, so
+			// check it first: it is the durable record, the streak the fallback for
+			// progress earned in the Flutter build, which never wrote that set.
+			return (
+				this.isQuestCompleted(id) ||
+				isQuizDone(this.peekStats(prefix).bestStreakAbsolute, this.gating)
+			);
 		}
 		return (this.completed[key] ?? []).includes(id);
+	}
+
+	/**
+	 * Loads the stats for many quizzes at once. Any view that reads `peekStats`
+	 * for quizzes the learner hasn't just played — the ladder's ribbons, the
+	 * progress ring — must await this first, or it renders zeros.
+	 */
+	async hydrateStats(prefixes: string[]): Promise<void> {
+		for (const prefix of prefixes) await this.statsFor(prefix);
 	}
 
 	async markCompleted(type: QuizType, id: string): Promise<void> {
@@ -337,6 +354,9 @@ class ProgressStore {
 				await storage.remove(key);
 			}
 		}
+		// Named explicitly: it matches neither filter above, so without this a
+		// "start over" left the placement's unlocked levels open after a reload.
+		await storage.remove(SettingsKeys.placementUnlockedQuizzes);
 		this.stats = {};
 		this.completed = {};
 		this.placementUnlocked = [];

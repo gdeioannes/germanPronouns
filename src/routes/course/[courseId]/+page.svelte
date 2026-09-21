@@ -21,6 +21,14 @@
 		if (!progress.loaded) progress.load(course.gating ?? DEFAULT_GATING);
 	});
 
+	// The ribbons and the ring read the per-quiz streaks, which load lazily —
+	// so pull in this course's before rendering them, or they all read zero.
+	$effect(() => {
+		if (progress.loaded) {
+			progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
+		}
+	});
+
 	// Before progress loads, nothing reads as done — so the page renders the
 	// honest "all locked but the first" state rather than flashing unlocks.
 	const isDone = $derived((quiz: Quiz) =>

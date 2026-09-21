@@ -196,7 +196,10 @@
 		}
 
 		// Crossing the goal streak completes the quiz and unlocks the next.
-		if (correct && stats.streak === goal) onGoalReached();
+		// `>=`, not `===`: if the goal-crossing answer ever fails to record the
+		// completion, the next correct answer must still be able to. Marking it is
+		// idempotent, so re-firing costs nothing.
+		if (correct && stats.streak >= goal) onGoalReached();
 
 		// Write the canonical spelling in. Even a correct answer is rewritten,
 		// so a relaxed-mode "schon" visibly becomes "schön".
