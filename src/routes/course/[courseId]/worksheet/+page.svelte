@@ -244,7 +244,8 @@
 										{#each section.table.rows as row (row.subject)}
 											<tr>
 												<th>
-													{row.subject}{#if row.english}<small> · {row.english}</small>{/if}
+													{#if row.article}{row.article}
+													{/if}{row.subject}{#if row.english}<small> · {row.english}</small>{/if}
 												</th>
 												{#each row.cells as cell, c (c)}
 													<td>{cell}</td>

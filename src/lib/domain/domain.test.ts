@@ -285,10 +285,12 @@ describe('help memory reference table', () => {
 		expect(table.columns).toEqual(['bestimmt', 'unbestimmt']);
 		expect(table.rows[0]).toEqual({
 			subject: 'Mann',
+			article: 'der',
 			english: 'man',
 			gender: 'm',
 			cells: ['der', 'ein']
 		});
+		expect(table.rows[1].article).toBe('die');
 	});
 
 	it('leaves a blank where a category runs short, never undefined', () => {
@@ -296,10 +298,23 @@ describe('help memory reference table', () => {
 		expect(helpTableFor(gridQuiz)!.rows[1].cells).toEqual(['die', '']);
 	});
 
-	it('carries the gender-colouring flag through', () => {
+	it('colours gendered nouns with or without the authored flag', () => {
 		expect(helpTableFor(gridQuiz)!.colorByGender).toBe(true);
-		const plain = { ...gridQuiz, help: {} } as unknown as Quiz;
-		expect(helpTableFor(plain)!.colorByGender).toBe(false);
+		// The content sets the flag on only three grids, so gendered subjects
+		// are enough on their own.
+		const noFlag = { ...gridQuiz, help: {} } as unknown as Quiz;
+		expect(helpTableFor(noFlag)!.colorByGender).toBe(true);
+	});
+
+	it('gives no article to subjects that are not nouns', () => {
+		const pronouns = {
+			...gridQuiz,
+			help: {},
+			subjects: [{ key: 'ich', display: 'ich' }]
+		} as unknown as Quiz;
+		const table = helpTableFor(pronouns)!;
+		expect(table.rows[0].article).toBeUndefined();
+		expect(table.colorByGender).toBe(false);
 	});
 
 	it('has no table for the kinds with no grid', () => {

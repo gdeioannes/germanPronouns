@@ -169,25 +169,34 @@
 	}
 
 	/* The cloze is a reading passage with holes in it: serif, and leaded wide
-	   enough that the inputs and their hints don't collide between lines. */
+	   enough for a gap and its hint to sit between two lines of prose. */
 	.cloze {
 		margin: 0;
 		max-width: var(--measure);
 		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-1);
 		font-variation-settings: 'opsz' 16;
-		line-height: 2.6;
+		line-height: 2.4;
 		white-space: pre-wrap;
 		color: var(--ink);
 	}
 
+	/* A column: the gap, then its hint underneath. Both are in normal flow, so
+	   a long hint makes its own slot taller instead of being absolutely
+	   positioned and landing on top of the line above. `vertical-align:
+	   baseline` on an inline-flex box takes the baseline of its FIRST item —
+	   the input — so the gap still sits on the sentence's baseline while the
+	   hint hangs below it. */
 	.slot {
-		position: relative;
-		display: inline-block;
-		white-space: nowrap;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		vertical-align: baseline;
+		white-space: normal;
 	}
 
 	.slot input {
+		min-width: 4ch;
 		padding: 0.1rem 0.4rem;
 		border: 0;
 		border-bottom: 2px solid var(--accent);
@@ -216,32 +225,37 @@
 		background: var(--wrong-bg);
 	}
 
+	/* Hints run long — "nett · ... Nachbarn (Akk, Plural, kein Artikel)" — so
+	   they wrap within a sane measure rather than running under the neighbouring
+	   words. Sans-serif and small, to read as an annotation on the prose. */
 	.fix,
 	.hint {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		white-space: nowrap;
-		font-size: 0.68rem;
-		line-height: 1.2;
+		max-width: 18ch;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.66rem;
+		line-height: 1.25;
+		text-align: center;
+		text-wrap: balance;
 	}
 
 	.fix {
-		top: 100%;
 		font-weight: 700;
-		font-family: 'Inter', sans-serif;
 		color: var(--right);
 		animation: reveal 260ms var(--ease-out) both;
 	}
 
 	@keyframes reveal {
-		from { opacity: 0; transform: translate(-50%, -4px); }
-		to { opacity: 1; transform: translate(-50%, 0); }
+		from {
+			opacity: 0;
+			transform: translateY(-3px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	.hint {
-		bottom: 100%;
-		font-family: 'Inter', sans-serif;
 		color: var(--ink-muted);
 	}
 

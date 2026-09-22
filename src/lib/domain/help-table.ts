@@ -10,6 +10,7 @@
 // cell. Deriving it rather than authoring it is why it can never drift from
 // what the exercise actually asks for.
 
+import { GENDER_ARTICLES } from '$lib/domain/gender';
 import type { Quiz } from '$lib/content/types';
 
 export interface HelpTable {
@@ -23,6 +24,12 @@ export interface HelpTable {
 
 export interface HelpTableRow {
 	subject: string;
+	/**
+	 * The noun's own article — der/die/das. A German noun is learnt with its
+	 * article or not at all, so the table names it rather than leaving the
+	 * gender implied by a colour alone.
+	 */
+	article?: string;
 	/** The English meaning, when the content carries one. */
 	english?: string;
 	gender?: string;
@@ -43,12 +50,17 @@ export function helpTableFor(quiz: Quiz): HelpTable | null {
 		columns: categories.map((category) => category.label),
 		rows: subjects.map((subject, row) => ({
 			subject: subject.display,
+			article: subject.gender ? GENDER_ARTICLES[subject.gender] : undefined,
 			english: subject.english,
 			gender: subject.gender,
 			// A category whose values run short leaves a blank rather than
 			// `undefined`: a gap in the data must not become a gap in the markup.
 			cells: categories.map((category) => category.values[row] ?? '')
 		})),
-		colorByGender: quiz.help?.colorByGender === true
+		// The authored flag, but also simply whether the subjects are nouns: the
+		// content sets the flag on only three of the ninety-six grids, and a
+		// gendered noun is worth colouring wherever it appears.
+		colorByGender:
+			quiz.help?.colorByGender === true || subjects.some((subject) => !!subject.gender)
 	};
 }

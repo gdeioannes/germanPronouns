@@ -77,11 +77,13 @@
 							<tbody>
 								{#each table.rows as row (row.subject)}
 									<tr>
-										<th scope="row">
-											<span
-												style={table.colorByGender && row.gender
-													? `color:${GENDER_COLORS[row.gender]}`
-													: ''}>{row.subject}</span>
+										<th
+											scope="row"
+											style={table.colorByGender && row.gender
+												? `color:${GENDER_COLORS[row.gender]}`
+												: ''}
+										>
+											{#if row.article}<span class="article">{row.article}</span>{/if}{row.subject}
 											{#if row.english}<small>{row.english}</small>{/if}
 										</th>
 										{#each row.cells as cell, i (i)}
@@ -200,6 +202,14 @@
 
 	tbody th {
 		font-weight: 700;
+	}
+
+	/* The article is part of the word, so it sits with it rather than in a
+	   column of its own — lighter, because the noun is what's being looked up. */
+	.article {
+		margin-right: 0.35ch;
+		font-weight: 500;
+		opacity: 0.85;
 	}
 
 	/* The meaning sits under the noun rather than in a column of its own, so the
