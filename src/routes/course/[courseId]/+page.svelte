@@ -6,6 +6,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { rise } from '$lib/motion';
+	import { onMount } from 'svelte';
 	import { Tween } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { buildLadder, courseProgress, nextQuiz } from '$lib/domain/ladder';
@@ -17,16 +18,15 @@
 	let { data }: { data: PageData } = $props();
 	const course = $derived(data.course);
 
-	$effect(() => {
-		if (!progress.loaded) progress.load(course.gating ?? DEFAULT_GATING);
-	});
-
-	// The ribbons and the ring read the per-quiz streaks, which load lazily —
-	// so pull in this course's before rendering them, or they all read zero.
-	$effect(() => {
-		if (progress.loaded) {
-			progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
-		}
+	// Loading runs on mount, not in an $effect: hydrateStats both reads and
+	// writes the per-quiz stats state, so inside an effect each quiz it loaded
+	// would invalidate the effect and re-enter it — an update-depth crash that
+	// takes the whole page down. onMount has no reactive dependencies at all.
+	onMount(async () => {
+		if (!progress.loaded) await progress.load(course.gating ?? DEFAULT_GATING);
+		// The ribbons and the ring read the streaks, which load lazily — pull in
+		// this course's, or they all render as zero.
+		await progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
 	});
 
 	// Before progress loads, nothing reads as done — so the page renders the
