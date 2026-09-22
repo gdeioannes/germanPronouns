@@ -15,10 +15,12 @@ import type {
 	InlineClozeQuiz,
 	PopulatedCourse,
 	Quiz,
+	QuizHelp,
 	ReadingQuiz,
 	SpeakingQuiz
 } from '$lib/content/types';
 import { isInlineCloze } from '$lib/content/types';
+import { helpTableFor, type HelpTable } from '$lib/domain/help-table';
 
 /** Which quizzes feed the worksheet. */
 export type ExerciseScope = 'fullCourse' | 'achieved' | 'weakSpots';
@@ -51,6 +53,14 @@ export interface ExerciseSection {
 	/** The reading passage, or the inline template still carrying `{{n}}`. */
 	passage?: string;
 	items: ExerciseItem[];
+	/**
+	 * The quiz's Help Memory, printed above its exercises. On screen a learner
+	 * can open the panel whenever they want it; on paper there is nothing to
+	 * open, so the rules have to travel with the questions or the sheet is
+	 * unusable away from the app.
+	 */
+	help?: QuizHelp;
+	table?: HelpTable | null;
 }
 
 /** Hard cap for "all exercises", so a big course still prints a usable book. */
@@ -104,7 +114,9 @@ export function buildWorksheet(
 		if (scope === 'achieved' && !stats.done) continue;
 		if (scope === 'weakSpots' && stats.answered === 0) continue;
 		const section = sectionFor(quiz, stats, random);
-		if (section && section.items.length > 0) sections.push(section);
+		if (section && section.items.length > 0) {
+			sections.push({ ...section, help: quiz.help, table: helpTableFor(quiz) });
+		}
 	}
 
 	const cap = maxItems == null ? MAX_SHEET_ITEMS : Math.min(maxItems, MAX_SHEET_ITEMS);

@@ -26,6 +26,7 @@ import {
 	type Gating
 } from './progress';
 import { buildLadder, courseProgress, nextQuiz } from './ladder';
+import { helpTableFor } from './help-table';
 import type { PopulatedCourse, Quiz } from '$lib/content/types';
 
 describe('ribbon tiers', () => {
@@ -257,5 +258,56 @@ describe('the gated ladder', () => {
 			done: 4,
 			total: 4
 		});
+	});
+});
+
+describe('help memory reference table', () => {
+	const gridQuiz = {
+		id: 'artikel',
+		type: 'fillBlank',
+		title: 'Artikel',
+		storageKeyPrefix: 'artikel_',
+		subjectColumnLabel: 'Nomen',
+		help: { colorByGender: true },
+		subjects: [
+			{ key: 'Mann', display: 'Mann', english: 'man', gender: 'm' },
+			{ key: 'Frau', display: 'Frau', english: 'woman', gender: 'f' }
+		],
+		categories: [
+			{ label: 'bestimmt', group: 'b', values: ['der', 'die'] },
+			{ label: 'unbestimmt', group: 'u', values: ['ein'] }
+		]
+	} as unknown as Quiz;
+
+	it('turns the quiz answer key into rows and columns', () => {
+		const table = helpTableFor(gridQuiz)!;
+		expect(table.subjectHeader).toBe('Nomen');
+		expect(table.columns).toEqual(['bestimmt', 'unbestimmt']);
+		expect(table.rows[0]).toEqual({
+			subject: 'Mann',
+			english: 'man',
+			gender: 'm',
+			cells: ['der', 'ein']
+		});
+	});
+
+	it('leaves a blank where a category runs short, never undefined', () => {
+		// The second category has one value for two subjects.
+		expect(helpTableFor(gridQuiz)!.rows[1].cells).toEqual(['die', '']);
+	});
+
+	it('carries the gender-colouring flag through', () => {
+		expect(helpTableFor(gridQuiz)!.colorByGender).toBe(true);
+		const plain = { ...gridQuiz, help: {} } as unknown as Quiz;
+		expect(helpTableFor(plain)!.colorByGender).toBe(false);
+	});
+
+	it('has no table for the kinds with no grid', () => {
+		expect(helpTableFor({ type: 'reading' } as unknown as Quiz)).toBeNull();
+		expect(helpTableFor({ type: 'dictation' } as unknown as Quiz)).toBeNull();
+		// A fill-in with no subjects authored yet is not a one-column table.
+		expect(
+			helpTableFor({ type: 'fillBlank', subjects: [], categories: [] } as unknown as Quiz)
+		).toBeNull();
 	});
 });

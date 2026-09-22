@@ -68,7 +68,7 @@
 		{/if}
 	</header>
 
-	<HelpMemory help={quiz.help} quizId={quiz.id} />
+	<HelpMemory {quiz} />
 
 	{#if quiz.type === 'fillBlank'}
 		<FillBlankQuiz

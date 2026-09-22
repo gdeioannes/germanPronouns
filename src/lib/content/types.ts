@@ -69,6 +69,8 @@ export interface HelpTip {
 export interface QuizHelp {
 	intro?: string;
 	tips?: HelpTip[];
+	/** Tint the reference table's rows by noun gender. */
+	colorByGender?: boolean;
 }
 
 /** Fields every quiz carries, whatever its `type`. */
@@ -94,6 +96,10 @@ export interface QuizBase {
 export interface QuizSubject {
 	key: string;
 	display: string;
+	/** The English meaning, shown in the Help Memory's reference table. */
+	english?: string;
+	/** 'm' | 'f' | 'n' for nouns; absent for everything else. */
+	gender?: string;
 }
 
 export interface QuizCategory {

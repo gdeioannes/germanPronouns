@@ -1,14 +1,23 @@
 <script lang="ts">
-	// A quiz's Help Memory: the intro plus its tip cards. Every quiz has one
-	// (the Dart gate test enforces it), and it auto-opens on first visit.
+	// A quiz's Help Memory, in the three layers the course plan defines: the
+	// intro frames the idea, the tips carry the rules and mnemonics, and the
+	// table carries the reference data. Every quiz has one, and it auto-opens on
+	// first visit so the rules are read before the first question rather than
+	// discovered by failing.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { rise } from '$lib/motion';
 	import { slide } from 'svelte/transition';
+	import { GENDER_COLORS } from '$lib/domain/gender';
+	import { helpTableFor } from '$lib/domain/help-table';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { storage } from '$lib/services/storage';
-	import type { QuizHelp } from '$lib/content/types';
+	import type { Quiz } from '$lib/content/types';
 
-	let { help, quizId }: { help?: QuizHelp; quizId: string } = $props();
+	let { quiz }: { quiz: Quiz } = $props();
+
+	const help = $derived(quiz.help);
+	const quizId = $derived(quiz.id);
+	const table = $derived(helpTableFor(quiz));
 
 	let open = $state(false);
 
@@ -29,7 +38,7 @@
 	});
 </script>
 
-{#if help?.intro || help?.tips?.length}
+{#if help?.intro || help?.tips?.length || table}
 	<section class="help">
 		<button class="toggle" onclick={() => (open = !open)} aria-expanded={open}>
 			<Icon name="help" size="1.05em" />
@@ -39,10 +48,10 @@
 
 		{#if open}
 			<div class="body" transition:slide={{ duration: 220 }}>
-				{#if help.intro}
+				{#if help?.intro}
 					<p class="intro">{help.intro}</p>
 				{/if}
-				{#each help.tips ?? [] as tip, i (tip.text)}
+				{#each help?.tips ?? [] as tip, i (tip.text)}
 					<!-- Tips stagger in, so the panel reads as a short list rather
 					     than a wall that appears all at once. -->
 					<div class="tip" in:rise={{ delay: 60 + i * 45 }}>
@@ -50,6 +59,40 @@
 						<p>{tip.text}</p>
 					</div>
 				{/each}
+
+				<!-- The reference layer: every form the exercise can ask for, laid
+				     out to be scanned. It is the quiz's own answer key, so it can
+				     never drift from the questions. -->
+				{#if table}
+					<div class="table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">{table.subjectHeader}</th>
+									{#each table.columns as column (column)}
+										<th scope="col">{column}</th>
+									{/each}
+								</tr>
+							</thead>
+							<tbody>
+								{#each table.rows as row (row.subject)}
+									<tr>
+										<th scope="row">
+											<span
+												style={table.colorByGender && row.gender
+													? `color:${GENDER_COLORS[row.gender]}`
+													: ''}>{row.subject}</span>
+											{#if row.english}<small>{row.english}</small>{/if}
+										</th>
+										{#each row.cells as cell, i (i)}
+											<td>{cell}</td>
+										{/each}
+									</tr>
+								{/each}
+							</tbody>
+						</table>
+					</div>
+				{/if}
 			</div>
 		{/if}
 	</section>
@@ -121,5 +164,55 @@
 		margin: 0;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
+	}
+
+	/* The table is the one thing here that may be wider than the page, so it
+	   scrolls inside its own box rather than pushing the layout sideways. */
+	.table-wrap {
+		margin-top: 1rem;
+		overflow-x: auto;
+	}
+
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		font-size: var(--step--1);
+	}
+
+	th,
+	td {
+		padding: 0.4rem 0.7rem;
+		text-align: left;
+		border-bottom: 1px solid var(--line);
+		white-space: nowrap;
+	}
+
+	thead th {
+		position: sticky;
+		top: 0;
+		background: var(--surface);
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+
+	tbody th {
+		font-weight: 700;
+	}
+
+	/* The meaning sits under the noun rather than in a column of its own, so the
+	   forms stay side by side where they can be compared. */
+	tbody th small {
+		display: block;
+		font-weight: 400;
+		font-size: 0.75em;
+		color: var(--ink-muted);
+	}
+
+	tbody tr:last-child th,
+	tbody tr:last-child td {
+		border-bottom: 0;
 	}
 </style>

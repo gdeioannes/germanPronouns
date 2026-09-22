@@ -216,6 +216,47 @@
 				<section class="block">
 					<h3>{section.quizTitle}</h3>
 
+					<!-- The rules travel with the questions: on paper there is no
+					     panel to open, so a sheet without them can't be worked
+					     away from the app. -->
+					{#if section.help?.intro || section.help?.tips?.length || section.table}
+						<div class="help">
+							{#if section.help?.intro}
+								<p class="help-intro">{section.help.intro}</p>
+							{/if}
+							{#each section.help?.tips ?? [] as tip (tip.text)}
+								<p class="help-tip">
+									{#if tip.title}<strong>{tip.title}:</strong>{/if}
+									{tip.text}
+								</p>
+							{/each}
+							{#if section.table}
+								<table class="help-table">
+									<thead>
+										<tr>
+											<th>{section.table.subjectHeader}</th>
+											{#each section.table.columns as column (column)}
+												<th>{column}</th>
+											{/each}
+										</tr>
+									</thead>
+									<tbody>
+										{#each section.table.rows as row (row.subject)}
+											<tr>
+												<th>
+													{row.subject}{#if row.english}<small> · {row.english}</small>{/if}
+												</th>
+												{#each row.cells as cell, c (c)}
+													<td>{cell}</td>
+												{/each}
+											</tr>
+										{/each}
+									</tbody>
+								</table>
+							{/if}
+						</div>
+					{/if}
+
 					{#if section.kind === 'reading' && section.passage}
 						<div class="passage">{section.passage}</div>
 					{/if}
@@ -538,6 +579,57 @@
 
 		.block {
 			break-inside: auto;
+		}
+	}
+
+	/* The Help Memory on paper. Printed in grey on a tinted ground so it reads
+	   as reference beside the exercises rather than as more questions — and
+	   never colour-coded, because most sheets come off a mono printer. */
+	.help {
+		margin: 0 0 0.9rem;
+		padding: 0.6rem 0.75rem;
+		border-left: 3px solid var(--line-strong);
+		background: var(--surface-alt);
+		font-size: 0.82rem;
+		break-inside: avoid;
+	}
+
+	.help-intro {
+		margin: 0;
+	}
+
+	.help-tip {
+		margin: 0.35rem 0 0;
+		color: var(--ink-muted);
+	}
+
+	.help-table {
+		margin-top: 0.6rem;
+		border-collapse: collapse;
+		width: 100%;
+		font-size: 0.76rem;
+	}
+
+	.help-table th,
+	.help-table td {
+		padding: 0.18rem 0.45rem;
+		text-align: left;
+		border: 1px solid var(--line);
+	}
+
+	.help-table thead th {
+		font-weight: 700;
+	}
+
+	.help-table small {
+		font-weight: 400;
+		color: var(--ink-muted);
+	}
+
+	@media print {
+		.help {
+			background: none;
+			border-left-color: #000;
 		}
 	}
 </style>
