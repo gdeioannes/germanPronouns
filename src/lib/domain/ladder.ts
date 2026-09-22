@@ -1,10 +1,11 @@
-// The gated CEFR ladder: which sub-levels are open, and where the learner is.
+// The CEFR ladder: the sub-levels, and how far through each one the learner is.
 //
-// Ported from lib/data/course_progress.dart. The rule: a quest chain sub-level
-// opens only once every quiz in every preceding sub-level is complete — the
-// chain is globally continuous, so progress can't be skipped. A placement can
-// open levels directly without marking anything complete, which is why the
-// unlocked check consults the placement set too.
+// Every sub-level is open. The Flutter build gated them — a sub-level opened
+// only once every quiz in every earlier one was complete — but with twenty
+// exercises to a sub-level that asked a beginner to finish all of A1.1 before
+// seeing a single A1.2 sentence, and someone who already speaks some German had
+// to grind past what they knew. Completion is still tracked and still shown, as
+// ribbons and the progress ring; it just no longer stands in anyone's way.
 
 import type { NavGroup, PopulatedCourse, Quiz } from '$lib/content/types';
 
@@ -13,8 +14,6 @@ export interface LadderLevel {
 	title: string;
 	level: string;
 	quizzes: Quiz[];
-	/** Open to the learner — either earned or opened by a placement. */
-	unlocked: boolean;
 	/** Every quiz in it is finished. */
 	complete: boolean;
 	doneCount: number;
@@ -22,10 +21,6 @@ export interface LadderLevel {
 
 export interface IsDone {
 	(quiz: Quiz): boolean;
-}
-
-export interface IsPlaced {
-	(quizId: string): boolean;
 }
 
 /** Groups a course's quizzes into its ordered quest-chain sub-levels. */
@@ -38,50 +33,29 @@ export function levelGroups(course: PopulatedCourse): { group: NavGroup; quizzes
 		}));
 }
 
-/**
- * The ladder with its locks resolved. The first sub-level is always open;
- * each later one opens when every earlier quiz is done, or when a placement
- * opened it.
- */
-export function buildLadder(
-	course: PopulatedCourse,
-	isDone: IsDone,
-	isPlaced: IsPlaced = () => false
-): LadderLevel[] {
-	const groups = levelGroups(course);
-	const ladder: LadderLevel[] = [];
-	let everythingBeforeIsDone = true;
-
-	for (const { group, quizzes } of groups) {
+/** The ladder, with each sub-level's completion counted. */
+export function buildLadder(course: PopulatedCourse, isDone: IsDone): LadderLevel[] {
+	return levelGroups(course).map(({ group, quizzes }) => {
 		const doneCount = quizzes.filter(isDone).length;
-		const complete = quizzes.length > 0 && doneCount === quizzes.length;
-		const placed = quizzes.some((quiz) => isPlaced(quiz.id));
-
-		ladder.push({
+		return {
 			id: group.id,
 			title: group.title,
 			level: group.level ?? '',
 			quizzes,
-			unlocked: everythingBeforeIsDone || placed,
-			complete,
+			complete: quizzes.length > 0 && doneCount === quizzes.length,
 			doneCount
-		});
-
-		everythingBeforeIsDone = everythingBeforeIsDone && complete;
-	}
-
-	return ladder;
+		};
+	});
 }
 
-/** The sub-level the learner should be sent to — the first unfinished open one. */
+/** The sub-level the learner should be sent to — the first unfinished one. */
 export function currentLevel(ladder: LadderLevel[]): LadderLevel | undefined {
-	return ladder.find((level) => level.unlocked && !level.complete) ?? ladder.at(-1);
+	return ladder.find((level) => !level.complete) ?? ladder.at(-1);
 }
 
 /** The next quiz to do, or undefined when the course is finished. */
 export function nextQuiz(ladder: LadderLevel[], isDone: IsDone): Quiz | undefined {
 	for (const level of ladder) {
-		if (!level.unlocked) break;
 		const next = level.quizzes.find((quiz) => !isDone(quiz));
 		if (next) return next;
 	}

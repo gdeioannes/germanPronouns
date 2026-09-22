@@ -57,11 +57,11 @@
 		},
 		{
 			q: 'Which German level does it cover?',
-			a: `From absolute beginner A1 to C2, split into ${data.subLevelCount} sub-levels. Each one opens when you finish the one before it, so there is always a clear next step.`
+			a: `From absolute beginner A1 to C2, split into ${data.subLevelCount} sub-levels. Every one is open from the start, and your progress is tracked as you go, so there is always a clear next step without anything standing in your way.`
 		},
 		{
 			q: 'I already speak some German — must I start at A1?',
-			a: 'No. The course home lets you set your starting point, so you can open the level that matches you instead of replaying the basics.'
+			a: 'No. Nothing is locked — open the level that matches you and start there instead of replaying the basics.'
 		}
 	]);
 

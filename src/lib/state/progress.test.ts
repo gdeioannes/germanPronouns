@@ -1,9 +1,10 @@
-// Regression guard for the ladder's locks.
+// Regression guard for how completion is read back.
 //
 // The bug this pins down: fill-in quizzes have no completion set, so their
 // "done" was read from per-quiz stats that load lazily. The course home never
-// loaded them, so a learner who finished all of A1.1 — eleven of its twenty
-// exercises are fill-in — still saw A1.2 locked.
+// loaded them, so finished fill-ins read as unfinished — which back when levels
+// were gated meant a finished A1.1 never opened A1.2, and still today means a
+// missing ribbon and an undercounted progress ring.
 
 import { beforeEach, describe, expect, it } from 'vitest';
 import { progress } from './progress.svelte';
@@ -63,26 +64,24 @@ const A1_2 = [quiz('a1_2_fill', 'fillBlank', 'A1.2')];
 const TEST_COURSE = course([...A1_1, ...A1_2]);
 
 function ladder() {
-	return buildLadder(
-		TEST_COURSE,
-		(q) => progress.isCompleted(q.type, q.id, q.storageKeyPrefix),
-		(id) => progress.isPlacementUnlocked(id)
+	return buildLadder(TEST_COURSE, (q) =>
+		progress.isCompleted(q.type, q.id, q.storageKeyPrefix)
 	);
 }
 
-describe('ladder unlocking', () => {
+describe('reading completion back', () => {
 	beforeEach(() => {
 		installStorage();
 	});
 
-	it('locks the second sub-level until the first is finished', async () => {
+	it('counts nothing as done for a new learner', async () => {
 		await progress.load(DEFAULT_GATING);
 		const [first, second] = ladder();
-		expect(first.unlocked).toBe(true);
-		expect(second.unlocked).toBe(false);
+		expect(first.doneCount).toBe(0);
+		expect(second.complete).toBe(false);
 	});
 
-	it('opens A1.2 once every A1.1 exercise is done, without stats being hydrated', async () => {
+	it('counts a finished fill-in without its stats being hydrated', async () => {
 		installStorage({
 			// What finishing A1.1 actually writes: the quest set for every kind,
 			// plus the type set for the kinds that have one.
@@ -91,9 +90,7 @@ describe('ladder unlocking', () => {
 		});
 		await progress.load(DEFAULT_GATING);
 
-		const [first, second] = ladder();
-		expect(first.complete).toBe(true);
-		expect(second.unlocked).toBe(true);
+		expect(ladder()[0].complete).toBe(true);
 	});
 
 	it('still accepts a goal streak alone, for progress earned in the Flutter build', async () => {
@@ -105,14 +102,15 @@ describe('ladder unlocking', () => {
 		await progress.load(DEFAULT_GATING);
 		await progress.hydrateStats(['a1_1_fill_']);
 
-		expect(ladder()[1].unlocked).toBe(true);
+		expect(ladder()[0].complete).toBe(true);
 	});
 
-	it('does not open A1.2 when only part of A1.1 is done', async () => {
+	it('does not call a level complete when only part of it is done', async () => {
 		installStorage({
 			[SettingsKeys.completedQuestQuizzes]: JSON.stringify(['a1_1_fill'])
 		});
 		await progress.load(DEFAULT_GATING);
-		expect(ladder()[1].unlocked).toBe(false);
+		expect(ladder()[0].complete).toBe(false);
+		expect(ladder()[0].doneCount).toBe(1);
 	});
 });

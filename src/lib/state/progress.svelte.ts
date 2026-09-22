@@ -75,7 +75,6 @@ class ProgressStore {
 	private stats = $state<Record<string, QuizStats>>({});
 	/** Completion sets, keyed by the settings key that holds them. */
 	private completed = $state<Record<string, string[]>>({});
-	private placementUnlocked = $state<string[]>([]);
 
 	gating = $state<Gating>(DEFAULT_GATING);
 	/**
@@ -103,7 +102,6 @@ class ProgressStore {
 		const loaded: Record<string, string[]> = {};
 		for (const key of sets) loaded[key] = await this.readList(key);
 		this.completed = loaded;
-		this.placementUnlocked = await this.readList(SettingsKeys.placementUnlockedQuizzes);
 		this.relaxedCorrection = (await storage.get(SettingsKeys.relaxedCorrection)) !== 'false';
 		this.showFirstLetterHint =
 			(await storage.get(SettingsKeys.showFirstLetterHint)) === 'true';
@@ -313,17 +311,6 @@ class ProgressStore {
 		return ribbonTierForLaps(Math.max(laps, lapsForTier('bronze')));
 	}
 
-	// -- placement -----------------------------------------------------------
-
-	isPlacementUnlocked(ref: string): boolean {
-		return this.placementUnlocked.includes(ref);
-	}
-
-	async setPlacementUnlocked(refs: string[]): Promise<void> {
-		this.placementUnlocked = refs;
-		await this.writeList(SettingsKeys.placementUnlockedQuizzes, refs);
-	}
-
 	// -- settings ------------------------------------------------------------
 
 	async setRelaxedCorrection(value: boolean): Promise<void> {
@@ -354,12 +341,12 @@ class ProgressStore {
 				await storage.remove(key);
 			}
 		}
-		// Named explicitly: it matches neither filter above, so without this a
-		// "start over" left the placement's unlocked levels open after a reload.
+		// Nothing reads this any more — levels are never locked — but a learner
+		// who used the gated build still has it, and "start over" should leave
+		// nothing behind. It matches neither filter above, hence by name.
 		await storage.remove(SettingsKeys.placementUnlockedQuizzes);
 		this.stats = {};
 		this.completed = {};
-		this.placementUnlocked = [];
 	}
 }
 

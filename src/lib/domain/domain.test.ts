@@ -230,37 +230,26 @@ describe('the gated ladder', () => {
 		quizzes: [quiz('a', 'A1.1'), quiz('b', 'A1.1'), quiz('c', 'A1.2'), quiz('d', 'A2.1')]
 	} as unknown as PopulatedCourse;
 
-	it('opens only the first level to a new learner', () => {
-		const ladder = buildLadder(course, () => false);
-		expect(ladder.map((l) => l.unlocked)).toEqual([true, false, false]);
-	});
-
-	it('opens the next level only when every earlier quiz is done', () => {
+	it('marks a level complete only when every quiz in it is done', () => {
 		// One of the two A1.1 quizzes done is not enough.
 		let ladder = buildLadder(course, (q) => q.id === 'a');
-		expect(ladder[1].unlocked).toBe(false);
+		expect(ladder[0].complete).toBe(false);
+		expect(ladder[0].doneCount).toBe(1);
 
 		ladder = buildLadder(course, (q) => q.id === 'a' || q.id === 'b');
-		expect(ladder[1].unlocked).toBe(true);
-		// ...but the one after it stays shut.
-		expect(ladder[2].unlocked).toBe(false);
+		expect(ladder[0].complete).toBe(true);
+		expect(ladder[1].complete).toBe(false);
 	});
 
-	it('lets a placement open a level without marking anything complete', () => {
-		const ladder = buildLadder(
-			course,
-			() => false,
-			(id) => id === 'd'
-		);
-		expect(ladder[2].unlocked).toBe(true);
-		// The honest ring: placing earns nothing.
-		expect(courseProgress(ladder).done).toBe(0);
-	});
-
-	it('resumes at the first unfinished quiz in an open level', () => {
+	it('resumes at the first unfinished quiz, wherever it is', () => {
 		expect(nextQuiz(buildLadder(course, () => false), () => false)?.id).toBe('a');
 		const done = (q: Quiz) => q.id === 'a';
 		expect(nextQuiz(buildLadder(course, done), done)?.id).toBe('b');
+
+		// No gate: an unfinished quiz in a later level is still reachable even
+		// though nothing before it is done.
+		const onlyD = (q: Quiz) => q.id !== 'd';
+		expect(nextQuiz(buildLadder(course, onlyD), onlyD)?.id).toBe('d');
 	});
 
 	it('counts overall progress across levels', () => {

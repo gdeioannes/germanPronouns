@@ -29,8 +29,8 @@
 		await progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
 	});
 
-	// Before progress loads, nothing reads as done — so the page renders the
-	// honest "all locked but the first" state rather than flashing unlocks.
+	// Before progress loads nothing reads as done, so the page renders an empty
+	// ring rather than flashing ribbons on and off.
 	const isDone = $derived((quiz: Quiz) =>
 		progress.loaded
 			? progress.isCompleted(quiz.type, quiz.id, quiz.storageKeyPrefix)
@@ -38,7 +38,7 @@
 	);
 
 	const ladder = $derived(
-		buildLadder(course, isDone, (id) => progress.isPlacementUnlocked(id))
+		buildLadder(course, isDone)
 	);
 	const totals = $derived(courseProgress(ladder));
 	const resume = $derived(nextQuiz(ladder, isDone));
@@ -109,42 +109,31 @@
 	<h2>The ladder</h2>
 	<ol class="levels">
 		{#each ladder as level (level.id)}
-			<li class:locked={!level.unlocked} class:complete={level.complete}>
+			<li class:complete={level.complete}>
 				<header class="level-head">
 					<h3>{level.title}</h3>
 					<span class="level-meta">
-						{#if !level.unlocked}
-							<Icon name="lock" size="1em" /> Locked
-						{:else}
-							<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
-							{#if level.complete}<Icon name="check" size="1em" />{/if}
-						{/if}
+						<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
+						{#if level.complete}<Icon name="check" size="1em" />{/if}
 					</span>
 				</header>
 
-				{#if level.unlocked}
-					<ul class="quizzes">
-						{#each level.quizzes as quiz (quiz.id)}
-							{@const ribbon = progress.loaded
-								? progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
-								: null}
-							<li>
-								<a href="/course/{course.id}/quiz/{quiz.id}">
-									<span class="kind" data-kind={quiz.type} title={quiz.type}>
-										<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" />
-									</span>
-									<span class="title">{quiz.title}</span>
-									{#if ribbon}<RibbonBadge tier={ribbon} width={13} />{/if}
-								</a>
-							</li>
-						{/each}
-					</ul>
-				{:else}
-					<p class="locked-note">
-						Finish the levels above to open this one — or set your starting
-						point in <a href="/settings">settings</a>.
-					</p>
-				{/if}
+				<ul class="quizzes">
+					{#each level.quizzes as quiz (quiz.id)}
+						{@const ribbon = progress.loaded
+							? progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
+							: null}
+						<li>
+							<a href="/course/{course.id}/quiz/{quiz.id}">
+								<span class="kind" data-kind={quiz.type} title={quiz.type}>
+									<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" />
+								</span>
+								<span class="title">{quiz.title}</span>
+								{#if ribbon}<RibbonBadge tier={ribbon} width={13} />{/if}
+							</a>
+						</li>
+					{/each}
+				</ul>
 			</li>
 		{/each}
 	</ol>
@@ -353,10 +342,6 @@
 		transition: opacity var(--medium) var(--ease-out);
 	}
 
-	.levels > li.locked {
-		opacity: 0.5;
-	}
-
 	.level-head {
 		display: flex;
 		align-items: baseline;
@@ -381,12 +366,6 @@
 
 	.levels > li.complete .level-meta {
 		color: var(--right);
-	}
-
-	.locked-note {
-		margin: 0.45rem 0 0;
-		font-size: var(--step--1);
-		color: var(--ink-muted);
 	}
 
 	.quizzes {

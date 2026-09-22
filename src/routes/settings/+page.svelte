@@ -1,10 +1,9 @@
 <script lang="ts">
-	// Settings, plus the "set your starting point" flow.
+	// Settings, plus a jump list into the ladder.
 	//
-	// The placement rule carried over from the Dart app: placing opens the
-	// levels but awards no medals, and it writes to a SEPARATE unlocked set
-	// rather than the completion sets — so the progress ring stays honest about
-	// what was actually earned.
+	// Nothing is locked any more, so "set your starting point" no longer has to
+	// unlock anything — a learner who already speaks some German just goes
+	// straight to the level that suits them.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { rise } from '$lib/motion';
 	import { catalog } from '$lib/content';
@@ -26,24 +25,12 @@
 		})();
 	});
 
-	const ladder = $derived(
-		course ? buildLadder(course, () => false, () => false) : []
-	);
-
-	/** Opens everything up to and including the chosen level. */
-	async function placeAt(levelIndex: number) {
-		const refs: string[] = [];
-		for (let i = 0; i <= levelIndex; i++) {
-			refs.push(...ladder[i].quizzes.map((q) => q.id));
-		}
-		await progress.setPlacementUnlocked(refs);
-		message = `Opened everything up to ${ladder[levelIndex].title}. No medals were awarded — those are still yours to earn.`;
-	}
+	const ladder = $derived(course ? buildLadder(course, () => false) : []);
 
 	async function resetEverything() {
 		await progress.reset();
 		confirmingReset = false;
-		message = 'Progress cleared. Every level is locked again except the first.';
+		message = 'Progress cleared. Every score, streak and medal is gone.';
 	}
 </script>
 
@@ -137,18 +124,19 @@
 	</section>
 
 	<section class="card">
-		<h2>Set your starting point</h2>
+		<h2>Start where you like</h2>
 		<p class="lede">
-			Already know some German? Open the ladder at your level. This gives no
-			medals and no ribbons — it only unlocks, so your progress ring keeps
-			telling the truth.
+			Every level is open from the start — nothing has to be unlocked. Already
+			speak some German? Jump straight in at your level.
 		</p>
 		<ul class="levels">
-			{#each ladder as level, i (level.id)}
-				<li>
-					<span>{level.title}</span>
-					<button onclick={() => placeAt(i)}>Start here</button>
-				</li>
+			{#each ladder as level (level.id)}
+				{#if level.quizzes.length > 0}
+					<li>
+						<span>{level.title}</span>
+						<a href="/course/{course?.id}/quiz/{level.quizzes[0].id}">Start here</a>
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	</section>
@@ -277,23 +265,22 @@
 		font-size: var(--step--1);
 	}
 
-	.levels button {
+	.levels a {
 		flex: none;
 		padding: 0.32rem 0.9rem;
 		border: 1px solid var(--line-strong);
 		border-radius: 999px;
 		background: var(--surface);
 		color: var(--ink);
-		font: inherit;
 		font-size: var(--step--1);
 		font-weight: 600;
-		cursor: pointer;
+		text-decoration: none;
 		transition:
 			border-color var(--fast) var(--ease-out),
 			color var(--fast) var(--ease-out);
 	}
 
-	.levels button:hover {
+	.levels a:hover {
 		border-color: var(--accent);
 		color: var(--accent);
 	}
