@@ -1,0 +1,1355 @@
+{
+  "courseId": "de_cert_a1",
+  "modules": [
+    {
+      "level": "A1.1",
+      "title": "Erste Schritte",
+      "subtitle": "First steps",
+      "complete": true,
+      "canDo": [
+        "Introduce yourself and others; say your name, where you live, what you do",
+        "Ask and answer simple questions about a person",
+        "Name everyday things with the right article, in the singular and the plural",
+        "Count, say ages and prices, give a phone number",
+        "Say where something or someone is"
+      ],
+      "themes": [
+        "Person: name, address, age, origin, family",
+        "Wohnen: rooms, furniture",
+        "Essen & Trinken; Einkaufen: prices",
+        "Freizeit: what you like doing",
+        "Länder, Sprachen, Nationalitäten"
+      ],
+      "exam": [
+        "This module covers the first half of the official A1 structure inventory (Goethe/telc Start Deutsch 1) and 8 of its 13 word groups.",
+        "A1 Sprechen Teil 1 is exactly this: introduce yourself with name, age, country, languages, job, hobby."
+      ],
+      "structures": [
+        {
+          "id": "a1.statement-question",
+          "label": "Aussage · W-Frage · Ja/Nein-Frage; verb in position 2; ja / nein / doch",
+          "official": "A1 (inventory: Syntax)"
+        },
+        {
+          "id": "a1.present-regular",
+          "label": "Präsens: regular verbs (machen, wohnen, arbeiten, heißen)",
+          "official": "A1"
+        },
+        {
+          "id": "a1.sein-haben",
+          "label": "sein, haben, möchte",
+          "official": "A1"
+        },
+        {
+          "id": "a1.vowel-change",
+          "label": "Präsens: vowel-change verbs (sprechen, fahren, lesen, essen)",
+          "official": "A1"
+        },
+        {
+          "id": "a1.personal-pronouns-nom",
+          "label": "Personalpronomen im Nominativ",
+          "official": "A1"
+        },
+        {
+          "id": "a1.articles-nom",
+          "label": "Artikel im Nominativ: der/die/das, ein/eine, kein, Nullartikel",
+          "official": "A1"
+        },
+        {
+          "id": "a1.plural",
+          "label": "Plural der Nomen: -e / -(e)n / -s / -er / – (with Umlaut)",
+          "official": "A1 (inventory: Nomen · Numerus)"
+        },
+        {
+          "id": "a1.numbers",
+          "label": "Zahlen 0–1 000 000, Ordinalzahlen, Preise",
+          "official": "A1 (Wortgruppe: Zahlen)"
+        },
+        {
+          "id": "a1.colours",
+          "label": "Farben as predicative adjectives",
+          "official": "A1 (Wortgruppe: Farben)"
+        },
+        {
+          "id": "a1.family-people",
+          "label": "Familie & Menschen; feminine -in forms",
+          "official": "A1 (Themen: Person)"
+        },
+        {
+          "id": "a1.countries",
+          "label": "Länder, Nationalitäten, Sprachen; aus + country; Himmelsrichtungen",
+          "official": "A1 (Wortgruppe: Länder)"
+        },
+        {
+          "id": "a1.wo-prepositions",
+          "label": "Wo? — in, an, auf, bei, aus, nach, von, vor, unter as lexical chunks (im Park, am Bahnhof, bei Siemens)",
+          "official": "A1 (inventory: Präposition lokal)"
+        },
+        {
+          "id": "a1.word-formation-basic",
+          "label": "Wortbildung: -in, -er, Komposita (Schokoladenkuchen)",
+          "official": "A1 (inventory: Wortbildung)"
+        }
+      ]
+    },
+    {
+      "level": "A1.2",
+      "title": "Im Alltag",
+      "subtitle": "Everyday life",
+      "complete": true,
+      "canDo": [
+        "Talk about your day and tell the time",
+        "Order, shop and pay; ask for things politely",
+        "Say what you can, must, want and may do",
+        "Talk about what happened yesterday, in simple sentences",
+        "Give and follow simple instructions",
+        "Say what hurts and how you feel"
+      ],
+      "themes": [
+        "Tagesablauf, Uhrzeit, Kalender",
+        "Reisen & Verkehr: tickets, Durchsagen",
+        "Einkaufen: Mengen, Maße, Währung",
+        "Dienstleistungen: Post, Bank",
+        "Arbeit & Beruf",
+        "Körper & Befinden"
+      ],
+      "exam": [
+        "Together with A1.1 this module covers every unstarred line of the official A1 inventory and all 13 word groups.",
+        "A1 Lesen Teil 3 (Anzeigen & Schilder) and Hören Teil 2 (Durchsagen) are trained here.",
+        "The politeness Konjunktiv (ich hätte gern, könnten Sie) is required at A1 — as fixed phrases, not as a system."
+      ],
+      "structures": [
+        {
+          "id": "a1.accusative-articles",
+          "label": "Akkusativ: Artikel, kein, Possessivartikel",
+          "official": "A1"
+        },
+        {
+          "id": "a1.accusative-pronouns",
+          "label": "Personalpronomen im Akkusativ (mich, dich, ihn, sie, es)",
+          "official": "A1"
+        },
+        {
+          "id": "a1.possessives",
+          "label": "Possessivartikel mein / dein / sein / ihr / Ihr",
+          "official": "A1"
+        },
+        {
+          "id": "a1.negation",
+          "label": "Negation: nicht vs kein",
+          "official": "A1"
+        },
+        {
+          "id": "a1.modal-verbs",
+          "label": "Modalverben im Präsens (können, wollen, müssen, dürfen, sollen, möchten) + Satzklammer",
+          "official": "A1"
+        },
+        {
+          "id": "a1.separable-verbs",
+          "label": "Trennbare Verben",
+          "official": "A1"
+        },
+        {
+          "id": "a1.time",
+          "label": "Uhrzeit (formal and colloquial)",
+          "official": "A1 (Wortgruppe: Uhrzeit)"
+        },
+        {
+          "id": "a1.calendar",
+          "label": "Wochentage, Monate, Jahreszeiten, Tageszeiten; am / im / um",
+          "official": "A1 (Wortgruppen)"
+        },
+        {
+          "id": "a1.wann-prepositions",
+          "label": "Wann? — um, am, im, von … bis, ab, für, nach, vor, in (einer Woche)",
+          "official": "A1 (inventory: Präposition temporal)"
+        },
+        {
+          "id": "a1.accusative-prepositions",
+          "label": "durch, für, gegen, ohne, um + Akkusativ",
+          "official": "A1 (inventory: Präposition modal)"
+        },
+        {
+          "id": "a1.perfekt-intro",
+          "label": "Perfekt — first steps: the 15 inventory verbs with haben / sein, Satzklammer",
+          "official": "A1 (inventory: Verb · Tempus)"
+        },
+        {
+          "id": "a1.war-hatte",
+          "label": "Präteritum war / hatte (1st and 3rd person)",
+          "official": "A1"
+        },
+        {
+          "id": "a1.imperative",
+          "label": "Imperativ du / ihr / Sie",
+          "official": "A1 (inventory: Verb · Modus)"
+        },
+        {
+          "id": "a1.polite-konjunktiv",
+          "label": "Höflich bitten & bestellen: ich hätte gern, könnten Sie, ich würde gern (as chunks)",
+          "official": "A1 (inventory: Konjunktiv II lexical)"
+        },
+        {
+          "id": "a1.dative-pronouns-intro",
+          "label": "Dativ-Pronomen bei helfen / danken / gehören / gefallen / es geht (mir, dir, ihm, ihr, Ihnen)",
+          "official": "A1 (inventory: Pronomen · Dativ)"
+        },
+        {
+          "id": "a1.sentence-connectors",
+          "label": "Satzbau: adverb first → verb second; und / oder / aber / denn / dann",
+          "official": "A1 (inventory: Satzverbindungen)"
+        },
+        {
+          "id": "a1.quantities",
+          "label": "Einkaufen: Mengen, Maße, Gewichte, Währung",
+          "official": "A1 (Wortgruppen: Maße, Währungen)"
+        },
+        {
+          "id": "a1.body",
+          "label": "Körper & Befinden basics (Mein Kopf tut weh; Wie geht's?)",
+          "official": "A1 (Themen: Körper/Gesundheit)"
+        }
+      ]
+    },
+    {
+      "level": "A2.1",
+      "title": "Erlebnisse",
+      "subtitle": "Experiences",
+      "complete": true,
+      "canDo": [
+        "Talk about the past: your weekend, a trip, what you did yesterday",
+        "Say who you gave, showed or told something to",
+        "Ask for and follow directions in a town",
+        "Talk about the weather and the seasons",
+        "Compare two things"
+      ],
+      "themes": [
+        "Reisen & Verkehr; Wegbeschreibung",
+        "Wetter & Jahreszeiten",
+        "Freizeit & Wochenende",
+        "Feste & Einladungen",
+        "Familie & Freunde"
+      ],
+      "structures": [
+        {
+          "id": "a2.perfekt-haben",
+          "label": "Perfekt mit haben: regular ge-…-t, irregular ge-…-en, trennbar (auf-ge-räumt), -ieren (telefoniert), untrennbar (besucht)",
+          "official": "A2* (inventory: Perfekt aller Verben)"
+        },
+        {
+          "id": "a2.perfekt-sein",
+          "label": "Perfekt mit sein: movement & change (gefahren, gekommen, aufgestanden, geworden), sein/bleiben/passieren",
+          "official": "A2*"
+        },
+        {
+          "id": "a2.war-hatte",
+          "label": "Präteritum war / hatte — full paradigm, states and background",
+          "official": "A1/A2"
+        },
+        {
+          "id": "a2.modal-praeteritum",
+          "label": "Präteritum der Modalverben: konnte, wollte, musste, durfte, sollte, mochte",
+          "official": "A2* (inventory)"
+        },
+        {
+          "id": "a2.dative-articles",
+          "label": "Dativ: dem / der / dem / den (+n); wem?; verbs with dative (geben, helfen, danken, gefallen, gehören)",
+          "official": "A2*"
+        },
+        {
+          "id": "a2.dative-prepositions",
+          "label": "aus, bei, mit, nach, seit, von, zu, gegenüber + Dativ; beim, vom, zum, zur",
+          "official": "A2*"
+        },
+        {
+          "id": "a2.dative-pronouns",
+          "label": "Personalpronomen im Dativ (mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen) — full system",
+          "official": "A2"
+        },
+        {
+          "id": "a2.dative-accusative-order",
+          "label": "Verben mit Dativ + Akkusativ (geben, schenken, zeigen, schicken); Stellung der Objekte",
+          "official": "A2 (Menschen A2 L15)"
+        },
+        {
+          "id": "a2.temporal-prepositions-2",
+          "label": "seit, vor, nach, in, für, über, zwischen, von … an + time",
+          "official": "A2* (inventory: Präposition temporal)"
+        },
+        {
+          "id": "a2.woher-wo-wohin",
+          "label": "Woher / Wo / Wohin: aus dem – im – ins; vom – beim – zum; nach / in die Schweiz",
+          "official": "A2 (Menschen A2 L17/19)"
+        },
+        {
+          "id": "a2.welcher-dieser",
+          "label": "welch-? / dieser / der da; Possessivartikel im Dativ (meinem, meiner)",
+          "official": "A2* (inventory: Artikelwörter)"
+        },
+        {
+          "id": "a2.comparative",
+          "label": "Komparativ -er + als; Umlaut; besser / mehr / lieber; genauso … wie",
+          "official": "A2* (inventory: Komparation)"
+        },
+        {
+          "id": "a2.weather",
+          "label": "Wetter & Jahreszeiten; es regnet / es ist … / es wird …; Grad",
+          "official": "A2 (Themen: Umwelt)"
+        },
+        {
+          "id": "a2.directions",
+          "label": "Wegbeschreibung: Wie komme ich zum/zur …? links, rechts, geradeaus, an der Ecke",
+          "official": "A2 (Themen: Reisen/Verkehr)"
+        },
+        {
+          "id": "a2.past-narration",
+          "label": "Telling what happened: Perfekt + war/hatte + time words (gestern, letzte Woche, danach, zuerst)",
+          "official": "A2 (Sprechen Teil 2)"
+        }
+      ],
+      "exam": [
+        "A2 Hören Teil 1 (Alltagsgespräche) and Lesen Teil 1 (E-Mails about what someone did) are built on the Perfekt.",
+        "The dative — articles, pronouns, prepositions — is the A2 case; the official inventory stars it (*) as the step up from A1.",
+        "A2 Sprechen Teil 2: talk about yourself using a card ('Reisen', 'Wochenende') — in the past, with time expressions."
+      ]
+    },
+    {
+      "level": "A2.2",
+      "title": "Beschreiben & Planen",
+      "subtitle": "Describe & plan",
+      "complete": true,
+      "canDo": [
+        "Describe a room and say where things are and where you put them",
+        "Give reasons and say what you think (weil, dass, deshalb)",
+        "Ask indirectly and politely (Können Sie mir sagen, ob …?)",
+        "Make suggestions and give advice (könnte, sollte)",
+        "Describe people, clothes and health; talk to a doctor",
+        "Narrate simply in the written past (Präteritum) and understand a simple passive"
+      ],
+      "themes": [
+        "Wohnen & Einrichtung",
+        "Körper & Gesundheit; beim Arzt",
+        "Kleidung & Einkaufen",
+        "Menschen beschreiben",
+        "Medien & Freizeit",
+        "Termine & Formulare"
+      ],
+      "structures": [
+        {
+          "id": "a2.two-way-prepositions",
+          "label": "Wechselpräpositionen: an, auf, hinter, in, neben, über, unter, vor, zwischen — Wo? Dativ / Wohin? Akkusativ; stellen/legen/hängen vs stehen/liegen/hängen",
+          "official": "A2* (inventory)"
+        },
+        {
+          "id": "a2.reflexive",
+          "label": "Reflexive Verben: mich, dich, sich, uns, euch, sich (sich freuen, sich waschen, sich interessieren für)",
+          "official": "A2* (inventory: Reflexivpronomen)"
+        },
+        {
+          "id": "a2.weil-dass",
+          "label": "Nebensatz mit weil und dass — verb at the end; comma",
+          "official": "A2* (inventory: Satzverbindungen)"
+        },
+        {
+          "id": "a2.wenn-deshalb",
+          "label": "wenn (verb at end) vs deshalb (verb second); Grund und Folge",
+          "official": "A2* (inventory: wenn, deshalb)"
+        },
+        {
+          "id": "a2.indirect-questions",
+          "label": "Indirekte Fragen: ob / W-Wort + verb at end (Wissen Sie, ob …?)",
+          "official": "A2 (Menschen A2 L16)"
+        },
+        {
+          "id": "a2.verbs-with-prepositions",
+          "label": "Verben mit Präposition (sich freuen auf, warten auf, sprechen über, träumen von) + wo-/da-Komposita — intro",
+          "official": "A2 (Menschen A2 L18)"
+        },
+        {
+          "id": "a2.adjective-intro",
+          "label": "Adjektivdeklination — erste Begegnung: Nom/Akk after ein- and der-words (ein neuer Tisch, den alten Dom)",
+          "official": "A2* (inventory: attributiv)"
+        },
+        {
+          "id": "a2.koennte-sollte",
+          "label": "Konjunktiv II könnte / sollte for suggestions and advice",
+          "official": "A2 (Menschen A2 L7)"
+        },
+        {
+          "id": "a2.relative-intro",
+          "label": "Relativsätze Nom/Akk — intro (der Mann, der …; das Buch, das ich …)",
+          "official": "A2 (Menschen A2 L23)"
+        },
+        {
+          "id": "a2.praeteritum-intro",
+          "label": "Präteritum intro: regular -te; kommen, geben, finden, sehen, gehen; narration in writing",
+          "official": "A2* (inventory: Präteritum kommen/sagen)"
+        },
+        {
+          "id": "a2.passive-intro",
+          "label": "Passiv Präsens (receptive): werden + Partizip II — Das Auto wird repariert",
+          "official": "A2* (inventory: Passiv)"
+        },
+        {
+          "id": "a2.word-formation-verb-noun",
+          "label": "Wortbildung: Verb → Nomen (-er, -ung); un-, -los, -bar",
+          "official": "A2* (inventory: Wortbildung)"
+        },
+        {
+          "id": "a2.imperative",
+          "label": "Imperativ — consolidation: du/ihr/Sie, sollen as indirect command",
+          "official": "A1/A2"
+        },
+        {
+          "id": "a2.health",
+          "label": "Körper & Gesundheit: beim Arzt, Schmerzen, seit + Dativ, Sie müssen …",
+          "official": "A2 (Themen: Gesundheit)"
+        },
+        {
+          "id": "a2.clothing",
+          "label": "Kleidung & Einkaufen: Kleidungsstücke, Größe, Farbe, passen / stehen + Dativ, anprobieren",
+          "official": "A2 (Themen: Einkaufen)"
+        },
+        {
+          "id": "a2.superlative",
+          "label": "Superlativ: am …-sten; der/die/das …-ste; irregulars",
+          "official": "A2* (inventory: Komparation)"
+        },
+        {
+          "id": "a2.tekamolo",
+          "label": "Wortstellung im Mittelfeld: Zeit vor Ort (TeKaMoLo, simple version)",
+          "official": "A2 (Syntax)"
+        },
+        {
+          "id": "a2.people-description",
+          "label": "Personen beschreiben: Aussehen (Haare, groß, schlank) und Charakter (nett, ruhig, lustig)",
+          "official": "A2 (Themen: Person)"
+        },
+        {
+          "id": "a2.email-form",
+          "label": "E-Mail und Formular: Anrede, Gruß, Betreff; Formularfelder (Name, Geburtsdatum, Unterschrift)",
+          "official": "A2 Schreiben Teil 1 & 2"
+        }
+      ],
+      "exam": [
+        "A2 completes the official A1/A2 inventory: every starred (*) structure is covered by the end of this module.",
+        "A2 Schreiben Teil 1 is a form; Teil 2 a short message with a reason ('… weil …') — both trained here.",
+        "Adjective endings and relative clauses appear here as an introduction (Nom/Akk only); the full systems are B1.1."
+      ]
+    },
+    {
+      "level": "B1.1",
+      "title": "Meinungen & Wünsche",
+      "subtitle": "Opinions & wishes",
+      "complete": true,
+      "canDo": [
+        "Describe people, things and places with fully declined adjectives (der/ein/no article; comparative and superlative)",
+        "Express wishes, polite requests and unreal conditions (würde, hätte, wäre, könnte)",
+        "Make predictions and promises (Futur I) and talk about the world of work",
+        "Link ideas with relative clauses (incl. with prepositions), the genitive and wenn/als/obwohl/falls/da/trotzdem",
+        "Use infinitive clauses with zu and the es-expressions of everyday German",
+        "Write a formal and an informal e-mail with the standard Redemittel; state and justify an opinion"
+      ],
+      "themes": [
+        "Arbeit & Beruf",
+        "Bildung & Studium",
+        "Beziehungen & Meinungen",
+        "Wohnen",
+        "Freizeit & Medien"
+      ],
+      "structures": [
+        {
+          "id": "b1.adjective-def",
+          "label": "Adjektivdeklination nach bestimmtem Artikel (Nom/Akk/Dat/Gen): -e / -en",
+          "official": "B1 (Goethe Grammatik: Adjektivdeklination)"
+        },
+        {
+          "id": "b1.adjective-indef",
+          "label": "Adjektivdeklination nach unbestimmtem Artikel, kein-, Possessiv: -er/-e/-es + -en",
+          "official": "B1"
+        },
+        {
+          "id": "b1.adjective-null",
+          "label": "Adjektivdeklination ohne Artikel (Nullartikel): the adjective carries the der-ending",
+          "official": "B1"
+        },
+        {
+          "id": "b1.adjective-comparative-declined",
+          "label": "Komparativ und Superlativ vor dem Nomen: der bessere Weg, das schönste Haus, mit einem größeren Auto",
+          "official": "B1"
+        },
+        {
+          "id": "b1.adjectives-as-nouns",
+          "label": "Adjektive und Partizipien als Nomen: der Angestellte / ein Angestellter, die Erwachsenen, das Gute; n-Deklination intro (der Kollege, den Kollegen)",
+          "official": "B1"
+        },
+        {
+          "id": "b1.konjunktiv2-wuerde",
+          "label": "Konjunktiv II mit würde + Infinitiv: Wünsche, höfliche Bitten, irreale Bedingungen",
+          "official": "B1"
+        },
+        {
+          "id": "b1.konjunktiv2-haette-waere",
+          "label": "Konjunktiv II der Hilfs- und Modalverben: hätte, wäre, könnte, müsste, dürfte, sollte, wollte; wenn … wäre, dann …",
+          "official": "B1"
+        },
+        {
+          "id": "b1.futur1",
+          "label": "Futur I: werden + Infinitiv — Vorhersage, Versprechen, Vermutung; Präsens + Zeitangabe als Alternative",
+          "official": "B1"
+        },
+        {
+          "id": "b1.relative-nom-akk",
+          "label": "Relativsätze im Nominativ und Akkusativ, auch nach Präpositionen des Hauptsatzes; Relativsatz im Satzinneren",
+          "official": "B1"
+        },
+        {
+          "id": "b1.relative-preposition",
+          "label": "Relativsätze mit Präposition und im Dativ: mit dem ich arbeite, in der wir wohnen; wo für Orte",
+          "official": "B1"
+        },
+        {
+          "id": "b1.genitive",
+          "label": "Genitiv: des -(e)s / der; Eigennamen (Annas Auto); von + Dativ als Ersatz; wegen, während, trotz + Genitiv (intro)",
+          "official": "B1"
+        },
+        {
+          "id": "b1.wenn-als-obwohl",
+          "label": "Nebensätze mit wenn (Bedingung/Wiederholung), als (einmalig, Vergangenheit), obwohl (Gegensatz)",
+          "official": "B1"
+        },
+        {
+          "id": "b1.falls-da-trotzdem",
+          "label": "falls, da, bevor, nachdem, während, seit(dem), bis; trotzdem (Verb an 2) als Gegenstück zu obwohl",
+          "official": "B1"
+        },
+        {
+          "id": "b1.infinitive-zu",
+          "label": "Infinitiv mit zu: nach Verben (vorhaben, versuchen, anfangen), Nomen + haben (Lust, Zeit), es ist … zu; brauchen nicht … zu; um … zu",
+          "official": "B1"
+        },
+        {
+          "id": "b1.es-expressions",
+          "label": "es-Ausdrücke: es gibt, es geht (mir), es regnet, es lohnt sich, es handelt sich um, es tut mir leid",
+          "official": "B1"
+        },
+        {
+          "id": "b1.work-vocabulary",
+          "label": "Wortschatz Arbeit & Beruf: Stelle, Bewerbung, Lebenslauf, Gehalt, Vertrag, Überstunden, Teilzeit, arbeitslos",
+          "official": "B1 (Goethe Themen: Arbeit und Beruf)"
+        },
+        {
+          "id": "b1.email-redemittel",
+          "label": "Schreiben: E-Mail formell/informell — Anrede, Einleitung, Bitte, Schluss, Gruß (Goethe B1 Schreiben Teil 1 & 3)",
+          "official": "B1 (Schreiben)"
+        },
+        {
+          "id": "b1.opinion-redemittel",
+          "label": "Sprechen: Meinung äußern und begründen — Ich finde/meine/bin der Meinung, dass …; Einerseits … andererseits; Ich stimme zu / nicht zu",
+          "official": "B1 (Sprechen Teil 3)"
+        }
+      ],
+      "exam": "Goethe-Zertifikat B1: Lesen 5 Teile, Hören 4 Teile, Schreiben 3 Teile (informal e-mail, forum post, formal e-mail), Sprechen 3 Teile (planning together, presentation, discussion)."
+    },
+    {
+      "level": "B1.2",
+      "title": "Erzählen & Begründen",
+      "subtitle": "Narrate & justify",
+      "complete": true,
+      "canDo": [
+        "Narrate in the written past (Präteritum, incl. mixed verbs) and order events with the Plusquamperfekt and temporal clauses",
+        "Understand and form the passive in the present and past, and with a modal verb",
+        "Express purpose, means and result (um … zu, damit, indem, sodass) and link with two-part connectors",
+        "Express unreal wishes about the past (Hätte ich doch …!)",
+        "Use genitive prepositions (trotz, wegen, während) and participles as adjectives",
+        "Understand the modal particles of spoken German and build words from suffixes",
+        "Talk about technology, media, health and the environment"
+      ],
+      "themes": [
+        "Technik & Medien",
+        "Gesundheit & Ernährung",
+        "Umwelt",
+        "Politik & Gesellschaft",
+        "Erzählen: Geschichten & Anekdoten"
+      ],
+      "structures": [
+        {
+          "id": "b1.praeteritum-regular",
+          "label": "Präteritum regelmäßig: -te + Endungen (arbeitete, wohnten)",
+          "official": "B1"
+        },
+        {
+          "id": "b1.praeteritum-irregular",
+          "label": "Präteritum unregelmäßig: Vokalwechsel (ging, kam, sah, fuhr, wurde)",
+          "official": "B1"
+        },
+        {
+          "id": "b1.praeteritum-mixed",
+          "label": "Mischverben: brachte, dachte, wusste, kannte, nannte, rannte, brannte, sandte",
+          "official": "B1"
+        },
+        {
+          "id": "b1.plusquamperfekt",
+          "label": "Plusquamperfekt: hatte/war + Partizip II — the past before the past",
+          "official": "B1"
+        },
+        {
+          "id": "b1.temporal-clauses",
+          "label": "Temporalsätze: nachdem, bevor, während, seit(dem), bis, sobald, als/wenn — Zeitverhältnisse",
+          "official": "B1"
+        },
+        {
+          "id": "b1.passive-present",
+          "label": "Passiv Präsens: wird/werden + Partizip II; von + Dativ",
+          "official": "B1"
+        },
+        {
+          "id": "b1.passive-past",
+          "label": "Passiv Präteritum: wurde/wurden + Partizip II",
+          "official": "B1"
+        },
+        {
+          "id": "b1.passive-modal",
+          "label": "Passiv mit Modalverb (muss gemacht werden) und Passiv Perfekt (ist gemacht worden) — intro",
+          "official": "B1 (intro; B2.1 consolidates)"
+        },
+        {
+          "id": "b1.n-declension",
+          "label": "n-Deklination: Studenten, Kollegen, Nachbarn, Herrn, Menschen — -(e)n in all cases but Nom. Sg.",
+          "official": "B1"
+        },
+        {
+          "id": "b1.um-zu-ohne-zu",
+          "label": "Infinitivsätze: um … zu, ohne … zu, (an)statt … zu",
+          "official": "B1"
+        },
+        {
+          "id": "b1.damit-um-zu",
+          "label": "Finalsätze: damit (different subjects) vs um … zu (same subject); statt dass / ohne dass",
+          "official": "B1"
+        },
+        {
+          "id": "b1.indem-sodass",
+          "label": "Modal- und Konsekutivsätze: indem (means), sodass / so … dass (result)",
+          "official": "B1"
+        },
+        {
+          "id": "b1.relative-dat-gen",
+          "label": "Relativsätze Dativ und Genitiv: dem, der, denen; dessen, deren; Präposition + Relativpronomen",
+          "official": "B1"
+        },
+        {
+          "id": "b1.two-part-connectors",
+          "label": "Zweiteilige Konnektoren: sowohl … als auch, nicht nur … sondern auch, entweder … oder, weder … noch, zwar … aber, je … desto",
+          "official": "B1"
+        },
+        {
+          "id": "b1.irreal-wishes-past",
+          "label": "Konjunktiv II Vergangenheit — irreale Wünsche: Hätte ich doch …! Wäre ich nur …! (intro)",
+          "official": "B1 (intro; B2.2 keeps conditionals)"
+        },
+        {
+          "id": "b1.genitive-prepositions",
+          "label": "Genitivpräpositionen: trotz, wegen, während, (an)statt; obwohl ↔ trotzdem ↔ trotz",
+          "official": "B1"
+        },
+        {
+          "id": "b1.participle-adjective",
+          "label": "Partizip I und II als Adjektiv: das lachende Kind, die geöffnete Tür — intro",
+          "official": "B1 (intro; B2.1 consolidates)"
+        },
+        {
+          "id": "b1.modal-particles",
+          "label": "Modalpartikeln: denn, doch, eigentlich, ja, mal — intro",
+          "official": "B1 (intro; B2.2 advanced)"
+        },
+        {
+          "id": "b1.word-formation-suffixes",
+          "label": "Wortbildung: -heit, -keit, -ung, -schaft, -ismus, -ler, -ant, -ent — Nomen aus Adjektiven und Verben, mit Genus",
+          "official": "B1"
+        },
+        {
+          "id": "b1.technology-vocabulary",
+          "label": "Wortschatz Technik & Medien: speichern, herunterladen, Gerät, Bildschirm, Passwort, WLAN, Akku",
+          "official": "B1 (Goethe Themen: Medien, Technik)"
+        },
+        {
+          "id": "b1.narration-skills",
+          "label": "Erzählen: Geschichte mit Präteritum, Zeitangaben (eines Tages, plötzlich, danach, am Ende) und Begründungen",
+          "official": "B1 (Sprechen Teil 2, Schreiben Teil 1)"
+        }
+      ],
+      "exam": "Goethe-Zertifikat B1 (second half): Lesen Teil 1 (blog/narrative), Hören Teil 2 (announcement/guided tour), Schreiben Teil 2 (opinion), Sprechen Teil 2 (presentation with a narrative element)."
+    },
+    {
+      "level": "B2.1",
+      "title": "Argumentieren",
+      "subtitle": "Argue",
+      "complete": true,
+      "canDo": [
+        "Report what others said in the Konjunktiv I (present, past, questions and requests), with Konjunktiv II as a substitute",
+        "Use the full passive system: with modals, in the Perfekt, the state passive, and subjectless passives",
+        "Use verbs, adjectives and nouns with their fixed prepositions, including da-/wo- forms",
+        "Place elements in the middle field correctly (time – cause – manner – place; object order)",
+        "Express causes and time relations both verbally and nominally (weil ↔ wegen; bevor ↔ vor)",
+        "Handle lassen, double infinitives, dass ↔ zu-infinitive, and predict gender from suffixes",
+        "Write a structured Stellungnahme / Leserbrief and argue in a discussion"
+      ],
+      "themes": [
+        "Gesellschaft & Politik",
+        "Arbeit & Wirtschaft",
+        "Medien & Kommunikation",
+        "Konsum",
+        "Sprache & Kommunikation"
+      ],
+      "structures": [
+        {
+          "id": "b2.konjunktiv1-forms",
+          "label": "Konjunktiv I: Formen (er sei, habe, werde, könne, komme); Gegenwart, Vergangenheit (habe gesehen / sei gekommen), Zukunft (werde)",
+          "official": "B2 (Goethe: indirekte Rede)"
+        },
+        {
+          "id": "b2.indirect-speech",
+          "label": "Indirekte Rede: Aussagen, Fragen (ob / W-Wort), Bitten (solle / möge); Ersatz durch Konjunktiv II bei Formgleichheit (sie hätten); Redeeinleitungen",
+          "official": "B2"
+        },
+        {
+          "id": "b2.indirect-questions",
+          "label": "Indirekte Fragen mit ob und W-Wort (consolidation) in Bericht und Konjunktiv",
+          "official": "B2"
+        },
+        {
+          "id": "b2.modal-passive",
+          "label": "Passiv mit Modalverb in allen Zeiten: muss gemacht werden, musste gemacht werden, hat gemacht werden müssen",
+          "official": "B2"
+        },
+        {
+          "id": "b2.passive-perfekt",
+          "label": "Passiv Perfekt und Plusquamperfekt: ist gebaut worden, war gebaut worden",
+          "official": "B2"
+        },
+        {
+          "id": "b2.state-passive",
+          "label": "Zustandspassiv: sein + Partizip II (ist geöffnet) vs Vorgangspassiv (wird geöffnet); von vs durch",
+          "official": "B2"
+        },
+        {
+          "id": "b2.subjectless-passive",
+          "label": "Subjektlose Passivsätze und es: Es wird getanzt / Hier wird getanzt; Passiv mit Dativobjekt (Ihm wird geholfen)",
+          "official": "B2"
+        },
+        {
+          "id": "b2.verbs-prepositions",
+          "label": "Verben mit Präposition (consolidation): Präpositionalobjekt, da(r)-/wo(r)-Formen, Präpositionalobjekt + dass-Satz / Infinitiv (Ich freue mich darauf, dass …)",
+          "official": "B2"
+        },
+        {
+          "id": "b2.adjectives-prepositions",
+          "label": "Adjektive mit Präposition: stolz auf, zufrieden mit, interessiert an, abhängig von, verantwortlich für, begeistert von",
+          "official": "B2"
+        },
+        {
+          "id": "b2.nouns-prepositions",
+          "label": "Nomen mit Präposition: die Angst vor, das Interesse an, die Freude über, der Grund für, die Frage nach, die Abhängigkeit von",
+          "official": "B2"
+        },
+        {
+          "id": "b2.participle-adjective",
+          "label": "Partizip I und II als Adjektiv (consolidation), incl. mit Ergänzung: der am Bahnhof ankommende Zug",
+          "official": "B2"
+        },
+        {
+          "id": "b2.connectors-adverbial",
+          "label": "Konjunktionaladverbien: trotzdem, dennoch, folglich, daher, außerdem, zudem, allerdings, jedoch, stattdessen, dagegen — Position 1 oder Mittelfeld",
+          "official": "B2"
+        },
+        {
+          "id": "b2.mittelfeld",
+          "label": "Mittelfeld: TeKaMoLo; Objektstellung (Dativ vor Akkusativ; Pronomen vor Nomen; Akk-Pronomen vor Dat-Pronomen); nicht-Position",
+          "official": "B2"
+        },
+        {
+          "id": "b2.causal-nominal",
+          "label": "Kausal verbal ↔ nominal: weil / da / denn / deshalb ↔ wegen / aufgrund / dank / aus / vor + Nomen",
+          "official": "B2"
+        },
+        {
+          "id": "b2.temporal-nominal",
+          "label": "Temporal verbal ↔ nominal: bevor / während / nachdem / sobald / seit / bis ↔ vor / während / nach / gleich nach / seit / bis zu",
+          "official": "B2"
+        },
+        {
+          "id": "b2.dass-infinitive",
+          "label": "dass-Satz ↔ Infinitiv mit zu (Subjektgleichheit); dass-Sätze als Subjekt / Objekt; es als Korrelat; uneingeleitete Nebensätze",
+          "official": "B2"
+        },
+        {
+          "id": "b2.lassen",
+          "label": "lassen: veranlassen, erlauben, zurücklassen, sich lassen (Möglichkeit); Perfekt mit Doppelinfinitiv (hat … machen lassen); sehen / hören / helfen + Infinitiv",
+          "official": "B2"
+        },
+        {
+          "id": "b2.suffix-gender",
+          "label": "Wortbildung: Nachsilben → Genus (-er/-ist/-or/-ling der; -nis/-tum/-ment das; -keit/-ion/-schaft/-ur/-ie die); Vorsilben bei Nomen (Un-, Miss-, Ge-)",
+          "official": "B2"
+        },
+        {
+          "id": "b2.society-vocabulary",
+          "label": "Wortschatz Gesellschaft & Politik: Regierung, Wahl, Mehrheit, Gesetz, Steuern, Demokratie, Arbeitslosigkeit, Entwicklung",
+          "official": "B2 (Goethe Themen)"
+        },
+        {
+          "id": "b2.stellungnahme-redemittel",
+          "label": "Schreiben: Stellungnahme / Forumsbeitrag / Leserbrief — Aufbau (Einleitung, Pro, Contra, eigene Meinung, Schluss) und Redemittel",
+          "official": "B2 (Schreiben Teil 1)"
+        },
+        {
+          "id": "b2.argument-redemittel",
+          "label": "Sprechen: Argumentieren, verteidigen, widersprechen — Redemittel für Vortrag und Diskussion",
+          "official": "B2 (Sprechen Teil 1 & 2)"
+        }
+      ],
+      "exam": "Goethe-Zertifikat B2: Lesen 5 Teile, Hören 4 Teile, Schreiben 2 Teile (Forumsbeitrag 150 Wörter; formelle Nachricht 100 Wörter), Sprechen 2 Teile (Vortrag; Diskussion)."
+    },
+    {
+      "level": "B2.2",
+      "title": "Differenzieren",
+      "subtitle": "Differentiate",
+      "complete": true,
+      "canDo": [
+        "Talk about the unreal past: conditions, regrets, comparisons with als ob, and guesses with Futur II",
+        "Use genitive prepositions, extended participial attributes and Funktionsverbgefüge in formal text",
+        "Express conditions, concessions, consequences, means and contrasts both verbally and nominally",
+        "Recognise subjective sollen (hearsay), passive substitutes and the modal particles of speech",
+        "Use generalising relative clauses (wer … der), was/wo relatives and indefinite pronouns",
+        "Keep a text cohesive with reference words and nominalise verbs the six ways",
+        "Build adjectives with suffixes and negation prefixes; solve a Sprachbausteine cloze"
+      ],
+      "themes": [
+        "Umwelt & Klima",
+        "Wissenschaft & Forschung",
+        "Ernährung & Gesundheit",
+        "Orte & Regionen",
+        "Kultur: Rezension"
+      ],
+      "structures": [
+        {
+          "id": "b2.konjunktiv2-past",
+          "label": "Konjunktiv II der Vergangenheit: hätte / wäre + Partizip II; mit Modalverb (hätte … sollen); Originalformen käme, wüsste, gäbe, ginge",
+          "official": "B2"
+        },
+        {
+          "id": "b2.irreal-conditions",
+          "label": "Irreale Bedingungssätze Gegenwart und Vergangenheit; wenn-los mit Verb an 1 (Hätte ich das gewusst, …); irreale Folge",
+          "official": "B2"
+        },
+        {
+          "id": "b2.als-ob",
+          "label": "Irreale Vergleiche: als ob / als wenn + Konjunktiv II (Verb am Ende); als + Konjunktiv II (Verb an 2)",
+          "official": "B2"
+        },
+        {
+          "id": "b2.futur2",
+          "label": "Futur II: wird … gemacht haben / gekommen sein — Vermutung über Vergangenes; wohl, vermutlich, sicher",
+          "official": "B2"
+        },
+        {
+          "id": "b2.genitive-prepositions",
+          "label": "Genitivpräpositionen (consolidation): trotz, wegen, während, aufgrund, innerhalb, außerhalb, infolge, anhand, mithilfe, (an)statt",
+          "official": "B2"
+        },
+        {
+          "id": "b2.participle-attribute",
+          "label": "Erweitertes Partizipialattribut: der von der Firma eingeladene Gast; Auflösung in Relativsatz",
+          "official": "B2"
+        },
+        {
+          "id": "b2.modal-particles-advanced",
+          "label": "Modalpartikeln (advanced): mal, eben, halt, schon, wohl, bloß, ruhig, ja, doch — Funktion und Position",
+          "official": "B2"
+        },
+        {
+          "id": "b2.funktionsverbgefuege",
+          "label": "Funktionsverbgefüge: eine Entscheidung treffen, in Frage kommen, zur Verfügung stehen, in Kraft treten, Rücksicht nehmen",
+          "official": "B2"
+        },
+        {
+          "id": "b2.concessive",
+          "label": "Konzessivsätze: obwohl, obgleich, obschon, wenngleich; trotzdem, dennoch; zwar … aber; selbst wenn, auch wenn",
+          "official": "B2"
+        },
+        {
+          "id": "b2.conditional-nominal",
+          "label": "Konditional verbal ↔ nominal: wenn / falls / sofern / im Fall, dass ↔ bei + Dat, im Falle + Gen, ohne + Akk",
+          "official": "B2"
+        },
+        {
+          "id": "b2.consecutive-modal-nominal",
+          "label": "Konsekutiv & modal verbal ↔ nominal: sodass / folglich ↔ infolge + Gen; indem / dadurch, dass ↔ durch + Akk, mithilfe + Gen",
+          "official": "B2"
+        },
+        {
+          "id": "b2.adversative",
+          "label": "Adversativ: während, wohingegen (Nebensatz); dagegen, hingegen, im Gegensatz dazu (Hauptsatz); im Gegensatz zu + Dat",
+          "official": "B2"
+        },
+        {
+          "id": "b2.sollen-subjective",
+          "label": "Subjektives sollen (Hörensagen): Er soll reich sein / Er soll gewonnen haben; wollen (Behauptung) — intro",
+          "official": "B2 (intro; C1.2 full system)"
+        },
+        {
+          "id": "b2.passive-substitutes",
+          "label": "Passiversatz: -bar / -lich, sich lassen, sein + zu, man — intro",
+          "official": "B2 (intro; C1.1 advanced)"
+        },
+        {
+          "id": "b2.relative-wer-was",
+          "label": "Generalisierende Relativsätze wer … (der); Relativsätze mit was (alles, nichts, das), wo / wohin / woher; weiterführend was",
+          "official": "B2"
+        },
+        {
+          "id": "b2.indefinite-pronouns",
+          "label": "Indefinitpronomen: jemand / niemand, irgendjemand / -etwas / -wo / -wann, einer / keiner / welche, man / einen / einem, alle / manche / einige / jeder",
+          "official": "B2"
+        },
+        {
+          "id": "b2.text-cohesion",
+          "label": "Verweiswörter & Textkohäsion: dieser / jener, damit / dadurch / dabei, dies / das, ersterer / letzterer, hier / dort, außerdem / zudem — intro",
+          "official": "B2 (intro; C1.2 advanced)"
+        },
+        {
+          "id": "b2.nominalisation",
+          "label": "Nominalisierung — sechs Typen: -er (Lehrer), Verbstamm (der Lauf), Ge- (das Gerede), Infinitiv (das Lesen), -e (die Hilfe), -ung (die Prüfung); Fugen-s; Partizipien als Nomen",
+          "official": "B2 (intro; C1.1 advanced)"
+        },
+        {
+          "id": "b2.adjective-formation",
+          "label": "Adjektivbildung: -lich, -ig, -isch, -sam, -haft, -bar, -los, -arm, -reich, -voll, -iv; Negation un-, a-, des-, ir-, miss-, -los; -weise",
+          "official": "B2"
+        },
+        {
+          "id": "b2.science-vocabulary",
+          "label": "Wortschatz Wissenschaft & Umwelt: Klimawandel, Forschung, nachhaltig, erneuerbar, Verbrauch, Verschmutzung, Abgase, recyceln",
+          "official": "B2 (Goethe Themen)"
+        },
+        {
+          "id": "b2.sprachbausteine",
+          "label": "Lesen: Sprachbausteine-Cloze (Goethe B2 Lesen Teil 4) — Konnektoren, Präpositionen, Pronomen, Verbformen im Text",
+          "official": "B2 (Lesen Teil 4)"
+        }
+      ],
+      "exam": "Goethe-Zertifikat B2 (second half): Lesen Teil 4 (Sprachbausteine) und Teil 5, Hören Teil 4 (Vortrag), Schreiben Teil 2 (formelle Nachricht), Sprechen Teil 1 (Vortrag mit Hypothesen)."
+    },
+    {
+      "level": "C1.1",
+      "title": "Abstrahieren",
+      "subtitle": "Abstract",
+      "complete": true,
+      "canDo": [
+        "Move freely between verbal and nominal style; use passive substitutes in specialist text",
+        "Deploy the full system of adverbial clauses and their main-clause, subordinate and infinitive variants",
+        "Choose tenses deliberately in narrative and report (Präteritum, Perfekt, Plusquamperfekt, Futur)",
+        "Use the written-language connectors, conjunctional adverbs and genitive prepositions of academic German",
+        "Build and unpack complex noun phrases: participial clauses, attribute chains, apposition",
+        "Understand lectures and academic texts in detail; place sentences in a text; solve a lexical-structural cloze",
+        "Present structured content and describe a graph"
+      ],
+      "themes": [
+        "Bildung & Wissenschaft",
+        "Forschung & Technik",
+        "Sprache & Denken",
+        "Arbeitswelt akademisch",
+        "Medien & Aufmerksamkeit"
+      ],
+      "structures": [
+        {
+          "id": "c1.nominalisation-advanced",
+          "label": "Nominalisierung ↔ Verbalisierung (advanced): Sätze in Nominalgruppen verdichten und Nominalgruppen auflösen; Genitivattribut als Subjekt/Objekt",
+          "official": "C1 (Erkundungen C1 Kap. 5)"
+        },
+        {
+          "id": "c1.passive-substitutes-advanced",
+          "label": "Passiversatz in Fachtexten: sein + zu, sich lassen, -bar/-lich, man, bekommen/erhalten + Partizip II, reflexive Konstruktionen (sich verkaufen)",
+          "official": "C1"
+        },
+        {
+          "id": "c1.connectors-advanced",
+          "label": "Konnektoren: insofern / sofern / zumal / soweit; insofern … als; um so mehr, als",
+          "official": "C1"
+        },
+        {
+          "id": "c1.conjunctional-adverbs",
+          "label": "Konjunktionaladverbien der Schriftsprache: allerdings, hingegen, indes(sen), gleichwohl, mithin, demnach, somit, folglich, überdies, immerhin",
+          "official": "C1"
+        },
+        {
+          "id": "c1.participial-clauses",
+          "label": "Partizipialsätze: Partizip I / II als verkürzter Nebensatz (In Berlin angekommen, …; Lächelnd verließ sie …); Auflösung",
+          "official": "C1"
+        },
+        {
+          "id": "c1.funktionsverbgefuege-formal",
+          "label": "Nomen-Verb-Verbindungen der Fachsprache: zur Anwendung kommen, in Erwägung ziehen, zum Ausdruck bringen, unter Beweis stellen, Bezug nehmen auf",
+          "official": "C1"
+        },
+        {
+          "id": "c1.tense-choice",
+          "label": "Tempuswahl in Erzählung und Bericht: Präteritum / Perfekt / Plusquamperfekt / Futur I & II; Tempuswechsel als Stilmittel; historisches Präsens",
+          "official": "C1 (Erkundungen C1 Kap. 1)"
+        },
+        {
+          "id": "c1.adverbial-clauses-system",
+          "label": "Adverbialsätze — das System: temporal, kausal, final, konditional, konzessiv, konsekutiv, modal, adversativ, komparativ — mit Hauptsatz-, Nebensatz- und Infinitivvarianten",
+          "official": "C1"
+        },
+        {
+          "id": "c1.genitive-written",
+          "label": "Genitivpräpositionen der Schriftsprache: anlässlich, mangels, zwecks, ungeachtet, seitens, angesichts, hinsichtlich, bezüglich, infolge, kraft, laut",
+          "official": "C1"
+        },
+        {
+          "id": "c1.adjectives-nouns-case",
+          "label": "Adjektive mit Kasus (Genitiv/Dativ/Akkusativ: sich einer Sache bewusst, jemandem behilflich, einen Meter lang) und Nomen mit präpositionalem Objekt (advanced)",
+          "official": "C1"
+        },
+        {
+          "id": "c1.attributes",
+          "label": "Attribute: Genitivattribut, Präpositionalattribut, Apposition, Rechts- und Linksattribut-Ketten; Auflösung komplexer Nominalphrasen",
+          "official": "C1"
+        },
+        {
+          "id": "c1.bar-lich",
+          "label": "Adjektive auf -bar / -lich als Passiversatz (consolidation); Negation un-",
+          "official": "C1"
+        },
+        {
+          "id": "c1.academic-vocabulary",
+          "label": "Wortschatz Bildung & Wissenschaft: Erkenntnis, Voraussetzung, Annahme, Schlussfolgerung, Durchführung, Auswertung, These, Nachweis, Hypothese",
+          "official": "C1"
+        },
+        {
+          "id": "c1.presentation-skills",
+          "label": "Sprechen: strukturiert darstellen, Grafik beschreiben, Stellung nehmen (Goethe C1 Sprechen Teil 1 & 2)",
+          "official": "C1 (Sprechen)"
+        },
+        {
+          "id": "c1.reading-exam-formats",
+          "label": "Lesen: Sprachbausteine-Cloze (Teil 1), Detailverstehen (Teil 2), Sätze einordnen (Teil 3)",
+          "official": "C1 (Lesen)"
+        },
+        {
+          "id": "c1.listening-exam-formats",
+          "label": "Hören: Vorlesung / Vortrag mit Detailfragen; Podiumsdiskussion (Goethe C1 Hören Teil 3 & 4)",
+          "official": "C1 (Hören)"
+        }
+      ],
+      "exam": "Goethe-Zertifikat C1 (2024): Lesen 4 Teile (Sprachbausteine-Cloze, Detail, Sätze einordnen, Expertenmeinungen), Hören 4 Teile, Schreiben 2 Teile, Sprechen 2 Teile — Lesen Teil 1 tests verbs (Semantik, Tempus, Modus), Modalverben, Konnektoren, Angaben, Pronomen."
+    },
+    {
+      "level": "C1.2",
+      "title": "Nuancieren",
+      "subtitle": "Nuance",
+      "complete": true,
+      "canDo": [
+        "Use the full system of subjective modal verbs (supposition and hearsay) in present and past",
+        "Build and decode words with prefixes and suffixes, including separable/inseparable verb prefixes",
+        "Use idioms, advanced cohesion devices and formal Funktionsverbgefüge appropriately",
+        "Criticise and recommend retrospectively with the Konjunktiv II; use advanced relative clauses",
+        "Handle nouns with irregular number and gender-neutral references; shift register from informal to formal",
+        "Transform sentences: relative clause ↔ participial attribute, active ↔ passive ↔ substitute",
+        "Structure a talk, describe a graph, take a position; read literature and expert opinions; hear an interview for stimmt / stimmt nicht / nicht gesagt"
+      ],
+      "themes": [
+        "Kultur & Medien",
+        "Gesellschaft & Ehrenamt",
+        "Literatur",
+        "Arbeit & Kommunikation formell",
+        "Alltagssprache & Ironie"
+      ],
+      "structures": [
+        {
+          "id": "c1.modal-supposition",
+          "label": "Subjektive Modalverben — Vermutung: muss (sicher), dürfte (wahrscheinlich), könnte / kann (möglich), mag (vielleicht), kann nicht (ausgeschlossen); Vergangenheit mit Infinitiv II",
+          "official": "C1"
+        },
+        {
+          "id": "c1.modal-hearsay",
+          "label": "Subjektive Modalverben — Hörensagen und Behauptung: soll (man sagt), will (behauptet von sich); Vergangenheit; Passiv (soll gebaut worden sein)",
+          "official": "C1"
+        },
+        {
+          "id": "c1.word-formation-prefixes",
+          "label": "Wortbildung Vorsilben der Verben: be-, ver-, er-, ent-, zer-, miss- (untrennbar); Bedeutungen und Systematik",
+          "official": "C1"
+        },
+        {
+          "id": "c1.word-formation-suffixes",
+          "label": "Wortbildung Nachsilben (consolidation): -heit, -keit, -ung, -schaft, -tum, -nis, -lich, -ig, -haft, -los, -voll",
+          "official": "C1"
+        },
+        {
+          "id": "c1.verb-prefixes-separable",
+          "label": "Verben mit Präfixen trennbar vs untrennbar: durch-, über-, unter-, um-, wieder-, hinter- (úmfahren / umfáhren, wíederholen / wiederhólen); Betonung und Bedeutung",
+          "official": "C1 (Erkundungen C1)"
+        },
+        {
+          "id": "c1.idioms",
+          "label": "Redewendungen und feste Wendungen: Bedeutung, Register, Verwendung im Kontext",
+          "official": "C1"
+        },
+        {
+          "id": "c1.cohesion-advanced",
+          "label": "Textkohäsion (advanced): Verweiswörter vor- und rückwärts, Konnektoren, Wiederaufnahme durch Synonym / Hyperonym, Thema-Rhema",
+          "official": "C1"
+        },
+        {
+          "id": "c1.funktionsverbgefuege-advanced",
+          "label": "Funktionsverbgefüge (advanced): Bezug nehmen auf, in Anspruch nehmen, zur Sprache bringen, in Erwägung ziehen, Abstand nehmen von, unter Beweis stellen",
+          "official": "C1"
+        },
+        {
+          "id": "c1.konjunktiv2-criticism",
+          "label": "Konjunktiv II für Kritik und nachträgliche Empfehlung: Sie hätten früher kommen sollen; An Ihrer Stelle hätte ich …; Es wäre besser gewesen, wenn …",
+          "official": "C1"
+        },
+        {
+          "id": "c1.relative-advanced",
+          "label": "Relativsätze advanced: dessen / deren mit Präposition (mit dessen Hilfe), wo / wohin / woher, wer … der, Präposition + Relativ, weiterführender Nebensatz mit was / wo(r)-",
+          "official": "C1"
+        },
+        {
+          "id": "c1.number-gender",
+          "label": "Nomen mit Besonderheiten im Numerus (Pluraliatantum: die Eltern, die Ferien; Singulariatantum: das Obst, der Verkehr; Plural auf -s, Fremdwortplural) und genderneutrale Personenbezeichnungen (Studierende, Lehrkräfte)",
+          "official": "C1"
+        },
+        {
+          "id": "c1.redemittel-talk",
+          "label": "Redemittel: Vortrag gliedern, Grafik beschreiben, Stellung nehmen — die festen Wendungen der C1-Prüfung",
+          "official": "C1 (Sprechen Teil 1)"
+        },
+        {
+          "id": "c1.transformation-1",
+          "label": "Umformulierung: Relativsatz ↔ Partizipialattribut; Aktiv ↔ Passiv ↔ Passiversatz; Nebensatz ↔ Nominalgruppe",
+          "official": "C1"
+        },
+        {
+          "id": "c1.register-shift",
+          "label": "Register informell → formell: Kannst du mal … → Wäre es Ihnen möglich, …; Umgangssprache → Standard; E-Mail an Vorgesetzte",
+          "official": "C1 (Schreiben Teil 2)"
+        },
+        {
+          "id": "c1.culture-vocabulary",
+          "label": "Wortschatz Kultur & Medien: prägen, hinterfragen, vermitteln, Vielfalt, Auseinandersetzung, Öffentlichkeit, Rezeption, Anspielung",
+          "official": "C1"
+        },
+        {
+          "id": "c1.exam-formats-2",
+          "label": "Prüfungsformate: Expertenmeinungen zuordnen (Lesen Teil 4), Interview stimmt / stimmt nicht / nicht gesagt (Hören Teil 2), Forumsbeitrag und formelle Beschwerde (Schreiben)",
+          "official": "C1"
+        }
+      ],
+      "exam": "Goethe-Zertifikat C1 (2024): Lesen Teil 4 (Expertenmeinungen zuordnen), Hören Teil 2 (Interview: stimmt / stimmt nicht / nicht gesagt), Schreiben Teil 1 (Forumsbeitrag) & Teil 2 (formelle E-Mail an Vorgesetzte), Sprechen Teil 1 (Vortrag) & Teil 2 (Diskussion)."
+    },
+    {
+      "level": "C2.1",
+      "title": "Stilsicherheit",
+      "subtitle": "Stylistic command",
+      "complete": true,
+      "canDo": [
+        "Move between formal and colloquial register with precision; choose words by connotation and collocation",
+        "Recognise and use rhetorical devices, proverbs and journalistic Konjunktiv I",
+        "Command verb valency: cases, prepositional objects, double objects",
+        "Build and decode compounds and derived adjectives; use advanced comparison (relative superlatives, proportionality)",
+        "Reformulate: nominal ↔ verbal, direct ↔ indirect, connector ↔ preposition (Goethe C2 Schreiben Teil 1)",
+        "Grade and tone statements with Abtönungs- and Graduierungsmittel",
+        "Speak: hold a speech, moderate a discussion; read press and short fiction; hear features and satire"
+      ],
+      "themes": [
+        "Wirtschaft & Recht",
+        "Medien & Journalismus",
+        "Stil & Rhetorik",
+        "Literatur: Kurzgeschichte",
+        "Gesellschaft: Satire"
+      ],
+      "structures": [
+        {
+          "id": "c2.register",
+          "label": "Register formell ↔ umgangssprachlich: lexikalische Paare (kriegen / erhalten), syntaktische Mittel, Textsorten",
+          "official": "C2"
+        },
+        {
+          "id": "c2.collocations",
+          "label": "Kollokationen: Verb-Nomen-Verbindungen (eine Niederlage erleiden, Hoffnung schöpfen, Wert legen auf), Adjektiv-Nomen",
+          "official": "C2"
+        },
+        {
+          "id": "c2.rhetoric",
+          "label": "Stilmittel & Rhetorik: Metapher, Ironie, Anapher, Antithese, Klimax, Euphemismus, rhetorische Frage — erkennen und benennen",
+          "official": "C2"
+        },
+        {
+          "id": "c2.connotation",
+          "label": "Konnotation & Wortwahl: wertende Paare (sparsam / geizig, Demonstranten / Randalierer), Euphemismus, Dysphemismus",
+          "official": "C2"
+        },
+        {
+          "id": "c2.proverbs",
+          "label": "Sprichwörter und geflügelte Worte: Wortlaut, Bedeutung, Anspielung",
+          "official": "C2"
+        },
+        {
+          "id": "c2.konjunktiv1-journalistic",
+          "label": "Konjunktiv I im Journalismus: durchgehende indirekte Rede, Ersatzformen, Distanzierung, Redeeinleitungen",
+          "official": "C2"
+        },
+        {
+          "id": "c2.valency",
+          "label": "Valenz: Verben und ihre Ergänzungen — Kasus (Akk/Dat/Gen), Präpositionalobjekt, Doppelobjekte, Prädikativ; Valenzwechsel",
+          "official": "C2"
+        },
+        {
+          "id": "c2.compounds",
+          "label": "Wortbildung der Nomen (advanced) & Komposita bilden: Determinans/Determinatum, Fugenelemente, Ad-hoc-Komposita, Bedeutung",
+          "official": "C2"
+        },
+        {
+          "id": "c2.comparison-advanced",
+          "label": "Komparation advanced: relativierte Superlative (einer der größten, bei weitem, mit Abstand), Proportionalität (je … umso), absolute Superlative, Vergleichsformen",
+          "official": "C2"
+        },
+        {
+          "id": "c2.adjective-formation",
+          "label": "Adjektivbildung: -haft, -mäßig, -artig, -bar, -los, -frei, -reich, -fähig, -würdig, -gerecht; Bedeutungsnuancen",
+          "official": "C2"
+        },
+        {
+          "id": "c2.transformation-2",
+          "label": "Umformulierung 2: nominal ↔ verbal, direkt ↔ indirekt, Konnektor ↔ Präposition, Aktiv ↔ Passiv — die Goethe-C2-Schreiben-Teil-1-Fertigkeit",
+          "official": "C2 (Schreiben Teil 1)"
+        },
+        {
+          "id": "c2.gradation",
+          "label": "Abtönungs- und Graduierungsmittel: durchaus, keineswegs, geradezu, schlechthin, ohnehin, allemal, ausgesprochen, gewissermaßen, immerhin",
+          "official": "C2"
+        },
+        {
+          "id": "c2.economy-law-vocabulary",
+          "label": "Fachwortschatz Wirtschaft & Recht: Konjunktur, Rendite, Insolvenz, Verordnung, Einspruch, Vergleich, Zinssatz, Umsatz",
+          "official": "C2"
+        },
+        {
+          "id": "c2.speaking-formats",
+          "label": "Sprechen: Rede halten, moderieren, Position stilsicher vertreten (Goethe C2 Sprechen)",
+          "official": "C2"
+        },
+        {
+          "id": "c2.text-formats-1",
+          "label": "Textsorten: Zeitungsartikel, Feature, Satire, Kurzgeschichte — Merkmale erkennen und deuten",
+          "official": "C2"
+        }
+      ],
+      "exam": "Goethe-Zertifikat C2 (GDS): Lesen 4 Teile, Hören 3 Teile, Schreiben 2 Teile (Umformulierung; Text zu einem Thema oder Literaturaufgabe), Sprechen 2 Teile (Vortrag; Diskussion) — Stil, Register und Abtönung sind explizite Kriterien."
+    },
+    {
+      "level": "C2.2",
+      "title": "Meisterschaft",
+      "subtitle": "Mastery",
+      "complete": true,
+      "canDo": [
+        "Control word order for focus and information structure; read and produce allusion, implicature and wordplay",
+        "Paraphrase with lexical and syntactic variation; write in academic register",
+        "Use the written-language prepositions and the full nominal style; read and translate official German",
+        "Handle appositions, the complete modal-verb system, and the full passive/substitute spectrum",
+        "Transform adverbial clauses across main-clause, subordinate and infinitive variants",
+        "Write a literary appraisal (review, interpretation) with the fixed Redemittel; read poetry",
+        "Speak: conduct a dispute, present an analysis; hear specialist lectures and readings"
+      ],
+      "themes": [
+        "Philosophie & Gesellschaft",
+        "Wissenschaftssprache",
+        "Recht & Verwaltung: Amtsdeutsch",
+        "Literatur: Lyrik & Deutung",
+        "Künstliche Intelligenz & Arbeit"
+      ],
+      "structures": [
+        {
+          "id": "c2.word-order-focus",
+          "label": "Wortstellung & Fokus: Fokuspartikeln (selbst, sogar, ausgerechnet, gerade, erst, nur, allein), Vorfeldbesetzung, Ausklammerung, Thema-Rhema",
+          "official": "C2"
+        },
+        {
+          "id": "c2.implicature",
+          "label": "Anspielung & Implikatur: Indirektheit, Litotes, Understatement, Ironie, Floskeln — das Gemeinte hinter dem Gesagten",
+          "official": "C2"
+        },
+        {
+          "id": "c2.paraphrase",
+          "label": "Paraphrase & Variation: gehobene Äquivalente (von Bedeutung, eine Vielzahl von, Beistand leisten), syntaktische Umstellung",
+          "official": "C2"
+        },
+        {
+          "id": "c2.wordplay",
+          "label": "Wortspiel & Mehrdeutigkeit: Homonyme, Genusunterschiede (der/die Leiter, See, Kiefer), Polysemie, Doppeldeutigkeit in Überschriften",
+          "official": "C2"
+        },
+        {
+          "id": "c2.academic-language",
+          "label": "Wissenschaftssprache: davon auszugehen, im Hinblick auf, daraus ergibt sich, zu dem Ergebnis kommen, unter Berücksichtigung, bedarf der Untersuchung",
+          "official": "C2"
+        },
+        {
+          "id": "c2.written-prepositions",
+          "label": "Präpositionen der Schriftsprache: kraft, zwecks, gemäß, laut, zufolge, binnen, vermöge, mittels, ungeachtet, unbeschadet, vorbehaltlich, eingedenk",
+          "official": "C2"
+        },
+        {
+          "id": "c2.nominal-style",
+          "label": "Nominalstil: Sätze nominalisieren und Präpositionalgruppen auflösen; Attributketten; Nominalstil erkennen und dosieren (Erkundungen C2 Kap. 8)",
+          "official": "C2"
+        },
+        {
+          "id": "c2.officialese",
+          "label": "Behördensprache / Amtsdeutsch lesen und übersetzen: Bußgeldbescheid, Einspruch, Rechtsbehelfsbelehrung, Fristen, Formeln",
+          "official": "C2"
+        },
+        {
+          "id": "c2.apposition",
+          "label": "Appositionen: Kasusangleichung, lockere und enge Apposition, Titel und Namen, Apposition mit als / wie",
+          "official": "C2"
+        },
+        {
+          "id": "c2.modal-system",
+          "label": "Modalverben — alle Bedeutungen in einem System: objektiv / subjektiv / Wiedergabe; synonyme Wendungen (es ist erforderlich, es steht zu erwarten)",
+          "official": "C2"
+        },
+        {
+          "id": "c2.passive-mastery",
+          "label": "Vorgangs- vs Zustandspassiv vs Passiversatz — Meisterschaft: Wahl nach Perspektive, Agensangabe, Fachtextkonvention",
+          "official": "C2"
+        },
+        {
+          "id": "c2.adverbial-transform",
+          "label": "Adverbialsätze — Hauptsatz / Nebensatz / Infinitiv-Varianten umformen (Erkundungen C2 Kap. 2)",
+          "official": "C2"
+        },
+        {
+          "id": "c2.literary-appraisal",
+          "label": "Literarische Würdigung: Rezension & Interpretation — Redemittel (Goethe C2 Schreiben Teil 2)",
+          "official": "C2 (Schreiben Teil 2)"
+        },
+        {
+          "id": "c2.philosophy-vocabulary",
+          "label": "Wortschatz Philosophie & Gesellschaft: Vernunft, Verantwortung, Gerechtigkeit, Bewusstsein, Erkenntnistheorie, Menschenbild, freier Wille",
+          "official": "C2"
+        },
+        {
+          "id": "c2.text-formats-2",
+          "label": "Textsorten: Essay, Fachvortrag, Lesung, Lyrik (Ringelnatz / Kaléko), amtliches Schreiben, Podiumsdiskussion — Capstone",
+          "official": "C2"
+        }
+      ],
+      "exam": "Goethe-Zertifikat C2 (GDS) capstone: Lesen (Literatur, Sachtext, Lückentext), Hören (Vortrag, Lesung, Diskussion), Schreiben Teil 2 (Literaturaufgabe: Rezension/Interpretation), Sprechen (Vortrag mit Analyse; Streitgespräch)."
+    }
+  ]
+}

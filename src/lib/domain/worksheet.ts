@@ -110,6 +110,8 @@ export function buildWorksheet(
 	const sections: ExerciseSection[] = [];
 
 	for (const quiz of course.quizzes) {
+		// A placeholder's exercise is the minimum; the sheet waits for the real one.
+		if (quiz.status === 'placeholder') continue;
 		const stats = history(quiz);
 		if (scope === 'achieved' && !stats.done) continue;
 		if (scope === 'weakSpots' && stats.answered === 0) continue;

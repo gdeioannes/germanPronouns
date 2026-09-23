@@ -16,6 +16,7 @@
 	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { progress } from '$lib/state/progress.svelte';
 	import { track } from '$lib/services/analytics';
+	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -40,7 +41,21 @@
 		track('quiz_completed', { course: course.id, quiz: quiz.id, type: quiz.type });
 		finished = true;
 	}
+
+	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
+
+	// Once the "Next" button is up, Enter follows it — wherever focus sits.
+	// The learner has just been typing answers, so the hands are on the keys;
+	// reaching for the mouse to move on would be a step backwards.
+	function onWindowKey(event: KeyboardEvent) {
+		if (!finished || event.key !== 'Enter' || event.repeat) return;
+		if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+		event.preventDefault();
+		goto(nextHref);
+	}
 </script>
+
+<svelte:window onkeydown={onWindowKey} />
 
 <svelte:head>
 	<title>{quiz.title} — {course.name}</title>
@@ -62,13 +77,18 @@
 		<div class="head-text">
 			<p class="eyebrow">{quiz.level ?? ''} · {quiz.type}</p>
 			<h1>{quiz.title}</h1>
+			{#if quiz.status === 'placeholder'}
+				<!-- The content is real and complete; the drill behind it is the
+				     minimum. Said plainly so nobody mistakes thin for finished. -->
+				<p class="preview">Preview — the explanation is complete, the exercise is still being expanded.</p>
+			{/if}
 		</div>
 		{#if ribbon}
 			<RibbonBadge tier={ribbon} animate={finished} />
 		{/if}
 	</header>
 
-	<HelpMemory {quiz} />
+	<HelpMemory {quiz} locale={course.learnLocale} />
 
 	{#if quiz.type === 'fillBlank'}
 		<FillBlankQuiz
@@ -127,7 +147,7 @@
 				<span><strong>Finished.</strong> This exercise is marked complete.</span>
 			</p>
 			{#if next}
-				<a class="btn" href="/course/{course.id}/quiz/{next.id}">
+				<a class="btn" href={nextHref}>
 					Next: {next.title}
 					<Icon name="arrowRight" size="1em" />
 				</a>
@@ -206,5 +226,12 @@
 		margin: 0 0 0.95rem;
 		max-width: none;
 		color: var(--right);
+	}
+
+	.preview {
+		margin: 0.35rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ochre, #8a6d1f);
+		font-weight: 600;
 	}
 </style>

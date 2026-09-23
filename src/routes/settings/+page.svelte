@@ -73,6 +73,23 @@
 		<label class="row">
 			<input
 				type="checkbox"
+				checked={progress.wordHelp}
+				onchange={(e) => progress.setWordHelp(e.currentTarget.checked)}
+			/>
+			<span>
+				<strong>Word help</strong>
+				<small>
+					Colours every noun in an exercise by its gender — blue der, red
+					die, green das — and lets you tap one for its article, plural and
+					meaning. The same switch sits on the exercise itself, so you can
+					turn it off mid-quiz when you'd rather be tested than helped.
+				</small>
+			</span>
+		</label>
+
+		<label class="row">
+			<input
+				type="checkbox"
 				checked={progress.showFirstLetterHint}
 				onchange={(e) => progress.setShowFirstLetterHint(e.currentTarget.checked)}
 			/>

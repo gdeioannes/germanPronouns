@@ -69,6 +69,44 @@ function ladder() {
 	);
 }
 
+describe('settings survive a reload', () => {
+	// Every setting is written to localStorage on change and read back on load.
+	// This drives the real store, so a setting added without a load() line — the
+	// easy mistake — fails here rather than silently resetting on refresh.
+	it('round-trips each setting through storage', async () => {
+		const map = installStorage();
+		await progress.load(DEFAULT_GATING);
+
+		await progress.setRelaxedCorrection(false);
+		await progress.setWordHelp(false);
+		await progress.setShowFirstLetterHint(true);
+		await progress.setVoiceOfflineOnly(true);
+		await progress.setAnswerRevealMode('slow');
+
+		// Nothing is held only in memory: the values are in the store itself.
+		expect(map.get(SettingsKeys.relaxedCorrection)).toBe('false');
+		expect(map.get(SettingsKeys.colorNouns)).toBe('false');
+		expect(map.get(SettingsKeys.showFirstLetterHint)).toBe('true');
+		expect(map.get(SettingsKeys.voiceOfflineOnly)).toBe('true');
+		expect(map.get(SettingsKeys.answerRevealMode)).toBe('slow');
+
+		// A fresh visit reads them back rather than falling to the defaults.
+		await progress.load(DEFAULT_GATING);
+		expect(progress.relaxedCorrection).toBe(false);
+		expect(progress.wordHelp).toBe(false);
+		expect(progress.showFirstLetterHint).toBe(true);
+		expect(progress.voiceOfflineOnly).toBe(true);
+		expect(progress.answerRevealMode).toBe('slow');
+	});
+
+	it('defaults word help and relaxed correction on for a new learner', async () => {
+		installStorage();
+		await progress.load(DEFAULT_GATING);
+		expect(progress.wordHelp).toBe(true);
+		expect(progress.relaxedCorrection).toBe(true);
+	});
+});
+
 describe('reading completion back', () => {
 	beforeEach(() => {
 		installStorage();

@@ -84,6 +84,14 @@ class ProgressStore {
 	 */
 	relaxedCorrection = $state(true);
 	showFirstLetterHint = $state(false);
+	/**
+	 * Word help: recognised nouns coloured by gender and tappable for their
+	 * article and meaning. The Dart build defaulted this off and hid it in
+	 * settings; on is the point of the feature, so only an explicit "false"
+	 * turns it off — and it keeps the Dart key, so a learner who switched it on
+	 * there still has it on.
+	 */
+	wordHelp = $state(true);
 	/** Skip the cloud neural voice and use the on-device one only. */
 	voiceOfflineOnly = $state(false);
 	/** How long the answer stays revealed before the next question. */
@@ -105,6 +113,7 @@ class ProgressStore {
 		this.relaxedCorrection = (await storage.get(SettingsKeys.relaxedCorrection)) !== 'false';
 		this.showFirstLetterHint =
 			(await storage.get(SettingsKeys.showFirstLetterHint)) === 'true';
+		this.wordHelp = (await storage.get(SettingsKeys.colorNouns)) !== 'false';
 		this.voiceOfflineOnly = (await storage.get(SettingsKeys.voiceOfflineOnly)) === 'true';
 		// The TTS chain reads a plain flag rather than this store, so it stays
 		// free of framework imports and ports to Capacitor untouched.
@@ -316,6 +325,11 @@ class ProgressStore {
 	async setRelaxedCorrection(value: boolean): Promise<void> {
 		this.relaxedCorrection = value;
 		await storage.set(SettingsKeys.relaxedCorrection, String(value));
+	}
+
+	async setWordHelp(value: boolean): Promise<void> {
+		this.wordHelp = value;
+		await storage.set(SettingsKeys.colorNouns, String(value));
 	}
 
 	async setShowFirstLetterHint(value: boolean): Promise<void> {

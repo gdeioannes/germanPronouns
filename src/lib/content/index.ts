@@ -6,7 +6,14 @@
 // and belong to one route each, so those are imported lazily.
 
 import catalogJson from '$content/catalog.json';
-import type { Catalog, CourseCard, PopulatedCourse, Quiz, ReadingQuiz } from './types';
+import type {
+	Catalog,
+	CourseCard,
+	CourseSyllabus,
+	PopulatedCourse,
+	Quiz,
+	ReadingQuiz
+} from './types';
 
 export const catalog = catalogJson as Catalog;
 
@@ -27,6 +34,16 @@ export async function loadCourse(id: string): Promise<PopulatedCourse> {
 	if (!path) throw new Error(`No content bundle for course "${id}"`);
 	const module = await bundles[path]();
 	return module.default;
+}
+
+/** Every course syllabus, keyed by id — the master table each module teaches to. */
+const syllabi = import.meta.glob<{ default: CourseSyllabus }>('$content/syllabus/*.json');
+
+/** Loads one course's syllabus, or null when it has none yet. */
+export async function loadSyllabus(id: string): Promise<CourseSyllabus | null> {
+	const path = Object.keys(syllabi).find((p) => p.endsWith(`/${id}.json`));
+	if (!path) return null;
+	return (await syllabi[path]()).default;
 }
 
 export function isReading(quiz: Quiz): quiz is ReadingQuiz {

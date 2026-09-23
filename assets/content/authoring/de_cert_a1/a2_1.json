@@ -1,0 +1,3152 @@
+[
+  {
+    "id": "quest_a2_1_perfekt_haben",
+    "covers": [
+      "a2.perfekt-haben",
+      "a2.past-narration"
+    ],
+    "help": {
+      "intro": "The Perfekt is the past tense of spoken German: what you did yesterday, last weekend, an hour ago — Ich habe Fußball gespielt, Wir haben Pizza gegessen, Hast du den Film gesehen? It is built from haben in position 2 and the participle (Partizip II) at the very end, the same bracket as the modal verbs. Most verbs take haben; the participle has three shapes. Regular verbs: ge- + stem + -t (gemacht, gespielt, gekauft; gearbeitet with the helping e). Irregular verbs: ge- + changed stem + -en (gegessen, getrunken, geschrieben, gefunden, genommen, getroffen) — these have to be learnt one by one. And two groups take no ge- at all: verbs ending in -ieren (telefoniert, studiert) and verbs with an unstressed prefix be-, ver-, er-, ent- (besucht, verstanden, erklärt). Separable verbs put the ge- in the middle: aufgeräumt, eingekauft, angerufen.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "haben at 2, participle at the end",
+          "text": "Ich | habe | gestern Fußball | gespielt. Everything between the two verbs is the content; the participle closes the sentence and never changes.",
+          "examples": [
+            {
+              "de": "Ich habe am Wochenende viel geschlafen.",
+              "en": "I slept a lot at the weekend."
+            },
+            {
+              "de": "Was hast du gestern gemacht? – Ich habe gearbeitet.",
+              "en": "What did you do yesterday? – I worked."
+            }
+          ],
+          "trap": "E6/E4 — 'Ich habe gespielt Fußball' keeps the English order. The participle goes last, however long the sentence."
+        },
+        {
+          "kind": "rule",
+          "title": "Regular ge-…-t, irregular ge-…-en",
+          "text": "machen → gemacht, kaufen → gekauft, hören → gehört, arbeiten → gearbeitet. essen → gegessen, trinken → getrunken, schreiben → geschrieben, finden → gefunden, nehmen → genommen, treffen → getroffen, sehen → gesehen, lesen → gelesen.",
+          "examples": [
+            {
+              "de": "Wir haben ein Haus gekauft und Freunde getroffen.",
+              "en": "We bought a house and met friends."
+            },
+            {
+              "de": "Ich habe den Brief geschrieben und die Schlüssel gefunden.",
+              "en": "I wrote the letter and found the keys."
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "No ge- for -ieren and be-/ver-/er-/ent-",
+          "text": "telefonieren → telefoniert, studieren → studiert; besuchen → besucht, verstehen → verstanden, erklären → erklärt, bekommen → bekommen. The stress is not on the first syllable, so there is no room for ge-.",
+          "examples": [
+            {
+              "de": "Ich habe meine Oma besucht und lange telefoniert.",
+              "en": "I visited my grandma and talked on the phone for a long time."
+            },
+            {
+              "de": "Hast du das verstanden? – Ja, du hast es gut erklärt.",
+              "en": "Did you understand that? – Yes, you explained it well."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Separable verbs: ge- in the middle",
+          "text": "aufräumen → aufgeräumt, einkaufen → eingekauft, anrufen → angerufen, fernsehen → ferngesehen. The stressed prefix stays in front and ge- slips in behind it.",
+          "examples": [
+            {
+              "de": "Ich habe mein Zimmer aufgeräumt und dann eingekauft.",
+              "en": "I tidied my room and then went shopping."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Say the pair, always",
+          "text": "Never learn a verb alone: learn 'essen – gegessen', 'trinken – getrunken'. The participle is half the verb.",
+          "examples": [
+            {
+              "de": "schreiben – geschrieben · nehmen – genommen · treffen – getroffen",
+              "en": "learn them as pairs"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "ge- in front, -t or -en at the back, whole word at the end of the sentence.",
+        "No ge- when the first syllable isn't stressed: telefoniert, besucht, verstanden."
+      ],
+      "context": {
+        "de": "Gestern habe ich lange geschlafen. Dann habe ich gefrühstückt und die Zeitung gelesen. Am Nachmittag habe ich meine Freundin getroffen; wir haben Kaffee getrunken und viel geredet. Am Abend habe ich meine Eltern angerufen und einen Film gesehen. Und was hast du gemacht?",
+        "en": "Yesterday I slept in. Then I had breakfast and read the paper. In the afternoon I met my friend; we drank coffee and talked a lot. In the evening I called my parents and watched a film. And what did you do?"
+      },
+      "mistakes": [
+        {
+          "wrong": "Ich habe gemacht meine Hausaufgaben.",
+          "right": "Ich habe meine Hausaufgaben gemacht.",
+          "why": "The participle is the last word."
+        },
+        {
+          "wrong": "Ich habe getelefoniert.",
+          "right": "Ich habe telefoniert.",
+          "why": "-ieren verbs take no ge-."
+        },
+        {
+          "wrong": "Ich habe geessen.",
+          "right": "Ich habe gegessen.",
+          "why": "essen is irregular: gegessen with a double g."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 2 ('Erzählen Sie von Ihrem Wochenende') and Lesen Teil 1: the Perfekt is the tense of every past-time task at A2.",
+      "vocab": [
+        {
+          "de": "machen – gemacht",
+          "en": "to do"
+        },
+        {
+          "de": "spielen – gespielt",
+          "en": "to play"
+        },
+        {
+          "de": "kaufen – gekauft",
+          "en": "to buy"
+        },
+        {
+          "de": "arbeiten – gearbeitet",
+          "en": "to work"
+        },
+        {
+          "de": "essen – gegessen",
+          "en": "to eat"
+        },
+        {
+          "de": "trinken – getrunken",
+          "en": "to drink"
+        },
+        {
+          "de": "sehen – gesehen",
+          "en": "to see"
+        },
+        {
+          "de": "lesen – gelesen",
+          "en": "to read"
+        },
+        {
+          "de": "schreiben – geschrieben",
+          "en": "to write"
+        },
+        {
+          "de": "finden – gefunden",
+          "en": "to find"
+        },
+        {
+          "de": "nehmen – genommen",
+          "en": "to take"
+        },
+        {
+          "de": "treffen – getroffen",
+          "en": "to meet"
+        },
+        {
+          "de": "telefonieren – telefoniert",
+          "en": "to phone"
+        },
+        {
+          "de": "besuchen – besucht",
+          "en": "to visit"
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_a2_1_perfekt_sein",
+    "covers": [
+      "a2.perfekt-sein",
+      "a2.past-narration"
+    ],
+    "help": {
+      "intro": "A smaller group of verbs builds its Perfekt with sein instead of haben — and English speakers, who have only 'have', get this wrong for years unless they learn the rule early. The rule is short: verbs of movement from one place to another (gehen, fahren, kommen, fliegen, laufen, schwimmen, umziehen) and verbs of change of state (aufstehen, einschlafen, aufwachen, werden, sterben) take sein — plus three exceptions to learn by heart: sein (gewesen), bleiben (geblieben), passieren (passiert). Their participles are mostly irregular (gegangen, gefahren, gekommen, geworden). Everything else — including all verbs with an object — takes haben.",
+      "tips": [
+        {
+          "kind": "mnemonic",
+          "title": "Movers and changers take sein",
+          "text": "Movement A → B: gehen, fahren, kommen, fliegen, laufen, reisen, umziehen. Change of state: aufstehen, einschlafen, aufwachen, werden, sterben. Plus sein, bleiben, passieren.",
+          "examples": [
+            {
+              "de": "Ich bin nach Berlin gefahren und um sieben aufgestanden.",
+              "en": "I went to Berlin and got up at seven."
+            },
+            {
+              "de": "Was ist passiert? – Nichts, wir sind zu Hause geblieben.",
+              "en": "What happened? – Nothing, we stayed at home."
+            }
+          ],
+          "trap": "E8 — 'Ich habe gefahren' is the error. If the verb moves you or changes you, it takes sein."
+        },
+        {
+          "kind": "rule",
+          "title": "The participles are mostly irregular",
+          "text": "gehen → gegangen, fahren → gefahren, kommen → gekommen, fliegen → geflogen, laufen → gelaufen, schwimmen → geschwommen, werden → geworden, sein → gewesen, bleiben → geblieben, sterben → gestorben. Separable: aufgestanden, eingeschlafen, aufgewacht, umgezogen.",
+          "examples": [
+            {
+              "de": "Wir sind ins Kino gegangen und danach nach Hause gelaufen.",
+              "en": "We went to the cinema and then walked home."
+            },
+            {
+              "de": "Sie ist Ärztin geworden.",
+              "en": "She became a doctor."
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "An object means haben — even for fahren",
+          "text": "Ich bin nach Köln gefahren (I travelled) but Ich habe das Auto gefahren (I drove the car). With a direct object the same verb switches to haben.",
+          "examples": [
+            {
+              "de": "Er ist gefahren. – Er hat den Bus gefahren.",
+              "en": "He drove (went). – He drove the bus."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "sein and bleiben: the two odd ones",
+          "text": "Ich bin in Rom gewesen, ich bin zwei Tage geblieben. In speech, war is preferred for 'was' (Ich war in Rom), but gewesen exists and you will read it.",
+          "examples": [
+            {
+              "de": "Bist du schon mal in Wien gewesen? – Ja, ich war letztes Jahr dort.",
+              "en": "Have you ever been to Vienna? – Yes, I was there last year."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Does the verb move you or change you? Then sein. Otherwise haben.",
+        "Three to memorise: gewesen, geblieben, passiert — all with sein."
+      ],
+      "context": {
+        "de": "Am Samstag bin ich früh aufgestanden und mit dem Zug nach Hamburg gefahren. Meine Schwester ist auch gekommen. Wir sind am Hafen spazieren gegangen und abends in ein Konzert gegangen. Ich bin erst um Mitternacht eingeschlafen! Am Sonntag sind wir zu Hause geblieben – es ist nichts passiert.",
+        "en": "On Saturday I got up early and took the train to Hamburg. My sister came too. We went for a walk at the harbour and to a concert in the evening. I didn't fall asleep until midnight! On Sunday we stayed at home – nothing happened."
+      },
+      "mistakes": [
+        {
+          "wrong": "Ich habe nach Berlin gefahren.",
+          "right": "Ich bin nach Berlin gefahren.",
+          "why": "Movement from A to B takes sein."
+        },
+        {
+          "wrong": "Wir sind Pizza gegessen.",
+          "right": "Wir haben Pizza gegessen.",
+          "why": "essen is not movement; it takes haben."
+        },
+        {
+          "wrong": "Er ist um sieben aufstehen.",
+          "right": "Er ist um sieben aufgestanden.",
+          "why": "The participle of a separable verb takes ge- in the middle."
+        }
+      ],
+      "exam": "A2 Hören Teil 1 and Sprechen Teil 2: journeys and days out — 'bin gefahren, bin gegangen, bin geblieben' are the verbs of every travel story.",
+      "vocab": [
+        {
+          "de": "gehen – gegangen",
+          "en": "to go"
+        },
+        {
+          "de": "fahren – gefahren",
+          "en": "to drive, travel"
+        },
+        {
+          "de": "kommen – gekommen",
+          "en": "to come"
+        },
+        {
+          "de": "fliegen – geflogen",
+          "en": "to fly"
+        },
+        {
+          "de": "laufen – gelaufen",
+          "en": "to run, walk"
+        },
+        {
+          "de": "schwimmen – geschwommen",
+          "en": "to swim"
+        },
+        {
+          "de": "aufstehen – aufgestanden",
+          "en": "to get up"
+        },
+        {
+          "de": "einschlafen – eingeschlafen",
+          "en": "to fall asleep"
+        },
+        {
+          "de": "aufwachen – aufgewacht",
+          "en": "to wake up"
+        },
+        {
+          "de": "werden – geworden",
+          "en": "to become"
+        },
+        {
+          "de": "bleiben – geblieben",
+          "en": "to stay"
+        },
+        {
+          "de": "sein – gewesen",
+          "en": "to be"
+        },
+        {
+          "de": "passieren – passiert",
+          "en": "to happen"
+        },
+        {
+          "de": "umziehen – umgezogen",
+          "en": "to move house"
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_a2_1_sprechen_wochenende",
+    "covers": [
+      "a2.past-narration",
+      "a2.perfekt-haben",
+      "a2.perfekt-sein"
+    ],
+    "help": {
+      "intro": "Seven sentences about a weekend, in the Perfekt, to listen to and repeat — then to rebuild with your own weekend in them. The point is the frame: haben or sein in second place, participle at the very end, with a time word to set the scene first: Am Samstag habe ich lange geschlafen. This is the A2 speaking exam's second part in miniature — 'Erzählen Sie von Ihrem Wochenende' — and the examiners listen for three things: the right helper verb (habe / bin), the participle at the end, and time words that give the story an order (zuerst, dann, danach, am Abend).",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Time word first, helper second, participle last",
+          "text": "Am Samstag | habe | ich meine Freunde | getroffen. Say the time, then the helper, then everything else, then the participle — and stop.",
+          "examples": [
+            {
+              "de": "Am Sonntag bin ich spazieren gegangen.",
+              "en": "On Sunday I went for a walk."
+            },
+            {
+              "de": "Danach haben wir zusammen gekocht.",
+              "en": "After that we cooked together."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The story words",
+          "text": "zuerst (first), dann (then), danach (after that), später (later), am Abend (in the evening), zum Schluss (finally). Each one takes position 1 and pulls the verb after it.",
+          "examples": [
+            {
+              "de": "Zuerst habe ich gefrühstückt, dann bin ich in die Stadt gefahren.",
+              "en": "First I had breakfast, then I went into town."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "habe or bin — decide before you start the sentence",
+          "text": "If the verb is movement or change (gehen, fahren, kommen, aufstehen), the sentence starts with bin. Decide it first, and the rest flows.",
+          "examples": [
+            {
+              "de": "Ich bin … gegangen. Ich habe … gesehen.",
+              "en": "I went. I saw."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Am Samstag – habe – ich – … – gemacht: five beats, participle on the last.",
+        "Stack the story with zuerst, dann, danach, zum Schluss."
+      ],
+      "exam": "A2 Sprechen Teil 2 (Mein Wochenende / Meine letzte Reise): 90 seconds of exactly these sentences."
+    }
+  },
+  {
+    "id": "quest_a2_1_dativ_artikel",
+    "covers": [
+      "a2.dative-articles"
+    ],
+    "help": {
+      "intro": "The dative is the third case, and the one A2 is built on. It marks the receiver — the person something is given, shown, told or done to: Ich gebe dem Mann das Buch — and it follows a group of verbs (helfen, danken, gefallen, gehören, antworten) and a group of prepositions (mit, bei, nach, zu, aus, von, seit). The question is wem? (to whom?). Its articles are the ones you have met as chunks since A1.1 (im, am, beim): der → dem, das → dem, die → der, and the plural → den with an -n added to the noun itself (mit den Kindern). The indefinite article follows: einem, einem, einer; and kein, mein and the other ein-words do the same: meinem Vater, meiner Mutter, meinen Eltern.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "dem / der / dem / den(+n)",
+          "text": "Masculine and neuter → dem; feminine → der; plural → den and the noun takes -n (den Kindern, den Freunden — unless the plural already ends in -n or -s: den Frauen, den Autos).",
+          "examples": [
+            {
+              "de": "Ich gebe dem Mann, der Frau und dem Kind ein Geschenk.",
+              "en": "I give the man, the woman and the child a present."
+            },
+            {
+              "de": "Sie hilft den Kindern.",
+              "en": "She helps the children."
+            }
+          ],
+          "trap": "E3 — English marks the receiver with word order or 'to'. German marks it on the article; the dative 'der' is feminine, not masculine — the same word does two different jobs."
+        },
+        {
+          "kind": "rule",
+          "title": "Ask wem?",
+          "text": "Wem gibst du das Buch? – Dem Mann. Wem hilfst du? – Der Frau. If the question is wem?, the answer is dative.",
+          "examples": [
+            {
+              "de": "Wem gehört die Tasche? – Der Lehrerin.",
+              "en": "Whose bag is it? – The (female) teacher's."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Verbs that always take the dative",
+          "text": "helfen, danken, gefallen, gehören, antworten, gratulieren, schmecken, passen, fehlen. The person after them is dative, with no accusative at all.",
+          "examples": [
+            {
+              "de": "Der Kuchen schmeckt dem Gast. Das Kleid passt der Frau.",
+              "en": "The guest likes the cake. The dress fits the woman."
+            },
+            {
+              "de": "Wir danken dem Lehrer.",
+              "en": "We thank the teacher."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "einem / einer, meinem / meiner",
+          "text": "The ein-words take -em, -er, -em and -en: einem Mann, einer Frau, einem Kind, meinen Eltern. No dative plural of ein; kein and mein do have one: keinen Kindern, meinen Freunden.",
+          "examples": [
+            {
+              "de": "Ich helfe einer Freundin. Er dankt seinem Vater.",
+              "en": "I help a friend. He thanks his father."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "dem–der–dem–den: say it as a four-beat chant, and add -n to the plural noun.",
+        "wer? nominative, wen? accusative, wem? dative."
+      ],
+      "vocab": [
+        {
+          "de": "geben",
+          "en": "to give (wem? was?)"
+        },
+        {
+          "de": "helfen",
+          "en": "to help (+ Dativ)"
+        },
+        {
+          "de": "danken",
+          "en": "to thank (+ Dativ)"
+        },
+        {
+          "de": "gefallen",
+          "en": "to please (+ Dativ) — X gefällt mir = I like X"
+        },
+        {
+          "de": "gehören",
+          "en": "to belong to (+ Dativ)"
+        },
+        {
+          "de": "schmecken",
+          "en": "to taste good (+ Dativ)"
+        },
+        {
+          "de": "passen",
+          "en": "to fit (+ Dativ)"
+        },
+        {
+          "de": "antworten",
+          "en": "to answer (+ Dativ)"
+        },
+        {
+          "de": "zeigen",
+          "en": "to show"
+        },
+        {
+          "de": "Gast",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "guest"
+        },
+        {
+          "de": "Nachbar",
+          "article": "der",
+          "plural": "-n",
+          "en": "neighbour"
+        }
+      ],
+      "context": {
+        "de": "Heute hat meine Nachbarin Geburtstag. Ich gratuliere der Nachbarin und gebe ihr Blumen. Die Blumen gefallen der Nachbarin sehr. Ihr Mann dankt mir und zeigt dem Besuch den Garten. Dann hilft er den Kindern mit dem Fahrrad. Ein schöner Tag bei den Nachbarn!",
+        "en": "Today my neighbour has her birthday. I congratulate the neighbour and give her flowers. The neighbour likes the flowers a lot. Her husband thanks me and shows the visitors the garden. Then he helps the children with the bike. A nice day at the neighbours'!"
+      },
+      "mistakes": [
+        {
+          "wrong": "Ich helfe den Mann.",
+          "right": "Ich helfe dem Mann.",
+          "why": "helfen takes the dative: dem."
+        },
+        {
+          "wrong": "mit den Kinder",
+          "right": "mit den Kindern",
+          "why": "The dative plural noun adds -n."
+        },
+        {
+          "wrong": "Ich gebe die Frau das Buch.",
+          "right": "Ich gebe der Frau das Buch.",
+          "why": "The receiver is dative: feminine der."
+        }
+      ],
+      "exam": "The whole of A2 assumes the dative: 'mit dem Bus', 'bei meiner Familie', 'Ich habe meiner Mutter geholfen' — it is the marker that separates A1 from A2 writing."
+    }
+  },
+  {
+    "id": "quest_a2_1_hoeren_reise",
+    "covers": [
+      "a2.past-narration",
+      "a2.perfekt-sein",
+      "a2.dative-prepositions"
+    ],
+    "help": {
+      "intro": "Sofia tells the story of last summer's trip to Italy — how she travelled, how long it took, where she stayed, what she did, how the weather was, when she came back. You hear it only. This is the A2 listening exam in its most common form: a person narrating a past event in the Perfekt, with the questions following the story. The tense is the challenge: the fact you need is often split — bin at the start, gefahren at the end — so you cannot answer until the sentence closes. Listen for the participle; it names the action. And catch the place words with their prepositions: mit dem Zug, nach Italien, bei einer Freundin, nach einer Woche.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Wait for the participle",
+          "text": "'… bin ich mit dem Zug nach Italien gefahren' — the verb arrives last. Hold the sentence until you hear gefahren / gewohnt / gegessen, then decide what it was about.",
+          "examples": [
+            {
+              "de": "In Rom habe ich bei einer Freundin gewohnt.",
+              "en": "In Rome I stayed with a friend."
+            },
+            {
+              "de": "Nach einer Woche bin ich wieder nach Hause gekommen.",
+              "en": "After a week I came home again."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The travel prepositions",
+          "text": "mit dem Zug / Auto / Flugzeug (by), nach Italien / Rom / Hause (to), bei einer Freundin (at someone's), in Rom (in), nach einer Woche (after). Each answers a different question: how, where to, where, when.",
+          "examples": [
+            {
+              "de": "Letzten Sommer bin ich mit dem Zug nach Italien gefahren.",
+              "en": "Last summer I went to Italy by train."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "war for the weather, Perfekt for the actions",
+          "text": "Das Wetter war heiß — states use war. Actions use haben/sein + participle. When you hear war, it is background; when you hear a participle, something happened.",
+          "examples": [
+            {
+              "de": "Das Wetter war sehr heiß. Wir haben viele Museen besucht.",
+              "en": "The weather was very hot. We visited many museums."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "The participle is the verb — nothing is decided until you hear it.",
+        "mit dem = how, nach = where to, bei = at whose place."
+      ],
+      "exam": "A2 Hören Teil 3 (a longer monologue, heard twice): a person tells about a trip or an event and you answer five questions in text order."
+    }
+  },
+  {
+    "id": "quest_a2_1_dativ_praep",
+    "covers": [
+      "a2.dative-prepositions"
+    ],
+    "help": {
+      "intro": "Nine prepositions always take the dative, no matter what the sentence does: aus (out of, from), bei (at someone's, near), mit (with, by), nach (after, to a place), seit (since, for a time), von (from, of), zu (to a person or place), gegenüber (opposite, placed after the noun) — and außer (except). They are the mirror image of the accusative five from A1. Four of them fuse with the article in everyday speech: bei dem → beim, von dem → vom, zu dem → zum, zu der → zur. These are the chunks you learnt at A1 (beim Arzt, zum Bahnhof, vom Bahnhof) — now you see the system behind them, and you can build any new one.",
+      "tips": [
+        {
+          "kind": "mnemonic",
+          "title": "aus – bei – mit – nach – seit – von – zu",
+          "text": "The dative chant, sung in every German classroom to a tune of your choice. Add gegenüber and außer. All dative, always.",
+          "examples": [
+            {
+              "de": "aus dem Haus, bei der Arbeit, mit dem Bus, nach dem Essen",
+              "en": "out of the house, at work, by bus, after the meal"
+            },
+            {
+              "de": "seit einem Jahr, von der Chefin, zu meinen Eltern",
+              "en": "for a year, from the boss, to my parents"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The contractions",
+          "text": "beim (bei dem), vom (von dem), zum (zu dem), zur (zu der). Use them always with a definite article: zum Bahnhof, zur Schule, beim Arzt, vom Markt.",
+          "examples": [
+            {
+              "de": "Ich gehe zum Arzt und dann zur Apotheke.",
+              "en": "I'm going to the doctor and then to the pharmacy."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "nach vs zu: where you're going",
+          "text": "nach for cities, countries and Hause (nach Berlin, nach Italien, nach Hause); zu for people, shops and buildings (zu Anna, zum Bäcker, zur Post). in for a country with an article: in die Schweiz.",
+          "examples": [
+            {
+              "de": "Ich fahre nach München und gehe dort zu einer Freundin.",
+              "en": "I'm going to Munich and there I'm visiting a friend."
+            }
+          ],
+          "trap": "English 'to' covers all of these. 'Ich gehe zu Berlin' or 'nach dem Arzt' are the classic errors."
+        },
+        {
+          "kind": "rule",
+          "title": "seit: since / for — with the present tense",
+          "text": "Ich wohne seit drei Jahren in Berlin — I have lived here for three years (and still do). German uses the present with seit, not a perfect.",
+          "examples": [
+            {
+              "de": "Sie lernt seit einem Monat Deutsch.",
+              "en": "She has been learning German for a month."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "aus-bei-mit-nach-seit-von-zu: sing it. Nine words, one case.",
+        "nach for places on the map, zu for people and shops."
+      ],
+      "vocab": [
+        {
+          "de": "aus",
+          "en": "out of, from"
+        },
+        {
+          "de": "bei",
+          "en": "at (someone's), near, at (a company)"
+        },
+        {
+          "de": "mit",
+          "en": "with, by (transport)"
+        },
+        {
+          "de": "nach",
+          "en": "after; to (city, country)"
+        },
+        {
+          "de": "seit",
+          "en": "since, for (time)"
+        },
+        {
+          "de": "von",
+          "en": "from, of"
+        },
+        {
+          "de": "zu",
+          "en": "to (person, place)"
+        },
+        {
+          "de": "gegenüber",
+          "en": "opposite"
+        },
+        {
+          "de": "außer",
+          "en": "except"
+        },
+        {
+          "de": "Apotheke",
+          "article": "die",
+          "plural": "-n",
+          "en": "pharmacy"
+        },
+        {
+          "de": "Bäcker",
+          "article": "der",
+          "plural": "-",
+          "en": "baker"
+        }
+      ],
+      "context": {
+        "de": "Seit einem Jahr wohne ich bei meiner Tante in Köln. Jeden Morgen fahre ich mit der U-Bahn zur Uni. Nach dem Unterricht gehe ich oft zum Bäcker gegenüber vom Bahnhof. Am Wochenende fahre ich nach Bonn zu meinen Freunden – außer meinem Bruder kommen alle.",
+        "en": "For a year I've been living with my aunt in Cologne. Every morning I take the underground to the university. After class I often go to the baker opposite the station. At the weekend I go to Bonn to my friends – everyone comes except my brother."
+      },
+      "mistakes": [
+        {
+          "wrong": "mit den Bus",
+          "right": "mit dem Bus",
+          "why": "mit takes the dative: dem."
+        },
+        {
+          "wrong": "Ich gehe zu Berlin.",
+          "right": "Ich fahre nach Berlin.",
+          "why": "Cities and countries take nach."
+        },
+        {
+          "wrong": "Ich habe seit zwei Jahren hier gewohnt.",
+          "right": "Ich wohne seit zwei Jahren hier.",
+          "why": "seit for an ongoing state takes the present tense."
+        }
+      ],
+      "exam": "A2 Lesen Teil 2 (notices, timetables: 'zum Bahnhof', 'ab 9 Uhr') and every Schreiben task ('Ich komme mit dem Bus') — the dative prepositions are on every page."
+    }
+  },
+  {
+    "id": "quest_a2_1_pronomen_dativ",
+    "covers": [
+      "a2.dative-pronouns"
+    ],
+    "help": {
+      "intro": "The dative pronouns are the receiver forms: mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen. You met the most common of them at A1 (Wie geht es dir? Kannst du mir helfen?); now they become a system, used after the dative verbs (geben, helfen, danken, gefallen, gehören, schmecken, zeigen) and the dative prepositions (mit mir, bei ihm, von ihr). Two look-alikes to keep apart: ihr is 'to her' (and also 'you all' as a subject), ihnen is 'to them', and Ihnen with a capital is the formal 'to you'. And the pronoun that changes meaning most is ihm: it is both 'to him' and 'to it' for a der- or das-word.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "The nine forms",
+          "text": "mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen — against the accusative mich, dich, ihn, sie, es, uns, euch, sie, Sie. uns and euch are the same in both cases.",
+          "examples": [
+            {
+              "de": "Ich gebe dir das Buch. Er hilft mir. Wir danken Ihnen.",
+              "en": "I give you the book. He helps me. We thank you (formal)."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "gefallen, schmecken, gehören, passen — the thing is the subject",
+          "text": "Das Buch gefällt mir (I like the book). Die Suppe schmeckt ihm (he likes the soup). Der Schlüssel gehört ihr (the key is hers). Die Jacke passt dir (the jacket fits you). The person is dative, the thing is nominative and rules the verb.",
+          "examples": [
+            {
+              "de": "Gefallen dir die Schuhe? – Ja, sie gefallen mir sehr.",
+              "en": "Do you like the shoes? – Yes, I like them a lot."
+            }
+          ],
+          "trap": "E3 — 'I like it' comes out as 'it pleases me'. The liker is never the subject with gefallen."
+        },
+        {
+          "kind": "warning",
+          "title": "ihr / ihnen / Ihnen",
+          "text": "ihr = to her. ihnen = to them. Ihnen = to you (formal). And ihr as a subject is 'you all' — the context and the verb tell you which.",
+          "examples": [
+            {
+              "de": "Ich schreibe ihr. Ich schreibe ihnen. Ich schreibe Ihnen.",
+              "en": "I write to her. I write to them. I write to you."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "After a dative preposition",
+          "text": "mit mir, bei dir, von ihm, zu ihr, nach euch, außer ihnen. Any dative preposition + pronoun uses these forms.",
+          "examples": [
+            {
+              "de": "Kommst du mit mir? – Ja, ich komme mit dir.",
+              "en": "Are you coming with me? – Yes, I'm coming with you."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "mir–dir–ihm–ihr–ihm–uns–euch–ihnen–Ihnen: chant it against mich–dich–ihn.",
+        "gefällt mir, schmeckt mir, gehört mir: the thing is the boss, I am the dative."
+      ],
+      "vocab": [
+        {
+          "de": "mir",
+          "en": "to me"
+        },
+        {
+          "de": "dir",
+          "en": "to you"
+        },
+        {
+          "de": "ihm",
+          "en": "to him / to it"
+        },
+        {
+          "de": "ihr",
+          "en": "to her"
+        },
+        {
+          "de": "uns",
+          "en": "to us"
+        },
+        {
+          "de": "euch",
+          "en": "to you (pl.)"
+        },
+        {
+          "de": "ihnen",
+          "en": "to them"
+        },
+        {
+          "de": "Ihnen",
+          "en": "to you (formal)"
+        },
+        {
+          "de": "schmecken",
+          "en": "to taste (good) to"
+        },
+        {
+          "de": "schicken",
+          "en": "to send"
+        },
+        {
+          "de": "zeigen",
+          "en": "to show"
+        }
+      ],
+      "context": {
+        "de": "Meine Oma hat Geburtstag. Ich schenke ihr ein Buch, und meine Schwester schenkt ihr Blumen. Die Blumen gefallen ihr sehr. Opa hilft uns in der Küche, und Oma zeigt uns alte Fotos. Danach schmeckt ihnen der Kuchen – und mir auch! Kommst du nächstes Jahr mit uns?",
+        "en": "It's my grandma's birthday. I give her a book, and my sister gives her flowers. She likes the flowers a lot. Grandpa helps us in the kitchen, and Grandma shows us old photos. Afterwards they enjoy the cake – and so do I! Are you coming with us next year?"
+      },
+      "mistakes": [
+        {
+          "wrong": "Das Buch gefällt ich.",
+          "right": "Das Buch gefällt mir.",
+          "why": "The liker is dative with gefallen."
+        },
+        {
+          "wrong": "Ich helfe sie. (her)",
+          "right": "Ich helfe ihr.",
+          "why": "helfen takes the dative: ihr."
+        },
+        {
+          "wrong": "Kommst du mit ich?",
+          "right": "Kommst du mit mir?",
+          "why": "mit takes the dative pronoun."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 3 (making plans together: 'Passt es dir am Montag?') and Schreiben ('Kannst du mir helfen?')."
+    }
+  },
+  {
+    "id": "quest_a2_1_lesen_hamburg",
+    "covers": [
+      "a2.past-narration",
+      "a2.perfekt-haben",
+      "a2.perfekt-sein"
+    ],
+    "help": {
+      "intro": "A family's weekend in Hamburg told in the Perfekt from start to finish: they drove, took a harbour tour, went to a market, ate, went to a museum because it rained. This is the A2 reading exam's narrative text — an e-mail or a short report about something that happened — and the questions follow the days. Two things to read for: the participles at the ends of sentences, which name what was done, and the little connectors that show cause and sequence: deshalb (therefore, verb second), danach (after that), am Samstag / am Sonntag (which day). Skim for who and what; read the detail only where a question sends you.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "deshalb = therefore, and the verb follows it",
+          "text": "Es hat geregnet, deshalb sind sie ins Museum gegangen. The cause comes first, deshalb takes position 1 of the next clause, and the verb comes straight after. This is where the 'why?' answer lives.",
+          "examples": [
+            {
+              "de": "Es hat geregnet, deshalb sind sie ins Museum gegangen.",
+              "en": "It rained, so they went to the museum."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Day by day",
+          "text": "Am Freitag …, Am Samstag …, Am Sonntag … — each day is a paragraph of the story. Match the question's day before you read for detail.",
+          "examples": [
+            {
+              "de": "Am Samstag haben sie eine Hafenrundfahrt gemacht.",
+              "en": "On Saturday they did a harbour tour."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "aber flips the sentence",
+          "text": "Die Kinder haben Fisch gegessen, aber die Mutter mag keinen Fisch. What comes after aber often contradicts what a question suggests — read to the end.",
+          "examples": [
+            {
+              "de": "…, aber die Mutter mag keinen Fisch.",
+              "en": "…, but the mother doesn't like fish."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Find the day, then the participle: that is the answer to 'what did they do on …?'.",
+        "deshalb answers warum? — the reason is in the clause before it."
+      ],
+      "exam": "A2 Lesen Teil 1: a personal e-mail or report in the past with five richtig/falsch or multiple-choice items."
+    }
+  },
+  {
+    "id": "quest_a2_1_sprechen_kurzcheck",
+    "covers": [
+      "a2.perfekt-haben",
+      "a2.perfekt-sein"
+    ],
+    "help": {
+      "intro": "A three-minute checkpoint on the first half of A2.1, in your own AI assistant with voice on: single things you did yesterday, one sentence at a time. The tutor asks 'Was hast du gestern gemacht?' and follow-ups; you answer in the Perfekt. It is listening for exactly two decisions per sentence — haben or sein, and the participle at the end — plus the participle's form (gegessen not geesst, gefahren not gefahrt). Answer in complete sentences, and let the tutor keep its corrections for the report.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "One sentence, two verbs",
+          "text": "Every answer has a helper at 2 and a participle at the end: Ich habe gearbeitet. Ich bin ins Kino gegangen. Two words, two positions, nothing in between the helper and the subject.",
+          "examples": [
+            {
+              "de": "Gestern habe ich lange gearbeitet und bin spät nach Hause gekommen.",
+              "en": "Yesterday I worked late and came home late."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Movement? Then bin.",
+          "text": "gehen, fahren, kommen, laufen, fliegen, aufstehen → bin. Everything else → habe. Decide before you open your mouth.",
+          "examples": [
+            {
+              "de": "Ich bin um acht aufgestanden. Ich habe gefrühstückt.",
+              "en": "I got up at eight. I had breakfast."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Helper at 2, participle last — say the participle, then stop.",
+        "If you moved, it's bin."
+      ],
+      "exam": "A2 Sprechen Teil 2: talking about a past event from a card — this is the warm-up for it."
+    }
+  },
+  {
+    "id": "quest_a2_1_war_hatte",
+    "covers": [
+      "a2.war-hatte",
+      "a2.past-narration"
+    ],
+    "help": {
+      "intro": "sein and haben are the two verbs Germans do not put into the Perfekt when they talk about the past: they say ich war (not ich bin gewesen) and ich hatte (not ich habe gehabt). You learnt the forms at A1.2; here they do a job — they carry the background of a story while the Perfekt carries the events. Das Wetter war schön, ich hatte viel Zeit, also bin ich an den See gefahren. States, feelings, weather, possession, age: war and hatte. Actions: Perfekt. Get that split right and your past-tense stories sound German instead of translated.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "war / hatte for background, Perfekt for events",
+          "text": "Es war kalt (state) — ich habe einen Mantel gekauft (event). Ich hatte Hunger (state) — ich habe gegessen (event). The story is told with both, in that division of labour.",
+          "examples": [
+            {
+              "de": "Gestern war ich krank und hatte Fieber. Ich bin zum Arzt gegangen.",
+              "en": "Yesterday I was ill and had a temperature. I went to the doctor."
+            },
+            {
+              "de": "Das Konzert war toll, wir hatten gute Plätze.",
+              "en": "The concert was great, we had good seats."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The full paradigms",
+          "text": "war, warst, war, waren, wart, waren · hatte, hattest, hatte, hatten, hattet, hatten. First and third person identical; the rest take -st, -en, -t, -en.",
+          "examples": [
+            {
+              "de": "Wo wart ihr? – Wir waren im Park. Hattet ihr Spaß? – Ja, wir hatten viel Spaß.",
+              "en": "Where were you? – We were in the park. Did you have fun? – Yes, lots."
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "Not 'ich bin gewesen' in conversation",
+          "text": "gewesen and gehabt exist and you will read them, but in speech they sound heavy. Wie war dein Tag? Es war gut. Ich hatte keine Zeit.",
+          "examples": [
+            {
+              "de": "Warst du schon mal in Italien? – Ja, ich war letztes Jahr in Rom.",
+              "en": "Have you been to Italy? – Yes, I was in Rome last year."
+            }
+          ],
+          "trap": "E8 — resist translating 'I have been' with the Perfekt. war is the natural form."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Als Kind …",
+          "text": "Childhood is told with war / hatte: Als Kind war ich klein und hatte einen Hund. It is the first place learners meet Präteritum as storytelling — B1 extends it to every verb.",
+          "examples": [
+            {
+              "de": "Als Kind hatte ich viele Freunde und war immer draußen.",
+              "en": "As a child I had many friends and was always outside."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "war and hatte paint the scene; the Perfekt moves the action.",
+        "'Es war schön' — never 'Es ist schön gewesen' in conversation."
+      ],
+      "vocab": [
+        {
+          "de": "war / waren",
+          "en": "was / were"
+        },
+        {
+          "de": "hatte / hatten",
+          "en": "had"
+        },
+        {
+          "de": "damals",
+          "en": "back then"
+        },
+        {
+          "de": "als Kind",
+          "en": "as a child"
+        },
+        {
+          "de": "früher",
+          "en": "earlier, in the past"
+        },
+        {
+          "de": "letztes Jahr",
+          "en": "last year"
+        },
+        {
+          "de": "Fieber",
+          "article": "das",
+          "en": "temperature, fever"
+        },
+        {
+          "de": "Platz",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "seat, place"
+        },
+        {
+          "de": "Konzert",
+          "article": "das",
+          "plural": "-e",
+          "en": "concert"
+        },
+        {
+          "de": "Wetter",
+          "article": "das",
+          "en": "weather"
+        }
+      ],
+      "context": {
+        "de": "Letztes Wochenende war ich in Dresden. Das Wetter war schlecht und ich hatte keinen Regenschirm, also habe ich einen gekauft. Am Abend waren wir in einem Konzert – die Musik war fantastisch, und wir hatten Plätze ganz vorne. Am Sonntag hatte ich leider Kopfschmerzen und bin früh nach Hause gefahren.",
+        "en": "Last weekend I was in Dresden. The weather was bad and I had no umbrella, so I bought one. In the evening we were at a concert – the music was fantastic, and we had seats right at the front. On Sunday I unfortunately had a headache and went home early."
+      },
+      "mistakes": [
+        {
+          "wrong": "Das Wetter ist schön gewesen.",
+          "right": "Das Wetter war schön.",
+          "why": "States use war in everyday German."
+        },
+        {
+          "wrong": "Ich habe gestern Zeit gehabt.",
+          "right": "Ich hatte gestern Zeit.",
+          "why": "haben in the past is hatte."
+        },
+        {
+          "wrong": "Wir war im Park.",
+          "right": "Wir waren im Park.",
+          "why": "wir takes waren."
+        }
+      ],
+      "exam": "A2 Schreiben Teil 2 (a message about something that happened): 'Es war …, ich hatte …' opens nearly every model answer."
+    }
+  },
+  {
+    "id": "quest_a2_1_bigtext_wochenende",
+    "covers": [
+      "a2.perfekt-haben",
+      "a2.perfekt-sein",
+      "a2.dative-prepositions",
+      "a2.war-hatte"
+    ],
+    "help": {
+      "intro": "A weekend at grandma's with ten gaps that ask for the two big things of A2.1 at once: the Perfekt helper — habe or bin — and the dative article after mit, bei and nach. Every gap has a hint that names what it wants (haben/sein? · fahren, or mit + Dativ · der Bus). Read the whole text first, because the participle at the end of each sentence tells you which helper the gap needs, and the noun after each preposition tells you its gender. Then work through it in order: helpers, then articles.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Read to the participle before choosing the helper",
+          "text": "'Ich ____ mit dem Bus gefahren' — gefahren is movement, so bin. '____ ich meine Oma besucht' — besucht has an object, so habe.",
+          "examples": [
+            {
+              "de": "Ich bin mit dem Bus gefahren. Ich habe meine Oma besucht.",
+              "en": "I went by bus. I visited my grandma."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "mit / bei / nach → dem, der, dem",
+          "text": "mit dem Bus (der Bus), bei der Oma (die Oma), nach dem Essen (das Essen). The hint gives the noun's gender; the preposition guarantees the dative.",
+          "examples": [
+            {
+              "de": "Bei der Oma habe ich Kuchen gegessen. Nach dem Essen sind wir spazieren gegangen.",
+              "en": "At grandma's I ate cake. After the meal we went for a walk."
+            }
+          ],
+          "trap": "E3 — 'mit den Bus' (accusative) is the reflex from A1. mit is dative: dem."
+        },
+        {
+          "kind": "warning",
+          "title": "The last sentence is a state: war",
+          "text": "Es war ein schöner Tag — the summary of a day is a state, so it takes war, not the Perfekt.",
+          "examples": [
+            {
+              "de": "Es war ein schöner Tag.",
+              "en": "It was a lovely day."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Participle first (it's at the end), helper second (it's in the gap).",
+        "mit, bei, nach: dative, every time."
+      ],
+      "exam": "A2 Schreiben Teil 2 asks for a text like this — 40 words about something you did — and marks the helpers and the articles."
+    }
+  },
+  {
+    "id": "quest_a2_1_wetter",
+    "covers": [
+      "a2.weather"
+    ],
+    "help": {
+      "intro": "Weather is small talk, and small talk is an A2 speaking task; it is also one of the official theme areas (Umwelt: Klima/Wetter). German talks about the weather with es and a verb — es regnet, es schneit, es ist sonnig / windig / kalt / heiß — and gives the temperature in Grad: zwanzig Grad, minus fünf Grad. Change is es wird + comparative: es wird wärmer, es wird kälter. The seasons are all der and take im (im Sommer). Learn the ten weather words, the four seasons and the two questions — Wie ist das Wetter? Wie viel Grad sind es? — and you have every conversation about the sky.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "es + verb / es ist + adjective",
+          "text": "es regnet, es schneit, es donnert, es blitzt — verbs. es ist sonnig, windig, bewölkt, neblig, kalt, warm, heiß — adjectives. Die Sonne scheint is the full-sentence version of sonnig.",
+          "examples": [
+            {
+              "de": "Heute regnet es und es ist kalt.",
+              "en": "Today it's raining and it's cold."
+            },
+            {
+              "de": "Im Süden scheint die Sonne.",
+              "en": "In the south the sun is shining."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Temperatures and change",
+          "text": "Es sind zwanzig Grad. Es sind minus drei Grad. Change: es wird wärmer / kälter / besser. Morgen wird es schön.",
+          "examples": [
+            {
+              "de": "Am Nachmittag wird es wärmer, etwa fünfundzwanzig Grad.",
+              "en": "In the afternoon it gets warmer, about twenty-five degrees."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The seasons and the compass",
+          "text": "der Frühling, der Sommer, der Herbst, der Winter — im Frühling. Weather reports split by region: im Norden, im Süden, im Osten, im Westen.",
+          "examples": [
+            {
+              "de": "Im Herbst ist es im Norden oft windig.",
+              "en": "In autumn it's often windy in the north."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The weather kit",
+          "text": "der Regenschirm (umbrella), die Jacke, der Schal — 'Nehmen Sie einen Regenschirm mit!' ends every rainy forecast.",
+          "examples": [
+            {
+              "de": "Es regnet – nimm einen Regenschirm mit!",
+              "en": "It's raining – take an umbrella!"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "es regnet / es ist kalt / es wird wärmer: verb, adjective, change.",
+        "Seasons are der, months are der, and both take im."
+      ],
+      "vocab": [
+        {
+          "de": "Wetter",
+          "article": "das",
+          "en": "weather"
+        },
+        {
+          "de": "es regnet",
+          "en": "it's raining"
+        },
+        {
+          "de": "es schneit",
+          "en": "it's snowing"
+        },
+        {
+          "de": "sonnig",
+          "en": "sunny"
+        },
+        {
+          "de": "windig",
+          "en": "windy"
+        },
+        {
+          "de": "bewölkt",
+          "en": "cloudy"
+        },
+        {
+          "de": "Wolke",
+          "article": "die",
+          "plural": "-n",
+          "en": "cloud"
+        },
+        {
+          "de": "Grad",
+          "article": "der",
+          "en": "degree(s)"
+        },
+        {
+          "de": "Gewitter",
+          "article": "das",
+          "en": "thunderstorm"
+        },
+        {
+          "de": "Regenschirm",
+          "article": "der",
+          "plural": "-e",
+          "en": "umbrella"
+        },
+        {
+          "de": "Frühling",
+          "article": "der",
+          "en": "spring"
+        },
+        {
+          "de": "Herbst",
+          "article": "der",
+          "en": "autumn"
+        }
+      ],
+      "context": {
+        "de": "Wie ist das Wetter bei euch? – Schlecht! Es regnet seit drei Tagen und es ist kalt, nur acht Grad. – Bei uns im Süden scheint die Sonne, es sind zwanzig Grad. Aber morgen wird es kälter, und am Wochenende kommt ein Gewitter. – Dann bleibe ich lieber zu Hause.",
+        "en": "How's the weather where you are? – Bad! It's been raining for three days and it's cold, only eight degrees. – Here in the south the sun is shining, it's twenty degrees. But tomorrow it gets colder, and at the weekend there's a thunderstorm coming. – Then I'd rather stay at home."
+      },
+      "mistakes": [
+        {
+          "wrong": "Es ist regnen.",
+          "right": "Es regnet.",
+          "why": "regnen is a verb: es regnet."
+        },
+        {
+          "wrong": "Es ist zwanzig Grad.",
+          "right": "Es sind zwanzig Grad.",
+          "why": "Grad is plural after a number: sind."
+        },
+        {
+          "wrong": "in Sommer",
+          "right": "im Sommer",
+          "why": "Seasons take im."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 1 (small talk) and Hören Teil 2 (a radio forecast): the weather vocabulary is tested every session."
+    }
+  },
+  {
+    "id": "quest_a2_1_diktat_perfekt",
+    "covers": [
+      "a2.perfekt-haben",
+      "a2.perfekt-sein"
+    ],
+    "help": {
+      "intro": "Fifteen sentences in the Perfekt, heard and typed. Two things are being trained: hearing the helper — habe / hast / hat / bin / bist / ist / sind — at the start, and writing the participle correctly at the end, ge- and all. The helper gives away the verb's type before you have heard the verb: bin / ist / sind mean a movement or change verb is coming (gefahren, gekommen, aufgestanden). Write the sentence whole, and check the two ends against each other: a sein-helper with a haben-participle means you misheard one of them.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Hear the helper, predict the participle",
+          "text": "'Wir sind …' → a movement verb is coming: gefahren, gegangen, gekommen. 'Ich habe …' → anything else: gesehen, gemacht, gegessen.",
+          "examples": [
+            {
+              "de": "Wir sind nach Hamburg gefahren.",
+              "en": "We went to Hamburg."
+            },
+            {
+              "de": "Ich habe einen Film gesehen.",
+              "en": "I watched a film."
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "ge- is written, even when it is quiet",
+          "text": "gegessen, gearbeitet, gefunden — the ge- is unstressed and easy to miss by ear. If the verb is a plain one (no -ieren, no be-/ver-), write ge-.",
+          "examples": [
+            {
+              "de": "Hast du gut geschlafen?",
+              "en": "Did you sleep well?"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Questions start with the helper",
+          "text": "Hast du …? Bist du …? Seid ihr …? The helper is the first word, the participle still the last.",
+          "examples": [
+            {
+              "de": "Bist du gestern ins Kino gegangen?",
+              "en": "Did you go to the cinema yesterday?"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "First word and last word belong together: check that they agree.",
+        "Plain verb → write ge-, whether or not you heard it."
+      ],
+      "exam": "A2 Schreiben: the marker checks helpers and participles; dictation trains you to write what a correct sentence sounds like."
+    }
+  },
+  {
+    "id": "quest_a2_1_sprechen_weg",
+    "covers": [
+      "a2.directions",
+      "a2.dative-prepositions"
+    ],
+    "help": {
+      "intro": "Asking the way and understanding the answer — seven phrases to listen to and repeat. The question is always the same: Entschuldigung, wie komme ich zum / zur …? (zum for der/das places, zur for die places). The answer uses the formal imperative and four direction words: geradeaus (straight on), links, rechts, an der Ecke (at the corner) — Gehen Sie geradeaus, dann links. Say the question until it is automatic; in the A2 speaking exam and in every German town it is the sentence you will use most.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "zum or zur",
+          "text": "zum Bahnhof, zum Markt, zum Museum (der/das) — zur Post, zur Apotheke, zur Universität (die). Wie komme ich zum/zur …? is the whole question.",
+          "examples": [
+            {
+              "de": "Entschuldigung, wie komme ich zum Bahnhof?",
+              "en": "Excuse me, how do I get to the station?"
+            },
+            {
+              "de": "Wie komme ich zur Post?",
+              "en": "How do I get to the post office?"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The four direction words",
+          "text": "geradeaus (straight), links (left), rechts (right), an der Ecke (at the corner). Plus: die erste / zweite Straße (the first / second street), gegenüber (opposite), neben (next to).",
+          "examples": [
+            {
+              "de": "Gehen Sie geradeaus und dann die zweite Straße rechts.",
+              "en": "Go straight on and then the second street on the right."
+            },
+            {
+              "de": "Der Bahnhof ist an der Ecke, gegenüber der Bank.",
+              "en": "The station is at the corner, opposite the bank."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Repeat it back",
+          "text": "Also: geradeaus, dann links? — repeating the directions is how Germans confirm them, and it gives you a second hearing.",
+          "examples": [
+            {
+              "de": "Also geradeaus und dann links? – Genau.",
+              "en": "So straight on and then left? – Exactly."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Entschuldigung, wie komme ich zum …? — one sentence, every town.",
+        "geradeaus–links–rechts: say them with your hand."
+      ],
+      "exam": "A2 Sprechen Teil 3 (asking for information) and Hören Teil 1 (someone explaining the way): this exact vocabulary."
+    }
+  },
+  {
+    "id": "quest_a2_1_komparativ",
+    "covers": [
+      "a2.comparative"
+    ],
+    "help": {
+      "intro": "To compare, German adds -er to the adjective and joins the two things with als: Ein Zug ist schneller als ein Bus. That works for every adjective, long or short — there is no 'more interesting': interessanter. Short adjectives with a, o or u usually take an umlaut (alt → älter, groß → größer, jung → jünger, warm → wärmer), and four are irregular in a way English speakers will recognise: gut → besser, viel → mehr, gern → lieber, hoch → höher. For 'as … as' use genauso … wie / so … wie. After sein the comparative takes no ending; before a noun it takes the adjective ending on top (ein schnellerer Zug — a B1 skill).",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "-er + als, for every adjective",
+          "text": "klein → kleiner als, schnell → schneller als, interessant → interessanter als. Never 'mehr interessant'.",
+          "examples": [
+            {
+              "de": "Berlin ist größer als Bonn.",
+              "en": "Berlin is bigger than Bonn."
+            },
+            {
+              "de": "Der Film ist interessanter als das Buch.",
+              "en": "The film is more interesting than the book."
+            }
+          ],
+          "trap": "English uses 'more' for long adjectives. German never does — 'mehr interessant' is the tell-tale error."
+        },
+        {
+          "kind": "rule",
+          "title": "Umlaut on short a/o/u adjectives",
+          "text": "alt → älter, groß → größer, jung → jünger, warm → wärmer, kalt → kälter, lang → länger, kurz → kürzer, stark → stärker. But: langsam → langsamer (no umlaut on longer words).",
+          "examples": [
+            {
+              "de": "Mein Bruder ist älter als ich, aber ich bin größer.",
+              "en": "My brother is older than me, but I am taller."
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "The irregular four — and teuer",
+          "text": "gut → besser, viel → mehr, gern → lieber, hoch → höher. And teuer drops an e: teurer; dunkel → dunkler.",
+          "examples": [
+            {
+              "de": "Ich trinke lieber Tee als Kaffee. Das Auto ist teurer als das Fahrrad.",
+              "en": "I prefer tea to coffee. The car is more expensive than the bike."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "as … as: genauso … wie",
+          "text": "Sie ist genauso alt wie ich. Not als — wie. als is for a difference, wie for equality.",
+          "examples": [
+            {
+              "de": "Das Fahrrad ist nicht so schnell wie das Auto.",
+              "en": "The bike is not as fast as the car."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "-er als: every adjective, no 'mehr'.",
+        "gut–besser, viel–mehr, gern–lieber: the three you already half know from English."
+      ],
+      "vocab": [
+        {
+          "de": "schneller",
+          "en": "faster"
+        },
+        {
+          "de": "älter",
+          "en": "older"
+        },
+        {
+          "de": "größer",
+          "en": "bigger, taller"
+        },
+        {
+          "de": "besser",
+          "en": "better"
+        },
+        {
+          "de": "mehr",
+          "en": "more"
+        },
+        {
+          "de": "lieber",
+          "en": "rather, preferably"
+        },
+        {
+          "de": "höher",
+          "en": "higher"
+        },
+        {
+          "de": "teurer",
+          "en": "more expensive"
+        },
+        {
+          "de": "als",
+          "en": "than"
+        },
+        {
+          "de": "genauso … wie",
+          "en": "just as … as"
+        },
+        {
+          "de": "billig",
+          "en": "cheap"
+        },
+        {
+          "de": "langsam",
+          "en": "slow"
+        }
+      ],
+      "context": {
+        "de": "Fahren wir mit dem Zug oder mit dem Auto? – Der Zug ist schneller als das Auto, aber das Auto ist billiger. – Und bequemer? – Der Zug ist genauso bequem wie das Auto, und ich lese lieber, als dass ich fahre. – Gut, dann der Zug. Er ist besser für die Umwelt.",
+        "en": "Shall we go by train or by car? – The train is faster than the car, but the car is cheaper. – And more comfortable? – The train is just as comfortable as the car, and I'd rather read than drive. – Fine, the train then. It's better for the environment."
+      },
+      "mistakes": [
+        {
+          "wrong": "mehr interessant",
+          "right": "interessanter",
+          "why": "German always adds -er, never 'mehr'."
+        },
+        {
+          "wrong": "Er ist größer wie ich.",
+          "right": "Er ist größer als ich.",
+          "why": "A difference takes als; wie is for equality."
+        },
+        {
+          "wrong": "Ich mag Tee mehr gern.",
+          "right": "Ich trinke lieber Tee.",
+          "why": "gern's comparative is lieber."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 3 (choosing together: 'Das ist billiger als …') and Lesen Teil 2 (comparing ads: schneller, günstiger)."
+    }
+  },
+  {
+    "id": "quest_a2_1_hoeren_wetter",
+    "covers": [
+      "a2.weather"
+    ],
+    "help": {
+      "intro": "A radio weather report, heard only: the morning in the north, the afternoon in the south, the evening wind, and a piece of advice. The report is organised by region and time of day, and so are the questions — im Norden / im Süden, am Vormittag / Nachmittag / Abend — so the trick is to attach each weather word to its slot as you hear it. Two grammar points carry the meaning: es wird wärmer ('it is getting warmer' — the comparative after werden) and the formal imperative in the advice at the end, Nehmen Sie … mit. This is A2 Hören Teil 2: a short broadcast with matching or multiple choice.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Slot each fact: where and when",
+          "text": "Am Vormittag im Norden: kalt, Regen. Am Nachmittag im Süden: Sonne, zwanzig Grad. Am Abend: Wind aus dem Westen. Draw the grid in your head before pressing play.",
+          "examples": [
+            {
+              "de": "Am Vormittag ist es im Norden noch kalt und es regnet.",
+              "en": "In the morning it's still cold in the north and it's raining."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "es wird + comparative",
+          "text": "es wird wärmer / kälter / besser — becoming. The temperature question is answered by what follows wärmer: etwa zwanzig Grad.",
+          "examples": [
+            {
+              "de": "Am Nachmittag scheint im Süden die Sonne und es wird wärmer, etwa zwanzig Grad.",
+              "en": "In the afternoon the sun shines in the south and it gets warmer, about twenty degrees."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The advice is the last sentence",
+          "text": "Nehmen Sie einen Regenschirm mit — a formal imperative. Forecasts end with what to bring; that is the last question.",
+          "examples": [
+            {
+              "de": "Nehmen Sie im Norden einen Regenschirm mit!",
+              "en": "Take an umbrella in the north!"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Region + time of day = the address of each fact.",
+        "wird wärmer = getting warmer; the number after it is the temperature."
+      ],
+      "exam": "A2 Hören Teil 2: a radio announcement or forecast heard twice, with five items."
+    }
+  },
+  {
+    "id": "quest_a2_1_lesen_emma",
+    "covers": [
+      "a2.past-narration",
+      "a2.war-hatte",
+      "a2.dative-pronouns"
+    ],
+    "help": {
+      "intro": "Emma, an English student in Munich, and her first week — day by day, in the past. The text mixes the two past forms you now have, exactly as a real text does: war and hatte for how things were (alles war neu, das Deutsch war schwer) and the Perfekt for what happened (hat ein Zimmer gefunden, ist zur Universität gegangen, hat Leute kennengelernt). One dative pronoun carries the last question: das Leben gefällt ihr — she likes the life. Read the days in order; each question belongs to one day.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Each day, one event",
+          "text": "Am Montag hat sie …, am Dienstag ist sie …, am Wochenende … Find the day the question names, then read that sentence to the participle.",
+          "examples": [
+            {
+              "de": "Am Montag hat sie ein Zimmer in einer WG gefunden.",
+              "en": "On Monday she found a room in a shared flat."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "war for how it was, Perfekt for what she did",
+          "text": "Das Deutsch war zuerst schwer (state) — aber sie hat viel gelernt (event). Questions about feelings and difficulty point to the war sentences.",
+          "examples": [
+            {
+              "de": "In der ersten Woche war alles neu für sie.",
+              "en": "In the first week everything was new for her."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "gefällt ihr = she likes",
+          "text": "The last line, Das Leben in München gefällt ihr, answers 'Wie findet Emma …?' — the dative ihr is Emma.",
+          "examples": [
+            {
+              "de": "Das Leben in München gefällt ihr.",
+              "en": "She likes life in Munich."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Day → sentence → participle: three steps to each answer.",
+        "WG = Wohngemeinschaft, a shared flat — an A2 word worth knowing."
+      ],
+      "exam": "A2 Lesen Teil 1: a personal narrative with five items — Emma's week is the model."
+    }
+  },
+  {
+    "id": "quest_a2_1_sprechen_dialog",
+    "covers": [
+      "a2.past-narration",
+      "a2.perfekt-haben",
+      "a2.perfekt-sein",
+      "a2.dative-articles",
+      "a2.dative-pronouns"
+    ],
+    "help": {
+      "intro": "The closing conversation of A2.1, in your own AI assistant with voice on: things you did recently — your weekend, a trip, a meal — and who you did them with or for. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections arrive at the end. The tutor listens for the Perfekt with the right helper and the participle at the end, the dative for the receiver (Ich habe meiner Mutter geholfen; mit meinem Bruder), and time expressions that order the story (gestern, letzte Woche, zuerst, danach). Tell it like a story, one event after another.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Order the story with time words",
+          "text": "Letztes Wochenende … Zuerst … Dann … Danach … Am Abend … Each one starts a sentence and the verb follows it.",
+          "examples": [
+            {
+              "de": "Letzten Samstag bin ich mit meiner Schwester nach Bonn gefahren. Zuerst haben wir …",
+              "en": "Last Saturday I went to Bonn with my sister. First we …"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "With whom, for whom: dative",
+          "text": "mit meinem Freund, bei meinen Eltern, Ich habe meiner Mutter geholfen, Ich habe ihm ein Geschenk gegeben. Say the dative ending — it is what is scored.",
+          "examples": [
+            {
+              "de": "Ich habe mit meinem Bruder gekocht und meiner Oma geholfen.",
+              "en": "I cooked with my brother and helped my grandma."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Finish every sentence",
+          "text": "The participle is the last word — don't trail off before it. 'Ich habe …' with no participle is not a sentence.",
+          "examples": [
+            {
+              "de": "Ich habe einen Film … gesehen.",
+              "en": "I watched a film — the last word makes it true."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Story words first, helper second, participle last.",
+        "mit + dem/der/meinem: the person you did it with is dative."
+      ],
+      "exam": "A2 Sprechen Teil 2 (talk about a card topic in the past) and Teil 3 (plan something together) — both rehearsed here."
+    }
+  },
+  {
+    "id": "quest_a2_1_modal_praeteritum",
+    "after": "quest_a2_1_war_hatte",
+    "status": "live",
+    "covers": [
+      "a2.modal-praeteritum",
+      "a2.past-narration"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "A2.1 · Modalverben im Präteritum",
+      "level": "A2.1",
+      "promptLabel": "Pronomen",
+      "subjectsLabel": "Pronomen",
+      "subjectColumnLabel": "Pronomen",
+      "subjects": [
+        {
+          "key": "ich",
+          "display": "ich",
+          "english": "I"
+        },
+        {
+          "key": "du",
+          "display": "du",
+          "english": "you"
+        },
+        {
+          "key": "er",
+          "display": "er/sie/es",
+          "english": "he/she/it"
+        },
+        {
+          "key": "wir",
+          "display": "wir",
+          "english": "we"
+        },
+        {
+          "key": "ihr",
+          "display": "ihr",
+          "english": "you (pl.)"
+        },
+        {
+          "key": "sie",
+          "display": "sie/Sie",
+          "english": "they / you (formal)"
+        }
+      ],
+      "categories": [
+        {
+          "label": "können → konnte",
+          "group": "koennen",
+          "values": [
+            "konnte",
+            "konntest",
+            "konnte",
+            "konnten",
+            "konntet",
+            "konnten"
+          ]
+        },
+        {
+          "label": "müssen → musste",
+          "group": "muessen",
+          "values": [
+            "musste",
+            "musstest",
+            "musste",
+            "mussten",
+            "musstet",
+            "mussten"
+          ]
+        },
+        {
+          "label": "wollen → wollte",
+          "group": "wollen",
+          "values": [
+            "wollte",
+            "wolltest",
+            "wollte",
+            "wollten",
+            "wolltet",
+            "wollten"
+          ]
+        },
+        {
+          "label": "dürfen → durfte",
+          "group": "duerfen",
+          "values": [
+            "durfte",
+            "durftest",
+            "durfte",
+            "durften",
+            "durftet",
+            "durften"
+          ]
+        },
+        {
+          "label": "sollen → sollte",
+          "group": "sollen",
+          "values": [
+            "sollte",
+            "solltest",
+            "sollte",
+            "sollten",
+            "solltet",
+            "sollten"
+          ]
+        }
+      ],
+      "sentenceTemplates": {
+        "können → konnte": [
+          "{subject} ____ gestern nicht kommen. (können)",
+          "{subject} ____ als Kind gut schwimmen. (können)"
+        ],
+        "müssen → musste": [
+          "{subject} ____ gestern lange arbeiten. (müssen)",
+          "{subject} ____ früh aufstehen. (müssen)"
+        ],
+        "wollen → wollte": [
+          "{subject} ____ ins Kino gehen. (wollen)",
+          "{subject} ____ das nicht. (wollen)"
+        ],
+        "dürfen → durfte": [
+          "{subject} ____ nicht fernsehen. (dürfen)",
+          "Als Kind ____ {subject} lange spielen. (dürfen)"
+        ],
+        "sollen → sollte": [
+          "{subject} ____ die Hausaufgaben machen. (sollen)",
+          "{subject} ____ um acht da sein. (sollen)"
+        ]
+      }
+    },
+    "help": {
+      "intro": "Like sein and haben, the modal verbs go into the simple past rather than the Perfekt when you talk about the past: Ich konnte nicht kommen (I couldn't come), Ich musste arbeiten (I had to work), Er wollte schlafen (he wanted to sleep). Nobody says 'ich habe kommen können' in everyday speech. The forms are regular and easy: the stem loses its umlaut (können → konn-, müssen → muss-, dürfen → durf-), takes -te, and adds the past endings: konnte, konntest, konnte, konnten, konntet, konnten. The main verb stays an infinitive at the end, exactly as in the present. The official A2 inventory lists these; with war and hatte they are the whole spoken Präteritum you need before B1.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Stem without umlaut + -te + endings",
+          "text": "konnte, musste, wollte, durfte, sollte, mochte. Endings: -te, -test, -te, -ten, -tet, -ten. ich and er identical, as always in the past.",
+          "examples": [
+            {
+              "de": "Ich konnte gestern nicht kommen, ich musste arbeiten.",
+              "en": "I couldn't come yesterday, I had to work."
+            },
+            {
+              "de": "Wir wollten ins Kino, aber wir durften nicht.",
+              "en": "We wanted to go to the cinema, but we weren't allowed."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Infinitive still at the end",
+          "text": "The bracket is unchanged: modal at 2, infinitive last. Ich | musste | gestern lange | arbeiten.",
+          "examples": [
+            {
+              "de": "Sie sollte um acht Uhr da sein.",
+              "en": "She was supposed to be there at eight."
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "No Perfekt for modals in speech",
+          "text": "'Ich habe nicht kommen können' exists but is heavy and rare. Say ich konnte nicht kommen. Same for sein/haben: war, hatte.",
+          "examples": [
+            {
+              "de": "Warum bist du nicht gekommen? – Ich konnte nicht.",
+              "en": "Why didn't you come? – I couldn't."
+            }
+          ],
+          "trap": "E8 — the modals, sein and haben are the three groups that avoid the Perfekt. Everything else uses it."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The umlaut goes",
+          "text": "können → konnte, müssen → musste, dürfen → durfte, mögen → mochte. wollen and sollen had none to lose: wollte, sollte.",
+          "examples": [
+            {
+              "de": "Als Kind mochte ich keinen Spinat.",
+              "en": "As a child I didn't like spinach."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Drop the umlaut, add -te: konnte, musste, durfte.",
+        "war, hatte, konnte, musste, wollte: the five past forms of spoken German before B1."
+      ],
+      "context": {
+        "de": "Gestern wollte ich mit Freunden ins Konzert gehen, aber ich konnte nicht: Ich musste bis acht arbeiten. Mein Chef sagte, ich sollte einen Bericht fertig machen. Und meine Kollegin durfte früher gehen – sie hatte einen Termin. Als Kind wollte ich Musikerin werden. Und du, was wolltest du werden?",
+        "en": "Yesterday I wanted to go to a concert with friends, but I couldn't: I had to work until eight. My boss said I was to finish a report. And my colleague was allowed to leave early – she had an appointment. As a child I wanted to become a musician. And you, what did you want to become?"
+      },
+      "mistakes": [
+        {
+          "wrong": "Ich könnte gestern nicht kommen.",
+          "right": "Ich konnte gestern nicht kommen.",
+          "why": "könnte (with umlaut) is 'could' as in 'would be able'; the past is konnte."
+        },
+        {
+          "wrong": "Ich habe gestern arbeiten gemusst.",
+          "right": "Ich musste gestern arbeiten.",
+          "why": "Modals use the Präteritum in speech."
+        },
+        {
+          "wrong": "Wir musste arbeiten.",
+          "right": "Wir mussten arbeiten.",
+          "why": "wir takes -ten."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 2 and Schreiben: 'Ich konnte leider nicht kommen, ich musste …' — the standard excuse, and a standard exam sentence.",
+      "vocab": [
+        {
+          "de": "konnte",
+          "en": "could, was able to"
+        },
+        {
+          "de": "musste",
+          "en": "had to"
+        },
+        {
+          "de": "wollte",
+          "en": "wanted to"
+        },
+        {
+          "de": "durfte",
+          "en": "was allowed to"
+        },
+        {
+          "de": "sollte",
+          "en": "was supposed to"
+        },
+        {
+          "de": "mochte",
+          "en": "liked"
+        },
+        {
+          "de": "leider",
+          "en": "unfortunately"
+        },
+        {
+          "de": "Termin",
+          "article": "der",
+          "plural": "-e",
+          "en": "appointment"
+        },
+        {
+          "de": "Bericht",
+          "article": "der",
+          "plural": "-e",
+          "en": "report"
+        },
+        {
+          "de": "Chef / Chefin",
+          "article": "der / die",
+          "en": "boss"
+        },
+        {
+          "de": "als Kind",
+          "en": "as a child"
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_a2_1_dativ_akkusativ",
+    "after": "quest_a2_1_pronomen_dativ",
+    "status": "live",
+    "covers": [
+      "a2.dative-accusative-order",
+      "a2.dative-articles"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "A2.1 · Wem? Was? — Verben mit Dativ und Akkusativ",
+      "level": "A2.1",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "English",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "I give the child the ball.",
+          "english": "I give the child the ball."
+        },
+        {
+          "key": "s1",
+          "display": "She shows the guests the garden.",
+          "english": "She shows the guests the garden."
+        },
+        {
+          "key": "s2",
+          "display": "We send the friend a letter.",
+          "english": "We send the friend a letter."
+        },
+        {
+          "key": "s3",
+          "display": "He gives his mother flowers.",
+          "english": "He gives his mother flowers."
+        },
+        {
+          "key": "s4",
+          "display": "I bring the teacher the book.",
+          "english": "I bring the teacher the book."
+        },
+        {
+          "key": "s5",
+          "display": "Can you lend me the pen?",
+          "english": "Can you lend me the pen?"
+        },
+        {
+          "key": "s6",
+          "display": "I'll explain it to you.",
+          "english": "I'll explain it to you."
+        },
+        {
+          "key": "s7",
+          "display": "She recommends him the film.",
+          "english": "She recommends him the film."
+        },
+        {
+          "key": "s8",
+          "display": "I give it to her. (das Buch)",
+          "english": "I give it to her."
+        },
+        {
+          "key": "s9",
+          "display": "We tell the children a story.",
+          "english": "We tell the children a story."
+        },
+        {
+          "key": "s10",
+          "display": "He buys his daughter a bike.",
+          "english": "He buys his daughter a bike."
+        },
+        {
+          "key": "s11",
+          "display": "I wish you a nice day.",
+          "english": "I wish you a nice day."
+        },
+        {
+          "key": "x12",
+          "display": "I'll lend you the book. (dir, das Buch)",
+          "english": "I'll lend you the book."
+        },
+        {
+          "key": "x13",
+          "display": "She sends it to her mother. (es, ihrer Mutter)",
+          "english": "She sends it to her mother."
+        },
+        {
+          "key": "x14",
+          "display": "We bring them to you. (sie, Ihnen)",
+          "english": "We bring them to you."
+        }
+      ],
+      "categories": [
+        {
+          "label": "Dativ (wem?)",
+          "group": "dativ",
+          "values": [
+            "dem",
+            "den",
+            "dem",
+            "seiner",
+            "der",
+            "mir",
+            "dir",
+            "ihm",
+            "ihr",
+            "den",
+            "seiner",
+            "Ihnen",
+            "dir das Buch",
+            "es ihrer Mutter",
+            "sie Ihnen"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Ich gebe ____ Kind den Ball. (das)",
+          "acceptedAnswers": [
+            "dem"
+          ],
+          "english": "I give the child the ball."
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Sie zeigt ____ Gästen den Garten. (die, Plural)",
+          "acceptedAnswers": [
+            "den"
+          ],
+          "english": "She shows the guests the garden."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Wir schicken ____ Freund einen Brief. (der)",
+          "acceptedAnswers": [
+            "dem"
+          ],
+          "english": "We send the friend a letter."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Er schenkt ____ Mutter Blumen. (seine)",
+          "acceptedAnswers": [
+            "seiner"
+          ],
+          "english": "He gives his mother flowers."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Ich bringe ____ Lehrerin das Buch. (die)",
+          "acceptedAnswers": [
+            "der"
+          ],
+          "english": "I bring the teacher the book."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Kannst du ____ den Stift leihen? (ich)",
+          "acceptedAnswers": [
+            "mir"
+          ],
+          "english": "Can you lend me the pen?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Ich erkläre es ____. (du)",
+          "acceptedAnswers": [
+            "dir"
+          ],
+          "english": "I'll explain it to you."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Sie empfiehlt ____ den Film. (er)",
+          "acceptedAnswers": [
+            "ihm"
+          ],
+          "english": "She recommends him the film."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Das Buch? Ich gebe es ____. (sie, she)",
+          "acceptedAnswers": [
+            "ihr"
+          ],
+          "english": "The book? I give it to her."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Wir erzählen ____ Kindern eine Geschichte. (die, Plural)",
+          "acceptedAnswers": [
+            "den"
+          ],
+          "english": "We tell the children a story."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Er kauft ____ Tochter ein Fahrrad. (seine)",
+          "acceptedAnswers": [
+            "seiner"
+          ],
+          "english": "He buys his daughter a bike."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Ich wünsche ____ einen schönen Tag. (Sie)",
+          "acceptedAnswers": [
+            "Ihnen"
+          ],
+          "english": "I wish you a nice day."
+        },
+        {
+          "subjectKey": "x12",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Ich leihe ____. (you / the book)",
+          "acceptedAnswers": [
+            "dir das Buch"
+          ],
+          "english": "I'll lend you the book."
+        },
+        {
+          "subjectKey": "x13",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Sie schickt ____. (it / to her mother)",
+          "acceptedAnswers": [
+            "es ihrer Mutter"
+          ],
+          "english": "She sends it to her mother."
+        },
+        {
+          "subjectKey": "x14",
+          "categoryLabel": "Dativ (wem?)",
+          "sentence": "Wir bringen ____ morgen. (them / to you, formal)",
+          "acceptedAnswers": [
+            "sie Ihnen"
+          ],
+          "english": "We'll bring them to you tomorrow."
+        }
+      ]
+    },
+    "help": {
+      "intro": "A group of everyday verbs takes two objects: the person who receives (dative — wem?) and the thing that is given (accusative — was?): Ich gebe dem Kind den Ball. geben, schenken, zeigen, schicken, bringen, leihen, erklären, empfehlen, erzählen, kaufen, wünschen all work this way, and the order is fixed in one direction and flips in the other. With two nouns, the person comes first: Ich gebe dem Kind den Ball. If the thing is a pronoun, it jumps ahead: Ich gebe es dem Kind. With two pronouns, the thing still comes first: Ich gebe es ihm. English does this with 'to' or with order; German does it with the case ending and the pronoun rule.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Person dative, thing accusative",
+          "text": "Wem gebe ich was? Dem Kind (dative) den Ball (accusative). Ask both questions and the cases assign themselves.",
+          "examples": [
+            {
+              "de": "Sie zeigt den Gästen den Garten.",
+              "en": "She shows the guests the garden."
+            },
+            {
+              "de": "Er schenkt seiner Mutter Blumen.",
+              "en": "He gives his mother flowers."
+            }
+          ],
+          "trap": "E3 — English 'I give the child the ball' marks nothing; German marks the child as dative (dem). And 'to the child' is not 'zu dem Kind' — the dative alone carries the 'to'."
+        },
+        {
+          "kind": "rule",
+          "title": "Two nouns: person first",
+          "text": "Ich bringe der Lehrerin das Buch. Wir erzählen den Kindern eine Geschichte. Dative noun, then accusative noun.",
+          "examples": [
+            {
+              "de": "Ich kaufe meiner Tochter ein Fahrrad.",
+              "en": "I buy my daughter a bike."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "A pronoun jumps to the front",
+          "text": "The thing as a pronoun goes before the person: Ich gebe es dem Kind. Ich zeige ihn den Gästen. Two pronouns: thing first, then person: Ich gebe es ihm. Ich zeige sie dir.",
+          "examples": [
+            {
+              "de": "Das Buch? Ich gebe es ihr morgen.",
+              "en": "The book? I'll give it to her tomorrow."
+            },
+            {
+              "de": "Kannst du mir den Stift leihen? – Ich leihe ihn dir.",
+              "en": "Can you lend me the pen? – I'll lend it to you."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The verbs of giving",
+          "text": "geben, schenken, bringen, schicken, zeigen, leihen, erklären, empfehlen, erzählen, wünschen, kaufen (for someone). Learn them as 'jemandem etwas' verbs: jemandem = dative, etwas = accusative.",
+          "examples": [
+            {
+              "de": "jemandem etwas geben / schenken / zeigen / erklären",
+              "en": "to give / gift / show / explain something to someone"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Wem? then Was?: the person is dative and, as a noun, comes first.",
+        "A pronoun overtakes: es dem Kind, es ihm."
+      ],
+      "context": {
+        "de": "Zu Weihnachten schenke ich meinem Vater ein Buch und meiner Mutter einen Schal. Meinem Bruder kaufe ich ein Spiel – ich zeige es dir später. Oma erzählt den Kindern eine Geschichte, und Opa erklärt ihnen das neue Handy. Wir wünschen euch frohe Weihnachten!",
+        "en": "For Christmas I'm giving my father a book and my mother a scarf. I'm buying my brother a game – I'll show it to you later. Grandma tells the children a story, and Grandpa explains the new phone to them. We wish you a merry Christmas!"
+      },
+      "mistakes": [
+        {
+          "wrong": "Ich gebe das Buch zu dem Kind.",
+          "right": "Ich gebe dem Kind das Buch.",
+          "why": "The dative carries 'to' by itself; no preposition."
+        },
+        {
+          "wrong": "Ich gebe dem Kind es.",
+          "right": "Ich gebe es dem Kind.",
+          "why": "A pronoun object goes before a noun object."
+        },
+        {
+          "wrong": "Ich gebe ihm es.",
+          "right": "Ich gebe es ihm.",
+          "why": "With two pronouns, the accusative comes first."
+        }
+      ],
+      "exam": "A2 Schreiben ('Ich schenke meiner Freundin …') and Sprechen Teil 3 (planning a present together) — the double-object verbs are the vocabulary of gifts and favours."
+    }
+  },
+  {
+    "id": "quest_a2_1_temporal_2",
+    "after": "quest_a2_1_dativ_praep",
+    "status": "live",
+    "covers": [
+      "a2.temporal-prepositions-2",
+      "a2.dative-prepositions"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "A2.1 · Zeitangaben: seit, vor, nach, in, für, über",
+      "level": "A2.1",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "English",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "for two years (and still)",
+          "english": "for two years (and still)"
+        },
+        {
+          "key": "s1",
+          "display": "two years ago",
+          "english": "two years ago"
+        },
+        {
+          "key": "s2",
+          "display": "after the course",
+          "english": "after the course"
+        },
+        {
+          "key": "s3",
+          "display": "in a week (from now)",
+          "english": "in a week (from now)"
+        },
+        {
+          "key": "s4",
+          "display": "for a week (planned length)",
+          "english": "for a week (planned length)"
+        },
+        {
+          "key": "s5",
+          "display": "for over an hour",
+          "english": "for over an hour"
+        },
+        {
+          "key": "s6",
+          "display": "between 8 and 9",
+          "english": "between 8 and 9"
+        },
+        {
+          "key": "s7",
+          "display": "from Monday on",
+          "english": "from Monday on"
+        },
+        {
+          "key": "s8",
+          "display": "since 2015",
+          "english": "since 2015"
+        },
+        {
+          "key": "s9",
+          "display": "before breakfast",
+          "english": "before breakfast"
+        },
+        {
+          "key": "s10",
+          "display": "an hour ago",
+          "english": "an hour ago"
+        },
+        {
+          "key": "s11",
+          "display": "in the evening (from 6)",
+          "english": "from six in the evening"
+        },
+        {
+          "key": "x12",
+          "display": "during the holidays",
+          "english": "during the holidays"
+        },
+        {
+          "key": "x13",
+          "display": "from Monday to Friday",
+          "english": "from Monday to Friday"
+        },
+        {
+          "key": "x14",
+          "display": "around eight o'clock",
+          "english": "around eight o'clock"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Präposition",
+          "group": "praep",
+          "values": [
+            "seit",
+            "vor",
+            "nach",
+            "in",
+            "für",
+            "über",
+            "zwischen",
+            "ab",
+            "seit",
+            "vor",
+            "vor",
+            "ab",
+            "in den",
+            "von … bis",
+            "gegen"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Präposition",
+          "sentence": "Ich wohne ____ zwei Jahren in Berlin.",
+          "acceptedAnswers": [
+            "seit"
+          ],
+          "english": "I've been living in Berlin for two years."
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Präposition",
+          "sentence": "____ zwei Jahren war ich in Rom.",
+          "acceptedAnswers": [
+            "Vor"
+          ],
+          "english": "Two years ago I was in Rome."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Präposition",
+          "sentence": "____ dem Kurs gehen wir essen.",
+          "acceptedAnswers": [
+            "Nach"
+          ],
+          "english": "After the course we go for a meal."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Präposition",
+          "sentence": "____ einer Woche habe ich Urlaub.",
+          "acceptedAnswers": [
+            "In"
+          ],
+          "english": "In a week I'm on holiday."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Präposition",
+          "sentence": "Ich fahre ____ eine Woche nach Wien.",
+          "acceptedAnswers": [
+            "für"
+          ],
+          "english": "I'm going to Vienna for a week."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Präposition",
+          "sentence": "Wir haben ____ eine Stunde gewartet.",
+          "acceptedAnswers": [
+            "über"
+          ],
+          "english": "We waited for over an hour."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Präposition",
+          "sentence": "Der Bus kommt ____ acht und neun Uhr.",
+          "acceptedAnswers": [
+            "zwischen"
+          ],
+          "english": "The bus comes between eight and nine."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Präposition",
+          "sentence": "____ Montag arbeite ich wieder.",
+          "acceptedAnswers": [
+            "Ab"
+          ],
+          "english": "From Monday I'm working again."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Präposition",
+          "sentence": "Sie lernt ____ 2015 Deutsch.",
+          "acceptedAnswers": [
+            "seit"
+          ],
+          "english": "She has been learning German since 2015."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Präposition",
+          "sentence": "____ dem Frühstück gehe ich joggen.",
+          "acceptedAnswers": [
+            "Vor"
+          ],
+          "english": "Before breakfast I go jogging."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Präposition",
+          "sentence": "Der Zug ist ____ einer Stunde abgefahren.",
+          "acceptedAnswers": [
+            "vor"
+          ],
+          "english": "The train left an hour ago."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Präposition",
+          "sentence": "____ achtzehn Uhr ist das Büro geschlossen.",
+          "acceptedAnswers": [
+            "Ab"
+          ],
+          "english": "From 6 pm the office is closed."
+        },
+        {
+          "subjectKey": "x12",
+          "categoryLabel": "Präposition",
+          "sentence": "____ Ferien fahren wir weg. (in the, Pl.)",
+          "acceptedAnswers": [
+            "In den"
+          ],
+          "english": "In the holidays we go away."
+        },
+        {
+          "subjectKey": "x13",
+          "categoryLabel": "Präposition",
+          "sentence": "____ Montag ____ Freitag arbeite ich. (from … to)",
+          "acceptedAnswers": [
+            "von … bis",
+            "Von … bis"
+          ],
+          "english": "From Monday to Friday I work."
+        },
+        {
+          "subjectKey": "x14",
+          "categoryLabel": "Präposition",
+          "sentence": "Ich komme ____ acht. (around)",
+          "acceptedAnswers": [
+            "gegen"
+          ],
+          "english": "I'll come around eight."
+        }
+      ]
+    },
+    "help": {
+      "intro": "The second set of time prepositions turns single points in time into spans and distances: seit (since / for, still going: seit zwei Jahren), vor (ago / before: vor zwei Jahren, vor dem Essen), nach (after: nach dem Kurs), in (in … from now: in einer Woche), für (for a planned length: für eine Woche), über (for more than: über eine Stunde), zwischen (between: zwischen acht und neun), ab (from … on: ab Montag). Most of them take the dative — seit einem Jahr, vor einer Stunde, nach dem Essen, in einer Woche — and that dative plural -n shows up in seit zwei Jahren, vor drei Monaten. The two that English speakers confuse are seit and für: seit for something that started in the past and continues, für for a length you plan.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "seit vs für vs vor",
+          "text": "seit zwei Jahren = for two years (and still) — present tense. für zwei Wochen = for two weeks (a planned length). vor zwei Jahren = two years ago.",
+          "examples": [
+            {
+              "de": "Ich wohne seit zwei Jahren hier. Ich bleibe für zwei Wochen. Ich kam vor zwei Jahren.",
+              "en": "I've lived here for two years. I'm staying for two weeks. I came two years ago."
+            }
+          ],
+          "trap": "English 'for' covers both seit and für. 'Ich wohne hier für zwei Jahre' is the classic slip — an ongoing state takes seit and the present tense."
+        },
+        {
+          "kind": "rule",
+          "title": "vor / nach / in — before, after, from now",
+          "text": "vor dem Frühstück (before breakfast), nach dem Kurs (after the course), in einer Woche (a week from now — not 'in the week'). All three take the dative.",
+          "examples": [
+            {
+              "de": "Nach dem Essen, in einer Stunde, treffen wir uns.",
+              "en": "After the meal, in an hour, we'll meet."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The dative plural -n on time nouns",
+          "text": "seit zwei Jahren, vor drei Monaten, seit fünf Tagen, vor zwei Wochen (already -n). The number makes it plural, the preposition makes it dative, the noun takes -n.",
+          "examples": [
+            {
+              "de": "Seit drei Tagen regnet es.",
+              "en": "It's been raining for three days."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "ab, über, zwischen",
+          "text": "ab Montag / ab 18 Uhr (from … on), über eine Stunde (more than an hour, accusative), zwischen acht und neun (between, dative).",
+          "examples": [
+            {
+              "de": "Ab morgen habe ich frei. Wir haben über eine Stunde gewartet.",
+              "en": "From tomorrow I'm off. We waited for over an hour."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "seit = still going (present tense); für = planned length; vor = ago.",
+        "Plural time + dative preposition = -n: seit zwei Jahren, vor drei Monaten."
+      ],
+      "context": {
+        "de": "Ich wohne seit drei Jahren in Leipzig. Vor drei Jahren bin ich aus Polen gekommen – für ein Jahr, dachte ich! Ab nächster Woche habe ich einen neuen Job. Nach der Arbeit gehe ich meistens zwischen sechs und sieben Uhr schwimmen, und in einem Monat fahre ich für zwei Wochen nach Hause.",
+        "en": "I've lived in Leipzig for three years. Three years ago I came from Poland – for a year, I thought! From next week I have a new job. After work I usually go swimming between six and seven, and in a month I'm going home for two weeks."
+      },
+      "mistakes": [
+        {
+          "wrong": "Ich wohne hier für drei Jahre.",
+          "right": "Ich wohne hier seit drei Jahren.",
+          "why": "An ongoing state takes seit and the present tense."
+        },
+        {
+          "wrong": "seit zwei Jahre",
+          "right": "seit zwei Jahren",
+          "why": "Dative plural takes -n."
+        },
+        {
+          "wrong": "in der nächsten Woche (meaning 'a week from now')",
+          "right": "in einer Woche",
+          "why": "in + time span = from now."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 1 ('Seit wann lernen Sie Deutsch?') and Lesen Teil 2 (ab 9 Uhr, zwischen 12 und 14 Uhr geschlossen)."
+    }
+  },
+  {
+    "id": "quest_a2_1_woher_wo_wohin",
+    "after": "quest_a2_1_temporal_2",
+    "status": "live",
+    "covers": [
+      "a2.woher-wo-wohin",
+      "a2.dative-prepositions"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "A2.1 · Woher? Wo? Wohin?",
+      "level": "A2.1",
+      "promptLabel": "Ort",
+      "subjectsLabel": "Orte",
+      "subjectColumnLabel": "Ort",
+      "subjects": [
+        {
+          "key": "Kino",
+          "display": "das Kino",
+          "english": "cinema",
+          "gender": "n"
+        },
+        {
+          "key": "Cafe",
+          "display": "das Café",
+          "english": "café",
+          "gender": "n"
+        },
+        {
+          "key": "Schule",
+          "display": "die Schule",
+          "english": "school",
+          "gender": "f"
+        },
+        {
+          "key": "Supermarkt",
+          "display": "der Supermarkt",
+          "english": "supermarket",
+          "gender": "m"
+        },
+        {
+          "key": "Arzt",
+          "display": "der Arzt",
+          "english": "doctor",
+          "gender": "m"
+        },
+        {
+          "key": "Anna",
+          "display": "Anna",
+          "english": "Anna"
+        },
+        {
+          "key": "Sport",
+          "display": "der Sport",
+          "english": "sport",
+          "gender": "m"
+        },
+        {
+          "key": "Arbeit",
+          "display": "die Arbeit",
+          "english": "work",
+          "gender": "f"
+        },
+        {
+          "key": "Berlin",
+          "display": "Berlin",
+          "english": "Berlin"
+        },
+        {
+          "key": "Schweiz",
+          "display": "die Schweiz",
+          "english": "Switzerland",
+          "gender": "f"
+        },
+        {
+          "key": "Hause",
+          "display": "zu Hause / nach Hause",
+          "english": "home"
+        },
+        {
+          "key": "Bahnhof",
+          "display": "der Bahnhof",
+          "english": "station",
+          "gender": "m"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Woher? — Ich komme …",
+          "group": "woher",
+          "values": [
+            "aus dem Kino",
+            "aus dem Café",
+            "aus der Schule",
+            "aus dem Supermarkt",
+            "vom Arzt",
+            "von Anna",
+            "vom Sport",
+            "von der Arbeit",
+            "aus Berlin",
+            "aus der Schweiz",
+            "von zu Hause",
+            "vom Bahnhof"
+          ]
+        },
+        {
+          "label": "Wo? — Ich bin …",
+          "group": "wo",
+          "values": [
+            "im Kino",
+            "im Café",
+            "in der Schule",
+            "im Supermarkt",
+            "beim Arzt",
+            "bei Anna",
+            "beim Sport",
+            "bei der Arbeit",
+            "in Berlin",
+            "in der Schweiz",
+            "zu Hause",
+            "am Bahnhof"
+          ]
+        },
+        {
+          "label": "Wohin? — Ich gehe / fahre …",
+          "group": "wohin",
+          "values": [
+            "ins Kino",
+            "ins Café",
+            "in die Schule",
+            "in den Supermarkt",
+            "zum Arzt",
+            "zu Anna",
+            "zum Sport",
+            "zur Arbeit",
+            "nach Berlin",
+            "in die Schweiz",
+            "nach Hause",
+            "zum Bahnhof"
+          ]
+        }
+      ],
+      "sentenceTemplates": {
+        "Woher? — Ich komme …": [
+          "Woher kommst du? – Ich komme gerade ____ . ({subject})"
+        ],
+        "Wo? — Ich bin …": [
+          "Wo bist du? – Ich bin ____ . ({subject})"
+        ],
+        "Wohin? — Ich gehe / fahre …": [
+          "Wohin gehst du? – Ich gehe ____ . ({subject})"
+        ]
+      }
+    },
+    "help": {
+      "intro": "Three questions, three prepositions, three cases — and one table that answers all of them. For a place you can be inside (Kino, Schule, Supermarkt): Woher? aus dem / aus der — Wo? im / in der — Wohin? ins / in die / in den. For people, activities and the doctor (Anna, Arzt, Sport, Arbeit): von — bei — zu: vom Arzt, beim Arzt, zum Arzt. Cities and most countries: aus Berlin — in Berlin — nach Berlin; countries with an article keep it: aus der Schweiz — in der Schweiz — in die Schweiz. And home is its own set: von zu Hause — zu Hause — nach Hause. The Wo? column is dative, the Wohin? column with in is accusative — that is the two-way preposition rule of A2.2, seen here through its most common examples.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Places you enter: aus – in – in",
+          "text": "Woher? aus dem Kino / aus der Schule. Wo? im Kino / in der Schule. Wohin? ins Kino / in die Schule / in den Park. The accusative (ins, in die, in den) means you are going in.",
+          "examples": [
+            {
+              "de": "Ich gehe ins Kino. Ich bin im Kino. Ich komme aus dem Kino.",
+              "en": "I'm going to the cinema. I'm at the cinema. I'm coming from the cinema."
+            }
+          ],
+          "trap": "E10 — 'in the cinema' is one phrase in English for both being there and going there. German switches im (dative, Wo?) and ins (accusative, Wohin?)."
+        },
+        {
+          "kind": "rule",
+          "title": "People and activities: von – bei – zu",
+          "text": "vom Arzt / von Anna / von der Arbeit — beim Arzt / bei Anna / bei der Arbeit — zum Arzt / zu Anna / zur Arbeit. All dative, no accusative here.",
+          "examples": [
+            {
+              "de": "Ich gehe zum Arzt. Ich bin beim Arzt. Ich komme vom Arzt.",
+              "en": "I'm going to the doctor. I'm at the doctor's. I'm coming from the doctor's."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Cities and countries: aus – in – nach",
+          "text": "aus Berlin – in Berlin – nach Berlin. With an article: aus der Schweiz – in der Schweiz – in die Schweiz (not nach!). aus den USA – in den USA – in die USA.",
+          "examples": [
+            {
+              "de": "Sie fährt nach Wien, dann in die Schweiz.",
+              "en": "She's going to Vienna, then to Switzerland."
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "Home: zu Hause vs nach Hause",
+          "text": "Ich bin zu Hause (I'm at home). Ich gehe nach Hause (I'm going home). Two different phrases; English has one.",
+          "examples": [
+            {
+              "de": "Bist du zu Hause? – Nein, ich fahre gerade nach Hause.",
+              "en": "Are you at home? – No, I'm on my way home right now."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "aus–in–in for buildings, von–bei–zu for people, aus–in–nach for cities.",
+        "zu Hause = at home, nach Hause = (going) home."
+      ],
+      "context": {
+        "de": "Wo bist du? – Ich bin noch bei der Arbeit, aber ich gehe gleich zum Supermarkt. – Und danach? – Danach fahre ich nach Hause. Kommst du auch? – Ich komme gerade aus der Schule und gehe noch zu Anna. Um acht bin ich zu Hause. – Gut, dann gehen wir um neun ins Kino!",
+        "en": "Where are you? – I'm still at work, but I'm going to the supermarket in a minute. – And after that? – After that I'm going home. Are you coming too? – I've just come from school and I'm going to Anna's. I'll be home at eight. – Good, then we'll go to the cinema at nine!"
+      },
+      "mistakes": [
+        {
+          "wrong": "Ich gehe im Kino.",
+          "right": "Ich gehe ins Kino.",
+          "why": "Going somewhere is Wohin?: accusative ins."
+        },
+        {
+          "wrong": "Ich fahre nach die Schweiz.",
+          "right": "Ich fahre in die Schweiz.",
+          "why": "Countries with an article take in, not nach."
+        },
+        {
+          "wrong": "Ich gehe zu Hause.",
+          "right": "Ich gehe nach Hause.",
+          "why": "Going home is nach Hause; zu Hause is being there."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 3 (arranging to meet: 'Wo treffen wir uns? – Vor dem Kino / im Café') and every Hören dialogue about plans."
+    }
+  },
+  {
+    "id": "quest_a2_1_welcher_dieser",
+    "after": "quest_a2_1_komparativ",
+    "status": "live",
+    "covers": [
+      "a2.welcher-dieser",
+      "a2.dative-articles"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "A2.1 · welcher? dieser! — und mein im Dativ",
+      "level": "A2.1",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "English",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Which film? (der)",
+          "english": "Which film?"
+        },
+        {
+          "key": "s1",
+          "display": "This one. (der Film)",
+          "english": "This one."
+        },
+        {
+          "key": "s2",
+          "display": "Which bag? (die)",
+          "english": "Which bag?"
+        },
+        {
+          "key": "s3",
+          "display": "This bag. (die)",
+          "english": "This bag."
+        },
+        {
+          "key": "s4",
+          "display": "Which book do you want? (das, Akk)",
+          "english": "Which book do you want?"
+        },
+        {
+          "key": "s5",
+          "display": "Which coat do you want? (der, Akk)",
+          "english": "Which coat do you want?"
+        },
+        {
+          "key": "s6",
+          "display": "with my brother (mein, Dat)",
+          "english": "with my brother"
+        },
+        {
+          "key": "s7",
+          "display": "with my sister (meine, Dat)",
+          "english": "with my sister"
+        },
+        {
+          "key": "s8",
+          "display": "with my parents (meine, Dat pl.)",
+          "english": "with my parents"
+        },
+        {
+          "key": "s9",
+          "display": "with which bus? (der, Dat)",
+          "english": "with which bus?"
+        },
+        {
+          "key": "s10",
+          "display": "in this house (das, Dat)",
+          "english": "in this house"
+        },
+        {
+          "key": "s11",
+          "display": "from your sister (deine, Dat)",
+          "english": "from your sister"
+        },
+        {
+          "key": "x12",
+          "display": "Which bus goes to the centre? (m)",
+          "english": "Which bus goes to the centre?"
+        },
+        {
+          "key": "x13",
+          "display": "I'll take this one. (m, Akk)",
+          "english": "I'll take this one."
+        },
+        {
+          "key": "x14",
+          "display": "With which train? (m, Dat)",
+          "english": "With which train?"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Artikelwort",
+          "group": "art",
+          "values": [
+            "Welcher",
+            "Dieser",
+            "Welche",
+            "Diese",
+            "Welches",
+            "Welchen",
+            "meinem",
+            "meiner",
+            "meinen",
+            "welchem",
+            "diesem",
+            "deiner",
+            "Welcher",
+            "diesen",
+            "welchem"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Artikelwort",
+          "sentence": "____ Film läuft heute? (der)",
+          "acceptedAnswers": [
+            "Welcher"
+          ],
+          "english": "Which film is on today?"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Artikelwort",
+          "sentence": "____ hier, mit Tom Hanks. (der Film)",
+          "acceptedAnswers": [
+            "Dieser",
+            "Der"
+          ],
+          "english": "This one, with Tom Hanks."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Artikelwort",
+          "sentence": "____ Tasche ist deine? (die)",
+          "acceptedAnswers": [
+            "Welche"
+          ],
+          "english": "Which bag is yours?"
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Artikelwort",
+          "sentence": "____ Tasche da. (die)",
+          "acceptedAnswers": [
+            "Diese",
+            "Die"
+          ],
+          "english": "This bag there."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Artikelwort",
+          "sentence": "____ Buch möchtest du? (das, Akk)",
+          "acceptedAnswers": [
+            "Welches"
+          ],
+          "english": "Which book do you want?"
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Artikelwort",
+          "sentence": "____ Mantel nimmst du? (der, Akk)",
+          "acceptedAnswers": [
+            "Welchen"
+          ],
+          "english": "Which coat are you taking?"
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Ich fahre mit ____ Bruder. (mein)",
+          "acceptedAnswers": [
+            "meinem"
+          ],
+          "english": "I'm going with my brother."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Ich fahre mit ____ Schwester. (meine)",
+          "acceptedAnswers": [
+            "meiner"
+          ],
+          "english": "I'm going with my sister."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Ich wohne bei ____ Eltern. (meine, Plural)",
+          "acceptedAnswers": [
+            "meinen"
+          ],
+          "english": "I live with my parents."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Mit ____ Bus fährst du? (der)",
+          "acceptedAnswers": [
+            "welchem"
+          ],
+          "english": "Which bus are you taking?"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Wir wohnen in ____ Haus. (das)",
+          "acceptedAnswers": [
+            "diesem"
+          ],
+          "english": "We live in this house."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Das Geschenk ist von ____ Schwester. (deine)",
+          "acceptedAnswers": [
+            "deiner"
+          ],
+          "english": "The present is from your sister."
+        },
+        {
+          "subjectKey": "x12",
+          "categoryLabel": "Artikelwort",
+          "sentence": "____ Bus fährt ins Zentrum? (which, m)",
+          "acceptedAnswers": [
+            "Welcher"
+          ],
+          "english": "Which bus goes to the centre?"
+        },
+        {
+          "subjectKey": "x13",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Ich nehme ____ hier. (this one, m, Akk)",
+          "acceptedAnswers": [
+            "diesen"
+          ],
+          "english": "I'll take this one here."
+        },
+        {
+          "subjectKey": "x14",
+          "categoryLabel": "Artikelwort",
+          "sentence": "Mit ____ Zug fährst du? (which, m, Dat)",
+          "acceptedAnswers": [
+            "welchem"
+          ],
+          "english": "Which train are you taking?"
+        }
+      ]
+    },
+    "help": {
+      "intro": "Three small article-words round off the A2 case system. welch-? asks 'which?' and dies- answers 'this' — and both take the endings of der/die/das in every case: welcher / dieser (der), welche / diese (die), welches / dieses (das), welchen / diesen (accusative masculine), welchem / diesem and welcher / dieser (dative). In conversation the plain article does the same job: Welchen Film? – Den hier. The third piece is the possessives in the dative — meinem Bruder, meiner Schwester, meinen Eltern — which follow the ein-word pattern: -em, -er, -em, -en. After mit, bei, von, zu and every dative verb, that is the ending you need.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "welch- and dies- take der-endings",
+          "text": "Nominative: welcher / welche / welches. Accusative: welchen (masculine only changes). Dative: welchem / welcher / welchem. Same for dieser, diese, dieses, diesen, diesem.",
+          "examples": [
+            {
+              "de": "Welcher Zug fährt nach Köln? – Dieser hier.",
+              "en": "Which train goes to Cologne? – This one."
+            },
+            {
+              "de": "Welchen Mantel nimmst du? – Diesen.",
+              "en": "Which coat are you taking? – This one."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Der da, die hier — pointing with the article",
+          "text": "Spoken German points with the bare article: Welche Tasche? – Die da. Welches Buch? – Das hier. It is exactly as correct as dieser.",
+          "examples": [
+            {
+              "de": "Welchen Kuchen möchten Sie? – Den mit Schokolade.",
+              "en": "Which cake would you like? – The one with chocolate."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Possessives in the dative: -em, -er, -em, -en",
+          "text": "mit meinem Bruder, mit meiner Schwester, mit meinem Kind, mit meinen Eltern. dein, sein, ihr, unser, euer, Ihr do the same: bei seiner Oma, von ihrem Chef, zu unseren Freunden.",
+          "examples": [
+            {
+              "de": "Ich wohne bei meinen Eltern und fahre mit meinem Bruder zur Schule.",
+              "en": "I live with my parents and go to school with my brother."
+            }
+          ],
+          "trap": "E3 — 'mit meine Schwester' keeps the nominative. After mit the possessive needs its dative ending: meiner."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The dative endings are always -m / -r / -m / -n",
+          "text": "dem, der, dem, den · einem, einer, einem · meinem, meiner, meinem, meinen · welchem, welcher, welchem, welchen. Different words, same four endings.",
+          "examples": [
+            {
+              "de": "mit diesem Bus, in dieser Stadt, aus welchem Land",
+              "en": "by this bus, in this city, from which country"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "welcher / dieser end like der: -er, -e, -es, -en, -em.",
+        "Dative is m–r–m–n on every article word."
+      ],
+      "context": {
+        "de": "Welchen Film sehen wir heute? – Diesen hier, den neuen. – Und mit welchem Bus fahren wir? – Mit dem Zehner, der hält vor dem Kino. – Kommt deine Schwester mit? – Ja, ich fahre mit meiner Schwester und ihrem Freund. Wir treffen uns bei meinen Eltern.",
+        "en": "Which film are we watching today? – This one, the new one. – And which bus are we taking? – The number ten, it stops outside the cinema. – Is your sister coming? – Yes, I'm going with my sister and her boyfriend. We're meeting at my parents'."
+      },
+      "mistakes": [
+        {
+          "wrong": "Welche Film?",
+          "right": "Welcher Film?",
+          "why": "Film is masculine: welcher."
+        },
+        {
+          "wrong": "mit meine Schwester",
+          "right": "mit meiner Schwester",
+          "why": "mit takes the dative: meiner."
+        },
+        {
+          "wrong": "bei meine Eltern",
+          "right": "bei meinen Eltern",
+          "why": "Dative plural: meinen (+ -n on the noun where possible)."
+        }
+      ],
+      "exam": "A2 Sprechen Teil 3 (choosing together: 'Welcher Tag passt dir?') and Schreiben ('mit meiner Familie', 'bei meinen Freunden')."
+    }
+  }
+]

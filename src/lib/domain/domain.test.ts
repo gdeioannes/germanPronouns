@@ -27,6 +27,7 @@ import {
 } from './progress';
 import { buildLadder, courseProgress, nextQuiz } from './ladder';
 import { helpTableFor } from './help-table';
+import { lookupNoun, vocabFor } from './vocab';
 import type { PopulatedCourse, Quiz } from '$lib/content/types';
 
 describe('ribbon tiers', () => {
@@ -324,5 +325,80 @@ describe('help memory reference table', () => {
 		expect(
 			helpTableFor({ type: 'fillBlank', subjects: [], categories: [] } as unknown as Quiz)
 		).toBeNull();
+	});
+});
+
+describe('vocabulary from a text', () => {
+	const NOUNS = [
+		{ noun: 'Apfel', gender: 'm', english: 'apple' },
+		{ noun: 'Wohnung', gender: 'f', english: 'flat' },
+		{ noun: 'Auto', gender: 'n', english: 'car' }
+	];
+
+	const cloze = {
+		type: 'reading',
+		passage: 'Ich habe eine Wohnung. Der Apfel liegt im Auto.',
+		inlineTemplate: 'Ich habe eine {{0}}.',
+		inlineBlanks: [{ kind: 'input', answer: 'neue' }]
+	} as unknown as Quiz;
+
+	it('names each noun with its article and meaning, in order', () => {
+		expect(vocabFor(cloze, NOUNS)).toEqual([
+			{ noun: 'Wohnung', article: 'die', english: 'flat', gender: 'f' },
+			{ noun: 'Apfel', article: 'der', english: 'apple', gender: 'm' },
+			{ noun: 'Auto', article: 'das', english: 'car', gender: 'n' }
+		]);
+	});
+
+	it('skips capitalised words that are not in the collection', () => {
+		// "Ich" and "Der" are capitalised but no nouns; nor is a name.
+		const quiz = { ...cloze, passage: 'Anna und Ich sehen den Apfel.' } as unknown as Quiz;
+		expect(vocabFor(quiz, NOUNS).map((v) => v.noun)).toEqual(['Apfel']);
+	});
+
+	it('lists a noun once however often the text repeats it', () => {
+		const quiz = { ...cloze, passage: 'Apfel, Apfel, Apfel.' } as unknown as Quiz;
+		expect(vocabFor(quiz, NOUNS)).toHaveLength(1);
+	});
+
+	it('leaves the grid quizzes alone — they name their own nouns', () => {
+		const grid = { type: 'fillBlank' } as unknown as Quiz;
+		expect(vocabFor(grid, NOUNS)).toEqual([]);
+	});
+});
+
+describe('noun lookup (ported from noun_lookup.dart)', () => {
+	const BY_NOUN = new Map(
+		[
+			{ noun: 'Hund', gender: 'm', english: 'dog', plural: '¨-e' },
+			{ noun: 'Nachbar', gender: 'm', english: 'neighbour' },
+			{ noun: 'Sommer', gender: 'm', english: 'summer' },
+			{ noun: 'Wohnung', gender: 'f', english: 'flat' },
+			{ noun: 'Kind', gender: 'n', english: 'child' }
+		].map((n) => [n.noun, n])
+	);
+
+	it('finds a noun in its dictionary form', () => {
+		const info = lookupNoun('Sommer', BY_NOUN)!;
+		expect(info.article).toBe('der');
+		expect(info.noun.english).toBe('summer');
+	});
+
+	it('finds a noun through an inflected form', () => {
+		// The map the Dart build carried: text says "Nachbarn", "Kinder".
+		expect(lookupNoun('Nachbarn', BY_NOUN)?.noun.noun).toBe('Nachbar');
+		expect(lookupNoun('Kinder', BY_NOUN)?.noun.noun).toBe('Kind');
+		expect(lookupNoun('Hundes', BY_NOUN)?.noun.noun).toBe('Hund');
+	});
+
+	it('gives each gender its article', () => {
+		expect(lookupNoun('Wohnung', BY_NOUN)?.article).toBe('die');
+		expect(lookupNoun('Kind', BY_NOUN)?.article).toBe('das');
+	});
+
+	it('returns null for a word that is not a known noun', () => {
+		expect(lookupNoun('schnell', BY_NOUN)).toBeNull();
+		// An inflected form whose dictionary entry is absent must not resolve.
+		expect(lookupNoun('Bücher', BY_NOUN)).toBeNull();
 	});
 });

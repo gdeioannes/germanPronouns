@@ -228,8 +228,20 @@
 								<p class="help-tip">
 									{#if tip.title}<strong>{tip.title}:</strong>{/if}
 									{tip.text}
+									{#each tip.examples ?? [] as ex (ex.de)}
+										<span class="help-example">{ex.de} — {ex.en}</span>
+									{/each}
 								</p>
 							{/each}
+							{#if section.help?.remember?.length}
+								<p class="help-tip"><strong>Remember:</strong> {section.help.remember.join(' · ')}</p>
+							{/if}
+							{#if section.help?.vocab?.length}
+								<p class="help-tip">
+									<strong>Words:</strong>
+									{#each section.help.vocab as w, i (w.de)}{#if i > 0} · {/if}{w.article ? w.article + ' ' : ''}{w.de} ({w.en}){/each}
+								</p>
+							{/if}
 							{#if section.table}
 								<table class="help-table">
 									<thead>
@@ -602,6 +614,12 @@
 	.help-tip {
 		margin: 0.35rem 0 0;
 		color: var(--ink-muted);
+	}
+
+	.help-example {
+		display: block;
+		padding-left: 0.8rem;
+		font-style: italic;
 	}
 
 	.help-table {

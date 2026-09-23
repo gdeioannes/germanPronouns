@@ -1,0 +1,3368 @@
+[
+  {
+    "id": "quest_c2_1_wirtschaft",
+    "covers": [
+      "c2.economy-law-vocabulary"
+    ],
+    "help": {
+      "intro": "Economics and law supply the specialist register of the Goethe C2 reading paper's press texts, and their vocabulary is precise in a way general German is not. Economy: die Konjunktur (the business cycle — Hochkonjunktur, Rezession), die Nachfrage / das Angebot, der Umsatz (turnover) vs der Gewinn (profit) vs die Rendite (yield / return), die Inflation, der Zinssatz (interest rate), die Börse (stock exchange), die Aktie, die Insolvenz (insolvency — Insolvenz anmelden), die Gewerkschaft (union), der Tarifvertrag. Law: das Gesetz (act) vs die Verordnung (regulation, by the executive) vs die Vorschrift (rule), der Vertrag, das Gericht, der Einspruch (objection / appeal against a decision) vs die Berufung (appeal to a higher court), der Vergleich (settlement — not 'comparison' here), die Klage (lawsuit), das Urteil, die Frist. The verbs are fixed: ein Gesetz verabschieden, Insolvenz anmelden, Einspruch einlegen, eine Klage einreichen, einen Vergleich schließen, die Zinsen senken / anheben.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Economy: the money words that look alike",
+          "text": "der Umsatz (turnover, all revenue) · der Gewinn (profit) · die Rendite (return on capital, in %) · der Ertrag (yield, earnings) · der Zinssatz (interest rate) · die Konjunktur (cycle: sich erholen, sich abschwächen) · die Nachfrage (demand: steigen, sinken) · die Insolvenz (anmelden).",
+          "examples": [
+            {
+              "de": "Trotz steigenden Umsatzes sank der Gewinn; die Rendite lag unter dem Zinssatz.",
+              "en": "Despite rising turnover, profit fell; the return was below the interest rate."
+            }
+          ],
+          "trap": "E20 — der Vergleich in law is a settlement, not a comparison; die Berufung is an appeal, not a vocation (though it is also that); der Einspruch is an objection to an administrative decision, not 'a speech'."
+        },
+        {
+          "kind": "rule",
+          "title": "Law: act, regulation, rule; objection, appeal, settlement",
+          "text": "das Gesetz (passed by parliament: verabschieden) · die Verordnung (issued by the executive: erlassen) · die Vorschrift (a rule) · Einspruch einlegen gegen (object to a decision) · Berufung einlegen (appeal a judgment) · einen Vergleich schließen (settle) · Klage einreichen / erheben (sue) · ein Urteil fällen (rule).",
+          "examples": [
+            {
+              "de": "Gegen den Bescheid legte sie Einspruch ein; vor Gericht schloss man schließlich einen Vergleich.",
+              "en": "She lodged an objection to the decision; in court a settlement was eventually reached."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Noun + fixed verb",
+          "text": "Gesetz verabschieden · Verordnung erlassen · Insolvenz anmelden · Einspruch / Berufung einlegen · Klage einreichen · Vergleich schließen · Urteil fällen · Zinsen senken / anheben · Nachfrage ankurbeln · Umsatz erzielen · Vertrag abschließen / kündigen.",
+          "examples": [
+            {
+              "de": "Die Zentralbank hob den Zinssatz an, um die Nachfrage zu dämpfen; mehrere Firmen meldeten Insolvenz an.",
+              "en": "The central bank raised the interest rate to dampen demand; several firms filed for insolvency."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Umsatz > Gewinn > Rendite",
+          "text": "Turnover is everything that comes in; profit is what's left; return is profit as a percentage of capital. Three nested circles.",
+          "examples": [
+            {
+              "de": "Umsatz 10 Mio., Gewinn 1 Mio., Rendite 5 %.",
+              "en": "turnover, profit, return"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Umsatz / Gewinn / Rendite; Gesetz / Verordnung / Vorschrift; Einspruch / Berufung / Vergleich.",
+        "Each noun has its verb: verabschieden, erlassen, anmelden, einlegen, schließen, fällen."
+      ],
+      "vocab": [
+        {
+          "de": "Konjunktur",
+          "article": "die",
+          "en": "business cycle, economic situation"
+        },
+        {
+          "de": "Umsatz",
+          "article": "der",
+          "en": "turnover"
+        },
+        {
+          "de": "Gewinn",
+          "article": "der",
+          "en": "profit"
+        },
+        {
+          "de": "Rendite",
+          "article": "die",
+          "en": "return, yield"
+        },
+        {
+          "de": "Zinssatz",
+          "article": "der",
+          "en": "interest rate"
+        },
+        {
+          "de": "Inflation",
+          "article": "die",
+          "en": "inflation"
+        },
+        {
+          "de": "Insolvenz",
+          "article": "die",
+          "en": "insolvency"
+        },
+        {
+          "de": "Nachfrage",
+          "article": "die",
+          "en": "demand"
+        },
+        {
+          "de": "Börse",
+          "article": "die",
+          "en": "stock exchange"
+        },
+        {
+          "de": "Gewerkschaft",
+          "article": "die",
+          "en": "trade union"
+        },
+        {
+          "de": "Verordnung",
+          "article": "die",
+          "en": "regulation"
+        },
+        {
+          "de": "Vertrag",
+          "article": "der",
+          "en": "contract"
+        },
+        {
+          "de": "Gericht",
+          "article": "das",
+          "en": "court"
+        },
+        {
+          "de": "Einspruch",
+          "article": "der",
+          "en": "objection (to a decision)"
+        },
+        {
+          "de": "Berufung",
+          "article": "die",
+          "en": "appeal"
+        },
+        {
+          "de": "Vergleich",
+          "article": "der",
+          "en": "settlement (law)"
+        }
+      ],
+      "context": {
+        "de": "Die Konjunktur hat sich im dritten Quartal leicht erholt, doch die Inflation bleibt hoch; die Zentralbank dürfte den Zinssatz daher nicht senken. An der Börse reagierten die Aktien verhalten. Mehrere mittelständische Firmen mussten Insolvenz anmelden, während die Gewerkschaften höhere Löhne fordern. Der Bundestag verabschiedete unterdessen ein Gesetz zur Regulierung der Plattformwirtschaft; die betroffenen Unternehmen kündigten an, Einspruch einzulegen – ein Vergleich gilt als wahrscheinlich.",
+        "en": "The economy recovered slightly in the third quarter, but inflation remains high; the central bank is therefore unlikely to cut the interest rate. On the stock exchange shares reacted cautiously. Several medium-sized firms had to file for insolvency, while the unions demand higher wages. Meanwhile the Bundestag passed a law regulating the platform economy; the companies affected announced they would lodge objections – a settlement is considered likely."
+      },
+      "mistakes": [
+        {
+          "wrong": "Die Firma hat einen guten Umsatz gemacht. (meaning profit)",
+          "right": "Die Firma hat einen guten Gewinn erzielt.",
+          "why": "Umsatz is turnover; profit is Gewinn."
+        },
+        {
+          "wrong": "Die Regierung hat ein Gesetz erlassen.",
+          "right": "Der Bundestag hat ein Gesetz verabschiedet. / Die Regierung hat eine Verordnung erlassen.",
+          "why": "Parliaments pass Gesetze; governments issue Verordnungen."
+        },
+        {
+          "wrong": "Sie machte einen Vergleich mit dem Konzern. (meaning compared)",
+          "right": "Sie schloss einen Vergleich mit dem Konzern. (settled)",
+          "why": "Vergleich schließen = settle."
+        }
+      ],
+      "exam": "Goethe C2 Lesen (press and specialist texts on economics and law) and Sprechen (discussion of economic questions)."
+    }
+  },
+  {
+    "id": "quest_c2_1_register",
+    "covers": [
+      "c2.register"
+    ],
+    "help": {
+      "intro": "Register — choosing the word that fits the situation — is a named Goethe C2 criterion, and it works by pairs. Everyday / colloquial ↔ formal / written: kriegen ↔ erhalten / bekommen; kaputt ↔ defekt; klauen ↔ entwenden / stehlen; echt gut ↔ ausgezeichnet; Kohle ↔ Geld / Mittel; gucken ↔ betrachten / sehen; anfangen ↔ beginnen; Job ↔ Tätigkeit / Stelle; sauer ↔ verärgert; eine Menge ↔ zahlreiche; helfen ↔ unterstützen; sagen ↔ mitteilen / äußern; brauchen ↔ benötigen; checken ↔ überprüfen; sterben ↔ versterben (formal, of a person). The formal word is usually longer, often Latinate or prefixed (be-, ver-, er-), and combines with nominal style; the colloquial one is short, Germanic, and goes with particles and contractions. At C2 you are expected to move between three levels — umgangssprachlich, neutral, gehoben — and to hear a shift in a text as a signal (irony, quotation, character voice). Neither level is 'better'; the wrong one in the wrong place is the error.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Verbs: colloquial ↔ formal",
+          "text": "kriegen ↔ erhalten · gucken ↔ betrachten · anfangen ↔ beginnen · helfen ↔ unterstützen · sagen ↔ mitteilen, äußern · brauchen ↔ benötigen · checken ↔ überprüfen · klauen ↔ entwenden · sterben ↔ versterben · kapieren ↔ verstehen, begreifen · hinkriegen ↔ bewerkstelligen.",
+          "examples": [
+            {
+              "de": "Er hat den Brief gekriegt. — Er hat das Schreiben erhalten.",
+              "en": "He got the letter. — He received the letter."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Nouns and adjectives",
+          "text": "Kohle ↔ Geld, Mittel · Job ↔ Tätigkeit, Stelle · Typ ↔ Mann, Person · eine Menge ↔ zahlreiche, eine Vielzahl · kaputt ↔ defekt · sauer ↔ verärgert · echt gut ↔ ausgezeichnet · riesig ↔ beträchtlich · blöd ↔ unklug, töricht.",
+          "examples": [
+            {
+              "de": "Der Typ ist sauer, weil sein Job weg ist. — Der Mitarbeiter ist verärgert, weil seine Stelle gestrichen wurde.",
+              "en": "The guy's annoyed because his job's gone. — The employee is aggrieved because his post was cut."
+            }
+          ],
+          "trap": "E20 — versterben is only for people and only in formal contexts (obituaries, reports); 'der Hund ist verstorben' is comic. And erhalten replaces kriegen but not bekommen in 'Kinder bekommen' (to have children)."
+        },
+        {
+          "kind": "rule",
+          "title": "Three levels, and what each signals",
+          "text": "umgangssprachlich (kriegen, Kohle, checken): speech, chat, character voice. neutral (bekommen, Geld, prüfen): most writing. gehoben (erhalten, Mittel, überprüfen; versterben, sich begeben, gewahren): official, academic, literary. A sudden drop in level inside formal text = irony or quotation.",
+          "examples": [
+            {
+              "de": "Der Minister, so heißt es, habe die Sache „gecheckt“ – man beachte das Zitat.",
+              "en": "The minister, it is said, had 'checked' the matter – note the quotation."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Longer, Latinate, prefixed = up; short, Germanic, particle-friendly = down",
+          "text": "erhalten / benötigen / überprüfen / zahlreiche vs kriegen / brauchen / checken / 'ne Menge. If you're unsure of a word's level, its length and its prefix usually tell you.",
+          "examples": [
+            {
+              "de": "bewerkstelligen (up) — hinkriegen (down)",
+              "en": "to accomplish — to manage"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "kriegen/erhalten, kaputt/defekt, Job/Tätigkeit, sauer/verärgert, checken/überprüfen: learn the pairs.",
+        "Three levels; a shift inside a text is a signal."
+      ],
+      "vocab": [
+        {
+          "de": "erhalten (kriegen)",
+          "en": "to receive (get)"
+        },
+        {
+          "de": "defekt (kaputt)",
+          "en": "defective (broken)"
+        },
+        {
+          "de": "entwenden (klauen)",
+          "en": "to steal (nick)"
+        },
+        {
+          "de": "ausgezeichnet (echt gut)",
+          "en": "excellent (really good)"
+        },
+        {
+          "de": "Mittel (Kohle)",
+          "en": "funds (dough)"
+        },
+        {
+          "de": "betrachten (gucken)",
+          "en": "to view (look)"
+        },
+        {
+          "de": "Tätigkeit (Job)",
+          "en": "occupation (job)"
+        },
+        {
+          "de": "verärgert (sauer)",
+          "en": "annoyed (miffed)"
+        },
+        {
+          "de": "zahlreiche (eine Menge)",
+          "en": "numerous (loads)"
+        },
+        {
+          "de": "benötigen (brauchen)",
+          "en": "to require (need)"
+        },
+        {
+          "de": "überprüfen (checken)",
+          "en": "to verify (check)"
+        },
+        {
+          "de": "versterben (sterben)",
+          "en": "to pass away (die)"
+        },
+        {
+          "de": "mitteilen (sagen)",
+          "en": "to inform (say)"
+        },
+        {
+          "de": "bewerkstelligen (hinkriegen)",
+          "en": "to accomplish (manage)"
+        }
+      ],
+      "context": {
+        "de": "Chat: „Hab die Kohle noch nicht gekriegt, das Gerät ist kaputt, und der Typ vom Support sagt, er muss das erst checken. Echt ätzend.“ — Beschwerde: „Ich habe den Betrag bisher nicht erhalten; das Gerät ist defekt, und der zuständige Mitarbeiter teilte mir mit, er müsse den Sachverhalt zunächst überprüfen. Dies ist ausgesprochen unbefriedigend.“",
+        "en": "Chat: 'Haven't got the dough yet, the device is bust, and the support guy says he has to check first. Really annoying.' — Complaint: 'I have not yet received the amount; the device is defective, and the member of staff responsible informed me that he would first have to verify the facts. This is decidedly unsatisfactory.'"
+      },
+      "mistakes": [
+        {
+          "wrong": "Sehr geehrte Damen und Herren, ich habe die Kohle noch nicht gekriegt.",
+          "right": "…, ich habe den Betrag noch nicht erhalten.",
+          "why": "Register mismatch."
+        },
+        {
+          "wrong": "Unser Hund ist gestern verstorben.",
+          "right": "Unser Hund ist gestern gestorben.",
+          "why": "versterben is for people in formal register."
+        },
+        {
+          "wrong": "Hey, könntest du mir das Dokument zukommen lassen? (to a friend)",
+          "right": "Kannst du mir das Dokument mal schicken?",
+          "why": "Over-formal in an informal context is also a register error."
+        }
+      ],
+      "exam": "Goethe C2 Schreiben Teil 1 (reformulation across registers) and Sprechen (register appropriateness is scored); Lesen (register shifts as textual signals)."
+    }
+  },
+  {
+    "id": "quest_c2_1_sprechen_rede",
+    "covers": [
+      "c2.speaking-formats",
+      "c2.rhetoric"
+    ],
+    "help": {
+      "intro": "Eight sentences from a speech, to listen to and repeat — the rhetoric of the Goethe C2 Vortrag: an opening that seizes attention (Stellen Sie sich vor, …), a rhetorical question (Wer von uns hätte das für möglich gehalten?), an anaphora (Wir brauchen Mut. Wir brauchen Ausdauer. Wir brauchen einander.), an antithesis (Nicht die Technik entscheidet, sondern der Mensch.), a climax (Es geht um Zeit, um Geld – und um unsere Zukunft.), a concession that strengthens (Gewiss, der Weg ist weit; doch …), a quotation frame (Wie es ein kluger Kopf einmal formulierte: …), and a close that returns to the opening. The devices are the ones the Stilmittel quiz names; here you say them. Delivery: slow, with pauses before the key word, the voice falling at the end of each statement, rising only on the rhetorical question.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Open with an image or a question, close with the same",
+          "text": "Stellen Sie sich vor, … / Wer von uns hätte … für möglich gehalten? — and at the end: Stellen Sie sich also vor, … / Die Antwort, meine Damen und Herren, kennen Sie nun. The ring gives the speech shape.",
+          "examples": [
+            {
+              "de": "Stellen Sie sich eine Stadt ohne Autos vor. — … Stellen Sie sich diese Stadt noch einmal vor: Sie ist möglich.",
+              "en": "Imagine a city without cars. — … Imagine that city once more: it is possible."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Anaphora, antithesis, climax",
+          "text": "Anaphora: Wir brauchen Mut. Wir brauchen Ausdauer. Wir brauchen einander. Antithesis: Nicht die Technik entscheidet, sondern der Mensch. Climax: Es geht um Zeit, um Geld – und um unsere Zukunft. Three devices, three sentences, and the audience hears structure.",
+          "examples": [
+            {
+              "de": "Nicht das Tempo ist das Problem, sondern die Richtung.",
+              "en": "Not the speed is the problem, but the direction."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Pause before the key word",
+          "text": "'… und um unsere | Zukunft.' The silence before the last word is the emphasis. Practise the pause until it feels too long; it isn't.",
+          "examples": [
+            {
+              "de": "Gewiss, der Weg ist weit. Doch er ist | der einzige.",
+              "en": "Certainly the road is long. But it is | the only one."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Image/question → anaphora → antithesis → climax → concession → close with the opening.",
+        "Pause before the key word; fall at the end."
+      ],
+      "exam": "Goethe C2 Sprechen Teil 1 (Vortrag): 'rhetorische Mittel' and 'Wirkung' are assessment points."
+    }
+  },
+  {
+    "id": "quest_c2_1_kollokationen",
+    "covers": [
+      "c2.collocations"
+    ],
+    "help": {
+      "intro": "A collocation is the word that goes with a word — the verb a noun 'takes' — and at C2 the raters listen for them: eine Entscheidung treffen (not machen), eine Rolle spielen, Maßnahmen ergreifen, einen Antrag stellen, Wert legen auf, ein Gespräch führen, eine Niederlage erleiden, Hoffnung schöpfen, ein Risiko eingehen, Widerstand leisten, eine Prüfung bestehen / ablegen, Verantwortung übernehmen / tragen, zum Ausdruck bringen, eine Bedingung erfüllen, Zweifel hegen, Kritik üben, Abschied nehmen, einen Beitrag leisten, Rücksicht nehmen, Einfluss ausüben, eine Frage aufwerfen, ein Ziel verfolgen, ein Versprechen halten / brechen, eine Gefahr bannen. Many overlap with Funktionsverbgefüge; the difference is only that collocations include adjective–noun pairs too (ein schwerer Fehler, eine heftige Debatte, ein herber Verlust, ein triftiger Grund, eine gewagte These). Getting the verb wrong is understood but heard; getting it right is what fluency sounds like.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Verb–noun: the fixed verb",
+          "text": "treffen: Entscheidung, Wahl, Vorkehrungen · ergreifen: Maßnahmen, die Initiative, die Gelegenheit · stellen: Antrag, Frage, Forderung, Bedingung · leisten: Widerstand, Beitrag, Hilfe, Beistand · erleiden: Niederlage, Verlust, Schaden · schöpfen: Hoffnung, Verdacht, Kraft · eingehen: Risiko, Kompromiss, Verpflichtung · üben: Kritik, Verzicht · hegen: Zweifel, Hoffnung, Groll.",
+          "examples": [
+            {
+              "de": "Die Regierung ergriff Maßnahmen, die Opposition übte Kritik, und die Bürger hegten Zweifel.",
+              "en": "The government took measures, the opposition criticised, and citizens harboured doubts."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Noun–verb: the fixed subject verb",
+          "text": "die Frage stellt sich · der Verdacht liegt nahe · die Zeit drängt · der Vorwurf wiegt schwer · die Bedeutung wächst · ein Konflikt bricht aus · eine Krise spitzt sich zu · ein Gerücht macht die Runde · die Stimmung kippt.",
+          "examples": [
+            {
+              "de": "Die Zeit drängt, die Krise spitzt sich zu, und der Vorwurf wiegt schwer.",
+              "en": "Time is pressing, the crisis is coming to a head, and the accusation weighs heavily."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Adjective–noun: the fixed intensifier",
+          "text": "ein schwerer Fehler · ein herber Verlust · ein triftiger Grund · eine heftige Debatte · eine gewagte These · ein stichhaltiges Argument · eine hitzige Diskussion · eine bittere Enttäuschung · ein knappes Ergebnis · strikte Ablehnung · brennendes Interesse.",
+          "examples": [
+            {
+              "de": "Ein triftiger Grund, ein stichhaltiges Argument – und dennoch strikte Ablehnung.",
+              "en": "A valid reason, a sound argument – and yet strict rejection."
+            }
+          ],
+          "trap": "E20 — 'a heavy loss' is ein herber (or schwerer) Verlust, never 'ein schwerer Verlust erleiden … machen'; 'a strong argument' is ein stichhaltiges / gewichtiges Argument, not 'ein starkes'."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Learn the noun with its verb and its adjective",
+          "text": "Niederlage: erleiden — bittere / herbe. Entscheidung: treffen — schwerwiegende / weitreichende. Kritik: üben — scharfe / harsche. Three words per noun, one entry in memory.",
+          "examples": [
+            {
+              "de": "eine herbe Niederlage erleiden · eine weitreichende Entscheidung treffen · scharfe Kritik üben",
+              "en": "suffer a bitter defeat · take a far-reaching decision · voice sharp criticism"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "treffen, ergreifen, stellen, leisten, erleiden, schöpfen, eingehen, üben, hegen: the collocation verbs.",
+        "Noun + verb + adjective as one memory entry."
+      ],
+      "vocab": [
+        {
+          "de": "eine Entscheidung treffen",
+          "en": "to make a decision"
+        },
+        {
+          "de": "eine Rolle spielen",
+          "en": "to play a role"
+        },
+        {
+          "de": "Maßnahmen ergreifen",
+          "en": "to take measures"
+        },
+        {
+          "de": "einen Antrag stellen",
+          "en": "to file an application"
+        },
+        {
+          "de": "Wert legen auf",
+          "en": "to set store by"
+        },
+        {
+          "de": "ein Gespräch führen",
+          "en": "to hold a conversation"
+        },
+        {
+          "de": "eine Niederlage erleiden",
+          "en": "to suffer a defeat"
+        },
+        {
+          "de": "Hoffnung schöpfen",
+          "en": "to draw hope"
+        },
+        {
+          "de": "ein Risiko eingehen",
+          "en": "to take a risk"
+        },
+        {
+          "de": "Widerstand leisten",
+          "en": "to put up resistance"
+        },
+        {
+          "de": "Verantwortung übernehmen",
+          "en": "to take responsibility"
+        },
+        {
+          "de": "zum Ausdruck bringen",
+          "en": "to express"
+        },
+        {
+          "de": "Zweifel hegen",
+          "en": "to harbour doubts"
+        },
+        {
+          "de": "Kritik üben an",
+          "en": "to criticise"
+        },
+        {
+          "de": "ein triftiger Grund",
+          "en": "a valid reason"
+        },
+        {
+          "de": "ein herber Verlust",
+          "en": "a bitter loss"
+        }
+      ],
+      "context": {
+        "de": "Nach der herben Niederlage bei der Wahl musste die Partei eine weitreichende Entscheidung treffen. Sie ergriff Maßnahmen, stellte einen Antrag auf Neuwahl der Führung und legte Wert auf Transparenz. Kritiker übten scharfe Kritik und hegten Zweifel, ob die neue Spitze Verantwortung übernehmen könne. Die Zeit drängte; ein Risiko musste man eingehen – und tatsächlich schöpften die Mitglieder wieder Hoffnung.",
+        "en": "After the bitter defeat at the election the party had to take a far-reaching decision. It took measures, filed a motion for a new election of the leadership and set store by transparency. Critics voiced sharp criticism and harboured doubts whether the new leadership could take responsibility. Time was pressing; a risk had to be taken – and indeed the members drew hope again."
+      },
+      "mistakes": [
+        {
+          "wrong": "eine Entscheidung machen",
+          "right": "eine Entscheidung treffen",
+          "why": "Fixed verb."
+        },
+        {
+          "wrong": "eine Niederlage haben",
+          "right": "eine Niederlage erleiden",
+          "why": "Fixed verb."
+        },
+        {
+          "wrong": "ein starkes Argument",
+          "right": "ein stichhaltiges / gewichtiges Argument",
+          "why": "Fixed intensifier."
+        }
+      ],
+      "exam": "Goethe C2 Schreiben and Sprechen ('idiomatische Wendungen und Kollokationen' is an explicit descriptor of the top band)."
+    }
+  },
+  {
+    "id": "quest_c2_1_bigtext_vorstand",
+    "covers": [
+      "c2.collocations",
+      "c2.konjunktiv1-journalistic"
+    ],
+    "help": {
+      "intro": "A board meeting as a business journalist would report it — collocations and Funktionsverbgefüge on every line, reported speech in the Konjunktiv I, formal register throughout — with the light verbs and the reported forms to fill in. Der Vorstand traf eine Entscheidung. Die Regeln treten in Kraft. Kritiker üben Kritik. Man müsse, so heißt es, die Kosten in Betracht ziehen. Die Firma stellt Mittel zur Verfügung. Each gap gives the noun; you supply its verb (treffen, treten, üben, ziehen, stellen, nehmen, leisten) in the right form, or the Konjunktiv I of a reported verb. Read the piece once for the story, then fill: the verbs are fixed by the nouns, and the mood by the reporting frame (so heißt es → Konjunktiv).",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "The noun fixes the verb",
+          "text": "Entscheidung → treffen · in Kraft → treten · Kritik → üben · in Betracht → ziehen · zur Verfügung → stellen · Rücksicht → nehmen · Widerstand → leisten · Verantwortung → übernehmen. Tense from the sentence (traf, treten, üben).",
+          "examples": [
+            {
+              "de": "Der Vorstand traf gestern eine wichtige Entscheidung; die neuen Regeln treten nächsten Monat in Kraft.",
+              "en": "The board took an important decision yesterday; the new rules come into force next month."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "so heißt es → Konjunktiv I",
+          "text": "Man müsse, so heißt es, auch die Kosten in Betracht ziehen. Der Sprecher erklärte, die Firma werde Mittel zur Verfügung stellen. The reporting frame puts the verb in the Konjunktiv (müsse, werde, sei).",
+          "examples": [
+            {
+              "de": "Die Gewerkschaft, so heißt es, wolle Widerstand leisten.",
+              "en": "The union, it is said, intends to put up resistance."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Business German = collocations + Konjunktiv I",
+          "text": "Two ingredients make the register: fixed noun–verb pairs and distanced reporting. Learn to spot both and every business article opens up.",
+          "examples": [
+            {
+              "de": "Der Konzern, so hieß es, habe Maßnahmen ergriffen.",
+              "en": "The group, it was said, had taken measures."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Entscheidung treffen, in Kraft treten, Kritik üben, in Betracht ziehen, zur Verfügung stellen.",
+        "so heißt es / erklärte → Konjunktiv I."
+      ],
+      "exam": "Goethe C2 Lesen (business press) and Schreiben Teil 1 (reformulation into formal, nominal register)."
+    }
+  },
+  {
+    "id": "quest_c2_1_stilmittel",
+    "covers": [
+      "c2.rhetoric"
+    ],
+    "help": {
+      "intro": "Rhetorical devices are named because naming them is a C2 reading skill (the literary task of Goethe C2 Schreiben Teil 2 asks how a text achieves its effect) and a speaking skill (the Vortrag is scored for them). Imagery: die Metapher (ein Meer von Menschen), der Vergleich (with wie: schnell wie der Wind), die Personifikation (die Sonne lacht), das Symbol (die Taube). Structure: die Anapher (repeated opening: Wir brauchen … Wir brauchen …), die Antithese (nicht X, sondern Y), die Klimax (rising series), die Alliteration (Milch macht müde Männer munter), der Parallelismus. Attitude: die Ironie (saying the opposite), die Übertreibung / Hyperbel (tausendmal gesagt), die Untertreibung / Litotes (nicht schlecht), der Euphemismus (softening: entschlafen for sterben), das Oxymoron (beredtes Schweigen). Appeal: die rhetorische Frage (Wer könnte das bestreiten?), der Ausruf, die Anrede. Recognise, name, and — in the analysis — say what the device does (steigert, verbindet, mildert, verspottet).",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Imagery: Metapher, Vergleich, Personifikation, Symbol",
+          "text": "Metapher: an image without wie (ein Meer von Menschen; der Zahn der Zeit). Vergleich: with wie / als (stark wie ein Bär). Personifikation: a thing acts like a person (die Sonne lacht; der Wind flüstert). Symbol: a thing stands for an idea (die Taube = Frieden).",
+          "examples": [
+            {
+              "de": "Die Stadt schläft nie (Personifikation); sie ist ein Bienenstock (Metapher), laut wie ein Jahrmarkt (Vergleich).",
+              "en": "The city never sleeps; it is a beehive, loud as a fair."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Structure: Anapher, Antithese, Klimax, Alliteration",
+          "text": "Anapher: same word opening successive sentences. Antithese: two opposed terms (nicht Worte, sondern Taten). Klimax: rising series (gut, besser, am besten; Tage, Wochen, Jahre). Alliteration: same initial sound (Milch macht müde Männer munter).",
+          "examples": [
+            {
+              "de": "Wir kamen, wir sahen, wir siegten. (Anapher + Klimax)",
+              "en": "We came, we saw, we conquered."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Attitude: Ironie, Hyperbel, Litotes, Euphemismus, Oxymoron",
+          "text": "Ironie: meaning the opposite (Das hast du ja toll gemacht). Hyperbel: exaggeration (ich warte schon ewig). Litotes / Untertreibung: negation of the opposite (nicht schlecht = sehr gut). Euphemismus: softening (entschlafen; freigesetzt for entlassen). Oxymoron: contradiction in a phrase (beredtes Schweigen, bittersüß).",
+          "examples": [
+            {
+              "de": "Der Konzern hat 500 Mitarbeiter „freigesetzt“ – ein Euphemismus, der niemanden täuscht.",
+              "en": "The group 'released' 500 employees – a euphemism that deceives nobody."
+            }
+          ],
+          "trap": "E20 — Litotes is not just understatement: it is a double negative (nicht unwichtig = wichtig). And Ironie in German analysis is a device, not 'coincidence' (that would be Ironie des Schicksals, a different sense)."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Name it, then say what it does",
+          "text": "Die Anapher verbindet. Die Antithese schärft. Die Klimax steigert. Der Euphemismus mildert. Die Ironie entlarvt. Die rhetorische Frage bezieht den Leser ein. Device + verb of effect = an analysis sentence.",
+          "examples": [
+            {
+              "de": "Die rhetorische Frage „Wer könnte das bestreiten?“ bezieht den Leser ein und unterstellt Einigkeit.",
+              "en": "The rhetorical question involves the reader and presupposes agreement."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Imagery (Metapher, Vergleich, Personifikation) · structure (Anapher, Antithese, Klimax) · attitude (Ironie, Hyperbel, Litotes, Euphemismus).",
+        "Name + effect verb: die Klimax steigert, der Euphemismus mildert."
+      ],
+      "vocab": [
+        {
+          "de": "Metapher",
+          "article": "die",
+          "en": "metaphor"
+        },
+        {
+          "de": "Vergleich",
+          "article": "der",
+          "en": "simile"
+        },
+        {
+          "de": "Personifikation",
+          "article": "die",
+          "en": "personification"
+        },
+        {
+          "de": "Anapher",
+          "article": "die",
+          "en": "anaphora"
+        },
+        {
+          "de": "Antithese",
+          "article": "die",
+          "en": "antithesis"
+        },
+        {
+          "de": "Klimax",
+          "article": "die",
+          "en": "climax"
+        },
+        {
+          "de": "Alliteration",
+          "article": "die",
+          "en": "alliteration"
+        },
+        {
+          "de": "Ironie",
+          "article": "die",
+          "en": "irony"
+        },
+        {
+          "de": "Übertreibung / Hyperbel",
+          "article": "die",
+          "en": "hyperbole"
+        },
+        {
+          "de": "Untertreibung / Litotes",
+          "article": "die",
+          "en": "understatement / litotes"
+        },
+        {
+          "de": "Euphemismus",
+          "article": "der",
+          "en": "euphemism"
+        },
+        {
+          "de": "Oxymoron",
+          "article": "das",
+          "en": "oxymoron"
+        },
+        {
+          "de": "rhetorische Frage",
+          "article": "die",
+          "en": "rhetorical question"
+        },
+        {
+          "de": "Symbol",
+          "article": "das",
+          "en": "symbol"
+        }
+      ],
+      "context": {
+        "de": "Die Rede begann mit einer rhetorischen Frage – „Wer von uns hätte das für möglich gehalten?“ – und steigerte sich in einer Klimax von der Familie über die Stadt bis zum Land. Die Anapher „Wir brauchen …“ verband die Forderungen; die Antithese „nicht Worte, sondern Taten“ schärfte sie. Ein Euphemismus („Anpassungen“) milderte die schlechte Nachricht, eine Metapher („ein Meer von Möglichkeiten“) überstrahlte sie. Dass der Redner das eigene Versagen „nicht unbedingt gelungen“ nannte, war Litotes – und ein wenig Ironie.",
+        "en": "The speech began with a rhetorical question and rose in a climax from family to city to country. The anaphora 'We need …' linked the demands; the antithesis 'not words but deeds' sharpened them. A euphemism ('adjustments') softened the bad news, a metaphor ('a sea of possibilities') outshone it. That the speaker called his own failure 'not exactly a success' was litotes – and a little irony."
+      },
+      "mistakes": [
+        {
+          "wrong": "„schnell wie der Wind“ ist eine Metapher.",
+          "right": "… ist ein Vergleich.",
+          "why": "With wie it's a simile."
+        },
+        {
+          "wrong": "„nicht schlecht“ ist eine Übertreibung.",
+          "right": "… ist eine Untertreibung (Litotes).",
+          "why": "Negating the opposite understates."
+        },
+        {
+          "wrong": "Die Anapher steigert.",
+          "right": "Die Anapher verbindet / betont; die Klimax steigert.",
+          "why": "Match the device to its effect."
+        }
+      ],
+      "exam": "Goethe C2 Schreiben Teil 2 (literary task: 'sprachliche Mittel und ihre Wirkung') and Sprechen Teil 1 (use of rhetorical devices)."
+    }
+  },
+  {
+    "id": "quest_c2_1_hoeren_feature",
+    "covers": [
+      "c2.text-formats-1",
+      "c2.rhetoric"
+    ],
+    "help": {
+      "intro": "A radio feature — literary journalism — on the one moment when a big city seems to hold its breath, heard once. Unlike a lecture, a feature persuades by image: Wer glaubt, eine Großstadt schlafe nie, der irrt (a challenge to a cliché, in the Konjunktiv I), die rastlose Metropole scheint den Atem anzuhalten (personification), die letzten Nachtschwärmer sind verschwunden (a compound worth learning). Goethe C2 Hören uses such material and asks not only what is said but how: which idea is refuted, when the moment occurs, how the city is described. Listen for the frame (Wer glaubt, …, der irrt), the time marker (kurz vor der Morgendämmerung), the images, and the closing turn back to the everyday.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Wer glaubt, …, der irrt = refuting a cliché",
+          "text": "The feature opens by naming a common belief in the Konjunktiv (eine Großstadt schlafe nie) and denying it. 'Welche Vorstellung widerlegt das Feature?' → the belief in the Konjunktiv.",
+          "examples": [
+            {
+              "de": "Wer glaubt, eine Großstadt schlafe nie, der irrt.",
+              "en": "Anyone who believes a big city never sleeps is mistaken."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Images answer the 'how' questions",
+          "text": "die Metropole scheint den Atem anzuhalten (holds its breath) — 'Was scheint die Metropole zu tun?'; die Stille liegt wie ein Tuch über den Straßen — 'Wie wird die Stadt beschrieben?'. Translate the image into plain words before choosing.",
+          "examples": [
+            {
+              "de": "Es gibt diesen einen Moment, kurz vor der Morgendämmerung, in dem selbst die rastlose Metropole den Atem anzuhalten scheint.",
+              "en": "There is this one moment, just before dawn, when even the restless metropolis seems to hold its breath."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Feature vocabulary",
+          "text": "die Morgendämmerung (dawn), die Nachtschwärmer (night owls), rastlos (restless), den Atem anhalten, verstummen (fall silent), der Frühschichtler (early-shift worker), die Stille bricht (the silence breaks).",
+          "examples": [
+            {
+              "de": "Die letzten Nachtschwärmer sind verschwunden, die ersten Frühschichtler noch nicht da.",
+              "en": "The last night owls have vanished, the first early-shift workers are not yet there."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Cliché in the Konjunktiv → refuted; time marker → the moment; images → the description.",
+        "Translate each image before answering."
+      ],
+      "exam": "Goethe C2 Hören (feature / literary reportage: content and effect questions) — the format."
+    }
+  },
+  {
+    "id": "quest_c2_1_konj1_lit",
+    "covers": [
+      "c2.konjunktiv1-journalistic"
+    ],
+    "help": {
+      "intro": "In German journalism the Konjunktiv I is not optional: any reported claim — a quote, a statement, a rumour — is carried in it, often for whole paragraphs without a repeated 'sagte'. Der Sprecher erklärte, die Lage sei ernst. Man habe alles versucht. Die Regierung werde handeln; ein Rücktritt stehe nicht zur Debatte. Die Daten seien eindeutig, es gebe keinen Zweifel. The mechanics from B2 hold — third person stem + -e, sein → sei / seien, past → habe / sei + participle, future → werde, Konjunktiv II where forms collide (sie hätten) — but the C2 skill is sustaining it: every verb in the reported stretch stays in the Konjunktiv until the journalist steps back into the indicative (a fact the paper vouches for), and that switch is itself information. Reading, the Konjunktiv tells you who is speaking; writing, it lets you report without endorsing — the distance the Goethe C2 Schreiben Teil 1 (reformulation into indirect speech) tests.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Sustain the Konjunktiv across the stretch",
+          "text": "Der Sprecher erklärte, die Lage sei ernst. Man habe alles versucht. Die Regierung werde handeln; ein Rücktritt stehe nicht zur Debatte. Die Daten seien eindeutig. — five clauses, one introducing verb, all Konjunktiv. Don't slip back into the indicative until the report ends.",
+          "examples": [
+            {
+              "de": "Die Ministerin betonte, es gebe keinen Grund zur Sorge. Die Zahlen seien stabil, die Maßnahmen wirkten. Man werde die Lage weiter beobachten.",
+              "en": "The minister stressed there was no cause for concern. The figures were stable, the measures were working. The situation would be monitored."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Indicative = the paper's own voice",
+          "text": "Der Sprecher erklärte, die Lage sei ernst. Tatsächlich stiegen die Zahlen bereits im Vorjahr. — the second sentence is in the indicative: the journalist asserts it. The mood switch marks the change of speaker.",
+          "examples": [
+            {
+              "de": "Der Konzern versicherte, es habe keine Kenntnis gegeben. Interne Mails belegen das Gegenteil.",
+              "en": "The group assured there had been no knowledge. Internal e-mails prove the opposite."
+            }
+          ],
+          "trap": "E17 — English reported speech shifts tense and then stays in the indicative, so the reader can't tell reported from asserted. German readers rely on the mood; a lapse into the indicative inside a report reads as the paper vouching for the claim."
+        },
+        {
+          "kind": "rule",
+          "title": "Forms: sei / seien, habe, werde, gebe, könne, wolle; hätten where needed",
+          "text": "es gebe (es gibt) · man könne / wolle / müsse · die Daten seien · die Mannschaft sei erkrankt · er habe gesehen · sie werde zurücktreten. Plural haben → hätten, plural werden → würden, plural können → könnten.",
+          "examples": [
+            {
+              "de": "Die Bürger, so hieß es, hätten kein Vertrauen mehr; sie würden Neuwahlen fordern.",
+              "en": "The citizens, it was said, no longer had confidence; they would demand new elections."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Vary the introducing verb, then drop it",
+          "text": "erklärte, betonte, versicherte, räumte ein, hielt entgegen, fügte hinzu — one at the start, then let the Konjunktiv carry the rest. That is the journalist's rhythm.",
+          "examples": [
+            {
+              "de": "Der Sprecher räumte ein, Fehler seien gemacht worden. Man werde daraus lernen.",
+              "en": "The spokesman admitted mistakes had been made. Lessons would be learnt."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "One introducing verb, then Konjunktiv I for the whole report; indicative = the paper speaks.",
+        "sei/seien, habe, werde, gebe, könne, wolle; hätten/würden/könnten for plural clashes."
+      ],
+      "table": {
+        "title": "Journalistic Konjunktiv I — forms",
+        "columns": [
+          "indicative",
+          "Konjunktiv I",
+          "plural clash → K II"
+        ],
+        "rows": [
+          [
+            "ist / sind",
+            "sei / seien",
+            "—"
+          ],
+          [
+            "hat / haben",
+            "habe / (haben)",
+            "hätten"
+          ],
+          [
+            "wird / werden",
+            "werde / (werden)",
+            "würden"
+          ],
+          [
+            "kann / können",
+            "könne / (können)",
+            "könnten"
+          ],
+          [
+            "gibt",
+            "gebe",
+            "—"
+          ],
+          [
+            "hat gesehen",
+            "habe gesehen",
+            "hätten gesehen"
+          ]
+        ]
+      },
+      "vocab": [
+        {
+          "de": "sei / seien",
+          "en": "is / are (reported)"
+        },
+        {
+          "de": "habe",
+          "en": "has (reported)"
+        },
+        {
+          "de": "werde",
+          "en": "will (reported)"
+        },
+        {
+          "de": "gebe",
+          "en": "there is (reported)"
+        },
+        {
+          "de": "könne / wolle / müsse",
+          "en": "can / wants / must (reported)"
+        },
+        {
+          "de": "stehe nicht zur Debatte",
+          "en": "is not up for debate (reported)"
+        },
+        {
+          "de": "erklären / betonen / versichern",
+          "en": "to declare / stress / assure"
+        },
+        {
+          "de": "einräumen",
+          "en": "to concede"
+        },
+        {
+          "de": "entgegenhalten",
+          "en": "to counter"
+        },
+        {
+          "de": "hinzufügen",
+          "en": "to add"
+        }
+      ],
+      "context": {
+        "de": "Der Vorstandssprecher erklärte, der Konzern habe von den Vorwürfen erst aus der Presse erfahren. Man werde die Angelegenheit prüfen; ein Rücktritt stehe nicht zur Debatte. Die Zahlen seien im Übrigen korrekt, es gebe keinen Grund zur Beunruhigung. Interne Dokumente, die dieser Zeitung vorliegen, zeichnen ein anderes Bild: Bereits im März wurde die Geschäftsführung informiert.",
+        "en": "The board spokesman declared the group had learnt of the allegations only from the press. The matter would be examined; a resignation was not up for debate. The figures were, moreover, correct; there was no cause for alarm. Internal documents available to this newspaper paint a different picture: the management was informed as early as March."
+      },
+      "mistakes": [
+        {
+          "wrong": "Der Sprecher erklärte, die Lage sei ernst. Man hat alles versucht. Die Regierung wird handeln.",
+          "right": "…, die Lage sei ernst. Man habe alles versucht. Die Regierung werde handeln.",
+          "why": "Sustain the Konjunktiv across the report."
+        },
+        {
+          "wrong": "Die Bürger, so hieß es, haben kein Vertrauen.",
+          "right": "…, hätten kein Vertrauen.",
+          "why": "Plural haben clashes → hätten."
+        },
+        {
+          "wrong": "Er sagte, dass er ist müde.",
+          "right": "Er sagte, er sei müde.",
+          "why": "Konjunktiv, and dass-less reporting is the journalistic norm."
+        }
+      ],
+      "exam": "Goethe C2 Lesen (press) and Schreiben Teil 1 (reformulating direct speech into a sustained report)."
+    }
+  },
+  {
+    "id": "quest_c2_1_sprechen_kurzcheck",
+    "covers": [
+      "c2.register",
+      "c2.collocations",
+      "c2.konjunktiv1-journalistic"
+    ],
+    "help": {
+      "intro": "A three-minute checkpoint on the first half of C2.1, in your own AI assistant with voice on: shifting register on demand and reporting in the Konjunktiv I. The tutor gives you a colloquial sentence and asks for it formal, and vice versa; gives you a quotation and asks you to report it; and asks you to describe a business situation using the right collocations. It listens for the register pairs (kriegen → erhalten), sustained Konjunktiv I with the correct forms, and fixed noun–verb pairs (Entscheidung treffen, Maßnahmen ergreifen). Speak in full sentences; type 'Ende' for the score.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Shift the whole sentence, not one word",
+          "text": "„Der Typ hat die Kohle nicht gekriegt“ → „Der Mitarbeiter hat den Betrag nicht erhalten“ — noun, verb and article all move. Swap every level-marked word.",
+          "examples": [
+            {
+              "de": "„Das ist echt kaputt.“ → „Das Gerät ist defekt.“",
+              "en": "It's totally bust. → The device is defective."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Report and sustain",
+          "text": "„Wir haben alles versucht. Die Lage ist ernst.“ → Er sagte, man habe alles versucht; die Lage sei ernst. Two clauses, both Konjunktiv, one introducing verb.",
+          "examples": [
+            {
+              "de": "Sie erklärte, die Daten seien eindeutig und es gebe keinen Zweifel.",
+              "en": "She explained the data were clear and there was no doubt."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Every level-marked word shifts together.",
+        "One 'sagte', then Konjunktiv I throughout."
+      ],
+      "exam": "Goethe C2 Sprechen (register control) and Schreiben Teil 1 (reformulation)."
+    }
+  },
+  {
+    "id": "quest_c2_1_konnotation",
+    "covers": [
+      "c2.connotation"
+    ],
+    "help": {
+      "intro": "Two words can name the same thing and judge it differently — connotation — and C2 asks you to hear the judgement and choose your own. sparsam (thrifty, +) / geizig (stingy, −); selbstbewusst (+) / arrogant (−); eigenwillig (+) / stur (−); Demonstranten (neutral) / Randalierer (−); kostengünstig (+) / billig (− cheap-and-nasty); schlank (+) / dürr (−); mutig (+) / leichtsinnig (−); gründlich (+) / pedantisch (−); spontan (+) / impulsiv (−); der Duft (+) / der Gestank (−); bescheiden (+) / unterwürfig (−); wissbegierig (+) / neugierig (∓, often −); hartnäckig (+) / verbohrt (−); Herausforderung (+ framing) / Problem (−); reif (+) / alt (∓). Add the euphemisms (freisetzen for entlassen, Kollateralschaden, verscheiden) and the dysphemisms (Wirtschaftsflüchtling, Sozialschmarotzer) of public debate, and you have the toolkit for reading a press text's stance in its word choice — the Goethe C2 reading question 'Wie steht der Autor zu …?' is answered here.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Character: positive / negative pairs",
+          "text": "sparsam / geizig · selbstbewusst / arrogant · eigenwillig / stur · mutig / leichtsinnig · gründlich / pedantisch · spontan / impulsiv · bescheiden / unterwürfig · hartnäckig / verbohrt · zurückhaltend / verschlossen · ehrgeizig / karrieresüchtig.",
+          "examples": [
+            {
+              "de": "Seine Freunde nennen ihn sparsam, seine Feinde geizig; er selbst sagt: vernünftig.",
+              "en": "His friends call him thrifty, his enemies stingy; he himself says: sensible."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Things and people in the news",
+          "text": "Demonstranten / Randalierer · kostengünstig / billig · Herausforderung / Problem · Reform / Kürzung · Umstrukturierung / Stellenabbau · freisetzen / entlassen (euphemism) · Sozialschmarotzer (dysphemism) · Flüchtling / Asylant (the second now pejorative) · Duft / Geruch / Gestank.",
+          "examples": [
+            {
+              "de": "Die einen sprechen von Demonstranten, die anderen von Randalierern – die Zeitung von „Teilnehmern“.",
+              "en": "Some speak of demonstrators, others of rioters – the newspaper of 'participants'."
+            }
+          ],
+          "trap": "E20 — billig means both 'cheap' and 'cheap-and-nasty'; in a product review it is negative, in a bargain ad positive. günstig / preiswert are safely positive. neugierig leans negative (nosy) unless softened (neugierig auf die Welt)."
+        },
+        {
+          "kind": "rule",
+          "title": "Reading stance from word choice",
+          "text": "A text that calls protesters Randalierer, cuts Reformen, and layoffs Freisetzungen has taken a side without an opinion sentence. List the loaded words; their sign is the author's stance.",
+          "examples": [
+            {
+              "de": "„Die Randalierer zwangen die Stadt zu einer Reform der Sicherheitsvorschriften.“ — Stance: against the protesters, for the measures.",
+              "en": "The rioters forced the city into a reform of security rules."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Same thing, three temperatures",
+          "text": "Gestank (−) – Geruch (0) – Duft (+). entlassen (0) – freisetzen (+, euphemism) – rauswerfen (−). Find the neutral word in the middle; the others tell you the speaker's feeling.",
+          "examples": [
+            {
+              "de": "alt (0) – reif (+) – vergreist (−)",
+              "en": "old – mature – senile"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Pairs: sparsam/geizig, selbstbewusst/arrogant, Demonstranten/Randalierer, kostengünstig/billig, Duft/Gestank.",
+        "Loaded words reveal stance; find the neutral middle."
+      ],
+      "vocab": [
+        {
+          "de": "sparsam / geizig",
+          "en": "thrifty / stingy"
+        },
+        {
+          "de": "selbstbewusst / arrogant",
+          "en": "self-assured / arrogant"
+        },
+        {
+          "de": "eigenwillig / stur",
+          "en": "strong-willed / stubborn"
+        },
+        {
+          "de": "Demonstranten / Randalierer",
+          "en": "demonstrators / rioters"
+        },
+        {
+          "de": "kostengünstig / billig",
+          "en": "inexpensive / cheap (and nasty)"
+        },
+        {
+          "de": "schlank / dürr",
+          "en": "slim / scrawny"
+        },
+        {
+          "de": "mutig / leichtsinnig",
+          "en": "brave / reckless"
+        },
+        {
+          "de": "gründlich / pedantisch",
+          "en": "thorough / pedantic"
+        },
+        {
+          "de": "Duft / Gestank",
+          "en": "scent / stench"
+        },
+        {
+          "de": "bescheiden / unterwürfig",
+          "en": "modest / servile"
+        },
+        {
+          "de": "hartnäckig / verbohrt",
+          "en": "persistent / obstinate"
+        },
+        {
+          "de": "Herausforderung / Problem",
+          "en": "challenge / problem"
+        },
+        {
+          "de": "freisetzen (Euphemismus)",
+          "en": "to 'release' (lay off)"
+        },
+        {
+          "de": "Euphemismus / Dysphemismus",
+          "en": "euphemism / dysphemism"
+        }
+      ],
+      "context": {
+        "de": "Der Bericht nannte die Kürzungen „Reformen“ und die Entlassenen „Freigesetzte“ – ein sparsamer Umgang mit der Wahrheit, den Kritiker geizig nennen würden. Die Demonstranten vor dem Werkstor wurden in einer Zeitung zu Randalierern, in einer anderen zu „besorgten Bürgern“. Der Vorstand zeigte sich selbstbewusst; die Belegschaft fand ihn arrogant. Am Ende blieb, was blieb: der Gestank des Verdachts, in der Pressemitteilung „ein Hauch von Unsicherheit“ genannt.",
+        "en": "The report called the cuts 'reforms' and the dismissed 'released' – a thrifty handling of the truth that critics would call stingy. The demonstrators at the factory gate became rioters in one newspaper, 'concerned citizens' in another. The board appeared self-assured; the workforce found it arrogant. In the end what remained remained: the stench of suspicion, called 'a whiff of uncertainty' in the press release."
+      },
+      "mistakes": [
+        {
+          "wrong": "Das Hotel war billig und sehr gut. (praise)",
+          "right": "Das Hotel war günstig / preiswert und sehr gut.",
+          "why": "billig can imply poor quality."
+        },
+        {
+          "wrong": "Mein Vater ist geizig – er spart für uns. (praise)",
+          "right": "Mein Vater ist sparsam.",
+          "why": "geizig is negative."
+        },
+        {
+          "wrong": "Er ist sehr neugierig (meaning eager to learn, formal)",
+          "right": "Er ist sehr wissbegierig.",
+          "why": "neugierig leans towards nosy."
+        }
+      ],
+      "exam": "Goethe C2 Lesen ('Wie steht der Autor zu …?' — stance from word choice) and Schreiben (deliberate word choice is scored)."
+    }
+  },
+  {
+    "id": "quest_c2_1_lesen_artikel",
+    "covers": [
+      "c2.text-formats-1",
+      "c2.konjunktiv1-journalistic",
+      "c2.rhetoric"
+    ],
+    "help": {
+      "intro": "A feuilleton-style newspaper article on the rediscovery of slowness — a society that has made speed the measure of all things (eine Gesellschaft, die Geschwindigkeit zum Maß aller Dinge erhoben hat), sociologists' observation reported in the Konjunktiv (entdeckten … neu — Konjunktiv II standing in for the ambiguous entdecken), the author's assessment of the trend, and a closing warning. Goethe C2 Lesen uses such pieces and asks what the sources observe (the Konjunktiv stretch), how the author evaluates (the indicative, the adverbs), and what the last sentence warns of. Note the rhetorical shape: the elevated opening (inmitten einer Gesellschaft, die …), the list with sei es … sei es …, the concessive turn, and the closing antithesis.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Source vs author by mood",
+          "text": "so beobachten Soziologen, entdeckten … neu (Konjunktiv II replacing an ambiguous Konjunktiv I) = the sociologists' claim. Der Trend könnte sich als … erweisen (the author's hedge) = the author. 'Was beobachten die Soziologen?' → the Konjunktiv stretch; 'Wie könnte sich der Trend erweisen?' → the author's könnte-sentence.",
+          "examples": [
+            {
+              "de": "Immer mehr Menschen, so beobachten Soziologen, entdeckten den Wert der Langsamkeit neu.",
+              "en": "More and more people, sociologists observe, are rediscovering the value of slowness."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The feuilleton's devices",
+          "text": "zum Maß aller Dinge erheben (elevate to the measure of all things — an allusion to Protagoras), sei es beim Kochen, sei es beim Reisen (be it …, be it …), leiser Widerstand (oxymoron-ish: quiet resistance), sich erweisen als (turn out to be). The last sentence typically warns with an antithesis: … keine Mode, sondern …",
+          "examples": [
+            {
+              "de": "Ob der Trend mehr ist als eine Mode der Wohlhabenden, wird sich erst zeigen – gemächlich, versteht sich.",
+              "en": "Whether the trend is more than a fashion of the affluent remains to be seen – at a leisurely pace, of course."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The last sentence is the author's",
+          "text": "Feuilleton pieces end with a twist — a warning, an irony, a reversal. 'Wovor warnt der Schlusssatz?' is always answerable from the final sentence alone; read it twice.",
+          "examples": [
+            {
+              "de": "Wer die Langsamkeit zur Pflicht macht, hat sie schon verloren.",
+              "en": "Anyone who makes slowness a duty has already lost it."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Konjunktiv = sources; indicative + hedge = author; last sentence = the warning.",
+        "sei es … sei es; zum Maß aller Dinge erheben; sich erweisen als."
+      ],
+      "exam": "Goethe C2 Lesen (feuilleton article: sources, author's stance, closing turn) — the format."
+    }
+  },
+  {
+    "id": "quest_c2_1_sprichwoerter",
+    "covers": [
+      "c2.proverbs"
+    ],
+    "help": {
+      "intro": "Proverbs are quoted, half-quoted and twisted in German public language, and a C2 reader has to recognise the whole from the half. Übung macht den Meister (practice makes perfect). Morgenstund hat Gold im Mund (the early bird …). Der Apfel fällt nicht weit vom Stamm (like father, like son). Wer zuletzt lacht, lacht am besten. Aller Anfang ist schwer. Wer A sagt, muss auch B sagen (in for a penny …). Ohne Fleiß kein Preis. Lügen haben kurze Beine. Was du heute kannst besorgen, das verschiebe nicht auf morgen. In der Kürze liegt die Würze. Stille Wasser sind tief. Der Ton macht die Musik. Reden ist Silber, Schweigen ist Gold. Viele Köche verderben den Brei. Wer im Glashaus sitzt, soll nicht mit Steinen werfen. Headlines allude to them (Viele Köche, ein Brei: die Koalition), speakers cut them short (Wer A sagt …), satirists invert them. Learn the exact wording — a proverb misquoted is a joke you didn't intend — and the register: proverbs are folksy; one in a speech is warmth, three are a sermon.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Effort and time",
+          "text": "Übung macht den Meister · Ohne Fleiß kein Preis · Aller Anfang ist schwer · Morgenstund hat Gold im Mund · Was du heute kannst besorgen, das verschiebe nicht auf morgen · Wer A sagt, muss auch B sagen · Wer zuletzt lacht, lacht am besten.",
+          "examples": [
+            {
+              "de": "Aller Anfang ist schwer – aber Übung macht den Meister.",
+              "en": "Every beginning is hard – but practice makes perfect."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Character and speech",
+          "text": "Der Apfel fällt nicht weit vom Stamm · Stille Wasser sind tief · Lügen haben kurze Beine · Der Ton macht die Musik · Reden ist Silber, Schweigen ist Gold · In der Kürze liegt die Würze · Wer im Glashaus sitzt, soll nicht mit Steinen werfen · Viele Köche verderben den Brei.",
+          "examples": [
+            {
+              "de": "Er kritisiert die Kollegen für ihre Verspätung – dabei sitzt er selbst im Glashaus.",
+              "en": "He criticises colleagues for lateness – yet he himself lives in a glass house."
+            }
+          ],
+          "trap": "E20 — proverbs don't translate word for word: 'the early bird catches the worm' is Morgenstund hat Gold im Mund; 'too many cooks spoil the broth' is Viele Köche verderben den Brei (close), but 'in for a penny, in for a pound' is Wer A sagt, muss auch B sagen (not close at all)."
+        },
+        {
+          "kind": "rule",
+          "title": "Half-quotes and twists",
+          "text": "Speakers cut a proverb at the comma and let you finish it: Wer A sagt … / Wer im Glashaus sitzt … Headlines twist: Viele Köche, kein Brei. Satire inverts: Reden ist Gold, Schweigen ist Silber — for a politician who talks. Recognise the source to get the joke.",
+          "examples": [
+            {
+              "de": "„Der Ton macht die Musik“, sagte die Moderatorin – und meinte den Tonfall des Ministers.",
+              "en": "'It's the tone that makes the music,' said the presenter – meaning the minister's tone of voice."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Learn the rhyme or the rhythm",
+          "text": "Ohne Fleiß kein Preis (rhyme). Morgenstund hat Gold im Mund (rhyme). In der Kürze liegt die Würze (rhyme). Übung macht den Meister (trochaic). The sound is the memory hook — and the reason misquotes are audible.",
+          "examples": [
+            {
+              "de": "Fleiß – Preis · Stund – Mund · Kürze – Würze",
+              "en": "the rhymes"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Exact wording; recognise the half-quote; one per speech.",
+        "Übung macht den Meister · Wer A sagt … · Stille Wasser · Der Ton macht die Musik · Viele Köche …"
+      ],
+      "vocab": [
+        {
+          "de": "Übung macht den Meister",
+          "en": "practice makes perfect"
+        },
+        {
+          "de": "Morgenstund hat Gold im Mund",
+          "en": "the early bird catches the worm"
+        },
+        {
+          "de": "Der Apfel fällt nicht weit vom Stamm",
+          "en": "like father, like son"
+        },
+        {
+          "de": "Wer zuletzt lacht, lacht am besten",
+          "en": "he who laughs last laughs longest"
+        },
+        {
+          "de": "Aller Anfang ist schwer",
+          "en": "every beginning is hard"
+        },
+        {
+          "de": "Wer A sagt, muss auch B sagen",
+          "en": "in for a penny, in for a pound"
+        },
+        {
+          "de": "Ohne Fleiß kein Preis",
+          "en": "no pain, no gain"
+        },
+        {
+          "de": "Lügen haben kurze Beine",
+          "en": "lies don't travel far"
+        },
+        {
+          "de": "In der Kürze liegt die Würze",
+          "en": "brevity is the soul of wit"
+        },
+        {
+          "de": "Stille Wasser sind tief",
+          "en": "still waters run deep"
+        },
+        {
+          "de": "Der Ton macht die Musik",
+          "en": "it's not what you say but how you say it"
+        },
+        {
+          "de": "Reden ist Silber, Schweigen ist Gold",
+          "en": "speech is silver, silence is golden"
+        },
+        {
+          "de": "Viele Köche verderben den Brei",
+          "en": "too many cooks spoil the broth"
+        },
+        {
+          "de": "Wer im Glashaus sitzt, soll nicht mit Steinen werfen",
+          "en": "people in glass houses shouldn't throw stones"
+        }
+      ],
+      "context": {
+        "de": "„Viele Köche verderben den Brei“, titelte die Zeitung über die Koalition – und der Minister antwortete, wer A sage, müsse auch B sagen. Sein Gegner erinnerte daran, dass Lügen kurze Beine hätten, und dass, wer im Glashaus sitze, nicht mit Steinen werfen solle. Die Moderatorin beendete die Runde mit dem Hinweis, in der Kürze liege die Würze – Reden sei Silber, Schweigen Gold.",
+        "en": "'Too many cooks spoil the broth,' the paper headlined about the coalition – and the minister replied that anyone who says A must say B. His opponent recalled that lies have short legs, and that those in glass houses shouldn't throw stones. The presenter ended the round noting that brevity is the soul of wit – speech is silver, silence golden."
+      },
+      "mistakes": [
+        {
+          "wrong": "Übung macht den Meister? — Der frühe Vogel fängt den Wurm (as the standard proverb).",
+          "right": "Morgenstund hat Gold im Mund (the traditional one; 'der frühe Vogel' is a modern calque).",
+          "why": "Know the traditional wording."
+        },
+        {
+          "wrong": "Wer zuerst lacht, lacht am besten.",
+          "right": "Wer zuletzt lacht, lacht am besten.",
+          "why": "Exact wording."
+        },
+        {
+          "wrong": "Viele Köche verderben die Suppe.",
+          "right": "Viele Köche verderben den Brei.",
+          "why": "Exact wording."
+        }
+      ],
+      "exam": "Goethe C2 Lesen (allusions in headlines and commentary) and Hören (satire and speeches quoting proverbs)."
+    }
+  },
+  {
+    "id": "quest_c2_1_diktat_register",
+    "covers": [
+      "c2.register",
+      "c2.konjunktiv1-journalistic",
+      "c2.gradation"
+    ],
+    "help": {
+      "intro": "Fifteen sentences that switch register mid-text, dictated: a formal report with a colloquial quotation inside it, a Konjunktiv I stretch, gradation adverbs (durchaus, keineswegs, geradezu), and one proverb. The ear must catch the level shift (the quoted 'echt' inside a formal sentence, marked by quotation marks you must supply), the Konjunktiv endings, the exact wording of the proverb, and the adverbs whose meaning is all in one syllable (durchaus vs durchaus nicht; keineswegs). Type each sentence whole; punctuation — quotation marks around the colloquial fragment, commas before the reported clause — is part of the task.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Hear the quotation marks",
+          "text": "Der Minister nannte den Plan „echt daneben“ — a colloquial phrase inside formal report is quoted. When the register drops for two words, write the Anführungszeichen.",
+          "examples": [
+            {
+              "de": "Der Vorstand sprach von „Anpassungen“; die Belegschaft nannte es „rausschmeißen“.",
+              "en": "The board spoke of 'adjustments'; the workforce called it 'chucking out'."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Gradation adverbs: one syllable decides",
+          "text": "durchaus (certainly) · durchaus nicht / keineswegs (not at all) · geradezu (downright) · schlechthin (par excellence) · ohnehin (anyway) · allemal (any day). Listen for the negation after durchaus.",
+          "examples": [
+            {
+              "de": "Das ist durchaus möglich – aber keineswegs sicher.",
+              "en": "That's certainly possible – but by no means certain."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The proverb self-corrects",
+          "text": "If what you heard doesn't match the proverb's fixed wording, trust the proverb: Viele Köche verderben den Brei, not die Suppe.",
+          "examples": [
+            {
+              "de": "Wer im Glashaus sitzt, soll nicht mit Steinen werfen.",
+              "en": "People in glass houses shouldn't throw stones."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Register drop → quotation marks; report → Konjunktiv; proverb → fixed wording.",
+        "durchaus / keineswegs / geradezu: hear the whole adverb."
+      ],
+      "exam": "Goethe C2 Schreiben: quotation, register and gradation adverbs spelt and punctuated correctly."
+    }
+  },
+  {
+    "id": "quest_c2_1_sprechen_moderieren",
+    "covers": [
+      "c2.speaking-formats"
+    ],
+    "help": {
+      "intro": "Eight sentences for moderating a discussion, to listen to and repeat: Ich begrüße Sie herzlich zu unserer Runde. · Lassen Sie uns mit der Frage beginnen, … · Herr Weber, Sie sehen das kritisch – warum? · Frau Söll, wie beurteilen Sie das? · Darf ich Sie kurz unterbrechen? · Um es zuzuspitzen: … · Lassen Sie uns das festhalten, bevor wir weitergehen. · Ich fasse zusammen und bitte um ein Schlusswort. The Goethe C2 discussion is scored on 'Gesprächsführung' — steering, not just contributing — and the moderator's moves are the same as a strong participant's: open, allocate, sharpen, interrupt politely, summarise, close. Deliver with the neutrality of a host: even pitch, the names of the speakers clearly, the questions short.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Open, allocate, sharpen",
+          "text": "Ich begrüße Sie zu … · Lassen Sie uns mit … beginnen · Herr X, Sie sehen das kritisch – warum? · Frau Y, wie beurteilen Sie das? · Um es zuzuspitzen: … · Ist das nicht ein Widerspruch zu …?",
+          "examples": [
+            {
+              "de": "Um es zuzuspitzen: Sind Sie für ein Verbot – ja oder nein?",
+              "en": "To put it sharply: are you for a ban – yes or no?"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Interrupt, hold, close",
+          "text": "Darf ich Sie kurz unterbrechen? · Ich muss Sie leider bremsen. · Lassen Sie uns das festhalten. · Bevor wir weitergehen: … · Ich fasse zusammen: … · Ich bitte um ein Schlusswort.",
+          "examples": [
+            {
+              "de": "Ich muss Sie leider bremsen – Frau Söll wollte darauf antworten.",
+              "en": "I'm afraid I have to stop you there – Ms Söll wanted to respond to that."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Name, question, silence",
+          "text": "Say the name, ask a short question, stop. The moderator's power is the pause after the question; don't fill it.",
+          "examples": [
+            {
+              "de": "Frau Söll – Ihre Einschätzung?",
+              "en": "Ms Söll – your assessment?"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "begrüßen – beginnen – warum? – wie beurteilen Sie? – zuspitzen – unterbrechen – festhalten – Schlusswort.",
+        "Short questions, then silence."
+      ],
+      "exam": "Goethe C2 Sprechen Teil 2 (discussion: 'Gesprächsführung' and 'Interaktion' are scored) — the moderator's moves."
+    }
+  },
+  {
+    "id": "quest_c2_1_hoeren_satire",
+    "covers": [
+      "c2.text-formats-1",
+      "c2.rhetoric",
+      "c2.connotation"
+    ],
+    "help": {
+      "intro": "A cabaret monologue on the perfect citizen — heard once — that means the opposite of what it says: der perfekte Bürger trennt seinen Müll in siebzehn Tonnen, fährt nur noch Fahrrad, natürlich eines aus nachhaltigem Bambus, importiert um den halben Globus … Satire works by exaggeration (siebzehn Tonnen), by exposing contradiction (nachhaltig — importiert um den halben Globus), by mock praise (der perfekte Bürger), and by a punchline that names the real target (Hauptsache, man fühlt sich gut). Goethe C2 Hören asks what the satirist mocks, which contradiction is exposed, and what the punchline says — questions that cannot be answered from the literal words. Listen for the intensifiers (selbstverständlich, natürlich, nur noch), the sudden concrete detail (Bambus, halber Globus), and the final 'Hauptsache …'.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Mock praise = the target",
+          "text": "der perfekte Bürger, selbstverständlich, natürlich — praise delivered with a straight face marks what is being mocked: not the environment, but self-satisfied consumption.",
+          "examples": [
+            {
+              "de": "Der perfekte Bürger, meine Damen und Herren, trennt seinen Müll in siebzehn Tonnen.",
+              "en": "The perfect citizen, ladies and gentlemen, sorts his rubbish into seventeen bins."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "The contradiction is the joke",
+          "text": "nachhaltig — importiert um den halben Globus: the two halves cancel. 'Welcher Widerspruch wird aufgedeckt?' → find the pair that contradicts.",
+          "examples": [
+            {
+              "de": "… natürlich eines aus nachhaltigem Bambus, importiert um den halben Globus.",
+              "en": "… naturally one made of sustainable bamboo, imported halfway round the globe."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Hauptsache = the punchline",
+          "text": "'Hauptsache, man fühlt sich gut' names the real motive the satire attributes. The last sentence is the thesis, inverted.",
+          "examples": [
+            {
+              "de": "Hauptsache, man fühlt sich gut dabei.",
+              "en": "The main thing is you feel good about it."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Mock praise → target; contradiction → joke; Hauptsache → thesis.",
+        "selbstverständlich / natürlich / nur noch = irony markers."
+      ],
+      "exam": "Goethe C2 Hören (satire/cabaret: intention and device questions) — the format."
+    }
+  },
+  {
+    "id": "quest_c2_1_lesen_kurzgeschichte",
+    "covers": [
+      "c2.text-formats-1",
+      "c2.rhetoric"
+    ],
+    "help": {
+      "intro": "A short story in the tradition of the German Kurzgeschichte — an old man keeps his dead wife's chair untouched, lays for two each morning, clears a full plate each evening; the neighbours talk; the narrator interprets at the end. Goethe C2 Schreiben Teil 2's literary option and the Lesen paper both ask for reading of this kind: what happens, what others say, how the narrator or the text interprets — and how the language works (the repetition morgens … abends, the contrast deckte / räumte ab, the sparing detail). The Kurzgeschichte gives no explanation; the meaning is in the gesture. Read for the action, then for the pattern (a ritual, daily), then for the narrator's one interpretive sentence at the end.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Action – outside view – interpretation",
+          "text": "What he does (ließ den Stuhl unberührt; deckte für zwei; räumte einen vollen Teller ab) → what the neighbours say (sonderbar, verrückt) → what the narrator makes of it (the last sentence). Three layers, three questions.",
+          "examples": [
+            {
+              "de": "Morgens deckte er für zwei, abends räumte er einen vollen Teller ab.",
+              "en": "In the morning he laid for two; in the evening he cleared away a full plate."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Devices of the Kurzgeschichte",
+          "text": "Repetition (morgens / abends), contrast (deckte / räumte ab; voll / leer), lists of what is forbidden (nicht die Kinder, nicht die Gäste — anaphora), understatement, the unexplained gesture, the open or quietly closed ending. Name them in an analysis.",
+          "examples": [
+            {
+              "de": "Niemand durfte sich dorthin setzen, nicht die Kinder, nicht die Gäste.",
+              "en": "Nobody was allowed to sit there, not the children, not the guests."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The last sentence deutet",
+          "text": "The narrator's interpretation, if there is one, sits at the end and is quiet: Vielleicht war es keine Trauer, sondern … Read it as the answer to 'Wie deutet der Erzähler …?'.",
+          "examples": [
+            {
+              "de": "Vielleicht war es gar keine Trauer, sondern die einzige Form von Gesellschaft, die ihm geblieben war.",
+              "en": "Perhaps it was not grief at all, but the only form of company left to him."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Action → outside view → narrator's deutender Schlusssatz.",
+        "Repetition, contrast, anaphora, the unexplained gesture."
+      ],
+      "exam": "Goethe C2 Lesen (literary text) and Schreiben Teil 2 (literary task: content, language, effect) — the format."
+    }
+  },
+  {
+    "id": "quest_c2_1_sprechen_dialog",
+    "covers": [
+      "c2.speaking-formats",
+      "c2.register",
+      "c2.gradation",
+      "c2.collocations"
+    ],
+    "help": {
+      "intro": "The closing conversation of C2.1, in your own AI assistant with voice on: a discussion on an economic or media question in which you hold a position with stylistic control — register on demand, collocations, gradation adverbs, one rhetorical device, one proverb or idiom at most, and the ability to moderate as well as argue. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections come at the end. The tutor listens for: precise word choice (connotation-aware), collocations rather than generic verbs, Abtönung (durchaus, keineswegs, geradezu, immerhin), a clean register shift when the tutor changes tone, reported positions in the Konjunktiv I, and the moderator's moves (zuspitzen, festhalten, zusammenfassen). This is Goethe C2 Sprechen Teil 2 in rehearsal.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Grade every claim",
+          "text": "durchaus (certainly), keineswegs (by no means), geradezu (downright), immerhin (at least), ohnehin (in any case), ausgesprochen (decidedly). One per sentence, placed before the adjective or the verb: Das ist durchaus richtig, keineswegs aber ausreichend.",
+          "examples": [
+            {
+              "de": "Der Vorschlag ist durchaus bedenkenswert, aber keineswegs ausgereift – immerhin ein Anfang.",
+              "en": "The proposal is certainly worth considering but by no means mature – at least a start."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Collocation, not generic verb",
+          "text": "Maßnahmen ergreifen (not machen), Kritik üben (not geben), eine Rolle spielen, Verantwortung übernehmen, Risiken eingehen. The rater hears the difference immediately.",
+          "examples": [
+            {
+              "de": "Die Regierung muss Verantwortung übernehmen und Maßnahmen ergreifen, statt Kritik zu üben.",
+              "en": "The government must take responsibility and take measures instead of criticising."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "One device, one proverb, one register shift",
+          "text": "An antithesis in the opening; a proverb at a turn (Wer A sagt …); a deliberate colloquial word in quotation marks for effect. Three touches show mastery; more show off.",
+          "examples": [
+            {
+              "de": "Nicht das Tempo ist das Problem, sondern die Richtung – und wer A sagt, muss auch B sagen.",
+              "en": "Not the speed is the problem but the direction – and in for a penny, in for a pound."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "durchaus / keineswegs / geradezu / immerhin: grade, don't just claim.",
+        "Collocations, one device, one proverb, one register shift."
+      ],
+      "exam": "Goethe C2 Sprechen Teil 2 (discussion: 'Stil, Register, Abtönung, Interaktion') — the full rehearsal."
+    }
+  },
+  {
+    "id": "quest_c2_1_valenz",
+    "after": "quest_c2_1_kollokationen",
+    "status": "live",
+    "covers": [
+      "c2.valency"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "C2.1 · Valenz: Verben und ihre Ergänzungen",
+      "level": "C2.1",
+      "promptLabel": "Verb",
+      "subjectsLabel": "Verben",
+      "subjectColumnLabel": "Verb",
+      "subjects": [
+        {
+          "key": "gedenken",
+          "display": "gedenken",
+          "english": "to commemorate"
+        },
+        {
+          "key": "bedürfen",
+          "display": "bedürfen",
+          "english": "to require"
+        },
+        {
+          "key": "sich erfreuen",
+          "display": "sich erfreuen",
+          "english": "to enjoy (popularity)"
+        },
+        {
+          "key": "beschuldigen",
+          "display": "beschuldigen (jdn)",
+          "english": "to accuse someone (of)"
+        },
+        {
+          "key": "berauben",
+          "display": "berauben (jdn)",
+          "english": "to rob someone (of)"
+        },
+        {
+          "key": "begegnen",
+          "display": "begegnen",
+          "english": "to encounter"
+        },
+        {
+          "key": "widersprechen",
+          "display": "widersprechen",
+          "english": "to contradict"
+        },
+        {
+          "key": "ausweichen",
+          "display": "ausweichen",
+          "english": "to evade"
+        },
+        {
+          "key": "lehren",
+          "display": "lehren (jdn)",
+          "english": "to teach someone (something)"
+        },
+        {
+          "key": "kosten",
+          "display": "kosten (jdn)",
+          "english": "to cost someone (something)"
+        },
+        {
+          "key": "sich rächen",
+          "display": "sich rächen",
+          "english": "to take revenge"
+        },
+        {
+          "key": "abhalten",
+          "display": "abhalten (jdn)",
+          "english": "to keep someone (from)"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Ergänzung",
+          "group": "e",
+          "values": [
+            "+ Genitiv",
+            "+ Genitiv",
+            "+ Genitiv",
+            "+ Akk + Genitiv",
+            "+ Akk + Genitiv",
+            "+ Dativ",
+            "+ Dativ",
+            "+ Dativ",
+            "+ Akk + Akk",
+            "+ Akk + Akk",
+            "an + Dat / für + Akk",
+            "+ Akk + von + Dat"
+          ]
+        },
+        {
+          "label": "Beispiel",
+          "group": "b",
+          "values": [
+            "der Opfer gedenken",
+            "einer Erklärung bedürfen",
+            "sich großer Beliebtheit erfreuen",
+            "jemanden des Diebstahls beschuldigen",
+            "jemanden seiner Freiheit berauben",
+            "einem Freund begegnen",
+            "dem Vorschlag widersprechen",
+            "der Frage ausweichen",
+            "jemanden das Lesen lehren",
+            "jemanden viel Geld kosten",
+            "sich an jemandem für etwas rächen",
+            "jemanden von der Arbeit abhalten"
+          ]
+        }
+      ],
+      "sentenceTemplates": {
+        "Ergänzung": [
+          "{subject} → ____"
+        ],
+        "Beispiel": [
+          "{subject}: ____"
+        ]
+      }
+    },
+    "help": {
+      "intro": "Valency is the set of complements a verb demands, and at C2 the unusual patterns are expected: genitive objects (gedenken + Gen: der Opfer gedenken; bedürfen + Gen: einer Erklärung bedürfen; sich erfreuen + Gen: sich großer Beliebtheit erfreuen; sich einer Sache annehmen / bemächtigen / enthalten / rühmen / schämen), accusative + genitive (beschuldigen, bezichtigen, verdächtigen, berauben, entheben: jemanden des Diebstahls beschuldigen), dative-only verbs that look transitive (begegnen, widersprechen, ausweichen, folgen, dienen, schaden, gratulieren), double accusative (lehren, kosten, nennen, schimpfen: jemanden das Lesen lehren; jemanden viel Geld kosten), prepositional objects with a fixed case (sich rächen an + Dat für + Akk; abhalten von; jemanden um etwas bitten), and predicatives (nennen, heißen, bleiben + nominative: Er bleibt mein Freund). Valency also shifts meaning: lehren (Akk+Akk) vs unterrichten (Akk + in); sprechen mit / über / von; treffen (Akk) vs sich treffen mit. The Goethe C2 reformulation task and the reading cloze both turn on getting these right.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Genitive objects: the formal set",
+          "text": "gedenken (commemorate), bedürfen (require), sich erfreuen (enjoy), sich annehmen (take care of), sich bemächtigen (seize), sich enthalten (abstain from), sich rühmen (boast of), sich schämen (be ashamed of), sich erinnern (formal: sich einer Sache erinnern), harren (await). All + Genitiv, all written register.",
+          "examples": [
+            {
+              "de": "Die Stadt gedachte der Opfer; das Projekt bedarf einer Erklärung; die Partei erfreut sich großer Beliebtheit.",
+              "en": "The city commemorated the victims; the project requires an explanation; the party enjoys great popularity."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Akk + Gen: accusing and depriving",
+          "text": "jemanden des Diebstahls beschuldigen / bezichtigen / anklagen · jemanden des Mordes verdächtigen · jemanden seiner Freiheit berauben · jemanden seines Amtes entheben · jemanden eines Besseren belehren. The person is accusative, the thing genitive.",
+          "examples": [
+            {
+              "de": "Man beschuldigte ihn des Betrugs und enthob ihn seines Amtes.",
+              "en": "He was accused of fraud and relieved of his office."
+            }
+          ],
+          "trap": "E3 — 'accuse someone of' is not 'von'; it is the bare genitive. And the dative-only verbs (widersprechen, begegnen, ausweichen) take no accusative even though English has a direct object."
+        },
+        {
+          "kind": "rule",
+          "title": "Dative-only, double accusative, prepositional",
+          "text": "Dative only: begegnen, widersprechen, ausweichen, folgen, dienen, schaden, nützen, gratulieren, vertrauen, zuhören. Double accusative: lehren, kosten, nennen, schimpfen, fragen (etwas). Prepositional with fixed case: sich rächen an (Dat) für (Akk), abhalten von (Dat), jemanden um etwas bitten, jemanden zu etwas zwingen, jemanden vor etwas warnen.",
+          "examples": [
+            {
+              "de": "Er widersprach dem Vorschlag, wich der Frage aus und lehrte uns das Zweifeln – das kostete ihn den Posten.",
+              "en": "He contradicted the proposal, evaded the question and taught us doubting – that cost him the post."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Valency changes meaning",
+          "text": "sprechen mit (talk to) / über (about) / von (of) · treffen jdn (meet) / sich treffen mit (meet up) / treffen auf (encounter) · achten auf (watch) / achten jdn (respect) · bestehen auf (insist) / aus (consist of) / in (consist in). Same verb, different frame, different meaning.",
+          "examples": [
+            {
+              "de": "Er besteht auf der Regel; die Regel besteht aus drei Punkten; ihr Sinn besteht in der Fairness.",
+              "en": "He insists on the rule; the rule consists of three points; its point consists in fairness."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Gen: gedenken, bedürfen, sich erfreuen; Akk+Gen: beschuldigen, berauben; Dat only: widersprechen, begegnen, ausweichen; Akk+Akk: lehren, kosten.",
+        "Frame changes meaning: bestehen auf / aus / in."
+      ],
+      "table": {
+        "title": "Valency patterns",
+        "columns": [
+          "pattern",
+          "verbs",
+          "example"
+        ],
+        "rows": [
+          [
+            "+ Genitiv",
+            "gedenken, bedürfen, sich erfreuen, sich annehmen, sich enthalten",
+            "der Opfer gedenken"
+          ],
+          [
+            "+ Akk + Genitiv",
+            "beschuldigen, bezichtigen, verdächtigen, berauben, entheben",
+            "jdn des Betrugs beschuldigen"
+          ],
+          [
+            "+ Dativ only",
+            "begegnen, widersprechen, ausweichen, folgen, dienen, schaden",
+            "dem Vorschlag widersprechen"
+          ],
+          [
+            "+ Akk + Akk",
+            "lehren, kosten, nennen, schimpfen",
+            "jdn das Lesen lehren"
+          ],
+          [
+            "+ Präp. (fixed case)",
+            "sich rächen an/für, abhalten von, bitten um, zwingen zu",
+            "sich an jdm für etwas rächen"
+          ],
+          [
+            "+ Nominativ (predicative)",
+            "sein, bleiben, werden, heißen",
+            "Er bleibt mein Freund."
+          ]
+        ]
+      },
+      "context": {
+        "de": "Der Ausschuss gedachte zunächst der Opfer, dann widersprach er dem Bericht der Regierung in mehreren Punkten. Die Vorwürfe bedürften einer Prüfung, hieß es; man werde niemanden vorschnell des Versagens beschuldigen. Der Minister wich den Fragen aus – was ihn, wie ein Abgeordneter bemerkte, das Vertrauen des Hauses kosten könne. Die Opposition erfreut sich seither wachsender Zustimmung und lässt sich von Warnungen nicht davon abhalten, Neuwahlen zu fordern.",
+        "en": "The committee first commemorated the victims, then contradicted the government's report on several points. The allegations required examination, it was said; nobody would be accused of failure prematurely. The minister evaded the questions – which, as one MP remarked, could cost him the confidence of the House. The opposition has since enjoyed growing support and won't be kept by warnings from demanding new elections."
+      },
+      "mistakes": [
+        {
+          "wrong": "Er widersprach den Vorschlag.",
+          "right": "Er widersprach dem Vorschlag.",
+          "why": "widersprechen + Dativ."
+        },
+        {
+          "wrong": "Man beschuldigte ihn von Betrug.",
+          "right": "Man beschuldigte ihn des Betrugs.",
+          "why": "beschuldigen + Akk + Genitiv."
+        },
+        {
+          "wrong": "Das kostete ihm den Posten.",
+          "right": "Das kostete ihn den Posten.",
+          "why": "kosten takes two accusatives."
+        }
+      ],
+      "exam": "Goethe C2 Schreiben Teil 1 (reformulation: valency must survive the transformation) and Lesen (cloze on cases after verbs)."
+    }
+  },
+  {
+    "id": "quest_c2_1_komposita",
+    "after": "quest_c2_1_valenz",
+    "status": "live",
+    "covers": [
+      "c2.compounds"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "C2.1 · Komposita bilden & verstehen",
+      "level": "C2.1",
+      "promptLabel": "Kompositum",
+      "subjectsLabel": "Komposita",
+      "subjectColumnLabel": "Teile",
+      "subjects": [
+        {
+          "key": "k0",
+          "display": "Arbeit + Markt",
+          "english": "labour market"
+        },
+        {
+          "key": "k1",
+          "display": "Prüfung + Ordnung",
+          "english": "examination regulations"
+        },
+        {
+          "key": "k2",
+          "display": "Kind + Garten",
+          "english": "kindergarten"
+        },
+        {
+          "key": "k3",
+          "display": "Sonne + Brille",
+          "english": "sunglasses"
+        },
+        {
+          "key": "k4",
+          "display": "Buch + Handlung",
+          "english": "bookshop"
+        },
+        {
+          "key": "k5",
+          "display": "Tag + Zeitung",
+          "english": "daily newspaper"
+        },
+        {
+          "key": "k6",
+          "display": "Hund + Hütte",
+          "english": "kennel"
+        },
+        {
+          "key": "k7",
+          "display": "Liebe + Brief",
+          "english": "love letter"
+        },
+        {
+          "key": "k8",
+          "display": "Geschwindigkeit + Begrenzung",
+          "english": "speed limit"
+        },
+        {
+          "key": "k9",
+          "display": "Wissenschaft + Freiheit",
+          "english": "academic freedom"
+        },
+        {
+          "key": "k10",
+          "display": "Schwein + Braten",
+          "english": "roast pork"
+        },
+        {
+          "key": "k11",
+          "display": "Frau + Arzt",
+          "english": "gynaecologist"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Kompositum (mit Artikel)",
+          "group": "k",
+          "values": [
+            "der Arbeitsmarkt",
+            "die Prüfungsordnung",
+            "der Kindergarten",
+            "die Sonnenbrille",
+            "die Buchhandlung",
+            "die Tageszeitung",
+            "die Hundehütte",
+            "der Liebesbrief",
+            "die Geschwindigkeitsbegrenzung",
+            "die Wissenschaftsfreiheit",
+            "der Schweinebraten",
+            "der Frauenarzt"
+          ]
+        },
+        {
+          "label": "Fugenelement",
+          "group": "f",
+          "values": [
+            "-s-",
+            "-s-",
+            "-er-",
+            "-n-",
+            "— (kein)",
+            "-es-",
+            "-e-",
+            "-s-",
+            "-s-",
+            "-s-",
+            "-e-",
+            "-en-"
+          ]
+        }
+      ],
+      "sentenceTemplates": {
+        "Kompositum (mit Artikel)": [
+          "{subject} → ____"
+        ],
+        "Fugenelement": [
+          "{subject}: welches Fugenelement? ____"
+        ]
+      }
+    },
+    "help": {
+      "intro": "German compounds are built right to left: the last element (Determinatum) is the head and gives gender and plural; everything before it (Determinans) specifies — der Arbeitsmarkt is a Markt, die Buchhandlung a Handlung. Between the parts sits a linking element (Fugenelement) whose choice is historical rather than grammatical: -s- after -ung / -heit / -keit / -schaft / -ion / -tät and many masculine/neuter nouns (Prüfungsordnung, Arbeitsmarkt, Liebesbrief, Geschwindigkeitsbegrenzung), -n- / -en- after most feminine nouns in -e and weak masculines (Sonnenbrille, Frauenarzt, Studentenwerk), -e- after some nouns with an -e plural (Hundehütte, Schweinebraten, Tageszeitung with -es-), -er- after nouns with an -er plural (Kindergarten, Bücherregal), and nothing at all in many (Buchhandlung, Haustür). Compounds are also made ad hoc — Bahnhofsbuchhandlungskette — and decoded by finding the head and peeling leftward. At C2 you form them for concision (die Geschwindigkeitsbegrenzung instead of die Begrenzung der Geschwindigkeit) and read them at speed.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Head last: gender, plural, meaning",
+          "text": "der Arbeitsmarkt (Markt: der) · die Buchhandlung (Handlung: die) · das Bücherregal (Regal: das). Plural of the head: Arbeitsmärkte. Meaning: a market for labour, a shop for books — read from the right.",
+          "examples": [
+            {
+              "de": "die Bahnhofsbuchhandlung = die Buchhandlung am Bahnhof; der Buchhandlungsbahnhof wäre ein Bahnhof.",
+              "en": "the station bookshop = the bookshop at the station"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Fugen-s: after -ung, -heit, -keit, -schaft, -ion, -tät, and many others",
+          "text": "Prüfungsordnung, Freiheitsstatue, Möglichkeitsform, Wissenschaftsfreiheit, Informationsfluss, Universitätsstadt · also Arbeitsmarkt, Liebesbrief, Geburtstag, Verkehrsamt, Jahreszeit, Bundestag. No -s- after most feminine nouns not ending in those suffixes (Buchhandlung? no: Buch is neuter and takes none).",
+          "examples": [
+            {
+              "de": "Die Geschwindigkeitsbegrenzung auf der Bundesstraße gilt laut Verkehrsamt ganzjährig.",
+              "en": "The speed limit on the federal road applies all year according to the traffic office."
+            }
+          ],
+          "trap": "E19 — the Fugen-s is not a genitive, though it looks like one: Arbeitsmarkt (not 'the market of work' grammatically), Liebesbrief (Liebe is feminine and has no genitive -s). It's a joint, not a case."
+        },
+        {
+          "kind": "rule",
+          "title": "-n-/-en-, -e-, -er-, or nothing",
+          "text": "-n-/-en-: Sonnenbrille, Frauenarzt, Straßenbahn, Studentenwerk, Menschenrecht · -e-: Hundehütte, Schweinebraten, Pferdestall, Tagebuch (and -es- in Tageszeitung) · -er-: Kindergarten, Bücherregal, Bilderbuch · nothing: Buchhandlung, Haustür, Handschuh, Bergsteiger.",
+          "examples": [
+            {
+              "de": "Im Kindergarten hängt ein Bilderbuch neben der Hundehütte aus dem Schweinebraten-Rezept.",
+              "en": "In the kindergarten a picture book hangs next to the kennel from the roast-pork recipe."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Decode leftward, then rebuild",
+          "text": "Bundesverfassungsgericht: Gericht ← Verfassung(s) ← Bund(es). A court, for the constitution, of the federation. Any monster compound falls apart from the right; and a phrase folds into one from the left: das Gericht für die Verfassung des Bundes → Bundesverfassungsgericht.",
+          "examples": [
+            {
+              "de": "Arbeitslosenversicherungsbeitrag = der Beitrag zur Versicherung der Arbeitslosen",
+              "en": "unemployment insurance contribution"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Head last: gender and meaning from the right.",
+        "-s- after -ung/-heit/-keit/-schaft/-ion/-tät; -n- after feminines in -e; -er- after -er plurals; often nothing."
+      ],
+      "table": {
+        "title": "Linking elements",
+        "columns": [
+          "joint",
+          "when",
+          "examples"
+        ],
+        "rows": [
+          [
+            "-s-",
+            "after -ung, -heit, -keit, -schaft, -ion, -tät; many m/n nouns",
+            "Prüfungsordnung, Arbeitsmarkt, Liebesbrief"
+          ],
+          [
+            "-n- / -en-",
+            "feminine nouns in -e; weak masculines",
+            "Sonnenbrille, Frauenarzt, Studentenwerk"
+          ],
+          [
+            "-e- / -es-",
+            "some nouns with -e plural; Tag",
+            "Hundehütte, Schweinebraten, Tageszeitung"
+          ],
+          [
+            "-er-",
+            "nouns with -er plural",
+            "Kindergarten, Bücherregal"
+          ],
+          [
+            "—",
+            "many nouns",
+            "Buchhandlung, Haustür, Handschuh"
+          ]
+        ]
+      },
+      "context": {
+        "de": "Der Arbeitsmarkt für Wissenschaftlerinnen hat sich verändert: Die Prüfungsordnungen der Universitäten, die Geschwindigkeitsbegrenzung des Wettbewerbs durch Befristungen und die Wissenschaftsfreiheit als Verfassungsgut stehen in Spannung. In der Bahnhofsbuchhandlung liegt eine Tageszeitung mit der Schlagzeile „Kindergartenplätze statt Hochschulstellen“ – ein Kompositum, das die Debatte in drei Wörtern zusammenfasst.",
+        "en": "The labour market for female scientists has changed: the universities' examination regulations, the speed limit imposed on competition by fixed-term contracts, and academic freedom as a constitutional good are in tension. In the station bookshop lies a daily paper with the headline 'Kindergarten places instead of university posts' – a compound that sums up the debate in three words."
+      },
+      "mistakes": [
+        {
+          "wrong": "die Arbeitmarkt",
+          "right": "der Arbeitsmarkt",
+          "why": "Fugen-s and gender from Markt."
+        },
+        {
+          "wrong": "die Sonnebrille",
+          "right": "die Sonnenbrille",
+          "why": "-n- after Sonne."
+        },
+        {
+          "wrong": "der Buchshandlung",
+          "right": "die Buchhandlung",
+          "why": "No joint after Buch; gender from Handlung."
+        }
+      ],
+      "exam": "Goethe C2 Lesen (decoding long compounds at speed) and Schreiben Teil 1 (compressing phrases into compounds for nominal style)."
+    }
+  },
+  {
+    "id": "quest_c2_1_komparation_advanced",
+    "after": "quest_c2_1_komposita",
+    "status": "live",
+    "covers": [
+      "c2.comparison-advanced"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "C2.1 · Komparation advanced: einer der größten, bei weitem, je … umso",
+      "level": "C2.1",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "English",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "one of the largest cities (relative superlative)",
+          "english": "one of the largest cities"
+        },
+        {
+          "key": "s1",
+          "display": "by far the best solution (bei weitem)",
+          "english": "by far the best solution"
+        },
+        {
+          "key": "s2",
+          "display": "the best by a wide margin (mit Abstand)",
+          "english": "the best by a wide margin"
+        },
+        {
+          "key": "s3",
+          "display": "the more … the more (je … umso)",
+          "english": "the more … the more"
+        },
+        {
+          "key": "s4",
+          "display": "far more expensive (weitaus)",
+          "english": "far more expensive"
+        },
+        {
+          "key": "s5",
+          "display": "a highly interesting question (absolute superlative: höchst)",
+          "english": "a highly interesting question"
+        },
+        {
+          "key": "s6",
+          "display": "at the very least (mindestens / zumindest)",
+          "english": "at the very least"
+        },
+        {
+          "key": "s7",
+          "display": "as good as new (so gut wie)",
+          "english": "as good as new"
+        },
+        {
+          "key": "s8",
+          "display": "rather old than new (eher … als)",
+          "english": "rather old than new"
+        },
+        {
+          "key": "s9",
+          "display": "twice as expensive (doppelt so … wie)",
+          "english": "twice as expensive"
+        },
+        {
+          "key": "s10",
+          "display": "ever larger (immer + comparative)",
+          "english": "ever larger"
+        },
+        {
+          "key": "s11",
+          "display": "the second-largest (zweitgrößte)",
+          "english": "the second-largest"
+        },
+        {
+          "key": "x12",
+          "display": "nowhere near as good (bei weitem nicht so … wie)",
+          "english": "nowhere near as good"
+        },
+        {
+          "key": "x13",
+          "display": "even better (noch)",
+          "english": "even better"
+        },
+        {
+          "key": "x14",
+          "display": "one of the few (einer der wenigen)",
+          "english": "one of the few"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Form",
+          "group": "f",
+          "values": [
+            "eine der größten Städte",
+            "bei weitem die beste Lösung",
+            "mit Abstand die beste",
+            "je mehr …, umso mehr …",
+            "weitaus teurer",
+            "eine höchst interessante Frage",
+            "zumindest",
+            "so gut wie neu",
+            "eher alt als neu",
+            "doppelt so teuer wie",
+            "immer größer",
+            "die zweitgrößte",
+            "bei weitem nicht so gut wie",
+            "noch besser",
+            "eines der wenigen"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Form",
+          "sentence": "Berlin ist ____ Europas. (one of the largest cities)",
+          "acceptedAnswers": [
+            "eine der größten Städte"
+          ],
+          "english": "Berlin is one of the largest cities in Europe."
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Form",
+          "sentence": "Das ist ____. (by far the best solution)",
+          "acceptedAnswers": [
+            "bei weitem die beste Lösung"
+          ],
+          "english": "That is by far the best solution."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Form",
+          "sentence": "Sie war ____. (the best by a wide margin)",
+          "acceptedAnswers": [
+            "mit Abstand die beste",
+            "mit Abstand die Beste"
+          ],
+          "english": "She was the best by a wide margin."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Form",
+          "sentence": "____ man liest, ____ versteht man. (the more … the more)",
+          "acceptedAnswers": [
+            "Je mehr …, umso mehr …",
+            "je mehr …, umso mehr …",
+            "Je mehr … desto mehr"
+          ],
+          "english": "The more you read, the more you understand."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Form",
+          "sentence": "Das neue Modell ist ____. (far more expensive)",
+          "acceptedAnswers": [
+            "weitaus teurer",
+            "wesentlich teurer",
+            "erheblich teurer"
+          ],
+          "english": "The new model is far more expensive."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Form",
+          "sentence": "Das ist ____. (a highly interesting question)",
+          "acceptedAnswers": [
+            "eine höchst interessante Frage",
+            "eine äußerst interessante Frage"
+          ],
+          "english": "That's a highly interesting question."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Form",
+          "sentence": "Er hätte ____ anrufen können. (at least)",
+          "acceptedAnswers": [
+            "zumindest",
+            "wenigstens",
+            "immerhin"
+          ],
+          "english": "He could at least have called."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Form",
+          "sentence": "Das Auto ist ____. (as good as new)",
+          "acceptedAnswers": [
+            "so gut wie neu"
+          ],
+          "english": "The car is as good as new."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Form",
+          "sentence": "Das Haus ist ____. (rather old than new)",
+          "acceptedAnswers": [
+            "eher alt als neu"
+          ],
+          "english": "The house is rather old than new."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Form",
+          "sentence": "Das Hotel ist ____ das andere. (twice as expensive as)",
+          "acceptedAnswers": [
+            "doppelt so teuer wie"
+          ],
+          "english": "The hotel is twice as expensive as the other."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Form",
+          "sentence": "Die Städte werden ____. (ever larger)",
+          "acceptedAnswers": [
+            "immer größer"
+          ],
+          "english": "The cities are getting ever larger."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Form",
+          "sentence": "Hamburg ist ____ Stadt Deutschlands. (the second-largest)",
+          "acceptedAnswers": [
+            "die zweitgrößte"
+          ],
+          "english": "Hamburg is the second-largest city in Germany."
+        },
+        {
+          "subjectKey": "x12",
+          "categoryLabel": "Form",
+          "sentence": "Das Ergebnis ist ____ erwartet. (nowhere near as good as)",
+          "acceptedAnswers": [
+            "bei weitem nicht so gut wie"
+          ],
+          "english": "The result is nowhere near as good as expected."
+        },
+        {
+          "subjectKey": "x13",
+          "categoryLabel": "Form",
+          "sentence": "Der zweite Versuch war ____. (even better)",
+          "acceptedAnswers": [
+            "noch besser"
+          ],
+          "english": "The second attempt was even better."
+        },
+        {
+          "subjectKey": "x14",
+          "categoryLabel": "Form",
+          "sentence": "Das ist ____ Beispiele. (one of the few)",
+          "acceptedAnswers": [
+            "eines der wenigen"
+          ],
+          "english": "That's one of the few examples."
+        }
+      ]
+    },
+    "help": {
+      "intro": "Beyond -er and -st lies the apparatus of nuanced comparison that C2 prose uses constantly. Relative superlatives: einer der größten (one of the largest — genitive plural after einer), die zweitgrößte / drittgrößte (second-, third-largest), der bei weitem / mit Abstand beste (by far / by a wide margin the best), einer der wenigen (one of the few). Intensified comparatives: weitaus / wesentlich / erheblich / bedeutend / ungleich teurer (far more expensive), immer größer (ever larger), noch besser (even better), bei weitem nicht so gut (nowhere near as good). Absolute superlatives, where -st marks a high degree without comparison: höchst / äußerst interessant (highly), in höchstem Maße, aufs Schärfste, neueste Mode. Proportionality: je mehr …, umso / desto mehr … Equality and approximation: so gut wie neu (as good as), doppelt / dreimal so teuer wie (twice as), eher … als (rather … than), ebenso … wie (just as). And the floor: zumindest / wenigstens / immerhin (at least). Each carries a case or a word-order rule; together they let you grade a claim to the exact degree.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Relative superlatives: einer der …-sten + Gen. Pl.",
+          "text": "eine der größten Städte Europas · einer der wichtigsten Gründe · eines der wenigen Beispiele · die zweitgrößte Stadt, das drittteuerste Hotel · der bei weitem / mit Abstand beste Vorschlag.",
+          "examples": [
+            {
+              "de": "Berlin ist eine der größten, aber bei weitem nicht die teuerste Stadt Europas.",
+              "en": "Berlin is one of the largest but by far not the most expensive city in Europe."
+            }
+          ],
+          "trap": "E7 — after einer / eine / eines der, the noun is genitive plural with -en on the adjective: einer der größten Städte (not 'größte'). And zweitgrößte is one word."
+        },
+        {
+          "kind": "rule",
+          "title": "Intensify the comparative; absolute superlative",
+          "text": "weitaus / wesentlich / erheblich / bedeutend / ungleich + comparative (weitaus teurer) · immer + comparative (immer größer) · noch + comparative (noch besser) · bei weitem nicht so … wie. Absolute: höchst / äußerst + adjective (höchst interessant), aufs Schärfste (most sharply), in höchstem Maße.",
+          "examples": [
+            {
+              "de": "Die Lage ist weitaus ernster als angenommen und wird immer schwieriger – ein höchst beunruhigender Befund.",
+              "en": "The situation is far more serious than assumed and is getting ever more difficult – a highly worrying finding."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Proportion, equality, approximation, floor",
+          "text": "je mehr …, umso / desto mehr … (verb last in the je-clause, second after umso) · so gut wie neu · doppelt / dreimal so teuer wie · ebenso wichtig wie · eher alt als neu · zumindest / wenigstens / immerhin (at least — floor).",
+          "examples": [
+            {
+              "de": "Je länger man wartet, umso teurer wird es – zumindest doppelt so teuer wie heute.",
+              "en": "The longer you wait, the more expensive it gets – at least twice as expensive as today."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Grade the superlative",
+          "text": "der beste (flat) → einer der besten (one of) → bei weitem der beste (by far) → mit Abstand der beste (by a margin) → der mit Abstand beste (inside the phrase). Choose the degree of confidence you mean.",
+          "examples": [
+            {
+              "de": "einer der besten – der bei weitem beste – der mit Abstand beste",
+              "en": "one of the best – by far the best – the best by a margin"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "einer der …-sten + Gen. Pl.; zweitgrößte; bei weitem / mit Abstand der beste.",
+        "weitaus / erheblich + comparative; höchst / äußerst + adjective; je … umso; so … wie; eher … als."
+      ],
+      "table": {
+        "title": "Comparison — advanced forms",
+        "columns": [
+          "type",
+          "form",
+          "example"
+        ],
+        "rows": [
+          [
+            "relative superlative",
+            "einer der …-sten (Gen. Pl.); zweit-/dritt-…-ste",
+            "eine der größten Städte; die zweitgrößte"
+          ],
+          [
+            "intensified superlative",
+            "bei weitem / mit Abstand der …-ste",
+            "mit Abstand die beste"
+          ],
+          [
+            "intensified comparative",
+            "weitaus / wesentlich / erheblich / ungleich …-er; immer …-er",
+            "weitaus teurer; immer größer"
+          ],
+          [
+            "absolute superlative",
+            "höchst / äußerst + Adj.; aufs …-ste",
+            "höchst interessant; aufs Schärfste"
+          ],
+          [
+            "proportion",
+            "je …-er, umso / desto …-er",
+            "je mehr, umso besser"
+          ],
+          [
+            "equality / multiple",
+            "(genau)so … wie; doppelt so … wie; ebenso … wie",
+            "so gut wie neu; doppelt so teuer wie"
+          ],
+          [
+            "preference / floor",
+            "eher … als; zumindest, wenigstens, immerhin",
+            "eher alt als neu; zumindest"
+          ]
+        ]
+      },
+      "context": {
+        "de": "Hamburg, die zweitgrößte Stadt des Landes und eine der wichtigsten Hafenstädte Europas, ist bei weitem nicht so teuer wie München – aber weitaus teurer als noch vor zehn Jahren. Je attraktiver eine Stadt, umso höher die Mieten; das gilt in höchstem Maße für den Hafenrand, wo Wohnungen mit Abstand am schnellsten vergeben werden. Wer dort wohnen will, braucht eher Glück als Geld – oder zumindest beides.",
+        "en": "Hamburg, the country's second-largest city and one of Europe's most important port cities, is by far not as expensive as Munich – but far more expensive than ten years ago. The more attractive a city, the higher the rents; this applies in the highest degree to the harbour edge, where flats are let by far the fastest. Anyone wanting to live there needs luck rather than money – or at least both."
+      },
+      "mistakes": [
+        {
+          "wrong": "eine der größte Städte",
+          "right": "eine der größten Städte",
+          "why": "Genitive plural after einer der."
+        },
+        {
+          "wrong": "die zweite größte Stadt",
+          "right": "die zweitgrößte Stadt",
+          "why": "One word."
+        },
+        {
+          "wrong": "doppelt so teuer als",
+          "right": "doppelt so teuer wie",
+          "why": "so … wie for multiples."
+        }
+      ],
+      "exam": "Goethe C2 Sprechen (graded claims in the Vortrag) and Schreiben (precision of comparison in argument)."
+    }
+  },
+  {
+    "id": "quest_c2_1_adjektivbildung",
+    "after": "quest_c2_1_komparation_advanced",
+    "status": "live",
+    "covers": [
+      "c2.adjective-formation"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "C2.1 · Adjektivbildung: -haft, -mäßig, -artig, -fähig, -würdig, -gerecht",
+      "level": "C2.1",
+      "promptLabel": "Basis",
+      "subjectsLabel": "Adjektive",
+      "subjectColumnLabel": "Basis + Nachsilbe",
+      "subjects": [
+        {
+          "key": "a0",
+          "display": "Meister + -haft",
+          "english": "masterly"
+        },
+        {
+          "key": "a1",
+          "display": "Regel + -mäßig",
+          "english": "regular"
+        },
+        {
+          "key": "a2",
+          "display": "Katze + -artig",
+          "english": "catlike"
+        },
+        {
+          "key": "a3",
+          "display": "Lernen + -fähig",
+          "english": "capable of learning"
+        },
+        {
+          "key": "a4",
+          "display": "Glaube + -würdig",
+          "english": "credible"
+        },
+        {
+          "key": "a5",
+          "display": "Kind + -gerecht",
+          "english": "child-appropriate"
+        },
+        {
+          "key": "a6",
+          "display": "Zucker + -frei",
+          "english": "sugar-free"
+        },
+        {
+          "key": "a7",
+          "display": "Abwechslung + -reich",
+          "english": "varied"
+        },
+        {
+          "key": "a8",
+          "display": "Rücksicht + -los",
+          "english": "inconsiderate"
+        },
+        {
+          "key": "a9",
+          "display": "Ehre + -haft (negative: Vorwurf)",
+          "english": "honourable"
+        },
+        {
+          "key": "a10",
+          "display": "Verhältnis + -mäßig",
+          "english": "relative(ly), proportionate"
+        },
+        {
+          "key": "a11",
+          "display": "Fach + -gerecht",
+          "english": "professional, expert"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Adjektiv",
+          "group": "adj",
+          "values": [
+            "meisterhaft",
+            "regelmäßig",
+            "katzenartig",
+            "lernfähig",
+            "glaubwürdig",
+            "kindgerecht",
+            "zuckerfrei",
+            "abwechslungsreich",
+            "rücksichtslos",
+            "ehrenhaft",
+            "verhältnismäßig",
+            "fachgerecht"
+          ]
+        },
+        {
+          "label": "Bedeutung der Nachsilbe",
+          "group": "bed",
+          "values": [
+            "-haft: in der Art von",
+            "-mäßig: gemäß / in Bezug auf",
+            "-artig: ähnlich wie",
+            "-fähig: imstande zu",
+            "-würdig: verdient / wert",
+            "-gerecht: passend für",
+            "-frei: befreit von",
+            "-reich: reich an",
+            "-los: ohne",
+            "-haft: in der Art von",
+            "-mäßig: in Bezug auf",
+            "-gerecht: passend für"
+          ]
+        }
+      ],
+      "sentenceTemplates": {
+        "Adjektiv": [
+          "{subject} → ____"
+        ],
+        "Bedeutung der Nachsilbe": [
+          "{subject}: was bedeutet die Nachsilbe? ____"
+        ]
+      }
+    },
+    "help": {
+      "intro": "The C2 adjective suffixes are the ones that build technical and evaluative vocabulary with precision. -haft (having the nature of): meisterhaft, ehrenhaft, rätselhaft, sagenhaft, mangelhaft, fehlerhaft. -mäßig (in accordance with / with regard to): regelmäßig, verhältnismäßig, planmäßig, zahlenmäßig, gewohnheitsmäßig — and the colloquial 'x-wise' (arbeitsmäßig = work-wise). -artig (of the kind of, resembling): katzenartig, neuartig, einzigartig, gutartig / bösartig (benign / malignant), schlagartig (abruptly). -fähig (capable of): lernfähig, arbeitsfähig, zahlungsfähig, konkurrenzfähig, entwicklungsfähig. -würdig (deserving of): glaubwürdig, sehenswürdig, merkwürdig (strange — originally 'worth noting'), fragwürdig (questionable), preiswürdig. -gerecht (suited to): kindgerecht, fachgerecht, altersgerecht, umweltgerecht, termingerecht. Plus the pairs -frei / -los (zuckerfrei = freed from, positive; rücksichtslos = lacking, negative) and -reich / -arm (abwechslungsreich / kalorienarm). Each suffix has a stable meaning, so a new coinage (KI-fähig, klimagerecht) is instantly readable.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "-haft, -artig: nature and resemblance",
+          "text": "-haft: meisterhaft (masterly), ehrenhaft, rätselhaft (enigmatic), sagenhaft (fabulous), mangelhaft (deficient), lebhaft, dauerhaft (lasting). -artig: katzenartig, neuartig (novel), einzigartig (unique), gutartig / bösartig, schlagartig (abruptly), großartig.",
+          "examples": [
+            {
+              "de": "Eine meisterhafte, geradezu einzigartige Aufführung – wenn auch mit einem rätselhaften Schluss.",
+              "en": "A masterly, downright unique performance – if with an enigmatic ending."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "-mäßig, -gerecht: accordance and suitability",
+          "text": "-mäßig: regelmäßig, planmäßig (on schedule), verhältnismäßig (relatively), zahlenmäßig (numerically), gesetzmäßig (lawful); colloquial: arbeitsmäßig (work-wise). -gerecht: kindgerecht, altersgerecht, fachgerecht (professionally), umweltgerecht, termingerecht (on time), leistungsgerecht.",
+          "examples": [
+            {
+              "de": "Die Wohnung wurde fachgerecht und termingerecht renoviert – zu einem verhältnismäßig günstigen Preis.",
+              "en": "The flat was renovated professionally and on time – at a relatively favourable price."
+            }
+          ],
+          "trap": "E20 — merkwürdig means strange, not 'worth noting' (its origin); fragwürdig means questionable, not 'worth asking'. -würdig has drifted in these two."
+        },
+        {
+          "kind": "rule",
+          "title": "-fähig, -würdig: capacity and desert",
+          "text": "-fähig: lernfähig, arbeitsfähig, zahlungsfähig (solvent), konkurrenzfähig (competitive), funktionsfähig, aufnahmefähig. -würdig: glaubwürdig (credible), sehenswürdig (worth seeing — die Sehenswürdigkeit), preiswürdig, liebenswürdig (kind), unwürdig, bemerkenswert (-wert variant).",
+          "examples": [
+            {
+              "de": "Ein glaubwürdiger, konkurrenzfähiger Anbieter – zahlungsfähig und lernfähig.",
+              "en": "A credible, competitive provider – solvent and capable of learning."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "-frei vs -los; -reich vs -arm",
+          "text": "-frei = freed from something unwanted (zuckerfrei, stressfrei, fehlerfrei — positive). -los = lacking something wanted (rücksichtslos, hilflos, arbeitslos — negative). -reich = rich in (abwechslungsreich), -arm = poor in (kalorienarm). Choose by the sign you mean.",
+          "examples": [
+            {
+              "de": "fehlerfrei (good) — fehlerhaft (bad) — hilflos (bad) — hilfsbereit (good)",
+              "en": "the sign of the suffix"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "-haft (nature), -artig (resemblance), -mäßig (accordance), -gerecht (suited to), -fähig (capable), -würdig (deserving).",
+        "-frei (freed from, +) vs -los (lacking, −); -reich vs -arm."
+      ],
+      "table": {
+        "title": "C2 adjective suffixes",
+        "columns": [
+          "suffix",
+          "meaning",
+          "examples"
+        ],
+        "rows": [
+          [
+            "-haft",
+            "having the nature of",
+            "meisterhaft, rätselhaft, mangelhaft, dauerhaft"
+          ],
+          [
+            "-artig",
+            "of the kind of, resembling",
+            "neuartig, einzigartig, bösartig, schlagartig"
+          ],
+          [
+            "-mäßig",
+            "in accordance with; with regard to",
+            "regelmäßig, planmäßig, verhältnismäßig"
+          ],
+          [
+            "-gerecht",
+            "suited to",
+            "kindgerecht, fachgerecht, termingerecht"
+          ],
+          [
+            "-fähig",
+            "capable of",
+            "lernfähig, zahlungsfähig, konkurrenzfähig"
+          ],
+          [
+            "-würdig",
+            "deserving of",
+            "glaubwürdig, sehenswürdig, fragwürdig"
+          ],
+          [
+            "-frei / -los",
+            "freed from / lacking",
+            "zuckerfrei / rücksichtslos"
+          ],
+          [
+            "-reich / -arm",
+            "rich / poor in",
+            "abwechslungsreich / kalorienarm"
+          ]
+        ]
+      },
+      "context": {
+        "de": "Das neuartige Verfahren gilt als konkurrenzfähig und dauerhaft, die Ergebnisse als glaubwürdig – wenngleich die zahlenmäßig kleine Studie eine fragwürdige Grundlage bleibt. Termingerecht und fachgerecht umgesetzt, könnte es verhältnismäßig schlagartig den Markt verändern; rücksichtslos eingeführt, wäre es bösartig für die Beschäftigten. Ein abwechslungsreiches, keineswegs fehlerfreies Kapitel der Technikgeschichte.",
+        "en": "The novel process is considered competitive and durable, the results credible – although the numerically small study remains a questionable basis. Implemented on time and professionally, it could change the market relatively abruptly; introduced inconsiderately, it would be malignant for employees. A varied, by no means flawless chapter of the history of technology."
+      },
+      "mistakes": [
+        {
+          "wrong": "kinderfreundlich (meaning designed for children)",
+          "right": "kindgerecht",
+          "why": "-gerecht = suited to; -freundlich = friendly towards."
+        },
+        {
+          "wrong": "regelhaft (meaning regular)",
+          "right": "regelmäßig",
+          "why": "-mäßig for accordance."
+        },
+        {
+          "wrong": "zuckerlos",
+          "right": "zuckerfrei",
+          "why": "Freed-from is -frei."
+        }
+      ],
+      "exam": "Goethe C2 Lesen (dense adjectival vocabulary) and Schreiben (precision and range of adjectives)."
+    }
+  },
+  {
+    "id": "quest_c2_1_umformung_2",
+    "after": "quest_c2_1_konj1_lit",
+    "status": "live",
+    "covers": [
+      "c2.transformation-2"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "C2.1 · Umformulierung 2: nominal ↔ verbal, direkt ↔ indirekt",
+      "level": "C2.1",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "Ausgang",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "Die Regierung beschloss, die Steuern zu senken. → nominal",
+          "english": "the government decided to cut taxes"
+        },
+        {
+          "key": "s1",
+          "display": "die Senkung der Steuern durch die Regierung → verbal",
+          "english": "the cutting of taxes by the government"
+        },
+        {
+          "key": "s2",
+          "display": "„Ich komme morgen“, sagte er. → indirekt",
+          "english": "'I'm coming tomorrow,' he said."
+        },
+        {
+          "key": "s3",
+          "display": "Er sagte, er sei gestern angekommen. → direkt",
+          "english": "He said he had arrived yesterday."
+        },
+        {
+          "key": "s4",
+          "display": "Weil es regnete, fiel das Spiel aus. → Präposition",
+          "english": "because it rained the match was cancelled"
+        },
+        {
+          "key": "s5",
+          "display": "Trotz des Regens fand das Spiel statt. → Konnektor (Nebensatz)",
+          "english": "despite the rain the match took place"
+        },
+        {
+          "key": "s6",
+          "display": "Man renovierte das Gebäude. → Passiv",
+          "english": "the building was renovated"
+        },
+        {
+          "key": "s7",
+          "display": "Das Gebäude ist zu renovieren. → Modalpassiv",
+          "english": "the building is to be renovated"
+        },
+        {
+          "key": "s8",
+          "display": "Nachdem er angekommen war, rief er an. → nominal",
+          "english": "after he had arrived he called"
+        },
+        {
+          "key": "s9",
+          "display": "bei Nichtbeachtung der Regeln → verbal",
+          "english": "in case of non-compliance"
+        },
+        {
+          "key": "s10",
+          "display": "„Kommen Sie bitte morgen!“ → indirekt",
+          "english": "'Please come tomorrow!'"
+        },
+        {
+          "key": "s11",
+          "display": "Es regnete stark, sodass … → Präposition",
+          "english": "it rained heavily, so that …"
+        },
+        {
+          "key": "x12",
+          "display": "„Wann kommt der Zug?“, fragte sie. → indirekt",
+          "english": "'When is the train coming?' she asked."
+        },
+        {
+          "key": "x13",
+          "display": "Bevor er ging, rief er an. → Präposition",
+          "english": "before he left he called"
+        },
+        {
+          "key": "x14",
+          "display": "Das Problem lässt sich lösen. → Modalpassiv",
+          "english": "The problem can be solved."
+        }
+      ],
+      "categories": [
+        {
+          "label": "Umformung",
+          "group": "u",
+          "values": [
+            "der Beschluss der Regierung, die Steuern zu senken",
+            "Die Regierung senkte die Steuern",
+            "Er sagte, er komme morgen",
+            "„Ich bin gestern angekommen“, sagte er",
+            "Wegen des Regens fiel das Spiel aus",
+            "Obwohl es regnete, fand das Spiel statt",
+            "Das Gebäude wurde renoviert",
+            "Das Gebäude muss renoviert werden",
+            "Nach seiner Ankunft rief er an",
+            "wenn die Regeln nicht beachtet werden",
+            "Er bat, ich möge morgen kommen",
+            "Infolge des starken Regens …",
+            "Sie fragte, wann der Zug komme",
+            "Vor seinem Weggang rief er an",
+            "Das Problem kann gelöst werden"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Umformung",
+          "sentence": "Die Regierung beschloss, die Steuern zu senken. → ____ (nominal)",
+          "acceptedAnswers": [
+            "der Beschluss der Regierung, die Steuern zu senken",
+            "der Beschluss der Regierung zur Steuersenkung"
+          ],
+          "english": "the government's decision to cut taxes"
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Umformung",
+          "sentence": "die Senkung der Steuern durch die Regierung → ____ (verbal)",
+          "acceptedAnswers": [
+            "Die Regierung senkte die Steuern",
+            "Die Regierung senkt die Steuern"
+          ],
+          "english": "The government cut taxes."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Umformung",
+          "sentence": "„Ich komme morgen“, sagte er. → ____ (indirekt)",
+          "acceptedAnswers": [
+            "Er sagte, er komme morgen",
+            "Er sagte, er werde morgen kommen"
+          ],
+          "english": "He said he was coming tomorrow."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Umformung",
+          "sentence": "Er sagte, er sei gestern angekommen. → ____ (direkt)",
+          "acceptedAnswers": [
+            "„Ich bin gestern angekommen“, sagte er",
+            "Er sagte: „Ich bin gestern angekommen.“"
+          ],
+          "english": "'I arrived yesterday,' he said."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Umformung",
+          "sentence": "Weil es regnete, fiel das Spiel aus. → ____ (Präposition)",
+          "acceptedAnswers": [
+            "Wegen des Regens fiel das Spiel aus",
+            "Aufgrund des Regens fiel das Spiel aus"
+          ],
+          "english": "Because of the rain the match was cancelled."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Umformung",
+          "sentence": "Trotz des Regens fand das Spiel statt. → ____ (Nebensatz)",
+          "acceptedAnswers": [
+            "Obwohl es regnete, fand das Spiel statt"
+          ],
+          "english": "Although it rained, the match took place."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Umformung",
+          "sentence": "Man renovierte das Gebäude. → ____ (Passiv)",
+          "acceptedAnswers": [
+            "Das Gebäude wurde renoviert"
+          ],
+          "english": "The building was renovated."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Umformung",
+          "sentence": "Das Gebäude ist zu renovieren. → ____ (Modalpassiv)",
+          "acceptedAnswers": [
+            "Das Gebäude muss renoviert werden"
+          ],
+          "english": "The building must be renovated."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Umformung",
+          "sentence": "Nachdem er angekommen war, rief er an. → ____ (nominal)",
+          "acceptedAnswers": [
+            "Nach seiner Ankunft rief er an"
+          ],
+          "english": "After his arrival he called."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Umformung",
+          "sentence": "bei Nichtbeachtung der Regeln → ____ (verbal)",
+          "acceptedAnswers": [
+            "wenn die Regeln nicht beachtet werden",
+            "wenn man die Regeln nicht beachtet"
+          ],
+          "english": "if the rules are not observed"
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Umformung",
+          "sentence": "„Kommen Sie bitte morgen!“ → ____ (indirekt)",
+          "acceptedAnswers": [
+            "Er bat, ich möge morgen kommen",
+            "Er bat mich, morgen zu kommen",
+            "Er sagte, ich solle morgen kommen"
+          ],
+          "english": "He asked me to come tomorrow."
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Umformung",
+          "sentence": "Es regnete stark, sodass die Straßen überflutet wurden. → ____ wurden die Straßen überflutet. (Präposition)",
+          "acceptedAnswers": [
+            "Infolge des starken Regens …",
+            "Infolge des starken Regens",
+            "infolge des starken Regens"
+          ],
+          "english": "As a result of the heavy rain the streets were flooded."
+        },
+        {
+          "subjectKey": "x12",
+          "categoryLabel": "Umformung",
+          "sentence": "„Wann kommt der Zug?“, fragte sie. → ____ (indirekt)",
+          "acceptedAnswers": [
+            "Sie fragte, wann der Zug komme"
+          ],
+          "english": "She asked when the train was coming."
+        },
+        {
+          "subjectKey": "x13",
+          "categoryLabel": "Umformung",
+          "sentence": "Bevor er ging, rief er an. → ____ (Präposition)",
+          "acceptedAnswers": [
+            "Vor seinem Weggang rief er an",
+            "Vor seinem Gehen rief er an"
+          ],
+          "english": "Before his departure he called."
+        },
+        {
+          "subjectKey": "x14",
+          "categoryLabel": "Umformung",
+          "sentence": "Das Problem lässt sich lösen. → ____ (Modalpassiv)",
+          "acceptedAnswers": [
+            "Das Problem kann gelöst werden"
+          ],
+          "english": "The problem can be solved."
+        }
+      ]
+    },
+    "help": {
+      "intro": "Goethe C2 Schreiben Teil 1 is a reformulation task: a text is given and you rewrite marked passages in another grammar without changing the meaning — nominal to verbal and back, direct speech to indirect and back, subordinate clause to prepositional phrase and back, active to passive to substitute. This quiz is that task's toolkit in one place. Nominal ↔ verbal: verb ↔ noun, subject ↔ genitive/possessive, object ↔ genitive/compound/preposition, conjunction ↔ preposition (weil ↔ wegen, nachdem ↔ nach, obwohl ↔ trotz, sodass ↔ infolge, wenn ↔ bei). Direct ↔ indirect: tense and person adjust, mood becomes Konjunktiv I (or II on clashes), questions take ob / W-word, commands take solle / möge or a zu-infinitive, and back again with quotation marks and the colon. Active ↔ passive ↔ substitute: object → subject, werden + Partizip II, agent → von/durch; modal passive ↔ sein + zu / sich lassen. The grader checks that meaning, register and grammar all survive; a transformation that drops the agent, shifts the tense or changes the modal's force loses the mark.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Nominal ↔ verbal: the five moves in both directions",
+          "text": "→ nominal: verb → noun; subject → genitive / possessive; object → genitive / compound / preposition; adverb → adjective; conjunction → preposition. → verbal: preposition → conjunction; noun → verb; genitive → subject; adjective → adverb; supply tense.",
+          "examples": [
+            {
+              "de": "Die Regierung beschloss, die Steuern zu senken. ↔ der Beschluss der Regierung, die Steuern zu senken / zur Steuersenkung",
+              "en": "the government decided to cut taxes ↔ the government's decision to cut taxes"
+            },
+            {
+              "de": "bei Nichtbeachtung der Regeln ↔ wenn die Regeln nicht beachtet werden",
+              "en": "in case of non-compliance ↔ if the rules are not observed"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Direct ↔ indirect: mood, person, tense, type",
+          "text": "„Ich komme morgen“, sagte er. → Er sagte, er komme morgen. „Ich bin gestern angekommen.“ → Er sagte, er sei gestern angekommen. „Kommen Sie bitte!“ → Er bat, ich möge kommen / Er bat mich zu kommen. „Kommst du?“ → Er fragte, ob ich komme. Back: quotation marks, colon or comma, first person restored.",
+          "examples": [
+            {
+              "de": "Sie fragte, wann der Zug fahre. ↔ „Wann fährt der Zug?“, fragte sie.",
+              "en": "She asked when the train left. ↔ 'When does the train leave?' she asked."
+            }
+          ],
+          "trap": "E17 — going back to direct speech, the tense must be the speaker's original: 'Er sagte, er sei angekommen' → „Ich bin angekommen“ (Perfekt), not „Ich war angekommen“."
+        },
+        {
+          "kind": "rule",
+          "title": "Clause ↔ preposition: the map, both ways",
+          "text": "weil / da ↔ wegen, aufgrund · obwohl ↔ trotz, ungeachtet · nachdem ↔ nach · bevor ↔ vor · während ↔ während · wenn / falls ↔ bei, im Falle · sodass ↔ infolge (names the cause!) · indem ↔ durch · damit / um … zu ↔ zu, zwecks · ohne dass ↔ ohne.",
+          "examples": [
+            {
+              "de": "Es regnete stark, sodass die Straßen überflutet wurden. ↔ Infolge des starken Regens wurden die Straßen überflutet.",
+              "en": "It rained heavily so the streets flooded. ↔ As a result of the heavy rain the streets flooded."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Active ↔ passive ↔ substitute — keep the agent and the modal force",
+          "text": "Man renovierte das Gebäude. ↔ Das Gebäude wurde renoviert. Die Firma renovierte es. ↔ Es wurde von der Firma renoviert (keep the agent if it's informative). Das Gebäude muss renoviert werden ↔ ist zu renovieren; kann renoviert werden ↔ lässt sich renovieren. Don't turn 'muss' into 'kann' on the way.",
+          "examples": [
+            {
+              "de": "Die Regeln sind zu beachten. ↔ Die Regeln müssen beachtet werden. ↔ Man muss die Regeln beachten.",
+              "en": "The rules are to be observed. (×3)"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Nominal ↔ verbal (five moves), direct ↔ indirect (mood, person, tense, type), clause ↔ preposition (the map), active ↔ passive ↔ substitute (keep agent and modal force).",
+        "Meaning, register, tense and agent must all survive."
+      ],
+      "context": {
+        "de": "Ausgangstext: „Wir werden die Steuern senken“, erklärte die Ministerin, nachdem der Ausschuss getagt hatte; trotz der Kritik der Opposition wurde der Beschluss noch am selben Tag gefasst. — Umformuliert: Die Ministerin erklärte, man werde die Steuern senken; nach der Sitzung des Ausschusses fasste man den Beschluss, obwohl die Opposition Kritik übte, noch am selben Tag. — Und nominal: die Ankündigung der Steuersenkung durch die Ministerin nach der Ausschusssitzung und die Beschlussfassung noch am selben Tag ungeachtet der Kritik der Opposition.",
+        "en": "Source: 'We will cut taxes,' the minister declared after the committee had met; despite the opposition's criticism the decision was taken the same day. — Reformulated: the minister declared taxes would be cut; after the committee's session the decision was taken, although the opposition criticised, the same day. — And nominal: the minister's announcement of the tax cut after the committee session and the adoption of the decision the same day regardless of the opposition's criticism."
+      },
+      "mistakes": [
+        {
+          "wrong": "Er sagte, er kommt morgen.",
+          "right": "Er sagte, er komme morgen.",
+          "why": "Indirect speech takes the Konjunktiv."
+        },
+        {
+          "wrong": "Das Gebäude ist zu renovieren. → Das Gebäude kann renoviert werden.",
+          "right": "→ Das Gebäude muss renoviert werden.",
+          "why": "sein + zu = must here; keep the modal force."
+        },
+        {
+          "wrong": "Infolge der Überflutung regnete es stark.",
+          "right": "Infolge des starken Regens wurden die Straßen überflutet.",
+          "why": "infolge names the cause."
+        }
+      ],
+      "exam": "Goethe C2 Schreiben Teil 1 (Umformulierung: 'inhaltlich äquivalent, grammatisch korrekt, stilistisch angemessen') — this is the task."
+    }
+  },
+  {
+    "id": "quest_c2_1_abtoenung",
+    "after": "quest_c2_1_konnotation",
+    "status": "live",
+    "covers": [
+      "c2.gradation"
+    ],
+    "quiz": {
+      "type": "fillBlank",
+      "title": "C2.1 · Abtönung & Graduierung: durchaus, keineswegs, geradezu",
+      "level": "C2.1",
+      "promptLabel": "Satz",
+      "subjectsLabel": "Sätze",
+      "subjectColumnLabel": "English",
+      "subjects": [
+        {
+          "key": "s0",
+          "display": "That is certainly possible. (durchaus)",
+          "english": "That is certainly possible."
+        },
+        {
+          "key": "s1",
+          "display": "That is by no means certain. (keineswegs)",
+          "english": "That is by no means certain."
+        },
+        {
+          "key": "s2",
+          "display": "That is downright absurd. (geradezu)",
+          "english": "That is downright absurd."
+        },
+        {
+          "key": "s3",
+          "display": "the expert par excellence (schlechthin)",
+          "english": "the expert par excellence"
+        },
+        {
+          "key": "s4",
+          "display": "We're going anyway. (ohnehin)",
+          "english": "We're going anyway."
+        },
+        {
+          "key": "s5",
+          "display": "That's better any day. (allemal)",
+          "english": "That's better any day."
+        },
+        {
+          "key": "s6",
+          "display": "decidedly unfriendly (ausgesprochen)",
+          "english": "decidedly unfriendly"
+        },
+        {
+          "key": "s7",
+          "display": "in a sense (gewissermaßen)",
+          "english": "in a sense"
+        },
+        {
+          "key": "s8",
+          "display": "at least it's cheap (immerhin)",
+          "english": "at least it's cheap"
+        },
+        {
+          "key": "s9",
+          "display": "not exactly cheap (nicht gerade)",
+          "english": "not exactly cheap"
+        },
+        {
+          "key": "s10",
+          "display": "an altogether new idea (durchaus / ganz und gar)",
+          "english": "an altogether new idea"
+        },
+        {
+          "key": "s11",
+          "display": "admittedly / to be sure (zwar / freilich)",
+          "english": "admittedly"
+        },
+        {
+          "key": "x12",
+          "display": "as it were (gleichsam)",
+          "english": "as it were"
+        },
+        {
+          "key": "x13",
+          "display": "exceedingly (überaus)",
+          "english": "exceedingly"
+        },
+        {
+          "key": "x14",
+          "display": "reasonably (einigermaßen)",
+          "english": "reasonably"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Abtönung",
+          "group": "ab",
+          "values": [
+            "durchaus",
+            "keineswegs",
+            "geradezu",
+            "schlechthin",
+            "ohnehin",
+            "allemal",
+            "ausgesprochen",
+            "gewissermaßen",
+            "immerhin",
+            "nicht gerade",
+            "ganz und gar",
+            "freilich",
+            "gleichsam",
+            "überaus",
+            "einigermaßen"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "s0",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ möglich. (certainly, affirming)",
+          "acceptedAnswers": [
+            "durchaus"
+          ],
+          "english": "That is certainly possible."
+        },
+        {
+          "subjectKey": "s1",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ sicher. (by no means)",
+          "acceptedAnswers": [
+            "keineswegs",
+            "keinesfalls"
+          ],
+          "english": "That is by no means certain."
+        },
+        {
+          "subjectKey": "s2",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ absurd. (downright)",
+          "acceptedAnswers": [
+            "geradezu"
+          ],
+          "english": "That is downright absurd."
+        },
+        {
+          "subjectKey": "s3",
+          "categoryLabel": "Abtönung",
+          "sentence": "Sie ist die Expertin ____. (par excellence)",
+          "acceptedAnswers": [
+            "schlechthin"
+          ],
+          "english": "She is the expert par excellence."
+        },
+        {
+          "subjectKey": "s4",
+          "categoryLabel": "Abtönung",
+          "sentence": "Wir gehen ____. (anyway, regardless)",
+          "acceptedAnswers": [
+            "ohnehin",
+            "sowieso"
+          ],
+          "english": "We're going anyway."
+        },
+        {
+          "subjectKey": "s5",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ besser. (any day, certainly)",
+          "acceptedAnswers": [
+            "allemal"
+          ],
+          "english": "That's better any day."
+        },
+        {
+          "subjectKey": "s6",
+          "categoryLabel": "Abtönung",
+          "sentence": "Er war ____ unfreundlich. (decidedly)",
+          "acceptedAnswers": [
+            "ausgesprochen"
+          ],
+          "english": "He was decidedly unfriendly."
+        },
+        {
+          "subjectKey": "s7",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ ein Neuanfang. (in a sense)",
+          "acceptedAnswers": [
+            "gewissermaßen"
+          ],
+          "english": "That is in a sense a new beginning."
+        },
+        {
+          "subjectKey": "s8",
+          "categoryLabel": "Abtönung",
+          "sentence": "____ ist es billig. (at least — salvaging)",
+          "acceptedAnswers": [
+            "Immerhin",
+            "immerhin"
+          ],
+          "english": "At least it's cheap."
+        },
+        {
+          "subjectKey": "s9",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ billig. (not exactly)",
+          "acceptedAnswers": [
+            "nicht gerade"
+          ],
+          "english": "That's not exactly cheap."
+        },
+        {
+          "subjectKey": "s10",
+          "categoryLabel": "Abtönung",
+          "sentence": "eine ____ neue Idee (altogether)",
+          "acceptedAnswers": [
+            "ganz und gar",
+            "durchaus",
+            "völlig"
+          ],
+          "english": "an altogether new idea"
+        },
+        {
+          "subjectKey": "s11",
+          "categoryLabel": "Abtönung",
+          "sentence": "____ ist das teuer, aber … (admittedly)",
+          "acceptedAnswers": [
+            "Freilich",
+            "Zwar",
+            "freilich"
+          ],
+          "english": "Admittedly that's expensive, but …"
+        },
+        {
+          "subjectKey": "x12",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ ein Symbol. (as it were)",
+          "acceptedAnswers": [
+            "gleichsam"
+          ],
+          "english": "That is, as it were, a symbol."
+        },
+        {
+          "subjectKey": "x13",
+          "categoryLabel": "Abtönung",
+          "sentence": "Das ist ____ wichtig. (exceedingly)",
+          "acceptedAnswers": [
+            "überaus"
+          ],
+          "english": "That is exceedingly important."
+        },
+        {
+          "subjectKey": "x14",
+          "categoryLabel": "Abtönung",
+          "sentence": "Ich bin ____ zufrieden. (reasonably)",
+          "acceptedAnswers": [
+            "einigermaßen"
+          ],
+          "english": "I'm reasonably satisfied."
+        }
+      ]
+    },
+    "help": {
+      "intro": "Abtönung — shading a statement's force — is a Goethe C2 assessment criterion in its own words, and it is done with a set of adverbs that have no direct English equivalents. Affirming: durchaus (certainly, quite — often against an expected doubt: Das ist durchaus möglich), allemal (any day, certainly), ohnehin / sowieso (anyway, regardless). Denying: keineswegs / keinesfalls (by no means), nicht gerade (not exactly — understatement), ganz und gar nicht (not at all). Intensifying: geradezu (downright, almost), ausgesprochen (decidedly), regelrecht (veritably), schlechthin (par excellence — after the noun: der Klassiker schlechthin), überaus (exceedingly). Softening: gewissermaßen (in a sense), einigermaßen (reasonably), gleichsam (as it were), immerhin (at least — salvaging), freilich / zwar (admittedly). They sit in the middle field before the element they shade (durchaus möglich, keineswegs sicher, geradezu absurd) or, for freilich / immerhin, in position 1. Without them a C2 text sounds like a list of assertions; with them it sounds like judgement.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Affirm and deny: durchaus / keineswegs, allemal / nicht gerade",
+          "text": "durchaus möglich (certainly possible — against doubt) · keineswegs sicher (by no means certain) · allemal besser (better any day) · nicht gerade billig (not exactly cheap — understated 'expensive') · ohnehin (anyway).",
+          "examples": [
+            {
+              "de": "Der Plan ist durchaus vernünftig, aber keineswegs ausgereift – und nicht gerade billig.",
+              "en": "The plan is certainly sensible but by no means mature – and not exactly cheap."
+            }
+          ],
+          "trap": "E20 — durchaus is not 'throughout' and geradezu is not 'straight to'; both are pure shading words. And 'durchaus nicht' = keineswegs: the negation flips the whole adverb."
+        },
+        {
+          "kind": "rule",
+          "title": "Intensify: geradezu, ausgesprochen, regelrecht, schlechthin, überaus",
+          "text": "geradezu absurd (downright) · ausgesprochen unfreundlich (decidedly) · regelrecht begeistert (veritably) · der Klassiker schlechthin (the classic par excellence — schlechthin follows its noun) · überaus wichtig (exceedingly).",
+          "examples": [
+            {
+              "de": "Die Aufführung war ausgesprochen gelungen, das Finale geradezu triumphal – ein Klassiker schlechthin.",
+              "en": "The performance was decidedly successful, the finale downright triumphant – a classic par excellence."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "title": "Soften and salvage: gewissermaßen, einigermaßen, gleichsam, immerhin, freilich",
+          "text": "gewissermaßen ein Neuanfang (in a sense) · einigermaßen zufrieden (reasonably) · gleichsam ein Symbol (as it were) · Immerhin ist es billig (at least — salvaging) · Freilich ist das teuer (admittedly — conceding before a 'but').",
+          "examples": [
+            {
+              "de": "Freilich ist das Ergebnis bescheiden; immerhin ist es ein Ergebnis – gewissermaßen ein Anfang.",
+              "en": "Admittedly the result is modest; at least it is a result – in a sense a beginning."
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "One shading word per claim",
+          "text": "Every evaluative sentence gets one: durchaus, keineswegs, geradezu, immerhin … It marks the exact temperature of the judgement and is the single cheapest way to sound C2.",
+          "examples": [
+            {
+              "de": "Das ist richtig. → Das ist durchaus richtig. / Das ist keineswegs richtig. / Das ist geradezu richtig.",
+              "en": "certainly / by no means / downright"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "durchaus (certainly) / keineswegs (by no means) / geradezu (downright) / immerhin (at least) / freilich (admittedly) / schlechthin (par excellence, after the noun).",
+        "Middle field, before the shaded word; freilich / immerhin may lead."
+      ],
+      "table": {
+        "title": "Shading adverbs",
+        "columns": [
+          "function",
+          "adverbs",
+          "example"
+        ],
+        "rows": [
+          [
+            "affirm",
+            "durchaus, allemal, ohnehin / sowieso",
+            "durchaus möglich"
+          ],
+          [
+            "deny",
+            "keineswegs, keinesfalls, ganz und gar nicht, nicht gerade",
+            "keineswegs sicher; nicht gerade billig"
+          ],
+          [
+            "intensify",
+            "geradezu, ausgesprochen, regelrecht, überaus, schlechthin",
+            "geradezu absurd; der Klassiker schlechthin"
+          ],
+          [
+            "soften",
+            "gewissermaßen, einigermaßen, gleichsam, in gewisser Weise",
+            "gewissermaßen ein Neuanfang"
+          ],
+          [
+            "salvage / concede",
+            "immerhin, wenigstens, freilich, zwar, gewiss",
+            "Immerhin ist es billig."
+          ]
+        ]
+      },
+      "context": {
+        "de": "Der neue Roman ist durchaus lesenswert, keineswegs aber das Meisterwerk, als das ihn die Kritik feiert. Die Sprache ist ausgesprochen präzise, die Handlung geradezu karg – gewissermaßen ein Experiment. Freilich wird das nicht jedem gefallen; immerhin langweilt es nie. Für Leser, die ohnehin wenig Zeit haben, ist das allemal ein Argument – und nicht gerade das schlechteste.",
+        "en": "The new novel is certainly worth reading, but by no means the masterpiece the critics celebrate it as. The language is decidedly precise, the plot downright sparse – in a sense an experiment. Admittedly that won't please everyone; at least it never bores. For readers who have little time anyway, that is certainly an argument – and not exactly the worst."
+      },
+      "mistakes": [
+        {
+          "wrong": "Das ist durchaus nicht möglich. (meaning: certainly possible)",
+          "right": "Das ist durchaus möglich.",
+          "why": "durchaus nicht = keineswegs."
+        },
+        {
+          "wrong": "der schlechthin Klassiker",
+          "right": "der Klassiker schlechthin",
+          "why": "schlechthin follows its noun."
+        },
+        {
+          "wrong": "Das ist gerade absurd. (meaning: downright)",
+          "right": "Das ist geradezu absurd.",
+          "why": "geradezu, not gerade."
+        }
+      ],
+      "exam": "Goethe C2 Sprechen and Schreiben ('Abtönung und Nuancierung' are named top-band descriptors) — this is that vocabulary."
+    }
+  }
+]

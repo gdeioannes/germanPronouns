@@ -18,6 +18,7 @@
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import GermanText from '../GermanText.svelte';
 	import { isAcceptedAnswer, normalizeAnswer } from '$lib/domain/answers';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
@@ -243,6 +244,21 @@
 	<section class="card">
 		<Burst trigger={burst} count={burstSize} />
 
+		<!-- The word-help switch sits with the sentence it changes, not away in
+		     settings where the Dart build hid it. -->
+		<button
+			type="button"
+			class="word-help"
+			aria-pressed={progress.wordHelp}
+			title={progress.wordHelp
+				? 'Turn word help off'
+				: 'Colour the nouns by gender and tap one for its article'}
+			onclick={() => progress.setWordHelp(!progress.wordHelp)}
+		>
+			<Icon name="book" size="1em" />
+			<span>Word help</span>
+		</button>
+
 		<p class="prompt-label">{current.categoryLabel}</p>
 		{#if subject}
 			<p class="subject">{subject}</p>
@@ -250,7 +266,7 @@
 
 		<!-- The sentence, with the field standing in for its blank. -->
 		<p class="sentence" lang={locale}>
-			{parts.before}<span class="slot"
+			<GermanText text={parts.before} /><span class="slot"
 				><input
 					bind:this={inputEl}
 					bind:value={answer}
@@ -266,7 +282,7 @@
 					autocorrect="off"
 					spellcheck="false"
 				/></span
-			>{parts.after}
+			><GermanText text={parts.after} />
 			<SpeakButton text={spokenForm} {locale} />
 		</p>
 
@@ -380,6 +396,33 @@
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
 		background: var(--surface);
+	}
+
+	/* Quiet until wanted: it is a preference, not part of the exercise. */
+	.word-help {
+		float: right;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.25rem 0.6rem;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		background: none;
+		color: var(--ink-muted);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out);
+	}
+
+	.word-help[aria-pressed='true'] {
+		border-color: var(--accent);
+		background: var(--accent-soft);
+		color: var(--accent);
 	}
 
 	.prompt-label {

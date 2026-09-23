@@ -59,19 +59,76 @@ export interface NavLayout {
 	groups: NavGroup[];
 }
 
-/** One card in a quiz's Help Memory panel. */
+/** A German sentence with its English underneath. */
+export interface Example {
+	de: string;
+	en: string;
+}
+
+/** One rule card in a quiz's Help Memory panel. */
 export interface HelpTip {
 	title?: string;
 	text: string;
+	/** 'rule' | 'mnemonic' | 'warning' | 'exam' — colours the card. */
 	kind?: string;
+	/** Two or three examples; the rule is not learnt from the statement alone. */
+	examples?: Example[];
+	/** The trap for English speakers — an E# id from the contrastive spine, or plain text. */
+	trap?: string;
 }
 
+/** An authored reference table, for quizzes with no grid to derive one from. */
+export interface HelpTable {
+	caption?: string;
+	columns: string[];
+	rows: { cells: string[]; gender?: string }[];
+}
+
+export interface HelpVocab {
+	de: string;
+	article?: string;
+	plural?: string;
+	en: string;
+}
+
+export interface HelpMistake {
+	wrong: string;
+	right: string;
+	why: string;
+}
+
+/**
+ * The Help Memory — the "How it works" panel — in the seven layers the content
+ * plan (docs/content_master_plan.md §4) defines. Every field is optional in the
+ * type so older content still validates; the content gate test decides how
+ * much a given module's quizzes must carry.
+ */
 export interface QuizHelp {
+	/** Layer 1: the idea, in plain English. */
 	intro?: string;
+	/** Layer 2: rule cards. */
 	tips?: HelpTip[];
+	/** Layer 3: an authored table; grid quizzes derive theirs instead. */
+	table?: HelpTable;
+	/** Layer 4: the words this exercise needs. */
+	vocab?: HelpVocab[];
+	/** Layer 5: how to remember it. */
+	remember?: string[];
+	/** Layer 6: a short text using the structure, read aloud. */
+	context?: Example;
+	/** Layer 7: which exam task this feeds. */
+	exam?: string;
+	/** The errors English speakers make on this item. */
+	mistakes?: HelpMistake[];
 	/** Tint the reference table's rows by noun gender. */
 	colorByGender?: boolean;
 }
+
+/**
+ * A placeholder quiz has its Help Memory authored in full and a minimal
+ * exercise behind it — the content is real, the drill is still to be built.
+ */
+export type QuizStatus = 'live' | 'placeholder';
 
 /** Fields every quiz carries, whatever its `type`. */
 export interface QuizBase {
@@ -89,6 +146,10 @@ export interface QuizBase {
 	subjectsLabel?: string;
 	subjectColumnLabel?: string;
 	help?: QuizHelp;
+	/** Absent means live. */
+	status?: QuizStatus;
+	/** Syllabus structure ids this quiz teaches — what the coverage gate counts. */
+	covers?: string[];
 }
 
 // -- fillBlank --------------------------------------------------------------
@@ -240,4 +301,39 @@ export interface PopulatedCourse extends CourseCard {
 	gating?: { progressionUnlockLaps: number; questUnlockLaps: number };
 	nav: NavLayout;
 	quizzes: Quiz[];
+}
+
+// -- syllabus ---------------------------------------------------------------
+
+/** One structure a module must teach, as the official sources list it. */
+export interface SyllabusStructure {
+	id: string;
+	label: string;
+	/** Where the official sources put it, e.g. "A1 (Goethe/telc inventory)". */
+	official?: string;
+	/** Free text: what a learner can do with it. */
+	note?: string;
+}
+
+/** One sub-level's syllabus — the learner-facing master table for a module. */
+export interface SyllabusModule {
+	level: string;
+	title: string;
+	subtitle?: string;
+	canDo: string[];
+	themes: string[];
+	structures: SyllabusStructure[];
+	/** The exam facts a learner should know for this module. */
+	exam?: string[];
+	/**
+	 * When true, the coverage gate test fails the build unless every structure
+	 * is covered by at least one quiz at this level and every quiz meets the
+	 * full Help Memory standard. Flipped module by module as authoring lands.
+	 */
+	complete: boolean;
+}
+
+export interface CourseSyllabus {
+	courseId: string;
+	modules: SyllabusModule[];
 }

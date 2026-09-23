@@ -111,7 +111,7 @@
 		{#each ladder as level (level.id)}
 			<li class:complete={level.complete}>
 				<header class="level-head">
-					<h3>{level.title}</h3>
+					<h3><a class="level-link" href="/course/{course.id}/level/{level.level}">{level.title}</a></h3>
 					<span class="level-meta">
 						<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
 						{#if level.complete}<Icon name="check" size="1em" />{/if}
@@ -353,6 +353,19 @@
 		margin: 0;
 		font-size: var(--step-0);
 		letter-spacing: 0.01em;
+	}
+
+	/* The level title is the way into its syllabus — a link, but one that
+	   looks like the heading it is until hovered. */
+	.level-link {
+		color: inherit;
+		text-decoration: none;
+		border-bottom: 1px dotted var(--line-strong);
+	}
+
+	.level-link:hover {
+		color: var(--accent);
+		border-bottom-color: var(--accent);
 	}
 
 	.level-meta {
