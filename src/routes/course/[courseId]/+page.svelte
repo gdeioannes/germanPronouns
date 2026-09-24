@@ -1,8 +1,12 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
+	import { absoluteUrl, breadcrumbLd, clip } from '$lib/seo';
 	// The course home: the gated CEFR ladder, a progress ring, and the
 	// "continue where you left off" jump. Locks are computed from the same rule
 	// as the Dart app — a sub-level opens only once every earlier quiz is done.
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import SiteNav from '$lib/components/SiteNav.svelte';
+	import Recommendations from '$lib/components/Recommendations.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { rise } from '$lib/motion';
@@ -27,7 +31,11 @@
 		// The ribbons and the ring read the streaks, which load lazily — pull in
 		// this course's, or they all render as zero.
 		await progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
+		statsReady = true;
 	});
+
+	/** Progress and every quiz's stats are in — the recommendations wait on it. */
+	let statsReady = $state(false);
 
 	// Before progress loads nothing reads as done, so the page renders an empty
 	// ring rather than flashing ribbons on and off.
@@ -54,10 +62,32 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{course.name} — Language Quiz</title>
-	<meta name="description" content={course.tagline} />
-</svelte:head>
+<Seo
+	title="{course.name}: {course.quizzes.length} free exercises with audio | Language Quiz"
+	description={clip(`${course.tagline}. ${course.quizzes.length} free interactive German exercises — grammar, reading, listening, dictation and speaking, with audio. No sign-up.`)}
+	path="/course/{course.id}"
+	jsonLd={[
+		breadcrumbLd([
+			{ name: 'Home', path: '/' },
+			{ name: course.name, path: `/course/${course.id}` }
+		]),
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Course',
+			name: course.name,
+			description: course.tagline,
+			url: absoluteUrl(`/course/${course.id}`),
+			educationalLevel: 'CEFR A1–C2',
+			inLanguage: 'en',
+			teaches: 'German',
+			isAccessibleForFree: true,
+			provider: { '@type': 'Organization', name: 'Language Quiz', url: 'https://languagequiz.org' },
+			hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT10M' }
+		}
+	]}
+/>
+
+<SiteNav courseHref="/course/{course.id}" compact />
 
 <main class="page-wide">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
@@ -94,6 +124,8 @@
 			Every exercise in this course is complete.
 		</p>
 	{/if}
+
+	<Recommendations {course} ready={statsReady} excludeId={resume?.id} />
 
 	<!-- Paper practice: the same exercises, printable, with the answers where
 	     the learner wants them (the port of the Flutter PDF export). -->
@@ -226,7 +258,7 @@
 	}
 
 	.pct {
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-2);
 		font-weight: 700;
 		color: var(--heading);
@@ -291,7 +323,7 @@
 
 	.resume-title {
 		display: block;
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-1);
 		font-weight: 700;
 		color: var(--heading);

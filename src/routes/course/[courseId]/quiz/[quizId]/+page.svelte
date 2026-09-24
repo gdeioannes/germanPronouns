@@ -2,7 +2,17 @@
 	// The quiz page. Dispatches on `quiz.type` to the right renderer — the
 	// Svelte equivalent of the Dart DbQuizLoader's kind switch.
 	import HelpMemory from '$lib/components/HelpMemory.svelte';
+	import Seo from '$lib/components/Seo.svelte';
+	import {
+		breadcrumbLd,
+		learningResourceLd,
+		quizDescription,
+		quizTitle,
+		topicOf,
+		type Crumb
+	} from '$lib/seo';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import SiteNav from '$lib/components/SiteNav.svelte';
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
 	import FillBlankQuiz from '$lib/components/quiz/FillBlankQuiz.svelte';
 	import InlineClozeQuiz from '$lib/components/quiz/InlineClozeQuiz.svelte';
@@ -20,7 +30,16 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	const { course, quiz, next } = $derived(data);
+	const { course, quiz, next, previous, vocab, position, levelCount, levelTitle } = $derived(data);
+
+	const path = $derived(`/course/${course.id}/quiz/${quiz.id}`);
+	const levelPath = $derived(`/course/${course.id}/level/${quiz.level}`);
+	const crumbs: Crumb[] = $derived([
+		{ name: 'Home', path: '/' },
+		{ name: course.name, path: `/course/${course.id}` },
+		...(quiz.level ? [{ name: levelTitle ?? quiz.level, path: levelPath }] : []),
+		{ name: topicOf(quiz.title), path }
+	]);
 
 	let finished = $state(false);
 
@@ -57,18 +76,25 @@
 
 <svelte:window onkeydown={onWindowKey} />
 
-<svelte:head>
-	<title>{quiz.title} — {course.name}</title>
-	<meta
-		name="description"
-		content="{quiz.level ?? ''} {quiz.title} — a free German exercise from {course.name}."
-	/>
-</svelte:head>
+<Seo
+	title={quizTitle(quiz)}
+	description={quizDescription(quiz)}
+	{path}
+	type="article"
+	jsonLd={[learningResourceLd(quiz, path, course.name, `/course/${course.id}`), breadcrumbLd(crumbs)]}
+/>
+
+<SiteNav courseHref="/course/{course.id}" compact />
 
 <main class="page">
-	<a class="back-link" href="/course/{course.id}">
-		<Icon name="arrowLeft" size="1em" /> {course.name}
-	</a>
+	<nav class="crumbs" aria-label="Breadcrumb">
+		<a href="/course/{course.id}"><Icon name="arrowLeft" size="1em" /> {course.name}</a>
+		{#if quiz.level}
+			<span aria-hidden="true">›</span>
+			<a href={levelPath}>{levelTitle ?? quiz.level}</a>
+			{#if position}<span class="pos tnum">· {position} of {levelCount}</span>{/if}
+		{/if}
+	</nav>
 
 	<header class="head">
 		<span class="kind" data-kind={quiz.type}>
@@ -88,7 +114,7 @@
 		{/if}
 	</header>
 
-	<HelpMemory {quiz} locale={course.learnLocale} />
+	<HelpMemory {quiz} locale={course.learnLocale} {vocab} />
 
 	{#if quiz.type === 'fillBlank'}
 		<FillBlankQuiz
@@ -158,6 +184,21 @@
 			{/if}
 		</aside>
 	{/if}
+
+	<!-- Plain links to the neighbours, always present: they are how a reader
+	     (and a crawler) moves through the course without the course page. -->
+	<nav class="pager" aria-label="More exercises">
+		{#if previous}
+			<a href="/course/{course.id}/quiz/{previous.id}" rel="prev">
+				<Icon name="arrowLeft" size="1em" /> <span>{topicOf(previous.title)}</span>
+			</a>
+		{:else}<span></span>{/if}
+		{#if next}
+			<a class="to-next" href="/course/{course.id}/quiz/{next.id}" rel="next">
+				<span>{topicOf(next.title)}</span> <Icon name="arrowRight" size="1em" />
+			</a>
+		{/if}
+	</nav>
 </main>
 
 <style>
@@ -226,6 +267,56 @@
 		margin: 0 0 0.95rem;
 		max-width: none;
 		color: var(--right);
+	}
+
+	.crumbs {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem;
+		margin-bottom: 1rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.crumbs a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		color: var(--ink-muted);
+		text-decoration: none;
+	}
+
+	.crumbs a:hover {
+		color: var(--accent);
+	}
+
+	.pager {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-top: 2.2rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--line);
+		font-size: var(--step--1);
+	}
+
+	.pager a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		max-width: 48%;
+		color: var(--ink-muted);
+		text-decoration: none;
+	}
+
+	.pager a:hover {
+		color: var(--accent);
+	}
+
+	.pager .to-next {
+		margin-left: auto;
+		text-align: right;
 	}
 
 	.preview {

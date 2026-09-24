@@ -166,7 +166,7 @@
 	.phrase {
 		margin: 0;
 		max-width: none;
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-3);
 		font-variation-settings: 'opsz' 32;
 		font-weight: 600;

@@ -113,7 +113,7 @@
 		border-radius: 10px;
 		background: var(--surface);
 		box-shadow: 0 10px 28px -12px rgba(31, 58, 95, 0.45);
-		font-family: 'Inter', sans-serif;
+		font-family: 'Inter Variable', 'Inter', sans-serif;
 		font-size: 0.8rem;
 		font-weight: 400;
 		line-height: 1.35;

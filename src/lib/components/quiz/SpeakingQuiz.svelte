@@ -191,7 +191,7 @@
 		border-radius: 50%;
 		background: var(--navy);
 		color: #fff;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Inter Variable', 'Inter', sans-serif;
 		font-size: 0.62em;
 		font-weight: 800;
 	}
@@ -294,7 +294,7 @@
 		align-items: baseline;
 		gap: 0.45rem;
 		margin: 0;
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-3);
 		font-weight: 700;
 		line-height: 1;
@@ -309,7 +309,7 @@
 
 	.grade {
 		margin-left: auto;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Inter Variable', 'Inter', sans-serif;
 		font-size: 0.34em;
 		font-weight: 700;
 		letter-spacing: 0.06em;

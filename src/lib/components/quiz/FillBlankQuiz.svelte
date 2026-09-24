@@ -69,7 +69,10 @@
 	const bag: QuizSentence[] = [];
 	const goal = $derived(progressionUnlockStreak(progress.gating));
 
-	let current = $state<QuizSentence | undefined>(undefined);
+	// The first question is chosen up front rather than in an effect, so the
+	// prerendered page already shows a real sentence instead of an empty card.
+	let current = $state<QuizSentence | undefined>(pool[0]);
+	let started = false;
 	let answer = $state('');
 	/** null while answering; then how it went, which colours the field. */
 	let verdict = $state<'right' | 'wrong' | null>(null);
@@ -141,7 +144,14 @@
 	}
 
 	$effect(() => {
-		if (!current) next();
+		if (!started) {
+			started = true;
+			// Apply the first-letter hint now that settings are readable. The
+			// next draw avoids this question, so it never repeats back to back.
+			if (current) {
+				answer = progress.showFirstLetterHint ? (current.acceptedAnswers[0] ?? '').charAt(0) : '';
+			} else next();
+		}
 		return clearTimers;
 	});
 
@@ -436,7 +446,7 @@
 
 	.subject {
 		margin: 0.4rem 0 0;
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-1);
 		font-weight: 700;
 		color: var(--heading);
@@ -447,7 +457,7 @@
 	.sentence {
 		margin: 0.6rem 0 0;
 		max-width: none;
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-2);
 		font-variation-settings: 'opsz' 28;
 		font-weight: 600;

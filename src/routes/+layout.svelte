@@ -1,9 +1,12 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import { page } from '$app/state';
 	import { cubicOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 	import { trackScreenView } from '$lib/services/analytics';
+	// Self-hosted fonts: no third-party request blocks the first paint, and the
+	// files ship from the same origin as the page.
+	import '@fontsource-variable/inter';
+	import '@fontsource-variable/source-serif-4';
 	import '../app.css';
 
 	let { children } = $props();
@@ -17,19 +20,10 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
-	<!-- The PNG icon and the manifest are what an installed home-screen app
-	     uses; the SVG above is what a browser tab prefers. -->
 	<link rel="icon" type="image/png" href="/favicon.png" />
 	<link rel="apple-touch-icon" href="/icons/Icon-192.png" />
 	<link rel="manifest" href="/manifest.json" />
 	<meta name="theme-color" content="#1F3A5F" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap"
-	/>
 </svelte:head>
 
 <!-- Fades between pages so a client-side navigation reads as a change of

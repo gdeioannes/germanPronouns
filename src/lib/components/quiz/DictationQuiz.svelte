@@ -228,7 +228,7 @@
 	.reveal {
 		margin: 0 0 0.3rem;
 		max-width: none;
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-1);
 		font-weight: 600;
 		color: var(--ink);

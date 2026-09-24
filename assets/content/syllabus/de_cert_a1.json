@@ -21,7 +21,7 @@
         "Länder, Sprachen, Nationalitäten"
       ],
       "exam": [
-        "This module covers the first half of the official A1 structure inventory (Goethe/telc Start Deutsch 1) and 8 of its 13 word groups.",
+        "This module covers the first half of the official A1 structure inventory and 8 of its 13 word groups.",
         "A1 Sprechen Teil 1 is exactly this: introduce yourself with name, age, country, languages, job, hobby."
       ],
       "structures": [
@@ -461,7 +461,7 @@
         {
           "id": "b1.adjective-def",
           "label": "Adjektivdeklination nach bestimmtem Artikel (Nom/Akk/Dat/Gen): -e / -en",
-          "official": "B1 (Goethe Grammatik: Adjektivdeklination)"
+          "official": "B1 (Grammatik: Adjektivdeklination)"
         },
         {
           "id": "b1.adjective-indef",
@@ -536,11 +536,11 @@
         {
           "id": "b1.work-vocabulary",
           "label": "Wortschatz Arbeit & Beruf: Stelle, Bewerbung, Lebenslauf, Gehalt, Vertrag, Überstunden, Teilzeit, arbeitslos",
-          "official": "B1 (Goethe Themen: Arbeit und Beruf)"
+          "official": "B1 (Themen: Arbeit und Beruf)"
         },
         {
           "id": "b1.email-redemittel",
-          "label": "Schreiben: E-Mail formell/informell — Anrede, Einleitung, Bitte, Schluss, Gruß (Goethe B1 Schreiben Teil 1 & 3)",
+          "label": "Schreiben: E-Mail formell/informell — Anrede, Einleitung, Bitte, Schluss, Gruß (B1 Schreiben Teil 1 & 3)",
           "official": "B1 (Schreiben)"
         },
         {
@@ -549,7 +549,7 @@
           "official": "B1 (Sprechen Teil 3)"
         }
       ],
-      "exam": "Goethe-Zertifikat B1: Lesen 5 Teile, Hören 4 Teile, Schreiben 3 Teile (informal e-mail, forum post, formal e-mail), Sprechen 3 Teile (planning together, presentation, discussion)."
+      "exam": "B1 exam: Lesen 5 Teile, Hören 4 Teile, Schreiben 3 Teile (informal e-mail, forum post, formal e-mail), Sprechen 3 Teile (planning together, presentation, discussion)."
     },
     {
       "level": "B1.2",
@@ -671,7 +671,7 @@
         {
           "id": "b1.technology-vocabulary",
           "label": "Wortschatz Technik & Medien: speichern, herunterladen, Gerät, Bildschirm, Passwort, WLAN, Akku",
-          "official": "B1 (Goethe Themen: Medien, Technik)"
+          "official": "B1 (Themen: Medien, Technik)"
         },
         {
           "id": "b1.narration-skills",
@@ -679,7 +679,7 @@
           "official": "B1 (Sprechen Teil 2, Schreiben Teil 1)"
         }
       ],
-      "exam": "Goethe-Zertifikat B1 (second half): Lesen Teil 1 (blog/narrative), Hören Teil 2 (announcement/guided tour), Schreiben Teil 2 (opinion), Sprechen Teil 2 (presentation with a narrative element)."
+      "exam": "B1 exam (second half): Lesen Teil 1 (blog/narrative), Hören Teil 2 (announcement/guided tour), Schreiben Teil 2 (opinion), Sprechen Teil 2 (presentation with a narrative element)."
     },
     {
       "level": "B2.1",
@@ -706,7 +706,7 @@
         {
           "id": "b2.konjunktiv1-forms",
           "label": "Konjunktiv I: Formen (er sei, habe, werde, könne, komme); Gegenwart, Vergangenheit (habe gesehen / sei gekommen), Zukunft (werde)",
-          "official": "B2 (Goethe: indirekte Rede)"
+          "official": "B2 (indirekte Rede)"
         },
         {
           "id": "b2.indirect-speech",
@@ -796,7 +796,7 @@
         {
           "id": "b2.society-vocabulary",
           "label": "Wortschatz Gesellschaft & Politik: Regierung, Wahl, Mehrheit, Gesetz, Steuern, Demokratie, Arbeitslosigkeit, Entwicklung",
-          "official": "B2 (Goethe Themen)"
+          "official": "B2 (Themen)"
         },
         {
           "id": "b2.stellungnahme-redemittel",
@@ -809,7 +809,7 @@
           "official": "B2 (Sprechen Teil 1 & 2)"
         }
       ],
-      "exam": "Goethe-Zertifikat B2: Lesen 5 Teile, Hören 4 Teile, Schreiben 2 Teile (Forumsbeitrag 150 Wörter; formelle Nachricht 100 Wörter), Sprechen 2 Teile (Vortrag; Diskussion)."
+      "exam": "B2 exam: Lesen 5 Teile, Hören 4 Teile, Schreiben 2 Teile (Forumsbeitrag 150 Wörter; formelle Nachricht 100 Wörter), Sprechen 2 Teile (Vortrag; Diskussion)."
     },
     {
       "level": "B2.2",
@@ -931,15 +931,15 @@
         {
           "id": "b2.science-vocabulary",
           "label": "Wortschatz Wissenschaft & Umwelt: Klimawandel, Forschung, nachhaltig, erneuerbar, Verbrauch, Verschmutzung, Abgase, recyceln",
-          "official": "B2 (Goethe Themen)"
+          "official": "B2 (Themen)"
         },
         {
           "id": "b2.sprachbausteine",
-          "label": "Lesen: Sprachbausteine-Cloze (Goethe B2 Lesen Teil 4) — Konnektoren, Präpositionen, Pronomen, Verbformen im Text",
+          "label": "Lesen: Sprachbausteine-Cloze (B2 Lesen Teil 4) — Konnektoren, Präpositionen, Pronomen, Verbformen im Text",
           "official": "B2 (Lesen Teil 4)"
         }
       ],
-      "exam": "Goethe-Zertifikat B2 (second half): Lesen Teil 4 (Sprachbausteine) und Teil 5, Hören Teil 4 (Vortrag), Schreiben Teil 2 (formelle Nachricht), Sprechen Teil 1 (Vortrag mit Hypothesen)."
+      "exam": "B2 exam (second half): Lesen Teil 4 (Sprachbausteine) und Teil 5, Hören Teil 4 (Vortrag), Schreiben Teil 2 (formelle Nachricht), Sprechen Teil 1 (Vortrag mit Hypothesen)."
     },
     {
       "level": "C1.1",
@@ -1030,7 +1030,7 @@
         },
         {
           "id": "c1.presentation-skills",
-          "label": "Sprechen: strukturiert darstellen, Grafik beschreiben, Stellung nehmen (Goethe C1 Sprechen Teil 1 & 2)",
+          "label": "Sprechen: strukturiert darstellen, Grafik beschreiben, Stellung nehmen (C1 Sprechen Teil 1 & 2)",
           "official": "C1 (Sprechen)"
         },
         {
@@ -1040,11 +1040,11 @@
         },
         {
           "id": "c1.listening-exam-formats",
-          "label": "Hören: Vorlesung / Vortrag mit Detailfragen; Podiumsdiskussion (Goethe C1 Hören Teil 3 & 4)",
+          "label": "Hören: Vorlesung / Vortrag mit Detailfragen; Podiumsdiskussion (C1 Hören Teil 3 & 4)",
           "official": "C1 (Hören)"
         }
       ],
-      "exam": "Goethe-Zertifikat C1 (2024): Lesen 4 Teile (Sprachbausteine-Cloze, Detail, Sätze einordnen, Expertenmeinungen), Hören 4 Teile, Schreiben 2 Teile, Sprechen 2 Teile — Lesen Teil 1 tests verbs (Semantik, Tempus, Modus), Modalverben, Konnektoren, Angaben, Pronomen."
+      "exam": "C1 exam: Lesen 4 Teile (Sprachbausteine-Cloze, Detail, Sätze einordnen, Expertenmeinungen), Hören 4 Teile, Schreiben 2 Teile, Sprechen 2 Teile — Lesen Teil 1 tests verbs (Semantik, Tempus, Modus), Modalverben, Konnektoren, Angaben, Pronomen."
     },
     {
       "level": "C1.2",
@@ -1149,7 +1149,7 @@
           "official": "C1"
         }
       ],
-      "exam": "Goethe-Zertifikat C1 (2024): Lesen Teil 4 (Expertenmeinungen zuordnen), Hören Teil 2 (Interview: stimmt / stimmt nicht / nicht gesagt), Schreiben Teil 1 (Forumsbeitrag) & Teil 2 (formelle E-Mail an Vorgesetzte), Sprechen Teil 1 (Vortrag) & Teil 2 (Diskussion)."
+      "exam": "C1 exam: Lesen Teil 4 (Expertenmeinungen zuordnen), Hören Teil 2 (Interview: stimmt / stimmt nicht / nicht gesagt), Schreiben Teil 1 (Forumsbeitrag) & Teil 2 (formelle E-Mail an Vorgesetzte), Sprechen Teil 1 (Vortrag) & Teil 2 (Diskussion)."
     },
     {
       "level": "C2.1",
@@ -1161,7 +1161,7 @@
         "Recognise and use rhetorical devices, proverbs and journalistic Konjunktiv I",
         "Command verb valency: cases, prepositional objects, double objects",
         "Build and decode compounds and derived adjectives; use advanced comparison (relative superlatives, proportionality)",
-        "Reformulate: nominal ↔ verbal, direct ↔ indirect, connector ↔ preposition (Goethe C2 Schreiben Teil 1)",
+        "Reformulate: nominal ↔ verbal, direct ↔ indirect, connector ↔ preposition (C2 Schreiben Teil 1)",
         "Grade and tone statements with Abtönungs- and Graduierungsmittel",
         "Speak: hold a speech, moderate a discussion; read press and short fiction; hear features and satire"
       ],
@@ -1225,7 +1225,7 @@
         },
         {
           "id": "c2.transformation-2",
-          "label": "Umformulierung 2: nominal ↔ verbal, direkt ↔ indirekt, Konnektor ↔ Präposition, Aktiv ↔ Passiv — die Goethe-C2-Schreiben-Teil-1-Fertigkeit",
+          "label": "Umformulierung 2: nominal ↔ verbal, direkt ↔ indirekt, Konnektor ↔ Präposition, Aktiv ↔ Passiv — die C2-Schreiben-Teil-1-Fertigkeit",
           "official": "C2 (Schreiben Teil 1)"
         },
         {
@@ -1240,7 +1240,7 @@
         },
         {
           "id": "c2.speaking-formats",
-          "label": "Sprechen: Rede halten, moderieren, Position stilsicher vertreten (Goethe C2 Sprechen)",
+          "label": "Sprechen: Rede halten, moderieren, Position stilsicher vertreten (C2 Sprechen)",
           "official": "C2"
         },
         {
@@ -1249,7 +1249,7 @@
           "official": "C2"
         }
       ],
-      "exam": "Goethe-Zertifikat C2 (GDS): Lesen 4 Teile, Hören 3 Teile, Schreiben 2 Teile (Umformulierung; Text zu einem Thema oder Literaturaufgabe), Sprechen 2 Teile (Vortrag; Diskussion) — Stil, Register und Abtönung sind explizite Kriterien."
+      "exam": "C2 exam: Lesen 4 Teile, Hören 3 Teile, Schreiben 2 Teile (Umformulierung; Text zu einem Thema oder Literaturaufgabe), Sprechen 2 Teile (Vortrag; Diskussion) — Stil, Register und Abtönung sind explizite Kriterien."
     },
     {
       "level": "C2.2",
@@ -1335,7 +1335,7 @@
         },
         {
           "id": "c2.literary-appraisal",
-          "label": "Literarische Würdigung: Rezension & Interpretation — Redemittel (Goethe C2 Schreiben Teil 2)",
+          "label": "Literarische Würdigung: Rezension & Interpretation — Redemittel (C2 Schreiben Teil 2)",
           "official": "C2 (Schreiben Teil 2)"
         },
         {
@@ -1349,7 +1349,7 @@
           "official": "C2"
         }
       ],
-      "exam": "Goethe-Zertifikat C2 (GDS) capstone: Lesen (Literatur, Sachtext, Lückentext), Hören (Vortrag, Lesung, Diskussion), Schreiben Teil 2 (Literaturaufgabe: Rezension/Interpretation), Sprechen (Vortrag mit Analyse; Streitgespräch)."
+      "exam": "C2 exam capstone: Lesen (Literatur, Sachtext, Lückentext), Hören (Vortrag, Lesung, Diskussion), Schreiben Teil 2 (Literaturaufgabe: Rezension/Interpretation), Sprechen (Vortrag mit Analyse; Streitgespräch)."
     }
   ]
 }

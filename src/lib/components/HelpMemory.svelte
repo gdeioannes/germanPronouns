@@ -8,16 +8,19 @@
 	// discovered by failing.
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
-	import { rise } from '$lib/motion';
-	import { slide } from 'svelte/transition';
+	import { tick } from 'svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { helpTableFor } from '$lib/domain/help-table';
-	import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
+	import { vocabFor, type SharedNoun, type VocabEntry } from '$lib/domain/vocab';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { storage } from '$lib/services/storage';
 	import type { Quiz } from '$lib/content/types';
 
-	let { quiz, locale = 'de-DE' }: { quiz: Quiz; locale?: string } = $props();
+	let {
+		quiz,
+		locale = 'de-DE',
+		vocab
+	}: { quiz: Quiz; locale?: string; vocab?: VocabEntry[] } = $props();
 
 	const help = $derived(quiz.help);
 	const quizId = $derived(quiz.id);
@@ -29,13 +32,17 @@
 	// quiz page.
 	let nouns = $state<SharedNoun[]>([]);
 	$effect(() => {
-		if (derivedTable || help?.vocab?.length) return;
+		// The page's load already looked the nouns up when it could (at build
+		// time, so they are in the prerendered HTML); only fetch as a fallback.
+		if (vocab || derivedTable || help?.vocab?.length) return;
 		(async () => {
 			const module = await import('$content/shared/nouns/de.json');
 			nouns = module.default.nouns as SharedNoun[];
 		})();
 	});
-	const derivedVocab = $derived(derivedTable || help?.vocab?.length ? [] : vocabFor(quiz, nouns));
+	const derivedVocab = $derived(
+		derivedTable || help?.vocab?.length ? [] : (vocab ?? vocabFor(quiz, nouns))
+	);
 
 	const hasContent = $derived(
 		!!(
@@ -53,6 +60,30 @@
 	);
 
 	let open = $state(false);
+	let section = $state<HTMLElement>();
+	let end = $state<HTMLElement>();
+	// The foot of the panel is on screen — the exercise below it is too, so the
+	// "Start the exercise" tab steps aside.
+	let endInView = $state(false);
+
+	$effect(() => {
+		if (!end) return;
+		const observer = new IntersectionObserver(([entry]) => (endInView = entry.isIntersecting));
+		observer.observe(end);
+		return () => observer.disconnect();
+	});
+
+	/** Folds the notes away and brings the exercise (whatever follows the
+	 *  panel) into view — centred when it fits, top-aligned when it doesn't. */
+	async function goToExercise() {
+		open = false;
+		await tick();
+		const exercise = section?.nextElementSibling as HTMLElement | null;
+		if (!exercise) return;
+		const fits = exercise.offsetHeight < window.innerHeight * 0.9;
+		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		exercise.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: fits ? 'center' : 'start' });
+	}
 
 	$effect(() => {
 		// First visit to this quiz opens the panel unprompted.
@@ -68,15 +99,17 @@
 </script>
 
 {#if hasContent}
-	<section class="help">
-		<button class="toggle" onclick={() => (open = !open)} aria-expanded={open}>
-			<Icon name="help" size="1.05em" />
-			<span>How this works</span>
+	<section class="help" bind:this={section}>
+		<button class="toggle" onclick={() => (open = !open)} aria-expanded={open} aria-controls="help-{quizId}">
+			<Icon name="book" size="1.05em" />
+			<span>Study notes</span>
 			<span class="chevron" class:open><Icon name="chevronDown" size="1em" /></span>
 		</button>
 
-		{#if open}
-			<div class="body" transition:slide={{ duration: 220 }}>
+		<!-- Always in the page, hidden when closed rather than removed: the
+		     explanation is the most useful text on the page, and a prerendered
+		     page that left it out would show search engines an empty exercise. -->
+		<div class="body" id="help-{quizId}" hidden={!open}>
 				<!-- 1 · The idea -->
 				{#if help?.intro}
 					<p class="intro">{help.intro}</p>
@@ -84,8 +117,8 @@
 
 				<!-- 2 · Rule cards. They stagger in, so the panel reads as a short
 				     list rather than a wall that appears all at once. -->
-				{#each help?.tips ?? [] as tip, i (tip.text)}
-					<div class="tip" data-kind={tip.kind ?? 'rule'} in:rise={{ delay: 60 + i * 45 }}>
+				{#each help?.tips ?? [] as tip (tip.text)}
+					<div class="tip" data-kind={tip.kind ?? 'rule'}>
 						{#if tip.title}<h4>{tip.title}</h4>{/if}
 						<p>{tip.text}</p>
 						{#if tip.examples?.length}
@@ -229,8 +262,18 @@
 				{#if help?.exam}
 					<p class="exam"><Icon name="trophy" size="1em" /> <span>{help.exam}</span></p>
 				{/if}
-			</div>
-		{/if}
+
+				<!-- Sticks to the bottom of the screen while the notes are open, so the
+				     way back to the exercise is never a long scroll away. -->
+				<div class="to-exercise" class:away={endInView} inert={endInView}>
+					<div class="tab-row">
+						<button class="btn" onclick={goToExercise}>
+							Start the exercise <Icon name="chevronDown" size="1em" />
+						</button>
+					</div>
+				</div>
+		</div>
+		<div class="end" bind:this={end} aria-hidden="true"></div>
 	</section>
 {/if}
 
@@ -240,7 +283,9 @@
 		border: 1px solid var(--line);
 		border-radius: 14px;
 		background: var(--surface);
-		overflow: hidden;
+		/* clip, not hidden: hidden would make this a scroll container and stop
+		   the "Start the exercise" bar from sticking to the viewport. */
+		overflow: clip;
 	}
 
 	.toggle {
@@ -343,7 +388,7 @@
 	}
 
 	.de {
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-0);
 		color: var(--ink);
 	}
@@ -506,6 +551,50 @@
 	.mistakes small {
 		grid-column: 1 / -1;
 		color: var(--ink-muted);
+	}
+
+	/* A zero-height sticky rail: it holds the tab to the screen's bottom edge
+	   while the notes scroll past, but takes no room in the panel, so there is
+	   no gap left behind once the tab has gone. */
+	.to-exercise {
+		position: sticky;
+		bottom: 0;
+		height: 0;
+		margin: 0 -1rem;
+	}
+
+	.tab-row {
+		position: absolute;
+		inset: auto 0 0;
+		display: flex;
+		justify-content: center;
+		padding: 0.9rem 1rem 0;
+		background: linear-gradient(to top, var(--surface) 55%, transparent);
+		transition:
+			transform var(--medium) var(--ease-out),
+			opacity var(--medium) var(--ease-out);
+	}
+
+	/* The end of the notes is on screen, so the exercise is too: the tab has
+	   done its job and slides back down out of the way. */
+	.to-exercise.away .tab-row {
+		transform: translateY(100%);
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/* A tab, not a pill: square at the foot, it reads as a handle growing out
+	   of the screen's bottom edge, pulling the exercise up. */
+	.to-exercise .btn {
+		min-width: min(20rem, 100%);
+		justify-content: center;
+		padding-bottom: calc(0.7rem + env(safe-area-inset-bottom));
+		border-radius: 14px 14px 0 0;
+		box-shadow: 0 -4px 14px rgb(0 0 0 / 0.1);
+	}
+
+	.end {
+		height: 1px;
 	}
 
 	.exam {

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
+	import { breadcrumbLd } from '$lib/seo';
 	// The Word Library: the shared German noun and verb collections, with
 	// gender colouring and the conjugation tables. Reads the same
 	// assets/content/shared/** files the Flutter app shipped.
@@ -66,13 +68,17 @@
 	);
 </script>
 
-<svelte:head>
-	<title>Word Library — Language Quiz</title>
-	<meta
-		name="description"
-		content="Every German noun and verb in the course: genders, plurals and full conjugation tables, each with audio."
-	/>
-</svelte:head>
+<Seo
+	title="German nouns & verbs with gender, plural and conjugation | Language Quiz"
+	description="Every German noun and verb in the course: der, die or das, plural forms and full conjugation tables, each with audio. Free, no sign-up."
+	path="/words"
+	jsonLd={[
+		breadcrumbLd([
+			{ name: 'Home', path: '/' },
+			{ name: 'Word Library', path: '/words' }
+		])
+	]}
+/>
 
 <main class="page-wide">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
@@ -261,7 +267,7 @@
 
 	/* The German word is the content; its gloss is interface. */
 	.term {
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-0);
 		font-weight: 700;
 		color: var(--ink);

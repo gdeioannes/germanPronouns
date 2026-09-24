@@ -309,7 +309,7 @@ export interface PopulatedCourse extends CourseCard {
 export interface SyllabusStructure {
 	id: string;
 	label: string;
-	/** Where the official sources put it, e.g. "A1 (Goethe/telc inventory)". */
+	/** Where the official sources put it, e.g. "A1 (official structure inventory)". */
 	official?: string;
 	/** Free text: what a learner can do with it. */
 	note?: string;

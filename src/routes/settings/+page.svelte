@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	// Settings, plus a jump list into the ladder.
 	//
 	// Nothing is locked any more, so "set your starting point" no longer has to
@@ -34,10 +35,7 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Settings — Language Quiz</title>
-	<meta name="robots" content="noindex" />
-</svelte:head>
+<Seo title="Settings — Language Quiz" description="Your Language Quiz settings." path="/settings" noindex />
 
 <main class="page">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>

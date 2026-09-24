@@ -188,7 +188,7 @@
 	.text {
 		margin: 0;
 		max-width: var(--measure);
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-1);
 		font-variation-settings: 'opsz' 16;
 		line-height: 1.75;

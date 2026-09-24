@@ -1,10 +1,13 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
+	import { absoluteUrl, breadcrumbLd, clip, topicOf } from '$lib/seo';
 	// A sub-level's syllabus: what it teaches, against what official source,
 	// and which exercise covers each item. The learner-facing version of the
 	// content master plan's module table — the page to check "have I covered
 	// everything for A1?" against.
 	import Icon from '$lib/icons/Icon.svelte';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import SiteNav from '$lib/components/SiteNav.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { onMount } from 'svelte';
 	import { DEFAULT_GATING } from '$lib/domain/progress';
@@ -29,13 +32,33 @@
 	);
 </script>
 
-<svelte:head>
-	<title>{level} {title} — syllabus — {course.name}</title>
-	<meta
-		name="description"
-		content="What {level} teaches in {course.name}: every structure, theme and exercise, mapped to the official {level.slice(0, 2)} syllabus."
-	/>
-</svelte:head>
+<Seo
+	title="{module?.title ?? topicOf(title)} ({level}) – German course level & exercises | Language Quiz"
+	description={clip(
+		`German ${level}: ${module?.canDo?.slice(0, 2).join('; ') ?? title}. ${quizzes.length} free exercises mapped to the official ${level.slice(0, 2)} syllabus.`
+	)}
+	path="/course/{course.id}/level/{level}"
+	jsonLd={[
+		breadcrumbLd([
+			{ name: 'Home', path: '/' },
+			{ name: course.name, path: `/course/${course.id}` },
+			{ name: title, path: `/course/${course.id}/level/${level}` }
+		]),
+		{
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: `${level} exercises`,
+			itemListElement: quizzes.map((q, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				url: absoluteUrl(`/course/${course.id}/quiz/${q.id}`),
+				name: topicOf(q.title)
+			}))
+		}
+	]}
+/>
+
+<SiteNav courseHref="/course/{course.id}" compact />
 
 <main class="page-wide">
 	<a class="back-link" href="/course/{course.id}"><Icon name="arrowLeft" size="1em" /> {course.name}</a>

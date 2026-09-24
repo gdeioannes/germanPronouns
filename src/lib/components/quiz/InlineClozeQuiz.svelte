@@ -173,7 +173,7 @@
 	.cloze {
 		margin: 0;
 		max-width: var(--measure);
-		font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-1);
 		font-variation-settings: 'opsz' 16;
 		line-height: 2.4;
@@ -231,7 +231,7 @@
 	.fix,
 	.hint {
 		max-width: 18ch;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Inter Variable', 'Inter', sans-serif;
 		font-size: 0.66rem;
 		line-height: 1.25;
 		text-align: center;

@@ -103,7 +103,7 @@ body {
 	background: var(--bg);
 	color: var(--ink);
 	font-family:
-		'Inter',
+		'Inter Variable', 'Inter',
 		-apple-system,
 		BlinkMacSystemFont,
 		'Segoe UI',
@@ -128,7 +128,7 @@ h2,
 h3,
 h4 {
 	margin: 0 0 0.4em;
-	font-family: 'Source Serif 4', ui-serif, Georgia, 'Times New Roman', serif;
+	font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, 'Times New Roman', serif;
 	font-weight: 700;
 	line-height: 1.15;
 	color: var(--heading);

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	// The printable exercise worksheet — the port of the Flutter PDF export
 	// (lib/theme/exercise_sheet_pdf.dart), laid out in HTML and printed by the
 	// browser. "Save as PDF" in the print dialog produces the same artefact the
@@ -128,10 +129,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Worksheet — {course.name}</title>
-	<meta name="robots" content="noindex" />
-</svelte:head>
+<Seo title="Worksheet — {course.name}" description="Printable German worksheet." path="/course/{course.id}/worksheet" noindex />
 
 <main class="page-wide sheet-page">
 	<div class="no-print">
