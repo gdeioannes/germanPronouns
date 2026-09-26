@@ -296,11 +296,42 @@ export type Quiz =
 	| SpeakRepeatQuiz
 	| SpeakingQuiz;
 
+export interface Gating {
+	progressionUnlockLaps: number;
+	questUnlockLaps: number;
+}
+
 /** One course with its nav and every quiz — the per-course bundle. */
 export interface PopulatedCourse extends CourseCard {
-	gating?: { progressionUnlockLaps: number; questUnlockLaps: number };
+	gating?: Gating;
 	nav: NavLayout;
 	quizzes: Quiz[];
+}
+
+/**
+ * What a listing needs to know about a quiz — its identity, kind and place in
+ * the ladder — without the exercise itself. Every full `Quiz` is one of these
+ * too, so anything written against the summary takes a bundle unchanged.
+ */
+export type QuizSummary = Pick<
+	QuizBase,
+	'id' | 'type' | 'title' | 'storageKeyPrefix' | 'level' | 'status' | 'covers'
+>;
+
+/** A course's card plus how it gates progress: what a single quiz page needs. */
+export interface CourseInfo extends CourseCard {
+	gating?: Gating;
+}
+
+/**
+ * The course with its nav and every quiz's summary — a few kilobytes rather
+ * than the whole bundle — for the pages that list exercises. Serialised into
+ * the prerendered HTML by the server loads, so the browser never fetches the
+ * bundle to draw a list.
+ */
+export interface CourseSummary extends CourseInfo {
+	nav: NavLayout;
+	quizzes: QuizSummary[];
 }
 
 // -- syllabus ---------------------------------------------------------------

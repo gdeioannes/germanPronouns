@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import { courseLd, websiteLd } from '$lib/seo';
 	// The front door. One product, one language pair: English → German. The copy
 	// and the numbers come from the course bundle (see +page.ts), so nothing here
 	// is a hand-maintained duplicate of the content — and because the route is
@@ -72,26 +74,10 @@
 	]);
 
 	const jsonLd = $derived(
-		({
-			'@context': 'https://schema.org',
-			'@type': 'Course',
-			name: 'German for English speakers (A1–C2)',
-			description: data.card.tagline,
-			educationalLevel: 'CEFR A1–C2',
-			inLanguage: 'en',
-			teaches: 'German',
-			isAccessibleForFree: true,
-			provider: {
-				'@type': 'Organization',
-				name: 'Language Quiz',
-				url: 'https://languagequiz.org'
-			},
-			hasCourseInstance: {
-				'@type': 'CourseInstance',
-				courseMode: 'online',
-				courseWorkload: 'PT10M'
-			}
-		})
+		courseLd(
+			{ id: data.card.id, name: 'German for English speakers (A1–C2)', tagline: data.card.tagline },
+			{ numberOfLessons: data.total }
+		)
 	);
 
 	const faqLd = $derived(
@@ -113,7 +99,7 @@
 	path="/"
 	ogTitle="Language Quiz - Free German Course for English Speakers"
 	ogDescription="Free interactive German grammar and vocabulary exercises with audio. A step-by-step CEFR A1-C2 path, no sign-up needed."
-	jsonLd={[jsonLd, faqLd]}
+	jsonLd={[websiteLd(), jsonLd, faqLd]}
 />
 
 <!-- A warm wash behind the top of the page, so the hero sits on colour
@@ -282,17 +268,7 @@
 	</section>
 </main>
 
-<footer class="foot">
-	<nav class="quick" aria-label="Footer">
-		<a href={courseHref}><Icon name="book" size="1.05em" /> The course</a>
-		<a href="/words"><Icon name="words" size="1.05em" /> Word library</a>
-		<a href="/settings"><Icon name="settings" size="1.05em" /> Settings</a>
-	</nav>
-	<p>
-		Language Quiz is an independent study aid, not affiliated with or endorsed by any
-		examination body. Content version {data.card.version}.
-	</p>
-</footer>
+<SiteFooter />
 
 <style>
 	/* -- backdrop --------------------------------------------------------- */
@@ -857,37 +833,4 @@
 
 	/* -- footer ----------------------------------------------------------- */
 
-	.foot {
-		max-width: 72rem;
-		margin: 0 auto;
-		padding: 2.5rem 1.25rem 3rem;
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	.quick {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.4rem;
-		margin-bottom: 1rem;
-	}
-
-	.quick a {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
-		color: var(--ink-muted);
-		text-decoration: none;
-		font-weight: 600;
-	}
-
-	.quick a:hover {
-		color: var(--heading);
-	}
-
-	.foot p {
-		margin: 0;
-		max-width: 60ch;
-		line-height: 1.55;
-	}
 </style>

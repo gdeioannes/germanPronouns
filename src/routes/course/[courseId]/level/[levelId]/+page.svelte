@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
-	import { absoluteUrl, breadcrumbLd, clip, topicOf } from '$lib/seo';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import { absoluteUrl, breadcrumbLd, clip, shareImage, topicOf } from '$lib/seo';
 	// A sub-level's syllabus: what it teaches, against what official source,
 	// and which exercise covers each item. The learner-facing version of the
 	// content master plan's module table — the page to check "have I covered
@@ -38,6 +39,8 @@
 		`German ${level}: ${module?.canDo?.slice(0, 2).join('; ') ?? title}. ${quizzes.length} free exercises mapped to the official ${level.slice(0, 2)} syllabus.`
 	)}
 	path="/course/{course.id}/level/{level}"
+	image={shareImage('level', level)}
+	imageAlt="German {level}: {module?.title ?? title}"
 	jsonLd={[
 		breadcrumbLd([
 			{ name: 'Home', path: '/' },
@@ -150,6 +153,8 @@
 		{#if next}<a href="/course/{course.id}/level/{next}">{next} <Icon name="arrowRight" size="1em" /></a>{/if}
 	</nav>
 </main>
+
+<SiteFooter />
 
 <style>
 	.head { margin-bottom: 1.5rem; }

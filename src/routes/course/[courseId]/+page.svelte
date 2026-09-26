@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
-	import { absoluteUrl, breadcrumbLd, clip } from '$lib/seo';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import { breadcrumbLd, clip, courseLd } from '$lib/seo';
 	// The course home: the gated CEFR ladder, a progress ring, and the
 	// "continue where you left off" jump. Locks are computed from the same rule
 	// as the Dart app — a sub-level opens only once every earlier quiz is done.
@@ -16,7 +17,7 @@
 	import { buildLadder, courseProgress, nextQuiz } from '$lib/domain/ladder';
 	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { progress } from '$lib/state/progress.svelte';
-	import type { Quiz } from '$lib/content/types';
+	import type { QuizSummary } from '$lib/content/types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -39,7 +40,7 @@
 
 	// Before progress loads nothing reads as done, so the page renders an empty
 	// ring rather than flashing ribbons on and off.
-	const isDone = $derived((quiz: Quiz) =>
+	const isDone = $derived((quiz: QuizSummary) =>
 		progress.loaded
 			? progress.isCompleted(quiz.type, quiz.id, quiz.storageKeyPrefix)
 			: false
@@ -71,19 +72,7 @@
 			{ name: 'Home', path: '/' },
 			{ name: course.name, path: `/course/${course.id}` }
 		]),
-		{
-			'@context': 'https://schema.org',
-			'@type': 'Course',
-			name: course.name,
-			description: course.tagline,
-			url: absoluteUrl(`/course/${course.id}`),
-			educationalLevel: 'CEFR A1–C2',
-			inLanguage: 'en',
-			teaches: 'German',
-			isAccessibleForFree: true,
-			provider: { '@type': 'Organization', name: 'Language Quiz', url: 'https://languagequiz.org' },
-			hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT10M' }
-		}
+		courseLd(course, { numberOfLessons: course.quizzes.length })
 	]}
 />
 
@@ -170,6 +159,8 @@
 		{/each}
 	</ol>
 </main>
+
+<SiteFooter />
 
 <style>
 	.worksheet {

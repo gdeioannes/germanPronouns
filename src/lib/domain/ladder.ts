@@ -7,24 +7,24 @@
 // to grind past what they knew. Completion is still tracked and still shown, as
 // ribbons and the progress ring; it just no longer stands in anyone's way.
 
-import type { NavGroup, PopulatedCourse, Quiz } from '$lib/content/types';
+import type { CourseSummary, NavGroup, QuizSummary } from '$lib/content/types';
 
 export interface LadderLevel {
 	id: string;
 	title: string;
 	level: string;
-	quizzes: Quiz[];
+	quizzes: QuizSummary[];
 	/** Every quiz in it is finished. */
 	complete: boolean;
 	doneCount: number;
 }
 
 export interface IsDone {
-	(quiz: Quiz): boolean;
+	(quiz: QuizSummary): boolean;
 }
 
 /** Groups a course's quizzes into its ordered quest-chain sub-levels. */
-export function levelGroups(course: PopulatedCourse): { group: NavGroup; quizzes: Quiz[] }[] {
+export function levelGroups(course: CourseSummary): { group: NavGroup; quizzes: QuizSummary[] }[] {
 	return course.nav.groups
 		.filter((group) => group.type === 'questChain')
 		.map((group) => ({
@@ -34,7 +34,7 @@ export function levelGroups(course: PopulatedCourse): { group: NavGroup; quizzes
 }
 
 /** The ladder, with each sub-level's completion counted. */
-export function buildLadder(course: PopulatedCourse, isDone: IsDone): LadderLevel[] {
+export function buildLadder(course: CourseSummary, isDone: IsDone): LadderLevel[] {
 	return levelGroups(course).map(({ group, quizzes }) => {
 		const doneCount = quizzes.filter(isDone).length;
 		return {
@@ -54,7 +54,7 @@ export function currentLevel(ladder: LadderLevel[]): LadderLevel | undefined {
 }
 
 /** The next quiz to do, or undefined when the course is finished. */
-export function nextQuiz(ladder: LadderLevel[], isDone: IsDone): Quiz | undefined {
+export function nextQuiz(ladder: LadderLevel[], isDone: IsDone): QuizSummary | undefined {
 	for (const level of ladder) {
 		const next = level.quizzes.find((quiz) => !isDone(quiz));
 		if (next) return next;

@@ -28,7 +28,7 @@ import {
 import { buildLadder, courseProgress, nextQuiz } from './ladder';
 import { helpTableFor } from './help-table';
 import { lookupNoun, vocabFor } from './vocab';
-import type { PopulatedCourse, Quiz } from '$lib/content/types';
+import type { PopulatedCourse, Quiz, QuizSummary } from '$lib/content/types';
 
 describe('ribbon tiers', () => {
 	it('uses the shipped boundaries: bronze 1, silver 3, gold 5', () => {
@@ -245,12 +245,12 @@ describe('the gated ladder', () => {
 
 	it('resumes at the first unfinished quiz, wherever it is', () => {
 		expect(nextQuiz(buildLadder(course, () => false), () => false)?.id).toBe('a');
-		const done = (q: Quiz) => q.id === 'a';
+		const done = (q: QuizSummary) => q.id === 'a';
 		expect(nextQuiz(buildLadder(course, done), done)?.id).toBe('b');
 
 		// No gate: an unfinished quiz in a later level is still reachable even
 		// though nothing before it is done.
-		const onlyD = (q: Quiz) => q.id !== 'd';
+		const onlyD = (q: QuizSummary) => q.id !== 'd';
 		expect(nextQuiz(buildLadder(course, onlyD), onlyD)?.id).toBe('d');
 	});
 

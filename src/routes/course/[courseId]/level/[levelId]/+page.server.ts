@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import { courses, loadCourse, loadSyllabus } from '$lib/content';
-import type { EntryGenerator, PageLoad } from './$types';
+import { courseInfo, courses, loadCourse, loadSyllabus, summarizeQuiz } from '$lib/content';
+import type { EntryGenerator, PageServerLoad } from './$types';
 
 /** One prerendered syllabus page per quest-chain sub-level. */
 export const entries: EntryGenerator = async () => {
@@ -16,7 +16,9 @@ export const entries: EntryGenerator = async () => {
 	return all;
 };
 
-export const load: PageLoad = async ({ params }) => {
+// A server load: the page carries this level's module and its quizzes'
+// summaries, serialised at build time, and never fetches the course bundle.
+export const load: PageServerLoad = async ({ params }) => {
 	const course = await loadCourse(params.courseId);
 	const syllabus = await loadSyllabus(params.courseId);
 	const module = syllabus?.modules.find((m) => m.level === params.levelId);
@@ -29,11 +31,11 @@ export const load: PageLoad = async ({ params }) => {
 	const at = levels.findIndex((g) => g.level === params.levelId);
 
 	return {
-		course,
+		course: courseInfo(course),
 		level: params.levelId,
 		title: group.title,
 		module: module ?? null,
-		quizzes: course.quizzes.filter((q) => q.level === params.levelId),
+		quizzes: course.quizzes.filter((q) => q.level === params.levelId).map(summarizeQuiz),
 		previous: levels[at - 1]?.level ?? null,
 		next: levels[at + 1]?.level ?? null
 	};

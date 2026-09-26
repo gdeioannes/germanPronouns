@@ -9,9 +9,12 @@ import catalogJson from '$content/catalog.json';
 import type {
 	Catalog,
 	CourseCard,
+	CourseInfo,
+	CourseSummary,
 	CourseSyllabus,
 	PopulatedCourse,
 	Quiz,
+	QuizSummary,
 	ReadingQuiz
 } from './types';
 
@@ -48,4 +51,21 @@ export async function loadSyllabus(id: string): Promise<CourseSyllabus | null> {
 
 export function isReading(quiz: Quiz): quiz is ReadingQuiz {
 	return quiz.type === 'reading';
+}
+
+/** The listing fields of a quiz, and nothing of the exercise behind them. */
+export function summarizeQuiz(quiz: Quiz): QuizSummary {
+	const { id, type, title, storageKeyPrefix, level, status, covers } = quiz;
+	return { id, type, title, storageKeyPrefix, level, status, covers };
+}
+
+/** The course's card and gating, without its nav or quizzes. */
+export function courseInfo(course: PopulatedCourse): CourseInfo {
+	const { nav: _nav, quizzes: _quizzes, ...info } = course;
+	return info;
+}
+
+/** The course with its nav and every quiz summarised. */
+export function summarizeCourse(course: PopulatedCourse): CourseSummary {
+	return { ...courseInfo(course), nav: course.nav, quizzes: course.quizzes.map(summarizeQuiz) };
 }

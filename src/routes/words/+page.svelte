@@ -1,69 +1,33 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
-	import { breadcrumbLd } from '$lib/seo';
-	// The Word Library: the shared German noun and verb collections, with
-	// gender colouring and the conjugation tables. Reads the same
-	// assets/content/shared/** files the Flutter app shipped.
-	import SpeakButton from '$lib/components/SpeakButton.svelte';
+	import SiteNav from '$lib/components/SiteNav.svelte';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import { breadcrumbLd, shareImage } from '$lib/seo';
+	// The Word Library: a search box over the shared German noun and verb
+	// collections. Each hit is a link to the word's own page, where the
+	// plural, cases and conjugation tables live; this page only carries the
+	// index, so it stays light however many words the collections grow to.
 	import Icon from '$lib/icons/Icon.svelte';
-	import { slide } from 'svelte/transition';
-	import nounData from '$content/shared/nouns/de.json';
-	import verbData from '$content/shared/verbs/de.json';
+	import { GENDER_ARTICLES, GENDER_COLORS } from '$lib/domain/gender';
+	import { page } from '$app/state';
+	import type { PageData } from './$types';
 
-	interface Noun {
-		noun: string;
-		gender: string;
-		english: string;
-		categories: string[];
-		plural?: string;
-		sentence?: string;
-	}
-	interface VerbForm {
-		person: string;
-		form: string;
-	}
-	interface VerbSet {
-		label: string;
-		forms: VerbForm[];
-	}
-	interface Verb {
-		verb: string;
-		english: string;
-		sets: VerbSet[];
-	}
-
-	const nouns = (nounData as { nouns: Noun[] }).nouns;
-	const verbs = (verbData as { verbs: Verb[] }).verbs;
-	const categoryNames = (nounData as { categoryDisplayNames: Record<string, string> })
-		.categoryDisplayNames;
-
-	const LOCALE = 'de-DE';
-	/** The gender colours the quizzes use, so the two views agree. */
-	const GENDER_COLORS: Record<string, string> = {
-		m: '#2E6FB7',
-		f: '#C0446A',
-		n: '#3F7D4E'
-	};
-	const ARTICLES: Record<string, string> = { m: 'der', f: 'die', n: 'das' };
+	let { data }: { data: PageData } = $props();
+	const { nouns, verbs } = $derived(data);
+	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 
 	let tab = $state<'nouns' | 'verbs'>('nouns');
 	let search = $state('');
-	let openWord = $state<string | null>(null);
 
+	const q = $derived(search.trim().toLowerCase());
 	const filteredNouns = $derived(
 		nouns.filter(
-			(n) =>
-				!search ||
-				n.noun.toLowerCase().includes(search.toLowerCase()) ||
-				n.english.toLowerCase().includes(search.toLowerCase())
+			(n) => !q || n.noun.toLowerCase().includes(q) || n.english.toLowerCase().includes(q)
 		)
 	);
 	const filteredVerbs = $derived(
 		verbs.filter(
-			(v) =>
-				!search ||
-				v.verb.toLowerCase().includes(search.toLowerCase()) ||
-				v.english.toLowerCase().includes(search.toLowerCase())
+			(v) => !q || v.verb.toLowerCase().includes(q) || v.english.toLowerCase().includes(q)
 		)
 	);
 </script>
@@ -72,6 +36,8 @@
 	title="German nouns & verbs with gender, plural and conjugation | Language Quiz"
 	description="Every German noun and verb in the course: der, die or das, plural forms and full conjugation tables, each with audio. Free, no sign-up."
 	path="/words"
+	image={shareImage('words', 'nouns')}
+	imageAlt="German nouns with their articles and plurals"
 	jsonLd={[
 		breadcrumbLd([
 			{ name: 'Home', path: '/' },
@@ -80,9 +46,15 @@
 	]}
 />
 
+<SiteNav {courseHref} compact />
+
 <main class="page-wide">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
 	<h1>Word Library</h1>
+	<p class="lede">
+		Search the course's German words. Or browse <a href="/words/nouns">all {nouns.length} nouns by
+		theme</a> and <a href="/words/verbs">all {verbs.length} verbs</a>.
+	</p>
 
 	<div class="tabs" role="tablist">
 		<button role="tab" aria-selected={tab === 'nouns'} onclick={() => (tab = 'nouns')}>
@@ -100,70 +72,42 @@
 
 	{#if tab === 'nouns'}
 		<ul class="grid">
-			{#each filteredNouns as noun (noun.noun)}
+			{#each filteredNouns as noun (noun.slug)}
 				<li>
-					<button class="word" onclick={() => (openWord = openWord === noun.noun ? null : noun.noun)}>
+					<a class="word" href="/words/nouns/{noun.slug}">
 						<span class="article" style="color:{GENDER_COLORS[noun.gender]}">
-							{ARTICLES[noun.gender] ?? ''}
+							{GENDER_ARTICLES[noun.gender] ?? ''}
 						</span>
-						<span class="term">{noun.noun}</span>
+						<span class="term" lang="de">{noun.noun}</span>
 						<span class="gloss">{noun.english}</span>
-					</button>
-					{#if openWord === noun.noun}
-						<div class="detail" transition:slide={{ duration: 180 }}>
-							<p>
-								<strong style="color:{GENDER_COLORS[noun.gender]}">
-									{ARTICLES[noun.gender]} {noun.noun}
-								</strong>
-								<SpeakButton text="{ARTICLES[noun.gender]} {noun.noun}" locale={LOCALE} />
-							</p>
-							{#if noun.plural}<p class="meta">Plural: {noun.plural}</p>{/if}
-							<p class="meta">
-								{noun.categories.map((c) => categoryNames[c] ?? c).join(' · ')}
-							</p>
-						</div>
-					{/if}
+					</a>
 				</li>
 			{/each}
 		</ul>
 	{:else}
 		<ul class="grid">
-			{#each filteredVerbs as verb (verb.verb)}
+			{#each filteredVerbs as verb (verb.slug)}
 				<li>
-					<button class="word" onclick={() => (openWord = openWord === verb.verb ? null : verb.verb)}>
-						<span class="term">{verb.verb}</span>
+					<a class="word" href="/words/verbs/{verb.slug}">
+						<span class="term" lang="de">{verb.verb}</span>
 						<span class="gloss">{verb.english}</span>
-					</button>
-					{#if openWord === verb.verb}
-						<div class="detail" transition:slide={{ duration: 180 }}>
-							<p>
-								<strong>{verb.verb}</strong>
-								<SpeakButton text={verb.verb} locale={LOCALE} />
-							</p>
-							{#each verb.sets as set (set.label)}
-								<table>
-									<caption>{set.label}</caption>
-									<tbody>
-										{#each set.forms as form (form.person)}
-											<tr>
-												<th scope="row">{form.person}</th>
-												<td>{form.form}</td>
-											</tr>
-										{/each}
-									</tbody>
-								</table>
-							{/each}
-						</div>
-					{/if}
+					</a>
 				</li>
 			{/each}
 		</ul>
 	{/if}
 </main>
 
+<SiteFooter />
+
 <style>
 	h1 {
-		margin: 0 0 1rem;
+		margin: 0 0 0.5rem;
+	}
+
+	.lede {
+		margin: 0 0 1.25rem;
+		color: var(--ink-muted);
 	}
 
 	.tabs {
@@ -247,9 +191,8 @@
 		border: 1px solid var(--line);
 		border-radius: var(--radius-sm);
 		background: var(--surface);
-		font: inherit;
-		text-align: left;
-		cursor: pointer;
+		color: inherit;
+		text-decoration: none;
 		transition:
 			border-color var(--fast) var(--ease-out),
 			transform var(--fast) var(--ease-out);
@@ -277,52 +220,5 @@
 		margin-left: auto;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
-	}
-
-	.detail {
-		padding: 0.8rem 0.95rem;
-		border: 1px solid var(--line);
-		border-top: 0;
-		border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-		background: var(--surface-alt);
-	}
-
-	.detail p {
-		margin: 0 0 0.35rem;
-	}
-
-	.meta {
-		font-size: 0.85rem;
-		color: var(--ink-muted);
-	}
-
-	table {
-		width: 100%;
-		margin: 0.5rem 0;
-		border-collapse: collapse;
-		font-size: 0.85rem;
-	}
-
-	caption {
-		text-align: left;
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--accent);
-		padding-bottom: 0.25rem;
-	}
-
-	th {
-		text-align: left;
-		font-weight: 500;
-		color: var(--ink-muted);
-		padding: 0.15rem 0.5rem 0.15rem 0;
-		white-space: nowrap;
-	}
-
-	td {
-		padding: 0.15rem 0;
-		font-weight: 600;
 	}
 </style>

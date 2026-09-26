@@ -18,7 +18,7 @@
 		type Recommendation,
 		type RecommendationKind
 	} from '$lib/domain/recommend';
-	import type { PopulatedCourse } from '$lib/content/types';
+	import type { CourseSummary } from '$lib/content/types';
 	import { untrack } from 'svelte';
 
 	let {
@@ -26,7 +26,7 @@
 		ready,
 		excludeId
 	}: {
-		course: PopulatedCourse;
+		course: CourseSummary;
 		/** True once the page has loaded progress and the per-quiz stats. */
 		ready: boolean;
 		/** The "Continue" quiz — it has its own card already. */

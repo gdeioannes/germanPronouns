@@ -8,9 +8,11 @@
 		learningResourceLd,
 		quizDescription,
 		quizTitle,
+		shareImage,
 		topicOf,
 		type Crumb
 	} from '$lib/seo';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
@@ -30,7 +32,7 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	const { course, quiz, next, previous, vocab, position, levelCount, levelTitle } = $derived(data);
+	const { course, quiz, next, previous, related, vocab, position, levelCount, levelTitle } = $derived(data);
 
 	const path = $derived(`/course/${course.id}/quiz/${quiz.id}`);
 	const levelPath = $derived(`/course/${course.id}/level/${quiz.level}`);
@@ -81,6 +83,8 @@
 	description={quizDescription(quiz)}
 	{path}
 	type="article"
+	image={quiz.level ? shareImage('level', quiz.level) : undefined}
+	imageAlt={quiz.level ? `German ${quiz.level}: ${topicOf(quiz.title)}` : undefined}
 	jsonLd={[learningResourceLd(quiz, path, course.name, `/course/${course.id}`), breadcrumbLd(crumbs)]}
 />
 
@@ -199,9 +203,39 @@
 			</a>
 		{/if}
 	</nav>
+
+	{#if related.length}
+		<!-- The nearest exercises in the same level: a reader who came in from
+		     a search has somewhere to go besides forward and back. -->
+		<section class="related" aria-labelledby="related-heading">
+			<h2 id="related-heading">More at {levelTitle ?? quiz.level}</h2>
+			<ul>
+				{#each related as r (r.id)}
+					<li>
+						<a href="/course/{course.id}/quiz/{r.id}">
+							<span class="kind" data-kind={r.type}><Icon name={QUIZ_TYPE_ICONS[r.type]} size="1em" /></span>
+							<span>{topicOf(r.title)}</span>
+						</a>
+					</li>
+				{/each}
+			</ul>
+			{#if quiz.level}<p><a href={levelPath}>Every {quiz.level} exercise <Icon name="arrowRight" size="1em" /></a></p>{/if}
+		</section>
+	{/if}
 </main>
 
+<SiteFooter />
+
 <style>
+	.related { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+	.related h2 { margin: 0 0 0.5rem; font-size: var(--step-0); }
+	.related ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.2rem; }
+	.related li a { display: flex; align-items: center; gap: 0.6rem; padding: 0.45rem 0.6rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; font-size: var(--step--1); }
+	.related li a:hover { background: var(--surface-alt); }
+	.related li .kind { width: 1.7rem; height: 1.7rem; margin: 0; }
+	.related p { margin: 0.6rem 0 0; font-size: var(--step--1); }
+	.related p a { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 700; text-decoration: none; }
+
 	.head {
 		display: flex;
 		align-items: flex-start;

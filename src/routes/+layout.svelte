@@ -7,6 +7,10 @@
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
 	import '@fontsource-variable/source-serif-4';
+	// The two font files the first paint needs, preloaded so text does not
+	// swap fonts after the CSS has been parsed and discovered them.
+	import interUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+	import serifUrl from '@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url';
 	import '../app.css';
 
 	let { children } = $props();
@@ -20,6 +24,8 @@
 </script>
 
 <svelte:head>
+	<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={interUrl} />
+	<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={serifUrl} />
 	<link rel="icon" type="image/png" href="/favicon.png" />
 	<link rel="apple-touch-icon" href="/icons/Icon-192.png" />
 	<link rel="manifest" href="/manifest.json" />

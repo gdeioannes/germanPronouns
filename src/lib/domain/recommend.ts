@@ -8,7 +8,7 @@
 // Pure functions over plain facts, so the ranking is unit-testable without a
 // browser; the course page gathers the facts from the progress store.
 
-import type { Quiz, QuizType } from '$lib/content/types';
+import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
 import type { RibbonTier } from './progress';
 import { topicOf } from '$lib/seo';
 

@@ -1,6 +1,6 @@
 // Everything a page needs to describe itself to search engines and social
-// cards, in one place — so the canonical host, the default image and the
-// title shape can never drift between routes.
+// cards, in one place — so the canonical host, the organisation, the default
+// image and the title shape can never drift between routes.
 
 import type { Quiz, QuizType } from '$lib/content/types';
 
@@ -8,6 +8,30 @@ export const SITE_URL = 'https://languagequiz.org';
 export const SITE_NAME = 'Language Quiz';
 export const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 export const DEFAULT_IMAGE_ALT = 'Language Quiz - a free interactive German course';
+
+/**
+ * The language of the interface. Every page is in English today; the
+ * plumbing (html lang, og:locale, hreflang) reads this one table so a
+ * translated set of routes only has to add a row.
+ */
+export const DEFAULT_LANG = 'en';
+export const LOCALES: Record<string, { ogLocale: string }> = {
+	en: { ogLocale: 'en_GB' },
+	de: { ogLocale: 'de_DE' },
+	es: { ogLocale: 'es_ES' },
+	zh: { ogLocale: 'zh_CN' }
+};
+
+/** One translated twin of a page, for its hreflang link. */
+export type Alternate = { lang: string; path: string };
+
+/** The publisher, as schema.org wants it named on every page. */
+export const ORGANIZATION = {
+	'@type': 'Organization',
+	name: SITE_NAME,
+	url: SITE_URL,
+	logo: `${SITE_URL}/icons/Icon-512.png`
+} as const;
 
 /** Absolute URL for a site path, the same form the sitemap lists. */
 export function absoluteUrl(path: string): string {
@@ -89,6 +113,15 @@ export function quizDescription(quiz: Quiz): string {
 	);
 }
 
+/**
+ * The share image for a page. One is drawn per CEFR level and per exercise
+ * kind (tool/og-images.mjs writes them to static/og/), so a shared quiz link
+ * previews as "A1 · Reading" rather than as the generic site card.
+ */
+export function shareImage(kind: 'level' | 'type' | 'words', key: string): string {
+	return `${SITE_URL}/og/${kind}-${key.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.png`;
+}
+
 export type Crumb = { name: string; path: string };
 
 export function breadcrumbLd(crumbs: Crumb[]) {
@@ -104,11 +137,50 @@ export function breadcrumbLd(crumbs: Crumb[]) {
 	};
 }
 
+/** The site itself, once, on the home page. */
+export function websiteLd() {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: SITE_NAME,
+		url: SITE_URL,
+		inLanguage: DEFAULT_LANG,
+		publisher: ORGANIZATION
+	};
+}
+
+/** A course, as the home page and the course page both describe it. */
+export function courseLd(course: { id: string; name: string; tagline: string }, extra: object = {}) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'Course',
+		name: course.name,
+		description: course.tagline,
+		url: absoluteUrl(`/course/${course.id}`),
+		educationalLevel: 'CEFR A1–C2',
+		inLanguage: DEFAULT_LANG,
+		teaches: 'German',
+		isAccessibleForFree: true,
+		provider: ORGANIZATION,
+		offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', category: 'Free' },
+		hasCourseInstance: {
+			'@type': 'CourseInstance',
+			courseMode: 'online',
+			courseWorkload: 'PT10M'
+		},
+		...extra
+	};
+}
+
+/**
+ * An exercise: a LearningResource that is also a schema.org Quiz, since
+ * every one of them is answered rather than just read.
+ */
 export function learningResourceLd(quiz: Quiz, path: string, courseName: string, coursePath: string) {
 	const cefr = cefrOf(quiz.level);
 	return {
 		'@context': 'https://schema.org',
-		'@type': 'LearningResource',
+		'@type': ['LearningResource', 'Quiz'],
 		name: topicOf(quiz.title),
 		description: quizDescription(quiz),
 		url: absoluteUrl(path),
@@ -116,9 +188,34 @@ export function learningResourceLd(quiz: Quiz, path: string, courseName: string,
 		learningResourceType: RESOURCE_TYPE[quiz.type],
 		educationalLevel: cefr ? `CEFR ${cefr}` : undefined,
 		teaches: topicOf(quiz.title),
+		about: { '@type': 'Thing', name: 'German language' },
 		isAccessibleForFree: true,
 		interactivityType: 'active',
-		provider: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+		educationalUse: 'practice',
+		provider: ORGANIZATION,
 		isPartOf: { '@type': 'Course', name: courseName, url: absoluteUrl(coursePath) }
+	};
+}
+
+/** A dictionary entry (a noun or verb page) as a DefinedTerm. */
+export function definedTermLd(term: {
+	name: string;
+	description: string;
+	path: string;
+	setPath: string;
+	setName: string;
+}) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'DefinedTerm',
+		name: term.name,
+		description: term.description,
+		url: absoluteUrl(term.path),
+		inLanguage: 'de',
+		inDefinedTermSet: {
+			'@type': 'DefinedTermSet',
+			name: term.setName,
+			url: absoluteUrl(term.setPath)
+		}
 	};
 }
