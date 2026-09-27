@@ -12,7 +12,8 @@ export type QuizType =
 	| 'listening'
 	| 'dictation'
 	| 'speakRepeat'
-	| 'speaking';
+	| 'speaking'
+	| 'vocabulary';
 
 export type NavGroupType = 'quizzes' | 'questChain' | 'nounChain' | 'links';
 
@@ -293,8 +294,40 @@ export interface SpeakingQuiz extends QuizBase {
 	speaking: SpeakingExercise;
 }
 
+// -- vocabulary (flip cards) -------------------------------------------------
+
+/**
+ * One flip card. A `noun` is always learnt with its article, so the write
+ * mode demands it; a `name` (country, city, letter) is capitalised but takes
+ * none; a `word` is anything else — verbs, adjectives, numbers, phrases.
+ */
+export interface VocabCard {
+	de: string;
+	en: string;
+	kind: 'noun' | 'name' | 'word';
+	article?: string;
+	plural?: string;
+	/** A note shown on the back, never demanded: "fährt", "+ Akk", "gehen". */
+	note?: string;
+	/** Synonyms the write mode also accepts, in their full form ("ungehalten", "die Position"). */
+	also?: string[];
+	/** The quiz whose Help Memory this word came from. */
+	sourceQuizId: string;
+}
+
+/**
+ * A sub-level's vocabulary deck, built by tool/build-vocabulary.mjs from the
+ * words its quizzes carry. Progress is the streak, as for fill-blanks; the
+ * per-word record lives in the vocab store, not here.
+ */
+export interface VocabularyQuiz extends QuizBase {
+	type: 'vocabulary';
+	cards: VocabCard[];
+}
+
 export type Quiz =
 	| FillBlankQuiz
+	| VocabularyQuiz
 	| ReadingQuiz
 	| InlineClozeQuiz
 	| ListeningQuiz

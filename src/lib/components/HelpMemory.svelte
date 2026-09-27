@@ -19,8 +19,9 @@
 	let {
 		quiz,
 		locale = 'de-DE',
-		vocab
-	}: { quiz: Quiz; locale?: string; vocab?: VocabEntry[] } = $props();
+		vocab,
+		deckHref = null
+	}: { quiz: Quiz; locale?: string; vocab?: VocabEntry[]; deckHref?: string | null } = $props();
 
 	const help = $derived(quiz.help);
 	const quizId = $derived(quiz.id);
@@ -220,6 +221,11 @@
 							</li>
 						{/each}
 					</ul>
+					{#if deckHref}
+						<a class="practise" href={deckHref}>
+							<Icon name="cards" size="1em" /> Practise these words as flashcards
+						</a>
+					{/if}
 				{:else if derivedVocab.length > 0}
 					<h4 class="section-head">Words in this text</h4>
 					<ul class="vocab">
@@ -474,6 +480,21 @@
 
 	/* A wrapping grid rather than a table: it is a word list, and it has to stay
 	   readable at phone width. */
+	.practise {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin: 0.6rem 0 0;
+		font-size: var(--step--1);
+		font-weight: 700;
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.practise:hover {
+		text-decoration: underline;
+	}
+
 	.vocab {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));

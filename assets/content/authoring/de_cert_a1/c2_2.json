@@ -5176,5 +5176,68 @@
       ],
       "exam": "At C2 the reading and listening papers may use authentic texts from Austria or Switzerland — a Viennese newspaper report, a Swiss official notice, a recipe — and expect you to understand regional standard words such as Jänner, Spital or Velo without comment. In your own writing, stay consistent within one variety."
     }
+  },
+  {
+    "id": "quest_c2_2_wortschatz",
+    "covers": [
+      "c2.vocabulary-2"
+    ],
+    "title": "C2.2 · Wortschatz",
+    "help": {
+      "intro": "Every word the C2.2 exercises use, on one deck of flashcards: 303 cards, 123 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Register is part of the meaning",
+          "text": "At C2 two words can mean the same and still not be interchangeable. The note on the back often names the plain or colloquial equivalent; learn which one fits a formal text.",
+          "examples": [
+            {
+              "de": "noch (+ comparative)",
+              "en": "even (weaker, better)"
+            },
+            {
+              "de": "eine Vielzahl von (+ Dat)",
+              "en": "a multitude of"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Three modes, three kinds of memory",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "examples": [
+            {
+              "de": "die Urteilskraft",
+              "en": "power of judgement"
+            },
+            {
+              "de": "die Unmündigkeit",
+              "en": "immaturity, tutelage"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "A noun without its article is marked wrong",
+          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "examples": [
+            {
+              "de": "der kategorische Imperativ",
+              "en": "categorical imperative"
+            },
+            {
+              "de": "der freie Wille",
+              "en": "free will (den freien Willen, des freien Willens)"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article, not even in your head.",
+        "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
+        "Verbs and adjectives have no article: type them as they stand, like \"selbst\"."
+      ],
+      "exam": "C2 exam: the texts are authentic journalism, essays and official letters, and the written tasks are marked on precise, register-appropriate word choice."
+    }
   }
 ]

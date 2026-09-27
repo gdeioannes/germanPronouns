@@ -738,8 +738,19 @@
 		background: #e6ecf3;
 		color: var(--navy);
 	}
-	.kind-icon[data-kind='speaking'],
+	.kind-icon[data-kind='fillBlank'] {
+		background: #ebe7f4;
+		color: #55478a;
+	}
+	.kind-icon[data-kind='vocabulary'] {
+		background: #f9e7ee;
+		color: #a33a63;
+	}
 	.kind-icon[data-kind='speakRepeat'] {
+		background: #fbe9e2;
+		color: #b5522a;
+	}
+	.kind-icon[data-kind='speaking'] {
 		background: var(--accent-soft);
 		color: var(--accent);
 	}

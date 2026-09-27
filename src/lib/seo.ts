@@ -78,7 +78,8 @@ const KIND_LABEL: Record<QuizType, string> = {
 	listening: 'listening exercise',
 	dictation: 'dictation',
 	speakRepeat: 'pronunciation practice',
-	speaking: 'speaking practice'
+	speaking: 'speaking practice',
+	vocabulary: 'vocabulary flashcards'
 };
 
 /** The name schema.org's learningResourceType expects. */
@@ -88,7 +89,8 @@ const RESOURCE_TYPE: Record<QuizType, string> = {
 	listening: 'Listening exercise',
 	dictation: 'Dictation',
 	speakRepeat: 'Pronunciation exercise',
-	speaking: 'Speaking exercise'
+	speaking: 'Speaking exercise',
+	vocabulary: 'Flashcards'
 };
 
 /**

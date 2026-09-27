@@ -453,8 +453,19 @@
 		background: #e6ecf3;
 		color: var(--navy);
 	}
-	.kind[data-kind='speaking'],
+	.kind[data-kind='fillBlank'] {
+		background: #ebe7f4;
+		color: #55478a;
+	}
+	.kind[data-kind='vocabulary'] {
+		background: #f9e7ee;
+		color: #a33a63;
+	}
 	.kind[data-kind='speakRepeat'] {
+		background: #fbe9e2;
+		color: #b5522a;
+	}
+	.kind[data-kind='speaking'] {
 		background: var(--accent-soft);
 		color: var(--accent);
 	}

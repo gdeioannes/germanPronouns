@@ -4828,5 +4828,68 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_b2_2_wortschatz",
+    "covers": [
+      "b2.vocabulary-2"
+    ],
+    "title": "B2.2 · Wortschatz",
+    "help": {
+      "intro": "Every word the B2.2 exercises use, on one deck of flashcards: 225 cards, 34 of them nouns. The vocabulary of this module is the language of society, work, environment and science, much of it abstract nouns in -ung, -heit, -keit and -ion, from the themes Umwelt & Klima, Wissenschaft & Forschung, Ernährung & Gesundheit, Orte & Regionen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Suffixes give the gender away",
+          "text": "Most abstract nouns at B2 are feminine because of their suffix: -ung, -heit, -keit, -schaft, -ion and -tät always take die. Use the suffix, not memory, when you are unsure.",
+          "examples": [
+            {
+              "de": "die Maßnahme, Plural: -n",
+              "en": "measure"
+            },
+            {
+              "de": "der Zusammenhang, Plural: Zusammenhänge",
+              "en": "connection"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Three modes, three kinds of memory",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "examples": [
+            {
+              "de": "der Zusammenhang, Plural: Zusammenhänge",
+              "en": "connection"
+            },
+            {
+              "de": "die Ursache, Plural: -n",
+              "en": "cause"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "A noun without its article is marked wrong",
+          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "examples": [
+            {
+              "de": "die Folge, Plural: -n",
+              "en": "consequence"
+            },
+            {
+              "de": "die Dürre, Plural: -n",
+              "en": "drought"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article, not even in your head.",
+        "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
+        "Verbs and adjectives have no article: type them as they stand, like \"nachweisen\"."
+      ],
+      "exam": "B2 exam: vocabulary range is a scoring criterion in Schreiben and Sprechen, and the reading texts use these abstract nouns throughout."
+    }
   }
 ]

@@ -3965,5 +3965,68 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_a2_2_wortschatz",
+    "covers": [
+      "a2.vocabulary-2"
+    ],
+    "title": "A2.2 · Wortschatz",
+    "help": {
+      "intro": "Every word the A2.2 exercises use, on one deck of flashcards: 241 cards, 51 of them nouns. The vocabulary of this module is the words for travel, health, home and describing people, and many verbs you now use in the Perfekt, from the themes Wohnen & Einrichtung, Körper & Gesundheit; beim Arzt, Kleidung & Einkaufen, Menschen beschreiben. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Learn verbs with their partner",
+          "text": "At A2 a verb is only half learnt without the preposition or case it takes. When the back of the card shows a note in brackets, read it aloud with the verb.",
+          "examples": [
+            {
+              "de": "sich freuen (auf / über)",
+              "en": "to be glad; look forward to / be pleased about"
+            },
+            {
+              "de": "machen (machte)",
+              "en": "to do, make"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Three modes, three kinds of memory",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "examples": [
+            {
+              "de": "der Schrank, Plural: ¨-e",
+              "en": "wardrobe, cupboard"
+            },
+            {
+              "de": "die Schublade, Plural: -n",
+              "en": "drawer"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "A noun without its article is marked wrong",
+          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "examples": [
+            {
+              "de": "der Boden",
+              "en": "floor"
+            },
+            {
+              "de": "der Urlaub, Plural: —",
+              "en": "holiday"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article, not even in your head.",
+        "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
+        "Verbs and adjectives have no article: type them as they stand, like \"an\"."
+      ],
+      "exam": "A2 exam: Lesen and Hören draw on this vocabulary for notices, messages and short conversations; Schreiben asks for a short e-mail using it."
+    }
   }
 ]

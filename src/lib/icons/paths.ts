@@ -76,6 +76,21 @@ const RAW = {
 	blank: {
 		d: 'M4 17h16 M7 11.5h3 M14 11.5h3 M4 6h16'
 	},
+	/**
+	 * A sentence with a boxed gap and the caret inside it — type the missing
+	 * word. The box is the field the learner actually sees on the page.
+	 */
+	gap: {
+		d: 'M3 12h3 M18 12h3 M9.5 7.5h5a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z M12 10v4 M4 18.5h16'
+	},
+	/** A pencil writing what a voice says: sound arcs into a pen — dictation. */
+	dictation: {
+		d: 'M18 6l2 2-8.5 8.5-3 1 1-3L18 6Z M4 20h16 M3.5 8.5a2.5 2.5 0 0 1 0 3.5 M6 6a6 6 0 0 1 0 8.5'
+	},
+	/** Two stacked cards, the top one with a word on it — flashcards. */
+	cards: {
+		d: 'M7 8.5h11a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z M9.5 5.5h9.5a1 1 0 0 1 1 1V16 M10 13.5h5'
+	},
 
 	// -- progress ------------------------------------------------------------
 	/** Bookmark ribbon with a swallowtail — the completion mark. */
@@ -133,12 +148,19 @@ export type IconName = keyof typeof RAW;
  */
 export const icons: Record<IconName, IconSpec> = RAW;
 
-/** The icon that stands for each quiz type, shared by every list and header. */
+/**
+ * The icon that stands for each quiz type, shared by every list and header.
+ * One glyph per exercise kind, chosen so the kind is readable at a glance:
+ * the field you type into, the book you read, the headphones you listen with,
+ * the pen taking down a voice, the microphone you speak into, the chat you
+ * hold with the AI, the cards you flip.
+ */
 export const QUIZ_TYPE_ICONS = {
-	fillBlank: 'blank',
+	fillBlank: 'gap',
 	reading: 'book',
 	listening: 'headphones',
-	dictation: 'pen',
-	speakRepeat: 'repeat',
-	speaking: 'chat'
+	dictation: 'dictation',
+	speakRepeat: 'mic',
+	speaking: 'chat',
+	vocabulary: 'cards'
 } as const satisfies Record<string, IconName>;

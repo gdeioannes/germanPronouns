@@ -3295,5 +3295,68 @@
       ],
       "exam": "A1 Schreiben (a message to friends or to an office: 'eure Party', 'Ihre Adresse') and Sprechen Teil 1 ('unsere Familie') — the plural and formal possessives are as common as mein."
     }
+  },
+  {
+    "id": "quest_a1_2_wortschatz",
+    "covers": [
+      "a1.vocabulary-2"
+    ],
+    "title": "A1.2 · Wortschatz",
+    "help": {
+      "intro": "Every word the A1.2 exercises use, on one deck of flashcards: 166 cards, 69 of them nouns. The vocabulary of this module is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Say the article as part of the word",
+          "text": "At this level almost every noun is new, and its gender is a fact to memorise. Say der, die or das aloud with the noun every time, so the two stay welded together.",
+          "examples": [
+            {
+              "de": "der Mann, Plural: ¨-er",
+              "en": "man"
+            },
+            {
+              "de": "der Tisch, Plural: -e",
+              "en": "table"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Three modes, three kinds of memory",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "examples": [
+            {
+              "de": "der Hund, Plural: -e",
+              "en": "dog"
+            },
+            {
+              "de": "der Apfel, Plural: ¨-",
+              "en": "apple"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "A noun without its article is marked wrong",
+          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "examples": [
+            {
+              "de": "der Ball, Plural: ¨-e",
+              "en": "ball"
+            },
+            {
+              "de": "die Frau, Plural: -en",
+              "en": "woman"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article, not even in your head.",
+        "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
+        "Verbs and adjectives have no article: type them as they stand, like \"mich\"."
+      ],
+      "exam": "A1 exam: the reading and listening tasks are short everyday texts built from exactly these words, and Sprechen asks you to name things and ask about them."
+    }
   }
 ]

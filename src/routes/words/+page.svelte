@@ -9,12 +9,39 @@
 	// index, so it stays light however many words the collections grow to.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { GENDER_ARTICLES, GENDER_COLORS } from '$lib/domain/gender';
+	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import { DEFAULT_GATING } from '$lib/domain/progress';
+	import { progress } from '$lib/state/progress.svelte';
+	import { vocab } from '$lib/state/vocab.svelte';
 	import { page } from '$app/state';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	const { nouns, verbs } = $derived(data);
+	const { nouns, verbs, decks, courseId } = $derived(data);
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
+
+	// The decks' ribbons and weak-word counts come from local storage, so
+	// they fill in after mount; the prerendered page shows the counts alone.
+	let statsReady = $state(false);
+	onMount(async () => {
+		if (!progress.loaded) await progress.load(DEFAULT_GATING);
+		await progress.hydrateStats(
+			decks.flatMap((d) => (d.storageKeyPrefix ? [d.storageKeyPrefix] : []))
+		);
+		await vocab.load(courseId);
+		statsReady = true;
+	});
+
+	const ribbonOf = $derived((deck: (typeof decks)[number]) =>
+		statsReady && deck.quizId && deck.storageKeyPrefix
+			? progress.ribbonFor('vocabulary', deck.quizId, deck.storageKeyPrefix)
+			: null
+	);
+	const weakOf = $derived((deck: (typeof decks)[number]) =>
+		statsReady && deck.quizId ? vocab.weakCountFor(courseId, deck.quizId) : 0
+	);
+	const ready = $derived(decks.filter((d) => d.quizId).length);
 
 	let tab = $state<'nouns' | 'verbs'>('nouns');
 	let search = $state('');
@@ -55,6 +82,50 @@
 		Search the course's German words. Or browse <a href="/words/nouns">all {nouns.length} nouns by
 		theme</a> and <a href="/words/verbs">all {verbs.length} verbs</a>.
 	</p>
+
+	<!-- Flashcards first: the fastest way to actually learn the words below. -->
+	<section class="decks" aria-labelledby="decks-head">
+		<div class="decks-head">
+			<h2 id="decks-head"><Icon name="cards" size="1.1em" /> Flashcards by module</h2>
+			<p>
+				Every word a module uses, as cards: write the German with its article, choose it from
+				four, or flip and rate yourself. Missed words come back as weak words.
+			</p>
+		</div>
+		<ol class="deck-grid">
+			{#each decks as deck (deck.level)}
+				{@const ribbon = ribbonOf(deck)}
+				{@const weak = weakOf(deck)}
+				<li>
+					{#if deck.quizId}
+						<a class="deck" href="/course/{courseId}/quiz/{deck.quizId}">
+							<span class="deck-level tnum">{deck.level}</span>
+							<span class="deck-title">{deck.title}</span>
+							<span class="deck-meta tnum">{deck.cards} cards · {deck.nouns} nouns</span>
+							{#if weak > 0}
+								<span class="deck-weak tnum"><Icon name="flame" size="0.9em" /> {weak} weak</span>
+							{/if}
+							{#if ribbon}
+								<span class="deck-ribbon"><RibbonBadge tier={ribbon} /></span>
+							{/if}
+							<Icon name="arrowRight" size="1em" class="deck-go" />
+						</a>
+					{:else}
+						<span class="deck soon">
+							<span class="deck-level tnum">{deck.level}</span>
+							<span class="deck-title">{deck.title}</span>
+							<span class="deck-meta">deck coming</span>
+						</span>
+					{/if}
+				</li>
+			{/each}
+		</ol>
+		{#if ready < decks.length}
+			<p class="decks-note">{ready} of {decks.length} module decks are ready; the rest are being built.</p>
+		{/if}
+	</section>
+
+	<h2 class="library-head">Look a word up</h2>
 
 	<div class="tabs" role="tablist">
 		<button role="tab" aria-selected={tab === 'nouns'} onclick={() => (tab = 'nouns')}>
@@ -108,6 +179,139 @@
 	.lede {
 		margin: 0 0 1.25rem;
 		color: var(--ink-muted);
+	}
+
+	/* -- Flashcard decks ---------------------------------------------------- */
+
+	.decks {
+		margin: 0 0 2.25rem;
+	}
+
+	.decks-head h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0 0 0.35rem;
+		font-size: var(--step-1);
+	}
+
+	.decks-head p {
+		margin: 0 0 1rem;
+		max-width: var(--measure);
+		color: var(--ink-muted);
+	}
+
+	.deck-grid {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		gap: 0.6rem;
+		grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+	}
+
+	.deck {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-areas:
+			'level ribbon'
+			'title ribbon'
+			'meta go'
+			'weak go';
+		gap: 0.15rem 0.6rem;
+		min-height: 6.5rem;
+		padding: 0.9rem 1rem 0.9rem 1.1rem;
+		border: 1px solid var(--line-strong);
+		border-left: 5px solid #a33a63;
+		border-radius: var(--radius-sm);
+		background: var(--surface);
+		color: inherit;
+		text-decoration: none;
+		box-shadow: 0 3px 10px rgb(31 58 95 / 0.05);
+		transition:
+			transform var(--fast) var(--ease-out),
+			box-shadow var(--fast) var(--ease-out);
+	}
+
+	a.deck:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 22px rgb(31 58 95 / 0.1);
+	}
+
+	.deck.soon {
+		border-left-color: var(--outline);
+		background: var(--surface-alt);
+		color: var(--ink-muted);
+		box-shadow: none;
+	}
+
+	.deck-level {
+		grid-area: level;
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: #a33a63;
+	}
+
+	.deck.soon .deck-level {
+		color: var(--ink-muted);
+	}
+
+	.deck-title {
+		grid-area: title;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-0);
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		color: var(--heading);
+	}
+
+	.deck.soon .deck-title {
+		color: var(--ink-muted);
+	}
+
+	.deck-meta {
+		grid-area: meta;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.deck-weak {
+		grid-area: weak;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		font-size: var(--step--1);
+		font-weight: 700;
+		color: var(--accent);
+	}
+
+	.deck-ribbon {
+		grid-area: ribbon;
+		align-self: start;
+	}
+
+	.deck :global(.deck-go) {
+		grid-area: go;
+		align-self: end;
+		color: var(--outline);
+		transition: color var(--fast) var(--ease-out);
+	}
+
+	a.deck:hover :global(.deck-go) {
+		color: var(--accent);
+	}
+
+	.decks-note {
+		margin: 0.75rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.library-head {
+		margin: 0 0 0.75rem;
+		font-size: var(--step-1);
 	}
 
 	.tabs {

@@ -4229,5 +4229,68 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_c2_1_wortschatz",
+    "covers": [
+      "c2.vocabulary-1"
+    ],
+    "title": "C2.1 · Wortschatz",
+    "help": {
+      "intro": "Every word the C2.1 exercises use, on one deck of flashcards: 219 cards, 62 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Register is part of the meaning",
+          "text": "At C2 two words can mean the same and still not be interchangeable. The note on the back often names the plain or colloquial equivalent; learn which one fits a formal text.",
+          "examples": [
+            {
+              "de": "erhalten (kriegen)",
+              "en": "to receive (get)"
+            },
+            {
+              "de": "defekt (kaputt)",
+              "en": "defective (broken)"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Three modes, three kinds of memory",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "examples": [
+            {
+              "de": "die Rendite, Plural: —",
+              "en": "return, yield"
+            },
+            {
+              "de": "der Leitzins",
+              "en": "key interest rate"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "A noun without its article is marked wrong",
+          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "examples": [
+            {
+              "de": "die Inflation",
+              "en": "inflation"
+            },
+            {
+              "de": "die Insolvenz",
+              "en": "insolvency"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article, not even in your head.",
+        "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
+        "Verbs and adjectives have no article: type them as they stand, like \"rechtskräftig\"."
+      ],
+      "exam": "C2 exam: the texts are authentic journalism, essays and official letters, and the written tasks are marked on precise, register-appropriate word choice."
+    }
   }
 ]

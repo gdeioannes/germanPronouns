@@ -53,6 +53,10 @@ export const load: PageServerLoad = async ({ params }) => {
 		.sort((a, b) => levelQuizzes.indexOf(a) - levelQuizzes.indexOf(b))
 		.map(summarizeQuiz);
 
+	// The level's flashcard deck, so the Help Memory can offer "practise these
+	// words" — one deck per sub-level, built from the words its quizzes carry.
+	const deck = levelQuizzes.find((q) => q.type === 'vocabulary');
+
 	const previous = course.quizzes[index - 1];
 	// The chain is ordered, so "next" is simply the following entry.
 	const next = course.quizzes[index + 1];
@@ -64,6 +68,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		previous: previous ? summarizeQuiz(previous) : null,
 		next: next ? summarizeQuiz(next) : null,
 		related,
+		deck: deck ? summarizeQuiz(deck) : null,
 		// Where this exercise sits in its level, for the breadcrumb line.
 		position: position + 1,
 		levelCount: levelQuizzes.length,

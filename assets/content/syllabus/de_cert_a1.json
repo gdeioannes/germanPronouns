@@ -94,6 +94,11 @@
           "id": "a1.alphabet",
           "label": "Das Alphabet & Buchstabieren: letter names (E/I, J, V, W, Y, Z), ä ö ü ß, Doppel-, spelling names",
           "official": "A1 (Kann-Beschreibung: Namen buchstabieren)"
+        },
+        {
+          "id": "a1.vocabulary",
+          "label": "Wortschatz A1.1: every word of the level as flashcards, nouns always with article and plural",
+          "official": "A1 (Wortliste)"
         }
       ]
     },
@@ -223,6 +228,11 @@
           "id": "a1.possessives-plural",
           "label": "Possessivartikel unser / euer / ihr / Ihr (unsere, eure, euren, Ihren)",
           "official": "A1 (inventory: Possessivartikel)"
+        },
+        {
+          "id": "a1.vocabulary-2",
+          "label": "Wortschatz A1.2: every word of the module as flashcards, nouns always with article and plural",
+          "official": "A1 (Wortschatz)"
         }
       ]
     },
@@ -325,6 +335,11 @@
           "id": "a2.indefinite-pronouns",
           "label": "Indefinitpronomen: man, jemand, niemand, etwas, nichts, alle/alles",
           "official": "A2 (official structure inventory)"
+        },
+        {
+          "id": "a2.vocabulary-1",
+          "label": "Wortschatz A2.1: every word of the module as flashcards, nouns always with article and plural",
+          "official": "A2 (Wortschatz)"
         }
       ],
       "exam": [
@@ -459,6 +474,11 @@
           "id": "a2.email-redemittel",
           "label": "Schreiben: E-Mail-Bausteine (Anrede, Grund, Bitte, Entschuldigung, Gruß)",
           "official": "A2 Schreiben Teil 2"
+        },
+        {
+          "id": "a2.vocabulary-2",
+          "label": "Wortschatz A2.2: every word of the module as flashcards, nouns always with article and plural",
+          "official": "A2 (Wortschatz)"
         }
       ],
       "exam": [
@@ -587,6 +607,11 @@
           "id": "b1.indirect-questions",
           "label": "Indirekte Fragen: Können Sie mir sagen, wann …? / Ich weiß nicht, ob … (W-Wort oder ob, Verb am Ende)",
           "official": "B1 (official structure inventory)"
+        },
+        {
+          "id": "b1.vocabulary-1",
+          "label": "Wortschatz B1.1: every word of the module as flashcards, nouns always with article and plural",
+          "official": "B1 (Wortschatz)"
         }
       ],
       "exam": [
@@ -724,6 +749,11 @@
           "id": "b1.state-passive",
           "label": "Zustandspassiv: sein + Partizip II (Die Tür ist geschlossen) im Kontrast zum Vorgangspassiv (Die Tür wird geschlossen)",
           "official": "B1 (official structure inventory)"
+        },
+        {
+          "id": "b1.vocabulary-2",
+          "label": "Wortschatz B1.2: every word of the module as flashcards, nouns always with article and plural",
+          "official": "B1 (Wortschatz)"
         }
       ],
       "exam": [
@@ -871,6 +901,11 @@
           "id": "b2.je-desto",
           "label": "Zweiteiliger Vergleich: je … desto / umso (Wortstellung beider Teile)",
           "official": "B2"
+        },
+        {
+          "id": "b2.vocabulary-1",
+          "label": "Wortschatz B2.1: every word of the module as flashcards, nouns always with article and plural",
+          "official": "B2 (Wortschatz)"
         }
       ],
       "exam": [
@@ -1019,6 +1054,11 @@
           "id": "b2.konjunktiv2-present",
           "label": "Konjunktiv II der Gegenwart: wäre, hätte, Modalverben, gäbe / wüsste / käme / bräuchte, würde + Infinitiv; Bitte, Rat, Wunsch, irreale Bedingung",
           "official": "B2"
+        },
+        {
+          "id": "b2.vocabulary-2",
+          "label": "Wortschatz B2.2: every word of the module as flashcards, nouns always with article and plural",
+          "official": "B2 (Wortschatz)"
         }
       ],
       "exam": [
@@ -1136,6 +1176,11 @@
           "id": "c1.two-part-connectors",
           "label": "Zweiteilige Konnektoren: zwar … aber, einerseits … andererseits, nicht nur … sondern auch, sowohl … als auch, weder … noch, entweder … oder, je … desto/umso, teils … teils, bald … bald, mal … mal, zum einen … zum anderen; Wortstellung und Kongruenz",
           "official": "C1"
+        },
+        {
+          "id": "c1.vocabulary-1",
+          "label": "Wortschatz C1.1: every word of the module as flashcards, nouns always with article and plural",
+          "official": "C1 (Wortschatz)"
         }
       ],
       "exam": [
@@ -1258,6 +1303,11 @@
           "id": "c1.report-nominal-style",
           "label": "Schreiben: Bericht im Nominalstil (wegen fehlender Unterlagen, nach Abschluss der Arbeiten, zur Senkung der Kosten, trotz starker Regenfälle, im Falle weiterer Verzögerungen)",
           "official": "C1"
+        },
+        {
+          "id": "c1.vocabulary-2",
+          "label": "Wortschatz C1.2: every word of the module as flashcards, nouns always with article and plural",
+          "official": "C1 (Wortschatz)"
         }
       ],
       "exam": [
@@ -1375,6 +1425,11 @@
           "id": "c2.prefix-semantics",
           "label": "Präfixsemantik: ver-, zer-, er-, ent-, be-; über- / unter- / um- / durch- trennbar vs untrennbar (übersetzen / übersetzen, umfahren / umfahren)",
           "official": "C2"
+        },
+        {
+          "id": "c2.vocabulary-1",
+          "label": "Wortschatz C2.1: every word of the module as flashcards, nouns always with article and plural",
+          "official": "C2 (Wortschatz)"
         }
       ],
       "exam": [
@@ -1494,6 +1549,11 @@
           "id": "c2.dach-variation",
           "label": "Deutsch in Österreich und der Schweiz: Standardvarianten (Jänner, Paradeiser, Marille, Matura, Spital, Velo, parkieren, Billett, Estrich), Perfekt mit sein (ist gesessen), Schweizer ss statt ß",
           "official": "C2"
+        },
+        {
+          "id": "c2.vocabulary-2",
+          "label": "Wortschatz C2.2: every word of the module as flashcards, nouns always with article and plural",
+          "official": "C2 (Wortschatz)"
         }
       ],
       "exam": [

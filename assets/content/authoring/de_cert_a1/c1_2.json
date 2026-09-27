@@ -4127,5 +4127,68 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_c1_2_wortschatz",
+    "covers": [
+      "c1.vocabulary-2"
+    ],
+    "title": "C1.2 · Wortschatz",
+    "help": {
+      "intro": "Every word the C1.2 exercises use, on one deck of flashcards: 188 cards, 70 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Kultur & Medien, Gesellschaft & Ehrenamt, Literatur, Arbeit & Kommunikation formell. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Learn the noun with its verb",
+          "text": "At C1 many nouns only sound right with one verb: eine Entscheidung treffen, Maßnahmen ergreifen, Kritik üben. When a card is a noun, think of the verb it goes with.",
+          "examples": [
+            {
+              "de": "die Vielfalt, Plural: —",
+              "en": "diversity"
+            },
+            {
+              "de": "die Auseinandersetzung, Plural: -en",
+              "en": "engagement; dispute"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Three modes, three kinds of memory",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "examples": [
+            {
+              "de": "die Öffentlichkeit",
+              "en": "public sphere"
+            },
+            {
+              "de": "die Anspielung auf",
+              "en": "allusion to"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "A noun without its article is marked wrong",
+          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "examples": [
+            {
+              "de": "die Begeisterung für",
+              "en": "enthusiasm for"
+            },
+            {
+              "de": "der Austausch",
+              "en": "exchange"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article, not even in your head.",
+        "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
+        "Verbs and adjectives have no article: type them as they stand, like \"prägen\"."
+      ],
+      "exam": "C1 exam: the Sprachbausteine task tests exactly this vocabulary in context, and the formal e-mail in Schreiben is marked on register."
+    }
   }
 ]

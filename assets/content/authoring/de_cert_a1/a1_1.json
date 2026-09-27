@@ -2181,9 +2181,16 @@
           "en": "girl"
         },
         {
-          "de": "Freund / Freundin",
-          "article": "der / die",
-          "en": "friend; boyfriend / girlfriend"
+          "de": "Freund",
+          "article": "der",
+          "plural": "-e",
+          "en": "friend, boyfriend"
+        },
+        {
+          "de": "Freundin",
+          "article": "die",
+          "plural": "-nen",
+          "en": "friend, girlfriend"
         }
       ]
     }
@@ -2869,6 +2876,72 @@
         }
       ],
       "exam": "A1 Lesen Teil 3 (ads: rent, price, square metres) and Hören Teil 1 (prices, years of birth, distances) — three- and four-digit numbers read and heard at speed."
+    }
+  },
+  {
+    "id": "quest_a1_1_wortschatz",
+    "covers": [
+      "a1.vocabulary"
+    ],
+    "title": "A1.1 · Wortschatz",
+    "help": {
+      "intro": "Every word the A1.1 exercises use, on one deck of flashcards: the nouns from the article and plural drills, the numbers, the family, the colours, the countries and the verbs. A noun is learnt with its article or not at all, so the write mode only counts \"die Stelle\", never \"Stelle\" on its own. Three ways to work through the deck: write the German, choose it from four options, or flip the card and rate yourself honestly. A word you miss comes back later in the same run, and stays in your \"Weak words\" list until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Article first, always",
+          "text": "German nouns come in three genders and the article is the only reliable clue. Say der Tisch, die Lampe, das Buch as one word each; a bare noun is only half a word.",
+          "examples": [
+            {
+              "de": "der Tisch, die Tische",
+              "en": "the table, the tables"
+            },
+            {
+              "de": "die Lampe, die Lampen",
+              "en": "the lamp, the lamps"
+            },
+            {
+              "de": "das Buch, die Bücher",
+              "en": "the book, the books"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Learn the plural with the noun",
+          "text": "The plural is shown after every correct answer. Read it aloud once: the pattern (-e, -en, -s, -er, umlaut) is what you are memorising, not just the word.",
+          "examples": [
+            {
+              "de": "der Apfel, die Äpfel",
+              "en": "the apple, the apples"
+            },
+            {
+              "de": "das Kind, die Kinder",
+              "en": "the child, the children"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "Names take no article",
+          "text": "Countries, cities and letters are capitalised like nouns but stand alone: Berlin, Spanien, Japan. The exceptions with an article are die Schweiz, die Türkei, die USA.",
+          "examples": [
+            {
+              "de": "Ich komme aus Spanien.",
+              "en": "I come from Spain."
+            },
+            {
+              "de": "Ich komme aus der Schweiz.",
+              "en": "I come from Switzerland."
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article — not even in your head.",
+        "Miss a word? It comes back in the same run. Get it right three times and it leaves the weak list."
+      ],
+      "exam": "A1 Sprechen Teil 2 and Schreiben Teil 1 are built from exactly this vocabulary: introduce yourself, name things around you, give numbers and prices."
     }
   }
 ]

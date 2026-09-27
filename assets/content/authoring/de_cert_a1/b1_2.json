@@ -3799,5 +3799,68 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_b1_2_wortschatz",
+    "covers": [
+      "b1.vocabulary-2"
+    ],
+    "title": "B1.2 · Wortschatz",
+    "help": {
+      "intro": "Every word the B1.2 exercises use, on one deck of flashcards: 240 cards, 45 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Nouns come with their plural",
+          "text": "By B1 the plural matters as much as the article, because you write longer texts. Read the plural on the back of every noun card, and notice the pattern it follows.",
+          "examples": [
+            {
+              "de": "das Gerät, Plural: -e",
+              "en": "device"
+            },
+            {
+              "de": "der Bildschirm, Plural: -e",
+              "en": "screen"
+            }
+          ]
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Three modes, three kinds of memory",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "examples": [
+            {
+              "de": "das Passwort, Plural: ¨-er",
+              "en": "password"
+            },
+            {
+              "de": "der Akku, Plural: -s",
+              "en": "battery (rechargeable)"
+            }
+          ]
+        },
+        {
+          "kind": "warning",
+          "title": "A noun without its article is marked wrong",
+          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "examples": [
+            {
+              "de": "die Datei, Plural: -en",
+              "en": "file"
+            },
+            {
+              "de": "die Nachricht, Plural: -en",
+              "en": "message"
+            }
+          ]
+        }
+      ],
+      "remember": [
+        "Never say a noun without its article, not even in your head.",
+        "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
+        "Verbs and adjectives have no article: type them as they stand, like \"speichern\"."
+      ],
+      "exam": "B1 exam: the forum post and formal e-mail in Schreiben, and the discussion in Sprechen, are scored partly on whether you have words like these at hand."
+    }
   }
 ]

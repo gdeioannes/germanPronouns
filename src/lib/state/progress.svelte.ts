@@ -66,6 +66,8 @@ function completionKeyFor(type: QuizType): string | null {
 		case 'speakRepeat':
 			return SettingsKeys.completedSpeakQuizzes;
 		case 'fillBlank':
+		case 'vocabulary':
+			// Streak-driven: reaching the goal streak IS completion.
 			return null;
 	}
 }

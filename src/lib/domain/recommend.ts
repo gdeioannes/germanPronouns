@@ -53,7 +53,8 @@ const TYPE_NAMES: Record<QuizType, { one: string; many: string; pitch: string }>
 	listening: { one: 'listening exercise', many: 'listening exercises', pitch: 'train your ear' },
 	dictation: { one: 'dictation', many: 'dictations', pitch: 'fix spelling by ear' },
 	speakRepeat: { one: 'repeat-aloud', many: 'repeat-alouds', pitch: 'get your mouth moving' },
-	speaking: { one: 'speaking exercise', many: 'speaking exercises', pitch: 'say it out loud' }
+	speaking: { one: 'speaking exercise', many: 'speaking exercises', pitch: 'say it out loud' },
+	vocabulary: { one: 'flashcard deck', many: 'flashcard decks', pitch: 'grow your vocabulary' }
 };
 
 const EMPTY: QuizFacts = { done: false, tier: null, answered: 0, mistakeRate: 0 };
@@ -111,7 +112,7 @@ function practise(
 				weight: 2 + f.mistakeRate,
 				reason: `You missed ${percent}% of answers here — another run will make it stick.`
 			});
-		} else if (quiz.type !== 'fillBlank') {
+		} else if (quiz.type !== 'fillBlank' && quiz.type !== 'vocabulary') {
 			// Only fill-ins earn a medal by streak; a finished reading or
 			// listening always shows bronze, so its tier says nothing.
 			continue;

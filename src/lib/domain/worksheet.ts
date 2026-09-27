@@ -148,6 +148,7 @@ export function sectionFor(
 		case 'listening':
 		case 'dictation':
 		case 'speakRepeat':
+		case 'vocabulary':
 			return null;
 	}
 }

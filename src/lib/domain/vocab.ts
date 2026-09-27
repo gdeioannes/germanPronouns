@@ -103,8 +103,10 @@ function textOf(quiz: Quiz): string {
 			return quiz.phrases.map((phrase) => phrase.text).join(' ');
 		case 'fillBlank':
 		case 'speaking':
+		case 'vocabulary':
 			// The grid quizzes name their nouns already; a speaking exercise is a
-			// prompt for the learner's own AI, not a German text.
+			// prompt for the learner's own AI, not a German text; a deck IS the
+			// vocabulary.
 			return '';
 	}
 }

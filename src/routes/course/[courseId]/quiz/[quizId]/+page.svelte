@@ -21,6 +21,7 @@
 	import PassageQuiz from '$lib/components/quiz/PassageQuiz.svelte';
 	import SpeakRepeatQuiz from '$lib/components/quiz/SpeakRepeatQuiz.svelte';
 	import SpeakingQuiz from '$lib/components/quiz/SpeakingQuiz.svelte';
+	import VocabularyQuiz from '$lib/components/quiz/VocabularyQuiz.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { pop, rise } from '$lib/motion';
@@ -29,10 +30,23 @@
 	import { progress } from '$lib/state/progress.svelte';
 	import { track } from '$lib/services/analytics';
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	const { course, quiz, next, previous, related, vocab, position, levelCount, levelTitle } = $derived(data);
+	const { course, quiz, next, previous, related, vocab, position, levelCount, levelTitle, deck } = $derived(data);
+
+	/**
+	 * "?from=<quizId>" opens the deck on one exercise's words. Read after
+	 * mount: the page is prerendered, so the query is only known in the browser.
+	 */
+	let focusWord = $state<string | null>(null);
+	onMount(() => {
+		focusWord = new URLSearchParams(window.location.search).get('from');
+	});
+	const deckHref = $derived(
+		deck && deck.id !== quiz.id ? `/course/${course.id}/quiz/${deck.id}?from=${quiz.id}` : null
+	);
 
 	const path = $derived(`/course/${course.id}/quiz/${quiz.id}`);
 	const levelPath = $derived(`/course/${course.id}/level/${quiz.level}`);
@@ -118,7 +132,7 @@
 		{/if}
 	</header>
 
-	<HelpMemory {quiz} locale={course.learnLocale} {vocab} />
+	<HelpMemory {quiz} locale={course.learnLocale} {vocab} {deckHref} />
 
 	{#if quiz.type === 'fillBlank'}
 		<FillBlankQuiz
@@ -167,6 +181,14 @@
 			learnLocale={course.learnLocale}
 			uiLang={course.uiLang}
 			onFinish={(passed) => passed && complete()}
+		/>
+	{:else if quiz.type === 'vocabulary'}
+		<VocabularyQuiz
+			{quiz}
+			courseId={course.id}
+			locale={course.learnLocale}
+			onGoalReached={complete}
+			{focusWord}
 		/>
 	{/if}
 
@@ -262,8 +284,19 @@
 		background: #e6ecf3;
 		color: var(--navy);
 	}
-	.kind[data-kind='speaking'],
+	.kind[data-kind='fillBlank'] {
+		background: #ebe7f4;
+		color: #55478a;
+	}
+	.kind[data-kind='vocabulary'] {
+		background: #f9e7ee;
+		color: #a33a63;
+	}
 	.kind[data-kind='speakRepeat'] {
+		background: #fbe9e2;
+		color: #b5522a;
+	}
+	.kind[data-kind='speaking'] {
 		background: var(--accent-soft);
 		color: var(--accent);
 	}

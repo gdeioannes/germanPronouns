@@ -172,6 +172,34 @@ describe('every quiz (baseline)', () => {
 		}
 	});
 
+	it('gives every flashcard deck sound cards: nouns with articles, no duplicates', () => {
+		for (const q of quizzes) {
+			if (q.type !== 'vocabulary') continue;
+			expect(q.cards.length, `${q.id}: fewer than 40 cards`).toBeGreaterThanOrEqual(40);
+			const seen = new Set<string>();
+			for (const card of q.cards) {
+				expect(card.de && card.en, `${q.id}: card without both sides`).toBeTruthy();
+				if (card.kind === 'noun') {
+					expect(card.article, `${q.id}: noun "${card.de}" has no article`).toMatch(/^(der|die|das)$/);
+				} else {
+					expect(card.article, `${q.id}: "${card.de}" is not a noun but has an article`).toBeUndefined();
+				}
+				const key = `${card.article ?? ''} ${card.de}`.trim();
+				expect(seen.has(key), `${q.id}: duplicate card "${key}"`).toBe(false);
+				seen.add(key);
+				expect(
+					quizzes.some((s) => s.id === card.sourceQuizId),
+					`${q.id}: "${card.de}" points at unknown quiz ${card.sourceQuizId}`
+				).toBe(true);
+			}
+			// Choose mode needs three same-gender distractors for every noun.
+			for (const article of ['der', 'die', 'das']) {
+				const count = q.cards.filter((c) => c.article === article).length;
+				if (count > 0) expect(count, `${q.id}: only ${count} "${article}" nouns`).toBeGreaterThanOrEqual(4);
+			}
+		}
+	});
+
 	it('shapes authored help tables as {cells} rows with a caption', () => {
 		for (const q of quizzes) {
 			const table = q.help?.table;
