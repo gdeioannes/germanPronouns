@@ -79,9 +79,14 @@
 	]}
 />
 
+<!-- The whole page is a column the height of the screen: nav, header, deck,
+     the folded browse panel and the footer. The deck's stage takes whatever is
+     left, so on a phone the card, its buttons and the footer all fit without
+     scrolling while the ladder is closed. -->
+<div class="shell">
 <SiteNav courseHref="/course/{course.id}" compact />
 
-<main class="page-wide">
+<main class="page-wide home">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
 
 	<header class="head">
@@ -179,9 +184,24 @@
 	</details>
 </main>
 
-<SiteFooter />
+<SiteFooter compact />
+</div>
 
 <style>
+	.shell {
+		display: flex;
+		flex-direction: column;
+		min-height: 100dvh;
+	}
+
+	.home {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding-bottom: 1rem;
+	}
+
 	.browse {
 		margin: 2.5rem 0 0;
 		border-top: 1px solid var(--line);
@@ -539,5 +559,58 @@
 	.kind[data-kind='dictation'] {
 		background: #f4eddc;
 		color: var(--ochre);
+	}
+	/* A phone: everything above the deck shrinks to two lines — the ring
+	   moves beside the title, the tagline and the back link go (the nav bar
+	   and the footer both link home). */
+	@media (max-width: 36rem) {
+		.home {
+			padding-top: 0.9rem;
+		}
+		.home > .back-link,
+		.lede {
+			display: none;
+		}
+		.head {
+			align-items: center;
+			gap: 0.75rem;
+			flex-wrap: nowrap;
+		}
+		.head > div {
+			min-width: 0;
+		}
+		h1 {
+			margin: 0.1rem 0 0;
+			font-size: var(--step-1);
+			line-height: 1.2;
+		}
+		.pair {
+			font-size: 0.72rem;
+		}
+		.ring {
+			width: 3.6rem;
+			height: 3.6rem;
+		}
+		.ring::before {
+			inset: 0.36rem;
+		}
+		.pct {
+			font-size: var(--step-0);
+		}
+		.count {
+			display: none;
+		}
+		.browse {
+			margin-top: 0.75rem;
+		}
+		.browse summary {
+			padding: 0.55rem 0.1rem;
+		}
+		.browse-title {
+			font-size: var(--step-0);
+		}
+		.browse-meta {
+			display: none;
+		}
 	}
 </style>

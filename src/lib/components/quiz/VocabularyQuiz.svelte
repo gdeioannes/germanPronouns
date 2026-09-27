@@ -898,4 +898,14 @@
 			animation: none;
 		}
 	}
+	@media (max-width: 36rem) {
+		.tracker {
+			gap: 0.6rem;
+			padding: 0.4rem 0.75rem;
+			margin-bottom: 0.6rem;
+		}
+		.value {
+			font-size: var(--step-1);
+		}
+	}
 </style>

@@ -312,6 +312,9 @@
 
 <style>
 	.deck {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
 		margin: 1.75rem 0 0;
 	}
 
@@ -373,7 +376,10 @@
 	   is generous so the reason line never pushes the meta off the card. */
 	.stage {
 		position: relative;
-		height: 24rem;
+		flex: 1;
+		width: 100%;
+		min-height: 20rem;
+		max-height: 24rem;
 		margin: 1.25rem auto 0;
 		max-width: 26rem;
 		touch-action: pan-y;
@@ -394,6 +400,7 @@
 		border-radius: calc(var(--radius) + 6px);
 		background: var(--surface);
 		box-shadow: 0 18px 40px -24px rgba(31, 58, 95, 0.45);
+		overflow: hidden;
 		user-select: none;
 		-webkit-user-select: none;
 		will-change: transform;
@@ -627,11 +634,53 @@
 	}
 
 	@media (max-width: 36rem) {
-		.stage {
-			height: 25rem;
+		.deck {
+			margin-top: 0.9rem;
 		}
+		/* One row: the label left, the level chip right; the how-to goes. */
 		.deck-head {
-			align-items: flex-start;
+			align-items: center;
+			flex-wrap: nowrap;
+		}
+		.deck-lede {
+			display: none;
+		}
+		.level-pick {
+			padding: 0.3rem 0.7rem;
+		}
+		.stage {
+			margin-top: 0.75rem;
+			min-height: 15rem;
+		}
+		.card {
+			padding: 1rem 1.1rem 0.9rem;
+			gap: 0.4rem;
+		}
+		.type-disc {
+			width: 2.6rem;
+			height: 2.6rem;
+			margin-top: 0.1rem;
+		}
+		.title {
+			font-size: var(--step-1);
+		}
+		.reason {
+			font-size: var(--step--1);
+		}
+		.level-name {
+			display: none;
+		}
+		.stamp {
+			top: 1rem;
+			font-size: var(--step-0);
+		}
+		.controls {
+			margin-top: 0.8rem;
+			gap: 1.1rem;
+		}
+		.ctl {
+			width: 3.1rem;
+			height: 3.1rem;
 		}
 	}
 </style>

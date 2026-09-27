@@ -108,10 +108,13 @@
 
 <main class="page">
 	<nav class="crumbs" aria-label="Breadcrumb">
-		<a href="/course/{course.id}"><Icon name="arrowLeft" size="1em" /> {course.name}</a>
+		<a href="/course/{course.id}">
+			<Icon name="arrowLeft" size="1em" />
+			<span class="crumb-long">{course.name}</span><span class="crumb-short">Your deck</span>
+		</a>
 		{#if quiz.level}
-			<span aria-hidden="true">›</span>
-			<a href={levelPath}>{levelTitle ?? quiz.level}</a>
+			<span class="crumb-long" aria-hidden="true">›</span>
+			<a class="crumb-long" href={levelPath}>{levelTitle ?? quiz.level}</a>
 			{#if position}<span class="pos tnum">· {position} of {levelCount}</span>{/if}
 		{/if}
 	</nav>
@@ -134,7 +137,9 @@
 		{/if}
 	</header>
 
-	<HelpMemory {quiz} locale={course.learnLocale} {vocab} {deckHref} />
+	<div class="notes">
+		<HelpMemory {quiz} locale={course.learnLocale} {vocab} {deckHref} />
+	</div>
 
 	{#if quiz.type === 'fillBlank'}
 		<FillBlankQuiz
@@ -401,5 +406,59 @@
 		font-size: var(--step--1);
 		color: var(--ochre, #8a6d1f);
 		font-weight: 600;
+	}
+
+	.crumb-short {
+		display: none;
+	}
+
+	/* A phone: the exercise is the first thing on the screen. The crumbs
+	   shrink to "back to the deck" plus the position, the header to one
+	   line, and the study notes move below the exercise — still there, still
+	   opening on a first visit, just not in the way. */
+	@media (max-width: 36rem) {
+		.page {
+			display: flex;
+			flex-direction: column;
+			padding-top: 0.75rem;
+		}
+		.notes {
+			order: 1;
+		}
+		.pager,
+		.related {
+			order: 2;
+		}
+		.crumbs {
+			margin-bottom: 0.5rem;
+			flex-wrap: nowrap;
+		}
+		.crumbs .crumb-long {
+			display: none;
+		}
+		.crumbs .crumb-short {
+			display: inline;
+		}
+		.head {
+			align-items: center;
+			gap: 0.6rem;
+			margin-bottom: 0.75rem;
+		}
+		.kind {
+			width: 1.9rem;
+			height: 1.9rem;
+			margin: 0;
+		}
+		.head .eyebrow {
+			display: none;
+		}
+		h1 {
+			margin: 0;
+			font-size: var(--step-0);
+			line-height: 1.3;
+		}
+		.done {
+			margin-top: 0.9rem;
+		}
 	}
 </style>

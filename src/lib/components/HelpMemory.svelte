@@ -87,8 +87,11 @@
 	}
 
 	$effect(() => {
-		// First visit to this quiz opens the panel unprompted.
+		// First visit to this quiz opens the panel unprompted — on a laptop. On a
+		// phone the notes sit below the exercise, so opening them there would
+		// only add a screen of text under it; the toggle is one tap away.
 		(async () => {
+			if (window.matchMedia('(max-width: 36rem)').matches) return;
 			const raw = await storage.get(SettingsKeys.seenHelpMemory);
 			const seen: string[] = raw ? JSON.parse(raw) : [];
 			if (!seen.includes(quizId)) {
@@ -629,5 +632,10 @@
 		color: var(--accent);
 		font-size: var(--step--1);
 		font-weight: 600;
+	}
+	@media (max-width: 36rem) {
+		.help {
+			margin: 1.25rem 0 0;
+		}
 	}
 </style>

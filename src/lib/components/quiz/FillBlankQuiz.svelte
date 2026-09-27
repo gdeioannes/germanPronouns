@@ -567,4 +567,21 @@
 	.empty {
 		color: var(--ink-muted);
 	}
+	@media (max-width: 36rem) {
+		.tracker {
+			gap: 0.6rem;
+			padding: 0.4rem 0.75rem;
+			margin-bottom: 0.6rem;
+		}
+		.value {
+			font-size: var(--step-1);
+		}
+		.card {
+			padding: 1.1rem 1rem 1rem;
+		}
+		.sentence {
+			font-size: var(--step-1);
+			line-height: 1.9;
+		}
+	}
 </style>
