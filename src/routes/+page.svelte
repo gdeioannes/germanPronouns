@@ -144,8 +144,7 @@
 	<section class="stats" aria-label="The course in numbers">
 		<div><strong class="tnum">{data.total}</strong><span>exercises</span></div>
 		<div><strong class="tnum">{data.subLevelCount}</strong><span>levels, A1 to C2</span></div>
-		<div><strong class="tnum">6</strong><span>ways to practise</span></div>
-		<div><strong>0 €</strong><span>now and always</span></div>
+		<div><strong class="tnum">7</strong><span>ways to practise</span></div>
 	</section>
 
 	<section id="levels" class="block">
@@ -466,7 +465,7 @@
 
 	.stats {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		border: 1px solid var(--line);
 		border-radius: 18px;
 		background: var(--surface);
@@ -498,12 +497,10 @@
 
 	@media (max-width: 40rem) {
 		.stats {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: 1fr;
 		}
-		.stats div:nth-child(3) {
+		.stats div + div {
 			border-left: 0;
-		}
-		.stats div:nth-child(n + 3) {
 			border-top: 1px solid var(--line);
 		}
 	}
