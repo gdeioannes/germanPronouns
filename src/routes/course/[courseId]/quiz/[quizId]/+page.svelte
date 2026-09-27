@@ -78,6 +78,8 @@
 	}
 
 	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
+	/** Where Enter goes once finished: back to the swipe deck for the next card. */
+	const homeHref = $derived(`/course/${course.id}`);
 
 	// Once the "Next" button is up, Enter follows it — wherever focus sits.
 	// The learner has just been typing answers, so the hands are on the keys;
@@ -86,7 +88,7 @@
 		if (!finished || event.key !== 'Enter' || event.repeat) return;
 		if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
 		event.preventDefault();
-		goto(nextHref);
+		goto(homeHref);
 	}
 </script>
 
@@ -198,16 +200,17 @@
 				<Icon name="check" size="1.15em" />
 				<span><strong>Finished.</strong> This exercise is marked complete.</span>
 			</p>
-			{#if next}
-				<a class="btn" href={nextHref}>
-					Next: {next.title}
+			<div class="done-actions">
+				<a class="btn" href={homeHref}>
+					Deal me another card
 					<Icon name="arrowRight" size="1em" />
 				</a>
-			{:else}
-				<a class="btn" href="/course/{course.id}">
-					<Icon name="arrowLeft" size="1em" /> Back to the course
-				</a>
-			{/if}
+				{#if next}
+					<a class="btn btn-ghost" href={nextHref}>
+						Next in order: {topicOf(next.title)}
+					</a>
+				{/if}
+			</div>
 		</aside>
 	{/if}
 
@@ -317,6 +320,13 @@
 	h1 {
 		margin: 0.15rem 0 0;
 		font-size: var(--step-2);
+	}
+
+	.done-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		flex-wrap: wrap;
 	}
 
 	.done {

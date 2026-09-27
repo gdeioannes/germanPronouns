@@ -2,15 +2,14 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import { breadcrumbLd, clip, courseLd } from '$lib/seo';
-	// The course home: the gated CEFR ladder, a progress ring, and the
-	// "continue where you left off" jump. Locks are computed from the same rule
-	// as the Dart app — a sub-level opens only once every earlier quiz is done.
+	// The course home: a swipe deck of exercises dealt from the learner's level
+	// and progress (the main event), a progress ring, and — folded away below —
+	// the full CEFR ladder for anyone who wants to browse rather than be dealt.
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
-	import Recommendations from '$lib/components/Recommendations.svelte';
+	import SwipeDeck from '$lib/components/SwipeDeck.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
-	import { rise } from '$lib/motion';
 	import { onMount } from 'svelte';
 	import { Tween } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
@@ -28,6 +27,7 @@
 	// would invalidate the effect and re-enter it — an update-depth crash that
 	// takes the whole page down. onMount has no reactive dependencies at all.
 	onMount(async () => {
+		browserReady = true;
 		if (!progress.loaded) await progress.load(course.gating ?? DEFAULT_GATING);
 		// The ribbons and the ring read the streaks, which load lazily — pull in
 		// this course's, or they all render as zero.
@@ -37,6 +37,8 @@
 
 	/** Progress and every quiz's stats are in — the recommendations wait on it. */
 	let statsReady = $state(false);
+	/** True once mounted — the ladder is open in the prerendered HTML, folded live. */
+	let browserReady = $state(false);
 
 	// Before progress loads nothing reads as done, so the page renders an empty
 	// ring rather than flashing ribbons on and off.
@@ -51,6 +53,7 @@
 	);
 	const totals = $derived(courseProgress(ladder));
 	const resume = $derived(nextQuiz(ladder, isDone));
+	const finished = $derived(progress.loaded && !resume);
 	const percent = $derived(
 		totals.total === 0 ? 0 : Math.round((totals.done / totals.total) * 100)
 	);
@@ -95,37 +98,52 @@
 		</div>
 	</header>
 
-	{#if resume}
-		<a class="resume" href="/course/{course.id}/quiz/{resume.id}" in:rise>
-			<span class="resume-icon"><Icon name={QUIZ_TYPE_ICONS[resume.type]} size="1.35em" /></span>
-			<span class="resume-body">
-				<span class="resume-label">
-					{totals.done === 0 ? 'Start here' : 'Continue'}
-				</span>
-				<span class="resume-title">{resume.title}</span>
-				<span class="resume-meta">{resume.level} · {resume.type}</span>
-			</span>
-			<Icon name="arrowRight" size="1.2em" class="resume-go" />
-		</a>
-	{:else}
+	{#if finished}
 		<p class="finished">
 			<Icon name="trophy" size="1.2em" />
 			Every exercise in this course is complete.
 		</p>
+	{:else}
+		<SwipeDeck {course} ready={statsReady} />
 	{/if}
 
-	<Recommendations {course} ready={statsReady} excludeId={resume?.id} />
+	<!-- Browsing is the second way in: the whole ladder, folded away so the
+	     deck stays the first thing on the page. Prerendered open for crawlers
+	     and for anyone without JavaScript; folded once the page is live. -->
+	<details class="browse" open={!browserReady}>
+		<summary>
+			<span class="browse-title">
+				<Icon name="menu" size="1.1em" />
+				Browse every exercise
+			</span>
+			<span class="browse-meta tnum">{totals.total} exercises · {ladder.length} sub-levels</span>
+			<Icon name="chevronDown" size="1.1em" class="browse-chevron" />
+		</summary>
 
-	<!-- Paper practice: the same exercises, printable, with the answers where
-	     the learner wants them (the port of the Flutter PDF export). -->
-	<a class="worksheet" href="/course/{course.id}/worksheet">
-		<Icon name="printer" size="1.2em" />
-		<span>
-			<strong>Printable worksheet</strong>
-			<small>Exercises on paper, with a fold-away answer column</small>
-		</span>
-		<Icon name="arrowRight" size="1.1em" />
-	</a>
+		{#if resume}
+			<a class="resume" href="/course/{course.id}/quiz/{resume.id}">
+				<span class="resume-icon"><Icon name={QUIZ_TYPE_ICONS[resume.type]} size="1.35em" /></span>
+				<span class="resume-body">
+					<span class="resume-label">
+						{totals.done === 0 ? 'First in order' : 'Next in order'}
+					</span>
+					<span class="resume-title">{resume.title}</span>
+					<span class="resume-meta">{resume.level} · {resume.type}</span>
+				</span>
+				<Icon name="arrowRight" size="1.2em" class="resume-go" />
+			</a>
+		{/if}
+
+		<!-- Paper practice: the same exercises, printable, with the answers where
+		     the learner wants them (the port of the Flutter PDF export). -->
+		<a class="worksheet" href="/course/{course.id}/worksheet">
+			<Icon name="printer" size="1.2em" />
+			<span>
+				<strong>Printable worksheet</strong>
+				<small>Exercises on paper, with a fold-away answer column</small>
+			</span>
+			<Icon name="arrowRight" size="1.1em" />
+		</a>
 
 	<h2>The ladder</h2>
 	<ol class="levels">
@@ -158,11 +176,56 @@
 			</li>
 		{/each}
 	</ol>
+	</details>
 </main>
 
 <SiteFooter />
 
 <style>
+	.browse {
+		margin: 2.5rem 0 0;
+		border-top: 1px solid var(--line);
+	}
+
+	.browse summary {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem 1rem;
+		padding: 1rem 0.25rem;
+		list-style: none;
+		cursor: pointer;
+		color: var(--heading);
+		font-weight: 700;
+	}
+
+	.browse summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.browse-title {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: var(--step-1);
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+	}
+
+	.browse-meta {
+		flex: 1;
+		font-size: var(--step--1);
+		font-weight: 600;
+		color: var(--ink-muted);
+	}
+
+	.browse summary :global(.browse-chevron) {
+		color: var(--ink-muted);
+		transition: transform var(--medium) var(--ease-out);
+	}
+
+	.browse[open] summary :global(.browse-chevron) {
+		transform: rotate(180deg);
+	}
+
 	.worksheet {
 		display: flex;
 		align-items: center;
@@ -269,7 +332,7 @@
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		margin: 2rem 0 0;
+		margin: 0.5rem 0 0;
 		padding: 1.15rem 1.3rem;
 		border: 1px solid var(--accent);
 		border-radius: var(--radius);
@@ -349,7 +412,7 @@
 	}
 
 	h2 {
-		margin: 2.75rem 0 0.5rem;
+		margin: 2rem 0 0.5rem;
 		font-size: var(--step-1);
 	}
 

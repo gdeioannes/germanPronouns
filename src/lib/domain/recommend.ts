@@ -64,10 +64,19 @@ const EMPTY: QuizFacts = { done: false, tier: null, answered: 0, mistakeRate: 0 
  * the course in ladder order; `exclude` holds ids never to suggest (the
  * "Continue" quiz, which already has its own card).
  */
+export interface RecommendOptions {
+	/**
+	 * The sub-level the learner says they are at. Lifts the frontier to it, so
+	 * someone who already speaks some German is not offered A1.1 forever.
+	 */
+	floorLevel?: string | null;
+}
+
 export function recommend(
 	quizzes: Quiz[],
 	facts: Record<string, QuizFacts>,
-	exclude: Set<string> = new Set()
+	exclude: Set<string> = new Set(),
+	options: RecommendOptions = {}
 ): Record<RecommendationKind, Recommendation[]> {
 	const factsOf = (quiz: Quiz) => facts[quiz.id] ?? EMPTY;
 	const done = quizzes.filter((quiz) => factsOf(quiz).done);
@@ -77,7 +86,8 @@ export function recommend(
 	// New suggestions stay at or one step past it, never a leap to C2.
 	const levels = [...new Set(quizzes.map((quiz) => quiz.level ?? ''))];
 	const levelIndex = (quiz: Quiz) => levels.indexOf(quiz.level ?? '');
-	const frontier = Math.max(-1, ...done.map(levelIndex));
+	const floor = options.floorLevel ? levels.indexOf(options.floorLevel) : -1;
+	const frontier = Math.max(-1, floor, ...done.map(levelIndex));
 	const inReach = (quiz: Quiz) => levelIndex(quiz) <= frontier + 1;
 
 	return {
