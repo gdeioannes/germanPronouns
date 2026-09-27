@@ -5,7 +5,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
 	import { pop, rise } from '$lib/motion';
-	import { isAcceptedAnswer } from '$lib/domain/answers';
+	import { matchesAccepted } from '$lib/domain/answers';
 	import { progress } from '$lib/state/progress.svelte';
 	import { tts } from '$lib/services/speech';
 	import type { DictationQuiz } from '$lib/content/types';
@@ -50,7 +50,7 @@
 
 	function check() {
 		if (!item || verdict !== 'none' || !answer.trim()) return;
-		const right = isAcceptedAnswer(answer, [item.text], progress.relaxedCorrection);
+		const right = matchesAccepted(answer, [item.text], progress.relaxedCorrection, quiz.strictDiacritics === true);
 		verdict = right ? 'right' : 'wrong';
 		if (right) {
 			correctCount += 1;

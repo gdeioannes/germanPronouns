@@ -90,6 +90,118 @@ describe('every quiz (baseline)', () => {
 		}
 	});
 
+	it('gives every dictation and repeat-aloud at least 10 lines', () => {
+		for (const q of quizzes) {
+			if (isPlaceholder(q)) continue;
+			const lines = q.type === 'dictation' ? q.items : q.type === 'speakRepeat' ? q.phrases : null;
+			if (!lines) continue;
+			expect(lines.length, `${q.id}: only ${lines.length} lines`).toBeGreaterThanOrEqual(10);
+		}
+	});
+
+	it('keys every gap of a multi-gap sentence, and uses the ellipsis for nothing else', () => {
+		for (const q of quizzes) {
+			if (q.type !== 'fillBlank') continue;
+			for (const s of q.sentences ?? []) {
+				const gaps = (s.sentence.match(/_{4,}/g) ?? []).length;
+				expect(gaps, `${q.id}: "${s.sentence}" has no blank`).toBeGreaterThan(0);
+				for (const key of s.acceptedAnswers) {
+					const parts = key.split(/\s*…\s*/);
+					expect(
+						parts.length,
+						`${q.id}: key "${key}" has ${parts.length} parts for ${gaps} gap(s) in "${s.sentence}"`
+					).toBe(gaps);
+					expect(parts.every((p) => p.trim()), `${q.id}: empty part in key "${key}"`).toBe(true);
+				}
+			}
+		}
+	});
+
+	it('never puts the answer in the hint', () => {
+		for (const q of quizzes) {
+			if (q.type !== 'fillBlank') continue;
+			for (const s of q.sentences ?? []) {
+				if (!s.hint) continue;
+				// Case-sensitive: a nominalisation drill hints "steigen" for "Steigen".
+				const hint = s.hint;
+				for (const key of s.acceptedAnswers) {
+					const parts = key.split(/\s*…\s*/).map((p) => p.trim());
+					// "English: orange" for the colour orange is the same word in both
+					// languages; that is the meaning, not the answer. And a two-gap item
+					// whose hint is the infinitive only gives away the participle gap,
+					// not the conjunction the item tests: flag it when EVERY part is given.
+					const given = parts.filter((part) => {
+						if (part.length < 4) return false;
+						if (/^english:\s*/i.test(hint) && hint.replace(/^english:\s*/i, '') === part) return false;
+						const escaped = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+						return new RegExp(`(^|[^\\p{L}])${escaped}([^\\p{L}]|$)`, 'u').test(hint);
+					});
+					expect(
+						given.length > 0 && given.length === parts.length,
+						`${q.id}: hint "${s.hint}" contains the answer "${key}"`
+					).toBe(false);
+				}
+			}
+		}
+	});
+
+	it('gives every passage a title, a translation and well-formed questions', () => {
+		for (const q of quizzes) {
+			if (q.type !== 'reading' && q.type !== 'listening') continue;
+			expect(q.passageTitle, `${q.id}: no passageTitle`).toBeTruthy();
+			expect(q.passageTranslation, `${q.id}: no passageTranslation`).toBeTruthy();
+			if ('inlineBlanks' in q && Array.isArray(q.inlineBlanks)) {
+				const markers = q.inlineTemplate.match(/\{\{\d+\}\}/g) ?? [];
+				expect(markers.length, `${q.id}: markers vs blanks`).toBe(q.inlineBlanks.length);
+				for (let i = 0; i < q.inlineBlanks.length; i++) {
+					expect(q.inlineTemplate.includes(`{{${i}}}`), `${q.id}: missing {{${i}}}`).toBe(true);
+				}
+				continue;
+			}
+			const questions = 'questions' in q ? q.questions : [];
+			expect(questions.length, `${q.id}: fewer than 3 questions`).toBeGreaterThanOrEqual(3);
+			const indices = new Set<number>();
+			for (const question of questions) {
+				expect(question.options.length, `${q.id}: "${question.question}" needs 3+ options`).toBeGreaterThanOrEqual(3);
+				expect(new Set(question.options).size, `${q.id}: duplicate options`).toBe(question.options.length);
+				expect(question.correctIndex, `${q.id}: bad correctIndex`).toBeLessThan(question.options.length);
+				expect(question.explanation, `${q.id}: "${question.question}" has no explanation`).toBeTruthy();
+				indices.add(question.correctIndex);
+			}
+			expect(indices.size, `${q.id}: every correct answer is option ${[...indices][0]}`).toBeGreaterThan(1);
+		}
+	});
+
+	it('shapes authored help tables as {cells} rows with a caption', () => {
+		for (const q of quizzes) {
+			const table = q.help?.table;
+			if (!table) continue;
+			expect(Array.isArray(table.rows) && table.rows.length, `${q.id}: empty table`).toBeTruthy();
+			for (const row of table.rows) {
+				expect(Array.isArray((row as { cells?: unknown }).cells), `${q.id}: table row is not {cells}`).toBe(true);
+			}
+			expect('title' in table, `${q.id}: table uses "title" instead of "caption"`).toBe(false);
+		}
+	});
+
+	it('shows learners no internal codes, author notes or brand names', () => {
+		const forbidden = [
+			/\bE\d{1,2}\s*[—-]\s/,
+			/\(no:\s/i,
+			/\bnein:\s/,
+			/Erkundungen|Aspekte C|Hueber|Klett|Cornelsen/,
+			/Goethe|telc|ÖSD|TestDaF|\bDSH\b/,
+			/Kal[ée]ko/
+		];
+		for (const q of quizzes) {
+			const text = JSON.stringify(q);
+			for (const re of forbidden) {
+				const m = re.exec(text);
+				expect(m, `${q.id}: "${m?.[0]}" at …${text.slice(Math.max(0, (m?.index ?? 0) - 60), (m?.index ?? 0) + 60)}…`).toBeNull();
+			}
+		}
+	});
+
 	it('gives a placeholder fill-in a grid to derive its table from', () => {
 		for (const q of quizzes) {
 			if (q.type !== 'fillBlank' || !isPlaceholder(q)) continue;
@@ -115,6 +227,12 @@ describe('syllabus', () => {
 	it('has one module per quest-chain level in the nav, in order', () => {
 		const levels = bundle.nav.groups.filter((g) => g.type === 'questChain').map((g) => g.level);
 		expect(syl.modules.map((m) => m.level)).toEqual(levels);
+	});
+
+	it('lists exam facts as an array in every module', () => {
+		for (const m of syl.modules) {
+			expect(Array.isArray(m.exam ?? []), `${m.level}: exam is not an array`).toBe(true);
+		}
 	});
 
 	it('has unique structure ids', () => {

@@ -19,7 +19,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
 	import GermanText from '../GermanText.svelte';
-	import { isAcceptedAnswer, normalizeAnswer } from '$lib/domain/answers';
+	import { BLANK, canonicalGapAnswer, gapCount, matchesGaps } from '$lib/domain/answers';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
 	import { REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
@@ -73,12 +73,17 @@
 	// prerendered page already shows a real sentence instead of an empty card.
 	let current = $state<QuizSentence | undefined>(pool[0]);
 	let started = false;
-	let answer = $state('');
+	/**
+	 * What the learner has typed, one entry per gap. Most sentences have one
+	 * gap; "je … desto" or "hatte … verlassen" have two, and the key for those
+	 * is split on its ellipsis so each gap is checked against its own part.
+	 */
+	let answers = $state<string[]>(['']);
 	/** null while answering; then how it went, which colours the field. */
 	let verdict = $state<'right' | 'wrong' | null>(null);
 	let streak = $state(0);
 	let best = $state(0);
-	let inputEl = $state<HTMLInputElement | null>(null);
+	let inputEls = $state<HTMLInputElement[]>([]);
 	let burst = $state(0);
 	let burstSize = $state(12);
 	/** Pending reveal/advance timers, cancelled if the component goes away. */
@@ -100,26 +105,46 @@
 		return current.sentence.includes(found.display) ? null : found.display;
 	});
 
-	/** The sentence split around its blank, so the field can sit in the gap. */
-	const parts = $derived.by(() => {
+	/** How many gaps the current sentence has. */
+	const gaps = $derived(current ? Math.max(1, gapCount(current.sentence)) : 1);
+
+	/**
+	 * The sentence split around its blanks: `segments[i]` is the text before
+	 * gap i, and the last segment is what follows the final gap. A field sits in
+	 * each gap so the answer is typed where the word belongs.
+	 */
+	const segments = $derived.by(() => {
 		const text = current?.sentence ?? '';
-		const match = /_{4,}/.exec(text);
-		if (!match) return { before: text, after: '' };
-		return {
-			before: text.slice(0, match.index),
-			after: text.slice(match.index + match[0].length)
-		};
+		const split = text.split(BLANK);
+		return split.length > 1 ? split : [text, ''];
 	});
 
-	/** The sentence with its blank filled, so audio reads a natural sentence. */
-	const spokenForm = $derived(
-		current ? current.sentence.replace(/_{4,}/, current.acceptedAnswers[0] ?? '') : ''
+	/** Umlaut-strict quizzes never fold ä→a, whatever the learner's setting. */
+	const strict = $derived(quiz.strictDiacritics === true);
+
+	/** The first usable key, split per gap — what a reveal writes in. */
+	const canonicalParts = $derived(
+		current
+			? canonicalGapAnswer(new Array(gaps).fill(''), current.acceptedAnswers, true, strict)
+			: ['']
 	);
 
-	/** Grows the field to fit either the typing or the answer being revealed. */
-	const fieldSize = $derived(
-		Math.max(answer.length + 1, (current?.acceptedAnswers[0] ?? '').length, 6)
-	);
+	/** The sentence with its blanks filled, so audio reads a natural sentence. */
+	const spokenForm = $derived.by(() => {
+		if (!current) return '';
+		let i = 0;
+		return current.sentence.replace(BLANK, () => canonicalParts[i++] ?? '');
+	});
+
+	/** Grows a field to fit either the typing or the answer being revealed. */
+	function fieldSize(gap: number): number {
+		return Math.max((answers[gap] ?? '').length + 1, (canonicalParts[gap] ?? '').length, 6);
+	}
+
+	/** The first-letter hint, pre-filled into every gap. */
+	function hintFill(): string[] {
+		return canonicalParts.map((part) => (progress.showFirstLetterHint ? part.charAt(0) : ''));
+	}
 
 	function clearTimers() {
 		for (const t of timers) clearTimeout(t);
@@ -136,11 +161,9 @@
 		if (pool.length === 0) return;
 		current = drawFromShuffleBag(bag, pool, { avoidRepeat: current });
 		// The first-letter hint pre-fills the gap rather than sitting beside it.
-		answer = progress.showFirstLetterHint
-			? (current.acceptedAnswers[0] ?? '').charAt(0)
-			: '';
+		answers = hintFill();
 		verdict = null;
-		inputEl?.focus();
+		inputEls[0]?.focus();
 	}
 
 	$effect(() => {
@@ -148,9 +171,8 @@
 			started = true;
 			// Apply the first-letter hint now that settings are readable. The
 			// next draw avoids this question, so it never repeats back to back.
-			if (current) {
-				answer = progress.showFirstLetterHint ? (current.acceptedAnswers[0] ?? '').charAt(0) : '';
-			} else next();
+			if (current) answers = hintFill();
+			else next();
 		}
 		return clearTimers;
 	});
@@ -169,23 +191,26 @@
 	 * 70ms a character. Slow enough to read as a correction being written,
 	 * fast enough not to be a wait.
 	 */
-	async function typeOut(text: string) {
+	async function typeOut(parts: string[]) {
 		if (prefersReducedMotion()) {
-			answer = text;
+			answers = [...parts];
 			return;
 		}
-		for (let i = 1; i <= text.length; i++) {
-			await wait(70);
-			answer = text.slice(0, i);
+		for (let gap = 0; gap < parts.length; gap++) {
+			const text = parts[gap];
+			for (let i = 1; i <= text.length; i++) {
+				await wait(70);
+				answers[gap] = text.slice(0, i);
+			}
 		}
 	}
 
 	async function submit() {
-		if (!current || locked || !answer.trim()) return;
+		if (!current || locked || answers.some((a) => !a.trim())) return;
 
 		const accepted = current.acceptedAnswers;
-		const typed = answer;
-		const correct = isAcceptedAnswer(typed, accepted, progress.relaxedCorrection);
+		const typed = [...answers];
+		const correct = matchesGaps(typed, accepted, progress.relaxedCorrection, strict);
 
 		verdict = correct ? 'right' : 'wrong';
 
@@ -214,23 +239,24 @@
 
 		// Write the canonical spelling in. Even a correct answer is rewritten,
 		// so a relaxed-mode "schon" visibly becomes "schön".
-		const canonical =
-			accepted.find(
-				(a) =>
-					normalizeAnswer(a, progress.relaxedCorrection) ===
-					normalizeAnswer(typed, progress.relaxedCorrection)
-			) ??
-			accepted[0] ??
-			'';
+		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
 
-		answer = '';
+		answers = new Array(gaps).fill('');
 		await typeOut(canonical);
 		await wait(REVEAL_PAUSE[progress.answerRevealMode]);
 		next();
 	}
 
-	function onKey(event: KeyboardEvent) {
-		if (event.key === 'Enter') submit();
+	/** Enter moves to the next empty gap, and submits from the last one. */
+	function onKey(event: KeyboardEvent, gap: number) {
+		if (event.key !== 'Enter') return;
+		const nextEmpty = answers.findIndex((a, i) => i !== gap && !a.trim());
+		if (nextEmpty >= 0) {
+			event.preventDefault();
+			inputEls[nextEmpty]?.focus();
+			return;
+		}
+		submit();
 	}
 </script>
 
@@ -274,25 +300,26 @@
 			<p class="subject">{subject}</p>
 		{/if}
 
-		<!-- The sentence, with the field standing in for its blank. -->
+		<!-- The sentence, with a field standing in for each blank. -->
 		<p class="sentence" lang={locale}>
-			<GermanText text={parts.before} /><span class="slot"
-				><input
-					bind:this={inputEl}
-					bind:value={answer}
-					onkeydown={onKey}
-					readonly={locked}
-					class:right={verdict === 'right'}
-					class:wrong={verdict === 'wrong'}
-					size={fieldSize}
-					lang={locale}
-					aria-label="Your answer"
-					autocomplete="off"
-					autocapitalize="off"
-					autocorrect="off"
-					spellcheck="false"
-				/></span
-			><GermanText text={parts.after} />
+			{#each segments as segment, i (i)}<GermanText text={segment} />{#if i < gaps}<span
+						class="slot"
+						><input
+							bind:this={inputEls[i]}
+							bind:value={answers[i]}
+							onkeydown={(event) => onKey(event, i)}
+							readonly={locked}
+							class:right={verdict === 'right'}
+							class:wrong={verdict === 'wrong'}
+							size={fieldSize(i)}
+							lang={locale}
+							aria-label={gaps > 1 ? `Your answer, gap ${i + 1}` : 'Your answer'}
+							autocomplete="off"
+							autocapitalize="off"
+							autocorrect="off"
+							spellcheck="false"
+						/></span
+					>{/if}{/each}
 			<SpeakButton text={spokenForm} {locale} />
 		</p>
 

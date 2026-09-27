@@ -10,7 +10,7 @@
 	import SpeakButton from '../SpeakButton.svelte';
 	import { pop } from '$lib/motion';
 	import { slide } from 'svelte/transition';
-	import { isAcceptedAnswer } from '$lib/domain/answers';
+	import { matchesAccepted } from '$lib/domain/answers';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { InlineBlank, InlineClozeQuiz } from '$lib/content/types';
 
@@ -63,7 +63,7 @@
 
 	const results = $derived(
 		quiz.inlineBlanks.map((blank, i) =>
-			isAcceptedAnswer(answers[i], accepted(blank), progress.relaxedCorrection)
+			matchesAccepted(answers[i], accepted(blank), progress.relaxedCorrection, quiz.strictDiacritics === true)
 		)
 	);
 	const correctCount = $derived(results.filter(Boolean).length);

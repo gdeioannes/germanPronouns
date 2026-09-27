@@ -22,7 +22,44 @@
 		onFinish: (passed: boolean, correct: number, total: number) => void;
 	} = $props();
 
-	/** Answer index chosen per question, or null while unanswered. */
+	/**
+	 * The options of each question in the order shown. Authored keys sit at
+	 * index 0 or 1 far more often than not, so the order is shuffled — with a
+	 * seed from the quiz id and question number, so the prerendered page and
+	 * the hydrated one agree, and a learner retrying sees the same order.
+	 */
+	const shown = $derived(
+		quiz.questions.map((question, qi) => {
+			const order = question.options.map((_, i) => i);
+			let seed = hash(`${quiz.id}#${qi}`);
+			for (let i = order.length - 1; i > 0; i--) {
+				seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+				const j = seed % (i + 1);
+				[order[i], order[j]] = [order[j], order[i]];
+			}
+			return {
+				options: order.map((i) => question.options[i]),
+				translations: question.optionsTranslation
+					? order.map((i) => question.optionsTranslation![i])
+					: undefined,
+				correct: order.indexOf(question.correctIndex)
+			};
+		})
+	);
+
+	function hash(text: string): number {
+		let h = 2166136261;
+		for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 16777619);
+		return h >>> 0;
+	}
+
+	/**
+	 * What the audio reads: a dialogue's speaker labels ("Frau Weber:") mark
+	 * the turns on the page but are not spoken, as in an exam recording.
+	 */
+	const spoken = $derived(quiz.passage.replace(/^[^\n:]{1,32}:\s*/gm, ''));
+
+	/** Chosen SHOWN option index per question, or null while unanswered. */
 	let chosen = $state<(number | null)[]>([]);
 	let checked = $state(false);
 	let showTranslation = $state(false);
@@ -39,7 +76,7 @@
 	const answered = $derived(chosen.every((c) => c !== null));
 	const correctCount = $derived(
 		quiz.questions.reduce(
-			(n, question, i) => n + (chosen[i] === question.correctIndex ? 1 : 0),
+			(n, _question, i) => n + (chosen[i] === shown[i].correct ? 1 : 0),
 			0
 		)
 	);
@@ -67,7 +104,7 @@
 <article class="passage">
 	<header>
 		<h2>{quiz.passageTitle}</h2>
-		<SpeakButton text={quiz.passage} {locale} label="Play the passage" />
+		<SpeakButton text={spoken} {locale} label="Play the passage" />
 	</header>
 
 	{#if revealTranscript}
@@ -103,9 +140,9 @@
 			{/if}
 
 			<div class="options">
-				{#each question.options as option, oi (option)}
+				{#each shown[qi].options as option, oi (option)}
 					{@const isChosen = answer === oi}
-					{@const isCorrect = oi === question.correctIndex}
+					{@const isCorrect = oi === shown[qi].correct}
 					<button
 						class="option"
 						class:chosen={isChosen}
@@ -125,8 +162,8 @@
 						</span>
 						<span class="option-text">
 							<span lang={locale}>{option}</span>
-							{#if question.optionsTranslation?.[oi]}
-								<small>{question.optionsTranslation[oi]}</small>
+							{#if shown[qi].translations?.[oi]}
+								<small>{shown[qi].translations[oi]}</small>
 							{/if}
 						</span>
 					</button>

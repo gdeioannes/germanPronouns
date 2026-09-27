@@ -89,6 +89,11 @@
           "id": "a1.word-formation-basic",
           "label": "Wortbildung: -in, -er, Komposita (Schokoladenkuchen)",
           "official": "A1 (inventory: Wortbildung)"
+        },
+        {
+          "id": "a1.alphabet",
+          "label": "Das Alphabet & Buchstabieren: letter names (E/I, J, V, W, Y, Z), ä ö ü ß, Doppel-, spelling names",
+          "official": "A1 (Kann-Beschreibung: Namen buchstabieren)"
         }
       ]
     },
@@ -208,6 +213,16 @@
           "id": "a1.body",
           "label": "Körper & Befinden basics (Mein Kopf tut weh; Wie geht's?)",
           "official": "A1 (Themen: Körper/Gesundheit)"
+        },
+        {
+          "id": "a1.wohin",
+          "label": "Wohin? — nach (Städte, Länder, nach Hause), in + Akk (ins Kino, in die Schweiz), zu + Dat (zum Arzt, zu Anna); nach Hause vs zu Hause",
+          "official": "A1 (inventory: Präposition lokal, Richtung)"
+        },
+        {
+          "id": "a1.possessives-plural",
+          "label": "Possessivartikel unser / euer / ihr / Ihr (unsere, eure, euren, Ihren)",
+          "official": "A1 (inventory: Possessivartikel)"
         }
       ]
     },
@@ -305,6 +320,11 @@
           "id": "a2.past-narration",
           "label": "Telling what happened: Perfekt + war/hatte + time words (gestern, letzte Woche, danach, zuerst)",
           "official": "A2 (Sprechen Teil 2)"
+        },
+        {
+          "id": "a2.indefinite-pronouns",
+          "label": "Indefinitpronomen: man, jemand, niemand, etwas, nichts, alle/alles",
+          "official": "A2 (official structure inventory)"
         }
       ],
       "exam": [
@@ -429,6 +449,16 @@
           "id": "a2.email-form",
           "label": "E-Mail und Formular: Anrede, Gruß, Betreff; Formularfelder (Name, Geburtsdatum, Unterschrift)",
           "official": "A2 Schreiben Teil 1 & 2"
+        },
+        {
+          "id": "a2.genitive-s-dates",
+          "label": "Genitiv-s bei Namen (Annas Auto) und Datum mit Ordinalzahlen (am 3. Oktober)",
+          "official": "A2 (official structure inventory)"
+        },
+        {
+          "id": "a2.email-redemittel",
+          "label": "Schreiben: E-Mail-Bausteine (Anrede, Grund, Bitte, Entschuldigung, Gruß)",
+          "official": "A2 Schreiben Teil 2"
         }
       ],
       "exam": [
@@ -480,7 +510,7 @@
         },
         {
           "id": "b1.adjectives-as-nouns",
-          "label": "Adjektive und Partizipien als Nomen: der Angestellte / ein Angestellter, die Erwachsenen, das Gute; n-Deklination intro (der Kollege, den Kollegen)",
+          "label": "Adjektive und Partizipien als Nomen: der Angestellte / ein Angestellter, die Erwachsenen, das Gute",
           "official": "B1"
         },
         {
@@ -547,9 +577,21 @@
           "id": "b1.opinion-redemittel",
           "label": "Sprechen: Meinung äußern und begründen — Ich finde/meine/bin der Meinung, dass …; Einerseits … andererseits; Ich stimme zu / nicht zu",
           "official": "B1 (Sprechen Teil 3)"
+        },
+        {
+          "id": "b1.verbs-prepositions",
+          "label": "Verben mit Präpositionen (warten auf, sich freuen auf/über, sich interessieren für, denken an, Angst haben vor) und Präpositionaladverbien: worauf? / darauf, auf wen?",
+          "official": "B1 (official structure inventory)"
+        },
+        {
+          "id": "b1.indirect-questions",
+          "label": "Indirekte Fragen: Können Sie mir sagen, wann …? / Ich weiß nicht, ob … (W-Wort oder ob, Verb am Ende)",
+          "official": "B1 (official structure inventory)"
         }
       ],
-      "exam": "B1 exam: Lesen 5 Teile, Hören 4 Teile, Schreiben 3 Teile (informal e-mail, forum post, formal e-mail), Sprechen 3 Teile (planning together, presentation, discussion)."
+      "exam": [
+        "B1 exam: Lesen 5 Teile, Hören 4 Teile, Schreiben 3 Teile (informal e-mail, forum post, formal e-mail), Sprechen 3 Teile (planning together, presentation, discussion)."
+      ]
     },
     {
       "level": "B1.2",
@@ -677,9 +719,16 @@
           "id": "b1.narration-skills",
           "label": "Erzählen: Geschichte mit Präteritum, Zeitangaben (eines Tages, plötzlich, danach, am Ende) und Begründungen",
           "official": "B1 (Sprechen Teil 2, Schreiben Teil 1)"
+        },
+        {
+          "id": "b1.state-passive",
+          "label": "Zustandspassiv: sein + Partizip II (Die Tür ist geschlossen) im Kontrast zum Vorgangspassiv (Die Tür wird geschlossen)",
+          "official": "B1 (official structure inventory)"
         }
       ],
-      "exam": "B1 exam (second half): Lesen Teil 1 (blog/narrative), Hören Teil 2 (announcement/guided tour), Schreiben Teil 2 (opinion), Sprechen Teil 2 (presentation with a narrative element)."
+      "exam": [
+        "B1 exam (second half): Lesen Teil 1 (blog/narrative), Hören Teil 2 (announcement/guided tour), Schreiben Teil 2 (opinion), Sprechen Teil 2 (presentation with a narrative element)."
+      ]
     },
     {
       "level": "B2.1",
@@ -807,9 +856,27 @@
           "id": "b2.argument-redemittel",
           "label": "Sprechen: Argumentieren, verteidigen, widersprechen — Redemittel für Vortrag und Diskussion",
           "official": "B2 (Sprechen Teil 1 & 2)"
+        },
+        {
+          "id": "b2.infinitive-clauses-purpose",
+          "label": "Infinitivsätze: um … zu / ohne … zu / (an)statt … zu vs damit / ohne dass / (an)statt dass",
+          "official": "B2"
+        },
+        {
+          "id": "b2.brauchen-zu",
+          "label": "nicht / nur brauchen + zu-Infinitiv (≈ nicht müssen); Abgrenzung zu nicht dürfen",
+          "official": "B2"
+        },
+        {
+          "id": "b2.je-desto",
+          "label": "Zweiteiliger Vergleich: je … desto / umso (Wortstellung beider Teile)",
+          "official": "B2"
         }
       ],
-      "exam": "B2 exam: Lesen 5 Teile, Hören 4 Teile, Schreiben 2 Teile (Forumsbeitrag 150 Wörter; formelle Nachricht 100 Wörter), Sprechen 2 Teile (Vortrag; Diskussion)."
+      "exam": [
+        "B2 exam: Lesen 5 Teile, Hören 4 Teile, Schreiben 2 Teile (Forumsbeitrag 150 Wörter; formelle Nachricht 100 Wörter), Sprechen 2 Teile (Vortrag;",
+        "Diskussion)."
+      ]
     },
     {
       "level": "B2.2",
@@ -937,9 +1004,26 @@
           "id": "b2.sprachbausteine",
           "label": "Lesen: Sprachbausteine-Cloze (B2 Lesen Teil 4) — Konnektoren, Präpositionen, Pronomen, Verbformen im Text",
           "official": "B2 (Lesen Teil 4)"
+        },
+        {
+          "id": "b2.relative-genitive-prep",
+          "label": "Relativsätze mit dessen / deren und Präposition + Relativpronomen (bei der, mit dem, von denen); wo(r)- nach etwas / alles",
+          "official": "B2"
+        },
+        {
+          "id": "b2.futur1-assumption",
+          "label": "Futur I als Vermutung über Gegenwart und Zukunft (wird wohl … sein) im Kontrast zum Futur II",
+          "official": "B2"
+        },
+        {
+          "id": "b2.konjunktiv2-present",
+          "label": "Konjunktiv II der Gegenwart: wäre, hätte, Modalverben, gäbe / wüsste / käme / bräuchte, würde + Infinitiv; Bitte, Rat, Wunsch, irreale Bedingung",
+          "official": "B2"
         }
       ],
-      "exam": "B2 exam (second half): Lesen Teil 4 (Sprachbausteine) und Teil 5, Hören Teil 4 (Vortrag), Schreiben Teil 2 (formelle Nachricht), Sprechen Teil 1 (Vortrag mit Hypothesen)."
+      "exam": [
+        "B2 exam (second half): Lesen Teil 4 (Sprachbausteine) und Teil 5, Hören Teil 4 (Vortrag), Schreiben Teil 2 (formelle Nachricht), Sprechen Teil 1 (Vortrag mit Hypothesen)."
+      ]
     },
     {
       "level": "C1.1",
@@ -966,7 +1050,7 @@
         {
           "id": "c1.nominalisation-advanced",
           "label": "Nominalisierung ↔ Verbalisierung (advanced): Sätze in Nominalgruppen verdichten und Nominalgruppen auflösen; Genitivattribut als Subjekt/Objekt",
-          "official": "C1 (Erkundungen C1 Kap. 5)"
+          "official": "C1"
         },
         {
           "id": "c1.passive-substitutes-advanced",
@@ -996,7 +1080,7 @@
         {
           "id": "c1.tense-choice",
           "label": "Tempuswahl in Erzählung und Bericht: Präteritum / Perfekt / Plusquamperfekt / Futur I & II; Tempuswechsel als Stilmittel; historisches Präsens",
-          "official": "C1 (Erkundungen C1 Kap. 1)"
+          "official": "C1"
         },
         {
           "id": "c1.adverbial-clauses-system",
@@ -1042,9 +1126,21 @@
           "id": "c1.listening-exam-formats",
           "label": "Hören: Vorlesung / Vortrag mit Detailfragen; Podiumsdiskussion (C1 Hören Teil 3 & 4)",
           "official": "C1 (Hören)"
+        },
+        {
+          "id": "c1.extended-participial-attributes",
+          "label": "Erweiterte Partizipialattribute: Partizip I/II mit Ergänzungen vor dem Nomen (die seit Jahren steigenden Mieten, die von der Regierung geplante Reform), Gerundivum zu + Partizip I (der zu prüfende Antrag); Auflösung in Relativsätze",
+          "official": "C1"
+        },
+        {
+          "id": "c1.two-part-connectors",
+          "label": "Zweiteilige Konnektoren: zwar … aber, einerseits … andererseits, nicht nur … sondern auch, sowohl … als auch, weder … noch, entweder … oder, je … desto/umso, teils … teils, bald … bald, mal … mal, zum einen … zum anderen; Wortstellung und Kongruenz",
+          "official": "C1"
         }
       ],
-      "exam": "C1 exam: Lesen 4 Teile (Sprachbausteine-Cloze, Detail, Sätze einordnen, Expertenmeinungen), Hören 4 Teile, Schreiben 2 Teile, Sprechen 2 Teile — Lesen Teil 1 tests verbs (Semantik, Tempus, Modus), Modalverben, Konnektoren, Angaben, Pronomen."
+      "exam": [
+        "C1 exam: Lesen 4 Teile (Sprachbausteine-Cloze, Detail, Sätze einordnen, Expertenmeinungen), Hören 4 Teile, Schreiben 2 Teile, Sprechen 2 Teile — Lesen Teil 1 tests verbs (Semantik, Tempus, Modus), Modalverben, Konnektoren, Angaben, Pronomen."
+      ]
     },
     {
       "level": "C1.2",
@@ -1091,7 +1187,7 @@
         {
           "id": "c1.verb-prefixes-separable",
           "label": "Verben mit Präfixen trennbar vs untrennbar: durch-, über-, unter-, um-, wieder-, hinter- (úmfahren / umfáhren, wíederholen / wiederhólen); Betonung und Bedeutung",
-          "official": "C1 (Erkundungen C1)"
+          "official": "C1"
         },
         {
           "id": "c1.idioms",
@@ -1147,9 +1243,26 @@
           "id": "c1.exam-formats-2",
           "label": "Prüfungsformate: Expertenmeinungen zuordnen (Lesen Teil 4), Interview stimmt / stimmt nicht / nicht gesagt (Hören Teil 2), Forumsbeitrag und formelle Beschwerde (Schreiben)",
           "official": "C1"
+        },
+        {
+          "id": "c1.konjunktiv1-reported-speech",
+          "label": "Konjunktiv I in der indirekten Rede: sei, habe, werde, könne, müsse; Ersatz durch Konjunktiv II (sie hätten, sie würden); Vergangenheit (habe … getan, sei … gegangen), Futur (werde … tun), indirekte Fragen (ob / w-Wort), indirekter Imperativ (solle / möge)",
+          "official": "C1"
+        },
+        {
+          "id": "c1.modal-particles",
+          "label": "Modalpartikeln: doch, ja, denn, mal, halt, eben, eigentlich, wohl, schon, ruhig, bloß, nur, etwa, betontes JA (Warnung)",
+          "official": "C1"
+        },
+        {
+          "id": "c1.report-nominal-style",
+          "label": "Schreiben: Bericht im Nominalstil (wegen fehlender Unterlagen, nach Abschluss der Arbeiten, zur Senkung der Kosten, trotz starker Regenfälle, im Falle weiterer Verzögerungen)",
+          "official": "C1"
         }
       ],
-      "exam": "C1 exam: Lesen Teil 4 (Expertenmeinungen zuordnen), Hören Teil 2 (Interview: stimmt / stimmt nicht / nicht gesagt), Schreiben Teil 1 (Forumsbeitrag) & Teil 2 (formelle E-Mail an Vorgesetzte), Sprechen Teil 1 (Vortrag) & Teil 2 (Diskussion)."
+      "exam": [
+        "C1 exam: Lesen Teil 4 (Expertenmeinungen zuordnen), Hören Teil 2 (Interview: stimmt / stimmt nicht / nicht gesagt), Schreiben Teil 1 (Forumsbeitrag) & Teil 2 (formelle E-Mail an Vorgesetzte), Sprechen Teil 1 (Vortrag) & Teil 2 (Diskussion)."
+      ]
     },
     {
       "level": "C2.1",
@@ -1247,9 +1360,28 @@
           "id": "c2.text-formats-1",
           "label": "Textsorten: Zeitungsartikel, Feature, Satire, Kurzgeschichte — Merkmale erkennen und deuten",
           "official": "C2"
+        },
+        {
+          "id": "c2.konjunktiv2-nuances",
+          "label": "Konjunktiv II: Nuancen — hätte … tun sollen / müssen (Doppelinfinitiv im Nebensatz), beinahe / fast + Konj. II, irreale Vergleiche (als ob, als wenn, als + V2), Wunsch & Bedauern, höfliche Distanz, zu …, als dass, Wäre da nicht …",
+          "official": "C2"
+        },
+        {
+          "id": "c2.connector-nuance",
+          "label": "Konnektoren-Nuancen: indes / indessen, wiewohl / obschon, zumal (da), gleichwohl / dessen ungeachtet, mithin / somit, insofern als, allein, respektive — Bedeutung, Register, Wortstellung",
+          "official": "C2"
+        },
+        {
+          "id": "c2.prefix-semantics",
+          "label": "Präfixsemantik: ver-, zer-, er-, ent-, be-; über- / unter- / um- / durch- trennbar vs untrennbar (übersetzen / übersetzen, umfahren / umfahren)",
+          "official": "C2"
         }
       ],
-      "exam": "C2 exam: Lesen 4 Teile, Hören 3 Teile, Schreiben 2 Teile (Umformulierung; Text zu einem Thema oder Literaturaufgabe), Sprechen 2 Teile (Vortrag; Diskussion) — Stil, Register und Abtönung sind explizite Kriterien."
+      "exam": [
+        "C2 exam: Lesen 4 Teile, Hören 3 Teile, Schreiben 2 Teile (Umformulierung;",
+        "Text zu einem Thema oder Literaturaufgabe), Sprechen 2 Teile (Vortrag;",
+        "Diskussion) — Stil, Register und Abtönung sind explizite Kriterien."
+      ]
     },
     {
       "level": "C2.2",
@@ -1305,7 +1437,7 @@
         },
         {
           "id": "c2.nominal-style",
-          "label": "Nominalstil: Sätze nominalisieren und Präpositionalgruppen auflösen; Attributketten; Nominalstil erkennen und dosieren (Erkundungen C2 Kap. 8)",
+          "label": "Nominalstil: Sätze nominalisieren und Präpositionalgruppen auflösen; Attributketten; Nominalstil erkennen und dosieren",
           "official": "C2"
         },
         {
@@ -1330,7 +1462,7 @@
         },
         {
           "id": "c2.adverbial-transform",
-          "label": "Adverbialsätze — Hauptsatz / Nebensatz / Infinitiv-Varianten umformen (Erkundungen C2 Kap. 2)",
+          "label": "Adverbialsätze — Hauptsatz / Nebensatz / Infinitiv-Varianten umformen",
           "official": "C2"
         },
         {
@@ -1345,11 +1477,29 @@
         },
         {
           "id": "c2.text-formats-2",
-          "label": "Textsorten: Essay, Fachvortrag, Lesung, Lyrik (Ringelnatz / Kaléko), amtliches Schreiben, Podiumsdiskussion — Capstone",
+          "label": "Textsorten: Essay, Fachvortrag, Lesung, Lyrik (Ringelnatz, Morgenstern), amtliches Schreiben, Podiumsdiskussion — Capstone",
+          "official": "C2"
+        },
+        {
+          "id": "c2.idioms",
+          "label": "Redewendungen über Sprichwörter hinaus: jdm. den Rang ablaufen, auf die lange Bank schieben, ins Hintertreffen geraten, reinen Wein einschenken, das Kind mit dem Bade ausschütten — feste Form, Bild, Register",
+          "official": "C2"
+        },
+        {
+          "id": "c2.latinisms",
+          "label": "Fremdwörter und Latinismen der Bildungssprache: evident, eruieren, obsolet, prekär, konzedieren, subsumieren, stringent, sukzessive; a priori, de facto, per se, ad hoc, Status quo, sui generis",
+          "official": "C2"
+        },
+        {
+          "id": "c2.dach-variation",
+          "label": "Deutsch in Österreich und der Schweiz: Standardvarianten (Jänner, Paradeiser, Marille, Matura, Spital, Velo, parkieren, Billett, Estrich), Perfekt mit sein (ist gesessen), Schweizer ss statt ß",
           "official": "C2"
         }
       ],
-      "exam": "C2 exam capstone: Lesen (Literatur, Sachtext, Lückentext), Hören (Vortrag, Lesung, Diskussion), Schreiben Teil 2 (Literaturaufgabe: Rezension/Interpretation), Sprechen (Vortrag mit Analyse; Streitgespräch)."
+      "exam": [
+        "C2 exam capstone: Lesen (Literatur, Sachtext, Lückentext), Hören (Vortrag, Lesung, Diskussion), Schreiben Teil 2 (Literaturaufgabe: Rezension/Interpretation), Sprechen (Vortrag mit Analyse;",
+        "Streitgespräch)."
+      ]
     }
   ]
 }

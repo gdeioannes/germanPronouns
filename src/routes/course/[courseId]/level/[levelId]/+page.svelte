@@ -127,7 +127,7 @@
 	{#if module?.exam?.length}
 		<h2>In the exam</h2>
 		<ul class="exam">
-			{#each module.exam as item (item)}<li>{item}</li>{/each}
+			{#each (Array.isArray(module.exam) ? module.exam : [module.exam]) as item (item)}<li>{item}</li>{/each}
 		</ul>
 	{/if}
 

@@ -150,6 +150,12 @@ export interface QuizBase {
 	status?: QuizStatus;
 	/** Syllabus structure ids this quiz teaches — what the coverage gate counts. */
 	covers?: string[];
+	/**
+	 * Never fold umlauts/ß when checking, even in relaxed mode. Set on quizzes
+	 * whose target IS the umlaut (Konjunktiv II, comparatives, umlaut plurals,
+	 * vowel-change verbs), where "hatte" for "hätte" is the error being drilled.
+	 */
+	strictDiacritics?: boolean;
 }
 
 // -- fillBlank --------------------------------------------------------------

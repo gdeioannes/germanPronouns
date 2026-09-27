@@ -132,7 +132,7 @@
 							</ul>
 						{/if}
 						{#if tip.trap}
-							<p class="trap"><Icon name="close" size="0.95em" /> <span>{tip.trap}</span></p>
+							<p class="trap"><Icon name="close" size="0.95em" /> <span>{tip.trap.replace(/^E\d+\s*[—-]\s*/, '')}</span></p>
 						{/if}
 					</div>
 				{/each}
