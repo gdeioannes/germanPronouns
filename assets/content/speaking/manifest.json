@@ -1,11 +1,5 @@
 {
-  "templateVersion": 3,
-  "templates": {
-    "en": "assets/content/speaking/template.en.json",
-    "de": "assets/content/speaking/template.de.json",
-    "es": "assets/content/speaking/template.es.json",
-    "zh": "assets/content/speaking/template.zh.json"
-  },
+  "templateVersion": 4,
   "defaults": {
     "durationMinutes": 4,
     "minExchanges": 7,
@@ -16,9 +10,22 @@
   },
   "triggers": {
     "de": "Los geht's",
-    "es": "¡Vamos!",
-    "cs": "Jdeme na to",
-    "zh": "开始吧",
     "en": "Let's go"
+  },
+  "levelGuides": {
+    "A1": "Speak slowly, with a pause after every sentence. Present tense only, sentences under 8 words, everyday words, no idioms. Address me as Sie. Repeat a question in the same words before you simplify it.",
+    "A2": "Speak slowly and clearly. Present and Perfekt, simple weil / dass clauses, everyday vocabulary. Address me as du unless the roleplay says otherwise.",
+    "B1": "Speak at a calm natural pace. Everyday and work vocabulary, subordinate clauses are fine, avoid rare idioms. Address me as du unless the roleplay says otherwise.",
+    "B2": "Speak at natural pace with natural idioms. Take a real position and defend it so I have something to argue against. Register as the topic requires.",
+    "C1": "Speak at full natural pace, with idioms, abstract vocabulary and long sentences. Challenge my claims and ask for precision.",
+    "C2": "Speak as you would to an educated native speaker: full pace, irony, allusion, register shifts. Push back hard on vague or generic answers."
+  },
+  "turnLengths": {
+    "A1": "Keep your own turns to one short sentence plus the question, so I do most of the talking.",
+    "A2": "Keep your own turns to 1-2 sentences, so I do most of the talking.",
+    "B1": "Keep your own turns to 1-2 sentences, so I do most of the talking.",
+    "B2": "Your turns may be 2-4 sentences when you make a counter-argument; I should still speak more than you.",
+    "C1": "Your turns may be 3-4 sentences when you make a counter-argument; I should still speak more than you.",
+    "C2": "Your turns may be a full argument of 3-5 sentences; I should still speak more than you."
   }
 }

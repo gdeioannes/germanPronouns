@@ -23,7 +23,9 @@
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
 	import { REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
-	import { prefersReducedMotion } from '$lib/motion';
+	import { freshen, prefersReducedMotion } from '$lib/motion';
+	import { react, shakeOn } from '$lib/motion/fx.svelte';
+	import StreakTracker from './StreakTracker.svelte';
 	import type { FillBlankQuiz, QuizSentence } from '$lib/content/types';
 
 	let {
@@ -82,6 +84,10 @@
 	/** null while answering; then how it went, which colours the field. */
 	let verdict = $state<'right' | 'wrong' | null>(null);
 	let streak = $state(0);
+	/** The answer card, for the praise to rise from; `missKey` shakes it. */
+	let cardEl = $state<HTMLElement>();
+	let missKey = $state(0);
+	let misses = $state(0);
 	let best = $state(0);
 	let inputEls = $state<HTMLInputElement[]>([]);
 	let burst = $state(0);
@@ -90,7 +96,6 @@
 	let timers: ReturnType<typeof setTimeout>[] = [];
 
 	const locked = $derived(verdict !== null);
-	const lapProgress = $derived(streak % STREAK_LAP_SIZE);
 
 	/**
 	 * The subject label above the sentence — shown only when it adds something.
@@ -182,6 +187,7 @@
 		(async () => {
 			const stats = await progress.statsFor(quiz.storageKeyPrefix);
 			streak = stats.streak;
+			misses = stats.misses;
 			best = stats.bestStreakAbsolute;
 		})();
 	});
@@ -223,6 +229,9 @@
 		);
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
+		misses = stats.misses;
+		react(correct, cardEl, stats.streak);
+		if (!correct) missKey += 1;
 		best = stats.bestStreakAbsolute;
 		onAnswer(correct);
 
@@ -241,15 +250,35 @@
 		// so a relaxed-mode "schon" visibly becomes "schön".
 		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
 
+		// Enter moves on without waiting out the reveal: at once after a right
+		// answer, once the correction is written in after a wrong one.
+		const moveOn = () => {
+			skip = null;
+			clearTimers();
+			next();
+		};
+		if (correct) skip = moveOn;
 		answers = new Array(gaps).fill('');
 		await typeOut(canonical);
+		skip = moveOn;
 		await wait(REVEAL_PAUSE[progress.answerRevealMode]);
-		next();
+		if (skip === moveOn) moveOn();
 	}
 
-	/** Enter moves to the next empty gap, and submits from the last one. */
+	/** Set while an answer is on show: skips straight to the next question. */
+	let skip: (() => void) | null = null;
+
+	/**
+	 * Enter moves to the next empty gap, submits from the last one, and —
+	 * with the answer on show — goes straight on to the next question.
+	 */
 	function onKey(event: KeyboardEvent, gap: number) {
 		if (event.key !== 'Enter') return;
+		if (locked) {
+			event.preventDefault();
+			skip?.();
+			return;
+		}
 		const nextEmpty = answers.findIndex((a, i) => i !== gap && !a.trim());
 		if (nextEmpty >= 0) {
 			event.preventDefault();
@@ -260,24 +289,10 @@
 	}
 </script>
 
-<section class="tracker">
-	<span class="flame" class:hot={streak > 0}><Icon name="flame" size="1.1em" /></span>
-	<div class="streak">
-		<span class="eyebrow">Streak</span>
-		<span class="value tnum">{streak}</span>
-		<span class="goal tnum">/ {goal}</span>
-	</div>
-	<div class="pips" aria-hidden="true">
-		{#each { length: STREAK_LAP_SIZE } as _, i (i)}
-			<span class="pip" class:lit={i < lapProgress || (streak > 0 && lapProgress === 0)}
-			></span>
-		{/each}
-	</div>
-	<span class="best tnum">Best {best}</span>
-</section>
+<StreakTracker {streak} {misses} {best} {goal} />
 
 {#if current}
-	<section class="card">
+	<section class="card" bind:this={cardEl} use:freshen={current} use:shakeOn={missKey}>
 		<Burst trigger={burst} count={burstSize} />
 
 		<!-- The word-help switch sits with the sentence it changes, not away in
@@ -347,86 +362,6 @@
 {/if}
 
 <style>
-	.tracker {
-		display: flex;
-		align-items: center;
-		gap: 0.85rem;
-		padding: 0.7rem 1rem;
-		margin-bottom: 1rem;
-		border: 1px solid var(--line);
-		border-radius: var(--radius-sm);
-		background: var(--surface-alt);
-	}
-
-	.flame {
-		display: inline-flex;
-		color: var(--outline);
-		transition: color var(--medium) var(--ease-out);
-	}
-
-	.flame.hot {
-		color: var(--accent);
-		animation: flicker 2.4s ease-in-out infinite;
-	}
-
-	@keyframes flicker {
-		0%,
-		100% {
-			transform: scale(1) rotate(-1deg);
-		}
-		50% {
-			transform: scale(1.09) rotate(1.5deg);
-		}
-	}
-
-	.streak {
-		display: flex;
-		align-items: baseline;
-		gap: 0.35rem;
-	}
-
-	.streak .eyebrow {
-		font-size: 0.66rem;
-	}
-
-	.value {
-		font-size: var(--step-2);
-		font-weight: 800;
-		line-height: 1;
-		color: var(--heading);
-		font-variant-numeric: tabular-nums;
-	}
-
-	.goal,
-	.best {
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	.best {
-		margin-left: auto;
-	}
-
-	.pips {
-		display: flex;
-		gap: 0.28rem;
-	}
-
-	.pip {
-		width: 0.46rem;
-		height: 0.46rem;
-		border-radius: 50%;
-		background: var(--outline);
-		transition:
-			background var(--medium) var(--ease-spring),
-			transform var(--medium) var(--ease-spring);
-	}
-
-	.pip.lit {
-		background: var(--accent);
-		transform: scale(1.25);
-	}
-
 	.card {
 		position: relative;
 		padding: 1.75rem;
@@ -568,14 +503,6 @@
 		color: var(--ink-muted);
 	}
 	@media (max-width: 36rem) {
-		.tracker {
-			gap: 0.6rem;
-			padding: 0.4rem 0.75rem;
-			margin-bottom: 0.6rem;
-		}
-		.value {
-			font-size: var(--step-1);
-		}
 		.card {
 			padding: 1.1rem 1rem 1rem;
 		}

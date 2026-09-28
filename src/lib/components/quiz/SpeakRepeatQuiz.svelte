@@ -5,9 +5,10 @@
 	// rule is inherited from the Dart page and matters — it is why this quiz
 	// can sit in a gated chain without trapping anyone.
 	import Burst from '../Burst.svelte';
+	import { inDialog } from './keys';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
-	import { pop, rise } from '$lib/motion';
+	import { freshen, pop, rise } from '$lib/motion';
 	import { matchesSpoken } from '$lib/domain/answers';
 	import { stt, tts } from '$lib/services/speech';
 	import type { SpeakRepeatQuiz } from '$lib/content/types';
@@ -80,6 +81,16 @@
 		index += 1;
 	}
 
+	/** Enter goes on to the next phrase; a focused button keeps its own Enter. */
+	function onWindowKey(event: KeyboardEvent) {
+		if (event.key !== 'Enter' || event.repeat || event.defaultPrevented || done) return;
+		if (inDialog(event.target)) return;
+		const target = event.target as HTMLElement | null;
+		if (target?.closest('button, a, input, textarea, select')) return;
+		event.preventDefault();
+		next();
+	}
+
 	function restart() {
 		index = 0;
 		done = false;
@@ -88,8 +99,10 @@
 	}
 </script>
 
+<svelte:window onkeydown={onWindowKey} />
+
 {#if done}
-	<section class="card">
+	<section class="card" in:pop>
 		<Burst trigger={1} count={30} />
 		<p class="verdict pass">
 			<Icon name="trophy" size="1.1em" /> All {total} phrases practised.
@@ -99,7 +112,7 @@
 		</button>
 	</section>
 {:else if phrase}
-	<section class="card">
+	<section class="card" use:freshen={index} in:rise>
 		<p class="eyebrow counter tnum">Phrase {index + 1} of {total}</p>
 
 		<p class="phrase" lang={locale}>

@@ -1,20 +1,45 @@
+<script lang="ts" module>
+	import type { Quiz } from '$lib/content/types';
+	import { helpTableFor } from '$lib/domain/help-table';
+	import type { VocabEntry } from '$lib/domain/vocab';
+
+	/**
+	 * Whether a quiz has study notes to show — so the page knows whether to
+	 * offer the Notes button at all. Every authored quiz has an intro (a test
+	 * enforces it); the rest is a fallback for anything that slips through.
+	 * `vocab` is what the page load derived for the quiz — the same list the
+	 * component shows, so the two agree on whether there is anything to show.
+	 */
+	export function hasStudyNotes(quiz: Quiz, vocab?: VocabEntry[]): boolean {
+		const help = quiz.help;
+		return !!(
+			vocab?.length ||
+			help?.intro ||
+			help?.tips?.length ||
+			help?.table ||
+			help?.vocab?.length ||
+			help?.remember?.length ||
+			help?.context ||
+			help?.mistakes?.length ||
+			help?.exam ||
+			helpTableFor(quiz)
+		);
+	}
+</script>
+
 <script lang="ts">
-	// A quiz's Help Memory — the "How it works" panel — in the seven layers the
-	// content plan defines (docs/content_master_plan.md §4): the idea, the rule
-	// cards with their examples, how to remember it, the reference table, the
-	// words, a short text in context, and the exam it feeds — plus the mistakes
-	// English speakers make. Every quiz has one, and it auto-opens on first
-	// visit so the rules are read before the first question rather than
+	// A quiz's Help Memory — the study notes — in the seven layers the content
+	// plan defines (docs/content_master_plan.md §4): the idea, the rule cards
+	// with their examples, how to remember it, the reference table, the words,
+	// a short text in context, and the exam it feeds — plus the mistakes
+	// English speakers make. The quiz page holds it in a panel in front of the
+	// exercise (see Sheet), opened by its Notes button and, on a first visit,
+	// by itself — so the rules are read before the first question rather than
 	// discovered by failing.
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
-	import { tick } from 'svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
-	import { helpTableFor } from '$lib/domain/help-table';
-	import { vocabFor, type SharedNoun, type VocabEntry } from '$lib/domain/vocab';
-	import { SettingsKeys } from '$lib/domain/keys';
-	import { storage } from '$lib/services/storage';
-	import type { Quiz } from '$lib/content/types';
+	import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
 
 	let {
 		quiz,
@@ -60,60 +85,11 @@
 		)
 	);
 
-	let open = $state(false);
-	let section = $state<HTMLElement>();
-	let end = $state<HTMLElement>();
-	// The foot of the panel is on screen — the exercise below it is too, so the
-	// "Start the exercise" tab steps aside.
-	let endInView = $state(false);
-
-	$effect(() => {
-		if (!end) return;
-		const observer = new IntersectionObserver(([entry]) => (endInView = entry.isIntersecting));
-		observer.observe(end);
-		return () => observer.disconnect();
-	});
-
-	/** Folds the notes away and brings the exercise (whatever follows the
-	 *  panel) into view — centred when it fits, top-aligned when it doesn't. */
-	async function goToExercise() {
-		open = false;
-		await tick();
-		const exercise = section?.nextElementSibling as HTMLElement | null;
-		if (!exercise) return;
-		const fits = exercise.offsetHeight < window.innerHeight * 0.9;
-		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		exercise.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: fits ? 'center' : 'start' });
-	}
-
-	$effect(() => {
-		// First visit to this quiz opens the panel unprompted — on a laptop. On a
-		// phone the notes sit below the exercise, so opening them there would
-		// only add a screen of text under it; the toggle is one tap away.
-		(async () => {
-			if (window.matchMedia('(max-width: 36rem)').matches) return;
-			const raw = await storage.get(SettingsKeys.seenHelpMemory);
-			const seen: string[] = raw ? JSON.parse(raw) : [];
-			if (!seen.includes(quizId)) {
-				open = true;
-				await storage.set(SettingsKeys.seenHelpMemory, JSON.stringify([...seen, quizId]));
-			}
-		})();
-	});
 </script>
 
 {#if hasContent}
-	<section class="help" bind:this={section}>
-		<button class="toggle" onclick={() => (open = !open)} aria-expanded={open} aria-controls="help-{quizId}">
-			<Icon name="book" size="1.05em" />
-			<span>Study notes</span>
-			<span class="chevron" class:open><Icon name="chevronDown" size="1em" /></span>
-		</button>
-
-		<!-- Always in the page, hidden when closed rather than removed: the
-		     explanation is the most useful text on the page, and a prerendered
-		     page that left it out would show search engines an empty exercise. -->
-		<div class="body" id="help-{quizId}" hidden={!open}>
+	<section class="help">
+		<div class="body" id="help-{quizId}">
 				<!-- 1 · The idea -->
 				{#if help?.intro}
 					<p class="intro">{help.intro}</p>
@@ -271,65 +247,12 @@
 				{#if help?.exam}
 					<p class="exam"><Icon name="trophy" size="1em" /> <span>{help.exam}</span></p>
 				{/if}
-
-				<!-- Sticks to the bottom of the screen while the notes are open, so the
-				     way back to the exercise is never a long scroll away. -->
-				<div class="to-exercise" class:away={endInView} inert={endInView}>
-					<div class="tab-row">
-						<button class="btn" onclick={goToExercise}>
-							Start the exercise <Icon name="chevronDown" size="1em" />
-						</button>
-					</div>
-				</div>
 		</div>
-		<div class="end" bind:this={end} aria-hidden="true"></div>
 	</section>
 {/if}
 
 <style>
-	.help {
-		margin: 0 0 1.5rem;
-		border: 1px solid var(--line);
-		border-radius: 14px;
-		background: var(--surface);
-		/* clip, not hidden: hidden would make this a scroll container and stop
-		   the "Start the exercise" bar from sticking to the viewport. */
-		overflow: clip;
-	}
-
-	.toggle {
-		display: flex;
-		width: 100%;
-		align-items: center;
-		gap: 0.55rem;
-		padding: 0.85rem 1rem;
-		border: 0;
-		background: none;
-		font: inherit;
-		font-weight: 700;
-		color: var(--ink);
-		cursor: pointer;
-		transition: color var(--fast) var(--ease-out);
-	}
-
-	.toggle:hover {
-		color: var(--accent);
-	}
-
-	.chevron {
-		display: inline-flex;
-		margin-left: auto;
-		color: var(--ink-muted);
-		transition: transform var(--medium) var(--ease-out);
-	}
-
-	.chevron.open {
-		transform: rotate(180deg);
-	}
-
-	.body {
-		padding: 0 1rem 1rem;
-	}
+	/* No box of its own: it lives in the panel (see Sheet), which is the box. */
 
 	.intro {
 		margin: 0 0 1rem;
@@ -576,51 +499,6 @@
 		grid-column: 1 / -1;
 		color: var(--ink-muted);
 	}
-
-	/* A zero-height sticky rail: it holds the tab to the screen's bottom edge
-	   while the notes scroll past, but takes no room in the panel, so there is
-	   no gap left behind once the tab has gone. */
-	.to-exercise {
-		position: sticky;
-		bottom: 0;
-		height: 0;
-		margin: 0 -1rem;
-	}
-
-	.tab-row {
-		position: absolute;
-		inset: auto 0 0;
-		display: flex;
-		justify-content: center;
-		padding: 0.9rem 1rem 0;
-		background: linear-gradient(to top, var(--surface) 55%, transparent);
-		transition:
-			transform var(--medium) var(--ease-out),
-			opacity var(--medium) var(--ease-out);
-	}
-
-	/* The end of the notes is on screen, so the exercise is too: the tab has
-	   done its job and slides back down out of the way. */
-	.to-exercise.away .tab-row {
-		transform: translateY(100%);
-		opacity: 0;
-		pointer-events: none;
-	}
-
-	/* A tab, not a pill: square at the foot, it reads as a handle growing out
-	   of the screen's bottom edge, pulling the exercise up. */
-	.to-exercise .btn {
-		min-width: min(20rem, 100%);
-		justify-content: center;
-		padding-bottom: calc(0.7rem + env(safe-area-inset-bottom));
-		border-radius: 14px 14px 0 0;
-		box-shadow: 0 -4px 14px rgb(0 0 0 / 0.1);
-	}
-
-	.end {
-		height: 1px;
-	}
-
 	.exam {
 		display: flex;
 		gap: 0.5rem;
@@ -632,10 +510,5 @@
 		color: var(--accent);
 		font-size: var(--step--1);
 		font-weight: 600;
-	}
-	@media (max-width: 36rem) {
-		.help {
-			margin: 1.25rem 0 0;
-		}
 	}
 </style>

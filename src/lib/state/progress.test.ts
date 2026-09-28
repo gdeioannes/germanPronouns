@@ -152,3 +152,26 @@ describe('reading completion back', () => {
 		expect(ladder()[0].doneCount).toBe(1);
 	});
 });
+
+describe('a streak survives three mistakes', () => {
+	it('keeps the count through three misses and resets on the fourth', async () => {
+		installStorage();
+		await progress.load(DEFAULT_GATING);
+		const prefix = 'a1_1_fill_';
+		for (let i = 0; i < 4; i++) await progress.recordAnswer(prefix, true);
+
+		let stats = await progress.recordAnswer(prefix, false);
+		expect(stats).toMatchObject({ streak: 4, misses: 1 });
+		await progress.recordAnswer(prefix, false);
+		stats = await progress.recordAnswer(prefix, false);
+		expect(stats).toMatchObject({ streak: 4, misses: 3 });
+
+		// Still alive: a right answer keeps building on the same run.
+		stats = await progress.recordAnswer(prefix, true);
+		expect(stats).toMatchObject({ streak: 5, misses: 3 });
+
+		// The fourth miss ends the run and refills the lives.
+		stats = await progress.recordAnswer(prefix, false);
+		expect(stats).toMatchObject({ streak: 0, misses: 0 });
+	});
+});

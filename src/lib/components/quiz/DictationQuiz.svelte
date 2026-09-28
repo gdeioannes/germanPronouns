@@ -2,9 +2,11 @@
 	// Dictation: hear a line, type what you heard. The text is never shown
 	// until the line is answered or given up on — that is the whole exercise.
 	import Burst from '../Burst.svelte';
+	import { inDialog } from './keys';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
-	import { pop, rise } from '$lib/motion';
+	import { freshen, pop, rise } from '$lib/motion';
+	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import { matchesAccepted } from '$lib/domain/answers';
 	import { progress } from '$lib/state/progress.svelte';
 	import { tts } from '$lib/services/speech';
@@ -26,6 +28,11 @@
 	let correctCount = $state(0);
 	let done = $state(false);
 	let burst = $state(0);
+	/** The line's card, for the praise to rise from; `missKey` shakes it. */
+	let cardEl = $state<HTMLElement>();
+	let missKey = $state(0);
+	/** Right lines in a row, so the chime climbs here as in a streak quiz. */
+	let run = 0;
 
 	const item = $derived(quiz.items[index]);
 	const total = $derived(quiz.items.length);
@@ -49,9 +56,16 @@
 	});
 
 	function check() {
-		if (!item || verdict !== 'none' || !answer.trim()) return;
+		// An empty check is a skip: the line is shown and counts as wrong.
+		if (!item || verdict !== 'none') return;
 		const right = matchesAccepted(answer, [item.text], progress.relaxedCorrection, quiz.strictDiacritics === true);
 		verdict = right ? 'right' : 'wrong';
+		run = right ? run + 1 : 0;
+		react(right, cardEl, run);
+		if (!right) missKey += 1;
+		// Back in the field (a click on Check took focus away), where Enter
+		// moves on.
+		inputEl?.focus();
 		if (right) {
 			correctCount += 1;
 			burst += 1;
@@ -71,18 +85,43 @@
 
 	function onKey(event: KeyboardEvent) {
 		if (event.key !== 'Enter') return;
-		if (verdict === 'none') check();
+		// Handled here, so the window listener below leaves this one alone.
+		event.preventDefault();
+		// Enter needs something typed, so a stray keypress never skips a line.
+		if (verdict === 'none') {
+			if (answer.trim()) check();
+		}
 		else next();
 	}
+
+	/**
+	 * Enter goes on to the next line from anywhere once the answer is shown —
+	 * after a click on Check, focus is no longer in the field. A focused
+	 * button keeps its own Enter.
+	 */
+	function onWindowKey(event: KeyboardEvent) {
+		if (event.key !== 'Enter' || event.repeat || event.defaultPrevented) return;
+		if (done || verdict === 'none' || inDialog(event.target)) return;
+		const target = event.target as HTMLElement | null;
+		if (target?.closest('button, a, input, textarea, select')) return;
+		event.preventDefault();
+		next();
+		inputEl?.focus();
+	}
+
+	let inputEl = $state<HTMLInputElement>();
 
 	function restart() {
 		index = 0;
 		answer = '';
 		verdict = 'none';
 		correctCount = 0;
+		run = 0;
 		done = false;
 	}
 </script>
+
+<svelte:window onkeydown={onWindowKey} />
 
 {#if done}
 	<section class="card done" in:pop>
@@ -95,7 +134,7 @@
 		</button>
 	</section>
 {:else if item}
-	<section class="card">
+	<section class="card" bind:this={cardEl} use:freshen={index} use:shakeOn={missKey} in:rise>
 		<p class="eyebrow counter">
 			<span class="tnum">Line {index + 1} of {total}</span>
 		</p>
@@ -110,10 +149,13 @@
 			</button>
 		</div>
 
+		<!-- Read-only rather than disabled once answered: a disabled field
+		     drops focus, and Enter would then have nowhere to go. -->
 		<input
+			bind:this={inputEl}
 			bind:value={answer}
 			onkeydown={onKey}
-			disabled={verdict !== 'none'}
+			readonly={verdict !== 'none'}
 			placeholder="Type what you hear"
 			lang={locale}
 			autocomplete="off"
@@ -122,8 +164,12 @@
 		/>
 
 		{#if verdict === 'none'}
-			<button class="btn" onclick={check} disabled={!answer.trim()}>
-				<Icon name="check" size="1em" /> Check
+			<button class="btn" class:btn-ghost={!answer.trim()} onclick={check}>
+				{#if answer.trim()}
+					<Icon name="check" size="1em" /> Check
+				{:else}
+					Skip this line <Icon name="arrowRight" size="1em" />
+				{/if}
 			</button>
 		{:else}
 			<p class="feedback" class:right={verdict === 'right'} in:pop={{ from: 0.88 }}>

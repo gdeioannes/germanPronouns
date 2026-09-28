@@ -5,12 +5,19 @@
 	// type of their own — they are told apart by carrying `inlineBlanks` and an
 	// `inlineTemplate` instead of `questions`. That's inherited from the Dart
 	// app, where the same trick avoided adding a QuizKind.
+	//
+	// A long text runs as pages that each fit the screen (see Steps), with the
+	// check as the last section.
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import Sheet from '../Sheet.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import Steps, { type StepMark } from './Steps.svelte';
 	import { pop } from '$lib/motion';
-	import { slide } from 'svelte/transition';
 	import { matchesAccepted } from '$lib/domain/answers';
+	import { paginateCloze, type ClozePart } from '$lib/domain/paginate';
+	import { fitOnResize, fitPages, type PageFit } from './fit';
+	import { untrack } from 'svelte';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { InlineBlank, InlineClozeQuiz } from '$lib/content/types';
 
@@ -30,7 +37,7 @@
 	 * inputs sitting inside it.
 	 */
 	const parts = $derived.by(() => {
-		const out: ({ text: string } | { blank: number })[] = [];
+		const out: ClozePart[] = [];
 		const pattern = /\{\{(\d+)\}\}/g;
 		let last = 0;
 		let match: RegExpExecArray | null;
@@ -47,8 +54,41 @@
 		return out;
 	});
 
+	/** Characters per page for a 390×844 phone; measured to fit (see fit.ts). */
+	const BASE_BUDGET = 320;
+	let fit = $state<PageFit>({ budget: BASE_BUDGET, lineWidth: 0 });
+	/** The passage as screen-sized pages; a blank weighs its answer plus hint. */
+	const pages = $derived(paginateCloze(parts, fit.budget, 24, fit.lineWidth || undefined));
+
+	let root = $state<HTMLElement>();
+	$effect(() => {
+		if (!root) return;
+		quiz.id;
+		const el = root;
+		return fitOnResize(() =>
+			fitPages(el, '.cloze', (f) => (fit = f))
+		);
+	});
+
+	// Re-paging (a resize) moves the check section: keep it in view if it was.
+	let seenPages = -1;
+	$effect(() => {
+		const now = pages.length;
+		untrack(() => {
+			if (seenPages >= 0 && now !== seenPages) {
+				index = index >= seenPages ? now : Math.min(index, now - 1);
+			}
+			seenPages = now;
+		});
+	});
+	/** Which blanks sit on each page. */
+	const pageBlanks = $derived(
+		pages.map((page) => page.flatMap((part) => ('blank' in part ? [part.blank] : [])))
+	);
+
 	let answers = $state<string[]>([]);
 	let checked = $state(false);
+	let index = $state(0);
 
 	// Reset when the component is reused for a different quiz.
 	$effect(() => {
@@ -72,6 +112,20 @@
 	const passed = $derived(correctCount / total >= 2 / 3);
 	const allFilled = $derived(answers.every((a) => a.trim().length > 0));
 
+	const count = $derived(pages.length + 1);
+	const labels = $derived([
+		...pages.map((_, i) => (pages.length > 1 ? `Text ${i + 1}` : 'Text')),
+		'Check'
+	]);
+	const marks = $derived<StepMark[]>([
+		...pageBlanks.map((blanks): StepMark => {
+			if (checked) return blanks.every((b) => results[b]) ? 'right' : 'wrong';
+			return blanks.length && blanks.every((b) => answers[b]?.trim()) ? 'done' : null;
+		}),
+		null
+	]);
+	const filledCount = $derived(answers.filter((a) => a.trim().length > 0).length);
+
 	function check() {
 		checked = true;
 		onFinish(passed, correctCount, total);
@@ -80,76 +134,108 @@
 	function retry() {
 		answers = quiz.inlineBlanks.map(() => '');
 		checked = false;
+		index = 0;
+	}
+
+	/** Enter jumps to the page's next gap, and from its last to the next page. */
+	function onKey(event: KeyboardEvent, page: number, blank: number) {
+		if (event.key !== 'Enter') return;
+		event.preventDefault();
+		const at = pageBlanks[page].indexOf(blank);
+		const field = (event.currentTarget as HTMLElement)
+			.closest('.cloze')
+			?.querySelectorAll<HTMLInputElement>('input')[at + 1];
+		if (field) field.focus();
+		else index = page + 1;
 	}
 </script>
 
-<article class="passage">
-	<header>
-		<h2>{quiz.passageTitle}</h2>
-		<SpeakButton text={quiz.passage} {locale} label="Play the passage" />
-	</header>
+<div class="reading-fit" bind:this={root}>
+<Steps {count} bind:index {labels} {marks}>
+	{#snippet step(p)}
+		{#if p < pages.length}
+			<article class="passage">
+				<header>
+					<h2>{quiz.passageTitle}</h2>
+					<SpeakButton text={quiz.passage} {locale} label="Play the passage" />
+					{#if quiz.passageTranslation}
+						<button type="button" class="reading-chip" onclick={() => (showTranslation = true)}>
+							Translation
+						</button>
+					{/if}
+				</header>
 
-	<p class="cloze" lang={locale}>
-		{#each parts as part, i (i)}
-			{#if 'text' in part}{part.text}{:else}
-				{@const blank = quiz.inlineBlanks[part.blank]}
-				<span class="slot">
-					<input
-						bind:value={answers[part.blank]}
-						disabled={checked}
-						class:right={checked && results[part.blank]}
-						class:wrong={checked && !results[part.blank]}
-						size={Math.max(blank.answer.length, 4)}
-						aria-label={blank.hint ?? `Blank ${part.blank + 1}`}
-						autocomplete="off"
-						autocapitalize="off"
-						spellcheck="false"
-					/>
-					{#if checked && !results[part.blank]}
-						<span class="fix">{blank.answer}</span>
+				<p class="cloze" lang={locale}>
+					{#each pages[p] as part, i (i)}
+						{#if 'text' in part}{part.text}{:else}
+							{@const blank = quiz.inlineBlanks[part.blank]}
+							<span class="slot">
+								<input
+									bind:value={answers[part.blank]}
+									onkeydown={(event) => onKey(event, p, part.blank)}
+									disabled={checked}
+									class:right={checked && results[part.blank]}
+									class:wrong={checked && !results[part.blank]}
+									size={Math.max(blank.answer.length, 4)}
+									aria-label={blank.hint ?? `Blank ${part.blank + 1}`}
+									autocomplete="off"
+									autocapitalize="off"
+									spellcheck="false"
+								/>
+								{#if checked && !results[part.blank]}
+									<span class="fix">{blank.answer}</span>
+								{/if}
+								{#if !checked && blank.hint}
+									<span class="hint">{blank.hint}</span>
+								{/if}
+							</span>
+						{/if}
+					{/each}
+				</p>
+			</article>
+		{:else}
+			<div class="reading-check">
+				{#if checked}
+					<Burst trigger={passed ? 1 : 0} count={26} />
+					<p class="reading-verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
+						<Icon name={passed ? 'trophy' : 'close'} size="1.3em" />
+						<span class="tnum">{correctCount} of {total} correct</span>
+					</p>
+					<p class="reading-sub">
+						{passed ? 'Passed — well done.' : 'Not quite yet: two thirds right passes.'}
+						Go back to see the corrections under each gap.
+					</p>
+					{#if !passed}
+						<button class="btn" onclick={retry}>
+							<Icon name="repeat" size="1em" /> Try again
+						</button>
 					{/if}
-					{#if !checked && blank.hint}
-						<span class="hint">{blank.hint}</span>
+				{:else}
+					<p class="reading-verdict neutral tnum">{filledCount} of {total} gaps filled</p>
+					<!-- Checkable at any point: an empty gap simply counts as wrong
+					     and gets its correction like any other miss. -->
+					<button class="btn" onclick={check}>
+						<Icon name="check" size="1em" /> Check the text
+					</button>
+					{#if !allFilled}
+						<p class="reading-sub">Empty gaps count as wrong — you'll see their answers.</p>
 					{/if}
-				</span>
-			{/if}
-		{/each}
-	</p>
-</article>
+				{/if}
+			</div>
+		{/if}
+	{/snippet}
+</Steps>
+</div>
 
 {#if quiz.passageTranslation}
-	<button class="btn-quiet" onclick={() => (showTranslation = !showTranslation)}>
-		{showTranslation ? 'Hide' : 'Show'} translation
-	</button>
-	{#if showTranslation}
-		<p class="translation" transition:slide={{ duration: 200 }}>
-			{quiz.passageTranslation}
-		</p>
-	{/if}
+	<Sheet bind:open={showTranslation} title="Translation" id="translation-{quiz.id}">
+		<p class="reading-translation">{quiz.passageTranslation}</p>
+	</Sheet>
 {/if}
-
-<footer class="actions">
-	{#if checked}
-		<Burst trigger={passed ? 1 : 0} count={26} />
-		<p class="verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
-			<Icon name={passed ? 'trophy' : 'close'} size="1.1em" />
-			<span class="tnum">{correctCount} of {total} correct</span>
-			— {passed ? 'passed' : 'not quite yet'}
-		</p>
-		{#if !passed}
-			<button class="btn" onclick={retry}>
-				<Icon name="repeat" size="1em" /> Try again
-			</button>
-		{/if}
-	{:else}
-		<button class="btn" onclick={check} disabled={!allFilled}>
-			<Icon name="check" size="1em" /> Check the text
-		</button>
-	{/if}
-</footer>
 
 <style>
 	.passage {
+		flex: 1;
 		padding: 1.25rem 1.5rem;
 		border: 1px solid var(--line);
 		border-radius: 14px;
@@ -159,6 +245,7 @@
 	.passage header {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		gap: 0.6rem;
 		margin-bottom: 0.75rem;
 	}
@@ -259,31 +346,13 @@
 		color: var(--ink-muted);
 	}
 
-	.translation {
-		max-width: var(--measure);
-		color: var(--ink-muted);
-		font-size: var(--step--1);
-	}
-
-	.actions {
-		position: relative;
-		margin-top: 1.75rem;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-	.verdict {
-		display: flex;
-		align-items: center;
-		gap: 0.45rem;
-		margin: 0;
-		font-weight: 700;
-		color: var(--wrong);
-	}
-
-	.verdict.pass {
-		color: var(--right);
+	@media (max-width: 36rem) {
+		.passage {
+			padding: 1rem 1.05rem;
+		}
+		.cloze {
+			font-size: var(--step-0);
+			line-height: 2.3;
+		}
 	}
 </style>

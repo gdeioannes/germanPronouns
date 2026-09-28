@@ -12,10 +12,14 @@ import {
 	lapsForTier,
 	ribbonTierForLaps,
 	STREAK_LAP_SIZE,
+	STREAK_MISSES_ALLOWED,
 	type Gating,
 	type RibbonTier
 } from '$lib/domain/progress';
-import { setVoiceOfflineOnly } from '$lib/services/speech';
+import { applyCalmEffects } from '$lib/motion/fx.svelte';
+import { setMuted } from '$lib/services/mute';
+import { setSoundEffects } from '$lib/services/sounds';
+import { setVoiceOfflineOnly, tts } from '$lib/services/speech';
 import { storage } from '$lib/services/storage';
 import type { QuizType } from '$lib/content/types';
 
@@ -39,6 +43,8 @@ const ANSWER_HISTORY_LIMIT = 200;
 export interface QuizStats {
 	score: number;
 	streak: number;
+	/** Wrong answers in the current streak run; see STREAK_MISSES_ALLOWED. */
+	misses: number;
 	bestStreakLap: number;
 	bestStreakAbsolute: number;
 }
@@ -46,6 +52,7 @@ export interface QuizStats {
 const EMPTY_STATS: QuizStats = {
 	score: 0,
 	streak: 0,
+	misses: 0,
 	bestStreakLap: 0,
 	bestStreakAbsolute: 0
 };
@@ -96,6 +103,12 @@ class ProgressStore {
 	wordHelp = $state(true);
 	/** Skip the cloud neural voice and use the on-device one only. */
 	voiceOfflineOnly = $state(false);
+	/** Calm effects: no confetti, praise, glows, shakes or flicker. */
+	calmEffects = $state(false);
+	/** Chimes on right, wrong, streak milestones and a finished quiz. */
+	soundEffects = $state(true);
+	/** Mute the app: no sound effects and no read-aloud voice. */
+	muted = $state(false);
 	/** How long the answer stays revealed before the next question. */
 	answerRevealMode = $state<AnswerRevealMode>('normal');
 	loaded = $state(false);
@@ -120,11 +133,30 @@ class ProgressStore {
 		// The TTS chain reads a plain flag rather than this store, so it stays
 		// free of framework imports and ports to Capacitor untouched.
 		setVoiceOfflineOnly(this.voiceOfflineOnly);
+		this.calmEffects = (await storage.get(SettingsKeys.calmEffects)) === 'true';
+		applyCalmEffects(this.calmEffects);
+		this.soundEffects = (await storage.get(SettingsKeys.soundEffects)) !== 'false';
+		setSoundEffects(this.soundEffects);
+		this.muted = (await storage.get(SettingsKeys.muted)) === 'true';
+		setMuted(this.muted);
 		const mode = await storage.get(SettingsKeys.answerRevealMode);
 		if (mode === 'quick' || mode === 'normal' || mode === 'slow') {
 			this.answerRevealMode = mode;
 		}
 		this.loaded = true;
+	}
+
+	/**
+	 * Whether this browser holds any progress at all — an answer given or an
+	 * exercise finished. Reads keys only, so the landing page can ask without
+	 * loading the course.
+	 */
+	async hasAnyProgress(): Promise<boolean> {
+		for (const key of await storage.keys()) {
+			if (key.endsWith('quiz_answer_history')) return true;
+			if (key.endsWith('_completed_quizzes') && (await this.readList(key)).length > 0) return true;
+		}
+		return false;
 	}
 
 	private async readList(key: string): Promise<string[]> {
@@ -153,6 +185,7 @@ class ProgressStore {
 		const loaded: QuizStats = {
 			score: await read(keys.score),
 			streak: await read(keys.streak),
+			misses: await read(keys.streakMisses),
 			bestStreakLap: await read(keys.bestStreakLap),
 			bestStreakAbsolute: await read(keys.bestStreakAbsolute)
 		};
@@ -170,6 +203,7 @@ class ProgressStore {
 		const keys = quizStatsKeys(prefix);
 		await storage.set(keys.score, String(next.score));
 		await storage.set(keys.streak, String(next.streak));
+		await storage.set(keys.streakMisses, String(next.misses));
 		await storage.set(keys.bestStreakLap, String(next.bestStreakLap));
 		await storage.set(keys.bestStreakAbsolute, String(next.bestStreakAbsolute));
 	}
@@ -253,10 +287,14 @@ class ProgressStore {
 	): Promise<QuizStats> {
 		await this.recordHistory(prefix, correct, categoryLabel);
 		const current = await this.statsFor(prefix);
-		const streak = correct ? current.streak + 1 : 0;
+		// A miss costs a life; only the miss after the last life resets the run.
+		const misses = correct ? current.misses : current.misses + 1;
+		const reset = misses > STREAK_MISSES_ALLOWED;
+		const streak = correct ? current.streak + 1 : reset ? 0 : current.streak;
 		const next: QuizStats = {
 			score: correct ? current.score + 1 : current.score,
 			streak,
+			misses: reset ? 0 : misses,
 			bestStreakLap: Math.max(current.bestStreakLap, streak % STREAK_LAP_SIZE),
 			bestStreakAbsolute: Math.max(current.bestStreakAbsolute, streak)
 		};
@@ -343,6 +381,26 @@ class ProgressStore {
 		this.voiceOfflineOnly = value;
 		setVoiceOfflineOnly(value);
 		await storage.set(SettingsKeys.voiceOfflineOnly, String(value));
+	}
+
+	async setCalmEffects(value: boolean): Promise<void> {
+		this.calmEffects = value;
+		applyCalmEffects(value);
+		await storage.set(SettingsKeys.calmEffects, String(value));
+	}
+
+	async setSoundEffects(value: boolean): Promise<void> {
+		this.soundEffects = value;
+		setSoundEffects(value);
+		await storage.set(SettingsKeys.soundEffects, String(value));
+	}
+
+	async setMuted(value: boolean): Promise<void> {
+		this.muted = value;
+		setMuted(value);
+		// Cut off a sentence that is already being read.
+		if (value) void tts.stop();
+		await storage.set(SettingsKeys.muted, String(value));
 	}
 
 	async setAnswerRevealMode(value: AnswerRevealMode): Promise<void> {

@@ -7,6 +7,7 @@
 	// straight to the level that suits them.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { rise } from '$lib/motion';
+	import { playSound } from '$lib/services/sounds';
 	import { catalog } from '$lib/content';
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
@@ -113,6 +114,64 @@
 					service, which sounds far closer to a native speaker. Tick this to
 					keep every sentence on your device instead — the built-in voice is
 					more robotic, but nothing is sent anywhere.
+				</small>
+			</span>
+		</label>
+	</section>
+
+	<section class="card">
+		<h2>Effects</h2>
+		<label class="row">
+			<input
+				type="checkbox"
+				checked={progress.muted}
+				onchange={(e) => progress.setMuted(e.currentTarget.checked)}
+			/>
+			<span>
+				<strong>Mute the app</strong>
+				<small>
+					Silences everything: the sound effects and the voice that reads
+					German aloud. Listening and dictation exercises need that voice, so
+					unmute before you do one of those.
+				</small>
+			</span>
+		</label>
+
+		<label class="row" class:off={progress.muted}>
+			<input
+				type="checkbox"
+				checked={progress.soundEffects}
+				disabled={progress.muted}
+				onchange={(e) => {
+					progress.setSoundEffects(e.currentTarget.checked);
+					if (e.currentTarget.checked) playSound('right');
+				}}
+			/>
+			<span>
+				<strong>Sound effects</strong>
+				<small>
+					A chime for a right answer — climbing higher as your streak grows —
+					a soft low note for a miss, and a little fanfare when you finish.
+					Separate from the calm setting below, so you can have one without
+					the other.
+				</small>
+			</span>
+		</label>
+
+		<label class="row">
+			<input
+				type="checkbox"
+				checked={progress.calmEffects}
+				onchange={(e) => progress.setCalmEffects(e.currentTarget.checked)}
+			/>
+			<span>
+				<strong>Calm effects</strong>
+				<small>
+					Turns off the flashy extras: confetti, the words of praise that pop
+					up after a right answer, the coloured glow at the screen edges, the
+					shake after a miss and the flickering streak flame. Right and wrong
+					are still shown in the answer itself. Your device's "reduce motion"
+					setting does the same.
 				</small>
 			</span>
 		</label>
@@ -226,6 +285,12 @@
 
 	.row input {
 		margin-top: 0.25rem;
+	}
+
+	/* A switch that the mute currently overrides. */
+	.row.off {
+		opacity: 0.55;
+		cursor: default;
 	}
 
 	.row small {

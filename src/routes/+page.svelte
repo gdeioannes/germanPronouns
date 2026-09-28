@@ -11,6 +11,8 @@
 	import HeroArt from '$lib/components/HeroArt.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
+	import { progress } from '$lib/state/progress.svelte';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -19,6 +21,16 @@
 	const firstHref = $derived(
 		data.firstQuizId ? `/course/${data.card.id}/quiz/${data.firstQuizId}` : courseHref
 	);
+
+	// A learner coming back must not be dropped into A1.1 again: once the page
+	// is live and finds progress, the start buttons lead to the course home,
+	// whose deck deals the next exercise from what they have done. The
+	// prerendered HTML keeps the A1 link for first visits and crawlers.
+	let returning = $state(false);
+	onMount(async () => {
+		returning = await progress.hasAnyProgress();
+	});
+	const startHref = $derived(returning ? courseHref : firstHref);
 
 	// In the order a learner meets them.
 	const EXERCISES: { type: keyof typeof QUIZ_TYPE_ICONS; name: string; blurb: string }[] = [
@@ -122,10 +134,13 @@
 			</p>
 
 			<div class="cta">
-				<a class="primary" href={firstHref}>
-					Start at A1 <Icon name="arrowRight" size="1.05em" />
+				<a class="primary" href={startHref}>
+					{returning ? 'Continue learning' : 'Start at A1'}
+					<Icon name="arrowRight" size="1.05em" />
 				</a>
-				<a class="secondary" href="#levels">I already know some German</a>
+				{#if !returning}
+					<a class="secondary" href="#levels">I already know some German</a>
+				{/if}
 			</div>
 
 			<ul class="trust">
@@ -137,7 +152,7 @@
 
 		<div class="hero-try">
 			<div class="hero-art"><HeroArt /></div>
-			<div class="card-slot"><TryExercise href={firstHref} /></div>
+			<div class="card-slot"><TryExercise href={startHref} /></div>
 		</div>
 	</section>
 
@@ -261,8 +276,9 @@
 	<section class="closing">
 		<h2>Your first German lesson takes five minutes.</h2>
 		<p>No account, no download, nothing to pay. Just open it and start.</p>
-		<a class="primary light" href={firstHref}>
-			Start learning German <Icon name="arrowRight" size="1.05em" />
+		<a class="primary light" href={startHref}>
+			{returning ? 'Continue learning' : 'Start learning German'}
+			<Icon name="arrowRight" size="1.05em" />
 		</a>
 	</section>
 </main>

@@ -14,6 +14,7 @@
 //                plugin is the reason to wrap rather than ship a bare PWA.
 
 import { env } from '$env/dynamic/public';
+import { isMuted } from './mute';
 
 /**
  * The project's deployed TTS Worker. Not a secret — it holds the keys, this
@@ -225,6 +226,8 @@ export class ChainedTtsProvider implements TtsProvider {
 	}
 
 	async speak(text: string, options: SpeakOptions): Promise<boolean> {
+		// The app-wide mute silences the voice too — a learner on a bus meant it.
+		if (isMuted()) return false;
 		if (!this.offlineOnly() && (await this.cloud.speak(text, options))) return true;
 		return this.device.speak(text, options);
 	}

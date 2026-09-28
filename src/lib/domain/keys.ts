@@ -27,7 +27,13 @@ export const SettingsKeys = {
 	completedDictationQuizzes: 'dictation_completed_quizzes',
 	placementUnlockedQuizzes: 'placement_unlocked_quizzes',
 	seenHelpMemory: 'seen_help_memory',
-	voiceOfflineOnly: 'voice_offline_only'
+	voiceOfflineOnly: 'voice_offline_only',
+	/** Web-only (no Flutter twin). Also read verbatim by the script in app.html. */
+	calmEffects: 'calm_effects',
+	/** Web-only. Only an explicit "false" mutes: sound is on by default. */
+	soundEffects: 'sound_effects',
+	/** Web-only. Silences sound effects and the read-aloud voice alike. */
+	muted: 'app_muted'
 } as const;
 
 /**
@@ -43,6 +49,7 @@ export function quizStatsKeys(prefix: string) {
 		mistakesByCase: `${prefix}quiz_mistakes_by_case`,
 		score: `${prefix}quiz_score`,
 		streak: `${prefix}quiz_streak`,
+		streakMisses: `${prefix}quiz_streak_misses`,
 		bestStreakLap: `${prefix}quiz_best_streak_lap`,
 		bestStreakAbsolute: `${prefix}quiz_best_streak_absolute`,
 		enabledSubjects: `${prefix}quiz_enabled_pronouns`,

@@ -11,8 +11,9 @@ compatibility_date = "2024-11-01"
 # CNAME the deploy workflow injects), so that origin (and its www. host) MUST be
 # listed or the browser CORS-blocks the proxy and the app falls back to the
 # robotic on-device voice. gdeioannes.github.io is the old Pages origin (kept so
-# that URL still works); localhost is for local testing.
-ALLOWED_ORIGINS = "https://languagequiz.org,https://www.languagequiz.org,https://gdeioannes.github.io,http://localhost:8080"
+# that URL still works); localhost is for local testing: 5173 is `npm run dev`,
+# 4173 `npm run preview` (8080 is the old Flutter dev port).
+ALLOWED_ORIGINS = "https://languagequiz.org,https://www.languagequiz.org,https://gdeioannes.github.io,http://localhost:8080,http://localhost:5173,http://localhost:4173"
 
 # Azure resource region (not secret). The Azure KEY is a secret (see README).
 AZURE_TTS_REGION = "germanywestcentral"

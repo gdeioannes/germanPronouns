@@ -4,6 +4,14 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
+		<!-- Calm effects, applied before first paint so no flashy animation
+		     starts before the settings load. Mirrors SettingsKeys.calmEffects. -->
+		<script>
+			try {
+				if (localStorage.getItem('calm_effects') === 'true')
+					document.documentElement.dataset.effects = 'calm';
+			} catch (e) {}
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

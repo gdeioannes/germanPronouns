@@ -287,6 +287,8 @@ export interface SpeakingExercise {
 	minExchanges?: number;
 	passScore?: number;
 	material?: unknown;
+	/** An unscored teach-first pass before the scored part (beginners). */
+	scaffolded?: boolean;
 }
 
 export interface SpeakingQuiz extends QuizBase {

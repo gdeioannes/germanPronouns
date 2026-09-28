@@ -13,6 +13,13 @@ export type RibbonTier = 'bronze' | 'silver' | 'gold';
 export const STREAK_LAP_SIZE = 5;
 
 /**
+ * Wrong answers a streak survives. The first three cost a life each and the
+ * streak keeps its count; the fourth resets it (and refills the lives). Ten
+ * in a row with zero slips was a wall for A1 learners.
+ */
+export const STREAK_MISSES_ALLOWED = 3;
+
+/**
  * Tier by streak laps: bronze from the first lap, silver at 3, gold at 5+.
  * Single source of the boundaries — every ribbon display reads this.
  */
@@ -92,10 +99,15 @@ export function speakingMedal(score: number): SpeakingMedal | null {
 export interface SpeakingFix {
 	said: string;
 	correct: string;
+	/** The level of the exercise that produced it, so it is only replayed at or above it. */
+	level?: string;
 }
 
 const SCORE_LINE = /SCORE\s*=\s*(\d{1,3})/i;
 const FIX_LINE = /^\s*-?\s*FIX:\s*(.+?)\s*(?:->|→)\s*(.+?)\s*$/gim;
+// An AI that ignores "no explanation" tends to append one in brackets:
+// "ich bin gegangen (sein for movement)". The trainer wants only the sentence.
+const TRAILING_NOTE = /\s*[(\[（][^()\[\]（）]*[)\]）]\s*$/;
 
 /**
  * Reads the score out of what the learner typed or pasted. The `SCORE=` line
@@ -121,7 +133,9 @@ export function parseSpeakingFixes(input: string): SpeakingFix[] {
 	FIX_LINE.lastIndex = 0;
 	let match: RegExpExecArray | null;
 	while ((match = FIX_LINE.exec(input)) !== null) {
-		fixes.push({ said: match[1], correct: match[2] });
+		const said = match[1].replace(TRAILING_NOTE, '').replace(/^["„“]|["“”]$/g, '').trim();
+		const correct = match[2].replace(TRAILING_NOTE, '').replace(/^["„“]|["“”]$/g, '').trim();
+		if (said && correct) fixes.push({ said, correct });
 	}
 	return fixes;
 }

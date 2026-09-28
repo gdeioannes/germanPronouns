@@ -2,6 +2,7 @@
 // cover the logic that actually decides what a learner sees — tiers, gating,
 // answer acceptance, draw order and score parsing — so a silent behaviour
 // change during the port shows up here rather than in production.
+import { fixFitsLevel } from './speakingPrompt';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -400,5 +401,24 @@ describe('noun lookup (ported from noun_lookup.dart)', () => {
 		expect(lookupNoun('schnell', BY_NOUN)).toBeNull();
 		// An inflected form whose dictionary entry is absent must not resolve.
 		expect(lookupNoun('Bücher', BY_NOUN)).toBeNull();
+	});
+});
+
+describe('speaking fix hygiene', () => {
+	it('strips bracketed explanations and quotes from FIX lines', () => {
+		const fixes = parseSpeakingFixes(
+			'FIX: "ich habe gegangen" -> "ich bin gegangen" (sein for movement)\nFIX: ich wohne Berlin -> ich wohne in Berlin [preposition]'
+		);
+		expect(fixes).toEqual([
+			{ said: 'ich habe gegangen', correct: 'ich bin gegangen' },
+			{ said: 'ich wohne Berlin', correct: 'ich wohne in Berlin' }
+		]);
+	});
+
+	it('only replays fixes from the current level or below', () => {
+		expect(fixFitsLevel('B1.2', 'A1.1')).toBe(false);
+		expect(fixFitsLevel('A1.2', 'A1.1')).toBe(true);
+		expect(fixFitsLevel('A1.1', 'B2.1')).toBe(true);
+		expect(fixFitsLevel(undefined, 'A1.1')).toBe(true);
 	});
 });

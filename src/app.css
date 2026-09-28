@@ -98,6 +98,16 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Everything is laid out in rem — the 46rem column, the type scale, the
+   spacing — so growing the root size past laptop width scales the whole page
+   as one piece. 16px at 1600px, rising to 22px on an ultrawide, so a
+   3440px monitor gets a ~1000px column rather than a 730px island. */
+@media (min-width: 100em) {
+	html {
+		font-size: clamp(100%, 0.55vw + 0.45rem, 140%);
+	}
+}
+
 body {
 	margin: 0;
 	background: var(--bg);
@@ -232,6 +242,87 @@ input[type='number'] {
 	background: var(--surface);
 }
 
+/* ---------------------------------------------------------------------------
+   Reading quizzes (passage + inline cloze): the fitted column, the header
+   chip, the translation text and the check screen. Shared so the two
+   reading shapes never drift apart.
+   --------------------------------------------------------------------------- */
+.reading-fit {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.reading-chip {
+	margin-left: auto;
+	padding: 0.3rem 0.75rem;
+	border: 1px solid var(--line-strong);
+	border-radius: 999px;
+	background: var(--surface);
+	color: var(--ink-muted);
+	font: inherit;
+	font-size: 0.78rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.reading-chip:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+.reading-chip[aria-pressed='true'] {
+	border-color: var(--accent);
+	background: var(--accent-soft);
+	color: var(--accent);
+}
+
+.reading-translation {
+	margin: 0;
+	max-width: var(--measure);
+	font-size: var(--step-0);
+	line-height: 1.65;
+	color: var(--ink-muted);
+	white-space: pre-wrap;
+}
+
+.reading-check {
+	position: relative;
+	margin: auto 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	text-align: center;
+}
+
+.reading-verdict {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0;
+	font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+	font-size: var(--step-3);
+	font-weight: 700;
+	color: var(--wrong);
+}
+
+.reading-verdict.pass {
+	color: var(--right);
+}
+
+.reading-verdict.neutral {
+	color: var(--heading);
+}
+
+.reading-sub {
+	margin: 0;
+	max-width: 34ch;
+	font-size: var(--step--1);
+	color: var(--ink-muted);
+}
+
 .back-link {
 	display: inline-flex;
 	align-items: center;
@@ -342,4 +433,111 @@ input[type='number'] {
 		color: inherit;
 		text-decoration: none;
 	}
+}
+
+/* -- page transitions ----------------------------------------------------
+   Driven by the View Transitions API from +layout.svelte. The old page
+   slides a little and fades out while the new one slides in from the side
+   the learner is heading towards. Short, so it never feels like waiting. */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 280ms;
+	animation-timing-function: var(--ease-out);
+	animation-fill-mode: both;
+}
+
+::view-transition-old(root) {
+	animation-name: vt-fade-out;
+}
+
+::view-transition-new(root) {
+	animation-name: vt-fade-in;
+}
+
+:root[data-nav='forward']::view-transition-old(root) {
+	animation-name: vt-out-left;
+}
+:root[data-nav='forward']::view-transition-new(root) {
+	animation-name: vt-in-right;
+}
+:root[data-nav='back']::view-transition-old(root) {
+	animation-name: vt-out-right;
+}
+:root[data-nav='back']::view-transition-new(root) {
+	animation-name: vt-in-left;
+}
+
+@keyframes vt-fade-out {
+	to {
+		opacity: 0;
+	}
+}
+@keyframes vt-fade-in {
+	from {
+		opacity: 0;
+	}
+}
+@keyframes vt-out-left {
+	to {
+		opacity: 0;
+		transform: translateX(-32px);
+	}
+}
+@keyframes vt-in-right {
+	from {
+		opacity: 0;
+		transform: translateX(32px);
+	}
+}
+@keyframes vt-out-right {
+	to {
+		opacity: 0;
+		transform: translateX(32px);
+	}
+}
+@keyframes vt-in-left {
+	from {
+		opacity: 0;
+		transform: translateX(-32px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
+
+/* The streak flame (FillBlank + Vocabulary trackers) burns hotter as the run
+   grows: data-heat 1 flickers, 2 glows, 3 blazes. Calm effects still it. */
+.flame[data-heat='1'] {
+	animation: flame-flicker 2.4s ease-in-out infinite;
+}
+
+.flame[data-heat='2'] {
+	animation: flame-flicker 1.2s ease-in-out infinite;
+	filter: drop-shadow(0 0 4px var(--accent));
+}
+
+.flame[data-heat='3'] {
+	color: #d9572b;
+	animation: flame-flicker 0.6s ease-in-out infinite;
+	filter: drop-shadow(0 0 3px var(--accent)) drop-shadow(0 0 9px #e0a458);
+}
+
+@keyframes flame-flicker {
+	0%,
+	100% {
+		transform: scale(1) rotate(-1deg);
+	}
+	50% {
+		transform: scale(1.12) rotate(2deg);
+	}
+}
+
+html[data-effects='calm'] .flame {
+	animation: none !important;
+	filter: none !important;
 }

@@ -34,9 +34,19 @@ export default {
     if (!text) return json({ error: 'missing text' }, 400, cors);
     if (text.length > 600) return json({ error: 'text too long' }, 413, cors);
 
-    let audio = await azureSynthesize(text, locale, gender, env);
-    if (!audio) audio = await googleSynthesize(text, locale, gender, env);
-    if (!audio) return json({ error: 'tts unavailable' }, 502, cors);
+    // Each provider returns { audio } or { error }, so a total failure can
+    // say WHY — a missing key vs. a rejected one vs. a disabled API — without
+    // anyone needing Cloudflare access to find out. Never includes the keys.
+    const azure = await azureSynthesize(text, locale, gender, env);
+    const google = azure.audio ? null : await googleSynthesize(text, locale, gender, env);
+    const audio = azure.audio || google?.audio;
+    if (!audio) {
+      return json(
+        { error: 'tts unavailable', providers: { azure: azure.error, google: google?.error } },
+        502,
+        cors
+      );
+    }
 
     return new Response(audio, {
       status: 200,
@@ -112,12 +122,31 @@ const escapeXml = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 
+/** A short, key-free reason from a failed cloud response. */
+async function reason(resp) {
+  let detail = '';
+  try {
+    const body = await resp.text();
+    try {
+      // Some providers put an object in error.message; keep it printable.
+      const message = JSON.parse(body)?.error?.message;
+      detail = message ? (typeof message === 'string' ? message : JSON.stringify(message)) : body;
+    } catch {
+      detail = body;
+    }
+  } catch {
+    // No body to read.
+  }
+  return `HTTP ${resp.status}${detail ? `: ${detail.slice(0, 200)}` : ''}`;
+}
+
 async function azureSynthesize(text, locale, gender, env) {
   const key = env.AZURE_TTS_KEY;
   const region = env.AZURE_TTS_REGION;
-  if (!key || !region) return null;
+  if (!key) return { error: 'AZURE_TTS_KEY secret not set' };
+  if (!region) return { error: 'AZURE_TTS_REGION not set' };
   const voice = voiceFor(AZURE_VOICES, locale, gender);
-  if (!voice) return null;
+  if (!voice) return { error: `no Azure voice for ${locale}` };
   const ssml =
     `<speak version="1.0" xml:lang="${locale}">` +
     `<voice xml:lang="${locale}" name="${voice}">${escapeXml(text)}</voice>` +
@@ -136,16 +165,16 @@ async function azureSynthesize(text, locale, gender, env) {
         body: ssml,
       }
     );
-    if (!resp.ok) return null;
-    return await resp.arrayBuffer();
-  } catch {
-    return null;
+    if (!resp.ok) return { error: await reason(resp) };
+    return { audio: await resp.arrayBuffer() };
+  } catch (e) {
+    return { error: `network: ${e?.message ?? e}` };
   }
 }
 
 async function googleSynthesize(text, locale, gender, env) {
   const key = env.GOOGLE_TTS_KEY;
-  if (!key) return null;
+  if (!key) return { error: 'GOOGLE_TTS_KEY secret not set' };
   const voice =
     voiceFor(GOOGLE_VOICES, locale, gender) || GOOGLE_VOICES.de[gender];
   // The voice name leads with its own language code (e.g. cmn-CN-Wavenet-A);
@@ -153,24 +182,22 @@ async function googleSynthesize(text, locale, gender, env) {
   // app's locale differs from Google's naming (zh-CN vs cmn-CN, en-GB vs en-US).
   const languageCode = voice.split('-').slice(0, 2).join('-');
   try {
-    const resp = await fetch(
-      `https://texttospeech.googleapis.com/v1/text:synthesize?key=${key}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          input: { text },
-          voice: { languageCode, name: voice },
-          audioConfig: { audioEncoding: 'MP3' },
-        }),
-      }
-    );
-    if (!resp.ok) return null;
+    // The key goes in a header, not the URL, so it never lands in a log line.
+    const resp = await fetch('https://texttospeech.googleapis.com/v1/text:synthesize', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': key },
+      body: JSON.stringify({
+        input: { text },
+        voice: { languageCode, name: voice },
+        audioConfig: { audioEncoding: 'MP3' },
+      }),
+    });
+    if (!resp.ok) return { error: await reason(resp) };
     const data = await resp.json();
-    if (!data.audioContent) return null;
-    return base64ToArrayBuffer(data.audioContent);
-  } catch {
-    return null;
+    if (!data.audioContent) return { error: 'Google returned no audioContent' };
+    return { audio: base64ToArrayBuffer(data.audioContent) };
+  } catch (e) {
+    return { error: `network: ${e?.message ?? e}` };
   }
 }
 

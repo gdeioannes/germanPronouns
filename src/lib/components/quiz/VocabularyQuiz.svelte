@@ -14,6 +14,8 @@
 	import { checkWritten, chooseOptions, fullForm } from '$lib/domain/flashcards';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
+	import { react, shakeOn } from '$lib/motion/fx.svelte';
+	import StreakTracker from './StreakTracker.svelte';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
 	import { REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
 	import { vocab } from '$lib/state/vocab.svelte';
@@ -86,6 +88,10 @@
 	let missingArticle = $state(false);
 	let chosen = $state<string | null>(null);
 	let streak = $state(0);
+	/** The answer card, for the praise to rise from; `missKey` shakes it. */
+	let cardEl = $state<HTMLElement>();
+	let missKey = $state(0);
+	let misses = $state(0);
 	let best = $state(0);
 	let burst = $state(0);
 	let burstSize = $state(12);
@@ -98,7 +104,6 @@
 	const locked = $derived(verdict !== null);
 	/** The card shows its back: answered, or turned over to peek. */
 	const revealed = $derived(locked || peeking);
-	const lapProgress = $derived(streak % STREAK_LAP_SIZE);
 	const target = $derived(current ? fullForm(current) : '');
 	const gender = $derived(current?.article ? ARTICLE_GENDER[current.article] : undefined);
 
@@ -154,6 +159,7 @@
 				await vocab.load(courseId);
 				const stats = await progress.statsFor(quiz.storageKeyPrefix);
 				streak = stats.streak;
+				misses = stats.misses;
 				best = stats.bestStreakAbsolute;
 				next();
 			})();
@@ -191,6 +197,9 @@
 		const stats = await progress.recordAnswer(quiz.storageKeyPrefix, correct, card.kind);
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
+		misses = stats.misses;
+		react(correct, cardEl, stats.streak);
+		if (!correct) missKey += 1;
 		best = stats.bestStreakAbsolute;
 		if (correct) {
 			burstSize = lapCompleted ? 30 : 12;
@@ -201,8 +210,26 @@
 		if (correct && stats.streak >= goal) onGoalReached();
 
 		// The back stays up long enough to read; a miss earns a longer look.
-		await wait(REVEAL_PAUSE[progress.answerRevealMode] + 500 + (correct ? 0 : 900));
-		next();
+		// Enter deals the next card straight away — once the card has turned,
+		// so a miss is at least seen.
+		const moveOn = () => {
+			skip = null;
+			clearTimers();
+			next();
+		};
+		if (correct) skip = moveOn;
+		else await wait(600).then(() => (skip = moveOn));
+		await wait(REVEAL_PAUSE[progress.answerRevealMode] + (correct ? 500 : 800));
+		if (skip === moveOn) moveOn();
+	}
+
+	/** Set while an answered card is on show: deals the next one now. */
+	let skip: (() => void) | null = null;
+
+	function onWindowKey(event: KeyboardEvent) {
+		if (event.key !== 'Enter' || event.repeat || !locked || !skip) return;
+		event.preventDefault();
+		skip();
 	}
 
 	function submitWritten() {
@@ -233,20 +260,9 @@
 	);
 </script>
 
-<section class="tracker">
-	<span class="flame" class:hot={streak > 0}><Icon name="flame" size="1.1em" /></span>
-	<div class="streak">
-		<span class="eyebrow">Streak</span>
-		<span class="value tnum">{streak}</span>
-		<span class="goal tnum">/ {goal}</span>
-	</div>
-	<div class="pips" aria-hidden="true">
-		{#each { length: STREAK_LAP_SIZE } as _, i (i)}
-			<span class="pip" class:lit={i < lapProgress || (streak > 0 && lapProgress === 0)}></span>
-		{/each}
-	</div>
-	<span class="best tnum">Best {best}</span>
-</section>
+<svelte:window onkeydown={onWindowKey} />
+
+<StreakTracker {streak} {misses} {best} {goal} />
 
 <div class="controls">
 	<div class="modes" role="tablist" aria-label="Card mode">
@@ -291,7 +307,7 @@
 {#if current}
 	<!-- The stage holds the stack: two decorative cards behind, the live card
 	     on top. Re-keying on `dealt` re-creates the live card so it deals in. -->
-	<div class="stage" style="--gender:{gender ? GENDER_COLORS[gender] : 'var(--heading)'}">
+	<div class="stage" bind:this={cardEl} use:shakeOn={missKey} style="--gender:{gender ? GENDER_COLORS[gender] : 'var(--heading)'}">
 		<Burst trigger={burst} count={burstSize} />
 		<div class="stack stack-2" aria-hidden="true"></div>
 		<div class="stack stack-1" aria-hidden="true"></div>
@@ -406,75 +422,6 @@
 {/if}
 
 <style>
-	.tracker {
-		display: flex;
-		align-items: center;
-		gap: 0.85rem;
-		padding: 0.7rem 1rem;
-		margin-bottom: 1rem;
-		border: 1px solid var(--line);
-		border-radius: var(--radius-sm);
-		background: var(--surface-alt);
-	}
-
-	.flame {
-		display: inline-flex;
-		color: var(--outline);
-		transition: color var(--medium) var(--ease-out);
-	}
-
-	.flame.hot {
-		color: var(--accent);
-	}
-
-	.streak {
-		display: flex;
-		align-items: baseline;
-		gap: 0.35rem;
-	}
-
-	.streak .eyebrow {
-		font-size: 0.66rem;
-	}
-
-	.value {
-		font-size: var(--step-2);
-		font-weight: 800;
-		line-height: 1;
-		color: var(--heading);
-		font-variant-numeric: tabular-nums;
-	}
-
-	.goal,
-	.best {
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	.best {
-		margin-left: auto;
-	}
-
-	.pips {
-		display: flex;
-		gap: 0.28rem;
-	}
-
-	.pip {
-		width: 0.46rem;
-		height: 0.46rem;
-		border-radius: 50%;
-		background: var(--outline);
-		transition:
-			background var(--medium) var(--ease-spring),
-			transform var(--medium) var(--ease-spring);
-	}
-
-	.pip.lit {
-		background: var(--accent);
-		transform: scale(1.25);
-	}
-
 	.controls {
 		display: flex;
 		flex-wrap: wrap;
@@ -620,7 +567,8 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		min-height: 22rem;
+		/* Tall enough to feel like a card, never taller than the screen allows. */
+		min-height: min(22rem, 48dvh);
 		padding: 3rem 1.75rem 2.4rem;
 		border: 1px solid var(--line-strong);
 		border-radius: var(--radius);
@@ -899,13 +847,20 @@
 		}
 	}
 	@media (max-width: 36rem) {
-		.tracker {
-			gap: 0.6rem;
-			padding: 0.4rem 0.75rem;
-			margin-bottom: 0.6rem;
+		.controls {
+			margin-bottom: 0.7rem;
 		}
-		.value {
-			font-size: var(--step-1);
+		.face {
+			padding: 2.6rem 1.1rem 1.6rem;
+		}
+		.prompt,
+		.word {
+			font-size: var(--step-3);
+		}
+		.options,
+		.answer,
+		.turn {
+			margin-top: 1.1rem;
 		}
 	}
 </style>

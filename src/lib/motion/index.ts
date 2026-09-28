@@ -79,7 +79,9 @@ const SPARK_COLORS = ['#c9683b', '#1f3a5f', '#a9802a', '#3f5d45'];
  * a second implementation.
  */
 export function makeBurst(count = 18, seed = Math.random): Spark[] {
-	if (prefersReducedMotion()) return [];
+	// The learner's "Calm effects" setting (see fx.svelte.ts) mutes it too.
+	const calm = typeof document !== 'undefined' && document.documentElement.dataset.effects === 'calm';
+	if (calm || prefersReducedMotion()) return [];
 	return Array.from({ length: count }, (_, i) => {
 		// Spread evenly around the circle, then jitter, so the burst reads as
 		// radial rather than random-clumpy.
@@ -94,4 +96,45 @@ export function makeBurst(count = 18, seed = Math.random): Spark[] {
 			spin: (seed() - 0.5) * 540
 		};
 	});
+}
+
+/**
+ * Replays a short "new content" entrance on a node whenever `key` changes,
+ * without re-creating the DOM — so a focused input keeps its focus and the
+ * keyboard stays up on mobile. Used where a quiz swaps one question for the
+ * next inside the same card, which otherwise changes in a single frame.
+ */
+export function freshen(node: HTMLElement, key: unknown) {
+	let last = key;
+	return {
+		update(next: unknown) {
+			if (next === last) return;
+			last = next;
+			if (prefersReducedMotion() || typeof node.animate !== 'function') return;
+			node.animate(
+				[
+					{ opacity: 0, transform: 'translateX(14px)' },
+					{ opacity: 1, transform: 'none' }
+				],
+				{ duration: DURATION.medium, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }
+			);
+		}
+	};
+}
+
+/**
+ * Which way a navigation moves through the app, so the page transition can
+ * slide the right way: deeper paths (course → level → quiz) go forward,
+ * shallower ones and history-back go back (history-forward goes forward).
+ */
+export function navDirection(
+	from: string | undefined,
+	to: string | undefined,
+	type: string,
+	delta?: number
+): 'forward' | 'back' | 'none' {
+	if (type === 'popstate') return (delta ?? -1) < 0 ? 'back' : 'forward';
+	if (!from || !to || from === to) return 'none';
+	const depth = (p: string) => p.split('/').filter(Boolean).length;
+	return depth(to) < depth(from) ? 'back' : 'forward';
 }

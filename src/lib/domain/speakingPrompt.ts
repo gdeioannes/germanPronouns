@@ -58,9 +58,32 @@ export interface SpeakingTemplate {
 
 export interface SpeakingManifest {
 	templateVersion: number;
-	templates: Record<string, string>;
 	defaults: Record<string, number>;
 	triggers: Record<string, string>;
+	/** How the tutor should speak, per level band (A1…C2). */
+	levelGuides?: Record<string, string>;
+	/** How long the tutor's own turns may be, per level band. */
+	turnLengths?: Record<string, string>;
+}
+
+/** 'B1.2' → 'B1'; the band a level-specific rule is keyed by. */
+export function levelBand(cefr: string): string {
+	return cefr.trim().slice(0, 2).toUpperCase();
+}
+
+const BANDS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+/**
+ * Whether a banked correction belongs in this session: a fix from a level at
+ * or below the current one may be woven in; one from above it would drag a
+ * beginner into grammar they have not met. A fix without a level (legacy) is
+ * kept.
+ */
+export function fixFitsLevel(fixLevel: string | undefined, cefr: string): boolean {
+	if (!fixLevel) return true;
+	const a = BANDS.indexOf(levelBand(fixLevel));
+	const b = BANDS.indexOf(levelBand(cefr));
+	return a === -1 || b === -1 || a <= b;
 }
 
 /** 'de-DE' → 'de'; a bare code is left alone. */
@@ -105,7 +128,8 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 	const learn = baseLang(learnLang);
 	const ui = baseLang(uiLang);
 	const defaults = manifest.defaults;
-	const scaffolded = (exercise as { scaffolded?: boolean }).scaffolded ?? false;
+	const scaffolded = exercise.scaffolded ?? false;
+	const band = levelBand(cefr);
 
 	const lists: Record<string, string[]> = {
 		practisePoints: exercise.practisePoints ?? [],
@@ -134,6 +158,8 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		scoringCriteria: (exercise.scoringCriteria ?? []).join(', '),
 		priorityErrors: '',
 		closingLine: template.closingLine,
+		levelGuide: manifest.levelGuides?.[band] ?? '',
+		turnLength: manifest.turnLengths?.[band] ?? '',
 		durationMinutes: String(exercise.durationMinutes ?? defaults.durationMinutes),
 		minExchanges: String(exercise.minExchanges ?? defaults.minExchanges),
 		minQuestionsPerPoint: String(defaults.minQuestionsPerPoint),
@@ -162,7 +188,8 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		].filter((line) => line.trim().length > 0);
 
 		if (body.length === 0) continue;
-		blocks.push([...(section.heading ? [section.heading] : []), ...body].join('\n'));
+		const heading = section.heading ? [fill(section.heading, values)] : [];
+		blocks.push([...heading, ...body].join('\n'));
 	}
 
 	return blocks.join('\n\n');

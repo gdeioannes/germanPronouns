@@ -1,7 +1,14 @@
 <script lang="ts">
 	// The quiz page. Dispatches on `quiz.type` to the right renderer — the
 	// Svelte equivalent of the Dart DbQuizLoader's kind switch.
-	import HelpMemory from '$lib/components/HelpMemory.svelte';
+	//
+	// The exercise owns the screen: the page is exactly one screen tall and
+	// never scrolls. Everything that is not the exercise — the study notes, the
+	// way to the neighbouring exercises, the site's links — sits behind the two
+	// buttons in the header and opens in a panel in front of the quiz (see
+	// Sheet). Quizzes with more than a screen of material run as sections
+	// instead of a scroll (see quiz/Steps).
+	import HelpMemory, { hasStudyNotes } from '$lib/components/HelpMemory.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import {
 		breadcrumbLd,
@@ -12,9 +19,9 @@
 		topicOf,
 		type Crumb
 	} from '$lib/seo';
+	import Sheet from '$lib/components/Sheet.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
-	import SiteNav from '$lib/components/SiteNav.svelte';
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
 	import FillBlankQuiz from '$lib/components/quiz/FillBlankQuiz.svelte';
 	import InlineClozeQuiz from '$lib/components/quiz/InlineClozeQuiz.svelte';
@@ -24,13 +31,17 @@
 	import VocabularyQuiz from '$lib/components/quiz/VocabularyQuiz.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
-	import { pop, rise } from '$lib/motion';
+	import { fly } from 'svelte/transition';
+	import { cubicOut } from 'svelte/easing';
 	import { isInlineCloze } from '$lib/content/types';
+	import { SettingsKeys } from '$lib/domain/keys';
 	import { DEFAULT_GATING } from '$lib/domain/progress';
+	import { celebrate } from '$lib/motion/fx.svelte';
 	import { progress } from '$lib/state/progress.svelte';
+	import { storage } from '$lib/services/storage';
 	import { track } from '$lib/services/analytics';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -57,7 +68,47 @@
 		{ name: topicOf(quiz.title), path }
 	]);
 
+	const hasNotes = $derived(hasStudyNotes(quiz, vocab));
+	let notesOpen = $state(false);
+	let moreOpen = $state(false);
+
+	// A first visit to an exercise opens its notes unprompted, so the rule is
+	// read before the first question rather than discovered by failing. They
+	// sit in front of the quiz, one tap from gone, so this costs nothing to
+	// dismiss. Keyed per quiz: the next exercise opens on its own notes.
+	/** The quiz the notes were last considered for — each gets one look. */
+	let notesCheckedFor: string | null = null;
+	$effect(() => {
+		const id = quiz.id;
+		if (id === notesCheckedFor) return;
+		notesCheckedFor = id;
+		notesOpen = false;
+		moreOpen = false;
+		if (!untrack(() => hasNotes)) return;
+		(async () => {
+			let seen: string[] = [];
+			try {
+				const raw = await storage.get(SettingsKeys.seenHelpMemory);
+				seen = raw ? JSON.parse(raw) : [];
+			} catch {
+				seen = [];
+			}
+			if (seen.includes(id) || id !== notesCheckedFor) return;
+			// Recorded before opening, so nothing racing this can open it twice.
+			await storage.set(SettingsKeys.seenHelpMemory, JSON.stringify([...seen, id]));
+			if (id === notesCheckedFor) notesOpen = true;
+		})();
+	});
+
 	let finished = $state(false);
+	/** The "finished" bar can be waved away to look back over the answers. */
+	let doneDismissed = $state(false);
+
+	$effect(() => {
+		quiz.id;
+		finished = false;
+		doneDismissed = false;
+	});
 
 	$effect(() => {
 		if (!progress.loaded) progress.load(course.gating ?? DEFAULT_GATING);
@@ -71,10 +122,14 @@
 
 	/** Marks the quiz done and unlocks the next rung of the chain. */
 	async function complete() {
+		// Quizzes re-fire onGoalReached on every correct answer past the goal;
+		// mark once, celebrate once.
+		if (finished) return;
+		finished = true;
 		await progress.markCompleted(quiz.type, quiz.id);
 		await progress.markQuestCompleted(quiz.id);
 		track('quiz_completed', { course: course.id, quiz: quiz.id, type: quiz.type });
-		finished = true;
+		celebrate();
 	}
 
 	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
@@ -85,7 +140,8 @@
 	// The learner has just been typing answers, so the hands are on the keys;
 	// reaching for the mouse to move on would be a step backwards.
 	function onWindowKey(event: KeyboardEvent) {
-		if (!finished || event.key !== 'Enter' || event.repeat) return;
+		if (!finished || doneDismissed || notesOpen || moreOpen) return;
+		if (event.key !== 'Enter' || event.repeat) return;
 		if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
 		event.preventDefault();
 		goto(homeHref);
@@ -104,135 +160,185 @@
 	jsonLd={[learningResourceLd(quiz, path, course.name, `/course/${course.id}`), breadcrumbLd(crumbs)]}
 />
 
-<SiteNav courseHref="/course/{course.id}" compact />
-
-<main class="page">
-	<nav class="crumbs" aria-label="Breadcrumb">
-		<a href="/course/{course.id}">
-			<Icon name="arrowLeft" size="1em" />
-			<span class="crumb-long">{course.name}</span><span class="crumb-short">Your deck</span>
+<div class="screen">
+	<header class="top">
+		<a class="back" href="/course/{course.id}" aria-label="Back to your deck" title="Back to your deck">
+			<Icon name="arrowLeft" size="1.15em" />
 		</a>
-		{#if quiz.level}
-			<span class="crumb-long" aria-hidden="true">›</span>
-			<a class="crumb-long" href={levelPath}>{levelTitle ?? quiz.level}</a>
-			{#if position}<span class="pos tnum">· {position} of {levelCount}</span>{/if}
-		{/if}
-	</nav>
 
-	<header class="head">
-		<span class="kind" data-kind={quiz.type}>
-			<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1.3em" />
+		<span class="kind" data-kind={quiz.type} aria-hidden="true">
+			<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1.1em" />
 		</span>
-		<div class="head-text">
-			<p class="eyebrow">{quiz.level ?? ''} · {quiz.type}</p>
+
+		<div class="title">
+			<p class="where tnum">
+				{#if quiz.level}{quiz.level}{#if position}{` · ${position} of ${levelCount}`}{/if}{:else}{quiz.type}{/if}
+			</p>
 			<h1>{quiz.title}</h1>
-			{#if quiz.status === 'placeholder'}
-				<!-- The content is real and complete; the drill behind it is the
-				     minimum. Said plainly so nobody mistakes thin for finished. -->
-				<p class="preview">Preview — the explanation is complete, the exercise is still being expanded.</p>
-			{/if}
 		</div>
+
 		{#if ribbon}
-			<RibbonBadge tier={ribbon} animate={finished} />
+			<span class="ribbon"><RibbonBadge tier={ribbon} animate={finished} width={16} /></span>
 		{/if}
+
+		<div class="tools">
+			{#if hasNotes}
+				<button
+					type="button"
+					class="tool notes"
+					aria-haspopup="dialog"
+					aria-expanded={notesOpen}
+					aria-controls="notes-{quiz.id}"
+					onclick={() => (notesOpen = true)}
+				>
+					<Icon name="book" size="1.1em" />
+					<span>Notes</span>
+				</button>
+			{/if}
+			<button
+				type="button"
+				class="tool"
+				aria-haspopup="dialog"
+				aria-expanded={moreOpen}
+				aria-controls="more-{quiz.id}"
+				aria-label="More"
+				onclick={() => (moreOpen = true)}
+			>
+				<Icon name="menu" size="1.1em" />
+				<span class="tool-label">More</span>
+			</button>
+		</div>
 	</header>
 
-	<div class="notes">
-		<HelpMemory {quiz} locale={course.learnLocale} {vocab} {deckHref} />
-	</div>
+	{#if quiz.status === 'placeholder'}
+		<!-- The content is real and complete; the drill behind it is the
+		     minimum. Said plainly so nobody mistakes thin for finished. -->
+		<p class="preview">Preview — the explanation is complete, the exercise is still being expanded.</p>
+	{/if}
 
-	{#if quiz.type === 'fillBlank'}
-		<FillBlankQuiz
-			{quiz}
-			locale={course.learnLocale}
-			onAnswer={() => {}}
-			onGoalReached={complete}
-		/>
-	{:else if quiz.type === 'reading'}
-		<!-- Two shapes share this type: a passage with questions, and the "big
-		     text" cloze with inline blanks. The presence of inlineBlanks tells
-		     them apart. -->
-		{#if isInlineCloze(quiz)}
-			<InlineClozeQuiz
+	<main class="stage">
+		{#if quiz.type === 'fillBlank'}
+			<FillBlankQuiz
 				{quiz}
 				locale={course.learnLocale}
-				onFinish={(passed) => passed && complete()}
+				onAnswer={() => {}}
+				onGoalReached={complete}
 			/>
-		{:else}
+		{:else if quiz.type === 'reading'}
+			<!-- Two shapes share this type: a passage with questions, and the "big
+			     text" cloze with inline blanks. The presence of inlineBlanks tells
+			     them apart. -->
+			{#if isInlineCloze(quiz)}
+				<InlineClozeQuiz
+					{quiz}
+					locale={course.learnLocale}
+					onFinish={(passed) => passed && complete()}
+				/>
+			{:else}
+				<PassageQuiz
+					{quiz}
+					locale={course.learnLocale}
+					mode="read"
+					onFinish={(passed) => passed && complete()}
+				/>
+			{/if}
+		{:else if quiz.type === 'listening'}
 			<PassageQuiz
 				{quiz}
 				locale={course.learnLocale}
-				mode="read"
+				mode="listen"
 				onFinish={(passed) => passed && complete()}
 			/>
+		{:else if quiz.type === 'dictation'}
+			<DictationQuiz
+				{quiz}
+				locale={course.learnLocale}
+				onFinish={(passed) => passed && complete()}
+			/>
+		{:else if quiz.type === 'speakRepeat'}
+			<SpeakRepeatQuiz {quiz} locale={course.learnLocale} onFinish={complete} />
+		{:else if quiz.type === 'speaking'}
+			<SpeakingQuiz
+				{quiz}
+				courseId={course.id}
+				learnLocale={course.learnLocale}
+				uiLang={course.uiLang}
+				onFinish={(passed) => passed && complete()}
+			/>
+		{:else if quiz.type === 'vocabulary'}
+			<VocabularyQuiz
+				{quiz}
+				courseId={course.id}
+				locale={course.learnLocale}
+				onGoalReached={complete}
+				{focusWord}
+			/>
 		{/if}
-	{:else if quiz.type === 'listening'}
-		<PassageQuiz
-			{quiz}
-			locale={course.learnLocale}
-			mode="listen"
-			onFinish={(passed) => passed && complete()}
-		/>
-	{:else if quiz.type === 'dictation'}
-		<DictationQuiz
-			{quiz}
-			locale={course.learnLocale}
-			onFinish={(passed) => passed && complete()}
-		/>
-	{:else if quiz.type === 'speakRepeat'}
-		<SpeakRepeatQuiz {quiz} locale={course.learnLocale} onFinish={complete} />
-	{:else if quiz.type === 'speaking'}
-		<SpeakingQuiz
-			{quiz}
-			courseId={course.id}
-			learnLocale={course.learnLocale}
-			uiLang={course.uiLang}
-			onFinish={(passed) => passed && complete()}
-		/>
-	{:else if quiz.type === 'vocabulary'}
-		<VocabularyQuiz
-			{quiz}
-			courseId={course.id}
-			locale={course.learnLocale}
-			onGoalReached={complete}
-			{focusWord}
-		/>
-	{/if}
+	</main>
+</div>
 
-	{#if finished}
-		<aside class="done" in:pop={{ from: 0.95 }}>
-			<p class="done-line">
-				<Icon name="check" size="1.15em" />
-				<span><strong>Finished.</strong> This exercise is marked complete.</span>
-			</p>
-			<div class="done-actions">
-				<a class="btn" href={homeHref}>
-					Deal me another card
-					<Icon name="arrowRight" size="1em" />
+{#if finished && !doneDismissed}
+	<!-- Floats over the foot of the exercise rather than pushing it: the page
+	     stays one screen. Dismissable, to look back over the answers. -->
+	<aside class="done" transition:fly={{ y: 40, duration: 320, easing: cubicOut }}>
+		<p class="done-line">
+			<Icon name="check" size="1.15em" />
+			<span><strong>Finished.</strong> Marked complete.</span>
+			<button type="button" class="done-close" aria-label="Hide" onclick={() => (doneDismissed = true)}>
+				<Icon name="close" size="1em" />
+			</button>
+		</p>
+		<div class="done-actions">
+			<a class="btn" href={homeHref}>
+				Deal me another card
+				<Icon name="arrowRight" size="1em" />
+			</a>
+			{#if next}
+				<a class="btn btn-ghost" href={nextHref}>
+					Next in order: {topicOf(next.title)}
 				</a>
-				{#if next}
-					<a class="btn btn-ghost" href={nextHref}>
-						Next in order: {topicOf(next.title)}
-					</a>
-				{/if}
-			</div>
-		</aside>
-	{/if}
+			{/if}
+		</div>
+	</aside>
+{/if}
 
-	<!-- Plain links to the neighbours, always present: they are how a reader
-	     (and a crawler) moves through the course without the course page. -->
+{#if hasNotes}
+	<Sheet bind:open={notesOpen} title="Study notes" id="notes-{quiz.id}">
+		<HelpMemory {quiz} locale={course.learnLocale} {vocab} {deckHref} />
+		{#snippet footer()}
+			<button type="button" class="btn to-exercise" onclick={() => (notesOpen = false)}>
+				Start the exercise <Icon name="arrowRight" size="1em" />
+			</button>
+		{/snippet}
+	</Sheet>
+{/if}
+
+<Sheet bind:open={moreOpen} title="More" id="more-{quiz.id}">
+	<!-- Plain links to the neighbours, always in the page: they are how a
+	     reader (and a crawler) moves through the course without the course
+	     page. -->
 	<nav class="pager" aria-label="More exercises">
 		{#if previous}
 			<a href="/course/{course.id}/quiz/{previous.id}" rel="prev">
-				<Icon name="arrowLeft" size="1em" /> <span>{topicOf(previous.title)}</span>
+				<small>Previous</small>
+				<span><Icon name="arrowLeft" size="1em" /> {topicOf(previous.title)}</span>
 			</a>
-		{:else}<span></span>{/if}
+		{/if}
 		{#if next}
 			<a class="to-next" href="/course/{course.id}/quiz/{next.id}" rel="next">
-				<span>{topicOf(next.title)}</span> <Icon name="arrowRight" size="1em" />
+				<small>Next</small>
+				<span>{topicOf(next.title)} <Icon name="arrowRight" size="1em" /></span>
 			</a>
 		{/if}
 	</nav>
+
+	<div class="shortcuts">
+		<a href="/course/{course.id}"><Icon name="cards" size="1.05em" /> Your deck</a>
+		{#if quiz.level}
+			<a href={levelPath}><Icon name="book" size="1.05em" /> {levelTitle ?? quiz.level}</a>
+		{/if}
+		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> Settings</a>
+	</div>
 
 	{#if related.length}
 		<!-- The nearest exercises in the same level: a reader who came in from
@@ -252,25 +358,147 @@
 			{#if quiz.level}<p><a href={levelPath}>Every {quiz.level} exercise <Icon name="arrowRight" size="1em" /></a></p>{/if}
 		</section>
 	{/if}
-</main>
 
-<SiteFooter />
+	<SiteFooter />
+</Sheet>
 
 <style>
-	.related { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
-	.related h2 { margin: 0 0 0.5rem; font-size: var(--step-0); }
-	.related ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.2rem; }
-	.related li a { display: flex; align-items: center; gap: 0.6rem; padding: 0.45rem 0.6rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; font-size: var(--step--1); }
-	.related li a:hover { background: var(--surface-alt); }
-	.related li .kind { width: 1.7rem; height: 1.7rem; margin: 0; }
-	.related p { margin: 0.6rem 0 0; font-size: var(--step--1); }
-	.related p a { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 700; text-decoration: none; }
-
-	.head {
+	/* Exactly one screen: the header, then the exercise taking the rest. */
+	.screen {
 		display: flex;
-		align-items: flex-start;
-		gap: 0.9rem;
-		margin-bottom: 1.6rem;
+		flex-direction: column;
+		height: 100dvh;
+		max-width: 46rem;
+		margin: 0 auto;
+		padding: 0.6rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
+	}
+
+	.top {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		flex: none;
+		padding-bottom: 0.6rem;
+		margin-bottom: 0.75rem;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.back {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		flex: none;
+		margin-left: -0.4rem;
+		border-radius: 50%;
+		color: var(--ink-muted);
+		transition:
+			background var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out);
+	}
+
+	.back:hover {
+		background: var(--surface-alt);
+		color: var(--accent);
+	}
+
+	.title {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.where {
+		margin: 0;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+
+	h1 {
+		margin: 0.05rem 0 0;
+		font-size: var(--step-1);
+		line-height: 1.2;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+
+	.ribbon {
+		display: inline-flex;
+		flex: none;
+	}
+
+	.tools {
+		display: flex;
+		gap: 0.4rem;
+		flex: none;
+	}
+
+	.tool {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		height: 2.5rem;
+		padding: 0 0.9rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--heading);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
+	}
+
+	.tool:hover {
+		transform: translateY(-1px);
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	/* The notes are the one thing worth reaching for mid-exercise: filled, so
+	   they are found without being looked for. */
+	.tool.notes {
+		border-color: var(--accent);
+		background: var(--accent-soft);
+		color: var(--accent);
+	}
+
+	.tool.notes:hover {
+		background: var(--accent);
+		color: #fff;
+	}
+
+	.preview {
+		flex: none;
+		margin: -0.25rem 0 0.6rem;
+		font-size: var(--step--1);
+		color: var(--ochre, #8a6d1f);
+		font-weight: 600;
+	}
+
+	/* The exercise gets the rest of the screen. A short one sits near the top
+	   — centred, it floated in the middle of a tall window with a gulf of
+	   empty page above it — and a sectioned one (Steps) fills it. Scrolling
+	   here is only a safety net for a very small screen. */
+	.stage {
+		flex: 1;
+		min-height: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding-top: clamp(0.25rem, 4vh, 2.5rem);
+		overflow-y: auto;
 	}
 
 	/* The same tinted disc the course-home list uses, so a quiz keeps its
@@ -279,10 +507,9 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
+		width: 2.2rem;
+		height: 2.2rem;
 		flex: none;
-		margin-top: 0.1rem;
 		border-radius: 50%;
 		background: var(--surface-alt);
 		color: var(--ink-muted);
@@ -317,14 +544,40 @@
 		color: var(--ochre);
 	}
 
-	.head-text {
-		flex: 1;
-		min-width: 0;
+	/* -- finished bar -------------------------------------------------------- */
+
+	.done {
+		position: fixed;
+		left: 50%;
+		bottom: calc(1rem + env(safe-area-inset-bottom));
+		z-index: 60;
+		width: min(44rem, calc(100% - 1.5rem));
+		transform: translateX(-50%);
+		padding: 0.9rem 1.1rem 1rem;
+		border: 1px solid var(--right);
+		border-radius: var(--radius);
+		background: var(--right-bg);
+		box-shadow: 0 18px 40px -18px rgb(20 32 52 / 0.45);
 	}
 
-	h1 {
-		margin: 0.15rem 0 0;
-		font-size: var(--step-2);
+	.done-line {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0 0 0.75rem;
+		max-width: none;
+		color: var(--right);
+	}
+
+	.done-close {
+		display: inline-flex;
+		margin-left: auto;
+		padding: 0.3rem;
+		border: 0;
+		border-radius: 50%;
+		background: none;
+		color: var(--ink-muted);
+		cursor: pointer;
 	}
 
 	.done-actions {
@@ -334,131 +587,123 @@
 		flex-wrap: wrap;
 	}
 
-	.done {
-		margin-top: 1.6rem;
-		padding: 1.15rem 1.3rem;
-		border: 1px solid var(--right);
-		border-radius: var(--radius);
-		background: var(--right-bg);
-	}
+	/* -- panels -------------------------------------------------------------- */
 
-	.done-line {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		margin: 0 0 0.95rem;
-		max-width: none;
-		color: var(--right);
-	}
-
-	.crumbs {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.4rem;
-		margin-bottom: 1rem;
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	.crumbs a {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.3rem;
-		color: var(--ink-muted);
-		text-decoration: none;
-	}
-
-	.crumbs a:hover {
-		color: var(--accent);
+	.to-exercise {
+		width: 100%;
+		justify-content: center;
 	}
 
 	.pager {
-		display: flex;
-		justify-content: space-between;
-		gap: 1rem;
-		margin-top: 2.2rem;
-		padding-top: 1rem;
-		border-top: 1px solid var(--line);
-		font-size: var(--step--1);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.6rem;
 	}
 
 	.pager a {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-		max-width: 48%;
-		color: var(--ink-muted);
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		padding: 0.75rem 0.9rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-sm);
+		color: var(--heading);
+		font-weight: 600;
+		font-size: var(--step--1);
 		text-decoration: none;
+		transition: border-color var(--fast) var(--ease-out);
 	}
 
 	.pager a:hover {
-		color: var(--accent);
+		border-color: var(--accent);
+	}
+
+	.pager a span {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.pager small {
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
 	}
 
 	.pager .to-next {
-		margin-left: auto;
+		grid-column: 2;
 		text-align: right;
+		align-items: flex-end;
 	}
 
-	.preview {
-		margin: 0.35rem 0 0;
+	.shortcuts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.shortcuts a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.45rem 0.85rem;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		color: var(--ink);
 		font-size: var(--step--1);
-		color: var(--ochre, #8a6d1f);
 		font-weight: 600;
+		text-decoration: none;
 	}
 
-	.crumb-short {
-		display: none;
+	.shortcuts a:hover {
+		border-color: var(--accent);
+		color: var(--accent);
 	}
 
-	/* A phone: the exercise is the first thing on the screen. The crumbs
-	   shrink to "back to the deck" plus the position, the header to one
-	   line, and the study notes move below the exercise — still there, still
-	   opening on a first visit, just not in the way. */
+	.related { margin-top: 1.5rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+	.related h2 { margin: 0 0 0.5rem; font-size: var(--step-0); }
+	.related ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.2rem; }
+	.related li a { display: flex; align-items: center; gap: 0.6rem; padding: 0.45rem 0.6rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; font-size: var(--step--1); }
+	.related li a:hover { background: var(--surface-alt); }
+	.related li .kind { width: 1.7rem; height: 1.7rem; }
+	.related p { margin: 0.6rem 0 0; font-size: var(--step--1); }
+	.related p a { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 700; text-decoration: none; }
+
+	/* A phone: the header shrinks to one line so the exercise keeps the screen. */
 	@media (max-width: 36rem) {
-		.page {
-			display: flex;
-			flex-direction: column;
-			padding-top: 0.75rem;
+		.screen {
+			padding: 0.4rem 0.85rem calc(0.6rem + env(safe-area-inset-bottom));
 		}
-		.notes {
-			order: 1;
+		.top {
+			gap: 0.45rem;
+			padding-bottom: 0.45rem;
+			margin-bottom: 0.55rem;
 		}
-		.pager,
-		.related {
-			order: 2;
-		}
-		.crumbs {
-			margin-bottom: 0.5rem;
-			flex-wrap: nowrap;
-		}
-		.crumbs .crumb-long {
-			display: none;
-		}
-		.crumbs .crumb-short {
-			display: inline;
-		}
-		.head {
-			align-items: center;
-			gap: 0.6rem;
-			margin-bottom: 0.75rem;
-		}
-		.kind {
-			width: 1.9rem;
-			height: 1.9rem;
-			margin: 0;
-		}
-		.head .eyebrow {
+		.top > .kind {
 			display: none;
 		}
 		h1 {
-			margin: 0;
 			font-size: var(--step-0);
-			line-height: 1.3;
+			-webkit-line-clamp: 1;
+			line-clamp: 1;
 		}
-		.done {
-			margin-top: 0.9rem;
+		.tool {
+			height: 2.35rem;
+			padding: 0 0.7rem;
+		}
+		.tool-label {
+			display: none;
+		}
+		/* Tight to the header: the on-screen keyboard rises over the lower
+		   half, and the answer field must stay above it. */
+		.stage {
+			padding-top: 0.25rem;
+		}
+		.done-actions .btn {
+			flex: 1 1 100%;
 		}
 	}
 </style>

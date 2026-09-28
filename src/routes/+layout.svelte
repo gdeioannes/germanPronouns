@@ -1,8 +1,11 @@
 <script lang="ts">
+	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import { cubicOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
+	import { navDirection, prefersReducedMotion } from '$lib/motion';
 	import { trackScreenView } from '$lib/services/analytics';
+	import FxLayer from '$lib/components/FxLayer.svelte';
 	// Self-hosted fonts: no third-party request blocks the first paint, and the
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
@@ -21,6 +24,38 @@
 	$effect(() => {
 		trackScreenView(page.url.pathname);
 	});
+
+	// Where the browser supports the View Transitions API, a navigation
+	// cross-fades the old page into the new one with a short slide in the
+	// direction of travel (deeper = forward), so the learner can tell where
+	// they went. The sticky nav bar is named in SiteNav so it holds still.
+	// Browsers without it fall back to the keyed fade below.
+	const viewTransitions = typeof document !== 'undefined' && 'startViewTransition' in document;
+
+	onNavigate((navigation) => {
+		if (!viewTransitions || prefersReducedMotion()) return;
+		// Same page, new query/hash (e.g. a level pick): let the page animate
+		// its own change rather than sliding the whole screen.
+		if (navigation.from?.url.pathname === navigation.to?.url.pathname) return;
+
+		const direction = navDirection(
+			navigation.from?.url.pathname,
+			navigation.to?.url.pathname,
+			navigation.type,
+			navigation.delta
+		);
+		document.documentElement.dataset.nav = direction;
+
+		return new Promise((resolve) => {
+			const transition = document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+			transition.finished.finally(() => {
+				delete document.documentElement.dataset.nav;
+			});
+		});
+	});
 </script>
 
 <svelte:head>
@@ -32,11 +67,13 @@
 	<meta name="theme-color" content="#1F3A5F" />
 </svelte:head>
 
-<!-- Fades between pages so a client-side navigation reads as a change of
-     content rather than a flash. Keyed on the pathname, and cheap enough not
-     to delay the incoming page. -->
+<!-- Fallback for browsers without view transitions: fades the new page in so
+     a client-side navigation reads as a change of content rather than a
+     flash. Off where view transitions already animate the swap. -->
 {#key page.url.pathname}
-	<div in:fade={{ duration: 160, easing: cubicOut }}>
+	<div in:fade={{ duration: viewTransitions ? 0 : 220, easing: cubicOut }}>
 		{@render children()}
 	</div>
 {/key}
+
+<FxLayer />
