@@ -7,6 +7,7 @@
 // docs/content_master_plan.md §4 which is enforced module by module as each
 // one is flagged `complete` in the syllabus.
 
+import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import course from '$content/courses/de_cert_a1.json';
 import syllabus from '$content/syllabus/de_cert_a1.json';
@@ -191,6 +192,12 @@ describe('every quiz (baseline)', () => {
 					quizzes.some((s) => s.id === card.sourceQuizId),
 					`${q.id}: "${card.de}" points at unknown quiz ${card.sourceQuizId}`
 				).toBe(true);
+				if (card.image) {
+					expect(
+						existsSync(`static/img/${card.image}.webp`),
+						`${q.id}: "${card.de}" points at missing picture ${card.image}`
+					).toBe(true);
+				}
 			}
 			// Choose mode needs three same-gender distractors for every noun.
 			for (const article of ['der', 'die', 'das']) {

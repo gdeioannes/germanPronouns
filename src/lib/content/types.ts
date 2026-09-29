@@ -117,7 +117,7 @@ export interface QuizHelp {
 	remember?: string[];
 	/** Layer 6: a short text using the structure, read aloud. */
 	context?: Example;
-	/** Layer 7: which exam task this feeds. */
+	/** Layer 7: a one-line exam note — skill exercises only, no task numbers. */
 	exam?: string;
 	/** The errors English speakers make on this item. */
 	mistakes?: HelpMistake[];
@@ -315,6 +315,17 @@ export interface VocabCard {
 	also?: string[];
 	/** The quiz whose Help Memory this word came from. */
 	sourceQuizId: string;
+	/**
+	 * A picture of the word: an id in static/img/, stamped by
+	 * tool/gen-images.mjs from assets/images/manifest.json.
+	 */
+	image?: string;
+	/**
+	 * The picture needs the English beside it: a man with a boy is "father"
+	 * or "son" depending on which one is asked about, and an hourglass is
+	 * "time" only with a nudge. An obvious picture (apple, dog) stands alone.
+	 */
+	imageHint?: boolean;
 }
 
 /**

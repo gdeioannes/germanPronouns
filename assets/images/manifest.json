@@ -1,0 +1,544 @@
+{
+	"style": "Figurative flat illustration for a language-learning app, in the spirit of a mid-century children's picture book with a touch of graphic simplification: the subject is drawn naturally and is instantly recognizable, with real proportions, a natural pose and a simple face, but details are reduced to clean flat colour shapes, slightly stylized, with medium-weight ink-navy outlines and no gradients, textures or fine details like fabric folds. Limited warm palette: ink-navy (#1f3a5f), terracotta (#c9683b), mustard (#d9a441), sage (#7a9a7e), soft blue and cream, on a plain warm off-white paper background (#fbf8f3) with no decorative shapes behind the subject. Show only the named subject, no extra objects or props. No text, no letters, no numbers, no watermark, single subject centered with generous margins.",
+	"images": [
+		{
+			"id": "mann",
+			"prompt": "an adult man standing, full body, friendly"
+		},
+		{
+			"id": "frau",
+			"prompt": "an adult woman standing, full body, friendly"
+		},
+		{
+			"id": "kind",
+			"prompt": "a small child standing, full body"
+		},
+		{
+			"id": "junge",
+			"prompt": "a boy around ten years old standing, full body"
+		},
+		{
+			"id": "maedchen",
+			"prompt": "a girl around ten years old standing, full body"
+		},
+		{
+			"id": "freund",
+			"prompt": "two young men side by side, one with an arm on the other's shoulder, smiling",
+			"hint": true
+		},
+		{
+			"id": "freundin",
+			"prompt": "two young women side by side, smiling, one waving",
+			"hint": true
+		},
+		{
+			"id": "bruder",
+			"prompt": "two boys of about the same age, clearly children, side by side with arms around each other's shoulders, no adults",
+			"hint": true
+		},
+		{
+			"id": "schwester",
+			"prompt": "two girls of about the same age, clearly children, side by side holding hands, no adults",
+			"hint": true
+		},
+		{
+			"id": "vater",
+			"prompt": "a father carrying a small child on his shoulders",
+			"hint": true
+		},
+		{
+			"id": "mutter",
+			"prompt": "a mother holding a baby in her arms",
+			"hint": true
+		},
+		{
+			"id": "eltern",
+			"prompt": "a mother and a father standing together with a small child between them",
+			"hint": true
+		},
+		{
+			"id": "geschwister",
+			"prompt": "three children of different ages standing in a row, siblings",
+			"hint": true
+		},
+		{
+			"id": "sohn",
+			"prompt": "a father with his hand on the shoulder of his young son",
+			"hint": true
+		},
+		{
+			"id": "tochter",
+			"prompt": "a mother with her hand on the shoulder of her young daughter",
+			"hint": true
+		},
+		{
+			"id": "grossvater",
+			"prompt": "an elderly man with white hair and a walking stick, smiling",
+			"hint": true
+		},
+		{
+			"id": "opa",
+			"prompt": "an elderly grandfather with glasses sitting in an armchair",
+			"hint": true
+		},
+		{
+			"id": "grossmutter",
+			"prompt": "an elderly woman with white hair in a bun, smiling",
+			"hint": true
+		},
+		{
+			"id": "oma",
+			"prompt": "an elderly grandmother knitting in a rocking chair",
+			"hint": true
+		},
+		{
+			"id": "tisch",
+			"prompt": "a plain wooden dining table"
+		},
+		{
+			"id": "stuhl",
+			"prompt": "a single wooden chair"
+		},
+		{
+			"id": "lampe",
+			"prompt": "a table lamp with a conical shade, switched on"
+		},
+		{
+			"id": "tuer",
+			"prompt": "a closed front door with a round handle, seen from the front"
+		},
+		{
+			"id": "fenster",
+			"prompt": "a window with four panes and a plant on the sill"
+		},
+		{
+			"id": "bett",
+			"prompt": "a single bed with a pillow and a folded blanket"
+		},
+		{
+			"id": "kueche",
+			"prompt": "a kitchen with a stove, a sink and hanging pots"
+		},
+		{
+			"id": "haus",
+			"prompt": "a small detached house with a pitched roof, a door and two windows"
+		},
+		{
+			"id": "hund",
+			"prompt": "a friendly dog sitting, side view"
+		},
+		{
+			"id": "katze",
+			"prompt": "a cat sitting upright with its tail curled around its paws"
+		},
+		{
+			"id": "apfel",
+			"prompt": "one red apple with a leaf"
+		},
+		{
+			"id": "banane",
+			"prompt": "one yellow banana"
+		},
+		{
+			"id": "brot",
+			"prompt": "a loaf of rustic bread with a slice cut off"
+		},
+		{
+			"id": "ball",
+			"prompt": "a single orange basketball with black seam lines"
+		},
+		{
+			"id": "computer",
+			"prompt": "a laptop computer, open, seen from the front"
+		},
+		{
+			"id": "schluessel",
+			"prompt": "a single door key"
+		},
+		{
+			"id": "tasche",
+			"prompt": "a shoulder bag with a strap"
+		},
+		{
+			"id": "uhr",
+			"prompt": "a round wall clock with hands and no numerals"
+		},
+		{
+			"id": "auto",
+			"prompt": "a small car, side view"
+		},
+		{
+			"id": "buch",
+			"prompt": "a closed hardcover book"
+		},
+		{
+			"id": "bus",
+			"prompt": "a city bus, side view"
+		},
+		{
+			"id": "film",
+			"prompt": "a film reel and a clapperboard"
+		},
+		{
+			"id": "kino",
+			"prompt": "a cinema seen from the front with a marquee and glowing lights, no text"
+		},
+		{
+			"id": "park",
+			"prompt": "a park with trees, a bench and a lawn"
+		},
+		{
+			"id": "bahnhof",
+			"prompt": "a train standing at a station platform with a station clock"
+		},
+		{
+			"id": "supermarkt",
+			"prompt": "a supermarket aisle with shelves of colourful goods and a shopping cart, no signs or labels"
+		},
+		{
+			"id": "schule",
+			"prompt": "a school building with a bell and a flag pole, children in front"
+		},
+		{
+			"id": "stadt",
+			"prompt": "a city skyline with several buildings and a church tower"
+		},
+		{
+			"id": "uni",
+			"prompt": "a university building with columns and a graduation cap in front",
+			"hint": true
+		},
+		{
+			"id": "buero",
+			"prompt": "an office desk with a monitor, a chair and a filing cabinet"
+		},
+		{
+			"id": "himmel",
+			"prompt": "a daytime sky with a few clouds, view upward"
+		},
+		{
+			"id": "sonne",
+			"prompt": "the sun with rays"
+		},
+		{
+			"id": "arzt",
+			"prompt": "a doctor in a white coat with a stethoscope"
+		},
+		{
+			"id": "lehrer",
+			"prompt": "a teacher pointing at a blank chalkboard"
+		},
+		{
+			"id": "student",
+			"prompt": "a student with a backpack carrying books",
+			"hint": true
+		},
+		{
+			"id": "kellner",
+			"prompt": "a waiter with a tray and a towel over the arm"
+		},
+		{
+			"id": "schueler",
+			"prompt": "a pupil sitting at a school desk with a pencil",
+			"hint": true
+		},
+		{
+			"id": "verkaeufer",
+			"prompt": "a shop assistant behind a counter handing over a paper bag"
+		},
+		{
+			"id": "koch",
+			"prompt": "a cook in a tall white hat stirring a pot"
+		},
+		{
+			"id": "nachbar",
+			"prompt": "two people greeting each other over a garden fence",
+			"hint": true
+		},
+		{
+			"id": "kollege",
+			"prompt": "two people at an office desk looking at the same screen",
+			"hint": true
+		},
+		{
+			"id": "journalist",
+			"prompt": "a journalist holding a microphone and a notepad"
+		},
+		{
+			"id": "miete",
+			"prompt": "a hand handing an envelope of money to another hand in front of a door with a key",
+			"hint": true
+		},
+		{
+			"id": "einwohner",
+			"prompt": "a crowd of diverse people standing in front of a row of houses",
+			"hint": true
+		},
+		{
+			"id": "seite",
+			"prompt": "an open book with one page being turned",
+			"hint": true
+		},
+		{
+			"id": "platz",
+			"prompt": "one empty theatre seat, shown whole and small in the middle of the picture with wide empty paper margins on every side",
+			"hint": true
+		},
+		{
+			"id": "kilometer",
+			"prompt": "a road stretching to the horizon with a milestone marker, no text",
+			"hint": true
+		},
+		{
+			"id": "euro",
+			"prompt": "a few coins and a banknote, plain and without text",
+			"hint": true
+		},
+		{
+			"id": "buchstabe",
+			"prompt": "a pile of blank wooden letter tiles, no visible characters",
+			"hint": true
+		},
+		{
+			"id": "zeit",
+			"prompt": "an hourglass with sand running",
+			"hint": true
+		},
+		{
+			"id": "hunger",
+			"prompt": "a person holding their belly and looking at an empty plate",
+			"hint": true
+		},
+		{
+			"id": "durst",
+			"prompt": "a person wiping their brow and reaching for a glass of water",
+			"hint": true
+		},
+		{
+			"id": "angst",
+			"prompt": "a person hiding behind their hands, frightened, with a shadow behind",
+			"hint": true
+		},
+		{
+			"id": "deutschland",
+			"prompt": "the Brandenburg Gate silhouette, no text",
+			"aspect": "1:1"
+		},
+		{
+			"id": "oesterreich",
+			"prompt": "alpine mountains with a small chalet and a lake",
+			"hint": true
+		},
+		{
+			"id": "schweiz",
+			"prompt": "a snowy mountain peak with a cow wearing a bell and a wedge of cheese",
+			"hint": true
+		},
+		{
+			"id": "usa",
+			"prompt": "the Statue of Liberty silhouette, no text"
+		},
+		{
+			"id": "frankreich",
+			"prompt": "the Eiffel Tower silhouette with a baguette and a beret"
+		},
+		{
+			"id": "spanien",
+			"prompt": "a flamenco dancer with a fan"
+		},
+		{
+			"id": "italien",
+			"prompt": "the Leaning Tower of Pisa with a pizza and a scooter"
+		},
+		{
+			"id": "tuerkei",
+			"prompt": "a domed mosque with two minarets and a tea glass"
+		},
+		{
+			"id": "polen",
+			"prompt": "a white eagle emblem shape and a plate of dumplings, no text",
+			"hint": true
+		},
+		{
+			"id": "russland",
+			"prompt": "onion-domed cathedral silhouette with nesting dolls"
+		},
+		{
+			"id": "brasilien",
+			"prompt": "the Christ the Redeemer statue silhouette above a bay with palm trees"
+		},
+		{
+			"id": "mexiko",
+			"prompt": "a step pyramid with a cactus and a sombrero"
+		},
+		{
+			"id": "level-a1",
+			"prompt": "two people meeting for the first time and shaking hands, one holding a small name tag, wide empty paper margins"
+		},
+		{
+			"id": "level-a2",
+			"prompt": "a traveller with a rolling suitcase looking at a train departure board, wide empty paper margins"
+		},
+		{
+			"id": "level-b1",
+			"prompt": "three friends at a table talking with their hands, one pointing at a magazine, wide empty paper margins"
+		},
+		{
+			"id": "level-b2",
+			"prompt": "a person at a lectern presenting to a small seated audience in an office, wide empty paper margins"
+		},
+		{
+			"id": "level-c1",
+			"prompt": "a person reading a thick novel in an armchair with a stack of newspapers beside it, wide empty paper margins"
+		},
+		{
+			"id": "level-c2",
+			"prompt": "a person writing at a desk with a fountain pen, surrounded by neatly stacked manuscripts and a certificate on the wall, wide empty paper margins"
+		},
+		{
+			"id": "hero-skydive",
+			"prompt": "landing-page scene: two people tandem skydiving in free fall high above tiny fields and a river, cheeks puffed by the wind, one giving a thumbs up, goggles and helmets, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "hero-currywurst",
+			"prompt": "landing-page scene: a small street food kiosk at night in the rain, a vendor handing a paper tray of sausage and fries to a customer under a dripping umbrella, a string of lightbulbs, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "hero-goat",
+			"prompt": "landing-page scene: a hiker with a backpack politely tipping a hat to a stubborn goat with a bell that blocks a narrow alpine path, mountains behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "hero-sauna",
+			"prompt": "landing-page scene: people in towels sitting on wooden sauna benches while an attendant dramatically swings a towel over a steaming stove, one bather fanning their face, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "hero-bouncer",
+			"prompt": "landing-page scene: a huge bouncer with folded arms in front of a nightclub door with a velvet rope, a hopeful person in a colourful outfit holding up their ID, night, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "geld",
+			"prompt": "a wallet with banknotes and coins spilling out, no text on the notes"
+		},
+		{
+			"id": "lust",
+			"prompt": "a person slumped on a sofa waving off a broom and a bucket beside them",
+			"hint": true
+		},
+		{
+			"id": "problem",
+			"prompt": "a person scratching their head in front of a bicycle with a flat tyre",
+			"hint": true
+		},
+		{
+			"id": "mittag",
+			"prompt": "the sun straight overhead above a person eating lunch at a small outdoor table",
+			"hint": true
+		},
+		{
+			"id": "mitternacht",
+			"prompt": "a full moon and stars over a dark house with one lit window and an owl on the roof",
+			"hint": true
+		},
+		{
+			"id": "wochenende",
+			"prompt": "a person relaxing in a hammock between two trees with a lemonade",
+			"hint": true
+		},
+		{
+			"id": "fruehling",
+			"prompt": "a blossoming tree with tulips below it and a bird on a branch"
+		},
+		{
+			"id": "sommer",
+			"prompt": "a beach with a striped parasol, a bright sun and an ice cream cone"
+		},
+		{
+			"id": "herbst",
+			"prompt": "a tree shedding orange leaves, a pumpkin and a rake"
+		},
+		{
+			"id": "winter",
+			"prompt": "a snowman with a scarf under falling snowflakes beside a bare tree"
+		},
+		{
+			"id": "morgen",
+			"prompt": "a person stretching in bed as the sun rises in the window and a rooster crows outside",
+			"hint": true
+		},
+		{
+			"id": "nacht",
+			"prompt": "a person asleep in bed under a crescent moon and stars in the window"
+		},
+		{
+			"id": "geburtstag",
+			"prompt": "a birthday cake with lit candles and a few balloons"
+		},
+		{
+			"id": "abend",
+			"prompt": "a person reading on a sofa by a lit lamp with a sunset in the window",
+			"hint": true
+		},
+		{
+			"id": "essen",
+			"prompt": "a full plate of food with cutlery and a glass on a table"
+		},
+		{
+			"id": "kurs",
+			"prompt": "a small group of adults at desks with a teacher at a whiteboard",
+			"hint": true
+		},
+		{
+			"id": "geschenk",
+			"prompt": "a wrapped gift box with a big ribbon bow"
+		},
+		{
+			"id": "dorf",
+			"prompt": "a small village of a few houses and a church in green hills, drawn large and filling most of the picture"
+		},
+		{
+			"id": "see",
+			"prompt": "a calm lake with a rowing boat and mountains behind"
+		},
+		{
+			"id": "mannschaft",
+			"prompt": "a football team in matching shirts posing together with a ball"
+		},
+		{
+			"id": "wetter",
+			"prompt": "a sky half sun and half rain cloud above a person holding an umbrella",
+			"hint": true
+		},
+		{
+			"id": "spass",
+			"prompt": "two people laughing with their arms up on a rollercoaster",
+			"hint": true
+		},
+		{
+			"id": "arbeit",
+			"prompt": "a person with a briefcase walking towards an office building",
+			"hint": true
+		},
+		{
+			"id": "garten",
+			"prompt": "a garden with flower beds, a watering can and a low wooden fence, drawn large and filling most of the picture"
+		},
+		{
+			"id": "koffer",
+			"prompt": "a closed suitcase with a handle and wheels"
+		},
+		{
+			"id": "pass",
+			"prompt": "an open passport booklet showing a photo page, no text"
+		},
+		{
+			"id": "telefonnummer",
+			"prompt": "a smartphone lying next to a notepad with a scribbled line and a pencil",
+			"hint": true
+		}
+	]
+}

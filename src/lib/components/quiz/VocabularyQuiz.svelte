@@ -17,7 +17,7 @@
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import StreakTracker from './StreakTracker.svelte';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
-	import { REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
+	import { MIN_SHOW, REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
 	import { vocab } from '$lib/state/vocab.svelte';
 	import { untrack } from 'svelte';
 	import type { VocabCard, VocabularyQuiz } from '$lib/content/types';
@@ -217,7 +217,7 @@
 			clearTimers();
 			next();
 		};
-		if (correct) skip = moveOn;
+		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		else await wait(600).then(() => (skip = moveOn));
 		await wait(REVEAL_PAUSE[progress.answerRevealMode] + (correct ? 500 : 800));
 		if (skip === moveOn) moveOn();
@@ -258,6 +258,9 @@
 	const kindLabel = $derived(
 		current?.kind === 'noun' ? 'Noun · with article' : current?.kind === 'name' ? 'Name' : 'Word'
 	);
+	/** The card's picture, and whether it asks the question by itself. */
+	const picture = $derived(current?.image ? `/img/${current.image}.webp` : null);
+	const pictureAlone = $derived(!!picture && !current?.imageHint);
 </script>
 
 <svelte:window onkeydown={onWindowKey} />
@@ -318,6 +321,7 @@
 			<div class="deal">
 			<div
 				class="flashcard"
+				class:pictured={picture}
 				class:revealed
 				class:right={verdict === 'right'}
 				class:wrong={verdict === 'wrong'}
@@ -325,7 +329,14 @@
 				<!-- Front: the question and the way to answer it. -->
 				<div class="face front" aria-hidden={revealed}>
 					<p class="label">{kindLabel}</p>
-					<p class="prompt">{current.en}</p>
+					{#if picture}
+						<!-- An obvious picture asks the question alone; the English
+						     stays for screen readers. An ambiguous one keeps it visible. -->
+						<img class="picture" src={picture} alt="" width="512" height="512" />
+					{/if}
+					<p class="prompt" class:hint={picture && !pictureAlone} class:sr-only={pictureAlone}>
+						{current.en}
+					</p>
 
 					{#if mode === 'write'}
 						<p class="answer" lang={locale}>
@@ -373,6 +384,9 @@
 				<!-- Back: the German, big, and how it went. -->
 				<div class="face back" aria-hidden={!revealed}>
 					<p class="label">{current.en}</p>
+					{#if picture}
+						<img class="picture thumb" src={picture} alt="" width="512" height="512" />
+					{/if}
 					<p class="word" lang={locale}>
 						{#if current.article}<span class="article">{current.article}</span>{/if}
 						<span class="de">{current.de}</span>
@@ -640,6 +654,52 @@
 		font-weight: 600;
 		line-height: 1.15;
 		color: var(--heading);
+	}
+
+	/* ── The picture ─────────────────────────────────────────────────────── */
+
+	/* The generated pictures share the paper background, so they sit on the
+	   card without a frame; the corners are rounded in case a theme differs. */
+	.picture {
+		display: block;
+		width: min(17rem, 40dvh, 74vw);
+		height: auto;
+		margin: 0.4rem 0 0.5rem;
+		border-radius: var(--radius-sm);
+		user-select: none;
+		-webkit-user-drag: none;
+	}
+
+	/* The pictures are painted on cream paper (PAPER in tool/gen-images.mjs
+	   levels every backdrop to exactly this), so the card takes that colour
+	   and the drawing sits on the card instead of in a tile. */
+	.pictured .face {
+		background: #fbf5e4;
+	}
+
+	/* On the back the word is the point; the picture is a reminder. */
+	.thumb {
+		width: 7rem;
+		margin: 0 0 0.2rem;
+	}
+
+	/* Under a picture the English is a caption, not the question. */
+	.prompt.hint {
+		font-size: var(--step-1);
+		font-weight: 500;
+		color: var(--ink-muted);
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+		border: 0;
 	}
 
 	/* ── Write mode ──────────────────────────────────────────────────────── */

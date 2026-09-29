@@ -26,3 +26,6 @@ vite.config.ts.timestamp-*
 # IDE
 *.iml
 .idea/
+
+# Generated image originals (the WebPs in static/img are committed)
+assets/images/raw

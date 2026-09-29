@@ -8,7 +8,6 @@
 	// prerendered, a crawler sees all of it as plain HTML.
 	import Icon from '$lib/icons/Icon.svelte';
 	import TryExercise from '$lib/components/TryExercise.svelte';
-	import HeroArt from '$lib/components/HeroArt.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { progress } from '$lib/state/progress.svelte';
@@ -27,7 +26,47 @@
 	// whose deck deals the next exercise from what they have done. The
 	// prerendered HTML keeps the A1 link for first visits and crawlers.
 	let returning = $state(false);
+
+	// Five moments where you suddenly need German, one per visit. The scene is
+	// drawn without words (the image model cannot spell), so the line is real
+	// text laid over it, pinned near the speaker as a share of the picture.
+	const SCENES = [
+		{
+			id: 'skydive',
+			alt: 'Two people tandem skydiving above tiny fields',
+			line: 'Alles klar?!',
+			at: { top: '5%', left: '18%' }
+		},
+		{
+			id: 'currywurst',
+			alt: 'A vendor handing a tray of sausage and fries to a customer under an umbrella at night',
+			line: 'Einmal mit Pommes, bitte!',
+			at: { top: '6%', right: '6%' }
+		},
+		{
+			id: 'goat',
+			alt: 'A hiker tipping a hat to a goat blocking a mountain path',
+			line: 'Darf ich vorbei?',
+			at: { top: '8%', left: '12%' }
+		},
+		{
+			id: 'sauna',
+			alt: 'An attendant swinging a towel over a sauna stove while bathers fan their faces',
+			line: 'Aufguss!',
+			at: { top: '4%', right: '10%' }
+		},
+		{
+			id: 'bouncer',
+			alt: 'A bouncer with folded arms in front of a club door and a hopeful guest holding up an ID',
+			line: 'Heute leider nicht.',
+			at: { top: '4%', right: '4%' }
+		}
+	];
+	// The prerendered page shows the first; a visitor gets one at random.
+	let scene = $state(SCENES[0]);
+
 	onMount(async () => {
+		scene = SCENES[Math.floor(Math.random() * SCENES.length)];
 		returning = await progress.hasAnyProgress();
 	});
 	const startHref = $derived(returning ? courseHref : firstHref);
@@ -123,14 +162,18 @@
 <main>
 	<section class="hero">
 		<div class="hero-copy">
-			<p class="eyebrow">
-				Free German course for English speakers
-			</p>
-			<h1>Learn German properly — from your first <em>Hallo</em> to C2.</h1>
+			<h1>
+				From your first <em>Hallo</em> to your first
+				<em class="long"
+					><span class="de" lang="de"
+						>Donau&shy;dampf&shy;schiff&shy;fahrts&shy;gesellschafts&shy;kapitän</span
+					><span class="en" lang="en" aria-hidden="true">Danube steamship company captain&nbsp;;)</span
+					></em
+				>
+			</h1>
 			<p class="lede">
-				{data.total} short, interactive exercises that follow the official A1–C2 syllabus.
-				Every lesson starts with a clear explanation, every sentence has audio, and you
-				practise until it sticks.
+				Picture flashcards, gap-fills and audio for every sentence. Each lesson explains
+				the rule first, then makes it stick, from A1 all the way to C2.
 			</p>
 
 			<div class="cta">
@@ -150,10 +193,26 @@
 			</ul>
 		</div>
 
-		<div class="hero-try">
-			<div class="hero-art"><HeroArt /></div>
-			<div class="card-slot"><TryExercise href={startHref} /></div>
-		</div>
+		{#key scene.id}
+			<figure class="hero-scene">
+				<img
+					src="/img/hero-{scene.id}.webp"
+					alt={scene.alt}
+					width="1024"
+					height="768"
+					fetchpriority="high"
+				/>
+				<span
+					class="bubble"
+					lang="de"
+					class:tail-left={!!scene.at.left}
+					style:top={scene.at.top}
+					style:left={scene.at.left}
+					style:right={scene.at.right}>{scene.line}</span
+				>
+			</figure>
+		{/key}
+		<div class="card-slot"><TryExercise href={startHref} /></div>
 	</section>
 
 	<section class="stats" aria-label="The course in numbers">
@@ -181,6 +240,14 @@
 							<h3>{band.name}</h3>
 							<p class="band-count tnum">{band.count} exercises</p>
 						</div>
+						<img
+							class="band-art"
+							src="/img/level-{band.letter.toLowerCase()}.webp"
+							alt=""
+							width="512"
+							height="512"
+							loading="lazy"
+						/>
 					</div>
 					{#if band.canDo.length}
 						<ul class="can-do">
@@ -292,11 +359,11 @@
 		position: absolute;
 		inset: 0 0 auto 0;
 		z-index: -1;
-		height: 58rem;
-		background:
-			radial-gradient(ellipse 60% 55% at 85% 20%, rgba(201, 104, 59, 0.16), transparent 70%),
-			radial-gradient(ellipse 55% 60% at 10% 10%, rgba(31, 58, 95, 0.1), transparent 70%),
-			linear-gradient(180deg, #f6efe6 0%, var(--bg) 100%);
+		height: 64rem;
+		/* The same cream the scenes are painted on (PAPER in tool/gen-images.mjs),
+		   flat across the hero, so the picture has no edge; it fades to the page
+		   below the fold. */
+		background: linear-gradient(180deg, #fbf5e4 0%, #fbf5e4 42rem, var(--bg) 100%);
 		pointer-events: none;
 	}
 
@@ -310,30 +377,31 @@
 
 	.hero {
 		display: grid;
-		grid-template-columns: 1.15fr 1fr;
-		gap: 3.5rem;
+		grid-template-columns: 1.1fr 1fr;
+		grid-template-areas:
+			'copy scene'
+			'copy card';
+		column-gap: 3rem;
 		align-items: center;
-		padding: 2.5rem 0 3.5rem;
+		padding: 1.5rem 0 3.5rem;
 	}
 
+	.hero-copy {
+		grid-area: copy;
+	}
+
+	/* On a phone the picture is the first thing, then the words, then the card:
+	   the scene must not wait below the fold. */
 	@media (max-width: 56rem) {
 		.hero {
 			grid-template-columns: minmax(0, 1fr);
-			gap: 2.5rem;
-			padding-top: 1rem;
+			grid-template-areas:
+				'scene'
+				'copy'
+				'card';
+			row-gap: 1.5rem;
+			padding-top: 0;
 		}
-	}
-
-	.eyebrow {
-		display: flex;
-		align-items: center;
-		gap: 0.55rem;
-		margin: 0 0 1rem;
-		font-size: var(--step--1);
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--accent);
 	}
 
 	h1 {
@@ -349,11 +417,48 @@
 		color: var(--accent);
 	}
 
+	/* The long word is the joke; let it wrap at its soft hyphens and shrink a
+	   step so one absurd noun does not blow the column open. */
+	h1 .long {
+		font-size: 0.78em;
+		hyphens: manual;
+		overflow-wrap: anywhere;
+		/* Both spellings share one grid cell, so hovering swaps the words
+		   without the heading reflowing. */
+		display: inline-grid;
+		cursor: help;
+	}
+
+	/* Staggered swap: the outgoing word fades out before the incoming one
+	   fades in, so the two never sit on top of each other half-visible. */
+	h1 .long > span {
+		grid-area: 1 / 1;
+		transition: opacity 0.15s ease 0.15s;
+	}
+
+	h1 .long .en,
+	h1 .long:hover .de {
+		opacity: 0;
+		transition-delay: 0s;
+	}
+
+	h1 .long:hover .en {
+		opacity: 1;
+		transition-delay: 0.15s;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		h1 .long > span {
+			transition: none;
+		}
+	}
+
+	/* The second read: quieter and narrower than the headline, with air above. */
 	.lede {
-		margin: 0;
-		max-width: 36rem;
-		font-size: var(--step-1);
-		line-height: 1.55;
+		margin: 1.4rem 0 0;
+		max-width: 30rem;
+		font-size: var(--step-0);
+		line-height: 1.6;
 		color: var(--ink-muted);
 	}
 
@@ -428,52 +533,105 @@
 		color: var(--right);
 	}
 
-	.hero-try {
+	/* The scenes are drawn with wide paper margins so their backdrop can be
+	   levelled; here the picture is scaled past the figure and the excess is
+	   clipped, invisibly, since the paper is the page's own cream. */
+	.hero-scene {
+		--zoom: 1.2;
+		grid-area: scene;
 		position: relative;
-		display: grid;
-		place-items: center;
-		min-height: 30rem;
+		width: 100%;
+		margin: 0;
+		overflow: hidden;
+		animation: settle var(--slow) var(--ease-out) backwards;
 	}
 
-	/* The dot field: well beyond the illustration, fading out towards its
-	   edges so it has no border — it just thins into the page. */
-	.hero-try::before {
+	.hero-scene img {
+		display: block;
+		width: calc(100% * var(--zoom));
+		height: auto;
+		margin: calc((1 - var(--zoom)) * 42%) calc((1 - var(--zoom)) * 50%) calc((1 - var(--zoom)) * 40%);
+		user-select: none;
+		-webkit-user-drag: none;
+	}
+
+	@keyframes settle {
+		from {
+			transform: translateY(0.6rem);
+			opacity: 0;
+		}
+		to {
+			transform: none;
+			opacity: 1;
+		}
+	}
+
+	/* The line, in the display serif, pinned near whoever says it. */
+	.bubble {
+		position: absolute;
+		padding: 0.3em 0.8em;
+		border-radius: 999px;
+		background: var(--surface);
+		box-shadow: 0 8px 22px -10px rgba(31, 58, 95, 0.5);
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: clamp(1.05rem, 0.75rem + 1.4vw, 1.6rem);
+		font-weight: 700;
+		color: var(--heading);
+		white-space: nowrap;
+		animation: bob 6s ease-in-out infinite;
+	}
+
+	.bubble::after {
 		content: '';
 		position: absolute;
-		inset: -9rem -14rem -8rem -10rem;
-		background-image: radial-gradient(circle, rgba(31, 58, 95, 0.32) 1.6px, transparent 1.9px);
-		background-size: 18px 18px;
-		-webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 40%, transparent 100%);
-		mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 40%, transparent 100%);
-		pointer-events: none;
+		right: 1.1em;
+		bottom: -0.45em;
+		width: 0.9em;
+		height: 0.9em;
+		background: inherit;
+		clip-path: polygon(0 0, 100% 0, 50% 100%);
 	}
 
-	/* The dots reach past the page's edge on narrow screens; clip them rather
-	   than let the page scroll sideways. */
-	:global(body) {
-		overflow-x: clip;
+	.bubble.tail-left::after {
+		right: auto;
+		left: 1.1em;
 	}
 
-	.hero-art {
-		position: absolute;
-		inset: -2rem -3rem -2rem -1rem;
-		display: grid;
-		place-items: center;
+	@keyframes bob {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-5px);
+		}
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		.bubble,
+		.hero-scene {
+			animation: none;
+		}
+	}
+
+	/* The card tucks under the scene's foot, so scene and exercise read as one. */
 	.card-slot {
+		grid-area: card;
 		position: relative;
+		justify-self: center;
 		width: min(100%, 27rem);
+		margin-top: -3rem;
 	}
 
 	@media (max-width: 56rem) {
-		.hero-try {
-			min-height: 26rem;
+		.hero-scene {
+			--zoom: 1.45;
+			justify-self: center;
+			width: min(100%, 30rem);
+			margin-top: -0.5rem;
 		}
-		/* No negative side inset on phones: it would make the page scroll
-		   sideways. */
-		.hero-art {
-			inset: -1rem 0;
+		.card-slot {
+			margin-top: 0;
 		}
 	}
 
@@ -624,6 +782,16 @@
 
 	.band h3 {
 		margin: 0;
+	}
+
+	/* The level's vignette, faded at the edges so its cream sits on the card. */
+	.band-art {
+		width: 7rem;
+		height: 7rem;
+		flex: none;
+		margin: -1.4rem -1rem -1.4rem auto;
+		-webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
+		mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
 	}
 
 	.band-count {
