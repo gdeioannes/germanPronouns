@@ -20,6 +20,8 @@
 	import SpeakButton from '../SpeakButton.svelte';
 	import GermanText from '../GermanText.svelte';
 	import { BLANK, canonicalGapAnswer, gapCount, matchesGaps } from '$lib/domain/answers';
+	import { filledSentence, fillBlankPool, revealedParts } from '$lib/domain/spoken';
+	import { untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
 	import { REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
@@ -40,34 +42,8 @@
 		onGoalReached: () => void;
 	} = $props();
 
-	/**
-	 * The question pool. An authored bank is used as-is; a template-driven quiz
-	 * expands `{subject}` across its categories, which is how the generated
-	 * quizzes (numbers, conjugation tables) produce their items.
-	 */
-	function buildPool(): QuizSentence[] {
-		if (quiz.sentences?.length) return quiz.sentences;
-
-		const generated: QuizSentence[] = [];
-		for (const category of quiz.categories ?? []) {
-			const templates = quiz.sentenceTemplates?.[category.label] ?? ['{subject} = ____'];
-			for (const [index, subject] of (quiz.subjects ?? []).entries()) {
-				const answer = category.values[index];
-				if (answer === undefined) continue;
-				for (const template of templates) {
-					generated.push({
-						subjectKey: subject.key,
-						categoryLabel: category.label,
-						sentence: template.replace('{subject}', subject.display),
-						acceptedAnswers: [answer]
-					});
-				}
-			}
-		}
-		return generated;
-	}
-
-	const pool = buildPool();
+	// Built once: the page is keyed by quiz id, so a new quiz mounts a new component.
+	const pool = untrack(() => fillBlankPool(quiz));
 	const bag: QuizSentence[] = [];
 	const goal = $derived(progressionUnlockStreak(progress.gating));
 
@@ -128,18 +104,10 @@
 	const strict = $derived(quiz.strictDiacritics === true);
 
 	/** The first usable key, split per gap — what a reveal writes in. */
-	const canonicalParts = $derived(
-		current
-			? canonicalGapAnswer(new Array(gaps).fill(''), current.acceptedAnswers, true, strict)
-			: ['']
-	);
+	const canonicalParts = $derived(current ? revealedParts(current, strict) : ['']);
 
 	/** The sentence with its blanks filled, so audio reads a natural sentence. */
-	const spokenForm = $derived.by(() => {
-		if (!current) return '';
-		let i = 0;
-		return current.sentence.replace(BLANK, () => canonicalParts[i++] ?? '');
-	});
+	const spokenForm = $derived(current ? filledSentence(current.sentence, canonicalParts) : '');
 
 	/** Grows a field to fit either the typing or the answer being revealed. */
 	function fieldSize(gap: number): number {

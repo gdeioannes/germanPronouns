@@ -6,6 +6,7 @@
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { spokenVerbForm } from '$lib/domain/spoken';
 	import { breadcrumbLd, definedTermLd, shareImage } from '$lib/seo';
 	import { page } from '$app/state';
 	import type { PageData } from './$types';
@@ -76,7 +77,7 @@
 							<tr>
 								<th scope="row" lang="de">{form.person}</th>
 								<td lang="de">{form.form}</td>
-								<td class="say"><SpeakButton text="{form.person.split('/')[0]} {form.form}" locale={LOCALE} /></td>
+								<td class="say"><SpeakButton text={spokenVerbForm(form)} locale={LOCALE} /></td>
 							</tr>
 						{/each}
 					</tbody>

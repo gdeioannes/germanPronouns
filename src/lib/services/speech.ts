@@ -135,6 +135,67 @@ export class WebSttProvider implements SttProvider {
 }
 
 /**
+ * Clips recorded ahead of time by `tool/gen-audio.mjs` (Gemini TTS), served
+ * from static/audio/. The manifest maps locale → exact text → file, so any
+ * text an exercise speaks plays its recording when there is one, and falls
+ * through to the next voice when there is not. No text leaves the device:
+ * the file comes from the app's own origin.
+ */
+export class RecordedTtsProvider implements TtsProvider {
+	readonly name = 'recorded';
+
+	private manifest: Promise<Record<string, Record<string, string>>> | null = null;
+	private audio: HTMLAudioElement | null = null;
+
+	constructor(private readonly base = '/audio') {}
+
+	private load(): Promise<Record<string, Record<string, string>>> {
+		this.manifest ??= fetch(`${this.base}/manifest.json`)
+			.then((r) => (r.ok ? r.json() : {}))
+			.catch(() => {
+				// Offline before the first fetch: try again next time.
+				this.manifest = null;
+				return {};
+			});
+		return this.manifest;
+	}
+
+	async isAvailable(): Promise<boolean> {
+		return typeof Audio !== 'undefined' && typeof fetch !== 'undefined';
+	}
+
+	async speak(text: string, options: SpeakOptions): Promise<boolean> {
+		if (!(await this.isAvailable())) return false;
+		const file = (await this.load())[options.locale]?.[text.trim()];
+		if (!file) return false;
+		await this.stop();
+		const audio = new Audio(`${this.base}/${file}`);
+		// Pitch is preserved, so the "Slower" buttons stay natural.
+		audio.playbackRate = options.rate ?? 1;
+		this.audio = audio;
+		try {
+			return await new Promise<boolean>((resolve) => {
+				audio.onended = () => resolve(true);
+				// A missing or broken file: the chain falls through to the next voice.
+				audio.onerror = () => resolve(false);
+				// A later speak() pauses this one; settle so the caller's busy state clears.
+				audio.onpause = () => {
+					if (!audio.ended) resolve(true);
+				};
+				audio.play().catch(() => resolve(false));
+			});
+		} finally {
+			if (this.audio === audio) this.audio = null;
+		}
+	}
+
+	async stop(): Promise<void> {
+		this.audio?.pause();
+		this.audio = null;
+	}
+}
+
+/**
  * Premium neural voices via the project's Cloudflare Worker
  * (`cloudflare-tts-proxy/`), the port of lib/services/tts/cloud_tts_provider.dart.
  *
@@ -203,18 +264,20 @@ export class CloudTtsProvider implements TtsProvider {
 }
 
 /**
- * The fallback chain: the premium cloud voice first, the on-device voice when
- * it cannot answer. This is the Dart `TtsService` chain, and it is why a
- * learner offline — or on a build with no proxy — still gets audio.
+ * The fallback chain: a pre-recorded clip first, then the premium cloud voice,
+ * then the on-device voice when neither can answer. This is the Dart
+ * `TtsService` chain, and it is why a learner offline — or on a build with no
+ * proxy — still gets audio.
  *
  * `voice_offline_only` (the Flutter settings key, verbatim) skips the cloud
  * leg entirely for learners who would rather not have their sentences leave
- * the device.
+ * the device. Recordings still play: they send no text anywhere.
  */
 export class ChainedTtsProvider implements TtsProvider {
 	readonly name = 'chain';
 
 	constructor(
+		private readonly recorded: TtsProvider,
 		private readonly cloud: TtsProvider,
 		private readonly device: TtsProvider,
 		/** Consulted per utterance, so the setting takes effect immediately. */
@@ -228,11 +291,13 @@ export class ChainedTtsProvider implements TtsProvider {
 	async speak(text: string, options: SpeakOptions): Promise<boolean> {
 		// The app-wide mute silences the voice too — a learner on a bus meant it.
 		if (isMuted()) return false;
+		if (await this.recorded.speak(text, options)) return true;
 		if (!this.offlineOnly() && (await this.cloud.speak(text, options))) return true;
 		return this.device.speak(text, options);
 	}
 
 	async stop(): Promise<void> {
+		await this.recorded.stop();
 		await this.cloud.stop();
 		await this.device.stop();
 	}
@@ -254,6 +319,7 @@ export function isVoiceOfflineOnly(): boolean {
  * change to these two lines and nothing else.
  */
 export const tts: TtsProvider = new ChainedTtsProvider(
+	new RecordedTtsProvider(),
 	new CloudTtsProvider(env.PUBLIC_TTS_PROXY_URL ?? DEFAULT_TTS_PROXY),
 	new WebTtsProvider(),
 	() => offlineOnly

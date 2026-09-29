@@ -4,35 +4,9 @@
 	// Each answer explains itself, the way every exercise's Help Memory does.
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
+	import { TRY_QUESTIONS as QUESTIONS, tryFilled } from '$lib/content/try-exercise';
 
 	let { href }: { href: string } = $props();
-
-	const QUESTIONS = [
-		{
-			before: 'Ich trinke',
-			after: 'Kaffee.',
-			english: "I'm drinking a coffee.",
-			options: ['der', 'den', 'dem'],
-			answer: 'den',
-			why: 'Kaffee is masculine and the object of trinken, so der becomes den — the accusative.'
-		},
-		{
-			before: 'Wir fahren morgen',
-			after: 'Berlin.',
-			english: "We're going to Berlin tomorrow.",
-			options: ['nach', 'zu', 'in'],
-			answer: 'nach',
-			why: 'Towns and most countries take nach when you travel to them.'
-		},
-		{
-			before: 'Ich bleibe zu Hause, weil ich krank',
-			after: '.',
-			english: "I'm staying at home because I'm ill.",
-			options: ['bin', 'ist', 'sein'],
-			answer: 'bin',
-			why: 'weil sends the verb to the end of its clause — and with ich it is bin.'
-		}
-	];
 
 	let index = $state(0);
 	let picked = $state<string | null>(null);
@@ -41,7 +15,7 @@
 	const q = $derived(QUESTIONS[index]);
 	const done = $derived(index >= QUESTIONS.length);
 	const right = $derived(picked === q?.answer);
-	const filled = $derived(q ? `${q.before} ${q.answer}${q.after === '.' ? '' : ' '}${q.after}` : '');
+	const filled = $derived(q ? tryFilled(q) : '');
 
 	function choose(option: string) {
 		if (picked) return;

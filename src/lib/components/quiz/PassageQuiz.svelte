@@ -17,6 +17,7 @@
 	import { fitOnResize, fitPages, type PageFit } from './fit';
 	import { untrack } from 'svelte';
 	import { tts } from '$lib/services/speech';
+	import { spokenPassage } from '$lib/domain/spoken';
 	import type { ListeningQuiz, ReadingQuiz } from '$lib/content/types';
 
 	let {
@@ -62,11 +63,8 @@
 		return h >>> 0;
 	}
 
-	/**
-	 * What the audio reads: a dialogue's speaker labels ("Frau Weber:") mark
-	 * the turns on the page but are not spoken, as in an exam recording.
-	 */
-	const spoken = $derived(quiz.passage.replace(/^[^\n:]{1,32}:\s*/gm, ''));
+	/** What the audio reads: the passage without its speaker labels. */
+	const spoken = $derived(spokenPassage(quiz.passage));
 
 	/** Chosen SHOWN option index per question, or null while unanswered. */
 	let chosen = $state<(number | null)[]>([]);
