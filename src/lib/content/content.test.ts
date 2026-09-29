@@ -20,6 +20,8 @@ const quizzes = bundle.quizzes;
 const byLevel = (level: string) => quizzes.filter((q) => q.level === level);
 const isPlaceholder = (q: Quiz) => q.status === 'placeholder';
 const isGrammar = (q: Quiz) => q.type === 'fillBlank';
+/** Listening, reading, writing and speaking practice — the only exercises with an exam note. */
+const isSkill = (q: Quiz) => /^(Hören|Lesen|Schreiben|Sprechen|Gespräch|Diktat)\b/.test(q.title);
 
 /** The full seven-layer standard, applied to one quiz. */
 function assertFullStandard(q: Quiz) {
@@ -30,7 +32,6 @@ function assertFullStandard(q: Quiz) {
 	const minTips = isGrammar(q) ? 3 : 2;
 	expect(h.tips?.length ?? 0, `${q.id}: fewer than ${minTips} tips`).toBeGreaterThanOrEqual(minTips);
 	for (const tip of h.tips ?? []) {
-		if (tip.kind === 'exam') continue;
 		expect(tip.examples?.length ?? 0, `${q.id}: tip "${tip.title}" has no examples`).toBeGreaterThanOrEqual(1);
 		for (const ex of tip.examples ?? []) {
 			expect(ex.de, `${q.id}: example missing German`).toBeTruthy();
@@ -38,7 +39,7 @@ function assertFullStandard(q: Quiz) {
 		}
 	}
 	expect(h.remember?.length ?? 0, `${q.id}: no memory aid`).toBeGreaterThanOrEqual(1);
-	expect(h.exam, `${q.id}: no exam note`).toBeTruthy();
+	if (isSkill(q)) expect(h.exam, `${q.id}: no exam note`).toBeTruthy();
 	if (isGrammar(q)) {
 		// A grid quiz derives its table; anything else must author one.
 		const hasGrid = 'subjects' in q && q.subjects.length > 0 && q.categories.length > 0;
@@ -235,6 +236,39 @@ describe('every quiz (baseline)', () => {
 				expect(m, `${q.id}: "${m?.[0]}" at …${text.slice(Math.max(0, (m?.index ?? 0) - 60), (m?.index ?? 0) + 60)}…`).toBeNull();
 			}
 		}
+	});
+
+	it('teaches the language, not the exam', () => {
+		// The certificate is a side goal: only skill exercises carry the one-line
+		// exam note, no help text names an exam task number, and learning help
+		// gives the real reason — never "the exam tests it" or "you need it at B1".
+		// tool/check-exam-framing.mjs prints the same findings per authoring file.
+		const TASK = /\bTeil\s*\d|\b\d\s*Teile\b/;
+		const FRAMING = /\b(exams?|examiners?|certificate|certification)\b|\b[ABC][12](\.[12])?\b/i;
+		for (const q of quizzes) {
+			const h = q.help;
+			if (!h) continue;
+			const skill = isSkill(q);
+			expect(!!h.exam, `${q.id}: ${skill ? 'skill exercise without' : 'learning exercise with'} an exam note`).toBe(skill);
+			if (h.exam) expect(h.exam, `${q.id}: exam task number`).not.toMatch(TASK);
+			const prose = [
+				h.intro,
+				...(h.remember ?? []),
+				...(h.tips ?? []).flatMap((t) => [t.title, t.text, t.trap]),
+				h.table?.caption,
+				...(h.table?.columns ?? []),
+				...(h.mistakes ?? []).map((m) => m.why)
+			].filter((s): s is string => typeof s === 'string');
+			for (const s of prose) {
+				expect(s, `${q.id}: exam task number`).not.toMatch(TASK);
+				expect(s, `${q.id}: exam or level framing`).not.toMatch(FRAMING);
+			}
+			for (const t of h.tips ?? []) expect(t.kind, `${q.id}: exam tip`).not.toBe('exam');
+		}
+	});
+
+	it('keeps the level out of exercise titles (the nav shows it)', () => {
+		for (const q of quizzes) expect(q.title, q.id).not.toMatch(/^[ABC][12]\.[12]\s*·/);
 	});
 
 	it('gives a placeholder fill-in a grid to derive its table from', () => {

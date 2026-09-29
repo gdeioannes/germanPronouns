@@ -173,7 +173,7 @@
 		clearTimeout(advance);
 		advance = setTimeout(() => {
 			if (index === lead + questionIndex) index += 1;
-		}, 420);
+		}, 700);
 	}
 
 	function check() {

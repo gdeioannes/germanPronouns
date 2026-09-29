@@ -116,7 +116,7 @@ export function freshen(node: HTMLElement, key: unknown) {
 					{ opacity: 0, transform: 'translateX(14px)' },
 					{ opacity: 1, transform: 'none' }
 				],
-				{ duration: DURATION.medium, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }
+				{ duration: DURATION.slow, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }
 			);
 		}
 	};

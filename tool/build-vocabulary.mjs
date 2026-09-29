@@ -66,6 +66,20 @@ const OVERRIDES = {
 	'Werkstatt-Witz': { drop: true }
 };
 
+/**
+ * Cards a bad split of a grammar entry produces ("wo? – in / bei / an" →
+ * "an = where?", "die da" → "da = that one"), keyed `de|en` because the same
+ * word is a fine card elsewhere.
+ */
+const DROP_PAIRS = new Set([
+	'an|where?',
+	'wo?|where? in',
+	'da|that one',
+	'hier|this one',
+	'die da|that one',
+	'Montag|Monday to Friday'
+]);
+
 const levelQuizzes = bundle.quizzes.filter((q) => q.level === level && q.type !== 'vocabulary');
 const cards = new Map();
 
@@ -84,14 +98,22 @@ function expand(raw) {
 	const fieldArticles = (raw.article ?? '').split(' / ').map((x) => x.trim()).filter(Boolean);
 	const articles = fieldArticles.length ? fieldArticles : [m[1], m[2]];
 	// Only pair meanings with words when they line up one to one; otherwise
-	// every card keeps the whole gloss.
-	const ens = (raw.en ?? '').split(/ \/ |; /).map((e) => e.trim());
-	const paired = ens.length === words.length;
+	// every card keeps the whole gloss. A slash list inside brackets ("one
+	// (Nom / Akk / Dat)") pairs its parts and keeps the words around them.
+	const gloss = (raw.en ?? '').trim();
+	const bracket = /^([^()]*)\(([^()]*)\)([^()]*)$/.exec(gloss);
+	const inner = bracket ? bracket[2].split(' / ').map((e) => e.trim()) : [];
+	const ens =
+		inner.length === words.length
+			? inner.map((e) => `${bracket[1]}(${e})${bracket[3]}`.trim())
+			: gloss.split(/ \/ |; /).map((e) => e.trim());
+	const balanced = ens.every((e) => (e.match(/\(/g) ?? []).length === (e.match(/\)/g) ?? []).length);
+	const paired = ens.length === words.length && balanced;
 	return words.map((w, i) => ({
 		...raw,
 		de: w,
 		article: articles[i] ?? articles[0],
-		en: paired ? ens[i] : raw.en,
+		en: paired ? ens[i] : gloss,
 		plural: i === 0 ? raw.plural : undefined
 	}));
 }
@@ -121,6 +143,9 @@ function add(raw, sourceQuizId) {
 	// A bare number or year is not vocabulary.
 	if (/^[\d\s.,:]+$/.test(de)) return;
 	if (!de || de.includes('/')) return;
+	// A letter of the alphabet ("J", "ß", "ä") is pronunciation, drilled in the
+	// alphabet quiz, not a word to learn.
+	if ([...de].length === 1) return;
 	// "der/die Angestellte": one noun, two genders — one card for each.
 	const both = /^(der|die|das)\s*\/\s*(der|die|das)$/.exec(raw.article ?? '');
 	if (both) {
@@ -145,20 +170,23 @@ function add(raw, sourceQuizId) {
 		if (!raw.article && restArticle[0] && !/^(der|die|das) /.test(de)) de = `${restArticle[0]} ${de}`;
 	}
 	const note = notes.join('; ') || undefined;
-	// A vocab entry written as "der Tisch" carries its article inline.
-	const inline = /^(der|die|das) (.+)$/.exec(de);
+	// A vocab entry written as "der Tisch" or "die hohen Kosten" carries its
+	// article inline; "das ist nicht mein Bier" or "der hier" starts with a
+	// pronoun, not an article.
+	const inline = /^(der|die|das) ((?:\S+ )?[A-ZÄÖÜ]\S*)$/.exec(de);
 	const word = inline ? inline[2] : de;
 	let article = raw.article ?? (inline ? inline[1] : undefined);
 	let plural = raw.plural;
 	const override = OVERRIDES[word];
 	if (override?.drop) return;
+	if (DROP_PAIRS.has(`${word}|${en}`)) return;
 	if (override?.article) article = override.article;
 	if (override?.plural) plural = override.plural;
 	const capitalised = /^[A-ZÄÖÜ]/.test(word) && !NOT_NOUNS.has(word);
 	// A phrase ("Wie spät ist es?", "Nimm!", "Sehr geehrte") or a prefix
 	// ("Lieblings-") is learnt as it stands: never a noun, never a name.
 	const phrase = /[\s!?.,…:;–]/.test(word) || /-$/.test(word);
-	// Names — countries, cities, people, companies, single letters — are
+	// Names — countries, cities, people, companies — are
 	// capitalised but take no article, so none is demanded. A capitalised
 	// single word glossed with a capitalised English word is a proper noun.
 	const isName =
@@ -168,7 +196,7 @@ function add(raw, sourceQuizId) {
 			!raw.gender &&
 			capitalised &&
 			!phrase &&
-			(/^[A-ZÄÖÜ]$/.test(word) || /^[A-Z]/.test(en) || /\(Firma\)/.test(word)));
+			(/^[A-Z]/.test(en) || /\(Firma\)/.test(word)));
 	const isNoun =
 		!isName &&
 		override?.kind !== 'word' &&
@@ -208,6 +236,9 @@ for (const q of levelQuizzes) {
 		// as if…") or a derivation ("Wert" = "value → valuable") is a grammar
 		// label, not a word to learn.
 		if (/[.?!]$/.test(english) || english.split(/\s+/).length > 5 || english.includes('→')) continue;
+		// A destination row ("Spanien" = "to Spain", "meine Oma" = "to my
+		// grandma's") glosses the preposition the German label leaves out.
+		if (/^to /.test(english) && /^[A-ZÄÖÜ]/.test(display.split(/\s+/).at(-1))) continue;
 		add({ de: display, en: s.english, gender: s.gender }, q.id);
 	}
 }

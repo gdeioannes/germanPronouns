@@ -62,7 +62,11 @@ for (const file of files) {
 			}
 			added++;
 		}
-		if (entry.help) quiz.help = { ...(quiz.help ?? {}), ...entry.help };
+		if (entry.help) {
+			quiz.help = { ...(quiz.help ?? {}), ...entry.help };
+			// `null` in the authoring removes the field from the bundle.
+			for (const [k, v] of Object.entries(quiz.help)) if (v === null) delete quiz.help[k];
+		}
 		if (entry.covers) quiz.covers = entry.covers;
 		if (entry.title) quiz.title = entry.title;
 		if (entry.status === 'live') delete quiz.status;

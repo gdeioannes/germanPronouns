@@ -4,9 +4,9 @@
     "covers": [
       "a1.numbers"
     ],
-    "title": "A1.1 · Zahlen 0–10",
+    "title": "Zahlen 0–10",
     "help": {
-      "intro": "The numbers 0–10 are the foundation of every number you will ever say in German: 21 is ein-und-zwanzig, 300 is drei-hundert, 4.50 € is vier Euro fünfzig. Learn to say and spell each of the eleven by heart now, because the A1 exam hides them everywhere — in prices, phone numbers, ages, platform numbers and times — and they are always said quickly. Two things to know from day one: the number 1 is eins when you count but ein/eine before a noun, and German z is always pronounced ts.",
+      "intro": "The numbers 0–10 are the foundation of every number you will ever say in German: 21 is ein-und-zwanzig, 300 is drei-hundert, 4.50 € is vier Euro fünfzig. Learn to say and spell each of the eleven by heart now, because they hide everywhere — in prices, phone numbers, ages, platform numbers and times — and people say them quickly. Two things to know from day one: the number 1 is eins when you count but ein/eine before a noun, and German z is always pronounced ts.",
       "tips": [
         {
           "kind": "rule",
@@ -133,7 +133,7 @@
           "why": "z is ts; ie is a long ee."
         }
       ],
-      "exam": "A1 Hören Teil 1 and Sprechen Teil 2: phone numbers, ages, prices and room numbers are dictated quickly — these eleven must be instant."
+      "exam": null
     }
   },
   {
@@ -142,7 +142,7 @@
       "a1.personal-pronouns-nom",
       "a1.statement-question"
     ],
-    "title": "A1.1 · Personalpronomen",
+    "title": "Personalpronomen",
     "help": {
       "intro": "The subject pronouns say who is doing the action — ich, du, er, sie, es, wir, ihr, sie, Sie. German has one more than English in two places: two words for 'you' in the singular (du to a friend, Sie to a stranger) and a separate 'you' for a group (ihr). And one word, sie, does three jobs — she, they, and (capitalised) the formal you. The verb ending tells you which is meant, which is why pronouns and verb endings are learnt together.",
       "tips": [
@@ -273,7 +273,7 @@
           "why": "der Hund is masculine, so 'it' is er."
         }
       ],
-      "exam": "A1 Sprechen Teil 1: you introduce yourself with ich and ask the examiner with Sie — both forms are scored."
+      "exam": null
     }
   },
   {
@@ -282,9 +282,9 @@
       "a1.statement-question",
       "a1.family-people"
     ],
-    "title": "A1.1 · Sprechen: Vorstellung",
+    "title": "Sprechen: Vorstellung",
     "help": {
-      "intro": "These twelve phrases are the first things you will ever say in German — greeting, giving your name, saying where you are from, saying goodbye — and they are also, word for word, the first task of the A1 speaking exam. The point of this exercise is not vocabulary but sound: listen to each phrase, then say it back copying the melody and stress of the whole thing rather than hunting for individual letters. German is said with the stress on the first syllable of most words and a falling tone at the end of a statement, and once your ear has that, everything else you learn will sound German too.",
+      "intro": "These twelve phrases are the first things you will ever say in German — greeting, giving your name, saying where you are from, saying goodbye — the phrases you will use with every new colleague, neighbour and classmate. The point of this exercise is not vocabulary but sound: listen to each phrase, then say it back copying the melody and stress of the whole thing rather than hunting for individual letters. German is said with the stress on the first syllable of most words and a falling tone at the end of a statement, and once your ear has that, everything else you learn will sound German too.",
       "tips": [
         {
           "kind": "rule",
@@ -336,7 +336,7 @@
         "Stress the first syllable and let the sentence fall at the end — that is 80% of sounding German.",
         "Say each phrase three times: slow, normal, then fast."
       ],
-      "exam": "A1 Sprechen Teil 1 is exactly this: name, age, country, city, languages, job, hobby — as full sentences, spoken clearly."
+      "exam": "Introducing yourself in full sentences — name, country, languages, job — is how the A1 speaking exam opens, and how every first meeting in Germany does too."
     }
   },
   {
@@ -344,7 +344,7 @@
     "covers": [
       "a1.articles-nom"
     ],
-    "title": "A1.1 · Artikel im Nominativ",
+    "title": "Artikel im Nominativ",
     "help": {
       "intro": "Every German noun belongs to one of three genders — masculine (der), feminine (die) or neuter (das) — and the gender is not about meaning: das Mädchen (the girl) is neuter, der Tisch (the table) is masculine. There is no way round it: you learn every noun together with its article, like a first name and a surname. This quiz is the nominative, the form for the subject of a sentence and after sein: der Mann ist hier, das ist ein Mann. The indefinite article (a/an) is ein for der- and das-words and eine for die-words, and the plural of 'the' is always die, whatever the gender.",
       "tips": [
@@ -441,7 +441,7 @@
           "why": "das-words take ein, exactly like der-words."
         }
       ],
-      "exam": "Every A1 task checks articles in passing — Lesen Teil 3 (signs and ads) and the Schreiben form both hinge on der/die/das."
+      "exam": null
     }
   },
   {
@@ -450,7 +450,7 @@
       "a1.plural",
       "a1.articles-nom"
     ],
-    "title": "A1.1 · Plural der Nomen",
+    "title": "Plural der Nomen",
     "help": {
       "colorByGender": true,
       "intro": "English makes a plural by adding -s. German has five ways, and you cannot tell from the singular which one a noun uses — so, like the article, the plural is learnt with the word: der Tisch, die Tische. The good news is that the five endings are few and each has a favourite gender: -e (most masculine: Tische, Hunde, often with an umlaut: Stühle), -(e)n (almost all feminine: Frauen, Lampen, Katzen), -er (many neuter, usually with an umlaut: Kinder, Häuser, Bücher), -s (foreign and short words: Autos, Handys), and no ending at all (masculine and neuter ending in -er, -el, -en: Schlüssel, Fenster, Mädchen — often only the umlaut changes: Brüder, Äpfel). In the plural the article is always die, whatever the gender.",
@@ -518,7 +518,7 @@
               "en": "umlaut plus -er"
             }
           ],
-          "trap": "there is no -s rule to lean on. A noun's plural is part of the noun; guessing with -s (Tischs, Frauas) is the most common A1 plural error."
+          "trap": "there is no -s rule to lean on. A noun's plural is part of the noun; guessing with -s (Tischs, Frauas) is the most common beginner's plural error."
         }
       ],
       "remember": [
@@ -546,7 +546,7 @@
           "why": "Many no-ending plurals still take the umlaut."
         }
       ],
-      "exam": "A1 Lesen Teil 3 (ads: 2 Zimmer, 3 Stühle) and the Schreiben form (Kinder: 2) — plurals are read and written more than said at A1."
+      "exam": null
     }
   },
   {
@@ -554,7 +554,7 @@
     "covers": [
       "a1.numbers"
     ],
-    "title": "A1.1 · Zahlen 11–20",
+    "title": "Zahlen 11–20",
     "help": {
       "intro": "Eleven to twenty look irregular but hide one pattern: from thirteen up, you say the unit and then zehn — vier-zehn, acht-zehn — exactly like English 'four-teen'. Only elf (11) and zwölf (12) have to be learnt as words, and two spellings are trimmed: sechzehn drops the s of sechs, siebzehn drops the -en of sieben. Twenty is zwanzig, the first of the tens, and it starts the next block. These teens matter more than they look: ages, times (um vierzehn Uhr), prices and dates all use them constantly.",
       "tips": [
@@ -672,7 +672,7 @@
           "why": "Twenty is the first of the tens, not a teen."
         }
       ],
-      "exam": "A1 Hören Teil 1 dictates ages and times; 'um sechzehn Uhr' and 'um achtzehn Uhr' are the most-tested times of all."
+      "exam": null
     }
   },
   {
@@ -682,9 +682,9 @@
       "a1.present-regular",
       "a1.sein-haben"
     ],
-    "title": "A1.1 · Hören: Vorstellung",
+    "title": "Hören: Vorstellung",
     "help": {
-      "intro": "Max introduces himself in a short recording that you only hear — the text stays hidden until you choose to show it. This is the shape of the whole A1 listening exam: someone speaks about themselves, and the questions follow the order of what they say. Your job is not to understand every word. It is to catch the answers to the W-questions — woher (where from), was (what he does), wie alt (how old), wie (what something is like) — and to hold each one until the matching question comes. Watch the time words too: am Wochenende and am Abend introduce different activities, and the questions ask about one of them. Listen once for the shape, once for the details, and replay as often as you like: the real exam plays everything twice too.",
+      "intro": "Max introduces himself in a short recording that you only hear — the text stays hidden until you choose to show it. This is how most everyday listening works: someone talks about themselves, and what you need comes in the order they say it. Your job is not to understand every word. It is to catch the answers to the W-questions — woher (where from), was (what he does), wie alt (how old), wie (what something is like) — and to hold each one until the matching question comes. Watch the time words too: am Wochenende and am Abend introduce different activities, and the questions ask about one of them. Listen once for the shape, once for the details, and replay as often as you like: in real life you would simply ask 'Wie bitte?'.",
       "tips": [
         {
           "kind": "rule",
@@ -734,9 +734,9 @@
       ],
       "remember": [
         "Read the questions first, press play second — you listen better when you know what you are listening for.",
-        "Replay is part of the skill, not cheating: the exam plays every text twice."
+        "Replay is part of the skill, not cheating: in real life you ask 'Wie bitte?'."
       ],
-      "exam": "A1 Hören Teil 1 (short monologues, one fact each) and Teil 3 (a message): same length, same speed, same W-questions."
+      "exam": "Short monologues where someone introduces themselves are a standard listening text in the A1 exam — and on every first day of a language course."
     }
   },
   {
@@ -744,9 +744,9 @@
     "covers": [
       "a1.sein-haben"
     ],
-    "title": "A1.1 · sein & haben",
+    "title": "sein & haben",
     "help": {
-      "intro": "sein (to be) and haben (to have) are the two verbs you cannot say a German sentence without. You describe yourself with sein (ich bin müde), say what you own with haben (ich habe einen Hund), and from A2 on you build every past-tense sentence with one of the two (ich habe gegessen, ich bin gefahren). Both are irregular. sein is irregular through and through — bin, bist, ist, sind, seid, sind — with no pattern to lean on; haben is regular except that du hast and er hat drop the b. Learn both sets by heart now; they come up in every exercise from here to C2.",
+      "intro": "sein (to be) and haben (to have) are the two verbs you cannot say a German sentence without. You describe yourself with sein (ich bin müde), say what you own with haben (ich habe einen Hund), and later in the course you build every past-tense sentence with one of the two (ich habe gegessen, ich bin gefahren). Both are irregular. sein is irregular through and through — bin, bist, ist, sind, seid, sind — with no pattern to lean on; haben is regular except that du hast and er hat drop the b. Learn both sets by heart now; they come up in every exercise from here to the end of the course.",
       "tips": [
         {
           "kind": "rule",
@@ -867,7 +867,7 @@
           "why": "Like Hunger, Durst is a noun you have — 'durstig' is understood but not what Germans say."
         }
       ],
-      "exam": "A1 Sprechen Teil 1 is built on these two: Ich bin …, ich habe … — and the Perfekt at A2 will reuse them as helper verbs."
+      "exam": null
     }
   },
   {
@@ -875,7 +875,7 @@
     "covers": [
       "a1.statement-question"
     ],
-    "title": "A1.1 · W-Fragen",
+    "title": "W-Fragen",
     "help": {
       "intro": "W-questions ask for information — who, what, where, when, how, why — and almost all of the German ones begin with w: wer, was, wo, wann, wie, warum. The word order is fixed and simple: question word, then the verb, then the subject — Wo wohnst du? Woher kommt sie? English needs a helper ('where *do* you live?'); German does not, it just moves the verb forward. The one place English speakers stumble is 'where', which German splits into three: wo (at what place), wohin (to what place) and woher (from what place).",
       "tips": [
@@ -1020,7 +1020,7 @@
           "why": "A negative question is contradicted with doch, not ja."
         }
       ],
-      "exam": "A1 Sprechen Teil 2: you draw a card with a word and must *ask* a question with it — Wo? Wann? Wie viel? — and answer your partner's."
+      "exam": null
     }
   },
   {
@@ -1030,9 +1030,9 @@
       "a1.present-regular",
       "a1.family-people"
     ],
-    "title": "A1.1 · Lesen: Das bin ich",
+    "title": "Lesen: Das bin ich",
     "help": {
-      "intro": "A short self-introduction of the kind you find on a language-course website or a pen-pal page: name, age, country, city, what she does, family, hobbies. Read it once for the gist without stopping at unknown words, then take the questions one at a time and go back to the text for each. Every question has a key word — alt, woher, arbeitet, trinkt — and the sentence containing the answer contains that key word or its twin (wie alt ↔ Jahre alt; was macht ↔ Studentin). That scanning move — question first, then hunt the key word — is the single most useful reading habit for the A1 exam, where you never have time to translate.",
+      "intro": "A short self-introduction of the kind you find on a language-course website or a pen-pal page: name, age, country, city, what she does, family, hobbies. Read it once for the gist without stopping at unknown words, then take the questions one at a time and go back to the text for each. Every question has a key word — alt, woher, arbeitet, trinkt — and the sentence containing the answer contains that key word or its twin (wie alt ↔ Jahre alt; was macht ↔ Studentin). That scanning move — question first, then hunt the key word — is the single most useful reading habit you can build, because in real life you rarely have time to translate.",
       "tips": [
         {
           "kind": "rule",
@@ -1084,7 +1084,7 @@
         "Never translate the whole text. Read for the answer, not for the words.",
         "'gern' after a verb = likes doing it: Ich spiele gern Tennis."
       ],
-      "exam": "A1 Lesen Teil 1: a short personal text with richtig/falsch statements — exactly this length and content."
+      "exam": "Short personal texts with true/false statements are a typical A1 exam reading task — and exactly what a pen-pal message or profile page looks like."
     }
   },
   {
@@ -1094,9 +1094,9 @@
       "a1.statement-question",
       "a1.sein-haben"
     ],
-    "title": "A1.1 · Kurzcheck: Zahlen & Vorstellung",
+    "title": "Kurzcheck: Zahlen & Vorstellung",
     "help": {
-      "intro": "A three-minute checkpoint on the first half of A1.1, run in your own AI assistant with voice on: it asks, you answer aloud in full sentences, and at the end it gives a score and the three corrections that matter most. Copy the exercise, paste it into the assistant, switch on voice mode and say 'Los geht's'. It will ask your name, where you are from, your age, and a handful of numbers — the same ground as the A1 speaking exam's first part. Answer in whole sentences (Ich heiße …, Ich komme aus …, Ich bin … Jahre alt), because the sentence, not the word, is what is scored.",
+      "intro": "A three-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: it asks, you answer aloud in full sentences, and at the end it gives a score and the three corrections that matter most. Copy the exercise, paste it into the assistant, switch on voice mode and say 'Los geht's'. It will ask your name, where you are from, your age, and a handful of numbers — the same ground as any first conversation with someone new. Answer in whole sentences (Ich heiße …, Ich komme aus …, Ich bin … Jahre alt), because the sentence, not the word, is what people understand.",
       "tips": [
         {
           "kind": "rule",
@@ -1133,7 +1133,7 @@
         "Ich heiße / ich komme aus / ich wohne in / ich bin … Jahre alt — the four sentences that open every German conversation.",
         "Say the number, then repeat it: numbers are what the tutor listens for."
       ],
-      "exam": "A1 Sprechen Teil 1 (sich vorstellen) plus the spelling and number the examiner asks for afterwards."
+      "exam": null
     }
   },
   {
@@ -1141,7 +1141,7 @@
     "covers": [
       "a1.present-regular"
     ],
-    "title": "A1.1 · Regelmäßige Verben (Präsens)",
+    "title": "Regelmäßige Verben (Präsens)",
     "help": {
       "intro": "German has one present tense that does the work of three English ones: ich wohne is 'I live', 'I am living' and 'I do live'. To form it, take the infinitive, cut the -en to get the stem (wohn-, mach-, komm-), and add the ending for the person: -e, -st, -t, -en, -t, -en. Those six endings never change — they are the same on every regular verb you will ever meet, and most irregular ones keep them too. One small comfort rule: if the stem ends in -t or -d (arbeit-, find-), an extra e slips in before -st and -t so the word can be pronounced: du arbeitest, er findet.",
       "tips": [
@@ -1282,7 +1282,7 @@
           "why": "er/sie/es always ends in -t."
         }
       ],
-      "exam": "Every A1 module: the Schreiben task (a short e-mail about yourself) is scored largely on correct verb endings."
+      "exam": null
     }
   },
   {
@@ -1290,9 +1290,9 @@
     "covers": [
       "a1.vowel-change"
     ],
-    "title": "A1.1 · Unregelmäßige Verben (Vokalwechsel)",
+    "title": "Unregelmäßige Verben (Vokalwechsel)",
     "help": {
-      "intro": "A small group of very common verbs change their stem vowel in the present tense — but only in two forms, du and er/sie/es. Everything else about them is regular: the endings are the usual -e, -st, -t, -en, -t, -en, and ich, wir, ihr and sie/Sie keep the vowel of the infinitive. There are three kinds of change — a becomes ä (fahren → du fährst), e becomes i (sprechen → du sprichst, essen → du isst) and e becomes ie (lesen → du liest, sehen → du siehst). The eight verbs in this quiz are the ones the A1 word list requires and cover most of what you will meet; nehmen is the odd one out, doubling the m and losing the h: du nimmst, er nimmt. Because the umlaut is the whole point here, it is checked strictly: fahrst for fährst is marked wrong (type ae if your keyboard has no ä).",
+      "intro": "A small group of very common verbs change their stem vowel in the present tense — but only in two forms, du and er/sie/es. Everything else about them is regular: the endings are the usual -e, -st, -t, -en, -t, -en, and ich, wir, ihr and sie/Sie keep the vowel of the infinitive. There are three kinds of change — a becomes ä (fahren → du fährst), e becomes i (sprechen → du sprichst, essen → du isst) and e becomes ie (lesen → du liest, sehen → du siehst). The eight verbs in this quiz are among the most common in everyday German and cover most of what you will meet; nehmen is the odd one out, doubling the m and losing the h: du nimmst, er nimmt. Because the umlaut is the whole point here, it is checked strictly: fahrst for fährst is marked wrong (type ae if your keyboard has no ä).",
       "tips": [
         {
           "kind": "rule",
@@ -1426,7 +1426,7 @@
           "why": "nehmen shortens: nimmst, nimmt."
         }
       ],
-      "exam": "The Perfekt at A2 uses these verbs constantly (gefahren, gelesen, gegessen) — learn them now with both the du-form and the participle in mind."
+      "exam": null
     }
   },
   {
@@ -1437,9 +1437,9 @@
       "a1.articles-nom",
       "a1.personal-pronouns-nom"
     ],
-    "title": "A1.1 · Großer Text: Das bin ich",
+    "title": "Großer Text: Das bin ich",
     "help": {
-      "intro": "One whole self-introduction with twelve gaps, using everything from A1.1 at once: verb endings for ich, sie and wir, sein and haben, and the nominative articles der / mein. Each gap has a small hint under it — the verb and the person (heißen · ich), or the article it wants — so this is not a memory test but a putting-together test. Read the whole text first, because the sentence tells you the person; fill the verbs before the articles; and type only the one word the gap wants. This is the shape of the A1 Schreiben task in reverse: the text you will have to write yourself.",
+      "intro": "One whole self-introduction with twelve gaps, using everything from this module at once: verb endings for ich, sie and wir, sein and haben, and the nominative articles der / mein. Each gap has a small hint under it — the verb and the person (heißen · ich), or the article it wants — so this is not a memory test but a putting-together test. Read the whole text first, because the sentence tells you the person; fill the verbs before the articles; and type only the one word the gap wants. It is the text you will soon write yourself — for a course, a pen pal or a new colleague — seen in reverse.",
       "tips": [
         {
           "kind": "rule",
@@ -1489,14 +1489,14 @@
               "en": "The dog is small and brown."
             }
           ],
-          "trap": "English capitalises only names. In German a lowercase noun is a spelling mistake the exam marks."
+          "trap": "English capitalises only names. In German a lowercase noun is a spelling mistake every German reader notices."
         }
       ],
       "remember": [
         "Fill the verbs first, the articles second — the verb gap tells you the person; the article gap tells you the gender.",
         "Read the hint under the gap before you type: it names the verb and the person."
       ],
-      "exam": "A1 Schreiben Teil 2 asks you to write exactly this — a short text about yourself — and scores the verb endings and articles you are filling here."
+      "exam": null
     }
   },
   {
@@ -1507,7 +1507,7 @@
       "a1.numbers",
       "a1.countries"
     ],
-    "title": "A1.1 · Diktat: Steckbrief",
+    "title": "Diktat: Steckbrief",
     "help": {
       "intro": "A dictation: you hear one sentence from a personal profile — Ich heiße Anna. Ich komme aus England. Ich bin zwanzig Jahre alt. — and type it. Play it as often as you need, hold the whole sentence in your head, then write it in one go. Two things are being trained at once. Your ear: telling heiße from heißen, bin from bist. And your spelling: German is written almost exactly as it is said, so once you can hear it you can write it — provided you remember that every noun takes a capital, that ei is the 'eye' sound and ie the 'ee' sound, and that ß is just a sharp s. The check is forgiving about umlauts and ß (ae, oe, ue and ss are accepted), but not about the words themselves.",
       "tips": [
@@ -1562,7 +1562,7 @@
         "If it sounds like 'eye', write ei; if it sounds like 'ee', write ie.",
         "Big word, big letter: every noun starts with a capital."
       ],
-      "exam": "A1 Schreiben Teil 1 (filling a form with your details) rewards exactly this: names, countries and numbers spelt correctly from what you know by ear."
+      "exam": "Filling in a form with names, countries and numbers is a standard A1 exam writing task — and the first thing any German office will ask of you."
     }
   },
   {
@@ -1570,9 +1570,9 @@
     "covers": [
       "a1.numbers"
     ],
-    "title": "A1.1 · Hören: Zahlen & Preise",
+    "title": "Hören: Zahlen & Preise",
     "help": {
-      "intro": "A market seller calls out today's prices — apples, bananas, bread, eggs, cheese, potatoes — and you only hear it. Your job is to match each product to its price, which is the single most common thing the A1 listening exam asks: numbers inside real speech, said at real speed. The trick is to hold the pair together: the product name comes first, the price follows within a second or two (… Äpfel … zwei Euro). Prices are said euros first, then cents, with no word for the comma: 2,20 € is 'zwei Euro zwanzig'; 1,10 € is 'ein Euro zehn'. Two prices here are close on purpose — zwei Euro and zwei Euro zehn — so listen to the end of each number. Play it once for the products, once for the prices.",
+      "intro": "A market seller calls out today's prices — apples, bananas, bread, eggs, cheese, potatoes — and you only hear it. Your job is to match each product to its price, which is the most common listening job of daily life: numbers inside real speech, said at real speed. The trick is to hold the pair together: the product name comes first, the price follows within a second or two (… Äpfel … zwei Euro). Prices are said euros first, then cents, with no word for the comma: 2,20 € is 'zwei Euro zwanzig'; 1,10 € is 'ein Euro zehn'. Two prices here are close on purpose — zwei Euro and zwei Euro zehn — so listen to the end of each number. Play it once for the products, once for the prices.",
       "tips": [
         {
           "kind": "rule",
@@ -1624,7 +1624,7 @@
         "Write the number as you hear it — 'zwei Euro zwanzig' → 2,20 — before the next product starts.",
         "kostet / kosten is the bell: the price is the next thing said."
       ],
-      "exam": "A1 Hören Teil 1: five short scenes, each asking for one number — a price, a time, a platform. Same speed as here."
+      "exam": "Catching one number — a price, a time, a platform — inside a short scene is a standard A1 exam listening text, and daily life at the market and the station."
     }
   },
   {
@@ -1632,9 +1632,9 @@
     "covers": [
       "a1.numbers"
     ],
-    "title": "A1.1 · Zahlen 20–100",
+    "title": "Zahlen 20–100",
     "help": {
-      "intro": "From twenty-one upwards German says the numbers backwards from an English point of view: the unit first, then und, then the ten, all as one word — einundzwanzig is 'one-and-twenty'. Once you accept that order, everything to a hundred follows one pattern, and the tens themselves are the units with -zig on the end (vierzig, fünfzig, achtzig, neunzig) with the same two trims as before — sechzig, siebzig — and one odd one, dreißig, spelt with ß. Two details count in the exam: it is ein before und (einundzwanzig, never einsundzwanzig), and hundert can be said with or without ein.",
+      "intro": "From twenty-one upwards German says the numbers backwards from an English point of view: the unit first, then und, then the ten, all as one word — einundzwanzig is 'one-and-twenty'. Once you accept that order, everything to a hundred follows one pattern, and the tens themselves are the units with -zig on the end (vierzig, fünfzig, achtzig, neunzig) with the same two trims as before — sechzig, siebzig — and one odd one, dreißig, spelt with ß. Two details are worth getting right from the start: it is ein before und (einundzwanzig, never einsundzwanzig), and hundert can be said with or without ein.",
       "tips": [
         {
           "kind": "rule",
@@ -1770,7 +1770,7 @@
           "why": "dreißig takes ß; sechzig is trimmed."
         }
       ],
-      "exam": "A1 Hören Teil 1 and Lesen Teil 2 (timetables, prices): two-digit numbers said fast, written as digits — the flip is the whole skill."
+      "exam": null
     }
   },
   {
@@ -1778,9 +1778,9 @@
     "covers": [
       "a1.colours"
     ],
-    "title": "A1.1 · Farben",
+    "title": "Farben",
     "help": {
-      "intro": "Colours are the first adjectives you use to describe things, and at A1 you use them in the easy position: after the verb sein, where they never change — Das Auto ist rot. Die Blume ist gelb. (Before a noun an adjective takes an ending — ein rotes Auto — but that is an A2 skill; at A1 you only need to recognise it.) The eleven basic colours are in the official A1 word list, and three of them are loanwords that never take any ending even later: rosa, lila and orange. This quiz gives you a clue and asks for the colour; the clues also quietly teach you nouns like Himmel, Gras and Sonne.",
+      "intro": "Colours are the first adjectives you use to describe things, and at first you use them in the easy position: after the verb sein, where they never change — Das Auto ist rot. Die Blume ist gelb. (Before a noun an adjective takes an ending — ein rotes Auto — but that comes later in the course; for now you only need to recognise it.) You need eleven basic colours, and three of them are loanwords that never take any ending even later: rosa, lila and orange. This quiz gives you a clue and asks for the colour; the clues also quietly teach you nouns like Himmel, Gras and Sonne.",
       "tips": [
         {
           "kind": "rule",
@@ -1800,7 +1800,7 @@
         {
           "kind": "rule",
           "title": "Before a noun it takes an ending — for later",
-          "text": "ein rotes Auto, eine gelbe Banane, der blaue Himmel. You will learn the endings at A2; for now just notice them when you read.",
+          "text": "ein rotes Auto, eine gelbe Banane, der blaue Himmel. The endings come later in the course; for now just notice them when you read.",
           "examples": [
             {
               "de": "Ich habe ein blaues Auto.",
@@ -1929,7 +1929,7 @@
           "why": "Same rule: base form after ist."
         }
       ],
-      "exam": "A1 Sprechen Teil 3 (asking for things with picture cards) and Lesen Teil 3 (ads) use colours to identify objects: 'das rote Fahrrad'."
+      "exam": null
     }
   },
   {
@@ -1937,7 +1937,7 @@
     "covers": [
       "a1.numbers"
     ],
-    "title": "A1.1 · Sprechen: Zahlen & Preise",
+    "title": "Sprechen: Zahlen & Preise",
     "help": {
       "intro": "Numbers are the words you will say most often in a German-speaking country — prices at the till, platform numbers at the station, room numbers, your own age and phone number — and they are also the words most often misheard, because the German sounds are not the English ones. This exercise is pure sound: listen and repeat, from null to a price. Three sounds carry it: z is ts (zwei = 'tsvai', zwanzig = 'TSVAN-tsikh'), ei is 'eye' (drei, zwei), and the -ig at the end of the tens is a soft 'ikh', not 'ig'. Say each one three times, and say the price out loud the German way — euros, then cents.",
       "tips": [
@@ -2001,9 +2001,9 @@
       "a1.articles-nom",
       "a1.word-formation-basic"
     ],
-    "title": "A1.1 · Familie & Menschen",
+    "title": "Familie & Menschen",
     "help": {
-      "intro": "Family and people words are among the first nouns you need — in the exam you introduce your family, and in life you talk about your Bruder and your Freundin constantly. Learn each one with its article, because here the gender mostly follows the person: der Vater, die Mutter, der Sohn, die Tochter. Two exceptions show that German gender is grammar, not biology: das Kind and das Mädchen are neuter, because -chen words are always das. A pattern worth learning early: many people-words make their female form by adding -in — Freund → Freundin, Lehrer → Lehrerin, Student → Studentin — and the plural of these is -innen.",
+      "intro": "Family and people words are among the first nouns you need — you introduce your family to new people, and you talk about your Bruder and your Freundin constantly. Learn each one with its article, because here the gender mostly follows the person: der Vater, die Mutter, der Sohn, die Tochter. Two exceptions show that German gender is grammar, not biology: das Kind and das Mädchen are neuter, because -chen words are always das. A pattern worth learning early: many people-words make their female form by adding -in — Freund → Freundin, Lehrer → Lehrerin, Student → Studentin — and the plural of these is -innen.",
       "tips": [
         {
           "kind": "rule",
@@ -2092,7 +2092,7 @@
           "why": "Eltern is plural only, so its article is die."
         }
       ],
-      "exam": "A1 Sprechen Teil 1 and Schreiben Teil 2: 'Ich habe zwei Kinder / einen Bruder' — family is in every A1 personal text.",
+      "exam": null,
       "vocab": [
         {
           "de": "Vater",
@@ -2201,9 +2201,9 @@
       "a1.countries",
       "a1.articles-nom"
     ],
-    "title": "A1.1 · Länder, Sprachen & Nationalitäten",
+    "title": "Länder, Sprachen & Nationalitäten",
     "help": {
-      "intro": "Where are you from, what do you speak, what are you — three of the first questions anyone asks, and three of the official A1 word groups. Most country names have no article and take aus directly: aus Deutschland, aus Spanien. A handful are feminine or plural and keep their article, which then changes after aus: die Schweiz → aus der Schweiz, die Türkei → aus der Türkei, die USA → aus den USA. Languages are neuter nouns written with a capital (Deutsch, Englisch) and most end in -isch. Nationalities are people-nouns: Deutscher / Deutsche, Engländer / Engländerin, Franzose / Französin — and after sein they take no article: Ich bin Deutsche.",
+      "intro": "Where are you from, what do you speak, what are you — three of the first questions anyone asks, and three answers you will give again and again. Most country names have no article and take aus directly: aus Deutschland, aus Spanien. A handful are feminine or plural and keep their article, which then changes after aus: die Schweiz → aus der Schweiz, die Türkei → aus der Türkei, die USA → aus den USA. Languages are neuter nouns written with a capital (Deutsch, Englisch) and most end in -isch. Nationalities are people-nouns: Deutscher / Deutsche, Engländer / Engländerin, Franzose / Französin — and after sein they take no article: Ich bin Deutsche.",
       "tips": [
         {
           "kind": "rule",
@@ -2234,7 +2234,7 @@
               "en": "He comes from the USA."
             }
           ],
-          "trap": "the article after aus is the dative (der / den). You will learn the dative properly at A2; for now learn these four as fixed phrases."
+          "trap": "the article after aus is the dative (der / den). For now learn these four as fixed phrases; the system behind them comes later in the course."
         },
         {
           "kind": "rule",
@@ -2292,7 +2292,7 @@
           "why": "Nationalities after sein take no article."
         }
       ],
-      "exam": "A1 Sprechen Teil 1: 'Ich komme aus … Ich spreche …' — and Hören Teil 1 often tests exactly which country someone is from."
+      "exam": null
     }
   },
   {
@@ -2300,9 +2300,9 @@
     "covers": [
       "a1.wo-prepositions"
     ],
-    "title": "A1.1 · Wo? — Ortsangaben",
+    "title": "Wo? — Ortsangaben",
     "help": {
-      "intro": "Saying where you are is an A1 must — Ich bin im Büro, wir sind in der Stadt, sie ist bei ihren Eltern — and the official inventory lists the prepositions for it: in, an, auf, bei, aus, von, vor, unter (and nach for Wohin?, which has its own quiz at A1.2). Behind them sits the dative case, which changes der to dem and die to der, and glues in + dem into im and an + dem into am. You will learn the dative as a system at A2. At A1 you learn these as fixed chunks, the way a child does: im Park, am Bahnhof, in der Schule, bei Siemens, beim Arzt. The pairing is what matters: in for inside or in a town or country, an for at (a station, the sea, the university), bei for at a person’s or a company’s, auf / vor / unter for on, in front of and under something, and for ‘from’ the mirror image — aus for out of a place, von for from a person, a company or a point.",
+      "intro": "Saying where you are is something you do every day — Ich bin im Büro, wir sind in der Stadt, sie ist bei ihren Eltern — and a small set of prepositions covers it: in, an, auf, bei, aus, von, vor, unter (and nach for Wohin?, which has its own quiz in the next module). Behind them sits the dative case, which changes der to dem and die to der, and glues in + dem into im and an + dem into am. You will learn the dative as a system later in the course. For now you learn these as fixed chunks, the way a child does: im Park, am Bahnhof, in der Schule, bei Siemens, beim Arzt. The pairing is what matters: in for inside or in a town or country, an for at (a station, the sea, the university), bei for at a person’s or a company’s, auf / vor / unter for on, in front of and under something, and for ‘from’ the mirror image — aus for out of a place, von for from a person, a company or a point.",
       "tips": [
         {
           "kind": "rule",
@@ -2406,7 +2406,7 @@
           "why": "Origin from a country or city is aus; von is for people and points."
         }
       ],
-      "exam": "A1 Hören Teil 2 and Sprechen Teil 2: 'Wo ist …?' — every place answer is one of these chunks."
+      "exam": null
     }
   },
   {
@@ -2415,9 +2415,9 @@
       "a1.word-formation-basic",
       "a1.family-people"
     ],
-    "title": "A1.1 · Wortbildung: -in & Komposita",
+    "title": "Wortbildung: -in & Komposita",
     "help": {
-      "intro": "German builds words the way it builds numbers: by gluing pieces together. The two pieces the A1 inventory asks for are the ending -in, which turns a male person-word into the female one (der Lehrer → die Lehrerin, der Student → die Studentin), and the compound noun, which fuses two nouns into one — die Schokolade + der Kuchen = der Schokoladenkuchen, das Haus + die Tür = die Haustür. Both let you understand far more than you have learnt: once you know Kuchen, you know Apfelkuchen, Käsekuchen and Geburtstagskuchen. Two rules cover nearly everything: -in is always die, with plural -innen and sometimes an umlaut (Arzt → Ärztin, Koch → Köchin); and a compound takes the gender of its last part. The umlaut in Ärztin and Köchin is checked strictly (type ae/oe if you have no umlaut keys).",
+      "intro": "German builds words the way it builds numbers: by gluing pieces together. The two pieces to start with are the ending -in, which turns a male person-word into the female one (der Lehrer → die Lehrerin, der Student → die Studentin), and the compound noun, which fuses two nouns into one — die Schokolade + der Kuchen = der Schokoladenkuchen, das Haus + die Tür = die Haustür. Both let you understand far more than you have learnt: once you know Kuchen, you know Apfelkuchen, Käsekuchen and Geburtstagskuchen. Two rules cover nearly everything: -in is always die, with plural -innen and sometimes an umlaut (Arzt → Ärztin, Koch → Köchin); and a compound takes the gender of its last part. The umlaut in Ärztin and Köchin is checked strictly (type ae/oe if you have no umlaut keys).",
       "tips": [
         {
           "kind": "rule",
@@ -2506,7 +2506,7 @@
           "why": "The compound takes the gender of its last part, der Kuchen."
         }
       ],
-      "exam": "A1 Lesen Teil 3 is full of compounds (Kinderzimmer, Fahrkarte, Haltestelle) — reading them from the back is how you understand words you never learnt."
+      "exam": null
     }
   },
   {
@@ -2518,9 +2518,9 @@
       "a1.family-people",
       "a1.colours"
     ],
-    "title": "A1.1 · Gespräch: Das bin ich",
+    "title": "Gespräch: Das bin ich",
     "help": {
-      "intro": "The closing conversation of A1.1, run in your own AI assistant with voice mode on: a five-minute chat about you — name, where you live and come from, your family, and the numbers and colours around you. Copy the exercise, paste it in, say 'Los geht's', and answer in full sentences. The tutor will not interrupt to correct you; it keeps every correction for the report at the end, together with a score you bring back here. This is as close to the A1 oral exam as practice gets: an examiner asking, you answering in whole sentences, with the verb endings and sein/haben forms being what is scored.",
+      "intro": "The closing conversation of this module, run in your own AI assistant with voice mode on: a five-minute chat about you — name, where you live and come from, your family, and the numbers and colours around you. Copy the exercise, paste it in, say 'Los geht's', and answer in full sentences. The tutor will not interrupt to correct you; it keeps every correction for the report at the end, together with a score you bring back here. This is as close to a real first conversation as practice gets: someone asking, you answering in whole sentences, with the verb endings and sein/haben forms carrying the meaning.",
       "tips": [
         {
           "kind": "rule",
@@ -2555,7 +2555,7 @@
         {
           "kind": "mnemonic",
           "title": "Ask back",
-          "text": "Und du? / Und Sie? turns an answer into a conversation and buys you a second to think. The exam rewards it too.",
+          "text": "Und du? / Und Sie? turns an answer into a conversation and buys you a second to think.",
           "examples": [
             {
               "de": "Ich komme aus Irland. Und du?",
@@ -2572,7 +2572,7 @@
         "Whole sentences only — the score is on the sentence, not the word.",
         "Keep talking through mistakes; the corrections come at the end."
       ],
-      "exam": "A1 Sprechen, all three parts: introduce yourself, ask and answer with word cards, make a request — five minutes of exactly this."
+      "exam": "A short conversation about yourself and your family is the heart of the A1 speaking exam — and of every first chat with a neighbour."
     }
   },
   {
@@ -2580,9 +2580,9 @@
     "covers": [
       "a1.alphabet"
     ],
-    "title": "A1.1 · Das Alphabet & Buchstabieren",
+    "title": "Das Alphabet & Buchstabieren",
     "help": {
-      "intro": "Wie schreibt man das? — how do you spell that? — is a question you will hear on your first day in any German office, and the A1 exam asks you to spell your name. The German alphabet has the same 26 letters as English plus ä, ö, ü and ß, but many letters have different names, and the ones that differ are exactly the ones English speakers mix up: E is said 'ay' and I is said 'ee' (the other way round from what you expect), J is Jot, V is Vau (said 'fow'), W is We (said 'vay'), Z is Zett ('tset') and Y is Ypsilon. Germans spell with a few fixed helpers: Doppel-L for ll, A-Umlaut for ä, Eszett or scharfes S for ß. This quiz asks for the names of the tricky letters, then gives you names spelt out letter by letter and asks you to write the word.",
+      "intro": "Wie schreibt man das? — how do you spell that? — is a question you will hear on your first day in any German office, and on the phone, at the doctor's and at every hotel desk you will be asked to spell your name. The German alphabet has the same 26 letters as English plus ä, ö, ü and ß, but many letters have different names, and the ones that differ are exactly the ones English speakers mix up: E is said 'ay' and I is said 'ee' (the other way round from what you expect), J is Jot, V is Vau (said 'fow'), W is We (said 'vay'), Z is Zett ('tset') and Y is Ypsilon. Germans spell with a few fixed helpers: Doppel-L for ll, A-Umlaut for ä, Eszett or scharfes S for ß. This quiz asks for the names of the tricky letters, then gives you names spelt out letter by letter and asks you to write the word.",
       "tips": [
         {
           "kind": "warning",
@@ -2632,7 +2632,7 @@
         },
         {
           "kind": "mnemonic",
-          "title": "The exam script",
+          "title": "The front-desk script",
           "text": "Wie ist Ihr Name? – … Können Sie das bitte buchstabieren? – Gern: … Practise your own name and your street until you can spell them without stopping.",
           "examples": [
             {
@@ -2719,7 +2719,7 @@
           "why": "German Z is always ts — in its name too."
         }
       ],
-      "exam": "A1 Sprechen Teil 1: after introducing yourself you are asked to spell your name (Buchstabieren Sie bitte Ihren Namen); Hören and the Schreiben form reward spelling names and streets correctly."
+      "exam": null
     }
   },
   {
@@ -2727,7 +2727,7 @@
     "covers": [
       "a1.numbers"
     ],
-    "title": "A1.1 · Zahlen ab 100: Preise, Jahre, Mengen",
+    "title": "Zahlen ab 100: Preise, Jahre, Mengen",
     "help": {
       "intro": "Rents, prices of bikes and phones, distances, the year you were born: from here on the numbers get long, and German writes them as one word — 650 is sechshundertfünfzig, 1.200 is tausendzweihundert. The good news is that nothing new is hidden inside them. You say the hundreds, then the last two digits exactly as you learnt them, with the unit first: 385 = dreihundert-fünfundachtzig. Thousands work the same way: 8.500 = achttausend-fünfhundert. Two things are different from English. First, German marks thousands with a full stop and decimals with a comma: 1.200 means twelve hundred, 1,20 means one point two. Second, years before 2000 are said in hundreds: 1998 is neunzehnhundertachtundneunzig, never 'tausendneunhundert…'; from 2000 on you say zweitausend: 2020 = zweitausendzwanzig.",
       "tips": [
@@ -2875,7 +2875,7 @@
           "why": "The full stop groups thousands; the comma is the decimal point."
         }
       ],
-      "exam": "A1 Lesen Teil 3 (ads: rent, price, square metres) and Hören Teil 1 (prices, years of birth, distances) — three- and four-digit numbers read and heard at speed."
+      "exam": null
     }
   },
   {
@@ -2883,9 +2883,9 @@
     "covers": [
       "a1.vocabulary"
     ],
-    "title": "A1.1 · Wortschatz",
+    "title": "Wortschatz",
     "help": {
-      "intro": "Every word the A1.1 exercises use, on one deck of flashcards: the nouns from the article and plural drills, the numbers, the family, the colours, the countries and the verbs. A noun is learnt with its article or not at all, so the write mode only counts \"die Stelle\", never \"Stelle\" on its own. Three ways to work through the deck: write the German, choose it from four options, or flip the card and rate yourself honestly. A word you miss comes back later in the same run, and stays in your \"Weak words\" list until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: the nouns from the article and plural drills, the numbers, the family, the colours, the countries and the verbs. A noun is learnt with its article or not at all, so the write mode only counts \"die Stelle\", never \"Stelle\" on its own. Three ways to work through the deck: write the German, choose it from four options, or flip the card and rate yourself honestly. A word you miss comes back later in the same run, and stays in your \"Weak words\" list until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -2941,7 +2941,7 @@
         "Never say a noun without its article — not even in your head.",
         "Miss a word? It comes back in the same run. Get it right three times and it leaves the weak list."
       ],
-      "exam": "A1 Sprechen Teil 2 and Schreiben Teil 1 are built from exactly this vocabulary: introduce yourself, name things around you, give numbers and prices."
+      "exam": null
     }
   }
 ]

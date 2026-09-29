@@ -32,6 +32,10 @@ export interface QuizFacts {
 	answered: number;
 	/** Share of recorded answers that were wrong, 0–1. */
 	mistakeRate: number;
+	/** Same, over the last twenty answers only — how it is going *now*. Falls back to mistakeRate. */
+	recentMistakeRate?: number;
+	/** Epoch ms of the last answer or finish; null/absent when unknown. */
+	lastPlayedAt?: number | null;
 }
 
 export interface Recommendation {

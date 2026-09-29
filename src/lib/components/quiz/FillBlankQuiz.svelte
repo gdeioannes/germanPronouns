@@ -24,7 +24,7 @@
 	import { untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
-	import { REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
+	import { MIN_SHOW, REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
 	import { freshen, prefersReducedMotion } from '$lib/motion';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import StreakTracker from './StreakTracker.svelte';
@@ -218,14 +218,16 @@
 		// so a relaxed-mode "schon" visibly becomes "schön".
 		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
 
-		// Enter moves on without waiting out the reveal: at once after a right
-		// answer, once the correction is written in after a wrong one.
+		// Enter moves on without waiting out the reveal: shortly after a right
+		// answer, once the correction is written in after a wrong one. Never
+		// instantly — a double-tapped Enter would swap the sentence before the
+		// green ever showed, which reads as a glitch rather than a result.
 		const moveOn = () => {
 			skip = null;
 			clearTimers();
 			next();
 		};
-		if (correct) skip = moveOn;
+		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		answers = new Array(gaps).fill('');
 		await typeOut(canonical);
 		skip = moveOn;
@@ -244,7 +246,7 @@
 		if (event.key !== 'Enter') return;
 		if (locked) {
 			event.preventDefault();
-			skip?.();
+			if (!event.repeat) skip?.();
 			return;
 		}
 		const nextEmpty = answers.findIndex((a, i) => i !== gap && !a.trim());

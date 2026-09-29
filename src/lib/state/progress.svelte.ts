@@ -31,6 +31,12 @@ import type { QuizType } from '$lib/content/types';
 export type AnswerRevealMode = 'quick' | 'normal' | 'slow';
 
 /** The pause, in ms, for each mode — the Dart durations verbatim. */
+/**
+ * The shortest time an answered question stays on screen, even when Enter
+ * asks to skip ahead — long enough for the verdict to register.
+ */
+export const MIN_SHOW = 450;
+
 export const REVEAL_PAUSE: Record<AnswerRevealMode, number> = {
 	quick: 500,
 	normal: 1500,
@@ -39,6 +45,8 @@ export const REVEAL_PAUSE: Record<AnswerRevealMode, number> = {
 
 /** How many answers the per-quiz history keeps; enough to rank weak spots. */
 const ANSWER_HISTORY_LIMIT = 200;
+/** How many of the latest answers say how the learner is doing *now*. */
+const RECENT_WINDOW = 20;
 
 export interface QuizStats {
 	score: number;
@@ -218,14 +226,26 @@ class ProgressStore {
 	async historyFor(prefix: string): Promise<{
 		answered: number;
 		mistakeRate: number;
+		/** Mistake share over the last RECENT_WINDOW answers only. */
+		recentMistakeRate: number;
+		/** Epoch ms of the last answer or finish; null when never played or before timestamps existed. */
+		lastPlayedAt: number | null;
 		mistakesByCategory: Record<string, number>;
 	}> {
 		const keys = quizStatsKeys(prefix);
 		const history = await this.readJson(keys.answerHistory);
 		const entries = Array.isArray(history) ? history : [];
-		const correct = entries.filter(
-			(entry) => (entry as { correct?: unknown })?.correct === true
-		).length;
+		const isCorrect = (entry: unknown) => (entry as { correct?: unknown })?.correct === true;
+		const correct = entries.filter(isCorrect).length;
+		const recent = entries.slice(-RECENT_WINDOW);
+		const recentCorrect = recent.filter(isCorrect).length;
+		// Entries written before timestamps existed have no `at`; the play-through
+		// kinds write only the lastPlayed key. Take whichever is latest.
+		let lastPlayedAt = Number(await storage.get(keys.lastPlayed)) || null;
+		for (const entry of entries) {
+			const at = Number((entry as { at?: unknown })?.at);
+			if (at && (!lastPlayedAt || at > lastPlayedAt)) lastPlayedAt = at;
+		}
 		const mistakes = await this.readJson(keys.mistakesByCase);
 		const mistakesByCategory: Record<string, number> = {};
 		if (mistakes && typeof mistakes === 'object' && !Array.isArray(mistakes)) {
@@ -236,6 +256,8 @@ class ProgressStore {
 		return {
 			answered: entries.length,
 			mistakeRate: entries.length === 0 ? 0 : 1 - correct / entries.length,
+			recentMistakeRate: recent.length === 0 ? 0 : 1 - recentCorrect / recent.length,
+			lastPlayedAt,
 			mistakesByCategory
 		};
 	}
@@ -263,7 +285,7 @@ class ProgressStore {
 		const keys = quizStatsKeys(prefix);
 		const previous = await this.readJson(keys.answerHistory);
 		const entries = Array.isArray(previous) ? previous : [];
-		entries.push({ correct });
+		entries.push({ correct, at: Date.now() });
 		await storage.set(
 			keys.answerHistory,
 			JSON.stringify(entries.slice(-ANSWER_HISTORY_LIMIT))
@@ -300,6 +322,15 @@ class ProgressStore {
 		};
 		await this.saveStats(prefix, next);
 		return next;
+	}
+
+	/**
+	 * Stamps "played now" on a quiz. Answered kinds get it with every answer;
+	 * the play-through kinds (reading, speaking) call it on finish, since they
+	 * keep no answer history for the deck's spaced review to date from.
+	 */
+	async markPlayed(prefix: string): Promise<void> {
+		await storage.set(quizStatsKeys(prefix).lastPlayed, String(Date.now()));
 	}
 
 	// -- completion ----------------------------------------------------------

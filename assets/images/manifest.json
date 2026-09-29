@@ -539,6 +539,77 @@
 			"id": "telefonnummer",
 			"prompt": "a smartphone lying next to a notepad with a scribbled line and a pencil",
 			"hint": true
+		},
+		{
+			"id": "gast",
+			"prompt": "a host at an open front door welcoming a visitor who holds a bunch of flowers",
+			"hint": true
+		},
+		{
+			"id": "apotheke",
+			"prompt": "a pharmacy counter with a pharmacist in a white coat handing over a medicine box, shelves of bottles behind, no text"
+		},
+		{
+			"id": "baecker",
+			"prompt": "a baker in an apron holding a tray of fresh bread rolls in front of an oven"
+		},
+		{
+			"id": "cafe",
+			"prompt": "a small café storefront with an awning, two outdoor tables and a coffee cup sign, no text"
+		},
+		{
+			"id": "sport",
+			"prompt": "a person jogging with a football, a tennis racket and a bicycle around them",
+			"hint": true
+		},
+		{
+			"id": "zuhause",
+			"prompt": "a person in slippers relaxing in an armchair at home with a cat and a warm lamp",
+			"hint": true
+		},
+		{
+			"id": "fieber",
+			"prompt": "a person in bed with a thermometer in the mouth, a red face and an ice bag on the head"
+		},
+		{
+			"id": "konzert",
+			"prompt": "a band playing on a stage with spotlights in front of a cheering crowd"
+		},
+		{
+			"id": "termin",
+			"prompt": "a person pointing at a circled day on a wall calendar next to a clock, no text or numbers",
+			"hint": true
+		},
+		{
+			"id": "bericht",
+			"prompt": "a person at a desk holding up a stapled document with charts, no text",
+			"hint": true
+		},
+		{
+			"id": "chef",
+			"prompt": "a man in a suit at a big desk pointing with an assistant listening, drawn large",
+			"hint": true
+		},
+		{
+			"id": "chefin",
+			"prompt": "a woman in a suit standing at the head of a meeting table addressing two employees, drawn large",
+			"hint": true
+		},
+		{
+			"id": "wolke",
+			"prompt": "a single fluffy white cloud"
+		},
+		{
+			"id": "gewitter",
+			"prompt": "a dark storm cloud with a lightning bolt and heavy rain over a small house"
+		},
+		{
+			"id": "regenschirm",
+			"prompt": "an open umbrella held by a hand in the rain"
+		},
+		{
+			"id": "muell",
+			"prompt": "a full rubbish bin with a banana peel and a crumpled can beside it"
 		}
 	]
 }

@@ -40,7 +40,6 @@
 	import { progress } from '$lib/state/progress.svelte';
 	import { storage } from '$lib/services/storage';
 	import { track } from '$lib/services/analytics';
-	import { goto } from '$app/navigation';
 	import { onMount, untrack } from 'svelte';
 	import type { PageData } from './$types';
 
@@ -128,27 +127,20 @@
 		finished = true;
 		await progress.markCompleted(quiz.type, quiz.id);
 		await progress.markQuestCompleted(quiz.id);
+		await progress.markPlayed(quiz.storageKeyPrefix);
 		track('quiz_completed', { course: course.id, quiz: quiz.id, type: quiz.type });
 		celebrate();
 	}
 
 	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
-	/** Where Enter goes once finished: back to the swipe deck for the next card. */
+	/** Back to the swipe deck for the next card. */
 	const homeHref = $derived(`/course/${course.id}`);
 
-	// Once the "Next" button is up, Enter follows it — wherever focus sits.
-	// The learner has just been typing answers, so the hands are on the keys;
-	// reaching for the mouse to move on would be a step backwards.
-	function onWindowKey(event: KeyboardEvent) {
-		if (!finished || doneDismissed || notesOpen || moreOpen) return;
-		if (event.key !== 'Enter' || event.repeat) return;
-		if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
-		event.preventDefault();
-		goto(homeHref);
-	}
+	// Finishing never navigates on its own, and Enter is NOT a shortcut out:
+	// the quizzes use Enter to skip to the next question, so a learner still
+	// in the rhythm of a run would be thrown back to the deck mid-thought.
+	// Leaving is always an explicit tap (or Tab + Enter) on the finished bar.
 </script>
-
-<svelte:window onkeydown={onWindowKey} />
 
 <Seo
 	title={quizTitle(quiz)}

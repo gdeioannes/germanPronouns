@@ -31,7 +31,7 @@
 	// A quiz's Help Memory — the study notes — in the seven layers the content
 	// plan defines (docs/content_master_plan.md §4): the idea, the rule cards
 	// with their examples, how to remember it, the reference table, the words,
-	// a short text in context, and the exam it feeds — plus the mistakes
+	// a short text in context, and (skill exercises only) the exam — plus the mistakes
 	// English speakers make. The quiz page holds it in a panel in front of the
 	// exercise (see Sheet), opened by its Notes button and, on a first visit,
 	// by itself — so the rules are read before the first question rather than

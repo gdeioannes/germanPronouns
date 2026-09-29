@@ -4,7 +4,7 @@
     "covers": [
       "a1.accusative-articles"
     ],
-    "title": "A1.2 · Akkusativ (Artikel)",
+    "title": "Akkusativ (Artikel)",
     "help": {
       "intro": "German marks the job a noun does in the sentence by changing its article — that is what a 'case' is. The nominative is the subject (the one doing); the accusative is the direct object (the one it is done to): Der Mann sieht den Hund — the man sees the dog. This is the first case beyond the nominative, and the friendliest: only the masculine changes. der becomes den, ein becomes einen; feminine, neuter and plural look exactly as they did. Every transitive verb — haben, sehen, kaufen, essen, brauchen, möchten — takes an accusative object, so you will use this in nearly every sentence from now on. Ask 'wen oder was?' (whom or what?) after the verb and the answer is the accusative.",
       "tips": [
@@ -96,7 +96,7 @@
           "why": "The object of sehen is accusative: der → den."
         }
       ],
-      "exam": "A1 Schreiben Teil 2 and Sprechen Teil 3 (requests: 'Ich brauche einen …') — the masculine accusative is the single most-marked article error at A1."
+      "exam": null
     }
   },
   {
@@ -105,7 +105,7 @@
       "a1.possessives",
       "a1.accusative-articles"
     ],
-    "title": "A1.2 · Possessivartikel",
+    "title": "Possessivartikel",
     "help": {
       "intro": "Possessive articles say whose something is — mein, dein, sein, ihr, unser, euer, Ihr — and they behave exactly like ein: they take the ein-endings, decided by the noun that follows, not by the owner. So mein Vater (masculine), mein Kind (neuter), meine Mutter (feminine), meine Eltern (plural); and in the accusative the masculine adds -en: Ich sehe meinen Vater. The owner only decides which word you start from: sein for his (and for its with a der/das-word), ihr for her (and for their), Ihr with a capital for your (formal). Choose the owner, then add the ending for the noun — two separate decisions, in that order.",
       "tips": [
@@ -197,7 +197,7 @@
           "why": "Neuter takes no ending in the nominative and accusative."
         }
       ],
-      "exam": "A1 Sprechen Teil 1 and Schreiben: 'meine Familie, mein Bruder, meine Adresse' — possessives appear in every sentence about yourself."
+      "exam": null
     }
   },
   {
@@ -207,9 +207,9 @@
       "a1.accusative-articles",
       "a1.quantities"
     ],
-    "title": "A1.2 · Hören: Im Café",
+    "title": "Hören: Im Café",
     "help": {
-      "intro": "A guest orders in a café: cake first, then a drink, then the bill — all of it only heard. Two people speaking is the new difficulty, so each line of the transcript starts with the speaker (Kellner, Gast). The waiter asks and names the price; the guest answers and pays. Keep a mental list as you listen: what is ordered, what is offered but refused, what it costs, what is paid. The ordering verbs are your signposts: nehmen and möchten (what is ordered), Was macht das? and Das macht … (the price). Listen once to get the two voices apart, then once for each question. The phrases here — Was möchten Sie? Ich nehme … Das macht … Stimmt so — are the script of the A1 speaking exam's request task.",
+      "intro": "A guest orders in a café: cake first, then a drink, then the bill — all of it only heard. Two people speaking is the new difficulty, so each line of the transcript starts with the speaker (Kellner, Gast). The waiter asks and names the price; the guest answers and pays. Keep a mental list as you listen: what is ordered, what is offered but refused, what it costs, what is paid. The ordering verbs are your signposts: nehmen and möchten (what is ordered), Was macht das? and Das macht … (the price). Listen once to get the two voices apart, then once for each question. The phrases here — Was möchten Sie? Ich nehme … Das macht … Stimmt so — are the script you will use yourself at every café table.",
       "tips": [
         {
           "kind": "rule",
@@ -261,7 +261,7 @@
         "Guest = what; waiter = how much. Listen for each in its own voice.",
         "'Nein, danke' removes an item from the order; 'Stimmt so' means keep the change."
       ],
-      "exam": "A1 Hören Teil 1 (short dialogues) and Sprechen Teil 3 (ordering with a picture card) use this scene almost word for word."
+      "exam": "Ordering, refusing and paying in a café is a standard short dialogue in the A1 exam — and your first real conversation in any German-speaking town."
     }
   },
   {
@@ -269,7 +269,7 @@
     "covers": [
       "a1.accusative-pronouns"
     ],
-    "title": "A1.2 · Personalpronomen (Akkusativ)",
+    "title": "Personalpronomen (Akkusativ)",
     "help": {
       "intro": "When a pronoun is the object of the verb it changes form, just as in English (I → me, he → him): Ich sehe dich, du siehst mich, wir kennen ihn. Five of the nine change completely — ich → mich, du → dich, er → ihn, wir → uns, ihr → euch — and three stay exactly as they were: sie (her, them), es and Sie. The one that catches English speakers is 'it': a thing is er, sie or es by its gender, so 'I see it' is Ich sehe ihn for der Tisch, sie for die Lampe, es for das Buch. Choose the pronoun by the noun's gender, then put it in the accusative — which, for a der-word, means ihn.",
       "tips": [
@@ -302,7 +302,7 @@
               "en": "Where is the bag? – I don't see it."
             }
           ],
-          "trap": "'it' is three words in German. Reaching for es every time is the most common pronoun error at A1."
+          "trap": "'it' is three words in German. Reaching for es every time is the most common beginner's pronoun error."
         },
         {
           "kind": "rule",
@@ -360,7 +360,7 @@
           "why": "du becomes dich as an object."
         }
       ],
-      "exam": "A1 Hören dialogues turn on these: 'Hast du ihn? – Ich sehe sie nicht.' — you must know which noun the pronoun replaces.",
+      "exam": null,
       "vocab": [
         {
           "de": "mich",
@@ -418,7 +418,7 @@
     "covers": [
       "a1.negation"
     ],
-    "title": "A1.2 · Negation (kein/nicht)",
+    "title": "Negation (kein/nicht)",
     "help": {
       "intro": "English has one 'not' and one 'no'; German splits the job in two. kein negates a noun that would otherwise have ein or no article at all — it means 'not a', 'no', 'not any': Ich habe kein Auto, keine Zeit, keinen Hund. nicht negates everything else: a verb (Ich verstehe nicht), an adjective (Sie ist nicht müde), an adverb (nicht heute), and a noun that has a definite article or a possessive (Das ist nicht mein Auto). kein is an ein-word, so it takes the ein-endings — keinen for a masculine object. Where nicht goes is the other half: at the end of a simple sentence, but before the adjective, the adverb or the place it negates.",
       "tips": [
@@ -509,7 +509,7 @@
           "why": "nicht goes after the verb, at the end of a simple sentence."
         }
       ],
-      "exam": "A1 Schreiben (declining an invitation: 'Ich habe keine Zeit, ich kann nicht kommen') — both negations in one sentence is the classic A1 task.",
+      "exam": null,
       "vocab": [
         {
           "de": "nicht",
@@ -571,9 +571,9 @@
       "a1.polite-konjunktiv",
       "a1.quantities"
     ],
-    "title": "A1.2 · Lesen: Das neue Café",
+    "title": "Lesen: Das neue Café",
     "help": {
-      "intro": "Anna writes to her friend Lena about a new café: where it is, when it is open, what it costs, what to eat — and at the end she invites Lena to go with her. A short personal e-mail like this is the A1 reading exam's first task type, and it always hides the same kinds of detail: a place, days and times, a price, a recommendation and a date. The café ordering script is practised in the listening and speaking tasks; here the job is scanning. Read the e-mail once for the gist, then for each question decide whether you are hunting a place, a day, a number or a thing, and find the key word: geöffnet / geschlossen for the days, kostet for the price, Tipp for the recommendation, Möchtest du …? for the invitation.",
+      "intro": "Anna writes to her friend Lena about a new café: where it is, when it is open, what it costs, what to eat — and at the end she invites Lena to go with her. A short personal e-mail like this is what friends actually send, and it usually carries the same kinds of detail: a place, days and times, a price, a recommendation and a date. The café ordering script is practised in the listening and speaking exercises; here the job is scanning. Read the e-mail once for the gist, then for each question decide whether you are hunting a place, a day, a number or a thing, and find the key word: geöffnet / geschlossen for the days, kostet for the price, Tipp for the recommendation, Möchtest du …? for the invitation.",
       "tips": [
         {
           "kind": "rule",
@@ -625,7 +625,7 @@
         "Question first, then hunt the key word: kostet, geschlossen, Tipp, Möchtest du.",
         "von … bis gives the open days; the missing day is the closed one."
       ],
-      "exam": "A1 Lesen Teil 1: a short everyday text with richtig/falsch items in text order."
+      "exam": "A short personal e-mail with richtig/falsch items is a typical A1 exam reading text — and exactly what friends send you."
     }
   },
   {
@@ -633,7 +633,7 @@
     "covers": [
       "a1.modal-verbs"
     ],
-    "title": "A1.2 · Modalverben",
+    "title": "Modalverben",
     "help": {
       "intro": "Modal verbs colour another verb: können (can, be able), müssen (must, have to), wollen (want to), möchten (would like to), dürfen (may, be allowed), sollen (should, be supposed to). Two things make them a system of their own. Their forms: in the singular the vowel usually changes and the ich- and er-forms are identical with no ending — ich kann, er kann; ich muss, sie muss. And their word order: the modal takes position 2 and pushes the other verb, as an infinitive, to the very end of the sentence — Ich kann heute nicht kommen. That bracket, with the sentence held between the two verbs, is the shape of half of German grammar to come, so it is worth getting right now.",
       "tips": [
@@ -770,7 +770,7 @@
           "why": "wollen is blunt; möchten is the polite form for ordering."
         }
       ],
-      "exam": "A1 Sprechen Teil 3 (requests: Kannst du …? Darf ich …?) and every Schreiben task ('Ich kann leider nicht kommen')."
+      "exam": null
     }
   },
   {
@@ -779,7 +779,7 @@
       "a1.time",
       "a1.separable-verbs"
     ],
-    "title": "A1.2 · Sprechen: Alltag & Uhrzeit",
+    "title": "Sprechen: Alltag & Uhrzeit",
     "help": {
       "intro": "Twelve sentences that describe a day — what time it is, when you get up, eat, shop and go to bed — to listen to and repeat. Two sounds and one grammar point are being trained. The sounds: ü (früh, fünf, frühstücke) needs rounded lips — but the u in Uhr and um is a plain long or short 'oo', never ü; and ch after i (ich, nicht) is a soft hiss. The grammar: separable verbs, where the prefix is said at the end of the sentence and carries the stress — Ich stehe um sieben Uhr AUF. Say the whole sentence as one arc and land firmly on that last word; it is the part English speakers swallow. The clock words halb and Viertel are explained below and drilled properly in the Uhrzeit quiz.",
       "tips": [
@@ -834,7 +834,7 @@
         "Prefix last, prefix loud.",
         "halb + next hour = half past the one before; Uhr and um are plain u."
       ],
-      "exam": "A1 Sprechen Teil 2: the word cards often say 'Uhr' or 'aufstehen' — you must ask and answer a question with them."
+      "exam": "Asking and answering about times and your daily routine comes up in the A1 exam — and in every first chat with a new colleague."
     }
   },
   {
@@ -842,9 +842,9 @@
     "covers": [
       "a1.time"
     ],
-    "title": "A1.2 · Uhrzeit",
+    "title": "Uhrzeit",
     "help": {
-      "intro": "There are two clocks in German. The official one reads the digits and is used for timetables, appointments and anything written: vierzehn Uhr dreißig, neun Uhr fünfzehn. The colloquial one is what people actually say: Viertel nach acht (quarter past eight), Viertel vor neun (quarter to nine), fünf nach zehn — and halb, which is the one that trips English speakers, because halb drei means half *of the way to* three, i.e. 2:30, not 3:30. Both are in the official A1 word list, both come up in the listening exam, and you should be able to switch: hear halb acht, write 7:30. Both are accepted in this quiz: type Viertel nach acht or acht Uhr fünfzehn for 08:15, halb drei or vierzehn Uhr dreißig for 14:30 — the reference table shows the two side by side.",
+      "intro": "There are two clocks in German. The official one reads the digits and is used for timetables, appointments and anything written: vierzehn Uhr dreißig, neun Uhr fünfzehn. The colloquial one is what people actually say: Viertel nach acht (quarter past eight), Viertel vor neun (quarter to nine), fünf nach zehn — and halb, which is the one that trips English speakers, because halb drei means half *of the way to* three, i.e. 2:30, not 3:30. You will hear both every day — on the radio, at the station, from friends — and you should be able to switch: hear halb acht, write 7:30. Both are accepted in this quiz: type Viertel nach acht or acht Uhr fünfzehn for 08:15, halb drei or vierzehn Uhr dreißig for 14:30 — the reference table shows the two side by side.",
       "tips": [
         {
           "kind": "warning",
@@ -860,7 +860,7 @@
               "en": "It's 12:30."
             }
           ],
-          "trap": "English 'half three' is 3:30. German halb drei is 2:30. This one costs marks in every A1 listening test."
+          "trap": "English 'half three' is 3:30. German halb drei is 2:30. This one makes people turn up an hour late."
         },
         {
           "kind": "rule",
@@ -988,7 +988,7 @@
           "why": "'at' a time is um."
         }
       ],
-      "exam": "A1 Hören Teil 1 asks a time in almost every set — and halb is there on purpose."
+      "exam": null
     }
   },
   {
@@ -997,9 +997,9 @@
       "a1.accusative-articles",
       "a1.possessives"
     ],
-    "title": "A1.2 · Kurzcheck: Akkusativ & Possessiv",
+    "title": "Kurzcheck: Akkusativ & Possessiv",
     "help": {
-      "intro": "A three-minute checkpoint on the first half of A1.2, run in your own AI assistant with voice on: what you have, what you need today, and whose things they are. Copy the exercise in, switch on voice, say 'Los geht's'. The tutor listens for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the score is on the article and the ending, which only show up in a sentence.",
+      "intro": "A three-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: what you have, what you need today, and whose things they are. Copy the exercise in, switch on voice, say 'Los geht's'. The tutor listens for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the score is on the article and the ending, which only show up in a sentence.",
       "tips": [
         {
           "kind": "rule",
@@ -1036,7 +1036,7 @@
         "Blue nouns get -en after haben / brauchen: einen, keinen, meinen.",
         "Whole sentences — the ending is the point, and it only lives in a sentence."
       ],
-      "exam": "A1 Sprechen Teil 3: asking for something with a picture card — 'Ich brauche einen …, haben Sie …?'"
+      "exam": null
     }
   },
   {
@@ -1044,9 +1044,9 @@
     "covers": [
       "a1.calendar"
     ],
-    "title": "A1.2 · Wochentage & Monate",
+    "title": "Wochentage & Monate",
     "help": {
-      "intro": "Days, months and seasons are all masculine — der Montag, der Januar, der Sommer — and all written with a capital letter, because they are nouns. Two small prepositions do most of the work: am for a day or part of a day (am Montag, am Morgen, am Wochenende) and im for a month or season (im Mai, im Winter). The date itself is said with an ordinal number and der: der erste März, der zwölfte April; and 'on' a date is am + -en: am ersten März. The four seasons and the four parts of the day complete the calendar word group the A1 exam draws on. The last six items practise exactly that: der dritte Mai, but am zwölften Juni — after am the ordinal takes -en.",
+      "intro": "Days, months and seasons are all masculine — der Montag, der Januar, der Sommer — and all written with a capital letter, because they are nouns. Two small prepositions do most of the work: am for a day or part of a day (am Montag, am Morgen, am Wochenende) and im for a month or season (im Mai, im Winter). The date itself is said with an ordinal number and der: der erste März, der zwölfte April; and 'on' a date is am + -en: am ersten März. The four seasons and the four parts of the day complete the calendar: with them you can name any appointment, birthday or holiday. The last six items practise exactly that: der dritte Mai, but am zwölften Juni — after am the ordinal takes -en.",
       "tips": [
         {
           "kind": "rule",
@@ -1206,7 +1206,7 @@
           "why": "After am the ordinal ends in -en."
         }
       ],
-      "exam": "A1 Hören Teil 2 (Termine) and Schreiben Teil 1 (the form asks for Geburtsdatum): dates in words and digits both."
+      "exam": null
     }
   },
   {
@@ -1215,9 +1215,9 @@
       "a1.wann-prepositions",
       "a1.calendar"
     ],
-    "title": "A1.2 · Wann? — Zeitangaben",
+    "title": "Wann? — Zeitangaben",
     "help": {
-      "intro": "Saying when is one of the official A1 syntax points, and it hangs on a handful of prepositions that each own a kind of time: um for clock times (um acht Uhr), am for days and parts of the day (am Montag, am Morgen, am Wochenende), im for months and seasons (im März, im Sommer), and in der Nacht as the one exception. For spans and points around them: von … bis (from … to), ab (from … on), für (for a length of time — often left out: zwei Wochen), nach (after), vor (before), and in for the future (in einer Woche = in a week’s time). Years stand alone: Ich bin 1995 geboren, with no preposition. Each item gives you the time word in brackets; type the whole time phrase, preposition included.",
+      "intro": "Saying when is something you do in almost every conversation, and it hangs on a handful of prepositions that each own a kind of time: um for clock times (um acht Uhr), am for days and parts of the day (am Montag, am Morgen, am Wochenende), im for months and seasons (im März, im Sommer), and in der Nacht as the one exception. For spans and points around them: von … bis (from … to), ab (from … on), für (for a length of time — often left out: zwei Wochen), nach (after), vor (before), and in for the future (in einer Woche = in a week’s time). Years stand alone: Ich bin 1995 geboren, with no preposition. Each item gives you the time word in brackets; type the whole time phrase, preposition included.",
       "tips": [
         {
           "kind": "rule",
@@ -1263,7 +1263,7 @@
               "en": "In a week I'll be in Rome."
             }
           ],
-          "trap": "English 'in the' never changes; German 'in dem' becomes im, 'in der Nacht' keeps der. The article after a preposition is a case ending, and you will learn the system at A2."
+          "trap": "English 'in the' never changes; German 'in dem' becomes im, 'in der Nacht' keeps der. The article after a preposition is a case ending, and you will learn the system later in the course."
         },
         {
           "kind": "warning",
@@ -1306,7 +1306,7 @@
           "why": "Months and seasons take im."
         }
       ],
-      "exam": "A1 Hören Teil 2 and Lesen Teil 2 (opening hours, timetables): 'von … bis', 'ab', 'am', 'um' are the words the answers hang on."
+      "exam": null
     }
   },
   {
@@ -1316,7 +1316,7 @@
       "a1.time",
       "a1.accusative-articles"
     ],
-    "title": "A1.2 · Diktat: Mein Tag",
+    "title": "Diktat: Mein Tag",
     "help": {
       "intro": "A dictation built from one person's day, from getting up to going to bed: the separable verbs, the clock and the shopping phrases of this level. Hear the sentence, hold it whole, type it. The listening skill here is the split verb — Ich stehe um sieben Uhr auf — where the auf arrives at the very end and belongs to the verb at the start; write it where you hear it. Times are the other trap: halb acht is 7:30 and is written as two words. Umlauts and ß are checked leniently (Aepfel, fruehstuecke pass) but every word must be there and in the right form.",
       "tips": [
@@ -1370,7 +1370,7 @@
         "Wait for the last word — it may belong to the first verb.",
         "If you hear 'ei-nen', there are two syllables to write."
       ],
-      "exam": "A1 Schreiben Teil 2 (a short text about your day) is scored on exactly these forms; dictation makes you hear them before you write them."
+      "exam": "A short text about your day is a typical A1 exam writing task; dictation makes you hear these forms before you write them."
     }
   },
   {
@@ -1379,9 +1379,9 @@
       "a1.time",
       "a1.calendar"
     ],
-    "title": "A1.2 · Hören: Termine & Uhrzeit",
+    "title": "Hören: Termine & Uhrzeit",
     "help": {
-      "intro": "Anna leaves Tom a voicemail about tomorrow: the day, two times, a meeting place, a price and two instructions. You only hear it, and the questions ask for the details — which is precisely A1 Hören Teil 3, the answering-machine message. Three things to catch: the day (am Samstag), the times (the film at halb acht = 7:30, the meeting at sieben Uhr = 7:00 — two different times, and two different questions), and the place with its preposition (vor dem Kino = outside the cinema, not inside). Listen once for the shape, then once per question; write times as digits the moment you hear them.",
+      "intro": "Anna leaves Tom a voicemail about tomorrow: the day, two times, a meeting place, a price and two instructions. You only hear it, and the questions ask for the details — exactly what you need when a friend changes plans by voicemail. Three things to catch: the day (am Samstag), the times (the film at halb acht = 7:30, the meeting at sieben Uhr = 7:00 — two different times, and two different questions), and the place with its preposition (vor dem Kino = outside the cinema, not inside). Listen once for the shape, then once per question; write times as digits the moment you hear them.",
       "tips": [
         {
           "kind": "warning",
@@ -1434,7 +1434,7 @@
         "Write every time as digits the instant you hear it: 'halb acht' → 7:30.",
         "vor = in front of, im = inside; the place question is really a preposition question."
       ],
-      "exam": "A1 Hören Teil 3: an Ansage or voicemail with a day, a time and a place — this recording is that task."
+      "exam": "A voicemail with a day, a time and a place is a standard A1 exam listening text — and on your own phone."
     }
   },
   {
@@ -1443,9 +1443,9 @@
       "a1.time",
       "a1.separable-verbs"
     ],
-    "title": "A1.2 · Hören: Durchsage am Bahnhof",
+    "title": "Hören: Durchsage am Bahnhof",
     "help": {
-      "intro": "A station announcement — the classic A1 Hören Teil 2 task, where you hear a public message and must catch a platform number, a time and a destination. Announcements are formulaic, which is your advantage: Achtung, eine Durchsage (attention, an announcement), Der Zug nach … fährt von Gleis … ab, Abfahrt um …, … Minuten Verspätung (delay), Bitte einsteigen (please board), … fällt aus (is cancelled). Know the formula and you know where each number will fall. The traps are deliberate: a corrected platform (fünf, nicht drei — the number before nicht is the true one), a delay that moves the departure time, a second train with its own time and platform, and a cancelled train. Write every number as you hear it.",
+      "intro": "A station announcement — the public message you must understand to catch the right train: a platform number, a time and a destination. Announcements are formulaic, which is your advantage: Achtung, eine Durchsage (attention, an announcement), Der Zug nach … fährt von Gleis … ab, Abfahrt um …, … Minuten Verspätung (delay), Bitte einsteigen (please board), … fällt aus (is cancelled). Know the formula and you know where each number will fall. The tricky parts are real ones: a corrected platform (fünf, nicht drei — the number before nicht is the true one), a delay that moves the departure time, a second train with its own time and platform, and a cancelled train. Write every number as you hear it.",
       "tips": [
         {
           "kind": "rule",
@@ -1465,7 +1465,7 @@
         {
           "kind": "warning",
           "title": "'… nicht …' — the correction is the answer",
-          "text": "von Gleis fünf, nicht von Gleis drei: when two numbers are named, the one before nicht is right and the one after it is the old, wrong one. Exams love this.",
+          "text": "von Gleis fünf, nicht von Gleis drei: when two numbers are named, the one before nicht is right and the one after it is the old, wrong one. Announcements do this all the time.",
           "examples": [
             {
               "de": "Gleis fünf, nicht Gleis drei: fünf is right.",
@@ -1497,7 +1497,7 @@
         "Gleis = platform, Abfahrt = departure, Verspätung = delay, fällt aus = is cancelled.",
         "Two numbers with 'nicht' between them: the first is right."
       ],
-      "exam": "A1 Hören Teil 2: four public announcements, heard once each, one fact per item — this is that task."
+      "exam": "Station announcements are a standard A1 exam listening text — and what you hear every time a train is late."
     }
   },
   {
@@ -1505,9 +1505,9 @@
     "covers": [
       "a1.accusative-prepositions"
     ],
-    "title": "A1.2 · Akkusativpräpositionen",
+    "title": "Akkusativpräpositionen",
     "help": {
-      "intro": "Five prepositions always take the accusative, whatever the sentence: durch (through), für (for), gegen (against), ohne (without), um (around; at a time). After them the article shifts to its accusative form — which, as ever, only shows on the masculine: für den Mann, durch den Park, ohne den Schlüssel; feminine and neuter look unchanged: für die Frau, für das Kind. This is the first time a preposition, rather than a verb, decides the case — a pattern that will grow at A2 (dative prepositions) and A2.2 (the two-way ones). Learn these five as a chant; there are no exceptions. Most items ask for the article; five ask for the preposition itself, from its English meaning.",
+      "intro": "Five prepositions always take the accusative, whatever the sentence: durch (through), für (for), gegen (against), ohne (without), um (around; at a time). After them the article shifts to its accusative form — which, as ever, only shows on the masculine: für den Mann, durch den Park, ohne den Schlüssel; feminine and neuter look unchanged: für die Frau, für das Kind. This is the first time a preposition, rather than a verb, decides the case — a pattern that will grow later in the course (dative prepositions, then the two-way ones). Learn these five as a chant; there are no exceptions. Most items ask for the article; five ask for the preposition itself, from its English meaning.",
       "tips": [
         {
           "kind": "mnemonic",
@@ -1596,7 +1596,7 @@
           "why": "Park is masculine."
         }
       ],
-      "exam": "A1 Lesen Teil 3 (signs: 'nur für Kinder', 'ohne Ticket kein Eintritt') and Schreiben ('ein Geschenk für meinen Freund').",
+      "exam": null,
       "vocab": [
         {
           "de": "durch",
@@ -1671,9 +1671,9 @@
       "a1.modal-verbs",
       "a1.separable-verbs"
     ],
-    "title": "A1.2 · Großer Text: Mein Tag",
+    "title": "Großer Text: Mein Tag",
     "help": {
-      "intro": "One whole day, twelve gaps, everything from A1.2 at once: the accusative (einen Kaffee, den Bus), kein and keine, modal verbs with their infinitive at the end, and separable verbs with the prefix already waiting at the end of the sentence. Each gap has a hint — the verb and the person (aufstehen · ich) or the meaning and the noun (a (der Kaffee)) — and the job is to decide the form. Read the whole text first, because the end of a sentence (… auf, … an, … fern, … einkaufen) tells you what kind of verb the gap holds. This is the kind of text you will be asked to write yourself in the A1 exam, seen from the inside.",
+      "intro": "One whole day, twelve gaps, everything from this module at once: the accusative (einen Kaffee, den Bus), kein and keine, modal verbs with their infinitive at the end, and separable verbs with the prefix already waiting at the end of the sentence. Each gap has a hint — the verb and the person (aufstehen · ich) or the meaning and the noun (a (der Kaffee)) — and the job is to decide the form. Read the whole text first, because the end of a sentence (… auf, … an, … fern, … einkaufen) tells you what kind of verb the gap holds. This is the kind of text you will soon write yourself — a message, a diary entry, an answer to 'Wie war dein Tag?' — seen from the inside.",
       "tips": [
         {
           "kind": "rule",
@@ -1741,7 +1741,7 @@
         "Read the end of the sentence first: an infinitive means a modal in the gap, a prefix means a separable verb.",
         "A der-noun as the object? Then -en: einen, den, keinen."
       ],
-      "exam": "A1 Schreiben Teil 2 (write about your day, ~30 words) — this is the model text, gap by gap."
+      "exam": null
     }
   },
   {
@@ -1749,7 +1749,7 @@
     "covers": [
       "a1.separable-verbs"
     ],
-    "title": "A1.2 · Trennbare Verben",
+    "title": "Trennbare Verben",
     "help": {
       "intro": "Many everyday verbs are two pieces glued together — auf+stehen, ein+kaufen, an+rufen, fern+sehen — and in a normal sentence the glue comes off: the verb part takes position 2 and conjugates, the prefix flies to the very end. Ich stehe um sieben Uhr auf. Wann rufst du mich an? The prefix carries the stress (AUFstehen), which is how you can hear that a verb is separable. The separable prefixes are the ones that are also words on their own — auf, ab, an, aus, ein, mit, vor, zu, zurück, fern — and in the dictionary the verb is listed as one word, so learning to spot them is the skill. With a modal the pieces reunite at the end: Ich muss um sieben aufstehen.",
       "tips": [
@@ -1890,7 +1890,7 @@
           "why": "ver- is unstressed and never separates."
         }
       ],
-      "exam": "A1 Schreiben Teil 2 (your day) and Sprechen Teil 2 (cards: aufstehen, einkaufen, anrufen) — the prefix position is marked."
+      "exam": null
     }
   },
   {
@@ -1898,9 +1898,9 @@
     "covers": [
       "a1.perfekt-intro"
     ],
-    "title": "A1.2 · Perfekt: erste Schritte",
+    "title": "Perfekt: erste Schritte",
     "help": {
-      "intro": "The Perfekt is how German talks about the past in conversation — 'I worked', 'I ate', 'I went' are all Ich habe gearbeitet, Ich habe gegessen, Ich bin gefahren. It is built from two pieces: a helper verb in the present (haben, or sein for a few verbs) in position 2, and the participle — ge- + stem + -t for regular verbs (gemacht, gelernt), ge- + stem + -en with a possible vowel change for irregular ones (gegessen, gefahren) — at the very end, exactly where a modal's infinitive goes. The official A1 inventory asks for the Perfekt of fifteen specific verbs, receptively — you must recognise them in what you hear and read. This quiz gives you those fifteen. The full system follows at A2.1. Each sentence has two gaps: the helper verb in position 2 and the participle at the end — type both, one in each gap.",
+      "intro": "The Perfekt is how German talks about the past in conversation — 'I worked', 'I ate', 'I went' are all Ich habe gearbeitet, Ich habe gegessen, Ich bin gefahren. It is built from two pieces: a helper verb in the present (haben, or sein for a few verbs) in position 2, and the participle — ge- + stem + -t for regular verbs (gemacht, gelernt), ge- + stem + -en with a possible vowel change for irregular ones (gegessen, gefahren) — at the very end, exactly where a modal's infinitive goes. Fifteen verbs turn up in the Perfekt so often — in any story about yesterday or last weekend — that you need to recognise them straight away in what you hear and read. This quiz gives you those fifteen. The full system follows later in the course. Each sentence has two gaps: the helper verb in position 2 and the participle at the end — type both, one in each gap.",
       "tips": [
         {
           "kind": "rule",
@@ -1989,7 +1989,7 @@
           "why": "-ieren verbs and ver-/be- verbs take no ge-."
         }
       ],
-      "exam": "A1 Hören and Lesen use these fifteen participles in texts about yesterday and last weekend — the official inventory lists them by name."
+      "exam": null
     }
   },
   {
@@ -1997,9 +1997,9 @@
     "covers": [
       "a1.war-hatte"
     ],
-    "title": "A1.2 · war & hatte",
+    "title": "war & hatte",
     "help": {
-      "intro": "For 'was' and 'had', German does not use the Perfekt but a simpler past form, the Präteritum of sein and haben — war and hatte. Ich war krank (I was ill), Wir hatten keine Zeit (we had no time). The official A1 inventory requires the ich- and er-forms; this quiz gives you all six of each, because they are regular and you will hear the others constantly. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten. Notice the shape: ich and er are identical, and the endings after that are the familiar -st, -en, -t, -en. From here on, 'yesterday I was …' is one word.",
+      "intro": "For 'was' and 'had', German does not use the Perfekt but a simpler past form, the Präteritum of sein and haben — war and hatte. Ich war krank (I was ill), Wir hatten keine Zeit (we had no time). You will use the ich- and er-forms most; this quiz gives you all six of each, because they are regular and you will hear the others constantly. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten. Notice the shape: ich and er are identical, and the endings after that are the familiar -st, -en, -t, -en. From here on, 'yesterday I was …' is one word.",
       "tips": [
         {
           "kind": "rule",
@@ -2050,7 +2050,7 @@
         {
           "kind": "mnemonic",
           "title": "war and hatte are the past-tense skeleton",
-          "text": "At B1 every verb gets a Präteritum; war and hatte are its first two rungs and set the pattern: ich = er, then -st, -en, -t, -en.",
+          "text": "Later every verb gets a Präteritum; war and hatte are its first two rungs and set the pattern: ich = er, then -st, -en, -t, -en.",
           "examples": [
             {
               "de": "ich war / er war · ich hatte / er hatte",
@@ -2088,7 +2088,7 @@
           "why": "er is hatte; hattet is ihr."
         }
       ],
-      "exam": "A1 Hören texts about yesterday ('Ich war krank', 'Das Wetter war schlecht') — listed in the official inventory as required at A1.",
+      "exam": null,
       "vocab": [
         {
           "de": "war / waren",
@@ -2146,9 +2146,9 @@
     "covers": [
       "a1.imperative"
     ],
-    "title": "A1.2 · Imperativ",
+    "title": "Imperativ",
     "help": {
-      "intro": "The imperative gives instructions and requests, and German has three of them because it has three ways of saying 'you'. To one friend (du): the verb stem with no ending and no pronoun — Komm! Mach das! Warte! — and the vowel-change verbs keep their change: Nimm! Iss! Lies! Sprich! (but no umlaut: Fahr! Schlaf!). To several friends (ihr): the ihr-form of the verb, again without the pronoun — Kommt! Macht! Esst! Formally (Sie): the infinitive followed by Sie — Kommen Sie! Nehmen Sie Platz! The imperative is in the official A1 inventory for all three forms, because signs, recipes, teachers and shop assistants use it all day. A bitte makes any of them polite. In the Sie items the Sie is already in the sentence — type only the verb.",
+      "intro": "The imperative gives instructions and requests, and German has three of them because it has three ways of saying 'you'. To one friend (du): the verb stem with no ending and no pronoun — Komm! Mach das! Warte! — and the vowel-change verbs keep their change: Nimm! Iss! Lies! Sprich! (but no umlaut: Fahr! Schlaf!). To several friends (ihr): the ihr-form of the verb, again without the pronoun — Kommt! Macht! Esst! Formally (Sie): the infinitive followed by Sie — Kommen Sie! Nehmen Sie Platz! You need all three forms from the start, because signs, recipes, teachers and shop assistants use them all day. A bitte makes any of them polite. In the Sie items the Sie is already in the sentence — type only the verb.",
       "tips": [
         {
           "kind": "rule",
@@ -2237,7 +2237,7 @@
           "why": "The formal imperative keeps Sie."
         }
       ],
-      "exam": "A1 Lesen Teil 3 (signs: 'Bitte nicht rauchen', 'Drücken Sie') and Sprechen Teil 3 (requests to a partner: 'Gib mir bitte …')."
+      "exam": null
     }
   },
   {
@@ -2246,9 +2246,9 @@
       "a1.polite-konjunktiv",
       "a1.accusative-articles"
     ],
-    "title": "A1.2 · Höflich bitten & bestellen",
+    "title": "Höflich bitten & bestellen",
     "help": {
-      "intro": "Three fixed phrases make you polite in every shop, café, office and train: Ich hätte gern … (I'd like …), Könnten Sie …? (could you …?) and Ich würde gern … (I'd like to …). They belong to the Konjunktiv II, a B1 grammar topic — but the official A1 inventory requires them at A1 precisely because you cannot live in a German-speaking country a single day without them. So learn them as chunks, like Guten Tag: hätte gern + a thing (accusative), Könnten Sie + a verb at the end, würde gern + a verb at the end, and möchte as the everyday alternative. Add bitte, and you have the whole register of politeness the A1 exam expects. The umlaut is what makes these polite (hätte, not hatte; könnten, not konnten), so it is checked strictly here — type ae/oe/ue if your keyboard has no umlauts.",
+      "intro": "Three fixed phrases make you polite in every shop, café, office and train: Ich hätte gern … (I'd like …), Könnten Sie …? (could you …?) and Ich würde gern … (I'd like to …). They belong to the Konjunktiv II, a grammar topic that comes much later — but you need them now, because you cannot live in a German-speaking country a single day without them. So learn them as chunks, like Guten Tag: hätte gern + a thing (accusative), Könnten Sie + a verb at the end, würde gern + a verb at the end, and möchte as the everyday alternative. Add bitte, and you have the whole register of politeness people expect at a counter or on the phone. The umlaut is what makes these polite (hätte, not hatte; könnten, not konnten), so it is checked strictly here — type ae/oe/ue if your keyboard has no umlauts.",
       "tips": [
         {
           "kind": "rule",
@@ -2337,7 +2337,7 @@
           "why": "The thing you'd like is accusative: einen for der Kaffee."
         }
       ],
-      "exam": "A1 Sprechen Teil 3 scores politeness explicitly: 'Könnten Sie …?' and 'Ich hätte gern …' are the expected forms."
+      "exam": null
     }
   },
   {
@@ -2345,9 +2345,9 @@
     "covers": [
       "a1.dative-pronouns-intro"
     ],
-    "title": "A1.2 · mir, dir, Ihnen — Dativ-Pronomen",
+    "title": "mir, dir, Ihnen — Dativ-Pronomen",
     "help": {
-      "intro": "Wie geht es dir? — how are you? — is one of the first questions you learn, and the dir in it is a dative pronoun. The official A1 inventory asks for exactly this much dative: the pronouns mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen after a handful of verbs that always take them — helfen (help), danken (thank), gehören (belong to), gefallen (please, i.e. 'like'), and the phrase es geht. The full dative — articles, nouns, prepositions — comes at A2.1. For now these are chunks: Kannst du mir helfen? Das gehört mir. Gefällt dir das? Ich danke Ihnen. Notice that ihr is now 'to her' and ihnen 'to them', and Ihnen with a capital is the formal you.",
+      "intro": "Wie geht es dir? — how are you? — is one of the first questions you learn, and the dir in it is a dative pronoun. For now you need exactly this much dative: the pronouns mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen after a handful of verbs that always take them — helfen (help), danken (thank), gehören (belong to), gefallen (please, i.e. 'like'), and the phrase es geht. The full dative — articles, nouns, prepositions — comes later in the course. For now these are chunks: Kannst du mir helfen? Das gehört mir. Gefällt dir das? Ich danke Ihnen. Notice that ihr is now 'to her' and ihnen 'to them', and Ihnen with a capital is the formal you.",
       "tips": [
         {
           "kind": "rule",
@@ -2398,7 +2398,7 @@
         {
           "kind": "mnemonic",
           "title": "mir/dir for how you are, mich/dich for what is seen",
-          "text": "es geht mir, hilf mir, danke dir → dative. sieh mich, liebe dich → accusative. The A1 dative is small: learn its verbs and it can't go wrong.",
+          "text": "es geht mir, hilf mir, danke dir → dative. sieh mich, liebe dich → accusative. This first dative is small: learn its verbs and it can't go wrong.",
           "examples": [
             {
               "de": "Ich liebe dich und ich helfe dir.",
@@ -2436,7 +2436,7 @@
           "why": "danken takes the dative: Ihnen."
         }
       ],
-      "exam": "A1 Sprechen Teil 1 opens with 'Wie geht es Ihnen?'; Teil 3 needs 'Können Sie mir helfen?' — both are dative pronouns."
+      "exam": null
     }
   },
   {
@@ -2444,9 +2444,9 @@
     "covers": [
       "a1.sentence-connectors"
     ],
-    "title": "A1.2 · Satzbau: Position 2 & Konnektoren",
+    "title": "Satzbau: Position 2 & Konnektoren",
     "help": {
-      "intro": "One rule shapes every German statement: the conjugated verb is the second element. Not the second word — the second element. Ich fahre morgen nach Berlin, but start with tomorrow and the verb still comes second, so the subject moves behind it: Morgen fahre ich nach Berlin. English keeps subject-verb whatever comes first ('Tomorrow I go'); German swaps. The other half of A1 sentence-building is joining sentences with the five little connectors that do not disturb that order: und (and), oder (or), aber (but), denn (because), dann (then). After und/oder/aber/denn the next sentence keeps its normal shape; dann counts as position 1, so the verb follows it: … dann gehe ich.",
+      "intro": "One rule shapes every German statement: the conjugated verb is the second element. Not the second word — the second element. Ich fahre morgen nach Berlin, but start with tomorrow and the verb still comes second, so the subject moves behind it: Morgen fahre ich nach Berlin. English keeps subject-verb whatever comes first ('Tomorrow I go'); German swaps. The other half of basic sentence-building is joining sentences with the five little connectors that do not disturb that order: und (and), oder (or), aber (but), denn (because), dann (then). After und/oder/aber/denn the next sentence keeps its normal shape; dann counts as position 1, so the verb follows it: … dann gehe ich.",
       "tips": [
         {
           "kind": "rule",
@@ -2497,7 +2497,7 @@
         {
           "kind": "warning",
           "title": "denn vs weil",
-          "text": "Both mean because. denn keeps normal order (denn ich bin krank); weil — an A2 topic — sends the verb to the end (weil ich krank bin). At A1, use denn.",
+          "text": "Both mean because. denn keeps normal order (denn ich bin krank); weil — coming later in the course — sends the verb to the end (weil ich krank bin). For now, use denn.",
           "examples": [
             {
               "de": "Ich komme nicht, denn ich habe keine Zeit.",
@@ -2535,7 +2535,7 @@
           "why": "denn does not change word order."
         }
       ],
-      "exam": "A1 Schreiben: a text that starts sentences with 'Am Montag …', 'Dann …' and joins them with und/aber/denn scores on structure, not just vocabulary."
+      "exam": null
     }
   },
   {
@@ -2544,9 +2544,9 @@
       "a1.polite-konjunktiv",
       "a1.quantities"
     ],
-    "title": "A1.2 · Sprechen: Einkaufen & Bestellen",
+    "title": "Sprechen: Einkaufen & Bestellen",
     "help": {
-      "intro": "Shopping out loud at the bakery, from the greeting to the goodbye: twelve lines of one conversation, short phrase to long. The single most useful sentence in it is Ich hätte gern … — 'I'd like …' — which works in every bakery, market stall, café and shop and is required at A1 even though the grammar behind it (Konjunktiv II) is a B1 topic: you learn it as a fixed phrase, like a password. Alongside it: Was kostet das Brot? (how much is the bread?), Sonst noch etwas? (anything else?), Das ist alles, danke. Two sounds to practise: ö in Brötchen and schönen (round your lips, say 'eh'), and the open ä in hätte.",
+      "intro": "Shopping out loud at the bakery, from the greeting to the goodbye: twelve lines of one conversation, short phrase to long. The single most useful sentence in it is Ich hätte gern … — 'I'd like …' — which works in every bakery, market stall, café and shop and you need it from day one even though the grammar behind it (Konjunktiv II) comes much later: you learn it as a fixed phrase, like a password. Alongside it: Was kostet das Brot? (how much is the bread?), Sonst noch etwas? (anything else?), Das ist alles, danke. Two sounds to practise: ö in Brötchen and schönen (round your lips, say 'eh'), and the open ä in hätte.",
       "tips": [
         {
           "kind": "rule",
@@ -2598,7 +2598,7 @@
         "'Ich hätte gern' + accusative + 'bitte': a complete polite order, every time.",
         "Was kostet das? — ask before you buy; the number comes back euros first."
       ],
-      "exam": "A1 Sprechen Teil 3: with a picture card you ask for something politely ('Ich hätte gern …', 'Kann ich … haben?') and your partner answers."
+      "exam": "Asking politely for something and answering the price question is part of A1 exam speaking — and of every visit to a bakery."
     }
   },
   {
@@ -2606,9 +2606,9 @@
     "covers": [
       "a1.quantities"
     ],
-    "title": "A1.2 · Einkaufen: Mengen & Preise",
+    "title": "Einkaufen: Mengen & Preise",
     "help": {
-      "intro": "Shopping is one of the A1 theme areas and two of its thirteen word groups are about it: measures and weights, and currency. German measures are simpler than English ones in one way — there is no 'of': ein Kilo Äpfel, eine Flasche Wasser, ein Stück Kuchen, the thing follows the measure directly — and stricter in another: the measures are nouns with a gender (das Kilo, der Liter, die Flasche, das Stück, die Packung, die Dose, das Glas, die Tasse, das Pfund = 500 g). Prices are euros then cents with no word for the comma: zwei Euro fünfzig; Euro never takes an s. Learn the shop's questions and answers as a script and you can buy anything.",
+      "intro": "Shopping needs two small word groups of its own: measures and weights, and money. German measures are simpler than English ones in one way — there is no 'of': ein Kilo Äpfel, eine Flasche Wasser, ein Stück Kuchen, the thing follows the measure directly — and stricter in another: the measures are nouns with a gender (das Kilo, der Liter, die Flasche, das Stück, die Packung, die Dose, das Glas, die Tasse, das Pfund = 500 g). Prices are euros then cents with no word for the comma: zwei Euro fünfzig; Euro never takes an s. Learn the shop's questions and answers as a script and you can buy anything.",
       "tips": [
         {
           "kind": "rule",
@@ -2697,7 +2697,7 @@
           "why": "Feminine measures take a plural after a number."
         }
       ],
-      "exam": "A1 Hören Teil 1 (prices) and Sprechen Teil 3 (buying with a picture card) — the whole shop script is exam material."
+      "exam": null
     }
   },
   {
@@ -2706,9 +2706,9 @@
       "a1.body",
       "a1.possessives"
     ],
-    "title": "A1.2 · Körper & Befinden",
+    "title": "Körper & Befinden",
     "help": {
-      "intro": "Health is one of the A1 theme areas, and at this level it means two things: naming what hurts, and saying how you feel. The pattern for pain is Mein Kopf tut weh — literally 'my head does pain' — with tun (to do) and the body part as subject; plural parts take tun weh: Meine Füße tun weh. Or use Schmerzen: Ich habe Kopfschmerzen, Bauchschmerzen, Zahnschmerzen — the body part glued to Schmerzen. For how you feel: Wie geht es dir? – Mir geht es gut / schlecht / nicht so gut; Ich bin krank / müde; Ich habe Fieber. The doctor's opening line, Was fehlt Ihnen? (what's wrong?), completes the set — the fuller A2.2 quiz builds the doctor's visit on this. The first items ask for the body part; the rest ask for what goes round it — mein or meine, tut or tun, and the …schmerzen compound.",
+      "intro": "When you are ill, you need two things first: naming what hurts, and saying how you feel. The pattern for pain is Mein Kopf tut weh — literally 'my head does pain' — with tun (to do) and the body part as subject; plural parts take tun weh: Meine Füße tun weh. Or use Schmerzen: Ich habe Kopfschmerzen, Bauchschmerzen, Zahnschmerzen — the body part glued to Schmerzen. For how you feel: Wie geht es dir? – Mir geht es gut / schlecht / nicht so gut; Ich bin krank / müde; Ich habe Fieber. The doctor's opening line, Was fehlt Ihnen? (what's wrong?), completes the set — a fuller quiz later in the course builds the doctor's visit on this. The first items ask for the body part; the rest ask for what goes round it — mein or meine, tut or tun, and the …schmerzen compound.",
       "tips": [
         {
           "kind": "rule",
@@ -2797,7 +2797,7 @@
           "why": "The …schmerzen compounds are always plural."
         }
       ],
-      "exam": "A1 Schreiben (an e-mail saying you can't come because you're ill) and Hören (a doctor's appointment): 'Ich bin krank, ich habe Fieber' is a standard A1 text."
+      "exam": null
     }
   },
   {
@@ -2807,9 +2807,9 @@
       "a1.quantities",
       "a1.calendar"
     ],
-    "title": "A1.2 · Lesen: Eine kleine Reise",
+    "title": "Lesen: Eine kleine Reise",
     "help": {
-      "intro": "A family takes a trip to Munich: train, departure time, ticket price, journey length, hotel, sights, weather. Travel is one of the ten A1 theme areas and this text carries its core words — der Zug, der Bahnhof, die Fahrkarte, das Hotel, abfahren, dauern, kosten — together with the two things the exam always asks about a journey: when and how much. Read once for the story, then answer question by question; look for the time after um, the price before Euro, the length after dauert, and the transport after mit dem.",
+      "intro": "A family takes a trip to Munich: train, departure time, ticket price, journey length, hotel, sights, weather. This text carries the core words of travel — der Zug, der Bahnhof, die Fahrkarte, das Hotel, abfahren, dauern, kosten — together with the two things you always need to know about a journey: when and how much. Read once for the story, then answer question by question; look for the time after um, the price before Euro, the length after dauert, and the transport after mit dem.",
       "tips": [
         {
           "kind": "rule",
@@ -2861,7 +2861,7 @@
         "um = when, Euro = how much, dauert = how long, mit dem = how.",
         "nach + city for 'to a city': nach München, nach Berlin."
       ],
-      "exam": "A1 Lesen Teil 2 (timetables, prices, opening hours) and Teil 1 (a short narrative): both are trained by this text."
+      "exam": "Timetables, prices and short travel stories are typical A1 exam reading texts — and what you read when you book a trip."
     }
   },
   {
@@ -2870,9 +2870,9 @@
       "a1.calendar",
       "a1.time"
     ],
-    "title": "A1.2 · Lesen: Anzeigen & Schilder",
+    "title": "Lesen: Anzeigen & Schilder",
     "help": {
-      "intro": "Three small ads — a flat, a bicycle, a course — of the kind that fill notice boards and websites, written in the telegram style ads use: no full sentences, just nouns, numbers and abbreviations. This is A1 Lesen Teil 3, and it is a scanning task, not a reading task: the question names a thing (Preis, Tag, Zimmer) and you find the number next to that word. The abbreviations are part of the test — m² (Quadratmeter), Tel., ab (from), bis (until), pro Monat (per month), zu vermieten / zu verkaufen (to rent / for sale), Anmeldung (registration). Read the questions first, then hunt.",
+      "intro": "Three small ads — a flat, a bicycle, a course — of the kind that fill notice boards and websites, written in the telegram style ads use: no full sentences, just nouns, numbers and abbreviations. Reading them is scanning, not reading: the question names a thing (Preis, Tag, Zimmer) and you find the number next to that word. The abbreviations are the whole point — m² (Quadratmeter), Tel., ab (from), bis (until), pro Monat (per month), zu vermieten / zu verkaufen (to rent / for sale), Anmeldung (registration). Read the questions first, then hunt.",
       "tips": [
         {
           "kind": "rule",
@@ -2924,7 +2924,7 @@
         "Question first, then hunt the key word; the number beside it is the answer.",
         "'nur am Wochenende' — nur (only) restricts the answer; it is usually the tested word."
       ],
-      "exam": "A1 Lesen Teil 3: five short ads or signs with one question each — exactly this format."
+      "exam": "Short ads and signs are a typical A1 exam reading text — and what you scan on every notice board and flat website."
     }
   },
   {
@@ -2937,9 +2937,9 @@
       "a1.calendar",
       "a1.separable-verbs"
     ],
-    "title": "A1.2 · Gespräch: Mein Alltag",
+    "title": "Gespräch: Mein Alltag",
     "help": {
-      "intro": "The closing conversation of A1.2, in your own AI assistant with voice on: your everyday life — your routine and times, what you buy, what you can and must do. Copy the exercise in, say 'Los geht's', and answer in full sentences; the corrections and the score come at the end. This conversation pulls together the core of A1.2. The tutor listens for the accusative after haben/kaufen/brauchen, the possessives, the infinitive at the end after a modal, the separable prefix at the end, and times with um / am / halb.",
+      "intro": "The closing conversation of this module, in your own AI assistant with voice on: your everyday life — your routine and times, what you buy, what you can and must do. Copy the exercise in, say 'Los geht's', and answer in full sentences; the corrections and the score come at the end. This conversation pulls together the core of the module. The tutor listens for the accusative after haben/kaufen/brauchen, the possessives, the infinitive at the end after a modal, the separable prefix at the end, and times with um / am / halb.",
       "tips": [
         {
           "kind": "rule",
@@ -2991,7 +2991,7 @@
         "Whole sentences, verb at the end where it belongs.",
         "Ask back — 'Und du?' — it is scored as interaction."
       ],
-      "exam": "A1 Sprechen, all three parts. Passing this checkpoint means you have practised the core A1.2 structures aloud."
+      "exam": "Talking about your routine, shopping and plans is the heart of A1 exam speaking — and of small talk with neighbours."
     }
   },
   {
@@ -2999,9 +2999,9 @@
     "covers": [
       "a1.wohin"
     ],
-    "title": "A1.2 · Wohin? — nach, zu, in",
+    "title": "Wohin? — nach, zu, in",
     "help": {
-      "intro": "Wo? asks where something is; Wohin? asks where it is going — and German answers the second question with three different prepositions. nach is for towns and for countries without an article (nach Berlin, nach Spanien) and for home (nach Hause). in is for countries that have an article (in die Schweiz, in die USA) and for places you go into: ins Kino, in die Stadt, in den Park, in die Schule. zu is for people (zu Anna, zu meiner Oma) and for places you go to rather than into — zum Arzt, zur Arbeit, zum Bahnhof. After in the article is accusative (in den Park), after zu it is dative (zum = zu dem, zur = zu der); at A1 you learn these as chunks. The contrast with Wo? is the heart of it: ich bin zu Hause, but ich gehe nach Hause; ich bin im Kino, but ich gehe ins Kino.",
+      "intro": "Wo? asks where something is; Wohin? asks where it is going — and German answers the second question with three different prepositions. nach is for towns and for countries without an article (nach Berlin, nach Spanien) and for home (nach Hause). in is for countries that have an article (in die Schweiz, in die USA) and for places you go into: ins Kino, in die Stadt, in den Park, in die Schule. zu is for people (zu Anna, zu meiner Oma) and for places you go to rather than into — zum Arzt, zur Arbeit, zum Bahnhof. After in the article is accusative (in den Park), after zu it is dative (zum = zu dem, zur = zu der); for now you learn these as chunks. The contrast with Wo? is the heart of it: ich bin zu Hause, but ich gehe nach Hause; ich bin im Kino, but ich gehe ins Kino.",
       "tips": [
         {
           "kind": "rule",
@@ -3142,7 +3142,7 @@
           "why": "zu Hause is where you are; nach Hause is where you are going."
         }
       ],
-      "exam": "A1 Sprechen Teil 2 (cards like 'Wochenende' or 'Urlaub': Wohin fährst du?) and Hören (Wohin geht Anna?) — every destination answer is one of these chunks."
+      "exam": null
     }
   },
   {
@@ -3150,7 +3150,7 @@
     "covers": [
       "a1.possessives-plural"
     ],
-    "title": "A1.2 · unser, euer, Ihr",
+    "title": "unser, euer, Ihr",
     "help": {
       "intro": "The possessives for more than one owner, and the formal one: unser (our), euer (your — several friends), ihr (their) and Ihr with a capital (your — formal, one person or several). They work exactly like mein: they take the ein-endings, decided by the noun that follows — unser Sohn, unsere Tochter, unsere Kinder, and in the accusative unseren Sohn. Two details make them tricky. euer loses its second e as soon as an ending is added: euer Hund, but eure Katze, euren Hund. And ihr / Ihr is the same word in speech: in writing the capital decides between 'their' and 'your (formal)', and in speech the situation does — Herr Braun, ist das Ihr Koffer? The quiz gives you the owner in brackets; choose the word and add the ending for the noun.",
       "tips": [
@@ -3293,7 +3293,7 @@
           "why": "Formal your is written with a capital I."
         }
       ],
-      "exam": "A1 Schreiben (a message to friends or to an office: 'eure Party', 'Ihre Adresse') and Sprechen Teil 1 ('unsere Familie') — the plural and formal possessives are as common as mein."
+      "exam": null
     }
   },
   {
@@ -3301,9 +3301,9 @@
     "covers": [
       "a1.vocabulary-2"
     ],
-    "title": "A1.2 · Wortschatz",
+    "title": "Wortschatz",
     "help": {
-      "intro": "Every word the A1.2 exercises use, on one deck of flashcards: 166 cards, 69 of them nouns. The vocabulary of this module is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 166 cards, 69 of them nouns. The vocabulary of this module is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -3323,7 +3323,7 @@
         {
           "kind": "mnemonic",
           "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before an exam.",
+          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before a lesson or a trip.",
           "examples": [
             {
               "de": "der Hund, Plural: -e",
@@ -3356,7 +3356,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"mich\"."
       ],
-      "exam": "A1 exam: the reading and listening tasks are short everyday texts built from exactly these words, and Sprechen asks you to name things and ask about them."
+      "exam": null
     }
   }
 ]

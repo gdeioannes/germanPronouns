@@ -438,12 +438,20 @@ input[type='number'] {
 /* -- page transitions ----------------------------------------------------
    Driven by the View Transitions API from +layout.svelte. The old page
    slides a little and fades out while the new one slides in from the side
-   the learner is heading towards. Short, so it never feels like waiting. */
+   the learner is heading towards. Sequenced, not simultaneous: the old page
+   is mostly gone before the new one arrives, so two pages never smear over
+   each other — that overlap is what read as "jumpy". */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-	animation-duration: 280ms;
 	animation-timing-function: var(--ease-out);
 	animation-fill-mode: both;
+}
+::view-transition-old(root) {
+	animation-duration: 200ms;
+}
+::view-transition-new(root) {
+	animation-duration: 360ms;
+	animation-delay: 120ms;
 }
 
 ::view-transition-old(root) {
@@ -480,25 +488,25 @@ input[type='number'] {
 @keyframes vt-out-left {
 	to {
 		opacity: 0;
-		transform: translateX(-32px);
+		transform: translateX(-20px);
 	}
 }
 @keyframes vt-in-right {
 	from {
 		opacity: 0;
-		transform: translateX(32px);
+		transform: translateX(20px);
 	}
 }
 @keyframes vt-out-right {
 	to {
 		opacity: 0;
-		transform: translateX(32px);
+		transform: translateX(20px);
 	}
 }
 @keyframes vt-in-left {
 	from {
 		opacity: 0;
-		transform: translateX(-32px);
+		transform: translateX(-20px);
 	}
 }
 
