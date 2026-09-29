@@ -26757,7 +26757,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_dativ_artikel",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "gast",
+          "imageHint": true
         },
         {
           "de": "Nachbar",
@@ -26829,7 +26831,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_dativ_praep",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "apotheke"
         },
         {
           "de": "Bäcker",
@@ -26837,7 +26840,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_dativ_praep",
           "article": "der",
-          "plural": "-"
+          "plural": "-",
+          "image": "baecker"
         },
         {
           "de": "seit + Dat",
@@ -26964,7 +26968,8 @@
           "en": "café",
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_woher_wo_wohin",
-          "article": "das"
+          "article": "das",
+          "image": "cafe"
         },
         {
           "de": "Schule",
@@ -26999,7 +27004,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_woher_wo_wohin",
           "article": "der",
-          "plural": "—"
+          "plural": "—",
+          "image": "sport",
+          "imageHint": true
         },
         {
           "de": "Arbeit",
@@ -27025,7 +27032,9 @@
           "en": "home",
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_woher_wo_wohin",
-          "article": "das"
+          "article": "das",
+          "image": "zuhause",
+          "imageHint": true
         },
         {
           "de": "Bahnhof",
@@ -27174,7 +27183,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_war_hatte",
           "article": "das",
-          "plural": "—"
+          "plural": "—",
+          "image": "fieber"
         },
         {
           "de": "Platz",
@@ -27192,7 +27202,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_war_hatte",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "konzert"
         },
         {
           "de": "Wetter",
@@ -27251,7 +27262,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_modal_praeteritum",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "termin",
+          "imageHint": true
         },
         {
           "de": "Bericht",
@@ -27259,7 +27272,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_modal_praeteritum",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "bericht",
+          "imageHint": true
         },
         {
           "de": "Chef",
@@ -27267,7 +27282,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_modal_praeteritum",
           "article": "der",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "chef",
+          "imageHint": true
         },
         {
           "de": "Chefin",
@@ -27275,7 +27292,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_modal_praeteritum",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "chefin",
+          "imageHint": true
         },
         {
           "de": "ich",
@@ -27331,7 +27350,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_wetter",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "wolke"
         },
         {
           "de": "Grad",
@@ -27346,7 +27366,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_wetter",
           "article": "das",
-          "plural": "-"
+          "plural": "-",
+          "image": "gewitter"
         },
         {
           "de": "Regenschirm",
@@ -27354,7 +27375,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_wetter",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "regenschirm"
         },
         {
           "de": "Frühling",
@@ -27571,7 +27593,8 @@
           "en": "rubbish",
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_indefinitpronomen",
-          "article": "der"
+          "article": "der",
+          "image": "muell"
         }
       ],
       "help": {
@@ -37244,7 +37267,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wechsel_wo",
           "article": "die",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "wand"
         },
         {
           "de": "Regal",
@@ -37252,7 +37276,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wechsel_wo",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "regal"
         },
         {
           "de": "legen",
@@ -37302,7 +37327,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wechsel_wohin",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "schrank"
         },
         {
           "de": "Schublade",
@@ -37310,14 +37336,17 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wechsel_wohin",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "schublade"
         },
         {
           "de": "Boden",
           "en": "floor",
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wechsel_wohin",
-          "article": "der"
+          "article": "der",
+          "image": "boden",
+          "imageHint": true
         },
         {
           "de": "sich freuen",
@@ -37428,7 +37457,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_weil",
           "article": "der",
-          "plural": "—"
+          "plural": "—",
+          "image": "urlaub"
         },
         {
           "de": "Geld",
@@ -37694,14 +37724,17 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "die",
-          "plural": "-nen"
+          "plural": "-nen",
+          "image": "aerztin"
         },
         {
           "de": "Praxis",
           "en": "doctor's surgery",
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
-          "article": "die"
+          "article": "die",
+          "image": "praxis",
+          "imageHint": true
         },
         {
           "de": "Apotheke",
@@ -37709,7 +37742,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "apotheke"
         },
         {
           "de": "Krankenhaus",
@@ -37717,7 +37751,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "das",
-          "plural": "¨-er"
+          "plural": "¨-er",
+          "image": "krankenhaus"
         },
         {
           "de": "Rezept",
@@ -37725,7 +37760,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "rezept",
+          "imageHint": true
         },
         {
           "de": "Medikament",
@@ -37733,7 +37770,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "medikament"
         },
         {
           "de": "Tablette",
@@ -37741,7 +37779,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "tablette"
         },
         {
           "de": "Fieber",
@@ -37749,7 +37788,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "das",
-          "plural": "—"
+          "plural": "—",
+          "image": "fieber"
         },
         {
           "de": "Erkältung",
@@ -37757,7 +37797,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "erkaeltung"
         },
         {
           "de": "Husten",
@@ -37765,7 +37806,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "der",
-          "plural": "—"
+          "plural": "—",
+          "image": "husten",
+          "imageHint": true
         },
         {
           "de": "Schnupfen",
@@ -37773,21 +37816,27 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "der",
-          "plural": "—"
+          "plural": "—",
+          "image": "schnupfen",
+          "imageHint": true
         },
         {
           "de": "Kopfschmerzen",
           "en": "headache",
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
-          "article": "die"
+          "article": "die",
+          "image": "kopfschmerzen",
+          "imageHint": true
         },
         {
           "de": "Krankenkasse",
           "en": "health insurance",
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
-          "article": "die"
+          "article": "die",
+          "image": "krankenkasse",
+          "imageHint": true
         },
         {
           "de": "untersuchen",
@@ -37801,7 +37850,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_gesundheit",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "termin",
+          "imageHint": true
         },
         {
           "de": "Hose",
@@ -37809,7 +37860,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "hose"
         },
         {
           "de": "Hemd",
@@ -37817,7 +37869,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "das",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "hemd"
         },
         {
           "de": "Kleid",
@@ -37825,7 +37878,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "das",
-          "plural": "-er"
+          "plural": "-er",
+          "image": "kleid"
         },
         {
           "de": "Rock",
@@ -37833,7 +37887,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "rock"
         },
         {
           "de": "Jacke",
@@ -37841,7 +37896,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "jacke"
         },
         {
           "de": "Mantel",
@@ -37849,7 +37905,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "der",
-          "plural": "¨-"
+          "plural": "¨-",
+          "image": "mantel"
         },
         {
           "de": "Mütze",
@@ -37857,7 +37914,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "muetze"
         },
         {
           "de": "Größe",
@@ -37865,7 +37923,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "groesse",
+          "imageHint": true
         },
         {
           "de": "anprobieren",
@@ -37891,7 +37951,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_kleidung",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "umkleidekabine"
         },
         {
           "de": "Nimm!",
@@ -37939,7 +38000,9 @@
           "de": "Schlaf!",
           "en": "Sleep! (du, no umlaut)",
           "kind": "word",
-          "sourceQuizId": "quest_a2_2_imperativ"
+          "sourceQuizId": "quest_a2_2_imperativ",
+          "image": "schlaf",
+          "imageHint": true
         },
         {
           "de": "Warte!",
@@ -38013,7 +38076,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_imperativ",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "geduld",
+          "imageHint": true
         },
         {
           "de": "neu",
@@ -38129,7 +38194,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_koennte_sollte",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "vorschlag",
+          "imageHint": true
         },
         {
           "de": "Ratschlag",
@@ -38137,7 +38204,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_koennte_sollte",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "ratschlag",
+          "imageHint": true
         },
         {
           "de": "Was meinst du?",
@@ -38374,7 +38443,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wortbildung",
           "article": "der",
-          "plural": "-"
+          "plural": "-",
+          "image": "fahrer"
         },
         {
           "de": "Verkäufer",
@@ -38391,7 +38461,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "wohnung"
         },
         {
           "de": "Erfahrung",
@@ -38399,7 +38470,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "erfahrung",
+          "imageHint": true
         },
         {
           "de": "Anmeldung",
@@ -38407,7 +38480,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "anmeldung",
+          "imageHint": true
         },
         {
           "de": "Bedeutung",
@@ -38652,7 +38727,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_genitiv_s_datum",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "feiertag",
+          "imageHint": true
         },
         {
           "de": "gehören",
@@ -38666,7 +38743,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_schreiben_email",
           "article": "die",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "e-mail"
         },
         {
           "de": "Nachricht",
@@ -38674,7 +38752,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_schreiben_email",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "nachricht",
+          "imageHint": true
         },
         {
           "de": "Einladung",
@@ -38682,7 +38762,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_schreiben_email",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "einladung"
         },
         {
           "de": "einladen",
@@ -38722,7 +38803,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_schreiben_email",
           "article": "der",
-          "plural": "Grüße"
+          "plural": "Grüße",
+          "image": "gruss",
+          "imageHint": true
         },
         {
           "de": "mitbringen",
@@ -48076,7 +48159,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "stelle",
+          "imageHint": true
         },
         {
           "de": "Bewerbung",
@@ -48084,7 +48169,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "bewerbung",
+          "imageHint": true
         },
         {
           "de": "Lebenslauf",
@@ -48092,7 +48179,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "lebenslauf",
+          "imageHint": true
         },
         {
           "de": "Vorstellungsgespräch",
@@ -48100,7 +48189,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "vorstellungsgespraech",
+          "imageHint": true
         },
         {
           "de": "Gehalt",
@@ -48108,7 +48199,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "das",
-          "plural": "¨-er"
+          "plural": "¨-er",
+          "image": "gehalt",
+          "imageHint": true
         },
         {
           "de": "Vertrag",
@@ -48116,14 +48209,18 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "vertrag",
+          "imageHint": true
         },
         {
           "de": "Überstunden",
           "en": "overtime",
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
-          "article": "die"
+          "article": "die",
+          "image": "ueberstunden",
+          "imageHint": true
         },
         {
           "de": "Teilzeit",
@@ -48145,7 +48242,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "der",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "chef",
+          "imageHint": true
         },
         {
           "de": "Chefin",
@@ -48153,7 +48252,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "chefin",
+          "imageHint": true
         },
         {
           "de": "Kollege",
@@ -48171,7 +48272,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "die",
-          "plural": "-nen"
+          "plural": "-nen",
+          "image": "kollegin",
+          "imageHint": true
         },
         {
           "de": "Besprechung",
@@ -48179,21 +48282,26 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "besprechung"
         },
         {
           "de": "Feierabend",
           "en": "end of the working day",
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
-          "article": "der"
+          "article": "der",
+          "image": "feierabend",
+          "imageHint": true
         },
         {
           "de": "Rente",
           "en": "pension, retirement",
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
-          "article": "die"
+          "article": "die",
+          "image": "rente",
+          "imageHint": true
         },
         {
           "de": "Firma",
@@ -48201,7 +48309,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "die",
-          "plural": "Firmen"
+          "plural": "Firmen",
+          "image": "firma",
+          "imageHint": true
         },
         {
           "de": "arbeitslos",
@@ -48341,7 +48451,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adj_unbestimmt",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "idee"
         },
         {
           "de": "Plan",
@@ -48357,7 +48468,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adj_unbestimmt",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "geschichte",
+          "imageHint": true
         },
         {
           "de": "warm",
@@ -48396,7 +48509,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adj_nullartikel",
           "article": "der",
-          "plural": "—"
+          "plural": "—",
+          "image": "balkon"
         },
         {
           "de": "Möbel",
@@ -48404,7 +48518,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adj_nullartikel",
           "article": "die",
-          "plural": "(Pl.)"
+          "plural": "(Pl.)",
+          "image": "moebel"
         },
         {
           "de": "zu vermieten",
@@ -48467,7 +48582,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "angestellte",
+          "imageHint": true
         },
         {
           "de": "Angestellte",
@@ -48475,7 +48592,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "angestellte",
+          "imageHint": true
         },
         {
           "de": "Erwachsene",
@@ -48483,7 +48602,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "erwachsene",
+          "imageHint": true
         },
         {
           "de": "Erwachsene",
@@ -48491,7 +48612,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "erwachsene",
+          "imageHint": true
         },
         {
           "de": "Verwandte",
@@ -48499,7 +48622,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "verwandte",
+          "imageHint": true
         },
         {
           "de": "Verwandte",
@@ -48507,7 +48632,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "verwandte",
+          "imageHint": true
         },
         {
           "de": "Bekannte",
@@ -48531,7 +48658,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "jugendliche",
+          "imageHint": true
         },
         {
           "de": "Jugendliche",
@@ -48539,7 +48668,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "jugendliche",
+          "imageHint": true
         },
         {
           "de": "Arbeitslose",
@@ -48547,7 +48678,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "arbeitslose",
+          "imageHint": true
         },
         {
           "de": "Arbeitslose",
@@ -48555,7 +48688,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "arbeitslose",
+          "imageHint": true
         },
         {
           "de": "Auszubildende",
@@ -48563,7 +48698,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "auszubildende",
+          "imageHint": true
         },
         {
           "de": "Auszubildende",
@@ -48571,7 +48708,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "auszubildende",
+          "imageHint": true
         },
         {
           "de": "Deutsche",
@@ -48595,7 +48734,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "verletzte",
+          "imageHint": true
         },
         {
           "de": "Verletzte",
@@ -48603,7 +48744,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adjektive_als_nomen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "verletzte",
+          "imageHint": true
         },
         {
           "de": "Fremde",
@@ -48747,7 +48890,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_konj2_wuerde",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "traum"
         },
         {
           "de": "hätte",
@@ -48920,7 +49064,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_relativ",
           "article": "das",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "handy"
         },
         {
           "de": "Kuchen",
@@ -48928,7 +49073,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_relativ",
           "article": "der",
-          "plural": "-"
+          "plural": "-",
+          "image": "kuchen"
         },
         {
           "de": "Leute",
@@ -48936,7 +49082,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_relativ",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "leute",
+          "imageHint": true
         },
         {
           "de": "des Mannes",
@@ -48965,7 +49113,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_genitiv",
           "article": "der",
-          "plural": "—"
+          "plural": "—",
+          "image": "leute",
+          "imageHint": true
         },
         {
           "de": "wegen",
@@ -49006,7 +49156,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_genitiv",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "farbe"
         },
         {
           "de": "als",
@@ -49049,7 +49200,9 @@
           "en": "school-leaving exam",
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_konjunktionen",
-          "article": "das"
+          "article": "das",
+          "image": "abitur",
+          "imageHint": true
         },
         {
           "de": "Führerschein",
@@ -49057,7 +49210,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_konjunktionen",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "fuehrerschein",
+          "imageHint": true
         },
         {
           "de": "spazieren gehen",
@@ -49215,7 +49370,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_email_redemittel",
           "article": "die",
-          "note": "Pl."
+          "note": "Pl.",
+          "image": "unterlagen",
+          "imageHint": true
         },
         {
           "de": "Antwort",
@@ -49386,7 +49543,9 @@
           "en": "public holiday",
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_falls_da_trotzdem",
-          "article": "der"
+          "article": "der",
+          "image": "feiertag",
+          "imageHint": true
         },
         {
           "de": "Bescheid sagen",
@@ -49406,7 +49565,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_falls_da_trotzdem",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "verspaetung",
+          "imageHint": true
         }
       ],
       "help": {
@@ -59377,7 +59538,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "geraet",
+          "imageHint": true
         },
         {
           "de": "Bildschirm",
@@ -59385,7 +59548,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "bildschirm"
         },
         {
           "de": "Passwort",
@@ -59393,7 +59557,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
           "article": "das",
-          "plural": "¨-er"
+          "plural": "¨-er",
+          "image": "passwort",
+          "imageHint": true
         },
         {
           "de": "Akku",
@@ -59401,7 +59567,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
           "article": "der",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "akku"
         },
         {
           "de": "Datei",
@@ -59409,7 +59576,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "datei",
+          "imageHint": true
         },
         {
           "de": "Nachricht",
@@ -59417,14 +59586,17 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "nachricht",
+          "imageHint": true
         },
         {
           "de": "WLAN",
           "en": "Wi-Fi",
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
-          "article": "das"
+          "article": "das",
+          "image": "wlan"
         },
         {
           "de": "Website",
@@ -59432,7 +59604,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_technik",
           "article": "die",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "website",
+          "imageHint": true
         },
         {
           "de": "abstürzen",
@@ -60197,7 +60371,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_n_deklination",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "kunde",
+          "imageHint": true
         },
         {
           "de": "Junge",
@@ -60224,7 +60400,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_n_deklination",
           "article": "der",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "herr",
+          "imageHint": true
         },
         {
           "de": "Mensch",
@@ -60240,7 +60418,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_n_deklination",
           "article": "der",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "praesident",
+          "imageHint": true
         },
         {
           "de": "Polizist",
@@ -60248,7 +60428,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_n_deklination",
           "article": "der",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "polizist"
         },
         {
           "de": "Tourist",
@@ -60256,7 +60437,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_n_deklination",
           "article": "der",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "tourist"
         },
         {
           "de": "Praktikant",
@@ -60264,7 +60446,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_n_deklination",
           "article": "der",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "praktikant",
+          "imageHint": true
         },
         {
           "de": "Name",
@@ -60533,7 +60717,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
           "article": "der",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "stau"
         },
         {
           "de": "Sturm",
@@ -60541,7 +60726,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "sturm"
         },
         {
           "de": "Erkältung",
@@ -60549,7 +60735,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "erkaeltung"
         },
         {
           "de": "Kosten",
@@ -60565,7 +60752,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "zugabe",
+          "imageHint": true
         },
         {
           "de": "Bewerbung",
@@ -60573,7 +60762,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "bewerbung",
+          "imageHint": true
         },
         {
           "de": "Regen",
@@ -60581,7 +60772,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
           "article": "der",
-          "plural": "—"
+          "plural": "—",
+          "image": "regen"
         },
         {
           "de": "Film",
@@ -60603,7 +60795,9 @@
           "en": "holidays",
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
-          "article": "die"
+          "article": "die",
+          "image": "ferien",
+          "imageHint": true
         },
         {
           "de": "hohen Kosten",
@@ -60624,7 +60818,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_trotz_wegen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "pause",
+          "imageHint": true
         },
         {
           "de": "eine Krankheit",
@@ -60723,7 +60919,9 @@
           "en": "health",
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
-          "article": "die"
+          "article": "die",
+          "image": "gesundheit",
+          "imageHint": true
         },
         {
           "de": "Entscheidung",
@@ -60731,7 +60929,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "entscheidung",
+          "imageHint": true
         },
         {
           "de": "Möglichkeit",
@@ -60755,7 +60955,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "freundschaft",
+          "imageHint": true
         },
         {
           "de": "Wissenschaft",
@@ -60763,7 +60965,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "wissenschaft",
+          "imageHint": true
         },
         {
           "de": "Erfahrung",
@@ -60771,7 +60975,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "erfahrung",
+          "imageHint": true
         },
         {
           "de": "Sportler",
@@ -60779,14 +60985,17 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
           "article": "der",
-          "plural": "-"
+          "plural": "-",
+          "image": "sportler"
         },
         {
           "de": "Kindheit",
           "en": "childhood",
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
-          "article": "die"
+          "article": "die",
+          "image": "kindheit",
+          "imageHint": true
         },
         {
           "de": "Rechnung",
@@ -60794,7 +61003,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_wortbildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "rechnung",
+          "imageHint": true
         },
         {
           "de": "Bedeutung",
@@ -60863,7 +61074,9 @@
           "en": "closing day (restaurant)",
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_zustandspassiv",
-          "article": "der"
+          "article": "der",
+          "image": "ruhetag",
+          "imageHint": true
         },
         {
           "de": "abschließen",
@@ -72152,7 +72365,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_gesellschaft",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "regierung",
+          "imageHint": true
         },
         {
           "de": "Wahl",
@@ -72160,7 +72375,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_gesellschaft",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "wahl"
         },
         {
           "de": "Mehrheit",
@@ -72176,14 +72392,17 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_gesellschaft",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "gesetz"
         },
         {
           "de": "Steuern",
           "en": "taxes",
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_gesellschaft",
-          "article": "die"
+          "article": "die",
+          "image": "steuern",
+          "imageHint": true
         },
         {
           "de": "Arbeitslosigkeit",
@@ -72235,7 +72454,9 @@
           "en": "democracy",
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_gesellschaft",
-          "article": "die"
+          "article": "die",
+          "image": "demokratie",
+          "imageHint": true
         },
         {
           "de": "Parlament",
@@ -72243,7 +72464,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_gesellschaft",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "parlament"
         },
         {
           "de": "Kluft",
@@ -72297,7 +72519,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_gesellschaft",
           "article": "das",
-          "plural": "-"
+          "plural": "-",
+          "image": "einkommen",
+          "imageHint": true
         },
         {
           "de": "abstimmen über",
@@ -72514,7 +72738,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_konj1_vergangenheit",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "zeuge",
+          "imageHint": true
         },
         {
           "de": "muss gelöst werden",
@@ -73421,7 +73647,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_kausal_nominal",
           "article": "der",
-          "plural": "Stürme"
+          "plural": "Stürme",
+          "image": "sturm"
         },
         {
           "de": "Krankheit",
@@ -73478,7 +73705,9 @@
           "en": "arrival",
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_temporal_nominal",
-          "article": "die"
+          "article": "die",
+          "image": "ankunft",
+          "imageHint": true
         },
         {
           "de": "Abreise",
@@ -73486,7 +73715,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_temporal_nominal",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "abreise",
+          "imageHint": true
         },
         {
           "de": "Umzug",
@@ -73494,7 +73725,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_temporal_nominal",
           "article": "der",
-          "plural": "Umzüge"
+          "plural": "Umzüge",
+          "image": "umzug"
         },
         {
           "de": "Landung",
@@ -73502,7 +73734,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_temporal_nominal",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "landung"
         },
         {
           "de": "Studium",
@@ -73510,7 +73743,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_temporal_nominal",
           "article": "das",
-          "plural": "Studien"
+          "plural": "Studien",
+          "image": "studium",
+          "imageHint": true
         },
         {
           "de": "hoffen",
@@ -73630,7 +73865,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_nachsilben_genus",
           "article": "der",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "praktikant",
+          "imageHint": true
         },
         {
           "de": "Motor",
@@ -73638,7 +73875,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_nachsilben_genus",
           "article": "der",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "motor"
         },
         {
           "de": "Frühling",
@@ -73670,7 +73908,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_nachsilben_genus",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "dokument",
+          "imageHint": true
         },
         {
           "de": "Erlaubnis",
@@ -73686,7 +73926,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_nachsilben_genus",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "konferenz",
+          "imageHint": true
         },
         {
           "de": "Universität",
@@ -73694,7 +73936,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_nachsilben_genus",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "universitaet"
         },
         {
           "de": "Irrtum",
@@ -73819,7 +74062,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_zustandspassiv",
           "article": "das",
-          "plural": "-"
+          "plural": "-",
+          "image": "erdbeben"
         },
         {
           "de": "Vorgang",
@@ -73909,7 +74153,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_passiv_subjektlos",
           "article": "das",
-          "plural": "-er"
+          "plural": "-er",
+          "image": "schild"
         },
         {
           "de": "Stellungnahme",
@@ -74074,7 +74319,9 @@
           "en": "further training",
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_infinitivsaetze",
-          "article": "die"
+          "article": "die",
+          "image": "weiterbildung",
+          "imageHint": true
         },
         {
           "de": "auf dem neuesten Stand",
@@ -74105,14 +74352,18 @@
           "en": "fire-brigade access",
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_brauchen_zu",
-          "article": "die"
+          "article": "die",
+          "image": "feuerwehrzufahrt",
+          "imageHint": true
         },
         {
           "de": "Eintritt",
           "en": "admission",
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_brauchen_zu",
-          "article": "der"
+          "article": "der",
+          "image": "eintritt",
+          "imageHint": true
         },
         {
           "de": "sich beeilen",
@@ -85770,7 +86021,9 @@
           "en": "global warming",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_umwelt",
-          "article": "die"
+          "article": "die",
+          "image": "erderwaermung",
+          "imageHint": true
         },
         {
           "de": "Maßnahme",
@@ -85823,7 +86076,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_umwelt",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "duerre"
         },
         {
           "de": "Überschwemmung",
@@ -85831,7 +86085,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_umwelt",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "ueberschwemmung"
         },
         {
           "de": "erneuerbar",
@@ -85998,7 +86253,8 @@
           "en": "ghost",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_als_ob",
-          "article": "das"
+          "article": "das",
+          "image": "gespenst"
         },
         {
           "de": "wohl",
@@ -86409,7 +86665,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "hilfe",
+          "imageHint": true
         },
         {
           "de": "Prüfung",
@@ -86417,7 +86675,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "pruefung",
+          "imageHint": true
         },
         {
           "de": "Entscheidung",
@@ -86425,7 +86685,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "entscheidung",
+          "imageHint": true
         },
         {
           "de": "Lauf",
@@ -86433,14 +86695,18 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
           "article": "der",
-          "plural": "Läufe"
+          "plural": "Läufe",
+          "image": "lauf",
+          "imageHint": true
         },
         {
           "de": "Geschrei",
           "en": "shouting",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
-          "article": "das"
+          "article": "das",
+          "image": "geschrei",
+          "imageHint": true
         },
         {
           "de": "Angestellte",
@@ -86448,7 +86714,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "angestellte",
+          "imageHint": true
         },
         {
           "de": "Angestellte",
@@ -86456,7 +86724,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "angestellte",
+          "imageHint": true
         },
         {
           "de": "Suche",
@@ -86471,7 +86741,9 @@
           "en": "sleep",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_nominalisierung_intro",
-          "article": "der"
+          "article": "der",
+          "image": "schlaf",
+          "imageHint": true
         },
         {
           "de": "freundlich",
@@ -86650,7 +86922,9 @@
           "en": "registration",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_konditional_nominal",
-          "article": "die"
+          "article": "die",
+          "image": "anmeldung",
+          "imageHint": true
         },
         {
           "de": "Verspätung",
@@ -86658,7 +86932,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_konditional_nominal",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "verspaetung",
+          "imageHint": true
         },
         {
           "de": "sodass",
@@ -86775,7 +87051,9 @@
           "en": "rumour",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_sollen_subjektiv",
-          "article": "das"
+          "article": "das",
+          "image": "geruecht",
+          "imageHint": true
         },
         {
           "de": "behaupten",
@@ -86788,7 +87066,9 @@
           "en": "culprit",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_sollen_subjektiv",
-          "article": "der"
+          "article": "der",
+          "image": "taeter",
+          "imageHint": true
         },
         {
           "de": "verursachen",
@@ -87109,7 +87389,8 @@
           "en": "delivery man",
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_futur1_vermutung",
-          "article": "der"
+          "article": "der",
+          "image": "paketbote"
         },
         {
           "de": "Feierabend machen",
@@ -96910,7 +97191,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_bildung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "fachzeitschrift",
+          "imageHint": true
         },
         {
           "de": "Stipendium",
@@ -96918,14 +97201,18 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_bildung",
           "article": "das",
-          "plural": "Stipendien"
+          "plural": "Stipendien",
+          "image": "stipendium",
+          "imageHint": true
         },
         {
           "de": "Zusammenarbeit",
           "en": "collaboration",
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_bildung",
-          "article": "die"
+          "article": "die",
+          "image": "zusammenarbeit",
+          "imageHint": true
         },
         {
           "de": "widerlegen",
@@ -96951,7 +97238,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_bildung",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "stichprobe",
+          "imageHint": true
         },
         {
           "de": "Begutachtung",
@@ -96992,7 +97281,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_nominalisierung",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "entscheidung",
+          "imageHint": true
         },
         {
           "de": "Lösung",
@@ -97006,7 +97297,9 @@
           "en": "arrival",
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_nominalisierung",
-          "article": "die"
+          "article": "die",
+          "image": "ankunft",
+          "imageHint": true
         },
         {
           "de": "Abfahrt",
@@ -97043,21 +97336,27 @@
           "en": "loss (verlieren)",
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_nominalisierung",
-          "article": "der"
+          "article": "der",
+          "image": "verlust",
+          "imageHint": true
         },
         {
           "de": "Wachstum",
           "en": "growth (wachsen)",
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_nominalisierung",
-          "article": "das"
+          "article": "das",
+          "image": "wachstum",
+          "imageHint": true
         },
         {
           "de": "Vorschlag",
           "en": "proposal (vorschlagen)",
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_nominalisierung",
-          "article": "der"
+          "article": "der",
+          "image": "vorschlag",
+          "imageHint": true
         },
         {
           "de": "Ergebnis",
@@ -97130,7 +97429,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_tempuswahl",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "erzaehlung",
+          "imageHint": true
         },
         {
           "de": "Bericht",
@@ -97138,7 +97439,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_tempuswahl",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "bericht",
+          "imageHint": true
         },
         {
           "de": "verfeinern",
@@ -97935,7 +98238,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_partizipialattribute",
           "article": "die",
-          "plural": "Fristen"
+          "plural": "Fristen",
+          "image": "frist",
+          "imageHint": true
         },
         {
           "de": "Umfrage",
@@ -97943,7 +98248,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_partizipialattribute",
           "article": "die",
-          "plural": "Umfragen"
+          "plural": "Umfragen",
+          "image": "umfrage",
+          "imageHint": true
         },
         {
           "de": "Verfahren",
@@ -97959,7 +98266,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_partizipialattribute",
           "article": "die",
-          "plural": "Fachkräfte"
+          "plural": "Fachkräfte",
+          "image": "fachkraft",
+          "imageHint": true
         },
         {
           "de": "Abschluss",
@@ -97967,7 +98276,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_partizipialattribute",
           "article": "der",
-          "plural": "Abschlüsse"
+          "plural": "Abschlüsse",
+          "image": "abschluss",
+          "imageHint": true
         },
         {
           "de": "Fachkräftemangel",
@@ -97994,7 +98305,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_konnektoren_zweiteilig",
           "article": "die",
-          "plural": "Chancen"
+          "plural": "Chancen",
+          "image": "chance",
+          "imageHint": true
         },
         {
           "de": "Risiko",
@@ -98002,7 +98315,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_konnektoren_zweiteilig",
           "article": "das",
-          "plural": "Risiken"
+          "plural": "Risiken",
+          "image": "risiko",
+          "imageHint": true
         },
         {
           "de": "Betriebsrat",
@@ -98034,7 +98349,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_konnektoren_zweiteilig",
           "article": "die",
-          "plural": "Quellen"
+          "plural": "Quellen",
+          "image": "quelle",
+          "imageHint": true
         },
         {
           "de": "Gebühr",
@@ -98042,7 +98359,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_konnektoren_zweiteilig",
           "article": "die",
-          "plural": "Gebühren"
+          "plural": "Gebühren",
+          "image": "gebuehr",
+          "imageHint": true
         },
         {
           "de": "etwas bergen",
@@ -98122,7 +98441,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_funktionsverbgefuege",
           "article": "die",
-          "plural": "Klagen"
+          "plural": "Klagen",
+          "image": "klage",
+          "imageHint": true
         },
         {
           "de": "Stellungnahme",
@@ -108028,7 +108349,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_kultur",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "vielfalt",
+          "imageHint": true
         },
         {
           "de": "Auseinandersetzung",
@@ -108064,14 +108387,18 @@
           "en": "exchange",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_kultur",
-          "article": "der"
+          "article": "der",
+          "image": "austausch",
+          "imageHint": true
         },
         {
           "de": "Erbe",
           "en": "heritage",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_kultur",
-          "article": "das"
+          "article": "das",
+          "image": "erbe",
+          "imageHint": true
         },
         {
           "de": "Rezension",
@@ -108079,14 +108406,18 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_kultur",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "rezension",
+          "imageHint": true
         },
         {
           "de": "Inszenierung",
           "en": "staging, production",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_kultur",
-          "article": "die"
+          "article": "die",
+          "image": "inszenierung",
+          "imageHint": true
         },
         {
           "de": "zeitgenössisch",
@@ -108158,7 +108489,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_konj2_kritik",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "frist",
+          "imageHint": true
         },
         {
           "de": "Eigeninitiative",
@@ -108234,7 +108567,8 @@
           "en": "furniture (plural; singular Möbelstück)",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_numerus_gender",
-          "article": "die"
+          "article": "die",
+          "image": "moebel"
         },
         {
           "de": "Gepäck",
@@ -108242,7 +108576,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_numerus_gender",
           "article": "das",
-          "plural": "—"
+          "plural": "—",
+          "image": "gepaeck"
         },
         {
           "de": "Ratschlag",
@@ -108250,7 +108585,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_numerus_gender",
           "article": "der",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "ratschlag",
+          "imageHint": true
         },
         {
           "de": "Praktikum",
@@ -108266,7 +108603,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_numerus_gender",
           "article": "das",
-          "plural": "Visa / Visen"
+          "plural": "Visa / Visen",
+          "image": "visum",
+          "imageHint": true
         },
         {
           "de": "Lehrkraft",
@@ -108282,7 +108621,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_numerus_gender",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "studierende",
+          "imageHint": true
         },
         {
           "de": "Studierende",
@@ -108290,7 +108631,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_numerus_gender",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "studierende",
+          "imageHint": true
         },
         {
           "de": "Mitarbeitende",
@@ -108314,7 +108657,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_numerus_gender",
           "article": "die",
-          "plural": "¨-e"
+          "plural": "¨-e",
+          "image": "fachkraft",
+          "imageHint": true
         },
         {
           "de": "sein",
@@ -108340,35 +108685,45 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_modal_hoerensagen",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "geruecht",
+          "imageHint": true
         },
         {
           "de": "Zeuge",
           "en": "witness",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_modal_hoerensagen",
-          "article": "der"
+          "article": "der",
+          "image": "zeuge",
+          "imageHint": true
         },
         {
           "de": "Zeugin",
           "en": "witness",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_modal_hoerensagen",
-          "article": "die"
+          "article": "die",
+          "image": "zeugin",
+          "imageHint": true
         },
         {
           "de": "Angeklagte",
           "en": "accused",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_modal_hoerensagen",
-          "article": "der"
+          "article": "der",
+          "image": "angeklagte",
+          "imageHint": true
         },
         {
           "de": "Angeklagte",
           "en": "accused",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_modal_hoerensagen",
-          "article": "die"
+          "article": "die",
+          "image": "angeklagte",
+          "imageHint": true
         },
         {
           "de": "bestreiten",
@@ -108491,7 +108846,9 @@
           "en": "composure",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_wortbildung_nach",
-          "article": "die"
+          "article": "die",
+          "image": "gelassenheit",
+          "imageHint": true
         },
         {
           "de": "Durchführbarkeit",
@@ -109042,7 +109399,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_konjunktiv1_indirekte_rede",
           "article": "die",
-          "plural": "Behörden"
+          "plural": "Behörden",
+          "image": "behoerde",
+          "imageHint": true
         },
         {
           "de": "Gewerkschaft",
@@ -109050,7 +109409,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_konjunktiv1_indirekte_rede",
           "article": "die",
-          "plural": "Gewerkschaften"
+          "plural": "Gewerkschaften",
+          "image": "gewerkschaft",
+          "imageHint": true
         },
         {
           "de": "Abgeordnete",
@@ -109058,7 +109419,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_konjunktiv1_indirekte_rede",
           "article": "der",
-          "plural": "Abgeordneten"
+          "plural": "Abgeordneten",
+          "image": "abgeordnete",
+          "imageHint": true
         },
         {
           "de": "Abgeordnete",
@@ -109066,7 +109429,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_konjunktiv1_indirekte_rede",
           "article": "die",
-          "plural": "Abgeordneten"
+          "plural": "Abgeordneten",
+          "image": "abgeordnete",
+          "imageHint": true
         },
         {
           "de": "Prüfungsordnung",
@@ -109159,7 +109524,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_schreiben_nominalstil",
           "article": "der",
-          "plural": "Fahrbahnbeläge"
+          "plural": "Fahrbahnbeläge",
+          "image": "fahrbahnbelag",
+          "imageHint": true
         },
         {
           "de": "Versorgungsleitung",
@@ -109167,7 +109534,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_schreiben_nominalstil",
           "article": "die",
-          "plural": "Versorgungsleitungen"
+          "plural": "Versorgungsleitungen",
+          "image": "versorgungsleitung",
+          "imageHint": true
         },
         {
           "de": "Genehmigung",
@@ -109175,7 +109544,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_schreiben_nominalstil",
           "article": "die",
-          "plural": "Genehmigungen"
+          "plural": "Genehmigungen",
+          "image": "genehmigung",
+          "imageHint": true
         },
         {
           "de": "Abnahme",
@@ -109207,7 +109578,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_schreiben_nominalstil",
           "article": "der",
-          "plural": "Bauabschnitte"
+          "plural": "Bauabschnitte",
+          "image": "bauabschnitt",
+          "imageHint": true
         },
         {
           "de": "Beeinträchtigung",
@@ -119246,14 +119619,18 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
           "article": "die",
-          "plural": "—"
+          "plural": "—",
+          "image": "konjunktur",
+          "imageHint": true
         },
         {
           "de": "Rezession",
           "en": "recession",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
-          "article": "die"
+          "article": "die",
+          "image": "rezession",
+          "imageHint": true
         },
         {
           "de": "Rendite",
@@ -119275,14 +119652,18 @@
           "en": "inflation",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
-          "article": "die"
+          "article": "die",
+          "image": "inflation",
+          "imageHint": true
         },
         {
           "de": "Insolvenz",
           "en": "insolvency",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
-          "article": "die"
+          "article": "die",
+          "image": "insolvenz",
+          "imageHint": true
         },
         {
           "de": "Nachfrage",
@@ -119303,7 +119684,9 @@
           "en": "merger",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
-          "article": "die"
+          "article": "die",
+          "image": "fusion",
+          "imageHint": true
         },
         {
           "de": "Verordnung",
@@ -119423,7 +119806,9 @@
           "note": "Job",
           "also": [
             "die Position"
-          ]
+          ],
+          "image": "stelle",
+          "imageHint": true
         },
         {
           "de": "erheblich",
@@ -119469,7 +119854,9 @@
           "note": "Geld",
           "also": [
             "die Knete"
-          ]
+          ],
+          "image": "kohle",
+          "imageHint": true
         },
         {
           "de": "sich äußern",
@@ -119731,35 +120118,40 @@
           "en": "kindergarten (-er-)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
-          "article": "der"
+          "article": "der",
+          "image": "kindergarten"
         },
         {
           "de": "Sonnenbrille",
           "en": "sunglasses (-n-)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
-          "article": "die"
+          "article": "die",
+          "image": "sonnenbrille"
         },
         {
           "de": "Buchhandlung",
           "en": "bookshop (no joint)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
-          "article": "die"
+          "article": "die",
+          "image": "buchhandlung"
         },
         {
           "de": "Tageszeitung",
           "en": "daily newspaper (-es-)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
-          "article": "die"
+          "article": "die",
+          "image": "tageszeitung"
         },
         {
           "de": "Schweinebraten",
           "en": "roast pork (-e-)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
-          "article": "der"
+          "article": "der",
+          "image": "schweinebraten"
         },
         {
           "de": "Frauenarzt",
@@ -119773,7 +120165,9 @@
           "en": "speed limit (-s- after -keit)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
-          "article": "die"
+          "article": "die",
+          "image": "geschwindigkeitsbegrenzung",
+          "imageHint": true
         },
         {
           "de": "Wissenschaftsfreiheit",
@@ -119787,7 +120181,9 @@
           "en": "Federal Constitutional Court",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
-          "article": "das"
+          "article": "das",
+          "image": "bundesverfassungsgericht",
+          "imageHint": true
         },
         {
           "de": "Straßenbahn",
@@ -119795,7 +120191,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_komposita",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "strassenbahn"
         },
         {
           "de": "einer der größten",
@@ -120176,14 +120573,18 @@
           "en": "departure, setting off",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_umformung_2",
-          "article": "der"
+          "article": "der",
+          "image": "aufbruch",
+          "imageHint": true
         },
         {
           "de": "Unterzeichnung",
           "en": "signing (of a contract)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_umformung_2",
-          "article": "die"
+          "article": "die",
+          "image": "unterzeichnung",
+          "imageHint": true
         },
         {
           "de": "ungeachtet",
@@ -120248,7 +120649,9 @@
           "en": "stench",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_konnotation",
-          "article": "der"
+          "article": "der",
+          "image": "gestank",
+          "imageHint": true
         },
         {
           "de": "standhaft",
@@ -120482,7 +120885,9 @@
           "en": "politeness",
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_konj2_nuancen",
-          "article": "die"
+          "article": "die",
+          "image": "hoeflichkeit",
+          "imageHint": true
         },
         {
           "de": "unverzeihlich",
@@ -120635,7 +121040,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_praefixe_semantik",
           "article": "der",
-          "plural": "Fährleute"
+          "plural": "Fährleute",
+          "image": "faehrmann"
         },
         {
           "de": "über- inseparable",
@@ -133117,7 +133523,9 @@
           "en": "conscience",
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_philosophie",
-          "article": "das"
+          "article": "das",
+          "image": "gewissen",
+          "imageHint": true
         },
         {
           "de": "Menschenbild",
@@ -133376,7 +133784,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_anspielung",
           "article": "die",
-          "plural": "Absagen"
+          "plural": "Absagen",
+          "image": "absage",
+          "imageHint": true
         },
         {
           "de": "Arbeitszeugnis",
@@ -133911,7 +134321,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_wissenschaftssprache",
           "article": "die",
-          "plural": "Stichproben"
+          "plural": "Stichproben",
+          "image": "stichprobe",
+          "imageHint": true
         },
         {
           "de": "Befund",
@@ -134103,7 +134515,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_nominalstil",
           "article": "die",
-          "plural": "Sanierungen"
+          "plural": "Sanierungen",
+          "image": "sanierung",
+          "imageHint": true
         },
         {
           "de": "Beschluss",
@@ -134127,7 +134541,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_behoerdensprache",
           "article": "die",
-          "plural": "Geldbußen"
+          "plural": "Geldbußen",
+          "image": "geldbusse",
+          "imageHint": true
         },
         {
           "de": "Verwarnungsgeld",
@@ -134260,7 +134676,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_appositionen",
           "article": "der",
-          "plural": "Glücksfälle"
+          "plural": "Glücksfälle",
+          "image": "gluecksfall",
+          "imageHint": true
         },
         {
           "de": "Lesart",
@@ -134549,7 +134967,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_rezension_redemittel",
           "article": "die",
-          "plural": "Rezensionen"
+          "plural": "Rezensionen",
+          "image": "rezension",
+          "imageHint": true
         },
         {
           "de": "Erzähler",
@@ -134959,7 +135379,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
           "article": "der",
-          "plural": "Paradeiser"
+          "plural": "Paradeiser",
+          "image": "paradeiser"
         },
         {
           "de": "Erdapfel",
@@ -134967,7 +135388,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
           "article": "der",
-          "plural": "Erdäpfel"
+          "plural": "Erdäpfel",
+          "image": "erdapfel"
         },
         {
           "de": "Marille",
@@ -134975,21 +135397,26 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
           "article": "die",
-          "plural": "Marillen"
+          "plural": "Marillen",
+          "image": "marille"
         },
         {
           "de": "Topfen",
           "en": "quark, curd cheese (Austria)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
-          "article": "der"
+          "article": "der",
+          "image": "topfen",
+          "imageHint": true
         },
         {
           "de": "Obers",
           "en": "cream (Austria)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
-          "article": "das"
+          "article": "das",
+          "image": "obers",
+          "imageHint": true
         },
         {
           "de": "Trafik",
@@ -134997,7 +135424,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
           "article": "die",
-          "plural": "Trafiken"
+          "plural": "Trafiken",
+          "image": "trafik",
+          "imageHint": true
         },
         {
           "de": "Velo",
@@ -135005,7 +135434,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
           "article": "das",
-          "plural": "Velos"
+          "plural": "Velos",
+          "image": "velo"
         },
         {
           "de": "Trottoir",
@@ -135013,7 +135443,9 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
           "article": "das",
-          "plural": "Trottoirs"
+          "plural": "Trottoirs",
+          "image": "trottoir",
+          "imageHint": true
         },
         {
           "de": "Billett",
@@ -135021,14 +135453,18 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
           "article": "das",
-          "plural": "Billette"
+          "plural": "Billette",
+          "image": "billett",
+          "imageHint": true
         },
         {
           "de": "Estrich",
           "en": "attic (Switzerland)",
           "kind": "noun",
           "sourceQuizId": "quest_c2_2_dach_varianten",
-          "article": "der"
+          "article": "der",
+          "image": "estrich",
+          "imageHint": true
         },
         {
           "de": "Spital",

@@ -610,6 +610,937 @@
 		{
 			"id": "muell",
 			"prompt": "a full rubbish bin with a banana peel and a crumpled can beside it"
+		},
+		{
+			"id": "wand",
+			"prompt": "a plain interior wall with one framed picture hanging on it and a light switch"
+		},
+		{
+			"id": "regal",
+			"prompt": "a bookshelf with books, a plant and a small box on it"
+		},
+		{
+			"id": "schrank",
+			"prompt": "a wardrobe with one door open showing hanging clothes"
+		},
+		{
+			"id": "schublade",
+			"prompt": "an open dresser drawer full of folded socks"
+		},
+		{
+			"id": "boden",
+			"prompt": "a person mopping a wooden floor with a bucket beside them",
+			"hint": true
+		},
+		{
+			"id": "urlaub",
+			"prompt": "a person in a deckchair on a beach with a suitcase and a drink with a straw"
+		},
+		{
+			"id": "aerztin",
+			"prompt": "a female doctor in a white coat with a stethoscope"
+		},
+		{
+			"id": "praxis",
+			"prompt": "a doctor's waiting room with a reception desk, chairs and a plant",
+			"hint": true
+		},
+		{
+			"id": "krankenhaus",
+			"prompt": "a hospital building with a red cross sign and an ambulance in front"
+		},
+		{
+			"id": "rezept",
+			"prompt": "a doctor handing a small prescription slip to a patient across a desk",
+			"hint": true
+		},
+		{
+			"id": "medikament",
+			"prompt": "a medicine bottle next to a blister pack of pills"
+		},
+		{
+			"id": "tablette",
+			"prompt": "a single white pill next to a glass of water"
+		},
+		{
+			"id": "erkaeltung",
+			"prompt": "a person wrapped in a blanket sneezing into a tissue with a cup of tea"
+		},
+		{
+			"id": "husten",
+			"prompt": "a person coughing into their elbow with little cough marks",
+			"hint": true
+		},
+		{
+			"id": "schnupfen",
+			"prompt": "a person with a red nose blowing into a handkerchief",
+			"hint": true
+		},
+		{
+			"id": "kopfschmerzen",
+			"prompt": "a person holding both temples with pain squiggles above the head",
+			"hint": true
+		},
+		{
+			"id": "krankenkasse",
+			"prompt": "a person handing a plastic health card over a counter marked with a red cross",
+			"hint": true
+		},
+		{
+			"id": "hose",
+			"prompt": "a pair of trousers"
+		},
+		{
+			"id": "hemd",
+			"prompt": "a buttoned shirt with a collar on a hanger"
+		},
+		{
+			"id": "kleid",
+			"prompt": "a dress on a hanger"
+		},
+		{
+			"id": "rock",
+			"prompt": "a skirt on a hanger"
+		},
+		{
+			"id": "jacke",
+			"prompt": "a short jacket with a zip on a hanger"
+		},
+		{
+			"id": "mantel",
+			"prompt": "a long winter coat on a hanger"
+		},
+		{
+			"id": "muetze",
+			"prompt": "a woolly hat with a pompom"
+		},
+		{
+			"id": "groesse",
+			"prompt": "a shop assistant measuring a customer's chest with a tape measure",
+			"hint": true
+		},
+		{
+			"id": "umkleidekabine",
+			"prompt": "a changing room curtain half open with a mirror and a pair of feet visible"
+		},
+		{
+			"id": "geduld",
+			"prompt": "a person sitting calmly on a bench with folded hands watching a snail crawl by",
+			"hint": true
+		},
+		{
+			"id": "vorschlag",
+			"prompt": "a person with a lightbulb above the head pointing at a sketch to a friend",
+			"hint": true
+		},
+		{
+			"id": "ratschlag",
+			"prompt": "an older person with a hand on a younger person's shoulder pointing the way ahead",
+			"hint": true
+		},
+		{
+			"id": "fahrer",
+			"prompt": "a taxi driver at the wheel seen through the windscreen"
+		},
+		{
+			"id": "wohnung",
+			"prompt": "a cutaway view of a small flat showing a living room, kitchen and bedroom"
+		},
+		{
+			"id": "erfahrung",
+			"prompt": "a grey-haired craftsman showing a young apprentice how to plane a piece of wood",
+			"hint": true
+		},
+		{
+			"id": "anmeldung",
+			"prompt": "a person filling in a form at a reception desk",
+			"hint": true
+		},
+		{
+			"id": "feiertag",
+			"prompt": "a family picnic in a park with a small flag and fireworks in the sky",
+			"hint": true
+		},
+		{
+			"id": "e-mail",
+			"prompt": "a laptop with an envelope flying out of the screen"
+		},
+		{
+			"id": "nachricht",
+			"prompt": "a smartphone with a speech bubble popping out of the screen",
+			"hint": true
+		},
+		{
+			"id": "einladung",
+			"prompt": "an open envelope with a card showing a cake and balloons drawn on it"
+		},
+		{
+			"id": "gruss",
+			"prompt": "a person leaning out of a train window waving goodbye",
+			"hint": true
+		},
+		{
+			"id": "stelle",
+			"prompt": "a notice board with a pinned job advert and a magnifying glass, no text",
+			"hint": true
+		},
+		{
+			"id": "bewerbung",
+			"prompt": "a nervous person handing a folder to a receptionist",
+			"hint": true
+		},
+		{
+			"id": "lebenslauf",
+			"prompt": "a document with a passport photo in the corner and lines of text drawn as strokes",
+			"hint": true
+		},
+		{
+			"id": "vorstellungsgespraech",
+			"prompt": "two people across a desk shaking hands, one holding a folder",
+			"hint": true
+		},
+		{
+			"id": "gehalt",
+			"prompt": "a pay envelope with coins on a desk next to a calculator",
+			"hint": true
+		},
+		{
+			"id": "vertrag",
+			"prompt": "a contract document with a pen and a signature line, the text drawn only as plain horizontal strokes, no letters",
+			"hint": true
+		},
+		{
+			"id": "ueberstunden",
+			"prompt": "a person alone at an office desk late at night under a lamp with a clock on the wall",
+			"hint": true
+		},
+		{
+			"id": "kollegin",
+			"prompt": "two women colleagues looking at the same laptop at a desk",
+			"hint": true
+		},
+		{
+			"id": "besprechung",
+			"prompt": "a group of people around a meeting table with a flip chart"
+		},
+		{
+			"id": "feierabend",
+			"prompt": "a person leaving an office building at sunset with a bag over the shoulder",
+			"hint": true
+		},
+		{
+			"id": "rente",
+			"prompt": "an older couple relaxing on a garden bench with tea",
+			"hint": true
+		},
+		{
+			"id": "firma",
+			"prompt": "a modern office building with a flag and people walking in",
+			"hint": true
+		},
+		{
+			"id": "idee",
+			"prompt": "a person with a bright lightbulb above the head"
+		},
+		{
+			"id": "geschichte",
+			"prompt": "an open storybook with a castle and a dragon popping out of the pages",
+			"hint": true
+		},
+		{
+			"id": "balkon",
+			"prompt": "a balcony with flower boxes, a chair and a small table"
+		},
+		{
+			"id": "moebel",
+			"prompt": "a sofa, a table and a wardrobe grouped together"
+		},
+		{
+			"id": "angestellte",
+			"prompt": "an office worker at a desk with a name badge and a computer",
+			"hint": true
+		},
+		{
+			"id": "erwachsene",
+			"prompt": "a tall adult with a briefcase standing next to a small child",
+			"hint": true
+		},
+		{
+			"id": "verwandte",
+			"prompt": "a big family reunion around a long table with grandparents and children",
+			"hint": true
+		},
+		{
+			"id": "jugendliche",
+			"prompt": "a teenager with headphones and a skateboard",
+			"hint": true
+		},
+		{
+			"id": "arbeitslose",
+			"prompt": "a person carrying a cardboard box of belongings out of an office",
+			"hint": true
+		},
+		{
+			"id": "auszubildende",
+			"prompt": "a young trainee in overalls learning at a workbench beside a mentor",
+			"hint": true
+		},
+		{
+			"id": "verletzte",
+			"prompt": "a person with a bandaged arm and a crutch",
+			"hint": true
+		},
+		{
+			"id": "traum",
+			"prompt": "a person asleep with a dream cloud showing a beach"
+		},
+		{
+			"id": "handy",
+			"prompt": "a smartphone"
+		},
+		{
+			"id": "kuchen",
+			"prompt": "a whole cake with one slice cut out"
+		},
+		{
+			"id": "leute",
+			"prompt": "a crowd of diverse people chatting in a square",
+			"hint": true
+		},
+		{
+			"id": "farbe",
+			"prompt": "paint tubes and a palette with blobs of many colours"
+		},
+		{
+			"id": "abitur",
+			"prompt": "a graduate throwing a cap in the air holding a diploma",
+			"hint": true
+		},
+		{
+			"id": "fuehrerschein",
+			"prompt": "a driver's licence card with a photo next to a small car",
+			"hint": true
+		},
+		{
+			"id": "unterlagen",
+			"prompt": "a stack of folders and documents with paper clips",
+			"hint": true
+		},
+		{
+			"id": "verspaetung",
+			"prompt": "a person looking at a watch on an empty platform with a train far away",
+			"hint": true
+		},
+		{
+			"id": "geraet",
+			"prompt": "a tablet, a smartphone and a smartwatch side by side",
+			"hint": true
+		},
+		{
+			"id": "bildschirm",
+			"prompt": "a computer monitor"
+		},
+		{
+			"id": "passwort",
+			"prompt": "a padlock on a laptop screen with a row of dots",
+			"hint": true
+		},
+		{
+			"id": "akku",
+			"prompt": "a rechargeable battery with a lightning bolt"
+		},
+		{
+			"id": "datei",
+			"prompt": "a paper document icon sliding into a folder icon",
+			"hint": true
+		},
+		{
+			"id": "wlan",
+			"prompt": "a router with wifi waves coming out of it"
+		},
+		{
+			"id": "website",
+			"prompt": "a browser window on a laptop showing pictures and lines",
+			"hint": true
+		},
+		{
+			"id": "kunde",
+			"prompt": "a customer paying at a shop counter with a bag",
+			"hint": true
+		},
+		{
+			"id": "herr",
+			"prompt": "an elegant gentleman with a hat and a cane tipping his hat",
+			"hint": true
+		},
+		{
+			"id": "praesident",
+			"prompt": "a president at a podium between two flags",
+			"hint": true
+		},
+		{
+			"id": "polizist",
+			"prompt": "a police officer in uniform with a cap"
+		},
+		{
+			"id": "tourist",
+			"prompt": "a tourist with a camera, a map and a sun hat"
+		},
+		{
+			"id": "praktikant",
+			"prompt": "a young person in an office carrying coffee cups and a stack of files",
+			"hint": true
+		},
+		{
+			"id": "stau",
+			"prompt": "a long line of cars bumper to bumper on a straight road, with wide empty paper margins around the whole scene"
+		},
+		{
+			"id": "sturm",
+			"prompt": "trees bending in strong wind with flying leaves and a hat blowing away"
+		},
+		{
+			"id": "zugabe",
+			"prompt": "a band bowing on a stage while the crowd claps with arms up",
+			"hint": true
+		},
+		{
+			"id": "regen",
+			"prompt": "heavy rain falling on a street with puddles and a lamp post"
+		},
+		{
+			"id": "ferien",
+			"prompt": "children running out of a school building with bags in the sunshine",
+			"hint": true
+		},
+		{
+			"id": "pause",
+			"prompt": "a person with a coffee and a sandwich on a bench",
+			"hint": true
+		},
+		{
+			"id": "gesundheit",
+			"prompt": "a person stretching in the morning with an apple and a heart symbol",
+			"hint": true
+		},
+		{
+			"id": "entscheidung",
+			"prompt": "a person standing at a fork in a road scratching their head",
+			"hint": true
+		},
+		{
+			"id": "freundschaft",
+			"prompt": "two friends arm in arm laughing",
+			"hint": true
+		},
+		{
+			"id": "wissenschaft",
+			"prompt": "a scientist with a microscope and test tubes",
+			"hint": true
+		},
+		{
+			"id": "sportler",
+			"prompt": "an athlete crossing a finish line with arms up"
+		},
+		{
+			"id": "kindheit",
+			"prompt": "a small child on a swing",
+			"hint": true
+		},
+		{
+			"id": "rechnung",
+			"prompt": "a receipt with a pen on a restaurant table next to a coffee cup",
+			"hint": true
+		},
+		{
+			"id": "ruhetag",
+			"prompt": "a restaurant door with a hanging sign and chairs stacked on the tables",
+			"hint": true
+		},
+		{
+			"id": "regierung",
+			"prompt": "a government building with a dome and flags",
+			"hint": true
+		},
+		{
+			"id": "wahl",
+			"prompt": "a hand putting a folded ballot into a ballot box"
+		},
+		{
+			"id": "gesetz",
+			"prompt": "a gavel, scales of justice and a thick law book"
+		},
+		{
+			"id": "steuern",
+			"prompt": "a tax form with coins and a calculator on it",
+			"hint": true
+		},
+		{
+			"id": "demokratie",
+			"prompt": "a crowd of people raising their hands to vote",
+			"hint": true
+		},
+		{
+			"id": "parlament",
+			"prompt": "a parliament chamber with rows of seats and a speaker at the front"
+		},
+		{
+			"id": "einkommen",
+			"prompt": "a pay slip next to a wallet with notes",
+			"hint": true
+		},
+		{
+			"id": "zeuge",
+			"prompt": "a witness in a court stand raising the right hand",
+			"hint": true
+		},
+		{
+			"id": "ankunft",
+			"prompt": "a train pulling into a platform where a person waves",
+			"hint": true
+		},
+		{
+			"id": "abreise",
+			"prompt": "a person with a suitcase leaving a house and waving goodbye",
+			"hint": true
+		},
+		{
+			"id": "umzug",
+			"prompt": "a moving van with boxes and a sofa being carried in"
+		},
+		{
+			"id": "landung",
+			"prompt": "an airplane touching down on a runway"
+		},
+		{
+			"id": "studium",
+			"prompt": "a student in a lecture hall with a laptop and books",
+			"hint": true
+		},
+		{
+			"id": "motor",
+			"prompt": "a car engine"
+		},
+		{
+			"id": "dokument",
+			"prompt": "a document with a red stamp and a ribbon seal",
+			"hint": true
+		},
+		{
+			"id": "konferenz",
+			"prompt": "a conference hall with a speaker on stage and a big audience",
+			"hint": true
+		},
+		{
+			"id": "universitaet",
+			"prompt": "a university building with columns and students on the steps"
+		},
+		{
+			"id": "erdbeben",
+			"prompt": "cracked ground with a small house shaking and a cloud of dust"
+		},
+		{
+			"id": "schild",
+			"prompt": "a signpost with several blank arrow signs"
+		},
+		{
+			"id": "feuerwehrzufahrt",
+			"prompt": "a fire engine driving through a gate with a striped barrier",
+			"hint": true
+		},
+		{
+			"id": "eintritt",
+			"prompt": "a ticket booth with a hand holding up a ticket",
+			"hint": true
+		},
+		{
+			"id": "weiterbildung",
+			"prompt": "adults in an evening class taking notes while a trainer explains at a board",
+			"hint": true
+		},
+		{
+			"id": "erderwaermung",
+			"prompt": "a globe sweating under a huge sun with a thermometer",
+			"hint": true
+		},
+		{
+			"id": "duerre",
+			"prompt": "cracked dry ground with a dead tree under a blazing sun"
+		},
+		{
+			"id": "ueberschwemmung",
+			"prompt": "a flooded street with a house half under water and a rowing boat"
+		},
+		{
+			"id": "gespenst",
+			"prompt": "a friendly sheet ghost floating in a hallway"
+		},
+		{
+			"id": "hilfe",
+			"prompt": "a person helping another person up from the ground",
+			"hint": true
+		},
+		{
+			"id": "pruefung",
+			"prompt": "a student writing an exam at a desk with a clock on the wall",
+			"hint": true
+		},
+		{
+			"id": "schlaf",
+			"prompt": "a person sleeping deeply with three z shapes above the pillow",
+			"hint": true
+		},
+		{
+			"id": "geruecht",
+			"prompt": "two people whispering behind their hands while a third looks over",
+			"hint": true
+		},
+		{
+			"id": "taeter",
+			"prompt": "a burglar in a striped shirt and mask carrying a sack",
+			"hint": true
+		},
+		{
+			"id": "paketbote",
+			"prompt": "a delivery driver handing a parcel to a person at a front door"
+		},
+		{
+			"id": "lauf",
+			"prompt": "runners in a race with numbered bibs drawn blank",
+			"hint": true
+		},
+		{
+			"id": "geschrei",
+			"prompt": "a person shouting with hands cupped around the mouth",
+			"hint": true
+		},
+		{
+			"id": "fachzeitschrift",
+			"prompt": "a stack of academic journals with a magnifying glass",
+			"hint": true
+		},
+		{
+			"id": "stipendium",
+			"prompt": "a student on a stage receiving an envelope and a rolled certificate from a person in a suit, wide empty paper margins around the scene",
+			"hint": true
+		},
+		{
+			"id": "zusammenarbeit",
+			"prompt": "three people assembling a big jigsaw puzzle together",
+			"hint": true
+		},
+		{
+			"id": "stichprobe",
+			"prompt": "a scientist taking a sample with a pipette from a row of test tubes",
+			"hint": true
+		},
+		{
+			"id": "wachstum",
+			"prompt": "a seedling, a sapling and a full tree in a row, growing bigger",
+			"hint": true
+		},
+		{
+			"id": "verlust",
+			"prompt": "a person with empty pockets turned inside out looking sad",
+			"hint": true
+		},
+		{
+			"id": "erzaehlung",
+			"prompt": "a grandparent telling a story to children by a fireplace",
+			"hint": true
+		},
+		{
+			"id": "umfrage",
+			"prompt": "a person with a clipboard asking a passer-by a question",
+			"hint": true
+		},
+		{
+			"id": "frist",
+			"prompt": "an hourglass standing on a wall calendar",
+			"hint": true
+		},
+		{
+			"id": "fachkraft",
+			"prompt": "an engineer with a hard hat holding a blueprint",
+			"hint": true
+		},
+		{
+			"id": "abschluss",
+			"prompt": "a graduate holding a diploma scroll",
+			"hint": true
+		},
+		{
+			"id": "risiko",
+			"prompt": "a person walking a tightrope over a gap",
+			"hint": true
+		},
+		{
+			"id": "chance",
+			"prompt": "an open door with light streaming through it",
+			"hint": true
+		},
+		{
+			"id": "quelle",
+			"prompt": "a spring of water bubbling out of rocks",
+			"hint": true
+		},
+		{
+			"id": "gebuehr",
+			"prompt": "coins being handed over a counter to a clerk",
+			"hint": true
+		},
+		{
+			"id": "klage",
+			"prompt": "a courtroom with a judge, a gavel and a lawyer speaking",
+			"hint": true
+		},
+		{
+			"id": "vielfalt",
+			"prompt": "a diverse group of people of different ages and looks standing in a circle",
+			"hint": true
+		},
+		{
+			"id": "erbe",
+			"prompt": "an old castle with a treasure chest in front",
+			"hint": true
+		},
+		{
+			"id": "rezension",
+			"prompt": "a person writing beside a stack of books with stars above",
+			"hint": true
+		},
+		{
+			"id": "inszenierung",
+			"prompt": "a theatre stage with actors and red curtains",
+			"hint": true
+		},
+		{
+			"id": "austausch",
+			"prompt": "two people exchanging letters and gifts",
+			"hint": true
+		},
+		{
+			"id": "gepaeck",
+			"prompt": "a pile of suitcases and bags"
+		},
+		{
+			"id": "visum",
+			"prompt": "a passport with a stamp next to a small airplane",
+			"hint": true
+		},
+		{
+			"id": "studierende",
+			"prompt": "students walking on a campus with books and backpacks",
+			"hint": true
+		},
+		{
+			"id": "zeugin",
+			"prompt": "a woman in a court witness stand raising her right hand",
+			"hint": true
+		},
+		{
+			"id": "angeklagte",
+			"prompt": "a person in the dock with a lawyer beside them",
+			"hint": true
+		},
+		{
+			"id": "gelassenheit",
+			"prompt": "a person meditating calmly cross-legged with closed eyes",
+			"hint": true
+		},
+		{
+			"id": "behoerde",
+			"prompt": "an official at a counter with a stamp and a queue of people",
+			"hint": true
+		},
+		{
+			"id": "gewerkschaft",
+			"prompt": "workers standing together with raised fists and a blank banner",
+			"hint": true
+		},
+		{
+			"id": "abgeordnete",
+			"prompt": "a politician speaking at a lectern in a parliament chamber",
+			"hint": true
+		},
+		{
+			"id": "fahrbahnbelag",
+			"prompt": "road workers laying asphalt with a steamroller",
+			"hint": true
+		},
+		{
+			"id": "versorgungsleitung",
+			"prompt": "workers in a trench beside large pipes",
+			"hint": true
+		},
+		{
+			"id": "genehmigung",
+			"prompt": "a document with a big round stamp and a tick mark, no letters or words anywhere",
+			"hint": true
+		},
+		{
+			"id": "bauabschnitt",
+			"prompt": "a construction site with a crane and half-built walls",
+			"hint": true
+		},
+		{
+			"id": "konjunktur",
+			"prompt": "a wavy graph line going up and down in front of a factory",
+			"hint": true
+		},
+		{
+			"id": "rezession",
+			"prompt": "a falling graph arrow with a worried businessperson",
+			"hint": true
+		},
+		{
+			"id": "inflation",
+			"prompt": "a shopping cart with only a few groceries next to a very large price tag that is blank, with an upward arrow, no symbols or letters",
+			"hint": true
+		},
+		{
+			"id": "insolvenz",
+			"prompt": "a closed shop with a padlock and a person with empty pockets",
+			"hint": true
+		},
+		{
+			"id": "fusion",
+			"prompt": "two office buildings joined by a handshake",
+			"hint": true
+		},
+		{
+			"id": "kohle",
+			"prompt": "lumps of coal next to a bag of money",
+			"hint": true
+		},
+		{
+			"id": "kindergarten",
+			"prompt": "a kindergarten room with small children playing with building blocks and a toy train, no animals"
+		},
+		{
+			"id": "sonnenbrille",
+			"prompt": "a pair of sunglasses"
+		},
+		{
+			"id": "buchhandlung",
+			"prompt": "a bookshop interior with shelves and a reading customer"
+		},
+		{
+			"id": "tageszeitung",
+			"prompt": "a folded newspaper next to a coffee cup"
+		},
+		{
+			"id": "schweinebraten",
+			"prompt": "a roast pork with dumplings and cabbage on a plate"
+		},
+		{
+			"id": "geschwindigkeitsbegrenzung",
+			"prompt": "a round red-rimmed road sign with a blank centre next to a road",
+			"hint": true
+		},
+		{
+			"id": "bundesverfassungsgericht",
+			"prompt": "judges in red robes seated at a long bench",
+			"hint": true
+		},
+		{
+			"id": "strassenbahn",
+			"prompt": "a tram on rails in a city street"
+		},
+		{
+			"id": "aufbruch",
+			"prompt": "a hiker setting off at dawn with a backpack",
+			"hint": true
+		},
+		{
+			"id": "unterzeichnung",
+			"prompt": "two people signing a contract at a table",
+			"hint": true
+		},
+		{
+			"id": "gestank",
+			"prompt": "a person holding their nose beside rubbish bags with stink lines",
+			"hint": true
+		},
+		{
+			"id": "faehrmann",
+			"prompt": "a ferryman punting a small boat across a river with a lantern"
+		},
+		{
+			"id": "hoeflichkeit",
+			"prompt": "a person holding a door open with a small bow",
+			"hint": true
+		},
+		{
+			"id": "gewissen",
+			"prompt": "a full-length person standing with a tiny angel on one shoulder and a tiny devil on the other, drawn small in the middle with wide empty paper margins on every side",
+			"hint": true
+		},
+		{
+			"id": "absage",
+			"prompt": "a person reading a letter with a thumbs down and a sad face",
+			"hint": true
+		},
+		{
+			"id": "sanierung",
+			"prompt": "a house being renovated with scaffolding and a painter",
+			"hint": true
+		},
+		{
+			"id": "geldbusse",
+			"prompt": "a parking ticket under a windscreen wiper with coins",
+			"hint": true
+		},
+		{
+			"id": "paradeiser",
+			"prompt": "a ripe tomato"
+		},
+		{
+			"id": "erdapfel",
+			"prompt": "a potato"
+		},
+		{
+			"id": "marille",
+			"prompt": "an apricot"
+		},
+		{
+			"id": "topfen",
+			"prompt": "a bowl of white quark with a spoon",
+			"hint": true
+		},
+		{
+			"id": "obers",
+			"prompt": "a small jug of cream being poured",
+			"hint": true
+		},
+		{
+			"id": "trafik",
+			"prompt": "a small tobacconist kiosk with newspapers and magazines, no text",
+			"hint": true
+		},
+		{
+			"id": "velo",
+			"prompt": "a bicycle"
+		},
+		{
+			"id": "trottoir",
+			"prompt": "a pavement with a lamp post and a pedestrian",
+			"hint": true
+		},
+		{
+			"id": "billett",
+			"prompt": "a train ticket next to a small train",
+			"hint": true
+		},
+		{
+			"id": "estrich",
+			"prompt": "an attic with boxes under a sloped roof and a round window",
+			"hint": true
+		},
+		{
+			"id": "gluecksfall",
+			"prompt": "a person finding a four-leaf clover",
+			"hint": true
 		}
 	]
 }
