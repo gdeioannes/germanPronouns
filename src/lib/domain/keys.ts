@@ -52,6 +52,8 @@ export function quizStatsKeys(prefix: string) {
 		streakMisses: `${prefix}quiz_streak_misses`,
 		bestStreakLap: `${prefix}quiz_best_streak_lap`,
 		bestStreakAbsolute: `${prefix}quiz_best_streak_absolute`,
+		/** Epoch ms of the last finish, for the play-through kinds that keep no answer history. */
+		lastPlayed: `${prefix}quiz_last_played`,
 		enabledSubjects: `${prefix}quiz_enabled_pronouns`,
 		enabledCategories: `${prefix}quiz_enabled_cases`
 	};
