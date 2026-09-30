@@ -49,7 +49,9 @@
 
 	// The first question is chosen up front rather than in an effect, so the
 	// prerendered page already shows a real sentence instead of an empty card.
-	let current = $state<QuizSentence | undefined>(pool[0]);
+	// Raw, not deep state: the shuffle bag compares by identity, and a proxy
+	// never equals the pool's own object.
+	let current = $state.raw<QuizSentence | undefined>(pool[0]);
 	let started = false;
 	/**
 	 * What the learner has typed, one entry per gap. Most sentences have one

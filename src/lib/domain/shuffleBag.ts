@@ -1,20 +1,22 @@
 // Ported from lib/utils/shuffle_bag.dart.
 //
 // A shuffle bag hands every option out exactly once, in random order, before
-// any can repeat — so over one cycle the learner sees the whole pool with no
-// early repeats (unlike a plain uniform pick, which clusters). A small chance
-// of a uniform pick keeps the order from feeling mechanical once a cycle has
-// been memorised.
+// any can repeat — so over one round the learner sees the whole pool with no
+// early repeats (unlike a plain uniform pick, which clusters). When the bag
+// runs dry it is refilled and shuffled again for the next round.
 //
-// The one hard guarantee, honoured on every path: whenever the pool holds any
-// option other than `avoidRepeat`, the result is never `avoidRepeat`. The same
-// question can never come up twice in a row unless that is unavoidable.
+// The one hard guarantee: whenever the pool holds any option other than
+// `avoidRepeat`, the result is never `avoidRepeat` — including across the seam
+// between two rounds. The same question can never come up twice in a row
+// unless that is unavoidable.
+//
+// Items are compared by identity, so `avoidRepeat` must be the very object the
+// pool holds: keep the current question in `$state.raw`, never `$state`, whose
+// deep proxy is a different object and silently defeats the guard.
 
 export interface DrawOptions<T> {
 	/** The item shown on the previous turn, never returned again immediately. */
 	avoidRepeat?: T;
-	/** Chance of an out-of-bag uniform pick. */
-	randomChance?: number;
 	/** Injectable for deterministic tests. */
 	random?: () => number;
 }
@@ -30,7 +32,7 @@ function shuffle<T>(items: T[], random: () => number): void {
  * Draws the next item from `pool` using the persistent `bag`.
  *
  * `bag` must be a dedicated, caller-owned array per pool; it is mutated in
- * place (drained and refilled) so the cycle survives across calls. `pool` is
+ * place (drained and refilled) so the round survives across calls. `pool` is
  * never mutated.
  */
 export function drawFromShuffleBag<T>(
@@ -38,24 +40,10 @@ export function drawFromShuffleBag<T>(
 	pool: readonly T[],
 	options: DrawOptions<T> = {}
 ): T {
-	const { avoidRepeat, randomChance = 0.12, random = Math.random } = options;
+	const { avoidRepeat, random = Math.random } = options;
 
 	if (pool.length === 0) throw new Error('drawFromShuffleBag: pool must not be empty');
 	if (pool.length === 1) return pool[0];
-
-	// Whether the pool offers anything other than the just-shown item. When it
-	// doesn't, a back-to-back repeat is the only possible outcome.
-	const canAvoidRepeat =
-		avoidRepeat !== undefined && pool.some((item) => item !== avoidRepeat);
-
-	if (random() < randomChance) {
-		let pick = pool[Math.floor(random() * pool.length)];
-		let guard = 0;
-		while (canAvoidRepeat && pick === avoidRepeat && guard++ < 16) {
-			pick = pool[Math.floor(random() * pool.length)];
-		}
-		return pick;
-	}
 
 	// Drop stale items (the enabled pool can shrink between calls) and refill
 	// when the bag runs dry.
@@ -67,16 +55,9 @@ export function drawFromShuffleBag<T>(
 		shuffle(bag, random);
 	}
 
-	// The just-shown item can sit at the front either at a cycle refill or
-	// because an out-of-bag pick left it there, so this guard runs every draw.
-	if (canAvoidRepeat && bag[0] === avoidRepeat) {
-		if (bag.length === 1) {
-			// The lone leftover is the repeat; start a fresh cycle so a
-			// non-repeat alternative exists to swap in.
-			bag.length = 0;
-			bag.push(...pool);
-			shuffle(bag, random);
-		}
+	// A fresh round can open with the item that closed the last one; swap it
+	// with the next one so the seam never repeats back to back.
+	if (avoidRepeat !== undefined && bag[0] === avoidRepeat) {
 		let i = 1;
 		while (i < bag.length && bag[i] === avoidRepeat) i++;
 		if (i < bag.length) [bag[0], bag[i]] = [bag[i], bag[0]];

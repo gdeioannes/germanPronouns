@@ -145,9 +145,36 @@ describe('shuffle bag', () => {
 		const random = seeded(3);
 		const seen = new Set<string>();
 		for (let i = 0; i < pool.length; i++) {
-			seen.add(drawFromShuffleBag(bag, pool, { randomChance: 0, random }));
+			seen.add(drawFromShuffleBag(bag, pool, { random }));
 		}
 		expect(seen.size).toBe(pool.length);
+	});
+
+	it('deals every round as a full permutation, then reshuffles', () => {
+		const pool = ['a', 'b', 'c', 'd', 'e'];
+		const bag: string[] = [];
+		const random = seeded(11);
+		let previous: string | undefined;
+		for (let round = 0; round < 50; round++) {
+			const seen = new Set<string>();
+			for (let i = 0; i < pool.length; i++) {
+				previous = drawFromShuffleBag(bag, pool, { avoidRepeat: previous, random });
+				seen.add(previous);
+			}
+			expect(seen.size).toBe(pool.length);
+		}
+	});
+
+	it('never repeats back to back with object items', () => {
+		const pool = [{ id: 1 }, { id: 2 }, { id: 3 }];
+		const bag: { id: number }[] = [];
+		let previous: { id: number } | undefined;
+		const random = seeded(5);
+		for (let i = 0; i < 300; i++) {
+			const next = drawFromShuffleBag(bag, pool, { avoidRepeat: previous, random });
+			expect(next).not.toBe(previous);
+			previous = next;
+		}
 	});
 
 	it('never repeats the previous item back to back', () => {

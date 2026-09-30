@@ -75,7 +75,9 @@
 				done: progress.isCompleted(quiz.type, quiz.id, quiz.storageKeyPrefix),
 				tier: progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix),
 				answered: history.answered,
-				mistakeRate: history.mistakeRate
+				mistakeRate: history.mistakeRate,
+				recentMistakeRate: history.recentMistakeRate,
+				lastPlayedAt: history.lastPlayedAt
 			};
 		}
 		facts = next;
@@ -421,6 +423,9 @@
 	}
 
 	.card[data-kind='practise'] {
+		--kind: var(--ochre);
+	}
+	.card[data-kind='review'] {
 		--kind: var(--ochre);
 	}
 	.card[data-kind='next'] {

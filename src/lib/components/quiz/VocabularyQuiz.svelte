@@ -76,7 +76,9 @@
 	let bag: VocabCard[] = [];
 	let poolKey = '';
 
-	let current = $state<VocabCard | undefined>(untrack(() => quiz.cards[0]));
+	// Raw, not deep state: the shuffle bag compares by identity, and a proxy
+	// never equals the pool's own object.
+	let current = $state.raw<VocabCard | undefined>(untrack(() => quiz.cards[0]));
 	/** Bumped on every deal, so the card element is re-created and animates in. */
 	let dealt = $state(0);
 	let answer = $state('');
@@ -128,7 +130,8 @@
 		// A missed card comes back after three others, so the correction is
 		// still fresh but not the very next thing on screen.
 		let card: VocabCard;
-		if (retry.length && sinceRetry >= 3) {
+		// The bag may have just dealt the card that is due; wait one more turn.
+		if (retry.length && sinceRetry >= 3 && retry[0] !== current) {
 			card = retry.shift()!;
 			sinceRetry = 0;
 		} else {
