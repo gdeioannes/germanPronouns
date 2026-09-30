@@ -49,6 +49,8 @@ export interface ExerciseItem {
 /** A titled group of exercises from one quiz. */
 export interface ExerciseSection {
 	quizTitle: string;
+	/** The quiz's sub-level (A1.1 …): titles repeat across levels ("Wortschatz"). */
+	level?: string;
 	kind: ExerciseSectionKind;
 	/** The reading passage, or the inline template still carrying `{{n}}`. */
 	passage?: string;
@@ -117,7 +119,7 @@ export function buildWorksheet(
 		if (scope === 'weakSpots' && stats.answered === 0) continue;
 		const section = sectionFor(quiz, stats, random);
 		if (section && section.items.length > 0) {
-			sections.push({ ...section, help: quiz.help, table: helpTableFor(quiz) });
+			sections.push({ ...section, level: quiz.level, help: quiz.help, table: helpTableFor(quiz) });
 		}
 	}
 

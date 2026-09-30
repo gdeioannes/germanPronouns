@@ -212,7 +212,7 @@
 
 			{#each sections as section, s (section.quizTitle + s)}
 				<section class="block">
-					<h3>{section.quizTitle}</h3>
+					<h3>{#if section.level}<span class="lvl tnum">{section.level}</span>{/if}{section.quizTitle}</h3>
 
 					<!-- The rules travel with the questions: on paper there is no
 					     panel to open, so a sheet without them can't be worked
@@ -458,6 +458,13 @@
 		color: var(--heading);
 		margin: 0 0 0.5rem;
 		break-after: avoid;
+	}
+
+	.block h3 .lvl {
+		margin-right: 0.5em;
+		color: var(--ink-muted);
+		font-size: var(--step--1);
+		font-weight: 600;
 	}
 
 	.passage {

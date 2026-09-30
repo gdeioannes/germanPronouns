@@ -56,23 +56,52 @@ export async function fitPages(
 	}
 }
 
+/** A text field has focus — on a phone, the on-screen keyboard is up. */
+function typing(): boolean {
+	const el = document.activeElement as HTMLElement | null;
+	return !!el && (el.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName));
+}
+
 /**
  * Runs `fit` now, once the web fonts have loaded (they change how much text
  * a line holds), and again after the window settles from a resize.
+ *
+ * Not while typing: on many phones the keyboard shrinks the window, and
+ * re-paging then would pull the gap being typed in out from under the
+ * finger — onto another page, or out of the DOM, which drops the keyboard,
+ * grows the window back and pages again. A resize skipped that way is caught
+ * up once the field lets go of focus.
  */
 export function fitOnResize(fit: () => void): () => void {
 	let timer: ReturnType<typeof setTimeout> | undefined;
 	let live = true;
+	let skipped = false;
+	const run = () => {
+		if (typing()) skipped = true;
+		else fit();
+	};
 	const onResize = () => {
 		clearTimeout(timer);
-		timer = setTimeout(fit, 250);
+		timer = setTimeout(run, 250);
+	};
+	const onFocusOut = () => {
+		if (!skipped) return;
+		// Focus may just be moving to the next gap; look once it has landed.
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			if (typing()) return;
+			skipped = false;
+			fit();
+		}, 250);
 	};
 	fit();
-	document.fonts?.ready.then(() => live && fit());
+	document.fonts?.ready.then(() => live && run());
 	window.addEventListener('resize', onResize);
+	document.addEventListener('focusout', onFocusOut);
 	return () => {
 		live = false;
 		clearTimeout(timer);
 		window.removeEventListener('resize', onResize);
+		document.removeEventListener('focusout', onFocusOut);
 	};
 }
