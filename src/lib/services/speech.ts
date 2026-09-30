@@ -15,6 +15,7 @@
 
 import { env } from '$env/dynamic/public';
 import { isMuted } from './mute';
+import { audioShard } from '$lib/audio/shard';
 
 /**
  * The project's deployed TTS Worker. Not a secret — it holds the keys, this
@@ -134,30 +135,73 @@ export class WebSttProvider implements SttProvider {
 	}
 }
 
+// ---------------------------------------------------------------------------
+// Connection trouble
+// ---------------------------------------------------------------------------
+
 /**
- * Clips recorded ahead of time by `tool/gen-audio.mjs` (Gemini TTS), served
- * from static/audio/. The manifest maps locale → exact text → file, so any
- * text an exercise speaks plays its recording when there is one, and falls
- * through to the next voice when there is not. No text leaves the device:
- * the file comes from the app's own origin.
+ * How long a network voice may take to start before the chain gives up on it
+ * and speaks with the device voice instead — a learner waiting on a silent
+ * button reads it as broken.
+ */
+const SLOW_MS = 4000;
+
+/**
+ * Set by a provider when the network let it down (offline, failed or timed
+ * out) — not when it simply has no clip for a text or the text is too long.
+ * The chain resets it per utterance and reads it before the device voice.
+ */
+let networkTrouble = false;
+
+function noteNetworkTrouble(): void {
+	networkTrouble = true;
+}
+
+function isOffline(): boolean {
+	return typeof navigator !== 'undefined' && navigator.onLine === false;
+}
+
+const fallbackListeners = new Set<() => void>();
+
+/**
+ * Called whenever the device voice stands in because the connection was down
+ * or too slow for the natural voices — VoiceNotice.svelte tells the learner.
+ * Returns the unsubscribe function.
+ */
+export function onConnectionFallback(listener: () => void): () => void {
+	fallbackListeners.add(listener);
+	return () => fallbackListeners.delete(listener);
+}
+
+/**
+ * Clips recorded ahead of time by `tool/gen-audio.mjs` (Chirp 3 HD), served
+ * from static/audio/. The manifest maps locale → exact text → file, split into
+ * shards by audioShard(text), so a tap fetches ~1/16 of it. Any text with a
+ * recording plays it; any without falls through to the next voice. No text
+ * leaves the device: the files come from the app's own origin.
  */
 export class RecordedTtsProvider implements TtsProvider {
 	readonly name = 'recorded';
 
-	private manifest: Promise<Record<string, Record<string, string>>> | null = null;
+	private shards = new Map<string, Promise<Record<string, Record<string, string>>>>();
 	private audio: HTMLAudioElement | null = null;
 
 	constructor(private readonly base = '/audio') {}
 
-	private load(): Promise<Record<string, Record<string, string>>> {
-		this.manifest ??= fetch(`${this.base}/manifest.json`)
-			.then((r) => (r.ok ? r.json() : {}))
-			.catch(() => {
-				// Offline before the first fetch: try again next time.
-				this.manifest = null;
-				return {};
-			});
-		return this.manifest;
+	private load(shard: string): Promise<Record<string, Record<string, string>>> {
+		let loading = this.shards.get(shard);
+		if (!loading) {
+			loading = fetch(`${this.base}/manifest/${shard}.json`, { signal: AbortSignal.timeout(SLOW_MS) })
+				.then((r) => (r.ok ? r.json() : {}))
+				.catch(() => {
+					// Offline or too slow: try again next time, and say so.
+					this.shards.delete(shard);
+					noteNetworkTrouble();
+					return {};
+				});
+			this.shards.set(shard, loading);
+		}
+		return loading;
 	}
 
 	async isAvailable(): Promise<boolean> {
@@ -165,8 +209,13 @@ export class RecordedTtsProvider implements TtsProvider {
 	}
 
 	async speak(text: string, options: SpeakOptions): Promise<boolean> {
+		const generation = this.generation;
 		if (!(await this.isAvailable())) return false;
-		const file = (await this.load())[options.locale]?.[text.trim()];
+		const key = text.trim();
+		const file = (await this.load(audioShard(key)))[options.locale]?.[key];
+		// stop() while the manifest loaded (e.g. the learner left the page):
+		// report handled so the chain does not fall through to another voice.
+		if (generation !== this.generation) return true;
 		if (!file) return false;
 		await this.stop();
 		const audio = new Audio(`${this.base}/${file}`);
@@ -175,21 +224,42 @@ export class RecordedTtsProvider implements TtsProvider {
 		this.audio = audio;
 		try {
 			return await new Promise<boolean>((resolve) => {
+				// Not started within SLOW_MS: a weak connection. Give up on the
+				// clip (resolve first, so the pause below does not count as done).
+				const slow = setTimeout(() => {
+					noteNetworkTrouble();
+					resolve(false);
+					audio.pause();
+				}, SLOW_MS);
+				audio.onplaying = () => clearTimeout(slow);
 				audio.onended = () => resolve(true);
-				// A missing or broken file: the chain falls through to the next voice.
-				audio.onerror = () => resolve(false);
+				// The clip did not load (offline, dropped connection): the chain
+				// falls through to the next voice.
+				audio.onerror = () => {
+					clearTimeout(slow);
+					noteNetworkTrouble();
+					resolve(false);
+				};
 				// A later speak() pauses this one; settle so the caller's busy state clears.
 				audio.onpause = () => {
+					clearTimeout(slow);
 					if (!audio.ended) resolve(true);
 				};
-				audio.play().catch(() => resolve(false));
+				audio.play().catch(() => {
+					clearTimeout(slow);
+					resolve(false);
+				});
 			});
 		} finally {
 			if (this.audio === audio) this.audio = null;
 		}
 	}
 
+	/** Bumped by stop(), so a speak() still loading knows it was cancelled. */
+	private generation = 0;
+
 	async stop(): Promise<void> {
+		this.generation++;
 		this.audio?.pause();
 		this.audio = null;
 	}
@@ -227,18 +297,29 @@ export class CloudTtsProvider implements TtsProvider {
 		if (!(await this.isAvailable()) || text.length > CloudTtsProvider.MAX_CHARS) {
 			return false;
 		}
+		const generation = this.generation;
 		let url: string;
 		try {
 			const response = await fetch(this.endpoint, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ text, locale: options.locale, gender: this.gender })
+				body: JSON.stringify({ text, locale: options.locale, gender: this.gender }),
+				// Synthesis itself takes a moment, so a little longer than a file.
+				signal: AbortSignal.timeout(SLOW_MS + 2000)
 			});
 			if (!response.ok) return false;
 			url = URL.createObjectURL(await response.blob());
 		} catch {
-			// Offline, CORS-blocked, or the cloud APIs are down: the caller falls back.
+			// Offline, too slow, or CORS-blocked (an unlisted origin looks the
+			// same from here): the caller falls back.
+			noteNetworkTrouble();
 			return false;
+		}
+		// stop() arrived while the clip downloaded: drop it, and report handled
+		// so the chain does not fall through to the device voice.
+		if (generation !== this.generation) {
+			URL.revokeObjectURL(url);
+			return true;
 		}
 
 		await this.stop();
@@ -257,7 +338,11 @@ export class CloudTtsProvider implements TtsProvider {
 		}
 	}
 
+	/** Bumped by stop(), so a speak() still downloading knows it was cancelled. */
+	private generation = 0;
+
 	async stop(): Promise<void> {
+		this.generation++;
 		this.audio?.pause();
 		this.audio = null;
 	}
@@ -291,8 +376,17 @@ export class ChainedTtsProvider implements TtsProvider {
 	async speak(text: string, options: SpeakOptions): Promise<boolean> {
 		// The app-wide mute silences the voice too — a learner on a bus meant it.
 		if (isMuted()) return false;
+		networkTrouble = false;
 		if (await this.recorded.speak(text, options)) return true;
-		if (!this.offlineOnly() && (await this.cloud.speak(text, options))) return true;
+		if (!this.offlineOnly()) {
+			// Offline, or the recording already hit a slow/failed connection:
+			// skip the cloud's request (another wait) and go to the device voice.
+			if (isOffline()) noteNetworkTrouble();
+			else if (!networkTrouble && (await this.cloud.speak(text, options))) return true;
+		}
+		// The learner's own offline-only choice is not trouble; a failed or
+		// slow connection is, and they should know why the voice changed.
+		if (networkTrouble) for (const listener of fallbackListeners) listener();
 		return this.device.speak(text, options);
 	}
 

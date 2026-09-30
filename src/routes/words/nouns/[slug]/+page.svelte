@@ -62,7 +62,10 @@
 		<a href="/words/nouns"><Icon name="arrowLeft" size="1em" /> German nouns</a>
 	</nav>
 
-	<header class="head">
+	<header class="head" class:pictured={data.image}>
+		{#if data.image}
+			<img class="pic" src={data.image} alt="{entry.english}: {headline}" width="512" height="512" />
+		{/if}
 		<p class="eyebrow">{GENDER_NAME[entry.gender]} noun · {categories.map((c) => c.name).join(' · ')}</p>
 		<h1 lang="de">
 			<span class="article" style="color:{GENDER_COLORS[entry.gender]}">{GENDER_ARTICLES[entry.gender]}</span>
@@ -163,6 +166,13 @@
 <style>
 	.crumbs { margin-bottom: 1rem; font-size: var(--step--1); }
 	.crumbs a { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--ink-muted); text-decoration: none; font-weight: 600; }
+	/* With a picture the header is two columns: words left, the drawing right,
+	   on its own cream disc so it sits on the page like a card. */
+	.head.pictured { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'eyebrow pic' 'h1 pic' 'meaning pic'; column-gap: 1.5rem; align-items: center; }
+	.head.pictured .eyebrow { grid-area: eyebrow; }
+	.head.pictured h1 { grid-area: h1; }
+	.head.pictured .meaning { grid-area: meaning; }
+	.pic { grid-area: pic; width: clamp(6rem, 22vw, 9.5rem); height: auto; border-radius: 50%; background: #fbf5e4; }
 	.eyebrow { margin: 0; font-size: var(--step--1); font-weight: 700; letter-spacing: 0.05em; color: var(--ink-muted); }
 	h1 { margin: 0.3rem 0 0.4rem; font-size: var(--step-3); }
 	.article { font-weight: 600; }

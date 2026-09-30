@@ -100,7 +100,37 @@ function linkImages() {
 		const bundle = JSON.parse(readFileSync(path, 'utf8'));
 		let linked = 0;
 		let changed = false;
+		// A passage quiz owns a scene named after its id; a speaking exercise
+		// borrows one from its level (the "dialog" prefers the reading scene,
+		// the "kurzcheck" the listening one) and carries the scene's prompt as
+		// the description its tutor, who cannot see the picture, reads.
+		const sceneOf = (quiz) =>
+			byId.has(quiz.id) && existsSync(join(OUT_DIR, `${quiz.id}.webp`)) ? quiz.id : null;
+		const describe = (id) =>
+			byId
+				.get(id)
+				.prompt.replace(/^scene:\s*/, '')
+				.replace(/,\s*wide empty paper margins[^,]*$/, '');
 		for (const quiz of bundle.quizzes ?? []) {
+			let scene = sceneOf(quiz);
+			if (!scene && quiz.type === 'speaking') {
+				const wants = /kurzcheck/.test(quiz.id) ? ['listening', 'reading'] : ['reading', 'listening'];
+				for (const type of wants) {
+					const donor = bundle.quizzes.find(
+						(q) => q.type === type && q.level === quiz.level && sceneOf(q)
+					);
+					if (donor) {
+						scene = donor.id;
+						break;
+					}
+				}
+			}
+			const description = scene && quiz.type === 'speaking' ? describe(scene) : undefined;
+			if (quiz.image !== (scene ?? undefined) || quiz.imageDescription !== description) changed = true;
+			delete quiz.image;
+			delete quiz.imageDescription;
+			if (scene) quiz.image = scene;
+			if (description) quiz.imageDescription = description;
 			if (quiz.type !== 'vocabulary') continue;
 			for (const card of quiz.cards) {
 				const id = slug(card.de);
@@ -117,7 +147,8 @@ function linkImages() {
 			}
 		}
 		if (changed) writeFileSync(path, JSON.stringify(bundle, null, 2) + '\n');
-		console.log(`${name}: ${linked} cards with a picture${changed ? ' (updated)' : ''}`);
+		const scenes = bundle.quizzes.filter((q) => q.image).length;
+		console.log(`${name}: ${linked} cards and ${scenes} quizzes with a picture${changed ? ' (updated)' : ''}`);
 	}
 }
 

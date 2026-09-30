@@ -193,7 +193,12 @@
 	{#snippet step(i)}
 		{#if pageAt(i) >= 0 || i < lead}
 			{@const page = pageAt(i)}
-			<article class="passage">
+			<article class="passage" class:pictured={quiz.image && (mode !== 'read' ? page < 0 : page === 0)}>
+				{#if quiz.image && page === 0 && mode === 'read'}
+					<!-- The scene sets the stage for the text; the page budget is
+					     measured below it (fit.ts), so the passage still fits. -->
+					<img class="scene banner" src="/img/{quiz.image}.webp" alt="" width="1024" height="768" />
+				{/if}
 				<header>
 					<h2>{quiz.passageTitle}</h2>
 					<SpeakButton text={spoken} {locale} label="Play the passage" />
@@ -211,7 +216,13 @@
 					{/if}
 				{:else}
 					<div class="listen">
-						<span class="listen-icon"><Icon name="headphones" size="2em" /></span>
+						{#if quiz.image}
+							<!-- Listening against a picture, as in a real test: the scene
+							     gives the situation, the audio gives the words. -->
+							<img class="scene" src="/img/{quiz.image}.webp" alt="" width="1024" height="768" />
+						{:else}
+							<span class="listen-icon"><Icon name="headphones" size="2em" /></span>
+						{/if}
 						<div class="transport">
 							<button type="button" class="btn" onclick={() => tts.speak(spoken, { locale })}>
 								<Icon name="play" size="1em" /> Play
@@ -367,6 +378,34 @@
 	.passage h2 {
 		margin: 0;
 		font-size: var(--step-1);
+	}
+
+	/* A page that shows the scene takes the scene's own cream, so the picture
+	   sits on the card without an edge (its paper is levelled to exactly this
+	   colour by tool/gen-images.mjs). */
+	.passage.pictured {
+		background: #fbf5e4;
+	}
+
+	.scene {
+		display: block;
+		width: min(100%, 26rem);
+		height: auto;
+		margin: 0 auto 0.6rem;
+		object-fit: cover;
+		user-select: none;
+		-webkit-user-drag: none;
+	}
+
+	.scene.banner {
+		width: min(100%, 22rem);
+		max-height: min(11rem, 24dvh);
+		margin: -0.25rem auto 0.8rem;
+	}
+
+	.listen .scene {
+		max-height: min(16rem, 34dvh);
+		margin-bottom: 1rem;
 	}
 
 	/* A reading passage is long-form: serif, generous leading, and a measure

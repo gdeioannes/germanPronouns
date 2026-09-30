@@ -1,4 +1,4 @@
-import { nouns, verbs } from '$lib/server/words';
+import { nouns, pictureFor, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
 import { catalog, loadCourse } from '$lib/content';
 import type { PageServerLoad } from './$types';
@@ -41,12 +41,16 @@ export const load: PageServerLoad = async () => {
 	return {
 	courseId,
 	decks,
-	nouns: nouns.map((n) => ({
-		slug: wordSlug(n.noun),
-		noun: n.noun,
-		gender: n.gender,
-		english: n.english
-	})),
+	nouns: nouns.map((n) => {
+		const slug = wordSlug(n.noun);
+		return {
+			slug,
+			noun: n.noun,
+			gender: n.gender,
+			english: n.english,
+			image: pictureFor(slug)
+		};
+	}),
 	verbs: verbs.map((v) => ({ slug: wordSlug(v.verb), verb: v.verb, english: v.english }))
 	};
 };

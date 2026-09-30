@@ -157,6 +157,14 @@ export interface QuizBase {
 	 * vowel-change verbs), where "hatte" for "hätte" is the error being drilled.
 	 */
 	strictDiacritics?: boolean;
+	/**
+	 * A scene for the quiz: an id in static/img/, stamped by
+	 * tool/gen-images.mjs. A passage quiz gets its own scene; a speaking
+	 * exercise borrows one from its level, to be described to the tutor.
+	 */
+	image?: string;
+	/** What the scene shows, in words, for a tutor who cannot see it. */
+	imageDescription?: string;
 }
 
 // -- fillBlank --------------------------------------------------------------
@@ -367,7 +375,7 @@ export interface PopulatedCourse extends CourseCard {
  */
 export type QuizSummary = Pick<
 	QuizBase,
-	'id' | 'type' | 'title' | 'storageKeyPrefix' | 'level' | 'status' | 'covers'
+	'id' | 'type' | 'title' | 'storageKeyPrefix' | 'level' | 'status' | 'covers' | 'image'
 >;
 
 /** A course's card plus how it gates progress: what a single quiz page needs. */

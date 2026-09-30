@@ -104,6 +104,8 @@ export interface RenderOptions {
 	personalFocus?: string[];
 	/** The quiz's Help Memory, flattened — the COURSE NOTES section. */
 	referenceNotes?: string;
+	/** The scene the learner is looking at, in words — the PICTURE section. */
+	pictureDescription?: string;
 }
 
 const PLACEHOLDER = /\{(\w+)\}/g;
@@ -122,7 +124,8 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		uiLang,
 		cefr,
 		personalFocus = [],
-		referenceNotes = ''
+		referenceNotes = '',
+		pictureDescription = ''
 	} = options;
 
 	const learn = baseLang(learnLang);
@@ -153,6 +156,7 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		noScaffolding: scaffolded ? '' : 'yes',
 		personalFocus: personalFocus.join(', '),
 		referenceNotes,
+		pictureDescription,
 		practisePoints: (exercise.practisePoints ?? []).join(', '),
 		targetVocabulary: (exercise.targetVocabulary ?? []).join(', '),
 		scoringCriteria: (exercise.scoringCriteria ?? []).join(', '),

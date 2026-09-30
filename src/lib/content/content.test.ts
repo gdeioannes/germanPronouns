@@ -174,6 +174,16 @@ describe('every quiz (baseline)', () => {
 		}
 	});
 
+	it('points every quiz scene at a picture on disk, with words for the tutor', () => {
+		for (const q of quizzes) {
+			if (!q.image) continue;
+			expect(existsSync(`static/img/${q.image}.webp`), `${q.id}: missing scene ${q.image}`).toBe(true);
+			if (q.type === 'speaking') {
+				expect(q.imageDescription, `${q.id}: scene without a description`).toBeTruthy();
+			}
+		}
+	});
+
 	it('gives every flashcard deck sound cards: nouns with articles, no duplicates', () => {
 		for (const q of quizzes) {
 			if (q.type !== 'vocabulary') continue;

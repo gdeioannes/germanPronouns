@@ -1541,6 +1541,356 @@
 			"id": "gluecksfall",
 			"prompt": "a person finding a four-leaf clover",
 			"hint": true
+		},
+		{
+			"id": "quest_a1_1_hoeren_vorstellung",
+			"prompt": "scene: a young student waving hello with a small brown dog at his feet, a Munich skyline with towers behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_1_lesen_dasbinich",
+			"prompt": "scene: a young woman student waving in front of a university building with a coffee cup, a small brother and sister beside her, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_1_bigtext_dasbinich",
+			"prompt": "scene: a young woman with a suitcase covered in Italian flag stickers standing by a cathedral, holding a photo of her brother and sister, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_1_hoeren_zahlen",
+			"prompt": "scene: a market stall piled with apples, bananas, bread and eggs, a vendor holding up two fingers, price tags left blank, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_2_hoeren_cafe",
+			"prompt": "scene: a waiter taking an order from a guest at a cafe table with a slice of apple cake and a coffee with milk, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_2_lesen_cafe",
+			"prompt": "scene: a small cosy cafe on a market square with an awning, outdoor tables and a woman writing an email on a laptop, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_2_hoeren_termine",
+			"prompt": "scene: two friends meeting in front of a cinema in the evening, one holding a pizza box, a clock showing early evening, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_2_hoeren_bahnhof",
+			"prompt": "scene: a station platform with a big departure clock, a loudspeaker and travellers looking up at a blank board, a train arriving, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_2_bigtext_meintag",
+			"prompt": "scene: a person's day in one scene: waking with coffee, catching a bus, shopping bread and fruit in a supermarket, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_2_lesen_reise",
+			"prompt": "scene: a family of four boarding a train with suitcases, a summer sun and a city skyline ahead, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a1_2_lesen_anzeigen",
+			"prompt": "scene: a noticeboard with three pinned adverts showing a small flat, a red bicycle and a puppy, without text, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_1_hoeren_reise",
+			"prompt": "scene: a young woman looking out of a train window at Italian hills and the sea, a book and a sandwich on her lap, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_1_lesen_hamburg",
+			"prompt": "scene: a family walking along a harbour with big ships and a warehouse skyline, seagulls and a fish sandwich, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_1_bigtext_wochenende",
+			"prompt": "scene: a grandmother hugging a young visitor on a station platform, a cake box in hand, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_1_hoeren_wetter",
+			"prompt": "scene: a weather map of a country with rain and a cold cloud in the north, fog in the south and sun in between, no text, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_1_lesen_emma",
+			"prompt": "scene: a young woman moving into a shared flat, two friendly flatmates helping with boxes, a university tower through the window, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_2_bigtext_zimmer",
+			"prompt": "scene: a small cosy bedroom with a bed against the wall, a city poster above it, a desk in front of the window and a bookshelf, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_2_hoeren_verabredung",
+			"prompt": "scene: a young man on the phone in front of a museum entrance with a poster showing only photographs, no lettering anywhere, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_2_lesen_arzt",
+			"prompt": "scene: a man with a thermometer and a headache in a doctor's waiting room, a doctor with a stethoscope calling him in, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_2_lesen_email",
+			"prompt": "scene: a bright new flat on an upper floor with boxes still unpacked, a woman writing an email at a table by a big window, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_a2_2_lesen_formular",
+			"prompt": "scene: a woman filling in a registration form at the reception of an adult education centre, a pen and an ID card on the desk, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_1_bigtext_wohnung",
+			"prompt": "scene: a bright living room with a big window looking onto a small park, a painting on the wall and an old sofa, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_1_hoeren_interview",
+			"prompt": "scene: a job interview: a woman in a smart blouse across a desk from a manager, a folder between them, a furniture showroom through the glass, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_1_lesen_arbeit",
+			"prompt": "scene: a person working from home at a kitchen table with a laptop, a child playing on the floor and a cat on the chair, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_1_hoeren_umfrage",
+			"prompt": "scene: a radio reporter with a microphone interviewing passers-by in a busy pedestrian street, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_1_lesen_studium",
+			"prompt": "scene: a student with a backpack in front of an airport departure gate holding a scholarship letter, a globe and a university crest, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_2_bigtext_ritter",
+			"prompt": "scene: a tiny knight on an old horse in front of a castle above a village, a big friendly dragon peeking over the hill, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_2_hoeren_durchsage",
+			"prompt": "scene: a high-speed train waiting at a platform while workers repair the track ahead, passengers checking their watches, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_2_lesen_technik",
+			"prompt": "scene: a man in an office staring at a black computer screen in despair, a presentation folder on the desk, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_2_hoeren_podcast",
+			"prompt": "scene: a podcast studio with a host and a doctor guest at microphones, a plant and headphones, a calm mood, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b1_2_lesen_anekdote",
+			"prompt": "scene: a boy with a school bag finding a brown wallet next to a park bench, with banknotes and a photo sticking out, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_1_bigtext_presse",
+			"prompt": "scene: a press conference: a minister at a podium with microphones, journalists with cameras, a chart of houses behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_1_hoeren_debatte",
+			"prompt": "scene: a television debate: a moderator between two guests at a desk, a car-free town square on a screen behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_1_lesen_homeoffice",
+			"prompt": "scene: a split scene: a crowded open-plan office on one side and a quiet home desk with a coffee on the other, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_1_hoeren_nachrichten",
+			"prompt": "scene: a news anchor at a desk with a globe, a petrol pump and a tram on the screens behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_1_lesen_leserbrief",
+			"prompt": "scene: a reader at a kitchen table writing a letter, a newspaper open beside a small potted plant, a city of cranes through the window, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_2_bigtext_chancen",
+			"prompt": "scene: a nervous candidate leaving an oral exam room, an examiner with a clipboard visible through the door, an hourglass on the desk, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_2_hoeren_vortrag",
+			"prompt": "scene: a lecturer beside a slide with a crescent moon and a sleeping figure, an audience in a lecture hall, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_2_lesen_klima",
+			"prompt": "scene: a person cycling past a house with solar panels and a full recycling bin, a train and wind turbines behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_2_hoeren_fachinterview",
+			"prompt": "scene: a nutrition doctor interviewed on air, a bowl of vegetables and fruit on the desk, a calendar with January and February torn off, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_2_lesen_rezension",
+			"prompt": "scene: a thick novel open on a table with a family tree drawn inside, three small suitcases and a steaming cup, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_b2_2_lesen_textergaenzung",
+			"prompt": "scene: a farm stand selling regional apples, vegetables, eggs and milk, a farmer chatting with a customer, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_bigtext_hinweise",
+			"prompt": "scene: an office team gathered around a screen while an IT colleague explains a new document system, folders migrating into a cloud, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_hoeren_vorlesung",
+			"prompt": "scene: a professor at a lectern in a university auditorium, a thought bubble filled with speech bubbles above the students, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_lesen_wissenschaft",
+			"prompt": "scene: a person with headphones with goosebumps and a tear, a brain with musical notes floating around it, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_lesen_saetze_einordnen",
+			"prompt": "scene: a crowd staring at their phones while a giant hand holds an hourglass above them, attention as sand, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_hoeren_podiumsdiskussion",
+			"prompt": "scene: a panel discussion on a stage: a headteacher, a parent and a moderator, a tablet and a schoolbook on the table, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_hoeren_vortrag_detail",
+			"prompt": "scene: a speaker at a conference pointing at a slide showing many eyes and a single glowing screen, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_lesen_essay",
+			"prompt": "scene: a person sitting at a bus stop doing nothing, looking at clouds while everyone else stares at phones, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_1_lesen_sprachbausteine",
+			"prompt": "scene: a sleeping person whose head is drawn as a busy library where books are being sorted onto shelves, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_bigtext_nachbar",
+			"prompt": "scene: a dim stairwell with neighbours whispering on the landing, a mysterious man in a hat closing his door, a single letter on the nameplate drawn as a shape, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_hoeren_reportage",
+			"prompt": "scene: volunteers unloading crates of vegetables, tools and winter coats in front of a plain community hall with a blank sign, no lettering anywhere, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_hoeren_interview_stimmt",
+			"prompt": "scene: a city street in a heatwave with new trees, a fountain and shaded benches, a scientist with a thermometer chart, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_lesen_kolumne",
+			"prompt": "scene: a person sitting on a park bench with a phone switched off beside them, watching ducks, perfectly relaxed, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_lesen_experten",
+			"prompt": "scene: a museum entrance with a queue of visitors, one turnstile open and free, an economist and a curator debating beside it, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_hoeren_hoerspiel",
+			"prompt": "scene: a woman correcting papers alone in the kitchen of an old forest house at night, rain against the shutters, a knock at the door, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_lesen_literatur",
+			"prompt": "scene: a woman holding an unopened blank envelope standing at a window in soft light, no lettering anywhere, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_1_bigtext_vorstand",
+			"prompt": "scene: a boardroom late at night with executives around a long table, a tractor model and a factory silhouette on a screen, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_1_hoeren_feature",
+			"prompt": "scene: a big city just before dawn: an empty main station square, a street sweeper, a first tram and a lit bakery window, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_1_lesen_artikel",
+			"prompt": "scene: people in a slow-living scene: a bread dough resting in a bowl, a person mending a coat, a snail crossing a busy street, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_1_hoeren_satire",
+			"prompt": "scene: a comically over-digital town hall: robots stamping forms, a citizen holding a paper ticket in confusion, screens everywhere, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_1_lesen_kurzgeschichte",
+			"prompt": "scene: an older man alone in a kitchen with a kettle steaming, two cups on the table, one of them blue, a phone ringing, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_hoeren_fachvortrag",
+			"prompt": "scene: a lecturer beside two images: a dusty archive of labelled boxes and a storyteller weaving threads, an audience listening, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_lesen_essay",
+			"prompt": "scene: a person surrounded by floating photos and messages that never fade, a small eraser in hand, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_lesen_amtliches_schreiben",
+			"prompt": "scene: an official letter with a city crest and a stamp on a kitchen table, a worried woman reading it, a parking ticket beside it, no text, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_bigtext_lesen",
+			"prompt": "scene: a young person reading a thick book on a tram while everyone else looks at screens, a bookshop across the street, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_hoeren_lesung",
+			"prompt": "scene: an old brown leather suitcase with a blank luggage tag lying on top of a wardrobe between a hatbox and a carton, drawn small in the middle of the picture with wide empty paper margins on every side",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_hoeren_capstone",
+			"prompt": "scene: a panel discussion about automation: a sociologist, an engineer and a moderator, a robot arm and a worker on the screen behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_lesen_capstone",
+			"prompt": "scene: a grandmother opening a kitchen window onto a street at night, frost on the pane, warm light spilling out, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c2_2_lesen_lyrik",
+			"prompt": "scene: two tiny ants with tiny suitcases on a country road giving up their journey and resting their sore legs, a harbour city far behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
 		}
 	]
 }

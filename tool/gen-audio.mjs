@@ -16,9 +16,10 @@
 // What to record comes from src/lib/audio/spoken-texts.ts, loaded through the
 // project's Vite config, which derives each string with the same function the
 // speak button uses. One MP3 per string lands in static/audio/, named by a
-// hash of model + voice + text; static/audio/manifest.json maps locale → text
-// → file, and RecordedTtsProvider (src/lib/services/speech.ts) looks the
-// spoken text up there.
+// hash of model + voice + text. The manifest — locale → text → file — is split
+// into static/audio/manifest/<shard>.json by audioShard(text) (src/lib/audio/
+// shard.ts), and RecordedTtsProvider (src/lib/services/speech.ts) fetches only
+// the shard of the text it is about to speak.
 //
 // With --engine gemini each clip is transcribed back and re-recorded when the
 // transcript does not match — that model sometimes voices extra words, or
@@ -73,7 +74,10 @@ const SAY_AS = {
 	null: 'Null.'
 };
 const OUT_DIR = join(root, 'static', 'audio');
-const MANIFEST = join(OUT_DIR, 'manifest.json');
+/** The manifest, split by audioShard(text) into <shard>.json files (src/lib/audio/shard.ts). */
+const MANIFEST_DIR = join(OUT_DIR, 'manifest');
+/** The single-file manifest from before the split; removed on the next run. */
+const LEGACY_MANIFEST = join(OUT_DIR, 'manifest.json');
 /** Transcribes a Gemini clip back, to reject one that says something else. */
 const CHECK_MODEL = 'gemini-3.8-flash';
 /** Transcript vs text, after normalising; below this the clip is re-recorded. */
@@ -105,7 +109,8 @@ if (!key && !serviceAccount && !dry) {
 	process.exit(1);
 }
 
-const texts = (await collect()).filter((t) => all || (t.level && levels.includes(t.level)));
+const { spoken, audioShard } = await collect();
+const texts = spoken.filter((t) => all || (t.level && levels.includes(t.level)));
 const chars = texts.reduce((n, t) => n + t.text.length, 0);
 console.log(`${texts.length} distinct strings (${chars} characters) in ${all ? 'the whole app' : levels.join(', ')}`);
 if (dry) {
@@ -114,17 +119,18 @@ if (dry) {
 	process.exit(0);
 }
 
-mkdirSync(OUT_DIR, { recursive: true });
+mkdirSync(MANIFEST_DIR, { recursive: true });
 // A whole-app run rebuilds the manifest, so texts the app no longer speaks
 // (and clips from another engine or voice) drop out and get pruned below.
-const manifest = !all && existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, 'utf8')) : {};
+const manifest = all ? {} : readManifest();
 
 let made = 0;
 let skipped = 0;
 let failed = 0;
 const queue = [...texts];
 await Promise.all(Array.from({ length: engine.parallel }, worker));
-writeFileSync(MANIFEST, JSON.stringify(sortKeys(manifest), null, 1) + '\n');
+writeManifest();
+if (existsSync(LEGACY_MANIFEST)) unlinkSync(LEGACY_MANIFEST);
 console.log(`\n${made} recorded, ${skipped} already present, ${failed} failed, in static/audio/`);
 if (all && !failed) prune();
 if (failed) process.exitCode = 1;
@@ -145,7 +151,7 @@ async function worker() {
 			writeFileSync(join(OUT_DIR, file), mp3);
 			files[text] = file;
 			// Saved per clip, so an interrupted run keeps what it recorded.
-			writeFileSync(MANIFEST, JSON.stringify(sortKeys(manifest), null, 1) + '\n');
+			writeManifest(audioShard(text));
 			made++;
 			console.log(`ok  ${file} (${Math.round(mp3.length / 1024)} kB)  ${text.slice(0, 50)}`);
 		} catch (e) {
@@ -155,7 +161,10 @@ async function worker() {
 	}
 }
 
-/** Every string the app speaks, from the app's own collector (TypeScript, via Vite). */
+/**
+ * Every string the app speaks, from the app's own collector, and the app's
+ * shard function — both TypeScript, loaded through Vite.
+ */
 async function collect() {
 	const server = await createServer({
 		root,
@@ -165,9 +174,50 @@ async function collect() {
 	});
 	try {
 		const { spokenTexts } = await server.ssrLoadModule('/src/lib/audio/spoken-texts.ts');
-		return await spokenTexts();
+		const { audioShard } = await server.ssrLoadModule('/src/lib/audio/shard.ts');
+		return { spoken: await spokenTexts(), audioShard };
 	} finally {
 		await server.close();
+	}
+}
+
+/** locale → text → file, merged from every shard (and a pre-split manifest.json). */
+function readManifest() {
+	const merged = {};
+	const add = (part) => {
+		for (const [locale, files] of Object.entries(part)) Object.assign((merged[locale] ??= {}), files);
+	};
+	if (existsSync(LEGACY_MANIFEST)) add(JSON.parse(readFileSync(LEGACY_MANIFEST, 'utf8')));
+	for (const name of existsSync(MANIFEST_DIR) ? readdirSync(MANIFEST_DIR) : []) {
+		if (name.endsWith('.json')) add(JSON.parse(readFileSync(join(MANIFEST_DIR, name), 'utf8')));
+	}
+	return merged;
+}
+
+/**
+ * Writes one shard, or all of them (removing shards left empty). A failed
+ * write mid-run (Windows locks a file open in an editor) is not fatal: the
+ * final write at the end of the run saves it.
+ */
+function writeManifest(only) {
+	const shards = {};
+	for (const [locale, files] of Object.entries(manifest)) {
+		for (const [text, file] of Object.entries(files)) {
+			const shard = audioShard(text);
+			if (only !== undefined && shard !== only) continue;
+			((shards[shard] ??= {})[locale] ??= {})[text] = file;
+		}
+	}
+	for (const [shard, part] of Object.entries(shards)) {
+		try {
+			writeFileSync(join(MANIFEST_DIR, `${shard}.json`), JSON.stringify(sortKeys(part), null, 1) + '\n');
+		} catch (e) {
+			if (only === undefined) throw e;
+		}
+	}
+	if (only !== undefined) return;
+	for (const name of readdirSync(MANIFEST_DIR)) {
+		if (name.endsWith('.json') && !(name.slice(0, -5) in shards)) unlinkSync(join(MANIFEST_DIR, name));
 	}
 }
 

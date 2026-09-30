@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { categoryNames, nounForSlug, nouns, quizzesUsing, relatedNouns } from '$lib/server/words';
+import { categoryNames, nounForSlug, nouns, pictureFor, quizzesUsing, relatedNouns } from '$lib/server/words';
 import { caseTable, exampleSentence, pluralForm, wordSlug } from '$lib/domain/words';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
@@ -12,6 +12,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	return {
 		entry,
 		slug: params.slug,
+		image: pictureFor(params.slug),
 		plural: pluralForm(entry.noun, entry.plural),
 		example: exampleSentence(entry),
 		cases: caseTable(entry),

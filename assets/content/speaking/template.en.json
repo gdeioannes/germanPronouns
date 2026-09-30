@@ -85,6 +85,20 @@
       ]
     },
     {
+      "id": "picture",
+      "heading": "PICTURE TO DESCRIBE",
+      "optional": "{pictureDescription}",
+      "families": [
+        "conversation",
+        "presentation"
+      ],
+      "lines": [
+        "I am looking at a picture you cannot see. It shows: {pictureDescription}",
+        "Open the session with it: ask me to describe the picture in {targetLanguageName} - who is there, where it is, what they are doing, what I can see. Ask two or three follow-up questions about it, then move on to the topic.",
+        "Score the description like any other answer."
+      ]
+    },
+    {
       "id": "level_guide",
       "heading": "HOW TO SPEAK TO ME AT {cefr}",
       "optional": "{levelGuide}",

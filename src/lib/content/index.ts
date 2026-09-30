@@ -55,8 +55,8 @@ export function isReading(quiz: Quiz): quiz is ReadingQuiz {
 
 /** The listing fields of a quiz, and nothing of the exercise behind them. */
 export function summarizeQuiz(quiz: Quiz): QuizSummary {
-	const { id, type, title, storageKeyPrefix, level, status, covers } = quiz;
-	return { id, type, title, storageKeyPrefix, level, status, covers };
+	const { id, type, title, storageKeyPrefix, level, status, covers, image } = quiz;
+	return { id, type, title, storageKeyPrefix, level, status, covers, image };
 }
 
 /** The course's card and gating, without its nav or quizzes. */

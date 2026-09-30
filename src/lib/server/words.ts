@@ -8,6 +8,15 @@ import { catalog, loadCourse, summarizeQuiz } from '$lib/content';
 import type { QuizSummary } from '$lib/content/types';
 import { vocabFor } from '$lib/domain/vocab';
 import { wordSlug, type SharedNounEntry, type SharedVerbEntry } from '$lib/domain/words';
+import { existsSync } from 'node:fs';
+
+/**
+ * The picture for a word, if tool/gen-images.mjs has drawn one: its id is
+ * the word's slug, so the check is a file on disk at build time.
+ */
+export function pictureFor(slug: string): string | null {
+	return existsSync(`static/img/${slug}.webp`) ? `/img/${slug}.webp` : null;
+}
 
 export const nouns = (nounData as { nouns: SharedNounEntry[] }).nouns;
 export const verbs = (verbData as { verbs: SharedVerbEntry[] }).verbs;

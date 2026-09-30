@@ -265,11 +265,21 @@
 						<span class="stamp yes" style="opacity:{Math.max(0, lean)}" class:firm={decided && dx > 0}>Let's go</span>
 					{/if}
 
+					{#if card.quiz.image}
+						<!-- The quiz's scene as a cream band across the top of the card; it
+						     stands in for the type disc. -->
+						<div class="art-band">
+							<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
+						</div>
+					{/if}
+
 					<p class="kind-label">For you · <strong>{DECK_KIND_LABELS[card.kind]}</strong></p>
 
-					<span class="type-disc" data-type={card.quiz.type}>
-						<Icon name={QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
-					</span>
+					{#if !card.quiz.image}
+						<span class="type-disc" data-type={card.quiz.type}>
+							<Icon name={QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
+						</span>
+					{/if}
 
 					<h3 class="title">{card.quiz.title}</h3>
 					<p class="reason">{card.reason}</p>
@@ -493,6 +503,26 @@
 
 	.stamp.firm {
 		transform: rotate(0deg) scale(1.08);
+	}
+
+	/* The scene's own cream (its paper is levelled to this colour), bleeding
+	   to the card's edges; the scene's wide margins absorb the crop. */
+	.art-band {
+		flex: none;
+		align-self: stretch;
+		height: 42%;
+		margin: -1.4rem -1.5rem 0.2rem;
+		background: #fbf5e4;
+		overflow: hidden;
+	}
+
+	.art {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 42%;
+		pointer-events: none;
 	}
 
 	.kind-label {

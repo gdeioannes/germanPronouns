@@ -154,7 +154,11 @@
 <Steps {count} bind:index {labels} {marks}>
 	{#snippet step(p)}
 		{#if p < pages.length}
-			<article class="passage">
+			<article class="passage" class:pictured={quiz.image && p === 0}>
+				{#if quiz.image && p === 0}
+					<!-- The scene sets the stage; the page budget is measured below it. -->
+					<img class="scene" src="/img/{quiz.image}.webp" alt="" width="1024" height="768" />
+				{/if}
 				<header>
 					<h2>{quiz.passageTitle}</h2>
 					<SpeakButton text={quiz.passage} {locale} label="Play the passage" />
@@ -253,6 +257,23 @@
 	.passage h2 {
 		margin: 0;
 		font-size: var(--step-1);
+	}
+
+	/* The first page carries the scene on its own cream (the colour the
+	   picture's paper is levelled to), so there is no edge around it. */
+	.passage.pictured {
+		background: #fbf5e4;
+	}
+
+	.scene {
+		display: block;
+		width: min(100%, 22rem);
+		height: auto;
+		max-height: min(11rem, 24dvh);
+		margin: -0.25rem auto 0.8rem;
+		object-fit: cover;
+		user-select: none;
+		-webkit-user-drag: none;
 	}
 
 	/* The cloze is a reading passage with holes in it: serif, and leaded wide

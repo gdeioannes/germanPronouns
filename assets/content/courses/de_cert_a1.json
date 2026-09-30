@@ -1747,7 +1747,8 @@
         "a1.statement-question",
         "a1.present-regular",
         "a1.sein-haben"
-      ]
+      ],
+      "image": "quest_a1_1_hoeren_vorstellung"
     },
     {
       "type": "fillBlank",
@@ -2659,7 +2660,8 @@
         "a1.statement-question",
         "a1.present-regular",
         "a1.family-people"
-      ]
+      ],
+      "image": "quest_a1_1_lesen_dasbinich"
     },
     {
       "type": "speaking",
@@ -2747,7 +2749,9 @@
         "a1.numbers",
         "a1.statement-question",
         "a1.sein-haben"
-      ]
+      ],
+      "image": "quest_a1_1_hoeren_vorstellung",
+      "imageDescription": "a young student waving hello with a small brown dog at his feet, a Munich skyline with towers behind"
     },
     {
       "type": "fillBlank",
@@ -3824,7 +3828,8 @@
         "a1.sein-haben",
         "a1.articles-nom",
         "a1.personal-pronouns-nom"
-      ]
+      ],
+      "image": "quest_a1_1_bigtext_dasbinich"
     },
     {
       "type": "dictation",
@@ -4132,7 +4137,8 @@
       "voiceGender": "male",
       "covers": [
         "a1.numbers"
-      ]
+      ],
+      "image": "quest_a1_1_hoeren_zahlen"
     },
     {
       "type": "fillBlank",
@@ -6795,7 +6801,9 @@
         "a1.present-regular",
         "a1.family-people",
         "a1.colours"
-      ]
+      ],
+      "image": "quest_a1_1_lesen_dasbinich",
+      "imageDescription": "a young woman student waving in front of a university building with a coffee cup, a small brother and sister beside her"
     },
     {
       "type": "fillBlank",
@@ -9777,7 +9785,8 @@
         "a1.accusative-articles",
         "a1.quantities"
       ],
-      "voiceGender": "male"
+      "voiceGender": "male",
+      "image": "quest_a1_2_hoeren_cafe"
     },
     {
       "type": "fillBlank",
@@ -10711,7 +10720,8 @@
         "a1.accusative-articles",
         "a1.polite-konjunktiv",
         "a1.quantities"
-      ]
+      ],
+      "image": "quest_a1_2_lesen_cafe"
     },
     {
       "type": "fillBlank",
@@ -11807,7 +11817,9 @@
       "covers": [
         "a1.accusative-articles",
         "a1.possessives"
-      ]
+      ],
+      "image": "quest_a1_2_hoeren_cafe",
+      "imageDescription": "a waiter taking an order from a guest at a cafe table with a slice of apple cake and a coffee with milk"
     },
     {
       "type": "fillBlank",
@@ -13007,7 +13019,8 @@
         "a1.time",
         "a1.calendar"
       ],
-      "voiceGender": "female"
+      "voiceGender": "female",
+      "image": "quest_a1_2_hoeren_termine"
     },
     {
       "id": "quest_a1_2_hoeren_bahnhof",
@@ -13167,7 +13180,8 @@
         "a1.time",
         "a1.separable-verbs"
       ],
-      "voiceGender": "female"
+      "voiceGender": "female",
+      "image": "quest_a1_2_hoeren_bahnhof"
     },
     {
       "type": "fillBlank",
@@ -13749,7 +13763,8 @@
         "a1.negation",
         "a1.modal-verbs",
         "a1.separable-verbs"
-      ]
+      ],
+      "image": "quest_a1_2_bigtext_meintag"
     },
     {
       "type": "fillBlank",
@@ -17317,7 +17332,8 @@
         "a1.time",
         "a1.quantities",
         "a1.calendar"
-      ]
+      ],
+      "image": "quest_a1_2_lesen_reise"
     },
     {
       "id": "quest_a1_2_lesen_anzeigen",
@@ -17474,7 +17490,8 @@
       "covers": [
         "a1.calendar",
         "a1.time"
-      ]
+      ],
+      "image": "quest_a1_2_lesen_anzeigen"
     },
     {
       "type": "speaking",
@@ -17576,7 +17593,9 @@
         "a1.time",
         "a1.calendar",
         "a1.separable-verbs"
-      ]
+      ],
+      "image": "quest_a1_2_lesen_cafe",
+      "imageDescription": "a small cosy cafe on a market square with an awning, outdoor tables and a woman writing an email on a laptop"
     },
     {
       "type": "fillBlank",
@@ -21071,7 +21090,8 @@
         "a2.perfekt-sein",
         "a2.dative-prepositions"
       ],
-      "voiceGender": "female"
+      "voiceGender": "female",
+      "image": "quest_a2_1_hoeren_reise"
     },
     {
       "type": "fillBlank",
@@ -23265,7 +23285,8 @@
         "a2.past-narration",
         "a2.perfekt-haben",
         "a2.perfekt-sein"
-      ]
+      ],
+      "image": "quest_a2_1_lesen_hamburg"
     },
     {
       "type": "speaking",
@@ -23354,7 +23375,9 @@
       "covers": [
         "a2.perfekt-haben",
         "a2.perfekt-sein"
-      ]
+      ],
+      "image": "quest_a2_1_hoeren_reise",
+      "imageDescription": "a young woman looking out of a train window at Italian hills and the sea, a book and a sandwich on her lap"
     },
     {
       "type": "fillBlank",
@@ -24139,7 +24162,8 @@
         "a2.perfekt-sein",
         "a2.dative-prepositions",
         "a2.war-hatte"
-      ]
+      ],
+      "image": "quest_a2_1_bigtext_wochenende"
     },
     {
       "type": "fillBlank",
@@ -25717,7 +25741,8 @@
       "covers": [
         "a2.weather"
       ],
-      "voiceGender": "male"
+      "voiceGender": "male",
+      "image": "quest_a2_1_hoeren_wetter"
     },
     {
       "type": "reading",
@@ -25875,7 +25900,8 @@
         "a2.past-narration",
         "a2.war-hatte",
         "a2.dative-pronouns"
-      ]
+      ],
+      "image": "quest_a2_1_lesen_emma"
     },
     {
       "type": "speaking",
@@ -25981,7 +26007,9 @@
         "a2.perfekt-sein",
         "a2.dative-articles",
         "a2.dative-pronouns"
-      ]
+      ],
+      "image": "quest_a2_1_lesen_hamburg",
+      "imageDescription": "a family walking along a harbour with big ships and a warehouse skyline, seagulls and a fish sandwich"
     },
     {
       "id": "quest_a2_1_indefinitpronomen",
@@ -28554,7 +28582,8 @@
       ],
       "covers": [
         "a2.two-way-prepositions"
-      ]
+      ],
+      "image": "quest_a2_2_bigtext_zimmer"
     },
     {
       "type": "speakRepeat",
@@ -29606,7 +29635,8 @@
       "covers": [
         "a2.weil-dass",
         "a2.two-way-prepositions"
-      ]
+      ],
+      "image": "quest_a2_2_hoeren_verabredung"
     },
     {
       "type": "fillBlank",
@@ -31269,7 +31299,9 @@
       },
       "covers": [
         "a2.two-way-prepositions"
-      ]
+      ],
+      "image": "quest_a2_2_hoeren_verabredung",
+      "imageDescription": "a young man on the phone in front of a museum entrance with a poster showing only photographs, no lettering anywhere"
     },
     {
       "type": "fillBlank",
@@ -32258,7 +32290,8 @@
       "covers": [
         "a2.health",
         "a2.weil-dass"
-      ]
+      ],
+      "image": "quest_a2_2_lesen_arzt"
     },
     {
       "type": "fillBlank",
@@ -35922,7 +35955,8 @@
         "a2.email-form",
         "a2.weil-dass",
         "a2.superlative"
-      ]
+      ],
+      "image": "quest_a2_2_lesen_email"
     },
     {
       "id": "quest_a2_2_lesen_formular",
@@ -36079,7 +36113,8 @@
       },
       "covers": [
         "a2.email-form"
-      ]
+      ],
+      "image": "quest_a2_2_lesen_formular"
     },
     {
       "type": "speaking",
@@ -36183,7 +36218,9 @@
         "a2.weil-dass",
         "a2.tekamolo",
         "a2.people-description"
-      ]
+      ],
+      "image": "quest_a2_2_bigtext_zimmer",
+      "imageDescription": "a small cosy bedroom with a bed against the wall, a city poster above it, a desk in front of the window and a bookshelf"
     },
     {
       "id": "quest_a2_2_genitiv_s_datum",
@@ -40424,7 +40461,8 @@
       "covers": [
         "b1.adjective-def",
         "b1.adjective-indef"
-      ]
+      ],
+      "image": "quest_b1_1_bigtext_wohnung"
     },
     {
       "id": "quest_b1_1_adj_nullartikel",
@@ -42315,7 +42353,8 @@
       "covers": [
         "b1.work-vocabulary",
         "b1.konjunktiv2-wuerde"
-      ]
+      ],
+      "image": "quest_b1_1_hoeren_interview"
     },
     {
       "type": "fillBlank",
@@ -42927,7 +42966,8 @@
       "covers": [
         "b1.work-vocabulary",
         "b1.opinion-redemittel"
-      ]
+      ],
+      "image": "quest_b1_1_lesen_arbeit"
     },
     {
       "type": "speaking",
@@ -43022,7 +43062,9 @@
         "b1.konjunktiv2-haette-waere",
         "b1.adjective-def",
         "b1.adjective-indef"
-      ]
+      ],
+      "image": "quest_b1_1_hoeren_interview",
+      "imageDescription": "a job interview: a woman in a smart blouse across a desk from a manager, a folder between them, a furniture showroom through the glass"
     },
     {
       "type": "fillBlank",
@@ -46141,7 +46183,8 @@
       "covers": [
         "b1.opinion-redemittel",
         "b1.konjunktiv2-wuerde"
-      ]
+      ],
+      "image": "quest_b1_1_hoeren_umfrage"
     },
     {
       "type": "reading",
@@ -46316,7 +46359,8 @@
       "covers": [
         "b1.genitive",
         "b1.opinion-redemittel"
-      ]
+      ],
+      "image": "quest_b1_1_lesen_studium"
     },
     {
       "id": "quest_b1_1_email_redemittel",
@@ -46879,7 +46923,9 @@
         "b1.konjunktiv2-wuerde",
         "b1.wenn-als-obwohl",
         "b1.work-vocabulary"
-      ]
+      ],
+      "image": "quest_b1_1_bigtext_wohnung",
+      "imageDescription": "a bright living room with a big window looking onto a small park, a painting on the wall and an old sofa"
     },
     {
       "id": "quest_b1_1_verben_praep",
@@ -52253,7 +52299,8 @@
         "b1.praeteritum-irregular",
         "b1.praeteritum-regular",
         "b1.narration-skills"
-      ]
+      ],
+      "image": "quest_b1_2_bigtext_ritter"
     },
     {
       "type": "speakRepeat",
@@ -52944,7 +52991,8 @@
       "covers": [
         "b1.passive-present",
         "b1.technology-vocabulary"
-      ]
+      ],
+      "image": "quest_b1_2_hoeren_durchsage"
     },
     {
       "type": "fillBlank",
@@ -53780,7 +53828,9 @@
         "b1.praeteritum-irregular",
         "b1.passive-present",
         "b1.passive-past"
-      ]
+      ],
+      "image": "quest_b1_2_hoeren_durchsage",
+      "imageDescription": "a high-speed train waiting at a platform while workers repair the track ahead, passengers checking their watches"
     },
     {
       "type": "fillBlank",
@@ -54412,7 +54462,8 @@
         "b1.technology-vocabulary",
         "b1.passive-past",
         "b1.praeteritum-irregular"
-      ]
+      ],
+      "image": "quest_b1_2_lesen_technik"
     },
     {
       "type": "fillBlank",
@@ -58269,7 +58320,8 @@
       "covers": [
         "b1.narration-skills",
         "b1.um-zu-ohne-zu"
-      ]
+      ],
+      "image": "quest_b1_2_hoeren_podcast"
     },
     {
       "id": "quest_b1_2_wortbildung",
@@ -58941,7 +58993,8 @@
         "b1.narration-skills",
         "b1.praeteritum-irregular",
         "b1.irreal-wishes-past"
-      ]
+      ],
+      "image": "quest_b1_2_lesen_anekdote"
     },
     {
       "type": "speaking",
@@ -59050,7 +59103,9 @@
         "b1.passive-present",
         "b1.damit-um-zu",
         "b1.two-part-connectors"
-      ]
+      ],
+      "image": "quest_b1_2_bigtext_ritter",
+      "imageDescription": "a tiny knight on an old horse in front of a castle above a village, a big friendly dragon peeking over the hill"
     },
     {
       "id": "quest_b1_2_zustandspassiv",
@@ -62231,7 +62286,8 @@
       "covers": [
         "b2.konjunktiv1-forms",
         "b2.indirect-speech"
-      ]
+      ],
+      "image": "quest_b2_1_bigtext_presse"
     },
     {
       "type": "speakRepeat",
@@ -63750,7 +63806,8 @@
         "b2.argument-redemittel",
         "b2.indirect-speech"
       ],
-      "voiceGender": "female"
+      "voiceGender": "female",
+      "image": "quest_b2_1_hoeren_debatte"
     },
     {
       "type": "fillBlank",
@@ -65063,7 +65120,9 @@
         "b2.indirect-speech",
         "b2.modal-passive",
         "b2.verbs-prepositions"
-      ]
+      ],
+      "image": "quest_b2_1_hoeren_debatte",
+      "imageDescription": "a television debate: a moderator between two guests at a desk, a car-free town square on a screen behind"
     },
     {
       "type": "fillBlank",
@@ -65656,7 +65715,8 @@
         "b2.stellungnahme-redemittel",
         "b2.connectors-adverbial",
         "b2.modal-passive"
-      ]
+      ],
+      "image": "quest_b2_1_lesen_homeoffice"
     },
     {
       "type": "fillBlank",
@@ -70220,7 +70280,8 @@
         "b2.konjunktiv1-forms",
         "b2.society-vocabulary",
         "b2.temporal-nominal"
-      ]
+      ],
+      "image": "quest_b2_1_hoeren_nachrichten"
     },
     {
       "type": "speakRepeat",
@@ -70551,7 +70612,8 @@
       "covers": [
         "b2.stellungnahme-redemittel",
         "b2.passive-perfekt"
-      ]
+      ],
+      "image": "quest_b2_1_lesen_leserbrief"
     },
     {
       "id": "quest_b2_1_stellungnahme",
@@ -71121,7 +71183,9 @@
         "b2.indirect-speech",
         "b2.connectors-adverbial",
         "b2.causal-nominal"
-      ]
+      ],
+      "image": "quest_b2_1_bigtext_presse",
+      "imageDescription": "a press conference: a minister at a podium with microphones, journalists with cameras, a chart of houses behind"
     },
     {
       "id": "quest_b2_1_infinitivsaetze",
@@ -76274,7 +76338,8 @@
       "covers": [
         "b2.irreal-conditions",
         "b2.konjunktiv2-past"
-      ]
+      ],
+      "image": "quest_b2_2_bigtext_chancen"
     },
     {
       "type": "speakRepeat",
@@ -77447,7 +77512,8 @@
       "covers": [
         "b2.science-vocabulary",
         "b2.irreal-conditions"
-      ]
+      ],
+      "image": "quest_b2_2_hoeren_vortrag"
     },
     {
       "type": "fillBlank",
@@ -77905,7 +77971,9 @@
         "b2.irreal-conditions",
         "b2.konjunktiv2-past",
         "b2.genitive-prepositions"
-      ]
+      ],
+      "image": "quest_b2_2_hoeren_vortrag",
+      "imageDescription": "a lecturer beside a slide with a crescent moon and a sleeping figure, an audience in a lecture hall"
     },
     {
       "type": "fillBlank",
@@ -78566,7 +78634,8 @@
         "b2.science-vocabulary",
         "b2.irreal-conditions",
         "b2.relative-wer-was"
-      ]
+      ],
+      "image": "quest_b2_2_lesen_klima"
     },
     {
       "type": "fillBlank",
@@ -82440,7 +82509,8 @@
         "b2.irreal-conditions",
         "b2.sollen-subjective"
       ],
-      "voiceGender": "female"
+      "voiceGender": "female",
+      "image": "quest_b2_2_hoeren_fachinterview"
     },
     {
       "id": "quest_b2_2_sollen_subjektiv",
@@ -84372,7 +84442,8 @@
         "b2.concessive",
         "b2.participle-attribute",
         "b2.adversative"
-      ]
+      ],
+      "image": "quest_b2_2_lesen_rezension"
     },
     {
       "id": "quest_b2_2_lesen_textergaenzung",
@@ -84624,7 +84695,8 @@
         "b2.sprachbausteine",
         "b2.concessive",
         "b2.text-cohesion"
-      ]
+      ],
+      "image": "quest_b2_2_lesen_textergaenzung"
     },
     {
       "type": "speaking",
@@ -84734,7 +84806,9 @@
         "b2.adversative",
         "b2.irreal-conditions",
         "b2.funktionsverbgefuege"
-      ]
+      ],
+      "image": "quest_b2_2_bigtext_chancen",
+      "imageDescription": "a nervous candidate leaving an oral exam room, an examiner with a clipboard visible through the door, an hourglass on the desk"
     },
     {
       "id": "quest_b2_2_relativ_dessen_deren",
@@ -89960,7 +90034,8 @@
       "covers": [
         "c1.passive-substitutes-advanced",
         "c1.bar-lich"
-      ]
+      ],
+      "image": "quest_c1_1_bigtext_hinweise"
     },
     {
       "type": "listening",
@@ -90162,7 +90237,8 @@
       "covers": [
         "c1.listening-exam-formats",
         "c1.academic-vocabulary"
-      ]
+      ],
+      "image": "quest_c1_1_hoeren_vorlesung"
     },
     {
       "type": "fillBlank",
@@ -90639,7 +90715,9 @@
         "c1.nominalisation-advanced",
         "c1.passive-substitutes-advanced",
         "c1.connectors-advanced"
-      ]
+      ],
+      "image": "quest_c1_1_hoeren_vorlesung",
+      "imageDescription": "a professor at a lectern in a university auditorium, a thought bubble filled with speech bubbles above the students"
     },
     {
       "type": "fillBlank",
@@ -93487,7 +93565,8 @@
       "covers": [
         "c1.reading-exam-formats",
         "c1.academic-vocabulary"
-      ]
+      ],
+      "image": "quest_c1_1_lesen_wissenschaft"
     },
     {
       "id": "quest_c1_1_lesen_saetze_einordnen",
@@ -93646,7 +93725,8 @@
       "covers": [
         "c1.reading-exam-formats",
         "c1.conjunctional-adverbs"
-      ]
+      ],
+      "image": "quest_c1_1_lesen_saetze_einordnen"
     },
     {
       "type": "fillBlank",
@@ -94959,7 +95039,8 @@
       "voiceGender": "female",
       "covers": [
         "c1.listening-exam-formats"
-      ]
+      ],
+      "image": "quest_c1_1_hoeren_podiumsdiskussion"
     },
     {
       "id": "quest_c1_1_hoeren_vortrag_detail",
@@ -95161,7 +95242,8 @@
         "c1.academic-vocabulary"
       ],
       "passageTitle": "Vortrag: Die Aufmerksamkeitsökonomie",
-      "voiceGender": "male"
+      "voiceGender": "male",
+      "image": "quest_c1_1_hoeren_vortrag_detail"
     },
     {
       "type": "reading",
@@ -95362,7 +95444,8 @@
       "covers": [
         "c1.reading-exam-formats",
         "c1.conjunctional-adverbs"
-      ]
+      ],
+      "image": "quest_c1_1_lesen_essay"
     },
     {
       "id": "quest_c1_1_lesen_sprachbausteine",
@@ -95551,7 +95634,8 @@
         "c1.connectors-advanced",
         "c1.tense-choice",
         "c1.funktionsverbgefuege-formal"
-      ]
+      ],
+      "image": "quest_c1_1_lesen_sprachbausteine"
     },
     {
       "type": "speaking",
@@ -95657,7 +95741,9 @@
         "c1.nominalisation-advanced",
         "c1.connectors-advanced",
         "c1.adverbial-clauses-system"
-      ]
+      ],
+      "image": "quest_c1_1_bigtext_hinweise",
+      "imageDescription": "an office team gathered around a screen while an IT colleague explains a new document system, folders migrating into a cloud"
     },
     {
       "id": "quest_c1_1_partizipialattribute",
@@ -101418,7 +101504,8 @@
         "c1.modal-supposition",
         "c1.modal-hearsay"
       ],
-      "questions": []
+      "questions": [],
+      "image": "quest_c1_2_bigtext_nachbar"
     },
     {
       "type": "fillBlank",
@@ -102031,7 +102118,8 @@
         "c1.exam-formats-2",
         "c1.modal-hearsay"
       ],
-      "voiceGender": "female"
+      "voiceGender": "female",
+      "image": "quest_c1_2_hoeren_reportage"
     },
     {
       "id": "quest_c1_2_hoeren_interview_stimmt",
@@ -102236,7 +102324,8 @@
         "c1.modal-hearsay"
       ],
       "passageTitle": "Interview: Hitzeschutz in der Stadt",
-      "voiceGender": "female"
+      "voiceGender": "female",
+      "image": "quest_c1_2_hoeren_interview_stimmt"
     },
     {
       "type": "fillBlank",
@@ -103124,7 +103213,9 @@
         "c1.modal-supposition",
         "c1.modal-hearsay",
         "c1.word-formation-prefixes"
-      ]
+      ],
+      "image": "quest_c1_2_hoeren_reportage",
+      "imageDescription": "volunteers unloading crates of vegetables, tools and winter coats in front of a plain community hall with a blank sign, no lettering anywhere"
     },
     {
       "type": "fillBlank",
@@ -103728,7 +103819,8 @@
       "covers": [
         "c1.exam-formats-2",
         "c1.cohesion-advanced"
-      ]
+      ],
+      "image": "quest_c1_2_lesen_kolumne"
     },
     {
       "id": "quest_c1_2_lesen_experten",
@@ -103948,7 +104040,8 @@
       "covers": [
         "c1.exam-formats-2",
         "c1.culture-vocabulary"
-      ]
+      ],
+      "image": "quest_c1_2_lesen_experten"
     },
     {
       "type": "fillBlank",
@@ -106510,7 +106603,8 @@
         "c1.exam-formats-2",
         "c1.modal-supposition"
       ],
-      "voiceGender": "male"
+      "voiceGender": "male",
+      "image": "quest_c1_2_hoeren_hoerspiel"
     },
     {
       "type": "reading",
@@ -106734,7 +106828,8 @@
       "covers": [
         "c1.exam-formats-2",
         "c1.cohesion-advanced"
-      ]
+      ],
+      "image": "quest_c1_2_lesen_literatur"
     },
     {
       "type": "speaking",
@@ -106840,7 +106935,9 @@
         "c1.modal-supposition",
         "c1.register-shift",
         "c1.cohesion-advanced"
-      ]
+      ],
+      "image": "quest_c1_2_bigtext_nachbar",
+      "imageDescription": "a dim stairwell with neighbours whispering on the landing, a mysterious man in a hat closing his door, a single letter on the nameplate drawn as a shape"
     },
     {
       "id": "quest_c1_2_konjunktiv1_indirekte_rede",
@@ -113418,7 +113515,8 @@
       "covers": [
         "c2.collocations",
         "c2.konjunktiv1-journalistic"
-      ]
+      ],
+      "image": "quest_c2_1_bigtext_vorstand"
     },
     {
       "type": "fillBlank",
@@ -114172,7 +114270,8 @@
       "covers": [
         "c2.text-formats-1",
         "c2.rhetoric"
-      ]
+      ],
+      "image": "quest_c2_1_hoeren_feature"
     },
     {
       "type": "fillBlank",
@@ -115243,7 +115342,9 @@
         "c2.register",
         "c2.collocations",
         "c2.konjunktiv1-journalistic"
-      ]
+      ],
+      "image": "quest_c2_1_hoeren_feature",
+      "imageDescription": "a big city just before dawn: an empty main station square, a street sweeper, a first tram and a lit bakery window"
     },
     {
       "type": "fillBlank",
@@ -116549,7 +116650,8 @@
         "c2.text-formats-1",
         "c2.konjunktiv1-journalistic",
         "c2.rhetoric"
-      ]
+      ],
+      "image": "quest_c2_1_lesen_artikel"
     },
     {
       "type": "fillBlank",
@@ -117578,7 +117680,8 @@
         "c2.text-formats-1",
         "c2.rhetoric",
         "c2.connotation"
-      ]
+      ],
+      "image": "quest_c2_1_hoeren_satire"
     },
     {
       "type": "reading",
@@ -117816,7 +117919,8 @@
       "covers": [
         "c2.text-formats-1",
         "c2.rhetoric"
-      ]
+      ],
+      "image": "quest_c2_1_lesen_kurzgeschichte"
     },
     {
       "type": "speaking",
@@ -117979,7 +118083,9 @@
         "c2.register",
         "c2.gradation",
         "c2.collocations"
-      ]
+      ],
+      "image": "quest_c2_1_bigtext_vorstand",
+      "imageDescription": "a boardroom late at night with executives around a long table, a tractor model and a factory silhouette on a screen"
     },
     {
       "type": "fillBlank",
@@ -123654,7 +123760,8 @@
       "covers": [
         "c2.text-formats-2",
         "c2.academic-language"
-      ]
+      ],
+      "image": "quest_c2_2_hoeren_fachvortrag"
     },
     {
       "type": "fillBlank",
@@ -124386,7 +124493,9 @@
         "c2.implicature",
         "c2.word-order-focus",
         "c2.paraphrase"
-      ]
+      ],
+      "image": "quest_c2_2_hoeren_fachvortrag",
+      "imageDescription": "a lecturer beside two images: a dusty archive of labelled boxes and a storyteller weaving threads, an audience listening"
     },
     {
       "type": "reading",
@@ -124608,7 +124717,8 @@
       "covers": [
         "c2.text-formats-2",
         "c2.academic-language"
-      ]
+      ],
+      "image": "quest_c2_2_lesen_essay"
     },
     {
       "type": "fillBlank",
@@ -127327,7 +127437,8 @@
         "c2.officialese",
         "c2.text-formats-2",
         "c2.written-prepositions"
-      ]
+      ],
+      "image": "quest_c2_2_lesen_amtliches_schreiben"
     },
     {
       "id": "quest_c2_2_appositionen",
@@ -129854,7 +129965,8 @@
       "covers": [
         "c2.academic-language",
         "c2.nominal-style"
-      ]
+      ],
+      "image": "quest_c2_2_bigtext_lesen"
     },
     {
       "type": "listening",
@@ -130092,7 +130204,8 @@
       "covers": [
         "c2.text-formats-2",
         "c2.implicature"
-      ]
+      ],
+      "image": "quest_c2_2_hoeren_lesung"
     },
     {
       "type": "speakRepeat",
@@ -131044,7 +131157,8 @@
       "covers": [
         "c2.text-formats-2",
         "c2.implicature"
-      ]
+      ],
+      "image": "quest_c2_2_hoeren_capstone"
     },
     {
       "type": "reading",
@@ -131266,7 +131380,8 @@
         "c2.text-formats-2",
         "c2.literary-appraisal",
         "c2.implicature"
-      ]
+      ],
+      "image": "quest_c2_2_lesen_capstone"
     },
     {
       "id": "quest_c2_2_lesen_lyrik",
@@ -131504,7 +131619,8 @@
         "c2.text-formats-2",
         "c2.literary-appraisal",
         "c2.implicature"
-      ]
+      ],
+      "image": "quest_c2_2_lesen_lyrik"
     },
     {
       "type": "speaking",
@@ -131662,7 +131778,9 @@
         "c2.academic-language",
         "c2.literary-appraisal",
         "c2.modal-system"
-      ]
+      ],
+      "image": "quest_c2_2_lesen_essay",
+      "imageDescription": "a person surrounded by floating photos and messages that never fade, a small eraser in hand"
     },
     {
       "type": "fillBlank",

@@ -1,4 +1,4 @@
-import { categoryNames, nouns } from '$lib/server/words';
+import { categoryNames, nouns, pictureFor } from '$lib/server/words';
 import { pluralForm, wordSlug } from '$lib/domain/words';
 import type { PageServerLoad } from './$types';
 
@@ -13,13 +13,17 @@ export const load: PageServerLoad = () => {
 		name,
 		nouns: nouns
 			.filter((n) => n.categories.includes(id))
-			.map((n) => ({
-				slug: wordSlug(n.noun),
-				noun: n.noun,
-				gender: n.gender,
-				english: n.english,
-				plural: pluralForm(n.noun, n.plural)
-			}))
+			.map((n) => {
+				const slug = wordSlug(n.noun);
+				return {
+					slug,
+					noun: n.noun,
+					gender: n.gender,
+					english: n.english,
+					plural: pluralForm(n.noun, n.plural),
+					image: pictureFor(slug)
+				};
+			})
 	}));
 	return { total: nouns.length, groups: groups.filter((g) => g.nouns.length) };
 };

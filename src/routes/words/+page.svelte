@@ -146,6 +146,9 @@
 			{#each filteredNouns as noun (noun.slug)}
 				<li>
 					<a class="word" href="/words/nouns/{noun.slug}">
+						{#if noun.image}
+							<img class="thumb" src={noun.image} alt="" width="512" height="512" loading="lazy" />
+						{/if}
 						<span class="article" style="color:{GENDER_COLORS[noun.gender]}">
 							{GENDER_ARTICLES[noun.gender] ?? ''}
 						</span>
@@ -405,6 +408,18 @@
 	.word:hover {
 		border-color: var(--accent);
 		transform: translateY(-1px);
+	}
+
+	/* The word's picture, small and round, on its own cream disc. */
+	.thumb {
+		width: 2.4rem;
+		height: 2.4rem;
+		flex: none;
+		align-self: center;
+		margin: -0.25rem 0.1rem -0.25rem -0.2rem;
+		border-radius: 50%;
+		background: #fbf5e4;
+		object-fit: cover;
 	}
 
 	.article {

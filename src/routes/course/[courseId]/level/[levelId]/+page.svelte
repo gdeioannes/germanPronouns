@@ -139,7 +139,11 @@
 				: null}
 			<li>
 				<a href="/course/{course.id}/quiz/{quiz.id}">
-					<span class="kind" data-kind={quiz.type}><Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" /></span>
+					{#if quiz.image}
+						<img class="thumb" src="/img/{quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" />
+					{:else}
+						<span class="kind" data-kind={quiz.type}><Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" /></span>
+					{/if}
 					<span class="title">{quiz.title}</span>
 					{#if quiz.status === 'placeholder'}<span class="soon">preview</span>{/if}
 					{#if ribbon}<RibbonBadge tier={ribbon} width={13} />{/if}
@@ -182,6 +186,7 @@
 	.quizzes a { display: flex; align-items: center; gap: 0.7rem; padding: 0.5rem 0.7rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; }
 	.quizzes a:hover { background: var(--surface-alt); }
 	.title { flex: 1; font-size: var(--step--1); }
+	.thumb { width: 2.6rem; height: 1.9rem; flex: none; border-radius: 6px; background: #fbf5e4; object-fit: cover; }
 	.kind { display: inline-flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem; flex: none; border-radius: 50%; background: var(--surface-alt); color: var(--ink-muted); }
 	.kind[data-kind='fillBlank'] { background: #ebe7f4; color: #55478a; }
 	.kind[data-kind='vocabulary'] { background: #f9e7ee; color: #a33a63; }

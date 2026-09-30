@@ -55,6 +55,9 @@
 				{#each g.nouns as n (n.slug)}
 					<li>
 						<a href="/words/nouns/{n.slug}">
+							{#if n.image}
+								<img class="thumb" src={n.image} alt="" width="512" height="512" loading="lazy" />
+							{/if}
 							<span class="article" style="color:{GENDER_COLORS[n.gender]}">{GENDER_ARTICLES[n.gender]}</span>
 							<span class="term" lang="de">{n.noun}</span>
 							<span class="gloss">{n.english}</span>
@@ -79,6 +82,7 @@
 	.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.15rem 1rem; }
 	.grid a { display: flex; align-items: baseline; gap: 0.45rem; padding: 0.35rem 0.5rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; }
 	.grid a:hover { background: var(--surface-alt); }
+	.thumb { width: 2.1rem; height: 2.1rem; flex: none; align-self: center; margin: -0.2rem 0.05rem -0.2rem 0; border-radius: 50%; background: #fbf5e4; object-fit: cover; }
 	.article { font-weight: 700; font-size: var(--step--1); min-width: 1.9rem; }
 	.term { font-weight: 600; }
 	.gloss { color: var(--ink-muted); font-size: var(--step--1); }

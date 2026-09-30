@@ -5,7 +5,9 @@
 	import { fade } from 'svelte/transition';
 	import { navDirection, prefersReducedMotion } from '$lib/motion';
 	import { trackScreenView } from '$lib/services/analytics';
+	import { tts } from '$lib/services/speech';
 	import FxLayer from '$lib/components/FxLayer.svelte';
+	import VoiceNotice from '$lib/components/VoiceNotice.svelte';
 	// Self-hosted fonts: no third-party request blocks the first paint, and the
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
@@ -33,6 +35,10 @@
 	const viewTransitions = typeof document !== 'undefined' && 'startViewTransition' in document;
 
 	onNavigate((navigation) => {
+		// Leaving a page silences whatever it was saying: a clip or passage
+		// must not follow the learner out of the quiz.
+		if (navigation.from?.url.pathname !== navigation.to?.url.pathname) void tts.stop();
+
 		if (!viewTransitions || prefersReducedMotion()) return;
 		// Same page, new query/hash (e.g. a level pick): let the page animate
 		// its own change rather than sliding the whole screen.
@@ -77,3 +83,4 @@
 {/key}
 
 <FxLayer />
+<VoiceNotice />

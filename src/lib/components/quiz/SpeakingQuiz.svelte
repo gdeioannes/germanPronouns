@@ -92,7 +92,8 @@
 				uiLang,
 				cefr: level,
 				personalFocus: focus.map((f) => `"${f.said}" -> "${f.correct}"`),
-				referenceNotes: flattenHelp()
+				referenceNotes: flattenHelp(),
+				pictureDescription: quiz.imageDescription ?? ''
 			});
 		})();
 	});
@@ -149,6 +150,14 @@
 					{session.durationMinutes} minutes. Copy the prompt, paste it there, and
 					follow its instructions.
 				</p>
+				{#if quiz.image}
+					<!-- The picture the session opens with: the tutor cannot see it, the
+					     prompt tells it what is there, and the learner describes it. -->
+					<figure class="scene">
+						<img src="/img/{quiz.image}.webp" alt={quiz.imageDescription} width="1024" height="768" />
+						<figcaption>Start by describing this picture — your assistant will ask you to.</figcaption>
+					</figure>
+				{/if}
 				<pre class="prompt">{prompt}</pre>
 				<button class="btn" onclick={copy}>
 					<Icon name={copied ? 'check' : 'copy'} size="1em" />
@@ -216,6 +225,31 @@
 </Steps>
 
 <style>
+	/* A cream panel, the scene's own paper colour, so picture and caption
+	   read as one framed illustration on the white card. */
+	.scene {
+		margin: 0 0 0.8rem;
+		padding: 0.4rem 0.9rem 0.7rem;
+		border-radius: var(--radius-sm);
+		background: #fbf5e4;
+		text-align: center;
+	}
+
+	.scene img {
+		display: block;
+		width: min(100%, 24rem);
+		height: auto;
+		max-height: min(15rem, 30dvh);
+		margin: 0 auto;
+		object-fit: cover;
+	}
+
+	.scene figcaption {
+		margin-top: 0.2rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
 	.card {
 		padding: 1.4rem 1.6rem;
 		border: 1px solid var(--line);
