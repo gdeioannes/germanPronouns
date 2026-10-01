@@ -184,6 +184,13 @@ describe('every quiz (baseline)', () => {
 		}
 	});
 
+	it('gives every exercise a picture for its deck card (own scene or the shared card_<type>_<level>)', () => {
+		for (const q of quizzes) {
+			if (q.status === 'placeholder') continue;
+			expect(q.image, `${q.id}: no card picture — add a manifest entry and run npm run images`).toBeTruthy();
+		}
+	});
+
 	it('gives every flashcard deck sound cards: nouns with articles, no duplicates', () => {
 		for (const q of quizzes) {
 			if (q.type !== 'vocabulary') continue;

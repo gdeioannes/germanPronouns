@@ -1,86 +1,116 @@
 <script lang="ts">
 	// The swipe deck — the course home's main event. A stack of exercise cards
-	// dealt from what the learner has done and the level they say they are at:
-	// drag (or arrow) right to open the exercise, left to drop it. Drops
-	// persist, so a card swiped away stays away on the next visit until the
-	// whole deck has been turned down, when the memory is wiped and it starts
-	// again.
+	// dealt from what the learner has done, the pace they want and the level
+	// they say they are at: drag (or arrow) right to open the exercise, left to
+	// drop it. Drops persist, so a card swiped away stays away on the next
+	// visit until the whole deck has been turned down, when the memory is wiped
+	// and it starts again.
 	//
 	// Gestures are plain Pointer Events. The card follows the finger with a
-	// little rotation; past the threshold a stamp ("Skip" / "Let's go") turns
-	// solid and letting go flings the card off. Under the threshold it springs
-	// back. Everything the gesture does is also on two buttons and the arrow
-	// keys, so the deck works without a touch screen and without a mouse.
+	// little rotation; past the threshold — or on a quick flick — a stamp
+	// ("Skip" / "Let's go") turns solid and letting go flings the card off.
+	// Under it the card springs back, and a plain tap opens the exercise. The
+	// card claims every touch (touch-action: none) so the browser never steals
+	// a slightly diagonal swipe as a scroll. Everything the gesture does is
+	// also on two buttons and the arrow keys.
+	//
+	// The chip above the stack opens the deck chooser: how to learn (the pace)
+	// and where the learner is (the level). Both redeal the stack at once.
 	import Icon from '$lib/icons/Icon.svelte';
-	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
+	import { QUIZ_TYPE_ICONS, type IconName } from '$lib/icons/paths';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import Sheet from '$lib/components/Sheet.svelte';
 	import { DURATION, prefersReducedMotion } from '$lib/motion';
-	import { progress } from '$lib/state/progress.svelte';
 	import { storage } from '$lib/services/storage';
 	import { track } from '$lib/services/analytics';
 	import { goto } from '$app/navigation';
 	import {
 		DECK_KIND_LABELS,
+		DECK_PACES,
+		DECK_PACE_ORDER,
 		buildDeck,
 		courseLevels,
 		deckLevel,
+		isDeckPace,
 		typeLabel,
-		type DeckCard
+		type DeckCard,
+		type DeckPace
 	} from '$lib/domain/deck';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
-	import { untrack } from 'svelte';
+	import { untrack, type Snippet } from 'svelte';
 
 	let {
 		course,
-		ready
+		facts,
+		level = $bindable(null),
+		title,
+		aside,
+		onbrowse
 	}: {
 		course: CourseSummary;
-		/** True once the page has loaded progress and the per-quiz stats. */
-		ready: boolean;
+		/** Every quiz's facts, or null while the page is still loading them. */
+		facts: Record<string, QuizFacts> | null;
+		/** The sub-level the learner picked (null = auto); the page reads it for the ring. */
+		level?: string | null;
+		/** The page's heading, set above the deck chip. */
+		title?: Snippet;
+		/** Drawn at the right of the header row (the progress ring). */
+		aside?: Snippet;
+		/** Opens the full exercise list; shown between the two buttons. */
+		onbrowse?: () => void;
 	} = $props();
 
 	// "quiz_" in the key puts the skips in the set that "start over" wipes.
-	// The level pick is a preference, not progress, so it survives a reset.
+	// The level and pace are preferences, not progress, so they survive a reset.
 	const SKIPPED_KEY = 'quiz_recommend_skipped';
 	const LEVEL_KEY = 'deck_level';
+	const PACE_KEY = 'deck_pace';
 	const SKIPPED_LIMIT = 80;
 	/** How many cards of the stack are drawn behind the top one. */
 	const VISIBLE = 3;
 
-	let facts = $state<Record<string, QuizFacts>>({});
+	const PACE_ICONS: Record<DeckPace, IconName> = {
+		steady: 'leaf',
+		fast: 'bolt',
+		adventurous: 'compass',
+		review: 'repeat'
+	};
+
 	let skipped = $state<string[]>([]);
-	let level = $state<string | null>(null);
+	let pace = $state<DeckPace>('steady');
 	let deck = $state<DeckCard[]>([]);
 	let loaded = $state(false);
+	/** Bumped on every deal, so the stack replays its deal-in animation. */
+	let dealt = $state(0);
+	/** How many cards the last deal held, for the "Card 3 of 12" line. */
+	let handSize = $state(0);
+	let chooserOpen = $state(false);
 
 	const levels = $derived(courseLevels(course.quizzes));
-	const centre = $derived(deckLevel(course.quizzes, facts, level));
-	const levelTitle = $derived(
-		(lv: string) => course.nav.groups.find((g) => g.type === 'questChain' && g.level === lv)?.title ?? lv
-	);
+	const centre = $derived(deckLevel(course.quizzes, facts ?? {}, level));
+	/** Where the deck would sit with no level picked: the furthest finished. */
+	const autoLevel = $derived(deckLevel(course.quizzes, facts ?? {}, null));
+	/** The sub-levels grouped by CEFR band (A1, A2, …) for the chooser. */
+	const bands = $derived.by(() => {
+		const out: { name: string; levels: string[] }[] = [];
+		for (const lv of levels) {
+			const name = lv.split('.')[0];
+			const band = out.at(-1);
+			if (band?.name === name) band.levels.push(lv);
+			else out.push({ name, levels: [lv] });
+		}
+		return out;
+	});
 
 	$effect(() => {
-		if (!ready) return;
-		// Reads rune state it must not subscribe to — a stat written while
-		// loading would re-run this and start the load again.
+		if (!facts) return;
+		// Reads rune state it must not subscribe to — the deal writes the deck,
+		// and a pick would otherwise re-run the load.
 		untrack(() => void load());
 	});
 
 	async function load() {
-		const next: Record<string, QuizFacts> = {};
-		for (const quiz of course.quizzes) {
-			const history = await progress.historyFor(quiz.storageKeyPrefix);
-			next[quiz.id] = {
-				done: progress.isCompleted(quiz.type, quiz.id, quiz.storageKeyPrefix),
-				tier: progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix),
-				answered: history.answered,
-				mistakeRate: history.mistakeRate,
-				recentMistakeRate: history.recentMistakeRate,
-				lastPlayedAt: history.lastPlayedAt
-			};
-		}
-		facts = next;
 		try {
 			const raw = await storage.get(SKIPPED_KEY);
 			const parsed = raw ? JSON.parse(raw) : [];
@@ -90,35 +120,53 @@
 		}
 		const picked = await storage.get(LEVEL_KEY);
 		level = picked && levels.includes(picked) ? picked : null;
+		const savedPace = await storage.get(PACE_KEY);
+		pace = isDeckPace(savedPace) ? savedPace : 'steady';
 		deal();
 		loaded = true;
 	}
 
 	/** Rebuilds the stack; forgets the skips first if they have eaten everything. */
 	function deal() {
-		deck = buildDeck(course.quizzes, facts, { level, skipped: new Set(skipped) });
+		const known = facts ?? {};
+		deck = buildDeck(course.quizzes, known, { level, pace, skipped: new Set(skipped) });
 		if (deck.length === 0 && skipped.length > 0) {
 			skipped = [];
 			void storage.set(SKIPPED_KEY, '[]');
-			deck = buildDeck(course.quizzes, facts, { level });
+			deck = buildDeck(course.quizzes, known, { level, pace });
 		}
+		handSize = deck.length;
+		dealt++;
 	}
 
-	async function pickLevel(event: Event) {
-		const value = (event.currentTarget as HTMLSelectElement).value;
-		level = value || null;
+	async function pickLevel(value: string | null) {
+		if (value === level) return;
+		level = value;
 		if (level) await storage.set(LEVEL_KEY, level);
 		else await storage.remove(LEVEL_KEY);
 		track('deck_level_picked', { course: course.id, level: level ?? 'auto' });
 		deal();
 	}
 
+	async function pickPace(value: DeckPace) {
+		if (value === pace) return;
+		pace = value;
+		await storage.set(PACE_KEY, pace);
+		track('deck_pace_picked', { course: course.id, pace });
+		deal();
+	}
+
 	// ---- the gesture -------------------------------------------------------
 
-	/** Drag distance that counts as a decision, in px. */
-	const THRESHOLD = 110;
+	/** Drag distance that counts as a decision, in px — less on a narrow card. */
+	let threshold = $state(110);
 	/** How far the card flies when released past the threshold. */
 	const FLING = 900;
+	/** A release faster than this (px/ms) past FLICK_MIN px counts as a swipe. */
+	const FLICK_SPEED = 0.5;
+	const FLICK_MIN = 36;
+	/** Movement under this many px is a tap, not a drag. */
+	const TAP_SLOP = 8;
 
 	let dx = $state(0);
 	let dy = $state(0);
@@ -127,43 +175,73 @@
 	let leaving = $state<'left' | 'right' | null>(null);
 	let startX = 0;
 	let startY = 0;
+	let lastX = 0;
+	let lastT = 0;
+	/** Smoothed horizontal speed, px/ms. */
+	let vx = 0;
+	let moved = false;
 	let pointerId: number | null = null;
 
 	const top = $derived(deck[0] ?? null);
-	const lean = $derived(Math.max(-1, Math.min(1, dx / THRESHOLD)));
-	const decided = $derived(Math.abs(dx) >= THRESHOLD);
+	const lean = $derived(Math.max(-1, Math.min(1, dx / threshold)));
+	const decided = $derived(Math.abs(dx) >= threshold);
 
 	function href(card: DeckCard) {
 		return `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
 
 	function onDown(event: PointerEvent) {
-		if (leaving || !top) return;
-		// A click on the ribbon or a nested link is still a drag start; only
-		// the buttons below the stack are outside the gesture.
+		if (leaving || !top || pointerId !== null) return;
+		if (event.pointerType === 'mouse' && event.button !== 0) return;
+		const el = event.currentTarget as HTMLElement;
+		threshold = Math.min(110, Math.max(64, el.offsetWidth * 0.28));
 		pointerId = event.pointerId;
-		startX = event.clientX;
+		startX = lastX = event.clientX;
 		startY = event.clientY;
+		lastT = event.timeStamp;
+		vx = 0;
+		moved = false;
 		dragging = true;
-		(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+		el.setPointerCapture(event.pointerId);
 	}
 
 	function onMove(event: PointerEvent) {
 		if (!dragging || event.pointerId !== pointerId) return;
+		const dt = event.timeStamp - lastT;
+		if (dt > 0) vx = 0.7 * ((event.clientX - lastX) / dt) + 0.3 * vx;
+		lastX = event.clientX;
+		lastT = event.timeStamp;
 		dx = event.clientX - startX;
 		dy = (event.clientY - startY) * 0.4;
+		if (!moved && Math.hypot(event.clientX - startX, event.clientY - startY) > TAP_SLOP) moved = true;
 	}
 
 	function onUp(event: PointerEvent) {
 		if (!dragging || event.pointerId !== pointerId) return;
 		dragging = false;
 		pointerId = null;
-		if (dx >= THRESHOLD) fling('right');
-		else if (dx <= -THRESHOLD) fling('left');
-		else {
-			dx = 0;
-			dy = 0;
-		}
+		// A finger that stopped before lifting has no speed left.
+		const speed = event.timeStamp - lastT > 80 ? 0 : vx;
+		const flick = Math.abs(dx) >= FLICK_MIN && Math.abs(speed) >= FLICK_SPEED && Math.sign(speed) === Math.sign(dx);
+		if (dx >= threshold || (flick && dx > 0)) fling('right');
+		else if (dx <= -threshold || (flick && dx < 0)) fling('left');
+		else if (!moved) {
+			reset();
+			fling('right');
+		} else reset();
+	}
+
+	/** The browser took the pointer away (a system gesture): just spring back. */
+	function onCancel(event: PointerEvent) {
+		if (event.pointerId !== pointerId) return;
+		dragging = false;
+		pointerId = null;
+		reset();
+	}
+
+	function reset() {
+		dx = 0;
+		dy = 0;
 	}
 
 	/** Sends the top card off and acts once it has gone. */
@@ -177,15 +255,14 @@
 			if (direction === 'left') {
 				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
 				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
-				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'skip' });
+				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'skip', pace });
 				deck = deck.slice(1);
 				if (deck.length === 0) deal();
 			} else {
-				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'go' });
+				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'go', pace });
 				void goto(href(card));
 			}
-			dx = 0;
-			dy = 0;
+			reset();
 			leaving = null;
 		}, wait);
 	}
@@ -210,22 +287,23 @@
 
 <section class="deck" aria-label="Your next exercise">
 	<header class="deck-head">
-		<div>
-			<p class="eyebrow">Your deck</p>
-			<p class="deck-lede">
-				Swipe right to start an exercise, left to pass. The cards come from your level and what you have done so far.
-			</p>
+		<div class="head-main">
+			{@render title?.()}
+			<button
+				type="button"
+				class="deck-chip"
+				data-pace={pace}
+				aria-haspopup="dialog"
+				aria-controls="deck-chooser"
+				onclick={() => (chooserOpen = true)}
+			>
+				<Icon name={PACE_ICONS[pace]} size="1.05em" />
+				<span class="chip-pace">{DECK_PACES[pace].label}</span>
+				<span class="chip-level tnum">{centre ?? '–'}</span>
+				<Icon name="chevronDown" size="0.9em" />
+			</button>
 		</div>
-		<label class="level-pick">
-			<span>I'm at</span>
-			<select value={level ?? ''} onchange={pickLevel} aria-label="Your German level">
-				<option value="">auto ({centre ?? '–'})</option>
-				{#each levels as lv (lv)}
-					<option value={lv}>{lv}</option>
-				{/each}
-			</select>
-			<Icon name="chevronDown" size="0.9em" />
-		</label>
+		{@render aside?.()}
 	</header>
 
 	<div class="stage">
@@ -235,65 +313,70 @@
 			<div class="card empty">
 				<Icon name="trophy" size="1.6em" />
 				<p><strong>Nothing left to deal.</strong></p>
-				<p>Every exercise around {centre} is done. Pick a higher level above to keep going.</p>
+				<p>Every exercise around {centre} is done.</p>
+				<button type="button" class="empty-cta" onclick={() => (chooserOpen = true)}>Change your deck</button>
 			</div>
 		{:else}
-			<!-- Bottom of the stack first, so the top card paints last. -->
-			{#each deck.slice(0, VISIBLE + 1).reverse() as card, i (card.quiz.id)}
-				{@const depth = Math.min(VISIBLE, deck.length - 1) - i}
-				{@const isTop = depth === 0}
-				{@const ribbon = facts[card.quiz.id]?.tier ?? null}
-				<div
-					class="card"
-					class:top={isTop}
-					class:dragging={isTop && dragging}
-					class:leaving={isTop && leaving}
-					data-kind={card.kind}
-					style={isTop
-						? `transform: translate(${dx}px, ${dy}px) rotate(${dx / 18}deg);`
-						: stackStyle(depth)}
-					tabindex={isTop ? 0 : -1}
-					role="button"
-					aria-label={isTop ? `${card.quiz.title}. ${card.reason}` : undefined}
-					aria-hidden={isTop ? undefined : 'true'}
-					onpointerdown={isTop ? onDown : undefined}
-					onpointermove={isTop ? onMove : undefined}
-					onpointerup={isTop ? onUp : undefined}
-					onpointercancel={isTop ? onUp : undefined}
-					onkeydown={isTop ? onKey : undefined}
-				>
-					{#if isTop}
-						<span class="stamp no" style="opacity:{Math.max(0, -lean)}" class:firm={decided && dx < 0}>Skip</span>
-						<span class="stamp yes" style="opacity:{Math.max(0, lean)}" class:firm={decided && dx > 0}>Let's go</span>
-					{/if}
+			{#key dealt}
+				<!-- Bottom of the stack first, so the top card paints last. -->
+				{#each deck.slice(0, VISIBLE + 1).reverse() as card, i (card.quiz.id)}
+					{@const depth = Math.min(VISIBLE, deck.length - 1) - i}
+					{@const isTop = depth === 0}
+					{@const ribbon = facts?.[card.quiz.id]?.tier ?? null}
+					<div
+						class="card"
+						class:top={isTop}
+						class:dragging={isTop && dragging}
+						class:leaving={isTop && leaving}
+						data-kind={card.kind}
+						style="{isTop
+							? `transform: translate(${dx}px, ${dy}px) rotate(${dx / 18}deg);`
+							: stackStyle(depth)} animation-delay: {i * 70}ms;"
+						tabindex={isTop ? 0 : -1}
+						role="button"
+						aria-label={isTop ? `${card.quiz.title}. ${card.reason} Tap or swipe right to start, swipe left to skip.` : undefined}
+						aria-hidden={isTop ? undefined : 'true'}
+						onpointerdown={isTop ? onDown : undefined}
+						onpointermove={isTop ? onMove : undefined}
+						onpointerup={isTop ? onUp : undefined}
+						onpointercancel={isTop ? onCancel : undefined}
+						onkeydown={isTop ? onKey : undefined}
+					>
+						{#if isTop}
+							<span class="stamp no" style="opacity:{Math.max(0, -lean)}" class:firm={decided && dx < 0}>Skip</span>
+							<span class="stamp yes" style="opacity:{Math.max(0, lean)}" class:firm={decided && dx > 0}>Let's go</span>
+						{/if}
 
-					{#if card.quiz.image}
-						<!-- The quiz's scene as a cream band across the top of the card; it
-						     stands in for the type disc. -->
-						<div class="art-band">
-							<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
-						</div>
-					{/if}
+						{#if card.quiz.image}
+							<!-- The quiz's scene as a cream band across the top of the card; it
+							     stands in for the type disc. -->
+							<div class="art-band">
+								<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
+							</div>
+						{:else}
+							<span class="type-disc" data-type={card.quiz.type}>
+								<Icon name={QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
+							</span>
+						{/if}
 
-					<p class="kind-label">For you · <strong>{DECK_KIND_LABELS[card.kind]}</strong></p>
+						<!-- Why this card, and where it sits in this hand. "Card 3 of 12"
+						     rather than "10 left": a count of what is left reads as the
+						     whole course running out. -->
+						<p class="kind-row">
+							<span class="kind-label">{DECK_KIND_LABELS[card.kind]}</span>
+							<span class="left tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
+						</p>
+						<h3 class="title">{card.quiz.title}</h3>
+						<p class="reason">{card.reason}</p>
 
-					{#if !card.quiz.image}
-						<span class="type-disc" data-type={card.quiz.type}>
-							<Icon name={QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
-						</span>
-					{/if}
-
-					<h3 class="title">{card.quiz.title}</h3>
-					<p class="reason">{card.reason}</p>
-
-					<p class="meta">
-						<span class="chip">{card.quiz.level}</span>
-						<span class="chip">{typeLabel(card.quiz.type)}</span>
-						{#if ribbon}<RibbonBadge tier={ribbon} width={14} />{/if}
-					</p>
-					<p class="level-name">{levelTitle(card.quiz.level ?? '')}</p>
-				</div>
-			{/each}
+						<p class="meta">
+							<span class="chip">{card.quiz.level}</span>
+							<span class="chip">{typeLabel(card.quiz.type)}</span>
+							{#if ribbon}<RibbonBadge tier={ribbon} width={14} />{/if}
+						</p>
+					</div>
+				{/each}
+			{/key}
 		{/if}
 	</div>
 
@@ -308,7 +391,13 @@
 		>
 			<Icon name="close" size="1.4em" stroke={2.25} />
 		</button>
-		<span class="count tnum">{deck.length} in the deck</span>
+		<span class="middle">
+			{#if onbrowse}
+				<button type="button" class="browse" onclick={onbrowse} aria-haspopup="dialog" aria-controls="all-exercises">
+					<Icon name="menu" size="0.95em" /> All exercises
+				</button>
+			{/if}
+		</span>
 		<button
 			type="button"
 			class="ctl yes"
@@ -322,80 +411,329 @@
 	</div>
 </section>
 
+<Sheet bind:open={chooserOpen} title="Your deck" id="deck-chooser">
+	<p class="q">How do you want to learn?</p>
+	<div class="paces" role="radiogroup" aria-label="Pace">
+		{#each DECK_PACE_ORDER as p (p)}
+			<button
+				type="button"
+				class="pace"
+				data-pace={p}
+				role="radio"
+				aria-checked={pace === p}
+				onclick={() => pickPace(p)}
+			>
+				<span class="pace-icon"><Icon name={PACE_ICONS[p]} size="1.25em" /></span>
+				<strong>{DECK_PACES[p].label}</strong>
+				<small>{DECK_PACES[p].blurb}</small>
+			</button>
+		{/each}
+	</div>
+
+	<p class="q">Where are you?</p>
+	<button type="button" class="lv auto" aria-pressed={level === null} onclick={() => pickLevel(null)}>
+		Work it out from my progress <span class="tnum">({autoLevel ?? '–'})</span>
+	</button>
+	<div class="bands">
+		{#each bands as band (band.name)}
+			<div class="band">
+				<span class="band-name">{band.name}</span>
+				{#each band.levels as lv (lv)}
+					<button type="button" class="lv tnum" aria-pressed={level === lv} onclick={() => pickLevel(lv)}>{lv}</button>
+				{/each}
+			</div>
+		{/each}
+	</div>
+	<p class="note">Finished exercises count too: the deck never starts below the furthest level you have done.</p>
+
+	{#snippet footer()}
+		<button type="button" class="deal" onclick={() => (chooserOpen = false)}>
+			Deal {deck.length} cards
+		</button>
+	{/snippet}
+</Sheet>
+
 <style>
 	.deck {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		margin: 1.75rem 0 0;
+		width: 100%;
+		max-width: 28rem;
+		margin: 0 auto;
 	}
 
+	/* One row: the heading with the deck chip under it, the ring on the right. */
 	.deck-head {
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		justify-content: space-between;
-		gap: 1rem 2rem;
-		flex-wrap: wrap;
+		gap: 1rem;
 	}
 
-	.deck-lede {
-		margin: 0.15rem 0 0;
-		max-width: 38rem;
-		color: var(--ink-muted);
-		font-size: var(--step--1);
+	.head-main {
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.35rem;
 	}
 
-	/* The level picker looks like a chip; the native select hides inside it so
-	   phones get their own picker for free. */
-	.level-pick {
-		position: relative;
+	/* The deck chip: the current pace and level, and the way into the chooser.
+	   Tinted by pace so the choice reads at a glance. */
+	.deck-chip {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.4rem 0.85rem;
-		border: 1px solid var(--line-strong);
+		max-width: 100%;
+		padding: 0.35rem 0.75rem 0.35rem 0.6rem;
+		border: 1px solid color-mix(in srgb, var(--pace) 35%, var(--line));
 		border-radius: 999px;
-		background: var(--surface);
+		background: color-mix(in srgb, var(--pace) 8%, var(--surface));
+		color: var(--heading);
+		font: inherit;
 		font-size: var(--step--1);
 		font-weight: 700;
-		color: var(--heading);
 		cursor: pointer;
+		transition: border-color var(--fast) var(--ease-out);
 	}
 
-	.level-pick span {
-		color: var(--ink-muted);
-		font-weight: 600;
+	.deck-chip:hover {
+		border-color: var(--pace);
 	}
 
-	.level-pick select {
-		appearance: none;
-		border: 0;
-		background: none;
-		font: inherit;
+	.deck-chip > :global(.icon:first-child) {
+		color: var(--pace);
+	}
+
+	.chip-pace {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.chip-level {
+		padding-left: 0.45rem;
+		border-left: 1px solid var(--line-strong);
 		font-weight: 800;
-		color: inherit;
-		padding: 0 0.1rem;
-		cursor: pointer;
 	}
 
-	.level-pick select:focus-visible {
-		outline: 2px solid var(--accent);
-		outline-offset: 2px;
-		border-radius: 4px;
+	/* Each pace has a colour; the chip and the chooser tiles both use it. */
+	[data-pace] {
+		--pace: var(--forest);
+	}
+	[data-pace='fast'] {
+		--pace: var(--terracotta);
+	}
+	[data-pace='adventurous'] {
+		--pace: var(--navy);
+	}
+	[data-pace='review'] {
+		--pace: var(--ochre);
 	}
 
-	/* The stage: a fixed-height box the cards are absolutely stacked in. Height
-	   is generous so the reason line never pushes the meta off the card. */
+	/* The stage: the box the cards are absolutely stacked in. It takes the
+	   height the page leaves; the cap only stops a very tall monitor from
+	   stretching the card into a strip. The
+	   cards claim every touch (see .card.top), so a swipe never turns into a
+	   scroll halfway through. */
 	.stage {
 		position: relative;
 		flex: 1;
 		width: 100%;
 		min-height: 20rem;
-		max-height: 24rem;
-		margin: 1.25rem auto 0;
-		max-width: 26rem;
-		touch-action: pan-y;
-		perspective: 1000px;
+		max-height: 44rem;
+		margin: 1.1rem auto 0;
+	}
+
+	/* A fresh deal: the cards drop onto the table one after another. Uses the
+	   separate `translate` property so it composes with the stack transform. */
+	.stage .card:not(.ghost):not(.empty) {
+		animation: deal-in var(--slow) var(--ease-out) backwards;
+	}
+
+	@keyframes deal-in {
+		from {
+			translate: 0 2.5rem;
+			opacity: 0;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.stage .card:not(.ghost):not(.empty) {
+			animation: none;
+		}
+	}
+
+	.empty-cta {
+		margin-top: 0.5rem;
+		padding: 0.5rem 1rem;
+		border: 1px solid var(--accent);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--accent);
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	/* -- the chooser sheet ---------------------------------------------------- */
+
+	.q {
+		margin: 0.25rem 0 0.6rem;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+
+	.q + .paces,
+	.q + .lv {
+		margin-bottom: 0.5rem;
+	}
+
+	.paces {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.6rem;
+		margin-bottom: 1.4rem;
+	}
+
+	/* Icon and name on one line, the blurb under them. */
+	.pace {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap: 0.25rem 0.55rem;
+		padding: 0.7rem 0.8rem;
+		border: 2px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--surface);
+		color: var(--ink);
+		font: inherit;
+		text-align: left;
+		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
+	}
+
+	.pace:hover {
+		border-color: color-mix(in srgb, var(--pace) 50%, var(--line));
+	}
+
+	.pace:active {
+		transform: scale(0.98);
+	}
+
+	.pace[aria-checked='true'] {
+		border-color: var(--pace);
+		background: color-mix(in srgb, var(--pace) 9%, var(--surface));
+	}
+
+	.pace-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		background: color-mix(in srgb, var(--pace) 14%, var(--surface));
+		color: var(--pace);
+	}
+
+	.pace strong {
+		color: var(--heading);
+		font-size: var(--step-0);
+	}
+
+	.pace small {
+		grid-column: 1 / -1;
+		color: var(--ink-muted);
+		font-size: var(--step--1);
+		line-height: 1.35;
+	}
+
+	.lv {
+		padding: 0.4rem 0.75rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--ink);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out);
+	}
+
+	.lv:hover {
+		border-color: var(--heading);
+	}
+
+	.lv[aria-pressed='true'] {
+		border-color: var(--heading);
+		background: var(--heading);
+		color: var(--surface);
+	}
+
+	.lv.auto {
+		display: block;
+		width: 100%;
+		text-align: left;
+		border-radius: var(--radius-sm);
+		padding: 0.6rem 0.9rem;
+	}
+
+	.lv.auto span {
+		opacity: 0.75;
+	}
+
+	.bands {
+		display: grid;
+		gap: 0.45rem;
+	}
+
+	.band {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	.band-name {
+		width: 2rem;
+		font-weight: 800;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.note {
+		margin: 1rem 0 0;
+		color: var(--ink-muted);
+		font-size: var(--step--1);
+		line-height: 1.45;
+	}
+
+	.deal {
+		display: block;
+		width: 100%;
+		padding: 0.8rem 1rem;
+		border: 0;
+		border-radius: 999px;
+		background: var(--heading);
+		color: var(--surface);
+		font: inherit;
+		font-weight: 800;
+		cursor: pointer;
+	}
+
+	.deal:hover {
+		background: var(--accent);
 	}
 
 	.card {
@@ -435,8 +773,12 @@
 		--kind: var(--terracotta);
 	}
 
+	/* The top card owns the touch: no browser scroll or pan to cancel the
+	   pointer mid-swipe, and no long-press callout on iOS. */
 	.card.top {
 		cursor: grab;
+		touch-action: none;
+		-webkit-touch-callout: none;
 	}
 
 	.card.top:focus-visible {
@@ -512,10 +854,11 @@
 
 	/* The scene's own cream (its paper is levelled to this colour), bleeding
 	   to the card's edges; the scene's wide margins absorb the crop. */
-	.art-band {
-		flex: none;
+	.art-band,
+	.type-disc {
+		flex: 1 1 0;
 		align-self: stretch;
-		height: 42%;
+		min-height: 6rem;
 		margin: -1.4rem -1.5rem 0.2rem;
 		background: #fbf5e4;
 		overflow: hidden;
@@ -530,27 +873,36 @@
 		pointer-events: none;
 	}
 
+	.kind-row {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.5rem;
+		align-self: stretch;
+		margin: 0;
+	}
+
+	.left {
+		font-size: 0.72rem;
+		font-weight: 600;
+		color: var(--ink-muted);
+	}
+
 	.kind-label {
 		margin: 0;
 		font-size: 0.7rem;
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		color: var(--ink-muted);
-	}
-
-	.kind-label strong {
 		color: var(--kind);
 	}
 
+	/* Without a scene, the band is the exercise type's own tint and icon. */
 	.type-disc {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 3.4rem;
-		height: 3.4rem;
-		margin-top: 0.4rem;
-		border-radius: 50%;
+		font-size: 2rem;
 		background: var(--surface-alt);
 		color: var(--ink-muted);
 	}
@@ -594,14 +946,6 @@
 		font-size: var(--step--1);
 		font-weight: 700;
 		color: var(--ink);
-	}
-
-	.level-name {
-		margin: 0;
-		font-size: 0.7rem;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--ink-muted);
 	}
 
 	/* Below the stack: the two round buttons Tinder taught everyone. */
@@ -661,49 +1005,60 @@
 		cursor: default;
 	}
 
-	.count {
-		min-width: 7rem;
-		text-align: center;
+	.middle {
+		display: flex;
+		justify-content: center;
+		min-width: 7.5rem;
+	}
+
+	/* The way to the full list: quiet, so the two round buttons stay the
+	   obvious thing to press. */
+	.browse {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.3rem 0.7rem;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--heading);
+		font: inherit;
 		font-size: var(--step--1);
-		color: var(--ink-muted);
+		font-weight: 700;
+		cursor: pointer;
+		transition: border-color var(--fast) var(--ease-out);
+	}
+
+	.browse:hover {
+		border-color: var(--line-strong);
+	}
+
+	/* A laptop or desktop: a slightly wider deck, so the taller card keeps a
+	   card's proportions. */
+	@media (min-width: 48rem) {
+		.deck {
+			max-width: 32rem;
+		}
 	}
 
 	@media (max-width: 36rem) {
-		.deck {
-			margin-top: 0.9rem;
-		}
-		/* One row: the label left, the level chip right; the how-to goes. */
-		.deck-head {
-			align-items: center;
-			flex-wrap: nowrap;
-		}
-		.deck-lede {
-			display: none;
-		}
-		.level-pick {
-			padding: 0.3rem 0.7rem;
-		}
 		.stage {
-			margin-top: 0.75rem;
-			min-height: 15rem;
+			margin-top: 0.8rem;
+			min-height: 16rem;
 		}
 		.card {
 			padding: 1rem 1.1rem 0.9rem;
 			gap: 0.4rem;
 		}
+		.art-band,
 		.type-disc {
-			width: 2.6rem;
-			height: 2.6rem;
-			margin-top: 0.1rem;
+			margin: -1rem -1.1rem 0.2rem;
 		}
 		.title {
 			font-size: var(--step-1);
 		}
 		.reason {
 			font-size: var(--step--1);
-		}
-		.level-name {
-			display: none;
 		}
 		.stamp {
 			top: 1rem;

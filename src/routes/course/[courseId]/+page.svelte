@@ -8,6 +8,8 @@
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SwipeDeck from '$lib/components/SwipeDeck.svelte';
+	import ProgressPanel from '$lib/components/ProgressPanel.svelte';
+	import Sheet from '$lib/components/Sheet.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { onMount } from 'svelte';
@@ -15,7 +17,11 @@
 	import { cubicOut } from 'svelte/easing';
 	import { buildLadder, courseProgress, nextQuiz } from '$lib/domain/ladder';
 	import { DEFAULT_GATING } from '$lib/domain/progress';
+	import { deckLevel, typeLabel } from '$lib/domain/deck';
+	import { levelLine, percentOf, progressStats } from '$lib/domain/stats';
+	import type { QuizFacts } from '$lib/domain/recommend';
 	import { progress } from '$lib/state/progress.svelte';
+	import { loadQuizFacts } from '$lib/state/facts';
 	import type { QuizSummary } from '$lib/content/types';
 	import type { PageData } from './$types';
 
@@ -27,18 +33,19 @@
 	// would invalidate the effect and re-enter it — an update-depth crash that
 	// takes the whole page down. onMount has no reactive dependencies at all.
 	onMount(async () => {
-		browserReady = true;
 		if (!progress.loaded) await progress.load(course.gating ?? DEFAULT_GATING);
 		// The ribbons and the ring read the streaks, which load lazily — pull in
 		// this course's, or they all render as zero.
 		await progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
-		statsReady = true;
+		facts = await loadQuizFacts(course.quizzes);
 	});
 
-	/** Progress and every quiz's stats are in — the recommendations wait on it. */
-	let statsReady = $state(false);
-	/** True once mounted — the ladder is open in the prerendered HTML, folded live. */
-	let browserReady = $state(false);
+	/** Every quiz's facts once loaded; the deck and the progress panel share them. */
+	let facts = $state<Record<string, QuizFacts> | null>(null);
+	/** The level the learner picked in the deck chooser (null = auto). */
+	let pickedLevel = $state<string | null>(null);
+	let panelOpen = $state(false);
+	let browseOpen = $state(false);
 
 	// Before progress loads nothing reads as done, so the page renders an empty
 	// ring rather than flashing ribbons on and off.
@@ -54,13 +61,22 @@
 	const totals = $derived(courseProgress(ladder));
 	const resume = $derived(nextQuiz(ladder, isDone));
 	const finished = $derived(progress.loaded && !resume);
-	const percent = $derived(
-		totals.total === 0 ? 0 : Math.round((totals.done / totals.total) * 100)
+	const levelTitles = $derived(
+		Object.fromEntries(ladder.map((level) => [level.level, level.title]))
 	);
+	const stats = $derived(progressStats(course.quizzes, facts ?? {}, levelTitles));
+	/** The sub-level the deck deals from — the ring reports on that one. */
+	const current = $derived.by(() => {
+		const level = deckLevel(course.quizzes, facts ?? {}, pickedLevel);
+		return stats.levels.find((l) => l.level === level) ?? stats.levels[0];
+	});
+	const percent = $derived(current ? percentOf(current) : 0);
 
 	// The ring sweeps to its value rather than snapping, so returning to the
 	// page after finishing an exercise shows the gain rather than just stating it.
 	const sweep = new Tween(0, { duration: 900, easing: cubicOut });
+	const RING_R = 16;
+	const RING_C = 2 * Math.PI * RING_R;
 	$effect(() => {
 		sweep.target = percent;
 	});
@@ -79,52 +95,63 @@
 	]}
 />
 
-<!-- The whole page is a column the height of the screen: nav, header, deck,
-     the folded browse panel and the footer. The deck's stage takes whatever is
-     left, so on a phone the card, its buttons and the footer all fit without
-     scrolling while the ladder is closed. -->
+<!-- The whole page is a column the height of the screen: nav, header, deck
+     and a one-line footer. The deck's stage takes whatever is left, so on a
+     phone the card, its buttons and the footer all fit without scrolling. -->
 <div class="shell">
 <SiteNav courseHref="/course/{course.id}" compact />
 
 <main class="page-wide home">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<!-- The page is about the cards: the heading is a small label, the ring
+	     sits beside the deck chip, and everything else lives in the top bar. -->
+	{#snippet heading()}
+		<h1>{course.name}</h1>
+	{/snippet}
 
-	<header class="head">
-		<div>
-			<p class="pair">{course.speakFlag} → {course.learnFlag} · {course.level}</p>
-			<h1>{course.name}</h1>
-			<p class="lede">{course.tagline}</p>
-		</div>
-
-		<div class="ring" style="--pct:{sweep.current}" role="img"
-			aria-label="{percent}% complete, {totals.done} of {totals.total} exercises">
-			<span class="pct tnum">{percent}<span class="sign">%</span></span>
-			<span class="count tnum">{totals.done} / {totals.total}</span>
-		</div>
-	</header>
+	{#snippet ring()}
+		<!-- Progress through the sub-level the deck is dealing from: a level is
+		     ~30 exercises, so every one moves the arc visibly. Tapping it opens
+		     the full picture. -->
+		<button type="button" class="progress" class:started={(current?.done ?? 0) > 0}
+			aria-haspopup="dialog" aria-controls="progress-panel" onclick={() => (panelOpen = true)}
+			aria-label="{current?.level ?? ''}: {percent}% complete, {current?.done ?? 0} of {current?.total ?? 0}. Open your progress"
+			title="Your progress">
+			<svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
+				<circle class="track" cx="20" cy="20" r={RING_R} />
+				<circle class="arc" cx="20" cy="20" r={RING_R}
+					stroke-dasharray="{(sweep.current / 100) * RING_C} {RING_C}" />
+			</svg>
+			<span class="nums">
+				<span class="pct tnum">{(current?.done ?? 0) > 0 && percent === 0 ? '<1' : percent}<span class="sign">%</span></span>
+				<span class="done tnum">{current ? levelLine(current) : ''}</span>
+			</span>
+		</button>
+	{/snippet}
 
 	{#if finished}
+		<header class="head">
+			{@render heading()}
+			{@render ring()}
+		</header>
 		<p class="finished">
 			<Icon name="trophy" size="1.2em" />
 			Every exercise in this course is complete.
 		</p>
+		<button type="button" class="browse-btn" onclick={() => (browseOpen = true)}>
+			<Icon name="menu" size="1em" /> All {totals.total} exercises
+		</button>
 	{:else}
-		<SwipeDeck {course} ready={statsReady} />
+		<SwipeDeck {course} {facts} bind:level={pickedLevel} title={heading} aside={ring}
+			onbrowse={() => (browseOpen = true)} />
 	{/if}
+</main>
 
-	<!-- Browsing is the second way in: the whole ladder, folded away so the
-	     deck stays the first thing on the page. Prerendered open for crawlers
-	     and for anyone without JavaScript; folded once the page is live. -->
-	<details class="browse" open={!browserReady}>
-		<summary>
-			<span class="browse-title">
-				<Icon name="menu" size="1.1em" />
-				Browse every exercise
-			</span>
-			<span class="browse-meta tnum">{totals.total} exercises · {ladder.length} sub-levels</span>
-			<Icon name="chevronDown" size="1.1em" class="browse-chevron" />
-		</summary>
+<SiteFooter compact />
 
+<!-- Browsing is the second way in: the whole ladder in a panel, so the deck
+     keeps the screen. The panel stays in the DOM while closed, so the
+     prerendered page still links every exercise. -->
+<Sheet bind:open={browseOpen} title="All exercises" id="all-exercises">
 		{#if resume}
 			<a class="resume" href="/course/{course.id}/quiz/{resume.id}">
 				<span class="resume-icon"><Icon name={QUIZ_TYPE_ICONS[resume.type]} size="1.35em" /></span>
@@ -133,7 +160,7 @@
 						{totals.done === 0 ? 'First in order' : 'Next in order'}
 					</span>
 					<span class="resume-title">{resume.title}</span>
-					<span class="resume-meta">{resume.level} · {resume.type}</span>
+					<span class="resume-meta">{resume.level} · {typeLabel(resume.type)}</span>
 				</span>
 				<Icon name="arrowRight" size="1.2em" class="resume-go" />
 			</a>
@@ -150,7 +177,7 @@
 			<Icon name="arrowRight" size="1.1em" />
 		</a>
 
-	<h2>The ladder</h2>
+	<h2 class="by-level">By level</h2>
 	<ol class="levels">
 		{#each ladder as level (level.id)}
 			<li class:complete={level.complete}>
@@ -181,10 +208,8 @@
 			</li>
 		{/each}
 	</ol>
-	</details>
-</main>
-
-<SiteFooter compact />
+</Sheet>
+<ProgressPanel bind:open={panelOpen} {stats} {current} />
 </div>
 
 <style>
@@ -199,58 +224,31 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		padding-bottom: 1rem;
+		padding-bottom: 0.5rem;
 	}
 
-	.browse {
-		margin: 2.5rem 0 0;
-		border-top: 1px solid var(--line);
-	}
-
-	.browse summary {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem 1rem;
-		padding: 1rem 0.25rem;
-		list-style: none;
-		cursor: pointer;
-		color: var(--heading);
-		font-weight: 700;
-	}
-
-	.browse summary::-webkit-details-marker {
-		display: none;
-	}
-
-	.browse-title {
+	.browse-btn {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
-		font-size: var(--step-1);
-		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
-	}
-
-	.browse-meta {
-		flex: 1;
+		align-self: center;
+		gap: 0.4rem;
+		margin-top: 1rem;
+		padding: 0.45rem 0.9rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--heading);
+		font: inherit;
 		font-size: var(--step--1);
-		font-weight: 600;
-		color: var(--ink-muted);
-	}
-
-	.browse summary :global(.browse-chevron) {
-		color: var(--ink-muted);
-		transition: transform var(--medium) var(--ease-out);
-	}
-
-	.browse[open] summary :global(.browse-chevron) {
-		transform: rotate(180deg);
+		font-weight: 700;
+		cursor: pointer;
 	}
 
 	.worksheet {
 		display: flex;
 		align-items: center;
 		gap: 0.85rem;
-		margin: 1.25rem 0 0;
+		margin: 0.75rem 0 0;
 		padding: 0.85rem 1rem;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
@@ -276,75 +274,95 @@
 
 	.head {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		justify-content: space-between;
-		gap: 2rem;
-		flex-wrap: wrap;
+		gap: 1rem;
 	}
 
-	.pair {
-		margin: 0;
-		font-size: var(--step--1);
-		font-weight: 700;
-		letter-spacing: 0.05em;
-		color: var(--ink-muted);
-	}
-
+	/* A label, not a headline: the cards are the headline. */
 	h1 {
-		margin: 0.35rem 0 0.5rem;
-	}
-
-	.lede {
 		margin: 0;
+		font-size: var(--step-0);
+		line-height: 1.25;
+		letter-spacing: 0.01em;
 		color: var(--ink-muted);
 	}
 
-	/* A conic-gradient ring with the page colour punched out of the middle —
-	   no SVG, and the sweep animates by tweening one custom property. */
-	.ring {
+	/* Progress: an arc and two numbers, right-aligned in the header row. */
+	.progress {
 		flex: none;
-		position: relative;
-		width: 7.5rem;
-		height: 7.5rem;
-		display: grid;
-		place-content: center;
-		text-align: center;
-		border-radius: 50%;
-		background: conic-gradient(
-			var(--accent) calc(var(--pct) * 1%),
-			var(--paper-high) 0
-		);
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		margin: -0.35rem -0.5rem -0.35rem 0;
+		padding: 0.35rem 0.5rem;
+		border: 1px solid transparent;
+		border-radius: var(--radius);
+		background: none;
+		font: inherit;
+		text-align: left;
+		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out);
 	}
 
-	.ring::before {
-		content: '';
-		position: absolute;
-		inset: 0.62rem;
-		border-radius: 50%;
-		background: var(--bg);
+	.progress:hover {
+		border-color: var(--line);
+		background: var(--surface);
 	}
 
-	.pct,
-	.count {
-		position: relative;
-		display: block;
-		line-height: 1.1;
+	.ring {
+		width: 2.6rem;
+		height: 2.6rem;
+		transform: rotate(-90deg);
+	}
+
+	.ring circle {
+		fill: none;
+		stroke-width: 5.5;
+	}
+
+	.track {
+		stroke: var(--paper-high);
+	}
+
+	/* Round caps: a zero-length dash still draws the starting dot once
+	   anything is done; before that the arc stays hidden. */
+	.arc {
+		stroke: var(--accent);
+		stroke-linecap: round;
+		opacity: 0;
+		transition: opacity var(--medium) var(--ease-out);
+	}
+
+	.started .arc {
+		opacity: 1;
+	}
+
+	.nums {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.05;
 	}
 
 	.pct {
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
-		font-size: var(--step-2);
+		font-size: var(--step-1);
 		font-weight: 700;
 		color: var(--heading);
 	}
 
 	.sign {
-		font-size: 0.55em;
+		margin-left: 0.05em;
+		font-size: 0.6em;
 		color: var(--ink-muted);
 	}
 
-	.count {
-		font-size: var(--step--1);
+	.done {
+		margin-top: 0.15rem;
+		font-size: 0.72rem;
+		font-weight: 600;
 		color: var(--ink-muted);
 	}
 
@@ -431,9 +449,15 @@
 		font-weight: 700;
 	}
 
-	h2 {
-		margin: 2rem 0 0.5rem;
-		font-size: var(--step-1);
+	/* A small label: the panel's own title already says what this is. */
+	.by-level {
+		margin: 1.5rem 0 0.25rem;
+		font-family: inherit;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
 	}
 
 	.levels {
@@ -560,57 +584,9 @@
 		background: #f4eddc;
 		color: var(--ochre);
 	}
-	/* A phone: everything above the deck shrinks to two lines — the ring
-	   moves beside the title, the tagline and the back link go (the nav bar
-	   and the footer both link home). */
 	@media (max-width: 36rem) {
 		.home {
-			padding-top: 0.9rem;
-		}
-		.home > .back-link,
-		.lede {
-			display: none;
-		}
-		.head {
-			align-items: center;
-			gap: 0.75rem;
-			flex-wrap: nowrap;
-		}
-		.head > div {
-			min-width: 0;
-		}
-		h1 {
-			margin: 0.1rem 0 0;
-			font-size: var(--step-1);
-			line-height: 1.2;
-		}
-		.pair {
-			font-size: 0.72rem;
-		}
-		.ring {
-			width: 3.6rem;
-			height: 3.6rem;
-		}
-		.ring::before {
-			inset: 0.36rem;
-		}
-		.pct {
-			font-size: var(--step-0);
-		}
-		.count {
-			display: none;
-		}
-		.browse {
-			margin-top: 0.75rem;
-		}
-		.browse summary {
-			padding: 0.55rem 0.1rem;
-		}
-		.browse-title {
-			font-size: var(--step-0);
-		}
-		.browse-meta {
-			display: none;
+			padding-top: 0.75rem;
 		}
 	}
 </style>

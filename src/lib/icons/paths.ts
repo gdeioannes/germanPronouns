@@ -134,6 +134,18 @@ const RAW = {
 	},
 	words: {
 		d: 'M4.5 5.5h15a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Z M8 9.5h8 M8 13h5'
+	},
+
+	// -- deck paces ----------------------------------------------------------
+	/** A leaf: slow and steady. */
+	leaf: {
+		d: 'M19 4.5C10.5 4.5 5 8.5 5 15c0 1.6.5 3 1.5 4 1 1 2.4 1.5 4 1.5 6.5 0 8.5-6.5 8.5-16Z M4 20.5l9-9'
+	},
+	/** A lightning bolt: the fast learner. */
+	bolt: { d: 'M13.5 3.5L5.5 13.5h6l-1 7 8-10h-6l1-7Z' },
+	/** A compass: the adventurous spread. */
+	compass: {
+		d: 'M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17Z M15.5 8.5l-2 5-5 2 2-5 5-2Z'
 	}
 } as const;
 

@@ -74,6 +74,14 @@
 	<header class="mini" class:tucked class:open bind:this={root}>
 		<div class="mini-row">
 			{@render brand()}
+			<!-- The two places people jump to most sit in the bar as icons; the
+			     rest are one tap away under Menu. -->
+			<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
+				<Icon name="words" size="1.15em" />
+			</a>
+			<a class="icon-link" href="/settings" rel="nofollow" aria-label="Settings" title="Settings">
+				<Icon name="settings" size="1.15em" />
+			</a>
 			<button
 				type="button"
 				class="menu"
@@ -177,8 +185,7 @@
 	.mini-row {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
+		gap: 0.35rem;
 		max-width: 72rem;
 		margin: 0 auto;
 		padding: 0.55rem 1.25rem;
@@ -195,6 +202,28 @@
 		border-radius: 6px;
 	}
 
+	.mini .brand {
+		margin-right: auto;
+	}
+
+	.icon-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.2rem;
+		height: 2.2rem;
+		border-radius: 50%;
+		color: var(--ink-muted);
+		transition:
+			color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out);
+	}
+
+	.icon-link:hover {
+		color: var(--heading);
+		background: var(--surface-alt);
+	}
+
 	.menu {
 		display: inline-flex;
 		align-items: center;
@@ -208,6 +237,10 @@
 		font-size: var(--step--1);
 		font-weight: 600;
 		cursor: pointer;
+	}
+
+	.menu {
+		margin-left: 0.25rem;
 	}
 
 	.menu:hover {

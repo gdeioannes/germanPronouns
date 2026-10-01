@@ -151,4 +151,47 @@ describe('buildDeck', () => {
 		expect(tally['A1.2']).toBeGreaterThan(tally['A2.1']);
 		expect(tally['A2.1']).toBeGreaterThan(tally['A1.1']);
 	});
+
+	describe('paces', () => {
+		const ladder: Quiz[] = [];
+		const levels = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1'];
+		for (const lv of levels) {
+			for (let i = 0; i < 30; i++) ladder.push(quiz(`${lv}-${i}`, 'fillBlank', lv));
+		}
+		const tallyFor = (pace: 'steady' | 'fast' | 'adventurous' | 'review') => {
+			const tally: Record<string, number> = Object.fromEntries(levels.map((lv) => [lv, 0]));
+			for (let seed = 0; seed < 40; seed++) {
+				for (const c of buildDeck(ladder, {}, { level: 'A2.1', pace, random: seeded(seed), now: NOW })) {
+					tally[c.quiz.level!]++;
+				}
+			}
+			return tally;
+		};
+
+		it('fast learner leans ahead and never looks back', () => {
+			const tally = tallyFor('fast');
+			expect(tally['A2.2']).toBeGreaterThan(tallyFor('steady')['A2.2']);
+			expect(tally['B1.1']).toBeGreaterThan(0);
+			expect(tally['A1.2']).toBe(0);
+		});
+
+		it('adventurous reaches two levels either way', () => {
+			const tally = tallyFor('adventurous');
+			expect(tally['A1.1']).toBeGreaterThan(0);
+			expect(tally['B1.1']).toBeGreaterThan(0);
+		});
+
+		it('polish up deals mostly repair cards when there is enough to repair', () => {
+			const big: Quiz[] = [];
+			const facts: Record<string, QuizFacts> = {};
+			for (let i = 0; i < 16; i++) {
+				big.push(quiz(`weak${i}`, 'fillBlank', 'A1.1', ['x']));
+				facts[`weak${i}`] = done(0.5, { lastPlayedAt: NOW - 2 * DAY });
+			}
+			for (let i = 0; i < 20; i++) big.push(quiz(`new${i}`, 'fillBlank', 'A1.1', ['y']));
+			const deck = buildDeck(big, facts, { pace: 'review', random: seeded(3), now: NOW, size: 12 });
+			const repair = deck.filter((c) => c.kind === 'practise' || c.kind === 'review').length;
+			expect(repair).toBeGreaterThanOrEqual(7);
+		});
+	});
 });

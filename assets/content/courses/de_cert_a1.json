@@ -320,7 +320,8 @@
       },
       "covers": [
         "a1.numbers"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "fillBlank",
@@ -703,7 +704,8 @@
       "covers": [
         "a1.personal-pronouns-nom",
         "a1.statement-question"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "speakRepeat",
@@ -834,7 +836,8 @@
       "covers": [
         "a1.statement-question",
         "a1.family-people"
-      ]
+      ],
+      "image": "card_repeat_a1_1"
     },
     {
       "type": "fillBlank",
@@ -1137,7 +1140,8 @@
       },
       "covers": [
         "a1.articles-nom"
-      ]
+      ],
+      "image": "quest_a1_1_artikel"
     },
     {
       "id": "quest_a1_1_plural",
@@ -1389,7 +1393,8 @@
       "covers": [
         "a1.plural",
         "a1.articles-nom"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "fillBlank",
@@ -1586,7 +1591,8 @@
       },
       "covers": [
         "a1.numbers"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "listening",
@@ -2100,7 +2106,8 @@
       ],
       "covers": [
         "a1.sein-haben"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "fillBlank",
@@ -2502,7 +2509,8 @@
       "contextualLayout": true,
       "covers": [
         "a1.statement-question"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "reading",
@@ -3227,7 +3235,8 @@
       ],
       "covers": [
         "a1.present-regular"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "fillBlank",
@@ -3683,7 +3692,8 @@
       "covers": [
         "a1.vowel-change"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "quest_a1_1_vokalwechsel"
     },
     {
       "type": "reading",
@@ -3978,7 +3988,8 @@
         "a1.sein-haben",
         "a1.numbers",
         "a1.countries"
-      ]
+      ],
+      "image": "card_dictation_a1_1"
     },
     {
       "type": "listening",
@@ -4400,7 +4411,8 @@
       },
       "covers": [
         "a1.numbers"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "fillBlank",
@@ -4804,7 +4816,8 @@
       "contextualLayout": true,
       "covers": [
         "a1.colours"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "speakRepeat",
@@ -4949,7 +4962,8 @@
       ],
       "covers": [
         "a1.numbers"
-      ]
+      ],
+      "image": "card_repeat_a1_1"
     },
     {
       "type": "fillBlank",
@@ -5445,7 +5459,8 @@
         "a1.family-people",
         "a1.articles-nom",
         "a1.word-formation-basic"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "id": "quest_a1_1_laender",
@@ -5731,7 +5746,8 @@
       "covers": [
         "a1.countries",
         "a1.articles-nom"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "id": "quest_a1_1_wo_praepositionen",
@@ -6260,7 +6276,8 @@
           ],
           "english": "The car is standing in front of the house."
         }
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "id": "quest_a1_1_wortbildung",
@@ -6703,7 +6720,8 @@
           "english": "birthday + cake = birthday cake"
         }
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "speaking",
@@ -7208,7 +7226,8 @@
       "contextualLayout": true,
       "covers": [
         "a1.alphabet"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "type": "fillBlank",
@@ -7628,7 +7647,8 @@
       "contextualLayout": true,
       "covers": [
         "a1.numbers"
-      ]
+      ],
+      "image": "card_grammar_a1_1"
     },
     {
       "id": "quest_a1_1_wortschatz",
@@ -9117,7 +9137,8 @@
       },
       "covers": [
         "a1.vocabulary"
-      ]
+      ],
+      "image": "card_words_a1_1"
     },
     {
       "type": "fillBlank",
@@ -9367,7 +9388,8 @@
       },
       "covers": [
         "a1.accusative-articles"
-      ]
+      ],
+      "image": "quest_a1_2_akkusativ"
     },
     {
       "type": "fillBlank",
@@ -9624,7 +9646,8 @@
       "covers": [
         "a1.possessives",
         "a1.accusative-articles"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "listening",
@@ -10178,7 +10201,8 @@
       "contextualLayout": true,
       "covers": [
         "a1.accusative-pronouns"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "fillBlank",
@@ -10562,7 +10586,8 @@
       ],
       "covers": [
         "a1.negation"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "reading",
@@ -11140,7 +11165,8 @@
       ],
       "covers": [
         "a1.modal-verbs"
-      ]
+      ],
+      "image": "quest_a1_2_modalverben"
     },
     {
       "type": "speakRepeat",
@@ -11272,7 +11298,8 @@
       "covers": [
         "a1.time",
         "a1.separable-verbs"
-      ]
+      ],
+      "image": "card_repeat_a1_2"
     },
     {
       "type": "fillBlank",
@@ -11730,7 +11757,8 @@
       "stripSentenceCue": true,
       "covers": [
         "a1.time"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "speaking",
@@ -12348,7 +12376,8 @@
       "contextualLayout": true,
       "covers": [
         "a1.calendar"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_wann_praepositionen",
@@ -12716,7 +12745,8 @@
           ],
           "english": "I was born in 1995."
         }
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "dictation",
@@ -12858,7 +12888,8 @@
         "a1.separable-verbs",
         "a1.time",
         "a1.accusative-articles"
-      ]
+      ],
+      "image": "card_dictation_a1_2"
     },
     {
       "type": "listening",
@@ -13606,7 +13637,8 @@
       ],
       "covers": [
         "a1.accusative-prepositions"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "reading",
@@ -14144,7 +14176,8 @@
       ],
       "covers": [
         "a1.separable-verbs"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_perfekt_intro",
@@ -14506,7 +14539,8 @@
           ],
           "english": "Sorry, I didn't understand that."
         }
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_war_hatte",
@@ -14855,7 +14889,8 @@
           ],
           "english": "Did you have a good journey, Mrs Klein?"
         }
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_imperativ",
@@ -15254,7 +15289,8 @@
           ],
           "english": "Please read the form first."
         }
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_hoeflich",
@@ -15650,7 +15686,8 @@
         "a1.polite-konjunktiv",
         "a1.accusative-articles"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_dativ_pronomen_intro",
@@ -15973,7 +16010,8 @@
       },
       "covers": [
         "a1.dative-pronouns-intro"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_satzbau",
@@ -16335,7 +16373,8 @@
       },
       "covers": [
         "a1.sentence-connectors"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "speakRepeat",
@@ -16466,7 +16505,8 @@
       "covers": [
         "a1.polite-konjunktiv",
         "a1.quantities"
-      ]
+      ],
+      "image": "card_repeat_a1_2"
     },
     {
       "id": "quest_a1_2_einkaufen_mengen",
@@ -16812,7 +16852,8 @@
       },
       "covers": [
         "a1.quantities"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_koerper",
@@ -17176,7 +17217,8 @@
       "covers": [
         "a1.body",
         "a1.possessives"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "reading",
@@ -18034,7 +18076,8 @@
       "contextualLayout": true,
       "covers": [
         "a1.wohin"
-      ]
+      ],
+      "image": "card_grammar_a1_2"
     },
     {
       "type": "fillBlank",
@@ -18392,7 +18435,8 @@
       "covers": [
         "a1.possessives-plural"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_a1_2"
     },
     {
       "id": "quest_a1_2_wortschatz",
@@ -19595,7 +19639,8 @@
       },
       "covers": [
         "a1.vocabulary-2"
-      ]
+      ],
+      "image": "card_words_a1_2"
     },
     {
       "type": "fillBlank",
@@ -20022,7 +20067,8 @@
       "covers": [
         "a2.perfekt-haben",
         "a2.past-narration"
-      ]
+      ],
+      "image": "quest_a2_1_perfekt_haben"
     },
     {
       "type": "fillBlank",
@@ -20407,7 +20453,8 @@
       "covers": [
         "a2.perfekt-sein",
         "a2.past-narration"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "type": "speakRepeat",
@@ -20539,7 +20586,8 @@
         "a2.past-narration",
         "a2.perfekt-haben",
         "a2.perfekt-sein"
-      ]
+      ],
+      "image": "card_repeat_a2_1"
     },
     {
       "type": "fillBlank",
@@ -20915,7 +20963,8 @@
       ],
       "covers": [
         "a2.dative-articles"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "type": "listening",
@@ -21468,7 +21517,8 @@
       ],
       "covers": [
         "a2.dative-prepositions"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "id": "quest_a2_1_temporal_2",
@@ -21858,7 +21908,8 @@
       "covers": [
         "a2.temporal-prepositions-2",
         "a2.dative-prepositions"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "id": "quest_a2_1_woher_wo_wohin",
@@ -22355,7 +22406,8 @@
           ],
           "english": "She's sitting in the café drinking tea."
         }
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "type": "fillBlank",
@@ -22728,7 +22780,8 @@
       "contextualLayout": true,
       "covers": [
         "a2.dative-pronouns"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "id": "quest_a2_1_dativ_akkusativ",
@@ -23112,7 +23165,8 @@
       "covers": [
         "a2.dative-accusative-order",
         "a2.dative-articles"
-      ]
+      ],
+      "image": "quest_a2_1_dativ_akkusativ"
     },
     {
       "type": "reading",
@@ -23752,7 +23806,8 @@
       "covers": [
         "a2.war-hatte",
         "a2.past-narration"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "id": "quest_a2_1_modal_praeteritum",
@@ -24024,7 +24079,8 @@
       "covers": [
         "a2.modal-praeteritum",
         "a2.past-narration"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "type": "reading",
@@ -24550,7 +24606,8 @@
       "contextualLayout": true,
       "covers": [
         "a2.weather"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "type": "dictation",
@@ -24696,7 +24753,8 @@
       "covers": [
         "a2.perfekt-haben",
         "a2.perfekt-sein"
-      ]
+      ],
+      "image": "card_dictation_a2_1"
     },
     {
       "type": "speakRepeat",
@@ -24827,7 +24885,8 @@
       "covers": [
         "a2.directions",
         "a2.dative-prepositions"
-      ]
+      ],
+      "image": "card_repeat_a2_1"
     },
     {
       "type": "fillBlank",
@@ -25206,7 +25265,8 @@
       "covers": [
         "a2.comparative"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_a2_1"
     },
     {
       "id": "quest_a2_1_welcher_dieser",
@@ -25584,7 +25644,8 @@
       "covers": [
         "a2.welcher-dieser",
         "a2.dative-articles"
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "type": "listening",
@@ -26498,7 +26559,8 @@
           ],
           "english": "In Germany people separate their rubbish."
         }
-      ]
+      ],
+      "image": "card_grammar_a2_1"
     },
     {
       "id": "quest_a2_1_wortschatz",
@@ -27682,7 +27744,8 @@
       },
       "covers": [
         "a2.vocabulary-1"
-      ]
+      ],
+      "image": "card_words_a2_1"
     },
     {
       "type": "fillBlank",
@@ -28070,7 +28133,8 @@
       ],
       "covers": [
         "a2.two-way-prepositions"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "fillBlank",
@@ -28447,7 +28511,8 @@
       ],
       "covers": [
         "a2.two-way-prepositions"
-      ]
+      ],
+      "image": "quest_a2_2_wechsel_wohin"
     },
     {
       "type": "reading",
@@ -28713,7 +28778,8 @@
       ],
       "covers": [
         "a2.two-way-prepositions"
-      ]
+      ],
+      "image": "card_repeat_a2_2"
     },
     {
       "type": "fillBlank",
@@ -29085,7 +29151,8 @@
       ],
       "covers": [
         "a2.reflexive"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "fillBlank",
@@ -29462,7 +29529,8 @@
       ],
       "covers": [
         "a2.weil-dass"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "listening",
@@ -30012,7 +30080,8 @@
       ],
       "covers": [
         "a2.weil-dass"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_wenn_deshalb",
@@ -30392,7 +30461,8 @@
       "covers": [
         "a2.wenn-deshalb",
         "a2.weil-dass"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_indirekte_fragen",
@@ -30773,7 +30843,8 @@
       "covers": [
         "a2.indirect-questions",
         "a2.weil-dass"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_verben_praep_intro",
@@ -31210,7 +31281,8 @@
           ],
           "english": "What do you dream of? – A trip to Japan."
         }
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "speaking",
@@ -31707,7 +31779,8 @@
       "contextualLayout": true,
       "covers": [
         "a2.health"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_kleidung",
@@ -32118,7 +32191,8 @@
       "covers": [
         "a2.clothing",
         "a2.adjective-intro"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "reading",
@@ -32661,7 +32735,8 @@
       ],
       "covers": [
         "a2.imperative"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "dictation",
@@ -32807,7 +32882,8 @@
       "covers": [
         "a2.two-way-prepositions",
         "a2.weil-dass"
-      ]
+      ],
+      "image": "card_dictation_a2_2"
     },
     {
       "type": "speakRepeat",
@@ -32954,7 +33030,8 @@
       "covers": [
         "a2.people-description",
         "a2.adjective-intro"
-      ]
+      ],
+      "image": "card_repeat_a2_2"
     },
     {
       "id": "quest_a2_2_adjektiv_intro",
@@ -33246,7 +33323,8 @@
       },
       "covers": [
         "a2.adjective-intro"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_koennte_sollte",
@@ -33472,7 +33550,8 @@
       },
       "covers": [
         "a2.koennte-sollte"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_relativ_intro",
@@ -33852,7 +33931,8 @@
       "covers": [
         "a2.relative-intro",
         "a2.weil-dass"
-      ]
+      ],
+      "image": "quest_a2_2_relativ_intro"
     },
     {
       "id": "quest_a2_2_praeteritum_intro",
@@ -34253,7 +34333,8 @@
           ],
           "english": "There used to be a small shop here."
         }
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_passiv_intro",
@@ -34640,7 +34721,8 @@
       },
       "covers": [
         "a2.passive-intro"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_wortbildung",
@@ -35035,7 +35117,8 @@
           ],
           "english": "Can the boss be reached by phone today?"
         }
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "fillBlank",
@@ -35418,7 +35501,8 @@
       "covers": [
         "a2.superlative"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_tekamolo",
@@ -35797,7 +35881,8 @@
       },
       "covers": [
         "a2.tekamolo"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "type": "reading",
@@ -36730,7 +36815,8 @@
           ],
           "english": "Whose dog is that? – That's Felix's dog."
         }
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_schreiben_email",
@@ -37217,7 +37303,8 @@
           ],
           "english": "Thank you for your message."
         }
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_wortschatz",
@@ -38908,7 +38995,8 @@
       },
       "covers": [
         "a2.vocabulary-2"
-      ]
+      ],
+      "image": "card_words_a2_2"
     },
     {
       "type": "fillBlank",
@@ -39344,7 +39432,8 @@
       "contextualLayout": true,
       "covers": [
         "b1.work-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "fillBlank",
@@ -39768,7 +39857,8 @@
       ],
       "covers": [
         "b1.adjective-def"
-      ]
+      ],
+      "image": "quest_b1_1_adj_bestimmt"
     },
     {
       "type": "speakRepeat",
@@ -39900,7 +39990,8 @@
       "covers": [
         "b1.konjunktiv2-haette-waere",
         "b1.konjunktiv2-wuerde"
-      ]
+      ],
+      "image": "card_repeat_b1_1"
     },
     {
       "type": "fillBlank",
@@ -40322,7 +40413,8 @@
       ],
       "covers": [
         "b1.adjective-indef"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "reading",
@@ -40895,7 +40987,8 @@
           ],
           "english": "Despite heavy rain we went for a walk."
         }
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_adj_komparativ",
@@ -41337,7 +41430,8 @@
           "english": "That is a faster train than yesterday’s."
         }
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_adjektive_als_nomen",
@@ -41792,7 +41886,8 @@
           ],
           "english": "On the train a stranger asked me the way."
         }
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "fillBlank",
@@ -42180,7 +42275,8 @@
       "covers": [
         "b1.konjunktiv2-wuerde"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "quest_b1_1_konj2_wuerde"
     },
     {
       "type": "listening",
@@ -42791,7 +42887,8 @@
       "covers": [
         "b1.konjunktiv2-haette-waere"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "reading",
@@ -43436,7 +43533,8 @@
       ],
       "covers": [
         "b1.futur1"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "fillBlank",
@@ -43809,7 +43907,8 @@
       ],
       "covers": [
         "b1.relative-nom-akk"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_relativ_praep",
@@ -44193,7 +44292,8 @@
       "covers": [
         "b1.relative-preposition",
         "b1.relative-nom-akk"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "dictation",
@@ -44340,7 +44440,8 @@
         "b1.konjunktiv2-wuerde",
         "b1.konjunktiv2-haette-waere"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_dictation_b1_1"
     },
     {
       "type": "fillBlank",
@@ -44775,7 +44876,8 @@
       ],
       "covers": [
         "b1.genitive"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "speakRepeat",
@@ -44906,7 +45008,8 @@
       ],
       "covers": [
         "b1.opinion-redemittel"
-      ]
+      ],
+      "image": "card_repeat_b1_1"
     },
     {
       "type": "fillBlank",
@@ -45277,7 +45380,8 @@
       ],
       "covers": [
         "b1.wenn-als-obwohl"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_infinitiv_zu",
@@ -45668,7 +45772,8 @@
       },
       "covers": [
         "b1.infinitive-zu"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_es",
@@ -46010,7 +46115,8 @@
       },
       "covers": [
         "b1.es-expressions"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "listening",
@@ -46814,7 +46920,8 @@
       "covers": [
         "b1.email-redemittel",
         "b1.konjunktiv2-haette-waere"
-      ]
+      ],
+      "image": "card_grammar_b1_1"
     },
     {
       "type": "speaking",
@@ -47367,7 +47474,8 @@
             "why": "freuen auf = look forward to (future); freuen über = be pleased about (now or past)."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_indirekte_fragen",
@@ -47775,7 +47883,8 @@
             "why": "Verb to the end, and the person changes from du to ich."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_falls_da_trotzdem",
@@ -48190,7 +48299,8 @@
             "why": "'in case' is falls."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b1_1"
     },
     {
       "id": "quest_b1_1_wortschatz",
@@ -49673,7 +49783,8 @@
       },
       "covers": [
         "b1.vocabulary-1"
-      ]
+      ],
+      "image": "card_words_b1_1"
     },
     {
       "type": "fillBlank",
@@ -50090,7 +50201,8 @@
       "contextualLayout": true,
       "covers": [
         "b1.technology-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "fillBlank",
@@ -50468,7 +50580,8 @@
       "covers": [
         "b1.praeteritum-regular",
         "b1.narration-skills"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "fillBlank",
@@ -50858,7 +50971,8 @@
       "covers": [
         "b1.praeteritum-irregular",
         "b1.narration-skills"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_praet_misch",
@@ -51337,7 +51451,8 @@
           ],
           "english": "I really did not think of that."
         }
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_plusquamperfekt",
@@ -51765,7 +51880,8 @@
           ],
           "english": "After it had rained for three days, the garden was finally green again."
         }
-      ]
+      ],
+      "image": "quest_b1_2_plusquamperfekt"
     },
     {
       "id": "quest_b1_2_temporalsaetze",
@@ -52156,7 +52272,8 @@
       "covers": [
         "b1.temporal-clauses",
         "b1.plusquamperfekt"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "reading",
@@ -52432,7 +52549,8 @@
       "covers": [
         "b1.narration-skills",
         "b1.praeteritum-irregular"
-      ]
+      ],
+      "image": "card_repeat_b1_2"
     },
     {
       "type": "fillBlank",
@@ -52815,7 +52933,8 @@
       ],
       "covers": [
         "b1.passive-present"
-      ]
+      ],
+      "image": "quest_b1_2_passiv"
     },
     {
       "type": "listening",
@@ -53390,7 +53509,8 @@
       ],
       "covers": [
         "b1.passive-past"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_passiv_modal_intro",
@@ -53731,7 +53851,8 @@
       },
       "covers": [
         "b1.passive-modal"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "speaking",
@@ -54288,7 +54409,8 @@
       ],
       "covers": [
         "b1.n-declension"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "reading",
@@ -54864,7 +54986,8 @@
       ],
       "covers": [
         "b1.um-zu-ohne-zu"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_damit_umzu",
@@ -55227,7 +55350,8 @@
       },
       "covers": [
         "b1.damit-um-zu"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_indem_sodass",
@@ -55572,7 +55696,8 @@
       },
       "covers": [
         "b1.indem-sodass"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "dictation",
@@ -55704,7 +55829,8 @@
         "b1.praeteritum-regular",
         "b1.praeteritum-irregular",
         "b1.narration-skills"
-      ]
+      ],
+      "image": "card_dictation_b1_2"
     },
     {
       "type": "fillBlank",
@@ -56134,7 +56260,8 @@
       ],
       "covers": [
         "b1.relative-dat-gen"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_konnektoren_zweiteilig",
@@ -56478,7 +56605,8 @@
       },
       "covers": [
         "b1.two-part-connectors"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_irreale_wuensche",
@@ -56885,7 +57013,8 @@
       "covers": [
         "b1.irreal-wishes-past"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_trotz_wegen",
@@ -57300,7 +57429,8 @@
           ],
           "english": "He did not get the job despite his good application."
         }
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_partizip_adj_intro",
@@ -57656,7 +57786,8 @@
           ],
           "english": "She told the story in a trembling voice."
         }
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "speakRepeat",
@@ -57787,7 +57918,8 @@
       "covers": [
         "b1.narration-skills",
         "b1.damit-um-zu"
-      ]
+      ],
+      "image": "card_repeat_b1_2"
     },
     {
       "id": "quest_b1_2_modalpartikeln_intro",
@@ -58145,7 +58277,8 @@
       },
       "covers": [
         "b1.modal-particles"
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "listening",
@@ -58817,7 +58950,8 @@
           ],
           "english": "Many young people above all want freedom and time for themselves."
         }
-      ]
+      ],
+      "image": "card_grammar_b1_2"
     },
     {
       "type": "reading",
@@ -59542,7 +59676,8 @@
             "why": "gerade (right now) describes an action in progress: werden."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b1_2"
     },
     {
       "id": "quest_b1_2_wortschatz",
@@ -61233,7 +61368,8 @@
       },
       "covers": [
         "b1.vocabulary-2"
-      ]
+      ],
+      "image": "card_words_b1_2"
     },
     {
       "type": "fillBlank",
@@ -61694,7 +61830,8 @@
       "contextualLayout": true,
       "covers": [
         "b2.society-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "type": "fillBlank",
@@ -62154,7 +62291,8 @@
       "covers": [
         "b2.konjunktiv1-forms",
         "b2.indirect-speech"
-      ]
+      ],
+      "image": "quest_b2_1_konj1"
     },
     {
       "type": "reading",
@@ -62417,7 +62555,8 @@
       ],
       "covers": [
         "b2.argument-redemittel"
-      ]
+      ],
+      "image": "card_repeat_b2_1"
     },
     {
       "type": "fillBlank",
@@ -62791,7 +62930,8 @@
       "covers": [
         "b2.indirect-questions",
         "b2.indirect-speech"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_konj1_vergangenheit",
@@ -63192,7 +63332,8 @@
       "covers": [
         "b2.indirect-speech",
         "b2.konjunktiv1-forms"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "type": "fillBlank",
@@ -63604,7 +63745,8 @@
       ],
       "covers": [
         "b2.modal-passive"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "type": "listening",
@@ -64211,7 +64353,8 @@
       ],
       "covers": [
         "b2.verbs-prepositions"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_adjektive_praep",
@@ -64602,7 +64745,8 @@
           ],
           "english": "Many families are reliant on the state’s help."
         }
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_nomen_praep",
@@ -65009,7 +65153,8 @@
           ],
           "english": "In winter the longing for sun and warmth grows."
         }
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "type": "speaking",
@@ -65513,7 +65658,8 @@
       ],
       "covers": [
         "b2.participle-adjective"
-      ]
+      ],
+      "image": "quest_b2_1_partizip_adj"
     },
     {
       "type": "reading",
@@ -66179,7 +66325,8 @@
       ],
       "covers": [
         "b2.connectors-adverbial"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_mittelfeld",
@@ -66605,7 +66752,8 @@
       },
       "covers": [
         "b2.mittelfeld"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_kausal_nominal",
@@ -67052,7 +67200,8 @@
       },
       "covers": [
         "b2.causal-nominal"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_temporal_nominal",
@@ -67517,7 +67666,8 @@
       },
       "covers": [
         "b2.temporal-nominal"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_dass_infinitiv",
@@ -67900,7 +68050,8 @@
       },
       "covers": [
         "b2.dass-infinitive"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_lassen",
@@ -68284,7 +68435,8 @@
       },
       "covers": [
         "b2.lassen"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_nachsilben_genus",
@@ -68744,7 +68896,8 @@
           ],
           "english": "The parents’ permission has since been received."
         }
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "type": "dictation",
@@ -68875,7 +69028,8 @@
       "covers": [
         "b2.connectors-adverbial",
         "b2.konjunktiv1-forms"
-      ]
+      ],
+      "image": "card_dictation_b2_1"
     },
     {
       "type": "fillBlank",
@@ -69243,7 +69397,8 @@
       ],
       "covers": [
         "b2.passive-perfekt"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_zustandspassiv",
@@ -69673,7 +69828,8 @@
       },
       "covers": [
         "b2.state-passive"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_passiv_subjektlos",
@@ -70059,7 +70215,8 @@
       },
       "covers": [
         "b2.subjectless-passive"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "type": "listening",
@@ -70411,7 +70568,8 @@
       ],
       "covers": [
         "b2.argument-redemittel"
-      ]
+      ],
+      "image": "card_repeat_b2_1"
     },
     {
       "type": "reading",
@@ -71073,7 +71231,8 @@
       },
       "covers": [
         "b2.stellungnahme-redemittel"
-      ]
+      ],
+      "image": "card_grammar_b2_1"
     },
     {
       "type": "speaking",
@@ -71590,7 +71749,8 @@
             "why": "In separable verbs zu goes between prefix and stem."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_brauchen_zu",
@@ -71999,7 +72159,8 @@
             "why": "brauchen + zu needs nicht, kein, nur or erst."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_je_desto",
@@ -72414,7 +72575,8 @@
             "why": "The second half takes desto or umso, not je."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b2_1"
     },
     {
       "id": "quest_b2_1_wortschatz",
@@ -74555,7 +74717,8 @@
       },
       "covers": [
         "b2.vocabulary-1"
-      ]
+      ],
+      "image": "card_words_b2_1"
     },
     {
       "type": "fillBlank",
@@ -74975,7 +75138,8 @@
       "contextualLayout": true,
       "covers": [
         "b2.science-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "fillBlank",
@@ -75407,7 +75571,8 @@
       "covers": [
         "b2.konjunktiv2-past"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "quest_b2_2_konj2_verg"
     },
     {
       "type": "fillBlank",
@@ -75787,7 +75952,8 @@
         "b2.irreal-conditions",
         "b2.konjunktiv2-past"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_als_ob",
@@ -76185,7 +76351,8 @@
         "b2.als-ob",
         "b2.konjunktiv2-past"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "reading",
@@ -76470,7 +76637,8 @@
       "covers": [
         "b2.irreal-conditions",
         "b2.konjunktiv2-past"
-      ]
+      ],
+      "image": "card_repeat_b2_2"
     },
     {
       "id": "quest_b2_2_futur2",
@@ -76834,7 +77002,8 @@
       },
       "covers": [
         "b2.futur2"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "fillBlank",
@@ -77310,7 +77479,8 @@
       ],
       "covers": [
         "b2.genitive-prepositions"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "listening",
@@ -77877,7 +78047,8 @@
       ],
       "covers": [
         "b2.participle-attribute"
-      ]
+      ],
+      "image": "quest_b2_2_partizip_attribut"
     },
     {
       "type": "speaking",
@@ -78432,7 +78603,8 @@
       ],
       "covers": [
         "b2.modal-particles-advanced"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "reading",
@@ -79082,7 +79254,8 @@
       ],
       "covers": [
         "b2.funktionsverbgefuege"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_verweiswoerter",
@@ -79519,7 +79692,8 @@
       },
       "covers": [
         "b2.text-cohesion"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_nominalisierung_intro",
@@ -79987,7 +80161,8 @@
           ],
           "english": "Good sleep is important for your health."
         }
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_adjektivbildung",
@@ -80448,7 +80623,8 @@
           ],
           "english": "Unfortunately the instructions are worded completely incomprehensibly: nobody understands them."
         }
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "dictation",
@@ -80580,7 +80756,8 @@
         "b2.irreal-conditions",
         "b2.konjunktiv2-past"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_dictation_b2_2"
     },
     {
       "type": "fillBlank",
@@ -81014,7 +81191,8 @@
       ],
       "covers": [
         "b2.concessive"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_konditional_nominal",
@@ -81458,7 +81636,8 @@
       },
       "covers": [
         "b2.conditional-nominal"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_konsekutiv_modal_nominal",
@@ -81881,7 +82060,8 @@
       },
       "covers": [
         "b2.consecutive-modal-nominal"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_adversativ",
@@ -82306,7 +82486,8 @@
       },
       "covers": [
         "b2.adversative"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "listening",
@@ -82876,7 +83057,8 @@
       },
       "covers": [
         "b2.sollen-subjective"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_passiversatz_intro",
@@ -83298,7 +83480,8 @@
       },
       "covers": [
         "b2.passive-substitutes"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_relativ_wer_was",
@@ -83665,7 +83848,8 @@
       },
       "covers": [
         "b2.relative-wer-was"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_indefinit",
@@ -84109,7 +84293,8 @@
       },
       "covers": [
         "b2.indefinite-pronouns"
-      ]
+      ],
+      "image": "card_grammar_b2_2"
     },
     {
       "type": "speakRepeat",
@@ -84240,7 +84425,8 @@
       "covers": [
         "b2.concessive",
         "b2.adversative"
-      ]
+      ],
+      "image": "card_repeat_b2_2"
     },
     {
       "type": "reading",
@@ -85220,7 +85406,8 @@
             "why": "The dative plural relative pronoun is denen."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_futur1_vermutung",
@@ -85622,7 +85809,8 @@
             "why": "The infinitive goes to the end."
           }
         ]
-      }
+      },
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_konj2_gegenwart",
@@ -86081,7 +86269,8 @@
           }
         ]
       },
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_b2_2"
     },
     {
       "id": "quest_b2_2_wortschatz",
@@ -87596,7 +87785,8 @@
       },
       "covers": [
         "b2.vocabulary-2"
-      ]
+      ],
+      "image": "card_words_b2_2"
     },
     {
       "type": "fillBlank",
@@ -88073,7 +88263,8 @@
       "contextualLayout": true,
       "covers": [
         "c1.academic-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "type": "fillBlank",
@@ -88481,7 +88672,8 @@
       ],
       "covers": [
         "c1.nominalisation-advanced"
-      ]
+      ],
+      "image": "quest_c1_1_nominalisierung"
     },
     {
       "type": "speakRepeat",
@@ -88611,7 +88803,8 @@
       ],
       "covers": [
         "c1.presentation-skills"
-      ]
+      ],
+      "image": "card_repeat_c1_1"
     },
     {
       "type": "fillBlank",
@@ -89031,7 +89224,8 @@
       "covers": [
         "c1.nominalisation-advanced",
         "c1.adverbial-clauses-system"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_tempuswahl",
@@ -89463,7 +89657,8 @@
       },
       "covers": [
         "c1.tense-choice"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "type": "fillBlank",
@@ -89867,7 +90062,8 @@
       ],
       "covers": [
         "c1.passive-substitutes-advanced"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "type": "reading",
@@ -90626,7 +90822,8 @@
       "covers": [
         "c1.bar-lich",
         "c1.passive-substitutes-advanced"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "type": "speaking",
@@ -91109,7 +91306,8 @@
       ],
       "covers": [
         "c1.connectors-advanced"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_konjunktionaladverbien",
@@ -91568,7 +91766,8 @@
       },
       "covers": [
         "c1.conjunctional-adverbs"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_adverbialsaetze",
@@ -92000,7 +92199,8 @@
       },
       "covers": [
         "c1.adverbial-clauses-system"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_adverbialsaetze_2",
@@ -92451,7 +92651,8 @@
       },
       "covers": [
         "c1.adverbial-clauses-system"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_genitiv_schriftsprache",
@@ -92945,7 +93146,8 @@
           ],
           "english": "By means of an automated procedure every measurement was carried out three times."
         }
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_adjektive_praep_kasus",
@@ -93364,7 +93566,8 @@
       },
       "covers": [
         "c1.adjectives-nouns-case"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "type": "reading",
@@ -94103,7 +94306,8 @@
       ],
       "covers": [
         "c1.participial-clauses"
-      ]
+      ],
+      "image": "quest_c1_1_partizipialsatz"
     },
     {
       "id": "quest_c1_1_attribute",
@@ -94560,7 +94764,8 @@
       },
       "covers": [
         "c1.attributes"
-      ]
+      ],
+      "image": "card_grammar_c1_1"
     },
     {
       "type": "dictation",
@@ -94707,7 +94912,8 @@
         "c1.nominalisation-advanced",
         "c1.genitive-written",
         "c1.funktionsverbgefuege-formal"
-      ]
+      ],
+      "image": "card_dictation_c1_1"
     },
     {
       "type": "speakRepeat",
@@ -94838,7 +95044,8 @@
       ],
       "covers": [
         "c1.presentation-skills"
-      ]
+      ],
+      "image": "card_repeat_c1_1"
     },
     {
       "type": "listening",
@@ -96186,7 +96393,8 @@
             "en": "to assess, estimate something"
           }
         ]
-      }
+      },
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_konnektoren_zweiteilig",
@@ -96660,7 +96868,8 @@
             "en": "to contribute to, take part in something"
           }
         ]
-      }
+      },
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_funktionsverbgefuege",
@@ -97177,7 +97386,8 @@
             "en": "transition period"
           }
         ]
-      }
+      },
+      "image": "card_grammar_c1_1"
     },
     {
       "id": "quest_c1_1_wortschatz",
@@ -98613,7 +98823,8 @@
       },
       "covers": [
         "c1.vocabulary-1"
-      ]
+      ],
+      "image": "card_words_c1_1"
     },
     {
       "type": "fillBlank",
@@ -99038,7 +99249,8 @@
       "contextualLayout": true,
       "covers": [
         "c1.culture-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "type": "fillBlank",
@@ -99474,7 +99686,8 @@
       ],
       "covers": [
         "c1.modal-supposition"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "type": "speakRepeat",
@@ -99606,7 +99819,8 @@
       "covers": [
         "c1.redemittel-talk",
         "c1.modal-supposition"
-      ]
+      ],
+      "image": "card_repeat_c1_2"
     },
     {
       "id": "quest_c1_2_konj2_kritik",
@@ -99997,7 +100211,8 @@
       "covers": [
         "c1.konjunktiv2-criticism"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_relativ_advanced",
@@ -100432,7 +100647,8 @@
       },
       "covers": [
         "c1.relative-advanced"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_numerus_gender",
@@ -100868,7 +101084,8 @@
       },
       "covers": [
         "c1.number-gender"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "type": "fillBlank",
@@ -101275,7 +101492,8 @@
       ],
       "covers": [
         "c1.modal-hearsay"
-      ]
+      ],
+      "image": "quest_c1_2_modal_hoerensagen"
     },
     {
       "type": "reading",
@@ -101897,7 +102115,8 @@
       ],
       "covers": [
         "c1.word-formation-prefixes"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "type": "listening",
@@ -102702,7 +102921,8 @@
       ],
       "covers": [
         "c1.word-formation-suffixes"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_praefixe",
@@ -103123,7 +103343,8 @@
           ],
           "english": "He left his family a large fortune."
         }
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "type": "speaking",
@@ -103600,7 +103821,8 @@
       ],
       "covers": [
         "c1.idioms"
-      ]
+      ],
+      "image": "quest_c1_2_redewendungen"
     },
     {
       "type": "reading",
@@ -104438,7 +104660,8 @@
       ],
       "covers": [
         "c1.cohesion-advanced"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_redemittel_vortrag",
@@ -104847,7 +105070,8 @@
       },
       "covers": [
         "c1.redemittel-talk"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_umformung_1",
@@ -105226,7 +105450,8 @@
       },
       "covers": [
         "c1.transformation-1"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_register_formell",
@@ -105688,7 +105913,8 @@
       "covers": [
         "c1.register-shift",
         "c1.funktionsverbgefuege-advanced"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_schreiben_forum_beschwerde",
@@ -106120,7 +106346,8 @@
         "c1.register-shift",
         "c1.redemittel-talk",
         "c1.funktionsverbgefuege-advanced"
-      ]
+      ],
+      "image": "card_grammar_c1_2"
     },
     {
       "type": "dictation",
@@ -106251,7 +106478,8 @@
       "covers": [
         "c1.idioms",
         "c1.cohesion-advanced"
-      ]
+      ],
+      "image": "card_dictation_c1_2"
     },
     {
       "type": "speakRepeat",
@@ -106382,7 +106610,8 @@
       "covers": [
         "c1.redemittel-talk",
         "c1.idioms"
-      ]
+      ],
+      "image": "card_repeat_c1_2"
     },
     {
       "type": "listening",
@@ -107404,7 +107633,8 @@
             "en": "to rule something out"
           }
         ]
-      }
+      },
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_modalpartikeln",
@@ -107898,7 +108128,8 @@
             "en": "to take it easy"
           }
         ]
-      }
+      },
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_schreiben_nominalstil",
@@ -108407,7 +108638,8 @@
             "en": "to attribute something to something"
           }
         ]
-      }
+      },
+      "image": "card_grammar_c1_2"
     },
     {
       "id": "quest_c1_2_wortschatz",
@@ -109759,7 +109991,8 @@
       },
       "covers": [
         "c1.vocabulary-2"
-      ]
+      ],
+      "image": "card_words_c1_2"
     },
     {
       "type": "fillBlank",
@@ -110235,7 +110468,8 @@
       "contextualLayout": true,
       "covers": [
         "c2.economy-law-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "fillBlank",
@@ -110696,7 +110930,8 @@
       ],
       "covers": [
         "c2.register"
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "speakRepeat",
@@ -110827,7 +111062,8 @@
       "covers": [
         "c2.speaking-formats",
         "c2.rhetoric"
-      ]
+      ],
+      "image": "card_repeat_c2_1"
     },
     {
       "type": "fillBlank",
@@ -111312,7 +111548,8 @@
       ],
       "covers": [
         "c2.collocations"
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "id": "quest_c2_1_valenz",
@@ -111781,7 +112018,8 @@
           ],
           "english": "The government refrained from commenting."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "id": "quest_c2_1_komposita",
@@ -112249,7 +112487,8 @@
           ],
           "english": "The organisation documents human-rights violations in over a hundred countries."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "id": "quest_c2_1_komparation_advanced",
@@ -112739,7 +112978,8 @@
       "covers": [
         "c2.comparison-advanced"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_c2_1"
     },
     {
       "id": "quest_c2_1_adjektivbildung",
@@ -113257,7 +113497,8 @@
           ],
           "english": "His answer remained enigmatic – nobody understood it."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "reading",
@@ -114041,7 +114282,8 @@
       ],
       "covers": [
         "c2.rhetoric"
-      ]
+      ],
+      "image": "quest_c2_1_stilmittel"
     },
     {
       "type": "listening",
@@ -114717,7 +114959,8 @@
       "covers": [
         "c2.konjunktiv1-journalistic"
       ],
-      "strictDiacritics": true
+      "strictDiacritics": true,
+      "image": "card_grammar_c2_1"
     },
     {
       "id": "quest_c2_1_umformung_2",
@@ -115218,7 +115461,8 @@
       },
       "covers": [
         "c2.transformation-2"
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "speaking",
@@ -115920,7 +116164,8 @@
       ],
       "covers": [
         "c2.connotation"
-      ]
+      ],
+      "image": "quest_c2_1_konnotation"
     },
     {
       "id": "quest_c2_1_abtoenung",
@@ -116421,7 +116666,8 @@
       },
       "covers": [
         "c2.gradation"
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "reading",
@@ -117126,7 +117372,8 @@
       ],
       "covers": [
         "c2.proverbs"
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "dictation",
@@ -117276,7 +117523,8 @@
         "c2.register",
         "c2.konjunktiv1-journalistic",
         "c2.gradation"
-      ]
+      ],
+      "image": "card_dictation_c2_1"
     },
     {
       "type": "speakRepeat",
@@ -117440,7 +117688,8 @@
       ],
       "covers": [
         "c2.speaking-formats"
-      ]
+      ],
+      "image": "card_repeat_c2_1"
     },
     {
       "type": "listening",
@@ -118617,7 +118866,8 @@
           "hint": "English: were it not for the high rents",
           "english": "Were it not for the high rents, we would move into town at once."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "fillBlank",
@@ -119190,7 +119440,8 @@
           "hint": "English: or, respectively",
           "english": "Members and guests pay 40 and 60 euros admission respectively."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "type": "fillBlank",
@@ -119710,7 +119961,8 @@
           "hint": "English: saw through",
           "english": "The detective saw through his lies at once."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_1"
     },
     {
       "id": "quest_c2_1_wortschatz",
@@ -121243,7 +121495,8 @@
       },
       "covers": [
         "c2.vocabulary-1"
-      ]
+      ],
+      "image": "card_words_c2_1"
     },
     {
       "type": "fillBlank",
@@ -121819,7 +122072,8 @@
       "contextualLayout": true,
       "covers": [
         "c2.philosophy-vocabulary"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "fillBlank",
@@ -122303,7 +122557,8 @@
       ],
       "covers": [
         "c2.word-order-focus"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "speakRepeat",
@@ -122439,7 +122694,8 @@
       "covers": [
         "c2.implicature",
         "c2.word-order-focus"
-      ]
+      ],
+      "image": "card_repeat_c2_2"
     },
     {
       "type": "fillBlank",
@@ -122953,7 +123209,8 @@
       ],
       "covers": [
         "c2.implicature"
-      ]
+      ],
+      "image": "quest_c2_2_anspielung"
     },
     {
       "type": "fillBlank",
@@ -123466,7 +123723,8 @@
       ],
       "covers": [
         "c2.paraphrase"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "listening",
@@ -124349,7 +124607,8 @@
       ],
       "covers": [
         "c2.wordplay"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "speaking",
@@ -125253,7 +125512,8 @@
       ],
       "covers": [
         "c2.academic-language"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "id": "quest_c2_2_praepositionen_schriftsprache",
@@ -125941,7 +126201,8 @@
           "hint": "Klartext: die Klägerin bekam recht",
           "english": "The regional court decided the dispute in favour of the plaintiff."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "id": "quest_c2_2_nominalstil",
@@ -126560,7 +126821,8 @@
       },
       "covers": [
         "c2.nominal-style"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "id": "quest_c2_2_behoerdensprache",
@@ -127139,7 +127401,8 @@
           ],
           "english": "Officialese: “Any police station will accept relevant information.” – Plain German: anyone who knows something that helps the investigation should contact the police."
         }
-      ]
+      ],
+      "image": "quest_c2_2_behoerdensprache"
     },
     {
       "id": "quest_c2_2_lesen_amtliches_schreiben",
@@ -128014,7 +128277,8 @@
       },
       "covers": [
         "c2.apposition"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "id": "quest_c2_2_modalverben_system",
@@ -128594,7 +128858,8 @@
           ],
           "english": "The company is probably long since insolvent."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "id": "quest_c2_2_passiv_meisterschaft",
@@ -129147,7 +129412,8 @@
       },
       "covers": [
         "c2.passive-mastery"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "id": "quest_c2_2_adverbialsaetze_umformen",
@@ -129741,7 +130007,8 @@
       },
       "covers": [
         "c2.adverbial-transform"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "reading",
@@ -130355,7 +130622,8 @@
       "covers": [
         "c2.literary-appraisal",
         "c2.implicature"
-      ]
+      ],
+      "image": "card_repeat_c2_2"
     },
     {
       "id": "quest_c2_2_rezension_redemittel",
@@ -130921,7 +131189,8 @@
           ],
           "english": "A book one ought to have read."
         }
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "listening",
@@ -132301,7 +132570,8 @@
       ],
       "covers": [
         "c2.idioms"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "fillBlank",
@@ -132898,7 +133168,8 @@
       ],
       "covers": [
         "c2.latinisms"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "type": "fillBlank",
@@ -133530,7 +133801,8 @@
       ],
       "covers": [
         "c2.dach-variation"
-      ]
+      ],
+      "image": "card_grammar_c2_2"
     },
     {
       "id": "quest_c2_2_wortschatz",
@@ -135662,7 +135934,8 @@
       },
       "covers": [
         "c2.vocabulary-2"
-      ]
+      ],
+      "image": "card_words_c2_2"
     }
   ]
 }

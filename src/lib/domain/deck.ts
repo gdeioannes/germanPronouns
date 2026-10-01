@@ -54,6 +54,8 @@ export interface DeckOptions {
 	skipped?: Set<string>;
 	/** Ids never to deal at all. */
 	exclude?: Set<string>;
+	/** How the learner wants to move; shapes the mix. Defaults to "steady". */
+	pace?: DeckPace;
 	/** How many cards to deal. */
 	size?: number;
 	/** Epoch ms "now", for the review schedule; defaults to Date.now(). */
@@ -64,14 +66,76 @@ export interface DeckOptions {
 const DEFAULT_SIZE = 12;
 
 /**
- * Share of the deck each group gets. Repair sits at a quarter — inside the
- * 20–30% band that keeps the learner around 85% accuracy overall. Explore is
- * the "learn next" / "strength" / "mix" picks that grow out of what is done.
+ * How the learner wants to move through the course. Each pace is a different
+ * mix of the same three groups plus a different spread of levels for the new
+ * material:
+ *
+ *   * quota — share of the deck each group gets. Steady's repair quarter sits
+ *     inside the 20–30% band that keeps the learner around 85% accuracy;
+ *     the others trade some of it for speed, breadth or consolidation.
+ *     Explore is the "learn next" / "strength" / "mix" picks.
+ *   * levels — how the fresh slots are shared out, by distance from the
+ *     learner's sub-level (0 = their own, 1 = one up, -1 = one back).
  */
-export const DECK_QUOTA = { repair: 0.25, fresh: 0.5, explore: 0.25 } as const;
+export type DeckPace = 'steady' | 'fast' | 'adventurous' | 'review';
 
-/** How the fresh slots are shared between the learner's level and its neighbours. */
-export const LEVEL_WEIGHTS = { here: 0.6, up: 0.25, back: 0.15 } as const;
+export interface PaceSpec {
+	label: string;
+	/** One line under the label in the chooser. */
+	blurb: string;
+	quota: { repair: number; fresh: number; explore: number };
+	levels: { offset: number; weight: number }[];
+}
+
+export const DECK_PACES: Record<DeckPace, PaceSpec> = {
+	steady: {
+		label: 'Slow & steady',
+		blurb: 'Your own level, with regular review.',
+		quota: { repair: 0.25, fresh: 0.5, explore: 0.25 },
+		levels: [
+			{ offset: 0, weight: 0.6 },
+			{ offset: 1, weight: 0.25 },
+			{ offset: -1, weight: 0.15 }
+		]
+	},
+	fast: {
+		label: 'Fast learner',
+		blurb: 'Mostly new, pushing a level ahead.',
+		quota: { repair: 0.15, fresh: 0.6, explore: 0.25 },
+		levels: [
+			{ offset: 0, weight: 0.45 },
+			{ offset: 1, weight: 0.4 },
+			{ offset: 2, weight: 0.15 }
+		]
+	},
+	adventurous: {
+		label: 'Adventurous',
+		blurb: 'A wide spread, two levels either way.',
+		quota: { repair: 0.1, fresh: 0.7, explore: 0.2 },
+		levels: [
+			{ offset: 0, weight: 0.3 },
+			{ offset: 1, weight: 0.25 },
+			{ offset: 2, weight: 0.15 },
+			{ offset: -1, weight: 0.2 },
+			{ offset: -2, weight: 0.1 }
+		]
+	},
+	review: {
+		label: 'Polish up',
+		blurb: 'Weak spots and due reviews first.',
+		quota: { repair: 0.6, fresh: 0.2, explore: 0.2 },
+		levels: [
+			{ offset: 0, weight: 0.6 },
+			{ offset: -1, weight: 0.4 }
+		]
+	}
+};
+
+export const DECK_PACE_ORDER: DeckPace[] = ['steady', 'fast', 'adventurous', 'review'];
+
+export function isDeckPace(value: unknown): value is DeckPace {
+	return typeof value === 'string' && value in DECK_PACES;
+}
 
 const TYPE_LABELS: Record<QuizType, string> = {
 	fillBlank: 'grammar drill',
@@ -121,13 +185,15 @@ export function buildDeck(
 	const size = options.size ?? DEFAULT_SIZE;
 	const random = options.random ?? Math.random;
 	const now = options.now ?? Date.now();
+	const pace = DECK_PACES[options.pace ?? 'steady'];
 
 	const levels = courseLevels(quizzes);
 	const centre = deckLevel(quizzes, facts, options.level);
 	const centreIndex = centre ? levels.indexOf(centre) : 0;
 	const open = (quiz: Quiz) =>
 		!exclude.has(quiz.id) && !skipped.has(quiz.id) && quiz.status !== 'placeholder';
-	const inReach = (quiz: Quiz) => levels.indexOf(quiz.level ?? '') <= centreIndex + 1;
+	const reach = Math.max(1, ...pace.levels.map((l) => l.offset));
+	const inReach = (quiz: Quiz) => levels.indexOf(quiz.level ?? '') <= centreIndex + reach;
 
 	const recs = recommend(quizzes, facts, exclude, { floorLevel: options.level });
 
@@ -145,12 +211,12 @@ export function buildDeck(
 		),
 		...recs.mix.filter((r) => open(r.quiz))
 	]);
-	const freshPool = fresh(quizzes, facts, open, levels, centreIndex, random);
+	const freshPool = fresh(quizzes, facts, open, levels, centreIndex, pace.levels, random);
 
 	// ---- quotas, with spill-over ------------------------------------------
 	const want = {
-		repair: Math.round(size * DECK_QUOTA.repair),
-		explore: Math.round(size * DECK_QUOTA.explore),
+		repair: Math.round(size * pace.quota.repair),
+		explore: Math.round(size * pace.quota.explore),
 		fresh: 0
 	};
 	want.fresh = size - want.repair - want.explore;
@@ -236,10 +302,10 @@ function interleave(groups: DeckCard[][], random: () => number): DeckCard[] {
 }
 
 /**
- * Untouched exercises near the learner's level, ranked by a lottery over
- * LEVEL_WEIGHTS: mostly the centre sub-level, a taste of the one above, a
- * little of the one below. Reading order inside a sub-level is deliberately
- * not kept — the ladder view has that.
+ * Untouched exercises near the learner's level, ranked by a lottery over the
+ * pace's level spread — for "steady", mostly the centre sub-level, a taste of
+ * the one above, a little of the one below. Reading order inside a sub-level
+ * is deliberately not kept — the ladder view has that.
  */
 function fresh(
 	quizzes: Quiz[],
@@ -247,17 +313,16 @@ function fresh(
 	open: (quiz: Quiz) => boolean,
 	levels: string[],
 	centreIndex: number,
+	spread: PaceSpec['levels'],
 	random: () => number
 ): DeckCard[] {
 	const untouched = (quiz: Quiz) => {
 		const f = facts[quiz.id];
 		return open(quiz) && !(f?.done || (f?.answered ?? 0) > 0);
 	};
-	const window: { index: number; weight: number }[] = [
-		{ index: centreIndex, weight: LEVEL_WEIGHTS.here },
-		{ index: centreIndex + 1, weight: LEVEL_WEIGHTS.up },
-		{ index: centreIndex - 1, weight: LEVEL_WEIGHTS.back }
-	].filter(({ index }) => index >= 0 && index < levels.length);
+	const window = spread
+		.map(({ offset, weight }) => ({ index: centreIndex + offset, weight }))
+		.filter(({ index }) => index >= 0 && index < levels.length);
 
 	const lists = window.map(({ index, weight }) => {
 		const level = levels[index];
@@ -293,6 +358,7 @@ function fresh(
 }
 
 function freshReason(level: string, offset: number, done: number, total: number): string {
+	if (offset > 1) return `A stretch: ${level}, two steps up from where you are.`;
 	if (offset > 0) return `A peek at ${level}, one step up from where you are.`;
 	if (offset < 0) return `Back at ${level} — a quick one to keep it warm.`;
 	if (done === 0) return `Your first ${level} exercise — a taste of the level.`;

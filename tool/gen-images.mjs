@@ -106,13 +106,23 @@ function linkImages() {
 		// the description its tutor, who cannot see the picture, reads.
 		const sceneOf = (quiz) =>
 			byId.has(quiz.id) && existsSync(join(OUT_DIR, `${quiz.id}.webp`)) ? quiz.id : null;
+		// Everything else without its own scene shares one card picture per
+		// type and sub-level ("card_grammar_a1_1"). Only the deck card shows
+		// it: these quiz pages never render `quiz.image`.
+		const CARD_TYPE = { fillBlank: 'grammar', speakRepeat: 'repeat', dictation: 'dictation', vocabulary: 'words' };
+		const sharedOf = (quiz) => {
+			const type = CARD_TYPE[quiz.type];
+			if (!type || !quiz.level) return null;
+			const id = `card_${type}_${quiz.level.toLowerCase().replace('.', '_')}`;
+			return byId.has(id) && existsSync(join(OUT_DIR, `${id}.webp`)) ? id : null;
+		};
 		const describe = (id) =>
 			byId
 				.get(id)
 				.prompt.replace(/^scene:\s*/, '')
 				.replace(/,\s*wide empty paper margins[^,]*$/, '');
 		for (const quiz of bundle.quizzes ?? []) {
-			let scene = sceneOf(quiz);
+			let scene = sceneOf(quiz) ?? sharedOf(quiz);
 			if (!scene && quiz.type === 'speaking') {
 				const wants = /kurzcheck/.test(quiz.id) ? ['listening', 'reading'] : ['reading', 'listening'];
 				for (const type of wants) {

@@ -39,7 +39,7 @@
 	{/if}
 	<p>
 		Language Quiz is an independent study aid, not affiliated with or endorsed by any
-		examination body.{#if version} Content version {version}.{/if}
+		examination body.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
 	</p>
 </footer>
 
@@ -115,11 +115,21 @@
 		font-size: 0.78rem;
 	}
 
-	/* On a phone only the three links that are not already on the page. */
+	/* On a phone the links go: the compact top bar already carries home (the
+	   logo), the word library and settings. Only the disclaimer stays. */
 	@media (max-width: 36rem) {
-		.foot.compact .quick a:nth-child(2),
-		.foot.compact .quick a:nth-child(4),
-		.foot.compact .quick a:nth-child(5) {
+		.foot.compact .quick {
+			display: none;
+		}
+		.foot.compact {
+			justify-content: center;
+			padding: 0.4rem 1.25rem calc(0.6rem + env(safe-area-inset-bottom));
+			border-top: 0;
+			font-size: 0.66rem;
+			text-align: center;
+		}
+		/* The version is for support questions, not for every phone screen. */
+		.foot.compact .version {
 			display: none;
 		}
 	}
