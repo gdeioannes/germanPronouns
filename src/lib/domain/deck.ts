@@ -31,9 +31,10 @@ import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
 import { recommend, type QuizFacts, type RecommendationKind } from './recommend';
 import { reviewDue, strengths } from './review';
 
-export type DeckKind = RecommendationKind | 'review' | 'fresh';
+export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue';
 
 export const DECK_KIND_LABELS: Record<DeckKind, string> = {
+	continue: 'Continue',
 	practise: 'Practise',
 	review: 'Review',
 	next: 'Learn next',
@@ -63,7 +64,23 @@ export interface DeckOptions {
 	random?: () => number;
 }
 
-const DEFAULT_SIZE = 12;
+export const DEFAULT_SIZE = 12;
+
+/**
+ * The exercise the learner left part-way, dealt on top of the stack so one
+ * swipe right carries on where they stopped. Null when there is none, or it
+ * has been finished since (or no longer exists).
+ */
+export function continueCard(
+	quizzes: Quiz[],
+	facts: Record<string, QuizFacts>,
+	lastOpenedId: string | null
+): DeckCard | null {
+	if (!lastOpenedId) return null;
+	const quiz = quizzes.find((q) => q.id === lastOpenedId);
+	if (!quiz || quiz.status === 'placeholder' || facts[quiz.id]?.done) return null;
+	return { kind: 'continue', quiz, reason: 'You left this one part-way. Swipe right to pick up where you stopped.' };
+}
 
 /**
  * How the learner wants to move through the course. Each pace is a different

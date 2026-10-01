@@ -238,7 +238,28 @@
 	}
 
 	/** Set while an answer is on show: skips straight to the next question. */
-	let skip: (() => void) | null = null;
+	let skip = $state<(() => void) | null>(null);
+
+	/** Every gap has something in it, so the answer can be checked. */
+	const filled = $derived(answers.every((a) => a.trim().length > 0));
+
+	/**
+	 * The Check button. A tap closes the phone keyboard first, so the verdict
+	 * and the written-in answer are not hidden behind it.
+	 */
+	function checkTap() {
+		(document.activeElement as HTMLElement | null)?.blur();
+		submit();
+	}
+
+	/**
+	 * Keeps a tap on the buttons from blurring the field before the click
+	 * lands: the keyboard folding away would shift the layout and the tap
+	 * would miss.
+	 */
+	function holdFocus(event: PointerEvent) {
+		event.preventDefault();
+	}
 
 	/**
 	 * Enter moves to the next empty gap, submits from the last one, and —
@@ -301,6 +322,7 @@
 							size={fieldSize(i)}
 							lang={locale}
 							aria-label={gaps > 1 ? `Your answer, gap ${i + 1}` : 'Your answer'}
+							enterkeyhint={i < gaps - 1 ? 'next' : 'go'}
 							autocomplete="off"
 							autocapitalize="off"
 							autocorrect="off"
@@ -315,7 +337,9 @@
 		{/if}
 
 		<!-- One fixed row under the sentence: the hint while answering, the
-		     verdict once checked. Same slot, so nothing jumps. -->
+		     verdict once checked, and the button that does what Enter does —
+		     Check, then Next. Same slot, so nothing jumps. -->
+		<div class="status-row">
 		<p class="status" class:right={verdict === 'right'} class:wrong={verdict === 'wrong'}>
 			{#if verdict === 'right'}
 				<Icon name="check" size="1.05em" /> Correct
@@ -327,6 +351,16 @@
 				&nbsp;
 			{/if}
 		</p>
+		{#if locked}
+			<button type="button" class="act next" disabled={!skip} onpointerdown={holdFocus} onclick={() => skip?.()}>
+				Next <Icon name="arrowRight" size="1em" />
+			</button>
+		{:else}
+			<button type="button" class="act" disabled={!filled} onpointerdown={holdFocus} onclick={checkTap}>
+				Check
+			</button>
+		{/if}
+		</div>
 	</section>
 
 {:else}
@@ -452,12 +486,20 @@
 
 	/* One fixed row: hint while answering, verdict after. Reserving the space
 	   stops the card resizing between the two states. */
+	.status-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin: 0.9rem 0 0;
+	}
+
 	.status {
 		display: flex;
 		align-items: center;
 		gap: 0.42rem;
 		min-height: 1.6em;
-		margin: 0.9rem 0 0;
+		margin: 0;
 		font-size: var(--step--1);
 		font-weight: 600;
 		color: var(--ink-muted);
@@ -469,6 +511,41 @@
 
 	.status.wrong {
 		color: var(--wrong);
+	}
+
+	/* Check / Next: what Enter does, for thumbs. Faint until there is
+	   something to check, so it never looks like the next step too early. */
+	.act {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		flex: none;
+		min-height: 2.6rem;
+		padding: 0.5rem 1.2rem;
+		border: 0;
+		border-radius: 999px;
+		background: var(--heading);
+		color: var(--surface);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 800;
+		cursor: pointer;
+		transition:
+			opacity var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out);
+	}
+
+	.act:hover:not(:disabled) {
+		background: var(--accent);
+	}
+
+	.act:disabled {
+		opacity: 0.3;
+		cursor: default;
+	}
+
+	.act.next {
+		background: var(--right);
 	}
 
 	.empty {

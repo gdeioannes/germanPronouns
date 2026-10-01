@@ -22,6 +22,8 @@
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import { progress } from '$lib/state/progress.svelte';
 	import { loadQuizFacts } from '$lib/state/facts';
+	import { inProgressIds } from '$lib/state/resume';
+	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
 	import type { QuizSummary } from '$lib/content/types';
 	import type { PageData } from './$types';
 
@@ -38,7 +40,12 @@
 		// this course's, or they all render as zero.
 		await progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
 		facts = await loadQuizFacts(course.quizzes);
+		const known = facts;
+		inProgress = await inProgressIds(course.quizzes, (id) => known[id]?.done ?? false);
 	});
+
+	/** Exercises started but not finished: marked in the deck and the list. */
+	let inProgress = $state<Set<string>>(new Set());
 
 	/** Every quiz's facts once loaded; the deck and the progress panel share them. */
 	let facts = $state<Record<string, QuizFacts> | null>(null);
@@ -142,7 +149,7 @@
 		</button>
 	{:else}
 		<SwipeDeck {course} {facts} bind:level={pickedLevel} title={heading} aside={ring}
-			onbrowse={() => (browseOpen = true)} />
+			onbrowse={() => (browseOpen = true)} {inProgress} />
 	{/if}
 </main>
 
@@ -200,7 +207,8 @@
 									<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" />
 								</span>
 								<span class="title">{quiz.title}</span>
-								{#if ribbon}<RibbonBadge tier={ribbon} width={13} />{/if}
+								{#if ribbon}<RibbonBadge tier={ribbon} width={13} />
+								{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}
 							</a>
 						</li>
 					{/each}

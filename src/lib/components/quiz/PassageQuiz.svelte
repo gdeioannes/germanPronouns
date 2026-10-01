@@ -18,6 +18,7 @@
 	import { untrack } from 'svelte';
 	import { tts } from '$lib/services/speech';
 	import { spokenPassage } from '$lib/domain/spoken';
+	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import type { ListeningQuiz, ReadingQuiz } from '$lib/content/types';
 
 	let {
@@ -79,12 +80,35 @@
 	let index = $state(0);
 	let advance: ReturnType<typeof setTimeout> | undefined;
 
+	/** False until a saved spot has been looked for, so a fresh start never overwrites it. */
+	let restored = false;
+
 	// Reset when the component is reused for a different quiz — the answer
-	// array must match the new question count, not the old one's.
+	// array must match the new question count, not the old one's. Then bring
+	// back the answers from a visit the learner left part-way, and open on the
+	// first question they had not answered yet.
 	$effect(() => {
-		quiz.id;
+		const id = quiz.id;
 		retry();
+		restored = false;
+		void loadSpot<{ chosen: (number | null)[] }>(quiz.storageKeyPrefix).then((spot) => {
+			if (id !== quiz.id) return;
+			const saved = spot?.chosen;
+			if (Array.isArray(saved) && saved.length === quiz.questions.length && saved.some((c) => c !== null)) {
+				chosen = saved.map((c) => (typeof c === 'number' ? c : null));
+				const firstOpen = chosen.findIndex((c) => c === null);
+				index = lead + (firstOpen < 0 ? questionCount : firstOpen);
+			}
+			restored = true;
+		});
 		return () => clearTimeout(advance);
+	});
+
+	// Every answer is saved as it is given, until the answers are checked.
+	$effect(() => {
+		const answers = $state.snapshot(chosen);
+		if (!restored || checked) return;
+		if (answers.some((c) => c !== null)) saveSpot(quiz.storageKeyPrefix, { chosen: answers });
 	});
 
 	/** Characters per text page — measured to fit this screen (see fit.ts). */
@@ -178,6 +202,7 @@
 
 	function check() {
 		checked = true;
+		clearSpot(quiz.storageKeyPrefix);
 		onFinish(passed, correctCount, questionCount);
 	}
 

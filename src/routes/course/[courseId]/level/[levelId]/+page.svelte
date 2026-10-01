@@ -8,6 +8,8 @@
 	// everything for A1?" against.
 	import Icon from '$lib/icons/Icon.svelte';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
+	import { inProgressIds } from '$lib/state/resume';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { onMount } from 'svelte';
@@ -21,7 +23,14 @@
 	onMount(async () => {
 		if (!progress.loaded) await progress.load(course.gating ?? DEFAULT_GATING);
 		await progress.hydrateStats(quizzes.map((q) => q.storageKeyPrefix));
+		inProgress = await inProgressIds(quizzes, (id) => {
+			const quiz = quizzes.find((q) => q.id === id)!;
+			return progress.isCompleted(quiz.type, quiz.id, quiz.storageKeyPrefix);
+		});
 	});
+
+	/** Exercises started but not finished, marked in the list. */
+	let inProgress = $state<Set<string>>(new Set());
 
 	/** The quizzes that declare a given structure. */
 	const coveredBy = $derived((id: string) => quizzes.filter((q) => q.covers?.includes(id)));
@@ -146,7 +155,8 @@
 					{/if}
 					<span class="title">{quiz.title}</span>
 					{#if quiz.status === 'placeholder'}<span class="soon">preview</span>{/if}
-					{#if ribbon}<RibbonBadge tier={ribbon} width={13} />{/if}
+					{#if ribbon}<RibbonBadge tier={ribbon} width={13} />
+					{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}
 				</a>
 			</li>
 		{/each}

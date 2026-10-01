@@ -19,6 +19,7 @@
 	import { fitOnResize, fitPages, type PageFit } from './fit';
 	import { untrack } from 'svelte';
 	import { progress } from '$lib/state/progress.svelte';
+	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import type { InlineBlank, InlineClozeQuiz } from '$lib/content/types';
 
 	let {
@@ -90,10 +91,34 @@
 	let checked = $state(false);
 	let index = $state(0);
 
-	// Reset when the component is reused for a different quiz.
+	/** False until a saved spot has been looked for, so a fresh start never overwrites it. */
+	let restored = false;
+
+	// Reset when the component is reused for a different quiz, then bring back
+	// what the learner had typed on a visit they left part-way, on the page
+	// with the first empty gap.
 	$effect(() => {
-		quiz.id;
+		const id = quiz.id;
 		retry();
+		restored = false;
+		void loadSpot<{ answers: string[] }>(quiz.storageKeyPrefix).then((spot) => {
+			if (id !== quiz.id) return;
+			const saved = spot?.answers;
+			if (Array.isArray(saved) && saved.length === quiz.inlineBlanks.length && saved.some((a) => a?.trim())) {
+				answers = saved.map((a) => (typeof a === 'string' ? a : ''));
+				const firstEmpty = answers.findIndex((a) => !a.trim());
+				const page = firstEmpty < 0 ? pages.length : pageBlanks.findIndex((blanks) => blanks.includes(firstEmpty));
+				index = Math.max(0, page);
+			}
+			restored = true;
+		});
+	});
+
+	// Typed answers are saved as they change, until they are checked.
+	$effect(() => {
+		const typed = $state.snapshot(answers);
+		if (!restored || checked) return;
+		if (typed.some((a) => a.trim())) saveSpot(quiz.storageKeyPrefix, { answers: typed });
 	});
 	let showTranslation = $state(false);
 
@@ -128,6 +153,7 @@
 
 	function check() {
 		checked = true;
+		clearSpot(quiz.storageKeyPrefix);
 		onFinish(passed, correctCount, total);
 	}
 
@@ -177,6 +203,7 @@
 								<input
 									bind:value={answers[part.blank]}
 									onkeydown={(event) => onKey(event, p, part.blank)}
+									enterkeyhint="next"
 									disabled={checked}
 									class:right={checked && results[part.blank]}
 									class:wrong={checked && !results[part.blank]}

@@ -347,6 +347,7 @@
 								bind:this={inputEl}
 								bind:value={answer}
 								onkeydown={onKey}
+								enterkeyhint="go"
 								readonly={locked}
 								size={fieldSize}
 								lang={locale}

@@ -11,6 +11,7 @@
 	import { freshen, pop, rise } from '$lib/motion';
 	import { matchesSpoken } from '$lib/domain/answers';
 	import { stt, tts } from '$lib/services/speech';
+	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import type { SpeakRepeatQuiz } from '$lib/content/types';
 
 	let {
@@ -34,10 +35,15 @@
 	const phrase = $derived(quiz.phrases[index]);
 	const total = $derived(quiz.phrases.length);
 
-	// Reset when the component is reused for a different quiz.
+	// Reset when the component is reused for a different quiz, then carry on
+	// from the phrase the learner stopped at, if they left part-way.
 	$effect(() => {
-		quiz.id;
+		const id = quiz.id;
 		restart();
+		void loadSpot<{ index: number }>(quiz.storageKeyPrefix).then((spot) => {
+			if (!spot || id !== quiz.id || index !== 0) return;
+			if (spot.index > 0 && spot.index < quiz.phrases.length) index = spot.index;
+		});
 	});
 
 	$effect(() => {
@@ -74,11 +80,13 @@
 		matched = null;
 		if (index + 1 >= total) {
 			done = true;
+			clearSpot(quiz.storageKeyPrefix);
 			// Play-through is completion: no score, no gate.
 			onFinish();
 			return;
 		}
 		index += 1;
+		saveSpot(quiz.storageKeyPrefix, { index });
 	}
 
 	/** Enter goes on to the next phrase; a focused button keeps its own Enter. */

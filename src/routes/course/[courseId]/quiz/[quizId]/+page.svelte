@@ -39,6 +39,7 @@
 	import { celebrate } from '$lib/motion/fx.svelte';
 	import { progress } from '$lib/state/progress.svelte';
 	import { storage } from '$lib/services/storage';
+	import { clearOpened, clearSpot, markOpened } from '$lib/state/resume';
 	import { track } from '$lib/services/analytics';
 	import { onMount, untrack } from 'svelte';
 	import type { PageData } from './$types';
@@ -104,7 +105,8 @@
 	let doneDismissed = $state(false);
 
 	$effect(() => {
-		quiz.id;
+		// Remembered so the deck can offer it again if the learner leaves early.
+		markOpened(quiz.id);
 		finished = false;
 		doneDismissed = false;
 	});
@@ -128,6 +130,8 @@
 		await progress.markCompleted(quiz.type, quiz.id);
 		await progress.markQuestCompleted(quiz.id);
 		await progress.markPlayed(quiz.storageKeyPrefix);
+		clearOpened(quiz.id);
+		clearSpot(quiz.storageKeyPrefix);
 		track('quiz_completed', { course: course.id, quiz: quiz.id, type: quiz.type });
 		celebrate();
 	}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildDeck, courseLevels, deckLevel } from './deck';
+import { buildDeck, continueCard, courseLevels, deckLevel } from './deck';
 import type { QuizFacts } from './recommend';
 import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
 
@@ -193,5 +193,17 @@ describe('buildDeck', () => {
 			const repair = deck.filter((c) => c.kind === 'practise' || c.kind === 'review').length;
 			expect(repair).toBeGreaterThanOrEqual(7);
 		});
+	});
+});
+
+describe('continueCard', () => {
+	it('deals the exercise left part-way, until it is finished', () => {
+		expect(continueCard(COURSE, {}, 'akk')).toMatchObject({ kind: 'continue', quiz: { id: 'akk' } });
+		expect(continueCard(COURSE, { akk: done() }, 'akk')).toBeNull();
+	});
+
+	it('is null when nothing was opened, or the id is unknown', () => {
+		expect(continueCard(COURSE, {}, null)).toBeNull();
+		expect(continueCard(COURSE, {}, 'gone')).toBeNull();
 	});
 });

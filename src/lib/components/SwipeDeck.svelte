@@ -19,16 +19,20 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS, type IconName } from '$lib/icons/paths';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import { DURATION, prefersReducedMotion } from '$lib/motion';
 	import { storage } from '$lib/services/storage';
 	import { track } from '$lib/services/analytics';
+	import { clearOpened, lastOpened } from '$lib/state/resume';
 	import { goto } from '$app/navigation';
 	import {
 		DECK_KIND_LABELS,
 		DECK_PACES,
 		DECK_PACE_ORDER,
+		DEFAULT_SIZE,
 		buildDeck,
+		continueCard,
 		courseLevels,
 		deckLevel,
 		isDeckPace,
@@ -46,7 +50,8 @@
 		level = $bindable(null),
 		title,
 		aside,
-		onbrowse
+		onbrowse,
+		inProgress = new Set()
 	}: {
 		course: CourseSummary;
 		/** Every quiz's facts, or null while the page is still loading them. */
@@ -59,6 +64,8 @@
 		aside?: Snippet;
 		/** Opens the full exercise list; shown between the two buttons. */
 		onbrowse?: () => void;
+		/** Exercises started but not finished — their cards wear the marker. */
+		inProgress?: Set<string>;
 	} = $props();
 
 	// "quiz_" in the key puts the skips in the set that "start over" wipes.
@@ -78,6 +85,8 @@
 	};
 
 	let skipped = $state<string[]>([]);
+	/** The exercise the learner left part-way, dealt back on top until finished. */
+	let openId = $state<string | null>(null);
 	let pace = $state<DeckPace>('steady');
 	let deck = $state<DeckCard[]>([]);
 	let loaded = $state(false);
@@ -120,6 +129,7 @@
 		}
 		const picked = await storage.get(LEVEL_KEY);
 		level = picked && levels.includes(picked) ? picked : null;
+		openId = await lastOpened();
 		const savedPace = await storage.get(PACE_KEY);
 		pace = isDeckPace(savedPace) ? savedPace : 'steady';
 		deal();
@@ -129,12 +139,21 @@
 	/** Rebuilds the stack; forgets the skips first if they have eaten everything. */
 	function deal() {
 		const known = facts ?? {};
-		deck = buildDeck(course.quizzes, known, { level, pace, skipped: new Set(skipped) });
+		const resume = continueCard(course.quizzes, known, openId);
+		if (!resume && openId) {
+			// Finished since, or gone: nothing to come back to.
+			clearOpened(openId);
+			openId = null;
+		}
+		const exclude = new Set(resume ? [resume.quiz.id] : []);
+		const size = DEFAULT_SIZE - (resume ? 1 : 0);
+		deck = buildDeck(course.quizzes, known, { level, pace, size, exclude, skipped: new Set(skipped) });
 		if (deck.length === 0 && skipped.length > 0) {
 			skipped = [];
 			void storage.set(SKIPPED_KEY, '[]');
-			deck = buildDeck(course.quizzes, known, { level, pace });
+			deck = buildDeck(course.quizzes, known, { level, pace, size, exclude });
 		}
+		if (resume) deck = [resume, ...deck];
 		handSize = deck.length;
 		dealt++;
 	}
@@ -253,6 +272,11 @@
 		const wait = prefersReducedMotion() ? 0 : DURATION.slow;
 		window.setTimeout(() => {
 			if (direction === 'left') {
+				// Passing on the half-done one means it stops coming back on top.
+				if (card.kind === 'continue') {
+					clearOpened(card.quiz.id);
+					openId = null;
+				}
 				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
 				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'skip', pace });
@@ -275,6 +299,41 @@
 			event.preventDefault();
 			fling('left');
 		}
+	}
+
+	// Exercises of one kind share a scene, so two cards in a row could look
+	// like the same card dealt twice. Each exercise gets its own variation
+	// instead, picked from its id so it always looks the same itself: a layer
+	// laid over the whole band (a tint and a faint pattern, multiplied, so the
+	// drawing's lines stay crisp while its paper changes), and the scene
+	// sometimes mirrored and framed a little differently underneath.
+	const ART_TINTS = ['#fffaf0', '#f9d9c6', '#d3e3f0', '#d8e8cc', '#e4d8f0', '#f6e1a8', '#f3d0d8'];
+	const INK = 'rgb(31 58 95 / 0.09)';
+	const ART_PATTERNS = [
+		'none',
+		`radial-gradient(${INK} 1.3px, transparent 1.8px) 0 0 / 14px 14px`,
+		`repeating-linear-gradient(45deg, ${INK} 0 2px, transparent 2px 13px)`,
+		`repeating-linear-gradient(-45deg, ${INK} 0 2px, transparent 2px 13px)`,
+		`linear-gradient(${INK} 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, ${INK} 1px, transparent 1px) 0 0 / 18px 18px`,
+		`radial-gradient(circle at 85% 15%, rgb(255 255 255 / 0.9), transparent 55%)`,
+		`repeating-radial-gradient(circle at 0 100%, ${INK} 0 2px, transparent 2px 16px)`
+	];
+
+	function hash(text: string): number {
+		let h = 2166136261;
+		for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 16777619);
+		return h >>> 0;
+	}
+
+	function artStyle(quizId: string): string {
+		const h = hash(quizId);
+		const tint = ART_TINTS[h % ART_TINTS.length];
+		const pattern = ART_PATTERNS[(h >>> 8) % ART_PATTERNS.length];
+		const flip = (h >>> 3) & 1 ? -1 : 1;
+		const zoom = 1.04 + ((h >>> 4) % 4) * 0.07;
+		const x = 40 + ((h >>> 13) % 21);
+		const y = 35 + ((h >>> 18) % 21);
+		return `--art-tint:${tint}; --art-pattern:${pattern}; --art-flip:${flip}; --art-zoom:${zoom}; --art-pos:${x}% ${y}%;`;
 	}
 
 	/** Transform for a card `depth` places into the stack (0 = top). */
@@ -323,11 +382,13 @@
 					{@const depth = Math.min(VISIBLE, deck.length - 1) - i}
 					{@const isTop = depth === 0}
 					{@const ribbon = facts?.[card.quiz.id]?.tier ?? null}
+					{@const started = card.kind === 'continue' || inProgress.has(card.quiz.id)}
 					<div
 						class="card"
 						class:top={isTop}
 						class:dragging={isTop && dragging}
 						class:leaving={isTop && leaving}
+						class:started
 						data-kind={card.kind}
 						style="{isTop
 							? `transform: translate(${dx}px, ${dy}px) rotate(${dx / 18}deg);`
@@ -347,14 +408,18 @@
 							<span class="stamp yes" style="opacity:{Math.max(0, lean)}" class:firm={decided && dx > 0}>Let's go</span>
 						{/if}
 
+						{#if started}
+							<span class="started-badge"><InProgressBadge float /></span>
+						{/if}
+
 						{#if card.quiz.image}
 							<!-- The quiz's scene as a cream band across the top of the card; it
 							     stands in for the type disc. -->
-							<div class="art-band">
+							<div class="art-band" style={artStyle(card.quiz.id)}>
 								<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
 							</div>
 						{:else}
-							<span class="type-disc" data-type={card.quiz.type}>
+							<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
 								<Icon name={QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
 							</span>
 						{/if}
@@ -769,6 +834,26 @@
 	.card[data-kind='next'] {
 		--kind: var(--forest);
 	}
+	.card[data-kind='continue'] {
+		--kind: var(--accent);
+	}
+
+	/* Started, not finished: an accent outline round the whole card and the
+	   badge pinned over its picture, so it stands out of the stack. */
+	.card.started {
+		border-color: var(--accent);
+		box-shadow:
+			0 0 0 2px var(--accent),
+			0 18px 40px -24px rgba(31, 58, 95, 0.45);
+	}
+
+	.started-badge {
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+		z-index: 1;
+		pointer-events: none;
+	}
 	.card[data-kind='fresh'] {
 		--kind: var(--terracotta);
 	}
@@ -859,17 +944,35 @@
 		flex: 1 1 0;
 		align-self: stretch;
 		min-height: 6rem;
+		position: relative;
 		margin: -1.4rem -1.5rem 0.2rem;
 		background: #fbf5e4;
 		overflow: hidden;
 	}
 
+	/* The card's own layer over everything in the band: its tint and pattern,
+	   multiplied, so white paper takes the colour and dark lines stay dark. */
+	.art-band::after,
+	.type-disc::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: var(--art-pattern, none), var(--art-tint, transparent);
+		mix-blend-mode: multiply;
+		pointer-events: none;
+	}
+
+	/* The mirror and the framing come from artStyle(). */
 	.art {
 		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center 42%;
+		object-position: var(--art-pos, center 42%);
+		/* Scaled about the centre and never below 1, so the scene always
+		   covers the whole band whichever way it is flipped. */
+		transform: scale(calc(var(--art-zoom, 1) * var(--art-flip, 1)), var(--art-zoom, 1));
+		transform-origin: center;
 		pointer-events: none;
 	}
 

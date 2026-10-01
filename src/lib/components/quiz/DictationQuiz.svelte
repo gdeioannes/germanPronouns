@@ -9,6 +9,7 @@
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import { matchesAccepted } from '$lib/domain/answers';
 	import { progress } from '$lib/state/progress.svelte';
+	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { tts } from '$lib/services/speech';
 	import type { DictationQuiz } from '$lib/content/types';
 
@@ -39,10 +40,18 @@
 
 	// Navigating between two dictation quizzes reuses this component, so the
 	// run has to reset when the quiz prop changes — otherwise the new quiz
-	// inherits the old one's index and score.
+	// inherits the old one's index and score. Then, if the learner left this
+	// one part-way, it carries on from the line they stopped at.
 	$effect(() => {
-		quiz.id;
+		const id = quiz.id;
 		restart();
+		void loadSpot<{ index: number; correct: number }>(quiz.storageKeyPrefix).then((spot) => {
+			if (!spot || id !== quiz.id || index !== 0) return;
+			if (spot.index > 0 && spot.index < quiz.items.length) {
+				index = spot.index;
+				correctCount = Math.min(spot.correct ?? 0, spot.index);
+			}
+		});
 	});
 	const passed = $derived(correctCount / total >= 2 / 3);
 
@@ -64,8 +73,10 @@
 		react(right, cardEl, run);
 		if (!right) missKey += 1;
 		// Back in the field (a click on Check took focus away), where Enter
-		// moves on.
-		inputEl?.focus();
+		// moves on. Not on a touch screen: there the keyboard would spring back
+		// over the line just revealed, so it is put away instead.
+		if (window.matchMedia('(pointer: coarse)').matches) inputEl?.blur();
+		else inputEl?.focus();
 		if (right) {
 			correctCount += 1;
 			burst += 1;
@@ -75,12 +86,14 @@
 	function next() {
 		if (index + 1 >= total) {
 			done = true;
+			clearSpot(quiz.storageKeyPrefix);
 			onFinish(passed, correctCount, total);
 			return;
 		}
 		index += 1;
 		answer = '';
 		verdict = 'none';
+		saveSpot(quiz.storageKeyPrefix, { index, correct: correctCount });
 	}
 
 	function onKey(event: KeyboardEvent) {
@@ -155,6 +168,7 @@
 			bind:this={inputEl}
 			bind:value={answer}
 			onkeydown={onKey}
+			enterkeyhint="go"
 			readonly={verdict !== 'none'}
 			placeholder="Type what you hear"
 			lang={locale}
