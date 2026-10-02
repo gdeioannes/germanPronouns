@@ -13,6 +13,7 @@
 	import SpeakButton from '../SpeakButton.svelte';
 	import { checkWritten, chooseOptions, fullForm } from '$lib/domain/flashcards';
 	import { GENDER_COLORS } from '$lib/domain/gender';
+	import { forSpeech } from '$lib/domain/spoken';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import StreakTracker from './StreakTracker.svelte';
@@ -394,7 +395,7 @@
 					<p class="word" lang={locale}>
 						{#if current.article}<span class="article">{current.article}</span>{/if}
 						<span class="de">{current.de}</span>
-						<SpeakButton text={target} {locale} />
+						<SpeakButton text={forSpeech(target)} {locale} />
 					</p>
 					{#if current.plural}
 						<p class="plural" lang={locale}>Plural: <strong>{current.plural}</strong></p>

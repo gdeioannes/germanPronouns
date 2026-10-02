@@ -15,13 +15,14 @@ import { fullForm } from '$lib/domain/flashcards';
 import {
 	fillBlankPool,
 	filledSentence,
+	forSpeech,
 	revealedParts,
 	spokenPassage,
 	spokenVerbForm
 } from '$lib/domain/spoken';
 import { exampleSentence, withArticle, type SharedNounEntry, type SharedVerbEntry } from '$lib/domain/words';
 import { helpTableFor } from '$lib/domain/help-table';
-import { buildLesson, hasLesson, lessonSpokenTexts } from '$lib/domain/lesson';
+import { buildLesson, hasLesson, lessonSpokenTexts, speakable } from '$lib/domain/lesson';
 import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
 
 const nouns = (nounData as { nouns: unknown[] }).nouns as SharedNoun[];
@@ -51,7 +52,7 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		const locale = course.learnLocale;
 		for (const quiz of course.quizzes) {
 			for (const [text, source] of quizTexts(quiz)) add(text, locale, source, quiz.level);
-			add(quiz.help?.context?.de, locale, 'help memory', quiz.level);
+			if (quiz.help?.context?.de) add(speakable(quiz.help.context.de), locale, 'help memory', quiz.level);
 			if (hasLesson(quiz)) {
 				// The word list the quiz page derives for a text quiz (+page.server.ts).
 				const vocab =
@@ -106,7 +107,7 @@ function quizTexts(quiz: Quiz): [string, string][] {
 		case 'speakRepeat':
 			return quiz.phrases.map((phrase) => [phrase.text, 'speak & repeat']);
 		case 'vocabulary':
-			return quiz.cards.map((c) => [fullForm(c), 'flashcard']);
+			return quiz.cards.map((c) => [forSpeech(fullForm(c)), 'flashcard']);
 		default:
 			return [];
 	}

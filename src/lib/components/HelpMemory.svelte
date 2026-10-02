@@ -39,6 +39,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
+	import { speakable } from '$lib/domain/lesson';
 	import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
 
 	let {
@@ -223,7 +224,7 @@
 				{#if help?.context}
 					<h4 class="section-head">In context</h4>
 					<div class="context">
-						<p class="de" lang={locale}>{help.context.de} <SpeakButton text={help.context.de} {locale} /></p>
+						<p class="de" lang={locale}>{help.context.de} <SpeakButton text={speakable(help.context.de)} {locale} /></p>
 						<p class="en">{help.context.en}</p>
 					</div>
 				{/if}
