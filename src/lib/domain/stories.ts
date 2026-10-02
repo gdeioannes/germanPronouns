@@ -70,7 +70,7 @@ export function storyDeckCard(
 		title: episode.title,
 		storageKeyPrefix: 'story',
 		level: episode.level,
-		status: 'ready',
+		status: 'live',
 		covers: [],
 		image: episode.image
 	};

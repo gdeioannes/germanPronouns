@@ -3,7 +3,7 @@
 	// param so switching characters re-renders (go_router lesson applies).
 	import type { Component } from 'svelte';
 	import { page } from '$app/state';
-	let Page = $state<Component | null>(null);
+	let Page = $state<Component<{ id: string }> | null>(null);
 	$effect(() => {
 		if (import.meta.env.DEV) import('../../CharacterPage.svelte').then((m) => (Page = m.default));
 	});
@@ -16,7 +16,7 @@
 
 {#if Page}
 	{#key page.params.id}
-		<Page id={page.params.id} />
+		<Page id={page.params.id ?? ''} />
 	{/key}
 {:else if !import.meta.env.DEV}
 	<main class="page"><p>This page only exists in development.</p></main>

@@ -146,20 +146,20 @@
 				{#if isLead(ch.id)}<span class="badge lead">hub lead{'clue' in ch ? ` · clue ${ch.clue}` : ''}</span>{/if}
 				{#if ep.hub.unlocks === ch.id}<span class="badge locked">unlocks with clues {ep.hub.requiredClues.join('')}</span>{/if}
 			</h2>
-			{#if Array.isArray((ch as AnyBeat).studyLinks)}
-				<p class="study">Optional training: {((ch as AnyBeat).studyLinks as string[]).map((s) => s.replace('quest_a1_1_', '')).join(' · ')}</p>
+			{#if Array.isArray((ch as unknown as AnyBeat).studyLinks)}
+				<p class="study">Optional training: {((ch as unknown as AnyBeat).studyLinks as string[]).map((s) => s.replace('quest_a1_1_', '')).join(' · ')}</p>
 			{/if}
 			{#each ch.beats as b (b.id)}
 				{@const beat = b as AnyBeat}
+				{@const narr =
+					beat.type === 'narrative' && !(beat.audio as string | undefined)
+						? `/audio/story/ep1_narr_${beat.id}${(beat.text as string).includes('{pool') ? '_0' : ''}.mp3`
+						: null}
 				<div class="beat" class:critical={beat.critical === true} class:cluecard={beat.type === 'clue'}>
 					<div class="beat-head">
 						<span class="beat-kind">{beat.type === 'quiz' ? `quiz · ${beat.kind}${beat.layout ? ` (${beat.layout})` : ''}` : beat.type === 'clue' ? 'clue card → notebook' : beat.type}</span>
 						{#if beat.critical}<span class="beat-crit">critical — costs credibility</span>{/if}
 					</div>
-					{@const narr =
-						beat.type === 'narrative' && !(beat.audio as string | undefined)
-							? `/audio/story/ep1_narr_${beat.id}${(beat.text as string).includes('{pool') ? '_0' : ''}.mp3`
-							: null}
 					{#if beat.image || beat.audio || narr}
 						<div class="beat-media">
 							{#if beat.image}<img class="beat-img" src={sceneImg(beat.image as string)} alt={beat.id} loading="lazy" />{/if}
