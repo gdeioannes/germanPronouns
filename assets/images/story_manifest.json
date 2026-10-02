@@ -5,7 +5,8 @@
     "jonas": "Jonas, a man around thirty, tall and lanky, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Short blond hair, round wire glasses, forest-green hoodie over a white t-shirt, blue jeans, brown leather sneakers. Light skin, friendly and a little shy expression.",
     "lena": "Lena, a woman around thirty, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Straight black hair in a low bun, light olive skin, a terracotta-red wool coat over a cream blouse, a soft blue scarf, dark trousers, small gold earrings, ankle boots. Composed, hard-to-read expression.",
     "boehm": "Herr Böhm, the building caretaker, a heavyset man in his sixties, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Grey moustache, bushy grey eyebrows, flat tweed cap, navy work overalls over a red-and-grey checked shirt, black work boots, a large ring of keys on his belt. Ruddy light skin, permanently unimpressed expression.",
-    "room": "A Berlin Altbau shared-flat bedroom with a high ceiling, sage-green walls, a tall window and warm wooden floorboards, stripped almost bare: an empty bed frame, an ink-navy wardrobe with one door open and empty hangers, pale rectangles on the wall where posters used to be, a torn piece of paper on the floorboards."
+    "room": "A Berlin Altbau shared-flat bedroom with a high ceiling, sage-green walls, a tall window and warm wooden floorboards, stripped almost bare: an empty bed frame, an ink-navy wardrobe with one door open and empty hangers, pale rectangles on the wall where posters used to be, a torn piece of paper on the floorboards.",
+    "pension": "A small old-fashioned Berlin guesthouse lobby: a dark wooden reception desk with a brass bell and an old black telephone, a wall of brass keys on numbered-free blank hooks behind it, a worn green armchair, a potted fern, warm lamp light."
   },
   "images": [
     {
@@ -87,6 +88,108 @@
       "id": "boehm_ref_neutral",
       "aspect": "1:1",
       "prompt": "{boehm} He stands full body, arms crossed, the key ring visible on his belt, looking at the viewer with an unimpressed frown. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "ep1_maya_mic",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{maya} She sits at a desk at night, talking into a large podcast microphone, headphones half on, hands mid-gesture, a warm desk lamp lighting her face, her case board with blank pinned papers and terracotta string in the cool shadow behind her. Lighting: lamp cone."
+    },
+    {
+      "id": "ep1_room_wide",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{room} Wide view from the doorway. {maya} stands at the very edge of the frame in the doorway, seen from behind, looking into the empty room. Lighting: a warm shaft of morning light through the tall window cutting into cool blue-grey half-light, dust motes."
+    },
+    {
+      "id": "ep1_maya_notes",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{maya} She sits at a wooden kitchen table writing intensely in her small navy notebook, pencil behind one ear, a cup of tea steaming beside her, a corkboard and a small plant behind. Lighting: dusk window, long window-frame shadows across the table."
+    },
+    {
+      "id": "ep1_maya_board",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{maya} She stands at her case board pinning a blank card: blank papers and blank photographs connected with terracotta string, a small map, sticky notes — everything on the board completely blank. Seen from a slight angle, her face in determined profile. Lighting: lamp cone on the board, cool dusk around it."
+    },
+    {
+      "id": "ep1_note_prop",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Close-up of a torn piece of blank paper in two halves on warm wooden floorboards, a roll of clear tape beside it, {maya} hands reaching to fit the halves together. Lighting: door shaft falling exactly on the paper."
+    },
+    {
+      "id": "ep1_sticky_notes",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "View under a bed frame: colourful blank sticky notes stuck to the slats and scattered on the floorboards among soft dust, a phone torch beam lighting them from the side, {maya} hand reaching in. Lighting: torch noir, deep shadow around the beam."
+    },
+    {
+      "id": "ep1_voicemail",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "An old-fashioned landline telephone on a small wooden hall table, its red message light glowing, a mirror and coat hooks behind, {maya} hand hovering over the play button. Lighting: dusk window from the side, the red glow reflecting warm."
+    },
+    {
+      "id": "ep1_boehm_door",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{boehm} He fills the open flat door, mid-complaint, one finger raised, key ring glinting. {maya} at the edge of the frame listens with a polite panicked smile. Hallway with patterned wallpaper behind him. Lighting: lamp cone from the hallway ceiling lamp."
+    },
+    {
+      "id": "ep1_number_note",
+      "aspect": "1:1",
+      "ship": true,
+      "prompt": "An open desk drawer: a small blank card and a smartphone showing an abstract voice-memo waveform, pens and paper clips around, {maya} hand lifting the card. Lighting: door shaft across the drawer."
+    },
+    {
+      "id": "ep1_dialpad",
+      "aspect": "1:1",
+      "ship": true,
+      "prompt": "Close-up of {maya} hand dialling an old telephone keypad, the other hand holding the receiver, her navy notebook open beside the phone with blank pages. Lighting: lamp cone, warm key light on the hands, cool shadow around."
+    },
+    {
+      "id": "ep1_maya_phone",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{maya} She stands in the WG hallway at night pressing the landline receiver to her ear, eyes wide, free hand gripping her curls, the coiled cable stretched. Lighting: torch noir softened — one warm wall lamp, long shadow behind her."
+    },
+    {
+      "id": "ep1_pension_lobby",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{pension} No people, the telephone slightly off its cradle as if just answered. Lighting: lamp cone, warm pools on the desk, cool evening blue in the window."
+    },
+    {
+      "id": "ep1_steckbrief",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A blank membership form lying on a bed cover next to a fountain pen and three blank sticky notes, one corner of the form torn away. {maya} hands smoothing the paper. Lighting: dusk window."
+    },
+    {
+      "id": "ep1_chat",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{maya} She sits cross-legged on the floor in the dark, face lit by her phone screen showing blank chat bubbles, the empty room around her in deep blue shadow. Lighting: torch noir, the phone as the only light source."
+    },
+    {
+      "id": "ep1_pension_door",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A warm guesthouse corridor with a worn red runner carpet and several dark wooden doors with blank brass plates, {maya} seen from behind walking toward the furthest door, hand raised to knock. Lighting: lamp cone from wall lamps, long shadows down the corridor."
+    },
+    {
+      "id": "ep1_lena_door",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{lena} She holds a guesthouse room door half open, looking out calmly, giving nothing away. Warm golden light spills from the room behind her into the cooler corridor where {maya} stands at the edge of the frame. Lighting: door shaft, reversed — the warmth comes from inside the room."
+    },
+    {
+      "id": "ep1_reveal",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{jonas} He stands in the fully open guesthouse room doorway holding a paint roller, dust in his hair, surprised and sheepish, dropcloths and a ladder behind him. {lena} beside him laughing warmly. Warm light floods from the room. Lighting: door shaft reversed, celebratory warm."
     }
   ]
 }

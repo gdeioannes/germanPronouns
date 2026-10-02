@@ -40,6 +40,7 @@
 		type DeckCard,
 		type DeckPace
 	} from '$lib/domain/deck';
+	import { isStoryCard, storyCardHref, storyDeckCard } from '$lib/domain/stories';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
 	import { untrack, type Snippet } from 'svelte';
@@ -153,6 +154,10 @@
 			void storage.set(SKIPPED_KEY, '[]');
 			deck = buildDeck(course.quizzes, known, { level, pace, size, exclude });
 		}
+		// The level's story episode joins the hand near the top: a treat, not
+		// a quota, and gone once played (or swiped away like any card).
+		const story = storyDeckCard(course.id, deckLevel(course.quizzes, known, level), new Set(skipped));
+		if (story) deck = [...deck.slice(0, Math.min(2, deck.length)), story, ...deck.slice(Math.min(2, deck.length))];
 		if (resume) deck = [resume, ...deck];
 		handSize = deck.length;
 		dealt++;
@@ -206,7 +211,7 @@
 	const decided = $derived(Math.abs(dx) >= threshold);
 
 	function href(card: DeckCard) {
-		return `/course/${course.id}/quiz/${card.quiz.id}`;
+		return storyCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
 
 	function onDown(event: PointerEvent) {
@@ -436,7 +441,7 @@
 
 						<p class="meta">
 							<span class="chip">{card.quiz.level}</span>
-							<span class="chip">{typeLabel(card.quiz.type)}</span>
+							<span class="chip">{isStoryCard(card) ? 'interactive mystery' : typeLabel(card.quiz.type)}</span>
 							{#if ribbon}<RibbonBadge tier={ribbon} width={14} />{/if}
 						</p>
 					</div>
@@ -1174,6 +1179,97 @@
 		.ctl {
 			width: 3.1rem;
 			height: 3.1rem;
+		}
+	}
+	/* ---- the story card: the one card in the hand that is an EVENT -------
+	   A night card: ink-navy, a breathing golden glow, and a slow torch beam
+	   sweeping the scene — the episode's own flashlight. All motion is
+	   switched off for calm effects and reduced motion. */
+	.card[data-kind='story'] {
+		background: linear-gradient(170deg, #24415f 0%, var(--navy) 55%, #16293f 100%);
+		border-color: var(--ochre);
+		animation: story-glow 3.2s ease-in-out infinite;
+	}
+	@keyframes story-glow {
+		0%,
+		100% {
+			box-shadow:
+				0 10px 28px rgb(0 0 0 / 0.28),
+				0 0 0 1px rgb(217 164 65 / 0.55),
+				0 0 18px rgb(217 164 65 / 0.3);
+		}
+		50% {
+			box-shadow:
+				0 10px 28px rgb(0 0 0 / 0.28),
+				0 0 0 1px rgb(217 164 65 / 0.9),
+				0 0 34px rgb(217 164 65 / 0.55);
+		}
+	}
+	/* The torch beam: a soft diagonal bar of warm light crossing the scene. */
+	.card[data-kind='story'] .art-band::before {
+		content: '';
+		position: absolute;
+		inset: -20%;
+		background: linear-gradient(
+			105deg,
+			transparent 38%,
+			rgb(255 232 170 / 0.5) 48%,
+			rgb(255 244 210 / 0.75) 50%,
+			rgb(255 232 170 / 0.5) 52%,
+			transparent 62%
+		);
+		mix-blend-mode: soft-light;
+		transform: translateX(-70%);
+		animation: story-torch 5.5s ease-in-out infinite;
+		pointer-events: none;
+		z-index: 1;
+	}
+	@keyframes story-torch {
+		0%,
+		12% {
+			transform: translateX(-70%);
+		}
+		55%,
+		68% {
+			transform: translateX(70%);
+		}
+		100% {
+			transform: translateX(-70%);
+		}
+	}
+	/* Night typography: warm light on dark paper. */
+	.card[data-kind='story'] .kind-label {
+		color: var(--ochre);
+		letter-spacing: 0.1em;
+	}
+	.card[data-kind='story'] .kind-label::before {
+		content: '✦ ';
+	}
+	.card[data-kind='story'] .kind-row .left,
+	.card[data-kind='story'] .reason {
+		color: #c6d2e0;
+	}
+	.card[data-kind='story'] .title {
+		color: #fbf8f3;
+	}
+	.card[data-kind='story'] .meta .chip {
+		color: #fbf8f3;
+		border-color: rgb(251 248 243 / 0.35);
+		background: rgb(251 248 243 / 0.08);
+	}
+	.card[data-kind='story'] .stamp.yes {
+		color: var(--ochre);
+		border-color: var(--ochre);
+	}
+	/* Calm effects / reduced motion: the night card stays, the motion goes. */
+	:global(html[data-effects='calm']) .card[data-kind='story'],
+	:global(html[data-effects='calm']) .card[data-kind='story'] .art-band::before {
+		animation: none;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card[data-kind='story'],
+		.card[data-kind='story'] .art-band::before {
+			animation: none;
 		}
 	}
 </style>

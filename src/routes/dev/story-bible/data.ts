@@ -77,9 +77,9 @@ export const cast: Character[] = [
 		group: 'Recurring cast',
 		accent: '#d9a441',
 		accentSoft: '#f6ecd4',
-		lang: 'English (en-GB)',
+		lang: 'English (en-US)',
 		tagline: 'The investigator. Every module is an episode of her podcast.',
-		bio: 'Mid-twenties British-American true-crime podcaster. Fluent English, almost no German — permanently at the learner’s level, so every German word she decodes, the learner decodes with her. Dry humour, over-dramatic, obsessive note-taker. The learner is her remote assistant.',
+		bio: 'Mid-twenties American true-crime podcaster. Fluent English, almost no German — permanently at the learner’s level, so every German word she decodes, the learner decodes with her. Dry humour, over-dramatic, obsessive note-taker. The learner is her remote assistant.',
 		dress:
 			'Mustard corduroy jacket (always), cream-and-navy striped shirt, dark trousers, white sneakers, sage canvas messenger bag worn across the body. Round amber glasses, shoulder-length dark brown curls, pencil behind one ear. Props: navy notebook, phone, case board. Never a magnifying glass — she’s a podcaster, not a cop.',
 		speech:
@@ -91,14 +91,8 @@ export const cast: Character[] = [
 			{ when: 'German is spoken at her', what: 'Panic-polite. Repeats the two words she caught, mispronounced, then turns to the learner.' },
 			{ when: 'Credibility is lost', what: 'Deflates theatrically, then rallies. “Okay. New plan. There’s always a new plan.”' }
 		],
-		voiceNote: 'Re-casting for more excitement — five candidates on the same punchy line, A is the current voice. Pick one.',
-		voices: [
-			{ id: 'maya2_leda', label: 'A — current (Leda)' },
-			{ id: 'maya2_autonoe', label: 'B (Autonoe)' },
-			{ id: 'maya2_laomedeia', label: 'C (Laomedeia)' },
-			{ id: 'maya2_despina', label: 'D (Despina)' },
-			{ id: 'maya2_erinome', label: 'E (Erinome)' }
-		],
+		voiceNote: 'Chirp 3 HD Achernar (en-US): young, bright, a little dramatic. Cast 2026-10-02 after four audition rounds.',
+		voices: [{ id: 'maya_achernar', label: 'Reference clip' }],
 		portrait: 'maya_canon_portrait',
 		gallery: [
 			{ id: 'maya_ref_neutral', label: 'Neutral' },

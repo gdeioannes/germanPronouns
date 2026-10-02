@@ -8,6 +8,7 @@
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SwipeDeck from '$lib/components/SwipeDeck.svelte';
+	import { STORY_EPISODES } from '$lib/domain/stories';
 	import ProgressPanel from '$lib/components/ProgressPanel.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -197,6 +198,19 @@
 				</header>
 
 				<ul class="quizzes">
+					<!-- The level's story episode leads its section: it plays the
+					     level's material as one mystery. -->
+					{#each STORY_EPISODES.filter((e) => e.courseId === course.id && e.level === level.level) as e (e.id)}
+						<li class="story-item">
+							<a class="story-row" href={e.href}>
+								<img src="/img/{e.image}.webp" alt="" loading="lazy" />
+								<span class="story-text">
+									<strong>🕵️ {e.title}</strong>
+									<span>Interactive mystery — {e.tagline}</span>
+								</span>
+							</a>
+						</li>
+					{/each}
 					{#each level.quizzes as quiz (quiz.id)}
 						{@const ribbon = progress.loaded
 							? progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
@@ -221,6 +235,39 @@
 </div>
 
 <style>
+	.story-item {
+		list-style: none;
+	}
+	.story-row {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		background: var(--accent-soft);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-sm);
+		padding: 0.6rem 0.9rem;
+		margin-bottom: 0.75rem;
+		text-decoration: none;
+		color: inherit;
+	}
+	.story-row img {
+		width: 4.5rem;
+		border-radius: 8px;
+		display: block;
+	}
+	.story-row .story-text {
+		display: grid;
+		gap: 0.1rem;
+		font-size: var(--step--1);
+	}
+	.story-row strong {
+		color: var(--heading);
+		font-size: var(--step-0);
+	}
+	.story-row:hover {
+		border-color: var(--accent);
+	}
+
 	.shell {
 		display: flex;
 		flex-direction: column;

@@ -16,7 +16,9 @@
 		"images": "node tool/gen-images.mjs",
 		"voices": "node tool/gen-voice-refs.mjs",
 		"audio": "node tool/gen-audio.mjs",
-		"workbooks": "node tool/gen-workbooks.mjs"
+		"workbooks": "node tool/gen-workbooks.mjs",
+		"story-audio": "node tool/gen-story-audio.mjs",
+		"story-sfx": "node tool/gen-story-sfx.mjs"
 	},
 	"devDependencies": {
 		"@breezystack/lamejs": "^1.2.7",

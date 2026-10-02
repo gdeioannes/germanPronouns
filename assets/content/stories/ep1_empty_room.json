@@ -1,0 +1,977 @@
+{
+  "id": "ep1_empty_room",
+  "course": "de_cert_a1",
+  "level": "a1_1",
+  "half": 1,
+  "title": "The Empty Room",
+  "tagline": "Maya's flatmate vanished overnight. Help her find him.",
+  "minutesFloor": 8,
+  "credibility": 3,
+  "cast": [
+    "maya",
+    "jonas",
+    "lena",
+    "boehm"
+  ],
+  "pools": {
+    "phoneNumber": [
+      "0 3 0 5 5 1 2 8",
+      "0 3 0 7 6 3 1 9",
+      "0 3 0 2 9 8 4 6"
+    ],
+    "roomNumber": [
+      "zwölf",
+      "sieben",
+      "fünfzehn"
+    ],
+    "roomNumberDigits": [
+      "12",
+      "7",
+      "15"
+    ],
+    "lenaCity": [
+      "Hamburg",
+      "Leipzig",
+      "Dresden"
+    ],
+    "jonasAge": [
+      "dreißig",
+      "neunundzwanzig",
+      "einunddreißig"
+    ],
+    "jonasAgeDigits": [
+      "30",
+      "29",
+      "31"
+    ]
+  },
+  "chapters": [
+    {
+      "id": "ch0_intro",
+      "title": "Cold Open",
+      "beats": [
+        {
+          "id": "i1",
+          "type": "narrative",
+          "audio": "story/ep1_podcast_intro",
+          "image": "story/ep1_maya_mic",
+          "text": "— and THAT's why you never trust a quiet flatmate. You're listening to Kiez Krimi, the podcast where I, Maya Ellison, investigate Berlin's weirdest little mysteries. Usually they're someone else's. Today... today it's mine."
+        },
+        {
+          "id": "i2",
+          "type": "narrative",
+          "image": "story/ep1_room_wide",
+          "text": "This is Jonas's room. Was. Last night he was here — I heard him moving stuff around, I thought he was doing yoga or hiding a body, normal flatmate noises. This morning? Empty bed frame. Empty wardrobe. No Jonas. The only thing he left is half a note. In German. And my German, dear listener, ends at 'Kartoffel'."
+        },
+        {
+          "id": "i3",
+          "type": "narrative",
+          "image": "story/ep1_maya_notes",
+          "text": "Which is where YOU come in, partner. You've got the one thing I don't: patience with German grammar. I'll do the dramatic narration and the door-knocking. You do the decoding and the remembering. Deal? Deal. Notebook open. Episode one: The Empty Room."
+        },
+        {
+          "id": "i4",
+          "type": "quiz",
+          "kind": "banter",
+          "critical": false,
+          "image": "story/ep1_maya_notes",
+          "question": "Maya looks straight at you. “So. Hilfst du mir?” — will you help?",
+          "options": [
+            {
+              "text": "Ja, klar!",
+              "correct": true,
+              "reply": "“KLAR she says! Partner, I could hug you. Okay — notebook out, episode one, let’s GO.”"
+            },
+            {
+              "text": "Nein.",
+              "correct": false,
+              "reply": "“...Nein? NEIN?! You don’t mean that. The door was locked, you’re already in the episode. Try again.”"
+            },
+            {
+              "text": "Ich habe keine Zeit.",
+              "correct": false,
+              "reply": "“No TIME? Jonas is MISSING and my podcast has nine listeners. Make time. Try again.”"
+            },
+            {
+              "text": "Ich verstehe nicht.",
+              "correct": false,
+              "reply": "“Oh — ‘I don’t understand’. Fair. It means: will you help me? And the only right answer starts with J.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch1_note",
+      "title": "Der Zettel",
+      "studyLinks": [
+        "quest_a1_1_sein_haben",
+        "quest_a1_1_pronomen"
+      ],
+      "beats": [
+        {
+          "id": "n1",
+          "type": "narrative",
+          "image": "story/ep1_note_prop",
+          "text": "Exhibit A. Half a note, torn right through the interesting parts. The man owns THREE staplers and he tears paper by hand. Okay — the missing pieces are on the floor somewhere. Help me tape this thing back together."
+        },
+        {
+          "id": "n1b",
+          "type": "quiz",
+          "kind": "banter",
+          "critical": false,
+          "image": "story/ep1_note_prop",
+          "question": "“Okay, taping torn evidence back together. Bist du bereit?” — ready?",
+          "options": [
+            {
+              "text": "Ja, ich bin bereit!",
+              "correct": true,
+              "reply": "“BEREIT! Listen to you. Born detective. Hands steady — this note is all we have.”"
+            },
+            {
+              "text": "Nein, Moment!",
+              "correct": false,
+              "reply": "“A moment? Jonas doesn’t HAVE a moment. Deep breath — okay. NOW are you ready?"
+            },
+            {
+              "text": "Was ist das?",
+              "correct": false,
+              "reply": "“‘What is that?’ — THAT is evidence, partner. Torn evidence. Which is why I need you ready.”"
+            },
+            {
+              "text": "Ich bin müde.",
+              "correct": false,
+              "reply": "“Tired?! It’s the first chapter! Coffee’s in the kitchen — grab some and say the J-word.”"
+            }
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "clue",
+          "title": "Jonas labels everything",
+          "image": "story/ep1_sticky_notes",
+          "intro": "Under the bed: sticky notes. Jonas was teaching himself English and labelled his own sentences. Dear sweet nerd. Into the notebook they go — these are gold.",
+          "entries": [
+            {
+              "de": "ich bin",
+              "en": "I am"
+            },
+            {
+              "de": "ich habe",
+              "en": "I have"
+            },
+            {
+              "de": "sie ist",
+              "en": "she is"
+            },
+            {
+              "de": "es ist",
+              "en": "it is"
+            }
+          ]
+        },
+        {
+          "id": "n3",
+          "type": "quiz",
+          "kind": "inlineCloze",
+          "critical": false,
+          "image": "story/ep1_note_prop",
+          "prompt": "Tape the note together — drop each found scrap where it belongs.",
+          "quiz": {
+            "passage": "Hallo Maya! Ich {1} jetzt in {pool:lenaCity}. Ich {2} ein Problem. Es {3} kompliziert. Sie {4} nicht böse. Bitte warte auf mich. — Jonas",
+            "blanks": [
+              {
+                "n": 1,
+                "options": [
+                  "bin",
+                  "bist",
+                  "hat"
+                ],
+                "answer": "bin"
+              },
+              {
+                "n": 2,
+                "options": [
+                  "habe",
+                  "bin",
+                  "hat"
+                ],
+                "answer": "habe"
+              },
+              {
+                "n": 3,
+                "options": [
+                  "ist",
+                  "bin",
+                  "habe"
+                ],
+                "answer": "ist"
+              },
+              {
+                "n": 4,
+                "options": [
+                  "ist",
+                  "bin",
+                  "bist"
+                ],
+                "answer": "ist"
+              }
+            ]
+          }
+        },
+        {
+          "id": "n4",
+          "type": "quiz",
+          "kind": "select",
+          "critical": false,
+          "image": "story/ep1_maya_board",
+          "question": "Case board time. The note, decoded — what goes up as FACT?",
+          "options": [
+            {
+              "text": "Jonas is in {pool:lenaCity}, he has a problem, and there's a 'sie' — a she.",
+              "correct": true
+            },
+            {
+              "text": "Jonas is angry and never coming back.",
+              "correct": false
+            },
+            {
+              "text": "Jonas has been arrested in {pool:lenaCity}.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5",
+          "type": "narrative",
+          "image": "story/ep1_maya_board",
+          "text": "'Sie ist nicht böse.' SHE is not angry. Jonas, my friend, you tore the note but you left the pronoun. There's a woman in this story, and I'm going to find out who — right after I stop feeling weird about going through your stuff."
+        }
+      ]
+    },
+    {
+      "id": "ch2_voicemail",
+      "title": "Die Stimme",
+      "studyLinks": [
+        "quest_a1_1_hoeren_vorstellung"
+      ],
+      "beats": [
+        {
+          "id": "v1",
+          "type": "narrative",
+          "image": "story/ep1_voicemail",
+          "text": "The WG phone — yes, we have a landline, it came with the flat, it's basically furniture — is blinking. One new message, from last night, 23:40. Partner, ears on. I'll play it as often as you need, but the notebook only gets FACTS."
+        },
+        {
+          "id": "v1b",
+          "type": "quiz",
+          "kind": "banter",
+          "critical": false,
+          "image": "story/ep1_voicemail",
+          "question": "“One new message. My finger is ON the button. Soll ich sie abspielen?” — play it?",
+          "options": [
+            {
+              "text": "Ja, bitte!",
+              "correct": true,
+              "reply": "“Bitte, even — POLITE and correct. Okay. Playing it. Don’t breathe too loud.”"
+            },
+            {
+              "text": "Nein, stopp!",
+              "correct": false,
+              "reply": "“Stop?! We NEED this message. It might literally say where Jonas is. Again—?”"
+            },
+            {
+              "text": "Ich höre Musik.",
+              "correct": false,
+              "reply": "“You’re listening to MUSIC? Headphones off, detective ears ON. Shall I play it?”"
+            },
+            {
+              "text": "Das Telefon ist alt.",
+              "correct": false,
+              "reply": "“Yes, the phone is old, it came with the FLAT. Focus! Do I press the button or not?”"
+            }
+          ]
+        },
+        {
+          "id": "v2",
+          "type": "quiz",
+          "kind": "listening",
+          "critical": false,
+          "image": "story/ep1_voicemail",
+          "audio": "story/ep1_voicemail_{pool:lenaCity}",
+          "transcript": "Hallo, hier ist Lena. Ich komme aus {pool:lenaCity}. Jonas, wo bist du? Bitte ruf mich an.",
+          "questions": [
+            {
+              "question": "Pin it to the board — who called?",
+              "options": [
+                {
+                  "text": "Lena, from {pool:lenaCity} — she's looking for Jonas too.",
+                  "correct": true
+                },
+                {
+                  "text": "Jonas, saying goodbye.",
+                  "correct": false
+                },
+                {
+                  "text": "A wrong number from Austria.",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "question": "And what does she want? ('Bitte ruf mich an' — your call, detective.)",
+              "options": [
+                {
+                  "text": "She wants Jonas to call her back.",
+                  "correct": true
+                },
+                {
+                  "text": "She wants money.",
+                  "correct": false
+                },
+                {
+                  "text": "She's cancelling a meeting.",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "v3",
+          "type": "narrative",
+          "image": "story/ep1_boehm_door",
+          "audio": "story/ep1_boehm_complaint",
+          "transcript": "Frau Ellison! Die Musik gestern Nacht! Und die Frau — die Frau war laut. SEHR laut.",
+          "text": "Someone's hammering on the door and it is, of course, Herr Böhm, the Hausmeister, who has never once been happy to see me. He fires off German like I owe him rent. Catch what you can — this could be evidence or it could be about the bins again."
+        },
+        {
+          "id": "v4",
+          "type": "quiz",
+          "kind": "select",
+          "critical": false,
+          "image": "story/ep1_boehm_door",
+          "question": "'Die Frau war laut. SEHR laut.' — what is Böhm actually telling us?",
+          "options": [
+            {
+              "text": "A woman was here last night — and she was LOUD.",
+              "correct": true
+            },
+            {
+              "text": "The music was his.",
+              "correct": false
+            },
+            {
+              "text": "Maya has to take the bins out.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "v5",
+          "type": "clue",
+          "title": "Böhm's grumble, translated",
+          "entries": [
+            {
+              "de": "die Frau",
+              "en": "the woman"
+            },
+            {
+              "de": "gestern Nacht",
+              "en": "last night"
+            },
+            {
+              "de": "laut",
+              "en": "loud"
+            }
+          ],
+          "intro": "So Lena wasn't just on the phone — she was HERE. Last night. Loudly. The plot, as we professionals say, thickens.",
+          "image": "story/ep1_boehm_door"
+        },
+        {
+          "id": "v6",
+          "type": "narrative",
+          "image": "story/ep1_maya_board",
+          "text": "Case board, middle of act one: Jonas gone, a note that says {pool:lenaCity}, a loud mystery woman named Lena, and a Hausmeister who saw everything and explains nothing. Three leads, partner. Desk drawer. The thing under his bed. The group chat. You pick where we dig first."
+        }
+      ]
+    },
+    {
+      "id": "ch3_phone",
+      "title": "Der Anruf",
+      "clue": "A",
+      "studyLinks": [
+        "quest_a1_1_zahlen",
+        "quest_a1_1_zahlen2",
+        "quest_a1_1_wfragen"
+      ],
+      "beats": [
+        {
+          "id": "p1",
+          "type": "narrative",
+          "image": "story/ep1_number_note",
+          "text": "Desk drawer: a card that says 'Pension Sonnenschein — ruf an!' and a phone number so smudged it's basically abstract art. BUT. Jonas records voice memos like other people breathe, and his last one is him muttering a number to himself. Play it, catch the digits, and dial. German numbers wait for no one."
+        },
+        {
+          "id": "p2",
+          "type": "quiz",
+          "kind": "orderedPick",
+          "layout": "keypad",
+          "critical": true,
+          "image": "story/ep1_dialpad",
+          "audio": "story/ep1_number_{pool:phoneNumber}",
+          "prompt": "Dial what you hear. Wrong number = busy tone = Maya dies of awkwardness.",
+          "sequence": "{pool:phoneNumber}",
+          "retry": "replayAudio",
+          "transcript": "Also... Pension Sonnenschein. Die Nummer ist {pool:phoneNumber}."
+        },
+        {
+          "id": "p3",
+          "type": "narrative",
+          "image": "story/ep1_maya_phone",
+          "text": "It's ringing. It's ringing and I have NO plan. A woman answers — Pension Sonnenschein, very chirpy — and then she says his name. Listen close, partner. And whatever number she says: REMEMBER IT. I'm holding a phone and a flashlight, I can't hold a pen too."
+        },
+        {
+          "id": "p4",
+          "type": "quiz",
+          "kind": "listening",
+          "critical": false,
+          "image": "story/ep1_pension_lobby",
+          "audio": "story/ep1_pension_{pool:roomNumber}",
+          "transcript": "Pension Sonnenschein, guten Tag! ... Jonas? Ja, er ist hier. Er hat Zimmer {pool:roomNumber}. ... Hallo? Wer ist da, bitte?",
+          "questions": [
+            {
+              "question": "She said a lot. What's the headline for the case board?",
+              "options": [
+                {
+                  "text": "Jonas is AT the Pension — she said his room number out loud.",
+                  "correct": true
+                },
+                {
+                  "text": "Jonas checked out yesterday.",
+                  "correct": false
+                },
+                {
+                  "text": "She's never heard of Jonas.",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "narrative",
+          "text": "'Wer ist da, bitte?' — she's asking who I am and my entire German vocabulary has left the building. Partner, build my sentences. Word by word. From the sticky notes if you have to.",
+          "image": "story/ep1_maya_phone"
+        },
+        {
+          "id": "p6",
+          "type": "quiz",
+          "kind": "orderedPick",
+          "layout": "bubbles",
+          "critical": true,
+          "prompt": "Introduce her: 'My name is Maya.'",
+          "sequence": [
+            "Ich",
+            "heiße",
+            "Maya"
+          ],
+          "options": [
+            "Ich",
+            "heiße",
+            "Maya",
+            "bin",
+            "du"
+          ],
+          "image": "story/ep1_maya_phone"
+        },
+        {
+          "id": "p7",
+          "type": "quiz",
+          "kind": "orderedPick",
+          "layout": "bubbles",
+          "critical": true,
+          "prompt": "Now the question that matters: 'Where is Jonas?'",
+          "sequence": [
+            "Wo",
+            "ist",
+            "Jonas"
+          ],
+          "options": [
+            "Wo",
+            "ist",
+            "Jonas",
+            "Wer",
+            "bist"
+          ],
+          "image": "story/ep1_maya_phone"
+        },
+        {
+          "id": "p8",
+          "type": "narrative",
+          "image": "story/ep1_maya_phone",
+          "text": "...and she just says 'Er ist hier' again, cheerful as a Sunday, like my missing flatmate being in a guesthouse across town is completely normal. Pension Sonnenschein. Got the room number safe in your head? Good. Because I already forgot it. CLUE SECURED."
+        }
+      ]
+    },
+    {
+      "id": "ch4_steckbrief",
+      "title": "Der Steckbrief",
+      "clue": "B",
+      "studyLinks": [
+        "quest_a1_1_artikel",
+        "quest_a1_1_lesen_dasbinich"
+      ],
+      "beats": [
+        {
+          "id": "s1",
+          "type": "narrative",
+          "image": "story/ep1_steckbrief",
+          "text": "The thing under his bed, besides sticky notes: a membership form for some club, half filled in, abandoned like everything else in this room. A form is just an interview the suspect gives voluntarily. The ink's smeared — reconstruct it, and let's meet the real Jonas."
+        },
+        {
+          "id": "s2",
+          "type": "clue",
+          "title": "Form words, decoded",
+          "entries": [
+            {
+              "de": "Jahre alt",
+              "en": "years old"
+            },
+            {
+              "de": "ich wohne",
+              "en": "I live"
+            },
+            {
+              "de": "Geschwister",
+              "en": "siblings"
+            },
+            {
+              "de": "Lieblingstag",
+              "en": "favourite day"
+            }
+          ],
+          "intro": "Jonas's sticky notes strike again — half these form words have translations stuck right next to them. It's like he knew we'd come looking. ...Wait. Did he know?",
+          "image": "story/ep1_sticky_notes"
+        },
+        {
+          "id": "s3",
+          "type": "quiz",
+          "kind": "bigText",
+          "critical": false,
+          "image": "story/ep1_steckbrief",
+          "prompt": "Restore the smeared words.",
+          "passage": "MITGLIEDSKARTE\n{1} heiße Jonas Weber. Ich bin {pool:jonasAge} Jahre alt. Ich {2} aus Berlin. Ich wohne in {3} WG. Meine Hobbys: {4} Gitarre und {5} Bücher. Ich habe zwei {6}: Anna und Paul. Mein Lieblingstag {7} der Samstag.",
+          "blanks": [
+            {
+              "n": 1,
+              "options": [
+                "Ich",
+                "Du",
+                "Er"
+              ],
+              "answer": "Ich"
+            },
+            {
+              "n": 2,
+              "options": [
+                "komme",
+                "wohne",
+                "heiße"
+              ],
+              "answer": "komme"
+            },
+            {
+              "n": 3,
+              "options": [
+                "einer",
+                "ein",
+                "einem"
+              ],
+              "answer": "einer"
+            },
+            {
+              "n": 4,
+              "options": [
+                "die",
+                "der",
+                "das"
+              ],
+              "answer": "die"
+            },
+            {
+              "n": 5,
+              "options": [
+                "die",
+                "das",
+                "der"
+              ],
+              "answer": "die"
+            },
+            {
+              "n": 6,
+              "options": [
+                "Geschwister",
+                "Freunde",
+                "Probleme"
+              ],
+              "answer": "Geschwister"
+            },
+            {
+              "n": 7,
+              "options": [
+                "ist",
+                "bin",
+                "sind"
+              ],
+              "answer": "ist"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "type": "quiz",
+          "kind": "select",
+          "critical": false,
+          "image": "story/ep1_maya_board",
+          "question": "Profile complete. What goes on the board about our missing man?",
+          "options": [
+            {
+              "text": "{pool:jonasAgeDigits}, from Berlin, plays guitar, reads, two siblings — Anna and Paul. A man with a favourite day.",
+              "correct": true
+            },
+            {
+              "text": "A loner with no family and no hobbies.",
+              "correct": false
+            },
+            {
+              "text": "A tourist who just moved to Berlin.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "type": "narrative",
+          "image": "story/ep1_maya_board",
+          "text": "A man whose favourite day is SATURDAY does not vanish on a Thursday without a reason. And a club membership he never finished... what club? The form's torn exactly where the club name was. Of course it is. CLUE SECURED — and one more question for the board."
+        }
+      ]
+    },
+    {
+      "id": "ch5_chat",
+      "title": "Der Chat",
+      "clue": "C",
+      "studyLinks": [
+        "quest_a1_1_wfragen",
+        "quest_a1_1_sprechen_vorstellung"
+      ],
+      "beats": [
+        {
+          "id": "c1",
+          "type": "narrative",
+          "image": "story/ep1_chat",
+          "text": "Our WG group chat, last night. My ancient phone synced it in the wrong order, because technology joins the conspiracy whenever it can. Six messages. Put the conversation back in order — German conversations have rules: a greeting opens, a question gets its answer, a Tschüss closes. Use that."
+        },
+        {
+          "id": "c2",
+          "type": "quiz",
+          "kind": "orderedPick",
+          "layout": "tiles",
+          "critical": true,
+          "prompt": "Rebuild last night's conversation.",
+          "sequence": [
+            "Hallo Jonas! Wie geht es dir?",
+            "Nicht so gut. Ich habe ein Problem.",
+            "Oh nein! Was ist los?",
+            "Ich kann es nicht sagen. Es ist kompliziert.",
+            "Wo bist du jetzt?",
+            "Ich bin nicht in Berlin. Tschüss, Maya. Und danke!"
+          ],
+          "image": "story/ep1_chat"
+        },
+        {
+          "id": "c2b",
+          "type": "quiz",
+          "kind": "select",
+          "critical": false,
+          "image": "story/ep1_chat",
+          "question": "One line matters most. When Jonas said he had a problem, what did I ask him? (It's right there in the chat you just rebuilt.)",
+          "options": [
+            {
+              "text": "Was ist los? — What's wrong?",
+              "correct": true
+            },
+            {
+              "text": "Wo wohnst du? — Where do you live?",
+              "correct": false
+            },
+            {
+              "text": "Wie heißt du? — What's your name?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "c3",
+          "type": "quiz",
+          "kind": "select",
+          "critical": false,
+          "image": "story/ep1_maya_board",
+          "question": "Read it again. 'Ich bin nicht in Berlin', he wrote — at 23:50. But the Pension receptionist said 'Er ist hier.' The Pension is in Berlin. So?",
+          "options": [
+            {
+              "text": "Jonas lied to me. He never left the city.",
+              "correct": true
+            },
+            {
+              "text": "The receptionist lied — he's really in {pool:lenaCity}.",
+              "correct": false
+            },
+            {
+              "text": "He wrote it from the airport.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "c4",
+          "type": "narrative",
+          "image": "story/ep1_maya_board",
+          "text": "He LIED to me. In writing. With a thank-you at the end, which is somehow worse. Okay. Deep breath. He's in the city, he's hiding, a loud woman named Lena is involved, and he said DANKE. You don't thank someone you're running from. You thank someone who's... helping? Partner, the board is full. Time to knock on a door."
+        }
+      ]
+    },
+    {
+      "id": "ch6_confrontation",
+      "title": "Zimmer ???",
+      "studyLinks": [
+        "quest_a1_1_sein_haben",
+        "quest_a1_1_sprechen_dialog"
+      ],
+      "beats": [
+        {
+          "id": "f1",
+          "type": "narrative",
+          "image": "story/ep1_pension_door",
+          "text": "Pension Sonnenschein, 19:00. Warm light, a wall of brass keys, a receptionist who definitely recognizes my voice. I walk past like I own the place. Corridor. Doors. And here's the thing, partner — I never wrote that room number down. That was YOUR job. Which door?"
+        },
+        {
+          "id": "f2",
+          "type": "quiz",
+          "kind": "recall",
+          "critical": true,
+          "image": "story/ep1_pension_door",
+          "question": "The receptionist said it once, on the phone. Zimmer...?",
+          "options": [
+            {
+              "text": "{pool:roomNumberDigits}",
+              "correct": true
+            },
+            {
+              "text": "{pool:roomNumberDigits:other1}",
+              "correct": false
+            },
+            {
+              "text": "{pool:roomNumberDigits:other2}",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "f3",
+          "type": "narrative",
+          "image": "story/ep1_lena_door",
+          "audio": "story/ep1_lena_greet",
+          "transcript": "Ja? Wer sind Sie?",
+          "text": "I knock. The door opens and — terracotta coat. Low bun. A face that gives away absolutely nothing. It's HER. Lena. She looks at me like I'm a package she didn't order and asks who I am. Partner: words. Polite ones. She's a stranger — and strangers get 'Sie'."
+        },
+        {
+          "id": "f4",
+          "type": "quiz",
+          "kind": "select",
+          "critical": true,
+          "question": "Open well. Doors close on rude detectives.",
+          "options": [
+            {
+              "text": "Ich heiße Maya. Ich wohne mit Jonas.",
+              "correct": true
+            },
+            {
+              "text": "Du! Wer bist du?!",
+              "correct": false
+            },
+            {
+              "text": "Wo wohnst du?",
+              "correct": false
+            }
+          ],
+          "image": "story/ep1_lena_door"
+        },
+        {
+          "id": "f5",
+          "type": "quiz",
+          "kind": "select",
+          "critical": true,
+          "audio": "story/ep1_lena_frage",
+          "transcript": "Ah, Maya! Jonas sagt, du bist sehr nett. Was machst du hier?",
+          "question": "She KNOWS me — 'Jonas says you're very nice.' And she asks what I'm doing here. Honest and simple, partner:",
+          "options": [
+            {
+              "text": "Ich suche Jonas. Ich habe ein Problem — Jonas ist weg!",
+              "correct": true
+            },
+            {
+              "text": "Ich spiele Gitarre.",
+              "correct": false
+            },
+            {
+              "text": "Ich bin die Polizei.",
+              "correct": false
+            }
+          ],
+          "image": "story/ep1_lena_door"
+        },
+        {
+          "id": "f6",
+          "type": "quiz",
+          "kind": "orderedPick",
+          "layout": "bubbles",
+          "critical": true,
+          "prompt": "She smiles. She's not telling. Ask the only question left: 'Why is Jonas here?'",
+          "sequence": [
+            "Warum",
+            "ist",
+            "Jonas",
+            "hier"
+          ],
+          "options": [
+            "Warum",
+            "ist",
+            "Jonas",
+            "hier",
+            "Wo",
+            "wohnt"
+          ],
+          "image": "story/ep1_lena_door"
+        },
+        {
+          "id": "f7",
+          "type": "narrative",
+          "image": "story/ep1_reveal",
+          "text": "And then the door opens all the way, and there's Jonas — alive, un-kidnapped, holding a PAINT ROLLER. There's dust in his hair and dropcloths behind him and he goes white like I caught him robbing a bank. 'Maya! Du bist... hier?' Yes, Jonas. I'm hier. I'm EXTREMELY hier. Explain."
+        },
+        {
+          "id": "f8",
+          "type": "narrative",
+          "image": "story/ep1_reveal",
+          "text": "And he won't. He grins like an idiot, Lena laughs — a real laugh, first crack in that unreadable face — and says the single most infuriating sentence in the German language: 'Bald, Maya. Bald.' Soon. They're building something behind that door, the two of them, in secret, and 'soon' I get to know. The loud night, the empty room, the lie — all of it for a SURPRISE."
+        },
+        {
+          "id": "f9",
+          "type": "narrative",
+          "image": "story/ep1_maya_board",
+          "audio": "story/ep1_podcast_outro_{pool:roomNumberDigits}",
+          "text": "Case closed and case WIDE open, listeners. Jonas: found. Mystery: upgraded. What's behind the door of Zimmer {pool:roomNumberDigits}? Who is Lena — really? And why does my flatmate trust her with a secret and not me? Rest your German, partner. Episode two is going to need it. This was Kiez Krimi. I'm Maya Ellison. The notebook stays open."
+        }
+      ]
+    }
+  ],
+  "hub": {
+    "afterChapter": "ch2_voicemail",
+    "leads": [
+      "ch3_phone",
+      "ch4_steckbrief",
+      "ch5_chat"
+    ],
+    "requiredClues": [
+      "A",
+      "B",
+      "C"
+    ],
+    "unlocks": "ch6_confrontation"
+  },
+  "microChecks": [
+    {
+      "after": "ch2_voicemail",
+      "kind": "recall",
+      "text": "pop quiz from the kitchen, partner — the caller's city. NO scrolling back. The notebook of your MIND.",
+      "question": "Lena kommt aus...?",
+      "options": [
+        {
+          "text": "{pool:lenaCity}",
+          "correct": true
+        },
+        {
+          "text": "{pool:lenaCity:other1}",
+          "correct": false
+        },
+        {
+          "text": "{pool:lenaCity:other2}",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "after": "ch3_phone",
+      "kind": "recall",
+      "text": "still shaking from that phone call. Quick — before it fades: the Pension's name?",
+      "question": "It was Pension...",
+      "options": [
+        {
+          "text": "Sonnenschein",
+          "correct": true
+        },
+        {
+          "text": "Mondschein",
+          "correct": false
+        },
+        {
+          "text": "Morgenstern",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "after": "ch4_steckbrief",
+      "kind": "recall",
+      "text": "filing the profile. From memory, partner — how old is our guy?",
+      "question": "Jonas ist ___ Jahre alt.",
+      "options": [
+        {
+          "text": "{pool:jonasAgeDigits}",
+          "correct": true
+        },
+        {
+          "text": "{pool:jonasAgeDigits:other1}",
+          "correct": false
+        },
+        {
+          "text": "{pool:jonasAgeDigits:other2}",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "after": "ch5_chat",
+      "kind": "recall",
+      "text": "last check before the big scene. The siblings on the form — their names. You've got this.",
+      "question": "Jonas's siblings are...",
+      "options": [
+        {
+          "text": "Anna and Paul",
+          "correct": true
+        },
+        {
+          "text": "Anna and Peter",
+          "correct": false
+        },
+        {
+          "text": "Lena and Paul",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

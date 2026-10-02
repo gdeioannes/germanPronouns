@@ -85,7 +85,7 @@ amateur detective, natural adult proportions, shoulder-length dark brown
 curls, round amber glasses, mustard corduroy jacket over cream-and-navy
 striped shirt, dark trousers, white sneakers, sage canvas messenger bag.
 
-- **Premise:** British-American true-crime podcaster. Fluent English,
+- **Premise:** American true-crime podcaster. Fluent English,
   almost no German — permanently at the learner's level, so every German
   word she decodes, the learner decodes with her. The learner is her
   remote assistant; every module is an episode of her podcast.
@@ -106,6 +106,32 @@ striped shirt, dark trousers, white sneakers, sage canvas messenger bag.
 - **Reference images:** `maya_ref_neutral`, `maya_ref_clue`,
   `maya_ref_phone`, `maya_ref_notes`, `maya_canon_portrait`,
   `maya_canon_full`, `maya_canon_casefile`.
+
+## Story formula (every episode)
+
+The mystery changes; the formula doesn't — that's the cohesion between
+stories. Rendered at /dev/story-bible/formula.
+
+- **Frame:** every episode is an episode of Maya's podcast; the learner is
+  her assistant, addressed as `{user}`. One mystery per episode, honestly
+  solvable from the German evidence alone at the episode's half-level.
+  Cozy stakes (reputations, secrets, surprises), never danger; failure
+  costs Maya's credibility, not the learner's score.
+- **Skeleton (7 chapters):** intro hook (2 panels + recruit) → two linear
+  evidence chapters → hub of three leads in any order (one heard, one
+  written/filled-in, one to re-order), each granting a clue → finale
+  unlocked by all clues, a live conversation where the learner builds
+  Maya's German → honest resolution + one-question cliffhanger.
+- **Numbers (gate-tested):** ≥8 min error-free; ≥3 questions per evidence
+  chapter; bigText ≥6 blanks; sorts ≥6 items; credibility 3 with 5–8
+  critical beats; every memorizable fact from a pool of ≥3 variants with
+  audio per variant; a Maya micro-text after (nearly) every chapter;
+  torch-noir light at most 2–3 times.
+- **Cohesion:** same cast rules (character checklist before first use),
+  same Berlin world (locations join the scenario catalog and may return),
+  same language contract, same ligne claire look, and each episode plants
+  one continuity hook a later episode pays off (tracked in the episode
+  docs).
 
 ## Mixing English and German
 
@@ -131,7 +157,7 @@ character's signature line, run `npm run voices`, listen on
 `/dev/story-bible`, then mark the winner `chosen: true`. Clips live in
 `src/lib/assets/story/voices/` (dev-only) as the permanent audition trail.
 
-Cast 2026-10-02: Maya = Leda (en-GB) · Jonas = Puck (de-DE) · Lena = Aoede (de-DE) · Böhm = Charon (de-DE). Audition candidates stay recorded as the trail.
+Cast 2026-10-02: Maya = Achernar (en-US) · Jonas = Puck (de-DE) · Lena = Aoede (de-DE) · Böhm = Charon (de-DE). Audition candidates stay recorded as the trail.
 Episode casts keep their auditions in the same tool, grouped by character.
 
 ## Dev reference page

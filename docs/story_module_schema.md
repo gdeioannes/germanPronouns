@@ -85,6 +85,32 @@ Layouts: `keypad` = 0–9 dial pad (sequence is digits), `tiles` = word/sentence
 tiles to order (word order, chat sorting), `bubbles` = dialogue replies
 assembled in order.
 
+**`clue`** — a found vocabulary scrap (Jonas's sticky notes, a decoded
+grumble): German/English pairs that go into Maya's in-game notebook. This is
+how the story teaches — diegetic dictionary entries, never a lesson:
+
+```jsonc
+{ "id": "b5", "type": "clue", "title": "Jonas labels everything",
+  "intro": "Under the bed: sticky notes...",
+  "entries": [ { "de": "ich bin", "en": "I am" } ] }
+```
+
+**`recall`** (quiz kind) — a memory question: the answer was seen or heard
+earlier and may NOT be re-shown (no transcript, no replay). Decoy options
+are the OTHER pool variants via `{pool:name:other1}` / `:other2`, so the
+drawn variant is always among its plausible siblings. Used for the room
+number at the finale door and for Maya's between-chapter micro-texts.
+
+Chapters may carry `studyLinks`: quest ids the learner can optionally open
+to train that chapter's grammar ("want to drill this?") — the story itself
+never quizzes grammar in the abstract; every question is a case action
+(tape the note, pin the fact, dial, remember).
+
+**`banter`** (quiz kind) — a light conversational ask ("Hilfst du mir?"):
+every option carries a `reply` — Maya's in-character reaction. Wrong answers
+get a retort and another try; non-critical, there to keep early narrative
+stretches interactive.
+
 **`choice`** — pure narrative branching (red herrings, hub flavor):
 
 ```jsonc

@@ -50,6 +50,13 @@
 					<span>The ligne claire canon, what each colour is for, and the four-light vocabulary.</span>
 				</span>
 			</a>
+			<a class="nav-card" href="/dev/story-bible/formula">
+				<img src={img('maya_canon_casefile')} alt="Story formula" loading="lazy" />
+				<span class="nav-body">
+					<strong>Story formula</strong>
+					<span>The skeleton, numbers and cohesion rules every episode is built from.</span>
+				</span>
+			</a>
 			<a class="nav-card" href="/dev/story-bible/scenarios">
 				<img src={img('room_ref_wide')} alt="Scenarios" loading="lazy" />
 				<span class="nav-body">
@@ -85,6 +92,33 @@
 					</span>
 				</a>
 			{/each}
+		</div>
+	</section>
+
+	<section>
+		<h2>Episodes</h2>
+		<div class="grid two">
+			<a class="nav-card" href="/dev/story-bible/episode">
+				<img src={img('room_ref_close')} alt="Episode 1 script" loading="lazy" />
+				<span class="nav-body">
+					<span class="nav-group">de_cert_a1 · A1.1 first half</span>
+					<strong>Episode 1 — The Empty Room</strong>
+					<span>The full script: every beat, quiz, pool and clue, readable like a screenplay.</span>
+				</span>
+			</a>
+		</div>
+	</section>
+
+	<section>
+		<h2>Marketing</h2>
+		<div class="grid two">
+			<a class="nav-card" href="/dev/story-bible/instagram">
+				<img src={img('maya_canon_casefile')} alt="Instagram ad" loading="lazy" />
+				<span class="nav-body">
+					<strong>Instagram ad</strong>
+					<span>The three-slide carousel promoting story mode, the idea behind each slide, and the regeneration recipe.</span>
+				</span>
+			</a>
 		</div>
 	</section>
 

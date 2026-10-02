@@ -29,24 +29,10 @@ const OUT_DIR = join(root, 'src', 'lib', 'assets', 'story', 'voices');
  * (en-GB — she's British-American); German speakers use de-DE voices.
  */
 const AUDITIONS = [
-	// — Maya: warm, young, a little dramatic. Candidates:
-	{ character: 'maya', locale: 'en-GB', voice: 'Leda', chosen: true,
-		line: "Okay. His room is EMPTY. Beds don't just... leave. You studied German, right? Because I need you on this case." },
-	{ character: 'maya', locale: 'en-GB', voice: 'Aoede', chosen: false,
-		line: "Okay. His room is EMPTY. Beds don't just... leave. You studied German, right? Because I need you on this case." },
-	{ character: 'maya', locale: 'en-GB', voice: 'Zephyr', chosen: false,
-		line: "Okay. His room is EMPTY. Beds don't just... leave. You studied German, right? Because I need you on this case." },
-
-	// — Maya, round 2 ("more exciting"): livelier candidates, punchier line.
-	{ character: 'maya2', locale: 'en-GB', voice: 'Autonoe', chosen: false,
-		line: "Listeners — HUGE update. The wardrobe is empty, the note is torn, and somebody called Lena just phoned MY flat. This is officially the best worst day of my life. Episode one starts... NOW." },
-	{ character: 'maya2', locale: 'en-GB', voice: 'Laomedeia', chosen: false,
-		line: "Listeners — HUGE update. The wardrobe is empty, the note is torn, and somebody called Lena just phoned MY flat. This is officially the best worst day of my life. Episode one starts... NOW." },
-	{ character: 'maya2', locale: 'en-GB', voice: 'Despina', chosen: false,
-		line: "Listeners — HUGE update. The wardrobe is empty, the note is torn, and somebody called Lena just phoned MY flat. This is officially the best worst day of my life. Episode one starts... NOW." },
-	{ character: 'maya2', locale: 'en-GB', voice: 'Erinome', chosen: false,
-		line: "Listeners — HUGE update. The wardrobe is empty, the note is torn, and somebody called Lena just phoned MY flat. This is officially the best worst day of my life. Episode one starts... NOW." },
-	{ character: 'maya2', locale: 'en-GB', voice: 'Leda', chosen: false,
+	// — Maya: cast 2026-10-02 after four audition rounds (en-GB Leda/Aoede/
+	// Zephyr, livelier en-GB set, en-US set, soft-young en-US set) — the
+	// en-GB voices read too old; Achernar (en-US) won. She is American.
+	{ character: 'maya', locale: 'en-US', voice: 'Achernar', chosen: true,
 		line: "Listeners — HUGE update. The wardrobe is empty, the note is torn, and somebody called Lena just phoned MY flat. This is officially the best worst day of my life. Episode one starts... NOW." },
 
 	// — Jonas: friendly, a little shy, around thirty. German.

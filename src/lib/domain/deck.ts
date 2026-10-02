@@ -31,7 +31,7 @@ import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
 import { recommend, type QuizFacts, type RecommendationKind } from './recommend';
 import { reviewDue, strengths } from './review';
 
-export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue';
+export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story';
 
 export const DECK_KIND_LABELS: Record<DeckKind, string> = {
 	continue: 'Continue',
@@ -39,7 +39,8 @@ export const DECK_KIND_LABELS: Record<DeckKind, string> = {
 	review: 'Review',
 	next: 'Learn next',
 	mix: 'Mix it up',
-	fresh: 'Something new'
+	fresh: 'Something new',
+	story: 'Story time'
 };
 
 export interface DeckCard {

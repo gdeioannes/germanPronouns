@@ -43,8 +43,11 @@ const reshrink = args.includes('--shrink');
 const only = new Set(args.filter((a) => !a.startsWith('--')));
 
 // Story reference images are dev-only (the /dev/story-bible page); they live
-// under src/lib so they never ship in the static build.
+// under src/lib so they never ship in the static build. Episode images that
+// the game itself shows are marked `"ship": true` in the story manifest and
+// land in static/img/story/ like any other served content.
 const OUT_DIR = story ? join(root, 'src', 'lib', 'assets', 'story') : join(root, 'static', 'img');
+const SHIP_DIR = join(root, 'static', 'img', 'story');
 const RAW_DIR = join(root, 'assets', 'images', 'raw', ...(story ? ['story'] : []));
 const SIZE = story ? 1024 : 512;
 
@@ -65,7 +68,8 @@ let made = 0;
 let skipped = 0;
 for (const img of linkOnly ? [] : manifest.images) {
 	if (only.size && !only.has(img.id)) continue;
-	const file = join(OUT_DIR, `${img.id}.webp`);
+	if (img.ship) mkdirSync(SHIP_DIR, { recursive: true });
+	const file = join(img.ship ? SHIP_DIR : OUT_DIR, `${img.id}.webp`);
 	const raw = join(RAW_DIR, `${img.id}.png`);
 	if (existsSync(file) && !force && !(reshrink && existsSync(raw))) {
 		skipped++;
