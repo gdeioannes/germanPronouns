@@ -1,0 +1,92 @@
+{
+  "style": "Detailed ligne claire comic illustration, like a Tintin album page, for a cozy language-learning mystery game: clean medium-weight ink-navy linework, flat colours, natural proportions and simple expressive faces, and a high level of loving detail everywhere — fully furnished environments, patterned wallpaper, parquet floorboards, fabric texture lines such as corduroy ridges, small everyday props. Limited warm palette: ink-navy (#1f3a5f), terracotta (#c9683b), mustard (#d9a441), sage (#7a9a7e), soft blue and cream. Dramatic but readable lighting chosen per scene (default: a warm shaft of light from a door or window cutting into cool blue-grey half-light, dust motes); all detail stays visible in the shadow areas. Characters have bare hands, no gloves. No text, no letters, no numbers anywhere in the image, no watermark.",
+  "blocks": {
+    "maya": "Maya Ellison, a woman in her mid-twenties, podcaster and amateur detective, drawn with natural adult proportions and a realistic head-to-body ratio, a friendly youthful face with gentle features, normal-sized eyes, light delicate linework — never chibi, never a cute big-headed cartoon. Shoulder-length dark brown curly hair, round amber-coloured glasses, mustard-yellow corduroy jacket over a cream-and-navy striped shirt, dark trousers, white sneakers, a sage-green canvas messenger bag worn across the body. Warm medium skin tone, curious and slightly dramatic expression.",
+    "jonas": "Jonas, a man around thirty, tall and lanky, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Short blond hair, round wire glasses, forest-green hoodie over a white t-shirt, blue jeans, brown leather sneakers. Light skin, friendly and a little shy expression.",
+    "lena": "Lena, a woman around thirty, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Straight black hair in a low bun, light olive skin, a terracotta-red wool coat over a cream blouse, a soft blue scarf, dark trousers, small gold earrings, ankle boots. Composed, hard-to-read expression.",
+    "boehm": "Herr Böhm, the building caretaker, a heavyset man in his sixties, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Grey moustache, bushy grey eyebrows, flat tweed cap, navy work overalls over a red-and-grey checked shirt, black work boots, a large ring of keys on his belt. Ruddy light skin, permanently unimpressed expression.",
+    "room": "A Berlin Altbau shared-flat bedroom with a high ceiling, sage-green walls, a tall window and warm wooden floorboards, stripped almost bare: an empty bed frame, an ink-navy wardrobe with one door open and empty hangers, pale rectangles on the wall where posters used to be, a torn piece of paper on the floorboards."
+  },
+  "images": [
+    {
+      "id": "maya_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{maya} She stands full body in a neutral friendly pose, holding a small navy notebook, Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "maya_ref_clue",
+      "aspect": "1:1",
+      "prompt": "{maya} She crouches and points excitedly at something small on the floor in front of her, Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "maya_ref_phone",
+      "aspect": "1:1",
+      "prompt": "{maya} She stands holding her phone to her ear with a shocked wide-eyed expression, her other hand raised, Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "maya_ref_notes",
+      "aspect": "1:1",
+      "prompt": "{maya} She writes intensely in a small navy notebook, hunched forward, pencil behind one ear, Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "maya_canon_portrait",
+      "aspect": "1:1",
+      "prompt": "{maya} Portrait from the waist up: a warm open smile. She holds her small navy notebook against her chest, a pencil behind one ear. Lighting: gentle warm light from one side, cool soft half-light behind her, a hint of patterned wallpaper in the background."
+    },
+    {
+      "id": "maya_canon_full",
+      "aspect": "1:1",
+      "prompt": "{maya} Full body, standing in a relaxed pose in a furnished Berlin Altbau hallway, one hand on the strap of her messenger bag, the other holding her phone, looking slightly off-frame as if listening to something. Lighting: warm light from a half-open door falls across her, the hallway behind in cool half-light with coats on hooks and a key shelf."
+    },
+    {
+      "id": "maya_canon_casefile",
+      "aspect": "16:9",
+      "prompt": "{maya} She stands at a wall covered with a detective case board: pinned blank papers, blank photographs connected with terracotta string, a small map, sticky notes — all papers and photos completely blank with no writing. She pins a blank card to the board, seen from behind at a slight angle, her face in profile, focused. Lighting: a desk lamp throws warm light on the board, the rest of the room in cool dusk half-light."
+    },
+    {
+      "id": "light_ref_doorshaft",
+      "aspect": "1:1",
+      "prompt": "Lighting: a strong shaft of warm light falls through a half-open door into a dim room, cutting a bright diagonal across the floor and the character, hard-edged light and shadow shapes, the rest of the room in cool dim blue-grey half-light, dust motes in the light shaft. {maya} She crouches in a furnished Berlin Altbau hallway, pointing excitedly at a torn piece of blank paper lying exactly in the shaft of light on the patterned wooden floor, coats on wall hooks and a small shelf with keys behind her in the dim cool shadow."
+    },
+    {
+      "id": "light_ref_lampcone",
+      "aspect": "1:1",
+      "prompt": "Lighting: a single warm ceiling lamp as the only light source, golden pools of light, long soft shadows stretching across the floor, corners of the room falling into dusky half-light, the character's face warmly lit. {maya} She crouches in a furnished Berlin Altbau hallway in the evening, pointing excitedly at a torn piece of blank paper on the patterned wooden floor under the lamplight, coats on wall hooks and a small shelf with keys behind her in the half-shadow."
+    },
+    {
+      "id": "light_ref_duskwindow",
+      "aspect": "1:1",
+      "prompt": "Lighting: low golden-hour sunlight streams through a tall window, casting elongated window-frame shadows across the floor and up the wall, warm amber light on one side of the character and cool soft shadow on the other, the sky outside a deep dusk orange. {maya} She crouches in a furnished Berlin Altbau room by a tall window at dusk, pointing excitedly at a torn piece of blank paper on the patterned wooden floor crossed by the window-frame shadows, a bed and an open wardrobe behind her in the warm half-light."
+    },
+    {
+      "id": "light_ref_torchnoir",
+      "aspect": "1:1",
+      "prompt": "Lighting: night, one strong warm light source, deep ink-navy shadow areas swallowing parts of the detailed scene, long cast shadows, a subtle terracotta rim light on the character, dark atmospheric background. {maya} She crouches at night in a furnished Berlin Altbau hallway, pointing excitedly at a torn piece of blank paper on the patterned wooden floor lit by the beam of her phone torch, coats on wall hooks and a small shelf with keys half-visible in the shadows behind her, her long shadow stretching across the floor."
+    },
+    {
+      "id": "room_ref_wide",
+      "aspect": "16:9",
+      "prompt": "{room} Wide view of the whole room from the doorway, no people. Lighting: a warm shaft of evening light through the tall window cutting into cool blue-grey half-light, dust motes."
+    },
+    {
+      "id": "room_ref_close",
+      "aspect": "16:9",
+      "prompt": "{room} Close view of the torn piece of blank paper on the wooden floorboards, a woman's hand with a mustard-yellow corduroy sleeve reaching for it, low camera angle. Lighting: a warm shaft of window light on the paper, cool half-light around it."
+    },
+    {
+      "id": "jonas_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{jonas} He stands full body in a relaxed friendly pose, one hand raised in a small shy wave. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "lena_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{lena} She stands full body, composed, hands folded in front of her, looking at the viewer with a calm unreadable expression. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "boehm_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{boehm} He stands full body, arms crossed, the key ring visible on his belt, looking at the viewer with an unimpressed frown. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    }
+  ]
+}

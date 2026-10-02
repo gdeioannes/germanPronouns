@@ -27,20 +27,30 @@ import sharp from 'sharp';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const MODEL = 'gemini-2.5-flash-image';
-const OUT_DIR = join(root, 'static', 'img');
-const RAW_DIR = join(root, 'assets', 'images', 'raw');
-const SIZE = 512;
 /** The cream every backdrop is levelled to; VocabularyQuiz.svelte paints the card the same. */
 const PAPER = [0xfb, 0xf5, 0xe4];
 
 const args = process.argv.slice(2);
+// Story mode: npm run images -- --story  — uses assets/images/story_manifest.json
+// (its own style preamble: scenes, props and mood lighting allowed, see
+// docs/story_bible.md) and writes to static/img/story/. Scenes keep their
+// lighting, so no paper levelling or palette quantisation, and a larger size.
+const story = args.includes('--story');
 const force = args.includes('--force');
 const linkOnly = args.includes('--link');
 /** Rebuild every WebP from the raw originals (new size or quality), no API. */
 const reshrink = args.includes('--shrink');
 const only = new Set(args.filter((a) => !a.startsWith('--')));
 
-const manifest = JSON.parse(readFileSync(join(root, 'assets', 'images', 'manifest.json'), 'utf8'));
+// Story reference images are dev-only (the /dev/story-bible page); they live
+// under src/lib so they never ship in the static build.
+const OUT_DIR = story ? join(root, 'src', 'lib', 'assets', 'story') : join(root, 'static', 'img');
+const RAW_DIR = join(root, 'assets', 'images', 'raw', ...(story ? ['story'] : []));
+const SIZE = story ? 1024 : 512;
+
+const manifest = JSON.parse(
+	readFileSync(join(root, 'assets', 'images', story ? 'story_manifest.json' : 'manifest.json'), 'utf8')
+);
 mkdirSync(OUT_DIR, { recursive: true });
 mkdirSync(RAW_DIR, { recursive: true });
 
@@ -66,7 +76,7 @@ for (const img of linkOnly ? [] : manifest.images) {
 		const png =
 			existsSync(raw) && !force
 				? readFileSync(raw)
-				: await generate(`${manifest.style}\n\n${img.prompt}`, img.aspect ?? '1:1');
+				: await generate(`${manifest.style}\n\n${expand(img.prompt)}`, img.aspect ?? '1:1');
 		writeFileSync(raw, png);
 		await shrink(png, file);
 		made++;
@@ -75,8 +85,17 @@ for (const img of linkOnly ? [] : manifest.images) {
 		console.log(`FAILED: ${e.message}`);
 	}
 }
-if (!linkOnly) console.log(`\n${made} generated, ${skipped} already present, in static/img/`);
-linkImages();
+if (!linkOnly) console.log(`\n${made} generated, ${skipped} already present, in ${OUT_DIR}`);
+if (!story) linkImages();
+
+/**
+ * Splices the manifest's reusable `blocks` (character and location
+ * descriptions, kept verbatim across every scene so the cast stays
+ * consistent — see docs/story_bible.md) into a prompt: "{maya} crouches…".
+ */
+function expand(prompt) {
+	return prompt.replace(/\{([a-z0-9_]+)\}/g, (m, name) => manifest.blocks?.[name] ?? m);
+}
 
 /** "Mädchen" → "maedchen", "Großvater" → "grossvater": the manifest id of a word. */
 function slug(de) {
@@ -202,6 +221,12 @@ async function callApi(prompt, aspect) {
 
 /** 1024px PNG → 512px WebP for the app. */
 async function shrink(png, file) {
+	// Story scenes keep their mood lighting: no paper levelling, no palette
+	// quantisation — a plain lossy WebP at full size.
+	if (story) {
+		await sharp(png).resize(SIZE, SIZE, { fit: 'inside' }).removeAlpha().webp({ quality: 82 }).toFile(file);
+		return;
+	}
 	const { data, info } = await sharp(png)
 		.resize(SIZE, SIZE, { fit: 'inside' })
 		.removeAlpha()

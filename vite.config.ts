@@ -13,7 +13,13 @@ export default defineConfig({
 	// `assets/` sits outside the folders SvelteKit's dev server serves from
 	// (src, static, node_modules), so dev 404s the course bundles without this.
 	// The production build doesn't care: bundles are imported at prerender time.
-	server: { fs: { allow: [content] } },
+	server: {
+		fs: { allow: [content] },
+		// The audio and image generators write thousands of files into static/
+		// while they run; without this, every new file invalidates the dev
+		// server's module graph and the site becomes unusably slow mid-generation.
+		watch: { ignored: ['**/static/audio/**', '**/static/img/**', '**/assets/images/raw/**'] }
+	},
 	plugins: [
 		sveltekit({
 			// Declared here (not as a hand-written tsconfig `paths` entry) so
