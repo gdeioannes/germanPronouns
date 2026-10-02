@@ -14,7 +14,8 @@
 		"test:watch": "vitest",
 		"og": "node tool/og-images.mjs",
 		"images": "node tool/gen-images.mjs",
-		"audio": "node tool/gen-audio.mjs"
+		"audio": "node tool/gen-audio.mjs",
+		"workbooks": "node tool/gen-workbooks.mjs"
 	},
 	"devDependencies": {
 		"@breezystack/lamejs": "^1.2.7",
@@ -27,6 +28,7 @@
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
 		"@types/dom-speech-recognition": "^0.0.12",
 		"@types/node": "^26.6.2",
+		"puppeteer-core": "^23.11.1",
 		"sharp": "^0.35.5",
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.6.0",

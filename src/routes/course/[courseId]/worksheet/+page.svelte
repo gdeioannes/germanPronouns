@@ -22,10 +22,26 @@
 		type QuizHistory
 	} from '$lib/domain/worksheet';
 	import type { Quiz } from '$lib/content/types';
+	import { workbookCards, workbookFile } from '$lib/domain/workbook';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	const course = $derived(data.course);
+
+	// What tool/gen-workbooks.mjs wrote: the glob is empty until it has run,
+	// and a level without a PDF still opens and prints from its page.
+	const pdfs = Object.values(
+		import.meta.glob<Record<string, { pages: number; bytes: number }>>('/static/workbooks/manifest.json', {
+			eager: true,
+			import: 'default'
+		})
+	)[0] ?? {};
+	const cards = $derived(
+		workbookCards(course).map((card) => {
+			const file = workbookFile(course.id, card.level);
+			return { ...card, pdf: pdfs[file] ? { href: `/workbooks/${file}`, ...pdfs[file] } : null };
+		})
+	);
 
 	const SCOPES: { value: ExerciseScope; label: string; note: string }[] = [
 		{ value: 'fullCourse', label: 'The whole course', note: 'Every printable exercise' },
@@ -129,7 +145,7 @@
 	});
 </script>
 
-<Seo title="Worksheet — {course.name}" description="Printable German worksheet." path="/course/{course.id}/worksheet" noindex />
+<Seo title="Workbooks — {course.name}" description="Printable German workbooks, one per level, with rules, words, pictures and exercises." path="/course/{course.id}/worksheet" noindex />
 
 <main class="page-wide sheet-page">
 	<div class="no-print">
@@ -138,10 +154,44 @@
 		</a>
 
 		<header class="head">
-			<h1>Printable worksheet</h1>
+			<h1>Printable workbooks</h1>
 			<p class="lede">
-				Exercises from this course on paper, with the answers where you want
-				them. Print it, or choose “Save as PDF” in the print dialog.
+				One workbook per level: every unit's rules with examples, the words with
+				pictures, check-yourself questions and written practice — answers upside
+				down at the foot of each unit. Download the PDF, or open it to print.
+			</p>
+		</header>
+
+		<ol class="books">
+			{#each cards as card (card.level)}
+				<li>
+					<a class="book" href="/course/{course.id}/workbook/{card.level}">
+						{#if card.cover}<img src="/img/{card.cover}.webp" alt="" width="1024" height="768" loading="lazy" />{/if}
+						<span class="code">{card.level}</span>
+						<span class="name">{card.title}</span>
+						<small class="tnum">{card.units} units{#if card.pdf}{' · '}{card.pdf.pages} pages{/if}</small>
+					</a>
+					{#if card.pdf}
+						<a
+							class="pdf"
+							href={card.pdf.href}
+							download="German {card.level} workbook.pdf"
+							aria-label="Download the {card.level} workbook as PDF"
+							onclick={() => track('workbook_download', { level: card.level, from: 'list' })}
+						>
+							<Icon name="download" size="1em" /> PDF
+						</a>
+					{/if}
+				</li>
+			{/each}
+		</ol>
+
+		<header class="head custom">
+			<h2>Or build your own sheet</h2>
+			<p class="lede">
+				Pick exercises from across the course — everything, what you have
+				finished, or your weak spots — and print them with the answers where you
+				want them.
 			</p>
 		</header>
 
@@ -217,45 +267,37 @@
 					<!-- The rules travel with the questions: on paper there is no
 					     panel to open, so a sheet without them can't be worked
 					     away from the app. -->
-					{#if section.help?.intro || section.help?.tips?.length || section.table}
+					{#if section.help?.hook || section.help?.intro || section.help?.tips?.length || section.table}
+						<!-- The lesson's cheat sheet, not the whole lesson: a picked
+						     exercise or two must not sit under a page of rules. The
+						     level workbooks carry the full lessons. -->
 						<div class="help">
-							{#if section.help?.intro}
-								<p class="help-intro">{section.help.intro}</p>
-							{/if}
-							{#each section.help?.tips ?? [] as tip (tip.text)}
-								<p class="help-tip">
-									{#if tip.title}<strong>{tip.title}:</strong>{/if}
-									{tip.text}
-									{#each tip.examples ?? [] as ex (ex.de)}
-										<span class="help-example">{ex.de} — {ex.en}</span>
+							<p class="help-intro">{section.help?.hook ?? section.help?.intro}</p>
+							{#if section.help?.tips?.length}
+								<ul class="help-points">
+									{#each section.help.tips as tip, t (t)}
+										<li>{tip.title ?? tip.text}</li>
 									{/each}
-								</p>
-							{/each}
+								</ul>
+							{/if}
 							{#if section.help?.remember?.length}
 								<p class="help-tip"><strong>Remember:</strong> {section.help.remember.join(' · ')}</p>
-							{/if}
-							{#if section.help?.vocab?.length}
-								<p class="help-tip">
-									<strong>Words:</strong>
-									{#each section.help.vocab as w, i (w.de)}{#if i > 0} · {/if}{w.article ? w.article + ' ' : ''}{w.de} ({w.en}){/each}
-								</p>
 							{/if}
 							{#if section.table}
 								<table class="help-table">
 									<thead>
 										<tr>
 											<th>{section.table.subjectHeader}</th>
-											{#each section.table.columns as column (column)}
+											{#each section.table.columns as column, c (c)}
 												<th>{column}</th>
 											{/each}
 										</tr>
 									</thead>
 									<tbody>
-										{#each section.table.rows as row (row.subject)}
+										{#each section.table.rows as row, r (r)}
 											<tr>
 												<th>
-													{#if row.article}{row.article}
-													{/if}{row.subject}{#if row.english}<small> · {row.english}</small>{/if}
+													{#if row.article}{row.article}{' '}{/if}{row.subject}{#if row.english}<small>{' · '}{row.english}</small>{/if}
 												</th>
 												{#each row.cells as cell, c (c)}
 													<td>{cell}</td>
@@ -275,26 +317,30 @@
 					{#if section.kind === 'inlineCloze' && section.passage}
 						<div class="passage">
 							{#each inlineParts(section.passage) as part, p (p)}{part.text}{#if part.blank !== null}<span
-									class="inline-gap">{part.blank}. ______________</span
+									class="inline-gap"><sup class="tnum">{numbering[s] + part.blank}</sup><span class="gap"></span></span
 								>{/if}{/each}
 						</div>
 					{/if}
 
-					<ol class="items" start={numbering[s]}>
+					<ol class="items" class:hints={section.kind === 'inlineCloze'} start={numbering[s]}>
 						{#each section.items as item, i (i)}
 							<li>
 								<div class="prompt">
 									{#if item.secondary}<span class="secondary">{item.secondary}</span>{/if}
-									<span class="text">{item.prompt || `Blank ${i + 1}`}</span>
+									<span class="text" lang={section.kind === 'reading' ? undefined : 'de'}
+										>{#each (item.prompt || `Blank ${i + 1}`).split('____') as piece, g (g)}{#if g > 0}<span
+													class="gap"
+												></span>{/if}{piece}{/each}</span
+									>
 									{#if item.options.length > 0}
 										<span class="options-line">
 											{#each item.options as option, o (o)}
-												<span class="option">
-													{String.fromCharCode(0x61 + o)}) {option}
-												</span>
+												<span class="option"
+													><span class="box" aria-hidden="true"></span>{String.fromCharCode(0x61 + o)}) {option}</span
+												>
 											{/each}
 										</span>
-									{:else if section.kind !== 'inlineCloze'}
+									{:else if section.kind !== 'inlineCloze' && !item.prompt.includes('____')}
 										<span class="write-line"></span>
 									{/if}
 								</div>
@@ -340,6 +386,105 @@
 <style>
 	.head {
 		margin-bottom: 1.5rem;
+	}
+
+	.head.custom {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.head.custom h2 {
+		margin: 0 0 0.4rem;
+		color: var(--heading);
+	}
+
+	/* -- level workbooks: a shelf of covers -------------------------------- */
+
+	.books {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+		gap: 1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.books li {
+		position: relative;
+	}
+
+	.book {
+		display: grid;
+		gap: 0.15rem;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 0 0 3.3rem;
+		overflow: hidden;
+		border: 1px solid var(--line);
+		border-top: 5px solid var(--accent);
+		border-radius: var(--radius-sm);
+		background: var(--surface);
+		color: var(--ink);
+		text-decoration: none;
+		transition:
+			transform var(--fast) var(--ease-out),
+			box-shadow var(--fast) var(--ease-out);
+	}
+
+	.book:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 24px rgb(0 0 0 / 0.08);
+	}
+
+	.book img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		margin-bottom: 0.5rem;
+		background: #fbf5e4;
+	}
+
+	.book .code,
+	.book .name,
+	.book small {
+		padding: 0 0.9rem;
+	}
+
+	.book .code {
+		font-family: 'Source Serif 4 Variable', serif;
+		font-size: 1.9rem;
+		font-weight: 800;
+		line-height: 1;
+		color: var(--accent);
+	}
+
+	.book .name {
+		font-family: 'Source Serif 4 Variable', serif;
+		font-weight: 700;
+		color: var(--heading);
+	}
+
+	.book small {
+		color: var(--ink-muted);
+		font-size: var(--step--1);
+	}
+
+	.pdf {
+		position: absolute;
+		left: 0.9rem;
+		bottom: 0.8rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.3rem 0.65rem;
+		border-radius: 999px;
+		background: var(--navy);
+		color: #fff;
+		font-size: var(--step--1);
+		font-weight: 700;
+		text-decoration: none;
 	}
 
 	.options {
@@ -418,11 +563,73 @@
 	/* ── The sheet itself ───────────────────────────────────────────────── */
 
 	.sheet {
+		--serif: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		--cream: #fbf5e4;
+		max-width: 210mm;
+		margin: 0 auto;
 		background: var(--surface);
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
-		padding: 1.75rem;
-		font-size: 0.95rem;
+		border-top: 6px solid var(--accent);
+		border-radius: 4px;
+		padding: 13mm;
+		font-size: 10pt;
+		box-shadow: 0 8px 28px rgb(0 0 0 / 0.07);
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	.sheet h2,
+	.block h3 {
+		font-family: var(--serif);
+	}
+
+	.text[lang='de'],
+	.passage {
+		font-family: var(--serif);
+	}
+
+	.text[lang='de'] {
+		font-size: 11pt;
+	}
+
+	.gap {
+		display: inline-block;
+		width: 5em;
+		height: 0.95em;
+		margin: 0 0.15em;
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.inline-gap sup {
+		font-size: 7pt;
+		font-weight: 800;
+		color: var(--accent);
+	}
+
+	.box {
+		display: inline-block;
+		width: 3mm;
+		height: 3mm;
+		margin-right: 1.2mm;
+		border: 1px solid var(--ink);
+		border-radius: 0.6mm;
+		vertical-align: -0.3mm;
+	}
+
+	/* A text's gap hints are a key to the passage, not exercises of their own. */
+	.items.hints {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.2rem 1.6rem;
+		font-size: 0.9em;
+	}
+
+	.items.hints li {
+		padding: 0;
+	}
+
+	.items li::marker {
+		font-weight: 800;
+		color: var(--navy);
 	}
 
 	.sheet-head {
@@ -454,22 +661,27 @@
 	}
 
 	.block h3 {
-		font-size: var(--step-0);
+		font-size: 14pt;
 		color: var(--heading);
-		margin: 0 0 0.5rem;
+		margin: 0 0 0.6rem;
+		padding-bottom: 1.5mm;
+		border-bottom: 0.4mm solid var(--navy);
 		break-after: avoid;
 	}
 
 	.block h3 .lvl {
-		margin-right: 0.5em;
-		color: var(--ink-muted);
-		font-size: var(--step--1);
-		font-weight: 600;
+		margin-right: 0.6em;
+		color: var(--accent);
+		font-family: Inter, system-ui, sans-serif;
+		font-size: 7.5pt;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		vertical-align: 0.2em;
 	}
 
 	.passage {
-		border: 1px solid var(--line);
-		border-radius: var(--radius-sm);
+		background: var(--cream);
+		border-radius: 2.5mm;
 		padding: 0.75rem 0.9rem;
 		margin-bottom: 0.9rem;
 		white-space: pre-wrap;
@@ -605,26 +817,33 @@
 	   never colour-coded, because most sheets come off a mono printer. */
 	.help {
 		margin: 0 0 0.9rem;
-		padding: 0.6rem 0.75rem;
-		border-left: 3px solid var(--line-strong);
-		background: var(--surface-alt);
-		font-size: 0.82rem;
+		padding: 3mm 4mm;
+		border: 0.35mm solid var(--navy);
+		border-radius: 2.5mm;
+		font-size: 9pt;
 		break-inside: avoid;
 	}
 
 	.help-intro {
 		margin: 0;
+		font-family: var(--serif);
+		font-size: 11pt;
+		font-weight: 700;
+		color: var(--navy);
+	}
+
+	.help-points {
+		margin: 0.35rem 0 0;
+		padding-left: 1.1rem;
+	}
+
+	.help-points li::marker {
+		color: var(--accent);
 	}
 
 	.help-tip {
 		margin: 0.35rem 0 0;
 		color: var(--ink-muted);
-	}
-
-	.help-example {
-		display: block;
-		padding-left: 0.8rem;
-		font-style: italic;
 	}
 
 	.help-table {
@@ -651,9 +870,10 @@
 	}
 
 	@media print {
-		.help {
-			background: none;
-			border-left-color: #000;
+		.sheet {
+			max-width: none;
+			padding: 0;
+			box-shadow: none;
 		}
 	}
 </style>

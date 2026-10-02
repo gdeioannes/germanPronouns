@@ -50,7 +50,7 @@ export function helpTableFor(quiz: Quiz): HelpTable | null {
 		columns: categories.map((category) => category.label),
 		rows: subjects.map((subject, row) => ({
 			subject: subject.display,
-			article: subject.gender ? GENDER_ARTICLES[subject.gender] : undefined,
+			article: articleFor(subject.display, subject.gender),
 			english: subject.english,
 			gender: subject.gender,
 			// A category whose values run short leaves a blank rather than
@@ -63,4 +63,15 @@ export function helpTableFor(quiz: Quiz): HelpTable | null {
 		colorByGender:
 			quiz.help?.colorByGender === true || subjects.some((subject) => !!subject.gender)
 	};
+}
+
+/**
+ * The article to print before [display], or undefined when there is none —
+ * or when the content already wrote it into the display ("der Tisch"), which
+ * would otherwise read "der der Tisch".
+ */
+function articleFor(display: string, gender?: string): string | undefined {
+	const article = gender ? GENDER_ARTICLES[gender] : undefined;
+	if (!article) return undefined;
+	return display.toLowerCase().startsWith(`${article} `) ? undefined : article;
 }

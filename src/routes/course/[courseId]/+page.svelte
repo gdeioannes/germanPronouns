@@ -173,13 +173,13 @@
 			</a>
 		{/if}
 
-		<!-- Paper practice: the same exercises, printable, with the answers where
-		     the learner wants them (the port of the Flutter PDF export). -->
+		<!-- Paper practice: a workbook per level — the lessons and the exercises,
+		     printable or as a PDF — plus a custom sheet of chosen exercises. -->
 		<a class="worksheet" href="/course/{course.id}/worksheet">
 			<Icon name="printer" size="1.2em" />
 			<span>
-				<strong>Printable worksheet</strong>
-				<small>Exercises on paper, with a fold-away answer column</small>
+				<strong>Printable workbooks</strong>
+				<small>Every level on paper — rules, words, pictures and exercises, as PDF</small>
 			</span>
 			<Icon name="arrowRight" size="1.1em" />
 		</a>

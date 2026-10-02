@@ -74,6 +74,15 @@ export function seededShuffle<T>(items: readonly T[], seed: string): T[] {
 	return out;
 }
 
+/** A seeded source in [0, 1), for code that takes a `random` function. */
+export function seededRandom(seed: string): () => number {
+	let s = hash(seed) || 1;
+	return () => {
+		s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+		return s / 4294967296;
+	};
+}
+
 /** The first sentence of a paragraph — the fallback when no hook is authored. */
 export function firstSentence(text: string): string {
 	const match = text.match(/^.+?[.!?](?=\s+[A-Z„"']|$)/s);
