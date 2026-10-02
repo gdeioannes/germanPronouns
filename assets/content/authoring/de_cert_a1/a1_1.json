@@ -6,6 +6,7 @@
     ],
     "title": "Zahlen 0–10",
     "help": {
+      "hook": "Eleven little words — null to zehn — and every German number you will ever say is built from them.",
       "intro": "The numbers 0–10 are the foundation of every number you will ever say in German: 21 is ein-und-zwanzig, 300 is drei-hundert, 4.50 € is vier Euro fünfzig. Learn to say and spell each of the eleven by heart now, because they hide everywhere — in prices, phone numbers, ages, platform numbers and times — and people say them quickly. Two things to know from day one: the number 1 is eins when you count but ein/eine before a noun, and German z is always pronounced ts.",
       "tips": [
         {
@@ -15,13 +16,31 @@
           "examples": [
             {
               "de": "Meine Telefonnummer ist null-eins-sieben-drei.",
-              "en": "My phone number is 0-1-7-3."
+              "en": "My phone number is 0-1-7-3.",
+              "focus": [
+                "null-eins-sieben-drei"
+              ]
             },
             {
               "de": "Ich habe zwei Brüder und eine Schwester.",
-              "en": "I have two brothers and one sister."
+              "en": "I have two brothers and one sister.",
+              "focus": [
+                "zwei",
+                "eine"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which number comes after sechs?",
+            "options": [
+              "sieben",
+              "acht",
+              "fünf",
+              "zehn"
+            ],
+            "answer": "sieben",
+            "why": "sechs, sieben, acht — six, seven, eight."
+          }
         },
         {
           "kind": "warning",
@@ -30,14 +49,31 @@
           "examples": [
             {
               "de": "eins, zwei, drei …",
-              "en": "one, two, three …"
+              "en": "one, two, three …",
+              "focus": [
+                "eins"
+              ]
             },
             {
               "de": "ein Apfel, eine Banane, ein Brot",
-              "en": "one apple, one banana, one loaf"
+              "en": "one apple, one banana, one loaf",
+              "focus": [
+                "ein",
+                "eine"
+              ]
             }
           ],
-          "trap": "English has one word for both. In German the count word and the article are different words."
+          "trap": "English has one word for both. In German the count word and the article are different words.",
+          "check": {
+            "q": "Ich habe ____ Bruder.",
+            "options": [
+              "eins",
+              "ein",
+              "eine"
+            ],
+            "answer": "ein",
+            "why": "A noun follows, so the number becomes the article: der Bruder → ein Bruder. eins is only for counting."
+          }
         },
         {
           "kind": "mnemonic",
@@ -46,13 +82,30 @@
           "examples": [
             {
               "de": "zwei – drei – vier",
-              "en": "tsvai – dry – feer"
+              "en": "tsvai – dry – feer",
+              "focus": [
+                "zwei"
+              ]
             },
             {
               "de": "sieben – sechs",
-              "en": "zee-ben – zex"
+              "en": "zee-ben – zex",
+              "focus": [
+                "sieben",
+                "sechs"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "How does zwei sound?",
+            "options": [
+              "“tsvai”",
+              "“swei”",
+              "“zvee”"
+            ],
+            "answer": "“tsvai”",
+            "why": "German z is always ts, and ei sounds like English “eye”."
+          }
         }
       ],
       "remember": [
@@ -119,7 +172,14 @@
       ],
       "context": {
         "de": "Wie ist deine Telefonnummer? – Null-eins-fünf-zwei, drei-acht-sieben. Und wie viele Kinder hast du? – Zwei: ein Sohn und eine Tochter.",
-        "en": "What's your phone number? – 0152, 387. And how many children do you have? – Two: one son and one daughter."
+        "en": "What's your phone number? – 0152, 387. And how many children do you have? – Two: one son and one daughter.",
+        "focus": [
+          "Null-eins-fünf-zwei",
+          "drei-acht-sieben",
+          "Zwei",
+          "ein",
+          "eine"
+        ]
       },
       "mistakes": [
         {
@@ -144,6 +204,7 @@
     ],
     "title": "Personalpronomen",
     "help": {
+      "hook": "Before a German verb can do anything, you need to know who's doing it — and German has two ways to say 'you' to one person.",
       "intro": "The subject pronouns say who is doing the action — ich, du, er, sie, es, wir, ihr, sie, Sie. German has one more than English in two places: two words for 'you' in the singular (du to a friend, Sie to a stranger) and a separate 'you' for a group (ihr). And one word, sie, does three jobs — she, they, and (capitalised) the formal you. The verb ending tells you which is meant, which is why pronouns and verb endings are learnt together.",
       "tips": [
         {
@@ -153,13 +214,34 @@
           "examples": [
             {
               "de": "Ich bin müde. Du bist mein Freund. Er ist groß.",
-              "en": "I am tired. You are my friend. He is tall."
+              "en": "I am tired. You are my friend. He is tall.",
+              "focus": [
+                "Ich",
+                "Du",
+                "Er"
+              ]
             },
             {
               "de": "Wir kommen aus Berlin. Ihr seid nett. Sie sind Lehrer.",
-              "en": "We come from Berlin. You (all) are nice. They are teachers."
+              "en": "We come from Berlin. You (all) are nice. They are teachers.",
+              "focus": [
+                "Wir",
+                "Ihr",
+                "Sie"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ seid sehr nett.",
+            "options": [
+              "Ihr",
+              "Wir",
+              "Sie",
+              "Du"
+            ],
+            "answer": "Ihr",
+            "why": "seid only goes with ihr — 'you', talking to several friends at once."
+          }
         },
         {
           "kind": "warning",
@@ -168,14 +250,33 @@
           "examples": [
             {
               "de": "Sie ist Ärztin. – Sie sind Ärzte. – Sind Sie Arzt?",
-              "en": "She is a doctor. – They are doctors. – Are you a doctor? (formal)"
+              "en": "She is a doctor. – They are doctors. – Are you a doctor? (formal)",
+              "focus": [
+                "ist",
+                "sind",
+                "Sind"
+              ]
             },
             {
               "de": "Anna kommt. Sie ist nett. – Anna und Tom kommen. Sie sind nett.",
-              "en": "Anna is coming. She is nice. – Anna and Tom are coming. They are nice."
+              "en": "Anna is coming. She is nice. – Anna and Tom are coming. They are nice.",
+              "focus": [
+                "ist",
+                "sind"
+              ]
             }
           ],
-          "trap": "English lost the polite/familiar split. Using du to a stranger or an official sounds rude; using Sie to a child sounds odd."
+          "trap": "English lost the polite/familiar split. Using du to a stranger or an official sounds rude; using Sie to a child sounds odd.",
+          "check": {
+            "q": "In „Sie ist Lehrerin.“, who is Sie?",
+            "options": [
+              "she",
+              "they",
+              "you (formal)"
+            ],
+            "answer": "she",
+            "why": "The verb ist is singular, so Sie can only be 'she'. 'They' and formal 'you' both take sind."
+          }
         },
         {
           "kind": "rule",
@@ -184,13 +285,30 @@
           "examples": [
             {
               "de": "Wie heißt du? (to a child)",
-              "en": "What's your name?"
+              "en": "What's your name?",
+              "focus": [
+                "heißt",
+                "du"
+              ]
             },
             {
               "de": "Wie heißen Sie? (at the bank)",
-              "en": "What's your name?"
+              "en": "What's your name?",
+              "focus": [
+                "heißen",
+                "Sie"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You meet an older neighbour for the first time. Which question fits?",
+            "options": [
+              "Wo wohnen Sie?",
+              "Wo wohnst du?"
+            ],
+            "answer": "Wo wohnen Sie?",
+            "why": "Strangers and older people get Sie until they offer du. When in doubt, Sie."
+          }
         },
         {
           "kind": "rule",
@@ -199,14 +317,32 @@
           "examples": [
             {
               "de": "Der Tisch ist neu. Er ist schön.",
-              "en": "The table is new. It is nice."
+              "en": "The table is new. It is nice.",
+              "focus": [
+                "Der",
+                "Er"
+              ]
             },
             {
               "de": "Die Lampe ist alt. Sie ist kaputt.",
-              "en": "The lamp is old. It is broken."
+              "en": "The lamp is old. It is broken.",
+              "focus": [
+                "Die",
+                "Sie"
+              ]
             }
           ],
-          "trap": "'it' is er/sie/es depending on the noun's gender, not on whether it is a thing."
+          "trap": "'it' is er/sie/es depending on the noun's gender, not on whether it is a thing.",
+          "check": {
+            "q": "Der Computer ist alt. ____ ist langsam.",
+            "options": [
+              "Er",
+              "Es",
+              "Sie"
+            ],
+            "answer": "Er",
+            "why": "Computer is a der-noun, so 'it' is er — even though a computer is a thing."
+          }
         }
       ],
       "remember": [
@@ -259,7 +395,14 @@
       ],
       "context": {
         "de": "Das ist Tom. Er ist mein Freund. Und das ist Anna – sie ist Studentin. Wir wohnen in Köln. Und ihr? Woher kommt ihr? – Wir kommen aus Irland. Und Sie, Frau Weber?",
-        "en": "This is Tom. He is my friend. And this is Anna – she is a student. We live in Cologne. And you two? Where are you from? – We're from Ireland. And you, Mrs Weber?"
+        "en": "This is Tom. He is my friend. And this is Anna – she is a student. We live in Cologne. And you two? Where are you from? – We're from Ireland. And you, Mrs Weber?",
+        "focus": [
+          "Er",
+          "sie",
+          "Wir",
+          "ihr",
+          "Sie"
+        ]
       },
       "mistakes": [
         {
@@ -284,6 +427,7 @@
     ],
     "title": "Sprechen: Vorstellung",
     "help": {
+      "hook": "Your first German sentences — hello, your name, where you're from — sound German the moment you copy their melody.",
       "intro": "These twelve phrases are the first things you will ever say in German — greeting, giving your name, saying where you are from, saying goodbye — the phrases you will use with every new colleague, neighbour and classmate. The point of this exercise is not vocabulary but sound: listen to each phrase, then say it back copying the melody and stress of the whole thing rather than hunting for individual letters. German is said with the stress on the first syllable of most words and a falling tone at the end of a statement, and once your ear has that, everything else you learn will sound German too.",
       "tips": [
         {
@@ -293,13 +437,30 @@
           "examples": [
             {
               "de": "GUten TAG! – Ich HEIße Anna.",
-              "en": "Good day! – My name is Anna."
+              "en": "Good day! – My name is Anna.",
+              "focus": [
+                "GUten",
+                "HEIße"
+              ]
             },
             {
               "de": "WOher KOMMST du? – Ich KOMme aus ENGland.",
-              "en": "Where are you from? – I'm from England."
+              "en": "Where are you from? – I'm from England.",
+              "focus": [
+                "KOMme",
+                "ENGland"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Where does the stress go in Morgen?",
+            "options": [
+              "MORgen",
+              "morGEN"
+            ],
+            "answer": "MORgen",
+            "why": "Most German words carry their weight on the first syllable: GUten MORgen."
+          }
         },
         {
           "kind": "mnemonic",
@@ -308,13 +469,32 @@
           "examples": [
             {
               "de": "Wie heißen Sie?",
-              "en": "vee HIGH-ssen zee"
+              "en": "vee HIGH-ssen zee",
+              "focus": [
+                "Wie",
+                "heißen",
+                "Sie"
+              ]
             },
             {
               "de": "Ich wohne in Wien.",
-              "en": "ikh VOH-neh in veen"
+              "en": "ikh VOH-neh in veen",
+              "focus": [
+                "Ich",
+                "Wien"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "How does Wein (wine) sound?",
+            "options": [
+              "“vine”",
+              "“wine”",
+              "“veen”"
+            ],
+            "answer": "“vine”",
+            "why": "w sounds like English v, and ei sounds like “eye” — so Wein is “vine”. (ie would be “ee”.)"
+          }
         },
         {
           "kind": "rule",
@@ -323,13 +503,31 @@
           "examples": [
             {
               "de": "Guten Abend, Frau Müller! – Auf Wiedersehen!",
-              "en": "Good evening, Mrs Müller! – Goodbye!"
+              "en": "Good evening, Mrs Müller! – Goodbye!",
+              "focus": [
+                "Abend",
+                "Wiedersehen"
+              ]
             },
             {
               "de": "Hallo, Tom! – Tschüss, bis morgen!",
-              "en": "Hi, Tom! – Bye, see you tomorrow!"
+              "en": "Hi, Tom! – Bye, see you tomorrow!",
+              "focus": [
+                "Hallo",
+                "Tschüss"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "It's 8 p.m. and you meet your neighbour: „____, Herr Braun!“",
+            "options": [
+              "Guten Abend",
+              "Gute Nacht",
+              "Guten Morgen"
+            ],
+            "answer": "Guten Abend",
+            "why": "In the evening you greet with Guten Abend; Gute Nacht is only for saying goodnight before bed."
+          }
         }
       ],
       "remember": [
@@ -346,6 +544,7 @@
     ],
     "title": "Artikel im Nominativ",
     "help": {
+      "hook": "Every German noun wears a der, die or das — learn the pair together and you'll never have to guess.",
       "intro": "Every German noun belongs to one of three genders — masculine (der), feminine (die) or neuter (das) — and the gender is not about meaning: das Mädchen (the girl) is neuter, der Tisch (the table) is masculine. There is no way round it: you learn every noun together with its article, like a first name and a surname. This quiz is the nominative, the form for the subject of a sentence and after sein: der Mann ist hier, das ist ein Mann. The indefinite article (a/an) is ein for der- and das-words and eine for die-words, and the plural of 'the' is always die, whatever the gender.",
       "tips": [
         {
@@ -355,18 +554,37 @@
           "examples": [
             {
               "de": "der Mann, der Tisch, der Hund",
-              "en": "the man, the table, the dog"
+              "en": "the man, the table, the dog",
+              "focus": [
+                "der"
+              ]
             },
             {
               "de": "die Frau, die Lampe, die Katze",
-              "en": "the woman, the lamp, the cat"
+              "en": "the woman, the lamp, the cat",
+              "focus": [
+                "die"
+              ]
             },
             {
               "de": "das Kind, das Haus, das Buch",
-              "en": "the child, the house, the book"
+              "en": "the child, the house, the book",
+              "focus": [
+                "das"
+              ]
             }
           ],
-          "trap": "English has no grammatical gender, so nothing in your instinct will tell you a table is 'he'. Only the article you learnt with the word will."
+          "trap": "English has no grammatical gender, so nothing in your instinct will tell you a table is 'he'. Only the article you learnt with the word will.",
+          "check": {
+            "q": "____ Stuhl ist bequem.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "It's der Stuhl — masculine. The article is part of the word, so learn them as a pair."
+          }
         },
         {
           "kind": "rule",
@@ -375,13 +593,30 @@
           "examples": [
             {
               "de": "Das ist ein Mann. Das ist ein Haus. Das ist eine Frau.",
-              "en": "That is a man. That is a house. That is a woman."
+              "en": "That is a man. That is a house. That is a woman.",
+              "focus": [
+                "ein",
+                "eine"
+              ]
             },
             {
               "de": "Das sind Äpfel.",
-              "en": "Those are apples."
+              "en": "Those are apples.",
+              "focus": [
+                "Äpfel"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Das ist ____ Lampe.",
+            "options": [
+              "eine",
+              "ein",
+              "einen"
+            ],
+            "answer": "eine",
+            "why": "Lampe is a die-word, and die-words take eine. ein is for der- and das-words."
+          }
         },
         {
           "kind": "rule",
@@ -390,14 +625,30 @@
           "examples": [
             {
               "de": "Ich bin Ärztin.",
-              "en": "I am a doctor."
+              "en": "I am a doctor.",
+              "focus": [
+                "Ärztin"
+              ]
             },
             {
               "de": "Wir trinken Kaffee.",
-              "en": "We drink coffee."
+              "en": "We drink coffee.",
+              "focus": [
+                "Kaffee"
+              ]
             }
           ],
-          "trap": "English says 'I am *a* teacher'. German drops the article — 'Ich bin ein Lehrer' sounds like a line from a film."
+          "trap": "English says 'I am *a* teacher'. German drops the article — 'Ich bin ein Lehrer' sounds like a line from a film.",
+          "check": {
+            "q": "Mein Vater ist ____ von Beruf.",
+            "options": [
+              "Arzt",
+              "ein Arzt",
+              "der Arzt"
+            ],
+            "answer": "Arzt",
+            "why": "Jobs after sein take no article in German — just the job: Er ist Arzt."
+          }
         },
         {
           "kind": "mnemonic",
@@ -406,13 +657,32 @@
           "examples": [
             {
               "de": "die Lampe, die Wohnung, die Zeitung",
-              "en": "-e and -ung are almost always die"
+              "en": "-e and -ung are almost always die",
+              "focus": [
+                "Lampe",
+                "Wohnung",
+                "Zeitung"
+              ]
             },
             {
               "de": "das Mädchen, das Brötchen",
-              "en": "-chen is always das — even for a girl"
+              "en": "-chen is always das — even for a girl",
+              "focus": [
+                "Mädchen",
+                "Brötchen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Kätzchen ist süß.",
+            "options": [
+              "Das",
+              "Die",
+              "Der"
+            ],
+            "answer": "Das",
+            "why": "Words ending in -chen are always das — it's die Katze, but das Kätzchen."
+          }
         }
       ],
       "colorByGender": true,
@@ -422,7 +692,14 @@
       ],
       "context": {
         "de": "Das ist mein Zimmer. Der Tisch ist braun und der Stuhl ist alt. Die Lampe ist neu. Das Fenster ist groß. Und das ist eine Katze – meine Katze! Sie heißt Mimi.",
-        "en": "This is my room. The table is brown and the chair is old. The lamp is new. The window is big. And that is a cat – my cat! She's called Mimi."
+        "en": "This is my room. The table is brown and the chair is old. The lamp is new. The window is big. And that is a cat – my cat! She's called Mimi.",
+        "focus": [
+          "Der",
+          "der",
+          "Die",
+          "Das",
+          "eine"
+        ]
       },
       "mistakes": [
         {
@@ -452,6 +729,7 @@
     ],
     "title": "Plural der Nomen",
     "help": {
+      "hook": "German has five ways to make a plural but only one plural article — die — so half the job is already done.",
       "colorByGender": true,
       "intro": "English makes a plural by adding -s. German has five ways, and you cannot tell from the singular which one a noun uses — so, like the article, the plural is learnt with the word: der Tisch, die Tische. The good news is that the five endings are few and each has a favourite gender: -e (most masculine: Tische, Hunde, often with an umlaut: Stühle), -(e)n (almost all feminine: Frauen, Lampen, Katzen), -er (many neuter, usually with an umlaut: Kinder, Häuser, Bücher), -s (foreign and short words: Autos, Handys), and no ending at all (masculine and neuter ending in -er, -el, -en: Schlüssel, Fenster, Mädchen — often only the umlaut changes: Brüder, Äpfel). In the plural the article is always die, whatever the gender.",
       "tips": [
@@ -462,17 +740,39 @@
           "examples": [
             {
               "de": "der Tisch → die Tische; der Hund → die Hunde",
-              "en": "-e, the masculine favourite"
+              "en": "-e, the masculine favourite",
+              "focus": [
+                "Tische",
+                "Hunde"
+              ]
             },
             {
               "de": "die Frau → die Frauen; die Lampe → die Lampen",
-              "en": "-(e)n, the feminine favourite"
+              "en": "-(e)n, the feminine favourite",
+              "focus": [
+                "Frauen",
+                "Lampen"
+              ]
             },
             {
               "de": "das Kind → die Kinder; das Haus → die Häuser",
-              "en": "-er (+ umlaut), the neuter favourite"
+              "en": "-er (+ umlaut), the neuter favourite",
+              "focus": [
+                "Kinder",
+                "Häuser"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Kinder spielen im Park.",
+            "options": [
+              "Die",
+              "Das",
+              "Der"
+            ],
+            "answer": "Die",
+            "why": "Every plural takes die, whatever the singular was — das Kind, but die Kinder."
+          }
         },
         {
           "kind": "rule",
@@ -481,13 +781,29 @@
           "examples": [
             {
               "de": "Ich habe zwei Schlüssel.",
-              "en": "I have two keys."
+              "en": "I have two keys.",
+              "focus": [
+                "Schlüssel"
+              ]
             },
             {
               "de": "Meine Brüder sind groß.",
-              "en": "My brothers are tall."
+              "en": "My brothers are tall.",
+              "focus": [
+                "Brüder"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "In der Schule arbeiten zehn ____.",
+            "options": [
+              "Lehrer",
+              "Lehrers",
+              "Lehreren"
+            ],
+            "answer": "Lehrer",
+            "why": "Nouns ending in -er usually don't change: der Lehrer, die Lehrer."
+          }
         },
         {
           "kind": "rule",
@@ -496,13 +812,29 @@
           "examples": [
             {
               "de": "Auf der Straße stehen viele Autos.",
-              "en": "There are lots of cars in the street."
+              "en": "There are lots of cars in the street.",
+              "focus": [
+                "Autos"
+              ]
             },
             {
               "de": "Ich habe zwei Handys.",
-              "en": "I have two mobile phones."
+              "en": "I have two mobile phones.",
+              "focus": [
+                "Handys"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "In der Stadt gibt es drei ____.",
+            "options": [
+              "Kinos",
+              "Kinoe",
+              "Kinon"
+            ],
+            "answer": "Kinos",
+            "why": "Kino is a short borrowed word ending in a vowel, so it takes -s: das Kino, die Kinos."
+          }
         },
         {
           "kind": "warning",
@@ -511,14 +843,30 @@
           "examples": [
             {
               "de": "der Apfel, ¨- → die Äpfel",
-              "en": "umlaut, no ending"
+              "en": "umlaut, no ending",
+              "focus": [
+                "Äpfel"
+              ]
             },
             {
               "de": "das Buch, ¨-er → die Bücher",
-              "en": "umlaut plus -er"
+              "en": "umlaut plus -er",
+              "focus": [
+                "Bücher"
+              ]
             }
           ],
-          "trap": "there is no -s rule to lean on. A noun's plural is part of the noun; guessing with -s (Tischs, Frauas) is the most common beginner's plural error."
+          "trap": "there is no -s rule to lean on. A noun's plural is part of the noun; guessing with -s (Tischs, Frauas) is the most common beginner's plural error.",
+          "check": {
+            "q": "A word list says: der Stuhl, ¨-e. What is the plural?",
+            "options": [
+              "die Stühle",
+              "die Stuhle",
+              "die Stühler"
+            ],
+            "answer": "die Stühle",
+            "why": "¨ means add an umlaut and -e is the ending: Stuhl → Stühle."
+          }
         }
       ],
       "remember": [
@@ -527,7 +875,15 @@
       ],
       "context": {
         "de": "In meiner Wohnung gibt es zwei Zimmer. Im Wohnzimmer stehen ein Tisch und vier Stühle. An der Wand hängen drei Bilder. Ich habe zwei Katzen und viele Bücher. Die Fenster sind groß, und die Schlüssel liegen immer auf dem Tisch.",
-        "en": "In my flat there are two rooms. In the living room there's a table and four chairs. Three pictures hang on the wall. I have two cats and lots of books. The windows are big, and the keys are always on the table."
+        "en": "In my flat there are two rooms. In the living room there's a table and four chairs. Three pictures hang on the wall. I have two cats and lots of books. The windows are big, and the keys are always on the table.",
+        "focus": [
+          "Stühle",
+          "Bilder",
+          "Katzen",
+          "Bücher",
+          "Fenster",
+          "Schlüssel"
+        ]
       },
       "mistakes": [
         {
@@ -556,6 +912,7 @@
     ],
     "title": "Zahlen 11–20",
     "help": {
+      "hook": "Learn elf and zwölf, then glue a small number to zehn — the German teens work almost exactly like English.",
       "intro": "Eleven to twenty look irregular but hide one pattern: from thirteen up, you say the unit and then zehn — vier-zehn, acht-zehn — exactly like English 'four-teen'. Only elf (11) and zwölf (12) have to be learnt as words, and two spellings are trimmed: sechzehn drops the s of sechs, siebzehn drops the -en of sieben. Twenty is zwanzig, the first of the tens, and it starts the next block. These teens matter more than they look: ages, times (um vierzehn Uhr), prices and dates all use them constantly.",
       "tips": [
         {
@@ -565,13 +922,29 @@
           "examples": [
             {
               "de": "Ich bin vierzehn Jahre alt.",
-              "en": "I am fourteen years old."
+              "en": "I am fourteen years old.",
+              "focus": [
+                "vierzehn"
+              ]
             },
             {
               "de": "Der Zug fährt um neunzehn Uhr.",
-              "en": "The train leaves at 19:00."
+              "en": "The train leaves at 19:00.",
+              "focus": [
+                "neunzehn"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Sohn ist ____ Jahre alt. (15)",
+            "options": [
+              "fünfzehn",
+              "zehnfünf",
+              "fünfzig"
+            ],
+            "answer": "fünfzehn",
+            "why": "The small number comes first, then zehn, all as one word: fünf + zehn = fünfzehn. fünfzig is 50."
+          }
         },
         {
           "kind": "warning",
@@ -580,13 +953,31 @@
           "examples": [
             {
               "de": "elf, zwölf, dreizehn",
-              "en": "eleven, twelve, thirteen"
+              "en": "eleven, twelve, thirteen",
+              "focus": [
+                "elf",
+                "zwölf"
+              ]
             },
             {
               "de": "sechzehn, siebzehn",
-              "en": "sixteen, seventeen"
+              "en": "sixteen, seventeen",
+              "focus": [
+                "sechzehn",
+                "siebzehn"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Meine Schwester ist ____. (16)",
+            "options": [
+              "sechzehn",
+              "sechszehn",
+              "zehnsechs"
+            ],
+            "answer": "sechzehn",
+            "why": "Sixteen drops the s of sechs: sechzehn. Likewise siebzehn drops the -en of sieben."
+          }
         },
         {
           "kind": "mnemonic",
@@ -595,13 +986,28 @@
           "examples": [
             {
               "de": "Zimmer siebzehn, bitte.",
-              "en": "Room seventeen, please."
+              "en": "Room seventeen, please.",
+              "focus": [
+                "siebzehn"
+              ]
             },
             {
               "de": "Das kostet zwölf Euro.",
-              "en": "That costs twelve euros."
+              "en": "That costs twelve euros.",
+              "focus": [
+                "zwölf"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Where is the stress in siebzehn?",
+            "options": [
+              "SIEB-zehn",
+              "sieb-ZEHN"
+            ],
+            "answer": "SIEB-zehn",
+            "why": "In the teens the stress always falls on the first part: SIEBzehn, ACHTzehn, NEUNzehn."
+          }
         }
       ],
       "remember": [
@@ -658,7 +1064,13 @@
       ],
       "context": {
         "de": "Wie alt bist du? – Ich bin sechzehn. Mein Bruder ist neunzehn und meine Schwester ist zwölf. – Und wann fängt die Schule an? – Um zwanzig nach acht.",
-        "en": "How old are you? – I'm sixteen. My brother is nineteen and my sister is twelve. – And when does school start? – At twenty past eight."
+        "en": "How old are you? – I'm sixteen. My brother is nineteen and my sister is twelve. – And when does school start? – At twenty past eight.",
+        "focus": [
+          "sechzehn",
+          "neunzehn",
+          "zwölf",
+          "zwanzig"
+        ]
       },
       "mistakes": [
         {
@@ -684,6 +1096,7 @@
     ],
     "title": "Hören: Vorstellung",
     "help": {
+      "hook": "Hear someone introduce themselves and catch where they are from, how old they are and what they do.",
       "intro": "Max introduces himself in a short recording that you only hear — the text stays hidden until you choose to show it. This is how most everyday listening works: someone talks about themselves, and what you need comes in the order they say it. Your job is not to understand every word. It is to catch the answers to the W-questions — woher (where from), was (what he does), wie alt (how old), wie (what something is like) — and to hold each one until the matching question comes. Watch the time words too: am Wochenende and am Abend introduce different activities, and the questions ask about one of them. Listen once for the shape, once for the details, and replay as often as you like: in real life you would simply ask 'Wie bitte?'.",
       "tips": [
         {
@@ -693,13 +1106,31 @@
           "examples": [
             {
               "de": "Woher kommt Max? → '… komme aus England.'",
-              "en": "Where is Max from? → '… come from England.'"
+              "en": "Where is Max from? → '… come from England.'",
+              "focus": [
+                "Woher",
+                "England"
+              ]
             },
             {
               "de": "Wie alt ist er? → 'Ich bin zwanzig Jahre alt.'",
-              "en": "How old is he? → 'I am twenty years old.'"
+              "en": "How old is he? → 'I am twenty years old.'",
+              "focus": [
+                "alt",
+                "zwanzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The question is: Wie alt ist Sara? Which line from her intro answers it?",
+            "options": [
+              "Ich bin dreißig Jahre alt.",
+              "Ich komme aus Polen.",
+              "Ich wohne in Bonn."
+            ],
+            "answer": "Ich bin dreißig Jahre alt.",
+            "why": "Wie alt asks for an age, so you wait for a number followed by Jahre alt."
+          }
         },
         {
           "kind": "rule",
@@ -708,13 +1139,30 @@
           "examples": [
             {
               "de": "Ich heiße Max. Ich bin Student und komme aus England.",
-              "en": "The first two facts arrive in the first two sentences."
+              "en": "The first two facts arrive in the first two sentences.",
+              "focus": [
+                "Student",
+                "England"
+              ]
             },
             {
               "de": "Am Abend koche ich oft Pasta. Und wer bist du?",
-              "en": "The last fact comes just before the goodbye question."
+              "en": "The last fact comes just before the goodbye question.",
+              "focus": [
+                "Pasta"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Paul's intro starts 'Ich heiße Paul. Ich komme aus Spanien …' and ends 'Am Abend lese ich.' Where in the recording do you hear where he is from?",
+            "options": [
+              "Near the start",
+              "Right at the end",
+              "It is never said"
+            ],
+            "answer": "Near the start",
+            "why": "Introductions follow a set order: name, origin, then the rest. So the origin comes early, and the evening hobby comes last."
+          }
         },
         {
           "kind": "mnemonic",
@@ -723,13 +1171,29 @@
           "examples": [
             {
               "de": "Am Wochenende spiele ich Fußball und höre gern Musik.",
-              "en": "At the weekend I play football and like listening to music."
+              "en": "At the weekend I play football and like listening to music.",
+              "focus": [
+                "Wochenende"
+              ]
             },
             {
               "de": "Am Abend koche ich oft Pasta.",
-              "en": "In the evening I often cook pasta."
+              "en": "In the evening I often cook pasta.",
+              "focus": [
+                "Abend"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Am Abend sehe ich fern. Am Wochenende schwimme ich.' What does she do at the weekend?",
+            "options": [
+              "She swims",
+              "She watches TV",
+              "She cooks"
+            ],
+            "answer": "She swims",
+            "why": "Am Wochenende opens the fact schwimme ich; fernsehen belongs to am Abend."
+          }
         }
       ],
       "remember": [
@@ -746,6 +1210,7 @@
     ],
     "title": "sein & haben",
     "help": {
+      "hook": "Two verbs carry half of everyday German: sein for who you are, haben for what you've got.",
       "intro": "sein (to be) and haben (to have) are the two verbs you cannot say a German sentence without. You describe yourself with sein (ich bin müde), say what you own with haben (ich habe einen Hund), and later in the course you build every past-tense sentence with one of the two (ich habe gegessen, ich bin gefahren). Both are irregular. sein is irregular through and through — bin, bist, ist, sind, seid, sind — with no pattern to lean on; haben is regular except that du hast and er hat drop the b. Learn both sets by heart now; they come up in every exercise from here to the end of the course.",
       "tips": [
         {
@@ -755,13 +1220,33 @@
           "examples": [
             {
               "de": "Ich bin Studentin. Du bist nett. Er ist groß.",
-              "en": "I am a student. You are nice. He is tall."
+              "en": "I am a student. You are nice. He is tall.",
+              "focus": [
+                "bin",
+                "bist",
+                "ist"
+              ]
             },
             {
               "de": "Wir sind aus Wien. Ihr seid müde. Sie sind hier.",
-              "en": "We are from Vienna. You are tired. They are here."
+              "en": "We are from Vienna. You are tired. They are here.",
+              "focus": [
+                "sind",
+                "seid"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ihr ____ sehr pünktlich.",
+            "options": [
+              "seid",
+              "sind",
+              "seit",
+              "ist"
+            ],
+            "answer": "seid",
+            "why": "ihr takes seid. Watch the spelling: seit (with t) means 'since'."
+          }
         },
         {
           "kind": "rule",
@@ -770,13 +1255,33 @@
           "examples": [
             {
               "de": "Ich habe einen Bruder. Hast du Zeit? Sie hat ein Auto.",
-              "en": "I have a brother. Do you have time? She has a car."
+              "en": "I have a brother. Do you have time? She has a car.",
+              "focus": [
+                "habe",
+                "Hast",
+                "hat"
+              ]
             },
             {
               "de": "Wir haben Hunger. Habt ihr Kinder?",
-              "en": "We are hungry. Do you have children?"
+              "en": "We are hungry. Do you have children?",
+              "focus": [
+                "haben",
+                "Habt"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ du einen Hund?",
+            "options": [
+              "Hast",
+              "Habst",
+              "Hat",
+              "Habe"
+            ],
+            "answer": "Hast",
+            "why": "du drops the b: du hast. hat is for er/sie/es, habe for ich."
+          }
         },
         {
           "kind": "warning",
@@ -785,14 +1290,32 @@
           "examples": [
             {
               "de": "Ich habe Hunger und Durst.",
-              "en": "I am hungry and thirsty."
+              "en": "I am hungry and thirsty.",
+              "focus": [
+                "habe",
+                "Hunger",
+                "Durst"
+              ]
             },
             {
               "de": "Ich bin neunzehn Jahre alt.",
-              "en": "I am nineteen years old."
+              "en": "I am nineteen years old.",
+              "focus": [
+                "bin",
+                "neunzehn"
+              ]
             }
           ],
-          "trap": "'I am hungry' word-for-word (Ich bin hungrig) is understood but sounds foreign; Germans say they *have* hunger."
+          "trap": "'I am hungry' word-for-word (Ich bin hungrig) is understood but sounds foreign; Germans say they *have* hunger.",
+          "check": {
+            "q": "Wir ____ Angst.",
+            "options": [
+              "haben",
+              "sind"
+            ],
+            "answer": "haben",
+            "why": "Germans have fear, hunger and thirst: wir haben Angst."
+          }
         }
       ],
       "remember": [
@@ -848,7 +1371,14 @@
       ],
       "context": {
         "de": "Ich bin Lena und ich bin Lehrerin. Ich habe zwei Kinder. Mein Sohn ist acht und meine Tochter ist fünf. Wir haben auch einen Hund. Bist du müde? – Nein, aber ich habe Hunger!",
-        "en": "I'm Lena and I'm a teacher. I have two children. My son is eight and my daughter is five. We also have a dog. Are you tired? – No, but I'm hungry!"
+        "en": "I'm Lena and I'm a teacher. I have two children. My son is eight and my daughter is five. We also have a dog. Are you tired? – No, but I'm hungry!",
+        "focus": [
+          "bin",
+          "habe",
+          "ist",
+          "haben",
+          "Bist"
+        ]
       },
       "mistakes": [
         {
@@ -877,6 +1407,7 @@
     ],
     "title": "W-Fragen",
     "help": {
+      "hook": "Put a w-word first and the verb straight after it — German questions never need a 'do'.",
       "intro": "W-questions ask for information — who, what, where, when, how, why — and almost all of the German ones begin with w: wer, was, wo, wann, wie, warum. The word order is fixed and simple: question word, then the verb, then the subject — Wo wohnst du? Woher kommt sie? English needs a helper ('where *do* you live?'); German does not, it just moves the verb forward. The one place English speakers stumble is 'where', which German splits into three: wo (at what place), wohin (to what place) and woher (from what place).",
       "tips": [
         {
@@ -886,14 +1417,32 @@
           "examples": [
             {
               "de": "Wo wohnst du? – Ich wohne in Köln.",
-              "en": "Where do you live? – I live in Cologne."
+              "en": "Where do you live? – I live in Cologne.",
+              "focus": [
+                "Wo",
+                "wohnst"
+              ]
             },
             {
               "de": "Wann kommt der Zug?",
-              "en": "When does the train come?"
+              "en": "When does the train come?",
+              "focus": [
+                "Wann",
+                "kommt"
+              ]
             }
           ],
-          "trap": "English adds 'do/does' to ask a question; German never does. 'Wo tust du wohnen' is not German."
+          "trap": "English adds 'do/does' to ask a question; German never does. 'Wo tust du wohnen' is not German.",
+          "check": {
+            "q": "Which question is correct German?",
+            "options": [
+              "Wo arbeitest du?",
+              "Wo du arbeitest?",
+              "Wo tust du arbeiten?"
+            ],
+            "answer": "Wo arbeitest du?",
+            "why": "Question word first, verb second, then the subject — and no extra 'do' verb."
+          }
         },
         {
           "kind": "warning",
@@ -902,17 +1451,38 @@
           "examples": [
             {
               "de": "Wo ist die Bank? – Dort.",
-              "en": "Where is the bank? – There."
+              "en": "Where is the bank? – There.",
+              "focus": [
+                "Wo"
+              ]
             },
             {
               "de": "Wohin fährst du? – Nach Berlin.",
-              "en": "Where are you going? – To Berlin."
+              "en": "Where are you going? – To Berlin.",
+              "focus": [
+                "Wohin",
+                "Nach"
+              ]
             },
             {
               "de": "Woher kommst du? – Aus Spanien.",
-              "en": "Where are you from? – From Spain."
+              "en": "Where are you from? – From Spain.",
+              "focus": [
+                "Woher",
+                "Aus"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ fliegt ihr im Sommer? – Nach Spanien.",
+            "options": [
+              "Wohin",
+              "Woher",
+              "Wo"
+            ],
+            "answer": "Wohin",
+            "why": "The answer is a destination (nach Spanien), so the question is wohin — where to."
+          }
         },
         {
           "kind": "rule",
@@ -921,13 +1491,31 @@
           "examples": [
             {
               "de": "Wie heißt du? Wie alt bist du?",
-              "en": "What's your name? How old are you?"
+              "en": "What's your name? How old are you?",
+              "focus": [
+                "Wie",
+                "alt"
+              ]
             },
             {
               "de": "Wie viel kostet das? Wie spät ist es?",
-              "en": "How much does it cost? What time is it?"
+              "en": "How much does it cost? What time is it?",
+              "focus": [
+                "viel",
+                "spät"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ ist dein Bruder? – Er ist zwölf.",
+            "options": [
+              "Wie alt",
+              "Wie viel",
+              "Wie lange"
+            ],
+            "answer": "Wie alt",
+            "why": "Age is asked with wie alt — how old."
+          }
         },
         {
           "kind": "rule",
@@ -936,13 +1524,29 @@
           "examples": [
             {
               "de": "Kommst du morgen? – Ja. / Nein.",
-              "en": "Are you coming tomorrow? – Yes. / No."
+              "en": "Are you coming tomorrow? – Yes. / No.",
+              "focus": [
+                "Kommst"
+              ]
             },
             {
               "de": "Kommst du nicht? – Doch! (Yes, I am!)",
-              "en": "Aren't you coming? – Yes, I am!"
+              "en": "Aren't you coming? – Yes, I am!",
+              "focus": [
+                "Doch"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Hast du keine Zeit? – ____, ich habe Zeit!",
+            "options": [
+              "Doch",
+              "Ja",
+              "Nein"
+            ],
+            "answer": "Doch",
+            "why": "The question was negative, so you contradict it with doch."
+          }
         }
       ],
       "remember": [
@@ -1001,7 +1605,14 @@
       ],
       "context": {
         "de": "Wer ist das? – Das ist Paula. – Woher kommt sie? – Aus Spanien. – Und wo wohnt sie jetzt? – In Hamburg. – Wie alt ist sie? – Sie ist neunzehn. – Kommt sie heute nicht? – Doch, um acht.",
-        "en": "Who is that? – That's Paula. – Where is she from? – From Spain. – And where does she live now? – In Hamburg. – How old is she? – She's nineteen. – Isn't she coming today? – Yes she is, at eight."
+        "en": "Who is that? – That's Paula. – Where is she from? – From Spain. – And where does she live now? – In Hamburg. – How old is she? – She's nineteen. – Isn't she coming today? – Yes she is, at eight.",
+        "focus": [
+          "Wer",
+          "Woher",
+          "wo",
+          "Wie",
+          "Doch"
+        ]
       },
       "mistakes": [
         {
@@ -1032,6 +1643,7 @@
     ],
     "title": "Lesen: Das bin ich",
     "help": {
+      "hook": "Read a short personal profile and pick out age, home, job and hobbies without translating every word.",
       "intro": "A short self-introduction of the kind you find on a language-course website or a pen-pal page: name, age, country, city, what she does, family, hobbies. Read it once for the gist without stopping at unknown words, then take the questions one at a time and go back to the text for each. Every question has a key word — alt, woher, arbeitet, trinkt — and the sentence containing the answer contains that key word or its twin (wie alt ↔ Jahre alt; was macht ↔ Studentin). That scanning move — question first, then hunt the key word — is the single most useful reading habit you can build, because in real life you rarely have time to translate.",
       "tips": [
         {
@@ -1041,13 +1653,30 @@
           "examples": [
             {
               "de": "Wie alt ist Lena? → 'Ich bin zwanzig Jahre alt'",
-              "en": "How old is Lena? → 'I am twenty years old'"
+              "en": "How old is Lena? → 'I am twenty years old'",
+              "focus": [
+                "alt",
+                "zwanzig"
+              ]
             },
             {
               "de": "Was macht Lena? → 'Ich bin Studentin'",
-              "en": "What does Lena do? → 'I am a student'"
+              "en": "What does Lena do? → 'I am a student'",
+              "focus": [
+                "Studentin"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The question is: Woher kommt Paul? Which sentence in his text holds the answer?",
+            "options": [
+              "Ich komme aus der Schweiz.",
+              "Ich bin Lehrer.",
+              "Ich wohne in Berlin."
+            ],
+            "answer": "Ich komme aus der Schweiz.",
+            "why": "Woher asks where someone comes from, so you hunt for komme aus."
+          }
         },
         {
           "kind": "rule",
@@ -1056,13 +1685,32 @@
           "examples": [
             {
               "de": "Am Sonntag spiele ich gern Tennis und lese viele Bücher.",
-              "en": "'spiele' and 'Tennis' give you the hobby; 'gern' just says she likes it."
+              "en": "'spiele' and 'Tennis' give you the hobby; 'gern' just says she likes it.",
+              "focus": [
+                "spiele",
+                "Tennis"
+              ]
             },
             {
               "de": "Am Morgen trinke ich Tee, aber am Nachmittag trinke ich gern Kaffee.",
-              "en": "'trinke', 'Tee' and 'Kaffee' are enough; 'aber' tells you the two times are different."
+              "en": "'trinke', 'Tee' and 'Kaffee' are enough; 'aber' tells you the two times are different.",
+              "focus": [
+                "Tee",
+                "Kaffee",
+                "aber"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Am Abend backe ich gern Kuchen für meine Familie.' Which words tell you the hobby?",
+            "options": [
+              "backe, Kuchen",
+              "Abend, für",
+              "meine, Familie"
+            ],
+            "answer": "backe, Kuchen",
+            "why": "The verb and its object carry the activity (baking cake); the other words are just the setting."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1071,13 +1719,33 @@
           "examples": [
             {
               "de": "Ich heiße … Ich bin … Jahre alt. Ich komme aus … Ich wohne in …",
-              "en": "My name is … I am … years old. I come from … I live in …"
+              "en": "My name is … I am … years old. I come from … I live in …",
+              "focus": [
+                "heiße",
+                "komme",
+                "wohne"
+              ]
             },
             {
               "de": "Hallo! Ich heiße Lena Müller. Ich bin zwanzig Jahre alt und komme aus Österreich.",
-              "en": "Hi! My name is Lena Müller. I am twenty years old and come from Austria."
+              "en": "Hi! My name is Lena Müller. I am twenty years old and come from Austria.",
+              "focus": [
+                "Lena",
+                "zwanzig",
+                "Österreich"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "A profile starts: 'Ich heiße Tom. Ich bin dreißig Jahre alt.' What usually comes next?",
+            "options": [
+              "Ich komme aus Irland.",
+              "Am Wochenende schwimme ich gern.",
+              "Tschüss!"
+            ],
+            "answer": "Ich komme aus Irland.",
+            "why": "Name, age, then origin; hobbies come near the end of a self-introduction."
+          }
         }
       ],
       "remember": [
@@ -1096,6 +1764,7 @@
     ],
     "title": "Kurzcheck: Zahlen & Vorstellung",
     "help": {
+      "hook": "Three minutes of real conversation out loud — your name, your country, your age — answered in full German sentences.",
       "intro": "A three-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: it asks, you answer aloud in full sentences, and at the end it gives a score and the three corrections that matter most. Copy the exercise, paste it into the assistant, switch on voice mode and say 'Los geht's'. It will ask your name, where you are from, your age, and a handful of numbers — the same ground as any first conversation with someone new. Answer in whole sentences (Ich heiße …, Ich komme aus …, Ich bin … Jahre alt), because the sentence, not the word, is what people understand.",
       "tips": [
         {
@@ -1105,13 +1774,33 @@
           "examples": [
             {
               "de": "Wie alt bist du? – Ich bin zwanzig Jahre alt.",
-              "en": "How old are you? – I am twenty years old."
+              "en": "How old are you? – I am twenty years old.",
+              "focus": [
+                "bin",
+                "Jahre",
+                "alt"
+              ]
             },
             {
               "de": "Woher kommst du? – Ich komme aus Kanada.",
-              "en": "Where are you from? – I come from Canada."
+              "en": "Where are you from? – I come from Canada.",
+              "focus": [
+                "Ich",
+                "komme",
+                "aus"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wo wohnst du? Which answer follows the full-sentence rule?",
+            "options": [
+              "Ich wohne in Wien.",
+              "In Wien.",
+              "Wien."
+            ],
+            "answer": "Ich wohne in Wien.",
+            "why": "A whole sentence with subject and verb is what counts; a single word or a fragment scores nothing."
+          }
         },
         {
           "kind": "rule",
@@ -1120,13 +1809,30 @@
           "examples": [
             {
               "de": "Ich heiße Ana und ich … äh … ich komme aus Brasilien.",
-              "en": "Hesitation is fine; stopping is not."
+              "en": "Hesitation is fine; stopping is not.",
+              "focus": [
+                "äh"
+              ]
             },
             {
               "de": "Ich bin … zwanzig – nein, einundzwanzig Jahre alt.",
-              "en": "Correcting yourself and carrying on is fine."
+              "en": "Correcting yourself and carrying on is fine.",
+              "focus": [
+                "nein",
+                "einundzwanzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You say „Ich bin zwanzig Jahr …“ and notice a small slip. What do you do?",
+            "options": [
+              "Keep talking",
+              "Stop and start over",
+              "Ask for a correction"
+            ],
+            "answer": "Keep talking",
+            "why": "The tutor saves all corrections for the report at the end — carrying on is the fluency practice."
+          }
         }
       ],
       "remember": [
@@ -1143,6 +1849,7 @@
     ],
     "title": "Regelmäßige Verben (Präsens)",
     "help": {
+      "hook": "Learn six little endings once — -e, -st, -t, -en, -t, -en — and almost every German verb is yours.",
       "intro": "German has one present tense that does the work of three English ones: ich wohne is 'I live', 'I am living' and 'I do live'. To form it, take the infinitive, cut the -en to get the stem (wohn-, mach-, komm-), and add the ending for the person: -e, -st, -t, -en, -t, -en. Those six endings never change — they are the same on every regular verb you will ever meet, and most irregular ones keep them too. One small comfort rule: if the stem ends in -t or -d (arbeit-, find-), an extra e slips in before -st and -t so the word can be pronounced: du arbeitest, er findet.",
       "tips": [
         {
@@ -1152,13 +1859,33 @@
           "examples": [
             {
               "de": "ich wohne, du wohnst, er wohnt",
-              "en": "I live, you live, he lives"
+              "en": "I live, you live, he lives",
+              "focus": [
+                "wohne",
+                "wohnst",
+                "wohnt"
+              ]
             },
             {
               "de": "wir wohnen, ihr wohnt, sie wohnen",
-              "en": "we live, you (all) live, they live"
+              "en": "we live, you (all) live, they live",
+              "focus": [
+                "wohnen",
+                "wohnt"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir ____ gern Musik.",
+            "options": [
+              "hören",
+              "hört",
+              "höre",
+              "hörst"
+            ],
+            "answer": "hören",
+            "why": "wir takes -en, so the form is the same as the infinitive: wir hören."
+          }
         },
         {
           "kind": "rule",
@@ -1167,13 +1894,30 @@
           "examples": [
             {
               "de": "Du arbeitest viel. Er findet den Schlüssel.",
-              "en": "You work a lot. He finds the key."
+              "en": "You work a lot. He finds the key.",
+              "focus": [
+                "arbeitest",
+                "findet"
+              ]
             },
             {
               "de": "Ihr wartet hier.",
-              "en": "You wait here."
+              "en": "You wait here.",
+              "focus": [
+                "wartet"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Er ____ auf den Bus.",
+            "options": [
+              "wartet",
+              "wartt",
+              "warten"
+            ],
+            "answer": "wartet",
+            "why": "The stem wart- ends in -t, so an extra e slips in before the ending: er wartet."
+          }
         },
         {
           "kind": "warning",
@@ -1182,14 +1926,31 @@
           "examples": [
             {
               "de": "Ich lerne Deutsch.",
-              "en": "I learn / am learning / do learn German."
+              "en": "I learn / am learning / do learn German.",
+              "focus": [
+                "lerne"
+              ]
             },
             {
               "de": "Was machst du? – Ich koche.",
-              "en": "What are you doing? – I'm cooking."
+              "en": "What are you doing? – I'm cooking.",
+              "focus": [
+                "machst",
+                "koche"
+              ]
             }
           ],
-          "trap": "'Ich bin lernen Deutsch' is the classic English-speaker error. The present is a single word."
+          "trap": "'Ich bin lernen Deutsch' is the classic English-speaker error. The present is a single word.",
+          "check": {
+            "q": "How do you say 'I am playing football'?",
+            "options": [
+              "Ich spiele Fußball.",
+              "Ich bin spielen Fußball.",
+              "Ich bin spiele Fußball."
+            ],
+            "answer": "Ich spiele Fußball.",
+            "why": "German has no '-ing' form. The present is one word: ich spiele."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1198,13 +1959,32 @@
           "examples": [
             {
               "de": "Kommst du? – Ja, ich komme.",
-              "en": "Are you coming? – Yes, I'm coming."
+              "en": "Are you coming? – Yes, I'm coming.",
+              "focus": [
+                "Kommst",
+                "komme"
+              ]
             },
             {
               "de": "Er kommt. Ihr kommt.",
-              "en": "He is coming. You (all) are coming."
+              "en": "He is coming. You (all) are coming.",
+              "focus": [
+                "Er",
+                "Ihr",
+                "kommt"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Du ____ aus England, oder?",
+            "options": [
+              "kommst",
+              "kommt",
+              "komme"
+            ],
+            "answer": "kommst",
+            "why": "du always has the s: du kommst."
+          }
         }
       ],
       "remember": [
@@ -1263,7 +2043,14 @@
       ],
       "context": {
         "de": "Ich wohne in Bremen und arbeite in einem Büro. Mein Freund Jan kommt aus Polen. Er lernt Deutsch und spielt gern Fußball. Am Abend hören wir Musik oder wir kochen zusammen. Und was machst du am Abend?",
-        "en": "I live in Bremen and work in an office. My friend Jan comes from Poland. He is learning German and likes playing football. In the evening we listen to music or cook together. And what do you do in the evening?"
+        "en": "I live in Bremen and work in an office. My friend Jan comes from Poland. He is learning German and likes playing football. In the evening we listen to music or cook together. And what do you do in the evening?",
+        "focus": [
+          "wohne",
+          "arbeite",
+          "kommt",
+          "lernt",
+          "machst"
+        ]
       },
       "mistakes": [
         {
@@ -1292,6 +2079,7 @@
     ],
     "title": "Unregelmäßige Verben (Vokalwechsel)",
     "help": {
+      "hook": "A handful of everyday verbs change their vowel for just two people — du and er/sie/es — and stay normal everywhere else.",
       "intro": "A small group of very common verbs change their stem vowel in the present tense — but only in two forms, du and er/sie/es. Everything else about them is regular: the endings are the usual -e, -st, -t, -en, -t, -en, and ich, wir, ihr and sie/Sie keep the vowel of the infinitive. There are three kinds of change — a becomes ä (fahren → du fährst), e becomes i (sprechen → du sprichst, essen → du isst) and e becomes ie (lesen → du liest, sehen → du siehst). The eight verbs in this quiz are among the most common in everyday German and cover most of what you will meet; nehmen is the odd one out, doubling the m and losing the h: du nimmst, er nimmt. Because the umlaut is the whole point here, it is checked strictly: fahrst for fährst is marked wrong (type ae if your keyboard has no ä).",
       "tips": [
         {
@@ -1301,13 +2089,32 @@
           "examples": [
             {
               "de": "Ich schlafe lange. Du schläfst lange. Er schläft lange.",
-              "en": "I sleep late. You sleep late. He sleeps late."
+              "en": "I sleep late. You sleep late. He sleeps late.",
+              "focus": [
+                "schlafe",
+                "schläfst",
+                "schläft"
+              ]
             },
             {
               "de": "Wir schlafen, ihr schlaft, sie schlafen.",
-              "en": "We sleep, you sleep, they sleep — no change."
+              "en": "We sleep, you sleep, they sleep — no change.",
+              "focus": [
+                "schlafen",
+                "schlaft"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir ____ nach Hamburg.",
+            "options": [
+              "fahren",
+              "fähren",
+              "fährt"
+            ],
+            "answer": "fahren",
+            "why": "Only du and er/sie/es get the umlaut. wir keeps the infinitive vowel: wir fahren."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1316,13 +2123,31 @@
           "examples": [
             {
               "de": "Du liest ein Buch. Er sieht einen Film.",
-              "en": "You read a book. He watches a film."
+              "en": "You read a book. He watches a film.",
+              "focus": [
+                "liest",
+                "sieht"
+              ]
             },
             {
               "de": "Du sprichst gut Deutsch. Sie isst einen Apfel.",
-              "en": "You speak German well. She eats an apple."
+              "en": "You speak German well. She eats an apple.",
+              "focus": [
+                "sprichst",
+                "isst"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Anna ____ drei Sprachen.",
+            "options": [
+              "spricht",
+              "sprecht",
+              "spriecht"
+            ],
+            "answer": "spricht",
+            "why": "sprechen is an e → i verb: er/sie spricht."
+          }
         },
         {
           "kind": "warning",
@@ -1331,13 +2156,29 @@
           "examples": [
             {
               "de": "Ich nehme den Bus. Er nimmt das Auto.",
-              "en": "I take the bus. He takes the car."
+              "en": "I take the bus. He takes the car.",
+              "focus": [
+                "nimmt"
+              ]
             },
             {
               "de": "Was isst du? – Ich esse Brot.",
-              "en": "What are you eating? – I'm eating bread."
+              "en": "What are you eating? – I'm eating bread.",
+              "focus": [
+                "isst"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Du ____ das Taxi.",
+            "options": [
+              "nimmst",
+              "nehmst",
+              "nimst"
+            ],
+            "answer": "nimmst",
+            "why": "nehmen loses the h and doubles the m: du nimmst."
+          }
         },
         {
           "kind": "rule",
@@ -1346,13 +2187,31 @@
           "examples": [
             {
               "de": "Du gibst mir das Buch. Er gibt es dir.",
-              "en": "You give me the book. He gives it to you."
+              "en": "You give me the book. He gives it to you.",
+              "focus": [
+                "gibst",
+                "gibt"
+              ]
             },
             {
               "de": "Du fährst nach Berlin. Er fährt nach Wien.",
-              "en": "You are going to Berlin. He is going to Vienna."
+              "en": "You are going to Berlin. He is going to Vienna.",
+              "focus": [
+                "fährst",
+                "fährt"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Er ____ zur Arbeit.",
+            "options": [
+              "fährt",
+              "fähr",
+              "fahrt"
+            ],
+            "answer": "fährt",
+            "why": "The vowel changes to ä, but the er-ending -t stays: er fährt."
+          }
         }
       ],
       "remember": [
@@ -1407,7 +2266,15 @@
       ],
       "context": {
         "de": "Am Morgen fährt Lisa mit dem Bus zur Arbeit. Sie liest die Zeitung und isst ein Brötchen. Ihr Kollege spricht viel und nimmt immer einen Kaffee. Und du? Fährst du auch mit dem Bus? Was liest du gern?",
-        "en": "In the morning Lisa takes the bus to work. She reads the paper and eats a roll. Her colleague talks a lot and always has a coffee. And you? Do you take the bus too? What do you like reading?"
+        "en": "In the morning Lisa takes the bus to work. She reads the paper and eats a roll. Her colleague talks a lot and always has a coffee. And you? Do you take the bus too? What do you like reading?",
+        "focus": [
+          "fährt",
+          "liest",
+          "isst",
+          "spricht",
+          "nimmt",
+          "Fährst"
+        ]
       },
       "mistakes": [
         {
@@ -1439,6 +2306,7 @@
     ],
     "title": "Großer Text: Das bin ich",
     "help": {
+      "hook": "Fill in a whole self-introduction (verbs, articles and capitals) and see the text you will soon write about yourself.",
       "intro": "One whole self-introduction with twelve gaps, using everything from this module at once: verb endings for ich, sie and wir, sein and haben, and the nominative articles der / mein. Each gap has a small hint under it — the verb and the person (heißen · ich), or the article it wants — so this is not a memory test but a putting-together test. Read the whole text first, because the sentence tells you the person; fill the verbs before the articles; and type only the one word the gap wants. It is the text you will soon write yourself — for a course, a pen pal or a new colleague — seen in reverse.",
       "tips": [
         {
@@ -1448,17 +2316,37 @@
           "examples": [
             {
               "de": "Ich heiße Lisa und ich komme aus Italien.",
-              "en": "My name is Lisa and I come from Italy."
+              "en": "My name is Lisa and I come from Italy.",
+              "focus": [
+                "heiße",
+                "komme"
+              ]
             },
             {
               "de": "Meine Schwester wohnt in Rom.",
-              "en": "My sister lives in Rome."
+              "en": "My sister lives in Rome.",
+              "focus": [
+                "wohnt"
+              ]
             },
             {
               "de": "Wir haben einen Hund.",
-              "en": "We have a dog."
+              "en": "We have a dog.",
+              "focus": [
+                "haben"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Vater ____ in Madrid.",
+            "options": [
+              "wohne",
+              "wohnt",
+              "wohnen"
+            ],
+            "answer": "wohnt",
+            "why": "Mein Vater is an er-person, and er/sie/es takes -t."
+          }
         },
         {
           "kind": "rule",
@@ -1467,13 +2355,29 @@
           "examples": [
             {
               "de": "Der Hund ist klein und braun.",
-              "en": "The dog is small and brown."
+              "en": "The dog is small and brown.",
+              "focus": [
+                "Der"
+              ]
             },
             {
               "de": "Mein Bruder heißt Marco.",
-              "en": "My brother is called Marco."
+              "en": "My brother is called Marco.",
+              "focus": [
+                "Mein"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Bruder spielt Gitarre.",
+            "options": [
+              "Mein",
+              "Meine",
+              "Meinen"
+            ],
+            "answer": "Mein",
+            "why": "der Bruder is masculine and the subject here, so mein takes no ending."
+          }
         },
         {
           "kind": "warning",
@@ -1482,14 +2386,34 @@
           "examples": [
             {
               "de": "Ich bin Studentin und ich lerne Deutsch an der Universität.",
-              "en": "I am a student and I study German at the university."
+              "en": "I am a student and I study German at the university.",
+              "focus": [
+                "Studentin",
+                "Deutsch",
+                "Universität"
+              ]
             },
             {
               "de": "Der Hund ist klein und braun.",
-              "en": "The dog is small and brown."
+              "en": "The dog is small and brown.",
+              "focus": [
+                "Hund",
+                "klein",
+                "braun"
+              ]
             }
           ],
-          "trap": "English capitalises only names. In German a lowercase noun is a spelling mistake every German reader notices."
+          "trap": "English capitalises only names. In German a lowercase noun is a spelling mistake every German reader notices.",
+          "check": {
+            "q": "Which sentence is spelled correctly?",
+            "options": [
+              "Ich habe eine Katze.",
+              "Ich habe eine katze.",
+              "Ich Habe eine Katze."
+            ],
+            "answer": "Ich habe eine Katze.",
+            "why": "Katze is a noun, so it takes a capital; the verb habe stays lowercase."
+          }
         }
       ],
       "remember": [
@@ -1509,6 +2433,7 @@
     ],
     "title": "Diktat: Steckbrief",
     "help": {
+      "hook": "Hear a short sentence about someone and write it down perfectly, with capitals, ei and ie in the right places.",
       "intro": "A dictation: you hear one sentence from a personal profile — Ich heiße Anna. Ich komme aus England. Ich bin zwanzig Jahre alt. — and type it. Play it as often as you need, hold the whole sentence in your head, then write it in one go. Two things are being trained at once. Your ear: telling heiße from heißen, bin from bist. And your spelling: German is written almost exactly as it is said, so once you can hear it you can write it — provided you remember that every noun takes a capital, that ei is the 'eye' sound and ie the 'ee' sound, and that ß is just a sharp s. The check is forgiving about umlauts and ß (ae, oe, ue and ss are accepted), but not about the words themselves.",
       "tips": [
         {
@@ -1518,13 +2443,30 @@
           "examples": [
             {
               "de": "Ich komme aus England.",
-              "en": "I come from England."
+              "en": "I come from England.",
+              "focus": [
+                "komme"
+              ]
             },
             {
               "de": "Ich bin zwanzig Jahre alt.",
-              "en": "I am twenty years old."
+              "en": "I am twenty years old.",
+              "focus": [
+                "bin",
+                "Jahre"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear the whole sentence 'I live in Munich' in German. Which is what was said?",
+            "options": [
+              "Ich wohne in München.",
+              "Ich wohnen in München.",
+              "Ich wohnt in München."
+            ],
+            "answer": "Ich wohne in München.",
+            "why": "Holding the whole sentence keeps the ending with its person: ich always goes with -e."
+          }
         },
         {
           "kind": "warning",
@@ -1533,14 +2475,30 @@
           "examples": [
             {
               "de": "Ich bin Student und lerne Deutsch.",
-              "en": "I am a student and am learning German."
+              "en": "I am a student and am learning German.",
+              "focus": [
+                "Student",
+                "Deutsch"
+              ]
             },
             {
               "de": "Ich habe einen Hund.",
-              "en": "I have a dog."
+              "en": "I have a dog.",
+              "focus": [
+                "Hund"
+              ]
             }
           ],
-          "trap": "a lowercase German noun is a mistake, not a style choice."
+          "trap": "a lowercase German noun is a mistake, not a style choice.",
+          "check": {
+            "q": "Ich trinke gern ____.",
+            "options": [
+              "Kaffee",
+              "kaffee"
+            ],
+            "answer": "Kaffee",
+            "why": "Kaffee is a noun, and every German noun starts with a capital letter."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1549,13 +2507,31 @@
           "examples": [
             {
               "de": "Ich heiße … / Ich heisse …",
-              "en": "both spellings count here"
+              "en": "both spellings count here",
+              "focus": [
+                "heiße",
+                "heisse"
+              ]
             },
             {
               "de": "Ich spiele gern Fußball. / Ich spiele gern Fussball.",
-              "en": "Both spellings of Fußball count here."
+              "en": "Both spellings of Fußball count here.",
+              "focus": [
+                "Fußball",
+                "Fussball"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear the number four, which sounds like 'feer'. How is it spelled?",
+            "options": [
+              "vier",
+              "veir",
+              "vir"
+            ],
+            "answer": "vier",
+            "why": "The 'ee' sound is written ie; ei would sound like 'eye'."
+          }
         }
       ],
       "remember": [
@@ -1572,6 +2548,7 @@
     ],
     "title": "Hören: Zahlen & Preise",
     "help": {
+      "hook": "Hear a market seller call out prices and match every product to what it costs, at real speed.",
       "intro": "A market seller calls out today's prices — apples, bananas, bread, eggs, cheese, potatoes — and you only hear it. Your job is to match each product to its price, which is the most common listening job of daily life: numbers inside real speech, said at real speed. The trick is to hold the pair together: the product name comes first, the price follows within a second or two (… Äpfel … zwei Euro). Prices are said euros first, then cents, with no word for the comma: 2,20 € is 'zwei Euro zwanzig'; 1,10 € is 'ein Euro zehn'. Two prices here are close on purpose — zwei Euro and zwei Euro zehn — so listen to the end of each number. Play it once for the products, once for the prices.",
       "tips": [
         {
@@ -1581,13 +2558,31 @@
           "examples": [
             {
               "de": "Die Bananen kosten drei Euro.",
-              "en": "The bananas cost three euros."
+              "en": "The bananas cost three euros.",
+              "focus": [
+                "Bananen",
+                "drei"
+              ]
             },
             {
               "de": "Zehn Eier kosten zwei Euro zwanzig.",
-              "en": "Ten eggs cost 2.20 €."
+              "en": "Ten eggs cost 2.20 €.",
+              "focus": [
+                "Eier",
+                "zwanzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Der Käse kostet vier Euro, die Milch kostet zwei Euro.' How much is the cheese?",
+            "options": [
+              "4 €",
+              "2 €",
+              "6 €"
+            ],
+            "answer": "4 €",
+            "why": "The price follows its product: Käse … vier Euro, then Milch … zwei Euro."
+          }
         },
         {
           "kind": "rule",
@@ -1596,13 +2591,33 @@
           "examples": [
             {
               "de": "Ein Brot kostet zwei Euro zehn.",
-              "en": "A loaf costs 2.10 €."
+              "en": "A loaf costs 2.10 €.",
+              "focus": [
+                "zwei",
+                "Euro",
+                "zehn"
+              ]
             },
             {
               "de": "Die Kartoffeln kosten ein Euro zehn.",
-              "en": "The potatoes cost 1.10 €."
+              "en": "The potatoes cost 1.10 €.",
+              "focus": [
+                "ein",
+                "Euro",
+                "zehn"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "How do you say 3,50 €?",
+            "options": [
+              "drei Euro fünfzig",
+              "fünfzig Euro drei",
+              "drei Euros fünfzig"
+            ],
+            "answer": "drei Euro fünfzig",
+            "why": "Euros first, then cents, no word for the comma, and Euro never takes an s."
+          }
         },
         {
           "kind": "warning",
@@ -1611,13 +2626,29 @@
           "examples": [
             {
               "de": "Heute sind die Äpfel billig.",
-              "en": "Today the apples are cheap."
+              "en": "Today the apples are cheap.",
+              "focus": [
+                "billig"
+              ]
             },
             {
               "de": "Die Bananen kosten drei Euro.",
-              "en": "The bananas cost three euros."
+              "en": "The bananas cost three euros.",
+              "focus": [
+                "kosten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Heute ist der Käse billig.' What is the seller saying about the cheese?",
+            "options": [
+              "It is cheap today",
+              "It is expensive today",
+              "It is sold out today"
+            ],
+            "answer": "It is cheap today",
+            "why": "billig means cheap, a seller's favourite word; the actual price comes after kostet."
+          }
         }
       ],
       "remember": [
@@ -1634,6 +2665,7 @@
     ],
     "title": "Zahlen 20–100",
     "help": {
+      "hook": "German says twenty-one as 'one-and-twenty' — flip that one habit and every number up to a hundred is yours.",
       "intro": "From twenty-one upwards German says the numbers backwards from an English point of view: the unit first, then und, then the ten, all as one word — einundzwanzig is 'one-and-twenty'. Once you accept that order, everything to a hundred follows one pattern, and the tens themselves are the units with -zig on the end (vierzig, fünfzig, achtzig, neunzig) with the same two trims as before — sechzig, siebzig — and one odd one, dreißig, spelt with ß. Two details are worth getting right from the start: it is ein before und (einundzwanzig, never einsundzwanzig), and hundert can be said with or without ein.",
       "tips": [
         {
@@ -1643,14 +2675,30 @@
           "examples": [
             {
               "de": "Meine Mutter ist achtundvierzig.",
-              "en": "My mother is forty-eight."
+              "en": "My mother is forty-eight.",
+              "focus": [
+                "achtundvierzig"
+              ]
             },
             {
               "de": "Das kostet dreiundzwanzig Euro.",
-              "en": "That costs twenty-three euros."
+              "en": "That costs twenty-three euros.",
+              "focus": [
+                "dreiundzwanzig"
+              ]
             }
           ],
-          "trap": "English says twenty-one; German says one-and-twenty. When you *hear* a number, the second half is the big part."
+          "trap": "English says twenty-one; German says one-and-twenty. When you *hear* a number, the second half is the big part.",
+          "check": {
+            "q": "Das kostet ____ Euro. (36)",
+            "options": [
+              "sechsunddreißig",
+              "dreißigundsechs",
+              "dreiundsechzig"
+            ],
+            "answer": "sechsunddreißig",
+            "why": "Unit first, then und, then the ten, as one word: sechs-und-dreißig. dreiundsechzig is 63."
+          }
         },
         {
           "kind": "rule",
@@ -1659,13 +2707,31 @@
           "examples": [
             {
               "de": "Er ist dreißig. Sie ist sechzig.",
-              "en": "He is thirty. She is sixty."
+              "en": "He is thirty. She is sixty.",
+              "focus": [
+                "dreißig",
+                "sechzig"
+              ]
             },
             {
               "de": "hundert Euro / einhundert Euro",
-              "en": "a hundred euros — both are correct"
+              "en": "a hundred euros — both are correct",
+              "focus": [
+                "hundert",
+                "einhundert"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Opa ist ____. (70)",
+            "options": [
+              "siebzig",
+              "siebenzig",
+              "siebzehn"
+            ],
+            "answer": "siebzig",
+            "why": "The tens add -zig, and sieben is trimmed: siebzig. siebzehn is 17."
+          }
         },
         {
           "kind": "warning",
@@ -1674,13 +2740,30 @@
           "examples": [
             {
               "de": "einundzwanzig, einunddreißig",
-              "en": "21, 31"
+              "en": "21, 31",
+              "focus": [
+                "einundzwanzig",
+                "einunddreißig"
+              ]
             },
             {
               "de": "Mein Vater ist einundfünfzig.",
-              "en": "My father is fifty-one."
+              "en": "My father is fifty-one.",
+              "focus": [
+                "einundfünfzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Meine Tante ist ____. (41)",
+            "options": [
+              "einundvierzig",
+              "einsundvierzig",
+              "eineundvierzig"
+            ],
+            "answer": "einundvierzig",
+            "why": "Inside a number eins loses its s: ein + und + vierzig = einundvierzig."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1689,13 +2772,31 @@
           "examples": [
             {
               "de": "siebenundvierzig → 47",
-              "en": "'seven and forty' → 47"
+              "en": "'seven and forty' → 47",
+              "focus": [
+                "siebenundvierzig",
+                "47"
+              ]
             },
             {
               "de": "achtundsechzig → 68",
-              "en": "'eight and sixty' → 68"
+              "en": "'eight and sixty' → 68",
+              "focus": [
+                "achtundsechzig",
+                "68"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear neunundsiebzig. Which number do you write?",
+            "options": [
+              "79",
+              "97",
+              "99"
+            ],
+            "answer": "79",
+            "why": "The second half is the ten: siebzig → 7, then neun → 9, so 79."
+          }
         }
       ],
       "remember": [
@@ -1751,7 +2852,13 @@
       ],
       "context": {
         "de": "Wie alt sind deine Eltern? – Mein Vater ist vierundfünfzig und meine Mutter ist einundfünfzig. Meine Oma ist schon achtundsiebzig! – Und was kostet die Jacke? – Neunundneunzig Euro. Zu teuer!",
-        "en": "How old are your parents? – My father is fifty-four and my mother is fifty-one. My grandma is already seventy-eight! – And what does the jacket cost? – Ninety-nine euros. Too expensive!"
+        "en": "How old are your parents? – My father is fifty-four and my mother is fifty-one. My grandma is already seventy-eight! – And what does the jacket cost? – Ninety-nine euros. Too expensive!",
+        "focus": [
+          "vierundfünfzig",
+          "einundfünfzig",
+          "achtundsiebzig",
+          "Neunundneunzig"
+        ]
       },
       "mistakes": [
         {
@@ -1780,6 +2887,7 @@
     ],
     "title": "Farben",
     "help": {
+      "hook": "Put a colour after ist and it never changes — Das Auto ist rot — the easiest adjectives you will ever learn.",
       "intro": "Colours are the first adjectives you use to describe things, and at first you use them in the easy position: after the verb sein, where they never change — Das Auto ist rot. Die Blume ist gelb. (Before a noun an adjective takes an ending — ein rotes Auto — but that comes later in the course; for now you only need to recognise it.) You need eleven basic colours, and three of them are loanwords that never take any ending even later: rosa, lila and orange. This quiz gives you a clue and asks for the colour; the clues also quietly teach you nouns like Himmel, Gras and Sonne.",
       "tips": [
         {
@@ -1789,13 +2897,30 @@
           "examples": [
             {
               "de": "Die Banane ist gelb.",
-              "en": "The banana is yellow."
+              "en": "The banana is yellow.",
+              "focus": [
+                "gelb"
+              ]
             },
             {
               "de": "Meine Katze ist schwarz und weiß.",
-              "en": "My cat is black and white."
+              "en": "My cat is black and white.",
+              "focus": [
+                "schwarz",
+                "weiß"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Die Tomaten sind ____.",
+            "options": [
+              "rot",
+              "rote",
+              "roten"
+            ],
+            "answer": "rot",
+            "why": "After sein (ist / sind) the colour stays in its base form, whatever the noun: Die Tomaten sind rot."
+          }
         },
         {
           "kind": "rule",
@@ -1804,14 +2929,30 @@
           "examples": [
             {
               "de": "Ich habe ein blaues Auto.",
-              "en": "I have a blue car."
+              "en": "I have a blue car.",
+              "focus": [
+                "blaues"
+              ]
             },
             {
               "de": "Das rote Auto ist neu.",
-              "en": "The red car is new."
+              "en": "The red car is new.",
+              "focus": [
+                "rote"
+              ]
             }
           ],
-          "trap": "English adjectives never change. Don't try to add endings yet; but don't be surprised to see them."
+          "trap": "English adjectives never change. Don't try to add endings yet; but don't be surprised to see them.",
+          "check": {
+            "q": "Which phrase shows a colour with an ending?",
+            "options": [
+              "ein grünes Haus",
+              "Das Haus ist grün.",
+              "Es ist grün."
+            ],
+            "answer": "ein grünes Haus",
+            "why": "Before a noun the colour takes an ending (grün → grünes). After ist it stays plain."
+          }
         },
         {
           "kind": "warning",
@@ -1820,13 +2961,29 @@
           "examples": [
             {
               "de": "Sie trägt ein rosa Kleid.",
-              "en": "She is wearing a pink dress."
+              "en": "She is wearing a pink dress.",
+              "focus": [
+                "rosa"
+              ]
             },
             {
               "de": "Ich mag die lila Blumen.",
-              "en": "I like the purple flowers."
+              "en": "I like the purple flowers.",
+              "focus": [
+                "lila"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich kaufe ein ____ T-Shirt.",
+            "options": [
+              "lila",
+              "lilanes",
+              "lilas"
+            ],
+            "answer": "lila",
+            "why": "lila, rosa and orange are borrowed colours and never take an ending, even before a noun."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1835,13 +2992,30 @@
           "examples": [
             {
               "de": "Der Himmel ist hellblau. Der Wald ist dunkelgrün.",
-              "en": "The sky is light blue. The forest is dark green."
+              "en": "The sky is light blue. The forest is dark green.",
+              "focus": [
+                "hellblau",
+                "dunkelgrün"
+              ]
             },
             {
               "de": "Mein Pullover ist dunkelblau.",
-              "en": "My jumper is dark blue."
+              "en": "My jumper is dark blue.",
+              "focus": [
+                "dunkelblau"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "How do you say light blue?",
+            "options": [
+              "hellblau",
+              "dunkelblau",
+              "blauhell"
+            ],
+            "answer": "hellblau",
+            "why": "hell- (light) and dunkel- (dark) are glued to the front of the colour: hellblau, dunkelblau."
+          }
         }
       ],
       "remember": [
@@ -1910,7 +3084,15 @@
       ],
       "context": {
         "de": "Mein Zimmer ist bunt: Die Wand ist gelb, der Teppich ist blau und die Lampe ist rot. Mein Stuhl ist schwarz. Und mein Lieblingskleid? Es ist rosa, natürlich!",
-        "en": "My room is colourful: the wall is yellow, the carpet is blue and the lamp is red. My chair is black. And my favourite dress? It's pink, of course!"
+        "en": "My room is colourful: the wall is yellow, the carpet is blue and the lamp is red. My chair is black. And my favourite dress? It's pink, of course!",
+        "focus": [
+          "bunt",
+          "gelb",
+          "blau",
+          "rot",
+          "schwarz",
+          "rosa"
+        ]
       },
       "mistakes": [
         {
@@ -1939,6 +3121,7 @@
     ],
     "title": "Sprechen: Zahlen & Preise",
     "help": {
+      "hook": "Prices, platforms, phone numbers — numbers are what you'll say most, and three sounds make them sound truly German.",
       "intro": "Numbers are the words you will say most often in a German-speaking country — prices at the till, platform numbers at the station, room numbers, your own age and phone number — and they are also the words most often misheard, because the German sounds are not the English ones. This exercise is pure sound: listen and repeat, from null to a price. Three sounds carry it: z is ts (zwei = 'tsvai', zwanzig = 'TSVAN-tsikh'), ei is 'eye' (drei, zwei), and the -ig at the end of the tens is a soft 'ikh', not 'ig'. Say each one three times, and say the price out loud the German way — euros, then cents.",
       "tips": [
         {
@@ -1948,13 +3131,31 @@
           "examples": [
             {
               "de": "zwei, zehn, zwölf, zwanzig",
-              "en": "tsvai, tsayn, tsvölf, TSVAN-tsikh"
+              "en": "tsvai, tsayn, tsvölf, TSVAN-tsikh",
+              "focus": [
+                "zwei",
+                "zwanzig"
+              ]
             },
             {
               "de": "drei, dreizehn, dreißig",
-              "en": "dry, DRY-tsayn, DRY-ssikh"
+              "en": "dry, DRY-tsayn, DRY-ssikh",
+              "focus": [
+                "drei",
+                "dreißig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "How does vierzig end?",
+            "options": [
+              "“-tsikh”",
+              "“-zig”",
+              "“-sig”"
+            ],
+            "answer": "“-tsikh”",
+            "why": "z is always ts, and -ig at the end is a soft “ikh”: FEER-tsikh."
+          }
         },
         {
           "kind": "rule",
@@ -1963,13 +3164,33 @@
           "examples": [
             {
               "de": "Das macht drei Euro fünfzig.",
-              "en": "That's 3.50 €."
+              "en": "That's 3.50 €.",
+              "focus": [
+                "drei",
+                "Euro",
+                "fünfzig"
+              ]
             },
             {
               "de": "Ein Kaffee kostet zwei Euro zwanzig.",
-              "en": "A coffee costs 2.20 €."
+              "en": "A coffee costs 2.20 €.",
+              "focus": [
+                "zwei",
+                "Euro",
+                "zwanzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which is the natural way to say 4,80 €?",
+            "options": [
+              "vier Euro achtzig",
+              "vier Euros achtzig",
+              "vier Komma achtzig Euro"
+            ],
+            "answer": "vier Euro achtzig",
+            "why": "Euros first, then cents, with no word for the comma — and Euro never takes an s."
+          }
         },
         {
           "kind": "rule",
@@ -1978,13 +3199,30 @@
           "examples": [
             {
               "de": "einundzwanzig, siebenundvierzig",
-              "en": "EIN-und-tsvantsikh, SIE-ben-und-feertsikh"
+              "en": "EIN-und-tsvantsikh, SIE-ben-und-feertsikh",
+              "focus": [
+                "einundzwanzig",
+                "siebenundvierzig"
+              ]
             },
             {
               "de": "SIEBzehn, VIERzig",
-              "en": "SEEB-tsayn, FEER-tsikh"
+              "en": "SEEB-tsayn, FEER-tsikh",
+              "focus": [
+                "SIEBzehn",
+                "VIERzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Where does the stress go in neunzehn?",
+            "options": [
+              "NEUNzehn",
+              "neunZEHN"
+            ],
+            "answer": "NEUNzehn",
+            "why": "In numbers the first part carries the weight and the rest is quick: NEUNzehn, like SIEBzehn."
+          }
         }
       ],
       "remember": [
@@ -2003,6 +3241,7 @@
     ],
     "title": "Familie & Menschen",
     "help": {
+      "hook": "Vater, Mutter, Bruder, Freundin — the people words you will use every day, each learnt with its der, die or das.",
       "intro": "Family and people words are among the first nouns you need — you introduce your family to new people, and you talk about your Bruder and your Freundin constantly. Learn each one with its article, because here the gender mostly follows the person: der Vater, die Mutter, der Sohn, die Tochter. Two exceptions show that German gender is grammar, not biology: das Kind and das Mädchen are neuter, because -chen words are always das. A pattern worth learning early: many people-words make their female form by adding -in — Freund → Freundin, Lehrer → Lehrerin, Student → Studentin — and the plural of these is -innen.",
       "tips": [
         {
@@ -2012,13 +3251,30 @@
           "examples": [
             {
               "de": "Ich habe einen Bruder und eine Schwester.",
-              "en": "I have a brother and a sister."
+              "en": "I have a brother and a sister.",
+              "focus": [
+                "Bruder",
+                "Schwester"
+              ]
             },
             {
               "de": "Meine Eltern wohnen in Wien.",
-              "en": "My parents live in Vienna."
+              "en": "My parents live in Vienna.",
+              "focus": [
+                "Eltern"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Tochter heißt Emma.",
+            "options": [
+              "Die",
+              "Der",
+              "Das"
+            ],
+            "answer": "Die",
+            "why": "Family words mostly follow the person: a daughter is female, so die Tochter."
+          }
         },
         {
           "kind": "rule",
@@ -2027,13 +3283,30 @@
           "examples": [
             {
               "de": "Anna ist meine Freundin. Sie ist Ärztin.",
-              "en": "Anna is my friend (female). She is a doctor."
+              "en": "Anna is my friend (female). She is a doctor.",
+              "focus": [
+                "Freundin",
+                "Ärztin"
+              ]
             },
             {
               "de": "Die Lehrerinnen sind nett.",
-              "en": "The (female) teachers are nice."
+              "en": "The (female) teachers are nice.",
+              "focus": [
+                "Lehrerinnen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Herr Weber ist Student. Frau Weber ist auch ____.",
+            "options": [
+              "Studentin",
+              "Studentinnen",
+              "Studente"
+            ],
+            "answer": "Studentin",
+            "why": "Add -in for one woman: Student → Studentin. -innen is the plural."
+          }
         },
         {
           "kind": "warning",
@@ -2042,14 +3315,34 @@
           "examples": [
             {
               "de": "Das Kind spielt. Es ist drei Jahre alt.",
-              "en": "The child is playing. It is three years old."
+              "en": "The child is playing. It is three years old.",
+              "focus": [
+                "Das",
+                "Kind",
+                "Es"
+              ]
             },
             {
               "de": "Das Mädchen heißt Mia. Es ist sechs.",
-              "en": "The girl is called Mia. She is six."
+              "en": "The girl is called Mia. She is six.",
+              "focus": [
+                "Das",
+                "Mädchen",
+                "Es"
+              ]
             }
           ],
-          "trap": "gender is grammatical. A girl being 'it' feels wrong in English and is simply correct in German."
+          "trap": "gender is grammatical. A girl being 'it' feels wrong in English and is simply correct in German.",
+          "check": {
+            "q": "____ Mädchen spielt im Garten.",
+            "options": [
+              "Das",
+              "Die",
+              "Der"
+            ],
+            "answer": "Das",
+            "why": "Every -chen word is neuter, so it is das Mädchen, even though it means a girl."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2058,13 +3351,31 @@
           "examples": [
             {
               "de": "Das ist meine Freundin Lena.",
-              "en": "This is my girlfriend Lena. (or: my friend Lena — context decides)"
+              "en": "This is my girlfriend Lena. (or: my friend Lena — context decides)",
+              "focus": [
+                "meine",
+                "Freundin"
+              ]
             },
             {
               "de": "Tom ist ein Freund von mir.",
-              "en": "Tom is a friend of mine."
+              "en": "Tom is a friend of mine.",
+              "focus": [
+                "Freund",
+                "von",
+                "mir"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Tom is just a friend, not your boyfriend. Tom ist ____.",
+            "options": [
+              "ein Freund von mir",
+              "mein Freund"
+            ],
+            "answer": "ein Freund von mir",
+            "why": "mein Freund can mean boyfriend; ein Freund von mir clearly means just a friend."
+          }
         }
       ],
       "remember": [
@@ -2073,7 +3384,16 @@
       ],
       "context": {
         "de": "Das ist meine Familie. Mein Vater heißt Peter und meine Mutter heißt Sabine. Ich habe einen Bruder, Jonas, und eine Schwester, Mia. Mia ist noch ein Kind – sie ist sechs. Meine Oma wohnt auch bei uns. Und das ist Lena, eine Freundin von mir.",
-        "en": "This is my family. My father is called Peter and my mother is called Sabine. I have a brother, Jonas, and a sister, Mia. Mia is still a child – she's six. My grandma lives with us too. And this is Lena, a friend of mine."
+        "en": "This is my family. My father is called Peter and my mother is called Sabine. I have a brother, Jonas, and a sister, Mia. Mia is still a child – she's six. My grandma lives with us too. And this is Lena, a friend of mine.",
+        "focus": [
+          "Vater",
+          "Mutter",
+          "Bruder",
+          "Schwester",
+          "Kind",
+          "Oma",
+          "Freundin"
+        ]
       },
       "mistakes": [
         {
@@ -2203,6 +3523,7 @@
     ],
     "title": "Länder, Sprachen & Nationalitäten",
     "help": {
+      "hook": "Where are you from, what do you speak, what are you — the three questions every new German conversation starts with.",
       "intro": "Where are you from, what do you speak, what are you — three of the first questions anyone asks, and three answers you will give again and again. Most country names have no article and take aus directly: aus Deutschland, aus Spanien. A handful are feminine or plural and keep their article, which then changes after aus: die Schweiz → aus der Schweiz, die Türkei → aus der Türkei, die USA → aus den USA. Languages are neuter nouns written with a capital (Deutsch, Englisch) and most end in -isch. Nationalities are people-nouns: Deutscher / Deutsche, Engländer / Engländerin, Franzose / Französin — and after sein they take no article: Ich bin Deutsche.",
       "tips": [
         {
@@ -2212,13 +3533,30 @@
           "examples": [
             {
               "de": "Woher kommst du? – Aus Italien, aus Rom.",
-              "en": "Where are you from? – From Italy, from Rome."
+              "en": "Where are you from? – From Italy, from Rome.",
+              "focus": [
+                "Aus",
+                "aus"
+              ]
             },
             {
               "de": "Wir kommen aus Deutschland, aus Hamburg.",
-              "en": "We come from Germany, from Hamburg."
+              "en": "We come from Germany, from Hamburg.",
+              "focus": [
+                "aus"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Lisa kommt ____ Österreich.",
+            "options": [
+              "aus",
+              "aus dem",
+              "von"
+            ],
+            "answer": "aus",
+            "why": "Most countries have no article, so aus goes straight in front: aus Österreich, aus Spanien."
+          }
         },
         {
           "kind": "warning",
@@ -2227,14 +3565,30 @@
           "examples": [
             {
               "de": "Sie kommt aus der Schweiz.",
-              "en": "She comes from Switzerland."
+              "en": "She comes from Switzerland.",
+              "focus": [
+                "der"
+              ]
             },
             {
               "de": "Er kommt aus den USA.",
-              "en": "He comes from the USA."
+              "en": "He comes from the USA.",
+              "focus": [
+                "den"
+              ]
             }
           ],
-          "trap": "the article after aus is the dative (der / den). For now learn these four as fixed phrases; the system behind them comes later in the course."
+          "trap": "the article after aus is the dative (der / den). For now learn these four as fixed phrases; the system behind them comes later in the course.",
+          "check": {
+            "q": "Mein Kollege kommt ____ Türkei.",
+            "options": [
+              "aus der",
+              "aus",
+              "aus die"
+            ],
+            "answer": "aus der",
+            "why": "die Türkei is one of the countries that keeps its article, and after aus die becomes der: aus der Türkei."
+          }
         },
         {
           "kind": "rule",
@@ -2243,13 +3597,29 @@
           "examples": [
             {
               "de": "In Brasilien spricht man Portugiesisch.",
-              "en": "In Brazil people speak Portuguese."
+              "en": "In Brazil people speak Portuguese.",
+              "focus": [
+                "Portugiesisch"
+              ]
             },
             {
               "de": "Sprichst du Spanisch? – Ein bisschen.",
-              "en": "Do you speak Spanish? – A little."
+              "en": "Do you speak Spanish? – A little.",
+              "focus": [
+                "Spanisch"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "In Mexiko spricht man ____.",
+            "options": [
+              "Spanisch",
+              "Spanien",
+              "das Spanisch"
+            ],
+            "answer": "Spanisch",
+            "why": "The language ends in -isch, has a capital and takes no article after sprechen. Spanien is the country."
+          }
         },
         {
           "kind": "rule",
@@ -2258,13 +3628,30 @@
           "examples": [
             {
               "de": "Er ist Italiener und sie ist Italienerin.",
-              "en": "He is Italian and she is Italian."
+              "en": "He is Italian and she is Italian.",
+              "focus": [
+                "Italiener",
+                "Italienerin"
+              ]
             },
             {
               "de": "Ich bin Deutsche.",
-              "en": "I am German (said by a woman)."
+              "en": "I am German (said by a woman).",
+              "focus": [
+                "Deutsche"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Marie kommt aus Frankreich. Sie ist ____.",
+            "options": [
+              "Französin",
+              "Franzose",
+              "Französisch"
+            ],
+            "answer": "Französin",
+            "why": "A woman from France is eine Französin (der Franzose is the man), and after sein there is no article. Französisch is the language."
+          }
         }
       ],
       "remember": [
@@ -2273,7 +3660,15 @@
       ],
       "context": {
         "de": "Hallo! Ich bin Yusuf und komme aus der Türkei. Ich spreche Türkisch, Englisch und jetzt auch ein bisschen Deutsch. Meine Frau ist Polin – sie kommt aus Krakau. Unsere Nachbarn sind Amerikaner, sie kommen aus den USA. Und woher kommst du?",
-        "en": "Hi! I'm Yusuf and I come from Turkey. I speak Turkish, English and now a little German too. My wife is Polish – she comes from Kraków. Our neighbours are American, they come from the USA. And where are you from?"
+        "en": "Hi! I'm Yusuf and I come from Turkey. I speak Turkish, English and now a little German too. My wife is Polish – she comes from Kraków. Our neighbours are American, they come from the USA. And where are you from?",
+        "focus": [
+          "der",
+          "Türkisch",
+          "Deutsch",
+          "Polin",
+          "Amerikaner",
+          "den"
+        ]
       },
       "mistakes": [
         {
@@ -2302,6 +3697,7 @@
     ],
     "title": "Wo? — Ortsangaben",
     "help": {
+      "hook": "Im Büro, am Bahnhof, beim Arzt — learn where-you-are as ready-made chunks and you can say where you are all day.",
       "intro": "Saying where you are is something you do every day — Ich bin im Büro, wir sind in der Stadt, sie ist bei ihren Eltern — and a small set of prepositions covers it: in, an, auf, bei, aus, von, vor, unter (and nach for Wohin?, which has its own quiz in the next module). Behind them sits the dative case, which changes der to dem and die to der, and glues in + dem into im and an + dem into am. You will learn the dative as a system later in the course. For now you learn these as fixed chunks, the way a child does: im Park, am Bahnhof, in der Schule, bei Siemens, beim Arzt. The pairing is what matters: in for inside or in a town or country, an for at (a station, the sea, the university), bei for at a person’s or a company’s, auf / vor / unter for on, in front of and under something, and for ‘from’ the mirror image — aus for out of a place, von for from a person, a company or a point.",
       "tips": [
         {
@@ -2311,13 +3707,31 @@
           "examples": [
             {
               "de": "Ich bin im Büro. Anna ist in der Schule.",
-              "en": "I am at the office. Anna is at school."
+              "en": "I am at the office. Anna is at school.",
+              "focus": [
+                "im",
+                "in",
+                "der"
+              ]
             },
             {
               "de": "Wir wohnen in Deutschland, in Köln.",
-              "en": "We live in Germany, in Cologne."
+              "en": "We live in Germany, in Cologne.",
+              "focus": [
+                "in"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Bruder ist ____ Kino.",
+            "options": [
+              "im",
+              "in der",
+              "in"
+            ],
+            "answer": "im",
+            "why": "das Kino is a das-word, so in + dem melts into im: im Kino, like im Büro."
+          }
         },
         {
           "kind": "rule",
@@ -2326,13 +3740,30 @@
           "examples": [
             {
               "de": "Ich warte am Bahnhof.",
-              "en": "I'm waiting at the station."
+              "en": "I'm waiting at the station.",
+              "focus": [
+                "am"
+              ]
             },
             {
               "de": "Er arbeitet bei Siemens. Sie ist beim Arzt.",
-              "en": "He works at Siemens. She's at the doctor's."
+              "en": "He works at Siemens. She's at the doctor's.",
+              "focus": [
+                "bei",
+                "beim"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Heute Abend esse ich ____ meiner Oma.",
+            "options": [
+              "bei",
+              "am",
+              "in"
+            ],
+            "answer": "bei",
+            "why": "At a person's home is bei: bei meiner Oma, bei meinen Eltern."
+          }
         },
         {
           "kind": "rule",
@@ -2341,14 +3772,31 @@
           "examples": [
             {
               "de": "Ich komme gerade aus dem Supermarkt.",
-              "en": "I've just come from the supermarket."
+              "en": "I've just come from the supermarket.",
+              "focus": [
+                "aus",
+                "dem"
+              ]
             },
             {
               "de": "Sie kommt vom Arzt.",
-              "en": "She's coming from the doctor's."
+              "en": "She's coming from the doctor's.",
+              "focus": [
+                "vom"
+              ]
             }
           ],
-          "trap": "the article after these prepositions is dative: dem, der, den. English 'in the' never changes; German 'in dem' becomes 'im'. Learn the chunk, not the rule, for now."
+          "trap": "the article after these prepositions is dative: dem, der, den. English 'in the' never changes; German 'in dem' becomes 'im'. Learn the chunk, not the rule, for now.",
+          "check": {
+            "q": "Ich komme gerade ____ Zahnarzt.",
+            "options": [
+              "vom",
+              "aus dem",
+              "beim"
+            ],
+            "answer": "vom",
+            "why": "From a person is von, not aus (you were never inside the dentist), and von + dem becomes vom."
+          }
         },
         {
           "kind": "rule",
@@ -2357,13 +3805,31 @@
           "examples": [
             {
               "de": "Das Buch liegt auf dem Tisch.",
-              "en": "The book is lying on the table."
+              "en": "The book is lying on the table.",
+              "focus": [
+                "auf",
+                "dem"
+              ]
             },
             {
               "de": "Das Auto steht vor dem Haus.",
-              "en": "The car is in front of the house."
+              "en": "The car is in front of the house.",
+              "focus": [
+                "vor",
+                "dem"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The cat is sleeping under the bed: Die Katze schläft ____ dem Bett.",
+            "options": [
+              "unter",
+              "auf",
+              "vor"
+            ],
+            "answer": "unter",
+            "why": "unter = under, auf = on, vor = in front of — each followed by the same dem chunk."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2372,13 +3838,32 @@
           "examples": [
             {
               "de": "im Bett, am Fenster, beim Bäcker, vom Bahnhof",
-              "en": "in bed, at the window, at the baker's, from the station"
+              "en": "in bed, at the window, at the baker's, from the station",
+              "focus": [
+                "im",
+                "am",
+                "beim"
+              ]
             },
             {
               "de": "Ich bin im Büro. Sie ist beim Arzt.",
-              "en": "I'm at the office. She's at the doctor's."
+              "en": "I'm at the office. She's at the doctor's.",
+              "focus": [
+                "im",
+                "beim"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which words are hidden inside beim?",
+            "options": [
+              "bei dem",
+              "bei der",
+              "bei den"
+            ],
+            "answer": "bei dem",
+            "why": "A preposition ending in -m has swallowed a dem: bei dem → beim, like in dem → im."
+          }
         }
       ],
       "remember": [
@@ -2387,7 +3872,15 @@
       ],
       "context": {
         "de": "Wo bist du? – Ich bin noch im Büro. Und du? – Ich bin in der Stadt, am Bahnhof. Ich komme gerade vom Arzt. – Und Lena? – Sie ist bei ihren Eltern in Hamburg. Sie kommt morgen aus Hamburg zurück.",
-        "en": "Where are you? – I'm still at the office. And you? – I'm in town, at the station. I've just come from the doctor's. – And Lena? – She's at her parents' in Hamburg. She's coming back from Hamburg tomorrow."
+        "en": "Where are you? – I'm still at the office. And you? – I'm in town, at the station. I've just come from the doctor's. – And Lena? – She's at her parents' in Hamburg. She's coming back from Hamburg tomorrow.",
+        "focus": [
+          "im",
+          "in",
+          "am",
+          "vom",
+          "bei",
+          "aus"
+        ]
       },
       "mistakes": [
         {
@@ -2417,6 +3910,7 @@
     ],
     "title": "Wortbildung: -in & Komposita",
     "help": {
+      "hook": "German glues words together like building blocks — learn the pieces and Apfelkuchen, Haustür and Lehrerin explain themselves.",
       "intro": "German builds words the way it builds numbers: by gluing pieces together. The two pieces to start with are the ending -in, which turns a male person-word into the female one (der Lehrer → die Lehrerin, der Student → die Studentin), and the compound noun, which fuses two nouns into one — die Schokolade + der Kuchen = der Schokoladenkuchen, das Haus + die Tür = die Haustür. Both let you understand far more than you have learnt: once you know Kuchen, you know Apfelkuchen, Käsekuchen and Geburtstagskuchen. Two rules cover nearly everything: -in is always die, with plural -innen and sometimes an umlaut (Arzt → Ärztin, Koch → Köchin); and a compound takes the gender of its last part. The umlaut in Ärztin and Köchin is checked strictly (type ae/oe if you have no umlaut keys).",
       "tips": [
         {
@@ -2426,13 +3920,29 @@
           "examples": [
             {
               "de": "Meine Ärztin ist sehr nett.",
-              "en": "My (female) doctor is very nice."
+              "en": "My (female) doctor is very nice.",
+              "focus": [
+                "Ärztin"
+              ]
             },
             {
               "de": "Die Kolleginnen kommen aus Polen.",
-              "en": "The (female) colleagues come from Poland."
+              "en": "The (female) colleagues come from Poland.",
+              "focus": [
+                "Kolleginnen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Vater ist Koch und meine Mutter ist auch ____.",
+            "options": [
+              "Köchin",
+              "Kochin",
+              "Kochen"
+            ],
+            "answer": "Köchin",
+            "why": "-in makes the female form, and Koch adds an umlaut on the way: der Koch → die Köchin."
+          }
         },
         {
           "kind": "rule",
@@ -2441,14 +3951,32 @@
           "examples": [
             {
               "de": "der Apfelkuchen, die Fischsuppe, das Kinderzimmer",
-              "en": "apple cake (der Kuchen), fish soup (die Suppe), children's room (das Zimmer)"
+              "en": "apple cake (der Kuchen), fish soup (die Suppe), children's room (das Zimmer)",
+              "focus": [
+                "Apfelkuchen",
+                "Fischsuppe",
+                "Kinderzimmer"
+              ]
             },
             {
               "de": "das Haus + die Tür = die Haustür",
-              "en": "house + door = front door (die, from Tür)"
+              "en": "house + door = front door (die, from Tür)",
+              "focus": [
+                "Haustür"
+              ]
             }
           ],
-          "trap": "English 'apple cake' is two words with no gender; German fuses them and the gender comes from cake, not apple."
+          "trap": "English 'apple cake' is two words with no gender; German fuses them and the gender comes from cake, not apple.",
+          "check": {
+            "q": "____ Gartentür ist offen. (der Garten + die Tür)",
+            "options": [
+              "Die",
+              "Der",
+              "Das"
+            ],
+            "answer": "Die",
+            "why": "The last part gives the gender: Tür is die, so it is die Gartentür, even though Garten is der."
+          }
         },
         {
           "kind": "rule",
@@ -2457,13 +3985,30 @@
           "examples": [
             {
               "de": "der Geburtstagskuchen, der Schokoladenkuchen",
-              "en": "birthday cake, chocolate cake"
+              "en": "birthday cake, chocolate cake",
+              "focus": [
+                "Geburtstagskuchen",
+                "Schokoladenkuchen"
+              ]
             },
             {
               "de": "der Hund + die Hütte = die Hundehütte",
-              "en": "dog + hut = kennel (-e-)"
+              "en": "dog + hut = kennel (-e-)",
+              "focus": [
+                "Hundehütte"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "der Geburtstag + die Party = die ____",
+            "options": [
+              "Geburtstagsparty",
+              "Geburtstagparty",
+              "Geburtstagenparty"
+            ],
+            "answer": "Geburtstagsparty",
+            "why": "Geburtstag always takes the little -s- joint when it glues onto another word, just like Geburtstagskuchen."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2472,13 +4017,31 @@
           "examples": [
             {
               "de": "das Wohnzimmer, das Schlafzimmer, das Badezimmer",
-              "en": "living room, bedroom, bathroom — all Zimmer, all das"
+              "en": "living room, bedroom, bathroom — all Zimmer, all das",
+              "focus": [
+                "Wohnzimmer",
+                "Schlafzimmer",
+                "Badezimmer"
+              ]
             },
             {
               "de": "die Haustür: Tür … vom Haus",
-              "en": "front door: a door … of the house"
+              "en": "front door: a door … of the house",
+              "focus": [
+                "Haustür",
+                "Tür"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Read it from the back: what is ein Kinderbuch?",
+            "options": [
+              "a book for children",
+              "a child with a book"
+            ],
+            "answer": "a book for children",
+            "why": "The last part says what it is — Buch, a book — and the first part says what kind: for Kinder."
+          }
         }
       ],
       "remember": [
@@ -2487,7 +4050,15 @@
       ],
       "context": {
         "de": "In meiner Firma arbeiten viele Frauen: meine Chefin, zwei Kolleginnen aus Italien und eine Journalistin. In der Kantine gibt es heute Fischsuppe und Apfelkuchen. Der Apfelkuchen ist von der Köchin – sehr lecker!",
-        "en": "Lots of women work at my company: my boss, two colleagues from Italy and a journalist. In the canteen today there's fish soup and apple cake. The apple cake is from the cook – delicious!"
+        "en": "Lots of women work at my company: my boss, two colleagues from Italy and a journalist. In the canteen today there's fish soup and apple cake. The apple cake is from the cook – delicious!",
+        "focus": [
+          "Chefin",
+          "Kolleginnen",
+          "Journalistin",
+          "Fischsuppe",
+          "Apfelkuchen",
+          "Köchin"
+        ]
       },
       "mistakes": [
         {
@@ -2520,6 +4091,7 @@
     ],
     "title": "Gespräch: Das bin ich",
     "help": {
+      "hook": "Hold a five-minute chat about yourself in German: your name, home, family, and the numbers and colours around you.",
       "intro": "The closing conversation of this module, run in your own AI assistant with voice mode on: a five-minute chat about you — name, where you live and come from, your family, and the numbers and colours around you. Copy the exercise, paste it in, say 'Los geht's', and answer in full sentences. The tutor will not interrupt to correct you; it keeps every correction for the report at the end, together with a score you bring back here. This is as close to a real first conversation as practice gets: someone asking, you answering in whole sentences, with the verb endings and sein/haben forms carrying the meaning.",
       "tips": [
         {
@@ -2529,13 +4101,31 @@
           "examples": [
             {
               "de": "Hast du Geschwister? – Ja, ich habe einen Bruder.",
-              "en": "Do you have siblings? – Yes, I have a brother."
+              "en": "Do you have siblings? – Yes, I have a brother.",
+              "focus": [
+                "Hast",
+                "habe"
+              ]
             },
             {
               "de": "Wo wohnst du? – Ich wohne in Lyon.",
-              "en": "Where do you live? – I live in Lyon."
+              "en": "Where do you live? – I live in Lyon.",
+              "focus": [
+                "wohnst",
+                "wohne"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Woher kommst du? Pick the full-sentence answer to this question.",
+            "options": [
+              "Ich komme aus Kanada.",
+              "Aus Kanada.",
+              "Ich wohne in Kanada."
+            ],
+            "answer": "Ich komme aus Kanada.",
+            "why": "The question uses kommst, so you answer with the matching ich komme aus … in a full sentence."
+          }
         },
         {
           "kind": "rule",
@@ -2544,13 +4134,32 @@
           "examples": [
             {
               "de": "Mein Auto ist blau. Ich habe zwei Katzen. Sie sind schwarz.",
-              "en": "My car is blue. I have two cats. They are black."
+              "en": "My car is blue. I have two cats. They are black.",
+              "focus": [
+                "ist",
+                "habe",
+                "sind"
+              ]
             },
             {
               "de": "Mein Bruder ist zwanzig und wohnt in Wien.",
-              "en": "My brother is twenty and lives in Vienna."
+              "en": "My brother is twenty and lives in Vienna.",
+              "focus": [
+                "ist",
+                "wohnt"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Meine Katzen ____ weiß.",
+            "options": [
+              "ist",
+              "sind",
+              "bin"
+            ],
+            "answer": "sind",
+            "why": "Meine Katzen are 'they', and sein for sie (plural) is sind."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2559,13 +4168,31 @@
           "examples": [
             {
               "de": "Ich komme aus Irland. Und du?",
-              "en": "I'm from Ireland. And you?"
+              "en": "I'm from Ireland. And you?",
+              "focus": [
+                "Und",
+                "du"
+              ]
             },
             {
               "de": "Ich habe zwei Geschwister. Und Sie?",
-              "en": "I have two siblings. And you?"
+              "en": "I have two siblings. And you?",
+              "focus": [
+                "Und",
+                "Sie"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich heiße Mia. ____ du?",
+            "options": [
+              "Und",
+              "Wie",
+              "Wo"
+            ],
+            "answer": "Und",
+            "why": "Und du? hands the question back: 'And you?'"
+          }
         }
       ],
       "remember": [
@@ -2582,6 +4209,7 @@
     ],
     "title": "Das Alphabet & Buchstabieren",
     "help": {
+      "hook": "Wie schreibt man das? Master the dozen letter names that differ from English and you can spell your name anywhere.",
       "intro": "Wie schreibt man das? — how do you spell that? — is a question you will hear on your first day in any German office, and on the phone, at the doctor's and at every hotel desk you will be asked to spell your name. The German alphabet has the same 26 letters as English plus ä, ö, ü and ß, but many letters have different names, and the ones that differ are exactly the ones English speakers mix up: E is said 'ay' and I is said 'ee' (the other way round from what you expect), J is Jot, V is Vau (said 'fow'), W is We (said 'vay'), Z is Zett ('tset') and Y is Ypsilon. Germans spell with a few fixed helpers: Doppel-L for ll, A-Umlaut for ä, Eszett or scharfes S for ß. This quiz asks for the names of the tricky letters, then gives you names spelt out letter by letter and asks you to write the word.",
       "tips": [
         {
@@ -2591,14 +4219,31 @@
           "examples": [
             {
               "de": "Wie heißen Sie? – Meier. Em – E – I – E – Er.",
-              "en": "What's your name? – Meier. M – 'ay' – 'ee' – 'ay' – R."
+              "en": "What's your name? – Meier. M – 'ay' – 'ee' – 'ay' – R.",
+              "focus": [
+                "E",
+                "I"
+              ]
             },
             {
               "de": "Lisa: El – I – Es – A.",
-              "en": "Lisa: L – 'ee' – S – 'ah'."
+              "en": "Lisa: L – 'ee' – S – 'ah'.",
+              "focus": [
+                "I"
+              ]
             }
           ],
-          "trap": "When a German spells 'E – I' you hear 'ay – ee'. Write E first, then I."
+          "trap": "When a German spells 'E – I' you hear 'ay – ee'. Write E first, then I.",
+          "check": {
+            "q": "Someone spelling a word says 'ee'. Which letter is it?",
+            "options": [
+              "I",
+              "E",
+              "Y"
+            ],
+            "answer": "I",
+            "why": "In German the letter I sounds like English 'ee', while E sounds like 'ay'."
+          }
         },
         {
           "kind": "rule",
@@ -2607,13 +4252,29 @@
           "examples": [
             {
               "de": "Jot – A – En: Jan",
-              "en": "J – A – N: Jan"
+              "en": "J – A – N: Jan",
+              "focus": [
+                "Jot"
+              ]
             },
             {
               "de": "Vau – A – Te – E – Er: Vater",
-              "en": "V – A – T – E – R: Vater"
+              "en": "V – A – T – E – R: Vater",
+              "focus": [
+                "Vau"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "What is the German name of the letter W?",
+            "options": [
+              "We",
+              "Doppel-U",
+              "Vau"
+            ],
+            "answer": "We",
+            "why": "W is We (said 'vay'). Vau is the name of V, and Doppel-U is not used."
+          }
         },
         {
           "kind": "rule",
@@ -2622,13 +4283,30 @@
           "examples": [
             {
               "de": "Müller: Em – U-Umlaut – Doppel-El – E – Er.",
-              "en": "Müller: M – Ü – double L – E – R."
+              "en": "Müller: M – Ü – double L – E – R.",
+              "focus": [
+                "U-Umlaut",
+                "Doppel-El"
+              ]
             },
             {
               "de": "Straße schreibt man mit Eszett.",
-              "en": "Straße is written with ß."
+              "en": "Straße is written with ß.",
+              "focus": [
+                "Eszett"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "What do you call ß when you spell a word?",
+            "options": [
+              "Eszett",
+              "Doppel-S",
+              "Be"
+            ],
+            "answer": "Eszett",
+            "why": "ß is Eszett (or scharfes S). Doppel-S means two separate s letters, as in Wasser."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2637,13 +4315,29 @@
           "examples": [
             {
               "de": "Können Sie das bitte buchstabieren?",
-              "en": "Could you spell that, please?"
+              "en": "Could you spell that, please?",
+              "focus": [
+                "buchstabieren"
+              ]
             },
             {
               "de": "Wie schreibt man das? – Mit Ha am Ende.",
-              "en": "How do you write that? – With an H at the end."
+              "en": "How do you write that? – With an H at the end.",
+              "focus": [
+                "Ha"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You want a name spelt out letter by letter: Können Sie das bitte ____?",
+            "options": [
+              "buchstabieren",
+              "sprechen",
+              "lesen"
+            ],
+            "answer": "buchstabieren",
+            "why": "buchstabieren means to spell aloud, letter by letter (from Buchstabe, letter)."
+          }
         }
       ],
       "remember": [
@@ -2700,7 +4394,12 @@
       ],
       "context": {
         "de": "Wie ist Ihr Name, bitte? – Weber. – Können Sie das buchstabieren? – We – E – Be – E – Er. – Danke. Und Ihr Vorname? – Jana: Jot – A – En – A.",
-        "en": "What's your name, please? – Weber. – Could you spell that? – W – E – B – E – R. – Thanks. And your first name? – Jana: J – A – N – A."
+        "en": "What's your name, please? – Weber. – Could you spell that? – W – E – B – E – R. – Thanks. And your first name? – Jana: J – A – N – A.",
+        "focus": [
+          "buchstabieren",
+          "We",
+          "Jot"
+        ]
       },
       "mistakes": [
         {
@@ -2729,6 +4428,7 @@
     ],
     "title": "Zahlen ab 100: Preise, Jahre, Mengen",
     "help": {
+      "hook": "Rent, bikes, birth years: big German numbers are just the small ones you know, glued into one long word.",
       "intro": "Rents, prices of bikes and phones, distances, the year you were born: from here on the numbers get long, and German writes them as one word — 650 is sechshundertfünfzig, 1.200 is tausendzweihundert. The good news is that nothing new is hidden inside them. You say the hundreds, then the last two digits exactly as you learnt them, with the unit first: 385 = dreihundert-fünfundachtzig. Thousands work the same way: 8.500 = achttausend-fünfhundert. Two things are different from English. First, German marks thousands with a full stop and decimals with a comma: 1.200 means twelve hundred, 1,20 means one point two. Second, years before 2000 are said in hundreds: 1998 is neunzehnhundertachtundneunzig, never 'tausendneunhundert…'; from 2000 on you say zweitausend: 2020 = zweitausendzwanzig.",
       "tips": [
         {
@@ -2738,14 +4438,30 @@
           "examples": [
             {
               "de": "Die Wohnung kostet sechshundertfünfzig Euro.",
-              "en": "The flat costs 650 euros."
+              "en": "The flat costs 650 euros.",
+              "focus": [
+                "sechshundertfünfzig"
+              ]
             },
             {
               "de": "Das Buch hat vierhundertsechzehn Seiten.",
-              "en": "The book has 416 pages."
+              "en": "The book has 416 pages.",
+              "focus": [
+                "vierhundertsechzehn"
+              ]
             }
           ],
-          "trap": "Do not insert spaces or an extra und after hundert: sechshundertfünfzig, not \"sechshundert und fünfzig\"."
+          "trap": "Do not insert spaces or an extra und after hundert: sechshundertfünfzig, not \"sechshundert und fünfzig\".",
+          "check": {
+            "q": "Das Regal kostet ____ Euro. (230)",
+            "options": [
+              "zweihundertdreißig",
+              "zweihundert und dreißig",
+              "dreißigzweihundert"
+            ],
+            "answer": "zweihundertdreißig",
+            "why": "Say the hundreds, then the last two digits, all as one word with no extra und after hundert."
+          }
         },
         {
           "kind": "rule",
@@ -2754,14 +4470,30 @@
           "examples": [
             {
               "de": "Die Halle hat tausendzweihundert Plätze.",
-              "en": "The hall has 1,200 seats."
+              "en": "The hall has 1,200 seats.",
+              "focus": [
+                "tausendzweihundert"
+              ]
             },
             {
               "de": "Die Stadt hat zwanzigtausend Einwohner.",
-              "en": "The town has 20,000 inhabitants."
+              "en": "The town has 20,000 inhabitants.",
+              "focus": [
+                "zwanzigtausend"
+              ]
             }
           ],
-          "trap": "In English 1.200 is 'one point two'. In German it is twelve hundred."
+          "trap": "In English 1.200 is 'one point two'. In German it is twelve hundred.",
+          "check": {
+            "q": "A German sign says: 2.500 Einwohner. How many people live there?",
+            "options": [
+              "two thousand five hundred",
+              "two point five",
+              "twenty-five"
+            ],
+            "answer": "two thousand five hundred",
+            "why": "In German the full stop marks thousands: 2.500 = zweitausendfünfhundert. The decimal point is a comma."
+          }
         },
         {
           "kind": "warning",
@@ -2770,13 +4502,29 @@
           "examples": [
             {
               "de": "Mein Vater ist neunzehnhundertfünfundsechzig geboren.",
-              "en": "My father was born in 1965."
+              "en": "My father was born in 1965.",
+              "focus": [
+                "neunzehnhundertfünfundsechzig"
+              ]
             },
             {
               "de": "Meine Tochter ist zweitausendzwanzig geboren.",
-              "en": "My daughter was born in 2020."
+              "en": "My daughter was born in 2020.",
+              "focus": [
+                "zweitausendzwanzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Meine Mutter ist ____ geboren. (1972)",
+            "options": [
+              "neunzehnhundertzweiundsiebzig",
+              "tausendneunhundertzweiundsiebzig",
+              "in neunzehnhundertzweiundsiebzig"
+            ],
+            "answer": "neunzehnhundertzweiundsiebzig",
+            "why": "Years before 2000 are said in hundreds (neunzehnhundert…), and the year stands alone without in."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2785,13 +4533,31 @@
           "examples": [
             {
               "de": "585 → fünfhundert + fünfundachtzig",
-              "en": "500 + 85"
+              "en": "500 + 85",
+              "focus": [
+                "fünfhundert",
+                "fünfundachtzig"
+              ]
             },
             {
               "de": "199 → hundert + neunundneunzig",
-              "en": "100 + 99"
+              "en": "100 + 99",
+              "focus": [
+                "hundert",
+                "neunundneunzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which one is 376?",
+            "options": [
+              "dreihundertsechsundsiebzig",
+              "dreihundertsiebenundsechzig",
+              "sechsundsiebzigdreihundert"
+            ],
+            "answer": "dreihundertsechsundsiebzig",
+            "why": "Read the hundreds from the left (dreihundert), then flip only the last pair: 76 = sechsundsiebzig."
+          }
         }
       ],
       "remember": [
@@ -2856,7 +4622,12 @@
       ],
       "context": {
         "de": "Die Wohnung hat zwei Zimmer und kostet neunhundertachtzig Euro im Monat. Das Haus ist alt – es ist von neunzehnhundertzwölf. Bis zur Arbeit sind es nur zwölf Kilometer, und das Fahrrad kostet hundertneunundneunzig Euro.",
-        "en": "The flat has two rooms and costs 980 euros a month. The house is old – it is from 1912. It is only twelve kilometres to work, and the bike costs 199 euros."
+        "en": "The flat has two rooms and costs 980 euros a month. The house is old – it is from 1912. It is only twelve kilometres to work, and the bike costs 199 euros.",
+        "focus": [
+          "neunhundertachtzig",
+          "neunzehnhundertzwölf",
+          "hundertneunundneunzig"
+        ]
       },
       "mistakes": [
         {
@@ -2885,6 +4656,7 @@
     ],
     "title": "Wortschatz",
     "help": {
+      "hook": "A German noun without its article is only half a word — learn der, die or das and the plural with it, every time.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: the nouns from the article and plural drills, the numbers, the family, the colours, the countries and the verbs. A noun is learnt with its article or not at all, so the write mode only counts \"die Stelle\", never \"Stelle\" on its own. Three ways to work through the deck: write the German, choose it from four options, or flip the card and rate yourself honestly. A word you miss comes back later in the same run, and stays in your \"Weak words\" list until you get it right three times in a row.",
       "tips": [
         {
@@ -2894,17 +4666,36 @@
           "examples": [
             {
               "de": "der Tisch, die Tische",
-              "en": "the table, the tables"
+              "en": "the table, the tables",
+              "focus": [
+                "der"
+              ]
             },
             {
               "de": "die Lampe, die Lampen",
-              "en": "the lamp, the lamps"
+              "en": "the lamp, the lamps",
+              "focus": [
+                "die"
+              ]
             },
             {
               "de": "das Buch, die Bücher",
-              "en": "the book, the books"
+              "en": "the book, the books",
+              "focus": [
+                "das"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You are learning the word for “chair”. What should you memorise?",
+            "options": [
+              "der Stuhl",
+              "Stuhl",
+              "Stuhl (chair)"
+            ],
+            "answer": "der Stuhl",
+            "why": "The article is the only reliable clue to the gender, so the noun and its article are learnt as one word."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2913,13 +4704,29 @@
           "examples": [
             {
               "de": "der Apfel, die Äpfel",
-              "en": "the apple, the apples"
+              "en": "the apple, the apples",
+              "focus": [
+                "Äpfel"
+              ]
             },
             {
               "de": "das Kind, die Kinder",
-              "en": "the child, the children"
+              "en": "the child, the children",
+              "focus": [
+                "Kinder"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "der Stuhl, die ____",
+            "options": [
+              "Stühle",
+              "Stuhls",
+              "Stuhlen"
+            ],
+            "answer": "Stühle",
+            "why": "Stuhl takes the umlaut + -e pattern: die Stühle. Saying the plural aloud with the noun is how the pattern sticks."
+          }
         },
         {
           "kind": "warning",
@@ -2928,13 +4735,30 @@
           "examples": [
             {
               "de": "Ich komme aus Spanien.",
-              "en": "I come from Spain."
+              "en": "I come from Spain.",
+              "focus": [
+                "Spanien"
+              ]
             },
             {
               "de": "Ich komme aus der Schweiz.",
-              "en": "I come from Switzerland."
+              "en": "I come from Switzerland.",
+              "focus": [
+                "der",
+                "Schweiz"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Freund kommt aus ____.",
+            "options": [
+              "Japan",
+              "dem Japan",
+              "der Japan"
+            ],
+            "answer": "Japan",
+            "why": "Country and city names stand alone without an article; only a few like die Schweiz and die Türkei keep one."
+          }
         }
       ],
       "remember": [

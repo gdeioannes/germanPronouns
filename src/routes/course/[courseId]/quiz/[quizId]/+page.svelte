@@ -9,6 +9,8 @@
 	// Sheet). Quizzes with more than a screen of material run as sections
 	// instead of a scroll (see quiz/Steps).
 	import HelpMemory, { hasStudyNotes } from '$lib/components/HelpMemory.svelte';
+	import Lesson from '$lib/components/Lesson.svelte';
+	import { buildLesson, hasLesson } from '$lib/domain/lesson';
 	import Seo from '$lib/components/Seo.svelte';
 	import {
 		breadcrumbLd,
@@ -41,7 +43,7 @@
 	import { storage } from '$lib/services/storage';
 	import { clearOpened, clearSpot, markOpened } from '$lib/state/resume';
 	import { track } from '$lib/services/analytics';
-	import { onMount, untrack } from 'svelte';
+	import { onMount, tick, untrack } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -72,10 +74,39 @@
 	let notesOpen = $state(false);
 	let moreOpen = $state(false);
 
+	// A quiz with a lesson (the pilot, see domain/lesson) teaches in two modes
+	// that take turns on the stage: Learn, then Practise. The lesson replaces
+	// the notes panel for it.
+	const lessonSteps = $derived(hasLesson(quiz) ? buildLesson(quiz, vocab) : null);
+	let mode = $state<'learn' | 'practise'>('learn');
+	const learning = $derived(!!lessonSteps && mode === 'learn');
+
+	async function readSeen(): Promise<string[]> {
+		try {
+			const raw = await storage.get(SettingsKeys.seenHelpMemory);
+			return raw ? JSON.parse(raw) : [];
+		} catch {
+			return [];
+		}
+	}
+
+	/** Leaves the lesson for the exercise, and remembers it was taught. */
+	async function practise() {
+		mode = 'practise';
+		const id = quiz.id;
+		track('lesson_to_practice', { course: course.id, quiz: id });
+		await tick();
+		document.querySelector<HTMLInputElement>('.stage .exercise input:not([disabled])')?.focus();
+		const seen = await readSeen();
+		if (!seen.includes(id)) await storage.set(SettingsKeys.seenHelpMemory, JSON.stringify([...seen, id]));
+	}
+
 	// A first visit to an exercise opens its notes unprompted, so the rule is
 	// read before the first question rather than discovered by failing. They
 	// sit in front of the quiz, one tap from gone, so this costs nothing to
 	// dismiss. Keyed per quiz: the next exercise opens on its own notes.
+	// A lesson quiz instead opens on Learn the first time and on Practise
+	// after that.
 	/** The quiz the notes were last considered for — each gets one look. */
 	let notesCheckedFor: string | null = null;
 	$effect(() => {
@@ -84,15 +115,17 @@
 		notesCheckedFor = id;
 		notesOpen = false;
 		moreOpen = false;
+		mode = 'learn';
+		if (untrack(() => lessonSteps)) {
+			(async () => {
+				const seen = await readSeen();
+				if (seen.includes(id) && id === notesCheckedFor) mode = 'practise';
+			})();
+			return;
+		}
 		if (!untrack(() => hasNotes)) return;
 		(async () => {
-			let seen: string[] = [];
-			try {
-				const raw = await storage.get(SettingsKeys.seenHelpMemory);
-				seen = raw ? JSON.parse(raw) : [];
-			} catch {
-				seen = [];
-			}
+			const seen = await readSeen();
 			if (seen.includes(id) || id !== notesCheckedFor) return;
 			// Recorded before opening, so nothing racing this can open it twice.
 			await storage.set(SettingsKeys.seenHelpMemory, JSON.stringify([...seen, id]));
@@ -178,7 +211,18 @@
 		{/if}
 
 		<div class="tools">
-			{#if hasNotes}
+			{#if lessonSteps}
+				<!-- The two modes, side by side: the lesson is half the page, not a
+				     footnote to it. -->
+				<div class="modes" role="group" aria-label="Mode">
+					<button type="button" aria-label="Learn" aria-pressed={learning} onclick={() => (mode = 'learn')}>
+						<Icon name="book" size="1.05em" /><span>Learn</span>
+					</button>
+					<button type="button" aria-label="Practise" aria-pressed={!learning} onclick={practise}>
+						<Icon name="pen" size="1.05em" /><span>Practise</span>
+					</button>
+				</div>
+			{:else if hasNotes}
 				<button
 					type="button"
 					class="tool notes"
@@ -213,6 +257,12 @@
 	{/if}
 
 	<main class="stage">
+		{#if lessonSteps}
+			<div class="pane" class:parked={!learning} inert={!learning}>
+				<Lesson steps={lessonSteps} locale={course.learnLocale} {deckHref} onPractise={practise} />
+			</div>
+		{/if}
+		<div class="pane exercise" class:parked={learning} inert={learning}>
 		{#if quiz.type === 'fillBlank'}
 			<FillBlankQuiz
 				{quiz}
@@ -270,6 +320,7 @@
 				{focusWord}
 			/>
 		{/if}
+		</div>
 	</main>
 </div>
 
@@ -298,7 +349,7 @@
 	</aside>
 {/if}
 
-{#if hasNotes}
+{#if hasNotes && !lessonSteps}
 	<Sheet bind:open={notesOpen} title="Study notes" id="notes-{quiz.id}">
 		<HelpMemory {quiz} locale={course.learnLocale} {vocab} {deckHref} />
 		{#snippet footer()}
@@ -473,6 +524,56 @@
 	.tool.notes:hover {
 		background: var(--accent);
 		color: #fff;
+	}
+
+	/* Learn | Practise: one pill, the current half filled. */
+	.modes {
+		display: inline-flex;
+		padding: 0.2rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		background: var(--surface);
+	}
+
+	.modes button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		height: 2.1rem;
+		padding: 0 0.85rem;
+		border: 0;
+		border-radius: 999px;
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		cursor: pointer;
+		transition:
+			background var(--fast) var(--ease-out),
+			color var(--fast) var(--ease-out);
+	}
+
+	.modes button:hover {
+		color: var(--accent);
+	}
+
+	.modes button[aria-pressed='true'] {
+		background: var(--navy);
+		color: var(--paper);
+	}
+
+	/* The lesson and the exercise take turns on the stage; the one waiting is
+	   hidden (and inert), still in the page for readers who never run JS. */
+	.pane {
+		flex: 1;
+		min-height: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.pane.parked {
+		display: none;
 	}
 
 	.preview {
@@ -691,6 +792,14 @@
 			padding: 0 0.7rem;
 		}
 		.tool-label {
+			display: none;
+		}
+		.modes button {
+			height: 1.95rem;
+			padding: 0 0.6rem;
+		}
+		/* Only the current mode is named: the title needs the room more. */
+		.modes button[aria-pressed='false'] span {
 			display: none;
 		}
 		/* Tight to the header: the on-screen keyboard rises over the lower

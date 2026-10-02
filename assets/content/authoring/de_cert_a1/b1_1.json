@@ -6,6 +6,7 @@
     ],
     "title": "Die Welt der Arbeit",
     "help": {
+      "hook": "Job ads, contracts, colleagues and Feierabend: the words you need to talk about work, and to land your next job.",
       "intro": "Arbeit und Beruf is the theme that reaches into every corner of adult life: a job ad you read, a colleague's voicemail, a formal e-mail to an employer, a discussion about work–life balance over lunch. The vocabulary sits in four groups. Finding a job: die Stelle (post), die Bewerbung (application), der Lebenslauf (CV), das Vorstellungsgespräch (interview), die Firma / das Unternehmen. The contract: der Vertrag, das Gehalt (salary), die Teilzeit / Vollzeit, die Überstunden (overtime), der Urlaub, die Kündigung (notice, from either side). The people: der Chef / die Chefin, der Kollege / die Kollegin, der Angestellte, der Mitarbeiter. The day: die Besprechung (meeting), der Termin, der Feierabend (end of the working day), die Rente (retirement). And the two states: berufstätig, arbeitslos. Several are false friends, marked in the tips.",
       "tips": [
         {
@@ -15,13 +16,31 @@
           "examples": [
             {
               "de": "Ich habe mich um eine Stelle als Buchhalter beworben und wurde zum Vorstellungsgespräch eingeladen.",
-              "en": "I applied for a post as an accountant and was invited to an interview."
+              "en": "I applied for a post as an accountant and was invited to an interview.",
+              "focus": [
+                "beworben",
+                "Vorstellungsgespräch"
+              ]
             },
             {
               "de": "Die Firma stellt im Herbst drei neue Mitarbeiter ein.",
-              "en": "The company is hiring three new staff in the autumn."
+              "en": "The company is hiring three new staff in the autumn.",
+              "focus": [
+                "stellt",
+                "ein"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Sie hat sich um die Stelle ____ und wartet jetzt auf eine Antwort.",
+            "options": [
+              "beworben",
+              "eingestellt",
+              "gekündigt"
+            ],
+            "answer": "beworben",
+            "why": "sich um eine Stelle bewerben = to apply for a job; the Perfekt is hat sich … beworben. einstellen is what the company does (to hire)."
+          }
         },
         {
           "kind": "rule",
@@ -30,14 +49,32 @@
           "examples": [
             {
               "de": "Sie arbeitet Teilzeit, macht aber oft Überstunden.",
-              "en": "She works part-time but often does overtime."
+              "en": "She works part-time but often does overtime.",
+              "focus": [
+                "Teilzeit",
+                "Überstunden"
+              ]
             },
             {
               "de": "Brutto verdiene ich 3000 Euro im Monat, netto etwa 2000.",
-              "en": "I earn 3,000 euros a month gross, about 2,000 net."
+              "en": "I earn 3,000 euros a month gross, about 2,000 net.",
+              "focus": [
+                "Brutto",
+                "netto"
+              ]
             }
           ],
-          "trap": "das Gehalt is the salary; die Rente is the pension (not 'rent', which is die Miete). der Chef is the boss, not a cook (der Koch). Der Termin is an appointment, not a term."
+          "trap": "das Gehalt is the salary; die Rente is the pension (not 'rent', which is die Miete). der Chef is the boss, not a cook (der Koch). Der Termin is an appointment, not a term.",
+          "check": {
+            "q": "Für meine Wohnung zahle ich jeden Monat 800 Euro ____.",
+            "options": [
+              "Miete",
+              "Rente",
+              "Gehalt"
+            ],
+            "answer": "Miete",
+            "why": "Rent for a flat is die Miete. die Rente is the pension and das Gehalt is the salary you earn."
+          }
         },
         {
           "kind": "rule",
@@ -46,13 +83,31 @@
           "examples": [
             {
               "de": "Nach der Besprechung mache ich Feierabend.",
-              "en": "After the meeting I finish for the day."
+              "en": "After the meeting I finish for the day.",
+              "focus": [
+                "Besprechung",
+                "Feierabend"
+              ]
             },
             {
               "de": "Meine Kollegin arbeitet heute im Homeoffice.",
-              "en": "My colleague is working from home today."
+              "en": "My colleague is working from home today.",
+              "focus": [
+                "Kollegin",
+                "Homeoffice"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "A colleague writes: „Ich bin heute im Homeoffice.“ Where is she?",
+            "options": [
+              "She is working from home.",
+              "She is at the head office.",
+              "She is on holiday."
+            ],
+            "answer": "She is working from home.",
+            "why": "das Homeoffice is the German word for working from home, not a company's main office."
+          }
         },
         {
           "kind": "mnemonic",
@@ -61,13 +116,30 @@
           "examples": [
             {
               "de": "Schönen Feierabend! – Danke, gleichfalls.",
-              "en": "Have a nice evening (after work)! – Thanks, you too."
+              "en": "Have a nice evening (after work)! – Thanks, you too.",
+              "focus": [
+                "Feierabend",
+                "gleichfalls"
+              ]
             },
             {
               "de": "Wann machst du heute Feierabend? – Um halb sechs.",
-              "en": "When are you finishing work today? – At half past five."
+              "en": "When are you finishing work today? – At half past five.",
+              "focus": [
+                "Feierabend"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "At five o'clock a colleague leaves and says „Schönen Feierabend!“ What is the natural reply?",
+            "options": [
+              "Danke, gleichfalls!",
+              "Guten Morgen!",
+              "Gute Besserung!"
+            ],
+            "answer": "Danke, gleichfalls!",
+            "why": "Schönen Feierabend wishes you a nice evening after work; gleichfalls returns the wish (you too)."
+          }
         }
       ],
       "remember": [
@@ -76,7 +148,17 @@
       ],
       "context": {
         "de": "Seit drei Monaten bin ich arbeitslos, aber gestern hatte ich ein Vorstellungsgespräch bei einer kleinen Firma. Die Stelle ist Teilzeit, das Gehalt ist nicht hoch, aber die Kollegen scheinen nett zu sein und der Chef hat gesagt, dass ich keine Überstunden machen muss. Heute schicke ich meinen Lebenslauf noch einmal per E-Mail – und dann warte ich auf den Vertrag.",
-        "en": "I've been unemployed for three months, but yesterday I had an interview at a small company. The job is part-time, the salary isn't high, but the colleagues seem nice and the boss said I won't have to do overtime. Today I'm sending my CV again by e-mail – and then I'll wait for the contract."
+        "en": "I've been unemployed for three months, but yesterday I had an interview at a small company. The job is part-time, the salary isn't high, but the colleagues seem nice and the boss said I won't have to do overtime. Today I'm sending my CV again by e-mail – and then I'll wait for the contract.",
+        "focus": [
+          "arbeitslos",
+          "Vorstellungsgespräch",
+          "Stelle",
+          "Teilzeit",
+          "Gehalt",
+          "Überstunden",
+          "Lebenslauf",
+          "Vertrag"
+        ]
       },
       "mistakes": [
         {
@@ -198,6 +280,7 @@
     ],
     "title": "Adjektivendungen: bestimmter Artikel",
     "help": {
+      "hook": "After der, die or das the adjective needs only two endings, -e or -en; learn which slot takes which and describe anything correctly.",
       "intro": "This is the first table of the full adjective-ending system, and the easiest: after der, die, das (and dieser, jeder, welcher) the article already shows gender, number and case, so the adjective only needs a weak ending, and there are just two: -e or -en. -e in the five 'nominative-looking' slots — der große Mann, die junge Frau, das neue Auto (nominative), and die junge Frau, das neue Auto again (accusative feminine/neuter). -en everywhere else: den großen Mann, dem kleinen Kind, der netten Frau, des alten Hauses, and every plural (die roten Schuhe → den roten Schuhen). Draw the table once: the -e slots form a small block in the top left, the rest is -en. Any e-mail or description you write needs these endings right in simple phrases; this quiz drills them across all four cases.",
       "tips": [
         {
@@ -207,14 +290,32 @@
           "examples": [
             {
               "de": "Der große Mann liest. Ich sehe den großen Mann. Ich helfe dem großen Mann.",
-              "en": "The tall man reads. I see the tall man. I help the tall man."
+              "en": "The tall man reads. I see the tall man. I help the tall man.",
+              "focus": [
+                "große",
+                "großen"
+              ]
             },
             {
               "de": "Das frische Brot ist von der alten Bäckerei.",
-              "en": "The fresh bread is from the old bakery."
+              "en": "The fresh bread is from the old bakery.",
+              "focus": [
+                "frische",
+                "alten"
+              ]
             }
           ],
-          "trap": "the article did the work, so the adjective goes quiet. If the article shows the case clearly (den, dem, des, der-dative), the adjective is -en."
+          "trap": "the article did the work, so the adjective goes quiet. If the article shows the case clearly (den, dem, des, der-dative), the adjective is -en.",
+          "check": {
+            "q": "Ich kaufe den ____ Tisch. (rund – the round table, masculine accusative)",
+            "options": [
+              "runde",
+              "runden",
+              "rundes"
+            ],
+            "answer": "runden",
+            "why": "den already shows masculine accusative, so the adjective takes the weak -en."
+          }
         },
         {
           "kind": "mnemonic",
@@ -223,13 +324,31 @@
           "examples": [
             {
               "de": "die junge Frau (Nom) – die junge Frau (Akk) – der jungen Frau (Dat)",
-              "en": "-e, -e, -en"
+              "en": "-e, -e, -en",
+              "focus": [
+                "junge",
+                "jungen"
+              ]
             },
             {
               "de": "der alte Mann (Nom) – den alten Mann (Akk) – dem alten Mann (Dat)",
-              "en": "-e, -en, -en"
+              "en": "-e, -en, -en",
+              "focus": [
+                "alte",
+                "alten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich kenne die ____ Lehrerin. (neu – feminine accusative)",
+            "options": [
+              "neue",
+              "neuen",
+              "neues"
+            ],
+            "answer": "neue",
+            "why": "Feminine accusative sits in the little -e block, just like the nominative die neue Lehrerin."
+          }
         },
         {
           "kind": "rule",
@@ -238,13 +357,29 @@
           "examples": [
             {
               "de": "Die gelben Blumen stehen auf dem Tisch. Ich gieße die gelben Blumen.",
-              "en": "The yellow flowers are on the table. I water the yellow flowers."
+              "en": "The yellow flowers are on the table. I water the yellow flowers.",
+              "focus": [
+                "gelben"
+              ]
             },
             {
               "de": "Mit den neuen Kollegen verstehe ich mich gut.",
-              "en": "I get on well with the new colleagues."
+              "en": "I get on well with the new colleagues.",
+              "focus": [
+                "neuen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Die ____ Äpfel sind sauer. (grün – plural)",
+            "options": [
+              "grüne",
+              "grünen",
+              "grünes"
+            ],
+            "answer": "grünen",
+            "why": "After the plural die the adjective always ends in -en."
+          }
         },
         {
           "kind": "rule",
@@ -253,13 +388,33 @@
           "examples": [
             {
               "de": "Welchen alten Film meinst du? Diesen kleinen Hund kenne ich.",
-              "en": "Which old film do you mean? I know this little dog."
+              "en": "Which old film do you mean? I know this little dog.",
+              "focus": [
+                "Welchen",
+                "alten",
+                "kleinen"
+              ]
             },
             {
               "de": "Jeder neue Mitarbeiter bekommt dieses kleine Handbuch.",
-              "en": "Every new member of staff gets this little handbook."
+              "en": "Every new member of staff gets this little handbook.",
+              "focus": [
+                "Jeder",
+                "neue",
+                "kleine"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Dieses ____ Kleid gefällt mir. (blau – das Kleid, nominative)",
+            "options": [
+              "blaue",
+              "blaues",
+              "blauen"
+            ],
+            "answer": "blaue",
+            "why": "dieses shows neuter just like das, so the adjective takes the weak -e: das blaue Kleid, dieses blaue Kleid."
+          }
         }
       ],
       "remember": [
@@ -366,7 +521,13 @@
       ],
       "context": {
         "de": "Der neue Kollege sitzt im kleinen Büro neben der großen Küche. Ich habe den neuen Kollegen heute dem alten Chef vorgestellt. Die Farbe des neuen Büros ist grün, und die großen Fenster gehen auf den schönen Park. Am Ende des langen Tages trinken wir zusammen den starken Kaffee aus der alten Maschine.",
-        "en": "The new colleague sits in the small office next to the big kitchen. Today I introduced the new colleague to the old boss. The colour of the new office is green, and the big windows look onto the beautiful park. At the end of the long day we drink together the strong coffee from the old machine."
+        "en": "The new colleague sits in the small office next to the big kitchen. Today I introduced the new colleague to the old boss. The colour of the new office is green, and the big windows look onto the beautiful park. At the end of the long day we drink together the strong coffee from the old machine.",
+        "focus": [
+          "neue",
+          "kleinen",
+          "großen",
+          "alten"
+        ]
       },
       "mistakes": [
         {
@@ -396,6 +557,7 @@
     ],
     "title": "Sprechen: Höfliche Bitten",
     "help": {
+      "hook": "On your first morning in a new office, a few softened requests like Könnten Sie …? and Hätten Sie …? make everyone glad to help.",
       "intro": "Twelve polite requests from one scene — your first morning in a new office, asking the colleague at reception for help — to listen to and repeat. They are the Konjunktiv II in its most useful role: Hätten Sie einen Moment Zeit? Könnten Sie mir bitte sagen, wo …? Würden Sie mir den Weg auf dem Plan zeigen? Dürfte ich Sie noch etwas fragen? Wäre es möglich, das Formular heute noch abzugeben? Ich hätte gern eine Kopie von meinem Vertrag. These are the forms you use with strangers, officials, colleagues and anyone you want to keep on your side: hätten, könnten, würden, wäre, dürfte, bräuchte, plus bitte. Say them with the umlaut clearly audible (könnten, not konnten — the difference between 'could you' and 'you were able to'), with a rising question intonation, and with the verb of the request at the end: Könnten Sie das bitte etwas langsamer wiederholen?",
       "tips": [
         {
@@ -405,13 +567,30 @@
           "examples": [
             {
               "de": "Könnten Sie mir bitte sagen, wo das Büro von Frau Weber ist?",
-              "en": "Could you please tell me where Ms Weber’s office is?"
+              "en": "Could you please tell me where Ms Weber’s office is?",
+              "focus": [
+                "Könnten",
+                "bitte"
+              ]
             },
             {
               "de": "Dürfte ich Sie noch etwas fragen?",
-              "en": "Might I ask you something else?"
+              "en": "Might I ask you something else?",
+              "focus": [
+                "Dürfte"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ es möglich, morgen etwas früher zu kommen?",
+            "options": [
+              "Wäre",
+              "Hätte",
+              "Würde"
+            ],
+            "answer": "Wäre",
+            "why": "The opener is Wäre es möglich, …? (would it be possible). Only sein fits with möglich."
+          }
         },
         {
           "kind": "rule",
@@ -420,13 +599,30 @@
           "examples": [
             {
               "de": "Würden Sie mir kurz einen Kugelschreiber leihen? – Ja, gern. Hier, bitte.",
-              "en": "Would you lend me a pen for a moment? – Yes, of course. Here you are."
+              "en": "Would you lend me a pen for a moment? – Yes, of course. Here you are.",
+              "focus": [
+                "Würden",
+                "gern"
+              ]
             },
             {
               "de": "Das ist wirklich sehr nett von Ihnen.",
-              "en": "That is really very kind of you."
+              "en": "That is really very kind of you.",
+              "focus": [
+                "nett"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "„Könnten Sie mir kurz helfen?“ Which reply is natural?",
+            "options": [
+              "Ja, gern.",
+              "Ja, ich könnte.",
+              "Ja, ich hätte gern."
+            ],
+            "answer": "Ja, gern.",
+            "why": "The answer to a polite request is short and not in the Konjunktiv: Ja, gern. / Natürlich."
+          }
         },
         {
           "kind": "warning",
@@ -435,14 +631,31 @@
           "examples": [
             {
               "de": "Könnten Sie das wiederholen? (request) — Konnten Sie das hören? (past)",
-              "en": "Could you repeat that? — Were you able to hear that?"
+              "en": "Could you repeat that? — Were you able to hear that?",
+              "focus": [
+                "Könnten",
+                "Konnten"
+              ]
             },
             {
               "de": "Könnten wir morgen telefonieren? — Konnten wir gestern nicht telefonieren?",
-              "en": "Could we talk on the phone tomorrow? — Were we not able to talk yesterday?"
+              "en": "Could we talk on the phone tomorrow? — Were we not able to talk yesterday?",
+              "focus": [
+                "Könnten",
+                "Konnten"
+              ]
             }
           ],
-          "trap": "English 'could' hides both. In German the umlaut carries the whole difference."
+          "trap": "English 'could' hides both. In German the umlaut carries the whole difference.",
+          "check": {
+            "q": "You want someone to open the window now. Which do you say?",
+            "options": [
+              "Könnten Sie das Fenster öffnen?",
+              "Konnten Sie das Fenster öffnen?"
+            ],
+            "answer": "Könnten Sie das Fenster öffnen?",
+            "why": "With the umlaut, könnten is a polite request. Without it, konnten asks whether they were able to do it in the past."
+          }
         }
       ],
       "remember": [
@@ -459,6 +672,7 @@
     ],
     "title": "Adjektivendungen: unbestimmter Artikel",
     "help": {
+      "hook": "After ein, the adjective has to do the article's job — learn the three spots where it does, and every other ending falls into place.",
       "intro": "After ein, kein and the possessives (mein, dein, sein, ihr, unser, euer, Ihr) the rule changes in exactly three places. ein, kein, mein show no case in the masculine nominative and the neuter nominative/accusative — ein Mann, ein Haus — so the adjective must show it instead: ein großer Mann, ein neues Haus (the -er and -es are the der/das endings moved onto the adjective). Everywhere else the article does show the case and the adjective is -e or -en, just as after der: eine junge Frau, einen kleinen Hund, meinem alten Freund, keine besseren Pläne. The plural has no ein, so it appears only with kein- and possessives — keine guten Ideen, meine kleinen Schwestern — always -en. Learn this table as 'the der-table with three repairs'.",
       "tips": [
         {
@@ -468,14 +682,31 @@
           "examples": [
             {
               "de": "Das ist ein wunderbarer Tag und ein schwieriges Problem.",
-              "en": "That's a wonderful day and a difficult problem."
+              "en": "That's a wonderful day and a difficult problem.",
+              "focus": [
+                "wunderbarer",
+                "schwieriges"
+              ]
             },
             {
               "de": "Ich habe ein schnelles Fahrrad gekauft.",
-              "en": "I bought a fast bicycle."
+              "en": "I bought a fast bicycle.",
+              "focus": [
+                "schnelles"
+              ]
             }
           ],
-          "trap": "ein guter Freund but der gute Freund. Same friend, different ending, because der already told you it's masculine and ein didn't."
+          "trap": "ein guter Freund but der gute Freund. Same friend, different ending, because der already told you it's masculine and ein didn't.",
+          "check": {
+            "q": "Mein Onkel fährt ein ____ Auto. (alt)",
+            "options": [
+              "altes",
+              "alte",
+              "alten"
+            ],
+            "answer": "altes",
+            "why": "Auto is neuter and here accusative. ein shows nothing, so the adjective takes das's -es: ein altes Auto."
+          }
         },
         {
           "kind": "rule",
@@ -484,13 +715,32 @@
           "examples": [
             {
               "de": "Sie trägt eine rote Jacke. Er trinkt einen starken Kaffee. Wir helfen einem kleinen Kind.",
-              "en": "She wears a red jacket. He drinks a strong coffee. We help a small child."
+              "en": "She wears a red jacket. He drinks a strong coffee. We help a small child.",
+              "focus": [
+                "rote",
+                "starken",
+                "kleinen"
+              ]
             },
             {
               "de": "Ich wohne in einer ruhigen Straße mit einem kleinen Park.",
-              "en": "I live in a quiet street with a small park."
+              "en": "I live in a quiet street with a small park.",
+              "focus": [
+                "ruhigen",
+                "kleinen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir wohnen in einer ____ Wohnung. (klein)",
+            "options": [
+              "kleinen",
+              "kleine",
+              "kleiner"
+            ],
+            "answer": "kleinen",
+            "why": "in + position takes the dative, and einer already shows feminine dative, so the adjective is simply -en, just as after der."
+          }
         },
         {
           "kind": "rule",
@@ -499,13 +749,32 @@
           "examples": [
             {
               "de": "Mein großer Bruder hat keinen besseren Plan.",
-              "en": "My big brother has no better plan."
+              "en": "My big brother has no better plan.",
+              "focus": [
+                "großer",
+                "keinen",
+                "besseren"
+              ]
             },
             {
               "de": "Unser neues Auto hat keine großen Probleme.",
-              "en": "Our new car has no big problems."
+              "en": "Our new car has no big problems.",
+              "focus": [
+                "neues",
+                "großen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir haben leider keine ____ Ideen. (neu)",
+            "options": [
+              "neuen",
+              "neue",
+              "neues"
+            ],
+            "answer": "neuen",
+            "why": "keine works like ein, and in the plural the adjective after kein- or a possessive is always -en."
+          }
         },
         {
           "kind": "mnemonic",
@@ -514,13 +783,30 @@
           "examples": [
             {
               "de": "Da steht ein alter Baum neben einem alten Haus.",
-              "en": "There is an old tree next to an old house."
+              "en": "There is an old tree next to an old house.",
+              "focus": [
+                "alter",
+                "alten"
+              ]
             },
             {
               "de": "Ein neues Auto? Ich kaufe mir lieber ein neues Fahrrad.",
-              "en": "A new car? I would rather buy myself a new bike."
+              "en": "A new car? I would rather buy myself a new bike.",
+              "focus": [
+                "neues"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Da kommt ein ____ Bus. (leer)",
+            "options": [
+              "leerer",
+              "leere",
+              "leeren"
+            ],
+            "answer": "leerer",
+            "why": "Bus is masculine and the subject, so this is masculine nominative, one of the three repaired slots: ein shows nothing, so the adjective takes der's -er."
+          }
         }
       ],
       "remember": [
@@ -625,7 +911,14 @@
       ],
       "context": {
         "de": "Ich habe eine billige Wohnung in einem alten Haus gefunden. Sie hat ein großes Zimmer, eine kleine Küche und einen schönen Balkon. Mein neuer Nachbar ist ein netter Mann mit einem lustigen Hund. Es gibt keinen besseren Ort für einen ruhigen Abend.",
-        "en": "I've found a cheap flat in an old house. It has a big room, a small kitchen and a lovely balcony. My new neighbour is a nice man with a funny dog. There's no better place for a quiet evening."
+        "en": "I've found a cheap flat in an old house. It has a big room, a small kitchen and a lovely balcony. My new neighbour is a nice man with a funny dog. There's no better place for a quiet evening.",
+        "focus": [
+          "großes",
+          "neuer",
+          "netter",
+          "schönen",
+          "alten"
+        ]
       },
       "mistakes": [
         {
@@ -655,6 +948,7 @@
     ],
     "title": "Großer Text: Meine neue Wohnung",
     "help": {
+      "hook": "Describe a flat in German, from the sofa and the big window to the old tree outside, with every adjective ending right and no guessing.",
       "intro": "A flat described in a text of about 170 words with twelve adjectives to complete — spread across all three tables you have just learnt. After der-words: Das große Wohnzimmer, auf dem bequemen Sofa, der junge Mann. After ein-words: in einer neuen Wohnung, ein großes Fenster, einen kleinen Park, ein schönes Bild, einen neuen Herd, einen modernen Kühlschrank, ein alter Baum. With no article at all (a preview of the Nullartikel): nette Nachbarn, mit heißem Tee. Each gap gives you only the adjective. Work through it with the three questions in order: which article (der-word, ein-word, none)? which gender and number? which case? — then read the ending off the table. This is the habit that makes endings reliable: no guessing, three questions.",
       "tips": [
         {
@@ -664,13 +958,32 @@
           "examples": [
             {
               "de": "Am liebsten sitze ich abends auf dem bequemen Sofa und lese.",
-              "en": "In the evenings I most like to sit on the comfortable sofa and read. (der-word, neuter, dative → -en)"
+              "en": "In the evenings I most like to sit on the comfortable sofa and read. (der-word, neuter, dative → -en)",
+              "focus": [
+                "dem",
+                "bequemen"
+              ]
             },
             {
               "de": "Das große Wohnzimmer hat ein großes Fenster mit Blick auf einen kleinen Park.",
-              "en": "The big living room has a big window with a view of a small park."
+              "en": "The big living room has a big window with a view of a small park.",
+              "focus": [
+                "große",
+                "großes",
+                "kleinen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir wohnen in ____ Haus. (in a big house; das Haus)",
+            "options": [
+              "einem großen",
+              "einem großes",
+              "ein großes"
+            ],
+            "answer": "einem großen",
+            "why": "ein-word, neuter, dative after in (where?) → einem, and in the dative the adjective takes -en."
+          }
         },
         {
           "kind": "warning",
@@ -680,13 +993,32 @@
           "examples": [
             {
               "de": "Seit März wohne ich in einer neuen Wohnung am Rand der Stadt.",
-              "en": "Since March I have been living in a new flat on the edge of town."
+              "en": "Since March I have been living in a new flat on the edge of town.",
+              "focus": [
+                "in",
+                "einer",
+                "neuen"
+              ]
             },
             {
               "de": "Vor dem Haus steht ein alter Baum, und im Sommer sitzen die Nachbarn oft in seinem Schatten.",
-              "en": "In front of the building stands an old tree, and in summer the neighbours often sit in its shade."
+              "en": "In front of the building stands an old tree, and in summer the neighbours often sit in its shade.",
+              "focus": [
+                "Vor",
+                "dem"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Die Katze schläft unter ____ Tisch. (the old table; der Tisch)",
+            "options": [
+              "dem alten",
+              "den alten",
+              "der alte"
+            ],
+            "answer": "dem alten",
+            "why": "unter + where? takes the dative: dem, and after dem the adjective ends in -en."
+          }
         },
         {
           "kind": "rule",
@@ -695,13 +1027,29 @@
           "examples": [
             {
               "de": "Ich habe nette Nachbarn: …",
-              "en": "I have nice neighbours."
+              "en": "I have nice neighbours.",
+              "focus": [
+                "nette"
+              ]
             },
             {
               "de": "Aber wenn ich am Abend mit heißem Tee auf dem Balkon sitze, weiß ich: Der Umzug war die richtige Entscheidung.",
-              "en": "But when I sit on the balcony in the evening with hot tea, I know: the move was the right decision."
+              "en": "But when I sit on the balcony in the evening with hot tea, I know: the move was the right decision.",
+              "focus": [
+                "heißem"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich trinke Kaffee mit ____ Zucker. (brown sugar; der Zucker)",
+            "options": [
+              "braunem",
+              "braunen",
+              "brauner"
+            ],
+            "answer": "braunem",
+            "why": "No article, masculine dative after mit: the adjective takes the dem-ending, -em."
+          }
         }
       ],
       "remember": [
@@ -718,6 +1066,7 @@
     ],
     "title": "Adjektivendungen ohne Artikel",
     "help": {
+      "hook": "Menus, flat ads and headlines drop the article — so the adjective has to carry the ending all by itself.",
       "intro": "The third table completes the system, and it is the one with the clearest logic: when there is no article at all, the adjective takes over the article's job entirely and wears the der/die/das ending itself. Nominative: starker Kaffee (der → -er), frische Milch (die → -e), frisches Brot (das → -es), nette Leute (die → -e). Accusative: starken Kaffee (den → -en), the rest unchanged. Dative: starkem Kaffee (dem → -em), frischer Milch (der → -er), kaltem Wasser (dem → -em), netten Leuten (den → -en, and the noun takes -n). Genitive m/n is the one exception — guten Weines, not gutes, because the noun's -s already marks the case. The Nullartikel appears with mass nouns (Kaffee, Milch, Wetter), plurals (Leute, Kinder), after numbers (zwei kleine Kinder) and in headlines and ads — so flat ads, menus and newspapers are full of it.",
       "tips": [
         {
@@ -727,14 +1076,32 @@
           "examples": [
             {
               "de": "Ich trinke starken Kaffee mit frischer Milch.",
-              "en": "I drink strong coffee with fresh milk."
+              "en": "I drink strong coffee with fresh milk.",
+              "focus": [
+                "starken",
+                "frischer"
+              ]
             },
             {
               "de": "Bei schönem Wetter sitzen wir draußen.",
-              "en": "In nice weather we sit outside."
+              "en": "In nice weather we sit outside.",
+              "focus": [
+                "schönem"
+              ]
             }
           ],
-          "trap": "English 'strong coffee' has nothing to show; German has to show the case somewhere, and with no article, the adjective is the only place."
+          "trap": "English 'strong coffee' has nothing to show; German has to show the case somewhere, and with no article, the adjective is the only place.",
+          "check": {
+            "q": "Ich esse gern Brot mit ____ Butter. (die Butter)",
+            "options": [
+              "frischer",
+              "frische",
+              "frischem",
+              "frischen"
+            ],
+            "answer": "frischer",
+            "why": "mit takes the dative, and with no article the adjective wears the dative feminine ending of der: frischer Butter."
+          }
         },
         {
           "kind": "rule",
@@ -743,13 +1110,33 @@
           "examples": [
             {
               "de": "Viele junge Leute suchen kleine Wohnungen in guter Lage.",
-              "en": "Many young people are looking for small flats in a good location."
+              "en": "Many young people are looking for small flats in a good location.",
+              "focus": [
+                "junge",
+                "kleine",
+                "guter"
+              ]
             },
             {
               "de": "Zu vermieten: helle Wohnung, ruhige Lage, großer Balkon.",
-              "en": "To let: bright flat, quiet location, large balcony."
+              "en": "To let: bright flat, quiet location, large balcony.",
+              "focus": [
+                "helle",
+                "ruhige",
+                "großer"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir haben drei ____ Katzen. (small cats)",
+            "options": [
+              "kleine",
+              "kleinen",
+              "kleiner"
+            ],
+            "answer": "kleine",
+            "why": "A number is not an article, so the adjective takes the plural die-ending itself: drei kleine Katzen."
+          }
         },
         {
           "kind": "warning",
@@ -758,13 +1145,31 @@
           "examples": [
             {
               "de": "Ich wohne mit zwei netten Kollegen zusammen.",
-              "en": "I live together with two nice colleagues."
+              "en": "I live together with two nice colleagues.",
+              "focus": [
+                "netten",
+                "Kollegen"
+              ]
             },
             {
               "de": "Das Buch ist für Leser mit guten Deutschkenntnissen.",
-              "en": "The book is for readers with a good knowledge of German."
+              "en": "The book is for readers with a good knowledge of German.",
+              "focus": [
+                "guten",
+                "Deutschkenntnissen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Sie spricht oft mit ____. (old friends)",
+            "options": [
+              "alten Freunden",
+              "alten Freunde",
+              "alte Freunden"
+            ],
+            "answer": "alten Freunden",
+            "why": "Dative plural needs two markers: -en on the adjective and -n on the noun."
+          }
         },
         {
           "kind": "mnemonic",
@@ -773,13 +1178,32 @@
           "examples": [
             {
               "de": "den Tee → heißen Tee · dem Wasser → kaltem Wasser",
-              "en": "cut the d-, keep the ending"
+              "en": "cut the d-, keep the ending",
+              "focus": [
+                "heißen",
+                "kaltem"
+              ]
             },
             {
               "de": "der Wein → guter Wein · die Luft → frische Luft",
-              "en": "cut the d-, keep the ending"
+              "en": "cut the d-, keep the ending",
+              "focus": [
+                "guter",
+                "frische"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Bier schmeckt im Sommer am besten. (das Bier, cold)",
+            "options": [
+              "Kaltes",
+              "Kalter",
+              "Kalte",
+              "Kalten"
+            ],
+            "answer": "Kaltes",
+            "why": "das Bier → cut the d- → -as becomes -es: kaltes Bier, the neuter nominative ending."
+          }
         }
       ],
       "remember": [
@@ -836,7 +1260,17 @@
       },
       "context": {
         "de": "Zum Frühstück gibt es frisches Brot, kalte Milch und starken Kaffee. Bei schönem Wetter frühstücken wir auf dem Balkon, mit lauter Musik und guten Freunden. Kleine Kinder laufen im Hof, und aus der Küche kommt der Duft von frischem Kuchen.",
-        "en": "For breakfast there's fresh bread, cold milk and strong coffee. In nice weather we have breakfast on the balcony, with loud music and good friends. Small children run about in the yard, and from the kitchen comes the smell of fresh cake."
+        "en": "For breakfast there's fresh bread, cold milk and strong coffee. In nice weather we have breakfast on the balcony, with loud music and good friends. Small children run about in the yard, and from the kitchen comes the smell of fresh cake.",
+        "focus": [
+          "frisches",
+          "kalte",
+          "starken",
+          "schönem",
+          "lauter",
+          "guten",
+          "Kleine",
+          "frischem"
+        ]
       },
       "mistakes": [
         {
@@ -924,6 +1358,7 @@
     ],
     "title": "Komparativ & Superlativ vor dem Nomen",
     "help": {
+      "hook": "The bigger flat, the cheapest ticket, the best idea: comparatives before a noun simply add the normal adjective ending.",
       "intro": "Comparatives and superlatives are adjectives, and before a noun they take the same endings as any adjective — on top of their own -er / -st. der kürzere Weg (the shorter way), die größere Stadt, das ältere Haus; der kürzeste Weg, die größte Stadt, das älteste Haus; einen besseren Preis, mit einem schnelleren Zug, in der schönsten Stadt. So the form is stem + er/st + ending: kürz-er-e, kürz-est-e, kürz-er-en. The irregulars keep their special stems — besser / best-, mehr / meist-, höher / höchst-, näher / nächst- — and the umlaut ones keep the umlaut (größer, älter, jünger, wärmer, kürzer). Two spellings deserve a glance: teuer → teurer (one e drops) and the superlative -est- after t/d/s/z (ältest-, kürzest-). Any short talk or argument practically demands 'der wichtigste Punkt' and 'die meisten Leute'.",
       "tips": [
         {
@@ -933,13 +1368,29 @@
           "examples": [
             {
               "de": "Das ist der kürzeste Weg zum Bahnhof.",
-              "en": "That's the shortest way to the station."
+              "en": "That's the shortest way to the station.",
+              "focus": [
+                "kürzeste"
+              ]
             },
             {
               "de": "Die wichtigsten Fragen kommen am Ende.",
-              "en": "The most important questions come at the end."
+              "en": "The most important questions come at the end.",
+              "focus": [
+                "wichtigsten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir nehmen den ____ Weg. (the fastest)",
+            "options": [
+              "schnellsten",
+              "schnellste",
+              "schnellster"
+            ],
+            "answer": "schnellsten",
+            "why": "schnell + st, then the normal ending: den is masculine accusative, so after a der-word the ending is -en."
+          }
         },
         {
           "kind": "rule",
@@ -948,14 +1399,32 @@
           "examples": [
             {
               "de": "Wir suchen eine größere Wohnung mit einem helleren Wohnzimmer.",
-              "en": "We're looking for a bigger flat with a brighter living room."
+              "en": "We're looking for a bigger flat with a brighter living room.",
+              "focus": [
+                "größere",
+                "helleren"
+              ]
             },
             {
               "de": "Mit besserem Wetter wäre der Ausflug schöner gewesen.",
-              "en": "With better weather the trip would have been nicer."
+              "en": "With better weather the trip would have been nicer.",
+              "focus": [
+                "besserem"
+              ]
             }
           ],
-          "trap": "'a cheaper price' as an object is einen günstigeren Preis: günstig-er for the comparative, then -en for the case. Two suffixes, both needed — dropping either one is an error."
+          "trap": "'a cheaper price' as an object is einen günstigeren Preis: günstig-er for the comparative, then -en for the case. Two suffixes, both needed — dropping either one is an error.",
+          "check": {
+            "q": "Ich suche einen ____ Job. (a better job)",
+            "options": [
+              "besseren",
+              "besser",
+              "besseres",
+              "bessere"
+            ],
+            "answer": "besseren",
+            "why": "besser is the comparative; after einen (masculine accusative) it still needs its ending -en: einen besseren Job."
+          }
         },
         {
           "kind": "warning",
@@ -964,13 +1433,31 @@
           "examples": [
             {
               "de": "Die meisten Leute nehmen den nächsten Zug, nicht den teureren.",
-              "en": "Most people take the next train, not the more expensive one."
+              "en": "Most people take the next train, not the more expensive one.",
+              "focus": [
+                "meisten",
+                "nächsten",
+                "teureren"
+              ]
             },
             {
               "de": "Das ist die höchste Miete, die ich je bezahlt habe.",
-              "en": "That is the highest rent I have ever paid."
+              "en": "That is the highest rent I have ever paid.",
+              "focus": [
+                "höchste"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Die Zugspitze ist der ____ Berg in Deutschland. (the highest)",
+            "options": [
+              "höchste",
+              "höheste",
+              "hochste"
+            ],
+            "answer": "höchste",
+            "why": "hoch has an irregular superlative stem höchst- with umlaut; after der the ending is -e: der höchste Berg."
+          }
         },
         {
           "kind": "mnemonic",
@@ -979,13 +1466,32 @@
           "examples": [
             {
               "de": "ein schnellerer Zug — ein schnelleres Auto — eine schnellere Bahn",
-              "en": "faster + ending"
+              "en": "faster + ending",
+              "focus": [
+                "schnellerer",
+                "schnelleres",
+                "schnellere"
+              ]
             },
             {
               "de": "Wir brauchen einen größeren Tisch und bequemere Stühle.",
-              "en": "We need a bigger table and more comfortable chairs."
+              "en": "We need a bigger table and more comfortable chairs.",
+              "focus": [
+                "größeren",
+                "bequemere"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich brauche ein ____ Handy. (a faster phone)",
+            "options": [
+              "schnelleres",
+              "schneller",
+              "schnellerer"
+            ],
+            "answer": "schnelleres",
+            "why": "schnell-er = faster, then -es for a neuter noun after ein: ein schnell-er-es Handy."
+          }
         }
       ],
       "remember": [
@@ -1037,7 +1543,17 @@
       },
       "context": {
         "de": "Wir haben lange nach einer größeren Wohnung gesucht. Die schönste Wohnung war leider auch die teuerste. Am Ende haben wir eine kleinere, aber hellere Wohnung in einer ruhigeren Straße genommen – mit dem besten Blick über die Stadt und den nettesten Nachbarn, die man sich wünschen kann.",
-        "en": "We looked for a bigger flat for a long time. The nicest flat was unfortunately also the most expensive. In the end we took a smaller but brighter flat in a quieter street – with the best view over the city and the nicest neighbours you could wish for."
+        "en": "We looked for a bigger flat for a long time. The nicest flat was unfortunately also the most expensive. In the end we took a smaller but brighter flat in a quieter street – with the best view over the city and the nicest neighbours you could wish for.",
+        "focus": [
+          "größeren",
+          "schönste",
+          "teuerste",
+          "kleinere",
+          "hellere",
+          "ruhigeren",
+          "besten",
+          "nettesten"
+        ]
       },
       "mistakes": [
         {
@@ -1117,6 +1633,7 @@
     ],
     "title": "Adjektive und Partizipien als Nomen",
     "help": {
+      "hook": "Talk about employees, relatives, adults and Germans, and say things like etwas Neues, by turning adjectives into nouns with the right ending.",
       "intro": "Adjectives and participles can become nouns for people and ideas, and the world of work is full of them: der Angestellte (employee, from angestellt), der Erwachsene (adult), der Deutsche, der Verwandte (relative), der Bekannte (acquaintance), der Jugendliche (teenager), der Arbeitslose, der Auszubildende (trainee), der Verletzte. They are written with a capital letter but keep their adjective endings, so the word before them decides the form, exactly as in the adjective tables you have just learnt: der Angestellte but ein Angestellter, die Angestellte (a woman), den Angestellten, mit einem Angestellten, die Angestellten (Pl.), and with no article Angestellte (Pl.). Things and ideas work the same way in the neuter: das Gute, alles Gute, etwas Neues, nichts Besonderes. (The other group of special masculine nouns, the n-Deklination — der Kollege, den Kollegen — has its own quiz later in the course.)",
       "tips": [
         {
@@ -1127,13 +1644,31 @@
           "examples": [
             {
               "de": "Der neue Angestellte ist ein Bekannter von mir.",
-              "en": "The new employee is an acquaintance of mine."
+              "en": "The new employee is an acquaintance of mine.",
+              "focus": [
+                "Angestellte",
+                "Bekannter"
+              ]
             },
             {
               "de": "Erwachsene zahlen zehn Euro, Jugendliche fünf.",
-              "en": "Adults pay ten euros, teenagers five."
+              "en": "Adults pay ten euros, teenagers five.",
+              "focus": [
+                "Erwachsene",
+                "Jugendliche"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Bruder ist ein ____ bei der Post. (angestellt – a male employee)",
+            "options": [
+              "Angestellter",
+              "Angestellte",
+              "Angestellten"
+            ],
+            "answer": "Angestellter",
+            "why": "After ein the noun keeps the ending a masculine adjective would take there: ein Angestellter, like ein neuer Kollege."
+          }
         },
         {
           "kind": "rule",
@@ -1142,13 +1677,29 @@
           "examples": [
             {
               "de": "Sie ist mit einem Deutschen verheiratet.",
-              "en": "She is married to a German (man)."
+              "en": "She is married to a German (man).",
+              "focus": [
+                "Deutschen"
+              ]
             },
             {
               "de": "Zu meiner Hochzeit kommen alle Verwandten.",
-              "en": "All my relatives are coming to my wedding."
+              "en": "All my relatives are coming to my wedding.",
+              "focus": [
+                "Verwandten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich habe gestern mit ____ gesprochen. (a German woman)",
+            "options": [
+              "einer Deutschen",
+              "einer Deutsche",
+              "eine Deutsche"
+            ],
+            "answer": "einer Deutschen",
+            "why": "mit takes the dative, and after einer the adjective noun ends in -en, exactly like einer netten Frau."
+          }
         },
         {
           "kind": "rule",
@@ -1157,13 +1708,30 @@
           "examples": [
             {
               "de": "Gibt es etwas Neues aus dem Büro? – Nein, nichts Besonderes.",
-              "en": "Is there any news from the office? – No, nothing special."
+              "en": "Is there any news from the office? – No, nothing special.",
+              "focus": [
+                "Neues",
+                "Besonderes"
+              ]
             },
             {
               "de": "Zum Geburtstag wünsche ich dir alles Gute!",
-              "en": "For your birthday I wish you all the best!"
+              "en": "For your birthday I wish you all the best!",
+              "focus": [
+                "Gute"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Im Fernsehen kommt heute nichts ____. (interessant)",
+            "options": [
+              "Interessantes",
+              "interessantes",
+              "Interessante"
+            ],
+            "answer": "Interessantes",
+            "why": "After nichts the adjective becomes a noun: capital letter and the ending -es."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1172,13 +1740,29 @@
           "examples": [
             {
               "de": "ein fremder Mann → ein Fremder",
-              "en": "a strange man → a stranger"
+              "en": "a strange man → a stranger",
+              "focus": [
+                "Fremder"
+              ]
             },
             {
               "de": "die verletzten Leute → die Verletzten",
-              "en": "the injured people → the injured"
+              "en": "the injured people → the injured",
+              "focus": [
+                "Verletzten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich spreche mit einem fremden Mann. → Ich spreche mit einem ____.",
+            "options": [
+              "Fremden",
+              "Fremder",
+              "Fremde"
+            ],
+            "answer": "Fremden",
+            "why": "Keep the ending the adjective had before the hidden noun: einem fremden (Mann) becomes einem Fremden."
+          }
         }
       ],
       "table": {
@@ -1300,7 +1884,15 @@
       ],
       "context": {
         "de": "Sehr geehrte Frau Braun, ich bin seit Mai Auszubildende in Ihrer Abteilung. Gestern hat mich ein Bekannter gefragt, ob die Firma noch Angestellte sucht. Er ist ein junger Deutscher aus Dresden und seit drei Monaten arbeitslos. Die Kollegen sagen, alle Neuen werden hier gut eingearbeitet. Gibt es dazu etwas Neues? Mit freundlichen Grüßen, Ana Costa",
-        "en": "Dear Ms Braun, I have been a trainee in your department since May. Yesterday an acquaintance of mine asked whether the company is still looking for employees. He is a young German from Dresden and has been unemployed for three months. The colleagues say all new people are well trained here. Is there any news about that? Kind regards, Ana Costa"
+        "en": "Dear Ms Braun, I have been a trainee in your department since May. Yesterday an acquaintance of mine asked whether the company is still looking for employees. He is a young German from Dresden and has been unemployed for three months. The colleagues say all new people are well trained here. Is there any news about that? Kind regards, Ana Costa",
+        "focus": [
+          "Auszubildende",
+          "Bekannter",
+          "Angestellte",
+          "Deutscher",
+          "Neuen",
+          "Neues"
+        ]
       },
       "exam": null,
       "mistakes": [
@@ -1329,6 +1921,7 @@
     ],
     "title": "Konjunktiv II: würde + Infinitiv",
     "help": {
+      "hook": "With one little word, würde, you can wish, advise, ask politely and imagine 'what if' with almost any German verb.",
       "intro": "The Konjunktiv II is the mood of what is not (yet) real: wishes (Ich würde gern mehr reisen), polite requests (Würden Sie mir helfen?), advice (Ich würde das nicht machen) and unreal conditions (Wenn ich Zeit hätte, würde ich kommen). For almost every verb modern German builds it with würde + infinitive — würde, würdest, würde, würden, würdet, würden — which works like a modal: würde in position 2, infinitive at the end. Only a handful of verbs use their own one-word form (hätte, wäre, könnte, müsste, wüsste — the next quiz); for everything else, würde is not a shortcut but the standard. Wishes, hypotheses and polite suggestions are everyday talk, and any discussion practically runs on würde. In this quiz you type both halves of the frame — the würde-form in position 2 and the infinitive at the end — because the difficulty is not the word würde but the shape of the sentence around it.",
       "tips": [
         {
@@ -1338,13 +1931,31 @@
           "examples": [
             {
               "de": "Ich würde gern in Berlin wohnen.",
-              "en": "I'd like to live in Berlin."
+              "en": "I'd like to live in Berlin.",
+              "focus": [
+                "würde",
+                "wohnen"
+              ]
             },
             {
               "de": "Würdest du mir kurz helfen?",
-              "en": "Would you help me for a moment?"
+              "en": "Would you help me for a moment?",
+              "focus": [
+                "Würdest",
+                "helfen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence is correct?",
+            "options": [
+              "Ich würde morgen gern kommen.",
+              "Ich würde kommen morgen gern.",
+              "Ich kommen würde morgen gern."
+            ],
+            "answer": "Ich würde morgen gern kommen.",
+            "why": "würde works like a modal verb: it takes position 2 and the infinitive goes to the very end."
+          }
         },
         {
           "kind": "rule",
@@ -1353,13 +1964,31 @@
           "examples": [
             {
               "de": "An deiner Stelle würde ich den Job nehmen.",
-              "en": "In your place I'd take the job."
+              "en": "In your place I'd take the job.",
+              "focus": [
+                "Stelle",
+                "würde"
+              ]
             },
             {
               "de": "Wenn ich mehr Geld hätte, würde ich ein Haus kaufen.",
-              "en": "If I had more money, I'd buy a house."
+              "en": "If I had more money, I'd buy a house.",
+              "focus": [
+                "hätte",
+                "würde"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "A friend can't decide whether to take a new flat. Which line gives advice?",
+            "options": [
+              "An deiner Stelle würde ich die Wohnung nehmen.",
+              "Würden Sie mir die Wohnung zeigen?",
+              "Ich würde gern eine Wohnung haben."
+            ],
+            "answer": "An deiner Stelle würde ich die Wohnung nehmen.",
+            "why": "An deiner Stelle würde ich … is the advice pattern. The other two are a polite request and a wish."
+          }
         },
         {
           "kind": "warning",
@@ -1368,14 +1997,32 @@
           "examples": [
             {
               "de": "Ich würde das anders machen. (not: Ich machte das anders.)",
-              "en": "I would do that differently."
+              "en": "I would do that differently.",
+              "focus": [
+                "würde",
+                "machen"
+              ]
             },
             {
               "de": "Würdest du mir morgen beim Umzug helfen?",
-              "en": "Would you help me with the move tomorrow?"
+              "en": "Would you help me with the move tomorrow?",
+              "focus": [
+                "Würdest",
+                "helfen"
+              ]
             }
           ],
-          "trap": "English 'would' is one word for all verbs; German is the same with würde. The trap is the other way: don't try to make 'would have' with würde — that is hätte …, which comes later in the course."
+          "trap": "English 'would' is one word for all verbs; German is the same with würde. The trap is the other way: don't try to make 'would have' with würde — that is hätte …, which comes later in the course.",
+          "check": {
+            "q": "You want to say 'I'd like to go by train.' What does everyone say in everyday German?",
+            "options": [
+              "Ich würde gern mit dem Zug fahren.",
+              "Ich führe gern mit dem Zug.",
+              "Ich fahre gern mit dem Zug."
+            ],
+            "answer": "Ich würde gern mit dem Zug fahren.",
+            "why": "führe exists but sounds literary; for ordinary verbs würde + infinitive is the normal form. Ich fahre gern … means 'I like going', not 'I'd like to go'."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1384,13 +2031,32 @@
           "examples": [
             {
               "de": "Ich würde gern wissen, ob …",
-              "en": "I'd like to know whether …"
+              "en": "I'd like to know whether …",
+              "focus": [
+                "würde",
+                "gern"
+              ]
             },
             {
               "de": "Ich würde gern einen Termin für nächste Woche machen.",
-              "en": "I would like to make an appointment for next week."
+              "en": "I would like to make an appointment for next week.",
+              "focus": [
+                "würde",
+                "gern",
+                "machen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "In a café, which is the polite way to say 'I'd like to pay'?",
+            "options": [
+              "Ich würde gern bezahlen.",
+              "Ich will bezahlen.",
+              "Ich würde bezahlen."
+            ],
+            "answer": "Ich würde gern bezahlen.",
+            "why": "würde gern + infinitive is the polite wish. Ich will sounds blunt, and Ich würde bezahlen without gern means 'I would pay (if …)'."
+          }
         }
       ],
       "remember": [
@@ -1443,7 +2109,14 @@
       ],
       "context": {
         "de": "Was würdest du machen, wenn du ein Jahr frei hättest? – Ich würde reisen, am liebsten nach Südamerika. Ich würde Spanisch lernen und in kleinen Dörfern wohnen. – Und Geld? – Ich würde vorher sparen. An deiner Stelle würde ich es auch versuchen!",
-        "en": "What would you do if you had a year off? – I'd travel, ideally to South America. I'd learn Spanish and live in small villages. – And money? – I'd save beforehand. In your place I'd try it too!"
+        "en": "What would you do if you had a year off? – I'd travel, ideally to South America. I'd learn Spanish and live in small villages. – And money? – I'd save beforehand. In your place I'd try it too!",
+        "focus": [
+          "würdest",
+          "würde",
+          "reisen",
+          "lernen",
+          "sparen"
+        ]
       },
       "mistakes": [
         {
@@ -1473,6 +2146,7 @@
     ],
     "title": "Hören: Vorstellungsgespräch",
     "help": {
+      "hook": "Sit in on a job interview and catch the facts that matter: the old job, the reasons, the hours and the final question.",
       "intro": "A job interview, heard once: Herr Brandt from a small company and Frau Wagner, who wants to change from selling furniture to an office job. It is the conversation you may one day have yourself, and the questions follow the interview in order: what she did before (Perfekt: hat … gearbeitet), why she wants the new job (a weil-clause), which language matters, how many hours the job has, why part-time suits her, and what she asks at the end (an indirect question: Könnten Sie mir sagen, wie …?). The Konjunktiv II is the sound of politeness on both sides — Ich würde gern …, Wäre das für Sie in Ordnung?, Könnten Sie mir sagen …? Listen for the numbers (drei Jahre, zwanzig Stunden, acht bis zwölf Uhr), the reasons after weil, and who is speaking.",
       "tips": [
         {
@@ -1482,13 +2156,30 @@
           "examples": [
             {
               "de": "Ich habe drei Jahre als Verkäuferin in einem Möbelhaus gearbeitet.",
-              "en": "I worked for three years as a sales assistant in a furniture store."
+              "en": "I worked for three years as a sales assistant in a furniture store.",
+              "focus": [
+                "habe",
+                "gearbeitet"
+              ]
             },
             {
               "de": "Sehr schön. Haben Sie noch Fragen an uns?",
-              "en": "Very good. Do you have any questions for us?"
+              "en": "Very good. Do you have any questions for us?",
+              "focus": [
+                "Fragen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The interviewer says: „Haben Sie noch Fragen an uns?“ What happens next?",
+            "options": [
+              "The applicant asks her own questions.",
+              "The applicant describes her last job.",
+              "The interviewer explains the salary."
+            ],
+            "answer": "The applicant asks her own questions.",
+            "why": "This line closes an interview and hands the floor over: now the applicant asks, often politely with Könnten Sie mir sagen, …?"
+          }
         },
         {
           "kind": "rule",
@@ -1497,13 +2188,29 @@
           "examples": [
             {
               "de": "Ich würde gern im Büro arbeiten, weil ich gut organisieren kann.",
-              "en": "I would like to work in an office because I am good at organising."
+              "en": "I would like to work in an office because I am good at organising.",
+              "focus": [
+                "weil"
+              ]
             },
             {
               "de": "Viele unserer Kunden sitzen in Großbritannien, deshalb ist Englisch für uns wichtiger.",
-              "en": "Many of our customers are in Great Britain, so English is more important for us."
+              "en": "Many of our customers are in Great Britain, so English is more important for us.",
+              "focus": [
+                "deshalb"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear: „Ich suche eine Teilzeitstelle, weil meine Tochter noch klein ist.“ Why does she want a part-time job?",
+            "options": [
+              "Her daughter is still small.",
+              "She is still studying.",
+              "The office is too far away."
+            ],
+            "answer": "Her daughter is still small.",
+            "why": "The reason is the clause after weil: meine Tochter ist noch klein."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1512,13 +2219,32 @@
           "examples": [
             {
               "de": "Die Stelle ist übrigens eine Teilzeitstelle mit zwanzig Stunden pro Woche.",
-              "en": "By the way, the job is part-time, twenty hours a week."
+              "en": "By the way, the job is part-time, twenty hours a week.",
+              "focus": [
+                "zwanzig",
+                "Stunden"
+              ]
             },
             {
               "de": "Sie würden von acht bis zwölf Uhr arbeiten, …",
-              "en": "You would work from eight to twelve."
+              "en": "You would work from eight to twelve.",
+              "focus": [
+                "acht",
+                "zwölf",
+                "Uhr"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear: „Die Besprechung beginnt um zwölf Uhr und dauert zwei Stunden.“ When does the meeting start?",
+            "options": [
+              "at 12 o'clock",
+              "at 2 o'clock",
+              "at 10 o'clock"
+            ],
+            "answer": "at 12 o'clock",
+            "why": "The number next to Uhr is the clock time (zwölf); the number next to Stunden is the length (zwei)."
+          }
         }
       ],
       "remember": [
@@ -1535,6 +2261,7 @@
     ],
     "title": "Konjunktiv II: hätte / wäre / könnte",
     "help": {
+      "hook": "Wishes, polite requests and 'if only' — a handful of words like hätte, wäre and könnte carry them all.",
       "intro": "A small group of verbs form their Konjunktiv II in one word, and because they are the most frequent verbs in the language you hear them constantly: haben → hätte, sein → wäre, können → könnte, müssen → müsste, dürfen → dürfte, sollen → sollte, wollen → wollte, wissen → wüsste, werden → würde. The recipe: take the Präteritum (hatte, war, konnte, musste), add an umlaut where the vowel allows (hätte, wäre, könnte, müsste — but sollte and wollte stay as they are), and use the Präteritum endings: hätte, hättest, hätte, hätten, hättet, hätten. These forms carry the unreal condition (Wenn ich Zeit hätte …), the wish (Ich wäre jetzt gern am Meer), the polite request (Hätten Sie einen Moment?) and the soft advice (Du solltest …, Du müsstest …). Together with würde they are all the Konjunktiv II you need for everyday wishes, advice and requests.",
       "tips": [
         {
@@ -1544,14 +2271,32 @@
           "examples": [
             {
               "de": "Ich hätte gern mehr Zeit. Das wäre wirklich schön.",
-              "en": "I'd like more time. That would be really nice."
+              "en": "I'd like more time. That would be really nice.",
+              "focus": [
+                "hätte",
+                "wäre"
+              ]
             },
             {
               "de": "Könntest du mir helfen? Wir müssten jetzt gehen.",
-              "en": "Could you help me? We'd have to go now."
+              "en": "Could you help me? We'd have to go now.",
+              "focus": [
+                "Könntest",
+                "müssten"
+              ]
             }
           ],
-          "trap": "hatte/hätte, war/wäre, konnte/könnte: one dot makes the difference between 'I had' and 'I would have'. Write it, say it."
+          "trap": "hatte/hätte, war/wäre, konnte/könnte: one dot makes the difference between 'I had' and 'I would have'. Write it, say it.",
+          "check": {
+            "q": "____ du morgen Zeit? (Would you have time tomorrow?)",
+            "options": [
+              "Hättest",
+              "Hattest",
+              "Hättet"
+            ],
+            "answer": "Hättest",
+            "why": "hattest + umlaut = hättest, the 'would have' form for du. Hattest is the past; hättet is for ihr."
+          }
         },
         {
           "kind": "rule",
@@ -1560,13 +2305,31 @@
           "examples": [
             {
               "de": "Wenn ich du wäre, würde ich das nicht machen.",
-              "en": "If I were you, I wouldn't do that."
+              "en": "If I were you, I wouldn't do that.",
+              "focus": [
+                "wäre",
+                "würde"
+              ]
             },
             {
               "de": "Wenn wir ein Auto hätten, könnten wir am Wochenende ans Meer fahren.",
-              "en": "If we had a car, we could drive to the sea at the weekend."
+              "en": "If we had a car, we could drive to the sea at the weekend.",
+              "focus": [
+                "hätten",
+                "könnten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wenn ich mehr Geld ____, würde ich ein Haus kaufen.",
+            "options": [
+              "hätte",
+              "hatte",
+              "habe"
+            ],
+            "answer": "hätte",
+            "why": "An unreal condition is Konjunktiv on both sides: wenn … hätte, … würde."
+          }
         },
         {
           "kind": "rule",
@@ -1575,13 +2338,31 @@
           "examples": [
             {
               "de": "Hätte ich nur mehr Geld!",
-              "en": "If only I had more money!"
+              "en": "If only I had more money!",
+              "focus": [
+                "Hätte",
+                "nur"
+              ]
             },
             {
               "de": "Wäre ich doch schon im Urlaub!",
-              "en": "If only I were already on holiday!"
+              "en": "If only I were already on holiday!",
+              "focus": [
+                "Wäre",
+                "doch"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ ich doch mehr Zeit! (If only I had more time!)",
+            "options": [
+              "Hätte",
+              "Hatte",
+              "Habe"
+            ],
+            "answer": "Hätte",
+            "why": "A wish with doch is unreal, so it needs the Konjunktiv II: Hätte ich doch …!"
+          }
         },
         {
           "kind": "mnemonic",
@@ -1590,13 +2371,29 @@
           "examples": [
             {
               "de": "Ich wüsste gern, ob das stimmt.",
-              "en": "I would like to know whether that is true."
+              "en": "I would like to know whether that is true.",
+              "focus": [
+                "wüsste"
+              ]
             },
             {
               "de": "Dürfte ich kurz Ihr Telefon benutzen?",
-              "en": "Might I use your phone for a moment?"
+              "en": "Might I use your phone for a moment?",
+              "focus": [
+                "Dürfte"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich ____ gern, wann der Zug fährt. (I'd like to know when the train leaves.)",
+            "options": [
+              "wüsste",
+              "wusste",
+              "weiß"
+            ],
+            "answer": "wüsste",
+            "why": "wusste + umlaut = wüsste, 'would know'. Ich wüsste gern … is a polite way to ask for information."
+          }
         }
       ],
       "remember": [
@@ -1700,7 +2497,16 @@
       ],
       "context": {
         "de": "Wenn ich mehr Zeit hätte, würde ich jeden Tag Sport machen. Wenn das Wetter besser wäre, könnten wir am Wochenende wandern. Ich müsste eigentlich lernen – aber ich wüsste gern, was im Kino läuft. Hättest du Lust mitzukommen? Das wäre schön!",
-        "en": "If I had more time, I'd do sport every day. If the weather were better, we could go hiking at the weekend. I really ought to be studying – but I'd like to know what's on at the cinema. Would you fancy coming along? That would be nice!"
+        "en": "If I had more time, I'd do sport every day. If the weather were better, we could go hiking at the weekend. I really ought to be studying – but I'd like to know what's on at the cinema. Would you fancy coming along? That would be nice!",
+        "focus": [
+          "hätte",
+          "würde",
+          "wäre",
+          "könnten",
+          "müsste",
+          "wüsste",
+          "Hättest"
+        ]
       },
       "mistakes": [
         {
@@ -1730,6 +2536,7 @@
     ],
     "title": "Lesen: Die Zukunft der Arbeit",
     "help": {
+      "hook": "Read a magazine piece on working from home and follow its argument: the trend, the pros, the cons and what comes next.",
       "intro": "A magazine text about working from home — the kind of argumentative piece you meet in magazines and on news sites, weighing opinions for and against. It has three paragraphs: the trend and its advantages, the disadvantages, and a forecast. It uses the machinery of argument you need to recognise: weil for reasons, aber and manche … andere for contrast, Experten glauben, dass … for a reported view, and werden for the forecast. The six questions ask how often people work from home, the reasons on each side, the experts’ view and what the office is still for. Read it once for the structure — trend, pro, contra, outlook — then again for the vocabulary of work (Angestellte, Mitarbeiter, Chefs, Besprechungen, flexibel), which you will need in your own writing.",
       "tips": [
         {
@@ -1739,13 +2546,31 @@
           "examples": [
             {
               "de": "Viele Angestellte finden das praktisch, weil sie keine Zeit für den Weg zur Arbeit verlieren.",
-              "en": "Many employees find it practical because they do not lose time on the way to work."
+              "en": "Many employees find it practical because they do not lose time on the way to work.",
+              "focus": [
+                "praktisch",
+                "weil"
+              ]
             },
             {
               "de": "Aber es gibt auch Nachteile.",
-              "en": "But there are also disadvantages."
+              "en": "But there are also disadvantages.",
+              "focus": [
+                "Aber",
+                "Nachteile"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Aber es gibt auch Probleme: Viele Eltern haben zu Hause wenig Ruhe.' Which part of an opinion text does this line start?",
+            "options": [
+              "The disadvantages",
+              "The trend",
+              "The outlook"
+            ],
+            "answer": "The disadvantages",
+            "why": "Aber es gibt auch … is the classic turn from the advantages to the other side."
+          }
         },
         {
           "kind": "rule",
@@ -1754,13 +2579,31 @@
           "examples": [
             {
               "de": "Manche Mitarbeiter fühlen sich zu Hause allein, weil der Kontakt zu den Kollegen fehlt.",
-              "en": "Some staff feel alone at home because contact with colleagues is missing."
+              "en": "Some staff feel alone at home because contact with colleagues is missing.",
+              "focus": [
+                "weil",
+                "fehlt"
+              ]
             },
             {
               "de": "Manche sind skeptisch, weil sie ihre Mitarbeiter nicht sehen und nicht wissen, wie viel sie wirklich arbeiten.",
-              "en": "Some are sceptical because they do not see their staff and do not know how much they really work."
+              "en": "Some are sceptical because they do not see their staff and do not know how much they really work.",
+              "focus": [
+                "weil",
+                "sehen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Herr Kim fährt mit dem Fahrrad zur Arbeit, weil er mehr Sport machen möchte.' Why does Mr Kim cycle to work?",
+            "options": [
+              "He wants to do more exercise",
+              "His car is broken",
+              "It is faster than the bus"
+            ],
+            "answer": "He wants to do more exercise",
+            "why": "The reason sits in the weil-clause: weil er mehr Sport machen möchte."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1769,13 +2612,32 @@
           "examples": [
             {
               "de": "Experten glauben, dass nur wenige Menschen ganz zu Hause arbeiten werden.",
-              "en": "Experts believe that only a few people will work entirely from home."
+              "en": "Experts believe that only a few people will work entirely from home.",
+              "focus": [
+                "nur",
+                "wenige",
+                "ganz"
+              ]
             },
             {
               "de": "Das Büro wird also nicht verschwinden, aber es wird sich verändern.",
-              "en": "So the office will not disappear, but it will change."
+              "en": "So the office will not disappear, but it will change.",
+              "focus": [
+                "nicht",
+                "verschwinden"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Manche Firmen erlauben Homeoffice an zwei Tagen pro Woche.' Which statement matches?",
+            "options": [
+              "Some companies allow two days a week at home.",
+              "All companies allow working from home.",
+              "Some companies let staff work entirely from home."
+            ],
+            "answer": "Some companies allow two days a week at home.",
+            "why": "Manche means 'some', not 'all', and an zwei Tagen pro Woche is part of the week, not ganz zu Hause."
+          }
         }
       ],
       "remember": [
@@ -1795,6 +2657,7 @@
     ],
     "title": "Kurzcheck: Konjunktiv II",
     "help": {
+      "hook": "Talk through a few what-if situations and describe your home out loud, with every hätte, wäre and ending in place.",
       "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on. The tutor asks what you would do in a few situations (Was würdest du machen, wenn …?) and asks you to describe things with adjectives (Wie ist deine Wohnung?). It listens for two things: the Konjunktiv II on both sides of a wenn-sentence (hätte / wäre in the wenn-clause, würde in the main clause), and the adjective endings after der- and ein-words. Answer in full sentences, take your time over each ending, and use the umlaut forms — hätte, wäre, könnte — rather than falling back to the present tense.",
       "tips": [
         {
@@ -1804,13 +2667,31 @@
           "examples": [
             {
               "de": "Wenn ich reich wäre, würde ich ein kleines Haus am Meer kaufen.",
-              "en": "If I were rich, I'd buy a small house by the sea."
+              "en": "If I were rich, I'd buy a small house by the sea.",
+              "focus": [
+                "wäre",
+                "würde"
+              ]
             },
             {
               "de": "Was würdest du machen, wenn du mehr Zeit hättest? – Wenn ich mehr Zeit hätte, würde ich Gitarre lernen.",
-              "en": "What would you do if you had more time? – If I had more time, I would learn the guitar."
+              "en": "What would you do if you had more time? – If I had more time, I would learn the guitar.",
+              "focus": [
+                "hätte",
+                "würde"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Was würdest du machen, wenn du ein Auto hättest? – Wenn ich ein Auto ____, würde ich ans Meer fahren.",
+            "options": [
+              "hätte",
+              "habe",
+              "würde"
+            ],
+            "answer": "hätte",
+            "why": "Mirror the question's mood: hätte in the wenn-clause, würde in the main clause."
+          }
         },
         {
           "kind": "rule",
@@ -1819,13 +2700,32 @@
           "examples": [
             {
               "de": "Ich wohne in einem ruhigen Viertel mit netten Nachbarn.",
-              "en": "I live in a quiet area with nice neighbours."
+              "en": "I live in a quiet area with nice neighbours.",
+              "focus": [
+                "ruhigen",
+                "netten"
+              ]
             },
             {
               "de": "Meine Wohnung hat eine kleine Küche und einen großen Balkon.",
-              "en": "My flat has a small kitchen and a big balcony."
+              "en": "My flat has a small kitchen and a big balcony.",
+              "focus": [
+                "kleine",
+                "großen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir haben einen ____ Garten hinter dem Haus.",
+            "options": [
+              "schönen",
+              "schöne",
+              "schöner",
+              "schönem"
+            ],
+            "answer": "schönen",
+            "why": "der Garten is masculine and einen is accusative, so the adjective ends in -en: einen schönen Garten."
+          }
         }
       ],
       "remember": [
@@ -1842,6 +2742,7 @@
     ],
     "title": "Futur I",
     "help": {
+      "hook": "Promises, predictions and good guesses: werden + infinitive says what will happen, and what is probably happening right now.",
       "intro": "German usually talks about the future in the present tense with a time word — Morgen fahre ich nach Köln. The Futur I, werden + infinitive, is used when you want to stress that something will happen: a prediction (Es wird regnen), a promise (Ich werde dich nie vergessen), a firm intention (Ich werde ab Montag joggen), a warning (Du wirst dich erkälten!) — and, surprisingly often, a guess about the present (Er wird wohl krank sein = he's probably ill). werden conjugates like the passive helper you already know (werde, wirst, wird, werden, werdet, werden), sits in position 2, and pushes the infinitive to the end. In a weil- or dass-clause the order flips: …, dass es morgen regnen wird. Everyday speech prefers the present, but you need to understand both ways of talking about tomorrow.",
       "tips": [
         {
@@ -1851,13 +2752,32 @@
           "examples": [
             {
               "de": "Wirst du zur Party kommen? – Ja, ich werde da sein.",
-              "en": "Will you come to the party? – Yes, I'll be there."
+              "en": "Will you come to the party? – Yes, I'll be there.",
+              "focus": [
+                "Wirst",
+                "werde"
+              ]
             },
             {
               "de": "Nächste Woche werden wir das Projekt abschließen.",
-              "en": "Next week we will finish the project."
+              "en": "Next week we will finish the project.",
+              "focus": [
+                "werden",
+                "abschließen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ihr ____ den Zug verpassen, wenn ihr nicht schneller lauft!",
+            "options": [
+              "werdet",
+              "wird",
+              "werden",
+              "wirst"
+            ],
+            "answer": "werdet",
+            "why": "The subject is ihr, so werden becomes werdet; the infinitive verpassen goes to the end."
+          }
         },
         {
           "kind": "rule",
@@ -1866,14 +2786,30 @@
           "examples": [
             {
               "de": "Ich verspreche es: Ich werde mich ändern.",
-              "en": "I promise: I will change."
+              "en": "I promise: I will change.",
+              "focus": [
+                "werde",
+                "ändern"
+              ]
             },
             {
               "de": "Am Samstag fahren wir nach Hamburg. (present, plain plan)",
-              "en": "On Saturday we're going to Hamburg."
+              "en": "On Saturday we're going to Hamburg.",
+              "focus": [
+                "fahren"
+              ]
             }
           ],
-          "trap": "English needs 'will' for almost every future; German mostly doesn't. Overusing werden sounds like a weather forecast. Default to the present + time word."
+          "trap": "English needs 'will' for almost every future; German mostly doesn't. Overusing werden sounds like a weather forecast. Default to the present + time word.",
+          "check": {
+            "q": "Which of these would a German speaker normally say with werden + infinitive?",
+            "options": [
+              "A promise: “I'll never forget you.”",
+              "A simple plan: “I'm going to the cinema tonight.”"
+            ],
+            "answer": "A promise: “I'll never forget you.”",
+            "why": "werden + infinitive is for promises, predictions and warnings: Ich werde dich nie vergessen. A plain plan stays in the present: Heute Abend gehe ich ins Kino."
+          }
         },
         {
           "kind": "rule",
@@ -1882,13 +2818,31 @@
           "examples": [
             {
               "de": "Das Licht ist aus – sie wird wohl schlafen.",
-              "en": "The light is off – she's probably asleep."
+              "en": "The light is off – she's probably asleep.",
+              "focus": [
+                "wird",
+                "wohl"
+              ]
             },
             {
               "de": "Er geht nicht ans Telefon – er wird wohl noch im Meeting sein.",
-              "en": "He is not answering the phone – he is probably still in the meeting."
+              "en": "He is not answering the phone – he is probably still in the meeting.",
+              "focus": [
+                "wird",
+                "wohl"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Max ist heute nicht im Kurs. – Er ____ wohl krank sein.",
+            "options": [
+              "wird",
+              "ist",
+              "würde"
+            ],
+            "answer": "wird",
+            "why": "wird + wohl + infinitive is a guess about the present: he is probably ill."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1897,13 +2851,33 @@
           "examples": [
             {
               "de": "Es wird kalt. — Es wird gebaut. — Es wird regnen.",
-              "en": "It's getting cold. — It's being built. — It will rain."
+              "en": "It's getting cold. — It's being built. — It will rain.",
+              "focus": [
+                "kalt",
+                "gebaut",
+                "regnen"
+              ]
             },
             {
               "de": "Sie wird Ärztin. — Sie wird operiert. — Sie wird morgen anrufen.",
-              "en": "She is becoming a doctor. — She is being operated on. — She will call tomorrow."
+              "en": "She is becoming a doctor. — She is being operated on. — She will call tomorrow.",
+              "focus": [
+                "Ärztin",
+                "operiert",
+                "anrufen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "What does „Mein Bruder wird Lehrer.“ mean?",
+            "options": [
+              "My brother is becoming a teacher.",
+              "My brother will teach.",
+              "My brother is being taught."
+            ],
+            "answer": "My brother is becoming a teacher.",
+            "why": "werden + a noun means to become. The future needs an infinitive, the passive a participle."
+          }
         }
       ],
       "remember": [
@@ -1958,7 +2932,12 @@
       ],
       "context": {
         "de": "Was wirst du nächstes Jahr machen? – Ich werde eine Ausbildung anfangen und mehr Sport treiben. Und ich verspreche dir: Ich werde dich jede Woche anrufen. – Das wirst du bestimmt vergessen! – Nein, ich werde es nicht vergessen. Übrigens: Morgen wird es regnen, nimm einen Schirm mit.",
-        "en": "What will you do next year? – I'll start an apprenticeship and do more sport. And I promise: I'll call you every week. – You'll surely forget that! – No, I won't forget. By the way: it'll rain tomorrow, take an umbrella."
+        "en": "What will you do next year? – I'll start an apprenticeship and do more sport. And I promise: I'll call you every week. – You'll surely forget that! – No, I won't forget. By the way: it'll rain tomorrow, take an umbrella.",
+        "focus": [
+          "wirst",
+          "werde",
+          "wird"
+        ]
       },
       "mistakes": [
         {
@@ -1987,6 +2966,7 @@
     ],
     "title": "Relativsätze (Nom./Akk.)",
     "help": {
+      "hook": "Describe people and things in one flowing sentence – der Kollege, der neben mir sitzt – even with the clause in the middle.",
       "intro": "The relative clause you already know, consolidated and stretched. The pronoun is still der, die, das, die by gender and number; nominative when it is the subject of its clause, accusative (den) when it is the object; comma before, verb at the end. What is new here is where the clause can sit and what can be inside it. It can interrupt the main sentence: Die Frau, die Deutsch spricht, ist nett — two commas, and the main verb waits until the clause is closed. It can contain a Perfekt or a modal: das Handy, das ich gestern gekauft habe; der Film, den wir sehen wollen. And the relative pronoun is chosen only by its role inside its own clause, never by the noun's role outside it: Ich kenne den Mann, der dort steht — den in the main clause, der in the relative clause, because there he is the subject.",
       "tips": [
         {
@@ -1996,14 +2976,30 @@
           "examples": [
             {
               "de": "Ich sehe den Zug, der gerade abfährt.",
-              "en": "I see the train that is just leaving."
+              "en": "I see the train that is just leaving.",
+              "focus": [
+                "der"
+              ]
             },
             {
               "de": "Der Kuchen, den du gebacken hast, ist super.",
-              "en": "The cake you baked is great."
+              "en": "The cake you baked is great.",
+              "focus": [
+                "den"
+              ]
             }
           ],
-          "trap": "English 'that' does not change, so learners copy the main-clause case. Ask only: inside the relative clause, is it doing the verb (der) or receiving it (den)?"
+          "trap": "English 'that' does not change, so learners copy the main-clause case. Ask only: inside the relative clause, is it doing the verb (der) or receiving it (den)?",
+          "check": {
+            "q": "Ich rufe den Techniker an, ____ die Heizung repariert. (der Techniker)",
+            "options": [
+              "der",
+              "den",
+              "die"
+            ],
+            "answer": "der",
+            "why": "Inside the relative clause the technician does the repairing, so he is the subject: der, even though the main clause has den Techniker."
+          }
         },
         {
           "kind": "rule",
@@ -2012,13 +3008,31 @@
           "examples": [
             {
               "de": "Das Handy, das ich gestern gekauft habe, funktioniert nicht.",
-              "en": "The phone I bought yesterday doesn't work."
+              "en": "The phone I bought yesterday doesn't work.",
+              "focus": [
+                "das",
+                "funktioniert"
+              ]
             },
             {
               "de": "Der Kollege, der neben mir sitzt, kommt aus Wien.",
-              "en": "The colleague who sits next to me is from Vienna."
+              "en": "The colleague who sits next to me is from Vienna.",
+              "focus": [
+                "der",
+                "kommt"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence is correct?",
+            "options": [
+              "Der Bus, der zum Bahnhof fährt, kommt gleich.",
+              "Der Bus, der zum Bahnhof fährt kommt gleich.",
+              "Der Bus, der fährt zum Bahnhof, kommt gleich."
+            ],
+            "answer": "Der Bus, der zum Bahnhof fährt, kommt gleich.",
+            "why": "A relative clause in the middle has a comma on both sides and its verb at the end; the main verb kommt follows straight after the second comma."
+          }
         },
         {
           "kind": "rule",
@@ -2027,13 +3041,31 @@
           "examples": [
             {
               "de": "Das sind die Leute, die ich zur Party einladen möchte.",
-              "en": "Those are the people I'd like to invite to the party."
+              "en": "Those are the people I'd like to invite to the party.",
+              "focus": [
+                "einladen",
+                "möchte"
+              ]
             },
             {
               "de": "Das ist der Film, den wir schon lange sehen wollten.",
-              "en": "That is the film we have wanted to see for a long time."
+              "en": "That is the film we have wanted to see for a long time.",
+              "focus": [
+                "sehen",
+                "wollten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Das ist die Wohnung, die wir ____. (we want to rent)",
+            "options": [
+              "mieten wollen",
+              "wollen mieten",
+              "mieten zu wollen"
+            ],
+            "answer": "mieten wollen",
+            "why": "In the relative clause the conjugated modal goes last, after the infinitive: die wir mieten wollen."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2042,13 +3074,30 @@
           "examples": [
             {
               "de": "die Stadt, die ich liebe — die Städte, die ich kenne",
-              "en": "the city I love — the cities I know"
+              "en": "the city I love — the cities I know",
+              "focus": [
+                "die"
+              ]
             },
             {
               "de": "der Zug, der abfährt — der Zug, den ich nehme",
-              "en": "the train that leaves — the train I take"
+              "en": "the train that leaves — the train I take",
+              "focus": [
+                "der",
+                "den"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Das ist das Buch, ____ ich gerade lese. (das Buch)",
+            "options": [
+              "das",
+              "den",
+              "der"
+            ],
+            "answer": "das",
+            "why": "Only the masculine changes in the accusative (den); neuter stays das: das Buch, das ich lese."
+          }
         }
       ],
       "remember": [
@@ -2104,7 +3153,13 @@
       ],
       "context": {
         "de": "Der Kollege, der neben mir sitzt, kommt aus Wien. Das Projekt, das wir gerade machen, ist schwierig, aber die Chefin, die es leitet, ist sehr erfahren. Die Kunden, die wir morgen treffen, haben viele Fragen. Und der Kaffee, den unsere Maschine macht, ist der beste in der Firma.",
-        "en": "The colleague who sits next to me is from Vienna. The project we're doing right now is difficult, but the boss who leads it is very experienced. The customers we're meeting tomorrow have lots of questions. And the coffee our machine makes is the best in the company."
+        "en": "The colleague who sits next to me is from Vienna. The project we're doing right now is difficult, but the boss who leads it is very experienced. The customers we're meeting tomorrow have lots of questions. And the coffee our machine makes is the best in the company.",
+        "focus": [
+          "der",
+          "das",
+          "die",
+          "den"
+        ]
       },
       "mistakes": [
         {
@@ -2134,6 +3189,7 @@
     ],
     "title": "Relativsätze mit Dativ & Präposition",
     "help": {
+      "hook": "Say 'the friend I rely on' or 'the flat we live in' the German way: preposition first, never left dangling at the end.",
       "intro": "Relative clauses now grow in two directions. First, the dative: when the pronoun is a dative object inside its clause (I help him, it belongs to her, I thanked them), it takes dem, der, dem, denen — the last one is new: die Freunde, denen ich helfe. Second, prepositions: when the verb of the relative clause needs a preposition (arbeiten mit, warten auf, wohnen in, denken an), the preposition comes first and the pronoun follows in the case that preposition demands: der Kollege, mit dem ich arbeite; die Wohnung, in der wir wohnen; der Mann, auf den ich warte. The preposition can never be left at the end of the clause as in English ('the man I'm waiting for'). For places, wo can replace in dem / in der: das Café, wo wir uns kennengelernt haben. The full pronoun table now has exactly two new words beyond the articles: denen (Dat Pl) and, later in the course, dessen/deren (Gen).",
       "tips": [
         {
@@ -2143,13 +3199,30 @@
           "examples": [
             {
               "de": "Das ist die Kollegin, der ich am meisten vertraue.",
-              "en": "That's the colleague I trust most."
+              "en": "That's the colleague I trust most.",
+              "focus": [
+                "der",
+                "vertraue"
+              ]
             },
             {
               "de": "Die Leute, denen ich geholfen habe, waren sehr dankbar.",
-              "en": "The people I helped were very grateful."
+              "en": "The people I helped were very grateful.",
+              "focus": [
+                "denen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Die Frau, ____ das Fahrrad gehört, wohnt nebenan.",
+            "options": [
+              "der",
+              "die",
+              "dem"
+            ],
+            "answer": "der",
+            "why": "gehören takes the dative, and the feminine dative relative pronoun is der."
+          }
         },
         {
           "kind": "rule",
@@ -2158,14 +3231,32 @@
           "examples": [
             {
               "de": "Das ist der Kollege, mit dem ich zusammenarbeite.",
-              "en": "That's the colleague I work with."
+              "en": "That's the colleague I work with.",
+              "focus": [
+                "mit",
+                "dem"
+              ]
             },
             {
               "de": "Das ist das Thema, über das wir gestern gesprochen haben.",
-              "en": "That's the topic we talked about yesterday."
+              "en": "That's the topic we talked about yesterday.",
+              "focus": [
+                "über",
+                "das"
+              ]
             }
           ],
-          "trap": "English strands the preposition at the end ('the man I'm waiting for'). German cannot: 'der Mann, den ich warte auf' is impossible. Move the preposition to the front of the clause."
+          "trap": "English strands the preposition at the end ('the man I'm waiting for'). German cannot: 'der Mann, den ich warte auf' is impossible. Move the preposition to the front of the clause.",
+          "check": {
+            "q": "Das ist der Bus, ____ ich jeden Morgen warte.",
+            "options": [
+              "auf den",
+              "auf dem",
+              "den"
+            ],
+            "answer": "auf den",
+            "why": "It's warten auf + accusative, so the preposition comes first and Bus (masculine) takes den: auf den."
+          }
         },
         {
           "kind": "rule",
@@ -2174,13 +3265,29 @@
           "examples": [
             {
               "de": "Das ist die Schule, wo ich Deutsch gelernt habe.",
-              "en": "That's the school where I learnt German."
+              "en": "That's the school where I learnt German.",
+              "focus": [
+                "wo"
+              ]
             },
             {
               "de": "Wien, wo meine Schwester wohnt, ist wunderschön.",
-              "en": "Vienna, where my sister lives, is beautiful."
+              "en": "Vienna, where my sister lives, is beautiful.",
+              "focus": [
+                "wo"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Hamburg, ____ mein Bruder studiert, liegt im Norden.",
+            "options": [
+              "wo",
+              "in der",
+              "die"
+            ],
+            "answer": "wo",
+            "why": "With names of cities and countries, German uses wo for 'where'."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2189,13 +3296,29 @@
           "examples": [
             {
               "de": "die Kinder, denen ich helfe — die Kinder, mit denen ich spiele",
-              "en": "the children I help — the children I play with"
+              "en": "the children I help — the children I play with",
+              "focus": [
+                "denen"
+              ]
             },
             {
               "de": "Das sind die Nachbarn, denen der große Garten gehört.",
-              "en": "Those are the neighbours who own the big garden."
+              "en": "Those are the neighbours who own the big garden.",
+              "focus": [
+                "denen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Das sind die Freunde, mit ____ ich Fußball spiele.",
+            "options": [
+              "denen",
+              "den",
+              "die"
+            ],
+            "answer": "denen",
+            "why": "mit takes the dative, and the dative plural relative pronoun is denen, not den."
+          }
         }
       ],
       "remember": [
@@ -2243,7 +3366,12 @@
       },
       "context": {
         "de": "Der Kollege, mit dem ich das Büro teile, kommt aus Portugal. Die Firma, in der wir arbeiten, ist klein, aber die Projekte, an denen wir arbeiten, sind international. Die Chefin, der wir alles berichten, ist selten da – sie ist meistens in der Stadt, wo unsere Kunden sitzen. Und die Kunden, auf die wir am längsten warten, sind immer die wichtigsten.",
-        "en": "The colleague I share the office with is from Portugal. The company we work at is small, but the projects we work on are international. The boss we report everything to is rarely there – she's mostly in the city where our customers are. And the customers we wait longest for are always the most important."
+        "en": "The colleague I share the office with is from Portugal. The company we work at is small, but the projects we work on are international. The boss we report everything to is rarely there – she's mostly in the city where our customers are. And the customers we wait longest for are always the most important.",
+        "focus": [
+          "dem",
+          "denen",
+          "wo"
+        ]
       },
       "mistakes": [
         {
@@ -2273,6 +3401,7 @@
     ],
     "title": "Diktat: Wünsche & Bitten",
     "help": {
+      "hook": "Two little dots turn 'I had' into 'I'd like', so train your ear to catch hätte, wäre and könnte every time.",
       "intro": "Fifteen sentences of wishes and requests in the Konjunktiv II, heard and typed. The ear must catch two things the eye finds easy. First, the umlaut: hätte/hatte, wäre/war, könnte/konnte, müsste/musste differ by one vowel — listen for the front vowel (ä, ö, ü) and write the dots, because 'Wenn ich Zeit hatte' is a different sentence. Second, the frame: würde or the one-word form in position 2, and the infinitive at the very end — Ich würde gern mehr reisen — so keep listening past the pause for the last word. In this dictation the umlauts are checked strictly, because they are the whole point: hatte for hätte is marked wrong, so type the dots.",
       "tips": [
         {
@@ -2282,13 +3411,31 @@
           "examples": [
             {
               "de": "Ich hätte gern einen Kaffee. — Ich hatte gestern einen Kaffee.",
-              "en": "I'd like a coffee. — I had a coffee yesterday."
+              "en": "I'd like a coffee. — I had a coffee yesterday.",
+              "focus": [
+                "hätte",
+                "hatte"
+              ]
             },
             {
               "de": "Wir könnten ins Kino gehen. — Wir konnten nicht ins Kino gehen.",
-              "en": "We could go to the cinema. — We were not able to go to the cinema."
+              "en": "We could go to the cinema. — We were not able to go to the cinema.",
+              "focus": [
+                "könnten",
+                "konnten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wenn ich mehr Zeit ____, würde ich öfter kochen.",
+            "options": [
+              "hätte",
+              "hatte",
+              "hätten"
+            ],
+            "answer": "hätte",
+            "why": "An unreal 'if' needs the Konjunktiv hätte, with the ä. hatte is just the past tense, and hätten doesn't go with ich."
+          }
         },
         {
           "kind": "rule",
@@ -2297,13 +3444,31 @@
           "examples": [
             {
               "de": "Würdest du mir das Buch leihen?",
-              "en": "Would you lend me the book?"
+              "en": "Would you lend me the book?",
+              "focus": [
+                "Würdest",
+                "leihen"
+              ]
             },
             {
               "de": "An deiner Stelle würde ich das nicht machen.",
-              "en": "In your place I would not do that."
+              "en": "In your place I would not do that.",
+              "focus": [
+                "würde",
+                "machen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich würde dich gern am Wochenende ____.",
+            "options": [
+              "besuchen",
+              "besuche",
+              "besucht"
+            ],
+            "answer": "besuchen",
+            "why": "After würde the infinitive waits at the very end, so keep listening for that last word: besuchen."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2312,13 +3477,31 @@
           "examples": [
             {
               "de": "Wenn es möglich wäre, würde ich morgen kommen.",
-              "en": "If it were possible, I'd come tomorrow."
+              "en": "If it were possible, I'd come tomorrow.",
+              "focus": [
+                "wäre",
+                "würde"
+              ]
             },
             {
               "de": "Es wäre schön, wenn du kommen würdest.",
-              "en": "It would be nice if you came."
+              "en": "It would be nice if you came.",
+              "focus": [
+                "wäre",
+                "würdest"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence has the comma in the right place?",
+            "options": [
+              "Wenn ich Zeit hätte, würde ich dich besuchen.",
+              "Wenn ich Zeit, hätte würde ich dich besuchen.",
+              "Wenn ich Zeit hätte würde, ich dich besuchen."
+            ],
+            "answer": "Wenn ich Zeit hätte, würde ich dich besuchen.",
+            "why": "The comma sits between the two verbs: hätte ends the wenn-clause, würde opens the main clause."
+          }
         }
       ],
       "remember": [
@@ -2335,6 +3518,7 @@
     ],
     "title": "Genitiv",
     "help": {
+      "hook": "The genitive is how German writes 'the man's car' and 'because of the weather' — small forms you'll see in every newspaper.",
       "intro": "The genitive is the fourth case, the case of belonging and of 'of': das Auto des Mannes (the man's car), die Farbe des Hauses, die Tasche der Frau, die Meinung der Leute. Its forms are the smallest set of the four: masculine and neuter take des and add -s or -es to the noun (des Mannes, des Films, des Autos, des Hauses — -es after one syllable or a hissing sound), feminine and plural take der and leave the noun alone (der Frau, der Straße, der Kinder). After ein-words: eines Mannes, einer Frau, meines Bruders. Names simply add -s without an apostrophe: Annas Auto, Peters Buch. In speech the genitive is often replaced by von + dative (das Auto von dem Mann), which is fine — but in writing — newspapers, letters, official notices — the genitive is everywhere, and the prepositions wegen, während and trotz take it. In this quiz you write the whole genitive phrase — article and noun — because the -(e)s on the noun is where most mistakes happen.",
       "tips": [
         {
@@ -2344,14 +3528,33 @@
           "examples": [
             {
               "de": "Das ist das Auto des Mannes und die Tasche der Frau.",
-              "en": "That's the man's car and the woman's bag."
+              "en": "That's the man's car and the woman's bag.",
+              "focus": [
+                "des",
+                "Mannes",
+                "der"
+              ]
             },
             {
               "de": "Am Ende des Jahres fahren wir in die Berge.",
-              "en": "At the end of the year we go to the mountains."
+              "en": "At the end of the year we go to the mountains.",
+              "focus": [
+                "des",
+                "Jahres"
+              ]
             }
           ],
-          "trap": "English puts the possessor first ('the man's car'); German puts it after (das Auto des Mannes). Names are the exception: Annas Auto, no apostrophe."
+          "trap": "English puts the possessor first ('the man's car'); German puts it after (das Auto des Mannes). Names are the exception: Annas Auto, no apostrophe.",
+          "check": {
+            "q": "Die Tür ____ ist offen. (the door of the room; das Zimmer)",
+            "options": [
+              "des Zimmers",
+              "des Zimmer",
+              "dem Zimmer"
+            ],
+            "answer": "des Zimmers",
+            "why": "Neuter genitive: des + noun with -s. Zimmer has more than one syllable, so just -s."
+          }
         },
         {
           "kind": "rule",
@@ -2360,13 +3563,30 @@
           "examples": [
             {
               "de": "Das ist Lisas Fahrrad, nicht Annas.",
-              "en": "That's Lisa's bike, not Anna's."
+              "en": "That's Lisa's bike, not Anna's.",
+              "focus": [
+                "Lisas",
+                "Annas"
+              ]
             },
             {
               "de": "Frau Müllers Büro ist im zweiten Stock.",
-              "en": "Ms Müller’s office is on the second floor."
+              "en": "Ms Müller’s office is on the second floor.",
+              "focus": [
+                "Müllers"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "How do you write 'Klaus's car' in German?",
+            "options": [
+              "Klaus' Auto",
+              "Klauss Auto",
+              "Klauses Auto"
+            ],
+            "answer": "Klaus' Auto",
+            "why": "Names ending in s, z or x take only an apostrophe in the genitive: Klaus' Auto."
+          }
         },
         {
           "kind": "rule",
@@ -2375,13 +3595,32 @@
           "examples": [
             {
               "de": "die Freundin von Tom / Toms Freundin",
-              "en": "Tom's girlfriend"
+              "en": "Tom's girlfriend",
+              "focus": [
+                "von",
+                "Toms"
+              ]
             },
             {
               "de": "das Auto von meinem Bruder / das Auto meines Bruders",
-              "en": "my brother’s car"
+              "en": "my brother’s car",
+              "focus": [
+                "von",
+                "meines",
+                "Bruders"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which means the same as „das Haus meiner Eltern“?",
+            "options": [
+              "das Haus von meinen Eltern",
+              "das Haus von meiner Eltern",
+              "das Haus von meine Eltern"
+            ],
+            "answer": "das Haus von meinen Eltern",
+            "why": "von takes the dative, and the dative plural of meine is meinen."
+          }
         },
         {
           "kind": "rule",
@@ -2390,13 +3629,33 @@
           "examples": [
             {
               "de": "Trotz des schlechten Wetters sind wir gewandert.",
-              "en": "Despite the bad weather we went hiking."
+              "en": "Despite the bad weather we went hiking.",
+              "focus": [
+                "Trotz",
+                "des",
+                "Wetters"
+              ]
             },
             {
               "de": "Während der Ferien ist die Bibliothek geschlossen.",
-              "en": "The library is closed during the holidays."
+              "en": "The library is closed during the holidays.",
+              "focus": [
+                "Während",
+                "der",
+                "Ferien"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Während ____ hat niemand gesprochen. (during the film; der Film)",
+            "options": [
+              "des Films",
+              "des Film",
+              "der Film"
+            ],
+            "answer": "des Films",
+            "why": "während takes the genitive: masculine des, and the noun adds -s."
+          }
         }
       ],
       "remember": [
@@ -2496,7 +3755,16 @@
       ],
       "context": {
         "de": "Am Anfang des Kurses war ich nervös. Die Meinung der anderen Teilnehmer war mir wichtig, und das Tempo des Lehrers war hoch. Trotz der Schwierigkeiten habe ich weitergemacht. Am Ende des Semesters habe ich Lisas Notizen gelesen – die Notizen der besten Studentin – und wegen ihrer Hilfe die Prüfung bestanden.",
-        "en": "At the beginning of the course I was nervous. The opinion of the other participants mattered to me, and the teacher's pace was fast. Despite the difficulties I carried on. At the end of the semester I read Lisa's notes – the notes of the best student – and passed the exam thanks to her help."
+        "en": "At the beginning of the course I was nervous. The opinion of the other participants mattered to me, and the teacher's pace was fast. Despite the difficulties I carried on. At the end of the semester I read Lisa's notes – the notes of the best student – and passed the exam thanks to her help.",
+        "focus": [
+          "des",
+          "Kurses",
+          "Lehrers",
+          "Trotz",
+          "Semesters",
+          "Lisas",
+          "wegen"
+        ]
       },
       "mistakes": [
         {
@@ -2525,6 +3793,7 @@
     ],
     "title": "Sprechen: Meinung äußern",
     "help": {
+      "hook": "Say what you think, why, and where you agree, so in any discussion your effort goes into ideas instead of hunting for words.",
       "intro": "Twelve lines from one discussion about working from home, for stating, weighing and justifying an opinion — to listen to and repeat until they are yours. Ich finde, dass … · Meiner Meinung nach … (no dass, verb second!) · Ich bin der Meinung, dass … · Da hast du recht, aber … · Einerseits …, andererseits … · Das sehe ich auch so · Da bin ich anderer Meinung · Ich glaube nicht, dass … · Für mich ist es wichtig, dass … · Ich stimme dir zu · Und wie siehst du das? These Redemittel are the skeleton of any discussion with a friend or colleague, and of an opinion post online. The point is not to invent them mid-conversation but to have them in your mouth, so the thinking can go into the content. Say each one with its word order: dass sends the verb to the end; Meiner Meinung nach takes position 1 and the verb follows immediately.",
       "tips": [
         {
@@ -2534,14 +3803,34 @@
           "examples": [
             {
               "de": "Ich finde, dass Homeoffice viele Vorteile hat.",
-              "en": "I think that working from home has many advantages."
+              "en": "I think that working from home has many advantages.",
+              "focus": [
+                "finde",
+                "dass",
+                "hat"
+              ]
             },
             {
               "de": "Meiner Meinung nach spart man viel Zeit, weil der Weg zur Arbeit wegfällt.",
-              "en": "In my opinion you save a lot of time because there is no commute."
+              "en": "In my opinion you save a lot of time because there is no commute.",
+              "focus": [
+                "Meinung",
+                "nach",
+                "spart"
+              ]
             }
           ],
-          "trap": "Meiner Meinung nach is not a dass-clause: the verb comes right after it. 'Meiner Meinung nach, das ist …' is the classic error."
+          "trap": "Meiner Meinung nach is not a dass-clause: the verb comes right after it. 'Meiner Meinung nach, das ist …' is the classic error.",
+          "check": {
+            "q": "Which sentence is correct?",
+            "options": [
+              "Meiner Meinung nach ist das zu teuer.",
+              "Meiner Meinung nach das ist zu teuer.",
+              "Meiner Meinung nach, dass das zu teuer ist."
+            ],
+            "answer": "Meiner Meinung nach ist das zu teuer.",
+            "why": "Meiner Meinung nach fills position 1, so the verb comes straight after it. No dass."
+          }
         },
         {
           "kind": "rule",
@@ -2550,13 +3839,31 @@
           "examples": [
             {
               "de": "Einerseits ist es praktisch, andererseits fühlt man sich oft allein.",
-              "en": "On the one hand it is practical, on the other hand you often feel alone."
+              "en": "On the one hand it is practical, on the other hand you often feel alone.",
+              "focus": [
+                "Einerseits",
+                "andererseits"
+              ]
             },
             {
               "de": "Da hast du recht, aber der Kontakt zu den Kollegen fehlt.",
-              "en": "You are right there, but the contact with colleagues is missing."
+              "en": "You are right there, but the contact with colleagues is missing.",
+              "focus": [
+                "recht",
+                "aber"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ ist die Stadt laut, andererseits gibt es dort viel Kultur.",
+            "options": [
+              "Einerseits",
+              "Trotzdem",
+              "Deshalb"
+            ],
+            "answer": "Einerseits",
+            "why": "andererseits needs its partner einerseits: one side, then the other."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2565,13 +3872,31 @@
           "examples": [
             {
               "de": "Ich finde das gut, weil man flexibler arbeiten kann.",
-              "en": "I think that's good because you can work more flexibly."
+              "en": "I think that's good because you can work more flexibly.",
+              "focus": [
+                "weil",
+                "kann"
+              ]
             },
             {
               "de": "Meiner Meinung nach ist das keine gute Idee, weil es zu teuer ist.",
-              "en": "In my opinion that is not a good idea because it is too expensive."
+              "en": "In my opinion that is not a good idea because it is too expensive.",
+              "focus": [
+                "weil",
+                "ist"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Someone asks: „Wie findest du Homeoffice?“ Which answer gives a real opinion?",
+            "options": [
+              "Ich finde es gut, weil man Zeit spart.",
+              "Ich finde es gut.",
+              "Gut."
+            ],
+            "answer": "Ich finde es gut, weil man Zeit spart.",
+            "why": "An opinion needs its reason in the same breath. Without a weil-clause it is just a verdict."
+          }
         }
       ],
       "remember": [
@@ -2588,6 +3913,7 @@
     ],
     "title": "Nebensätze: wenn / als / obwohl",
     "help": {
+      "hook": "German splits English “when” in two: als for one moment in the past, wenn for everything else. Plus obwohl for “although”.",
       "intro": "Three subordinating conjunctions that share one word order (verb at the end) and are constantly confused in meaning. wenn = when (repeatedly or in the future) or if: Wenn ich Zeit habe, lese ich; Wenn es regnet, bleiben wir zu Hause. als = when, for a single event in the past: Als ich ein Kind war, wohnten wir in Köln; Als ich achtzehn wurde, … obwohl = although: Wir gehen spazieren, obwohl es kalt ist. The wenn/als split has no English equivalent — English 'when' covers both — and is one of the classic learner mistakes: past and once → als; anything repeated, present or future → wenn. Its cousin trotzdem (nevertheless) says the same as obwohl from the other side and is an adverb: verb second (Es ist kalt, trotzdem gehen wir spazieren). In the quiz there are no cues: the tense, a time word (gestern, letzten Sommer, immer) and the verb position tell you which word fits — including trotzdem, which keeps its verb second.",
       "tips": [
         {
@@ -2597,14 +3923,30 @@
           "examples": [
             {
               "de": "Als ich achtzehn war, habe ich meinen Führerschein gemacht.",
-              "en": "When I was eighteen I got my driving licence."
+              "en": "When I was eighteen I got my driving licence.",
+              "focus": [
+                "Als"
+              ]
             },
             {
               "de": "Als wir in Berlin ankamen, regnete es.",
-              "en": "When we arrived in Berlin, it was raining."
+              "en": "When we arrived in Berlin, it was raining.",
+              "focus": [
+                "Als"
+              ]
             }
           ],
-          "trap": "'When I was a child' = Als ich ein Kind war. 'Wenn ich ein Kind war' means 'whenever I was a child' — nonsense in German."
+          "trap": "'When I was a child' = Als ich ein Kind war. 'Wenn ich ein Kind war' means 'whenever I was a child' — nonsense in German.",
+          "check": {
+            "q": "____ ich gestern nach Hause kam, war die Tür offen.",
+            "options": [
+              "Als",
+              "Wenn",
+              "Wann"
+            ],
+            "answer": "Als",
+            "why": "gestern makes it one single event in the past, so the conjunction is als. wann only asks questions."
+          }
         },
         {
           "kind": "rule",
@@ -2613,13 +3955,30 @@
           "examples": [
             {
               "de": "Wenn ich Zeit habe, lese ich. Wenn du willst, kommen wir mit.",
-              "en": "When I have time I read. If you want, we'll come along."
+              "en": "When I have time I read. If you want, we'll come along.",
+              "focus": [
+                "Wenn"
+              ]
             },
             {
               "de": "Immer wenn ich meine Oma besuche, backt sie einen Kuchen.",
-              "en": "Whenever I visit my grandma, she bakes a cake."
+              "en": "Whenever I visit my grandma, she bakes a cake.",
+              "focus": [
+                "Immer",
+                "wenn"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Immer ____ es regnet, nehme ich den Bus.",
+            "options": [
+              "wenn",
+              "als",
+              "wann"
+            ],
+            "answer": "wenn",
+            "why": "Immer wenn = whenever: a repeated situation in the present always takes wenn."
+          }
         },
         {
           "kind": "rule",
@@ -2628,13 +3987,30 @@
           "examples": [
             {
               "de": "Obwohl das Hotel teuer war, haben wir es gebucht. — Das Hotel war teuer, trotzdem haben wir es gebucht.",
-              "en": "Although the hotel was expensive, we booked it. — The hotel was expensive; we booked it anyway."
+              "en": "Although the hotel was expensive, we booked it. — The hotel was expensive; we booked it anyway.",
+              "focus": [
+                "Obwohl",
+                "trotzdem"
+              ]
             },
             {
               "de": "Obwohl ich müde bin, gehe ich mit. — Ich bin müde, trotzdem gehe ich mit.",
-              "en": "Although I am tired, I am coming along. — I am tired, but I am coming along anyway."
+              "en": "Although I am tired, I am coming along. — I am tired, but I am coming along anyway.",
+              "focus": [
+                "Obwohl",
+                "trotzdem"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Es regnet, ____ gehen wir spazieren.",
+            "options": [
+              "trotzdem",
+              "obwohl"
+            ],
+            "answer": "trotzdem",
+            "why": "The verb gehen comes straight after the gap, in second position, so you need the adverb trotzdem. obwohl would send the verb to the end."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2643,13 +4019,29 @@
           "examples": [
             {
               "de": "Als ich ankam (snapshot) — Wenn ich ankomme (plan)",
-              "en": "When I arrived — When I arrive"
+              "en": "When I arrived — When I arrive",
+              "focus": [
+                "Als",
+                "Wenn"
+              ]
             },
             {
               "de": "Als das Telefon klingelte, stand ich unter der Dusche.",
-              "en": "When the phone rang, I was in the shower."
+              "en": "When the phone rang, I was in the shower.",
+              "focus": [
+                "Als"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ der Film zu Ende war, sind wir sofort nach Hause gegangen.",
+            "options": [
+              "Als",
+              "Wenn"
+            ],
+            "answer": "Als",
+            "why": "One film, one evening, finished: a single snapshot in the past takes als."
+          }
         }
       ],
       "remember": [
@@ -2702,7 +4094,14 @@
       ],
       "context": {
         "de": "Als ich nach Deutschland kam, konnte ich kein Wort Deutsch. Wenn ich einkaufen ging, zeigte ich einfach mit dem Finger. Obwohl das oft peinlich war, habe ich viel gelernt. Heute, wenn ich neue Leute treffe, spreche ich einfach los – trotzdem mache ich noch Fehler, und das ist okay.",
-        "en": "When I came to Germany I couldn't speak a word of German. Whenever I went shopping, I just pointed. Although that was often embarrassing, I learnt a lot. Today, when I meet new people, I just start talking – I still make mistakes, and that's okay."
+        "en": "When I came to Germany I couldn't speak a word of German. Whenever I went shopping, I just pointed. Although that was often embarrassing, I learnt a lot. Today, when I meet new people, I just start talking – I still make mistakes, and that's okay.",
+        "focus": [
+          "Als",
+          "Wenn",
+          "Obwohl",
+          "wenn",
+          "trotzdem"
+        ]
       },
       "mistakes": [
         {
@@ -2731,6 +4130,7 @@
     ],
     "title": "Infinitiv mit zu",
     "help": {
+      "hook": "Say what you plan, try, forget or feel like doing with zu + infinitive – and know when zu stays out.",
       "intro": "English 'to' + verb has a German twin: zu + infinitive, at the end of its clause — Ich habe vor, Deutsch zu lernen; Es ist wichtig, jeden Tag zu üben; Hast du Lust auszugehen? It appears after many verbs (vorhaben, versuchen, anfangen, aufhören, vergessen, hoffen, empfehlen, vorschlagen), after noun + haben (Lust / Zeit / Angst haben), after es ist + adjective (es ist wichtig / schön / leicht / schwer), and in um … zu (in order to). Separable verbs put zu between the prefix and the stem: aufzustehen, anzurufen, auszugehen. A comma before the infinitive clause is optional but recommended when the clause has more than zu + verb. Two things do not take zu: modal verbs (Ich will lernen) and a small set — lassen, sehen, hören, gehen, bleiben, lernen, helfen (Ich gehe schwimmen; Ich helfe dir tragen). And brauchen nicht … zu is the polite way to say 'need not': Du brauchst nicht zu kommen.",
       "tips": [
         {
@@ -2740,14 +4140,31 @@
           "examples": [
             {
               "de": "Ich habe vor, nächstes Jahr nach Wien zu ziehen.",
-              "en": "I'm planning to move to Vienna next year."
+              "en": "I'm planning to move to Vienna next year.",
+              "focus": [
+                "zu",
+                "ziehen"
+              ]
             },
             {
               "de": "Vergiss nicht, die Tür abzuschließen!",
-              "en": "Don't forget to lock the door!"
+              "en": "Don't forget to lock the door!",
+              "focus": [
+                "abzuschließen"
+              ]
             }
           ],
-          "trap": "'to get up' is aufzustehen, one word with zu inside. 'zu aufstehen' is the standard error."
+          "trap": "'to get up' is aufzustehen, one word with zu inside. 'zu aufstehen' is the standard error.",
+          "check": {
+            "q": "Ich habe vergessen, dich ____. (anrufen)",
+            "options": [
+              "anzurufen",
+              "zu anrufen",
+              "anrufen"
+            ],
+            "answer": "anzurufen",
+            "why": "anrufen is separable, so zu goes between prefix and stem: anzurufen, as the last word of the clause."
+          }
         },
         {
           "kind": "rule",
@@ -2756,13 +4173,31 @@
           "examples": [
             {
               "de": "Es ist verboten, hier zu parken. Hast du Zeit, mir zu helfen?",
-              "en": "It's forbidden to park here. Do you have time to help me?"
+              "en": "It's forbidden to park here. Do you have time to help me?",
+              "focus": [
+                "verboten",
+                "Zeit"
+              ]
             },
             {
               "de": "Ich habe keine Lust, heute zu kochen.",
-              "en": "I don’t feel like cooking today."
+              "en": "I don’t feel like cooking today.",
+              "focus": [
+                "Lust",
+                "zu"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Hast du Lust, heute Abend ins Kino ____?",
+            "options": [
+              "zu gehen",
+              "gehen",
+              "gehst"
+            ],
+            "answer": "zu gehen",
+            "why": "Lust haben is a noun + haben trigger, so it takes zu + infinitive at the end."
+          }
         },
         {
           "kind": "rule",
@@ -2771,13 +4206,30 @@
           "examples": [
             {
               "de": "Wir gehen morgen schwimmen. (no zu)",
-              "en": "We're going swimming tomorrow."
+              "en": "We're going swimming tomorrow.",
+              "focus": [
+                "gehen",
+                "schwimmen"
+              ]
             },
             {
               "de": "Ich lasse mein Fahrrad reparieren.",
-              "en": "I am having my bike repaired."
+              "en": "I am having my bike repaired.",
+              "focus": [
+                "lasse",
+                "reparieren"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir gehen heute Abend ____. (tanzen)",
+            "options": [
+              "tanzen",
+              "zu tanzen"
+            ],
+            "answer": "tanzen",
+            "why": "gehen is one of the few verbs that take a bare infinitive: Wir gehen tanzen, like Ich gehe schwimmen."
+          }
         },
         {
           "kind": "rule",
@@ -2786,13 +4238,31 @@
           "examples": [
             {
               "de": "Er ging, ohne ein Wort zu sagen.",
-              "en": "He left without saying a word."
+              "en": "He left without saying a word.",
+              "focus": [
+                "ohne",
+                "zu"
+              ]
             },
             {
               "de": "Sie brauchen das Formular nicht auszufüllen.",
-              "en": "You don't need to fill in the form."
+              "en": "You don't need to fill in the form.",
+              "focus": [
+                "brauchen",
+                "auszufüllen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich spare Geld, ____ ein Auto zu kaufen. (I'm saving money in order to buy a car.)",
+            "options": [
+              "um",
+              "damit",
+              "weil"
+            ],
+            "answer": "um",
+            "why": "'In order to' is um … zu; damit and weil start a clause with its own subject and verb, never a zu-infinitive."
+          }
         }
       ],
       "remember": [
@@ -2851,7 +4321,13 @@
       ],
       "context": {
         "de": "Ich habe vor, im Sommer nach Deutschland zu fahren, um dort einen Sprachkurs zu machen. Es ist nicht leicht, jeden Tag zu üben, aber ich versuche, wenigstens eine Stunde zu lernen. Mein Lehrer hat mir empfohlen, deutsche Podcasts zu hören. Du brauchst keine Angst zu haben, sagt er – es ist normal, am Anfang Fehler zu machen.",
-        "en": "I'm planning to go to Germany in the summer in order to do a language course there. It isn't easy to practise every day, but I try to study at least an hour. My teacher recommended I listen to German podcasts. You needn't be afraid, he says – it's normal to make mistakes at the start."
+        "en": "I'm planning to go to Germany in the summer in order to do a language course there. It isn't easy to practise every day, but I try to study at least an hour. My teacher recommended I listen to German podcasts. You needn't be afraid, he says – it's normal to make mistakes at the start.",
+        "focus": [
+          "um",
+          "zu",
+          "versuche",
+          "brauchst"
+        ]
       },
       "mistakes": [
         {
@@ -2880,6 +4356,7 @@
     ],
     "title": "es-Ausdrücke: es gibt, es geht, es lohnt sich",
     "help": {
+      "hook": "Mir ist kalt, es lohnt sich, es gibt: learn these little es-chunks whole and you'll sound natural straight away.",
       "intro": "A family of expressions with es as a dummy subject, so frequent that they are worth learning as a structure of their own. Existence: es gibt + accusative (Es gibt einen Park). Wellbeing and feelings with the dative: Wie geht es dir? Es tut mir leid. Mir ist kalt / warm / schlecht (es dropped when mir comes first). Weather and time: Es regnet, es schneit, es ist spät, es ist acht Uhr. Evaluation: Es lohnt sich (it's worth it), es macht nichts, es ist möglich / wichtig / schade, es kommt darauf an (it depends), es handelt sich um (it's a matter of). Each is a fixed chunk with a fixed case, learnt whole. The dative ones are the traps: 'I am cold' is Mir ist kalt — Ich bin kalt says you are a cold person.",
       "tips": [
         {
@@ -2889,13 +4366,33 @@
           "examples": [
             {
               "de": "In unserer Stadt gibt es einen schönen alten Markt.",
-              "en": "In our town there's a beautiful old market."
+              "en": "In our town there's a beautiful old market.",
+              "focus": [
+                "gibt",
+                "es",
+                "einen"
+              ]
             },
             {
               "de": "Gibt es hier in der Nähe einen Supermarkt?",
-              "en": "Is there a supermarket near here?"
+              "en": "Is there a supermarket near here?",
+              "focus": [
+                "Gibt",
+                "es",
+                "einen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Hier gibt es ____ guten Arzt.",
+            "options": [
+              "einen",
+              "ein",
+              "einem"
+            ],
+            "answer": "einen",
+            "why": "es gibt is always followed by the accusative, so masculine Arzt takes einen."
+          }
         },
         {
           "kind": "rule",
@@ -2904,14 +4401,34 @@
           "examples": [
             {
               "de": "Mir ist schlecht, und es tut mir leid, aber ich muss nach Hause.",
-              "en": "I feel sick, and I'm sorry, but I have to go home."
+              "en": "I feel sick, and I'm sorry, but I have to go home.",
+              "focus": [
+                "Mir",
+                "tut",
+                "leid"
+              ]
             },
             {
               "de": "Wie geht es Ihnen? – Danke, es geht mir gut.",
-              "en": "How are you? – Thank you, I am well."
+              "en": "How are you? – Thank you, I am well.",
+              "focus": [
+                "geht",
+                "Ihnen",
+                "mir"
+              ]
             }
           ],
-          "trap": "'I am cold / hot / bored' becomes Mir ist kalt / heiß / langweilig. Ich bin kalt = I am a cold person; Ich bin langweilig = I am boring."
+          "trap": "'I am cold / hot / bored' becomes Mir ist kalt / heiß / langweilig. Ich bin kalt = I am a cold person; Ich bin langweilig = I am boring.",
+          "check": {
+            "q": "You're freezing. What do you say?",
+            "options": [
+              "Mir ist kalt.",
+              "Ich bin kalt.",
+              "Mich ist kalt."
+            ],
+            "answer": "Mir ist kalt.",
+            "why": "Feelings like cold take the person in the dative: Mir ist kalt. Ich bin kalt means you're a cold person."
+          }
         },
         {
           "kind": "rule",
@@ -2920,13 +4437,32 @@
           "examples": [
             {
               "de": "Lohnt es sich, den Kurs zu machen? – Es kommt darauf an, was du willst.",
-              "en": "Is it worth doing the course? – It depends what you want."
+              "en": "Is it worth doing the course? – It depends what you want.",
+              "focus": [
+                "Lohnt",
+                "kommt",
+                "darauf"
+              ]
             },
             {
               "de": "Bei dem Brief handelt es sich um eine Rechnung.",
-              "en": "The letter is a bill."
+              "en": "The letter is a bill.",
+              "focus": [
+                "handelt",
+                "um"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ist das Restaurant gut? – ____ darauf an, was du gern isst.",
+            "options": [
+              "Es kommt",
+              "Es gibt",
+              "Es geht"
+            ],
+            "answer": "Es kommt",
+            "why": "'It depends' is the fixed chunk es kommt darauf an."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2935,13 +4471,32 @@
           "examples": [
             {
               "de": "Heute regnet es, und mir ist kalt.",
-              "en": "It is raining today, and I am cold."
+              "en": "It is raining today, and I am cold.",
+              "focus": [
+                "regnet",
+                "es",
+                "mir"
+              ]
             },
             {
               "de": "In der Stadt gibt es viele Cafés.",
-              "en": "There are many cafés in the city."
+              "en": "There are many cafés in the city.",
+              "focus": [
+                "gibt",
+                "es"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence is correct?",
+            "options": [
+              "Heute schneit es.",
+              "Heute schneit.",
+              "Heute es schneit."
+            ],
+            "answer": "Heute schneit es.",
+            "why": "With the weather, es is the real subject and never drops; when another word comes first, es moves behind the verb."
+          }
         }
       ],
       "remember": [
@@ -2950,7 +4505,16 @@
       ],
       "context": {
         "de": "Wie geht es dir? – Danke, es geht. Mir ist ein bisschen kalt, es regnet seit Stunden. – Gibt es hier ein Café? – Ja, gleich um die Ecke, und es lohnt sich: Der Kuchen schmeckt fantastisch. – Es tut mir leid, ich habe kein Geld dabei. – Das macht nichts, ich lade dich ein. Es handelt sich ja nur um einen Kaffee!",
-        "en": "How are you? – Thanks, so-so. I'm a bit cold, it's been raining for hours. – Is there a café here? – Yes, just round the corner, and it's worth it: the cake tastes fantastic. – I'm sorry, I've no money on me. – It doesn't matter, my treat. It's only a coffee, after all!"
+        "en": "How are you? – Thanks, so-so. I'm a bit cold, it's been raining for hours. – Is there a café here? – Yes, just round the corner, and it's worth it: the cake tastes fantastic. – I'm sorry, I've no money on me. – It doesn't matter, my treat. It's only a coffee, after all!",
+        "focus": [
+          "geht",
+          "Mir",
+          "regnet",
+          "Gibt",
+          "lohnt",
+          "tut",
+          "handelt"
+        ]
       },
       "mistakes": [
         {
@@ -2980,6 +4544,7 @@
     ],
     "title": "Hören: Radio-Umfrage",
     "help": {
+      "hook": "Three strangers, one microphone: keep the voices apart and catch who really does what, and who only wishes they did.",
       "intro": "A radio street survey: a presenter and three passers-by — a young woman, an older man and a student — each answering the same question about free time: what they do and what they would like to do more often. Heard once. Radio, podcasts and group conversations all mix several voices, and the skill is keeping the speakers apart: note one keyword per person as they speak (schwimmen / reisen / Freunde). Listen for the Konjunktiv II that marks an unfulfilled wish — Ich würde gern …, aber … — because the aber-clause gives the reason it does not happen, and that reason is always a question. The traps are the activities people mention but do not do regularly.",
       "tips": [
         {
@@ -2989,13 +4554,30 @@
           "examples": [
             {
               "de": "Vor allem schwimme ich, dreimal pro Woche, meistens morgens vor der Arbeit.",
-              "en": "Above all I swim, three times a week, mostly in the morning before work."
+              "en": "Above all I swim, three times a week, mostly in the morning before work.",
+              "focus": [
+                "schwimme",
+                "dreimal"
+              ]
             },
             {
               "de": "Am liebsten treffe ich Freunde.",
-              "en": "Most of all I like meeting friends."
+              "en": "Most of all I like meeting friends.",
+              "focus": [
+                "Freunde"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Three people answer. Anna: „Ich lese viel.“ Ben: „Ich spiele Fußball.“ Clara: „Ich koche gern.“ Who does sport?",
+            "options": [
+              "Anna",
+              "Ben",
+              "Clara"
+            ],
+            "answer": "Ben",
+            "why": "One keyword per speaker: Anna → lesen, Ben → Fußball, Clara → kochen. Fußball is the sport."
+          }
         },
         {
           "kind": "rule",
@@ -3004,13 +4586,33 @@
           "examples": [
             {
               "de": "Ich würde gern mehr reisen, aber ich habe leider wenig Geld.",
-              "en": "I would like to travel more, but unfortunately I have little money."
+              "en": "I would like to travel more, but unfortunately I have little money.",
+              "focus": [
+                "würde",
+                "gern",
+                "aber"
+              ]
             },
             {
               "de": "Ich würde gern einen Tanzkurs machen, aber der Kurs ist immer donnerstags, und da arbeite ich lange.",
-              "en": "I would like to do a dance course, but the course is always on Thursdays, and that is when I work late."
+              "en": "I would like to do a dance course, but the course is always on Thursdays, and that is when I work late.",
+              "focus": [
+                "würde",
+                "gern",
+                "aber"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear: „Ich würde gern öfter ins Theater gehen, aber die Karten sind zu teuer.“ Why doesn't he go more often?",
+            "options": [
+              "The tickets are too expensive.",
+              "He has no time.",
+              "He doesn't like the theatre."
+            ],
+            "answer": "The tickets are too expensive.",
+            "why": "würde gern is the wish; the obstacle comes after aber: die Karten sind zu teuer."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3019,13 +4621,30 @@
           "examples": [
             {
               "de": "Am Wochenende gehe ich manchmal auch klettern.",
-              "en": "At the weekend I sometimes go climbing too."
+              "en": "At the weekend I sometimes go climbing too.",
+              "focus": [
+                "manchmal"
+              ]
             },
             {
               "de": "Eigentlich müsste ich mehr für die Uni lernen, das weiß ich.",
-              "en": "Really I ought to study more for university, I know."
+              "en": "Really I ought to study more for university, I know.",
+              "focus": [
+                "Eigentlich",
+                "müsste"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear: „Ich jogge jeden Morgen. Manchmal spiele ich auch Tennis.“ What does she do regularly?",
+            "options": [
+              "jogging",
+              "tennis",
+              "both equally"
+            ],
+            "answer": "jogging",
+            "why": "jeden Morgen means every day; manchmal (sometimes) marks the side activity."
+          }
         }
       ],
       "remember": [
@@ -3043,6 +4662,7 @@
     ],
     "title": "Lesen: Im Ausland studieren",
     "help": {
+      "hook": "Read an article on studying abroad and weigh its pros and cons the way the writer does, signpost by signpost.",
       "intro": "A magazine text about a semester abroad, built as a balanced argument in three paragraphs: advantages (a language learnt in everyday life, friends, independence), difficulties (loneliness at first, everything foreign, the language in lectures, the cost), and the conclusion most students reach, with a short quotation from a student called Lena. It is the kind of text you find in student magazines and university guides, and it carries the vocabulary of study — das Studium, das Semester, das Stipendium, die Vorlesung, selbstständig — plus the genitive in natural use: am Anfang des Semesters, die beste Entscheidung meines Lebens. The six questions ask who helps, why you become independent, one difficulty, the problem at the start of the semester, Lena’s first weeks and the conclusion. Look for the signposts: … hat viele Vorteile, Natürlich gibt es auch …, Aber die meisten …",
       "tips": [
         {
@@ -3052,13 +4672,31 @@
           "examples": [
             {
               "de": "Natürlich gibt es auch Schwierigkeiten.",
-              "en": "Of course there are also difficulties."
+              "en": "Of course there are also difficulties.",
+              "focus": [
+                "Natürlich",
+                "Schwierigkeiten"
+              ]
             },
             {
               "de": "Aber die meisten Studenten sagen später, dass sich das Jahr gelohnt hat.",
-              "en": "But most students say later that the year was worth it."
+              "en": "But most students say later that the year was worth it.",
+              "focus": [
+                "Aber",
+                "meisten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Außerdem ist das Leben in der Stadt sehr teuer.' What does Außerdem tell you?",
+            "options": [
+              "One more point on the same side follows",
+              "The text switches to the other side",
+              "This is the conclusion"
+            ],
+            "answer": "One more point on the same side follows",
+            "why": "Außerdem means 'besides, also': it adds another point to the list, here another difficulty."
+          }
         },
         {
           "kind": "rule",
@@ -3067,13 +4705,31 @@
           "examples": [
             {
               "de": "Am Anfang des Semesters haben viele Studenten auch Probleme mit der Sprache in den Vorlesungen.",
-              "en": "At the beginning of the semester many students also have problems with the language in lectures."
+              "en": "At the beginning of the semester many students also have problems with the language in lectures.",
+              "focus": [
+                "des",
+                "Semesters"
+              ]
             },
             {
               "de": "Es war die beste Entscheidung meines Lebens.",
-              "en": "It was the best decision of my life."
+              "en": "It was the best decision of my life.",
+              "focus": [
+                "meines",
+                "Lebens"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Die Bibliothek der Universität ist bis 22 Uhr geöffnet.' What is open until 10 p.m.?",
+            "options": [
+              "The university's library",
+              "The university and the library",
+              "The university near the library"
+            ],
+            "answer": "The university's library",
+            "why": "der Universität after a noun is genitive: 'the library of the university'."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3082,13 +4738,31 @@
           "examples": [
             {
               "de": "Man findet Freunde aus aller Welt.",
-              "en": "You make friends from all over the world."
+              "en": "You make friends from all over the world.",
+              "focus": [
+                "Man",
+                "findet"
+              ]
             },
             {
               "de": "Am Anfang fühlt man sich oft allein, und alles ist fremd: das Essen, das Wetter, die Regeln an der Uni.",
-              "en": "At the beginning you often feel alone, and everything is foreign: the food, the weather, the rules at the university."
+              "en": "At the beginning you often feel alone, and everything is foreign: the food, the weather, the rules at the university.",
+              "focus": [
+                "fühlt",
+                "man"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "In Berlin ____ man schnell neue Leute. (finden)",
+            "options": [
+              "findet",
+              "finden",
+              "findest"
+            ],
+            "answer": "findet",
+            "why": "man takes the er/sie/es form of the verb: man findet."
+          }
         }
       ],
       "remember": [
@@ -3106,6 +4780,7 @@
     ],
     "title": "Schreiben: Die E-Mail — formell & informell",
     "help": {
+      "hook": "One e-mail to a friend, one to an office: learn each frame by heart and you only have to think about the content.",
       "intro": "Most of what you write in German will be e-mails, and they come in two kinds: informal ones to a friend (a few points, a suggestion) and formal ones to an institution or a person in a role (a polite request or an apology). Both need the same things — every point covered, register right, text organised, language accurate — and the frame is the easy part to get right. Formal: Sehr geehrte Damen und Herren, / Sehr geehrte Frau Weber, → Ich schreibe Ihnen, weil … → Könnten Sie mir bitte …? / Ich möchte mich entschuldigen, dass … → Vielen Dank im Voraus. → Mit freundlichen Grüßen + full name. Informal: Liebe Anna, / Lieber Tom, → Danke für deine Mail! → the content, with Wie wäre es, wenn …? for suggestions → Ich freue mich auf deine Antwort. → Liebe Grüße + first name. Register is the trap: Sie / Ihnen / Ihr throughout the formal one (capital I), du / dir / dein throughout the informal one; never mixed.",
       "tips": [
         {
@@ -3115,14 +4790,34 @@
           "examples": [
             {
               "de": "Sehr geehrte Frau Weber,\nleider kann ich am Montag nicht zum Kurs kommen, weil ich einen Arzttermin habe. Könnten Sie mir bitte die Unterlagen per E-Mail schicken? Vielen Dank im Voraus.\nMit freundlichen Grüßen\nElena Petrova",
-              "en": "Dear Mrs Weber, unfortunately I can't come to the course on Monday because I have a doctor's appointment. Could you please send me the documents by e-mail? Many thanks in advance. Kind regards, Elena Petrova"
+              "en": "Dear Mrs Weber, unfortunately I can't come to the course on Monday because I have a doctor's appointment. Could you please send me the documents by e-mail? Many thanks in advance. Kind regards, Elena Petrova",
+              "focus": [
+                "geehrte",
+                "leider",
+                "Grüßen"
+              ]
             },
             {
               "de": "Sehr geehrte Damen und Herren, ich schreibe Ihnen, weil ich eine Frage zu meiner Rechnung habe.",
-              "en": "Dear Sir or Madam, I am writing to you because I have a question about my bill."
+              "en": "Dear Sir or Madam, I am writing to you because I have a question about my bill.",
+              "focus": [
+                "geehrte",
+                "ich",
+                "Ihnen"
+              ]
             }
           ],
-          "trap": "after 'Sehr geehrte Frau Weber,' the body starts with a lowercase letter (leider, ich). And Sie/Ihnen/Ihr are capitalised everywhere in the formal mail."
+          "trap": "after 'Sehr geehrte Frau Weber,' the body starts with a lowercase letter (leider, ich). And Sie/Ihnen/Ihr are capitalised everywhere in the formal mail.",
+          "check": {
+            "q": "Which line correctly follows „Sehr geehrter Herr Braun,“?",
+            "options": [
+              "vielen Dank für Ihre schnelle Antwort.",
+              "Vielen Dank für Ihre schnelle Antwort.",
+              "vielen Dank für deine schnelle Antwort."
+            ],
+            "answer": "vielen Dank für Ihre schnelle Antwort.",
+            "why": "After the greeting comma the text goes on in lowercase, and a formal mail uses Ihre."
+          }
         },
         {
           "kind": "rule",
@@ -3131,13 +4826,32 @@
           "examples": [
             {
               "de": "Liebe Anna,\ndanke für deine Mail! Die Party war super. Wie wäre es, wenn wir uns am Samstag treffen? Ich freue mich auf deine Antwort.\nLiebe Grüße\nTomás",
-              "en": "Dear Anna, thanks for your mail! The party was great. How about we meet on Saturday? I look forward to your reply. Best wishes, Tomás"
+              "en": "Dear Anna, thanks for your mail! The party was great. How about we meet on Saturday? I look forward to your reply. Best wishes, Tomás",
+              "focus": [
+                "Liebe",
+                "deine",
+                "Grüße"
+              ]
             },
             {
               "de": "Lieber Tom, danke für deine Mail! Hättest du Lust, am Sonntag zu kommen?",
-              "en": "Dear Tom, thanks for your mail! Would you like to come on Sunday?"
+              "en": "Dear Tom, thanks for your mail! Would you like to come on Sunday?",
+              "focus": [
+                "Lieber",
+                "Hättest"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Paul, danke für deine Mail!",
+            "options": [
+              "Lieber",
+              "Liebe",
+              "Lieben"
+            ],
+            "answer": "Lieber",
+            "why": "Paul is a man, so the informal greeting is Lieber; Liebe is for women."
+          }
         },
         {
           "kind": "rule",
@@ -3146,13 +4860,29 @@
           "examples": [
             {
               "de": "Außerdem wollte ich dich fragen, ob du am Wochenende Zeit hast.",
-              "en": "Besides, I wanted to ask you whether you have time at the weekend."
+              "en": "Besides, I wanted to ask you whether you have time at the weekend.",
+              "focus": [
+                "Außerdem"
+              ]
             },
             {
               "de": "Zuerst möchte ich mich für die Einladung bedanken.",
-              "en": "First I would like to thank you for the invitation."
+              "en": "First I would like to thank you for the invitation.",
+              "focus": [
+                "Zuerst"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Zuerst danke ich dir für das Geschenk. ____ wollte ich dich fragen, ob du am Samstag kommst.",
+            "options": [
+              "Außerdem",
+              "Zuerst",
+              "Zum Schluss"
+            ],
+            "answer": "Außerdem",
+            "why": "Zuerst opened the first point, so the second point needs a connector that adds something: Außerdem."
+          }
         },
         {
           "kind": "warning",
@@ -3161,13 +4891,32 @@
           "examples": [
             {
               "de": "Könnten Sie mir bitte Bescheid geben? (formal) — Kannst du mir Bescheid geben? (informal)",
-              "en": "Could you let me know?"
+              "en": "Could you let me know?",
+              "focus": [
+                "Könnten",
+                "Sie",
+                "Kannst"
+              ]
             },
             {
               "de": "Vielen Dank für Ihre E-Mail. (formal) — Danke für deine Mail! (informal)",
-              "en": "Thank you for your e-mail. — Thanks for your mail!"
+              "en": "Thank you for your e-mail. — Thanks for your mail!",
+              "focus": [
+                "Ihre",
+                "deine"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence fits a formal e-mail to Frau Klein?",
+            "options": [
+              "Könnten Sie mir bitte den Termin bestätigen?",
+              "Kannst du mir bitte den Termin bestätigen?",
+              "Könntest du mir bitte den Termin bestätigen?"
+            ],
+            "answer": "Könnten Sie mir bitte den Termin bestätigen?",
+            "why": "A formal mail uses Sie all the way through. Even a polite könntest is still du."
+          }
         }
       ],
       "remember": [
@@ -3235,7 +4984,15 @@
       },
       "context": {
         "de": "Sehr geehrte Damen und Herren,\nich habe Ihre Anzeige für den Deutschkurs B1 gelesen und interessiere mich sehr dafür. Könnten Sie mir bitte mitteilen, wann der Kurs beginnt und was er kostet? Wäre es außerdem möglich, an einer Probestunde teilzunehmen?\nVielen Dank im Voraus.\nMit freundlichen Grüßen\nTomás Ruiz",
-        "en": "Dear Sir or Madam, I have read your advertisement for the B1 German course and am very interested. Could you please let me know when the course starts and what it costs? Would it also be possible to attend a trial lesson? Many thanks in advance. Kind regards, Tomás Ruiz"
+        "en": "Dear Sir or Madam, I have read your advertisement for the B1 German course and am very interested. Could you please let me know when the course starts and what it costs? Would it also be possible to attend a trial lesson? Many thanks in advance. Kind regards, Tomás Ruiz",
+        "focus": [
+          "geehrte",
+          "Ihre",
+          "Könnten",
+          "Wäre",
+          "Voraus",
+          "Grüßen"
+        ]
       },
       "mistakes": [
         {
@@ -3309,6 +5066,7 @@
     ],
     "title": "Gespräch: Meinungen & Wünsche",
     "help": {
+      "hook": "Give your opinion, push back politely and imagine 'what if' with wenn … würde: the three moves of any good discussion.",
       "intro": "The closing conversation of this module, in your own AI assistant with voice on: opinions and wishes about work, study and living — what you think, why, and what you would do if. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections come at the end. The tutor listens for the building blocks of a real argument: an opinion with a reason (Ich finde, dass …, weil …), a hypothetical with the Konjunktiv II on both sides (Wenn ich …, würde ich …), a contrast (obwohl / trotzdem), and adjectives with endings in your descriptions. This is a real discussion in miniature, so also practise the moves of a discussion: agree, disagree politely, ask your partner what they think.",
       "tips": [
         {
@@ -3318,13 +5076,33 @@
           "examples": [
             {
               "de": "Ich finde Homeoffice gut, weil man flexibler ist. Wie siehst du das?",
-              "en": "I think working from home is good because you're more flexible. How do you see it?"
+              "en": "I think working from home is good because you're more flexible. How do you see it?",
+              "focus": [
+                "finde",
+                "weil",
+                "Wie"
+              ]
             },
             {
               "de": "Ich bin der Meinung, dass man mehr Rad fahren sollte, weil es gesund ist. Was meinst du?",
-              "en": "I am of the opinion that people should cycle more because it is healthy. What do you think?"
+              "en": "I am of the opinion that people should cycle more because it is healthy. What do you think?",
+              "focus": [
+                "Meinung",
+                "weil",
+                "Was"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which turn keeps the discussion going best?",
+            "options": [
+              "Ich finde Kochen wichtig, weil es gesund ist. Und du?",
+              "Ich finde Kochen wichtig.",
+              "Kochen ist gut."
+            ],
+            "answer": "Ich finde Kochen wichtig, weil es gesund ist. Und du?",
+            "why": "It has all three moves: an opinion, a reason with weil, and a question back to your partner."
+          }
         },
         {
           "kind": "rule",
@@ -3333,13 +5111,32 @@
           "examples": [
             {
               "de": "Da bin ich anderer Meinung: Obwohl es praktisch ist, fehlt der Kontakt.",
-              "en": "I see it differently: although it's practical, the contact is missing."
+              "en": "I see it differently: although it's practical, the contact is missing.",
+              "focus": [
+                "anderer",
+                "Meinung",
+                "Obwohl"
+              ]
             },
             {
               "de": "Das stimmt, aber für Familien ist das Auto oft praktischer.",
-              "en": "That is true, but for families the car is often more practical."
+              "en": "That is true, but for families the car is often more practical.",
+              "focus": [
+                "stimmt",
+                "aber"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Your partner says life in the city is better. You disagree. Which reply is the polite one?",
+            "options": [
+              "Das stimmt, aber auf dem Land ist es ruhiger.",
+              "Nein, das ist falsch.",
+              "Nein."
+            ],
+            "answer": "Das stimmt, aber auf dem Land ist es ruhiger.",
+            "why": "Disagree with a cushion: accept part of the point first (Das stimmt, aber …), then give your view."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3348,13 +5145,32 @@
           "examples": [
             {
               "de": "Wenn ich mehr Zeit hätte, würde ich einen Sprachkurs machen.",
-              "en": "If I had more time, I'd do a language course."
+              "en": "If I had more time, I'd do a language course.",
+              "focus": [
+                "Wenn",
+                "hätte",
+                "würde"
+              ]
             },
             {
               "de": "Wenn ich die Wahl hätte, würde ich in einer kleineren Stadt wohnen.",
-              "en": "If I had the choice, I would live in a smaller town."
+              "en": "If I had the choice, I would live in a smaller town.",
+              "focus": [
+                "hätte",
+                "würde"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wenn ich mehr Geld ____, würde ich weniger arbeiten.",
+            "options": [
+              "hätte",
+              "habe",
+              "würde"
+            ],
+            "answer": "hätte",
+            "why": "An unreal wenn-sentence uses the Konjunktiv on both sides: hätte in the wenn-clause, würde in the main clause."
+          }
         }
       ],
       "remember": [
@@ -3371,6 +5187,7 @@
     ],
     "title": "Verben mit Präpositionen: worauf? – darauf!",
     "help": {
+      "hook": "warten auf, denken an, Angst vor: learn each verb with its preposition, then point back with darauf, daran, davor.",
       "intro": "Many German verbs come with a fixed preposition, and the preposition is not the one English would use: warten auf (wait for), sich freuen auf (look forward to) and sich freuen über (be pleased about), sich interessieren für (be interested in), denken an (think of), sprechen über (talk about), Angst haben vor (be afraid of), sich bewerben um (apply for). Learn verb and preposition as one unit, together with the case: auf, über, an, für, um take the accusative in these combinations; vor, mit, von, bei, zu take the dative. The second half of the topic is how to ask and refer back. For things you use wo(r)- + preposition in questions (Worauf wartest du? Wofür interessierst du dich?) and da(r)- + preposition to point back (Ich warte darauf. Denk daran!). The -r- is inserted when the preposition starts with a vowel: worauf, darüber, daran. For people you keep the preposition with a pronoun or question word: Auf wen wartest du? – Auf meine Schwester. – Ich warte auf sie.",
       "tips": [
         {
@@ -3381,13 +5198,31 @@
           "examples": [
             {
               "de": "Wir freuen uns sehr auf den Urlaub im Sommer.",
-              "en": "We are really looking forward to the holiday in the summer."
+              "en": "We are really looking forward to the holiday in the summer.",
+              "focus": [
+                "freuen",
+                "auf"
+              ]
             },
             {
               "de": "Der Nachbar hat sich über den Lärm beschwert.",
-              "en": "The neighbour complained about the noise."
+              "en": "The neighbour complained about the noise.",
+              "focus": [
+                "über",
+                "beschwert"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich interessiere mich sehr ____ Fußball.",
+            "options": [
+              "für",
+              "in",
+              "an"
+            ],
+            "answer": "für",
+            "why": "sich interessieren für + Akk is fixed; English “interested in” does not translate."
+          }
         },
         {
           "kind": "rule",
@@ -3396,13 +5231,29 @@
           "examples": [
             {
               "de": "Worauf freust du dich am meisten? – Auf die Ferien.",
-              "en": "What are you looking forward to most? – The holidays."
+              "en": "What are you looking forward to most? – The holidays.",
+              "focus": [
+                "Worauf"
+              ]
             },
             {
               "de": "Der Termin ist morgen um neun. Denk bitte daran!",
-              "en": "The appointment is tomorrow at nine. Please remember it!"
+              "en": "The appointment is tomorrow at nine. Please remember it!",
+              "focus": [
+                "daran"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ denkst du gerade? – An meinen Urlaub.",
+            "options": [
+              "Woran",
+              "Wovon",
+              "Woan"
+            ],
+            "answer": "Woran",
+            "why": "denken an, about a thing, so the question is wo + r + an = woran; the -r- is added because an starts with a vowel."
+          }
         },
         {
           "kind": "warning",
@@ -3412,13 +5263,31 @@
           "examples": [
             {
               "de": "Auf wen wartest du? – Auf meine Schwester.",
-              "en": "Who are you waiting for? – For my sister."
+              "en": "Who are you waiting for? – For my sister.",
+              "focus": [
+                "Auf",
+                "wen"
+              ]
             },
             {
               "de": "Über wen habt ihr gesprochen? – Über den neuen Chef.",
-              "en": "Who did you talk about? – About the new boss."
+              "en": "Who did you talk about? – About the new boss.",
+              "focus": [
+                "Über",
+                "wen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ hast du so lange gewartet? – Auf meinen Bruder.",
+            "options": [
+              "Auf wen",
+              "Worauf",
+              "Auf was"
+            ],
+            "answer": "Auf wen",
+            "why": "The answer is a person, so keep the preposition and use wen: Auf wen …? wo(r)- is only for things."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3427,13 +5296,29 @@
           "examples": [
             {
               "de": "Hast du Angst vor der Prüfung? – Nein, ich habe keine Angst davor.",
-              "en": "Are you afraid of the exam? – No, I am not afraid of it."
+              "en": "Are you afraid of the exam? – No, I am not afraid of it.",
+              "focus": [
+                "davor"
+              ]
             },
             {
               "de": "Ich brauche eine Antwort. – Wie lange wartest du schon darauf?",
-              "en": "I need an answer. – How long have you been waiting for it?"
+              "en": "I need an answer. – How long have you been waiting for it?",
+              "focus": [
+                "darauf"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Sprichst du gern über Politik? – Nein, ich spreche nicht gern ____.",
+            "options": [
+              "darüber",
+              "über es",
+              "daüber"
+            ],
+            "answer": "darüber",
+            "why": "“about it” for a thing is da + r + über = darüber, one word; über es is not used for things."
+          }
         }
       ],
       "table": {
@@ -3543,7 +5428,16 @@
       ],
       "context": {
         "de": "Worauf freust du dich im Sommer? – Auf meinen Deutschkurs in Leipzig! Ich habe mich schon im Januar darum beworben und warte jetzt auf die Bestätigung. Ich interessiere mich sehr für die Stadt und denke oft daran, wie schön es dort sein wird. Nur vor der Einstufungsprüfung habe ich ein bisschen Angst – aber darüber spreche ich lieber nicht.",
-        "en": "What are you looking forward to in the summer? – My German course in Leipzig! I already applied for it in January and am now waiting for the confirmation. I am very interested in the city and often think about how nice it will be there. I am only a bit afraid of the placement test – but I would rather not talk about that."
+        "en": "What are you looking forward to in the summer? – My German course in Leipzig! I already applied for it in January and am now waiting for the confirmation. I am very interested in the city and often think about how nice it will be there. I am only a bit afraid of the placement test – but I would rather not talk about that.",
+        "focus": [
+          "Worauf",
+          "darum",
+          "auf",
+          "für",
+          "daran",
+          "vor",
+          "darüber"
+        ]
       },
       "exam": null,
       "mistakes": [
@@ -3572,6 +5466,7 @@
     ],
     "title": "Indirekte Fragen: Können Sie mir sagen, ob …?",
     "help": {
+      "hook": "Ask strangers and officials politely – Können Sie mir sagen, wann der Zug abfährt? – by tucking the question into a sentence.",
       "intro": "An indirect question is a question packed inside another sentence: Können Sie mir sagen, wann der Zug abfährt? Ich weiß nicht, ob er kommt. It is the polite way to ask strangers, officials and colleagues for information, and fluent speakers use it constantly — Könnten Sie mir sagen, …? Wissen Sie, …? Ich möchte wissen, … Ich frage mich, … Two rules build it. First the linking word: a W-question keeps its question word (wann, wo, wie viel, warum, welcher …); a yes/no question gets ob (whether) — never wenn. Second the word order: the indirect question is a subordinate clause, so the conjugated verb goes to the end, and a separable verb joins up again (Wann fährt der Zug ab? → …, wann der Zug abfährt). The question mark belongs to the whole sentence: after Können Sie mir sagen, … there is one; after Ich weiß nicht, … there is a full stop. In this quiz each item shows the direct question; you write the linking word and the verb at the end.",
       "tips": [
         {
@@ -3582,13 +5477,30 @@
           "examples": [
             {
               "de": "Können Sie mir sagen, wann der Zug nach Köln abfährt?",
-              "en": "Can you tell me when the train to Cologne leaves?"
+              "en": "Can you tell me when the train to Cologne leaves?",
+              "focus": [
+                "wann",
+                "abfährt"
+              ]
             },
             {
               "de": "Ich verstehe nicht, was dieses Wort bedeutet.",
-              "en": "I do not understand what this word means."
+              "en": "I do not understand what this word means.",
+              "focus": [
+                "was",
+                "bedeutet"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wo ist der Bahnhof? → Weißt du, wo ____?",
+            "options": [
+              "der Bahnhof ist",
+              "ist der Bahnhof"
+            ],
+            "answer": "der Bahnhof ist",
+            "why": "The indirect question is a subordinate clause, so the verb ist moves to the end."
+          }
         },
         {
           "kind": "rule",
@@ -3598,13 +5510,31 @@
           "examples": [
             {
               "de": "Ich möchte wissen, ob das Museum am Montag geöffnet ist.",
-              "en": "I would like to know whether the museum is open on Monday."
+              "en": "I would like to know whether the museum is open on Monday.",
+              "focus": [
+                "ob",
+                "ist"
+              ]
             },
             {
               "de": "Sie hat mich gefragt, ob ich morgen Zeit habe.",
-              "en": "She asked me whether I have time tomorrow."
+              "en": "She asked me whether I have time tomorrow.",
+              "focus": [
+                "ob",
+                "habe"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich weiß nicht, ____ er heute kommt. (I don't know whether he is coming today.)",
+            "options": [
+              "ob",
+              "wenn",
+              "dass"
+            ],
+            "answer": "ob",
+            "why": "A yes/no question becomes an ob-clause; ob means 'whether', while wenn is only for conditions and time."
+          }
         },
         {
           "kind": "rule",
@@ -3613,13 +5543,30 @@
           "examples": [
             {
               "de": "Wir wissen noch nicht, ob wir im Sommer Urlaub machen können.",
-              "en": "We do not know yet whether we can go on holiday in the summer."
+              "en": "We do not know yet whether we can go on holiday in the summer.",
+              "focus": [
+                "können"
+              ]
             },
             {
               "de": "Ich frage mich, wo ich meinen Schlüssel gelassen habe.",
-              "en": "I wonder where I left my key."
+              "en": "I wonder where I left my key.",
+              "focus": [
+                "gelassen",
+                "habe"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wann kommt der Bus an? → Wissen Sie, wann der Bus ____?",
+            "options": [
+              "ankommt",
+              "kommt an",
+              "an kommt"
+            ],
+            "answer": "ankommt",
+            "why": "At the end of a subordinate clause the separable verb joins up again into one word: ankommt."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3628,13 +5575,33 @@
           "examples": [
             {
               "de": "Darf ich fragen, woher Sie kommen?",
-              "en": "May I ask where you are from?"
+              "en": "May I ask where you are from?",
+              "focus": [
+                "Darf",
+                "fragen",
+                "woher"
+              ]
             },
             {
               "de": "Könnten Sie mir erklären, wie der Fahrkartenautomat funktioniert?",
-              "en": "Could you explain to me how the ticket machine works?"
+              "en": "Could you explain to me how the ticket machine works?",
+              "focus": [
+                "Könnten",
+                "wie",
+                "funktioniert"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which polite question is correct?",
+            "options": [
+              "Könnten Sie mir sagen, wo die Toilette ist?",
+              "Könnten Sie mir sagen, wo ist die Toilette?",
+              "Könnten Sie mir sagen, ob wo die Toilette ist?"
+            ],
+            "answer": "Könnten Sie mir sagen, wo die Toilette ist?",
+            "why": "One opener, then the question as a subordinate clause: keep the W-word wo and put the verb ist last."
+          }
         }
       ],
       "table": {
@@ -3724,7 +5691,13 @@
       ],
       "context": {
         "de": "Entschuldigung, können Sie mir sagen, wo hier das Bürgeramt ist? Ich weiß nicht genau, ob ich einen Termin brauche. Und wissen Sie vielleicht, wann es heute schließt? Meine Kollegin hat mich gefragt, ob ich meinen Pass mitbringen muss – aber ich habe keine Ahnung, welche Dokumente man für die Anmeldung braucht.",
-        "en": "Excuse me, can you tell me where the citizens’ office is here? I do not know exactly whether I need an appointment. And do you perhaps know when it closes today? My colleague asked me whether I have to bring my passport – but I have no idea which documents you need for registration."
+        "en": "Excuse me, can you tell me where the citizens’ office is here? I do not know exactly whether I need an appointment. And do you perhaps know when it closes today? My colleague asked me whether I have to bring my passport – but I have no idea which documents you need for registration.",
+        "focus": [
+          "wo",
+          "ob",
+          "wann",
+          "welche"
+        ]
       },
       "exam": null,
       "mistakes": [
@@ -3754,6 +5727,7 @@
     ],
     "title": "falls, da, trotzdem",
     "help": {
+      "hook": "falls, da and trotzdem let you plan for the unexpected, give reasons and carry on anyway, and each one moves the verb differently.",
       "intro": "Three connectors round off your set of reasons, conditions and contrasts. falls means \"if / in case\" and is a more careful wenn for a condition that may or may not happen: Falls du Hilfe brauchst, ruf mich an. Nimm einen Schirm mit, falls es regnet (in case — here wenn would not work). da means \"as / since\" and gives a reason the listener already knows or can accept; it usually opens the sentence: Da heute Feiertag ist, sind die Geschäfte geschlossen. Both falls and da are subordinating conjunctions like weil and obwohl: the verb goes to the end. trotzdem means \"nevertheless / anyway\" and is the partner of obwohl: the same contrast, but an adverb, so it takes position 1 or sits in the middle and the verb stays second: Es regnete. Trotzdem gingen wir spazieren. = Obwohl es regnete, gingen wir spazieren. Its opposite partner is deshalb (that’s why). The quiz mixes all of them, so read the verb position before you choose.",
       "tips": [
         {
@@ -3763,13 +5737,31 @@
           "examples": [
             {
               "de": "Falls Sie noch Fragen haben, schreiben Sie mir bitte eine E-Mail.",
-              "en": "If you have any questions, please send me an e-mail."
+              "en": "If you have any questions, please send me an e-mail.",
+              "focus": [
+                "Falls",
+                "haben"
+              ]
             },
             {
               "de": "Nimm einen Schirm mit, falls es später regnet.",
-              "en": "Take an umbrella in case it rains later."
+              "en": "Take an umbrella in case it rains later.",
+              "focus": [
+                "falls",
+                "regnet"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Nimm eine Jacke mit, ____ es am Abend kalt wird. (in case it gets cold)",
+            "options": [
+              "falls",
+              "da",
+              "trotzdem"
+            ],
+            "answer": "falls",
+            "why": "'In case' is falls, and like weil it sends the verb (wird) to the end."
+          }
         },
         {
           "kind": "rule",
@@ -3779,13 +5771,31 @@
           "examples": [
             {
               "de": "Da heute Feiertag ist, sind alle Geschäfte geschlossen.",
-              "en": "As today is a public holiday, all the shops are closed."
+              "en": "As today is a public holiday, all the shops are closed.",
+              "focus": [
+                "Da",
+                "ist"
+              ]
             },
             {
               "de": "Da der Zug Verspätung hatte, kam ich zu spät zur Besprechung.",
-              "en": "As the train was late, I was late for the meeting."
+              "en": "As the train was late, I was late for the meeting.",
+              "focus": [
+                "Da",
+                "hatte"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ mein Handy kaputt ist, kann ich dich nicht anrufen. (As my phone is broken …)",
+            "options": [
+              "Da",
+              "Falls",
+              "Trotzdem"
+            ],
+            "answer": "Da",
+            "why": "da gives a known reason ('as / since'). It sends ist to the end, and the main clause starts with its verb."
+          }
         },
         {
           "kind": "rule",
@@ -3795,13 +5805,31 @@
           "examples": [
             {
               "de": "Er hat wenig Geld. Trotzdem fährt er jedes Jahr in Urlaub.",
-              "en": "He has little money. Nevertheless he goes on holiday every year."
+              "en": "He has little money. Nevertheless he goes on holiday every year.",
+              "focus": [
+                "Trotzdem",
+                "fährt"
+              ]
             },
             {
               "de": "Ich bin sehr müde, deshalb gehe ich heute früh ins Bett.",
-              "en": "I am very tired, so I am going to bed early today."
+              "en": "I am very tired, so I am going to bed early today.",
+              "focus": [
+                "deshalb",
+                "gehe"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Es war sehr kalt. ____ sind wir schwimmen gegangen.",
+            "options": [
+              "Trotzdem",
+              "Obwohl",
+              "Weil"
+            ],
+            "answer": "Trotzdem",
+            "why": "The verb sind comes straight after the gap, so you need an adverb. trotzdem is the adverb partner of obwohl."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3810,13 +5838,31 @@
           "examples": [
             {
               "de": "Wir sind trotzdem bis zum Ende geblieben.",
-              "en": "We stayed until the end all the same."
+              "en": "We stayed until the end all the same.",
+              "focus": [
+                "trotzdem"
+              ]
             },
             {
               "de": "Obwohl er wenig Geld hat, fährt er jedes Jahr in Urlaub.",
-              "en": "Although he has little money, he goes on holiday every year."
+              "en": "Although he has little money, he goes on holiday every year.",
+              "focus": [
+                "Obwohl",
+                "hat",
+                "fährt"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich habe heute keine Zeit, ____ komme ich nicht mit.",
+            "options": [
+              "deshalb",
+              "weil",
+              "falls"
+            ],
+            "answer": "deshalb",
+            "why": "The verb komme follows the gap directly, so it must be an adverb, and the meaning is 'that's why': deshalb."
+          }
         }
       ],
       "table": {
@@ -3898,7 +5944,14 @@
       ],
       "context": {
         "de": "Liebe Nina, da ich am Samstag umziehe, kann ich leider nicht zu deiner Party kommen. Ich habe zwar viel Hilfe, trotzdem wird es ein langer Tag. Falls du am Sonntag Zeit hast, können wir zusammen frühstücken – obwohl die Wohnung dann bestimmt noch chaotisch ist! Sag mir Bescheid, falls es klappt. Liebe Grüße, Jana",
-        "en": "Dear Nina, as I am moving on Saturday, unfortunately I cannot come to your party. I do have a lot of help, but it will still be a long day. If you have time on Sunday, we can have breakfast together – although the flat will surely still be chaotic then! Let me know if it works out. Best wishes, Jana"
+        "en": "Dear Nina, as I am moving on Saturday, unfortunately I cannot come to your party. I do have a lot of help, but it will still be a long day. If you have time on Sunday, we can have breakfast together – although the flat will surely still be chaotic then! Let me know if it works out. Best wishes, Jana",
+        "focus": [
+          "da",
+          "trotzdem",
+          "Falls",
+          "obwohl",
+          "falls"
+        ]
       },
       "exam": null,
       "mistakes": [
@@ -3927,6 +5980,7 @@
     ],
     "title": "Wortschatz",
     "help": {
+      "hook": "Work, study, flats and opinions: the words you need to apply for a job or argue a point, each noun with its plural.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: 203 cards, 59 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Arbeit & Beruf, Bildung & Studium, Beziehungen & Meinungen, Wohnen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -3936,13 +5990,29 @@
           "examples": [
             {
               "de": "die Stelle, Plural: -n",
-              "en": "job, post"
+              "en": "job, post",
+              "focus": [
+                "Stelle"
+              ]
             },
             {
               "de": "die Bewerbung, Plural: -en",
-              "en": "application"
+              "en": "application",
+              "focus": [
+                "Bewerbung"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "der Kollege, Plural: -n. Ich habe drei neue ____.",
+            "options": [
+              "Kollegen",
+              "Kollege",
+              "Kolleges"
+            ],
+            "answer": "Kollegen",
+            "why": "The plural note -n tells you to add -n: die Kollegen."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3951,13 +6021,29 @@
           "examples": [
             {
               "de": "der Lebenslauf, Plural: ¨-e",
-              "en": "CV"
+              "en": "CV",
+              "focus": [
+                "Lebenslauf"
+              ]
             },
             {
               "de": "das Vorstellungsgespräch, Plural: -e",
-              "en": "job interview"
+              "en": "job interview",
+              "focus": [
+                "Vorstellungsgespräch"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "‘the internship’ in German:",
+            "options": [
+              "das Praktikum",
+              "der Praktikum",
+              "die Praktikum"
+            ],
+            "answer": "das Praktikum",
+            "why": "Praktikum is neuter: das Praktikum, like most nouns ending in -um."
+          }
         },
         {
           "kind": "warning",
@@ -3966,13 +6052,29 @@
           "examples": [
             {
               "de": "das Gehalt, Plural: ¨-er",
-              "en": "salary"
+              "en": "salary",
+              "focus": [
+                "das"
+              ]
             },
             {
               "de": "der Vertrag, Plural: ¨-e",
-              "en": "contract"
+              "en": "contract",
+              "focus": [
+                "der"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "‘the appointment’ in German:",
+            "options": [
+              "der Termin",
+              "Termin",
+              "die Termin"
+            ],
+            "answer": "der Termin",
+            "why": "A noun is only half learnt without its article, and Termin is masculine: der Termin."
+          }
         }
       ],
       "remember": [

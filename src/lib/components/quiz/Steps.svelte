@@ -60,6 +60,9 @@
 	function onKey(event: KeyboardEvent) {
 		if (event.altKey || event.ctrlKey || event.metaKey || typing(event.target)) return;
 		if (inDialog(event.target)) return;
+		// Parked off screen (the lesson while the exercise runs, or the other
+		// way round): its sections are not the ones the arrows should move.
+		if (viewport?.closest('[inert]')) return;
 		if (event.key === 'ArrowRight') go(index + 1);
 		else if (event.key === 'ArrowLeft') go(index - 1);
 		else return;

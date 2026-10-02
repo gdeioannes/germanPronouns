@@ -6,6 +6,7 @@
     ],
     "title": "Akkusativ (Artikel)",
     "help": {
+      "hook": "German shows who does what with the article, and in the accusative only der-words change: der Hund becomes den Hund.",
       "intro": "German marks the job a noun does in the sentence by changing its article — that is what a 'case' is. The nominative is the subject (the one doing); the accusative is the direct object (the one it is done to): Der Mann sieht den Hund — the man sees the dog. This is the first case beyond the nominative, and the friendliest: only the masculine changes. der becomes den, ein becomes einen; feminine, neuter and plural look exactly as they did. Every transitive verb — haben, sehen, kaufen, essen, brauchen, möchten — takes an accusative object, so you will use this in nearly every sentence from now on. Ask 'wen oder was?' (whom or what?) after the verb and the answer is the accusative.",
       "tips": [
         {
@@ -15,14 +16,32 @@
           "examples": [
             {
               "de": "Ich sehe den Mann. Ich habe einen Hund.",
-              "en": "I see the man. I have a dog."
+              "en": "I see the man. I have a dog.",
+              "focus": [
+                "den",
+                "einen"
+              ]
             },
             {
               "de": "Ich sehe die Frau, das Kind und die Kinder.",
-              "en": "I see the woman, the child and the children. (no change)"
+              "en": "I see the woman, the child and the children. (no change)",
+              "focus": [
+                "die",
+                "das"
+              ]
             }
           ],
-          "trap": "English shows the object by word order alone. German shows it on the article, and later on adjectives and pronouns too. This is the start of the case system."
+          "trap": "English shows the object by word order alone. German shows it on the article, and later on adjectives and pronouns too. This is the start of the case system.",
+          "check": {
+            "q": "Ich sehe ____ Lehrerin. (die Lehrerin)",
+            "options": [
+              "die",
+              "den",
+              "der"
+            ],
+            "answer": "die",
+            "why": "Only masculine nouns change in the accusative. Lehrerin is a die-word, so the article stays die."
+          }
         },
         {
           "kind": "rule",
@@ -31,13 +50,30 @@
           "examples": [
             {
               "de": "Wer kauft? – Der Mann. Was kauft er? – Einen Apfel.",
-              "en": "Who is buying? – The man (nom.). What is he buying? – An apple (acc.)."
+              "en": "Who is buying? – The man (nom.). What is he buying? – An apple (acc.).",
+              "focus": [
+                "Der",
+                "Einen"
+              ]
             },
             {
               "de": "Wen siehst du? – Den Lehrer.",
-              "en": "Whom do you see? – The teacher."
+              "en": "Whom do you see? – The teacher.",
+              "focus": [
+                "Wen",
+                "Den"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ trinkt den Kaffee? – Der Mann.",
+            "options": [
+              "Wer",
+              "Wen"
+            ],
+            "answer": "Wer",
+            "why": "The question asks who is doing the drinking, the subject, so it takes the nominative wer. wen asks for the object."
+          }
         },
         {
           "kind": "rule",
@@ -46,13 +82,31 @@
           "examples": [
             {
               "de": "Ich brauche einen Stift. Hast du einen Moment?",
-              "en": "I need a pen. Do you have a moment?"
+              "en": "I need a pen. Do you have a moment?",
+              "focus": [
+                "brauche",
+                "einen"
+              ]
             },
             {
               "de": "Es gibt hier einen Supermarkt.",
-              "en": "There is a supermarket here."
+              "en": "There is a supermarket here.",
+              "focus": [
+                "gibt",
+                "einen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Es gibt hier ____ Bahnhof. (der Bahnhof)",
+            "options": [
+              "einen",
+              "ein",
+              "eine"
+            ],
+            "answer": "einen",
+            "why": "es gibt always takes the accusative, and Bahnhof is masculine: ein → einen."
+          }
         },
         {
           "kind": "mnemonic",
@@ -61,13 +115,31 @@
           "examples": [
             {
               "de": "der Hund → den Hund · ein Hund → einen Hund",
-              "en": "blue grows an n"
+              "en": "blue grows an n",
+              "focus": [
+                "den",
+                "einen"
+              ]
             },
             {
               "de": "kein Stift → keinen Stift · mein Bruder → meinen Bruder",
-              "en": "no pen · my brother — the masculine object adds -en"
+              "en": "no pen · my brother — the masculine object adds -en",
+              "focus": [
+                "keinen",
+                "meinen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich besuche ____ Bruder. (my, der Bruder)",
+            "options": [
+              "meinen",
+              "mein",
+              "meine"
+            ],
+            "answer": "meinen",
+            "why": "Bruder is masculine and the object of besuchen, so mein grows an -en: meinen Bruder."
+          }
         }
       ],
       "colorByGender": true,
@@ -77,7 +149,12 @@
       ],
       "context": {
         "de": "Ich gehe einkaufen. Ich brauche einen Apfel, eine Banane und ein Brot. Im Supermarkt sehe ich den Nachbarn. Er kauft einen Kaffee und die Zeitung. Dann sehe ich das Auto von meinem Chef – und meinen Chef!",
-        "en": "I'm going shopping. I need an apple, a banana and a loaf. In the supermarket I see the neighbour. He buys a coffee and the paper. Then I see my boss's car – and my boss!"
+        "en": "I'm going shopping. I need an apple, a banana and a loaf. In the supermarket I see the neighbour. He buys a coffee and the paper. Then I see my boss's car – and my boss!",
+        "focus": [
+          "einen",
+          "den",
+          "meinen"
+        ]
       },
       "mistakes": [
         {
@@ -107,6 +184,7 @@
     ],
     "title": "Possessivartikel",
     "help": {
+      "hook": "Say whose things are whose — mein, dein, sein, ihr — and get the ending right by looking at the noun, not the owner.",
       "intro": "Possessive articles say whose something is — mein, dein, sein, ihr, unser, euer, Ihr — and they behave exactly like ein: they take the ein-endings, decided by the noun that follows, not by the owner. So mein Vater (masculine), mein Kind (neuter), meine Mutter (feminine), meine Eltern (plural); and in the accusative the masculine adds -en: Ich sehe meinen Vater. The owner only decides which word you start from: sein for his (and for its with a der/das-word), ihr for her (and for their), Ihr with a capital for your (formal). Choose the owner, then add the ending for the noun — two separate decisions, in that order.",
       "tips": [
         {
@@ -116,13 +194,29 @@
           "examples": [
             {
               "de": "Das ist Tom. Sein Auto ist neu.",
-              "en": "That's Tom. His car is new."
+              "en": "That's Tom. His car is new.",
+              "focus": [
+                "Sein"
+              ]
             },
             {
               "de": "Das ist Anna. Ihr Auto ist alt.",
-              "en": "That's Anna. Her car is old."
+              "en": "That's Anna. Her car is old.",
+              "focus": [
+                "Ihr"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ben und ich lernen Deutsch. ____ Lehrer heißt Herr Wolf. (Our teacher …)",
+            "options": [
+              "Unser",
+              "Euer",
+              "Ihr"
+            ],
+            "answer": "Unser",
+            "why": "The owners are wir (Ben and I), and wir → unser. euer belongs to ihr (you all)."
+          }
         },
         {
           "kind": "rule",
@@ -131,13 +225,31 @@
           "examples": [
             {
               "de": "Meine Schwester heißt Mia. Ich sehe meine Schwester.",
-              "en": "My sister is called Mia. I see my sister. (feminine: same both times)"
+              "en": "My sister is called Mia. I see my sister. (feminine: same both times)",
+              "focus": [
+                "Meine",
+                "meine"
+              ]
             },
             {
               "de": "Mein Bruder ist hier. Ich sehe meinen Bruder.",
-              "en": "My brother is here. I see my brother. (masculine: -en as object)"
+              "en": "My brother is here. I see my brother. (masculine: -en as object)",
+              "focus": [
+                "Mein",
+                "meinen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich suche ____ Schlüssel. (der Schlüssel, my key)",
+            "options": [
+              "meinen",
+              "mein",
+              "meine"
+            ],
+            "answer": "meinen",
+            "why": "Schlüssel is masculine and the object of suchen, so it takes -en, exactly like einen."
+          }
         },
         {
           "kind": "warning",
@@ -146,14 +258,31 @@
           "examples": [
             {
               "de": "Anna und ihr Hund. Tom und sein Hund.",
-              "en": "Anna and her dog. Tom and his dog."
+              "en": "Anna and her dog. Tom and his dog.",
+              "focus": [
+                "ihr",
+                "sein"
+              ]
             },
             {
               "de": "Die Kinder und ihre Eltern.",
-              "en": "The children and their parents."
+              "en": "The children and their parents.",
+              "focus": [
+                "ihre"
+              ]
             }
           ],
-          "trap": "'sein' ≠ 'sie'. English speakers map sein → she; it is the opposite: sein = his."
+          "trap": "'sein' ≠ 'sie'. English speakers map sein → she; it is the opposite: sein = his.",
+          "check": {
+            "q": "Herr Becker ruft ____ Tochter an. (his daughter)",
+            "options": [
+              "seine",
+              "ihre",
+              "sein"
+            ],
+            "answer": "seine",
+            "why": "The owner is a man, so his = sein; Tochter is feminine, so it gets -e: seine Tochter."
+          }
         },
         {
           "kind": "rule",
@@ -162,13 +291,31 @@
           "examples": [
             {
               "de": "Wo ist eure Lehrerin? Ist das euer Haus?",
-              "en": "Where is your (pl.) teacher? Is that your house?"
+              "en": "Where is your (pl.) teacher? Is that your house?",
+              "focus": [
+                "eure",
+                "euer"
+              ]
             },
             {
               "de": "Wir besuchen euren Vater und eure Kinder.",
-              "en": "We're visiting your father and your children."
+              "en": "We're visiting your father and your children.",
+              "focus": [
+                "euren",
+                "eure"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Kinder, wo sind ____ Schuhe?",
+            "options": [
+              "eure",
+              "euer",
+              "euren"
+            ],
+            "answer": "eure",
+            "why": "Schuhe is plural, so the possessive takes -e, and euer drops its second e: eure."
+          }
         }
       ],
       "colorByGender": true,
@@ -178,7 +325,14 @@
       ],
       "context": {
         "de": "Das ist meine Familie. Mein Vater arbeitet in Bonn, meine Mutter ist Ärztin. Meine Schwester hat einen Hund – ihr Hund heißt Bello. Mein Bruder hat eine Katze; seine Katze ist schwarz. Und unser Haus? Es ist klein, aber wir lieben unser Haus.",
-        "en": "This is my family. My father works in Bonn, my mother is a doctor. My sister has a dog – her dog is called Bello. My brother has a cat; his cat is black. And our house? It's small, but we love our house."
+        "en": "This is my family. My father works in Bonn, my mother is a doctor. My sister has a dog – her dog is called Bello. My brother has a cat; his cat is black. And our house? It's small, but we love our house.",
+        "focus": [
+          "meine",
+          "Mein",
+          "ihr",
+          "seine",
+          "unser"
+        ]
       },
       "mistakes": [
         {
@@ -209,6 +363,7 @@
     ],
     "title": "Hören: Im Café",
     "help": {
+      "hook": "Follow a café order between waiter and guest and catch what is ordered, what is refused and what it all costs.",
       "intro": "A guest orders in a café: cake first, then a drink, then the bill — all of it only heard. Two people speaking is the new difficulty, so each line of the transcript starts with the speaker (Kellner, Gast). The waiter asks and names the price; the guest answers and pays. Keep a mental list as you listen: what is ordered, what is offered but refused, what it costs, what is paid. The ordering verbs are your signposts: nehmen and möchten (what is ordered), Was macht das? and Das macht … (the price). Listen once to get the two voices apart, then once for each question. The phrases here — Was möchten Sie? Ich nehme … Das macht … Stimmt so — are the script you will use yourself at every café table.",
       "tips": [
         {
@@ -218,13 +373,29 @@
           "examples": [
             {
               "de": "Ich nehme ein Stück Apfelkuchen, bitte.",
-              "en": "I'll have a piece of apple cake, please."
+              "en": "I'll have a piece of apple cake, please.",
+              "focus": [
+                "nehme"
+              ]
             },
             {
               "de": "Das macht vier Euro achtzig.",
-              "en": "That comes to 4.80 €."
+              "en": "That comes to 4.80 €.",
+              "focus": [
+                "macht"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Ich möchte einen Tee. – Gern. … Das macht drei Euro zehn.' What does the tea cost?",
+            "options": [
+              "3,10 €",
+              "3,00 €",
+              "10,30 €"
+            ],
+            "answer": "3,10 €",
+            "why": "Das macht introduces the price: drei Euro zehn is 3.10 €."
+          }
         },
         {
           "kind": "rule",
@@ -233,13 +404,31 @@
           "examples": [
             {
               "de": "Kellner: Möchten Sie den Kaffee mit Milch?",
-              "en": "Waiter: Would you like the coffee with milk?"
+              "en": "Waiter: Would you like the coffee with milk?",
+              "focus": [
+                "Möchten",
+                "Sie"
+              ]
             },
             {
               "de": "Gast: Ja, gern, mit Milch und Zucker.",
-              "en": "Guest: Yes please, with milk and sugar."
+              "en": "Guest: Yes please, with milk and sugar.",
+              "focus": [
+                "Ja",
+                "gern"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which line belongs to the guest?",
+            "options": [
+              "Ich nehme eine Cola, bitte.",
+              "Möchten Sie Eis dazu?",
+              "Das macht zwei Euro."
+            ],
+            "answer": "Ich nehme eine Cola, bitte.",
+            "why": "The guest speaks with ich and orders; the waiter asks with Sie and names the price."
+          }
         },
         {
           "kind": "warning",
@@ -248,13 +437,31 @@
           "examples": [
             {
               "de": "Möchten Sie auch ein Glas Wasser? – Nein, danke, nur den Kaffee.",
-              "en": "Would you like a glass of water too? – No thanks, just the coffee."
+              "en": "Would you like a glass of water too? – No thanks, just the coffee.",
+              "focus": [
+                "Nein",
+                "danke"
+              ]
             },
             {
               "de": "Hier sind fünf Euro. Stimmt so.",
-              "en": "Here are five euros. Keep the change."
+              "en": "Here are five euros. Keep the change.",
+              "focus": [
+                "Stimmt",
+                "so"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Möchten Sie auch einen Salat? – Nein, danke. Ich nehme nur die Suppe.' What does the guest order?",
+            "options": [
+              "only the soup",
+              "soup and salad",
+              "only the salad"
+            ],
+            "answer": "only the soup",
+            "why": "Nein, danke takes the salad off the order, so only the soup is ordered."
+          }
         }
       ],
       "remember": [
@@ -271,6 +478,7 @@
     ],
     "title": "Personalpronomen (Akkusativ)",
     "help": {
+      "hook": "Say 'I see him', 'she loves us' and 'do you have it?' in German — object pronouns are just a handful of small words.",
       "intro": "When a pronoun is the object of the verb it changes form, just as in English (I → me, he → him): Ich sehe dich, du siehst mich, wir kennen ihn. Five of the nine change completely — ich → mich, du → dich, er → ihn, wir → uns, ihr → euch — and three stay exactly as they were: sie (her, them), es and Sie. The one that catches English speakers is 'it': a thing is er, sie or es by its gender, so 'I see it' is Ich sehe ihn for der Tisch, sie for die Lampe, es for das Buch. Choose the pronoun by the noun's gender, then put it in the accusative — which, for a der-word, means ihn.",
       "tips": [
         {
@@ -280,13 +488,31 @@
           "examples": [
             {
               "de": "Liebst du mich? – Ja, ich liebe dich.",
-              "en": "Do you love me? – Yes, I love you."
+              "en": "Do you love me? – Yes, I love you.",
+              "focus": [
+                "mich",
+                "dich"
+              ]
             },
             {
               "de": "Besuchst du uns? – Ja, ich besuche euch am Sonntag.",
-              "en": "Are you visiting us? – Yes, I am visiting you on Sunday."
+              "en": "Are you visiting us? – Yes, I am visiting you on Sunday.",
+              "focus": [
+                "uns",
+                "euch"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Kommst du mit? Ich brauche ____. (you, one friend)",
+            "options": [
+              "dich",
+              "du",
+              "dein"
+            ],
+            "answer": "dich",
+            "why": "As the object of brauchen, du becomes dich — one of the five pronouns that change."
+          }
         },
         {
           "kind": "warning",
@@ -295,14 +521,31 @@
           "examples": [
             {
               "de": "Wo ist der Schlüssel? – Ich habe ihn.",
-              "en": "Where is the key? – I have it."
+              "en": "Where is the key? – I have it.",
+              "focus": [
+                "ihn"
+              ]
             },
             {
               "de": "Wo ist die Tasche? – Ich sehe sie nicht.",
-              "en": "Where is the bag? – I don't see it."
+              "en": "Where is the bag? – I don't see it.",
+              "focus": [
+                "sie"
+              ]
             }
           ],
-          "trap": "'it' is three words in German. Reaching for es every time is the most common beginner's pronoun error."
+          "trap": "'it' is three words in German. Reaching for es every time is the most common beginner's pronoun error.",
+          "check": {
+            "q": "Wo ist der Kuli? – Ich habe ____.",
+            "options": [
+              "ihn",
+              "es",
+              "sie",
+              "er"
+            ],
+            "answer": "ihn",
+            "why": "Kuli is a der-noun, so 'it' is er — and as an object er becomes ihn."
+          }
         },
         {
           "kind": "rule",
@@ -311,13 +554,30 @@
           "examples": [
             {
               "de": "Ich kenne sie. (her / them) – Ich kenne Sie. (you, formal)",
-              "en": "I know her / them. – I know you."
+              "en": "I know her / them. – I know you.",
+              "focus": [
+                "sie",
+                "Sie"
+              ]
             },
             {
               "de": "Wo ist Anna? Ich sehe sie nicht.",
-              "en": "Where's Anna? I can't see her."
+              "en": "Where's Anna? I can't see her.",
+              "focus": [
+                "sie"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "In „Herr Braun, ich verstehe Sie nicht.“, who is Sie?",
+            "options": [
+              "you (formal)",
+              "her",
+              "them"
+            ],
+            "answer": "you (formal)",
+            "why": "A capital Sie in the middle of a sentence is the formal 'you' — here Herr Braun. Small sie would be her or them."
+          }
         },
         {
           "kind": "mnemonic",
@@ -326,13 +586,32 @@
           "examples": [
             {
               "de": "Er sieht uns. Wir sehen euch.",
-              "en": "He sees us. We see you (all)."
+              "en": "He sees us. We see you (all).",
+              "focus": [
+                "uns",
+                "euch"
+              ]
             },
             {
               "de": "Ich kenne sie. Ich kenne es. Ich kenne Sie.",
-              "en": "I know her/them. I know it. I know you (formal)."
+              "en": "I know her/them. I know it. I know you (formal).",
+              "focus": [
+                "sie",
+                "es",
+                "Sie"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir sind hier! Seht ihr ____?",
+            "options": [
+              "uns",
+              "wir",
+              "unser"
+            ],
+            "answer": "uns",
+            "why": "wir changes to uns as an object: mich, dich, ihn — uns, euch."
+          }
         }
       ],
       "remember": [
@@ -341,7 +620,13 @@
       ],
       "context": {
         "de": "Hast du meinen Schlüssel gesehen? – Ja, ich habe ihn. Er ist in meiner Tasche. – Und meine Brille? – Die habe ich auch, ich bringe sie dir. – Danke! Ich liebe dich. – Ich weiß. Und ich brauche das Auto – hast du es?",
-        "en": "Have you seen my key? – Yes, I have it. It's in my bag. – And my glasses? – I've got those too, I'll bring them to you. – Thanks! I love you. – I know. And I need the car – do you have it?"
+        "en": "Have you seen my key? – Yes, I have it. It's in my bag. – And my glasses? – I've got those too, I'll bring them to you. – Thanks! I love you. – I know. And I need the car – do you have it?",
+        "focus": [
+          "ihn",
+          "sie",
+          "dich",
+          "es"
+        ]
       },
       "mistakes": [
         {
@@ -420,6 +705,7 @@
     ],
     "title": "Negation (kein/nicht)",
     "help": {
+      "hook": "Say no the German way: kein for 'no money, no time', nicht for everything else, and put nicht in the right spot.",
       "intro": "English has one 'not' and one 'no'; German splits the job in two. kein negates a noun that would otherwise have ein or no article at all — it means 'not a', 'no', 'not any': Ich habe kein Auto, keine Zeit, keinen Hund. nicht negates everything else: a verb (Ich verstehe nicht), an adjective (Sie ist nicht müde), an adverb (nicht heute), and a noun that has a definite article or a possessive (Das ist nicht mein Auto). kein is an ein-word, so it takes the ein-endings — keinen for a masculine object. Where nicht goes is the other half: at the end of a simple sentence, but before the adjective, the adverb or the place it negates.",
       "tips": [
         {
@@ -429,13 +715,30 @@
           "examples": [
             {
               "de": "Ich habe keine Zeit. Er hat kein Geld.",
-              "en": "I have no time. He has no money."
+              "en": "I have no time. He has no money.",
+              "focus": [
+                "keine",
+                "kein"
+              ]
             },
             {
               "de": "Wir haben keine Kinder.",
-              "en": "We have no children."
+              "en": "We have no children.",
+              "focus": [
+                "keine"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "She doesn't have a bike: Sie hat ____ Fahrrad.",
+            "options": [
+              "kein",
+              "nicht ein",
+              "nicht"
+            ],
+            "answer": "kein",
+            "why": "The positive is ein Fahrrad, and an ein-noun is negated with kein, never nicht ein."
+          }
         },
         {
           "kind": "rule",
@@ -444,14 +747,30 @@
           "examples": [
             {
               "de": "Ich verstehe das nicht.",
-              "en": "I don't understand that."
+              "en": "I don't understand that.",
+              "focus": [
+                "nicht"
+              ]
             },
             {
               "de": "Der Film ist nicht gut.",
-              "en": "The film is not good."
+              "en": "The film is not good.",
+              "focus": [
+                "nicht"
+              ]
             }
           ],
-          "trap": "English 'not' covers both; German makes you decide: is there an ein-noun? Then kein, not 'nicht ein'."
+          "trap": "English 'not' covers both; German makes you decide: is there an ein-noun? Then kein, not 'nicht ein'.",
+          "check": {
+            "q": "I can't find the key: Ich finde den Schlüssel ____.",
+            "options": [
+              "nicht",
+              "kein",
+              "keinen"
+            ],
+            "answer": "nicht",
+            "why": "Schlüssel has the definite article den, so the sentence is negated with nicht."
+          }
         },
         {
           "kind": "rule",
@@ -460,13 +779,31 @@
           "examples": [
             {
               "de": "Ich esse das nicht. – Ich esse nicht gern Fisch.",
-              "en": "I don't eat that. – I don't like eating fish."
+              "en": "I don't eat that. – I don't like eating fish.",
+              "focus": [
+                "nicht",
+                "gern"
+              ]
             },
             {
               "de": "Ich wohne nicht in Berlin.",
-              "en": "I don't live in Berlin."
+              "en": "I don't live in Berlin.",
+              "focus": [
+                "nicht",
+                "in"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence is correct? (The soup isn't hot.)",
+            "options": [
+              "Die Suppe ist nicht heiß.",
+              "Die Suppe ist heiß nicht.",
+              "Die Suppe nicht ist heiß."
+            ],
+            "answer": "Die Suppe ist nicht heiß.",
+            "why": "nicht goes directly before the adjective it negates, and the verb stays in position 2."
+          }
         },
         {
           "kind": "rule",
@@ -475,13 +812,31 @@
           "examples": [
             {
               "de": "Ich habe keinen Hund, keine Katze und kein Auto.",
-              "en": "I have no dog, no cat and no car."
+              "en": "I have no dog, no cat and no car.",
+              "focus": [
+                "keinen",
+                "keine",
+                "kein"
+              ]
             },
             {
               "de": "Das ist kein Problem.",
-              "en": "That's not a problem."
+              "en": "That's not a problem.",
+              "focus": [
+                "kein"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Bruder is masculine and here it is the object: Ich habe ____ Bruder.",
+            "options": [
+              "keinen",
+              "kein",
+              "keine"
+            ],
+            "answer": "keinen",
+            "why": "kein takes the ein-endings, and a masculine object gets -en: keinen Bruder, like einen Bruder."
+          }
         }
       ],
       "remember": [
@@ -490,7 +845,13 @@
       ],
       "context": {
         "de": "Ich habe heute keine Zeit und kein Geld. Ich gehe nicht ins Kino. Der Film ist auch nicht gut. Mein Bruder kommt nicht mit – er hat keine Lust. Wir trinken keinen Kaffee, wir trinken Tee.",
-        "en": "I have no time and no money today. I'm not going to the cinema. The film isn't good either. My brother isn't coming – he doesn't feel like it. We're not drinking coffee, we're drinking tea."
+        "en": "I have no time and no money today. I'm not going to the cinema. The film isn't good either. My brother isn't coming – he doesn't feel like it. We're not drinking coffee, we're drinking tea.",
+        "focus": [
+          "keine",
+          "kein",
+          "nicht",
+          "keinen"
+        ]
       },
       "mistakes": [
         {
@@ -573,6 +934,7 @@
     ],
     "title": "Lesen: Das neue Café",
     "help": {
+      "hook": "Read a friend's e-mail about a new café and pick out what you need: when it's open, what it costs and when you'll meet.",
       "intro": "Anna writes to her friend Lena about a new café: where it is, when it is open, what it costs, what to eat — and at the end she invites Lena to go with her. A short personal e-mail like this is what friends actually send, and it usually carries the same kinds of detail: a place, days and times, a price, a recommendation and a date. The café ordering script is practised in the listening and speaking exercises; here the job is scanning. Read the e-mail once for the gist, then for each question decide whether you are hunting a place, a day, a number or a thing, and find the key word: geöffnet / geschlossen for the days, kostet for the price, Tipp for the recommendation, Möchtest du …? for the invitation.",
       "tips": [
         {
@@ -582,13 +944,31 @@
           "examples": [
             {
               "de": "Es hat von Dienstag bis Sonntag geöffnet, von neun bis achtzehn Uhr.",
-              "en": "It is open from Tuesday to Sunday, from nine to six."
+              "en": "It is open from Tuesday to Sunday, from nine to six.",
+              "focus": [
+                "von",
+                "bis",
+                "geöffnet"
+              ]
             },
             {
               "de": "Am Montag ist es geschlossen.",
-              "en": "On Monday it is closed."
+              "en": "On Monday it is closed.",
+              "focus": [
+                "geschlossen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "„Das Museum hat von Mittwoch bis Sonntag geöffnet.“ When is it closed?",
+            "options": [
+              "Montag und Dienstag",
+              "Mittwoch",
+              "Sonntag"
+            ],
+            "answer": "Montag und Dienstag",
+            "why": "von Mittwoch bis Sonntag gives the open days; the days left out — Monday and Tuesday — are the closed ones."
+          }
         },
         {
           "kind": "rule",
@@ -597,13 +977,29 @@
           "examples": [
             {
               "de": "Der Kaffee kostet nur zwei Euro fünfzig.",
-              "en": "A coffee costs only 2.50 €."
+              "en": "A coffee costs only 2.50 €.",
+              "focus": [
+                "kostet"
+              ]
             },
             {
               "de": "Mein Tipp: der Käsekuchen!",
-              "en": "My tip: the cheesecake!"
+              "en": "My tip: the cheesecake!",
+              "focus": [
+                "Tipp"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "„Die Suppe ist gut, aber mein Tipp: die Pizza. Sie kostet acht Euro.“ What does the writer recommend?",
+            "options": [
+              "die Pizza",
+              "die Suppe",
+              "acht Euro"
+            ],
+            "answer": "die Pizza",
+            "why": "The recommendation sits right after the key word Tipp: die Pizza. kostet gives the price, not the tip."
+          }
         },
         {
           "kind": "mnemonic",
@@ -612,13 +1008,31 @@
           "examples": [
             {
               "de": "Möchtest du am Samstag mit mir hingehen?",
-              "en": "Would you like to go there with me on Saturday?"
+              "en": "Would you like to go there with me on Saturday?",
+              "focus": [
+                "Möchtest",
+                "Samstag"
+              ]
             },
             {
               "de": "Um drei Uhr habe ich Zeit.",
-              "en": "I have time at three o'clock."
+              "en": "I have time at three o'clock.",
+              "focus": [
+                "drei",
+                "Zeit"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The e-mail ends: „Hast du am Freitag Zeit? Wir können um vier Uhr ins Kino gehen.“ What does the writer want?",
+            "options": [
+              "to go to the cinema with you on Friday at four",
+              "to know when the cinema opens",
+              "to cancel the plan for Friday"
+            ],
+            "answer": "to go to the cinema with you on Friday at four",
+            "why": "The closing question Hast du … Zeit? is the invitation, and the day and time come with it."
+          }
         }
       ],
       "remember": [
@@ -635,6 +1049,7 @@
     ],
     "title": "Modalverben",
     "help": {
+      "hook": "With six small verbs (können, müssen, wollen, möchten, dürfen, sollen) you can ask, offer, refuse and order politely.",
       "intro": "Modal verbs colour another verb: können (can, be able), müssen (must, have to), wollen (want to), möchten (would like to), dürfen (may, be allowed), sollen (should, be supposed to). Two things make them a system of their own. Their forms: in the singular the vowel usually changes and the ich- and er-forms are identical with no ending — ich kann, er kann; ich muss, sie muss. And their word order: the modal takes position 2 and pushes the other verb, as an infinitive, to the very end of the sentence — Ich kann heute nicht kommen. That bracket, with the sentence held between the two verbs, is the shape of half of German grammar to come, so it is worth getting right now.",
       "tips": [
         {
@@ -644,13 +1059,30 @@
           "examples": [
             {
               "de": "Ich kann schwimmen. Er kann auch schwimmen.",
-              "en": "I can swim. He can swim too."
+              "en": "I can swim. He can swim too.",
+              "focus": [
+                "kann"
+              ]
             },
             {
               "de": "Musst du arbeiten? – Ja, ich muss.",
-              "en": "Do you have to work? – Yes, I do."
+              "en": "Do you have to work? – Yes, I do.",
+              "focus": [
+                "Musst",
+                "muss"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Mein Bruder ____ gut Gitarre spielen.",
+            "options": [
+              "kann",
+              "kannt",
+              "könnt"
+            ],
+            "answer": "kann",
+            "why": "With a modal, er/sie has no ending and looks just like ich: ich kann, er kann."
+          }
         },
         {
           "kind": "rule",
@@ -659,14 +1091,33 @@
           "examples": [
             {
               "de": "Ich möchte einen Kaffee trinken.",
-              "en": "I would like to drink a coffee."
+              "en": "I would like to drink a coffee.",
+              "focus": [
+                "möchte",
+                "trinken"
+              ]
             },
             {
               "de": "Darf ich hier rauchen? – Nein, hier darf man nicht rauchen.",
-              "en": "May I smoke here? – No, you're not allowed to smoke here."
+              "en": "May I smoke here? – No, you're not allowed to smoke here.",
+              "focus": [
+                "Darf",
+                "darf",
+                "rauchen"
+              ]
             }
           ],
-          "trap": "English keeps the two verbs together (I must work); German sends the second one to the end. 'Ich muss arbeiten heute' is the tell-tale error."
+          "trap": "English keeps the two verbs together (I must work); German sends the second one to the end. 'Ich muss arbeiten heute' is the tell-tale error.",
+          "check": {
+            "q": "Which sentence is correct?",
+            "options": [
+              "Ich will heute ins Kino gehen.",
+              "Ich will gehen heute ins Kino.",
+              "Ich will heute gehen ins Kino."
+            ],
+            "answer": "Ich will heute ins Kino gehen.",
+            "why": "The modal sits in position 2 and the infinitive goes to the very end, with everything else in between."
+          }
         },
         {
           "kind": "warning",
@@ -675,13 +1126,31 @@
           "examples": [
             {
               "de": "Ich will nach Hause. Wir wollen nach Hause.",
-              "en": "I want to go home. We want to go home."
+              "en": "I want to go home. We want to go home.",
+              "focus": [
+                "will",
+                "wollen"
+              ]
             },
             {
               "de": "Ich kann gut kochen. Wir können gut kochen.",
-              "en": "I can cook well. We can cook well."
+              "en": "I can cook well. We can cook well.",
+              "focus": [
+                "kann",
+                "können"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir ____ morgen leider nicht kommen.",
+            "options": [
+              "können",
+              "kann",
+              "könnt"
+            ],
+            "answer": "können",
+            "why": "The vowel change is only in the singular. wir uses the infinitive form: wir können (könnt is for ihr)."
+          }
         },
         {
           "kind": "rule",
@@ -690,13 +1159,28 @@
           "examples": [
             {
               "de": "Ich möchte einen Tee, bitte.",
-              "en": "I'd like a tea, please."
+              "en": "I'd like a tea, please.",
+              "focus": [
+                "möchte"
+              ]
             },
             {
               "de": "Ich will nicht!",
-              "en": "I don't want to!"
+              "en": "I don't want to!",
+              "focus": [
+                "will"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You are ordering in a café. Which line is polite?",
+            "options": [
+              "Ich möchte ein Wasser, bitte.",
+              "Ich will ein Wasser."
+            ],
+            "answer": "Ich möchte ein Wasser, bitte.",
+            "why": "möchten is the polite 'would like' for ordering; wollen sounds blunt and demanding."
+          }
         }
       ],
       "remember": [
@@ -751,7 +1235,15 @@
       ],
       "context": {
         "de": "Heute muss ich lange arbeiten. Ich kann nicht ins Kino gehen. Mein Sohn will Fußball spielen, aber er soll zuerst die Hausaufgaben machen. Am Abend möchten wir zusammen essen. Darf ich dich einladen?",
-        "en": "Today I have to work late. I can't go to the cinema. My son wants to play football, but he is supposed to do his homework first. In the evening we'd like to eat together. May I invite you?"
+        "en": "Today I have to work late. I can't go to the cinema. My son wants to play football, but he is supposed to do his homework first. In the evening we'd like to eat together. May I invite you?",
+        "focus": [
+          "muss",
+          "kann",
+          "will",
+          "soll",
+          "möchten",
+          "Darf"
+        ]
       },
       "mistakes": [
         {
@@ -781,6 +1273,7 @@
     ],
     "title": "Sprechen: Alltag & Uhrzeit",
     "help": {
+      "hook": "Describe your day out loud, when you get up, eat and shop, with a clear ü and the prefix at the end.",
       "intro": "Twelve sentences that describe a day — what time it is, when you get up, eat, shop and go to bed — to listen to and repeat. Two sounds and one grammar point are being trained. The sounds: ü (früh, fünf, frühstücke) needs rounded lips — but the u in Uhr and um is a plain long or short 'oo', never ü; and ch after i (ich, nicht) is a soft hiss. The grammar: separable verbs, where the prefix is said at the end of the sentence and carries the stress — Ich stehe um sieben Uhr AUF. Say the whole sentence as one arc and land firmly on that last word; it is the part English speakers swallow. The clock words halb and Viertel are explained below and drilled properly in the Uhrzeit quiz.",
       "tips": [
         {
@@ -790,13 +1283,28 @@
           "examples": [
             {
               "de": "Ich stehe um sieben Uhr AUF.",
-              "en": "I get up at seven."
+              "en": "I get up at seven.",
+              "focus": [
+                "AUF"
+              ]
             },
             {
               "de": "Am Abend sehe ich FERN.",
-              "en": "In the evening I watch TV."
+              "en": "In the evening I watch TV.",
+              "focus": [
+                "FERN"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Where is the stress in einkaufen?",
+            "options": [
+              "EIN-kaufen",
+              "ein-KAU-fen"
+            ],
+            "answer": "EIN-kaufen",
+            "why": "A separable prefix carries the stress, which is exactly why it can split off: Ich kaufe am Samstag EIN."
+          }
         },
         {
           "kind": "mnemonic",
@@ -805,14 +1313,32 @@
           "examples": [
             {
               "de": "Ich frühstücke um acht Uhr.",
-              "en": "I have breakfast at eight."
+              "en": "I have breakfast at eight.",
+              "focus": [
+                "frühstücke",
+                "Uhr"
+              ]
             },
             {
               "de": "Um fünf Uhr kaufe ich im Supermarkt ein.",
-              "en": "At five I do the shopping at the supermarket."
+              "en": "At five I do the shopping at the supermarket.",
+              "focus": [
+                "fünf",
+                "Uhr"
+              ]
             }
           ],
-          "trap": "Don't round Uhr and um into ü — 'Ühr' is not a German word."
+          "trap": "Don't round Uhr and um into ü — 'Ühr' is not a German word.",
+          "check": {
+            "q": "'Um fünf Uhr': which word has the rounded ü sound?",
+            "options": [
+              "fünf",
+              "Um",
+              "Uhr"
+            ],
+            "answer": "fünf",
+            "why": "Only fünf has an umlaut; Um and Uhr are a plain 'oo' sound."
+          }
         },
         {
           "kind": "rule",
@@ -821,13 +1347,31 @@
           "examples": [
             {
               "de": "Es ist halb zehn.",
-              "en": "It's half past nine."
+              "en": "It's half past nine.",
+              "focus": [
+                "halb",
+                "zehn"
+              ]
             },
             {
               "de": "Es ist Viertel nach drei.",
-              "en": "It's quarter past three."
+              "en": "It's quarter past three.",
+              "focus": [
+                "Viertel",
+                "nach"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Es ist halb acht.' What time is it?",
+            "options": [
+              "7:30",
+              "8:30",
+              "8:15"
+            ],
+            "answer": "7:30",
+            "why": "halb counts towards the next hour: halb acht is half of the way to eight, so 7:30."
+          }
         }
       ],
       "remember": [
@@ -844,6 +1388,7 @@
     ],
     "title": "Uhrzeit",
     "help": {
+      "hook": "Hear halb acht and know it means 7:30 — and never turn up an hour late to a German appointment again.",
       "intro": "There are two clocks in German. The official one reads the digits and is used for timetables, appointments and anything written: vierzehn Uhr dreißig, neun Uhr fünfzehn. The colloquial one is what people actually say: Viertel nach acht (quarter past eight), Viertel vor neun (quarter to nine), fünf nach zehn — and halb, which is the one that trips English speakers, because halb drei means half *of the way to* three, i.e. 2:30, not 3:30. You will hear both every day — on the radio, at the station, from friends — and you should be able to switch: hear halb acht, write 7:30. Both are accepted in this quiz: type Viertel nach acht or acht Uhr fünfzehn for 08:15, halb drei or vierzehn Uhr dreißig for 14:30 — the reference table shows the two side by side.",
       "tips": [
         {
@@ -853,14 +1398,32 @@
           "examples": [
             {
               "de": "Der Film beginnt um halb acht.",
-              "en": "The film starts at 7:30."
+              "en": "The film starts at 7:30.",
+              "focus": [
+                "halb",
+                "acht"
+              ]
             },
             {
               "de": "Es ist halb eins.",
-              "en": "It's 12:30."
+              "en": "It's 12:30.",
+              "focus": [
+                "halb",
+                "eins"
+              ]
             }
           ],
-          "trap": "English 'half three' is 3:30. German halb drei is 2:30. This one makes people turn up an hour late."
+          "trap": "English 'half three' is 3:30. German halb drei is 2:30. This one makes people turn up an hour late.",
+          "check": {
+            "q": "Wir treffen uns um halb fünf. When do you meet?",
+            "options": [
+              "4:30",
+              "5:30",
+              "5:00"
+            ],
+            "answer": "4:30",
+            "why": "halb looks forward: halb fünf is half way to five, so 4:30."
+          }
         },
         {
           "kind": "rule",
@@ -869,13 +1432,29 @@
           "examples": [
             {
               "de": "Es ist fünf nach zehn.",
-              "en": "It's five past ten."
+              "en": "It's five past ten.",
+              "focus": [
+                "nach"
+              ]
             },
             {
               "de": "Der Bus kommt um zwanzig vor sechs.",
-              "en": "The bus comes at twenty to six."
+              "en": "The bus comes at twenty to six.",
+              "focus": [
+                "vor"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "It's 9:50. Es ist zehn ____ zehn.",
+            "options": [
+              "vor",
+              "nach",
+              "halb"
+            ],
+            "answer": "vor",
+            "why": "Ten minutes before ten is zehn vor zehn — vor means 'to'. zehn nach zehn would be 10:10."
+          }
         },
         {
           "kind": "rule",
@@ -884,13 +1463,33 @@
           "examples": [
             {
               "de": "Der Zug fährt um sechzehn Uhr fünfundvierzig.",
-              "en": "The train leaves at 16:45."
+              "en": "The train leaves at 16:45.",
+              "focus": [
+                "sechzehn",
+                "Uhr",
+                "fünfundvierzig"
+              ]
             },
             {
               "de": "Der Kurs beginnt um achtzehn Uhr fünfzehn.",
-              "en": "The course starts at 18:15."
+              "en": "The course starts at 18:15.",
+              "focus": [
+                "achtzehn",
+                "Uhr",
+                "fünfzehn"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Your ticket says 19:40. Der Zug fährt um ____.",
+            "options": [
+              "neunzehn Uhr vierzig",
+              "neun Uhr vierzig",
+              "vierzig Uhr neunzehn"
+            ],
+            "answer": "neunzehn Uhr vierzig",
+            "why": "The official clock reads the digits in order on a 24-hour scale: hour, Uhr, minutes."
+          }
         },
         {
           "kind": "rule",
@@ -899,13 +1498,31 @@
           "examples": [
             {
               "de": "Wann kommst du? – Um Viertel nach sieben.",
-              "en": "When are you coming? – At quarter past seven."
+              "en": "When are you coming? – At quarter past seven.",
+              "focus": [
+                "Um"
+              ]
             },
             {
               "de": "Wie viel Uhr ist es? – Es ist halb drei.",
-              "en": "What time is it? – It's half past two."
+              "en": "What time is it? – It's half past two.",
+              "focus": [
+                "Wie",
+                "viel",
+                "Uhr"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wann beginnt die Party? – ____ neun Uhr.",
+            "options": [
+              "Um",
+              "An",
+              "Am"
+            ],
+            "answer": "Um",
+            "why": "'At' a clock time is always um in German: um neun Uhr."
+          }
         }
       ],
       "remember": [
@@ -969,7 +1586,13 @@
       ],
       "context": {
         "de": "Wie spät ist es? – Es ist Viertel nach sieben. Der Bus kommt um halb acht, also in fünfzehn Minuten. – Und wann beginnt der Kurs? – Um acht Uhr fünfzehn, offiziell. Also Viertel nach acht. – Dann haben wir Zeit für einen Kaffee.",
-        "en": "What time is it? – It's quarter past seven. The bus comes at 7:30, so in fifteen minutes. – And when does the course start? – At 8:15, officially. So quarter past eight. – Then we have time for a coffee."
+        "en": "What time is it? – It's quarter past seven. The bus comes at 7:30, so in fifteen minutes. – And when does the course start? – At 8:15, officially. So quarter past eight. – Then we have time for a coffee.",
+        "focus": [
+          "Viertel",
+          "nach",
+          "halb",
+          "Uhr"
+        ]
       },
       "mistakes": [
         {
@@ -999,6 +1622,7 @@
     ],
     "title": "Kurzcheck: Akkusativ & Possessiv",
     "help": {
+      "hook": "Talk for three minutes about what you have, what you need and whose it is — einen Stift, meinen Schlüssel, meine Tasche.",
       "intro": "A three-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: what you have, what you need today, and whose things they are. Copy the exercise in, switch on voice, say 'Los geht's'. The tutor listens for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the score is on the article and the ending, which only show up in a sentence.",
       "tips": [
         {
@@ -1008,13 +1632,31 @@
           "examples": [
             {
               "de": "Was brauchst du? – Ich brauche einen Kaffee und meinen Schlüssel.",
-              "en": "What do you need? – I need a coffee and my key."
+              "en": "What do you need? – I need a coffee and my key.",
+              "focus": [
+                "einen",
+                "meinen"
+              ]
             },
             {
               "de": "Hast du einen Bruder? – Nein, ich habe keinen Bruder.",
-              "en": "Do you have a brother? – No, I don't have a brother."
+              "en": "Do you have a brother? – No, I don't have a brother.",
+              "focus": [
+                "einen",
+                "keinen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Was brauchst du heute? – Ich brauche ____ Regenschirm. (der Regenschirm)",
+            "options": [
+              "einen",
+              "ein",
+              "eine"
+            ],
+            "answer": "einen",
+            "why": "brauchen takes the accusative, and a masculine object gets -en: einen Regenschirm."
+          }
         },
         {
           "kind": "rule",
@@ -1023,13 +1665,30 @@
           "examples": [
             {
               "de": "Das ist mein Auto, und das ist meine Wohnung.",
-              "en": "That's my car, and that's my flat."
+              "en": "That's my car, and that's my flat.",
+              "focus": [
+                "mein",
+                "meine"
+              ]
             },
             {
               "de": "Ich suche meinen Schlüssel.",
-              "en": "I'm looking for my key."
+              "en": "I'm looking for my key.",
+              "focus": [
+                "meinen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wessen Jacke ist das? (die Jacke) – Das ist ____ Jacke.",
+            "options": [
+              "meine",
+              "mein",
+              "meinen"
+            ],
+            "answer": "meine",
+            "why": "Jacke is feminine, so the possessive takes -e: meine Jacke."
+          }
         }
       ],
       "remember": [
@@ -1046,6 +1705,7 @@
     ],
     "title": "Wochentage & Monate",
     "help": {
+      "hook": "Name any day, month or date in German, and say exactly when your birthday, appointment or holiday is.",
       "intro": "Days, months and seasons are all masculine — der Montag, der Januar, der Sommer — and all written with a capital letter, because they are nouns. Two small prepositions do most of the work: am for a day or part of a day (am Montag, am Morgen, am Wochenende) and im for a month or season (im Mai, im Winter). The date itself is said with an ordinal number and der: der erste März, der zwölfte April; and 'on' a date is am + -en: am ersten März. The four seasons and the four parts of the day complete the calendar: with them you can name any appointment, birthday or holiday. The last six items practise exactly that: der dritte Mai, but am zwölften Juni — after am the ordinal takes -en.",
       "tips": [
         {
@@ -1055,13 +1715,30 @@
           "examples": [
             {
               "de": "Der Montag ist mein freier Tag.",
-              "en": "Monday is my day off."
+              "en": "Monday is my day off.",
+              "focus": [
+                "Der"
+              ]
             },
             {
               "de": "Der Sommer ist schön, aber die Nacht ist kalt.",
-              "en": "The summer is nice, but the night is cold."
+              "en": "The summer is nice, but the night is cold.",
+              "focus": [
+                "Der",
+                "die"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Dezember ist sehr kalt.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "Every month is masculine, so it's der Dezember — just like der Januar and der Mai."
+          }
         },
         {
           "kind": "rule",
@@ -1070,13 +1747,29 @@
           "examples": [
             {
               "de": "Am Freitag gehen wir ins Kino.",
-              "en": "On Friday we're going to the cinema."
+              "en": "On Friday we're going to the cinema.",
+              "focus": [
+                "Am"
+              ]
             },
             {
               "de": "Im Winter fahre ich Ski.",
-              "en": "In winter I go skiing."
+              "en": "In winter I go skiing.",
+              "focus": [
+                "Im"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir fahren ____ Juli nach Italien.",
+            "options": [
+              "im",
+              "am",
+              "in"
+            ],
+            "answer": "im",
+            "why": "Months and seasons take im (in dem): im Juli, im Sommer. am is for days."
+          }
         },
         {
           "kind": "rule",
@@ -1085,13 +1778,29 @@
           "examples": [
             {
               "de": "Heute ist der dritte Oktober.",
-              "en": "Today is the third of October."
+              "en": "Today is the third of October.",
+              "focus": [
+                "dritte"
+              ]
             },
             {
               "de": "Ich habe am zwölften Juni Geburtstag.",
-              "en": "My birthday is on the twelfth of June."
+              "en": "My birthday is on the twelfth of June.",
+              "focus": [
+                "zwölften"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Heute ist der ____ Mai. (the 1st)",
+            "options": [
+              "erste",
+              "eins",
+              "ersten"
+            ],
+            "answer": "erste",
+            "why": "Dates use ordinals, and the 1st is irregular: der erste. The -en ending only comes after am (am ersten Mai)."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1100,13 +1809,30 @@
           "examples": [
             {
               "de": "Montags spiele ich Tennis.",
-              "en": "On Mondays I play tennis."
+              "en": "On Mondays I play tennis.",
+              "focus": [
+                "Montags"
+              ]
             },
             {
               "de": "Morgens trinke ich Kaffee, abends Tee.",
-              "en": "In the mornings I drink coffee, in the evenings tea."
+              "en": "In the mornings I drink coffee, in the evenings tea.",
+              "focus": [
+                "Morgens",
+                "abends"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Every Sunday we visit Oma: ____ besuchen wir Oma.",
+            "options": [
+              "Sonntags",
+              "Im Sonntag",
+              "Der Sonntag"
+            ],
+            "answer": "Sonntags",
+            "why": "A habit takes the -s form: sonntags means 'on Sundays', every week. It's capitalised here only because it starts the sentence."
+          }
         }
       ],
       "remember": [
@@ -1182,7 +1908,15 @@
       ],
       "context": {
         "de": "Mein Geburtstag ist am achten August, im Sommer. Am Montag arbeite ich, aber am Wochenende habe ich frei. Im Winter fahre ich nach Österreich. Und montags gehe ich immer schwimmen, am Abend.",
-        "en": "My birthday is on the eighth of August, in summer. On Monday I work, but at the weekend I'm free. In winter I go to Austria. And on Mondays I always go swimming, in the evening."
+        "en": "My birthday is on the eighth of August, in summer. On Monday I work, but at the weekend I'm free. In winter I go to Austria. And on Mondays I always go swimming, in the evening.",
+        "focus": [
+          "am",
+          "achten",
+          "im",
+          "Am",
+          "Im",
+          "montags"
+        ]
       },
       "mistakes": [
         {
@@ -1217,6 +1951,7 @@
     ],
     "title": "Wann? — Zeitangaben",
     "help": {
+      "hook": "Say exactly when things happen, at eight, on Monday, in March, from tomorrow, with the little word each time needs.",
       "intro": "Saying when is something you do in almost every conversation, and it hangs on a handful of prepositions that each own a kind of time: um for clock times (um acht Uhr), am for days and parts of the day (am Montag, am Morgen, am Wochenende), im for months and seasons (im März, im Sommer), and in der Nacht as the one exception. For spans and points around them: von … bis (from … to), ab (from … on), für (for a length of time — often left out: zwei Wochen), nach (after), vor (before), and in for the future (in einer Woche = in a week’s time). Years stand alone: Ich bin 1995 geboren, with no preposition. Each item gives you the time word in brackets; type the whole time phrase, preposition included.",
       "tips": [
         {
@@ -1226,13 +1961,33 @@
           "examples": [
             {
               "de": "Um acht Uhr, am Montag, im Januar.",
-              "en": "At eight, on Monday, in January."
+              "en": "At eight, on Monday, in January.",
+              "focus": [
+                "Um",
+                "am",
+                "im"
+              ]
             },
             {
               "de": "Am Abend, am Wochenende, im Winter.",
-              "en": "In the evening, at the weekend, in winter."
+              "en": "In the evening, at the weekend, in winter.",
+              "focus": [
+                "Am",
+                "am",
+                "im"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The course starts on Tuesday: Der Kurs beginnt ____ Dienstag.",
+            "options": [
+              "am",
+              "um",
+              "im"
+            ],
+            "answer": "am",
+            "why": "Days of the week take am; um is for clock times and im for months and seasons."
+          }
         },
         {
           "kind": "rule",
@@ -1241,13 +1996,31 @@
           "examples": [
             {
               "de": "Ich arbeite von Montag bis Freitag.",
-              "en": "I work Monday to Friday."
+              "en": "I work Monday to Friday.",
+              "focus": [
+                "von",
+                "bis"
+              ]
             },
             {
               "de": "Ab morgen habe ich Urlaub – für zwei Wochen.",
-              "en": "From tomorrow I'm on holiday – for two weeks."
+              "en": "From tomorrow I'm on holiday – for two weeks.",
+              "focus": [
+                "Ab",
+                "für"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "From tomorrow on I'm drinking no more coffee: ____ morgen trinke ich keinen Kaffee mehr.",
+            "options": [
+              "Ab",
+              "Für",
+              "Um"
+            ],
+            "answer": "Ab",
+            "why": "ab marks the point from which something starts and continues: ab morgen = from tomorrow on."
+          }
         },
         {
           "kind": "rule",
@@ -1256,14 +2029,32 @@
           "examples": [
             {
               "de": "Nach dem Essen gehen wir spazieren.",
-              "en": "After the meal we go for a walk."
+              "en": "After the meal we go for a walk.",
+              "focus": [
+                "Nach",
+                "dem"
+              ]
             },
             {
               "de": "In einer Woche bin ich in Rom.",
-              "en": "In a week I'll be in Rome."
+              "en": "In a week I'll be in Rome.",
+              "focus": [
+                "In",
+                "einer"
+              ]
             }
           ],
-          "trap": "English 'in the' never changes; German 'in dem' becomes im, 'in der Nacht' keeps der. The article after a preposition is a case ending, and you will learn the system later in the course."
+          "trap": "English 'in the' never changes; German 'in dem' becomes im, 'in der Nacht' keeps der. The article after a preposition is a case ending, and you will learn the system later in the course.",
+          "check": {
+            "q": "After breakfast I read the paper: ____ dem Frühstück lese ich die Zeitung.",
+            "options": [
+              "Nach",
+              "Vor",
+              "Um"
+            ],
+            "answer": "Nach",
+            "why": "nach means after: nach dem Frühstück. vor would mean before, and um is only for clock times."
+          }
         },
         {
           "kind": "warning",
@@ -1272,13 +2063,29 @@
           "examples": [
             {
               "de": "Sie ist 2001 geboren.",
-              "en": "She was born in 2001."
+              "en": "She was born in 2001.",
+              "focus": [
+                "2001"
+              ]
             },
             {
               "de": "Ich bin 1995 geboren.",
-              "en": "I was born in 1995."
+              "en": "I was born in 1995.",
+              "focus": [
+                "1995"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "My father was born in 1970: Mein Vater ist ____ geboren.",
+            "options": [
+              "1970",
+              "in 1970",
+              "am 1970"
+            ],
+            "answer": "1970",
+            "why": "Years stand alone in German, with no preposition (or im Jahr 1970)."
+          }
         }
       ],
       "remember": [
@@ -1287,7 +2094,19 @@
       ],
       "context": {
         "de": "Ich arbeite von Montag bis Freitag, von neun bis fünf. Am Wochenende schlafe ich lange. Im August habe ich Urlaub – ab dem ersten August, für drei Wochen. Nach dem Urlaub, im September, fängt der Deutschkurs an, immer am Abend um sieben.",
-        "en": "I work Monday to Friday, nine to five. At the weekend I sleep in. In August I'm on holiday – from the first of August, for three weeks. After the holiday, in September, the German course starts, always in the evening at seven."
+        "en": "I work Monday to Friday, nine to five. At the weekend I sleep in. In August I'm on holiday – from the first of August, for three weeks. After the holiday, in September, the German course starts, always in the evening at seven.",
+        "focus": [
+          "von",
+          "bis",
+          "Am",
+          "Im",
+          "ab",
+          "für",
+          "Nach",
+          "im",
+          "am",
+          "um"
+        ]
       },
       "mistakes": [
         {
@@ -1318,6 +2137,7 @@
     ],
     "title": "Diktat: Mein Tag",
     "help": {
+      "hook": "Hear a sentence about someone's day and write it down whole, with the split verb's prefix exactly where it belongs.",
       "intro": "A dictation built from one person's day, from getting up to going to bed: the separable verbs, the clock and the shopping phrases of this level. Hear the sentence, hold it whole, type it. The listening skill here is the split verb — Ich stehe um sieben Uhr auf — where the auf arrives at the very end and belongs to the verb at the start; write it where you hear it. Times are the other trap: halb acht is 7:30 and is written as two words. Umlauts and ß are checked leniently (Aepfel, fruehstuecke pass) but every word must be there and in the right form.",
       "tips": [
         {
@@ -1327,13 +2147,31 @@
           "examples": [
             {
               "de": "Ich stehe um sieben Uhr auf.",
-              "en": "I get up at seven."
+              "en": "I get up at seven.",
+              "focus": [
+                "stehe",
+                "auf"
+              ]
             },
             {
               "de": "Am Abend sehe ich fern.",
-              "en": "In the evening I watch TV."
+              "en": "In the evening I watch TV.",
+              "focus": [
+                "sehe",
+                "fern"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear: 'Ich kaufe am Samstag im Supermarkt ein.' Which is written correctly?",
+            "options": [
+              "Ich kaufe am Samstag im Supermarkt ein.",
+              "Ich einkaufe am Samstag im Supermarkt.",
+              "Ich kaufe ein am Samstag im Supermarkt."
+            ],
+            "answer": "Ich kaufe am Samstag im Supermarkt ein.",
+            "why": "The prefix of a separable verb goes to the very end of the sentence — write ein last, where you hear it."
+          }
         },
         {
           "kind": "warning",
@@ -1342,13 +2180,31 @@
           "examples": [
             {
               "de": "Um halb acht frühstücke ich.",
-              "en": "At half past seven I have breakfast."
+              "en": "At half past seven I have breakfast.",
+              "focus": [
+                "halb",
+                "acht"
+              ]
             },
             {
               "de": "Wir essen um halb sieben.",
-              "en": "We eat at half past six."
+              "en": "We eat at half past six.",
+              "focus": [
+                "halb",
+                "sieben"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear 'halb neun'. Which is right?",
+            "options": [
+              "halb neun = 8:30",
+              "halb neun = 9:30",
+              "halbneun = 8:30"
+            ],
+            "answer": "halb neun = 8:30",
+            "why": "halb neun is half way to nine, so 8:30 — and it is written as two words."
+          }
         },
         {
           "kind": "rule",
@@ -1357,13 +2213,29 @@
           "examples": [
             {
               "de": "Ich trinke einen Tee und esse ein Brötchen.",
-              "en": "I drink a tea and eat a roll."
+              "en": "I drink a tea and eat a roll.",
+              "focus": [
+                "einen"
+              ]
             },
             {
               "de": "Um fünf Uhr hole ich meinen Bruder ab.",
-              "en": "At five I pick up my brother."
+              "en": "At five I pick up my brother.",
+              "focus": [
+                "meinen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear: 'Ich esse ei-nen Apfel.' Which is correct?",
+            "options": [
+              "Ich esse einen Apfel.",
+              "Ich esse ein Apfel.",
+              "Ich esse eine Apfel."
+            ],
+            "answer": "Ich esse einen Apfel.",
+            "why": "Two syllables, ei-nen: Apfel is masculine, and as the object it takes einen."
+          }
         }
       ],
       "remember": [
@@ -1381,6 +2253,7 @@
     ],
     "title": "Hören: Termine & Uhrzeit",
     "help": {
+      "hook": "A friend's voicemail changes your evening plans — catch the day, the time and the meeting place the first time you hear it.",
       "intro": "Anna leaves Tom a voicemail about tomorrow: the day, two times, a meeting place, a price and two instructions. You only hear it, and the questions ask for the details — exactly what you need when a friend changes plans by voicemail. Three things to catch: the day (am Samstag), the times (the film at halb acht = 7:30, the meeting at sieben Uhr = 7:00 — two different times, and two different questions), and the place with its preposition (vor dem Kino = outside the cinema, not inside). Listen once for the shape, then once per question; write times as digits the moment you hear them.",
       "tips": [
         {
@@ -1390,14 +2263,32 @@
           "examples": [
             {
               "de": "Der Film im Kino beginnt um halb acht.",
-              "en": "The film at the cinema starts at 7:30."
+              "en": "The film at the cinema starts at 7:30.",
+              "focus": [
+                "halb",
+                "acht"
+              ]
             },
             {
               "de": "Komm bitte schon um sieben Uhr.",
-              "en": "Please come at seven o'clock."
+              "en": "Please come at seven o'clock.",
+              "focus": [
+                "sieben",
+                "Uhr"
+              ]
             }
           ],
-          "trap": "'halb acht' heard as 8:30 gives the wrong answer. Subtract."
+          "trap": "'halb acht' heard as 8:30 gives the wrong answer. Subtract.",
+          "check": {
+            "q": "You hear: „Wir essen um halb sieben.“ When do you eat?",
+            "options": [
+              "6:30",
+              "7:30",
+              "6:00"
+            ],
+            "answer": "6:30",
+            "why": "halb sieben means half way to seven: 6:30. Subtract half an hour from the number you hear."
+          }
         },
         {
           "kind": "rule",
@@ -1406,13 +2297,30 @@
           "examples": [
             {
               "de": "Wir treffen uns direkt vor dem Kino, nicht im Restaurant.",
-              "en": "We'll meet right in front of the cinema, not in the restaurant."
+              "en": "We'll meet right in front of the cinema, not in the restaurant.",
+              "focus": [
+                "vor",
+                "im"
+              ]
             },
             {
               "de": "Der Film im Kino beginnt um halb acht.",
-              "en": "The film at the cinema starts at half past seven."
+              "en": "The film at the cinema starts at half past seven.",
+              "focus": [
+                "im"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You hear: „Ich warte vor der Bäckerei.“ Where is she waiting?",
+            "options": [
+              "outside the bakery",
+              "inside the bakery",
+              "behind the bakery"
+            ],
+            "answer": "outside the bakery",
+            "why": "vor means in front of — outside. Inside would be in der Bäckerei."
+          }
         },
         {
           "kind": "rule",
@@ -1421,13 +2329,31 @@
           "examples": [
             {
               "de": "Bring bitte Geld mit!",
-              "en": "Please bring money!"
+              "en": "Please bring money!",
+              "focus": [
+                "Bring",
+                "mit"
+              ]
             },
             {
               "de": "Mein Handy ist an – ruf mich bitte an!",
-              "en": "My phone is on – please call me!"
+              "en": "My phone is on – please call me!",
+              "focus": [
+                "ruf",
+                "an"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The voicemail ends: „… Und ruf bitte Paul an!“ What should you do?",
+            "options": [
+              "call Paul",
+              "wait for Paul's call",
+              "bring Paul along"
+            ],
+            "answer": "call Paul",
+            "why": "ruf … an is the du-imperative of anrufen: the speaker asks you to call Paul."
+          }
         }
       ],
       "remember": [
@@ -1445,6 +2371,7 @@
     ],
     "title": "Hören: Durchsage am Bahnhof",
     "help": {
+      "hook": "Catch the platform, the time and the delay in a station announcement, so you get on the right train.",
       "intro": "A station announcement — the public message you must understand to catch the right train: a platform number, a time and a destination. Announcements are formulaic, which is your advantage: Achtung, eine Durchsage (attention, an announcement), Der Zug nach … fährt von Gleis … ab, Abfahrt um …, … Minuten Verspätung (delay), Bitte einsteigen (please board), … fällt aus (is cancelled). Know the formula and you know where each number will fall. The tricky parts are real ones: a corrected platform (fünf, nicht drei — the number before nicht is the true one), a delay that moves the departure time, a second train with its own time and platform, and a cancelled train. Write every number as you hear it.",
       "tips": [
         {
@@ -1454,13 +2381,31 @@
           "examples": [
             {
               "de": "Der Zug nach München fährt heute von Gleis fünf ab, nicht von Gleis drei.",
-              "en": "The train to Munich departs today from platform five, not from platform three."
+              "en": "The train to Munich departs today from platform five, not from platform three.",
+              "focus": [
+                "Gleis",
+                "fünf"
+              ]
             },
             {
               "de": "Der Zug hat leider zehn Minuten Verspätung.",
-              "en": "Unfortunately the train is ten minutes late."
+              "en": "Unfortunately the train is ten minutes late.",
+              "focus": [
+                "zehn",
+                "Verspätung"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Der Zug nach Bonn hat zwanzig Minuten Verspätung.' What does zwanzig tell you?",
+            "options": [
+              "The delay in minutes",
+              "The platform",
+              "The departure time"
+            ],
+            "answer": "The delay in minutes",
+            "why": "The number sits right before Minuten Verspätung, so it is the delay."
+          }
         },
         {
           "kind": "warning",
@@ -1469,13 +2414,31 @@
           "examples": [
             {
               "de": "Gleis fünf, nicht Gleis drei: fünf is right.",
-              "en": "Platform five, not platform three: five is the answer."
+              "en": "Platform five, not platform three: five is the answer.",
+              "focus": [
+                "fünf",
+                "nicht"
+              ]
             },
             {
               "de": "Die neue Abfahrtszeit ist also vierzehn Uhr dreißig.",
-              "en": "So the new departure time is 14:30."
+              "en": "So the new departure time is 14:30.",
+              "focus": [
+                "neue",
+                "also"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Der Zug fährt heute von Gleis sieben ab, nicht von Gleis zwei.' Which platform do you go to?",
+            "options": [
+              "7",
+              "2",
+              "9"
+            ],
+            "answer": "7",
+            "why": "The number before nicht is the correct one; the one after it is the old, wrong platform."
+          }
         },
         {
           "kind": "rule",
@@ -1484,13 +2447,31 @@
           "examples": [
             {
               "de": "Abfahrt ist um vierzehn Uhr zwanzig.",
-              "en": "Departure is at 14:20."
+              "en": "Departure is at 14:20.",
+              "focus": [
+                "vierzehn",
+                "zwanzig"
+              ]
             },
             {
               "de": "Der nächste Zug nach Hamburg fährt um fünfzehn Uhr von Gleis eins.",
-              "en": "The next train to Hamburg leaves at 15:00 from platform one."
+              "en": "The next train to Hamburg leaves at 15:00 from platform one.",
+              "focus": [
+                "fünfzehn",
+                "Uhr"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Abfahrt um sechzehn Uhr fünfzehn.' When does the train leave?",
+            "options": [
+              "16:15",
+              "15:16",
+              "6:15"
+            ],
+            "answer": "16:15",
+            "why": "Announcements use the 24-hour clock: the hour comes before Uhr, the minutes after it."
+          }
         }
       ],
       "remember": [
@@ -1507,6 +2488,7 @@
     ],
     "title": "Akkusativpräpositionen",
     "help": {
+      "hook": "Learn five little words (durch, für, gegen, ohne, um) and you'll know exactly which article follows them, every time.",
       "intro": "Five prepositions always take the accusative, whatever the sentence: durch (through), für (for), gegen (against), ohne (without), um (around; at a time). After them the article shifts to its accusative form — which, as ever, only shows on the masculine: für den Mann, durch den Park, ohne den Schlüssel; feminine and neuter look unchanged: für die Frau, für das Kind. This is the first time a preposition, rather than a verb, decides the case — a pattern that will grow later in the course (dative prepositions, then the two-way ones). Learn these five as a chant; there are no exceptions. Most items ask for the article; five ask for the preposition itself, from its English meaning.",
       "tips": [
         {
@@ -1516,13 +2498,32 @@
           "examples": [
             {
               "de": "durch den Park, für den Mann, gegen die Wand, ohne das Auto, um den Tisch",
-              "en": "through the park, for the man, against the wall, without the car, around the table"
+              "en": "through the park, for the man, against the wall, without the car, around the table",
+              "focus": [
+                "durch",
+                "für",
+                "ohne"
+              ]
             },
             {
               "de": "Der Bus fährt durch das Dorf.",
-              "en": "The bus drives through the village."
+              "en": "The bus drives through the village.",
+              "focus": [
+                "durch",
+                "das"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which preposition always takes the accusative?",
+            "options": [
+              "ohne",
+              "mit",
+              "aus"
+            ],
+            "answer": "ohne",
+            "why": "ohne is one of the five: durch, für, gegen, ohne, um. mit and aus take a different case."
+          }
         },
         {
           "kind": "rule",
@@ -1531,14 +2532,32 @@
           "examples": [
             {
               "de": "Das Geschenk ist für den Vater. Die Blumen sind für die Mutter.",
-              "en": "The present is for the father. The flowers are for the mother."
+              "en": "The present is for the father. The flowers are for the mother.",
+              "focus": [
+                "den",
+                "die"
+              ]
             },
             {
               "de": "Ohne den Schlüssel komme ich nicht rein.",
-              "en": "Without the key I can't get in."
+              "en": "Without the key I can't get in.",
+              "focus": [
+                "Ohne",
+                "den"
+              ]
             }
           ],
-          "trap": "English 'for the' never changes. In German the preposition reaches over and bends the article."
+          "trap": "English 'for the' never changes. In German the preposition reaches over and bends the article.",
+          "check": {
+            "q": "Ich kaufe Blumen für ____ Freund. (der Freund)",
+            "options": [
+              "meinen",
+              "mein",
+              "meinem"
+            ],
+            "answer": "meinen",
+            "why": "für takes the accusative, and Freund is masculine, so mein becomes meinen."
+          }
         },
         {
           "kind": "rule",
@@ -1547,13 +2566,29 @@
           "examples": [
             {
               "de": "Wir laufen ums Haus.",
-              "en": "We run around the house."
+              "en": "We run around the house.",
+              "focus": [
+                "ums"
+              ]
             },
             {
               "de": "Das Geschenk ist fürs Kind.",
-              "en": "The present is for the child."
+              "en": "The present is for the child.",
+              "focus": [
+                "fürs"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Das Spielzeug ist ____ Baby. (das Baby)",
+            "options": [
+              "fürs",
+              "für",
+              "für den"
+            ],
+            "answer": "fürs",
+            "why": "für + das melts into fürs. für alone is missing the article, and den is wrong for a das-word."
+          }
         },
         {
           "kind": "rule",
@@ -1562,13 +2597,30 @@
           "examples": [
             {
               "de": "Um sieben Uhr laufen wir um den See.",
-              "en": "At seven we run around the lake."
+              "en": "At seven we run around the lake.",
+              "focus": [
+                "Um",
+                "um"
+              ]
             },
             {
               "de": "Wir sitzen um den Tisch.",
-              "en": "We sit around the table."
+              "en": "We sit around the table.",
+              "focus": [
+                "um"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Der Film beginnt ____ acht Uhr.",
+            "options": [
+              "um",
+              "am",
+              "im"
+            ],
+            "answer": "um",
+            "why": "For a clock time German uses um: um acht Uhr, with no article."
+          }
         }
       ],
       "remember": [
@@ -1577,7 +2629,14 @@
       ],
       "context": {
         "de": "Ich kaufe ein Geschenk für meinen Bruder. Wir gehen durch den Park und dann um den See. Ohne den Hund geht er nie spazieren. Gegen sechs Uhr sind wir zurück – hoffentlich ohne Regen!",
-        "en": "I'm buying a present for my brother. We walk through the park and then around the lake. He never goes for a walk without the dog. Around six we're back – hopefully without rain!"
+        "en": "I'm buying a present for my brother. We walk through the park and then around the lake. He never goes for a walk without the dog. Around six we're back – hopefully without rain!",
+        "focus": [
+          "für",
+          "meinen",
+          "durch",
+          "um",
+          "Ohne"
+        ]
       },
       "mistakes": [
         {
@@ -1673,6 +2732,7 @@
     ],
     "title": "Großer Text: Mein Tag",
     "help": {
+      "hook": "Follow one ordinary day in German and fill in the small forms that hold it together: einen Kaffee, stehe … auf, muss einkaufen.",
       "intro": "One whole day, twelve gaps, everything from this module at once: the accusative (einen Kaffee, den Bus), kein and keine, modal verbs with their infinitive at the end, and separable verbs with the prefix already waiting at the end of the sentence. Each gap has a hint — the verb and the person (aufstehen · ich) or the meaning and the noun (a (der Kaffee)) — and the job is to decide the form. Read the whole text first, because the end of a sentence (… auf, … an, … fern, … einkaufen) tells you what kind of verb the gap holds. This is the kind of text you will soon write yourself — a message, a diary entry, an answer to 'Wie war dein Tag?' — seen from the inside.",
       "tips": [
         {
@@ -1682,13 +2742,31 @@
           "examples": [
             {
               "de": "Im Supermarkt kaufe ich ein Brot, eine Banane und einen Apfel.",
-              "en": "In the supermarket I buy a loaf, a banana and an apple."
+              "en": "In the supermarket I buy a loaf, a banana and an apple.",
+              "focus": [
+                "ein",
+                "eine",
+                "einen"
+              ]
             },
             {
               "de": "Um acht Uhr nehme ich den Bus zur Arbeit, denn ich habe kein Auto.",
-              "en": "At eight I take the bus to work, because I don't have a car."
+              "en": "At eight I take the bus to work, because I don't have a car.",
+              "focus": [
+                "den"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Zum Frühstück esse ich ____ Ei. (das Ei)",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "ein",
+            "why": "Ei is neuter, and only masculine nouns change in the accusative, so it stays ein."
+          }
         },
         {
           "kind": "rule",
@@ -1697,14 +2775,32 @@
           "examples": [
             {
               "de": "Ich stehe um sieben Uhr auf. Am Abend sehe ich fern.",
-              "en": "I get up at seven. In the evening I watch TV."
+              "en": "I get up at seven. In the evening I watch TV.",
+              "focus": [
+                "stehe",
+                "auf"
+              ]
             },
             {
               "de": "Dann rufe ich meine Schwester an.",
-              "en": "Then I call my sister."
+              "en": "Then I call my sister.",
+              "focus": [
+                "rufe",
+                "an"
+              ]
             }
           ],
-          "trap": "typing 'aufstehe' into the gap doubles the prefix. The two halves live at opposite ends."
+          "trap": "typing 'aufstehe' into the gap doubles the prefix. The two halves live at opposite ends.",
+          "check": {
+            "q": "Am Morgen ____ ich das Fenster auf. (aufmachen · ich)",
+            "options": [
+              "mache",
+              "aufmache",
+              "mache auf"
+            ],
+            "answer": "mache",
+            "why": "The auf is already at the end of the sentence, so the gap takes only the conjugated stem: mache."
+          }
         },
         {
           "kind": "rule",
@@ -1713,13 +2809,31 @@
           "examples": [
             {
               "de": "Am Nachmittag muss ich einkaufen.",
-              "en": "In the afternoon I have to go shopping."
+              "en": "In the afternoon I have to go shopping.",
+              "focus": [
+                "muss",
+                "einkaufen"
+              ]
             },
             {
               "de": "Ich will einen Film sehen, aber ich bin sehr müde.",
-              "en": "I want to watch a film, but I am very tired."
+              "en": "I want to watch a film, but I am very tired.",
+              "focus": [
+                "will",
+                "sehen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Heute ____ ich lange arbeiten. (I have to work late today.)",
+            "options": [
+              "muss",
+              "arbeite",
+              "habe"
+            ],
+            "answer": "muss",
+            "why": "The infinitive arbeiten at the end means the gap is a modal, and 'have to' is müssen: ich muss."
+          }
         },
         {
           "kind": "warning",
@@ -1728,13 +2842,29 @@
           "examples": [
             {
               "de": "Um acht Uhr nehme ich den Bus zur Arbeit, denn ich habe kein Auto.",
-              "en": "At eight I take the bus to work, because I don't have a car."
+              "en": "At eight I take the bus to work, because I don't have a car.",
+              "focus": [
+                "kein"
+              ]
             },
             {
               "de": "Ich brauche auch Milch, aber ich finde keine Milch.",
-              "en": "I need milk too, but I can't find any milk."
+              "en": "I need milk too, but I can't find any milk.",
+              "focus": [
+                "keine"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich trinke Tee, denn ich habe ____ Kaffee. (der Kaffee — Ich habe Kaffee.)",
+            "options": [
+              "keinen",
+              "nicht",
+              "kein"
+            ],
+            "answer": "keinen",
+            "why": "Kaffee here has no article, so it is negated with kein; as a masculine object it becomes keinen."
+          }
         }
       ],
       "remember": [
@@ -1751,6 +2881,7 @@
     ],
     "title": "Trennbare Verben",
     "help": {
+      "hook": "Get up, go shopping, call your mother, watch TV: the verbs of an ordinary day split in two, and the prefix waits at the end.",
       "intro": "Many everyday verbs are two pieces glued together — auf+stehen, ein+kaufen, an+rufen, fern+sehen — and in a normal sentence the glue comes off: the verb part takes position 2 and conjugates, the prefix flies to the very end. Ich stehe um sieben Uhr auf. Wann rufst du mich an? The prefix carries the stress (AUFstehen), which is how you can hear that a verb is separable. The separable prefixes are the ones that are also words on their own — auf, ab, an, aus, ein, mit, vor, zu, zurück, fern — and in the dictionary the verb is listed as one word, so learning to spot them is the skill. With a modal the pieces reunite at the end: Ich muss um sieben aufstehen.",
       "tips": [
         {
@@ -1760,14 +2891,32 @@
           "examples": [
             {
               "de": "Der Zug fährt um neun Uhr ab.",
-              "en": "The train leaves at nine."
+              "en": "The train leaves at nine.",
+              "focus": [
+                "fährt",
+                "ab"
+              ]
             },
             {
               "de": "Machst du bitte das Licht aus?",
-              "en": "Will you turn the light off, please?"
+              "en": "Will you turn the light off, please?",
+              "focus": [
+                "Machst",
+                "aus"
+              ]
             }
           ],
-          "trap": "English phrasal verbs (get up, call back) keep their particle close. German throws it to the end, however long the sentence."
+          "trap": "English phrasal verbs (get up, call back) keep their particle close. German throws it to the end, however long the sentence.",
+          "check": {
+            "q": "Which sentence is correct?",
+            "options": [
+              "Wir laden morgen Freunde ein.",
+              "Wir einladen morgen Freunde.",
+              "Wir laden ein morgen Freunde."
+            ],
+            "answer": "Wir laden morgen Freunde ein.",
+            "why": "The verb part (laden) takes position 2 and the prefix ein goes to the very end of the sentence."
+          }
         },
         {
           "kind": "rule",
@@ -1776,13 +2925,30 @@
           "examples": [
             {
               "de": "Wir kommen am Freitag zurück.",
-              "en": "We're coming back on Friday."
+              "en": "We're coming back on Friday.",
+              "focus": [
+                "kommen",
+                "zurück"
+              ]
             },
             {
               "de": "Ich verstehe das. (not: Ich stehe das ver.)",
-              "en": "I understand that."
+              "en": "I understand that.",
+              "focus": [
+                "verstehe"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence is correct?",
+            "options": [
+              "Ich verkaufe mein Auto.",
+              "Ich kaufe mein Auto ver.",
+              "Ich verkaufe mein Auto ver."
+            ],
+            "answer": "Ich verkaufe mein Auto.",
+            "why": "ver- is an unstressed prefix, so it never separates: ich verkaufe stays one word."
+          }
         },
         {
           "kind": "rule",
@@ -1791,13 +2957,29 @@
           "examples": [
             {
               "de": "Kannst du mich morgen anrufen?",
-              "en": "Can you call me tomorrow?"
+              "en": "Can you call me tomorrow?",
+              "focus": [
+                "anrufen"
+              ]
             },
             {
               "de": "Ich muss morgen früh aufstehen.",
-              "en": "I have to get up early tomorrow."
+              "en": "I have to get up early tomorrow.",
+              "focus": [
+                "aufstehen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich will heute Abend ____.",
+            "options": [
+              "fernsehen",
+              "sehe fern",
+              "fern"
+            ],
+            "answer": "fernsehen",
+            "why": "With a modal like wollen, the infinitive goes to the end in one piece, prefix attached: fernsehen."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1806,13 +2988,31 @@
           "examples": [
             {
               "de": "ANrufen → ich rufe an · beSUchen → ich besuche",
-              "en": "stressed prefix separates; unstressed stays"
+              "en": "stressed prefix separates; unstressed stays",
+              "focus": [
+                "ANrufen",
+                "beSUchen"
+              ]
             },
             {
               "de": "EINkaufen → ich kaufe ein · verKAUfen → ich verkaufe",
-              "en": "stressed ein- separates; unstressed ver- stays"
+              "en": "stressed ein- separates; unstressed ver- stays",
+              "focus": [
+                "EINkaufen",
+                "verKAUfen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which verb has its stress on the prefix, so it separates?",
+            "options": [
+              "ABholen",
+              "beZAHlen",
+              "erKLÄren"
+            ],
+            "answer": "ABholen",
+            "why": "The stress is on ab-, so it splits: Ich hole dich ab. be- and er- are unstressed and stay attached."
+          }
         }
       ],
       "remember": [
@@ -1871,7 +3071,15 @@
       ],
       "context": {
         "de": "Ich stehe um halb sieben auf. Um acht fängt die Arbeit an. Am Nachmittag kaufe ich ein und hole die Kinder ab. Am Abend rufe ich meine Mutter an, dann sehen wir fern. Kommst du am Samstag mit? Wir fahren um neun ab.",
-        "en": "I get up at 6:30. Work starts at eight. In the afternoon I shop and pick up the children. In the evening I call my mother, then we watch TV. Are you coming along on Saturday? We leave at nine."
+        "en": "I get up at 6:30. Work starts at eight. In the afternoon I shop and pick up the children. In the evening I call my mother, then we watch TV. Are you coming along on Saturday? We leave at nine.",
+        "focus": [
+          "auf",
+          "an",
+          "ein",
+          "ab",
+          "fern",
+          "mit"
+        ]
       },
       "mistakes": [
         {
@@ -1900,6 +3108,7 @@
     ],
     "title": "Perfekt: erste Schritte",
     "help": {
+      "hook": "Tell someone what you did yesterday: ich habe gegessen, ich bin gefahren, with the past form landing at the end.",
       "intro": "The Perfekt is how German talks about the past in conversation — 'I worked', 'I ate', 'I went' are all Ich habe gearbeitet, Ich habe gegessen, Ich bin gefahren. It is built from two pieces: a helper verb in the present (haben, or sein for a few verbs) in position 2, and the participle — ge- + stem + -t for regular verbs (gemacht, gelernt), ge- + stem + -en with a possible vowel change for irregular ones (gegessen, gefahren) — at the very end, exactly where a modal's infinitive goes. Fifteen verbs turn up in the Perfekt so often — in any story about yesterday or last weekend — that you need to recognise them straight away in what you hear and read. This quiz gives you those fifteen. The full system follows later in the course. Each sentence has two gaps: the helper verb in position 2 and the participle at the end — type both, one in each gap.",
       "tips": [
         {
@@ -1909,13 +3118,32 @@
           "examples": [
             {
               "de": "Ich habe gestern lange gearbeitet.",
-              "en": "I worked late yesterday."
+              "en": "I worked late yesterday.",
+              "focus": [
+                "habe",
+                "gearbeitet"
+              ]
             },
             {
               "de": "Was hast du gemacht? – Ich habe ein Buch gelesen.",
-              "en": "What did you do? – I read a book."
+              "en": "What did you do? – I read a book.",
+              "focus": [
+                "hast",
+                "gemacht",
+                "gelesen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "We ate pizza yesterday: Wir ____ gestern Pizza gegessen.",
+            "options": [
+              "haben",
+              "sind",
+              "hat"
+            ],
+            "answer": "haben",
+            "why": "essen takes haben, and the helper agrees with wir: wir haben. The participle gegessen stays at the end."
+          }
         },
         {
           "kind": "rule",
@@ -1924,13 +3152,31 @@
           "examples": [
             {
               "de": "Ich habe Deutsch gelernt und viel gefragt.",
-              "en": "I learnt German and asked a lot."
+              "en": "I learnt German and asked a lot.",
+              "focus": [
+                "gelernt",
+                "gefragt"
+              ]
             },
             {
               "de": "Er hat gut geschlafen und Kaffee getrunken.",
-              "en": "He slept well and drank coffee."
+              "en": "He slept well and drank coffee.",
+              "focus": [
+                "geschlafen",
+                "getrunken"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "I asked my mother: Ich habe meine Mutter ____. (fragen)",
+            "options": [
+              "gefragt",
+              "gefragen",
+              "fragt"
+            ],
+            "answer": "gefragt",
+            "why": "fragen is regular, so the participle is ge- + stem + -t: gefragt."
+          }
         },
         {
           "kind": "warning",
@@ -1939,14 +3185,33 @@
           "examples": [
             {
               "de": "Ich bin nach Berlin gefahren und zwei Tage geblieben.",
-              "en": "I went to Berlin and stayed two days."
+              "en": "I went to Berlin and stayed two days.",
+              "focus": [
+                "bin",
+                "gefahren",
+                "geblieben"
+              ]
             },
             {
               "de": "Was ist passiert? – Ich habe nichts verstanden.",
-              "en": "What happened? – I didn't understand anything."
+              "en": "What happened? – I didn't understand anything.",
+              "focus": [
+                "passiert",
+                "verstanden"
+              ]
             }
           ],
-          "trap": "English has only 'have'. 'Ich habe gefahren' is the error every English speaker makes; movers and changers take sein."
+          "trap": "English has only 'have'. 'Ich habe gefahren' is the error every English speaker makes; movers and changers take sein.",
+          "check": {
+            "q": "On Monday I went to Cologne: Am Montag ____ ich nach Köln gefahren.",
+            "options": [
+              "bin",
+              "habe",
+              "hat"
+            ],
+            "answer": "bin",
+            "why": "fahren is a verb of movement, so it takes sein: ich bin gefahren."
+          }
         },
         {
           "kind": "mnemonic",
@@ -1955,13 +3220,31 @@
           "examples": [
             {
               "de": "Ich | habe | am Wochenende mit Anna im Café | gegessen.",
-              "en": "I ate at the café with Anna at the weekend."
+              "en": "I ate at the café with Anna at the weekend.",
+              "focus": [
+                "habe",
+                "gegessen"
+              ]
             },
             {
               "de": "Wir | sind | am Sonntag nach Hamburg | gefahren.",
-              "en": "We went to Hamburg on Sunday."
+              "en": "We went to Hamburg on Sunday.",
+              "focus": [
+                "sind",
+                "gefahren"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence is correct? (She read a book in the evening.)",
+            "options": [
+              "Sie hat am Abend ein Buch gelesen.",
+              "Sie hat gelesen am Abend ein Buch.",
+              "Sie am Abend hat ein Buch gelesen."
+            ],
+            "answer": "Sie hat am Abend ein Buch gelesen.",
+            "why": "The helper hat sits in position 2 and the participle gelesen closes the sentence; everything else goes in between."
+          }
         }
       ],
       "remember": [
@@ -1970,7 +3253,15 @@
       ],
       "context": {
         "de": "Was hast du am Wochenende gemacht? – Ich bin nach Hamburg gefahren. Ich habe meine Schwester gesehen, wir haben zusammen gegessen und viel geredet. Am Sonntag habe ich lange geschlafen. Und dir? Was ist passiert?",
-        "en": "What did you do at the weekend? – I went to Hamburg. I saw my sister, we ate together and talked a lot. On Sunday I slept in. And you? What happened?"
+        "en": "What did you do at the weekend? – I went to Hamburg. I saw my sister, we ate together and talked a lot. On Sunday I slept in. And you? What happened?",
+        "focus": [
+          "gemacht",
+          "gefahren",
+          "gesehen",
+          "gegessen",
+          "geschlafen",
+          "passiert"
+        ]
       },
       "mistakes": [
         {
@@ -1999,6 +3290,7 @@
     ],
     "title": "war & hatte",
     "help": {
+      "hook": "Two short words, war and hatte, let you talk about yesterday, last week or your whole weekend.",
       "intro": "For 'was' and 'had', German does not use the Perfekt but a simpler past form, the Präteritum of sein and haben — war and hatte. Ich war krank (I was ill), Wir hatten keine Zeit (we had no time). You will use the ich- and er-forms most; this quiz gives you all six of each, because they are regular and you will hear the others constantly. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten. Notice the shape: ich and er are identical, and the endings after that are the familiar -st, -en, -t, -en. From here on, 'yesterday I was …' is one word.",
       "tips": [
         {
@@ -2008,13 +3300,31 @@
           "examples": [
             {
               "de": "Gestern war ich müde. Wo warst du?",
-              "en": "Yesterday I was tired. Where were you?"
+              "en": "Yesterday I was tired. Where were you?",
+              "focus": [
+                "war",
+                "warst"
+              ]
             },
             {
               "de": "Wir waren im Kino. Der Film war gut.",
-              "en": "We were at the cinema. The film was good."
+              "en": "We were at the cinema. The film was good.",
+              "focus": [
+                "waren",
+                "war"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Gestern ____ wir im Zoo.",
+            "options": [
+              "waren",
+              "war",
+              "wart"
+            ],
+            "answer": "waren",
+            "why": "wir takes -en in the past of sein: wir waren. war is for ich/er, wart for ihr."
+          }
         },
         {
           "kind": "rule",
@@ -2023,13 +3333,30 @@
           "examples": [
             {
               "de": "Ich hatte keine Zeit. Er hatte Hunger.",
-              "en": "I had no time. He was hungry."
+              "en": "I had no time. He was hungry.",
+              "focus": [
+                "hatte"
+              ]
             },
             {
               "de": "Hattet ihr Spaß? – Ja, wir hatten viel Spaß.",
-              "en": "Did you have fun? – Yes, we had a lot of fun."
+              "en": "Did you have fun? – Yes, we had a lot of fun.",
+              "focus": [
+                "Hattet",
+                "hatten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ du gestern Zeit?",
+            "options": [
+              "Hattest",
+              "Hattet",
+              "Hatte"
+            ],
+            "answer": "Hattest",
+            "why": "du adds -st to hatt-: du hattest. Hattet is the ihr-form."
+          }
         },
         {
           "kind": "warning",
@@ -2038,14 +3365,31 @@
           "examples": [
             {
               "de": "Wie war dein Wochenende? – Es war schön.",
-              "en": "How was your weekend? – It was nice."
+              "en": "How was your weekend? – It was nice.",
+              "focus": [
+                "war"
+              ]
             },
             {
               "de": "Hattest du Zeit? – Nein, ich hatte viel Arbeit.",
-              "en": "Did you have time? – No, I had a lot of work."
+              "en": "Did you have time? – No, I had a lot of work.",
+              "focus": [
+                "Hattest",
+                "hatte"
+              ]
             }
           ],
-          "trap": "resist building 'have been' with the Perfekt here. war and hatte are the natural forms."
+          "trap": "resist building 'have been' with the Perfekt here. war and hatte are the natural forms.",
+          "check": {
+            "q": "Wie ____ der Urlaub? – Super!",
+            "options": [
+              "war",
+              "ist gewesen",
+              "hat gewesen"
+            ],
+            "answer": "war",
+            "why": "In everyday speech the past of sein is simply war, one word. Germans don't build it with gewesen here."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2054,13 +3398,31 @@
           "examples": [
             {
               "de": "ich war / er war · ich hatte / er hatte",
-              "en": "first and third person always match in the past"
+              "en": "first and third person always match in the past",
+              "focus": [
+                "war",
+                "hatte"
+              ]
             },
             {
               "de": "du warst / ihr wart · du hattest / ihr hattet",
-              "en": "the familiar endings -st and -t"
+              "en": "the familiar endings -st and -t",
+              "focus": [
+                "warst",
+                "wart"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ihr ____ keine Fahrkarte.",
+            "options": [
+              "hattet",
+              "hattest",
+              "hatte"
+            ],
+            "answer": "hattet",
+            "why": "ihr takes the -t ending: ihr hattet, just like ihr wart."
+          }
         }
       ],
       "remember": [
@@ -2069,7 +3431,14 @@
       ],
       "context": {
         "de": "Gestern war Sonntag. Ich war zu Hause und hatte viel Zeit. Meine Freunde waren im Park – das Wetter war schön. Am Abend hatten wir Hunger und hatten keine Lust zu kochen. Also waren wir in der Pizzeria. Wo warst du?",
-        "en": "Yesterday was Sunday. I was at home and had lots of time. My friends were in the park – the weather was nice. In the evening we were hungry and didn't feel like cooking. So we were at the pizzeria. Where were you?"
+        "en": "Yesterday was Sunday. I was at home and had lots of time. My friends were in the park – the weather was nice. In the evening we were hungry and didn't feel like cooking. So we were at the pizzeria. Where were you?",
+        "focus": [
+          "war",
+          "hatte",
+          "waren",
+          "hatten",
+          "warst"
+        ]
       },
       "mistakes": [
         {
@@ -2148,6 +3517,7 @@
     ],
     "title": "Imperativ",
     "help": {
+      "hook": "Tell a friend, a group or a stranger what to do — Komm!, Kommt!, Kommen Sie! — and sound right to each of them.",
       "intro": "The imperative gives instructions and requests, and German has three of them because it has three ways of saying 'you'. To one friend (du): the verb stem with no ending and no pronoun — Komm! Mach das! Warte! — and the vowel-change verbs keep their change: Nimm! Iss! Lies! Sprich! (but no umlaut: Fahr! Schlaf!). To several friends (ihr): the ihr-form of the verb, again without the pronoun — Kommt! Macht! Esst! Formally (Sie): the infinitive followed by Sie — Kommen Sie! Nehmen Sie Platz! You need all three forms from the start, because signs, recipes, teachers and shop assistants use them all day. A bitte makes any of them polite. In the Sie items the Sie is already in the sentence — type only the verb.",
       "tips": [
         {
@@ -2157,13 +3527,31 @@
           "examples": [
             {
               "de": "Komm bitte her! Nimm den Bus!",
-              "en": "Come here please! Take the bus!"
+              "en": "Come here please! Take the bus!",
+              "focus": [
+                "Komm",
+                "Nimm"
+              ]
             },
             {
               "de": "Fahr langsam! Schlaf gut!",
-              "en": "Drive slowly! Sleep well!"
+              "en": "Drive slowly! Sleep well!",
+              "focus": [
+                "Fahr",
+                "Schlaf"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "To your friend: ____ das Buch! (lesen)",
+            "options": [
+              "Lies",
+              "Les",
+              "Lest"
+            ],
+            "answer": "Lies",
+            "why": "lesen changes e → ie in the du-form (du liest), and the imperative keeps that change: Lies!"
+          }
         },
         {
           "kind": "rule",
@@ -2172,13 +3560,30 @@
           "examples": [
             {
               "de": "Kinder, kommt jetzt! Esst euer Gemüse!",
-              "en": "Children, come now! Eat your vegetables!"
+              "en": "Children, come now! Eat your vegetables!",
+              "focus": [
+                "kommt",
+                "Esst"
+              ]
             },
             {
               "de": "Wartet bitte hier!",
-              "en": "Wait here, please!"
+              "en": "Wait here, please!",
+              "focus": [
+                "Wartet"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "To two friends: ____ bitte das Fenster zu! (zumachen)",
+            "options": [
+              "Macht",
+              "Mach",
+              "Machen"
+            ],
+            "answer": "Macht",
+            "why": "For several friends use the ihr-form without ihr: ihr macht → Macht!"
+          }
         },
         {
           "kind": "rule",
@@ -2187,13 +3592,31 @@
           "examples": [
             {
               "de": "Sprechen Sie bitte langsam.",
-              "en": "Please speak slowly."
+              "en": "Please speak slowly.",
+              "focus": [
+                "Sprechen",
+                "Sie"
+              ]
             },
             {
               "de": "Seien Sie bitte pünktlich.",
-              "en": "Please be on time."
+              "en": "Please be on time.",
+              "focus": [
+                "Seien",
+                "Sie"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "To a customer: ____ Sie bitte hier! (warten)",
+            "options": [
+              "Warten",
+              "Wartet",
+              "Warte"
+            ],
+            "answer": "Warten",
+            "why": "The formal imperative is the infinitive followed by Sie: Warten Sie!"
+          }
         },
         {
           "kind": "warning",
@@ -2202,14 +3625,32 @@
           "examples": [
             {
               "de": "Sei nicht traurig. Hab keine Angst.",
-              "en": "Don't be sad. Don't be afraid."
+              "en": "Don't be sad. Don't be afraid.",
+              "focus": [
+                "Sei",
+                "Hab"
+              ]
             },
             {
               "de": "Seid bitte leise! Habt Geduld!",
-              "en": "Please be quiet! Be patient!"
+              "en": "Please be quiet! Be patient!",
+              "focus": [
+                "Seid",
+                "Habt"
+              ]
             }
           ],
-          "trap": "choose the form by who you are speaking to. 'Komm!' to a stranger is rude; 'Kommen Sie!' to a child is strange."
+          "trap": "choose the form by who you are speaking to. 'Komm!' to a stranger is rude; 'Kommen Sie!' to a child is strange.",
+          "check": {
+            "q": "To one child: ____ bitte ruhig! (sein)",
+            "options": [
+              "Sei",
+              "Sein",
+              "Seid"
+            ],
+            "answer": "Sei",
+            "why": "sein is irregular: the du-form is Sei! — Seid! is for several people."
+          }
         }
       ],
       "remember": [
@@ -2218,7 +3659,16 @@
       ],
       "context": {
         "de": "Guten Tag, kommen Sie bitte herein und nehmen Sie Platz. – Danke. – Trinken Sie einen Kaffee? – Gern. – Kinder, seid bitte leise und geht in den Garten! Tom, mach die Tür zu und hilf deiner Schwester. Und du, Lena – iss dein Brot!",
-        "en": "Good day, please come in and take a seat. – Thank you. – Will you have a coffee? – Gladly. – Children, please be quiet and go into the garden! Tom, close the door and help your sister. And you, Lena – eat your bread!"
+        "en": "Good day, please come in and take a seat. – Thank you. – Will you have a coffee? – Gladly. – Children, please be quiet and go into the garden! Tom, close the door and help your sister. And you, Lena – eat your bread!",
+        "focus": [
+          "kommen",
+          "nehmen",
+          "seid",
+          "geht",
+          "mach",
+          "hilf",
+          "iss"
+        ]
       },
       "mistakes": [
         {
@@ -2248,6 +3698,7 @@
     ],
     "title": "Höflich bitten & bestellen",
     "help": {
+      "hook": "Order a coffee, ask for help, pay the bill: three polite chunks get you through every counter, café and phone call.",
       "intro": "Three fixed phrases make you polite in every shop, café, office and train: Ich hätte gern … (I'd like …), Könnten Sie …? (could you …?) and Ich würde gern … (I'd like to …). They belong to the Konjunktiv II, a grammar topic that comes much later — but you need them now, because you cannot live in a German-speaking country a single day without them. So learn them as chunks, like Guten Tag: hätte gern + a thing (accusative), Könnten Sie + a verb at the end, würde gern + a verb at the end, and möchte as the everyday alternative. Add bitte, and you have the whole register of politeness people expect at a counter or on the phone. The umlaut is what makes these polite (hätte, not hatte; könnten, not konnten), so it is checked strictly here — type ae/oe/ue if your keyboard has no umlauts.",
       "tips": [
         {
@@ -2257,13 +3708,31 @@
           "examples": [
             {
               "de": "Ich hätte gern eine Fahrkarte nach München, bitte.",
-              "en": "I'd like a ticket to Munich, please."
+              "en": "I'd like a ticket to Munich, please.",
+              "focus": [
+                "hätte",
+                "gern"
+              ]
             },
             {
               "de": "Wir hätten gern zwei Tee, bitte.",
-              "en": "We'd like two teas, please."
+              "en": "We'd like two teas, please.",
+              "focus": [
+                "hätten",
+                "gern"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir ____ gern zwei Stück Kuchen, bitte. (We'd like …)",
+            "options": [
+              "hätten",
+              "hätte",
+              "hatten"
+            ],
+            "answer": "hätten",
+            "why": "For ordering, use hätte gern; with wir it's hätten. Without the umlaut, hatten is just the past tense 'had'."
+          }
         },
         {
           "kind": "rule",
@@ -2272,13 +3741,31 @@
           "examples": [
             {
               "de": "Könnten Sie das Fenster aufmachen?",
-              "en": "Could you open the window?"
+              "en": "Could you open the window?",
+              "focus": [
+                "Könnten",
+                "aufmachen"
+              ]
             },
             {
               "de": "Könntest du mich morgen anrufen?",
-              "en": "Could you call me tomorrow?"
+              "en": "Could you call me tomorrow?",
+              "focus": [
+                "Könntest",
+                "anrufen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "____ Sie mir bitte den Weg zeigen?",
+            "options": [
+              "Könnten",
+              "Konnten",
+              "Könntest"
+            ],
+            "answer": "Könnten",
+            "why": "The polite request is Könnten Sie …? with the umlaut; the -st form is only for du, and Konnten means 'were able to'."
+          }
         },
         {
           "kind": "rule",
@@ -2287,13 +3774,31 @@
           "examples": [
             {
               "de": "Ich würde gern einen Tisch reservieren.",
-              "en": "I'd like to reserve a table."
+              "en": "I'd like to reserve a table.",
+              "focus": [
+                "würde",
+                "reservieren"
+              ]
             },
             {
               "de": "Könnte ich bitte die Rechnung haben?",
-              "en": "Could I have the bill, please?"
+              "en": "Could I have the bill, please?",
+              "focus": [
+                "Könnte",
+                "haben"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich würde gern mit Karte ____.",
+            "options": [
+              "bezahlen",
+              "bezahle",
+              "bezahlt"
+            ],
+            "answer": "bezahlen",
+            "why": "After würde gern, the verb goes to the end in the infinitive: Ich würde gern bezahlen."
+          }
         },
         {
           "kind": "warning",
@@ -2302,14 +3807,32 @@
           "examples": [
             {
               "de": "Ich möchte / Ich hätte gern einen Kaffee.",
-              "en": "I'd like a coffee."
+              "en": "I'd like a coffee.",
+              "focus": [
+                "möchte",
+                "hätte"
+              ]
             },
             {
               "de": "Ich hätte gern ein Brötchen, bitte.",
-              "en": "I'd like a roll, please."
+              "en": "I'd like a roll, please.",
+              "focus": [
+                "hätte",
+                "gern"
+              ]
             }
           ],
-          "trap": "English 'would like' has a one-word feel; German needs the Konjunktiv chunk. 'Ich würde mögen' is not German."
+          "trap": "English 'would like' has a one-word feel; German needs the Konjunktiv chunk. 'Ich würde mögen' is not German.",
+          "check": {
+            "q": "At the bakery counter, which sounds polite?",
+            "options": [
+              "Ich möchte zwei Brötchen, bitte.",
+              "Ich will zwei Brötchen.",
+              "Ich würde mögen zwei Brötchen."
+            ],
+            "answer": "Ich möchte zwei Brötchen, bitte.",
+            "why": "möchte (or hätte gern) is the polite way to order; will sounds like a demand, and würde mögen isn't German."
+          }
         }
       ],
       "remember": [
@@ -2318,7 +3841,13 @@
       ],
       "context": {
         "de": "Guten Tag! Ich hätte gern zwei Brötchen und ein Stück Kuchen. – Gern. Sonst noch etwas? – Ja, könnten Sie mir sagen, wo der Bahnhof ist? – Geradeaus, dann links. – Danke! Und ich würde gern mit Karte bezahlen. – Kein Problem.",
-        "en": "Hello! I'd like two rolls and a piece of cake. – Certainly. Anything else? – Yes, could you tell me where the station is? – Straight on, then left. – Thanks! And I'd like to pay by card. – No problem."
+        "en": "Hello! I'd like two rolls and a piece of cake. – Certainly. Anything else? – Yes, could you tell me where the station is? – Straight on, then left. – Thanks! And I'd like to pay by card. – No problem.",
+        "focus": [
+          "hätte",
+          "gern",
+          "könnten",
+          "würde"
+        ]
       },
       "mistakes": [
         {
@@ -2347,6 +3876,7 @@
     ],
     "title": "mir, dir, Ihnen — Dativ-Pronomen",
     "help": {
+      "hook": "Ask how someone is, offer help, thank them and say what you like: mir, dir and Ihnen make it all work.",
       "intro": "Wie geht es dir? — how are you? — is one of the first questions you learn, and the dir in it is a dative pronoun. For now you need exactly this much dative: the pronouns mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen after a handful of verbs that always take them — helfen (help), danken (thank), gehören (belong to), gefallen (please, i.e. 'like'), and the phrase es geht. The full dative — articles, nouns, prepositions — comes later in the course. For now these are chunks: Kannst du mir helfen? Das gehört mir. Gefällt dir das? Ich danke Ihnen. Notice that ihr is now 'to her' and ihnen 'to them', and Ihnen with a capital is the formal you.",
       "tips": [
         {
@@ -2356,13 +3886,30 @@
           "examples": [
             {
               "de": "Wie geht es dir? – Mir geht es gut.",
-              "en": "How are you? – I'm fine."
+              "en": "How are you? – I'm fine.",
+              "focus": [
+                "dir",
+                "Mir"
+              ]
             },
             {
               "de": "Wie geht es Ihnen, Herr Braun?",
-              "en": "How are you, Mr Braun?"
+              "en": "How are you, Mr Braun?",
+              "focus": [
+                "Ihnen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Formal: How are you, Mrs Lang? Wie geht es ____, Frau Lang?",
+            "options": [
+              "Ihnen",
+              "Sie",
+              "Ihr"
+            ],
+            "answer": "Ihnen",
+            "why": "es geht takes the dative, and the formal you in the dative is Ihnen."
+          }
         },
         {
           "kind": "rule",
@@ -2371,14 +3918,32 @@
           "examples": [
             {
               "de": "Kannst du mir helfen?",
-              "en": "Can you help me?"
+              "en": "Can you help me?",
+              "focus": [
+                "mir",
+                "helfen"
+              ]
             },
             {
               "de": "Der Schlüssel gehört ihm.",
-              "en": "The key belongs to him."
+              "en": "The key belongs to him.",
+              "focus": [
+                "gehört",
+                "ihm"
+              ]
             }
           ],
-          "trap": "English 'help me' and 'see me' use the same 'me'. German uses mich after sehen but mir after helfen; the verb decides."
+          "trap": "English 'help me' and 'see me' use the same 'me'. German uses mich after sehen but mir after helfen; the verb decides.",
+          "check": {
+            "q": "I thank him for the flowers: Ich danke ____ für die Blumen.",
+            "options": [
+              "ihm",
+              "ihn",
+              "er"
+            ],
+            "answer": "ihm",
+            "why": "danken always takes the dative, so 'him' is ihm, not the accusative ihn."
+          }
         },
         {
           "kind": "rule",
@@ -2387,13 +3952,32 @@
           "examples": [
             {
               "de": "Gefällt dir die Wohnung? – Ja, sie gefällt mir sehr.",
-              "en": "Do you like the flat? – Yes, I like it a lot."
+              "en": "Do you like the flat? – Yes, I like it a lot.",
+              "focus": [
+                "Gefällt",
+                "dir",
+                "mir"
+              ]
             },
             {
               "de": "Das Bild gefällt mir.",
-              "en": "I like the picture."
+              "en": "I like the picture.",
+              "focus": [
+                "gefällt",
+                "mir"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "I like the shoes: Die Schuhe gefallen ____.",
+            "options": [
+              "mir",
+              "mich",
+              "ich"
+            ],
+            "answer": "mir",
+            "why": "With gefallen the shoes are the subject and the person who likes them is dative: mir."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2402,13 +3986,31 @@
           "examples": [
             {
               "de": "Ich liebe dich und ich helfe dir.",
-              "en": "I love you (acc.) and I help you (dat.)."
+              "en": "I love you (acc.) and I help you (dat.).",
+              "focus": [
+                "dich",
+                "dir"
+              ]
             },
             {
               "de": "Siehst du mich? – Ja, und ich helfe dir gleich.",
-              "en": "Can you see me? – Yes, and I'll help you in a moment."
+              "en": "Can you see me? – Yes, and I'll help you in a moment.",
+              "focus": [
+                "mich",
+                "dir"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Informal, 'I'll see you tomorrow': Ich sehe ____ morgen.",
+            "options": [
+              "dich",
+              "dir",
+              "du"
+            ],
+            "answer": "dich",
+            "why": "sehen is not one of the dative verbs, so it takes the accusative dich."
+          }
         }
       ],
       "remember": [
@@ -2417,7 +4019,14 @@
       ],
       "context": {
         "de": "Guten Morgen, Frau Klein, wie geht es Ihnen? – Danke, gut. Und dir? – Mir geht es auch gut. Können Sie mir kurz helfen? Diese Tasche gehört mir nicht. – Sie gehört ihm, dem neuen Kollegen. – Ah, danke Ihnen!",
-        "en": "Good morning, Mrs Klein, how are you? – Fine, thanks. And you? – I'm fine too. Can you help me a moment? This bag isn't mine. – It belongs to him, the new colleague. – Ah, thank you!"
+        "en": "Good morning, Mrs Klein, how are you? – Fine, thanks. And you? – I'm fine too. Can you help me a moment? This bag isn't mine. – It belongs to him, the new colleague. – Ah, thank you!",
+        "focus": [
+          "Ihnen",
+          "dir",
+          "Mir",
+          "mir",
+          "ihm"
+        ]
       },
       "mistakes": [
         {
@@ -2446,6 +4055,7 @@
     ],
     "title": "Satzbau: Position 2 & Konnektoren",
     "help": {
+      "hook": "One rule builds every German statement (the verb comes second), and five small words join your sentences together.",
       "intro": "One rule shapes every German statement: the conjugated verb is the second element. Not the second word — the second element. Ich fahre morgen nach Berlin, but start with tomorrow and the verb still comes second, so the subject moves behind it: Morgen fahre ich nach Berlin. English keeps subject-verb whatever comes first ('Tomorrow I go'); German swaps. The other half of basic sentence-building is joining sentences with the five little connectors that do not disturb that order: und (and), oder (or), aber (but), denn (because), dann (then). After und/oder/aber/denn the next sentence keeps its normal shape; dann counts as position 1, so the verb follows it: … dann gehe ich.",
       "tips": [
         {
@@ -2455,14 +4065,32 @@
           "examples": [
             {
               "de": "Ich fahre morgen nach Berlin. → Morgen fahre ich nach Berlin.",
-              "en": "I'm going to Berlin tomorrow. → Tomorrow I'm going to Berlin."
+              "en": "I'm going to Berlin tomorrow. → Tomorrow I'm going to Berlin.",
+              "focus": [
+                "Morgen",
+                "fahre",
+                "ich"
+              ]
             },
             {
               "de": "Am Abend sehen wir fern.",
-              "en": "In the evening we watch TV."
+              "en": "In the evening we watch TV.",
+              "focus": [
+                "sehen",
+                "wir"
+              ]
             }
           ],
-          "trap": "'Morgen ich fahre' is the signature English-speaker error. Front anything and the verb jumps ahead of the subject."
+          "trap": "'Morgen ich fahre' is the signature English-speaker error. Front anything and the verb jumps ahead of the subject.",
+          "check": {
+            "q": "Heute Abend ____ ins Kino.",
+            "options": [
+              "gehe ich",
+              "ich gehe"
+            ],
+            "answer": "gehe ich",
+            "why": "Heute Abend fills position 1, so the verb comes next and the subject moves behind it."
+          }
         },
         {
           "kind": "rule",
@@ -2471,13 +4099,32 @@
           "examples": [
             {
               "de": "Die Wohnung ist schön, aber sie ist teuer.",
-              "en": "The flat is nice, but it is expensive."
+              "en": "The flat is nice, but it is expensive.",
+              "focus": [
+                "aber",
+                "sie",
+                "ist"
+              ]
             },
             {
               "de": "Ich bleibe zu Hause, denn es regnet.",
-              "en": "I'm staying at home, because it's raining."
+              "en": "I'm staying at home, because it's raining.",
+              "focus": [
+                "denn",
+                "es",
+                "regnet"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich lerne Deutsch, denn ____ in Berlin.",
+            "options": [
+              "ich wohne",
+              "wohne ich"
+            ],
+            "answer": "ich wohne",
+            "why": "denn sits outside the sentence (position 0), so what follows keeps its normal order: subject, then verb."
+          }
         },
         {
           "kind": "rule",
@@ -2486,13 +4133,30 @@
           "examples": [
             {
               "de": "Ich dusche, dann frühstücke ich.",
-              "en": "I shower, then I have breakfast."
+              "en": "I shower, then I have breakfast.",
+              "focus": [
+                "dann",
+                "frühstücke"
+              ]
             },
             {
               "de": "Zuerst esse ich, dann gehe ich.",
-              "en": "First I eat, then I go."
+              "en": "First I eat, then I go.",
+              "focus": [
+                "dann",
+                "gehe"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich koche, dann ____.",
+            "options": [
+              "esse ich",
+              "ich esse"
+            ],
+            "answer": "esse ich",
+            "why": "dann takes position 1 itself, so the verb follows it straight away: dann esse ich."
+          }
         },
         {
           "kind": "warning",
@@ -2501,13 +4165,33 @@
           "examples": [
             {
               "de": "Ich komme nicht, denn ich habe keine Zeit.",
-              "en": "I'm not coming, because I have no time."
+              "en": "I'm not coming, because I have no time.",
+              "focus": [
+                "denn",
+                "ich",
+                "habe"
+              ]
             },
             {
               "de": "Ich bleibe zu Hause, denn es regnet.",
-              "en": "I'm staying at home, because it's raining."
+              "en": "I'm staying at home, because it's raining.",
+              "focus": [
+                "denn",
+                "es",
+                "regnet"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich gehe zum Arzt, denn ____.",
+            "options": [
+              "ich bin krank",
+              "ich krank bin",
+              "bin ich krank"
+            ],
+            "answer": "ich bin krank",
+            "why": "denn keeps normal order with the verb in second place. Verb-at-the-end order belongs to weil."
+          }
         }
       ],
       "remember": [
@@ -2516,7 +4200,14 @@
       ],
       "context": {
         "de": "Am Morgen trinke ich Kaffee und esse ein Brötchen. Dann fahre ich zur Arbeit. Heute arbeite ich nur bis zwölf, denn ich habe einen Termin beim Arzt. Am Abend gehe ich ins Kino oder ich bleibe zu Hause – ich bin müde, aber der Film ist gut.",
-        "en": "In the morning I drink coffee and eat a roll. Then I go to work. Today I'm only working until twelve, because I have a doctor's appointment. In the evening I'm going to the cinema or I'm staying at home – I'm tired, but the film is good."
+        "en": "In the morning I drink coffee and eat a roll. Then I go to work. Today I'm only working until twelve, because I have a doctor's appointment. In the evening I'm going to the cinema or I'm staying at home – I'm tired, but the film is good.",
+        "focus": [
+          "Dann",
+          "fahre",
+          "denn",
+          "oder",
+          "aber"
+        ]
       },
       "mistakes": [
         {
@@ -2546,6 +4237,7 @@
     ],
     "title": "Sprechen: Einkaufen & Bestellen",
     "help": {
+      "hook": "With Ich hätte gern and a few shop phrases, you can buy bread, fruit or coffee anywhere German is spoken.",
       "intro": "Shopping out loud at the bakery, from the greeting to the goodbye: twelve lines of one conversation, short phrase to long. The single most useful sentence in it is Ich hätte gern … — 'I'd like …' — which works in every bakery, market stall, café and shop and you need it from day one even though the grammar behind it (Konjunktiv II) comes much later: you learn it as a fixed phrase, like a password. Alongside it: Was kostet das Brot? (how much is the bread?), Sonst noch etwas? (anything else?), Das ist alles, danke. Two sounds to practise: ö in Brötchen and schönen (round your lips, say 'eh'), and the open ä in hätte.",
       "tips": [
         {
@@ -2555,13 +4247,31 @@
           "examples": [
             {
               "de": "Ich hätte gern ein Kilo Äpfel, bitte.",
-              "en": "I'd like a kilo of apples, please."
+              "en": "I'd like a kilo of apples, please.",
+              "focus": [
+                "hätte",
+                "gern"
+              ]
             },
             {
               "de": "Ich hätte gern einen Kaffee und ein Croissant.",
-              "en": "I'd like a coffee and a croissant."
+              "en": "I'd like a coffee and a croissant.",
+              "focus": [
+                "hätte",
+                "einen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich hätte gern ____ Kuchen. (der Kuchen)",
+            "options": [
+              "einen",
+              "ein",
+              "eine"
+            ],
+            "answer": "einen",
+            "why": "The thing you ask for after Ich hätte gern is in the accusative, so masculine ein becomes einen."
+          }
         },
         {
           "kind": "rule",
@@ -2570,13 +4280,31 @@
           "examples": [
             {
               "de": "Sonst noch etwas? – Nein, danke, das ist alles.",
-              "en": "Anything else? – No thanks, that's all."
+              "en": "Anything else? – No thanks, that's all.",
+              "focus": [
+                "Sonst",
+                "alles"
+              ]
             },
             {
               "de": "Guten Tag! Was darf es sein?",
-              "en": "Hello! What can I get you?"
+              "en": "Hello! What can I get you?",
+              "focus": [
+                "Was",
+                "darf"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The baker asks „Sonst noch etwas?“ You don't want anything else. What do you say?",
+            "options": [
+              "Nein, danke, das ist alles.",
+              "Ja, gern.",
+              "Das macht fünf Euro."
+            ],
+            "answer": "Nein, danke, das ist alles.",
+            "why": "Sonst noch etwas? means 'anything else?'. Das ist alles closes the order; Das macht … is what the baker says."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2585,13 +4313,30 @@
           "examples": [
             {
               "de": "Ich hätte gern zwei Brötchen.",
-              "en": "I'd like two rolls."
+              "en": "I'd like two rolls.",
+              "focus": [
+                "hätte",
+                "Brötchen"
+              ]
             },
             {
               "de": "Einen schönen Tag noch!",
-              "en": "Have a nice day!"
+              "en": "Have a nice day!",
+              "focus": [
+                "schönen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which word has the same rounded ö sound as Brötchen?",
+            "options": [
+              "schön",
+              "Sohn",
+              "Kuchen"
+            ],
+            "answer": "schön",
+            "why": "schön has the same ö: lips rounded as for 'o', tongue as for 'eh'. Sohn and Kuchen have plain o and u."
+          }
         }
       ],
       "remember": [
@@ -2608,6 +4353,7 @@
     ],
     "title": "Einkaufen: Mengen & Preise",
     "help": {
+      "hook": "Buy cheese, bread and a bottle of wine at a German market, and understand exactly what the seller says it costs.",
       "intro": "Shopping needs two small word groups of its own: measures and weights, and money. German measures are simpler than English ones in one way — there is no 'of': ein Kilo Äpfel, eine Flasche Wasser, ein Stück Kuchen, the thing follows the measure directly — and stricter in another: the measures are nouns with a gender (das Kilo, der Liter, die Flasche, das Stück, die Packung, die Dose, das Glas, die Tasse, das Pfund = 500 g). Prices are euros then cents with no word for the comma: zwei Euro fünfzig; Euro never takes an s. Learn the shop's questions and answers as a script and you can buy anything.",
       "tips": [
         {
@@ -2617,14 +4363,31 @@
           "examples": [
             {
               "de": "Ich hätte gern ein Kilo Äpfel und zwei Flaschen Wasser.",
-              "en": "I'd like a kilo of apples and two bottles of water."
+              "en": "I'd like a kilo of apples and two bottles of water.",
+              "focus": [
+                "Kilo",
+                "Flaschen"
+              ]
             },
             {
               "de": "Ein Stück Kuchen, bitte.",
-              "en": "A piece of cake, please."
+              "en": "A piece of cake, please.",
+              "focus": [
+                "Stück"
+              ]
             }
           ],
-          "trap": "'ein Kilo von Äpfeln' is understood but wrong; German simply puts the two nouns side by side."
+          "trap": "'ein Kilo von Äpfeln' is understood but wrong; German simply puts the two nouns side by side.",
+          "check": {
+            "q": "Ich hätte gern zwei ____ Saft. (die Flasche)",
+            "options": [
+              "Flaschen",
+              "Flasche",
+              "Flaschen von"
+            ],
+            "answer": "Flaschen",
+            "why": "Flasche is feminine, so it takes a plural after a number — and German needs no 'of' before the thing."
+          }
         },
         {
           "kind": "rule",
@@ -2633,13 +4396,30 @@
           "examples": [
             {
               "de": "500 Gramm Käse, bitte. – Ein Pfund? – Ja, genau.",
-              "en": "500 grams of cheese, please. – Half a kilo? – Yes, exactly."
+              "en": "500 grams of cheese, please. – Half a kilo? – Yes, exactly.",
+              "focus": [
+                "Gramm",
+                "Pfund"
+              ]
             },
             {
               "de": "Ich brauche einen Liter Milch.",
-              "en": "I need a litre of milk."
+              "en": "I need a litre of milk.",
+              "focus": [
+                "Liter"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Ich brauche ein ____ Butter. (500 g)",
+            "options": [
+              "Pfund",
+              "Kilo",
+              "Liter"
+            ],
+            "answer": "Pfund",
+            "why": "A German Pfund is exactly 500 grams — half a kilo, not the English pound."
+          }
         },
         {
           "kind": "rule",
@@ -2648,13 +4428,31 @@
           "examples": [
             {
               "de": "Was kosten die Tomaten? – Ein Pfund kostet zwei Euro zwanzig.",
-              "en": "What do the tomatoes cost? – A pound costs 2.20 €."
+              "en": "What do the tomatoes cost? – A pound costs 2.20 €.",
+              "focus": [
+                "Euro",
+                "zwanzig"
+              ]
             },
             {
               "de": "Das macht zwei Euro fünfzig.",
-              "en": "That's 2.50 €."
+              "en": "That's 2.50 €.",
+              "focus": [
+                "macht",
+                "fünfzig"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The price tag says 3,40 €. Das kostet ____.",
+            "options": [
+              "drei Euro vierzig",
+              "drei Euros vierzig",
+              "drei Komma vierzig"
+            ],
+            "answer": "drei Euro vierzig",
+            "why": "Say the euros, then the cents, with no word for the comma — and Euro never takes an s."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2663,13 +4461,33 @@
           "examples": [
             {
               "de": "Sonst noch etwas? – Nein, danke. Was macht das? – Vier Euro achtzig.",
-              "en": "Anything else? – No thanks. How much is that? – 4.80 €."
+              "en": "Anything else? – No thanks. How much is that? – 4.80 €.",
+              "focus": [
+                "Sonst",
+                "noch",
+                "etwas"
+              ]
             },
             {
               "de": "Was darf es sein? – Ich hätte gern ein Kilo Äpfel.",
-              "en": "What can I get you? – I'd like a kilo of apples."
+              "en": "What can I get you? – I'd like a kilo of apples.",
+              "focus": [
+                "darf",
+                "hätte",
+                "gern"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "The seller asks: Sonst noch etwas? You don't need anything else. What do you say?",
+            "options": [
+              "Nein, danke, das ist alles.",
+              "Ja, gern.",
+              "Das macht fünf Euro."
+            ],
+            "answer": "Nein, danke, das ist alles.",
+            "why": "Das ist alles closes your order; Das macht … is what the seller says, not you."
+          }
         }
       ],
       "remember": [
@@ -2678,7 +4496,14 @@
       ],
       "context": {
         "de": "Auf dem Markt: Guten Tag, ich hätte gern ein Kilo Kartoffeln, ein Pfund Tomaten und 200 Gramm Käse. – Gern. Sonst noch etwas? – Ja, eine Flasche Apfelsaft und zehn Eier. Was macht das? – Das macht acht Euro sechzig. – Hier sind zehn Euro. – Und ein Euro vierzig zurück. Danke!",
-        "en": "At the market: Hello, I'd like a kilo of potatoes, a pound of tomatoes and 200 grams of cheese. – Certainly. Anything else? – Yes, a bottle of apple juice and ten eggs. How much is that? – That's 8.60 €. – Here's ten euros. – And 1.40 € change. Thanks!"
+        "en": "At the market: Hello, I'd like a kilo of potatoes, a pound of tomatoes and 200 grams of cheese. – Certainly. Anything else? – Yes, a bottle of apple juice and ten eggs. How much is that? – That's 8.60 €. – Here's ten euros. – And 1.40 € change. Thanks!",
+        "focus": [
+          "Kilo",
+          "Pfund",
+          "Gramm",
+          "Flasche",
+          "macht"
+        ]
       },
       "mistakes": [
         {
@@ -2708,6 +4533,7 @@
     ],
     "title": "Körper & Befinden",
     "help": {
+      "hook": "When you're ill, say what hurts and how you feel — Mein Kopf tut weh is the sentence that gets you help.",
       "intro": "When you are ill, you need two things first: naming what hurts, and saying how you feel. The pattern for pain is Mein Kopf tut weh — literally 'my head does pain' — with tun (to do) and the body part as subject; plural parts take tun weh: Meine Füße tun weh. Or use Schmerzen: Ich habe Kopfschmerzen, Bauchschmerzen, Zahnschmerzen — the body part glued to Schmerzen. For how you feel: Wie geht es dir? – Mir geht es gut / schlecht / nicht so gut; Ich bin krank / müde; Ich habe Fieber. The doctor's opening line, Was fehlt Ihnen? (what's wrong?), completes the set — a fuller quiz later in the course builds the doctor's visit on this. The first items ask for the body part; the rest ask for what goes round it — mein or meine, tut or tun, and the …schmerzen compound.",
       "tips": [
         {
@@ -2717,13 +4543,31 @@
           "examples": [
             {
               "de": "Mein Rücken tut weh.",
-              "en": "My back hurts."
+              "en": "My back hurts.",
+              "focus": [
+                "tut",
+                "weh"
+              ]
             },
             {
               "de": "Meine Ohren tun weh.",
-              "en": "My ears hurt."
+              "en": "My ears hurt.",
+              "focus": [
+                "tun",
+                "weh"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Meine Augen ____ weh.",
+            "options": [
+              "tun",
+              "tut",
+              "sind"
+            ],
+            "answer": "tun",
+            "why": "Augen is plural, so the verb is tun: Meine Augen tun weh. One thing hurting would be tut."
+          }
         },
         {
           "kind": "rule",
@@ -2732,13 +4576,29 @@
           "examples": [
             {
               "de": "Ich habe Kopfschmerzen und Fieber.",
-              "en": "I have a headache and a temperature."
+              "en": "I have a headache and a temperature.",
+              "focus": [
+                "Kopfschmerzen"
+              ]
             },
             {
               "de": "Mein Kind hat Bauchschmerzen.",
-              "en": "My child has a stomach ache."
+              "en": "My child has a stomach ache.",
+              "focus": [
+                "Bauchschmerzen"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Your throat hurts: Ich habe ____.",
+            "options": [
+              "Halsschmerzen",
+              "Halsschmerz",
+              "Hals weh"
+            ],
+            "answer": "Halsschmerzen",
+            "why": "Body part + Schmerzen makes one word, always plural, with haben: Ich habe Halsschmerzen."
+          }
         },
         {
           "kind": "rule",
@@ -2747,13 +4607,31 @@
           "examples": [
             {
               "de": "Wie geht es dir? – Nicht so gut, ich bin erkältet.",
-              "en": "How are you? – Not so good, I've got a cold."
+              "en": "How are you? – Not so good, I've got a cold.",
+              "focus": [
+                "geht",
+                "erkältet"
+              ]
             },
             {
               "de": "Wie geht es Ihnen? – Danke, gut.",
-              "en": "How are you? – Fine, thanks."
+              "en": "How are you? – Fine, thanks.",
+              "focus": [
+                "Ihnen",
+                "gut"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wie geht es dir? You have a cold. Which answer fits?",
+            "options": [
+              "Nicht so gut, ich bin erkältet.",
+              "Nicht so gut, ich habe erkältet.",
+              "Nicht so gut, mir bin erkältet."
+            ],
+            "answer": "Nicht so gut, ich bin erkältet.",
+            "why": "erkältet goes with sein: ich bin erkältet, just like ich bin krank or ich bin müde."
+          }
         },
         {
           "kind": "warning",
@@ -2762,14 +4640,32 @@
           "examples": [
             {
               "de": "Meine Hand und mein Fuß tun weh.",
-              "en": "My hand and my foot hurt."
+              "en": "My hand and my foot hurt.",
+              "focus": [
+                "Meine",
+                "mein"
+              ]
             },
             {
               "de": "Mein Kopf tut weh, und meine Nase auch.",
-              "en": "My head hurts, and my nose too."
+              "en": "My head hurts, and my nose too.",
+              "focus": [
+                "Mein",
+                "meine"
+              ]
             }
           ],
-          "trap": "the same body part has a different gender in German than your instinct says. 'die Kopf' is the classic slip."
+          "trap": "the same body part has a different gender in German than your instinct says. 'die Kopf' is the classic slip.",
+          "check": {
+            "q": "____ Bein tut weh.",
+            "options": [
+              "Mein",
+              "Meine",
+              "Meinen"
+            ],
+            "answer": "Mein",
+            "why": "It's das Bein, a neuter noun, so the subject form is mein: Mein Bein tut weh."
+          }
         }
       ],
       "remember": [
@@ -2778,7 +4674,14 @@
       ],
       "context": {
         "de": "Guten Tag, Frau Berg, was fehlt Ihnen? – Mein Hals tut weh und ich habe Kopfschmerzen. Ich bin sehr müde. – Haben Sie Fieber? – Ja, 38,5. – Dann bleiben Sie zwei Tage zu Hause und trinken Sie viel Tee. Gute Besserung! – Danke, Herr Doktor.",
-        "en": "Hello, Mrs Berg, what's the matter? – My throat hurts and I have a headache. I'm very tired. – Do you have a temperature? – Yes, 38.5. – Then stay home for two days and drink lots of tea. Get well soon! – Thank you, doctor."
+        "en": "Hello, Mrs Berg, what's the matter? – My throat hurts and I have a headache. I'm very tired. – Do you have a temperature? – Yes, 38.5. – Then stay home for two days and drink lots of tea. Get well soon! – Thank you, doctor.",
+        "focus": [
+          "tut",
+          "weh",
+          "Kopfschmerzen",
+          "müde",
+          "Fieber"
+        ]
       },
       "mistakes": [
         {
@@ -2809,6 +4712,7 @@
     ],
     "title": "Lesen: Eine kleine Reise",
     "help": {
+      "hook": "Read a short travel story and find the four facts every trip needs: when, how long, how much and how.",
       "intro": "A family takes a trip to Munich: train, departure time, ticket price, journey length, hotel, sights, weather. This text carries the core words of travel — der Zug, der Bahnhof, die Fahrkarte, das Hotel, abfahren, dauern, kosten — together with the two things you always need to know about a journey: when and how much. Read once for the story, then answer question by question; look for the time after um, the price before Euro, the length after dauert, and the transport after mit dem.",
       "tips": [
         {
@@ -2818,13 +4722,31 @@
           "examples": [
             {
               "de": "Der Zug fährt um neun Uhr am Bahnhof ab.",
-              "en": "The train leaves the station at nine."
+              "en": "The train leaves the station at nine.",
+              "focus": [
+                "um",
+                "neun",
+                "Uhr"
+              ]
             },
             {
               "de": "Die Reise dauert vier Stunden.",
-              "en": "The journey takes four hours."
+              "en": "The journey takes four hours.",
+              "focus": [
+                "dauert"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Der Bus fährt um zehn Uhr ab. Die Fahrt dauert zwei Stunden.' Wie lange dauert die Fahrt?",
+            "options": [
+              "zwei Stunden",
+              "zehn Uhr",
+              "zehn Stunden"
+            ],
+            "answer": "zwei Stunden",
+            "why": "Wie lange? is answered after dauert; um zehn Uhr answers Wann?"
+          }
         },
         {
           "kind": "rule",
@@ -2833,13 +4755,28 @@
           "examples": [
             {
               "de": "Sie fahren mit dem Zug.",
-              "en": "They travel by train."
+              "en": "They travel by train.",
+              "focus": [
+                "mit",
+                "dem",
+                "Zug"
+              ]
             },
             {
               "de": "Der Zug fährt um neun Uhr am Bahnhof ab.",
               "en": "The train leaves the station at nine."
             }
-          ]
+          ],
+          "check": {
+            "q": "Anna fährt ____ Fahrrad zur Arbeit. (by bike)",
+            "options": [
+              "mit dem",
+              "zu",
+              "mit"
+            ],
+            "answer": "mit dem",
+            "why": "How you travel is mit dem + vehicle: mit dem Fahrrad. Only on foot is zu Fuß."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2848,13 +4785,30 @@
           "examples": [
             {
               "de": "In München wohnen sie in einem Hotel im Zentrum.",
-              "en": "In Munich they stay in a hotel in the centre."
+              "en": "In Munich they stay in a hotel in the centre.",
+              "focus": [
+                "wohnen",
+                "Hotel"
+              ]
             },
             {
               "de": "Am Abend essen sie in einem Restaurant.",
-              "en": "In the evening they eat at a restaurant."
+              "en": "In the evening they eat at a restaurant.",
+              "focus": [
+                "Restaurant"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "'Wir wohnen drei Tage in einem Hotel in Hamburg.' What does wohnen mean here?",
+            "options": [
+              "stay",
+              "live permanently",
+              "work"
+            ],
+            "answer": "stay",
+            "why": "wohnen is used for a short stay too: three days in a hotel is a stay, not a home."
+          }
         }
       ],
       "remember": [
@@ -2872,6 +4826,7 @@
     ],
     "title": "Lesen: Anzeigen & Schilder",
     "help": {
+      "hook": "Flat ads, bike ads, course notices: learn to spot the one number or word you need without reading every line.",
       "intro": "Three small ads — a flat, a bicycle, a course — of the kind that fill notice boards and websites, written in the telegram style ads use: no full sentences, just nouns, numbers and abbreviations. Reading them is scanning, not reading: the question names a thing (Preis, Tag, Zimmer) and you find the number next to that word. The abbreviations are the whole point — m² (Quadratmeter), Tel., ab (from), bis (until), pro Monat (per month), zu vermieten / zu verkaufen (to rent / for sale), Anmeldung (registration). Read the questions first, then hunt.",
       "tips": [
         {
@@ -2881,13 +4836,31 @@
           "examples": [
             {
               "de": "2 Zimmer, Küche, Bad, 60 m²",
-              "en": "2 rooms, kitchen, bathroom, 60 m²"
+              "en": "2 rooms, kitchen, bathroom, 60 m²",
+              "focus": [
+                "Zimmer"
+              ]
             },
             {
               "de": "Montag und Mittwoch, 18–20 Uhr",
-              "en": "Monday and Wednesday, 6–8 pm"
+              "en": "Monday and Wednesday, 6–8 pm",
+              "focus": [
+                "Montag",
+                "Mittwoch",
+                "Uhr"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "„Sprachkurs: Dienstag, 19–21 Uhr, 8 Wochen“ — When are the lessons?",
+            "options": [
+              "on Tuesday evenings",
+              "for 19 weeks",
+              "every day for 8 weeks"
+            ],
+            "answer": "on Tuesday evenings",
+            "why": "A 'when' question wants a day and a time: Dienstag, 19–21 Uhr. The 8 belongs to Wochen — how long, not when."
+          }
         },
         {
           "kind": "rule",
@@ -2896,13 +4869,32 @@
           "examples": [
             {
               "de": "Ab 1. März. Anmeldung bis 1. April.",
-              "en": "From 1 March. Registration by 1 April."
+              "en": "From 1 March. Registration by 1 April.",
+              "focus": [
+                "Ab",
+                "bis",
+                "Anmeldung"
+              ]
             },
             {
               "de": "Fahrrad zu verkaufen: rot, fast neu, nur 80 Euro.",
-              "en": "Bicycle for sale: red, almost new, only 80 euros."
+              "en": "Bicycle for sale: red, almost new, only 80 euros.",
+              "focus": [
+                "verkaufen",
+                "nur"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "„Wohnung zu vermieten“ — What does the ad offer?",
+            "options": [
+              "a flat to rent",
+              "a flat for sale",
+              "someone looking for a flat"
+            ],
+            "answer": "a flat to rent",
+            "why": "zu vermieten means 'to rent out'; for sale would be zu verkaufen."
+          }
         },
         {
           "kind": "warning",
@@ -2911,13 +4903,32 @@
           "examples": [
             {
               "de": "650 Euro pro Monat — not 60 (m²), not 2 (Zimmer)",
-              "en": "650 euros per month"
+              "en": "650 euros per month",
+              "focus": [
+                "650",
+                "pro",
+                "Monat"
+              ]
             },
             {
               "de": "Kosten: 120 Euro. Anmeldung bis 1. April.",
-              "en": "Cost: 120 euros. Registration by 1 April — two numbers, two questions."
+              "en": "Cost: 120 euros. Registration by 1 April — two numbers, two questions.",
+              "focus": [
+                "Kosten",
+                "Anmeldung"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "„Zimmer, 18 m², 3. Stock, 390 Euro pro Monat“ — How much is the rent?",
+            "options": [
+              "390 Euro",
+              "18 Euro",
+              "3 Euro"
+            ],
+            "answer": "390 Euro",
+            "why": "Rent is a monthly price, so look for the number next to Euro pro Monat. 18 is the size, 3 the floor."
+          }
         }
       ],
       "remember": [
@@ -2939,6 +4950,7 @@
     ],
     "title": "Gespräch: Mein Alltag",
     "help": {
+      "hook": "Chat about your everyday life, your routine, your shopping, what you must and want to do, in full German sentences.",
       "intro": "The closing conversation of this module, in your own AI assistant with voice on: your everyday life — your routine and times, what you buy, what you can and must do. Copy the exercise in, say 'Los geht's', and answer in full sentences; the corrections and the score come at the end. This conversation pulls together the core of the module. The tutor listens for the accusative after haben/kaufen/brauchen, the possessives, the infinitive at the end after a modal, the separable prefix at the end, and times with um / am / halb.",
       "tips": [
         {
@@ -2948,13 +4960,32 @@
           "examples": [
             {
               "de": "Am Samstag will ich lange schlafen und dann einkaufen.",
-              "en": "On Saturday I want to sleep in and then go shopping."
+              "en": "On Saturday I want to sleep in and then go shopping.",
+              "focus": [
+                "will",
+                "schlafen",
+                "einkaufen"
+              ]
             },
             {
               "de": "Ich muss um acht Uhr arbeiten.",
-              "en": "I have to work at eight."
+              "en": "I have to work at eight.",
+              "focus": [
+                "muss",
+                "arbeiten"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Which sentence is correct? (I have to work early tomorrow.)",
+            "options": [
+              "Ich muss morgen früh arbeiten.",
+              "Ich muss arbeiten morgen früh.",
+              "Ich arbeiten muss morgen früh."
+            ],
+            "answer": "Ich muss morgen früh arbeiten.",
+            "why": "The modal muss sits in position 2 and the infinitive arbeiten goes to the very end."
+          }
         },
         {
           "kind": "rule",
@@ -2963,13 +4994,31 @@
           "examples": [
             {
               "de": "Ich frühstücke um halb acht und am Wochenende um zehn.",
-              "en": "I have breakfast at 7:30 and at the weekend at ten."
+              "en": "I have breakfast at 7:30 and at the weekend at ten.",
+              "focus": [
+                "um",
+                "am"
+              ]
             },
             {
               "de": "Im Sommer fahre ich am Wochenende oft weg.",
-              "en": "In summer I often go away at the weekend."
+              "en": "In summer I often go away at the weekend.",
+              "focus": [
+                "Im",
+                "am"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "I go to the office at half past eight: Ich gehe ____ halb neun ins Büro.",
+            "options": [
+              "um",
+              "am",
+              "im"
+            ],
+            "answer": "um",
+            "why": "Clock times take um, and halb neun is a clock time (8:30)."
+          }
         },
         {
           "kind": "mnemonic",
@@ -2978,13 +5027,31 @@
           "examples": [
             {
               "de": "Ich kaufe … äh … Brot, Milch und Obst.",
-              "en": "I buy … er … bread, milk and fruit."
+              "en": "I buy … er … bread, milk and fruit.",
+              "focus": [
+                "äh"
+              ]
             },
             {
               "de": "Wie sagt man … ? Ah, ja: die Waschmaschine!",
-              "en": "How do you say …? Ah yes: the washing machine!"
+              "en": "How do you say …? Ah yes: the washing machine!",
+              "focus": [
+                "Wie",
+                "sagt",
+                "man"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You want to say 'fridge' (Kühlschrank) but the word won't come. What is the best thing to say?",
+            "options": [
+              "Wie sagt man …? Das Ding für kalte Milch!",
+              "Nothing: wait in silence",
+              "Sorry, I'll answer in English."
+            ],
+            "answer": "Wie sagt man …? Das Ding für kalte Milch!",
+            "why": "Describing the word in simple German keeps the conversation going, and fluency counts more than one missing word."
+          }
         }
       ],
       "remember": [
@@ -3001,6 +5068,7 @@
     ],
     "title": "Wohin? — nach, zu, in",
     "help": {
+      "hook": "Say where you're heading, to Berlin, to the cinema, to the doctor, to grandma's, and pick nach, in or zu.",
       "intro": "Wo? asks where something is; Wohin? asks where it is going — and German answers the second question with three different prepositions. nach is for towns and for countries without an article (nach Berlin, nach Spanien) and for home (nach Hause). in is for countries that have an article (in die Schweiz, in die USA) and for places you go into: ins Kino, in die Stadt, in den Park, in die Schule. zu is for people (zu Anna, zu meiner Oma) and for places you go to rather than into — zum Arzt, zur Arbeit, zum Bahnhof. After in the article is accusative (in den Park), after zu it is dative (zum = zu dem, zur = zu der); for now you learn these as chunks. The contrast with Wo? is the heart of it: ich bin zu Hause, but ich gehe nach Hause; ich bin im Kino, but ich gehe ins Kino.",
       "tips": [
         {
@@ -3010,14 +5078,31 @@
           "examples": [
             {
               "de": "Wir fahren morgen nach Berlin.",
-              "en": "We're going to Berlin tomorrow."
+              "en": "We're going to Berlin tomorrow.",
+              "focus": [
+                "nach"
+              ]
             },
             {
               "de": "Es ist spät. Ich gehe jetzt nach Hause.",
-              "en": "It's late. I'm going home now."
+              "en": "It's late. I'm going home now.",
+              "focus": [
+                "nach",
+                "Hause"
+              ]
             }
           ],
-          "trap": "English 'to' covers all three. 'Ich gehe zu Berlin' or 'nach Kino' are the classic errors."
+          "trap": "English 'to' covers all three. 'Ich gehe zu Berlin' or 'nach Kino' are the classic errors.",
+          "check": {
+            "q": "Tomorrow I'm going to Vienna: Morgen fahre ich ____ Wien.",
+            "options": [
+              "nach",
+              "zu",
+              "ins"
+            ],
+            "answer": "nach",
+            "why": "Towns and cities take nach, with no article after it."
+          }
         },
         {
           "kind": "rule",
@@ -3026,13 +5111,30 @@
           "examples": [
             {
               "de": "Heute Abend gehen wir ins Kino.",
-              "en": "Tonight we're going to the cinema."
+              "en": "Tonight we're going to the cinema.",
+              "focus": [
+                "ins"
+              ]
             },
             {
               "de": "Am Sonntag gehen wir in den Park.",
-              "en": "On Sunday we're going to the park."
+              "en": "On Sunday we're going to the park.",
+              "focus": [
+                "in",
+                "den"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Today I'm going into town: Ich gehe heute ____ Stadt.",
+            "options": [
+              "in die",
+              "nach",
+              "zu die"
+            ],
+            "answer": "in die",
+            "why": "A place you go into takes in plus the article; Stadt is feminine, so in die Stadt."
+          }
         },
         {
           "kind": "rule",
@@ -3041,13 +5143,30 @@
           "examples": [
             {
               "de": "Ich bin krank. Ich muss zum Arzt.",
-              "en": "I'm ill. I have to go to the doctor's."
+              "en": "I'm ill. I have to go to the doctor's.",
+              "focus": [
+                "zum"
+              ]
             },
             {
               "de": "Am Samstag fahre ich zu meiner Oma.",
-              "en": "On Saturday I'm going to my grandma's."
+              "en": "On Saturday I'm going to my grandma's.",
+              "focus": [
+                "zu",
+                "meiner"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Tonight I'm going to Paul's: Ich gehe heute Abend ____ Paul.",
+            "options": [
+              "zu",
+              "nach",
+              "in"
+            ],
+            "answer": "zu",
+            "why": "Going to a person always takes zu: zu Paul."
+          }
         },
         {
           "kind": "warning",
@@ -3056,13 +5175,30 @@
           "examples": [
             {
               "de": "Ich gehe nach Hause. – Ich bin zu Hause.",
-              "en": "I'm going home. – I'm at home."
+              "en": "I'm going home. – I'm at home.",
+              "focus": [
+                "nach",
+                "zu"
+              ]
             },
             {
               "de": "Ich gehe ins Kino. – Ich bin im Kino.",
-              "en": "I'm going to the cinema. – I'm at the cinema."
+              "en": "I'm going to the cinema. – I'm at the cinema.",
+              "focus": [
+                "ins",
+                "im"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wo bist du? – Ich bin ____.",
+            "options": [
+              "zu Hause",
+              "nach Hause"
+            ],
+            "answer": "zu Hause",
+            "why": "Wo? asks where you are, so the answer is zu Hause; nach Hause is only for going home."
+          }
         }
       ],
       "remember": [
@@ -3123,7 +5259,14 @@
       ],
       "context": {
         "de": "Was machst du heute? – Am Morgen muss ich zum Arzt. Dann gehe ich in die Stadt und kaufe ein. Am Nachmittag fahre ich zu meiner Oma, und am Abend gehen wir ins Kino. Und im Sommer? – Im Sommer fliegen wir nach Spanien!",
-        "en": "What are you doing today? – In the morning I have to go to the doctor's. Then I'm going into town to do some shopping. In the afternoon I'm going to my grandma's, and in the evening we're going to the cinema. And in the summer? – In the summer we're flying to Spain!"
+        "en": "What are you doing today? – In the morning I have to go to the doctor's. Then I'm going into town to do some shopping. In the afternoon I'm going to my grandma's, and in the evening we're going to the cinema. And in the summer? – In the summer we're flying to Spain!",
+        "focus": [
+          "zum",
+          "in",
+          "zu",
+          "ins",
+          "nach"
+        ]
       },
       "mistakes": [
         {
@@ -3152,6 +5295,7 @@
     ],
     "title": "unser, euer, Ihr",
     "help": {
+      "hook": "Our house, your flat, their dog: with unser, euer and ihr you can talk about things that belong to more than one person.",
       "intro": "The possessives for more than one owner, and the formal one: unser (our), euer (your — several friends), ihr (their) and Ihr with a capital (your — formal, one person or several). They work exactly like mein: they take the ein-endings, decided by the noun that follows — unser Sohn, unsere Tochter, unsere Kinder, and in the accusative unseren Sohn. Two details make them tricky. euer loses its second e as soon as an ending is added: euer Hund, but eure Katze, euren Hund. And ihr / Ihr is the same word in speech: in writing the capital decides between 'their' and 'your (formal)', and in speech the situation does — Herr Braun, ist das Ihr Koffer? The quiz gives you the owner in brackets; choose the word and add the ending for the noun.",
       "tips": [
         {
@@ -3161,13 +5305,29 @@
           "examples": [
             {
               "de": "Das ist unser Haus.",
-              "en": "That is our house."
+              "en": "That is our house.",
+              "focus": [
+                "unser"
+              ]
             },
             {
               "de": "Tom und Lisa verkaufen ihre Wohnung.",
-              "en": "Tom and Lisa are selling their flat."
+              "en": "Tom and Lisa are selling their flat.",
+              "focus": [
+                "ihre"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir haben ein Auto. Das ist ____ Auto.",
+            "options": [
+              "unser",
+              "euer",
+              "ihr"
+            ],
+            "answer": "unser",
+            "why": "The owner is wir, so the possessive is unser. euer belongs to ihr (you all), ihr to sie (they)."
+          }
         },
         {
           "kind": "rule",
@@ -3176,13 +5336,29 @@
           "examples": [
             {
               "de": "Unsere Kinder spielen im Garten.",
-              "en": "Our children are playing in the garden."
+              "en": "Our children are playing in the garden.",
+              "focus": [
+                "Unsere"
+              ]
             },
             {
               "de": "Wir lieben unseren Garten.",
-              "en": "We love our garden."
+              "en": "We love our garden.",
+              "focus": [
+                "unseren"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Wir besuchen ____ Großvater. (der Großvater)",
+            "options": [
+              "unseren",
+              "unser",
+              "unsere"
+            ],
+            "answer": "unseren",
+            "why": "Großvater is masculine and the object of besuchen, so the ending is -en: unseren."
+          }
         },
         {
           "kind": "warning",
@@ -3191,14 +5367,30 @@
           "examples": [
             {
               "de": "Kinder, wo ist eure Lehrerin?",
-              "en": "Children, where's your teacher?"
+              "en": "Children, where's your teacher?",
+              "focus": [
+                "eure"
+              ]
             },
             {
               "de": "Habt ihr euren Schlüssel?",
-              "en": "Do you have your key?"
+              "en": "Do you have your key?",
+              "focus": [
+                "euren"
+              ]
             }
           ],
-          "trap": "'euere' and 'euern' look logical but are not the standard forms; write eure, euren."
+          "trap": "'euere' and 'euern' look logical but are not the standard forms; write eure, euren.",
+          "check": {
+            "q": "Kinder, wo sind ____ Bücher?",
+            "options": [
+              "eure",
+              "euer",
+              "euren"
+            ],
+            "answer": "eure",
+            "why": "Plural nouns take -e, and euer drops its second e when an ending is added: eure."
+          }
         },
         {
           "kind": "rule",
@@ -3207,13 +5399,29 @@
           "examples": [
             {
               "de": "Herr Braun, ist das Ihr Koffer?",
-              "en": "Mr Braun, is that your suitcase?"
+              "en": "Mr Braun, is that your suitcase?",
+              "focus": [
+                "Ihr"
+              ]
             },
             {
               "de": "Frau Weber, wie ist Ihre Telefonnummer?",
-              "en": "Mrs Weber, what's your phone number?"
+              "en": "Mrs Weber, what's your phone number?",
+              "focus": [
+                "Ihre"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "Herr Lang, wo wohnen ____ Eltern? (you say Sie to him)",
+            "options": [
+              "Ihre",
+              "Ihr",
+              "eure"
+            ],
+            "answer": "Ihre",
+            "why": "For someone you call Sie, 'your' is Ihr with a capital; Eltern is plural, so it takes -e: Ihre."
+          }
         }
       ],
       "remember": [
@@ -3274,7 +5482,14 @@
       ],
       "context": {
         "de": "Das ist unser Haus, und das ist unser Garten. Unsere Kinder spielen oft hier. Und ihr? Wie ist eure Wohnung? Habt ihr euren Balkon schon fertig? – Ja! Und Frau Klein, ist das Ihr Hund? – Nein, das ist der Hund von Tom und Lisa. Ihr Hund heißt Bello.",
-        "en": "This is our house, and this is our garden. Our children often play here. And you? What's your flat like? Have you finished your balcony yet? – Yes! And Mrs Klein, is that your dog? – No, that's Tom and Lisa's dog. Their dog is called Bello."
+        "en": "This is our house, and this is our garden. Our children often play here. And you? What's your flat like? Have you finished your balcony yet? – Yes! And Mrs Klein, is that your dog? – No, that's Tom and Lisa's dog. Their dog is called Bello.",
+        "focus": [
+          "unser",
+          "Unsere",
+          "eure",
+          "euren",
+          "Ihr"
+        ]
       },
       "mistakes": [
         {
@@ -3303,6 +5518,7 @@
     ],
     "title": "Wortschatz",
     "help": {
+      "hook": "Tickets, times, prices and the post office: learn these everyday words with their der, die or das and errands get easier.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: 166 cards, 69 of them nouns. The vocabulary of this module is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -3312,13 +5528,29 @@
           "examples": [
             {
               "de": "der Mann, Plural: ¨-er",
-              "en": "man"
+              "en": "man",
+              "focus": [
+                "der"
+              ]
             },
             {
               "de": "der Tisch, Plural: -e",
-              "en": "table"
+              "en": "table",
+              "focus": [
+                "der"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "You are learning the word for 'key'. What should you say aloud?",
+            "options": [
+              "der Schlüssel",
+              "Schlüssel",
+              "Schlüssel, keys"
+            ],
+            "answer": "der Schlüssel",
+            "why": "The gender can't be guessed reliably, so say the article with the noun every time until they stick together."
+          }
         },
         {
           "kind": "mnemonic",
@@ -3333,7 +5565,17 @@
               "de": "der Apfel, Plural: ¨-",
               "en": "apple"
             }
-          ]
+          ],
+          "check": {
+            "q": "die Fahrkarte means …?",
+            "options": [
+              "ticket",
+              "timetable",
+              "platform"
+            ],
+            "answer": "ticket",
+            "why": "Recalling a meaning on your own builds stronger memory than spotting it. die Fahrkarte is the ticket; der Fahrplan is the timetable."
+          }
         },
         {
           "kind": "warning",
@@ -3342,13 +5584,29 @@
           "examples": [
             {
               "de": "der Ball, Plural: ¨-e",
-              "en": "ball"
+              "en": "ball",
+              "focus": [
+                "der"
+              ]
             },
             {
               "de": "die Frau, Plural: -en",
-              "en": "woman"
+              "en": "woman",
+              "focus": [
+                "die"
+              ]
             }
-          ]
+          ],
+          "check": {
+            "q": "At the post office you need a stamp. Which is the complete word?",
+            "options": [
+              "die Briefmarke",
+              "Briefmarke",
+              "das Briefmarke"
+            ],
+            "answer": "die Briefmarke",
+            "why": "A noun is only complete with its article. Briefmarke is feminine: die Briefmarke."
+          }
         }
       ],
       "remember": [

@@ -20,6 +20,11 @@ import {
 	spokenVerbForm
 } from '$lib/domain/spoken';
 import { exampleSentence, withArticle, type SharedNounEntry, type SharedVerbEntry } from '$lib/domain/words';
+import { helpTableFor } from '$lib/domain/help-table';
+import { buildLesson, hasLesson, lessonSpokenTexts } from '$lib/domain/lesson';
+import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
+
+const nouns = (nounData as { nouns: unknown[] }).nouns as SharedNoun[];
 
 export interface SpokenText {
 	text: string;
@@ -47,6 +52,12 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		for (const quiz of course.quizzes) {
 			for (const [text, source] of quizTexts(quiz)) add(text, locale, source, quiz.level);
 			add(quiz.help?.context?.de, locale, 'help memory', quiz.level);
+			if (hasLesson(quiz)) {
+				// The word list the quiz page derives for a text quiz (+page.server.ts).
+				const vocab =
+					!quiz.help?.vocab?.length && !helpTableFor(quiz) ? vocabFor(quiz, nouns) : undefined;
+				for (const text of lessonSpokenTexts(buildLesson(quiz, vocab))) add(text, locale, 'lesson', quiz.level);
+			}
 		}
 	}
 

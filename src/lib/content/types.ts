@@ -64,6 +64,20 @@ export interface NavLayout {
 export interface Example {
 	de: string;
 	en: string;
+	/** The words in `de` the example exists to show — highlighted in the lesson. */
+	focus?: string[];
+}
+
+/** A one-question check the lesson asks straight after a rule card. */
+export interface HelpCheck {
+	/** The question, in English; a `____` marks a gap in a German sentence. */
+	q: string;
+	/** Two to four answers, the right one among them; shown in a fixed shuffle. */
+	options: string[];
+	/** The right answer, exactly as it appears in `options`. */
+	answer: string;
+	/** Why — shown once the learner has answered, right or wrong. */
+	why?: string;
 }
 
 /** One rule card in a quiz's Help Memory panel. */
@@ -76,6 +90,8 @@ export interface HelpTip {
 	examples?: Example[];
 	/** The trap for English speakers — an E# id from the contrastive spine, or plain text. */
 	trap?: string;
+	/** The lesson's check on this rule. */
+	check?: HelpCheck;
 }
 
 /** An authored reference table, for quizzes with no grid to derive one from. */
@@ -105,6 +121,8 @@ export interface HelpMistake {
  * much a given module's quizzes must carry.
  */
 export interface QuizHelp {
+	/** The idea in one sentence — the lesson's opening line; `intro` sits behind it. */
+	hook?: string;
 	/** Layer 1: the idea, in plain English. */
 	intro?: string;
 	/** Layer 2: rule cards. */

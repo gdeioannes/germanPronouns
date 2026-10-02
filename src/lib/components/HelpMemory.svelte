@@ -97,13 +97,13 @@
 
 				<!-- 2 · Rule cards. They stagger in, so the panel reads as a short
 				     list rather than a wall that appears all at once. -->
-				{#each help?.tips ?? [] as tip (tip.text)}
+				{#each help?.tips ?? [] as tip, t (t)}
 					<div class="tip" data-kind={tip.kind ?? 'rule'}>
 						{#if tip.title}<h4>{tip.title}</h4>{/if}
 						<p>{tip.text}</p>
 						{#if tip.examples?.length}
 							<ul class="examples">
-								{#each tip.examples as ex (ex.de)}
+								{#each tip.examples as ex, e (e)}
 									<li>
 										<span class="de" lang={locale}>{ex.de}</span>
 										<span class="en">{ex.en}</span>
@@ -122,7 +122,7 @@
 				{#if help?.remember?.length}
 					<h4 class="section-head">How to remember it</h4>
 					<ul class="remember">
-						{#each help.remember as aid (aid)}
+						{#each help.remember as aid, a (a)}
 							<li>{aid}</li>
 						{/each}
 					</ul>
@@ -136,7 +136,7 @@
 						<table>
 							<thead>
 								<tr>
-									{#each help.table.columns as column (column)}
+									{#each help.table.columns as column, c (c)}
 										<th scope="col">{column}</th>
 									{/each}
 								</tr>
@@ -158,13 +158,13 @@
 							<thead>
 								<tr>
 									<th scope="col">{derivedTable.subjectHeader}</th>
-									{#each derivedTable.columns as column (column)}
+									{#each derivedTable.columns as column, c (c)}
 										<th scope="col">{column}</th>
 									{/each}
 								</tr>
 							</thead>
 							<tbody>
-								{#each derivedTable.rows as row (row.subject)}
+								{#each derivedTable.rows as row, r (r)}
 									<tr>
 										<th
 											scope="row"
@@ -191,7 +191,7 @@
 				{#if help?.vocab?.length}
 					<h4 class="section-head">Words you need</h4>
 					<ul class="vocab">
-						{#each help.vocab as word (word.de)}
+						{#each help.vocab as word, w (w)}
 							<li>
 								<span>
 									{#if word.article}<span class="article">{word.article}</span>{/if}{word.de}{#if word.plural}<small class="plural">, {word.plural}</small>{/if}
@@ -232,7 +232,7 @@
 				{#if help?.mistakes?.length}
 					<h4 class="section-head">Mistakes English speakers make</h4>
 					<ul class="mistakes">
-						{#each help.mistakes as m (m.wrong)}
+						{#each help.mistakes as m, i (i)}
 							<li>
 								<span class="wrong" lang={locale}>{m.wrong}</span>
 								<span class="arrow">→</span>
