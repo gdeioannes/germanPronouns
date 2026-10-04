@@ -210,6 +210,13 @@ export interface QuizSentence {
 	acceptedAnswers: string[];
 	hint?: string;
 	english?: string;
+	/**
+	 * Word tiles: the learner builds the gap from these instead of typing it,
+	 * for items whose point is WHERE the words go (verb second, verb last,
+	 * TeKaMoLo). Every accepted answer must be buildable from them; any tile
+	 * no answer uses is a distractor. The sentence has exactly one gap.
+	 */
+	tiles?: string[];
 }
 
 export interface FillBlankQuiz extends QuizBase {

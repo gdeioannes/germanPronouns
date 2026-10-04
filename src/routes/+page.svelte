@@ -146,7 +146,7 @@
 
 <Seo
 	title="Learn German Free — English to German Course & Quizzes (A1–C2)"
-	description="Learn German from English with {data.total} free interactive exercises: grammar, reading, listening, dictation and speaking, every sentence with audio. A1 to C2, no sign-up."
+	description="Learn German from English with {data.total} free interactive exercises: grammar, reading, listening, dictation and speaking, all with audio. A1 to C2, no sign-up."
 	path="/"
 	ogTitle="Language Quiz - Free German Course for English Speakers"
 	ogDescription="Free interactive German grammar and vocabulary exercises with audio. A step-by-step CEFR A1-C2 path, no sign-up needed."
@@ -780,6 +780,10 @@
 		font-weight: 700;
 	}
 
+	.band-top > div {
+		min-width: 0;
+	}
+
 	.band h3 {
 		margin: 0;
 	}
@@ -792,6 +796,14 @@
 		margin: -1.4rem -1rem -1.4rem auto;
 		-webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
 		mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
+	}
+
+	/* On the smallest phones the picture yields so the level name keeps its line. */
+	@media (max-width: 24rem) {
+		.band-art {
+			width: 4.5rem;
+			height: 4.5rem;
+		}
 	}
 
 	.band-count {

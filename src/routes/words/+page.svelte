@@ -60,7 +60,7 @@
 </script>
 
 <Seo
-	title="German nouns & verbs with gender, plural and conjugation | Language Quiz"
+	title="German nouns & verbs: gender, plural, conjugation | Language Quiz"
 	description="Every German noun and verb in the course: der, die or das, plural forms and full conjugation tables, each with audio. Free, no sign-up."
 	path="/words"
 	image={shareImage('words', 'nouns')}

@@ -13,7 +13,7 @@
 
 <Seo
 	title="About — Language Quiz"
-	description="The story behind Language Quiz: a free, accessible German course from A1 to C2, built by a learner in Germany for people who struggle with linear courses. No account, no ads."
+	description="The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads."
 	path="/about"
 	jsonLd={[
 		{

@@ -7,21 +7,27 @@
 	//
 	//   * the field sits INSIDE the sentence, where the blank is, set in the
 	//     same type — you answer in the gap, not in a box underneath it;
-	//   * on submit the correct answer is typed into that same field, one
-	//     letter at a time, green when you were right and red when you were
-	//     not — the correction lands exactly where the eye already is;
+	//   * on submit a right answer simply turns green (a relaxed-mode slip is
+	//     swapped for the proper spelling, with a note saying what changed);
+	//     a wrong one is typed over in red, one letter at a time — the
+	//     correction lands exactly where the eye already is;
 	//   * then it advances on its own. There is no "next" button, so a run
 	//     keeps its rhythm and the keyboard never has to be left.
 	//
 	// Questions come from the shuffle bag, so the whole pool is seen once per
 	// cycle and the same question never repeats back to back.
+	//
+	// An item with `tiles` is a word-order item: the gap is built by tapping
+	// tiles into it (tap a placed one to take it back) instead of typed. The
+	// built text goes through the very same check, reveal and stats.
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
 	import GermanText from '../GermanText.svelte';
 	import { BLANK, canonicalGapAnswer, gapCount, matchesGaps } from '$lib/domain/answers';
 	import { filledSentence, fillBlankPool, revealedParts } from '$lib/domain/spoken';
-	import { untrack } from 'svelte';
+	import { joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
+	import { tick, untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
@@ -62,6 +68,8 @@
 	let answers = $state<string[]>(['']);
 	/** null while answering; then how it went, which colours the field. */
 	let verdict = $state<'right' | 'wrong' | null>(null);
+	/** Gaps a relaxed check accepted but spelled differently from the key. */
+	let fixes = $state<{ typed: string; proper: string }[]>([]);
 	let streak = $state(0);
 	/** The answer card, for the praise to rise from; `missKey` shakes it. */
 	let cardEl = $state<HTMLElement>();
@@ -76,6 +84,64 @@
 
 	const locked = $derived(verdict !== null);
 
+	/** A word-order item: built from tiles, not typed. */
+	const tiled = $derived(!!current?.tiles?.length);
+	/** The tiles on offer, in their seeded order (stable from prerender to hydration). */
+	let bank = $state.raw<Tile[]>(pool[0] ? tileBank(pool[0]) : []);
+	/** Ids of the tiles placed in the gap, in order. */
+	let built = $state<number[]>([]);
+	let bankEls = $state<HTMLButtonElement[]>([]);
+	let checkEl = $state<HTMLButtonElement>();
+
+	const tileText = (id: number) => bank.find((t) => t.id === id)?.text ?? '';
+
+	function setBuilt(ids: number[]) {
+		built = ids;
+		answers = [joinTiles(ids.map(tileText))];
+	}
+
+	/** Places a tile, then hands focus to the next free one (or Check). */
+	function place(tile: Tile) {
+		if (locked || built.includes(tile.id)) return;
+		setBuilt([...built, tile.id]);
+		announce('Your sentence:', answers[0], locale);
+		const free = bankEls.find((el, i) => el && !built.includes(bank[i].id));
+		(free ?? checkEl)?.focus();
+	}
+
+	function unplace(id: number) {
+		if (locked) return;
+		setBuilt(built.filter((b) => b !== id));
+		announce(built.length ? 'Your sentence:' : 'Gap empty.', built.length ? answers[0] : '', locale);
+	}
+
+	/**
+	 * Keys for a tile item, where there is no field to type in: Enter checks
+	 * (or moves on), Backspace takes the last tile back, 1–9 place a tile.
+	 */
+	function onTileKey(event: KeyboardEvent) {
+		if (!tiled || event.ctrlKey || event.metaKey || event.altKey) return;
+		const target = event.target as HTMLElement | null;
+		if (target?.closest('input, textarea, select, [contenteditable="true"], dialog')) return;
+		if (event.key === 'Enter') {
+			// Enter on a tile places it — the button's own click does that.
+			if (!locked && target?.closest('.tile')) return;
+			event.preventDefault();
+			if (locked) {
+				if (!event.repeat) skip?.();
+			} else if (filled) submit();
+		} else if (event.key === 'Backspace' && !locked && built.length) {
+			event.preventDefault();
+			unplace(built[built.length - 1]);
+		} else if (/^[1-9]$/.test(event.key) && !locked) {
+			const tile = bank[Number(event.key) - 1];
+			if (tile) {
+				event.preventDefault();
+				place(tile);
+			}
+		}
+	}
+
 	/**
 	 * The subject label above the sentence — shown only when it adds something.
 	 * A template-driven quiz already carries the subject inside the sentence,
@@ -83,7 +149,8 @@
 	 * deliberately avoided.
 	 */
 	const subject = $derived.by(() => {
-		if (!current) return null;
+		// A word-order item's subject ("weil … bin") would say where the verb goes.
+		if (!current || tiled) return null;
 		const found = quiz.subjects?.find((s) => s.key === current!.subjectKey);
 		if (!found) return null;
 		return current.sentence.includes(found.display) ? null : found.display;
@@ -119,6 +186,7 @@
 
 	/** The first-letter hint, pre-filled into every gap. */
 	function hintFill(): string[] {
+		if (tiled) return [''];
 		return canonicalParts.map((part) => (progress.showFirstLetterHint ? part.charAt(0) : ''));
 	}
 
@@ -136,10 +204,15 @@
 	function next() {
 		if (pool.length === 0) return;
 		current = drawFromShuffleBag(bag, pool, { avoidRepeat: current });
+		bank = current ? tileBank(current) : [];
+		built = [];
 		// The first-letter hint pre-fills the gap rather than sitting beside it.
 		answers = hintFill();
 		verdict = null;
-		inputEls[0]?.focus();
+		fixes = [];
+		// The bank is re-rendered for the new item before its first tile can take focus.
+		if (tiled) tick().then(() => bankEls[0]?.focus());
+		else inputEls[0]?.focus();
 	}
 
 	$effect(() => {
@@ -217,9 +290,16 @@
 		// idempotent, so re-firing costs nothing.
 		if (correct && stats.streak >= goal) onGoalReached();
 
-		// Write the canonical spelling in. Even a correct answer is rewritten,
-		// so a relaxed-mode "schon" visibly becomes "schön".
 		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
+		// A right answer is never retyped: it just turns green. If relaxed mode let
+		// a slip through ("schon" for "schön"), the proper spelling drops straight
+		// in and a note under the sentence says what changed.
+		// Tiles are spelled right by construction; only a typed slip gets a note.
+		fixes = correct && !tiled
+			? typed.flatMap((t, i) =>
+					t.trim() === canonical[i] ? [] : [{ typed: t.trim(), proper: canonical[i] }]
+				)
+			: [];
 
 		// Enter moves on without waiting out the reveal: shortly after a right
 		// answer, once the correction is written in after a wrong one. Never
@@ -233,12 +313,17 @@
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		if (correct) announce('Correct.');
 		else announce('Not quite. The answer is:', filledSentence(current.sentence, canonical), locale);
-		answers = new Array(gaps).fill('');
-		await typeOut(canonical);
+		if (correct) {
+			answers = [...canonical];
+		} else {
+			answers = new Array(gaps).fill('');
+			await typeOut(canonical);
+		}
 		skip = moveOn;
 		const pause = revealPause(progress.answerRevealMode);
 		if (pause === null) return;
-		await wait(pause);
+		// A spelling note needs reading time of its own.
+		await wait(fixes.length ? Math.max(pause * 2, 2500) : pause);
 		if (skip === moveOn) moveOn();
 	}
 
@@ -287,6 +372,8 @@
 	}
 </script>
 
+<svelte:window onkeydown={onTileKey} />
+
 <StreakTracker {streak} {misses} {best} {goal} />
 
 {#if current}
@@ -313,9 +400,23 @@
 			<p class="subject">{subject}</p>
 		{/if}
 
-		<!-- The sentence, with a field standing in for each blank. -->
+		<!-- The sentence, with a field standing in for each blank — or, for a
+		     word-order item, the tiles placed so far (tap one to take it back). -->
 		<p class="sentence" lang={locale}>
-			{#each segments as segment, i (i)}<GermanText text={segment} />{#if i < gaps}<span
+			{#each segments as segment, i (i)}<GermanText text={segment} />{#if i < gaps && tiled}<span
+						class="build"
+						class:right={verdict === 'right'}
+						class:wrong={verdict === 'wrong'}
+						class:empty={!locked && !built.length}
+						role="group"
+						aria-label="Your sentence"
+						>{#if locked}{answers[0]}{:else if built.length}{#each built as id (id)}<button
+									type="button"
+									class="tile placed"
+									onclick={() => unplace(id)}
+									aria-label="{tileText(id)}, take back">{tileText(id)}</button
+								>{/each}{:else}<span class="placeholder">tap the words below</span>{/if}</span
+					>{:else if i < gaps}<span
 						class="slot"
 						><input
 							bind:this={inputEls[i]}
@@ -342,12 +443,35 @@
 			<p class="english">{current.english}</p>
 		{/if}
 
+		{#if tiled}
+			<!-- The tiles keep their places once used, so the bank never reflows
+			     under the thumb. -->
+			<div class="bank" role="group" aria-label="Words to place" lang={locale}>
+				{#each bank as tile, i (tile.id)}
+					<button
+						type="button"
+						class="tile"
+						bind:this={bankEls[i]}
+						disabled={locked || built.includes(tile.id)}
+						onclick={() => place(tile)}>{tile.text}</button
+					>
+				{/each}
+			</div>
+		{/if}
+
 		<!-- One fixed row under the sentence: the hint while answering, the
 		     verdict once checked, and the button that does what Enter does —
 		     Check, then Next. Same slot, so nothing jumps. -->
 		<div class="status-row">
 		<p class="status" class:right={verdict === 'right'} class:wrong={verdict === 'wrong'}>
-			{#if verdict === 'right'}
+			{#if verdict === 'right' && fixes.length}
+				<Icon name="check" size="1.05em" />
+				<span>
+					Correct — mind the spelling:
+					{#each fixes as fix, i (i)}{#if i},
+						{/if}<s class="slip">{fix.typed}</s> → <strong lang={locale}>{fix.proper}</strong>{/each}
+				</span>
+			{:else if verdict === 'right'}
 				<Icon name="check" size="1.05em" /> Correct
 			{:else if verdict === 'wrong'}
 				<Icon name="close" size="1.05em" /> The answer is written in
@@ -362,7 +486,7 @@
 				Next <Icon name="arrowRight" size="1em" />
 			</button>
 		{:else}
-			<button type="button" class="act" disabled={!filled} onpointerdown={holdFocus} onclick={checkTap}>
+			<button type="button" class="act" bind:this={checkEl} disabled={!filled} onpointerdown={holdFocus} onclick={checkTap}>
 				Check
 			</button>
 		{/if}
@@ -487,6 +611,96 @@
 		font-weight: 700;
 	}
 
+	/* A word-order gap: the placed tiles sit in the sentence, in its type. */
+	.build {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.3em;
+		min-width: 6em;
+		padding: 0.05em 0.3em;
+		border-bottom: 2px solid var(--accent);
+		border-radius: 5px 5px 0 0;
+		background: var(--surface-alt);
+		vertical-align: baseline;
+	}
+
+	.build.right {
+		border-bottom-color: var(--right);
+		background: var(--right-bg);
+		color: var(--right);
+	}
+
+	.build.wrong {
+		border-bottom-color: var(--wrong);
+		background: var(--wrong-bg);
+		color: var(--wrong);
+	}
+
+	.placeholder {
+		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+		font-size: var(--step--1);
+		font-weight: 500;
+		color: var(--ink-muted);
+	}
+
+	.bank {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 1rem 0 0;
+	}
+
+	/* The story's tiles: raised cards that press in. */
+	.tile {
+		min-height: 2.75rem;
+		padding: 0.5rem 0.95rem;
+		border: 1.5px solid var(--line-strong);
+		border-radius: var(--radius-sm);
+		background: var(--surface);
+		box-shadow:
+			0 2px 0 var(--paper-highest),
+			0 4px 10px rgb(31 58 95 / 0.08);
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-0);
+		font-weight: 600;
+		color: var(--heading);
+		cursor: pointer;
+		transition:
+			transform 110ms ease,
+			border-color 110ms ease,
+			box-shadow 110ms ease,
+			opacity 110ms ease;
+	}
+
+	.tile:hover:not(:disabled) {
+		transform: translateY(-2px);
+		border-color: var(--accent);
+	}
+
+	.tile:active:not(:disabled) {
+		transform: translateY(1px);
+		box-shadow: none;
+	}
+
+	.tile:disabled {
+		opacity: 0.3;
+		cursor: default;
+	}
+
+	/* In the gap a tile reads as part of the sentence, not as a button. */
+	.tile.placed {
+		min-height: 0;
+		padding: 0 0.35em;
+		border: 0;
+		border-radius: 4px;
+		background: var(--accent-soft);
+		box-shadow: none;
+		font-size: 0.95em;
+		color: var(--ink);
+		line-height: 1.5;
+	}
+
 	.english {
 		margin: 0.5rem 0 0;
 		font-size: var(--step--1);
@@ -520,6 +734,11 @@
 
 	.status.wrong {
 		color: var(--wrong);
+	}
+
+	.slip {
+		color: var(--ink-muted);
+		font-weight: 500;
 	}
 
 	/* Check / Next: what Enter does, for thumbs. Faint until there is

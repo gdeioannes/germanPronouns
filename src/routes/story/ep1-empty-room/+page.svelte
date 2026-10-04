@@ -905,7 +905,8 @@
 		gap: 0.55rem;
 		background: var(--surface);
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		/* 1.5rem = a pill at one line, a soft card when the caption wraps. */
+		border-radius: 1.5rem;
 		padding: 0.3rem 1.1rem 0.3rem 0.3rem;
 		max-width: 100%;
 		box-shadow: 0 2px 8px rgb(31 58 95 / 0.08);
@@ -995,13 +996,15 @@
 		.vb-eq.live i { animation: none; height: 0.6rem; }
 		.vb-again:hover { transform: none; }
 	}
+	/* The caption is often the spoken German line itself, so it wraps
+	   rather than truncating — and must never widen the panel. */
 	.vb-caption {
 		font-size: var(--step--1);
 		font-weight: 600;
 		color: var(--heading);
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+		min-width: 0;
+		overflow-wrap: anywhere;
+		padding-block: 0.2rem;
 	}
 	.voice-bar.big .vb-caption {
 		font-size: var(--step-0);
@@ -1054,6 +1057,9 @@
 	}
 	.panel {
 		display: grid;
+		/* minmax(0, …): long unbreakable content can't stretch the column
+		   past the screen (an implicit auto track grows to min-content). */
+		grid-template-columns: minmax(0, 1fr);
 		gap: 0.9rem;
 		justify-items: start;
 	}

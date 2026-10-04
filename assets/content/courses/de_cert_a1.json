@@ -107,7 +107,7 @@
       }
     ]
   },
-  "version": "1.30.0",
+  "version": "2.0.0",
   "quizzes": [
     {
       "type": "fillBlank",
@@ -3035,7 +3035,9 @@
           "categoryLabel": "Welches Fragewort?",
           "sentence": "Du fragst nach dem Grund: ____ lernst du Deutsch?",
           "acceptedAnswers": [
-            "warum"
+            "warum",
+            "wieso",
+            "weshalb"
           ],
           "hint": "English: why",
           "english": "You ask about the reason: ____ are you learning German? (why)"
@@ -3046,7 +3048,8 @@
           "sentence": "Du fragst nach dem Preis: ____ kostet das?",
           "acceptedAnswers": [
             "wie viel",
-            "wieviel"
+            "wieviel",
+            "was"
           ],
           "hint": "English: how much",
           "english": "You ask about the price: ____ does that cost? (how much)"
@@ -5938,7 +5941,8 @@
           "categoryLabel": "Welche Farbe?",
           "sentence": "Die Farbe von einem Flamingo ist ____.",
           "acceptedAnswers": [
-            "rosa"
+            "rosa",
+            "pink"
           ],
           "hint": "English: pink",
           "english": "The colour of a flamingo is ____ (pink)."
@@ -5989,9 +5993,10 @@
           "categoryLabel": "Welche Farbe?",
           "sentence": "Die Farbe von kleinen Schweinen ist ____.",
           "acceptedAnswers": [
-            "rosa"
+            "rosa",
+            "pink"
           ],
-          "hint": "English: pink (pigs)",
+          "hint": "English: pink",
           "english": "The colour of little pigs is ____ (pink)."
         }
       ],
@@ -7650,7 +7655,8 @@
           "sentence": "Woher kommst du? – Ich komme ____ . (der Park)",
           "acceptedAnswers": [
             "aus dem Park",
-            "vom Park"
+            "vom Park",
+            "von dem Park"
           ],
           "english": "Where are you coming from? – I am coming from the park."
         },
@@ -7671,7 +7677,8 @@
           "sentence": "Woher kommt ihr? – Wir kommen ____ . (der Supermarkt)",
           "acceptedAnswers": [
             "aus dem Supermarkt",
-            "vom Supermarkt"
+            "vom Supermarkt",
+            "von dem Supermarkt"
           ],
           "english": "Where are you coming from? – We are coming from the supermarket."
         },
@@ -7701,7 +7708,8 @@
           "sentence": "Woher kommst du? – Ich komme ____ . (das Büro)",
           "acceptedAnswers": [
             "aus dem Büro",
-            "vom Büro"
+            "vom Büro",
+            "von dem Büro"
           ],
           "english": "Where are you coming from? – I am coming from the office."
         },
@@ -9382,7 +9390,8 @@
           "categoryLabel": "Auf Deutsch",
           "sentence": "Ich bin ____ geboren. (1998)",
           "acceptedAnswers": [
-            "neunzehnhundertachtundneunzig"
+            "neunzehnhundertachtundneunzig",
+            "im Jahr neunzehnhundertachtundneunzig"
           ],
           "english": "I was born in ____."
         },
@@ -9391,7 +9400,8 @@
           "categoryLabel": "Auf Deutsch",
           "sentence": "Mein Vater ist ____ geboren. (1965)",
           "acceptedAnswers": [
-            "neunzehnhundertfünfundsechzig"
+            "neunzehnhundertfünfundsechzig",
+            "im Jahr neunzehnhundertfünfundsechzig"
           ],
           "english": "My father was born in ____."
         },
@@ -9400,7 +9410,8 @@
           "categoryLabel": "Auf Deutsch",
           "sentence": "Meine Tochter ist ____ geboren. (2020)",
           "acceptedAnswers": [
-            "zweitausendzwanzig"
+            "zweitausendzwanzig",
+            "im Jahr zweitausendzwanzig"
           ],
           "english": "My daughter was born in ____."
         },
@@ -13718,7 +13729,7 @@
           {
             "kind": "rule",
             "title": "nach and vor",
-            "text": "nach = past, vor = to: Viertel nach acht (8:15), Viertel vor neun (8:45), zehn nach zwei (2:10), zwanzig vor sechs (5:40).",
+            "text": "nach = past, vor = to: Viertel nach acht (8:15), Viertel vor neun (8:45), zehn nach zwei (2:10), zwanzig vor sechs (5:40). The minutes always come first: fünf nach zehn is 10:05, zehn nach fünf is 5:10. Adding Minuten is fine too (fünf Minuten nach zehn), but there is no und — never zehn und fünf. In the south and east you will also hear zehn vor halb drei (2:20) and drei Viertel elf (10:45); the quiz accepts those as well.",
             "examples": [
               {
                 "de": "Es ist fünf nach zehn.",
@@ -14049,7 +14060,9 @@
           "sentence": "Es ist ____ . (08:15)",
           "acceptedAnswers": [
             "Viertel nach acht",
-            "acht Uhr fünfzehn"
+            "acht Uhr fünfzehn",
+            "fünfzehn Minuten nach acht",
+            "Viertel neun"
           ],
           "english": "It is 08:15."
         },
@@ -14070,7 +14083,9 @@
           "sentence": "Es ist ____ . (10:45)",
           "acceptedAnswers": [
             "Viertel vor elf",
-            "zehn Uhr fünfundvierzig"
+            "zehn Uhr fünfundvierzig",
+            "drei Viertel elf",
+            "fünfzehn Minuten vor elf"
           ],
           "english": "It is 10:45."
         },
@@ -14103,7 +14118,8 @@
           "sentence": "Es ist ____ . (10:05)",
           "acceptedAnswers": [
             "fünf nach zehn",
-            "zehn Uhr fünf"
+            "zehn Uhr fünf",
+            "fünf Minuten nach zehn"
           ],
           "english": "It is 10:05."
         },
@@ -14113,7 +14129,8 @@
           "sentence": "Es ist ____ . (07:50)",
           "acceptedAnswers": [
             "zehn vor acht",
-            "sieben Uhr fünfzig"
+            "sieben Uhr fünfzig",
+            "zehn Minuten vor acht"
           ],
           "english": "It is 07:50."
         },
@@ -14134,7 +14151,9 @@
           "sentence": "Der Kurs endet um ____ . (16:45)",
           "acceptedAnswers": [
             "Viertel vor fünf",
-            "sechzehn Uhr fünfundvierzig"
+            "sechzehn Uhr fünfundvierzig",
+            "drei Viertel fünf",
+            "fünfzehn Minuten vor fünf"
           ],
           "english": "The course ends at 16:45."
         },
@@ -14144,7 +14163,9 @@
           "sentence": "Wir treffen uns um ____ . (18:15)",
           "acceptedAnswers": [
             "Viertel nach sechs",
-            "achtzehn Uhr fünfzehn"
+            "achtzehn Uhr fünfzehn",
+            "Viertel sieben",
+            "fünfzehn Minuten nach sechs"
           ],
           "english": "We're meeting at 18:15."
         },
@@ -14154,7 +14175,9 @@
           "sentence": "Der Zug fährt um ____ ab. (14:20)",
           "acceptedAnswers": [
             "zwanzig nach zwei",
-            "vierzehn Uhr zwanzig"
+            "vierzehn Uhr zwanzig",
+            "zwanzig Minuten nach zwei",
+            "zehn vor halb drei"
           ],
           "english": "The train leaves at 14:20."
         },
@@ -14164,7 +14187,9 @@
           "sentence": "Der Bus kommt um ____ . (17:40)",
           "acceptedAnswers": [
             "zwanzig vor sechs",
-            "siebzehn Uhr vierzig"
+            "siebzehn Uhr vierzig",
+            "zwanzig Minuten vor sechs",
+            "zehn nach halb sechs"
           ],
           "english": "The bus comes at 17:40."
         },
@@ -14196,7 +14221,8 @@
           "sentence": "Das Restaurant schließt um ____ . (21:10)",
           "acceptedAnswers": [
             "zehn nach neun",
-            "einundzwanzig Uhr zehn"
+            "einundzwanzig Uhr zehn",
+            "zehn Minuten nach neun"
           ],
           "english": "The restaurant closes at 21:10."
         }
@@ -15240,7 +15266,8 @@
           "acceptedAnswers": [
             "um acht Uhr",
             "um acht",
-            "um 8 Uhr"
+            "um 8 Uhr",
+            "um 8"
           ],
           "english": "The course starts at eight."
         },
@@ -15327,7 +15354,10 @@
             "von neun bis siebzehn Uhr",
             "von 9 bis 17 Uhr",
             "von neun bis siebzehn",
-            "von neun bis fünf"
+            "von neun bis fünf",
+            "von neun Uhr bis siebzehn Uhr",
+            "von 9 bis 17",
+            "von 9 Uhr bis 17 Uhr"
           ],
           "english": "The office is open from nine to five."
         },
@@ -17007,7 +17037,7 @@
         },
         {
           "key": "s6",
-          "display": "I watch TV."
+          "display": "I watch TV this evening."
         },
         {
           "key": "s7",
@@ -17047,21 +17077,21 @@
           "label": "Verbform",
           "group": "Verbform",
           "values": [
-            "stehe",
-            "stehst",
-            "fährt",
-            "kaufe",
-            "laden",
-            "macht",
-            "sehe",
-            "macht",
-            "rufe",
-            "kommen",
-            "fängt",
-            "bringe",
-            "geht",
-            "machst",
-            "holt"
+            "stehe … auf",
+            "stehst … auf",
+            "fährt … ab",
+            "kaufe … ein",
+            "laden … ein",
+            "macht … zu",
+            "sehe … fern",
+            "macht … auf",
+            "rufe … an",
+            "kommen … zurück",
+            "fängt … an",
+            "bringe … mit",
+            "geht … aus",
+            "Machst … aus",
+            "holt … ab"
           ]
         }
       ],
@@ -17069,9 +17099,9 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "Verbform",
-          "sentence": "Ich ____ um 7 Uhr auf. (aufstehen)",
+          "sentence": "Ich ____ um 7 Uhr ____. (aufstehen)",
           "acceptedAnswers": [
-            "stehe"
+            "stehe … auf"
           ],
           "english": "I get up at 7.",
           "explanationSections": [
@@ -17081,127 +17111,128 @@
         {
           "subjectKey": "s1",
           "categoryLabel": "Verbform",
-          "sentence": "Wann ____ du auf? (aufstehen)",
+          "sentence": "Wann ____ du ____? (aufstehen)",
           "acceptedAnswers": [
-            "stehst"
+            "stehst … auf"
           ],
           "english": "When do you get up?"
         },
         {
           "subjectKey": "s2",
           "categoryLabel": "Verbform",
-          "sentence": "Der Zug ____ um 9 Uhr ab. (abfahren)",
+          "sentence": "Der Zug ____ um 9 Uhr ____. (abfahren)",
           "acceptedAnswers": [
-            "fährt"
+            "fährt … ab",
+            "faehrt … ab"
           ],
           "english": "The train departs at 9."
         },
         {
           "subjectKey": "s3",
           "categoryLabel": "Verbform",
-          "sentence": "Ich ____ am Montag ein. (einkaufen)",
+          "sentence": "Ich ____ am Montag ____. (einkaufen)",
           "acceptedAnswers": [
-            "kaufe"
+            "kaufe … ein"
           ],
           "english": "I go shopping on Monday."
         },
         {
           "subjectKey": "s4",
           "categoryLabel": "Verbform",
-          "sentence": "Wir ____ Freunde ein. (einladen)",
+          "sentence": "Wir ____ Freunde ____. (einladen)",
           "acceptedAnswers": [
-            "laden"
+            "laden … ein"
           ],
           "english": "We invite friends."
         },
         {
           "subjectKey": "s5",
           "categoryLabel": "Verbform",
-          "sentence": "Mama ____ die Tür zu. (zumachen)",
+          "sentence": "Mama ____ die Tür ____. (zumachen)",
           "acceptedAnswers": [
-            "macht"
+            "macht … zu"
           ],
           "english": "Mum closes the door."
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "Verbform",
-          "sentence": "Ich ____ fern. (fernsehen)",
+          "sentence": "Ich ____ heute Abend ____. (fernsehen)",
           "acceptedAnswers": [
-            "sehe"
+            "sehe … fern"
           ],
-          "english": "I watch TV."
+          "english": "I watch TV this evening."
         },
         {
           "subjectKey": "s7",
           "categoryLabel": "Verbform",
-          "sentence": "Das Geschäft ____ um 8 Uhr auf. (aufmachen)",
+          "sentence": "Das Geschäft ____ um 8 Uhr ____. (aufmachen)",
           "acceptedAnswers": [
-            "macht"
+            "macht … auf"
           ],
           "english": "The shop opens at 8."
         },
         {
           "subjectKey": "s8",
           "categoryLabel": "Verbform",
-          "sentence": "Ich ____ meine Freunde an. (anrufen)",
+          "sentence": "Ich ____ meine Freunde ____. (anrufen)",
           "acceptedAnswers": [
-            "rufe"
+            "rufe … an"
           ],
           "english": "I call my friends."
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "Verbform",
-          "sentence": "Wir ____ am Freitag zurück. (zurückkommen)",
+          "sentence": "Wir ____ am Freitag ____. (zurückkommen)",
           "acceptedAnswers": [
-            "kommen"
+            "kommen … zurück"
           ],
           "english": "We come back on Friday."
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "Verbform",
-          "sentence": "Der Film ____ um acht Uhr an. (anfangen)",
+          "sentence": "Der Film ____ um acht Uhr ____. (anfangen)",
           "acceptedAnswers": [
-            "fängt",
-            "faengt"
+            "fängt … an",
+            "faengt … an"
           ],
           "english": "The film starts at eight."
         },
         {
           "subjectKey": "s11",
           "categoryLabel": "Verbform",
-          "sentence": "Ich ____ Brot vom Bäcker mit. (mitbringen)",
+          "sentence": "Ich ____ Brot vom Bäcker ____. (mitbringen)",
           "acceptedAnswers": [
-            "bringe"
+            "bringe … mit"
           ],
           "english": "I bring bread from the bakery."
         },
         {
           "subjectKey": "s12",
           "categoryLabel": "Verbform",
-          "sentence": "Lena ____ heute Abend mit Freunden aus. (ausgehen)",
+          "sentence": "Lena ____ heute Abend mit Freunden ____. (ausgehen)",
           "acceptedAnswers": [
-            "geht"
+            "geht … aus"
           ],
           "english": "Lena goes out with friends tonight."
         },
         {
           "subjectKey": "s13",
           "categoryLabel": "Verbform",
-          "sentence": "____ du bitte das Licht aus? (ausmachen)",
+          "sentence": "____ du bitte das Licht ____? (ausmachen)",
           "acceptedAnswers": [
-            "machst"
+            "Machst … aus"
           ],
           "english": "Will you turn the light off, please?"
         },
         {
           "subjectKey": "s14",
           "categoryLabel": "Verbform",
-          "sentence": "Er ____ die Kinder von der Schule ab. (abholen)",
+          "sentence": "Er ____ die Kinder von der Schule ____. (abholen)",
           "acceptedAnswers": [
-            "holt"
+            "holt … ab"
           ],
           "english": "He picks the children up from school."
         }
@@ -18685,7 +18716,11 @@
             "möchte",
             "haette gern",
             "haette gerne",
-            "moechte"
+            "moechte",
+            "möchte gern",
+            "möchte gerne",
+            "moechte gern",
+            "moechte gerne"
           ],
           "english": "I'd like a coffee."
         },
@@ -18709,7 +18744,13 @@
             "möchte",
             "würde gern",
             "moechte",
-            "wuerde gern"
+            "wuerde gern",
+            "würde gerne",
+            "wuerde gerne",
+            "möchte gern",
+            "möchte gerne",
+            "moechte gern",
+            "moechte gerne"
           ],
           "english": "I'd like to pay."
         },
@@ -18735,7 +18776,11 @@
             "möchten",
             "haetten gern",
             "haetten gerne",
-            "moechten"
+            "moechten",
+            "möchten gern",
+            "möchten gerne",
+            "moechten gern",
+            "moechten gerne"
           ],
           "english": "We'd like two teas."
         },
@@ -18760,7 +18805,11 @@
             "möchte",
             "wuerde gern",
             "wuerde gerne",
-            "moechte"
+            "moechte",
+            "möchte gern",
+            "möchte gerne",
+            "moechte gern",
+            "moechte gerne"
           ],
           "english": "I'd like to go to the cinema."
         },
@@ -18786,7 +18835,11 @@
             "möchte",
             "haette gern",
             "haette gerne",
-            "moechte"
+            "moechte",
+            "möchte gern",
+            "möchte gerne",
+            "moechte gern",
+            "moechte gerne"
           ],
           "english": "I'd like a ticket to Berlin."
         },
@@ -18812,7 +18865,11 @@
             "möchte",
             "haette gern",
             "haette gerne",
-            "moechte"
+            "moechte",
+            "möchte gern",
+            "möchte gerne",
+            "moechte gern",
+            "moechte gerne"
           ],
           "english": "I'd like a kilo of apples."
         },
@@ -19477,8 +19534,8 @@
         },
         {
           "key": "s4",
-          "display": "First I eat, then I go.",
-          "english": "First I eat, then I go."
+          "display": "First I eat, then I go home.",
+          "english": "First I eat, then I go home."
         },
         {
           "key": "s5",
@@ -19608,45 +19665,67 @@
           "categoryLabel": "Konnektor",
           "sentence": "Ich bleibe zu Hause, ____ es regnet.",
           "acceptedAnswers": [
-            "denn"
+            "denn",
+            "weil",
+            "da"
           ],
           "english": "I'm staying home, because it's raining."
         },
         {
           "subjectKey": "s4",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "Zuerst esse ich, dann ____ ich. (gehen)",
+          "sentence": "Zuerst esse ich, dann ____.",
           "acceptedAnswers": [
-            "gehe"
+            "gehe ich nach Hause"
           ],
-          "english": "First I eat, then I go."
+          "english": "First I eat, then I go home.",
+          "tiles": [
+            "nach Hause",
+            "ich",
+            "gehe"
+          ]
         },
         {
           "subjectKey": "s5",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "Morgen ____ ich nach Berlin. (fahren)",
+          "sentence": "Morgen ____.",
           "acceptedAnswers": [
-            "fahre"
+            "fahre ich nach Berlin"
           ],
-          "english": "Tomorrow I'm going to Berlin."
+          "english": "Tomorrow I'm going to Berlin.",
+          "tiles": [
+            "ich",
+            "nach Berlin",
+            "fahre"
+          ]
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "Am Abend ____ wir fern. (fernsehen)",
+          "sentence": "Am Abend ____.",
           "acceptedAnswers": [
-            "sehen"
+            "sehen wir fern"
           ],
-          "english": "In the evening we watch TV."
+          "english": "In the evening we watch TV.",
+          "tiles": [
+            "fern",
+            "wir",
+            "sehen"
+          ]
         },
         {
           "subjectKey": "s7",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "Heute ____ ich keine Zeit. (haben)",
+          "sentence": "Heute ____.",
           "acceptedAnswers": [
-            "habe"
+            "habe ich keine Zeit"
           ],
-          "english": "Today I have no time."
+          "english": "Today I have no time.",
+          "tiles": [
+            "keine Zeit",
+            "habe",
+            "ich"
+          ]
         },
         {
           "subjectKey": "s8",
@@ -19669,47 +19748,73 @@
         {
           "subjectKey": "s10",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "Am Montag ____ ich Deutsch. (lernen)",
+          "sentence": "Am Montag ____.",
           "acceptedAnswers": [
-            "lerne"
+            "lerne ich Deutsch"
           ],
-          "english": "On Monday I'm learning German."
+          "english": "On Monday I'm learning German.",
+          "tiles": [
+            "Deutsch",
+            "lerne",
+            "ich"
+          ]
         },
         {
           "subjectKey": "s11",
           "categoryLabel": "Konnektor",
-          "sentence": "Ich komme nicht, ____ ich bin krank.",
+          "sentence": "Ich komme nicht, ____.",
           "acceptedAnswers": [
-            "denn"
+            "denn ich bin krank"
           ],
-          "english": "I'm not coming, because I'm ill."
+          "english": "I'm not coming, because I'm ill.",
+          "tiles": [
+            "ich",
+            "krank",
+            "denn",
+            "bin"
+          ]
         },
         {
           "subjectKey": "x12",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "Heute ____ ich Nudeln. (kochen)",
+          "sentence": "Heute ____.",
           "acceptedAnswers": [
-            "koche"
+            "koche ich Nudeln"
           ],
-          "english": "Today I'm cooking pasta."
+          "english": "Today I'm cooking pasta.",
+          "tiles": [
+            "Nudeln",
+            "ich",
+            "koche"
+          ]
         },
         {
           "subjectKey": "x13",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "____ du morgen? (kommen — Ja/Nein-Frage)",
+          "sentence": "____?",
           "acceptedAnswers": [
-            "Kommst"
+            "Kommst du morgen"
           ],
-          "english": "Are you coming tomorrow?"
+          "english": "Are you coming tomorrow?",
+          "tiles": [
+            "morgen",
+            "du",
+            "kommst"
+          ]
         },
         {
           "subjectKey": "x14",
           "categoryLabel": "Verb an Position 2",
-          "sentence": "Wo ____ sie? (wohnen)",
+          "sentence": "____?",
           "acceptedAnswers": [
-            "wohnt"
+            "Wo wohnt sie"
           ],
-          "english": "Where does she live?"
+          "english": "Where does she live?",
+          "tiles": [
+            "sie",
+            "wohnt",
+            "wo"
+          ]
         }
       ],
       "storageKeyPrefix": "quest_a1_2_satzbau_",
@@ -20192,7 +20297,8 @@
           "sentence": "____ Äpfel, bitte. (a kilo)",
           "acceptedAnswers": [
             "ein Kilo",
-            "1 Kilo"
+            "1 Kilo",
+            "ein Kilogramm"
           ],
           "english": "A kilo of apples, please."
         },
@@ -20202,7 +20308,9 @@
           "sentence": "Ich hätte gern ____ Käse. (500 grams)",
           "acceptedAnswers": [
             "500 Gramm",
-            "fünfhundert Gramm"
+            "fünfhundert Gramm",
+            "ein halbes Kilo",
+            "ein Pfund"
           ],
           "english": "I'd like 500 grams of cheese."
         },
@@ -20239,7 +20347,8 @@
           "categoryLabel": "Menge / Preis",
           "sentence": "Haben Sie ____ Reis? (a packet)",
           "acceptedAnswers": [
-            "eine Packung"
+            "eine Packung",
+            "ein Päckchen"
           ],
           "english": "Do you have a packet of rice?"
         },
@@ -20276,7 +20385,12 @@
           "sentence": "Das macht ____ . (2,50 €)",
           "acceptedAnswers": [
             "zwei Euro fünfzig",
-            "2,50 Euro"
+            "2,50 Euro",
+            "zwei fünfzig",
+            "zwei Euro und fünfzig Cent",
+            "zwei Euro fünfzig Cent",
+            "2,50 €",
+            "2,50"
           ],
           "english": "That's 2.50 €."
         },
@@ -20639,7 +20753,8 @@
           "categoryLabel": "Körperteil (mit Artikel)",
           "sentence": "Ich esse zu viel Schokolade. Jetzt tut mein ____ weh. (stomach)",
           "acceptedAnswers": [
-            "Bauch"
+            "Bauch",
+            "Magen"
           ],
           "english": "I eat too much chocolate. Now my stomach hurts."
         },
@@ -20757,7 +20872,8 @@
           "categoryLabel": "Possessiv & tun",
           "sentence": "Ich habe ____ und Fieber. (headache)",
           "acceptedAnswers": [
-            "Kopfschmerzen"
+            "Kopfschmerzen",
+            "Kopfweh"
           ],
           "english": "I have a headache and a temperature."
         },
@@ -20766,7 +20882,9 @@
           "categoryLabel": "Possessiv & tun",
           "sentence": "Mein Kind hat ____ und isst nichts. (stomach ache)",
           "acceptedAnswers": [
-            "Bauchschmerzen"
+            "Bauchschmerzen",
+            "Bauchweh",
+            "Magenschmerzen"
           ],
           "english": "My child has a stomach ache and isn't eating anything."
         }
@@ -26966,7 +27084,8 @@
           "categoryLabel": "Woher? — Ich komme …",
           "sentence": "Um eins kommen die Kinder ____. (Schule)",
           "acceptedAnswers": [
-            "aus der Schule"
+            "aus der Schule",
+            "von der Schule"
           ],
           "english": "At one the children come home from school."
         },
@@ -26976,7 +27095,8 @@
           "sentence": "Ich gehe schnell ____, wir haben kein Brot. (Supermarkt)",
           "acceptedAnswers": [
             "in den Supermarkt",
-            "zum Supermarkt"
+            "zum Supermarkt",
+            "zu dem Supermarkt"
           ],
           "english": "I'm popping to the supermarket, we've got no bread."
         },
@@ -26995,7 +27115,8 @@
           "categoryLabel": "Wohin? — Ich gehe / fahre …",
           "sentence": "Ich habe Fieber, ich gehe ____. (Arzt)",
           "acceptedAnswers": [
-            "zum Arzt"
+            "zum Arzt",
+            "zu dem Arzt"
           ],
           "english": "I've got a temperature, I'm going to the doctor."
         },
@@ -27004,7 +27125,8 @@
           "categoryLabel": "Woher? — Ich komme …",
           "sentence": "Sie kommt gerade ____ und hat ein Rezept. (Arzt)",
           "acceptedAnswers": [
-            "vom Arzt"
+            "vom Arzt",
+            "von dem Arzt"
           ],
           "english": "She's just come from the doctor's and has a prescription."
         },
@@ -27114,7 +27236,8 @@
           "categoryLabel": "Wohin? — Ich gehe / fahre …",
           "sentence": "Der Bus fährt ____. (Bahnhof)",
           "acceptedAnswers": [
-            "zum Bahnhof"
+            "zum Bahnhof",
+            "zu dem Bahnhof"
           ],
           "english": "The bus goes to the station."
         },
@@ -27709,11 +27832,16 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Ich gebe ____. (dem Kind + den Ball)",
+          "sentence": "Ich gebe ____.",
           "acceptedAnswers": [
             "dem Kind den Ball"
           ],
-          "english": "I give the child the ball."
+          "english": "I give the child the ball.",
+          "tiles": [
+            "den Ball",
+            "dem Kind",
+            "das Kind"
+          ]
         },
         {
           "subjectKey": "s1",
@@ -27727,11 +27855,16 @@
         {
           "subjectKey": "s2",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Wir schicken ____. (unserem Freund + einen Brief)",
+          "sentence": "Wir schicken ____.",
           "acceptedAnswers": [
             "unserem Freund einen Brief"
           ],
-          "english": "We send our friend a letter."
+          "english": "We send our friend a letter.",
+          "tiles": [
+            "einen Brief",
+            "unserem Freund",
+            "unser Freund"
+          ]
         },
         {
           "subjectKey": "s3",
@@ -27745,11 +27878,16 @@
         {
           "subjectKey": "s4",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Das Buch? Ich bringe ____ morgen. (it + to her)",
+          "sentence": "Das Buch? Ich bringe ____ morgen.",
           "acceptedAnswers": [
             "es ihr"
           ],
-          "english": "The book? I'll bring it to her tomorrow."
+          "english": "The book? I'll bring it to her tomorrow.",
+          "tiles": [
+            "ihr",
+            "es",
+            "sie"
+          ]
         },
         {
           "subjectKey": "s5",
@@ -27790,20 +27928,30 @@
         {
           "subjectKey": "s9",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Wir erzählen ____. (den Kindern + eine Geschichte)",
+          "sentence": "Wir erzählen ____.",
           "acceptedAnswers": [
             "den Kindern eine Geschichte"
           ],
-          "english": "We tell the children a story."
+          "english": "We tell the children a story.",
+          "tiles": [
+            "eine Geschichte",
+            "den Kindern",
+            "die Kinder"
+          ]
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Das Fahrrad? Er kauft ____ zum Geburtstag. (it + seiner Tochter)",
+          "sentence": "Das Fahrrad? Er kauft ____ zum Geburtstag.",
           "acceptedAnswers": [
             "es seiner Tochter"
           ],
-          "english": "The bike? He is buying it for his daughter for her birthday."
+          "english": "The bike? He is buying it for his daughter for her birthday.",
+          "tiles": [
+            "seiner Tochter",
+            "es",
+            "seine Tochter"
+          ]
         },
         {
           "subjectKey": "s11",
@@ -27817,34 +27965,49 @@
         {
           "subjectKey": "x12",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Ich leihe ____. (you / the book)",
+          "sentence": "Ich leihe ____.",
           "acceptedAnswers": [
             "dir das Buch"
           ],
-          "english": "I'll lend you the book."
+          "english": "I'll lend you the book.",
+          "tiles": [
+            "das Buch",
+            "dir",
+            "dich"
+          ]
         },
         {
           "subjectKey": "x13",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Sie schickt ____. (it / to her mother)",
+          "sentence": "Sie schickt ____.",
           "acceptedAnswers": [
             "es ihrer Mutter"
           ],
-          "english": "She sends it to her mother."
+          "english": "She sends it to her mother.",
+          "tiles": [
+            "ihrer Mutter",
+            "es",
+            "ihre Mutter"
+          ]
         },
         {
           "subjectKey": "x14",
           "categoryLabel": "Reihenfolge & Pronomen",
-          "sentence": "Wir bringen ____ morgen. (them / to you, formal)",
+          "sentence": "Wir bringen ____ morgen.",
           "acceptedAnswers": [
             "sie Ihnen"
           ],
-          "english": "We'll bring them to you tomorrow."
+          "english": "We'll bring them to you tomorrow.",
+          "tiles": [
+            "Ihnen",
+            "sie",
+            "euch"
+          ]
         }
       ],
       "storageKeyPrefix": "quest_a2_1_dativ_akkusativ_",
       "help": {
-        "intro": "A group of everyday verbs takes two objects: the person who receives (dative — wem?) and the thing that is given (accusative — was?): Ich gebe dem Kind den Ball. geben, schenken, zeigen, schicken, bringen, leihen, erklären, empfehlen, erzählen, kaufen, wünschen all work this way, and the order is fixed in one direction and flips in the other. With two nouns, the person comes first: Ich gebe dem Kind den Ball. If the thing is a pronoun, it jumps ahead: Ich gebe es dem Kind. With two pronouns, the thing still comes first: Ich gebe es ihm. English does this with 'to' or with order; German does it with the case ending and the pronoun rule. The dative articles themselves (dem, der, den) are drilled in the Dativ quiz; here every gap is about the two objects together — which comes first, and when a pronoun jumps ahead. Where both objects are given in the hint, type them in the right order.",
+        "intro": "A group of everyday verbs takes two objects: the person who receives (dative — wem?) and the thing that is given (accusative — was?): Ich gebe dem Kind den Ball. geben, schenken, zeigen, schicken, bringen, leihen, erklären, empfehlen, erzählen, kaufen, wünschen all work this way, and the order is fixed in one direction and flips in the other. With two nouns, the person comes first: Ich gebe dem Kind den Ball. If the thing is a pronoun, it jumps ahead: Ich gebe es dem Kind. With two pronouns, the thing still comes first: Ich gebe es ihm. English does this with 'to' or with order; German does it with the case ending and the pronoun rule. The dative articles themselves (dem, der, den) are drilled in the Dativ quiz; here every gap is about the two objects together — which comes first, and when a pronoun jumps ahead. Where both objects are offered as word tiles, tap them into the right order — one tile is always a wrong form.",
         "tips": [
           {
             "kind": "rule",
@@ -29815,7 +29978,8 @@
           "categoryLabel": "Wetter",
           "sentence": "Im ____ werden die Bäume wieder grün. (spring)",
           "acceptedAnswers": [
-            "Frühling"
+            "Frühling",
+            "Frühjahr"
           ],
           "english": "In spring the trees turn green again."
         },
@@ -29834,7 +29998,8 @@
           "sentence": "Der Himmel ist grau und ____. (cloudy)",
           "acceptedAnswers": [
             "bewölkt",
-            "bewoelkt"
+            "bewoelkt",
+            "wolkig"
           ],
           "english": "The sky is grey and cloudy."
         },
@@ -29861,7 +30026,8 @@
           "categoryLabel": "Wetter",
           "sentence": "Es regnet — ich brauche einen ____. (umbrella)",
           "acceptedAnswers": [
-            "Regenschirm"
+            "Regenschirm",
+            "Schirm"
           ],
           "english": "It is raining — I need an umbrella."
         },
@@ -30980,7 +31146,8 @@
           "categoryLabel": "Artikelwort",
           "sentence": "Ich nehme ____ hier. (this one, m, Akk)",
           "acceptedAnswers": [
-            "diesen"
+            "diesen",
+            "den"
           ],
           "english": "I'll take this one here."
         },
@@ -35616,7 +35783,7 @@
         },
         {
           "key": "s8",
-          "display": "weil … hat (Urlaub)"
+          "display": "weil … habe (Urlaub)"
         },
         {
           "key": "s9",
@@ -35656,7 +35823,7 @@
             "hat",
             "bestehen … will",
             "ist",
-            "hat",
+            "habe",
             "habe",
             "gekommen … ist",
             "arbeiten … muss",
@@ -35670,137 +35837,221 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Ich bleibe zu Hause, weil ich krank ____. (sein)",
+          "sentence": "Ich bleibe zu Hause, weil ____.",
           "acceptedAnswers": [
-            "bin"
+            "ich krank bin"
           ],
-          "english": "I'm staying home because I'm ill."
+          "english": "I'm staying home because I'm ill.",
+          "tiles": [
+            "krank",
+            "bin",
+            "ich",
+            "ist"
+          ]
         },
         {
           "subjectKey": "s1",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Sie lernt Deutsch, weil sie in Berlin ____. (wohnen)",
+          "sentence": "Sie lernt Deutsch, weil ____.",
           "acceptedAnswers": [
-            "wohnt"
+            "sie in Berlin wohnt"
           ],
-          "english": "She learns German because she lives in Berlin."
+          "english": "She learns German because she lives in Berlin.",
+          "tiles": [
+            "wohnt",
+            "in Berlin",
+            "sie"
+          ]
         },
         {
           "subjectKey": "s2",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Wir nehmen den Bus, weil es ____. (regnen)",
+          "sentence": "Wir nehmen den Bus, weil ____.",
           "acceptedAnswers": [
-            "regnet"
+            "es heute regnet"
           ],
-          "english": "We take the bus because it's raining."
+          "english": "We take the bus because it's raining today.",
+          "tiles": [
+            "regnet",
+            "es",
+            "heute"
+          ]
         },
         {
           "subjectKey": "s3",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Er ist müde, weil er schlecht ____ ____. (schlafen, Perfekt)",
+          "sentence": "Er ist müde, weil ____.",
           "acceptedAnswers": [
-            "geschlafen … hat"
+            "er schlecht geschlafen hat"
           ],
-          "english": "He is tired because he slept badly."
+          "english": "He is tired because he slept badly.",
+          "tiles": [
+            "hat",
+            "er",
+            "schlecht",
+            "geschlafen"
+          ]
         },
         {
           "subjectKey": "s4",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Ich kaufe das Buch, weil es interessant ____. (sein)",
+          "sentence": "Ich kaufe das Buch, weil ____.",
           "acceptedAnswers": [
-            "ist"
+            "es interessant ist"
           ],
-          "english": "I buy the book because it is interesting."
+          "english": "I buy the book because it is interesting.",
+          "tiles": [
+            "ist",
+            "interessant",
+            "es"
+          ]
         },
         {
           "subjectKey": "s5",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Er geht zum Arzt, weil er Fieber ____. (haben)",
+          "sentence": "Er geht zum Arzt, weil ____.",
           "acceptedAnswers": [
-            "hat"
+            "er Fieber hat"
           ],
-          "english": "He goes to the doctor because he has a fever."
+          "english": "He goes to the doctor because he has a fever.",
+          "tiles": [
+            "hat",
+            "Fieber",
+            "er",
+            "habe"
+          ]
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Ich lerne viel, weil ich die Prüfung ____ ____. (bestehen wollen)",
+          "sentence": "Ich lerne viel, weil ____.",
           "acceptedAnswers": [
-            "bestehen … will"
+            "ich die Prüfung bestehen will"
           ],
-          "english": "I study a lot because I want to pass the exam."
+          "english": "I study a lot because I want to pass the exam.",
+          "tiles": [
+            "will",
+            "die Prüfung",
+            "ich",
+            "bestehen"
+          ]
         },
         {
           "subjectKey": "s7",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Wir bleiben drinnen, weil es kalt ____. (sein)",
+          "sentence": "Wir bleiben drinnen, weil ____.",
           "acceptedAnswers": [
-            "ist"
+            "es kalt ist"
           ],
-          "english": "We stay inside because it is cold."
+          "english": "We stay inside because it is cold.",
+          "tiles": [
+            "kalt",
+            "es",
+            "ist"
+          ]
         },
         {
           "subjectKey": "s8",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Sie ist glücklich, weil sie Urlaub ____. (haben)",
+          "sentence": "Weil ich Urlaub habe, ____.",
           "acceptedAnswers": [
-            "hat"
+            "bin ich glücklich"
           ],
-          "english": "She is happy because she is on holiday."
+          "english": "Because I'm on holiday, I'm happy.",
+          "tiles": [
+            "ich",
+            "glücklich",
+            "bin"
+          ]
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Ich esse einen Apfel, weil ich Hunger ____. (haben)",
+          "sentence": "Ich esse einen Apfel, weil ____.",
           "acceptedAnswers": [
-            "habe"
+            "ich Hunger habe"
           ],
-          "english": "I eat an apple because I am hungry."
+          "english": "I eat an apple because I am hungry.",
+          "tiles": [
+            "Hunger",
+            "habe",
+            "ich",
+            "hat"
+          ]
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Er kommt zu spät, weil der Bus nicht ____ ____. (kommen, Perfekt)",
+          "sentence": "Er kommt zu spät, weil ____.",
           "acceptedAnswers": [
-            "gekommen … ist"
+            "der Bus nicht gekommen ist"
           ],
-          "english": "He is late because the bus didn't come."
+          "english": "He is late because the bus didn't come.",
+          "tiles": [
+            "nicht",
+            "ist",
+            "der Bus",
+            "gekommen"
+          ]
         },
         {
           "subjectKey": "s11",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Sie bleibt heute zu Hause, weil sie ____ ____. (arbeiten müssen)",
+          "sentence": "Sie bleibt heute zu Hause, weil ____.",
           "acceptedAnswers": [
-            "arbeiten … muss"
+            "sie arbeiten muss"
           ],
-          "english": "She is staying at home today because she has to work."
+          "english": "She is staying at home today because she has to work.",
+          "tiles": [
+            "muss",
+            "sie",
+            "arbeiten"
+          ]
         },
         {
           "subjectKey": "s12",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Ich rufe dich an, weil ich eine Frage ____. (haben)",
+          "sentence": "____, rufe ich dich an.",
           "acceptedAnswers": [
-            "habe"
+            "Weil ich eine Frage habe"
           ],
-          "english": "I am calling you because I have a question."
+          "english": "Because I have a question, I'm calling you.",
+          "tiles": [
+            "eine Frage",
+            "weil",
+            "habe",
+            "ich"
+          ]
         },
         {
           "subjectKey": "s13",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Sie trägt eine Jacke, weil es windig ____. (sein)",
+          "sentence": "Sie trägt eine Jacke, weil ____.",
           "acceptedAnswers": [
-            "ist"
+            "es windig ist"
           ],
-          "english": "She wears a jacket because it is windy."
+          "english": "She wears a jacket because it is windy.",
+          "tiles": [
+            "windig",
+            "ist",
+            "es",
+            "sind"
+          ]
         },
         {
           "subjectKey": "s14",
           "categoryLabel": "weil + Verb am Ende",
-          "sentence": "Er spart Geld, weil er ein Auto ____ ____. (kaufen wollen)",
+          "sentence": "Er spart Geld, weil ____.",
           "acceptedAnswers": [
-            "kaufen … will"
+            "er ein Auto kaufen will"
           ],
-          "english": "He saves money because he wants to buy a car."
+          "english": "He saves money because he wants to buy a car.",
+          "tiles": [
+            "ein Auto",
+            "kaufen",
+            "er",
+            "will"
+          ]
         }
       ],
       "covers": [
@@ -36376,137 +36627,220 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Ich glaube, dass er recht ____. (haben)",
+          "sentence": "Ich glaube, dass ____.",
           "acceptedAnswers": [
-            "hat"
+            "er recht hat"
           ],
-          "english": "I think that he is right."
+          "english": "I think that he is right.",
+          "tiles": [
+            "recht",
+            "hat",
+            "er"
+          ]
         },
         {
           "subjectKey": "s1",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Sie sagt, dass sie morgen ____. (kommen)",
+          "sentence": "Sie sagt, dass ____.",
           "acceptedAnswers": [
-            "kommt"
+            "sie morgen kommt"
           ],
-          "english": "She says that she is coming tomorrow."
+          "english": "She says that she is coming tomorrow.",
+          "tiles": [
+            "kommt",
+            "morgen",
+            "sie"
+          ]
         },
         {
           "subjectKey": "s2",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Ich hoffe, dass das Wetter schön ____. (sein)",
+          "sentence": "Ich hoffe, dass ____.",
           "acceptedAnswers": [
-            "ist"
+            "das Wetter schön ist"
           ],
-          "english": "I hope that the weather is nice."
+          "english": "I hope that the weather is nice.",
+          "tiles": [
+            "schön",
+            "ist",
+            "das Wetter"
+          ]
         },
         {
           "subjectKey": "s3",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Wir wissen, dass du viel ____. (arbeiten)",
+          "sentence": "Wir wissen, dass ____.",
           "acceptedAnswers": [
-            "arbeitest"
+            "du viel arbeitest"
           ],
-          "english": "We know that you work a lot."
+          "english": "We know that you work a lot.",
+          "tiles": [
+            "viel",
+            "du",
+            "arbeitest",
+            "arbeitet"
+          ]
         },
         {
           "subjectKey": "s4",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Es ist gut, dass du ____ ____. (kommen, Perfekt)",
+          "sentence": "Es ist gut, dass ____.",
           "acceptedAnswers": [
-            "gekommen … bist"
+            "du gekommen bist"
           ],
-          "english": "It's good that you came."
+          "english": "It's good that you came.",
+          "tiles": [
+            "bist",
+            "gekommen",
+            "du"
+          ]
         },
         {
           "subjectKey": "s5",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Ich denke, dass Deutsch nicht so schwer ____. (sein)",
+          "sentence": "Ich denke, dass ____.",
           "acceptedAnswers": [
-            "ist"
+            "Deutsch nicht so schwer ist"
           ],
-          "english": "I think that German is not so hard."
+          "english": "I think that German is not so hard.",
+          "tiles": [
+            "nicht so schwer",
+            "ist",
+            "Deutsch"
+          ]
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Er sagt, dass er keine Zeit ____. (haben)",
+          "sentence": "Er sagt, dass ____.",
           "acceptedAnswers": [
-            "hat"
+            "er keine Zeit hat"
           ],
-          "english": "He says that he has no time."
+          "english": "He says that he has no time.",
+          "tiles": [
+            "hat",
+            "er",
+            "keine Zeit"
+          ]
         },
         {
           "subjectKey": "s7",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Wir hoffen, dass ihr bald ____. (kommen)",
+          "sentence": "Wir hoffen, dass ____.",
           "acceptedAnswers": [
-            "kommt"
+            "ihr bald kommt"
           ],
-          "english": "We hope that you (all) come soon."
+          "english": "We hope that you (all) come soon.",
+          "tiles": [
+            "bald",
+            "kommt",
+            "ihr",
+            "kommen"
+          ]
         },
         {
           "subjectKey": "s8",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Ich weiß, dass ich morgen früh ____ ____. (aufstehen müssen)",
+          "sentence": "Ich weiß, dass ____.",
           "acceptedAnswers": [
-            "aufstehen … muss"
+            "ich morgen früh aufstehen muss"
           ],
-          "english": "I know that I have to get up early tomorrow."
+          "english": "I know that I have to get up early tomorrow.",
+          "tiles": [
+            "muss",
+            "ich",
+            "aufstehen",
+            "morgen früh"
+          ]
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Sie glaubt, dass wir zu viel ____. (arbeiten)",
+          "sentence": "Sie glaubt, dass ____.",
           "acceptedAnswers": [
-            "arbeiten"
+            "wir zu viel arbeiten"
           ],
-          "english": "She thinks that we work too much."
+          "english": "She thinks that we work too much.",
+          "tiles": [
+            "zu viel",
+            "wir",
+            "arbeiten"
+          ]
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Es ist schade, dass du nicht ____ ____. (kommen können)",
+          "sentence": "Es ist schade, dass ____.",
           "acceptedAnswers": [
-            "kommen … kannst"
+            "du nicht kommen kannst"
           ],
-          "english": "It is a pity that you cannot come."
+          "english": "It is a pity that you cannot come.",
+          "tiles": [
+            "kommen",
+            "nicht",
+            "kannst",
+            "du",
+            "kann"
+          ]
         },
         {
           "subjectKey": "s11",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Ich finde, dass das Essen gut ____. (schmecken)",
+          "sentence": "Ich finde, dass ____.",
           "acceptedAnswers": [
-            "schmeckt"
+            "das Essen gut schmeckt"
           ],
-          "english": "I find that the food tastes good."
+          "english": "I find that the food tastes good.",
+          "tiles": [
+            "gut",
+            "schmeckt",
+            "das Essen"
+          ]
         },
         {
           "subjectKey": "s12",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Er hofft, dass das Wetter besser ____. (werden)",
+          "sentence": "Er hofft, dass ____.",
           "acceptedAnswers": [
-            "wird"
+            "das Wetter besser wird"
           ],
-          "english": "He hopes that the weather gets better."
+          "english": "He hopes that the weather gets better.",
+          "tiles": [
+            "besser",
+            "wird",
+            "das Wetter"
+          ]
         },
         {
           "subjectKey": "s13",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Wir wissen, dass sie gestern viel Sport ____ ____. (machen, Perfekt, sie Sg.)",
+          "sentence": "Wir wissen, dass ____.",
           "acceptedAnswers": [
-            "gemacht … hat"
+            "sie gestern viel Sport gemacht hat"
           ],
-          "english": "We know that she did a lot of sport yesterday."
+          "english": "We know that she did a lot of sport yesterday.",
+          "tiles": [
+            "hat",
+            "sie",
+            "viel Sport",
+            "gestern",
+            "gemacht"
+          ]
         },
         {
           "subjectKey": "s14",
           "categoryLabel": "dass + Verb am Ende",
-          "sentence": "Ich glaube, dass ich morgen frei ____. (haben)",
+          "sentence": "Ich glaube, dass ____.",
           "acceptedAnswers": [
-            "habe"
+            "ich morgen frei habe"
           ],
-          "english": "I think that I am free tomorrow."
+          "english": "I think that I am free tomorrow.",
+          "tiles": [
+            "frei",
+            "habe",
+            "morgen",
+            "ich"
+          ]
         }
       ],
       "covers": [
@@ -36530,8 +36864,8 @@
         },
         {
           "key": "s1",
-          "display": "If I have time, I'll come.",
-          "english": "If I have time, I'll come."
+          "display": "If I have time, I'll gladly come.",
+          "english": "If I have time, I'll gladly come."
         },
         {
           "key": "s2",
@@ -36570,8 +36904,8 @@
         },
         {
           "key": "s9",
-          "display": "When I'm hungry, I cook.",
-          "english": "When I'm hungry, I cook."
+          "display": "When I'm hungry, I cook something.",
+          "english": "When I'm hungry, I cook something."
         },
         {
           "key": "s10",
@@ -36585,8 +36919,8 @@
         },
         {
           "key": "x12",
-          "display": "If you're tired, go to bed.",
-          "english": "If you're tired, go to bed."
+          "display": "Go to bed if you're tired.",
+          "english": "Go to bed if you're tired."
         },
         {
           "key": "x13",
@@ -36605,7 +36939,7 @@
           "group": "konj",
           "values": [
             "regnet",
-            "habe",
+            "komme",
             "bleiben",
             "bist",
             "gehe",
@@ -36613,7 +36947,7 @@
             "kommt",
             "willst",
             "nehme",
-            "habe",
+            "koche",
             "fahren",
             "kaufe",
             "bist",
@@ -36626,137 +36960,213 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn es ____, bleiben wir zu Hause. (regnen)",
+          "sentence": "____, bleiben wir zu Hause.",
           "acceptedAnswers": [
-            "regnet"
+            "Wenn es regnet"
           ],
-          "english": "When it rains, we stay at home."
+          "english": "When it rains, we stay at home.",
+          "tiles": [
+            "wenn",
+            "regnet",
+            "es"
+          ]
         },
         {
           "subjectKey": "s1",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn ich Zeit ____, komme ich. (haben)",
+          "sentence": "Wenn ich Zeit habe, ____.",
           "acceptedAnswers": [
-            "habe"
+            "komme ich gern"
           ],
-          "english": "If I have time, I'll come."
+          "english": "If I have time, I'll gladly come.",
+          "tiles": [
+            "gern",
+            "ich",
+            "komme"
+          ]
         },
         {
           "subjectKey": "s2",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Es regnet, deshalb ____ wir zu Hause. (bleiben)",
+          "sentence": "Es regnet, deshalb ____.",
           "acceptedAnswers": [
-            "bleiben"
+            "bleiben wir zu Hause"
           ],
-          "english": "It's raining, so we're staying home."
+          "english": "It's raining, so we're staying home.",
+          "tiles": [
+            "zu Hause",
+            "bleiben",
+            "wir"
+          ]
         },
         {
           "subjectKey": "s3",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Ruf mich an, wenn du zu Hause ____. (sein)",
+          "sentence": "Ruf mich an, wenn ____.",
           "acceptedAnswers": [
-            "bist"
+            "du zu Hause bist"
           ],
-          "english": "Call me when you're home."
+          "english": "Call me when you're home.",
+          "tiles": [
+            "zu Hause",
+            "bist",
+            "du"
+          ]
         },
         {
           "subjectKey": "s4",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Ich bin müde, deshalb ____ ich ins Bett. (gehen)",
+          "sentence": "Ich bin müde, deshalb ____.",
           "acceptedAnswers": [
-            "gehe"
+            "gehe ich ins Bett"
           ],
-          "english": "I'm tired, so I'm going to bed."
+          "english": "I'm tired, so I'm going to bed.",
+          "tiles": [
+            "ins Bett",
+            "gehe",
+            "ich"
+          ]
         },
         {
           "subjectKey": "s5",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn das Wetter schön ____, gehen wir wandern. (sein)",
+          "sentence": "Wenn das Wetter schön ist, ____.",
           "acceptedAnswers": [
-            "ist"
+            "gehen wir wandern"
           ],
-          "english": "When the weather is nice, we go hiking."
+          "english": "When the weather is nice, we go hiking.",
+          "tiles": [
+            "wandern",
+            "wir",
+            "gehen"
+          ]
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Er ist krank, deshalb ____ er nicht. (kommen)",
+          "sentence": "Er ist krank, deshalb ____.",
           "acceptedAnswers": [
-            "kommt"
+            "kommt er nicht"
           ],
-          "english": "He's ill, so he's not coming."
+          "english": "He's ill, so he's not coming.",
+          "tiles": [
+            "nicht",
+            "er",
+            "kommt"
+          ]
         },
         {
           "subjectKey": "s7",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn du ____, können wir jetzt gehen. (wollen)",
+          "sentence": "____, können wir jetzt gehen.",
           "acceptedAnswers": [
-            "willst"
+            "Wenn du willst"
           ],
-          "english": "If you want, we can go now."
+          "english": "If you want, we can go now.",
+          "tiles": [
+            "du",
+            "wenn",
+            "willst"
+          ]
         },
         {
           "subjectKey": "s8",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Der Bus kommt zu spät, deshalb ____ ich ein Taxi. (nehmen)",
+          "sentence": "Der Bus kommt zu spät, deshalb ____.",
           "acceptedAnswers": [
-            "nehme"
+            "nehme ich ein Taxi"
           ],
-          "english": "The bus is late, so I'm taking a taxi."
+          "english": "The bus is late, so I'm taking a taxi.",
+          "tiles": [
+            "ein Taxi",
+            "nehme",
+            "ich"
+          ]
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn ich Hunger ____, koche ich. (haben)",
+          "sentence": "Wenn ich Hunger habe, ____.",
           "acceptedAnswers": [
-            "habe"
+            "koche ich etwas"
           ],
-          "english": "When I'm hungry, I cook."
+          "english": "When I'm hungry, I cook something.",
+          "tiles": [
+            "etwas",
+            "koche",
+            "ich"
+          ]
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wir haben kein Auto, deshalb ____ wir mit dem Zug. (fahren)",
+          "sentence": "Wir haben kein Auto, deshalb ____.",
           "acceptedAnswers": [
-            "fahren"
+            "fahren wir mit dem Zug"
           ],
-          "english": "We have no car, so we take the train."
+          "english": "We have no car, so we take the train.",
+          "tiles": [
+            "mit dem Zug",
+            "wir",
+            "fahren"
+          ]
         },
         {
           "subjectKey": "s11",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn es zu teuer ist, ____ ich es nicht. (kaufen)",
+          "sentence": "Wenn es zu teuer ist, ____.",
           "acceptedAnswers": [
-            "kaufe"
+            "kaufe ich es nicht"
           ],
-          "english": "If it's too expensive, I won't buy it."
+          "english": "If it's too expensive, I won't buy it.",
+          "tiles": [
+            "es",
+            "kaufe",
+            "nicht",
+            "ich"
+          ]
         },
         {
           "subjectKey": "x12",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn du müde ____, geh ins Bett. (sein)",
+          "sentence": "Geh ins Bett, wenn ____.",
           "acceptedAnswers": [
-            "bist"
+            "du müde bist"
           ],
-          "english": "If you're tired, go to bed."
+          "english": "Go to bed if you're tired.",
+          "tiles": [
+            "müde",
+            "bist",
+            "du"
+          ]
         },
         {
           "subjectKey": "x13",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Ich habe keine Zeit, deshalb ____ ich nicht. (kommen)",
+          "sentence": "Ich habe keine Zeit, deshalb ____.",
           "acceptedAnswers": [
-            "komme"
+            "komme ich nicht"
           ],
-          "english": "I have no time, so I'm not coming."
+          "english": "I have no time, so I'm not coming.",
+          "tiles": [
+            "nicht",
+            "komme",
+            "ich"
+          ]
         },
         {
           "subjectKey": "x14",
           "categoryLabel": "wenn (Verb am Ende) / deshalb (Verb an 2)",
-          "sentence": "Wenn die Sonne ____, gehen wir schwimmen. (scheinen)",
+          "sentence": "____, gehen wir schwimmen.",
           "acceptedAnswers": [
-            "scheint"
+            "Wenn die Sonne scheint"
           ],
-          "english": "When the sun shines we go swimming."
+          "english": "When the sun shines we go swimming.",
+          "tiles": [
+            "scheint",
+            "die Sonne",
+            "wenn"
+          ]
         }
       ],
       "storageKeyPrefix": "quest_a2_2_wenn_deshalb_",
@@ -37091,11 +37501,16 @@
         {
           "subjectKey": "s1",
           "categoryLabel": "ob / W-Wort",
-          "sentence": "Können Sie mir sagen, ____ der Bahnhof ist?",
+          "sentence": "Können Sie mir sagen, ____?",
           "acceptedAnswers": [
-            "wo"
+            "wo der Bahnhof ist"
           ],
-          "english": "Can you tell me where the station is?"
+          "english": "Can you tell me where the station is?",
+          "tiles": [
+            "der Bahnhof",
+            "ist",
+            "wo"
+          ]
         },
         {
           "subjectKey": "s2",
@@ -37109,11 +37524,16 @@
         {
           "subjectKey": "s3",
           "categoryLabel": "ob / W-Wort",
-          "sentence": "Könnten Sie mir sagen, ____ der Zug abfährt?",
+          "sentence": "Könnten Sie mir sagen, ____?",
           "acceptedAnswers": [
-            "wann"
+            "wann der Zug abfährt"
           ],
-          "english": "Could you tell me when the train leaves?"
+          "english": "Could you tell me when the train leaves?",
+          "tiles": [
+            "abfährt",
+            "wann",
+            "der Zug"
+          ]
         },
         {
           "subjectKey": "s4",
@@ -37128,11 +37548,17 @@
         {
           "subjectKey": "s5",
           "categoryLabel": "ob / W-Wort",
-          "sentence": "Weißt du, ____ sie Zeit hat?",
+          "sentence": "Weißt du, ____?",
           "acceptedAnswers": [
-            "ob"
+            "ob sie Zeit hat"
           ],
-          "english": "Do you know whether she has time?"
+          "english": "Do you know whether she has time?",
+          "tiles": [
+            "Zeit",
+            "hat",
+            "sie",
+            "ob"
+          ]
         },
         {
           "subjectKey": "s6",
@@ -37146,11 +37572,17 @@
         {
           "subjectKey": "s7",
           "categoryLabel": "ob / W-Wort",
-          "sentence": "Ich frage mich, ____ er nicht hier ist.",
+          "sentence": "Ich frage mich, ____.",
           "acceptedAnswers": [
-            "warum"
+            "warum er nicht hier ist"
           ],
-          "english": "I wonder why he's not here."
+          "english": "I wonder why he's not here.",
+          "tiles": [
+            "warum",
+            "nicht hier",
+            "ist",
+            "er"
+          ]
         },
         {
           "subjectKey": "s8",
@@ -37191,11 +37623,16 @@
         {
           "subjectKey": "x12",
           "categoryLabel": "ob / W-Wort",
-          "sentence": "Ich möchte wissen, ____ die Post öffnet.",
+          "sentence": "Ich möchte wissen, ____.",
           "acceptedAnswers": [
-            "wann"
+            "wann die Post öffnet"
           ],
-          "english": "I'd like to know when the post office opens."
+          "english": "I'd like to know when the post office opens.",
+          "tiles": [
+            "die Post",
+            "wann",
+            "öffnet"
+          ]
         },
         {
           "subjectKey": "x13",
@@ -38422,7 +38859,8 @@
           "categoryLabel": "Gesundheit",
           "sentence": "Ich habe ____ und nehme eine Tablette. (headache)",
           "acceptedAnswers": [
-            "Kopfschmerzen"
+            "Kopfschmerzen",
+            "Kopfweh"
           ],
           "english": "I have a headache and take a pill."
         },
@@ -38440,7 +38878,8 @@
           "categoryLabel": "Gesundheit",
           "sentence": "Der ____ untersucht den Patienten. (doctor)",
           "acceptedAnswers": [
-            "Arzt"
+            "Arzt",
+            "Doktor"
           ],
           "english": "The doctor examines the patient."
         },
@@ -38467,7 +38906,9 @@
           "categoryLabel": "Gesundheit",
           "sentence": "Ich habe ____ — zu viel Schokolade! (stomach ache)",
           "acceptedAnswers": [
-            "Bauchschmerzen"
+            "Bauchschmerzen",
+            "Bauchweh",
+            "Magenschmerzen"
           ],
           "english": "I have a stomach ache — too much chocolate!"
         },
@@ -38503,7 +38944,9 @@
           "categoryLabel": "Gesundheit",
           "sentence": "Ich nehme ein ____ gegen die Schmerzen. (medicine)",
           "acceptedAnswers": [
-            "Medikament"
+            "Medikament",
+            "Mittel",
+            "Arzneimittel"
           ],
           "english": "I take a medicine for the pain."
         },
@@ -39648,7 +40091,8 @@
           "categoryLabel": "Imperativ",
           "sentence": "____ viel Wasser! (trinken, du)",
           "acceptedAnswers": [
-            "Trink"
+            "Trink",
+            "Trinke"
           ],
           "english": "Drink lots of water!"
         },
@@ -43302,137 +43746,202 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Ich fahre ____. (nach Berlin / morgen / mit dem Zug)",
+          "sentence": "Ich fahre ____.",
           "acceptedAnswers": [
             "morgen mit dem Zug nach Berlin"
           ],
-          "english": "I'm going to Berlin tomorrow by train."
+          "english": "I'm going to Berlin tomorrow by train.",
+          "tiles": [
+            "nach Berlin",
+            "morgen",
+            "mit dem Zug"
+          ]
         },
         {
           "subjectKey": "s1",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Wir treffen uns ____. (im Café / um drei)",
+          "sentence": "Wir treffen uns ____.",
           "acceptedAnswers": [
             "um drei im Café"
           ],
-          "english": "We're meeting at the café at three."
+          "english": "We're meeting at the café at three.",
+          "tiles": [
+            "im Café",
+            "um drei"
+          ]
         },
         {
           "subjectKey": "s2",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Sie arbeitet ____. (im Büro / am Morgen)",
+          "sentence": "Sie arbeitet ____.",
           "acceptedAnswers": [
             "am Morgen im Büro"
           ],
-          "english": "She works in the office in the morning."
+          "english": "She works in the office in the morning.",
+          "tiles": [
+            "im Büro",
+            "am Morgen"
+          ]
         },
         {
           "subjectKey": "s3",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Er fährt ____. (zur Schule / jeden Tag / mit dem Rad)",
+          "sentence": "Er fährt ____.",
           "acceptedAnswers": [
             "jeden Tag mit dem Rad zur Schule"
           ],
-          "english": "He goes to school by bike every day."
+          "english": "He goes to school by bike every day.",
+          "tiles": [
+            "zur Schule",
+            "jeden Tag",
+            "mit dem Rad"
+          ]
         },
         {
           "subjectKey": "s4",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Wir essen ____. (zu Hause / am Abend)",
+          "sentence": "Wir essen ____.",
           "acceptedAnswers": [
             "am Abend zu Hause"
           ],
-          "english": "We eat at home in the evening."
+          "english": "We eat at home in the evening.",
+          "tiles": [
+            "zu Hause",
+            "am Abend"
+          ]
         },
         {
           "subjectKey": "s5",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Ich fliege ____. (nach Rom / nächste Woche)",
+          "sentence": "Ich fliege ____.",
           "acceptedAnswers": [
             "nächste Woche nach Rom"
           ],
-          "english": "I'm flying to Rome next week."
+          "english": "I'm flying to Rome next week.",
+          "tiles": [
+            "nach Rom",
+            "nächste Woche"
+          ]
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Sie spielen ____ Fußball. (im Park / sonntags)",
+          "sentence": "Sie spielen ____ Fußball.",
           "acceptedAnswers": [
             "sonntags im Park"
           ],
-          "english": "They play football in the park on Sundays."
+          "english": "They play football in the park on Sundays.",
+          "tiles": [
+            "im Park",
+            "sonntags"
+          ]
         },
         {
           "subjectKey": "s7",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Ich gehe ____. (ins Kino / heute Abend / mit Anna)",
+          "sentence": "Ich gehe ____.",
           "acceptedAnswers": [
             "heute Abend mit Anna ins Kino"
           ],
-          "english": "I'm going to the cinema with Anna tonight."
+          "english": "I'm going to the cinema with Anna tonight.",
+          "tiles": [
+            "ins Kino",
+            "heute Abend",
+            "mit Anna"
+          ]
         },
         {
           "subjectKey": "s8",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Er lernt ____ Deutsch. (in der Bibliothek / jeden Abend)",
+          "sentence": "Er lernt ____ Deutsch.",
           "acceptedAnswers": [
             "jeden Abend in der Bibliothek"
           ],
-          "english": "He studies German in the library every evening."
+          "english": "He studies German in the library every evening.",
+          "tiles": [
+            "in der Bibliothek",
+            "jeden Abend"
+          ]
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Wir fahren ____. (ans Meer / im Sommer)",
+          "sentence": "Wir fahren ____.",
           "acceptedAnswers": [
             "im Sommer ans Meer"
           ],
-          "english": "We drive to the sea in summer."
+          "english": "We drive to the sea in summer.",
+          "tiles": [
+            "ans Meer",
+            "im Sommer"
+          ]
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Sie liest ____. (auf dem Sofa / nach der Arbeit)",
+          "sentence": "Sie liest ____.",
           "acceptedAnswers": [
             "nach der Arbeit auf dem Sofa"
           ],
-          "english": "She reads on the sofa after work."
+          "english": "She reads on the sofa after work.",
+          "tiles": [
+            "auf dem Sofa",
+            "nach der Arbeit"
+          ]
         },
         {
           "subjectKey": "s11",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Ich fahre ____. (ins Fitnessstudio / montags / mit dem Bus)",
+          "sentence": "Ich fahre ____.",
           "acceptedAnswers": [
             "montags mit dem Bus ins Fitnessstudio"
           ],
-          "english": "I go to the gym by bus on Mondays."
+          "english": "I go to the gym by bus on Mondays.",
+          "tiles": [
+            "ins Fitnessstudio",
+            "montags",
+            "mit dem Bus"
+          ]
         },
         {
           "subjectKey": "x12",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Wir fliegen ____. (nach Spanien / im Juli)",
+          "sentence": "Wir fliegen ____.",
           "acceptedAnswers": [
             "im Juli nach Spanien"
           ],
-          "english": "We're flying to Spain in July."
+          "english": "We're flying to Spain in July.",
+          "tiles": [
+            "nach Spanien",
+            "im Juli"
+          ]
         },
         {
           "subjectKey": "x13",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Sie geht ____. (zur Arbeit / zu Fuß / jeden Tag)",
+          "sentence": "Sie geht ____.",
           "acceptedAnswers": [
             "jeden Tag zu Fuß zur Arbeit"
           ],
-          "english": "She walks to work every day."
+          "english": "She walks to work every day.",
+          "tiles": [
+            "zur Arbeit",
+            "zu Fuß",
+            "jeden Tag"
+          ]
         },
         {
           "subjectKey": "x14",
           "categoryLabel": "Reihenfolge: Zeit – Art – Ort",
-          "sentence": "Ich treffe Tom ____. (am Bahnhof / um sechs)",
+          "sentence": "Ich treffe Tom ____.",
           "acceptedAnswers": [
             "um sechs am Bahnhof"
           ],
-          "english": "I'm meeting Tom at the station at six."
+          "english": "I'm meeting Tom at the station at six.",
+          "tiles": [
+            "am Bahnhof",
+            "um sechs"
+          ]
         }
       ],
       "storageKeyPrefix": "quest_a2_2_tekamolo_",
@@ -47546,7 +48055,9 @@
           "categoryLabel": "Arbeit",
           "sentence": "Ich suche eine neue ____. (job/position)",
           "acceptedAnswers": [
-            "Stelle"
+            "Stelle",
+            "Arbeitsstelle",
+            "Arbeit"
           ],
           "hint": "English: position",
           "english": "I’m looking for a new position."
@@ -47556,7 +48067,8 @@
           "categoryLabel": "Arbeit",
           "sentence": "Mein ____ ist sehr nett. (boss)",
           "acceptedAnswers": [
-            "Chef"
+            "Chef",
+            "Vorgesetzter"
           ],
           "hint": "English: boss",
           "english": "My boss is very nice."
@@ -47606,7 +48118,8 @@
           "categoryLabel": "Arbeit",
           "sentence": "Meine ____ sind sehr freundlich. (colleagues)",
           "acceptedAnswers": [
-            "Kollegen"
+            "Kollegen",
+            "Kolleginnen"
           ],
           "hint": "English: colleagues",
           "english": "My colleagues are very friendly."
@@ -47626,7 +48139,8 @@
           "categoryLabel": "Arbeit",
           "sentence": "Um zehn Uhr haben wir eine ____. (meeting)",
           "acceptedAnswers": [
-            "Besprechung"
+            "Besprechung",
+            "Sitzung"
           ],
           "hint": "English: meeting",
           "english": "At ten we have a meeting."
@@ -47646,7 +48160,8 @@
           "categoryLabel": "Arbeit",
           "sentence": "Ich unterschreibe heute den ____. (contract)",
           "acceptedAnswers": [
-            "Vertrag"
+            "Vertrag",
+            "Arbeitsvertrag"
           ],
           "hint": "English: contract",
           "english": "I sign the contract today."
@@ -53316,7 +53831,8 @@
           "categoryLabel": "Relativpronomen (mit Präposition / Dativ)",
           "sentence": "Das ist die Stadt, ____ ich komme.",
           "acceptedAnswers": [
-            "aus der"
+            "aus der",
+            "woher"
           ],
           "english": "That's the city I come from."
         },
@@ -53334,7 +53850,8 @@
           "categoryLabel": "Relativpronomen (mit Präposition / Dativ)",
           "sentence": "Das ist das Thema, ____ wir sprechen.",
           "acceptedAnswers": [
-            "über das"
+            "über das",
+            "worüber"
           ],
           "english": "That's the topic we're talking about."
         },
@@ -54890,7 +55407,8 @@
           "categoryLabel": "Konjunktion",
           "sentence": "Er ist sehr müde, ____ arbeitet er weiter.",
           "acceptedAnswers": [
-            "trotzdem"
+            "trotzdem",
+            "dennoch"
           ],
           "english": "He is very tired; he keeps working all the same."
         },
@@ -55620,7 +56138,8 @@
           "categoryLabel": "es-Ausdruck",
           "sentence": "Es ____, ich muss gehen. (it's late)",
           "acceptedAnswers": [
-            "ist spät"
+            "ist spät",
+            "ist schon spät"
           ],
           "english": "It's late, I have to go."
         },
@@ -55638,7 +56157,8 @@
           "categoryLabel": "es-Ausdruck",
           "sentence": "Es ____, dass er morgen kommt. (it's possible)",
           "acceptedAnswers": [
-            "ist möglich"
+            "ist möglich",
+            "kann sein"
           ],
           "english": "It's possible that he'll come tomorrow."
         },
@@ -56496,7 +57016,8 @@
           "categoryLabel": "Redemittel",
           "sentence": "Vielen Dank ____ für Ihre Hilfe.",
           "acceptedAnswers": [
-            "im Voraus"
+            "im Voraus",
+            "vorab"
           ],
           "english": "Many thanks in advance for your help."
         },
@@ -56515,7 +57036,9 @@
           "sentence": "____ für deine Mail, ich habe mich sehr gefreut!",
           "acceptedAnswers": [
             "Danke",
-            "Vielen Dank"
+            "Vielen Dank",
+            "Herzlichen Dank",
+            "Vielen lieben Dank"
           ],
           "english": "Thanks for your mail, I was really pleased!"
         },
@@ -56544,7 +57067,8 @@
           "acceptedAnswers": [
             "Liebe",
             "Viele",
-            "Herzliche"
+            "Herzliche",
+            "Beste"
           ],
           "english": "Best wishes, your Mia"
         },
@@ -56574,7 +57098,9 @@
           "acceptedAnswers": [
             "Entschuldige",
             "Sorry",
-            "Tut mir leid"
+            "Tut mir leid",
+            "Entschuldigung",
+            "Es tut mir leid"
           ],
           "english": "Sorry I am only replying now!"
         }
@@ -58120,12 +58646,17 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "Konnektor",
-          "sentence": "____ du Hilfe brauchst, ruf mich einfach an.",
+          "sentence": "____, ruf mich einfach an.",
           "acceptedAnswers": [
-            "Falls",
-            "Wenn"
+            "Falls du Hilfe brauchst"
           ],
-          "english": "If you need help, just call me."
+          "english": "If you need help, just call me.",
+          "tiles": [
+            "falls",
+            "Hilfe",
+            "du",
+            "brauchst"
+          ]
         },
         {
           "subjectKey": "s1",
@@ -58140,12 +58671,18 @@
         {
           "subjectKey": "s2",
           "categoryLabel": "Konnektor",
-          "sentence": "Es regnete stark. ____ gingen wir spazieren.",
+          "sentence": "Es regnete stark. ____.",
           "acceptedAnswers": [
-            "Trotzdem",
-            "Dennoch"
+            "Trotzdem gingen wir spazieren",
+            "Wir gingen trotzdem spazieren"
           ],
-          "english": "It was raining heavily. We went for a walk anyway."
+          "english": "It was raining heavily. We went for a walk anyway.",
+          "tiles": [
+            "wir",
+            "trotzdem",
+            "gingen",
+            "spazieren"
+          ]
         },
         {
           "subjectKey": "s3",
@@ -58198,14 +58735,18 @@
         {
           "subjectKey": "s8",
           "categoryLabel": "Konnektor",
-          "sentence": "Ich bin sehr müde, ____ gehe ich heute früh ins Bett.",
+          "sentence": "Ich bin sehr müde, ____.",
           "acceptedAnswers": [
-            "deshalb",
-            "deswegen",
-            "darum",
-            "daher"
+            "deshalb gehe ich heute früh ins Bett",
+            "ich gehe deshalb heute früh ins Bett"
           ],
-          "english": "I am very tired, so I am going to bed early today."
+          "english": "I am very tired, so I am going to bed early today.",
+          "tiles": [
+            "deshalb",
+            "gehe",
+            "ich",
+            "heute früh ins Bett"
+          ]
         },
         {
           "subjectKey": "s9",
@@ -58240,12 +58781,19 @@
         {
           "subjectKey": "s12",
           "categoryLabel": "Konnektor",
-          "sentence": "Er hat wenig Geld. ____ fährt er jedes Jahr in Urlaub.",
+          "sentence": "Er hat wenig Geld. ____.",
           "acceptedAnswers": [
-            "Trotzdem",
-            "Dennoch"
+            "Trotzdem fährt er jedes Jahr in Urlaub",
+            "Er fährt trotzdem jedes Jahr in Urlaub"
           ],
-          "english": "He has little money. Nevertheless he goes on holiday every year."
+          "english": "He has little money. Nevertheless he goes on holiday every year.",
+          "tiles": [
+            "er",
+            "trotzdem",
+            "in Urlaub",
+            "fährt",
+            "jedes Jahr"
+          ]
         },
         {
           "subjectKey": "s13",
@@ -60419,7 +60967,8 @@
           "categoryLabel": "Technik",
           "sentence": "Ich muss die Datei noch ____. (save)",
           "acceptedAnswers": [
-            "speichern"
+            "speichern",
+            "abspeichern"
           ],
           "hint": "English: save",
           "english": "I still have to save the file."
@@ -60429,7 +60978,9 @@
           "categoryLabel": "Technik",
           "sentence": "Kannst du die App ____? (download)",
           "acceptedAnswers": [
-            "herunterladen"
+            "herunterladen",
+            "downloaden",
+            "runterladen"
           ],
           "hint": "English: download",
           "english": "Can you download the app?"
@@ -60479,7 +61030,8 @@
           "categoryLabel": "Technik",
           "sentence": "Ich habe mein ____ schon wieder vergessen. (password)",
           "acceptedAnswers": [
-            "Passwort"
+            "Passwort",
+            "Kennwort"
           ],
           "hint": "English: password",
           "english": "I have forgotten my password again."
@@ -60499,7 +61051,8 @@
           "categoryLabel": "Technik",
           "sentence": "Das ____ im Hotel ist kostenlos. (Wi-Fi)",
           "acceptedAnswers": [
-            "WLAN"
+            "WLAN",
+            "W-LAN"
           ],
           "hint": "English: Wi-Fi",
           "english": "The Wi-Fi at the hotel is free."
@@ -60519,7 +61072,9 @@
           "categoryLabel": "Technik",
           "sentence": "Ich schreibe dir morgen eine ____. (e-mail)",
           "acceptedAnswers": [
-            "E-Mail"
+            "E-Mail",
+            "Mail",
+            "Email"
           ],
           "hint": "English: e-mail",
           "english": "I will write you an e-mail tomorrow."
@@ -60539,7 +61094,8 @@
           "categoryLabel": "Technik",
           "sentence": "Ich muss die Fotos noch ____. (upload)",
           "acceptedAnswers": [
-            "hochladen"
+            "hochladen",
+            "uploaden"
           ],
           "hint": "English: upload",
           "english": "I still have to upload the photos."
@@ -60561,7 +61117,8 @@
           "acceptedAnswers": [
             "Website",
             "Webseite",
-            "Internetseite"
+            "Internetseite",
+            "Seite"
           ],
           "hint": "English: website",
           "english": "This website has a lot of good information."
@@ -66567,7 +67124,8 @@
           "sentence": "Sie spart Geld, ____. (buy a car)",
           "acceptedAnswers": [
             "um ein Auto zu kaufen",
-            "damit sie ein Auto kaufen kann"
+            "damit sie ein Auto kaufen kann",
+            "um sich ein Auto zu kaufen"
           ],
           "english": "She saves money to buy a car."
         },
@@ -66587,7 +67145,10 @@
           "sentence": "Wir fahren früh los, ____. (catch the train)",
           "acceptedAnswers": [
             "um den Zug zu erreichen",
-            "damit wir den Zug erreichen"
+            "damit wir den Zug erreichen",
+            "um den Zug zu bekommen",
+            "um den Zug zu erwischen",
+            "damit wir den Zug bekommen"
           ],
           "english": "We're leaving early to catch the train."
         },
@@ -66650,7 +67211,9 @@
           "sentence": "Sie nahmen ein Taxi, ____. (be on time)",
           "acceptedAnswers": [
             "um pünktlich zu sein",
-            "damit sie pünktlich sind"
+            "damit sie pünktlich sind",
+            "damit sie pünktlich waren",
+            "damit sie pünktlich ankamen"
           ],
           "english": "They took a taxi to be on time."
         },
@@ -66693,7 +67256,9 @@
           "acceptedAnswers": [
             "damit das Baby schläft",
             "damit das Baby schlafen kann",
-            "damit das Baby weiterschläft"
+            "damit das Baby weiterschläft",
+            "damit das Baby schlafen konnte",
+            "damit das Baby schlief"
           ],
           "english": "She closed the door so that the baby sleeps."
         }
@@ -68103,7 +68668,8 @@
           "categoryLabel": "Zweiteiliger Konnektor",
           "sentence": "Sie spricht ____ Deutsch ____ Englisch. (both … and)",
           "acceptedAnswers": [
-            "sowohl … als auch"
+            "sowohl … als auch",
+            "sowohl … wie auch"
           ],
           "english": "She speaks both German and English."
         },
@@ -68158,7 +68724,8 @@
           "categoryLabel": "Zweiteiliger Konnektor",
           "sentence": "Das Essen war ____ gut ____ günstig. (both … and)",
           "acceptedAnswers": [
-            "sowohl … als auch"
+            "sowohl … als auch",
+            "sowohl … wie auch"
           ],
           "english": "The food was both good and cheap."
         },
@@ -70241,7 +70808,8 @@
           "categoryLabel": "Partikel",
           "sentence": "Warum ____ nicht? (friendly question)",
           "acceptedAnswers": [
-            "denn"
+            "denn",
+            "eigentlich"
           ],
           "english": "Why not, then?"
         },
@@ -71133,7 +71701,8 @@
           "categoryLabel": "abgeleitetes Nomen",
           "sentence": "Für mich ist ____ das Wichtigste im Leben. (gesund)",
           "acceptedAnswers": [
-            "die Gesundheit"
+            "die Gesundheit",
+            "Gesundheit"
           ],
           "english": "For me health is the most important thing in life."
         },
@@ -71160,7 +71729,8 @@
           "categoryLabel": "abgeleitetes Nomen",
           "sentence": "Gibt es ____ , den Kurs online zu machen? (möglich)",
           "acceptedAnswers": [
-            "eine Möglichkeit"
+            "eine Möglichkeit",
+            "die Möglichkeit"
           ],
           "english": "Is there a way to do the course online?"
         },
@@ -74338,7 +74908,8 @@
           "categoryLabel": "Gesellschaft",
           "sentence": "Die ____ zwischen Arm und Reich wächst seit Jahren. (gap)",
           "acceptedAnswers": [
-            "Kluft"
+            "Kluft",
+            "Schere"
           ],
           "hint": "English: gap, divide",
           "english": "The gap between rich and poor has been growing for years."
@@ -74348,7 +74919,8 @@
           "categoryLabel": "Gesellschaft",
           "sentence": "Die ____ des Gesetzes betonen den Nutzen für die Umwelt. (supporters)",
           "acceptedAnswers": [
-            "Befürworter"
+            "Befürworter",
+            "Unterstützer"
           ],
           "hint": "English: supporters, proponents",
           "english": "The supporters of the law stress the benefit for the environment."
@@ -74929,9 +75501,7 @@
           "sentence": "Unsere Nachbarn sagten, sie ____ nächste Woche vorbei. (vorbeikommen, Plural)",
           "acceptedAnswers": [
             "kämen",
-            "kaemen",
-            "würden kommen",
-            "wuerden kommen"
+            "kaemen"
           ],
           "english": "Our neighbours said they would drop by next week."
         },
@@ -75740,7 +76310,8 @@
           "sentence": "Sie bat, ich ____ das Fenster schließen, es ziehe. (reported polite request)",
           "acceptedAnswers": [
             "möge",
-            "moege"
+            "moege",
+            "solle"
           ],
           "english": "She asked me to close the window, there was a draught."
         },
@@ -75998,7 +76569,8 @@
           "sentence": "Sie fragte, ____. („Kommst du mit?“)",
           "acceptedAnswers": [
             "ob ich mitkomme",
-            "ob ich mitkäme"
+            "ob ich mitkäme",
+            "ob ich mitkommen würde"
           ],
           "english": "She asked whether I was coming along."
         },
@@ -78000,7 +78572,8 @@
           "categoryLabel": "Präposition",
           "sentence": "Das Personal war ____ allen Gästen freundlich. (freundlich + …)",
           "acceptedAnswers": [
-            "zu"
+            "zu",
+            "gegenüber"
           ],
           "english": "The staff were friendly to all the guests."
         },
@@ -79180,8 +79753,7 @@
           "categoryLabel": "Umformung",
           "sentence": "das von mir gekochte Essen → das Essen, ____ (Relativsatz im Aktiv, Perfekt)",
           "acceptedAnswers": [
-            "das ich gekocht habe",
-            "das von mir gekocht wurde"
+            "das ich gekocht habe"
           ],
           "english": "the food that I cooked"
         }
@@ -79799,13 +80371,19 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "Konnektor",
-          "sentence": "Es war teuer. ____ haben wir es gekauft. (nevertheless)",
+          "sentence": "Es war teuer. ____.",
           "acceptedAnswers": [
-            "Trotzdem",
-            "Dennoch",
-            "Gleichwohl"
+            "Trotzdem haben wir es gekauft",
+            "Wir haben es trotzdem gekauft"
           ],
-          "english": "It was expensive. Nevertheless we bought it."
+          "english": "It was expensive. Nevertheless we bought it.",
+          "tiles": [
+            "wir",
+            "es",
+            "trotzdem",
+            "haben",
+            "gekauft"
+          ]
         },
         {
           "subjectKey": "s1",
@@ -79903,32 +80481,51 @@
         {
           "subjectKey": "s8",
           "categoryLabel": "Konnektor",
-          "sentence": "Beeil dich! ____ verpassen wir den Zug. (otherwise)",
+          "sentence": "Beeil dich! ____.",
           "acceptedAnswers": [
-            "Sonst",
-            "Andernfalls",
-            "Ansonsten"
+            "Sonst verpassen wir den Zug",
+            "Wir verpassen sonst den Zug"
           ],
-          "english": "Hurry up! Otherwise we will miss the train."
+          "english": "Hurry up! Otherwise we will miss the train.",
+          "tiles": [
+            "sonst",
+            "verpassen",
+            "wir",
+            "den Zug"
+          ]
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "Konnektor",
-          "sentence": "Er kaufte kein Auto. ____ nahm er das Fahrrad. (instead)",
+          "sentence": "Er kaufte kein Auto. ____.",
           "acceptedAnswers": [
-            "Stattdessen"
+            "Stattdessen nahm er das Fahrrad",
+            "Er nahm stattdessen das Fahrrad"
           ],
-          "english": "He did not buy a car. Instead he took the bike."
+          "english": "He did not buy a car. Instead he took the bike.",
+          "tiles": [
+            "stattdessen",
+            "nahm",
+            "er",
+            "das Fahrrad"
+          ]
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "Konnektor",
-          "sentence": "Ich mag Tee. Mein Bruder ____ trinkt nur Kaffee. (by contrast)",
+          "sentence": "Ich mag Tee. ____.",
           "acceptedAnswers": [
-            "dagegen",
-            "hingegen"
+            "Mein Bruder dagegen trinkt nur Kaffee",
+            "Mein Bruder trinkt dagegen nur Kaffee",
+            "Dagegen trinkt mein Bruder nur Kaffee"
           ],
-          "english": "I like tea. My brother, by contrast, only drinks coffee."
+          "english": "I like tea. My brother, by contrast, only drinks coffee.",
+          "tiles": [
+            "trinkt",
+            "mein Bruder",
+            "dagegen",
+            "nur Kaffee"
+          ]
         },
         {
           "subjectKey": "s11",
@@ -80098,145 +80695,224 @@
         {
           "subjectKey": "s0",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (ich / geben / das Buch / meinem Bruder)",
+          "sentence": "Ich gebe ____.",
           "acceptedAnswers": [
-            "Ich gebe meinem Bruder das Buch"
+            "meinem Bruder das Buch"
           ],
-          "english": "I give my brother the book."
+          "english": "I give my brother the book.",
+          "tiles": [
+            "das Buch",
+            "meinem Bruder",
+            "meinen Bruder"
+          ]
         },
         {
           "subjectKey": "s1",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (ich / geben / es / meinem Bruder)",
+          "sentence": "Ich gebe ____.",
           "acceptedAnswers": [
-            "Ich gebe es meinem Bruder"
+            "es meinem Bruder"
           ],
-          "english": "I give it to my brother."
+          "english": "I give it to my brother.",
+          "tiles": [
+            "meinem Bruder",
+            "es",
+            "meinen Bruder"
+          ]
         },
         {
           "subjectKey": "s2",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (ich / geben / ihm / das Buch)",
+          "sentence": "Ich gebe ____.",
           "acceptedAnswers": [
-            "Ich gebe ihm das Buch"
+            "ihm das Buch"
           ],
-          "english": "I give him the book."
+          "english": "I give him the book.",
+          "tiles": [
+            "das Buch",
+            "ihm",
+            "ihn"
+          ]
         },
         {
           "subjectKey": "s3",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (ich / geben / es / ihm)",
+          "sentence": "Ich gebe ____.",
           "acceptedAnswers": [
-            "Ich gebe es ihm"
+            "es ihm"
           ],
-          "english": "I give it to him."
+          "english": "I give it to him.",
+          "tiles": [
+            "ihm",
+            "es",
+            "ihn"
+          ]
         },
         {
           "subjectKey": "s4",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (sie / fahren / nach Rom / mit dem Zug / wegen einer Besprechung / morgen)",
+          "sentence": "Sie fährt ____.",
           "acceptedAnswers": [
-            "Sie fährt morgen wegen einer Besprechung mit dem Zug nach Rom",
-            "Sie faehrt morgen wegen einer Besprechung mit dem Zug nach Rom",
-            "Sie fährt wegen einer Besprechung morgen mit dem Zug nach Rom",
-            "Sie faehrt wegen einer Besprechung morgen mit dem Zug nach Rom"
+            "morgen wegen einer Besprechung mit dem Zug nach Rom",
+            "wegen einer Besprechung morgen mit dem Zug nach Rom"
           ],
-          "english": "She’s taking the train to Rome tomorrow because of a meeting."
+          "english": "She’s taking the train to Rome tomorrow because of a meeting.",
+          "tiles": [
+            "nach Rom",
+            "mit dem Zug",
+            "wegen einer Besprechung",
+            "morgen"
+          ]
         },
         {
           "subjectKey": "s5",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (er / fahren / zur Arbeit / mit dem Rad / jeden Tag)",
+          "sentence": "Er fährt ____.",
           "acceptedAnswers": [
-            "Er fährt jeden Tag mit dem Rad zur Arbeit"
+            "jeden Tag mit dem Rad zur Arbeit"
           ],
-          "english": "He goes to work every day by bike."
+          "english": "He goes to work every day by bike.",
+          "tiles": [
+            "zur Arbeit",
+            "mit dem Rad",
+            "jeden Tag"
+          ]
         },
         {
           "subjectKey": "s6",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (wir / besuchen, Perfekt / das Museum / nicht — whole sentence negated)",
+          "sentence": "Wir haben ____.",
           "acceptedAnswers": [
-            "Wir haben das Museum nicht besucht"
+            "das Museum nicht besucht"
           ],
-          "english": "We didn't visit the museum."
+          "english": "We didn't visit the museum.",
+          "tiles": [
+            "nicht",
+            "besucht",
+            "das Museum"
+          ]
         },
         {
           "subjectKey": "s7",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (wir / besuchen, Perfekt / nicht das Museum, sondern den Zoo)",
+          "sentence": "Wir haben ____.",
           "acceptedAnswers": [
-            "Wir haben nicht das Museum, sondern den Zoo besucht"
+            "nicht das Museum, sondern den Zoo besucht"
           ],
-          "english": "We visited not the museum but the zoo."
+          "english": "We visited not the museum but the zoo.",
+          "tiles": [
+            "den Zoo",
+            "besucht",
+            "nicht",
+            "das Museum,",
+            "sondern"
+          ]
         },
         {
           "subjectKey": "s8",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (ich / erklären / die Regel / den Studenten / heute)",
+          "sentence": "Ich erkläre ____.",
           "acceptedAnswers": [
-            "Ich erkläre den Studenten heute die Regel",
-            "Ich erkläre heute den Studenten die Regel"
+            "den Studenten heute die Regel",
+            "heute den Studenten die Regel"
           ],
-          "english": "I'll explain the rule to the students today."
+          "english": "I'll explain the rule to the students today.",
+          "tiles": [
+            "die Regel",
+            "heute",
+            "den Studenten"
+          ]
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (sie / zeigen, Perfekt / die Fotos / uns / gestern)",
+          "sentence": "Sie hat ____.",
           "acceptedAnswers": [
-            "Sie hat uns gestern die Fotos gezeigt",
-            "Sie hat uns die Fotos gestern gezeigt"
+            "uns gestern die Fotos gezeigt",
+            "uns die Fotos gestern gezeigt"
           ],
-          "english": "She showed us the photos yesterday."
+          "english": "She showed us the photos yesterday.",
+          "tiles": [
+            "gezeigt",
+            "uns",
+            "die Fotos",
+            "gestern"
+          ]
         },
         {
           "subjectKey": "s10",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (er / kommen, Perfekt / gestern / nicht)",
+          "sentence": "Er ist ____.",
           "acceptedAnswers": [
-            "Er ist gestern nicht gekommen"
+            "gestern nicht gekommen"
           ],
-          "english": "He didn't come yesterday."
+          "english": "He didn't come yesterday.",
+          "tiles": [
+            "nicht",
+            "gekommen",
+            "gestern"
+          ]
         },
         {
           "subjectKey": "s11",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (sie, Pl. / bleiben, Prät. / zu Hause / wegen des Regens / am Abend)",
+          "sentence": "Sie blieben ____.",
           "acceptedAnswers": [
-            "Sie blieben am Abend wegen des Regens zu Hause",
-            "Sie blieben wegen des Regens am Abend zu Hause"
+            "am Abend wegen des Regens zu Hause",
+            "wegen des Regens am Abend zu Hause"
           ],
-          "english": "They stayed at home in the evening because of the rain."
+          "english": "They stayed at home in the evening because of the rain.",
+          "tiles": [
+            "zu Hause",
+            "wegen des Regens",
+            "am Abend"
+          ]
         },
         {
           "subjectKey": "x12",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (sie / geben, Perfekt / es / mir)",
+          "sentence": "Sie hat ____.",
           "acceptedAnswers": [
-            "Sie hat es mir gegeben"
+            "es mir gegeben"
           ],
-          "english": "She gave it to me."
+          "english": "She gave it to me.",
+          "tiles": [
+            "mir",
+            "gegeben",
+            "es",
+            "mich"
+          ]
         },
         {
           "subjectKey": "x13",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (er / erklären / den Plan / dem Team / morgen / im Büro)",
+          "sentence": "Er erklärt ____.",
           "acceptedAnswers": [
-            "Er erklärt dem Team morgen im Büro den Plan",
-            "Er erklärt morgen dem Team im Büro den Plan",
-            "Er erklärt dem Team morgen den Plan im Büro"
+            "dem Team morgen im Büro den Plan",
+            "morgen dem Team im Büro den Plan",
+            "dem Team morgen den Plan im Büro"
           ],
-          "english": "He explains the plan to the team tomorrow in the office."
+          "english": "He explains the plan to the team tomorrow in the office.",
+          "tiles": [
+            "den Plan",
+            "im Büro",
+            "dem Team",
+            "morgen"
+          ]
         },
         {
           "subjectKey": "x14",
           "categoryLabel": "Mittelfeld",
-          "sentence": "____ . (ich / lesen, Perfekt / das Buch / nicht)",
+          "sentence": "Ich habe ____.",
           "acceptedAnswers": [
-            "Ich habe das Buch nicht gelesen"
+            "das Buch nicht gelesen"
           ],
-          "english": "I didn't read the book."
+          "english": "I didn't read the book.",
+          "tiles": [
+            "gelesen",
+            "das Buch",
+            "nicht"
+          ]
         }
       ],
       "storageKeyPrefix": "quest_b2_1_mittelfeld_",
@@ -80610,7 +81286,8 @@
           "categoryLabel": "Umformung",
           "sentence": "Wir blieben zu Hause, weil es regnete. → Wir blieben ____ zu Hause.",
           "acceptedAnswers": [
-            "wegen des Regens"
+            "wegen des Regens",
+            "aufgrund des Regens"
           ],
           "english": "We stayed home because of the rain."
         },
@@ -80660,7 +81337,8 @@
             "weil es stürmte",
             "weil es stuermte",
             "weil es einen Sturm gab",
-            "weil es gestürmt hat"
+            "weil es gestürmt hat",
+            "da es stürmte"
           ],
           "english": "The flight was cancelled because of the storm."
         },
@@ -80680,7 +81358,8 @@
           "sentence": "Dank deiner Hilfe bin ich fertig. → Ich bin fertig, ____ .",
           "acceptedAnswers": [
             "weil du geholfen hast",
-            "weil du mir geholfen hast"
+            "weil du mir geholfen hast",
+            "da du mir geholfen hast"
           ],
           "english": "Thanks to your help I'm done."
         },
@@ -80689,7 +81368,8 @@
           "categoryLabel": "Umformung",
           "sentence": "Aus Neugier öffnete er die Tür. → Er öffnete die Tür, ____ .",
           "acceptedAnswers": [
-            "weil er neugierig war"
+            "weil er neugierig war",
+            "da er neugierig war"
           ],
           "english": "Out of curiosity he opened the door."
         },
@@ -80699,7 +81379,9 @@
           "sentence": "Vor Kälte zitterte er. → Er zitterte, ____ .",
           "acceptedAnswers": [
             "weil ihm kalt war",
-            "weil es kalt war"
+            "weil es kalt war",
+            "weil er fror",
+            "da ihm kalt war"
           ],
           "english": "He shivered from the cold."
         },
@@ -80733,7 +81415,8 @@
           "categoryLabel": "Umformung",
           "sentence": "Sie fehlte, weil sie krank war. → Sie fehlte ____ .",
           "acceptedAnswers": [
-            "wegen ihrer Krankheit"
+            "wegen ihrer Krankheit",
+            "aufgrund ihrer Krankheit"
           ],
           "english": "She was absent because of her illness."
         },
@@ -80751,7 +81434,8 @@
           "categoryLabel": "Umformung",
           "sentence": "Dank des guten Wetters kamen viele. → Viele kamen, ____ .",
           "acceptedAnswers": [
-            "weil das Wetter gut war"
+            "weil das Wetter gut war",
+            "da das Wetter gut war"
           ],
           "english": "Many came because the weather was good."
         }
@@ -81226,7 +81910,10 @@
           "sentence": "Nach dem Studium fand er eine Stelle. → Er fand eine Stelle, ____ .",
           "acceptedAnswers": [
             "nachdem er studiert hatte",
-            "nachdem er das Studium beendet hatte"
+            "nachdem er das Studium beendet hatte",
+            "nachdem er sein Studium beendet hatte",
+            "nachdem er sein Studium abgeschlossen hatte",
+            "nachdem er das Studium abgeschlossen hatte"
           ],
           "english": "After he had studied he found a job."
         },
@@ -81285,7 +81972,8 @@
           "sentence": "Nach dem Konzert gingen wir essen. → Wir gingen essen, ____ .",
           "acceptedAnswers": [
             "nachdem das Konzert zu Ende war",
-            "nachdem das Konzert geendet hatte"
+            "nachdem das Konzert geendet hatte",
+            "nachdem das Konzert vorbei war"
           ],
           "english": "We went to eat after the concert had ended."
         }
@@ -82172,7 +82860,9 @@
           "categoryLabel": "lassen / Doppelinfinitiv",
           "sentence": "Ich ____ . (meinen Schirm zu Hause — Perfekt, left behind)",
           "acceptedAnswers": [
-            "habe meinen Schirm zu Hause gelassen"
+            "habe meinen Schirm zu Hause gelassen",
+            "habe meinen Schirm zu Hause liegen lassen",
+            "habe meinen Schirm zu Hause liegen gelassen"
           ],
           "english": "I left my umbrella at home."
         },
@@ -85537,7 +86227,8 @@
           "categoryLabel": "Redemittel",
           "sentence": "____ der Kontakt zu den Kollegen fehlt. (contra)",
           "acceptedAnswers": [
-            "Dagegen lässt sich einwenden, dass"
+            "Dagegen lässt sich einwenden, dass",
+            "Dagegen kann man einwenden, dass"
           ],
           "english": "Against it one can object that contact with colleagues is missing."
         },
@@ -85556,7 +86247,9 @@
           "sentence": "____ überwiegen die Vorteile. (own opinion — verb second follows)",
           "acceptedAnswers": [
             "Meiner Ansicht nach",
-            "Meiner Meinung nach"
+            "Meiner Meinung nach",
+            "Meines Erachtens",
+            "Aus meiner Sicht"
           ],
           "english": "In my view the advantages prevail."
         },
@@ -85576,7 +86269,10 @@
           "categoryLabel": "Redemittel",
           "sentence": "____ klare Regeln für alle. (demand)",
           "acceptedAnswers": [
-            "Deshalb fordere ich"
+            "Deshalb fordere ich",
+            "Deswegen fordere ich",
+            "Daher fordere ich",
+            "Darum fordere ich"
           ],
           "english": "That's why I demand clear rules for everyone."
         },
@@ -85585,7 +86281,8 @@
           "categoryLabel": "Redemittel",
           "sentence": "____ beide Seiten gute Argumente haben. (summary)",
           "acceptedAnswers": [
-            "Zusammenfassend lässt sich sagen, dass"
+            "Zusammenfassend lässt sich sagen, dass",
+            "Zusammenfassend kann man sagen, dass"
           ],
           "english": "In summary, both sides have good arguments."
         },
@@ -85603,7 +86300,8 @@
           "categoryLabel": "Redemittel",
           "sentence": "____ nicht jeder zu Hause arbeiten kann. (concession)",
           "acceptedAnswers": [
-            "Zwar ist es richtig, dass"
+            "Zwar ist es richtig, dass",
+            "Es ist zwar richtig, dass"
           ],
           "english": "It is true, admittedly, that not everyone can work from home."
         },
@@ -90125,7 +90823,8 @@
           "sentence": "Die ____ der Erde schreitet schneller voran, als viele Modelle vorhergesagt haben. (global warming)",
           "acceptedAnswers": [
             "Erderwärmung",
-            "Erderwaermung"
+            "Erderwaermung",
+            "Erwärmung"
           ],
           "english": "Global warming is advancing faster than many models predicted."
         },
@@ -90164,7 +90863,8 @@
           "acceptedAnswers": [
             "nachgewiesen",
             "belegt",
-            "gezeigt"
+            "gezeigt",
+            "bewiesen"
           ],
           "english": "The study has proven that microplastics now occur in almost all bodies of water."
         },
@@ -91453,7 +92153,8 @@
           "acceptedAnswers": [
             "als ob die Zeit stillstünde",
             "als ob die Zeit stillstehen würde",
-            "als stünde die Zeit still"
+            "als stünde die Zeit still",
+            "als würde die Zeit stillstehen"
           ],
           "english": "It felt as if time stood still."
         },
@@ -94520,7 +95221,8 @@
           "sentence": "Komm ____ ____ vorbei, wenn du Zeit hast! (friendly invitation: two particles)",
           "acceptedAnswers": [
             "doch … mal",
-            "doch … einfach"
+            "doch … einfach",
+            "einfach … mal"
           ],
           "english": "Do drop by some time when you’re free!"
         }
@@ -95455,7 +96157,8 @@
           "categoryLabel": "Verweiswort",
           "sentence": "Er sparte Geld. ____ kaufte er ein Auto. (with it)",
           "acceptedAnswers": [
-            "Damit"
+            "Damit",
+            "Davon"
           ],
           "english": "He saved money. With it he bought a car."
         },
@@ -95526,7 +96229,8 @@
           "categoryLabel": "Verweiswort",
           "sentence": "Berlin ist groß. ____ findet man alles. (there)",
           "acceptedAnswers": [
-            "Dort"
+            "Dort",
+            "Da"
           ],
           "english": "There one finds everything."
         },
@@ -95538,7 +96242,8 @@
             "Zudem",
             "Außerdem",
             "Darüber hinaus",
-            "Ausserdem"
+            "Ausserdem",
+            "Überdies"
           ],
           "english": "Moreover time is short."
         },
@@ -97567,7 +98272,8 @@
           "categoryLabel": "Konzession",
           "sentence": "____ seiner starken Erkältung ging er zur Arbeit. (despite)",
           "acceptedAnswers": [
-            "Trotz"
+            "Trotz",
+            "Ungeachtet"
           ],
           "english": "Despite his bad cold he went to work."
         },
@@ -97780,7 +98486,8 @@
           "acceptedAnswers": [
             "im Falle eines Brandes",
             "Im Falle eines Brandes",
-            "im Brandfall"
+            "im Brandfall",
+            "bei einem Brand"
           ],
           "english": "In case of fire leave the building."
         },
@@ -97830,7 +98537,9 @@
           "sentence": "Im Falle eines Unfalls rufen Sie 112. → Rufen Sie 112, ____ .",
           "acceptedAnswers": [
             "falls ein Unfall passiert",
-            "wenn ein Unfall passiert"
+            "wenn ein Unfall passiert",
+            "wenn es einen Unfall gibt",
+            "falls es einen Unfall gibt"
           ],
           "english": "In case of an accident call 112."
         },
@@ -97841,7 +98550,9 @@
           "acceptedAnswers": [
             "wenn man keine Hilfe hat",
             "wenn er keine Hilfe hat",
-            "wenn ihm niemand hilft"
+            "wenn ihm niemand hilft",
+            "wenn er keine Hilfe bekommt",
+            "wenn man ihm nicht hilft"
           ],
           "english": "Without help he won't manage."
         },
@@ -97850,7 +98561,9 @@
           "categoryLabel": "Umformung",
           "sentence": "Bei rechtzeitiger Anmeldung gibt es einen Rabatt. → Es gibt einen Rabatt, ____ .",
           "acceptedAnswers": [
-            "wenn man sich rechtzeitig anmeldet"
+            "wenn man sich rechtzeitig anmeldet",
+            "falls man sich rechtzeitig anmeldet",
+            "wenn Sie sich rechtzeitig anmelden"
           ],
           "english": "With timely registration there's a discount."
         },
@@ -98286,7 +98999,8 @@
           "sentence": "Es stürmte, sodass der Strom ausfiel. → ____ fiel der Strom aus.",
           "acceptedAnswers": [
             "infolge des Sturms",
-            "Infolge des Sturms"
+            "Infolge des Sturms",
+            "infolge des Sturmes"
           ],
           "english": "As a result of the storm the power failed."
         },
@@ -98306,7 +99020,9 @@
           "sentence": "Man schützt das Klima, indem man Energie spart. → Man schützt das Klima ____ .",
           "acceptedAnswers": [
             "durch Energiesparen",
-            "durch das Sparen von Energie"
+            "durch das Sparen von Energie",
+            "durch das Energiesparen",
+            "durch Energieeinsparung"
           ],
           "english": "You protect the climate by saving energy."
         },
@@ -98315,7 +99031,8 @@
           "categoryLabel": "Umformung",
           "sentence": "Durch regelmäßiges Training bleibt man fit. → Man bleibt fit, ____ .",
           "acceptedAnswers": [
-            "indem man regelmäßig trainiert"
+            "indem man regelmäßig trainiert",
+            "dadurch, dass man regelmäßig trainiert"
           ],
           "english": "You stay fit by training regularly."
         },
@@ -98334,7 +99051,9 @@
           "categoryLabel": "Umformung",
           "sentence": "Mithilfe eines Wörterbuchs versteht man den Text. → Man versteht den Text, ____ .",
           "acceptedAnswers": [
-            "indem man ein Wörterbuch benutzt"
+            "indem man ein Wörterbuch benutzt",
+            "indem man ein Wörterbuch verwendet",
+            "dadurch, dass man ein Wörterbuch benutzt"
           ],
           "english": "You understand the text by using a dictionary."
         },
@@ -98415,7 +99134,9 @@
           "acceptedAnswers": [
             "infolge des Schnees",
             "Infolge des Schnees",
-            "infolge des starken Schnees"
+            "infolge des starken Schnees",
+            "infolge des Schneefalls",
+            "infolge des starken Schneefalls"
           ],
           "english": "As a result of the snow, school was cancelled."
         },
@@ -98424,7 +99145,9 @@
           "categoryLabel": "Umformung",
           "sentence": "Mithilfe einer App findet man den Weg. → Man findet den Weg, ____ .",
           "acceptedAnswers": [
-            "indem man eine App benutzt"
+            "indem man eine App benutzt",
+            "indem man eine App nutzt",
+            "indem man eine App verwendet"
           ],
           "english": "You find the way by using an app."
         }
@@ -100570,7 +101293,8 @@
           "categoryLabel": "Relativwort",
           "sentence": "Kennst du einen Ort, ____ man im Winter gut fahren kann?",
           "acceptedAnswers": [
-            "wohin"
+            "wohin",
+            "an den"
           ],
           "english": "Do you know a place you can go to in winter?"
         },
@@ -103473,7 +104197,8 @@
           "sentence": "Wir ____ dringend einen größeren Tisch für die Küche. (brauchen)",
           "acceptedAnswers": [
             "bräuchten",
-            "braeuchten"
+            "braeuchten",
+            "brauchten"
           ],
           "english": "We could really do with a bigger table for the kitchen."
         },
@@ -105802,7 +106527,10 @@
           "sentence": "Die Studie konnte einen Zusammenhang zwischen Schlaf und Gedächtnis ____. (prove, demonstrate)",
           "acceptedAnswers": [
             "nachweisen",
-            "belegen"
+            "belegen",
+            "beweisen",
+            "zeigen",
+            "aufzeigen"
           ],
           "hint": "English: prove",
           "english": "The study was able to demonstrate a connection between sleep and memory."
@@ -105881,7 +106609,8 @@
             "bestätigen",
             "bestaetigen",
             "nachweisen",
-            "untermauern"
+            "untermauern",
+            "beweisen"
           ],
           "hint": "English: substantiate",
           "english": "The assumption that bilingualism promotes concentration could be substantiated empirically."
@@ -105937,7 +106666,9 @@
           "categoryLabel": "Wissenschaft",
           "sentence": "Ohne ____ durch Fachkollegen wird kein Beitrag angenommen. (peer review, assessment)",
           "acceptedAnswers": [
-            "Begutachtung"
+            "Begutachtung",
+            "Peer-Review",
+            "Peer Review"
           ],
           "hint": "English: peer review",
           "english": "Without peer review by colleagues no contribution is accepted."
@@ -106431,7 +107162,8 @@
           "sentence": "Als die Preise stiegen, sank die Nachfrage. → Beim ____ der Preise sank die Nachfrage.",
           "acceptedAnswers": [
             "Anstieg",
-            "Steigen"
+            "Steigen",
+            "Ansteigen"
           ],
           "hint": "steigen",
           "english": "When prices rose, demand fell."
@@ -109068,7 +109800,8 @@
           "sentence": "Seine Reaktion war durchaus ____. (erklären)",
           "acceptedAnswers": [
             "erklärlich",
-            "erklaerlich"
+            "erklaerlich",
+            "erklärbar"
           ],
           "english": "His reaction was quite explicable."
         },
@@ -109845,12 +110578,18 @@
         {
           "subjectKey": "s1",
           "categoryLabel": "Konjunktionaladverb",
-          "sentence": "Der Norden wächst; der Süden ____ schrumpft. (by contrast)",
+          "sentence": "Der Norden wächst; ____.",
           "acceptedAnswers": [
-            "hingegen",
-            "dagegen"
+            "der Süden hingegen schrumpft",
+            "der Süden schrumpft hingegen",
+            "hingegen schrumpft der Süden"
           ],
-          "english": "The north grows; the south, by contrast, shrinks."
+          "english": "The north grows; the south, by contrast, shrinks.",
+          "tiles": [
+            "schrumpft",
+            "hingegen",
+            "der Süden"
+          ]
         },
         {
           "subjectKey": "s2",
@@ -109881,16 +110620,18 @@
         {
           "subjectKey": "s4",
           "categoryLabel": "Konjunktionaladverb",
-          "sentence": "Die Annahme ist widerlegt; ____ muss das Modell geändert werden. (hence)",
+          "sentence": "Die Annahme ist widerlegt; ____.",
           "acceptedAnswers": [
-            "mithin",
-            "folglich",
-            "somit",
-            "daher",
-            "demzufolge",
-            "demnach"
+            "mithin muss das Modell geändert werden",
+            "das Modell muss mithin geändert werden"
           ],
-          "english": "The assumption is refuted; hence the model must be changed."
+          "english": "The assumption is refuted; hence the model must be changed.",
+          "tiles": [
+            "mithin",
+            "das Modell",
+            "muss",
+            "geändert werden"
+          ]
         },
         {
           "subjectKey": "s5",
@@ -109898,7 +110639,10 @@
           "sentence": "Laut Studie sinkt der Verbrauch; ____ wirken die Maßnahmen. (accordingly)",
           "acceptedAnswers": [
             "demnach",
-            "somit"
+            "somit",
+            "dementsprechend",
+            "demzufolge",
+            "folglich"
           ],
           "english": "According to the study consumption is falling; accordingly the measures are working."
         },
@@ -109911,7 +110655,11 @@
             "folglich",
             "mithin",
             "daher",
-            "demnach"
+            "demnach",
+            "demzufolge",
+            "deshalb",
+            "deswegen",
+            "also"
           ],
           "english": "All conditions are met; thus the project can begin."
         },
@@ -109925,7 +110673,9 @@
             "daher",
             "deshalb",
             "deswegen",
-            "infolgedessen"
+            "infolgedessen",
+            "demzufolge",
+            "mithin"
           ],
           "english": "He didn't study; consequently he failed."
         },
@@ -109940,20 +110690,26 @@
             "außerdem",
             "ausserdem",
             "ferner",
-            "darüber hinaus"
+            "darüber hinaus",
+            "des Weiteren"
           ],
           "english": "The procedure is slow; moreover it is error-prone."
         },
         {
           "subjectKey": "s9",
           "categoryLabel": "Konjunktionaladverb",
-          "sentence": "Das Ergebnis ist schwach; ____ ist es besser als letztes Jahr. (at least)",
+          "sentence": "Das Ergebnis ist schwach; ____.",
           "acceptedAnswers": [
-            "immerhin",
-            "zumindest",
-            "wenigstens"
+            "immerhin ist es besser als letztes Jahr",
+            "es ist immerhin besser als letztes Jahr"
           ],
-          "english": "The result is weak; at least it is better than last year."
+          "english": "The result is weak; at least it is better than last year.",
+          "tiles": [
+            "immerhin",
+            "es",
+            "besser als letztes Jahr",
+            "ist"
+          ]
         },
         {
           "subjectKey": "s10",
@@ -109984,7 +110740,9 @@
             "zudem",
             "überdies",
             "außerdem",
-            "darüber hinaus"
+            "darüber hinaus",
+            "des Weiteren",
+            "weiterhin"
           ],
           "english": "The plan is expensive; furthermore it is risky."
         },
@@ -109995,7 +110753,10 @@
           "acceptedAnswers": [
             "demzufolge",
             "demnach",
-            "somit"
+            "somit",
+            "folglich",
+            "mithin",
+            "dementsprechend"
           ],
           "english": "The data are clear; accordingly the thesis is confirmed."
         },
@@ -110006,7 +110767,8 @@
           "acceptedAnswers": [
             "jedoch",
             "allerdings",
-            "aber"
+            "aber",
+            "doch"
           ],
           "english": "The method is new but not tested."
         }
@@ -110385,7 +111147,10 @@
             "Anschließend",
             "Anschliessend",
             "Dann",
-            "danach"
+            "danach",
+            "Daraufhin",
+            "Hinterher",
+            "Darauf"
           ],
           "english": "We ate. Then we left."
         },
@@ -110422,7 +111187,9 @@
             "Folglich",
             "Darum",
             "Somit",
-            "deshalb"
+            "deshalb",
+            "Also",
+            "Infolgedessen"
           ],
           "english": "It rained. Therefore we stayed."
         },
@@ -110503,7 +111270,8 @@
           "sentence": "____ wir gehen, räumen wir auf. (temporal, later — subordinate)",
           "acceptedAnswers": [
             "Bevor",
-            "bevor"
+            "bevor",
+            "Ehe"
           ],
           "english": "Before we leave, we tidy up."
         },
@@ -110522,7 +111290,8 @@
           "sentence": "Ich will bestehen. ____ lerne ich täglich. (final — main clause adverb)",
           "acceptedAnswers": [
             "Dazu",
-            "Zu diesem Zweck"
+            "Zu diesem Zweck",
+            "Dafür"
           ],
           "english": "I want to pass. To that end I study daily."
         }
@@ -110908,7 +111677,9 @@
             "Trotzdem",
             "Dennoch",
             "Gleichwohl",
-            "trotzdem"
+            "trotzdem",
+            "Nichtsdestotrotz",
+            "Nichtsdestoweniger"
           ],
           "english": "It rained. Nevertheless we went."
         },
@@ -110943,7 +111714,11 @@
             "Daher",
             "Deshalb",
             "Somit",
-            "folglich"
+            "folglich",
+            "Deswegen",
+            "Darum",
+            "Demzufolge",
+            "Also"
           ],
           "english": "It rained hard. Consequently the road was closed."
         },
@@ -110985,7 +111760,6 @@
           "sentence": "____ der Norden nass ist, ist der Süden trocken. (adversative — subordinate)",
           "acceptedAnswers": [
             "Während",
-            "Wohingegen",
             "während"
           ],
           "english": "While the north is wet, the south is dry."
@@ -111756,7 +112530,8 @@
           "sentence": "____ Beweisen wurde das Verfahren eingestellt. (for lack of)",
           "acceptedAnswers": [
             "Mangels",
-            "mangels"
+            "mangels",
+            "Aus Mangel an"
           ],
           "english": "For lack of evidence the proceedings were discontinued."
         },
@@ -111855,7 +112630,9 @@
           "sentence": "Dem Bericht ____ wirken die Maßnahmen. (according to — placed after the noun)",
           "acceptedAnswers": [
             "zufolge",
-            "nach"
+            "nach",
+            "gemäß",
+            "entsprechend"
           ],
           "english": "According to the report the measures are working."
         },
@@ -112146,7 +112923,8 @@
           "categoryLabel": "Kasus",
           "sentence": "Ihr Beitrag ____ Debatte über Bildungsgerechtigkeit wurde viel zitiert.",
           "acceptedAnswers": [
-            "zur"
+            "zur",
+            "zu der"
           ],
           "hint": "contribution to the (preposition + article)",
           "english": "Her contribution to the debate on educational equity was widely quoted."
@@ -113466,7 +114244,9 @@
           "sentence": "Dr. Weber, ____, sprach zuerst. (the head of the institute)",
           "acceptedAnswers": [
             "die Leiterin des Instituts",
-            "der Leiter des Instituts"
+            "der Leiter des Instituts",
+            "der Institutsleiter",
+            "die Institutsleiterin"
           ],
           "hint": "Leiter(in) / Institut",
           "english": "Dr Weber, the head of the institute, spoke first."
@@ -113477,7 +114257,9 @@
           "sentence": "Wir sprachen mit Dr. Weber, ____. (the head of the institute — the apposition agrees in case)",
           "acceptedAnswers": [
             "der Leiterin des Instituts",
-            "dem Leiter des Instituts"
+            "dem Leiter des Instituts",
+            "dem Institutsleiter",
+            "der Institutsleiterin"
           ],
           "hint": "Leiter(in) / Institut",
           "english": "We spoke with Dr Weber, the head of the institute."
@@ -113521,7 +114303,8 @@
             "die letztes Jahr veröffentlicht wurde",
             "die im letzten Jahr veröffentlicht wurde",
             "die im vergangenen Jahr veröffentlicht wurde",
-            "die letztes Jahr veröffentlicht worden ist"
+            "die letztes Jahr veröffentlicht worden ist",
+            "die vergangenes Jahr veröffentlicht wurde"
           ],
           "hint": "veröffentlichen / letztes Jahr",
           "english": "The study that was published last year convinces."
@@ -113531,7 +114314,8 @@
           "categoryLabel": "Attribut",
           "sentence": "____ gehört uns. (the house over there — with dort)",
           "acceptedAnswers": [
-            "Das Haus dort"
+            "Das Haus dort",
+            "Das Haus dort drüben"
           ],
           "hint": "das Haus / dort",
           "english": "The house over there belongs to us."
@@ -119062,7 +119846,8 @@
           "categoryLabel": "Kultur",
           "sentence": "Der Roman ist eine schonungslose ____ mit der eigenen Familiengeschichte. (engagement, reckoning)",
           "acceptedAnswers": [
-            "Auseinandersetzung"
+            "Auseinandersetzung",
+            "Abrechnung"
           ],
           "english": "The novel is a merciless reckoning with the author's own family history."
         },
@@ -119081,7 +119866,8 @@
           "categoryLabel": "Kultur",
           "sentence": "Die neue ____ des Stücks verlegt die Handlung in ein Großraumbüro. (staging, production)",
           "acceptedAnswers": [
-            "Inszenierung"
+            "Inszenierung",
+            "Produktion"
           ],
           "english": "The new production of the play moves the action to an open-plan office."
         },
@@ -125742,7 +126528,9 @@
             "anschliessend",
             "danach",
             "dann",
-            "daraufhin"
+            "daraufhin",
+            "im Anschluss",
+            "hinterher"
           ],
           "english": "First the data are checked; afterwards the results are published."
         },
@@ -126458,7 +127246,8 @@
           "categoryLabel": "Umformung",
           "sentence": "Der Fehler lässt sich nicht mehr korrigieren. → Der Fehler ____ nicht mehr ____.",
           "acceptedAnswers": [
-            "kann … korrigiert werden"
+            "kann … korrigiert werden",
+            "ist … zu korrigieren"
           ],
           "english": "The mistake can no longer be corrected."
         },
@@ -126838,7 +127627,9 @@
             "zu schicken",
             "zu senden",
             "zu übermitteln",
-            "zu uebermitteln"
+            "zu uebermitteln",
+            "zuzusenden",
+            "zuzuschicken"
           ],
           "english": "Would it be possible for you to send me the report?"
         },
@@ -126849,7 +127640,8 @@
           "acceptedAnswers": [
             "problematisch",
             "bedenklich",
-            "unglücklich"
+            "unglücklich",
+            "bedauerlich"
           ],
           "english": "I consider it problematic that the figures are missing."
         },
@@ -126924,7 +127716,8 @@
           "categoryLabel": "Formell",
           "sentence": "Sorry, das hab ich vergessen. → Bitte ____ Sie, dass ich dies versäumt habe.",
           "acceptedAnswers": [
-            "entschuldigen"
+            "entschuldigen",
+            "verzeihen"
           ],
           "english": "Please excuse my having overlooked this."
         },
@@ -126982,7 +127775,8 @@
           "sentence": "Das passt mir nicht. (the date) → Dieser Termin ist mir leider nicht ____.",
           "acceptedAnswers": [
             "möglich",
-            "moeglich"
+            "moeglich",
+            "recht"
           ],
           "english": "Unfortunately this date is not possible for me."
         }
@@ -127407,7 +128201,8 @@
           "sentence": "Dem möchte ich ____, dass die Grafik das Gegenteil zeigt. (counter)",
           "acceptedAnswers": [
             "entgegenhalten",
-            "entgegnen"
+            "entgegnen",
+            "entgegensetzen"
           ],
           "english": "I would like to counter that the graph shows the opposite."
         },
@@ -127416,7 +128211,8 @@
           "categoryLabel": "Redemittel",
           "sentence": "Ich würde ____, zwei feste Bürotage pro Woche einzuführen. (suggest)",
           "acceptedAnswers": [
-            "vorschlagen"
+            "vorschlagen",
+            "anregen"
           ],
           "english": "I would suggest introducing two fixed office days a week."
         },
@@ -127454,7 +128250,8 @@
           "categoryLabel": "Redemittel",
           "sentence": "Am 3. März habe ich bei Ihnen einen Laptop bestellt; ____ wurde mir eine Lieferung innerhalb von fünf Werktagen zugesichert. (at the time)",
           "acceptedAnswers": [
-            "dabei"
+            "dabei",
+            "damals"
           ],
           "english": "On 3 March I ordered a laptop from you; at the time I was assured delivery within five working days."
         },
@@ -127515,7 +128312,8 @@
             "zeitnahe",
             "baldige",
             "rasche",
-            "schnelle"
+            "schnelle",
+            "umgehende"
           ],
           "english": "I hope for a prompt reply."
         }
@@ -129561,7 +130359,9 @@
           "sentence": "Wo bleibst du ____? Wir warten schon seit einer halben Stunde! (impatient, involved question)",
           "acceptedAnswers": [
             "denn",
-            "eigentlich"
+            "eigentlich",
+            "nur",
+            "bloß"
           ],
           "english": "Where have you got to? We’ve been waiting for half an hour!"
         },
@@ -133094,7 +133894,9 @@
             "Knete",
             "Moneten",
             "Mäuse",
-            "Maeuse"
+            "Maeuse",
+            "Kröten",
+            "Kroeten"
           ],
           "english": "I have received the amount. → Got the dough."
         },
@@ -133704,7 +134506,9 @@
           "sentence": "Die Opposition ____ scharfe Kritik an dem Vorhaben. (voiced – Präteritum)",
           "acceptedAnswers": [
             "übte",
-            "uebte"
+            "uebte",
+            "äußerte",
+            "aeusserte"
           ],
           "english": "The opposition voiced sharp criticism of the plan."
         },
@@ -133713,7 +134517,8 @@
           "categoryLabel": "Kollokation",
           "sentence": "Angesichts der Lage ____ die Regierung umgehend Maßnahmen. (took – Präteritum)",
           "acceptedAnswers": [
-            "ergriff"
+            "ergriff",
+            "traf"
           ],
           "english": "In view of the situation the government immediately took measures."
         },
@@ -133797,9 +134602,7 @@
           "categoryLabel": "Kollokation",
           "sentence": "Die Behörde ____ die Gefahr, bevor sie sich ausbreiten konnte. (averted – Präteritum: eine Gefahr …)",
           "acceptedAnswers": [
-            "bannte",
-            "abwendete",
-            "wendete ab"
+            "bannte"
           ],
           "english": "The authority averted the danger before it could spread."
         },
@@ -133842,7 +134645,8 @@
             "herbe",
             "bittere",
             "schwere",
-            "empfindliche"
+            "empfindliche",
+            "schmerzliche"
           ],
           "english": "The team had to accept a bitter defeat."
         },
@@ -138147,7 +138951,9 @@
           "categoryLabel": "Umformung",
           "sentence": "Zur Senkung der Kosten wurden Stellen gestrichen. → Stellen wurden gestrichen, ____ die Kosten zu ____. (the purpose as an infinitive clause)",
           "acceptedAnswers": [
-            "um … senken"
+            "um … senken",
+            "um … reduzieren",
+            "um … verringern"
           ],
           "english": "Jobs were cut to reduce costs. → Jobs were cut in order to reduce costs."
         },
@@ -138157,7 +138963,8 @@
           "sentence": "Bevor er ging, verabschiedete er sich von allen. → ____ seinem ____ verabschiedete er sich von allen. (the time as a prepositional phrase)",
           "acceptedAnswers": [
             "Vor … Aufbruch",
-            "Vor … Weggang"
+            "Vor … Weggang",
+            "Vor … Weggehen"
           ],
           "english": "Before he left, he said goodbye to everyone. → Before his departure he said goodbye to everyone."
         },
@@ -139187,7 +139994,8 @@
             "rüstig",
             "ruestig",
             "fit",
-            "agil"
+            "agil",
+            "vital"
           ],
           "english": "At 88 my grandmother still cycles to the market every morning – she is amazingly sprightly."
         },
@@ -143454,7 +144262,9 @@
             "respektive",
             "beziehungsweise",
             "bzw",
-            "resp"
+            "resp",
+            "bzw.",
+            "resp."
           ],
           "hint": "English: or, respectively",
           "english": "Members and guests pay 40 and 60 euros admission respectively."
@@ -146563,8 +147373,8 @@
         },
         {
           "key": "s3",
-          "display": "even (before a verb)",
-          "english": "even"
+          "display": "nur before the person",
+          "english": "only (nobody else)"
         },
         {
           "key": "s4",
@@ -146593,8 +147403,8 @@
         },
         {
           "key": "s9",
-          "display": "exactly that",
-          "english": "exactly"
+          "display": "nur before the place",
+          "english": "only (nowhere else)"
         },
         {
           "key": "s10",
@@ -146628,8 +147438,8 @@
         },
         {
           "key": "s16",
-          "display": "only (age)",
-          "english": "only, just"
+          "display": "sogar before what it stresses",
+          "english": "even"
         },
         {
           "key": "s17",
@@ -146645,20 +147455,20 @@
             "Selbst",
             "Ausgerechnet",
             "selbst",
-            "sogar",
+            "Nur Anna",
             "Nicht einmal",
             "noch",
             "erst",
             "nur",
             "Allein",
-            "Genau",
+            "nur zur Party",
             "Den ersten Vorschlag",
             "ausgerechnet",
             "Selbst",
             "erst recht",
             "Gerade",
             "Zumindest",
-            "erst",
+            "sogar am Sonntag",
             "erst"
           ]
         }
@@ -146700,11 +147510,19 @@
         {
           "subjectKey": "s3",
           "categoryLabel": "Fokus",
-          "sentence": "Sie hat das Angebot nicht nur geprüft, sie hat es ____ angenommen. (even)",
+          "sentence": "____.",
           "acceptedAnswers": [
-            "sogar"
+            "Nur Anna ist zur Party gekommen",
+            "Zur Party ist nur Anna gekommen"
           ],
-          "english": "She did not just consider the offer, she even accepted it."
+          "english": "Only Anna came to the party — nobody else did.",
+          "tiles": [
+            "ist",
+            "nur",
+            "Anna",
+            "zur Party",
+            "gekommen"
+          ]
         },
         {
           "subjectKey": "s4",
@@ -146770,13 +147588,19 @@
         {
           "subjectKey": "s9",
           "categoryLabel": "Fokus",
-          "sentence": "____ das habe ich doch vorhin gesagt! (exactly)",
+          "sentence": "____.",
           "acceptedAnswers": [
-            "Genau",
-            "Eben",
-            "Gerade"
+            "Anna ist nur zur Party gekommen",
+            "Nur zur Party ist Anna gekommen"
           ],
-          "english": "That is exactly what I said earlier!"
+          "english": "Anna only came to the party — she went nowhere else.",
+          "tiles": [
+            "ist",
+            "nur",
+            "Anna",
+            "zur Party",
+            "gekommen"
+          ]
         },
         {
           "subjectKey": "s10",
@@ -146843,16 +147667,18 @@
         {
           "subjectKey": "s16",
           "categoryLabel": "Fokus",
-          "sentence": "Er ist ____ vierzig und leitet schon einen Konzern. (only)",
+          "sentence": "____.",
           "acceptedAnswers": [
-            "erst",
-            "gerade",
-            "gerade mal",
-            "gerade erst",
-            "knapp",
-            "kaum"
+            "Sie arbeitet sogar am Sonntag",
+            "Sogar am Sonntag arbeitet sie"
           ],
-          "english": "He is only forty and already runs a group."
+          "english": "She even works on Sunday.",
+          "tiles": [
+            "arbeitet",
+            "sogar",
+            "sie",
+            "am Sonntag"
+          ]
         },
         {
           "subjectKey": "s17",
@@ -151090,7 +151916,9 @@
           "sentence": "Dem jüngsten Lagebericht ____ ist die Zahl der Anträge um ein Drittel gesunken. (according to — placed after its noun)",
           "acceptedAnswers": [
             "zufolge",
-            "nach"
+            "nach",
+            "gemäß",
+            "gemäss"
           ],
           "hint": "Klartext: so steht es im Lagebericht",
           "english": "According to the latest situation report, the number of applications has fallen by a third."
@@ -153173,7 +154001,9 @@
           "sentence": "Wir sprachen mit Dr. Weber, ____ des Instituts, über das Projekt. (the head)",
           "acceptedAnswers": [
             "der Leiterin",
-            "Leiterin"
+            "Leiterin",
+            "dem Leiter",
+            "Leiter"
           ],
           "english": "We spoke with Dr Weber, the head of the institute, about the project."
         },
@@ -155336,7 +156166,8 @@
           "sentence": "Wenn du dich nicht beeilst, verpasst du den Zug. → Beeil dich, ____ verpasst du den Zug. (otherwise)",
           "acceptedAnswers": [
             "sonst",
-            "andernfalls"
+            "andernfalls",
+            "ansonsten"
           ],
           "english": "Hurry up, otherwise you’ll miss the train."
         },

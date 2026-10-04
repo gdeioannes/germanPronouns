@@ -8,7 +8,7 @@
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
-	import { breadcrumbLd, definedTermLd, shareImage, titleWithSite, topicOf } from '$lib/seo';
+	import { breadcrumbLd, clip, definedTermLd, shareImage, titleWithSite, topicOf } from '$lib/seo';
 	import { GENDER_ARTICLES, GENDER_COLORS } from '$lib/domain/gender';
 	import { withArticle } from '$lib/domain/words';
 	import { page } from '$app/state';
@@ -24,12 +24,20 @@
 	const path = $derived(`/words/nouns/${data.slug}`);
 	const headline = $derived(withArticle(entry));
 	// What people search: "Hund der die das", "Hund plural".
-	const title = $derived(titleWithSite(`${headline} (${entry.english}) – der, die or das? Plural & cases`));
-	const description = $derived(
-		`${headline} means "${entry.english}" and is ${GENDER_NAME[entry.gender]}${
-			plural ? `; the plural is die ${plural}` : ''
-		}. Cases, an example sentence with audio and exercises to practise it.`
+	// "salesperson (female)" inside the title's own brackets reads as noise: "salesperson, female".
+	const meaning = $derived(entry.english.replace(/\s*\(([^)]*)\)/g, ', $1'));
+	const title = $derived(
+		[`${headline} (${meaning}) – der, die or das? Plural & cases`, `${headline} (${meaning}) – der, die or das?`]
+			.map((t) => titleWithSite(t))
+			.find((t) => t.length <= 70) ?? `${headline} – der, die or das? Plural & cases`
 	);
+	const description = $derived.by(() => {
+		const facts = `${headline} means "${entry.english}" and is ${GENDER_NAME[entry.gender]}${
+			plural ? `; the plural is die ${plural}` : ''
+		}.`;
+		const full = `${facts} Cases, an example sentence with audio and exercises to practise it.`;
+		return clip(full.length <= 155 ? full : `${facts} Cases, an example with audio and exercises.`);
+	});
 </script>
 
 <Seo

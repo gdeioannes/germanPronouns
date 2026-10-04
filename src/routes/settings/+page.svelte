@@ -41,7 +41,7 @@
 	}
 </script>
 
-<Seo title="Settings — Language Quiz" description="Your Language Quiz settings." path="/settings" noindex />
+<Seo title="Settings — Language Quiz" description="Your Language Quiz settings: how answers are checked and revealed, the voice, calmer effects, your starting point and privacy." path="/settings" noindex />
 
 <main class="page">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
@@ -366,6 +366,15 @@
 		.segmented button {
 			padding: 0.35rem 0.7rem;
 			white-space: nowrap;
+		}
+	}
+
+	/* Four options don't fit one row on the smallest phones: two by two. */
+	@media (max-width: 24rem) {
+		.segmented:has(> :nth-child(4)) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			border-radius: 1.2rem;
 		}
 	}
 

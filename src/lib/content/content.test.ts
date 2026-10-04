@@ -12,6 +12,8 @@ import { describe, expect, it } from 'vitest';
 import course from '$content/courses/de_cert_a1.json';
 import syllabus from '$content/syllabus/de_cert_a1.json';
 import type { CourseSyllabus, PopulatedCourse, Quiz } from './types';
+import { normalizeAnswer } from '$lib/domain/answers';
+import { buildableFromTiles, tileBank } from '$lib/domain/tiles';
 
 const bundle = course as unknown as PopulatedCourse;
 const syl = syllabus as unknown as CourseSyllabus;
@@ -114,6 +116,34 @@ describe('every quiz (baseline)', () => {
 						`${q.id}: key "${key}" has ${parts.length} parts for ${gaps} gap(s) in "${s.sentence}"`
 					).toBe(gaps);
 					expect(parts.every((p) => p.trim()), `${q.id}: empty part in key "${key}"`).toBe(true);
+				}
+			}
+		}
+	});
+
+	it('builds every key of a word-tile item from its tiles, and no tile passes for another', () => {
+		for (const q of quizzes) {
+			if (q.type !== 'fillBlank') continue;
+			for (const s of q.sentences ?? []) {
+				if (!s.tiles) continue;
+				const where = `${q.id}: "${s.sentence}"`;
+				expect((s.sentence.match(/_{4,}/g) ?? []).length, `${where}: a tile item has one gap`).toBe(1);
+				expect(s.tiles.length, `${where}: fewer than 2 tiles`).toBeGreaterThanOrEqual(2);
+				expect(s.tiles.length, `${where}: more than 8 tiles`).toBeLessThanOrEqual(8);
+				for (const key of s.acceptedAnswers)
+					expect(buildableFromTiles(key, s.tiles), `${where}: "${key}" can't be laid from the tiles`).toBe(true);
+				const offered = tileBank(s).map((t) => t.text);
+				expect(
+					s.acceptedAnswers.some((key) => buildableFromTiles(key, offered, true)),
+					`${where}: the bank reads as an answer left to right`
+				).toBe(false);
+				// "Sie" and "sie" would both be accepted — a distractor must really be wrong.
+				const forms = new Map<string, string>();
+				for (const tile of s.tiles) {
+					const form = normalizeAnswer(tile, true);
+					const seen = forms.get(form);
+					expect(seen === undefined || seen === tile, `${where}: "${seen}" and "${tile}" check the same`).toBe(true);
+					forms.set(form, tile);
 				}
 			}
 		}

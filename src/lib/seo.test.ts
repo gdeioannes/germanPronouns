@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { absoluteUrl, clip, courseLd, learningResourceLd, quizDescription, quizTitle, titleWithSite, topicOf } from './seo';
-import type { Quiz } from './content/types';
+import type { PopulatedCourse, Quiz } from './content/types';
+import course from '$content/courses/de_cert_a1.json';
 
 describe('seo helpers', () => {
 	it('builds absolute URLs on the canonical host', () => {
@@ -73,5 +74,41 @@ describe('accessibility metadata', () => {
 		const drill = learningResourceLd(quizOf('fillBlank'), '/q', 'Course', '/c');
 		expect(drill.accessMode).not.toContain('auditory');
 		expect(drill.accessibilityFeature).not.toContain('transcript');
+	});
+});
+
+describe('exercise titles across the course', () => {
+	const quizzes = (course as unknown as PopulatedCourse).quizzes;
+
+	it('gives every exercise its own title — a shared one splits its search ranking', () => {
+		const seen = new Map<string, string>();
+		for (const q of quizzes) {
+			const title = quizTitle(q);
+			expect(seen.get(title), `"${title}" is ${seen.get(title)} and ${q.id}`).toBeUndefined();
+			seen.set(title, q.id);
+		}
+	});
+
+	it('tells the per-sub-level vocabulary decks apart', () => {
+		const deck = { id: 'd', type: 'vocabulary', title: 'Wortschatz', level: 'A1.2' } as unknown as Quiz;
+		expect(quizTitle(deck)).toBe('Wortschatz – German A1.2 vocabulary flashcards | Language Quiz');
+	});
+
+	it('never runs past 70 characters, and always names the level', () => {
+		for (const q of quizzes) {
+			const title = quizTitle(q);
+			expect(title.length, title).toBeLessThanOrEqual(70);
+			expect(title, q.id).toContain(`German ${q.level!.slice(0, 2)}`);
+		}
+	});
+
+	it('cuts an over-long topic at a comma, keeping its head', () => {
+		const quiz = {
+			id: 'q',
+			type: 'fillBlank',
+			title: 'Adverbialsätze II: konzessiv, konsekutiv, modal, adversativ, komparativ',
+			level: 'C1.1'
+		} as unknown as Quiz;
+		expect(quizTitle(quiz)).toBe('Adverbialsätze II: konzessiv, konsekutiv, modal… – German C1');
 	});
 });

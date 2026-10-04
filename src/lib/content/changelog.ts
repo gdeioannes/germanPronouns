@@ -16,6 +16,37 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
 	{
+		date: '2026-10-05',
+		title: 'Build the sentence: word tiles',
+		highlight: true,
+		items: [
+			'Word-order exercises are now built from word tiles. Tap them into the gap to practise verb second, verb last after weil, dass and wenn, indirect questions and the order of time, manner and place, from A1.2 up to C2.',
+			'One tile is always a wrong form, so the word order has to be right and so does the word. Tap a placed tile to take it back.',
+			'On a keyboard, number keys 1–9 place a tile, Backspace takes back the last one and Enter checks.',
+			'The printable workbooks list the same words in brackets, in scrambled order, for you to write into the gap in the right order.'
+		]
+	},
+	{
+		date: '2026-10-05',
+		title: 'Gentler corrections, sharper answers',
+		items: [
+			'A right answer now simply turns green instead of being typed out again.',
+			'When relaxed correction lets a small slip through, you see it: "Correct — mind the spelling: schon → schön", with a little extra time to read it.',
+			'Telling the time explains more: the minutes always come first, there is no "und", and the regional forms "zehn vor halb drei" and "drei Viertel elf" are accepted.',
+			'A round of answer-key corrections across the course, so fewer right answers get marked wrong.'
+		]
+	},
+	{
+		date: '2026-10-05',
+		title: 'Fits the smallest phones',
+		items: [
+			'Long German words now wrap at the edge of the screen instead of pushing the page sideways.',
+			'Workbook tables scroll inside their card on a phone, and the workbook contents list uses one column.',
+			'Settings with four choices lay them out two by two on narrow screens.',
+			'Story mode captions wrap onto a second line instead of being cut off.'
+		]
+	},
+	{
 		date: '2026-10-04',
 		title: 'A practice reminder in your calendar',
 		items: [

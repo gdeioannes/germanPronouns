@@ -21,6 +21,7 @@ import type {
 } from '$lib/content/types';
 import { isInlineCloze } from '$lib/content/types';
 import { helpTableFor, type HelpTable } from '$lib/domain/help-table';
+import { tileBank } from '$lib/domain/tiles';
 
 /** Which quizzes feed the worksheet. */
 export type ExerciseScope = 'fullCourse' | 'achieved' | 'weakSpots';
@@ -40,6 +41,8 @@ export interface ExerciseItem {
 	secondary?: string;
 	/** Multiple-choice options, or the choices of an inline select blank. */
 	options: string[];
+	/** A word-order item: the bracketed words are written into the gap in order. */
+	ordered?: boolean;
 	/** The grammar category this item tests; feeds the weak-spot weighting. */
 	categoryLabel?: string;
 	/** 0..1; higher prints first in the weak-spot scope. */
@@ -209,10 +212,14 @@ function sentenceClozeSection(quiz: FillBlankQuiz, stats: QuizHistory): Exercise
 		}
 		if (!answer) continue;
 		items.push({
-			prompt: sentence.sentence,
+			// Paper can't tap: a word-order item prints its tiles, scrambled, to write out in order.
+			prompt: sentence.tiles?.length
+				? `${sentence.sentence} (${tileBank(sentence).map((t) => t.text).join(' / ')})`
+				: sentence.sentence,
 			answer,
 			secondary: sentence.english,
 			options: [],
+			ordered: !!sentence.tiles?.length,
 			categoryLabel: sentence.categoryLabel,
 			weakness: weakness(stats, sentence.categoryLabel)
 		});

@@ -222,6 +222,10 @@
 		.actions small {
 			display: none;
 		}
+		/* Two columns of contents don't fit a phone. */
+		.contents ol {
+			columns: 1;
+		}
 	}
 
 	/* -- paper ------------------------------------------------------------- */
@@ -330,6 +334,8 @@
 	}
 
 	.contents .t {
+		min-width: 0;
+		overflow-wrap: break-word;
 		font-family: var(--serif);
 		font-weight: 650;
 		color: var(--navy);

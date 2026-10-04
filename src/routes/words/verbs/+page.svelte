@@ -13,7 +13,7 @@
 </script>
 
 <Seo
-	title="{data.verbs.length} German verbs conjugated: Präsens, Perfekt, Präteritum | Language Quiz"
+	title="{data.verbs.length} German verbs conjugated: Präsens, Perfekt, Präteritum"
 	description="Every German verb in the course with full conjugation tables: present, past, perfect, future, imperative and Konjunktiv II, each with audio. Free, no sign-up."
 	path="/words/verbs"
 	image={shareImage('words', 'verbs')}

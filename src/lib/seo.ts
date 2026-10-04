@@ -108,10 +108,21 @@ export function titleWithSite(title: string, max = 65): string {
  */
 export function quizTitle(quiz: Quiz): string {
 	const topic = topicOf(quiz.title);
-	const cefr = cefrOf(quiz.level);
-	const tail = `German ${cefr} ${KIND_LABEL[quiz.type]}`.replace(/\s+/g, ' ');
-	const full = `${topic} – ${tail} | ${SITE_NAME}`;
-	return full.length <= 70 ? full : `${topic} – ${tail}`;
+	// There is a deck per sub-level, all called "Wortschatz": the sub-level is
+	// what keeps the A1.1 and A1.2 decks from sharing one title.
+	const level = quiz.type === 'vocabulary' ? (quiz.level ?? '') : cefrOf(quiz.level);
+	const german = `German ${level}`.trim();
+	const kind = `${german} ${KIND_LABEL[quiz.type]}`;
+	// Longest first; a long topic sheds the site name, then the kind.
+	const fits = [`${topic} – ${kind} | ${SITE_NAME}`, `${topic} – ${kind}`, `${topic} – ${german}`];
+	const fit = fits.find((t) => t.length <= 70);
+	if (fit) return fit;
+	// A topic too long on its own ("Adverbialsätze II: konzessiv, konsekutiv, …")
+	// keeps its head and as much of its list as fits, cut at a comma or space.
+	const room = 70 - ` – ${german}`.length - 1;
+	const cut = topic.slice(0, room);
+	const at = Math.max(cut.lastIndexOf(','), cut.lastIndexOf(' '));
+	return `${(at > 20 ? cut.slice(0, at) : cut).replace(/[\s,:;–-]+$/, '')}… – ${german}`;
 }
 
 /** Meta description for an exercise, from the opening of its explanation. */
@@ -122,7 +133,9 @@ export function quizDescription(quiz: Quiz): string {
 		const opening = `${cefr}: ${lead(intro, 150)}`;
 		// One short sentence is too thin for a result snippet: say what the page offers.
 		if (opening.length >= 100) return clip(opening);
-		return clip(`${opening} Free ${KIND_LABEL[quiz.type]} with rules, examples and audio.`.replace(/\s+/g, ' '));
+		// Padding is added whole or not at all: clipped, it would end "…examples and…".
+		const padded = `${opening} Free ${KIND_LABEL[quiz.type]} with rules, examples and audio.`.replace(/\s+/g, ' ');
+		return padded.length <= 155 ? padded : clip(opening);
 	}
 	return clip(
 		`Free German ${cefr} ${KIND_LABEL[quiz.type]}: ${topicOf(quiz.title)}. Rules, examples and audio, no sign-up.`

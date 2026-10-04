@@ -168,36 +168,40 @@
 				</ul>
 			{/if}
 			{#if unit.table}
-				<table>
-					{#if unit.table.caption}<caption>{unit.table.caption}</caption>{/if}
-					<thead><tr>{#each unit.table.columns as col, c (c)}<th scope="col">{col}</th>{/each}</tr></thead>
-					<tbody>
-						{#each unit.table.rows as row, r (r)}
-							<tr style={row.gender ? `color:${GENDER_COLORS[row.gender]}` : ''}>
-								{#each row.cells as cell, c (c)}{#if c === 0}<th scope="row">{cell}</th>{:else}<td>{cell}</td>{/if}{/each}
-							</tr>
-						{/each}
-					</tbody>
-				</table>
+				<div class="table-scroll">
+					<table>
+						{#if unit.table.caption}<caption>{unit.table.caption}</caption>{/if}
+						<thead><tr>{#each unit.table.columns as col, c (c)}<th scope="col">{col}</th>{/each}</tr></thead>
+						<tbody>
+							{#each unit.table.rows as row, r (r)}
+								<tr style={row.gender ? `color:${GENDER_COLORS[row.gender]}` : ''}>
+									{#each row.cells as cell, c (c)}{#if c === 0}<th scope="row">{cell}</th>{:else}<td>{cell}</td>{/if}{/each}
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
 			{:else if unit.derived}
-				<table>
-					<thead>
-						<tr>
-							<th scope="col">{unit.derived.subjectHeader}</th>
-							{#each unit.derived.columns as col, c (c)}<th scope="col">{col}</th>{/each}
-						</tr>
-					</thead>
-					<tbody>
-						{#each unit.derived.rows as row, r (r)}
+				<div class="table-scroll">
+					<table>
+						<thead>
 							<tr>
-								<th scope="row" style={unit.derived.colorByGender && row.gender ? `color:${GENDER_COLORS[row.gender]}` : ''}>
-									{#if row.article}<span class="article">{row.article}</span>{' '}{/if}{row.subject}
-								</th>
-								{#each row.cells as cell, c (c)}<td>{cell}</td>{/each}
+								<th scope="col">{unit.derived.subjectHeader}</th>
+								{#each unit.derived.columns as col, c (c)}<th scope="col">{col}</th>{/each}
 							</tr>
-						{/each}
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							{#each unit.derived.rows as row, r (r)}
+								<tr>
+									<th scope="row" style={unit.derived.colorByGender && row.gender ? `color:${GENDER_COLORS[row.gender]}` : ''}>
+										{#if row.article}<span class="article">{row.article}</span>{' '}{/if}{row.subject}
+									</th>
+									{#each row.cells as cell, c (c)}<td>{cell}</td>{/each}
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
 			{/if}
 		</div>
 	{/if}
@@ -209,7 +213,11 @@
 					? 'Read the text, then tick the right answer'
 					: practice.kind === 'inlineCloze'
 						? 'Fill each numbered gap'
-						: 'Write the missing word'}
+						: practice.items.every((item) => item.ordered)
+							? 'Write the words in brackets into the gap, in the right order'
+							: practice.items.some((item) => item.ordered)
+								? 'Fill each gap — where words are given in brackets, put them in order'
+								: 'Write the missing word'}
 			</small>
 		</h3>
 
@@ -235,8 +243,8 @@
 							class="inline-gap"><span class="tnum">{unit.practiceFrom + part.blank}</span><span
 								class="gap"
 								style="width:{gapWidth(item?.answer ?? '')}"
-							></span>{#if item?.prompt}<small>({item.prompt})</small>{/if}</span
-						>{/if}{/each}
+							></span></span
+						>{#if item?.prompt} <small class="gap-hint">({item.prompt})</small>{/if}{/if}{/each}
 				</p>
 			</div>
 			{#if practice.items.some((item) => item.options.length)}
@@ -607,8 +615,11 @@
 	.checks li,
 	.cloze li {
 		display: grid;
-		grid-template-columns: 6mm 1fr;
+		/* minmax(0, …) + break-word: long German compounds
+		   (zweihundertsechsundsiebzig) wrap instead of widening a phone screen. */
+		grid-template-columns: 6mm minmax(0, 1fr);
 		gap: 2mm;
+		overflow-wrap: break-word;
 		align-items: start;
 		break-inside: avoid;
 	}
@@ -665,10 +676,15 @@
 
 	.ticks.stack {
 		display: grid;
+		grid-template-columns: minmax(0, 1fr);
 		gap: 1.2mm;
 	}
 
+	/* anywhere (not break-word): it also lowers the min-content width, so a
+	   long compound can't force the option wider than a phone screen. */
 	.ticks li {
+		max-width: 100%;
+		overflow-wrap: anywhere;
 		display: inline-flex;
 		align-items: baseline;
 		gap: 1.3mm;
@@ -699,6 +715,9 @@
 
 	.cheat {
 		display: grid;
+		/* minmax(0, …): a wide table can't stretch the card past a phone
+		   screen (an implicit auto track grows to the table's min-content). */
+		grid-template-columns: minmax(0, 1fr);
 		gap: 2mm;
 		padding: 3mm 4mm;
 		border: 0.35mm solid var(--navy);
@@ -718,6 +737,13 @@
 
 	.remember li::marker {
 		color: var(--ochre);
+	}
+
+	/* On a phone the table scrolls inside the card; on paper it always fits. */
+	@media screen {
+		.table-scroll {
+			overflow-x: auto;
+		}
 	}
 
 	table {
@@ -783,7 +809,8 @@
 		vertical-align: super;
 	}
 
-	.inline-gap small {
+	/* The hint sits outside .inline-gap so the line can break before it. */
+	.gap-hint {
 		font-family: Inter, system-ui, sans-serif;
 		font-size: 7.5pt;
 		color: var(--ink-muted);
