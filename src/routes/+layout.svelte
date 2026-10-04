@@ -24,7 +24,7 @@
 	// Each page renders its own <main>; the skip link finds whichever one is
 	// showing and hands it focus, so the next Tab starts inside the content.
 	function skipToMain(event: MouseEvent) {
-		const main = document.querySelector<HTMLElement>('main');
+		const main = document.querySelector<HTMLElement>('main') ?? document.getElementById('main');
 		if (!main) return;
 		event.preventDefault();
 		if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
@@ -90,7 +90,10 @@
      a client-side navigation reads as a change of content rather than a
      flash. Off where view transitions already animate the swap. -->
 {#key page.url.pathname}
-	<div in:fade={{ duration: viewTransitions ? 0 : 220, easing: cubicOut }}>
+	<!-- id="main" is the skip link's target, so it lands even before JavaScript
+	     runs (and the prerenderer can check the link); with JavaScript, focus
+	     goes to the page's own <main>. -->
+	<div id="main" in:fade={{ duration: viewTransitions ? 0 : 220, easing: cubicOut }}>
 		{@render children()}
 	</div>
 {/key}
