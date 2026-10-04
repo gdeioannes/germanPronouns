@@ -28,7 +28,7 @@
 // short hands its unused slots to the others, so the deck is always full.
 
 import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
-import { recommend, type QuizFacts, type RecommendationKind } from './recommend';
+import { recommend, WEAK_MISTAKE_RATE, type QuizFacts, type RecommendationKind } from './recommend';
 import { reviewDue, strengths } from './review';
 
 export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story';
@@ -210,24 +210,40 @@ export function buildDeck(
 	const centreIndex = centre ? levels.indexOf(centre) : 0;
 	const open = (quiz: Quiz) =>
 		!exclude.has(quiz.id) && !skipped.has(quiz.id) && quiz.status !== 'placeholder';
-	const reach = Math.max(1, ...pace.levels.map((l) => l.offset));
-	const inReach = (quiz: Quiz) => levels.indexOf(quiz.level ?? '') <= centreIndex + reach;
+	// The pace's level window around the centre, e.g. steady at B1.1 spans
+	// A2.2–B1.2. Explore picks stay inside it: "learn next" ranks by shared
+	// topics, which only exist where the learner has finished things, so
+	// without a floor a learner who picked B1.1 is dealt A1.1 forever.
+	const offsets = pace.levels.map((l) => l.offset);
+	const reach = Math.max(1, ...offsets);
+	const floor = centreIndex + Math.min(0, ...offsets);
+	const levelIndex = (quiz: Quiz) => levels.indexOf(quiz.level ?? '');
+	const inReach = (quiz: Quiz) => levelIndex(quiz) <= centreIndex + reach;
+	const inWindow = (quiz: Quiz) => levelIndex(quiz) >= floor && inReach(quiz);
+	// Below the window only real evidence earns a repair card: something left
+	// part-way or going badly. "Bronze, go for silver" nudges stay in-window.
+	const worthRepairing = (quiz: Quiz) => {
+		if (inWindow(quiz)) return true;
+		const f = facts[quiz.id];
+		if (!f) return false;
+		return (!f.done && f.answered > 0) || (f.answered > 0 && f.mistakeRate >= WEAK_MISTAKE_RATE);
+	};
 
 	const recs = recommend(quizzes, facts, exclude, { floorLevel: options.level });
 
 	// ---- the three groups, each ranked best-first ------------------------
 	const repair = dedupe([
-		...recs.practise.filter((r) => open(r.quiz)),
+		...recs.practise.filter((r) => open(r.quiz) && worthRepairing(r.quiz)),
 		...reviewDue(quizzes, facts, open, now).map(
 			(pick): DeckCard => ({ kind: 'review', quiz: pick.quiz, reason: pick.reason })
 		)
 	]);
 	const explore = dedupe([
-		...recs.next.filter((r) => open(r.quiz)),
-		...strengths(quizzes, facts, open, inReach).map(
+		...recs.next.filter((r) => open(r.quiz) && inWindow(r.quiz)),
+		...strengths(quizzes, facts, open, inWindow).map(
 			(pick): DeckCard => ({ kind: 'next', quiz: pick.quiz, reason: pick.reason })
 		),
-		...recs.mix.filter((r) => open(r.quiz))
+		...recs.mix.filter((r) => open(r.quiz) && inWindow(r.quiz))
 	]);
 	const freshPool = fresh(quizzes, facts, open, levels, centreIndex, pace.levels, random);
 

@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
 	{
 		date: '2026-10-05',
+		title: 'The deck respects your level',
+		items: [
+			'Pick a level in the deck chooser and the "Learn next" and "Mix it up" cards now stay around it. Before, they could keep offering the first level no matter what you picked.',
+			'Older exercises still come back when they need to: something you left part-way, a weak spot, or a review that is due. Medal nudges ("bronze, go for silver") only appear near your level.'
+		]
+	},
+	{
+		date: '2026-10-05',
 		title: 'Build the sentence: word tiles',
 		highlight: true,
 		items: [

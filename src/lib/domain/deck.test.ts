@@ -207,3 +207,35 @@ describe('continueCard', () => {
 		expect(continueCard(COURSE, {}, 'gone')).toBeNull();
 	});
 });
+
+describe('picked level window', () => {
+	// Everything at A1.1 is finished, so every "learn next" / "mix" candidate
+	// shares a topic only with A1.1 work. Picking B1.1 must still keep those
+	// explore picks out of the deck; only a genuinely weak A1.1 card may stay.
+	const course: Quiz[] = [
+		quiz('a-done', 'fillBlank', 'A1.1', ['articles']),
+		quiz('a-weak', 'fillBlank', 'A1.1', ['articles']),
+		quiz('a-bronze', 'fillBlank', 'A1.1', ['articles']),
+		quiz('a-next', 'fillBlank', 'A1.1', ['articles', 'plural']),
+		quiz('a-mix', 'listening', 'A1.1', ['articles']),
+		...['A2.2', 'B1.1', 'B1.2'].flatMap((lv) =>
+			Array.from({ length: 6 }, (_, i) => quiz(`${lv}-${i}`, 'fillBlank', lv, ['other']))
+		)
+	];
+	const facts: Record<string, QuizFacts> = {
+		'a-done': done(0, { lastPlayedAt: NOW }),
+		'a-weak': done(0.4, { lastPlayedAt: NOW }),
+		'a-bronze': done(0, { tier: 'bronze', lastPlayedAt: NOW })
+	};
+
+	it('keeps explore and medal-nudge cards inside the window, weak spots may stay', () => {
+		for (let seed = 0; seed < 20; seed++) {
+			const deck = buildDeck(course, facts, { level: 'B1.1', random: seeded(seed), now: NOW });
+			const ids = deck.map((c) => c.quiz.id);
+			expect(ids).not.toContain('a-next');
+			expect(ids).not.toContain('a-mix');
+			expect(ids).not.toContain('a-bronze');
+			expect(deck.filter((c) => c.quiz.level === 'A1.1').every((c) => c.quiz.id === 'a-weak')).toBe(true);
+		}
+	});
+});
