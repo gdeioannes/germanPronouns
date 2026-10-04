@@ -414,7 +414,7 @@
 
 	h1 em {
 		font-style: italic;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	/* The long word is the joke; let it wrap at its soft hyphens and shrink a
@@ -476,7 +476,7 @@
 		gap: 0.5rem;
 		padding: 0.9rem 1.7rem;
 		border-radius: 999px;
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		font-size: var(--step-0);
 		font-weight: 700;
@@ -696,7 +696,7 @@
 		font-weight: 800;
 		letter-spacing: 0.09em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	h2 {
@@ -933,7 +933,7 @@
 	}
 	.kind-icon[data-kind='speaking'] {
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 	.kind-icon[data-kind='listening'] {
 		background: #e8efe9;
@@ -941,7 +941,7 @@
 	}
 	.kind-icon[data-kind='dictation'] {
 		background: #f4eddc;
-		color: var(--ochre);
+		color: var(--ochre-ink);
 	}
 
 	.count {

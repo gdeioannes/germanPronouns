@@ -21,6 +21,8 @@
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
+	import { announce, radioKeys } from '$lib/a11y.svelte';
+	import { tick } from 'svelte';
 	import { DURATION, prefersReducedMotion } from '$lib/motion';
 	import { storage } from '$lib/services/storage';
 	import { track } from '$lib/services/analytics';
@@ -268,10 +270,14 @@
 		dy = 0;
 	}
 
+	let stageEl = $state<HTMLElement>();
+
 	/** Sends the top card off and acts once it has gone. */
 	function fling(direction: 'left' | 'right') {
 		if (!top || leaving) return;
 		const card = top;
+		// The card is about to be removed; if it held focus, the next one takes it.
+		const cardHadFocus = !!stageEl?.contains(document.activeElement);
 		leaving = direction;
 		dx = direction === 'right' ? FLING : -FLING;
 		const wait = prefersReducedMotion() ? 0 : DURATION.slow;
@@ -287,6 +293,15 @@
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'skip', pace });
 				deck = deck.slice(1);
 				if (deck.length === 0) deal();
+				const nextCard = deck[0];
+				announce(
+					nextCard
+						? `Skipped. Next: ${nextCard.quiz.title}, card ${handSize - deck.length + 1} of ${handSize}.`
+						: 'Skipped. Nothing left to deal.'
+				);
+				if (cardHadFocus) {
+					void tick().then(() => stageEl?.querySelector<HTMLElement>('.card.top, .card.empty button')?.focus());
+				}
 			} else {
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'go', pace });
 				void goto(href(card));
@@ -297,10 +312,10 @@
 	}
 
 	function onKey(event: KeyboardEvent) {
-		if (event.key === 'ArrowRight' || event.key === 'Enter') {
+		if (event.key === 'ArrowRight' || event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
 			fling('right');
-		} else if (event.key === 'ArrowLeft' || event.key === 'Backspace') {
+		} else if (event.key === 'ArrowLeft') {
 			event.preventDefault();
 			fling('left');
 		}
@@ -370,7 +385,7 @@
 		{@render aside?.()}
 	</header>
 
-	<div class="stage">
+	<div class="stage" bind:this={stageEl}>
 		{#if !loaded}
 			<div class="card ghost" aria-hidden="true"></div>
 		{:else if !top}
@@ -400,7 +415,9 @@
 							: stackStyle(depth)} animation-delay: {i * 70}ms;"
 						tabindex={isTop ? 0 : -1}
 						role="button"
-						aria-label={isTop ? `${card.quiz.title}. ${card.reason} Tap or swipe right to start, swipe left to skip.` : undefined}
+						aria-label={isTop
+							? `${card.quiz.title}. ${DECK_KIND_LABELS[card.kind]}, card ${handSize - deck.length + 1} of ${handSize}, ${card.quiz.level}, ${isStoryCard(card) ? 'interactive mystery' : typeLabel(card.quiz.type)}${started ? ', in progress' : ''}. ${card.reason} Press Enter to start, or the left arrow to skip.`
+							: undefined}
 						aria-hidden={isTop ? undefined : 'true'}
 						onpointerdown={isTop ? onDown : undefined}
 						onpointermove={isTop ? onMove : undefined}
@@ -483,7 +500,7 @@
 
 <Sheet bind:open={chooserOpen} title="Your deck" id="deck-chooser">
 	<p class="q">How do you want to learn?</p>
-	<div class="paces" role="radiogroup" aria-label="Pace">
+	<div class="paces" role="radiogroup" aria-label="Pace" use:radioKeys>
 		{#each DECK_PACE_ORDER as p (p)}
 			<button
 				type="button"
@@ -491,6 +508,7 @@
 				data-pace={p}
 				role="radio"
 				aria-checked={pace === p}
+				tabindex={pace === p ? 0 : -1}
 				onclick={() => pickPace(p)}
 			>
 				<span class="pace-icon"><Icon name={PACE_ICONS[p]} size="1.25em" /></span>
@@ -641,7 +659,7 @@
 		border: 1px solid var(--accent);
 		border-radius: 999px;
 		background: var(--surface);
-		color: var(--accent);
+		color: var(--accent-ink);
 		font: inherit;
 		font-weight: 700;
 		cursor: pointer;
@@ -803,7 +821,7 @@
 	}
 
 	.deal:hover {
-		background: var(--accent);
+		background: var(--accent-ink);
 	}
 
 	.card {
@@ -1019,9 +1037,9 @@
 	.type-disc[data-type='fillBlank'] { background: #ebe7f4; color: #55478a; }
 	.type-disc[data-type='vocabulary'] { background: #f9e7ee; color: #a33a63; }
 	.type-disc[data-type='speakRepeat'] { background: #fbe9e2; color: #b5522a; }
-	.type-disc[data-type='speaking'] { background: var(--accent-soft); color: var(--accent); }
+	.type-disc[data-type='speaking'] { background: var(--accent-soft); color: var(--accent-ink); }
 	.type-disc[data-type='listening'] { background: #e8efe9; color: var(--forest); }
-	.type-disc[data-type='dictation'] { background: #f4eddc; color: var(--ochre); }
+	.type-disc[data-type='dictation'] { background: #f4eddc; color: var(--ochre-ink); }
 
 	.title {
 		margin: 0.35rem 0 0;
@@ -1239,7 +1257,7 @@
 	}
 	/* Night typography: warm light on dark paper. */
 	.card[data-kind='story'] .kind-label {
-		color: var(--ochre);
+		color: var(--ochre-ink);
 		letter-spacing: 0.1em;
 	}
 	.card[data-kind='story'] .kind-label::before {
@@ -1258,7 +1276,7 @@
 		background: rgb(251 248 243 / 0.08);
 	}
 	.card[data-kind='story'] .stamp.yes {
-		color: var(--ochre);
+		color: var(--ochre-ink);
 		border-color: var(--ochre);
 	}
 	/* Calm effects / reduced motion: the night card stays, the motion goes. */

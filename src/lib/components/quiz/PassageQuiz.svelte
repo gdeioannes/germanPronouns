@@ -15,8 +15,10 @@
 	import { pop, rise } from '$lib/motion';
 	import { PAGE_BUDGET, paginate } from '$lib/domain/paginate';
 	import { fitOnResize, fitPages, type PageFit } from './fit';
-	import { untrack } from 'svelte';
+	import { tick, untrack } from 'svelte';
 	import { tts } from '$lib/services/speech';
+	import { announce } from '$lib/a11y.svelte';
+	import { progress } from '$lib/state/progress.svelte';
 	import { spokenPassage } from '$lib/domain/spoken';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import type { ListeningQuiz, ReadingQuiz } from '$lib/content/types';
@@ -193,6 +195,8 @@
 	function choose(questionIndex: number, optionIndex: number) {
 		if (checked) return;
 		chosen[questionIndex] = optionIndex;
+		// "Wait for me": the learner moves on with the arrows themselves.
+		if (progress.answerRevealMode === 'manual') return;
 		// Long enough to see the choice land, short enough to keep the rhythm.
 		clearTimeout(advance);
 		advance = setTimeout(() => {
@@ -200,10 +204,19 @@
 		}, 700);
 	}
 
+	/** The result panel: the Check button it replaces held focus. */
+	let resultEl = $state<HTMLElement>();
+	/** Listening with "Show transcripts" on: the text, shown on request. */
+	let peek = $state(false);
+
 	function check() {
 		checked = true;
 		clearSpot(quiz.storageKeyPrefix);
 		onFinish(passed, correctCount, questionCount);
+		announce(
+			`${correctCount} of ${questionCount} correct. ${passed ? 'Passed.' : 'Not quite yet: two thirds right passes.'}`
+		);
+		void tick().then(() => resultEl?.focus({ preventScroll: true }));
 	}
 
 	function retry() {
@@ -260,6 +273,20 @@
 							Press play and listen as many times as you like — the transcript appears
 							once you check your answers.
 						</p>
+						{#if progress.showTranscripts}
+							<button
+								type="button"
+								class="btn-quiet"
+								aria-expanded={peek}
+								aria-controls="transcript-{quiz.id}"
+								onclick={() => (peek = !peek)}
+							>
+								<Icon name="book" size="1em" /> {peek ? 'Hide the text' : 'Show the text'}
+							</button>
+							{#if peek}
+								<p class="peek-text" id="transcript-{quiz.id}" lang={locale}>{spoken}</p>
+							{/if}
+						{/if}
 						<button type="button" class="btn-quiet to-questions" onclick={() => (index = 1)}>
 							To the questions <Icon name="arrowRight" size="1em" />
 						</button>
@@ -287,12 +314,14 @@
 					<p class="q-translation">{question.questionTranslation}</p>
 				{/if}
 
-				<div class="options">
+				<div class="options" role="group" aria-label="Answers to question {qi + 1}">
 					{#each shown[qi].options as option, oi (option)}
 						{@const isChosen = answer === oi}
 						{@const isCorrect = oi === shown[qi].correct}
 						<button
+							type="button"
 							class="option"
+							aria-pressed={isChosen}
 							class:chosen={isChosen}
 							class:correct={checked && isCorrect}
 							class:wrong={checked && isChosen && !isCorrect}
@@ -310,6 +339,11 @@
 								{/if}
 							</span>
 							<span class="option-text">
+								{#if checked && isCorrect}
+									<span class="sr-only">Correct answer:</span>
+								{:else if checked && isChosen}
+									<span class="sr-only">Your answer, wrong:</span>
+								{/if}
 								<span lang={locale}>{option}</span>
 								{#if shown[qi].translations?.[oi]}
 									<small>{shown[qi].translations[oi]}</small>
@@ -327,7 +361,7 @@
 				{/if}
 			</div>
 		{:else}
-			<div class="reading-check">
+			<div class="reading-check" tabindex="-1" data-focus-target bind:this={resultEl}>
 				{#if checked}
 					<Burst trigger={passed ? 1 : 0} count={26} />
 					<p class="reading-verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
@@ -344,7 +378,7 @@
 						</button>
 					{/if}
 					{#if !passed}
-						<button class="btn" onclick={retry}>
+						<button type="button" class="btn" onclick={retry}>
 							<Icon name="repeat" size="1em" /> Try again
 						</button>
 					{/if}
@@ -362,7 +396,7 @@
 						{/each}
 					</div>
 					<!-- Checkable at any point: a skipped question counts as wrong. -->
-					<button class="btn" onclick={check}>
+					<button type="button" class="btn" onclick={check}>
 						<Icon name="check" size="1em" /> Check answers
 					</button>
 					{#if !answered}
@@ -486,6 +520,14 @@
 		align-items: center;
 		gap: 0.35rem;
 		font-weight: 700;
+	}
+
+	.peek-text {
+		max-width: var(--measure);
+		max-height: 12rem;
+		overflow-y: auto;
+		margin: 0;
+		text-align: left;
 	}
 
 	.hidden-note {

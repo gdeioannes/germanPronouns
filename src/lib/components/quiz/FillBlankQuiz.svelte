@@ -24,7 +24,8 @@
 	import { untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
-	import { MIN_SHOW, REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
+	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
+	import { announce } from '$lib/a11y.svelte';
 	import { freshen, prefersReducedMotion } from '$lib/motion';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import StreakTracker from './StreakTracker.svelte';
@@ -230,10 +231,14 @@
 			next();
 		};
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
+		if (correct) announce('Correct.');
+		else announce('Not quite. The answer is:', filledSentence(current.sentence, canonical), locale);
 		answers = new Array(gaps).fill('');
 		await typeOut(canonical);
 		skip = moveOn;
-		await wait(REVEAL_PAUSE[progress.answerRevealMode]);
+		const pause = revealPause(progress.answerRevealMode);
+		if (pause === null) return;
+		await wait(pause);
 		if (skip === moveOn) moveOn();
 	}
 
@@ -319,6 +324,7 @@
 							readonly={locked}
 							class:right={verdict === 'right'}
 							class:wrong={verdict === 'wrong'}
+							aria-invalid={verdict === 'wrong' ? 'true' : undefined}
 							size={fieldSize(i)}
 							lang={locale}
 							aria-label={gaps > 1 ? `Your answer, gap ${i + 1}` : 'Your answer'}
@@ -400,7 +406,7 @@
 	.word-help[aria-pressed='true'] {
 		border-color: var(--accent);
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.prompt-label {
@@ -409,7 +415,7 @@
 		font-weight: 700;
 		letter-spacing: 0.09em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.subject {
@@ -460,6 +466,9 @@
 	.slot input:focus {
 		outline: none;
 		background: var(--accent-soft);
+		/* A heavier, darker underline: the tint alone is too faint to find. */
+		border-bottom-color: var(--accent-ink);
+		box-shadow: inset 0 -2px 0 var(--accent-ink);
 	}
 
 	/* The verdict colours the answer itself. Green is the brand forest, which
@@ -536,7 +545,7 @@
 	}
 
 	.act:hover:not(:disabled) {
-		background: var(--accent);
+		background: var(--accent-ink);
 	}
 
 	.act:disabled {

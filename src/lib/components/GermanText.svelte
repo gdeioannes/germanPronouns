@@ -15,6 +15,7 @@
 	import { nouns } from '$lib/state/nouns.svelte';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { NounInfo } from '$lib/domain/vocab';
+	import { announce } from '$lib/a11y.svelte';
 
 	let { text }: { text: string } = $props();
 
@@ -45,6 +46,25 @@
 
 	/** Which noun's panel is open, by its position in `parts`. */
 	let openAt = $state<number | null>(null);
+	/** Several sentences on a page each have a word 3: ids need telling apart. */
+	const uid = Math.random().toString(36).slice(2, 8);
+
+	function toggle(i: number, info: NounInfo) {
+		openAt = openAt === i ? null : i;
+		if (openAt === i) {
+			announce([
+				{ text: headline(info), lang: 'de-DE' },
+				{ text: `: ${info.noun.english}`, lang: 'en' }
+			]);
+		}
+	}
+
+	function onKey(event: KeyboardEvent) {
+		if (event.key === 'Escape' && openAt !== null) {
+			event.stopPropagation();
+			openAt = null;
+		}
+	}
 
 	function headline(info: NounInfo): string {
 		// "der Hund ¨-e" — the article and the plural ending, as the Dart panel
@@ -61,16 +81,19 @@
 			><button
 				type="button"
 				class="noun"
+				data-gender={part.info.noun.gender}
 				style="color:{GENDER_COLORS[part.info.noun.gender]}"
 				aria-expanded={openAt === i}
-				onclick={() => (openAt = openAt === i ? null : i)}
+				aria-controls={openAt === i ? `noun-${uid}-${i}` : undefined}
+				onclick={() => toggle(i, part.info!)}
+				onkeydown={onKey}
 				onblur={() => (openAt = null)}>{part.text}</button
 			>{#if openAt === i}
-				<span class="panel" role="tooltip">
+				<span class="panel" id="noun-{uid}-{i}">
 					<span class="head" style="color:{GENDER_COLORS[part.info.noun.gender]}"
 						>{headline(part.info)}</span
 					>
-					<span class="meaning">{part.info.noun.english}</span>
+					<span class="meaning" lang="en">{part.info.noun.english}</span>
 				</span>
 			{/if}</span
 		>{:else}{part.text}{/if}{/each}
@@ -93,6 +116,16 @@
 		font-weight: 800;
 		cursor: pointer;
 		border-bottom: 1px dotted currentColor;
+	}
+
+	/* Colour is not the only cue to gender: each has its own underline, so
+	   the three still read apart for anyone who can't tell the colours. */
+	.noun[data-gender='f'] {
+		border-bottom-style: dashed;
+	}
+
+	.noun[data-gender='n'] {
+		border-bottom: 3px double currentColor;
 	}
 
 	/* The panel is absolutely positioned and centred under the word. It is the

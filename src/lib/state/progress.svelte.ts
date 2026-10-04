@@ -28,7 +28,7 @@ import type { QuizType } from '$lib/content/types';
  * Values match the Dart `AnswerRevealMode` enum, and are persisted under the
  * same key, so the setting carries over.
  */
-export type AnswerRevealMode = 'quick' | 'normal' | 'slow';
+export type AnswerRevealMode = 'quick' | 'normal' | 'slow' | 'manual';
 
 /** The pause, in ms, for each mode — the Dart durations verbatim. */
 /**
@@ -37,11 +37,20 @@ export type AnswerRevealMode = 'quick' | 'normal' | 'slow';
  */
 export const MIN_SHOW = 450;
 
-export const REVEAL_PAUSE: Record<AnswerRevealMode, number> = {
+export const REVEAL_PAUSE: Record<Exclude<AnswerRevealMode, 'manual'>, number> = {
 	quick: 500,
 	normal: 1500,
 	slow: 3000
 };
+
+/**
+ * The pause before moving on by itself, or null in 'manual' mode — web-only,
+ * for anyone who needs as long as it takes (a screen reader finishing the
+ * verdict, a slow reader): the answer stays until Next or Enter.
+ */
+export function revealPause(mode: AnswerRevealMode): number | null {
+	return mode === 'manual' ? null : REVEAL_PAUSE[mode];
+}
 
 /** How many answers the per-quiz history keeps; enough to rank weak spots. */
 const ANSWER_HISTORY_LIMIT = 200;
@@ -117,6 +126,12 @@ class ProgressStore {
 	soundEffects = $state(true);
 	/** Mute the app: no sound effects and no read-aloud voice. */
 	muted = $state(false);
+	/**
+	 * Listening exercises (dictation, listen-and-answer) offer a "Show the
+	 * text" button, for a learner who can't hear the audio. Off by default:
+	 * for everyone else the hidden text is the exercise.
+	 */
+	showTranscripts = $state(false);
 	/** How long the answer stays revealed before the next question. */
 	answerRevealMode = $state<AnswerRevealMode>('normal');
 	loaded = $state(false);
@@ -147,8 +162,9 @@ class ProgressStore {
 		setSoundEffects(this.soundEffects);
 		this.muted = (await storage.get(SettingsKeys.muted)) === 'true';
 		setMuted(this.muted);
+		this.showTranscripts = (await storage.get(SettingsKeys.showTranscripts)) === 'true';
 		const mode = await storage.get(SettingsKeys.answerRevealMode);
-		if (mode === 'quick' || mode === 'normal' || mode === 'slow') {
+		if (mode === 'quick' || mode === 'normal' || mode === 'slow' || mode === 'manual') {
 			this.answerRevealMode = mode;
 		}
 		this.loaded = true;
@@ -418,6 +434,11 @@ class ProgressStore {
 		this.calmEffects = value;
 		applyCalmEffects(value);
 		await storage.set(SettingsKeys.calmEffects, String(value));
+	}
+
+	async setShowTranscripts(value: boolean): Promise<void> {
+		this.showTranscripts = value;
+		await storage.set(SettingsKeys.showTranscripts, String(value));
 	}
 
 	async setSoundEffects(value: boolean): Promise<void> {

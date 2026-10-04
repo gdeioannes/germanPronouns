@@ -42,8 +42,16 @@
 		lastY = y;
 	}
 
+	let menuButton: HTMLButtonElement | undefined = $state();
+
 	function onWindowKey(event: KeyboardEvent) {
-		if (open && event.key === 'Escape') open = false;
+		if (open && event.key === 'Escape') {
+			// Closing removes the links; focus goes back to the button that
+			// opened them rather than falling to the top of the page.
+			const inside = !!root?.contains(document.activeElement);
+			open = false;
+			if (inside) menuButton?.focus();
+		}
 	}
 
 	// A click elsewhere closes it.
@@ -85,6 +93,7 @@
 			<button
 				type="button"
 				class="menu"
+				bind:this={menuButton}
 				aria-expanded={open}
 				aria-controls="site-menu"
 				onclick={() => (open = !open)}
@@ -174,7 +183,9 @@
 		transition: transform 220ms var(--ease-out, ease-out);
 	}
 
-	.mini.tucked {
+	/* Tabbing into a tucked bar brings it back down, so the focused link is
+	   never hidden off the top of the screen. */
+	.mini.tucked:not(:focus-within) {
 		transform: translateY(-100%);
 	}
 

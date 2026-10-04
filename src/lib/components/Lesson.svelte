@@ -13,6 +13,8 @@
 	import { speakable, splitFocus, spokenWord, type LessonCheck, type LessonStep } from '$lib/domain/lesson';
 	import { react } from '$lib/motion/fx.svelte';
 	import { tts } from '$lib/services/speech';
+	import { announce } from '$lib/a11y.svelte';
+	import { tick } from 'svelte';
 
 	let {
 		steps,
@@ -61,7 +63,19 @@
 	function pick(step: number, check: LessonCheck, option: string, event: MouseEvent) {
 		if (picked[step] !== undefined) return;
 		picked = { ...picked, [step]: option };
-		react(option === check.answer, event.currentTarget as Element);
+		const right = option === check.answer;
+		react(right, event.currentTarget as Element);
+		announce(
+			right
+				? [{ text: 'Richtig!', lang: locale }, ...(check.why ? [{ text: check.why }] : [])]
+				: [{ text: `Not quite — it's` }, { text: check.answer, lang: check.germanOptions ? locale : undefined }, ...(check.why ? [{ text: check.why }] : [])]
+		);
+		// The options just went disabled; focus moves on to the feedback.
+		const group = (event.currentTarget as HTMLElement).closest('.options');
+		void tick().then(() => {
+			const feedback = group?.parentElement?.querySelector<HTMLElement>('.feedback');
+			(feedback?.querySelector<HTMLElement>('button') ?? feedback)?.focus({ preventScroll: true });
+		});
 	}
 
 	function say(text: string) {
@@ -189,8 +203,8 @@
 					</div>
 
 					{#if answer !== undefined}
-						<div class="feedback" class:ok={answer === c.answer} aria-live="polite">
-							<p class="verdict">{answer === c.answer ? 'Richtig!' : `Not quite — it's ${c.answer}.`}</p>
+						<div class="feedback" class:ok={answer === c.answer} tabindex="-1" data-focus-target>
+							<p class="verdict">{#if answer === c.answer}<span lang={locale}>Richtig!</span>{:else}Not quite — it's <span lang={c.germanOptions ? locale : undefined}>{c.answer}</span>.{/if}</p>
 							{#if c.why}<p class="why">{c.why}</p>{/if}
 							{#if i < steps.length - 1}
 								<button type="button" class="btn" onclick={() => (index = i + 1)}>
@@ -354,14 +368,14 @@
 		font-weight: 800;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.eyebrow[data-tone='warning'] {
 		color: var(--wrong);
 	}
 	.eyebrow[data-tone='mnemonic'] {
-		color: var(--ochre);
+		color: var(--ochre-ink);
 	}
 	.eyebrow[data-tone='check'] {
 		color: var(--navy);
@@ -507,7 +521,7 @@
 		padding: 0 0.12em;
 		border-radius: 3px;
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-weight: 700;
 		box-shadow: inset 0 -2px 0 var(--accent);
 	}
@@ -554,7 +568,7 @@
 		padding: 0.8rem 1.4rem;
 		border: 0;
 		border-radius: 999px;
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		font: inherit;
 		font-weight: 700;
@@ -742,7 +756,7 @@
 		gap: 0.4rem;
 		font-size: var(--step--1);
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--accent-ink);
 		text-decoration: none;
 	}
 
@@ -776,7 +790,7 @@
 		padding: 0;
 		border: 0;
 		background: none;
-		color: var(--accent);
+		color: var(--accent-ink);
 		font: inherit;
 		font-size: var(--step--1);
 		font-weight: 700;
@@ -805,7 +819,7 @@
 	}
 
 	.score strong {
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-size: var(--step-1);
 	}
 
@@ -911,7 +925,7 @@
 		padding: 0.6rem 0.8rem;
 		border-radius: 10px;
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-size: var(--step--1);
 		font-weight: 600;
 	}

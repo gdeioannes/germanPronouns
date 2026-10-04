@@ -22,7 +22,7 @@
 		flex: none;
 		padding: 0.15rem 0.6rem 0.15rem 0.45rem;
 		border-radius: 999px;
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		font-size: 0.72rem;
 		font-weight: 800;

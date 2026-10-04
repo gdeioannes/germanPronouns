@@ -451,7 +451,7 @@
 		flex: none;
 		border-radius: 50%;
 		background: var(--surface);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.resume-body {
@@ -465,7 +465,7 @@
 		font-weight: 800;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.resume-title {
@@ -483,7 +483,7 @@
 
 	/* The arrow nudges on hover — a small affordance that the card is a link. */
 	.resume :global(.resume-go) {
-		color: var(--accent);
+		color: var(--accent-ink);
 		transition: transform var(--medium) var(--ease-out);
 	}
 
@@ -549,7 +549,7 @@
 	}
 
 	.level-link:hover {
-		color: var(--accent);
+		color: var(--accent-ink);
 		border-bottom-color: var(--accent);
 	}
 
@@ -629,7 +629,7 @@
 	}
 	.kind[data-kind='speaking'] {
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 	.kind[data-kind='listening'] {
 		background: #e8efe9;
@@ -637,7 +637,7 @@
 	}
 	.kind[data-kind='dictation'] {
 		background: #f4eddc;
-		color: var(--ochre);
+		color: var(--ochre-ink);
 	}
 	@media (max-width: 36rem) {
 		.home {

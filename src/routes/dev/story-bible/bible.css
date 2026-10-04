@@ -12,7 +12,7 @@
 	margin: 0 0 1rem;
 }
 .bible .crumbs a {
-	color: var(--accent);
+	color: var(--accent-ink);
 	text-decoration: none;
 }
 .bible .crumbs a:hover {
@@ -42,7 +42,7 @@
 	font-size: var(--step--1);
 	text-transform: uppercase;
 	letter-spacing: 0.12em;
-	color: var(--ochre);
+	color: var(--ochre-ink);
 	margin: 0 0 0.4rem;
 }
 .bible h1 {
@@ -105,7 +105,7 @@
 	gap: 0.15rem;
 }
 .bible figcaption .when {
-	color: var(--accent);
+	color: var(--accent-ink);
 	font-weight: 600;
 }
 .bible figcaption span {

@@ -10,6 +10,7 @@
 	// show search engines an empty exercise. Closed, it is `inert`, so it takes
 	// no focus and no clicks.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { inertOutside } from '$lib/a11y.svelte';
 	import type { Snippet } from 'svelte';
 
 	let {
@@ -27,6 +28,7 @@
 		footer?: Snippet;
 	} = $props();
 
+	let root = $state<HTMLElement>();
 	let panel = $state<HTMLElement>();
 	/** Where focus was before the panel opened, so closing hands it back. */
 	let returnFocus: HTMLElement | null = null;
@@ -34,8 +36,14 @@
 	$effect(() => {
 		if (!open || !panel) return;
 		returnFocus = document.activeElement as HTMLElement | null;
+		// A real modal: Tab cycles inside the panel, the page behind is
+		// unreachable until it closes.
+		const release = root ? inertOutside(root) : () => {};
 		panel.focus({ preventScroll: true });
-		return () => returnFocus?.focus({ preventScroll: true });
+		return () => {
+			release();
+			returnFocus?.focus({ preventScroll: true });
+		};
 	});
 
 	function onKey(event: KeyboardEvent) {
@@ -48,7 +56,7 @@
 
 <svelte:window onkeydown={onKey} />
 
-<div class="sheet" class:open inert={!open}>
+<div class="sheet" class:open inert={!open} bind:this={root}>
 	<button
 		type="button"
 		class="scrim"
@@ -166,7 +174,7 @@
 
 	.close:hover {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.body {

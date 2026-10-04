@@ -122,7 +122,7 @@
 		border: 4px solid var(--accent);
 		border-radius: var(--radius);
 		background: color-mix(in srgb, var(--surface) 88%, transparent);
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-4);
 		font-weight: 800;
@@ -169,14 +169,14 @@
 	}
 
 	.praise.big {
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-size: var(--step-3);
 	}
 
 	.praise small {
 		padding: 0.1em 0.45em;
 		border-radius: 999px;
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		font-family: 'Inter Variable', 'Inter', sans-serif;
 		font-size: 0.45em;

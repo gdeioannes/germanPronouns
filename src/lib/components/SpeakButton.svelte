@@ -22,7 +22,9 @@
 	}
 </script>
 
-<button class="speak" class:busy onclick={play} title={label} aria-label={label}>
+<!-- lang="en": the label is English even when the button sits inside a German
+     sentence, which would otherwise have it read in a German voice. -->
+<button type="button" class="speak" class:busy onclick={play} title={label} aria-label={label} aria-busy={busy} lang="en">
 	<!-- The ring animates only while speaking, so the button reads as "live"
 	     without needing a separate spinner. -->
 	<span class="ring" aria-hidden="true"></span>
@@ -52,7 +54,7 @@
 
 	.speak:hover {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 		transform: scale(1.06);
 	}
 
@@ -62,7 +64,7 @@
 
 	.speak.busy {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.ring {
@@ -75,6 +77,12 @@
 
 	.speak.busy .ring {
 		animation: pulse 1.1s var(--ease-out) infinite;
+	}
+
+	/* Calm effects: a steady ring says "speaking" just as well. */
+	:global(html[data-effects='calm']) .speak.busy .ring {
+		animation: none;
+		opacity: 1;
 	}
 
 	@keyframes pulse {

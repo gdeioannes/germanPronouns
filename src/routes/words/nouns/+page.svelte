@@ -76,7 +76,7 @@
 	.lede { margin: 0 0 1.5rem; max-width: 60ch; color: var(--ink-muted); }
 	.themes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-size: var(--step--1); }
 	.themes a { padding: 0.25rem 0.7rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); text-decoration: none; }
-	.themes a:hover { border-color: var(--accent); color: var(--accent); }
+	.themes a:hover { border-color: var(--accent); color: var(--accent-ink); }
 	.themes .tnum { color: var(--ink-muted); }
 	h2 { margin: 2rem 0 0.5rem; font-size: var(--step-1); }
 	.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.15rem 1rem; }

@@ -17,8 +17,9 @@
 	import { matchesAccepted } from '$lib/domain/answers';
 	import { paginateCloze, type ClozePart } from '$lib/domain/paginate';
 	import { fitOnResize, fitPages, type PageFit } from './fit';
-	import { untrack } from 'svelte';
+	import { tick, untrack } from 'svelte';
 	import { progress } from '$lib/state/progress.svelte';
+	import { announce } from '$lib/a11y.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import type { InlineBlank, InlineClozeQuiz } from '$lib/content/types';
 
@@ -151,10 +152,17 @@
 	]);
 	const filledCount = $derived(answers.filter((a) => a.trim().length > 0).length);
 
+	/** The result panel: the Check button it replaces held focus. */
+	let resultEl = $state<HTMLElement>();
+
 	function check() {
 		checked = true;
 		clearSpot(quiz.storageKeyPrefix);
 		onFinish(passed, correctCount, total);
+		announce(
+			`${correctCount} of ${total} correct. ${passed ? 'Passed.' : 'Not quite yet: two thirds right passes.'}`
+		);
+		void tick().then(() => resultEl?.focus({ preventScroll: true }));
 	}
 
 	function retry() {
@@ -207,17 +215,19 @@
 									disabled={checked}
 									class:right={checked && results[part.blank]}
 									class:wrong={checked && !results[part.blank]}
+									aria-invalid={checked && !results[part.blank] ? 'true' : undefined}
 									size={Math.max(blank.answer.length, 4)}
-									aria-label={blank.hint ?? `Blank ${part.blank + 1}`}
+									aria-label="Gap {part.blank + 1} of {total}"
+									aria-describedby={blank.hint && !checked ? `${quiz.id}-hint-${part.blank}` : undefined}
 									autocomplete="off"
 									autocapitalize="off"
 									spellcheck="false"
 								/>
 								{#if checked && !results[part.blank]}
-									<span class="fix">{blank.answer}</span>
+									<span class="fix"><span class="sr-only" lang="en">Correct answer: </span>{blank.answer}</span>
 								{/if}
 								{#if !checked && blank.hint}
-									<span class="hint">{blank.hint}</span>
+									<span class="hint" id="{quiz.id}-hint-{part.blank}">{blank.hint}</span>
 								{/if}
 							</span>
 						{/if}
@@ -225,7 +235,7 @@
 				</p>
 			</article>
 		{:else}
-			<div class="reading-check">
+			<div class="reading-check" tabindex="-1" data-focus-target bind:this={resultEl}>
 				{#if checked}
 					<Burst trigger={passed ? 1 : 0} count={26} />
 					<p class="reading-verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
@@ -237,7 +247,7 @@
 						Go back to see the corrections under each gap.
 					</p>
 					{#if !passed}
-						<button class="btn" onclick={retry}>
+						<button type="button" class="btn" onclick={retry}>
 							<Icon name="repeat" size="1em" /> Try again
 						</button>
 					{/if}
@@ -245,7 +255,7 @@
 					<p class="reading-verdict neutral tnum">{filledCount} of {total} gaps filled</p>
 					<!-- Checkable at any point: an empty gap simply counts as wrong
 					     and gets its correction like any other miss. -->
-					<button class="btn" onclick={check}>
+					<button type="button" class="btn" onclick={check}>
 						<Icon name="check" size="1em" /> Check the text
 					</button>
 					{#if !allFilled}
@@ -348,6 +358,9 @@
 	.slot input:focus {
 		outline: none;
 		background: var(--accent-soft);
+		/* A heavier, darker underline: the tint alone is too faint to find. */
+		border-bottom-color: var(--accent-ink);
+		box-shadow: inset 0 -2px 0 var(--accent-ink);
 	}
 
 	.slot input.right {

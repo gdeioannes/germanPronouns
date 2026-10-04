@@ -194,6 +194,7 @@
 				</p>
 				<textarea
 					bind:value={report}
+					aria-label="The AI's report, or your score"
 					rows="5"
 					placeholder="Paste the report, or type the score"
 				></textarea>
@@ -350,7 +351,7 @@
 
 	.ai-links a:hover {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 		transform: translateY(-1px);
 	}
 
@@ -413,7 +414,7 @@
 		}
 
 		.ai-links a:hover :global(svg) {
-			color: var(--accent);
+			color: var(--accent-ink);
 		}
 
 		.ai-name {
@@ -425,7 +426,7 @@
 		}
 
 		.ai-links a:hover .ai-name {
-			color: var(--accent);
+			color: var(--accent-ink);
 		}
 
 		.ai-hint {

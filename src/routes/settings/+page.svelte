@@ -13,6 +13,7 @@
 	import { buildLadder } from '$lib/domain/ladder';
 	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { progress, type AnswerRevealMode } from '$lib/state/progress.svelte';
+	import { announce, radioKeys } from '$lib/a11y.svelte';
 	import type { PopulatedCourse } from '$lib/content/types';
 
 	let course = $state<PopulatedCourse | null>(null);
@@ -33,6 +34,7 @@
 		await progress.reset();
 		confirmingReset = false;
 		message = 'Progress cleared. Every score, streak and medal is gone.';
+		announce(message);
 	}
 </script>
 
@@ -175,6 +177,22 @@
 				</small>
 			</span>
 		</label>
+
+		<label class="row">
+			<input
+				type="checkbox"
+				checked={progress.showTranscripts}
+				onchange={(e) => progress.setShowTranscripts(e.currentTarget.checked)}
+			/>
+			<span>
+				<strong>Show the text in listening exercises</strong>
+				<small>
+					For when you can't hear the audio: dictations and listening
+					exercises get a "Show the text" button, so you can read what is
+					said instead of hearing it.
+				</small>
+			</span>
+		</label>
 	</section>
 
 	<section class="card">
@@ -182,13 +200,16 @@
 		<p class="lede">
 			After you answer, the correct spelling is written into the gap — green
 			when you had it, red when you didn't. This is how long it stays before
-			the next question.
+			the next question. <strong>Wait for me</strong> never moves on by
+			itself: press Next or Enter when you're ready.
 		</p>
-		<div class="segmented" role="radiogroup" aria-label="Answer reveal speed">
-			{#each [['quick', 'Quick'], ['normal', 'Normal'], ['slow', 'Slow']] as [mode, label] (mode)}
+		<div class="segmented" role="radiogroup" aria-label="Answer reveal speed" use:radioKeys>
+			{#each [['quick', 'Quick'], ['normal', 'Normal'], ['slow', 'Slow'], ['manual', 'Wait for me']] as [mode, label] (mode)}
 				<button
+					type="button"
 					role="radio"
 					aria-checked={progress.answerRevealMode === mode}
+					tabindex={progress.answerRevealMode === mode ? 0 : -1}
 					onclick={() => progress.setAnswerRevealMode(mode as AnswerRevealMode)}
 				>
 					{label}
@@ -323,6 +344,13 @@
 			color var(--fast) var(--ease-out);
 	}
 
+	@media (max-width: 30rem) {
+		.segmented button {
+			padding: 0.35rem 0.7rem;
+			white-space: nowrap;
+		}
+	}
+
 	.segmented button[aria-checked='true'] {
 		background: var(--surface);
 		color: var(--ink);
@@ -362,7 +390,7 @@
 
 	.levels a:hover {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.danger-btn {

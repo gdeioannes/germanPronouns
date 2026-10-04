@@ -28,9 +28,10 @@
 			<span class="pip" class:lit={i < lapProgress || (streak > 0 && lapProgress === 0)}></span>
 		{/each}
 	</div>
-	<span class="lives tnum" title="Mistakes this run" aria-label="{misses} of {STREAK_MISSES_ALLOWED} mistakes used">
+	<span class="lives tnum" title="Mistakes this run">
+		<span class="sr-only">{misses} of {STREAK_MISSES_ALLOWED} mistakes used</span>
 		{#each { length: STREAK_MISSES_ALLOWED } as _, i (i)}
-			<span class="life" class:lost={i < misses}>×</span>
+			<span class="life" class:lost={i < misses} aria-hidden="true">×</span>
 		{/each}
 	</span>
 	<span class="best tnum">Best {best}</span>
@@ -55,7 +56,7 @@
 	}
 
 	.flame.hot {
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.streak {

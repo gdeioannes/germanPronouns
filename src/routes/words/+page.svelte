@@ -127,18 +127,18 @@
 
 	<h2 class="library-head">Look a word up</h2>
 
-	<div class="tabs" role="tablist">
-		<button role="tab" aria-selected={tab === 'nouns'} onclick={() => (tab = 'nouns')}>
+	<div class="tabs" role="group" aria-label="Word type">
+		<button type="button" aria-pressed={tab === 'nouns'} onclick={() => (tab = 'nouns')}>
 			Nouns ({nouns.length})
 		</button>
-		<button role="tab" aria-selected={tab === 'verbs'} onclick={() => (tab = 'verbs')}>
+		<button type="button" aria-pressed={tab === 'verbs'} onclick={() => (tab = 'verbs')}>
 			Verbs ({verbs.length})
 		</button>
 	</div>
 
 	<div class="search">
 		<Icon name="search" size="1.05em" />
-		<input bind:value={search} placeholder="Search nouns and verbs…" type="search" />
+		<input bind:value={search} placeholder="Search nouns and verbs…" type="search" aria-label="Search nouns and verbs" />
 	</div>
 
 	{#if tab === 'nouns'}
@@ -287,7 +287,7 @@
 		gap: 0.25rem;
 		font-size: var(--step--1);
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.deck-ribbon {
@@ -303,7 +303,7 @@
 	}
 
 	a.deck:hover :global(.deck-go) {
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.decks-note {
@@ -339,7 +339,7 @@
 			color var(--fast) var(--ease-out);
 	}
 
-	.tabs button[aria-selected='true'] {
+	.tabs button[aria-pressed='true'] {
 		background: var(--navy);
 		border-color: var(--navy);
 		color: #fff;

@@ -16,7 +16,7 @@
 	// (unless typing), or a horizontal swipe.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { inDialog } from './keys';
-	import type { Snippet } from 'svelte';
+	import { tick, type Snippet } from 'svelte';
 
 	let {
 		count,
@@ -50,6 +50,30 @@
 	$effect(() => {
 		index;
 		viewport?.querySelector<HTMLElement>(`[data-step="${index}"]`)?.scrollTo({ top: 0 });
+	});
+
+	// Focus that sat inside the section just left (its "Continue" button, an
+	// option that auto-advanced) would fall to <body> when that section goes
+	// inert. Hand it to the new section instead, so a keyboard user carries
+	// on from there and a screen reader reads where they arrived.
+	let shown = -1;
+	$effect(() => {
+		const now = index;
+		if (shown === -1 || shown === now) {
+			shown = now;
+			return;
+		}
+		const left = viewport?.querySelector<HTMLElement>(`[data-step="${shown}"]`);
+		shown = now;
+		const active = document.activeElement;
+		const stranded = !active || active === document.body || (!!left && left.contains(active));
+		if (!stranded) return;
+		void tick().then(() => {
+			const current = viewport?.querySelector<HTMLElement>(`[data-step="${now}"]`);
+			// Something in the new section may already have taken focus itself.
+			if (!current || current.contains(document.activeElement)) return;
+			current.focus({ preventScroll: true });
+		});
 	});
 
 	function typing(target: EventTarget | null): boolean {
@@ -111,6 +135,8 @@
 				class:before={i < index}
 				class:after={i > index}
 				data-step={i}
+				data-focus-target
+				tabindex="-1"
 				inert={i !== index}
 				aria-hidden={i !== index}
 				aria-roledescription="slide"

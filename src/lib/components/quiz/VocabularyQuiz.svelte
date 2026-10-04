@@ -18,7 +18,9 @@
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import StreakTracker from './StreakTracker.svelte';
 	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
-	import { MIN_SHOW, REVEAL_PAUSE, progress } from '$lib/state/progress.svelte';
+	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
+	import { announce } from '$lib/a11y.svelte';
+	import { tick } from 'svelte';
 	import { vocab } from '$lib/state/vocab.svelte';
 	import { untrack } from 'svelte';
 	import type { VocabCard, VocabularyQuiz } from '$lib/content/types';
@@ -99,6 +101,8 @@
 	let burst = $state(0);
 	let burstSize = $state(12);
 	let inputEl = $state<HTMLInputElement | null>(null);
+	/** The back of the card: where focus goes once it turns over. */
+	let backEl = $state<HTMLElement | null>(null);
 	/** Cards missed this run, replayed before the run moves on. */
 	let retry: VocabCard[] = [];
 	let sinceRetry = 0;
@@ -148,6 +152,18 @@
 		missingArticle = false;
 		options = mode === 'choose' ? chooseOptions(card, quiz.cards) : [];
 	}
+
+	// The front goes inert when the card turns; focus that was on it (the
+	// field, an option, "Turn the card") follows the card to its back.
+	$effect(() => {
+		if (!revealed) return;
+		void tick().then(() => {
+			const active = document.activeElement;
+			if (backEl && (!active || active === document.body || !backEl.contains(active))) {
+				backEl.focus({ preventScroll: true });
+			}
+		});
+	});
 
 	// Focus lands on the fresh field once the new card element exists.
 	$effect(() => {
@@ -212,6 +228,8 @@
 			retry.push(card);
 		}
 		if (correct && stats.streak >= goal) onGoalReached();
+		if (correct) announce('Correct.', target, locale);
+		else announce('Not quite. It is:', target, locale);
 
 		// The back stays up long enough to read; a miss earns a longer look.
 		// Enter deals the next card straight away — once the card has turned,
@@ -223,12 +241,17 @@
 		};
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		else await wait(600).then(() => (skip = moveOn));
-		await wait(REVEAL_PAUSE[progress.answerRevealMode] + (correct ? 500 : 800));
+		const pause = revealPause(progress.answerRevealMode);
+		if (pause === null) {
+			skip ??= moveOn;
+			return;
+		}
+		await wait(pause + (correct ? 500 : 800));
 		if (skip === moveOn) moveOn();
 	}
 
 	/** Set while an answered card is on show: deals the next one now. */
-	let skip: (() => void) | null = null;
+	let skip = $state<(() => void) | null>(null);
 
 	function onWindowKey(event: KeyboardEvent) {
 		if (event.key !== 'Enter' || event.repeat || !locked || !skip) return;
@@ -272,13 +295,12 @@
 <StreakTracker {streak} {misses} {best} {goal} />
 
 <div class="controls">
-	<div class="modes" role="tablist" aria-label="Card mode">
+	<div class="modes" role="group" aria-label="Card mode">
 		{#each MODES as m (m.id)}
 			<button
 				type="button"
-				role="tab"
 				class="mode"
-				aria-selected={mode === m.id}
+				aria-pressed={mode === m.id}
 				disabled={locked}
 				onclick={() => setMode(m.id)}
 			>
@@ -331,7 +353,7 @@
 				class:wrong={verdict === 'wrong'}
 			>
 				<!-- Front: the question and the way to answer it. -->
-				<div class="face front" aria-hidden={revealed}>
+				<div class="face front" aria-hidden={revealed} inert={revealed}>
 					<p class="label">{kindLabel}</p>
 					{#if picture}
 						<!-- An obvious picture asks the question alone; the English
@@ -353,6 +375,7 @@
 								size={fieldSize}
 								lang={locale}
 								aria-label="The German word"
+								aria-invalid={verdict === 'wrong' ? 'true' : undefined}
 								placeholder={current.kind === 'noun' ? 'der / die / das …' : '…'}
 								autocomplete="off"
 								autocapitalize="off"
@@ -387,7 +410,14 @@
 				</div>
 
 				<!-- Back: the German, big, and how it went. -->
-				<div class="face back" aria-hidden={!revealed}>
+				<div
+					class="face back"
+					aria-hidden={!revealed}
+					inert={!revealed}
+					tabindex="-1"
+					data-focus-target
+					bind:this={backEl}
+				>
 					<p class="label">{current.en}</p>
 					{#if picture}
 						<img class="picture thumb" src={picture} alt="" width="512" height="512" />
@@ -421,7 +451,12 @@
 								Not yet — it comes back in a moment.
 							{/if}
 						</p>
-					{:else if peeking}
+					{/if}
+					{#if locked && progress.answerRevealMode === 'manual'}
+						<button type="button" class="btn next-card" disabled={!skip} onclick={() => skip?.()}>
+							Next card <Icon name="arrowRight" size="1em" />
+						</button>
+					{:else if peeking && !locked}
 						<div class="rate">
 							<button type="button" class="btn rate-no" onclick={() => rate(false)}>
 								<Icon name="close" size="1em" /> Didn't know it
@@ -481,7 +516,7 @@
 		padding: 0.38rem 0.85rem;
 	}
 
-	.mode[aria-selected='true'] {
+	.mode[aria-pressed='true'] {
 		background: var(--heading);
 		color: var(--paper);
 		box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
@@ -495,7 +530,7 @@
 	.weak[aria-pressed='true'] {
 		border-color: var(--accent);
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.weak:disabled {
@@ -633,7 +668,7 @@
 		font-weight: 700;
 		letter-spacing: 0.09em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.back .label {
@@ -737,13 +772,16 @@
 	}
 
 	.answer input::placeholder {
-		color: var(--outline);
+		color: var(--ink-muted);
 		font-weight: 400;
 	}
 
 	.answer input:focus {
 		outline: none;
 		background: var(--accent-soft);
+		/* A heavier, darker underline: the tint alone is too faint to find. */
+		border-bottom-color: var(--accent-ink);
+		box-shadow: inset 0 -2px 0 var(--accent-ink);
 	}
 
 	.go {
@@ -829,6 +867,10 @@
 
 	.turn:hover {
 		border-color: var(--heading);
+	}
+
+	.next-card {
+		margin-top: 1.1rem;
 	}
 
 	.rate {

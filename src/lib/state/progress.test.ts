@@ -7,7 +7,7 @@
 // missing ribbon and an undercounted progress ring.
 
 import { beforeEach, describe, expect, it } from 'vitest';
-import { progress } from './progress.svelte';
+import { progress, revealPause } from './progress.svelte';
 import { buildLadder } from '$lib/domain/ladder';
 import { quizStatsKeys, SettingsKeys } from '$lib/domain/keys';
 import { DEFAULT_GATING, progressionUnlockStreak } from '$lib/domain/progress';
@@ -99,6 +99,18 @@ describe('settings survive a reload', () => {
 		expect(progress.answerRevealMode).toBe('slow');
 	});
 
+	it('keeps "wait for me" reveal and transcripts across a reload', async () => {
+		const map = installStorage();
+		await progress.load(DEFAULT_GATING);
+		await progress.setAnswerRevealMode('manual');
+		await progress.setShowTranscripts(true);
+		expect(map.get(SettingsKeys.showTranscripts)).toBe('true');
+
+		await progress.load(DEFAULT_GATING);
+		expect(progress.answerRevealMode).toBe('manual');
+		expect(progress.showTranscripts).toBe(true);
+	});
+
 	it('defaults word help and relaxed correction on for a new learner', async () => {
 		installStorage();
 		await progress.load(DEFAULT_GATING);
@@ -173,5 +185,14 @@ describe('a streak survives three mistakes', () => {
 		// The fourth miss ends the run and refills the lives.
 		stats = await progress.recordAnswer(prefix, false);
 		expect(stats).toMatchObject({ streak: 0, misses: 0 });
+	});
+});
+
+describe('revealPause', () => {
+	it('times the timed modes and never advances in "wait for me"', () => {
+		expect(revealPause('quick')).toBe(500);
+		expect(revealPause('normal')).toBe(1500);
+		expect(revealPause('slow')).toBe(3000);
+		expect(revealPause('manual')).toBeNull();
 	});
 });

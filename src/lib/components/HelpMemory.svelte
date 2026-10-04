@@ -414,7 +414,7 @@
 		margin: 0.6rem 0 0;
 		font-size: var(--step--1);
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--accent-ink);
 		text-decoration: none;
 	}
 
@@ -508,7 +508,7 @@
 		padding: 0.6rem 0.8rem;
 		border-radius: 10px;
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-size: var(--step--1);
 		font-weight: 600;
 	}

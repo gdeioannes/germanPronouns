@@ -754,6 +754,8 @@
 						{#if i % 2 === 1}
 							{@const blank = c.blanks.find((bl) => bl.n === Number(part))}
 							<select
+								aria-label="Gap {part}"
+								aria-invalid={clozeChecked && clozeAnswers[Number(part)] !== blank?.answer ? 'true' : undefined}
 								class:right={clozeChecked && clozeAnswers[Number(part)] === blank?.answer}
 								class:wrong={clozeChecked && clozeAnswers[Number(part)] !== blank?.answer}
 								onchange={(e) => { clozeAnswers[Number(part)] = e.currentTarget.value; clozeChecked = false; }}>
@@ -854,7 +856,7 @@
 	.mics {
 		display: flex;
 		gap: 0.2rem;
-		color: var(--accent);
+		color: var(--accent-ink);
 		margin-right: 0.25rem;
 	}
 	.mic {
@@ -881,7 +883,7 @@
 	}
 	.mix-btn:hover {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 	.mix-btn.reset.arming {
 		border-color: var(--wrong);
@@ -918,7 +920,7 @@
 		height: 2.4rem;
 		border-radius: 50%;
 		border: none;
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		cursor: pointer;
 		display: grid;
@@ -958,7 +960,7 @@
 		transition: color 120ms ease, border-color 120ms ease, transform 300ms ease;
 	}
 	.vb-again:hover {
-		color: var(--accent);
+		color: var(--accent-ink);
 		border-color: var(--accent);
 		transform: rotate(-180deg);
 	}
@@ -1023,7 +1025,7 @@
 		border-color: var(--accent);
 	}
 	.nb-count {
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		border-radius: 999px;
 		min-width: 1.25rem;
@@ -1104,7 +1106,7 @@
 	}
 	.from {
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--accent-ink);
 		margin: 0;
 	}
 	.q {
@@ -1115,7 +1117,7 @@
 		color: var(--ink-muted);
 	}
 	.btn {
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		border: none;
 		border-radius: 999px;
@@ -1421,7 +1423,7 @@
 		min-width: 0;
 	}
 	.mm-text strong {
-		color: var(--ochre);
+		color: var(--ochre-ink);
 		font-size: var(--step--1);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;

@@ -202,9 +202,9 @@
 	.kind[data-kind='vocabulary'] { background: #f9e7ee; color: #a33a63; }
 	.kind[data-kind='reading'] { background: #e6ecf3; color: var(--navy); }
 	.kind[data-kind='listening'] { background: #e8efe9; color: var(--forest); }
-	.kind[data-kind='dictation'] { background: #f4eddc; color: var(--ochre); }
+	.kind[data-kind='dictation'] { background: #f4eddc; color: var(--ochre-ink); }
 	.kind[data-kind='speakRepeat'] { background: #fbe9e2; color: #b5522a; }
-	.kind[data-kind='speaking'] { background: var(--accent-soft); color: var(--accent); }
+	.kind[data-kind='speaking'] { background: var(--accent-soft); color: var(--accent-ink); }
 
 	.pager { display: flex; justify-content: space-between; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 	.pager a { display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none; font-weight: 700; }

@@ -11,6 +11,7 @@
 	import { progress } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { tts } from '$lib/services/speech';
+	import { announce } from '$lib/a11y.svelte';
 	import type { DictationQuiz } from '$lib/content/types';
 
 	let {
@@ -81,6 +82,7 @@
 			correctCount += 1;
 			burst += 1;
 		}
+		announce(right ? 'Correct.' : 'Not quite. The line was:', item.text, locale);
 	}
 
 	function next() {
@@ -88,11 +90,13 @@
 			done = true;
 			clearSpot(quiz.storageKeyPrefix);
 			onFinish(passed, correctCount, total);
+			announce(`${correctCount} of ${total} correct — ${passed ? 'passed' : 'not quite yet'}.`);
 			return;
 		}
 		index += 1;
 		answer = '';
 		verdict = 'none';
+		peek = false;
 		saveSpot(quiz.storageKeyPrefix, { index, correct: correctCount });
 	}
 
@@ -123,6 +127,8 @@
 	}
 
 	let inputEl = $state<HTMLInputElement>();
+	/** The line shown before answering — only offered with "Show transcripts" on. */
+	let peek = $state(false);
 
 	function restart() {
 		index = 0;
@@ -131,6 +137,7 @@
 		correctCount = 0;
 		run = 0;
 		done = false;
+		peek = false;
 	}
 </script>
 
@@ -142,7 +149,7 @@
 		<p class="verdict" class:pass={passed}>
 			{correctCount} of {total} correct — {passed ? 'passed' : 'not quite yet'}
 		</p>
-		<button class="btn" onclick={restart}>
+		<button type="button" class="btn" onclick={restart}>
 			<Icon name="repeat" size="1em" /> Run it again
 		</button>
 	</section>
@@ -154,13 +161,28 @@
 
 		<div class="controls">
 			<Burst trigger={burst} count={12} />
-			<button class="btn-ghost chip" onclick={() => play()}>
+			<button type="button" class="btn-ghost chip" onclick={() => play()}>
 				<Icon name="play" size="0.95em" /> Play
 			</button>
-			<button class="btn-ghost chip" onclick={() => play(0.6)}>
+			<button type="button" class="btn-ghost chip" onclick={() => play(0.6)}>
 				<Icon name="slow" size="0.95em" /> Slower
 			</button>
+			{#if progress.showTranscripts && verdict === 'none'}
+				<button
+					type="button"
+					class="btn-ghost chip"
+					aria-expanded={peek}
+					aria-controls="dictation-transcript"
+					onclick={() => (peek = !peek)}
+				>
+					<Icon name="book" size="0.95em" /> {peek ? 'Hide the text' : 'Show the text'}
+				</button>
+			{/if}
 		</div>
+
+		{#if peek && verdict === 'none'}
+			<p class="reveal" id="dictation-transcript" lang={locale}>{item.text}</p>
+		{/if}
 
 		<!-- Read-only rather than disabled once answered: a disabled field
 		     drops focus, and Enter would then have nowhere to go. -->
@@ -170,6 +192,8 @@
 			onkeydown={onKey}
 			enterkeyhint="go"
 			readonly={verdict !== 'none'}
+			aria-invalid={verdict === 'wrong' ? 'true' : undefined}
+			aria-label="Type what you hear, line {index + 1} of {total}"
 			placeholder="Type what you hear"
 			lang={locale}
 			autocomplete="off"
@@ -178,7 +202,7 @@
 		/>
 
 		{#if verdict === 'none'}
-			<button class="btn" class:btn-ghost={!answer.trim()} onclick={check}>
+			<button type="button" class="btn" class:btn-ghost={!answer.trim()} onclick={check}>
 				{#if answer.trim()}
 					<Icon name="check" size="1em" /> Check
 				{:else}
@@ -197,7 +221,7 @@
 			{#if item.translation}
 				<p class="translation">{item.translation}</p>
 			{/if}
-			<button class="btn" onclick={next}>
+			<button type="button" class="btn" onclick={next}>
 				{index + 1 >= total ? 'Finish' : 'Next line'}
 				<Icon name="arrowRight" size="1em" />
 			</button>
@@ -247,7 +271,7 @@
 
 	.chip:hover {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 		transform: translateY(-1px);
 	}
 

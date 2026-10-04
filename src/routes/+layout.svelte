@@ -8,6 +8,7 @@
 	import { tts } from '$lib/services/speech';
 	import FxLayer from '$lib/components/FxLayer.svelte';
 	import VoiceNotice from '$lib/components/VoiceNotice.svelte';
+	import Announcer from '$lib/components/Announcer.svelte';
 	// Self-hosted fonts: no third-party request blocks the first paint, and the
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
@@ -19,6 +20,16 @@
 	import '../app.css';
 
 	let { children } = $props();
+
+	// Each page renders its own <main>; the skip link finds whichever one is
+	// showing and hands it focus, so the next Tab starts inside the content.
+	function skipToMain(event: MouseEvent) {
+		const main = document.querySelector<HTMLElement>('main');
+		if (!main) return;
+		event.preventDefault();
+		if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+		main.focus();
+	}
 
 	// One screen_view per navigation, the same signal the Flutter router
 	// reported. Cookieless and no-op when no ingestion key is configured, which
@@ -73,6 +84,8 @@
 	<meta name="theme-color" content="#1F3A5F" />
 </svelte:head>
 
+<a class="skip-link" href="#main" onclick={skipToMain}>Skip to content</a>
+
 <!-- Fallback for browsers without view transitions: fades the new page in so
      a client-side navigation reads as a change of content rather than a
      flash. Off where view transitions already animate the swap. -->
@@ -84,3 +97,4 @@
 
 <FxLayer />
 <VoiceNotice />
+<Announcer />

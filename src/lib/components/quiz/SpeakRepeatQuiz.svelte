@@ -13,6 +13,7 @@
 	import { stt, tts } from '$lib/services/speech';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import type { SpeakRepeatQuiz } from '$lib/content/types';
+	import { announce } from '$lib/a11y.svelte';
 
 	let {
 		quiz,
@@ -65,6 +66,11 @@
 				if (!result.isFinal) return;
 				matched = matchesSpoken(result.transcript, phrase.text);
 				listening = false;
+				announce([
+					{ text: 'Heard:' },
+					{ text: result.transcript, lang: locale },
+					{ text: matched ? '— close enough.' : '— try once more.' }
+				]);
 			});
 		} catch {
 			micAvailable = false;
@@ -139,7 +145,7 @@
 				<Icon name="slow" size="0.95em" /> Slower
 			</button>
 			{#if micAvailable}
-				<button class="chip mic" class:listening onclick={listen} disabled={listening}>
+				<button type="button" class="chip mic" class:listening onclick={listen} aria-disabled={listening}>
 					<Icon name="mic" size="0.95em" />
 					{listening ? 'Listening…' : 'Say it'}
 				</button>
@@ -230,7 +236,7 @@
 
 	.chip:hover:not(:disabled) {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 		transform: translateY(-1px);
 	}
 
@@ -240,6 +246,11 @@
 		border-color: var(--wrong);
 		color: var(--wrong);
 		animation: listening 1.3s var(--ease-out) infinite;
+	}
+
+	:global(html[data-effects='calm']) .mic.listening {
+		animation: none;
+		box-shadow: 0 0 0 3px rgba(180, 69, 47, 0.32);
 	}
 
 	@keyframes listening {

@@ -33,7 +33,9 @@ export const SettingsKeys = {
 	/** Web-only. Only an explicit "false" mutes: sound is on by default. */
 	soundEffects: 'sound_effects',
 	/** Web-only. Silences sound effects and the read-aloud voice alike. */
-	muted: 'app_muted'
+	muted: 'app_muted',
+	/** Web-only. Listening exercises offer their text for learners who can't hear it. */
+	showTranscripts: 'show_transcripts'
 } as const;
 
 /**

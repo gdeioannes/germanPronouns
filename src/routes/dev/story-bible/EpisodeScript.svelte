@@ -324,7 +324,7 @@
 	}
 	.badge.lead {
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 	.badge.locked {
 		background: var(--paper-high);

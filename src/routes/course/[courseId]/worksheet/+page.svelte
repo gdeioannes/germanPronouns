@@ -457,7 +457,7 @@
 		font-size: 1.9rem;
 		font-weight: 800;
 		line-height: 1;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.book .name {
@@ -544,7 +544,7 @@
 	}
 
 	button.primary {
-		background: var(--accent);
+		background: var(--accent-ink);
 		border-color: var(--accent);
 		color: #fff;
 		font-weight: 650;
@@ -602,7 +602,7 @@
 	.inline-gap sup {
 		font-size: 7pt;
 		font-weight: 800;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.box {
@@ -671,7 +671,7 @@
 
 	.block h3 .lvl {
 		margin-right: 0.6em;
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-family: Inter, system-ui, sans-serif;
 		font-size: 7.5pt;
 		font-weight: 800;
@@ -838,7 +838,7 @@
 	}
 
 	.help-points li::marker {
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.help-tip {

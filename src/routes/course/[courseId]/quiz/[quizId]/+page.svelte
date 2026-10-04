@@ -447,7 +447,7 @@
 
 	.back:hover {
 		background: var(--surface-alt);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.title {
@@ -510,7 +510,7 @@
 	.tool:hover {
 		transform: translateY(-1px);
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	/* The notes are the one thing worth reaching for mid-exercise: filled, so
@@ -518,11 +518,11 @@
 	.tool.notes {
 		border-color: var(--accent);
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.tool.notes:hover {
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 	}
 
@@ -555,7 +555,7 @@
 	}
 
 	.modes button:hover {
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.modes button[aria-pressed='true'] {
@@ -630,7 +630,7 @@
 	}
 	.kind[data-kind='speaking'] {
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 	.kind[data-kind='listening'] {
 		background: #e8efe9;
@@ -638,7 +638,7 @@
 	}
 	.kind[data-kind='dictation'] {
 		background: #f4eddc;
-		color: var(--ochre);
+		color: var(--ochre-ink);
 	}
 
 	/* -- finished bar -------------------------------------------------------- */
@@ -757,7 +757,7 @@
 
 	.shortcuts a:hover {
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.related { margin-top: 1.5rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }

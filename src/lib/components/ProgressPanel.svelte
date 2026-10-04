@@ -239,7 +239,7 @@
 	}
 
 	.eyebrow-sm strong {
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.hero-title {
@@ -359,7 +359,7 @@
 
 	.facts :global(.icon) {
 		margin-top: 0.1em;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.topics {
@@ -467,7 +467,7 @@
 
 	.bars li.current .bar-name,
 	.bars li.current .bar-num {
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.bars li.current .bar > span {
@@ -492,7 +492,7 @@
 	}
 
 	.close-btn:hover {
-		background: var(--accent);
+		background: var(--accent-ink);
 	}
 
 </style>

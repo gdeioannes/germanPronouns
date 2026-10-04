@@ -81,7 +81,7 @@
 	.icon {
 		display: inline-flex;
 		margin-top: 0.1rem;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	p {

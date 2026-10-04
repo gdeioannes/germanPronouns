@@ -128,7 +128,7 @@
 		padding: 0.25rem 0.65rem;
 		border-radius: 999px;
 		background: var(--accent-soft);
-		color: var(--accent);
+		color: var(--accent-ink);
 		font-size: 0.72rem;
 		font-weight: 800;
 		letter-spacing: 0.06em;
@@ -136,7 +136,7 @@
 	}
 
 	.tag:hover {
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 	}
 
@@ -303,7 +303,7 @@
 		gap: 0.4rem;
 		padding: 0.7rem 1.3rem;
 		border-radius: 999px;
-		background: var(--accent);
+		background: var(--accent-ink);
 		color: #fff;
 		font-weight: 700;
 		text-decoration: none;
