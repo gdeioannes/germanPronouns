@@ -18,6 +18,9 @@ export const GET: RequestHandler = async () => {
 	const wordsDate = lastModified(...SHARED_WORD_PATHS);
 	const urls: { loc: string; lastmod: string; priority: string }[] = [
 		{ loc: '/', lastmod: today, priority: '1.0' },
+		{ loc: '/changelog', lastmod: lastModified('src/lib/content/changelog.ts'), priority: '0.4' },
+		{ loc: '/about', lastmod: lastModified('src/routes/about'), priority: '0.5' },
+		{ loc: '/contact', lastmod: lastModified('src/routes/contact'), priority: '0.3' },
 		{ loc: '/words', lastmod: wordsDate, priority: '0.6' },
 		{ loc: '/words/nouns', lastmod: wordsDate, priority: '0.7' },
 		{ loc: '/words/verbs', lastmod: wordsDate, priority: '0.7' }

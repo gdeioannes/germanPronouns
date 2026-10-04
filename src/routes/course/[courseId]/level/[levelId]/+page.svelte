@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
-	import { absoluteUrl, breadcrumbLd, clip, shareImage, topicOf } from '$lib/seo';
+	import { absoluteUrl, breadcrumbLd, clip, shareImage, titleWithSite, topicOf } from '$lib/seo';
 	// A sub-level's syllabus: what it teaches, against what official source,
 	// and which exercise covers each item. The learner-facing version of the
 	// content master plan's module table — the page to check "have I covered
@@ -43,7 +43,7 @@
 </script>
 
 <Seo
-	title="{module?.title ?? topicOf(title)} ({level}) – German course level & exercises | Language Quiz"
+	title={titleWithSite(`${module?.title ?? topicOf(title)} (${level}) – German exercises`)}
 	description={clip(
 		`German ${level}: ${module?.canDo?.slice(0, 2).join('; ') ?? title}. ${quizzes.length} free exercises mapped to the official ${level.slice(0, 2)} syllabus.`
 	)}

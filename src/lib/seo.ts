@@ -94,6 +94,15 @@ const RESOURCE_TYPE: Record<QuizType, string> = {
 };
 
 /**
+ * A page title with the site name appended when it still fits: a result
+ * shows about 60 characters, and what people searched for comes first.
+ */
+export function titleWithSite(title: string, max = 65): string {
+	const full = `${title} | ${SITE_NAME}`;
+	return full.length <= max ? full : title;
+}
+
+/**
  * Search title for an exercise: the topic first (what people type), then
  * level and kind. Kept near 60 characters, the width a result shows.
  */
@@ -109,7 +118,12 @@ export function quizTitle(quiz: Quiz): string {
 export function quizDescription(quiz: Quiz): string {
 	const intro = quiz.help?.intro;
 	const cefr = cefrOf(quiz.level);
-	if (intro) return clip(`${cefr}: ${lead(intro, 150)}`);
+	if (intro) {
+		const opening = `${cefr}: ${lead(intro, 150)}`;
+		// One short sentence is too thin for a result snippet: say what the page offers.
+		if (opening.length >= 100) return clip(opening);
+		return clip(`${opening} Free ${KIND_LABEL[quiz.type]} with rules, examples and audio.`.replace(/\s+/g, ' '));
+	}
 	return clip(
 		`Free German ${cefr} ${KIND_LABEL[quiz.type]}: ${topicOf(quiz.title)}. Rules, examples and audio, no sign-up.`
 	);
@@ -152,6 +166,48 @@ export function websiteLd() {
 }
 
 /** A course, as the home page and the course page both describe it. */
+/**
+ * schema.org accessibility metadata (the W3C/DAISY vocabulary): what the
+ * course does for screen readers, keyboards and learners who need more time.
+ * Only claims what the app actually does — see the About page's
+ * accessibility note, which says the same in prose.
+ */
+const ACCESSIBILITY = {
+	accessibilityAPI: ['ARIA'],
+	accessibilityControl: ['fullKeyboardControl', 'fullMouseControl', 'fullTouchControl'],
+	accessibilityFeature: [
+		'ARIA',
+		'alternativeText',
+		'displayTransformability',
+		'readingOrder',
+		'structuralNavigation',
+		'timingControl'
+	],
+	accessibilityHazard: ['noFlashingHazard', 'noMotionSimulationHazard', 'noSoundHazard'],
+	accessibilitySummary:
+		'Aims at WCAG 2.2 AA. Works with a keyboard and screen readers: answers, corrections and results are announced, and German text is marked as German so it is read in a German voice. No time limits ("Wait for me" setting), optional text for listening exercises, reduced motion on request, and text that meets contrast guidelines.'
+};
+
+/** Exercises built on audio: the text is the alternative a learner can switch on. */
+const AUDIO_TYPES = new Set<QuizType>(['listening', 'dictation', 'speakRepeat']);
+
+function accessibilityOf(type?: QuizType) {
+	const audio = !!type && AUDIO_TYPES.has(type);
+	return {
+		accessMode: audio ? ['textual', 'auditory', 'visual'] : ['textual', 'visual'],
+		accessModeSufficient: audio
+			? [
+					{ '@type': 'ItemList', itemListElement: ['auditory', 'textual'], description: 'Audio with on-screen text' },
+					{ '@type': 'ItemList', itemListElement: ['textual'], description: 'Text only, with "Show the text" switched on' }
+				]
+			: [{ '@type': 'ItemList', itemListElement: ['textual'], description: 'Text only' }],
+		...ACCESSIBILITY,
+		accessibilityFeature: audio
+			? [...ACCESSIBILITY.accessibilityFeature, 'transcript']
+			: ACCESSIBILITY.accessibilityFeature
+	};
+}
+
 export function courseLd(course: { id: string; name: string; tagline: string }, extra: object = {}) {
 	return {
 		'@context': 'https://schema.org',
@@ -165,6 +221,8 @@ export function courseLd(course: { id: string; name: string; tagline: string }, 
 		isAccessibleForFree: true,
 		provider: ORGANIZATION,
 		offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', category: 'Free' },
+		// The course as a whole includes listening, so it is described with audio.
+		...accessibilityOf('listening'),
 		hasCourseInstance: {
 			'@type': 'CourseInstance',
 			courseMode: 'online',
@@ -194,6 +252,7 @@ export function learningResourceLd(quiz: Quiz, path: string, courseName: string,
 		isAccessibleForFree: true,
 		interactivityType: 'active',
 		educationalUse: 'practice',
+		...accessibilityOf(quiz.type),
 		provider: ORGANIZATION,
 		isPartOf: { '@type': 'Course', name: courseName, url: absoluteUrl(coursePath) }
 	};

@@ -7,7 +7,11 @@
 	import { page } from '$app/state';
 	import { slide } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { whatsNew, initWhatsNew } from '$lib/state/whatsNew.svelte';
+
+	onMount(initWhatsNew);
 
 	let { courseHref, compact = false }: { courseHref: string; compact?: boolean } = $props();
 
@@ -69,10 +73,26 @@
 	</a>
 {/snippet}
 
-{#snippet links()}
+<!-- What's new is an icon rather than a text link: it matters most to returning
+     learners, and the dot is what tells them there is something to see. -->
+{#snippet news()}
+	<a
+		class="icon-link news"
+		href="/changelog"
+		aria-label={whatsNew.unseen ? "What's new — new updates" : "What's new"}
+		title="What's new"
+	>
+		<Icon name="star" size="1.15em" />
+		{#if whatsNew.unseen}<span class="dot" aria-hidden="true"></span>{/if}
+	</a>
+{/snippet}
+
+{#snippet links(withNews: boolean)}
 	<a href="{home}#levels">Levels</a>
 	<a href="{home}#how">How it works</a>
 	<a href="/words">Word library</a>
+	<a href="/about">About</a>
+	{#if withNews}{@render news()}{/if}
 	{#if !inCourse}
 		<a class="bar-cta" href={courseHref}>Open the course</a>
 	{/if}
@@ -82,8 +102,9 @@
 	<header class="mini" class:tucked class:open bind:this={root}>
 		<div class="mini-row">
 			{@render brand()}
-			<!-- The two places people jump to most sit in the bar as icons; the
+			<!-- The places people jump to most sit in the bar as icons; the
 			     rest are one tap away under Menu. -->
+			{@render news()}
 			<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
 				<Icon name="words" size="1.15em" />
 			</a>
@@ -104,14 +125,14 @@
 		</div>
 		{#if open}
 			<nav id="site-menu" aria-label="Main" transition:slide={{ duration: 180, easing: cubicOut }}>
-				<div class="menu-links">{@render links()}</div>
+				<div class="menu-links">{@render links(false)}</div>
 			</nav>
 		{/if}
 	</header>
 {:else}
 	<header class="bar">
 		{@render brand()}
-		<nav aria-label="Main">{@render links()}</nav>
+		<nav aria-label="Main">{@render links(true)}</nav>
 	</header>
 {/if}
 
@@ -163,10 +184,34 @@
 		color: var(--heading);
 	}
 
+	/* On a phone the text links go; the What's new icon and the button stay. */
 	@media (max-width: 40rem) {
-		.bar nav a:not(.bar-cta) {
+		.bar nav a:not(.bar-cta):not(.icon-link) {
 			display: none;
 		}
+	}
+
+	/* In the full bar the icon sits among text links: pull it in so the gaps
+	   read evenly. */
+	.bar .news {
+		margin-inline: -0.5rem;
+	}
+
+	.news {
+		position: relative;
+	}
+
+	/* The "something new" dot: terracotta, ringed in the page colour so it
+	   reads as a separate mark on top of the star. */
+	.dot {
+		position: absolute;
+		top: 0.3rem;
+		right: 0.3rem;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background: var(--accent);
+		box-shadow: 0 0 0 2px var(--bg);
 	}
 
 	/* -- compact: slim sticky bar with a Menu button ----------------------- */
@@ -181,6 +226,14 @@
 		/* Held still across page transitions instead of sliding with the page. */
 		view-transition-name: site-nav;
 		transition: transform 220ms var(--ease-out, ease-out);
+	}
+
+	/* While a page transition runs the bar is a snapshot image, which drops
+	   the backdrop blur: the sliding page would smear through the see-through
+	   background. Solid for those few hundred milliseconds instead. */
+	:global(:root[data-nav]) .mini {
+		background: var(--bg);
+		backdrop-filter: none;
 	}
 
 	/* Tabbing into a tucked bar brings it back down, so the focused link is

@@ -526,6 +526,17 @@ input[type='number'] {
 	animation-name: vt-in-left;
 }
 
+/* The compact nav bar (view-transition-name: site-nav) holds still: when both
+   pages have it, the new bar replaces the old outright instead of the two
+   cross-fading into a ghosted blur. A bar on only one side still fades. */
+::view-transition-old(site-nav):not(:only-child) {
+	animation: none;
+	opacity: 0;
+}
+::view-transition-new(site-nav):not(:only-child) {
+	animation: none;
+}
+
 @keyframes vt-fade-out {
 	to {
 		opacity: 0;

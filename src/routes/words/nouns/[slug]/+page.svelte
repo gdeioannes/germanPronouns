@@ -8,7 +8,7 @@
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
-	import { breadcrumbLd, definedTermLd, shareImage, topicOf } from '$lib/seo';
+	import { breadcrumbLd, definedTermLd, shareImage, titleWithSite, topicOf } from '$lib/seo';
 	import { GENDER_ARTICLES, GENDER_COLORS } from '$lib/domain/gender';
 	import { withArticle } from '$lib/domain/words';
 	import { page } from '$app/state';
@@ -23,7 +23,8 @@
 	const GENDER_NAME: Record<string, string> = { m: 'masculine', f: 'feminine', n: 'neuter' };
 	const path = $derived(`/words/nouns/${data.slug}`);
 	const headline = $derived(withArticle(entry));
-	const title = $derived(`${headline} – ${GENDER_ARTICLES[entry.gender]} or die? plural, cases, "${entry.english}" | Language Quiz`);
+	// What people search: "Hund der die das", "Hund plural".
+	const title = $derived(titleWithSite(`${headline} (${entry.english}) – der, die or das? Plural & cases`));
 	const description = $derived(
 		`${headline} means "${entry.english}" and is ${GENDER_NAME[entry.gender]}${
 			plural ? `; the plural is die ${plural}` : ''

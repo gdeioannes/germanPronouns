@@ -35,7 +35,9 @@ export const SettingsKeys = {
 	/** Web-only. Silences sound effects and the read-aloud voice alike. */
 	muted: 'app_muted',
 	/** Web-only. Listening exercises offer their text for learners who can't hear it. */
-	showTranscripts: 'show_transcripts'
+	showTranscripts: 'show_transcripts',
+	/** Web-only. Date of the newest changelog release this browser has seen. */
+	changelogSeen: 'changelog_seen'
 } as const;
 
 /**

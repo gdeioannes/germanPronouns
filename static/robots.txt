@@ -3,5 +3,7 @@ Allow: /
 Disallow: /settings
 # The worksheet builder is a tool, not a page worth indexing.
 Disallow: /course/*/worksheet
+# Internal design and preview pages.
+Disallow: /dev
 
 Sitemap: https://languagequiz.org/sitemap.xml

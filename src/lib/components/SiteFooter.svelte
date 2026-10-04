@@ -28,6 +28,10 @@
 		<a href="/words"><Icon name="words" size="1.05em" /> Word library</a>
 		<a href="/words/nouns"><Icon name="pen" size="1.05em" /> German nouns</a>
 		<a href="/words/verbs"><Icon name="repeat" size="1.05em" /> German verbs</a>
+		<a href="/changelog"><Icon name="star" size="1.05em" /> What's new</a>
+		<a href="/about"><Icon name="book" size="1.05em" /> About</a>
+		<a href="/about#accessibility"><Icon name="check" size="1.05em" /> Accessibility</a>
+		<a href="/contact"><Icon name="pen" size="1.05em" /> Contact</a>
 		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> Settings</a>
 	</nav>
 	{#if levels.length && !compact}

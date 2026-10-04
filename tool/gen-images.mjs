@@ -82,7 +82,7 @@ for (const img of linkOnly ? [] : manifest.images) {
 				? readFileSync(raw)
 				: await generate(`${manifest.style}\n\n${expand(img.prompt)}`, img.aspect ?? '1:1');
 		writeFileSync(raw, png);
-		await shrink(png, file);
+		await shrink(png, file, img.transparent);
 		made++;
 		console.log(`ok (${Math.round(statSync(file).size / 1024)} kB)`);
 	} catch (e) {
@@ -223,8 +223,13 @@ async function callApi(prompt, aspect) {
 	return Buffer.from(part.inlineData.data, 'base64');
 }
 
-/** 1024px PNG → 512px WebP for the app. */
-async function shrink(png, file) {
+/**
+ * 1024px PNG → 512px WebP for the app. With `transparent` (a manifest flag,
+ * for illustrations that sit directly on a page rather than on a cream card,
+ * like the About page's), the flood-filled backdrop becomes alpha instead of
+ * levelled paper.
+ */
+async function shrink(png, file, transparent = false) {
 	// Story scenes keep their mood lighting: no paper levelling, no palette
 	// quantisation — a plain lossy WebP at full size.
 	if (story) {
@@ -236,7 +241,21 @@ async function shrink(png, file) {
 		.removeAlpha()
 		.raw()
 		.toBuffer({ resolveWithObject: true });
-	levelPaper(data, info.width, info.height);
+	const filled = levelPaper(data, info.width, info.height);
+	if (transparent) {
+		// RGB → RGBA, with every flood-filled backdrop pixel fully clear.
+		const rgba = Buffer.alloc(info.width * info.height * 4);
+		for (let p = 0; p < info.width * info.height; p++) {
+			rgba[p * 4] = data[p * 3];
+			rgba[p * 4 + 1] = data[p * 3 + 1];
+			rgba[p * 4 + 2] = data[p * 3 + 2];
+			rgba[p * 4 + 3] = filled[p] ? 0 : 255;
+		}
+		await sharp(rgba, { raw: { width: info.width, height: info.height, channels: 4 } })
+			.webp({ lossless: true, effort: 6 })
+			.toFile(file);
+		return;
+	}
 	// Lossy WebP shifts flat colours by a few units, which shows as a faint
 	// tile edge on the card. Quantising to a palette flattens the model's
 	// paper grain, so a lossless WebP of it stays small (~30 kB) and the
@@ -278,6 +297,7 @@ function levelPaper(px, w, h) {
 		);
 	};
 	const seen = new Uint8Array(w * h);
+	const filled = new Uint8Array(w * h);
 	const stack = [];
 	const push = (x, y) => {
 		if (x < 0 || y < 0 || x >= w || y >= h) return;
@@ -296,11 +316,13 @@ function levelPaper(px, w, h) {
 		px[p * 3] = PAPER[0];
 		px[p * 3 + 1] = PAPER[1];
 		px[p * 3 + 2] = PAPER[2];
+		filled[p] = 1;
 		push(x - 1, y);
 		push(x + 1, y);
 		push(x, y - 1);
 		push(x, y + 1);
 	}
+	return filled;
 }
 
 /** The median colour of the image's outermost pixels. */

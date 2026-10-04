@@ -7,7 +7,7 @@
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { spokenVerbForm } from '$lib/domain/spoken';
-	import { breadcrumbLd, definedTermLd, shareImage } from '$lib/seo';
+	import { breadcrumbLd, clip, definedTermLd, shareImage, titleWithSite } from '$lib/seo';
 	import { page } from '$app/state';
 	import type { PageData } from './$types';
 
@@ -19,10 +19,15 @@
 	const path = $derived(`/words/verbs/${data.slug}`);
 	const labels = $derived(entry.sets.map((s) => s.label));
 	const present = $derived(entry.sets.find((s) => s.label === 'Präsens'));
-	const title = $derived(`${entry.verb} conjugation – ${labels.slice(0, 3).join(', ')} | Language Quiz`);
+	const title = $derived(titleWithSite(`${entry.verb} conjugation – ${labels.slice(0, 3).join(', ')}`));
 	const description = $derived(
-		`Conjugate the German verb ${entry.verb} ("${entry.english}"): ${labels.join(', ')}` +
-			(present ? `. Präsens: ${present.forms.map((f) => `${f.person} ${f.form}`).join(', ')}.` : '.')
+		clip(
+			`Conjugate the German verb ${entry.verb} ("${entry.english}")` +
+				(present ? `. Präsens: ${present.forms.map((f) => `${f.person} ${f.form}`).join(', ')}` : '') +
+				(labels.some((l) => l !== 'Präsens')
+					? `. Also ${labels.filter((l) => l !== 'Präsens').join(', ')}.`
+					: '.')
+		)
 	);
 </script>
 

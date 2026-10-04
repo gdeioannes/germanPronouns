@@ -136,6 +136,10 @@ const RAW = {
 	download: {
 		d: 'M12 4.5v10.5 M7.5 10.5 12 15l4.5-4.5 M4.5 15.5v3a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3'
 	},
+	/** A wall calendar — the practice reminder. */
+	calendar: {
+		d: 'M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z M4 10.5h16 M8.5 3.5v4 M15.5 3.5v4'
+	},
 	words: {
 		d: 'M4.5 5.5h15a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Z M8 9.5h8 M8 13h5'
 	},

@@ -6,8 +6,10 @@
 	// unlock anything — a learner who already speaks some German just goes
 	// straight to the level that suits them.
 	import Icon from '$lib/icons/Icon.svelte';
+	import PracticeReminder from '$lib/components/PracticeReminder.svelte';
 	import { rise } from '$lib/motion';
 	import { playSound } from '$lib/services/sounds';
+	import { forgetFirstSeen } from '$lib/services/analytics';
 	import { catalog } from '$lib/content';
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
@@ -32,6 +34,7 @@
 
 	async function resetEverything() {
 		await progress.reset();
+		forgetFirstSeen();
 		confirmingReset = false;
 		message = 'Progress cleared. Every score, streak and medal is gone.';
 		announce(message);
@@ -50,6 +53,8 @@
 			<span>{message}</span>
 		</p>
 	{/if}
+
+	<PracticeReminder />
 
 	<section class="card">
 		<h2>Answer checking</h2>
@@ -234,6 +239,19 @@
 				{/if}
 			{/each}
 		</ul>
+	</section>
+
+	<section class="card">
+		<h2>Privacy</h2>
+		<p class="lede">
+			This site uses no cookies and collects no personal data. Anonymous usage
+			statistics (which pages are visited, and whether a visit comes from a
+			search engine or a shared link) are gathered without any identifier,
+			via Aptabase in the EU. The only thing kept on your device for
+			statistics is the date of your first visit — no name, no ID, nothing
+			unique — so we can tell new visitors from returning ones in aggregate.
+			Your learning progress stays in this browser and never leaves it.
+		</p>
 	</section>
 
 	<section class="card danger">
