@@ -90,8 +90,14 @@ striped shirt, dark trousers, white sneakers, sage canvas messenger bag.
   word she decodes, the learner decodes with her. The learner is her
   remote assistant; every module is an episode of her podcast.
 - **How she dresses:** the outfit above, always; pencil behind one ear;
-  props are her navy notebook, phone and case board. Never a magnifying
+  props are her navy notebook, phone and case board, and a small handheld
+  recorder (Episode 0, when the phone is dead). Her luggage is always the
+  same large ink-navy hard-shell suitcase (manifest block `{suitcase}`;
+  the model drifts to a brown leather case without it). Never a magnifying
   glass — she's a podcaster, not a cop.
+- **Timeline:** Episode 0 is her first day in Berlin — she arrives with
+  zero German, meets the learner at the airport and moves into Jonas's WG
+  without meeting him. Episode 1 is a few weeks later.
 - **How she speaks:** English only. Short dramatic sentences, CAPITALISED
   emphasis, trailing ellipses before reveals, podcast framing everywhere
   ("episode", "listeners", "scoop"). Warm to the learner, theatrical about
@@ -132,6 +138,36 @@ stories. Rendered at /dev/story-bible/formula.
   same language contract, same ligne claire look, and each episode plants
   one continuity hook a later episode pays off (tracked in the episode
   docs).
+- **Prologue exception (Episode 0 only, agreed 2026-10-05):** the episode
+  for learners with no German at all keeps the skeleton but has a 7-minute
+  floor, numbers as digits only, tap-only answers, and survival German
+  instead of grammar topics — see `docs/episodes/ep0_lost_in_berlin.md`.
+- **Podcast facts:** 3–4 real Berlin facts per episode, told by Maya in
+  English and then pinned to one German word the learner taps in the scene
+  (der Fernsehturm, das Ampelmännchen …). Facts must be true; keep them short.
+- **Review:** every new episode goes through the review loop in
+  `docs/story_review.md` (scorecard, playtest bot, two reviewer passes) for
+  at least three rounds before it ships.
+
+## Interactions (playful, never a test)
+
+The learner's hands should be busy, and every question is a case action —
+never "what does X mean?". The player's mechanics (schema:
+`docs/story_module_schema.md`):
+
+| Mechanic | Feels like | Use for |
+|---|---|---|
+| `dialogue` | a live chat; characters' lines are voiced, the learner picks or builds Maya's reply | every conversation with a stranger |
+| `hotspot` | tap the right thing in the picture; German on props is overlaid | signs, plates, landmarks, the bakery counter |
+| `map` | the code-drawn Kiez map (`KiezMap.svelte`): find a place, or steer Maya with links/rechts/geradeaus | orientation, directions, the walk to a finale |
+| `stops` | a U-Bahn ride: hear "Nächster Halt …", get off at the right one | listening for one name |
+| `orderedPick` | dial a number, order tiles | numbers, word order, sorting evidence |
+| `inlineCloze` / `bigText` | restore a damaged note, fill in a form | reading |
+| `banter` | Maya asks, every option gets her reaction | warm-up, sign-offs |
+| `select` / `recall` | pin a fact to the case board, remember a detail | ≤ 25 % of exercises |
+
+Every wrong option carries an in-character reply; hidden hotspots start to
+glow after two misses. Words land in the notebook with a play button.
 
 ## Mixing English and German
 
@@ -158,6 +194,11 @@ character's signature line, run `npm run voices`, listen on
 `src/lib/assets/story/voices/` (dev-only) as the permanent audition trail.
 
 Cast 2026-10-02: Maya = Achernar (en-US) · Jonas = Puck (de-DE) · Lena = Aoede (de-DE) · Böhm = Charon (de-DE). Audition candidates stay recorded as the trail.
+Episode 0 (2026-10-05, cast from the Chirp 3 HD voice descriptions — recast
+by ear if one sounds off): the passer-by = Zephyr · Frau Demir, the baker =
+Sulafat · the airport stranger = Achird · the U-Bahn announcer = Schedar
+(all de-DE). Herr Böhm recurs (Ep 0 intercom, Ep 1 caretaker) and counts as
+recurring cast from now on.
 Episode casts keep their auditions in the same tool, grouped by character.
 
 ## Dev reference page

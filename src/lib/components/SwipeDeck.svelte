@@ -42,7 +42,7 @@
 		type DeckCard,
 		type DeckPace
 	} from '$lib/domain/deck';
-	import { isStoryCard, storyCardHref, storyDeckCard } from '$lib/domain/stories';
+	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
 	import { untrack, type Snippet } from 'svelte';
@@ -158,7 +158,9 @@
 		}
 		// The level's story episode joins the hand near the top: a treat, not
 		// a quota, and gone once played (or swiped away like any card).
-		const story = storyDeckCard(course.id, deckLevel(course.quizzes, known, level), new Set(skipped));
+		const story = storyDeckCard(course.id, deckLevel(course.quizzes, known, level), new Set(skipped), (id) =>
+			reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id)
+		);
 		if (story) deck = [...deck.slice(0, Math.min(2, deck.length)), story, ...deck.slice(Math.min(2, deck.length))];
 		if (resume) deck = [resume, ...deck];
 		handSize = deck.length;

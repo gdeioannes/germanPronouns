@@ -24,9 +24,20 @@ player page.
   "pools": { ... },                 // randomization pools, see below
   "chapters": [ ... ],
   "hub": { ... },
-  "microChecks": [ ... ]
+  "microChecks": [ ... ],
+  // optional, read by the shared player (src/lib/components/story/):
+  "cover": "story/ep1_room_wide",   // title-screen scene
+  "ending": { "image": "…", "title": "…", "text": "…", "line": "…" },
+  "microFrom": "Maya 💬",           // who the between-chapter checks are from
+  "teaches": ["Hallo", "…"]         // the word list, checked by npm run story-review
 }
 ```
+
+The hub may also carry its screen texts: `title`, `lockedHint`,
+`finaleLabel`, `allCluesLine`. Narration clips are
+`<prefix>_narr_<beatId>.mp3` where the prefix is the id up to the first
+underscore (`ep0`, `ep1`). Every episode runs in the one shared player —
+a route is just `<StoryPlayer episode={…} />`.
 
 ## Chapters
 
@@ -110,6 +121,59 @@ never quizzes grammar in the abstract; every question is a case action
 every option carries a `reply` — Maya's in-character reaction. Wrong answers
 get a retort and another try; non-critical, there to keep early narrative
 stretches interactive.
+
+**`dialogue`** (quiz kind, added for Episode 0) — a live conversation as
+chat bubbles (`DialogueBeat.svelte`). Character lines are voiced and play as
+they appear (`rate` slows/speeds playback; `blur: true` = too fast to read,
+the gag before "Ich verstehe nicht"); the learner's turns are Maya's —
+`choose` (options with `reply`) or `build` (tiles). `aside` lines are Maya's
+English whispers. Maya's German is text only.
+
+```jsonc
+{ "id": "b6", "type": "quiz", "kind": "dialogue", "image": "story/ep0_baeckerei",
+  "lines": [
+    { "who": "baeckerin", "name": "Frau Demir, the baker", "de": "Wie heißen Sie?",
+      "en": "What's your name?", "audio": "story/ep0_baecker_name" },
+    { "who": "maya", "build": { "sequence": ["Ich", "heiße", "Maya."],
+                                "options": ["Ich", "heiße", "Maya.", "Sie", "komme"] } },
+    { "who": "aside", "text": "NOW. The note." },
+    { "who": "maya", "critical": true, "choose": [
+      { "text": "Entschuldigung… Jonas?", "correct": true },
+      { "text": "Tschüss… Jonas?", "correct": false, "reply": "“Bye, Jonas? …”" } ] } ],
+  "reveal": "Jonas WEBER." }
+```
+
+`who` picks the voice in `tool/gen-story-audio.mjs`; `audio` keys may be
+pooled like any other.
+
+**`hotspot`** (quiz kind) — tap the right thing in the scene
+(`HotspotBeat.svelte`). `spots` are boxes in percent of the picture; a spot
+with `label` gets the German overlaid on the blank-drawn prop (`style`:
+`sign` | `plate` | `chalk`), one without is a hidden zone that glows after
+two misses. `crop` zooms into part of the picture (spots keep full-picture
+coordinates); `entries` drop words into the notebook on success; `sound`
+names an sfx.
+
+```jsonc
+{ "id": "f5", "type": "quiz", "kind": "hotspot", "critical": true,
+  "image": "story/ep0_bells", "crop": { "x": 22, "y": 8, "w": 46, "h": 84 },
+  "prompt": "Four bells. One is Jonas. Ring it!",
+  "spots": [ { "id": "weber", "x": 32.7, "y": 46.3, "w": 13.4, "h": 9.3, "label": "Weber", "style": "plate" } ],
+  "answer": "weber", "sound": "doorbell", "missLine": "…", "reveal": "…" }
+```
+
+**`map`** (quiz kind) — the code-drawn Kiez map (`KiezMap.svelte`, layout
+data in `kiez.ts`; no image). `mode: "find"`: tap `target` (a place id,
+poolable); `labels: false` hides place names (German word → picture),
+`streetLabels` toggles street names. `mode: "walk"`: steer Maya from the
+square with links / rechts / geradeaus; `walks` holds one
+`{ turns, path }` per variant of `walkPool` (path = junction ids, one more
+than turns).
+
+**`stops`** (quiz kind) — a U-Bahn ride (`StopsBeat.svelte`): the variants of
+`pool` are the stops, in a shuffled order with the drawn one never first;
+each plays `audio` (pooled per variant, spoken from `transcript` by
+`speaker`); the learner stays on or gets off. Names stay hidden until passed.
 
 **`choice`** — pure narrative branching (red herrings, hub flavor):
 

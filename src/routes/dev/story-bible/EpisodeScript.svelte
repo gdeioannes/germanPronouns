@@ -3,9 +3,20 @@
 	// without wading through raw JSON. Dev-only, like the rest of the bible.
 	import './bible.css';
 	import { img } from './data';
-	import ep from '$content/stories/ep1_empty_room.json';
+	import type { Episode } from '$lib/components/story/types';
+
+	let { id }: { id: string } = $props();
+	// Every episode JSON; the page shows the one in ?ep= (see episode/+page.svelte).
+	const all = Object.values(
+		import.meta.glob('/assets/content/stories/*.json', { eager: true, import: 'default' })
+	) as Episode[];
+	all.sort((a, b) => a.id.localeCompare(b.id));
+	// svelte-ignore state_referenced_locally
+	const ep = all.find((e) => e.id === id) ?? all[0];
+	const prefix = ep.id.split('_')[0];
 
 	type AnyBeat = Record<string, unknown> & { id: string; type: string };
+	type Line = { who: string; name?: string; de?: string; en?: string; text?: string; audio?: string; choose?: { text: string; correct: boolean; reply?: string }[]; build?: { sequence: string[]; options?: string[] } };
 
 	// Shipped episode assets are served from static/: story/ep1_x → /img/story/ep1_x.webp.
 	const sceneImg = (key: string) => `/${key.replace('story/', 'img/story/')}.webp`;
@@ -36,6 +47,16 @@
 			if (Array.isArray(beat.questions)) {
 				questions += beat.questions.length;
 				seconds += beat.questions.length * 15 + 20; // + listening once
+			}
+			if (beat.kind === 'dialogue') {
+				const lines = beat.lines as Line[];
+				const turns = lines.filter((l) => l.choose || l.build).length;
+				questions += turns;
+				seconds += turns * 12 + (lines.length - turns) * 6;
+			}
+			if (beat.kind === 'hotspot' || beat.kind === 'map' || beat.kind === 'stops') {
+				questions += 1;
+				seconds += beat.kind === 'stops' ? 36 : 14;
 			}
 			if (beat.question ?? q.question) {
 				questions += 1;
@@ -71,15 +92,21 @@
 		quizBeats: rows.reduce((a, r) => a + r.quizBeats, 0),
 		questions: rows.reduce((a, r) => a + r.questions, 0),
 		minutes: rows.reduce((a, r) => a + r.minutes, 0),
-		critical: ep.chapters.flatMap((c) => c.beats as AnyBeat[]).filter((b) => b.critical).length
+		critical: ep.chapters.flatMap((c) => c.beats as AnyBeat[]).filter((b) => b.critical).length,
+		images: new Set(ep.chapters.flatMap((c) => c.beats as AnyBeat[]).map((b) => b.image).filter(Boolean)).size
 	};
 	const fmtMin = (m: number) => `${Math.round(m * 10) / 10} min`;
 </script>
 
 <main class="bible">
 	<p class="crumbs"><a href="/dev/story-bible">← Story Bible</a></p>
+	<nav class="ep-tabs" aria-label="Episodes">
+		{#each all as e (e.id)}
+			<a href="?ep={e.id}" aria-current={e.id === ep.id ? 'page' : undefined}>{e.title}</a>
+		{/each}
+	</nav>
 	<header class="hero">
-		<img class="hero-img" src={img('room_ref_close')} alt="The torn note" />
+		<img class="hero-img" src={ep.cover ? sceneImg(ep.cover) : img('room_ref_close')} alt={ep.title} />
 		<div class="hero-text">
 			<p class="eyebrow">Episode script · {ep.course} · {ep.level} (half {ep.half})</p>
 			<h1>{ep.title}</h1>
@@ -99,6 +126,7 @@
 			<div class="stat"><strong>{total.questions}</strong><span>questions / inputs</span></div>
 			<div class="stat"><strong>{total.critical}</strong><span>credibility moments</span></div>
 			<div class="stat"><strong>{fmtMin(total.minutes)}</strong><span>est. play (no errors)</span></div>
+			<div class="stat"><strong>{total.images}</strong><span>scene images</span></div>
 		</div>
 		<div class="table-wrap">
 			<table>
@@ -153,7 +181,7 @@
 				{@const beat = b as AnyBeat}
 				{@const narr =
 					beat.type === 'narrative' && !(beat.audio as string | undefined)
-						? `/audio/story/ep1_narr_${beat.id}${(beat.text as string).includes('{pool') ? '_0' : ''}.mp3`
+						? `/audio/story/${prefix}_narr_${beat.id}${(beat.text as string).includes('{pool') ? '_0' : ''}.mp3`
 						: null}
 				<div class="beat" class:critical={beat.critical === true} class:cluecard={beat.type === 'clue'}>
 					<div class="beat-head">
@@ -182,6 +210,51 @@
 								<li><strong>{e.de}</strong> — {e.en}</li>
 							{/each}
 						</ul>
+					{:else if beat.kind === 'dialogue'}
+						{#if beat.prompt}<p class="prompt">{beat.prompt}</p>{/if}
+						<div class="dialogue">
+							{#each beat.lines as Line[] as l, i (i)}
+								{#if l.who === 'aside'}
+									<p class="maya-line">MAYA (aside): “{l.text}”</p>
+								{:else if l.choose}
+									<ul class="options">
+										{#each l.choose as o}
+											<li class:right={o.correct}>{o.correct ? '✔' : '✘'} MAYA: {o.text}{o.reply ? ` — ${o.reply}` : ''}</li>
+										{/each}
+									</ul>
+								{:else if l.build}
+									<p class="answer">✔ MAYA builds: {l.build.sequence.join(' ')}{l.build.options ? `  (tiles: ${l.build.options.join(' · ')})` : ''}</p>
+								{:else}
+									<p class="transcript">
+										▸ {(l.name ?? l.who).toUpperCase()}: <em>{l.de}</em>{l.en ? ` — ${l.en}` : ''}
+										{#if l.audio}
+											<audio controls preload="none" src={sceneAudio(l.audio)}></audio>
+										{/if}
+									</p>
+								{/if}
+							{/each}
+						</div>
+						{#if beat.reveal}<p class="maya-line">MAYA: “{beat.reveal}”</p>{/if}
+					{:else if beat.kind === 'hotspot'}
+						{#if beat.prompt}<p class="prompt">{beat.prompt}</p>{/if}
+						<ul class="options">
+							{#each beat.spots as { id: string; label?: string }[] as sp}
+								<li class:right={sp.id === beat.answer}>{sp.id === beat.answer ? '✔' : '✘'} {sp.label ?? `zone "${sp.id}"`}</li>
+							{/each}
+						</ul>
+						{#if beat.reveal}<p class="maya-line">MAYA: “{beat.reveal}”</p>{/if}
+					{:else if beat.kind === 'map'}
+						<p class="prompt">{beat.prompt}</p>
+						{#if beat.mode === 'walk'}
+							<p class="answer">✔ walk: {(beat.walks as { turns: string[] }[]).map((w) => w.turns.join(' → ')).join('  |  ')} (one per variant of {beat.walkPool})</p>
+						{:else}
+							<p class="answer">✔ tap: {beat.target}{beat.labels === false ? ' (icons only, no labels)' : ''}</p>
+						{/if}
+						{#if beat.reveal}<p class="maya-line">MAYA: “{beat.reveal}”</p>{/if}
+					{:else if beat.kind === 'stops'}
+						<p class="prompt">{beat.prompt}</p>
+						<p class="transcript">▸ each stop: <em>{beat.transcript}</em> — get off at the drawn {beat.pool}</p>
+						{#if beat.reveal}<p class="maya-line">MAYA: “{beat.reveal}”</p>{/if}
 					{:else}
 						{#if beat.transcript}<p class="transcript">▸ audio says: <em>{beat.transcript}</em></p>{/if}
 						{#if beat.passage}<p class="passage">{beat.passage}</p>{/if}
@@ -252,6 +325,32 @@
 </main>
 
 <style>
+	.ep-tabs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 0 0 1rem;
+	}
+	.ep-tabs a {
+		padding: 0.35rem 0.9rem;
+		border-radius: 999px;
+		border: 1px solid var(--line-strong);
+		text-decoration: none;
+		color: var(--heading);
+	}
+	.ep-tabs a[aria-current='page'] {
+		background: var(--heading);
+		color: var(--surface);
+	}
+	.dialogue {
+		display: grid;
+		gap: 0.3rem;
+	}
+	.dialogue audio {
+		display: block;
+		height: 2rem;
+		margin-top: 0.2rem;
+	}
 	.stats {
 		display: flex;
 		flex-wrap: wrap;

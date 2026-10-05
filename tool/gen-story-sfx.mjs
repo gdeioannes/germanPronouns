@@ -72,6 +72,25 @@ const FILES = {
 		render(2.0, (buf) => {
 			tone(buf, 425, { dur: 1.0, gain: 0.15, attack: 0.02, decay: 3 });
 		}),
+	// — city sounds (Episode 0): an Altbau doorbell, the door buzzer, the
+	// U-Bahn's three-note door chime
+	doorbell: () =>
+		render(1.4, (buf) => {
+			tone(buf, 659.25, { dur: 0.7, gain: 0.2, decay: 0.45 });
+			tone(buf, 1318.5, { dur: 0.4, gain: 0.04, decay: 0.2 });
+			tone(buf, 523.25, { from: 0.42, dur: 0.9, gain: 0.2, decay: 0.55 });
+			tone(buf, 1046.5, { from: 0.42, dur: 0.4, gain: 0.04, decay: 0.2 });
+		}),
+	buzzer: () =>
+		render(0.9, (buf) => {
+			// a rough low buzz: odd harmonics of 110 Hz, held, then cut
+			for (const [h, g] of [[1, 0.16], [3, 0.08], [5, 0.05], [7, 0.03]])
+				tone(buf, 110 * h, { dur: 0.7, gain: g, attack: 0.01, decay: 3 });
+		}),
+	ubahn_chime: () =>
+		render(1.3, (buf) => {
+			[783.99, 659.25, 523.25].forEach((f, i) => tone(buf, f, { from: i * 0.22, dur: 0.7, gain: 0.15, decay: 0.35 }));
+		}),
 	// — game feedback, soft and musical (pentatonic, brand-calm)
 	clue: () =>
 		render(0.9, (buf) => {

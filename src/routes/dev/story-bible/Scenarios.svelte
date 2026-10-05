@@ -42,7 +42,7 @@
 		<div class="grid two">
 			{#each scenarios as s (s.id)}
 				<figure>
-					<img src={img(s.id)} alt={s.name} loading="lazy" />
+					<img src={s.src ?? img(s.id)} alt={s.name} loading="lazy" />
 					<figcaption>
 						<strong>{s.name}</strong>
 						<span class="when">{s.episode} · block <code>{s.block}</code></span>
@@ -52,9 +52,7 @@
 			{/each}
 		</div>
 		<p class="intro" style="margin-top:1.25rem">
-			Planned for Episode 1, blocks not yet written: the WG kitchen (hub scenes, micro-texts) and
-			the Pension lobby (phone-call lead, ending) — see
-			<code>docs/episodes/ep1_empty_room.md</code>.
+			Every episode lists its locations in its doc — <code>docs/episodes/ep0_lost_in_berlin.md</code>, <code>docs/episodes/ep1_empty_room.md</code>.
 		</p>
 	</section>
 

@@ -8,7 +8,7 @@
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SwipeDeck from '$lib/components/SwipeDeck.svelte';
-	import { STORY_EPISODES } from '$lib/domain/stories';
+	import { STORY_EPISODES, type StoryEpisode } from '$lib/domain/stories';
 	import ProgressPanel from '$lib/components/ProgressPanel.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -66,6 +66,17 @@
 	const ladder = $derived(
 		buildLadder(course, isDone)
 	);
+	/**
+	 * The episodes listed at one spot of a level: `afterQuiz` null = the top
+	 * (episodes without an `after`, or whose `after` quiz isn't in this level).
+	 */
+	function storiesAt(level: string, afterQuiz: string | null, quizzes: { id: string }[]): StoryEpisode[] {
+		return STORY_EPISODES.filter((e) => {
+			if (e.courseId !== course.id || e.level !== level) return false;
+			const placed = e.after && quizzes.some((q) => q.id === e.after);
+			return afterQuiz === null ? !placed : e.after === afterQuiz;
+		});
+	}
 	const totals = $derived(courseProgress(ladder));
 	const resume = $derived(nextQuiz(ladder, isDone));
 	const finished = $derived(progress.loaded && !resume);
@@ -89,6 +100,18 @@
 		sweep.target = percent;
 	});
 </script>
+
+{#snippet storyRow(e: StoryEpisode)}
+	<li class="story-item">
+		<a class="story-row" href={e.href}>
+			<img src="/img/{e.image}.webp" alt="" loading="lazy" />
+			<span class="story-text">
+				<strong>🕵️ {e.title}</strong>
+				<span>Interactive mystery — {e.tagline}</span>
+			</span>
+		</a>
+	</li>
+{/snippet}
 
 <Seo
 	title="{course.name}: {course.quizzes.length} free exercises with audio | Language Quiz"
@@ -198,18 +221,10 @@
 				</header>
 
 				<ul class="quizzes">
-					<!-- The level's story episode leads its section: it plays the
-					     level's material as one mystery. -->
-					{#each STORY_EPISODES.filter((e) => e.courseId === course.id && e.level === level.level) as e (e.id)}
-						<li class="story-item">
-							<a class="story-row" href={e.href}>
-								<img src="/img/{e.image}.webp" alt="" loading="lazy" />
-								<span class="story-text">
-									<strong>🕵️ {e.title}</strong>
-									<span>Interactive mystery — {e.tagline}</span>
-								</span>
-							</a>
-						</li>
+					<!-- Story episodes sit where their material is: at the top of the
+					     level, or right after the quiz named by their `after`. -->
+					{#each storiesAt(level.level, null, level.quizzes) as e (e.id)}
+						{@render storyRow(e)}
 					{/each}
 					{#each level.quizzes as quiz (quiz.id)}
 						{@const ribbon = progress.loaded
@@ -225,6 +240,9 @@
 								{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}
 							</a>
 						</li>
+						{#each storiesAt(level.level, quiz.id, level.quizzes) as e (e.id)}
+							{@render storyRow(e)}
+						{/each}
 					{/each}
 				</ul>
 			</li>

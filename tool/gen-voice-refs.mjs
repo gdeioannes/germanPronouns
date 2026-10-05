@@ -49,7 +49,18 @@ const AUDITIONS = [
 	{ character: 'boehm', locale: 'de-DE', voice: 'Charon', chosen: true,
 		line: 'Ja, was ist? Ich habe keine Zeit. Der Müll kommt am Dienstag raus, nicht am Montag.' },
 	{ character: 'boehm', locale: 'de-DE', voice: 'Orus', chosen: false,
-		line: 'Ja, was ist? Ich habe keine Zeit. Der Müll kommt am Dienstag raus, nicht am Montag.' }
+		line: 'Ja, was ist? Ich habe keine Zeit. Der Müll kommt am Dienstag raus, nicht am Montag.' },
+
+	// — Episode 0 (2026-10-05): cast from the Chirp 3 HD voice descriptions;
+	// listen on /dev/story-bible and recast here if one sounds wrong.
+	{ character: 'passantin', locale: 'de-DE', voice: 'Zephyr', chosen: true,
+		line: 'Die Lindenstraße? Ach, das ist ganz einfach: links, dann geradeaus!' },
+	{ character: 'baeckerin', locale: 'de-DE', voice: 'Sulafat', chosen: true,
+		line: 'Guten Tag! Bitte schön? Eine Brezel? Gerne!' },
+	{ character: 'stranger', locale: 'de-DE', voice: 'Achird', chosen: true,
+		line: 'Guten Morgen! Willkommen in Berlin!' },
+	{ character: 'announcer', locale: 'de-DE', voice: 'Schedar', chosen: true,
+		line: 'Nächster Halt: Rosenplatz.' }
 ];
 
 const args = process.argv.slice(2);

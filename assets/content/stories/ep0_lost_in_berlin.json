@@ -1,0 +1,1801 @@
+{
+	"id": "ep0_lost_in_berlin",
+	"course": "de_cert_a1",
+	"level": "a1_1",
+	"half": 0,
+	"title": "Lost in Berlin",
+	"tagline": "Day one, zero German, a dead phone. Get Maya to her new flat.",
+	"cover": "story/ep0_arrivals",
+	"minutesFloor": 7,
+	"credibility": 3,
+	"cast": [
+		"maya",
+		"passantin",
+		"baeckerin",
+		"lena",
+		"boehm"
+	],
+	"microFrom": "Maya, scribbling in the notebook ✎",
+	"teaches": [
+		"Hallo",
+		"Guten Morgen",
+		"Guten Tag",
+		"Guten Abend",
+		"Tschüss",
+		"Auf Wiedersehen",
+		"Bis bald",
+		"Willkommen",
+		"Ja",
+		"Nein",
+		"Danke",
+		"Bitte",
+		"Entschuldigung",
+		"Wie bitte",
+		"Ich bin",
+		"Ich heiße",
+		"Wie heißen Sie",
+		"Ich komme aus",
+		"Wie geht's",
+		"Gut, danke",
+		"Ich verstehe nicht",
+		"Sprechen Sie Englisch",
+		"Wo ist",
+		"links",
+		"rechts",
+		"geradeaus",
+		"dann",
+		"hier",
+		"Nächster Halt",
+		"Ausgang",
+		"Bahnhof",
+		"Straße",
+		"Platz",
+		"Brücke",
+		"Haus",
+		"Nummer",
+		"Wohnung",
+		"Kaffee",
+		"Fernsehturm",
+		"Ampelmännchen",
+		"Pfannkuchen",
+		"Bitte schön",
+		"Hausmeister",
+		"U-Bahn",
+		"Berliner"
+	],
+	"pools": {
+		"street": [
+			"Lindenstraße",
+			"Gartenstraße",
+			"Bergstraße"
+		],
+		"streetId": [
+			"linden",
+			"garten",
+			"berg"
+		],
+		"streetSmudge": [
+			"L▒▒▒enstraße",
+			"G▒▒▒enstraße",
+			"B▒▒gstraße"
+		],
+		"station": [
+			"Rosenplatz",
+			"Marktplatz",
+			"Königsplatz"
+		],
+		"house": [
+			"7",
+			"9",
+			"12"
+		],
+		"way": [
+			"links, dann geradeaus",
+			"rechts, dann geradeaus",
+			"geradeaus, dann links"
+		],
+		"firstTurn": [
+			"← links",
+			"→ rechts",
+			"↑ geradeaus"
+		],
+		"thenTurn": [
+			"↑ geradeaus",
+			"↑ geradeaus",
+			"← links"
+		]
+	},
+	"chapters": [
+		{
+			"id": "ch0_arrival",
+			"title": "Willkommen",
+			"beats": [
+				{
+					"id": "a1",
+					"type": "narrative",
+					"image": "story/ep0_arrivals",
+					"text": "Listeners — if anyone is listening — this is it. Berlin. 7 a.m., one suitcase, zero German, and my phone just died at the gate. New plan: the podcast starts NOW, on this little recorder. And every podcast needs a sidekick. You. Yes, you."
+				},
+				{
+					"id": "a2",
+					"type": "clue",
+					"title": "The survival page",
+					"image": "story/ep0_maya_recorder",
+					"intro": "No phone, but my guidebook has a survival page. Seven words. Tap the speaker to hear them — I'll only butcher them.",
+					"entries": [
+						{
+							"de": "Hallo!",
+							"en": "Hello!"
+						},
+						{
+							"de": "Guten Morgen!",
+							"en": "Good morning!"
+						},
+						{
+							"de": "Ja.",
+							"en": "Yes."
+						},
+						{
+							"de": "Nein.",
+							"en": "No."
+						},
+						{
+							"de": "Danke!",
+							"en": "Thank you!"
+						},
+						{
+							"de": "Bitte!",
+							"en": "Please! / You're welcome!"
+						},
+						{
+							"de": "Entschuldigung!",
+							"en": "Excuse me! / Sorry!"
+						}
+					]
+				},
+				{
+					"id": "a3",
+					"type": "quiz",
+					"kind": "banter",
+					"critical": false,
+					"image": "story/ep0_maya_recorder",
+					"question": "Maya holds out the recorder. “Last line in my guidebook: ‘Hilfst du mir?’ — will you help me? Answer me in German.”",
+					"options": [
+						{
+							"text": "Ja!",
+							"correct": true,
+							"reply": "“JA! My first German word is a YES. Partner, welcome to Kiez Krimi — episode zero.”"
+						},
+						{
+							"text": "Nein.",
+							"correct": false,
+							"reply": "“I heard the no. I'm choosing to ignore the no. Try the other one.”"
+						},
+						{
+							"text": "Hallo!",
+							"correct": false,
+							"reply": "“Hallo to you too! But I asked if you'll HELP. Yes or no — and I need the yes.”"
+						}
+					]
+				},
+				{
+					"id": "a4",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_arrivals",
+					"lines": [
+						{
+							"who": "aside",
+							"text": "A man with a coffee is walking right at me. He's SMILING. He's going to say something…"
+						},
+						{
+							"who": "stranger",
+							"name": "A man with a coffee",
+							"de": "Guten Morgen!",
+							"en": "Good morning!",
+							"audio": "story/ep0_stranger_morgen"
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Guten Morgen!",
+									"correct": true
+								},
+								{
+									"text": "Nein!",
+									"correct": false,
+									"reply": "“NEIN?! He said good morning and I said NO. He looks wounded. Again!”"
+								},
+								{
+									"text": "Entschuldigung!",
+									"correct": false,
+									"reply": "“Sorry for… what? He just said good morning. Say it back.”"
+								}
+							]
+						},
+						{
+							"who": "stranger",
+							"name": "A man with a coffee",
+							"de": "Willkommen in Berlin!",
+							"en": "Welcome to Berlin!",
+							"audio": "story/ep0_stranger_willkommen"
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Danke!",
+									"correct": true
+								},
+								{
+									"text": "Bitte!",
+									"correct": false,
+									"reply": "“So close. ‘Bitte’ is what HE says after my thank-you. I go first.”"
+								},
+								{
+									"text": "Guten Morgen!",
+									"correct": false,
+									"reply": "“We did good morning. He said WELCOME. What do you say to a welcome?”"
+								}
+							]
+						}
+					],
+					"reveal": "Two lines. Two CORRECT lines. My first German conversation, listeners, and it was flawless."
+				},
+				{
+					"id": "a6",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": false,
+					"image": "story/ep0_signs",
+					"alt": "Three hanging signs in the arrivals hall",
+					"prompt": "We need a train. Which sign? (The little pictures are your friends.)",
+					"spots": [
+						{
+							"id": "willkommen",
+							"x": 12.1,
+							"y": 10.8,
+							"w": 22.2,
+							"h": 15.2,
+							"label": "👋 Willkommen",
+							"miss": "Willkommen is lovely — but it's a welcome, not a direction."
+						},
+						{
+							"id": "ausgang",
+							"x": 39.2,
+							"y": 10.8,
+							"w": 21.9,
+							"h": 15.2,
+							"label": "Ausgang 🚶➜",
+							"miss": "Ausgang — the way OUT. To the taxis and their prices. No."
+						},
+						{
+							"id": "bahnhof",
+							"x": 66,
+							"y": 10.8,
+							"w": 22.2,
+							"h": 15.2,
+							"label": "🚉 Bahnhof"
+						}
+					],
+					"answer": "bahnhof",
+					"reveal": "Bahnhof — the station! Into the notebook, with its two neighbours. Airport train first, then the U-Bahn.",
+					"entries": [
+						{
+							"de": "der Bahnhof",
+							"en": "the station (the trains)"
+						},
+						{
+							"de": "der Ausgang",
+							"en": "the exit"
+						},
+						{
+							"de": "Willkommen!",
+							"en": "Welcome!"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "ch1_note",
+			"title": "Der Zettel",
+			"beats": [
+				{
+					"id": "n1",
+					"type": "narrative",
+					"image": "story/ep0_note_wet",
+					"text": "Berlin weather, fun fact: it changes in ten seconds. We stepped outside, the sky opened, and my flatmate's note with the address… the ink RAN. Help me rebuild it. And the U-Bahn stop on it? I'm not saying it out loud. That's on you, partner."
+				},
+				{
+					"id": "n2",
+					"type": "clue",
+					"title": "What's left on the note",
+					"image": "story/ep0_note_wet",
+					"intro": "Half of it ran. These words I can still make out — file them, then help me fill the holes.",
+					"entries": [
+						{
+							"de": "die Wohnung",
+							"en": "the flat"
+						},
+						{
+							"de": "die Straße",
+							"en": "the street"
+						},
+						{
+							"de": "die U-Bahn",
+							"en": "the underground (subway)"
+						},
+						{
+							"de": "Bis bald!",
+							"en": "See you soon!"
+						}
+					]
+				},
+				{
+					"id": "n3",
+					"type": "quiz",
+					"kind": "inlineCloze",
+					"critical": false,
+					"image": "story/ep0_note_wet",
+					"prompt": "Dab the note dry: put each smudged word back where it belongs.",
+					"quiz": {
+						"passage": "{1} Maya!\n{2} in Berlin!\nDie {3} ist in der {pool:streetSmudge} {pool:house}.\nU-Bahn: {pool:station}.\n{4}\nJonas",
+						"blanks": [
+							{
+								"n": 1,
+								"options": [
+									"Hallo",
+									"Danke",
+									"Nein"
+								],
+								"answer": "Hallo"
+							},
+							{
+								"n": 2,
+								"options": [
+									"Nein",
+									"Willkommen",
+									"Bitte"
+								],
+								"answer": "Willkommen"
+							},
+							{
+								"n": 3,
+								"options": [
+									"Straße",
+									"Wohnung",
+									"Ausgang"
+								],
+								"answer": "Wohnung"
+							},
+							{
+								"n": 4,
+								"options": [
+									"Guten Morgen!",
+									"Ja.",
+									"Bis bald!"
+								],
+								"answer": "Bis bald!"
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"id": "ch2_ubahn",
+			"title": "Die U-Bahn",
+			"beats": [
+				{
+					"id": "u1",
+					"type": "narrative",
+					"image": "story/ep0_ubahn",
+					"text": "Airport train, then the U-Bahn — yellow, fast, and it TALKS: before every stop a voice announces the next one. Podcast fact while we ride: see that needle with the disco ball? Berlin's TV tower. 368 metres, the tallest thing in Germany. Locals use it to find their way."
+				},
+				{
+					"id": "u2",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": false,
+					"image": "story/ep0_ubahn",
+					"alt": "The city passing the U-Bahn window",
+					"crop": {
+						"x": 36,
+						"y": 0,
+						"w": 52,
+						"h": 42
+					},
+					"prompt": "For the notebook: which one is der Fernsehturm — the TV tower? Hint: disco ball.",
+					"spots": [
+						{
+							"id": "dach1",
+							"x": 41,
+							"y": 26,
+							"w": 14,
+							"h": 13,
+							"miss": "That's a roof. A lovely roof. The tower is the NEEDLE."
+						},
+						{
+							"id": "turm",
+							"x": 69.5,
+							"y": 2,
+							"w": 5.5,
+							"h": 38
+						},
+						{
+							"id": "dach2",
+							"x": 76,
+							"y": 27,
+							"w": 10,
+							"h": 12,
+							"miss": "Another roof! Berlin has a lot of those. Look UP."
+						}
+					],
+					"answer": "turm",
+					"entries": [
+						{
+							"de": "der Fernsehturm",
+							"en": "the TV tower"
+						}
+					],
+					"reveal": "Der Fernsehturm. If we ever get lost: find the disco ball."
+				},
+				{
+					"id": "u3",
+					"type": "quiz",
+					"kind": "stops",
+					"critical": true,
+					"image": "story/ep0_ubahn",
+					"pool": "station",
+					"audio": "story/ep0_halt_{pool:station}",
+					"transcript": "Nächster Halt: {pool:station}.",
+					"speaker": "announcer",
+					"extraStops": [
+						{
+							"name": "Rosenthaler Platz",
+							"audio": "story/ep0_halt_x0"
+						},
+						{
+							"name": "Markgrafenstraße",
+							"audio": "story/ep0_halt_x1"
+						},
+						{
+							"name": "Königstraße",
+							"audio": "story/ep0_halt_x2"
+						}
+					],
+					"entries": [
+						{
+							"de": "Nächster Halt",
+							"en": "next stop"
+						},
+						{
+							"de": "der Platz",
+							"en": "the square"
+						}
+					],
+					"prompt": "Every stop: ‘Nächster Halt’ — next stop — and a name. Some names sound ALIKE. Get Maya off at the stop from the note.",
+					"wrongExitLine": "Wrong platform! Back on, back on — Entschuldigung, Entschuldigung —",
+					"missedLine": "Wait. Was that OURS? The doors closed. We're going round again…",
+					"reveal": "{pool:station}! We're OFF. Partner, you have the ears of a bat. A helpful, German-speaking bat."
+				}
+			]
+		},
+		{
+			"id": "ch3_map",
+			"title": "Der Stadtplan",
+			"subtitle": "the map · which street?",
+			"clue": "A",
+			"clueText": "Address: {pool:street} {pool:house}",
+			"beats": [
+				{
+					"id": "m1",
+					"type": "clue",
+					"title": "Map words",
+					"image": "story/ep0_maya_map",
+					"intro": "A city map! On a board, like it's 1995. I can't read a word of it — but you can. The little pictures first, in German.",
+					"entries": [
+						{
+							"de": "Wo ist …?",
+							"en": "Where is …?"
+						},
+						{
+							"de": "die Brücke",
+							"en": "the bridge"
+						},
+						{
+							"de": "hier",
+							"en": "here — Sie sind hier = you are here"
+						}
+					]
+				},
+				{
+					"id": "m2",
+					"type": "quiz",
+					"kind": "map",
+					"mode": "find",
+					"labels": false,
+					"streetLabels": false,
+					"station": "{pool:station}",
+					"critical": false,
+					"prompt": "Podcast fact: Berlin has more bridges than VENICE. The city that is basically all bridges! Prove it — wo ist die Brücke?",
+					"target": "bruecke",
+					"missLine": "No water there. A bridge goes over the river.",
+					"reveal": "Die Brücke. Berlin, out-bridging Venice. That's going in the episode."
+				},
+				{
+					"id": "m3",
+					"type": "quiz",
+					"kind": "map",
+					"mode": "find",
+					"labels": false,
+					"streetLabels": false,
+					"station": "{pool:station}",
+					"critical": false,
+					"prompt": "First things first: Sie sind hier — you are here. Tap where WE are.",
+					"target": "platz",
+					"missLine": "We came up out of the U-Bahn. Find the square with the U.",
+					"reveal": "Hier. The square, by the U-Bahn. Everything starts from here."
+				},
+				{
+					"id": "m4",
+					"type": "quiz",
+					"kind": "map",
+					"mode": "find",
+					"labels": true,
+					"streetLabels": true,
+					"station": "{pool:station}",
+					"critical": true,
+					"prompt": "Now the big one. The note says ‘{pool:streetSmudge}’ — and some streets here start with the same letter. Read carefully: which one fits?",
+					"target": "{pool:streetId}",
+					"missLine": "Close, but read the END of the word on the note: ‘{pool:streetSmudge}’.",
+					"entries": [
+						{
+							"de": "{pool:street}",
+							"en": "Jonas's street (the note)"
+						}
+					],
+					"reveal": "{pool:street}! It fits, letter by letter — and the note said number {pool:house}. Clue secured: the address. Problem: this board shows WHERE, not which way to walk, and I can't carry a two-metre board. Time to ask a local."
+				}
+			]
+		},
+		{
+			"id": "ch4_passantin",
+			"title": "Die Passantin",
+			"subtitle": "the passer-by · which way?",
+			"clue": "B",
+			"clueText": "Way: memorised (no notes!)",
+			"requires": [
+				"A"
+			],
+			"lockedText": "find the street on the map first",
+			"beats": [
+				{
+					"id": "p1",
+					"type": "narrative",
+					"image": "story/ep0_passantin",
+					"text": "A woman with a sausage dog, walking FAST. Locals always walk fast. We know the address — now I need the way, and she looks like she knows it. If she talks too fast, there are words for that."
+				},
+				{
+					"id": "p2",
+					"type": "clue",
+					"title": "When they talk too fast",
+					"image": "story/ep0_passantin",
+					"intro": "Survival German, part two. Honestly the most useful page in this notebook.",
+					"entries": [
+						{
+							"de": "Wie bitte?",
+							"en": "Sorry? / Pardon? (say it again)"
+						},
+						{
+							"de": "Ich verstehe nicht.",
+							"en": "I don't understand."
+						},
+						{
+							"de": "Sprechen Sie Englisch?",
+							"en": "Do you speak English?"
+						},
+						{
+							"de": "Tschüss!",
+							"en": "Bye!"
+						}
+					]
+				},
+				{
+					"id": "p3",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_passantin",
+					"lines": [
+						{
+							"who": "maya",
+							"en": "Stop her politely: “Excuse me, where is {pool:street}?”",
+							"build": {
+								"sequence": [
+									"Entschuldigung,",
+									"wo",
+									"ist",
+									"die",
+									"{pool:street}?"
+								],
+								"options": [
+									"Entschuldigung,",
+									"wo",
+									"ist",
+									"die",
+									"{pool:street}?",
+									"nein,",
+									"danke"
+								]
+							}
+						},
+						{
+							"who": "passantin",
+							"name": "The woman with the dog",
+							"de": "Die {pool:street}? Ach, das ist ganz einfach: {pool:way}, und dann sind Sie schon da!",
+							"en": "{pool:street}? Oh, that's easy: … and then you're there!",
+							"audio": "story/ep0_frau_fast_{pool:street}",
+							"rate": 1.35,
+							"blur": true
+						},
+						{
+							"who": "aside",
+							"text": "That was… a LOT of words. At SPEED."
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Wie bitte?",
+									"correct": true
+								},
+								{
+									"text": "Danke, tschüss!",
+									"correct": false,
+									"reply": "“We can't LEAVE — we caught nothing! Ask her to say it again.”"
+								},
+								{
+									"text": "Ja, ja!",
+									"correct": false,
+									"reply": "“Ja ja?! We nodded like we got it. We did NOT get it.”"
+								}
+							]
+						},
+						{
+							"who": "passantin",
+							"name": "The woman with the dog",
+							"de": "Die {pool:street}? Ach, das ist ganz einfach: {pool:way}, und dann sind Sie schon da!",
+							"audio": "story/ep0_frau_fast_{pool:street}",
+							"rate": 1.35,
+							"blur": true
+						},
+						{
+							"who": "aside",
+							"text": "Same speed. The SAME. Okay — honesty time."
+						},
+						{
+							"who": "maya",
+							"critical": true,
+							"choose": [
+								{
+									"text": "Ich verstehe nicht. Sprechen Sie Englisch?",
+									"correct": true
+								},
+								{
+									"text": "Wie bitte? Wie bitte?",
+									"correct": false,
+									"reply": "“A third time at the same speed won't help. Tell her we don't understand — and try English.”"
+								},
+								{
+									"text": "Bis bald!",
+									"correct": false,
+									"reply": "“See you soon?! We just MET her.”"
+								}
+							]
+						},
+						{
+							"who": "passantin",
+							"name": "The woman with the dog",
+							"de": "Englisch? Nein, leider nicht. Aber ich sag's noch mal — ganz langsam.",
+							"en": "English? No, sorry. But I'll say it again — really slowly.",
+							"audio": "story/ep0_frau_englisch",
+							"entries": [
+								{
+									"de": "links",
+									"en": "left"
+								},
+								{
+									"de": "rechts",
+									"en": "right"
+								},
+								{
+									"de": "geradeaus",
+									"en": "straight on"
+								},
+								{
+									"de": "dann",
+									"en": "then"
+								}
+							]
+						}
+					],
+					"reveal": "She's going to say it again — slowly, pointing. Direction words are in the notebook. Ears on, partner."
+				},
+				{
+					"id": "p5",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_passantin",
+					"lines": [
+						{
+							"who": "passantin",
+							"name": "The woman with the dog",
+							"de": "Also: die {pool:street} — {pool:way}.",
+							"en": "So: {pool:street} — …",
+							"audio": "story/ep0_frau_slow_{pool:street}",
+							"rate": 0.9,
+							"blur": true
+						},
+						{
+							"who": "aside",
+							"text": "She's pointing. Trace her finger — which way first, and then?"
+						},
+						{
+							"who": "maya",
+							"critical": true,
+							"en": "Trace the way she said, in order:",
+							"build": {
+								"sequence": [
+									"{pool:firstTurn}",
+									"{pool:thenTurn}"
+								],
+								"options": [
+									"← links",
+									"→ rechts",
+									"↑ geradeaus"
+								]
+							}
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Danke!",
+									"correct": true
+								},
+								{
+									"text": "Wie bitte?",
+									"correct": false,
+									"reply": "“No need — we GOT it this time! Thank her.”"
+								},
+								{
+									"text": "Nein!",
+									"correct": false,
+									"reply": "“NEIN?! She just saved our whole afternoon!”"
+								}
+							]
+						},
+						{
+							"who": "passantin",
+							"name": "The woman with the dog",
+							"de": "Bitte! Tschüss!",
+							"en": "You're welcome! Bye!",
+							"audio": "story/ep0_frau_bitte"
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Tschüss!",
+									"correct": true
+								},
+								{
+									"text": "Hallo!",
+									"correct": false,
+									"reply": "“Hallo is hello — and she's LEAVING. Wave her off.”"
+								},
+								{
+									"text": "Guten Morgen!",
+									"correct": false,
+									"reply": "“It's the afternoon, and she's GOING. The other goodbye word.”"
+								}
+							]
+						}
+					],
+					"reveal": "And she's gone, at full speed, the dog flying behind her like a little flag. Legend."
+				},
+				{
+					"id": "p6",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": false,
+					"image": "story/ep0_passantin",
+					"alt": "The pedestrian traffic light at the crossing",
+					"crop": {
+						"x": 68,
+						"y": 0,
+						"w": 28,
+						"h": 30
+					},
+					"prompt": "Before we cross: tap the little man who says GO.",
+					"spots": [
+						{
+							"id": "rot",
+							"x": 78.5,
+							"y": 0.5,
+							"w": 4.5,
+							"h": 7,
+							"miss": "That's the red one — he says STOP. A grandma just tutted at us."
+						},
+						{
+							"id": "gruen",
+							"x": 78.5,
+							"y": 8,
+							"w": 4.5,
+							"h": 8
+						}
+					],
+					"answer": "gruen",
+					"entries": [
+						{
+							"de": "das Ampelmännchen",
+							"en": "the little traffic-light man"
+						}
+					],
+					"reveal": "That's das Ampelmännchen — Berlin's traffic-light man. The real ones wear a little HAT; he's from old East Berlin and people loved him so much he survived reunification. Also: Germans wait at red, even at 3 a.m. with no car in sight. Berliners… less famously. We wait."
+				}
+			]
+		},
+		{
+			"id": "ch5_baeckerei",
+			"title": "Die Bäckerei",
+			"subtitle": "the bakery · whose bell?",
+			"clue": "C",
+			"clueText": "Bell: Weber",
+			"beats": [
+				{
+					"id": "b1",
+					"type": "narrative",
+					"image": "story/ep0_baeckerei",
+					"text": "A bakery. Warm, smells like heaven, and the baker looks like she knows everyone on this street. Bakers know EVERYTHING — it's a law. Let's say hello properly and buy the famous Berlin doughnut. Bribery works in every language."
+				},
+				{
+					"id": "b2",
+					"type": "clue",
+					"title": "Counter German",
+					"image": "story/ep0_baeckerei",
+					"intro": "Bakery words. My guidebook says Berlin is FAMOUS for one thing: the Berliner, a jam doughnut. Obviously I am ordering one.",
+					"entries": [
+						{
+							"de": "Guten Tag!",
+							"en": "Hello! (daytime)"
+						},
+						{
+							"de": "Bitte schön?",
+							"en": "What can I get you?"
+						},
+						{
+							"de": "Bitte schön!",
+							"en": "Here you go!"
+						},
+						{
+							"de": "Einen …, bitte.",
+							"en": "A … , please. (ordering)"
+						},
+						{
+							"de": "der Berliner",
+							"en": "the jam doughnut (what most of Germany calls it)"
+						},
+						{
+							"de": "der Kaffee",
+							"en": "the coffee"
+						}
+					]
+				},
+				{
+					"id": "b3",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_baeckerei",
+					"lines": [
+						{
+							"who": "aside",
+							"text": "Sun pouring through the window, lunch rush just over — the middle of the day. I go first: greet her for the time of day."
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Guten Tag!",
+									"correct": true
+								},
+								{
+									"text": "Guten Morgen!",
+									"correct": false,
+									"reply": "“It's half past two, partner. Morning was the airport — a lifetime ago.”"
+								},
+								{
+									"text": "Bis bald!",
+									"correct": false,
+									"reply": "“See you soon? We just walked IN.”"
+								}
+							]
+						},
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Guten Tag! Bitte schön?",
+							"en": "Hello! What can I get you?",
+							"audio": "story/ep0_baecker_gutentag"
+						},
+						{
+							"who": "aside",
+							"text": "Order. The famous one. I have been waiting my whole flight for this."
+						},
+						{
+							"who": "maya",
+							"en": "“A Berliner, please.”",
+							"build": {
+								"sequence": [
+									"Einen",
+									"Berliner,",
+									"bitte."
+								],
+								"options": [
+									"Einen",
+									"Berliner,",
+									"bitte.",
+									"danke.",
+									"nein,"
+								]
+							}
+						},
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Einen Berliner? Ha! Hier in Berlin heißt das Pfannkuchen.",
+							"en": "A Berliner? Ha! Here in Berlin it’s called a Pfannkuchen.",
+							"audio": "story/ep0_baecker_berliner",
+							"entries": [
+								{
+									"de": "der Pfannkuchen",
+									"en": "the jam doughnut (what Berliners call it)"
+								}
+							]
+						},
+						{
+							"who": "aside",
+							"text": "Podcast fact, LIVE: the rest of Germany calls it a Berliner. Berliners call it a Pfannkuchen. Berliners don’t call them Berliners. Okay. Again — the local way."
+						},
+						{
+							"who": "maya",
+							"critical": true,
+							"en": "“A Pfannkuchen, please.”",
+							"build": {
+								"sequence": [
+									"Einen",
+									"Pfannkuchen,",
+									"bitte."
+								],
+								"options": [
+									"Einen",
+									"Pfannkuchen,",
+									"bitte.",
+									"Berliner,",
+									"danke."
+								]
+							}
+						},
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Gerne! Bitte schön.",
+							"en": "Sure! Here you go.",
+							"audio": "story/ep0_baecker_gerne"
+						}
+					]
+				},
+				{
+					"id": "b4",
+					"type": "clue",
+					"title": "Who are you?",
+					"image": "story/ep0_baeckerei",
+					"intro": "She's chatty. She's going to ask who I am. Notebook — fast!",
+					"entries": [
+						{
+							"de": "Wie heißen Sie?",
+							"en": "What's your name? (polite)"
+						},
+						{
+							"de": "Ich heiße …",
+							"en": "My name is …"
+						},
+						{
+							"de": "Ich bin …",
+							"en": "I am …"
+						},
+						{
+							"de": "Ich komme aus …",
+							"en": "I come from …"
+						},
+						{
+							"de": "Wie geht's?",
+							"en": "How's it going?"
+						},
+						{
+							"de": "Gut, danke!",
+							"en": "Good, thanks!"
+						}
+					]
+				},
+				{
+					"id": "b5",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_baeckerei",
+					"lines": [
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Wie heißen Sie?",
+							"en": "What's your name?",
+							"audio": "story/ep0_baecker_name"
+						},
+						{
+							"who": "maya",
+							"build": {
+								"sequence": [
+									"Ich",
+									"heiße",
+									"Maya."
+								],
+								"options": [
+									"Ich",
+									"heiße",
+									"Maya.",
+									"Sie",
+									"komme"
+								]
+							}
+						},
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Maya! Ich bin Frau Demir. Und Sie kommen aus…?",
+							"en": "Maya! I'm Mrs Demir. And you come from…?",
+							"audio": "story/ep0_baecker_aus"
+						},
+						{
+							"who": "maya",
+							"build": {
+								"sequence": [
+									"Ich",
+									"komme",
+									"aus",
+									"Amerika."
+								],
+								"options": [
+									"Ich",
+									"komme",
+									"aus",
+									"Amerika.",
+									"heiße",
+									"Berlin."
+								]
+							}
+						},
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Amerika! Willkommen in Berlin! Und — wie geht's? Alles gut?",
+							"en": "America! Welcome to Berlin! And — how's it going? All good?",
+							"audio": "story/ep0_baecker_amerika"
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Gut, danke!",
+									"correct": true
+								},
+								{
+									"text": "Nein!",
+									"correct": false,
+									"reply": "“Honest, but… we have a PRETZEL now. We're good.”"
+								},
+								{
+									"text": "Wie heißen Sie?",
+									"correct": false,
+									"reply": "“She told us already — Frau Demir! She asked how we ARE.”"
+								}
+							]
+						},
+						{
+							"who": "aside",
+							"text": "NOW. The note. I hold it up, point at ‘Jonas’, and do my most hopeful face."
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Entschuldigung… Jonas?",
+									"correct": true
+								},
+								{
+									"text": "Danke… Jonas?",
+									"correct": false,
+									"reply": "“Thanks for… Jonas? We haven't even found him. The polite opener is ‘excuse me’.”"
+								},
+								{
+									"text": "Bitte… Jonas?",
+									"correct": false,
+									"reply": "“Close — but we're interrupting her day. The opener is ‘excuse me’.”"
+								}
+							]
+						},
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Jonas? Ach, Jonas Weber! Ja, ja. Jeden Morgen: ein Pfannkuchen, ein Kaffee.",
+							"en": "Jonas? Oh, Jonas Weber! Yes, yes. Every morning: a Pfannkuchen, a coffee.",
+							"audio": "story/ep0_baecker_weber"
+						},
+						{
+							"who": "aside",
+							"text": "Jonas WHO? She just said his surname. Which word was it?"
+						},
+						{
+							"who": "maya",
+							"critical": true,
+							"choose": [
+								{
+									"text": "Weber!",
+									"correct": true
+								},
+								{
+									"text": "Pfannkuchen!",
+									"correct": false,
+									"reply": "“That’s his BREAKFAST, not his name.”"
+								},
+								{
+									"text": "Morgen!",
+									"correct": false,
+									"reply": "“That's WHEN he eats it. His name was the other word.”"
+								}
+							]
+						}
+					],
+					"reveal": "WEBER. That’s the name on the doorbell. And a Pfannkuchen and a coffee every morning — a man of taste…"
+				},
+				{
+					"id": "b6",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": false,
+					"image": "story/ep0_baeckerei",
+					"alt": "The bakery counter: pretzels, doughnuts and coffee",
+					"crop": {
+						"x": 28,
+						"y": 50,
+						"w": 72,
+						"h": 50
+					},
+					"prompt": "Frau Demir is pouring a coffee for Jonas — on the house! Tap what Jonas DRINKS every morning, so she knows I mean it.",
+					"spots": [
+						{
+							"id": "brezel",
+							"x": 34.5,
+							"y": 66,
+							"w": 15.5,
+							"h": 23,
+							"miss": "A pretzel? Jonas is a Pfannkuchen man. And we want what he DRINKS."
+						},
+						{
+							"id": "pfannkuchen",
+							"x": 50.5,
+							"y": 79,
+							"w": 26.5,
+							"h": 21,
+							"miss": "That’s what he EATS — and I already have one. He drinks the other thing."
+						},
+						{
+							"id": "kaffee",
+							"x": 80,
+							"y": 58,
+							"w": 18,
+							"h": 40
+						}
+					],
+					"answer": "kaffee",
+					"reveal": "Ein Kaffee for Jonas, to go — on the house. Frau Demir, I would die for you."
+				},
+				{
+					"id": "b7",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_baeckerei",
+					"lines": [
+						{
+							"who": "aside",
+							"text": "Coffee for Jonas in one hand, Pfannkuchen in the other. Out we go — with the formal goodbye. Notebook, one more:"
+						},
+						{
+							"who": "aside",
+							"text": "Auf Wiedersehen = goodbye (the polite one).",
+							"entries": [
+								{
+									"de": "Auf Wiedersehen!",
+									"en": "Goodbye! (polite)"
+								}
+							]
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Danke! Auf Wiedersehen!",
+									"correct": true
+								},
+								{
+									"text": "Guten Tag!",
+									"correct": false,
+									"reply": "“That's hello. We're LEAVING.”"
+								},
+								{
+									"text": "Wie geht's?",
+									"correct": false,
+									"reply": "“We did that! The goodbye, partner.”"
+								}
+							]
+						},
+						{
+							"who": "baeckerin",
+							"name": "Frau Demir",
+							"de": "Tschüss, Maya! Bis bald!",
+							"en": "Bye, Maya! See you soon!",
+							"audio": "story/ep0_baecker_tschuess"
+						}
+					],
+					"reveal": "‘Auf Wiedersehen’ from us, ‘Tschüss’ from her — both perfectly fine. Clue secured: the name on the bell."
+				}
+			]
+		},
+		{
+			"id": "ch6_klingel",
+			"title": "Die Klingel",
+			"beats": [
+				{
+					"id": "f1",
+					"type": "narrative",
+					"image": "story/ep0_square_dusk",
+					"text": "Street, way, name. Golden hour already — my suitcase has seen more of Berlin today than most tourists. Partner, the woman with the dog told us the way, and I can't read my own scribbles. You remember. You steer."
+				},
+				{
+					"id": "f2",
+					"type": "quiz",
+					"kind": "map",
+					"mode": "walk",
+					"labels": true,
+					"streetLabels": false,
+					"station": "{pool:station}",
+					"destination": "{pool:streetId}",
+					"critical": true,
+					"walkPool": "way",
+					"walks": [
+						{
+							"turns": [
+								"links",
+								"geradeaus"
+							],
+							"path": [
+								"P",
+								"W1",
+								"W2"
+							]
+						},
+						{
+							"turns": [
+								"rechts",
+								"geradeaus"
+							],
+							"path": [
+								"P",
+								"E1",
+								"E2"
+							]
+						},
+						{
+							"turns": [
+								"geradeaus",
+								"links"
+							],
+							"path": [
+								"P",
+								"N1",
+								"N2"
+							]
+						}
+					],
+					"prompt": "We're on the Platz, facing the Fernsehturm — the disco ball. Wo ist die {pool:street}? Steer me, one corner at a time.",
+					"bumpLine": "Wrong turn! That's not what she said. Links, rechts, geradeaus — think back.",
+					"reveal": "{pool:street}! We WALKED here. In German. My feet hurt in German."
+				},
+				{
+					"id": "f4",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": true,
+					"image": "story/ep0_doors",
+					"alt": "Three front doors with number plates",
+					"prompt": "{pool:street}. Three doors. Das Haus — the house — but which Nummer (number) was on the soaked note? No peeking.",
+					"spots": [
+						{
+							"id": "tuer1",
+							"x": 16.6,
+							"y": 8.2,
+							"w": 11.4,
+							"h": 12.3,
+							"label": "{pool:house:other1}",
+							"style": "enamel",
+							"miss": "Nummer {pool:house:other1}? A man in a bathrobe is glaring at me through the window."
+						},
+						{
+							"id": "tuer2",
+							"x": 44,
+							"y": 8.2,
+							"w": 11.2,
+							"h": 12.3,
+							"label": "{pool:house}",
+							"style": "enamel"
+						},
+						{
+							"id": "tuer3",
+							"x": 71.1,
+							"y": 8.2,
+							"w": 11.4,
+							"h": 12.3,
+							"label": "{pool:house:other2}",
+							"style": "enamel",
+							"miss": "Nummer {pool:house:other2}? There is a very small, very loud dog behind this one. No."
+						}
+					],
+					"answer": "tuer2",
+					"entries": [
+						{
+							"de": "das Haus",
+							"en": "the house"
+						},
+						{
+							"de": "die Nummer",
+							"en": "the number"
+						}
+					],
+					"reveal": "Nummer {pool:house}. Das Haus! Our door. Probably. Let's find the bell."
+				},
+				{
+					"id": "f5",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": true,
+					"image": "story/ep0_bells",
+					"alt": "A brass doorbell panel with name plates",
+					"crop": {
+						"x": 22,
+						"y": 8,
+						"w": 46,
+						"h": 84
+					},
+					"prompt": "Haus Nummer {pool:house}. Four bells — three names, and der Hausmeister (the caretaker). One is Jonas. Ring it!",
+					"spots": [
+						{
+							"id": "wagner",
+							"x": 32.7,
+							"y": 33.8,
+							"w": 13.4,
+							"h": 9.3,
+							"label": "Wagner",
+							"style": "plate",
+							"miss": "Wagner? Never heard of a Wagner. The baker said a different name…"
+						},
+						{
+							"id": "weber",
+							"x": 32.7,
+							"y": 46.3,
+							"w": 13.4,
+							"h": 9.3,
+							"label": "Weber",
+							"style": "plate"
+						},
+						{
+							"id": "becker",
+							"x": 32.7,
+							"y": 59,
+							"w": 13.4,
+							"h": 9.3,
+							"label": "Becker",
+							"style": "plate",
+							"miss": "Becker — that sounds like ‘baker’, but it's not HIS name. What did Frau Demir say?"
+						},
+						{
+							"id": "hausmeister",
+							"x": 32.7,
+							"y": 71.5,
+							"w": 13.4,
+							"h": 9.3,
+							"label": "Hausmeister",
+							"style": "plate",
+							"miss": "That's the Hausmeister — the caretaker. Jonas first: what was his surname?"
+						}
+					],
+					"answer": "weber",
+					"sound": "doorbell",
+					"reveal": "Ding… dong… nothing. NOTHING. He's not home. Of course he's not home.",
+					"entries": [
+						{
+							"de": "der Hausmeister",
+							"en": "the caretaker"
+						}
+					]
+				},
+				{
+					"id": "f6",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_door_dusk",
+					"lines": [
+						{
+							"who": "aside",
+							"text": "Wait — the door's opening. Someone's coming OUT. Look at the sky — and greet her first.",
+							"entries": [
+								{
+									"de": "Guten Abend!",
+									"en": "Good evening!"
+								}
+							]
+						},
+						{
+							"who": "maya",
+							"choose": [
+								{
+									"text": "Guten Abend!",
+									"correct": true
+								},
+								{
+									"text": "Guten Morgen!",
+									"correct": false,
+									"reply": "“Look at that sky, partner — it's EVENING.”"
+								},
+								{
+									"text": "Guten Tag!",
+									"correct": false,
+									"reply": "“The street lamps are ON. Day is over. The evening one.”"
+								}
+							]
+						},
+						{
+							"who": "lena",
+							"name": "A woman in a terracotta coat",
+							"de": "Guten Abend.",
+							"en": "Good evening.",
+							"audio": "story/ep0_lena_abend"
+						},
+						{
+							"who": "aside",
+							"text": "Terracotta coat. Low bun. She glanced at the bells — at WEBER — then at me. Then walked off. And the door clicked shut behind her. Of COURSE."
+						}
+					],
+					"reveal": "Who WAS that? No. Focus. One more bell has a word I can read: der Hausmeister — the caretaker."
+				},
+				{
+					"id": "f7",
+					"type": "quiz",
+					"kind": "dialogue",
+					"critical": false,
+					"image": "story/ep0_bells",
+					"lines": [
+						{
+							"who": "aside",
+							"text": "Ding-dong. Crackle. Somebody grumpy breathes into the intercom."
+						},
+						{
+							"who": "boehm",
+							"name": "The intercom",
+							"de": "Ja, bitte?",
+							"en": "Yes?",
+							"audio": "story/ep0_boehm_bitte"
+						},
+						{
+							"who": "maya",
+							"critical": true,
+							"en": "Greet him for the time of day, say who you are — and whose flat.",
+							"build": {
+								"sequence": [
+									"Guten",
+									"Abend!",
+									"Ich",
+									"bin",
+									"Maya.",
+									"Jonas",
+									"Weber?"
+								],
+								"options": [
+									"Guten",
+									"Abend!",
+									"Ich",
+									"bin",
+									"Maya.",
+									"Jonas",
+									"Weber?",
+									"Morgen!",
+									"Tschüss!"
+								]
+							}
+						},
+						{
+							"who": "boehm",
+							"name": "The intercom",
+							"de": "Maya? … Ach so, zu Weber. Ja, ja. Kommen Sie rein.",
+							"en": "Maya? … Oh, right — for Weber's. Yes, yes. Come in.",
+							"audio": "story/ep0_boehm_weber"
+						},
+						{
+							"who": "aside",
+							"text": "BZZZT. The door buzzes open. A grumpy, wonderful buzz."
+						}
+					],
+					"reveal": "We're IN."
+				},
+				{
+					"id": "f8",
+					"type": "narrative",
+					"image": "story/ep0_boehm_keys",
+					"text": "On the stairs: a man in a flat cap with about a thousand keys. He hands me one, grumbles about having no TIME, and stomps off. Herr Böhm, the caretaker. I like him. I think."
+				},
+				{
+					"id": "f9",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": false,
+					"image": "story/ep0_kitchen",
+					"alt": "A dark shared-flat kitchen with a note on the table",
+					"note": "Hallo Maya!\nWillkommen!\nHier ist Kaffee.\nBis bald!\nJonas",
+					"prompt": "The flat. Dark, warm, no Jonas — but a note on the table. Read it, then find what he left me.",
+					"spots": [
+						{
+							"id": "kanne",
+							"x": 14,
+							"y": 66,
+							"w": 12.5,
+							"h": 24
+						},
+						{
+							"id": "pflanze",
+							"x": 21,
+							"y": 36,
+							"w": 7,
+							"h": 15,
+							"miss": "A plant. Nice — but the note said Kaffee."
+						},
+						{
+							"id": "pinnwand",
+							"x": 0,
+							"y": 14,
+							"w": 9.5,
+							"h": 25,
+							"miss": "Just papers. The note says: hier ist KAFFEE."
+						},
+						{
+							"id": "becher1",
+							"x": 52.5,
+							"y": 76,
+							"w": 6.5,
+							"h": 16,
+							"miss": "Mugs! But… TWO? Wait. First the coffee he left me."
+						},
+						{
+							"id": "becher2",
+							"x": 59.3,
+							"y": 78,
+							"w": 5.7,
+							"h": 14,
+							"miss": "Mugs! But… TWO? Wait. First the coffee he left me."
+						}
+					],
+					"answer": "kanne",
+					"reveal": "Kaffee! He left me a whole pot. We are SOULMATES."
+				},
+				{
+					"id": "f10",
+					"type": "quiz",
+					"kind": "hotspot",
+					"critical": false,
+					"image": "story/ep0_kitchen",
+					"alt": "The kitchen table",
+					"prompt": "Wait. Two mugs on the table. I haven't touched either. Jonas isn't home. Look closely — what's wrong?",
+					"spots": [
+						{
+							"id": "warm",
+							"x": 52.5,
+							"y": 58,
+							"w": 6.5,
+							"h": 34
+						},
+						{
+							"id": "kalt",
+							"x": 59.3,
+							"y": 78,
+							"w": 5.7,
+							"h": 14,
+							"miss": "That one is cold. Look at the OTHER mug — closely."
+						},
+						{
+							"id": "kanne",
+							"x": 14,
+							"y": 66,
+							"w": 12.5,
+							"h": 24,
+							"miss": "The coffee pot is innocent. Look at the mugs."
+						}
+					],
+					"answer": "warm",
+					"reveal": "This one is still WARM. I put Frau Demir's coffee for Jonas down next to it — and it hit me: somebody was HERE. Ten minutes ago.",
+					"crop": {
+						"x": 8,
+						"y": 48,
+						"w": 62,
+						"h": 52
+					}
+				},
+				{
+					"id": "f10b",
+					"type": "quiz",
+					"kind": "banter",
+					"critical": false,
+					"image": "story/ep0_kitchen",
+					"question": "Detective moment, partner. A warm mug, nobody home. Who had coffee here?",
+					"options": [
+						{
+							"text": "The woman in the terracotta coat",
+							"correct": true,
+							"reply": "“She came OUT of this building. She looked at WEBER. Partner… that’s episode one.”"
+						},
+						{
+							"text": "Jonas",
+							"correct": false,
+							"reply": "“Then where IS he? Nobody answered his bell. Try again.”"
+						},
+						{
+							"text": "Herr Böhm",
+							"correct": false,
+							"reply": "“Böhm? He has NO TIME. For coffee least of all. Try again.”"
+						}
+					]
+				},
+				{
+					"id": "f11",
+					"type": "quiz",
+					"kind": "banter",
+					"critical": false,
+					"image": "story/ep0_kitchen",
+					"question": "Okay. Deep breath. Sign off the episode for me — in German, to the listeners.",
+					"options": [
+						{
+							"text": "Tschüss! Bis bald!",
+							"correct": true,
+							"reply": "“Tschüss — bis bald! Perfect. Partner, you just closed your first episode.”"
+						},
+						{
+							"text": "Guten Morgen!",
+							"correct": false,
+							"reply": "“It's dark out. And we're saying GOODBYE.”"
+						},
+						{
+							"text": "Ich verstehe nicht.",
+							"correct": false,
+							"reply": "“Ha! Honest — but not a sign-off.”"
+						}
+					]
+				}
+			]
+		}
+	],
+	"hub": {
+		"afterChapter": "ch2_ubahn",
+		"leads": [
+			"ch3_map",
+			"ch4_passantin",
+			"ch5_baeckerei"
+		],
+		"requiredClues": [
+			"A",
+			"B",
+			"C"
+		],
+		"unlocks": "ch6_klingel",
+		"title": "{pool:station}. Three clues into the flat.",
+		"lockedHint": "The street, the way there, and the name on the bell — then we go.",
+		"finaleLabel": "Street, way, name → to the door",
+		"allCluesLine": "“Street, way, name. THAT’S ALL THREE. Partner — let’s go ring a doorbell.”"
+	},
+	"microChecks": [
+		{
+			"after": "ch0_arrival",
+			"kind": "select",
+			"text": "someone just held the airport door for me. quick, what do I say?",
+			"question": "A stranger holds the door for Maya. She says…",
+			"options": [
+				{
+					"text": "Danke!",
+					"correct": true
+				},
+				{
+					"text": "Nein!",
+					"correct": false
+				},
+				{
+					"text": "Bitte!",
+					"correct": false
+				}
+			]
+		},
+		{
+			"after": "ch1_note",
+			"kind": "recall",
+			"text": "no peeking at the note: our U-Bahn stop. I'm NOT getting this wrong in front of the whole train.",
+			"question": "The stop on the note was…",
+			"options": [
+				{
+					"text": "{pool:station}",
+					"correct": true
+				},
+				{
+					"text": "{pool:station:other1}",
+					"correct": false
+				},
+				{
+					"text": "{pool:station:other2}",
+					"correct": false
+				}
+			]
+		},
+		{
+			"after": "ch5_baeckerei",
+			"kind": "select",
+			"text": "tomorrow, 8 a.m., Frau Demir waves at me through the window. what do I call out?",
+			"question": "At 8 in the morning Maya calls out…",
+			"options": [
+				{
+					"text": "Guten Morgen!",
+					"correct": true
+				},
+				{
+					"text": "Wie heißen Sie?",
+					"correct": false
+				},
+				{
+					"text": "Auf Wiedersehen!",
+					"correct": false
+				}
+			]
+		}
+	],
+	"ending": {
+		"image": "story/ep0_kitchen",
+		"title": "Case closed. Case… open?",
+		"text": "This was Kiez Krimi, episode zero. Maya is in — but Jonas isn't home, a woman in a terracotta coat looked at his bell, and somebody drank coffee in his kitchen. To crack what comes next, Maya needs more German: numbers, names, a few verbs. Learn them, and Episode 1 opens halfway through A1.1.",
+		"line": "“Day one in Berlin: SURVIVED. Best assistant a podcast ever had.”",
+		"next": {
+			"href": "/course/de_cert_a1/quiz/quest_a1_1_zahlen",
+			"label": "Start learning: Zahlen 0–10 →"
+		}
+	}
+}

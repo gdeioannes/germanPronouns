@@ -98,7 +98,15 @@
 	<section>
 		<h2>Episodes</h2>
 		<div class="grid two">
-			<a class="nav-card" href="/dev/story-bible/episode">
+			<a class="nav-card" href="/dev/story-bible/episode?ep=ep0_lost_in_berlin">
+				<img src="/img/story/ep0_arrivals.webp" alt="Episode 0 script" loading="lazy" />
+				<span class="nav-body">
+					<span class="nav-group">de_cert_a1 · A1.1 prologue · zero German</span>
+					<strong>Episode 0 — Lost in Berlin</strong>
+					<span>Maya's first day: airport to doorbell. Map, U-Bahn, live dialogues, tap-in-the-scene.</span>
+				</span>
+			</a>
+			<a class="nav-card" href="/dev/story-bible/episode?ep=ep1_empty_room">
 				<img src={img('room_ref_close')} alt="Episode 1 script" loading="lazy" />
 				<span class="nav-body">
 					<span class="nav-group">de_cert_a1 · A1.1 first half</span>
@@ -107,6 +115,10 @@
 				</span>
 			</a>
 		</div>
+		<p class="intro" style="margin-top:0.75rem">
+			Review loop for every episode: <code>npm run story-review -- &lt;id&gt;</code> +
+			<code>node tool/playtest-story.mjs &lt;id&gt;</code> — see <code>docs/story_review.md</code>.
+		</p>
 	</section>
 
 	<section>

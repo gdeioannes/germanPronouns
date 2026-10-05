@@ -5,6 +5,7 @@
   "half": 1,
   "title": "The Empty Room",
   "tagline": "Maya's flatmate vanished overnight. Help her find him.",
+  "cover": "story/ep1_room_wide",
   "minutesFloor": 8,
   "credibility": 3,
   "cast": [
@@ -67,7 +68,7 @@
           "id": "i3",
           "type": "narrative",
           "image": "story/ep1_maya_notes",
-          "text": "Which is where YOU come in, partner. You've got the one thing I don't: patience with German grammar. I'll do the dramatic narration and the door-knocking. You do the decoding and the remembering. Deal? Deal. Notebook open. Episode one: The Empty Room."
+          "text": "Which is where YOU come in again, partner. You got me from the airport to this flat with a dead phone — one torn note is nothing. I'll do the dramatic narration and the door-knocking. You do the decoding and the remembering. Same deal as always. Notebook open. Episode one: The Empty Room."
         },
         {
           "id": "i4",
@@ -785,7 +786,7 @@
           "image": "story/ep1_lena_door",
           "audio": "story/ep1_lena_greet",
           "transcript": "Ja? Wer sind Sie?",
-          "text": "I knock. The door opens and — terracotta coat. Low bun. A face that gives away absolutely nothing. It's HER. Lena. She looks at me like I'm a package she didn't order and asks who I am. Partner: words. Polite ones. She's a stranger — and strangers get 'Sie'."
+          "text": "I knock. The door opens and — terracotta coat. Low bun. A face that gives away absolutely nothing. It's HER. Lena. And — wait. I KNOW that coat. She walked out of our building the night I moved in. She looks at me like I'm a package she didn't order and asks who I am. Partner: words. Polite ones. She's a stranger — and strangers get 'Sie'."
         },
         {
           "id": "f4",
@@ -890,7 +891,11 @@
       "B",
       "C"
     ],
-    "unlocks": "ch6_confrontation"
+    "unlocks": "ch6_confrontation",
+    "title": "Three leads. Your call, partner.",
+    "lockedHint": "Collect all three clues to find Jonas.",
+    "finaleLabel": "All clues collected → Pension Sonnenschein",
+    "allCluesLine": "“THAT’S ALL THREE. Get your coat, partner — we’re going to the Pension.”"
   },
   "microChecks": [
     {
@@ -973,5 +978,11 @@
         }
       ]
     }
-  ]
+  ],
+  "ending": {
+    "image": "story/ep1_reveal",
+    "title": "Case closed… and wide open",
+    "text": "Jonas: found. Lena: still a mystery. Whatever they're building behind that door — that's Episode 2.",
+    "line": "“We actually DID it. Best assistant a podcast ever had.”"
+  }
 }

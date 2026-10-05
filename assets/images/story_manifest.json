@@ -6,7 +6,13 @@
     "lena": "Lena, a woman around thirty, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Straight black hair in a low bun, light olive skin, a terracotta-red wool coat over a cream blouse, a soft blue scarf, dark trousers, small gold earrings, ankle boots. Composed, hard-to-read expression.",
     "boehm": "Herr Böhm, the building caretaker, a heavyset man in his sixties, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Grey moustache, bushy grey eyebrows, flat tweed cap, navy work overalls over a red-and-grey checked shirt, black work boots, a large ring of keys on his belt. Ruddy light skin, permanently unimpressed expression.",
     "room": "A Berlin Altbau shared-flat bedroom with a high ceiling, sage-green walls, a tall window and warm wooden floorboards, stripped almost bare: an empty bed frame, an ink-navy wardrobe with one door open and empty hangers, pale rectangles on the wall where posters used to be, a torn piece of paper on the floorboards.",
-    "pension": "A small old-fashioned Berlin guesthouse lobby: a dark wooden reception desk with a brass bell and an old black telephone, a wall of brass keys on numbered-free blank hooks behind it, a worn green armchair, a potted fern, warm lamp light."
+    "pension": "A small old-fashioned Berlin guesthouse lobby: a dark wooden reception desk with a brass bell and an old black telephone, a wall of brass keys on numbered-free blank hooks behind it, a worn green armchair, a potted fern, warm lamp light.",
+    "passantin": "A woman in her fifties, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Short grey bob haircut, red-framed glasses, a sage-green rain jacket, navy trousers, sturdy brown shoes, a mustard-yellow canvas tote bag over one shoulder, walking a small brown dachshund on a red lead. Light skin, brisk and kind expression, always in a hurry.",
+    "baeckerin": "Frau Demir, a baker in her forties, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. Round friendly face, dark curly hair tied up under a cream headscarf, sleeves rolled up, a terracotta-red apron dusted with flour over a cream shirt. Medium-brown skin, warm and chatty expression.",
+    "baeckerei": "A small cosy Berlin corner bakery: a warm wooden counter with a curved glass display case, wooden shelves of bread loaves behind, a chrome coffee machine, a blank black chalkboard on the wall, terracotta floor tiles, a window onto the street. The shop front and walls carry no lettering at all.",
+    "square": "A small Berlin neighbourhood square: a navy U-Bahn entrance with railings and a blank square sign, a large blank city-map board on two posts, cobblestones, linden trees, a pedestrian crossing with a traffic light, a corner bakery with a terracotta-and-cream striped awning that carries no lettering, rows of pastel Altbau houses with balconies.",
+    "altbau_door": "The entrance of a Berlin Altbau apartment building: a tall dark-green wooden double door with carved panels, a brass doorbell panel with four blank brass name plates mounted on the wall beside the door, patterned tiles on the step, a pale yellow plaster facade.",
+    "suitcase": "her large ink-navy hard-shell wheeled suitcase with a telescopic handle (always this one: never brown, never leather, no stickers)"
   },
   "images": [
     {
@@ -190,6 +196,100 @@
       "aspect": "16:9",
       "ship": true,
       "prompt": "{jonas} He stands in the fully open guesthouse room doorway holding a paint roller, dust in his hair, surprised and sheepish, dropcloths and a ladder behind him. {lena} beside him laughing warmly. Warm light floods from the room. Lighting: door shaft reversed, celebratory warm."
+    },
+    {
+      "id": "passantin_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{passantin} She stands full body, mid-stride, the dachshund at her feet, looking at the viewer with a brisk friendly expression. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "baeckerin_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{baeckerin} She stands full body, holding a basket of pretzels, smiling warmly at the viewer. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "ep0_arrivals",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{maya} She stands in a bright, busy airport arrivals hall in the early morning, one hand on the handle of a large ink-navy suitcase, the other holding up her phone, looking around wide-eyed and a little overwhelmed. Blank hanging direction signs with simple arrow pictograms overhead, a few travellers with luggage trolleys in the background, tall glass windows. Lighting: low warm morning sunlight streaming through the tall windows in long shafts across the polished floor, cool blue-grey half-light in the rest of the hall."
+    },
+    {
+      "id": "ep0_maya_recorder",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{maya} She sits on {suitcase} in a bright airport arrivals hall, holding a small handheld audio recorder up to her mouth like a microphone, looking straight at the viewer with a conspiratorial grin, a dark phone sticking out of her jacket pocket. Travellers and blank signs softly in the background. Lighting: warm morning shafts through tall windows into cool blue-grey half-light."
+    },
+    {
+      "id": "ep0_signs",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A low-angle view in a bright airport arrivals hall: across the top of the image hang three large rectangular navy-blue signs side by side, evenly spaced and the same size, each completely blank with no symbols, no arrows and no letters. Below them travellers with suitcases walk towards tall glass doors. {maya} is small in the lower middle of the frame, seen completely from behind — her back, her curls and the back of her head face the viewer, her head tilted UP towards the signs in a natural pose, head, shoulders and hips all facing the same direction, her face not visible. {suitcase} stands beside her. Natural anatomy, no twisted neck. Lighting: warm morning sunlight through the glass doors, cool half-light in the hall. Full-bleed scene, no border, no frame."
+    },
+    {
+      "id": "ep0_note_wet",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Close-up from above: a single sheet of lined notebook paper lying on wet dark cobblestones in the rain, its blue ink completely run and smudged into illegible streaks and blots so that no letter or number can be read, raindrops beading on the paper, the corner of a sage-green canvas bag and the toe of a white sneaker at the edge of the frame. Lighting: cool grey rain light with a warm golden reflection from a shop window on the wet stones."
+    },
+    {
+      "id": "ep0_ubahn",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Inside a yellow Berlin U-Bahn carriage running above ground: {maya} sits on the left by the window with {suitcase} between her knees, looking out excitedly. Through the big window on the right the Berlin rooftops pass, and the tall slender Berlin television tower with its silver sphere stands clearly in the upper right part of the window against the sky. Yellow grab poles, a blank strip above the window. Lighting: warm daylight from the window against the cooler interior."
+    },
+    {
+      "id": "ep0_maya_map",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{square} Seen from the pavement in afternoon light. {maya} She stands in front of the large city-map board on its two posts, {suitcase} beside her, one finger on the map, head tilted, puzzled frown. The map board shows only abstract coloured shapes for streets, a blue river and a green park — no text, no letters. The striped bakery awning and the U-Bahn entrance are visible behind her. Lighting: warm afternoon sun from one side, cool soft shadows under the linden trees."
+    },
+    {
+      "id": "ep0_passantin",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{passantin} She stands at a Berlin pedestrian crossing, mid-stride, pointing briskly down the street with one arm, the dachshund at her feet. {maya} beside her with {suitcase}, listening with a polite panicked smile. On the right side of the image a traffic-light post with a pedestrian light glowing with the green little Berlin traffic-light man wearing a hat. Linden trees and Altbau houses behind. Lighting: warm afternoon side light, cool blue shadows."
+    },
+    {
+      "id": "ep0_baeckerei",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{baeckerei} {baeckerin} She stands behind the counter, smiling warmly, holding a pair of tongs. Seen from the customer side, the glass display in the lower half of the image clearly shows three things from left to right with space between them: a wicker basket of large golden pretzels on the left, a tray of round sugar-dusted jam doughnuts in the middle, and a chrome coffee machine with a steaming white cup on the right. Lighting: warm golden bakery light, cool blue street light from the window behind."
+    },
+    {
+      "id": "ep0_square_dusk",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{square} Seen wide at dusk. {maya} stands small in the middle of the square with {suitcase}, looking down one of the streets with determination. Lighting: deep orange dusk sky, street lamps just coming on, long shadows, cool blue in the corners."
+    },
+    {
+      "id": "ep0_door_dusk",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{altbau_door} At dusk. {maya} stands on the step with {suitcase}, half-turned, watching {lena} She has just stepped out of the door and walks away along the pavement, glancing back over her shoulder. The heavy door is swinging shut behind her. Lighting: deep orange dusk sky, warm light spilling from the closing doorway into the cool blue street, a street lamp just coming on. Full-bleed scene with no border and no frame."
+    },
+    {
+      "id": "ep0_bells",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A straight-on close-up of a brass doorbell panel on a pale yellow plaster wall beside a dark-green wooden door: four large blank rectangular brass name plates stacked vertically one above the other in the centre of the image, each with a round brass bell button to its right, a small round intercom speaker grille above them. The plates are completely blank, no letters. Lighting: evening, a warm street lamp from the left, cool blue shadow. Full-bleed, no border."
+    },
+    {
+      "id": "ep0_boehm_keys",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{boehm} He stands on a creaky wooden staircase in an Altbau stairwell, holding out a single key towards {maya} She drags {suitcase} up the stairs, delighted and exhausted. Patterned wallpaper, a wooden banister, a brass ceiling lamp. Lighting: lamp cone from the stairwell ceiling lamp."
+    },
+    {
+      "id": "ep0_kitchen",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A cosy Berlin shared-flat kitchen at night. In the foreground a wooden kitchen table seen from the front; on it, spaced far apart from left to right: a terracotta coffee pot on the left, a blank folded note in the middle, and on the right TWO separate white coffee mugs standing side by side, a thin wisp of steam rising only from the second mug. A corkboard with blank pinned papers on the left wall, a small plant on the windowsill, the lit-up TV tower far away in the dark window. {maya} stands in the background in the open kitchen doorway, {suitcase} beside her, staring at the steaming mug with a suspicious raised eyebrow. Nobody sits at the table. Lighting: lamp cone from a low lamp over the table, cool night blue from the window."
+    },
+    {
+      "id": "ep0_doors",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A Berlin Altbau street at dusk, seen straight on: three tall wooden front doors side by side, evenly spaced across the image (left, middle, right), each a different colour (dark green, ink-navy, terracotta), each with one large blank white enamel house-number plate mounted on the wall directly above the door — the plates are completely blank, no numbers, no letters. Pale plaster facades, patterned tiles on the steps, a street lamp just coming on. {maya} stands small on the pavement in front of the middle door with {suitcase}, looking from door to door, unsure. Lighting: deep orange dusk sky, warm lamp light, cool blue shadows. Full-bleed, no border."
     }
   ]
 }

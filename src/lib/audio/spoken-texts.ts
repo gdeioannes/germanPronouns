@@ -24,6 +24,7 @@ import { exampleSentence, withArticle, type SharedNounEntry, type SharedVerbEntr
 import { helpTableFor } from '$lib/domain/help-table';
 import { buildLesson, hasLesson, lessonSpokenTexts, speakable } from '$lib/domain/lesson';
 import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
+import { STORY_EPISODES } from '$lib/domain/stories';
 
 const nouns = (nounData as { nouns: unknown[] }).nouns as SharedNoun[];
 
@@ -35,6 +36,33 @@ export interface SpokenText {
 	source: string;
 	/** The sub-level of the exercise it belongs to; absent for app-wide text. */
 	level?: string;
+}
+
+type StoryEntry = { de: string };
+type StoryJson = {
+	id: string;
+	pools: Record<string, string[]>;
+	chapters: { beats: { entries?: StoryEntry[]; lines?: { entries?: StoryEntry[] }[] }[] }[];
+};
+const storyEpisodes = import.meta.glob<StoryJson>('/assets/content/stories/*.json', {
+	eager: true,
+	import: 'default'
+});
+
+/** Every notebook entry an episode can file, pool splices expanded per variant. */
+export function storyNotebook(ep: StoryJson): string[] {
+	const out: string[] = [];
+	const add = (de: string) => {
+		const m = de.match(/\{pool:([a-zA-Z]+)\}/);
+		if (!m) out.push(de);
+		else for (const v of ep.pools[m[1]] ?? []) add(de.replace(m[0], v));
+	};
+	for (const ch of ep.chapters)
+		for (const b of ch.beats) {
+			for (const e of b.entries ?? []) add(e.de);
+			for (const l of b.lines ?? []) for (const e of l.entries ?? []) add(e.de);
+		}
+	return out;
 }
 
 /** Only the German course speaks today; its learn locale comes from the bundle. */
@@ -73,6 +101,13 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 	}
 
 	for (const q of TRY_QUESTIONS) add(tryFilled(q), 'de-DE', 'landing demo');
+
+	// Story notebooks: every word Maya files has a play button (SpeakButton,
+	// the app's voice). Pooled entries ("{pool:street}") in every variant.
+	for (const ep of Object.values(storyEpisodes)) {
+		const level = STORY_EPISODES.find((e) => e.id === ep.id)?.level;
+		for (const de of storyNotebook(ep)) add(de, WORDS_LOCALE, 'story notebook', level);
+	}
 
 	// First occurrence wins, so a sentence keeps its lowest level.
 	const seen = new Set<string>();

@@ -17,6 +17,19 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
 	{
 		date: '2026-10-05',
+		title: 'A new first story: Lost in Berlin',
+		highlight: true,
+		items: [
+			'Know no German at all? Start here. Maya lands in Berlin with a dead phone and a rain-soaked address, and you get her from the airport to the right doorbell.',
+			'Everything is something to do: tap the right sign in the picture, steer Maya across a map with links, rechts and geradeaus, get off at the right U-Bahn stop by listening, and talk your way through a bakery, a fast-talking stranger and a grumpy intercom.',
+			'You learn your first German along the way, from Hallo and Entschuldigung to "Ich verstehe nicht" and "Einen Pfannkuchen, bitte", plus a few Berlin facts.',
+			'Every word in Maya’s notebook now has a play button with a recorded voice.',
+			'The Empty Room, the second story, now waits for you in the middle of A1.1, once you have learned the German it needs.',
+			'In every story you can now rearrange the words you build a sentence from: tap a placed word to take it back, then Check.'
+		]
+	},
+	{
+		date: '2026-10-05',
 		title: 'The deck respects your level',
 		items: [
 			'Pick a level in the deck chooser and the "Learn next" and "Mix it up" cards now stay around it. Before, they could keep offering the first level no matter what you picked.',
