@@ -17,7 +17,7 @@
 import { browser, dev } from '$app/environment';
 import { env } from '$env/dynamic/public';
 
-const DEFAULT_APP_KEY = 'A-EU-2341128762';
+const DEFAULT_APP_KEY = 'A-EU-8128921580';
 
 /** Ingestion host per key region, as the Aptabase SDKs resolve them. */
 const HOSTS: Record<string, string> = {
@@ -37,19 +37,17 @@ const enabled = appKey.split('-').length === 3 && host !== '';
 /** A session is a run of activity; after this much idle time, a new one starts. */
 const SESSION_TIMEOUT_MS = 60 * 60 * 1000;
 
-// Bot handling: tag, never suppress. Every event carries a `visitor` prop so
-// the dashboard can filter screen_views to humans while total reach stays
-// visible. The regex matches the crawlers/tools that execute JS; webdriver
+// Bot handling: bots are dropped, never sent, so the dashboard counts humans
+// only. The regex matches the crawlers/tools that execute JS; webdriver
 // catches headless automation (Puppeteer/Playwright) even behind a spoofed UA.
 const BOT_UA =
 	/bot|spider|crawl|preview|headless|slurp|facebookexternalhit|whatsapp|telegram|lighthouse|gtmetrix|pingdom|uptime|monitor|scrape|wget|curl|python|node-fetch|axios/i;
 
-function visitorKind(): 'bot' | 'human' {
+function isBot(): boolean {
 	try {
-		if (navigator.webdriver || BOT_UA.test(navigator.userAgent)) return 'bot';
-		return 'human';
+		return navigator.webdriver || BOT_UA.test(navigator.userAgent);
 	} catch {
-		return 'bot';
+		return true;
 	}
 }
 
@@ -190,12 +188,35 @@ let attribution: Attribution | null = null;
 // 13-month horizon, after which the visitor counts as new again. Disclosed in
 // Settings → Privacy. Storage can be blocked or cleared at any time; the
 // visitor then simply counts as new, which is the correct failure mode.
+//
+// "Returning" means the key was already there when this visit began — any
+// earlier visit counts, even one five minutes ago. A visit is a browser tab:
+// its verdict is kept in sessionStorage (gone when the tab closes), so
+// reloading the tab of a first visit does not turn it into a return.
 // ---------------------------------------------------------------------------
 
 const FIRST_SEEN_KEY = 'lq_first_seen';
 const FIRST_SEEN_MAX_AGE_MS = 13 * 30 * 24 * 60 * 60 * 1000;
+const VISIT_KEY = 'lq_visit';
 
 type Tenure = { returning: boolean; days_since_first: '0' | '1-7' | '8-30' | '30+' };
+
+/** This tab's verdict, if an earlier page load in it already decided one. */
+function tabVisit(): string | null {
+	try {
+		return sessionStorage.getItem(VISIT_KEY);
+	} catch {
+		return null;
+	}
+}
+
+function rememberTabVisit(visit: 'new' | 'returning'): void {
+	try {
+		sessionStorage.setItem(VISIT_KEY, visit);
+	} catch {
+		// Without it a reload counts as a return; acceptable.
+	}
+}
 
 function resolveTenure(): Tenure {
 	const today = new Date().toISOString().slice(0, 10);
@@ -205,11 +226,14 @@ function resolveTenure(): Tenure {
 		const age = Date.now() - firstSeen;
 		if (!stored || Number.isNaN(firstSeen) || age > FIRST_SEEN_MAX_AGE_MS) {
 			localStorage.setItem(FIRST_SEEN_KEY, today);
+			rememberTabVisit('new');
 			return { returning: false, days_since_first: '0' };
 		}
+		const returning = tabVisit() !== 'new';
+		rememberTabVisit(returning ? 'returning' : 'new');
 		const days = Math.floor(age / (24 * 60 * 60 * 1000));
 		return {
-			returning: days > 0,
+			returning,
 			days_since_first: days < 1 ? '0' : days <= 7 ? '1-7' : days <= 30 ? '8-30' : '30+'
 		};
 	} catch {
@@ -249,7 +273,7 @@ function currentSession(): string {
  * page, so every failure is swallowed.
  */
 export function track(name: string, props: Record<string, string | number | boolean> = {}): void {
-	if (!browser || !enabled) return;
+	if (!browser || !enabled || isBot()) return;
 	void fetch(`${host}/api/v0/event`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json', 'App-Key': appKey },
@@ -266,7 +290,6 @@ export function track(name: string, props: Record<string, string | number | bool
 				sdkVersion: 'aptabase-web-fetch@1.0.0'
 			},
 			props: {
-				visitor: visitorKind(),
 				...(attribution ??= resolveAttribution()),
 				...(tenure ??= resolveTenure()),
 				...props
@@ -279,9 +302,8 @@ export function track(name: string, props: Record<string, string | number | bool
 
 // `engaged` fires once per visit, the first time the visitor behaves like a
 // person: an interaction (pointer, key, touch, scroll) or ten seconds with the
-// tab visible. Sessions with an `engaged` event are near-certainly human even
-// when the UA check above was fooled, giving three tiers in the dashboard:
-// all views → views where visitor=human → engaged visits.
+// tab visible. It is a metric, not a gate — every human visit is counted
+// whether or not it engages.
 const ENGAGED_DWELL_MS = 10 * 1000;
 let engagedSent = false;
 

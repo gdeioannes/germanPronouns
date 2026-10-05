@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(python -)",
-      "Bash(python \"C:/Users/gdeio/AppData/Local/Temp/claude/c--Projects-german-pronouns-articles/5eb10a87-bf12-45a4-85aa-7602fcafafd4/scratchpad/author_speaking.py\")"
+      "Bash(python \"C:/Users/gdeio/AppData/Local/Temp/claude/c--Projects-german-pronouns-articles/5eb10a87-bf12-45a4-85aa-7602fcafafd4/scratchpad/author_speaking.py\")",
+      "Bash(node -e ' *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\gdeio\\.claude\\projects\\c--Projects-german-pronouns-articles\\memory"
