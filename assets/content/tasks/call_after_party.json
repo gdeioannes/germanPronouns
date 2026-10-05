@@ -1,0 +1,136 @@
+{
+  "id": "call_after_party",
+  "title": "Call Kim after the party",
+  "intro": "Your head hurts. On your hand, half smudged: Kim's number. And a voice message from 02:14.",
+  "rounds": [
+    {
+      "kind": "fill",
+      "where": "On your hand",
+      "prompt": "Kim's number is on your hand, half smudged. Fill in the gaps.",
+      "number": "0176 520 3847",
+      "hide": [
+        5,
+        9
+      ],
+      "texts": [
+        {
+          "de": "ruf mich an!! 📞",
+          "en": "call me!!"
+        },
+        {
+          "de": "PS: ich hab dein Ladekabel 😅🔌",
+          "en": "PS: I've got your phone charger"
+        }
+      ],
+      "clip": {
+        "who": "kim",
+        "name": "Kim",
+        "audio": "task_call_kim_vm",
+        "style": "A giggly, slightly tipsy young person leaving a voice message at 2 a.m., shouting over loud party music, warm and playful, laughing on \"Haha\", but saying every digit of the phone number slowly and clearly.",
+        "de": "Heeey! Ich bin's, Kim, von der Tanzfläche! Haha! Okay, okay, hör zu: Meine Nummer ist null, eins, sieben, sechs – fünf, zwei, null – drei, acht, vier, sieben. Ruf mich an! Morgen! Oder heute! Egal!",
+        "en": "Heeey! It's me, Kim, from the dance floor! Haha! Okay, okay, listen: my number is 0176 520 3847. Call me! Tomorrow! Or today! Whatever!"
+      }
+    },
+    {
+      "kind": "fill",
+      "where": "On a beer mat",
+      "prompt": "Tom reads out Kim's work number. Careful: Tom isn't sure either.",
+      "number": "0176 913 0864",
+      "hide": [
+        5,
+        8,
+        9,
+        10
+      ],
+      "correction": "null, zwei … nein, Quatsch! ",
+      "clip": {
+        "who": "tom",
+        "name": "Tom, Kim's flatmate",
+        "audio": "task_call_tom",
+        "style": "A man who was just woken up by the phone: groggy, grumpy, yawning, mumbling a little, then annoyed with himself when he gets a digit wrong. Still say each digit clearly.",
+        "de": "Mmh … hallo? Wer ist da? … Kim? Nee, Kim ist nicht da. Kim ist schon bei der Arbeit. Am Sonntag! Verrückt. Die Nummer da ist null, eins, sieben, sechs – neun, eins, drei – null, zwei … nein, Quatsch! Null, acht, sechs, vier. Gute Nacht.",
+        "en": "Mmh… hello? Who's there? … Kim? Nah, Kim's not here. Kim's already at work. On a Sunday! Crazy. The number there is 0176 913 02… no, nonsense! 0864. Good night."
+      }
+    },
+    {
+      "kind": "pick",
+      "where": "Saved in a hurry",
+      "prompt": "You saved it three times in a hurry. Which one did they say?",
+      "number": "0176 485 2716",
+      "options": [
+        "0176 485 3716",
+        "0176 485 2716",
+        "0176 485 2717"
+      ],
+      "clip": {
+        "who": "empfang",
+        "name": "Lindner's office",
+        "audio": "task_call_empfang",
+        "style": "An over-the-top cheerful office receptionist with a bright, sing-song customer-service voice, a little too enthusiastic for a Sunday morning. Say the phone number clearly, digit by digit.",
+        "de": "Büro Lindner, schönen Sonntag! Was kann ich für Sie tun? Kim? Oh, Kim ist leider schon weg! Aber hier ist die Privatnummer: null, eins, sieben, sechs – vier, acht, fünf – zwei, sieben, eins, sechs. Schönen Tag noch!",
+        "en": "Lindner's office, happy Sunday! How can I help? Kim? Oh, Kim's already gone, I'm afraid! But here's the private number: 0176 485 2716. Have a lovely day!"
+      }
+    }
+  ],
+  "ending": {
+    "who": "kim",
+    "name": "Kim",
+    "audio": "task_call_kim_end",
+    "style": "A sleepy young person picking up the phone, then suddenly surprised and delighted, laughing, warm and a bit flirty-friendly.",
+    "de": "Hallo? … Waaas, du rufst wirklich an? Haha! Ich dachte, du hast meine Nummer verloren! Okay: Kaffee um drei? Ich bring dein Ladekabel mit!",
+    "en": "Hello? … Whaaat, you're actually calling? Haha! I thought you'd lost my number! Okay: coffee at three? I'll bring your charger!"
+  },
+  "endingText": "Kaffee um drei? ☕🔌",
+  "wrong": [
+    {
+      "who": "oma",
+      "name": "A grandma in Bavaria",
+      "audio": "task_call_wrong_oma",
+      "de": "Jessas! Wer ruft denn um diese Zeit an? Es ist Sonntag! Ich bin achtzig Jahre alt, und ich schlafe!",
+      "en": "Good heavens! Who calls at this hour? It's Sunday! I'm eighty years old, and I'm sleeping!",
+      "caption": "You just woke up a grandma in Bavaria 👵",
+      "emoji": "👵",
+      "style": "A very old Bavarian grandmother woken up on a Sunday: outraged, croaky, scolding, dramatic."
+    },
+    {
+      "who": "pizza",
+      "name": "Pizzeria Bella",
+      "audio": "task_call_wrong_pizza",
+      "de": "Pizzeria Bella, ciao! Eine Margherita? Zwei? Drei? Hallo? Sagen Sie doch was! … Okay, ich mach einfach drei.",
+      "en": "Pizzeria Bella, ciao! A margherita? Two? Three? Hello? Say something! … Okay, I'll just make three.",
+      "caption": "Wrong number. Three pizzas are on their way to you 🍕",
+      "emoji": "🍕",
+      "style": "A stressed, fast-talking, friendly pizza cook in a loud kitchen, a bit impatient, then cheerfully decides for you."
+    },
+    {
+      "who": "praxis",
+      "name": "Answering machine",
+      "audio": "task_call_wrong_praxis",
+      "de": "Zahnarztpraxis Doktor Weiß. Wir haben geschlossen. Bei Zahnschmerzen drücken Sie die Eins. Bei sehr großen Zahnschmerzen … drücken Sie die Zwei.",
+      "en": "Dr Weiß's dental practice. We are closed. For toothache, press one. For a really bad toothache … press two.",
+      "caption": "A dentist's answering machine 🦷 Press two if it really hurts.",
+      "emoji": "🦷",
+      "style": "A bored, flat, monotone recorded answering-machine message at a normal pace, with a tiny deadpan pause before the last sentence."
+    },
+    {
+      "who": "fitness",
+      "name": "FitBerlin hotline",
+      "emoji": "🏋️",
+      "audio": "task_call_wrong_fitness",
+      "de": "Willkommen bei FitBerlin! Für Kurse drücken Sie die Eins! Für die Sauna die Zwei! Und jetzt: zehn Liegestütze! Los! Eins! Zwei! Drei!",
+      "en": "Welcome to FitBerlin! For classes press one! For the sauna, two! And now: ten push-ups! Go! One! Two! Three!",
+      "caption": "A gym hotline. You did three push-ups. In bed. 💪",
+      "style": "An extremely pumped, shouting fitness coach full of energy, like a workout video, counting the push-ups loudly."
+    },
+    {
+      "who": "taxi",
+      "name": "Taxi Berlin",
+      "emoji": "🚕",
+      "audio": "task_call_wrong_taxi",
+      "de": "Taxi Berlin, wat is? Wohin soll’s gehen? … Hallo? Na, dann eben nicht!",
+      "en": "Taxi Berlin, what's up? Where to? … Hello? Well, fine then!",
+      "caption": "A Berlin taxi driver. He's already offended 🚕",
+      "style": "A gruff, impatient Berlin taxi driver with a strong Berlin attitude, quickly offended."
+    }
+  ]
+}

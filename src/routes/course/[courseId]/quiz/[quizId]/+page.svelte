@@ -27,6 +27,7 @@
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
 	import FillBlankQuiz from '$lib/components/quiz/FillBlankQuiz.svelte';
 	import InlineClozeQuiz from '$lib/components/quiz/InlineClozeQuiz.svelte';
+	import NumberTasks from '$lib/components/quiz/NumberTasks.svelte';
 	import PassageQuiz from '$lib/components/quiz/PassageQuiz.svelte';
 	import SpeakRepeatQuiz from '$lib/components/quiz/SpeakRepeatQuiz.svelte';
 	import SpeakingQuiz from '$lib/components/quiz/SpeakingQuiz.svelte';
@@ -106,7 +107,8 @@
 	// sit in front of the quiz, one tap from gone, so this costs nothing to
 	// dismiss. Keyed per quiz: the next exercise opens on its own notes.
 	// A lesson quiz instead opens on Learn the first time and on Practise
-	// after that.
+	// after that — unless it is a game, which always opens on the game: the
+	// lesson is there under Learn for whoever wants it.
 	/** The quiz the notes were last considered for — each gets one look. */
 	let notesCheckedFor: string | null = null;
 	$effect(() => {
@@ -116,6 +118,10 @@
 		notesOpen = false;
 		moreOpen = false;
 		mode = 'learn';
+		if (untrack(() => quiz.game)) {
+			mode = 'practise';
+			return;
+		}
 		if (untrack(() => lessonSteps)) {
 			(async () => {
 				const seen = await readSeen();
@@ -263,7 +269,9 @@
 			</div>
 		{/if}
 		<div class="pane exercise" class:parked={learning} inert={learning}>
-		{#if quiz.type === 'fillBlank'}
+		{#if quiz.game === 'numberTasks' && quiz.type === 'fillBlank'}
+			<NumberTasks {quiz} locale={course.learnLocale} onFinish={complete} />
+		{:else if quiz.type === 'fillBlank'}
 			<FillBlankQuiz
 				{quiz}
 				locale={course.learnLocale}

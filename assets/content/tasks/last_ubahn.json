@@ -1,0 +1,79 @@
+{
+  "id": "last_ubahn",
+  "title": "Last U-Bahn home",
+  "intro": "2:04 a.m. Alexanderplatz. Your phone is dead, the station is empty, and the last U-Bahn to Pankow leaves in a few minutes. Listen for the platform: Gleis.",
+  "rounds": [
+    {
+      "answer": "3",
+      "options": [
+        "2",
+        "3",
+        "8"
+      ],
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_r1",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis drei.",
+        "en": "The next U-Bahn to Pankow leaves from platform three."
+      }
+    },
+    {
+      "answer": "7",
+      "options": [
+        "6",
+        "7",
+        "9"
+      ],
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_r2",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis sieben.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform seven."
+      }
+    },
+    {
+      "answer": "1",
+      "options": [
+        "1",
+        "2",
+        "4"
+      ],
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_r3",
+        "de": "Achtung! Die U-Bahn nach Pankow fährt in zwei Minuten von Gleis eins.",
+        "en": "Attention! The U-Bahn to Pankow leaves in two minutes from platform one."
+      }
+    },
+    {
+      "answer": "5",
+      "options": [
+        "4",
+        "5",
+        "9"
+      ],
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_r4",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis fünf. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform five. Please hurry!"
+      }
+    }
+  ],
+  "wrong": [
+    "Wrong platform. That train goes to Spandau 🚇",
+    "Night bus. 90 minutes. Someone is eating a kebab next to you 🥙",
+    "Right platform… for the first train tomorrow morning ☀️"
+  ],
+  "ending": {
+    "who": "announcer",
+    "name": "Station announcement",
+    "audio": "task_ubahn_end",
+    "de": "Zurückbleiben, bitte!",
+    "en": "Stand back, please! (The doors close: you made it.)"
+  }
+}

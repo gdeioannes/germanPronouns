@@ -1,0 +1,145 @@
+{
+  "id": "order_the_round",
+  "title": "Order the round",
+  "intro": "Friday, 23:10. A loud bar in Kreuzberg. Your friends send you to order, and the music is too loud to talk: you'll show the number on your fingers.",
+  "culture": "Germans count from the thumb: 👍 is one, thumb and index finger are two, a whole hand is five. Show it the English way and the bartender knows you're not from here.",
+  "rounds": [
+    {
+      "answer": 2,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_r1",
+        "de": "Hey, holst du uns was? Zwei Bier, bitte!",
+        "en": "Hey, can you get us something? Two beers, please!"
+      }
+    },
+    {
+      "answer": 5,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_r2",
+        "de": "Moment, Alex und Sam sind auch da. Wir sind jetzt fünf! Fünf Bier!",
+        "en": "Wait, Alex and Sam are here too. We are five now! Five beers!"
+      }
+    },
+    {
+      "answer": 7,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_r3",
+        "de": "Noch zwei Leute! Also sieben. Sieben Bier!",
+        "en": "Two more people! So seven. Seven beers!"
+      }
+    },
+    {
+      "answer": 10,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_r4",
+        "de": "Die ganze Bar trinkt mit! Zehn Bier!",
+        "en": "The whole bar is joining in! Ten beers!"
+      }
+    }
+  ],
+  "bartender": [
+    {
+      "count": 1,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n1",
+      "de": "Ein Bier? Kommt sofort!",
+      "en": "One beer? Coming right up!"
+    },
+    {
+      "count": 2,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n2",
+      "de": "Zwei Bier? Kommt sofort!",
+      "en": "Two beers? Coming right up!"
+    },
+    {
+      "count": 3,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n3",
+      "de": "Drei Bier? Kommt sofort!",
+      "en": "Three beers? Coming right up!"
+    },
+    {
+      "count": 4,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n4",
+      "de": "Vier Bier? Kommt sofort!",
+      "en": "Four beers? Coming right up!"
+    },
+    {
+      "count": 5,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n5",
+      "de": "Fünf Bier? Kommt sofort!",
+      "en": "Five beers? Coming right up!"
+    },
+    {
+      "count": 6,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n6",
+      "de": "Sechs Bier? Kommt sofort!",
+      "en": "Six beers? Coming right up!"
+    },
+    {
+      "count": 7,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n7",
+      "de": "Sieben Bier? Kommt sofort!",
+      "en": "Seven beers? Coming right up!"
+    },
+    {
+      "count": 8,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n8",
+      "de": "Acht Bier? Kommt sofort!",
+      "en": "Eight beers? Coming right up!"
+    },
+    {
+      "count": 9,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n9",
+      "de": "Neun Bier? Kommt sofort!",
+      "en": "Nine beers? Coming right up!"
+    },
+    {
+      "count": 10,
+      "who": "barkeeper",
+      "name": "The bartender",
+      "audio": "task_bar_n10",
+      "de": "Zehn Bier? Kommt sofort!",
+      "en": "Ten beers? Coming right up!"
+    }
+  ],
+  "tooFew": [
+    "Only {n}? Your friends are staring at you 😒",
+    "Not enough beer. Someone has to share. It won't be you."
+  ],
+  "tooMany": [
+    "{n} beers? You're paying for the extras 💸",
+    "Too many! The bartender is happy. Your wallet isn't."
+  ],
+  "ending": {
+    "who": "freund",
+    "name": "Your friends",
+    "audio": "task_bar_end",
+    "de": "Zehn Bier! Perfekt! Prost!",
+    "en": "Ten beers! Perfect! Cheers!"
+  }
+}

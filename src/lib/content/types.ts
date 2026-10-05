@@ -183,6 +183,13 @@ export interface QuizBase {
 	image?: string;
 	/** What the scene shows, in words, for a tutor who cannot see it. */
 	imageDescription?: string;
+	/**
+	 * A one-off game played instead of the type's usual exercise. The quiz
+	 * keeps its type, so its saved progress, worksheets and workbook carry on
+	 * unchanged. Only `numberTasks` exists: the first quiz's task menu
+	 * (quiz/NumberTasks — the call task and the number board).
+	 */
+	game?: 'numberTasks';
 }
 
 // -- fillBlank --------------------------------------------------------------

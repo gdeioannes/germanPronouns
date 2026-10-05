@@ -28,6 +28,7 @@ const RAW = {
 		d: 'M4 9.5h3l4-3.5v12l-4-3.5H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z M15.5 10.5l5 5 M20.5 10.5l-5 5'
 	},
 	play: { d: 'M7 5.5l11 6.5-11 6.5V5.5Z' },
+	pause: { d: 'M8.5 5.5v13 M15.5 5.5v13' },
 	stop: { d: 'M6.5 6.5h11v11h-11z' },
 	/** A slower playback rate: the play mark with a trailing wave. */
 	slow: {
