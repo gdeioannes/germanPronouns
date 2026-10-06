@@ -10,7 +10,6 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { track } from '$lib/services/analytics';
 	import { progress } from '$lib/state/progress.svelte';
-	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import {
 		buildWorksheet,
 		countItems,
@@ -74,7 +73,7 @@
 	 * finished" scope would come back empty.
 	 */
 	async function histories(): Promise<Map<string, QuizHistory>> {
-		if (!progress.loaded) await progress.load(course.gating ?? DEFAULT_GATING);
+		if (!progress.loaded) await progress.load();
 		const map = new Map<string, QuizHistory>();
 		for (const quiz of course.quizzes) {
 			await progress.statsFor(quiz.storageKeyPrefix);

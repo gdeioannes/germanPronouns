@@ -1,7 +1,8 @@
 <script lang="ts">
-	// The fill-in-the-blank engine — 96 of the course's 214 exercises, and the
-	// only kind with no completion set of its own: reaching the goal streak IS
-	// completion (see domain/progress.ts).
+	// The fill-in-the-blank engine — 96 of the course's 214 exercises. Played
+	// in runs of RUN_LENGTH answers: the bar only fills, finishing a run marks
+	// the exercise done, and the streak (with its medals) runs across runs and
+	// visits (see domain/progress.ts).
 	//
 	// Ported from lib/widgets/quiz_page.dart. The interaction is the Dart one:
 	//
@@ -15,7 +16,8 @@
 	//     keeps its rhythm and the keyboard never has to be left.
 	//
 	// Questions come from the shuffle bag, so the whole pool is seen once per
-	// cycle and the same question never repeats back to back.
+	// cycle and the same question never repeats back to back. A missed one
+	// comes back round a few questions later, inside the same run.
 	//
 	// An item with `tiles` is a word-order item: the gap is built by tapping
 	// tiles into it (tap a placed one to take it back) instead of typed. The
@@ -29,30 +31,38 @@
 	import { joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
 	import { tick, untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
-	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
+	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE, type RibbonTier } from '$lib/domain/progress';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
+	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
 	import { freshen, prefersReducedMotion } from '$lib/motion';
-	import { react, shakeOn } from '$lib/motion/fx.svelte';
-	import StreakTracker from './StreakTracker.svelte';
+	import { celebrateMedal, react, shakeOn } from '$lib/motion/fx.svelte';
+	import RunSummary from './RunSummary.svelte';
+	import RunTracker from './RunTracker.svelte';
 	import type { FillBlankQuiz, QuizSentence } from '$lib/content/types';
 
 	let {
 		quiz,
 		locale,
 		onAnswer,
-		onGoalReached
+		onRunFinished
 	}: {
 		quiz: FillBlankQuiz;
 		locale: string;
 		onAnswer: (correct: boolean) => void;
-		onGoalReached: () => void;
+		/** A run of RUN_LENGTH answers is over — the exercise counts as done. */
+		onRunFinished: (passed: boolean) => void;
 	} = $props();
 
 	// Built once: the page is keyed by quiz id, so a new quiz mounts a new component.
 	const pool = untrack(() => fillBlankPool(quiz));
 	const bag: QuizSentence[] = [];
-	const goal = $derived(progressionUnlockStreak(progress.gating));
+	/** Sentences missed this run, replayed before the run moves on. */
+	let retry: QuizSentence[] = [];
+	let sinceRetry = 0;
+
+	/** Where this run saves its place, so leaving mid-run costs nothing. */
+	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number };
 
 	// The first question is chosen up front rather than in an effect, so the
 	// prerendered page already shows a real sentence instead of an empty card.
@@ -74,8 +84,16 @@
 	/** The answer card, for the praise to rise from; `missKey` shakes it. */
 	let cardEl = $state<HTMLElement>();
 	let missKey = $state(0);
-	let misses = $state(0);
 	let best = $state(0);
+	// The run: answers given (the bar), how many were right, the longest
+	// streak inside it, the medal it crossed into, and the slips to show.
+	let results = $state<('right' | 'wrong')[]>([]);
+	const answered = $derived(results.length);
+	const right = $derived(results.filter((r) => r === 'right').length);
+	let bestInRun = $state(0);
+	let earned = $state<RibbonTier | null>(null);
+	let missed = $state<string[]>([]);
+	let runDone = $state(false);
 	let inputEls = $state<HTMLInputElement[]>([]);
 	let burst = $state(0);
 	let burstSize = $state(12);
@@ -203,7 +221,15 @@
 
 	function next() {
 		if (pool.length === 0) return;
-		current = drawFromShuffleBag(bag, pool, { avoidRepeat: current });
+		// A missed sentence comes back after two others, so the correction is
+		// still fresh but not the very next thing on screen.
+		if (retry.length && sinceRetry >= 2 && retry[0] !== current) {
+			current = retry.shift();
+			sinceRetry = 0;
+		} else {
+			current = drawFromShuffleBag(bag, pool, { avoidRepeat: current });
+			sinceRetry++;
+		}
 		bank = current ? tileBank(current) : [];
 		built = [];
 		// The first-letter hint pre-fills the gap rather than sitting beside it.
@@ -226,15 +252,38 @@
 		return clearTimers;
 	});
 
-	// Load the persisted streak so a returning learner resumes their run.
+	// Load the persisted streak, and the run's saved place, so a returning
+	// learner carries on where they were.
 	$effect(() => {
 		(async () => {
 			const stats = await progress.statsFor(quiz.storageKeyPrefix);
 			streak = stats.streak;
-			misses = stats.misses;
 			best = stats.bestStreakAbsolute;
+			const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
+			const saved = Array.isArray(spot?.results) ? spot.results : [];
+			if (saved.length > 0 && saved.length < RUN_LENGTH) {
+				results = saved.filter((r) => r === 'right' || r === 'wrong');
+				bestInRun = spot?.bestInRun ?? 0;
+			}
 		})();
 	});
+
+	/** The run is over: log it, mark the exercise done, show the card. */
+	function finishRun() {
+		runDone = true;
+		void progress.recordRun(quiz.storageKeyPrefix, {
+			right,
+			total: RUN_LENGTH,
+			bestStreak: bestInRun
+		});
+		clearSpot(quiz.storageKeyPrefix);
+		const passed = runPassed(right, RUN_LENGTH);
+		onRunFinished(passed);
+		announce(
+			`Run finished: ${right} of ${RUN_LENGTH} right — ${passed ? 'exercise done' : 'not this time'}. Your streak is ${streak}.`
+		);
+	}
+
 
 	/**
 	 * Types `text` into the field one letter at a time, as the Dart page did —
@@ -273,24 +322,31 @@
 		);
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
-		misses = stats.misses;
-		react(correct, cardEl, stats.streak);
-		if (!correct) missKey += 1;
 		best = stats.bestStreakAbsolute;
+		results = [...results, correct ? 'right' : 'wrong'];
+		bestInRun = Math.max(bestInRun, stats.streak);
+		react(correct, cardEl, stats.streak);
+		if (!correct) {
+			missKey += 1;
+			retry.push(current);
+		}
 		onAnswer(correct);
+		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun });
 
 		if (correct) {
 			burstSize = lapCompleted ? 30 : 12;
 			burst += 1;
 		}
 
-		// Crossing the goal streak completes the quiz and unlocks the next.
-		// `>=`, not `===`: if the goal-crossing answer ever fails to record the
-		// completion, the next correct answer must still be able to. Marking it is
-		// idempotent, so re-firing costs nothing.
-		if (correct && stats.streak >= goal) onGoalReached();
+		// The streak just crossed a medal boundary: the big celebration, now,
+		// whatever the run is doing — the medal is the streak's, not the run's.
+		if (stats.earned) {
+			earned = stats.earned;
+			celebrateMedal(stats.earned, stats.streak);
+		}
 
 		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
+		if (!correct) missed = [...missed, filledSentence(current.sentence, canonical)];
 		// A right answer is never retyped: it just turns green. If relaxed mode let
 		// a slip through ("schon" for "schön"), the proper spelling drops straight
 		// in and a note under the sentence says what changed.
@@ -305,10 +361,12 @@
 		// answer, once the correction is written in after a wrong one. Never
 		// instantly — a double-tapped Enter would swap the sentence before the
 		// green ever showed, which reads as a glitch rather than a result.
+		// The run's last answer moves on to the summary card instead.
 		const moveOn = () => {
 			skip = null;
 			clearTimers();
-			next();
+			if (answered >= RUN_LENGTH) finishRun();
+			else next();
 		};
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		if (correct) announce('Correct.');
@@ -374,9 +432,21 @@
 
 <svelte:window onkeydown={onTileKey} />
 
-<StreakTracker {streak} {misses} {best} {goal} />
+<RunTracker {results} total={RUN_LENGTH} {streak} {best} />
 
-{#if current}
+{#if runDone}
+	<RunSummary
+		{right}
+		total={RUN_LENGTH}
+		{bestInRun}
+		{streak}
+		{earned}
+		medal={progress.medalFor(quiz.storageKeyPrefix)}
+		{missed}
+		{locale}
+		passed={runPassed(right, RUN_LENGTH)}
+	/>
+{:else if current}
 	<section class="card" bind:this={cardEl} use:freshen={current} use:shakeOn={missKey}>
 		<Burst trigger={burst} count={burstSize} />
 

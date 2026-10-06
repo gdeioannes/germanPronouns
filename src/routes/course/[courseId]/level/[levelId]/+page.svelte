@@ -7,13 +7,12 @@
 	// content master plan's module table — the page to check "have I covered
 	// everything for A1?" against.
 	import Icon from '$lib/icons/Icon.svelte';
-	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import DoneMark from '$lib/components/DoneMark.svelte';
 	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
 	import { inProgressIds } from '$lib/state/resume';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { onMount } from 'svelte';
-	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { PageData } from './$types';
 
@@ -21,7 +20,7 @@
 	const { course, level, title, module, quizzes, previous, next } = $derived(data);
 
 	onMount(async () => {
-		if (!progress.loaded) await progress.load(course.gating ?? DEFAULT_GATING);
+		if (!progress.loaded) await progress.load();
 		await progress.hydrateStats(quizzes.map((q) => q.storageKeyPrefix));
 		inProgress = await inProgressIds(quizzes, (id) => {
 			const quiz = quizzes.find((q) => q.id === id)!;
@@ -144,7 +143,7 @@
 	<ol class="quizzes">
 		{#each quizzes as quiz (quiz.id)}
 			{@const ribbon = progress.loaded
-				? progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
+				? progress.markFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
 				: null}
 			<li>
 				<a href="/course/{course.id}/quiz/{quiz.id}">
@@ -155,7 +154,7 @@
 					{/if}
 					<span class="title">{quiz.title}</span>
 					{#if quiz.status === 'placeholder'}<span class="soon">preview</span>{/if}
-					{#if ribbon}<RibbonBadge tier={ribbon} width={13} />
+					{#if ribbon}<DoneMark mark={ribbon} width={13} />
 					{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}
 				</a>
 			</li>

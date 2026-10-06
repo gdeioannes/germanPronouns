@@ -56,7 +56,8 @@
           "type": "narrative",
           "audio": "story/ep1_podcast_intro",
           "image": "story/ep1_maya_mic",
-          "text": "— and THAT's why you never trust a quiet flatmate. You're listening to Kiez Krimi, the podcast where I, Maya Ellison, investigate Berlin's weirdest little mysteries. Usually they're someone else's. Today... today it's mine."
+          "text": "— and THAT's why you never trust a quiet flatmate. You're listening to Kiez Krimi, the podcast where I, Maya Ellison, investigate Berlin's weirdest little mysteries. Usually they're someone else's. Today... today it's mine.",
+          "direction": "Start mid-sentence, as if the recorder caught the end of a thought; the show title with relish; the last line quiet and uneasy."
         },
         {
           "id": "i2",
@@ -336,7 +337,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "direction": "A worried voicemail, slightly hurried, a little sad, with a real pause after \"Jonas\"."
         },
         {
           "id": "v3",
@@ -344,7 +346,8 @@
           "image": "story/ep1_boehm_door",
           "audio": "story/ep1_boehm_complaint",
           "transcript": "Frau Ellison! Die Musik gestern Nacht! Und die Frau — die Frau war laut. SEHR laut.",
-          "text": "Someone's hammering on the door and it is, of course, Herr Böhm, the Hausmeister, who has never once been happy to see me. He fires off German like I owe him rent. Catch what you can — this could be evidence or it could be about the bins again."
+          "text": "Someone's hammering on the door and it is, of course, Herr Böhm, the Hausmeister, who has never once been happy to see me. He fires off German like I owe him rent. Catch what you can — this could be evidence or it could be about the bins again.",
+          "direction": "Indignant, complaining in the doorway, each short sentence its own grievance."
         },
         {
           "id": "v4",
@@ -424,7 +427,8 @@
           "prompt": "Dial what you hear. Wrong number = busy tone = Maya dies of awkwardness.",
           "sequence": "{pool:phoneNumber}",
           "retry": "replayAudio",
-          "transcript": "Also... Pension Sonnenschein. Die Nummer ist {pool:phoneNumber}."
+          "transcript": "Also... Pension Sonnenschein. Die Nummer ist {pool:phoneNumber}.",
+          "direction": "Muttering to himself, then reading the number slowly, one digit at a time, with a small pause between digits."
         },
         {
           "id": "p3",
@@ -458,7 +462,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "direction": "Chirpy on the phone; each \"...\" is the other person speaking, so leave a real silent pause there; the last question puzzled."
         },
         {
           "id": "p5",
@@ -786,7 +791,8 @@
           "image": "story/ep1_lena_door",
           "audio": "story/ep1_lena_greet",
           "transcript": "Ja? Wer sind Sie?",
-          "text": "I knock. The door opens and — terracotta coat. Low bun. A face that gives away absolutely nothing. It's HER. Lena. And — wait. I KNOW that coat. She walked out of our building the night I moved in. She looks at me like I'm a package she didn't order and asks who I am. Partner: words. Polite ones. She's a stranger — and strangers get 'Sie'."
+          "text": "I knock. The door opens and — terracotta coat. Low bun. A face that gives away absolutely nothing. It's HER. Lena. And — wait. I KNOW that coat. She walked out of our building the night I moved in. She looks at me like I'm a package she didn't order and asks who I am. Partner: words. Polite ones. She's a stranger — and strangers get 'Sie'.",
+          "direction": "Flat, suspicious, holding the door half open."
         },
         {
           "id": "f4",
@@ -832,7 +838,8 @@
               "correct": false
             }
           ],
-          "image": "story/ep1_lena_door"
+          "image": "story/ep1_lena_door",
+          "direction": "Surprised and suddenly warm, a small laugh on \"Ah, Maya\"."
         },
         {
           "id": "f6",
@@ -874,7 +881,8 @@
           "type": "narrative",
           "image": "story/ep1_maya_board",
           "audio": "story/ep1_podcast_outro_{pool:roomNumberDigits}",
-          "text": "Case closed and case WIDE open, listeners. Jonas: found. Mystery: upgraded. What's behind the door of Zimmer {pool:roomNumberDigits}? Who is Lena — really? And why does my flatmate trust her with a secret and not me? Rest your German, partner. Episode two is going to need it. This was Kiez Krimi. I'm Maya Ellison. The notebook stays open."
+          "text": "Case closed and case WIDE open, listeners. Jonas: found. Mystery: upgraded. What's behind the door of Zimmer {pool:roomNumberDigits}? Who is Lena — really? And why does my flatmate trust her with a secret and not me? Rest your German, partner. Episode two is going to need it. This was Kiez Krimi. I'm Maya Ellison. The notebook stays open.",
+          "direction": "The sign-off: energy on the recap, then a soft, warm last line, almost a whisper."
         }
       ]
     }

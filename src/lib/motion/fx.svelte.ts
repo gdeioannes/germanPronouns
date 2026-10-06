@@ -14,6 +14,7 @@
 
 import { prefersReducedMotion } from './index';
 import { playSound } from '$lib/services/sounds';
+import { TIER_COLORS, TIER_LABELS, type RibbonTier } from '$lib/domain/progress';
 
 /** True when effects should stay quiet: calm setting or OS reduced motion. */
 export function effectsCalm(): boolean {
@@ -52,6 +53,13 @@ export interface Praise {
 
 const CONFETTI_COLORS = ['#c9683b', '#1f3a5f', '#a9802a', '#3f5d45', '#e0a458', '#7a9cc6'];
 
+/** The German for each medal, as the stamp says it. */
+const MEDAL_STAMPS: Record<RibbonTier, string> = {
+	bronze: 'Bronze!',
+	silver: 'Silber!',
+	gold: 'Gold!'
+};
+
 const PRAISE = ['Richtig!', 'Super!', 'Genau!', 'Toll!', 'Prima!', 'Klasse!', 'Sehr gut!', 'Stark!'];
 
 /** Milestone words for a streak that hits a round number. */
@@ -71,36 +79,72 @@ class Fx {
 	/** 'right' / 'wrong' while an edge glow is showing. */
 	glow = $state<'right' | 'wrong' | null>(null);
 	glowKey = $state(0);
-	/** The big centred stamp on a finished quiz. */
-	stamp = $state<{ id: number; text: string } | null>(null);
+	/**
+	 * The big centred stamp: "Geschafft!" on a finished run, or the medal
+	 * just earned, in its own colour and bigger still.
+	 */
+	stamp = $state<{ id: number; text: string; medal?: RibbonTier; sub?: string } | null>(null);
 }
 
 export const fx = new Fx();
 
-/** A full-screen confetti rain plus a "Geschafft!" stamp: a finished quiz. */
-export function celebrate(text = 'Geschafft!'): void {
-	playSound('complete');
-	if (effectsCalm()) return;
-	const pieces = Array.from({ length: 90 }, () => ({
+function rain(count: number, colors: string[], spread = 450): Confetto[] {
+	const pieces = Array.from({ length: count }, () => ({
 		id: nextId++,
 		x: Math.random() * 100,
 		drift: (Math.random() - 0.5) * 160,
 		size: 6 + Math.random() * 7,
-		delay: Math.random() * 450,
+		delay: Math.random() * spread,
 		duration: 1800 + Math.random() * 1200,
 		spin: (Math.random() - 0.5) * 1440,
-		color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+		color: colors[Math.floor(Math.random() * colors.length)],
 		round: Math.random() < 0.3
 	}));
 	fx.confetti = pieces;
-	const stamp = { id: nextId++, text };
-	fx.stamp = stamp;
 	setTimeout(() => {
 		if (fx.confetti[0]?.id === pieces[0].id) fx.confetti = [];
-	}, 3600);
+	}, 3600 + spread);
+	return pieces;
+}
+
+function showStamp(stamp: NonNullable<Fx['stamp']>, hold: number): void {
+	fx.stamp = stamp;
 	setTimeout(() => {
 		if (fx.stamp?.id === stamp.id) fx.stamp = null;
-	}, 1600);
+	}, hold);
+}
+
+/**
+ * A confetti rain plus a "Geschafft!" stamp: a finished run (or any other
+ * finished exercise). The warm, everyday one — a medal gets more.
+ */
+export function celebrate(text = 'Geschafft!'): void {
+	playSound('complete');
+	if (effectsCalm()) return;
+	rain(90, CONFETTI_COLORS);
+	showStamp({ id: nextId++, text }, 1600);
+}
+
+/**
+ * The big one: a medal just earned by the streak. Twice the confetti, in the
+ * medal's own metal, a longer fanfare, and a stamp that names the medal and
+ * holds. Fires on the crossing answer wherever the run is at — that is the
+ * point: the medal is the streak's, not the run's.
+ */
+export function celebrateMedal(tier: RibbonTier, streak: number): void {
+	playSound('medal');
+	if (effectsCalm()) return;
+	const metal = TIER_COLORS[tier];
+	rain(180, [metal, metal, metal, '#fff6dd', ...CONFETTI_COLORS], 900);
+	showStamp(
+		{
+			id: nextId++,
+			text: MEDAL_STAMPS[tier],
+			medal: tier,
+			sub: `${streak} in a row · ${TIER_LABELS[tier]} medal`
+		},
+		2600
+	);
 }
 
 /**

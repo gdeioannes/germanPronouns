@@ -79,8 +79,10 @@ partly, so every speaking exercise also offers a play-through path.
 
 Cookieless usage analytics (Aptabase), posted straight to the ingestion API:
 no cookie, no persistent identifier, no personal data — which is why there is
-no consent banner. Disable it for a build with an empty
-`PUBLIC_APTABASE_APP_KEY`.
+no consent banner. Every event goes to two Aptabase apps: one that drops
+bots (humans only) and one that keeps them, tagged `bot: true`. Disable
+either for a build with an empty `PUBLIC_APTABASE_APP_KEY` or
+`PUBLIC_APTABASE_ALL_APP_KEY`.
 
 ## Deploying
 

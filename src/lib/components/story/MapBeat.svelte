@@ -16,6 +16,11 @@
 	// ---- find
 	let found = $state<PlaceId | null>(null);
 	let shaking = $state<PlaceId | null>(null);
+	/** Where we stand (the square unless the beat says otherwise); hidden while the task is to find it. */
+	const here = $derived.by(() => {
+		const h = `${beat.here ?? 'platz'}` as PlaceId;
+		return found ?? (target === h ? null : h);
+	});
 	function tap(id: PlaceId, el: Element) {
 		if (found) return;
 		if (id === target) {
@@ -85,6 +90,7 @@
 		labels={beat.labels !== false}
 		streetLabels={beat.streetLabels !== false}
 		{found}
+		walker={here}
 		shake={shaking}
 		ontap={tap} />
 	{#if found}

@@ -16,6 +16,8 @@
 		text?: string;
 		audio?: string;
 		rate?: number;
+		/** Acting brief for the recording (tool/gen-story-audio.mjs); not used at play time. */
+		direction?: string;
 		/** Spoken too fast to follow: the bubble stays a blur. */
 		blur?: boolean;
 		/** Words Maya scribbles into the notebook as the line is heard. */

@@ -124,7 +124,10 @@ stretches interactive.
 
 **`dialogue`** (quiz kind, added for Episode 0) — a live conversation as
 chat bubbles (`DialogueBeat.svelte`). Character lines are voiced and play as
-they appear (`rate` slows/speeds playback; `blur: true` = too fast to read,
+they appear (`direction` is the acting brief the line is recorded with —
+"very fast, in one breath" — a beat-level `direction` does the same for
+narration and evidence clips; `rate` only changes playback speed and is
+a last resort since it sounds mechanical; `blur: true` = too fast to read,
 the gag before "Ich verstehe nicht"); the learner's turns are Maya's —
 `choose` (options with `reply`) or `build` (tiles). `aside` lines are Maya's
 English whispers. Maya's German is text only.
@@ -228,7 +231,8 @@ One-question "texts from Maya" shown between chapters (spaced review):
 
 - `critical: true` wrong answers cost 1 credibility; at 0, the **current
   chapter** restarts (solved chapters stay solved), credibility refills,
-  pool values used by that chapter re-randomize.
+  pool values stay the same. Pools only re-randomize when a playthrough
+  starts from the beginning (Start over, or playing again after the end).
 - Non-critical quizzes behave like normal quizzes (retry freely).
 - Audio beats and quiz audio must play through once before answering unlocks.
 

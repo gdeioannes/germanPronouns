@@ -45,7 +45,7 @@
 		<h2>The numbers (gate-tested)</h2>
 		<ul class="rules">
 			<li>≥ 8 minutes error-free play; every evidence chapter ≥ 3 questions; bigText ≥ 6 blanks; sorts ≥ 6 items.</li>
-			<li>Credibility = 3; 5–8 critical beats per episode, concentrated in the dial/build/finale moments. Losing all restarts only the current chapter, re-randomized.</li>
+			<li>Credibility = 3; 5–8 critical beats per episode, concentrated in the dial/build/finale moments. Losing all restarts only the current chapter with the same details; the room number, directions etc. only re-randomize when a playthrough starts from the beginning (Start over / play again after the end).</li>
 			<li>Every fact a learner could memorize (numbers, names, cities) comes from a <strong>pool of ≥ 3 variants</strong>, drawn per playthrough, with audio recorded per variant.</li>
 			<li>A micro-text from Maya after (nearly) every chapter: one question, spaced review of an earlier chapter.</li>
 			<li>Torch-noir lighting at most 2–3 times; door shaft is the default investigation light.</li>

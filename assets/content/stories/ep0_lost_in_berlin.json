@@ -114,7 +114,8 @@
 					"id": "a1",
 					"type": "narrative",
 					"image": "story/ep0_arrivals",
-					"text": "Listeners — if anyone is listening — this is it. Berlin. 7 a.m., one suitcase, zero German, and my phone just died at the gate. New plan: the podcast starts NOW, on this little recorder. And every podcast needs a sidekick. You. Yes, you."
+					"text": "Listeners — if anyone is listening — this is it. Berlin. 7 a.m., one suitcase, zero German, and my phone just died at the gate. New plan: the podcast starts NOW, on this little recorder. And every podcast needs a sidekick. You. Yes, you.",
+					"direction": "Breathless, just off the plane, whispering into the recorder at an airport gate; the last three words are a grin."
 				},
 				{
 					"id": "a2",
@@ -194,7 +195,8 @@
 							"name": "A man with a coffee",
 							"de": "Guten Morgen!",
 							"en": "Good morning!",
-							"audio": "story/ep0_stranger_morgen"
+							"audio": "story/ep0_stranger_morgen",
+							"direction": "Bright and friendly, passing by."
 						},
 						{
 							"who": "maya",
@@ -220,7 +222,8 @@
 							"name": "A man with a coffee",
 							"de": "Willkommen in Berlin!",
 							"en": "Welcome to Berlin!",
-							"audio": "story/ep0_stranger_willkommen"
+							"audio": "story/ep0_stranger_willkommen",
+							"direction": "Warm, amused, like welcoming a lost tourist."
 						},
 						{
 							"who": "maya",
@@ -393,7 +396,8 @@
 					"id": "u1",
 					"type": "narrative",
 					"image": "story/ep0_ubahn",
-					"text": "Airport train, then the U-Bahn — yellow, fast, and it TALKS: before every stop a voice announces the next one. Podcast fact while we ride: see that needle with the disco ball? Berlin's TV tower. 368 metres, the tallest thing in Germany. Locals use it to find their way."
+					"text": "Airport train, then the U-Bahn — yellow, fast, and it TALKS: before every stop a voice announces the next one. Podcast fact while we ride: see that needle with the disco ball? Berlin's TV tower. 368 metres, the tallest thing in Germany. Locals use it to find their way.",
+					"direction": "Excited tourist energy on the train, then the fun fact delivered with mock-seriousness."
 				},
 				{
 					"id": "u2",
@@ -639,8 +643,8 @@
 							"de": "Die {pool:street}? Ach, das ist ganz einfach: {pool:way}, und dann sind Sie schon da!",
 							"en": "{pool:street}? Oh, that's easy: … and then you're there!",
 							"audio": "story/ep0_frau_fast_{pool:street}",
-							"rate": 1.35,
-							"blur": true
+							"blur": true,
+							"direction": "Very fast, in one breath, the way a local rattles off directions without slowing down for a tourist."
 						},
 						{
 							"who": "aside",
@@ -670,8 +674,8 @@
 							"name": "The woman with the dog",
 							"de": "Die {pool:street}? Ach, das ist ganz einfach: {pool:way}, und dann sind Sie schon da!",
 							"audio": "story/ep0_frau_fast_{pool:street}",
-							"rate": 1.35,
-							"blur": true
+							"blur": true,
+							"direction": "Very fast, in one breath, the way a local rattles off directions without slowing down for a tourist."
 						},
 						{
 							"who": "aside",
@@ -720,7 +724,8 @@
 									"de": "dann",
 									"en": "then"
 								}
-							]
+							],
+							"direction": "Apologetic at first, then kind and patient."
 						}
 					],
 					"reveal": "She's going to say it again — slowly, pointing. Direction words are in the notebook. Ears on, partner."
@@ -738,8 +743,8 @@
 							"de": "Also: die {pool:street} — {pool:way}.",
 							"en": "So: {pool:street} — …",
 							"audio": "story/ep0_frau_slow_{pool:street}",
-							"rate": 0.9,
-							"blur": true
+							"blur": true,
+							"direction": "Slowly and very clearly, one chunk at a time, with a pause at the dash, like explaining to someone who barely speaks German."
 						},
 						{
 							"who": "aside",
@@ -785,7 +790,8 @@
 							"name": "The woman with the dog",
 							"de": "Bitte! Tschüss!",
 							"en": "You're welcome! Bye!",
-							"audio": "story/ep0_frau_bitte"
+							"audio": "story/ep0_frau_bitte",
+							"direction": "Cheerful, already walking away."
 						},
 						{
 							"who": "maya",
@@ -967,7 +973,8 @@
 									"de": "der Pfannkuchen",
 									"en": "the jam doughnut (what Berliners call it)"
 								}
-							]
+							],
+							"direction": "Amused, teasing, a little laugh on \"Ha\"."
 						},
 						{
 							"who": "aside",
@@ -1145,7 +1152,8 @@
 							"name": "Frau Demir",
 							"de": "Jonas? Ach, Jonas Weber! Ja, ja. Jeden Morgen: ein Pfannkuchen, ein Kaffee.",
 							"en": "Jonas? Oh, Jonas Weber! Yes, yes. Every morning: a Pfannkuchen, a coffee.",
-							"audio": "story/ep0_baecker_weber"
+							"audio": "story/ep0_baecker_weber",
+							"direction": "Delighted recognition, then fond, like describing a regular."
 						},
 						{
 							"who": "aside",
@@ -1486,7 +1494,8 @@
 							"name": "A woman in a terracotta coat",
 							"de": "Guten Abend.",
 							"en": "Good evening.",
-							"audio": "story/ep0_lena_abend"
+							"audio": "story/ep0_lena_abend",
+							"direction": "Cool, distant, barely a glance."
 						},
 						{
 							"who": "aside",
@@ -1511,7 +1520,8 @@
 							"name": "The intercom",
 							"de": "Ja, bitte?",
 							"en": "Yes?",
-							"audio": "story/ep0_boehm_bitte"
+							"audio": "story/ep0_boehm_bitte",
+							"direction": "Gruff, through an intercom, impatient."
 						},
 						{
 							"who": "maya",
@@ -1545,7 +1555,8 @@
 							"name": "The intercom",
 							"de": "Maya? … Ach so, zu Weber. Ja, ja. Kommen Sie rein.",
 							"en": "Maya? … Oh, right — for Weber's. Yes, yes. Come in.",
-							"audio": "story/ep0_boehm_weber"
+							"audio": "story/ep0_boehm_weber",
+							"direction": "Grumbling; a real pause at the ellipsis before the penny drops on \"Ach so\", then resigned."
 						},
 						{
 							"who": "aside",
@@ -1558,7 +1569,8 @@
 					"id": "f8",
 					"type": "narrative",
 					"image": "story/ep0_boehm_keys",
-					"text": "On the stairs: a man in a flat cap with about a thousand keys. He hands me one, grumbles about having no TIME, and stomps off. Herr Böhm, the caretaker. I like him. I think."
+					"text": "On the stairs: a man in a flat cap with about a thousand keys. He hands me one, grumbles about having no TIME, and stomps off. Herr Böhm, the caretaker. I like him. I think.",
+					"direction": "Low and conspiratorial about the caretaker, affectionate on \"I like him. I think.\""
 				},
 				{
 					"id": "f9",

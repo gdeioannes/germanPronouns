@@ -358,10 +358,10 @@
 		credibility -= 1;
 		if (credibility === 0) sfx('credibility_lost');
 		if (credibility <= 0 && chapter) {
-			// The chapter restarts, re-randomized — Maya's reputation can only
-			// take so much, and memorized answers die here.
+			// The chapter restarts with the SAME draw: the room number, the
+			// directions and every other detail only change when a playthrough
+			// starts from the beginning (Start over / play again after the end).
 			const id = chapter.id;
-			draw = freshDraw();
 			save();
 			setTimeout(() => startChapter(id), 900);
 		}

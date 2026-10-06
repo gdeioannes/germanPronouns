@@ -15,16 +15,20 @@ import {
 } from './answers';
 import { drawFromShuffleBag } from './shuffleBag';
 import {
-	isQuizDone,
 	lapsForStreak,
 	lapsForTier,
+	legacyStreakDone,
+	medalCrossed,
+	medalForStreak,
+	nextMedal,
+	runPassed,
 	parseSpeakingFixes,
 	parseSpeakingScore,
 	ribbonTierForLaps,
 	speakingGrade,
 	speakingMedal,
 	STREAK_LAP_SIZE,
-	type Gating
+	streakForTier
 } from './progress';
 import { buildLadder, courseProgress, nextQuiz } from './ladder';
 import { helpTableFor } from './help-table';
@@ -55,13 +59,51 @@ describe('ribbon tiers', () => {
 	});
 });
 
-describe('fill-in completion', () => {
-	const gating: Gating = { progressionUnlockLaps: 2, questUnlockLaps: 2 };
+describe('streak medals', () => {
+	it('earns bronze at 8, silver at 16, gold at 24 in a row', () => {
+		expect(streakForTier('bronze')).toBe(8);
+		expect(streakForTier('silver')).toBe(16);
+		expect(streakForTier('gold')).toBe(24);
+		expect(medalForStreak(7)).toBeNull();
+		expect(medalForStreak(8)).toBe('bronze');
+		expect(medalForStreak(15)).toBe('bronze');
+		expect(medalForStreak(16)).toBe('silver');
+		expect(medalForStreak(24)).toBe('gold');
+		expect(medalForStreak(99)).toBe('gold');
+	});
 
-	it('completes at the goal streak, not before', () => {
-		expect(isQuizDone(9, gating)).toBe(false);
-		expect(isQuizDone(10, gating)).toBe(true);
-		expect(isQuizDone(11, gating)).toBe(true);
+	it('reports a medal only on the answer that crosses its boundary', () => {
+		expect(medalCrossed(7)).toBeNull();
+		expect(medalCrossed(8)).toBe('bronze');
+		expect(medalCrossed(9)).toBeNull();
+		expect(medalCrossed(10)).toBeNull();
+		expect(medalCrossed(16)).toBe('silver');
+		expect(medalCrossed(24)).toBe('gold');
+		expect(medalCrossed(32)).toBeNull();
+	});
+
+	it('names the next medal up, and none past gold', () => {
+		expect(nextMedal(0)).toEqual({ tier: 'bronze', at: 8 });
+		expect(nextMedal(8)).toEqual({ tier: 'silver', at: 16 });
+		expect(nextMedal(23)).toEqual({ tier: 'gold', at: 24 });
+		expect(nextMedal(24)).toBeNull();
+	});
+});
+
+describe('a run passes at eight of ten', () => {
+	it('counts seven as a try and eight as a finish', () => {
+		expect(runPassed(7)).toBe(false);
+		expect(runPassed(8)).toBe(true);
+		expect(runPassed(10)).toBe(true);
+		expect(runPassed(0, 0)).toBe(false);
+	});
+});
+
+describe('legacy drill completion', () => {
+	it('reads a Flutter-era streak of ten as done, and nothing shorter', () => {
+		expect(legacyStreakDone(9)).toBe(false);
+		expect(legacyStreakDone(10)).toBe(true);
+		expect(legacyStreakDone(11)).toBe(true);
 	});
 });
 

@@ -31,7 +31,7 @@ import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
 import { recommend, WEAK_MISTAKE_RATE, type QuizFacts, type RecommendationKind } from './recommend';
 import { reviewDue, strengths } from './review';
 
-export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story';
+export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story' | 'song';
 
 export const DECK_KIND_LABELS: Record<DeckKind, string> = {
 	continue: 'Continue',
@@ -40,7 +40,8 @@ export const DECK_KIND_LABELS: Record<DeckKind, string> = {
 	next: 'Learn next',
 	mix: 'Mix it up',
 	fresh: 'Something new',
-	story: 'Story time'
+	story: 'Story time',
+	song: 'Sing along'
 };
 
 export interface DeckCard {
@@ -176,8 +177,10 @@ export function courseLevels(quizzes: Quiz[]): string[] {
 }
 
 /**
- * The sub-level the deck centres on: whichever is further along — the level
- * the learner picked, or the furthest sub-level with anything finished.
+ * The sub-level the deck centres on. A level the learner picked wins
+ * outright — picking A1.1 means A1.1, however far they have got. With no
+ * pick ("work it out from my progress") it is the furthest sub-level with
+ * anything finished, or the first.
  */
 export function deckLevel(
 	quizzes: Quiz[],
@@ -186,7 +189,8 @@ export function deckLevel(
 ): string | null {
 	const levels = courseLevels(quizzes);
 	if (levels.length === 0) return null;
-	let index = picked ? levels.indexOf(picked) : -1;
+	if (picked && levels.includes(picked)) return picked;
+	let index = -1;
 	for (const quiz of quizzes) {
 		if (facts[quiz.id]?.done) index = Math.max(index, levels.indexOf(quiz.level ?? ''));
 	}

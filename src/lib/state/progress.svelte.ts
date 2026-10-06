@@ -1,19 +1,17 @@
-// The learner's progress: per-quiz stats and the completion sets that gate the
-// course ladder. One module-level rune store, loaded once at startup.
+// The learner's progress: per-quiz stats and the completion sets behind the
+// deck's done ticks. One module-level rune store, loaded once at startup.
 //
 // Reads and writes the same keys the Flutter build used (see domain/keys.ts),
 // so a learner's existing scores, streaks and unlocked levels carry over.
 
 import { quizStatsKeys, SettingsKeys } from '$lib/domain/keys';
 import {
-	DEFAULT_GATING,
-	isQuizDone,
-	lapsForStreak,
-	lapsForTier,
-	ribbonTierForLaps,
+	legacyStreakDone,
+	medalCrossed,
+	medalForStreak,
+	runPassed,
 	STREAK_LAP_SIZE,
-	STREAK_MISSES_ALLOWED,
-	type Gating,
+	type QuizMark,
 	type RibbonTier
 } from '$lib/domain/progress';
 import { applyCalmEffects } from '$lib/motion/fx.svelte';
@@ -56,27 +54,41 @@ export function revealPause(mode: AnswerRevealMode): number | null {
 const ANSWER_HISTORY_LIMIT = 200;
 /** How many of the latest answers say how the learner is doing *now*. */
 const RECENT_WINDOW = 20;
+/** How many finished runs the per-quiz run log keeps. */
+const RUN_LOG_LIMIT = 50;
 
 export interface QuizStats {
 	score: number;
+	/** Right answers in a row, carried across runs and visits; a miss zeroes it. */
 	streak: number;
-	/** Wrong answers in the current streak run; see STREAK_MISSES_ALLOWED. */
-	misses: number;
 	bestStreakLap: number;
 	bestStreakAbsolute: number;
+}
+
+/** What one answer did to the stats, and the medal it crossed into, if any. */
+export interface AnswerResult extends QuizStats {
+	earned: RibbonTier | null;
+}
+
+/** One finished run of a drill, as the run log records it. */
+export interface RunRecord {
+	at: number;
+	right: number;
+	total: number;
+	bestStreak: number;
 }
 
 const EMPTY_STATS: QuizStats = {
 	score: 0,
 	streak: 0,
-	misses: 0,
 	bestStreakLap: 0,
 	bestStreakAbsolute: 0
 };
 
 /**
- * Which completion set a quiz kind records into. Fill-in quizzes have none —
- * their streak *is* their completion — which is why this returns null for them.
+ * Which completion set a quiz kind records into. The drills (fill-in,
+ * flashcards) have none of their own: a finished run writes the quest set,
+ * which is what this returning null means.
  */
 function completionKeyFor(type: QuizType): string | null {
 	switch (type) {
@@ -91,7 +103,7 @@ function completionKeyFor(type: QuizType): string | null {
 			return SettingsKeys.completedSpeakQuizzes;
 		case 'fillBlank':
 		case 'vocabulary':
-			// Streak-driven: reaching the goal streak IS completion.
+			// Run-driven: finishing a run marks the quest set, nothing else.
 			return null;
 	}
 }
@@ -101,8 +113,9 @@ class ProgressStore {
 	private stats = $state<Record<string, QuizStats>>({});
 	/** Completion sets, keyed by the settings key that holds them. */
 	private completed = $state<Record<string, string[]>>({});
+	/** Each drill's finished runs, loaded with its stats so the mark reads synchronously. */
+	private runs = $state<Record<string, RunRecord[]>>({});
 
-	gating = $state<Gating>(DEFAULT_GATING);
 	/**
 	 * On by default: a missing umlaut or full stop is a keyboard problem, not a
 	 * German one, and marking it wrong teaches nothing. Only an explicit "false"
@@ -136,8 +149,10 @@ class ProgressStore {
 	answerRevealMode = $state<AnswerRevealMode>('normal');
 	loaded = $state(false);
 
-	async load(gating: Gating = DEFAULT_GATING): Promise<void> {
-		this.gating = gating;
+	async load(): Promise<void> {
+		// A fresh read of storage: any stats cached from before are stale.
+		this.stats = {};
+		this.runs = {};
 		const sets = [
 			SettingsKeys.completedQuestQuizzes,
 			SettingsKeys.completedSpeakQuizzes,
@@ -209,11 +224,11 @@ class ProgressStore {
 		const loaded: QuizStats = {
 			score: await read(keys.score),
 			streak: await read(keys.streak),
-			misses: await read(keys.streakMisses),
 			bestStreakLap: await read(keys.bestStreakLap),
 			bestStreakAbsolute: await read(keys.bestStreakAbsolute)
 		};
 		this.stats = { ...this.stats, [prefix]: loaded };
+		this.runs = { ...this.runs, [prefix]: await this.readRuns(prefix) };
 		return loaded;
 	}
 
@@ -227,7 +242,6 @@ class ProgressStore {
 		const keys = quizStatsKeys(prefix);
 		await storage.set(keys.score, String(next.score));
 		await storage.set(keys.streak, String(next.streak));
-		await storage.set(keys.streakMisses, String(next.misses));
 		await storage.set(keys.bestStreakLap, String(next.bestStreakLap));
 		await storage.set(keys.bestStreakAbsolute, String(next.bestStreakAbsolute));
 	}
@@ -247,6 +261,8 @@ class ProgressStore {
 		/** Epoch ms of the last answer or finish; null when never played or before timestamps existed. */
 		lastPlayedAt: number | null;
 		mistakesByCategory: Record<string, number>;
+		/** Finished runs of a drill (zero for the other kinds). */
+		runs: number;
 	}> {
 		const keys = quizStatsKeys(prefix);
 		const history = await this.readJson(keys.answerHistory);
@@ -274,8 +290,47 @@ class ProgressStore {
 			mistakeRate: entries.length === 0 ? 0 : 1 - correct / entries.length,
 			recentMistakeRate: recent.length === 0 ? 0 : 1 - recentCorrect / recent.length,
 			lastPlayedAt,
-			mistakesByCategory
+			mistakesByCategory,
+			runs: (await this.runsFor(prefix)).length
 		};
+	}
+
+	/** The finished runs of one drill, oldest first. */
+	async runsFor(prefix: string): Promise<RunRecord[]> {
+		return this.runs[prefix] ?? (await this.readRuns(prefix));
+	}
+
+	private async readRuns(prefix: string): Promise<RunRecord[]> {
+		const raw = await this.readJson(quizStatsKeys(prefix).runLog);
+		if (!Array.isArray(raw)) return [];
+		return raw.flatMap((entry) => {
+			const r = entry as Partial<RunRecord> | null;
+			return r && typeof r.at === 'number' && typeof r.right === 'number' && typeof r.total === 'number'
+				? [{ at: r.at, right: r.right, total: r.total, bestStreak: Number(r.bestStreak) || 0 }]
+				: [];
+		});
+	}
+
+	/**
+	 * Logs a finished run — how many of its answers were right and the best
+	 * streak inside it — so the deck can tell a drill that needs more
+	 * repetitions from one that is held. Capped like the answer history.
+	 */
+	async recordRun(prefix: string, run: Omit<RunRecord, 'at'>): Promise<void> {
+		const runs = [...(await this.runsFor(prefix)), { ...run, at: Date.now() }].slice(-RUN_LOG_LIMIT);
+		this.runs = { ...this.runs, [prefix]: runs };
+		await storage.set(quizStatsKeys(prefix).runLog, JSON.stringify(runs));
+	}
+
+	/**
+	 * Whether the last finished run passed. True with no run on record: an
+	 * exercise finished under the old rules, or a kind without runs, is not
+	 * sent back for a retry.
+	 */
+	lastRunPassed(prefix: string): boolean {
+		const runs = this.runs[prefix] ?? [];
+		const last = runs[runs.length - 1];
+		return !last || runPassed(last.right, last.total);
 	}
 
 	private async readJson(key: string): Promise<unknown> {
@@ -317,27 +372,28 @@ class ProgressStore {
 		await storage.set(keys.mistakesByCase, JSON.stringify(mistakes));
 	}
 
-	/** Records one answer and returns the updated stats. */
+	/**
+	 * Records one answer and returns the updated stats. A right answer grows
+	 * the streak; a miss starts it again at zero — it costs nothing else. The
+	 * answer that lands the streak exactly on a medal boundary reports the
+	 * medal in `earned`, so the quiz can celebrate the crossing.
+	 */
 	async recordAnswer(
 		prefix: string,
 		correct: boolean,
 		categoryLabel?: string
-	): Promise<QuizStats> {
+	): Promise<AnswerResult> {
 		await this.recordHistory(prefix, correct, categoryLabel);
 		const current = await this.statsFor(prefix);
-		// A miss costs a life; only the miss after the last life resets the run.
-		const misses = correct ? current.misses : current.misses + 1;
-		const reset = misses > STREAK_MISSES_ALLOWED;
-		const streak = correct ? current.streak + 1 : reset ? 0 : current.streak;
+		const streak = correct ? current.streak + 1 : 0;
 		const next: QuizStats = {
 			score: correct ? current.score + 1 : current.score,
 			streak,
-			misses: reset ? 0 : misses,
 			bestStreakLap: Math.max(current.bestStreakLap, streak % STREAK_LAP_SIZE),
 			bestStreakAbsolute: Math.max(current.bestStreakAbsolute, streak)
 		};
 		await this.saveStats(prefix, next);
-		return next;
+		return { ...next, earned: correct ? medalCrossed(streak) : null };
 	}
 
 	/**
@@ -354,16 +410,12 @@ class ProgressStore {
 	isCompleted(type: QuizType, id: string, prefix: string): boolean {
 		const key = completionKeyFor(type);
 		if (key === null) {
-			// Fill-in has no set of its own: the goal streak is completion. But the
-			// streak lives in per-quiz stats that load lazily, so a page that hasn't
-			// called `hydrateStats` would read every fill-in as unfinished and lock
-			// the rest of the ladder. The quest set is written for every kind, so
-			// check it first: it is the durable record, the streak the fallback for
-			// progress earned in the Flutter build, which never wrote that set.
-			return (
-				this.isQuestCompleted(id) ||
-				isQuizDone(this.peekStats(prefix).bestStreakAbsolute, this.gating)
-			);
+			// A drill has no set of its own: a finished run writes the quest set,
+			// and that is the durable record. The streak fallback is for progress
+			// earned in the Flutter build, which never wrote that set — it lives in
+			// per-quiz stats that load lazily, so a page that hasn't called
+			// `hydrateStats` only sees the quest set.
+			return this.isQuestCompleted(id) || legacyStreakDone(this.peekStats(prefix).bestStreakAbsolute);
 		}
 		return (this.completed[key] ?? []).includes(id);
 	}
@@ -399,12 +451,32 @@ class ProgressStore {
 		await this.writeList(SettingsKeys.completedQuestQuizzes, next);
 	}
 
-	/** The ribbon a finished quiz shows, or null when it isn't finished. */
+	/**
+	 * The ribbon a finished quiz shows, or null when it isn't finished or has
+	 * no medal. A drill's tier is its streak's medal, nothing less; a
+	 * play-through kind has no streak and shows bronze for the finish.
+	 */
 	ribbonFor(type: QuizType, id: string, prefix: string): RibbonTier | null {
 		if (!this.isCompleted(type, id, prefix)) return null;
-		const laps = lapsForStreak(this.peekStats(prefix).bestStreakAbsolute);
-		// A play-through quiz has no streak of its own; it still earns bronze.
-		return ribbonTierForLaps(Math.max(laps, lapsForTier('bronze')));
+		if (completionKeyFor(type) === null) return this.medalFor(prefix);
+		return 'bronze';
+	}
+
+	/**
+	 * The mark a finished quiz carries, or null when it isn't finished: its
+	 * medal if the streak has earned one, else a done tick when the last run
+	 * passed, else "try again".
+	 */
+	markFor(type: QuizType, id: string, prefix: string): QuizMark | null {
+		if (!this.isCompleted(type, id, prefix)) return null;
+		const ribbon = this.ribbonFor(type, id, prefix);
+		if (ribbon) return ribbon;
+		return this.lastRunPassed(prefix) ? 'done' : 'retry';
+	}
+
+	/** The medal the streak has earned so far, finished or not. */
+	medalFor(prefix: string): RibbonTier | null {
+		return medalForStreak(this.peekStats(prefix).bestStreakAbsolute);
 	}
 
 	// -- settings ------------------------------------------------------------

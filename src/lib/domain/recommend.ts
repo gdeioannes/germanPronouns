@@ -9,7 +9,7 @@
 // browser; the course page gathers the facts from the progress store.
 
 import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
-import type { RibbonTier } from './progress';
+import type { QuizMark, RibbonTier } from './progress';
 import { topicOf } from '$lib/seo';
 
 export type RecommendationKind = 'practise' | 'next' | 'mix';
@@ -26,8 +26,10 @@ export const KIND_LABELS: Record<RecommendationKind, string> = {
 /** What the progress store knows about one quiz. */
 export interface QuizFacts {
 	done: boolean;
-	/** The ribbon a finished quiz shows; null when unfinished. */
+	/** The ribbon a finished quiz shows; null when unfinished or unmedalled. */
 	tier: RibbonTier | null;
+	/** The mark it carries — medal, done tick or retry; null when unfinished. */
+	mark?: QuizMark | null;
 	/** Answers on record — zero for play-through kinds that keep no history. */
 	answered: number;
 	/** Share of recorded answers that were wrong, 0–1. */
@@ -130,6 +132,12 @@ function practise(
 			// Only fill-ins earn a medal by streak; a finished reading or
 			// listening always shows bronze, so its tier says nothing.
 			continue;
+		} else if (f.done && !f.tier) {
+			ranked.push({
+				quiz,
+				weight: 1.5,
+				reason: 'Finished, no medal yet — eight in a row earns bronze.'
+			});
 		} else if (f.done && f.tier === 'bronze') {
 			ranked.push({
 				quiz,

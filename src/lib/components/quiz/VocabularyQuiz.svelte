@@ -5,9 +5,10 @@
 	// German with its article coloured by gender, the plural, the audio and
 	// the verdict. A new card is dealt from a stack behind the current one.
 	//
-	// Progress is two things: the deck's streak (which completes the quiz and
-	// earns the ribbon, as a fill-in does), and a per-word record in the vocab
-	// store, from which the "Weak words" toggle draws its cards.
+	// Progress is three things: the run (RUN_LENGTH cards; finishing one marks
+	// the deck done, as a fill-in does), the streak that runs across runs and
+	// earns the medals, and a per-word record in the vocab store, from which
+	// the "Weak words" toggle draws its cards.
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
@@ -15,10 +16,12 @@
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { forSpeech } from '$lib/domain/spoken';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
-	import { react, shakeOn } from '$lib/motion/fx.svelte';
-	import StreakTracker from './StreakTracker.svelte';
-	import { STREAK_LAP_SIZE, progressionUnlockStreak } from '$lib/domain/progress';
+	import { celebrateMedal, react, shakeOn } from '$lib/motion/fx.svelte';
+	import RunSummary from './RunSummary.svelte';
+	import RunTracker from './RunTracker.svelte';
+	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE, type RibbonTier } from '$lib/domain/progress';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
+	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
 	import { tick } from 'svelte';
 	import { vocab } from '$lib/state/vocab.svelte';
@@ -29,13 +32,14 @@
 		quiz,
 		courseId,
 		locale,
-		onGoalReached,
+		onRunFinished,
 		focusWord = null
 	}: {
 		quiz: VocabularyQuiz;
 		courseId: string;
 		locale: string;
-		onGoalReached: () => void;
+		/** A run of RUN_LENGTH cards is over — the deck counts as done. */
+		onRunFinished: (passed: boolean) => void;
 		/** A source quiz id: start the deck on that quiz's words only. */
 		focusWord?: string | null;
 	} = $props();
@@ -63,8 +67,6 @@
 			if (untrack(() => started)) next();
 		}
 	});
-
-	const goal = $derived(progressionUnlockStreak(progress.gating));
 
 	/** The cards in play: the whole deck, one quiz's words, or the weak ones. */
 	const pool = $derived.by(() => {
@@ -96,8 +98,17 @@
 	/** The answer card, for the praise to rise from; `missKey` shakes it. */
 	let cardEl = $state<HTMLElement>();
 	let missKey = $state(0);
-	let misses = $state(0);
 	let best = $state(0);
+	// The run: cards answered (the bar), how many right, the longest streak
+	// inside it, the medal it crossed into, and the words missed.
+	let results = $state<('right' | 'wrong')[]>([]);
+	const answered = $derived(results.length);
+	const right = $derived(results.filter((r) => r === 'right').length);
+	let bestInRun = $state(0);
+	let earned = $state<RibbonTier | null>(null);
+	let missed = $state<string[]>([]);
+	let runDone = $state(false);
+	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number };
 	let burst = $state(0);
 	let burstSize = $state(12);
 	let inputEl = $state<HTMLInputElement | null>(null);
@@ -179,13 +190,35 @@
 				await vocab.load(courseId);
 				const stats = await progress.statsFor(quiz.storageKeyPrefix);
 				streak = stats.streak;
-				misses = stats.misses;
 				best = stats.bestStreakAbsolute;
+				const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
+				const saved = Array.isArray(spot?.results) ? spot.results : [];
+				if (saved.length > 0 && saved.length < RUN_LENGTH) {
+					results = saved.filter((r) => r === 'right' || r === 'wrong');
+					bestInRun = spot?.bestInRun ?? 0;
+				}
 				next();
 			})();
 		}
 		return clearTimers;
 	});
+
+	/** The run is over: log it, mark the deck done, show the card. */
+	function finishRun() {
+		runDone = true;
+		void progress.recordRun(quiz.storageKeyPrefix, {
+			right,
+			total: RUN_LENGTH,
+			bestStreak: bestInRun
+		});
+		clearSpot(quiz.storageKeyPrefix);
+		const passed = runPassed(right, RUN_LENGTH);
+		onRunFinished(passed);
+		announce(
+			`Run finished: ${right} of ${RUN_LENGTH} right — ${passed ? 'exercise done' : 'not this time'}. Your streak is ${streak}.`
+		);
+	}
+
 
 	function setMode(m: Mode) {
 		if (m === mode || locked) return;
@@ -217,27 +250,37 @@
 		const stats = await progress.recordAnswer(quiz.storageKeyPrefix, correct, card.kind);
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
-		misses = stats.misses;
+		best = stats.bestStreakAbsolute;
+		results = [...results, correct ? 'right' : 'wrong'];
+		bestInRun = Math.max(bestInRun, stats.streak);
 		react(correct, cardEl, stats.streak);
 		if (!correct) missKey += 1;
-		best = stats.bestStreakAbsolute;
+		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun });
 		if (correct) {
 			burstSize = lapCompleted ? 30 : 12;
 			burst += 1;
 		} else {
 			retry.push(card);
+			missed = [...missed, target];
 		}
-		if (correct && stats.streak >= goal) onGoalReached();
+		// The streak just crossed a medal boundary: the big celebration, now,
+		// whatever the run is doing — the medal is the streak's, not the run's.
+		if (stats.earned) {
+			earned = stats.earned;
+			celebrateMedal(stats.earned, stats.streak);
+		}
 		if (correct) announce('Correct.', target, locale);
 		else announce('Not quite. It is:', target, locale);
 
 		// The back stays up long enough to read; a miss earns a longer look.
 		// Enter deals the next card straight away — once the card has turned,
 		// so a miss is at least seen.
+		// The run's last card moves on to the summary instead of a new deal.
 		const moveOn = () => {
 			skip = null;
 			clearTimers();
-			next();
+			if (answered >= RUN_LENGTH) finishRun();
+			else next();
 		};
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		else await wait(600).then(() => (skip = moveOn));
@@ -292,7 +335,7 @@
 
 <svelte:window onkeydown={onWindowKey} />
 
-<StreakTracker {streak} {misses} {best} {goal} />
+<RunTracker {results} total={RUN_LENGTH} {streak} {best} />
 
 <div class="controls">
 	<div class="modes" role="group" aria-label="Card mode">
@@ -333,7 +376,19 @@
 	</p>
 {/if}
 
-{#if current}
+{#if runDone}
+	<RunSummary
+		{right}
+		total={RUN_LENGTH}
+		{bestInRun}
+		{streak}
+		{earned}
+		medal={progress.medalFor(quiz.storageKeyPrefix)}
+		{missed}
+		{locale}
+		passed={runPassed(right, RUN_LENGTH)}
+	/>
+{:else if current}
 	<!-- The stage holds the stack: two decorative cards behind, the live card
 	     on top. Re-keying on `dealt` re-creates the live card so it deals in. -->
 	<div class="stage" bind:this={cardEl} use:shakeOn={missKey} style="--gender:{gender ? GENDER_COLORS[gender] : 'var(--heading)'}">

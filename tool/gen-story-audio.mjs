@@ -19,10 +19,23 @@
 // Also records the number tasks' lines (assets/content/tasks/*.json): every
 // {who, audio, de} line, under the task's id — npm run story-audio -- call_after_party.
 //
+// Story clips are DIRECTED: every speaker has an acting brief (DIRECTIONS),
+// a beat or dialogue line may add its own `direction` ("fast, in one breath"),
+// and the clip is made by Gemini-TTS through the Cloud Text-to-Speech API,
+// which performs the brief in the same cast voice (needs the Vertex AI API
+// enabled on the project; plain Chirp 3 HD reads text but cannot act).
+// Emphasis caps in the writing (NOW, SEHR laut) are lowercased before
+// synthesis — read literally they come out spelled or barked — and handed to
+// the brief as the words to stress. Real acronyms (WG, TV, U-Bahn) stay.
+// Every take is transcribed back (GEMINI_API_KEY) and retaken if it says
+// much more than the line or, for a phone number, different digits.
+// --chirp records with Chirp 3 HD instead; --gemini-api records through the
+// Gemini API (same voices, the free tier caps it at ~100 clips a day).
+//
 // A task line with a `style` (how it is acted: "groggy, just woken up") is
-// recorded with Gemini TTS instead, which performs the direction, in the same
-// cast voice. Each such clip is transcribed back and re-recorded if the
-// digits it says are not the ones in the text. Needs GEMINI_API_KEY.
+// recorded with Gemini TTS (the Gemini API) instead, which performs the
+// direction, in the same cast voice. Each such clip is transcribed back and
+// re-recorded if the digits it says are not the ones in the text.
 //
 // Needs GOOGLE_TTS_KEY in .env (same key as gen-audio.mjs / gen-voice-refs).
 
@@ -77,8 +90,31 @@ const SPEAKERS = {
 	ep1_lena_frage: 'lena'
 };
 
+/**
+ * How each character is played — the brief Gemini-TTS performs. The German
+ * cast is directed to stay clear: learners imitate these lines.
+ */
+const CLEAR = 'Natural, clearly articulated German that a beginner can imitate; do not over-act.';
+const DIRECTIONS = {
+	maya: 'You are Maya Ellison, a wry, warm American podcast host in her twenties, recording a true-crime style podcast about her own life on a handheld recorder. You speak close to the mic, to one listener, like a co-conspirator. Natural, lively pacing: take a real beat at dashes and ellipses, land the jokes and the reveals, drop your voice for the secrets. Never read like an announcer.',
+	jonas: `A young Berlin flatmate, casual, muttering a voice memo to himself. ${CLEAR}`,
+	lena: `A composed, cool woman whose face gives nothing away; polite but guarded. ${CLEAR}`,
+	boehm: `A grumpy older Berlin caretaker, gruff and impatient, never actually shouting. ${CLEAR}`,
+	reception: `A chirpy, cheerful guesthouse receptionist answering the phone. ${CLEAR}`,
+	passantin: `A brisk Berlin local in a hurry, friendly but not stopping. ${CLEAR}`,
+	baeckerin: `A warm, motherly Berlin baker who knows everyone on her street; amused, kind. ${CLEAR}`,
+	stranger: `A friendly man with a coffee, cheerful. ${CLEAR}`,
+	announcer: 'A flat, neutral Berlin U-Bahn station announcement over a train PA system, slightly bored.'
+};
+/** Gemini-TTS through Cloud Text-to-Speech, same voice names as Chirp 3 HD. */
+const CLOUD_GEMINI_MODEL = 'gemini-2.5-pro-tts';
+/** Initialisms that are read as letters on purpose. */
+const KEEP_CAPS = new Set(['WG', 'TV', 'USA', 'OK', 'BZZZT', 'PA', 'U', 'S']);
+
 const args = process.argv.slice(2);
 const force = args.includes('--force');
+const chirp = args.includes('--chirp');
+const viaGeminiApi = args.includes('--gemini-api');
 const dry = args.includes('--dry');
 const only = new Set(args.filter((a) => !a.startsWith('--')));
 
@@ -102,6 +138,32 @@ if (!key && !dry) {
 
 /** The narration text as Maya speaks it. */
 const spoken = (text) => text.replaceAll('{user}', 'partner');
+
+/**
+ * Emphasis caps → normal case, remembering the words so the brief can stress
+ * them. "the podcast starts NOW" → "the podcast starts now" + ["now"].
+ */
+export function unshout(text) {
+	const stressed = [];
+	const out = text.replace(/\b([A-ZÄÖÜ]{2,})('[sS]|'[tT]|'[rR][eE])?\b/g, (m, word, tail = '', at) => {
+		if (KEEP_CAPS.has(word)) return m;
+		const lower = word.toLowerCase();
+		stressed.push(lower);
+		const before = text.slice(0, at).trimEnd();
+		const sentenceStart = before === '' || /[.!?]$/.test(before);
+		return (sentenceStart ? lower.charAt(0).toUpperCase() + lower.slice(1) : lower) + tail.toLowerCase();
+	});
+	return { text: out, stressed: [...new Set(stressed)] };
+}
+
+/** The brief for one clip: the character, the line's own direction, the stressed words. */
+function briefFor(job) {
+	const parts = [DIRECTIONS[job.speaker] ?? ''];
+	if (job.direction) parts.push(job.direction);
+	if (job.stressed?.length)
+		parts.push(`Stress the word${job.stressed.length > 1 ? 's' : ''} ${job.stressed.map((w) => `"${w}"`).join(', ')}.`);
+	return parts.filter(Boolean).join(' ');
+}
 
 const jobs = [];
 for (const file of readdirSync(STORIES).filter((f) => f.endsWith('.json'))) {
@@ -130,21 +192,25 @@ for (const file of readdirSync(STORIES).filter((f) => f.endsWith('.json'))) {
 				if (speaker) {
 					// Intro/outro speak the panel text; everything else its transcript.
 					const template = b.transcript ?? spoken(b.text ?? '');
-					if (template) for (const c of clipsFor(keyName, template, b.audio)) jobs.push({ ...c, speaker });
+					if (template)
+						for (const c of clipsFor(keyName, template, b.audio))
+							jobs.push({ ...c, speaker, direction: b.direction, story: true });
 				}
 			}
 			// A U-Bahn ride's near-miss stops: announced like the real ones.
 			if (b.kind === 'stops')
 				for (const x of b.extraStops ?? [])
-					jobs.push({ file: `${baseOf(x.audio)}.mp3`, text: `Nächster Halt: ${x.name}.`, speaker: b.speaker });
+					jobs.push({ file: `${baseOf(x.audio)}.mp3`, text: `Nächster Halt: ${x.name}.`, speaker: b.speaker, story: true });
 			// Dialogue: every voiced line, in its character's voice.
 			if (b.kind === 'dialogue')
 				for (const l of b.lines)
 					if (l.audio && l.de)
-						for (const c of clipsFor(baseOf(l.audio), l.de, l.audio)) jobs.push({ ...c, speaker: l.who });
+						for (const c of clipsFor(baseOf(l.audio), l.de, l.audio))
+							jobs.push({ ...c, speaker: l.who, direction: l.direction, story: true });
 			// Maya's narration for every panel (except ones that ARE her clip).
 			if (b.type === 'narrative' && b.text && !(b.audio ?? '').includes('podcast')) {
-				for (const c of clipsFor(`${prefix}_narr_${b.id}`, spoken(b.text))) jobs.push({ ...c, speaker: 'maya' });
+				for (const c of clipsFor(`${prefix}_narr_${b.id}`, spoken(b.text)))
+					jobs.push({ ...c, speaker: 'maya', direction: b.direction, story: true });
 			}
 		}
 	}
@@ -184,7 +250,18 @@ for (const job of jobs) {
 		console.log(`${job.file}: no voice cast for "${job.speaker}" — skipped`);
 		continue;
 	}
-	process.stdout.write(`${job.file} [${job.speaker}${job.style ? ', acted' : ''}] … `);
+	process.stdout.write(`${job.file} [${job.speaker}${job.style ? ', acted' : job.story && !chirp ? ', directed' : ''}] … `);
+	if (job.story && !chirp) {
+		try {
+			writeFileSync(file, await directed(job, v));
+			made++;
+			console.log('ok');
+		} catch (e) {
+			console.log(`FAILED: ${e.message}`);
+		}
+		await new Promise((r) => setTimeout(r, viaGeminiApi ? 6500 : 400));
+		continue;
+	}
 	if (job.style) {
 		try {
 			writeFileSync(file, await acted(job, v));
@@ -200,7 +277,7 @@ for (const job of jobs) {
 			method: 'POST',
 			headers: { 'content-type': 'application/json', 'x-goog-api-key': key },
 			body: JSON.stringify({
-				input: { text: job.text },
+				input: { text: job.story ? unshout(job.text).text : job.text },
 				voice: { languageCode: v.locale, name: `${v.locale}-Chirp3-HD-${v.voice}` },
 				audioConfig: { audioEncoding: 'MP3' }
 			})
@@ -217,6 +294,79 @@ for (const job of jobs) {
 	await new Promise((r) => setTimeout(r, 400));
 }
 console.log(`\n${made} recorded, ${skipped} already present (${jobs.length} total), in ${OUT_DIR}`);
+
+/**
+ * A directed story clip. The brief goes in `prompt`, the line in `text`, the
+ * cast voice by its bare name (Cloud Text-to-Speech); or, with --gemini-api,
+ * brief and line go in one "Say …" turn to the Gemini API. Every take is
+ * transcribed back: one that is far longer than the line (the brief read
+ * aloud) or says a different phone number is retaken.
+ */
+async function directed(job, v) {
+	const { text, stressed } = unshout(job.text);
+	const prompt = briefFor({ ...job, stressed });
+	const phone = digitsIn(text).length >= 6; // a time like 23:40 is not a phone number
+	const german = v.locale.startsWith('de');
+	let heard = '';
+	for (let attempt = 1; attempt <= 3; attempt++) {
+		const { mp3: buf, b64, mime } = viaGeminiApi ? await geminiApiTake(prompt, text, v) : await cloudTake(prompt, text, v);
+		if (!geminiKey) return buf;
+		const check = await gemini(GEMINI_CHECK, {
+			contents: [
+				{
+					parts: [
+						{ inlineData: { mimeType: mime, data: b64 } },
+						{ text: `Transcribe this ${german ? 'German' : 'English'} audio word for word. Write every number as ${german ? 'German' : 'English'} words. Answer with the transcript only.` }
+					]
+				}
+			]
+		});
+		heard = (check.candidates?.[0]?.content?.parts ?? []).map((p) => p.text ?? '').join('').trim();
+		const extra = wordCount(heard) / wordCount(text);
+		if (extra <= 1.35 && (!phone || digitsIn(heard) === digitsIn(text))) return buf;
+		process.stdout.write(`(retake ${attempt}: heard "${heard.slice(0, 50)}…") `);
+		await new Promise((r) => setTimeout(r, viaGeminiApi ? 6500 : 3000));
+	}
+	throw new Error(`no clean take; last heard: ${heard}`);
+}
+
+async function cloudTake(prompt, text, v) {
+	for (let attempt = 0; ; attempt++) {
+		const res = await fetch('https://texttospeech.googleapis.com/v1/text:synthesize', {
+			method: 'POST',
+			headers: { 'content-type': 'application/json', 'x-goog-api-key': key },
+			body: JSON.stringify({
+				input: { prompt, text },
+				voice: { languageCode: v.locale, name: v.voice, modelName: CLOUD_GEMINI_MODEL },
+				audioConfig: { audioEncoding: 'MP3' }
+			})
+		});
+		if (res.status === 429 && attempt < 3) {
+			await new Promise((r) => setTimeout(r, 15000));
+			continue;
+		}
+		if (!res.ok) throw new Error(`${res.status} ${(await res.text()).slice(0, 200)}`);
+		const { audioContent } = await res.json();
+		if (!audioContent) throw new Error('no audio in response');
+		return { mp3: Buffer.from(audioContent, 'base64'), b64: audioContent, mime: 'audio/mp3' };
+	}
+}
+
+async function geminiApiTake(prompt, text, v) {
+	if (!geminiKey) throw new Error('GEMINI_API_KEY is not set');
+	const json = await gemini(GEMINI_TTS, {
+		contents: [{ parts: [{ text: `${prompt}\n\nSay the following, and only this:\n\n${text}` }] }],
+		generationConfig: {
+			responseModalities: ['AUDIO'],
+			speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: v.voice } } }
+		}
+	});
+	const data = json.candidates?.[0]?.content?.parts?.find((p) => p.inlineData?.data)?.inlineData.data;
+	if (!data) throw new Error('no audio in response');
+	const raw = Buffer.from(data, 'base64');
+	const pcm = raw.toString('ascii', 0, 4) === 'RIFF' ? raw.subarray(44) : raw;
+	return { mp3: mp3(pcm), b64: wav(pcm).toString('base64'), mime: 'audio/wav' };
+}
 
 /**
  * Gemini TTS with an acting direction. The direction goes before the line and

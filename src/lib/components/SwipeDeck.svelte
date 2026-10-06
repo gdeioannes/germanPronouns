@@ -18,7 +18,7 @@
 	// and where the learner is (the level). Both redeal the stack at once.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS, type IconName } from '$lib/icons/paths';
-	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import DoneMark from '$lib/components/DoneMark.svelte';
 	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import { announce, radioKeys } from '$lib/a11y.svelte';
@@ -43,6 +43,7 @@
 		type DeckPace
 	} from '$lib/domain/deck';
 	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
+	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
 	import { untrack, type Snippet } from 'svelte';
@@ -162,6 +163,12 @@
 			reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id)
 		);
 		if (story) deck = [...deck.slice(0, Math.min(2, deck.length)), story, ...deck.slice(Math.min(2, deck.length))];
+		// The level's song, a few cards further down: two treats in a hand,
+		// never side by side.
+		const song = songDeckCard(course.id, deckLevel(course.quizzes, known, level), new Set(skipped), (id) =>
+			reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id)
+		);
+		if (song) deck = [...deck.slice(0, Math.min(5, deck.length)), song, ...deck.slice(Math.min(5, deck.length))];
 		if (resume) deck = [resume, ...deck];
 		handSize = deck.length;
 		dealt++;
@@ -215,7 +222,7 @@
 	const decided = $derived(Math.abs(dx) >= threshold);
 
 	function href(card: DeckCard) {
-		return storyCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
+		return storyCardHref(card) ?? songCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
 
 	function onDown(event: PointerEvent) {
@@ -403,7 +410,7 @@
 				{#each deck.slice(0, VISIBLE + 1).reverse() as card, i (card.quiz.id)}
 					{@const depth = Math.min(VISIBLE, deck.length - 1) - i}
 					{@const isTop = depth === 0}
-					{@const ribbon = facts?.[card.quiz.id]?.tier ?? null}
+					{@const ribbon = facts?.[card.quiz.id]?.mark ?? null}
 					{@const started = card.kind === 'continue' || inProgress.has(card.quiz.id)}
 					<div
 						class="card"
@@ -418,7 +425,7 @@
 						tabindex={isTop ? 0 : -1}
 						role="button"
 						aria-label={isTop
-							? `${card.quiz.title}. ${DECK_KIND_LABELS[card.kind]}, card ${handSize - deck.length + 1} of ${handSize}, ${card.quiz.level}, ${isStoryCard(card) ? 'interactive mystery' : typeLabel(card.quiz.type)}${started ? ', in progress' : ''}. ${card.reason} Press Enter to start, or the left arrow to skip.`
+							? `${card.quiz.title}. ${DECK_KIND_LABELS[card.kind]}, card ${handSize - deck.length + 1} of ${handSize}, ${card.quiz.level}, ${isStoryCard(card) ? 'interactive mystery' : isSongCard(card) ? 'sing-along' : typeLabel(card.quiz.type)}${started ? ', in progress' : ''}. ${card.reason} Press Enter to start, or the left arrow to skip.`
 							: undefined}
 						aria-hidden={isTop ? undefined : 'true'}
 						onpointerdown={isTop ? onDown : undefined}
@@ -444,7 +451,7 @@
 							</div>
 						{:else}
 							<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
-								<Icon name={QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
+								<Icon name={isSongCard(card) ? 'headphones' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
 							</span>
 						{/if}
 
@@ -460,8 +467,8 @@
 
 						<p class="meta">
 							<span class="chip">{card.quiz.level}</span>
-							<span class="chip">{isStoryCard(card) ? 'interactive mystery' : typeLabel(card.quiz.type)}</span>
-							{#if ribbon}<RibbonBadge tier={ribbon} width={14} />{/if}
+							<span class="chip">{isStoryCard(card) ? 'interactive mystery' : isSongCard(card) ? 'sing-along' : typeLabel(card.quiz.type)}</span>
+							{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
 						</p>
 					</div>
 				{/each}
@@ -534,7 +541,7 @@
 			</div>
 		{/each}
 	</div>
-	<p class="note">Finished exercises count too: the deck never starts below the furthest level you have done.</p>
+	<p class="note">Pick a level and the deck centres there. "Work it out" uses the furthest level you have finished anything in.</p>
 
 	{#snippet footer()}
 		<button type="button" class="deal" onclick={() => (chooserOpen = false)}>
@@ -1289,6 +1296,50 @@
 	@media (prefers-reduced-motion: reduce) {
 		.card[data-kind='story'],
 		.card[data-kind='story'] .art-band::before {
+			animation: none;
+		}
+	}
+	/* ---- the song card: the other EVENT in the hand -----------------------
+	   A daylight card next to the story's night one: warm paper, a terracotta
+	   frame, and a bouncing music mark — loud, not glowing. */
+	.card[data-kind='song'] {
+		background: linear-gradient(170deg, #fff4e6 0%, #ffe6cc 60%, #ffdcb8 100%);
+		border-color: var(--accent);
+		box-shadow:
+			0 10px 28px rgb(0 0 0 / 0.14),
+			0 0 0 1px rgb(200 90 50 / 0.45);
+	}
+	.card[data-kind='song'] .kind-label {
+		color: var(--accent-ink);
+		letter-spacing: 0.1em;
+	}
+	.card[data-kind='song'] .kind-label::before {
+		content: '♪ ';
+		display: inline-block;
+		animation: song-bounce 1.1s ease-in-out infinite;
+	}
+	@keyframes song-bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-0.18em);
+		}
+	}
+	.card[data-kind='song'] .type-disc {
+		background: var(--accent);
+		color: #fff;
+	}
+	.card[data-kind='song'] .stamp.yes {
+		color: var(--accent-ink);
+		border-color: var(--accent);
+	}
+	:global(html[data-effects='calm']) .card[data-kind='song'] .kind-label::before {
+		animation: none;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card[data-kind='song'] .kind-label::before {
 			animation: none;
 		}
 	}

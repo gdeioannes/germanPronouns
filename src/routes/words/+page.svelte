@@ -9,8 +9,7 @@
 	// index, so it stays light however many words the collections grow to.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { GENDER_ARTICLES, GENDER_COLORS } from '$lib/domain/gender';
-	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
-	import { DEFAULT_GATING } from '$lib/domain/progress';
+	import DoneMark from '$lib/components/DoneMark.svelte';
 	import { progress } from '$lib/state/progress.svelte';
 	import { vocab } from '$lib/state/vocab.svelte';
 	import { page } from '$app/state';
@@ -25,7 +24,7 @@
 	// they fill in after mount; the prerendered page shows the counts alone.
 	let statsReady = $state(false);
 	onMount(async () => {
-		if (!progress.loaded) await progress.load(DEFAULT_GATING);
+		if (!progress.loaded) await progress.load();
 		await progress.hydrateStats(
 			decks.flatMap((d) => (d.storageKeyPrefix ? [d.storageKeyPrefix] : []))
 		);
@@ -35,7 +34,7 @@
 
 	const ribbonOf = $derived((deck: (typeof decks)[number]) =>
 		statsReady && deck.quizId && deck.storageKeyPrefix
-			? progress.ribbonFor('vocabulary', deck.quizId, deck.storageKeyPrefix)
+			? progress.markFor('vocabulary', deck.quizId, deck.storageKeyPrefix)
 			: null
 	);
 	const weakOf = $derived((deck: (typeof decks)[number]) =>
@@ -106,7 +105,7 @@
 								<span class="deck-weak tnum"><Icon name="flame" size="0.9em" /> {weak} weak</span>
 							{/if}
 							{#if ribbon}
-								<span class="deck-ribbon"><RibbonBadge tier={ribbon} /></span>
+								<span class="deck-ribbon"><DoneMark mark={ribbon} width={18} /></span>
 							{/if}
 							<Icon name="arrowRight" size="1em" class="deck-go" />
 						</a>

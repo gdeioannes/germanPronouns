@@ -3,6 +3,7 @@
 	// finished-quiz stamp, floating praise and the answer edge glow. Mounted
 	// once in the root layout; pointer-transparent, so it never takes a tap.
 	import { fx } from '$lib/motion/fx.svelte';
+	import { TIER_COLORS } from '$lib/domain/progress';
 	import { unlockAudio } from '$lib/services/sounds';
 
 	// Browsers only start audio from a gesture: unlock it on the first one.
@@ -32,7 +33,12 @@
 
 	{#if fx.stamp}
 		{#key fx.stamp.id}
-			<div class="stamp"><span>{fx.stamp.text}</span></div>
+			<div class="stamp" class:medal={fx.stamp.medal} style:--metal={fx.stamp.medal ? TIER_COLORS[fx.stamp.medal] : null}>
+				<span>
+					{fx.stamp.text}
+					{#if fx.stamp.sub}<small>{fx.stamp.sub}</small>{/if}
+				</span>
+			</div>
 		{/key}
 	{/if}
 
@@ -147,6 +153,58 @@
 		100% {
 			opacity: 0;
 			transform: scale(0.92) rotate(-6deg);
+		}
+	}
+
+	/* The medal stamp: bigger, in the medal's metal, and it holds longer —
+	   the one moment that is allowed to stop the show. */
+	.stamp.medal span {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.15em;
+		padding: 0.45em 1.1em 0.55em;
+		border-width: 6px;
+		border-color: var(--metal);
+		color: var(--metal);
+		font-size: calc(var(--step-4) * 1.25);
+		box-shadow:
+			0 0 0 10px color-mix(in srgb, var(--metal) 22%, transparent),
+			0 24px 60px -20px var(--navy);
+		animation: medal 2600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+	}
+
+	.stamp.medal small {
+		font-family: 'Inter Variable', 'Inter', sans-serif;
+		font-size: 0.3em;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink);
+	}
+
+	@keyframes medal {
+		0% {
+			opacity: 0;
+			transform: scale(2.6) rotate(-16deg);
+		}
+		14% {
+			opacity: 1;
+			transform: scale(1) rotate(-4deg);
+		}
+		22% {
+			transform: scale(1.06) rotate(-4deg);
+		}
+		30% {
+			transform: scale(1) rotate(-4deg);
+		}
+		82% {
+			opacity: 1;
+			transform: scale(1) rotate(-4deg);
+		}
+		100% {
+			opacity: 0;
+			transform: scale(0.9) rotate(-4deg);
 		}
 	}
 

@@ -49,9 +49,11 @@ describe('courseLevels / deckLevel', () => {
 		expect(deckLevel(COURSE, {}, null)).toBe('A1.1');
 	});
 
-	it('takes the picked level, or the furthest finished one if that is further', () => {
+	it('takes the picked level outright, and the furthest finished one only without a pick', () => {
 		expect(deckLevel(COURSE, {}, 'A2.1')).toBe('A2.1');
-		expect(deckLevel(COURSE, { reise: done() }, 'A1.1')).toBe('A2.1');
+		// A learner who finished A2.1 and then picks A1.1 gets A1.1: a pick is a pick.
+		expect(deckLevel(COURSE, { reise: done() }, 'A1.1')).toBe('A1.1');
+		expect(deckLevel(COURSE, { reise: done() }, null)).toBe('A2.1');
 	});
 });
 

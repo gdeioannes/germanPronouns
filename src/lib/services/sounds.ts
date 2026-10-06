@@ -76,7 +76,7 @@ function note(
 /** Frequency `semitones` above `base`. */
 const up = (base: number, semitones: number) => base * 2 ** (semitones / 12);
 
-export type Sound = 'right' | 'wrong' | 'milestone' | 'complete';
+export type Sound = 'right' | 'wrong' | 'milestone' | 'complete' | 'medal';
 
 // ── The streak progression ──────────────────────────────────────────────
 //
@@ -183,6 +183,20 @@ export function playSound(sound: Sound, streak = 0): void {
 			}
 			[2093, 2637.02, 3135.96].forEach((f, i) =>
 				note(ac, f, t + 0.36 + i * 0.06, 0.18, { type: 'sine', volume: 0.04 })
+			);
+			break;
+		case 'medal':
+			// The medal fanfare: the finish's call twice, a step higher the
+			// second time, landing on a big held chord that shimmers out.
+			[392, 523.25, 659.25, 783.99].forEach((f, i) => note(ac, f, t + i * 0.09, 0.16, { volume: 0.14 }));
+			[440, 587.33, 739.99, 880].forEach((f, i) =>
+				note(ac, f, t + 0.42 + i * 0.09, 0.16, { volume: 0.15 })
+			);
+			for (const f of [587.33, 739.99, 880, 1174.66, 1479.98]) {
+				note(ac, f, t + 0.84, 1.4, { volume: 0.07 });
+			}
+			[2349.32, 2959.96, 3520, 4698.64].forEach((f, i) =>
+				note(ac, f, t + 0.9 + i * 0.08, 0.26, { type: 'sine', volume: 0.035 })
 			);
 			break;
 	}

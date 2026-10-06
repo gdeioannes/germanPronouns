@@ -5,10 +5,11 @@
 	// The course home: a swipe deck of exercises dealt from the learner's level
 	// and progress (the main event), a progress ring, and — folded away below —
 	// the full CEFR ladder for anyone who wants to browse rather than be dealt.
-	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import DoneMark from '$lib/components/DoneMark.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SwipeDeck from '$lib/components/SwipeDeck.svelte';
 	import { STORY_EPISODES, type StoryEpisode } from '$lib/domain/stories';
+	import { SONGS, type Song } from '$lib/domain/songs';
 	import ProgressPanel from '$lib/components/ProgressPanel.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -17,7 +18,6 @@
 	import { Tween } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { buildLadder, courseProgress, nextQuiz } from '$lib/domain/ladder';
-	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { deckLevel, typeLabel } from '$lib/domain/deck';
 	import { levelLine, percentOf, progressStats } from '$lib/domain/stats';
 	import type { QuizFacts } from '$lib/domain/recommend';
@@ -36,7 +36,7 @@
 	// would invalidate the effect and re-enter it — an update-depth crash that
 	// takes the whole page down. onMount has no reactive dependencies at all.
 	onMount(async () => {
-		if (!progress.loaded) await progress.load(course.gating ?? DEFAULT_GATING);
+		if (!progress.loaded) await progress.load();
 		// The ribbons and the ring read the streaks, which load lazily — pull in
 		// this course's, or they all render as zero.
 		await progress.hydrateStats(course.quizzes.map((quiz) => quiz.storageKeyPrefix));
@@ -77,6 +77,14 @@
 			return afterQuiz === null ? !placed : e.after === afterQuiz;
 		});
 	}
+	/** Same placement rule for the level's songs. */
+	function songsAt(level: string, afterQuiz: string | null, quizzes: { id: string }[]): Song[] {
+		return SONGS.filter((s) => {
+			if (s.courseId !== course.id || s.level !== level) return false;
+			const placed = s.after && quizzes.some((q) => q.id === s.after);
+			return afterQuiz === null ? !placed : s.after === afterQuiz;
+		});
+	}
 	const totals = $derived(courseProgress(ladder));
 	const resume = $derived(nextQuiz(ladder, isDone));
 	const finished = $derived(progress.loaded && !resume);
@@ -108,6 +116,18 @@
 			<span class="story-text">
 				<strong>🕵️ {e.title}</strong>
 				<span>Interactive mystery — {e.tagline}</span>
+			</span>
+		</a>
+	</li>
+{/snippet}
+
+{#snippet songRow(s: Song)}
+	<li class="story-item">
+		<a class="story-row song-row" href={s.href}>
+			<span class="song-mark" aria-hidden="true">♪</span>
+			<span class="story-text">
+				<strong>🎤 {s.title}</strong>
+				<span>Sing-along — {s.tagline}</span>
 			</span>
 		</a>
 	</li>
@@ -226,9 +246,12 @@
 					{#each storiesAt(level.level, null, level.quizzes) as e (e.id)}
 						{@render storyRow(e)}
 					{/each}
+					{#each songsAt(level.level, null, level.quizzes) as s (s.id)}
+						{@render songRow(s)}
+					{/each}
 					{#each level.quizzes as quiz (quiz.id)}
 						{@const ribbon = progress.loaded
-							? progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
+							? progress.markFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
 							: null}
 						<li>
 							<a href="/course/{course.id}/quiz/{quiz.id}">
@@ -236,12 +259,15 @@
 									<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" />
 								</span>
 								<span class="title">{quiz.title}</span>
-								{#if ribbon}<RibbonBadge tier={ribbon} width={13} />
+								{#if ribbon}<DoneMark mark={ribbon} width={13} />
 								{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}
 							</a>
 						</li>
 						{#each storiesAt(level.level, quiz.id, level.quizzes) as e (e.id)}
 							{@render storyRow(e)}
+						{/each}
+						{#each songsAt(level.level, quiz.id, level.quizzes) as s (s.id)}
+							{@render songRow(s)}
 						{/each}
 					{/each}
 				</ul>
@@ -267,6 +293,18 @@
 		margin-bottom: 0.75rem;
 		text-decoration: none;
 		color: inherit;
+	}
+	.song-mark {
+		flex: none;
+		width: 4.5rem;
+		aspect-ratio: 4 / 3;
+		display: grid;
+		place-items: center;
+		border-radius: 8px;
+		background: var(--accent);
+		color: #fff;
+		font-size: 1.6rem;
+		line-height: 1;
 	}
 	.story-row img {
 		width: 4.5rem;

@@ -13,6 +13,7 @@ export async function loadQuizFacts(quizzes: QuizSummary[]): Promise<Record<stri
 		out[quiz.id] = {
 			done: progress.isCompleted(quiz.type, quiz.id, quiz.storageKeyPrefix),
 			tier: progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix),
+			mark: progress.markFor(quiz.type, quiz.id, quiz.storageKeyPrefix),
 			answered: history.answered,
 			mistakeRate: history.mistakeRate,
 			recentMistakeRate: history.recentMistakeRate,

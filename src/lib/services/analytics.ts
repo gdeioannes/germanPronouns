@@ -17,7 +17,14 @@
 import { browser, dev } from '$app/environment';
 import { env } from '$env/dynamic/public';
 
+/** Humans only: bots are dropped before sending, so this dashboard counts people. */
 const DEFAULT_APP_KEY = 'A-EU-8128921580';
+/**
+ * Everything, bots included: the same events go to this second Aptabase app
+ * too, each tagged with a `bot` prop so the dashboard can still split them.
+ * Override with PUBLIC_APTABASE_ALL_APP_KEY (empty = this sink off).
+ */
+const DEFAULT_ALL_APP_KEY = 'A-EU-2341128762';
 
 /** Ingestion host per key region, as the Aptabase SDKs resolve them. */
 const HOSTS: Record<string, string> = {
@@ -26,19 +33,30 @@ const HOSTS: Record<string, string> = {
 	DEV: 'https://localhost:3000'
 };
 
-const appKey = env.PUBLIC_APTABASE_APP_KEY ?? DEFAULT_APP_KEY;
-const region = appKey.split('-')[1] ?? '';
-/** A self-hosted key (region `SH`) needs its host given explicitly. */
-const host = env.PUBLIC_APTABASE_HOST || HOSTS[region] || '';
+type Sink = { appKey: string; host: string; includeBots: boolean };
 
-/** Only a well-formed `A-REG-0000000000` key with a known host can send. */
-const enabled = appKey.split('-').length === 3 && host !== '';
+/** A sink for a key, or null when the key is malformed or has no known host. */
+function makeSink(appKey: string, includeBots: boolean): Sink | null {
+	const parts = appKey.split('-');
+	const region = parts[1] ?? '';
+	/** A self-hosted key (region `SH`) needs its host given explicitly. */
+	const host = env.PUBLIC_APTABASE_HOST || HOSTS[region] || '';
+	/** Only a well-formed `A-REG-0000000000` key with a known host can send. */
+	return parts.length === 3 && host !== '' ? { appKey, host, includeBots } : null;
+}
+
+const sinks: Sink[] = [
+	makeSink(env.PUBLIC_APTABASE_APP_KEY ?? DEFAULT_APP_KEY, false),
+	makeSink(env.PUBLIC_APTABASE_ALL_APP_KEY ?? DEFAULT_ALL_APP_KEY, true)
+].filter((sink): sink is Sink => sink !== null);
+
+const enabled = sinks.length > 0;
 
 /** A session is a run of activity; after this much idle time, a new one starts. */
 const SESSION_TIMEOUT_MS = 60 * 60 * 1000;
 
-// Bot handling: bots are dropped, never sent, so the dashboard counts humans
-// only. The regex matches the crawlers/tools that execute JS; webdriver
+// Bot handling: the humans-only sink never receives bot events; the
+// everything sink gets them tagged `bot: true`. The regex matches the crawlers/tools that execute JS; webdriver
 // catches headless automation (Puppeteer/Playwright) even behind a spoofed UA.
 const BOT_UA =
 	/bot|spider|crawl|preview|headless|slurp|facebookexternalhit|whatsapp|telegram|lighthouse|gtmetrix|pingdom|uptime|monitor|scrape|wget|curl|python|node-fetch|axios/i;
@@ -273,31 +291,37 @@ function currentSession(): string {
  * page, so every failure is swallowed.
  */
 export function track(name: string, props: Record<string, string | number | boolean> = {}): void {
-	if (!browser || !enabled || isBot()) return;
-	void fetch(`${host}/api/v0/event`, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json', 'App-Key': appKey },
-		// The request must not hold a navigation open.
-		keepalive: true,
-		body: JSON.stringify({
-			timestamp: new Date().toISOString(),
-			sessionId: currentSession(),
-			eventName: name,
-			systemProps: {
-				isDebug: dev,
-				locale: navigator.language,
-				appVersion: '',
-				sdkVersion: 'aptabase-web-fetch@1.0.0'
-			},
-			props: {
-				...(attribution ??= resolveAttribution()),
-				...(tenure ??= resolveTenure()),
-				...props
-			}
-		})
-	}).catch(() => {
-		// Dropped. An event is never worth a console error in a learner's browser.
+	if (!browser || !enabled) return;
+	const bot = isBot();
+	const body = JSON.stringify({
+		timestamp: new Date().toISOString(),
+		sessionId: currentSession(),
+		eventName: name,
+		systemProps: {
+			isDebug: dev,
+			locale: navigator.language,
+			appVersion: '',
+			sdkVersion: 'aptabase-web-fetch@1.0.0'
+		},
+		props: {
+			...(attribution ??= resolveAttribution()),
+			...(tenure ??= resolveTenure()),
+			...props,
+			bot
+		}
 	});
+	for (const sink of sinks) {
+		if (bot && !sink.includeBots) continue;
+		void fetch(`${sink.host}/api/v0/event`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json', 'App-Key': sink.appKey },
+			// The request must not hold a navigation open.
+			keepalive: true,
+			body
+		}).catch(() => {
+			// Dropped. An event is never worth a console error in a learner's browser.
+		});
+	}
 }
 
 // `engaged` fires once per visit, the first time the visitor behaves like a

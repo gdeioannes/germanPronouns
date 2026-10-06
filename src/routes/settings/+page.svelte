@@ -13,7 +13,6 @@
 	import { catalog } from '$lib/content';
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
-	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { progress, type AnswerRevealMode } from '$lib/state/progress.svelte';
 	import { announce, radioKeys } from '$lib/a11y.svelte';
 	import type { PopulatedCourse } from '$lib/content/types';
@@ -26,7 +25,7 @@
 		(async () => {
 			const loaded = await loadCourse(catalog.defaultCourseId);
 			course = loaded;
-			if (!progress.loaded) await progress.load(loaded.gating ?? DEFAULT_GATING);
+			if (!progress.loaded) await progress.load();
 		})();
 	});
 

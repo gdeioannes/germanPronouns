@@ -23,7 +23,7 @@
 	} from '$lib/seo';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
-	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import DoneMark from '$lib/components/DoneMark.svelte';
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
 	import FillBlankQuiz from '$lib/components/quiz/FillBlankQuiz.svelte';
 	import InlineClozeQuiz from '$lib/components/quiz/InlineClozeQuiz.svelte';
@@ -38,8 +38,8 @@
 	import { cubicOut } from 'svelte/easing';
 	import { isInlineCloze } from '$lib/content/types';
 	import { SettingsKeys } from '$lib/domain/keys';
-	import { DEFAULT_GATING } from '$lib/domain/progress';
 	import { celebrate } from '$lib/motion/fx.svelte';
+	import { playSound } from '$lib/services/sounds';
 	import { progress } from '$lib/state/progress.svelte';
 	import { storage } from '$lib/services/storage';
 	import { clearOpened, clearSpot, markOpened } from '$lib/state/resume';
@@ -142,6 +142,19 @@
 	let finished = $state(false);
 	/** The "finished" bar can be waved away to look back over the answers. */
 	let doneDismissed = $state(false);
+	/** Bumped by "Try again": the exercise remounts and starts over. */
+	let attempt = $state(0);
+
+	/**
+	 * Try again, for every kind: the exercise is mounted afresh. A drill gets
+	 * a fresh bar (its streak is in the store and carries on); a passage or
+	 * dictation starts from its first question.
+	 */
+	function tryAgain() {
+		attempt += 1;
+		finished = false;
+		doneDismissed = false;
+	}
 
 	$effect(() => {
 		// Remembered so the deck can offer it again if the learner leaves early.
@@ -151,19 +164,17 @@
 	});
 
 	$effect(() => {
-		if (!progress.loaded) progress.load(course.gating ?? DEFAULT_GATING);
+		if (!progress.loaded) progress.load();
 	});
 
 	const ribbon = $derived(
 		progress.loaded
-			? progress.ribbonFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
+			? progress.markFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
 			: null
 	);
 
-	/** Marks the quiz done and unlocks the next rung of the chain. */
-	async function complete() {
-		// Quizzes re-fire onGoalReached on every correct answer past the goal;
-		// mark once, celebrate once.
+	/** Marks the quiz done — the quest set, the finished bar. Idempotent. */
+	async function markDone() {
 		if (finished) return;
 		finished = true;
 		await progress.markCompleted(quiz.type, quiz.id);
@@ -172,12 +183,33 @@
 		clearOpened(quiz.id);
 		clearSpot(quiz.storageKeyPrefix);
 		track('quiz_completed', { course: course.id, quiz: quiz.id, type: quiz.type });
+	}
+
+	/** A play-through kind finished: mark it and celebrate, once per visit. */
+	async function complete() {
+		if (finished) return;
+		await markDone();
 		celebrate();
+	}
+
+	/**
+	 * A drill's run ended. Every finished run marks the exercise, whatever
+	 * the score — the mark itself says how it went (done tick, or try again).
+	 * A pass gets the fireworks; a weaker run just the chime. The medal, if
+	 * the streak earned one, was celebrated on the answer that crossed it.
+	 */
+	function runFinished(passed: boolean) {
+		void markDone();
+		doneDismissed = false;
+		if (passed) celebrate();
+		else playSound('complete');
 	}
 
 	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
 	/** Back to the swipe deck for the next card. */
 	const homeHref = $derived(`/course/${course.id}`);
+	/** What the finish bar says the exercise was marked as. */
+	const markedAs = $derived(ribbon === 'retry' ? 'Marked for another go.' : 'Marked complete.');
 
 	// Finishing never navigates on its own, and Enter is NOT a shortcut out:
 	// the quizzes use Enter to skip to the next question, so a learner still
@@ -195,7 +227,7 @@
 	jsonLd={[learningResourceLd(quiz, path, course.name, `/course/${course.id}`), breadcrumbLd(crumbs)]}
 />
 
-<div class="screen">
+<div class="screen" class:with-done={finished && !doneDismissed}>
 	<header class="top">
 		<a class="back" href="/course/{course.id}" aria-label="Back to your deck" title="Back to your deck">
 			<Icon name="arrowLeft" size="1.15em" />
@@ -213,21 +245,27 @@
 		</div>
 
 		{#if ribbon}
-			<span class="ribbon"><RibbonBadge tier={ribbon} animate={finished} width={16} /></span>
+			<span class="ribbon"><DoneMark mark={ribbon} animate={finished} width={16} /></span>
 		{/if}
 
 		<div class="tools">
 			{#if lessonSteps}
-				<!-- The two modes, side by side: the lesson is half the page, not a
-				     footnote to it. -->
-				<div class="modes" role="group" aria-label="Mode">
-					<button type="button" aria-label="Learn" aria-pressed={learning} onclick={() => (mode = 'learn')}>
-						<Icon name="book" size="1.05em" /><span>Learn</span>
-					</button>
-					<button type="button" aria-label="Practise" aria-pressed={!learning} onclick={practise}>
-						<Icon name="pen" size="1.05em" /><span>Practise</span>
-					</button>
-				</div>
+				<!-- One switch between the two modes: it shows where you are, and a
+				     tap flips to the other side. The lesson is half the page, not a
+				     footnote to it, so the switch sits where the notes button would. -->
+				<button
+					type="button"
+					class="mode-switch"
+					role="switch"
+					aria-checked={!learning}
+					aria-label="Practise mode"
+					title={learning ? 'Switch to the exercise' : 'Switch to the lesson'}
+					onclick={() => (learning ? practise() : (mode = 'learn'))}
+				>
+					<span class="side" class:on={learning}><Icon name="book" size="1em" /><span>Learn</span></span>
+					<span class="knob" aria-hidden="true"></span>
+					<span class="side" class:on={!learning}><Icon name="pen" size="1em" /><span>Practise</span></span>
+				</button>
 			{:else if hasNotes}
 				<button
 					type="button"
@@ -269,6 +307,7 @@
 			</div>
 		{/if}
 		<div class="pane exercise" class:parked={learning} inert={learning}>
+		{#key attempt}
 		{#if quiz.game === 'numberTasks' && quiz.type === 'fillBlank'}
 			<NumberTasks {quiz} locale={course.learnLocale} onFinish={complete} />
 		{:else if quiz.type === 'fillBlank'}
@@ -276,7 +315,7 @@
 				{quiz}
 				locale={course.learnLocale}
 				onAnswer={() => {}}
-				onGoalReached={complete}
+				onRunFinished={runFinished}
 			/>
 		{:else if quiz.type === 'reading'}
 			<!-- Two shapes share this type: a passage with questions, and the "big
@@ -324,10 +363,11 @@
 				{quiz}
 				courseId={course.id}
 				locale={course.learnLocale}
-				onGoalReached={complete}
+				onRunFinished={runFinished}
 				{focusWord}
 			/>
 		{/if}
+		{/key}
 		</div>
 	</main>
 </div>
@@ -338,21 +378,22 @@
 	<aside class="done" transition:fly={{ y: 40, duration: 320, easing: cubicOut }}>
 		<p class="done-line">
 			<Icon name="check" size="1.15em" />
-			<span><strong>Finished.</strong> Marked complete.</span>
+			<span><strong>Finished.</strong> {markedAs}</span>
 			<button type="button" class="done-close" aria-label="Hide" onclick={() => (doneDismissed = true)}>
 				<Icon name="close" size="1em" />
 			</button>
 		</p>
+		<!-- The same three ways on for every kind of exercise. -->
 		<div class="done-actions">
-			<a class="btn" href={homeHref}>
-				Deal me another card
-				<Icon name="arrowRight" size="1em" />
+			<button type="button" class="btn" class:btn-ghost={ribbon !== 'retry'} onclick={tryAgain}>
+				<Icon name="repeat" size="1em" /> Try again
+			</button>
+			<a class="btn" class:btn-ghost={ribbon === 'retry'} href={nextHref} title={next ? topicOf(next.title) : 'Back to your deck'}>
+				Next quiz <Icon name="arrowRight" size="1em" />
 			</a>
-			{#if next}
-				<a class="btn btn-ghost" href={nextHref}>
-					Next in order: {topicOf(next.title)}
-				</a>
-			{/if}
+			<a class="btn btn-ghost" href={homeHref}>
+				<Icon name="cards" size="1em" /> Deal me another card
+			</a>
 		</div>
 	</aside>
 {/if}
@@ -534,41 +575,68 @@
 		color: #fff;
 	}
 
-	/* Learn | Practise: one pill, the current half filled. */
-	.modes {
-		display: inline-flex;
+	/* Learn ⇄ Practise: one switch. The two labels sit either side of a knob
+	   that slides to the live one; the whole thing is a single button, so a
+	   tap anywhere flips it. */
+	.mode-switch {
+		position: relative;
+		display: inline-grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		height: 2.5rem;
 		padding: 0.2rem;
 		border: 1px solid var(--line-strong);
 		border-radius: 999px;
 		background: var(--surface);
+		font: inherit;
+		cursor: pointer;
+		transition: border-color var(--fast) var(--ease-out);
 	}
 
-	.modes button {
+	.mode-switch:hover {
+		border-color: var(--accent);
+	}
+
+	.mode-switch .side {
+		position: relative;
+		z-index: 1;
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 0.35rem;
 		height: 2.1rem;
 		padding: 0 0.85rem;
-		border: 0;
 		border-radius: 999px;
-		background: none;
 		color: var(--ink-muted);
-		font: inherit;
 		font-size: var(--step--1);
 		font-weight: 700;
-		cursor: pointer;
-		transition:
-			background var(--fast) var(--ease-out),
-			color var(--fast) var(--ease-out);
+		transition: color var(--medium) var(--ease-out);
 	}
 
-	.modes button:hover {
-		color: var(--accent-ink);
-	}
-
-	.modes button[aria-pressed='true'] {
-		background: var(--navy);
+	.mode-switch .side.on {
 		color: var(--paper);
+	}
+
+	/* The knob: the filled half, sliding under whichever side is live. */
+	.mode-switch .knob {
+		position: absolute;
+		top: 0.2rem;
+		bottom: 0.2rem;
+		left: 0.2rem;
+		width: calc(50% - 0.2rem);
+		border-radius: 999px;
+		background: var(--navy);
+		transition: transform var(--medium) var(--ease-spring);
+	}
+
+	.mode-switch[aria-checked='true'] .knob {
+		transform: translateX(100%);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mode-switch .knob {
+			transition: none;
+		}
 	}
 
 	/* The lesson and the exercise take turns on the stage; the one waiting is
@@ -650,6 +718,11 @@
 	}
 
 	/* -- finished bar -------------------------------------------------------- */
+
+	/* Room under the exercise while the bar is up, so it covers nothing. */
+	.with-done .stage {
+		padding-bottom: 8.5rem;
+	}
 
 	.done {
 		position: fixed;
@@ -802,21 +875,27 @@
 		.tool-label {
 			display: none;
 		}
-		.modes button {
+		.mode-switch {
+			height: 2.35rem;
+		}
+		.mode-switch .side {
 			height: 1.95rem;
 			padding: 0 0.6rem;
 		}
-		/* Only the current mode is named: the title needs the room more. */
-		.modes button[aria-pressed='false'] span {
-			display: none;
-		}
+
 		/* Tight to the header: the on-screen keyboard rises over the lower
 		   half, and the answer field must stay above it. */
 		.stage {
 			padding-top: 0.25rem;
 		}
 		.done-actions .btn {
-			flex: 1 1 100%;
+			flex: 1 1 calc(50% - 0.3rem);
+		}
+		.done-actions .btn:last-child {
+			flex-basis: 100%;
+		}
+		.with-done .stage {
+			padding-bottom: 11rem;
 		}
 	}
 </style>

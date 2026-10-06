@@ -53,11 +53,14 @@ export function quizStatsKeys(prefix: string) {
 		mistakesByCase: `${prefix}quiz_mistakes_by_case`,
 		score: `${prefix}quiz_score`,
 		streak: `${prefix}quiz_streak`,
+		/** Legacy: the lives a streak once had. Written by the old builds; nothing reads it now. */
 		streakMisses: `${prefix}quiz_streak_misses`,
 		bestStreakLap: `${prefix}quiz_best_streak_lap`,
 		bestStreakAbsolute: `${prefix}quiz_best_streak_absolute`,
 		/** Epoch ms of the last finish, for the play-through kinds that keep no answer history. */
 		lastPlayed: `${prefix}quiz_last_played`,
+		/** Web-only. Each finished run of a drill: when, how many right, best streak. */
+		runLog: `${prefix}quiz_run_log`,
 		enabledSubjects: `${prefix}quiz_enabled_pronouns`,
 		enabledCategories: `${prefix}quiz_enabled_cases`
 	};
