@@ -262,9 +262,13 @@
 					title={learning ? 'Switch to the exercise' : 'Switch to the lesson'}
 					onclick={() => (learning ? practise() : (mode = 'learn'))}
 				>
-					<span class="side" class:on={learning}><Icon name="book" size="1em" /><span>Learn</span></span>
+					<span class="side" class:on={learning}>
+						<Icon name="book" size="1em" /><span class="side-label">Learn</span>
+					</span>
 					<span class="knob" aria-hidden="true"></span>
-					<span class="side" class:on={!learning}><Icon name="pen" size="1em" /><span>Practise</span></span>
+					<span class="side" class:on={!learning}>
+						<Icon name="pen" size="1em" /><span class="side-label">Practise</span>
+					</span>
 				</button>
 			{:else if hasNotes}
 				<button
@@ -875,12 +879,26 @@
 		.tool-label {
 			display: none;
 		}
+		/* The switch drops to its two icons: the book and the pen carry the
+		   meaning, and the header has no room for the words next to a long
+		   German title. The button keeps its label for a screen reader. */
 		.mode-switch {
 			height: 2.35rem;
 		}
 		.mode-switch .side {
 			height: 1.95rem;
-			padding: 0 0.6rem;
+			padding: 0 0.75rem;
+			font-size: var(--step-0);
+		}
+		.mode-switch .side-label {
+			/* Not display:none — the words stay for a screen reader that reads
+			   the switch's two halves rather than its label. */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip-path: inset(50%);
+			white-space: nowrap;
 		}
 
 		/* Tight to the header: the on-screen keyboard rises over the lower
