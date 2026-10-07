@@ -6,7 +6,8 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { markSongHeard, songHeard, type Song } from '$lib/domain/songs';
-	import { breadcrumbLd } from '$lib/seo';
+	import { breadcrumbLd, shareImage, songDescription, songLd, songTitle } from '$lib/seo';
+	import { announce } from '$lib/a11y.svelte';
 	import { onMount } from 'svelte';
 
 	let { song, courseName }: { song: Song; courseName: string } = $props();
@@ -58,6 +59,7 @@
 	function setHeard(value: boolean) {
 		heard = value;
 		markSongHeard(song.id, value);
+		announce(value ? 'Marked as heard. The deck will not deal this song again.' : 'Unmarked. The song can come round again.');
 	}
 
 	function clock(seconds: number): string {
@@ -68,12 +70,18 @@
 </script>
 
 <Seo
-	title="{song.title} — a German sing-along ({song.level})"
-	description="A funny German rap for beginners: {song.tagline} With the recording, the lyrics, and what it teaches."
+	title={songTitle(song)}
+	description={songDescription(song)}
 	path={song.href}
+	type="article"
+	image={shareImage('level', song.level)}
+	imageAlt="German {song.level} sing-along: {song.title}"
 	jsonLd={[
+		songLd(song, courseName),
 		breadcrumbLd([
+			{ name: 'Home', path: '/' },
 			{ name: courseName, path: `/course/${song.courseId}` },
+			{ name: song.level, path: `/course/${song.courseId}/level/${song.level}` },
 			{ name: song.title, path: song.href }
 		])
 	]}
@@ -134,9 +142,9 @@
 
 	<section class="teaches">
 		<h2>What you’ll be shouting</h2>
-		<ul>
+		<ul role="list">
 			{#each song.teaches as item}
-				<li lang="de">{item}</li>
+				<li>{item}</li>
 			{/each}
 		</ul>
 	</section>
@@ -145,7 +153,7 @@
 		{#each song.sections as section, i (i)}
 			<h2>{section.title}</h2>
 			{#if section.note}<p class="note">({section.note})</p>{/if}
-			<ol class="lines">
+			<ol class="lines" role="list">
 				{#each section.lines as line, j (j)}
 					<li class:de={line.lang === 'de'}>
 						<span class="text" lang={line.lang}>{line.text}</span>

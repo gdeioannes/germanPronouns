@@ -3,6 +3,7 @@ import { SITE_URL } from '$lib/seo';
 import { coursePaths, lastModified, SHARED_WORD_PATHS } from '$lib/server/lastmod';
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
+import { SONGS } from '$lib/domain/songs';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -39,6 +40,16 @@ export const GET: RequestHandler = async () => {
 		for (const quiz of course.quizzes) {
 			urls.push({ loc: `/course/${card.id}/quiz/${quiz.id}`, lastmod, priority: '0.7' });
 		}
+	}
+
+	// The sing-along pages. Story episodes are deliberately absent: they are
+	// noindex, because an episode read out of the course spoils itself.
+	for (const song of SONGS) {
+		urls.push({
+			loc: song.href,
+			lastmod: lastModified('src/lib/domain/songs.ts'),
+			priority: '0.6'
+		});
 	}
 
 	for (const n of nouns) {

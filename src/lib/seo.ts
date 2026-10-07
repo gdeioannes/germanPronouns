@@ -293,3 +293,61 @@ export function definedTermLd(term: {
 		}
 	};
 }
+
+/** What a song page needs to describe itself: the registry's Song, loosely. */
+export type SongSeo = {
+	title: string;
+	level: string;
+	tagline: string;
+	teaches: string[];
+	href: string;
+	courseId: string;
+};
+
+/**
+ * Search title for a sing-along. The song's name comes first — it is what
+ * someone who heard it types — then what the page is and the level.
+ */
+export function songTitle(song: SongSeo): string {
+	return titleWithSite(`${song.title} — German sing-along (${song.level})`, 70);
+}
+
+/**
+ * Meta description for a sing-along: the tagline, then what the page holds.
+ * Clipped, because a tagline is written for the card, not for a result.
+ */
+export function songDescription(song: SongSeo): string {
+	const opening = `German ${cefrOf(song.level)} sing-along. ${song.tagline}`;
+	const padded = `${opening} Recording, lyrics and translations, free.`.replace(/\s+/g, ' ');
+	return padded.length <= 155 ? padded : clip(opening);
+}
+
+/**
+ * A sing-along as structured data: a recording that is also a learning
+ * resource, so it can surface for the song as well as for the grammar it
+ * drills. Songs carry no score, hence `interactivityType: 'mixed'`.
+ */
+export function songLd(song: SongSeo, courseName: string) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': ['LearningResource', 'MusicRecording'],
+		name: song.title,
+		description: songDescription(song),
+		url: absoluteUrl(song.href),
+		inLanguage: ['en', 'de'],
+		learningResourceType: 'Song',
+		educationalLevel: `CEFR ${cefrOf(song.level)}`,
+		teaches: song.teaches,
+		about: { '@type': 'Thing', name: 'German language' },
+		isAccessibleForFree: true,
+		interactivityType: 'mixed',
+		educationalUse: 'practice',
+		...accessibilityOf('listening'),
+		provider: ORGANIZATION,
+		isPartOf: {
+			'@type': 'Course',
+			name: courseName,
+			url: absoluteUrl(`/course/${song.courseId}`)
+		}
+	};
+}

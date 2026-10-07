@@ -31,7 +31,13 @@
 	import { joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
 	import { tick, untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
-	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE, type RibbonTier } from '$lib/domain/progress';
+	import {
+		medalAnnouncement,
+		RUN_LENGTH,
+		runPassed,
+		STREAK_LAP_SIZE,
+		type RibbonTier
+	} from '$lib/domain/progress';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
@@ -369,8 +375,16 @@
 			else next();
 		};
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
-		if (correct) announce('Correct.');
-		else announce('Not quite. The answer is:', filledSentence(current.sentence, canonical), locale);
+		// One announcement per answer: a second call replaces the first, so a
+		// medal is said inside it rather than after it.
+		const medal = stats.earned ? ` ${medalAnnouncement(stats.earned, stats.streak)}` : '';
+		if (correct) announce(`Correct.${medal}`);
+		else
+			announce([
+				{ text: 'Not quite. The answer is:' },
+				{ text: filledSentence(current.sentence, canonical), lang: locale },
+				...(medal ? [{ text: medal }] : [])
+			]);
 		if (correct) {
 			answers = [...canonical];
 		} else {

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { SONGS, songDeckCard } from "./songs";
+import { songDescription, songLd, songTitle } from "$lib/seo";
 
 describe("SONGS registry", () => {
   it("every song has a route, a recording and lyrics", () => {
@@ -56,5 +57,33 @@ describe("songDeckCard", () => {
         never,
       ),
     ).toBeNull();
+  });
+});
+
+describe("song pages describe themselves to search engines", () => {
+  it("keeps every title and description inside what a result shows", () => {
+    for (const s of SONGS) {
+      // A result shows roughly 60-70 characters of title, 155 of description.
+      expect(songTitle(s).length).toBeLessThanOrEqual(70);
+      expect(songDescription(s).length).toBeLessThanOrEqual(155);
+      // The song's own name has to survive the clipping: it is what is searched.
+      expect(songTitle(s)).toContain(s.title);
+      expect(songDescription(s).length).toBeGreaterThan(70);
+    }
+  });
+
+  it("gives every song its own title — a shared one splits its ranking", () => {
+    const titles = SONGS.map(songTitle);
+    expect(new Set(titles).size).toBe(titles.length);
+  });
+
+  it("names the grammar it teaches in its structured data", () => {
+    for (const s of SONGS) {
+      const ld = songLd(s, "German Course A1–C2") as Record<string, unknown>;
+      expect(ld["@type"]).toContain("MusicRecording");
+      expect(ld.teaches).toEqual(s.teaches);
+      expect(ld.url).toBe(`https://languagequiz.org${s.href}`);
+      expect(ld.isAccessibleForFree).toBe(true);
+    }
   });
 });

@@ -19,7 +19,13 @@
 	import { celebrateMedal, react, shakeOn } from '$lib/motion/fx.svelte';
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
-	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE, type RibbonTier } from '$lib/domain/progress';
+	import {
+		medalAnnouncement,
+		RUN_LENGTH,
+		runPassed,
+		STREAK_LAP_SIZE,
+		type RibbonTier
+	} from '$lib/domain/progress';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
@@ -269,8 +275,14 @@
 			earned = stats.earned;
 			celebrateMedal(stats.earned, stats.streak);
 		}
-		if (correct) announce('Correct.', target, locale);
-		else announce('Not quite. It is:', target, locale);
+		// One announcement per answer: a second call replaces the first, so the
+		// medal — a stamp and a fanfare the effects layer hides — is said here.
+		const medal = stats.earned ? medalAnnouncement(stats.earned, stats.streak) : '';
+		announce([
+			{ text: correct ? 'Correct.' : 'Not quite. It is:' },
+			{ text: target, lang: locale },
+			...(medal ? [{ text: medal }] : [])
+		]);
 
 		// The back stays up long enough to read; a miss earns a longer look.
 		// Enter deals the next card straight away — once the card has turned,

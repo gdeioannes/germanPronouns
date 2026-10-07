@@ -44,13 +44,23 @@
 		return (Math.atan2(b.x - a.x, a.y - b.y) * 180) / Math.PI;
 	});
 	const streets = $derived(STREET_LABELS.filter((s) => streetLabels || s.id === showStreet));
+	/**
+	 * The map is one image to a screen reader, so the pin has to be in its
+	 * name: where Maya stands is the state the walk turns on.
+	 */
+	const where = $derived.by(() => {
+		if (!walker) return '';
+		const place = PLACES[walker as PlaceId];
+		if (place) return `. Maya is at the ${place.de}`;
+		return walker === 'P' ? '. Maya is on the square' : '. Maya is on the street';
+	});
 </script>
 
 <svg
 	class="kiez"
 	viewBox="0 0 400 300"
 	role="img"
-	aria-label="Map of the neighbourhood around {station}">
+	aria-label="Map of the neighbourhood around {station}{where}">
 	<defs>
 		<pattern id="cobble" width="6" height="6" patternUnits="userSpaceOnUse">
 			<circle cx="3" cy="3" r="1.1" fill="#1f3a5f" opacity="0.14" />

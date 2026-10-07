@@ -77,6 +77,15 @@ export const TIER_LABELS: Record<RibbonTier, string> = {
 	bronze: 'Bronze'
 };
 
+/**
+ * The medal, in words. The celebration is a stamp, confetti and a fanfare —
+ * all of which the effects layer hides from a screen reader — so the medal
+ * has to be said in the same announcement that reports the answer.
+ */
+export function medalAnnouncement(tier: RibbonTier, streak: number): string {
+	return `${TIER_LABELS[tier]} medal! ${streak} in a row.`;
+}
+
 /** How many laps a best streak represents. */
 export function lapsForStreak(bestStreakAbsolute: number): number {
 	return Math.floor(bestStreakAbsolute / STREAK_LAP_SIZE);
