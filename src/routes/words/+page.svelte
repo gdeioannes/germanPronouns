@@ -79,7 +79,9 @@
 	<h1>Word Library</h1>
 	<p class="lede">
 		Search the course's German words. Or browse <a href="/words/nouns">all {nouns.length} nouns by
-		theme</a> and <a href="/words/verbs">all {verbs.length} verbs</a>.
+		theme</a>, <a href="/words/verbs">all {verbs.length} verbs</a> and
+		<a href="/words/dictionary">the small words</a> — the pronouns, prepositions and particles
+		that hold a sentence together.
 	</p>
 
 	<!-- Flashcards first: the fastest way to actually learn the words below. -->

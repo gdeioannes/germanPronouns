@@ -108,6 +108,16 @@ function completionKeyFor(type: QuizType): string | null {
 	}
 }
 
+/**
+ * The kinds played in runs of ten and scored by streak — so their mark is
+ * the streak's medal, not a bronze for turning up. Dictation keeps a
+ * completion set of its own (the Flutter build wrote one) but is otherwise
+ * a drill like the fill-in.
+ */
+function isDrill(type: QuizType): boolean {
+	return type === 'fillBlank' || type === 'vocabulary' || type === 'dictation';
+}
+
 class ProgressStore {
 	/** Per-quiz stats, keyed by storageKeyPrefix. */
 	private stats = $state<Record<string, QuizStats>>({});
@@ -458,7 +468,7 @@ class ProgressStore {
 	 */
 	ribbonFor(type: QuizType, id: string, prefix: string): RibbonTier | null {
 		if (!this.isCompleted(type, id, prefix)) return null;
-		if (completionKeyFor(type) === null) return this.medalFor(prefix);
+		if (isDrill(type)) return this.medalFor(prefix);
 		return 'bronze';
 	}
 

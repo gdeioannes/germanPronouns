@@ -187,7 +187,7 @@
 			</div>
 
 			<ul class="trust">
-				<li><Icon name="check" size="1em" /> No sign-up, no payment</li>
+				<li><Icon name="check" size="1em" /> Learn without signing in — or sign in to keep your progress across devices</li>
 				<li><Icon name="check" size="1em" /> Audio for every sentence</li>
 				<li><Icon name="check" size="1em" /> Progress saved in your browser</li>
 			</ul>
@@ -215,10 +215,38 @@
 		<div class="card-slot"><TryExercise href={startHref} /></div>
 	</section>
 
-	<section class="stats" aria-label="The course in numbers">
-		<div><strong class="tnum">{data.total}</strong><span>exercises</span></div>
-		<div><strong class="tnum">{data.subLevelCount}</strong><span>levels, A1 to C2</span></div>
-		<div><strong class="tnum">7</strong><span>ways to practise</span></div>
+	<section id="how" class="block">
+		<header class="block-head">
+			<p class="kicker">How it works</p>
+			<h2>Understand it, practise it, say it</h2>
+		</header>
+		<ol class="steps">
+			<li>
+				<span class="num">1</span>
+				<h3>Read the rule</h3>
+				<p>
+					Each exercise opens with a short explanation: the rule, examples with
+					translations, a table, the words you need and the mistakes English speakers
+					typically make.
+				</p>
+			</li>
+			<li>
+				<span class="num">2</span>
+				<h3>Practise until it sticks</h3>
+				<p>
+					Answer sentence by sentence and see the correction instantly, right where the
+					gap is. A streak tells you when you have really got it.
+				</p>
+			</li>
+			<li>
+				<span class="num">3</span>
+				<h3>Hear it and say it</h3>
+				<p>
+					Every sentence has audio. Listening, dictation and speaking exercises make sure
+					German leaves the page and ends up in your ears and your mouth.
+				</p>
+			</li>
+		</ol>
 	</section>
 
 	<section id="levels" class="block">
@@ -268,40 +296,6 @@
 					{/if}
 				</li>
 			{/each}
-		</ol>
-	</section>
-
-	<section id="how" class="block">
-		<header class="block-head">
-			<p class="kicker">How it works</p>
-			<h2>Understand it, practise it, say it</h2>
-		</header>
-		<ol class="steps">
-			<li>
-				<span class="num">1</span>
-				<h3>Read the rule</h3>
-				<p>
-					Each exercise opens with a short explanation: the rule, examples with
-					translations, a table, the words you need and the mistakes English speakers
-					typically make.
-				</p>
-			</li>
-			<li>
-				<span class="num">2</span>
-				<h3>Practise until it sticks</h3>
-				<p>
-					Answer sentence by sentence and see the correction instantly, right where the
-					gap is. A streak tells you when you have really got it.
-				</p>
-			</li>
-			<li>
-				<span class="num">3</span>
-				<h3>Hear it and say it</h3>
-				<p>
-					Every sentence has audio. Listening, dictation and speaking exercises make sure
-					German leaves the page and ends up in your ears and your mouth.
-				</p>
-			</li>
 		</ol>
 	</section>
 
@@ -542,6 +536,11 @@
 		position: relative;
 		width: 100%;
 		margin: 0;
+		/* Headroom above the picture so the line floats over empty space
+		   rather than over whoever is saying it — the crop tightens on a
+		   phone, and any spot inside the frame lands on a face sooner or
+		   later. */
+		padding-top: 2.2rem;
 		overflow: hidden;
 		animation: settle var(--slow) var(--ease-out) backwards;
 	}
@@ -626,56 +625,13 @@
 	@media (max-width: 56rem) {
 		.hero-scene {
 			--zoom: 1.45;
+			padding-top: 2.6rem;
 			justify-self: center;
 			width: min(100%, 30rem);
 			margin-top: -0.5rem;
 		}
 		.card-slot {
 			margin-top: 0;
-		}
-	}
-
-	/* -- stats ------------------------------------------------------------ */
-
-	.stats {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		border: 1px solid var(--line);
-		border-radius: 18px;
-		background: var(--surface);
-		overflow: hidden;
-	}
-
-	.stats div {
-		display: grid;
-		gap: 0.15rem;
-		padding: 1.4rem 1.2rem;
-		text-align: center;
-	}
-
-	.stats div + div {
-		border-left: 1px solid var(--line);
-	}
-
-	.stats strong {
-		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
-		font-size: var(--step-3);
-		color: var(--heading);
-		line-height: 1.1;
-	}
-
-	.stats span {
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	@media (max-width: 40rem) {
-		.stats {
-			grid-template-columns: 1fr;
-		}
-		.stats div + div {
-			border-left: 0;
-			border-top: 1px solid var(--line);
 		}
 	}
 

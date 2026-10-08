@@ -9,6 +9,7 @@
 	import { celebrate, react } from '$lib/motion/fx.svelte';
 	import { isMuted } from '$lib/services/mute';
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
+	import GermanText from '$lib/components/GermanText.svelte';
 	import DialogueBeat from './DialogueBeat.svelte';
 	import HotspotBeat from './HotspotBeat.svelte';
 	import MapBeat from './MapBeat.svelte';
@@ -621,7 +622,7 @@
 			{:else}
 				<ul>
 					{#each notebook as e (e.de)}
-						<li><strong lang="de">{e.de}</strong> <SpeakButton text={e.de} locale="de-DE" label="Hear it" /> — {e.en}</li>
+						<li><strong lang="de"><GermanText text={e.de} /></strong> <SpeakButton text={e.de} locale="de-DE" label="Hear it" /> — {e.en}</li>
 					{/each}
 				</ul>
 			{/if}
@@ -734,7 +735,7 @@
 					<p class="cluetitle">→ into the notebook</p>
 					<ul>
 						{#each entries as e (e.de)}
-							<li><strong lang="de">{resolve(e.de)}</strong> <SpeakButton text={resolve(e.de)} locale="de-DE" label="Hear it" /> — {resolve(e.en)}</li>
+							<li><strong lang="de"><GermanText text={resolve(e.de)} /></strong> <SpeakButton text={resolve(e.de)} locale="de-DE" label="Hear it" /> — {resolve(e.en)}</li>
 						{/each}
 					</ul>
 				</div>

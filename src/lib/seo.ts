@@ -6,8 +6,9 @@ import type { Quiz, QuizType } from '$lib/content/types';
 
 export const SITE_URL = 'https://languagequiz.org';
 export const SITE_NAME = 'Language Quiz';
-export const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
-export const DEFAULT_IMAGE_ALT = 'Language Quiz - a free interactive German course';
+export const DEFAULT_IMAGE = `${SITE_URL}/og/default.png`;
+export const DEFAULT_IMAGE_ALT =
+	'Language Quiz - learn German free, A1 to C2, with audio';
 
 /**
  * The language of the interface. Every page is in English today; the

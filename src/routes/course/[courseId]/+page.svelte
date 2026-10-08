@@ -11,6 +11,7 @@
 	import { STORY_EPISODES, type StoryEpisode } from '$lib/domain/stories';
 	import { SONGS, type Song } from '$lib/domain/songs';
 	import ProgressPanel from '$lib/components/ProgressPanel.svelte';
+	import AccountStrip from '$lib/components/AccountStrip.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
@@ -195,6 +196,10 @@
 		<SwipeDeck {course} {facts} bind:level={pickedLevel} title={heading} aside={ring}
 			onbrowse={() => (browseOpen = true)} {inProgress} />
 	{/if}
+
+	<!-- One quiet line, and only for a learner who is signed out and hasn't
+	     waved it away. It carries its own sign-in sheet. -->
+	<AccountStrip />
 </main>
 
 <SiteFooter compact />
@@ -202,7 +207,7 @@
 <!-- Browsing is the second way in: the whole ladder in a panel, so the deck
      keeps the screen. The panel stays in the DOM while closed, so the
      prerendered page still links every exercise. -->
-<Sheet bind:open={browseOpen} title="All exercises" id="all-exercises">
+<Sheet bind:open={browseOpen} title="Exercise library" id="all-exercises">
 		{#if resume}
 			<a class="resume" href="/course/{course.id}/quiz/{resume.id}">
 				<span class="resume-icon"><Icon name={QUIZ_TYPE_ICONS[resume.type]} size="1.35em" /></span>
@@ -358,9 +363,9 @@
 	.worksheet {
 		display: flex;
 		align-items: center;
-		gap: 0.85rem;
-		margin: 0.75rem 0 0;
-		padding: 0.85rem 1rem;
+		gap: 0.7rem;
+		margin: 0.5rem 0 0;
+		padding: 0.5rem 0.8rem;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
 		background: var(--surface);
@@ -377,10 +382,15 @@
 		flex: 1;
 	}
 
+	.worksheet strong {
+		font-size: var(--step--1);
+	}
+
 	.worksheet small {
 		display: block;
 		color: var(--ink-muted);
-		font-size: var(--step--1);
+		font-size: 0.78rem;
+		line-height: 1.3;
 	}
 
 	.head {
@@ -477,12 +487,14 @@
 		color: var(--ink-muted);
 	}
 
+	/* Both cards above the ladder are shortcuts, not the content: kept to
+	   roughly 60% of their old height so the levels start higher up the panel. */
 	.resume {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 0.7rem;
 		margin: 0.5rem 0 0;
-		padding: 1.15rem 1.3rem;
+		padding: 0.6rem 0.8rem;
 		border: 1px solid var(--accent);
 		border-radius: var(--radius);
 		background: var(--accent-soft);
@@ -502,8 +514,8 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.6rem;
-		height: 2.6rem;
+		width: 1.8rem;
+		height: 1.8rem;
 		flex: none;
 		border-radius: 50%;
 		background: var(--surface);
@@ -517,7 +529,7 @@
 
 	.resume-label {
 		display: block;
-		font-size: 0.7rem;
+		font-size: 0.6rem;
 		font-weight: 800;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
@@ -527,13 +539,14 @@
 	.resume-title {
 		display: block;
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
-		font-size: var(--step-1);
+		font-size: var(--step-0);
+		line-height: 1.25;
 		font-weight: 700;
 		color: var(--heading);
 	}
 
 	.resume-meta {
-		font-size: var(--step--1);
+		font-size: 0.78rem;
 		color: var(--ink-muted);
 	}
 

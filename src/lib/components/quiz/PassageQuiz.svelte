@@ -11,6 +11,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import Sheet from '../Sheet.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import GermanText from '../GermanText.svelte';
 	import Steps, { type StepMark } from './Steps.svelte';
 	import { pop, rise } from '$lib/motion';
 	import { PAGE_BUDGET, paginate } from '$lib/domain/paginate';
@@ -248,7 +249,7 @@
 				</header>
 
 				{#if page >= 0}
-					<p class="text" lang={locale}>{pages[page]}</p>
+					<p class="text" lang={locale}><GermanText text={pages[page]} /></p>
 					{#if page < pages.length - 1}
 						<p class="more">Continues on the next page <Icon name="arrowRight" size="0.95em" /></p>
 					{/if}
@@ -284,7 +285,7 @@
 								<Icon name="book" size="1em" /> {peek ? 'Hide the text' : 'Show the text'}
 							</button>
 							{#if peek}
-								<p class="peek-text" id="transcript-{quiz.id}" lang={locale}>{spoken}</p>
+								<p class="peek-text" id="transcript-{quiz.id}" lang={locale}><GermanText text={spoken} /></p>
 							{/if}
 						{/if}
 						<button type="button" class="btn-quiet to-questions" onclick={() => (index = 1)}>
@@ -307,7 +308,7 @@
 					{/if}
 				</div>
 				<p class="q" lang={locale}>
-					{question.question}
+					<GermanText text={question.question} />
 					<SpeakButton text={question.question} {locale} />
 				</p>
 				{#if question.questionTranslation}

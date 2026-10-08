@@ -261,17 +261,22 @@
 	// Load the persisted streak, and the run's saved place, so a returning
 	// learner carries on where they were.
 	$effect(() => {
-		(async () => {
-			const stats = await progress.statsFor(quiz.storageKeyPrefix);
-			streak = stats.streak;
-			best = stats.bestStreakAbsolute;
-			const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
-			const saved = Array.isArray(spot?.results) ? spot.results : [];
-			if (saved.length > 0 && saved.length < RUN_LENGTH) {
-				results = saved.filter((r) => r === 'right' || r === 'wrong');
-				bestInRun = spot?.bestInRun ?? 0;
-			}
-		})();
+		// Untracked for the same reason as the dictation's: `statsFor` reads
+		// `progress.stats` before its first await, so without this the effect
+		// re-runs on every answer and restores the run from its saved spot.
+		untrack(() => {
+			(async () => {
+				const stats = await progress.statsFor(quiz.storageKeyPrefix);
+				streak = stats.streak;
+				best = stats.bestStreakAbsolute;
+				const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
+				const saved = Array.isArray(spot?.results) ? spot.results : [];
+				if (saved.length > 0 && saved.length < RUN_LENGTH) {
+					results = saved.filter((r) => r === 'right' || r === 'wrong');
+					bestInRun = spot?.bestInRun ?? 0;
+				}
+			})();
+		});
 	});
 
 	/** The run is over: log it, mark the exercise done, show the card. */
@@ -472,7 +477,7 @@
 			aria-pressed={progress.wordHelp}
 			title={progress.wordHelp
 				? 'Turn word help off'
-				: 'Colour the nouns by gender and tap one for its article'}
+				: 'Tap any word for its meaning, and colour the nouns by gender'}
 			onclick={() => progress.setWordHelp(!progress.wordHelp)}
 		>
 			<Icon name="book" size="1em" />

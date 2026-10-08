@@ -5,10 +5,12 @@
 	import { fade } from 'svelte/transition';
 	import { navDirection, prefersReducedMotion } from '$lib/motion';
 	import { trackScreenView } from '$lib/services/analytics';
+	import { account } from '$lib/state/account.svelte';
 	import { tts } from '$lib/services/speech';
 	import FxLayer from '$lib/components/FxLayer.svelte';
 	import VoiceNotice from '$lib/components/VoiceNotice.svelte';
 	import Announcer from '$lib/components/Announcer.svelte';
+	import MergePanel from '$lib/components/MergePanel.svelte';
 	// Self-hosted fonts: no third-party request blocks the first paint, and the
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
@@ -30,6 +32,19 @@
 		if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
 		main.focus();
 	}
+
+	// Restores an optional account's session, if this browser has one, and keeps
+	// its progress reconciled with the cloud. Does nothing — and downloads no
+	// Firebase code — for a learner who has never signed in.
+	$effect(() => {
+		void account.start();
+		// A learner who closes the tab mid-run shouldn't lose the last few
+		// answers to the push debounce. `pagehide` fires on tab close and on
+		// mobile backgrounding, where `beforeunload` is unreliable.
+		const flush = () => void account.flush();
+		window.addEventListener('pagehide', flush);
+		return () => window.removeEventListener('pagehide', flush);
+	});
 
 	// One screen_view per navigation, the same signal the Flutter router
 	// reported. Cookieless and no-op when no ingestion key is configured, which
@@ -78,8 +93,11 @@
 <svelte:head>
 	<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={interUrl} />
 	<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={serifUrl} />
-	<link rel="icon" type="image/png" href="/favicon.png" />
-	<link rel="apple-touch-icon" href="/icons/Icon-192.png" />
+	<!-- The SVG goes first for browsers that take one, and the PNG stays as the
+	     fallback for those that do not. Both come out of `npm run logo`. -->
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+	<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 	<link rel="manifest" href="/manifest.json" />
 	<meta name="theme-color" content="#1F3A5F" />
 </svelte:head>
@@ -100,4 +118,7 @@
 
 <FxLayer />
 <VoiceNotice />
+<!-- Asked once, at the first sign-in on this browser, when two devices'
+     progress meet. Silent every other time. -->
+<MergePanel />
 <Announcer />

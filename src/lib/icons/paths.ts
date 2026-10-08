@@ -153,6 +153,9 @@ const RAW = {
 	/** A lightning bolt: the fast learner. */
 	bolt: { d: 'M13.5 3.5L5.5 13.5h6l-1 7 8-10h-6l1-7Z' },
 	/** A compass: the adventurous spread. */
+	cloud: {
+		d: 'M7 18.5h9.5a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.6-1.2A3.6 3.6 0 0 0 7 18.5Z'
+	},
 	compass: {
 		d: 'M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17Z M15.5 8.5l-2 5-5 2 2-5 5-2Z'
 	}

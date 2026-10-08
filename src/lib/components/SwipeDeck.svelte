@@ -77,6 +77,8 @@
 	const SKIPPED_KEY = 'quiz_recommend_skipped';
 	const LEVEL_KEY = 'deck_level';
 	const PACE_KEY = 'deck_pace';
+	/** "1" once the learner has swiped (or pressed) once: the coach never returns. */
+	const COACH_KEY = 'deck_swipe_coached';
 	const SKIPPED_LIMIT = 80;
 	/** How many cards of the stack are drawn behind the top one. */
 	const VISIBLE = 3;
@@ -136,6 +138,7 @@
 		openId = await lastOpened();
 		const savedPace = await storage.get(PACE_KEY);
 		pace = isDeckPace(savedPace) ? savedPace : 'steady';
+		coach = (await storage.get(COACH_KEY)) !== '1';
 		deal();
 		loaded = true;
 	}
@@ -206,6 +209,8 @@
 	let dx = $state(0);
 	let dy = $state(0);
 	let dragging = $state(false);
+	/** The first-visit swipe hint over the top card. */
+	let coach = $state(false);
 	/** Set while the top card is flying off; the deck is inert until it lands. */
 	let leaving = $state<'left' | 'right' | null>(null);
 	let startX = 0;
@@ -236,6 +241,7 @@
 		lastT = event.timeStamp;
 		vx = 0;
 		moved = false;
+		coached();
 		dragging = true;
 		el.setPointerCapture(event.pointerId);
 	}
@@ -281,9 +287,17 @@
 
 	let stageEl = $state<HTMLElement>();
 
+	/** The hint has done its job the moment the learner acts — by any means. */
+	function coached() {
+		if (!coach) return;
+		coach = false;
+		void storage.set(COACH_KEY, '1');
+	}
+
 	/** Sends the top card off and acts once it has gone. */
 	function fling(direction: 'left' | 'right') {
 		if (!top || leaving) return;
+		coached();
 		const card = top;
 		// The card is about to be removed; if it held focus, the next one takes it.
 		const cardHadFocus = !!stageEl?.contains(document.activeElement);
@@ -473,6 +487,41 @@
 					</div>
 				{/each}
 			{/key}
+			{#if coach}
+				<!-- First visit only: the gesture is invisible until someone says it
+				     is there. A scrim over the top card, a hand that sweeps the arc
+				     the finger would take, and the two directions named. Decorative
+				     — the buttons below carry the same actions — so it never takes
+				     a tap: the first drag goes straight through to the card. -->
+				<div class="coach" aria-hidden="true">
+					<div class="coach-inner">
+						<div class="coach-stage">
+							<svg class="coach-arc" viewBox="0 0 160 40" fill="none" aria-hidden="true">
+								<path d="M12 28 Q80 2 148 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7" />
+							</svg>
+							<svg class="coach-hand" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+								<g
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									fill="var(--paper, #fff)"
+								>
+									<path
+										d="M9.2 13.4V4.6a1.6 1.6 0 0 1 3.2 0V11m0-.6a1.5 1.5 0 0 1 3 0V12m0-.8a1.5 1.5 0 0 1 3 0v1.2m0-.4a1.5 1.5 0 0 1 3 0V16a6 6 0 0 1-6 6h-1.6a7 7 0 0 1-5-2.1l-3.2-3.3a1.65 1.65 0 0 1 2.4-2.3l1.4 1.5"
+									/>
+								</g>
+							</svg>
+						</div>
+						<p class="coach-title">Swipe the card</p>
+						<p class="coach-ways">
+							<span class="coach-way skip"><Icon name="arrowLeft" size="1em" stroke={2.25} /> Skip it</span>
+							<span class="coach-way go">Start it <Icon name="arrowRight" size="1em" stroke={2.25} /></span>
+						</p>
+						<p class="coach-foot">… or use the buttons below</p>
+					</div>
+				</div>
+			{/if}
 		{/if}
 	</div>
 
@@ -485,15 +534,15 @@
 			aria-label="Skip this exercise"
 			title="Skip (←)"
 		>
-			<Icon name="close" size="1.4em" stroke={2.25} />
+			<Icon name="close" size="1.2em" stroke={2.25} />
+			<span>Skip</span>
 		</button>
-		<span class="middle">
-			{#if onbrowse}
-				<button type="button" class="browse" onclick={onbrowse} aria-haspopup="dialog" aria-controls="all-exercises">
-					<Icon name="menu" size="0.95em" /> All exercises
-				</button>
-			{/if}
-		</span>
+		{#if onbrowse}
+			<button type="button" class="browse" onclick={onbrowse} aria-haspopup="dialog" aria-controls="all-exercises">
+				<Icon name="cards" size="1.15em" />
+				<span>Exercise library</span>
+			</button>
+		{/if}
 		<button
 			type="button"
 			class="ctl yes"
@@ -502,7 +551,8 @@
 			aria-label="Start this exercise"
 			title="Let's go (→)"
 		>
-			<Icon name="check" size="1.4em" stroke={2.25} />
+			<Icon name="check" size="1.2em" stroke={2.25} />
+			<span>Let's go</span>
 		</button>
 	</div>
 </section>
@@ -1083,24 +1133,30 @@
 		color: var(--ink);
 	}
 
-	/* Below the stack: the two round buttons Tinder taught everyone. */
+	/* Below the stack: one row the width of the card — skip, the library,
+	   and the start button, all on the same square-ish footprint so they read
+	   as one control bar rather than three loose shapes. */
 	.controls {
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5rem;
-		margin: 1.25rem 0 0;
+		align-items: stretch;
+		gap: 0.5rem;
+		margin: 1.1rem auto 0;
+		width: 100%;
 	}
 
 	.ctl {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 3.6rem;
-		height: 3.6rem;
+		gap: 0.45rem;
+		min-height: 3.25rem;
+		padding: 0 1rem;
 		border: 2px solid currentColor;
-		border-radius: 50%;
+		border-radius: var(--radius);
 		background: var(--surface);
+		font: inherit;
+		font-size: var(--step-0);
+		font-weight: 700;
 		cursor: pointer;
 		transition:
 			transform var(--fast) var(--ease-out),
@@ -1108,22 +1164,23 @@
 			color var(--fast) var(--ease-out);
 	}
 
+	.ctl {
+		flex: 0 0 auto;
+	}
+
 	.ctl.no {
 		color: var(--wrong);
 	}
 
 	.ctl.yes {
-		color: var(--right);
+		border-color: var(--right);
+		background: var(--right);
+		color: #fff;
 		box-shadow: 0 10px 22px -14px var(--right);
 	}
 
 	.ctl:hover:not(:disabled) {
-		transform: translateY(-2px) scale(1.06);
-	}
-
-	.ctl.yes:hover:not(:disabled) {
-		background: var(--right);
-		color: #fff;
+		transform: translateY(-2px);
 	}
 
 	.ctl.no:hover:not(:disabled) {
@@ -1132,7 +1189,7 @@
 	}
 
 	.ctl:active:not(:disabled) {
-		transform: scale(0.95);
+		transform: scale(0.98);
 	}
 
 	.ctl:disabled {
@@ -1140,32 +1197,37 @@
 		cursor: default;
 	}
 
-	.middle {
-		display: flex;
-		justify-content: center;
-		min-width: 7.5rem;
-	}
-
-	/* The way to the full list: quiet, so the two round buttons stay the
-	   obvious thing to press. */
+	/* The way to the full list: the widest button of the three, because
+	   picking your own exercise is a first-class way to use the course. */
 	.browse {
-		display: inline-flex;
+		flex: 1;
+		display: flex;
 		align-items: center;
-		gap: 0.35rem;
-		padding: 0.3rem 0.7rem;
-		border: 1px solid var(--line);
-		border-radius: 999px;
-		background: var(--surface);
-		color: var(--heading);
-		font: inherit;
-		font-size: var(--step--1);
+		justify-content: center;
+		gap: 0.5rem;
+		min-height: 3.25rem;
+		padding: 0 0.9rem;
+		font-size: var(--step-0);
 		font-weight: 700;
+		border: 1px solid var(--accent);
+		border-radius: var(--radius);
+		background: var(--accent-soft);
+		color: var(--accent-ink);
+		font: inherit;
+		text-align: left;
 		cursor: pointer;
-		transition: border-color var(--fast) var(--ease-out);
+		transition:
+			background var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-out);
 	}
 
 	.browse:hover {
-		border-color: var(--line-strong);
+		background: #f1d9cd;
+		transform: translateY(-1px);
+	}
+
+	.browse:active {
+		transform: scale(0.99);
 	}
 
 	/* A laptop or desktop: a slightly wider deck, so the taller card keeps a
@@ -1201,13 +1263,177 @@
 		}
 		.controls {
 			margin-top: 0.8rem;
-			gap: 1.1rem;
+			gap: 0.5rem;
 		}
-		.ctl {
-			width: 3.1rem;
-			height: 3.1rem;
+		.ctl,
+		.browse {
+			min-height: 2.9rem;
+			font-size: var(--step--1);
+			padding: 0 0.7rem;
+		}
+		.ctl span {
+			display: none;
 		}
 	}
+	/* ---- the first-visit swipe coach -----------------------------------
+	   A scrim over the top card with a hand sweeping the arc a finger would
+	   take. Pointer-transparent, so the very first drag reaches the card
+	   underneath and dismisses it. */
+	.coach {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+		border-radius: var(--radius);
+		background: rgb(27 42 61 / 0.62);
+		backdrop-filter: blur(2px);
+		pointer-events: none;
+		z-index: 5;
+		animation: coach-in var(--slow) var(--ease-out) backwards;
+	}
+
+	.coach-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.55rem;
+		max-width: 18rem;
+		padding: 1.1rem 1.3rem 0.95rem;
+		border-radius: var(--radius);
+		background: var(--surface);
+		box-shadow: 0 22px 44px -24px rgb(0 0 0 / 0.75);
+		text-align: center;
+	}
+
+	.coach-stage {
+		position: relative;
+		width: 10rem;
+		height: 3.4rem;
+	}
+
+	.coach-arc {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		color: var(--line-strong, var(--line));
+	}
+
+	.coach-hand {
+		position: absolute;
+		left: 50%;
+		top: 0.45rem;
+		width: 2.4rem;
+		height: 2.4rem;
+		margin-left: -1.2rem;
+		color: var(--heading);
+		filter: drop-shadow(0 4px 8px rgb(0 0 0 / 0.2));
+		animation: coach-sweep 3s ease-in-out infinite;
+	}
+
+	.coach-title {
+		margin: 0;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-1);
+		font-weight: 700;
+		color: var(--heading);
+	}
+
+	.coach-ways {
+		display: flex;
+		gap: 0.4rem;
+		margin: 0;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.coach-way {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		padding: 0.25rem 0.6rem;
+		border-radius: 999px;
+		font-size: var(--step--1);
+		font-weight: 700;
+	}
+
+	.coach-way.skip {
+		background: rgb(180 69 47 / 0.12);
+		color: var(--wrong);
+	}
+
+	.coach-way.go {
+		background: rgb(45 90 61 / 0.12);
+		color: var(--right);
+	}
+
+	.coach-foot {
+		margin: 0;
+		font-size: var(--step--1);
+		color: var(--ink);
+		opacity: 0.7;
+	}
+
+	@keyframes coach-in {
+		from {
+			opacity: 0;
+		}
+	}
+
+	/* The arc: out to the right, back across to the left, home again — with a
+	   tilt, so it reads as a hand rather than a sliding sticker. */
+	@keyframes coach-sweep {
+		0%,
+		100% {
+			transform: translate(0, 0) rotate(0deg);
+			opacity: 1;
+		}
+		8% {
+			transform: translate(0, 0.15rem) rotate(0deg);
+		}
+		28% {
+			transform: translate(2.6rem, -0.5rem) rotate(14deg);
+			opacity: 1;
+		}
+		38% {
+			transform: translate(3rem, -0.3rem) rotate(14deg);
+			opacity: 0;
+		}
+		48% {
+			transform: translate(0, 0) rotate(0deg);
+			opacity: 0;
+		}
+		56% {
+			opacity: 1;
+		}
+		76% {
+			transform: translate(-2.6rem, -0.5rem) rotate(-14deg);
+			opacity: 1;
+		}
+		86% {
+			transform: translate(-3rem, -0.3rem) rotate(-14deg);
+			opacity: 0;
+		}
+		94% {
+			transform: translate(0, 0) rotate(0deg);
+			opacity: 0;
+		}
+	}
+
+	/* Calm effects and reduced motion: the same words, standing still. */
+	:global(html[data-effects='calm']) .coach,
+	:global(html[data-effects='calm']) .coach-hand {
+		animation: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.coach,
+		.coach-hand {
+			animation: none;
+		}
+	}
+
 	/* ---- the story card: the one card in the hand that is an EVENT -------
 	   A night card: ink-navy, a breathing golden glow, and a slow torch beam
 	   sweeping the scene — the episode's own flashlight. All motion is

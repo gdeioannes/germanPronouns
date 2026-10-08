@@ -1,8 +1,9 @@
-// Draws the share images (1200×630) into static/og/: one per CEFR sub-level,
-// one per exercise kind and one each for the noun and verb pages, so a link
-// shared to a quiz previews as "A1.1 · First contact" rather than as the
-// generic site card. Run `npm run og` after the nav or syllabus changes; the
-// PNGs are committed, so the build does not depend on this.
+// Draws the share images (1200×630) into static/og/: the default card the
+// front door shares as, one per CEFR sub-level, one per exercise kind and one
+// each for the noun and verb pages — so a link shared to a quiz previews as
+// "A1.1 · First contact" rather than as the generic site card. Run `npm run og`
+// after the nav or syllabus changes; the PNGs are committed, so the build does
+// not depend on this.
 //
 // Same identity as the site: ink-navy and terracotta on warm paper, serif
 // display, sans body. Rendered by resvg with the system's fonts.
@@ -10,6 +11,7 @@
 import { Resvg } from '@resvg/resvg-js';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { markShapes } from './logo.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (p) => JSON.parse(readFileSync(new URL(p, import.meta.url), 'utf8'));
@@ -44,7 +46,27 @@ function card({ kicker, title, sub, accent = TERRACOTTA }) {
 </svg>`;
 }
 
-const images = [];
+/**
+ * The card the bare domain shares as — the one that goes in a chat window when
+ * somebody passes the site on. It leads with the mark rather than a kicker,
+ * because here the brand is the subject.
+ */
+function defaultCard() {
+	return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="${PAPER}"/>
+  <rect x="0" y="0" width="18" height="630" fill="${TERRACOTTA}"/>
+  <circle cx="1060" cy="120" r="220" fill="${TERRACOTTA}" opacity="0.10"/>
+  <circle cx="1120" cy="560" r="120" fill="${NAVY}" opacity="0.08"/>
+  <g transform="translate(90 96) scale(1.75)">${markShapes({ ring: NAVY, tail: TERRACOTTA })}</g>
+  <text x="90" y="330" font-family="Georgia, 'Source Serif 4', serif" font-size="92" font-weight="700" fill="${NAVY}">Learn German, free.</text>
+  <text x="90" y="400" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="34" fill="${INK}">A1 to C2 · grammar, reading, listening and speaking, with audio</text>
+  <text x="90" y="470" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="34" fill="${MUTED}">No sign-up. No ads. Start on the first exercise.</text>
+  <text x="90" y="560" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="${NAVY}">Language Quiz</text>
+  <text x="330" y="560" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="30" fill="${MUTED}">languagequiz.org</text>
+</svg>`;
+}
+
+const images = [{ name: 'default', svg: defaultCard() }];
 
 for (const group of course.nav.groups) {
 	if (group.type !== 'questChain' || !group.level) continue;
@@ -78,6 +100,10 @@ for (const [type, [title, sub]] of Object.entries(KINDS)) {
 images.push({
 	name: 'words-nouns',
 	svg: card({ kicker: 'Word library', title: 'der, die or das?', sub: 'Every German noun with its article, plural and cases' })
+});
+images.push({
+	name: 'words-dictionary',
+	svg: card({ kicker: 'Word library', title: 'doch, sich, mal', sub: 'The small German words no vocabulary list teaches' })
 });
 images.push({
 	name: 'words-verbs',

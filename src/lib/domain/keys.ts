@@ -37,7 +37,26 @@ export const SettingsKeys = {
 	/** Web-only. Listening exercises offer their text for learners who can't hear it. */
 	showTranscripts: 'show_transcripts',
 	/** Web-only. Date of the newest changelog release this browser has seen. */
-	changelogSeen: 'changelog_seen'
+	changelogSeen: 'changelog_seen',
+	/**
+	 * Web-only, and all three device-local: never synced (see sync-merge's
+	 * `account_` prefix), because they describe this browser's session rather
+	 * than anything the learner has learnt.
+	 */
+	/** Set while a sign-in link is outstanding, so the link's landing page knows the address. */
+	accountEmailForLink: 'account_email_for_link',
+	/** "1" once signed in, so a reload loads the auth SDK and nobody else pays for it. */
+	accountActive: 'account_active',
+	/** Epoch ms this browser last reconciled with the cloud. */
+	accountLastSync: 'account_last_sync',
+	/**
+	 * The account whose progress this browser has already been asked about. The
+	 * "merge your two devices?" question is a once-per-account one: after it has
+	 * been answered, every later sync merges without asking.
+	 */
+	accountMergedUid: 'account_merged_uid',
+	/** "1" once the learner has waved away the sign-in strip on the course home. */
+	accountStripDismissed: 'account_strip_dismissed'
 } as const;
 
 /**

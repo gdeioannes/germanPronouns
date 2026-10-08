@@ -38,6 +38,7 @@
 	// discovered by failing.
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
+	import GermanText from './GermanText.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { speakable } from '$lib/domain/lesson';
 	import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
@@ -106,7 +107,7 @@
 							<ul class="examples">
 								{#each tip.examples as ex, e (e)}
 									<li>
-										<span class="de" lang={locale}>{ex.de}</span>
+										<span class="de" lang={locale}><GermanText text={ex.de} /></span>
 										<span class="en">{ex.en}</span>
 									</li>
 								{/each}
@@ -224,7 +225,7 @@
 				{#if help?.context}
 					<h4 class="section-head">In context</h4>
 					<div class="context">
-						<p class="de" lang={locale}>{help.context.de} <SpeakButton text={speakable(help.context.de)} {locale} /></p>
+						<p class="de" lang={locale}><GermanText text={help.context.de} /> <SpeakButton text={speakable(help.context.de)} {locale} /></p>
 						<p class="en">{help.context.en}</p>
 					</div>
 				{/if}

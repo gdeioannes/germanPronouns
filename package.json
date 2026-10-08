@@ -12,6 +12,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest run",
 		"test:watch": "vitest",
+		"logo": "node tool/gen-logo.mjs",
 		"og": "node tool/og-images.mjs",
 		"images": "node tool/gen-images.mjs",
 		"voices": "node tool/gen-voice-refs.mjs",
@@ -19,7 +20,8 @@
 		"workbooks": "node tool/gen-workbooks.mjs",
 		"story-audio": "node tool/gen-story-audio.mjs",
 		"story-sfx": "node tool/gen-story-sfx.mjs",
-		"story-review": "node tool/review-story.mjs"
+		"story-review": "node tool/review-story.mjs",
+		"dictionary": "node tool/build-dictionary.mjs"
 	},
 	"devDependencies": {
 		"@breezystack/lamejs": "^1.2.7",
@@ -39,5 +41,8 @@
 		"typescript": "^6.0.3",
 		"vite": "8.0.16",
 		"vitest": "^5.0.1"
+	},
+	"dependencies": {
+		"firebase": "^13.0.0"
 	}
 }

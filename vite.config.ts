@@ -10,6 +10,12 @@ const content = fileURLToPath(new URL('./assets/content', import.meta.url));
 
 export default defineConfig({
 	resolve: { alias: { $content: content } },
+	// `PUBLIC_` joins Vite's default `VITE_`, so the Firebase web config reaches
+	// the client as `import.meta.env.PUBLIC_FIREBASE_*`. Read through
+	// `import.meta.env` rather than `$env/static/public` on purpose: a missing
+	// var is then simply `undefined`, and a build with no Firebase project
+	// configured still succeeds with the optional login switched off.
+	envPrefix: ['VITE_', 'PUBLIC_'],
 	// `assets/` sits outside the folders SvelteKit's dev server serves from
 	// (src, static, node_modules), so dev 404s the course bundles without this.
 	// The production build doesn't care: bundles are imported at prerender time.

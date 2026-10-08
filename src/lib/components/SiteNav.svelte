@@ -9,6 +9,7 @@
 	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import Logo from '$lib/components/Logo.svelte';
 	import { whatsNew, initWhatsNew } from '$lib/state/whatsNew.svelte';
 
 	onMount(initWhatsNew);
@@ -68,7 +69,7 @@
 
 {#snippet brand()}
 	<a class="brand" href="/">
-		<img src="/icons/Icon-192.png" alt="" width="28" height="28" />
+		<Logo tile size="1.75rem" />
 		<span>Language Quiz</span>
 	</a>
 {/snippet}
@@ -98,6 +99,22 @@
 	{/if}
 {/snippet}
 
+<!-- The button that drops the links down. Both bars use it. -->
+{#snippet menuButtonSnippet()}
+	<button
+		type="button"
+		class="menu"
+		aria-label="Menu"
+		bind:this={menuButton}
+		aria-expanded={open}
+		aria-controls="site-menu"
+		onclick={() => (open = !open)}
+	>
+		<Icon name={open ? 'close' : 'menu'} size="1.1em" />
+		<span>Menu</span>
+	</button>
+{/snippet}
+
 {#if compact}
 	<header class="mini" class:tucked class:open bind:this={root}>
 		<div class="mini-row">
@@ -111,17 +128,7 @@
 			<a class="icon-link" href="/settings" rel="nofollow" aria-label="Settings" title="Settings">
 				<Icon name="settings" size="1.15em" />
 			</a>
-			<button
-				type="button"
-				class="menu"
-				bind:this={menuButton}
-				aria-expanded={open}
-				aria-controls="site-menu"
-				onclick={() => (open = !open)}
-			>
-				<Icon name={open ? 'close' : 'menu'} size="1.1em" />
-				<span>Menu</span>
-			</button>
+			{@render menuButtonSnippet()}
 		</div>
 		{#if open}
 			<nav id="site-menu" aria-label="Main" transition:slide={{ duration: 180, easing: cubicOut }}>
@@ -130,14 +137,39 @@
 		{/if}
 	</header>
 {:else}
-	<header class="bar">
-		{@render brand()}
-		<nav aria-label="Main">{@render links(true)}</nav>
+	<header class="bar" class:open bind:this={root}>
+		<div class="bar-row">
+			{@render brand()}
+			<!-- Wide: every link in the bar. Narrow: the way into the course
+			     always stays in the bar; the rest drop down under Menu, which
+			     shrinks to its icon so nothing has to wrap. -->
+			<nav class="wide" aria-label="Main">{@render links(true)}</nav>
+			<div class="narrow">
+				{#if !inCourse}
+					<a class="bar-cta" href={courseHref}>Open the course</a>
+				{/if}
+				{@render menuButtonSnippet()}
+			</div>
+		</div>
+		{#if open}
+			<nav id="site-menu" aria-label="Main" transition:slide={{ duration: 180, easing: cubicOut }}>
+				<div class="menu-links">
+					<a href="{home}#levels">Levels</a>
+					<a href="{home}#how">How it works</a>
+					<a href="/words">Word library</a>
+					<a href="/about">About</a>
+					<a class="news-row" href="/changelog">
+						What's new
+						{#if whatsNew.unseen}<span class="dot inline" aria-hidden="true"></span>{/if}
+					</a>
+				</div>
+			</nav>
+		{/if}
 	</header>
 {/if}
 
 <style>
-	.bar {
+	.bar-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -145,6 +177,13 @@
 		max-width: 72rem;
 		margin: 0 auto;
 		padding: 1.1rem 1.25rem;
+	}
+
+	/* The links that only show up once the bar is too narrow for them. */
+	.narrow {
+		display: none;
+		align-items: center;
+		gap: 0.35rem;
 	}
 
 	.brand {
@@ -156,11 +195,9 @@
 		text-decoration: none;
 	}
 
-	.brand img {
-		border-radius: 7px;
-	}
 
-	.bar nav {
+
+	.bar .wide {
 		display: flex;
 		align-items: center;
 		gap: 1.4rem;
@@ -184,22 +221,67 @@
 		color: var(--heading);
 	}
 
-	/* On a phone the text links go; the What's new icon and the button stay. */
+	/* On a phone the bar is brand + course button + Menu; the links drop down. */
 	@media (max-width: 40rem) {
-		.bar nav a:not(.bar-cta):not(.icon-link) {
+		.bar .wide {
+			display: none;
+		}
+		.narrow {
+			display: flex;
+		}
+		.bar-row {
+			gap: 0.5rem;
+			padding: 0.8rem 1rem;
+		}
+		/* The brand holds one line; the Menu button drops to its icon, which
+		   leaves the course button room to sit beside them. */
+		.bar .brand {
+			font-size: var(--step--1);
+			white-space: nowrap;
+		}
+		.narrow .menu span {
+			display: none;
+		}
+		.narrow .menu {
+			gap: 0;
+			padding: 0.45rem 0.6rem;
+		}
+		.narrow .bar-cta {
+			padding: 0.4rem 0.75rem;
+			font-size: var(--step--1);
+			white-space: nowrap;
+		}
+	}
+
+	/* Tightest phones: the wordmark goes, the mark alone carries the brand. */
+	@media (max-width: 24rem) {
+		.bar .brand span {
 			display: none;
 		}
 	}
 
 	/* In the full bar the icon sits among text links: pull it in so the gaps
 	   read evenly. */
-	.bar .news {
+	.bar .wide .news {
 		margin-inline: -0.5rem;
 	}
 
 	.news {
 		position: relative;
 	}
+
+	/* In the dropdown the mark rides beside the words instead of on an icon. */
+	.news-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.dot.inline {
+		position: static;
+		box-shadow: none;
+	}
+
 
 	/* The "something new" dot: terracotta, ringed in the page colour so it
 	   reads as a separate mark on top of the star. */
@@ -260,10 +342,11 @@
 		font-size: var(--step--1);
 	}
 
-	.mini .brand img {
+	/* The slim bar runs the mark a size down, so the brand does not out-weigh
+	   the exercise it sits above. */
+	.mini .brand :global(svg) {
 		width: 24px;
 		height: 24px;
-		border-radius: 6px;
 	}
 
 	.mini .brand {

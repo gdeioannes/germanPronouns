@@ -1,4 +1,5 @@
 <script lang="ts">
+	import GermanText from '$lib/components/GermanText.svelte';
 	// `dialogue` beats: a live conversation as chat bubbles. Characters'
 	// lines are voiced (their own cast voice) and play as they appear; Maya's
 	// turns are the learner's — pick her line (`choose`) or build it word by
@@ -99,7 +100,7 @@
 			<p class="aside">“{host.resolve(l.text ?? '')}”</p>
 		{:else if isTurn(l)}
 			{#if said[i] !== undefined}
-				<div class="bubble maya-says" lang="de"><span class="who">Maya</span>{said[i]}</div>
+				<div class="bubble maya-says" lang="de"><span class="who">Maya</span><GermanText text={said[i]} /></div>
 			{/if}
 		{:else}
 			<div class="bubble npc">
@@ -107,7 +108,7 @@
 				{#if l.blur && !finished}
 					<span class="blur" aria-label="Too fast to follow — listen to it">{scribble(l.de ?? '')}</span>
 				{:else}
-					<span lang="de">{host.resolve(l.de ?? '')}</span>
+					<span lang="de"><GermanText text={host.resolve(l.de ?? '')} /></span>
 				{/if}
 				{#if gloss[i] && l.en && !l.blur}<span class="gloss">{host.resolve(l.en)}</span>{/if}
 				<span class="tools">
@@ -125,7 +126,7 @@
 				<div class="scribble">
 					<span class="scribble-head">✎ into the notebook</span>
 					{#each l.entries as e (e.de)}
-						<span><strong lang="de">{host.resolve(e.de)}</strong> — {host.resolve(e.en)}</span>
+						<span><strong lang="de"><GermanText text={host.resolve(e.de)} /></strong> — {host.resolve(e.en)}</span>
 					{/each}
 				</div>
 			{/if}

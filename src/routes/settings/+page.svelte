@@ -14,13 +14,14 @@
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
 	import { progress, type AnswerRevealMode } from '$lib/state/progress.svelte';
+	import AccountCard from '$lib/components/AccountCard.svelte';
+	import { account } from '$lib/state/account.svelte';
 	import { announce, radioKeys } from '$lib/a11y.svelte';
 	import type { PopulatedCourse } from '$lib/content/types';
 
 	let course = $state<PopulatedCourse | null>(null);
 	let confirmingReset = $state(false);
 	let message = $state('');
-
 	$effect(() => {
 		(async () => {
 			const loaded = await loadCourse(catalog.defaultCourseId);
@@ -84,10 +85,12 @@
 			<span>
 				<strong>Word help</strong>
 				<small>
-					Colours every noun in an exercise by its gender — blue der, red
-					die, green das — and lets you tap one for its article, plural and
-					meaning. The same switch sits on the exercise itself, so you can
-					turn it off mid-quiz when you'd rather be tested than helped.
+					Lets you tap any German word for its English meaning — verbs in
+					whatever form the sentence uses them, prepositions, the little
+					words that make a sentence hard to read. Nouns are also coloured
+					by gender — blue der, red die, green das — and show their article
+					and plural. The same switch sits on the exercise itself, so you
+					can turn it off mid-quiz when you'd rather be tested than helped.
 				</small>
 			</span>
 		</label>
@@ -240,6 +243,13 @@
 		</ul>
 	</section>
 
+	{#if account.available}
+		<section class="card">
+			<h2>Save your progress</h2>
+			<AccountCard heading={false} />
+		</section>
+	{/if}
+
 	<section class="card">
 		<h2>Privacy</h2>
 		<p class="lede">
@@ -249,7 +259,9 @@
 			via Aptabase in the EU. The only thing kept on your device for
 			statistics is the date of your first visit — no name, no ID, nothing
 			unique — so we can tell new visitors from returning ones in aggregate.
-			Your learning progress stays in this browser and never leaves it.
+			Your learning progress stays in this browser and never leaves it, unless
+			you choose to sign in above — and then the only thing stored is your
+			email address and your own scores.
 		</p>
 	</section>
 
@@ -418,6 +430,7 @@
 		border-color: var(--accent);
 		color: var(--accent-ink);
 	}
+
 
 	.danger-btn {
 		display: inline-flex;

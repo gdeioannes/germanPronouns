@@ -147,8 +147,8 @@
 
 	/**
 	 * Try again, for every kind: the exercise is mounted afresh. A drill gets
-	 * a fresh bar (its streak is in the store and carries on); a passage or
-	 * dictation starts from its first question.
+	 * a fresh bar and a fresh run of ten (its streak is in the store and
+	 * carries on); a passage starts from its first question.
 	 */
 	function tryAgain() {
 		attempt += 1;
@@ -347,11 +347,7 @@
 				onFinish={(passed) => passed && complete()}
 			/>
 		{:else if quiz.type === 'dictation'}
-			<DictationQuiz
-				{quiz}
-				locale={course.learnLocale}
-				onFinish={(passed) => passed && complete()}
-			/>
+			<DictationQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} />
 		{:else if quiz.type === 'speakRepeat'}
 			<SpeakRepeatQuiz {quiz} locale={course.learnLocale} onFinish={complete} />
 		{:else if quiz.type === 'speaking'}

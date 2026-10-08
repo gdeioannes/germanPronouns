@@ -1,4 +1,5 @@
 <script lang="ts">
+	import GermanText from '../GermanText.svelte';
 	// The "big text" cloze: a whole passage with inline blanks typed in place.
 	//
 	// These reuse `type: "reading"` in the content bundle rather than having a
@@ -205,7 +206,7 @@
 
 				<p class="cloze" lang={locale}>
 					{#each pages[p] as part, i (i)}
-						{#if 'text' in part}{part.text}{:else}
+						{#if 'text' in part}<GermanText text={part.text} />{:else}
 							{@const blank = quiz.inlineBlanks[part.blank]}
 							<span class="slot">
 								<input

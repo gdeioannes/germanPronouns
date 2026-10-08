@@ -9,6 +9,8 @@
 	import Sheet from '$lib/components/Sheet.svelte';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import AccountCard from '$lib/components/AccountCard.svelte';
+	import { account } from '$lib/state/account.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { typeLabel } from '$lib/domain/deck';
 	import { ALMOST_THROUGH, percentOf, type LevelProgress, type ProgressStats } from '$lib/domain/stats';
@@ -187,6 +189,13 @@
 			</li>
 		{/each}
 	</ul>
+
+	<!-- Last, and deliberately here: this panel is the page about the learner's
+	     progress, so it is the honest place to say where that progress lives. -->
+	{#if account.available}
+		<h3 class="section">Keep it safe</h3>
+		<AccountCard heading={false} />
+	{/if}
 
 	{#snippet footer()}
 		<button type="button" class="close-btn" onclick={() => (open = false)}>Back to the deck</button>

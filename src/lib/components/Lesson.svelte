@@ -8,6 +8,7 @@
 	// prerendered, and the explanation is the most useful text on it.
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
+	import GermanText from './GermanText.svelte';
 	import Steps, { type StepMark } from './quiz/Steps.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { speakable, splitFocus, spokenWord, type LessonCheck, type LessonStep } from '$lib/domain/lesson';
@@ -93,8 +94,12 @@
 	};
 </script>
 
+<!-- A lesson example is German, so every word in it is tappable for the
+     English, and the focus words the lesson is teaching stay marked on top of
+     that: the mark says "this is the bit that matters", the tap says what the
+     word means. -->
 {#snippet german(text: string, focus?: string[])}
-	{#each splitFocus(text, focus) as part, p (p)}{#if part.hit}<mark>{part.text}</mark>{:else}{part.text}{/if}{/each}
+	{#each splitFocus(text, focus) as part, p (p)}{#if part.hit}<mark><GermanText text={part.text} /></mark>{:else}<GermanText text={part.text} />{/if}{/each}
 {/snippet}
 
 {#snippet gapped(text: string)}

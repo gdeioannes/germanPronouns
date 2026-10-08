@@ -8,6 +8,7 @@
 	import { inDialog } from './keys';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
+	import GermanText from '../GermanText.svelte';
 	import { freshen, pop, rise } from '$lib/motion';
 	import { matchesSpoken } from '$lib/domain/answers';
 	import { stt, tts } from '$lib/services/speech';
@@ -130,7 +131,7 @@
 		<p class="eyebrow counter tnum">Phrase {index + 1} of {total}</p>
 
 		<p class="phrase" lang={locale}>
-			{phrase.text}
+			<GermanText text={phrase.text} />
 			<SpeakButton text={phrase.text} {locale} />
 		</p>
 		{#if phrase.translation}

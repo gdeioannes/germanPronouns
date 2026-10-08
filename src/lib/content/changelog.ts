@@ -16,6 +16,44 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-08",
+    title: "Tap any word, not just the nouns",
+    highlight: true,
+    items: [
+      "Every German word in the course can now be tapped for what it means in English — verbs in whatever form the sentence happens to use them, prepositions, and the small words like doch, sich and zwar that are in every sentence and in nobody's vocabulary list.",
+      "It works in reading and listening texts, in the questions, in the fill-in exercises, in a dictation once you have revealed the line, in the Learn lessons, in the Help Memory examples and in the story dialogue.",
+      "Nouns look exactly as they did: coloured blue, red or green for der, die and das, and showing their article and plural when you tap them. Every other word stays unmarked until you hover or tab to it, so a text still reads like a text.",
+      "The meanings are written for someone learning, not copied from a translator. \"der\" tells you it is also the feminine dative and genitive; \"weil\" tells you it sends the verb to the end; \"gern\" explains that \"ich esse gern\" means \"I like eating\".",
+      "Each word in the panel can be played out loud, and nouns and verbs link through to their full page in the Word Library.",
+      "There is a new page listing the small words A–Z, searchable from either language: ask what \"obwohl\" means, or ask which German word means \"although\".",
+      "All of it is the same Word help switch as before — in Settings, or on the exercise itself when you would rather be tested than helped.",
+    ],
+  },
+  {
+    date: "2026-10-08",
+    title: "Sign in if you want to — and a dictation that listens properly",
+    highlight: true,
+    items: [
+      "You can now sign in with your email address and keep your progress across devices: start on the laptop, carry on from the phone. No password — you get a link in your inbox and tapping it signs you in.",
+      "It stays optional. Nothing in the course is behind a login, signing out leaves everything in this browser exactly as it was, and the only things stored are your email address and your own scores. Find it in Settings, in your progress panel, or as the one quiet line under your deck that you can wave away for good.",
+      "If you have already practised on this device, nothing is thrown away when you sign in: the two copies are merged, and the better of the two wins for every exercise — the higher score, the longer streak, the better medal.",
+      "And if you had been practising on two devices before signing in, you get asked rather than told. The first sign-in shows you both side by side — exercises finished, best streak, medals, when each was last practised — and you choose: keep both, which loses nothing, or keep one and drop the other. Nothing is written until you have picked.",
+      "Dictation is now graded word by word instead of all-or-nothing. A missing comma, a dropped umlaut or a typo counts as right — \"nearly\" — and only half a sentence counts as a miss, with the words to listen for again marked in the line.",
+      "Dictation is played in runs of ten like the other drills, with the same bar, the same streak carried between visits, the same medals and the same card at the end. A line you miss comes back round a couple of questions later, and a quiz with more lines than a run hands you a different ten each time.",
+      "A dictation or fill-in exercise no longer jumps back to its first line while you are part-way through a run.",
+      "New look for the app: a drawn logo in the top bar, a sharp icon on your home screen and a new picture when you share a link.",
+      "The front page now says what the course is before it counts what is in it.",
+    ],
+  },
+  {
+    date: "2026-10-08",
+    title: "Finding your own exercise, and a card that shows you the swipe",
+    items: [
+      "The way to the full list is now called the Exercise library, and it sits in the row under your card as a button of its own, next to Skip and Let's go. Picking an exercise yourself is a normal way to use the course, not something to go hunting for.",
+      "On your first visit a hand sweeps across the top card to show you what it is for: swipe right to start the exercise, left to drop it. It disappears for good the moment you swipe, press a button or use the arrow keys, and it stands still if you have calm effects on.",
+    ],
+  },
+  {
     date: "2026-10-07",
     title: "Story mode: voices that act, a map you can read",
     items: [
