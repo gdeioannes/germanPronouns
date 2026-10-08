@@ -13,7 +13,8 @@ export type QuizType =
 	| 'dictation'
 	| 'speakRepeat'
 	| 'speaking'
-	| 'vocabulary';
+	| 'vocabulary'
+	| 'suchbild';
 
 export type NavGroupType = 'quizzes' | 'questChain' | 'nounChain' | 'links';
 
@@ -378,9 +379,47 @@ export interface VocabularyQuiz extends QuizBase {
 	cards: VocabCard[];
 }
 
+// -- suchbild (find it in the picture) ---------------------------------------
+
+/**
+ * One thing to find in a Suchbild room: a noun and where it is drawn, as a
+ * box in percent of the picture. Boxes may overlap (a jar on a window sill):
+ * the later spot is on top, so small things go after the big ones they sit on.
+ */
+export interface SuchbildSpot {
+	de: string;
+	article: 'der' | 'die' | 'das';
+	en: string;
+	plural?: string;
+	x: number;
+	y: number;
+	w: number;
+	h: number;
+	/** More places the same thing is drawn (blinds on two floors): any one counts. */
+	also?: { x: number; y: number; w: number; h: number }[];
+}
+
+/**
+ * A picture hunt, the flashcard deck's twin: one room picture, and a run of
+ * "Wo ist der Heizkörper?" — tap it. Once a run is passed the prompts turn
+ * English-only and a find is followed by der / die / das. Progress is the
+ * streak, as for the deck.
+ */
+export interface SuchbildQuiz extends QuizBase {
+	type: 'suchbild';
+	/** The room: an id in static/img/, shipped at 1024px for tapping. */
+	scene: string;
+	/** The picture's width and height, so the frame keeps its shape before it loads. */
+	sceneSize: [number, number];
+	/** What the room shows, for screen readers. */
+	sceneAlt: string;
+	spots: SuchbildSpot[];
+}
+
 export type Quiz =
 	| FillBlankQuiz
 	| VocabularyQuiz
+	| SuchbildQuiz
 	| ReadingQuiz
 	| InlineClozeQuiz
 	| ListeningQuiz

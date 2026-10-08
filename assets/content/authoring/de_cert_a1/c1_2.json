@@ -6265,7 +6265,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Kritik üben, eine Entscheidung treffen: formal German pairs its nouns with fixed verbs, so learn the noun, its article and its partner.",
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 188 cards, 70 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Kultur & Medien, Gesellschaft & Ehrenamt, Literatur, Arbeit & Kommunikation formell. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 252 cards, 129 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Kultur & Medien, Gesellschaft & Ehrenamt, Literatur, Arbeit & Kommunikation formell. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -6372,6 +6372,1284 @@
         "Verbs and adjectives have no article: type them as they stand, like \"prägen\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_c1_2_suchbild_redaktion",
+    "after": "quest_c1_2_wortschatz",
+    "covers": [
+      "c1.vocabulary-2"
+    ],
+    "help": {
+      "hook": "An empty newsroom full of precise office nouns: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one newspaper office after the editors have gone home, with 32 things to find in it, each one a precise noun from the world of the press and office work — der Aktenvernichter, die Briefablage, das Stativ, die Leinwand for the morning briefing. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Most office words are compounds, and only the last part decides the article. Akten + Schrank: der Schrank, so der Aktenschrank. Brief + Ablage: die Ablage, so die Briefablage. Cover the front and read the end.",
+          "examples": [
+            {
+              "de": "der Aktenschrank, Plural: Aktenschränke",
+              "en": "filing cabinet (der Schrank)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Schreibtischlampe, Plural: -n",
+              "en": "desk lamp (die Lampe)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Kleiderständer steht neben dem Stativ.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Ständer, so the whole word is der Kleiderständer."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Machines in -er are masculine — but not the -fon family",
+          "text": "A device named after what it does with -er is masculine: der Drucker, der Beamer, der Wasserspender, der Aktenvernichter. Words built on Greek -fon (sound) are neuter instead: das Telefon, das Mikrofon, das Megafon.",
+          "examples": [
+            {
+              "de": "der Aktenvernichter",
+              "en": "paper shredder",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Megafon, Plural: -e",
+              "en": "megaphone",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Mikrofon?",
+            "options": [
+              "das",
+              "der",
+              "die"
+            ],
+            "answer": "das",
+            "why": "The -fon words are neuter: das Telefon, das Mikrofon, das Megafon."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Latin endings -ium and -iv point to das",
+          "text": "Nouns borrowed from Latin with -ium or -iv are nearly always neuter, and -ium words swap it for -ien in the plural: das Aquarium, die Aquarien. Picture the goldfish and the tripod standing together in a green das corner of the room.",
+          "examples": [
+            {
+              "de": "das Aquarium, Plural: Aquarien",
+              "en": "fish tank",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "das Stativ, Plural: -e",
+              "en": "tripod",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the tripod’ in German:",
+            "options": [
+              "das Stativ",
+              "der Stativ",
+              "die Stativ"
+            ],
+            "answer": "das Stativ",
+            "why": "-iv loanwords are neuter: das Stativ, das Archiv."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: die Ablage → die Briefablage.",
+        "-er devices are der (der Drucker); -fon words are das (das Mikrofon).",
+        "Die Schere is one pair of scissors; die Scheren are several pairs."
+      ],
+      "vocab": [
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "desk"
+        },
+        {
+          "de": "Bürostuhl",
+          "article": "der",
+          "plural": "Bürostühle",
+          "en": "office chair"
+        },
+        {
+          "de": "Aktenschrank",
+          "article": "der",
+          "plural": "Aktenschränke",
+          "en": "filing cabinet"
+        },
+        {
+          "de": "Sessel",
+          "article": "der",
+          "plural": "-",
+          "en": "armchair"
+        },
+        {
+          "de": "Leinwand",
+          "article": "die",
+          "plural": "Leinwände",
+          "en": "projection screen"
+        },
+        {
+          "de": "Klimaanlage",
+          "article": "die",
+          "plural": "-n",
+          "en": "air conditioner"
+        },
+        {
+          "de": "Beamer",
+          "article": "der",
+          "plural": "-",
+          "en": "projector"
+        },
+        {
+          "de": "Jalousie",
+          "article": "die",
+          "plural": "-n",
+          "en": "venetian blind"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "plural": "-e",
+          "en": "wall shelf"
+        },
+        {
+          "de": "Globus",
+          "article": "der",
+          "plural": "Globen",
+          "en": "globe"
+        },
+        {
+          "de": "Megafon",
+          "article": "das",
+          "plural": "-e",
+          "en": "megaphone"
+        },
+        {
+          "de": "Schere",
+          "article": "die",
+          "plural": "-n",
+          "en": "scissors"
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "clipboard"
+        },
+        {
+          "de": "Aquarium",
+          "article": "das",
+          "plural": "Aquarien",
+          "en": "fish tank"
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "coffee machine"
+        },
+        {
+          "de": "Drucker",
+          "article": "der",
+          "plural": "-",
+          "en": "printer"
+        },
+        {
+          "de": "Wasserspender",
+          "article": "der",
+          "plural": "-",
+          "en": "water cooler"
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "plural": "-s",
+          "en": "radio"
+        },
+        {
+          "de": "Kleiderständer",
+          "article": "der",
+          "plural": "-",
+          "en": "coat stand"
+        },
+        {
+          "de": "Stativ",
+          "article": "das",
+          "plural": "-e",
+          "en": "tripod"
+        },
+        {
+          "de": "Papierkorb",
+          "article": "der",
+          "plural": "Papierkörbe",
+          "en": "wastepaper basket"
+        },
+        {
+          "de": "Schreibtischlampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "desk lamp"
+        },
+        {
+          "de": "Telefon",
+          "article": "das",
+          "plural": "-e",
+          "en": "telephone"
+        },
+        {
+          "de": "Bildschirm",
+          "article": "der",
+          "plural": "-e",
+          "en": "monitor"
+        },
+        {
+          "de": "Tastatur",
+          "article": "die",
+          "plural": "-en",
+          "en": "keyboard"
+        },
+        {
+          "de": "Schreibmaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "typewriter"
+        },
+        {
+          "de": "Mikrofon",
+          "article": "das",
+          "plural": "-e",
+          "en": "microphone"
+        },
+        {
+          "de": "Briefablage",
+          "article": "die",
+          "plural": "-n",
+          "en": "letter tray"
+        },
+        {
+          "de": "Kamera",
+          "article": "die",
+          "plural": "-s",
+          "en": "camera"
+        },
+        {
+          "de": "Lupe",
+          "article": "die",
+          "plural": "-n",
+          "en": "magnifying glass"
+        },
+        {
+          "de": "Aktenvernichter",
+          "article": "der",
+          "plural": "-",
+          "en": "paper shredder"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Die Redaktion",
+      "level": "C1.2",
+      "storageKeyPrefix": "quest_c1_2_suchbild_redaktion_",
+      "scene": "quest_c1_2_suchbild_redaktion",
+      "sceneSize": [
+        964,
+        964
+      ],
+      "sceneAlt": "A cluttered newspaper office: a projector and an air conditioner near the ceiling, a blank projection screen, a shelf with a globe, a megaphone and scissors, a long desk with a monitor, typewriter, telephone, microphone and camera, an office chair, a filing cabinet, a water cooler, a coat stand, a tripod, an aquarium, a printer, a coffee machine, an armchair and a paper shredder.",
+      "spots": [
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "en": "desk",
+          "plural": "-e",
+          "x": 25.5,
+          "y": 68.87,
+          "w": 49.0,
+          "h": 20.66
+        },
+        {
+          "de": "Bürostuhl",
+          "article": "der",
+          "en": "office chair",
+          "plural": "Bürostühle",
+          "x": 43.0,
+          "y": 69.31,
+          "w": 12.5,
+          "h": 22.91
+        },
+        {
+          "de": "Aktenschrank",
+          "article": "der",
+          "en": "filing cabinet",
+          "plural": "Aktenschränke",
+          "x": 5.0,
+          "y": 66.17,
+          "w": 15.0,
+          "h": 24.26
+        },
+        {
+          "de": "Sessel",
+          "article": "der",
+          "en": "armchair",
+          "plural": "-",
+          "x": 75.5,
+          "y": 69.76,
+          "w": 22.5,
+          "h": 18.87
+        },
+        {
+          "de": "Leinwand",
+          "article": "die",
+          "en": "projection screen",
+          "plural": "Leinwände",
+          "x": 32.5,
+          "y": 27.09,
+          "w": 34.5,
+          "h": 26.05
+        },
+        {
+          "de": "Klimaanlage",
+          "article": "die",
+          "en": "air conditioner",
+          "plural": "-n",
+          "x": 41.0,
+          "y": 18.11,
+          "w": 18.5,
+          "h": 6.29
+        },
+        {
+          "de": "Beamer",
+          "article": "der",
+          "en": "projector",
+          "plural": "-",
+          "x": 45.5,
+          "y": 6.88,
+          "w": 9.5,
+          "h": 11.23
+        },
+        {
+          "de": "Jalousie",
+          "article": "die",
+          "en": "venetian blind",
+          "plural": "-n",
+          "x": 2.5,
+          "y": 16.76,
+          "w": 7.0,
+          "h": 21.56
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 2.5,
+          "y": 37.87,
+          "w": 6.0,
+          "h": 26.5
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "en": "wall shelf",
+          "plural": "-e",
+          "x": 70.0,
+          "y": 36.52,
+          "w": 24.0,
+          "h": 5.39
+        },
+        {
+          "de": "Globus",
+          "article": "der",
+          "en": "globe",
+          "plural": "Globen",
+          "x": 71.0,
+          "y": 25.74,
+          "w": 8.5,
+          "h": 11.68
+        },
+        {
+          "de": "Megafon",
+          "article": "das",
+          "en": "megaphone",
+          "plural": "-e",
+          "x": 80.0,
+          "y": 27.99,
+          "w": 9.5,
+          "h": 8.98
+        },
+        {
+          "de": "Schere",
+          "article": "die",
+          "en": "scissors",
+          "plural": "-n",
+          "x": 87.5,
+          "y": 24.4,
+          "w": 5.0,
+          "h": 12.13
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "en": "clipboard",
+          "plural": "-er",
+          "x": 69.0,
+          "y": 41.91,
+          "w": 6.5,
+          "h": 8.53
+        },
+        {
+          "de": "Aquarium",
+          "article": "das",
+          "en": "fish tank",
+          "plural": "Aquarien",
+          "x": 75.5,
+          "y": 51.35,
+          "w": 11.5,
+          "h": 8.53
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "en": "coffee machine",
+          "plural": "-n",
+          "x": 88.5,
+          "y": 56.74,
+          "w": 7.5,
+          "h": 8.98
+        },
+        {
+          "de": "Drucker",
+          "article": "der",
+          "en": "printer",
+          "plural": "-",
+          "x": 76.5,
+          "y": 67.07,
+          "w": 10.5,
+          "h": 8.53
+        },
+        {
+          "de": "Wasserspender",
+          "article": "der",
+          "en": "water cooler",
+          "plural": "-",
+          "x": 11.0,
+          "y": 45.06,
+          "w": 9.0,
+          "h": 21.56
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "en": "radio",
+          "plural": "-s",
+          "x": 7.0,
+          "y": 57.64,
+          "w": 9.0,
+          "h": 8.53
+        },
+        {
+          "de": "Kleiderständer",
+          "article": "der",
+          "en": "coat stand",
+          "plural": "-",
+          "x": 21.0,
+          "y": 46.41,
+          "w": 8.0,
+          "h": 40.43
+        },
+        {
+          "de": "Stativ",
+          "article": "das",
+          "en": "tripod",
+          "plural": "-e",
+          "x": 21.0,
+          "y": 67.97,
+          "w": 9.0,
+          "h": 24.26
+        },
+        {
+          "de": "Papierkorb",
+          "article": "der",
+          "en": "wastepaper basket",
+          "plural": "Papierkörbe",
+          "x": 4.0,
+          "y": 84.14,
+          "w": 8.5,
+          "h": 9.43
+        },
+        {
+          "de": "Schreibtischlampe",
+          "article": "die",
+          "en": "desk lamp",
+          "plural": "-n",
+          "x": 27.0,
+          "y": 54.49,
+          "w": 11.0,
+          "h": 15.27
+        },
+        {
+          "de": "Telefon",
+          "article": "das",
+          "en": "telephone",
+          "plural": "-e",
+          "x": 32.5,
+          "y": 64.37,
+          "w": 8.0,
+          "h": 5.84
+        },
+        {
+          "de": "Bildschirm",
+          "article": "der",
+          "en": "monitor",
+          "plural": "-e",
+          "x": 39.5,
+          "y": 56.74,
+          "w": 13.0,
+          "h": 10.33
+        },
+        {
+          "de": "Tastatur",
+          "article": "die",
+          "en": "keyboard",
+          "plural": "-en",
+          "x": 40.5,
+          "y": 66.42,
+          "w": 10.5,
+          "h": 4.0
+        },
+        {
+          "de": "Schreibmaschine",
+          "article": "die",
+          "en": "typewriter",
+          "plural": "-n",
+          "x": 52.5,
+          "y": 61.23,
+          "w": 8.5,
+          "h": 8.53
+        },
+        {
+          "de": "Mikrofon",
+          "article": "das",
+          "en": "microphone",
+          "plural": "-e",
+          "x": 62.0,
+          "y": 58.98,
+          "w": 4.0,
+          "h": 10.78
+        },
+        {
+          "de": "Briefablage",
+          "article": "die",
+          "en": "letter tray",
+          "plural": "-n",
+          "x": 66.0,
+          "y": 56.74,
+          "w": 5.5,
+          "h": 6.74
+        },
+        {
+          "de": "Kamera",
+          "article": "die",
+          "en": "camera",
+          "plural": "-s",
+          "x": 66.0,
+          "y": 65.27,
+          "w": 7.0,
+          "h": 4.94
+        },
+        {
+          "de": "Lupe",
+          "article": "die",
+          "en": "magnifying glass",
+          "plural": "-n",
+          "x": 63.5,
+          "y": 78.3,
+          "w": 7.0,
+          "h": 15.72
+        },
+        {
+          "de": "Aktenvernichter",
+          "article": "der",
+          "en": "paper shredder",
+          "plural": "-",
+          "x": 89.0,
+          "y": 82.34,
+          "w": 8.5,
+          "h": 10.78
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_c1_2_suchbild_flughafen",
+    "after": "quest_c1_2_suchbild_redaktion",
+    "covers": [
+      "c1.vocabulary-2"
+    ],
+    "help": {
+      "hook": "An airport hall with nobody in it: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one airport check-in and gate hall with 32 things to find, from the security check to the window onto the apron — das Röntgengerät, die Fluggastbrücke, der Gepäckwagen, das Triebwerk under the wing. Many of them are long compounds you mostly meet when travelling. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Airport words stack nouns together, and the last one decides. Röntgen + Gerät: das Gerät, so das Röntgengerät. Fluggast + Brücke: die Brücke, so die Fluggastbrücke — even though der Gast stands in front.",
+          "examples": [
+            {
+              "de": "die Fluggastbrücke, Plural: -n",
+              "en": "jet bridge (die Brücke)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Funkgerät, Plural: -e",
+              "en": "walkie-talkie (das Gerät)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Schließfach ist noch frei.",
+            "options": [
+              "Das",
+              "Der",
+              "Die"
+            ],
+            "answer": "Das",
+            "why": "The last part is das Fach, so the whole word is das Schließfach."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "One pair of sunglasses is one die Brille",
+          "text": "English says sunglasses, a plural. German counts the pair as one thing: die Sonnenbrille, singular. Only several pairs are die Sonnenbrillen.",
+          "examples": [
+            {
+              "de": "die Sonnenbrille",
+              "en": "sunglasses (one pair)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Sonnenbrillen",
+              "en": "several pairs of sunglasses",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Wo ist ____ Sonnenbrille?",
+            "options": [
+              "die",
+              "der",
+              "das"
+            ],
+            "answer": "die",
+            "why": "Die Brille is feminine and singular, so it is die Sonnenbrille."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Everything called -wagen rolls in as der",
+          "text": "Der Wagen is masculine, and it lends its gender to every cart on wheels: der Gepäckwagen, der Kinderwagen. The plural stays the same: die Kinderwagen. Imagine both carts racing across the hall under a blue der flag.",
+          "examples": [
+            {
+              "de": "der Gepäckwagen, Plural: -",
+              "en": "luggage trolley",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "der Kinderwagen, Plural: -",
+              "en": "pram",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the pram’ in German:",
+            "options": [
+              "der Kinderwagen",
+              "das Kinderwagen",
+              "die Kinderwagen"
+            ],
+            "answer": "der Kinderwagen",
+            "why": "The last part is der Wagen, so the compound is der Kinderwagen."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: das Gerät → das Röntgengerät.",
+        "Die Sonnenbrille is one pair; -wagen words are der and keep the same plural.",
+        "Die Gangway is an English loanword: the plural is die Gangways."
+      ],
+      "vocab": [
+        {
+          "de": "Rolltreppe",
+          "article": "die",
+          "plural": "-n",
+          "en": "escalator"
+        },
+        {
+          "de": "Check-in-Schalter",
+          "article": "der",
+          "plural": "-",
+          "en": "check-in desk"
+        },
+        {
+          "de": "Fluggastbrücke",
+          "article": "die",
+          "plural": "-n",
+          "en": "jet bridge"
+        },
+        {
+          "de": "Flugzeug",
+          "article": "das",
+          "plural": "-e",
+          "en": "aeroplane"
+        },
+        {
+          "de": "Triebwerk",
+          "article": "das",
+          "plural": "-e",
+          "en": "jet engine"
+        },
+        {
+          "de": "Gangway",
+          "article": "die",
+          "plural": "-s",
+          "en": "boarding stairs"
+        },
+        {
+          "de": "Kontrollturm",
+          "article": "der",
+          "plural": "Kontrolltürme",
+          "en": "control tower"
+        },
+        {
+          "de": "Topfpalme",
+          "article": "die",
+          "plural": "-n",
+          "en": "potted palm"
+        },
+        {
+          "de": "Wartebank",
+          "article": "die",
+          "plural": "Wartebänke",
+          "en": "waiting bench"
+        },
+        {
+          "de": "Kuscheltier",
+          "article": "das",
+          "plural": "-e",
+          "en": "cuddly toy"
+        },
+        {
+          "de": "Nackenkissen",
+          "article": "das",
+          "plural": "-",
+          "en": "neck pillow"
+        },
+        {
+          "de": "Gitarre",
+          "article": "die",
+          "plural": "-n",
+          "en": "guitar"
+        },
+        {
+          "de": "Uhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "clock"
+        },
+        {
+          "de": "Vitrine",
+          "article": "die",
+          "plural": "-n",
+          "en": "glass display cabinet"
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "plural": "-",
+          "en": "fire extinguisher"
+        },
+        {
+          "de": "Schließfach",
+          "article": "das",
+          "plural": "Schließfächer",
+          "en": "luggage locker"
+        },
+        {
+          "de": "Metalldetektor",
+          "article": "der",
+          "plural": "-en",
+          "en": "metal detector"
+        },
+        {
+          "de": "Röntgengerät",
+          "article": "das",
+          "plural": "-e",
+          "en": "X-ray scanner"
+        },
+        {
+          "de": "Plastikwanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "security tray"
+        },
+        {
+          "de": "Absperrband",
+          "article": "das",
+          "plural": "Absperrbänder",
+          "en": "queue barrier"
+        },
+        {
+          "de": "Gepäckwagen",
+          "article": "der",
+          "plural": "-",
+          "en": "luggage trolley"
+        },
+        {
+          "de": "Koffer",
+          "article": "der",
+          "plural": "-",
+          "en": "suitcase"
+        },
+        {
+          "de": "Fahrrad",
+          "article": "das",
+          "plural": "Fahrräder",
+          "en": "bicycle"
+        },
+        {
+          "de": "Paket",
+          "article": "das",
+          "plural": "-e",
+          "en": "parcel"
+        },
+        {
+          "de": "Rucksack",
+          "article": "der",
+          "plural": "Rucksäcke",
+          "en": "backpack"
+        },
+        {
+          "de": "Kinderwagen",
+          "article": "der",
+          "plural": "-",
+          "en": "pram"
+        },
+        {
+          "de": "Regenschirm",
+          "article": "der",
+          "plural": "-e",
+          "en": "umbrella"
+        },
+        {
+          "de": "Surfbrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "surfboard"
+        },
+        {
+          "de": "Beistelltisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "side table"
+        },
+        {
+          "de": "Funkgerät",
+          "article": "das",
+          "plural": "-e",
+          "en": "walkie-talkie"
+        },
+        {
+          "de": "Sonnenbrille",
+          "article": "die",
+          "plural": "-n",
+          "en": "sunglasses"
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "plural": "-",
+          "en": "rubbish bin"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Der Flughafen",
+      "level": "C1.2",
+      "storageKeyPrefix": "quest_c1_2_suchbild_flughafen_",
+      "scene": "quest_c1_2_suchbild_flughafen",
+      "sceneSize": [
+        992,
+        992
+      ],
+      "sceneAlt": "An airport hall with a big clock hanging from the ceiling and a window onto an aeroplane, a jet bridge, boarding stairs and a control tower. Inside are an escalator, a check-in desk, lockers, a metal detector, an X-ray scanner, a queue barrier, a luggage trolley, a bicycle, a pram, a backpack, a bench with a teddy and a guitar, a palm, a surfboard and a small table with sunglasses.",
+      "spots": [
+        {
+          "de": "Rolltreppe",
+          "article": "die",
+          "en": "escalator",
+          "plural": "-n",
+          "x": 1.7,
+          "y": 54.0,
+          "w": 22.91,
+          "h": 23.0
+        },
+        {
+          "de": "Check-in-Schalter",
+          "article": "der",
+          "en": "check-in desk",
+          "plural": "-",
+          "x": 5.68,
+          "y": 53.5,
+          "w": 18.43,
+          "h": 11.5
+        },
+        {
+          "de": "Fluggastbrücke",
+          "article": "die",
+          "en": "jet bridge",
+          "plural": "-n",
+          "x": 53.98,
+          "y": 41.0,
+          "w": 27.89,
+          "h": 6.0
+        },
+        {
+          "de": "Flugzeug",
+          "article": "das",
+          "en": "aeroplane",
+          "plural": "-e",
+          "x": 39.04,
+          "y": 43.5,
+          "w": 19.42,
+          "h": 7.5
+        },
+        {
+          "de": "Triebwerk",
+          "article": "das",
+          "en": "jet engine",
+          "plural": "-e",
+          "x": 42.53,
+          "y": 46.5,
+          "w": 4.48,
+          "h": 4.0
+        },
+        {
+          "de": "Gangway",
+          "article": "die",
+          "en": "boarding stairs",
+          "plural": "-s",
+          "x": 60.96,
+          "y": 46.0,
+          "w": 6.47,
+          "h": 6.0
+        },
+        {
+          "de": "Kontrollturm",
+          "article": "der",
+          "en": "control tower",
+          "plural": "Kontrolltürme",
+          "x": 69.42,
+          "y": 35.0,
+          "w": 5.98,
+          "h": 15.5
+        },
+        {
+          "de": "Topfpalme",
+          "article": "die",
+          "en": "potted palm",
+          "plural": "-n",
+          "x": 74.4,
+          "y": 38.5,
+          "w": 14.44,
+          "h": 22.5
+        },
+        {
+          "de": "Wartebank",
+          "article": "die",
+          "en": "waiting bench",
+          "plural": "Wartebänke",
+          "x": 59.96,
+          "y": 54.0,
+          "w": 18.43,
+          "h": 7.5
+        },
+        {
+          "de": "Kuscheltier",
+          "article": "das",
+          "en": "cuddly toy",
+          "plural": "-e",
+          "x": 60.96,
+          "y": 53.0,
+          "w": 4.48,
+          "h": 5.5
+        },
+        {
+          "de": "Nackenkissen",
+          "article": "das",
+          "en": "neck pillow",
+          "plural": "-",
+          "x": 65.94,
+          "y": 55.0,
+          "w": 4.98,
+          "h": 4.0
+        },
+        {
+          "de": "Gitarre",
+          "article": "die",
+          "en": "guitar",
+          "plural": "-n",
+          "x": 72.9,
+          "y": 48.5,
+          "w": 4.0,
+          "h": 10.0
+        },
+        {
+          "de": "Uhr",
+          "article": "die",
+          "en": "clock",
+          "plural": "-en",
+          "x": 44.02,
+          "y": 10.5,
+          "w": 11.95,
+          "h": 16.5
+        },
+        {
+          "de": "Vitrine",
+          "article": "die",
+          "en": "glass display cabinet",
+          "plural": "-n",
+          "x": 9.66,
+          "y": 45.0,
+          "w": 6.97,
+          "h": 9.0
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "en": "fire extinguisher",
+          "plural": "-",
+          "x": 3.68,
+          "y": 46.0,
+          "w": 4.0,
+          "h": 7.5
+        },
+        {
+          "de": "Schließfach",
+          "article": "das",
+          "en": "luggage locker",
+          "plural": "Schließfächer",
+          "x": 20.62,
+          "y": 45.5,
+          "w": 13.94,
+          "h": 15.5
+        },
+        {
+          "de": "Metalldetektor",
+          "article": "der",
+          "en": "metal detector",
+          "plural": "-en",
+          "x": 35.06,
+          "y": 42.5,
+          "w": 10.96,
+          "h": 21.0
+        },
+        {
+          "de": "Röntgengerät",
+          "article": "das",
+          "en": "X-ray scanner",
+          "plural": "-e",
+          "x": 46.02,
+          "y": 51.0,
+          "w": 9.96,
+          "h": 13.5
+        },
+        {
+          "de": "Plastikwanne",
+          "article": "die",
+          "en": "security tray",
+          "plural": "-n",
+          "x": 47.51,
+          "y": 56.0,
+          "w": 5.98,
+          "h": 4.0
+        },
+        {
+          "de": "Absperrband",
+          "article": "das",
+          "en": "queue barrier",
+          "plural": "Absperrbänder",
+          "x": 30.58,
+          "y": 59.5,
+          "w": 20.42,
+          "h": 20.5
+        },
+        {
+          "de": "Gepäckwagen",
+          "article": "der",
+          "en": "luggage trolley",
+          "plural": "-",
+          "x": 43.53,
+          "y": 64.0,
+          "w": 12.45,
+          "h": 16.5
+        },
+        {
+          "de": "Koffer",
+          "article": "der",
+          "en": "suitcase",
+          "plural": "-",
+          "x": 44.02,
+          "y": 68.0,
+          "w": 9.96,
+          "h": 9.0
+        },
+        {
+          "de": "Fahrrad",
+          "article": "das",
+          "en": "bicycle",
+          "plural": "Fahrräder",
+          "x": 55.48,
+          "y": 62.0,
+          "w": 18.43,
+          "h": 11.0
+        },
+        {
+          "de": "Paket",
+          "article": "das",
+          "en": "parcel",
+          "plural": "-e",
+          "x": 55.98,
+          "y": 76.5,
+          "w": 6.97,
+          "h": 6.0
+        },
+        {
+          "de": "Rucksack",
+          "article": "der",
+          "en": "backpack",
+          "plural": "Rucksäcke",
+          "x": 62.95,
+          "y": 73.5,
+          "w": 13.45,
+          "h": 12.0
+        },
+        {
+          "de": "Kinderwagen",
+          "article": "der",
+          "en": "pram",
+          "plural": "-",
+          "x": 73.9,
+          "y": 61.0,
+          "w": 15.44,
+          "h": 16.5
+        },
+        {
+          "de": "Regenschirm",
+          "article": "der",
+          "en": "umbrella",
+          "plural": "-e",
+          "x": 74.89,
+          "y": 60.5,
+          "w": 4.0,
+          "h": 8.0
+        },
+        {
+          "de": "Surfbrett",
+          "article": "das",
+          "en": "surfboard",
+          "plural": "-er",
+          "x": 87.85,
+          "y": 43.0,
+          "w": 5.98,
+          "h": 21.0
+        },
+        {
+          "de": "Beistelltisch",
+          "article": "der",
+          "en": "side table",
+          "plural": "-e",
+          "x": 90.34,
+          "y": 61.5,
+          "w": 7.47,
+          "h": 9.0
+        },
+        {
+          "de": "Funkgerät",
+          "article": "das",
+          "en": "walkie-talkie",
+          "plural": "-e",
+          "x": 89.83,
+          "y": 59.5,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Sonnenbrille",
+          "article": "die",
+          "en": "sunglasses",
+          "plural": "-n",
+          "x": 93.81,
+          "y": 61.5,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "en": "rubbish bin",
+          "plural": "-",
+          "x": 91.83,
+          "y": 71.5,
+          "w": 5.48,
+          "h": 9.0
+        }
+      ]
     }
   }
 ]

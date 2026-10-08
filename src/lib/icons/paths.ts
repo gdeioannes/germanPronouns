@@ -186,5 +186,6 @@ export const QUIZ_TYPE_ICONS = {
 	dictation: 'dictation',
 	speakRepeat: 'mic',
 	speaking: 'chat',
-	vocabulary: 'cards'
+	vocabulary: 'cards',
+	suchbild: 'search'
 } as const satisfies Record<string, IconName>;

@@ -65,7 +65,7 @@ function recentRate(f: QuizFacts): number {
 export function reviewIntervalDays(quiz: Quiz, f: QuizFacts): number {
 	if (f.answered === 0) return REVIEW_INTERVAL_DAYS.playThrough;
 	if (recentRate(f) >= WEAK_MISTAKE_RATE) return REVIEW_INTERVAL_DAYS.shaky;
-	if (quiz.type !== 'fillBlank' && quiz.type !== 'vocabulary') {
+	if (quiz.type !== 'fillBlank' && quiz.type !== 'vocabulary' && quiz.type !== 'suchbild') {
 		return REVIEW_INTERVAL_DAYS.playThrough;
 	}
 	return REVIEW_INTERVAL_DAYS[f.tier ?? 'bronze'];

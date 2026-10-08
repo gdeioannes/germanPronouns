@@ -6242,7 +6242,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Gather the words for home, health, clothes and people — every noun with its article, every verb with its partner.",
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 241 cards, 51 of them nouns. The vocabulary of this module is the words for travel, health, home and describing people, and many verbs you now use in the Perfekt, from the themes Wohnen & Einrichtung, Körper & Gesundheit; beim Arzt, Kleidung & Einkaufen, Menschen beschreiben. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 304 cards, 114 of them nouns. The vocabulary of this module is the words for travel, health, home and describing people, and many verbs you now use in the Perfekt, from the themes Wohnen & Einrichtung, Körper & Gesundheit; beim Arzt, Kleidung & Einkaufen, Menschen beschreiben. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -6345,6 +6345,1316 @@
         "Verbs and adjectives have no article: type them as they stand, like \"an\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_a2_2_suchbild_kinderzimmer",
+    "after": "quest_a2_2_wortschatz",
+    "covers": [
+      "a2.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A child's bedroom full of toys: tap each thing in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one cheerful, slightly messy child's bedroom with 32 things to find in it, every one an everyday noun — das Bett, der Kleiderschrank, die Eisenbahn, das Schaukelpferd, the toys on the rug and the kite on the wall. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Many toys here are compounds, and the last part decides the article. Schaukel + Pferd: das Pferd, so das Schaukelpferd. Spielzeug + Kiste: die Kiste, so die Spielzeugkiste. Look at the last word and you have the article.",
+          "examples": [
+            {
+              "de": "das Schaukelpferd, Plural: -e",
+              "en": "rocking horse (das Pferd)",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "die Schreibtischlampe, Plural: -n",
+              "en": "desk lamp (die Lampe)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Spielzeugauto steht neben der Trommel.",
+            "options": [
+              "Das",
+              "Der",
+              "Die"
+            ],
+            "answer": "Das",
+            "why": "The last part is das Auto, so the whole word is das Spielzeugauto."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Same first part, different articles",
+          "text": "Schreibtisch and Schreibtischlampe start the same, but the article follows the end of the word: der Tisch makes der Schreibtisch, die Lampe makes die Schreibtischlampe. The same goes for Spielzeug: das Spielzeugauto, but die Spielzeugkiste.",
+          "examples": [
+            {
+              "de": "der Schreibtisch",
+              "en": "desk (der Tisch)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Spielzeugkiste",
+              "en": "toy chest (die Kiste)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Kleiderschrank?",
+            "options": [
+              "der",
+              "die",
+              "das"
+            ],
+            "answer": "der",
+            "why": "The last part is der Schrank, so it is der Kleiderschrank; die Kleider at the front does not count."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Many words in -e are feminine",
+          "text": "Nouns that end in -e are very often die: die Puppe, die Rakete, die Gitarre, die Bettdecke. It is a strong pattern, not a law, but when you have to guess an -e word, guess die.",
+          "examples": [
+            {
+              "de": "die Puppe, Plural: -n",
+              "en": "doll",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Rakete, Plural: -n",
+              "en": "rocket",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the guitar’ in German:",
+            "options": [
+              "die Gitarre",
+              "der Gitarre",
+              "das Gitarre"
+            ],
+            "answer": "die Gitarre",
+            "why": "Gitarre ends in -e, and like most -e nouns it is feminine."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Schrank → der Kleiderschrank.",
+        "Most nouns ending in -e are die: die Puppe, die Rakete, die Gitarre.",
+        "Der Drachen is the kite on the wall; the plural is die Drachen, unchanged."
+      ],
+      "vocab": [
+        {
+          "de": "Teppich",
+          "article": "der",
+          "plural": "-e",
+          "en": "rug"
+        },
+        {
+          "de": "Kleiderschrank",
+          "article": "der",
+          "plural": "Kleiderschränke",
+          "en": "wardrobe"
+        },
+        {
+          "de": "Bett",
+          "article": "das",
+          "plural": "-en",
+          "en": "bed"
+        },
+        {
+          "de": "Zelt",
+          "article": "das",
+          "plural": "-e",
+          "en": "play tent"
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "plural": "-e",
+          "en": "shelf"
+        },
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "desk"
+        },
+        {
+          "de": "Stuhl",
+          "article": "der",
+          "plural": "Stühle",
+          "en": "chair"
+        },
+        {
+          "de": "Vorhang",
+          "article": "der",
+          "plural": "Vorhänge",
+          "en": "curtain"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Bettdecke",
+          "article": "die",
+          "plural": "-n",
+          "en": "duvet"
+        },
+        {
+          "de": "Kissen",
+          "article": "das",
+          "plural": "-",
+          "en": "pillow"
+        },
+        {
+          "de": "Drachen",
+          "article": "der",
+          "plural": "-",
+          "en": "kite"
+        },
+        {
+          "de": "Flugzeug",
+          "article": "das",
+          "plural": "-e",
+          "en": "toy aeroplane"
+        },
+        {
+          "de": "Globus",
+          "article": "der",
+          "plural": "Globen",
+          "en": "globe"
+        },
+        {
+          "de": "Rakete",
+          "article": "die",
+          "plural": "-n",
+          "en": "rocket"
+        },
+        {
+          "de": "Puppe",
+          "article": "die",
+          "plural": "-n",
+          "en": "doll"
+        },
+        {
+          "de": "Schreibtischlampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "desk lamp"
+        },
+        {
+          "de": "Stiftebecher",
+          "article": "der",
+          "plural": "-",
+          "en": "pencil pot"
+        },
+        {
+          "de": "Rucksack",
+          "article": "der",
+          "plural": "Rucksäcke",
+          "en": "backpack"
+        },
+        {
+          "de": "Papierkorb",
+          "article": "der",
+          "plural": "Papierkörbe",
+          "en": "wastepaper basket"
+        },
+        {
+          "de": "Teddybär",
+          "article": "der",
+          "plural": "-en",
+          "en": "teddy bear"
+        },
+        {
+          "de": "Tafel",
+          "article": "die",
+          "plural": "-n",
+          "en": "chalkboard"
+        },
+        {
+          "de": "Spielzeugkiste",
+          "article": "die",
+          "plural": "-n",
+          "en": "toy chest"
+        },
+        {
+          "de": "Roller",
+          "article": "der",
+          "plural": "-",
+          "en": "scooter"
+        },
+        {
+          "de": "Gitarre",
+          "article": "die",
+          "plural": "-n",
+          "en": "guitar"
+        },
+        {
+          "de": "Schaukelpferd",
+          "article": "das",
+          "plural": "-e",
+          "en": "rocking horse"
+        },
+        {
+          "de": "Eisenbahn",
+          "article": "die",
+          "plural": "-en",
+          "en": "toy train"
+        },
+        {
+          "de": "Bilderbuch",
+          "article": "das",
+          "plural": "Bilderbücher",
+          "en": "picture book"
+        },
+        {
+          "de": "Puzzle",
+          "article": "das",
+          "plural": "-s",
+          "en": "jigsaw puzzle"
+        },
+        {
+          "de": "Ball",
+          "article": "der",
+          "plural": "Bälle",
+          "en": "ball"
+        },
+        {
+          "de": "Trommel",
+          "article": "die",
+          "plural": "-n",
+          "en": "drum"
+        },
+        {
+          "de": "Spielzeugauto",
+          "article": "das",
+          "plural": "-s",
+          "en": "toy car"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Das Kinderzimmer",
+      "level": "A2.2",
+      "storageKeyPrefix": "quest_a2_2_suchbild_kinderzimmer_",
+      "scene": "quest_a2_2_suchbild_kinderzimmer",
+      "sceneSize": [
+        972,
+        972
+      ],
+      "sceneAlt": "A cheerful child's bedroom: a bed with a starry duvet, a rocking horse and a guitar on the left, a wardrobe, a shelf with a globe, a rocket and a doll, and a small desk with a lamp and a chair at the back, a play tent, a teddy bear, a toy chest and a chalkboard on the right, and a round rug with a toy train, a picture book, a puzzle and a ball in the middle.",
+      "spots": [
+        {
+          "de": "Teppich",
+          "article": "der",
+          "en": "rug",
+          "plural": "-e",
+          "x": 29.0,
+          "y": 76.58,
+          "w": 40.0,
+          "h": 13.32
+        },
+        {
+          "de": "Kleiderschrank",
+          "article": "der",
+          "en": "wardrobe",
+          "plural": "Kleiderschränke",
+          "x": 29.5,
+          "y": 45.95,
+          "w": 16.0,
+          "h": 28.41
+        },
+        {
+          "de": "Bett",
+          "article": "das",
+          "en": "bed",
+          "plural": "-en",
+          "x": 4.5,
+          "y": 59.72,
+          "w": 25.0,
+          "h": 22.2
+        },
+        {
+          "de": "Zelt",
+          "article": "das",
+          "en": "play tent",
+          "plural": "-e",
+          "x": 64.5,
+          "y": 48.17,
+          "w": 22.0,
+          "h": 27.52
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "en": "shelf",
+          "plural": "-e",
+          "x": 47.5,
+          "y": 47.91,
+          "w": 17.1,
+          "h": 6.3
+        },
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "en": "desk",
+          "plural": "-e",
+          "x": 47.0,
+          "y": 63.71,
+          "w": 15.7,
+          "h": 11.01
+        },
+        {
+          "de": "Stuhl",
+          "article": "der",
+          "en": "chair",
+          "plural": "Stühle",
+          "x": 50.4,
+          "y": 64.69,
+          "w": 8.2,
+          "h": 11.54
+        },
+        {
+          "de": "Vorhang",
+          "article": "der",
+          "en": "curtain",
+          "plural": "Vorhänge",
+          "x": 0.8,
+          "y": 34.85,
+          "w": 12.6,
+          "h": 30.9
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 4.6,
+          "y": 35.92,
+          "w": 5.7,
+          "h": 26.64
+        },
+        {
+          "de": "Bettdecke",
+          "article": "die",
+          "en": "duvet",
+          "plural": "-n",
+          "x": 4.3,
+          "y": 65.22,
+          "w": 24.8,
+          "h": 16.43
+        },
+        {
+          "de": "Kissen",
+          "article": "das",
+          "en": "pillow",
+          "plural": "-",
+          "x": 17.5,
+          "y": 60.16,
+          "w": 9.5,
+          "h": 4.88
+        },
+        {
+          "de": "Drachen",
+          "article": "der",
+          "en": "kite",
+          "plural": "-",
+          "x": 17.7,
+          "y": 39.03,
+          "w": 7.0,
+          "h": 17.49
+        },
+        {
+          "de": "Flugzeug",
+          "article": "das",
+          "en": "toy aeroplane",
+          "plural": "-e",
+          "x": 43.7,
+          "y": 17.9,
+          "w": 11.8,
+          "h": 4.97
+        },
+        {
+          "de": "Globus",
+          "article": "der",
+          "en": "globe",
+          "plural": "Globen",
+          "x": 49.6,
+          "y": 42.31,
+          "w": 4.6,
+          "h": 5.95
+        },
+        {
+          "de": "Rakete",
+          "article": "die",
+          "en": "rocket",
+          "plural": "-n",
+          "x": 55.1,
+          "y": 42.4,
+          "w": 4.0,
+          "h": 5.86
+        },
+        {
+          "de": "Puppe",
+          "article": "die",
+          "en": "doll",
+          "plural": "-n",
+          "x": 58.9,
+          "y": 49.24,
+          "w": 4.0,
+          "h": 6.39
+        },
+        {
+          "de": "Schreibtischlampe",
+          "article": "die",
+          "en": "desk lamp",
+          "plural": "-n",
+          "x": 48.0,
+          "y": 56.52,
+          "w": 6.9,
+          "h": 8.26
+        },
+        {
+          "de": "Stiftebecher",
+          "article": "der",
+          "en": "pencil pot",
+          "plural": "-",
+          "x": 57.8,
+          "y": 60.91,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Rucksack",
+          "article": "der",
+          "en": "backpack",
+          "plural": "Rucksäcke",
+          "x": 50.7,
+          "y": 65.22,
+          "w": 5.9,
+          "h": 6.66
+        },
+        {
+          "de": "Papierkorb",
+          "article": "der",
+          "en": "wastepaper basket",
+          "plural": "Papierkörbe",
+          "x": 62.2,
+          "y": 69.84,
+          "w": 4.0,
+          "h": 4.44
+        },
+        {
+          "de": "Teddybär",
+          "article": "der",
+          "en": "teddy bear",
+          "plural": "-en",
+          "x": 65.5,
+          "y": 68.15,
+          "w": 10.5,
+          "h": 10.65
+        },
+        {
+          "de": "Tafel",
+          "article": "die",
+          "en": "chalkboard",
+          "plural": "-n",
+          "x": 84.0,
+          "y": 69.04,
+          "w": 13.5,
+          "h": 19.53
+        },
+        {
+          "de": "Spielzeugkiste",
+          "article": "die",
+          "en": "toy chest",
+          "plural": "-n",
+          "x": 77.0,
+          "y": 70.19,
+          "w": 8.4,
+          "h": 11.72
+        },
+        {
+          "de": "Roller",
+          "article": "der",
+          "en": "scooter",
+          "plural": "-",
+          "x": 80.0,
+          "y": 78.36,
+          "w": 11.5,
+          "h": 14.21
+        },
+        {
+          "de": "Gitarre",
+          "article": "die",
+          "en": "guitar",
+          "plural": "-n",
+          "x": 24.0,
+          "y": 65.93,
+          "w": 8.0,
+          "h": 14.65
+        },
+        {
+          "de": "Schaukelpferd",
+          "article": "das",
+          "en": "rocking horse",
+          "plural": "-e",
+          "x": 2.0,
+          "y": 76.14,
+          "w": 19.0,
+          "h": 15.09
+        },
+        {
+          "de": "Eisenbahn",
+          "article": "die",
+          "en": "toy train",
+          "plural": "-en",
+          "x": 32.5,
+          "y": 82.8,
+          "w": 15.5,
+          "h": 4.44
+        },
+        {
+          "de": "Bilderbuch",
+          "article": "das",
+          "en": "picture book",
+          "plural": "Bilderbücher",
+          "x": 37.5,
+          "y": 80.36,
+          "w": 7.0,
+          "h": 4.0
+        },
+        {
+          "de": "Puzzle",
+          "article": "das",
+          "en": "jigsaw puzzle",
+          "plural": "-s",
+          "x": 51.5,
+          "y": 80.14,
+          "w": 9.0,
+          "h": 6.22
+        },
+        {
+          "de": "Ball",
+          "article": "der",
+          "en": "ball",
+          "plural": "Bälle",
+          "x": 61.5,
+          "y": 79.25,
+          "w": 5.5,
+          "h": 5.77
+        },
+        {
+          "de": "Trommel",
+          "article": "die",
+          "en": "drum",
+          "plural": "-n",
+          "x": 70.5,
+          "y": 86.35,
+          "w": 10.0,
+          "h": 6.66
+        },
+        {
+          "de": "Spielzeugauto",
+          "article": "das",
+          "en": "toy car",
+          "plural": "-s",
+          "x": 62.5,
+          "y": 90.12,
+          "w": 6.5,
+          "h": 4.0,
+          "also": [
+            {
+              "x": 58.9,
+              "y": 45.28,
+              "w": 4.0,
+              "h": 4.0
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_a2_2_suchbild_cafe",
+    "after": "quest_a2_2_suchbild_kinderzimmer",
+    "covers": [
+      "a2.vocabulary-2"
+    ],
+    "help": {
+      "hook": "An empty café before opening time: tap each thing in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one small, cosy café before opening time, with a counter and nobody in it with 32 things to find in it, every one an everyday noun — der Tresen, die Kaffeemaschine, das Milchkännchen, the cake on the counter and the croissant on the table. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "-chen makes every word neuter",
+          "text": "The ending -chen (and -lein) makes a thing small, and it always makes it das, whatever the word was before. Die Kanne is a big jug; the little milk jug on the table is das Milchkännchen. The vowel often gets an umlaut too: Kanne → Kännchen.",
+          "examples": [
+            {
+              "de": "das Milchkännchen, Plural: -",
+              "en": "milk jug",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "die Teekanne, Plural: -n",
+              "en": "teapot (die Kanne)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Milchkännchen steht neben dem Glas.",
+            "options": [
+              "Das",
+              "Die",
+              "Der"
+            ],
+            "answer": "Das",
+            "why": "Every noun in -chen is neuter, even though die Kanne is feminine."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Devices in -er are masculine — but watch die Maschine",
+          "text": "A device named with -er, the thing that does the job, is der: der Toaster, der Wasserkocher, der Mülleimer is the odd one out that is masculine without being a machine. Do not let the coffee fool you: die Kaffeemaschine takes its article from die Maschine.",
+          "examples": [
+            {
+              "de": "der Wasserkocher",
+              "en": "kettle",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Kaffeemaschine",
+              "en": "coffee machine (die Maschine)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Toaster?",
+            "options": [
+              "der",
+              "die",
+              "das"
+            ],
+            "answer": "der",
+            "why": "Devices in -er are masculine: der Toaster, der Wasserkocher."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "The front part never decides",
+          "text": "Das Wasser is neuter, but at the front of a word it changes nothing: der Wasserkocher (der Kocher), der Wasserhahn (der Hahn). The same trick works all over this room: die Wanduhr (die Uhr), der Regenschirm (der Schirm), der Schirmständer (der Ständer).",
+          "examples": [
+            {
+              "de": "der Wasserhahn, Plural: Wasserhähne",
+              "en": "tap (der Hahn)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Wanduhr, Plural: -en",
+              "en": "wall clock (die Uhr)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the umbrella stand’ in German:",
+            "options": [
+              "der Schirmständer",
+              "die Schirmständer",
+              "das Schirmständer"
+            ],
+            "answer": "der Schirmständer",
+            "why": "The last part is der Ständer, so the compound is der Schirmständer."
+          }
+        }
+      ],
+      "remember": [
+        "Every -chen word is das: das Milchkännchen, even though die Kanne is feminine.",
+        "Devices in -er are der: der Toaster, der Wasserkocher.",
+        "The counter in a café is der Tresen; the plural is die Tresen, unchanged."
+      ],
+      "vocab": [
+        {
+          "de": "Tresen",
+          "article": "der",
+          "plural": "-",
+          "en": "counter"
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "plural": "Kühlschränke",
+          "en": "fridge"
+        },
+        {
+          "de": "Bank",
+          "article": "die",
+          "plural": "Bänke",
+          "en": "bench"
+        },
+        {
+          "de": "Sofa",
+          "article": "das",
+          "plural": "-s",
+          "en": "sofa"
+        },
+        {
+          "de": "Tisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "table"
+        },
+        {
+          "de": "Barhocker",
+          "article": "der",
+          "plural": "-",
+          "en": "bar stool"
+        },
+        {
+          "de": "Deckenventilator",
+          "article": "der",
+          "plural": "-en",
+          "en": "ceiling fan"
+        },
+        {
+          "de": "Hängelampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "pendant lamp"
+        },
+        {
+          "de": "Wanduhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "wall clock"
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "plural": "-s",
+          "en": "radio"
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "coffee machine"
+        },
+        {
+          "de": "Toaster",
+          "article": "der",
+          "plural": "-",
+          "en": "toaster"
+        },
+        {
+          "de": "Spülbecken",
+          "article": "das",
+          "plural": "-",
+          "en": "sink"
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "plural": "Wasserhähne",
+          "en": "tap"
+        },
+        {
+          "de": "Schneidebrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "chopping board"
+        },
+        {
+          "de": "Brezel",
+          "article": "die",
+          "plural": "-n",
+          "en": "pretzel"
+        },
+        {
+          "de": "Wasserkocher",
+          "article": "der",
+          "plural": "-",
+          "en": "kettle"
+        },
+        {
+          "de": "Kuchen",
+          "article": "der",
+          "plural": "-",
+          "en": "cake"
+        },
+        {
+          "de": "Kasse",
+          "article": "die",
+          "plural": "-n",
+          "en": "cash register"
+        },
+        {
+          "de": "Telefon",
+          "article": "das",
+          "plural": "-e",
+          "en": "telephone"
+        },
+        {
+          "de": "Topfpflanze",
+          "article": "die",
+          "plural": "-n",
+          "en": "potted plant"
+        },
+        {
+          "de": "Schirmständer",
+          "article": "der",
+          "plural": "-",
+          "en": "umbrella stand"
+        },
+        {
+          "de": "Regenschirm",
+          "article": "der",
+          "plural": "-e",
+          "en": "umbrella"
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "plural": "-",
+          "en": "bin"
+        },
+        {
+          "de": "Tablett",
+          "article": "das",
+          "plural": "-s",
+          "en": "tray"
+        },
+        {
+          "de": "Teekanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "teapot"
+        },
+        {
+          "de": "Tasse",
+          "article": "die",
+          "plural": "-n",
+          "en": "cup"
+        },
+        {
+          "de": "Zuckerdose",
+          "article": "die",
+          "plural": "-n",
+          "en": "sugar bowl"
+        },
+        {
+          "de": "Vase",
+          "article": "die",
+          "plural": "-n",
+          "en": "vase"
+        },
+        {
+          "de": "Glas",
+          "article": "das",
+          "plural": "Gläser",
+          "en": "glass"
+        },
+        {
+          "de": "Milchkännchen",
+          "article": "das",
+          "plural": "-",
+          "en": "milk jug"
+        },
+        {
+          "de": "Croissant",
+          "article": "das",
+          "plural": "-s",
+          "en": "croissant"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Das Café",
+      "level": "A2.2",
+      "storageKeyPrefix": "quest_a2_2_suchbild_cafe_",
+      "scene": "quest_a2_2_suchbild_cafe",
+      "sceneSize": [
+        981,
+        981
+      ],
+      "sceneAlt": "A small café with nobody in it: a ceiling fan and a lamp above, a clock on the back wall, a long counter with a coffee machine, a toaster, a sink, a kettle, a pretzel, a cake, a cash register and a telephone, and a drinks fridge behind it. On the left a bench, a sofa and an umbrella stand; in the middle a bar stool and a round table set with a teapot, a cup and a croissant; on the right a bin.",
+      "spots": [
+        {
+          "de": "Tresen",
+          "article": "der",
+          "en": "counter",
+          "plural": "-",
+          "x": 19.7,
+          "y": 54.78,
+          "w": 73.9,
+          "h": 24.9
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "en": "fridge",
+          "plural": "Kühlschränke",
+          "x": 64.9,
+          "y": 29.58,
+          "w": 14.6,
+          "h": 25.2
+        },
+        {
+          "de": "Bank",
+          "article": "die",
+          "en": "bench",
+          "plural": "Bänke",
+          "x": 3.9,
+          "y": 61.35,
+          "w": 20.1,
+          "h": 29.88
+        },
+        {
+          "de": "Sofa",
+          "article": "das",
+          "en": "sofa",
+          "plural": "-s",
+          "x": 17.3,
+          "y": 71.51,
+          "w": 22.9,
+          "h": 27.09
+        },
+        {
+          "de": "Tisch",
+          "article": "der",
+          "en": "table",
+          "plural": "-e",
+          "x": 42.1,
+          "y": 80.77,
+          "w": 30.0,
+          "h": 16.83
+        },
+        {
+          "de": "Barhocker",
+          "article": "der",
+          "en": "bar stool",
+          "plural": "-",
+          "x": 53.7,
+          "y": 63.25,
+          "w": 11.5,
+          "h": 18.23
+        },
+        {
+          "de": "Deckenventilator",
+          "article": "der",
+          "en": "ceiling fan",
+          "plural": "-en",
+          "x": 36.2,
+          "y": 4.79,
+          "w": 30.0,
+          "h": 8.66
+        },
+        {
+          "de": "Hängelampe",
+          "article": "die",
+          "en": "pendant lamp",
+          "plural": "-n",
+          "x": 45.2,
+          "y": 12.15,
+          "w": 11.2,
+          "h": 7.97
+        },
+        {
+          "de": "Wanduhr",
+          "article": "die",
+          "en": "wall clock",
+          "plural": "-en",
+          "x": 46.1,
+          "y": 27.89,
+          "w": 8.8,
+          "h": 8.76
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "en": "radio",
+          "plural": "-s",
+          "x": 85.4,
+          "y": 33.07,
+          "w": 7.8,
+          "h": 10.36
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "en": "coffee machine",
+          "plural": "-n",
+          "x": 22.7,
+          "y": 43.03,
+          "w": 12.6,
+          "h": 14.24
+        },
+        {
+          "de": "Toaster",
+          "article": "der",
+          "en": "toaster",
+          "plural": "-",
+          "x": 36.9,
+          "y": 44.32,
+          "w": 8.5,
+          "h": 5.48
+        },
+        {
+          "de": "Spülbecken",
+          "article": "das",
+          "en": "sink",
+          "plural": "-",
+          "x": 44.1,
+          "y": 47.4,
+          "w": 13.0,
+          "h": 4.0
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "en": "tap",
+          "plural": "Wasserhähne",
+          "x": 49.6,
+          "y": 44.31,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Schneidebrett",
+          "article": "das",
+          "en": "chopping board",
+          "plural": "-er",
+          "x": 57.1,
+          "y": 39.74,
+          "w": 5.1,
+          "h": 9.36,
+          "also": [
+            {
+              "x": 68.1,
+              "y": 53.97,
+              "w": 5.5,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Brezel",
+          "article": "die",
+          "en": "pretzel",
+          "plural": "-n",
+          "x": 43.1,
+          "y": 50.9,
+          "w": 7.5,
+          "h": 6.08
+        },
+        {
+          "de": "Wasserkocher",
+          "article": "der",
+          "en": "kettle",
+          "plural": "-",
+          "x": 51.0,
+          "y": 48.41,
+          "w": 6.1,
+          "h": 8.37
+        },
+        {
+          "de": "Kuchen",
+          "article": "der",
+          "en": "cake",
+          "plural": "-",
+          "x": 58.8,
+          "y": 51.69,
+          "w": 9.5,
+          "h": 5.58
+        },
+        {
+          "de": "Kasse",
+          "article": "die",
+          "en": "cash register",
+          "plural": "-n",
+          "x": 73.6,
+          "y": 46.61,
+          "w": 9.5,
+          "h": 10.96
+        },
+        {
+          "de": "Telefon",
+          "article": "das",
+          "en": "telephone",
+          "plural": "-e",
+          "x": 83.1,
+          "y": 51.0,
+          "w": 9.2,
+          "h": 6.27
+        },
+        {
+          "de": "Topfpflanze",
+          "article": "die",
+          "en": "potted plant",
+          "plural": "-n",
+          "x": 6.1,
+          "y": 82.57,
+          "w": 8.7,
+          "h": 13.94
+        },
+        {
+          "de": "Schirmständer",
+          "article": "der",
+          "en": "umbrella stand",
+          "plural": "-",
+          "x": 30.8,
+          "y": 69.32,
+          "w": 6.4,
+          "h": 20.12
+        },
+        {
+          "de": "Regenschirm",
+          "article": "der",
+          "en": "umbrella",
+          "plural": "-e",
+          "x": 32.4,
+          "y": 61.65,
+          "w": 5.5,
+          "h": 19.12
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "en": "bin",
+          "plural": "-",
+          "x": 85.1,
+          "y": 70.02,
+          "w": 9.2,
+          "h": 15.24
+        },
+        {
+          "de": "Tablett",
+          "article": "das",
+          "en": "tray",
+          "plural": "-s",
+          "x": 45.6,
+          "y": 83.76,
+          "w": 13.4,
+          "h": 4.78
+        },
+        {
+          "de": "Teekanne",
+          "article": "die",
+          "en": "teapot",
+          "plural": "-n",
+          "x": 46.4,
+          "y": 77.89,
+          "w": 8.7,
+          "h": 6.08
+        },
+        {
+          "de": "Tasse",
+          "article": "die",
+          "en": "cup",
+          "plural": "-n",
+          "x": 47.1,
+          "y": 83.26,
+          "w": 5.6,
+          "h": 4.38,
+          "also": [
+            {
+              "x": 24.5,
+              "y": 51.38,
+              "w": 4.0,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Zuckerdose",
+          "article": "die",
+          "en": "sugar bowl",
+          "plural": "-n",
+          "x": 53.3,
+          "y": 83.26,
+          "w": 4.1,
+          "h": 4.38,
+          "also": [
+            {
+              "x": 39.4,
+              "y": 53.48,
+              "w": 4.0,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Vase",
+          "article": "die",
+          "en": "vase",
+          "plural": "-n",
+          "x": 54.8,
+          "y": 74.4,
+          "w": 4.1,
+          "h": 9.56
+        },
+        {
+          "de": "Glas",
+          "article": "das",
+          "en": "glass",
+          "plural": "Gläser",
+          "x": 58.6,
+          "y": 80.77,
+          "w": 4.0,
+          "h": 4.08
+        },
+        {
+          "de": "Milchkännchen",
+          "article": "das",
+          "en": "milk jug",
+          "plural": "-",
+          "x": 64.2,
+          "y": 80.77,
+          "w": 4.0,
+          "h": 4.08
+        },
+        {
+          "de": "Croissant",
+          "article": "das",
+          "en": "croissant",
+          "plural": "-s",
+          "x": 61.5,
+          "y": 84.85,
+          "w": 6.3,
+          "h": 4.0
+        }
+      ]
     }
   }
 ]

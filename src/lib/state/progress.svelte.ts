@@ -103,6 +103,7 @@ function completionKeyFor(type: QuizType): string | null {
 			return SettingsKeys.completedSpeakQuizzes;
 		case 'fillBlank':
 		case 'vocabulary':
+		case 'suchbild':
 			// Run-driven: finishing a run marks the quest set, nothing else.
 			return null;
 	}
@@ -115,7 +116,7 @@ function completionKeyFor(type: QuizType): string | null {
  * a drill like the fill-in.
  */
 function isDrill(type: QuizType): boolean {
-	return type === 'fillBlank' || type === 'vocabulary' || type === 'dictation';
+	return type === 'fillBlank' || type === 'vocabulary' || type === 'suchbild' || type === 'dictation';
 }
 
 class ProgressStore {

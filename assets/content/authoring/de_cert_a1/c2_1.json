@@ -6320,7 +6320,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Collect the precise vocabulary of business, law, media and literature, and learn which word fits a formal text.",
-      "intro": "Every word this module’s exercises use, on one deck of flashcards: 219 cards, 62 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module’s exercises use, on one deck of flashcards: 283 cards, 126 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -6422,6 +6422,1306 @@
         "Verbs and adjectives have no article: type them as they stand, like \"rechtskräftig\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_c2_1_suchbild_tischlerei",
+    "after": "quest_c2_1_wortschatz",
+    "covers": [
+      "c2.vocabulary-1"
+    ],
+    "help": {
+      "hook": "A carpenter's workshop full of specialist tools: tap each one in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one busy carpenter's workshop with 32 things to find, every one a precise craft word that ordinary conversation rarely needs — der Hobel, die Schraubzwinge, das Senklot, der Klüpfel hanging on the pegboard. The prompt asks Wo ist der Zollstock? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "The last part of a compound decides",
+          "text": "Most tools here are compounds, and only the last part counts. Schraube + Zwinge: die Zwinge, so die Schraubzwinge. Hobel + Bank: die Bank, so die Hobelbank — even though der Hobel lies on top of it.",
+          "examples": [
+            {
+              "de": "die Drechselbank, Plural: Drechselbänke",
+              "en": "wood-turning lathe (die Bank)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Sägeblatt, Plural: Sägeblätter",
+              "en": "saw blade (das Blatt)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Wasserwaage liegt auf dem Regal.",
+            "options": [
+              "Die",
+              "Der",
+              "Das"
+            ],
+            "answer": "Die",
+            "why": "The last part is die Waage, so the whole word is die Wasserwaage."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Same first part, different article",
+          "text": "Säge, Hobel and Schraube all start compounds here, but the ending sets the gender each time: die Bandsäge but der Sägebock and das Sägeblatt; der Hobel but die Hobelbank. Never copy the article of the first word.",
+          "examples": [
+            {
+              "de": "der Sägebock, Plural: Sägeböcke",
+              "en": "sawhorse (der Bock)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Bandsäge, Plural: -n",
+              "en": "band saw (die Säge)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Schraubstock?",
+            "options": [
+              "der",
+              "die",
+              "das"
+            ],
+            "answer": "der",
+            "why": "The last part is der Stock, so it is der Schraubstock — the first part, die Schraube, does not count."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Tools in -er are der, -eisen is das, -chen is das",
+          "text": "A device named after what it does with -er is masculine: der Akkuschrauber, der Hobel, der Klüpfel. Words built on das Eisen stay neuter: das Stemmeisen. Little things in -chen are always das: das Ölkännchen.",
+          "examples": [
+            {
+              "de": "der Akkuschrauber",
+              "en": "cordless drill",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Stemmeisen",
+              "en": "chisel (das Eisen)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the oil can’ in German:",
+            "options": [
+              "das Ölkännchen",
+              "die Ölkännchen",
+              "der Ölkännchen"
+            ],
+            "answer": "das Ölkännchen",
+            "why": "Every noun in -chen is neuter, whatever the word it comes from (die Kanne → das Kännchen)."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: die Schraube + die Zwinge → die Schraubzwinge, but die Schraube + der Stock → der Schraubstock.",
+        "-chen always makes a noun das: die Kanne → das Ölkännchen.",
+        "Der Fuchsschwanz is the carpenter’s handsaw, not only a fox’s tail."
+      ],
+      "vocab": [
+        {
+          "de": "Hobelbank",
+          "article": "die",
+          "plural": "Hobelbänke",
+          "en": "carpenter's workbench"
+        },
+        {
+          "de": "Lochwand",
+          "article": "die",
+          "plural": "Lochwände",
+          "en": "pegboard"
+        },
+        {
+          "de": "Bandsäge",
+          "article": "die",
+          "plural": "-n",
+          "en": "band saw"
+        },
+        {
+          "de": "Drechselbank",
+          "article": "die",
+          "plural": "Drechselbänke",
+          "en": "wood-turning lathe"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "plural": "-e",
+          "en": "wall shelf"
+        },
+        {
+          "de": "Wasserwaage",
+          "article": "die",
+          "plural": "-n",
+          "en": "spirit level"
+        },
+        {
+          "de": "Sägebock",
+          "article": "der",
+          "plural": "Sägeböcke",
+          "en": "sawhorse"
+        },
+        {
+          "de": "Fass",
+          "article": "das",
+          "plural": "Fässer",
+          "en": "barrel"
+        },
+        {
+          "de": "Schürze",
+          "article": "die",
+          "plural": "-n",
+          "en": "work apron"
+        },
+        {
+          "de": "Zollstock",
+          "article": "der",
+          "plural": "Zollstöcke",
+          "en": "folding ruler"
+        },
+        {
+          "de": "Hängelampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "pendant lamp"
+        },
+        {
+          "de": "Fuchsschwanz",
+          "article": "der",
+          "plural": "Fuchsschwänze",
+          "en": "handsaw"
+        },
+        {
+          "de": "Klüpfel",
+          "article": "der",
+          "plural": "-",
+          "en": "carpenter's mallet"
+        },
+        {
+          "de": "Feile",
+          "article": "die",
+          "plural": "-n",
+          "en": "file"
+        },
+        {
+          "de": "Schutzbrille",
+          "article": "die",
+          "plural": "-n",
+          "en": "safety goggles"
+        },
+        {
+          "de": "Kneifzange",
+          "article": "die",
+          "plural": "-n",
+          "en": "pincers"
+        },
+        {
+          "de": "Senklot",
+          "article": "das",
+          "plural": "-e",
+          "en": "plumb bob"
+        },
+        {
+          "de": "Streichmaß",
+          "article": "das",
+          "plural": "-e",
+          "en": "marking gauge"
+        },
+        {
+          "de": "Sägeblatt",
+          "article": "das",
+          "plural": "Sägeblätter",
+          "en": "circular saw blade"
+        },
+        {
+          "de": "Hackklotz",
+          "article": "der",
+          "plural": "Hackklötze",
+          "en": "chopping block"
+        },
+        {
+          "de": "Beil",
+          "article": "das",
+          "plural": "-e",
+          "en": "hatchet"
+        },
+        {
+          "de": "Schraubstock",
+          "article": "der",
+          "plural": "Schraubstöcke",
+          "en": "bench vice"
+        },
+        {
+          "de": "Schraubzwinge",
+          "article": "die",
+          "plural": "-n",
+          "en": "C-clamp"
+        },
+        {
+          "de": "Hobel",
+          "article": "der",
+          "plural": "-",
+          "en": "hand plane"
+        },
+        {
+          "de": "Ölkännchen",
+          "article": "das",
+          "plural": "-",
+          "en": "oil can"
+        },
+        {
+          "de": "Schleifpapier",
+          "article": "das",
+          "plural": "-e",
+          "en": "sandpaper"
+        },
+        {
+          "de": "Stemmeisen",
+          "article": "das",
+          "plural": "-",
+          "en": "chisel"
+        },
+        {
+          "de": "Leimtopf",
+          "article": "der",
+          "plural": "Leimtöpfe",
+          "en": "glue pot"
+        },
+        {
+          "de": "Akkuschrauber",
+          "article": "der",
+          "plural": "-",
+          "en": "cordless drill"
+        },
+        {
+          "de": "Werkzeugkasten",
+          "article": "der",
+          "plural": "Werkzeugkästen",
+          "en": "toolbox"
+        },
+        {
+          "de": "Besen",
+          "article": "der",
+          "plural": "-",
+          "en": "broom"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Die Tischlerei",
+      "level": "C2.1",
+      "storageKeyPrefix": "quest_c2_1_suchbild_tischlerei_",
+      "scene": "quest_c2_1_suchbild_tischlerei",
+      "sceneSize": [
+        922,
+        922
+      ],
+      "sceneAlt": "A carpenter's workshop with green walls and a beamed ceiling: a band saw and a barrel by the window, a pegboard full of hand tools, a long workbench with a vice, a clamp, a plane and a cordless drill, and on the right a lathe, a sawhorse, a toolbox, a hatchet in a chopping block and a broom.",
+      "spots": [
+        {
+          "de": "Hobelbank",
+          "article": "die",
+          "en": "carpenter's workbench",
+          "plural": "Hobelbänke",
+          "x": 25.5,
+          "y": 59.91,
+          "w": 46.0,
+          "h": 25.36
+        },
+        {
+          "de": "Lochwand",
+          "article": "die",
+          "en": "pegboard",
+          "plural": "Lochwände",
+          "x": 33.0,
+          "y": 24.14,
+          "w": 41.5,
+          "h": 26.72
+        },
+        {
+          "de": "Bandsäge",
+          "article": "die",
+          "en": "band saw",
+          "plural": "-n",
+          "x": 12.5,
+          "y": 41.34,
+          "w": 13.5,
+          "h": 43.02
+        },
+        {
+          "de": "Drechselbank",
+          "article": "die",
+          "en": "wood-turning lathe",
+          "plural": "Drechselbänke",
+          "x": 72.0,
+          "y": 54.47,
+          "w": 20.0,
+          "h": 26.26
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 1.5,
+          "y": 19.61,
+          "w": 8.0,
+          "h": 41.66
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "en": "wall shelf",
+          "plural": "-e",
+          "x": 76.5,
+          "y": 15.98,
+          "w": 19.0,
+          "h": 11.32
+        },
+        {
+          "de": "Wasserwaage",
+          "article": "die",
+          "en": "spirit level",
+          "plural": "-n",
+          "x": 79.0,
+          "y": 19.42,
+          "w": 13.0,
+          "h": 4.0
+        },
+        {
+          "de": "Sägebock",
+          "article": "der",
+          "en": "sawhorse",
+          "plural": "Sägeböcke",
+          "x": 77.0,
+          "y": 68.06,
+          "w": 14.0,
+          "h": 18.11
+        },
+        {
+          "de": "Fass",
+          "article": "das",
+          "en": "barrel",
+          "plural": "Fässer",
+          "x": 5.0,
+          "y": 72.13,
+          "w": 12.0,
+          "h": 14.49
+        },
+        {
+          "de": "Schürze",
+          "article": "die",
+          "en": "work apron",
+          "plural": "-n",
+          "x": 24.0,
+          "y": 25.49,
+          "w": 9.0,
+          "h": 28.07
+        },
+        {
+          "de": "Zollstock",
+          "article": "der",
+          "en": "folding ruler",
+          "plural": "Zollstöcke",
+          "x": 14.0,
+          "y": 23.68,
+          "w": 7.5,
+          "h": 13.58
+        },
+        {
+          "de": "Hängelampe",
+          "article": "die",
+          "en": "pendant lamp",
+          "plural": "-n",
+          "x": 45.5,
+          "y": 14.63,
+          "w": 9.5,
+          "h": 7.25
+        },
+        {
+          "de": "Fuchsschwanz",
+          "article": "der",
+          "en": "handsaw",
+          "plural": "Fuchsschwänze",
+          "x": 34.5,
+          "y": 25.95,
+          "w": 5.0,
+          "h": 14.04
+        },
+        {
+          "de": "Klüpfel",
+          "article": "der",
+          "en": "carpenter's mallet",
+          "plural": "-",
+          "x": 46.0,
+          "y": 27.3,
+          "w": 6.0,
+          "h": 12.68
+        },
+        {
+          "de": "Feile",
+          "article": "die",
+          "en": "file",
+          "plural": "-n",
+          "x": 59.5,
+          "y": 29.12,
+          "w": 4.0,
+          "h": 12.68,
+          "also": [
+            {
+              "x": 54.5,
+              "y": 29.12,
+              "w": 4.0,
+              "h": 14.49
+            }
+          ]
+        },
+        {
+          "de": "Schutzbrille",
+          "article": "die",
+          "en": "safety goggles",
+          "plural": "-n",
+          "x": 65.5,
+          "y": 30.02,
+          "w": 7.5,
+          "h": 4.53
+        },
+        {
+          "de": "Kneifzange",
+          "article": "die",
+          "en": "pincers",
+          "plural": "-n",
+          "x": 65.5,
+          "y": 36.36,
+          "w": 4.0,
+          "h": 10.87
+        },
+        {
+          "de": "Senklot",
+          "article": "das",
+          "en": "plumb bob",
+          "plural": "-e",
+          "x": 70.0,
+          "y": 36.81,
+          "w": 4.0,
+          "h": 11.32
+        },
+        {
+          "de": "Streichmaß",
+          "article": "das",
+          "en": "marking gauge",
+          "plural": "-e",
+          "x": 40.0,
+          "y": 44.77,
+          "w": 16.5,
+          "h": 4.0
+        },
+        {
+          "de": "Sägeblatt",
+          "article": "das",
+          "en": "circular saw blade",
+          "plural": "Sägeblätter",
+          "x": 78.0,
+          "y": 28.21,
+          "w": 14.0,
+          "h": 14.04
+        },
+        {
+          "de": "Hackklotz",
+          "article": "der",
+          "en": "chopping block",
+          "plural": "Hackklötze",
+          "x": 81.5,
+          "y": 81.64,
+          "w": 7.0,
+          "h": 5.43
+        },
+        {
+          "de": "Beil",
+          "article": "das",
+          "en": "hatchet",
+          "plural": "-e",
+          "x": 77.5,
+          "y": 44.06,
+          "w": 15.0,
+          "h": 6.79,
+          "also": [
+            {
+              "x": 82.5,
+              "y": 76.66,
+              "w": 4.5,
+              "h": 6.34
+            }
+          ]
+        },
+        {
+          "de": "Schraubstock",
+          "article": "der",
+          "en": "bench vice",
+          "plural": "Schraubstöcke",
+          "x": 30.0,
+          "y": 64.44,
+          "w": 7.0,
+          "h": 7.25
+        },
+        {
+          "de": "Schraubzwinge",
+          "article": "die",
+          "en": "C-clamp",
+          "plural": "-n",
+          "x": 54.0,
+          "y": 62.62,
+          "w": 6.0,
+          "h": 9.96
+        },
+        {
+          "de": "Hobel",
+          "article": "der",
+          "en": "hand plane",
+          "plural": "-",
+          "x": 31.0,
+          "y": 57.19,
+          "w": 11.0,
+          "h": 6.34
+        },
+        {
+          "de": "Ölkännchen",
+          "article": "das",
+          "en": "oil can",
+          "plural": "-",
+          "x": 45.5,
+          "y": 53.12,
+          "w": 8.0,
+          "h": 5.89
+        },
+        {
+          "de": "Schleifpapier",
+          "article": "das",
+          "en": "sandpaper",
+          "plural": "-e",
+          "x": 43.0,
+          "y": 59.72,
+          "w": 7.5,
+          "h": 4.0
+        },
+        {
+          "de": "Stemmeisen",
+          "article": "das",
+          "en": "chisel",
+          "plural": "-",
+          "x": 51.0,
+          "y": 59.26,
+          "w": 5.5,
+          "h": 4.0
+        },
+        {
+          "de": "Leimtopf",
+          "article": "der",
+          "en": "glue pot",
+          "plural": "Leimtöpfe",
+          "x": 56.5,
+          "y": 57.19,
+          "w": 5.0,
+          "h": 5.43
+        },
+        {
+          "de": "Akkuschrauber",
+          "article": "der",
+          "en": "cordless drill",
+          "plural": "-",
+          "x": 60.0,
+          "y": 54.02,
+          "w": 8.5,
+          "h": 8.6
+        },
+        {
+          "de": "Werkzeugkasten",
+          "article": "der",
+          "en": "toolbox",
+          "plural": "Werkzeugkästen",
+          "x": 72.0,
+          "y": 77.57,
+          "w": 9.5,
+          "h": 8.15
+        },
+        {
+          "de": "Besen",
+          "article": "der",
+          "en": "broom",
+          "plural": "-",
+          "x": 90.5,
+          "y": 51.76,
+          "w": 6.5,
+          "h": 33.06
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_c2_1_suchbild_bauernhof",
+    "after": "quest_c2_1_suchbild_tischlerei",
+    "covers": [
+      "c2.vocabulary-1"
+    ],
+    "help": {
+      "hook": "An old farmyard full of tools, harness and animals: tap each one in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one cluttered farmyard in front of a red barn, with 32 things to find, many of them old rural words you meet in novels and museums rather than in daily talk — der Dreschflegel, das Kummet, die Egge, der Taubenschlag on its pole. The prompt asks Wo ist die Sense? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on empty sky or grass costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Compounds follow their last part",
+          "text": "Melken + Schemel: der Schemel, so der Melkschemel. Scheune + Tor: das Tor, so das Scheunentor. Wagen + Rad: das Rad, so das Wagenrad. The first part only says what kind; the last part brings the article.",
+          "examples": [
+            {
+              "de": "der Wetterhahn, Plural: Wetterhähne",
+              "en": "weathercock (der Hahn)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Hufeisen",
+              "en": "horseshoe (das Eisen)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Futtertrog steht vor der Scheune.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Trog, so the whole word is der Futtertrog."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Young animals are das",
+          "text": "Baby animals are neuter, whatever the gender of the grown animal: das Ferkel next to die Sau, das Kalb next to die Kuh. The grown animals in this yard are not: die Ziege, die Gans, die Katze.",
+          "examples": [
+            {
+              "de": "das Ferkel",
+              "en": "piglet",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "die Gans, Plural: Gänse",
+              "en": "goose",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Ferkel?",
+            "options": [
+              "das",
+              "der",
+              "die"
+            ],
+            "answer": "das",
+            "why": "Young animals are neuter: das Ferkel, das Kalb, das Fohlen."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Farm tools in -e are mostly die",
+          "text": "Many of the hand tools here end in -e, and nouns in -e are usually feminine: die Sense, die Egge, die Raufe, die Laterne, die Pumpe. Picture them in a row along the barn wall, all wearing red labels.",
+          "examples": [
+            {
+              "de": "die Sense, Plural: -n",
+              "en": "scythe",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Egge, Plural: -n",
+              "en": "harrow",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the hay rack’ in German:",
+            "options": [
+              "die Raufe",
+              "der Raufe",
+              "das Raufe"
+            ],
+            "answer": "die Raufe",
+            "why": "Nouns ending in -e are usually feminine: die Raufe, die Egge, die Sense."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: die Scheune + das Tor → das Scheunentor.",
+        "Young animals are das: das Ferkel, das Kalb.",
+        "Das Heu has no plural; one bale of it is der Heuballen."
+      ],
+      "vocab": [
+        {
+          "de": "Dach",
+          "article": "das",
+          "plural": "Dächer",
+          "en": "roof"
+        },
+        {
+          "de": "Scheunentor",
+          "article": "das",
+          "plural": "-e",
+          "en": "barn door"
+        },
+        {
+          "de": "Heu",
+          "article": "das",
+          "en": "hay"
+        },
+        {
+          "de": "Gatter",
+          "article": "das",
+          "plural": "-",
+          "en": "farm gate"
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "plural": "-n",
+          "en": "ladder"
+        },
+        {
+          "de": "Raufe",
+          "article": "die",
+          "plural": "-n",
+          "en": "hay rack"
+        },
+        {
+          "de": "Nest",
+          "article": "das",
+          "plural": "-er",
+          "en": "swallow's nest"
+        },
+        {
+          "de": "Wetterhahn",
+          "article": "der",
+          "plural": "Wetterhähne",
+          "en": "weathercock"
+        },
+        {
+          "de": "Taubenschlag",
+          "article": "der",
+          "plural": "Taubenschläge",
+          "en": "dovecote"
+        },
+        {
+          "de": "Hufeisen",
+          "article": "das",
+          "plural": "-",
+          "en": "horseshoe"
+        },
+        {
+          "de": "Seil",
+          "article": "das",
+          "plural": "-e",
+          "en": "rope"
+        },
+        {
+          "de": "Kummet",
+          "article": "das",
+          "plural": "-e",
+          "en": "horse collar"
+        },
+        {
+          "de": "Sattel",
+          "article": "der",
+          "plural": "Sättel",
+          "en": "saddle"
+        },
+        {
+          "de": "Wagenrad",
+          "article": "das",
+          "plural": "Wagenräder",
+          "en": "cartwheel"
+        },
+        {
+          "de": "Sense",
+          "article": "die",
+          "plural": "-n",
+          "en": "scythe"
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "plural": "-n",
+          "en": "storm lantern"
+        },
+        {
+          "de": "Heuballen",
+          "article": "der",
+          "plural": "-",
+          "en": "hay bale"
+        },
+        {
+          "de": "Katze",
+          "article": "die",
+          "plural": "-n",
+          "en": "cat"
+        },
+        {
+          "de": "Traktor",
+          "article": "der",
+          "plural": "-en",
+          "en": "tractor"
+        },
+        {
+          "de": "Pflug",
+          "article": "der",
+          "plural": "Pflüge",
+          "en": "plough"
+        },
+        {
+          "de": "Egge",
+          "article": "die",
+          "plural": "-n",
+          "en": "harrow"
+        },
+        {
+          "de": "Schleifstein",
+          "article": "der",
+          "plural": "-e",
+          "en": "grindstone"
+        },
+        {
+          "de": "Melkschemel",
+          "article": "der",
+          "plural": "-",
+          "en": "milking stool"
+        },
+        {
+          "de": "Milchkanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "milk churn"
+        },
+        {
+          "de": "Mistgabel",
+          "article": "die",
+          "plural": "-n",
+          "en": "pitchfork"
+        },
+        {
+          "de": "Futtertrog",
+          "article": "der",
+          "plural": "Futtertröge",
+          "en": "feeding trough"
+        },
+        {
+          "de": "Ferkel",
+          "article": "das",
+          "plural": "-",
+          "en": "piglet"
+        },
+        {
+          "de": "Ziege",
+          "article": "die",
+          "plural": "-n",
+          "en": "goat"
+        },
+        {
+          "de": "Gans",
+          "article": "die",
+          "plural": "Gänse",
+          "en": "goose"
+        },
+        {
+          "de": "Pumpe",
+          "article": "die",
+          "plural": "-n",
+          "en": "hand water pump"
+        },
+        {
+          "de": "Bienenkorb",
+          "article": "der",
+          "plural": "Bienenkörbe",
+          "en": "straw beehive"
+        },
+        {
+          "de": "Dreschflegel",
+          "article": "der",
+          "plural": "-",
+          "en": "flail"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Der Bauernhof",
+      "level": "C2.1",
+      "storageKeyPrefix": "quest_c2_1_suchbild_bauernhof_",
+      "scene": "quest_c2_1_suchbild_bauernhof",
+      "sceneSize": [
+        950,
+        950
+      ],
+      "sceneAlt": "An old farmyard in front of a red barn with a weathercock on the roof: harness, a saddle, a scythe and a lantern hang on the barn wall, a ladder and a gate stand at the right, and in the yard a tractor, a plough, a harrow, a hay bale with a cat, a milk churn, a trough with a piglet, a goat, a goose, a pump and a straw beehive.",
+      "spots": [
+        {
+          "de": "Dach",
+          "article": "das",
+          "en": "roof",
+          "plural": "Dächer",
+          "x": 22.0,
+          "y": 14.57,
+          "w": 57.0,
+          "h": 30.44
+        },
+        {
+          "de": "Scheunentor",
+          "article": "das",
+          "en": "barn door",
+          "plural": "-e",
+          "x": 57.5,
+          "y": 51.0,
+          "w": 9.5,
+          "h": 20.46
+        },
+        {
+          "de": "Heu",
+          "article": "das",
+          "en": "hay",
+          "x": 41.5,
+          "y": 61.48,
+          "w": 16.0,
+          "h": 9.48
+        },
+        {
+          "de": "Gatter",
+          "article": "das",
+          "en": "farm gate",
+          "plural": "-",
+          "x": 77.5,
+          "y": 58.98,
+          "w": 19.5,
+          "h": 13.47
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "en": "ladder",
+          "plural": "-n",
+          "x": 77.0,
+          "y": 35.53,
+          "w": 8.5,
+          "h": 37.42
+        },
+        {
+          "de": "Raufe",
+          "article": "die",
+          "en": "hay rack",
+          "plural": "-n",
+          "x": 58.5,
+          "y": 37.53,
+          "w": 12.5,
+          "h": 5.99
+        },
+        {
+          "de": "Nest",
+          "article": "das",
+          "en": "swallow's nest",
+          "plural": "-er",
+          "x": 47.0,
+          "y": 22.06,
+          "w": 8.0,
+          "h": 5.49
+        },
+        {
+          "de": "Wetterhahn",
+          "article": "der",
+          "en": "weathercock",
+          "plural": "Wetterhähne",
+          "x": 46.0,
+          "y": 6.09,
+          "w": 8.0,
+          "h": 8.48
+        },
+        {
+          "de": "Taubenschlag",
+          "article": "der",
+          "en": "dovecote",
+          "plural": "Taubenschläge",
+          "x": 6.0,
+          "y": 40.52,
+          "w": 8.5,
+          "h": 30.93
+        },
+        {
+          "de": "Hufeisen",
+          "article": "das",
+          "en": "horseshoe",
+          "plural": "-",
+          "x": 26.5,
+          "y": 48.0,
+          "w": 6.0,
+          "h": 4.19
+        },
+        {
+          "de": "Seil",
+          "article": "das",
+          "en": "rope",
+          "plural": "-e",
+          "x": 24.5,
+          "y": 49.0,
+          "w": 4.5,
+          "h": 12.97
+        },
+        {
+          "de": "Kummet",
+          "article": "das",
+          "en": "horse collar",
+          "plural": "-e",
+          "x": 30.5,
+          "y": 51.5,
+          "w": 6.0,
+          "h": 8.48
+        },
+        {
+          "de": "Sattel",
+          "article": "der",
+          "en": "saddle",
+          "plural": "Sättel",
+          "x": 27.5,
+          "y": 60.48,
+          "w": 8.5,
+          "h": 7.48
+        },
+        {
+          "de": "Wagenrad",
+          "article": "das",
+          "en": "cartwheel",
+          "plural": "Wagenräder",
+          "x": 18.5,
+          "y": 63.47,
+          "w": 10.0,
+          "h": 10.48
+        },
+        {
+          "de": "Sense",
+          "article": "die",
+          "en": "scythe",
+          "plural": "-n",
+          "x": 68.0,
+          "y": 48.5,
+          "w": 8.0,
+          "h": 19.96
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "en": "storm lantern",
+          "plural": "-n",
+          "x": 73.0,
+          "y": 51.0,
+          "w": 4.0,
+          "h": 6.49
+        },
+        {
+          "de": "Heuballen",
+          "article": "der",
+          "en": "hay bale",
+          "plural": "-",
+          "x": 26.0,
+          "y": 71.95,
+          "w": 12.0,
+          "h": 12.47
+        },
+        {
+          "de": "Katze",
+          "article": "die",
+          "en": "cat",
+          "plural": "-n",
+          "x": 33.0,
+          "y": 68.46,
+          "w": 6.0,
+          "h": 5.49
+        },
+        {
+          "de": "Traktor",
+          "article": "der",
+          "en": "tractor",
+          "plural": "-en",
+          "x": 5.0,
+          "y": 72.95,
+          "w": 17.0,
+          "h": 11.48
+        },
+        {
+          "de": "Pflug",
+          "article": "der",
+          "en": "plough",
+          "plural": "Pflüge",
+          "x": 3.5,
+          "y": 84.93,
+          "w": 14.0,
+          "h": 8.98
+        },
+        {
+          "de": "Egge",
+          "article": "die",
+          "en": "harrow",
+          "plural": "-n",
+          "x": 19.5,
+          "y": 86.92,
+          "w": 12.0,
+          "h": 5.49
+        },
+        {
+          "de": "Schleifstein",
+          "article": "der",
+          "en": "grindstone",
+          "plural": "-e",
+          "x": 34.0,
+          "y": 86.42,
+          "w": 11.5,
+          "h": 7.98
+        },
+        {
+          "de": "Melkschemel",
+          "article": "der",
+          "en": "milking stool",
+          "plural": "-",
+          "x": 39.5,
+          "y": 76.44,
+          "w": 5.5,
+          "h": 7.48
+        },
+        {
+          "de": "Milchkanne",
+          "article": "die",
+          "en": "milk churn",
+          "plural": "-n",
+          "x": 46.0,
+          "y": 75.95,
+          "w": 5.0,
+          "h": 11.97,
+          "also": [
+            {
+              "x": 51.5,
+              "y": 73.45,
+              "w": 5.5,
+              "h": 8.48
+            }
+          ]
+        },
+        {
+          "de": "Mistgabel",
+          "article": "die",
+          "en": "pitchfork",
+          "plural": "-n",
+          "x": 52.5,
+          "y": 71.45,
+          "w": 4.5,
+          "h": 16.96
+        },
+        {
+          "de": "Futtertrog",
+          "article": "der",
+          "en": "feeding trough",
+          "plural": "Futtertröge",
+          "x": 51.5,
+          "y": 87.92,
+          "w": 18.5,
+          "h": 7.98
+        },
+        {
+          "de": "Ferkel",
+          "article": "das",
+          "en": "piglet",
+          "plural": "-",
+          "x": 57.0,
+          "y": 83.43,
+          "w": 10.0,
+          "h": 7.48
+        },
+        {
+          "de": "Ziege",
+          "article": "die",
+          "en": "goat",
+          "plural": "-n",
+          "x": 59.0,
+          "y": 71.95,
+          "w": 13.5,
+          "h": 11.48
+        },
+        {
+          "de": "Gans",
+          "article": "die",
+          "en": "goose",
+          "plural": "Gänse",
+          "x": 76.0,
+          "y": 71.95,
+          "w": 7.5,
+          "h": 9.48
+        },
+        {
+          "de": "Pumpe",
+          "article": "die",
+          "en": "hand water pump",
+          "plural": "-n",
+          "x": 71.0,
+          "y": 78.44,
+          "w": 9.0,
+          "h": 15.47
+        },
+        {
+          "de": "Bienenkorb",
+          "article": "der",
+          "en": "straw beehive",
+          "plural": "Bienenkörbe",
+          "x": 83.5,
+          "y": 74.95,
+          "w": 11.5,
+          "h": 15.97
+        },
+        {
+          "de": "Dreschflegel",
+          "article": "der",
+          "en": "flail",
+          "plural": "-",
+          "x": 77.5,
+          "y": 81.93,
+          "w": 11.0,
+          "h": 12.47
+        }
+      ]
     }
   }
 ]

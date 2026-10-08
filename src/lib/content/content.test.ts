@@ -255,6 +255,28 @@ describe('every quiz (baseline)', () => {
 		}
 	});
 
+	it('gives every picture hunt a room on disk and sound, tappable spots', () => {
+		for (const q of quizzes) {
+			if (q.type !== 'suchbild') continue;
+			expect(existsSync(`static/img/${q.scene}.webp`), `${q.id}: missing room ${q.scene}`).toBe(true);
+			expect(q.sceneAlt, `${q.id}: room without alt text`).toBeTruthy();
+			// A run is ten finds; fewer objects would repeat inside one run.
+			expect(q.spots.length, `${q.id}: fewer than 10 spots`).toBeGreaterThanOrEqual(10);
+			const seen = new Set<string>();
+			for (const s of q.spots) {
+				expect(s.article, `${q.id}: "${s.de}" has no article`).toMatch(/^(der|die|das)$/);
+				expect(s.en, `${q.id}: "${s.de}" has no English`).toBeTruthy();
+				expect(seen.has(s.de), `${q.id}: duplicate spot "${s.de}"`).toBe(false);
+				seen.add(s.de);
+				// Inside the picture, and big enough for a fingertip on a phone.
+				for (const b of [s, ...(s.also ?? [])]) {
+					expect(b.x >= 0 && b.y >= 0 && b.x + b.w <= 100 && b.y + b.h <= 100, `${q.id}: "${s.de}" leaves the picture`).toBe(true);
+					expect(Math.min(b.w, b.h), `${q.id}: "${s.de}" is too small to tap`).toBeGreaterThanOrEqual(4);
+				}
+			}
+		}
+	});
+
 	it('shapes authored help tables as {cells} rows with a caption', () => {
 		for (const q of quizzes) {
 			const table = q.help?.table;

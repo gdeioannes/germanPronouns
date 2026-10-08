@@ -143,6 +143,12 @@ function quizTexts(quiz: Quiz): [string, string][] {
 			return quiz.phrases.map((phrase) => [phrase.text, 'speak & repeat']);
 		case 'vocabulary':
 			return quiz.cards.map((c) => [forSpeech(fullForm(c)), 'flashcard']);
+		case 'suchbild':
+			// The question's speak button and the answer's, as SuchbildQuiz builds them.
+			return quiz.spots.flatMap((s): [string, string][] => [
+				[`Wo ist ${s.article} ${s.de}?`, 'picture hunt'],
+				[`${s.article} ${s.de}`, 'picture hunt']
+			]);
 		default:
 			return [];
 	}

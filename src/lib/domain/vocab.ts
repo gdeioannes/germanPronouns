@@ -104,9 +104,10 @@ function textOf(quiz: Quiz): string {
 		case 'fillBlank':
 		case 'speaking':
 		case 'vocabulary':
+		case 'suchbild':
 			// The grid quizzes name their nouns already; a speaking exercise is a
-			// prompt for the learner's own AI, not a German text; a deck IS the
-			// vocabulary.
+			// prompt for the learner's own AI, not a German text; a deck (or a
+			// picture hunt's room) IS the vocabulary.
 			return '';
 	}
 }

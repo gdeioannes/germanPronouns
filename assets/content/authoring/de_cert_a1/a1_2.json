@@ -5519,7 +5519,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Tickets, times, prices and the post office: learn these everyday words with their der, die or das and errands get easier.",
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 166 cards, 69 of them nouns. The vocabulary of this module is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 214 cards, 121 of them nouns. The vocabulary of this module is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -5615,6 +5615,1342 @@
         "Verbs and adjectives have no article: type them as they stand, like \"mich\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_a1_2_suchbild_kueche",
+    "after": "quest_a1_2_wortschatz",
+    "covers": [
+      "a1.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A busy family kitchen with 32 everyday things in it: find each one in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one lived-in family kitchen with 32 things to find, all of them words you use every day at home — der Kühlschrank, die Pfanne, das Messer, the egg on the table and the spoon on the rail. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Many kitchen words are two words glued together, and the last part decides the article. Kühl + Schrank: der Schrank, so der Kühlschrank. Spül + Becken: das Becken, so das Spülbecken. Cover the front part and look at the end.",
+          "examples": [
+            {
+              "de": "die Kaffeemaschine",
+              "en": "coffee machine (die Maschine)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Handtuch, Plural: Handtücher",
+              "en": "tea towel (das Tuch)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Waschmaschine steht neben dem Kühlschrank.",
+            "options": [
+              "Die",
+              "Der",
+              "Das"
+            ],
+            "answer": "Die",
+            "why": "The last part is die Maschine, so the whole word is die Waschmaschine."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Words in -e are usually die",
+          "text": "Most nouns that end in -e are feminine. This kitchen is full of them: die Lampe, die Tasse, die Flasche, die Pfanne. When you hear a final -e, try die first.",
+          "examples": [
+            {
+              "de": "die Tasse, Plural: -n",
+              "en": "cup",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Pfanne, Plural: -n",
+              "en": "frying pan",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Flasche?",
+            "options": [
+              "die",
+              "der",
+              "das"
+            ],
+            "answer": "die",
+            "why": "Flasche ends in -e, and most nouns in -e are feminine: die Flasche."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "-er is often der — but not das Messer and das Fenster",
+          "text": "Things that do a job and end in -er are usually masculine: der Wasserkocher, der Mülleimer. Two everyday words break the pattern right here in the kitchen: das Messer and das Fenster. Learn them with das from the start.",
+          "examples": [
+            {
+              "de": "der Wasserkocher",
+              "en": "kettle",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Messer",
+              "en": "knife",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the window’ in German:",
+            "options": [
+              "das Fenster",
+              "der Fenster",
+              "die Fenster"
+            ],
+            "answer": "das Fenster",
+            "why": "Fenster ends in -er but is neuter: das Fenster. (die Fenster is the plural.)"
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: das Becken → das Spülbecken.",
+        "Most words in -e are die: die Tasse, die Lampe, die Flasche.",
+        "-er is usually der (der Wasserkocher), but das Messer and das Fenster are neuter."
+      ],
+      "vocab": [
+        {
+          "de": "Tür",
+          "article": "die",
+          "plural": "-en",
+          "en": "door"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "plural": "Kühlschränke",
+          "en": "fridge"
+        },
+        {
+          "de": "Waschmaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "washing machine"
+        },
+        {
+          "de": "Herd",
+          "article": "der",
+          "plural": "-e",
+          "en": "cooker"
+        },
+        {
+          "de": "Schrank",
+          "article": "der",
+          "plural": "Schränke",
+          "en": "cupboard"
+        },
+        {
+          "de": "Lampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "lamp"
+        },
+        {
+          "de": "Tisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "table"
+        },
+        {
+          "de": "Stuhl",
+          "article": "der",
+          "plural": "Stühle",
+          "en": "chair"
+        },
+        {
+          "de": "Uhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "clock"
+        },
+        {
+          "de": "Besen",
+          "article": "der",
+          "plural": "-",
+          "en": "broom"
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "plural": "-",
+          "en": "rubbish bin"
+        },
+        {
+          "de": "Mikrowelle",
+          "article": "die",
+          "plural": "-n",
+          "en": "microwave"
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "coffee machine"
+        },
+        {
+          "de": "Wasserkocher",
+          "article": "der",
+          "plural": "-",
+          "en": "kettle"
+        },
+        {
+          "de": "Spülbecken",
+          "article": "das",
+          "plural": "-",
+          "en": "sink"
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "plural": "Wasserhähne",
+          "en": "tap"
+        },
+        {
+          "de": "Topf",
+          "article": "der",
+          "plural": "Töpfe",
+          "en": "pot"
+        },
+        {
+          "de": "Pfanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "frying pan"
+        },
+        {
+          "de": "Löffel",
+          "article": "der",
+          "plural": "-",
+          "en": "spoon"
+        },
+        {
+          "de": "Schneebesen",
+          "article": "der",
+          "plural": "-",
+          "en": "whisk"
+        },
+        {
+          "de": "Ofenhandschuh",
+          "article": "der",
+          "plural": "-e",
+          "en": "oven glove"
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "plural": "-s",
+          "en": "radio"
+        },
+        {
+          "de": "Handtuch",
+          "article": "das",
+          "plural": "Handtücher",
+          "en": "tea towel"
+        },
+        {
+          "de": "Schneidebrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "chopping board"
+        },
+        {
+          "de": "Brot",
+          "article": "das",
+          "plural": "-e",
+          "en": "bread"
+        },
+        {
+          "de": "Messer",
+          "article": "das",
+          "plural": "-",
+          "en": "knife"
+        },
+        {
+          "de": "Ei",
+          "article": "das",
+          "plural": "-er",
+          "en": "egg"
+        },
+        {
+          "de": "Schüssel",
+          "article": "die",
+          "plural": "-n",
+          "en": "bowl"
+        },
+        {
+          "de": "Apfel",
+          "article": "der",
+          "plural": "Äpfel",
+          "en": "apple"
+        },
+        {
+          "de": "Tasse",
+          "article": "die",
+          "plural": "-n",
+          "en": "cup"
+        },
+        {
+          "de": "Flasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "bottle"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Die Küche",
+      "level": "A1.2",
+      "storageKeyPrefix": "quest_a1_2_suchbild_kueche_",
+      "scene": "quest_a1_2_suchbild_kueche",
+      "sceneSize": [
+        829,
+        829
+      ],
+      "sceneAlt": "A cosy family kitchen seen from a corner: a fridge under the window, a washing machine, a cooker with a pot and a frying pan, a sink with a tap, a microwave, a coffee machine and a kettle on the counter, a wall cupboard with a lamp in front of it and a wall clock. In front stands a table with bread, eggs, a bowl with an apple, a cup and a bottle, with two chairs, a rubbish bin, a broom and the door nearby.",
+      "spots": [
+        {
+          "de": "Tür",
+          "article": "die",
+          "en": "door",
+          "plural": "-en",
+          "x": 79.76,
+          "y": 22.3,
+          "w": 14.91,
+          "h": 52.5
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 7.2,
+          "y": 14.5,
+          "w": 18.39,
+          "h": 34.5
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "en": "fridge",
+          "plural": "Kühlschränke",
+          "x": 10.68,
+          "y": 30.8,
+          "w": 19.88,
+          "h": 44.0
+        },
+        {
+          "de": "Waschmaschine",
+          "article": "die",
+          "en": "washing machine",
+          "plural": "-n",
+          "x": 30.06,
+          "y": 46.5,
+          "w": 12.23,
+          "h": 23.0
+        },
+        {
+          "de": "Herd",
+          "article": "der",
+          "en": "cooker",
+          "plural": "-e",
+          "x": 44.47,
+          "y": 40.5,
+          "w": 12.72,
+          "h": 21.5
+        },
+        {
+          "de": "Schrank",
+          "article": "der",
+          "en": "cupboard",
+          "plural": "Schränke",
+          "x": 44.47,
+          "y": 9.5,
+          "w": 25.35,
+          "h": 24.5
+        },
+        {
+          "de": "Lampe",
+          "article": "die",
+          "en": "lamp",
+          "plural": "-n",
+          "x": 43.48,
+          "y": 1.5,
+          "w": 12.92,
+          "h": 22.5
+        },
+        {
+          "de": "Tisch",
+          "article": "der",
+          "en": "table",
+          "plural": "-e",
+          "x": 32.05,
+          "y": 58.5,
+          "w": 36.78,
+          "h": 33.0
+        },
+        {
+          "de": "Stuhl",
+          "article": "der",
+          "en": "chair",
+          "plural": "Stühle",
+          "x": 50.44,
+          "y": 66.5,
+          "w": 14.91,
+          "h": 25.0,
+          "also": [
+            {
+              "x": 60.38,
+              "y": 59.5,
+              "w": 7.95,
+              "h": 24.0
+            }
+          ]
+        },
+        {
+          "de": "Uhr",
+          "article": "die",
+          "en": "clock",
+          "plural": "-en",
+          "x": 30.86,
+          "y": 17.4,
+          "w": 8.45,
+          "h": 10.0
+        },
+        {
+          "de": "Besen",
+          "article": "der",
+          "en": "broom",
+          "plural": "-",
+          "x": 4.52,
+          "y": 48.5,
+          "w": 4.47,
+          "h": 28.0
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "en": "rubbish bin",
+          "plural": "-",
+          "x": 9.19,
+          "y": 62.5,
+          "w": 8.65,
+          "h": 15.0
+        },
+        {
+          "de": "Mikrowelle",
+          "article": "die",
+          "en": "microwave",
+          "plural": "-n",
+          "x": 30.26,
+          "y": 34.8,
+          "w": 9.54,
+          "h": 12.0
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "en": "coffee machine",
+          "plural": "-n",
+          "x": 38.51,
+          "y": 32.0,
+          "w": 6.76,
+          "h": 9.6
+        },
+        {
+          "de": "Wasserkocher",
+          "article": "der",
+          "en": "kettle",
+          "plural": "-",
+          "x": 44.97,
+          "y": 32.2,
+          "w": 6.76,
+          "h": 8.2
+        },
+        {
+          "de": "Spülbecken",
+          "article": "das",
+          "en": "sink",
+          "plural": "-",
+          "x": 59.98,
+          "y": 45.9,
+          "w": 14.91,
+          "h": 6.0
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "en": "tap",
+          "plural": "Wasserhähne",
+          "x": 67.04,
+          "y": 40.8,
+          "w": 5.57,
+          "h": 7.0
+        },
+        {
+          "de": "Topf",
+          "article": "der",
+          "en": "pot",
+          "plural": "Töpfe",
+          "x": 47.36,
+          "y": 37.0,
+          "w": 9.54,
+          "h": 7.4
+        },
+        {
+          "de": "Pfanne",
+          "article": "die",
+          "en": "frying pan",
+          "plural": "-n",
+          "x": 55.21,
+          "y": 42.2,
+          "w": 10.93,
+          "h": 4.6
+        },
+        {
+          "de": "Löffel",
+          "article": "der",
+          "en": "spoon",
+          "plural": "-",
+          "x": 55.1,
+          "y": 32.2,
+          "w": 4.0,
+          "h": 6.5
+        },
+        {
+          "de": "Schneebesen",
+          "article": "der",
+          "en": "whisk",
+          "plural": "-",
+          "x": 58.48,
+          "y": 32.5,
+          "w": 4.0,
+          "h": 7.0
+        },
+        {
+          "de": "Ofenhandschuh",
+          "article": "der",
+          "en": "oven glove",
+          "plural": "-e",
+          "x": 62.86,
+          "y": 34.0,
+          "w": 4.87,
+          "h": 7.5
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "en": "radio",
+          "plural": "-s",
+          "x": 72.8,
+          "y": 40.8,
+          "w": 7.45,
+          "h": 8.6
+        },
+        {
+          "de": "Handtuch",
+          "article": "das",
+          "en": "tea towel",
+          "plural": "Handtücher",
+          "x": 74.09,
+          "y": 53.8,
+          "w": 5.37,
+          "h": 12.0
+        },
+        {
+          "de": "Schneidebrett",
+          "article": "das",
+          "en": "chopping board",
+          "plural": "-er",
+          "x": 37.71,
+          "y": 63.6,
+          "w": 14.21,
+          "h": 6.3
+        },
+        {
+          "de": "Brot",
+          "article": "das",
+          "en": "bread",
+          "plural": "-e",
+          "x": 44.27,
+          "y": 61.8,
+          "w": 7.45,
+          "h": 4.6
+        },
+        {
+          "de": "Messer",
+          "article": "das",
+          "en": "knife",
+          "plural": "-",
+          "x": 38.81,
+          "y": 63.6,
+          "w": 9.24,
+          "h": 4.6
+        },
+        {
+          "de": "Ei",
+          "article": "das",
+          "en": "egg",
+          "plural": "-er",
+          "x": 42.28,
+          "y": 60.9,
+          "w": 4.0,
+          "h": 4.0,
+          "also": [
+            {
+              "x": 49.53,
+              "y": 67.3,
+              "w": 4.0,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Schüssel",
+          "article": "die",
+          "en": "bowl",
+          "plural": "-n",
+          "x": 49.24,
+          "y": 58.5,
+          "w": 7.06,
+          "h": 5.0
+        },
+        {
+          "de": "Apfel",
+          "article": "der",
+          "en": "apple",
+          "plural": "Äpfel",
+          "x": 50.72,
+          "y": 57.5,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Tasse",
+          "article": "die",
+          "en": "cup",
+          "plural": "-n",
+          "x": 53.92,
+          "y": 62.9,
+          "w": 6.06,
+          "h": 4.6
+        },
+        {
+          "de": "Flasche",
+          "article": "die",
+          "en": "bottle",
+          "plural": "-n",
+          "x": 60.47,
+          "y": 56.0,
+          "w": 4.0,
+          "h": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_a1_2_suchbild_supermarkt",
+    "after": "quest_a1_2_suchbild_kueche",
+    "covers": [
+      "a1.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A small corner shop full of groceries: find each item in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Brötchen, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Shop words are often compounds, and the last part decides the article. Einkauf + Wagen: der Wagen, so der Einkaufswagen. Kühl + Truhe: die Truhe, so die Kühltruhe. Look at the end of the word.",
+          "examples": [
+            {
+              "de": "der Einkaufskorb, Plural: Einkaufskörbe",
+              "en": "shopping basket (der Korb)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Toilettenpapier",
+              "en": "toilet paper (das Papier)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Blumenstrauß steht im Eimer.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Strauß, so the whole word is der Blumenstrauß."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Words in -e are usually die — but der Käse",
+          "text": "Most fruit and vegetables here end in -e and are feminine: die Tomate, die Gurke, die Banane, die Melone. The same goes for die Waage, die Tüte and die Kasse. The big exception sits on the shelf: der Käse.",
+          "examples": [
+            {
+              "de": "die Gurke, Plural: -n",
+              "en": "cucumber",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "der Käse",
+              "en": "cheese",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Käse?",
+            "options": [
+              "der",
+              "die",
+              "das"
+            ],
+            "answer": "der",
+            "why": "Käse ends in -e but is masculine: der Käse. It is the classic exception to the -e rule."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "-chen is always das",
+          "text": "A word made small with -chen is always neuter, whatever it means: das Brötchen, das Hähnchen. Watch out for der Kuchen: it only looks like a -chen word, it is not a small form of anything, and it is masculine.",
+          "examples": [
+            {
+              "de": "das Brötchen",
+              "en": "bread roll",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "das Hähnchen",
+              "en": "roast chicken",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the bread roll’ in German:",
+            "options": [
+              "das Brötchen",
+              "der Brötchen",
+              "die Brötchen"
+            ],
+            "answer": "das Brötchen",
+            "why": "Words made small with -chen are always neuter: das Brötchen. (die Brötchen is the plural.)"
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Wagen → der Einkaufswagen.",
+        "Most words in -e are die (die Tomate, die Tüte), but der Käse is masculine.",
+        "-chen is das: das Brötchen, das Hähnchen — but der Kuchen."
+      ],
+      "vocab": [
+        {
+          "de": "Regal",
+          "article": "das",
+          "plural": "-e",
+          "en": "shelf"
+        },
+        {
+          "de": "Kühltruhe",
+          "article": "die",
+          "plural": "-n",
+          "en": "chest freezer"
+        },
+        {
+          "de": "Einkaufswagen",
+          "article": "der",
+          "plural": "-",
+          "en": "shopping trolley"
+        },
+        {
+          "de": "Einkaufskorb",
+          "article": "der",
+          "plural": "Einkaufskörbe",
+          "en": "shopping basket"
+        },
+        {
+          "de": "Kasse",
+          "article": "die",
+          "plural": "-n",
+          "en": "till"
+        },
+        {
+          "de": "Tüte",
+          "article": "die",
+          "plural": "-n",
+          "en": "paper bag"
+        },
+        {
+          "de": "Schokolade",
+          "article": "die",
+          "plural": "-n",
+          "en": "chocolate"
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "plural": "-n",
+          "en": "scales"
+        },
+        {
+          "de": "Kuchen",
+          "article": "der",
+          "plural": "-",
+          "en": "cake"
+        },
+        {
+          "de": "Brötchen",
+          "article": "das",
+          "plural": "-",
+          "en": "bread roll"
+        },
+        {
+          "de": "Croissant",
+          "article": "das",
+          "plural": "-s",
+          "en": "croissant"
+        },
+        {
+          "de": "Wein",
+          "article": "der",
+          "plural": "-e",
+          "en": "wine"
+        },
+        {
+          "de": "Milch",
+          "article": "die",
+          "en": "milk"
+        },
+        {
+          "de": "Saft",
+          "article": "der",
+          "plural": "Säfte",
+          "en": "juice"
+        },
+        {
+          "de": "Toilettenpapier",
+          "article": "das",
+          "en": "toilet paper"
+        },
+        {
+          "de": "Käse",
+          "article": "der",
+          "plural": "-",
+          "en": "cheese"
+        },
+        {
+          "de": "Eierkarton",
+          "article": "der",
+          "plural": "-s",
+          "en": "egg box"
+        },
+        {
+          "de": "Wurst",
+          "article": "die",
+          "plural": "Würste",
+          "en": "sausage"
+        },
+        {
+          "de": "Hähnchen",
+          "article": "das",
+          "plural": "-",
+          "en": "roast chicken"
+        },
+        {
+          "de": "Geschenk",
+          "article": "das",
+          "plural": "-e",
+          "en": "present"
+        },
+        {
+          "de": "Eis",
+          "article": "das",
+          "en": "ice cream"
+        },
+        {
+          "de": "Steak",
+          "article": "das",
+          "plural": "-s",
+          "en": "steak"
+        },
+        {
+          "de": "Fisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "fish"
+        },
+        {
+          "de": "Blumenstrauß",
+          "article": "der",
+          "plural": "Blumensträuße",
+          "en": "bunch of flowers"
+        },
+        {
+          "de": "Eimer",
+          "article": "der",
+          "plural": "-",
+          "en": "bucket"
+        },
+        {
+          "de": "Ananas",
+          "article": "die",
+          "plural": "-",
+          "en": "pineapple"
+        },
+        {
+          "de": "Banane",
+          "article": "die",
+          "plural": "-n",
+          "en": "banana"
+        },
+        {
+          "de": "Melone",
+          "article": "die",
+          "plural": "-n",
+          "en": "watermelon"
+        },
+        {
+          "de": "Tomate",
+          "article": "die",
+          "plural": "-n",
+          "en": "tomato"
+        },
+        {
+          "de": "Gurke",
+          "article": "die",
+          "plural": "-n",
+          "en": "cucumber"
+        },
+        {
+          "de": "Salat",
+          "article": "der",
+          "plural": "-e",
+          "en": "lettuce"
+        },
+        {
+          "de": "Kürbis",
+          "article": "der",
+          "plural": "-se",
+          "en": "pumpkin"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Der Supermarkt",
+      "level": "A1.2",
+      "storageKeyPrefix": "quest_a1_2_suchbild_supermarkt_",
+      "scene": "quest_a1_2_suchbild_supermarkt",
+      "sceneSize": [
+        852,
+        852
+      ],
+      "sceneAlt": "A small corner shop seen from a corner: a checkout with a till, a chocolate bar and a paper bag, a shopping basket on the floor, and a tall shelf with wine, milk, juice, eggs, toilet paper, cheese, a sausage, roast chickens and a present. In the middle a fruit and vegetable stall with a bucket of flowers and a shopping trolley; on the right a chest freezer with ice cream, a steak and fish, and on the wall a hanging scale and a bakery shelf with a cake, a bread roll and a croissant.",
+      "spots": [
+        {
+          "de": "Regal",
+          "article": "das",
+          "en": "shelf",
+          "plural": "-e",
+          "x": 28.2,
+          "y": 11.82,
+          "w": 28.0,
+          "h": 44.97
+        },
+        {
+          "de": "Kühltruhe",
+          "article": "die",
+          "en": "chest freezer",
+          "plural": "-n",
+          "x": 62.4,
+          "y": 35.87,
+          "w": 33.8,
+          "h": 32.58
+        },
+        {
+          "de": "Einkaufswagen",
+          "article": "der",
+          "en": "shopping trolley",
+          "plural": "-",
+          "x": 49.8,
+          "y": 62.67,
+          "w": 18.4,
+          "h": 24.32
+        },
+        {
+          "de": "Einkaufskorb",
+          "article": "der",
+          "en": "shopping basket",
+          "plural": "Einkaufskörbe",
+          "x": 14.5,
+          "y": 58.08,
+          "w": 11.7,
+          "h": 13.31
+        },
+        {
+          "de": "Kasse",
+          "article": "die",
+          "en": "till",
+          "plural": "-n",
+          "x": 5.9,
+          "y": 44.68,
+          "w": 11.3,
+          "h": 10.65
+        },
+        {
+          "de": "Tüte",
+          "article": "die",
+          "en": "paper bag",
+          "plural": "-n",
+          "x": 17.8,
+          "y": 36.97,
+          "w": 7.1,
+          "h": 11.2
+        },
+        {
+          "de": "Schokolade",
+          "article": "die",
+          "en": "chocolate",
+          "plural": "-n",
+          "x": 15.9,
+          "y": 47.61,
+          "w": 6.9,
+          "h": 4.13
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "en": "scales",
+          "plural": "-n",
+          "x": 57.3,
+          "y": 25.68,
+          "w": 7.9,
+          "h": 11.47
+        },
+        {
+          "de": "Kuchen",
+          "article": "der",
+          "en": "cake",
+          "plural": "-",
+          "x": 61.9,
+          "y": 19.53,
+          "w": 8.0,
+          "h": 6.15
+        },
+        {
+          "de": "Brötchen",
+          "article": "das",
+          "en": "bread roll",
+          "plural": "-",
+          "x": 68.0,
+          "y": 24.23,
+          "w": 5.4,
+          "h": 4.0
+        },
+        {
+          "de": "Croissant",
+          "article": "das",
+          "en": "croissant",
+          "plural": "-s",
+          "x": 71.8,
+          "y": 25.61,
+          "w": 5.6,
+          "h": 4.0
+        },
+        {
+          "de": "Wein",
+          "article": "der",
+          "en": "wine",
+          "plural": "-e",
+          "x": 36.8,
+          "y": 15.49,
+          "w": 4.0,
+          "h": 10.56,
+          "also": [
+            {
+              "x": 33.0,
+              "y": 16.41,
+              "w": 4.0,
+              "h": 10.65
+            }
+          ]
+        },
+        {
+          "de": "Milch",
+          "article": "die",
+          "en": "milk",
+          "x": 39.9,
+          "y": 16.04,
+          "w": 4.6,
+          "h": 8.54
+        },
+        {
+          "de": "Saft",
+          "article": "der",
+          "en": "juice",
+          "plural": "Säfte",
+          "x": 44.2,
+          "y": 14.75,
+          "w": 4.6,
+          "h": 7.89,
+          "also": [
+            {
+              "x": 48.6,
+              "y": 13.29,
+              "w": 4.2,
+              "h": 7.71
+            }
+          ]
+        },
+        {
+          "de": "Toilettenpapier",
+          "article": "das",
+          "en": "toilet paper",
+          "x": 40.0,
+          "y": 26.04,
+          "w": 7.1,
+          "h": 6.42
+        },
+        {
+          "de": "Käse",
+          "article": "der",
+          "en": "cheese",
+          "plural": "-",
+          "x": 47.0,
+          "y": 23.57,
+          "w": 6.4,
+          "h": 6.61
+        },
+        {
+          "de": "Eierkarton",
+          "article": "der",
+          "en": "egg box",
+          "plural": "-s",
+          "x": 35.0,
+          "y": 30.73,
+          "w": 7.7,
+          "h": 5.32
+        },
+        {
+          "de": "Wurst",
+          "article": "die",
+          "en": "sausage",
+          "plural": "Würste",
+          "x": 43.6,
+          "y": 32.38,
+          "w": 8.6,
+          "h": 6.79
+        },
+        {
+          "de": "Hähnchen",
+          "article": "das",
+          "en": "roast chicken",
+          "plural": "-",
+          "x": 35.2,
+          "y": 36.32,
+          "w": 9.0,
+          "h": 6.61,
+          "also": [
+            {
+              "x": 35.2,
+              "y": 44.86,
+              "w": 9.2,
+              "h": 6.88
+            }
+          ]
+        },
+        {
+          "de": "Geschenk",
+          "article": "das",
+          "en": "present",
+          "plural": "-e",
+          "x": 43.6,
+          "y": 41.74,
+          "w": 9.0,
+          "h": 6.42
+        },
+        {
+          "de": "Eis",
+          "article": "das",
+          "en": "ice cream",
+          "x": 73.9,
+          "y": 40.82,
+          "w": 4.2,
+          "h": 4.59,
+          "also": [
+            {
+              "x": 70.1,
+              "y": 41.01,
+              "w": 4.0,
+              "h": 5.23
+            }
+          ]
+        },
+        {
+          "de": "Steak",
+          "article": "das",
+          "en": "steak",
+          "plural": "-s",
+          "x": 75.4,
+          "y": 44.58,
+          "w": 9.2,
+          "h": 5.6
+        },
+        {
+          "de": "Fisch",
+          "article": "der",
+          "en": "fish",
+          "plural": "-e",
+          "x": 84.7,
+          "y": 45.96,
+          "w": 7.0,
+          "h": 4.22,
+          "also": [
+            {
+              "x": 81.9,
+              "y": 48.9,
+              "w": 7.3,
+              "h": 4.04
+            }
+          ]
+        },
+        {
+          "de": "Blumenstrauß",
+          "article": "der",
+          "en": "bunch of flowers",
+          "plural": "Blumensträuße",
+          "x": 51.0,
+          "y": 47.8,
+          "w": 12.8,
+          "h": 9.73
+        },
+        {
+          "de": "Eimer",
+          "article": "der",
+          "en": "bucket",
+          "plural": "-",
+          "x": 54.8,
+          "y": 56.61,
+          "w": 7.2,
+          "h": 6.98
+        },
+        {
+          "de": "Ananas",
+          "article": "die",
+          "en": "pineapple",
+          "plural": "-",
+          "x": 34.7,
+          "y": 61.56,
+          "w": 5.4,
+          "h": 7.34
+        },
+        {
+          "de": "Banane",
+          "article": "die",
+          "en": "banana",
+          "plural": "-n",
+          "x": 36.2,
+          "y": 65.97,
+          "w": 6.5,
+          "h": 4.22
+        },
+        {
+          "de": "Melone",
+          "article": "die",
+          "en": "watermelon",
+          "plural": "-n",
+          "x": 40.8,
+          "y": 59.73,
+          "w": 6.0,
+          "h": 7.89
+        },
+        {
+          "de": "Tomate",
+          "article": "die",
+          "en": "tomato",
+          "plural": "-n",
+          "x": 44.0,
+          "y": 66.72,
+          "w": 4.0,
+          "h": 4.0,
+          "also": [
+            {
+              "x": 38.7,
+              "y": 69.29,
+              "w": 4.0,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Gurke",
+          "article": "die",
+          "en": "cucumber",
+          "plural": "-n",
+          "x": 46.7,
+          "y": 63.03,
+          "w": 4.0,
+          "h": 6.24
+        },
+        {
+          "de": "Salat",
+          "article": "der",
+          "en": "lettuce",
+          "plural": "-e",
+          "x": 46.5,
+          "y": 56.15,
+          "w": 6.9,
+          "h": 6.15
+        },
+        {
+          "de": "Kürbis",
+          "article": "der",
+          "en": "pumpkin",
+          "plural": "-se",
+          "x": 50.0,
+          "y": 61.11,
+          "w": 7.4,
+          "h": 5.87
+        }
+      ]
     }
   }
 ]

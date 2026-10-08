@@ -6033,7 +6033,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Technology, health, the environment and society: the words you need to argue a point, each noun with its article and plural.",
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 240 cards, 45 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 304 cards, 109 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -6135,6 +6135,1304 @@
         "Verbs and adjectives have no article: type them as they stand, like \"speichern\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_b1_2_suchbild_garage",
+    "after": "quest_b1_2_wortschatz",
+    "covers": [
+      "b1.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A cluttered garage full of tools to find: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one lived-in home garage that doubles as a workshop, with 32 things to find in it — der Schraubstock on the workbench, die Zange on the pegboard, das Verlängerungskabel coiled on the floor. The prompt asks Wo ist der Rasenmäher? and you tap it in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Many tools are compounds, and the last part decides the article. Werkzeug + Kasten: der Kasten, so der Werkzeugkasten. Vorhänge + Schloss: das Schloss, so das Vorhängeschloss. Cover the front part and read only the last word.",
+          "examples": [
+            {
+              "de": "der Gartenschlauch, Plural: Gartenschläuche",
+              "en": "garden hose (der Schlauch)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Verlängerungskabel",
+              "en": "extension cable (das Kabel)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Taschenlampe liegt im Regal.",
+            "options": [
+              "Die",
+              "Der",
+              "Das"
+            ],
+            "answer": "Die",
+            "why": "The last part is die Lampe, so the whole word is die Taschenlampe."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "-er makes a tool masculine — but not every -er word",
+          "text": "A machine or tool that does a job, named after its verb with -er, is masculine: der Rasenmäher (mähen), der Feuerlöscher (löschen), der Schraubenzieher (ziehen). An -er ending on its own proves nothing, though: die Leiter and das Fenster are in this garage too.",
+          "examples": [
+            {
+              "de": "der Feuerlöscher",
+              "en": "fire extinguisher",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Leiter, Plural: -n",
+              "en": "ladder",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Leiter?",
+            "options": [
+              "die",
+              "der",
+              "das"
+            ],
+            "answer": "die",
+            "why": "Leiter is not a doer made from a verb; it is simply feminine: die Leiter."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Many tools in -e are feminine",
+          "text": "Listen for the final -e: die Säge, die Zange, die Schubkarre, die Luftpumpe. Most two-syllable nouns ending in -e are die, so when a tool ends in -e, try die first and say it aloud with every find.",
+          "examples": [
+            {
+              "de": "die Zange, Plural: -n",
+              "en": "pliers",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Schubkarre, Plural: -n",
+              "en": "wheelbarrow",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the saw’ in German:",
+            "options": [
+              "die Säge",
+              "der Säge",
+              "das Säge"
+            ],
+            "answer": "die Säge",
+            "why": "Säge ends in -e, and like most such nouns it is feminine."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: das Schloss → das Vorhängeschloss.",
+        "Doers made from a verb with -er are der (der Rasenmäher), but die Leiter and das Fenster are not.",
+        "Tools ending in -e are usually die: die Säge, die Zange."
+      ],
+      "vocab": [
+        {
+          "de": "Werkbank",
+          "article": "die",
+          "plural": "Werkbänke",
+          "en": "workbench"
+        },
+        {
+          "de": "Garagentor",
+          "article": "das",
+          "plural": "-e",
+          "en": "garage door"
+        },
+        {
+          "de": "Lochwand",
+          "article": "die",
+          "plural": "Lochwände",
+          "en": "pegboard"
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "plural": "-e",
+          "en": "shelf unit"
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "plural": "-n",
+          "en": "ladder"
+        },
+        {
+          "de": "Rasenmäher",
+          "article": "der",
+          "plural": "-",
+          "en": "lawn mower"
+        },
+        {
+          "de": "Fahrrad",
+          "article": "das",
+          "plural": "Fahrräder",
+          "en": "bicycle"
+        },
+        {
+          "de": "Schubkarre",
+          "article": "die",
+          "plural": "-n",
+          "en": "wheelbarrow"
+        },
+        {
+          "de": "Werkzeugkasten",
+          "article": "der",
+          "plural": "Werkzeugkästen",
+          "en": "toolbox"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Spinnennetz",
+          "article": "das",
+          "plural": "-e",
+          "en": "cobweb"
+        },
+        {
+          "de": "Neonröhre",
+          "article": "die",
+          "plural": "-n",
+          "en": "fluorescent tube"
+        },
+        {
+          "de": "Hammer",
+          "article": "der",
+          "plural": "Hämmer",
+          "en": "hammer"
+        },
+        {
+          "de": "Säge",
+          "article": "die",
+          "plural": "-n",
+          "en": "saw"
+        },
+        {
+          "de": "Zange",
+          "article": "die",
+          "plural": "-n",
+          "en": "pliers"
+        },
+        {
+          "de": "Schraubenzieher",
+          "article": "der",
+          "plural": "-",
+          "en": "screwdriver"
+        },
+        {
+          "de": "Schraubstock",
+          "article": "der",
+          "plural": "Schraubstöcke",
+          "en": "vice"
+        },
+        {
+          "de": "Klebeband",
+          "article": "das",
+          "plural": "Klebebänder",
+          "en": "duct tape"
+        },
+        {
+          "de": "Bohrmaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "power drill"
+        },
+        {
+          "de": "Taschenlampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "torch"
+        },
+        {
+          "de": "Seil",
+          "article": "das",
+          "plural": "-e",
+          "en": "rope"
+        },
+        {
+          "de": "Vorhängeschloss",
+          "article": "das",
+          "plural": "Vorhängeschlösser",
+          "en": "padlock"
+        },
+        {
+          "de": "Eimer",
+          "article": "der",
+          "plural": "-",
+          "en": "bucket"
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "plural": "-",
+          "en": "fire extinguisher"
+        },
+        {
+          "de": "Luftpumpe",
+          "article": "die",
+          "plural": "-n",
+          "en": "bike pump"
+        },
+        {
+          "de": "Reifen",
+          "article": "der",
+          "plural": "-",
+          "en": "tyre"
+        },
+        {
+          "de": "Skateboard",
+          "article": "das",
+          "plural": "-s",
+          "en": "skateboard"
+        },
+        {
+          "de": "Besen",
+          "article": "der",
+          "plural": "-",
+          "en": "broom"
+        },
+        {
+          "de": "Gartenschlauch",
+          "article": "der",
+          "plural": "Gartenschläuche",
+          "en": "garden hose"
+        },
+        {
+          "de": "Verlängerungskabel",
+          "article": "das",
+          "plural": "-",
+          "en": "extension cable"
+        },
+        {
+          "de": "Kehrblech",
+          "article": "das",
+          "plural": "-e",
+          "en": "dustpan"
+        },
+        {
+          "de": "Kanister",
+          "article": "der",
+          "plural": "-",
+          "en": "jerry can"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Die Garage",
+      "level": "B1.2",
+      "storageKeyPrefix": "quest_b1_2_suchbild_garage_",
+      "scene": "quest_b1_2_suchbild_garage",
+      "sceneSize": [
+        972,
+        972
+      ],
+      "sceneAlt": "A cluttered home garage with a workbench, a pegboard of tools and a shelf unit on the left and back wall, a bicycle, a tyre and a lawn mower on the floor, and a ladder, a wheelbarrow, a broom, a garden hose and a jerry can by the right wall. The closed garage door is at the back.",
+      "spots": [
+        {
+          "de": "Werkbank",
+          "article": "die",
+          "en": "workbench",
+          "plural": "Werkbänke",
+          "x": 4.0,
+          "y": 61.94,
+          "w": 27.5,
+          "h": 33.47
+        },
+        {
+          "de": "Garagentor",
+          "article": "das",
+          "en": "garage door",
+          "plural": "-e",
+          "x": 51.0,
+          "y": 37.46,
+          "w": 24.0,
+          "h": 25.97
+        },
+        {
+          "de": "Lochwand",
+          "article": "die",
+          "en": "pegboard",
+          "plural": "Lochwände",
+          "x": 4.0,
+          "y": 34.46,
+          "w": 16.0,
+          "h": 27.97
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "en": "shelf unit",
+          "plural": "-e",
+          "x": 29.5,
+          "y": 43.95,
+          "w": 16.0,
+          "h": 21.98
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "en": "ladder",
+          "plural": "-n",
+          "x": 75.4,
+          "y": 37.36,
+          "w": 11.2,
+          "h": 43.95
+        },
+        {
+          "de": "Rasenmäher",
+          "article": "der",
+          "en": "lawn mower",
+          "plural": "-",
+          "x": 48.0,
+          "y": 69.93,
+          "w": 23.0,
+          "h": 25.97
+        },
+        {
+          "de": "Fahrrad",
+          "article": "das",
+          "en": "bicycle",
+          "plural": "Fahrräder",
+          "x": 32.0,
+          "y": 58.94,
+          "w": 25.0,
+          "h": 15.48
+        },
+        {
+          "de": "Schubkarre",
+          "article": "die",
+          "en": "wheelbarrow",
+          "plural": "-n",
+          "x": 66.5,
+          "y": 54.94,
+          "w": 10.5,
+          "h": 19.48
+        },
+        {
+          "de": "Werkzeugkasten",
+          "article": "der",
+          "en": "toolbox",
+          "plural": "Werkzeugkästen",
+          "x": 10.5,
+          "y": 77.42,
+          "w": 15.0,
+          "h": 14.98
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 20.8,
+          "y": 36.46,
+          "w": 7.0,
+          "h": 15.98
+        },
+        {
+          "de": "Spinnennetz",
+          "article": "das",
+          "en": "cobweb",
+          "plural": "-e",
+          "x": 1.8,
+          "y": 1.8,
+          "w": 15.0,
+          "h": 13.49
+        },
+        {
+          "de": "Neonröhre",
+          "article": "die",
+          "en": "fluorescent tube",
+          "plural": "-n",
+          "x": 35.3,
+          "y": 10.79,
+          "w": 30.5,
+          "h": 4.0
+        },
+        {
+          "de": "Hammer",
+          "article": "der",
+          "en": "hammer",
+          "plural": "Hämmer",
+          "x": 6.7,
+          "y": 38.16,
+          "w": 4.5,
+          "h": 10.59
+        },
+        {
+          "de": "Säge",
+          "article": "die",
+          "en": "saw",
+          "plural": "-n",
+          "x": 11.0,
+          "y": 37.76,
+          "w": 4.0,
+          "h": 11.79
+        },
+        {
+          "de": "Zange",
+          "article": "die",
+          "en": "pliers",
+          "plural": "-n",
+          "x": 10.4,
+          "y": 50.95,
+          "w": 4.0,
+          "h": 10.49,
+          "also": [
+            {
+              "x": 15.4,
+              "y": 47.95,
+              "w": 4.0,
+              "h": 5.49
+            }
+          ]
+        },
+        {
+          "de": "Schraubenzieher",
+          "article": "der",
+          "en": "screwdriver",
+          "plural": "-",
+          "x": 15.4,
+          "y": 42.36,
+          "w": 4.0,
+          "h": 5.49,
+          "also": [
+            {
+              "x": 20.0,
+              "y": 67.33,
+              "w": 4.6,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Schraubstock",
+          "article": "der",
+          "en": "vice",
+          "plural": "Schraubstöcke",
+          "x": 22.0,
+          "y": 60.44,
+          "w": 10.5,
+          "h": 5.99
+        },
+        {
+          "de": "Klebeband",
+          "article": "das",
+          "en": "duct tape",
+          "plural": "Klebebänder",
+          "x": 12.6,
+          "y": 66.23,
+          "w": 6.8,
+          "h": 4.3
+        },
+        {
+          "de": "Bohrmaschine",
+          "article": "die",
+          "en": "power drill",
+          "plural": "-n",
+          "x": 31.6,
+          "y": 43.75,
+          "w": 4.0,
+          "h": 4.3
+        },
+        {
+          "de": "Taschenlampe",
+          "article": "die",
+          "en": "torch",
+          "plural": "-n",
+          "x": 36.8,
+          "y": 44.95,
+          "w": 6.2,
+          "h": 4.0
+        },
+        {
+          "de": "Seil",
+          "article": "das",
+          "en": "rope",
+          "plural": "-e",
+          "x": 31.8,
+          "y": 50.45,
+          "w": 6.2,
+          "h": 4.0
+        },
+        {
+          "de": "Vorhängeschloss",
+          "article": "das",
+          "en": "padlock",
+          "plural": "Vorhängeschlösser",
+          "x": 37.0,
+          "y": 49.95,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Eimer",
+          "article": "der",
+          "en": "bucket",
+          "plural": "-",
+          "x": 39.5,
+          "y": 54.94,
+          "w": 4.8,
+          "h": 4.6
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "en": "fire extinguisher",
+          "plural": "-",
+          "x": 46.5,
+          "y": 46.45,
+          "w": 4.5,
+          "h": 9.49
+        },
+        {
+          "de": "Luftpumpe",
+          "article": "die",
+          "en": "bike pump",
+          "plural": "-n",
+          "x": 32.0,
+          "y": 70.93,
+          "w": 6.5,
+          "h": 10.99
+        },
+        {
+          "de": "Reifen",
+          "article": "der",
+          "en": "tyre",
+          "plural": "-",
+          "x": 43.3,
+          "y": 74.22,
+          "w": 10.5,
+          "h": 6.99
+        },
+        {
+          "de": "Skateboard",
+          "article": "das",
+          "en": "skateboard",
+          "plural": "-s",
+          "x": 31.5,
+          "y": 83.71,
+          "w": 12.0,
+          "h": 7.99
+        },
+        {
+          "de": "Besen",
+          "article": "der",
+          "en": "broom",
+          "plural": "-",
+          "x": 78.5,
+          "y": 51.25,
+          "w": 10.0,
+          "h": 33.97
+        },
+        {
+          "de": "Gartenschlauch",
+          "article": "der",
+          "en": "garden hose",
+          "plural": "Gartenschläuche",
+          "x": 87.8,
+          "y": 59.24,
+          "w": 7.4,
+          "h": 19.78
+        },
+        {
+          "de": "Verlängerungskabel",
+          "article": "das",
+          "en": "extension cable",
+          "plural": "-",
+          "x": 73.0,
+          "y": 85.91,
+          "w": 19.0,
+          "h": 9.49
+        },
+        {
+          "de": "Kehrblech",
+          "article": "das",
+          "en": "dustpan",
+          "plural": "-e",
+          "x": 71.6,
+          "y": 81.92,
+          "w": 8.3,
+          "h": 6.39
+        },
+        {
+          "de": "Kanister",
+          "article": "der",
+          "en": "jerry can",
+          "plural": "-",
+          "x": 83.0,
+          "y": 79.92,
+          "w": 8.3,
+          "h": 9.99
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_b1_2_suchbild_park",
+    "after": "quest_b1_2_suchbild_garage",
+    "covers": [
+      "b1.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A sunny park with no one in it: find each thing in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one sunny town park with 32 things to find in it, from the pond and its ducks to the playground — der Springbrunnen, die Wippe, das Eichhörnchen under the tree. The prompt asks Wo ist die Rutsche? and you tap it in the picture. A tap on empty grass or sky costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Half the park is compounds, and the last word decides. Kinder + Wagen: der Wagen, so der Kinderwagen. Vogel + Haus: das Haus, so das Vogelhaus. Tischtennis + Platte: die Platte, so die Tischtennisplatte.",
+          "examples": [
+            {
+              "de": "das Ruderboot, Plural: -e",
+              "en": "rowing boat (das Boot)",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "der Springbrunnen",
+              "en": "fountain (der Brunnen)",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Picknickdecke liegt unter dem Baum.",
+            "options": [
+              "Die",
+              "Der",
+              "Das"
+            ],
+            "answer": "Die",
+            "why": "The last part is die Decke, so the whole word is die Picknickdecke."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Final -e usually means die",
+          "text": "Rutsche, Wippe, Hecke, Brücke, Laterne, Ente, Sonne: all end in -e and all are die. When a two-syllable noun ends in -e, die is the best first guess.",
+          "examples": [
+            {
+              "de": "die Wippe, Plural: -n",
+              "en": "seesaw",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Brücke, Plural: -n",
+              "en": "bridge",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Hecke?",
+            "options": [
+              "die",
+              "der",
+              "das"
+            ],
+            "answer": "die",
+            "why": "Hecke ends in -e, and like most such nouns it is feminine."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "-chen makes every noun das",
+          "text": "The ending -chen always gives das, whatever the animal or thing: das Eichhörnchen. And watch the boat: das Ruder is the oar, das Ruderboot the boat — both neuter, but two different things to tap.",
+          "examples": [
+            {
+              "de": "das Eichhörnchen",
+              "en": "squirrel",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "das Ruder",
+              "en": "oar",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the squirrel’ in German:",
+            "options": [
+              "das Eichhörnchen",
+              "der Eichhörnchen",
+              "die Eichhörnchen"
+            ],
+            "answer": "das Eichhörnchen",
+            "why": "Nouns ending in -chen are always neuter."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Wagen → der Kinderwagen.",
+        "Nouns ending in -e are usually die: die Rutsche, die Wippe, die Hecke.",
+        "-chen is always das: das Eichhörnchen."
+      ],
+      "vocab": [
+        {
+          "de": "Baum",
+          "article": "der",
+          "plural": "Bäume",
+          "en": "tree"
+        },
+        {
+          "de": "Hecke",
+          "article": "die",
+          "plural": "-n",
+          "en": "hedge"
+        },
+        {
+          "de": "Teich",
+          "article": "der",
+          "plural": "-e",
+          "en": "pond"
+        },
+        {
+          "de": "Blumenbeet",
+          "article": "das",
+          "plural": "-e",
+          "en": "flower bed"
+        },
+        {
+          "de": "Pavillon",
+          "article": "der",
+          "plural": "-s",
+          "en": "bandstand"
+        },
+        {
+          "de": "Zaun",
+          "article": "der",
+          "plural": "Zäune",
+          "en": "fence"
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "plural": "-n",
+          "en": "street lamp"
+        },
+        {
+          "de": "Rutsche",
+          "article": "die",
+          "plural": "-n",
+          "en": "slide"
+        },
+        {
+          "de": "Schaukel",
+          "article": "die",
+          "plural": "-n",
+          "en": "swing"
+        },
+        {
+          "de": "Tischtennisplatte",
+          "article": "die",
+          "plural": "-n",
+          "en": "ping-pong table"
+        },
+        {
+          "de": "Sandkasten",
+          "article": "der",
+          "plural": "Sandkästen",
+          "en": "sandpit"
+        },
+        {
+          "de": "Karussell",
+          "article": "das",
+          "plural": "-s",
+          "en": "roundabout"
+        },
+        {
+          "de": "Wippe",
+          "article": "die",
+          "plural": "-n",
+          "en": "seesaw"
+        },
+        {
+          "de": "Trampolin",
+          "article": "das",
+          "plural": "-e",
+          "en": "trampoline"
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "plural": "-",
+          "en": "litter bin"
+        },
+        {
+          "de": "Dreirad",
+          "article": "das",
+          "plural": "Dreiräder",
+          "en": "tricycle"
+        },
+        {
+          "de": "Ball",
+          "article": "der",
+          "plural": "Bälle",
+          "en": "ball"
+        },
+        {
+          "de": "Bank",
+          "article": "die",
+          "plural": "Bänke",
+          "en": "bench"
+        },
+        {
+          "de": "Eis",
+          "article": "das",
+          "en": "ice cream"
+        },
+        {
+          "de": "Kinderwagen",
+          "article": "der",
+          "plural": "-",
+          "en": "pram"
+        },
+        {
+          "de": "Picknickdecke",
+          "article": "die",
+          "plural": "-n",
+          "en": "picnic blanket"
+        },
+        {
+          "de": "Eichhörnchen",
+          "article": "das",
+          "plural": "-",
+          "en": "squirrel"
+        },
+        {
+          "de": "Springbrunnen",
+          "article": "der",
+          "plural": "-",
+          "en": "fountain"
+        },
+        {
+          "de": "Schwan",
+          "article": "der",
+          "plural": "Schwäne",
+          "en": "swan"
+        },
+        {
+          "de": "Ente",
+          "article": "die",
+          "plural": "-n",
+          "en": "duck"
+        },
+        {
+          "de": "Ruderboot",
+          "article": "das",
+          "plural": "-e",
+          "en": "rowing boat"
+        },
+        {
+          "de": "Ruder",
+          "article": "das",
+          "plural": "-",
+          "en": "oar"
+        },
+        {
+          "de": "Brücke",
+          "article": "die",
+          "plural": "-n",
+          "en": "footbridge"
+        },
+        {
+          "de": "Drachen",
+          "article": "der",
+          "plural": "-",
+          "en": "kite"
+        },
+        {
+          "de": "Nest",
+          "article": "das",
+          "plural": "-er",
+          "en": "bird's nest"
+        },
+        {
+          "de": "Vogelhaus",
+          "article": "das",
+          "plural": "Vogelhäuser",
+          "en": "bird box"
+        },
+        {
+          "de": "Sonne",
+          "article": "die",
+          "en": "sun"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Der Park",
+      "level": "B1.2",
+      "storageKeyPrefix": "quest_b1_2_suchbild_park_",
+      "scene": "quest_b1_2_suchbild_park",
+      "sceneSize": [
+        933,
+        933
+      ],
+      "sceneAlt": "A sunny park with a big tree, a pond with a swan, ducks, a rowing boat, a fountain and a small bridge, a bandstand and a street lamp in front of a hedge, and a playground with a slide, swings, a seesaw, a roundabout, a sandpit, a trampoline and a ping-pong table. In front are a bench, a pram, a tricycle, a picnic blanket and a flower bed.",
+      "spots": [
+        {
+          "de": "Baum",
+          "article": "der",
+          "en": "tree",
+          "plural": "Bäume",
+          "x": 2.0,
+          "y": 6.5,
+          "w": 30.97,
+          "h": 54.0
+        },
+        {
+          "de": "Hecke",
+          "article": "die",
+          "en": "hedge",
+          "plural": "-n",
+          "x": 29.97,
+          "y": 29.5,
+          "w": 67.93,
+          "h": 8.5
+        },
+        {
+          "de": "Teich",
+          "article": "der",
+          "en": "pond",
+          "plural": "-e",
+          "x": 12.49,
+          "y": 46.5,
+          "w": 49.45,
+          "h": 13.0
+        },
+        {
+          "de": "Blumenbeet",
+          "article": "das",
+          "en": "flower bed",
+          "plural": "-e",
+          "x": 2.0,
+          "y": 87.0,
+          "w": 41.46,
+          "h": 10.5
+        },
+        {
+          "de": "Pavillon",
+          "article": "der",
+          "en": "bandstand",
+          "plural": "-s",
+          "x": 42.45,
+          "y": 21.0,
+          "w": 14.48,
+          "h": 16.0
+        },
+        {
+          "de": "Zaun",
+          "article": "der",
+          "en": "fence",
+          "plural": "Zäune",
+          "x": 40.46,
+          "y": 37.0,
+          "w": 18.48,
+          "h": 4.5
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "en": "street lamp",
+          "plural": "-n",
+          "x": 61.63,
+          "y": 23.5,
+          "w": 4.0,
+          "h": 16.5
+        },
+        {
+          "de": "Rutsche",
+          "article": "die",
+          "en": "slide",
+          "plural": "-n",
+          "x": 65.43,
+          "y": 34.0,
+          "w": 12.99,
+          "h": 12.0
+        },
+        {
+          "de": "Schaukel",
+          "article": "die",
+          "en": "swing",
+          "plural": "-n",
+          "x": 77.42,
+          "y": 33.0,
+          "w": 15.48,
+          "h": 11.0
+        },
+        {
+          "de": "Tischtennisplatte",
+          "article": "die",
+          "en": "ping-pong table",
+          "plural": "-n",
+          "x": 78.92,
+          "y": 44.5,
+          "w": 16.48,
+          "h": 6.0
+        },
+        {
+          "de": "Sandkasten",
+          "article": "der",
+          "en": "sandpit",
+          "plural": "Sandkästen",
+          "x": 80.41,
+          "y": 52.5,
+          "w": 15.48,
+          "h": 5.5
+        },
+        {
+          "de": "Karussell",
+          "article": "das",
+          "en": "roundabout",
+          "plural": "-s",
+          "x": 64.73,
+          "y": 51.0,
+          "w": 12.49,
+          "h": 6.0
+        },
+        {
+          "de": "Wippe",
+          "article": "die",
+          "en": "seesaw",
+          "plural": "-n",
+          "x": 59.94,
+          "y": 58.5,
+          "w": 18.98,
+          "h": 7.5
+        },
+        {
+          "de": "Trampolin",
+          "article": "das",
+          "en": "trampoline",
+          "plural": "-e",
+          "x": 79.91,
+          "y": 61.5,
+          "w": 15.48,
+          "h": 7.0
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "en": "litter bin",
+          "plural": "-",
+          "x": 87.41,
+          "y": 73.0,
+          "w": 5.49,
+          "h": 8.5
+        },
+        {
+          "de": "Dreirad",
+          "article": "das",
+          "en": "tricycle",
+          "plural": "Dreiräder",
+          "x": 66.93,
+          "y": 71.0,
+          "w": 11.99,
+          "h": 10.0
+        },
+        {
+          "de": "Ball",
+          "article": "der",
+          "en": "ball",
+          "plural": "Bälle",
+          "x": 64.43,
+          "y": 84.0,
+          "w": 4.5,
+          "h": 4.5
+        },
+        {
+          "de": "Bank",
+          "article": "die",
+          "en": "bench",
+          "plural": "Bänke",
+          "x": 38.96,
+          "y": 67.0,
+          "w": 21.98,
+          "h": 13.5
+        },
+        {
+          "de": "Eis",
+          "article": "das",
+          "en": "ice cream",
+          "x": 43.75,
+          "y": 72.0,
+          "w": 4.5,
+          "h": 5.5
+        },
+        {
+          "de": "Kinderwagen",
+          "article": "der",
+          "en": "pram",
+          "plural": "-",
+          "x": 25.97,
+          "y": 68.5,
+          "w": 11.99,
+          "h": 12.5
+        },
+        {
+          "de": "Picknickdecke",
+          "article": "die",
+          "en": "picnic blanket",
+          "plural": "-n",
+          "x": 5.49,
+          "y": 64.5,
+          "w": 23.97,
+          "h": 7.5
+        },
+        {
+          "de": "Eichhörnchen",
+          "article": "das",
+          "en": "squirrel",
+          "plural": "-",
+          "x": 15.48,
+          "y": 59.8,
+          "w": 5.49,
+          "h": 6.5
+        },
+        {
+          "de": "Springbrunnen",
+          "article": "der",
+          "en": "fountain",
+          "plural": "-",
+          "x": 21.98,
+          "y": 46.0,
+          "w": 7.99,
+          "h": 14.0
+        },
+        {
+          "de": "Schwan",
+          "article": "der",
+          "en": "swan",
+          "plural": "Schwäne",
+          "x": 32.47,
+          "y": 48.0,
+          "w": 7.49,
+          "h": 6.0
+        },
+        {
+          "de": "Ente",
+          "article": "die",
+          "en": "duck",
+          "plural": "-n",
+          "x": 15.28,
+          "y": 50.0,
+          "w": 4.6,
+          "h": 4.0,
+          "also": [
+            {
+              "x": 49.45,
+              "y": 53.0,
+              "w": 4.5,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Ruderboot",
+          "article": "das",
+          "en": "rowing boat",
+          "plural": "-e",
+          "x": 41.95,
+          "y": 49.5,
+          "w": 10.99,
+          "h": 4.0
+        },
+        {
+          "de": "Ruder",
+          "article": "das",
+          "en": "oar",
+          "plural": "-",
+          "x": 45.25,
+          "y": 49.6,
+          "w": 4.0,
+          "h": 5.2
+        },
+        {
+          "de": "Brücke",
+          "article": "die",
+          "en": "footbridge",
+          "plural": "-n",
+          "x": 28.97,
+          "y": 42.5,
+          "w": 15.98,
+          "h": 5.0
+        },
+        {
+          "de": "Drachen",
+          "article": "der",
+          "en": "kite",
+          "plural": "-",
+          "x": 21.98,
+          "y": 29.0,
+          "w": 6.49,
+          "h": 14.5
+        },
+        {
+          "de": "Nest",
+          "article": "das",
+          "en": "bird's nest",
+          "plural": "-er",
+          "x": 17.48,
+          "y": 23.8,
+          "w": 6.49,
+          "h": 4.0
+        },
+        {
+          "de": "Vogelhaus",
+          "article": "das",
+          "en": "bird box",
+          "plural": "Vogelhäuser",
+          "x": 6.99,
+          "y": 42.5,
+          "w": 4.0,
+          "h": 5.0
+        },
+        {
+          "de": "Sonne",
+          "article": "die",
+          "en": "sun",
+          "x": 84.41,
+          "y": 8.5,
+          "w": 6.99,
+          "h": 7.0
+        }
+      ]
     }
   }
 ]

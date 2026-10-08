@@ -17,6 +17,19 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-08",
+    title: "Picture hunts: find the word in the room",
+    highlight: true,
+    items: [
+      "Every module has two new picture hunts, next to its flashcards: a busy, lived-in room — a living room and a classroom at the start, a carpenter's workshop and a harbour at the end — and the question \"Wo ist der Heizkörper?\". You tap the thing in the picture.",
+      "Each room hides 32 things, a fair mix of der, die and das, and a run of ten never asks the same one twice. Every word you find is also added to that module's flashcard deck.",
+      "Tap the wrong object and it tells you what you touched, and you keep looking — the answer only lights up after three misses. A tap on bare wall costs nothing, and a tap just beside the right thing counts, because fingers are wider than a piece of chalk.",
+      "Once you have passed a run, the hunt gets harder: the question hides the article — \"Wo ist ___ Tür?\" — and after you find it you choose der, die or das yourself.",
+      "On a phone the picture fills the whole width, and you can pinch to zoom (or use the + and − buttons) to reach the small things.",
+      "Each find shows its label in its gender's colour, then leaves a small tick, so you can see what you have found without labels covering the room. Every question can be heard read aloud.",
+    ],
+  },
+  {
+    date: "2026-10-08",
     title: "One word panel at a time",
     items: [
       "Tapping a word for its meaning used to leave the last panel open if the two words were in different sentences, so reading through a text left a trail of them until you tapped the background. Now tapping any word closes the one before it.",

@@ -6276,7 +6276,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Learn the language of research and formal writing with articles, plurals and the verbs each noun goes with.",
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 193 cards, 78 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 257 cards, 142 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -6378,6 +6378,1292 @@
         "Verbs and adjectives have no article: type them as they stand, like \"widerlegen\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_c1_1_suchbild_krankenhaus",
+    "after": "quest_c1_1_wortschatz",
+    "covers": [
+      "c1.vocabulary-1"
+    ],
+    "help": {
+      "hook": "An empty hospital room full of things to find: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one empty hospital room, the kind you see when you visit someone on a ward, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Bettgalgen over the bed, die Schnabeltasse on the bedside cabinet, das Röntgenbild on the wall, der Treteimer by the basin. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Hospital words are long, but only the last part decides the article. Sauerstoff + Flasche: die Flasche, so die Sauerstoffflasche. Infusion + Ständer: der Ständer, so der Infusionsständer. Ignore the front; read the end.",
+          "examples": [
+            {
+              "de": "die Sauerstoffflasche, Plural: -n",
+              "en": "oxygen cylinder (die Flasche)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Krankenbett, Plural: -en",
+              "en": "hospital bed (das Bett)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Desinfektionsmittelspender hängt neben dem Waschbecken.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Spender, so the whole word is der Desinfektionsmittelspender."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Same last part, same article — even when it looks odd",
+          "text": "die Wärmflasche is a rubber bag, not a bottle at all, but it ends in die Flasche, so it is feminine. das Kopfkissen and das Klemmbrett follow das Kissen and das Brett. Trust the last word, not what the object looks like.",
+          "examples": [
+            {
+              "de": "die Wärmflasche",
+              "en": "hot-water bottle",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Klemmbrett, Plural: -er",
+              "en": "clipboard (das Brett)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Schnabeltasse?",
+            "options": [
+              "die",
+              "der",
+              "das"
+            ],
+            "answer": "die",
+            "why": "The last part is die Tasse, so it is die Schnabeltasse."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Things that hold something: der Beutel, der Eimer, der Ständer",
+          "text": "Many containers and holders in this room are masculine: der Infusionsbeutel, der Treteimer, der Infusionsständer, der Nachttisch. Picture a nurse, Herr Beutel, carrying all of them past the bed; say each one with der as he passes.",
+          "examples": [
+            {
+              "de": "der Infusionsbeutel",
+              "en": "IV bag",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "der Treteimer",
+              "en": "pedal bin",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the bedside cabinet’ in German:",
+            "options": [
+              "der Nachttisch",
+              "die Nachttisch",
+              "das Nachttisch"
+            ],
+            "answer": "der Nachttisch",
+            "why": "The last part is der Tisch, so it is der Nachttisch."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: die Flasche → die Sauerstoffflasche, die Wärmflasche.",
+        "das Bett, das Kissen, das Brett stay neuter inside compounds: das Krankenbett, das Kopfkissen, das Klemmbrett.",
+        "Loanwords often keep a fixed gender to learn by heart: der Paravent, das Stethoskop, das Rollo."
+      ],
+      "vocab": [
+        {
+          "de": "Krankenbett",
+          "article": "das",
+          "plural": "-en",
+          "en": "hospital bed"
+        },
+        {
+          "de": "Vorhang",
+          "article": "der",
+          "plural": "Vorhänge",
+          "en": "curtain"
+        },
+        {
+          "de": "Paravent",
+          "article": "der",
+          "plural": "-s",
+          "en": "folding screen"
+        },
+        {
+          "de": "Nachttisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "bedside cabinet"
+        },
+        {
+          "de": "Rollstuhl",
+          "article": "der",
+          "plural": "Rollstühle",
+          "en": "wheelchair"
+        },
+        {
+          "de": "Infusionsständer",
+          "article": "der",
+          "plural": "-",
+          "en": "drip stand"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Bettdecke",
+          "article": "die",
+          "plural": "-n",
+          "en": "duvet"
+        },
+        {
+          "de": "Bettgalgen",
+          "article": "der",
+          "plural": "-",
+          "en": "trapeze bar (over the bed)"
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "plural": "-",
+          "en": "washbasin"
+        },
+        {
+          "de": "Sauerstoffflasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "oxygen cylinder"
+        },
+        {
+          "de": "Überwachungsmonitor",
+          "article": "der",
+          "plural": "-e",
+          "en": "patient monitor"
+        },
+        {
+          "de": "Röntgenbild",
+          "article": "das",
+          "plural": "-er",
+          "en": "X-ray image"
+        },
+        {
+          "de": "Deckenleuchte",
+          "article": "die",
+          "plural": "-n",
+          "en": "ceiling light"
+        },
+        {
+          "de": "Rollo",
+          "article": "das",
+          "plural": "-s",
+          "en": "roller blind"
+        },
+        {
+          "de": "Kopfkissen",
+          "article": "das",
+          "plural": "-",
+          "en": "pillow"
+        },
+        {
+          "de": "Tablett",
+          "article": "das",
+          "plural": "-s",
+          "en": "tray"
+        },
+        {
+          "de": "Nierenschale",
+          "article": "die",
+          "plural": "-n",
+          "en": "kidney dish"
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "clipboard"
+        },
+        {
+          "de": "Wärmflasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "hot-water bottle"
+        },
+        {
+          "de": "Infusionsbeutel",
+          "article": "der",
+          "plural": "-",
+          "en": "IV bag"
+        },
+        {
+          "de": "Desinfektionsmittelspender",
+          "article": "der",
+          "plural": "-",
+          "en": "disinfectant dispenser"
+        },
+        {
+          "de": "Handtuch",
+          "article": "das",
+          "plural": "Handtücher",
+          "en": "towel"
+        },
+        {
+          "de": "Treteimer",
+          "article": "der",
+          "plural": "-",
+          "en": "pedal bin"
+        },
+        {
+          "de": "Sauerstoffmaske",
+          "article": "die",
+          "plural": "-n",
+          "en": "oxygen mask"
+        },
+        {
+          "de": "Stethoskop",
+          "article": "das",
+          "plural": "-e",
+          "en": "stethoscope"
+        },
+        {
+          "de": "Blumenstrauß",
+          "article": "der",
+          "plural": "Blumensträuße",
+          "en": "bunch of flowers"
+        },
+        {
+          "de": "Schnabeltasse",
+          "article": "die",
+          "plural": "-n",
+          "en": "feeding cup"
+        },
+        {
+          "de": "Bademantel",
+          "article": "der",
+          "plural": "Bademäntel",
+          "en": "bathrobe"
+        },
+        {
+          "de": "Krücke",
+          "article": "die",
+          "plural": "-n",
+          "en": "crutch"
+        },
+        {
+          "de": "Bettpfanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "bedpan"
+        },
+        {
+          "de": "Personenwaage",
+          "article": "die",
+          "plural": "-n",
+          "en": "bathroom scales"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Das Krankenzimmer",
+      "level": "C1.1",
+      "storageKeyPrefix": "quest_c1_1_suchbild_krankenhaus_",
+      "scene": "quest_c1_1_suchbild_krankenhaus",
+      "sceneSize": [
+        814,
+        814
+      ],
+      "sceneAlt": "An empty hospital room: a hospital bed with a trapeze bar, a tray and a hot-water bottle on the duvet, a drip stand and an oxygen cylinder beside it, a washbasin, pedal bin and window with a roller blind on the left, an X-ray and a patient monitor on the back wall, and on the right a bedside cabinet with flowers, a folding screen, a curtain, a wheelchair, a crutch, a bathrobe and bathroom scales.",
+      "spots": [
+        {
+          "de": "Krankenbett",
+          "article": "das",
+          "en": "hospital bed",
+          "plural": "-en",
+          "x": 29.5,
+          "y": 52.17,
+          "w": 34.0,
+          "h": 35.99
+        },
+        {
+          "de": "Vorhang",
+          "article": "der",
+          "en": "curtain",
+          "plural": "Vorhänge",
+          "x": 79.5,
+          "y": 14.01,
+          "w": 10.5,
+          "h": 60.71
+        },
+        {
+          "de": "Paravent",
+          "article": "der",
+          "en": "folding screen",
+          "plural": "-s",
+          "x": 71.0,
+          "y": 36.99,
+          "w": 19.5,
+          "h": 37.73
+        },
+        {
+          "de": "Nachttisch",
+          "article": "der",
+          "en": "bedside cabinet",
+          "plural": "-e",
+          "x": 59.5,
+          "y": 59.54,
+          "w": 13.5,
+          "h": 14.92
+        },
+        {
+          "de": "Rollstuhl",
+          "article": "der",
+          "en": "wheelchair",
+          "plural": "Rollstühle",
+          "x": 64.0,
+          "y": 60.41,
+          "w": 21.5,
+          "h": 24.29
+        },
+        {
+          "de": "Infusionsständer",
+          "article": "der",
+          "en": "drip stand",
+          "plural": "-",
+          "x": 18.5,
+          "y": 36.99,
+          "w": 11.0,
+          "h": 41.2
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 3.5,
+          "y": 14.87,
+          "w": 10.0,
+          "h": 37.29
+        },
+        {
+          "de": "Bettdecke",
+          "article": "die",
+          "en": "duvet",
+          "plural": "-n",
+          "x": 30.0,
+          "y": 58.67,
+          "w": 33.0,
+          "h": 15.61
+        },
+        {
+          "de": "Bettgalgen",
+          "article": "der",
+          "en": "trapeze bar (over the bed)",
+          "plural": "-",
+          "x": 35.5,
+          "y": 40.89,
+          "w": 23.0,
+          "h": 13.88
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "en": "washbasin",
+          "plural": "-",
+          "x": 7.0,
+          "y": 56.07,
+          "w": 13.5,
+          "h": 12.14
+        },
+        {
+          "de": "Sauerstoffflasche",
+          "article": "die",
+          "en": "oxygen cylinder",
+          "plural": "-n",
+          "x": 28.0,
+          "y": 48.7,
+          "w": 6.5,
+          "h": 24.72
+        },
+        {
+          "de": "Überwachungsmonitor",
+          "article": "der",
+          "en": "patient monitor",
+          "plural": "-e",
+          "x": 28.5,
+          "y": 32.22,
+          "w": 11.0,
+          "h": 11.71
+        },
+        {
+          "de": "Röntgenbild",
+          "article": "das",
+          "en": "X-ray image",
+          "plural": "-er",
+          "x": 47.0,
+          "y": 25.71,
+          "w": 11.5,
+          "h": 11.71
+        },
+        {
+          "de": "Deckenleuchte",
+          "article": "die",
+          "en": "ceiling light",
+          "plural": "-n",
+          "x": 42.0,
+          "y": 6.63,
+          "w": 16.0,
+          "h": 5.2
+        },
+        {
+          "de": "Rollo",
+          "article": "das",
+          "en": "roller blind",
+          "plural": "-s",
+          "x": 4.0,
+          "y": 16.17,
+          "w": 9.5,
+          "h": 18.65
+        },
+        {
+          "de": "Kopfkissen",
+          "article": "das",
+          "en": "pillow",
+          "plural": "-",
+          "x": 40.0,
+          "y": 53.04,
+          "w": 14.5,
+          "h": 7.37
+        },
+        {
+          "de": "Tablett",
+          "article": "das",
+          "en": "tray",
+          "plural": "-s",
+          "x": 40.5,
+          "y": 60.84,
+          "w": 17.5,
+          "h": 5.03
+        },
+        {
+          "de": "Nierenschale",
+          "article": "die",
+          "en": "kidney dish",
+          "plural": "-n",
+          "x": 43.0,
+          "y": 60.84,
+          "w": 11.5,
+          "h": 4.0
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "en": "clipboard",
+          "plural": "-er",
+          "x": 37.0,
+          "y": 68.21,
+          "w": 6.3,
+          "h": 8.67
+        },
+        {
+          "de": "Wärmflasche",
+          "article": "die",
+          "en": "hot-water bottle",
+          "plural": "-n",
+          "x": 52.0,
+          "y": 68.65,
+          "w": 6.5,
+          "h": 9.54
+        },
+        {
+          "de": "Infusionsbeutel",
+          "article": "der",
+          "en": "IV bag",
+          "plural": "-",
+          "x": 19.5,
+          "y": 38.72,
+          "w": 4.5,
+          "h": 8.24
+        },
+        {
+          "de": "Desinfektionsmittelspender",
+          "article": "der",
+          "en": "disinfectant dispenser",
+          "plural": "-",
+          "x": 13.0,
+          "y": 46.53,
+          "w": 5.0,
+          "h": 6.07
+        },
+        {
+          "de": "Handtuch",
+          "article": "das",
+          "en": "towel",
+          "plural": "Handtücher",
+          "x": 3.5,
+          "y": 60.84,
+          "w": 5.5,
+          "h": 12.14
+        },
+        {
+          "de": "Treteimer",
+          "article": "der",
+          "en": "pedal bin",
+          "plural": "-",
+          "x": 8.0,
+          "y": 70.82,
+          "w": 9.0,
+          "h": 11.28
+        },
+        {
+          "de": "Sauerstoffmaske",
+          "article": "die",
+          "en": "oxygen mask",
+          "plural": "-n",
+          "x": 60.5,
+          "y": 35.69,
+          "w": 5.5,
+          "h": 14.74
+        },
+        {
+          "de": "Stethoskop",
+          "article": "das",
+          "en": "stethoscope",
+          "plural": "-e",
+          "x": 66.7,
+          "y": 35.6,
+          "w": 4.5,
+          "h": 10.84
+        },
+        {
+          "de": "Blumenstrauß",
+          "article": "der",
+          "en": "bunch of flowers",
+          "plural": "Blumensträuße",
+          "x": 60.0,
+          "y": 50.0,
+          "w": 8.0,
+          "h": 11.1
+        },
+        {
+          "de": "Schnabeltasse",
+          "article": "die",
+          "en": "feeding cup",
+          "plural": "-n",
+          "x": 66.5,
+          "y": 56.07,
+          "w": 5.2,
+          "h": 5.03
+        },
+        {
+          "de": "Bademantel",
+          "article": "der",
+          "en": "bathrobe",
+          "plural": "Bademäntel",
+          "x": 90.7,
+          "y": 35.69,
+          "w": 6.5,
+          "h": 25.59
+        },
+        {
+          "de": "Krücke",
+          "article": "die",
+          "en": "crutch",
+          "plural": "-n",
+          "x": 86.0,
+          "y": 58.24,
+          "w": 4.8,
+          "h": 19.95
+        },
+        {
+          "de": "Bettpfanne",
+          "article": "die",
+          "en": "bedpan",
+          "plural": "-n",
+          "x": 88.0,
+          "y": 65.61,
+          "w": 9.5,
+          "h": 6.07
+        },
+        {
+          "de": "Personenwaage",
+          "article": "die",
+          "en": "bathroom scales",
+          "plural": "-n",
+          "x": 84.5,
+          "y": 80.79,
+          "w": 10.0,
+          "h": 5.2
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_c1_1_suchbild_theater",
+    "after": "quest_c1_1_suchbild_krankenhaus",
+    "covers": [
+      "c1.vocabulary-1"
+    ],
+    "help": {
+      "hook": "A cluttered backstage full of props to find: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: the cluttered backstage of an old theatre, where the props, costumes and stage machinery wait for the next show, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Flaschenzug under the ceiling, die Nebelmaschine on the floor, das Steckenpferd by the director’s chair, der Schrankkoffer in the corner. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Theatre words are built from pieces, and the last piece decides the article. Licht + Pult: das Pult, so das Lichtpult. Kleider + Ständer: der Ständer, so der Kleiderständer. The same ending gives the same gender: das Lichtpult and das Notenpult.",
+          "examples": [
+            {
+              "de": "das Notenpult, Plural: -e",
+              "en": "music stand (das Pult)",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "der Kleiderständer",
+              "en": "clothes rack (der Ständer)",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Schrankkoffer steht offen in der Ecke.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Koffer, so the whole word is der Schrankkoffer."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Feminine endings: -e is usually die",
+          "text": "Most two-syllable nouns ending in -e are feminine, and this room is full of them: die Kulisse, die Perücke, die Maske, die Krone, die Trommel is feminine too, so do not expect every die word to end in -e. Nouns in -ung, -heit and -keit are always die.",
+          "examples": [
+            {
+              "de": "die Perücke, Plural: -n",
+              "en": "wig",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Kulisse, Plural: -n",
+              "en": "scenery flat",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Krone?",
+            "options": [
+              "die",
+              "der",
+              "das"
+            ],
+            "answer": "die",
+            "why": "A noun ending in -e like Krone is usually feminine: die Krone."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "-er tools are der — but watch the ones that are not",
+          "text": "Things that do a job and end in -er are masculine: der Scheinwerfer, der Feuerlöscher, der Kronleuchter. Do not let that pull die Leiter along: it ends in -er too, but it is feminine, and its gender has to be learned with the word.",
+          "examples": [
+            {
+              "de": "der Scheinwerfer",
+              "en": "spotlight",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Leiter, Plural: -n",
+              "en": "ladder",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the fire extinguisher’ in German:",
+            "options": [
+              "der Feuerlöscher",
+              "die Feuerlöscher",
+              "das Feuerlöscher"
+            ],
+            "answer": "der Feuerlöscher",
+            "why": "Löscher is a tool word in -er, so it is der Feuerlöscher."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: das Pult → das Lichtpult, das Notenpult.",
+        "-er tools are der (der Scheinwerfer, der Feuerlöscher), but die Leiter breaks the pattern.",
+        "Nouns in -e are usually die: die Kulisse, die Perücke, die Maske, die Krone."
+      ],
+      "vocab": [
+        {
+          "de": "Kulisse",
+          "article": "die",
+          "plural": "-n",
+          "en": "scenery flat"
+        },
+        {
+          "de": "Schminktisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "make-up table"
+        },
+        {
+          "de": "Spiegel",
+          "article": "der",
+          "plural": "-",
+          "en": "mirror"
+        },
+        {
+          "de": "Kleiderständer",
+          "article": "der",
+          "plural": "-",
+          "en": "clothes rack"
+        },
+        {
+          "de": "Schrankkoffer",
+          "article": "der",
+          "plural": "-",
+          "en": "steamer trunk"
+        },
+        {
+          "de": "Thron",
+          "article": "der",
+          "plural": "-e",
+          "en": "throne"
+        },
+        {
+          "de": "Ritterrüstung",
+          "article": "die",
+          "plural": "-en",
+          "en": "suit of armour"
+        },
+        {
+          "de": "Fass",
+          "article": "das",
+          "plural": "Fässer",
+          "en": "barrel"
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "plural": "-n",
+          "en": "ladder"
+        },
+        {
+          "de": "Regiestuhl",
+          "article": "der",
+          "plural": "Regiestühle",
+          "en": "director's chair"
+        },
+        {
+          "de": "Lichtpult",
+          "article": "das",
+          "plural": "-e",
+          "en": "lighting desk"
+        },
+        {
+          "de": "Notenpult",
+          "article": "das",
+          "plural": "-e",
+          "en": "music stand"
+        },
+        {
+          "de": "Ballkleid",
+          "article": "das",
+          "plural": "-er",
+          "en": "ball gown"
+        },
+        {
+          "de": "Schneiderpuppe",
+          "article": "die",
+          "plural": "-n",
+          "en": "tailor's dummy"
+        },
+        {
+          "de": "Grammophon",
+          "article": "das",
+          "plural": "-e",
+          "en": "gramophone"
+        },
+        {
+          "de": "Trommel",
+          "article": "die",
+          "plural": "-n",
+          "en": "drum"
+        },
+        {
+          "de": "Sandsack",
+          "article": "der",
+          "plural": "Sandsäcke",
+          "en": "sandbag"
+        },
+        {
+          "de": "Seil",
+          "article": "das",
+          "plural": "-e",
+          "en": "rope"
+        },
+        {
+          "de": "Steckenpferd",
+          "article": "das",
+          "plural": "-e",
+          "en": "hobby horse"
+        },
+        {
+          "de": "Megafon",
+          "article": "das",
+          "plural": "-e",
+          "en": "megaphone"
+        },
+        {
+          "de": "Schwert",
+          "article": "das",
+          "plural": "-er",
+          "en": "sword"
+        },
+        {
+          "de": "Nebelmaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "fog machine"
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "plural": "-",
+          "en": "fire extinguisher"
+        },
+        {
+          "de": "Scheinwerfer",
+          "article": "der",
+          "plural": "-",
+          "en": "spotlight"
+        },
+        {
+          "de": "Kronleuchter",
+          "article": "der",
+          "plural": "-",
+          "en": "chandelier"
+        },
+        {
+          "de": "Flaschenzug",
+          "article": "der",
+          "plural": "Flaschenzüge",
+          "en": "pulley block"
+        },
+        {
+          "de": "Perücke",
+          "article": "die",
+          "plural": "-n",
+          "en": "wig"
+        },
+        {
+          "de": "Brille",
+          "article": "die",
+          "plural": "-n",
+          "en": "glasses"
+        },
+        {
+          "de": "Maske",
+          "article": "die",
+          "plural": "-n",
+          "en": "mask"
+        },
+        {
+          "de": "Krone",
+          "article": "die",
+          "plural": "-n",
+          "en": "crown"
+        },
+        {
+          "de": "Zylinder",
+          "article": "der",
+          "plural": "-",
+          "en": "top hat"
+        },
+        {
+          "de": "Kleiderbügel",
+          "article": "der",
+          "plural": "-",
+          "en": "coat hanger"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Hinter der Bühne",
+      "level": "C1.1",
+      "storageKeyPrefix": "quest_c1_1_suchbild_theater_",
+      "scene": "quest_c1_1_suchbild_theater",
+      "sceneSize": [
+        797,
+        797
+      ],
+      "sceneAlt": "The cluttered backstage of an old theatre: a spotlight, a chandelier and a pulley hang from the ceiling; a painted tree flat, a ladder, a lighting desk and a fog machine stand on the left; in the middle a make-up table with a bulb-lit mirror, a throne with a crown, a suit of armour and a clothes rack with a red gown; on the right a gramophone on a barrel, an open trunk with a drum, a sandbag and a coiled rope.",
+      "spots": [
+        {
+          "de": "Kulisse",
+          "article": "die",
+          "en": "scenery flat",
+          "plural": "-n",
+          "x": 3.0,
+          "y": 36.91,
+          "w": 14.0,
+          "h": 42.64
+        },
+        {
+          "de": "Schminktisch",
+          "article": "der",
+          "en": "make-up table",
+          "plural": "-e",
+          "x": 22.0,
+          "y": 50.42,
+          "w": 20.0,
+          "h": 12.67
+        },
+        {
+          "de": "Spiegel",
+          "article": "der",
+          "en": "mirror",
+          "plural": "-",
+          "x": 24.0,
+          "y": 29.73,
+          "w": 17.0,
+          "h": 20.69
+        },
+        {
+          "de": "Kleiderständer",
+          "article": "der",
+          "en": "clothes rack",
+          "plural": "-",
+          "x": 62.0,
+          "y": 31.85,
+          "w": 20.5,
+          "h": 34.2
+        },
+        {
+          "de": "Schrankkoffer",
+          "article": "der",
+          "en": "steamer trunk",
+          "plural": "-",
+          "x": 71.5,
+          "y": 56.76,
+          "w": 26.0,
+          "h": 21.95
+        },
+        {
+          "de": "Thron",
+          "article": "der",
+          "en": "throne",
+          "plural": "-e",
+          "x": 42.0,
+          "y": 43.24,
+          "w": 14.0,
+          "h": 22.38
+        },
+        {
+          "de": "Ritterrüstung",
+          "article": "die",
+          "en": "suit of armour",
+          "plural": "-en",
+          "x": 54.0,
+          "y": 37.76,
+          "w": 9.5,
+          "h": 28.29
+        },
+        {
+          "de": "Fass",
+          "article": "das",
+          "en": "barrel",
+          "plural": "Fässer",
+          "x": 78.0,
+          "y": 52.11,
+          "w": 12.8,
+          "h": 15.2
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "en": "ladder",
+          "plural": "-n",
+          "x": 15.5,
+          "y": 29.31,
+          "w": 6.5,
+          "h": 32.09
+        },
+        {
+          "de": "Regiestuhl",
+          "article": "der",
+          "en": "director's chair",
+          "plural": "Regiestühle",
+          "x": 35.8,
+          "y": 57.18,
+          "w": 16.0,
+          "h": 21.53
+        },
+        {
+          "de": "Lichtpult",
+          "article": "das",
+          "en": "lighting desk",
+          "plural": "-e",
+          "x": 17.3,
+          "y": 56.33,
+          "w": 14.5,
+          "h": 19.84
+        },
+        {
+          "de": "Notenpult",
+          "article": "das",
+          "en": "music stand",
+          "plural": "-e",
+          "x": 29.7,
+          "y": 52.53,
+          "w": 10.0,
+          "h": 20.27
+        },
+        {
+          "de": "Ballkleid",
+          "article": "das",
+          "en": "ball gown",
+          "plural": "-er",
+          "x": 62.3,
+          "y": 36.49,
+          "w": 13.0,
+          "h": 27.02
+        },
+        {
+          "de": "Schneiderpuppe",
+          "article": "die",
+          "en": "tailor's dummy",
+          "plural": "-n",
+          "x": 72.5,
+          "y": 40.04,
+          "w": 6.5,
+          "h": 25.16
+        },
+        {
+          "de": "Grammophon",
+          "article": "das",
+          "en": "gramophone",
+          "plural": "-e",
+          "x": 80.5,
+          "y": 35.22,
+          "w": 12.5,
+          "h": 17.31
+        },
+        {
+          "de": "Trommel",
+          "article": "die",
+          "en": "drum",
+          "plural": "-n",
+          "x": 77.0,
+          "y": 62.24,
+          "w": 13.0,
+          "h": 13.93
+        },
+        {
+          "de": "Sandsack",
+          "article": "der",
+          "en": "sandbag",
+          "plural": "Sandsäcke",
+          "x": 84.0,
+          "y": 71.11,
+          "w": 10.5,
+          "h": 14.36
+        },
+        {
+          "de": "Seil",
+          "article": "das",
+          "en": "rope",
+          "plural": "-e",
+          "x": 63.5,
+          "y": 77.87,
+          "w": 17.0,
+          "h": 10.13
+        },
+        {
+          "de": "Steckenpferd",
+          "article": "das",
+          "en": "hobby horse",
+          "plural": "-e",
+          "x": 52.0,
+          "y": 65.2,
+          "w": 9.5,
+          "h": 13.51
+        },
+        {
+          "de": "Megafon",
+          "article": "das",
+          "en": "megaphone",
+          "plural": "-e",
+          "x": 60.0,
+          "y": 64.78,
+          "w": 11.0,
+          "h": 8.44
+        },
+        {
+          "de": "Schwert",
+          "article": "das",
+          "en": "sword",
+          "plural": "-er",
+          "x": 42.5,
+          "y": 75.33,
+          "w": 10.7,
+          "h": 7.85
+        },
+        {
+          "de": "Nebelmaschine",
+          "article": "die",
+          "en": "fog machine",
+          "plural": "-n",
+          "x": 12.2,
+          "y": 76.01,
+          "w": 11.0,
+          "h": 8.02
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "en": "fire extinguisher",
+          "plural": "-",
+          "x": 12.5,
+          "y": 44.09,
+          "w": 4.5,
+          "h": 11.4
+        },
+        {
+          "de": "Scheinwerfer",
+          "article": "der",
+          "en": "spotlight",
+          "plural": "-",
+          "x": 19.5,
+          "y": 8.62,
+          "w": 10.5,
+          "h": 9.71
+        },
+        {
+          "de": "Kronleuchter",
+          "article": "der",
+          "en": "chandelier",
+          "plural": "-",
+          "x": 43.5,
+          "y": 9.89,
+          "w": 14.5,
+          "h": 13.93
+        },
+        {
+          "de": "Flaschenzug",
+          "article": "der",
+          "en": "pulley block",
+          "plural": "Flaschenzüge",
+          "x": 74.5,
+          "y": 9.47,
+          "w": 6.0,
+          "h": 12.67
+        },
+        {
+          "de": "Perücke",
+          "article": "die",
+          "en": "wig",
+          "plural": "-n",
+          "x": 25.0,
+          "y": 42.23,
+          "w": 6.8,
+          "h": 9.71
+        },
+        {
+          "de": "Brille",
+          "article": "die",
+          "en": "glasses",
+          "plural": "-n",
+          "x": 30.4,
+          "y": 49.52,
+          "w": 4.2,
+          "h": 4.0,
+          "also": [
+            {
+              "x": 35.6,
+              "y": 48.25,
+              "w": 4.4,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Maske",
+          "article": "die",
+          "en": "mask",
+          "plural": "-n",
+          "x": 44.5,
+          "y": 31.42,
+          "w": 5.5,
+          "h": 6.5
+        },
+        {
+          "de": "Krone",
+          "article": "die",
+          "en": "crown",
+          "plural": "-n",
+          "x": 46.3,
+          "y": 53.21,
+          "w": 6.2,
+          "h": 4.39
+        },
+        {
+          "de": "Zylinder",
+          "article": "der",
+          "en": "top hat",
+          "plural": "-",
+          "x": 73.0,
+          "y": 29.31,
+          "w": 6.3,
+          "h": 4.64
+        },
+        {
+          "de": "Kleiderbügel",
+          "article": "der",
+          "en": "coat hanger",
+          "plural": "-",
+          "x": 64.5,
+          "y": 32.52,
+          "w": 8.0,
+          "h": 5.32
+        }
+      ]
     }
   }
 ]

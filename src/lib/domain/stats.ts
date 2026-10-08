@@ -65,6 +65,7 @@ export interface ProgressStats {
 const TYPE_ORDER: QuizType[] = [
 	'fillBlank',
 	'vocabulary',
+	'suchbild',
 	'reading',
 	'listening',
 	'dictation',

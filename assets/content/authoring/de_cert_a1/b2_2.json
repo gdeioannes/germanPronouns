@@ -7349,7 +7349,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Environment, science, health and regions: the abstract nouns you need to discuss real issues, each with its article.",
-      "intro": "Every word this module’s exercises use, on one deck of flashcards: 225 cards, 34 of them nouns. The vocabulary of this module is the language of society, work, environment and science, much of it abstract nouns in -ung, -heit, -keit and -ion, from the themes Umwelt & Klima, Wissenschaft & Forschung, Ernährung & Gesundheit, Orte & Regionen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module’s exercises use, on one deck of flashcards: 289 cards, 97 of them nouns. The vocabulary of this module is the language of society, work, environment and science, much of it abstract nouns in -ung, -heit, -keit and -ion, from the themes Umwelt & Klima, Wissenschaft & Forschung, Ernährung & Gesundheit, Orte & Regionen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -7448,6 +7448,1290 @@
         "Verbs and adjectives have no article: type them as they stand, like \"nachweisen\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_b2_2_suchbild",
+    "after": "quest_b2_2_wortschatz",
+    "covers": [
+      "b2.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A cluttered living room full of things to find: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one lived-in, slightly cluttered living room with 32 things to find in it, every one a noun you meet when people talk about running a home and saving energy — der Heizkörper, das Bügeleisen, die Steckdosenleiste, das Windrad outside the window. The prompt asks Wo ist der Wäschekorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Most of these words are compounds, and the last part decides the article. Steckdose + Leiste: die Leiste, so die Steckdosenleiste. Licht + Schalter: der Schalter, so der Lichtschalter. Find the last word and you have the article.",
+          "examples": [
+            {
+              "de": "die Energiesparlampe",
+              "en": "energy-saving bulb (die Lampe)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Einmachglas, Plural: Einmachgläser",
+              "en": "preserving jar (das Glas)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Wäscheständer steht vor der Tür.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Ständer, so the whole word is der Wäscheständer."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Devices in -er are masculine — but not -meter",
+          "text": "A thing that does a job, named with -er, is masculine: der Rauchmelder, der Lichtschalter, der Heizkörper. Words ending in -meter that measure something are the exception you see on every wall: das Thermometer.",
+          "examples": [
+            {
+              "de": "der Rauchmelder",
+              "en": "smoke detector",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Thermometer",
+              "en": "thermometer",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Thermometer?",
+            "options": [
+              "das",
+              "der",
+              "die"
+            ],
+            "answer": "das",
+            "why": "Measuring instruments in -meter are neuter: das Thermometer, das Barometer."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Say the article out loud with every find",
+          "text": "When the label appears, read it aloud with its article: der Heizkörper, die Gießkanne. The colour on the label is the same one the deck and the Word Library use — blue der, red die, green das — so the picture trains your eye as well as your ear.",
+          "examples": [
+            {
+              "de": "die Gießkanne, Plural: -n",
+              "en": "watering can",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Windrad, Plural: Windräder",
+              "en": "wind turbine",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the wind turbine’ in German:",
+            "options": [
+              "das Windrad",
+              "der Windrad",
+              "die Windrad"
+            ],
+            "answer": "das Windrad",
+            "why": "The last part is das Rad, so the compound is das Windrad."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: die Steckdose + die Leiste → die Steckdosenleiste.",
+        "-er devices are der (der Rauchmelder); -meter instruments are das (das Thermometer).",
+        "Das Altpapier has no plural: it is the paper you put out for recycling."
+      ],
+      "vocab": [
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "desk"
+        },
+        {
+          "de": "Bügelbrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "ironing board"
+        },
+        {
+          "de": "Wäscheständer",
+          "article": "der",
+          "plural": "-",
+          "en": "clothes airer"
+        },
+        {
+          "de": "Staubsauger",
+          "article": "der",
+          "plural": "-",
+          "en": "vacuum cleaner"
+        },
+        {
+          "de": "Bücherregal",
+          "article": "das",
+          "plural": "-e",
+          "en": "bookcase"
+        },
+        {
+          "de": "Kommode",
+          "article": "die",
+          "plural": "-n",
+          "en": "chest of drawers"
+        },
+        {
+          "de": "Ventilator",
+          "article": "der",
+          "plural": "-en",
+          "en": "fan"
+        },
+        {
+          "de": "Heizkörper",
+          "article": "der",
+          "plural": "-",
+          "en": "radiator"
+        },
+        {
+          "de": "Rauchmelder",
+          "article": "der",
+          "plural": "-",
+          "en": "smoke detector"
+        },
+        {
+          "de": "Energiesparlampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "energy-saving bulb"
+        },
+        {
+          "de": "Wanduhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "wall clock"
+        },
+        {
+          "de": "Pinnwand",
+          "article": "die",
+          "plural": "Pinnwände",
+          "en": "pin board"
+        },
+        {
+          "de": "Kalender",
+          "article": "der",
+          "plural": "-",
+          "en": "calendar"
+        },
+        {
+          "de": "Jutebeutel",
+          "article": "der",
+          "plural": "-",
+          "en": "jute bag"
+        },
+        {
+          "de": "Sparschwein",
+          "article": "das",
+          "plural": "-e",
+          "en": "piggy bank"
+        },
+        {
+          "de": "Bügeleisen",
+          "article": "das",
+          "plural": "-",
+          "en": "iron"
+        },
+        {
+          "de": "Wäschekorb",
+          "article": "der",
+          "plural": "Wäschekörbe",
+          "en": "laundry basket"
+        },
+        {
+          "de": "Jalousie",
+          "article": "die",
+          "plural": "-n",
+          "en": "venetian blind"
+        },
+        {
+          "de": "Windrad",
+          "article": "das",
+          "plural": "Windräder",
+          "en": "wind turbine"
+        },
+        {
+          "de": "Topfpflanze",
+          "article": "die",
+          "plural": "-n",
+          "en": "potted plant"
+        },
+        {
+          "de": "Einmachglas",
+          "article": "das",
+          "plural": "Einmachgläser",
+          "en": "preserving jar"
+        },
+        {
+          "de": "Thermometer",
+          "article": "das",
+          "plural": "-",
+          "en": "thermometer"
+        },
+        {
+          "de": "Gießkanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "watering can"
+        },
+        {
+          "de": "Kissen",
+          "article": "das",
+          "plural": "-",
+          "en": "cushion"
+        },
+        {
+          "de": "Wolldecke",
+          "article": "die",
+          "plural": "-n",
+          "en": "wool blanket"
+        },
+        {
+          "de": "Steckdosenleiste",
+          "article": "die",
+          "plural": "-n",
+          "en": "power strip"
+        },
+        {
+          "de": "Kerze",
+          "article": "die",
+          "plural": "-n",
+          "en": "candle"
+        },
+        {
+          "de": "Wecker",
+          "article": "der",
+          "plural": "-",
+          "en": "alarm clock"
+        },
+        {
+          "de": "Fußmatte",
+          "article": "die",
+          "plural": "-n",
+          "en": "doormat"
+        },
+        {
+          "de": "Lichtschalter",
+          "article": "der",
+          "plural": "-",
+          "en": "light switch"
+        },
+        {
+          "de": "Altpapier",
+          "article": "das",
+          "en": "waste paper"
+        },
+        {
+          "de": "Getränkekasten",
+          "article": "der",
+          "plural": "Getränkekästen",
+          "en": "crate of drinks"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Die Öko-Wohnung",
+      "level": "B2.2",
+      "storageKeyPrefix": "quest_b2_2_suchbild_",
+      "scene": "quest_b2_2_suchbild",
+      "sceneSize": [
+        991,
+        991
+      ],
+      "sceneAlt": "A lived-in, slightly cluttered living room: a window with blinds and a wind turbine outside, a radiator, a bookcase, a sofa with a cushion and a blanket, an ironing board, a clothes airer and a laundry basket in the middle, a chest of drawers with a candle and an alarm clock, a clock, calendar and pin board on the wall, and by the door a fan, a vacuum cleaner, a crate of bottles and a stack of newspapers.",
+      "spots": [
+        {
+          "de": "Heizkörper",
+          "article": "der",
+          "en": "radiator",
+          "plural": "-",
+          "x": 5.0,
+          "y": 62.27,
+          "w": 13.0,
+          "h": 18.18
+        },
+        {
+          "de": "Bücherregal",
+          "article": "das",
+          "en": "bookcase",
+          "plural": "-e",
+          "x": 23.0,
+          "y": 46.82,
+          "w": 17.0,
+          "h": 23.64
+        },
+        {
+          "de": "Kommode",
+          "article": "die",
+          "en": "chest of drawers",
+          "plural": "-n",
+          "x": 57.0,
+          "y": 55.91,
+          "w": 13.0,
+          "h": 15.46
+        },
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "en": "desk",
+          "plural": "-e",
+          "x": 41.0,
+          "y": 59.09,
+          "w": 13.5,
+          "h": 5.0
+        },
+        {
+          "de": "Jalousie",
+          "article": "die",
+          "en": "venetian blind",
+          "plural": "-n",
+          "x": 3.5,
+          "y": 18.63,
+          "w": 13.0,
+          "h": 21.82
+        },
+        {
+          "de": "Bügelbrett",
+          "article": "das",
+          "en": "ironing board",
+          "plural": "-er",
+          "x": 13.5,
+          "y": 69.55,
+          "w": 29.0,
+          "h": 18.64
+        },
+        {
+          "de": "Wäscheständer",
+          "article": "der",
+          "en": "clothes airer",
+          "plural": "-",
+          "x": 53.0,
+          "y": 67.73,
+          "w": 19.0,
+          "h": 21.37
+        },
+        {
+          "de": "Energiesparlampe",
+          "article": "die",
+          "en": "energy-saving bulb",
+          "plural": "-n",
+          "x": 47.5,
+          "y": 11.81,
+          "w": 5.5,
+          "h": 16.82
+        },
+        {
+          "de": "Rauchmelder",
+          "article": "der",
+          "en": "smoke detector",
+          "plural": "-",
+          "x": 72.5,
+          "y": 12.27,
+          "w": 4.5,
+          "h": 4.09
+        },
+        {
+          "de": "Windrad",
+          "article": "das",
+          "en": "wind turbine",
+          "plural": "Windräder",
+          "x": 4.5,
+          "y": 40.45,
+          "w": 8.5,
+          "h": 9.09
+        },
+        {
+          "de": "Topfpflanze",
+          "article": "die",
+          "en": "potted plant",
+          "plural": "-n",
+          "x": 5.5,
+          "y": 52.73,
+          "w": 5.5,
+          "h": 9.09
+        },
+        {
+          "de": "Einmachglas",
+          "article": "das",
+          "en": "preserving jar",
+          "plural": "Einmachgläser",
+          "x": 11.0,
+          "y": 53.64,
+          "w": 4.5,
+          "h": 6.36,
+          "also": [
+            {
+              "x": 35.0,
+              "y": 46.36,
+              "w": 4.0,
+              "h": 4.09
+            }
+          ]
+        },
+        {
+          "de": "Thermometer",
+          "article": "das",
+          "en": "thermometer",
+          "plural": "-",
+          "x": 17.5,
+          "y": 39.54,
+          "w": 4.0,
+          "h": 10.91
+        },
+        {
+          "de": "Gießkanne",
+          "article": "die",
+          "en": "watering can",
+          "plural": "-n",
+          "x": 8.0,
+          "y": 80.91,
+          "w": 10.5,
+          "h": 8.18
+        },
+        {
+          "de": "Wanduhr",
+          "article": "die",
+          "en": "wall clock",
+          "plural": "-en",
+          "x": 44.5,
+          "y": 34.54,
+          "w": 8.5,
+          "h": 8.18
+        },
+        {
+          "de": "Kalender",
+          "article": "der",
+          "en": "calendar",
+          "plural": "-",
+          "x": 45.0,
+          "y": 44.54,
+          "w": 7.5,
+          "h": 8.64
+        },
+        {
+          "de": "Pinnwand",
+          "article": "die",
+          "en": "pin board",
+          "plural": "Pinnwände",
+          "x": 58.0,
+          "y": 37.27,
+          "w": 8.5,
+          "h": 11.36
+        },
+        {
+          "de": "Jutebeutel",
+          "article": "der",
+          "en": "jute bag",
+          "plural": "-",
+          "x": 75.5,
+          "y": 41.36,
+          "w": 7.5,
+          "h": 10.91
+        },
+        {
+          "de": "Lichtschalter",
+          "article": "der",
+          "en": "light switch",
+          "plural": "-",
+          "x": 93.5,
+          "y": 53.64,
+          "w": 4.5,
+          "h": 4.55
+        },
+        {
+          "de": "Sparschwein",
+          "article": "das",
+          "en": "piggy bank",
+          "plural": "-e",
+          "x": 42.0,
+          "y": 55.46,
+          "w": 6.0,
+          "h": 5.0
+        },
+        {
+          "de": "Kerze",
+          "article": "die",
+          "en": "candle",
+          "plural": "-n",
+          "x": 58.5,
+          "y": 51.82,
+          "w": 4.0,
+          "h": 5.46
+        },
+        {
+          "de": "Wecker",
+          "article": "der",
+          "en": "alarm clock",
+          "plural": "-",
+          "x": 63.5,
+          "y": 51.36,
+          "w": 5.0,
+          "h": 5.0
+        },
+        {
+          "de": "Kissen",
+          "article": "das",
+          "en": "cushion",
+          "plural": "-",
+          "x": 32.0,
+          "y": 66.37,
+          "w": 9.0,
+          "h": 6.36
+        },
+        {
+          "de": "Wolldecke",
+          "article": "die",
+          "en": "wool blanket",
+          "plural": "-n",
+          "x": 45.5,
+          "y": 62.73,
+          "w": 7.0,
+          "h": 9.09
+        },
+        {
+          "de": "Bügeleisen",
+          "article": "das",
+          "en": "iron",
+          "plural": "-",
+          "x": 18.5,
+          "y": 67.73,
+          "w": 9.0,
+          "h": 5.0
+        },
+        {
+          "de": "Steckdosenleiste",
+          "article": "die",
+          "en": "power strip",
+          "plural": "-n",
+          "x": 26.5,
+          "y": 87.28,
+          "w": 8.5,
+          "h": 4.09
+        },
+        {
+          "de": "Wäschekorb",
+          "article": "der",
+          "en": "laundry basket",
+          "plural": "Wäschekörbe",
+          "x": 40.0,
+          "y": 80.91,
+          "w": 13.0,
+          "h": 9.09
+        },
+        {
+          "de": "Ventilator",
+          "article": "der",
+          "en": "fan",
+          "plural": "-en",
+          "x": 73.5,
+          "y": 64.55,
+          "w": 7.5,
+          "h": 15.0
+        },
+        {
+          "de": "Fußmatte",
+          "article": "die",
+          "en": "doormat",
+          "plural": "-n",
+          "x": 79.0,
+          "y": 71.82,
+          "w": 7.0,
+          "h": 5.0
+        },
+        {
+          "de": "Staubsauger",
+          "article": "der",
+          "en": "vacuum cleaner",
+          "plural": "-",
+          "x": 84.5,
+          "y": 59.55,
+          "w": 8.5,
+          "h": 17.73
+        },
+        {
+          "de": "Getränkekasten",
+          "article": "der",
+          "en": "crate of drinks",
+          "plural": "Getränkekästen",
+          "x": 73.0,
+          "y": 81.37,
+          "w": 10.5,
+          "h": 8.64
+        },
+        {
+          "de": "Altpapier",
+          "article": "das",
+          "en": "waste paper",
+          "x": 84.5,
+          "y": 83.64,
+          "w": 12.0,
+          "h": 6.36
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_b2_2_suchbild_labor",
+    "after": "quest_b2_2_suchbild",
+    "covers": [
+      "b2.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A small science lab full of equipment to find: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt in a small, slightly cluttered science laboratory with 32 things to find, every one a noun you meet when people talk about research and experiments — der Bunsenbrenner in the fume hood, das Stativ with its funnel, die Zentrifuge by the sink, das Fossil on the shelf. The prompt asks Wo ist der Erlenmeyerkolben? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Lab words are long, but the last part decides the article. Reagenzglas + Ständer: der Ständer, so der Reagenzglasständer. Gas + Flasche: die Flasche, so die Gasflasche — and die Tropfflasche too. Read to the end of the word before you choose.",
+          "examples": [
+            {
+              "de": "das Becherglas, Plural: Bechergläser",
+              "en": "beaker (das Glas)",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "der Verbandskasten, Plural: Verbandskästen",
+              "en": "first-aid box (der Kasten)",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Reagenzglasständer steht auf dem Labortisch.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Ständer, so the whole word is der Reagenzglasständer — even though das Reagenzglas comes first."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Tools in -er are masculine — but not das Fenster",
+          "text": "A thing that does a job, named with -er, is masculine: der Bunsenbrenner, der Feuerlöscher, der Trichter, der Hocker. Not every word ending in -er is a tool, though: das Fenster is neuter, and so is das Waschbecken, which only sounds similar.",
+          "examples": [
+            {
+              "de": "der Feuerlöscher",
+              "en": "fire extinguisher",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Fenster",
+              "en": "window",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Bunsenbrenner?",
+            "options": [
+              "der",
+              "die",
+              "das"
+            ],
+            "answer": "der",
+            "why": "Brenner is a device that burns, built on brennen + -er, so it is der Bunsenbrenner."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Foreign lab words: listen to the ending",
+          "text": "Many science words come from Latin, Greek or French, and their endings carry the gender. -ie, -ette and -uge are feminine: die Batterie, die Pinzette, die Zentrifuge. -ium, -op, -iv and -il are neuter: das Aquarium, das Teleskop, das Stativ, das Fossil.",
+          "examples": [
+            {
+              "de": "die Pinzette, Plural: -n",
+              "en": "tweezers",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Teleskop, Plural: -e",
+              "en": "telescope",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the centrifuge’ in German:",
+            "options": [
+              "die Zentrifuge",
+              "der Zentrifuge",
+              "das Zentrifuge"
+            ],
+            "answer": "die Zentrifuge",
+            "why": "Words ending in -uge, like die Zentrifuge, are feminine."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: das Reagenzglas + der Ständer → der Reagenzglasständer.",
+        "-er devices are der (der Bunsenbrenner, der Feuerlöscher), but das Fenster is neuter.",
+        "Foreign endings help: -ie, -ette, -uge → die; -ium, -op, -iv → das."
+      ],
+      "vocab": [
+        {
+          "de": "Abzug",
+          "article": "der",
+          "plural": "Abzüge",
+          "en": "fume hood"
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "plural": "Kühlschränke",
+          "en": "fridge"
+        },
+        {
+          "de": "Labortisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "lab table"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "plural": "-",
+          "en": "sink"
+        },
+        {
+          "de": "Gasflasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "gas cylinder"
+        },
+        {
+          "de": "Kette",
+          "article": "die",
+          "plural": "-n",
+          "en": "chain"
+        },
+        {
+          "de": "Laborkittel",
+          "article": "der",
+          "plural": "-",
+          "en": "lab coat"
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "plural": "-",
+          "en": "fire extinguisher"
+        },
+        {
+          "de": "Hocker",
+          "article": "der",
+          "plural": "-",
+          "en": "stool"
+        },
+        {
+          "de": "Batterie",
+          "article": "die",
+          "plural": "-n",
+          "en": "battery"
+        },
+        {
+          "de": "Molekülmodell",
+          "article": "das",
+          "plural": "-e",
+          "en": "molecule model"
+        },
+        {
+          "de": "Fossil",
+          "article": "das",
+          "plural": "Fossilien",
+          "en": "fossil"
+        },
+        {
+          "de": "Aquarium",
+          "article": "das",
+          "plural": "Aquarien",
+          "en": "aquarium"
+        },
+        {
+          "de": "Verbandskasten",
+          "article": "der",
+          "plural": "Verbandskästen",
+          "en": "first-aid box"
+        },
+        {
+          "de": "Teleskop",
+          "article": "das",
+          "plural": "-e",
+          "en": "telescope"
+        },
+        {
+          "de": "Bunsenbrenner",
+          "article": "der",
+          "plural": "-",
+          "en": "Bunsen burner"
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "plural": "Wasserhähne",
+          "en": "tap"
+        },
+        {
+          "de": "Zentrifuge",
+          "article": "die",
+          "plural": "-n",
+          "en": "centrifuge"
+        },
+        {
+          "de": "Erlenmeyerkolben",
+          "article": "der",
+          "plural": "-",
+          "en": "Erlenmeyer flask"
+        },
+        {
+          "de": "Stativ",
+          "article": "das",
+          "plural": "-e",
+          "en": "retort stand"
+        },
+        {
+          "de": "Trichter",
+          "article": "der",
+          "plural": "-",
+          "en": "funnel"
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "plural": "-n",
+          "en": "balance"
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "clipboard"
+        },
+        {
+          "de": "Reagenzglasständer",
+          "article": "der",
+          "plural": "-",
+          "en": "test-tube rack"
+        },
+        {
+          "de": "Becherglas",
+          "article": "das",
+          "plural": "Bechergläser",
+          "en": "beaker"
+        },
+        {
+          "de": "Petrischale",
+          "article": "die",
+          "plural": "-n",
+          "en": "petri dish"
+        },
+        {
+          "de": "Lupe",
+          "article": "die",
+          "plural": "-n",
+          "en": "magnifying glass"
+        },
+        {
+          "de": "Pinzette",
+          "article": "die",
+          "plural": "-n",
+          "en": "tweezers"
+        },
+        {
+          "de": "Magnet",
+          "article": "der",
+          "plural": "-e",
+          "en": "magnet"
+        },
+        {
+          "de": "Mörser",
+          "article": "der",
+          "plural": "-",
+          "en": "mortar"
+        },
+        {
+          "de": "Tropfflasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "dropper bottle"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Das Labor",
+      "level": "B2.2",
+      "storageKeyPrefix": "quest_b2_2_suchbild_labor_",
+      "scene": "quest_b2_2_suchbild_labor",
+      "sceneSize": [
+        929,
+        929
+      ],
+      "sceneAlt": "A small, slightly cluttered science lab seen from the front: a lab coat, a chained gas cylinder and a fire extinguisher on the left, a fume hood with a Bunsen burner, a molecule model hanging from the ceiling, a window with a telescope and a shelf with a fossil and an aquarium. A lab table in the middle is crowded with glassware, a magnifying glass, tweezers, a magnet and a mortar, with a stool and a battery underneath, and on the right stand a fridge and a sink with a centrifuge.",
+      "spots": [
+        {
+          "de": "Abzug",
+          "article": "der",
+          "en": "fume hood",
+          "plural": "Abzüge",
+          "x": 18.0,
+          "y": 32.74,
+          "w": 22.5,
+          "h": 40.15
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "en": "fridge",
+          "plural": "Kühlschränke",
+          "x": 68.0,
+          "y": 45.17,
+          "w": 17.0,
+          "h": 29.15
+        },
+        {
+          "de": "Labortisch",
+          "article": "der",
+          "en": "lab table",
+          "plural": "-e",
+          "x": 26.5,
+          "y": 67.15,
+          "w": 44.0,
+          "h": 25.81
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 40.0,
+          "y": 27.01,
+          "w": 20.5,
+          "h": 22.94
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "en": "sink",
+          "plural": "-",
+          "x": 78.0,
+          "y": 61.89,
+          "w": 18.0,
+          "h": 6.69
+        },
+        {
+          "de": "Gasflasche",
+          "article": "die",
+          "en": "gas cylinder",
+          "plural": "-n",
+          "x": 13.0,
+          "y": 58.07,
+          "w": 5.5,
+          "h": 23.42
+        },
+        {
+          "de": "Kette",
+          "article": "die",
+          "en": "chain",
+          "plural": "-n",
+          "x": 11.5,
+          "y": 59.5,
+          "w": 4.0,
+          "h": 12.43
+        },
+        {
+          "de": "Laborkittel",
+          "article": "der",
+          "en": "lab coat",
+          "plural": "-",
+          "x": 4.0,
+          "y": 43.26,
+          "w": 8.0,
+          "h": 27.72
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "en": "fire extinguisher",
+          "plural": "-",
+          "x": 8.5,
+          "y": 73.36,
+          "w": 6.0,
+          "h": 14.82
+        },
+        {
+          "de": "Hocker",
+          "article": "der",
+          "en": "stool",
+          "plural": "-",
+          "x": 35.5,
+          "y": 78.62,
+          "w": 9.5,
+          "h": 14.34
+        },
+        {
+          "de": "Batterie",
+          "article": "die",
+          "en": "battery",
+          "plural": "-n",
+          "x": 53.5,
+          "y": 84.36,
+          "w": 11.0,
+          "h": 8.12
+        },
+        {
+          "de": "Molekülmodell",
+          "article": "das",
+          "en": "molecule model",
+          "plural": "-e",
+          "x": 42.5,
+          "y": 7.89,
+          "w": 13.5,
+          "h": 19.12
+        },
+        {
+          "de": "Fossil",
+          "article": "das",
+          "en": "fossil",
+          "plural": "Fossilien",
+          "x": 63.5,
+          "y": 30.83,
+          "w": 6.0,
+          "h": 7.17
+        },
+        {
+          "de": "Aquarium",
+          "article": "das",
+          "en": "aquarium",
+          "plural": "Aquarien",
+          "x": 71.0,
+          "y": 30.83,
+          "w": 8.5,
+          "h": 6.69
+        },
+        {
+          "de": "Verbandskasten",
+          "article": "der",
+          "en": "first-aid box",
+          "plural": "Verbandskästen",
+          "x": 64.0,
+          "y": 38.95,
+          "w": 6.5,
+          "h": 5.26
+        },
+        {
+          "de": "Teleskop",
+          "article": "das",
+          "en": "telescope",
+          "plural": "-e",
+          "x": 43.0,
+          "y": 38.0,
+          "w": 11.5,
+          "h": 10.51
+        },
+        {
+          "de": "Bunsenbrenner",
+          "article": "der",
+          "en": "Bunsen burner",
+          "plural": "-",
+          "x": 27.0,
+          "y": 52.81,
+          "w": 4.5,
+          "h": 7.65
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "en": "tap",
+          "plural": "Wasserhähne",
+          "x": 85.5,
+          "y": 51.86,
+          "w": 5.5,
+          "h": 9.56
+        },
+        {
+          "de": "Zentrifuge",
+          "article": "die",
+          "en": "centrifuge",
+          "plural": "-n",
+          "x": 85.0,
+          "y": 60.46,
+          "w": 10.0,
+          "h": 8.12
+        },
+        {
+          "de": "Erlenmeyerkolben",
+          "article": "der",
+          "en": "Erlenmeyer flask",
+          "plural": "-",
+          "x": 41.0,
+          "y": 53.29,
+          "w": 4.5,
+          "h": 6.21
+        },
+        {
+          "de": "Stativ",
+          "article": "das",
+          "en": "retort stand",
+          "plural": "-e",
+          "x": 49.5,
+          "y": 58.55,
+          "w": 5.0,
+          "h": 11.95
+        },
+        {
+          "de": "Trichter",
+          "article": "der",
+          "en": "funnel",
+          "plural": "-",
+          "x": 47.0,
+          "y": 58.07,
+          "w": 5.5,
+          "h": 7.17
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "en": "balance",
+          "plural": "-n",
+          "x": 53.5,
+          "y": 51.86,
+          "w": 6.5,
+          "h": 8.6
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "en": "clipboard",
+          "plural": "-er",
+          "x": 61.0,
+          "y": 50.9,
+          "w": 6.0,
+          "h": 7.65
+        },
+        {
+          "de": "Reagenzglasständer",
+          "article": "der",
+          "en": "test-tube rack",
+          "plural": "-",
+          "x": 32.0,
+          "y": 63.81,
+          "w": 9.5,
+          "h": 7.17
+        },
+        {
+          "de": "Becherglas",
+          "article": "das",
+          "en": "beaker",
+          "plural": "Bechergläser",
+          "x": 42.0,
+          "y": 64.28,
+          "w": 4.5,
+          "h": 6.21
+        },
+        {
+          "de": "Petrischale",
+          "article": "die",
+          "en": "petri dish",
+          "plural": "-n",
+          "x": 44.5,
+          "y": 69.45,
+          "w": 7.0,
+          "h": 4.0
+        },
+        {
+          "de": "Lupe",
+          "article": "die",
+          "en": "magnifying glass",
+          "plural": "-n",
+          "x": 30.5,
+          "y": 70.89,
+          "w": 9.0,
+          "h": 4.0
+        },
+        {
+          "de": "Pinzette",
+          "article": "die",
+          "en": "tweezers",
+          "plural": "-n",
+          "x": 39.5,
+          "y": 70.41,
+          "w": 6.0,
+          "h": 4.0
+        },
+        {
+          "de": "Magnet",
+          "article": "der",
+          "en": "magnet",
+          "plural": "-e",
+          "x": 52.0,
+          "y": 70.41,
+          "w": 5.0,
+          "h": 4.0
+        },
+        {
+          "de": "Mörser",
+          "article": "der",
+          "en": "mortar",
+          "plural": "-",
+          "x": 54.5,
+          "y": 64.28,
+          "w": 6.5,
+          "h": 6.21
+        },
+        {
+          "de": "Tropfflasche",
+          "article": "die",
+          "en": "dropper bottle",
+          "plural": "-n",
+          "x": 61.5,
+          "y": 63.81,
+          "w": 4.0,
+          "h": 8.6
+        }
+      ]
     }
   }
 ]

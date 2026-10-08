@@ -7566,7 +7566,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Gather the precise words of philosophy, science, law and literature, each with its article and its register.",
-      "intro": "Every word this module’s exercises use, on one deck of flashcards: 303 cards, 123 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module’s exercises use, on one deck of flashcards: 365 cards, 184 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -7671,6 +7671,1300 @@
         "Verbs and adjectives have no article: type them as they stand, like \"selbst\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_c2_2_suchbild_antiquitaeten",
+    "after": "quest_c2_2_wortschatz",
+    "covers": [
+      "c2.vocabulary-2"
+    ],
+    "help": {
+      "hook": "A crowded antique shop full of rare old things: find each one in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one crowded antique shop with 32 old things to find in it, every one a precise noun you rarely need until you walk into a place like this — der Sekretär, das Spinnrad, die Balkenwaage, das Butterfass, der Paravent. The prompt asks Wo ist die Registrierkasse? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Most of the shop is compounds, and the last part decides the article, however unusual the first part is. Butter + Fass: das Fass, so das Butterfass. Kaffee + Mühle: die Mühle, so die Kaffeemühle. Schirm + Ständer: der Ständer, so der Schirmständer.",
+          "examples": [
+            {
+              "de": "die Balkenwaage",
+              "en": "balance scale (die Waage)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Schaukelpferd, Plural: -e",
+              "en": "rocking horse (das Pferd)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Ohrensessel steht vor dem Paravent.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Sessel, so the whole word is der Ohrensessel."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Same thing, different word, different gender",
+          "text": "Two clocks, two different last parts: die Standuhr and die Sanduhr both end in die Uhr, but das Pendel inside the clock is neuter. And a desk is der Tisch, yet the bureau is der Sekretär, while the counter is die Ladentheke. Learn each word with its own article, never by the meaning.",
+          "examples": [
+            {
+              "de": "die Sanduhr",
+              "en": "hourglass (die Uhr)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Pendel",
+              "en": "pendulum",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Pendel?",
+            "options": [
+              "das",
+              "der",
+              "die"
+            ],
+            "answer": "das",
+            "why": "Pendel is neuter: das Pendel, plural die Pendel."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Loanwords keep a gender of their own",
+          "text": "Many antique-shop words came from French or Greek: der Sekretär, der Paravent, das Grammophon, das Akkordeon, der Globus. Say them aloud with the article as one unit — der Paravent, das Grammophon — and the colour on the label (blue der, red die, green das) gives your eye a second hook.",
+          "examples": [
+            {
+              "de": "der Paravent, Plural: -s",
+              "en": "folding screen",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Grammophon, Plural: -e",
+              "en": "gramophone",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the globe’ in German:",
+            "options": [
+              "der Globus",
+              "die Globus",
+              "das Globus"
+            ],
+            "answer": "der Globus",
+            "why": "Globus is masculine; its plural is die Globen."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: die Mühle → die Kaffeemühle, das Fass → das Butterfass.",
+        "Loanwords have their own gender: der Sekretär, der Paravent, das Grammophon, das Akkordeon.",
+        "Der Globus has an unusual plural: die Globen."
+      ],
+      "vocab": [
+        {
+          "de": "Ladentheke",
+          "article": "die",
+          "plural": "-n",
+          "en": "shop counter"
+        },
+        {
+          "de": "Sekretär",
+          "article": "der",
+          "plural": "-e",
+          "en": "writing bureau"
+        },
+        {
+          "de": "Paravent",
+          "article": "der",
+          "plural": "-s",
+          "en": "folding screen"
+        },
+        {
+          "de": "Standuhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "grandfather clock"
+        },
+        {
+          "de": "Ritterrüstung",
+          "article": "die",
+          "plural": "-en",
+          "en": "suit of armour"
+        },
+        {
+          "de": "Beistelltisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "side table"
+        },
+        {
+          "de": "Ohrensessel",
+          "article": "der",
+          "plural": "-",
+          "en": "wingback armchair"
+        },
+        {
+          "de": "Schaukelpferd",
+          "article": "das",
+          "plural": "-e",
+          "en": "rocking horse"
+        },
+        {
+          "de": "Spinnrad",
+          "article": "das",
+          "plural": "Spinnräder",
+          "en": "spinning wheel"
+        },
+        {
+          "de": "Grammophon",
+          "article": "das",
+          "plural": "-e",
+          "en": "gramophone"
+        },
+        {
+          "de": "Nähmaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "sewing machine"
+        },
+        {
+          "de": "Fernrohr",
+          "article": "das",
+          "plural": "-e",
+          "en": "telescope"
+        },
+        {
+          "de": "Globus",
+          "article": "der",
+          "plural": "Globen",
+          "en": "globe"
+        },
+        {
+          "de": "Hocker",
+          "article": "der",
+          "plural": "-",
+          "en": "stool"
+        },
+        {
+          "de": "Harfe",
+          "article": "die",
+          "plural": "-n",
+          "en": "harp"
+        },
+        {
+          "de": "Schirmständer",
+          "article": "der",
+          "plural": "-",
+          "en": "umbrella stand"
+        },
+        {
+          "de": "Fächer",
+          "article": "der",
+          "plural": "-",
+          "en": "hand fan"
+        },
+        {
+          "de": "Truhe",
+          "article": "die",
+          "plural": "-n",
+          "en": "chest"
+        },
+        {
+          "de": "Schachbrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "chessboard"
+        },
+        {
+          "de": "Butterfass",
+          "article": "das",
+          "plural": "Butterfässer",
+          "en": "butter churn"
+        },
+        {
+          "de": "Mörser",
+          "article": "der",
+          "plural": "-",
+          "en": "mortar"
+        },
+        {
+          "de": "Kiste",
+          "article": "die",
+          "plural": "-n",
+          "en": "crate"
+        },
+        {
+          "de": "Akkordeon",
+          "article": "das",
+          "plural": "-s",
+          "en": "accordion"
+        },
+        {
+          "de": "Kronleuchter",
+          "article": "der",
+          "plural": "-",
+          "en": "chandelier"
+        },
+        {
+          "de": "Vogelkäfig",
+          "article": "der",
+          "plural": "-e",
+          "en": "birdcage"
+        },
+        {
+          "de": "Hufeisen",
+          "article": "das",
+          "plural": "-",
+          "en": "horseshoe"
+        },
+        {
+          "de": "Sanduhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "hourglass"
+        },
+        {
+          "de": "Pendel",
+          "article": "das",
+          "plural": "-",
+          "en": "pendulum"
+        },
+        {
+          "de": "Kaffeemühle",
+          "article": "die",
+          "plural": "-n",
+          "en": "coffee grinder"
+        },
+        {
+          "de": "Balkenwaage",
+          "article": "die",
+          "plural": "-n",
+          "en": "balance scale"
+        },
+        {
+          "de": "Registrierkasse",
+          "article": "die",
+          "plural": "-n",
+          "en": "cash register"
+        },
+        {
+          "de": "Petroleumlampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "oil lamp"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Der Antiquitätenladen",
+      "level": "C2.2",
+      "storageKeyPrefix": "quest_c2_2_suchbild_antiquitaeten_",
+      "scene": "quest_c2_2_suchbild_antiquitaeten",
+      "sceneSize": [
+        884,
+        884
+      ],
+      "sceneAlt": "A crowded antique shop: a grandfather clock, a suit of armour, a rocking horse and a spinning wheel on the left, a glass-fronted writing bureau, a folding screen and a wingback armchair at the back, a chandelier and a birdcage hanging from the ceiling. In front stand a telescope, a globe, a sewing machine, a chest with a chessboard, a butter churn and an accordion on a crate, and on the right a counter with a cash register, scales, a coffee grinder and an oil lamp, beside a harp and an umbrella stand.",
+      "spots": [
+        {
+          "de": "Ladentheke",
+          "article": "die",
+          "en": "shop counter",
+          "plural": "-n",
+          "x": 71.5,
+          "y": 46.59,
+          "w": 24.0,
+          "h": 22.43
+        },
+        {
+          "de": "Sekretär",
+          "article": "der",
+          "en": "writing bureau",
+          "plural": "-e",
+          "x": 27.5,
+          "y": 22.7,
+          "w": 19.5,
+          "h": 39.0
+        },
+        {
+          "de": "Paravent",
+          "article": "der",
+          "en": "folding screen",
+          "plural": "-s",
+          "x": 44.5,
+          "y": 24.16,
+          "w": 18.5,
+          "h": 24.38
+        },
+        {
+          "de": "Standuhr",
+          "article": "die",
+          "en": "grandfather clock",
+          "plural": "-en",
+          "x": 5.5,
+          "y": 34.4,
+          "w": 9.5,
+          "h": 32.18
+        },
+        {
+          "de": "Ritterrüstung",
+          "article": "die",
+          "en": "suit of armour",
+          "plural": "-en",
+          "x": 16.0,
+          "y": 33.42,
+          "w": 10.0,
+          "h": 29.25
+        },
+        {
+          "de": "Beistelltisch",
+          "article": "der",
+          "en": "side table",
+          "plural": "-e",
+          "x": 62.5,
+          "y": 44.15,
+          "w": 11.5,
+          "h": 16.09
+        },
+        {
+          "de": "Ohrensessel",
+          "article": "der",
+          "en": "wingback armchair",
+          "plural": "-",
+          "x": 46.5,
+          "y": 37.81,
+          "w": 16.5,
+          "h": 19.01
+        },
+        {
+          "de": "Schaukelpferd",
+          "article": "das",
+          "en": "rocking horse",
+          "plural": "-e",
+          "x": 12.0,
+          "y": 56.34,
+          "w": 15.5,
+          "h": 14.63
+        },
+        {
+          "de": "Spinnrad",
+          "article": "das",
+          "en": "spinning wheel",
+          "plural": "Spinnräder",
+          "x": 24.0,
+          "y": 46.1,
+          "w": 10.5,
+          "h": 16.58
+        },
+        {
+          "de": "Grammophon",
+          "article": "das",
+          "en": "gramophone",
+          "plural": "-e",
+          "x": 63.5,
+          "y": 29.04,
+          "w": 13.0,
+          "h": 16.09
+        },
+        {
+          "de": "Nähmaschine",
+          "article": "die",
+          "en": "sewing machine",
+          "plural": "-n",
+          "x": 56.5,
+          "y": 54.88,
+          "w": 15.5,
+          "h": 15.6
+        },
+        {
+          "de": "Fernrohr",
+          "article": "das",
+          "en": "telescope",
+          "plural": "-e",
+          "x": 35.0,
+          "y": 48.54,
+          "w": 11.5,
+          "h": 20.96
+        },
+        {
+          "de": "Globus",
+          "article": "der",
+          "en": "globe",
+          "plural": "Globen",
+          "x": 45.5,
+          "y": 57.31,
+          "w": 10.0,
+          "h": 12.68
+        },
+        {
+          "de": "Hocker",
+          "article": "der",
+          "en": "stool",
+          "plural": "-",
+          "x": 54.0,
+          "y": 64.63,
+          "w": 5.5,
+          "h": 6.34
+        },
+        {
+          "de": "Harfe",
+          "article": "die",
+          "en": "harp",
+          "plural": "-n",
+          "x": 72.5,
+          "y": 49.51,
+          "w": 12.0,
+          "h": 23.89
+        },
+        {
+          "de": "Schirmständer",
+          "article": "der",
+          "en": "umbrella stand",
+          "plural": "-",
+          "x": 82.5,
+          "y": 56.83,
+          "w": 5.5,
+          "h": 15.6
+        },
+        {
+          "de": "Fächer",
+          "article": "der",
+          "en": "hand fan",
+          "plural": "-",
+          "x": 70.0,
+          "y": 72.92,
+          "w": 9.5,
+          "h": 6.34
+        },
+        {
+          "de": "Truhe",
+          "article": "die",
+          "en": "chest",
+          "plural": "-n",
+          "x": 26.5,
+          "y": 68.04,
+          "w": 18.5,
+          "h": 17.55
+        },
+        {
+          "de": "Schachbrett",
+          "article": "das",
+          "en": "chessboard",
+          "plural": "-er",
+          "x": 30.5,
+          "y": 68.04,
+          "w": 10.5,
+          "h": 4.88
+        },
+        {
+          "de": "Butterfass",
+          "article": "das",
+          "en": "butter churn",
+          "plural": "Butterfässer",
+          "x": 48.5,
+          "y": 72.43,
+          "w": 8.0,
+          "h": 14.14
+        },
+        {
+          "de": "Mörser",
+          "article": "der",
+          "en": "mortar",
+          "plural": "-",
+          "x": 43.0,
+          "y": 78.77,
+          "w": 8.5,
+          "h": 11.7
+        },
+        {
+          "de": "Kiste",
+          "article": "die",
+          "en": "crate",
+          "plural": "-n",
+          "x": 57.0,
+          "y": 77.79,
+          "w": 12.5,
+          "h": 8.78
+        },
+        {
+          "de": "Akkordeon",
+          "article": "das",
+          "en": "accordion",
+          "plural": "-s",
+          "x": 58.0,
+          "y": 71.45,
+          "w": 11.0,
+          "h": 9.75
+        },
+        {
+          "de": "Kronleuchter",
+          "article": "der",
+          "en": "chandelier",
+          "plural": "-",
+          "x": 43.0,
+          "y": 10.02,
+          "w": 13.5,
+          "h": 13.16
+        },
+        {
+          "de": "Vogelkäfig",
+          "article": "der",
+          "en": "birdcage",
+          "plural": "-e",
+          "x": 58.5,
+          "y": 11.0,
+          "w": 7.5,
+          "h": 12.19
+        },
+        {
+          "de": "Hufeisen",
+          "article": "das",
+          "en": "horseshoe",
+          "plural": "-",
+          "x": 14.0,
+          "y": 30.01,
+          "w": 4.0,
+          "h": 4.88
+        },
+        {
+          "de": "Sanduhr",
+          "article": "die",
+          "en": "hourglass",
+          "plural": "-en",
+          "x": 39.5,
+          "y": 40.74,
+          "w": 4.0,
+          "h": 5.85
+        },
+        {
+          "de": "Pendel",
+          "article": "das",
+          "en": "pendulum",
+          "plural": "-",
+          "x": 9.5,
+          "y": 49.02,
+          "w": 4.0,
+          "h": 8.29
+        },
+        {
+          "de": "Kaffeemühle",
+          "article": "die",
+          "en": "coffee grinder",
+          "plural": "-n",
+          "x": 76.0,
+          "y": 42.2,
+          "w": 4.5,
+          "h": 6.83
+        },
+        {
+          "de": "Balkenwaage",
+          "article": "die",
+          "en": "balance scale",
+          "plural": "-n",
+          "x": 77.5,
+          "y": 37.81,
+          "w": 8.0,
+          "h": 11.21
+        },
+        {
+          "de": "Registrierkasse",
+          "article": "die",
+          "en": "cash register",
+          "plural": "-n",
+          "x": 82.5,
+          "y": 44.15,
+          "w": 11.0,
+          "h": 9.75
+        },
+        {
+          "de": "Petroleumlampe",
+          "article": "die",
+          "en": "oil lamp",
+          "plural": "-n",
+          "x": 88.0,
+          "y": 40.25,
+          "w": 4.0,
+          "h": 7.31
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_c2_2_suchbild_hafen",
+    "after": "quest_c2_2_suchbild_antiquitaeten",
+    "covers": [
+      "c2.vocabulary-2"
+    ],
+    "help": {
+      "hook": "An old fishing harbour full of nautical gear: find each thing on the quay or the water, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one old fishing harbour with 32 things to find on the water and on the quay, every one a precise word from the sea and the docks — der Poller, die Seilwinde, der Duckdalben, das Steuerhaus, der Hummerkorb. The prompt asks Wo ist der Fender? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Harbour words are almost all compounds. Schiff + Glocke: die Glocke, so die Schiffsglocke. Steuer + Haus: das Haus, so das Steuerhaus. Hummer + Korb: der Korb, so der Hummerkorb. Find the last word and you have the article.",
+          "examples": [
+            {
+              "de": "die Seilwinde, Plural: -n",
+              "en": "winch (die Winde)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Lagerhaus, Plural: Lagerhäuser",
+              "en": "warehouse (das Haus)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Rettungsring hängt am Pfosten.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Ring, so the whole word is der Rettungsring."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Same first part, different article",
+          "text": "Steuer- makes no promise about gender: das Steuerrad (das Rad) and das Steuerhaus (das Haus) are neuter, but on land die Steuer is a tax. Likewise Fisch- gives die Fischkiste but das Fischernetz. Only the last part counts.",
+          "examples": [
+            {
+              "de": "das Steuerrad, Plural: Steuerräder",
+              "en": "ship's wheel (das Rad)",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "die Fischkiste, Plural: -n",
+              "en": "fish crate (die Kiste)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Fischernetz?",
+            "options": [
+              "das",
+              "der",
+              "die"
+            ],
+            "answer": "das",
+            "why": "The last part is das Netz, so it is das Fischernetz."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Many -er things on the quay are der",
+          "text": "Things in -er that work or hold something tend to be masculine here: der Poller, der Fender, der Anker, der Kutter, der Eimer, der Kanister. Read each label aloud with its article — the blue ticks pile up along the quay edge.",
+          "examples": [
+            {
+              "de": "der Poller",
+              "en": "bollard",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "der Fender",
+              "en": "fender",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the anchor’ in German:",
+            "options": [
+              "der Anker",
+              "die Anker",
+              "das Anker"
+            ],
+            "answer": "der Anker",
+            "why": "Anker is masculine; the plural is the same: die Anker."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Turm → der Leuchtturm, die Glocke → die Schiffsglocke.",
+        "Many -er things on the quay are der: der Poller, der Fender, der Anker, der Kutter.",
+        "Some plurals change the vowel: das Floß → die Flöße, der Seesack → die Seesäcke."
+      ],
+      "vocab": [
+        {
+          "de": "Lagerhaus",
+          "article": "das",
+          "plural": "Lagerhäuser",
+          "en": "warehouse"
+        },
+        {
+          "de": "Kran",
+          "article": "der",
+          "plural": "Kräne",
+          "en": "crane"
+        },
+        {
+          "de": "Leuchtturm",
+          "article": "der",
+          "plural": "Leuchttürme",
+          "en": "lighthouse"
+        },
+        {
+          "de": "Flagge",
+          "article": "die",
+          "plural": "-n",
+          "en": "flag"
+        },
+        {
+          "de": "Kutter",
+          "article": "der",
+          "plural": "-",
+          "en": "fishing boat"
+        },
+        {
+          "de": "Segelboot",
+          "article": "das",
+          "plural": "-e",
+          "en": "sailing boat"
+        },
+        {
+          "de": "Steg",
+          "article": "der",
+          "plural": "-e",
+          "en": "jetty"
+        },
+        {
+          "de": "Duckdalben",
+          "article": "der",
+          "plural": "-",
+          "en": "mooring dolphin"
+        },
+        {
+          "de": "Floß",
+          "article": "das",
+          "plural": "Flöße",
+          "en": "raft"
+        },
+        {
+          "de": "Ruderboot",
+          "article": "das",
+          "plural": "-e",
+          "en": "rowing boat"
+        },
+        {
+          "de": "Angelrute",
+          "article": "die",
+          "plural": "-n",
+          "en": "fishing rod"
+        },
+        {
+          "de": "Rettungsring",
+          "article": "der",
+          "plural": "-e",
+          "en": "life ring"
+        },
+        {
+          "de": "Poller",
+          "article": "der",
+          "plural": "-",
+          "en": "bollard"
+        },
+        {
+          "de": "Tau",
+          "article": "das",
+          "plural": "-e",
+          "en": "rope"
+        },
+        {
+          "de": "Seilwinde",
+          "article": "die",
+          "plural": "-n",
+          "en": "winch"
+        },
+        {
+          "de": "Schiffsglocke",
+          "article": "die",
+          "plural": "-n",
+          "en": "ship's bell"
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "plural": "-n",
+          "en": "street lantern"
+        },
+        {
+          "de": "Sackkarre",
+          "article": "die",
+          "plural": "-n",
+          "en": "sack trolley"
+        },
+        {
+          "de": "Anker",
+          "article": "der",
+          "plural": "-",
+          "en": "anchor"
+        },
+        {
+          "de": "Fass",
+          "article": "das",
+          "plural": "Fässer",
+          "en": "barrel"
+        },
+        {
+          "de": "Fischkiste",
+          "article": "die",
+          "plural": "-n",
+          "en": "fish crate"
+        },
+        {
+          "de": "Fischernetz",
+          "article": "das",
+          "plural": "-e",
+          "en": "fishing net"
+        },
+        {
+          "de": "Hummerkorb",
+          "article": "der",
+          "plural": "Hummerkörbe",
+          "en": "lobster pot"
+        },
+        {
+          "de": "Steuerrad",
+          "article": "das",
+          "plural": "Steuerräder",
+          "en": "ship's wheel"
+        },
+        {
+          "de": "Seesack",
+          "article": "der",
+          "plural": "Seesäcke",
+          "en": "duffel bag"
+        },
+        {
+          "de": "Eimer",
+          "article": "der",
+          "plural": "-",
+          "en": "bucket"
+        },
+        {
+          "de": "Kanister",
+          "article": "der",
+          "plural": "-",
+          "en": "jerrycan"
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "plural": "-n",
+          "en": "ladder"
+        },
+        {
+          "de": "Fender",
+          "article": "der",
+          "plural": "-",
+          "en": "fender"
+        },
+        {
+          "de": "Boje",
+          "article": "die",
+          "plural": "-n",
+          "en": "buoy"
+        },
+        {
+          "de": "Tor",
+          "article": "das",
+          "plural": "-e",
+          "en": "gate"
+        },
+        {
+          "de": "Steuerhaus",
+          "article": "das",
+          "plural": "Steuerhäuser",
+          "en": "wheelhouse"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Der Hafen",
+      "level": "C2.2",
+      "storageKeyPrefix": "quest_c2_2_suchbild_hafen_",
+      "scene": "quest_c2_2_suchbild_hafen",
+      "sceneSize": [
+        934,
+        934
+      ],
+      "sceneAlt": "An old fishing harbour: a warehouse and a crane on the left, a fishing boat, a sailing boat, a raft, a buoy and a rowing boat on the water, a lighthouse, a flag and a jetty on the right. On the quay stand a life ring, a bollard with a rope, a winch, a ship's bell and a street lantern, and at the front an anchor, a barrel, fish crates with a net, a lobster pot, a ship's wheel, a fishing rod, a jerrycan, a bucket, a duffel bag and a sack trolley.",
+      "spots": [
+        {
+          "de": "Lagerhaus",
+          "article": "das",
+          "en": "warehouse",
+          "plural": "Lagerhäuser",
+          "x": 2.0,
+          "y": 20.88,
+          "w": 15.0,
+          "h": 13.9
+        },
+        {
+          "de": "Kran",
+          "article": "der",
+          "en": "crane",
+          "plural": "Kräne",
+          "x": 13.5,
+          "y": 15.4,
+          "w": 16.5,
+          "h": 19.38
+        },
+        {
+          "de": "Leuchtturm",
+          "article": "der",
+          "en": "lighthouse",
+          "plural": "Leuchttürme",
+          "x": 78.0,
+          "y": 14.56,
+          "w": 6.0,
+          "h": 19.38
+        },
+        {
+          "de": "Flagge",
+          "article": "die",
+          "en": "flag",
+          "plural": "-n",
+          "x": 86.5,
+          "y": 9.5,
+          "w": 7.5,
+          "h": 25.28
+        },
+        {
+          "de": "Kutter",
+          "article": "der",
+          "en": "fishing boat",
+          "plural": "-",
+          "x": 24.0,
+          "y": 27.62,
+          "w": 11.5,
+          "h": 10.95
+        },
+        {
+          "de": "Segelboot",
+          "article": "das",
+          "en": "sailing boat",
+          "plural": "-e",
+          "x": 39.5,
+          "y": 23.83,
+          "w": 9.0,
+          "h": 14.32
+        },
+        {
+          "de": "Steg",
+          "article": "der",
+          "en": "jetty",
+          "plural": "-e",
+          "x": 84.0,
+          "y": 39.41,
+          "w": 14.0,
+          "h": 14.32
+        },
+        {
+          "de": "Duckdalben",
+          "article": "der",
+          "en": "mooring dolphin",
+          "plural": "-",
+          "x": 70.5,
+          "y": 33.09,
+          "w": 9.5,
+          "h": 9.27
+        },
+        {
+          "de": "Floß",
+          "article": "das",
+          "en": "raft",
+          "plural": "Flöße",
+          "x": 3.5,
+          "y": 40.26,
+          "w": 16.0,
+          "h": 5.06
+        },
+        {
+          "de": "Ruderboot",
+          "article": "das",
+          "en": "rowing boat",
+          "plural": "-e",
+          "x": 68.0,
+          "y": 47.42,
+          "w": 17.0,
+          "h": 5.06
+        },
+        {
+          "de": "Angelrute",
+          "article": "die",
+          "en": "fishing rod",
+          "plural": "-n",
+          "x": 48.0,
+          "y": 55.42,
+          "w": 9.5,
+          "h": 26.96
+        },
+        {
+          "de": "Rettungsring",
+          "article": "der",
+          "en": "life ring",
+          "plural": "-e",
+          "x": 17.0,
+          "y": 44.89,
+          "w": 9.5,
+          "h": 17.27
+        },
+        {
+          "de": "Poller",
+          "article": "der",
+          "en": "bollard",
+          "plural": "-",
+          "x": 28.5,
+          "y": 52.9,
+          "w": 9.5,
+          "h": 8.85
+        },
+        {
+          "de": "Tau",
+          "article": "das",
+          "en": "rope",
+          "plural": "-e",
+          "x": 36.5,
+          "y": 53.32,
+          "w": 13.5,
+          "h": 8.0
+        },
+        {
+          "de": "Seilwinde",
+          "article": "die",
+          "en": "winch",
+          "plural": "-n",
+          "x": 49.5,
+          "y": 51.21,
+          "w": 14.0,
+          "h": 10.95
+        },
+        {
+          "de": "Schiffsglocke",
+          "article": "die",
+          "en": "ship's bell",
+          "plural": "-n",
+          "x": 67.0,
+          "y": 51.63,
+          "w": 10.5,
+          "h": 10.53
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "en": "street lantern",
+          "plural": "-n",
+          "x": 85.5,
+          "y": 33.09,
+          "w": 5.5,
+          "h": 28.65
+        },
+        {
+          "de": "Sackkarre",
+          "article": "die",
+          "en": "sack trolley",
+          "plural": "-n",
+          "x": 83.0,
+          "y": 66.38,
+          "w": 14.0,
+          "h": 16.01
+        },
+        {
+          "de": "Anker",
+          "article": "der",
+          "en": "anchor",
+          "plural": "-",
+          "x": 5.5,
+          "y": 66.8,
+          "w": 13.0,
+          "h": 16.01
+        },
+        {
+          "de": "Fass",
+          "article": "das",
+          "en": "barrel",
+          "plural": "Fässer",
+          "x": 19.5,
+          "y": 66.38,
+          "w": 11.0,
+          "h": 14.32
+        },
+        {
+          "de": "Fischkiste",
+          "article": "die",
+          "en": "fish crate",
+          "plural": "-n",
+          "x": 33.5,
+          "y": 66.38,
+          "w": 16.5,
+          "h": 6.74,
+          "also": [
+            {
+              "x": 33.0,
+              "y": 73.12,
+              "w": 15.5,
+              "h": 6.74
+            }
+          ]
+        },
+        {
+          "de": "Fischernetz",
+          "article": "das",
+          "en": "fishing net",
+          "plural": "-e",
+          "x": 36.0,
+          "y": 65.96,
+          "w": 8.5,
+          "h": 10.11
+        },
+        {
+          "de": "Hummerkorb",
+          "article": "der",
+          "en": "lobster pot",
+          "plural": "Hummerkörbe",
+          "x": 23.0,
+          "y": 76.49,
+          "w": 16.0,
+          "h": 8.85
+        },
+        {
+          "de": "Steuerrad",
+          "article": "das",
+          "en": "ship's wheel",
+          "plural": "Steuerräder",
+          "x": 41.0,
+          "y": 72.7,
+          "w": 10.5,
+          "h": 10.95
+        },
+        {
+          "de": "Seesack",
+          "article": "der",
+          "en": "duffel bag",
+          "plural": "Seesäcke",
+          "x": 68.0,
+          "y": 73.54,
+          "w": 14.0,
+          "h": 8.85
+        },
+        {
+          "de": "Eimer",
+          "article": "der",
+          "en": "bucket",
+          "plural": "-",
+          "x": 65.5,
+          "y": 72.7,
+          "w": 6.5,
+          "h": 6.32
+        },
+        {
+          "de": "Kanister",
+          "article": "der",
+          "en": "jerrycan",
+          "plural": "-",
+          "x": 58.5,
+          "y": 73.96,
+          "w": 6.5,
+          "h": 8.43
+        },
+        {
+          "de": "Leiter",
+          "article": "die",
+          "en": "ladder",
+          "plural": "-n",
+          "x": 8.5,
+          "y": 53.74,
+          "w": 8.0,
+          "h": 5.9,
+          "also": [
+            {
+              "x": 7.5,
+              "y": 33.94,
+              "w": 4.0,
+              "h": 5.9
+            }
+          ]
+        },
+        {
+          "de": "Fender",
+          "article": "der",
+          "en": "fender",
+          "plural": "-",
+          "x": 41.0,
+          "y": 51.21,
+          "w": 4.0,
+          "h": 6.32
+        },
+        {
+          "de": "Boje",
+          "article": "die",
+          "en": "buoy",
+          "plural": "-n",
+          "x": 58.5,
+          "y": 36.04,
+          "w": 4.0,
+          "h": 4.21
+        },
+        {
+          "de": "Tor",
+          "article": "das",
+          "en": "gate",
+          "plural": "-e",
+          "x": 5.5,
+          "y": 26.77,
+          "w": 8.0,
+          "h": 7.58
+        },
+        {
+          "de": "Steuerhaus",
+          "article": "das",
+          "en": "wheelhouse",
+          "plural": "Steuerhäuser",
+          "x": 26.5,
+          "y": 30.05,
+          "w": 4.5,
+          "h": 4.0
+        }
+      ]
     }
   }
 ]

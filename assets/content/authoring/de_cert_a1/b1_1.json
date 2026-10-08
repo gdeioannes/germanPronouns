@@ -5981,7 +5981,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Work, study, flats and opinions: the words you need to apply for a job or argue a point, each noun with its plural.",
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 203 cards, 59 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Arbeit & Beruf, Bildung & Studium, Beziehungen & Meinungen, Wohnen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 266 cards, 122 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Arbeit & Beruf, Bildung & Studium, Beziehungen & Meinungen, Wohnen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -6083,6 +6083,1324 @@
         "Verbs and adjectives have no article: type them as they stand, like \"arbeitslos\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_b1_1_suchbild_buero",
+    "after": "quest_b1_1_wortschatz",
+    "covers": [
+      "b1.vocabulary-1"
+    ],
+    "help": {
+      "hook": "A busy little office full of things to find: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one small, slightly cluttered office with 32 things to find in it, every one a noun you need when you talk about your working day — der Drucker, die Tastatur, das Whiteboard, der Klebebandabroller on the desk. The prompt asks Wo ist der Papierkorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Office words are full of compounds, and only the last part decides the article. Schreibtisch + Lampe: die Lampe, so die Schreibtischlampe. Papier + Korb: der Korb, so der Papierkorb. Notiz + Buch: das Buch, so das Notizbuch.",
+          "examples": [
+            {
+              "de": "die Kaffeemaschine, Plural: -n",
+              "en": "coffee machine (die Maschine)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "das Notizbuch, Plural: Notizbücher",
+              "en": "notebook (das Buch)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Taschenrechner liegt neben dem Telefon.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Rechner, so the whole word is der Taschenrechner."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Machines in -er are masculine — machines in -e are not",
+          "text": "A thing that does a job, named with -er, is masculine: der Drucker, der Ordner, der Taschenrechner, der Klebebandabroller. The ending decides, not the idea of a machine: when the last part ends in -e, the -e rule wins and the word is feminine: die Kaffeemaschine, die Klimaanlage.",
+          "examples": [
+            {
+              "de": "der Drucker",
+              "en": "printer",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Klimaanlage, Plural: -n",
+              "en": "air conditioner (die Anlage)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Klimaanlage?",
+            "options": [
+              "die",
+              "der",
+              "das"
+            ],
+            "answer": "die",
+            "why": "It is a machine, but the last part is die Anlage, ending in -e: die Klimaanlage."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "English office words are usually das",
+          "text": "German borrows a lot of office English, and most of these loanwords for things become neuter: das Headset, das Whiteboard, das Sideboard, das Handy. When an English thing turns up in a German office and you are unsure, das is the best first guess. The label colours help: blue der, red die, green das.",
+          "examples": [
+            {
+              "de": "das Headset, Plural: -s",
+              "en": "headset",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "das Whiteboard, Plural: -s",
+              "en": "whiteboard",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the headset’ in German:",
+            "options": [
+              "das Headset",
+              "der Headset",
+              "die Headset"
+            ],
+            "answer": "das Headset",
+            "why": "Most English loanwords for things become neuter in German: das Headset, das Handy, das Whiteboard."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Schreibtisch + die Lampe → die Schreibtischlampe.",
+        "Machines in -er are der (der Drucker, der Ordner); machines in -e are die (die Kaffeemaschine).",
+        "English loanwords for things are mostly das: das Headset, das Whiteboard, das Handy."
+      ],
+      "vocab": [
+        {
+          "de": "Jalousie",
+          "article": "die",
+          "plural": "-n",
+          "en": "venetian blind"
+        },
+        {
+          "de": "Klimaanlage",
+          "article": "die",
+          "plural": "-n",
+          "en": "air conditioner"
+        },
+        {
+          "de": "Wanduhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "wall clock"
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "plural": "-e",
+          "en": "shelf"
+        },
+        {
+          "de": "Whiteboard",
+          "article": "das",
+          "plural": "-s",
+          "en": "whiteboard"
+        },
+        {
+          "de": "Pinnwand",
+          "article": "die",
+          "plural": "Pinnwände",
+          "en": "pin board"
+        },
+        {
+          "de": "Wasserspender",
+          "article": "der",
+          "plural": "-",
+          "en": "water cooler"
+        },
+        {
+          "de": "Topfpflanze",
+          "article": "die",
+          "plural": "-n",
+          "en": "potted plant"
+        },
+        {
+          "de": "Aktenschrank",
+          "article": "der",
+          "plural": "Aktenschränke",
+          "en": "filing cabinet"
+        },
+        {
+          "de": "Bürostuhl",
+          "article": "der",
+          "plural": "Bürostühle",
+          "en": "office chair"
+        },
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "desk"
+        },
+        {
+          "de": "Sideboard",
+          "article": "das",
+          "plural": "-s",
+          "en": "sideboard"
+        },
+        {
+          "de": "Bücherstapel",
+          "article": "der",
+          "plural": "-",
+          "en": "pile of books"
+        },
+        {
+          "de": "Sofa",
+          "article": "das",
+          "plural": "-s",
+          "en": "sofa"
+        },
+        {
+          "de": "Papierkorb",
+          "article": "der",
+          "plural": "Papierkörbe",
+          "en": "waste paper basket"
+        },
+        {
+          "de": "Schreibtischlampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "desk lamp"
+        },
+        {
+          "de": "Bildschirm",
+          "article": "der",
+          "plural": "-e",
+          "en": "monitor"
+        },
+        {
+          "de": "Tastatur",
+          "article": "die",
+          "plural": "-en",
+          "en": "keyboard"
+        },
+        {
+          "de": "Maus",
+          "article": "die",
+          "plural": "Mäuse",
+          "en": "mouse"
+        },
+        {
+          "de": "Telefon",
+          "article": "das",
+          "plural": "-e",
+          "en": "telephone"
+        },
+        {
+          "de": "Mikrofon",
+          "article": "das",
+          "plural": "-e",
+          "en": "microphone"
+        },
+        {
+          "de": "Handy",
+          "article": "das",
+          "plural": "-s",
+          "en": "mobile phone"
+        },
+        {
+          "de": "Headset",
+          "article": "das",
+          "plural": "-s",
+          "en": "headset"
+        },
+        {
+          "de": "Taschenrechner",
+          "article": "der",
+          "plural": "-",
+          "en": "calculator"
+        },
+        {
+          "de": "Lineal",
+          "article": "das",
+          "plural": "-e",
+          "en": "ruler"
+        },
+        {
+          "de": "Schere",
+          "article": "die",
+          "plural": "-n",
+          "en": "scissors"
+        },
+        {
+          "de": "Klebebandabroller",
+          "article": "der",
+          "plural": "-",
+          "en": "tape dispenser"
+        },
+        {
+          "de": "Notizbuch",
+          "article": "das",
+          "plural": "Notizbücher",
+          "en": "notebook"
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "coffee machine"
+        },
+        {
+          "de": "Kaffeekanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "coffee pot"
+        },
+        {
+          "de": "Drucker",
+          "article": "der",
+          "plural": "-",
+          "en": "printer"
+        },
+        {
+          "de": "Aktentasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "briefcase"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Das Büro",
+      "level": "B1.1",
+      "storageKeyPrefix": "quest_b1_1_suchbild_buero_",
+      "scene": "quest_b1_1_suchbild_buero",
+      "sceneSize": [
+        1007,
+        1007
+      ],
+      "sceneAlt": "A small office: a window with a venetian blind, an air conditioner, a wall clock, a whiteboard, a pin board and a shelf of books on the walls; a filing cabinet with a plant, a water cooler and an office chair on the left; a desk with a monitor, keyboard, telephone and small office things in the middle; a sideboard with a coffee machine and a printer, a sofa and a briefcase on the right.",
+      "spots": [
+        {
+          "de": "Jalousie",
+          "article": "die",
+          "en": "venetian blind",
+          "plural": "-n",
+          "x": 4.3,
+          "y": 20.8,
+          "w": 8.69,
+          "h": 23.0
+        },
+        {
+          "de": "Klimaanlage",
+          "article": "die",
+          "en": "air conditioner",
+          "plural": "-n",
+          "x": 20.38,
+          "y": 19.1,
+          "w": 18.58,
+          "h": 6.3
+        },
+        {
+          "de": "Wanduhr",
+          "article": "die",
+          "en": "wall clock",
+          "plural": "-en",
+          "x": 50.75,
+          "y": 27.2,
+          "w": 8.59,
+          "h": 8.6
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "en": "shelf",
+          "plural": "-e",
+          "x": 31.07,
+          "y": 34.3,
+          "w": 16.58,
+          "h": 9.6
+        },
+        {
+          "de": "Whiteboard",
+          "article": "das",
+          "en": "whiteboard",
+          "plural": "-s",
+          "x": 48.45,
+          "y": 37.2,
+          "w": 14.39,
+          "h": 12.4
+        },
+        {
+          "de": "Pinnwand",
+          "article": "die",
+          "en": "pin board",
+          "plural": "Pinnwände",
+          "x": 64.24,
+          "y": 34.9,
+          "w": 13.99,
+          "h": 14.8
+        },
+        {
+          "de": "Wasserspender",
+          "article": "der",
+          "en": "water cooler",
+          "plural": "-",
+          "x": 23.38,
+          "y": 44.7,
+          "w": 7.99,
+          "h": 27.2
+        },
+        {
+          "de": "Topfpflanze",
+          "article": "die",
+          "en": "potted plant",
+          "plural": "-n",
+          "x": 13.09,
+          "y": 35.5,
+          "w": 13.19,
+          "h": 20.3
+        },
+        {
+          "de": "Aktenschrank",
+          "article": "der",
+          "en": "filing cabinet",
+          "plural": "Aktenschränke",
+          "x": 13.89,
+          "y": 54.2,
+          "w": 10.89,
+          "h": 24.9
+        },
+        {
+          "de": "Bürostuhl",
+          "article": "der",
+          "en": "office chair",
+          "plural": "Bürostühle",
+          "x": 18.08,
+          "y": 62.1,
+          "w": 14.19,
+          "h": 25.9
+        },
+        {
+          "de": "Schreibtisch",
+          "article": "der",
+          "en": "desk",
+          "plural": "-e",
+          "x": 28.67,
+          "y": 57.2,
+          "w": 38.56,
+          "h": 21.6
+        },
+        {
+          "de": "Sideboard",
+          "article": "das",
+          "en": "sideboard",
+          "plural": "-s",
+          "x": 66.73,
+          "y": 61.8,
+          "w": 16.78,
+          "h": 16.1
+        },
+        {
+          "de": "Bücherstapel",
+          "article": "der",
+          "en": "pile of books",
+          "plural": "-",
+          "x": 69.83,
+          "y": 63.6,
+          "w": 5.19,
+          "h": 4.0
+        },
+        {
+          "de": "Sofa",
+          "article": "das",
+          "en": "sofa",
+          "plural": "-s",
+          "x": 79.92,
+          "y": 64.3,
+          "w": 16.98,
+          "h": 28.6,
+          "also": [
+            {
+              "x": 71.93,
+              "y": 74.0,
+              "w": 8.49,
+              "h": 19.0
+            }
+          ]
+        },
+        {
+          "de": "Papierkorb",
+          "article": "der",
+          "en": "waste paper basket",
+          "plural": "Papierkörbe",
+          "x": 58.24,
+          "y": 69.3,
+          "w": 6.79,
+          "h": 8.4
+        },
+        {
+          "de": "Schreibtischlampe",
+          "article": "die",
+          "en": "desk lamp",
+          "plural": "-n",
+          "x": 32.47,
+          "y": 43.2,
+          "w": 12.99,
+          "h": 16.4
+        },
+        {
+          "de": "Bildschirm",
+          "article": "der",
+          "en": "monitor",
+          "plural": "-e",
+          "x": 35.17,
+          "y": 49.5,
+          "w": 10.19,
+          "h": 10.0
+        },
+        {
+          "de": "Tastatur",
+          "article": "die",
+          "en": "keyboard",
+          "plural": "-en",
+          "x": 36.06,
+          "y": 58.8,
+          "w": 8.89,
+          "h": 4.0
+        },
+        {
+          "de": "Maus",
+          "article": "die",
+          "en": "mouse",
+          "plural": "Mäuse",
+          "x": 45.26,
+          "y": 58.3,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Telefon",
+          "article": "das",
+          "en": "telephone",
+          "plural": "-e",
+          "x": 45.26,
+          "y": 54.0,
+          "w": 6.99,
+          "h": 4.8
+        },
+        {
+          "de": "Mikrofon",
+          "article": "das",
+          "en": "microphone",
+          "plural": "-e",
+          "x": 52.65,
+          "y": 52.0,
+          "w": 4.0,
+          "h": 6.4
+        },
+        {
+          "de": "Handy",
+          "article": "das",
+          "en": "mobile phone",
+          "plural": "-s",
+          "x": 52.65,
+          "y": 58.4,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Headset",
+          "article": "das",
+          "en": "headset",
+          "plural": "-s",
+          "x": 56.94,
+          "y": 50.3,
+          "w": 4.0,
+          "h": 4.9
+        },
+        {
+          "de": "Taschenrechner",
+          "article": "der",
+          "en": "calculator",
+          "plural": "-",
+          "x": 56.44,
+          "y": 54.6,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Lineal",
+          "article": "das",
+          "en": "ruler",
+          "plural": "-e",
+          "x": 55.94,
+          "y": 58.4,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Schere",
+          "article": "die",
+          "en": "scissors",
+          "plural": "-n",
+          "x": 60.24,
+          "y": 50.9,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Klebebandabroller",
+          "article": "der",
+          "en": "tape dispenser",
+          "plural": "-",
+          "x": 59.94,
+          "y": 55.3,
+          "w": 4.9,
+          "h": 4.0
+        },
+        {
+          "de": "Notizbuch",
+          "article": "das",
+          "en": "notebook",
+          "plural": "Notizbücher",
+          "x": 60.74,
+          "y": 58.4,
+          "w": 5.59,
+          "h": 4.0
+        },
+        {
+          "de": "Kaffeemaschine",
+          "article": "die",
+          "en": "coffee machine",
+          "plural": "-n",
+          "x": 67.23,
+          "y": 53.4,
+          "w": 6.79,
+          "h": 9.3
+        },
+        {
+          "de": "Kaffeekanne",
+          "article": "die",
+          "en": "coffee pot",
+          "plural": "-n",
+          "x": 69.13,
+          "y": 57.0,
+          "w": 4.9,
+          "h": 4.6
+        },
+        {
+          "de": "Drucker",
+          "article": "der",
+          "en": "printer",
+          "plural": "-",
+          "x": 72.23,
+          "y": 56.2,
+          "w": 10.09,
+          "h": 7.0
+        },
+        {
+          "de": "Aktentasche",
+          "article": "die",
+          "en": "briefcase",
+          "plural": "-n",
+          "x": 68.73,
+          "y": 81.3,
+          "w": 7.89,
+          "h": 11.3
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_b1_1_suchbild_arztpraxis",
+    "after": "quest_b1_1_suchbild_buero",
+    "covers": [
+      "b1.vocabulary-1"
+    ],
+    "help": {
+      "hook": "A doctor's examination room full of things to find: tap each object in the picture, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one doctor's examination room with 32 things to find in it, every one a noun you meet when you go to the doctor's — die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät on the wall. The prompt asks Wo ist die Spritze? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Medical words are long, but only the last part decides the article. Untersuchung + Liege: die Liege, so die Untersuchungsliege. Medizin + Schrank: der Schrank, so der Medizinschrank. Blutdruck + Messgerät: das Gerät, so das Blutdruckmessgerät.",
+          "examples": [
+            {
+              "de": "der Kühlschrank, Plural: Kühlschränke",
+              "en": "fridge (der Schrank)",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "die Wärmflasche, Plural: -n",
+              "en": "hot-water bottle (die Flasche)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Seifenspender hängt neben dem Waschbecken.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Spender, so the whole word is der Seifenspender."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Instruments in -skop are neuter",
+          "text": "Viewing instruments ending in -skop are always das: das Stethoskop, das Mikroskop. Two more neuter families in this room: words built on das Gerät (das Blutdruckmessgerät) and on das Mittel (das Desinfektionsmittel).",
+          "examples": [
+            {
+              "de": "das Mikroskop, Plural: -e",
+              "en": "microscope",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "das Desinfektionsmittel",
+              "en": "disinfectant (das Mittel)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Stethoskop?",
+            "options": [
+              "das",
+              "der",
+              "die"
+            ],
+            "answer": "das",
+            "why": "Instruments in -skop are neuter: das Stethoskop, das Mikroskop, das Teleskop."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Ends in -e? Guess die",
+          "text": "Most nouns ending in -e are feminine, and this room is full of them: die Spritze, die Krücke, die Waage, die Mullbinde, die Arzttasche. When you find one, say it aloud with die; the red label shows you were right.",
+          "examples": [
+            {
+              "de": "die Spritze, Plural: -n",
+              "en": "syringe",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Krücke, Plural: -n",
+              "en": "crutch",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the scales’ in German:",
+            "options": [
+              "die Waage",
+              "der Waage",
+              "das Waage"
+            ],
+            "answer": "die Waage",
+            "why": "Waage ends in -e, and like most nouns in -e it is feminine: die Waage."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Medizinschrank, die Untersuchungsliege, das Blutdruckmessgerät.",
+        "-skop instruments are das: das Stethoskop, das Mikroskop.",
+        "Nouns in -e are mostly die: die Spritze, die Krücke, die Waage."
+      ],
+      "vocab": [
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Heizkörper",
+          "article": "der",
+          "plural": "-",
+          "en": "radiator"
+        },
+        {
+          "de": "Paravent",
+          "article": "der",
+          "plural": "-s",
+          "en": "folding screen"
+        },
+        {
+          "de": "Rollstuhl",
+          "article": "der",
+          "plural": "Rollstühle",
+          "en": "wheelchair"
+        },
+        {
+          "de": "Krücke",
+          "article": "die",
+          "plural": "-n",
+          "en": "crutch"
+        },
+        {
+          "de": "Medizinschrank",
+          "article": "der",
+          "plural": "Medizinschränke",
+          "en": "medicine cabinet"
+        },
+        {
+          "de": "Untersuchungslampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "examination lamp"
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "plural": "-",
+          "en": "washbasin"
+        },
+        {
+          "de": "Seifenspender",
+          "article": "der",
+          "plural": "-",
+          "en": "soap dispenser"
+        },
+        {
+          "de": "Handtuch",
+          "article": "das",
+          "plural": "Handtücher",
+          "en": "towel"
+        },
+        {
+          "de": "Arztkittel",
+          "article": "der",
+          "plural": "-",
+          "en": "doctor's coat"
+        },
+        {
+          "de": "Stethoskop",
+          "article": "das",
+          "plural": "-e",
+          "en": "stethoscope"
+        },
+        {
+          "de": "Blutdruckmessgerät",
+          "article": "das",
+          "plural": "-e",
+          "en": "blood pressure monitor"
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "plural": "-er",
+          "en": "clipboard"
+        },
+        {
+          "de": "Infusionsständer",
+          "article": "der",
+          "plural": "-",
+          "en": "drip stand"
+        },
+        {
+          "de": "Beistelltisch",
+          "article": "der",
+          "plural": "-e",
+          "en": "side table"
+        },
+        {
+          "de": "Untersuchungsliege",
+          "article": "die",
+          "plural": "-n",
+          "en": "examination couch"
+        },
+        {
+          "de": "Kissen",
+          "article": "das",
+          "plural": "-",
+          "en": "pillow"
+        },
+        {
+          "de": "Wärmflasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "hot-water bottle"
+        },
+        {
+          "de": "Desinfektionsmittel",
+          "article": "das",
+          "plural": "-",
+          "en": "disinfectant"
+        },
+        {
+          "de": "Spritze",
+          "article": "die",
+          "plural": "-n",
+          "en": "syringe"
+        },
+        {
+          "de": "Tablettendose",
+          "article": "die",
+          "plural": "-n",
+          "en": "pill bottle"
+        },
+        {
+          "de": "Taschentuchbox",
+          "article": "die",
+          "plural": "-en",
+          "en": "tissue box"
+        },
+        {
+          "de": "Mullbinde",
+          "article": "die",
+          "plural": "-n",
+          "en": "gauze bandage"
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "plural": "Kühlschränke",
+          "en": "fridge"
+        },
+        {
+          "de": "Mikroskop",
+          "article": "das",
+          "plural": "-e",
+          "en": "microscope"
+        },
+        {
+          "de": "Reflexhammer",
+          "article": "der",
+          "plural": "Reflexhämmer",
+          "en": "reflex hammer"
+        },
+        {
+          "de": "Arzttasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "doctor's bag"
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "plural": "-",
+          "en": "pedal bin"
+        },
+        {
+          "de": "Tritt",
+          "article": "der",
+          "plural": "-e",
+          "en": "step stool"
+        },
+        {
+          "de": "Rollhocker",
+          "article": "der",
+          "plural": "-",
+          "en": "stool on wheels"
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "plural": "-n",
+          "en": "scales"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Die Arztpraxis",
+      "level": "B1.1",
+      "storageKeyPrefix": "quest_b1_1_suchbild_arztpraxis_",
+      "scene": "quest_b1_1_suchbild_arztpraxis",
+      "sceneSize": [
+        992,
+        992
+      ],
+      "sceneAlt": "A doctor's examination room: a window, a radiator, a folding screen, a wheelchair and a crutch on the left; a medicine cabinet, a sink, a towel, a doctor's coat, a stethoscope and a blood pressure monitor on the back wall under a big examination lamp; an examination couch with a pillow and a hot-water bottle in the middle, a side table with medical things, and on the right a microscope, a doctor's bag, a fridge, a drip stand, a bin and a set of scales.",
+      "spots": [
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 1.8,
+          "y": 24.33,
+          "w": 11.4,
+          "h": 39.81
+        },
+        {
+          "de": "Heizkörper",
+          "article": "der",
+          "en": "radiator",
+          "plural": "-",
+          "x": 1.8,
+          "y": 65.28,
+          "w": 10.2,
+          "h": 17.98
+        },
+        {
+          "de": "Paravent",
+          "article": "der",
+          "en": "folding screen",
+          "plural": "-s",
+          "x": 10.8,
+          "y": 46.86,
+          "w": 17.4,
+          "h": 37.71
+        },
+        {
+          "de": "Rollstuhl",
+          "article": "der",
+          "en": "wheelchair",
+          "plural": "Rollstühle",
+          "x": 11.5,
+          "y": 66.15,
+          "w": 20.5,
+          "h": 22.78
+        },
+        {
+          "de": "Krücke",
+          "article": "die",
+          "en": "crutch",
+          "plural": "-n",
+          "x": 28.0,
+          "y": 64.32,
+          "w": 4.4,
+          "h": 18.68
+        },
+        {
+          "de": "Medizinschrank",
+          "article": "der",
+          "en": "medicine cabinet",
+          "plural": "Medizinschränke",
+          "x": 25.5,
+          "y": 34.98,
+          "w": 17.4,
+          "h": 14.32
+        },
+        {
+          "de": "Untersuchungslampe",
+          "article": "die",
+          "en": "examination lamp",
+          "plural": "-n",
+          "x": 52.1,
+          "y": 22.15,
+          "w": 16.3,
+          "h": 13.53,
+          "also": [
+            {
+              "x": 76.8,
+              "y": 34.55,
+              "w": 4.0,
+              "h": 17.11
+            }
+          ]
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "en": "washbasin",
+          "plural": "-",
+          "x": 28.9,
+          "y": 54.63,
+          "w": 11.6,
+          "h": 9.17
+        },
+        {
+          "de": "Seifenspender",
+          "article": "der",
+          "en": "soap dispenser",
+          "plural": "-",
+          "x": 37.4,
+          "y": 51.75,
+          "w": 4.0,
+          "h": 4.19
+        },
+        {
+          "de": "Handtuch",
+          "article": "das",
+          "en": "towel",
+          "plural": "Handtücher",
+          "x": 41.8,
+          "y": 53.49,
+          "w": 4.6,
+          "h": 10.13
+        },
+        {
+          "de": "Arztkittel",
+          "article": "der",
+          "en": "doctor's coat",
+          "plural": "-",
+          "x": 46.6,
+          "y": 44.76,
+          "w": 11.9,
+          "h": 20.08
+        },
+        {
+          "de": "Stethoskop",
+          "article": "das",
+          "en": "stethoscope",
+          "plural": "-e",
+          "x": 58.5,
+          "y": 44.76,
+          "w": 4.4,
+          "h": 9.95
+        },
+        {
+          "de": "Blutdruckmessgerät",
+          "article": "das",
+          "en": "blood pressure monitor",
+          "plural": "-e",
+          "x": 63.9,
+          "y": 43.19,
+          "w": 7.1,
+          "h": 9.25
+        },
+        {
+          "de": "Klemmbrett",
+          "article": "das",
+          "en": "clipboard",
+          "plural": "-er",
+          "x": 67.3,
+          "y": 51.92,
+          "w": 5.8,
+          "h": 7.59
+        },
+        {
+          "de": "Infusionsständer",
+          "article": "der",
+          "en": "drip stand",
+          "plural": "-",
+          "x": 86.2,
+          "y": 40.48,
+          "w": 10.8,
+          "h": 15.54,
+          "also": [
+            {
+              "x": 90.4,
+              "y": 55.67,
+              "w": 4.0,
+              "h": 20.08
+            }
+          ]
+        },
+        {
+          "de": "Beistelltisch",
+          "article": "der",
+          "en": "side table",
+          "plural": "-e",
+          "x": 59.4,
+          "y": 62.22,
+          "w": 17.5,
+          "h": 17.81
+        },
+        {
+          "de": "Untersuchungsliege",
+          "article": "die",
+          "en": "examination couch",
+          "plural": "-n",
+          "x": 32.8,
+          "y": 64.06,
+          "w": 40.0,
+          "h": 20.95
+        },
+        {
+          "de": "Kissen",
+          "article": "das",
+          "en": "pillow",
+          "plural": "-",
+          "x": 37.4,
+          "y": 65.02,
+          "w": 6.1,
+          "h": 5.76
+        },
+        {
+          "de": "Wärmflasche",
+          "article": "die",
+          "en": "hot-water bottle",
+          "plural": "-n",
+          "x": 44.5,
+          "y": 67.64,
+          "w": 8.1,
+          "h": 4.0
+        },
+        {
+          "de": "Desinfektionsmittel",
+          "article": "das",
+          "en": "disinfectant",
+          "plural": "-",
+          "x": 59.9,
+          "y": 59.0,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Spritze",
+          "article": "die",
+          "en": "syringe",
+          "plural": "-n",
+          "x": 63.8,
+          "y": 60.22,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Tablettendose",
+          "article": "die",
+          "en": "pill bottle",
+          "plural": "-n",
+          "x": 66.7,
+          "y": 59.78,
+          "w": 4.0,
+          "h": 4.19,
+          "also": [
+            {
+              "x": 65.8,
+              "y": 65.89,
+              "w": 4.0,
+              "h": 4.02
+            }
+          ]
+        },
+        {
+          "de": "Taschentuchbox",
+          "article": "die",
+          "en": "tissue box",
+          "plural": "-en",
+          "x": 70.1,
+          "y": 60.22,
+          "w": 5.3,
+          "h": 4.0,
+          "also": [
+            {
+              "x": 70.4,
+              "y": 65.9,
+              "w": 4.4,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Mullbinde",
+          "article": "die",
+          "en": "gauze bandage",
+          "plural": "-n",
+          "x": 61.2,
+          "y": 65.81,
+          "w": 4.8,
+          "h": 4.0
+        },
+        {
+          "de": "Kühlschrank",
+          "article": "der",
+          "en": "fridge",
+          "plural": "Kühlschränke",
+          "x": 75.5,
+          "y": 64.4,
+          "w": 14.8,
+          "h": 18.16
+        },
+        {
+          "de": "Mikroskop",
+          "article": "das",
+          "en": "microscope",
+          "plural": "-e",
+          "x": 77.0,
+          "y": 54.63,
+          "w": 6.6,
+          "h": 10.13
+        },
+        {
+          "de": "Reflexhammer",
+          "article": "der",
+          "en": "reflex hammer",
+          "plural": "Reflexhämmer",
+          "x": 78.6,
+          "y": 63.98,
+          "w": 5.0,
+          "h": 4.0
+        },
+        {
+          "de": "Arzttasche",
+          "article": "die",
+          "en": "doctor's bag",
+          "plural": "-n",
+          "x": 82.4,
+          "y": 59.43,
+          "w": 7.7,
+          "h": 7.25
+        },
+        {
+          "de": "Mülleimer",
+          "article": "der",
+          "en": "pedal bin",
+          "plural": "-",
+          "x": 89.3,
+          "y": 75.23,
+          "w": 7.4,
+          "h": 11.17
+        },
+        {
+          "de": "Tritt",
+          "article": "der",
+          "en": "step stool",
+          "plural": "-e",
+          "x": 45.8,
+          "y": 76.01,
+          "w": 11.7,
+          "h": 10.82
+        },
+        {
+          "de": "Rollhocker",
+          "article": "der",
+          "en": "stool on wheels",
+          "plural": "-",
+          "x": 58.8,
+          "y": 76.19,
+          "w": 11.2,
+          "h": 15.71
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "en": "scales",
+          "plural": "-n",
+          "x": 79.6,
+          "y": 88.06,
+          "w": 13.3,
+          "h": 5.41
+        }
+      ]
     }
   }
 ]

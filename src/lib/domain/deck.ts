@@ -163,7 +163,8 @@ const TYPE_LABELS: Record<QuizType, string> = {
 	dictation: 'dictation',
 	speakRepeat: 'repeat aloud',
 	speaking: 'speaking',
-	vocabulary: 'flashcards'
+	vocabulary: 'flashcards',
+	suchbild: 'picture hunt'
 };
 
 /** The learner-facing name of a quiz type, for the card's meta line. */

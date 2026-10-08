@@ -891,7 +891,8 @@
 		background: #ebe7f4;
 		color: #55478a;
 	}
-	.kind-icon[data-kind='vocabulary'] {
+	.kind-icon[data-kind='vocabulary'],
+	.kind-icon[data-kind='suchbild'] {
 		background: #f9e7ee;
 		color: #a33a63;
 	}

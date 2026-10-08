@@ -6,6 +6,9 @@
 //   npm run images -- --force regenerate everything
 //   npm run images -- apple bread   only these ids (still skips existing unless --force)
 //   npm run images -- --link  only stamp `image` onto the deck cards, no API calls
+//   node tool/gen-images.mjs --manifest <file> --no-link   images from another
+//     manifest (same shape; `style` falls back to the main one), bundles untouched —
+//     so several authors can generate side by side without racing on shared files
 //
 // After generating, every vocabulary deck in the course bundles gets `image`
 // (and `imageHint`, from the manifest's `hint`) on each card whose German
@@ -40,7 +43,9 @@ const force = args.includes('--force');
 const linkOnly = args.includes('--link');
 /** Rebuild every WebP from the raw originals (new size or quality), no API. */
 const reshrink = args.includes('--shrink');
-const only = new Set(args.filter((a) => !a.startsWith('--')));
+const noLink = args.includes('--no-link');
+const manifestArg = args.includes('--manifest') ? args[args.indexOf('--manifest') + 1] : null;
+const only = new Set(args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--manifest'));
 
 // Story reference images are dev-only (the /dev/story-bible page); they live
 // under src/lib so they never ship in the static build. Episode images that
@@ -51,9 +56,12 @@ const SHIP_DIR = join(root, 'static', 'img', 'story');
 const RAW_DIR = join(root, 'assets', 'images', 'raw', ...(story ? ['story'] : []));
 const SIZE = story ? 1024 : 512;
 
-const manifest = JSON.parse(
+const mainManifest = JSON.parse(
 	readFileSync(join(root, 'assets', 'images', story ? 'story_manifest.json' : 'manifest.json'), 'utf8')
 );
+const manifest = manifestArg
+	? { style: mainManifest.style, blocks: mainManifest.blocks, ...JSON.parse(readFileSync(manifestArg, 'utf8')) }
+	: mainManifest;
 mkdirSync(OUT_DIR, { recursive: true });
 mkdirSync(RAW_DIR, { recursive: true });
 
@@ -82,7 +90,7 @@ for (const img of linkOnly ? [] : manifest.images) {
 				? readFileSync(raw)
 				: await generate(`${manifest.style}\n\n${expand(img.prompt)}`, img.aspect ?? '1:1');
 		writeFileSync(raw, png);
-		await shrink(png, file, img.transparent);
+		await shrink(png, file, img.transparent, img.size, img.trim, img.square);
 		made++;
 		console.log(`ok (${Math.round(statSync(file).size / 1024)} kB)`);
 	} catch (e) {
@@ -90,7 +98,7 @@ for (const img of linkOnly ? [] : manifest.images) {
 	}
 }
 if (!linkOnly) console.log(`\n${made} generated, ${skipped} already present, in ${OUT_DIR}`);
-if (!story) linkImages();
+if (!story && !noLink) linkImages();
 
 /**
  * Splices the manifest's reusable `blocks` (character and location
@@ -227,9 +235,15 @@ async function callApi(prompt, aspect) {
  * 1024px PNG → 512px WebP for the app. With `transparent` (a manifest flag,
  * for illustrations that sit directly on a page rather than on a cream card,
  * like the About page's), the flood-filled backdrop becomes alpha instead of
- * levelled paper.
+ * levelled paper. A manifest `size` overrides the 512px — a Suchbild room is
+ * tapped object by object, so it ships at 1024px — and `trim` crops the
+ * empty paper around the drawing to a thin margin, so a room fills its card.
+ * The crop box is printed: Suchbild spots are percent of the TRIMMED picture.
+ * `square` then pads the trimmed drawing with paper to an exact square
+ * (centred, the extra split floor-left/top), so every Suchbild room has the
+ * same proportions; the padding is the picture's own paper, so it is invisible.
  */
-async function shrink(png, file, transparent = false) {
+async function shrink(png, file, transparent = false, size = SIZE, trim = false, square = false) {
 	// Story scenes keep their mood lighting: no paper levelling, no palette
 	// quantisation — a plain lossy WebP at full size.
 	if (story) {
@@ -237,11 +251,32 @@ async function shrink(png, file, transparent = false) {
 		return;
 	}
 	const { data, info } = await sharp(png)
-		.resize(SIZE, SIZE, { fit: 'inside' })
+		.resize(size, size, { fit: 'inside' })
 		.removeAlpha()
 		.raw()
 		.toBuffer({ resolveWithObject: true });
 	const filled = levelPaper(data, info.width, info.height);
+	if (trim) {
+		const box = drawingBox(filled, info.width, info.height, Math.round(info.width * 0.02));
+		process.stdout.write(`trimmed to ${JSON.stringify(box)} of ${info.width}x${info.height} … `);
+		const side = Math.max(box.width, box.height);
+		const padX = square ? side - box.width : 0;
+		const padY = square ? side - box.height : 0;
+		if (square) process.stdout.write(`padded to ${side}x${side} … `);
+		const quantised = await sharp(data, { raw: { width: info.width, height: info.height, channels: 3 } })
+			.extract(box)
+			.extend({
+				left: Math.floor(padX / 2),
+				right: padX - Math.floor(padX / 2),
+				top: Math.floor(padY / 2),
+				bottom: padY - Math.floor(padY / 2),
+				background: { r: PAPER[0], g: PAPER[1], b: PAPER[2] }
+			})
+			.png({ palette: true, colours: 256, dither: 0, effort: 10 })
+			.toBuffer();
+		await sharp(quantised).webp({ lossless: true, effort: 6 }).toFile(file);
+		return;
+	}
 	if (transparent) {
 		// RGB → RGBA, with every flood-filled backdrop pixel fully clear.
 		const rgba = Buffer.alloc(info.width * info.height * 4);
@@ -323,6 +358,46 @@ function levelPaper(px, w, h) {
 		push(x, y + 1);
 	}
 	return filled;
+}
+
+/**
+ * The bounding box of the drawing, plus a margin: the largest connected
+ * patch of drawn pixels (a room's outline holds everything inside it), so a
+ * speck of grain or a stray mark the model scribbled in a corner does not
+ * keep a band of empty paper.
+ */
+function drawingBox(filled, w, h, margin) {
+	const label = new Int32Array(w * h).fill(-1);
+	let best = null;
+	const stack = [];
+	for (let start = 0; start < w * h; start++) {
+		if (filled[start] || label[start] !== -1) continue;
+		const box = { size: 0, left: w, top: h, right: 0, bottom: 0 };
+		label[start] = start;
+		stack.push(start);
+		while (stack.length) {
+			const p = stack.pop();
+			const x = p % w;
+			const y = (p - x) / w;
+			box.size++;
+			if (x < box.left) box.left = x;
+			if (x > box.right) box.right = x;
+			if (y < box.top) box.top = y;
+			if (y > box.bottom) box.bottom = y;
+			for (const q of [x > 0 ? p - 1 : -1, x < w - 1 ? p + 1 : -1, y > 0 ? p - w : -1, y < h - 1 ? p + w : -1]) {
+				if (q < 0 || filled[q] || label[q] !== -1) continue;
+				label[q] = start;
+				stack.push(q);
+			}
+		}
+		if (!best || box.size > best.size) best = box;
+	}
+	if (!best) return { left: 0, top: 0, width: w, height: h };
+	const left = Math.max(0, best.left - margin);
+	const top = Math.max(0, best.top - margin);
+	const right = Math.min(w - 1, best.right + margin);
+	const bottom = Math.min(h - 1, best.bottom + margin);
+	return { left, top, width: right - left + 1, height: bottom - top + 1 };
 }
 
 /** The median colour of the image's outermost pixels. */

@@ -154,6 +154,7 @@ export function sectionFor(
 		case 'dictation':
 		case 'speakRepeat':
 		case 'vocabulary':
+		case 'suchbild':
 			return null;
 	}
 }

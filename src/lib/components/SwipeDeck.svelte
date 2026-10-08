@@ -1094,7 +1094,8 @@
 
 	.type-disc[data-type='reading'] { background: #e6ecf3; color: var(--navy); }
 	.type-disc[data-type='fillBlank'] { background: #ebe7f4; color: #55478a; }
-	.type-disc[data-type='vocabulary'] { background: #f9e7ee; color: #a33a63; }
+	.type-disc[data-type='vocabulary'],
+	.type-disc[data-type='suchbild'] { background: #f9e7ee; color: #a33a63; }
 	.type-disc[data-type='speakRepeat'] { background: #fbe9e2; color: #b5522a; }
 	.type-disc[data-type='speaking'] { background: var(--accent-soft); color: var(--accent-ink); }
 	.type-disc[data-type='listening'] { background: #e8efe9; color: var(--forest); }

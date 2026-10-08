@@ -198,7 +198,8 @@
 	.thumb { width: 2.6rem; height: 1.9rem; flex: none; border-radius: 6px; background: #fbf5e4; object-fit: cover; }
 	.kind { display: inline-flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem; flex: none; border-radius: 50%; background: var(--surface-alt); color: var(--ink-muted); }
 	.kind[data-kind='fillBlank'] { background: #ebe7f4; color: #55478a; }
-	.kind[data-kind='vocabulary'] { background: #f9e7ee; color: #a33a63; }
+	.kind[data-kind='vocabulary'],
+	.kind[data-kind='suchbild'] { background: #f9e7ee; color: #a33a63; }
 	.kind[data-kind='reading'] { background: #e6ecf3; color: var(--navy); }
 	.kind[data-kind='listening'] { background: #e8efe9; color: var(--forest); }
 	.kind[data-kind='dictation'] { background: #f4eddc; color: var(--ochre-ink); }

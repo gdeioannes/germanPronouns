@@ -31,6 +31,7 @@
 	import PassageQuiz from '$lib/components/quiz/PassageQuiz.svelte';
 	import SpeakRepeatQuiz from '$lib/components/quiz/SpeakRepeatQuiz.svelte';
 	import SpeakingQuiz from '$lib/components/quiz/SpeakingQuiz.svelte';
+	import SuchbildQuiz from '$lib/components/quiz/SuchbildQuiz.svelte';
 	import VocabularyQuiz from '$lib/components/quiz/VocabularyQuiz.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
@@ -366,6 +367,8 @@
 				onRunFinished={runFinished}
 				{focusWord}
 			/>
+		{:else if quiz.type === 'suchbild'}
+			<SuchbildQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} />
 		{/if}
 		{/key}
 		</div>
@@ -715,7 +718,8 @@
 		background: #ebe7f4;
 		color: #55478a;
 	}
-	.kind[data-kind='vocabulary'] {
+	.kind[data-kind='vocabulary'],
+	.kind[data-kind='suchbild'] {
 		background: #f9e7ee;
 		color: #a33a63;
 	}

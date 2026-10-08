@@ -4595,7 +4595,7 @@
     "title": "Wortschatz",
     "help": {
       "hook": "Pack the words for trips, weather, weekends and parties — every noun with its article, every verb with its partner.",
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 168 cards, 31 of them nouns. The vocabulary of this module is the words for travel, health, home and describing people, and many verbs you now use in the Perfekt, from the themes Reisen & Verkehr; Wegbeschreibung, Wetter & Jahreszeiten, Freizeit & Wochenende, Feste & Einladungen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 228 cards, 92 of them nouns. The vocabulary of this module is the words for travel, health, home and describing people, and many verbs you now use in the Perfekt, from the themes Reisen & Verkehr; Wegbeschreibung, Wetter & Jahreszeiten, Freizeit & Wochenende, Feste & Einladungen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -4698,6 +4698,1304 @@
         "Verbs and adjectives have no article: type them as they stand, like \"machen\"."
       ],
       "exam": null
+    }
+  },
+  {
+    "id": "quest_a2_1_suchbild_badezimmer",
+    "after": "quest_a2_1_wortschatz",
+    "covers": [
+      "a2.vocabulary-1"
+    ],
+    "help": {
+      "hook": "A busy family bathroom with 32 things to find: tap each one, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one family bathroom with 32 everyday things in it, from die Badewanne and das Waschbecken to the small stuff on the shelf — der Kamm, die Haarbürste, das Parfüm — and a rubber duck on the edge of the tub. The prompt asks, for example, Wo ist die Zahnbürste? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Many bathroom words are built from two nouns, and the last one decides the article. Zahn + Bürste: die Bürste, so die Zahnbürste. Dusche + Kopf: der Kopf, so der Duschkopf. Look at the end of the word, not the start.",
+          "examples": [
+            {
+              "de": "die Klobürste",
+              "en": "toilet brush (die Bürste)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "der Bademantel, Plural: Bademäntel",
+              "en": "bathrobe (der Mantel)",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Duschvorhang ist gestreift.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Vorhang, so the whole word is der Duschvorhang."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Same start, different article",
+          "text": "Dusche is die, but der Duschkopf and der Duschvorhang are der, because only the last part counts. In the same way das Waschbecken and die Waschmaschine both start with wasch-, yet one ends in das Becken and the other in die Maschine.",
+          "examples": [
+            {
+              "de": "das Waschbecken",
+              "en": "washbasin (das Becken)",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "die Waschmaschine",
+              "en": "washing machine (die Maschine)",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Waschmittel?",
+            "options": [
+              "das",
+              "die",
+              "der"
+            ],
+            "answer": "das",
+            "why": "The last part is das Mittel, so it is das Waschmittel."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Words in -e are usually die",
+          "text": "Most nouns that end in -e are feminine, and this room is full of them: die Seife, die Waage, die Toilette, die Badewanne, die Lampe. When you hear a final -e, try die first: it is right far more often than not.",
+          "examples": [
+            {
+              "de": "die Seife, Plural: -n",
+              "en": "soap",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "die Waage, Plural: -n",
+              "en": "bathroom scale",
+              "focus": [
+                "die"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the rubber duck’ in German:",
+            "options": [
+              "die Gummiente",
+              "der Gummiente",
+              "das Gummiente"
+            ],
+            "answer": "die Gummiente",
+            "why": "The last part is die Ente, a noun in -e, so the compound is die Gummiente."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Zahn + die Bürste → die Zahnbürste, die Dusche + der Kopf → der Duschkopf.",
+        "Nouns ending in -e are usually die: die Seife, die Waage, die Lampe.",
+        "Das Toilettenpapier and das Waschmittel have no plural in everyday use."
+      ],
+      "vocab": [
+        {
+          "de": "Waschmaschine",
+          "article": "die",
+          "plural": "-n",
+          "en": "washing machine"
+        },
+        {
+          "de": "Badewanne",
+          "article": "die",
+          "plural": "-n",
+          "en": "bathtub"
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "plural": "-",
+          "en": "window"
+        },
+        {
+          "de": "Duschvorhang",
+          "article": "der",
+          "plural": "Duschvorhänge",
+          "en": "shower curtain"
+        },
+        {
+          "de": "Vorhangstange",
+          "article": "die",
+          "plural": "-n",
+          "en": "curtain rail"
+        },
+        {
+          "de": "Bademantel",
+          "article": "der",
+          "plural": "Bademäntel",
+          "en": "bathrobe"
+        },
+        {
+          "de": "Haken",
+          "article": "der",
+          "plural": "-",
+          "en": "hook"
+        },
+        {
+          "de": "Duschkopf",
+          "article": "der",
+          "plural": "Duschköpfe",
+          "en": "shower head"
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "plural": "Wasserhähne",
+          "en": "tap"
+        },
+        {
+          "de": "Schwamm",
+          "article": "der",
+          "plural": "Schwämme",
+          "en": "sponge"
+        },
+        {
+          "de": "Gummiente",
+          "article": "die",
+          "plural": "-n",
+          "en": "rubber duck"
+        },
+        {
+          "de": "Badematte",
+          "article": "die",
+          "plural": "-n",
+          "en": "bath mat"
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "plural": "-n",
+          "en": "bathroom scale"
+        },
+        {
+          "de": "Spiegel",
+          "article": "der",
+          "plural": "-",
+          "en": "mirror"
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "plural": "-",
+          "en": "washbasin"
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "plural": "-e",
+          "en": "shelf"
+        },
+        {
+          "de": "Zahnbürste",
+          "article": "die",
+          "plural": "-n",
+          "en": "toothbrush"
+        },
+        {
+          "de": "Zahnpasta",
+          "article": "die",
+          "plural": "Zahnpasten",
+          "en": "toothpaste"
+        },
+        {
+          "de": "Seife",
+          "article": "die",
+          "plural": "-n",
+          "en": "soap"
+        },
+        {
+          "de": "Shampoo",
+          "article": "das",
+          "plural": "-s",
+          "en": "shampoo"
+        },
+        {
+          "de": "Föhn",
+          "article": "der",
+          "plural": "-e",
+          "en": "hairdryer"
+        },
+        {
+          "de": "Parfüm",
+          "article": "das",
+          "plural": "-s",
+          "en": "perfume"
+        },
+        {
+          "de": "Haarbürste",
+          "article": "die",
+          "plural": "-n",
+          "en": "hairbrush"
+        },
+        {
+          "de": "Kamm",
+          "article": "der",
+          "plural": "Kämme",
+          "en": "comb"
+        },
+        {
+          "de": "Lampe",
+          "article": "die",
+          "plural": "-n",
+          "en": "lamp"
+        },
+        {
+          "de": "Hocker",
+          "article": "der",
+          "plural": "-",
+          "en": "stool"
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "plural": "-s",
+          "en": "radio"
+        },
+        {
+          "de": "Toilette",
+          "article": "die",
+          "plural": "-n",
+          "en": "toilet"
+        },
+        {
+          "de": "Toilettenpapier",
+          "article": "das",
+          "en": "toilet paper"
+        },
+        {
+          "de": "Klobürste",
+          "article": "die",
+          "plural": "-n",
+          "en": "toilet brush"
+        },
+        {
+          "de": "Waschmittel",
+          "article": "das",
+          "en": "washing powder"
+        },
+        {
+          "de": "Rasierer",
+          "article": "der",
+          "plural": "-",
+          "en": "razor"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Das Badezimmer",
+      "level": "A2.1",
+      "storageKeyPrefix": "quest_a2_1_suchbild_badezimmer_",
+      "scene": "quest_a2_1_suchbild_badezimmer",
+      "sceneSize": [
+        981,
+        981
+      ],
+      "sceneAlt": "A slightly cluttered family bathroom: a bathtub with a shower curtain, a rubber duck and a bathrobe on a hook at the left, a washbasin with a mirror and a shelf of toiletries in the middle, a stool with a radio, and a toilet and a washing machine at the right.",
+      "spots": [
+        {
+          "de": "Waschmaschine",
+          "article": "die",
+          "en": "washing machine",
+          "plural": "-n",
+          "x": 77.0,
+          "y": 59.46,
+          "w": 19.5,
+          "h": 28.88
+        },
+        {
+          "de": "Badewanne",
+          "article": "die",
+          "en": "bathtub",
+          "plural": "-n",
+          "x": 3.0,
+          "y": 67.43,
+          "w": 30.0,
+          "h": 24.9
+        },
+        {
+          "de": "Fenster",
+          "article": "das",
+          "en": "window",
+          "plural": "-",
+          "x": 20.5,
+          "y": 24.11,
+          "w": 13.0,
+          "h": 13.44
+        },
+        {
+          "de": "Duschvorhang",
+          "article": "der",
+          "en": "shower curtain",
+          "plural": "Duschvorhänge",
+          "x": 24.0,
+          "y": 27.59,
+          "w": 8.0,
+          "h": 45.81
+        },
+        {
+          "de": "Vorhangstange",
+          "article": "die",
+          "en": "curtain rail",
+          "plural": "-n",
+          "x": 5.0,
+          "y": 23.11,
+          "w": 27.0,
+          "h": 4.48
+        },
+        {
+          "de": "Bademantel",
+          "article": "der",
+          "en": "bathrobe",
+          "plural": "Bademäntel",
+          "x": 3.5,
+          "y": 40.04,
+          "w": 7.5,
+          "h": 28.88
+        },
+        {
+          "de": "Haken",
+          "article": "der",
+          "en": "hook",
+          "plural": "-",
+          "x": 4.0,
+          "y": 39.03,
+          "w": 4.0,
+          "h": 4.0
+        },
+        {
+          "de": "Duschkopf",
+          "article": "der",
+          "en": "shower head",
+          "plural": "Duschköpfe",
+          "x": 10.5,
+          "y": 33.57,
+          "w": 6.5,
+          "h": 5.98
+        },
+        {
+          "de": "Wasserhahn",
+          "article": "der",
+          "en": "tap",
+          "plural": "Wasserhähne",
+          "x": 40.0,
+          "y": 54.48,
+          "w": 7.5,
+          "h": 4.98,
+          "also": [
+            {
+              "x": 11.0,
+              "y": 65.44,
+              "w": 6.0,
+              "h": 4.48
+            }
+          ]
+        },
+        {
+          "de": "Schwamm",
+          "article": "der",
+          "en": "sponge",
+          "plural": "Schwämme",
+          "x": 16.0,
+          "y": 74.89,
+          "w": 6.0,
+          "h": 4.0
+        },
+        {
+          "de": "Gummiente",
+          "article": "die",
+          "en": "rubber duck",
+          "plural": "-n",
+          "x": 16.5,
+          "y": 70.42,
+          "w": 5.0,
+          "h": 4.48
+        },
+        {
+          "de": "Badematte",
+          "article": "die",
+          "en": "bath mat",
+          "plural": "-n",
+          "x": 25.0,
+          "y": 85.85,
+          "w": 18.0,
+          "h": 9.46
+        },
+        {
+          "de": "Waage",
+          "article": "die",
+          "en": "bathroom scale",
+          "plural": "-n",
+          "x": 29.5,
+          "y": 80.87,
+          "w": 9.5,
+          "h": 4.98
+        },
+        {
+          "de": "Spiegel",
+          "article": "der",
+          "en": "mirror",
+          "plural": "-",
+          "x": 36.0,
+          "y": 31.08,
+          "w": 15.5,
+          "h": 17.93
+        },
+        {
+          "de": "Waschbecken",
+          "article": "das",
+          "en": "washbasin",
+          "plural": "-",
+          "x": 34.0,
+          "y": 56.47,
+          "w": 18.5,
+          "h": 28.88
+        },
+        {
+          "de": "Regal",
+          "article": "das",
+          "en": "shelf",
+          "plural": "-e",
+          "x": 55.5,
+          "y": 28.09,
+          "w": 21.0,
+          "h": 19.42,
+          "also": [
+            {
+              "x": 36.0,
+              "y": 49.99,
+              "w": 15.5,
+              "h": 4.0
+            }
+          ]
+        },
+        {
+          "de": "Zahnbürste",
+          "article": "die",
+          "en": "toothbrush",
+          "plural": "-n",
+          "x": 36.5,
+          "y": 49.49,
+          "w": 7.0,
+          "h": 4.0
+        },
+        {
+          "de": "Zahnpasta",
+          "article": "die",
+          "en": "toothpaste",
+          "plural": "Zahnpasten",
+          "x": 43.5,
+          "y": 48.99,
+          "w": 6.0,
+          "h": 4.0
+        },
+        {
+          "de": "Seife",
+          "article": "die",
+          "en": "soap",
+          "plural": "-n",
+          "x": 36.0,
+          "y": 56.46,
+          "w": 4.5,
+          "h": 4.0
+        },
+        {
+          "de": "Shampoo",
+          "article": "das",
+          "en": "shampoo",
+          "plural": "-s",
+          "x": 61.5,
+          "y": 28.09,
+          "w": 4.5,
+          "h": 9.46
+        },
+        {
+          "de": "Föhn",
+          "article": "der",
+          "en": "hairdryer",
+          "plural": "-e",
+          "x": 66.0,
+          "y": 30.58,
+          "w": 7.5,
+          "h": 7.47
+        },
+        {
+          "de": "Parfüm",
+          "article": "das",
+          "en": "perfume",
+          "plural": "-s",
+          "x": 56.5,
+          "y": 39.54,
+          "w": 5.0,
+          "h": 6.47
+        },
+        {
+          "de": "Haarbürste",
+          "article": "die",
+          "en": "hairbrush",
+          "plural": "-n",
+          "x": 62.0,
+          "y": 39.04,
+          "w": 6.5,
+          "h": 6.97
+        },
+        {
+          "de": "Kamm",
+          "article": "der",
+          "en": "comb",
+          "plural": "Kämme",
+          "x": 69.5,
+          "y": 39.54,
+          "w": 4.0,
+          "h": 5.98
+        },
+        {
+          "de": "Lampe",
+          "article": "die",
+          "en": "lamp",
+          "plural": "-n",
+          "x": 44.5,
+          "y": 4.69,
+          "w": 11.0,
+          "h": 6.47
+        },
+        {
+          "de": "Hocker",
+          "article": "der",
+          "en": "stool",
+          "plural": "-",
+          "x": 49.0,
+          "y": 72.41,
+          "w": 11.0,
+          "h": 14.44
+        },
+        {
+          "de": "Radio",
+          "article": "das",
+          "en": "radio",
+          "plural": "-s",
+          "x": 50.5,
+          "y": 67.43,
+          "w": 8.5,
+          "h": 6.47
+        },
+        {
+          "de": "Toilette",
+          "article": "die",
+          "en": "toilet",
+          "plural": "-n",
+          "x": 62.0,
+          "y": 60.96,
+          "w": 13.5,
+          "h": 26.89
+        },
+        {
+          "de": "Toilettenpapier",
+          "article": "das",
+          "en": "toilet paper",
+          "x": 55.0,
+          "y": 58.96,
+          "w": 6.5,
+          "h": 6.47
+        },
+        {
+          "de": "Klobürste",
+          "article": "die",
+          "en": "toilet brush",
+          "plural": "-n",
+          "x": 73.5,
+          "y": 74.4,
+          "w": 4.5,
+          "h": 10.96
+        },
+        {
+          "de": "Waschmittel",
+          "article": "das",
+          "en": "washing powder",
+          "x": 85.5,
+          "y": 48.51,
+          "w": 9.0,
+          "h": 11.95
+        },
+        {
+          "de": "Rasierer",
+          "article": "der",
+          "en": "razor",
+          "plural": "-",
+          "x": 78.5,
+          "y": 57.46,
+          "w": 6.0,
+          "h": 4.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "quest_a2_1_suchbild_bahnhof",
+    "after": "quest_a2_1_suchbild_badezimmer",
+    "covers": [
+      "a2.vocabulary-1"
+    ],
+    "help": {
+      "hook": "A little station hall with 32 things to find: tap each one, then give it its article.",
+      "intro": "A picture hunt instead of a deck: one small station hall with 32 things in it, seen while you wait for your train — der Fahrkartenautomat, das Schließfach, die Bahnhofsuhr, and through the arch der Zug on das Gleis. Someone has even left a piano in the hall, and an ice cream has fallen on the floor. The prompt asks, for example, Wo ist der Koffer? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A compound takes the gender of its last part",
+          "text": "Station words are often long, but the article always comes from the last part. Fahrkarte + Automat: der Automat, so der Fahrkartenautomat. Bahnhof + Uhr: die Uhr, so die Bahnhofsuhr, even though der Bahnhof starts it.",
+          "examples": [
+            {
+              "de": "die Telefonzelle",
+              "en": "telephone box (die Zelle)",
+              "focus": [
+                "die"
+              ]
+            },
+            {
+              "de": "der Briefkasten, Plural: Briefkästen",
+              "en": "letter box (der Kasten)",
+              "focus": [
+                "der"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ Klavierhocker steht vor dem Klavier.",
+            "options": [
+              "Der",
+              "Die",
+              "Das"
+            ],
+            "answer": "Der",
+            "why": "The last part is der Hocker, so it is der Klavierhocker, even though das Klavier comes first."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "-chen makes a word das",
+          "text": "A noun with the little ending -chen is always neuter, whatever it was before. Das Haus becomes das Häuschen, and the glass shelter in the hall is das Wartehäuschen. The plural stays the same: zwei Wartehäuschen.",
+          "examples": [
+            {
+              "de": "das Wartehäuschen, Plural: -",
+              "en": "waiting shelter",
+              "focus": [
+                "das"
+              ]
+            },
+            {
+              "de": "das Schließfach, Plural: Schließfächer",
+              "en": "luggage locker (das Fach)",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which article goes with Wartehäuschen?",
+            "options": [
+              "das",
+              "der",
+              "die"
+            ],
+            "answer": "das",
+            "why": "Every noun ending in -chen is das."
+          }
+        },
+        {
+          "kind": "warning",
+          "title": "Devices in -er are der, but not das Geländer",
+          "text": "Things that do a job and end in -er are usually masculine: der Lautsprecher, der Feuerlöscher, der Koffer. Watch out for das Geländer, the handrail on the stairs: it ends in -er too, but it is neuter.",
+          "examples": [
+            {
+              "de": "der Feuerlöscher",
+              "en": "fire extinguisher",
+              "focus": [
+                "der"
+              ]
+            },
+            {
+              "de": "das Geländer",
+              "en": "handrail",
+              "focus": [
+                "das"
+              ]
+            }
+          ],
+          "check": {
+            "q": "‘the loudspeaker’ in German:",
+            "options": [
+              "der Lautsprecher",
+              "die Lautsprecher",
+              "das Lautsprecher"
+            ],
+            "answer": "der Lautsprecher",
+            "why": "A device in -er that does a job (it speaks loudly) is masculine: der Lautsprecher."
+          }
+        }
+      ],
+      "remember": [
+        "The last part of a compound sets the article: der Bahnhof + die Uhr → die Bahnhofsuhr.",
+        "-chen is always das: das Wartehäuschen.",
+        "Most -er devices are der (der Lautsprecher), but das Geländer is neuter."
+      ],
+      "vocab": [
+        {
+          "de": "Zug",
+          "article": "der",
+          "plural": "Züge",
+          "en": "train"
+        },
+        {
+          "de": "Gleis",
+          "article": "das",
+          "plural": "-e",
+          "en": "track"
+        },
+        {
+          "de": "Signal",
+          "article": "das",
+          "plural": "-e",
+          "en": "railway signal"
+        },
+        {
+          "de": "Wartehäuschen",
+          "article": "das",
+          "plural": "-",
+          "en": "waiting shelter"
+        },
+        {
+          "de": "Telefonzelle",
+          "article": "die",
+          "plural": "-n",
+          "en": "telephone box"
+        },
+        {
+          "de": "Fahrkartenautomat",
+          "article": "der",
+          "plural": "-en",
+          "en": "ticket machine"
+        },
+        {
+          "de": "Klavier",
+          "article": "das",
+          "plural": "-e",
+          "en": "piano"
+        },
+        {
+          "de": "Treppe",
+          "article": "die",
+          "plural": "-n",
+          "en": "stairs"
+        },
+        {
+          "de": "Geländer",
+          "article": "das",
+          "plural": "-",
+          "en": "handrail"
+        },
+        {
+          "de": "Schließfach",
+          "article": "das",
+          "plural": "Schließfächer",
+          "en": "luggage locker"
+        },
+        {
+          "de": "Aufzug",
+          "article": "der",
+          "plural": "Aufzüge",
+          "en": "lift"
+        },
+        {
+          "de": "Bank",
+          "article": "die",
+          "plural": "Bänke",
+          "en": "bench"
+        },
+        {
+          "de": "Palme",
+          "article": "die",
+          "plural": "-n",
+          "en": "palm"
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "plural": "-n",
+          "en": "lamp post"
+        },
+        {
+          "de": "Bahnhofsuhr",
+          "article": "die",
+          "plural": "-en",
+          "en": "station clock"
+        },
+        {
+          "de": "Lautsprecher",
+          "article": "der",
+          "plural": "-",
+          "en": "loudspeaker"
+        },
+        {
+          "de": "Kamera",
+          "article": "die",
+          "plural": "-s",
+          "en": "camera"
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "plural": "-",
+          "en": "fire extinguisher"
+        },
+        {
+          "de": "Briefkasten",
+          "article": "der",
+          "plural": "Briefkästen",
+          "en": "letter box"
+        },
+        {
+          "de": "Fahrrad",
+          "article": "das",
+          "plural": "Fahrräder",
+          "en": "bicycle"
+        },
+        {
+          "de": "Kinderwagen",
+          "article": "der",
+          "plural": "-",
+          "en": "pram"
+        },
+        {
+          "de": "Klavierhocker",
+          "article": "der",
+          "plural": "-",
+          "en": "piano stool"
+        },
+        {
+          "de": "Koffer",
+          "article": "der",
+          "plural": "-",
+          "en": "suitcase"
+        },
+        {
+          "de": "Regenschirm",
+          "article": "der",
+          "plural": "-e",
+          "en": "umbrella"
+        },
+        {
+          "de": "Hund",
+          "article": "der",
+          "plural": "-e",
+          "en": "dog"
+        },
+        {
+          "de": "Paket",
+          "article": "das",
+          "plural": "-e",
+          "en": "parcel"
+        },
+        {
+          "de": "Zeitung",
+          "article": "die",
+          "plural": "-en",
+          "en": "newspaper"
+        },
+        {
+          "de": "Flasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "bottle"
+        },
+        {
+          "de": "Buch",
+          "article": "das",
+          "plural": "Bücher",
+          "en": "book"
+        },
+        {
+          "de": "Handtasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "handbag"
+        },
+        {
+          "de": "Taube",
+          "article": "die",
+          "plural": "-n",
+          "en": "pigeon"
+        },
+        {
+          "de": "Eis",
+          "article": "das",
+          "plural": "-",
+          "en": "ice cream"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "suchbild",
+      "title": "Suchbild: Der Bahnhof",
+      "level": "A2.1",
+      "storageKeyPrefix": "quest_a2_1_suchbild_bahnhof_",
+      "scene": "quest_a2_1_suchbild_bahnhof",
+      "sceneSize": [
+        872,
+        872
+      ],
+      "sceneAlt": "A small old-fashioned station hall: through a big arch a red train stands on the track next to a signal, a clock hangs from the ceiling, stairs, a lift and lockers are at the left, a bench with a newspaper and a handbag stands in the middle, and a ticket machine, a red telephone box, a piano, a pram, a suitcase and a dog are at the right.",
+      "spots": [
+        {
+          "de": "Zug",
+          "article": "der",
+          "en": "train",
+          "plural": "Züge",
+          "x": 38.5,
+          "y": 39.5,
+          "w": 17.0,
+          "h": 22.36
+        },
+        {
+          "de": "Gleis",
+          "article": "das",
+          "en": "track",
+          "plural": "-e",
+          "x": 45.0,
+          "y": 60.95,
+          "w": 12.0,
+          "h": 10.04
+        },
+        {
+          "de": "Signal",
+          "article": "das",
+          "en": "railway signal",
+          "plural": "-e",
+          "x": 53.0,
+          "y": 38.59,
+          "w": 7.5,
+          "h": 20.08
+        },
+        {
+          "de": "Wartehäuschen",
+          "article": "das",
+          "en": "waiting shelter",
+          "plural": "-",
+          "x": 33.0,
+          "y": 51.37,
+          "w": 12.5,
+          "h": 23.73
+        },
+        {
+          "de": "Telefonzelle",
+          "article": "die",
+          "en": "telephone box",
+          "plural": "-n",
+          "x": 76.0,
+          "y": 49.09,
+          "w": 11.5,
+          "h": 27.39
+        },
+        {
+          "de": "Fahrkartenautomat",
+          "article": "der",
+          "en": "ticket machine",
+          "plural": "-en",
+          "x": 65.5,
+          "y": 56.85,
+          "w": 10.0,
+          "h": 19.17
+        },
+        {
+          "de": "Klavier",
+          "article": "das",
+          "en": "piano",
+          "plural": "-e",
+          "x": 86.0,
+          "y": 63.24,
+          "w": 11.0,
+          "h": 21.0
+        },
+        {
+          "de": "Treppe",
+          "article": "die",
+          "en": "stairs",
+          "plural": "-n",
+          "x": 0.0,
+          "y": 65.52,
+          "w": 19.0,
+          "h": 26.47
+        },
+        {
+          "de": "Geländer",
+          "article": "das",
+          "en": "handrail",
+          "plural": "-",
+          "x": 0.5,
+          "y": 59.58,
+          "w": 16.5,
+          "h": 18.26
+        },
+        {
+          "de": "Schließfach",
+          "article": "das",
+          "en": "luggage locker",
+          "plural": "Schließfächer",
+          "x": 7.5,
+          "y": 60.5,
+          "w": 11.0,
+          "h": 16.43
+        },
+        {
+          "de": "Aufzug",
+          "article": "der",
+          "en": "lift",
+          "plural": "Aufzüge",
+          "x": 15.5,
+          "y": 39.05,
+          "w": 10.5,
+          "h": 20.08
+        },
+        {
+          "de": "Bank",
+          "article": "die",
+          "en": "bench",
+          "plural": "Bänke",
+          "x": 31.5,
+          "y": 75.1,
+          "w": 29.5,
+          "h": 15.97
+        },
+        {
+          "de": "Palme",
+          "article": "die",
+          "en": "palm",
+          "plural": "-n",
+          "x": 18.5,
+          "y": 55.93,
+          "w": 12.0,
+          "h": 25.56
+        },
+        {
+          "de": "Laterne",
+          "article": "die",
+          "en": "lamp post",
+          "plural": "-n",
+          "x": 27.5,
+          "y": 46.35,
+          "w": 5.5,
+          "h": 41.53
+        },
+        {
+          "de": "Bahnhofsuhr",
+          "article": "die",
+          "en": "station clock",
+          "plural": "-en",
+          "x": 44.5,
+          "y": 8.47,
+          "w": 11.5,
+          "h": 21.91
+        },
+        {
+          "de": "Lautsprecher",
+          "article": "der",
+          "en": "loudspeaker",
+          "plural": "-",
+          "x": 8.5,
+          "y": 22.61,
+          "w": 9.0,
+          "h": 8.22
+        },
+        {
+          "de": "Kamera",
+          "article": "die",
+          "en": "camera",
+          "plural": "-s",
+          "x": 86.0,
+          "y": 22.16,
+          "w": 8.5,
+          "h": 5.48
+        },
+        {
+          "de": "Feuerlöscher",
+          "article": "der",
+          "en": "fire extinguisher",
+          "plural": "-",
+          "x": 8.5,
+          "y": 47.72,
+          "w": 4.5,
+          "h": 8.67
+        },
+        {
+          "de": "Briefkasten",
+          "article": "der",
+          "en": "letter box",
+          "plural": "Briefkästen",
+          "x": 3.5,
+          "y": 50.46,
+          "w": 5.5,
+          "h": 8.67
+        },
+        {
+          "de": "Fahrrad",
+          "article": "das",
+          "en": "bicycle",
+          "plural": "Fahrräder",
+          "x": 53.5,
+          "y": 64.61,
+          "w": 16.5,
+          "h": 10.95
+        },
+        {
+          "de": "Kinderwagen",
+          "article": "der",
+          "en": "pram",
+          "plural": "-",
+          "x": 64.0,
+          "y": 75.56,
+          "w": 13.0,
+          "h": 15.97
+        },
+        {
+          "de": "Klavierhocker",
+          "article": "der",
+          "en": "piano stool",
+          "plural": "-",
+          "x": 79.5,
+          "y": 74.65,
+          "w": 7.0,
+          "h": 10.04
+        },
+        {
+          "de": "Koffer",
+          "article": "der",
+          "en": "suitcase",
+          "plural": "-",
+          "x": 89.5,
+          "y": 77.84,
+          "w": 6.0,
+          "h": 10.95
+        },
+        {
+          "de": "Regenschirm",
+          "article": "der",
+          "en": "umbrella",
+          "plural": "-e",
+          "x": 93.0,
+          "y": 70.54,
+          "w": 5.0,
+          "h": 11.87
+        },
+        {
+          "de": "Hund",
+          "article": "der",
+          "en": "dog",
+          "plural": "-e",
+          "x": 79.0,
+          "y": 81.49,
+          "w": 8.5,
+          "h": 8.22
+        },
+        {
+          "de": "Paket",
+          "article": "das",
+          "en": "parcel",
+          "plural": "-e",
+          "x": 87.5,
+          "y": 86.97,
+          "w": 8.5,
+          "h": 6.85
+        },
+        {
+          "de": "Zeitung",
+          "article": "die",
+          "en": "newspaper",
+          "plural": "-en",
+          "x": 35.0,
+          "y": 79.67,
+          "w": 8.5,
+          "h": 5.02
+        },
+        {
+          "de": "Flasche",
+          "article": "die",
+          "en": "bottle",
+          "plural": "-n",
+          "x": 43.5,
+          "y": 76.02,
+          "w": 4.0,
+          "h": 8.22
+        },
+        {
+          "de": "Buch",
+          "article": "das",
+          "en": "book",
+          "plural": "Bücher",
+          "x": 46.0,
+          "y": 81.78,
+          "w": 5.0,
+          "h": 4.0
+        },
+        {
+          "de": "Handtasche",
+          "article": "die",
+          "en": "handbag",
+          "plural": "-n",
+          "x": 50.5,
+          "y": 76.02,
+          "w": 6.5,
+          "h": 7.76,
+          "also": [
+            {
+              "x": 89.5,
+              "y": 60.95,
+              "w": 7.5,
+              "h": 6.39
+            }
+          ]
+        },
+        {
+          "de": "Taube",
+          "article": "die",
+          "en": "pigeon",
+          "plural": "-n",
+          "x": 42.5,
+          "y": 86.06,
+          "w": 6.0,
+          "h": 6.39
+        },
+        {
+          "de": "Eis",
+          "article": "das",
+          "en": "ice cream",
+          "plural": "-",
+          "x": 35.5,
+          "y": 89.25,
+          "w": 5.5,
+          "h": 4.11
+        }
+      ]
     }
   }
 ]
