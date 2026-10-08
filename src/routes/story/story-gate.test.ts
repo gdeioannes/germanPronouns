@@ -169,7 +169,8 @@ for (const ep of episodes) {
 			for (const b of beats) {
 				if (b.kind === 'hotspot') {
 					const ids = (b.spots as { id: string }[]).map((s) => s.id);
-					expect(ids, b.id).toContain(b.answer);
+					const m = `${b.answer}`.match(/^\{pool:([a-zA-Z]+)\}$/);
+					for (const a of m ? ep.pools[m[1]] : [b.answer]) expect(ids, b.id).toContain(a);
 				}
 				if (b.kind === 'map' && b.mode === 'find') {
 					const target = b.target as string;

@@ -53,9 +53,18 @@
 	// After two misses on a hidden zone, the target starts to glow — finding
 	// it is the fun, not the frustration.
 	const hint = $derived(!found && tries >= 2);
+	// A voiced prompt (Oma's "Geben Sie mir die Zwiebel"): the clip plays as
+	// the beat opens and can be replayed — the learner answers by tapping.
+	const voice = $derived(beat.audio ? host.clip(`${beat.audio}`) : null);
+	$effect(() => {
+		if (voice) host.play(voice);
+	});
 </script>
 
 {#if beat.prompt}<p class="q">{host.resolve(`${beat.prompt}`)}</p>{/if}
+{#if voice}
+	<button class="chip" onclick={() => host.play(voice)}>🔊 Play what she says</button>
+{/if}
 {#if beat.note}
 	<!-- A handwritten note to read before tapping (the German is the clue). -->
 	<p class="paper" lang="de">{host.resolve(`${beat.note}`)}</p>

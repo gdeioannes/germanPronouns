@@ -46,6 +46,17 @@ export const STORY_EPISODES: StoryEpisode[] = [
 		image: 'story/ep1_room_wide',
 		// Its material is A1.1's first half: numbers 0–20 … the Steckbrief.
 		after: 'quest_a1_1_diktat_steckbrief'
+	},
+	{
+		id: 'ep2_secret_room',
+		courseId: 'de_cert_a1',
+		level: 'A1.1',
+		title: 'The Secret Room',
+		tagline: "Three weeks of 'soon'. A parcel of paint. Time to open that door.",
+		href: '/story/ep2-secret-room',
+		image: 'story/ep2_courtyard_night',
+		// The level's finale: all of A1.1, dealt after its last exercise.
+		after: 'quest_a1_1_suchbild_klassenzimmer'
 	}
 ];
 

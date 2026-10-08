@@ -447,23 +447,10 @@
 	/** Screen-reader names for the objects: never the answer itself. */
 	const spotName = (s: SuchbildSpot) => (mode === 'find' ? s.en : s.de);
 	const [sceneW, sceneH] = $derived(quiz.sceneSize);
-	// The page is one screen tall. `.space` takes what is left under the bar;
-	// the card hugs its content, and the room in it is sized to fit that space
-	// at the picture's own ratio, so the spots (in percent of the box) always
-	// sit on the image — a box squashed by the layout would slide them.
-	let spaceH = $state(0);
-	let cardH = $state(0);
-	let askW = $state(0);
-	/** The width the room may take: the card's, edge to edge on a phone. */
-	let bleedW = $state(0);
-	let askH = $state(0);
-	let roomH = $state(0);
-	const fitW = $derived.by(() => {
-		if (!spaceH || !bleedW || !cardH || !roomH) return 0;
-		// Padding, gap and borders: whatever of the card is neither question nor room.
-		const chrome = cardH - askH - roomH;
-		return Math.max(0, Math.min(bleedW, (spaceH - chrome - askH) * (sceneW / sceneH)));
-	});
+	// The room always takes the card's full width (edge to edge on a phone):
+	// the picture is the exercise, so a short window scrolls rather than
+	// shrinking it. The box keeps the picture's own ratio, so the spots (in
+	// percent of the box) always sit on the image.
 </script>
 
 <svelte:window onkeydown={onWindowKey} />
@@ -496,9 +483,9 @@
 {:else if current}
 	<!-- One card, like the fill-in's: the question on top, the room under it.
 	     The room sits on the card's own paper panel, so the picture has no edge. -->
-	<div class="space" bind:clientHeight={spaceH}>
-	<section class="card" style="--gender:{colour(current)}" bind:offsetHeight={cardH}>
-	<div class="ask" bind:clientWidth={askW} bind:offsetHeight={askH}>
+	<div class="space">
+	<section class="card" style="--gender:{colour(current)}">
+	<div class="ask">
 		<div class="ask-top">
 			<p class="prompt-label">{mode === 'find' ? 'Find it in the picture' : 'Find it, then its article'}</p>
 			<span class="count tnum">{found.length} / {quiz.spots.length} found</span>
@@ -565,17 +552,15 @@
 
 	<!-- The room. Spots are invisible buttons over the picture; a found one
 	     keeps a tick from then on. -->
-	<div class="bleed" bind:clientWidth={bleedW}>
+	<div class="bleed">
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
 	<div
 		class="room"
 		class:debug={showSpots}
 		class:zoomed={zoom > 1}
 		bind:this={roomEl}
-		bind:offsetHeight={roomH}
 		use:shakeOn={missKey}
 		style:aspect-ratio="{sceneW} / {sceneH}"
-		style:width={fitW ? `${fitW}px` : undefined}
 		onclick={tapBlank}
 		onclickcapture={swallowDrag}
 		onpointerdown={onPointerDown}
@@ -698,10 +683,9 @@
 
 	/* ── The card ────────────────────────────────────────────────────────── */
 
-	/* What the one-screen page leaves under the bar and the modes. */
+	/* Below the bar and the modes; taller than a short window, the stage scrolls. */
 	.space {
-		flex: 1 1 0;
-		min-height: 18rem;
+		flex: none;
 	}
 
 	/* The fill-in's card: question on top, room below, as tall as they are. */
@@ -853,7 +837,7 @@
 
 	/* The rest of the screen; never so small the objects stop being tappable
 	   (the stage scrolls instead). */
-	/* Sized in script to fit the space; full width until it is measured. */
+	/* The card's full width; the height follows the picture's ratio. */
 	.room {
 		position: relative;
 		flex: none;

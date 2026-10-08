@@ -11,6 +11,8 @@
 	import { announce } from '$lib/a11y.svelte';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import ClipControls from './ClipControls.svelte';
+	import EmojiText from './EmojiText.svelte';
+	import { NUMBER_WORDS } from '$lib/domain/emojiText';
 	import { playClip, playSfx, stopClip } from '$lib/services/clips.svelte';
 	import { isMuted } from '$lib/services/mute';
 	import { track } from '$lib/services/analytics';
@@ -34,6 +36,9 @@
 
 	let phase = $state<'intro' | 'pick' | 'made' | 'missed' | 'leaving' | 'done'>('intro');
 	let r = $state(0);
+	/** How many trains show the number word on their signs. */
+	const SPELLED_ROUNDS = 2;
+	const spelled = $derived(r < SPELLED_ROUNDS);
 	const round = $derived(rounds[r]);
 	let fails = $state(0);
 	let run = $state(0);
@@ -151,10 +156,12 @@
 			</button>
 		</div>
 		{#if showText}
-			<p class="transcript"><span lang={locale}>{round.clip.de}</span><small>{round.clip.en}</small></p>
+			<p class="transcript"><EmojiText text={round.clip.de} lang={locale} /><small>{round.clip.en}</small></p>
 		{/if}
 
-		<p class="ask">Which platform? Run!</p>
+		<!-- The first trains' signs spell the number out, to match against what
+		     you hear; the last ones are by ear alone. -->
+		<p class="ask">{spelled ? 'Which platform? Run!' : 'No help now: by ear only. Run!'}</p>
 		<div class="signs" bind:this={signsEl} role="group" aria-label="Platforms">
 			{#each round.options as platform (r + ':' + platform)}
 				<div class="cell">
@@ -173,6 +180,7 @@
 						<span class="u" aria-hidden="true">U</span>
 						<span class="gleis" aria-hidden="true">Gleis</span>
 						<span class="num tnum" aria-hidden="true">{platform}</span>
+						{#if spelled}<span class="word" lang={locale} aria-hidden="true">{NUMBER_WORDS[Number(platform)]}</span>{/if}
 					</button>
 				</div>
 			{/each}
@@ -375,6 +383,11 @@
 		font-size: var(--step-4);
 		font-weight: 800;
 		line-height: 1;
+	}
+
+	.word {
+		font-size: 0.85rem;
+		font-weight: 700;
 	}
 
 	.sign.right {

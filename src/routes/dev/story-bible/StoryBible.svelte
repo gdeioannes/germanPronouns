@@ -114,6 +114,14 @@
 					<span>The full script: every beat, quiz, pool and clue, readable like a screenplay.</span>
 				</span>
 			</a>
+			<a class="nav-card" href="/dev/story-bible/episode?ep=ep2_secret_room">
+				<img src="/img/story/ep2_courtyard_night.webp" alt="Episode 2 script" loading="lazy" />
+				<span class="nav-body">
+					<span class="nav-group">de_cert_a1 · A1.1 finale · all of the level</span>
+					<strong>Episode 2 — The Secret Room</strong>
+					<span>Parcel, phone call, Oma's kitchen, the key, the crates, the night visit — every A1.1 topic put to work.</span>
+				</span>
+			</a>
 		</div>
 		<p class="intro" style="margin-top:0.75rem">
 			Review loop for every episode: <code>npm run story-review -- &lt;id&gt;</code> +

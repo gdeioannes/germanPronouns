@@ -62,6 +62,10 @@ const norm = (s) =>
 		.filter(Boolean);
 const NAMES = new Set(['maya', 'jonas', 'weber', 'demir', 'frau', 'herr', 'böhm', 'amerika', 'berlin', 'u-bahn', 'straße']);
 for (const values of Object.values(ep.pools)) for (const v of values) for (const w of norm(v)) NAMES.add(w);
+// A late episode may lean on what the course already taught (`assumes`: the
+// words the level's exercises covered); everything else must still be taught
+// in-story before it is asked.
+for (const w of ep.assumes ?? []) for (const t of norm(w)) NAMES.add(t);
 let known = new Set(NAMES);
 const learn = (de) => norm(de).forEach((w) => known.add(w));
 function checkGerman(where, text) {

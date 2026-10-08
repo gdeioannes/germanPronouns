@@ -27,6 +27,8 @@
 	import { announce } from '$lib/a11y.svelte';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import ClipControls from './ClipControls.svelte';
+	import EmojiText from './EmojiText.svelte';
+	import { NUMBER_WORDS, hideNumber } from '$lib/domain/emojiText';
 	import { playClip, playSfx, stopClip, toggleClip, voice } from '$lib/services/clips.svelte';
 	import { isMuted } from '$lib/services/mute';
 	import { storage } from '$lib/services/storage';
@@ -90,6 +92,8 @@
 	let dialled = $state('');
 	let callee = $state<{ line: CallLine; face: string; stranger: WrongCaller | null } | null>(null);
 	let canHangUp = $state(false);
+	/** A right call that reads out the next number: it shrinks to a bar over the chat, so you can type while they talk. */
+	let live = $state<CallLine | null>(null);
 	let lastWrong: number | null = null;
 	let pendingWrong: number[] = [];
 
@@ -161,7 +165,7 @@
 	async function unlock() {
 		phase = 'chat';
 		track('number_task', { quiz: quizId, task: task.id, step: 'open' });
-		add({ kind: 'note', text: 'Saturday 02:14' });
+		add({ kind: 'note', text: 'Last night, 02:14' });
 		await voiceNote(round.clip);
 		if (!alive) return;
 		for (const message of round.texts ?? []) {
@@ -216,6 +220,7 @@
 			dialled = round.number.replace(/\d/g, () => digits.shift() ?? '');
 		}
 		stopClip();
+		live = null;
 		canHangUp = false;
 		callee = null;
 		phase = 'calling';
@@ -231,6 +236,10 @@
 			burst += 1;
 			react(true, dockEl, run);
 			track('number_task', { quiz: quizId, task: task.id, step: 'round_ok', round: r + 1 });
+			if (!last) {
+				connect(line);
+				return;
+			}
 		} else {
 			const pick = pickWrongCaller(task.wrong.length, lastWrong);
 			lastWrong = pick;
@@ -256,6 +265,38 @@
 		await sleep(1500);
 		if (!alive) return;
 		canHangUp = true;
+	}
+
+	/**
+	 * Connected to the next lead: the call drops to a bar over the chat and the
+	 * next number's gaps open at once, so you dial along while they speak.
+	 */
+	function connect(line: CallLine) {
+		add({ kind: 'call', label: `Call · ${line.name}`, ok: true });
+		nextRound();
+		const entry = add({ kind: 'voice', line });
+		if (isMuted()) open = [...open, entry.id];
+		prompt();
+		live = line;
+		phase = 'chat';
+		announce([{ text: `Connected. ${line.name}:` }, { text: hideNumber(line.de), lang: locale }]);
+		void playClip(line.audio, { text: line.de, locale });
+	}
+
+	function endLive() {
+		stopClip();
+		live = null;
+	}
+
+	/** On to the next number, with empty gaps. */
+	function nextRound() {
+		r += 1;
+		typed = hide.map(() => '');
+		locked = [];
+		hinted = [];
+		flash = [];
+		crossed = [];
+		fails = 0;
 	}
 
 	/** Back to the chat: the call goes in the log, and the game moves on. */
@@ -291,18 +332,13 @@
 			return;
 		}
 		// What they just said is the next number: it goes in the thread to replay.
-		r += 1;
-		typed = hide.map(() => '');
-		locked = [];
-		hinted = [];
-		flash = [];
-		crossed = [];
-		fails = 0;
+		nextRound();
 		add({ kind: 'voice', line });
 		prompt();
 	}
 
 	function restart() {
+		live = null;
 		r = 0;
 		log = [];
 		typed = hide.map(() => '');
@@ -359,7 +395,7 @@
 			</div>
 			<p class="callee-name tnum">{phase === 'calling' ? dialled : callee?.line.name}</p>
 			{#if phase === 'oncall' && callee}
-				<p class="call-line" lang={locale}>{callee.line.de}</p>
+				<p class="call-line"><EmojiText text={callee.line.de} lang={locale} /></p>
 				<p class="call-en">{callee.line.en}</p>
 				<ClipControls id={callee.line.audio} text={callee.line.de} {locale} label="Play again" dark />
 				{#if callee.stranger}<p class="caption">{callee.stranger.caption}</p>{/if}
@@ -393,6 +429,24 @@
 			<span class="face">K</span>
 			<span><strong>Kim 🎉</strong><small>from the party</small></span>
 		</header>
+
+		{#if live}
+			<!-- Still on the call: what they say, with the number itself left out —
+			     that you catch by ear and dial below. -->
+			<section class="live" aria-label="On the phone with {live.name}">
+				<div class="live-head">
+					<span class="live-dot" aria-hidden="true"></span>
+					<strong>{live.name}</strong>
+					<span class="live-state">on the line</span>
+					<button type="button" class="live-hangup" onclick={endLive} aria-label="Hang up">
+						<span aria-hidden="true">📵</span>
+					</button>
+				</div>
+				<p class="live-de"><EmojiText text={hideNumber(live.de)} lang={locale} /></p>
+				<p class="live-en">{hideNumber(live.en)}</p>
+				<ClipControls id={live.audio} text={live.de} {locale} label="Play again" dark />
+			</section>
+		{/if}
 
 		<ol class="thread" bind:this={threadEl}>
 			{#each log as entry (entry.id)}
@@ -432,12 +486,12 @@
 								{open.includes(entry.id) ? 'Hide text' : 'Show text'}
 							</button>
 							{#if open.includes(entry.id)}
-								<p class="vtext" lang={locale}>{entry.line.de}</p>
+								<p class="vtext"><EmojiText text={entry.line.de} lang={locale} /></p>
 								<p class="ven">{entry.line.en}</p>
 							{/if}
 						</div>
 					{:else if entry.kind === 'text'}
-						<p class="bubble text"><span lang={locale}>{entry.text}</span>{#if entry.en}<small>{entry.en}</small>{/if}</p>
+						<p class="bubble text"><EmojiText text={entry.text} lang={locale} />{#if entry.en}<small>{entry.en}</small>{/if}</p>
 					{:else if entry.kind === 'call'}
 						<p class="callentry" class:bad={!entry.ok}>{entry.ok ? '📞' : '📵'} {entry.label}</p>
 					{:else}
@@ -484,11 +538,22 @@
 					</div>
 				</div>
 				<div class="keypad" role="group" aria-label="Phone keypad">
+					<!-- Each key carries its German word, like the letters on a real keypad:
+					     the sound in the voice note finds its digit here. -->
 					{#each KEYS as k (k)}
-						<button type="button" class="key tnum" disabled={full} onclick={() => key(k)}>{k}</button>
+						<button
+							type="button"
+							class="key tnum"
+							disabled={full}
+							aria-label="{k}, {NUMBER_WORDS[Number(k)]}"
+							onclick={() => key(k)}
+							>{k}<span class="word" lang={locale}>{NUMBER_WORDS[Number(k)]}</span></button
+						>
 					{/each}
 					<button type="button" class="key aux" aria-label="Delete" onclick={back}>⌫</button>
-					<button type="button" class="key tnum" disabled={full} onclick={() => key('0')}>0</button>
+					<button type="button" class="key tnum" disabled={full} aria-label="0, null" onclick={() => key('0')}
+						>0<span class="word" lang={locale}>null</span></button
+					>
 					<button type="button" class="key dial" disabled={!full} aria-label="Call" onclick={() => call()}>
 						<span aria-hidden="true">📞</span>
 					</button>
@@ -674,6 +739,63 @@
 	}
 
 	/* -- chat ----------------------------------------------------------------- */
+
+	/* The call, shrunk to a bar while you dial. */
+	.live {
+		flex: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		margin: 0.4rem 0.6rem 0;
+		padding: 0.55rem 0.75rem 0.65rem;
+		border-radius: 1rem;
+		background: #1f7a45;
+		color: #fff;
+	}
+
+	.live-head {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		font-size: var(--step--1);
+	}
+
+	.live-dot {
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background: #9ff0bd;
+		animation: blink 1.2s steps(2, start) infinite;
+	}
+
+	.live-state {
+		opacity: 0.8;
+	}
+
+	.live-hangup {
+		margin-left: auto;
+		width: 2.2rem;
+		height: 2.2rem;
+		border: 0;
+		border-radius: 50%;
+		background: #d83a32;
+		font-size: 1rem;
+		cursor: pointer;
+	}
+
+	.live-de {
+		margin: 0;
+		font-size: var(--step--1);
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	.live-en {
+		margin: 0;
+		font-size: 0.75rem;
+		line-height: 1.3;
+		opacity: 0.8;
+	}
 
 	.thread-head {
 		display: flex;
@@ -963,6 +1085,22 @@
 		transition:
 			transform var(--fast) var(--ease-out),
 			background var(--fast) var(--ease-out);
+	}
+
+	.key:has(.word) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		line-height: 1;
+	}
+
+	.word {
+		margin-top: 0.12rem;
+		font-size: 0.6rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		color: var(--ink-muted);
 	}
 
 	.key:active:not(:disabled) {

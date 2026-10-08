@@ -115,6 +115,23 @@ const FILES = {
 			tone(buf, 880, { dur: 0.08, gain: 0.08, decay: 0.05 });
 			tone(buf, 1320, { from: 0.05, dur: 0.08, gain: 0.06, decay: 0.05 });
 		}),
+	// — Episode 2: the Buletten hit the pan; a brass key found and jingled
+	sizzle: () =>
+		render(1.4, (buf) => {
+			// filtered noise that swells then settles: hot fat meeting meat
+			let lp = 0;
+			for (let i = 0; i < buf.length; i++) {
+				const t = i / SR;
+				const env = Math.min(1, t / 0.08) * (0.55 + 0.45 * Math.exp(-t / 0.5)) * Math.exp(-Math.max(0, t - 1.0) / 0.25);
+				lp += (Math.random() * 2 - 1 - lp) * 0.35;
+				buf[i] += lp * 0.22 * env;
+			}
+		}),
+	keys: () =>
+		render(0.8, (buf) => {
+			for (const [f, from] of [[2960, 0], [3520, 0.07], [2640, 0.16], [3960, 0.22], [3100, 0.34]])
+				tone(buf, f, { from, dur: 0.25, gain: 0.07, decay: 0.06 });
+		}),
 	// — ambient loops (~16 s, designed to loop; keep volume low in the app)
 	loop_investigation: () =>
 		render(16, (buf) => {

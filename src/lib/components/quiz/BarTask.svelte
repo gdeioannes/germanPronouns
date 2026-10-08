@@ -13,6 +13,8 @@
 	import { announce } from '$lib/a11y.svelte';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import ClipControls from './ClipControls.svelte';
+	import EmojiText from './EmojiText.svelte';
+	import { NUMBER_WORDS } from '$lib/domain/emojiText';
 	import { playClip, stopClip } from '$lib/services/clips.svelte';
 	import { isMuted } from '$lib/services/mute';
 	import { track } from '$lib/services/analytics';
@@ -144,7 +146,7 @@
 				<p class="tip-title">How Germans count</p>
 				<p>{task.culture}</p>
 				<div class="demo"><Hands count={2} onChange={() => {}} disabled /></div>
-				<p class="small">This is two.</p>
+				<p class="small">This is <span lang={locale}>zwei</span> (2).</p>
 			</div>
 			<button type="button" class="btn start" onclick={start}>
 				<Icon name="volume" size="1.05em" /> To the bar
@@ -170,7 +172,7 @@
 			</button>
 		</div>
 		{#if showText}
-			<p class="transcript"><span lang={locale}>{round.clip.de}</span><small>{round.clip.en}</small></p>
+			<p class="transcript"><EmojiText text={round.clip.de} lang={locale} /><small>{round.clip.en}</small></p>
 		{/if}
 
 		<div class="stage" bind:this={stageEl} use:shakeOn={missKey}>
@@ -181,7 +183,9 @@
 				hint={fails >= 2 ? round.answer : null}
 				disabled={phase !== 'order'}
 			/>
-			<p class="showing tnum" aria-live="off">You're showing <strong>{count}</strong></p>
+			<p class="showing tnum" aria-live="off">
+				You're showing <strong>{count}</strong>{#if count}&nbsp;· <strong lang={locale}>{NUMBER_WORDS[count]}</strong>{/if}
+			</p>
 		</div>
 
 		{#if phase === 'order'}
@@ -193,7 +197,7 @@
 				<p class="beers" aria-label="{served} beers on the counter">{'🍺'.repeat(served)}</p>
 				{#if reply}
 					<p class="who">{reply.name}</p>
-					<p class="bubble" lang={locale}>{reply.de}</p>
+					<p class="bubble"><EmojiText text={reply.de} lang={locale} /></p>
 					<p class="en">{reply.en}</p>
 					<ClipControls id={reply.audio} text={reply.de} {locale} label="Listen" />
 				{/if}

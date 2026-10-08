@@ -55,7 +55,7 @@ export const lighting = [
 export type Character = {
 	id: string;
 	name: string;
-	group: 'Recurring cast' | 'Episode cast — The Empty Room' | 'Episode cast — Lost in Berlin';
+	group: 'Recurring cast' | 'Episode cast — The Empty Room' | 'Episode cast — Lost in Berlin' | 'Episode cast — The Secret Room';
 	accent: string;
 	accentSoft: string;
 	lang: string;
@@ -187,6 +187,40 @@ export const cast: Character[] = [
 		voices: [{ id: 'baeckerin_sulafat', label: 'Reference clip' }],
 		portrait: 'baeckerin_ref_neutral',
 		gallery: [{ id: 'baeckerin_ref_neutral', label: 'Reference' }]
+	},
+	{
+		id: 'oma',
+		name: 'Oma Hartmann, the Chefin',
+		group: 'Recurring cast',
+		accent: '#7a9a7e',
+		accentSoft: '#e4ebe5',
+		lang: 'German (de-DE)',
+		tagline: 'Owns the Pension. Lena’s grandmother. The only person Maya is afraid of.',
+		bio: 'Around eighty, has run Pension Sonnenschein since her mother did; the house turns a hundred in Episode 2. Interrogates guests over breakfast, puts the ones she likes to work in her kitchen (Buletten, the Berlin way), and tests Maya’s German with one question at a time. Planned co-host of Maya’s German-language podcast from Episode 3.',
+		dress: 'White hair pinned up, half-moon reading glasses on a chain, sage cardigan over a cream blouse with a small gold brooch, dark skirt, sensible brown shoes. At night: a quilted sage dressing gown.',
+		speech: 'Dry, unhurried, sharp, Sie to strangers. Short complete sentences a beginner can imitate: kitchen orders (“Geben Sie mir die Zwiebel”), family facts, one-word questions (“Warum?”). Her catchphrase, to any claim of speaking German: “Das sehen wir.”',
+		reactions: [],
+		voiceNote: 'Chirp 3 HD Gacrux (de-DE): the number tasks’ grandmother voice, kept for her. Cast 2026-10-08; Despina and Vindemiatrix recorded as alternatives.',
+		voices: [{ id: 'oma_gacrux', label: 'Reference clip' }],
+		portrait: 'oma_ref_neutral',
+		gallery: [{ id: 'oma_ref_neutral', label: 'Reference' }]
+	},
+	{
+		id: 'kurier',
+		name: 'The courier',
+		group: 'Episode cast — The Secret Room',
+		accent: '#d9a441',
+		accentSoft: '#f8efd6',
+		lang: 'German (de-DE)',
+		tagline: 'Delivers the parcel that starts Episode 2. Gone in two lines.',
+		bio: 'A parcel courier with a scanner and no time. Hands Maya the misdelivered paint, reads a postcode and a total off the scanner, leaves.',
+		dress: 'Yellow rain jacket, black cycling helmet, dark trousers, parcel scanner.',
+		speech: 'Fast, flat, polite: “Unterschreiben Sie hier, bitte.” Digits one at a time.',
+		reactions: [],
+		voiceNote: 'Chirp 3 HD Rasalgethi (de-DE). Cast 2026-10-08 from the voice description.',
+		voices: [{ id: 'kurier_rasalgethi', label: 'Reference clip' }],
+		portrait: 'kurier_ref_neutral',
+		gallery: [{ id: 'kurier_ref_neutral', label: 'Reference' }]
 	}
 ];
 

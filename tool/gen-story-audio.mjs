@@ -68,7 +68,11 @@ const VOICES = {
 	kim: { locale: 'de-DE', voice: 'Pulcherrima' },
 	tom: { locale: 'de-DE', voice: 'Fenrir' },
 	empfang: { locale: 'de-DE', voice: 'Callirrhoe' },
+	// Episode 2: Oma Hartmann, the Pension's owner (the number task's "oma"
+	// shares the voice — same kind of Berlin grandmother), and a parcel courier.
 	oma: { locale: 'de-DE', voice: 'Gacrux' },
+	kurier: { locale: 'de-DE', voice: 'Rasalgethi' },
+	baumarkt: { locale: 'de-DE', voice: 'Sadachbia' },
 	pizza: { locale: 'de-DE', voice: 'Algenib' },
 	praxis: { locale: 'de-DE', voice: 'Erinome' },
 	fitness: { locale: 'de-DE', voice: 'Laomedeia' },
@@ -87,7 +91,9 @@ const SPEAKERS = {
 	ep1_number: 'jonas',
 	ep1_pension: 'reception',
 	ep1_lena_greet: 'lena',
-	ep1_lena_frage: 'lena'
+	ep1_lena_frage: 'lena',
+	ep2_podcast_intro: 'maya',
+	ep2_podcast_outro: 'maya'
 };
 
 /**
@@ -104,7 +110,10 @@ const DIRECTIONS = {
 	passantin: `A brisk Berlin local in a hurry, friendly but not stopping. ${CLEAR}`,
 	baeckerin: `A warm, motherly Berlin baker who knows everyone on her street; amused, kind. ${CLEAR}`,
 	stranger: `A friendly man with a coffee, cheerful. ${CLEAR}`,
-	announcer: 'A flat, neutral Berlin U-Bahn station announcement over a train PA system, slightly bored.'
+	announcer: 'A flat, neutral Berlin U-Bahn station announcement over a train PA system, slightly bored.',
+	oma: `An upright Berlin grandmother around eighty who runs a guesthouse: dry, unhurried, sharp, amused underneath; Sie to strangers; short complete sentences. ${CLEAR}`,
+	kurier: `A young parcel courier in a hurry, bored, friendly enough, reading off a scanner. ${CLEAR}`,
+	baumarkt: `A hardware-store assistant leaving a voicemail about an order: friendly, quick, the amount slow and clear. ${CLEAR}`
 };
 /** Gemini-TTS through Cloud Text-to-Speech, same voice names as Chirp 3 HD. */
 const CLOUD_GEMINI_MODEL = 'gemini-2.5-pro-tts';

@@ -16,6 +16,15 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-09",
+    title: "Bigger, flatter picture hunts",
+    items: [
+      "The picture in a picture hunt always fills the whole width of the card again. On a short screen it used to shrink to fit the height; now the page scrolls a little instead, so the small things stay big enough to tap.",
+      "The kitchen, the supermarket and the antique shop are redrawn straight from the front, like the other rooms, instead of as a box seen from a corner above. Everything sits where you expect it, and the objects are larger.",
+      "In the supermarket, das Brötchen made way for das Fließband, the checkout belt — the bread roll never came out clearly enough to find.",
+    ],
+  },
+  {
     date: "2026-10-08",
     title: "Picture hunts: find the word in the room",
     highlight: true,
@@ -26,6 +35,17 @@ export const changelog: ChangelogEntry[] = [
       "Once you have passed a run, the hunt gets harder: the question hides the article — \"Wo ist ___ Tür?\" — and after you find it you choose der, die or das yourself.",
       "On a phone the picture fills the whole width, and you can pinch to zoom (or use the + and − buttons) to reach the small things.",
       "Each find shows its label in its gender's colour, then leaves a small tick, so you can see what you have found without labels covering the room. Every question can be heard read aloud.",
+    ],
+  },
+  {
+    date: "2026-10-08",
+    title: "The number missions give you a fair chance",
+    items: [
+      "In Call Kim, the smudged digits are now ones you have already heard next to a printed digit, so you can match the sound to the number. The first number used to hide a zwei and a vier you had never seen written.",
+      "The phone keypad shows each number's German word under the digit, like the letters on a real keypad: 2 zwei, 3 drei.",
+      "When the right person picks up and reads out the next number, the call now shrinks to a bar at the top of the chat. You can dial along while they talk instead of hanging up and replaying the voice note. The bar keeps their words, the English and a replay button, with only the number left out — that part you catch by ear.",
+      "The U-Bahn platform signs spell out the number for the first two trains; the last two are by ear alone. At the bar you see the word next to your fingers: 2 · zwei.",
+      "German lines in all three missions now carry little pictures next to the words to remember: drei 3️⃣, Bier 🍺, Gleis 🚉, Kaffee ☕.",
     ],
   },
   {

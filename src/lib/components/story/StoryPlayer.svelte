@@ -834,7 +834,9 @@
 				{/if}
 			{:else if beat.kind === 'orderedPick' && beat.layout === 'keypad'}
 				{#if beat.prompt}<p class="q">{resolve(beat.prompt as string)}</p>{/if}
-				<button class="chip" onclick={() => playVoice(clipFile(beat.audio as string))}>🔊 Play the number</button>
+				{#if beat.audio}
+					<button class="chip" onclick={() => playVoice(clipFile(beat.audio as string))}>🔊 Play the number</button>
+				{/if}
 				<p class="dial-display">{dialed.join(' ') || '…'}</p>
 				<div class="keypad">
 					{#each ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'] as d}

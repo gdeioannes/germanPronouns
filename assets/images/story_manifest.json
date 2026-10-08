@@ -12,7 +12,13 @@
     "baeckerei": "A small cosy Berlin corner bakery: a warm wooden counter with a curved glass display case, wooden shelves of bread loaves behind, a chrome coffee machine, a blank black chalkboard on the wall, terracotta floor tiles, a window onto the street. The shop front and walls carry no lettering at all.",
     "square": "A small Berlin neighbourhood square: a navy U-Bahn entrance with railings and a blank square sign, a large blank city-map board on two posts, cobblestones, linden trees, a pedestrian crossing with a traffic light, a corner bakery with a terracotta-and-cream striped awning that carries no lettering, rows of pastel Altbau houses with balconies.",
     "altbau_door": "The entrance of a Berlin Altbau apartment building: a tall dark-green wooden double door with carved panels, a brass doorbell panel with four blank brass name plates mounted on the wall beside the door, patterned tiles on the step, a pale yellow plaster facade.",
-    "suitcase": "her large ink-navy hard-shell wheeled suitcase with a telescopic handle (always this one: never brown, never leather, no stickers)"
+    "suitcase": "her large ink-navy hard-shell wheeled suitcase with a telescopic handle (always this one: never brown, never leather, no stickers)",
+    "oma": "Frau Hartmann, the guesthouse owner, a small upright woman around eighty, drawn with natural adult proportions and a realistic head-to-body ratio, never chibi. White hair pinned up, half-moon reading glasses on a thin chain, a sage-green cardigan over a cream blouse with a small gold brooch, a dark skirt, sensible brown shoes. Light skin with fine lines, sharp eyes, dry amused expression.",
+    "kurier": "A parcel courier, a young person in a yellow rain jacket, black cycling helmet, dark trousers, a parcel scanner in one hand, in a hurry, friendly but bored.",
+    "breakfast_room": "The breakfast room of a small old Berlin guesthouse: sunlit, three small tables with white tablecloths and cane chairs, a dark wooden dresser with cups and a coffee pot, a tall wall clock, a wall of framed black-and-white photographs of an old house, striped cream-and-sage wallpaper, parquet floor.",
+    "pension_kitchen": "An old Berlin guesthouse kitchen: cream and sage wall tiles, a big enamel gas stove, copper pots on hooks, a long wooden work table in the foreground, a window with a lace curtain, a cast-iron pan, a wooden spoon rack.",
+    "hinterhof": "A Berlin Hinterhof, the inner courtyard of an old tenement: tall brick and plaster walls on all sides with rows of windows, a dark green painted back door with a coir doormat in front of it, a terracotta flower pot beside the door, a low window with a wide stone windowsill next to the door, bicycle racks, a row of bins, a single tree, cobblestones.",
+    "studio": "A small guesthouse room being turned into a tiny podcast studio: one wall freshly painted light blue and still half done with a paint roller tray on the floor, a wooden desk with a large podcast microphone on an arm, a pair of headphones, a standing lamp, a wooden crate, foam panels leaning on the wall, a long blank cloth banner hung across the top of the wall."
   },
   "images": [
     {
@@ -99,7 +105,7 @@
       "id": "ep1_maya_mic",
       "aspect": "16:9",
       "ship": true,
-      "prompt": "{maya} She sits at a desk at night, talking into a large podcast microphone, headphones half on, hands mid-gesture, a warm desk lamp lighting her face, her case board with blank pinned papers and terracotta string in the cool shadow behind her. Lighting: lamp cone."
+      "prompt": "{maya} She sits on a chair BEHIND a heavy wooden desk, seen from the front at slight three-quarter view: the desk's front panel and drawers face the viewer and completely hide her legs and the chair — only her upper body, from the waist up, is visible above the desktop, her elbows resting on it. She is talking into a large podcast microphone on a stand, headphones half on, hands mid-gesture, a warm desk lamp lighting her face, her case board with blank pinned papers and terracotta string in the cool shadow on the wall behind her. Correct anatomy, nothing passes through the desk. Lighting: lamp cone."
     },
     {
       "id": "ep1_room_wide",
@@ -308,6 +314,118 @@
       "aspect": "16:9",
       "ship": true,
       "prompt": "An empty Berlin U-Bahn station platform at 2 a.m.: tiled walls in pale yellow-green, a long platform edge with a yellow safety line, a hanging blank blue platform sign with only a white square symbol and no letters or numbers, a black departure display glowing amber with blank dashes, a lone wooden bench, the dark mouth of the tunnel with two approaching headlights far away. No people except, far away, one small figure in a grey hoodie running toward the train. No lettering anywhere. Lighting: cold flickering fluorescent light, deep blue shadows, the warm glow of the approaching train headlights in the tunnel."
+    },
+    {
+      "id": "oma_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{oma} She stands full body, hands folded over a wooden spoon, looking at the viewer with a dry, knowing half-smile. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "kurier_ref_neutral",
+      "aspect": "1:1",
+      "prompt": "{kurier} Standing full body holding a cardboard parcel under one arm and the scanner in the other hand. Character reference sheet on a plain warm off-white background with no scenery. Lighting: soft warm light from one side with a cool subtle shadow side, like a figure cut out of one of the scene illustrations. Same face, same proportions and same rendering as in the furnished scenes."
+    },
+    {
+      "id": "ep2_kitchen_parcel",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A Berlin shared-flat hallway by the open front door, morning. {kurier} holds out a parcel scanner for a signature; {maya} in the doorway signs it with one hand while a large brown cardboard parcel with a blank white label sits at her feet, her other hand already reaching for it, eyes narrowed with suspicion. Lighting: door shaft, morning light from the stairwell into the cool hallway."
+    },
+    {
+      "id": "ep2_label",
+      "aspect": "1:1",
+      "ship": true,
+      "prompt": "Straight-on close-up of a large white shipping label stuck on brown corrugated cardboard, filling the frame. The label has four blank horizontal lines stacked one above the other on its left two thirds, and on its right side one large empty rectangular box outlined in navy. A corner of the label is lifting. No letters, no numbers. Lighting: door shaft falling across the cardboard."
+    },
+    {
+      "id": "ep2_invoice",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three tins of wall paint on a kitchen table, lids on, one tin with a pale-blue paint smear on its side, a blank white invoice sheet taped to the front tin, a roll of masking tape and a paintbrush set in plastic beside them, {maya} hand lifting the corner of the sheet. Lighting: dusk window."
+    },
+    {
+      "id": "ep2_breakfast_oma",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{breakfast_room} {maya} sits at a table with a breakfast tray, a bread roll half-buttered, caught mid-chew; {oma} has just sat down opposite her, elbows on the table, chin on her folded hands, studying her like a detective. Lighting: dusk window, golden morning light through the lace curtains."
+    },
+    {
+      "id": "ep2_photo_wall",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Straight-on view of a guesthouse wall covered with framed black-and-white photographs of an old Berlin house in different decades, frames of different sizes. Under the largest frame in the centre hangs one small rectangular brass plaque, completely blank. Striped cream-and-sage wallpaper, a cane chair below. No letters anywhere. Lighting: dusk window from the left."
+    },
+    {
+      "id": "ep2_kitchen_table",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{pension_kitchen} Straight-on view of the long wooden work table in the foreground, with these things laid out in one row from left to right, spaced well apart and not overlapping: one brown onion, a small bowl with two white eggs, two crusty bread rolls, a glass jar of mustard with a cream lid, a bunch of parsley, and a black cast-iron frying pan on the far right. {oma} stands behind the table in the middle, sleeves rolled up, pointing at the onion; {maya} stands at the far left edge of the frame in an apron, hands up uncertain. Lighting: dusk window, warm light from the window, steam from a pot on the stove."
+    },
+    {
+      "id": "ep2_kitchen_frying",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{pension_kitchen} {oma} at the stove frying meatballs in the cast-iron pan, spatula in hand, steam rising; {maya} beside her holding a plate, leaning in to listen, flour on her nose. Lighting: lamp cone from the stove hood lamp, cool evening blue from the window."
+    },
+    {
+      "id": "ep2_courtyard_note",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{hinterhof} Daytime. A small white blank note is pinned with a drawing pin to the dark green back door at eye height. {maya} stands in front of it, close, hand reaching for the note, pencil behind her ear. Lighting: door shaft, a warm shaft of sun between the high walls into the cool courtyard."
+    },
+    {
+      "id": "ep2_courtyard_day",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{hinterhof} Daytime, straight-on view of the back door area with nobody in it: the coir doormat in front of the door, the terracotta flower pot to the left of the door, the stone windowsill with a small geranium to the right of the door, all clearly separate and well spaced. Lighting: door shaft, warm sun on the door, cool shadow at the sides."
+    },
+    {
+      "id": "ep2_hallway_crates",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A guesthouse hallway with a worn red runner carpet: six wooden crates stacked and standing along the wall, each with a torn white paper label hanging in two halves, completely blank. {maya} crouches by the nearest crate holding two torn halves of a label together, squinting. A coat stand and an umbrella behind her. Lighting: lamp cone from a wall lamp, long shadows."
+    },
+    {
+      "id": "ep2_courtyard_night",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{hinterhof} Night. The same back door area straight on: the coir doormat in front of the door, the terracotta flower pot to the left of the door, the stone windowsill with a small geranium to the right of the door. {maya} is small at the left edge of the frame, seen from behind, pointing a phone torch at the door. Lighting: torch noir, the beam on the door, terracotta rim light on Maya, deep blue shadow everywhere else."
+    },
+    {
+      "id": "ep2_green_doors",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Night, straight-on view of a long brick wall in a Berlin courtyard with four identical back doors in a row, evenly spaced: from left to right a grey door, a dark green door, a brown door and a soft-blue door, each with a single step. Everything else is deep blue shadow; a torch beam from the lower left lights all four doors evenly so their colours read clearly. No letters, no numbers. Lighting: torch noir."
+    },
+    {
+      "id": "ep2_corridor_oma",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A guesthouse corridor at night, a ceiling light just switched on. {oma} stands in a quilted sage dressing gown with her arms crossed, reading glasses on, one eyebrow raised; {maya} frozen mid-step a few metres away holding a brass key and her phone torch, caught, a guilty smile. Lighting: lamp cone, harsh warm ceiling light, cool shadows at the corridor ends."
+    },
+    {
+      "id": "ep2_studio_reveal",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{studio} Seen from the open doorway, the room lit from inside; {maya} stands in the doorway seen from behind, one hand over her mouth. On the desk by the microphone a small blank white card leans against the lamp. Lighting: lamp cone, the standing lamp a warm golden cone, celebratory."
+    },
+    {
+      "id": "ep2_card",
+      "aspect": "1:1",
+      "ship": true,
+      "prompt": "Close-up of a small blank white card leaning against the base of a brass standing lamp on a wooden desk, next to a large podcast microphone on an arm, a fountain pen beside it, {maya} fingers taking the card. Lighting: lamp cone, warm golden light on the card."
+    },
+    {
+      "id": "ep2_cake_trio",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "{studio} {jonas} and {lena} stand in the doorway with a white cake box and a paper bag, grinning sheepishly; {oma} beside the desk with her arms crossed and a satisfied smile; {maya} in the middle of the room with her hands on her hips, a huge delighted outraged face. Lighting: lamp cone, warm, celebratory."
+    },
+    {
+      "id": "ep2_photo_1926",
+      "aspect": "1:1",
+      "ship": true,
+      "prompt": "Close-up of an old sepia-toned black-and-white photograph held in {maya} hands: the facade of a small Berlin Altbau guesthouse in the 1920s with a group of six people posing in front of the entrance in period clothes, and one of the faces encircled with a hand-drawn pencil circle. No letters, no numbers, no date anywhere. Lighting: lamp cone, warm."
     }
   ]
 }

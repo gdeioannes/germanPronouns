@@ -60,7 +60,18 @@ const AUDITIONS = [
 	{ character: 'stranger', locale: 'de-DE', voice: 'Achird', chosen: true,
 		line: 'Guten Morgen! Willkommen in Berlin!' },
 	{ character: 'announcer', locale: 'de-DE', voice: 'Schedar', chosen: true,
-		line: 'Nächster Halt: Rosenplatz.' }
+		line: 'Nächster Halt: Rosenplatz.' },
+
+	// — Episode 2 (2026-10-08). Oma Hartmann: Gacrux is already the "oma" of the
+	// number tasks and sounds the part; two alternatives recorded for the ear.
+	{ character: 'oma', locale: 'de-DE', voice: 'Gacrux', chosen: true,
+		line: 'Und Sie sind…? Aha. Sie fragen viel. Gut. Sie können helfen. Kommen Sie — in die Küche!' },
+	{ character: 'oma', locale: 'de-DE', voice: 'Despina', chosen: false,
+		line: 'Und Sie sind…? Aha. Sie fragen viel. Gut. Sie können helfen. Kommen Sie — in die Küche!' },
+	{ character: 'oma', locale: 'de-DE', voice: 'Vindemiatrix', chosen: false,
+		line: 'Und Sie sind…? Aha. Sie fragen viel. Gut. Sie können helfen. Kommen Sie — in die Küche!' },
+	{ character: 'kurier', locale: 'de-DE', voice: 'Rasalgethi', chosen: true,
+		line: 'Ein Paket für Jonas Weber. Unterschreiben Sie hier, bitte.' }
 ];
 
 const args = process.argv.slice(2);
