@@ -1,3 +1,12 @@
+<script module lang="ts">
+	// One panel on the whole page at a time. Each sentence is its own instance
+	// and only knows about its own words, so without this a learner tapping
+	// through a passage left a trail of open panels behind them — the
+	// click-away handler saw every tap land on a word and kept its hands off.
+	// Whoever opens a panel claims this; everyone else closes theirs.
+	let owner = $state<symbol | null>(null);
+</script>
+
 <script lang="ts">
 	// German text with its words recognised: tap any one of them for the English.
 	//
@@ -51,10 +60,17 @@
 	let openAt = $state<number | null>(null);
 	/** Several sentences on a page each have a word 3: ids need telling apart. */
 	const uid = Math.random().toString(36).slice(2, 8);
+	const me = Symbol();
+
+	// Another sentence opened a panel: ours goes.
+	$effect(() => {
+		if (owner !== me) openAt = null;
+	});
 
 	function toggle(i: number, info: WordInfo) {
 		openAt = openAt === i ? null : i;
 		if (openAt === i) {
+			owner = me;
 			announce([
 				{ text: headlineFor(info), lang: 'de-DE' },
 				{ text: `: ${info.entry.en}`, lang: 'en' }

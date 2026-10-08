@@ -17,6 +17,13 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-08",
+    title: "One word panel at a time",
+    items: [
+      "Tapping a word for its meaning used to leave the last panel open if the two words were in different sentences, so reading through a text left a trail of them until you tapped the background. Now tapping any word closes the one before it.",
+    ],
+  },
+  {
+    date: "2026-10-08",
     title: "Syncing between phone and computer works now",
     items: [
       "Signing in worked, but the sync behind it did not: the cloud copy refused every save, so each device kept showing \"Couldn't reach your account\" and the two never met. The cloud now accepts your own progress and nobody else's, and the first sync merges what each device had.",
