@@ -374,7 +374,8 @@
 
 {#if finished && !doneDismissed}
 	<!-- Floats over the foot of the exercise rather than pushing it: the page
-	     stays one screen. Dismissable, to look back over the answers. -->
+	     stays one screen. Dismissable, to look back over the answers — it
+	     folds to a pill rather than vanishing, so the way on is never lost. -->
 	<aside class="done" transition:fly={{ y: 40, duration: 320, easing: cubicOut }}>
 		<p class="done-line">
 			<Icon name="check" size="1.15em" />
@@ -396,6 +397,18 @@
 			</a>
 		</div>
 	</aside>
+{:else if finished}
+	<button
+		type="button"
+		class="done-pill"
+		transition:fly={{ y: 20, duration: 240, easing: cubicOut }}
+		aria-label="Show the finished bar: try again, next quiz or your deck"
+		onclick={() => (doneDismissed = false)}
+	>
+		<Icon name="check" size="1em" />
+		<span>Finished</span>
+		<Icon name="chevronDown" size="0.9em" />
+	</button>
 {/if}
 
 {#if hasNotes && !lessonSteps}
@@ -428,7 +441,13 @@
 		{/if}
 	</nav>
 
+	<!-- Restart sits with the shortcuts: a run going badly can be started over
+	     without finishing it, and the folded finished bar never strands the
+	     learner. Next and the deck are already the cards above and "Your deck". -->
 	<div class="shortcuts">
+		<button type="button" onclick={() => { moreOpen = false; tryAgain(); }}>
+			<Icon name="repeat" size="1.05em" /> {finished ? 'Try again' : 'Start over'}
+		</button>
 		<a href="/course/{course.id}"><Icon name="cards" size="1.05em" /> Your deck</a>
 		{#if quiz.level}
 			<a href={levelPath}><Icon name="book" size="1.05em" /> {levelTitle ?? quiz.level}</a>
@@ -765,6 +784,32 @@
 		flex-wrap: wrap;
 	}
 
+	/* The folded bar: one pill in the corner, out of the answers' way. */
+	.done-pill {
+		position: fixed;
+		right: calc(0.9rem + env(safe-area-inset-right));
+		bottom: calc(0.9rem + env(safe-area-inset-bottom));
+		z-index: 60;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.45rem 0.85rem;
+		border: 1px solid var(--right);
+		border-radius: 999px;
+		background: var(--right-bg);
+		color: var(--right);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		box-shadow: 0 12px 28px -14px rgb(20 32 52 / 0.45);
+		cursor: pointer;
+	}
+
+	.done-pill:hover {
+		border-color: var(--accent);
+	}
+
+
 	/* -- panels -------------------------------------------------------------- */
 
 	.to-exercise {
@@ -823,7 +868,8 @@
 		margin-top: 1rem;
 	}
 
-	.shortcuts a {
+	.shortcuts a,
+	.shortcuts button {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
@@ -834,9 +880,13 @@
 		font-size: var(--step--1);
 		font-weight: 600;
 		text-decoration: none;
+		background: none;
+		font-family: inherit;
+		cursor: pointer;
 	}
 
-	.shortcuts a:hover {
+	.shortcuts a:hover,
+	.shortcuts button:hover {
 		border-color: var(--accent);
 		color: var(--accent-ink);
 	}

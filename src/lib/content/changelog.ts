@@ -32,6 +32,14 @@ export const changelog: ChangelogEntry[] = [
   },
   {
     date: "2026-10-08",
+    title: "The finished bar folds away instead of disappearing",
+    items: [
+      "Closing the bar at the end of an exercise used to leave you with no way to try again or move on, short of going back to the deck. It now folds into a small \"Finished\" pill in the corner; tap it and the bar is back with Try again, Next quiz and your deck.",
+      "The More menu has a Start over button too, so a run that is going badly can be restarted at any point, not only once it is finished.",
+    ],
+  },
+  {
+    date: "2026-10-08",
     title: "Tap any word, not just the nouns",
     highlight: true,
     items: [
