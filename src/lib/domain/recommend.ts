@@ -11,17 +11,14 @@
 import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
 import type { QuizMark, RibbonTier } from './progress';
 import { topicOf } from '$lib/seo';
+import { estimateLevel, WEAK_MISTAKE_RATE } from './level';
+
+export { WEAK_MISTAKE_RATE };
 
 export type RecommendationKind = 'practise' | 'next' | 'mix';
 
 /** Every kind; which one is shown is picked at random. */
 export const RECOMMENDATION_KINDS: RecommendationKind[] = ['practise', 'next', 'mix'];
-
-export const KIND_LABELS: Record<RecommendationKind, string> = {
-	practise: 'Practise',
-	next: 'Learn next',
-	mix: 'Mix it up'
-};
 
 /** What the progress store knows about one quiz. */
 export interface QuizFacts {
@@ -46,9 +43,6 @@ export interface Recommendation {
 	/** One line on why this one, in the learner's terms. */
 	reason: string;
 }
-
-/** A mistake rate at or above this makes a finished quiz worth redoing. */
-export const WEAK_MISTAKE_RATE = 0.2;
 
 /** Answers needed before a mistake rate means anything. */
 const MIN_ANSWERS = 5;
@@ -89,12 +83,14 @@ export function recommend(
 	const done = quizzes.filter((quiz) => factsOf(quiz).done);
 	const open = (quiz: Quiz) => !exclude.has(quiz.id) && quiz.status !== 'placeholder';
 
-	// The learner's frontier: the furthest sub-level with anything finished.
-	// New suggestions stay at or one step past it, never a leap to C2.
+	// The learner's frontier: their overall level (level.ts), lifted to the
+	// level they picked. New suggestions stay at or one step past it — one
+	// finished C2 exercise does not drag every suggestion up to C2.
 	const levels = [...new Set(quizzes.map((quiz) => quiz.level ?? ''))];
 	const levelIndex = (quiz: Quiz) => levels.indexOf(quiz.level ?? '');
 	const floor = options.floorLevel ? levels.indexOf(options.floorLevel) : -1;
-	const frontier = Math.max(-1, floor, ...done.map(levelIndex));
+	const overall = done.length > 0 ? levels.indexOf(estimateLevel(quizzes, facts) ?? '') : -1;
+	const frontier = Math.max(-1, floor, overall);
 	const inReach = (quiz: Quiz) => levelIndex(quiz) <= frontier + 1;
 
 	return {

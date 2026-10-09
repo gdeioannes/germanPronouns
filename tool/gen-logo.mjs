@@ -9,7 +9,7 @@
 import { Resvg } from '@resvg/resvg-js';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { iconSvg, markSvg } from './logo.mjs';
+import { iconSvg } from './logo.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 
@@ -27,10 +27,8 @@ const outputs = [
 	['static/icons/Icon-maskable-192.png', png(iconSvg({ maskable: true }), 192)],
 	['static/icons/Icon-maskable-512.png', png(iconSvg({ maskable: true }), 512)],
 	['static/icons/apple-touch-icon.png', png(iconSvg(), 180)],
-	// Served as-is: the tile for browsers that take an SVG favicon, and the bare
-	// mark for anywhere the brand needs it on its own paper.
-	['static/favicon.svg', Buffer.from(iconSvg({ size: 64, box: 68 }), 'utf8')],
-	['static/logo.svg', Buffer.from(markSvg(), 'utf8')]
+	// Served as-is: the tile for browsers that take an SVG favicon.
+	['static/favicon.svg', Buffer.from(iconSvg({ size: 64, box: 68 }), 'utf8')]
 ];
 
 mkdirSync(`${root}static/icons`, { recursive: true });

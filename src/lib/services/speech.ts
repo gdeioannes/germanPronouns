@@ -404,10 +404,6 @@ export function setVoiceOfflineOnly(value: boolean): void {
 	offlineOnly = value;
 }
 
-export function isVoiceOfflineOnly(): boolean {
-	return offlineOnly;
-}
-
 /**
  * The provider actually in use. Swapping in a Capacitor implementation is a
  * change to these two lines and nothing else.

@@ -47,7 +47,7 @@
 	]}
 />
 
-<SiteNav {courseHref} compact />
+<SiteNav {courseHref} />
 
 <main class="page-wide">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>

@@ -37,6 +37,9 @@ export function coursePaths(courseId: string): string[] {
 }
 
 /** The shared collections the word pages are built from. */
+/** The small-words dictionary the /words/dictionary page is built from. */
+export const DICTIONARY_PATH = 'assets/content/shared/dictionary/de.json';
+
 export const SHARED_WORD_PATHS = [
 	'assets/content/shared/nouns/de.json',
 	'assets/content/shared/verbs/de.json'

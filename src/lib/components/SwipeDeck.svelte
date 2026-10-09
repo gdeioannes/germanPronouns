@@ -380,10 +380,13 @@
 	}
 
 	/** Transform for a card `depth` places into the stack (0 = top). */
+	// The cards behind the top one sit straight and a touch narrower, each
+	// poking out above the one in front by a few pixels, so the stack shows
+	// as neat coloured edges along the top — a pile of cards, not a fan.
 	function stackStyle(depth: number): string {
-		const scale = 1 - depth * 0.04;
-		const y = depth * 10;
-		return `transform: translateY(${y}px) scale(${scale}); opacity: ${depth >= VISIBLE ? 0 : 1};`;
+		const scale = 1 - depth * 0.03;
+		const y = -depth * 8;
+		return `transform: translateY(${y}px) scale(${scale}); transform-origin: 50% 0; opacity: ${depth >= VISIBLE ? 0 : 1};`;
 	}
 </script>
 
@@ -690,7 +693,8 @@
 		width: 100%;
 		min-height: 20rem;
 		max-height: 44rem;
-		margin: 1.1rem auto 0;
+		/* Room above for the edges of the cards behind. */
+		margin: 2.2rem auto 0;
 	}
 
 	/* A fresh deal: the cards drop onto the table one after another. Uses the
@@ -1241,7 +1245,8 @@
 
 	@media (max-width: 36rem) {
 		.stage {
-			margin-top: 0.8rem;
+			/* Still room above for the edges of the cards behind. */
+			margin-top: 1.6rem;
 			min-height: 16rem;
 		}
 		.card {

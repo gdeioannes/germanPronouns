@@ -10,7 +10,6 @@ import nounData from '$content/shared/nouns/de.json';
 import verbData from '$content/shared/verbs/de.json';
 import { catalog, loadCourse } from '$lib/content';
 import type { Quiz } from '$lib/content/types';
-import { TRY_QUESTIONS, tryFilled } from '$lib/content/try-exercise';
 import { fullForm } from '$lib/domain/flashcards';
 import {
 	fillBlankPool,
@@ -99,8 +98,6 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		for (const set of entry.sets)
 			for (const form of set.forms) add(spokenVerbForm(form), WORDS_LOCALE, 'word library conjugation');
 	}
-
-	for (const q of TRY_QUESTIONS) add(tryFilled(q), 'de-DE', 'landing demo');
 
 	// Story notebooks: every word Maya files has a play button (SpeakButton,
 	// the app's voice). Pooled entries ("{pool:street}") in every variant.

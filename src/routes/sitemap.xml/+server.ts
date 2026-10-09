@@ -1,6 +1,6 @@
 import { courses, loadCourse } from '$lib/content';
 import { SITE_URL } from '$lib/seo';
-import { coursePaths, lastModified, SHARED_WORD_PATHS } from '$lib/server/lastmod';
+import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$lib/server/lastmod';
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
 import { SONGS } from '$lib/domain/songs';
@@ -22,9 +22,11 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/changelog', lastmod: lastModified('src/lib/content/changelog.ts'), priority: '0.4' },
 		{ loc: '/about', lastmod: lastModified('src/routes/about'), priority: '0.5' },
 		{ loc: '/contact', lastmod: lastModified('src/routes/contact'), priority: '0.3' },
+		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/words', lastmod: wordsDate, priority: '0.6' },
 		{ loc: '/words/nouns', lastmod: wordsDate, priority: '0.7' },
-		{ loc: '/words/verbs', lastmod: wordsDate, priority: '0.7' }
+		{ loc: '/words/verbs', lastmod: wordsDate, priority: '0.7' },
+		{ loc: '/words/dictionary', lastmod: lastModified(DICTIONARY_PATH), priority: '0.7' }
 	];
 
 	for (const card of courses) {

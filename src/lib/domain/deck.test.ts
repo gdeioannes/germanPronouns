@@ -55,6 +55,13 @@ describe('courseLevels / deckLevel', () => {
 		expect(deckLevel(COURSE, { reise: done() }, 'A1.1')).toBe('A1.1');
 		expect(deckLevel(COURSE, { reise: done() }, null)).toBe('A2.1');
 	});
+
+	it('does not jump to a level the learner only peeked at', () => {
+		const facts = { zahlen: done(), artikel: done(), plural: done(), hoeren: done(), far: done() };
+		expect(deckLevel(COURSE, facts, null)).toBe('A1.2');
+		const deck = buildDeck(COURSE, facts, opts({ random: seeded(3) }));
+		expect(deck.map((c) => c.quiz.level)).not.toContain('B2.1');
+	});
 });
 
 describe('buildDeck', () => {

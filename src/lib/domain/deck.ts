@@ -30,6 +30,7 @@
 import type { QuizSummary as Quiz, QuizType } from '$lib/content/types';
 import { recommend, WEAK_MISTAKE_RATE, type QuizFacts, type RecommendationKind } from './recommend';
 import { reviewDue, strengths } from './review';
+import { estimateLevel, levelsOf } from './level';
 
 export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story' | 'song';
 
@@ -173,15 +174,14 @@ export function typeLabel(type: QuizType): string {
 }
 
 /** The distinct sub-levels of a course, in ladder order. */
-export function courseLevels(quizzes: Quiz[]): string[] {
-	return [...new Set(quizzes.map((quiz) => quiz.level ?? '').filter(Boolean))];
-}
+export const courseLevels = levelsOf;
 
 /**
  * The sub-level the deck centres on. A level the learner picked wins
  * outright — picking A1.1 means A1.1, however far they have got. With no
- * pick ("work it out from my progress") it is the furthest sub-level with
- * anything finished, or the first.
+ * pick ("work it out from my progress") it is the learner's overall level
+ * from level.ts: the highest sub-level with real evidence, not the highest
+ * they ever dipped into.
  */
 export function deckLevel(
 	quizzes: Quiz[],
@@ -191,11 +191,7 @@ export function deckLevel(
 	const levels = courseLevels(quizzes);
 	if (levels.length === 0) return null;
 	if (picked && levels.includes(picked)) return picked;
-	let index = -1;
-	for (const quiz of quizzes) {
-		if (facts[quiz.id]?.done) index = Math.max(index, levels.indexOf(quiz.level ?? ''));
-	}
-	return levels[Math.max(0, index)];
+	return estimateLevel(quizzes, facts);
 }
 
 export function buildDeck(

@@ -48,11 +48,6 @@ export function buildLadder(course: CourseSummary, isDone: IsDone): LadderLevel[
 	});
 }
 
-/** The sub-level the learner should be sent to — the first unfinished one. */
-export function currentLevel(ladder: LadderLevel[]): LadderLevel | undefined {
-	return ladder.find((level) => !level.complete) ?? ladder.at(-1);
-}
-
 /** The next quiz to do, or undefined when the course is finished. */
 export function nextQuiz(ladder: LadderLevel[], isDone: IsDone): QuizSummary | undefined {
 	for (const level of ladder) {

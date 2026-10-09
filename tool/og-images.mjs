@@ -82,21 +82,6 @@ for (const group of course.nav.groups) {
 	});
 }
 
-const KINDS = {
-	fillBlank: ['Fill in the blank', 'Articles, cases and endings, one sentence at a time'],
-	reading: ['Reading', 'Short German texts with comprehension questions'],
-	listening: ['Listening', 'Hear a passage read aloud, then answer'],
-	dictation: ['Dictation', 'Type what you hear'],
-	speakRepeat: ['Repeat aloud', 'Copy native-sounding phrases'],
-	speaking: ['Speaking', 'Guided conversation prompts']
-};
-for (const [type, [title, sub]] of Object.entries(KINDS)) {
-	images.push({
-		name: `type-${type.toLowerCase()}`,
-		svg: card({ kicker: 'German exercises', title, sub, accent: NAVY })
-	});
-}
-
 images.push({
 	name: 'words-nouns',
 	svg: card({ kicker: 'Word library', title: 'der, die or das?', sub: 'Every German noun with its article, plural and cases' })

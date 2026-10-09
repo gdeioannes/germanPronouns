@@ -49,10 +49,6 @@ export async function loadSyllabus(id: string): Promise<CourseSyllabus | null> {
 	return (await syllabi[path]()).default;
 }
 
-export function isReading(quiz: Quiz): quiz is ReadingQuiz {
-	return quiz.type === 'reading';
-}
-
 /** The listing fields of a quiz, and nothing of the exercise behind them. */
 export function summarizeQuiz(quiz: Quiz): QuizSummary {
 	const { id, type, title, storageKeyPrefix, level, status, covers, image } = quiz;

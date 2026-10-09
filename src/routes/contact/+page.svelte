@@ -5,9 +5,11 @@
 	// bots that read the page source (or run cheap scrapers) come up empty.
 	import Seo from '$lib/components/Seo.svelte';
 	import { ORGANIZATION, absoluteUrl, breadcrumbLd } from '$lib/seo';
+	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 
 	// "gdeioannes" + "@" + "gmail.com", as char codes. Decoded on demand only.
 	const CODES = [103, 100, 101, 105, 111, 97, 110, 110, 101, 115, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109];
@@ -72,6 +74,8 @@
 	description="Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address."
 	path="/contact"
 />
+
+<SiteNav courseHref={page.data.site?.courseHref ?? '/'} />
 
 <main class="page">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>

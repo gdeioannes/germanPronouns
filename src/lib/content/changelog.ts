@@ -16,6 +16,23 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-10",
+    title: "A new front door, menus that take you places, and 188 more verbs",
+    highlight: true,
+    items: [
+      "The home page was redrawn around what you actually do here: swipe. A learner sits with the course's cards swirling out of her phone, and the picture itself is the way in. Under it, the four things that matter — nothing locked, learning that is fun, repetition at your own pace, and mysteries to solve — and a How it works in three steps, each with an exercise you can try on the spot.",
+      "The top menu now takes you somewhere instead of scrolling the front page. Three groups: Levels lists all twelve modules by name, Library holds the word library, the printable workbooks, the stories and the songs, and About has the about page, what's new and contact. On a phone the same groups sit under Menu, the twelve levels as a tight three-column grid. The \"something new\" dot moves to About, and to Menu on a phone.",
+      "Stories has a shelf of its own: every episode with its picture, its level and a line about the case, so you pick an episode instead of being dropped into one. The cover of each story lists the other episodes too.",
+      "The song page has a playlist under the lyrics: every song with its own play button and a link to the exercise that drills what it teaches. Pressing play on another song takes you there and starts it straight away.",
+      "The word library front page shows its three collections as cards — nouns by theme, verbs conjugated in five tenses, and the small words A to Z — each with how many it holds.",
+      "188 more verbs in the library, from buchstabieren and rauchen to ankommen, mitkommen and zurückkommen, every one conjugated in full. That is 354 in all, so every verb the course uses now has its own page.",
+      "The deck works out your level from everything you have done, not from the highest thing you ever finished. One peek at a C2 exercise after a month of A1 no longer makes the deck treat you as a C2 learner: a level counts as yours once there is real evidence at it, and a finish that went badly counts for little. The deck, the suggestions, the story and song cards and the level chip now all agree.",
+      "In a picture hunt the two modes — find it, or find it and name its article — are now one small switch beside the question, and the nudges float over the top of the picture instead of taking a row of their own, so the room gets the whole card.",
+      "The cards behind the top one in your deck now peek out above it as neat coloured edges, like a pile of cards, instead of fanning out below.",
+      "The what's new and contact pages have the same top bar as the rest of the site.",
+    ],
+  },
+  {
     date: "2026-10-09",
     title: "Bigger, flatter picture hunts",
     items: [

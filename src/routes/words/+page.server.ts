@@ -1,4 +1,5 @@
 import { nouns, pictureFor, verbs } from '$lib/server/words';
+import dictionary from '$content/shared/dictionary/de.json';
 import { wordSlug } from '$lib/domain/words';
 import { catalog, loadCourse } from '$lib/content';
 import type { PageServerLoad } from './$types';
@@ -38,9 +39,16 @@ export const load: PageServerLoad = async () => {
 			};
 		});
 
+	// The small words the dictionary page lists: everything that is not a
+	// noun, verb or name — for the browse card's count.
+	const smallWords = (dictionary.entries as { pos?: string }[]).filter(
+		(e) => e.pos !== 'noun' && e.pos !== 'verb' && e.pos !== 'name'
+	).length;
+
 	return {
 	courseId,
 	decks,
+	smallWords,
 	nouns: nouns.map((n) => {
 		const slug = wordSlug(n.noun);
 		return {

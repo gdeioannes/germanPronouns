@@ -264,7 +264,7 @@
 	@media (max-width: 36rem) {
 		.tracker {
 			column-gap: 0.6rem;
-			row-gap: 0.35rem;
+			row-gap: 0.3rem;
 			padding: 0.45rem 0.75rem 0.5rem;
 			margin-bottom: 0.6rem;
 		}

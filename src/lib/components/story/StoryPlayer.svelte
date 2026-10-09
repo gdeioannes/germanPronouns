@@ -16,6 +16,7 @@
 	import StopsBeat from './StopsBeat.svelte';
 	import TileBuilder from './TileBuilder.svelte';
 	import type { Beat, BeatHost, Chapter, Episode, MicroCheck, Opt } from './types';
+	import { STORY_EPISODES } from '$lib/domain/stories';
 
 	let {
 		episode,
@@ -675,6 +676,22 @@
 				<button class="btn" onclick={() => startChapter(linearNext ?? ep.chapters[0].id)}>
 					{doneChapters.length ? 'Continue' : 'Start the episode'}
 				</button>
+				<!-- All the episodes, so the cover doubles as the series shelf. -->
+				<nav class="episodes" aria-label="Episodes">
+					<p class="episodes-head">Episodes</p>
+					<ol>
+						{#each STORY_EPISODES as e, i (e.id)}
+							{@const here = e.href === path}
+							<li class:here aria-current={here ? 'page' : undefined}>
+								<a href={e.href}>
+									<span class="ep-n tnum">{i + 1}</span>
+									<span class="ep-title">{e.title}</span>
+									<span class="ep-tag">{e.tagline}</span>
+								</a>
+							</li>
+						{/each}
+					</ol>
+				</nav>
 			{:else}
 				<h1>{resolve(ep.hub.title ?? 'Three leads. Your call, partner.')}</h1>
 				<div class="leads">
@@ -1611,5 +1628,56 @@
 		display: flex;
 		gap: 0.75rem;
 		flex-wrap: wrap;
+	}
+
+	/* The series shelf under the cover: one row per episode, this one marked. */
+	.episodes {
+		margin-top: 1.6rem;
+		text-align: left;
+	}
+	.episodes-head {
+		margin: 0 0 0.4rem;
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--accent-ink);
+	}
+	.episodes ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.4rem;
+	}
+	.episodes a {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: 0.7rem;
+		align-items: center;
+		padding: 0.55rem 0.8rem;
+		border: 1px solid var(--line);
+		border-radius: 0.7rem;
+		background: var(--surface);
+		color: inherit;
+		text-decoration: none;
+	}
+	.episodes a:hover {
+		border-color: var(--line-strong);
+	}
+	.episodes .here a {
+		border-color: var(--accent);
+	}
+	.ep-n {
+		grid-row: 1 / 3;
+		font-weight: 800;
+		color: var(--accent-ink);
+	}
+	.ep-title {
+		font-weight: 700;
+	}
+	.ep-tag {
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 </style>

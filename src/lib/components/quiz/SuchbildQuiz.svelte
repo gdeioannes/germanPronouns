@@ -457,16 +457,28 @@
 
 <RunTracker {results} total={RUN_LENGTH} {streak} {best} />
 
-<div class="controls">
-	<div class="modes" role="group" aria-label="Hunt mode">
+{#snippet modes()}
+	<!-- One switch, not two pills: a click anywhere on it flips the mode, and
+	     the navy thumb slides to the icon in play. -->
+	<button
+		type="button"
+		class="modes"
+		role="switch"
+		aria-checked={mode === 'name'}
+		aria-label="Ask for the article too"
+		title={mode === 'find' ? 'Find it — click for Find + article' : 'Find + article — click for Find it'}
+		disabled={locked}
+		onclick={() => setMode(mode === 'find' ? 'name' : 'find')}
+	>
 		{#each MODES as m (m.id)}
-			<button type="button" class="mode" aria-pressed={mode === m.id} disabled={locked} onclick={() => setMode(m.id)}>
-				<Icon name={m.icon} size="0.95em" />
-				{m.label}
-			</button>
+			<span class="mode" class:on={mode === m.id}><Icon name={m.icon} size="1.1em" /></span>
 		{/each}
-	</div>
-</div>
+	</button>
+{/snippet}
+
+<!-- The modes live in the card: beside the question on a wide screen, in the
+     card's top row on a phone (the pressed pill then says what the eyebrow
+     would), so nothing sits between the bar and the picture. -->
 
 {#if runDone}
 	<RunSummary
@@ -487,9 +499,12 @@
 	<section class="card" style="--gender:{colour(current)}">
 	<div class="ask">
 		<div class="ask-top">
-			<p class="prompt-label">{mode === 'find' ? 'Find it in the picture' : 'Find it, then its article'}</p>
+			<p class="prompt-label">{mode === 'find' ? 'Tap it in the picture' : 'Tap it, then its article'}</p>
+			<div class="modes-inline">{@render modes()}</div>
 			<span class="count tnum">{found.length} / {quiz.spots.length} found</span>
 		</div>
+		<div class="q-row">
+		<div class="modes-wide">{@render modes()}</div>
 		{#if locked}
 			<p class="q" lang={locale}>
 				<span class="article">{current.article}</span>
@@ -511,7 +526,15 @@
 				{current.de}?
 			</p>
 		{/if}
+		</div>
 
+	</div>
+
+	<!-- The room. Spots are invisible buttons over the picture; a found one
+	     keeps a tick from then on. -->
+	<div class="bleed">
+	<!-- The status floats over the top of the room, so it takes no row of
+	     its own: nudges, the verdict, the der/die/das buttons. -->
 		<div class="status">
 		{#if phase === 'article' && !locked}
 			<div class="articles" role="group" aria-label="Article">
@@ -532,15 +555,13 @@
 					Found — but not on the first try, so it counts as a miss.
 				{/if}
 			</p>
-		{:else}
-			<p class="nudge" class:miss={tappedWrong}>
-				{#if tappedWrong}
-					Not that one — that's <span lang={locale}>{full(tappedWrong)}</span>. Keep looking
-					({MAX_MISSES - misses} {MAX_MISSES - misses === 1 ? 'try' : 'tries'} left).
-				{:else}
-					{#key blank}{blank ? 'Nothing to find there — try another spot.' : 'Tap it in the picture.'}{/key}
-				{/if}
+		{:else if tappedWrong}
+			<p class="nudge miss">
+				Not that one — that's <span lang={locale}>{full(tappedWrong)}</span>. Keep looking
+				({MAX_MISSES - misses} {MAX_MISSES - misses === 1 ? 'try' : 'tries'} left).
 			</p>
+		{:else if blank}
+			{#key blank}<p class="nudge">Nothing to find there — try another spot.</p>{/key}
 		{/if}
 		{#if locked && progress.answerRevealMode === 'manual'}
 			<button type="button" class="btn next" disabled={!skip} onclick={() => skip?.()}>
@@ -548,11 +569,6 @@
 			</button>
 		{/if}
 		</div>
-	</div>
-
-	<!-- The room. Spots are invisible buttons over the picture; a found one
-	     keeps a tick from then on. -->
-	<div class="bleed">
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
 	<div
 		class="room"
@@ -640,45 +656,59 @@
 {/if}
 
 <style>
-	.controls {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: 0.6rem;
-		margin-bottom: 0.9rem;
-	}
-
 	.modes {
+		position: relative;
 		display: inline-flex;
 		padding: 0.2rem;
 		border: 1px solid var(--line);
 		border-radius: 999px;
 		background: var(--surface-alt);
+		cursor: pointer;
 	}
 
+	.modes:disabled {
+		cursor: default;
+		opacity: 0.7;
+	}
+
+	.modes:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	/* The thumb sits under the first icon and slides to the second. */
+	.modes::before {
+		content: '';
+		position: absolute;
+		top: 0.2rem;
+		left: 0.2rem;
+		width: 2.1rem;
+		height: 1.9rem;
+		border-radius: 999px;
+		background: var(--heading);
+		box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
+		transition: translate var(--fast) var(--ease-out);
+	}
+
+	.modes[aria-checked='true']::before {
+		translate: 2.1rem 0;
+	}
+
+	/* Icon-only: a magnifier for `find`, the word mark for `name`; the label
+	   is the title and the screen-reader name. */
 	.mode {
+		position: relative;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
-		padding: 0.38rem 0.85rem;
-		border: 1px solid transparent;
-		border-radius: 999px;
-		background: none;
+		justify-content: center;
+		width: 2.1rem;
+		height: 1.9rem;
 		color: var(--ink-muted);
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.03em;
-		cursor: pointer;
-		transition:
-			background var(--fast) var(--ease-out),
-			color var(--fast) var(--ease-out);
+		transition: color var(--fast) var(--ease-out);
 	}
 
-	.mode[aria-pressed='true'] {
-		background: var(--heading);
+	.mode.on {
 		color: var(--paper);
-		box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
 	}
 
 	/* ── The card ────────────────────────────────────────────────────────── */
@@ -692,8 +722,8 @@
 	.card {
 		display: flex;
 		flex-direction: column;
-		gap: 0.9rem;
-		padding: 1.25rem 1.25rem 1.1rem;
+		gap: 0.35rem;
+		padding: 1rem 1.25rem 1.1rem;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
 		background: var(--surface);
@@ -719,24 +749,67 @@
 		color: var(--accent-ink);
 	}
 
+	/* Question on the left, the modes on the right of the same row. */
+	.q-row {
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.4rem 1rem;
+	}
+
+	.q-row .q {
+		flex: 1 1 auto;
+	}
+
+	.modes-wide {
+		flex: none;
+		margin-top: 0.45rem;
+	}
+
+	/* The phone seat, in the card's top row (see the media query). */
+	.modes-inline {
+		display: none;
+	}
+
 	.count {
 		font-size: 0.78rem;
 		font-weight: 700;
 		color: var(--ink-muted);
 	}
 
-	/* One line under the question, always there, so nothing jumps. */
+	/* Over the room's top edge, centred; empty, it is nothing at all. */
 	.status {
+		position: absolute;
+		top: 0.5rem;
+		left: 50%;
+		z-index: 3;
+		translate: -50% 0;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		justify-content: center;
 		gap: 0.4rem 0.9rem;
-		min-height: 2.6rem;
-		margin-top: 0.3rem;
+		max-width: calc(100% - 1rem);
+		pointer-events: none;
+	}
+
+	.status > * {
+		pointer-events: auto;
+	}
+
+	.status .nudge,
+	.status .verdict {
+		padding: 0.25rem 0.7rem;
+		border-radius: 999px;
+		background: rgb(255 250 240 / 0.94);
+		box-shadow: 0 1px 4px rgb(31 58 95 / 0.18);
+		text-align: center;
 	}
 
 	.q {
-		margin: 0.45rem 0 0;
+		margin: 0.25rem 0 0;
 		max-width: none;
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-2);
@@ -854,6 +927,7 @@
 
 	/* Phone: the room runs to the card's edges (see the media query). */
 	.bleed {
+		position: relative;
 		display: flex;
 		justify-content: center;
 	}
@@ -1044,9 +1118,42 @@
 	}
 
 	@media (max-width: 36rem) {
+		/* Every row above the picture costs a strip of the room, so the modes
+		   move into the card's top row, the eyebrow goes (the pressed pill says
+		   it), the question shrinks a step and the status line only takes the
+		   height it needs. */
+		.modes-wide {
+			display: none;
+		}
+		.modes-inline {
+			display: block;
+		}
+		.ask-top {
+			align-items: center;
+		}
+		.modes {
+			padding: 0.15rem;
+		}
+		.modes::before {
+			top: 0.15rem;
+			left: 0.15rem;
+			width: 1.9rem;
+			height: 1.7rem;
+		}
+		.modes[aria-checked='true']::before {
+			translate: 1.9rem 0;
+		}
+		.mode {
+			width: 1.9rem;
+			height: 1.7rem;
+		}
+		.q {
+			margin-top: 0.4rem;
+			line-height: 1.2;
+		}
 		.card {
-			padding: 1rem 0.85rem 0.85rem;
-			gap: 0.7rem;
+			padding: 0.6rem 0.85rem 0.7rem;
+			gap: 0.3rem;
 		}
 		/* Every pixel counts on a phone: the room runs edge to edge. */
 		.bleed {
@@ -1056,7 +1163,7 @@
 			border-radius: 0;
 		}
 		.q {
-			font-size: var(--step-1);
+			font-size: var(--step-0);
 		}
 	}
 

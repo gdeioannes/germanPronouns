@@ -17,7 +17,7 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	const { nouns, verbs, decks, courseId } = $derived(data);
+	const { nouns, verbs, decks, courseId, smallWords } = $derived(data);
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 
 	// The decks' ribbons and weak-word counts come from local storage, so
@@ -59,8 +59,8 @@
 </script>
 
 <Seo
-	title="German nouns & verbs: gender, plural, conjugation | Language Quiz"
-	description="Every German noun and verb in the course: der, die or das, plural forms and full conjugation tables, each with audio. Free, no sign-up."
+	title="German word library: nouns, verbs & small words | Language Quiz"
+	description="Every German word in the course: {nouns.length} nouns with der, die, das and plural, {verbs.length} conjugated verbs, and the small words that hold a sentence together. Audio, free."
 	path="/words"
 	image={shareImage('words', 'nouns')}
 	imageAlt="German nouns with their articles and plurals"
@@ -78,11 +78,36 @@
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
 	<h1>Word Library</h1>
 	<p class="lede">
-		Search the course's German words. Or browse <a href="/words/nouns">all {nouns.length} nouns by
-		theme</a>, <a href="/words/verbs">all {verbs.length} verbs</a> and
-		<a href="/words/dictionary">the small words</a> — the pronouns, prepositions and particles
-		that hold a sentence together.
+		Every German word the course uses, with its article, plural, conjugation and audio.
 	</p>
+
+	<!-- The three collections, each with its own browsable page. -->
+	<nav class="browse" aria-label="Browse the library">
+		<a class="browse-card" href="/words/nouns">
+			<span class="browse-icon" aria-hidden="true"><Icon name="words" size="1.3em" /></span>
+			<span class="browse-text">
+				<strong>Nouns <span class="tnum">({nouns.length})</span></strong>
+				<span>By theme, with der, die, das and the plural.</span>
+			</span>
+			<Icon name="arrowRight" size="1em" class="browse-go" />
+		</a>
+		<a class="browse-card" href="/words/verbs">
+			<span class="browse-icon" aria-hidden="true"><Icon name="repeat" size="1.3em" /></span>
+			<span class="browse-text">
+				<strong>Verbs <span class="tnum">({verbs.length})</span></strong>
+				<span>Conjugated: Präsens, Präteritum, Perfekt, Futur, Imperativ.</span>
+			</span>
+			<Icon name="arrowRight" size="1em" class="browse-go" />
+		</a>
+		<a class="browse-card" href="/words/dictionary">
+			<span class="browse-icon" aria-hidden="true"><Icon name="book" size="1.3em" /></span>
+			<span class="browse-text">
+				<strong>Small words <span class="tnum">({smallWords})</span></strong>
+				<span>Pronouns, prepositions and particles, A to Z.</span>
+			</span>
+			<Icon name="arrowRight" size="1em" class="browse-go" />
+		</a>
+	</nav>
 
 	<!-- Flashcards first: the fastest way to actually learn the words below. -->
 	<section class="decks" aria-labelledby="decks-head">
@@ -182,6 +207,65 @@
 
 	.lede {
 		margin: 0 0 1.25rem;
+		color: var(--ink-muted);
+	}
+
+	/* -- Browse cards ------------------------------------------------------- */
+
+	.browse {
+		display: grid;
+		gap: 0.6rem;
+		grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		margin: 0 0 2.25rem;
+	}
+
+	.browse-card {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: 0.8rem;
+		padding: 0.85rem 1rem;
+		border: 1px solid var(--line-strong);
+		border-radius: var(--radius-sm);
+		background: var(--surface);
+		color: inherit;
+		text-decoration: none;
+		box-shadow: 0 3px 10px rgb(31 58 95 / 0.05);
+		transition:
+			transform var(--fast) var(--ease-out),
+			box-shadow var(--fast) var(--ease-out);
+	}
+
+	.browse-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 22px rgb(31 58 95 / 0.1);
+	}
+
+	.browse-icon {
+		display: grid;
+		place-items: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		border-radius: 50%;
+		background: var(--surface-alt);
+		color: var(--accent-ink);
+	}
+
+	.browse-text {
+		display: grid;
+		gap: 0.1rem;
+	}
+
+	.browse-text strong {
+		font-size: var(--step-0);
+	}
+
+	.browse-text span:not(.tnum) {
+		color: var(--ink-muted);
+		font-size: var(--step--1);
+	}
+
+	.browse-card :global(.browse-go) {
 		color: var(--ink-muted);
 	}
 

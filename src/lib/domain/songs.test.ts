@@ -1,8 +1,18 @@
 import { describe, expect, it } from "vitest";
 import { SONGS, songDeckCard } from "./songs";
 import { songDescription, songLd, songTitle } from "$lib/seo";
+import course from "$content/courses/de_cert_a1.json";
 
 describe("SONGS registry", () => {
+  it("every song points at a real exercise of its level", () => {
+    const quizzes = (course as { quizzes: { id: string; level: string }[] }).quizzes;
+    for (const s of SONGS) {
+      const q = quizzes.find((x) => x.id === s.quiz);
+      expect(q, `${s.id} → ${s.quiz}`).toBeDefined();
+      expect(q?.level).toBe(s.level);
+    }
+  });
+
   it("every song has a route, a recording and lyrics", () => {
     for (const s of SONGS) {
       expect(s.href).toMatch(/^\/song\//);

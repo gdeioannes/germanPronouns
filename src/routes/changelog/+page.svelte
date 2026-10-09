@@ -2,11 +2,13 @@
 	// What's new: the changelog, rendered as a timeline of releases. The list
 	// itself lives in $lib/content/changelog.ts — this page only lays it out.
 	import Seo from '$lib/components/Seo.svelte';
+	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { changelog } from '$lib/content/changelog';
 	import { ORGANIZATION, absoluteUrl, breadcrumbLd } from '$lib/seo';
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 	import { markWhatsNewSeen } from '$lib/state/whatsNew.svelte';
 
 	// Opening the changelog puts out the "something new" dot in the nav.
@@ -52,6 +54,8 @@
 	description="The Language Quiz changelog: new features, content and improvements to the free German course, release by release."
 	path="/changelog"
 />
+
+<SiteNav courseHref={page.data.site?.courseHref ?? '/'} />
 
 <main class="page">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>

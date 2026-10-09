@@ -42,6 +42,8 @@ export interface Song {
    * start of the level.
    */
   after?: string;
+  /** The exercise that drills what the song teaches; the page links to it. */
+  quiz: string;
 }
 
 const de = (text: string, gloss: string): SongLine => ({ text, lang: "de", gloss });
@@ -56,6 +58,7 @@ export const SONGS: Song[] = [
     tagline:
       "A rap about landing in Berlin with zero German. Shout the hook, learn the sein table.",
     href: "/song/ich-bin-max",
+    quiz: "quest_a1_1_sein_haben",
     audio: "/audio/songs/ich_bin_max.mp3",
     teaches: [
       "ich bin, du bist, er ist, sie ist, wir sind, ihr seid, sie sind",
@@ -187,6 +190,7 @@ export const SONGS: Song[] = [
     tagline:
       "One day in Berlin, rapped in English with every A1.1 noun wearing its article. Shout the DER, DIE, DAS.",
     href: "/song/der-die-das",
+    quiz: "quest_a1_1_artikel",
     audio: "/audio/songs/der_die_das.mp3",
     after: "quest_a1_1_artikel",
     teaches: [

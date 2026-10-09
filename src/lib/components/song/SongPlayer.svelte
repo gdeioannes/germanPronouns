@@ -5,12 +5,19 @@
 	// no medal: a song is a treat, not a test.
 	import Seo from '$lib/components/Seo.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
-	import { markSongHeard, songHeard, type Song } from '$lib/domain/songs';
+	import { markSongHeard, SONGS, songHeard, type Song } from '$lib/domain/songs';
 	import { breadcrumbLd, shareImage, songDescription, songLd, songTitle } from '$lib/seo';
 	import { announce } from '$lib/a11y.svelte';
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 
 	let { song, courseName }: { song: Song; courseName: string } = $props();
+
+	// The playlist under the lyrics lists every song, this one included, each
+	// with its own play button and the exercise that drills its material.
+	// Arriving with ?play starts the song straight away (from another song's
+	// play button — the tap counts as the gesture browsers want).
+	const autoplay = $derived(page.url.searchParams.has('play'));
 
 	let audio: HTMLAudioElement | undefined = $state();
 	let playing = $state(false);
@@ -20,6 +27,7 @@
 
 	onMount(() => {
 		heard = songHeard(song.id);
+		if (autoplay) void audio?.play().catch(() => {});
 	});
 
 	function toggle() {
@@ -174,6 +182,32 @@
 		</label>
 		<a class="back-link" href="/course/{song.courseId}">Back to the course</a>
 	</section>
+
+	<section class="more" aria-label="Songs">
+		<h2>Songs</h2>
+		<ul>
+			{#each SONGS as s (s.id)}
+				{@const current = s.id === song.id}
+				<li class="row" class:current aria-current={current ? 'page' : undefined}>
+					{#if current}
+						<button type="button" class="row-play" onclick={toggle} aria-label={playing ? 'Pause' : 'Play'}>
+							<Icon name={playing ? 'pause' : 'play'} size="1.2em" />
+						</button>
+					{:else}
+						<a class="row-play" href="{s.href}?play" aria-label="Play {s.title}">
+							<Icon name="play" size="1.2em" />
+						</a>
+					{/if}
+					{#if current}
+						<strong class="row-text">{s.title}</strong>
+					{:else}
+						<a class="row-text row-title" href={s.href}>{s.title}</a>
+					{/if}
+					<a class="row-quiz" href="/course/{s.courseId}/quiz/{s.quiz}">Quiz</a>
+				</li>
+			{/each}
+		</ul>
+	</section>
 </main>
 
 <style>
@@ -197,8 +231,8 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.4rem;
-		height: 2.4rem;
+		width: 2rem;
+		height: 2rem;
 		flex: none;
 		margin-left: -0.4rem;
 		border-radius: 50%;
@@ -430,5 +464,76 @@
 	}
 	.back-link {
 		align-self: flex-start;
+	}
+
+	/* The playlist: one slim row per song — play, title, and the exercise it
+	   goes with. The current song is marked. */
+	.more {
+		margin-top: 2rem;
+	}
+	.more h2 {
+		margin: 0 0 0.6rem;
+		font-size: var(--step-0);
+	}
+	.more ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.4rem;
+	}
+	.row {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		padding: 0.4rem 0.6rem;
+		border: 1px solid var(--line);
+		border-radius: 0.75rem;
+		background: var(--surface);
+	}
+	.row.current {
+		border-color: var(--accent);
+	}
+	.row-play {
+		flex: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		border: 0;
+		border-radius: 50%;
+		background: var(--accent);
+		color: var(--bg);
+		cursor: pointer;
+		text-decoration: none;
+	}
+	.row-text {
+		flex: 1;
+		min-width: 0;
+		font-weight: 700;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.row-title {
+		color: inherit;
+		text-decoration: none;
+	}
+	.row-title:hover {
+		text-decoration: underline;
+	}
+	.row-quiz {
+		flex: none;
+		padding: 0.35rem 0.8rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		font-size: var(--step--1);
+		font-weight: 600;
+		color: var(--heading);
+		text-decoration: none;
+	}
+	.row-quiz:hover {
+		background: var(--surface-alt);
 	}
 </style>
