@@ -36,6 +36,26 @@ describe('estimateLevel', () => {
 		expect(estimateLevel(COURSE, facts)).toBe('B1.1');
 	});
 
+	it('lets strong work above prove the levels beneath it', () => {
+		// Thin A2 evidence, but plenty of B1.1 finishes: the learner is a B1 learner,
+		// not stuck at A1.2 because A2.1 is a small share of their total.
+		const facts = {
+			...finished('A1.1', 8),
+			...finished('A1.2', 7),
+			...finished('A2.1', 4),
+			...finished('A2.2', 3),
+			...finished('B1.1', 7),
+			...finished('C2.2', 1)
+		};
+		expect(estimateLevel(COURSE, facts)).toBe('B1.1');
+	});
+
+	it('does not let a thin level above bridge a gap', () => {
+		// Three C2.2 finishes are a peek, not proof of B1 and A2.
+		const facts = { ...finished('A1.1', 8), ...finished('A1.2', 8), ...finished('A2.1', 6), ...finished('C2.2', 3) };
+		expect(estimateLevel(COURSE, facts)).toBe('A2.1');
+	});
+
 	it('uses the level with the most done before anything is held', () => {
 		expect(estimateLevel(COURSE, { ...finished('A1.2', 2), ...finished('A2.1', 1) })).toBe('A1.2');
 	});

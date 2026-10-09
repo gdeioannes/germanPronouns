@@ -63,11 +63,14 @@ export function levelEvidence(quizzes: Quiz[], facts: Record<string, QuizFacts>)
 /**
  * The learner's overall sub-level, or null for a course with no levels.
  *
- *   1. A level is *held* when its evidence reaches HOLD_EVIDENCE (or the whole
- *      level, when it is smaller), is at least HOLD_SHARE of everything the
- *      learner has done, and sits on a held level below it — or is most of
- *      the learner's work, as after a placement straight into B1. The
- *      highest held level is the base.
+ *   1. A level has *evidence* when its score reaches HOLD_EVIDENCE (or the
+ *      whole level, when it is smaller). It is *strong* when that evidence is
+ *      also at least HOLD_SHARE of everything the learner has done, so a few
+ *      peeks at C2 never count. A level with evidence is *held* when it sits
+ *      on a held level, or a strong level lies above it (eleven B1.1 finishes
+ *      prove A2 as surely as anything done at A2), or it is most of the
+ *      learner's work, as after a placement straight into B1. The highest
+ *      held level is the base.
  *   2. With nothing held yet, the level with the most evidence is the base
  *      (ties go to the higher one); a newcomer starts at the first level.
  *   3. A base where most finishes went badly steps down one, so the deck eases
@@ -78,14 +81,20 @@ export function estimateLevel(quizzes: Quiz[], facts: Record<string, QuizFacts>)
 	const rows = levelEvidence(quizzes, facts);
 	if (rows.length === 0) return null;
 	const totalScore = rows.reduce((n, r) => n + r.score, 0);
-	const enough = (r: LevelEvidence) =>
-		r.score > 0 && r.score >= Math.min(HOLD_EVIDENCE, r.total) && r.score >= totalScore * HOLD_SHARE;
-	// A level is held when it has enough evidence and is not an island: the
-	// level below is held too, or this level is most of what the learner has
-	// done (someone placed straight into B1 has nothing below it).
+	const evidence = (r: LevelEvidence) => r.score > 0 && r.score >= Math.min(HOLD_EVIDENCE, r.total);
+	const strong = (r: LevelEvidence) => evidence(r) && r.score >= totalScore * HOLD_SHARE;
+	const majority = (r: LevelEvidence) => r.score >= totalScore * 0.5;
+	// Walking down from the top: once a strong level has been seen, every level
+	// with evidence below it is held — work above proves the levels beneath.
+	const strongAbove: boolean[] = [];
+	for (let i = rows.length - 1, seen = false; i >= 0; i--) {
+		strongAbove[i] = seen;
+		seen ||= strong(rows[i]);
+	}
 	const held: boolean[] = [];
 	rows.forEach((r, i) => {
-		held[i] = enough(r) && (i === 0 || held[i - 1] || r.score >= totalScore * 0.5);
+		if (!evidence(r)) return void (held[i] = false);
+		held[i] = i === 0 || held[i - 1] || strongAbove[i] || (strong(r) && majority(r));
 	});
 
 	let index = held.lastIndexOf(true);
