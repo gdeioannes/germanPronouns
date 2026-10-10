@@ -10,6 +10,8 @@
 	// is prerendered a crawler sees all of it as plain HTML.
 	import Icon from '$lib/icons/Icon.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
+	import { account } from '$lib/state/account.svelte';
+	import { openSignIn } from '$lib/state/signin.svelte';
 	import { STORY_EPISODES } from '$lib/domain/stories';
 	import { progress } from '$lib/state/progress.svelte';
 	import { onMount } from 'svelte';
@@ -205,6 +207,12 @@
 				</span>
 				<span class="deal-sub">{returning ? 'Your next card is ready' : 'Free · no account · 5 minutes'}</span>
 			</a>
+			{#if account.available && !account.signedIn}
+				<p class="have-account">
+					Already learning on another device?
+					<button type="button" onclick={openSignIn}>Sign in</button>
+				</p>
+			{/if}
 		</div>
 	</section>
 
@@ -352,6 +360,24 @@
 		max-width: 72rem;
 		margin: 0 auto;
 		padding: 2rem 1.25rem 0;
+	}
+
+	.have-account {
+		margin: 0.6rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.have-account button {
+		padding: 0;
+		border: 0;
+		background: none;
+		color: var(--accent-ink);
+		font: inherit;
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		cursor: pointer;
 	}
 
 	/* -- hero ------------------------------------------------------------- */

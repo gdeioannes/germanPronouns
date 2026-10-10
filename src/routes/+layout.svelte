@@ -6,11 +6,13 @@
 	import { navDirection, prefersReducedMotion } from '$lib/motion';
 	import { trackScreenView } from '$lib/services/analytics';
 	import { account } from '$lib/state/account.svelte';
+	import { forum } from '$lib/state/forum.svelte';
 	import { tts } from '$lib/services/speech';
 	import FxLayer from '$lib/components/FxLayer.svelte';
 	import VoiceNotice from '$lib/components/VoiceNotice.svelte';
 	import Announcer from '$lib/components/Announcer.svelte';
 	import MergePanel from '$lib/components/MergePanel.svelte';
+	import SignInSheet from '$lib/components/SignInSheet.svelte';
 	// Self-hosted fonts: no third-party request blocks the first paint, and the
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
@@ -44,6 +46,12 @@
 		const flush = () => void account.flush();
 		window.addEventListener('pagehide', flush);
 		return () => window.removeEventListener('pagehide', flush);
+	});
+
+	// Signed in, the forum inbox is checked once per visit: a reply to one of
+	// the learner's topics puts a dot on the forum link in the nav.
+	$effect(() => {
+		if (account.signedIn) void forum.refresh();
 	});
 
 	// One screen_view per navigation, the same signal the Flutter router
@@ -121,4 +129,5 @@
 <!-- Asked once, at the first sign-in on this browser, when two devices'
      progress meet. Silent every other time. -->
 <MergePanel />
+<SignInSheet />
 <Announcer />

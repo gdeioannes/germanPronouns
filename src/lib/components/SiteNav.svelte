@@ -19,6 +19,9 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import Logo from '$lib/components/Logo.svelte';
 	import { whatsNew, initWhatsNew } from '$lib/state/whatsNew.svelte';
+	import { forum } from '$lib/state/forum.svelte';
+	import { account } from '$lib/state/account.svelte';
+	import { openSignIn } from '$lib/state/signin.svelte';
 	import { SONGS } from '$lib/domain/songs';
 
 	onMount(initWhatsNew);
@@ -139,6 +142,15 @@
 	<a href={firstSong}><Icon name="headphones" size="1em" /> Songs</a>
 {/snippet}
 
+<!-- The forum is a root link, not a dropdown entry: it is where a learner goes
+     to say something is wrong, and the dot is how they learn it was answered. -->
+{#snippet forumLink()}
+	<a class="forum-link" href="/forum" aria-label={forum.unread.length ? 'Forum — new replies to your topics' : undefined}>
+		<Icon name="forum" size="1em" /> Forum
+		{#if forum.unread.length}<span class="dot inline" aria-hidden="true"></span>{/if}
+	</a>
+{/snippet}
+
 <!-- In the About dropdown the first link names the site, so it does not just
      repeat the button it hangs from. -->
 {#snippet aboutLinks(aboutLabel = 'About')}
@@ -152,6 +164,22 @@
 		{#if whatsNew.unseen}<span class="dot inline" aria-hidden="true"></span>{/if}
 	</a>
 	<a href="/contact">Contact</a>
+{/snippet}
+
+<!-- Sign in, in plain sight: the course needs no account, and saying so is
+     part of the link's job, but a learner who has one should not have to
+     hunt for it in settings. Signed in, it becomes the account itself. -->
+{#snippet signIn()}
+	{#if account.available}
+		<button type="button" class="sign-in" aria-haspopup="dialog" aria-controls="sign-in-sheet" onclick={openSignIn}>
+			<Icon name="cloud" size="1em" />
+			{#if account.signedIn}
+				<span class="sign-in-label">Account</span>
+			{:else}
+				<span class="sign-in-label">Sign in</span>
+			{/if}
+		</button>
+	{/if}
 {/snippet}
 
 {#snippet cta()}
@@ -195,6 +223,7 @@
      whole menu fits on a phone screen without scrolling. -->
 {#snippet menuList()}
 	<div class="menu-links">
+		<div class="root-row">{@render forumLink()}{@render signIn()}</div>
 		<p class="group-head">Library</p>
 		{@render libraryLinks()}
 		<p class="group-head">Levels</p>
@@ -231,6 +260,18 @@
 			<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
 				<Icon name="words" size="1.15em" />
 			</a>
+			<!-- The forum, always; the dot says a reply to one of yours is waiting. -->
+			<a
+				class="icon-link bell"
+				class:unread={forum.unread.length > 0}
+				href="/forum"
+				aria-label={forum.unread.length ? 'Forum — new replies to your topics' : 'Forum'}
+				title={forum.unread.length ? 'New replies on the forum' : 'Forum'}
+			>
+				<Icon name="forum" size="1.15em" />
+				{#if forum.unread.length}<span class="dot" aria-hidden="true"></span>{/if}
+			</a>
+			{@render signIn()}
 			<a class="icon-link" href="/settings" rel="nofollow" aria-label="Settings" title="Settings">
 				<Icon name="settings" size="1.15em" />
 			</a>
@@ -253,6 +294,8 @@
 				{@render drop('levels', 'Levels', levelLinks, true)}
 				{@render drop('library', 'Library', libraryLinks)}
 				{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen)}
+				{@render forumLink()}
+				{@render signIn()}
 				{@render cta()}
 			</nav>
 			<div class="narrow">
@@ -356,6 +399,79 @@
 		.bar .brand span {
 			display: none;
 		}
+	}
+
+	.forum-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	.sign-in {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.sign-in:hover {
+		color: var(--heading);
+	}
+
+	.sign-in :global(.icon) {
+		color: var(--accent-ink);
+	}
+
+	/* In the slim bar it is an icon like its neighbours. */
+	.mini .sign-in {
+		justify-content: center;
+		width: 2.2rem;
+		height: 2.2rem;
+		border-radius: 50%;
+	}
+
+	.mini .sign-in:hover {
+		background: var(--surface-alt);
+	}
+
+	.mini .sign-in .sign-in-label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	.mini .sign-in :global(.icon) {
+		color: var(--ink-muted);
+	}
+
+	.menu-links .root-row {
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	.forum-link :global(.icon) {
+		color: var(--accent-ink);
+	}
+
+	.menu-links .root-row {
+		grid-column: 1 / -1;
+		margin-top: 0.3rem;
+	}
+
+	.menu-links .root-row a {
+		font-weight: 700;
+		color: var(--heading);
 	}
 
 	/* -- dropdowns in the wide bar ----------------------------------------- */
@@ -545,6 +661,14 @@
 	.icon-link:hover {
 		color: var(--heading);
 		background: var(--surface-alt);
+	}
+
+	.icon-link.bell {
+		position: relative;
+	}
+
+	.icon-link.bell.unread {
+		color: var(--accent-ink);
 	}
 
 	.menu {

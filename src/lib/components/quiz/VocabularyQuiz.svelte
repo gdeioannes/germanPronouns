@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { QuestionRef } from '$lib/domain/forum';
 	// The flashcard deck. A real card: English on the front, and whatever the
 	// mode — write the German, pick it from four, or flip and rate yourself —
 	// the answer is revealed by turning the card over. The back carries the
@@ -39,7 +40,8 @@
 		courseId,
 		locale,
 		onRunFinished,
-		focusWord = null
+		focusWord = null,
+		onQuestion
 	}: {
 		quiz: VocabularyQuiz;
 		courseId: string;
@@ -48,6 +50,8 @@
 		onRunFinished: (passed: boolean) => void;
 		/** A source quiz id: start the deck on that quiz's words only. */
 		focusWord?: string | null;
+		/** The card on screen, for "Report a problem". */
+		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
 
 	type Mode = 'write' | 'choose' | 'flip';
@@ -90,6 +94,19 @@
 	// Raw, not deep state: the shuffle bag compares by identity, and a proxy
 	// never equals the pool's own object.
 	let current = $state.raw<VocabCard | undefined>(untrack(() => quiz.cards[0]));
+
+	$effect(() => {
+		const c = current;
+		onQuestion?.(
+			c
+				? {
+						number: quiz.cards.indexOf(c) + 1,
+						total: quiz.cards.length,
+						text: `${c.article ? `${c.article} ` : ''}${c.de} — ${c.en}`
+					}
+				: null
+		);
+	});
 	/** Bumped on every deal, so the card element is re-created and animates in. */
 	let dealt = $state(0);
 	let answer = $state('');

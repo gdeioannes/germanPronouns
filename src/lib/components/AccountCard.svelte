@@ -12,8 +12,12 @@
 
 	let {
 		/** Omits the heading where the surrounding panel already has one. */
-		heading = true
-	}: { heading?: boolean } = $props();
+		heading = true,
+		/** Where the sign-in link should land the learner afterwards (a path on this site). */
+		returnTo = undefined,
+		/** Why sign in, in this spot's own words; the default is the backup pitch. */
+		reason = undefined
+	}: { heading?: boolean; returnTo?: string; reason?: string } = $props();
 
 	let email = $state('');
 	let sent = $state('');
@@ -31,7 +35,7 @@
 		event.preventDefault();
 		const address = email.trim();
 		if (!address) return;
-		if (await account.sendLink(address)) {
+		if (await account.sendLink(address, returnTo)) {
 			sent = `Check ${address} for a sign-in link.`;
 			announce(sent);
 			email = '';
@@ -85,10 +89,15 @@
 			</button>
 		{:else}
 			<p class="lede">
-				Your progress is already saved in this browser, and everything works
-				signed out. Signing in is the only way to carry it to another device —
-				and your only copy if this browser is cleared. We email you a one-time
-				link: no password, and nothing is shared with anyone.
+				{#if reason}
+					{reason} We email you a one-time link: no password, and nothing is
+					shared with anyone.
+				{:else}
+					Your progress is already saved in this browser, and everything works
+					signed out. Signing in is the only way to carry it to another device —
+					and your only copy if this browser is cleared. We email you a one-time
+					link: no password, and nothing is shared with anyone.
+				{/if}
 			</p>
 			<form onsubmit={sendLink}>
 				<label>

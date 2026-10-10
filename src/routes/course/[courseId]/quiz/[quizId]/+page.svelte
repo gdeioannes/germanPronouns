@@ -22,6 +22,7 @@
 		type Crumb
 	} from '$lib/seo';
 	import Sheet from '$lib/components/Sheet.svelte';
+	import ReportPanel from '$lib/components/forum/ReportPanel.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import DoneMark from '$lib/components/DoneMark.svelte';
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
@@ -38,6 +39,8 @@
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { isInlineCloze } from '$lib/content/types';
+	import type { QuestionRef, ReportTarget } from '$lib/domain/forum';
+	import { cloudConfigured } from '$lib/services/firebase';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { celebrate } from '$lib/motion/fx.svelte';
 	import { playSound } from '$lib/services/sounds';
@@ -75,6 +78,22 @@
 	const hasNotes = $derived(hasStudyNotes(quiz, vocab));
 	let notesOpen = $state(false);
 	let moreOpen = $state(false);
+
+	// "Report a problem": the exercise tells the page which question is up,
+	// and the panel files it on the forum with that already written in. The
+	// button only shows when the build has a Firebase project to post to.
+	const canReport = cloudConfigured();
+	let reportOpen = $state(false);
+	let question = $state<QuestionRef | null>(null);
+	const reportTarget = $derived<ReportTarget>({
+		courseId: course.id,
+		courseName: course.name,
+		quizId: quiz.id,
+		quizTitle: topicOf(quiz.title),
+		quizType: quiz.type,
+		level: quiz.level,
+		question
+	});
 
 	// A quiz with a lesson (the pilot, see domain/lesson) teaches in two modes
 	// that take turns on the stage: Learn, then Practise. The lesson replaces
@@ -118,6 +137,8 @@
 		notesCheckedFor = id;
 		notesOpen = false;
 		moreOpen = false;
+		reportOpen = false;
+		question = null;
 		mode = 'learn';
 		if (untrack(() => quiz.game)) {
 			mode = 'practise';
@@ -284,6 +305,21 @@
 					<span>Notes</span>
 				</button>
 			{/if}
+			{#if canReport}
+				<button
+					type="button"
+					class="tool"
+					aria-haspopup="dialog"
+					aria-expanded={reportOpen}
+					aria-controls="report-{quiz.id}"
+					aria-label="Report a problem"
+					title="Report a problem with this exercise"
+					onclick={() => (reportOpen = true)}
+				>
+					<Icon name="flag" size="1.1em" />
+					<span class="tool-label">Report</span>
+				</button>
+			{/if}
 			<button
 				type="button"
 				class="tool"
@@ -321,6 +357,7 @@
 				locale={course.learnLocale}
 				onAnswer={() => {}}
 				onRunFinished={runFinished}
+				onQuestion={(q) => (question = q)}
 			/>
 		{:else if quiz.type === 'reading'}
 			<!-- Two shapes share this type: a passage with questions, and the "big
@@ -331,6 +368,7 @@
 					{quiz}
 					locale={course.learnLocale}
 					onFinish={(passed) => passed && complete()}
+					onQuestion={(q) => (question = q)}
 				/>
 			{:else}
 				<PassageQuiz
@@ -338,6 +376,7 @@
 					locale={course.learnLocale}
 					mode="read"
 					onFinish={(passed) => passed && complete()}
+					onQuestion={(q) => (question = q)}
 				/>
 			{/if}
 		{:else if quiz.type === 'listening'}
@@ -346,11 +385,12 @@
 				locale={course.learnLocale}
 				mode="listen"
 				onFinish={(passed) => passed && complete()}
+				onQuestion={(q) => (question = q)}
 			/>
 		{:else if quiz.type === 'dictation'}
-			<DictationQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} />
+			<DictationQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} onQuestion={(q) => (question = q)} />
 		{:else if quiz.type === 'speakRepeat'}
-			<SpeakRepeatQuiz {quiz} locale={course.learnLocale} onFinish={complete} />
+			<SpeakRepeatQuiz {quiz} locale={course.learnLocale} onFinish={complete} onQuestion={(q) => (question = q)} />
 		{:else if quiz.type === 'speaking'}
 			<SpeakingQuiz
 				{quiz}
@@ -366,9 +406,10 @@
 				locale={course.learnLocale}
 				onRunFinished={runFinished}
 				{focusWord}
+				onQuestion={(q) => (question = q)}
 			/>
 		{:else if quiz.type === 'suchbild'}
-			<SuchbildQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} />
+			<SuchbildQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} onQuestion={(q) => (question = q)} />
 		{/if}
 		{/key}
 		</div>
@@ -456,6 +497,12 @@
 			<a href={levelPath}><Icon name="book" size="1.05em" /> {levelTitle ?? quiz.level}</a>
 		{/if}
 		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> Settings</a>
+		{#if canReport}
+			<button type="button" onclick={() => { moreOpen = false; reportOpen = true; }}>
+				<Icon name="flag" size="1.05em" /> Report a problem
+			</button>
+		{/if}
+		<a href="/forum"><Icon name="forum" size="1.05em" /> Forum</a>
 	</div>
 
 	{#if related.length}
@@ -479,6 +526,14 @@
 
 	<SiteFooter />
 </Sheet>
+
+{#if canReport}
+	<!-- Filed from here rather than on the forum page, so the exercise and the
+	     question on screen are already written in. -->
+	<Sheet bind:open={reportOpen} title="Report a problem" id="report-{quiz.id}">
+		<ReportPanel target={reportTarget} open={reportOpen} />
+	</Sheet>
+{/if}
 
 <style>
 	/* Exactly one screen: the header, then the exercise taking the rest. */

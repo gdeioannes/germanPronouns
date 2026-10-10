@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { QuestionRef } from '$lib/domain/forum';
 	// Dictation: hear a line, type what you heard. The text is never shown
 	// until the line is answered or given up on — that is the whole exercise.
 	//
@@ -42,12 +43,15 @@
 	let {
 		quiz,
 		locale,
-		onRunFinished
+		onRunFinished,
+		onQuestion
 	}: {
 		quiz: DictationQuiz;
 		locale: string;
 		/** A run of RUN_LENGTH lines is over — the exercise counts as done. */
 		onRunFinished: (passed: boolean) => void;
+		/** The line on screen, for "Report a problem". */
+		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
 
 	/** Where this run saves its place, so leaving mid-run costs nothing. */
@@ -63,6 +67,11 @@
 	// never equals the item the pool holds.
 	let item = $state.raw<SpokenLine | undefined>(untrack(() => quiz.items[0]));
 	let answer = $state('');
+
+	$effect(() => {
+		const i = item;
+		onQuestion?.(i ? { number: quiz.items.indexOf(i) + 1, total: quiz.items.length, text: i.text } : null);
+	});
 	/** null while typing; then how the line was graded. */
 	let grade = $state<DictationGrade | null>(null);
 	let streak = $state(0);

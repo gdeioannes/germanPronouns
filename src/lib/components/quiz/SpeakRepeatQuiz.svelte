@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { QuestionRef } from '$lib/domain/forum';
 	// Listen and repeat. Speech recognition is *optional* by design: it is
 	// Chrome-leaning on the web and absent in some browsers entirely, so the
 	// quiz completes on play-through and never blocks on a microphone. That
@@ -19,11 +20,14 @@
 	let {
 		quiz,
 		locale,
-		onFinish
+		onFinish,
+		onQuestion
 	}: {
 		quiz: SpeakRepeatQuiz;
 		locale: string;
 		onFinish: () => void;
+		/** Which phrase is up, for "Report a problem". */
+		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
 
 	let index = $state(0);
@@ -36,6 +40,10 @@
 
 	const phrase = $derived(quiz.phrases[index]);
 	const total = $derived(quiz.phrases.length);
+
+	$effect(() => {
+		onQuestion?.(phrase ? { number: index + 1, total, text: phrase.text } : null);
+	});
 
 	// Reset when the component is reused for a different quiz, then carry on
 	// from the phrase the learner stopped at, if they left part-way.

@@ -86,6 +86,11 @@ class AccountStore {
 		return this.active;
 	}
 
+	/** The signed-in learner's Firebase uid, or null. What the forum posts under. */
+	get userId(): string | null {
+		return this.active ? this.uid : null;
+	}
+
 	/**
 	 * Called once from the root layout. Loads the auth SDK only when this
 	 * browser has a session to restore, so a first-time visitor downloads none
@@ -111,17 +116,23 @@ class AccountStore {
 		}
 	}
 
-	/** Sends a one-time sign-in link. No password is ever created or stored. */
-	async sendLink(email: string): Promise<boolean> {
+	/**
+	 * Sends a one-time sign-in link. No password is ever created or stored.
+	 * `returnTo` is where the landing page sends the learner afterwards — the
+	 * forum topic they were about to reply to, say — and must be a path on
+	 * this site.
+	 */
+	async sendLink(email: string, returnTo?: string): Promise<boolean> {
 		if (!this.available) return false;
 		this.busy = true;
 		this.error = null;
 		try {
 			const { auth, authApi } = await firebase();
+			const next = returnTo && returnTo.startsWith('/') ? `?next=${encodeURIComponent(returnTo)}` : '';
 			await authApi.sendSignInLinkToEmail(auth, email, {
 				// Firebase requires an absolute URL, and its host must be listed
 				// under Authentication → Settings → Authorized domains.
-				url: `${window.location.origin}/signin`,
+				url: `${window.location.origin}/signin${next}`,
 				handleCodeInApp: true
 			});
 			// The link may be opened in a different tab, which won't remember who

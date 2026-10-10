@@ -27,8 +27,11 @@
 			stage = 'done';
 			message = 'Signed in. Your progress is being saved to your account.';
 			announce(message);
-			// Nothing on this page is worth keeping in the history: send them on.
-			setTimeout(() => void goto('/settings', { replaceState: true }), 1600);
+			// Nothing on this page is worth keeping in the history: send them on —
+			// back to where they asked from (a forum topic, say), else settings.
+			const next = new URLSearchParams(window.location.search).get('next');
+			const to = next && next.startsWith('/') && !next.startsWith('//') ? next : '/settings';
+			setTimeout(() => void goto(to, { replaceState: true }), 1600);
 			return;
 		}
 		// The one recoverable failure: the link was opened in a browser that

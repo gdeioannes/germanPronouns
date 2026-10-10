@@ -1,17 +1,127 @@
-// Firestore security rules for the optional login (see src/lib/services/firebase.ts).
-//
-// One document per learner at users/{uid}, readable and writable only by that
-// signed-in learner. Everything else is denied. These are the rules the console
-// must hold; a "production mode" default (deny all) makes every sync fail with
-// permission-denied while sign-in itself still works.
+// Firestore security rules: the optional login's progress sync, and the forum.
 //
 // Publish: Firebase console → Firestore Database → Rules → paste → Publish,
-// or `npx firebase-tools deploy --only firestore:rules` after `npx firebase-tools login`.
+// or `npx firebase-tools deploy --only firestore` after `npx firebase-tools login`
+// (that also creates the composite indexes in firestore.indexes.json).
+//
+// A "production mode" default (deny all) makes every sync fail with
+// permission-denied while sign-in itself still works — these are the rules the
+// console must hold.
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // A moderator is anyone with a forum_admins/{uid} document. Create yours
+    // by hand in the console (any content, e.g. { role: "owner" }).
+    function isAdmin() {
+      return signedIn() && exists(/databases/$(database)/documents/forum_admins/$(request.auth.uid));
+    }
+
+    function text(value, max) {
+      return value is string && value.size() > 0 && value.size() <= max;
+    }
+
+    function changedOnly(keys) {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(keys);
+    }
+
+    // A like moves the parent's counter by one, in the same batch as the
+    // likes/{uid} document appearing or disappearing — never on its own.
+    function likeBump(likePath) {
+      return changedOnly(['likeCount'])
+        && ((request.resource.data.likeCount == resource.data.likeCount + 1 && existsAfter(likePath))
+          || (request.resource.data.likeCount == resource.data.likeCount - 1 && !existsAfter(likePath)));
+    }
+
+    // -- progress sync: one document per learner, theirs alone -----------------
     match /users/{uid} {
-      allow read, write: if request.auth != null && request.auth.uid == uid;
+      allow read, write: if signedIn() && request.auth.uid == uid;
+    }
+
+    // -- forum -----------------------------------------------------------------
+    // Everyone reads. Signed-in learners write their own topics and replies;
+    // a reply may bump the parent's counters by exactly one; authors and
+    // moderators change status and delete.
+    match /forum_threads/{threadId} {
+      allow read: if true;
+
+      allow create: if signedIn()
+        && request.resource.data.authorUid == request.auth.uid
+        && text(request.resource.data.title, 140)
+        && text(request.resource.data.body, 4000)
+        && text(request.resource.data.authorName, 40)
+        && request.resource.data.category in ['report', 'question', 'idea', 'general']
+        && request.resource.data.status == 'open'
+        && request.resource.data.replyCount == 0
+        && request.resource.data.notify is bool
+        && request.resource.data.createdAt is number
+        && request.resource.data.updatedAt is number;
+
+      allow update: if signedIn() && (
+        // The author: their own text, the notify switch, the status.
+        (resource.data.authorUid == request.auth.uid
+          && changedOnly(['title', 'body', 'notify', 'status', 'updatedAt'])
+          && text(request.resource.data.title, 140)
+          && text(request.resource.data.body, 4000)
+          && request.resource.data.status in ['open', 'answered', 'fixed'])
+        // A moderator: the status.
+        || (isAdmin()
+          && changedOnly(['status', 'updatedAt'])
+          && request.resource.data.status in ['open', 'answered', 'fixed'])
+        // Anyone replying: the counters, by exactly one, in their own name.
+        || (changedOnly(['replyCount', 'lastReplyAt', 'lastReplyBy', 'lastReplyName', 'updatedAt'])
+          && request.resource.data.replyCount == resource.data.replyCount + 1
+          && request.resource.data.lastReplyBy == request.auth.uid
+          && text(request.resource.data.lastReplyName, 40))
+        // Anyone liking.
+        || likeBump(/databases/$(database)/documents/forum_threads/$(threadId)/likes/$(request.auth.uid))
+      );
+
+      match /likes/{uid} {
+        allow read: if true;
+        allow create, delete: if signedIn() && request.auth.uid == uid;
+      }
+
+      allow delete: if signedIn() && (resource.data.authorUid == request.auth.uid || isAdmin());
+
+      match /posts/{postId} {
+        allow read: if true;
+        allow create: if signedIn()
+          && request.resource.data.authorUid == request.auth.uid
+          && text(request.resource.data.body, 4000)
+          && text(request.resource.data.authorName, 40)
+          && request.resource.data.createdAt is number;
+        allow update: if signedIn() && (
+          (resource.data.authorUid == request.auth.uid
+            && changedOnly(['body', 'updatedAt'])
+            && text(request.resource.data.body, 4000))
+          || likeBump(/databases/$(database)/documents/forum_threads/$(threadId)/posts/$(postId)/likes/$(request.auth.uid))
+        );
+        allow delete: if signedIn() && (resource.data.authorUid == request.auth.uid || isAdmin());
+
+        match /likes/{uid} {
+          allow read: if true;
+          allow create, delete: if signedIn() && request.auth.uid == uid;
+        }
+      }
+    }
+
+    // The learner's posting name and which replies they have read: theirs alone.
+    match /forum_profiles/{uid} {
+      allow read, delete: if signedIn() && request.auth.uid == uid;
+      allow create, update: if signedIn() && request.auth.uid == uid
+        && (!('name' in request.resource.data) || text(request.resource.data.name, 40));
+    }
+
+    // Moderators: readable by the person themselves (so the UI can show the
+    // tools), written only from the console.
+    match /forum_admins/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false;
     }
   }
 }

@@ -31,6 +31,7 @@
 		<a href="/changelog"><Icon name="star" size="1.05em" /> What's new</a>
 		<a href="/about"><Icon name="book" size="1.05em" /> About</a>
 		<a href="/about#accessibility"><Icon name="check" size="1.05em" /> Accessibility</a>
+		<a href="/forum"><Icon name="forum" size="1.05em" /> Forum</a>
 		<a href="/contact"><Icon name="pen" size="1.05em" /> Contact</a>
 		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> Settings</a>
 	</nav>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { QuestionRef } from '$lib/domain/forum';
 	// The picture hunt (Suchbild), the flashcard deck's twin: one room, and a
 	// run of "Wo ist der Heizkörper?" — tap it in the picture. Every find
 	// shows its label while the answer is on screen, then leaves a small tick
@@ -43,12 +44,15 @@
 	let {
 		quiz,
 		locale,
-		onRunFinished
+		onRunFinished,
+		onQuestion
 	}: {
 		quiz: SuchbildQuiz;
 		locale: string;
 		/** A run of RUN_LENGTH finds is over — the hunt counts as done. */
 		onRunFinished: (passed: boolean) => void;
+		/** The object being hunted, for "Report a problem". */
+		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
 
 	type Mode = 'find' | 'name';
@@ -67,6 +71,13 @@
 
 	// Raw, not deep state: spots are compared by identity.
 	let current = $state.raw<SuchbildSpot | undefined>(undefined);
+
+	$effect(() => {
+		const c = current;
+		onQuestion?.(
+			c ? { number: quiz.spots.indexOf(c) + 1, total: quiz.spots.length, text: `${full(c)} — ${c.en}` } : null
+		);
+	});
 	/** `tap` while hunting; `article` once a `name` find wants its der/die/das. */
 	let phase = $state<'tap' | 'article'>('tap');
 	let verdict = $state<'right' | 'wrong' | null>(null);

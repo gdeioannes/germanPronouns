@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { QuestionRef } from '$lib/domain/forum';
 	// Reading and listening share a shape: a passage plus multiple-choice
 	// questions. The only difference is whether the passage is shown or heard —
 	// so one component takes a `mode`, mirroring how the Dart pages differed
@@ -28,12 +29,15 @@
 		quiz,
 		locale,
 		mode,
-		onFinish
+		onFinish,
+		onQuestion
 	}: {
 		quiz: ReadingQuiz | ListeningQuiz;
 		locale: string;
 		mode: 'read' | 'listen';
 		onFinish: (passed: boolean, correct: number, total: number) => void;
+		/** Which question is on screen, for "Report a problem"; null on the passage pages. */
+		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
 
 	/**
@@ -128,6 +132,14 @@
 	const lead = $derived(mode === 'read' ? pages.length : 1);
 	const questionCount = $derived(quiz.questions.length);
 	const checkIndex = $derived(lead + questionCount);
+
+	// Tells the page which question is up, so a report filed from the header
+	// names it. The passage pages and the check screen report null.
+	$effect(() => {
+		const qi = index - lead;
+		const q = quiz.questions[qi];
+		onQuestion?.(qi >= 0 && q ? { number: qi + 1, total: questionCount, text: q.question } : null);
+	});
 	const tail = $derived(mode === 'listen' && checked ? pages.length : 0);
 	const count = $derived(checkIndex + 1 + tail);
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { QuestionRef } from '$lib/domain/forum';
 	// The fill-in-the-blank engine — 96 of the course's 214 exercises. Played
 	// in runs of RUN_LENGTH answers: the bar only fills, finishing a run marks
 	// the exercise done, and the streak (with its medals) runs across runs and
@@ -51,13 +52,16 @@
 		quiz,
 		locale,
 		onAnswer,
-		onRunFinished
+		onRunFinished,
+		onQuestion
 	}: {
 		quiz: FillBlankQuiz;
 		locale: string;
 		onAnswer: (correct: boolean) => void;
 		/** A run of RUN_LENGTH answers is over — the exercise counts as done. */
 		onRunFinished: (passed: boolean) => void;
+		/** The sentence on screen, for "Report a problem". */
+		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
 
 	// Built once: the page is keyed by quiz id, so a new quiz mounts a new component.
@@ -76,6 +80,13 @@
 	// never equals the pool's own object.
 	let current = $state.raw<QuizSentence | undefined>(pool[0]);
 	let started = false;
+
+	// The sentence's place in the authored pool, so a report names one line of
+	// content rather than its (shuffled) turn in the run.
+	$effect(() => {
+		const c = current;
+		onQuestion?.(c ? { number: pool.indexOf(c) + 1, total: pool.length, text: c.sentence } : null);
+	});
 	/**
 	 * What the learner has typed, one entry per gap. Most sentences have one
 	 * gap; "je … desto" or "hatte … verlassen" have two, and the key for those

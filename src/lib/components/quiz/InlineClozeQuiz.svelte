@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { QuestionRef } from '$lib/domain/forum';
 	import GermanText from '../GermanText.svelte';
 	// The "big text" cloze: a whole passage with inline blanks typed in place.
 	//
@@ -27,11 +28,14 @@
 	let {
 		quiz,
 		locale,
-		onFinish
+		onFinish,
+		onQuestion
 	}: {
 		quiz: InlineClozeQuiz;
 		locale: string;
 		onFinish: (passed: boolean, correct: number, total: number) => void;
+		/** Which page of gaps is on screen, for "Report a problem". */
+		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
 
 	/**
@@ -92,6 +96,17 @@
 	let answers = $state<string[]>([]);
 	let checked = $state(false);
 	let index = $state(0);
+
+	// The page of gaps on screen, named by the gaps it holds, for a report.
+	$effect(() => {
+		const blanks = pageBlanks[index];
+		if (!blanks) {
+			onQuestion?.(null);
+			return;
+		}
+		const gaps = blanks.map((b) => quiz.inlineBlanks[b]?.answer).filter(Boolean).join(', ');
+		onQuestion?.({ number: index + 1, total: pages.length, text: gaps ? `Gaps: ${gaps}` : 'Page' });
+	});
 
 	/** False until a saved spot has been looked for, so a fresh start never overwrites it. */
 	let restored = false;
