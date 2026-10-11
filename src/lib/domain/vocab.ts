@@ -103,6 +103,7 @@ function textOf(quiz: Quiz): string {
 			return quiz.phrases.map((phrase) => phrase.text).join(' ');
 		case 'fillBlank':
 		case 'speaking':
+		case 'writing':
 		case 'vocabulary':
 		case 'suchbild':
 			// The grid quizzes name their nouns already; a speaking exercise is a

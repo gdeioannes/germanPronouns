@@ -1721,7 +1721,7 @@
         },
         {
           "de": "beim Arzt / zum Arzt",
-          "en": "at / to the doctor's"
+          "en": "at the doctor's / to the doctor's"
         },
         {
           "de": "in die Schweiz",
@@ -4259,6 +4259,229 @@
     }
   },
   {
+    "id": "quest_a2_1_schreiben_wochenende",
+    "after": "quest_a2_1_sprechen_dialog",
+    "covers": [
+      "a2.past-narration"
+    ],
+    "title": "Schreiben: Eine E-Mail an einen Freund",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Eine E-Mail an einen Freund",
+      "level": "A2.1",
+      "writing": {
+        "topic": "Write an e-mail to a German friend about last weekend: where you went, who you were with, what you did and what you thought of it. Finish by asking your friend one question about their weekend.",
+        "practisePoints": [
+          "an informal greeting (Hallo / Liebe / Lieber) and an informal sign-off",
+          "tell it in the Perfekt: ich habe … gemacht, ich bin … gefahren",
+          "use sein for going and coming (ich bin gefahren, wir sind gegangen) and haben for the rest",
+          "say when, with at least two time expressions (am Samstag, am Nachmittag, danach)",
+          "say what you thought of it, with one opinion sentence",
+          "end with one question to your friend"
+        ],
+        "scoringCriteria": [
+          "the Perfekt is used throughout rather than the present tense",
+          "haben and sein are each used with the right verbs",
+          "the e-mail reads as a message to a friend, with du and an informal greeting"
+        ],
+        "targetVocabulary": [
+          "am Samstag",
+          "am Wochenende",
+          "zuerst",
+          "danach",
+          "dann",
+          "Es war …",
+          "Das hat Spaß gemacht",
+          "Und du?",
+          "Schreib mir bald",
+          "Liebe Grüße"
+        ],
+        "passScore": 55
+      }
+    },
+    "help": {
+      "hook": "Tell a friend about your weekend in German, and have your own AI correct it.",
+      "intro": "You have drilled the Perfekt gap by gap; now you write a whole e-mail with it. You write the message here in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The fixes are saved as your next things to work on. Aim for 200 to 500 characters, about the length of a real message to a friend. The one thing that will cost you marks is slipping into the present tense halfway through, so check every verb before you send it.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "A whole message in the Perfekt",
+          "text": "When you tell someone what you did, German uses the Perfekt almost everywhere: haben or sein in second position, the Partizip II at the very end. Keep it up for the whole message. One present-tense sentence in the middle makes the reader think you have moved back to today.",
+          "examples": [
+            {
+              "de": "Am Samstag habe ich meine Schwester besucht.",
+              "en": "On Saturday I visited my sister.",
+              "focus": [
+                "habe",
+                "besucht"
+              ]
+            },
+            {
+              "de": "Wir sind zusammen in die Stadt gefahren und haben einen Film gesehen.",
+              "en": "We went into town together and watched a film.",
+              "focus": [
+                "sind",
+                "gefahren",
+                "haben",
+                "gesehen"
+              ]
+            }
+          ],
+          "trap": "The participle goes last, after everything else: „Ich habe am Sonntag lange geschlafen“, not „Ich habe geschlafen am Sonntag“.",
+          "check": {
+            "q": "Ich ____ am Samstag Fußball gespielt.",
+            "options": [
+              "habe",
+              "bin",
+              "war"
+            ],
+            "answer": "habe",
+            "why": "spielen takes haben, and the participle gespielt stays at the end."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "sein for going, haben for the rest",
+          "text": "Verbs of going and coming take sein: ich bin gefahren, gegangen, geflogen, gekommen, geblieben. Almost everything else takes haben. If you can picture yourself moving from one place to another, reach for bin.",
+          "examples": [
+            {
+              "de": "Ich bin am Freitag nach Hamburg gefahren.",
+              "en": "I travelled to Hamburg on Friday.",
+              "focus": [
+                "bin",
+                "gefahren"
+              ]
+            },
+            {
+              "de": "Wir sind lange im Café geblieben und haben viel geredet.",
+              "en": "We stayed in the cafe for a long time and talked a lot.",
+              "focus": [
+                "sind",
+                "geblieben",
+                "haben",
+                "geredet"
+              ]
+            }
+          ],
+          "trap": "bleiben takes sein although nobody moves anywhere: ich bin geblieben.",
+          "check": {
+            "q": "Wir ____ am Sonntag ins Kino gegangen.",
+            "options": [
+              "sind",
+              "haben",
+              "waren"
+            ],
+            "answer": "sind",
+            "why": "gehen is a verb of movement, so its Perfekt is formed with sein."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Order the weekend with zuerst, dann, danach",
+          "text": "A message about your weekend is easier to read, and easier to write, if you walk through it in order. Zuerst … dann … danach … am Abend. Each of those can start the sentence, and when it does, the verb follows it straight away.",
+          "examples": [
+            {
+              "de": "Zuerst haben wir gefrühstückt, dann sind wir an den See gefahren.",
+              "en": "First we had breakfast, then we drove to the lake.",
+              "focus": [
+                "Zuerst",
+                "haben",
+                "dann",
+                "sind"
+              ]
+            },
+            {
+              "de": "Danach war ich sehr müde, aber es hat Spaß gemacht.",
+              "en": "Afterwards I was very tired, but it was fun.",
+              "focus": [
+                "Danach",
+                "war"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Dann ____ wir nach Hause gefahren.",
+            "options": [
+              "sind",
+              "wir sind",
+              "haben"
+            ],
+            "answer": "sind",
+            "why": "After an opening word like dann the verb comes next, then the subject."
+          }
+        }
+      ],
+      "remember": [
+        "Perfekt all the way through: haben or sein in second place, Partizip II at the end.",
+        "sein for going and coming (gefahren, gegangen, geblieben); haben for the rest.",
+        "war and hatte stay simple: Es war schön, Ich hatte keine Zeit.",
+        "Informal frame: Hallo Max, … then Liebe Grüße and your name."
+      ],
+      "exam": "A short e-mail about what you did is one of the written tasks the A2 certificate sets, and the message you will actually send most often.",
+      "mistakes": [
+        {
+          "wrong": "Ich bin gespielt Fußball.",
+          "right": "Ich habe Fußball gespielt.",
+          "why": "spielen takes haben, and the participle goes last."
+        },
+        {
+          "wrong": "Ich habe nach Berlin gefahren.",
+          "right": "Ich bin nach Berlin gefahren.",
+          "why": "fahren is movement, so it takes sein."
+        },
+        {
+          "wrong": "Am Samstag ich habe meine Oma besucht.",
+          "right": "Am Samstag habe ich meine Oma besucht.",
+          "why": "After an opening time phrase the verb comes second, before the subject."
+        },
+        {
+          "wrong": "Liebe Grüße, Ana. Und du? Wie war dein Wochenende?",
+          "right": "Und du? Wie war dein Wochenende?\n\nLiebe Grüße\nAna",
+          "why": "The question belongs before the sign-off, and the sign-off takes no comma."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "das Wochenende",
+          "plural": "-n",
+          "en": "weekend"
+        },
+        {
+          "de": "zuerst",
+          "en": "first, to begin with"
+        },
+        {
+          "de": "danach",
+          "en": "afterwards"
+        },
+        {
+          "de": "besuchen",
+          "en": "to visit"
+        },
+        {
+          "de": "bleiben",
+          "en": "to stay (ist geblieben)"
+        },
+        {
+          "de": "Spaß machen",
+          "en": "to be fun (Das hat Spaß gemacht)"
+        },
+        {
+          "de": "müde",
+          "en": "tired"
+        },
+        {
+          "de": "Liebe Grüße",
+          "en": "best wishes (informal)"
+        },
+        {
+          "de": "Schreib mir bald",
+          "en": "write to me soon"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_a2_1_indefinitpronomen",
     "covers": [
       "a2.indefinite-pronouns"
@@ -4708,7 +4931,7 @@
     ],
     "help": {
       "hook": "A busy family bathroom with 32 things to find: tap each one, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one family bathroom with 32 everyday things in it, from die Badewanne and das Waschbecken to the small stuff on the shelf — der Kamm, die Haarbürste, das Parfüm — and a rubber duck on the edge of the tub. The prompt asks, for example, Wo ist die Zahnbürste? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one family bathroom with 32 everyday things in it, from die Badewanne and das Waschbecken to the small stuff on the shelf — der Kamm, die Haarbürste, das Parfüm — and a rubber duck on the edge of the tub. The prompt asks, for example, Wo ist die Zahnbürste? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Badewanne?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -5019,7 +5242,7 @@
           "article": "die",
           "en": "washing machine",
           "plural": "-n",
-          "x": 77.0,
+          "x": 77,
           "y": 59.46,
           "w": 19.5,
           "h": 28.88
@@ -5029,9 +5252,9 @@
           "article": "die",
           "en": "bathtub",
           "plural": "-n",
-          "x": 3.0,
+          "x": 3,
           "y": 67.43,
-          "w": 30.0,
+          "w": 30,
           "h": 24.9
         },
         {
@@ -5041,7 +5264,7 @@
           "plural": "-",
           "x": 20.5,
           "y": 24.11,
-          "w": 13.0,
+          "w": 13,
           "h": 13.44
         },
         {
@@ -5049,9 +5272,9 @@
           "article": "der",
           "en": "shower curtain",
           "plural": "Duschvorhänge",
-          "x": 24.0,
+          "x": 24,
           "y": 27.59,
-          "w": 8.0,
+          "w": 8,
           "h": 45.81
         },
         {
@@ -5059,9 +5282,9 @@
           "article": "die",
           "en": "curtain rail",
           "plural": "-n",
-          "x": 5.0,
+          "x": 5,
           "y": 23.11,
-          "w": 27.0,
+          "w": 27,
           "h": 4.48
         },
         {
@@ -5079,10 +5302,10 @@
           "article": "der",
           "en": "hook",
           "plural": "-",
-          "x": 4.0,
+          "x": 4,
           "y": 39.03,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Duschkopf",
@@ -5099,15 +5322,15 @@
           "article": "der",
           "en": "tap",
           "plural": "Wasserhähne",
-          "x": 40.0,
+          "x": 40,
           "y": 54.48,
           "w": 7.5,
           "h": 4.98,
           "also": [
             {
-              "x": 11.0,
+              "x": 11,
               "y": 65.44,
-              "w": 6.0,
+              "w": 6,
               "h": 4.48
             }
           ]
@@ -5117,10 +5340,10 @@
           "article": "der",
           "en": "sponge",
           "plural": "Schwämme",
-          "x": 16.0,
+          "x": 16,
           "y": 74.89,
-          "w": 6.0,
-          "h": 4.0
+          "w": 6,
+          "h": 4
         },
         {
           "de": "Gummiente",
@@ -5129,7 +5352,7 @@
           "plural": "-n",
           "x": 16.5,
           "y": 70.42,
-          "w": 5.0,
+          "w": 5,
           "h": 4.48
         },
         {
@@ -5137,9 +5360,9 @@
           "article": "die",
           "en": "bath mat",
           "plural": "-n",
-          "x": 25.0,
+          "x": 25,
           "y": 85.85,
-          "w": 18.0,
+          "w": 18,
           "h": 9.46
         },
         {
@@ -5157,7 +5380,7 @@
           "article": "der",
           "en": "mirror",
           "plural": "-",
-          "x": 36.0,
+          "x": 36,
           "y": 31.08,
           "w": 15.5,
           "h": 17.93
@@ -5167,7 +5390,7 @@
           "article": "das",
           "en": "washbasin",
           "plural": "-",
-          "x": 34.0,
+          "x": 34,
           "y": 56.47,
           "w": 18.5,
           "h": 28.88
@@ -5179,14 +5402,14 @@
           "plural": "-e",
           "x": 55.5,
           "y": 28.09,
-          "w": 21.0,
+          "w": 21,
           "h": 19.42,
           "also": [
             {
-              "x": 36.0,
+              "x": 36,
               "y": 49.99,
               "w": 15.5,
-              "h": 4.0
+              "h": 4
             }
           ]
         },
@@ -5197,8 +5420,8 @@
           "plural": "-n",
           "x": 36.5,
           "y": 49.49,
-          "w": 7.0,
-          "h": 4.0
+          "w": 7,
+          "h": 4
         },
         {
           "de": "Zahnpasta",
@@ -5207,18 +5430,18 @@
           "plural": "Zahnpasten",
           "x": 43.5,
           "y": 48.99,
-          "w": 6.0,
-          "h": 4.0
+          "w": 6,
+          "h": 4
         },
         {
           "de": "Seife",
           "article": "die",
           "en": "soap",
           "plural": "-n",
-          "x": 36.0,
+          "x": 36,
           "y": 56.46,
           "w": 4.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Shampoo",
@@ -5235,7 +5458,7 @@
           "article": "der",
           "en": "hairdryer",
           "plural": "-e",
-          "x": 66.0,
+          "x": 66,
           "y": 30.58,
           "w": 7.5,
           "h": 7.47
@@ -5247,7 +5470,7 @@
           "plural": "-s",
           "x": 56.5,
           "y": 39.54,
-          "w": 5.0,
+          "w": 5,
           "h": 6.47
         },
         {
@@ -5255,7 +5478,7 @@
           "article": "die",
           "en": "hairbrush",
           "plural": "-n",
-          "x": 62.0,
+          "x": 62,
           "y": 39.04,
           "w": 6.5,
           "h": 6.97
@@ -5267,7 +5490,7 @@
           "plural": "Kämme",
           "x": 69.5,
           "y": 39.54,
-          "w": 4.0,
+          "w": 4,
           "h": 5.98
         },
         {
@@ -5277,7 +5500,7 @@
           "plural": "-n",
           "x": 44.5,
           "y": 4.69,
-          "w": 11.0,
+          "w": 11,
           "h": 6.47
         },
         {
@@ -5285,9 +5508,9 @@
           "article": "der",
           "en": "stool",
           "plural": "-",
-          "x": 49.0,
+          "x": 49,
           "y": 72.41,
-          "w": 11.0,
+          "w": 11,
           "h": 14.44
         },
         {
@@ -5305,7 +5528,7 @@
           "article": "die",
           "en": "toilet",
           "plural": "-n",
-          "x": 62.0,
+          "x": 62,
           "y": 60.96,
           "w": 13.5,
           "h": 26.89
@@ -5314,7 +5537,7 @@
           "de": "Toilettenpapier",
           "article": "das",
           "en": "toilet paper",
-          "x": 55.0,
+          "x": 55,
           "y": 58.96,
           "w": 6.5,
           "h": 6.47
@@ -5335,7 +5558,7 @@
           "en": "washing powder",
           "x": 85.5,
           "y": 48.51,
-          "w": 9.0,
+          "w": 9,
           "h": 11.95
         },
         {
@@ -5345,8 +5568,8 @@
           "plural": "-",
           "x": 78.5,
           "y": 57.46,
-          "w": 6.0,
-          "h": 4.0
+          "w": 6,
+          "h": 4
         }
       ]
     }
@@ -5359,7 +5582,7 @@
     ],
     "help": {
       "hook": "A little station hall with 32 things to find: tap each one, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one small station hall with 32 things in it, seen while you wait for your train — der Fahrkartenautomat, das Schließfach, die Bahnhofsuhr, and through the arch der Zug on das Gleis. Someone has even left a piano in the hall, and an ice cream has fallen on the floor. The prompt asks, for example, Wo ist der Koffer? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one small station hall with 32 things in it, seen while you wait for your train — der Fahrkartenautomat, das Schließfach, die Bahnhofsuhr, and through the arch der Zug on das Gleis. Someone has even left a piano in the hall, and an ice cream has fallen on the floor. The prompt asks, for example, Wo ist der Koffer? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Bahnhofsuhr?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -5674,7 +5897,7 @@
           "plural": "Züge",
           "x": 38.5,
           "y": 39.5,
-          "w": 17.0,
+          "w": 17,
           "h": 22.36
         },
         {
@@ -5682,9 +5905,9 @@
           "article": "das",
           "en": "track",
           "plural": "-e",
-          "x": 45.0,
+          "x": 45,
           "y": 60.95,
-          "w": 12.0,
+          "w": 12,
           "h": 10.04
         },
         {
@@ -5692,7 +5915,7 @@
           "article": "das",
           "en": "railway signal",
           "plural": "-e",
-          "x": 53.0,
+          "x": 53,
           "y": 38.59,
           "w": 7.5,
           "h": 20.08
@@ -5702,7 +5925,7 @@
           "article": "das",
           "en": "waiting shelter",
           "plural": "-",
-          "x": 33.0,
+          "x": 33,
           "y": 51.37,
           "w": 12.5,
           "h": 23.73
@@ -5712,7 +5935,7 @@
           "article": "die",
           "en": "telephone box",
           "plural": "-n",
-          "x": 76.0,
+          "x": 76,
           "y": 49.09,
           "w": 11.5,
           "h": 27.39
@@ -5724,7 +5947,7 @@
           "plural": "-en",
           "x": 65.5,
           "y": 56.85,
-          "w": 10.0,
+          "w": 10,
           "h": 19.17
         },
         {
@@ -5732,19 +5955,19 @@
           "article": "das",
           "en": "piano",
           "plural": "-e",
-          "x": 86.0,
+          "x": 86,
           "y": 63.24,
-          "w": 11.0,
-          "h": 21.0
+          "w": 11,
+          "h": 21
         },
         {
           "de": "Treppe",
           "article": "die",
           "en": "stairs",
           "plural": "-n",
-          "x": 0.0,
+          "x": 0,
           "y": 65.52,
-          "w": 19.0,
+          "w": 19,
           "h": 26.47
         },
         {
@@ -5764,7 +5987,7 @@
           "plural": "Schließfächer",
           "x": 7.5,
           "y": 60.5,
-          "w": 11.0,
+          "w": 11,
           "h": 16.43
         },
         {
@@ -5794,7 +6017,7 @@
           "plural": "-n",
           "x": 18.5,
           "y": 55.93,
-          "w": 12.0,
+          "w": 12,
           "h": 25.56
         },
         {
@@ -5824,7 +6047,7 @@
           "plural": "-",
           "x": 8.5,
           "y": 22.61,
-          "w": 9.0,
+          "w": 9,
           "h": 8.22
         },
         {
@@ -5832,7 +6055,7 @@
           "article": "die",
           "en": "camera",
           "plural": "-s",
-          "x": 86.0,
+          "x": 86,
           "y": 22.16,
           "w": 8.5,
           "h": 5.48
@@ -5872,9 +6095,9 @@
           "article": "der",
           "en": "pram",
           "plural": "-",
-          "x": 64.0,
+          "x": 64,
           "y": 75.56,
-          "w": 13.0,
+          "w": 13,
           "h": 15.97
         },
         {
@@ -5884,7 +6107,7 @@
           "plural": "-",
           "x": 79.5,
           "y": 74.65,
-          "w": 7.0,
+          "w": 7,
           "h": 10.04
         },
         {
@@ -5894,7 +6117,7 @@
           "plural": "-",
           "x": 89.5,
           "y": 77.84,
-          "w": 6.0,
+          "w": 6,
           "h": 10.95
         },
         {
@@ -5902,9 +6125,9 @@
           "article": "der",
           "en": "umbrella",
           "plural": "-e",
-          "x": 93.0,
+          "x": 93,
           "y": 70.54,
-          "w": 5.0,
+          "w": 5,
           "h": 11.87
         },
         {
@@ -5912,7 +6135,7 @@
           "article": "der",
           "en": "dog",
           "plural": "-e",
-          "x": 79.0,
+          "x": 79,
           "y": 81.49,
           "w": 8.5,
           "h": 8.22
@@ -5932,7 +6155,7 @@
           "article": "die",
           "en": "newspaper",
           "plural": "-en",
-          "x": 35.0,
+          "x": 35,
           "y": 79.67,
           "w": 8.5,
           "h": 5.02
@@ -5944,7 +6167,7 @@
           "plural": "-n",
           "x": 43.5,
           "y": 76.02,
-          "w": 4.0,
+          "w": 4,
           "h": 8.22
         },
         {
@@ -5952,10 +6175,10 @@
           "article": "das",
           "en": "book",
           "plural": "Bücher",
-          "x": 46.0,
+          "x": 46,
           "y": 81.78,
-          "w": 5.0,
-          "h": 4.0
+          "w": 5,
+          "h": 4
         },
         {
           "de": "Handtasche",
@@ -5982,7 +6205,7 @@
           "plural": "-n",
           "x": 42.5,
           "y": 86.06,
-          "w": 6.0,
+          "w": 6,
           "h": 6.39
         },
         {

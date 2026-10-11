@@ -235,6 +235,33 @@ describe('finishing a run', () => {
 		expect(progress.markFor('fillBlank', 'a1_1_fill', 'a1_1_fill_')).toBe('done');
 	});
 
+	it('does not give a writing attempt a medal for a text that came back weak', async () => {
+		installStorage({
+			[SettingsKeys.completedWritingQuizzes]: JSON.stringify(['a1_1_write'])
+		});
+		await progress.load();
+
+		// The correction came back under the pass mark: marked for another go.
+		await progress.recordRun('a1_1_write_', { right: 0, total: 10, bestStreak: 0 });
+		expect(progress.ribbonFor('writing', 'a1_1_write', 'a1_1_write_')).toBeNull();
+		expect(progress.markFor('writing', 'a1_1_write', 'a1_1_write_')).toBe('retry');
+
+		// Written again and passed: the bronze is earned.
+		await progress.recordRun('a1_1_write_', { right: 10, total: 10, bestStreak: 0 });
+		expect(progress.markFor('writing', 'a1_1_write', 'a1_1_write_')).toBe('bronze');
+	});
+
+	it('still gives the play-through kinds their bronze, having no run to judge', async () => {
+		installStorage({
+			[SettingsKeys.completedReadingQuizzes]: JSON.stringify(['a1_1_read']),
+			[SettingsKeys.completedSpeakQuizzes]: JSON.stringify(['a1_1_speak'])
+		});
+		await progress.load();
+		// Neither kind records a run, so there is nothing to hold against them.
+		expect(progress.markFor('reading', 'a1_1_read', 'a1_1_read_')).toBe('bronze');
+		expect(progress.markFor('speaking', 'a1_1_speak', 'a1_1_speak_')).toBe('bronze');
+	});
+
 	it('keeps a log of every run, so a shaky drill can be told from a held one', async () => {
 		installStorage();
 		await progress.load();

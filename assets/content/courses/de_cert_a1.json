@@ -3245,12 +3245,12 @@
           "Never translate the whole text. Read for the answer, not for the words.",
           "'gern' after a verb = likes doing it: Ich spiele gern Tennis."
         ],
-        "exam": "Short personal texts with true/false statements are a typical A1 exam reading task — and exactly what a pen-pal message or profile page looks like.",
+        "exam": "Short personal texts with multiple-choice questions are a typical A1 exam reading task — and exactly what a pen-pal message or profile page looks like.",
         "hook": "Read a short personal profile and pick out age, home, job and hobbies without translating every word."
       },
       "category": "Daily Life",
       "passageTitle": "Das bin ich",
-      "passage": "Hallo! Ich heiße Lena Müller. Ich bin zwanzig Jahre alt und komme aus Österreich. Jetzt wohne ich in Hamburg. Ich bin Studentin und lerne an der Universität. Am Wochenende arbeite ich in einem Café. Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Tim. Am Sonntag spiele ich gern Tennis und lese viele Bücher. Am Morgen trinke ich Tee, aber am Nachmittag trinke ich gern Kaffee. Ich spreche Deutsch und Englisch.",
+      "passage": "Hallo! Ich heiße Lena Müller. Ich bin zwanzig Jahre alt und komme aus Österreich. Jetzt wohne ich in Hamburg. Ich bin Studentin und studiere an der Universität. Am Wochenende arbeite ich in einem Café. Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Tim. Am Sonntag spiele ich gern Tennis und lese viele Bücher. Am Morgen trinke ich Tee, aber am Nachmittag trinke ich gern Kaffee. Ich spreche Deutsch und Englisch.",
       "passageTranslation": "Hi! My name is Lena Müller. I am twenty years old and come from Austria. Now I live in Hamburg. I am a student and study at the university. At the weekend I work in a café. I have a brother and a sister. My brother is called Tim. On Sunday I like to play tennis and read a lot of books. In the morning I drink tea, but in the afternoon I like to drink coffee. I speak German and English.",
       "questions": [
         {
@@ -5603,8 +5603,8 @@
           },
           {
             "kind": "warning",
-            "title": "rosa, lila, orange never change at all",
-            "text": "These three are borrowed and take no ending ever: ein rosa Kleid, die lila Blumen, ein orange T-Shirt.",
+            "title": "rosa and lila never change at all",
+            "text": "These two are borrowed and take no ending ever: ein rosa Kleid, die lila Blumen. orange is different: standard German does inflect it — ein oranges T-Shirt, der orange Pullover — though it is often left uninflected in speech.",
             "examples": [
               {
                 "de": "Sie trägt ein rosa Kleid.",
@@ -5629,7 +5629,7 @@
                 "lilas"
               ],
               "answer": "lila",
-              "why": "lila, rosa and orange are borrowed colours and never take an ending, even before a noun."
+              "why": "lila and rosa are borrowed colours and never take an ending, even before a noun."
             }
           },
           {
@@ -7295,7 +7295,7 @@
             "von der Uni",
             "aus dem Büro",
             "aus dem Kino",
-            "—",
+            "aus dem Bett",
             "aus Deutschland",
             "aus Berlin",
             "von Siemens",
@@ -8458,6 +8458,209 @@
       ],
       "image": "quest_a1_1_lesen_dasbinich",
       "imageDescription": "a young woman student waving in front of a university building with a coffee cup, a small brother and sister beside her"
+    },
+    {
+      "id": "quest_a1_1_schreiben_steckbrief",
+      "type": "writing",
+      "title": "Schreiben: Das bin ich",
+      "level": "A1.1",
+      "writing": {
+        "topic": "Introduce yourself in writing, the way you would on a profile or a form: your name, how old you are, where you come from, where you live now, what you do, and one thing you like.",
+        "practisePoints": [
+          "say your name with heißen or sein",
+          "say where you come from with kommen aus and where you live with wohnen in",
+          "say your age with sein",
+          "write every noun with a capital letter",
+          "keep the verb in second place in each sentence"
+        ],
+        "scoringCriteria": [
+          "all six pieces of information are there",
+          "the verb endings match the subject",
+          "nouns are capitalised"
+        ],
+        "targetVocabulary": [
+          "ich heiße",
+          "ich bin … Jahre alt",
+          "ich komme aus",
+          "ich wohne in",
+          "ich arbeite als",
+          "ich lerne Deutsch",
+          "meine Familie",
+          "ich mag",
+          "gern"
+        ],
+        "passScore": 50
+      },
+      "storageKeyPrefix": "quest_a1_1_schreiben_steckbrief_",
+      "help": {
+        "hook": "Write six true sentences about yourself, and have them corrected one by one.",
+        "intro": "Your first piece of real German writing. Six short sentences are enough: your name, your age, where you are from, where you live, what you do, and one thing you like. You write them here in the box, and the app builds a correction request that carries your own text to your AI, which corrects what you actually wrote. Aim for 120 to 300 characters. Do not reach for words you have not met yet. A short, correct text scores better than an ambitious one full of guesses, and that is true at every level of this course.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "The verb is always the second idea",
+            "text": "German puts the conjugated verb in second position, whatever comes first. If you open with the subject, the verb follows it. If you open with something else, the verb still comes second and the subject moves behind it.",
+            "examples": [
+              {
+                "de": "Ich wohne jetzt in Berlin.",
+                "en": "I live in Berlin now.",
+                "focus": [
+                  "wohne"
+                ]
+              },
+              {
+                "de": "Jetzt wohne ich in Berlin.",
+                "en": "Now I live in Berlin.",
+                "focus": [
+                  "wohne",
+                  "ich"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Heute ____ ich Deutsch.",
+              "options": [
+                "lerne",
+                "ich lerne",
+                "lernen"
+              ],
+              "answer": "lerne",
+              "why": "After an opening word the verb comes straight away, then the subject."
+            },
+            "trap": "„Jetzt ich wohne in Berlin“ is the commonest first mistake: the verb has been pushed to third place."
+          },
+          {
+            "kind": "rule",
+            "title": "heißen, sein, kommen, wohnen",
+            "text": "Four verbs carry a self-introduction. ich heiße (I am called), ich bin (I am), ich komme aus (I come from), ich wohne in (I live in). aus is for the country or town you are from; in is for where you live now.",
+            "examples": [
+              {
+                "de": "Ich heiße Ana und ich bin 26 Jahre alt.",
+                "en": "My name is Ana and I am 26.",
+                "focus": [
+                  "heiße",
+                  "bin"
+                ]
+              },
+              {
+                "de": "Ich komme aus Spanien und wohne in Hamburg.",
+                "en": "I am from Spain and live in Hamburg.",
+                "focus": [
+                  "komme aus",
+                  "wohne in"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich komme ____ Italien.",
+              "options": [
+                "aus",
+                "in",
+                "von"
+              ],
+              "answer": "aus",
+              "why": "aus is the preposition for the country you come from."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Every noun gets a capital letter",
+            "text": "German writes every noun with a capital letter, wherever it stands in the sentence: Jahre, Spanien, Deutsch, Familie, Bruder. It is the thing a corrector notices first in a written text, and it costs nothing to get right.",
+            "examples": [
+              {
+                "de": "Ich lerne Deutsch und ich habe einen Bruder.",
+                "en": "I am learning German and I have a brother.",
+                "focus": [
+                  "Deutsch",
+                  "Bruder"
+                ]
+              },
+              {
+                "de": "Meine Familie wohnt in Madrid.",
+                "en": "My family lives in Madrid.",
+                "focus": [
+                  "Familie"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which is written correctly?",
+              "options": [
+                "Ich habe eine Schwester.",
+                "Ich habe eine schwester.",
+                "ich habe eine Schwester."
+              ],
+              "answer": "Ich habe eine Schwester.",
+              "why": "Schwester is a noun, so it is capitalised, and the sentence starts with a capital too."
+            }
+          }
+        ],
+        "remember": [
+          "The verb is the second idea, always.",
+          "ich heiße, ich bin, ich komme aus, ich wohne in.",
+          "Every noun takes a capital letter.",
+          "Six true sentences beat twelve guessed ones."
+        ],
+        "exam": "Writing a few lines about yourself is the first written task of the A1 certificate, and the first thing anyone asks you in German.",
+        "mistakes": [
+          {
+            "wrong": "Jetzt ich wohne in Berlin.",
+            "right": "Jetzt wohne ich in Berlin.",
+            "why": "The verb keeps second place; the subject moves behind it."
+          },
+          {
+            "wrong": "Ich komme von Spanien.",
+            "right": "Ich komme aus Spanien.",
+            "why": "aus for the country you come from."
+          },
+          {
+            "wrong": "Ich habe 26 Jahre.",
+            "right": "Ich bin 26 Jahre alt.",
+            "why": "German has an age with sein, not haben."
+          },
+          {
+            "wrong": "Ich lerne deutsch.",
+            "right": "Ich lerne Deutsch.",
+            "why": "The name of a language is a noun."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "heißen",
+            "en": "to be called"
+          },
+          {
+            "de": "kommen aus",
+            "en": "to come from"
+          },
+          {
+            "de": "wohnen in",
+            "en": "to live in"
+          },
+          {
+            "de": "das Jahr",
+            "plural": "-e",
+            "en": "year"
+          },
+          {
+            "de": "die Familie",
+            "plural": "-n",
+            "en": "family"
+          },
+          {
+            "de": "arbeiten als",
+            "en": "to work as"
+          },
+          {
+            "de": "gern",
+            "en": "gladly, used to say you like doing something"
+          }
+        ]
+      },
+      "covers": [
+        "a1.sein-haben"
+      ],
+      "image": "quest_a1_1_lesen_dasbinich"
     },
     {
       "type": "fillBlank",
@@ -10394,7 +10597,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_familie",
           "article": "der",
-          "plural": "—",
+          "plural": "-s",
           "image": "opa",
           "imageHint": true
         },
@@ -10414,7 +10617,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_familie",
           "article": "die",
-          "plural": "—",
+          "plural": "-s",
           "image": "oma",
           "imageHint": true
         },
@@ -10647,7 +10850,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_wortbildung",
           "article": "der",
-          "plural": "—",
+          "plural": "-en",
           "image": "student",
           "imageHint": true
         },
@@ -10666,7 +10869,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_wortbildung",
           "article": "der",
-          "plural": "—",
+          "plural": "-",
           "image": "schueler",
           "imageHint": true
         },
@@ -11733,7 +11936,7 @@
       ],
       "help": {
         "hook": "A cosy living room full of everyday things: tap each one in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one cosy, slightly cluttered living room with 32 things to find in it, the everyday words you need first — der Tisch, die Lampe, das Sofa, the cat asleep on the cushions and the dog on the rug. The prompt asks Wo ist der Sessel? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one cosy, slightly cluttered living room with 32 things to find in it, the everyday words you need first — der Tisch, die Lampe, das Sofa, the cat asleep on the cushions and the dog on the rug. The prompt asks Wo ist der Sessel? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Sessel?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -12399,7 +12602,7 @@
       ],
       "help": {
         "hook": "An empty classroom after the bell: tap each thing you find, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one empty, slightly messy classroom with 32 things to find in it, the words of a school day — die Tafel, der Bleistift, das Heft, the fish tank by the wall and the piano in the corner. The prompt asks Wo ist das Lineal? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one empty, slightly messy classroom with 32 things to find in it, the words of a school day — die Tafel, der Bleistift, das Heft, the fish tank by the wall and the piano in the corner. The prompt asks Wo ist das Lineal? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Lineal?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -13587,11 +13790,11 @@
       "subjectColumnLabel": "English",
       "level": "A1.2",
       "help": {
-        "intro": "When a pronoun is the object of the verb it changes form, just as in English (I → me, he → him): Ich sehe dich, du siehst mich, wir kennen ihn. Five of the nine change completely — ich → mich, du → dich, er → ihn, wir → uns, ihr → euch — and three stay exactly as they were: sie (her, them), es and Sie. The one that catches English speakers is 'it': a thing is er, sie or es by its gender, so 'I see it' is Ich sehe ihn for der Tisch, sie for die Lampe, es for das Buch. Choose the pronoun by the noun's gender, then put it in the accusative — which, for a der-word, means ihn.",
+        "intro": "When a pronoun is the object of the verb it changes form, just as in English (I → me, he → him): Ich sehe dich, du siehst mich, wir kennen ihn. Five of the nine change completely — ich → mich, du → dich, er → ihn, wir → uns, ihr → euch — and four stay exactly as they were: sie (her), sie (them), es and Sie. The one that catches English speakers is 'it': a thing is er, sie or es by its gender, so 'I see it' is Ich sehe ihn for der Tisch, sie for die Lampe, es for das Buch. Choose the pronoun by the noun's gender, then put it in the accusative — which, for a der-word, means ihn.",
         "tips": [
           {
             "kind": "rule",
-            "title": "Five change, three stay",
+            "title": "Five change, four stay",
             "text": "ich → mich · du → dich · er → ihn · wir → uns · ihr → euch. sie, es and Sie keep their form in the accusative.",
             "examples": [
               {
@@ -20454,9 +20657,7 @@
           "sentence": "____ mir bitte helfen?",
           "acceptedAnswers": [
             "Könnten Sie",
-            "Können Sie",
-            "Koennten Sie",
-            "Koennen Sie"
+            "Koennten Sie"
           ],
           "english": "Could you help me?"
         },
@@ -20484,9 +20685,7 @@
           "sentence": "____ das bitte wiederholen?",
           "acceptedAnswers": [
             "Könnten Sie",
-            "Können Sie",
-            "Koennten Sie",
-            "Koennen Sie"
+            "Koennten Sie"
           ],
           "english": "Could you repeat that?"
         },
@@ -20514,7 +20713,6 @@
           "sentence": "____ die Speisekarte haben?",
           "acceptedAnswers": [
             "Könnte ich",
-            "Kann ich",
             "Koennte ich"
           ],
           "english": "Could I have the menu?"
@@ -20543,9 +20741,7 @@
           "sentence": "____ bitte langsam sprechen?",
           "acceptedAnswers": [
             "Könnten Sie",
-            "Können Sie",
-            "Koennten Sie",
-            "Koennen Sie"
+            "Koennten Sie"
           ],
           "english": "Could you speak slowly?"
         },
@@ -20573,9 +20769,7 @@
           "sentence": "____ bitte das Fenster aufmachen?",
           "acceptedAnswers": [
             "Könnten Sie",
-            "Können Sie",
-            "Koennten Sie",
-            "Koennen Sie"
+            "Koennten Sie"
           ],
           "english": "Could you open the window?"
         },
@@ -20603,7 +20797,6 @@
           "sentence": "____ bitte die Rechnung haben?",
           "acceptedAnswers": [
             "Könnte ich",
-            "Kann ich",
             "Koennte ich"
           ],
           "english": "Could I have the bill?"
@@ -20626,9 +20819,7 @@
           "sentence": "____ Sie mir bitte die Rechnung bringen? (could)",
           "acceptedAnswers": [
             "Könnten",
-            "Können",
-            "Koennten",
-            "Koennen"
+            "Koennten"
           ],
           "english": "Could you bring me the bill, please?"
         },
@@ -23373,6 +23564,209 @@
       "imageDescription": "a small cosy cafe on a market square with an awning, outdoor tables and a woman writing an email on a laptop"
     },
     {
+      "id": "quest_a1_2_schreiben_absage",
+      "type": "writing",
+      "title": "Schreiben: Eine kurze Nachricht",
+      "level": "A1.2",
+      "writing": {
+        "topic": "Write a short message to a friend: you cannot come this evening. Say that you cannot come, say why, suggest another day, and ask whether that suits them.",
+        "practisePoints": [
+          "an informal greeting and sign-off",
+          "say you cannot come, with the modal verb können",
+          "give the reason with denn or because of a time phrase",
+          "suggest another day with a time expression (am Freitag, morgen Abend)",
+          "end with a question"
+        ],
+        "scoringCriteria": [
+          "the modal verb is in second place and its partner verb at the end",
+          "the message says both why and when, not only one of them",
+          "it reads as a message to a friend, with du"
+        ],
+        "targetVocabulary": [
+          "Es tut mir leid",
+          "ich kann nicht",
+          "heute Abend",
+          "denn",
+          "keine Zeit haben",
+          "am Freitag",
+          "vielleicht",
+          "Passt dir das?",
+          "Bis dann"
+        ],
+        "passScore": 50
+      },
+      "storageKeyPrefix": "quest_a1_2_schreiben_absage_",
+      "help": {
+        "hook": "Cancel an evening in German, politely, and have the message corrected.",
+        "intro": "A real message, the kind you send most often: you cannot make it, here is why, how about another day. You write it here in the box and the app builds a correction request that carries your own text. Aim for 120 to 300 characters. The grammar this exercise watches is the modal verb bracket: können takes second place and the other verb goes right to the end of the sentence. Get that right and the message is already most of the way there.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "The modal verb opens the bracket, the other verb closes it",
+            "text": "With a modal verb, German splits the two verbs apart: the modal takes second place and the plain infinitive goes to the very end. Everything else sits between them.",
+            "examples": [
+              {
+                "de": "Ich kann heute Abend leider nicht kommen.",
+                "en": "Unfortunately I cannot come this evening.",
+                "focus": [
+                  "kann",
+                  "kommen"
+                ]
+              },
+              {
+                "de": "Wir können am Freitag ins Kino gehen.",
+                "en": "We can go to the cinema on Friday.",
+                "focus": [
+                  "können",
+                  "gehen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich kann heute nicht ____.",
+              "options": [
+                "kommen",
+                "komme",
+                "gekommen"
+              ],
+              "answer": "kommen",
+              "why": "After a modal verb the second verb is an infinitive, and it goes last."
+            },
+            "trap": "„Ich kann nicht kommen heute Abend“ puts the time after the infinitive; it belongs inside the bracket."
+          },
+          {
+            "kind": "rule",
+            "title": "denn gives the reason and changes nothing",
+            "text": "denn means because and, unlike weil, leaves the word order exactly as it was: subject, verb, the rest. At this level it is the safest way to give a reason.",
+            "examples": [
+              {
+                "de": "Ich kann nicht kommen, denn ich habe keine Zeit.",
+                "en": "I cannot come, because I have no time.",
+                "focus": [
+                  "denn",
+                  "habe"
+                ]
+              },
+              {
+                "de": "Ich bleibe zu Hause, denn ich bin müde.",
+                "en": "I am staying at home, because I am tired.",
+                "focus": [
+                  "denn",
+                  "bin"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich komme nicht, denn ich ____ arbeiten.",
+              "options": [
+                "muss",
+                "müssen",
+                "gemusst"
+              ],
+              "answer": "muss",
+              "why": "After denn the order is normal: subject, then the conjugated verb."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Say when, not just that",
+            "text": "A message that only cancels makes work for the other person. Offer a day: am Freitag, am Wochenende, morgen Abend, nächste Woche. Then ask one short question so they know to answer.",
+            "examples": [
+              {
+                "de": "Vielleicht am Freitag? Passt dir das?",
+                "en": "Maybe Friday? Does that suit you?",
+                "focus": [
+                  "am Freitag",
+                  "Passt dir das"
+                ]
+              },
+              {
+                "de": "Hast du am Wochenende Zeit?",
+                "en": "Do you have time at the weekend?",
+                "focus": [
+                  "am Wochenende"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which preposition goes with a day?",
+              "options": [
+                "am Freitag",
+                "in Freitag",
+                "um Freitag"
+              ],
+              "answer": "am Freitag",
+              "why": "Days take an: am Montag, am Freitag."
+            }
+          }
+        ],
+        "remember": [
+          "Modal verb second, infinitive last: Ich kann heute nicht kommen.",
+          "denn gives a reason and leaves the word order alone.",
+          "Days take am: am Freitag. Parts of the day too: am Abend.",
+          "Always offer a new day and ask one question."
+        ],
+        "exam": "A short message that cancels and suggests something else is one of the written tasks the A1 certificate sets.",
+        "mistakes": [
+          {
+            "wrong": "Ich kann nicht kommen heute Abend.",
+            "right": "Ich kann heute Abend nicht kommen.",
+            "why": "The infinitive closes the sentence, so the time goes before it."
+          },
+          {
+            "wrong": "Ich komme nicht, denn ich muss arbeiten morgen.",
+            "right": "Ich komme nicht, denn ich muss morgen arbeiten.",
+            "why": "Same bracket: the infinitive stays last."
+          },
+          {
+            "wrong": "Vielleicht in Freitag?",
+            "right": "Vielleicht am Freitag?",
+            "why": "Days take an, contracted to am."
+          },
+          {
+            "wrong": "Es tut mir leid. Tschüss",
+            "right": "Es tut mir leid! Passt dir Freitag?\n\nBis dann\nAna",
+            "why": "Offer a new day and ask, or your friend has to write back to find out."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "Es tut mir leid",
+            "en": "I am sorry"
+          },
+          {
+            "de": "absagen",
+            "en": "to cancel"
+          },
+          {
+            "de": "die Zeit",
+            "plural": "-en",
+            "en": "time"
+          },
+          {
+            "de": "denn",
+            "en": "because (word order stays normal)"
+          },
+          {
+            "de": "vielleicht",
+            "en": "maybe"
+          },
+          {
+            "de": "passen",
+            "en": "to suit (Passt dir das?)"
+          },
+          {
+            "de": "Bis dann",
+            "en": "See you then"
+          }
+        ]
+      },
+      "covers": [
+        "a1.sentence-connectors"
+      ],
+      "image": "quest_a1_2_lesen_cafe"
+    },
+    {
       "type": "fillBlank",
       "id": "quest_a1_2_wohin",
       "title": "Wohin? — nach, zu, in",
@@ -24898,7 +25292,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_datum",
           "article": "der",
-          "plural": "—",
+          "plural": "-",
           "image": "morgen",
           "imageHint": true
         },
@@ -24908,7 +25302,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_datum",
           "article": "die",
-          "plural": "—",
+          "plural": "¨-e",
           "image": "nacht"
         },
         {
@@ -24919,52 +25313,6 @@
           "article": "der",
           "plural": "-e",
           "image": "geburtstag"
-        },
-        {
-          "de": "8 Uhr",
-          "en": "at eight",
-          "kind": "word",
-          "sourceQuizId": "quest_a1_2_wann_praepositionen"
-        },
-        {
-          "de": "Abend",
-          "en": "in the evening",
-          "kind": "noun",
-          "sourceQuizId": "quest_a1_2_wann_praepositionen",
-          "article": "der",
-          "plural": "—",
-          "image": "abend",
-          "imageHint": true
-        },
-        {
-          "de": "zwei Wochen",
-          "en": "for two weeks",
-          "kind": "word",
-          "sourceQuizId": "quest_a1_2_wann_praepositionen"
-        },
-        {
-          "de": "eine Woche",
-          "en": "in a week's time",
-          "kind": "word",
-          "sourceQuizId": "quest_a1_2_wann_praepositionen"
-        },
-        {
-          "de": "Essen",
-          "en": "after the meal",
-          "kind": "noun",
-          "sourceQuizId": "quest_a1_2_wann_praepositionen",
-          "article": "das",
-          "image": "essen"
-        },
-        {
-          "de": "Kurs",
-          "en": "before the course",
-          "kind": "noun",
-          "sourceQuizId": "quest_a1_2_wann_praepositionen",
-          "article": "der",
-          "plural": "-e",
-          "image": "kurs",
-          "imageHint": true
         },
         {
           "de": "durch",
@@ -25392,18 +25740,6 @@
         {
           "de": "fliegen",
           "en": "to fly",
-          "kind": "word",
-          "sourceQuizId": "quest_a1_2_wohin"
-        },
-        {
-          "de": "home",
-          "en": "home (direction)",
-          "kind": "word",
-          "sourceQuizId": "quest_a1_2_wohin"
-        },
-        {
-          "de": "at home",
-          "en": "at home (place)",
           "kind": "word",
           "sourceQuizId": "quest_a1_2_wohin"
         },
@@ -26379,7 +26715,7 @@
       ],
       "help": {
         "hook": "A busy family kitchen with 32 everyday things in it: find each one in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one lived-in family kitchen with 32 things to find, all of them words you use every day at home — der Kühlschrank, die Pfanne, das Messer, the egg on the table and the spoon on the rail. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one lived-in family kitchen with 32 things to find, all of them words you use every day at home — der Kühlschrank, die Pfanne, das Messer, the egg on the table and the spoon on the rail. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Pfanne?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -27035,7 +27371,7 @@
       ],
       "help": {
         "hook": "A small corner shop full of groceries: find each item in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Fließband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Fließband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Kasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -30504,7 +30840,7 @@
           },
           {
             "de": "beim Arzt / zum Arzt",
-            "en": "at / to the doctor's"
+            "en": "at the doctor's / to the doctor's"
           },
           {
             "de": "in die Schweiz",
@@ -35450,6 +35786,227 @@
       "imageDescription": "a family walking along a harbour with big ships and a warehouse skyline, seagulls and a fish sandwich"
     },
     {
+      "id": "quest_a2_1_schreiben_wochenende",
+      "type": "writing",
+      "title": "Schreiben: Eine E-Mail an einen Freund",
+      "level": "A2.1",
+      "writing": {
+        "topic": "Write an e-mail to a German friend about last weekend: where you went, who you were with, what you did and what you thought of it. Finish by asking your friend one question about their weekend.",
+        "practisePoints": [
+          "an informal greeting (Hallo / Liebe / Lieber) and an informal sign-off",
+          "tell it in the Perfekt: ich habe … gemacht, ich bin … gefahren",
+          "use sein for going and coming (ich bin gefahren, wir sind gegangen) and haben for the rest",
+          "say when, with at least two time expressions (am Samstag, am Nachmittag, danach)",
+          "say what you thought of it, with one opinion sentence",
+          "end with one question to your friend"
+        ],
+        "scoringCriteria": [
+          "the Perfekt is used throughout rather than the present tense",
+          "haben and sein are each used with the right verbs",
+          "the e-mail reads as a message to a friend, with du and an informal greeting"
+        ],
+        "targetVocabulary": [
+          "am Samstag",
+          "am Wochenende",
+          "zuerst",
+          "danach",
+          "dann",
+          "Es war …",
+          "Das hat Spaß gemacht",
+          "Und du?",
+          "Schreib mir bald",
+          "Liebe Grüße"
+        ],
+        "passScore": 55
+      },
+      "storageKeyPrefix": "quest_a2_1_schreiben_wochenende_",
+      "help": {
+        "hook": "Tell a friend about your weekend in German, and have your own AI correct it.",
+        "intro": "You have drilled the Perfekt gap by gap; now you write a whole e-mail with it. You write the message here in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The fixes are saved as your next things to work on. Aim for 200 to 500 characters, about the length of a real message to a friend. The one thing that will cost you marks is slipping into the present tense halfway through, so check every verb before you send it.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "A whole message in the Perfekt",
+            "text": "When you tell someone what you did, German uses the Perfekt almost everywhere: haben or sein in second position, the Partizip II at the very end. Keep it up for the whole message. One present-tense sentence in the middle makes the reader think you have moved back to today.",
+            "examples": [
+              {
+                "de": "Am Samstag habe ich meine Schwester besucht.",
+                "en": "On Saturday I visited my sister.",
+                "focus": [
+                  "habe",
+                  "besucht"
+                ]
+              },
+              {
+                "de": "Wir sind zusammen in die Stadt gefahren und haben einen Film gesehen.",
+                "en": "We went into town together and watched a film.",
+                "focus": [
+                  "sind",
+                  "gefahren",
+                  "haben",
+                  "gesehen"
+                ]
+              }
+            ],
+            "trap": "The participle goes last, after everything else: „Ich habe am Sonntag lange geschlafen“, not „Ich habe geschlafen am Sonntag“.",
+            "check": {
+              "q": "Ich ____ am Samstag Fußball gespielt.",
+              "options": [
+                "habe",
+                "bin",
+                "war"
+              ],
+              "answer": "habe",
+              "why": "spielen takes haben, and the participle gespielt stays at the end."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "sein for going, haben for the rest",
+            "text": "Verbs of going and coming take sein: ich bin gefahren, gegangen, geflogen, gekommen, geblieben. Almost everything else takes haben. If you can picture yourself moving from one place to another, reach for bin.",
+            "examples": [
+              {
+                "de": "Ich bin am Freitag nach Hamburg gefahren.",
+                "en": "I travelled to Hamburg on Friday.",
+                "focus": [
+                  "bin",
+                  "gefahren"
+                ]
+              },
+              {
+                "de": "Wir sind lange im Café geblieben und haben viel geredet.",
+                "en": "We stayed in the cafe for a long time and talked a lot.",
+                "focus": [
+                  "sind",
+                  "geblieben",
+                  "haben",
+                  "geredet"
+                ]
+              }
+            ],
+            "trap": "bleiben takes sein although nobody moves anywhere: ich bin geblieben.",
+            "check": {
+              "q": "Wir ____ am Sonntag ins Kino gegangen.",
+              "options": [
+                "sind",
+                "haben",
+                "waren"
+              ],
+              "answer": "sind",
+              "why": "gehen is a verb of movement, so its Perfekt is formed with sein."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Order the weekend with zuerst, dann, danach",
+            "text": "A message about your weekend is easier to read, and easier to write, if you walk through it in order. Zuerst … dann … danach … am Abend. Each of those can start the sentence, and when it does, the verb follows it straight away.",
+            "examples": [
+              {
+                "de": "Zuerst haben wir gefrühstückt, dann sind wir an den See gefahren.",
+                "en": "First we had breakfast, then we drove to the lake.",
+                "focus": [
+                  "Zuerst",
+                  "haben",
+                  "dann",
+                  "sind"
+                ]
+              },
+              {
+                "de": "Danach war ich sehr müde, aber es hat Spaß gemacht.",
+                "en": "Afterwards I was very tired, but it was fun.",
+                "focus": [
+                  "Danach",
+                  "war"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Dann ____ wir nach Hause gefahren.",
+              "options": [
+                "sind",
+                "wir sind",
+                "haben"
+              ],
+              "answer": "sind",
+              "why": "After an opening word like dann the verb comes next, then the subject."
+            }
+          }
+        ],
+        "remember": [
+          "Perfekt all the way through: haben or sein in second place, Partizip II at the end.",
+          "sein for going and coming (gefahren, gegangen, geblieben); haben for the rest.",
+          "war and hatte stay simple: Es war schön, Ich hatte keine Zeit.",
+          "Informal frame: Hallo Max, … then Liebe Grüße and your name."
+        ],
+        "exam": "A short e-mail about what you did is one of the written tasks the A2 certificate sets, and the message you will actually send most often.",
+        "mistakes": [
+          {
+            "wrong": "Ich bin gespielt Fußball.",
+            "right": "Ich habe Fußball gespielt.",
+            "why": "spielen takes haben, and the participle goes last."
+          },
+          {
+            "wrong": "Ich habe nach Berlin gefahren.",
+            "right": "Ich bin nach Berlin gefahren.",
+            "why": "fahren is movement, so it takes sein."
+          },
+          {
+            "wrong": "Am Samstag ich habe meine Oma besucht.",
+            "right": "Am Samstag habe ich meine Oma besucht.",
+            "why": "After an opening time phrase the verb comes second, before the subject."
+          },
+          {
+            "wrong": "Liebe Grüße, Ana. Und du? Wie war dein Wochenende?",
+            "right": "Und du? Wie war dein Wochenende?\n\nLiebe Grüße\nAna",
+            "why": "The question belongs before the sign-off, and the sign-off takes no comma."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "das Wochenende",
+            "plural": "-n",
+            "en": "weekend"
+          },
+          {
+            "de": "zuerst",
+            "en": "first, to begin with"
+          },
+          {
+            "de": "danach",
+            "en": "afterwards"
+          },
+          {
+            "de": "besuchen",
+            "en": "to visit"
+          },
+          {
+            "de": "bleiben",
+            "en": "to stay (ist geblieben)"
+          },
+          {
+            "de": "Spaß machen",
+            "en": "to be fun (Das hat Spaß gemacht)"
+          },
+          {
+            "de": "müde",
+            "en": "tired"
+          },
+          {
+            "de": "Liebe Grüße",
+            "en": "best wishes (informal)"
+          },
+          {
+            "de": "Schreib mir bald",
+            "en": "write to me soon"
+          }
+        ]
+      },
+      "covers": [
+        "a2.past-narration"
+      ],
+      "image": "quest_a2_1_lesen_hamburg"
+    },
+    {
       "id": "quest_a2_1_indefinitpronomen",
       "type": "fillBlank",
       "title": "Indefinitpronomen: man, jemand, niemand, etwas, nichts, alle",
@@ -36494,7 +37051,7 @@
         },
         {
           "de": "beim Arzt",
-          "en": "at",
+          "en": "at the doctor's",
           "kind": "word",
           "sourceQuizId": "quest_a2_1_woher_wo_wohin"
         },
@@ -36526,12 +37083,11 @@
           "image": "kino"
         },
         {
-          "de": "Cafe",
+          "de": "Café",
           "en": "café",
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_woher_wo_wohin",
-          "article": "das",
-          "image": "cafe"
+          "article": "das"
         },
         {
           "de": "Schule",
@@ -36854,7 +37410,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_modal_praeteritum",
           "article": "die",
-          "plural": "—",
+          "plural": "-nen",
           "image": "chefin",
           "imageHint": true
         },
@@ -38127,7 +38683,7 @@
       ],
       "help": {
         "hook": "A busy family bathroom with 32 things to find: tap each one, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one family bathroom with 32 everyday things in it, from die Badewanne and das Waschbecken to the small stuff on the shelf — der Kamm, die Haarbürste, das Parfüm — and a rubber duck on the edge of the tub. The prompt asks, for example, Wo ist die Zahnbürste? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one family bathroom with 32 everyday things in it, from die Badewanne and das Waschbecken to the small stuff on the shelf — der Kamm, die Haarbürste, das Parfüm — and a rubber duck on the edge of the tub. The prompt asks, for example, Wo ist die Zahnbürste? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Badewanne?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -38770,7 +39326,7 @@
       ],
       "help": {
         "hook": "A little station hall with 32 things to find: tap each one, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one small station hall with 32 things in it, seen while you wait for your train — der Fahrkartenautomat, das Schließfach, die Bahnhofsuhr, and through the arch der Zug on das Gleis. Someone has even left a piano in the hall, and an ice cream has fallen on the floor. The prompt asks, for example, Wo ist der Koffer? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one small station hall with 32 things in it, seen while you wait for your train — der Fahrkartenautomat, das Schließfach, die Bahnhofsuhr, and through the arch der Zug on das Gleis. Someone has even left a piano in the hall, and an ice cream has fallen on the floor. The prompt asks, for example, Wo ist der Koffer? and you tap that thing in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Bahnhofsuhr?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -51241,6 +51797,219 @@
       "image": "card_grammar_a2_2"
     },
     {
+      "id": "quest_a2_2_schreiben_einladung",
+      "type": "writing",
+      "title": "Schreiben: Einladung & Plan",
+      "level": "A2.2",
+      "writing": {
+        "topic": "Write a message to a friend inviting them to do something at the weekend. Say what you are suggesting and when, give one reason why, offer an alternative in case the first idea does not suit them, and ask them to answer.",
+        "practisePoints": [
+          "an informal greeting and an informal sign-off",
+          "make the suggestion with könnten or sollten (wir könnten …, wir sollten …)",
+          "give one reason with weil, and put the verb at the end of that clause",
+          "offer an alternative (oder …, wenn du willst / wenn du keine Zeit hast)",
+          "say clearly when and where you are meeting",
+          "ask them to reply"
+        ],
+        "scoringCriteria": [
+          "the suggestion is a suggestion, not an order: könnten or sollten rather than a bare imperative",
+          "the verb really is at the end of the weil clause",
+          "the message says what, when and where without the reader having to guess"
+        ],
+        "targetVocabulary": [
+          "Hast du Lust …?",
+          "wir könnten",
+          "wir sollten",
+          "weil",
+          "Ich schlage vor",
+          "Wenn du keine Zeit hast",
+          "Treffen wir uns um …",
+          "Sag mir bitte Bescheid",
+          "Ich freue mich",
+          "Bis bald"
+        ],
+        "passScore": 55
+      },
+      "storageKeyPrefix": "quest_a2_2_schreiben_einladung_",
+      "help": {
+        "hook": "Invite a friend to something, in German, and have the message corrected.",
+        "intro": "This is a planning message: you suggest something, say why, and leave your friend a way out. You write it here in the box, and the app builds a correction request that carries your own text for your AI to correct. Aim for 200 to 500 characters. Two things earn most of the marks: making the suggestion sound like a suggestion, which is what könnten and sollten are for, and putting the verb at the end of the weil clause. A message that says what, when and where, and asks for an answer, is already a good one.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "könnten and sollten make it an invitation",
+            "text": "A plan in the plain present tense reads as a decision you have already taken. Könnten softens it to an idea, sollten to a recommendation. Both put the other person in the sentence with you: wir könnten, wir sollten.",
+            "examples": [
+              {
+                "de": "Wir könnten am Samstag ins Schwimmbad gehen.",
+                "en": "We could go to the swimming pool on Saturday.",
+                "focus": [
+                  "könnten"
+                ]
+              },
+              {
+                "de": "Wir sollten früh losfahren, dann ist es noch nicht so voll.",
+                "en": "We should set off early, then it is not so crowded yet.",
+                "focus": [
+                  "sollten"
+                ]
+              }
+            ],
+            "trap": "Keep the umlaut: könnten and sollten are the polite ones. konnten means could in the past, and sollten without the umlaut does not exist as a separate form, so an umlaut missing from könnten changes the meaning.",
+            "check": {
+              "q": "Which one invites rather than decides?",
+              "options": [
+                "Wir könnten ins Kino gehen.",
+                "Wir gehen ins Kino.",
+                "Geh ins Kino!"
+              ],
+              "answer": "Wir könnten ins Kino gehen.",
+              "why": "könnten offers an idea; the present tense states a plan and the imperative gives an order."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "weil sends the verb to the end",
+            "text": "A reason with weil is a subordinate clause, so its verb moves to the very end: weil das Wetter schön ist. If there are two verbs, the finite one goes last of all: weil ich arbeiten muss.",
+            "examples": [
+              {
+                "de": "Ich schlage den Samstag vor, weil ich am Sonntag arbeiten muss.",
+                "en": "I am suggesting Saturday, because I have to work on Sunday.",
+                "focus": [
+                  "weil",
+                  "muss"
+                ]
+              },
+              {
+                "de": "Komm doch mit, weil es bestimmt lustig wird.",
+                "en": "Do come along, because it is sure to be fun.",
+                "focus": [
+                  "weil",
+                  "wird"
+                ]
+              }
+            ],
+            "trap": "denn keeps the normal order and weil does not: „…, denn ich muss arbeiten“ but „…, weil ich arbeiten muss“.",
+            "check": {
+              "q": "Ich kann nicht, weil ich keine Zeit ____.",
+              "options": [
+                "habe",
+                "habe ich",
+                "ich habe"
+              ],
+              "answer": "habe",
+              "why": "In a weil clause the verb comes last, after the object."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Four things a plan must say",
+            "text": "What, when, where, and what to do if it does not suit. A message missing any of the four makes your friend write back just to ask. Offer the alternative with oder or with wenn: oder am Sonntag, wenn dir das besser passt.",
+            "examples": [
+              {
+                "de": "Treffen wir uns um sieben am Hauptbahnhof?",
+                "en": "Shall we meet at seven at the main station?",
+                "focus": [
+                  "Treffen wir uns"
+                ]
+              },
+              {
+                "de": "Oder wir gehen am Sonntag, wenn du am Samstag keine Zeit hast.",
+                "en": "Or we go on Sunday, if you have no time on Saturday.",
+                "focus": [
+                  "Oder",
+                  "wenn",
+                  "hast"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What is missing from: „Hast du Lust, ins Kino zu gehen? Liebe Grüße“?",
+              "options": [
+                "when and where",
+                "a greeting",
+                "a reason to refuse"
+              ],
+              "answer": "when and where",
+              "why": "The invitation is there, but your friend still has to ask what day and what time."
+            }
+          }
+        ],
+        "remember": [
+          "Suggest with wir könnten or wir sollten, never a bare imperative.",
+          "weil sends the verb to the end; denn leaves the order alone.",
+          "Say what, when, where, and offer one alternative.",
+          "Close with Sag mir bitte Bescheid, then Bis bald or Liebe Grüße and your name."
+        ],
+        "exam": "A short message that invites someone and proposes a time is one of the written tasks the A2 certificate sets, and the everyday use of könnten.",
+        "mistakes": [
+          {
+            "wrong": "Wir gehen am Samstag ins Kino. Komm!",
+            "right": "Wir könnten am Samstag ins Kino gehen. Hast du Lust?",
+            "why": "The first version decides for your friend; könnten invites them."
+          },
+          {
+            "wrong": "…, weil ich muss arbeiten.",
+            "right": "…, weil ich arbeiten muss.",
+            "why": "In a weil clause the finite verb goes last."
+          },
+          {
+            "wrong": "Wir konnten ins Schwimmbad gehen.",
+            "right": "Wir könnten ins Schwimmbad gehen.",
+            "why": "Without the umlaut it means we were able to, in the past."
+          },
+          {
+            "wrong": "Sag mir bitte Bescheid, Liebe Grüße Ana",
+            "right": "Sag mir bitte Bescheid!\n\nLiebe Grüße\nAna",
+            "why": "The sign-off starts a new line and takes no comma after it."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "die Einladung",
+            "plural": "-en",
+            "en": "invitation"
+          },
+          {
+            "de": "Hast du Lust?",
+            "en": "Do you fancy it?"
+          },
+          {
+            "de": "vorschlagen",
+            "en": "to suggest (Ich schlage vor)"
+          },
+          {
+            "de": "sich treffen",
+            "en": "to meet (Treffen wir uns?)"
+          },
+          {
+            "de": "passen",
+            "en": "to suit (Passt dir das?)"
+          },
+          {
+            "de": "Bescheid sagen",
+            "en": "to let someone know"
+          },
+          {
+            "de": "bestimmt",
+            "en": "surely, definitely"
+          },
+          {
+            "de": "losfahren",
+            "en": "to set off"
+          },
+          {
+            "de": "Bis bald",
+            "en": "See you soon"
+          }
+        ]
+      },
+      "covers": [
+        "a2.email-redemittel"
+      ],
+      "image": "quest_a2_2_bigtext_zimmer"
+    },
+    {
       "id": "quest_a2_2_wortschatz",
       "type": "vocabulary",
       "title": "Wortschatz",
@@ -51515,7 +52284,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_weil",
           "article": "der",
-          "plural": "—",
+          "plural": "-e",
           "image": "urlaub"
         },
         {
@@ -53837,7 +54606,7 @@
       ],
       "help": {
         "hook": "A child's bedroom full of toys: tap each thing in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one cheerful, slightly messy child's bedroom with 32 things to find in it, every one an everyday noun — das Bett, der Kleiderschrank, die Eisenbahn, das Schaukelpferd, the toys on the rug and the kite on the wall. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one cheerful, slightly messy child's bedroom with 32 things to find in it, every one an everyday noun — das Bett, der Kleiderschrank, die Eisenbahn, das Schaukelpferd, the toys on the rug and the kite on the wall. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Eisenbahn?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -54498,7 +55267,7 @@
       ],
       "help": {
         "hook": "An empty café before opening time: tap each thing in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one small, cosy café before opening time, with a counter and nobody in it with 32 things to find in it, every one an everyday noun — der Tresen, die Kaffeemaschine, das Milchkännchen, the cake on the counter and the croissant on the table. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one small, cosy café before opening time, with a counter and nobody in it with 32 things to find in it, every one an everyday noun — der Tresen, die Kaffeemaschine, das Milchkännchen, the cake on the counter and the croissant on the table. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Kaffeemaschine?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -64499,6 +65268,201 @@
       "image": "card_grammar_b1_1"
     },
     {
+      "id": "quest_b1_1_schreiben_email",
+      "type": "writing",
+      "title": "Schreiben: Eine formelle E-Mail",
+      "level": "B1.1",
+      "writing": {
+        "topic": "Your language course was cancelled at short notice and you have already paid. Write a formal e-mail to the school: say what happened, say what you want, and ask for an answer by a date.",
+        "practisePoints": [
+          "a formal greeting and a formal sign-off, with no comma after the sign-off",
+          "say plainly what happened and when",
+          "one polite request in the Konjunktiv II (ich würde gern, ich hätte eine Frage, könnten Sie)",
+          "name what you want to happen: a refund, a place on the next course, or both",
+          "ask for an answer by a date"
+        ],
+        "scoringCriteria": [
+          "the register stays formal throughout, with Sie and no spoken fillers",
+          "the e-mail has a visible shape: greeting, reason for writing, the facts, the request, the sign-off",
+          "the request is softened rather than demanded"
+        ],
+        "targetVocabulary": [
+          "Sehr geehrte Damen und Herren",
+          "Mit freundlichen Grüßen",
+          "ich wende mich an Sie",
+          "die Rückerstattung",
+          "der Kursausfall",
+          "kurzfristig",
+          "ich würde gern",
+          "könnten Sie mir bitte",
+          "im Voraus vielen Dank"
+        ],
+        "passScore": 60
+      },
+      "storageKeyPrefix": "quest_b1_1_schreiben_email_",
+      "help": {
+        "hook": "Write a real formal e-mail, and have your own AI mark it line by line.",
+        "intro": "This is the first exercise in the course where you write German yourself rather than filling a gap. You write the e-mail here, in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The four or five fixes it gives you are saved: your next speaking and writing exercises quietly bring one or two of them back, so the same slip does not survive for long. Aim for 400 to 900 characters, roughly the length of a real complaint e-mail. Much shorter and there is nothing to correct; much longer and you are writing an essay rather than an e-mail.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "The frame carries the register",
+            "text": "A formal e-mail is recognised by its frame before anyone reads the content. Sehr geehrte Damen und Herren when you do not know the name, Sehr geehrte Frau Weber when you do. Mit freundlichen Grüßen at the end, and no comma after it — the next line is your name. Sie, Ihnen and Ihr are capitalised all the way through.",
+            "examples": [
+              {
+                "de": "Sehr geehrte Frau Weber,\n\nich wende mich an Sie, weil mein Kurs kurzfristig abgesagt wurde.",
+                "en": "Dear Ms Weber,\n\nI am writing to you because my course was cancelled at short notice."
+              },
+              {
+                "de": "Mit freundlichen Grüßen\nAna Ruiz",
+                "en": "Yours sincerely\nAna Ruiz"
+              }
+            ],
+            "trap": "After the greeting comes a comma and then a lower-case start: „Sehr geehrte Frau Weber,“ then „ich wende mich …“, not „Ich“.",
+            "check": {
+              "q": "Which sign-off is right in a formal e-mail?",
+              "options": [
+                "Mit freundlichen Grüßen",
+                "Mit freundlichen Grüßen,",
+                "Liebe Grüße"
+              ],
+              "answer": "Mit freundlichen Grüßen",
+              "why": "No comma follows the formal sign-off, and Liebe Grüße is for people you know."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Ask, do not demand",
+            "text": "The request is where the register is won or lost. A bare imperative or a flat present tense reads as an order. Soften it with the Konjunktiv II: ich würde gern, ich hätte eine Frage, könnten Sie, wäre es möglich. The content stays exactly as firm; only the tone changes.",
+            "examples": [
+              {
+                "de": "Könnten Sie mir bitte mitteilen, bis wann ich mit einer Rückerstattung rechnen kann?",
+                "en": "Could you please let me know by when I can expect a refund?"
+              },
+              {
+                "de": "Ich würde gern wissen, ob ein Platz im nächsten Kurs frei ist.",
+                "en": "I would like to know whether there is a place free on the next course."
+              }
+            ],
+            "trap": "„Geben Sie mir mein Geld zurück“ is grammatical and will cost you the register marks. „Ich würde gern eine Rückerstattung beantragen“ asks for the same thing.",
+            "check": {
+              "q": "Which is the formal way to ask?",
+              "options": [
+                "Könnten Sie mir bitte antworten?",
+                "Antworten Sie mir!",
+                "Sie müssen mir antworten."
+              ],
+              "answer": "Könnten Sie mir bitte antworten?",
+              "why": "Könnten with bitte is a request; the other two are orders."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Five moves, in this order",
+            "text": "Greeting. Why you are writing. What happened, with the facts and the dates. What you want. A date for the answer, then the sign-off. An e-mail that follows those five moves is hard to mark down for structure, and the structure is what the correction looks at first.",
+            "examples": [
+              {
+                "de": "… wurde der Kurs am 3. Oktober kurzfristig abgesagt. Ich habe die Kursgebühr bereits im September bezahlt.",
+                "en": "… the course was cancelled at short notice on 3 October. I had already paid the course fee in September."
+              },
+              {
+                "de": "Über eine Antwort bis zum 20. Oktober würde ich mich freuen.",
+                "en": "I would be glad of an answer by 20 October."
+              }
+            ],
+            "check": {
+              "q": "What belongs in the second move of a formal e-mail?",
+              "options": [
+                "why you are writing",
+                "your sign-off",
+                "the date you want an answer by"
+              ],
+              "answer": "why you are writing",
+              "why": "The greeting comes first, then one line saying why you are writing; the facts follow."
+            }
+          }
+        ],
+        "remember": [
+          "Sehr geehrte … , then a lower-case start; Mit freundlichen Grüßen with no comma.",
+          "Soften every request: ich würde gern, könnten Sie, wäre es möglich.",
+          "Five moves: greeting, why, what happened, what you want, by when.",
+          "Sie, Ihnen and Ihr are always capitalised."
+        ],
+        "exam": "A formal e-mail of this kind is the written task the B1 certificate sets, and the one letter everyone in Germany ends up writing sooner or later.",
+        "mistakes": [
+          {
+            "wrong": "Mit freundlichen Grüßen, Ana",
+            "right": "Mit freundlichen Grüßen\nAna",
+            "why": "No comma after the formal sign-off."
+          },
+          {
+            "wrong": "Sehr geehrte Frau Weber, Ich wende mich an Sie …",
+            "right": "Sehr geehrte Frau Weber,\n\nich wende mich an Sie …",
+            "why": "After the greeting the sentence starts lower case."
+          },
+          {
+            "wrong": "Ich will mein Geld zurück.",
+            "right": "Ich würde gern eine Rückerstattung beantragen.",
+            "why": "The same request, in the right register."
+          },
+          {
+            "wrong": "Können sie mir bitte antworten?",
+            "right": "Können Sie mir bitte antworten?",
+            "why": "The formal Sie is capitalised; sie would mean she or they."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "Sehr geehrte Damen und Herren",
+            "en": "Dear Sir or Madam"
+          },
+          {
+            "de": "Mit freundlichen Grüßen",
+            "en": "Yours sincerely"
+          },
+          {
+            "de": "sich an jemanden wenden",
+            "en": "to turn to someone, to contact someone"
+          },
+          {
+            "de": "die Rückerstattung",
+            "plural": "-en",
+            "en": "refund"
+          },
+          {
+            "de": "der Kursausfall",
+            "plural": "¨-e",
+            "en": "cancellation of a course"
+          },
+          {
+            "de": "kurzfristig",
+            "en": "at short notice"
+          },
+          {
+            "de": "die Kursgebühr",
+            "plural": "-en",
+            "en": "course fee"
+          },
+          {
+            "de": "beantragen",
+            "en": "to apply for, to request formally"
+          },
+          {
+            "de": "mitteilen",
+            "en": "to inform, to let someone know"
+          },
+          {
+            "de": "im Voraus vielen Dank",
+            "en": "thank you in advance"
+          }
+        ]
+      },
+      "covers": [
+        "b1.email-redemittel"
+      ],
+      "image": "quest_b1_1_bigtext_wohnung"
+    },
+    {
       "type": "speaking",
       "id": "quest_b1_1_sprechen_dialog",
       "title": "Gespräch: Meinungen & Wünsche",
@@ -66301,7 +67265,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_arbeit",
           "article": "die",
-          "plural": "—",
+          "plural": "-nen",
           "image": "chefin",
           "imageHint": true
         },
@@ -66558,7 +67522,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_adj_nullartikel",
           "article": "der",
-          "plural": "—",
+          "plural": "-e",
           "image": "balkon"
         },
         {
@@ -67614,7 +68578,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_falls_da_trotzdem",
           "article": "die",
-          "plural": "—",
+          "plural": "-en",
           "image": "verspaetung",
           "imageHint": true
         },
@@ -68579,7 +69543,7 @@
       ],
       "help": {
         "hook": "A busy little office full of things to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one small, slightly cluttered office with 32 things to find in it, every one a noun you need when you talk about your working day — der Drucker, die Tastatur, das Whiteboard, der Klebebandabroller on the desk. The prompt asks Wo ist der Papierkorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one small, slightly cluttered office with 32 things to find in it, every one a noun you need when you talk about your working day — der Drucker, die Tastatur, das Whiteboard, der Klebebandabroller on the desk. The prompt asks Wo ist der Papierkorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Papierkorb?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -69248,7 +70212,7 @@
       ],
       "help": {
         "hook": "A doctor's examination room full of things to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one doctor's examination room with 32 things to find in it, every one a noun you meet when you go to the doctor's — die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät on the wall. The prompt asks Wo ist die Spritze? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one doctor's examination room with 32 things to find in it, every one a noun you meet when you go to the doctor's — die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät on the wall. The prompt asks Wo ist die Spritze? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Spritze?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -69722,7 +70686,7 @@
           },
           {
             "de": "ausschalten / einschalten",
-            "en": "to switch off / on"
+            "en": "to switch off / to switch on"
           },
           {
             "de": "Gerät",
@@ -81169,6 +82133,214 @@
       "imageDescription": "a tiny knight on an old horse in front of a castle above a village, a big friendly dragon peeking over the hill"
     },
     {
+      "id": "quest_b1_2_schreiben_geschichte",
+      "type": "writing",
+      "title": "Schreiben: Etwas ist schiefgegangen",
+      "level": "B1.2",
+      "writing": {
+        "topic": "Tell the story of a journey on which something went wrong: what you had planned, what happened, what you did about it, and how it ended. Write it as a story, not as a list.",
+        "practisePoints": [
+          "tell it in the past, mixing Präteritum for war, hatte and the modals with Perfekt for the actions",
+          "use nachdem or als once, with the right tense behind it",
+          "put one event before another with the Plusquamperfekt (ich hatte … vergessen)",
+          "order the story with temporal connectors: zuerst, plötzlich, schließlich",
+          "end with how it turned out and what you thought"
+        ],
+        "scoringCriteria": [
+          "the tenses are consistent and the Plusquamperfekt really marks the earlier event",
+          "it reads as a story with a turn in it, not as a list of sentences",
+          "the connectors do real work rather than being decoration"
+        ],
+        "targetVocabulary": [
+          "eigentlich",
+          "plötzlich",
+          "zuerst",
+          "schließlich",
+          "nachdem",
+          "als",
+          "verpassen",
+          "die Verspätung",
+          "zum Glück",
+          "am Ende"
+        ],
+        "passScore": 60
+      },
+      "storageKeyPrefix": "quest_b1_2_schreiben_geschichte_",
+      "help": {
+        "hook": "Tell a story that goes wrong, in German, and find out which tense slipped.",
+        "intro": "Narrating is harder than reporting, because the tenses have to hold together across a whole text. Write what you had planned, what happened, what you did and how it ended. Aim for 400 to 900 characters. Two things earn the marks: the spoken past mix, which is Präteritum for war, hatte and the modal verbs and Perfekt for everything that happened, and one Plusquamperfekt in the right place, marking the thing that had already happened before the rest.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "The mix that sounds natural",
+            "text": "Written German narration leans on the Präteritum, but in a personal story the natural mix is Präteritum for sein, haben and the modal verbs and Perfekt for the actions. Mixing them that way is not sloppy; it is what a German speaker does.",
+            "examples": [
+              {
+                "de": "Ich war schon am Bahnhof, aber ich hatte die Fahrkarte vergessen.",
+                "en": "I was already at the station, but I had forgotten the ticket.",
+                "focus": [
+                  "war",
+                  "hatte",
+                  "vergessen"
+                ]
+              },
+              {
+                "de": "Ich musste zurücklaufen und habe den Zug verpasst.",
+                "en": "I had to run back and missed the train.",
+                "focus": [
+                  "musste",
+                  "habe",
+                  "verpasst"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich ____ müde, deshalb habe ich lange geschlafen.",
+              "options": [
+                "war",
+                "bin gewesen",
+                "wäre"
+              ],
+              "answer": "war",
+              "why": "sein is told in the Präteritum even when the actions around it are Perfekt."
+            },
+            "trap": "Do not put the actions in the Präteritum too unless you are writing literature: „ich verpasste den Zug“ is correct but reads like a novel."
+          },
+          {
+            "kind": "rule",
+            "title": "The Plusquamperfekt marks what came first",
+            "text": "When one past event happened before another, the earlier one takes hatte or war plus the participle. It is what makes a story read in order even when you tell it out of order.",
+            "examples": [
+              {
+                "de": "Nachdem ich die Fahrkarte vergessen hatte, musste ich zurücklaufen.",
+                "en": "After I had forgotten the ticket, I had to run back.",
+                "focus": [
+                  "vergessen hatte",
+                  "musste"
+                ]
+              },
+              {
+                "de": "Der Zug war schon abgefahren, als ich ankam.",
+                "en": "The train had already left when I arrived.",
+                "focus": [
+                  "war",
+                  "abgefahren",
+                  "ankam"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Nachdem wir gegessen ____, sind wir losgefahren.",
+              "options": [
+                "hatten",
+                "haben",
+                "hätten"
+              ],
+              "answer": "hatten",
+              "why": "nachdem puts the earlier event in the Plusquamperfekt: hatten gegessen."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "A story needs a turn",
+            "text": "Plan, then the turn, then what you did, then the end. The turn is what makes it a story: plötzlich, auf einmal, doch dann. Without it you have written a timetable.",
+            "examples": [
+              {
+                "de": "Eigentlich wollten wir um acht losfahren. Doch dann ging das Auto nicht an.",
+                "en": "We had actually meant to set off at eight. But then the car would not start.",
+                "focus": [
+                  "Eigentlich",
+                  "Doch dann"
+                ]
+              },
+              {
+                "de": "Zum Glück hat uns ein Nachbar geholfen. Am Ende sind wir drei Stunden später angekommen.",
+                "en": "Luckily a neighbour helped us. In the end we arrived three hours later.",
+                "focus": [
+                  "Zum Glück",
+                  "Am Ende"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which word signals the turn in a story?",
+              "options": [
+                "plötzlich",
+                "außerdem",
+                "nämlich"
+              ],
+              "answer": "plötzlich",
+              "why": "plötzlich marks the moment the plan breaks; the others add or explain."
+            }
+          }
+        ],
+        "remember": [
+          "Präteritum for war, hatte and the modals; Perfekt for the actions.",
+          "nachdem plus Plusquamperfekt, then Präteritum or Perfekt in the main clause.",
+          "eigentlich sets up the plan, plötzlich breaks it, schließlich ends it.",
+          "A story has a turn; a list does not."
+        ],
+        "exam": "Telling a past story in writing is the narrative task the B1 certificate sets, and the one everyone tells at a dinner table.",
+        "mistakes": [
+          {
+            "wrong": "Nachdem ich gegessen habe, bin ich losgefahren.",
+            "right": "Nachdem ich gegessen hatte, bin ich losgefahren.",
+            "why": "nachdem needs the earlier event one step further back."
+          },
+          {
+            "wrong": "Ich bin müde gewesen und habe lange geschlafen.",
+            "right": "Ich war müde und habe lange geschlafen.",
+            "why": "sein is told in the Präteritum."
+          },
+          {
+            "wrong": "Der Zug ist schon abgefahren, als ich ankam.",
+            "right": "Der Zug war schon abgefahren, als ich ankam.",
+            "why": "The departure happened first, so it takes the Plusquamperfekt."
+          },
+          {
+            "wrong": "Ich habe den Zug verpasst. Ich habe ein Taxi genommen. Ich bin angekommen.",
+            "right": "Ich habe den Zug verpasst. Zum Glück habe ich sofort ein Taxi gefunden, und am Ende bin ich nur zwanzig Minuten zu spät angekommen.",
+            "why": "Three bare sentences are a list; connectors make it a story."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "eigentlich",
+            "en": "actually, as it happens (often sets up a plan that fails)"
+          },
+          {
+            "de": "plötzlich",
+            "en": "suddenly"
+          },
+          {
+            "de": "schließlich",
+            "en": "finally, in the end"
+          },
+          {
+            "de": "verpassen",
+            "en": "to miss (a train, a chance)"
+          },
+          {
+            "de": "die Verspätung",
+            "plural": "-en",
+            "en": "delay"
+          },
+          {
+            "de": "zum Glück",
+            "en": "luckily"
+          },
+          {
+            "de": "klappen",
+            "en": "to work out (Es hat nicht geklappt)"
+          }
+        ]
+      },
+      "covers": [
+        "b1.narration-skills"
+      ],
+      "image": "quest_b1_2_bigtext_ritter"
+    },
+    {
       "id": "quest_b1_2_zustandspassiv",
       "type": "fillBlank",
       "title": "Zustandspassiv: Die Tür ist geschlossen",
@@ -81728,7 +82900,7 @@
         },
         {
           "de": "einschalten",
-          "en": "on",
+          "en": "to switch on",
           "kind": "word",
           "sourceQuizId": "quest_b1_2_technik"
         },
@@ -84298,7 +85470,7 @@
       ],
       "help": {
         "hook": "A cluttered garage full of tools to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one lived-in home garage that doubles as a workshop, with 32 things to find in it — der Schraubstock on the workbench, die Zange on the pegboard, das Verlängerungskabel coiled on the floor. The prompt asks Wo ist der Rasenmäher? and you tap it in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one lived-in home garage that doubles as a workshop, with 32 things to find in it — der Schraubstock on the workbench, die Zange on the pegboard, das Verlängerungskabel coiled on the floor. The prompt asks Wo ist der Rasenmäher? and you tap it in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Rasenmäher?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -84941,7 +86113,7 @@
       ],
       "help": {
         "hook": "A sunny park with no one in it: find each thing in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one sunny town park with 32 things to find in it, from the pond and its ducks to the playground — der Springbrunnen, die Wippe, das Eichhörnchen under the tree. The prompt asks Wo ist die Rutsche? and you tap it in the picture. A tap on empty grass or sky costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one sunny town park with 32 things to find in it, from the pond and its ducks to the playground — der Springbrunnen, die Wippe, das Eichhörnchen under the tree. The prompt asks Wo ist die Rutsche? and you tap it in the picture. A tap on empty grass or sky costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Rutsche?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -97541,6 +98713,215 @@
       "imageDescription": "a press conference: a minister at a podium with microphones, journalists with cameras, a chart of houses behind"
     },
     {
+      "id": "quest_b2_1_schreiben_stellungnahme",
+      "type": "writing",
+      "title": "Schreiben: Stellungnahme",
+      "level": "B2.1",
+      "writing": {
+        "topic": "Take a position in writing on this question: should cities make their centres car-free? Say where you stand, give two arguments with evidence or an example, deal with one objection, and close with what follows from it.",
+        "practisePoints": [
+          "state your position in the first two sentences, not at the end",
+          "give two arguments, each with a reason and an example or a figure",
+          "name one objection fairly and answer it",
+          "join the argument with adverbial connectors: zudem, allerdings, folglich, dennoch",
+          "close with a conclusion that follows from what you wrote"
+        ],
+        "scoringCriteria": [
+          "the position is clear and held to throughout",
+          "the objection is stated as someone else would state it, not as a straw man",
+          "the connectors mark the real relation between the sentences"
+        ],
+        "targetVocabulary": [
+          "meines Erachtens",
+          "dafür spricht, dass",
+          "ein weiteres Argument",
+          "zudem",
+          "allerdings",
+          "dennoch",
+          "folglich",
+          "Befürworter",
+          "Gegner",
+          "daraus folgt"
+        ],
+        "passScore": 60
+      },
+      "storageKeyPrefix": "quest_b2_1_schreiben_stellungnahme_",
+      "help": {
+        "hook": "Argue a case in written German, and find out whether it holds together.",
+        "intro": "A Stellungnahme has four parts: a position, reasons for it, an honest look at the other side, and a conclusion. Write 600 to 1300 characters. The part most people skip is the objection, and it is the part that earns the marks: naming the strongest thing the other side says, and answering it, is what separates an argument from an opinion. Watch your connectors too. Each one claims a relation between two sentences, and the correction will check whether that relation is really there.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Position first, not last",
+            "text": "German argumentative writing puts the thesis at the top. The reader should know where you stand by the second sentence; everything after that is support. Saving it for the end reads as indecision.",
+            "examples": [
+              {
+                "de": "Meines Erachtens sollten Innenstädte weitgehend autofrei werden.",
+                "en": "In my view city centres should become largely car-free.",
+                "focus": [
+                  "Meines Erachtens"
+                ]
+              },
+              {
+                "de": "Dafür spricht vor allem, dass der Platz anders dringender gebraucht wird.",
+                "en": "The main thing in its favour is that the space is needed more urgently elsewhere.",
+                "focus": [
+                  "Dafür spricht"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Where does the position belong in a Stellungnahme?",
+              "options": [
+                "in the first two sentences",
+                "in the last paragraph",
+                "nowhere, it should stay neutral"
+              ],
+              "answer": "in the first two sentences",
+              "why": "The thesis goes first; the rest of the text supports it."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Concede, then answer",
+            "text": "An objection you name yourself is worth more than two more arguments of your own. State it in the other side’s words with zwar, gewiss or sicherlich, then turn it with allerdings, dennoch or jedoch. Turning it is the step people forget.",
+            "examples": [
+              {
+                "de": "Zwar trifft es zu, dass der Einzelhandel kurzfristig Umsatz verliert.",
+                "en": "It is true that retailers lose turnover in the short term.",
+                "focus": [
+                  "Zwar",
+                  "trifft es zu"
+                ]
+              },
+              {
+                "de": "Allerdings zeigen Erfahrungen aus Kopenhagen, dass die Frequenz nach zwei Jahren steigt.",
+                "en": "However, experience from Copenhagen shows footfall rises after two years.",
+                "focus": [
+                  "Allerdings"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Zwar ist die Umstellung teuer, ____ rechnet sie sich langfristig.",
+              "options": [
+                "allerdings",
+                "außerdem",
+                "nämlich"
+              ],
+              "answer": "allerdings",
+              "why": "zwar sets up a concession and needs a turn; außerdem would simply add."
+            },
+            "trap": "A concession with no turn reads as agreement with the other side."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Every connector is a claim",
+            "text": "folglich claims a consequence, zudem claims another point of the same kind, dennoch claims a contrast that survives. Put the wrong one in and the argument reads as broken even though every sentence is correct.",
+            "examples": [
+              {
+                "de": "Der Lärm sinkt; folglich steigt die Aufenthaltsqualität.",
+                "en": "Noise falls; consequently the quality of the space rises.",
+                "focus": [
+                  "folglich"
+                ]
+              },
+              {
+                "de": "Die Luft wird besser. Zudem sinkt die Zahl der Unfälle.",
+                "en": "The air gets better. In addition, accidents fall.",
+                "focus": [
+                  "Zudem"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Die Mieten steigen. ____ ziehen viele Familien weg.",
+              "options": [
+                "Folglich",
+                "Dennoch",
+                "Zwar"
+              ],
+              "answer": "Folglich",
+              "why": "Moving away is the consequence of the rents, not a contrast with them."
+            }
+          }
+        ],
+        "remember": [
+          "Thesis in the first two sentences, then the support.",
+          "Two arguments, each with a reason and an example or a figure.",
+          "Zwar …, allerdings …: concede, then turn. The turn is the point.",
+          "Every connector claims a relation; make sure it is the real one."
+        ],
+        "exam": "A written Stellungnahme is the core writing task of the B2 certificate, and the shape of every opinion piece in a German newspaper.",
+        "mistakes": [
+          {
+            "wrong": "Zwar ist es teuer. Außerdem ist es kompliziert.",
+            "right": "Zwar ist es teuer, allerdings rechnet es sich langfristig.",
+            "why": "zwar demands a turn, not another point on the same side."
+          },
+          {
+            "wrong": "Ich denke, ich denke, dass es gut ist, weil es gut ist.",
+            "right": "Meines Erachtens ist die Maßnahme sinnvoll, weil sie den Verkehr messbar verringert.",
+            "why": "A reason has to add something the claim did not already say."
+          },
+          {
+            "wrong": "Meiner Meinung nach, sollten Städte autofrei werden.",
+            "right": "Meiner Meinung nach sollten Städte autofrei werden.",
+            "why": "No comma after the opening phrase; the verb follows it directly."
+          },
+          {
+            "wrong": "Zusammenfassend bin ich mir nicht sicher.",
+            "right": "Zusammenfassend überwiegen die Vorteile, auch wenn der Umbau Zeit braucht.",
+            "why": "The conclusion has to follow from the argument you made."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "meines Erachtens",
+            "en": "in my view (formal)"
+          },
+          {
+            "de": "dafür spricht, dass",
+            "en": "what speaks in favour is that"
+          },
+          {
+            "de": "der Befürworter",
+            "plural": "-",
+            "en": "supporter"
+          },
+          {
+            "de": "der Gegner",
+            "plural": "-",
+            "en": "opponent"
+          },
+          {
+            "de": "zudem",
+            "en": "in addition, moreover"
+          },
+          {
+            "de": "allerdings",
+            "en": "however (turns a concession)"
+          },
+          {
+            "de": "dennoch",
+            "en": "nevertheless"
+          },
+          {
+            "de": "folglich",
+            "en": "consequently"
+          },
+          {
+            "de": "abwägen",
+            "en": "to weigh up"
+          }
+        ]
+      },
+      "covers": [
+        "b2.stellungnahme-redemittel"
+      ],
+      "image": "quest_b2_1_bigtext_presse"
+    },
+    {
       "id": "quest_b2_1_infinitivsaetze",
       "type": "fillBlank",
       "title": "um … zu, ohne … zu, statt … zu oder dass?",
@@ -99946,7 +101327,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_nomen_praep",
           "article": "die",
-          "plural": "—"
+          "plural": "-en"
         },
         {
           "de": "Teilnahme",
@@ -102063,7 +103444,7 @@
       ],
       "help": {
         "hook": "An empty hotel lobby full of things to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one old-fashioned hotel lobby with 32 things to find in it, the words you need when you check in, wait for a room or ask at the desk — der Kronleuchter, die Tischklingel, das Gästebuch, der Gepäckwagen by the revolving door. The prompt asks, for example, Wo ist die Überwachungskamera? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself.",
+        "intro": "A picture hunt instead of a deck: one old-fashioned hotel lobby with 32 things to find in it, the words you need when you check in, wait for a room or ask at the desk — der Kronleuchter, die Tischklingel, das Gästebuch, der Gepäckwagen by the revolving door. The prompt asks, for example, Wo ist die Überwachungskamera? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Tischklingel?), and after the find you choose der, die or das yourself.",
         "tips": [
           {
             "kind": "rule",
@@ -102732,7 +104113,7 @@
       ],
       "help": {
         "hook": "A busy building site full of machines and tools to find: tap each one, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one building site, seen from the front, with 32 machines, materials and tools to find — der Kran with its Haken, der Bagger, die Schubkarre, das Gerüst against the half-built wall and the workbench full of tools on the right. These are the words you need when a neighbour builds, a road is dug up or the news reports on construction work. The prompt asks, for example, Wo ist der Presslufthammer? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself.",
+        "intro": "A picture hunt instead of a deck: one building site, seen from the front, with 32 machines, materials and tools to find — der Kran with its Haken, der Bagger, die Schubkarre, das Gerüst against the half-built wall and the workbench full of tools on the right. These are the words you need when a neighbour builds, a road is dug up or the news reports on construction work. The prompt asks, for example, Wo ist der Presslufthammer? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Schubkarre?), and after the find you choose der, die or das yourself.",
         "tips": [
           {
             "kind": "mnemonic",
@@ -115607,6 +116988,215 @@
       "imageDescription": "a nervous candidate leaving an oral exam room, an examiner with a clipboard visible through the door, an hourglass on the desk"
     },
     {
+      "id": "quest_b2_2_schreiben_beschwerde",
+      "type": "writing",
+      "title": "Schreiben: Beschwerde mit Zugeständnis",
+      "level": "B2.2",
+      "writing": {
+        "topic": "Write a letter of complaint about a service that went wrong: a delivery, a repair or a holiday booking. Concede what the other side did reasonably, then press your point, say exactly what you want and by when.",
+        "practisePoints": [
+          "a formal frame with a subject line",
+          "concede one point properly with obwohl, zwar … aber or trotz plus a noun",
+          "state the facts with dates and figures, not with adjectives",
+          "press the request with a Konjunktiv II that stays firm",
+          "set a deadline and say what happens after it"
+        ],
+        "scoringCriteria": [
+          "the concession is real and the turn after it is firm",
+          "the facts carry the complaint rather than the tone",
+          "the request names a specific remedy and a date"
+        ],
+        "targetVocabulary": [
+          "Betreff",
+          "obwohl",
+          "zwar … aber",
+          "trotz",
+          "der Mangel",
+          "die Nachbesserung",
+          "eine Frist setzen",
+          "bis spätestens",
+          "andernfalls",
+          "die Minderung"
+        ],
+        "passScore": 60
+      },
+      "storageKeyPrefix": "quest_b2_2_schreiben_beschwerde_",
+      "help": {
+        "hook": "Complain in German the way it works: concede a little, then hold firm.",
+        "intro": "A complaint that only complains gets a form letter back. One that concedes a point first and then presses is harder to brush off, and that concessive turn is what this exercise is for. Write 600 to 1300 characters. The strongest version is unemotional: dates, amounts and what you want, with the Konjunktiv II doing the politeness so the content can stay hard. Set a deadline, and say what you will do if it passes.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Three ways to concede, one meaning",
+            "text": "obwohl takes a clause with the verb at the end. zwar … aber keeps two main clauses. trotz takes a noun in the genitive. Pick by what you have to hand: a clause, a pair of statements, or a noun.",
+            "examples": [
+              {
+                "de": "Obwohl der Techniker pünktlich kam, wurde der Schaden nicht behoben.",
+                "en": "Although the technician came on time, the fault was not repaired.",
+                "focus": [
+                  "Obwohl",
+                  "kam"
+                ]
+              },
+              {
+                "de": "Trotz mehrfacher Zusagen ist bislang nichts geschehen.",
+                "en": "Despite repeated assurances nothing has happened so far.",
+                "focus": [
+                  "Trotz"
+                ]
+              }
+            ],
+            "check": {
+              "q": "____ der Zusage wurde der Termin nicht eingehalten.",
+              "options": [
+                "Trotz",
+                "Obwohl",
+                "Dennoch"
+              ],
+              "answer": "Trotz",
+              "why": "A noun phrase follows, so it takes the preposition trotz, not the conjunction obwohl."
+            },
+            "trap": "trotz governs the genitive in writing: trotz mehrfacher Zusagen, not trotz mehrfachen Zusagen."
+          },
+          {
+            "kind": "rule",
+            "title": "Facts complain better than adjectives",
+            "text": "Unacceptable and terrible can be waved away; a date and an amount cannot. Give the order number, the dates, the sums, and what was promised against what happened. Let the reader draw the conclusion you have made unavoidable.",
+            "examples": [
+              {
+                "de": "Die Lieferung war für den 3. Mai zugesagt und erfolgte erst am 28. Mai.",
+                "en": "Delivery was promised for 3 May and only happened on 28 May.",
+                "focus": [
+                  "zugesagt",
+                  "erfolgte"
+                ]
+              },
+              {
+                "de": "Von den bestellten zwölf Stühlen waren vier beschädigt.",
+                "en": "Of the twelve chairs ordered, four were damaged.",
+                "focus": [
+                  "beschädigt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which belongs in a complaint?",
+              "options": [
+                "Die Lieferung kam 25 Tage zu spät.",
+                "Die Lieferung war eine Katastrophe.",
+                "Ich bin sehr enttäuscht von Ihnen."
+              ],
+              "answer": "Die Lieferung kam 25 Tage zu spät.",
+              "why": "A figure is checkable; a judgement is not."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "A deadline with a consequence",
+            "text": "A request with no date is a wish. Name a date, say what you expect by it, and say what follows if it passes. The Konjunktiv II keeps the tone civil while the content stays firm.",
+            "examples": [
+              {
+                "de": "Ich bitte Sie, den Mangel bis spätestens 15. Juni zu beheben.",
+                "en": "I ask you to remedy the fault by 15 June at the latest.",
+                "focus": [
+                  "bis spätestens"
+                ]
+              },
+              {
+                "de": "Andernfalls würde ich den Rechnungsbetrag um 30 Prozent mindern.",
+                "en": "Otherwise I would reduce the invoice amount by 30 per cent.",
+                "focus": [
+                  "Andernfalls",
+                  "würde"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which closes a complaint most effectively?",
+              "options": [
+                "Bitte melden Sie sich bis zum 15. Juni.",
+                "Bitte melden Sie sich bald.",
+                "Ich hoffe auf eine Antwort."
+              ],
+              "answer": "Bitte melden Sie sich bis zum 15. Juni.",
+              "why": "Only a date can pass, which is what gives the request force."
+            }
+          }
+        ],
+        "remember": [
+          "obwohl plus clause, zwar … aber plus two main clauses, trotz plus genitive noun.",
+          "Dates and figures, not adjectives.",
+          "Konjunktiv II for the tone, hard content underneath.",
+          "A deadline, and what happens after it."
+        ],
+        "exam": "A written complaint is one of the B2 writing tasks, and in Germany it is the letter that actually gets things fixed.",
+        "mistakes": [
+          {
+            "wrong": "Trotz dem Termin ist nichts passiert.",
+            "right": "Trotz des Termins ist nichts passiert.",
+            "why": "trotz takes the genitive in written German."
+          },
+          {
+            "wrong": "Obwohl der Techniker kam pünktlich, …",
+            "right": "Obwohl der Techniker pünktlich kam, …",
+            "why": "obwohl sends the verb to the end of its clause."
+          },
+          {
+            "wrong": "Das ist eine Frechheit und völlig inakzeptabel.",
+            "right": "Die zugesagte Frist wurde um 25 Tage überschritten.",
+            "why": "The fact is harder to dismiss than the judgement."
+          },
+          {
+            "wrong": "Bitte antworten Sie mir bald, sonst mache ich etwas.",
+            "right": "Bitte antworten Sie bis zum 15. Juni; andernfalls mindere ich den Rechnungsbetrag.",
+            "why": "A vague threat is weaker than a dated, specific one."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "der Betreff",
+            "en": "subject line"
+          },
+          {
+            "de": "der Mangel",
+            "plural": "¨-",
+            "en": "fault, defect"
+          },
+          {
+            "de": "die Nachbesserung",
+            "plural": "-en",
+            "en": "remedial work"
+          },
+          {
+            "de": "die Frist",
+            "plural": "-en",
+            "en": "deadline"
+          },
+          {
+            "de": "beheben",
+            "en": "to remedy, to fix"
+          },
+          {
+            "de": "andernfalls",
+            "en": "otherwise, failing that"
+          },
+          {
+            "de": "die Minderung",
+            "plural": "-en",
+            "en": "reduction (of a price)"
+          },
+          {
+            "de": "zusagen",
+            "en": "to promise, to confirm"
+          }
+        ]
+      },
+      "covers": [
+        "b2.concessive"
+      ],
+      "image": "quest_b2_2_bigtext_chancen"
+    },
+    {
       "id": "quest_b2_2_relativ_dessen_deren",
       "type": "fillBlank",
       "title": "Relativsätze: dessen, deren und Präposition + Relativpronomen",
@@ -116043,7 +117633,7 @@
           },
           {
             "de": "worüber / wofür / worauf",
-            "en": "about / for / on which (after etwas, alles)"
+            "en": "about which / for which / on which (after etwas, alles)"
           },
           {
             "de": "die Hausarbeit",
@@ -117227,7 +118817,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_umwelt",
           "article": "der",
-          "plural": "—"
+          "plural": "¨-e"
         },
         {
           "de": "nachhaltig",
@@ -118047,7 +119637,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_konditional_nominal",
           "article": "die",
-          "plural": "—",
+          "plural": "-en",
           "image": "verspaetung",
           "imageHint": true
         },
@@ -118445,13 +120035,13 @@
         },
         {
           "de": "worüber",
-          "en": "about",
+          "en": "about which",
           "kind": "word",
           "sourceQuizId": "quest_b2_2_relativ_dessen_deren"
         },
         {
           "de": "wofür",
-          "en": "for",
+          "en": "for which",
           "kind": "word",
           "sourceQuizId": "quest_b2_2_relativ_dessen_deren"
         },
@@ -119541,7 +121131,7 @@
       ],
       "help": {
         "hook": "A cluttered living room full of things to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one lived-in, slightly cluttered living room with 32 things to find in it, every one a noun you meet when people talk about running a home and saving energy — der Heizkörper, das Bügeleisen, die Steckdosenleiste, das Windrad outside the window. The prompt asks Wo ist der Wäschekorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one lived-in, slightly cluttered living room with 32 things to find in it, every one a noun you meet when people talk about running a home and saving energy — der Heizkörper, das Bügeleisen, die Steckdosenleiste, das Windrad outside the window. The prompt asks Wo ist der Wäschekorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Wäschekorb?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -120177,7 +121767,7 @@
       ],
       "help": {
         "hook": "A small science lab full of equipment to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt in a small, slightly cluttered science laboratory with 32 things to find, every one a noun you meet when people talk about research and experiments — der Bunsenbrenner in the fume hood, das Stativ with its funnel, die Zentrifuge by the sink, das Fossil on the shelf. The prompt asks Wo ist der Erlenmeyerkolben? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt in a small, slightly cluttered science laboratory with 32 things to find, every one a noun you meet when people talk about research and experiments — der Bunsenbrenner in the fume hood, das Stativ with its funnel, die Zentrifuge by the sink, das Fossil on the shelf. The prompt asks Wo ist der Erlenmeyerkolben? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Erlenmeyerkolben?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -121015,24 +122605,24 @@
         {
           "subjectKey": "s12",
           "categoryLabel": "Wissenschaft",
-          "sentence": "Zwischen beiden Variablen besteht ein signifikanter ____. (correlation, connection)",
+          "sentence": "Zwischen beiden Variablen besteht ein signifikanter ____. (connection between two things)",
           "acceptedAnswers": [
             "Zusammenhang",
             "Korrelation"
           ],
-          "hint": "English: correlation",
+          "hint": "English: connection between two things",
           "english": "There is a significant correlation between the two variables."
         },
         {
           "subjectKey": "s13",
           "categoryLabel": "Wissenschaft",
-          "sentence": "Ohne ____ durch Fachkollegen wird kein Beitrag angenommen. (peer review, assessment)",
+          "sentence": "Ohne ____ durch Fachkollegen wird kein Beitrag angenommen. (assessment by specialist colleagues)",
           "acceptedAnswers": [
             "Begutachtung",
             "Peer-Review",
             "Peer Review"
           ],
-          "hint": "English: peer review",
+          "hint": "English: assessment by specialist colleagues",
           "english": "Without peer review by colleagues no contribution is accepted."
         },
         {
@@ -122724,7 +124314,7 @@
             "article": "das"
           },
           {
-            "de": "historisches Präsens",
+            "de": "historische Präsens",
             "en": "historical present (for drama)",
             "article": "das"
           },
@@ -125894,7 +127484,7 @@
           },
           {
             "de": "damit, um … zu / dazu / zu, zwecks",
-            "en": "so that, in order to / to that end / for"
+            "en": "so that, in order to / to that end / for that purpose"
           },
           {
             "de": "wenn, falls, sofern / sonst, andernfalls / bei, im Falle",
@@ -130628,6 +132218,214 @@
       "imageDescription": "an office team gathered around a screen while an IT colleague explains a new document system, folders migrating into a cloud"
     },
     {
+      "id": "quest_c1_1_schreiben_zusammenfassung",
+      "type": "writing",
+      "title": "Schreiben: Zusammenfassung",
+      "level": "C1.1",
+      "writing": {
+        "topic": "Summarise, in one tight paragraph, a report you have read recently: a news article, a study or a workplace document. Give its subject, its main finding, the evidence it rests on and what it recommends. Write it as a summary, not as a review.",
+        "practisePoints": [
+          "open with one sentence naming the text, its subject and its central claim",
+          "compress the verbs into nouns where it tightens the sentence (die Senkung, der Rückgang, die Einführung)",
+          "attribute throughout, so the reader always knows whose claim it is",
+          "keep your own opinion out of it entirely",
+          "close with what the text recommends or concludes"
+        ],
+        "scoringCriteria": [
+          "nothing is in it that was not in the source, and nothing central is missing",
+          "the nominal style tightens the text rather than making it unreadable",
+          "the attribution never lets the summary be read as your own view"
+        ],
+        "targetVocabulary": [
+          "der Beitrag befasst sich mit",
+          "die Verfasserin vertritt die Auffassung",
+          "zufolge",
+          "der Rückgang",
+          "die Zunahme",
+          "die Einführung",
+          "im Wesentlichen",
+          "daraus zieht sie den Schluss",
+          "abschließend"
+        ],
+        "passScore": 60
+      },
+      "storageKeyPrefix": "quest_c1_1_schreiben_zusammenfassung_",
+      "help": {
+        "hook": "Compress a whole report into one paragraph, and keep yourself out of it.",
+        "intro": "Summarising is among the most useful things you can do in writing, and among the easiest to do badly. Two failures are common: smuggling your own view in, and nominalising so hard the paragraph stops breathing. Write 900 to 1800 characters. Keep every claim attributed, keep yourself invisible, and nominalise only where it genuinely tightens the sentence. The correction will check both: whether anything in your summary was not in the source, and whether the nominal style has made a sentence that no one could read aloud.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Attribute everything, claim nothing",
+            "text": "A summary reports what someone else said. Keep the source in the sentence, with a verb of saying or a source phrase, and the reader can never mistake the claim for yours. Where the writing gets dense, the Konjunktiv I carries the attribution on its own.",
+            "examples": [
+              {
+                "de": "Die Verfasserin vertritt die Auffassung, der Effekt sei überschätzt worden.",
+                "en": "The author takes the view that the effect has been overestimated.",
+                "focus": [
+                  "vertritt die Auffassung",
+                  "sei"
+                ]
+              },
+              {
+                "de": "Der Studie zufolge ist der Verbrauch um zwölf Prozent gesunken.",
+                "en": "According to the study consumption fell by twelve per cent.",
+                "focus": [
+                  "zufolge"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Der Autor behauptet, die Maßnahme ____ wirkungslos.",
+              "options": [
+                "sei",
+                "ist",
+                "wäre"
+              ],
+              "answer": "sei",
+              "why": "Konjunktiv I keeps it his claim rather than the summary’s own."
+            },
+            "trap": "One indicative sentence in the middle hands the author’s claim to you."
+          },
+          {
+            "kind": "rule",
+            "title": "Nominalise to tighten, not to impress",
+            "text": "Turning a verb into a noun lets one sentence hold what took two: die Senkung der Kosten, der Rückgang der Nachfrage, nach Einführung der Regel. It earns its place when it shortens. When three genitives chain together, turn one back into a verb.",
+            "examples": [
+              {
+                "de": "Nach Einführung der Regelung ging die Zahl der Unfälle deutlich zurück.",
+                "en": "After the rule was introduced the number of accidents fell markedly.",
+                "focus": [
+                  "Nach Einführung"
+                ]
+              },
+              {
+                "de": "Die Senkung der Kosten führte zu einer Zunahme der Nachfrage.",
+                "en": "The reduction in costs led to an increase in demand.",
+                "focus": [
+                  "Senkung",
+                  "Zunahme"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which is the better summary sentence?",
+              "options": [
+                "Nach Einführung der Regel sank die Unfallzahl.",
+                "Nach der Durchführung der Einführung der Regelung zur Senkung der Unfallzahlen …",
+                "Als man die Regel eingeführt hat, da sind dann die Unfälle gesunken."
+              ],
+              "answer": "Nach Einführung der Regel sank die Unfallzahl.",
+              "why": "One nominalisation tightens; four in a row stop the sentence working."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Four moves and nothing else",
+            "text": "Subject, central claim, evidence, conclusion. A summary that adds a fifth move is reviewing, and a summary that drops the evidence is a headline. Your own judgement belongs to a different text.",
+            "examples": [
+              {
+                "de": "Der Beitrag befasst sich mit den Folgen des Fachkräftemangels im Handwerk.",
+                "en": "The piece deals with the consequences of the skills shortage in the trades.",
+                "focus": [
+                  "befasst sich mit"
+                ]
+              },
+              {
+                "de": "Abschließend empfiehlt die Autorin eine Reform der Ausbildungsförderung.",
+                "en": "Finally the author recommends a reform of training support.",
+                "focus": [
+                  "Abschließend",
+                  "empfiehlt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What does not belong in a summary?",
+              "options": [
+                "whether you found the argument convincing",
+                "the central claim",
+                "the evidence it rests on"
+              ],
+              "answer": "whether you found the argument convincing",
+              "why": "That is a review. A summary reports and stops."
+            }
+          }
+        ],
+        "remember": [
+          "Name the text, the subject and the central claim in sentence one.",
+          "Attribute every claim; Konjunktiv I carries it where the writing is dense.",
+          "Nominalise where it shortens; unpick the third genitive in a chain.",
+          "Subject, claim, evidence, conclusion, and nothing of your own."
+        ],
+        "exam": "Summarising a written source is the task C1 writing is built on, and the one skill every German office job quietly assumes.",
+        "mistakes": [
+          {
+            "wrong": "Der Autor sagt, die Maßnahme ist wirkungslos. Das finde ich auch.",
+            "right": "Der Autor vertritt die Auffassung, die Maßnahme sei wirkungslos.",
+            "why": "Konjunktiv I for the claim, and your own agreement has no place."
+          },
+          {
+            "wrong": "Die Durchführung der Überprüfung der Umsetzung der Maßnahme …",
+            "right": "Nachdem die Maßnahme umgesetzt worden war, wurde sie überprüft.",
+            "why": "A genitive chain that long has to be unpicked back into verbs."
+          },
+          {
+            "wrong": "Der Text ist sehr interessant und gut geschrieben.",
+            "right": "Der Beitrag befasst sich mit den Ursachen des Rückgangs.",
+            "why": "A summary reports the content, not your impression of it."
+          },
+          {
+            "wrong": "Laut dem Autor, die Zahlen sind gestiegen.",
+            "right": "Laut dem Autor sind die Zahlen gestiegen.",
+            "why": "No comma, and the verb takes second place after the source phrase."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "sich befassen mit",
+            "en": "to deal with, to be about"
+          },
+          {
+            "de": "die Verfasserin",
+            "plural": "-nen",
+            "en": "the author (female)"
+          },
+          {
+            "de": "die Auffassung vertreten",
+            "en": "to take the view"
+          },
+          {
+            "de": "der Rückgang",
+            "plural": "¨-e",
+            "en": "decline, fall"
+          },
+          {
+            "de": "die Zunahme",
+            "plural": "-n",
+            "en": "increase"
+          },
+          {
+            "de": "die Einführung",
+            "plural": "-en",
+            "en": "introduction (of a rule)"
+          },
+          {
+            "de": "zufolge",
+            "en": "according to (follows its noun, takes the dative)"
+          },
+          {
+            "de": "den Schluss ziehen",
+            "en": "to draw the conclusion"
+          }
+        ]
+      },
+      "covers": [
+        "c1.nominalisation-advanced"
+      ],
+      "image": "quest_c1_1_bigtext_hinweise"
+    },
+    {
       "id": "quest_c1_1_partizipialattribute",
       "type": "fillBlank",
       "title": "Erweiterte Partizipialattribute",
@@ -132538,7 +134336,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_nominalisierung",
           "article": "die",
-          "plural": "—"
+          "plural": "-en"
         },
         {
           "de": "Untersuchung",
@@ -132619,7 +134417,7 @@
           "article": "das"
         },
         {
-          "de": "historisches Präsens",
+          "de": "historische Präsens",
           "en": "historical present (for drama)",
           "kind": "noun",
           "sourceQuizId": "quest_c1_1_tempuswahl",
@@ -133041,7 +134839,7 @@
         },
         {
           "de": "zu, zwecks",
-          "en": "for",
+          "en": "for that purpose",
           "kind": "word",
           "sourceQuizId": "quest_c1_1_adverbialsaetze"
         },
@@ -134652,7 +136450,7 @@
       ],
       "help": {
         "hook": "An empty hospital room full of things to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one empty hospital room, the kind you see when you visit someone on a ward, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Bettgalgen over the bed, die Schnabeltasse on the bedside cabinet, das Röntgenbild on the wall, der Treteimer by the basin. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one empty hospital room, the kind you see when you visit someone on a ward, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Bettgalgen over the bed, die Schnabeltasse on the bedside cabinet, das Röntgenbild on the wall, der Treteimer by the basin. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Schnabeltasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -135297,7 +137095,7 @@
       ],
       "help": {
         "hook": "A cluttered backstage full of props to find: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: the cluttered backstage of an old theatre, where the props, costumes and stage machinery wait for the next show, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Flaschenzug under the ceiling, die Nebelmaschine on the floor, das Steckenpferd by the director’s chair, der Schrankkoffer in the corner. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: the cluttered backstage of an old theatre, where the props, costumes and stage machinery wait for the next show, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Flaschenzug under the ceiling, die Nebelmaschine on the floor, das Steckenpferd by the director’s chair, der Schrankkoffer in the corner. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Nebelmaschine?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -135333,7 +137131,7 @@
           {
             "kind": "rule",
             "title": "Feminine endings: -e is usually die",
-            "text": "Most two-syllable nouns ending in -e are feminine, and this room is full of them: die Kulisse, die Perücke, die Maske, die Krone, die Trommel is feminine too, so do not expect every die word to end in -e. Nouns in -ung, -heit and -keit are always die.",
+            "text": "Most two-syllable nouns ending in -e are feminine, and this room is full of them: die Kulisse, die Perücke, die Maske, die Krone. But die Trommel is feminine too, so do not expect every die word to end in -e. Nouns in -ung, -heit and -keit are always die.",
             "examples": [
               {
                 "de": "die Perücke, Plural: -n",
@@ -137807,7 +139605,7 @@
             "article": "das"
           },
           {
-            "de": "weiterführender Nebensatz",
+            "de": "weiterführende Nebensatz",
             "en": "continuing relative clause",
             "article": "der"
           }
@@ -142402,7 +144200,7 @@
           },
           {
             "de": "dadurch / dafür / darüber",
-            "en": "through / for / about this"
+            "en": "through this / for this / about this"
           },
           {
             "de": "tatsächlich / in der Tat",
@@ -147559,6 +149357,208 @@
       "image": "card_grammar_c1_2"
     },
     {
+      "id": "quest_c1_2_schreiben_forumsbeitrag",
+      "type": "writing",
+      "title": "Schreiben: Ein Forumsbeitrag",
+      "level": "C1.2",
+      "writing": {
+        "topic": "Write a post for an online discussion about whether working from home has been good for younger employees. Take a position, but hedge the claims you cannot prove, respond to something another poster might have said, and keep the tone of a forum rather than an essay.",
+        "practisePoints": [
+          "hedge an uncertain claim with dürfte, könnte or scheint zu, and mark certainty where you have it",
+          "report what others say with sollen or wollen for hearsay",
+          "disagree without attacking, using a softened Konjunktiv II",
+          "keep it readable: a forum post, not a seminar paper",
+          "mark your own experience as experience rather than as evidence"
+        ],
+        "scoringCriteria": [
+          "the degree of certainty in each claim matches what you could actually know",
+          "hearsay is marked as hearsay rather than asserted",
+          "the register is informal but literate, and the disagreement stays civil"
+        ],
+        "targetVocabulary": [
+          "dürfte",
+          "könnte durchaus",
+          "es scheint, als ob",
+          "angeblich",
+          "soll … haben",
+          "meiner Erfahrung nach",
+          "da bin ich mir nicht sicher",
+          "einerseits … andererseits",
+          "ich würde eher sagen"
+        ],
+        "passScore": 60
+      },
+      "storageKeyPrefix": "quest_c1_2_schreiben_forumsbeitrag_",
+      "help": {
+        "hook": "Say what you think without claiming more than you know.",
+        "intro": "Hedging changes how a German reader takes you more than almost anything else. Say etwas ist so and you have claimed it; say etwas dürfte so sein and you have said the same thing while showing you know the difference between what you can prove and what you suspect. Write 900 to 1800 characters. The correction looks at whether each claim carries the right strength, whether what you heard somewhere is marked as such, and whether a disagreement stays a disagreement rather than becoming an attack.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Three strengths of guess",
+            "text": "dürfte is a confident estimate, könnte an open possibility, müsste a conclusion you are fairly sure of. They are the subjective modals, and they all point at your confidence rather than at an obligation or an ability.",
+            "examples": [
+              {
+                "de": "Der Effekt dürfte bei jüngeren Beschäftigten größer sein.",
+                "en": "The effect is probably greater among younger employees.",
+                "focus": [
+                  "dürfte"
+                ]
+              },
+              {
+                "de": "Das könnte allerdings auch an der Branche liegen.",
+                "en": "That could, however, also be down to the sector.",
+                "focus": [
+                  "könnte"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which is the most confident guess?",
+              "options": [
+                "Das dürfte stimmen.",
+                "Das könnte stimmen.",
+                "Das mag stimmen."
+              ],
+              "answer": "Das dürfte stimmen.",
+              "why": "dürfte is a confident estimate; könnte and mag leave it open."
+            },
+            "trap": "Hedging everything is its own mistake: a text with no firm sentence in it reads as having nothing to say."
+          },
+          {
+            "kind": "rule",
+            "title": "sollen and wollen carry hearsay",
+            "text": "sollen reports what others say about someone; wollen reports what someone claims about themselves. Both let you pass a claim on without adopting it, which is exactly what a forum post needs.",
+            "examples": [
+              {
+                "de": "Studien sollen gezeigt haben, dass die Produktivität steigt.",
+                "en": "Studies are said to have shown that productivity rises.",
+                "focus": [
+                  "sollen",
+                  "gezeigt haben"
+                ]
+              },
+              {
+                "de": "Der Konzern will die Quote verdoppelt haben.",
+                "en": "The company claims to have doubled the rate.",
+                "focus": [
+                  "will",
+                  "verdoppelt haben"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Er ____ den Bericht nie gelesen haben.",
+              "options": [
+                "will",
+                "soll",
+                "darf"
+              ],
+              "answer": "will",
+              "why": "wollen reports his own claim about himself."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Disagree with the point, not the person",
+            "text": "A softened opening lets you contradict hard. Da wäre ich vorsichtig, Ich würde eher sagen, Das sehe ich anders. The disagreement itself can then be direct, and nobody reads it as an attack.",
+            "examples": [
+              {
+                "de": "Da würde ich widersprechen: Die Zahlen zeigen eher das Gegenteil.",
+                "en": "I would disagree there: the figures show rather the opposite.",
+                "focus": [
+                  "würde",
+                  "widersprechen"
+                ]
+              },
+              {
+                "de": "Meiner Erfahrung nach ist das sehr unterschiedlich.",
+                "en": "In my experience that varies a great deal.",
+                "focus": [
+                  "Meiner Erfahrung nach"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which disagrees without attacking?",
+              "options": [
+                "Da würde ich widersprechen.",
+                "Das ist doch Unsinn.",
+                "Sie haben offensichtlich keine Ahnung."
+              ],
+              "answer": "Da würde ich widersprechen.",
+              "why": "The Konjunktiv II softens the frame; the claim underneath stays firm."
+            }
+          }
+        ],
+        "remember": [
+          "dürfte confident, könnte open, müsste concluded.",
+          "sollen for what others say, wollen for what someone claims of themselves.",
+          "Mark your own experience as experience: meiner Erfahrung nach.",
+          "Soften the frame, not the point."
+        ],
+        "exam": "Writing a reasoned post into an existing discussion is a C1 writing task, and the register most people actually write German in.",
+        "mistakes": [
+          {
+            "wrong": "Homeoffice ist produktiver.",
+            "right": "Homeoffice dürfte in vielen Fällen produktiver sein.",
+            "why": "A claim you cannot prove needs its hedge."
+          },
+          {
+            "wrong": "Studien haben gezeigt, dass …  (without a source)",
+            "right": "Studien sollen gezeigt haben, dass …",
+            "why": "sollen passes the claim on without adopting it."
+          },
+          {
+            "wrong": "Der Minister soll zurücktreten.",
+            "right": "Der Minister soll zurückgetreten sein.",
+            "why": "Without the perfect infinitive this is a demand, not a rumour."
+          },
+          {
+            "wrong": "Das ist völliger Quatsch.",
+            "right": "Da würde ich widersprechen.",
+            "why": "Same disagreement, a register that gets read."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "dürfte",
+            "en": "is probably (confident estimate)"
+          },
+          {
+            "de": "angeblich",
+            "en": "allegedly, supposedly"
+          },
+          {
+            "de": "die Vermutung",
+            "plural": "-en",
+            "en": "supposition, guess"
+          },
+          {
+            "de": "widersprechen",
+            "en": "to contradict (+ Dat)"
+          },
+          {
+            "de": "einerseits … andererseits",
+            "en": "on the one hand … on the other"
+          },
+          {
+            "de": "nachvollziehen",
+            "en": "to follow, to understand (an argument)"
+          },
+          {
+            "de": "der Beitrag",
+            "plural": "¨-e",
+            "en": "post, contribution"
+          }
+        ]
+      },
+      "covers": [
+        "c1.modal-supposition"
+      ],
+      "image": "quest_c1_2_bigtext_nachbar"
+    },
+    {
       "id": "quest_c1_2_wortschatz",
       "type": "vocabulary",
       "title": "Wortschatz",
@@ -147595,7 +149595,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_kultur",
           "article": "die",
-          "plural": "—",
+          "plural": "-en",
           "image": "vielfalt",
           "imageHint": true
         },
@@ -147753,18 +149753,6 @@
           "sourceQuizId": "quest_c1_2_konj2_kritik"
         },
         {
-          "de": "mit dessen",
-          "en": "with whose help",
-          "kind": "word",
-          "sourceQuizId": "quest_c1_2_relativ_advanced"
-        },
-        {
-          "de": "deren Hilfe",
-          "en": "with whose help",
-          "kind": "word",
-          "sourceQuizId": "quest_c1_2_relativ_advanced"
-        },
-        {
           "de": "wo",
           "en": "where",
           "kind": "word",
@@ -147795,7 +149783,7 @@
           "sourceQuizId": "quest_c1_2_relativ_advanced"
         },
         {
-          "de": "weiterführender Nebensatz",
+          "de": "weiterführende Nebensatz",
           "en": "continuing relative clause",
           "kind": "noun",
           "sourceQuizId": "quest_c1_2_relativ_advanced",
@@ -148310,13 +150298,13 @@
         },
         {
           "de": "dadurch",
-          "en": "through",
+          "en": "through this",
           "kind": "word",
           "sourceQuizId": "quest_c1_2_kohaesion"
         },
         {
           "de": "dafür",
-          "en": "for",
+          "en": "for this",
           "kind": "word",
           "sourceQuizId": "quest_c1_2_kohaesion"
         },
@@ -149820,7 +151808,7 @@
       ],
       "help": {
         "hook": "An empty newsroom full of precise office nouns: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one newspaper office after the editors have gone home, with 32 things to find in it, each one a precise noun from the world of the press and office work — der Aktenvernichter, die Briefablage, das Stativ, die Leinwand for the morning briefing. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one newspaper office after the editors have gone home, with 32 things to find in it, each one a precise noun from the world of the press and office work — der Aktenvernichter, die Briefablage, das Stativ, die Leinwand for the morning briefing. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Briefablage?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -150457,7 +152445,7 @@
       ],
       "help": {
         "hook": "An airport hall with nobody in it: tap each object in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one airport check-in and gate hall with 32 things to find, from the security check to the window onto the apron — das Röntgengerät, die Fluggastbrücke, der Gepäckwagen, das Triebwerk under the wing. Many of them are long compounds you mostly meet when travelling. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one airport check-in and gate hall with 32 things to find, from the security check to the window onto the apron — das Röntgengerät, die Fluggastbrücke, der Gepäckwagen, das Triebwerk under the wing. Many of them are long compounds you mostly meet when travelling. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Fluggastbrücke?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -160929,6 +162917,207 @@
       "imageDescription": "a boardroom late at night with executives around a long table, a tractor model and a factory silhouette on a screen"
     },
     {
+      "id": "quest_c2_1_schreiben_register",
+      "type": "writing",
+      "title": "Schreiben: Zweimal dasselbe",
+      "level": "C2.1",
+      "writing": {
+        "topic": "Say the same thing twice. Pick one piece of news: a decision at work, a change to a rule, or something that went wrong. Write it first as a message to a close colleague, then as a formal notice to everyone affected. The facts must be identical; only the register may change.",
+        "practisePoints": [
+          "keep the content exactly the same in both versions, including the facts and the dates",
+          "move the register with word choice: kriegen against erhalten, reden against erörtern",
+          "move it with structure too: short main clauses against nominal style and the passive",
+          "keep each version internally consistent, with no stray word from the other",
+          "make the formal version impersonal without making it evasive"
+        ],
+        "scoringCriteria": [
+          "the two versions really do say the same thing",
+          "neither version leaks a word or a structure from the other",
+          "the formal version is impersonal but still names who does what"
+        ],
+        "targetVocabulary": [
+          "kriegen / erhalten",
+          "reden über / erörtern",
+          "sich kümmern um / sich befassen mit",
+          "hinkriegen / bewerkstelligen",
+          "in Kenntnis setzen",
+          "hiermit teilen wir Ihnen mit",
+          "umgehend",
+          "im Zuge",
+          "zur Kenntnis nehmen"
+        ],
+        "passScore": 60
+      },
+      "storageKeyPrefix": "quest_c2_1_schreiben_register_",
+      "help": {
+        "hook": "Write the same news twice, once for a friend and once for the record.",
+        "intro": "The question here is not whether you can write German but whether you can choose which German. Write the same piece of news twice: once to a colleague you like, once as a formal notice. The facts stay identical. Only the register moves, and it moves on two axes at once, the words and the sentence shapes. Write 1200 to 2500 characters for both together. The commonest failure is a leak: one gehobenes word in the chatty version, or one spoken particle in the formal one. The correction will hunt for exactly that.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Register moves on two axes",
+            "text": "Words carry some of it, structure carries the rest. Formal German reaches for nouns, the passive and the impersonal; informal German reaches for verbs, active subjects and short main clauses. Moving only the words leaves a text that still sounds spoken.",
+            "examples": [
+              {
+                "de": "Wir haben das jetzt geändert, ab Montag läuft es anders.",
+                "en": "We have changed it now, from Monday it works differently.",
+                "focus": [
+                  "geändert"
+                ]
+              },
+              {
+                "de": "Die Regelung wurde angepasst; sie tritt zum kommenden Montag in Kraft.",
+                "en": "The rule has been amended; it takes effect from this coming Monday.",
+                "focus": [
+                  "wurde angepasst",
+                  "in Kraft"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which belongs to the formal version?",
+              "options": [
+                "Die Entscheidung wurde getroffen.",
+                "Wir haben das entschieden.",
+                "Das haben wir jetzt mal so gemacht."
+              ],
+              "answer": "Die Entscheidung wurde getroffen.",
+              "why": "The passive and the nominalisation carry the formal register."
+            },
+            "trap": "Over-formality in a message to a friend is a register mistake too, and it is the one most people make once they have learnt the formal words."
+          },
+          {
+            "kind": "rule",
+            "title": "Neutral is not formal",
+            "text": "Most German words are neutral: Geld, beginnen, sagen, bekommen. They fit both versions, and they are the backbone of each. Only a few words are genuinely marked: kriegen is informal, erhalten is formal, bekommen is neither. Hunt for the marked ones; leave the rest alone.",
+            "examples": [
+              {
+                "de": "Ich kriege die Zahlen morgen. / Die Zahlen gehen Ihnen morgen zu.",
+                "en": "I get the figures tomorrow. / The figures will reach you tomorrow.",
+                "focus": [
+                  "kriege",
+                  "zu"
+                ]
+              },
+              {
+                "de": "Wir reden Montag drüber. / Der Punkt wird am Montag erörtert.",
+                "en": "We will talk about it on Monday. / The matter will be discussed on Monday.",
+                "focus": [
+                  "reden",
+                  "erörtert"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which word is neutral, fitting both versions?",
+              "options": [
+                "bekommen",
+                "kriegen",
+                "erhalten"
+              ],
+              "answer": "bekommen",
+              "why": "kriegen is informal and erhalten formal; bekommen sits between them."
+            }
+          },
+          {
+            "kind": "mnemonic",
+            "title": "Impersonal, not evasive",
+            "text": "The formal version may drop the personal subject, but it must not lose who is responsible. „Es wurden Fehler gemacht“ hides the agent; „Die Abteilung hat den Termin versäumt“ is just as formal and still says who. The difference is noticed.",
+            "examples": [
+              {
+                "de": "Hiermit teilen wir Ihnen mit, dass die Frist um zwei Wochen verlängert wird.",
+                "en": "We hereby inform you that the deadline is being extended by two weeks.",
+                "focus": [
+                  "Hiermit teilen wir Ihnen mit"
+                ]
+              },
+              {
+                "de": "Die Verzögerung ist auf einen Fehler in unserer Planung zurückzuführen.",
+                "en": "The delay is attributable to an error in our planning.",
+                "focus": [
+                  "zurückzuführen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which is formal without hiding the agent?",
+              "options": [
+                "Die Verzögerung ist auf unseren Planungsfehler zurückzuführen.",
+                "Es ist zu Verzögerungen gekommen.",
+                "Fehler wurden gemacht."
+              ],
+              "answer": "Die Verzögerung ist auf unseren Planungsfehler zurückzuführen.",
+              "why": "It stays formal and still names whose error it was."
+            }
+          }
+        ],
+        "remember": [
+          "Two axes: the words and the structures. Move both or neither.",
+          "Most words are neutral; only a few are marked. Hunt the marked ones.",
+          "Formal may be impersonal, but it must not hide who did what.",
+          "A single leaked word gives the whole version away."
+        ],
+        "exam": "Writing the same content in two registers is a C2 task, and it is what anyone drafting at work does every day without noticing.",
+        "mistakes": [
+          {
+            "wrong": "Sehr geehrte Damen und Herren, wir haben das jetzt mal geändert.",
+            "right": "Sehr geehrte Damen und Herren, die Regelung wurde angepasst.",
+            "why": "The frame is formal and the sentence is not: a leak."
+          },
+          {
+            "wrong": "Hi Tom, hiermit setze ich dich in Kenntnis.",
+            "right": "Hi Tom, kurze Info:",
+            "why": "Over-formality in an informal context is also a register error."
+          },
+          {
+            "wrong": "Es wurden Fehler gemacht.",
+            "right": "Wir haben den Termin versäumt.",
+            "why": "Formal does not have to mean agentless."
+          },
+          {
+            "wrong": "Die Zahlen kriegen Sie morgen.",
+            "right": "Die Zahlen gehen Ihnen morgen zu.",
+            "why": "kriegen is informal; the Sie around it is not."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "erhalten",
+            "en": "to receive (formal)"
+          },
+          {
+            "de": "kriegen",
+            "en": "to get (informal)"
+          },
+          {
+            "de": "erörtern",
+            "en": "to discuss (formal)"
+          },
+          {
+            "de": "in Kenntnis setzen",
+            "en": "to inform (formal)"
+          },
+          {
+            "de": "umgehend",
+            "en": "immediately, without delay (formal)"
+          },
+          {
+            "de": "zurückführen auf",
+            "en": "to attribute to"
+          },
+          {
+            "de": "das Register",
+            "plural": "-",
+            "en": "register, level of formality"
+          }
+        ]
+      },
+      "covers": [
+        "c2.register"
+      ],
+      "image": "quest_c2_1_bigtext_vorstand"
+    },
+    {
       "type": "fillBlank",
       "id": "quest_c2_1_konj2_nuancen",
       "title": "Konjunktiv II: Nuancen",
@@ -162833,7 +165022,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
           "article": "die",
-          "plural": "—",
+          "plural": "-en",
           "image": "konjunktur",
           "imageHint": true
         },
@@ -162852,7 +165041,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
           "article": "die",
-          "plural": "—"
+          "plural": "-n"
         },
         {
           "de": "Leitzins",
@@ -162908,7 +165097,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_wirtschaft",
           "article": "die",
-          "plural": "—"
+          "plural": "-en"
         },
         {
           "de": "Einspruch",
@@ -163016,7 +165205,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_register",
           "article": "die",
-          "plural": "—",
+          "plural": "-n",
           "note": "Job",
           "also": [
             "die Position"
@@ -163856,7 +166045,7 @@
           "kind": "noun",
           "sourceQuizId": "quest_c2_1_konnotation",
           "article": "die",
-          "plural": "—"
+          "plural": "-en"
         },
         {
           "de": "Gestank",
@@ -165269,7 +167458,7 @@
       ],
       "help": {
         "hook": "A carpenter's workshop full of specialist tools: tap each one in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one busy carpenter's workshop with 32 things to find, every one a precise craft word that ordinary conversation rarely needs — der Hobel, die Schraubzwinge, das Senklot, der Klüpfel hanging on the pegboard. The prompt asks Wo ist der Zollstock? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one busy carpenter's workshop with 32 things to find, every one a precise craft word that ordinary conversation rarely needs — der Hobel, die Schraubzwinge, das Senklot, der Klüpfel hanging on the pegboard. The prompt asks Wo ist der Zollstock? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Zollstock?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -165913,7 +168102,7 @@
       ],
       "help": {
         "hook": "An old farmyard full of tools, harness and animals: tap each one in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one cluttered farmyard in front of a red barn, with 32 things to find, many of them old rural words you meet in novels and museums rather than in daily talk — der Dreschflegel, das Kummet, die Egge, der Taubenschlag on its pole. The prompt asks Wo ist die Sense? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on empty sky or grass costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one cluttered farmyard in front of a red barn, with 32 things to find, many of them old rural words you meet in novels and museums rather than in daily talk — der Dreschflegel, das Kummet, die Egge, der Taubenschlag on its pole. The prompt asks Wo ist die Sense? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Sense?), and after the find you choose der, die or das yourself. A tap on empty sky or grass costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -178934,6 +181123,211 @@
       "imageDescription": "a person surrounded by floating photos and messages that never fade, a small eraser in hand"
     },
     {
+      "id": "quest_c2_2_schreiben_eroerterung",
+      "type": "writing",
+      "title": "Schreiben: Erörterung",
+      "level": "C2.2",
+      "writing": {
+        "topic": "Argue a case on an abstract question: whether a society may require something of its members for the common good. Set out the question, develop one line of argument properly, take the strongest counter-argument seriously, answer it, and end where the argument actually leaves you.",
+        "practisePoints": [
+          "frame the question precisely before answering it, including what you are not arguing",
+          "develop one line of argument in depth rather than four in passing",
+          "state the counter-argument in its strongest form, as its holder would",
+          "answer it, or concede the part of it that stands",
+          "end where the argument leads, even if that is short of what you wanted"
+        ],
+        "scoringCriteria": [
+          "the counter-argument is given its best case, not its weakest",
+          "the conclusion follows from what was actually argued",
+          "the abstract vocabulary is used precisely rather than decoratively"
+        ],
+        "targetVocabulary": [
+          "die Zumutbarkeit",
+          "das Gemeinwohl",
+          "die Verhältnismäßigkeit",
+          "der Einwand",
+          "zugestehen",
+          "einen Einwand entkräften",
+          "in Abrede stellen",
+          "daraus folgt keineswegs",
+          "Verantwortung tragen"
+        ],
+        "passScore": 65
+      },
+      "storageKeyPrefix": "quest_c2_2_schreiben_eroerterung_",
+      "help": {
+        "hook": "Argue something abstract, and let the strongest objection have its day.",
+        "intro": "The final piece of writing in the course, and the hardest, because the quality is in the thinking rather than the German. Frame the question, argue one line properly, then give the objection its best case and answer it. Write 1200 to 2500 characters. Two things will be judged above all. First, whether the counter-argument is the real one: a weak version you can knock down costs more marks than it saves. Second, whether your conclusion follows from the argument you actually made, rather than from the one you meant to make.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Frame before you argue",
+            "text": "An abstract question hides several questions. Say which one you are answering and which you are setting aside, and the whole piece gets easier to write and harder to attack.",
+            "examples": [
+              {
+                "de": "Zu klären ist nicht, ob der Staat eingreifen darf, sondern unter welchen Bedingungen ein Eingriff zumutbar ist.",
+                "en": "What is at issue is not whether the state may intervene, but under what conditions an intervention is reasonable.",
+                "focus": [
+                  "Zu klären ist",
+                  "zumutbar"
+                ]
+              },
+              {
+                "de": "Die Frage der Durchsetzbarkeit bleibt im Folgenden ausgeklammert.",
+                "en": "The question of enforceability is set aside in what follows.",
+                "focus": [
+                  "ausgeklammert"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What does framing the question achieve?",
+              "options": [
+                "it says which question is being answered",
+                "it makes the text longer",
+                "it avoids taking a position"
+              ],
+              "answer": "it says which question is being answered",
+              "why": "A framed question cannot be answered beside the point."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Give the objection its best case",
+            "text": "The strongest counter-argument, stated as its holder would state it, is what makes an Erörterung worth reading. A weak version is a straw man, and a careful reader spots one at once. Steelman it, then answer it, or concede the part that stands.",
+            "examples": [
+              {
+                "de": "Der gewichtigste Einwand lautet, dass eine solche Pflicht die Autonomie des Einzelnen aushöhlt.",
+                "en": "The weightiest objection is that such a duty hollows out individual autonomy.",
+                "focus": [
+                  "Der gewichtigste Einwand"
+                ]
+              },
+              {
+                "de": "Dieser Einwand trifft insoweit zu, als er die Begründungslast erhöht; er entkräftet den Anspruch jedoch nicht.",
+                "en": "This objection holds in so far as it raises the burden of justification; it does not, however, defeat the claim.",
+                "focus": [
+                  "insoweit",
+                  "entkräftet"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which is a steelmanned objection?",
+              "options": [
+                "Der gewichtigste Einwand lautet, dass die Autonomie ausgehöhlt wird.",
+                "Manche sagen einfach, sie wollen das nicht.",
+                "Gegner behaupten, es sei Zwang."
+              ],
+              "answer": "Der gewichtigste Einwand lautet, dass die Autonomie ausgehöhlt wird.",
+              "why": "It states the objection at its strongest and in its own terms."
+            },
+            "trap": "Conceding a point does not lose the argument; refusing to concede an obvious one does."
+          },
+          {
+            "kind": "mnemonic",
+            "title": "End where the argument ends",
+            "text": "The conclusion has to be the one your paragraphs earned. If the argument only establishes something narrower than you hoped, say so. A hedged conclusion that fits is worth more than a confident one that does not.",
+            "examples": [
+              {
+                "de": "Daraus folgt keineswegs eine allgemeine Pflicht, wohl aber eine Begründungslast für den Verweigerer.",
+                "en": "It by no means follows that there is a general duty, but there is a burden of justification on the refuser.",
+                "focus": [
+                  "Daraus folgt keineswegs"
+                ]
+              },
+              {
+                "de": "Die Verhältnismäßigkeit bleibt damit der entscheidende Maßstab.",
+                "en": "Proportionality thus remains the decisive criterion.",
+                "focus": [
+                  "Verhältnismäßigkeit"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Your argument supports a narrow claim. What should the conclusion do?",
+              "options": [
+                "state the narrow claim",
+                "state the broad claim anyway",
+                "avoid a conclusion"
+              ],
+              "answer": "state the narrow claim",
+              "why": "A conclusion wider than the argument is the one failure an examiner always catches."
+            }
+          }
+        ],
+        "remember": [
+          "Frame the question, and say what you are setting aside.",
+          "One line of argument in depth beats four in passing.",
+          "Steelman the objection; concede what stands.",
+          "End where the argument ends, not where you wanted it to."
+        ],
+        "exam": "A written Erörterung on an abstract question is the final writing task of the C2 certificate, and the shape of serious German argument.",
+        "mistakes": [
+          {
+            "wrong": "Manche Leute sind einfach dagegen, aber das ist egoistisch.",
+            "right": "Der gewichtigste Einwand lautet, dass eine solche Pflicht die Autonomie aushöhlt.",
+            "why": "A straw man costs more than it saves."
+          },
+          {
+            "wrong": "Also ist eine allgemeine Pflicht gerechtfertigt.  (after a narrow argument)",
+            "right": "Daraus folgt keineswegs eine allgemeine Pflicht, wohl aber eine Begründungslast.",
+            "why": "The conclusion must not outrun the argument."
+          },
+          {
+            "wrong": "Die Verhältnismäßigkeit ist sehr wichtig und interessant.",
+            "right": "Die Verhältnismäßigkeit bleibt der entscheidende Maßstab, weil sie Eingriffstiefe und Nutzen ins Verhältnis setzt.",
+            "why": "An abstract noun has to do work, not decorate."
+          },
+          {
+            "wrong": "Ich stelle in Abrede, dass es gut ist.",
+            "right": "Ich stelle in Abrede, dass der Nutzen den Eingriff rechtfertigt.",
+            "why": "The formal idiom needs a precise object to deny."
+          }
+        ],
+        "vocab": [
+          {
+            "de": "die Zumutbarkeit",
+            "en": "reasonableness (what can fairly be required)"
+          },
+          {
+            "de": "das Gemeinwohl",
+            "en": "the common good"
+          },
+          {
+            "de": "die Verhältnismäßigkeit",
+            "en": "proportionality"
+          },
+          {
+            "de": "der Einwand",
+            "plural": "¨-e",
+            "en": "objection"
+          },
+          {
+            "de": "zugestehen",
+            "en": "to concede"
+          },
+          {
+            "de": "entkräften",
+            "en": "to refute, to defeat (an objection)"
+          },
+          {
+            "de": "in Abrede stellen",
+            "en": "to deny (formal)"
+          },
+          {
+            "de": "der Maßstab",
+            "plural": "¨-e",
+            "en": "criterion, standard"
+          }
+        ]
+      },
+      "covers": [
+        "c2.academic-language"
+      ],
+      "image": "quest_c2_2_lesen_essay"
+    },
+    {
       "type": "fillBlank",
       "id": "quest_c2_2_redewendungen",
       "title": "Redewendungen",
@@ -181081,12 +183475,6 @@
           "sourceQuizId": "quest_c2_2_philosophie"
         },
         {
-          "de": "to deny outright",
-          "en": "deny",
-          "kind": "word",
-          "sourceQuizId": "quest_c2_2_philosophie"
-        },
-        {
           "de": "Weber’s two ethics",
           "en": "ethics of conviction",
           "kind": "word",
@@ -181095,12 +183483,6 @@
         {
           "de": "instrumental reason",
           "en": "means-end relation",
-          "kind": "word",
-          "sourceQuizId": "quest_c2_2_philosophie"
-        },
-        {
-          "de": "to bear responsibility",
-          "en": "bear",
           "kind": "word",
           "sourceQuizId": "quest_c2_2_philosophie"
         },
@@ -183940,7 +186322,7 @@
       ],
       "help": {
         "hook": "A crowded antique shop full of rare old things: find each one in the picture, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one crowded antique shop with 32 old things to find in it, every one a precise noun you rarely need until you walk into a place like this — der Sekretär, das Spinnrad, die Balkenwaage, das Butterfass, der Paravent. The prompt asks Wo ist die Registrierkasse? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one crowded antique shop with 32 old things to find in it, every one a precise noun you rarely need until you walk into a place like this — der Sekretär, das Spinnrad, die Balkenwaage, das Butterfass, der Paravent. The prompt asks Wo ist die Registrierkasse? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Registrierkasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",
@@ -184593,7 +186975,7 @@
       ],
       "help": {
         "hook": "An old fishing harbour full of nautical gear: find each thing on the quay or the water, then give it its article.",
-        "intro": "A picture hunt instead of a deck: one old fishing harbour with 32 things to find on the water and on the quay, every one a precise word from the sea and the docks — der Poller, die Seilwinde, der Duckdalben, das Steuerhaus, der Hummerkorb. The prompt asks Wo ist der Fender? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+        "intro": "A picture hunt instead of a deck: one old fishing harbour with 32 things to find on the water and on the quay, every one a precise word from the sea and the docks — der Poller, die Seilwinde, der Duckdalben, das Steuerhaus, der Hummerkorb. The prompt asks Wo ist der Fender? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Fender?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
         "tips": [
           {
             "kind": "rule",

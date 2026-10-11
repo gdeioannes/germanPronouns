@@ -164,6 +164,7 @@ const TYPE_LABELS: Record<QuizType, string> = {
 	dictation: 'dictation',
 	speakRepeat: 'repeat aloud',
 	speaking: 'speaking',
+	writing: 'writing',
 	vocabulary: 'flashcards',
 	suchbild: 'picture hunt'
 };

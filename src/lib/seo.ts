@@ -80,6 +80,7 @@ const KIND_LABEL: Record<QuizType, string> = {
 	dictation: 'dictation',
 	speakRepeat: 'pronunciation practice',
 	speaking: 'speaking practice',
+	writing: 'writing task',
 	vocabulary: 'vocabulary flashcards',
 	suchbild: 'vocabulary picture hunt'
 };
@@ -92,6 +93,7 @@ const RESOURCE_TYPE: Record<QuizType, string> = {
 	dictation: 'Dictation',
 	speakRepeat: 'Pronunciation exercise',
 	speaking: 'Speaking exercise',
+	writing: 'Writing exercise',
 	vocabulary: 'Flashcards',
 	suchbild: 'Picture vocabulary game'
 };

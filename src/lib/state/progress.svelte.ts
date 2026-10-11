@@ -101,6 +101,8 @@ function completionKeyFor(type: QuizType): string | null {
 		case 'speaking':
 		case 'speakRepeat':
 			return SettingsKeys.completedSpeakQuizzes;
+		case 'writing':
+			return SettingsKeys.completedWritingQuizzes;
 		case 'fillBlank':
 		case 'vocabulary':
 		case 'suchbild':
@@ -169,7 +171,8 @@ class ProgressStore {
 			SettingsKeys.completedSpeakQuizzes,
 			SettingsKeys.completedReadingQuizzes,
 			SettingsKeys.completedListeningQuizzes,
-			SettingsKeys.completedDictationQuizzes
+			SettingsKeys.completedDictationQuizzes,
+			SettingsKeys.completedWritingQuizzes
 		];
 		const loaded: Record<string, string[]> = {};
 		for (const key of sets) loaded[key] = await this.readList(key);
@@ -470,7 +473,12 @@ class ProgressStore {
 	ribbonFor(type: QuizType, id: string, prefix: string): RibbonTier | null {
 		if (!this.isCompleted(type, id, prefix)) return null;
 		if (isDrill(type)) return this.medalFor(prefix);
-		return 'bronze';
+		// A play-through kind earns its bronze by turning up — unless it recorded
+		// how the attempt went and it went badly. Only writing does that today:
+		// a text that came back under its pass mark is marked for another go,
+		// not given a medal. The kinds that record nothing are unaffected,
+		// because `lastRunPassed` is true when there is nothing to judge.
+		return this.lastRunPassed(prefix) ? 'bronze' : null;
 	}
 
 	/**

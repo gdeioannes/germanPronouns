@@ -25,6 +25,7 @@ export const SettingsKeys = {
 	completedReadingQuizzes: 'reading_completed_quizzes',
 	completedListeningQuizzes: 'listening_completed_quizzes',
 	completedDictationQuizzes: 'dictation_completed_quizzes',
+	completedWritingQuizzes: 'writing_completed_quizzes',
 	placementUnlockedQuizzes: 'placement_unlocked_quizzes',
 	seenHelpMemory: 'seen_help_memory',
 	voiceOfflineOnly: 'voice_offline_only',

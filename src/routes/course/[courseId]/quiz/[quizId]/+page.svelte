@@ -32,6 +32,7 @@
 	import PassageQuiz from '$lib/components/quiz/PassageQuiz.svelte';
 	import SpeakRepeatQuiz from '$lib/components/quiz/SpeakRepeatQuiz.svelte';
 	import SpeakingQuiz from '$lib/components/quiz/SpeakingQuiz.svelte';
+	import WritingQuiz from '$lib/components/quiz/WritingQuiz.svelte';
 	import SuchbildQuiz from '$lib/components/quiz/SuchbildQuiz.svelte';
 	import VocabularyQuiz from '$lib/components/quiz/VocabularyQuiz.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -227,6 +228,22 @@
 		else playSound('complete');
 	}
 
+	/**
+	 * A writing attempt ended. It always counts as an attempt, so the way on is
+	 * there whatever the score, but the attempt is recorded so a text that came
+	 * back under its pass mark is marked for another go rather than given a
+	 * bronze for turning up.
+	 */
+	async function writingFinished(passed: boolean) {
+		await progress.recordRun(quiz.storageKeyPrefix, {
+			right: passed ? 10 : 0,
+			total: 10,
+			// A text is one piece of work, not a streak of answers.
+			bestStreak: 0
+		});
+		runFinished(passed);
+	}
+
 	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
 	/** Back to the swipe deck for the next card. */
 	const homeHref = $derived(`/course/${course.id}`);
@@ -398,6 +415,17 @@
 				learnLocale={course.learnLocale}
 				uiLang={course.uiLang}
 				onFinish={(passed) => passed && complete()}
+			/>
+		{:else if quiz.type === 'writing'}
+			<!-- A saved correction ends the attempt whatever the score: the learner
+			     wrote a whole text, so the way on (try again, next, the deck) has
+			     to be there even when it came back under the pass mark. -->
+			<WritingQuiz
+				{quiz}
+				courseId={course.id}
+				learnLocale={course.learnLocale}
+				uiLang={course.uiLang}
+				onFinish={writingFinished}
 			/>
 		{:else if quiz.type === 'vocabulary'}
 			<VocabularyQuiz

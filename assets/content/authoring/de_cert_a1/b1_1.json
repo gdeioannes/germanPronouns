@@ -5057,6 +5057,203 @@
     }
   },
   {
+    "id": "quest_b1_1_schreiben_email",
+    "after": "quest_b1_1_email_redemittel",
+    "covers": [
+      "b1.email-redemittel"
+    ],
+    "title": "Schreiben: Eine formelle E-Mail",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Eine formelle E-Mail",
+      "level": "B1.1",
+      "writing": {
+        "topic": "Your language course was cancelled at short notice and you have already paid. Write a formal e-mail to the school: say what happened, say what you want, and ask for an answer by a date.",
+        "practisePoints": [
+          "a formal greeting and a formal sign-off, with no comma after the sign-off",
+          "say plainly what happened and when",
+          "one polite request in the Konjunktiv II (ich würde gern, ich hätte eine Frage, könnten Sie)",
+          "name what you want to happen: a refund, a place on the next course, or both",
+          "ask for an answer by a date"
+        ],
+        "scoringCriteria": [
+          "the register stays formal throughout, with Sie and no spoken fillers",
+          "the e-mail has a visible shape: greeting, reason for writing, the facts, the request, the sign-off",
+          "the request is softened rather than demanded"
+        ],
+        "targetVocabulary": [
+          "Sehr geehrte Damen und Herren",
+          "Mit freundlichen Grüßen",
+          "ich wende mich an Sie",
+          "die Rückerstattung",
+          "der Kursausfall",
+          "kurzfristig",
+          "ich würde gern",
+          "könnten Sie mir bitte",
+          "im Voraus vielen Dank"
+        ],
+        "passScore": 60
+      }
+    },
+    "help": {
+      "hook": "Write a real formal e-mail, and have your own AI mark it line by line.",
+      "intro": "This is the first exercise in the course where you write German yourself rather than filling a gap. You write the e-mail here, in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The four or five fixes it gives you are saved: your next speaking and writing exercises quietly bring one or two of them back, so the same slip does not survive for long. Aim for 400 to 900 characters, roughly the length of a real complaint e-mail. Much shorter and there is nothing to correct; much longer and you are writing an essay rather than an e-mail.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "The frame carries the register",
+          "text": "A formal e-mail is recognised by its frame before anyone reads the content. Sehr geehrte Damen und Herren when you do not know the name, Sehr geehrte Frau Weber when you do. Mit freundlichen Grüßen at the end, and no comma after it — the next line is your name. Sie, Ihnen and Ihr are capitalised all the way through.",
+          "examples": [
+            {
+              "de": "Sehr geehrte Frau Weber,\n\nich wende mich an Sie, weil mein Kurs kurzfristig abgesagt wurde.",
+              "en": "Dear Ms Weber,\n\nI am writing to you because my course was cancelled at short notice."
+            },
+            {
+              "de": "Mit freundlichen Grüßen\nAna Ruiz",
+              "en": "Yours sincerely\nAna Ruiz"
+            }
+          ],
+          "trap": "After the greeting comes a comma and then a lower-case start: „Sehr geehrte Frau Weber,“ then „ich wende mich …“, not „Ich“.",
+          "check": {
+            "q": "Which sign-off is right in a formal e-mail?",
+            "options": [
+              "Mit freundlichen Grüßen",
+              "Mit freundlichen Grüßen,",
+              "Liebe Grüße"
+            ],
+            "answer": "Mit freundlichen Grüßen",
+            "why": "No comma follows the formal sign-off, and Liebe Grüße is for people you know."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Ask, do not demand",
+          "text": "The request is where the register is won or lost. A bare imperative or a flat present tense reads as an order. Soften it with the Konjunktiv II: ich würde gern, ich hätte eine Frage, könnten Sie, wäre es möglich. The content stays exactly as firm; only the tone changes.",
+          "examples": [
+            {
+              "de": "Könnten Sie mir bitte mitteilen, bis wann ich mit einer Rückerstattung rechnen kann?",
+              "en": "Could you please let me know by when I can expect a refund?"
+            },
+            {
+              "de": "Ich würde gern wissen, ob ein Platz im nächsten Kurs frei ist.",
+              "en": "I would like to know whether there is a place free on the next course."
+            }
+          ],
+          "trap": "„Geben Sie mir mein Geld zurück“ is grammatical and will cost you the register marks. „Ich würde gern eine Rückerstattung beantragen“ asks for the same thing.",
+          "check": {
+            "q": "Which is the formal way to ask?",
+            "options": [
+              "Könnten Sie mir bitte antworten?",
+              "Antworten Sie mir!",
+              "Sie müssen mir antworten."
+            ],
+            "answer": "Könnten Sie mir bitte antworten?",
+            "why": "Könnten with bitte is a request; the other two are orders."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Five moves, in this order",
+          "text": "Greeting. Why you are writing. What happened, with the facts and the dates. What you want. A date for the answer, then the sign-off. An e-mail that follows those five moves is hard to mark down for structure, and the structure is what the correction looks at first.",
+          "examples": [
+            {
+              "de": "… wurde der Kurs am 3. Oktober kurzfristig abgesagt. Ich habe die Kursgebühr bereits im September bezahlt.",
+              "en": "… the course was cancelled at short notice on 3 October. I had already paid the course fee in September."
+            },
+            {
+              "de": "Über eine Antwort bis zum 20. Oktober würde ich mich freuen.",
+              "en": "I would be glad of an answer by 20 October."
+            }
+          ],
+          "check": {
+            "q": "What belongs in the second move of a formal e-mail?",
+            "options": [
+              "why you are writing",
+              "your sign-off",
+              "the date you want an answer by"
+            ],
+            "answer": "why you are writing",
+            "why": "The greeting comes first, then one line saying why you are writing; the facts follow."
+          }
+        }
+      ],
+      "remember": [
+        "Sehr geehrte … , then a lower-case start; Mit freundlichen Grüßen with no comma.",
+        "Soften every request: ich würde gern, könnten Sie, wäre es möglich.",
+        "Five moves: greeting, why, what happened, what you want, by when.",
+        "Sie, Ihnen and Ihr are always capitalised."
+      ],
+      "exam": "A formal e-mail of this kind is the written task the B1 certificate sets, and the one letter everyone in Germany ends up writing sooner or later.",
+      "mistakes": [
+        {
+          "wrong": "Mit freundlichen Grüßen, Ana",
+          "right": "Mit freundlichen Grüßen\nAna",
+          "why": "No comma after the formal sign-off."
+        },
+        {
+          "wrong": "Sehr geehrte Frau Weber, Ich wende mich an Sie …",
+          "right": "Sehr geehrte Frau Weber,\n\nich wende mich an Sie …",
+          "why": "After the greeting the sentence starts lower case."
+        },
+        {
+          "wrong": "Ich will mein Geld zurück.",
+          "right": "Ich würde gern eine Rückerstattung beantragen.",
+          "why": "The same request, in the right register."
+        },
+        {
+          "wrong": "Können sie mir bitte antworten?",
+          "right": "Können Sie mir bitte antworten?",
+          "why": "The formal Sie is capitalised; sie would mean she or they."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "Sehr geehrte Damen und Herren",
+          "en": "Dear Sir or Madam"
+        },
+        {
+          "de": "Mit freundlichen Grüßen",
+          "en": "Yours sincerely"
+        },
+        {
+          "de": "sich an jemanden wenden",
+          "en": "to turn to someone, to contact someone"
+        },
+        {
+          "de": "die Rückerstattung",
+          "plural": "-en",
+          "en": "refund"
+        },
+        {
+          "de": "der Kursausfall",
+          "plural": "¨-e",
+          "en": "cancellation of a course"
+        },
+        {
+          "de": "kurzfristig",
+          "en": "at short notice"
+        },
+        {
+          "de": "die Kursgebühr",
+          "plural": "-en",
+          "en": "course fee"
+        },
+        {
+          "de": "beantragen",
+          "en": "to apply for, to request formally"
+        },
+        {
+          "de": "mitteilen",
+          "en": "to inform, to let someone know"
+        },
+        {
+          "de": "im Voraus vielen Dank",
+          "en": "thank you in advance"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_b1_1_sprechen_dialog",
     "covers": [
       "b1.opinion-redemittel",
@@ -6093,7 +6290,7 @@
     ],
     "help": {
       "hook": "A busy little office full of things to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one small, slightly cluttered office with 32 things to find in it, every one a noun you need when you talk about your working day — der Drucker, die Tastatur, das Whiteboard, der Klebebandabroller on the desk. The prompt asks Wo ist der Papierkorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one small, slightly cluttered office with 32 things to find in it, every one a noun you need when you talk about your working day — der Drucker, die Tastatur, das Whiteboard, der Klebebandabroller on the desk. The prompt asks Wo ist der Papierkorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Papierkorb?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -6409,7 +6606,7 @@
           "x": 4.3,
           "y": 20.8,
           "w": 8.69,
-          "h": 23.0
+          "h": 23
         },
         {
           "de": "Klimaanlage",
@@ -6529,7 +6726,7 @@
           "x": 69.83,
           "y": 63.6,
           "w": 5.19,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Sofa",
@@ -6543,9 +6740,9 @@
           "also": [
             {
               "x": 71.93,
-              "y": 74.0,
+              "y": 74,
               "w": 8.49,
-              "h": 19.0
+              "h": 19
             }
           ]
         },
@@ -6577,7 +6774,7 @@
           "x": 35.17,
           "y": 49.5,
           "w": 10.19,
-          "h": 10.0
+          "h": 10
         },
         {
           "de": "Tastatur",
@@ -6587,7 +6784,7 @@
           "x": 36.06,
           "y": 58.8,
           "w": 8.89,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Maus",
@@ -6596,8 +6793,8 @@
           "plural": "Mäuse",
           "x": 45.26,
           "y": 58.3,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Telefon",
@@ -6605,7 +6802,7 @@
           "en": "telephone",
           "plural": "-e",
           "x": 45.26,
-          "y": 54.0,
+          "y": 54,
           "w": 6.99,
           "h": 4.8
         },
@@ -6615,8 +6812,8 @@
           "en": "microphone",
           "plural": "-e",
           "x": 52.65,
-          "y": 52.0,
-          "w": 4.0,
+          "y": 52,
+          "w": 4,
           "h": 6.4
         },
         {
@@ -6626,8 +6823,8 @@
           "plural": "-s",
           "x": 52.65,
           "y": 58.4,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Headset",
@@ -6636,7 +6833,7 @@
           "plural": "-s",
           "x": 56.94,
           "y": 50.3,
-          "w": 4.0,
+          "w": 4,
           "h": 4.9
         },
         {
@@ -6646,8 +6843,8 @@
           "plural": "-",
           "x": 56.44,
           "y": 54.6,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Lineal",
@@ -6656,8 +6853,8 @@
           "plural": "-e",
           "x": 55.94,
           "y": 58.4,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Schere",
@@ -6666,8 +6863,8 @@
           "plural": "-n",
           "x": 60.24,
           "y": 50.9,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Klebebandabroller",
@@ -6677,7 +6874,7 @@
           "x": 59.94,
           "y": 55.3,
           "w": 4.9,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Notizbuch",
@@ -6687,7 +6884,7 @@
           "x": 60.74,
           "y": 58.4,
           "w": 5.59,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Kaffeemaschine",
@@ -6705,7 +6902,7 @@
           "en": "coffee pot",
           "plural": "-n",
           "x": 69.13,
-          "y": 57.0,
+          "y": 57,
           "w": 4.9,
           "h": 4.6
         },
@@ -6717,7 +6914,7 @@
           "x": 72.23,
           "y": 56.2,
           "w": 10.09,
-          "h": 7.0
+          "h": 7
         },
         {
           "de": "Aktentasche",
@@ -6740,7 +6937,7 @@
     ],
     "help": {
       "hook": "A doctor's examination room full of things to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one doctor's examination room with 32 things to find in it, every one a noun you meet when you go to the doctor's — die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät on the wall. The prompt asks Wo ist die Spritze? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one doctor's examination room with 32 things to find in it, every one a noun you meet when you go to the doctor's — die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät on the wall. The prompt asks Wo ist die Spritze? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Spritze?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7093,7 +7290,7 @@
           "article": "die",
           "en": "crutch",
           "plural": "-n",
-          "x": 28.0,
+          "x": 28,
           "y": 64.32,
           "w": 4.4,
           "h": 18.68
@@ -7121,7 +7318,7 @@
             {
               "x": 76.8,
               "y": 34.55,
-              "w": 4.0,
+              "w": 4,
               "h": 17.11
             }
           ]
@@ -7143,7 +7340,7 @@
           "plural": "-",
           "x": 37.4,
           "y": 51.75,
-          "w": 4.0,
+          "w": 4,
           "h": 4.19
         },
         {
@@ -7209,7 +7406,7 @@
             {
               "x": 90.4,
               "y": 55.67,
-              "w": 4.0,
+              "w": 4,
               "h": 20.08
             }
           ]
@@ -7231,7 +7428,7 @@
           "plural": "-n",
           "x": 32.8,
           "y": 64.06,
-          "w": 40.0,
+          "w": 40,
           "h": 20.95
         },
         {
@@ -7252,7 +7449,7 @@
           "x": 44.5,
           "y": 67.64,
           "w": 8.1,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Desinfektionsmittel",
@@ -7260,9 +7457,9 @@
           "en": "disinfectant",
           "plural": "-",
           "x": 59.9,
-          "y": 59.0,
-          "w": 4.0,
-          "h": 4.0
+          "y": 59,
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Spritze",
@@ -7271,8 +7468,8 @@
           "plural": "-n",
           "x": 63.8,
           "y": 60.22,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Tablettendose",
@@ -7281,13 +7478,13 @@
           "plural": "-n",
           "x": 66.7,
           "y": 59.78,
-          "w": 4.0,
+          "w": 4,
           "h": 4.19,
           "also": [
             {
               "x": 65.8,
               "y": 65.89,
-              "w": 4.0,
+              "w": 4,
               "h": 4.02
             }
           ]
@@ -7300,13 +7497,13 @@
           "x": 70.1,
           "y": 60.22,
           "w": 5.3,
-          "h": 4.0,
+          "h": 4,
           "also": [
             {
               "x": 70.4,
               "y": 65.9,
               "w": 4.4,
-              "h": 4.0
+              "h": 4
             }
           ]
         },
@@ -7318,7 +7515,7 @@
           "x": 61.2,
           "y": 65.81,
           "w": 4.8,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Kühlschrank",
@@ -7335,7 +7532,7 @@
           "article": "das",
           "en": "microscope",
           "plural": "-e",
-          "x": 77.0,
+          "x": 77,
           "y": 54.63,
           "w": 6.6,
           "h": 10.13
@@ -7347,8 +7544,8 @@
           "plural": "Reflexhämmer",
           "x": 78.6,
           "y": 63.98,
-          "w": 5.0,
-          "h": 4.0
+          "w": 5,
+          "h": 4
         },
         {
           "de": "Arzttasche",

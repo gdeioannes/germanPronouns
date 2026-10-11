@@ -6523,6 +6523,213 @@
     }
   },
   {
+    "id": "quest_c2_2_schreiben_eroerterung",
+    "after": "quest_c2_2_sprechen_dialog",
+    "covers": [
+      "c2.academic-language"
+    ],
+    "title": "Schreiben: Erörterung",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Erörterung",
+      "level": "C2.2",
+      "writing": {
+        "topic": "Argue a case on an abstract question: whether a society may require something of its members for the common good. Set out the question, develop one line of argument properly, take the strongest counter-argument seriously, answer it, and end where the argument actually leaves you.",
+        "practisePoints": [
+          "frame the question precisely before answering it, including what you are not arguing",
+          "develop one line of argument in depth rather than four in passing",
+          "state the counter-argument in its strongest form, as its holder would",
+          "answer it, or concede the part of it that stands",
+          "end where the argument leads, even if that is short of what you wanted"
+        ],
+        "scoringCriteria": [
+          "the counter-argument is given its best case, not its weakest",
+          "the conclusion follows from what was actually argued",
+          "the abstract vocabulary is used precisely rather than decoratively"
+        ],
+        "targetVocabulary": [
+          "die Zumutbarkeit",
+          "das Gemeinwohl",
+          "die Verhältnismäßigkeit",
+          "der Einwand",
+          "zugestehen",
+          "einen Einwand entkräften",
+          "in Abrede stellen",
+          "daraus folgt keineswegs",
+          "Verantwortung tragen"
+        ],
+        "passScore": 65
+      }
+    },
+    "help": {
+      "hook": "Argue something abstract, and let the strongest objection have its day.",
+      "intro": "The final piece of writing in the course, and the hardest, because the quality is in the thinking rather than the German. Frame the question, argue one line properly, then give the objection its best case and answer it. Write 1200 to 2500 characters. Two things will be judged above all. First, whether the counter-argument is the real one: a weak version you can knock down costs more marks than it saves. Second, whether your conclusion follows from the argument you actually made, rather than from the one you meant to make.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Frame before you argue",
+          "text": "An abstract question hides several questions. Say which one you are answering and which you are setting aside, and the whole piece gets easier to write and harder to attack.",
+          "examples": [
+            {
+              "de": "Zu klären ist nicht, ob der Staat eingreifen darf, sondern unter welchen Bedingungen ein Eingriff zumutbar ist.",
+              "en": "What is at issue is not whether the state may intervene, but under what conditions an intervention is reasonable.",
+              "focus": [
+                "Zu klären ist",
+                "zumutbar"
+              ]
+            },
+            {
+              "de": "Die Frage der Durchsetzbarkeit bleibt im Folgenden ausgeklammert.",
+              "en": "The question of enforceability is set aside in what follows.",
+              "focus": [
+                "ausgeklammert"
+              ]
+            }
+          ],
+          "check": {
+            "q": "What does framing the question achieve?",
+            "options": [
+              "it says which question is being answered",
+              "it makes the text longer",
+              "it avoids taking a position"
+            ],
+            "answer": "it says which question is being answered",
+            "why": "A framed question cannot be answered beside the point."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Give the objection its best case",
+          "text": "The strongest counter-argument, stated as its holder would state it, is what makes an Erörterung worth reading. A weak version is a straw man, and a careful reader spots one at once. Steelman it, then answer it, or concede the part that stands.",
+          "examples": [
+            {
+              "de": "Der gewichtigste Einwand lautet, dass eine solche Pflicht die Autonomie des Einzelnen aushöhlt.",
+              "en": "The weightiest objection is that such a duty hollows out individual autonomy.",
+              "focus": [
+                "Der gewichtigste Einwand"
+              ]
+            },
+            {
+              "de": "Dieser Einwand trifft insoweit zu, als er die Begründungslast erhöht; er entkräftet den Anspruch jedoch nicht.",
+              "en": "This objection holds in so far as it raises the burden of justification; it does not, however, defeat the claim.",
+              "focus": [
+                "insoweit",
+                "entkräftet"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which is a steelmanned objection?",
+            "options": [
+              "Der gewichtigste Einwand lautet, dass die Autonomie ausgehöhlt wird.",
+              "Manche sagen einfach, sie wollen das nicht.",
+              "Gegner behaupten, es sei Zwang."
+            ],
+            "answer": "Der gewichtigste Einwand lautet, dass die Autonomie ausgehöhlt wird.",
+            "why": "It states the objection at its strongest and in its own terms."
+          },
+          "trap": "Conceding a point does not lose the argument; refusing to concede an obvious one does."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "End where the argument ends",
+          "text": "The conclusion has to be the one your paragraphs earned. If the argument only establishes something narrower than you hoped, say so. A hedged conclusion that fits is worth more than a confident one that does not.",
+          "examples": [
+            {
+              "de": "Daraus folgt keineswegs eine allgemeine Pflicht, wohl aber eine Begründungslast für den Verweigerer.",
+              "en": "It by no means follows that there is a general duty, but there is a burden of justification on the refuser.",
+              "focus": [
+                "Daraus folgt keineswegs"
+              ]
+            },
+            {
+              "de": "Die Verhältnismäßigkeit bleibt damit der entscheidende Maßstab.",
+              "en": "Proportionality thus remains the decisive criterion.",
+              "focus": [
+                "Verhältnismäßigkeit"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Your argument supports a narrow claim. What should the conclusion do?",
+            "options": [
+              "state the narrow claim",
+              "state the broad claim anyway",
+              "avoid a conclusion"
+            ],
+            "answer": "state the narrow claim",
+            "why": "A conclusion wider than the argument is the one failure an examiner always catches."
+          }
+        }
+      ],
+      "remember": [
+        "Frame the question, and say what you are setting aside.",
+        "One line of argument in depth beats four in passing.",
+        "Steelman the objection; concede what stands.",
+        "End where the argument ends, not where you wanted it to."
+      ],
+      "exam": "A written Erörterung on an abstract question is the final writing task of the C2 certificate, and the shape of serious German argument.",
+      "mistakes": [
+        {
+          "wrong": "Manche Leute sind einfach dagegen, aber das ist egoistisch.",
+          "right": "Der gewichtigste Einwand lautet, dass eine solche Pflicht die Autonomie aushöhlt.",
+          "why": "A straw man costs more than it saves."
+        },
+        {
+          "wrong": "Also ist eine allgemeine Pflicht gerechtfertigt.  (after a narrow argument)",
+          "right": "Daraus folgt keineswegs eine allgemeine Pflicht, wohl aber eine Begründungslast.",
+          "why": "The conclusion must not outrun the argument."
+        },
+        {
+          "wrong": "Die Verhältnismäßigkeit ist sehr wichtig und interessant.",
+          "right": "Die Verhältnismäßigkeit bleibt der entscheidende Maßstab, weil sie Eingriffstiefe und Nutzen ins Verhältnis setzt.",
+          "why": "An abstract noun has to do work, not decorate."
+        },
+        {
+          "wrong": "Ich stelle in Abrede, dass es gut ist.",
+          "right": "Ich stelle in Abrede, dass der Nutzen den Eingriff rechtfertigt.",
+          "why": "The formal idiom needs a precise object to deny."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "die Zumutbarkeit",
+          "en": "reasonableness (what can fairly be required)"
+        },
+        {
+          "de": "das Gemeinwohl",
+          "en": "the common good"
+        },
+        {
+          "de": "die Verhältnismäßigkeit",
+          "en": "proportionality"
+        },
+        {
+          "de": "der Einwand",
+          "plural": "¨-e",
+          "en": "objection"
+        },
+        {
+          "de": "zugestehen",
+          "en": "to concede"
+        },
+        {
+          "de": "entkräften",
+          "en": "to refute, to defeat (an objection)"
+        },
+        {
+          "de": "in Abrede stellen",
+          "en": "to deny (formal)"
+        },
+        {
+          "de": "der Maßstab",
+          "plural": "¨-e",
+          "en": "criterion, standard"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_c2_2_redewendungen",
     "covers": [
       "c2.idioms"
@@ -7681,7 +7888,7 @@
     ],
     "help": {
       "hook": "A crowded antique shop full of rare old things: find each one in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one crowded antique shop with 32 old things to find in it, every one a precise noun you rarely need until you walk into a place like this — der Sekretär, das Spinnrad, die Balkenwaage, das Butterfass, der Paravent. The prompt asks Wo ist die Registrierkasse? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one crowded antique shop with 32 old things to find in it, every one a precise noun you rarely need until you walk into a place like this — der Sekretär, das Spinnrad, die Balkenwaage, das Butterfass, der Paravent. The prompt asks Wo ist die Registrierkasse? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Registrierkasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7994,30 +8201,30 @@
           "article": "die",
           "en": "shop counter",
           "plural": "-n",
-          "x": 79.0,
-          "y": 58.0,
-          "w": 19.0,
-          "h": 20.0
+          "x": 79,
+          "y": 58,
+          "w": 19,
+          "h": 20
         },
         {
           "de": "Sekretär",
           "article": "der",
           "en": "writing bureau",
           "plural": "-e",
-          "x": 24.0,
-          "y": 33.0,
+          "x": 24,
+          "y": 33,
           "w": 14.5,
-          "h": 35.0
+          "h": 35
         },
         {
           "de": "Paravent",
           "article": "der",
           "en": "folding screen",
           "plural": "-s",
-          "x": 51.0,
-          "y": 38.0,
-          "w": 17.0,
-          "h": 29.0
+          "x": 51,
+          "y": 38,
+          "w": 17,
+          "h": 29
         },
         {
           "de": "Standuhr",
@@ -8025,29 +8232,29 @@
           "en": "grandfather clock",
           "plural": "-en",
           "x": 2.5,
-          "y": 35.0,
+          "y": 35,
           "w": 8.5,
-          "h": 37.0
+          "h": 37
         },
         {
           "de": "Ritterrüstung",
           "article": "die",
           "en": "suit of armour",
           "plural": "-en",
-          "x": 12.0,
-          "y": 40.0,
-          "w": 10.0,
-          "h": 28.0
+          "x": 12,
+          "y": 40,
+          "w": 10,
+          "h": 28
         },
         {
           "de": "Beistelltisch",
           "article": "der",
           "en": "side table",
           "plural": "-e",
-          "x": 71.0,
-          "y": 51.0,
-          "w": 10.0,
-          "h": 13.0
+          "x": 71,
+          "y": 51,
+          "w": 10,
+          "h": 13
         },
         {
           "de": "Ohrensessel",
@@ -8056,18 +8263,18 @@
           "plural": "-",
           "x": 38.5,
           "y": 48.5,
-          "w": 16.0,
-          "h": 20.0
+          "w": 16,
+          "h": 20
         },
         {
           "de": "Schaukelpferd",
           "article": "das",
           "en": "rocking horse",
           "plural": "-e",
-          "x": 10.0,
+          "x": 10,
           "y": 59.5,
-          "w": 11.0,
-          "h": 17.0
+          "w": 11,
+          "h": 17
         },
         {
           "de": "Spinnrad",
@@ -8077,37 +8284,37 @@
           "x": 2.5,
           "y": 68.5,
           "w": 11.5,
-          "h": 17.0
+          "h": 17
         },
         {
           "de": "Grammophon",
           "article": "das",
           "en": "gramophone",
           "plural": "-e",
-          "x": 72.0,
+          "x": 72,
           "y": 37.5,
           "w": 12.5,
-          "h": 14.0
+          "h": 14
         },
         {
           "de": "Nähmaschine",
           "article": "die",
           "en": "sewing machine",
           "plural": "-n",
-          "x": 38.0,
-          "y": 63.0,
-          "w": 17.0,
-          "h": 24.0
+          "x": 38,
+          "y": 63,
+          "w": 17,
+          "h": 24
         },
         {
           "de": "Fernrohr",
           "article": "das",
           "en": "telescope",
           "plural": "-e",
-          "x": 54.0,
-          "y": 53.0,
+          "x": 54,
+          "y": 53,
           "w": 13.5,
-          "h": 18.0
+          "h": 18
         },
         {
           "de": "Globus",
@@ -8115,9 +8322,9 @@
           "en": "globe",
           "plural": "Globen",
           "x": 24.5,
-          "y": 57.0,
-          "w": 11.0,
-          "h": 14.0
+          "y": 57,
+          "w": 11,
+          "h": 14
         },
         {
           "de": "Hocker",
@@ -8126,8 +8333,8 @@
           "plural": "-",
           "x": 55.5,
           "y": 72.5,
-          "w": 7.0,
-          "h": 11.0
+          "w": 7,
+          "h": 11
         },
         {
           "de": "Harfe",
@@ -8135,9 +8342,9 @@
           "en": "harp",
           "plural": "-n",
           "x": 68.5,
-          "y": 50.0,
-          "w": 11.0,
-          "h": 23.0
+          "y": 50,
+          "w": 11,
+          "h": 23
         },
         {
           "de": "Schirmständer",
@@ -8145,18 +8352,18 @@
           "en": "umbrella stand",
           "plural": "-",
           "x": 89.5,
-          "y": 67.0,
-          "w": 6.0,
-          "h": 17.0
+          "y": 67,
+          "w": 6,
+          "h": 17
         },
         {
           "de": "Fächer",
           "article": "der",
           "en": "hand fan",
           "plural": "-",
-          "x": 89.0,
-          "y": 82.0,
-          "w": 7.0,
+          "x": 89,
+          "y": 82,
+          "w": 7,
           "h": 5.5
         },
         {
@@ -8165,9 +8372,9 @@
           "en": "chest",
           "plural": "-n",
           "x": 17.5,
-          "y": 73.0,
-          "w": 20.0,
-          "h": 14.0
+          "y": 73,
+          "w": 20,
+          "h": 14
         },
         {
           "de": "Schachbrett",
@@ -8175,8 +8382,8 @@
           "en": "chessboard",
           "plural": "-er",
           "x": 23.5,
-          "y": 73.0,
-          "w": 9.0,
+          "y": 73,
+          "w": 9,
           "h": 4.5
         },
         {
@@ -8194,19 +8401,19 @@
           "article": "der",
           "en": "mortar",
           "plural": "-",
-          "x": 85.0,
+          "x": 85,
           "y": 79.5,
-          "w": 6.0,
-          "h": 6.0
+          "w": 6,
+          "h": 6
         },
         {
           "de": "Kiste",
           "article": "die",
           "en": "crate",
           "plural": "-n",
-          "x": 63.0,
+          "x": 63,
           "y": 75.5,
-          "w": 8.0,
+          "w": 8,
           "h": 7.5
         },
         {
@@ -8217,7 +8424,7 @@
           "x": 70.5,
           "y": 77.5,
           "w": 10.5,
-          "h": 9.0
+          "h": 9
         },
         {
           "de": "Kronleuchter",
@@ -8225,28 +8432,28 @@
           "en": "chandelier",
           "plural": "-",
           "x": 42.5,
-          "y": 15.0,
-          "w": 14.0,
-          "h": 15.0
+          "y": 15,
+          "w": 14,
+          "h": 15
         },
         {
           "de": "Vogelkäfig",
           "article": "der",
           "en": "birdcage",
           "plural": "-e",
-          "x": 65.0,
-          "y": 17.0,
+          "x": 65,
+          "y": 17,
           "w": 8.5,
-          "h": 15.0
+          "h": 15
         },
         {
           "de": "Hufeisen",
           "article": "das",
           "en": "horseshoe",
           "plural": "-",
-          "x": 11.0,
-          "y": 34.0,
-          "w": 4.0,
+          "x": 11,
+          "y": 34,
+          "w": 4,
           "h": 4.5
         },
         {
@@ -8255,18 +8462,18 @@
           "en": "hourglass",
           "plural": "-en",
           "x": 42.5,
-          "y": 41.0,
-          "w": 4.0,
-          "h": 5.0
+          "y": 41,
+          "w": 4,
+          "h": 5
         },
         {
           "de": "Pendel",
           "article": "das",
           "en": "pendulum",
           "plural": "-",
-          "x": 5.0,
-          "y": 49.0,
-          "w": 4.0,
+          "x": 5,
+          "y": 49,
+          "w": 4,
           "h": 9.5
         },
         {
@@ -8276,8 +8483,8 @@
           "plural": "-n",
           "x": 81.5,
           "y": 53.5,
-          "w": 4.0,
-          "h": 6.0
+          "w": 4,
+          "h": 6
         },
         {
           "de": "Balkenwaage",
@@ -8285,18 +8492,18 @@
           "en": "balance scale",
           "plural": "-n",
           "x": 82.5,
-          "y": 47.0,
+          "y": 47,
           "w": 7.5,
-          "h": 11.0
+          "h": 11
         },
         {
           "de": "Registrierkasse",
           "article": "die",
           "en": "cash register",
           "plural": "-n",
-          "x": 86.0,
-          "y": 52.0,
-          "w": 10.0,
+          "x": 86,
+          "y": 52,
+          "w": 10,
           "h": 10.5
         },
         {
@@ -8306,7 +8513,7 @@
           "plural": "-n",
           "x": 91.5,
           "y": 45.5,
-          "w": 4.0,
+          "w": 4,
           "h": 7.5
         }
       ]
@@ -8320,7 +8527,7 @@
     ],
     "help": {
       "hook": "An old fishing harbour full of nautical gear: find each thing on the quay or the water, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one old fishing harbour with 32 things to find on the water and on the quay, every one a precise word from the sea and the docks — der Poller, die Seilwinde, der Duckdalben, das Steuerhaus, der Hummerkorb. The prompt asks Wo ist der Fender? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one old fishing harbour with 32 things to find on the water and on the quay, every one a precise word from the sea and the docks — der Poller, die Seilwinde, der Duckdalben, das Steuerhaus, der Hummerkorb. The prompt asks Wo ist der Fender? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Fender?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -8633,9 +8840,9 @@
           "article": "das",
           "en": "warehouse",
           "plural": "Lagerhäuser",
-          "x": 2.0,
+          "x": 2,
           "y": 20.88,
-          "w": 15.0,
+          "w": 15,
           "h": 13.9
         },
         {
@@ -8653,9 +8860,9 @@
           "article": "der",
           "en": "lighthouse",
           "plural": "Leuchttürme",
-          "x": 78.0,
+          "x": 78,
           "y": 14.56,
-          "w": 6.0,
+          "w": 6,
           "h": 19.38
         },
         {
@@ -8673,7 +8880,7 @@
           "article": "der",
           "en": "fishing boat",
           "plural": "-",
-          "x": 24.0,
+          "x": 24,
           "y": 27.62,
           "w": 11.5,
           "h": 10.95
@@ -8685,7 +8892,7 @@
           "plural": "-e",
           "x": 39.5,
           "y": 23.83,
-          "w": 9.0,
+          "w": 9,
           "h": 14.32
         },
         {
@@ -8693,9 +8900,9 @@
           "article": "der",
           "en": "jetty",
           "plural": "-e",
-          "x": 84.0,
+          "x": 84,
           "y": 39.41,
-          "w": 14.0,
+          "w": 14,
           "h": 14.32
         },
         {
@@ -8715,7 +8922,7 @@
           "plural": "Flöße",
           "x": 3.5,
           "y": 40.26,
-          "w": 16.0,
+          "w": 16,
           "h": 5.06
         },
         {
@@ -8723,9 +8930,9 @@
           "article": "das",
           "en": "rowing boat",
           "plural": "-e",
-          "x": 68.0,
+          "x": 68,
           "y": 47.42,
-          "w": 17.0,
+          "w": 17,
           "h": 5.06
         },
         {
@@ -8733,7 +8940,7 @@
           "article": "die",
           "en": "fishing rod",
           "plural": "-n",
-          "x": 48.0,
+          "x": 48,
           "y": 55.42,
           "w": 9.5,
           "h": 26.96
@@ -8743,7 +8950,7 @@
           "article": "der",
           "en": "life ring",
           "plural": "-e",
-          "x": 17.0,
+          "x": 17,
           "y": 44.89,
           "w": 9.5,
           "h": 17.27
@@ -8766,7 +8973,7 @@
           "x": 36.5,
           "y": 53.32,
           "w": 13.5,
-          "h": 8.0
+          "h": 8
         },
         {
           "de": "Seilwinde",
@@ -8775,7 +8982,7 @@
           "plural": "-n",
           "x": 49.5,
           "y": 51.21,
-          "w": 14.0,
+          "w": 14,
           "h": 10.95
         },
         {
@@ -8783,7 +8990,7 @@
           "article": "die",
           "en": "ship's bell",
           "plural": "-n",
-          "x": 67.0,
+          "x": 67,
           "y": 51.63,
           "w": 10.5,
           "h": 10.53
@@ -8803,9 +9010,9 @@
           "article": "die",
           "en": "sack trolley",
           "plural": "-n",
-          "x": 83.0,
+          "x": 83,
           "y": 66.38,
-          "w": 14.0,
+          "w": 14,
           "h": 16.01
         },
         {
@@ -8815,7 +9022,7 @@
           "plural": "-",
           "x": 5.5,
           "y": 66.8,
-          "w": 13.0,
+          "w": 13,
           "h": 16.01
         },
         {
@@ -8825,7 +9032,7 @@
           "plural": "Fässer",
           "x": 19.5,
           "y": 66.38,
-          "w": 11.0,
+          "w": 11,
           "h": 14.32
         },
         {
@@ -8839,7 +9046,7 @@
           "h": 6.74,
           "also": [
             {
-              "x": 33.0,
+              "x": 33,
               "y": 73.12,
               "w": 15.5,
               "h": 6.74
@@ -8851,7 +9058,7 @@
           "article": "das",
           "en": "fishing net",
           "plural": "-e",
-          "x": 36.0,
+          "x": 36,
           "y": 65.96,
           "w": 8.5,
           "h": 10.11
@@ -8861,9 +9068,9 @@
           "article": "der",
           "en": "lobster pot",
           "plural": "Hummerkörbe",
-          "x": 23.0,
+          "x": 23,
           "y": 76.49,
-          "w": 16.0,
+          "w": 16,
           "h": 8.85
         },
         {
@@ -8871,7 +9078,7 @@
           "article": "das",
           "en": "ship's wheel",
           "plural": "Steuerräder",
-          "x": 41.0,
+          "x": 41,
           "y": 72.7,
           "w": 10.5,
           "h": 10.95
@@ -8881,9 +9088,9 @@
           "article": "der",
           "en": "duffel bag",
           "plural": "Seesäcke",
-          "x": 68.0,
+          "x": 68,
           "y": 73.54,
-          "w": 14.0,
+          "w": 14,
           "h": 8.85
         },
         {
@@ -8913,13 +9120,13 @@
           "plural": "-n",
           "x": 8.5,
           "y": 53.74,
-          "w": 8.0,
+          "w": 8,
           "h": 5.9,
           "also": [
             {
               "x": 7.5,
               "y": 33.94,
-              "w": 4.0,
+              "w": 4,
               "h": 5.9
             }
           ]
@@ -8929,9 +9136,9 @@
           "article": "der",
           "en": "fender",
           "plural": "-",
-          "x": 41.0,
+          "x": 41,
           "y": 51.21,
-          "w": 4.0,
+          "w": 4,
           "h": 6.32
         },
         {
@@ -8941,7 +9148,7 @@
           "plural": "-n",
           "x": 58.5,
           "y": 36.04,
-          "w": 4.0,
+          "w": 4,
           "h": 4.21
         },
         {
@@ -8951,7 +9158,7 @@
           "plural": "-e",
           "x": 5.5,
           "y": 26.77,
-          "w": 8.0,
+          "w": 8,
           "h": 7.58
         },
         {
@@ -8962,7 +9169,7 @@
           "x": 26.5,
           "y": 30.05,
           "w": 4.5,
-          "h": 4.0
+          "h": 4
         }
       ]
     }

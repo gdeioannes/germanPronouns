@@ -13,6 +13,7 @@ export type QuizType =
 	| 'dictation'
 	| 'speakRepeat'
 	| 'speaking'
+	| 'writing'
 	| 'vocabulary'
 	| 'suchbild';
 
@@ -337,6 +338,41 @@ export interface SpeakingQuiz extends QuizBase {
 	speaking: SpeakingExercise;
 }
 
+// -- writing (write here, corrected in the learner's own AI) -----------------
+
+/**
+ * A writing task. The learner writes the text in the app, inside a character
+ * bound, and the app renders a prompt that CARRIES that text and asks their own
+ * AI to correct it. The correction comes back as the same delimited report
+ * speaking uses, so its FIX lines feed the one personal-focus loop.
+ */
+export interface WritingExercise {
+	/** The task, in the learner's own language. */
+	topic: string;
+	/** What the text has to do to count as finished. */
+	practisePoints: string[];
+	/** What the correction should weigh, beyond plain accuracy. */
+	scoringCriteria: string[];
+	/** Words and phrases the task is built to use. */
+	targetVocabulary?: string[];
+	/**
+	 * The character bound. Both ends are optional: without them the level's
+	 * default band applies, so an A1 task asks for a few sentences and a C2 one
+	 * for a real text. See `charBoundsFor`.
+	 */
+	charMin?: number;
+	charMax?: number;
+	/** Pass mark out of 100; the manifest default applies when unset. */
+	passScore?: number;
+	/** An optional stimulus the learner writes about (an email to answer). */
+	material?: string;
+}
+
+export interface WritingQuiz extends QuizBase {
+	type: 'writing';
+	writing: WritingExercise;
+}
+
 // -- vocabulary (flip cards) -------------------------------------------------
 
 /**
@@ -425,7 +461,8 @@ export type Quiz =
 	| ListeningQuiz
 	| DictationQuiz
 	| SpeakRepeatQuiz
-	| SpeakingQuiz;
+	| SpeakingQuiz
+	| WritingQuiz;
 
 export interface Gating {
 	progressionUnlockLaps: number;

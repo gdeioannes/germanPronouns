@@ -5367,6 +5367,209 @@
     }
   },
   {
+    "id": "quest_c2_1_schreiben_register",
+    "after": "quest_c2_1_sprechen_dialog",
+    "covers": [
+      "c2.register"
+    ],
+    "title": "Schreiben: Zweimal dasselbe",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Zweimal dasselbe",
+      "level": "C2.1",
+      "writing": {
+        "topic": "Say the same thing twice. Pick one piece of news: a decision at work, a change to a rule, or something that went wrong. Write it first as a message to a close colleague, then as a formal notice to everyone affected. The facts must be identical; only the register may change.",
+        "practisePoints": [
+          "keep the content exactly the same in both versions, including the facts and the dates",
+          "move the register with word choice: kriegen against erhalten, reden against erörtern",
+          "move it with structure too: short main clauses against nominal style and the passive",
+          "keep each version internally consistent, with no stray word from the other",
+          "make the formal version impersonal without making it evasive"
+        ],
+        "scoringCriteria": [
+          "the two versions really do say the same thing",
+          "neither version leaks a word or a structure from the other",
+          "the formal version is impersonal but still names who does what"
+        ],
+        "targetVocabulary": [
+          "kriegen / erhalten",
+          "reden über / erörtern",
+          "sich kümmern um / sich befassen mit",
+          "hinkriegen / bewerkstelligen",
+          "in Kenntnis setzen",
+          "hiermit teilen wir Ihnen mit",
+          "umgehend",
+          "im Zuge",
+          "zur Kenntnis nehmen"
+        ],
+        "passScore": 60
+      }
+    },
+    "help": {
+      "hook": "Write the same news twice, once for a friend and once for the record.",
+      "intro": "The question here is not whether you can write German but whether you can choose which German. Write the same piece of news twice: once to a colleague you like, once as a formal notice. The facts stay identical. Only the register moves, and it moves on two axes at once, the words and the sentence shapes. Write 1200 to 2500 characters for both together. The commonest failure is a leak: one gehobenes word in the chatty version, or one spoken particle in the formal one. The correction will hunt for exactly that.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Register moves on two axes",
+          "text": "Words carry some of it, structure carries the rest. Formal German reaches for nouns, the passive and the impersonal; informal German reaches for verbs, active subjects and short main clauses. Moving only the words leaves a text that still sounds spoken.",
+          "examples": [
+            {
+              "de": "Wir haben das jetzt geändert, ab Montag läuft es anders.",
+              "en": "We have changed it now, from Monday it works differently.",
+              "focus": [
+                "geändert"
+              ]
+            },
+            {
+              "de": "Die Regelung wurde angepasst; sie tritt zum kommenden Montag in Kraft.",
+              "en": "The rule has been amended; it takes effect from this coming Monday.",
+              "focus": [
+                "wurde angepasst",
+                "in Kraft"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which belongs to the formal version?",
+            "options": [
+              "Die Entscheidung wurde getroffen.",
+              "Wir haben das entschieden.",
+              "Das haben wir jetzt mal so gemacht."
+            ],
+            "answer": "Die Entscheidung wurde getroffen.",
+            "why": "The passive and the nominalisation carry the formal register."
+          },
+          "trap": "Over-formality in a message to a friend is a register mistake too, and it is the one most people make once they have learnt the formal words."
+        },
+        {
+          "kind": "rule",
+          "title": "Neutral is not formal",
+          "text": "Most German words are neutral: Geld, beginnen, sagen, bekommen. They fit both versions, and they are the backbone of each. Only a few words are genuinely marked: kriegen is informal, erhalten is formal, bekommen is neither. Hunt for the marked ones; leave the rest alone.",
+          "examples": [
+            {
+              "de": "Ich kriege die Zahlen morgen. / Die Zahlen gehen Ihnen morgen zu.",
+              "en": "I get the figures tomorrow. / The figures will reach you tomorrow.",
+              "focus": [
+                "kriege",
+                "zu"
+              ]
+            },
+            {
+              "de": "Wir reden Montag drüber. / Der Punkt wird am Montag erörtert.",
+              "en": "We will talk about it on Monday. / The matter will be discussed on Monday.",
+              "focus": [
+                "reden",
+                "erörtert"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which word is neutral, fitting both versions?",
+            "options": [
+              "bekommen",
+              "kriegen",
+              "erhalten"
+            ],
+            "answer": "bekommen",
+            "why": "kriegen is informal and erhalten formal; bekommen sits between them."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Impersonal, not evasive",
+          "text": "The formal version may drop the personal subject, but it must not lose who is responsible. „Es wurden Fehler gemacht“ hides the agent; „Die Abteilung hat den Termin versäumt“ is just as formal and still says who. The difference is noticed.",
+          "examples": [
+            {
+              "de": "Hiermit teilen wir Ihnen mit, dass die Frist um zwei Wochen verlängert wird.",
+              "en": "We hereby inform you that the deadline is being extended by two weeks.",
+              "focus": [
+                "Hiermit teilen wir Ihnen mit"
+              ]
+            },
+            {
+              "de": "Die Verzögerung ist auf einen Fehler in unserer Planung zurückzuführen.",
+              "en": "The delay is attributable to an error in our planning.",
+              "focus": [
+                "zurückzuführen"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which is formal without hiding the agent?",
+            "options": [
+              "Die Verzögerung ist auf unseren Planungsfehler zurückzuführen.",
+              "Es ist zu Verzögerungen gekommen.",
+              "Fehler wurden gemacht."
+            ],
+            "answer": "Die Verzögerung ist auf unseren Planungsfehler zurückzuführen.",
+            "why": "It stays formal and still names whose error it was."
+          }
+        }
+      ],
+      "remember": [
+        "Two axes: the words and the structures. Move both or neither.",
+        "Most words are neutral; only a few are marked. Hunt the marked ones.",
+        "Formal may be impersonal, but it must not hide who did what.",
+        "A single leaked word gives the whole version away."
+      ],
+      "exam": "Writing the same content in two registers is a C2 task, and it is what anyone drafting at work does every day without noticing.",
+      "mistakes": [
+        {
+          "wrong": "Sehr geehrte Damen und Herren, wir haben das jetzt mal geändert.",
+          "right": "Sehr geehrte Damen und Herren, die Regelung wurde angepasst.",
+          "why": "The frame is formal and the sentence is not: a leak."
+        },
+        {
+          "wrong": "Hi Tom, hiermit setze ich dich in Kenntnis.",
+          "right": "Hi Tom, kurze Info:",
+          "why": "Over-formality in an informal context is also a register error."
+        },
+        {
+          "wrong": "Es wurden Fehler gemacht.",
+          "right": "Wir haben den Termin versäumt.",
+          "why": "Formal does not have to mean agentless."
+        },
+        {
+          "wrong": "Die Zahlen kriegen Sie morgen.",
+          "right": "Die Zahlen gehen Ihnen morgen zu.",
+          "why": "kriegen is informal; the Sie around it is not."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "erhalten",
+          "en": "to receive (formal)"
+        },
+        {
+          "de": "kriegen",
+          "en": "to get (informal)"
+        },
+        {
+          "de": "erörtern",
+          "en": "to discuss (formal)"
+        },
+        {
+          "de": "in Kenntnis setzen",
+          "en": "to inform (formal)"
+        },
+        {
+          "de": "umgehend",
+          "en": "immediately, without delay (formal)"
+        },
+        {
+          "de": "zurückführen auf",
+          "en": "to attribute to"
+        },
+        {
+          "de": "das Register",
+          "plural": "-",
+          "en": "register, level of formality"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_c2_1_konj2_nuancen",
     "covers": [
       "c2.konjunktiv2-nuances"
@@ -6432,7 +6635,7 @@
     ],
     "help": {
       "hook": "A carpenter's workshop full of specialist tools: tap each one in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one busy carpenter's workshop with 32 things to find, every one a precise craft word that ordinary conversation rarely needs — der Hobel, die Schraubzwinge, das Senklot, der Klüpfel hanging on the pegboard. The prompt asks Wo ist der Zollstock? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one busy carpenter's workshop with 32 things to find, every one a precise craft word that ordinary conversation rarely needs — der Hobel, die Schraubzwinge, das Senklot, der Klüpfel hanging on the pegboard. The prompt asks Wo ist der Zollstock? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Zollstock?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -6747,7 +6950,7 @@
           "plural": "Hobelbänke",
           "x": 25.5,
           "y": 59.91,
-          "w": 46.0,
+          "w": 46,
           "h": 25.36
         },
         {
@@ -6755,7 +6958,7 @@
           "article": "die",
           "en": "pegboard",
           "plural": "Lochwände",
-          "x": 33.0,
+          "x": 33,
           "y": 24.14,
           "w": 41.5,
           "h": 26.72
@@ -6775,9 +6978,9 @@
           "article": "die",
           "en": "wood-turning lathe",
           "plural": "Drechselbänke",
-          "x": 72.0,
+          "x": 72,
           "y": 54.47,
-          "w": 20.0,
+          "w": 20,
           "h": 26.26
         },
         {
@@ -6787,7 +6990,7 @@
           "plural": "-",
           "x": 1.5,
           "y": 19.61,
-          "w": 8.0,
+          "w": 8,
           "h": 41.66
         },
         {
@@ -6797,7 +7000,7 @@
           "plural": "-e",
           "x": 76.5,
           "y": 15.98,
-          "w": 19.0,
+          "w": 19,
           "h": 11.32
         },
         {
@@ -6805,19 +7008,19 @@
           "article": "die",
           "en": "spirit level",
           "plural": "-n",
-          "x": 79.0,
+          "x": 79,
           "y": 19.42,
-          "w": 13.0,
-          "h": 4.0
+          "w": 13,
+          "h": 4
         },
         {
           "de": "Sägebock",
           "article": "der",
           "en": "sawhorse",
           "plural": "Sägeböcke",
-          "x": 77.0,
+          "x": 77,
           "y": 68.06,
-          "w": 14.0,
+          "w": 14,
           "h": 18.11
         },
         {
@@ -6825,9 +7028,9 @@
           "article": "das",
           "en": "barrel",
           "plural": "Fässer",
-          "x": 5.0,
+          "x": 5,
           "y": 72.13,
-          "w": 12.0,
+          "w": 12,
           "h": 14.49
         },
         {
@@ -6835,9 +7038,9 @@
           "article": "die",
           "en": "work apron",
           "plural": "-n",
-          "x": 24.0,
+          "x": 24,
           "y": 25.49,
-          "w": 9.0,
+          "w": 9,
           "h": 28.07
         },
         {
@@ -6845,7 +7048,7 @@
           "article": "der",
           "en": "folding ruler",
           "plural": "Zollstöcke",
-          "x": 14.0,
+          "x": 14,
           "y": 23.68,
           "w": 7.5,
           "h": 13.58
@@ -6867,7 +7070,7 @@
           "plural": "Fuchsschwänze",
           "x": 34.5,
           "y": 25.95,
-          "w": 5.0,
+          "w": 5,
           "h": 14.04
         },
         {
@@ -6875,9 +7078,9 @@
           "article": "der",
           "en": "carpenter's mallet",
           "plural": "-",
-          "x": 46.0,
+          "x": 46,
           "y": 27.3,
-          "w": 6.0,
+          "w": 6,
           "h": 12.68
         },
         {
@@ -6887,13 +7090,13 @@
           "plural": "-n",
           "x": 59.5,
           "y": 29.12,
-          "w": 4.0,
+          "w": 4,
           "h": 12.68,
           "also": [
             {
               "x": 54.5,
               "y": 29.12,
-              "w": 4.0,
+              "w": 4,
               "h": 14.49
             }
           ]
@@ -6915,7 +7118,7 @@
           "plural": "-n",
           "x": 65.5,
           "y": 36.36,
-          "w": 4.0,
+          "w": 4,
           "h": 10.87
         },
         {
@@ -6923,9 +7126,9 @@
           "article": "das",
           "en": "plumb bob",
           "plural": "-e",
-          "x": 70.0,
+          "x": 70,
           "y": 36.81,
-          "w": 4.0,
+          "w": 4,
           "h": 11.32
         },
         {
@@ -6933,19 +7136,19 @@
           "article": "das",
           "en": "marking gauge",
           "plural": "-e",
-          "x": 40.0,
+          "x": 40,
           "y": 44.77,
           "w": 16.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Sägeblatt",
           "article": "das",
           "en": "circular saw blade",
           "plural": "Sägeblätter",
-          "x": 78.0,
+          "x": 78,
           "y": 28.21,
-          "w": 14.0,
+          "w": 14,
           "h": 14.04
         },
         {
@@ -6955,7 +7158,7 @@
           "plural": "Hackklötze",
           "x": 81.5,
           "y": 81.64,
-          "w": 7.0,
+          "w": 7,
           "h": 5.43
         },
         {
@@ -6965,7 +7168,7 @@
           "plural": "-e",
           "x": 77.5,
           "y": 44.06,
-          "w": 15.0,
+          "w": 15,
           "h": 6.79,
           "also": [
             {
@@ -6981,9 +7184,9 @@
           "article": "der",
           "en": "bench vice",
           "plural": "Schraubstöcke",
-          "x": 30.0,
+          "x": 30,
           "y": 64.44,
-          "w": 7.0,
+          "w": 7,
           "h": 7.25
         },
         {
@@ -6991,9 +7194,9 @@
           "article": "die",
           "en": "C-clamp",
           "plural": "-n",
-          "x": 54.0,
+          "x": 54,
           "y": 62.62,
-          "w": 6.0,
+          "w": 6,
           "h": 9.96
         },
         {
@@ -7001,9 +7204,9 @@
           "article": "der",
           "en": "hand plane",
           "plural": "-",
-          "x": 31.0,
+          "x": 31,
           "y": 57.19,
-          "w": 11.0,
+          "w": 11,
           "h": 6.34
         },
         {
@@ -7013,7 +7216,7 @@
           "plural": "-",
           "x": 45.5,
           "y": 53.12,
-          "w": 8.0,
+          "w": 8,
           "h": 5.89
         },
         {
@@ -7021,20 +7224,20 @@
           "article": "das",
           "en": "sandpaper",
           "plural": "-e",
-          "x": 43.0,
+          "x": 43,
           "y": 59.72,
           "w": 7.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Stemmeisen",
           "article": "das",
           "en": "chisel",
           "plural": "-",
-          "x": 51.0,
+          "x": 51,
           "y": 59.26,
           "w": 5.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Leimtopf",
@@ -7043,7 +7246,7 @@
           "plural": "Leimtöpfe",
           "x": 56.5,
           "y": 57.19,
-          "w": 5.0,
+          "w": 5,
           "h": 5.43
         },
         {
@@ -7051,7 +7254,7 @@
           "article": "der",
           "en": "cordless drill",
           "plural": "-",
-          "x": 60.0,
+          "x": 60,
           "y": 54.02,
           "w": 8.5,
           "h": 8.6
@@ -7061,7 +7264,7 @@
           "article": "der",
           "en": "toolbox",
           "plural": "Werkzeugkästen",
-          "x": 72.0,
+          "x": 72,
           "y": 77.57,
           "w": 9.5,
           "h": 8.15
@@ -7087,7 +7290,7 @@
     ],
     "help": {
       "hook": "An old farmyard full of tools, harness and animals: tap each one in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one cluttered farmyard in front of a red barn, with 32 things to find, many of them old rural words you meet in novels and museums rather than in daily talk — der Dreschflegel, das Kummet, die Egge, der Taubenschlag on its pole. The prompt asks Wo ist die Sense? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on empty sky or grass costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one cluttered farmyard in front of a red barn, with 32 things to find, many of them old rural words you meet in novels and museums rather than in daily talk — der Dreschflegel, das Kummet, die Egge, der Taubenschlag on its pole. The prompt asks Wo ist die Sense? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Sense?), and after the find you choose der, die or das yourself. A tap on empty sky or grass costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7399,9 +7602,9 @@
           "article": "das",
           "en": "roof",
           "plural": "Dächer",
-          "x": 22.0,
+          "x": 22,
           "y": 14.57,
-          "w": 57.0,
+          "w": 57,
           "h": 30.44
         },
         {
@@ -7410,7 +7613,7 @@
           "en": "barn door",
           "plural": "-e",
           "x": 57.5,
-          "y": 51.0,
+          "y": 51,
           "w": 9.5,
           "h": 20.46
         },
@@ -7420,7 +7623,7 @@
           "en": "hay",
           "x": 41.5,
           "y": 61.48,
-          "w": 16.0,
+          "w": 16,
           "h": 9.48
         },
         {
@@ -7438,7 +7641,7 @@
           "article": "die",
           "en": "ladder",
           "plural": "-n",
-          "x": 77.0,
+          "x": 77,
           "y": 35.53,
           "w": 8.5,
           "h": 37.42
@@ -7458,9 +7661,9 @@
           "article": "das",
           "en": "swallow's nest",
           "plural": "-er",
-          "x": 47.0,
+          "x": 47,
           "y": 22.06,
-          "w": 8.0,
+          "w": 8,
           "h": 5.49
         },
         {
@@ -7468,9 +7671,9 @@
           "article": "der",
           "en": "weathercock",
           "plural": "Wetterhähne",
-          "x": 46.0,
+          "x": 46,
           "y": 6.09,
-          "w": 8.0,
+          "w": 8,
           "h": 8.48
         },
         {
@@ -7478,7 +7681,7 @@
           "article": "der",
           "en": "dovecote",
           "plural": "Taubenschläge",
-          "x": 6.0,
+          "x": 6,
           "y": 40.52,
           "w": 8.5,
           "h": 30.93
@@ -7489,8 +7692,8 @@
           "en": "horseshoe",
           "plural": "-",
           "x": 26.5,
-          "y": 48.0,
-          "w": 6.0,
+          "y": 48,
+          "w": 6,
           "h": 4.19
         },
         {
@@ -7499,7 +7702,7 @@
           "en": "rope",
           "plural": "-e",
           "x": 24.5,
-          "y": 49.0,
+          "y": 49,
           "w": 4.5,
           "h": 12.97
         },
@@ -7510,7 +7713,7 @@
           "plural": "-e",
           "x": 30.5,
           "y": 51.5,
-          "w": 6.0,
+          "w": 6,
           "h": 8.48
         },
         {
@@ -7530,7 +7733,7 @@
           "plural": "Wagenräder",
           "x": 18.5,
           "y": 63.47,
-          "w": 10.0,
+          "w": 10,
           "h": 10.48
         },
         {
@@ -7538,9 +7741,9 @@
           "article": "die",
           "en": "scythe",
           "plural": "-n",
-          "x": 68.0,
+          "x": 68,
           "y": 48.5,
-          "w": 8.0,
+          "w": 8,
           "h": 19.96
         },
         {
@@ -7548,9 +7751,9 @@
           "article": "die",
           "en": "storm lantern",
           "plural": "-n",
-          "x": 73.0,
-          "y": 51.0,
-          "w": 4.0,
+          "x": 73,
+          "y": 51,
+          "w": 4,
           "h": 6.49
         },
         {
@@ -7558,9 +7761,9 @@
           "article": "der",
           "en": "hay bale",
           "plural": "-",
-          "x": 26.0,
+          "x": 26,
           "y": 71.95,
-          "w": 12.0,
+          "w": 12,
           "h": 12.47
         },
         {
@@ -7568,9 +7771,9 @@
           "article": "die",
           "en": "cat",
           "plural": "-n",
-          "x": 33.0,
+          "x": 33,
           "y": 68.46,
-          "w": 6.0,
+          "w": 6,
           "h": 5.49
         },
         {
@@ -7578,9 +7781,9 @@
           "article": "der",
           "en": "tractor",
           "plural": "-en",
-          "x": 5.0,
+          "x": 5,
           "y": 72.95,
-          "w": 17.0,
+          "w": 17,
           "h": 11.48
         },
         {
@@ -7590,7 +7793,7 @@
           "plural": "Pflüge",
           "x": 3.5,
           "y": 84.93,
-          "w": 14.0,
+          "w": 14,
           "h": 8.98
         },
         {
@@ -7600,7 +7803,7 @@
           "plural": "-n",
           "x": 19.5,
           "y": 86.92,
-          "w": 12.0,
+          "w": 12,
           "h": 5.49
         },
         {
@@ -7608,7 +7811,7 @@
           "article": "der",
           "en": "grindstone",
           "plural": "-e",
-          "x": 34.0,
+          "x": 34,
           "y": 86.42,
           "w": 11.5,
           "h": 7.98
@@ -7628,9 +7831,9 @@
           "article": "die",
           "en": "milk churn",
           "plural": "-n",
-          "x": 46.0,
+          "x": 46,
           "y": 75.95,
-          "w": 5.0,
+          "w": 5,
           "h": 11.97,
           "also": [
             {
@@ -7666,9 +7869,9 @@
           "article": "das",
           "en": "piglet",
           "plural": "-",
-          "x": 57.0,
+          "x": 57,
           "y": 83.43,
-          "w": 10.0,
+          "w": 10,
           "h": 7.48
         },
         {
@@ -7676,7 +7879,7 @@
           "article": "die",
           "en": "goat",
           "plural": "-n",
-          "x": 59.0,
+          "x": 59,
           "y": 71.95,
           "w": 13.5,
           "h": 11.48
@@ -7686,7 +7889,7 @@
           "article": "die",
           "en": "goose",
           "plural": "Gänse",
-          "x": 76.0,
+          "x": 76,
           "y": 71.95,
           "w": 7.5,
           "h": 9.48
@@ -7696,9 +7899,9 @@
           "article": "die",
           "en": "hand water pump",
           "plural": "-n",
-          "x": 71.0,
+          "x": 71,
           "y": 78.44,
-          "w": 9.0,
+          "w": 9,
           "h": 15.47
         },
         {
@@ -7718,7 +7921,7 @@
           "plural": "-",
           "x": 77.5,
           "y": 81.93,
-          "w": 11.0,
+          "w": 11,
           "h": 12.47
         }
       ]

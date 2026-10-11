@@ -6235,6 +6235,221 @@
     }
   },
   {
+    "id": "quest_a2_2_schreiben_einladung",
+    "after": "quest_a2_2_schreiben_email",
+    "covers": [
+      "a2.email-redemittel"
+    ],
+    "title": "Schreiben: Einladung & Plan",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Einladung & Plan",
+      "level": "A2.2",
+      "writing": {
+        "topic": "Write a message to a friend inviting them to do something at the weekend. Say what you are suggesting and when, give one reason why, offer an alternative in case the first idea does not suit them, and ask them to answer.",
+        "practisePoints": [
+          "an informal greeting and an informal sign-off",
+          "make the suggestion with könnten or sollten (wir könnten …, wir sollten …)",
+          "give one reason with weil, and put the verb at the end of that clause",
+          "offer an alternative (oder …, wenn du willst / wenn du keine Zeit hast)",
+          "say clearly when and where you are meeting",
+          "ask them to reply"
+        ],
+        "scoringCriteria": [
+          "the suggestion is a suggestion, not an order: könnten or sollten rather than a bare imperative",
+          "the verb really is at the end of the weil clause",
+          "the message says what, when and where without the reader having to guess"
+        ],
+        "targetVocabulary": [
+          "Hast du Lust …?",
+          "wir könnten",
+          "wir sollten",
+          "weil",
+          "Ich schlage vor",
+          "Wenn du keine Zeit hast",
+          "Treffen wir uns um …",
+          "Sag mir bitte Bescheid",
+          "Ich freue mich",
+          "Bis bald"
+        ],
+        "passScore": 55
+      }
+    },
+    "help": {
+      "hook": "Invite a friend to something, in German, and have the message corrected.",
+      "intro": "This is a planning message: you suggest something, say why, and leave your friend a way out. You write it here in the box, and the app builds a correction request that carries your own text for your AI to correct. Aim for 200 to 500 characters. Two things earn most of the marks: making the suggestion sound like a suggestion, which is what könnten and sollten are for, and putting the verb at the end of the weil clause. A message that says what, when and where, and asks for an answer, is already a good one.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "könnten and sollten make it an invitation",
+          "text": "A plan in the plain present tense reads as a decision you have already taken. Könnten softens it to an idea, sollten to a recommendation. Both put the other person in the sentence with you: wir könnten, wir sollten.",
+          "examples": [
+            {
+              "de": "Wir könnten am Samstag ins Schwimmbad gehen.",
+              "en": "We could go to the swimming pool on Saturday.",
+              "focus": [
+                "könnten"
+              ]
+            },
+            {
+              "de": "Wir sollten früh losfahren, dann ist es noch nicht so voll.",
+              "en": "We should set off early, then it is not so crowded yet.",
+              "focus": [
+                "sollten"
+              ]
+            }
+          ],
+          "trap": "Keep the umlaut: könnten and sollten are the polite ones. konnten means could in the past, and sollten without the umlaut does not exist as a separate form, so an umlaut missing from könnten changes the meaning.",
+          "check": {
+            "q": "Which one invites rather than decides?",
+            "options": [
+              "Wir könnten ins Kino gehen.",
+              "Wir gehen ins Kino.",
+              "Geh ins Kino!"
+            ],
+            "answer": "Wir könnten ins Kino gehen.",
+            "why": "könnten offers an idea; the present tense states a plan and the imperative gives an order."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "weil sends the verb to the end",
+          "text": "A reason with weil is a subordinate clause, so its verb moves to the very end: weil das Wetter schön ist. If there are two verbs, the finite one goes last of all: weil ich arbeiten muss.",
+          "examples": [
+            {
+              "de": "Ich schlage den Samstag vor, weil ich am Sonntag arbeiten muss.",
+              "en": "I am suggesting Saturday, because I have to work on Sunday.",
+              "focus": [
+                "weil",
+                "muss"
+              ]
+            },
+            {
+              "de": "Komm doch mit, weil es bestimmt lustig wird.",
+              "en": "Do come along, because it is sure to be fun.",
+              "focus": [
+                "weil",
+                "wird"
+              ]
+            }
+          ],
+          "trap": "denn keeps the normal order and weil does not: „…, denn ich muss arbeiten“ but „…, weil ich arbeiten muss“.",
+          "check": {
+            "q": "Ich kann nicht, weil ich keine Zeit ____.",
+            "options": [
+              "habe",
+              "habe ich",
+              "ich habe"
+            ],
+            "answer": "habe",
+            "why": "In a weil clause the verb comes last, after the object."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Four things a plan must say",
+          "text": "What, when, where, and what to do if it does not suit. A message missing any of the four makes your friend write back just to ask. Offer the alternative with oder or with wenn: oder am Sonntag, wenn dir das besser passt.",
+          "examples": [
+            {
+              "de": "Treffen wir uns um sieben am Hauptbahnhof?",
+              "en": "Shall we meet at seven at the main station?",
+              "focus": [
+                "Treffen wir uns"
+              ]
+            },
+            {
+              "de": "Oder wir gehen am Sonntag, wenn du am Samstag keine Zeit hast.",
+              "en": "Or we go on Sunday, if you have no time on Saturday.",
+              "focus": [
+                "Oder",
+                "wenn",
+                "hast"
+              ]
+            }
+          ],
+          "check": {
+            "q": "What is missing from: „Hast du Lust, ins Kino zu gehen? Liebe Grüße“?",
+            "options": [
+              "when and where",
+              "a greeting",
+              "a reason to refuse"
+            ],
+            "answer": "when and where",
+            "why": "The invitation is there, but your friend still has to ask what day and what time."
+          }
+        }
+      ],
+      "remember": [
+        "Suggest with wir könnten or wir sollten, never a bare imperative.",
+        "weil sends the verb to the end; denn leaves the order alone.",
+        "Say what, when, where, and offer one alternative.",
+        "Close with Sag mir bitte Bescheid, then Bis bald or Liebe Grüße and your name."
+      ],
+      "exam": "A short message that invites someone and proposes a time is one of the written tasks the A2 certificate sets, and the everyday use of könnten.",
+      "mistakes": [
+        {
+          "wrong": "Wir gehen am Samstag ins Kino. Komm!",
+          "right": "Wir könnten am Samstag ins Kino gehen. Hast du Lust?",
+          "why": "The first version decides for your friend; könnten invites them."
+        },
+        {
+          "wrong": "…, weil ich muss arbeiten.",
+          "right": "…, weil ich arbeiten muss.",
+          "why": "In a weil clause the finite verb goes last."
+        },
+        {
+          "wrong": "Wir konnten ins Schwimmbad gehen.",
+          "right": "Wir könnten ins Schwimmbad gehen.",
+          "why": "Without the umlaut it means we were able to, in the past."
+        },
+        {
+          "wrong": "Sag mir bitte Bescheid, Liebe Grüße Ana",
+          "right": "Sag mir bitte Bescheid!\n\nLiebe Grüße\nAna",
+          "why": "The sign-off starts a new line and takes no comma after it."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "die Einladung",
+          "plural": "-en",
+          "en": "invitation"
+        },
+        {
+          "de": "Hast du Lust?",
+          "en": "Do you fancy it?"
+        },
+        {
+          "de": "vorschlagen",
+          "en": "to suggest (Ich schlage vor)"
+        },
+        {
+          "de": "sich treffen",
+          "en": "to meet (Treffen wir uns?)"
+        },
+        {
+          "de": "passen",
+          "en": "to suit (Passt dir das?)"
+        },
+        {
+          "de": "Bescheid sagen",
+          "en": "to let someone know"
+        },
+        {
+          "de": "bestimmt",
+          "en": "surely, definitely"
+        },
+        {
+          "de": "losfahren",
+          "en": "to set off"
+        },
+        {
+          "de": "Bis bald",
+          "en": "See you soon"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_a2_2_wortschatz",
     "covers": [
       "a2.vocabulary-2"
@@ -6355,7 +6570,7 @@
     ],
     "help": {
       "hook": "A child's bedroom full of toys: tap each thing in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one cheerful, slightly messy child's bedroom with 32 things to find in it, every one an everyday noun — das Bett, der Kleiderschrank, die Eisenbahn, das Schaukelpferd, the toys on the rug and the kite on the wall. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one cheerful, slightly messy child's bedroom with 32 things to find in it, every one an everyday noun — das Bett, der Kleiderschrank, die Eisenbahn, das Schaukelpferd, the toys on the rug and the kite on the wall. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Eisenbahn?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -6668,9 +6883,9 @@
           "article": "der",
           "en": "rug",
           "plural": "-e",
-          "x": 29.0,
+          "x": 29,
           "y": 76.58,
-          "w": 40.0,
+          "w": 40,
           "h": 13.32
         },
         {
@@ -6680,7 +6895,7 @@
           "plural": "Kleiderschränke",
           "x": 29.5,
           "y": 45.95,
-          "w": 16.0,
+          "w": 16,
           "h": 28.41
         },
         {
@@ -6690,7 +6905,7 @@
           "plural": "-en",
           "x": 4.5,
           "y": 59.72,
-          "w": 25.0,
+          "w": 25,
           "h": 22.2
         },
         {
@@ -6700,7 +6915,7 @@
           "plural": "-e",
           "x": 64.5,
           "y": 48.17,
-          "w": 22.0,
+          "w": 22,
           "h": 27.52
         },
         {
@@ -6718,7 +6933,7 @@
           "article": "der",
           "en": "desk",
           "plural": "-e",
-          "x": 47.0,
+          "x": 47,
           "y": 63.71,
           "w": 15.7,
           "h": 11.01
@@ -6780,7 +6995,7 @@
           "plural": "-",
           "x": 17.7,
           "y": 39.03,
-          "w": 7.0,
+          "w": 7,
           "h": 17.49
         },
         {
@@ -6810,7 +7025,7 @@
           "plural": "-n",
           "x": 55.1,
           "y": 42.4,
-          "w": 4.0,
+          "w": 4,
           "h": 5.86
         },
         {
@@ -6820,7 +7035,7 @@
           "plural": "-n",
           "x": 58.9,
           "y": 49.24,
-          "w": 4.0,
+          "w": 4,
           "h": 6.39
         },
         {
@@ -6828,7 +7043,7 @@
           "article": "die",
           "en": "desk lamp",
           "plural": "-n",
-          "x": 48.0,
+          "x": 48,
           "y": 56.52,
           "w": 6.9,
           "h": 8.26
@@ -6840,8 +7055,8 @@
           "plural": "-",
           "x": 57.8,
           "y": 60.91,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Rucksack",
@@ -6860,7 +7075,7 @@
           "plural": "Papierkörbe",
           "x": 62.2,
           "y": 69.84,
-          "w": 4.0,
+          "w": 4,
           "h": 4.44
         },
         {
@@ -6878,7 +7093,7 @@
           "article": "die",
           "en": "chalkboard",
           "plural": "-n",
-          "x": 84.0,
+          "x": 84,
           "y": 69.04,
           "w": 13.5,
           "h": 19.53
@@ -6888,7 +7103,7 @@
           "article": "die",
           "en": "toy chest",
           "plural": "-n",
-          "x": 77.0,
+          "x": 77,
           "y": 70.19,
           "w": 8.4,
           "h": 11.72
@@ -6898,7 +7113,7 @@
           "article": "der",
           "en": "scooter",
           "plural": "-",
-          "x": 80.0,
+          "x": 80,
           "y": 78.36,
           "w": 11.5,
           "h": 14.21
@@ -6908,9 +7123,9 @@
           "article": "die",
           "en": "guitar",
           "plural": "-n",
-          "x": 24.0,
+          "x": 24,
           "y": 65.93,
-          "w": 8.0,
+          "w": 8,
           "h": 14.65
         },
         {
@@ -6918,9 +7133,9 @@
           "article": "das",
           "en": "rocking horse",
           "plural": "-e",
-          "x": 2.0,
+          "x": 2,
           "y": 76.14,
-          "w": 19.0,
+          "w": 19,
           "h": 15.09
         },
         {
@@ -6940,8 +7155,8 @@
           "plural": "Bilderbücher",
           "x": 37.5,
           "y": 80.36,
-          "w": 7.0,
-          "h": 4.0
+          "w": 7,
+          "h": 4
         },
         {
           "de": "Puzzle",
@@ -6950,7 +7165,7 @@
           "plural": "-s",
           "x": 51.5,
           "y": 80.14,
-          "w": 9.0,
+          "w": 9,
           "h": 6.22
         },
         {
@@ -6970,7 +7185,7 @@
           "plural": "-n",
           "x": 70.5,
           "y": 86.35,
-          "w": 10.0,
+          "w": 10,
           "h": 6.66
         },
         {
@@ -6981,13 +7196,13 @@
           "x": 62.5,
           "y": 90.12,
           "w": 6.5,
-          "h": 4.0,
+          "h": 4,
           "also": [
             {
               "x": 58.9,
               "y": 45.28,
-              "w": 4.0,
-              "h": 4.0
+              "w": 4,
+              "h": 4
             }
           ]
         }
@@ -7002,7 +7217,7 @@
     ],
     "help": {
       "hook": "An empty café before opening time: tap each thing in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one small, cosy café before opening time, with a counter and nobody in it with 32 things to find in it, every one an everyday noun — der Tresen, die Kaffeemaschine, das Milchkännchen, the cake on the counter and the croissant on the table. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one small, cosy café before opening time, with a counter and nobody in it with 32 things to find in it, every one an everyday noun — der Tresen, die Kaffeemaschine, das Milchkännchen, the cake on the counter and the croissant on the table. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Kaffeemaschine?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7357,7 +7572,7 @@
           "plural": "-e",
           "x": 42.1,
           "y": 80.77,
-          "w": 30.0,
+          "w": 30,
           "h": 16.83
         },
         {
@@ -7377,7 +7592,7 @@
           "plural": "-en",
           "x": 36.2,
           "y": 4.79,
-          "w": 30.0,
+          "w": 30,
           "h": 8.66
         },
         {
@@ -7437,8 +7652,8 @@
           "plural": "-",
           "x": 44.1,
           "y": 47.4,
-          "w": 13.0,
-          "h": 4.0
+          "w": 13,
+          "h": 4
         },
         {
           "de": "Wasserhahn",
@@ -7447,8 +7662,8 @@
           "plural": "Wasserhähne",
           "x": 49.6,
           "y": 44.31,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Schneidebrett",
@@ -7464,7 +7679,7 @@
               "x": 68.1,
               "y": 53.97,
               "w": 5.5,
-              "h": 4.0
+              "h": 4
             }
           ]
         },
@@ -7483,7 +7698,7 @@
           "article": "der",
           "en": "kettle",
           "plural": "-",
-          "x": 51.0,
+          "x": 51,
           "y": 48.41,
           "w": 6.1,
           "h": 8.37
@@ -7514,7 +7729,7 @@
           "en": "telephone",
           "plural": "-e",
           "x": 83.1,
-          "y": 51.0,
+          "y": 51,
           "w": 9.2,
           "h": 6.27
         },
@@ -7591,8 +7806,8 @@
             {
               "x": 24.5,
               "y": 51.38,
-              "w": 4.0,
-              "h": 4.0
+              "w": 4,
+              "h": 4
             }
           ]
         },
@@ -7609,8 +7824,8 @@
             {
               "x": 39.4,
               "y": 53.48,
-              "w": 4.0,
-              "h": 4.0
+              "w": 4,
+              "h": 4
             }
           ]
         },
@@ -7631,7 +7846,7 @@
           "plural": "Gläser",
           "x": 58.6,
           "y": 80.77,
-          "w": 4.0,
+          "w": 4,
           "h": 4.08
         },
         {
@@ -7641,7 +7856,7 @@
           "plural": "-",
           "x": 64.2,
           "y": 80.77,
-          "w": 4.0,
+          "w": 4,
           "h": 4.08
         },
         {
@@ -7652,7 +7867,7 @@
           "x": 61.5,
           "y": 84.85,
           "w": 6.3,
-          "h": 4.0
+          "h": 4
         }
       ]
     }

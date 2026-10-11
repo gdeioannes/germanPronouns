@@ -1167,7 +1167,7 @@
           "article": "das"
         },
         {
-          "de": "weiterführender Nebensatz",
+          "de": "weiterführende Nebensatz",
           "en": "continuing relative clause",
           "article": "der"
         }
@@ -3601,7 +3601,7 @@
         },
         {
           "de": "dadurch / dafür / darüber",
-          "en": "through / for / about this"
+          "en": "through this / for this / about this"
         },
         {
           "de": "tatsächlich / in der Tat",
@@ -6258,6 +6258,210 @@
     }
   },
   {
+    "id": "quest_c1_2_schreiben_forumsbeitrag",
+    "after": "quest_c1_2_schreiben_nominalstil",
+    "covers": [
+      "c1.modal-supposition"
+    ],
+    "title": "Schreiben: Ein Forumsbeitrag",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Ein Forumsbeitrag",
+      "level": "C1.2",
+      "writing": {
+        "topic": "Write a post for an online discussion about whether working from home has been good for younger employees. Take a position, but hedge the claims you cannot prove, respond to something another poster might have said, and keep the tone of a forum rather than an essay.",
+        "practisePoints": [
+          "hedge an uncertain claim with dürfte, könnte or scheint zu, and mark certainty where you have it",
+          "report what others say with sollen or wollen for hearsay",
+          "disagree without attacking, using a softened Konjunktiv II",
+          "keep it readable: a forum post, not a seminar paper",
+          "mark your own experience as experience rather than as evidence"
+        ],
+        "scoringCriteria": [
+          "the degree of certainty in each claim matches what you could actually know",
+          "hearsay is marked as hearsay rather than asserted",
+          "the register is informal but literate, and the disagreement stays civil"
+        ],
+        "targetVocabulary": [
+          "dürfte",
+          "könnte durchaus",
+          "es scheint, als ob",
+          "angeblich",
+          "soll … haben",
+          "meiner Erfahrung nach",
+          "da bin ich mir nicht sicher",
+          "einerseits … andererseits",
+          "ich würde eher sagen"
+        ],
+        "passScore": 60
+      }
+    },
+    "help": {
+      "hook": "Say what you think without claiming more than you know.",
+      "intro": "Hedging changes how a German reader takes you more than almost anything else. Say etwas ist so and you have claimed it; say etwas dürfte so sein and you have said the same thing while showing you know the difference between what you can prove and what you suspect. Write 900 to 1800 characters. The correction looks at whether each claim carries the right strength, whether what you heard somewhere is marked as such, and whether a disagreement stays a disagreement rather than becoming an attack.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Three strengths of guess",
+          "text": "dürfte is a confident estimate, könnte an open possibility, müsste a conclusion you are fairly sure of. They are the subjective modals, and they all point at your confidence rather than at an obligation or an ability.",
+          "examples": [
+            {
+              "de": "Der Effekt dürfte bei jüngeren Beschäftigten größer sein.",
+              "en": "The effect is probably greater among younger employees.",
+              "focus": [
+                "dürfte"
+              ]
+            },
+            {
+              "de": "Das könnte allerdings auch an der Branche liegen.",
+              "en": "That could, however, also be down to the sector.",
+              "focus": [
+                "könnte"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which is the most confident guess?",
+            "options": [
+              "Das dürfte stimmen.",
+              "Das könnte stimmen.",
+              "Das mag stimmen."
+            ],
+            "answer": "Das dürfte stimmen.",
+            "why": "dürfte is a confident estimate; könnte and mag leave it open."
+          },
+          "trap": "Hedging everything is its own mistake: a text with no firm sentence in it reads as having nothing to say."
+        },
+        {
+          "kind": "rule",
+          "title": "sollen and wollen carry hearsay",
+          "text": "sollen reports what others say about someone; wollen reports what someone claims about themselves. Both let you pass a claim on without adopting it, which is exactly what a forum post needs.",
+          "examples": [
+            {
+              "de": "Studien sollen gezeigt haben, dass die Produktivität steigt.",
+              "en": "Studies are said to have shown that productivity rises.",
+              "focus": [
+                "sollen",
+                "gezeigt haben"
+              ]
+            },
+            {
+              "de": "Der Konzern will die Quote verdoppelt haben.",
+              "en": "The company claims to have doubled the rate.",
+              "focus": [
+                "will",
+                "verdoppelt haben"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Er ____ den Bericht nie gelesen haben.",
+            "options": [
+              "will",
+              "soll",
+              "darf"
+            ],
+            "answer": "will",
+            "why": "wollen reports his own claim about himself."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Disagree with the point, not the person",
+          "text": "A softened opening lets you contradict hard. Da wäre ich vorsichtig, Ich würde eher sagen, Das sehe ich anders. The disagreement itself can then be direct, and nobody reads it as an attack.",
+          "examples": [
+            {
+              "de": "Da würde ich widersprechen: Die Zahlen zeigen eher das Gegenteil.",
+              "en": "I would disagree there: the figures show rather the opposite.",
+              "focus": [
+                "würde",
+                "widersprechen"
+              ]
+            },
+            {
+              "de": "Meiner Erfahrung nach ist das sehr unterschiedlich.",
+              "en": "In my experience that varies a great deal.",
+              "focus": [
+                "Meiner Erfahrung nach"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which disagrees without attacking?",
+            "options": [
+              "Da würde ich widersprechen.",
+              "Das ist doch Unsinn.",
+              "Sie haben offensichtlich keine Ahnung."
+            ],
+            "answer": "Da würde ich widersprechen.",
+            "why": "The Konjunktiv II softens the frame; the claim underneath stays firm."
+          }
+        }
+      ],
+      "remember": [
+        "dürfte confident, könnte open, müsste concluded.",
+        "sollen for what others say, wollen for what someone claims of themselves.",
+        "Mark your own experience as experience: meiner Erfahrung nach.",
+        "Soften the frame, not the point."
+      ],
+      "exam": "Writing a reasoned post into an existing discussion is a C1 writing task, and the register most people actually write German in.",
+      "mistakes": [
+        {
+          "wrong": "Homeoffice ist produktiver.",
+          "right": "Homeoffice dürfte in vielen Fällen produktiver sein.",
+          "why": "A claim you cannot prove needs its hedge."
+        },
+        {
+          "wrong": "Studien haben gezeigt, dass …  (without a source)",
+          "right": "Studien sollen gezeigt haben, dass …",
+          "why": "sollen passes the claim on without adopting it."
+        },
+        {
+          "wrong": "Der Minister soll zurücktreten.",
+          "right": "Der Minister soll zurückgetreten sein.",
+          "why": "Without the perfect infinitive this is a demand, not a rumour."
+        },
+        {
+          "wrong": "Das ist völliger Quatsch.",
+          "right": "Da würde ich widersprechen.",
+          "why": "Same disagreement, a register that gets read."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "dürfte",
+          "en": "is probably (confident estimate)"
+        },
+        {
+          "de": "angeblich",
+          "en": "allegedly, supposedly"
+        },
+        {
+          "de": "die Vermutung",
+          "plural": "-en",
+          "en": "supposition, guess"
+        },
+        {
+          "de": "widersprechen",
+          "en": "to contradict (+ Dat)"
+        },
+        {
+          "de": "einerseits … andererseits",
+          "en": "on the one hand … on the other"
+        },
+        {
+          "de": "nachvollziehen",
+          "en": "to follow, to understand (an argument)"
+        },
+        {
+          "de": "der Beitrag",
+          "plural": "¨-e",
+          "en": "post, contribution"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_c1_2_wortschatz",
     "covers": [
       "c1.vocabulary-2"
@@ -6382,7 +6586,7 @@
     ],
     "help": {
       "hook": "An empty newsroom full of precise office nouns: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one newspaper office after the editors have gone home, with 32 things to find in it, each one a precise noun from the world of the press and office work — der Aktenvernichter, die Briefablage, das Stativ, die Leinwand for the morning briefing. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one newspaper office after the editors have gone home, with 32 things to find in it, each one a precise noun from the world of the press and office work — der Aktenvernichter, die Briefablage, das Stativ, die Leinwand for the morning briefing. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Briefablage?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -6697,7 +6901,7 @@
           "plural": "-e",
           "x": 25.5,
           "y": 68.87,
-          "w": 49.0,
+          "w": 49,
           "h": 20.66
         },
         {
@@ -6705,7 +6909,7 @@
           "article": "der",
           "en": "office chair",
           "plural": "Bürostühle",
-          "x": 43.0,
+          "x": 43,
           "y": 69.31,
           "w": 12.5,
           "h": 22.91
@@ -6715,9 +6919,9 @@
           "article": "der",
           "en": "filing cabinet",
           "plural": "Aktenschränke",
-          "x": 5.0,
+          "x": 5,
           "y": 66.17,
-          "w": 15.0,
+          "w": 15,
           "h": 24.26
         },
         {
@@ -6745,7 +6949,7 @@
           "article": "die",
           "en": "air conditioner",
           "plural": "-n",
-          "x": 41.0,
+          "x": 41,
           "y": 18.11,
           "w": 18.5,
           "h": 6.29
@@ -6767,7 +6971,7 @@
           "plural": "-n",
           "x": 2.5,
           "y": 16.76,
-          "w": 7.0,
+          "w": 7,
           "h": 21.56
         },
         {
@@ -6777,7 +6981,7 @@
           "plural": "-",
           "x": 2.5,
           "y": 37.87,
-          "w": 6.0,
+          "w": 6,
           "h": 26.5
         },
         {
@@ -6785,9 +6989,9 @@
           "article": "das",
           "en": "wall shelf",
           "plural": "-e",
-          "x": 70.0,
+          "x": 70,
           "y": 36.52,
-          "w": 24.0,
+          "w": 24,
           "h": 5.39
         },
         {
@@ -6795,7 +6999,7 @@
           "article": "der",
           "en": "globe",
           "plural": "Globen",
-          "x": 71.0,
+          "x": 71,
           "y": 25.74,
           "w": 8.5,
           "h": 11.68
@@ -6805,7 +7009,7 @@
           "article": "das",
           "en": "megaphone",
           "plural": "-e",
-          "x": 80.0,
+          "x": 80,
           "y": 27.99,
           "w": 9.5,
           "h": 8.98
@@ -6817,7 +7021,7 @@
           "plural": "-n",
           "x": 87.5,
           "y": 24.4,
-          "w": 5.0,
+          "w": 5,
           "h": 12.13
         },
         {
@@ -6825,7 +7029,7 @@
           "article": "das",
           "en": "clipboard",
           "plural": "-er",
-          "x": 69.0,
+          "x": 69,
           "y": 41.91,
           "w": 6.5,
           "h": 8.53
@@ -6865,9 +7069,9 @@
           "article": "der",
           "en": "water cooler",
           "plural": "-",
-          "x": 11.0,
+          "x": 11,
           "y": 45.06,
-          "w": 9.0,
+          "w": 9,
           "h": 21.56
         },
         {
@@ -6875,9 +7079,9 @@
           "article": "das",
           "en": "radio",
           "plural": "-s",
-          "x": 7.0,
+          "x": 7,
           "y": 57.64,
-          "w": 9.0,
+          "w": 9,
           "h": 8.53
         },
         {
@@ -6885,9 +7089,9 @@
           "article": "der",
           "en": "coat stand",
           "plural": "-",
-          "x": 21.0,
+          "x": 21,
           "y": 46.41,
-          "w": 8.0,
+          "w": 8,
           "h": 40.43
         },
         {
@@ -6895,9 +7099,9 @@
           "article": "das",
           "en": "tripod",
           "plural": "-e",
-          "x": 21.0,
+          "x": 21,
           "y": 67.97,
-          "w": 9.0,
+          "w": 9,
           "h": 24.26
         },
         {
@@ -6905,7 +7109,7 @@
           "article": "der",
           "en": "wastepaper basket",
           "plural": "Papierkörbe",
-          "x": 4.0,
+          "x": 4,
           "y": 84.14,
           "w": 8.5,
           "h": 9.43
@@ -6915,9 +7119,9 @@
           "article": "die",
           "en": "desk lamp",
           "plural": "-n",
-          "x": 27.0,
+          "x": 27,
           "y": 54.49,
-          "w": 11.0,
+          "w": 11,
           "h": 15.27
         },
         {
@@ -6927,7 +7131,7 @@
           "plural": "-e",
           "x": 32.5,
           "y": 64.37,
-          "w": 8.0,
+          "w": 8,
           "h": 5.84
         },
         {
@@ -6937,7 +7141,7 @@
           "plural": "-e",
           "x": 39.5,
           "y": 56.74,
-          "w": 13.0,
+          "w": 13,
           "h": 10.33
         },
         {
@@ -6948,7 +7152,7 @@
           "x": 40.5,
           "y": 66.42,
           "w": 10.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Schreibmaschine",
@@ -6965,9 +7169,9 @@
           "article": "das",
           "en": "microphone",
           "plural": "-e",
-          "x": 62.0,
+          "x": 62,
           "y": 58.98,
-          "w": 4.0,
+          "w": 4,
           "h": 10.78
         },
         {
@@ -6975,7 +7179,7 @@
           "article": "die",
           "en": "letter tray",
           "plural": "-n",
-          "x": 66.0,
+          "x": 66,
           "y": 56.74,
           "w": 5.5,
           "h": 6.74
@@ -6985,9 +7189,9 @@
           "article": "die",
           "en": "camera",
           "plural": "-s",
-          "x": 66.0,
+          "x": 66,
           "y": 65.27,
-          "w": 7.0,
+          "w": 7,
           "h": 4.94
         },
         {
@@ -6997,7 +7201,7 @@
           "plural": "-n",
           "x": 63.5,
           "y": 78.3,
-          "w": 7.0,
+          "w": 7,
           "h": 15.72
         },
         {
@@ -7005,7 +7209,7 @@
           "article": "der",
           "en": "paper shredder",
           "plural": "-",
-          "x": 89.0,
+          "x": 89,
           "y": 82.34,
           "w": 8.5,
           "h": 10.78
@@ -7021,7 +7225,7 @@
     ],
     "help": {
       "hook": "An airport hall with nobody in it: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one airport check-in and gate hall with 32 things to find, from the security check to the window onto the apron — das Röntgengerät, die Fluggastbrücke, der Gepäckwagen, das Triebwerk under the wing. Many of them are long compounds you mostly meet when travelling. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one airport check-in and gate hall with 32 things to find, from the security check to the window onto the apron — das Röntgengerät, die Fluggastbrücke, der Gepäckwagen, das Triebwerk under the wing. Many of them are long compounds you mostly meet when travelling. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Fluggastbrücke?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7335,9 +7539,9 @@
           "en": "escalator",
           "plural": "-n",
           "x": 1.7,
-          "y": 54.0,
+          "y": 54,
           "w": 22.91,
-          "h": 23.0
+          "h": 23
         },
         {
           "de": "Check-in-Schalter",
@@ -7355,9 +7559,9 @@
           "en": "jet bridge",
           "plural": "-n",
           "x": 53.98,
-          "y": 41.0,
+          "y": 41,
           "w": 27.89,
-          "h": 6.0
+          "h": 6
         },
         {
           "de": "Flugzeug",
@@ -7377,7 +7581,7 @@
           "x": 42.53,
           "y": 46.5,
           "w": 4.48,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Gangway",
@@ -7385,9 +7589,9 @@
           "en": "boarding stairs",
           "plural": "-s",
           "x": 60.96,
-          "y": 46.0,
+          "y": 46,
           "w": 6.47,
-          "h": 6.0
+          "h": 6
         },
         {
           "de": "Kontrollturm",
@@ -7395,7 +7599,7 @@
           "en": "control tower",
           "plural": "Kontrolltürme",
           "x": 69.42,
-          "y": 35.0,
+          "y": 35,
           "w": 5.98,
           "h": 15.5
         },
@@ -7415,7 +7619,7 @@
           "en": "waiting bench",
           "plural": "Wartebänke",
           "x": 59.96,
-          "y": 54.0,
+          "y": 54,
           "w": 18.43,
           "h": 7.5
         },
@@ -7425,7 +7629,7 @@
           "en": "cuddly toy",
           "plural": "-e",
           "x": 60.96,
-          "y": 53.0,
+          "y": 53,
           "w": 4.48,
           "h": 5.5
         },
@@ -7435,9 +7639,9 @@
           "en": "neck pillow",
           "plural": "-",
           "x": 65.94,
-          "y": 55.0,
+          "y": 55,
           "w": 4.98,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Gitarre",
@@ -7446,8 +7650,8 @@
           "plural": "-n",
           "x": 72.9,
           "y": 48.5,
-          "w": 4.0,
-          "h": 10.0
+          "w": 4,
+          "h": 10
         },
         {
           "de": "Uhr",
@@ -7465,9 +7669,9 @@
           "en": "glass display cabinet",
           "plural": "-n",
           "x": 9.66,
-          "y": 45.0,
+          "y": 45,
           "w": 6.97,
-          "h": 9.0
+          "h": 9
         },
         {
           "de": "Feuerlöscher",
@@ -7475,8 +7679,8 @@
           "en": "fire extinguisher",
           "plural": "-",
           "x": 3.68,
-          "y": 46.0,
-          "w": 4.0,
+          "y": 46,
+          "w": 4,
           "h": 7.5
         },
         {
@@ -7497,7 +7701,7 @@
           "x": 35.06,
           "y": 42.5,
           "w": 10.96,
-          "h": 21.0
+          "h": 21
         },
         {
           "de": "Röntgengerät",
@@ -7505,7 +7709,7 @@
           "en": "X-ray scanner",
           "plural": "-e",
           "x": 46.02,
-          "y": 51.0,
+          "y": 51,
           "w": 9.96,
           "h": 13.5
         },
@@ -7515,9 +7719,9 @@
           "en": "security tray",
           "plural": "-n",
           "x": 47.51,
-          "y": 56.0,
+          "y": 56,
           "w": 5.98,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Absperrband",
@@ -7535,7 +7739,7 @@
           "en": "luggage trolley",
           "plural": "-",
           "x": 43.53,
-          "y": 64.0,
+          "y": 64,
           "w": 12.45,
           "h": 16.5
         },
@@ -7545,9 +7749,9 @@
           "en": "suitcase",
           "plural": "-",
           "x": 44.02,
-          "y": 68.0,
+          "y": 68,
           "w": 9.96,
-          "h": 9.0
+          "h": 9
         },
         {
           "de": "Fahrrad",
@@ -7555,9 +7759,9 @@
           "en": "bicycle",
           "plural": "Fahrräder",
           "x": 55.48,
-          "y": 62.0,
+          "y": 62,
           "w": 18.43,
-          "h": 11.0
+          "h": 11
         },
         {
           "de": "Paket",
@@ -7567,7 +7771,7 @@
           "x": 55.98,
           "y": 76.5,
           "w": 6.97,
-          "h": 6.0
+          "h": 6
         },
         {
           "de": "Rucksack",
@@ -7577,7 +7781,7 @@
           "x": 62.95,
           "y": 73.5,
           "w": 13.45,
-          "h": 12.0
+          "h": 12
         },
         {
           "de": "Kinderwagen",
@@ -7585,7 +7789,7 @@
           "en": "pram",
           "plural": "-",
           "x": 73.9,
-          "y": 61.0,
+          "y": 61,
           "w": 15.44,
           "h": 16.5
         },
@@ -7596,8 +7800,8 @@
           "plural": "-e",
           "x": 74.89,
           "y": 60.5,
-          "w": 4.0,
-          "h": 8.0
+          "w": 4,
+          "h": 8
         },
         {
           "de": "Surfbrett",
@@ -7605,9 +7809,9 @@
           "en": "surfboard",
           "plural": "-er",
           "x": 87.85,
-          "y": 43.0,
+          "y": 43,
           "w": 5.98,
-          "h": 21.0
+          "h": 21
         },
         {
           "de": "Beistelltisch",
@@ -7617,7 +7821,7 @@
           "x": 90.34,
           "y": 61.5,
           "w": 7.47,
-          "h": 9.0
+          "h": 9
         },
         {
           "de": "Funkgerät",
@@ -7626,8 +7830,8 @@
           "plural": "-e",
           "x": 89.83,
           "y": 59.5,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Sonnenbrille",
@@ -7636,8 +7840,8 @@
           "plural": "-n",
           "x": 93.81,
           "y": 61.5,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Mülleimer",
@@ -7647,7 +7851,7 @@
           "x": 91.83,
           "y": 71.5,
           "w": 5.48,
-          "h": 9.0
+          "h": 9
         }
       ]
     }

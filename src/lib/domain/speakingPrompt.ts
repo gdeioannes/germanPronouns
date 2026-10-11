@@ -106,6 +106,12 @@ export interface RenderOptions {
 	referenceNotes?: string;
 	/** The scene the learner is looking at, in words — the PICTURE section. */
 	pictureDescription?: string;
+	/**
+	 * The text the learner wrote in the app, carried into the prompt as MY TEXT
+	 * so their own AI corrects that rather than setting a fresh task. Writing
+	 * only; empty switches the prompt back to "give me the task and wait".
+	 */
+	learnerText?: string;
 }
 
 const PLACEHOLDER = /\{(\w+)\}/g;
@@ -125,7 +131,8 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		cefr,
 		personalFocus = [],
 		referenceNotes = '',
-		pictureDescription = ''
+		pictureDescription = '',
+		learnerText = ''
 	} = options;
 
 	const learn = baseLang(learnLang);
@@ -157,6 +164,12 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		personalFocus: personalFocus.join(', '),
 		referenceNotes,
 		pictureDescription,
+		// A writing task where the learner has already written switches the
+		// rules from "set me a task and wait" to "correct what follows". The
+		// inverse flag drives the optional section the other way, the same
+		// trick `scaffolding` uses.
+		learnerText: learnerText.trim(),
+		noLearnerText: learnerText.trim() ? '' : 'yes',
 		practisePoints: (exercise.practisePoints ?? []).join(', '),
 		targetVocabulary: (exercise.targetVocabulary ?? []).join(', '),
 		scoringCriteria: (exercise.scoringCriteria ?? []).join(', '),

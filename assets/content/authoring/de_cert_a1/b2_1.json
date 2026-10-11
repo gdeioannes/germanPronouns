@@ -6294,6 +6294,217 @@
     }
   },
   {
+    "id": "quest_b2_1_schreiben_stellungnahme",
+    "after": "quest_b2_1_sprechen_dialog",
+    "covers": [
+      "b2.stellungnahme-redemittel"
+    ],
+    "title": "Schreiben: Stellungnahme",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Stellungnahme",
+      "level": "B2.1",
+      "writing": {
+        "topic": "Take a position in writing on this question: should cities make their centres car-free? Say where you stand, give two arguments with evidence or an example, deal with one objection, and close with what follows from it.",
+        "practisePoints": [
+          "state your position in the first two sentences, not at the end",
+          "give two arguments, each with a reason and an example or a figure",
+          "name one objection fairly and answer it",
+          "join the argument with adverbial connectors: zudem, allerdings, folglich, dennoch",
+          "close with a conclusion that follows from what you wrote"
+        ],
+        "scoringCriteria": [
+          "the position is clear and held to throughout",
+          "the objection is stated as someone else would state it, not as a straw man",
+          "the connectors mark the real relation between the sentences"
+        ],
+        "targetVocabulary": [
+          "meines Erachtens",
+          "dafür spricht, dass",
+          "ein weiteres Argument",
+          "zudem",
+          "allerdings",
+          "dennoch",
+          "folglich",
+          "Befürworter",
+          "Gegner",
+          "daraus folgt"
+        ],
+        "passScore": 60
+      }
+    },
+    "help": {
+      "hook": "Argue a case in written German, and find out whether it holds together.",
+      "intro": "A Stellungnahme has four parts: a position, reasons for it, an honest look at the other side, and a conclusion. Write 600 to 1300 characters. The part most people skip is the objection, and it is the part that earns the marks: naming the strongest thing the other side says, and answering it, is what separates an argument from an opinion. Watch your connectors too. Each one claims a relation between two sentences, and the correction will check whether that relation is really there.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Position first, not last",
+          "text": "German argumentative writing puts the thesis at the top. The reader should know where you stand by the second sentence; everything after that is support. Saving it for the end reads as indecision.",
+          "examples": [
+            {
+              "de": "Meines Erachtens sollten Innenstädte weitgehend autofrei werden.",
+              "en": "In my view city centres should become largely car-free.",
+              "focus": [
+                "Meines Erachtens"
+              ]
+            },
+            {
+              "de": "Dafür spricht vor allem, dass der Platz anders dringender gebraucht wird.",
+              "en": "The main thing in its favour is that the space is needed more urgently elsewhere.",
+              "focus": [
+                "Dafür spricht"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Where does the position belong in a Stellungnahme?",
+            "options": [
+              "in the first two sentences",
+              "in the last paragraph",
+              "nowhere, it should stay neutral"
+            ],
+            "answer": "in the first two sentences",
+            "why": "The thesis goes first; the rest of the text supports it."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Concede, then answer",
+          "text": "An objection you name yourself is worth more than two more arguments of your own. State it in the other side’s words with zwar, gewiss or sicherlich, then turn it with allerdings, dennoch or jedoch. Turning it is the step people forget.",
+          "examples": [
+            {
+              "de": "Zwar trifft es zu, dass der Einzelhandel kurzfristig Umsatz verliert.",
+              "en": "It is true that retailers lose turnover in the short term.",
+              "focus": [
+                "Zwar",
+                "trifft es zu"
+              ]
+            },
+            {
+              "de": "Allerdings zeigen Erfahrungen aus Kopenhagen, dass die Frequenz nach zwei Jahren steigt.",
+              "en": "However, experience from Copenhagen shows footfall rises after two years.",
+              "focus": [
+                "Allerdings"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Zwar ist die Umstellung teuer, ____ rechnet sie sich langfristig.",
+            "options": [
+              "allerdings",
+              "außerdem",
+              "nämlich"
+            ],
+            "answer": "allerdings",
+            "why": "zwar sets up a concession and needs a turn; außerdem would simply add."
+          },
+          "trap": "A concession with no turn reads as agreement with the other side."
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Every connector is a claim",
+          "text": "folglich claims a consequence, zudem claims another point of the same kind, dennoch claims a contrast that survives. Put the wrong one in and the argument reads as broken even though every sentence is correct.",
+          "examples": [
+            {
+              "de": "Der Lärm sinkt; folglich steigt die Aufenthaltsqualität.",
+              "en": "Noise falls; consequently the quality of the space rises.",
+              "focus": [
+                "folglich"
+              ]
+            },
+            {
+              "de": "Die Luft wird besser. Zudem sinkt die Zahl der Unfälle.",
+              "en": "The air gets better. In addition, accidents fall.",
+              "focus": [
+                "Zudem"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Die Mieten steigen. ____ ziehen viele Familien weg.",
+            "options": [
+              "Folglich",
+              "Dennoch",
+              "Zwar"
+            ],
+            "answer": "Folglich",
+            "why": "Moving away is the consequence of the rents, not a contrast with them."
+          }
+        }
+      ],
+      "remember": [
+        "Thesis in the first two sentences, then the support.",
+        "Two arguments, each with a reason and an example or a figure.",
+        "Zwar …, allerdings …: concede, then turn. The turn is the point.",
+        "Every connector claims a relation; make sure it is the real one."
+      ],
+      "exam": "A written Stellungnahme is the core writing task of the B2 certificate, and the shape of every opinion piece in a German newspaper.",
+      "mistakes": [
+        {
+          "wrong": "Zwar ist es teuer. Außerdem ist es kompliziert.",
+          "right": "Zwar ist es teuer, allerdings rechnet es sich langfristig.",
+          "why": "zwar demands a turn, not another point on the same side."
+        },
+        {
+          "wrong": "Ich denke, ich denke, dass es gut ist, weil es gut ist.",
+          "right": "Meines Erachtens ist die Maßnahme sinnvoll, weil sie den Verkehr messbar verringert.",
+          "why": "A reason has to add something the claim did not already say."
+        },
+        {
+          "wrong": "Meiner Meinung nach, sollten Städte autofrei werden.",
+          "right": "Meiner Meinung nach sollten Städte autofrei werden.",
+          "why": "No comma after the opening phrase; the verb follows it directly."
+        },
+        {
+          "wrong": "Zusammenfassend bin ich mir nicht sicher.",
+          "right": "Zusammenfassend überwiegen die Vorteile, auch wenn der Umbau Zeit braucht.",
+          "why": "The conclusion has to follow from the argument you made."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "meines Erachtens",
+          "en": "in my view (formal)"
+        },
+        {
+          "de": "dafür spricht, dass",
+          "en": "what speaks in favour is that"
+        },
+        {
+          "de": "der Befürworter",
+          "plural": "-",
+          "en": "supporter"
+        },
+        {
+          "de": "der Gegner",
+          "plural": "-",
+          "en": "opponent"
+        },
+        {
+          "de": "zudem",
+          "en": "in addition, moreover"
+        },
+        {
+          "de": "allerdings",
+          "en": "however (turns a concession)"
+        },
+        {
+          "de": "dennoch",
+          "en": "nevertheless"
+        },
+        {
+          "de": "folglich",
+          "en": "consequently"
+        },
+        {
+          "de": "abwägen",
+          "en": "to weigh up"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_b2_1_infinitivsaetze",
     "covers": [
       "b2.infinitive-clauses-purpose"
@@ -7183,7 +7394,7 @@
     ],
     "help": {
       "hook": "An empty hotel lobby full of things to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one old-fashioned hotel lobby with 32 things to find in it, the words you need when you check in, wait for a room or ask at the desk — der Kronleuchter, die Tischklingel, das Gästebuch, der Gepäckwagen by the revolving door. The prompt asks, for example, Wo ist die Überwachungskamera? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself.",
+      "intro": "A picture hunt instead of a deck: one old-fashioned hotel lobby with 32 things to find in it, the words you need when you check in, wait for a room or ask at the desk — der Kronleuchter, die Tischklingel, das Gästebuch, der Gepäckwagen by the revolving door. The prompt asks, for example, Wo ist die Überwachungskamera? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Tischklingel?), and after the find you choose der, die or das yourself.",
       "tips": [
         {
           "kind": "rule",
@@ -7496,9 +7707,9 @@
           "article": "der",
           "en": "rug",
           "plural": "-e",
-          "x": 19.0,
+          "x": 19,
           "y": 77.33,
-          "w": 61.0,
+          "w": 61,
           "h": 15.32
         },
         {
@@ -7508,7 +7719,7 @@
           "plural": "-",
           "x": 30.5,
           "y": 60.62,
-          "w": 30.0,
+          "w": 30,
           "h": 14.39
         },
         {
@@ -7536,7 +7747,7 @@
           "article": "der",
           "en": "luggage trolley",
           "plural": "-",
-          "x": 4.0,
+          "x": 4,
           "y": 66.19,
           "w": 16.5,
           "h": 26.92
@@ -7552,7 +7763,7 @@
           "h": 10.49,
           "also": [
             {
-              "x": 10.0,
+              "x": 10,
               "y": 83.64,
               "w": 8.5,
               "h": 5.76
@@ -7566,7 +7777,7 @@
           "plural": "-n",
           "x": 9.5,
           "y": 78.72,
-          "w": 7.0,
+          "w": 7,
           "h": 5.11
         },
         {
@@ -7574,9 +7785,9 @@
           "article": "der",
           "en": "chandelier",
           "plural": "-",
-          "x": 41.0,
+          "x": 41,
           "y": 14.67,
-          "w": 18.0,
+          "w": 18,
           "h": 23.67
         },
         {
@@ -7594,7 +7805,7 @@
           "article": "die",
           "en": "palm tree",
           "plural": "-n",
-          "x": 20.0,
+          "x": 20,
           "y": 47.63,
           "w": 14.5,
           "h": 18.57
@@ -7606,7 +7817,7 @@
           "plural": "Blumentöpfe",
           "x": 24.8,
           "y": 65.26,
-          "w": 7.0,
+          "w": 7,
           "h": 7.89
         },
         {
@@ -7626,7 +7837,7 @@
           "plural": "-",
           "x": 19.3,
           "y": 52.27,
-          "w": 4.0,
+          "w": 4,
           "h": 7.89
         },
         {
@@ -7636,7 +7847,7 @@
           "plural": "-en",
           "x": 34.5,
           "y": 45.49,
-          "w": 4.0,
+          "w": 4,
           "h": 4.27
         },
         {
@@ -7646,7 +7857,7 @@
           "plural": "-er",
           "x": 41.3,
           "y": 42.52,
-          "w": 11.0,
+          "w": 11,
           "h": 8.35
         },
         {
@@ -7664,9 +7875,9 @@
           "article": "der",
           "en": "monitor",
           "plural": "-e",
-          "x": 36.0,
+          "x": 36,
           "y": 55.05,
-          "w": 7.0,
+          "w": 7,
           "h": 6.03
         },
         {
@@ -7676,18 +7887,18 @@
           "plural": "-n",
           "x": 32.5,
           "y": 59.08,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Gästebuch",
           "article": "das",
           "en": "guest book",
           "plural": "Gästebücher",
-          "x": 43.0,
+          "x": 43,
           "y": 59.36,
-          "w": 7.0,
-          "h": 4.0
+          "w": 7,
+          "h": 4
         },
         {
           "de": "Blumenvase",
@@ -7696,7 +7907,7 @@
           "plural": "-n",
           "x": 53.5,
           "y": 52.73,
-          "w": 5.0,
+          "w": 5,
           "h": 8.82
         },
         {
@@ -7706,7 +7917,7 @@
           "plural": "-e",
           "x": 50.8,
           "y": 57.84,
-          "w": 4.0,
+          "w": 4,
           "h": 4.46
         },
         {
@@ -7746,7 +7957,7 @@
           "plural": "Aquarien",
           "x": 71.5,
           "y": 56.44,
-          "w": 11.0,
+          "w": 11,
           "h": 9.75
         },
         {
@@ -7754,7 +7965,7 @@
           "article": "die",
           "en": "piano stool",
           "plural": "Klavierbänke",
-          "x": 67.0,
+          "x": 67,
           "y": 68.33,
           "w": 5.5,
           "h": 7.15
@@ -7764,9 +7975,9 @@
           "article": "das",
           "en": "sofa",
           "plural": "-s",
-          "x": 74.0,
+          "x": 74,
           "y": 67.12,
-          "w": 22.0,
+          "w": 22,
           "h": 22.74
         },
         {
@@ -7794,7 +8005,7 @@
           "article": "der",
           "en": "coffee table",
           "plural": "-e",
-          "x": 59.0,
+          "x": 59,
           "y": 76.87,
           "w": 13.5,
           "h": 12.07
@@ -7805,19 +8016,19 @@
           "en": "magazine",
           "plural": "-en",
           "x": 60.7,
-          "y": 77.0,
+          "y": 77,
           "w": 6.7,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Tablett",
           "article": "das",
           "en": "tray",
           "plural": "-s",
-          "x": 64.0,
+          "x": 64,
           "y": 79.14,
           "w": 6.8,
-          "h": 4.0
+          "h": 4
         }
       ]
     }
@@ -7830,7 +8041,7 @@
     ],
     "help": {
       "hook": "A busy building site full of machines and tools to find: tap each one, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one building site, seen from the front, with 32 machines, materials and tools to find — der Kran with its Haken, der Bagger, die Schubkarre, das Gerüst against the half-built wall and the workbench full of tools on the right. These are the words you need when a neighbour builds, a road is dug up or the news reports on construction work. The prompt asks, for example, Wo ist der Presslufthammer? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself.",
+      "intro": "A picture hunt instead of a deck: one building site, seen from the front, with 32 machines, materials and tools to find — der Kran with its Haken, der Bagger, die Schubkarre, das Gerüst against the half-built wall and the workbench full of tools on the right. These are the words you need when a neighbour builds, a road is dug up or the news reports on construction work. The prompt asks, for example, Wo ist der Presslufthammer? You tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on an empty spot costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Schubkarre?), and after the find you choose der, die or das yourself.",
       "tips": [
         {
           "kind": "mnemonic",
@@ -8145,7 +8356,7 @@
           "plural": "Kräne",
           "x": 6.5,
           "y": 5.59,
-          "w": 48.0,
+          "w": 48,
           "h": 44.86
         },
         {
@@ -8165,7 +8376,7 @@
           "plural": "-n",
           "x": 15.3,
           "y": 13.56,
-          "w": 5.0,
+          "w": 5,
           "h": 5.48
         },
         {
@@ -8173,7 +8384,7 @@
           "article": "der",
           "en": "crane hook",
           "plural": "-",
-          "x": 46.0,
+          "x": 46,
           "y": 17.55,
           "w": 4.5,
           "h": 6.48
@@ -8183,9 +8394,9 @@
           "article": "der",
           "en": "site container",
           "plural": "-",
-          "x": 60.0,
+          "x": 60,
           "y": 34.5,
-          "w": 21.0,
+          "w": 21,
           "h": 16.95
         },
         {
@@ -8213,9 +8424,9 @@
           "article": "der",
           "en": "excavator",
           "plural": "-",
-          "x": 9.0,
+          "x": 9,
           "y": 33.5,
-          "w": 23.0,
+          "w": 23,
           "h": 27.91
         },
         {
@@ -8223,9 +8434,9 @@
           "article": "der",
           "en": "dump truck",
           "plural": "-",
-          "x": 25.0,
+          "x": 25,
           "y": 38.98,
-          "w": 22.0,
+          "w": 22,
           "h": 18.94
         },
         {
@@ -8235,13 +8446,13 @@
           "plural": "-n",
           "x": 49.5,
           "y": 39.98,
-          "w": 7.0,
+          "w": 7,
           "h": 12.46,
           "also": [
             {
               "x": 82.5,
               "y": 65.4,
-              "w": 9.0,
+              "w": 9,
               "h": 9.47
             }
           ]
@@ -8251,7 +8462,7 @@
           "article": "der",
           "en": "cement mixer",
           "plural": "-",
-          "x": 45.0,
+          "x": 45,
           "y": 49.95,
           "w": 15.5,
           "h": 15.95
@@ -8281,9 +8492,9 @@
           "article": "der",
           "en": "pile of sand",
           "plural": "-",
-          "x": 14.0,
+          "x": 14,
           "y": 63.9,
-          "w": 20.0,
+          "w": 20,
           "h": 9.97
         },
         {
@@ -8293,7 +8504,7 @@
           "plural": "-e",
           "x": 28.5,
           "y": 61.41,
-          "w": 16.0,
+          "w": 16,
           "h": 6.98,
           "also": [
             {
@@ -8309,9 +8520,9 @@
           "article": "das",
           "en": "barrel",
           "plural": "Fässer",
-          "x": 62.0,
+          "x": 62,
           "y": 56.93,
-          "w": 7.0,
+          "w": 7,
           "h": 10.97
         },
         {
@@ -8329,15 +8540,15 @@
           "article": "die",
           "en": "spirit level",
           "plural": "-n",
-          "x": 79.0,
+          "x": 79,
           "y": 74.87,
           "w": 14.5,
-          "h": 4.0,
+          "h": 4,
           "also": [
             {
               "x": 91.5,
               "y": 58.42,
-              "w": 4.0,
+              "w": 4,
               "h": 13.46
             }
           ]
@@ -8347,10 +8558,10 @@
           "article": "das",
           "en": "plank",
           "plural": "-er",
-          "x": 38.0,
+          "x": 38,
           "y": 69.69,
-          "w": 28.0,
-          "h": 4.0
+          "w": 28,
+          "h": 4
         },
         {
           "de": "Leitkegel",
@@ -8359,7 +8570,7 @@
           "plural": "-",
           "x": 15.8,
           "y": 74.87,
-          "w": 7.0,
+          "w": 7,
           "h": 8.97
         },
         {
@@ -8377,7 +8588,7 @@
           "article": "das",
           "en": "rope",
           "plural": "-e",
-          "x": 36.0,
+          "x": 36,
           "y": 84.34,
           "w": 6.5,
           "h": 7.48
@@ -8387,9 +8598,9 @@
           "article": "die",
           "en": "warning lamp",
           "plural": "-n",
-          "x": 44.0,
+          "x": 44,
           "y": 88.33,
-          "w": 7.0,
+          "w": 7,
           "h": 6.98,
           "also": [
             {
@@ -8405,9 +8616,9 @@
           "article": "die",
           "en": "cable reel",
           "plural": "-n",
-          "x": 53.0,
+          "x": 53,
           "y": 87.83,
-          "w": 11.0,
+          "w": 11,
           "h": 7.48
         },
         {
@@ -8425,9 +8636,9 @@
           "article": "die",
           "en": "workbench",
           "plural": "Werkbänke",
-          "x": 70.0,
+          "x": 70,
           "y": 83.84,
-          "w": 26.0,
+          "w": 26,
           "h": 11.46
         },
         {
@@ -8437,7 +8648,7 @@
           "plural": "-n",
           "x": 66.3,
           "y": 78.36,
-          "w": 4.0,
+          "w": 4,
           "h": 16.95
         },
         {
@@ -8457,7 +8668,7 @@
           "plural": "-n",
           "x": 76.7,
           "y": 79.36,
-          "w": 4.0,
+          "w": 4,
           "h": 4.98
         },
         {
@@ -8465,7 +8676,7 @@
           "article": "der",
           "en": "hard hat",
           "plural": "-e",
-          "x": 85.0,
+          "x": 85,
           "y": 79.85,
           "w": 6.5,
           "h": 4.49
@@ -8477,7 +8688,7 @@
           "plural": "-e",
           "x": 91.8,
           "y": 78.36,
-          "w": 4.0,
+          "w": 4,
           "h": 5.98
         },
         {
@@ -8487,7 +8698,7 @@
           "plural": "-",
           "x": 85.8,
           "y": 88.83,
-          "w": 7.0,
+          "w": 7,
           "h": 6.48
         }
       ]

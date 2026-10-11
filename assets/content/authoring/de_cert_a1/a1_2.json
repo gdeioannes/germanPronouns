@@ -479,11 +479,11 @@
     "title": "Personalpronomen (Akkusativ)",
     "help": {
       "hook": "Say 'I see him', 'she loves us' and 'do you have it?' in German — object pronouns are just a handful of small words.",
-      "intro": "When a pronoun is the object of the verb it changes form, just as in English (I → me, he → him): Ich sehe dich, du siehst mich, wir kennen ihn. Five of the nine change completely — ich → mich, du → dich, er → ihn, wir → uns, ihr → euch — and three stay exactly as they were: sie (her, them), es and Sie. The one that catches English speakers is 'it': a thing is er, sie or es by its gender, so 'I see it' is Ich sehe ihn for der Tisch, sie for die Lampe, es for das Buch. Choose the pronoun by the noun's gender, then put it in the accusative — which, for a der-word, means ihn.",
+      "intro": "When a pronoun is the object of the verb it changes form, just as in English (I → me, he → him): Ich sehe dich, du siehst mich, wir kennen ihn. Five of the nine change completely — ich → mich, du → dich, er → ihn, wir → uns, ihr → euch — and four stay exactly as they were: sie (her), sie (them), es and Sie. The one that catches English speakers is 'it': a thing is er, sie or es by its gender, so 'I see it' is Ich sehe ihn for der Tisch, sie for die Lampe, es for das Buch. Choose the pronoun by the noun's gender, then put it in the accusative — which, for a der-word, means ihn.",
       "tips": [
         {
           "kind": "rule",
-          "title": "Five change, three stay",
+          "title": "Five change, four stay",
           "text": "ich → mich · du → dich · er → ihn · wir → uns · ihr → euch. sie, es and Sie keep their form in the accusative.",
           "examples": [
             {
@@ -5062,6 +5062,211 @@
     }
   },
   {
+    "id": "quest_a1_2_schreiben_absage",
+    "after": "quest_a1_2_sprechen_dialog",
+    "covers": [
+      "a1.sentence-connectors"
+    ],
+    "title": "Schreiben: Eine kurze Nachricht",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Eine kurze Nachricht",
+      "level": "A1.2",
+      "writing": {
+        "topic": "Write a short message to a friend: you cannot come this evening. Say that you cannot come, say why, suggest another day, and ask whether that suits them.",
+        "practisePoints": [
+          "an informal greeting and sign-off",
+          "say you cannot come, with the modal verb können",
+          "give the reason with denn or because of a time phrase",
+          "suggest another day with a time expression (am Freitag, morgen Abend)",
+          "end with a question"
+        ],
+        "scoringCriteria": [
+          "the modal verb is in second place and its partner verb at the end",
+          "the message says both why and when, not only one of them",
+          "it reads as a message to a friend, with du"
+        ],
+        "targetVocabulary": [
+          "Es tut mir leid",
+          "ich kann nicht",
+          "heute Abend",
+          "denn",
+          "keine Zeit haben",
+          "am Freitag",
+          "vielleicht",
+          "Passt dir das?",
+          "Bis dann"
+        ],
+        "passScore": 50
+      }
+    },
+    "help": {
+      "hook": "Cancel an evening in German, politely, and have the message corrected.",
+      "intro": "A real message, the kind you send most often: you cannot make it, here is why, how about another day. You write it here in the box and the app builds a correction request that carries your own text. Aim for 120 to 300 characters. The grammar this exercise watches is the modal verb bracket: können takes second place and the other verb goes right to the end of the sentence. Get that right and the message is already most of the way there.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "The modal verb opens the bracket, the other verb closes it",
+          "text": "With a modal verb, German splits the two verbs apart: the modal takes second place and the plain infinitive goes to the very end. Everything else sits between them.",
+          "examples": [
+            {
+              "de": "Ich kann heute Abend leider nicht kommen.",
+              "en": "Unfortunately I cannot come this evening.",
+              "focus": [
+                "kann",
+                "kommen"
+              ]
+            },
+            {
+              "de": "Wir können am Freitag ins Kino gehen.",
+              "en": "We can go to the cinema on Friday.",
+              "focus": [
+                "können",
+                "gehen"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Ich kann heute nicht ____.",
+            "options": [
+              "kommen",
+              "komme",
+              "gekommen"
+            ],
+            "answer": "kommen",
+            "why": "After a modal verb the second verb is an infinitive, and it goes last."
+          },
+          "trap": "„Ich kann nicht kommen heute Abend“ puts the time after the infinitive; it belongs inside the bracket."
+        },
+        {
+          "kind": "rule",
+          "title": "denn gives the reason and changes nothing",
+          "text": "denn means because and, unlike weil, leaves the word order exactly as it was: subject, verb, the rest. At this level it is the safest way to give a reason.",
+          "examples": [
+            {
+              "de": "Ich kann nicht kommen, denn ich habe keine Zeit.",
+              "en": "I cannot come, because I have no time.",
+              "focus": [
+                "denn",
+                "habe"
+              ]
+            },
+            {
+              "de": "Ich bleibe zu Hause, denn ich bin müde.",
+              "en": "I am staying at home, because I am tired.",
+              "focus": [
+                "denn",
+                "bin"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Ich komme nicht, denn ich ____ arbeiten.",
+            "options": [
+              "muss",
+              "müssen",
+              "gemusst"
+            ],
+            "answer": "muss",
+            "why": "After denn the order is normal: subject, then the conjugated verb."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Say when, not just that",
+          "text": "A message that only cancels makes work for the other person. Offer a day: am Freitag, am Wochenende, morgen Abend, nächste Woche. Then ask one short question so they know to answer.",
+          "examples": [
+            {
+              "de": "Vielleicht am Freitag? Passt dir das?",
+              "en": "Maybe Friday? Does that suit you?",
+              "focus": [
+                "am Freitag",
+                "Passt dir das"
+              ]
+            },
+            {
+              "de": "Hast du am Wochenende Zeit?",
+              "en": "Do you have time at the weekend?",
+              "focus": [
+                "am Wochenende"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which preposition goes with a day?",
+            "options": [
+              "am Freitag",
+              "in Freitag",
+              "um Freitag"
+            ],
+            "answer": "am Freitag",
+            "why": "Days take an: am Montag, am Freitag."
+          }
+        }
+      ],
+      "remember": [
+        "Modal verb second, infinitive last: Ich kann heute nicht kommen.",
+        "denn gives a reason and leaves the word order alone.",
+        "Days take am: am Freitag. Parts of the day too: am Abend.",
+        "Always offer a new day and ask one question."
+      ],
+      "exam": "A short message that cancels and suggests something else is one of the written tasks the A1 certificate sets.",
+      "mistakes": [
+        {
+          "wrong": "Ich kann nicht kommen heute Abend.",
+          "right": "Ich kann heute Abend nicht kommen.",
+          "why": "The infinitive closes the sentence, so the time goes before it."
+        },
+        {
+          "wrong": "Ich komme nicht, denn ich muss arbeiten morgen.",
+          "right": "Ich komme nicht, denn ich muss morgen arbeiten.",
+          "why": "Same bracket: the infinitive stays last."
+        },
+        {
+          "wrong": "Vielleicht in Freitag?",
+          "right": "Vielleicht am Freitag?",
+          "why": "Days take an, contracted to am."
+        },
+        {
+          "wrong": "Es tut mir leid. Tschüss",
+          "right": "Es tut mir leid! Passt dir Freitag?\n\nBis dann\nAna",
+          "why": "Offer a new day and ask, or your friend has to write back to find out."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "Es tut mir leid",
+          "en": "I am sorry"
+        },
+        {
+          "de": "absagen",
+          "en": "to cancel"
+        },
+        {
+          "de": "die Zeit",
+          "plural": "-en",
+          "en": "time"
+        },
+        {
+          "de": "denn",
+          "en": "because (word order stays normal)"
+        },
+        {
+          "de": "vielleicht",
+          "en": "maybe"
+        },
+        {
+          "de": "passen",
+          "en": "to suit (Passt dir das?)"
+        },
+        {
+          "de": "Bis dann",
+          "en": "See you then"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_a1_2_wohin",
     "covers": [
       "a1.wohin"
@@ -5625,7 +5830,7 @@
     ],
     "help": {
       "hook": "A busy family kitchen with 32 everyday things in it: find each one in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one lived-in family kitchen with 32 things to find, all of them words you use every day at home — der Kühlschrank, die Pfanne, das Messer, the egg on the table and the spoon on the rail. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one lived-in family kitchen with 32 things to find, all of them words you use every day at home — der Kühlschrank, die Pfanne, das Messer, the egg on the table and the spoon on the rail. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Pfanne?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -5940,16 +6145,16 @@
           "plural": "-en",
           "x": 87.8,
           "y": 18.7,
-          "w": 9.0,
-          "h": 66.0
+          "w": 9,
+          "h": 66
         },
         {
           "de": "Fenster",
           "article": "das",
           "en": "window",
           "plural": "-",
-          "x": 3.0,
-          "y": 19.0,
+          "x": 3,
+          "y": 19,
           "w": 9.2,
           "h": 33.5
         },
@@ -5979,9 +6184,9 @@
           "en": "cooker",
           "plural": "-e",
           "x": 53.4,
-          "y": 51.0,
+          "y": 51,
           "w": 14.6,
-          "h": 15.0
+          "h": 15
         },
         {
           "de": "Schrank",
@@ -5991,7 +6196,7 @@
           "x": 59.2,
           "y": 21.5,
           "w": 20.6,
-          "h": 16.0
+          "h": 16
         },
         {
           "de": "Lampe",
@@ -5999,8 +6204,8 @@
           "en": "lamp",
           "plural": "-n",
           "x": 42.5,
-          "y": 2.0,
-          "w": 15.0,
+          "y": 2,
+          "w": 15,
           "h": 17.3
         },
         {
@@ -6010,7 +6215,7 @@
           "plural": "-e",
           "x": 29.5,
           "y": 64.5,
-          "w": 43.0,
+          "w": 43,
           "h": 33.5
         },
         {
@@ -6018,16 +6223,16 @@
           "article": "der",
           "en": "chair",
           "plural": "Stühle",
-          "x": 56.0,
-          "y": 76.0,
+          "x": 56,
+          "y": 76,
           "w": 21.5,
           "h": 17.5,
           "also": [
             {
-              "x": 68.0,
-              "y": 61.0,
+              "x": 68,
+              "y": 61,
               "w": 9.6,
-              "h": 16.0
+              "h": 16
             }
           ]
         },
@@ -6039,7 +6244,7 @@
           "x": 45.4,
           "y": 25.4,
           "w": 7.8,
-          "h": 8.0
+          "h": 8
         },
         {
           "de": "Besen",
@@ -6048,7 +6253,7 @@
           "plural": "-",
           "x": 9.8,
           "y": 52.5,
-          "w": 9.0,
+          "w": 9,
           "h": 28.5
         },
         {
@@ -6057,7 +6262,7 @@
           "en": "rubbish bin",
           "plural": "-",
           "x": 4.3,
-          "y": 70.0,
+          "y": 70,
           "w": 8.4,
           "h": 15.2
         },
@@ -6069,7 +6274,7 @@
           "x": 30.6,
           "y": 45.3,
           "w": 10.6,
-          "h": 7.0
+          "h": 7
         },
         {
           "de": "Kaffeemaschine",
@@ -6086,7 +6291,7 @@
           "article": "der",
           "en": "kettle",
           "plural": "-",
-          "x": 47.0,
+          "x": 47,
           "y": 44.8,
           "w": 5.8,
           "h": 7.2
@@ -6099,7 +6304,7 @@
           "x": 67.8,
           "y": 50.6,
           "w": 12.2,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Wasserhahn",
@@ -6107,8 +6312,8 @@
           "en": "tap",
           "plural": "Wasserhähne",
           "x": 70.5,
-          "y": 46.0,
-          "w": 4.0,
+          "y": 46,
+          "w": 4,
           "h": 5.3
         },
         {
@@ -6127,24 +6332,24 @@
           "en": "frying pan",
           "plural": "-n",
           "x": 60.5,
-          "y": 49.0,
+          "y": 49,
           "w": 9.8,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Löffel",
           "article": "der",
           "en": "spoon",
           "plural": "-",
-          "x": 59.0,
-          "y": 39.0,
-          "w": 4.0,
+          "x": 59,
+          "y": 39,
+          "w": 4,
           "h": 6.8,
           "also": [
             {
               "x": 61.5,
-              "y": 39.0,
-              "w": 4.0,
+              "y": 39,
+              "w": 4,
               "h": 6.8
             }
           ]
@@ -6155,8 +6360,8 @@
           "en": "whisk",
           "plural": "-",
           "x": 64.1,
-          "y": 39.0,
-          "w": 4.0,
+          "y": 39,
+          "w": 4,
           "h": 6.5
         },
         {
@@ -6194,19 +6399,19 @@
           "article": "das",
           "en": "chopping board",
           "plural": "-er",
-          "x": 33.0,
+          "x": 33,
           "y": 68.3,
           "w": 10.8,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Brot",
           "article": "das",
           "en": "bread",
           "plural": "-e",
-          "x": 49.0,
+          "x": 49,
           "y": 65.6,
-          "w": 11.0,
+          "w": 11,
           "h": 4.8
         },
         {
@@ -6217,17 +6422,17 @@
           "x": 35.8,
           "y": 68.3,
           "w": 10.8,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Ei",
           "article": "das",
           "en": "egg",
           "plural": "-er",
-          "x": 45.0,
+          "x": 45,
           "y": 66.7,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Schüssel",
@@ -6237,7 +6442,7 @@
           "x": 37.8,
           "y": 63.7,
           "w": 7.9,
-          "h": 5.0
+          "h": 5
         },
         {
           "de": "Apfel",
@@ -6246,8 +6451,8 @@
           "plural": "Äpfel",
           "x": 39.9,
           "y": 62.2,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Tasse",
@@ -6266,7 +6471,7 @@
           "plural": "-n",
           "x": 63.8,
           "y": 58.3,
-          "w": 4.0,
+          "w": 4,
           "h": 11.2
         }
       ]
@@ -6280,7 +6485,7 @@
     ],
     "help": {
       "hook": "A small corner shop full of groceries: find each item in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Fließband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Fließband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Kasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -6592,7 +6797,7 @@
           "plural": "-e",
           "x": 32.5,
           "y": 27.8,
-          "w": 34.0,
+          "w": 34,
           "h": 34.7
         },
         {
@@ -6600,17 +6805,17 @@
           "article": "die",
           "en": "chest freezer",
           "plural": "-n",
-          "x": 70.0,
-          "y": 48.0,
+          "x": 70,
+          "y": 48,
           "w": 23.8,
-          "h": 25.0
+          "h": 25
         },
         {
           "de": "Fließband",
           "article": "das",
           "en": "conveyor belt",
           "plural": "Fließbänder",
-          "x": 5.0,
+          "x": 5,
           "y": 51.5,
           "w": 25.2,
           "h": 6.5
@@ -6620,10 +6825,10 @@
           "article": "der",
           "en": "shopping trolley",
           "plural": "-",
-          "x": 36.0,
-          "y": 73.0,
+          "x": 36,
+          "y": 73,
           "w": 22.5,
-          "h": 21.0
+          "h": 21
         },
         {
           "de": "Eimer",
@@ -6631,7 +6836,7 @@
           "en": "bucket",
           "plural": "-",
           "x": 63.8,
-          "y": 80.0,
+          "y": 80,
           "w": 8.1,
           "h": 9.4
         },
@@ -6640,8 +6845,8 @@
           "article": "der",
           "en": "bunch of flowers",
           "plural": "Blumensträuße",
-          "x": 61.0,
-          "y": 70.0,
+          "x": 61,
+          "y": 70,
           "w": 14.2,
           "h": 11.5
         },
@@ -6650,8 +6855,8 @@
           "article": "der",
           "en": "shopping basket",
           "plural": "Einkaufskörbe",
-          "x": 7.0,
-          "y": 66.0,
+          "x": 7,
+          "y": 66,
           "w": 13.2,
           "h": 9.5
         },
@@ -6660,8 +6865,8 @@
           "article": "die",
           "en": "till",
           "plural": "-n",
-          "x": 18.0,
-          "y": 40.0,
+          "x": 18,
+          "y": 40,
           "w": 9.5,
           "h": 9.5
         },
@@ -6670,9 +6875,9 @@
           "article": "die",
           "en": "paper bag",
           "plural": "-n",
-          "x": 7.0,
+          "x": 7,
           "y": 45.5,
-          "w": 6.0,
+          "w": 6,
           "h": 8.5
         },
         {
@@ -6681,19 +6886,19 @@
           "en": "chocolate",
           "plural": "-n",
           "x": 14.5,
-          "y": 50.0,
+          "y": 50,
           "w": 5.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Waage",
           "article": "die",
           "en": "scales",
           "plural": "-n",
-          "x": 71.0,
+          "x": 71,
           "y": 32.5,
           "w": 7.5,
-          "h": 11.0
+          "h": 11
         },
         {
           "de": "Kuchen",
@@ -6701,7 +6906,7 @@
           "en": "cake",
           "plural": "-",
           "x": 69.8,
-          "y": 27.0,
+          "y": 27,
           "w": 5.4,
           "h": 4.3
         },
@@ -6713,7 +6918,7 @@
           "x": 75.8,
           "y": 27.5,
           "w": 5.8,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Wein",
@@ -6739,7 +6944,7 @@
           "article": "der",
           "en": "juice",
           "plural": "Säfte",
-          "x": 50.0,
+          "x": 50,
           "y": 21.3,
           "w": 9.3,
           "h": 8.2
@@ -6750,7 +6955,7 @@
           "en": "egg box",
           "plural": "-s",
           "x": 35.5,
-          "y": 33.0,
+          "y": 33,
           "w": 15.2,
           "h": 6.2
         },
@@ -6778,7 +6983,7 @@
           "article": "die",
           "en": "sausage",
           "plural": "Würste",
-          "x": 46.0,
+          "x": 46,
           "y": 44.3,
           "w": 8.6,
           "h": 5.2
@@ -6788,7 +6993,7 @@
           "article": "der",
           "en": "cheese",
           "plural": "-",
-          "x": 55.0,
+          "x": 55,
           "y": 43.4,
           "w": 8.5,
           "h": 5.6
@@ -6798,19 +7003,19 @@
           "article": "das",
           "en": "present",
           "plural": "-e",
-          "x": 56.0,
+          "x": 56,
           "y": 52.8,
           "w": 6.7,
-          "h": 6.0
+          "h": 6
         },
         {
           "de": "Eis",
           "article": "das",
           "en": "ice cream",
           "x": 73.5,
-          "y": 50.0,
+          "y": 50,
           "w": 4.3,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Steak",
@@ -6820,7 +7025,7 @@
           "x": 77.3,
           "y": 51.5,
           "w": 7.6,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Fisch",
@@ -6828,9 +7033,9 @@
           "en": "fish",
           "plural": "-e",
           "x": 78.2,
-          "y": 54.0,
+          "y": 54,
           "w": 10.3,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Ananas",
@@ -6847,8 +7052,8 @@
           "article": "die",
           "en": "banana",
           "plural": "-n",
-          "x": 31.0,
-          "y": 69.0,
+          "x": 31,
+          "y": 69,
           "w": 8.3,
           "h": 5.2
         },
@@ -6875,14 +7080,14 @@
             {
               "x": 41.5,
               "y": 53.5,
-              "w": 4.0,
-              "h": 4.0
+              "w": 4,
+              "h": 4
             },
             {
               "x": 60.9,
-              "y": 71.0,
+              "y": 71,
               "w": 4.3,
-              "h": 4.0
+              "h": 4
             }
           ]
         },
@@ -6909,7 +7114,7 @@
           "article": "die",
           "en": "cucumber",
           "plural": "-n",
-          "x": 51.0,
+          "x": 51,
           "y": 70.2,
           "w": 8.4,
           "h": 4.2
@@ -6919,7 +7124,7 @@
           "article": "der",
           "en": "lettuce",
           "plural": "-e",
-          "x": 60.0,
+          "x": 60,
           "y": 65.2,
           "w": 7.7,
           "h": 6.8

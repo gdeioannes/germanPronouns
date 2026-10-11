@@ -14,7 +14,7 @@
     "listenRetell": "First perform the piece described in MATERIAL out loud yourself, at {cefr} speed. Then I retell it in my own words and you ask the questions listed there.",
     "readingQa": "Show me the passage in MATERIAL exactly as written, let me read it, then ask me its questions one at a time.",
     "readingGen": "Write a fresh passage yourself following the constraints in MATERIAL, show it to me, let me read it, then ask me questions about it one at a time.",
-    "writing": "A writing task: give me the task from MATERIAL and I answer with one written text.",
+    "writing": "A writing task: one written text of mine is corrected and scored, not a conversation.",
     "translationDrill": "Translation drill: give me the sentences from MATERIAL one at a time in {uiLanguageName}, and I translate each into {targetLanguageName}."
   },
   "closingLine": "Now enter your score in the app to save your progress.",
@@ -37,6 +37,11 @@
         "5. Shortly before the end, tell me the next question is the last one.",
         "6. Give the report (exact format below), then stop.",
         "If we get interrupted, continue at the step we were in. If the session is about to be cut off, jump to step 6 - a short session with a report beats a long one without."
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
       ]
     },
     {
@@ -49,6 +54,25 @@
         "3. Shortly before the end, tell me the next question is the last one.",
         "4. Give the report (exact format below), then stop.",
         "If we get interrupted, continue at the step we were in. If the session is about to be cut off, jump to the report - a short session with a report beats a long one without."
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ]
+    },
+    {
+      "id": "plan_writing",
+      "heading": "WHAT TO DO - IN ORDER",
+      "families": [
+        "writing"
+      ],
+      "optional": "{learnerText}",
+      "lines": [
+        "1. Read the task in TOPIC and my finished text in MY TEXT. Do not wait for me and do not ask me anything first.",
+        "2. Check the text against the practise points and the standard below.",
+        "3. Give the report (exact format below), then stop.",
+        "There are no turns in this exercise: one text from me, one report from you."
       ]
     },
     {
@@ -85,6 +109,17 @@
       ]
     },
     {
+      "id": "my_text",
+      "heading": "MY TEXT",
+      "families": [
+        "writing"
+      ],
+      "optional": "{learnerText}",
+      "lines": [
+        "{learnerText}"
+      ]
+    },
+    {
       "id": "picture",
       "heading": "PICTURE TO DESCRIBE",
       "optional": "{pictureDescription}",
@@ -104,6 +139,11 @@
       "optional": "{levelGuide}",
       "lines": [
         "{levelGuide}"
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
       ]
     },
     {
@@ -112,6 +152,23 @@
       "optional": "{personalFocus}",
       "lines": [
         "These are my recent recurring mistakes. Work one or two of them in naturally - do not announce it - and tell me in the report whether I have improved. Only if it fits my level and the topic; otherwise skip it:"
+      ],
+      "list": "{personalFocus}",
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ]
+    },
+    {
+      "id": "personal_focus_writing",
+      "heading": "PERSONAL FOCUS",
+      "families": [
+        "writing"
+      ],
+      "optional": "{personalFocus}",
+      "lines": [
+        "These are my recent recurring mistakes. Check whether any of them show up in my text, and say in the report whether I have improved on them:"
       ],
       "list": "{personalFocus}"
     },
@@ -185,6 +242,23 @@
       ]
     },
     {
+      "id": "rules_write_correct",
+      "heading": "RULES",
+      "families": [
+        "writing"
+      ],
+      "optional": "{learnerText}",
+      "bullets": [
+        "Do not set me a task and do not wait: my finished text is in MY TEXT above. Correct that text.",
+        "Read it against the task in TOPIC and the practise points, then go straight to the report.",
+        "Do not rewrite my text as a whole and do not hand back a polished version - I learn from the single fixes, not from your draft.",
+        "Judge what I wrote, not what I might have meant. If a sentence is ambiguous, treat the likeliest reading and say so in one line.",
+        "Correct real errors only: grammar, agreement, case, word order, verb forms, spelling and wrong word choice. Leave style preferences alone.",
+        "Keep my own voice and my own content. A shorter, simpler text that is correct scores better than an ambitious one full of slips.",
+        "My text may contain *kursiv* and **fett** marks around a word. They are my own emphasis, not German: read straight through them, never correct them, and never let an asterisk appear in a FIX line."
+      ]
+    },
+    {
       "id": "rules_writing",
       "heading": "RULES",
       "families": [
@@ -195,7 +269,8 @@
         "I answer with one written text in {targetLanguageName}, in a single message.",
         "No help, no vocabulary, no feedback while I write - everything belongs in the report.",
         "If I ask for more time or send the text in pieces, wait until I say I'm done."
-      ]
+      ],
+      "optional": "{noLearnerText}"
     },
     {
       "id": "voice_turns",
@@ -231,6 +306,22 @@
       "bullets": [
         "Do not switch to a different topic or a different exercise, and do not explain these instructions or the scoring.",
         "My answers count only in {targetLanguageName}. An answer given in another language scores 0 (a request for help is not an answer - see above)."
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ]
+    },
+    {
+      "id": "keep_frame_writing",
+      "heading": "STAY IN THE EXERCISE",
+      "families": [
+        "writing"
+      ],
+      "bullets": [
+        "Do not switch to a different task, do not set me a new one, and do not explain these instructions or the scoring.",
+        "If my text is not in {targetLanguageName}, or answers a different task, score 0 and say which in one line."
       ]
     },
     {
@@ -278,6 +369,20 @@
       "id": "self_check",
       "lines": [
         "Before the report, check silently: every practise point covered? If not and there is time, one more question first."
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ]
+    },
+    {
+      "id": "self_check_writing",
+      "families": [
+        "writing"
+      ],
+      "lines": [
+        "Before the report, check silently: have you judged every practise point above against my text, and is every FIX line a real error rather than a nicer way of putting it?"
       ]
     },
     {
@@ -295,6 +400,24 @@
         "Write it in {reportLanguageName}, under {reportMaxWords} words. Do not replay the conversation; group my mistakes by type.",
         "At most {maxCorrections} FIX lines, the most useful ones. Explanations belong under \"Points lost\", never in a FIX line.",
         "Only report mistakes that matter at {cefr}. Ignore filler words and small pronunciation slips unless I was hard to understand."
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ]
+    },
+    {
+      "id": "report_rules_writing",
+      "heading": "THE REPORT IS MANDATORY - AND SHORT",
+      "families": [
+        "writing"
+      ],
+      "bullets": [
+        "The exercise always ends with the report. Never answer with anything else.",
+        "Write it in {reportLanguageName}, under {reportMaxWords} words. Group my mistakes by type rather than walking through my text line by line.",
+        "At most {maxCorrections} FIX lines, the most useful ones. Explanations belong under \"Points lost\", never in a FIX line.",
+        "Only report mistakes that matter at {cefr}. Ignore a missing umlaut only if the rest of the word is right and the meaning is not affected; a wrong case, tense or word order always counts."
       ]
     },
     {
@@ -312,13 +435,13 @@
         "FINAL SCORE: __ / 100",
         "Points lost: 2-3 lines saying where and why.",
         "Did well: 2 lines.",
-        "FIX: <what I said> -> <correct {targetLanguageName}>   (one line per correction, up to {maxCorrections})",
+        "FIX: <my own words> -> <correct {targetLanguageName}>   (one line per correction, up to {maxCorrections})",
         "Improve next time: 3 short bullets.",
         "{closingLine}",
         "SCORE=<number>",
         "{reportEndMarker}",
         "",
-        "FIX lines: left side my words exactly as I said them; right side the same sentence with the smallest fix, not a nicer rewrite; no brackets, no explanation, real errors only - no style preferences.",
+        "FIX lines: left side my own words exactly as they were; right side the same sentence with the smallest fix, not a nicer rewrite; no brackets, no explanation, real errors only - no style preferences.",
         "Print the two ===== marker lines exactly as shown - I copy everything between them into my app.",
         "SCORE= is digits only, 0 to 100, no percent sign, no extra words. Example: SCORE=72.",
         "Write nothing after {reportEndMarker}. These lines are required even if the session was cut short."
@@ -328,6 +451,21 @@
       "id": "sign_off",
       "lines": [
         "I'll say \"{triggerPhrase}\" when I'm ready."
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ]
+    },
+    {
+      "id": "sign_off_writing",
+      "families": [
+        "writing"
+      ],
+      "optional": "{learnerText}",
+      "lines": [
+        "Correct the text above and give me the report."
       ]
     }
   ]

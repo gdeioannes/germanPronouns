@@ -54,6 +54,7 @@ const TYPE_NAMES: Record<QuizType, { one: string; many: string; pitch: string }>
 	dictation: { one: 'dictation', many: 'dictations', pitch: 'fix spelling by ear' },
 	speakRepeat: { one: 'repeat-aloud', many: 'repeat-alouds', pitch: 'get your mouth moving' },
 	speaking: { one: 'speaking exercise', many: 'speaking exercises', pitch: 'say it out loud' },
+	writing: { one: 'writing task', many: 'writing tasks', pitch: 'write it yourself' },
 	vocabulary: { one: 'flashcard deck', many: 'flashcard decks', pitch: 'grow your vocabulary' },
 	suchbild: { one: 'picture hunt', many: 'picture hunts', pitch: 'find the words in a room' }
 };

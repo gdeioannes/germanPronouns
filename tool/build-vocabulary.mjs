@@ -77,11 +77,43 @@ const DROP_PAIRS = new Set([
 	'da|that one',
 	'hier|this one',
 	'die da|that one',
-	'Montag|Monday to Friday'
+	'Montag|Monday to Friday',
+	// "mit dessen / deren Hilfe" is one expression, not two alternatives: the
+	// slash splitter cuts it in half and each half means nothing on its own.
+	'mit dessen|with whose help',
+	'deren Hilfe|with whose help'
 ]);
 
 const levelQuizzes = bundle.quizzes.filter((q) => q.level === level && q.type !== 'vocabulary');
 const cards = new Map();
+
+/** An English gloss that opens with a preposition the German label may not carry. */
+const LEADING_EN_PREP = /^(in|on|at|for|after|before|from|until|till|by|during|within)\s/;
+/** A German label that brings its own preposition, so the gloss above is honest. */
+const LEADING_DE_PREP =
+	/^(an|auf|aus|bei|beim|bis|durch|für|gegen|hinter|in|im|ins|mit|nach|neben|ohne|seit|über|um|unter|von|vom|vor|während|wegen|zu|zum|zur|am|ab)\s/i;
+
+/**
+ * Grids that prompt in English and hold the German in the category value. Their
+ * subject labels are English, so none of them is a word to learn. A grid counts
+ * as English-prompted when half or more of its labelled rows look English:
+ * the label equals its own gloss, the gloss begins with it, or it is an English
+ * infinitive.
+ */
+const englishPrompted = new Set(
+	levelQuizzes
+		.filter((q) => {
+			const rows = (q.subjects ?? []).filter((s) => s.english);
+			if (rows.length < 4) return false;
+			const english = rows.filter((s) => {
+				const d = (s.display ?? '').trim();
+				const e = s.english.trim();
+				return d === e || e.startsWith(d) || /^to\s+\w/.test(d);
+			}).length;
+			return english * 2 >= rows.length;
+		})
+		.map((q) => q.id)
+);
 
 /**
  * A vocab entry may bundle two words ("der Großvater / Opa",
@@ -139,7 +171,13 @@ function add(raw, sourceQuizId) {
 		notes.unshift(rest.join(' – '));
 	}
 	// Stress marks ("umfáhren") are a reading aid, not something to type.
-	de = de.normalize('NFD').replace(/́/g, '').normalize('NFC');
+	// A German stress mark sits on an interior syllable ("umfáhren"); an
+	// acute on the final letter belongs to the word itself (Café, Varietié)
+	// and must survive.
+	de = de
+		.normalize('NFD')
+		.replace(/́(?=[^])/g, '')
+		.normalize('NFC');
 	// A bare number or year is not vocabulary.
 	if (/^[\d\s.,:]+$/.test(de)) return;
 	if (!de || de.includes('/')) return;
@@ -239,6 +277,22 @@ for (const q of levelQuizzes) {
 		// A destination row ("Spanien" = "to Spain", "meine Oma" = "to my
 		// grandma's") glosses the preposition the German label leaves out.
 		if (/^to /.test(english) && /^[A-ZÄÖÜ]/.test(display.split(/\s+/).at(-1))) continue;
+		// The same trap without "to": a time row is labelled with the bare noun
+		// ("der Abend", "8 Uhr", "das Essen") while the gloss carries the
+		// preposition the exercise is about ("in the evening", "after the
+		// meal"). As a flashcard that teaches a meaning the word does not have.
+		// A German label that brings its own preposition ("zu Hause" = "at
+		// home") is a real phrase and stays.
+		if (
+			LEADING_EN_PREP.test(english) &&
+			!LEADING_DE_PREP.test(display) &&
+			/^[A-ZÄÖÜ]/.test(display.split(/\s+/).at(-1))
+		)
+			continue;
+		// Some grids prompt in English and put the German in the category value
+		// ("to deny outright", "home"). Those displays are not German words.
+		if (/^to\s+\w/.test(display) || english.startsWith(display)) continue;
+		if (englishPrompted.has(q.id)) continue;
 		add({ de: display, en: s.english, gender: s.gender }, q.id);
 	}
 }
@@ -260,10 +314,27 @@ if (write) {
 	const slug = level.toLowerCase().replace('.', '_');
 	const id = `quest_${slug}_wortschatz`;
 	const existing = bundle.quizzes.find((q) => q.id === id);
+	// Pictures are attached to a card after the deck is built (see
+	// tool/gen-images.mjs), so a rebuild must carry them over or every
+	// level's "words in pictures" page comes back empty.
+	const art = new Map(
+		(existing?.cards ?? [])
+			.filter((c) => c.image)
+			.map((c) => [c.de, { image: c.image, imageHint: c.imageHint }])
+	);
+	for (const card of deck) {
+		const found = art.get(card.de);
+		if (!found) continue;
+		card.image = found.image;
+		if (found.imageHint !== undefined) card.imageHint = found.imageHint;
+	}
 	const quiz = {
 		id,
 		type: 'vocabulary',
-		title: `${level} · Wortschatz`,
+		// The nav already shows the level, and a level prefix in an exercise
+		// title is against the house rule the content test enforces. An
+		// existing deck keeps whatever title it was given.
+		title: 'Wortschatz',
 		storageKeyPrefix: `${id}_`,
 		level,
 		cards: deck,

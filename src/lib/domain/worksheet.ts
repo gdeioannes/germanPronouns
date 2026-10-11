@@ -150,6 +150,8 @@ export function sectionFor(
 			return fillBlankSection(quiz, stats, random);
 		case 'speaking':
 			return speakingVocabSection(quiz, stats);
+		case 'writing':
+			return null;
 		case 'listening':
 		case 'dictation':
 		case 'speakRepeat':

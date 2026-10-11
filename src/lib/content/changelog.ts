@@ -16,6 +16,21 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-11",
+    title: "You can write German now, and have it corrected",
+    highlight: true,
+    items: [
+      "A new kind of exercise: writing, and there is one in every level. You write a real text yourself and the app builds a correction request that carries what you wrote. Paste it into your own AI, and it marks your own German rather than setting you a fresh task. It starts with six sentences about yourself and ends, twelve levels later, with an argued essay.",
+      "The writing box is a proper little editor: a sheet of writing paper, a row of ä ö ü ß for keyboards that do not have them, bold and italic, bullet points, a word and character count, and a full-screen button for the long ones. The asterisks that mark bold never reach the correction, so nobody tries to correct them.",
+      "The box tells you how long the text should be, and the length grows with the level: a few sentences at A1, a proper text at C2. You cannot send it until it is long enough, so there is always something real to correct.",
+      "The task sits above the box while you need it and folds away to one line once you are writing, so the page gives the room to your own words. One tap brings it back.",
+      "The four fixes the correction gives you are saved under \"Work on these next time\". Your next speaking or writing exercise quietly brings one or two of them back and tells you whether you have improved, so the same slip does not survive for long.",
+      "When the score comes back there is somewhere to go: try again, the next exercise, or your deck. Try again brings your own text back rather than a blank sheet, so you can mend the four things the correction found and send it round once more. Your draft also survives closing the page by accident.",
+      "A text that comes back under its pass mark is marked for another go instead of being given a medal for turning up.",
+      "A round of content corrections across the course: the vocabulary decks had twelve nonsense cards built from the wrong half of an exercise, twenty nouns were marked as having no plural when they do, and all twenty-four picture hunts promised you a pair of glasses that only two of the rooms contained.",
+    ],
+  },
+  {
     date: "2026-10-10",
     title: "A forum, and a Report button on every exercise",
     highlight: true,

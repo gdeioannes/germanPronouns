@@ -154,8 +154,13 @@ function linkImages() {
 				.replace(/,\s*wide empty paper margins[^,]*$/, '');
 		for (const quiz of bundle.quizzes ?? []) {
 			let scene = sceneOf(quiz) ?? sharedOf(quiz);
-			if (!scene && quiz.type === 'speaking') {
-				const wants = /kurzcheck/.test(quiz.id) ? ['listening', 'reading'] : ['reading', 'listening'];
+			// A writing task has nothing of its own to show either, so it borrows
+			// the level's reading scene: a text on a page is the right picture for it.
+			if (!scene && (quiz.type === 'speaking' || quiz.type === 'writing')) {
+				const wants =
+					quiz.type === 'writing' || !/kurzcheck/.test(quiz.id)
+						? ['reading', 'listening']
+						: ['listening', 'reading'];
 				for (const type of wants) {
 					const donor = bundle.quizzes.find(
 						(q) => q.type === type && q.level === quiz.level && sceneOf(q)

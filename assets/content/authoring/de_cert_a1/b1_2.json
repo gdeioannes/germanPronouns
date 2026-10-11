@@ -170,7 +170,7 @@
         },
         {
           "de": "ausschalten / einschalten",
-          "en": "to switch off / on"
+          "en": "to switch off / to switch on"
         },
         {
           "de": "Gerät",
@@ -5763,6 +5763,216 @@
     }
   },
   {
+    "id": "quest_b1_2_schreiben_geschichte",
+    "after": "quest_b1_2_sprechen_dialog",
+    "covers": [
+      "b1.narration-skills"
+    ],
+    "title": "Schreiben: Etwas ist schiefgegangen",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Etwas ist schiefgegangen",
+      "level": "B1.2",
+      "writing": {
+        "topic": "Tell the story of a journey on which something went wrong: what you had planned, what happened, what you did about it, and how it ended. Write it as a story, not as a list.",
+        "practisePoints": [
+          "tell it in the past, mixing Präteritum for war, hatte and the modals with Perfekt for the actions",
+          "use nachdem or als once, with the right tense behind it",
+          "put one event before another with the Plusquamperfekt (ich hatte … vergessen)",
+          "order the story with temporal connectors: zuerst, plötzlich, schließlich",
+          "end with how it turned out and what you thought"
+        ],
+        "scoringCriteria": [
+          "the tenses are consistent and the Plusquamperfekt really marks the earlier event",
+          "it reads as a story with a turn in it, not as a list of sentences",
+          "the connectors do real work rather than being decoration"
+        ],
+        "targetVocabulary": [
+          "eigentlich",
+          "plötzlich",
+          "zuerst",
+          "schließlich",
+          "nachdem",
+          "als",
+          "verpassen",
+          "die Verspätung",
+          "zum Glück",
+          "am Ende"
+        ],
+        "passScore": 60
+      }
+    },
+    "help": {
+      "hook": "Tell a story that goes wrong, in German, and find out which tense slipped.",
+      "intro": "Narrating is harder than reporting, because the tenses have to hold together across a whole text. Write what you had planned, what happened, what you did and how it ended. Aim for 400 to 900 characters. Two things earn the marks: the spoken past mix, which is Präteritum for war, hatte and the modal verbs and Perfekt for everything that happened, and one Plusquamperfekt in the right place, marking the thing that had already happened before the rest.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "The mix that sounds natural",
+          "text": "Written German narration leans on the Präteritum, but in a personal story the natural mix is Präteritum for sein, haben and the modal verbs and Perfekt for the actions. Mixing them that way is not sloppy; it is what a German speaker does.",
+          "examples": [
+            {
+              "de": "Ich war schon am Bahnhof, aber ich hatte die Fahrkarte vergessen.",
+              "en": "I was already at the station, but I had forgotten the ticket.",
+              "focus": [
+                "war",
+                "hatte",
+                "vergessen"
+              ]
+            },
+            {
+              "de": "Ich musste zurücklaufen und habe den Zug verpasst.",
+              "en": "I had to run back and missed the train.",
+              "focus": [
+                "musste",
+                "habe",
+                "verpasst"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Ich ____ müde, deshalb habe ich lange geschlafen.",
+            "options": [
+              "war",
+              "bin gewesen",
+              "wäre"
+            ],
+            "answer": "war",
+            "why": "sein is told in the Präteritum even when the actions around it are Perfekt."
+          },
+          "trap": "Do not put the actions in the Präteritum too unless you are writing literature: „ich verpasste den Zug“ is correct but reads like a novel."
+        },
+        {
+          "kind": "rule",
+          "title": "The Plusquamperfekt marks what came first",
+          "text": "When one past event happened before another, the earlier one takes hatte or war plus the participle. It is what makes a story read in order even when you tell it out of order.",
+          "examples": [
+            {
+              "de": "Nachdem ich die Fahrkarte vergessen hatte, musste ich zurücklaufen.",
+              "en": "After I had forgotten the ticket, I had to run back.",
+              "focus": [
+                "vergessen hatte",
+                "musste"
+              ]
+            },
+            {
+              "de": "Der Zug war schon abgefahren, als ich ankam.",
+              "en": "The train had already left when I arrived.",
+              "focus": [
+                "war",
+                "abgefahren",
+                "ankam"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Nachdem wir gegessen ____, sind wir losgefahren.",
+            "options": [
+              "hatten",
+              "haben",
+              "hätten"
+            ],
+            "answer": "hatten",
+            "why": "nachdem puts the earlier event in the Plusquamperfekt: hatten gegessen."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "A story needs a turn",
+          "text": "Plan, then the turn, then what you did, then the end. The turn is what makes it a story: plötzlich, auf einmal, doch dann. Without it you have written a timetable.",
+          "examples": [
+            {
+              "de": "Eigentlich wollten wir um acht losfahren. Doch dann ging das Auto nicht an.",
+              "en": "We had actually meant to set off at eight. But then the car would not start.",
+              "focus": [
+                "Eigentlich",
+                "Doch dann"
+              ]
+            },
+            {
+              "de": "Zum Glück hat uns ein Nachbar geholfen. Am Ende sind wir drei Stunden später angekommen.",
+              "en": "Luckily a neighbour helped us. In the end we arrived three hours later.",
+              "focus": [
+                "Zum Glück",
+                "Am Ende"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which word signals the turn in a story?",
+            "options": [
+              "plötzlich",
+              "außerdem",
+              "nämlich"
+            ],
+            "answer": "plötzlich",
+            "why": "plötzlich marks the moment the plan breaks; the others add or explain."
+          }
+        }
+      ],
+      "remember": [
+        "Präteritum for war, hatte and the modals; Perfekt for the actions.",
+        "nachdem plus Plusquamperfekt, then Präteritum or Perfekt in the main clause.",
+        "eigentlich sets up the plan, plötzlich breaks it, schließlich ends it.",
+        "A story has a turn; a list does not."
+      ],
+      "exam": "Telling a past story in writing is the narrative task the B1 certificate sets, and the one everyone tells at a dinner table.",
+      "mistakes": [
+        {
+          "wrong": "Nachdem ich gegessen habe, bin ich losgefahren.",
+          "right": "Nachdem ich gegessen hatte, bin ich losgefahren.",
+          "why": "nachdem needs the earlier event one step further back."
+        },
+        {
+          "wrong": "Ich bin müde gewesen und habe lange geschlafen.",
+          "right": "Ich war müde und habe lange geschlafen.",
+          "why": "sein is told in the Präteritum."
+        },
+        {
+          "wrong": "Der Zug ist schon abgefahren, als ich ankam.",
+          "right": "Der Zug war schon abgefahren, als ich ankam.",
+          "why": "The departure happened first, so it takes the Plusquamperfekt."
+        },
+        {
+          "wrong": "Ich habe den Zug verpasst. Ich habe ein Taxi genommen. Ich bin angekommen.",
+          "right": "Ich habe den Zug verpasst. Zum Glück habe ich sofort ein Taxi gefunden, und am Ende bin ich nur zwanzig Minuten zu spät angekommen.",
+          "why": "Three bare sentences are a list; connectors make it a story."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "eigentlich",
+          "en": "actually, as it happens (often sets up a plan that fails)"
+        },
+        {
+          "de": "plötzlich",
+          "en": "suddenly"
+        },
+        {
+          "de": "schließlich",
+          "en": "finally, in the end"
+        },
+        {
+          "de": "verpassen",
+          "en": "to miss (a train, a chance)"
+        },
+        {
+          "de": "die Verspätung",
+          "plural": "-en",
+          "en": "delay"
+        },
+        {
+          "de": "zum Glück",
+          "en": "luckily"
+        },
+        {
+          "de": "klappen",
+          "en": "to work out (Es hat nicht geklappt)"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_b1_2_zustandspassiv",
     "covers": [
       "b1.state-passive",
@@ -6145,7 +6355,7 @@
     ],
     "help": {
       "hook": "A cluttered garage full of tools to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one lived-in home garage that doubles as a workshop, with 32 things to find in it — der Schraubstock on the workbench, die Zange on the pegboard, das Verlängerungskabel coiled on the floor. The prompt asks Wo ist der Rasenmäher? and you tap it in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one lived-in home garage that doubles as a workshop, with 32 things to find in it — der Schraubstock on the workbench, die Zange on the pegboard, das Verlängerungskabel coiled on the floor. The prompt asks Wo ist der Rasenmäher? and you tap it in the picture. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Rasenmäher?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -6458,7 +6668,7 @@
           "article": "die",
           "en": "workbench",
           "plural": "Werkbänke",
-          "x": 4.0,
+          "x": 4,
           "y": 61.94,
           "w": 27.5,
           "h": 33.47
@@ -6468,9 +6678,9 @@
           "article": "das",
           "en": "garage door",
           "plural": "-e",
-          "x": 51.0,
+          "x": 51,
           "y": 37.46,
-          "w": 24.0,
+          "w": 24,
           "h": 25.97
         },
         {
@@ -6478,9 +6688,9 @@
           "article": "die",
           "en": "pegboard",
           "plural": "Lochwände",
-          "x": 4.0,
+          "x": 4,
           "y": 34.46,
-          "w": 16.0,
+          "w": 16,
           "h": 27.97
         },
         {
@@ -6490,7 +6700,7 @@
           "plural": "-e",
           "x": 29.5,
           "y": 43.95,
-          "w": 16.0,
+          "w": 16,
           "h": 21.98
         },
         {
@@ -6508,9 +6718,9 @@
           "article": "der",
           "en": "lawn mower",
           "plural": "-",
-          "x": 48.0,
+          "x": 48,
           "y": 69.93,
-          "w": 23.0,
+          "w": 23,
           "h": 25.97
         },
         {
@@ -6518,9 +6728,9 @@
           "article": "das",
           "en": "bicycle",
           "plural": "Fahrräder",
-          "x": 32.0,
+          "x": 32,
           "y": 58.94,
-          "w": 25.0,
+          "w": 25,
           "h": 15.48
         },
         {
@@ -6540,7 +6750,7 @@
           "plural": "Werkzeugkästen",
           "x": 10.5,
           "y": 77.42,
-          "w": 15.0,
+          "w": 15,
           "h": 14.98
         },
         {
@@ -6550,7 +6760,7 @@
           "plural": "-",
           "x": 20.8,
           "y": 36.46,
-          "w": 7.0,
+          "w": 7,
           "h": 15.98
         },
         {
@@ -6560,7 +6770,7 @@
           "plural": "-e",
           "x": 1.8,
           "y": 1.8,
-          "w": 15.0,
+          "w": 15,
           "h": 13.49
         },
         {
@@ -6571,7 +6781,7 @@
           "x": 35.3,
           "y": 10.79,
           "w": 30.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Hammer",
@@ -6588,9 +6798,9 @@
           "article": "die",
           "en": "saw",
           "plural": "-n",
-          "x": 11.0,
+          "x": 11,
           "y": 37.76,
-          "w": 4.0,
+          "w": 4,
           "h": 11.79
         },
         {
@@ -6600,13 +6810,13 @@
           "plural": "-n",
           "x": 10.4,
           "y": 50.95,
-          "w": 4.0,
+          "w": 4,
           "h": 10.49,
           "also": [
             {
               "x": 15.4,
               "y": 47.95,
-              "w": 4.0,
+              "w": 4,
               "h": 5.49
             }
           ]
@@ -6618,14 +6828,14 @@
           "plural": "-",
           "x": 15.4,
           "y": 42.36,
-          "w": 4.0,
+          "w": 4,
           "h": 5.49,
           "also": [
             {
-              "x": 20.0,
+              "x": 20,
               "y": 67.33,
               "w": 4.6,
-              "h": 4.0
+              "h": 4
             }
           ]
         },
@@ -6634,7 +6844,7 @@
           "article": "der",
           "en": "vice",
           "plural": "Schraubstöcke",
-          "x": 22.0,
+          "x": 22,
           "y": 60.44,
           "w": 10.5,
           "h": 5.99
@@ -6656,7 +6866,7 @@
           "plural": "-n",
           "x": 31.6,
           "y": 43.75,
-          "w": 4.0,
+          "w": 4,
           "h": 4.3
         },
         {
@@ -6667,7 +6877,7 @@
           "x": 36.8,
           "y": 44.95,
           "w": 6.2,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Seil",
@@ -6677,17 +6887,17 @@
           "x": 31.8,
           "y": 50.45,
           "w": 6.2,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Vorhängeschloss",
           "article": "das",
           "en": "padlock",
           "plural": "Vorhängeschlösser",
-          "x": 37.0,
+          "x": 37,
           "y": 49.95,
-          "w": 4.0,
-          "h": 4.0
+          "w": 4,
+          "h": 4
         },
         {
           "de": "Eimer",
@@ -6714,7 +6924,7 @@
           "article": "die",
           "en": "bike pump",
           "plural": "-n",
-          "x": 32.0,
+          "x": 32,
           "y": 70.93,
           "w": 6.5,
           "h": 10.99
@@ -6736,7 +6946,7 @@
           "plural": "-s",
           "x": 31.5,
           "y": 83.71,
-          "w": 12.0,
+          "w": 12,
           "h": 7.99
         },
         {
@@ -6746,7 +6956,7 @@
           "plural": "-",
           "x": 78.5,
           "y": 51.25,
-          "w": 10.0,
+          "w": 10,
           "h": 33.97
         },
         {
@@ -6764,9 +6974,9 @@
           "article": "das",
           "en": "extension cable",
           "plural": "-",
-          "x": 73.0,
+          "x": 73,
           "y": 85.91,
-          "w": 19.0,
+          "w": 19,
           "h": 9.49
         },
         {
@@ -6784,7 +6994,7 @@
           "article": "der",
           "en": "jerry can",
           "plural": "-",
-          "x": 83.0,
+          "x": 83,
           "y": 79.92,
           "w": 8.3,
           "h": 9.99
@@ -6800,7 +7010,7 @@
     ],
     "help": {
       "hook": "A sunny park with no one in it: find each thing in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one sunny town park with 32 things to find in it, from the pond and its ducks to the playground — der Springbrunnen, die Wippe, das Eichhörnchen under the tree. The prompt asks Wo ist die Rutsche? and you tap it in the picture. A tap on empty grass or sky costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one sunny town park with 32 things to find in it, from the pond and its ducks to the playground — der Springbrunnen, die Wippe, das Eichhörnchen under the tree. The prompt asks Wo ist die Rutsche? and you tap it in the picture. A tap on empty grass or sky costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Rutsche?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7111,10 +7321,10 @@
           "article": "der",
           "en": "tree",
           "plural": "Bäume",
-          "x": 2.0,
+          "x": 2,
           "y": 6.5,
           "w": 30.97,
-          "h": 54.0
+          "h": 54
         },
         {
           "de": "Hecke",
@@ -7134,15 +7344,15 @@
           "x": 12.49,
           "y": 46.5,
           "w": 49.45,
-          "h": 13.0
+          "h": 13
         },
         {
           "de": "Blumenbeet",
           "article": "das",
           "en": "flower bed",
           "plural": "-e",
-          "x": 2.0,
-          "y": 87.0,
+          "x": 2,
+          "y": 87,
           "w": 41.46,
           "h": 10.5
         },
@@ -7152,9 +7362,9 @@
           "en": "bandstand",
           "plural": "-s",
           "x": 42.45,
-          "y": 21.0,
+          "y": 21,
           "w": 14.48,
-          "h": 16.0
+          "h": 16
         },
         {
           "de": "Zaun",
@@ -7162,7 +7372,7 @@
           "en": "fence",
           "plural": "Zäune",
           "x": 40.46,
-          "y": 37.0,
+          "y": 37,
           "w": 18.48,
           "h": 4.5
         },
@@ -7173,7 +7383,7 @@
           "plural": "-n",
           "x": 61.63,
           "y": 23.5,
-          "w": 4.0,
+          "w": 4,
           "h": 16.5
         },
         {
@@ -7182,9 +7392,9 @@
           "en": "slide",
           "plural": "-n",
           "x": 65.43,
-          "y": 34.0,
+          "y": 34,
           "w": 12.99,
-          "h": 12.0
+          "h": 12
         },
         {
           "de": "Schaukel",
@@ -7192,9 +7402,9 @@
           "en": "swing",
           "plural": "-n",
           "x": 77.42,
-          "y": 33.0,
+          "y": 33,
           "w": 15.48,
-          "h": 11.0
+          "h": 11
         },
         {
           "de": "Tischtennisplatte",
@@ -7204,7 +7414,7 @@
           "x": 78.92,
           "y": 44.5,
           "w": 16.48,
-          "h": 6.0
+          "h": 6
         },
         {
           "de": "Sandkasten",
@@ -7222,9 +7432,9 @@
           "en": "roundabout",
           "plural": "-s",
           "x": 64.73,
-          "y": 51.0,
+          "y": 51,
           "w": 12.49,
-          "h": 6.0
+          "h": 6
         },
         {
           "de": "Wippe",
@@ -7244,7 +7454,7 @@
           "x": 79.91,
           "y": 61.5,
           "w": 15.48,
-          "h": 7.0
+          "h": 7
         },
         {
           "de": "Mülleimer",
@@ -7252,7 +7462,7 @@
           "en": "litter bin",
           "plural": "-",
           "x": 87.41,
-          "y": 73.0,
+          "y": 73,
           "w": 5.49,
           "h": 8.5
         },
@@ -7262,9 +7472,9 @@
           "en": "tricycle",
           "plural": "Dreiräder",
           "x": 66.93,
-          "y": 71.0,
+          "y": 71,
           "w": 11.99,
-          "h": 10.0
+          "h": 10
         },
         {
           "de": "Ball",
@@ -7272,7 +7482,7 @@
           "en": "ball",
           "plural": "Bälle",
           "x": 64.43,
-          "y": 84.0,
+          "y": 84,
           "w": 4.5,
           "h": 4.5
         },
@@ -7282,7 +7492,7 @@
           "en": "bench",
           "plural": "Bänke",
           "x": 38.96,
-          "y": 67.0,
+          "y": 67,
           "w": 21.98,
           "h": 13.5
         },
@@ -7291,7 +7501,7 @@
           "article": "das",
           "en": "ice cream",
           "x": 43.75,
-          "y": 72.0,
+          "y": 72,
           "w": 4.5,
           "h": 5.5
         },
@@ -7331,9 +7541,9 @@
           "en": "fountain",
           "plural": "-",
           "x": 21.98,
-          "y": 46.0,
+          "y": 46,
           "w": 7.99,
-          "h": 14.0
+          "h": 14
         },
         {
           "de": "Schwan",
@@ -7341,9 +7551,9 @@
           "en": "swan",
           "plural": "Schwäne",
           "x": 32.47,
-          "y": 48.0,
+          "y": 48,
           "w": 7.49,
-          "h": 6.0
+          "h": 6
         },
         {
           "de": "Ente",
@@ -7351,15 +7561,15 @@
           "en": "duck",
           "plural": "-n",
           "x": 15.28,
-          "y": 50.0,
+          "y": 50,
           "w": 4.6,
-          "h": 4.0,
+          "h": 4,
           "also": [
             {
               "x": 49.45,
-              "y": 53.0,
+              "y": 53,
               "w": 4.5,
-              "h": 4.0
+              "h": 4
             }
           ]
         },
@@ -7371,7 +7581,7 @@
           "x": 41.95,
           "y": 49.5,
           "w": 10.99,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Ruder",
@@ -7380,7 +7590,7 @@
           "plural": "-",
           "x": 45.25,
           "y": 49.6,
-          "w": 4.0,
+          "w": 4,
           "h": 5.2
         },
         {
@@ -7391,7 +7601,7 @@
           "x": 28.97,
           "y": 42.5,
           "w": 15.98,
-          "h": 5.0
+          "h": 5
         },
         {
           "de": "Drachen",
@@ -7399,7 +7609,7 @@
           "en": "kite",
           "plural": "-",
           "x": 21.98,
-          "y": 29.0,
+          "y": 29,
           "w": 6.49,
           "h": 14.5
         },
@@ -7411,7 +7621,7 @@
           "x": 17.48,
           "y": 23.8,
           "w": 6.49,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Vogelhaus",
@@ -7420,8 +7630,8 @@
           "plural": "Vogelhäuser",
           "x": 6.99,
           "y": 42.5,
-          "w": 4.0,
-          "h": 5.0
+          "w": 4,
+          "h": 5
         },
         {
           "de": "Sonne",
@@ -7430,7 +7640,7 @@
           "x": 84.41,
           "y": 8.5,
           "w": 6.99,
-          "h": 7.0
+          "h": 7
         }
       ]
     }

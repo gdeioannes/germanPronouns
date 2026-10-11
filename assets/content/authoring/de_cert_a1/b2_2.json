@@ -6513,6 +6513,217 @@
     }
   },
   {
+    "id": "quest_b2_2_schreiben_beschwerde",
+    "after": "quest_b2_2_sprechen_dialog",
+    "covers": [
+      "b2.concessive"
+    ],
+    "title": "Schreiben: Beschwerde mit Zugeständnis",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Beschwerde mit Zugeständnis",
+      "level": "B2.2",
+      "writing": {
+        "topic": "Write a letter of complaint about a service that went wrong: a delivery, a repair or a holiday booking. Concede what the other side did reasonably, then press your point, say exactly what you want and by when.",
+        "practisePoints": [
+          "a formal frame with a subject line",
+          "concede one point properly with obwohl, zwar … aber or trotz plus a noun",
+          "state the facts with dates and figures, not with adjectives",
+          "press the request with a Konjunktiv II that stays firm",
+          "set a deadline and say what happens after it"
+        ],
+        "scoringCriteria": [
+          "the concession is real and the turn after it is firm",
+          "the facts carry the complaint rather than the tone",
+          "the request names a specific remedy and a date"
+        ],
+        "targetVocabulary": [
+          "Betreff",
+          "obwohl",
+          "zwar … aber",
+          "trotz",
+          "der Mangel",
+          "die Nachbesserung",
+          "eine Frist setzen",
+          "bis spätestens",
+          "andernfalls",
+          "die Minderung"
+        ],
+        "passScore": 60
+      }
+    },
+    "help": {
+      "hook": "Complain in German the way it works: concede a little, then hold firm.",
+      "intro": "A complaint that only complains gets a form letter back. One that concedes a point first and then presses is harder to brush off, and that concessive turn is what this exercise is for. Write 600 to 1300 characters. The strongest version is unemotional: dates, amounts and what you want, with the Konjunktiv II doing the politeness so the content can stay hard. Set a deadline, and say what you will do if it passes.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Three ways to concede, one meaning",
+          "text": "obwohl takes a clause with the verb at the end. zwar … aber keeps two main clauses. trotz takes a noun in the genitive. Pick by what you have to hand: a clause, a pair of statements, or a noun.",
+          "examples": [
+            {
+              "de": "Obwohl der Techniker pünktlich kam, wurde der Schaden nicht behoben.",
+              "en": "Although the technician came on time, the fault was not repaired.",
+              "focus": [
+                "Obwohl",
+                "kam"
+              ]
+            },
+            {
+              "de": "Trotz mehrfacher Zusagen ist bislang nichts geschehen.",
+              "en": "Despite repeated assurances nothing has happened so far.",
+              "focus": [
+                "Trotz"
+              ]
+            }
+          ],
+          "check": {
+            "q": "____ der Zusage wurde der Termin nicht eingehalten.",
+            "options": [
+              "Trotz",
+              "Obwohl",
+              "Dennoch"
+            ],
+            "answer": "Trotz",
+            "why": "A noun phrase follows, so it takes the preposition trotz, not the conjunction obwohl."
+          },
+          "trap": "trotz governs the genitive in writing: trotz mehrfacher Zusagen, not trotz mehrfachen Zusagen."
+        },
+        {
+          "kind": "rule",
+          "title": "Facts complain better than adjectives",
+          "text": "Unacceptable and terrible can be waved away; a date and an amount cannot. Give the order number, the dates, the sums, and what was promised against what happened. Let the reader draw the conclusion you have made unavoidable.",
+          "examples": [
+            {
+              "de": "Die Lieferung war für den 3. Mai zugesagt und erfolgte erst am 28. Mai.",
+              "en": "Delivery was promised for 3 May and only happened on 28 May.",
+              "focus": [
+                "zugesagt",
+                "erfolgte"
+              ]
+            },
+            {
+              "de": "Von den bestellten zwölf Stühlen waren vier beschädigt.",
+              "en": "Of the twelve chairs ordered, four were damaged.",
+              "focus": [
+                "beschädigt"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which belongs in a complaint?",
+            "options": [
+              "Die Lieferung kam 25 Tage zu spät.",
+              "Die Lieferung war eine Katastrophe.",
+              "Ich bin sehr enttäuscht von Ihnen."
+            ],
+            "answer": "Die Lieferung kam 25 Tage zu spät.",
+            "why": "A figure is checkable; a judgement is not."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "A deadline with a consequence",
+          "text": "A request with no date is a wish. Name a date, say what you expect by it, and say what follows if it passes. The Konjunktiv II keeps the tone civil while the content stays firm.",
+          "examples": [
+            {
+              "de": "Ich bitte Sie, den Mangel bis spätestens 15. Juni zu beheben.",
+              "en": "I ask you to remedy the fault by 15 June at the latest.",
+              "focus": [
+                "bis spätestens"
+              ]
+            },
+            {
+              "de": "Andernfalls würde ich den Rechnungsbetrag um 30 Prozent mindern.",
+              "en": "Otherwise I would reduce the invoice amount by 30 per cent.",
+              "focus": [
+                "Andernfalls",
+                "würde"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which closes a complaint most effectively?",
+            "options": [
+              "Bitte melden Sie sich bis zum 15. Juni.",
+              "Bitte melden Sie sich bald.",
+              "Ich hoffe auf eine Antwort."
+            ],
+            "answer": "Bitte melden Sie sich bis zum 15. Juni.",
+            "why": "Only a date can pass, which is what gives the request force."
+          }
+        }
+      ],
+      "remember": [
+        "obwohl plus clause, zwar … aber plus two main clauses, trotz plus genitive noun.",
+        "Dates and figures, not adjectives.",
+        "Konjunktiv II for the tone, hard content underneath.",
+        "A deadline, and what happens after it."
+      ],
+      "exam": "A written complaint is one of the B2 writing tasks, and in Germany it is the letter that actually gets things fixed.",
+      "mistakes": [
+        {
+          "wrong": "Trotz dem Termin ist nichts passiert.",
+          "right": "Trotz des Termins ist nichts passiert.",
+          "why": "trotz takes the genitive in written German."
+        },
+        {
+          "wrong": "Obwohl der Techniker kam pünktlich, …",
+          "right": "Obwohl der Techniker pünktlich kam, …",
+          "why": "obwohl sends the verb to the end of its clause."
+        },
+        {
+          "wrong": "Das ist eine Frechheit und völlig inakzeptabel.",
+          "right": "Die zugesagte Frist wurde um 25 Tage überschritten.",
+          "why": "The fact is harder to dismiss than the judgement."
+        },
+        {
+          "wrong": "Bitte antworten Sie mir bald, sonst mache ich etwas.",
+          "right": "Bitte antworten Sie bis zum 15. Juni; andernfalls mindere ich den Rechnungsbetrag.",
+          "why": "A vague threat is weaker than a dated, specific one."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "der Betreff",
+          "en": "subject line"
+        },
+        {
+          "de": "der Mangel",
+          "plural": "¨-",
+          "en": "fault, defect"
+        },
+        {
+          "de": "die Nachbesserung",
+          "plural": "-en",
+          "en": "remedial work"
+        },
+        {
+          "de": "die Frist",
+          "plural": "-en",
+          "en": "deadline"
+        },
+        {
+          "de": "beheben",
+          "en": "to remedy, to fix"
+        },
+        {
+          "de": "andernfalls",
+          "en": "otherwise, failing that"
+        },
+        {
+          "de": "die Minderung",
+          "plural": "-en",
+          "en": "reduction (of a price)"
+        },
+        {
+          "de": "zusagen",
+          "en": "to promise, to confirm"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_b2_2_relativ_dessen_deren",
     "covers": [
       "b2.relative-genitive-prep"
@@ -6722,7 +6933,7 @@
         },
         {
           "de": "worüber / wofür / worauf",
-          "en": "about / for / on which (after etwas, alles)"
+          "en": "about which / for which / on which (after etwas, alles)"
         },
         {
           "de": "die Hausarbeit",
@@ -7458,7 +7669,7 @@
     ],
     "help": {
       "hook": "A cluttered living room full of things to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one lived-in, slightly cluttered living room with 32 things to find in it, every one a noun you meet when people talk about running a home and saving energy — der Heizkörper, das Bügeleisen, die Steckdosenleiste, das Windrad outside the window. The prompt asks Wo ist der Wäschekorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one lived-in, slightly cluttered living room with 32 things to find in it, every one a noun you meet when people talk about running a home and saving energy — der Heizkörper, das Bügeleisen, die Steckdosenleiste, das Windrad outside the window. The prompt asks Wo ist der Wäschekorb? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Wäschekorb?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7770,9 +7981,9 @@
           "article": "der",
           "en": "radiator",
           "plural": "-",
-          "x": 5.0,
+          "x": 5,
           "y": 62.27,
-          "w": 13.0,
+          "w": 13,
           "h": 18.18
         },
         {
@@ -7780,9 +7991,9 @@
           "article": "das",
           "en": "bookcase",
           "plural": "-e",
-          "x": 23.0,
+          "x": 23,
           "y": 46.82,
-          "w": 17.0,
+          "w": 17,
           "h": 23.64
         },
         {
@@ -7790,9 +8001,9 @@
           "article": "die",
           "en": "chest of drawers",
           "plural": "-n",
-          "x": 57.0,
+          "x": 57,
           "y": 55.91,
-          "w": 13.0,
+          "w": 13,
           "h": 15.46
         },
         {
@@ -7800,10 +8011,10 @@
           "article": "der",
           "en": "desk",
           "plural": "-e",
-          "x": 41.0,
+          "x": 41,
           "y": 59.09,
           "w": 13.5,
-          "h": 5.0
+          "h": 5
         },
         {
           "de": "Jalousie",
@@ -7812,7 +8023,7 @@
           "plural": "-n",
           "x": 3.5,
           "y": 18.63,
-          "w": 13.0,
+          "w": 13,
           "h": 21.82
         },
         {
@@ -7822,7 +8033,7 @@
           "plural": "-er",
           "x": 13.5,
           "y": 69.55,
-          "w": 29.0,
+          "w": 29,
           "h": 18.64
         },
         {
@@ -7830,9 +8041,9 @@
           "article": "der",
           "en": "clothes airer",
           "plural": "-",
-          "x": 53.0,
+          "x": 53,
           "y": 67.73,
-          "w": 19.0,
+          "w": 19,
           "h": 21.37
         },
         {
@@ -7880,15 +8091,15 @@
           "article": "das",
           "en": "preserving jar",
           "plural": "Einmachgläser",
-          "x": 11.0,
+          "x": 11,
           "y": 53.64,
           "w": 4.5,
           "h": 6.36,
           "also": [
             {
-              "x": 35.0,
+              "x": 35,
               "y": 46.36,
-              "w": 4.0,
+              "w": 4,
               "h": 4.09
             }
           ]
@@ -7900,7 +8111,7 @@
           "plural": "-",
           "x": 17.5,
           "y": 39.54,
-          "w": 4.0,
+          "w": 4,
           "h": 10.91
         },
         {
@@ -7908,7 +8119,7 @@
           "article": "die",
           "en": "watering can",
           "plural": "-n",
-          "x": 8.0,
+          "x": 8,
           "y": 80.91,
           "w": 10.5,
           "h": 8.18
@@ -7928,7 +8139,7 @@
           "article": "der",
           "en": "calendar",
           "plural": "-",
-          "x": 45.0,
+          "x": 45,
           "y": 44.54,
           "w": 7.5,
           "h": 8.64
@@ -7938,7 +8149,7 @@
           "article": "die",
           "en": "pin board",
           "plural": "Pinnwände",
-          "x": 58.0,
+          "x": 58,
           "y": 37.27,
           "w": 8.5,
           "h": 11.36
@@ -7968,10 +8179,10 @@
           "article": "das",
           "en": "piggy bank",
           "plural": "-e",
-          "x": 42.0,
+          "x": 42,
           "y": 55.46,
-          "w": 6.0,
-          "h": 5.0
+          "w": 6,
+          "h": 5
         },
         {
           "de": "Kerze",
@@ -7980,7 +8191,7 @@
           "plural": "-n",
           "x": 58.5,
           "y": 51.82,
-          "w": 4.0,
+          "w": 4,
           "h": 5.46
         },
         {
@@ -7990,17 +8201,17 @@
           "plural": "-",
           "x": 63.5,
           "y": 51.36,
-          "w": 5.0,
-          "h": 5.0
+          "w": 5,
+          "h": 5
         },
         {
           "de": "Kissen",
           "article": "das",
           "en": "cushion",
           "plural": "-",
-          "x": 32.0,
+          "x": 32,
           "y": 66.37,
-          "w": 9.0,
+          "w": 9,
           "h": 6.36
         },
         {
@@ -8010,7 +8221,7 @@
           "plural": "-n",
           "x": 45.5,
           "y": 62.73,
-          "w": 7.0,
+          "w": 7,
           "h": 9.09
         },
         {
@@ -8020,8 +8231,8 @@
           "plural": "-",
           "x": 18.5,
           "y": 67.73,
-          "w": 9.0,
-          "h": 5.0
+          "w": 9,
+          "h": 5
         },
         {
           "de": "Steckdosenleiste",
@@ -8038,9 +8249,9 @@
           "article": "der",
           "en": "laundry basket",
           "plural": "Wäschekörbe",
-          "x": 40.0,
+          "x": 40,
           "y": 80.91,
-          "w": 13.0,
+          "w": 13,
           "h": 9.09
         },
         {
@@ -8051,17 +8262,17 @@
           "x": 73.5,
           "y": 64.55,
           "w": 7.5,
-          "h": 15.0
+          "h": 15
         },
         {
           "de": "Fußmatte",
           "article": "die",
           "en": "doormat",
           "plural": "-n",
-          "x": 79.0,
+          "x": 79,
           "y": 71.82,
-          "w": 7.0,
-          "h": 5.0
+          "w": 7,
+          "h": 5
         },
         {
           "de": "Staubsauger",
@@ -8078,7 +8289,7 @@
           "article": "der",
           "en": "crate of drinks",
           "plural": "Getränkekästen",
-          "x": 73.0,
+          "x": 73,
           "y": 81.37,
           "w": 10.5,
           "h": 8.64
@@ -8089,7 +8300,7 @@
           "en": "waste paper",
           "x": 84.5,
           "y": 83.64,
-          "w": 12.0,
+          "w": 12,
           "h": 6.36
         }
       ]
@@ -8103,7 +8314,7 @@
     ],
     "help": {
       "hook": "A small science lab full of equipment to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt in a small, slightly cluttered science laboratory with 32 things to find, every one a noun you meet when people talk about research and experiments — der Bunsenbrenner in the fume hood, das Stativ with its funnel, die Zentrifuge by the sink, das Fossil on the shelf. The prompt asks Wo ist der Erlenmeyerkolben? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
+      "intro": "A picture hunt in a small, slightly cluttered science laboratory with 32 things to find, every one a noun you meet when people talk about research and experiments — der Bunsenbrenner in the fume hood, das Stativ with its funnel, die Zentrifuge by the sink, das Fossil on the shelf. The prompt asks Wo ist der Erlenmeyerkolben? and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Erlenmeyerkolben?), and after the find you choose der, die or das yourself. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -8416,7 +8627,7 @@
           "article": "der",
           "en": "fume hood",
           "plural": "Abzüge",
-          "x": 18.0,
+          "x": 18,
           "y": 32.74,
           "w": 22.5,
           "h": 40.15
@@ -8426,9 +8637,9 @@
           "article": "der",
           "en": "fridge",
           "plural": "Kühlschränke",
-          "x": 68.0,
+          "x": 68,
           "y": 45.17,
-          "w": 17.0,
+          "w": 17,
           "h": 29.15
         },
         {
@@ -8438,7 +8649,7 @@
           "plural": "-e",
           "x": 26.5,
           "y": 67.15,
-          "w": 44.0,
+          "w": 44,
           "h": 25.81
         },
         {
@@ -8446,7 +8657,7 @@
           "article": "das",
           "en": "window",
           "plural": "-",
-          "x": 40.0,
+          "x": 40,
           "y": 27.01,
           "w": 20.5,
           "h": 22.94
@@ -8456,9 +8667,9 @@
           "article": "das",
           "en": "sink",
           "plural": "-",
-          "x": 78.0,
+          "x": 78,
           "y": 61.89,
-          "w": 18.0,
+          "w": 18,
           "h": 6.69
         },
         {
@@ -8466,7 +8677,7 @@
           "article": "die",
           "en": "gas cylinder",
           "plural": "-n",
-          "x": 13.0,
+          "x": 13,
           "y": 58.07,
           "w": 5.5,
           "h": 23.42
@@ -8478,7 +8689,7 @@
           "plural": "-n",
           "x": 11.5,
           "y": 59.5,
-          "w": 4.0,
+          "w": 4,
           "h": 12.43
         },
         {
@@ -8486,9 +8697,9 @@
           "article": "der",
           "en": "lab coat",
           "plural": "-",
-          "x": 4.0,
+          "x": 4,
           "y": 43.26,
-          "w": 8.0,
+          "w": 8,
           "h": 27.72
         },
         {
@@ -8498,7 +8709,7 @@
           "plural": "-",
           "x": 8.5,
           "y": 73.36,
-          "w": 6.0,
+          "w": 6,
           "h": 14.82
         },
         {
@@ -8518,7 +8729,7 @@
           "plural": "-n",
           "x": 53.5,
           "y": 84.36,
-          "w": 11.0,
+          "w": 11,
           "h": 8.12
         },
         {
@@ -8538,7 +8749,7 @@
           "plural": "Fossilien",
           "x": 63.5,
           "y": 30.83,
-          "w": 6.0,
+          "w": 6,
           "h": 7.17
         },
         {
@@ -8546,7 +8757,7 @@
           "article": "das",
           "en": "aquarium",
           "plural": "Aquarien",
-          "x": 71.0,
+          "x": 71,
           "y": 30.83,
           "w": 8.5,
           "h": 6.69
@@ -8556,7 +8767,7 @@
           "article": "der",
           "en": "first-aid box",
           "plural": "Verbandskästen",
-          "x": 64.0,
+          "x": 64,
           "y": 38.95,
           "w": 6.5,
           "h": 5.26
@@ -8566,8 +8777,8 @@
           "article": "das",
           "en": "telescope",
           "plural": "-e",
-          "x": 43.0,
-          "y": 38.0,
+          "x": 43,
+          "y": 38,
           "w": 11.5,
           "h": 10.51
         },
@@ -8576,7 +8787,7 @@
           "article": "der",
           "en": "Bunsen burner",
           "plural": "-",
-          "x": 27.0,
+          "x": 27,
           "y": 52.81,
           "w": 4.5,
           "h": 7.65
@@ -8596,9 +8807,9 @@
           "article": "die",
           "en": "centrifuge",
           "plural": "-n",
-          "x": 85.0,
+          "x": 85,
           "y": 60.46,
-          "w": 10.0,
+          "w": 10,
           "h": 8.12
         },
         {
@@ -8606,7 +8817,7 @@
           "article": "der",
           "en": "Erlenmeyer flask",
           "plural": "-",
-          "x": 41.0,
+          "x": 41,
           "y": 53.29,
           "w": 4.5,
           "h": 6.21
@@ -8618,7 +8829,7 @@
           "plural": "-e",
           "x": 49.5,
           "y": 58.55,
-          "w": 5.0,
+          "w": 5,
           "h": 11.95
         },
         {
@@ -8626,7 +8837,7 @@
           "article": "der",
           "en": "funnel",
           "plural": "-",
-          "x": 47.0,
+          "x": 47,
           "y": 58.07,
           "w": 5.5,
           "h": 7.17
@@ -8646,9 +8857,9 @@
           "article": "das",
           "en": "clipboard",
           "plural": "-er",
-          "x": 61.0,
+          "x": 61,
           "y": 50.9,
-          "w": 6.0,
+          "w": 6,
           "h": 7.65
         },
         {
@@ -8656,7 +8867,7 @@
           "article": "der",
           "en": "test-tube rack",
           "plural": "-",
-          "x": 32.0,
+          "x": 32,
           "y": 63.81,
           "w": 9.5,
           "h": 7.17
@@ -8666,7 +8877,7 @@
           "article": "das",
           "en": "beaker",
           "plural": "Bechergläser",
-          "x": 42.0,
+          "x": 42,
           "y": 64.28,
           "w": 4.5,
           "h": 6.21
@@ -8678,8 +8889,8 @@
           "plural": "-n",
           "x": 44.5,
           "y": 69.45,
-          "w": 7.0,
-          "h": 4.0
+          "w": 7,
+          "h": 4
         },
         {
           "de": "Lupe",
@@ -8688,8 +8899,8 @@
           "plural": "-n",
           "x": 30.5,
           "y": 70.89,
-          "w": 9.0,
-          "h": 4.0
+          "w": 9,
+          "h": 4
         },
         {
           "de": "Pinzette",
@@ -8698,18 +8909,18 @@
           "plural": "-n",
           "x": 39.5,
           "y": 70.41,
-          "w": 6.0,
-          "h": 4.0
+          "w": 6,
+          "h": 4
         },
         {
           "de": "Magnet",
           "article": "der",
           "en": "magnet",
           "plural": "-e",
-          "x": 52.0,
+          "x": 52,
           "y": 70.41,
-          "w": 5.0,
-          "h": 4.0
+          "w": 5,
+          "h": 4
         },
         {
           "de": "Mörser",
@@ -8728,7 +8939,7 @@
           "plural": "-n",
           "x": 61.5,
           "y": 63.81,
-          "w": 4.0,
+          "w": 4,
           "h": 8.6
         }
       ]

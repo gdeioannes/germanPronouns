@@ -1162,7 +1162,7 @@
           "article": "das"
         },
         {
-          "de": "historisches Präsens",
+          "de": "historische Präsens",
           "en": "historical present (for drama)",
           "article": "das"
         },
@@ -2758,7 +2758,7 @@
         },
         {
           "de": "damit, um … zu / dazu / zu, zwecks",
-          "en": "so that, in order to / to that end / for"
+          "en": "so that, in order to / to that end / for that purpose"
         },
         {
           "de": "wenn, falls, sofern / sonst, andernfalls / bei, im Falle",
@@ -5285,6 +5285,216 @@
     }
   },
   {
+    "id": "quest_c1_1_schreiben_zusammenfassung",
+    "after": "quest_c1_1_sprechen_dialog",
+    "covers": [
+      "c1.nominalisation-advanced"
+    ],
+    "title": "Schreiben: Zusammenfassung",
+    "quiz": {
+      "type": "writing",
+      "title": "Schreiben: Zusammenfassung",
+      "level": "C1.1",
+      "writing": {
+        "topic": "Summarise, in one tight paragraph, a report you have read recently: a news article, a study or a workplace document. Give its subject, its main finding, the evidence it rests on and what it recommends. Write it as a summary, not as a review.",
+        "practisePoints": [
+          "open with one sentence naming the text, its subject and its central claim",
+          "compress the verbs into nouns where it tightens the sentence (die Senkung, der Rückgang, die Einführung)",
+          "attribute throughout, so the reader always knows whose claim it is",
+          "keep your own opinion out of it entirely",
+          "close with what the text recommends or concludes"
+        ],
+        "scoringCriteria": [
+          "nothing is in it that was not in the source, and nothing central is missing",
+          "the nominal style tightens the text rather than making it unreadable",
+          "the attribution never lets the summary be read as your own view"
+        ],
+        "targetVocabulary": [
+          "der Beitrag befasst sich mit",
+          "die Verfasserin vertritt die Auffassung",
+          "zufolge",
+          "der Rückgang",
+          "die Zunahme",
+          "die Einführung",
+          "im Wesentlichen",
+          "daraus zieht sie den Schluss",
+          "abschließend"
+        ],
+        "passScore": 60
+      }
+    },
+    "help": {
+      "hook": "Compress a whole report into one paragraph, and keep yourself out of it.",
+      "intro": "Summarising is among the most useful things you can do in writing, and among the easiest to do badly. Two failures are common: smuggling your own view in, and nominalising so hard the paragraph stops breathing. Write 900 to 1800 characters. Keep every claim attributed, keep yourself invisible, and nominalise only where it genuinely tightens the sentence. The correction will check both: whether anything in your summary was not in the source, and whether the nominal style has made a sentence that no one could read aloud.",
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Attribute everything, claim nothing",
+          "text": "A summary reports what someone else said. Keep the source in the sentence, with a verb of saying or a source phrase, and the reader can never mistake the claim for yours. Where the writing gets dense, the Konjunktiv I carries the attribution on its own.",
+          "examples": [
+            {
+              "de": "Die Verfasserin vertritt die Auffassung, der Effekt sei überschätzt worden.",
+              "en": "The author takes the view that the effect has been overestimated.",
+              "focus": [
+                "vertritt die Auffassung",
+                "sei"
+              ]
+            },
+            {
+              "de": "Der Studie zufolge ist der Verbrauch um zwölf Prozent gesunken.",
+              "en": "According to the study consumption fell by twelve per cent.",
+              "focus": [
+                "zufolge"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Der Autor behauptet, die Maßnahme ____ wirkungslos.",
+            "options": [
+              "sei",
+              "ist",
+              "wäre"
+            ],
+            "answer": "sei",
+            "why": "Konjunktiv I keeps it his claim rather than the summary’s own."
+          },
+          "trap": "One indicative sentence in the middle hands the author’s claim to you."
+        },
+        {
+          "kind": "rule",
+          "title": "Nominalise to tighten, not to impress",
+          "text": "Turning a verb into a noun lets one sentence hold what took two: die Senkung der Kosten, der Rückgang der Nachfrage, nach Einführung der Regel. It earns its place when it shortens. When three genitives chain together, turn one back into a verb.",
+          "examples": [
+            {
+              "de": "Nach Einführung der Regelung ging die Zahl der Unfälle deutlich zurück.",
+              "en": "After the rule was introduced the number of accidents fell markedly.",
+              "focus": [
+                "Nach Einführung"
+              ]
+            },
+            {
+              "de": "Die Senkung der Kosten führte zu einer Zunahme der Nachfrage.",
+              "en": "The reduction in costs led to an increase in demand.",
+              "focus": [
+                "Senkung",
+                "Zunahme"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Which is the better summary sentence?",
+            "options": [
+              "Nach Einführung der Regel sank die Unfallzahl.",
+              "Nach der Durchführung der Einführung der Regelung zur Senkung der Unfallzahlen …",
+              "Als man die Regel eingeführt hat, da sind dann die Unfälle gesunken."
+            ],
+            "answer": "Nach Einführung der Regel sank die Unfallzahl.",
+            "why": "One nominalisation tightens; four in a row stop the sentence working."
+          }
+        },
+        {
+          "kind": "mnemonic",
+          "title": "Four moves and nothing else",
+          "text": "Subject, central claim, evidence, conclusion. A summary that adds a fifth move is reviewing, and a summary that drops the evidence is a headline. Your own judgement belongs to a different text.",
+          "examples": [
+            {
+              "de": "Der Beitrag befasst sich mit den Folgen des Fachkräftemangels im Handwerk.",
+              "en": "The piece deals with the consequences of the skills shortage in the trades.",
+              "focus": [
+                "befasst sich mit"
+              ]
+            },
+            {
+              "de": "Abschließend empfiehlt die Autorin eine Reform der Ausbildungsförderung.",
+              "en": "Finally the author recommends a reform of training support.",
+              "focus": [
+                "Abschließend",
+                "empfiehlt"
+              ]
+            }
+          ],
+          "check": {
+            "q": "What does not belong in a summary?",
+            "options": [
+              "whether you found the argument convincing",
+              "the central claim",
+              "the evidence it rests on"
+            ],
+            "answer": "whether you found the argument convincing",
+            "why": "That is a review. A summary reports and stops."
+          }
+        }
+      ],
+      "remember": [
+        "Name the text, the subject and the central claim in sentence one.",
+        "Attribute every claim; Konjunktiv I carries it where the writing is dense.",
+        "Nominalise where it shortens; unpick the third genitive in a chain.",
+        "Subject, claim, evidence, conclusion, and nothing of your own."
+      ],
+      "exam": "Summarising a written source is the task C1 writing is built on, and the one skill every German office job quietly assumes.",
+      "mistakes": [
+        {
+          "wrong": "Der Autor sagt, die Maßnahme ist wirkungslos. Das finde ich auch.",
+          "right": "Der Autor vertritt die Auffassung, die Maßnahme sei wirkungslos.",
+          "why": "Konjunktiv I for the claim, and your own agreement has no place."
+        },
+        {
+          "wrong": "Die Durchführung der Überprüfung der Umsetzung der Maßnahme …",
+          "right": "Nachdem die Maßnahme umgesetzt worden war, wurde sie überprüft.",
+          "why": "A genitive chain that long has to be unpicked back into verbs."
+        },
+        {
+          "wrong": "Der Text ist sehr interessant und gut geschrieben.",
+          "right": "Der Beitrag befasst sich mit den Ursachen des Rückgangs.",
+          "why": "A summary reports the content, not your impression of it."
+        },
+        {
+          "wrong": "Laut dem Autor, die Zahlen sind gestiegen.",
+          "right": "Laut dem Autor sind die Zahlen gestiegen.",
+          "why": "No comma, and the verb takes second place after the source phrase."
+        }
+      ],
+      "vocab": [
+        {
+          "de": "sich befassen mit",
+          "en": "to deal with, to be about"
+        },
+        {
+          "de": "die Verfasserin",
+          "plural": "-nen",
+          "en": "the author (female)"
+        },
+        {
+          "de": "die Auffassung vertreten",
+          "en": "to take the view"
+        },
+        {
+          "de": "der Rückgang",
+          "plural": "¨-e",
+          "en": "decline, fall"
+        },
+        {
+          "de": "die Zunahme",
+          "plural": "-n",
+          "en": "increase"
+        },
+        {
+          "de": "die Einführung",
+          "plural": "-en",
+          "en": "introduction (of a rule)"
+        },
+        {
+          "de": "zufolge",
+          "en": "according to (follows its noun, takes the dative)"
+        },
+        {
+          "de": "den Schluss ziehen",
+          "en": "to draw the conclusion"
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_c1_1_partizipialattribute",
     "covers": [
       "c1.extended-participial-attributes"
@@ -6388,7 +6598,7 @@
     ],
     "help": {
       "hook": "An empty hospital room full of things to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one empty hospital room, the kind you see when you visit someone on a ward, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Bettgalgen over the bed, die Schnabeltasse on the bedside cabinet, das Röntgenbild on the wall, der Treteimer by the basin. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one empty hospital room, the kind you see when you visit someone on a ward, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Bettgalgen over the bed, die Schnabeltasse on the bedside cabinet, das Röntgenbild on the wall, der Treteimer by the basin. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Schnabeltasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -6703,7 +6913,7 @@
           "plural": "-en",
           "x": 29.5,
           "y": 52.17,
-          "w": 34.0,
+          "w": 34,
           "h": 35.99
         },
         {
@@ -6721,7 +6931,7 @@
           "article": "der",
           "en": "folding screen",
           "plural": "-s",
-          "x": 71.0,
+          "x": 71,
           "y": 36.99,
           "w": 19.5,
           "h": 37.73
@@ -6741,7 +6951,7 @@
           "article": "der",
           "en": "wheelchair",
           "plural": "Rollstühle",
-          "x": 64.0,
+          "x": 64,
           "y": 60.41,
           "w": 21.5,
           "h": 24.29
@@ -6753,7 +6963,7 @@
           "plural": "-",
           "x": 18.5,
           "y": 36.99,
-          "w": 11.0,
+          "w": 11,
           "h": 41.2
         },
         {
@@ -6763,7 +6973,7 @@
           "plural": "-",
           "x": 3.5,
           "y": 14.87,
-          "w": 10.0,
+          "w": 10,
           "h": 37.29
         },
         {
@@ -6771,9 +6981,9 @@
           "article": "die",
           "en": "duvet",
           "plural": "-n",
-          "x": 30.0,
+          "x": 30,
           "y": 58.67,
-          "w": 33.0,
+          "w": 33,
           "h": 15.61
         },
         {
@@ -6783,7 +6993,7 @@
           "plural": "-",
           "x": 35.5,
           "y": 40.89,
-          "w": 23.0,
+          "w": 23,
           "h": 13.88
         },
         {
@@ -6791,7 +7001,7 @@
           "article": "das",
           "en": "washbasin",
           "plural": "-",
-          "x": 7.0,
+          "x": 7,
           "y": 56.07,
           "w": 13.5,
           "h": 12.14
@@ -6801,7 +7011,7 @@
           "article": "die",
           "en": "oxygen cylinder",
           "plural": "-n",
-          "x": 28.0,
+          "x": 28,
           "y": 48.7,
           "w": 6.5,
           "h": 24.72
@@ -6813,7 +7023,7 @@
           "plural": "-e",
           "x": 28.5,
           "y": 32.22,
-          "w": 11.0,
+          "w": 11,
           "h": 11.71
         },
         {
@@ -6821,7 +7031,7 @@
           "article": "das",
           "en": "X-ray image",
           "plural": "-er",
-          "x": 47.0,
+          "x": 47,
           "y": 25.71,
           "w": 11.5,
           "h": 11.71
@@ -6831,9 +7041,9 @@
           "article": "die",
           "en": "ceiling light",
           "plural": "-n",
-          "x": 42.0,
+          "x": 42,
           "y": 6.63,
-          "w": 16.0,
+          "w": 16,
           "h": 5.2
         },
         {
@@ -6841,7 +7051,7 @@
           "article": "das",
           "en": "roller blind",
           "plural": "-s",
-          "x": 4.0,
+          "x": 4,
           "y": 16.17,
           "w": 9.5,
           "h": 18.65
@@ -6851,7 +7061,7 @@
           "article": "das",
           "en": "pillow",
           "plural": "-",
-          "x": 40.0,
+          "x": 40,
           "y": 53.04,
           "w": 14.5,
           "h": 7.37
@@ -6871,17 +7081,17 @@
           "article": "die",
           "en": "kidney dish",
           "plural": "-n",
-          "x": 43.0,
+          "x": 43,
           "y": 60.84,
           "w": 11.5,
-          "h": 4.0
+          "h": 4
         },
         {
           "de": "Klemmbrett",
           "article": "das",
           "en": "clipboard",
           "plural": "-er",
-          "x": 37.0,
+          "x": 37,
           "y": 68.21,
           "w": 6.3,
           "h": 8.67
@@ -6891,7 +7101,7 @@
           "article": "die",
           "en": "hot-water bottle",
           "plural": "-n",
-          "x": 52.0,
+          "x": 52,
           "y": 68.65,
           "w": 6.5,
           "h": 9.54
@@ -6911,9 +7121,9 @@
           "article": "der",
           "en": "disinfectant dispenser",
           "plural": "-",
-          "x": 13.0,
+          "x": 13,
           "y": 46.53,
-          "w": 5.0,
+          "w": 5,
           "h": 6.07
         },
         {
@@ -6931,9 +7141,9 @@
           "article": "der",
           "en": "pedal bin",
           "plural": "-",
-          "x": 8.0,
+          "x": 8,
           "y": 70.82,
-          "w": 9.0,
+          "w": 9,
           "h": 11.28
         },
         {
@@ -6961,9 +7171,9 @@
           "article": "der",
           "en": "bunch of flowers",
           "plural": "Blumensträuße",
-          "x": 60.0,
-          "y": 50.0,
-          "w": 8.0,
+          "x": 60,
+          "y": 50,
+          "w": 8,
           "h": 11.1
         },
         {
@@ -6991,7 +7201,7 @@
           "article": "die",
           "en": "crutch",
           "plural": "-n",
-          "x": 86.0,
+          "x": 86,
           "y": 58.24,
           "w": 4.8,
           "h": 19.95
@@ -7001,7 +7211,7 @@
           "article": "die",
           "en": "bedpan",
           "plural": "-n",
-          "x": 88.0,
+          "x": 88,
           "y": 65.61,
           "w": 9.5,
           "h": 6.07
@@ -7013,7 +7223,7 @@
           "plural": "-n",
           "x": 84.5,
           "y": 80.79,
-          "w": 10.0,
+          "w": 10,
           "h": 5.2
         }
       ]
@@ -7027,7 +7237,7 @@
     ],
     "help": {
       "hook": "A cluttered backstage full of props to find: tap each object in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: the cluttered backstage of an old theatre, where the props, costumes and stage machinery wait for the next show, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Flaschenzug under the ceiling, die Nebelmaschine on the floor, das Steckenpferd by the director’s chair, der Schrankkoffer in the corner. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Brille?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: the cluttered backstage of an old theatre, where the props, costumes and stage machinery wait for the next show, with 32 things to find in it, every one a precise noun you rarely meet in a textbook — der Flaschenzug under the ceiling, die Nebelmaschine on the floor, das Steckenpferd by the director’s chair, der Schrankkoffer in the corner. The prompt asks Wo ist …? and you tap the object in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on bare wall costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Nebelmaschine?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -7063,7 +7273,7 @@
         {
           "kind": "rule",
           "title": "Feminine endings: -e is usually die",
-          "text": "Most two-syllable nouns ending in -e are feminine, and this room is full of them: die Kulisse, die Perücke, die Maske, die Krone, die Trommel is feminine too, so do not expect every die word to end in -e. Nouns in -ung, -heit and -keit are always die.",
+          "text": "Most two-syllable nouns ending in -e are feminine, and this room is full of them: die Kulisse, die Perücke, die Maske, die Krone. But die Trommel is feminine too, so do not expect every die word to end in -e. Nouns in -ung, -heit and -keit are always die.",
           "examples": [
             {
               "de": "die Perücke, Plural: -n",
@@ -7340,9 +7550,9 @@
           "article": "die",
           "en": "scenery flat",
           "plural": "-n",
-          "x": 3.0,
+          "x": 3,
           "y": 36.91,
-          "w": 14.0,
+          "w": 14,
           "h": 42.64
         },
         {
@@ -7350,9 +7560,9 @@
           "article": "der",
           "en": "make-up table",
           "plural": "-e",
-          "x": 22.0,
+          "x": 22,
           "y": 50.42,
-          "w": 20.0,
+          "w": 20,
           "h": 12.67
         },
         {
@@ -7360,9 +7570,9 @@
           "article": "der",
           "en": "mirror",
           "plural": "-",
-          "x": 24.0,
+          "x": 24,
           "y": 29.73,
-          "w": 17.0,
+          "w": 17,
           "h": 20.69
         },
         {
@@ -7370,7 +7580,7 @@
           "article": "der",
           "en": "clothes rack",
           "plural": "-",
-          "x": 62.0,
+          "x": 62,
           "y": 31.85,
           "w": 20.5,
           "h": 34.2
@@ -7382,7 +7592,7 @@
           "plural": "-",
           "x": 71.5,
           "y": 56.76,
-          "w": 26.0,
+          "w": 26,
           "h": 21.95
         },
         {
@@ -7390,9 +7600,9 @@
           "article": "der",
           "en": "throne",
           "plural": "-e",
-          "x": 42.0,
+          "x": 42,
           "y": 43.24,
-          "w": 14.0,
+          "w": 14,
           "h": 22.38
         },
         {
@@ -7400,7 +7610,7 @@
           "article": "die",
           "en": "suit of armour",
           "plural": "-en",
-          "x": 54.0,
+          "x": 54,
           "y": 37.76,
           "w": 9.5,
           "h": 28.29
@@ -7410,7 +7620,7 @@
           "article": "das",
           "en": "barrel",
           "plural": "Fässer",
-          "x": 78.0,
+          "x": 78,
           "y": 52.11,
           "w": 12.8,
           "h": 15.2
@@ -7432,7 +7642,7 @@
           "plural": "Regiestühle",
           "x": 35.8,
           "y": 57.18,
-          "w": 16.0,
+          "w": 16,
           "h": 21.53
         },
         {
@@ -7452,7 +7662,7 @@
           "plural": "-e",
           "x": 29.7,
           "y": 52.53,
-          "w": 10.0,
+          "w": 10,
           "h": 20.27
         },
         {
@@ -7462,7 +7672,7 @@
           "plural": "-er",
           "x": 62.3,
           "y": 36.49,
-          "w": 13.0,
+          "w": 13,
           "h": 27.02
         },
         {
@@ -7490,9 +7700,9 @@
           "article": "die",
           "en": "drum",
           "plural": "-n",
-          "x": 77.0,
+          "x": 77,
           "y": 62.24,
-          "w": 13.0,
+          "w": 13,
           "h": 13.93
         },
         {
@@ -7500,7 +7710,7 @@
           "article": "der",
           "en": "sandbag",
           "plural": "Sandsäcke",
-          "x": 84.0,
+          "x": 84,
           "y": 71.11,
           "w": 10.5,
           "h": 14.36
@@ -7512,7 +7722,7 @@
           "plural": "-e",
           "x": 63.5,
           "y": 77.87,
-          "w": 17.0,
+          "w": 17,
           "h": 10.13
         },
         {
@@ -7520,7 +7730,7 @@
           "article": "das",
           "en": "hobby horse",
           "plural": "-e",
-          "x": 52.0,
+          "x": 52,
           "y": 65.2,
           "w": 9.5,
           "h": 13.51
@@ -7530,9 +7740,9 @@
           "article": "das",
           "en": "megaphone",
           "plural": "-e",
-          "x": 60.0,
+          "x": 60,
           "y": 64.78,
-          "w": 11.0,
+          "w": 11,
           "h": 8.44
         },
         {
@@ -7552,7 +7762,7 @@
           "plural": "-n",
           "x": 12.2,
           "y": 76.01,
-          "w": 11.0,
+          "w": 11,
           "h": 8.02
         },
         {
@@ -7592,7 +7802,7 @@
           "plural": "Flaschenzüge",
           "x": 74.5,
           "y": 9.47,
-          "w": 6.0,
+          "w": 6,
           "h": 12.67
         },
         {
@@ -7600,7 +7810,7 @@
           "article": "die",
           "en": "wig",
           "plural": "-n",
-          "x": 25.0,
+          "x": 25,
           "y": 42.23,
           "w": 6.8,
           "h": 9.71
@@ -7613,13 +7823,13 @@
           "x": 30.4,
           "y": 49.52,
           "w": 4.2,
-          "h": 4.0,
+          "h": 4,
           "also": [
             {
               "x": 35.6,
               "y": 48.25,
               "w": 4.4,
-              "h": 4.0
+              "h": 4
             }
           ]
         },
@@ -7648,7 +7858,7 @@
           "article": "der",
           "en": "top hat",
           "plural": "-",
-          "x": 73.0,
+          "x": 73,
           "y": 29.31,
           "w": 6.3,
           "h": 4.64
@@ -7660,7 +7870,7 @@
           "plural": "-",
           "x": 64.5,
           "y": 32.52,
-          "w": 8.0,
+          "w": 8,
           "h": 5.32
         }
       ]
