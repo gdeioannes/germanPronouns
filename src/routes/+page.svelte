@@ -576,6 +576,10 @@
 		background: #fff;
 		box-shadow: 0 14px 28px -16px rgba(31, 58, 95, 0.55);
 		overflow: hidden;
+		/* Older WebKit (iPhone 7 era) does not clip an oversized child with
+		   overflow + border-radius once the frame is rotated and animated: the
+		   picture spilled out of its card. clip-path is honoured there. */
+		clip-path: inset(0 round 10% / 7.5%);
 		rotate: var(--r);
 		animation: drift 5.5s ease-in-out infinite;
 		animation-delay: calc(var(--d) * -1);
@@ -1105,6 +1109,9 @@
 		border-radius: 50%;
 		background: #fbf5e4;
 		overflow: hidden;
+		/* Same older-WebKit clipping bug as the float cards: a scaled child
+		   escapes a rounded overflow box, clip-path holds it. */
+		clip-path: circle(50%);
 	}
 
 	.level-art img {
