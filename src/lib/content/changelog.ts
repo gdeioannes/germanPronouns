@@ -17,6 +17,18 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-10",
+    title: "A forum, and a Report button on every exercise",
+    highlight: true,
+    items: [
+      "There is a forum now, at Forum in the menu. Four boards: ask a question about German, report a problem with an exercise, suggest something, or just say hello. Anyone can read it; writing needs the e-mail sign-in, and you pick the name you post under.",
+      "Every exercise has a Report button. It opens a small panel with the exercise and the question you are looking at already filled in, so a wrong article or a crooked audio clip takes one sentence and a tap to tell us about.",
+      "Topics and replies can be liked, and the forum has a search box that looks through everything on the board as you type.",
+      "When someone answers you, a dot appears on the Forum link, and the forum page says which of your topics have new replies. The quiz's report panel tells you too, if the answer was to something you reported there. Each topic has a \"don't notify me\" switch if you would rather not hear about it again.",
+      "Signing in is no longer hidden in the settings: the same panel opens from the top bar, the menu, the front page and the forum, and the link we e-mail you brings you back to the page you were on when you asked for it.",
+    ],
+  },
+  {
+    date: "2026-10-10",
     title: "A new front door, menus that take you places, and 188 more verbs",
     highlight: true,
     items: [

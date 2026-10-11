@@ -372,9 +372,14 @@
 		const h = hash(quizId);
 		const tint = ART_TINTS[h % ART_TINTS.length];
 		const pattern = ART_PATTERNS[(h >>> 8) % ART_PATTERNS.length];
-		const flip = (h >>> 3) & 1 ? -1 : 1;
-		const zoom = 1.04 + ((h >>> 4) % 4) * 0.07;
-		const x = 40 + ((h >>> 13) % 21);
+		// The scenes are drawn with the subject a little left of centre, and the
+		// band is near-square on a phone, so `cover` already crops hard from the
+		// sides. Keep the framing close to the middle and the zoom gentle, or an
+		// unlucky card loses the subject's left edge. No mirroring, for the same
+		// reason: it puts the wandering frame on the wrong side of the drawing.
+		const flip = 1;
+		const zoom = 1.04 + ((h >>> 4) % 4) * 0.04;
+		const x = 46 + ((h >>> 13) % 9);
 		const y = 35 + ((h >>> 18) % 21);
 		return `--art-tint:${tint}; --art-pattern:${pattern}; --art-flip:${flip}; --art-zoom:${zoom}; --art-pos:${x}% ${y}%;`;
 	}

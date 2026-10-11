@@ -682,7 +682,7 @@
 			font-size: clamp(1.9rem, 1.2rem + 3.6vw, 2.4rem);
 		}
 		.sitter {
-			--zoom: 1.3;
+			--zoom: 1.2;
 		}
 		.key-pic {
 			--lift: 7%;
