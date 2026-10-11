@@ -70,6 +70,36 @@
 	const score = $derived(parseSpeakingScore(report));
 	const medal = $derived(saved === null ? null : speakingMedal(saved));
 
+	/**
+	 * What the session will be, in three lines the learner actually reads.
+	 * The prompt itself is machine text they copy past; this is the brief.
+	 */
+	const MODE_LABELS: Record<string, string> = {
+		conversation: 'A free conversation',
+		interview: 'An interview, one question at a time',
+		roleplay: 'A roleplay',
+		storytelling: 'You tell a story',
+		vocabDrill: 'A vocabulary drill',
+		translationDrill: 'A translation drill',
+		wordGame: 'A word game',
+		listenRetell: 'Listen, then retell',
+		readingQa: 'Read a passage, then answer questions',
+		readingGen: 'Read a passage, then answer questions'
+	};
+	const brief = $derived.by(() => {
+		const e = quiz.speaking;
+		const what = MODE_LABELS[e.mode ?? 'conversation'] ?? 'A conversation';
+		const scene =
+			typeof e.material === 'string' ? e.material.match(/^(?:Scene|Game|Story beats|The message)[^\n]*/)?.[0] : undefined;
+		const shape = [
+			e.scaffolded ? 'the tutor teaches first, unscored' : null,
+			e.describePicture && quiz.image ? 'you describe the picture to start' : null,
+			`at least ${session.minExchanges} answers`,
+			`about ${session.durationMinutes} minutes`
+		].filter(Boolean);
+		return { what, scene, shape: shape.join(' · '), points: e.practisePoints };
+	});
+
 	$effect(() => {
 		(async () => {
 			// The learner's recent corrections ride along as PERSONAL FOCUS, so
@@ -93,7 +123,9 @@
 				cefr: level,
 				personalFocus: focus.map((f) => `"${f.said}" -> "${f.correct}"`),
 				referenceNotes: flattenHelp(),
-				pictureDescription: quiz.imageDescription ?? ''
+				// Only where the exercise opts in: the picture is usually the
+				// module's reading scene, and it should not hijack the opening.
+				pictureDescription: quiz.speaking.describePicture ? (quiz.imageDescription ?? '') : ''
 			});
 		})();
 	});
@@ -136,6 +168,8 @@
 		}
 
 		await storage.set(`${quiz.storageKeyPrefix}speaking_best`, String(score));
+		// Which prompt wording produced this score, so an old medal stays interpretable.
+		await storage.set(`${quiz.storageKeyPrefix}speaking_template`, String(manifest.templateVersion));
 		onFinish(score >= session.passScore, score);
 	}
 </script>
@@ -150,7 +184,7 @@
 					{session.durationMinutes} minutes. Copy the prompt, paste it there, and
 					follow its instructions.
 				</p>
-				{#if quiz.image}
+				{#if quiz.image && quiz.speaking.describePicture}
 					<!-- The picture the session opens with: the tutor cannot see it, the
 					     prompt tells it what is there, and the learner describes it. -->
 					<figure class="scene">
@@ -158,6 +192,18 @@
 						<figcaption>Start by describing this picture — your assistant will ask you to.</figcaption>
 					</figure>
 				{/if}
+				<!-- The brief: the prompt below is for the assistant, this is for the learner. -->
+				<div class="brief">
+					<p class="brief-what">
+						<strong>{brief.what}.</strong>
+						{#if brief.scene}<span class="brief-scene">{brief.scene}</span>{/if}
+					</p>
+					<p class="brief-shape">{brief.shape}</p>
+					<p class="brief-points">
+						<span class="brief-label">The tutor listens for:</span>
+						{brief.points.join(' · ')}
+					</p>
+				</div>
 				<pre class="prompt">{prompt}</pre>
 				<button class="btn" onclick={copy}>
 					<Icon name={copied ? 'check' : 'copy'} size="1em" />
@@ -305,6 +351,45 @@
 		max-width: var(--measure);
 		color: var(--ink-muted);
 		font-size: var(--step--1);
+	}
+
+	/* The brief sits above the prompt as the thing to read: three short lines
+	   on paper-coloured ground, the practise points last because they are what
+	   the score hangs on. */
+	.brief {
+		width: 100%;
+		margin: 0 0 0.8rem;
+		padding: 0.7rem 0.95rem;
+		border-left: 3px solid var(--accent);
+		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+		background: var(--surface-alt);
+		font-size: var(--step--1);
+		line-height: 1.5;
+	}
+
+	.brief p {
+		margin: 0;
+		max-width: none;
+	}
+
+	.brief p + p {
+		margin-top: 0.25rem;
+	}
+
+	.brief-scene {
+		color: var(--ink-muted);
+	}
+
+	.brief-shape {
+		color: var(--ink-muted);
+	}
+
+	.brief-label {
+		font-weight: 600;
+	}
+
+	.brief-points {
+		color: var(--ink);
 	}
 
 	/* The prompt is machine text the learner copies, never reads closely —

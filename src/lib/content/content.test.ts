@@ -214,6 +214,41 @@ describe('every quiz (baseline)', () => {
 		}
 	});
 
+	it('gives every speaking mode that names MATERIAL a material, and every picture opener a scene', () => {
+		// The mode line tells the tutor "the role described in MATERIAL" or "the
+		// beats in MATERIAL"; without one, the tutor invents the exercise.
+		const needsMaterial = new Set([
+			'roleplay',
+			'storytelling',
+			'vocabDrill',
+			'translationDrill',
+			'wordGame',
+			'listenRetell',
+			'readingQa',
+			'readingGen'
+		]);
+		for (const q of quizzes) {
+			if (q.type !== 'speaking') continue;
+			const s = q.speaking;
+			if (s.mode && needsMaterial.has(s.mode)) {
+				expect(
+					typeof s.material === 'string' && s.material.trim().length > 0,
+					`${q.id}: mode "${s.mode}" names MATERIAL but has none`
+				).toBe(true);
+			}
+			if (s.describePicture) {
+				expect(q.image && q.imageDescription, `${q.id}: opens with a picture it does not have`).toBeTruthy();
+			}
+			// The prompt's own arithmetic: every practise point gets a question,
+			// so the exchange floor must leave room for them all.
+			const minExchanges = s.minExchanges ?? 7;
+			expect(
+				s.practisePoints.length,
+				`${q.id}: ${s.practisePoints.length} practise points do not fit in ${minExchanges} exchanges`
+			).toBeLessThanOrEqual(minExchanges - 2);
+		}
+	});
+
 	it('gives every exercise a picture for its deck card (own scene or the shared card_<type>_<level>)', () => {
 		for (const q of quizzes) {
 			if (q.status === 'placeholder') continue;

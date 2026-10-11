@@ -267,12 +267,38 @@ describe('speaking scores', () => {
 		expect(parseSpeakingScore('SCORE=101')).toBeNull();
 	});
 
+	it('falls back to the FINAL SCORE header when the SCORE= line is missing', () => {
+		expect(parseSpeakingScore('FINAL SCORE: 84 / 100\nPoints lost: …')).toBe(84);
+		expect(parseSpeakingScore('**FINAL SCORE: 62/100**')).toBe(62);
+		expect(parseSpeakingScore('FINAL SCORE: 84 / 100\nSCORE=80')).toBe(80);
+	});
+
 	it('reads FIX: corrections in either arrow form', () => {
 		const fixes = parseSpeakingFixes(
 			'- FIX: ich bin gehen -> ich gehe\nFIX: mein Haus → mein Haus ist'
 		);
 		expect(fixes).toHaveLength(2);
 		expect(fixes[0]).toEqual({ said: 'ich bin gehen', correct: 'ich gehe' });
+	});
+
+	it('reads FIX lines however the model decorates them', () => {
+		const fixes = parseSpeakingFixes(
+			[
+				'**FIX:** Ich habe gegangen -> Ich bin gegangen',
+				'• FIX: a -> b',
+				'1. FIX: c -> d',
+				'FIX 2: e -> f',
+				'* **FIX**: g => h',
+				'Did well: nothing -> here'
+			].join('\n')
+		);
+		expect(fixes.map((f) => [f.said, f.correct])).toEqual([
+			['Ich habe gegangen', 'Ich bin gegangen'],
+			['a', 'b'],
+			['c', 'd'],
+			['e', 'f'],
+			['g', 'h']
+		]);
 	});
 });
 

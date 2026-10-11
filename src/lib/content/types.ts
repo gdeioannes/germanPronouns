@@ -324,13 +324,31 @@ export interface SpeakingExercise {
 	scoringCriteria: string[];
 	targetVocabulary?: string[];
 	priorKnowledge?: string[];
+	/** The error types the report should weigh first. */
+	priorityErrors?: string[];
 	mode?: string;
 	durationMinutes?: number;
 	minExchanges?: number;
+	/** The report's word cap and FIX-line cap; manifest defaults when unset. */
+	reportMaxWords?: number;
+	maxCorrections?: number;
+	/** A scoring rule specific to this exercise, added to the level's note. */
+	scoringNote?: string;
 	passScore?: number;
+	/**
+	 * Mode-specific material: the role and scenario for a roleplay, the story
+	 * skeleton for storytelling, the passage or items for the drill and
+	 * presentation modes. A mode that names MATERIAL must have one.
+	 */
 	material?: unknown;
 	/** An unscored teach-first pass before the scored part (beginners). */
 	scaffolded?: boolean;
+	/**
+	 * Whether the session opens with the quiz's picture. Off by default: the
+	 * picture is usually the module's reading scene, and a debate that opens
+	 * with a sofa is a strange debate. On only where the scene fits the topic.
+	 */
+	describePicture?: boolean;
 }
 
 export interface SpeakingQuiz extends QuizBase {
@@ -355,6 +373,8 @@ export interface WritingExercise {
 	scoringCriteria: string[];
 	/** Words and phrases the task is built to use. */
 	targetVocabulary?: string[];
+	/** The error types the correction should weigh first. */
+	priorityErrors?: string[];
 	/**
 	 * The character bound. Both ends are optional: without them the level's
 	 * default band applies, so an A1 task asks for a few sentences and a C2 one
@@ -364,6 +384,9 @@ export interface WritingExercise {
 	charMax?: number;
 	/** Pass mark out of 100; the manifest default applies when unset. */
 	passScore?: number;
+	/** The report's word cap and FIX-line cap; manifest defaults when unset. */
+	reportMaxWords?: number;
+	maxCorrections?: number;
 	/** An optional stimulus the learner writes about (an email to answer). */
 	material?: string;
 }

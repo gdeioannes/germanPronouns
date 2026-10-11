@@ -270,7 +270,8 @@
 				cefr: level,
 				personalFocus: focus.map((f) => `"${f.said}" -> "${f.correct}"`),
 				referenceNotes: flattenHelp(),
-				learnerText: body
+				learnerText: body,
+				charBounds: bounds
 			});
 		})();
 	});
@@ -313,6 +314,8 @@
 		}
 
 		await storage.set(`${quiz.storageKeyPrefix}writing_best`, String(score));
+		// Which prompt wording produced this score, so an old medal stays interpretable.
+		await storage.set(`${quiz.storageKeyPrefix}writing_template`, String(manifest.templateVersion));
 		// The draft is kept on purpose. "Try again" remounts the exercise, and a
 		// learner looking at four corrections wants their own text back to mend,
 		// not a blank sheet.

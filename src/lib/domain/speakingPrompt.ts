@@ -64,6 +64,8 @@ export interface SpeakingManifest {
 	levelGuides?: Record<string, string>;
 	/** How long the tutor's own turns may be, per level band. */
 	turnLengths?: Record<string, string>;
+	/** How to score a long turn, per level band (C1, C2). */
+	scoringNotes?: Record<string, string>;
 }
 
 /** 'B1.2' → 'B1'; the band a level-specific rule is keyed by. */
@@ -112,6 +114,8 @@ export interface RenderOptions {
 	 * only; empty switches the prompt back to "give me the task and wait".
 	 */
 	learnerText?: string;
+	/** The writing task's length, so the tutor can hold the learner to it. */
+	charBounds?: { min: number; max: number };
 }
 
 const PLACEHOLDER = /\{(\w+)\}/g;
@@ -132,7 +136,8 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		personalFocus = [],
 		referenceNotes = '',
 		pictureDescription = '',
-		learnerText = ''
+		learnerText = '',
+		charBounds
 	} = options;
 
 	const learn = baseLang(learnLang);
@@ -140,6 +145,12 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 	const defaults = manifest.defaults;
 	const scaffolded = exercise.scaffolded ?? false;
 	const band = levelBand(cefr);
+	const mode = exercise.mode ?? 'conversation';
+	const minExchanges = exercise.minExchanges ?? defaults.minExchanges;
+	// Inviting the learner to ask questions only earns its two exchanges in a
+	// session long enough to spare them, and only where the learner is not
+	// already the one talking (storytelling) or being interviewed.
+	const askBack = minExchanges >= 8 && (mode === 'conversation' || mode === 'roleplay');
 
 	const lists: Record<string, string[]> = {
 		practisePoints: exercise.practisePoints ?? [],
@@ -170,23 +181,35 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 		// trick `scaffolding` uses.
 		learnerText: learnerText.trim(),
 		noLearnerText: learnerText.trim() ? '' : 'yes',
-		practisePoints: (exercise.practisePoints ?? []).join(', '),
+		practisePoints: (exercise.practisePoints ?? []).join('; '),
 		targetVocabulary: (exercise.targetVocabulary ?? []).join(', '),
 		scoringCriteria: (exercise.scoringCriteria ?? []).join(', '),
-		priorityErrors: '',
+		priorityErrors: (exercise.priorityErrors ?? []).join(', '),
 		closingLine: template.closingLine,
 		levelGuide: manifest.levelGuides?.[band] ?? '',
 		turnLength: manifest.turnLengths?.[band] ?? '',
+		// An exercise's own scoring rule rides with the band's note.
+		scoringNote: [manifest.scoringNotes?.[band] ?? '', exercise.scoringNote ?? '']
+			.filter(Boolean)
+			.join(' '),
+		// Conditional RULES bullets: an empty one is dropped by the renderer.
+		askBackLine: askBack
+			? 'At least twice, invite me to ask YOU a question - asking is part of speaking, and my questions count as exchanges.'
+			: '',
+		hintLine: scaffolded
+			? "If I'm stuck, one short hint - in {targetLanguageName} first, in {uiLanguageName} if that does not help - then move on."
+			: "If I'm stuck, one short hint in {targetLanguageName}, then move on.",
+		minChars: charBounds ? String(charBounds.min) : '',
+		maxChars: charBounds ? String(charBounds.max) : '',
 		durationMinutes: String(exercise.durationMinutes ?? defaults.durationMinutes),
-		minExchanges: String(exercise.minExchanges ?? defaults.minExchanges),
+		minExchanges: String(minExchanges),
 		minQuestionsPerPoint: String(defaults.minQuestionsPerPoint),
-		reportMaxWords: String(defaults.reportMaxWords),
-		maxCorrections: String(defaults.maxCorrections)
+		reportMaxWords: String(exercise.reportMaxWords ?? defaults.reportMaxWords),
+		maxCorrections: String(exercise.maxCorrections ?? defaults.maxCorrections)
 	};
 
 	// The mode instruction is itself template text carrying placeholders, so
 	// it is filled before being spliced in — `fill` makes one pass per line.
-	const mode = exercise.mode ?? 'conversation';
 	values.modeInstruction = fill(template.modes[mode] ?? '', values);
 
 	const family = familyFor(mode);
@@ -200,7 +223,13 @@ export function renderSpeakingPrompt(options: RenderOptions): string {
 
 		const body: string[] = [
 			...(section.lines ?? []).map((line) => fill(line, values)),
-			...(section.bullets ?? []).map((bullet) => `- ${fill(bullet, values)}`),
+			// A bullet whose value is a placeholder that resolved empty is left out,
+			// so a conditional rule does not leave a bare "- " behind. A value may
+			// itself carry placeholders (the hint line), hence the second pass.
+			...(section.bullets ?? [])
+				.map((bullet) => fill(fill(bullet, values), values).trim())
+				.filter((bullet) => bullet.length > 0)
+				.map((bullet) => `- ${bullet}`),
 			...(section.list ? listLines(section.list, lists, values) : [])
 		].filter((line) => line.trim().length > 0);
 

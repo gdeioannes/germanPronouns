@@ -17,6 +17,19 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-11",
+    title: "The spoken exercises behave",
+    items: [
+      "The six roleplays now come with a scene and a part for each of you (a colleague back from holiday, a radio host who disagrees with you, a journalist who asks the wrong questions), and the A2 storytelling exercise comes with its story beats. Until now the prompt told your assistant to play \"the role in MATERIAL\" and there was none, so it made one up.",
+      "The picture at the start of a speaking exercise only appears where it belongs to the topic. A debate no longer opens with you describing a sofa, and when there is a picture, describing it is a warm-up on top of the conversation rather than three of its seven answers.",
+      "Every speaking exercise names the mistakes it cares about most, and that list now actually reaches your assistant, so the four fixes in the report are the four that matter at your level.",
+      "Sessions are as long as they claim: the beginner sessions that teach first get seven minutes instead of four, and the C2 conversations get ten answers to cover their six points.",
+      "The score box reads reports that only say \"FINAL SCORE: 84 / 100\", and the fixes are saved however your assistant decorates them: bold, bulleted or numbered. Before, those reports counted as no score and no fixes.",
+      "A teacher's pass over every spoken and written exercise. The checkpoints now hand the assistant the actual questions, items and situations to use, so a Perfekt check asks about where you went and an irreal-past check gives you three things that went wrong. The C1 nominalisation check became a six-item packing game, the C1 and C2 conversations got a running order with the register switches and objections written in, and the capstone reads you the opening of Kafka's \"Vor dem Gesetz\" to interpret. Beginners are addressed as du, the forms they have learned. Writing requests now state the length, and the scoring no longer counts the same slip twice. Saying \"Ende\" ends any session with a report.",
+      "The Copy step now tells you what the session will be before you copy anything: the kind of exercise, the scene, how many answers and minutes, and what the tutor listens for. The prompt ends with a one-line reminder of the same, which is where an assistant pays most attention. The C1 summary task comes with its own source study, so the correction can check your summary against it, and writing requests list the words the task was built around.",
+    ],
+  },
+  {
+    date: "2026-10-11",
     title: "You can write German now, and have it corrected",
     highlight: true,
     items: [

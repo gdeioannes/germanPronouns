@@ -7,10 +7,10 @@
   "modes": {
     "conversation": "Free conversation: invent real questions from TOPIC and react to what I say.",
     "interview": "Interview: clear separate questions, one at a time, a full answer before the next.",
-    "roleplay": "Roleplay: play the role described in TOPIC and stay in character the whole time.",
+    "roleplay": "Roleplay: MATERIAL gives the scene, your role and mine. Set the scene in one line, stay in character the whole time, and let the practise points come up through the situation rather than as quiz questions.",
     "vocabDrill": "Vocabulary drill over the items in MATERIAL, one at a time, mixing both directions ({uiLanguageName} -> {targetLanguageName} and back).",
     "wordGame": "The game described in MATERIAL: explain its rules to me in one short line, then follow its rules and scoring exactly.",
-    "storytelling": "I tell a story following the skeleton in MATERIAL. Let me speak in long turns; nudge me to the next beat only when I stall, and ask the follow-up questions at the end.",
+    "storytelling": "I tell a story following the beats in MATERIAL. Let me speak in long turns; nudge me to the next beat only when I stall, and ask the follow-up questions at the end.",
     "listenRetell": "First perform the piece described in MATERIAL out loud yourself, at {cefr} speed. Then I retell it in my own words and you ask the questions listed there.",
     "readingQa": "Show me the passage in MATERIAL exactly as written, let me read it, then ask me its questions one at a time.",
     "readingGen": "Write a fresh passage yourself following the constraints in MATERIAL, show it to me, let me read it, then ask me questions about it one at a time.",
@@ -79,7 +79,7 @@
       "id": "bilingual_scored",
       "optional": "{scaffolding}",
       "lines": [
-        "We work bilingually the whole session, also in the scored part: give every instruction and explanation in {uiLanguageName}, and keep only the questions, examples and items themselves in {targetLanguageName}. I am a beginner - if you talk to me only in {targetLanguageName}, I am lost. My answers still count only in {targetLanguageName}."
+        "We work bilingually the whole session, also in the scored part: give every instruction and explanation in {uiLanguageName}, and keep only the questions, examples and items themselves in {targetLanguageName}. I am a beginner - if you talk to me only in {targetLanguageName}, I am lost. My answers still count only in {targetLanguageName}. Ask each question in {targetLanguageName} first; add the {uiLanguageName} only if I ask."
       ]
     },
     {
@@ -129,8 +129,8 @@
       ],
       "lines": [
         "I am looking at a picture you cannot see. It shows: {pictureDescription}",
-        "Open the session with it: ask me to describe the picture in {targetLanguageName} - who is there, where it is, what they are doing, what I can see. Ask two or three follow-up questions about it, then move on to the topic.",
-        "Score the description like any other answer."
+        "Open the session with it, before any scene or roleplay starts: ask me to describe the picture in {targetLanguageName} - what or who is there, where things are, what is happening. One or two follow-up questions, then move on to the topic.",
+        "Score the description like any other answer, but as a warm-up: at A1 and A2 a correct list of things with their articles is a full answer. It is on top of the exchanges below, not part of their count."
       ]
     },
     {
@@ -177,7 +177,24 @@
       "heading": "STANDARD FOR JUDGING MY ANSWERS",
       "optional": "{referenceNotes}",
       "lines": [
-        "These are my course's notes on what this exercise tests. Use them as the standard when you score and correct me. Do not teach them during the scored part:",
+        "These are my course's notes on what this exercise tests. Use them as the standard when you score and correct me. If the plan has a TEACH step, teach from them there; once the scored part starts, do not teach them any more:",
+        "{referenceNotes}"
+      ],
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ]
+    },
+    {
+      "id": "reference_notes_writing",
+      "heading": "STANDARD FOR JUDGING MY TEXT",
+      "families": [
+        "writing"
+      ],
+      "optional": "{referenceNotes}",
+      "lines": [
+        "These are my course's notes on what this exercise tests. Use them as the standard when you score and correct me:",
         "{referenceNotes}"
       ]
     },
@@ -200,6 +217,18 @@
       ]
     },
     {
+      "id": "vocabulary_writing",
+      "heading": "WORDS THE TASK EXPECTS",
+      "families": [
+        "writing"
+      ],
+      "optional": "{targetVocabulary}",
+      "lines": [
+        "The task is built to use: {targetVocabulary}.",
+        "Do not demand them one by one; say in the report which of them I used well and which I avoided."
+      ]
+    },
+    {
       "id": "rules_conversation",
       "heading": "RULES",
       "families": [
@@ -209,9 +238,9 @@
         "Keep your questions, examples and reactions in {targetLanguageName}, at {cefr} speed.",
         "Ask real questions and let me answer freely - no sentences to translate, no gap-fills, no drills.",
         "{turnLength} Do not answer for me and do not finish my sentences.",
-        "At least twice, invite me to ask YOU a question - asking is part of speaking.",
         "Cover every practise point with at least {minQuestionsPerPoint} question each. Count exchanges, not minutes: at least {minExchanges} of my answers, roughly {durationMinutes} minutes.",
-        "If I'm stuck, one short hint in {targetLanguageName}, then move on."
+        "{askBackLine}",
+        "{hintLine}"
       ]
     },
     {
@@ -265,7 +294,7 @@
         "writing"
       ],
       "bullets": [
-        "Voice is not needed. Give me the task exactly as MATERIAL describes it, then wait.",
+        "Voice is not needed. Give me the task exactly as TOPIC describes it (the task, the points to cover, and the length), then wait.",
         "I answer with one written text in {targetLanguageName}, in a single message.",
         "No help, no vocabulary, no feedback while I write - everything belongs in the report.",
         "If I ask for more time or send the text in pieces, wait until I say I'm done."
@@ -332,11 +361,22 @@
         "presentation"
       ],
       "bullets": [
-        "2 = correct and complete for {cefr}, in a full sentence (small slips allowed).",
-        "1 = understandable, but with an error in one of: {scoringCriteria}. A one-word answer scores at most 1.",
+        "2 = correct for {cefr}, in a full sentence (a slip outside the practise points is allowed).",
+        "1 = understandable, but with an error in one of: {scoringCriteria}. A one-word answer where a sentence was possible scores at most 1.",
         "0 = wrong, off-topic, or not in {targetLanguageName}.",
         "Score honestly, not kindly: 100 means no error on any practise point. Keep a silent tally after every answer - do not reconstruct it at the end.",
         "FINAL SCORE = your points divided by the maximum, times 100. Say nothing about points until the report."
+      ]
+    },
+    {
+      "id": "scoring_note",
+      "families": [
+        "conversation",
+        "presentation"
+      ],
+      "optional": "{scoringNote}",
+      "lines": [
+        "{scoringNote}"
       ]
     },
     {
@@ -359,8 +399,9 @@
         "writing"
       ],
       "bullets": [
+        "Length: {minChars}-{maxChars} characters. A text clearly outside that range loses task points.",
         "40 points: the task is fulfilled - content, completeness, and: {scoringCriteria}.",
-        "40 points: accuracy on the practise points above.",
+        "40 points: language accuracy - grammar, case, verb forms, word order, spelling - with the practise points above weighing most. Count each slip once, in one bucket only.",
         "20 points: range and flow at {cefr}.",
         "A text not in {targetLanguageName}, or off-task, scores 0."
       ]
@@ -396,7 +437,7 @@
       "id": "report_rules",
       "heading": "THE REPORT IS MANDATORY - AND SHORT",
       "bullets": [
-        "The exercise always ends with the report - even if the session was short or I stop early (\"stop\", \"finish\" -> report at once).",
+        "The exercise always ends with the report - even if the session was short or I stop early (\"stop\", \"finish\" or \"Ende\" -> report at once).",
         "Write it in {reportLanguageName}, under {reportMaxWords} words. Do not replay the conversation; group my mistakes by type.",
         "At most {maxCorrections} FIX lines, the most useful ones. Explanations belong under \"Points lost\", never in a FIX line.",
         "Only report mistakes that matter at {cefr}. Ignore filler words and small pronunciation slips unless I was hard to understand."
@@ -424,7 +465,7 @@
       "id": "report_priorities",
       "optional": "{priorityErrors}",
       "lines": [
-        "Prioritise these error types: {priorityErrors}."
+        "When choosing which mistakes to report and which FIX lines to give, prioritise these error types: {priorityErrors}."
       ]
     },
     {
@@ -437,7 +478,6 @@
         "Did well: 2 lines.",
         "FIX: <my own words> -> <correct {targetLanguageName}>   (one line per correction, up to {maxCorrections})",
         "Improve next time: 3 short bullets.",
-        "{closingLine}",
         "SCORE=<number>",
         "{reportEndMarker}",
         "",
@@ -445,6 +485,18 @@
         "Print the two ===== marker lines exactly as shown - I copy everything between them into my app.",
         "SCORE= is digits only, 0 to 100, no percent sign, no extra words. Example: SCORE=72.",
         "Write nothing after {reportEndMarker}. These lines are required even if the session was cut short."
+      ]
+    },
+    {
+      "id": "reminder",
+      "heading": "REMEMBER",
+      "families": [
+        "conversation",
+        "drill",
+        "presentation"
+      ],
+      "lines": [
+        "At least {minExchanges} of my answers. Cover every practise point: {practisePoints}. No corrections until the report, and the report ends with SCORE=<number>."
       ]
     },
     {

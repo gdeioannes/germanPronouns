@@ -195,8 +195,11 @@ export function asSpeakingExercise(exercise: WritingExercise): SpeakingExercise 
 		practisePoints: exercise.practisePoints,
 		scoringCriteria: exercise.scoringCriteria,
 		targetVocabulary: exercise.targetVocabulary,
+		priorityErrors: exercise.priorityErrors,
 		mode: 'writing',
 		passScore: exercise.passScore,
+		reportMaxWords: exercise.reportMaxWords,
+		maxCorrections: exercise.maxCorrections,
 		material: exercise.material
 	};
 }

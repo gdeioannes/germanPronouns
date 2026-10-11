@@ -163,7 +163,13 @@ export interface SpeakingFix {
 }
 
 const SCORE_LINE = /SCORE\s*=\s*(\d{1,3})/i;
-const FIX_LINE = /^\s*-?\s*FIX:\s*(.+?)\s*(?:->|→)\s*(.+?)\s*$/gim;
+// Weak models drop the SCORE= line but keep the report's own header, so
+// "FINAL SCORE: 84 / 100" is the fallback — the 84, never the 100.
+const FINAL_SCORE_LINE = /FINAL\s+SCORE\s*[:=]?\s*\**\s*(\d{1,3})\s*(?:\/|of|out of)?\s*100?/i;
+// A FIX line as a model actually prints it: optionally bulleted (-, •, *),
+// numbered ("1." or "FIX 1:"), or wrapped in markdown bold ("**FIX:**").
+const FIX_LINE =
+	/^\s*(?:[-•*]|\d+[.)])?\s*\**\s*FIX(?:\s*\d+)?\s*:?\**\s*:?\s*(.+?)\s*(?:->|→|⇒|=>)\s*(.+?)\s*$/gim;
 // An AI that ignores "no explanation" tends to append one in brackets:
 // "ich bin gegangen (sein for movement)". The trainer wants only the sentence.
 const TRAILING_NOTE = /\s*[(\[（][^()\[\]（）]*[)\]）]\s*$/;
@@ -181,6 +187,11 @@ export function parseSpeakingScore(input: string): number | null {
 		const value = Number.parseInt(tagged[1], 10);
 		return Number.isFinite(value) && value >= 0 && value <= 100 ? value : null;
 	}
+	const header = FINAL_SCORE_LINE.exec(text);
+	if (header) {
+		const value = Number.parseInt(header[1], 10);
+		return value >= 0 && value <= 100 ? value : null;
+	}
 	if (!/^\d{1,3}$/.test(text)) return null;
 	const bare = Number.parseInt(text, 10);
 	return bare >= 0 && bare <= 100 ? bare : null;
@@ -192,8 +203,16 @@ export function parseSpeakingFixes(input: string): SpeakingFix[] {
 	FIX_LINE.lastIndex = 0;
 	let match: RegExpExecArray | null;
 	while ((match = FIX_LINE.exec(input)) !== null) {
-		const said = match[1].replace(TRAILING_NOTE, '').replace(/^["„“]|["“”]$/g, '').trim();
-		const correct = match[2].replace(TRAILING_NOTE, '').replace(/^["„“]|["“”]$/g, '').trim();
+		const said = match[1]
+			.replace(TRAILING_NOTE, '')
+			.replace(/\*\*/g, '')
+			.replace(/^["„“]|["“”]$/g, '')
+			.trim();
+		const correct = match[2]
+			.replace(TRAILING_NOTE, '')
+			.replace(/\*\*/g, '')
+			.replace(/^["„“]|["“”]$/g, '')
+			.trim();
 		if (said && correct) fixes.push({ said, correct });
 	}
 	return fixes;

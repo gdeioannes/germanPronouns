@@ -265,7 +265,7 @@ describe('the prompt a writing task renders', () => {
 	it('leaves MY TEXT out, and waits for a task, while nothing is written', () => {
 		const prompt = render('');
 		expect(prompt).not.toContain('MY TEXT');
-		expect(prompt).toContain('Give me the task exactly as MATERIAL describes it');
+		expect(prompt).toContain('Give me the task exactly as TOPIC describes it');
 	});
 
 	it('does not ask for voice, which a written text has no use for', () => {

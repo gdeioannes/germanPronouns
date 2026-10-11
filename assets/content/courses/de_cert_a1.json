@@ -3353,7 +3353,7 @@
       "subjectColumnLabel": "Übung",
       "level": "A1.1",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: it asks, you answer aloud in full sentences, and at the end it gives a score and the three corrections that matter most. Copy the exercise, paste it into the assistant, switch on voice mode and say 'Los geht's'. It will ask your name, where you are from, your age, and a handful of numbers — the same ground as any first conversation with someone new. Answer in whole sentences (Ich heiße …, Ich komme aus …, Ich bin … Jahre alt), because the sentence, not the word, is what people understand.",
+        "intro": "A five-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: it asks, you answer aloud in full sentences, and at the end it gives a score and the three corrections that matter most. Copy the exercise, paste it into the assistant, switch on voice mode and say 'Los geht's'. It will ask your name, where you are from, your age, and a handful of numbers — the same ground as any first conversation with someone new. Answer in whole sentences (Ich heiße …, Ich komme aus …, Ich bin … Jahre alt), because the sentence, not the word, is what people understand.",
         "tips": [
           {
             "kind": "rule",
@@ -3433,20 +3433,20 @@
         "scaffolded": true,
         "topic": "A quick round: my name, where I am from, my age and a few numbers.",
         "practisePoints": [
-          "Numbers 0–20, said and understood",
+          "Numbers 0–20: my age, a house number, a phone number",
           "ich heiße / ich bin / ich komme aus",
           "Answering W-Fragen with a full sentence"
         ],
         "scoringCriteria": [
           "the number said correctly",
           "the verb form",
-          "a full sentence as the answer"
+          "the answer matches the question asked (Wie heißt du? -> Ich heiße …)"
         ],
         "targetVocabulary": [
           "heißen",
           "kommen aus",
           "Jahre alt",
-          "die Nummer"
+          "die Telefonnummer"
         ],
         "priorityErrors": [
           "wrong number",
@@ -3454,14 +3454,12 @@
           "one-word answers"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        }
+        "describePicture": false,
+        "durationMinutes": 5,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "minExchanges": 6,
+        "material": "Ask for my name, where I come from, my age, my house number, my phone number (digit by digit) and how many brothers and sisters I have. Also say two numbers between 0 and 20 yourself and ask me to repeat them back."
       },
       "covers": [
         "a1.numbers",
@@ -8313,7 +8311,7 @@
       "subjectColumnLabel": "Übung",
       "level": "A1.1",
       "help": {
-        "intro": "The closing conversation of this module, run in your own AI assistant with voice mode on: a five-minute chat about you — name, where you live and come from, your family, and the numbers and colours around you. Copy the exercise, paste it in, say 'Los geht's', and answer in full sentences. The tutor will not interrupt to correct you; it keeps every correction for the report at the end, together with a score you bring back here. This is as close to a real first conversation as practice gets: someone asking, you answering in whole sentences, with the verb endings and sein/haben forms carrying the meaning.",
+        "intro": "The closing conversation of this module, run in your own AI assistant with voice mode on: a seven-minute chat about you — name, where you live and come from, your family, and the numbers and colours around you. Copy the exercise, paste it in, say 'Los geht's', and answer in full sentences. The tutor will not interrupt to correct you; it keeps every correction for the report at the end, together with a score you bring back here. This is as close to a real first conversation as practice gets: someone asking, you answering in whole sentences, with the verb endings and sein/haben forms carrying the meaning.",
         "tips": [
           {
             "kind": "rule",
@@ -8429,12 +8427,14 @@
         "practisePoints": [
           "Present-tense endings: ich heiße, du heißt, er wohnt",
           "sein and haben: ich bin, ich habe",
-          "Answering W-Fragen: Wie? Wo? Woher? Wie alt?"
+          "Answering W-Fragen: Wie? Wo? Woher? Wie alt?",
+          "Colours and numbers around me: Mein Auto ist rot. Ich habe zwei Brüder."
         ],
         "scoringCriteria": [
           "the verb ending for the person",
           "sein/haben forms",
-          "answering the question that was asked"
+          "answering the question that was asked",
+          "the colour or number itself"
         ],
         "targetVocabulary": [
           "heißen",
@@ -8447,7 +8447,9 @@
           "wrong verb ending",
           "wrong form of sein or haben",
           "answering a different question"
-        ]
+        ],
+        "describePicture": true,
+        "durationMinutes": 7
       },
       "covers": [
         "a1.statement-question",
@@ -8457,7 +8459,7 @@
         "a1.colours"
       ],
       "image": "quest_a1_1_lesen_dasbinich",
-      "imageDescription": "a young woman student waving in front of a university building with a coffee cup, a small brother and sister beside her"
+      "imageDescription": "a young woman waving in front of a university, holding a coffee; her little brother and sister stand next to her"
     },
     {
       "id": "quest_a1_1_schreiben_steckbrief",
@@ -8475,8 +8477,8 @@
         ],
         "scoringCriteria": [
           "all six pieces of information are there",
-          "the verb endings match the subject",
-          "nouns are capitalised"
+          "each piece is a full sentence, not a form entry (Name: Anna)",
+          "the text is about me, in the first person"
         ],
         "targetVocabulary": [
           "ich heiße",
@@ -8489,7 +8491,8 @@
           "ich mag",
           "gern"
         ],
-        "passScore": 50
+        "passScore": 50,
+        "charMax": 350
       },
       "storageKeyPrefix": "quest_a1_1_schreiben_steckbrief_",
       "help": {
@@ -16170,7 +16173,7 @@
       "subjectColumnLabel": "Übung",
       "level": "A1.2",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: what you have, what you need today, and whose things they are. Copy the exercise in, switch on voice, say 'Los geht's'. The tutor listens for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the score is on the article and the ending, which only show up in a sentence.",
+        "intro": "A five-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: what you have, what you need today, and whose things they are. Copy the exercise in, switch on voice, say 'Los geht's'. The tutor listens for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the score is on the article and the ending, which only show up in a sentence.",
         "tips": [
           {
             "kind": "rule",
@@ -16248,14 +16251,14 @@
         "scaffolded": true,
         "topic": "What I have and what I need today, and whose things they are.",
         "practisePoints": [
-          "Accusative objects after haben and brauchen",
-          "Possessives: mein, meine, meinen",
-          "einen/eine/ein in the accusative"
+          "Accusative objects after haben and brauchen: einen Stift, eine Tasche",
+          "Possessives with their ending: mein Auto, meine Tasche, meinen Schlüssel",
+          "Negation with kein: Ich habe keinen Hund, keine Zeit"
         ],
         "scoringCriteria": [
           "the accusative article",
           "the possessive ending",
-          "the object after the verb"
+          "a full sentence with the object in it (Ich habe einen Stift), not just the noun"
         ],
         "targetVocabulary": [
           "brauchen",
@@ -16266,17 +16269,16 @@
         ],
         "priorityErrors": [
           "nominative instead of accusative",
-          "wrong possessive ending"
+          "wrong possessive ending",
+          "nicht ein instead of kein"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        }
+        "durationMinutes": 5,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "minExchanges": 6,
+        "describePicture": false,
+        "material": "Ask me what is in my bag or on my desk right now (Was hast du in deiner Tasche?), what I need today (Was brauchst du heute?), what I do not have (Hast du einen Hund?), and whose things they are (Ist das dein Handy? Wessen Schlüssel ist das?). At least two questions where my answer needs mein-/dein- with an ending."
       },
       "covers": [
         "a1.accusative-articles",
@@ -23485,7 +23487,7 @@
           {
             "kind": "mnemonic",
             "title": "Keep going",
-            "text": "If you don't know a word, describe it or say 'Wie sagt man …?' and move on. Fluency counts; silence doesn't.",
+            "text": "If you don't know a word, ask 'Wie sagt man … auf Deutsch?' and carry on. Asking is never scored; the sentence you then say is.",
             "examples": [
               {
                 "de": "Ich kaufe … äh … Brot, Milch und Obst.",
@@ -23530,13 +23532,15 @@
           "Accusative objects: Ich kaufe einen Apfel.",
           "Possessives: mein, meine, meinen",
           "Modal verbs with the infinitive at the end",
-          "Times and dates: um acht Uhr, am Montag"
+          "Times and dates: um acht Uhr, am Montag",
+          "Separable verbs with the prefix at the end: Ich stehe um sieben auf."
         ],
         "scoringCriteria": [
           "the accusative article",
           "the possessive form",
           "the infinitive at the end after a modal",
-          "time expressions"
+          "time expressions",
+          "the separable prefix at the end"
         ],
         "targetVocabulary": [
           "kaufen",
@@ -23549,8 +23553,12 @@
         "priorityErrors": [
           "nominative instead of accusative",
           "wrong possessive ending",
-          "infinitive not at the end"
-        ]
+          "infinitive not at the end",
+          "separable prefix not at the end"
+        ],
+        "describePicture": false,
+        "durationMinutes": 7,
+        "minExchanges": 10
       },
       "covers": [
         "a1.accusative-articles",
@@ -23573,14 +23581,14 @@
         "practisePoints": [
           "an informal greeting and sign-off",
           "say you cannot come, with the modal verb können",
-          "give the reason with denn or because of a time phrase",
+          "give the reason with denn (denn ich muss arbeiten) or with a time phrase (Ich habe heute Abend keine Zeit)",
           "suggest another day with a time expression (am Freitag, morgen Abend)",
           "end with a question"
         ],
         "scoringCriteria": [
-          "the modal verb is in second place and its partner verb at the end",
           "the message says both why and when, not only one of them",
-          "it reads as a message to a friend, with du"
+          "it reads as a message to a friend, with du",
+          "it ends with a question the friend can answer"
         ],
         "targetVocabulary": [
           "Es tut mir leid",
@@ -23593,7 +23601,8 @@
           "Passt dir das?",
           "Bis dann"
         ],
-        "passScore": 50
+        "passScore": 50,
+        "charMin": 150
       },
       "storageKeyPrefix": "quest_a1_2_schreiben_absage_",
       "help": {
@@ -32301,7 +32310,7 @@
       "subjectColumnLabel": "Übung",
       "level": "A2.1",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: single things you did yesterday, one sentence at a time. The tutor asks 'Was hast du gestern gemacht?' and follow-ups; you answer in the Perfekt. It is listening for exactly two decisions per sentence — haben or sein, and the participle at the end — plus the participle's form (gegessen not geesst, gefahren not gefahrt). Answer in complete sentences, and let the tutor keep its corrections for the report.",
+        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: single things you did yesterday, one sentence at a time. The tutor asks 'Was hast du gestern gemacht?' and follow-ups; you answer in the Perfekt. It is listening for three decisions per sentence — haben or sein, and the participle at the end — plus the participle's form (gegessen not geesst, gefahren not gefahrt). Answer in complete sentences, and let the tutor keep its corrections for the report.",
         "tips": [
           {
             "kind": "rule",
@@ -32400,17 +32409,13 @@
           "participle in the wrong position"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        },
         "durationMinutes": 3,
         "minExchanges": 6,
-        "passScore": 60
+        "passScore": 60,
+        "describePicture": false,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "material": "Ask at least two questions that need a movement verb with sein (Wohin bist du gestern gegangen / gefahren? Wann bist du nach Hause gekommen?) and at least two that need haben (Was hast du gegessen? Was hast du am Abend gemacht?)."
       },
       "covers": [
         "a2.perfekt-haben",
@@ -35752,7 +35757,7 @@
           "the right helper (haben or sein)",
           "the participle form",
           "the participle at the end",
-          "the dative for the receiver"
+          "the dative after mit/bei and for the receiver"
         ],
         "targetVocabulary": [
           "gestern",
@@ -35771,9 +35776,12 @@
           "accusative instead of dative"
         ],
         "mode": "storytelling",
-        "durationMinutes": 5,
+        "durationMinutes": 6,
         "minExchanges": 8,
-        "passScore": 60
+        "passScore": 60,
+        "material": "Story beats, in order:\n1. Last weekend (or a recent trip): where I went and with whom.\n2. How I got there and what we did first.\n3. What we ate, what I bought, and for whom.\n4. One thing that went wrong or surprised me.\n5. How it ended and how it was.\nFollow-up questions at the end: who I did something for or gave something to (Wem hast du geholfen? Wem hast du etwas gekauft?), and what happened after that.",
+        "describePicture": false,
+        "scoringNote": "Count each beat I tell as one answer, and score the beat as a whole."
       },
       "covers": [
         "a2.past-narration",
@@ -35801,9 +35809,9 @@
           "end with one question to your friend"
         ],
         "scoringCriteria": [
-          "the Perfekt is used throughout rather than the present tense",
-          "haben and sein are each used with the right verbs",
-          "the e-mail reads as a message to a friend, with du and an informal greeting"
+          "all four content points are there: where, with whom, what you did, what you thought of it",
+          "the e-mail reads as a message to a friend, with du and an informal greeting",
+          "it ends with one question about the friend's weekend"
         ],
         "targetVocabulary": [
           "am Samstag",
@@ -44330,27 +44338,24 @@
         "targetVocabulary": [
           "auf dem / auf den",
           "in der / in die",
-          "neben dem",
-          "unter dem",
+          "neben dem / neben das",
+          "unter dem / unter den",
           "stellen",
           "legen"
         ],
         "priorityErrors": [
-          "wrong case after a two-way preposition",
-          "wrong article"
+          "accusative instead of dative after wo?",
+          "dative instead of accusative after wohin?",
+          "wrong gender article (der/die/das)"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        },
         "durationMinutes": 3,
         "minExchanges": 6,
-        "passScore": 60
+        "passScore": 60,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "describePicture": false,
+        "material": "Pretend I am tidying my room while we talk. First ask where five things are (Wo ist dein Handy? Wo liegt das Buch?), then tell me to put each of them somewhere and ask where I put it (Wohin legst du das Buch?). Alternate wo and wohin so each case comes up at least three times."
       },
       "covers": [
         "a2.two-way-prepositions"
@@ -50563,12 +50568,12 @@
         "practisePoints": [
           "Wo? + dative vs Wohin? + accusative",
           "weil and dass with the verb at the end",
-          "TeKaMoLo order: time before manner before place"
+          "Time before place in the middle of a sentence: Ich fahre am Samstag nach Berlin."
         ],
         "scoringCriteria": [
           "dative for a location, accusative for movement",
           "the verb at the end after weil/dass",
-          "the order of time, manner and place"
+          "time before place"
         ],
         "targetVocabulary": [
           "auf dem Tisch",
@@ -50576,7 +50581,6 @@
           "neben dem Fenster",
           "weil",
           "dass",
-          "deshalb",
           "Wir könnten …",
           "Was meinst du?"
         ],
@@ -50586,9 +50590,11 @@
           "wrong word order"
         ],
         "mode": "roleplay",
-        "durationMinutes": 5,
+        "durationMinutes": 6,
         "minExchanges": 8,
-        "passScore": 60
+        "passScore": 60,
+        "material": "Scene: I have just moved into the room in the picture and you are my friend Lena, who has come to help me set it up and then plan the weekend. We say du.\nDo the picture description in character: Lena asks me to describe the room first.\nYour role: ask where things are now and where they should go (Wo steht das Bett? Wohin stellen wir den Schreibtisch?), make one or two suggestions of your own and once ask what I think of one (so I answer with Ich finde, dass …), then ask what I want to do at the weekend and why.\nMy role: describe the room, say where each thing is and where it goes, and tell you what I plan and why I want to do it.",
+        "describePicture": true
       },
       "covers": [
         "a2.two-way-prepositions",
@@ -51807,21 +51813,20 @@
           "an informal greeting and an informal sign-off",
           "make the suggestion with könnten or sollten (wir könnten …, wir sollten …)",
           "give one reason with weil, and put the verb at the end of that clause",
-          "offer an alternative (oder …, wenn du willst / wenn du keine Zeit hast)",
+          "offer an alternative (oder am Sonntag; Wenn du keine Zeit hast, können wir …)",
           "say clearly when and where you are meeting",
           "ask them to reply"
         ],
         "scoringCriteria": [
-          "the suggestion is a suggestion, not an order: könnten or sollten rather than a bare imperative",
-          "the verb really is at the end of the weil clause",
-          "the message says what, when and where without the reader having to guess"
+          "the suggestion is a suggestion, not an order: könnten, sollten or Hast du Lust …? rather than a bare imperative",
+          "the message says what, when and where without the reader having to guess",
+          "there is an alternative and a request to reply"
         ],
         "targetVocabulary": [
           "Hast du Lust …?",
           "wir könnten",
           "wir sollten",
           "weil",
-          "Ich schlage vor",
           "Wenn du keine Zeit hast",
           "Treffen wir uns um …",
           "Sag mir bitte Bescheid",
@@ -60593,13 +60598,12 @@
       "speaking": {
         "topic": "Quick hypotheticals and descriptions: what would you do if …, and what is your flat, your street or your workplace like?",
         "practisePoints": [
-          "Konjunktiv II on both sides of a wenn-sentence: Wenn ich … hätte / wäre, würde ich …",
-          "hätte, wäre, könnte instead of the present tense",
+          "Konjunktiv II on both sides of a wenn-sentence: Wenn ich mehr Zeit hätte / reich wäre, würde ich … / könnte ich …",
           "Adjective endings after der- and ein-words: ein großer Balkon, die kleine Küche, in einem ruhigen Viertel"
         ],
         "scoringCriteria": [
           "the Konjunktiv II form (würde, hätte, wäre, könnte)",
-          "the infinitive at the end",
+          "the infinitive at the end after würde / könnte",
           "the adjective ending after der- and ein-words"
         ],
         "targetVocabulary": [
@@ -60618,17 +60622,13 @@
           "wrong adjective ending after der- or ein-words"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        },
         "durationMinutes": 3,
         "minExchanges": 6,
-        "passScore": 60
+        "passScore": 60,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "describePicture": false,
+        "material": "Three wenn-questions (Was würdest du machen, wenn du eine Million hättest / wenn du heute frei hättest / wenn du nicht hier wohnen würdest?) and three description questions that need adjectives with articles (Wie ist deine Wohnung? Beschreib dein Lieblingscafé. Wie ist dein Chef oder deine Nachbarin?). If you are not sure whether I said hatte or hätte, ask me to repeat that phrase once."
       },
       "covers": [
         "b1.konjunktiv2-wuerde",
@@ -65284,7 +65284,8 @@
         "scoringCriteria": [
           "the register stays formal throughout, with Sie and no spoken fillers",
           "the e-mail has a visible shape: greeting, reason for writing, the facts, the request, the sign-off",
-          "the request is softened rather than demanded"
+          "the request is softened rather than demanded",
+          "the e-mail says when the course was cancelled and that it was already paid"
         ],
         "targetVocabulary": [
           "Sehr geehrte Damen und Herren",
@@ -65302,7 +65303,7 @@
       "storageKeyPrefix": "quest_b1_1_schreiben_email_",
       "help": {
         "hook": "Write a real formal e-mail, and have your own AI mark it line by line.",
-        "intro": "This is the first exercise in the course where you write German yourself rather than filling a gap. You write the e-mail here, in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The four or five fixes it gives you are saved: your next speaking and writing exercises quietly bring one or two of them back, so the same slip does not survive for long. Aim for 400 to 900 characters, roughly the length of a real complaint e-mail. Much shorter and there is nothing to correct; much longer and you are writing an essay rather than an e-mail.",
+        "intro": "Your first formal text in the course. You write the e-mail here, in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The up to four fixes it gives you are saved: your next speaking and writing exercises quietly bring one or two of them back, so the same slip does not survive for long. Aim for 400 to 900 characters, roughly the length of a real complaint e-mail. Much shorter and there is nothing to correct; much longer and you are writing an essay rather than an e-mail.",
         "tips": [
           {
             "kind": "rule",
@@ -65472,7 +65473,7 @@
       "subjectColumnLabel": "Übung",
       "level": "B1.1",
       "help": {
-        "intro": "The closing conversation of this module, in your own AI assistant with voice on: opinions and wishes about work, study and living — what you think, why, and what you would do if. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections come at the end. The tutor listens for the building blocks of a real argument: an opinion with a reason (Ich finde, dass …, weil …), a hypothetical with the Konjunktiv II on both sides (Wenn ich …, würde ich …), a contrast (obwohl / trotzdem), and adjectives with endings in your descriptions. This is a real discussion in miniature, so also practise the moves of a discussion: agree, disagree politely, ask your partner what they think.",
+        "intro": "The closing conversation of this module, in your own AI assistant with voice on: opinions and wishes about work, study and living — what you think, why, and what you would do if. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections come at the end. The tutor listens for the building blocks of a real argument: an opinion with a reason (Ich finde …, weil …), a hypothetical with the Konjunktiv II on both sides (Wenn ich …, würde ich …), a contrast (obwohl / trotzdem), and adjectives with endings in your descriptions. This is a real discussion in miniature, so also practise the moves of a discussion: agree, disagree politely, ask your partner what they think.",
         "tips": [
           {
             "kind": "rule",
@@ -65588,14 +65589,14 @@
       "speaking": {
         "topic": "My opinions, wishes and plans: what I would change, what I would like, and what I think about something in the news.",
         "practisePoints": [
-          "An opinion with a reason: Ich finde, dass …, weil …",
+          "An opinion with a reason: Ich finde …, weil … / Ich bin der Meinung, dass …",
           "Konjunktiv II: Wenn ich …, würde ich … / hätte / wäre / könnte",
           "A contrast with obwohl (verb last) or trotzdem (verb second)",
           "Adjective endings in descriptions: ein ruhiges Viertel, die netten Kollegen",
           "Discussion moves: agree, disagree politely, ask back"
         ],
         "scoringCriteria": [
-          "a clear opinion with a reason",
+          "a reason attached to the opinion (weil / denn)",
           "the Konjunktiv II form",
           "verb position after weil, obwohl and trotzdem",
           "the adjective ending"
@@ -65607,21 +65608,18 @@
           "wäre",
           "hätte",
           "obwohl",
-          "trotzdem",
-          "einerseits … andererseits"
+          "trotzdem"
         ],
         "priorityErrors": [
           "present tense instead of Konjunktiv II in an unreal condition",
           "verb position after weil / obwohl / trotzdem",
           "wrong adjective ending"
         ],
-        "session": {
-          "durationMinutes": 5,
-          "minExchanges": 8
-        },
-        "durationMinutes": 5,
-        "minExchanges": 8,
-        "passScore": 60
+        "durationMinutes": 6,
+        "minExchanges": 10,
+        "passScore": 60,
+        "describePicture": false,
+        "material": "Three short topics, two or three questions each: (1) my job or studies - what I would change if I could; (2) where I live - describe the flat and the neighbourhood with adjectives; (3) one news item of my choice - my opinion with a reason. In each topic take a position I can disagree with, and once ask \"Obwohl …?\" so I have to contrast."
       },
       "covers": [
         "b1.opinion-redemittel",
@@ -75501,7 +75499,7 @@
       "subjectColumnLabel": "Übung",
       "level": "B1.2",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: telling something that happened, and describing how something is done. The tutor asks Was ist letztes Wochenende passiert? and Wie wird … gemacht?, and listens for the past forms — war, hatte, ging, kam, wurde — and for the passive frame (wird … gemacht, wurde … gebaut). Speak in whole sentences with the signposts (zuerst, dann, plötzlich, am Ende) and let the verbs land at the end of the passive sentences; the score and corrections come when you type 'Ende'.",
+        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: telling something that happened, and describing how something is done. The tutor asks Was ist letztes Wochenende passiert? and Wie wird … gemacht?, and listens for the past forms — war, hatte, ging, kam, wurde — and for the passive frame (wird … gemacht, wurde … gebaut). Speak in whole sentences with the signposts (zuerst, dann, plötzlich, am Ende) and let the verbs land at the end of the passive sentences; the score and corrections come at the end (say 'Ende' if you need to finish early).",
         "tips": [
           {
             "kind": "rule",
@@ -75585,13 +75583,12 @@
         "practisePoints": [
           "Past forms: war, hatte, wollte and strong verbs (ging, kam, fand, wurde)",
           "Signposts: zuerst, dann, plötzlich, am Ende",
-          "Present passive for a process: Zuerst wird das Wasser gekocht.",
-          "Past passive for history: Das Haus wurde 1990 gebaut."
+          "Passive with werden: present for a process (Zuerst wird das Wasser gekocht), Präteritum for history (Das Haus wurde 1990 gebaut)"
         ],
         "scoringCriteria": [
           "correct past forms (Präteritum or Perfekt)",
           "the passive with werden and the participle at the end",
-          "signposts that put the story in order"
+          "a signpost (zuerst, dann, plötzlich) with the verb right after it"
         ],
         "targetVocabulary": [
           "war",
@@ -75610,17 +75607,13 @@
           "passive without werden, or participle not at the end"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        },
         "durationMinutes": 3,
         "minExchanges": 6,
-        "passScore": 60
+        "passScore": 60,
+        "describePicture": false,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "material": "For the story, ask what happened last weekend and what went wrong. For the process, ask how my favourite dish is made or how coffee or tea is made at my home (Wie wird … gemacht?). For history, ask when my house, my school or the oldest building in my town was built (Wann wurde … gebaut?)."
       },
       "covers": [
         "b1.praeteritum-regular",
@@ -82115,13 +82108,11 @@
           "um … zu with a different subject instead of damit",
           "participle or infinitive not at the end"
         ],
-        "session": {
-          "durationMinutes": 5,
-          "minExchanges": 8
-        },
-        "durationMinutes": 5,
-        "minExchanges": 8,
-        "passScore": 60
+        "durationMinutes": 6,
+        "minExchanges": 10,
+        "passScore": 60,
+        "describePicture": false,
+        "material": "Four moves in order, two or three questions each: (1) Story: something that went wrong recently (zuerst / dann / plötzlich). (2) Reason: why it happened and what I did about it (weil / deshalb). (3) Process: how something is done where I live - recycling, getting a residence permit, making a local dish (wird … gemacht). (4) Purpose and options: why I do something (um … zu / damit) and two ways to do it next time (entweder … oder / zwar … aber). Ask one \"Warum machst du das?\" and one \"Was bringt das für andere?\" so that both um … zu and damit are needed."
       },
       "covers": [
         "b1.narration-skills",
@@ -82141,15 +82132,15 @@
         "topic": "Tell the story of a journey on which something went wrong: what you had planned, what happened, what you did about it, and how it ended. Write it as a story, not as a list.",
         "practisePoints": [
           "tell it in the past, mixing Präteritum for war, hatte and the modals with Perfekt for the actions",
-          "use nachdem or als once, with the right tense behind it",
-          "put one event before another with the Plusquamperfekt (ich hatte … vergessen)",
+          "use nachdem once with the Plusquamperfekt in the nachdem-clause (Nachdem ich den Zug verpasst hatte, …), or als with the Präteritum (Als ich am Bahnhof ankam, …)",
+          "say what you had planned with eigentlich + wollte (Eigentlich wollte ich …)",
           "order the story with temporal connectors: zuerst, plötzlich, schließlich",
           "end with how it turned out and what you thought"
         ],
         "scoringCriteria": [
           "the tenses are consistent and the Plusquamperfekt really marks the earlier event",
           "it reads as a story with a turn in it, not as a list of sentences",
-          "the connectors do real work rather than being decoration"
+          "the story has the four parts: plan, what went wrong, what I did, how it ended"
         ],
         "targetVocabulary": [
           "eigentlich",
@@ -91029,7 +91020,7 @@
       "subjectColumnLabel": "Übung",
       "level": "B2.1",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: reporting what someone said, saying what must be done, and using verbs with their prepositions. The tutor gives you a short statement and asks you to report it (Was hat sie gesagt?), describes a situation and asks what has to happen (Was muss gemacht werden?), and asks about interests and plans (Wofür interessieren Sie sich? Worauf freuen Sie sich?). It listens for the Konjunktiv I in the third person (er sei, sie habe, es werde), for the modal passive frame (muss … werden), and for the right prepositions with da(r)-forms. Speak in full sentences; type 'Ende' for the score.",
+        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: reporting what someone said, saying what must be done, and using verbs with their prepositions. The tutor gives you a short statement and asks you to report it (Was hat sie gesagt?), describes a situation and asks what has to happen (Was muss gemacht werden?), and asks about interests and plans (Wofür interessieren Sie sich? Worauf freuen Sie sich?). It listens for the Konjunktiv I in the third person (er sei, sie habe, es werde), for the modal passive frame (muss … werden), and for the right prepositions with da(r)-forms. Speak in full sentences; say 'Ende' if you need to stop early.",
         "tips": [
           {
             "kind": "rule",
@@ -91142,7 +91133,7 @@
         "topic": "Passing on what someone said, saying what has to be done, and talking about interests and plans.",
         "practisePoints": [
           "Konjunktiv I in reports: Sie sagte, sie sei müde und habe keine Zeit; sie werde anrufen",
-          "The fallback to Konjunktiv II when the Konjunktiv I form equals the indicative (sie hätten)",
+          "The fallback to Konjunktiv II when the Konjunktiv I form would equal the indicative: Die Kunden sagten, sie hätten keine Zeit (not: sie haben)",
           "Modal passive for necessities: Das Fenster muss repariert werden; Die Gäste müssen informiert werden",
           "Verbs with their prepositions and da(r)-forms: Ich interessiere mich dafür, … / Ich freue mich darauf, …"
         ],
@@ -91171,22 +91162,18 @@
         "durationMinutes": 3,
         "minExchanges": 6,
         "passScore": 50,
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        }
+        "material": "Scene: Monday morning in the office. You are my colleague Herr Weber, back from two weeks' holiday; I was at the team meeting you missed. We use Sie with each other.\nYour role: ask what the boss said about the new project, the deadline and the budget (Was hat sie gesagt? Was muss jetzt gemacht werden?), and also what the customers and the other teams said (Und die Kunden? Was haben die Kollegen gesagt?) so that I have to report plural subjects. Then ask about my plans and interests outside work, offering something that needs a clause: \"Ich überlege, nach der Arbeit einen Kurs zu machen - hätten Sie Lust darauf?\", \"Freuen Sie sich darauf, dass das Projekt endlich startet?\", and ask \"Worauf genau?\" after a short answer.\nMy role: report what was said in the meeting, say what has to be done now, and talk about my plans and interests.",
+        "describePicture": false,
+        "reportMaxWords": 150,
+        "maxCorrections": 3
       },
       "covers": [
         "b2.indirect-speech",
         "b2.modal-passive",
         "b2.verbs-prepositions"
       ],
-      "image": "quest_b2_1_hoeren_debatte",
-      "imageDescription": "a television debate: a moderator between two guests at a desk, a car-free town square on a screen behind"
+      "image": "quest_b2_1_bigtext_presse",
+      "imageDescription": "a press conference: a minister at a podium with microphones, journalists with cameras, a chart of houses behind"
     },
     {
       "type": "fillBlank",
@@ -98673,10 +98660,10 @@
           "At least one nominal cause: wegen der hohen Kosten, aufgrund der Umfrage, dank der neuen Regelung"
         ],
         "scoringCriteria": [
-          "a structured argument with a counterpoint and a conclusion",
+          "a reason given for each claim, not a bare assertion",
           "the Konjunktiv I form when reporting a view",
           "verb second after a fronted connector",
-          "a genitive phrase with wegen / aufgrund / dank instead of a weil-clause"
+          "the case after wegen / aufgrund / dank (genitive, not dative)"
         ],
         "targetVocabulary": [
           "Ich bin der Ansicht, dass",
@@ -98695,13 +98682,11 @@
           "dative or no case after wegen / aufgrund"
         ],
         "mode": "roleplay",
-        "durationMinutes": 6,
+        "durationMinutes": 7,
         "minExchanges": 9,
         "passScore": 50,
-        "session": {
-          "durationMinutes": 6,
-          "minExchanges": 9
-        }
+        "material": "Scene: a radio discussion on a social question. You are the host, Frau Dr. Keller, who also takes the opposite position to mine and defends it. Pick the question that fits the picture if one does, otherwise choose from: a four-day week, working from home, or higher taxes on the rich; name it at the start.\nYour role: open with the question, ask for my position, argue against it with concrete points, quote what \"critics\" or \"a recent study\" say and then ask \"Was sagen die Kritiker also genau?\" so that I have to report it, and ask me for a conclusion at the end.\nMy role: present my position with reasons, report what others have said, respond to your counter-arguments, and reach a conclusion.",
+        "describePicture": true
       },
       "covers": [
         "b2.argument-redemittel",
@@ -98709,8 +98694,8 @@
         "b2.connectors-adverbial",
         "b2.causal-nominal"
       ],
-      "image": "quest_b2_1_bigtext_presse",
-      "imageDescription": "a press conference: a minister at a podium with microphones, journalists with cameras, a chart of houses behind"
+      "image": "quest_b2_1_hoeren_debatte",
+      "imageDescription": "a television debate: a moderator between two guests at a desk, a car-free town square on a screen behind"
     },
     {
       "id": "quest_b2_1_schreiben_stellungnahme",
@@ -98721,7 +98706,7 @@
         "topic": "Take a position in writing on this question: should cities make their centres car-free? Say where you stand, give two arguments with evidence or an example, deal with one objection, and close with what follows from it.",
         "practisePoints": [
           "state your position in the first two sentences, not at the end",
-          "give two arguments, each with a reason and an example or a figure",
+          "give two arguments, each with a reason and an example (a figure only if you actually know one)",
           "name one objection fairly and answer it",
           "join the argument with adverbial connectors: zudem, allerdings, folglich, dennoch",
           "close with a conclusion that follows from what you wrote"
@@ -108515,7 +108500,7 @@
       "subjectColumnLabel": "Übung",
       "level": "B2.2",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: what would have happened if, and why things are as they are. The tutor describes a situation that went wrong and asks Was hätte man anders machen können? and Was wäre passiert, wenn …?, then asks for causes and circumstances with the formal prepositions (Wegen …? Trotz …? Innerhalb …?). It listens for the past Konjunktiv on both sides of a wenn-sentence (hätte / wäre + participle), for the double infinitive with a modal (hätte … können / sollen), and for genitives after the prepositions. Speak in full sentences; type 'Ende' for the score.",
+        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: what would have happened if, and why things are as they are. The tutor describes a situation that went wrong and asks Was hätte man anders machen können? and Was wäre passiert, wenn …?, then asks for causes and circumstances so that you need wegen, trotz, infolge and innerhalb with the genitive. It listens for the past Konjunktiv on both sides of a wenn-sentence (hätte / wäre + participle), for the double infinitive with a modal (hätte … können / sollen), and for genitives after the prepositions. Speak in full sentences; say 'Ende' if you need to stop early.",
         "tips": [
           {
             "kind": "rule",
@@ -108619,17 +108604,13 @@
           "dative or no case after a genitive preposition"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        },
         "durationMinutes": 3,
         "minExchanges": 6,
-        "passScore": 50
+        "passScore": 50,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "describePicture": false,
+        "material": "Three short situations, one at a time: (1) a product launch that slipped by two months because the supplier was changed too late; (2) a trip cancelled because the visa came one day after departure; (3) a flat lost because the application was sent without the salary statement. For each: Was hätte man anders machen können? Was wäre passiert, wenn …? Warum ist es so gekommen? (wegen / trotz / infolge / innerhalb …)."
       },
       "covers": [
         "b2.irreal-conditions",
@@ -116940,10 +116921,10 @@
         "hook": "Argue a climate question like a thoughtful adult: imagine outcomes, grant the other side a point, contrast views and reach a verdict."
       },
       "speaking": {
-        "topic": "A differentiated discussion on a scientific or environmental question (for example a car-free city centre, meat consumption or nuclear versus renewable energy): hypotheses about what would happen if, concessions to the other side, contrasts between positions, and a balanced verdict.",
+        "topic": "A differentiated discussion on a scientific or environmental question (for example a tax on flights, meat consumption or nuclear versus renewable energy): hypotheses about what would happen if, concessions to the other side, contrasts between positions, and a balanced verdict.",
         "practisePoints": [
           "A wenn-hypothesis in the Konjunktiv II, present or past: Wenn alle weniger Fleisch äßen, würden die Emissionen sinken",
-          "A concession with obwohl, zwar … aber or trotz + Genitiv",
+          "A concession with obwohl (verb last), zwar … aber / trotzdem (verb second) or trotz + Genitiv",
           "A contrast with während or dagegen / hingegen",
           "At least one Funktionsverbgefüge (eine Entscheidung treffen, in Betracht ziehen, Maßnahmen ergreifen) and one genitive preposition (aufgrund, infolge)"
         ],
@@ -116951,7 +116932,7 @@
           "a hypothesis in the correct Konjunktiv II form",
           "a concession with the right word order (obwohl: verb last; trotzdem: verb second)",
           "a clear contrast between two positions",
-          "formal register: a Funktionsverbgefüge and a genitive preposition"
+          "a Funktionsverbgefüge or genitive preposition built wrongly (wrong noun-verb pair, wrong case)"
         ],
         "targetVocabulary": [
           "Wenn …, würde …",
@@ -116969,14 +116950,12 @@
           "verb position after obwohl / trotzdem",
           "wrong case after aufgrund / infolge / trotz"
         ],
-        "session": {
-          "durationMinutes": 6,
-          "minExchanges": 9
-        },
         "mode": "roleplay",
         "durationMinutes": 6,
         "minExchanges": 9,
-        "passScore": 50
+        "passScore": 50,
+        "material": "Scene: a panel discussion on a scientific or environmental question. You are the moderator, Herr Brandt, and you also voice the other side when I need something to argue against. Pick the question yourself from: a tax on flights, meat consumption, or nuclear versus renewable energy; name it at the start.\nYour role: ask what would happen if (Was würde passieren, wenn …?) and at least once what would have happened if (Was wäre passiert, wenn man das schon vor zehn Jahren beschlossen hätte?), press me to concede a point to the other side, contrast the positions, and ask for a balanced verdict at the end.\nMy role: form hypotheses, make concessions, contrast the positions, and give a balanced verdict.",
+        "describePicture": false
       },
       "covers": [
         "b2.concessive",
@@ -125812,7 +125791,7 @@
       "subjectColumnLabel": "Übung",
       "level": "C1.1",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: describing a process in formal register and unpacking a nominal phrase into a sentence. The tutor gives you a dense phrase (die Verschiebung des Termins wegen Krankheit des Referenten) and asks you to say it as a sentence, then gives you a sentence and asks for the nominal version; it also asks what must or can be done (sein + zu, sich lassen) and for a connector with sofern or zumal. It listens for correct genitives, the right conjunction for each preposition, the passive substitutes, and the register. Speak in full sentences; type 'Ende' for the score.",
+        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: packing and unpacking. The tutor gives you six items, one at a time. For three of them you get a dense nominal phrase (die Verschiebung des Termins wegen Krankheit des Referenten) and say it as a full sentence with the matching conjunction; for the other three you get a sentence and pack it into one nominal phrase with the right preposition and the genitive, or into a passive substitute (sein + zu, sich lassen). It listens for the conjunction or preposition that matches, the case inside the phrase, and the register. One item, one answer; say 'Ende' if you need to stop early.",
         "tips": [
           {
             "kind": "rule",
@@ -125892,14 +125871,14 @@
       "speaking": {
         "topic": "The same idea said twice: once in a formal, noun-heavy register and once plainly with verbs.",
         "practisePoints": [
-          "Nominalisation: die Durchführung, die Entwicklung, die Umsetzung",
-          "Verbalising a noun-heavy phrase back into a clause",
-          "The case inside a nominalised phrase"
+          "Unpacking a nominal phrase into a clause with the right conjunction (wegen -> weil, trotz -> obwohl, nach -> nachdem)",
+          "Packing a clause into a nominal phrase with the right preposition and the genitive",
+          "Passive substitutes: sein + zu, sich lassen"
         ],
         "scoringCriteria": [
-          "the nominalised form",
-          "the verbalised form",
-          "the case inside the phrase"
+          "the conjunction or preposition that matches",
+          "the case inside the nominal phrase",
+          "the passive substitute built correctly"
         ],
         "targetVocabulary": [
           "die Durchführung",
@@ -125909,20 +125888,17 @@
         ],
         "priorityErrors": [
           "wrong case in a nominalised phrase",
+          "wrong conjunction for the preposition",
           "register slipping mid-sentence"
         ],
-        "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        },
+        "mode": "wordGame",
         "durationMinutes": 3,
         "minExchanges": 6,
-        "passScore": 60
+        "passScore": 60,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "describePicture": false,
+        "material": "Game: Packen und Auspacken. Six items, one at a time. For an UNPACK item I turn the nominal phrase into a full sentence with a conjunction; for a PACK item I turn the sentence into one nominal phrase with the right preposition and genitive. Rules: one item, one answer, right or wrong only.\nUNPACK: (1) die Verschiebung des Termins wegen Krankheit des Referenten; (2) die Durchführung der Befragung trotz des geringen Rücklaufs; (3) die Umsetzung der Reform nach Zustimmung des Parlaments.\nPACK: (4) Die Firma reagierte schnell, deshalb blieb der Schaden klein. (5) Das Projekt wurde erfolgreich durchgeführt, obwohl das Budget gekürzt wurde. (6) Man kann die Zahlen nicht überprüfen, weil die Quelle fehlt (use sein + zu or sich lassen)."
       },
       "covers": [
         "c1.nominalisation-advanced",
@@ -132199,14 +132175,12 @@
           "wrong case in a nominalised phrase",
           "wrong word order after an advanced connector"
         ],
-        "session": {
-          "durationMinutes": 6,
-          "minExchanges": 9
-        },
         "mode": "conversation",
         "durationMinutes": 6,
         "minExchanges": 9,
-        "passScore": 60
+        "passScore": 60,
+        "describePicture": false,
+        "material": "Pick one: Sollten Hochschulen die Anwesenheitspflicht abschaffen? / Verändert KI das Lernen zum Besseren? / Ist ständige Erreichbarkeit im Beruf zumutbar? Name it, then: (1) ask me for a structured two-minute statement (zunächst - anschließend - abschließend) and let me finish it; (2) challenge two of its claims and ask for precision; (3) twice, ask me to say the same point \"ganz einfach, so wie Sie es einem Freund erklären würden\", then back in formal register; (4) once, propose something ambitious so that I can reject the smaller step first (…, geschweige denn …); (5) end by asking for a verdict with a concession inside it."
       },
       "covers": [
         "c1.presentation-skills",
@@ -132223,16 +132197,17 @@
       "title": "Schreiben: Zusammenfassung",
       "level": "C1.1",
       "writing": {
-        "topic": "Summarise, in one tight paragraph, a report you have read recently: a news article, a study or a workplace document. Give its subject, its main finding, the evidence it rests on and what it recommends. Write it as a summary, not as a review.",
+        "topic": "Summarise the report in MATERIAL in one or two tight paragraphs. Give its subject, its main finding, the evidence it rests on and what it recommends. Write it as a summary, not as a review.",
         "practisePoints": [
           "open with one sentence naming the text, its subject and its central claim",
           "compress the verbs into nouns where it tightens the sentence (die Senkung, der Rückgang, die Einführung)",
           "attribute throughout, so the reader always knows whose claim it is",
           "keep your own opinion out of it entirely",
-          "close with what the text recommends or concludes"
+          "close with what the text recommends or concludes",
+          "carry at least part of the attribution with the Konjunktiv I (die Studie zeige, die Zahl sei gestiegen)"
         ],
         "scoringCriteria": [
-          "nothing is in it that was not in the source, and nothing central is missing",
+          "nothing is in it that is not in the source, and the finding, the evidence and the recommendation are all there",
           "the nominal style tightens the text rather than making it unreadable",
           "the attribution never lets the summary be read as your own view"
         ],
@@ -132247,7 +132222,8 @@
           "daraus zieht sie den Schluss",
           "abschließend"
         ],
-        "passScore": 60
+        "passScore": 60,
+        "material": "Bericht: Vier-Tage-Woche im Mittelstand (Institut für Arbeitsforschung, Pilotstudie, 2026)\nDie Pilotstudie begleitete zwölf Monate lang 41 mittelständische Unternehmen mit insgesamt 3.200 Beschäftigten, die bei gleichem Gehalt von fünf auf vier Arbeitstage umstellten. Die Verfasserinnen stellen fest, dass die Produktivität je Arbeitsstunde im Durchschnitt um 11 Prozent stieg, während der Gesamtausstoß der Betriebe nahezu unverändert blieb (minus 1,5 Prozent). Die Zahl der Krankheitstage ging um ein Fünftel zurück; die Fluktuation sank von 14 auf 8 Prozent. In sechs Betrieben, vor allem in der Produktion mit Schichtbetrieb, ließ sich das Modell nur mit zusätzlichen Einstellungen halten, was die Lohnkosten dort um 9 Prozent erhöhte. Befragte Führungskräfte nannten als größte Hürde die Terminabstimmung mit Kunden. Der Bericht empfiehlt, das Modell branchenweise und nicht pauschal einzuführen, Pilotphasen von mindestens sechs Monaten vorzusehen und die Produktivität je Stunde, nicht je Kopf, als Maßstab zu nehmen."
       },
       "storageKeyPrefix": "quest_c1_1_schreiben_zusammenfassung_",
       "help": {
@@ -142905,7 +142881,7 @@
       "subjectColumnLabel": "Übung",
       "level": "C1.2",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: guessing and reporting. The tutor describes evidence and asks what you conclude (Was vermuten Sie? — muss / dürfte / könnte + infinitive, present or past), then gives you rumours and self-claims to relay (soll / will), and asks you to decode a few prefixed verbs in context. It listens for the modal matching the stated certainty, for the Infinitiv II when the guess is about the past, for the distinction between soll and will, and for correct participles of inseparable verbs (no ge-). Speak in full sentences; type 'Ende' for the score.",
+        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: guessing and reporting. The tutor describes evidence and asks what you conclude (Was vermuten Sie? — muss / dürfte / könnte + infinitive, present or past), then gives you rumours and self-claims to relay (soll / will). It listens for the modal matching the stated certainty, for the Infinitiv II when the guess is about the past, for the distinction between soll and will. Speak in full sentences; say 'Ende' if you need to stop early.",
         "tips": [
           {
             "kind": "rule",
@@ -142986,12 +142962,14 @@
         "practisePoints": [
           "Inference: dürfte, müsste, könnte",
           "Hearsay: soll, will",
-          "Matching the modal to how certain I am"
+          "Matching the modal to how certain I am",
+          "Past inference with the Infinitiv II and a clean participle: muss geregnet haben, könnte verreist sein, dürfte vergessen haben"
         ],
         "scoringCriteria": [
           "the subjective modal",
           "the degree of certainty it signals",
-          "hedging that matches the claim"
+          "hedging that matches the claim",
+          "the Infinitiv II when the guess is about the past"
         ],
         "targetVocabulary": [
           "dürfte",
@@ -143005,17 +142983,13 @@
           "wrong degree of certainty"
         ],
         "mode": "interview",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        },
         "durationMinutes": 3,
         "minExchanges": 6,
-        "passScore": 60
+        "passScore": 60,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "describePicture": false,
+        "material": "Give me evidence and ask what I conclude, then rumours and self-claims to relay. Evidence (present and past): (1) nasse Straße, Pfützen; (2) der Briefkasten des Nachbarn quillt über, die Rollläden sind seit Tagen unten; (3) ein Kollege kommt mit Sonnenbrand und Koffer ins Büro. Rumours (soll): (4) \"Man sagt, die Firma wird verkauft.\" (5) \"Angeblich hat die Chefin gekündigt.\" Self-claims (will): (6) \"Er behauptet, er habe von nichts gewusst.\" After each, ask how sure I am and why."
       },
       "covers": [
         "c1.modal-supposition",
@@ -147603,13 +147577,13 @@
         "practisePoints": [
           "Subjective modals for inference: Er dürfte recht haben.",
           "Subjective modals for hearsay: Sie will das gesehen haben.",
-          "Word formation: prefixes and suffixes that shift meaning",
+          "Switching register cleanly when the tutor switches between du and Sie: pronouns, verbs, requests (Kannst du mal … / Wäre es Ihnen möglich …)",
           "Idioms used naturally, not decoratively"
         ],
         "scoringCriteria": [
           "the subjective modal and what it implies",
           "hedging that matches how sure I am",
-          "idioms used in the right place",
+          "the register matching the tutor's du or Sie, and idioms used in the right place",
           "cohesion across turns"
         ],
         "targetVocabulary": [
@@ -147624,14 +147598,12 @@
           "wrong degree of certainty",
           "idiom used wrongly"
         ],
-        "session": {
-          "durationMinutes": 6,
-          "minExchanges": 9
-        },
         "mode": "conversation",
         "durationMinutes": 6,
         "minExchanges": 9,
-        "passScore": 60
+        "passScore": 60,
+        "describePicture": false,
+        "material": "Start informally (du) as a friend talking about a series, a film or a news story. After about four exchanges, without announcing it, become a journalist interviewing me formally (Sie) on the same question; later drop back to du. Quote \"what people are saying\" and \"what the director claims\" so I can relay them with soll / will, and ask how sure I am of each claim. Once, ask me to put a judgement \"in einem Bild\" (an idiom)."
       },
       "covers": [
         "c1.redemittel-talk",
@@ -149365,7 +149337,7 @@
         "topic": "Write a post for an online discussion about whether working from home has been good for younger employees. Take a position, but hedge the claims you cannot prove, respond to something another poster might have said, and keep the tone of a forum rather than an essay.",
         "practisePoints": [
           "hedge an uncertain claim with dürfte, könnte or scheint zu, and mark certainty where you have it",
-          "report what others say with sollen or wollen for hearsay",
+          "report what others say with sollen (or wollen for a self-claim) for hearsay",
           "disagree without attacking, using a softened Konjunktiv II",
           "keep it readable: a forum post, not a seminar paper",
           "mark your own experience as experience rather than as evidence"
@@ -159424,14 +159396,13 @@
           "reported speech falling back to the indicative"
         ],
         "mode": "roleplay",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        }
+        "material": "The message I have to pass on: our department will lose a third of its budget next year unless the pilot project shows measurable results by March.\nRound 1 (Sie): you are the chair of the finance committee; I present the situation formally. Answer my presentation with a three-sentence position (the committee will not extend the deadline, could accept interim figures in February, and expects a written risk assessment) and mention what the director told you - this is what I report in round 3.\nRound 2 (du): you are my old friend Max over a beer; I tell him the same thing plainly.\nRound 3 (Sie): you are a colleague who missed the meeting and asks what the committee chair and the director actually said; I report it in indirect speech.\nYour role: announce each round in one German line as yourself (Runde 2: …), then stay in that character until the round ends, react in character, and ask one follow-up question per round.",
+        "minExchanges": 8,
+        "durationMinutes": 5,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "describePicture": false,
+        "passScore": 60
       },
       "covers": [
         "c2.register",
@@ -162876,12 +162847,12 @@
           "Steering the exchange: sharpening, holding a point, summarising"
         ],
         "scoringCriteria": [
-          "claims graded rather than simply asserted",
+          "a grading adverb used with the wrong meaning or placed wrongly (durchaus / keineswegs / geradezu / immerhin)",
           "collocations a native speaker would use",
           "sustained reported speech",
           "a rhetorical touch that fits the register",
           "the register asked for",
-          "control of the exchange"
+          "a steering move done when asked (zuspitzen, festhalten, zusammenfassen)"
         ],
         "targetVocabulary": [
           "durchaus",
@@ -162901,11 +162872,12 @@
           "reported speech falling back to the indicative",
           "a proverb or cliché where a precise formulation is needed"
         ],
-        "mode": "interview",
-        "session": {
-          "durationMinutes": 6,
-          "minExchanges": 9
-        }
+        "mode": "roleplay",
+        "minExchanges": 12,
+        "durationMinutes": 8,
+        "describePicture": false,
+        "passScore": 60,
+        "material": "Scene: a panel debate. You are the interviewer, who argues. Pick one: Sollten öffentlich-rechtliche Medien weiter aus Beiträgen finanziert werden? / Braucht Deutschland eine höhere Erbschaftsteuer? / Schadet Werbung auf Social Media dem Journalismus? Name it. Then: open by stating the opposing position in three sentences and ask me to restate it before I answer (Konjunktiv I); argue back; twice, drop into a colloquial tone for one turn and say \"Sagen Sie's doch mal salopp\", then return to formal; once say \"Spitzen Sie es zu\" and once \"Fassen Sie zusammen, wo wir stehen\"; end with a question that invites a flat verdict so I can refuse it with a concession or a litotes."
       },
       "covers": [
         "c2.speaking-formats",
@@ -162922,7 +162894,7 @@
       "title": "Schreiben: Zweimal dasselbe",
       "level": "C2.1",
       "writing": {
-        "topic": "Say the same thing twice. Pick one piece of news: a decision at work, a change to a rule, or something that went wrong. Write it first as a message to a close colleague, then as a formal notice to everyone affected. The facts must be identical; only the register may change.",
+        "topic": "Say the same thing twice. Pick one piece of news: a decision at work, a change to a rule, or something that went wrong. Write it first as a message to a close colleague, then as a formal notice to everyone affected. The facts must be identical; only the register may change. Both versions go in one message, each labelled, and the length limit is for both together.",
         "practisePoints": [
           "keep the content exactly the same in both versions, including the facts and the dates",
           "move the register with word choice: kriegen against erhalten, reden against erörtern",
@@ -172130,7 +172102,7 @@
       "subjectColumnLabel": "Übung",
       "level": "C2.2",
       "help": {
-        "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: reading what is meant and saying things more than one way. The tutor gives you an indirect utterance and asks what it is doing (Was meint die Sprecherin mit „Es zieht hier“?); asks you to make a point by implication or understatement instead of saying it outright; asks you to say something ironically so that the irony is unmistakable; asks you to put the emphasis on a different element of a sentence (focus particle plus Vorfeld); and asks you to paraphrase a neutral sentence in an elevated register without changing its meaning. Speak in full sentences; type ‘Ende’ for the score.",
+        "intro": "A short checkpoint on the first half of this module, in your own AI assistant with voice on: you are the spokesperson of a company that has just withdrawn a product, and a sharp journalist asks what you do not want to answer. You answer without saying things outright - implication, understatement, irony that is marked so it lands, a corrected focus when her question presupposes something false, and a higher register when her question is crude - and twice you have to say what she actually meant. It listens for whether the implication lands, whether the focus correction is built with a particle and the Vorfeld, and whether the register holds. Say 'Ende' if you need to stop early.",
         "tips": [
           {
             "kind": "rule",
@@ -172322,14 +172294,14 @@
           "Reading an indirect utterance: naming its function (Bitte, Absage, Vorwurf, Einwand) and its plain meaning",
           "Implying rather than stating outright, and understating with a litotes",
           "Signalling irony so it lands",
-          "Refocusing a sentence with a focus particle and the Vorfeld",
+          "Correcting a false presupposition by refocusing: particle + Vorfeld (Erst seit März wussten wir davon. Nicht die Geschäftsführung, sondern ein Zulieferer …)",
           "Paraphrasing a neutral sentence in an elevated register without changing its meaning"
         ],
         "scoringCriteria": [
           "the function of an utterance read correctly",
           "the implication actually landing",
           "control of the ironic register",
-          "focus placed where it was asked for",
+          "the false presupposition corrected by refocusing, not by a flat denial",
           "precision and consistent register in the paraphrase"
         ],
         "targetVocabulary": [
@@ -172347,14 +172319,14 @@
           "register slipping in the paraphrase"
         ],
         "mode": "roleplay",
-        "session": {
-          "durationMinutes": 3,
-          "minExchanges": 6
-        },
-        "report": {
-          "maxWords": 150,
-          "maxCorrections": 3
-        }
+        "material": "Scene: a press briefing. You are a sharp journalist, Frau Vogel; I am the spokesperson of a company that has just had to withdraw a product. We use Sie.\nYour role: ask blunt questions I will not want to answer directly; ask at least two questions with a false presupposition about timing or responsibility (Sie wussten das also seit Januar? Die Geschäftsführung hat das durchgewinkt?); and twice say something yourself that is only implied (an understatement, an ironic remark, a shifted focus) and ask me what you actually meant.\nMy role: answer without saying things outright - imply, understate, signal irony, correct the false presupposition by refocusing, and paraphrase at a higher register when the question is crude; and read your indirect remarks for what they mean.",
+        "minExchanges": 8,
+        "durationMinutes": 5,
+        "reportMaxWords": 150,
+        "maxCorrections": 3,
+        "describePicture": false,
+        "passScore": 60,
+        "scoringNote": "An answer that deliberately does not answer the question counts as complete when its implication is unmistakable; score the implication, not the information."
       },
       "covers": [
         "c2.implicature",
@@ -181088,7 +181060,7 @@
           "handling of implication and irony",
           "the modal verbs used in the right sense",
           "control of long, subordinated sentences under objection",
-          "a clear focus at the end of each turn"
+          "a focus construction built wrongly (particle not before the focused element, or the element not in the Vorfeld)"
         ],
         "targetVocabulary": [
           "gleichsam",
@@ -181104,13 +181076,14 @@
           "losing the thread of a long sentence",
           "an implication that does not land",
           "a modal verb in the wrong sense (soll vs will)",
-          "a grammatical slip under speed"
+          "indicative where Konjunktiv I or a subjective modal was needed"
         ],
-        "mode": "interview",
-        "session": {
-          "durationMinutes": 6,
-          "minExchanges": 9
-        }
+        "mode": "conversation",
+        "minExchanges": 10,
+        "durationMinutes": 7,
+        "describePicture": false,
+        "passScore": 60,
+        "material": "Three parts, in this order, about three of my answers each.\n(1) Abstract question: Setzt Verantwortung Freiheit voraus? Ask me to define the concept in one sentence and to grade my claim.\n(2) Passage: read aloud (and show in text if we are writing) the opening of Franz Kafka, \"Vor dem Gesetz\": \"Vor dem Gesetz steht ein Türhüter. Zu diesem Türhüter kommt ein Mann vom Lande und bittet um Eintritt in das Gesetz. Aber der Türhüter sagt, dass er ihm jetzt den Eintritt nicht gewähren könne. Der Mann überlegt und fragt dann, ob er also später werde eintreten dürfen. 'Es ist möglich', sagt der Türhüter, 'jetzt aber nicht.'\" Ask me what one phrase does, quoting it first, and whether the Türhüter's \"möglich, jetzt aber nicht\" is a refusal.\n(3) Dispute: take the view that literature teaches nothing about responsibility; quote \"critics\" and \"the author himself\" so I relay them with soll / will; object twice mid-argument and ask me to end each turn on the point that matters most."
       },
       "covers": [
         "c2.implicature",
@@ -181128,7 +181101,7 @@
       "title": "Schreiben: Erörterung",
       "level": "C2.2",
       "writing": {
-        "topic": "Argue a case on an abstract question: whether a society may require something of its members for the common good. Set out the question, develop one line of argument properly, take the strongest counter-argument seriously, answer it, and end where the argument actually leaves you.",
+        "topic": "Argue a case on an abstract question: whether a society may require something of its members for the common good. Set out the question, develop one line of argument properly, take the strongest counter-argument seriously, answer it, and end where the argument actually leaves you. Choose one concrete requirement to argue about (compulsory social service, mandatory vaccination, an organ-donation opt-out, a speed limit) and keep to it.",
         "practisePoints": [
           "frame the question precisely before answering it, including what you are not arguing",
           "develop one line of argument in depth rather than four in passing",
@@ -181152,7 +181125,8 @@
           "daraus folgt keineswegs",
           "Verantwortung tragen"
         ],
-        "passScore": 65
+        "passScore": 65,
+        "charMax": 3000
       },
       "storageKeyPrefix": "quest_c2_2_schreiben_eroerterung_",
       "help": {
