@@ -2,68 +2,6 @@
   "id": "last_ubahn",
   "title": "Last U-Bahn home",
   "intro": "2:04 a.m. Alexanderplatz. Your phone is dead, the station is empty, and the last U-Bahn to Pankow leaves in a few minutes. Listen for the platform: Gleis.",
-  "rounds": [
-    {
-      "answer": "3",
-      "options": [
-        "2",
-        "3",
-        "8"
-      ],
-      "clip": {
-        "who": "announcer",
-        "name": "Station announcement",
-        "audio": "task_ubahn_r1",
-        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis drei.",
-        "en": "The next U-Bahn to Pankow leaves from platform three."
-      }
-    },
-    {
-      "answer": "7",
-      "options": [
-        "6",
-        "7",
-        "9"
-      ],
-      "clip": {
-        "who": "announcer",
-        "name": "Station announcement",
-        "audio": "task_ubahn_r2",
-        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis sieben.",
-        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform seven."
-      }
-    },
-    {
-      "answer": "1",
-      "options": [
-        "1",
-        "2",
-        "4"
-      ],
-      "clip": {
-        "who": "announcer",
-        "name": "Station announcement",
-        "audio": "task_ubahn_r3",
-        "de": "Achtung! Die U-Bahn nach Pankow fährt in zwei Minuten von Gleis eins.",
-        "en": "Attention! The U-Bahn to Pankow leaves in two minutes from platform one."
-      }
-    },
-    {
-      "answer": "5",
-      "options": [
-        "4",
-        "5",
-        "9"
-      ],
-      "clip": {
-        "who": "announcer",
-        "name": "Station announcement",
-        "audio": "task_ubahn_r4",
-        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis fünf. Bitte beeilen Sie sich!",
-        "en": "Final call: the last U-Bahn to Pankow, platform five. Please hurry!"
-      }
-    }
-  ],
   "wrong": [
     "Wrong platform. That train goes to Spandau 🚇",
     "Night bus. 90 minutes. Someone is eating a kebab next to you 🥙",
@@ -75,5 +13,337 @@
     "audio": "task_ubahn_end",
     "de": "Zurückbleiben, bitte!",
     "en": "Stand back, please! (The doors close: you made it.)"
-  }
+  },
+  "announcements": [
+    {
+      "platform": "1",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p1",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis eins.",
+        "en": "The next U-Bahn to Pankow leaves from platform one."
+      }
+    },
+    {
+      "platform": "1",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w1",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis eins.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform one."
+      }
+    },
+    {
+      "platform": "1",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l1",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis eins. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform one. Please hurry!"
+      }
+    },
+    {
+      "platform": "2",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p2",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis zwei.",
+        "en": "The next U-Bahn to Pankow leaves from platform two."
+      }
+    },
+    {
+      "platform": "2",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w2",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis zwei.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform two."
+      }
+    },
+    {
+      "platform": "2",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l2",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis zwei. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform two. Please hurry!"
+      }
+    },
+    {
+      "platform": "3",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p3",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis drei.",
+        "en": "The next U-Bahn to Pankow leaves from platform three."
+      }
+    },
+    {
+      "platform": "3",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w3",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis drei.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform three."
+      }
+    },
+    {
+      "platform": "3",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l3",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis drei. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform three. Please hurry!"
+      }
+    },
+    {
+      "platform": "4",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p4",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis vier.",
+        "en": "The next U-Bahn to Pankow leaves from platform four."
+      }
+    },
+    {
+      "platform": "4",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w4",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis vier.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform four."
+      }
+    },
+    {
+      "platform": "4",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l4",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis vier. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform four. Please hurry!"
+      }
+    },
+    {
+      "platform": "5",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p5",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis fünf.",
+        "en": "The next U-Bahn to Pankow leaves from platform five."
+      }
+    },
+    {
+      "platform": "5",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w5",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis fünf.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform five."
+      }
+    },
+    {
+      "platform": "5",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l5",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis fünf. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform five. Please hurry!"
+      }
+    },
+    {
+      "platform": "6",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p6",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis sechs.",
+        "en": "The next U-Bahn to Pankow leaves from platform six."
+      }
+    },
+    {
+      "platform": "6",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w6",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis sechs.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform six."
+      }
+    },
+    {
+      "platform": "6",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l6",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis sechs. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform six. Please hurry!"
+      }
+    },
+    {
+      "platform": "7",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p7",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis sieben.",
+        "en": "The next U-Bahn to Pankow leaves from platform seven."
+      }
+    },
+    {
+      "platform": "7",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w7",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis sieben.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform seven."
+      }
+    },
+    {
+      "platform": "7",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l7",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis sieben. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform seven. Please hurry!"
+      }
+    },
+    {
+      "platform": "8",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p8",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis acht.",
+        "en": "The next U-Bahn to Pankow leaves from platform eight."
+      }
+    },
+    {
+      "platform": "8",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w8",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis acht.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform eight."
+      }
+    },
+    {
+      "platform": "8",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l8",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis acht. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform eight. Please hurry!"
+      }
+    },
+    {
+      "platform": "9",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p9",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis neun.",
+        "en": "The next U-Bahn to Pankow leaves from platform nine."
+      }
+    },
+    {
+      "platform": "9",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w9",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis neun.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform nine."
+      }
+    },
+    {
+      "platform": "9",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l9",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis neun. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform nine. Please hurry!"
+      }
+    },
+    {
+      "platform": "10",
+      "kind": "plain",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_p10",
+        "de": "Die nächste U-Bahn nach Pankow fährt von Gleis zehn.",
+        "en": "The next U-Bahn to Pankow leaves from platform ten."
+      }
+    },
+    {
+      "platform": "10",
+      "kind": "change",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_w10",
+        "de": "Achtung, Gleiswechsel! Die U-Bahn nach Pankow fährt jetzt von Gleis zehn.",
+        "en": "Attention, platform change! The U-Bahn to Pankow now leaves from platform ten."
+      }
+    },
+    {
+      "platform": "10",
+      "kind": "last",
+      "clip": {
+        "who": "announcer",
+        "name": "Station announcement",
+        "audio": "task_ubahn_l10",
+        "de": "Letzte Durchsage: Die letzte U-Bahn nach Pankow, Gleis zehn. Bitte beeilen Sie sich!",
+        "en": "Final call: the last U-Bahn to Pankow, platform ten. Please hurry!"
+      }
+    }
+  ]
 }

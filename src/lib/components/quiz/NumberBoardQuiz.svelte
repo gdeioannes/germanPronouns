@@ -25,11 +25,14 @@
 	let {
 		quiz,
 		locale,
-		onFinish
+		onFinish,
+		onContinue
 	}: {
 		quiz: FillBlankQuiz;
 		locale: string;
 		onFinish: () => void;
+		/** Where the finale leads (the missions); without it, only "Play again". */
+		onContinue?: () => void;
 	} = $props();
 
 	const numbers = untrack(() => boardNumbers(quiz));
@@ -214,7 +217,14 @@
 				{/each}
 			</ul>
 			<p class="meta">Tap any number to hear it again.</p>
-			<button type="button" class="btn btn-ghost" onclick={playAgain}>Play again</button>
+			<div class="actions">
+				{#if onContinue}
+					<button type="button" class="btn" onclick={onContinue}>
+						Now use them <Icon name="arrowRight" size="1em" />
+					</button>
+				{/if}
+				<button type="button" class="btn btn-ghost" onclick={playAgain}>Play again</button>
+			</div>
 		</section>
 	{:else}
 		<!-- The way through: three steps and one bar that only ever fills. -->
@@ -649,6 +659,14 @@
 	}
 
 	/* -- finale -------------------------------------------------------------- */
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.6rem;
+		margin-top: 0.4rem;
+	}
 
 	.words {
 		display: grid;

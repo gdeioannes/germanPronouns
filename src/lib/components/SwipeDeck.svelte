@@ -44,6 +44,7 @@
 	} from '$lib/domain/deck';
 	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
 	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
+	import { JA_NEIN_CARD_ID, JA_NEIN_PATH, jaNeinDealSlot, markJaNeinPlayed } from '$lib/domain/janein';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
 	import { untrack, type Snippet } from 'svelte';
@@ -172,6 +173,12 @@
 			reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id)
 		);
 		if (song) deck = [...deck.slice(0, Math.min(5, deck.length)), song, ...deck.slice(Math.min(5, deck.length))];
+		// Now and then, "Ja oder Nein?": a surprise near the top, not every hand.
+		const playSlot = jaNeinDealSlot(new Set(skipped));
+		if (playSlot !== null) {
+			const at = Math.min(playSlot, deck.length);
+			deck = [...deck.slice(0, at), playCard(), ...deck.slice(at)];
+		}
 		if (resume) deck = [resume, ...deck];
 		handSize = deck.length;
 		dealt++;
@@ -226,7 +233,20 @@
 	const lean = $derived(Math.max(-1, Math.min(1, dx / threshold)));
 	const decided = $derived(Math.abs(dx) >= threshold);
 
+	/** The "Ja oder Nein?" card: no exercise behind it, a page of its own. */
+	function playCard(): DeckCard {
+		return {
+			kind: 'play',
+			quiz: { id: JA_NEIN_CARD_ID, type: 'reading', title: 'Ja oder Nein?', storageKeyPrefix: 'play', level: 'Any level', status: 'live', covers: [] },
+			reason: 'Döner um 4 Uhr? Oktoberfest oder Weihnachtsmarkt? Ten swipes, no marks, and a verdict on who you are tonight, ready to send to a friend.'
+		};
+	}
+	const isPlayCard = (card: DeckCard) => card.kind === 'play';
+	const cardFlavour = (card: DeckCard) =>
+		isStoryCard(card) ? 'interactive mystery' : isSongCard(card) ? 'sing-along' : isPlayCard(card) ? 'swipe game · 1 min' : typeLabel(card.quiz.type);
+
 	function href(card: DeckCard) {
+		if (isPlayCard(card)) return JA_NEIN_PATH;
 		return storyCardHref(card) ?? songCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
 
@@ -311,8 +331,13 @@
 					clearOpened(card.quiz.id);
 					openId = null;
 				}
-				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
-				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
+				// A "no" to Ja oder Nein? means not tonight: the game never opens, and
+				// the card stays away as long as a played round would, then may return.
+				if (isPlayCard(card)) markJaNeinPlayed();
+				else {
+					skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
+					void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
+				}
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'skip', pace });
 				deck = deck.slice(1);
 				if (deck.length === 0) deal();
@@ -447,7 +472,7 @@
 						tabindex={isTop ? 0 : -1}
 						role="button"
 						aria-label={isTop
-							? `${card.quiz.title}. ${DECK_KIND_LABELS[card.kind]}, card ${handSize - deck.length + 1} of ${handSize}, ${card.quiz.level}, ${isStoryCard(card) ? 'interactive mystery' : isSongCard(card) ? 'sing-along' : typeLabel(card.quiz.type)}${started ? ', in progress' : ''}. ${card.reason} Press Enter to start, or the left arrow to skip.`
+							? `${card.quiz.title}. ${DECK_KIND_LABELS[card.kind]}, card ${handSize - deck.length + 1} of ${handSize}, ${card.quiz.level}, ${cardFlavour(card)}${started ? ', in progress' : ''}. ${card.reason} Press Enter to start, or the left arrow to skip.`
 							: undefined}
 						aria-hidden={isTop ? undefined : 'true'}
 						onpointerdown={isTop ? onDown : undefined}
@@ -465,7 +490,26 @@
 							<span class="started-badge"><InProgressBadge float /></span>
 						{/if}
 
-						{#if card.quiz.image}
+						{#if isPlayCard(card)}
+							<!-- The game's own sky, in miniature: drifting colour, the two
+							     stamps you will be swiping between, and the five people you
+							     might turn out to be. -->
+							<div class="art-band play-sky" aria-hidden="true">
+								<span class="blob a"></span>
+								<span class="blob b"></span>
+								<span class="blob c"></span>
+								<span class="pstamp nein">Nein</span>
+								<span class="pstamp ja">Ja</span>
+								<span class="oder">oder?</span>
+								<span class="emo e1">🍻</span>
+								<span class="emo e2">🚌</span>
+								<span class="emo e3">🌲</span>
+								<span class="emo e4">☕</span>
+								<span class="emo e5">🧹</span>
+								<span class="emo e6">🌙</span>
+								<span class="hand"><Icon name="swipe" size="2.4em" /></span>
+							</div>
+						{:else if card.quiz.image}
 							<!-- The quiz's scene as a cream band across the top of the card; it
 							     stands in for the type disc. -->
 							<div class="art-band" style={artStyle(card.quiz.id)}>
@@ -473,7 +517,7 @@
 							</div>
 						{:else}
 							<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
-								<Icon name={isSongCard(card) ? 'headphones' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
+								<Icon name={isSongCard(card) ? 'headphones' : isPlayCard(card) ? 'swipe' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
 							</span>
 						{/if}
 
@@ -489,7 +533,7 @@
 
 						<p class="meta">
 							<span class="chip">{card.quiz.level}</span>
-							<span class="chip">{isStoryCard(card) ? 'interactive mystery' : isSongCard(card) ? 'sing-along' : typeLabel(card.quiz.type)}</span>
+							<span class="chip">{cardFlavour(card)}</span>
 							{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
 						</p>
 					</div>
@@ -1536,6 +1580,194 @@
 			animation: none;
 		}
 	}
+	/* ---- the play card: "Ja oder Nein?", a sky in a card ------------------- */
+	.card[data-kind='play'] {
+		--kind: #7c3aed;
+		border-top-color: transparent;
+		background:
+			linear-gradient(var(--surface), var(--surface)) padding-box,
+			linear-gradient(120deg, #ff4d6d, #ffb347, #38d39f, #4cc9f0, #7c3aed, #ff4d6d) border-box;
+		border: 1px solid transparent;
+		border-top-width: 6px;
+	}
+
+	/* The play card's band: the game's sky in miniature. */
+	.play-sky {
+		display: block;
+		min-height: 11rem;
+		background: #1b1035;
+		color: #fff;
+	}
+
+	.play-sky::after {
+		/* No paper tint here: the colours are the point. */
+		background: none;
+	}
+
+	.play-sky .blob {
+		position: absolute;
+		width: 16rem;
+		height: 16rem;
+		border-radius: 50%;
+		filter: blur(26px);
+		opacity: 0.9;
+		mix-blend-mode: screen;
+		animation: play-drift 9s ease-in-out infinite alternate;
+	}
+
+	.play-sky .blob.a {
+		top: -6rem;
+		left: -4rem;
+		background: radial-gradient(circle, #ff4d6d, transparent 65%);
+	}
+
+	.play-sky .blob.b {
+		right: -5rem;
+		top: -3rem;
+		background: radial-gradient(circle, #4cc9f0, transparent 65%);
+		animation-duration: 11s;
+		animation-delay: -4s;
+	}
+
+	.play-sky .blob.c {
+		left: 30%;
+		bottom: -9rem;
+		background: radial-gradient(circle, #ffb347, transparent 65%);
+		animation-duration: 13s;
+		animation-delay: -7s;
+	}
+
+	@keyframes play-drift {
+		to {
+			transform: translate(2.5rem, 1.5rem) scale(1.2);
+		}
+	}
+
+	.play-sky .pstamp {
+		position: absolute;
+		top: 1.3rem;
+		padding: 0.15rem 0.6rem;
+		border: 3px solid currentColor;
+		border-radius: 8px;
+		background: rgb(255 255 255 / 0.9);
+		font-size: var(--step-1);
+		font-weight: 900;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		line-height: 1.1;
+	}
+
+	.play-sky .pstamp.nein {
+		left: 1.2rem;
+		color: var(--wrong);
+		transform: rotate(-12deg);
+	}
+
+	.play-sky .pstamp.ja {
+		right: 1.2rem;
+		color: var(--right);
+		transform: rotate(12deg);
+	}
+
+	.play-sky .oder {
+		position: absolute;
+		left: 50%;
+		top: 1.5rem;
+		transform: translateX(-50%) rotate(-4deg);
+		font-family: var(--font-display, inherit);
+		font-size: var(--step-2);
+		font-weight: 700;
+		font-style: italic;
+		color: #fff;
+		text-shadow: 0 2px 12px rgb(0 0 0 / 0.5);
+	}
+
+	.play-sky .hand {
+		position: absolute;
+		left: 50%;
+		bottom: 1.1rem;
+		transform: translateX(-50%);
+		color: #fff;
+		filter: drop-shadow(0 2px 8px rgb(0 0 0 / 0.5));
+		animation: play-wave 1.6s ease-in-out infinite;
+	}
+
+	@keyframes play-wave {
+		0%,
+		100% {
+			transform: translateX(-50%) rotate(-10deg);
+		}
+		50% {
+			transform: translateX(-50%) rotate(10deg);
+		}
+	}
+
+	.play-sky .emo {
+		position: absolute;
+		font-size: 1.6rem;
+		filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.4));
+		animation: play-float 4s ease-in-out infinite;
+	}
+
+	.play-sky .e1 {
+		left: 8%;
+		bottom: 22%;
+	}
+	.play-sky .e2 {
+		left: 24%;
+		bottom: 8%;
+		animation-delay: -1s;
+	}
+	.play-sky .e3 {
+		right: 8%;
+		bottom: 24%;
+		animation-delay: -2s;
+	}
+	.play-sky .e4 {
+		right: 24%;
+		bottom: 8%;
+		animation-delay: -3s;
+	}
+	.play-sky .e5 {
+		left: 44%;
+		top: 44%;
+		animation-delay: -1.5s;
+	}
+	.play-sky .e6 {
+		right: 40%;
+		top: 38%;
+		font-size: 1.1rem;
+		animation-delay: -2.5s;
+	}
+
+	@keyframes play-float {
+		50% {
+			transform: translateY(-6px) rotate(6deg);
+		}
+	}
+
+	:global(html[data-effects='calm']) .play-sky .blob,
+	:global(html[data-effects='calm']) .play-sky .hand,
+	:global(html[data-effects='calm']) .play-sky .emo {
+		animation: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.play-sky .blob,
+		.play-sky .hand,
+		.play-sky .emo {
+			animation: none;
+		}
+	}
+
+	.card[data-kind='play'] .kind-label::before {
+		content: '✨ ';
+	}
+
+	.card[data-kind='play'] .stamp.yes {
+		color: #7c3aed;
+	}
+
 	/* ---- the song card: the other EVENT in the hand -----------------------
 	   A daylight card next to the story's night one: warm paper, a terracotta
 	   frame, and a bouncing music mark — loud, not glowing. */

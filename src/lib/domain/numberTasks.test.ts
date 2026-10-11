@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import barJson from '$content/tasks/order_the_round.json';
 import ubahnJson from '$content/tasks/last_ubahn.json';
-import { countAfterTap, handsFor, wrongOrderLine, type BarTaskContent } from './barTask';
-import type { UbahnTaskContent } from './ubahnTask';
+import { BAR_ROUNDS, countAfterTap, handsFor, planBarRounds, wrongOrderLine, type BarTaskContent } from './barTask';
+import { planUbahnRounds, signsFor, UBAHN_KINDS, type UbahnTaskContent } from './ubahnTask';
 
 const bar = barJson as BarTaskContent;
 const ubahn = ubahnJson as UbahnTaskContent;
@@ -28,8 +28,27 @@ describe('countAfterTap', () => {
 });
 
 describe('order the round content', () => {
-	it('every friend line names the number the round wants', () => {
-		for (const round of bar.rounds) expect(round.clip.de.toLowerCase()).toContain(WORDS[round.answer]);
+	it('the friends can shout every count from one to ten, each naming only its own number', () => {
+		expect(bar.calls.map((c) => c.count)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+		for (const c of bar.calls) {
+			const line = c.clip.de.toLowerCase();
+			// Before a noun the one is the article: ein Bier, never eins Bier.
+			expect(line).toContain(c.count === 1 ? "ein bier" : WORDS[c.count]);
+			for (const [n, w] of WORDS.entries()) if (n !== c.count && n > 0) expect(line).not.toContain(w);
+		}
+	});
+
+	it('plans rising orders that end on ten, different every night', () => {
+		let seed = 0.13;
+		const random = () => (seed = (seed * 9301 + 0.49297) % 1);
+		const rounds = planBarRounds(bar, random);
+		expect(rounds).toHaveLength(BAR_ROUNDS);
+		expect(rounds.at(-1)!.answer).toBe(10);
+		const counts = rounds.map((r) => r.answer);
+		expect([...counts].sort((a, b) => a - b)).toEqual(counts);
+		expect(new Set(counts).size).toBe(counts.length);
+		expect(planBarRounds(bar, () => 0).map((r) => r.answer)).toEqual([1, 2, 3, 4, 10]);
+		expect(planBarRounds(bar, () => 0.999).map((r) => r.answer)).toEqual([6, 7, 8, 9, 10]);
 	});
 
 	it('the bartender can confirm every count from one to ten', () => {
@@ -45,10 +64,26 @@ describe('order the round content', () => {
 });
 
 describe('last U-Bahn content', () => {
-	it('each announcement says its platform, and the answer is among the signs', () => {
-		for (const round of ubahn.rounds) {
-			expect(round.options).toContain(round.answer);
-			expect(round.clip.de.toLowerCase()).toContain(`gleis ${WORDS[Number(round.answer)]}`);
+	it('has every kind of announcement for every platform, each saying its platform', () => {
+		for (const platform of ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']) {
+			for (const kind of ['plain', 'change', 'last']) {
+				const a = ubahn.announcements.find((x) => x.platform === platform && x.kind === kind)!;
+				expect(a, `${kind} ${platform}`).toBeDefined();
+				expect(a.clip.de.toLowerCase()).toContain(`gleis ${WORDS[Number(platform)]}`);
+			}
 		}
+	});
+
+	it('plans one train per kind on distinct platforms, answer among the signs', () => {
+		const rounds = planUbahnRounds(ubahn);
+		expect(rounds).toHaveLength(UBAHN_KINDS.length);
+		expect(new Set(rounds.map((r) => r.answer)).size).toBe(rounds.length);
+		rounds.forEach((round, i) => {
+			expect(round.options).toContain(round.answer);
+			expect(round.options).toHaveLength(3);
+			expect(round.clip.audio.startsWith(`task_ubahn_${{ plain: 'p', change: 'w', last: 'l' }[UBAHN_KINDS[i]]}`)).toBe(true);
+		});
+		expect(signsFor('2')).toEqual(['1', '2', '3']);
+		expect(signsFor('10')).toEqual(['6', '9', '10']);
 	});
 });

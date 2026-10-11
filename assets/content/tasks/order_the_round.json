@@ -3,48 +3,6 @@
   "title": "Order the round",
   "intro": "Friday, 23:10. A loud bar in Kreuzberg. Your friends send you to order, and the music is too loud to talk: you'll show the number on your fingers.",
   "culture": "Germans count from the thumb: 👍 is one, thumb and index finger are two, a whole hand is five. Show it the English way and the bartender knows you're not from here.",
-  "rounds": [
-    {
-      "answer": 2,
-      "clip": {
-        "who": "freund",
-        "name": "Your friends",
-        "audio": "task_bar_r1",
-        "de": "Hey, holst du uns was? Zwei Bier, bitte!",
-        "en": "Hey, can you get us something? Two beers, please!"
-      }
-    },
-    {
-      "answer": 5,
-      "clip": {
-        "who": "freund",
-        "name": "Your friends",
-        "audio": "task_bar_r2",
-        "de": "Moment, Alex und Sam sind auch da. Wir sind jetzt fünf! Fünf Bier!",
-        "en": "Wait, Alex and Sam are here too. We are five now! Five beers!"
-      }
-    },
-    {
-      "answer": 7,
-      "clip": {
-        "who": "freund",
-        "name": "Your friends",
-        "audio": "task_bar_r3",
-        "de": "Noch zwei Leute! Also sieben. Sieben Bier!",
-        "en": "Two more people! So seven. Seven beers!"
-      }
-    },
-    {
-      "answer": 10,
-      "clip": {
-        "who": "freund",
-        "name": "Your friends",
-        "audio": "task_bar_r4",
-        "de": "Die ganze Bar trinkt mit! Zehn Bier!",
-        "en": "The whole bar is joining in! Ten beers!"
-      }
-    }
-  ],
   "bartender": [
     {
       "count": 1,
@@ -141,5 +99,107 @@
     "audio": "task_bar_end",
     "de": "Zehn Bier! Perfekt! Prost!",
     "en": "Ten beers! Perfect! Cheers!"
-  }
+  },
+  "calls": [
+    {
+      "count": 1,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c1",
+        "de": "Hey, holst du mir was? Ein Bier, bitte!",
+        "en": "Hey, can you get me something? One beer, please!"
+      }
+    },
+    {
+      "count": 2,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c2",
+        "de": "Hey, holst du uns was? Zwei Bier, bitte!",
+        "en": "Hey, can you get us something? Two beers, please!"
+      }
+    },
+    {
+      "count": 3,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c3",
+        "de": "Drei Bier! Drei!",
+        "en": "Three beers! Three!"
+      }
+    },
+    {
+      "count": 4,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c4",
+        "de": "Vier Bier, bitte! Danke dir!",
+        "en": "Four beers, please! Thanks!"
+      }
+    },
+    {
+      "count": 5,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c5",
+        "de": "Alex und Sam sind auch da. Fünf Bier!",
+        "en": "Alex and Sam are here too. Five beers!"
+      }
+    },
+    {
+      "count": 6,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c6",
+        "de": "Sechs Bier! Und schnell, wir haben Durst!",
+        "en": "Six beers! And quick, we are thirsty!"
+      }
+    },
+    {
+      "count": 7,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c7",
+        "de": "Sieben Bier! Sieben!",
+        "en": "Seven beers! Seven!"
+      }
+    },
+    {
+      "count": 8,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c8",
+        "de": "Acht Bier, bitte! Der Tisch ist voll!",
+        "en": "Eight beers, please! The table is full!"
+      }
+    },
+    {
+      "count": 9,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c9",
+        "de": "Neun Bier! Neun! Zähl nach!",
+        "en": "Nine beers! Nine! Count them!"
+      }
+    },
+    {
+      "count": 10,
+      "clip": {
+        "who": "freund",
+        "name": "Your friends",
+        "audio": "task_bar_c10",
+        "de": "Die ganze Bar trinkt mit! Zehn Bier!",
+        "en": "The whole bar is joining in! Ten beers!"
+      }
+    }
+  ]
 }

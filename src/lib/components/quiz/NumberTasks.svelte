@@ -1,7 +1,9 @@
 <script lang="ts">
-	// The first quiz's task menu: small real-life jobs that need numbers, picked
-	// by interest. Finishing any one completes the quiz; the others stay open
-	// with a tick.
+	// The first quiz: the number board first (hear, read, write all eleven —
+	// that is what completes the quiz), then a menu of small real-life jobs to
+	// use the numbers in, each ticked when done and open to replay. The board
+	// is the one mandatory step: a brand-new learner should not have to choose
+	// before hearing a single number, and no mission alone covers the eleven.
 	import BarTask from './BarTask.svelte';
 	import CallTask from './CallTask.svelte';
 	import UbahnTask from './UbahnTask.svelte';
@@ -42,23 +44,16 @@
 		first?: boolean;
 	}
 
+	/** The missions, easiest listening first; the phone number, hardest, last. */
 	const TASKS: TaskCard[] = [
-		{
-			id: 'call',
-			title: 'Call Kim after the party',
-			blurb: 'A smudged number on your hand, a hangover and 3% battery.',
-			time: '≈ 1 min',
-			image: '/img/story/task_call_hand.webp',
-			emoji: '📱',
-			first: true
-		},
 		{
 			id: 'round',
 			title: 'Order the round',
-			blurb: 'A loud bar, a thirsty crowd, German fingers.',
+			blurb: 'A loud bar, a thirsty crowd, German fingers. New orders every night.',
 			time: '≈ 1 min',
 			image: '/img/story/task_bar_round.webp',
-			emoji: '🍺'
+			emoji: '🍺',
+			first: true
 		},
 		{
 			id: 'ubahn',
@@ -69,17 +64,21 @@
 			emoji: '🚇'
 		},
 		{
-			id: 'board',
-			title: 'Number board',
-			blurb: 'Hear a number, tap it. Plain practice.',
-			time: '≈ 2 min',
-			emoji: '🔢'
+			id: 'call',
+			title: 'Call Kim after the party',
+			blurb: 'A smudged number on your hand, a hangover and 3% battery.',
+			time: '≈ 1 min',
+			image: '/img/story/task_call_hand.webp',
+			emoji: '📱'
 		}
 	];
 
 	const doneKey = untrack(() => `${quiz.storageKeyPrefix}tasks_done`);
 	let done = $state<string[]>([]);
 	let open = $state<TaskId | null>(null);
+	let loaded = $state(false);
+	/** The board done opens the missions; until then it is the whole page. */
+	const unlocked = $derived(done.includes('board'));
 	/** Pictures that failed to load (not generated yet) fall back to the emoji. */
 	let broken = $state<string[]>([]);
 
@@ -90,6 +89,7 @@
 			} catch {
 				done = [];
 			}
+			loaded = true;
 		})();
 	});
 
@@ -104,14 +104,25 @@
 			done = [...done, id];
 			await storage.set(doneKey, JSON.stringify(done));
 		}
-		onFinish();
+		// Only the board completes the quiz: it is the one step that covers all
+		// eleven numbers. The missions are what you do with them afterwards.
+		if (id === 'board') {
+			// Stay on the board's finale (the eleven words, tap to hear); its
+			// "Now use them" button brings the missions up.
+			open = 'board';
+			onFinish();
+		}
 	}
 </script>
 
 <div class="tasks">
-	{#if open}
+	{#if !loaded}
+		<!-- Waiting on storage: nothing, rather than a flash of the wrong screen. -->
+	{:else if !unlocked && !open}
+		<NumberBoardQuiz {quiz} {locale} onFinish={() => finished('board')} onContinue={() => (open = null)} />
+	{:else if open}
 		<button type="button" class="back" onclick={() => (open = null)}>
-			<Icon name="arrowLeft" size="1em" /> All tasks
+			<Icon name="arrowLeft" size="1em" /> All missions
 		</button>
 		{#if open === 'call'}
 			<CallTask
@@ -138,12 +149,12 @@
 				onBack={() => (open = null)}
 			/>
 		{:else if open === 'board'}
-			<NumberBoardQuiz {quiz} {locale} onFinish={() => finished('board')} />
+			<NumberBoardQuiz {quiz} {locale} onFinish={() => finished('board')} onContinue={() => (open = null)} />
 		{/if}
 	{:else}
 		<header class="head">
-			<h2>Pick a mission</h2>
-			<p>Real moments where German numbers matter. Finish any one.</p>
+			<h2>Now use them</h2>
+			<p>You can count to ten. Three nights where that matters. Do any, in any order, as often as you like.</p>
 		</header>
 		<ul class="cards">
 			{#each TASKS as task (task.id)}
@@ -180,6 +191,9 @@
 				</li>
 			{/each}
 		</ul>
+		<button type="button" class="again" onclick={() => (open = 'board')}>
+			<Icon name="volume" size="0.95em" /> Play the number board again
+		</button>
 	{/if}
 </div>
 
@@ -320,6 +334,26 @@
 	}
 
 	.back:hover {
+		color: var(--accent-ink);
+	}
+
+	.again {
+		align-self: center;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.4rem 0.2rem;
+		border: 0;
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 600;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	.again:hover {
 		color: var(--accent-ink);
 	}
 </style>

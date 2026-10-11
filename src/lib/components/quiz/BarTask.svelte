@@ -8,7 +8,7 @@
 	import Hands from './Hands.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { imageGuard } from './imageGuard';
-	import { wrongOrderLine, type BarTaskContent } from '$lib/domain/barTask';
+	import { planBarRounds, wrongOrderLine, type BarTaskContent } from '$lib/domain/barTask';
 	import type { CallLine } from '$lib/domain/callTask';
 	import { announce } from '$lib/a11y.svelte';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
@@ -34,7 +34,7 @@
 		onBack: () => void;
 	} = $props();
 
-	const rounds = untrack(() => task.rounds);
+	const rounds = untrack(() => planBarRounds(task));
 
 	let phase = $state<'intro' | 'order' | 'served' | 'done'>('intro');
 	let r = $state(0);

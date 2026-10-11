@@ -9,6 +9,12 @@ export interface BarRound {
 	clip: CallLine;
 }
 
+/** One friend line, naming only its own number. */
+export interface BarCall {
+	count: number;
+	clip: CallLine;
+}
+
 export interface BartenderLine extends CallLine {
 	count: number;
 }
@@ -18,13 +24,39 @@ export interface BarTaskContent {
 	title: string;
 	intro: string;
 	culture: string;
-	rounds: BarRound[];
+	/** A shout for every count 1–10; a game draws its rounds from these. */
+	calls: BarCall[];
 	/** "Zwei Bier? Kommt sofort!" for every count 1–10. */
 	bartender: BartenderLine[];
 	/** Jokes for an order that is short or over; `{n}` is what arrived. */
 	tooFew: string[];
 	tooMany: string[];
 	ending: CallLine;
+}
+
+/** Rounds a game asks; the last is always the whole bar's ten. */
+export const BAR_ROUNDS = 5;
+
+/**
+ * The night's orders: distinct counts from one to nine, in rising order so
+ * the crowd grows, and the whole bar's ten to finish — the ending line
+ * ("Zehn Bier! Perfekt!") depends on it. New numbers every play.
+ */
+export function planBarRounds(
+	content: BarTaskContent,
+	random: () => number = Math.random,
+	count = BAR_ROUNDS
+): BarRound[] {
+	const byCount = new Map(content.calls.map((c) => [c.count, c]));
+	const pool = [...byCount.keys()].filter((n) => n >= 1 && n <= 9);
+	const picked: number[] = [];
+	while (picked.length < count - 1 && pool.length) {
+		const i = Math.floor(random() * pool.length);
+		picked.push(pool.splice(i, 1)[0]);
+	}
+	picked.sort((a, b) => a - b);
+	if (byCount.has(10)) picked.push(10);
+	return picked.map((n) => ({ answer: n, clip: byCount.get(n)!.clip }));
 }
 
 /** Thumb, index, middle, ring, little — the order a German counts in. */

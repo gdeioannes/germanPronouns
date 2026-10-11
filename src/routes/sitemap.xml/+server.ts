@@ -54,6 +54,8 @@ export const GET: RequestHandler = async () => {
 		});
 	}
 
+	urls.push({ loc: '/play/ja-nein', lastmod: lastModified('src/lib/domain/janein.ts'), priority: '0.6' });
+
 	for (const n of nouns) {
 		urls.push({ loc: `/words/nouns/${wordSlug(n.noun)}`, lastmod: wordsDate, priority: '0.5' });
 	}

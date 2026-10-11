@@ -376,7 +376,9 @@
       "sentences": [],
       "sentenceTemplates": {
         "Auf Deutsch": [
-          "{subject} = ____"
+          "{subject} = ____",
+          "Gleis ____ ({subject})",
+          "Meine Lieblingszahl ist ____. ({subject})"
         ]
       },
       "covers": [

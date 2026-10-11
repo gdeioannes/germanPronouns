@@ -16,6 +16,18 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-12",
+    title: "Ja oder Nein?, and a better first lesson",
+    items: [
+      "A surprise card turns up in your deck: Ja oder Nein? Ten quick questions about life in Germany against a sky that will not sit still. Some are yes or no (Döner um vier Uhr morgens? Socken in Sandalen?), some are this or that (Oktoberfest oder Weihnachtsmarkt? Kreuzberg oder Prenzlauer Berg?), and you swipe towards your answer. Nothing is marked. At the end you find out who you are tonight, from Nachtbus-Legende to Gemütlichkeits-Guru, with one German word to keep.",
+      "The result is made to be sent: a message in German that lists every one of your answers, with a switch to English for a friend who reads none, and one tap for WhatsApp, the share sheet or the clipboard. There are a hundred questions, and no round repeats one until you have been through them all.",
+      "The card is a sure thing in your first minutes with the app and a rare visitor after that. Swipe it away and it stays away for a couple of days.",
+      "The very first lesson, Zahlen 0–10, starts with the number board instead of a menu: hear the eleven numbers, read them, write three. Only then come the three missions, as things to do with the numbers rather than a way to skip them.",
+      "Order the round and Last U-Bahn home deal new numbers every time you play. The friends can shout any count from one to ten and the station announcer knows every platform, so a second night is never the same as the first.",
+      "The numbers drill asks for platforms and favourite numbers, not only bare equations.",
+    ],
+  },
+  {
     date: "2026-10-11",
     title: "The spoken exercises behave",
     items: [

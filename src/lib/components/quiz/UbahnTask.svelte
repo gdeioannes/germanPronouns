@@ -7,7 +7,7 @@
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { imageGuard } from './imageGuard';
-	import type { UbahnTaskContent } from '$lib/domain/ubahnTask';
+	import { planUbahnRounds, type UbahnTaskContent } from '$lib/domain/ubahnTask';
 	import { announce } from '$lib/a11y.svelte';
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import ClipControls from './ClipControls.svelte';
@@ -32,7 +32,7 @@
 		onBack: () => void;
 	} = $props();
 
-	const rounds = untrack(() => task.rounds);
+	const rounds = untrack(() => planUbahnRounds(task));
 
 	let phase = $state<'intro' | 'pick' | 'made' | 'missed' | 'leaving' | 'done'>('intro');
 	let r = $state(0);
@@ -140,7 +140,7 @@
 		<section class="card finale">
 			<p class="big" aria-hidden="true">🚇🏠</p>
 			<h2>Zurückbleiben, bitte!</h2>
-			<p class="lead">The doors close behind you. Four platform changes, all caught by ear. You're going home.</p>
+			<p class="lead">The doors close behind you. {rounds.length} platforms, all caught by ear. You're going home.</p>
 			<button type="button" class="btn btn-ghost" onclick={onBack}>Back to the tasks</button>
 		</section>
 	{:else}
