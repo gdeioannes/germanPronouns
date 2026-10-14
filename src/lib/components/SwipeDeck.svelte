@@ -44,7 +44,8 @@
 	} from '$lib/domain/deck';
 	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
 	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
-	import { JA_NEIN_CARD_ID, JA_NEIN_PATH, jaNeinDealSlot, markJaNeinPlayed } from '$lib/domain/janein';
+	import { JA_NEIN_CARD_ID, JA_NEIN_PATH, jaNeinDealSlot, jaNeinTickets, spendJaNeinTicket } from '$lib/domain/janein';
+	import { nextRound } from '$lib/domain/janeinRounds';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
 	import { untrack, type Snippet } from 'svelte';
@@ -173,7 +174,9 @@
 			reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id)
 		);
 		if (song) deck = [...deck.slice(0, Math.min(5, deck.length)), song, ...deck.slice(Math.min(5, deck.length))];
-		// Now and then, "Ja oder Nein?": a surprise near the top, not every hand.
+		// "Ja oder Nein?" when there is a ticket for it: a surprise near the top,
+		// not every hand (see domain/janein for the tickets).
+		tickets = jaNeinTickets();
 		const playSlot = jaNeinDealSlot(new Set(skipped));
 		if (playSlot !== null) {
 			const at = Math.min(playSlot, deck.length);
@@ -233,15 +236,28 @@
 	const lean = $derived(Math.max(-1, Math.min(1, dx / threshold)));
 	const decided = $derived(Math.abs(dx) >= threshold);
 
-	/** The "Ja oder Nein?" card: no exercise behind it, a page of its own. */
+	/** The "Ja oder Nein?" card: no exercise behind it, a page of its own; it names the round the game will deal. */
 	function playCard(): DeckCard {
+		const round = nextRound();
 		return {
 			kind: 'play',
-			quiz: { id: JA_NEIN_CARD_ID, type: 'reading', title: 'Ja oder Nein?', storageKeyPrefix: 'play', level: 'Any level', status: 'live', covers: [] },
-			reason: 'Döner um 4 Uhr? Oktoberfest oder Weihnachtsmarkt? Ten swipes, no marks, and a verdict on who you are tonight, ready to send to a friend.'
+			quiz: {
+				id: JA_NEIN_CARD_ID,
+				type: 'reading',
+				title: round ? `Ja oder Nein? · ${round.title}` : 'Ja oder Nein?',
+				storageKeyPrefix: 'play',
+				level: 'Any level',
+				status: 'live',
+				covers: []
+			},
+			reason: round
+				? `${round.hook} Eight swipes, no marks, and a verdict on who you are tonight for your persona shelf.`
+				: 'Eight swipes, no marks, and a verdict on who you are tonight, ready to send to a friend.'
 		};
 	}
 	const isPlayCard = (card: DeckCard) => card.kind === 'play';
+	/** Tickets in the pocket at the last deal: the play card shows them. */
+	let tickets = $state(0);
 	const cardFlavour = (card: DeckCard) =>
 		isStoryCard(card) ? 'interactive mystery' : isSongCard(card) ? 'sing-along' : isPlayCard(card) ? 'swipe game · 1 min' : typeLabel(card.quiz.type);
 
@@ -331,13 +347,10 @@
 					clearOpened(card.quiz.id);
 					openId = null;
 				}
-				// A "no" to Ja oder Nein? means not tonight: the game never opens, and
-				// the card stays away as long as a played round would, then may return.
-				if (isPlayCard(card)) markJaNeinPlayed();
-				else {
-					skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
-					void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
-				}
+				// A "no" to Ja oder Nein? means not now: the ticket is kept, and the
+				// card sits out like any skipped card until the deck runs dry.
+				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
+				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'skip', pace });
 				deck = deck.slice(1);
 				if (deck.length === 0) deal();
@@ -352,6 +365,8 @@
 				}
 			} else {
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'go', pace });
+				// Opening the game from the deck is what a ticket is for.
+				if (isPlayCard(card)) spendJaNeinTicket();
 				void goto(href(card));
 			}
 			reset();
@@ -534,6 +549,7 @@
 						<p class="meta">
 							<span class="chip">{card.quiz.level}</span>
 							<span class="chip">{cardFlavour(card)}</span>
+							{#if isPlayCard(card)}<span class="chip ticket">🎟️ {tickets === 1 ? '1 ticket' : `${tickets} tickets`}</span>{/if}
 							{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
 						</p>
 					</div>
@@ -1589,6 +1605,12 @@
 			linear-gradient(120deg, #ff4d6d, #ffb347, #38d39f, #4cc9f0, #7c3aed, #ff4d6d) border-box;
 		border: 1px solid transparent;
 		border-top-width: 6px;
+	}
+
+	.card[data-kind='play'] .chip.ticket {
+		color: #fff;
+		background: linear-gradient(120deg, #7c3aed, #ff4d6d);
+		border-color: transparent;
 	}
 
 	/* The play card's band: the game's sky in miniature. */

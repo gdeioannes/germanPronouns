@@ -1,0 +1,734 @@
+{
+ "id": "jahr",
+ "title": "Durchs Jahr",
+ "en": "Through the year",
+ "emoji": "📅",
+ "personas": [
+  {
+   "id": "jeck",
+   "title": "Jeck:in",
+   "emoji": "🎭🎉",
+   "line": "Costume at work, Krapfen for breakfast, Alaaf until Ash Wednesday.",
+   "word": {
+    "de": "der Karneval",
+    "en": "carnival"
+   }
+  },
+  {
+   "id": "freibadfruehling",
+   "title": "Freibad-Frühling",
+   "emoji": "🌸🏊",
+   "line": "The first warm day and you are at the pool before it opens.",
+   "word": {
+    "de": "der Frühling",
+    "en": "spring"
+   }
+  },
+  {
+   "id": "wiesnwirt",
+   "title": "Wiesn-Wirt:in",
+   "emoji": "🍺🥨",
+   "line": "A Maß in each hand and a Dirndl you bought for exactly this.",
+   "word": {
+    "de": "die Wiesn",
+    "en": "Oktoberfest, as Munich calls it"
+   }
+  },
+  {
+   "id": "gluehweinnovember",
+   "title": "Glühwein-November",
+   "emoji": "🍷🎄",
+   "line": "The Weihnachtsmarkt opens and you are there on day one, mug in hand.",
+   "word": {
+    "de": "der Glühwein",
+    "en": "mulled wine"
+   }
+  },
+  {
+   "id": "boellerkoenig",
+   "title": "Böller-König:in",
+   "emoji": "🎆🧨",
+   "line": "Silvester means fireworks from the balcony, and Dinner for One first.",
+   "word": {
+    "de": "das Feuerwerk",
+    "en": "the fireworks"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "januar",
+   "title": "Januar",
+   "en": "January",
+   "hook": "Resolutions, raclette leftovers, snow.",
+   "questions": [
+    {
+     "de": "Gute Vorsätze schon am 2. Januar vorbei?",
+     "en": "Resolutions already over by 2 January?",
+     "ja": "boellerkoenig",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Raclette-Reste am Neujahrstag?",
+     "en": "Raclette leftovers on New Year's Day?",
+     "ja": "gluehweinnovember",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Schlitten fahren, auch als Erwachsener?",
+     "en": "Sledging, even as a grown-up?",
+     "ja": "freibadfruehling",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Weihnachtsbaum bis Ende Januar?",
+     "en": "Christmas tree up until the end of January?",
+     "ja": "gluehweinnovember",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Erster Krapfen schon im Januar?",
+     "en": "First Krapfen already in January?",
+     "ja": "jeck",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Karnevalssitzung im Januar?",
+     "en": "A carnival gala night already in January?",
+     "ja": "jeck",
+     "nein": "boellerkoenig"
+    },
+    {
+     "left": {
+      "de": "Schlitten",
+      "en": "sledge",
+      "vibe": "freibadfruehling"
+     },
+     "right": {
+      "de": "Sofa und Decke",
+      "en": "sofa and blanket",
+      "vibe": "gluehweinnovember"
+     }
+    },
+    {
+     "left": {
+      "de": "Neujahrsschwimmen",
+      "en": "New Year lake swim",
+      "vibe": "freibadfruehling"
+     },
+     "right": {
+      "de": "Neujahrsbrunch",
+      "en": "New Year brunch",
+      "vibe": "wiesnwirt"
+     }
+    }
+   ]
+  },
+  {
+   "id": "karneval_fasching",
+   "title": "Karneval und Fasching",
+   "en": "Carnival",
+   "hook": "Costume at work, Krapfen.",
+   "questions": [
+    {
+     "de": "Kostüm im Büro?",
+     "en": "A costume at the office?",
+     "ja": "jeck",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Krapfen zum Frühstück?",
+     "en": "Krapfen for breakfast?",
+     "ja": "jeck",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Rosenmontag frei nehmen?",
+     "en": "Take Rose Monday off?",
+     "ja": "jeck",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Kamelle fangen mit 40?",
+     "en": "Catching sweets from the float at 40?",
+     "ja": "jeck",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Am Aschermittwoch ist alles vorbei?",
+     "en": "On Ash Wednesday it is all over?",
+     "ja": "wiesnwirt",
+     "nein": "jeck"
+    },
+    {
+     "de": "Karneval im Fernsehen reicht?",
+     "en": "Carnival on TV is enough?",
+     "ja": "gluehweinnovember",
+     "nein": "jeck"
+    },
+    {
+     "left": {
+      "de": "Köln",
+      "en": "Cologne",
+      "vibe": "jeck"
+     },
+     "right": {
+      "de": "Skiurlaub",
+      "en": "skiing holiday",
+      "vibe": "freibadfruehling"
+     }
+    },
+    {
+     "left": {
+      "de": "Kölsch",
+      "en": "Kölsch",
+      "vibe": "boellerkoenig"
+     },
+     "right": {
+      "de": "Weißbier",
+      "en": "wheat beer",
+      "vibe": "wiesnwirt"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ostern",
+   "title": "Ostern",
+   "en": "Easter",
+   "hook": "Egg hunt, Easter bonfire, long weekend.",
+   "questions": [
+    {
+     "de": "Eier verstecken, auch ohne Kinder?",
+     "en": "Hide eggs, even with no kids around?",
+     "ja": "gluehweinnovember",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Osterfeuer bis Mitternacht?",
+     "en": "Easter bonfire until midnight?",
+     "ja": "boellerkoenig",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Osterlamm aus Kuchenteig?",
+     "en": "An Easter lamb made of cake?",
+     "ja": "gluehweinnovember",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Karfreitag: kein Tanzen, kein Problem?",
+     "en": "Good Friday: no dancing, no problem?",
+     "ja": "gluehweinnovember",
+     "nein": "jeck"
+    },
+    {
+     "de": "Vier Tage frei – ab in die Berge?",
+     "en": "Four days off, straight to the mountains?",
+     "ja": "freibadfruehling",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Eier färben mit Zwiebelschalen?",
+     "en": "Dye eggs with onion skins?",
+     "ja": "freibadfruehling",
+     "nein": "jeck"
+    },
+    {
+     "left": {
+      "de": "Osterfeuer",
+      "en": "Easter bonfire",
+      "vibe": "boellerkoenig"
+     },
+     "right": {
+      "de": "Osterbrunch",
+      "en": "Easter brunch",
+      "vibe": "gluehweinnovember"
+     }
+    },
+    {
+     "left": {
+      "de": "Schokohase",
+      "en": "chocolate bunny",
+      "vibe": "wiesnwirt"
+     },
+     "right": {
+      "de": "Eiersuche",
+      "en": "egg hunt",
+      "vibe": "freibadfruehling"
+     }
+    }
+   ]
+  },
+  {
+   "id": "erster_warmer_tag",
+   "title": "Erster warmer Tag",
+   "en": "First warm day",
+   "hook": "Pool, ice cream, everyone outside.",
+   "questions": [
+    {
+     "de": "Freibad vor der Öffnung in der Schlange?",
+     "en": "Queuing at the pool before it opens?",
+     "ja": "freibadfruehling",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Erstes Eis schon bei 12 Grad?",
+     "en": "First ice cream at 12 degrees?",
+     "ja": "freibadfruehling",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Shorts bei 15 Grad?",
+     "en": "Shorts at 15 degrees?",
+     "ja": "freibadfruehling",
+     "nein": "jeck"
+    },
+    {
+     "de": "Biergarten statt Büro?",
+     "en": "Beer garden instead of the office?",
+     "ja": "wiesnwirt",
+     "nein": "jeck"
+    },
+    {
+     "de": "Spargel am ersten Tag der Saison?",
+     "en": "Asparagus on the first day of the season?",
+     "ja": "gluehweinnovember",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Grillen auf dem Balkon im April?",
+     "en": "Barbecue on the balcony in April?",
+     "ja": "boellerkoenig",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "left": {
+      "de": "Eisdiele",
+      "en": "ice cream parlour",
+      "vibe": "freibadfruehling"
+     },
+     "right": {
+      "de": "Biergarten",
+      "en": "beer garden",
+      "vibe": "wiesnwirt"
+     }
+    },
+    {
+     "left": {
+      "de": "Fahrrad",
+      "en": "bike",
+      "vibe": "freibadfruehling"
+     },
+     "right": {
+      "de": "Cabrio",
+      "en": "convertible",
+      "vibe": "boellerkoenig"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sommer",
+   "title": "Sommer",
+   "en": "Summer",
+   "hook": "Quarry lake, grilling, heat day off school.",
+   "questions": [
+    {
+     "de": "Baggersee statt Mallorca?",
+     "en": "Quarry lake instead of Mallorca?",
+     "ja": "freibadfruehling",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Hitzefrei – auch für Erwachsene?",
+     "en": "Heat day off, for grown-ups too?",
+     "ja": "boellerkoenig",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Grillen jeden Abend?",
+     "en": "Barbecue every evening?",
+     "ja": "boellerkoenig",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Handtuch um sechs Uhr auf die Liege?",
+     "en": "Towel on the sun lounger at six a.m.?",
+     "ja": "wiesnwirt",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Schon im Juli an Weihnachten denken?",
+     "en": "Thinking of Christmas already in July?",
+     "ja": "gluehweinnovember",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Open-Air-Kino bis Mitternacht?",
+     "en": "Open-air cinema until midnight?",
+     "ja": "boellerkoenig",
+     "nein": "jeck"
+    },
+    {
+     "left": {
+      "de": "Nordsee",
+      "en": "North Sea",
+      "vibe": "freibadfruehling"
+     },
+     "right": {
+      "de": "Gardasee",
+      "en": "Lake Garda",
+      "vibe": "wiesnwirt"
+     }
+    },
+    {
+     "left": {
+      "de": "Radler",
+      "en": "shandy",
+      "vibe": "wiesnwirt"
+     },
+     "right": {
+      "de": "Eiskaffee",
+      "en": "iced coffee",
+      "vibe": "gluehweinnovember"
+     }
+    }
+   ]
+  },
+  {
+   "id": "oktoberfest",
+   "title": "Oktoberfest",
+   "en": "Oktoberfest",
+   "hook": "Dirndl, a Maß, the Wiesn or never.",
+   "questions": [
+    {
+     "de": "Dirndl oder Lederhose extra kaufen?",
+     "en": "Buy a Dirndl or Lederhosen just for this?",
+     "ja": "wiesnwirt",
+     "nein": "jeck"
+    },
+    {
+     "de": "Eine Maß vor 12 Uhr?",
+     "en": "A Maß before noon?",
+     "ja": "wiesnwirt",
+     "nein": "jeck"
+    },
+    {
+     "de": "Wiesn ohne Reservierung?",
+     "en": "The Wiesn with no table reservation?",
+     "ja": "boellerkoenig",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Brezel größer als der Kopf?",
+     "en": "A pretzel bigger than your head?",
+     "ja": "wiesnwirt",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Lieber das Volksfest im Dorf?",
+     "en": "Rather the village fair?",
+     "ja": "gluehweinnovember",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Achterbahn nach dem Hendl?",
+     "en": "Roller coaster after the roast chicken?",
+     "ja": "boellerkoenig",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Oktoberfest ist nur für Touristen?",
+     "en": "Oktoberfest is only for tourists?",
+     "ja": "jeck",
+     "nein": "wiesnwirt"
+    },
+    {
+     "left": {
+      "de": "Bierzelt",
+      "en": "beer tent",
+      "vibe": "wiesnwirt"
+     },
+     "right": {
+      "de": "Riesenrad",
+      "en": "Ferris wheel",
+      "vibe": "freibadfruehling"
+     }
+    }
+   ]
+  },
+  {
+   "id": "herbst",
+   "title": "Herbst",
+   "en": "Autumn",
+   "hook": "Mushrooms, kites, Federweißer.",
+   "questions": [
+    {
+     "de": "Pilze im Wald selbst sammeln?",
+     "en": "Pick your own mushrooms in the forest?",
+     "ja": "freibadfruehling",
+     "nein": "jeck"
+    },
+    {
+     "de": "Drachen steigen lassen, ohne Kinder?",
+     "en": "Fly a kite, no kids as an excuse?",
+     "ja": "freibadfruehling",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Federweißer mit Zwiebelkuchen?",
+     "en": "Young wine with onion tart?",
+     "ja": "wiesnwirt",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Kürbissuppe jede Woche?",
+     "en": "Pumpkin soup every week?",
+     "ja": "gluehweinnovember",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Laterne laufen mit 30?",
+     "en": "Lantern parade at 30?",
+     "ja": "jeck",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Erster Lebkuchen im September?",
+     "en": "First gingerbread in September?",
+     "ja": "gluehweinnovember",
+     "nein": "freibadfruehling"
+    },
+    {
+     "left": {
+      "de": "Halloween",
+      "en": "Halloween",
+      "vibe": "boellerkoenig"
+     },
+     "right": {
+      "de": "Sankt-Martins-Umzug",
+      "en": "St Martin's parade",
+      "vibe": "jeck"
+     }
+    },
+    {
+     "left": {
+      "de": "Weinfest",
+      "en": "wine festival",
+      "vibe": "wiesnwirt"
+     },
+     "right": {
+      "de": "Waldspaziergang",
+      "en": "forest walk",
+      "vibe": "freibadfruehling"
+     }
+    }
+   ]
+  },
+  {
+   "id": "weihnachtsmarkt",
+   "title": "Weihnachtsmarkt",
+   "en": "Christmas market",
+   "hook": "Glühwein in November, Bratwurst, Eierpunsch.",
+   "questions": [
+    {
+     "de": "Glühwein schon im November?",
+     "en": "Mulled wine already in November?",
+     "ja": "gluehweinnovember",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Tasse mitnehmen statt Pfand holen?",
+     "en": "Keep the mug instead of getting the deposit back?",
+     "ja": "boellerkoenig",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Bratwurst in jeder Stadt testen?",
+     "en": "Try the Bratwurst in every town?",
+     "ja": "wiesnwirt",
+     "nein": "jeck"
+    },
+    {
+     "de": "Weihnachtsmarkt bei Regen?",
+     "en": "Christmas market in the rain?",
+     "ja": "gluehweinnovember",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Nach der Arbeit direkt zum Markt?",
+     "en": "Straight from work to the market?",
+     "ja": "gluehweinnovember",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Weihnachtsmarkt im Dezember ist zu voll?",
+     "en": "The December market is too crowded?",
+     "ja": "freibadfruehling",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "left": {
+      "de": "Glühwein",
+      "en": "mulled wine",
+      "vibe": "gluehweinnovember"
+     },
+     "right": {
+      "de": "Eierpunsch",
+      "en": "egg punch",
+      "vibe": "boellerkoenig"
+     }
+    },
+    {
+     "left": {
+      "de": "Bratwurst",
+      "en": "Bratwurst",
+      "vibe": "wiesnwirt"
+     },
+     "right": {
+      "de": "Reibekuchen",
+      "en": "potato fritters",
+      "vibe": "jeck"
+     }
+    }
+   ]
+  },
+  {
+   "id": "heiligabend",
+   "title": "Heiligabend",
+   "en": "Christmas Eve",
+   "hook": "Potato salad, church, presents on the 24th.",
+   "questions": [
+    {
+     "de": "Kartoffelsalat mit Würstchen?",
+     "en": "Potato salad with sausages?",
+     "ja": "gluehweinnovember",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Geschenke am 24. und nicht am 25.?",
+     "en": "Presents on the 24th, not the 25th?",
+     "ja": "gluehweinnovember",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Kirche an Heiligabend, einmal im Jahr?",
+     "en": "Church on Christmas Eve, once a year?",
+     "ja": "gluehweinnovember",
+     "nein": "jeck"
+    },
+    {
+     "de": "Echte Kerzen am Baum?",
+     "en": "Real candles on the tree?",
+     "ja": "boellerkoenig",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Baum erst am 24. schmücken?",
+     "en": "Decorate the tree only on the 24th?",
+     "ja": "boellerkoenig",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Drei Haselnüsse für Aschenbrödel?",
+     "en": "Three Hazelnuts for Cinderella, every year?",
+     "ja": "gluehweinnovember",
+     "nein": "wiesnwirt"
+    },
+    {
+     "left": {
+      "de": "Kartoffelsalat",
+      "en": "potato salad",
+      "vibe": "gluehweinnovember"
+     },
+     "right": {
+      "de": "Gans",
+      "en": "roast goose",
+      "vibe": "wiesnwirt"
+     }
+    },
+    {
+     "left": {
+      "de": "Raclette",
+      "en": "raclette",
+      "vibe": "boellerkoenig"
+     },
+     "right": {
+      "de": "Fondue",
+      "en": "fondue",
+      "vibe": "jeck"
+     }
+    }
+   ]
+  },
+  {
+   "id": "silvester",
+   "title": "Silvester",
+   "en": "New Year's Eve",
+   "hook": "Fireworks or raclette, Dinner for One, Bleigießen.",
+   "questions": [
+    {
+     "de": "Böller vom Balkon?",
+     "en": "Fireworks from the balcony?",
+     "ja": "boellerkoenig",
+     "nein": "freibadfruehling"
+    },
+    {
+     "de": "Dinner for One, jedes Jahr?",
+     "en": "Dinner for One, every year?",
+     "ja": "gluehweinnovember",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Bleigießen, heute mit Wachs?",
+     "en": "Fortune-telling with molten wax at midnight?",
+     "ja": "gluehweinnovember",
+     "nein": "wiesnwirt"
+    },
+    {
+     "de": "Um 0:15 schon im Bett?",
+     "en": "In bed by 0:15?",
+     "ja": "freibadfruehling",
+     "nein": "boellerkoenig"
+    },
+    {
+     "de": "Berliner mit Senf – ein guter Scherz?",
+     "en": "A doughnut filled with mustard, a good joke?",
+     "ja": "jeck",
+     "nein": "gluehweinnovember"
+    },
+    {
+     "de": "Sekt um Mitternacht, auch allein?",
+     "en": "Sparkling wine at midnight, even alone?",
+     "ja": "wiesnwirt",
+     "nein": "freibadfruehling"
+    },
+    {
+     "left": {
+      "de": "Böller",
+      "en": "fireworks",
+      "vibe": "boellerkoenig"
+     },
+     "right": {
+      "de": "Raclette",
+      "en": "raclette",
+      "vibe": "gluehweinnovember"
+     }
+    },
+    {
+     "left": {
+      "de": "Brandenburger Tor",
+      "en": "Brandenburg Gate",
+      "vibe": "jeck"
+     },
+     "right": {
+      "de": "Sofa",
+      "en": "sofa",
+      "vibe": "gluehweinnovember"
+     }
+    }
+   ]
+  }
+ ]
+}

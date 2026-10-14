@@ -83,7 +83,7 @@ class Fx {
 	 * The big centred stamp: "Geschafft!" on a finished run, or the medal
 	 * just earned, in its own colour and bigger still.
 	 */
-	stamp = $state<{ id: number; text: string; medal?: RibbonTier; sub?: string } | null>(null);
+	stamp = $state<{ id: number; text: string; medal?: RibbonTier; ticket?: boolean; sub?: string } | null>(null);
 }
 
 export const fx = new Fx();
@@ -123,6 +123,31 @@ export function celebrate(text = 'Geschafft!'): void {
 	if (effectsCalm()) return;
 	rain(90, CONFETTI_COLORS);
 	showStamp({ id: nextId++, text }, 1600);
+}
+
+/** The game's sky, as confetti: for a Ja oder Nein? ticket just won. */
+const TICKET_COLORS = ['#ff4d6d', '#ffb347', '#38d39f', '#4cc9f0', '#7c3aed', '#fff6dd'];
+
+/**
+ * A ticket to Ja oder Nein? just won by a good run: as big as a medal, in
+ * the game's own colours, and it holds. Fires after the run's own stamp has
+ * had its moment, so the two never fight for the middle of the screen.
+ */
+export function celebrateTicket(tickets: number): void {
+	setTimeout(() => {
+		playSound('medal');
+		if (effectsCalm()) return;
+		rain(180, TICKET_COLORS, 900);
+		showStamp(
+			{
+				id: nextId++,
+				text: 'Ja oder Nein?',
+				ticket: true,
+				sub: `You won a ticket · ${tickets} in your pocket`
+			},
+			2600
+		);
+	}, 1700);
 }
 
 /**

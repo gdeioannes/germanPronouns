@@ -9,6 +9,7 @@
 	import RibbonBadge from '../RibbonBadge.svelte';
 	import { pop } from '$lib/motion';
 	import { nextMedal, RUN_PASS_MARK, TIER_LABELS, type RibbonTier } from '$lib/domain/progress';
+	import { ticketWin } from '$lib/state/janein.svelte';
 
 	let {
 		right,
@@ -79,6 +80,12 @@
 		<p class="medal-line">
 			<Icon name="flame" size="1em" />
 			You earned the {TIER_LABELS[earned].toLowerCase()} medal in this run.
+		</p>
+	{/if}
+
+	{#if ticketWin.won}
+		<p class="medal-line ticket-line">
+			🎟️ This run won you a ticket to Ja oder Nein? — it turns up in your deck.
 		</p>
 	{/if}
 

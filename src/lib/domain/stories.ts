@@ -99,9 +99,12 @@ export function storyCardHref(card: DeckCard): string | null {
 
 /**
  * The story card to shuffle into a dealt deck, or null: the course's next
- * episode for the deck's sub-level — the first in registry order that the
- * learner hasn't finished or skipped. One per deal — stories are a treat,
- * not a quota.
+ * episode in strict play order — the first one the learner hasn't finished.
+ * The deck never jumps ahead: Episode 1 only comes up once Episode 0 is
+ * finished (the Stories page lets them play any episode). If that next
+ * episode was just skipped or its material isn't reached yet, no story card
+ * this deal. Once every episode is finished, none. One per deal — stories
+ * are a treat, not a quota.
  */
 export function storyDeckCard(
 	courseId: string,
@@ -110,15 +113,11 @@ export function storyDeckCard(
 	/** Whether the learner reached an episode's `after` quiz. */
 	reached: (quizId: string) => boolean = () => true
 ): DeckCard | null {
-	const episode = STORY_EPISODES.find(
-		(e) =>
-			e.courseId === courseId &&
-			e.level === level &&
-			(!e.after || reached(e.after)) &&
-			!skipped.has(`${ID_PREFIX}${e.id}`) &&
-			!storyFinished(e.id)
-	);
+	const episode = STORY_EPISODES.filter((e) => e.courseId === courseId).find((e) => !storyFinished(e.id));
 	if (!episode) return null;
+	if (episode.level !== level) return null;
+	if (episode.after && !reached(episode.after)) return null;
+	if (skipped.has(`${ID_PREFIX}${episode.id}`)) return null;
 	const id = `${ID_PREFIX}${episode.id}`;
 	const quiz: QuizSummary = {
 		id,

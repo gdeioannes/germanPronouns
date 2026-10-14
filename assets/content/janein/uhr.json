@@ -1,0 +1,734 @@
+{
+ "id": "uhr",
+ "title": "Rund um die Uhr",
+ "en": "Around the clock",
+ "emoji": "🕰️",
+ "personas": [
+  {
+   "id": "fruehaufsteher",
+   "title": "Frühaufsteher:in",
+   "emoji": "🌅🥐",
+   "line": "The bakery knows your face at six, and the day is half done by nine.",
+   "word": {
+    "de": "früh",
+    "en": "early"
+   }
+  },
+  {
+   "id": "mittagsschlaf",
+   "title": "Mittagsschlaf-Meister:in",
+   "emoji": "😴🍽️",
+   "line": "Lunch, then twenty minutes of nothing. Productivity is for the afternoon.",
+   "word": {
+    "de": "das Nickerchen",
+    "en": "the nap"
+   }
+  },
+  {
+   "id": "kaffeezeit",
+   "title": "Kaffee-und-Kuchen-Klassiker:in",
+   "emoji": "☕🍰",
+   "line": "Three o'clock is a sacred hour, and the cake is not optional.",
+   "word": {
+    "de": "die Kaffeezeit",
+    "en": "coffee-and-cake time"
+   }
+  },
+  {
+   "id": "feierabend",
+   "title": "Feierabend-Philosoph:in",
+   "emoji": "🍺🌇",
+   "line": "Work ends at the stroke of six, and the first beer is a full stop.",
+   "word": {
+    "de": "der Feierabend",
+    "en": "the end of the working day"
+   }
+  },
+  {
+   "id": "nachteule",
+   "title": "Nachteule",
+   "emoji": "🦉🌙",
+   "line": "Midnight is the middle of your evening. Mornings are a rumour.",
+   "word": {
+    "de": "die Nachteule",
+    "en": "the night owl"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "sechs_uhr",
+   "title": "6 Uhr morgens",
+   "en": "Six in the morning",
+   "hook": "Bakers, joggers, the first coffee. Are you up for it?",
+   "questions": [
+    {
+     "de": "Wecker um 5:30, ohne Snooze?",
+     "en": "Alarm at 5:30, no snooze?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Joggen vor der Arbeit?",
+     "en": "A run before work?",
+     "ja": "fruehaufsteher",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Brötchen beim Bäcker um sechs?",
+     "en": "Rolls from the bakery at six?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Erster Kaffee noch im Bett?",
+     "en": "First coffee still in bed?",
+     "ja": "mittagsschlaf",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Um sechs Uhr schon Kuchen backen?",
+     "en": "Already baking a cake at six?",
+     "ja": "kaffeezeit",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Samstag um 7 Uhr schon wach?",
+     "en": "Awake at seven on a Saturday?",
+     "ja": "fruehaufsteher",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "left": {
+      "de": "Wecker",
+      "en": "alarm clock",
+      "vibe": "fruehaufsteher"
+     },
+     "right": {
+      "de": "Kein Wecker",
+      "en": "no alarm",
+      "vibe": "nachteule"
+     }
+    },
+    {
+     "left": {
+      "de": "Kalte Dusche",
+      "en": "cold shower",
+      "vibe": "fruehaufsteher"
+     },
+     "right": {
+      "de": "Fünf Minuten mehr",
+      "en": "five more minutes",
+      "vibe": "mittagsschlaf"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fruehstueck",
+   "title": "Frühstück",
+   "en": "Breakfast",
+   "hook": "Mettbrötchen, Müsli, or no breakfast at all.",
+   "questions": [
+    {
+     "de": "Mettbrötchen zum Frühstück?",
+     "en": "Raw minced pork on a roll for breakfast?",
+     "ja": "feierabend",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Frühstück um 11 Uhr ist noch Frühstück?",
+     "en": "Breakfast at 11 is still breakfast?",
+     "ja": "mittagsschlaf",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Weiches Ei nur am Sonntag?",
+     "en": "A soft-boiled egg only on Sundays?",
+     "ja": "kaffeezeit",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Kein Frühstück, nur Kaffee?",
+     "en": "No breakfast, just coffee?",
+     "ja": "nachteule",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Müsli jeden Tag, gleiche Schüssel?",
+     "en": "Muesli every day, same bowl?",
+     "ja": "fruehaufsteher",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Nutella-Brot ist ein Frühstück?",
+     "en": "Bread with Nutella counts as breakfast?",
+     "ja": "mittagsschlaf",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "left": {
+      "de": "Kaffee",
+      "en": "coffee",
+      "vibe": "feierabend"
+     },
+     "right": {
+      "de": "Tee",
+      "en": "tea",
+      "vibe": "kaffeezeit"
+     }
+    },
+    {
+     "left": {
+      "de": "Brötchen",
+      "en": "bread roll",
+      "vibe": "mittagsschlaf"
+     },
+     "right": {
+      "de": "Toast",
+      "en": "toast",
+      "vibe": "nachteule"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mittagspause",
+   "title": "Mittagspause",
+   "en": "Lunch break",
+   "hook": "Canteen, Döner, or a nap on the desk.",
+   "questions": [
+    {
+     "de": "Nickerchen auf dem Schreibtisch?",
+     "en": "A nap on the desk?",
+     "ja": "mittagsschlaf",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Kantine um Punkt zwölf?",
+     "en": "Canteen at twelve on the dot?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Döner in der Mittagspause?",
+     "en": "Döner in the lunch break?",
+     "ja": "feierabend",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Mittagessen am Schreibtisch?",
+     "en": "Lunch at your desk?",
+     "ja": "fruehaufsteher",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "de": "Mittagspause erst um 14 Uhr?",
+     "en": "Lunch break not until two?",
+     "ja": "nachteule",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Ein Stück Kuchen nach dem Mittagessen?",
+     "en": "A slice of cake after lunch?",
+     "ja": "kaffeezeit",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "left": {
+      "de": "Kantine",
+      "en": "canteen",
+      "vibe": "fruehaufsteher"
+     },
+     "right": {
+      "de": "Imbiss",
+      "en": "snack bar",
+      "vibe": "feierabend"
+     }
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "kaffeezeit"
+     },
+     "right": {
+      "de": "Nickerchen",
+      "en": "a nap",
+      "vibe": "mittagsschlaf"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kaffee_kuchen",
+   "title": "Kaffee und Kuchen",
+   "en": "Coffee and cake",
+   "hook": "The three o'clock ritual. Is cake a duty?",
+   "questions": [
+    {
+     "de": "Kuchen um 15 Uhr ist Pflicht?",
+     "en": "Cake at 3 p.m. is compulsory?",
+     "ja": "kaffeezeit",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Kaffeezeit lieber im Café als zu Hause?",
+     "en": "Coffee time in a café rather than at home?",
+     "ja": "feierabend",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Kaffee um 15 Uhr, dann nachts wach?",
+     "en": "Coffee at three, awake all night?",
+     "ja": "nachteule",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "de": "Kuchen fürs Büro am eigenen Geburtstag?",
+     "en": "Cake for the office on your own birthday?",
+     "ja": "kaffeezeit",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Sahne auf den Kuchen, immer?",
+     "en": "Cream on the cake, always?",
+     "ja": "kaffeezeit",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Nach dem Kuchen ein Nickerchen?",
+     "en": "A nap after the cake?",
+     "ja": "mittagsschlaf",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "left": {
+      "de": "Käsekuchen",
+      "en": "cheesecake",
+      "vibe": "kaffeezeit"
+     },
+     "right": {
+      "de": "Apfelstrudel",
+      "en": "apple strudel",
+      "vibe": "mittagsschlaf"
+     }
+    },
+    {
+     "left": {
+      "de": "Filterkaffee",
+      "en": "filter coffee",
+      "vibe": "fruehaufsteher"
+     },
+     "right": {
+      "de": "Cappuccino",
+      "en": "cappuccino",
+      "vibe": "nachteule"
+     }
+    }
+   ]
+  },
+  {
+   "id": "feierabend",
+   "title": "Feierabend",
+   "en": "After work",
+   "hook": "Beer at six, phone off, the balcony.",
+   "questions": [
+    {
+     "de": "Feierabendbier um Punkt 18 Uhr?",
+     "en": "After-work beer at six on the dot?",
+     "ja": "feierabend",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Handy aus nach Feierabend?",
+     "en": "Phone off after work?",
+     "ja": "feierabend",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Nach der Arbeit noch Mails lesen?",
+     "en": "Still reading emails after work?",
+     "ja": "fruehaufsteher",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Feierabend heißt Balkon?",
+     "en": "After work means the balcony?",
+     "ja": "mittagsschlaf",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Freitag schon um 16 Uhr Feierabend?",
+     "en": "Friday, done by four?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Nach der Arbeit direkt ins Bett?",
+     "en": "Straight to bed after work?",
+     "ja": "mittagsschlaf",
+     "nein": "feierabend"
+    },
+    {
+     "left": {
+      "de": "Bier",
+      "en": "beer",
+      "vibe": "feierabend"
+     },
+     "right": {
+      "de": "Kaffee",
+      "en": "coffee",
+      "vibe": "kaffeezeit"
+     }
+    },
+    {
+     "left": {
+      "de": "Sofa",
+      "en": "sofa",
+      "vibe": "mittagsschlaf"
+     },
+     "right": {
+      "de": "Kneipe",
+      "en": "pub",
+      "vibe": "nachteule"
+     }
+    }
+   ]
+  },
+  {
+   "id": "abendbrot",
+   "title": "Abendbrot",
+   "en": "Supper",
+   "hook": "Bread and cheese at six, and that is dinner.",
+   "questions": [
+    {
+     "de": "Abendbrot: nur Brot und Käse?",
+     "en": "Supper is just bread and cheese?",
+     "ja": "kaffeezeit",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Abendbrot um 18 Uhr, Punkt?",
+     "en": "Supper at six, full stop?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Warmes Essen am Abend?",
+     "en": "A hot meal in the evening?",
+     "ja": "nachteule",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Ein Bier zum Abendbrot?",
+     "en": "A beer with supper?",
+     "ja": "feierabend",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Abendessen erst um 21 Uhr?",
+     "en": "Dinner not until nine?",
+     "ja": "nachteule",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Tee statt Bier zum Abendbrot?",
+     "en": "Tea instead of beer with supper?",
+     "ja": "kaffeezeit",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Ein Brettchen für jeden?",
+     "en": "A little wooden board for everyone?",
+     "ja": "mittagsschlaf",
+     "nein": "nachteule"
+    },
+    {
+     "left": {
+      "de": "Schwarzbrot",
+      "en": "dark rye bread",
+      "vibe": "fruehaufsteher"
+     },
+     "right": {
+      "de": "Weißbrot",
+      "en": "white bread",
+      "vibe": "nachteule"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zweiundzwanzig",
+   "title": "22 Uhr",
+   "en": "Ten at night",
+   "hook": "Quiet hours, the neighbours, the last loud thing.",
+   "questions": [
+    {
+     "de": "Um 22 Uhr ist Nachtruhe, Punkt?",
+     "en": "Quiet hours at 10 p.m., full stop?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Waschmaschine um 22 Uhr?",
+     "en": "Washing machine at ten at night?",
+     "ja": "nachteule",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "de": "Nach der Tagesschau wird es still?",
+     "en": "After the eight o'clock news, silence?",
+     "ja": "mittagsschlaf",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Um 22 Uhr noch ein Bier aufmachen?",
+     "en": "Open one more beer at ten?",
+     "ja": "feierabend",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Kaffee nach 20 Uhr?",
+     "en": "Coffee after 8 p.m.?",
+     "ja": "nachteule",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Beim Nachbarn klingeln wegen Lärm?",
+     "en": "Ring the neighbour's bell about the noise?",
+     "ja": "fruehaufsteher",
+     "nein": "feierabend"
+    },
+    {
+     "left": {
+      "de": "Hörbuch",
+      "en": "audiobook",
+      "vibe": "mittagsschlaf"
+     },
+     "right": {
+      "de": "Serie",
+      "en": "a series",
+      "vibe": "nachteule"
+     }
+    },
+    {
+     "left": {
+      "de": "Kräutertee",
+      "en": "herbal tea",
+      "vibe": "kaffeezeit"
+     },
+     "right": {
+      "de": "Letztes Bier",
+      "en": "one last beer",
+      "vibe": "feierabend"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mitternacht",
+   "title": "Mitternacht",
+   "en": "Midnight",
+   "hook": "Späti, club, the night bus.",
+   "questions": [
+    {
+     "de": "Mitternacht ist Mitte des Abends?",
+     "en": "Midnight is the middle of the evening?",
+     "ja": "nachteule",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Späti um Mitternacht?",
+     "en": "The late-night shop at midnight?",
+     "ja": "nachteule",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "de": "Um Mitternacht schon lange im Bett?",
+     "en": "Long asleep by midnight?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Letzte Runde ist nie die letzte?",
+     "en": "The last round is never the last?",
+     "ja": "feierabend",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Nachtbus statt Taxi?",
+     "en": "Night bus instead of a taxi?",
+     "ja": "nachteule",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Um Mitternacht noch Kuchen essen?",
+     "en": "Cake at midnight?",
+     "ja": "kaffeezeit",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "left": {
+      "de": "Club",
+      "en": "club",
+      "vibe": "nachteule"
+     },
+     "right": {
+      "de": "Bett",
+      "en": "bed",
+      "vibe": "mittagsschlaf"
+     }
+    },
+    {
+     "left": {
+      "de": "Döner",
+      "en": "Döner",
+      "vibe": "feierabend"
+     },
+     "right": {
+      "de": "Pizza",
+      "en": "pizza",
+      "vibe": "mittagsschlaf"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vier_uhr",
+   "title": "4 Uhr morgens",
+   "en": "Four in the morning",
+   "hook": "Döner, the bakery after the club, sunrise from the roof.",
+   "questions": [
+    {
+     "de": "Döner um vier Uhr morgens?",
+     "en": "Döner at four in the morning?",
+     "ja": "nachteule",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "de": "Nach dem Club direkt zum Bäcker?",
+     "en": "Straight from the club to the bakery?",
+     "ja": "nachteule",
+     "nein": "kaffeezeit"
+    },
+    {
+     "de": "Um 4 Uhr auf für den Sonnenaufgang?",
+     "en": "Up at four for the sunrise?",
+     "ja": "fruehaufsteher",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "de": "Sterne gucken um drei Uhr nachts?",
+     "en": "Stargazing at three in the morning?",
+     "ja": "nachteule",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "de": "Bäcker sein ist ein Traumjob?",
+     "en": "Being a baker is a dream job?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Um 4 Uhr nach Hause, um 8 Uhr ins Büro?",
+     "en": "Home at four, office at eight?",
+     "ja": "feierabend",
+     "nein": "mittagsschlaf"
+    },
+    {
+     "left": {
+      "de": "Noch wach",
+      "en": "still awake",
+      "vibe": "nachteule"
+     },
+     "right": {
+      "de": "Schon wach",
+      "en": "already awake",
+      "vibe": "fruehaufsteher"
+     }
+    },
+    {
+     "left": {
+      "de": "Taxi",
+      "en": "taxi",
+      "vibe": "feierabend"
+     },
+     "right": {
+      "de": "Nachtbus",
+      "en": "night bus",
+      "vibe": "nachteule"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sonntag",
+   "title": "Sonntag",
+   "en": "Sunday",
+   "hook": "Shops shut, Tatort on, no lawnmower.",
+   "questions": [
+    {
+     "de": "Tatort am Sonntagabend?",
+     "en": "The Sunday-night crime show, every week?",
+     "ja": "kaffeezeit",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Sonntags ist der Rasenmäher verboten?",
+     "en": "No lawnmower on a Sunday, ever?",
+     "ja": "mittagsschlaf",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Sonntag im Schlafanzug bis 16 Uhr?",
+     "en": "Sunday in pyjamas until 4 p.m.?",
+     "ja": "mittagsschlaf",
+     "nein": "fruehaufsteher"
+    },
+    {
+     "de": "Sonntags um 8 Uhr Brötchen holen?",
+     "en": "Fetch rolls at eight on a Sunday?",
+     "ja": "fruehaufsteher",
+     "nein": "nachteule"
+    },
+    {
+     "de": "Kuchen am Sonntag selbst backen?",
+     "en": "Bake your own cake on Sunday?",
+     "ja": "kaffeezeit",
+     "nein": "feierabend"
+    },
+    {
+     "de": "Sonntagabend schon an Montag denken?",
+     "en": "Already thinking of Monday on Sunday night?",
+     "ja": "fruehaufsteher",
+     "nein": "feierabend"
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "fruehaufsteher"
+     },
+     "right": {
+      "de": "Sofa",
+      "en": "sofa",
+      "vibe": "mittagsschlaf"
+     }
+    },
+    {
+     "left": {
+      "de": "Brunch",
+      "en": "brunch",
+      "vibe": "nachteule"
+     },
+     "right": {
+      "de": "Kaffeezeit",
+      "en": "coffee and cake",
+      "vibe": "kaffeezeit"
+     }
+    }
+   ]
+  }
+ ]
+}

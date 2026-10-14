@@ -24,6 +24,7 @@ import { helpTableFor } from '$lib/domain/help-table';
 import { buildLesson, hasLesson, lessonSpokenTexts, speakable } from '$lib/domain/lesson';
 import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
 import { STORY_EPISODES } from '$lib/domain/stories';
+import { ALL_QUESTIONS, JA_NEIN_CATEGORIES } from '$lib/domain/janeinRounds';
 
 const nouns = (nounData as { nouns: unknown[] }).nouns as SharedNoun[];
 
@@ -73,6 +74,12 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		const t = text?.trim();
 		if (t) out.push({ text: t, locale, source, level });
 	};
+
+	// "Ja oder Nein?": every question's speak button, and the word each
+	// persona hands you on the verdict. App-wide, no level.
+	for (const q of ALL_QUESTIONS) add(q.de, WORDS_LOCALE, 'ja oder nein');
+	for (const category of JA_NEIN_CATEGORIES)
+		for (const persona of category.personas) add(persona.word.de, WORDS_LOCALE, 'ja oder nein');
 
 	for (const card of catalog.courses) {
 		const course = await loadCourse(card.id);

@@ -1,5 +1,6 @@
 <script lang="ts">
-	// "Ja oder Nein?" — ten quick questions about life in Germany, swiped right
+	// "Ja oder Nein?" — a themed round of eight quick questions about life in
+	// Germany (see domain/janeinRounds for the shelves of rounds), swiped right
 	// for Ja and left for Nein against a sky that will not sit still. Nothing
 	// is marked; the reward is who you turn out to be and the row of squares
 	// to send to someone (see domain/janein). Swipe, the two buttons, or the
@@ -10,20 +11,25 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { absoluteUrl, breadcrumbLd } from '$lib/seo';
 	import {
-		dealJaNein,
 		isPair,
 		JA_NEIN_PATH,
-		JA_NEIN_QUESTIONS,
-		markJaNeinPlayed,
-		markSeenJaNein,
-		scoreJaNein,
 		shareText,
 		whatsappHref,
 		type Answer,
 		type JaNeinQuestion,
-		type JaNeinResult,
 		type ShareLang
 	} from '$lib/domain/janein';
+	import {
+		collectionCount,
+		earnPersona,
+		findRound,
+		markRoundPlayed,
+		nextRound,
+		scoreRound,
+		shuffled,
+		type JaNeinRound,
+		type RoundResult
+	} from '$lib/domain/janeinRounds';
 	import { announce } from '$lib/a11y.svelte';
 	import { celebrate } from '$lib/motion/fx.svelte';
 	import { track } from '$lib/services/analytics';
@@ -33,12 +39,15 @@
 	const LOCALE = 'de-DE';
 	/** Where the card came from, and where both ways out lead: the course deck. */
 	const DECK = '/course/de_cert_a1';
-	const SHARE_URL = absoluteUrl(JA_NEIN_PATH);
 
+	let round = $state<JaNeinRound | null>(null);
 	let questions = $state<JaNeinQuestion[]>([]);
 	let answers = $state<Answer[]>([]);
 	let phase = $state<'intro' | 'play' | 'done'>('intro');
-	let result = $state<JaNeinResult | null>(null);
+	let result = $state<RoundResult | null>(null);
+	/** The persona just earned was not on the shelf before. */
+	let fresh = $state(false);
+	let shelf = $state({ earned: 0, total: 0 });
 
 	const index = $derived(answers.length);
 	const current = $derived<JaNeinQuestion | undefined>(questions[index]);
@@ -57,21 +66,19 @@
 	const THRESHOLD = 90;
 	const lean = $derived(Math.max(-1, Math.min(1, dx / THRESHOLD)));
 
-	/** "?q=12" (1-based, from the dev review page) deals that question first. */
-	function requested(): JaNeinQuestion | undefined {
-		const n = Number(page.url.searchParams.get('q'));
-		return n >= 1 ? JA_NEIN_QUESTIONS[n - 1] : undefined;
-	}
-
 	onMount(() => {
-		const first = requested();
-		questions = dealJaNein(Math.random, undefined, undefined, first);
-		if (first) begin();
+		// "?round=teller/brot" (the shelf page, the dev table) plays that round;
+		// otherwise the next one in the tour, the same the deck card showed.
+		const asked = findRound(page.url.searchParams.get('round'));
+		round = asked ?? nextRound();
+		if (round) questions = shuffled(round);
+		shelf = collectionCount();
+		if (asked && page.url.searchParams.has('go')) begin();
 	});
 
 	function begin() {
 		phase = 'play';
-		track('janein', { step: 'start' });
+		track('janein', { step: 'start', round: round?.key ?? '' });
 	}
 
 	function onDown(e: PointerEvent) {
@@ -136,19 +143,23 @@
 	}
 
 	function finish() {
-		result = scoreJaNein(questions, answers);
+		if (!round) return;
+		result = scoreRound(round, questions, answers);
 		phase = 'done';
-		markJaNeinPlayed();
-		markSeenJaNein(questions);
-		celebrate('Das bist du!');
-		announce(`You are ${result.persona.title}. ${result.persona.line}`);
-		track('janein', { step: 'finish', persona: result.persona.vibe, ja: result.ja });
+		markRoundPlayed(round.key);
+		fresh = earnPersona(result);
+		shelf = collectionCount();
+		celebrate(fresh ? 'Neu!' : 'Das bist du!');
+		announce(`You are ${result.persona.title}. ${result.persona.line}${fresh ? ' New on your shelf.' : ''}`);
+		track('janein', { step: 'finish', round: round.key, persona: result.persona.id, ja: result.ja, fresh });
 	}
 
 	// -- sharing ---------------------------------------------------------------
 	/** The share's language: German is the native one, English for a friend who reads none. */
 	let shareLang = $state<ShareLang>('de');
-	const text = $derived(result ? shareText(result, SHARE_URL, shareLang) : '');
+	/** The link carries the round, so whoever gets the message plays the same eight and can answer back. */
+	const shareUrl = $derived(absoluteUrl(round ? `${JA_NEIN_PATH}?round=${round.key}` : JA_NEIN_PATH));
+	const text = $derived(result ? shareText(result, shareUrl, shareLang) : '');
 	let copied = $state(false);
 	const canShare = $derived(typeof navigator !== 'undefined' && typeof navigator.share === 'function');
 
@@ -175,8 +186,8 @@
 </script>
 
 <Seo
-	title="Ja oder Nein? Ten swipes, one verdict"
-	description="Ten quick yes-or-no questions about life in Germany, in easy German. Swipe, find out who you are tonight, and send the result to a friend."
+	title="Ja oder Nein? Eight swipes, one verdict"
+	description="A themed round of eight quick yes-or-no questions about life in Germany, in easy German. Swipe, find out who you are tonight, collect the personas, and send the result to a friend."
 	path={JA_NEIN_PATH}
 	jsonLd={[breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Ja oder Nein?', path: JA_NEIN_PATH }])]}
 />
@@ -202,20 +213,19 @@
 		{/if}
 	</header>
 
-	{#if phase === 'intro'}
+	{#if phase === 'intro' && round}
 		<section class="card intro">
-			<p class="eyebrow">Surprise!</p>
-			<h1>Ja oder Nein?</h1>
+			<p class="eyebrow">Ja oder Nein? · {round.en}</p>
+			<h1 lang="de">{round.title}</h1>
 			<p class="lead">
-				Ten questions about life in Germany. Swipe right for <strong lang="de">Ja</strong>, left for
-				<strong lang="de">Nein</strong>, or towards the side you'd pick: <span lang="de">Oktoberfest oder
-				Weihnachtsmarkt?</span> No marks, no wrong answers. At the end you find out who you are tonight,
-				and you can send it to someone.
+				{round.hook} Eight questions: swipe right for <strong lang="de">Ja</strong>, left for
+				<strong lang="de">Nein</strong>, or towards the side you'd pick. No marks, no wrong answers. At the
+				end you find out who you are tonight, and it goes on your shelf.
 			</p>
 			<button type="button" class="btn start" onclick={begin}>
 				Let's go <Icon name="arrowRight" size="1em" />
 			</button>
-			<p class="meta">≈ 1 minute · a little German sneaks in</p>
+			<p class="meta">≈ 1 minute · a little German sneaks in · <a href="{JA_NEIN_PATH}/personas">your personas: {shelf.earned} of {shelf.total}</a></p>
 		</section>
 	{:else if phase === 'play' && current}
 		<section class="stage">
@@ -302,7 +312,7 @@
 		</section>
 	{:else if phase === 'done' && result}
 		<section class="card verdict">
-			<p class="eyebrow">Tonight you are</p>
+			<p class="eyebrow">{fresh ? 'New on your shelf! Tonight you are' : 'Tonight you are'}</p>
 			<p class="big" aria-hidden="true">{result.persona.emoji}</p>
 			<h1 lang="de">{result.persona.title}</h1>
 			<p class="lead">{result.persona.line}</p>
@@ -330,6 +340,7 @@
 			<pre class="preview" lang={shareLang} aria-label="What you will send">{text}</pre>
 
 			<div class="after">
+				<a class="btn" href="{JA_NEIN_PATH}/personas">Your personas: {shelf.earned} of {shelf.total}</a>
 				<a class="btn btn-ghost" href={DECK}>Back to your deck</a>
 			</div>
 		</section>

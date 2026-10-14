@@ -546,11 +546,15 @@
 	.sitter {
 		--zoom: 1.2;
 		position: absolute;
-		left: 50%;
+		/* Centred by layout, not by a percentage transform: WebKit starts the
+		   breathe animation on the compositor with the box it saw at first
+		   paint, and on a cold load that is before the picture has decoded, so
+		   a translateX(-50%) was frozen against the wrong width and she sat
+		   offset and cropped until the next navigation. */
+		left: calc(50% - 50% * var(--zoom));
 		bottom: -4%;
 		width: calc(100% * var(--zoom));
 		height: auto;
-		transform: translateX(-50%);
 		transform-origin: 50% 100%;
 		animation: breathe 6s ease-in-out infinite;
 	}
@@ -558,10 +562,10 @@
 	@keyframes breathe {
 		0%,
 		100% {
-			transform: translateX(-50%) scale(1);
+			transform: scale(1);
 		}
 		50% {
-			transform: translateX(-50%) scale(1.012);
+			transform: scale(1.012);
 		}
 	}
 

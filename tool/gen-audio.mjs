@@ -4,6 +4,7 @@
 //
 //   npm run audio                     every A1.1 exercise
 //   npm run audio -- --level A1.2     another sub-level (repeatable)
+//   npm run audio -- --source "ja oder nein"   app-wide texts by source label (the swipe game)
 //   npm run audio -- --all            the whole app: every level, plus the
 //                                     Word Library and the landing demo
 //   npm run audio -- --dry            only list what would be recorded
@@ -92,7 +93,9 @@ const force = args.includes('--force');
 const dry = args.includes('--dry');
 const all = args.includes('--all');
 const levels = args.flatMap((a, i) => (args[i - 1] === '--level' ? [a] : []));
-if (!levels.length && !all) levels.push('A1.1');
+/** --source "ja oder nein": app-wide texts by their source label, without a whole-app run. */
+const sources = args.flatMap((a, i) => (args[i - 1] === '--source' ? [a] : []));
+if (!levels.length && !sources.length && !all) levels.push('A1.1');
 const engineName = args.flatMap((a, i) => (args[i - 1] === '--engine' ? [a] : []))[0] ?? 'chirp';
 const engine = ENGINES[engineName];
 if (!engine) {
@@ -110,9 +113,9 @@ if (!key && !serviceAccount && !dry) {
 }
 
 const { spoken, audioShard } = await collect();
-const texts = spoken.filter((t) => all || (t.level && levels.includes(t.level)));
+const texts = spoken.filter((t) => all || sources.includes(t.source) || (t.level && levels.includes(t.level)));
 const chars = texts.reduce((n, t) => n + t.text.length, 0);
-console.log(`${texts.length} distinct strings (${chars} characters) in ${all ? 'the whole app' : levels.join(', ')}`);
+console.log(`${texts.length} distinct strings (${chars} characters) in ${all ? 'the whole app' : [...levels, ...sources].join(', ')}`);
 if (dry) {
 	for (const t of texts)
 		console.log(`  [${t.level ?? 'app'} ${t.source}] ${t.text.length > 70 ? t.text.slice(0, 70) + '…' : t.text}`);

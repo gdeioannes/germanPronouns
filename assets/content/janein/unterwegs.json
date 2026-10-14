@@ -1,0 +1,740 @@
+{
+ "id": "unterwegs",
+ "title": "Unterwegs",
+ "en": "Getting around",
+ "emoji": "🚆",
+ "personas": [
+  {
+   "id": "ubahnprofi",
+   "title": "U-Bahn-Profi",
+   "emoji": "🚇🎧",
+   "line": "You know which door opens at the stairs. The last train is a challenge, not a limit.",
+   "word": {
+    "de": "die U-Bahn",
+    "en": "the underground"
+   }
+  },
+  {
+   "id": "autobahnpilot",
+   "title": "Autobahn-Pilot:in",
+   "emoji": "🚗💨",
+   "line": "No speed limit, left lane, flashing lights. You call it freedom.",
+   "word": {
+    "de": "die Autobahn",
+    "en": "the motorway"
+   }
+  },
+  {
+   "id": "deutschlandticket",
+   "title": "Deutschlandticket-Held:in",
+   "emoji": "🎫🚆",
+   "line": "Forty-nine euros and the whole country. The delay is part of the trip.",
+   "word": {
+    "de": "die Verspätung",
+    "en": "the delay"
+   }
+  },
+  {
+   "id": "radpendler",
+   "title": "Rad-Pendler:in",
+   "emoji": "🚲🌧️",
+   "line": "Rain, snow, 15 km each way. The car is for other people.",
+   "word": {
+    "de": "das Fahrrad",
+    "en": "the bicycle"
+   }
+  },
+  {
+   "id": "balkonien",
+   "title": "Balkonien-Urlauber:in",
+   "emoji": "🏖️🪴",
+   "line": "The best holiday is at home. Balkonien has no queue at check-in.",
+   "word": {
+    "de": "der Urlaub",
+    "en": "the holiday"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "ubahn",
+   "title": "Die U-Bahn",
+   "en": "The underground",
+   "hook": "Last train missed, alone at night, a ticket for one stop.",
+   "questions": [
+    {
+     "de": "Letzte U-Bahn verpasst – egal?",
+     "en": "Missed the last U-Bahn. Who cares?",
+     "ja": "ubahnprofi",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Fahrkarte immer kaufen, auch für eine Station?",
+     "en": "Always buy a ticket, even for one stop?",
+     "ja": "deutschlandticket",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Die U-Bahn nachts allein ist kein Problem?",
+     "en": "The U-Bahn alone at night is no problem?",
+     "ja": "ubahnprofi",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Kopfhörer rein, Welt aus?",
+     "en": "Headphones in, world off?",
+     "ja": "ubahnprofi",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Lieber Taxi als Nachtbus?",
+     "en": "Rather a taxi than the night bus?",
+     "ja": "autobahnpilot",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Immer an der richtigen Tür stehen?",
+     "en": "Always standing at exactly the right door?",
+     "ja": "ubahnprofi",
+     "nein": "radpendler"
+    },
+    {
+     "left": {
+      "de": "Rolltreppe",
+      "en": "escalator",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Treppe",
+      "en": "stairs",
+      "vibe": "radpendler"
+     }
+    },
+    {
+     "left": {
+      "de": "Nachtbus",
+      "en": "night bus",
+      "vibe": "ubahnprofi"
+     },
+     "right": {
+      "de": "Zu Fuß",
+      "en": "on foot",
+      "vibe": "radpendler"
+     }
+    }
+   ]
+  },
+  {
+   "id": "auto",
+   "title": "Das Auto",
+   "en": "The car",
+   "hook": "Autobahn with no limit, a year without a car.",
+   "questions": [
+    {
+     "de": "Autobahn ohne Tempolimit?",
+     "en": "Motorway with no speed limit?",
+     "ja": "autobahnpilot",
+     "nein": "radpendler"
+    },
+    {
+     "de": "Ein Jahr ohne Auto?",
+     "en": "A year without a car?",
+     "ja": "radpendler",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Linke Spur, immer?",
+     "en": "Left lane, always?",
+     "ja": "autobahnpilot",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Samstags das Auto waschen?",
+     "en": "Wash the car every Saturday?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Stau? Musik lauter, egal?",
+     "en": "Traffic jam? Music up, who cares?",
+     "ja": "autobahnpilot",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Mitfahrgelegenheit mit Fremden?",
+     "en": "Share a ride with strangers?",
+     "ja": "deutschlandticket",
+     "nein": "balkonien"
+    },
+    {
+     "left": {
+      "de": "Autobahn",
+      "en": "motorway",
+      "vibe": "autobahnpilot"
+     },
+     "right": {
+      "de": "Landstraße",
+      "en": "country road",
+      "vibe": "balkonien"
+     }
+    },
+    {
+     "left": {
+      "de": "Parkplatz suchen",
+      "en": "hunt for parking",
+      "vibe": "autobahnpilot"
+     },
+     "right": {
+      "de": "Rad nehmen",
+      "en": "take the bike",
+      "vibe": "radpendler"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zug",
+   "title": "Der Zug",
+   "en": "The train",
+   "hook": "Deutschlandticket, delay, the dining car.",
+   "questions": [
+    {
+     "de": "Deutschlandticket statt Auto?",
+     "en": "Deutschlandticket instead of a car?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Verspätung ist Teil der Reise?",
+     "en": "The delay is part of the trip?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Zug fällt aus – Picknick am Gleis?",
+     "en": "Train cancelled. Picnic on the platform?",
+     "ja": "deutschlandticket",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Immer Fensterplatz?",
+     "en": "Window seat, always?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Kaffee im Bordbistro?",
+     "en": "Coffee from the dining car?",
+     "ja": "deutschlandticket",
+     "nein": "radpendler"
+    },
+    {
+     "de": "Fahrrad mit in den Zug?",
+     "en": "Take the bike on the train?",
+     "ja": "radpendler",
+     "nein": "autobahnpilot"
+    },
+    {
+     "left": {
+      "de": "Ruheabteil",
+      "en": "quiet coach",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Bordbistro",
+      "en": "dining car",
+      "vibe": "ubahnprofi"
+     }
+    },
+    {
+     "left": {
+      "de": "ICE",
+      "en": "the ICE express",
+      "vibe": "autobahnpilot"
+     },
+     "right": {
+      "de": "Regionalbahn",
+      "en": "regional train",
+      "vibe": "deutschlandticket"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fahrrad",
+   "title": "Das Fahrrad",
+   "en": "The bike",
+   "hook": "Everywhere, in snow, the helmet debate.",
+   "questions": [
+    {
+     "de": "Fahrrad bei Schnee?",
+     "en": "Cycling in the snow?",
+     "ja": "radpendler",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Helm immer, auch zum Bäcker?",
+     "en": "Helmet always, even to the bakery?",
+     "ja": "radpendler",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Nachts ohne Licht fahren?",
+     "en": "Riding at night with no lights?",
+     "ja": "ubahnprofi",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Fahrrad mit Korb und Klingel?",
+     "en": "A bike with a basket and a bell?",
+     "ja": "balkonien",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Regenjacke immer im Rucksack?",
+     "en": "Rain jacket always in the backpack?",
+     "ja": "radpendler",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Fußgänger auf dem Radweg – egal?",
+     "en": "Pedestrians on the bike lane. Who cares?",
+     "ja": "balkonien",
+     "nein": "radpendler"
+    },
+    {
+     "left": {
+      "de": "Hollandrad",
+      "en": "Dutch bike",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Rennrad",
+      "en": "racing bike",
+      "vibe": "radpendler"
+     }
+    },
+    {
+     "left": {
+      "de": "Radweg",
+      "en": "bike lane",
+      "vibe": "radpendler"
+     },
+     "right": {
+      "de": "Straße",
+      "en": "the road",
+      "vibe": "autobahnpilot"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zu_fuss",
+   "title": "Zu Fuß",
+   "en": "On foot",
+   "hook": "Night walk home, a stroll, Nordic walking.",
+   "questions": [
+    {
+     "de": "Nachts zu Fuß nach Hause, 5 Kilometer?",
+     "en": "Walk home at night, five kilometres?",
+     "ja": "ubahnprofi",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Spaziergang ohne Ziel?",
+     "en": "A walk with no destination?",
+     "ja": "balkonien",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Nordic Walking ist ein Sport?",
+     "en": "Nordic walking is a sport?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Bei Rot über die Ampel, wenn keiner guckt?",
+     "en": "Cross on red when nobody is looking?",
+     "ja": "ubahnprofi",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Zu Fuß statt Bus, zwei Stationen?",
+     "en": "Walk instead of the bus, two stops?",
+     "ja": "radpendler",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Sonntagsspaziergang mit der Familie?",
+     "en": "The Sunday walk with the family?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "left": {
+      "de": "Wanderschuhe",
+      "en": "hiking boots",
+      "vibe": "radpendler"
+     },
+     "right": {
+      "de": "Sneaker",
+      "en": "trainers",
+      "vibe": "ubahnprofi"
+     }
+    },
+    {
+     "left": {
+      "de": "Stadtbummel",
+      "en": "city stroll",
+      "vibe": "deutschlandticket"
+     },
+     "right": {
+      "de": "Waldweg",
+      "en": "forest path",
+      "vibe": "balkonien"
+     }
+    }
+   ]
+  },
+  {
+   "id": "urlaub",
+   "title": "Urlaub",
+   "en": "Holiday",
+   "hook": "Camping or hotel, Mallorca, Balkonien.",
+   "questions": [
+    {
+     "de": "Urlaub auf dem Balkon?",
+     "en": "Holiday on the balcony?",
+     "ja": "balkonien",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Mallorca, jedes Jahr?",
+     "en": "Mallorca, every year?",
+     "ja": "autobahnpilot",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Mit dem Zug nach Italien?",
+     "en": "To Italy by train?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Camping im Zelt, auch bei Regen?",
+     "en": "Camping in a tent, even in the rain?",
+     "ja": "radpendler",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Koffer schon eine Woche vorher packen?",
+     "en": "Pack the suitcase a week early?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Urlaub ohne Handy?",
+     "en": "A holiday without a phone?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "left": {
+      "de": "Camping",
+      "en": "camping",
+      "vibe": "radpendler"
+     },
+     "right": {
+      "de": "Hotel",
+      "en": "hotel",
+      "vibe": "autobahnpilot"
+     }
+    },
+    {
+     "left": {
+      "de": "Ostsee",
+      "en": "Baltic coast",
+      "vibe": "deutschlandticket"
+     },
+     "right": {
+      "de": "Alpen",
+      "en": "the Alps",
+      "vibe": "radpendler"
+     }
+    }
+   ]
+  },
+  {
+   "id": "flughafen",
+   "title": "Flughafen",
+   "en": "Airport",
+   "hook": "BER jokes, hand luggage only.",
+   "questions": [
+    {
+     "de": "Nur Handgepäck, auch für zwei Wochen?",
+     "en": "Hand luggage only, even for two weeks?",
+     "ja": "ubahnprofi",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Drei Stunden vorher am Flughafen?",
+     "en": "At the airport three hours early?",
+     "ja": "balkonien",
+     "nein": "radpendler"
+    },
+    {
+     "de": "Mit dem Zug zum Flughafen?",
+     "en": "To the airport by train?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "BER ist wirklich fertig?",
+     "en": "The new Berlin airport is really finished?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Fliegen für ein Wochenende?",
+     "en": "Fly somewhere just for a weekend?",
+     "ja": "autobahnpilot",
+     "nein": "radpendler"
+    },
+    {
+     "de": "Klatschen bei der Landung?",
+     "en": "Clap when the plane lands?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "left": {
+      "de": "Fensterplatz",
+      "en": "window seat",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Gangplatz",
+      "en": "aisle seat",
+      "vibe": "ubahnprofi"
+     }
+    },
+    {
+     "left": {
+      "de": "Flugzeug",
+      "en": "plane",
+      "vibe": "autobahnpilot"
+     },
+     "right": {
+      "de": "Nachtzug",
+      "en": "night train",
+      "vibe": "deutschlandticket"
+     }
+    }
+   ]
+  },
+  {
+   "id": "pendeln",
+   "title": "Pendeln",
+   "en": "Commuting",
+   "hook": "An hour each way, Feierabend on the train.",
+   "questions": [
+    {
+     "de": "Eine Stunde pendeln, jeden Tag?",
+     "en": "An hour's commute, every day?",
+     "ja": "deutschlandticket",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Feierabendbier im Zug?",
+     "en": "After-work beer on the train?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Mit dem Rad ins Büro, 15 Kilometer?",
+     "en": "Bike to the office, 15 kilometres?",
+     "ja": "radpendler",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Stau um 7 Uhr ist normal?",
+     "en": "A traffic jam at 7 a.m. is normal?",
+     "ja": "autobahnpilot",
+     "nein": "radpendler"
+    },
+    {
+     "de": "Homeoffice ist das beste Pendeln?",
+     "en": "Working from home is the best commute?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Im Zug schlafen und nie die Station verpassen?",
+     "en": "Sleep on the train and never miss your stop?",
+     "ja": "ubahnprofi",
+     "nein": "balkonien"
+    },
+    {
+     "left": {
+      "de": "Podcast",
+      "en": "podcast",
+      "vibe": "ubahnprofi"
+     },
+     "right": {
+      "de": "Zeitung",
+      "en": "newspaper",
+      "vibe": "deutschlandticket"
+     }
+    },
+    {
+     "left": {
+      "de": "Dienstwagen",
+      "en": "company car",
+      "vibe": "autobahnpilot"
+     },
+     "right": {
+      "de": "Jobticket",
+      "en": "job travel pass",
+      "vibe": "deutschlandticket"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fernbus",
+   "title": "Fernbus",
+   "en": "Coach",
+   "hook": "Cheap, slow, who cares.",
+   "questions": [
+    {
+     "de": "Zwölf Stunden Fernbus für 19 Euro?",
+     "en": "Twelve hours on a coach for 19 euros?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Toilette im Fernbus benutzen?",
+     "en": "Use the coach toilet?",
+     "ja": "ubahnprofi",
+     "nein": "radpendler"
+    },
+    {
+     "de": "Nachtbus nach Prag?",
+     "en": "Overnight coach to Prague?",
+     "ja": "ubahnprofi",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Nachbar schnarcht – egal?",
+     "en": "Seat neighbour snoring. Who cares?",
+     "ja": "deutschlandticket",
+     "nein": "balkonien"
+    },
+    {
+     "de": "WLAN im Bus ist wichtiger als Platz?",
+     "en": "Wi-Fi on the coach matters more than legroom?",
+     "ja": "ubahnprofi",
+     "nein": "radpendler"
+    },
+    {
+     "de": "Lieber vier Stunden länger, aber billig?",
+     "en": "Four hours longer, but cheap?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "left": {
+      "de": "Fernbus",
+      "en": "coach",
+      "vibe": "deutschlandticket"
+     },
+     "right": {
+      "de": "Mitfahrgelegenheit",
+      "en": "ride share",
+      "vibe": "autobahnpilot"
+     }
+    },
+    {
+     "left": {
+      "de": "Kissen",
+      "en": "pillow",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Kopfhörer",
+      "en": "headphones",
+      "vibe": "ubahnprofi"
+     }
+    }
+   ]
+  },
+  {
+   "id": "reisen",
+   "title": "Reisen mit Deutschen",
+   "en": "Travelling with Germans",
+   "hook": "Towel on the sunbed, the guidebook.",
+   "questions": [
+    {
+     "de": "Handtuch um 6 Uhr auf die Liege?",
+     "en": "Towel on the sunbed at 6 a.m.?",
+     "ja": "balkonien",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Reiseführer schon im Zug lesen?",
+     "en": "Reading the guidebook on the train already?",
+     "ja": "deutschlandticket",
+     "nein": "autobahnpilot"
+    },
+    {
+     "de": "Im Urlaub Deutsch sprechen, überall?",
+     "en": "Speak German on holiday, everywhere?",
+     "ja": "autobahnpilot",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Wandern mit Stöcken?",
+     "en": "Hiking with poles?",
+     "ja": "radpendler",
+     "nein": "ubahnprofi"
+    },
+    {
+     "de": "Brot aus Deutschland im Koffer?",
+     "en": "German bread in the suitcase?",
+     "ja": "balkonien",
+     "nein": "deutschlandticket"
+    },
+    {
+     "de": "Pünktlich am Bus, auch im Urlaub?",
+     "en": "On time for the bus, even on holiday?",
+     "ja": "deutschlandticket",
+     "nein": "balkonien"
+    },
+    {
+     "left": {
+      "de": "Sandalen",
+      "en": "sandals",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Wanderschuhe",
+      "en": "hiking boots",
+      "vibe": "radpendler"
+     }
+    },
+    {
+     "left": {
+      "de": "Liege am Pool",
+      "en": "sunbed by the pool",
+      "vibe": "autobahnpilot"
+     },
+     "right": {
+      "de": "Fahrradtour",
+      "en": "bike tour",
+      "vibe": "radpendler"
+     }
+    }
+   ]
+  }
+ ]
+}

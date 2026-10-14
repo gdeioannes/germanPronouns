@@ -16,6 +16,22 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-14",
+    title: "A hundred rounds of Ja oder Nein?, fifty personas, and tickets",
+    highlight: true,
+    items: [
+      "Ja oder Nein? is now a hundred themed rounds of eight on ten shelves: Rund um die Uhr, Auf dem Teller, Regeln und Ordnung, Draußen, Nachtleben, Zuhause, Stadt gegen Land, Durchs Jahr, Unterwegs and Typisch Deutsch?. Each round is a little tour of one theme, from Brot to Silvester to Die Deutsche Bahn, eight hundred questions in all.",
+      "Every shelf has five personas of its own, fifty in total, from Krustenfan and Mett-Mensch to Berghain-Schlange, Rot-Geher:in and Balkonien-Urlauber:in. A round ends on one of its shelf's five, and the result is yours to keep.",
+      "Your personas have a page: ten shelves of five, the ones you have earned in colour, the rest a question mark. Play a round again and you may land on a different one. One tap sends the whole collection as a grid of squares, with your count out of fifty.",
+      "The deck deals the rounds in turn, one shelf after another, and the card names the round it holds. On the persona page you can also pick any round by hand.",
+      "Send a result and your friend gets the same round: the link in the message opens those eight questions, with a line that dares them to answer back.",
+      "The card runs on tickets. You get one with your first deck, another every twelve hours, and you can hold two at a time. While you have one, the card has a one-in-three chance of turning up in each hand you deal, and playing it from the deck spends the ticket. Swipe it away and it waits for a later hand; the ticket stays yours. The card shows how many you hold.",
+      "A good run can win a ticket: finish an exercise with eight of ten or better and there is a one-in-four chance, one in eight if you already hold one. Winning one is a proper celebration, and the run summary says so.",
+      "Story episodes come to your deck in order: Episode 1 only after you have finished the prologue, Episode 2 after that. The Stories page still lets you open any episode. Once you have finished them all, the deck stops dealing them.",
+      "The learner on the front page no longer sits offset and cropped on the first open on a phone.",
+    ],
+  },
+  {
     date: "2026-10-12",
     title: "Ja oder Nein?, and a better first lesson",
     items: [
